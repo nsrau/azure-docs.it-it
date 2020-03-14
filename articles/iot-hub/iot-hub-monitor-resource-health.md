@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: kgremban
 ms.openlocfilehash: f801abc40caf273c28a0c01dedf9735f5198c2af
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73929698"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79271083"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Monitorare l'integrità dell'hub IoT di Azure ed eseguire la diagnostica rapida dei problemi
 
@@ -200,7 +200,7 @@ Questa categoria non può intercettare errori che si verificano direttamente men
 }
 ```
 
-#### <a name="cloud-to-device-twin-operations"></a>Operazioni da cloud a dispositivo gemello
+#### <a name="cloud-to-device-twin-operations"></a>Operazioni da cloud a dispositivi gemelli
 
 La categoria relativa alle operazioni da cloud a dispositivo gemello tiene traccia degli eventi avviati dal servizio su dispositivi gemelli. Queste operazioni possono includere il recupero del dispositivo gemello, l'aggiornamento o la sostituzione dei tag e l'aggiornamento o la sostituzione delle proprietà desiderate.
 
@@ -343,7 +343,7 @@ L'hub IoT registra questo log all'arrivo di un messaggio contenente proprietà d
 
 In questo caso, il valore di `durationMs` non viene calcolato in quanto l'orologio dell'hub IoT potrebbe non essere sincronizzato con l'orologio del dispositivo e quindi il calcolo della durata potrebbe essere fuorviante. È consigliabile scrivere la logica usando i timestamp nella sezione `properties` per acquisire i picchi di latenza da dispositivo a cloud.
 
-| Proprietà | digitare | DESCRIZIONE |
+| Proprietà | Type | Descrizione |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
 | **messageSize** | Integer | Dimensione del messaggio da dispositivo a cloud in byte |
 | **deviceId** | Stringa di caratteri alfanumerici ASCII a 7 bit | Identità del dispositivo |
@@ -377,10 +377,10 @@ L'hub IoT registra questo log quando un messaggio contenente proprietà di tracc
 
 Nella sezione `properties` questo log contiene informazioni aggiuntive sull'ingresso dei messaggi.
 
-| Proprietà | digitare | DESCRIZIONE |
+| Proprietà | Type | Descrizione |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **isRoutingEnabled** | String | True o false, indica se il routing dei messaggi è abilitato o meno nell'hub IoT |
-| **parentSpanId** | String | Oggetto [span-id](https://w3c.github.io/trace-context/#parent-id) del messaggio padre, che in questo caso sarebbe la traccia del messaggio D2C |
+| **isRoutingEnabled** | string | True o false, indica se il routing dei messaggi è abilitato o meno nell'hub IoT |
+| **parentSpanId** | string | Oggetto [span-id](https://w3c.github.io/trace-context/#parent-id) del messaggio padre, che in questo caso sarebbe la traccia del messaggio D2C |
 
 ##### <a name="iot-hub-egress-logs"></a>Log di uscita dell'hub IoT
 
@@ -409,11 +409,11 @@ L'hub IoT Hub registra questo log quando il [routing](iot-hub-devguide-messages-
 
 Nella sezione `properties` questo log contiene informazioni aggiuntive sull'ingresso dei messaggi.
 
-| Proprietà | digitare | DESCRIZIONE |
+| Proprietà | Type | Descrizione |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **endpointName** | String | Nome dell'endpoint di routing |
-| **endpointType** | String | Tipo dell'endpoint di routing |
-| **parentSpanId** | String | Oggetto [span-id](https://w3c.github.io/trace-context/#parent-id) del messaggio padre, che in questo caso sarebbe la traccia del messaggio di ingresso nell'hub IoT |
+| **endpointName** | string | Nome dell'endpoint di routing |
+| **endpointType** | string | Tipo dell'endpoint di routing |
+| **parentSpanId** | string | Oggetto [span-id](https://w3c.github.io/trace-context/#parent-id) del messaggio padre, che in questo caso sarebbe la traccia del messaggio di ingresso nell'hub IoT |
 
 #### <a name="configurations"></a>Configurazioni
 

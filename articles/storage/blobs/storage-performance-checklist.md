@@ -9,11 +9,11 @@ ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: e4103f8360f6fa80470b0f8002a61f8ac903bd8b
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75749225"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79255431"
 ---
 # <a name="performance-and-scalability-checklist-for-blob-storage"></a>Elenco di controllo di prestazioni e scalabilità per l'archiviazione BLOB
 
@@ -25,7 +25,7 @@ Archiviazione di Azure ha degli obiettivi di scalabilità per la capacità, la f
 
 Questo articolo organizza procedure comprovate per le prestazioni in un elenco di controllo che è possibile seguire durante lo sviluppo dell'applicazione di archiviazione BLOB.
 
-| Ecco fatto | Categoria | Considerazioni sulla progettazione |
+| Operazione completata | Category | Considerazioni sulla progettazione |
 | --- | --- | --- |
 | &nbsp; |Obiettivi di scalabilità |[È possibile progettare l'applicazione in modo da non eccedere il numero massimo di account di archiviazione?](#maximum-number-of-storage-accounts) |
 | &nbsp; |Obiettivi di scalabilità |[Si sta evitando il raggiungimento dei limiti di capacità e transazioni?](#capacity-and-transaction-targets) |
@@ -36,8 +36,8 @@ Questo articolo organizza procedure comprovate per le prestazioni in un elenco d
 | &nbsp; |Rete |[I dispositivi sul lato client hanno un collegamento di qualità elevata?](#link-quality) |
 | &nbsp; |Rete |[L'applicazione client si trova nella stessa area dell'account di archiviazione?](#location) |
 | &nbsp; |Accesso diretto ai client |[Si usano le firme di accesso condiviso e la condivisione di risorse tra le origini per abilitare l'accesso diretto ad Archiviazione di Azure?](#sas-and-cors) |
-| &nbsp; |Caching |[L'applicazione memorizza nella cache i dati a cui si accede di frequente e modificati raramente?](#reading-data) |
-| &nbsp; |Caching |[L'applicazione invia in batch gli aggiornamenti memorizzando nella cache il client e quindi caricarli in set più grandi?](#uploading-data-in-batches) |
+| &nbsp; |Memorizzazione nella cache |[L'applicazione memorizza nella cache i dati a cui si accede di frequente e modificati raramente?](#reading-data) |
+| &nbsp; |Memorizzazione nella cache |[L'applicazione invia in batch gli aggiornamenti memorizzando nella cache il client e quindi caricarli in set più grandi?](#uploading-data-in-batches) |
 | &nbsp; |Configurazione .NET |[Si usa .NET Core 2.1 o versione successiva per ottenere prestazioni ottimali?](#use-net-core) |
 | &nbsp; |Configurazione .NET |[Il client è stato configurato per usare un numero sufficiente di connessioni simultanee?](#increase-default-connection-limit) |
 | &nbsp; |Configurazione .NET |[Per le applicazioni .NET, è stato configurato l'uso di un numero sufficiente di thread?](#increase-minimum-number-of-threads) |
@@ -131,7 +131,7 @@ Per la larghezza di banda il problema dipende spesso dalle capacità del client.
 
 Come accade in ogni rete, tenere presente che le condizioni di rete che generano errori e perdita di pacchetti riducono la velocità effettiva.  L'uso di WireShark o NetMon può contribuire a diagnosticare il problema.  
 
-### <a name="location"></a>Percorso
+### <a name="location"></a>Location
 
 In qualsiasi ambiente distribuito, il posizionamento del client accanto al server offre le prestazioni migliori. Per accedere all'archiviazione di Azure con la minor latenza possibile, è opportuno posizionare il client nella stessa area di Azure. Ad esempio, se si ha un'app Web di Azure che usa Archiviazione di Azure, posizionare entrambi in un'unica area, ad esempio Stati Uniti occidentali o Asia sudorientale. Il posizionamento delle risorse nella stessa area riduce latenza e costi, in quanto l'utilizzo della larghezza di banda in un'unica area è gratuito.  
 
@@ -151,7 +151,7 @@ Si supponga, ad esempio, che un'applicazione Web in esecuzione in Azure faccia u
   
 Entrambe le tecnologie SAS e CORS possono aiutare a evitare carichi non necessari nell'applicazione Web.  
 
-## <a name="caching"></a>Caching
+## <a name="caching"></a>Memorizzazione nella cache
 
 La memorizzazione nella cache svolge un ruolo importante per le prestazioni. Nelle sezioni seguenti vengono descritte le procedure consigliate per la memorizzazione nella cache.
 

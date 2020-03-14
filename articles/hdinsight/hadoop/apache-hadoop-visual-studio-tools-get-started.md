@@ -10,11 +10,11 @@ ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 10/29/2019
 ms.openlocfilehash: 4ad58bc2d61f063dce2c23f60a65dcbec48a2303
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825048"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79272786"
 ---
 # <a name="use-data-lake-tools-for-visual-studio-to-connect-to-azure-hdinsight-and-run-apache-hive-queries"></a>Usare Strumenti Data Lake per Visual Studio per connettersi ad Azure HDInsight ed eseguire query Apache Hive
 
@@ -26,13 +26,13 @@ Per ulteriori informazioni sulla connessione a un cluster di Apache Storm, [vede
 
 È possibile usare Strumenti Data Lake per Visual Studio per accedere ad Azure Data Lake Analytics e a HDInsight. Per informazioni su Strumenti Data Lake, vedere [Sviluppare script U-SQL tramite Strumenti Data Lake per Visual Studio](../../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare questo articolo e usare Data Lake Tools per Visual Studio, sono necessari gli elementi seguenti:
 
 * Disporre di un cluster HDInsight di Azure. Per creare un cluster Azure HDInsight, vedere [Iniziare a usare Apache Hadoop in Azure HDInsight](apache-hadoop-linux-tutorial-get-started.md). Per eseguire query Apache Hive interattive, è necessario un cluster [Interactive Query in HDInsight](../interactive-query/apache-interactive-query-get-started.md).  
 
-* [Visual Studio](https://visualstudio.microsoft.com/downloads/) [Visual Studio Community Edition](https://visualstudio.microsoft.com/vs/community/) è gratuito. Le istruzioni visualizzate sono disponibili per [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/).
+* [Visual Studio](https://visualstudio.microsoft.com/downloads/). [Visual Studio Community Edition](https://visualstudio.microsoft.com/vs/community/) è gratuito. Le istruzioni visualizzate sono disponibili per [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/).
 
 ## <a name="install-data-lake-tools-for-visual-studio"></a>Installare Data Lake Tools per Visual Studio  
 
@@ -80,7 +80,7 @@ Assicurarsi quindi di aggiornare Data Lake Tools alla versione più recente.
 > [!NOTE]  
 > Per informazioni sulla connessione a un cluster Hadoop generico, vedere [come scrivere e inviare query hive usando Visual Studio](https://blogs.msdn.microsoft.com/xiaoyong/2015/05/04/how-to-write-and-submit-hive-queries-using-visual-studio/).
 
-### <a name="connect-to-an-azure-subscription"></a>Connettersi a una sottoscrizione di Azure.
+### <a name="connect-to-an-azure-subscription"></a>Connettersi a una sottoscrizione di Azure
 
 Per connettersi alla sottoscrizione di Azure:
 

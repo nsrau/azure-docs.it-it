@@ -4,11 +4,11 @@ description: Descrive gli approcci consigliati per la creazione di modelli di Az
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.openlocfilehash: f623255a64404f0e041173fd29488ded24cd03b3
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78389213"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79248268"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Procedure consigliate per i modelli di Azure Resource Manager
 
@@ -32,7 +32,7 @@ Esistono anche i limiti seguenti:
 
 È possibile superare alcuni limiti del modello usando un modello annidato. Per altre informazioni, vedere [Uso di modelli collegati nella distribuzione di risorse di Azure](linked-templates.md). Per ridurre il numero di parametri, variabili o output, è possibile combinare più valori in un oggetto. Per altre informazioni, vedere [Oggetti come parametri](/azure/architecture/building-blocks/extending-templates/objects-as-parameters).
 
-## <a name="resource-group"></a>Gruppo di risorse
+## <a name="resource-group"></a>Resource group
 
 Quando si distribuiscono le risorse in un gruppo di risorse, il gruppo di risorse archivia i metadati relativi alle risorse. I metadati vengono archiviati nella posizione del gruppo di risorse.
 
@@ -140,7 +140,7 @@ Le informazioni di questa sezione possono essere utili quando si usano i [parame
 
 * Per le risorse che non sono disponibili in tutte le posizioni, usare un parametro distinto oppure specificare un valore letterale per location.
 
-## <a name="variables"></a>Variabili
+## <a name="variables"></a>variables
 
 Le informazioni seguenti possono essere utili quando si usano le [variabili](template-variables.md):
 

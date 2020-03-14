@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/12/2019
-ms.openlocfilehash: f009b438cb0dc227289d65604d89c11fd382b675
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.date: 03/12/2020
+ms.openlocfilehash: dce1697ccb40c67f8628c220799018a673be8e09
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75892970"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79246305"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-formerly-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copiare e trasformare i dati in Azure sinapsi Analytics (in precedenza Azure SQL Data Warehouse) usando Azure Data Factory 
 
@@ -45,7 +45,7 @@ Per l'attività di copia, questo connettore Azure sinapsi Analytics supporta le 
 > Se si copiano i dati tramite il runtime di integrazione di Azure Data Factory, configurare un [firewall del server SQL di Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) per consentire ai servizi di Azure di accedere al server.
 > Se si copiano i dati tramite un runtime di integrazione self-hosted, configurare il firewall del server SQL di Azure per consentire l'intervallo IP appropriato. Questo intervallo include l'IP del computer usato per la connessione ad Azure sinapsi Analytics.
 
-## <a name="get-started"></a>Inizia oggi stesso
+## <a name="get-started"></a>Introduzione
 
 > [!TIP]
 > Per ottenere prestazioni ottimali, usare la polibase per caricare i dati in Azure sinapsi Analytics. La sezione [use polibase to load data to Azure sinapsi Analytics](#use-polybase-to-load-data-into-azure-sql-data-warehouse) contiene informazioni dettagliate. Per una procedura dettagliata con un caso d'uso, vedere [caricare 1 TB in Azure sinapsi Analytics in meno di 15 minuti con Azure Data Factory](load-azure-sql-data-warehouse.md).
@@ -58,7 +58,7 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che defi
 
 Per un servizio collegato di Azure sinapsi Analytics sono supportate le proprietà seguenti:
 
-| Proprietà            | Description                                                  | Obbligatorio                                                     |
+| Proprietà            | Descrizione                                                  | Obbligatoria                                                     |
 | :------------------ | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | type                | La proprietà type deve essere impostata su **AzureSqlDW**.             | Sì                                                          |
 | connectionString    | Specificare le informazioni necessarie per connettersi all'istanza di Azure sinapsi Analytics per la proprietà **ConnectionString** . <br/>Contrassegnare questo campo come SecureString per archiviare la chiave in modo sicuro in Data Factory. È anche possibile inserire la password/chiave entità servizio in Azure Key Vault e, se si tratta dell'autenticazione SQL, estrarre la configurazione `password` dalla stringa di connessione. Vedere gli esempi JSON sotto la tabella e l'articolo [Archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md) per altri dettagli. | Sì                                                          |
@@ -219,7 +219,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per il set di dati di analisi delle sinapsi di Azure sono supportate le proprietà seguenti:
 
-| Proprietà  | Description                                                  | Obbligatorio                    |
+| Proprietà  | Descrizione                                                  | Obbligatoria                    |
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
 | type      | La proprietà **type** del set di dati deve essere impostata su **AzureSqlDWTable**. | Sì                         |
 | schema | Nome dello schema. |No per l'origine, Sì per il sink  |
@@ -255,12 +255,13 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da Azure sinapsi Analytics, impostare la proprietà **Type** nell'origine dell'attività di copia su **SqlDWSource**. Nella sezione **source** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà                     | Description                                                  | Obbligatorio |
+| Proprietà                     | Descrizione                                                  | Obbligatoria |
 | :--------------------------- | :----------------------------------------------------------- | :------- |
 | type                         | La proprietà **type** dell'origine dell'attività di copia deve essere impostata su **SqlDWSource**. | Sì      |
 | sqlReaderQuery               | Usare la query SQL personalizzata per leggere i dati. Esempio: `select * from MyTable`. | No       |
 | sqlReaderStoredProcedureName | Nome della stored procedure che legge i dati dalla tabella di origine. L'ultima istruzione SQL deve essere un'istruzione SELECT nella stored procedure. | No       |
 | storedProcedureParameters    | Parametri per la stored procedure.<br/>I valori consentiti sono coppie nome-valore. I nomi e le maiuscole e minuscole dei parametri devono corrispondere ai nomi e alle maiuscole e minuscole dei parametri della stored procedure. | No       |
+| isolationLevel | Specifica il comportamento di blocco delle transazioni per l'origine SQL. I valori consentiti sono: **ReadCommitted** (impostazione predefinita), **READUNCOMMITTED**, **RepeatableRead**, **Serializable**, **snapshot**. Per ulteriori informazioni, fare riferimento a [questo documento](https://docs.microsoft.com/dotnet/api/system.data.isolationlevel) . | No |
 
 **Esempio: uso della query SQL**
 
@@ -363,7 +364,7 @@ Il modo più rapido e scalabile per caricare i dati consiste nell'usare l'istruz
 
 Per copiare dati in Azure SQL Data Warehouse, impostare il tipo di sink nell'attività di copia su **SqlDWSink**. Nella sezione **sink** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà          | Description                                                  | Obbligatorio                                      |
+| Proprietà          | Descrizione                                                  | Obbligatoria                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
 | type              | La proprietà **type** del sink dell'attività di copia deve essere impostata su **SqlDWSink**. | Sì                                           |
 | allowPolyBase     | Indica se utilizzare la polibase per caricare i dati in SQL Data Warehouse. `allowCopyCommand` e `allowPolyBase` non possono essere entrambi true. <br/><br/>Per informazioni su vincoli e dettagli, vedere la sezione [Usare PolyBase per caricare dati in Azure SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse) .<br/><br/>I valori consentiti sono **True** e **False** (predefinito). | No.<br/>Applicare quando si usa la codebase.     |
@@ -404,7 +405,7 @@ L'uso di [polibase](https://docs.microsoft.com/sql/relational-databases/polybase
 
 Le impostazioni di base seguenti sono supportate in `polyBaseSettings` nell'attività di copia:
 
-| Proprietà          | Description                                                  | Obbligatorio                                      |
+| Proprietà          | Descrizione                                                  | Obbligatoria                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
 | rejectValue       | Specifica il numero o la percentuale di righe che è possibile rifiutare prima che la query abbia esito negativo.<br/><br/>Per altre informazioni sulle opzioni di rifiuto di PolyBase, vedere la sezione Argomenti in [CREATE EXTERNAL TABLE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx). <br/><br/>I valori consentiti sono 0 (predefinito), 1, 2 e così via. | No                                            |
 | rejectType        | Indica se l'opzione **rejectValue** viene specificata come valore letterale o come percentuale.<br/><br/>I valori consentiti sono **Value** (predefinito) e **Percentage**. | No                                            |
@@ -627,7 +628,7 @@ L'utilizzo dell'istruzione COPY supporta la configurazione seguente:
 
 Le impostazioni dell'istruzione COPY seguenti sono supportate in `allowCopyCommand` nell'attività di copia:
 
-| Proprietà          | Description                                                  | Obbligatorio                                      |
+| Proprietà          | Descrizione                                                  | Obbligatoria                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
 | defaultValues | Specifica i valori predefiniti per ogni colonna di destinazione in SQL DW.  I valori predefiniti nella proprietà sovrascrivono il set di vincoli predefinito nel data warehouse e la colonna Identity non può avere un valore predefinito. | No |
 | additionalOptions | Opzioni aggiuntive che verranno passate all'istruzione COPY di SQL DW direttamente nella clausola "with" nell' [istruzione Copy](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest). Racchiudere il valore necessario per allinearsi ai requisiti dell'istruzione COPY. | No |
@@ -747,27 +748,27 @@ Quando si copiano dati da o ad Azure sinapsi Analytics, vengono usati i mapping 
 | BINARY                                | Byte[]                         |
 | bit                                   | Boolean                        |
 | char                                  | String, Char[]                 |
-| Data                                  | Data e ora                       |
-| Datetime                              | Data e ora                       |
-| datetime2                             | Data e ora                       |
+| Data                                  | Datetime                       |
+| Datetime                              | Datetime                       |
+| datetime2                             | Datetime                       |
 | Datetimeoffset                        | DateTimeOffset                 |
 | Decimal                               | Decimal                        |
 | FILESTREAM attribute (varbinary(max)) | Byte[]                         |
 | Float                                 | Double                         |
 | image                                 | Byte[]                         |
-| int                                   | Int32                          |
+| INT                                   | Int32                          |
 | money                                 | Decimal                        |
 | NCHAR                                 | String, Char[]                 |
 | NUMERIC                               | Decimal                        |
 | NVARCHAR                              | String, Char[]                 |
-| real                                  | Singolo                         |
+| real                                  | Single                         |
 | rowversion                            | Byte[]                         |
-| smalldatetime                         | Data e ora                       |
+| smalldatetime                         | Datetime                       |
 | SMALLINT                              | Int16                          |
 | SMALLMONEY                            | Decimal                        |
 | time                                  | TimeSpan                       |
 | TINYINT                               | Byte                           |
-| UNIQUEIDENTIFIER                      | GUID                           |
+| UNIQUEIDENTIFIER                      | Guid                           |
 | varbinary                             | Byte[]                         |
 | varchar                               | String, Char[]                 |
 

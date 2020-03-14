@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: diberry
-ms.openlocfilehash: 876026b5399631728331c4a9e67482a34f9d0b2d
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: a5140da32eb6fce03131a42bfa90e71e64552431
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225566"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79219973"
 ---
 # <a name="using-authoring-and-runtime-resource-keys"></a>Uso delle chiavi di creazione e di risorsa di runtime
 
@@ -61,7 +61,7 @@ Quando si è pronti per pubblicare l'endpoint di stima, creare e assegnare chiav
     |Nome|Scopo|
     |--|--|
     |Nome risorsa| Nome personalizzato scelto, usato come parte dell'URL per le query dell'endpoint di creazione e di stima.|
-    |Nome della sottoscrizione| sottoscrizione che verrà fatturata per la risorsa.|
+    |Nome sottoscrizione| sottoscrizione che verrà fatturata per la risorsa.|
     |Resource group| Nome del gruppo di risorse personalizzato scelto o creato. I gruppi di risorse consentono di raggruppare le risorse di Azure per l'accesso e la gestione nella stessa area.|
     |Posizione di creazione|Area associata al modello.|
     |Piano tariffario di creazione|Il piano tariffario determina il numero massimo di transazioni al secondo e al mese.|
@@ -81,7 +81,7 @@ Usare l' [interfaccia](https://docs.microsoft.com/cli/azure/install-azure-cli?vi
 
 1. Accedere all'interfaccia della riga di comando di Azure:
 
-    ```console
+    ```azurecli
     az login
     ```
 
@@ -89,13 +89,13 @@ Usare l' [interfaccia](https://docs.microsoft.com/cli/azure/install-azure-cli?vi
 
 1. Creare una **risorsa Luis authoring**, di tipo `LUIS.Authoring`, denominata `my-luis-authoring-resource` nel gruppo di risorse _esistente_ denominato `my-resource-group` per l'area `westus`. 
 
-    ```console
+    ```azurecli
     az cognitiveservices account create -n my-luis-authoring-resource -g my-resource-group --kind LUIS.Authoring --sku F0 -l westus --yes
     ```
 
 1. Creare una **risorsa dell'endpoint di stima Luis**, di tipo `LUIS`, denominata `my-luis-prediction-resource` nel gruppo di risorse _esistente_ denominato `my-resource-group` per l'area `westus`. Se si desidera una velocità effettiva superiore a quella del livello gratuito, modificare `F0` in `S0`. Altre informazioni sui [piani tariffari e la velocità effettiva](luis-boundaries.md#key-limits).
 
-    ```console
+    ```azurecli
     az cognitiveservices account create -n my-luis-prediction-resource -g my-resource-group --kind LUIS --sku F0 -l westus --yes
     ```
 
@@ -106,7 +106,7 @@ Usare l' [interfaccia](https://docs.microsoft.com/cli/azure/install-azure-cli?vi
 
 È possibile assegnare una risorsa di creazione per una singola app o per tutte le app in LUIS. La procedura seguente consente di assegnare tutte le app a una singola risorsa di creazione.
 
-1. Accedere al [portale Luis](https://www.luis.ai).
+1. Accedere al [portale LUIS](https://www.luis.ai).
 1. Nella barra di spostamento superiore, all'estrema destra, selezionare l'account utente e quindi selezionare **Impostazioni**.
 1. Nella pagina **impostazioni utente** selezionare **Aggiungi risorsa di creazione** e quindi selezionare una risorsa di creazione esistente. Selezionare **Salva**. 
 
@@ -134,7 +134,7 @@ Per scopi di automazione, ad esempio una pipeline di integrazione continua/recap
 
     Questa API POST richiede le impostazioni seguenti:
 
-    |Intestazione|Valore|
+    |Intestazione|valore|
     |--|--|
     |`Authorization`|Il valore di `Authorization` è `Bearer {token}`. Si noti che il valore del token deve essere preceduto dalla parola `Bearer` e uno spazio.| 
     |`Ocp-Apim-Subscription-Key`|Chiave di creazione.|
@@ -145,13 +145,13 @@ Per scopi di automazione, ad esempio una pipeline di integrazione continua/recap
 
     Questa API POST richiede le impostazioni seguenti:
 
-    |digitare|Impostazione|Valore|
+    |Type|Impostazione|valore|
     |--|--|--|
     |Intestazione|`Authorization`|Il valore di `Authorization` è `Bearer {token}`. Si noti che il valore del token deve essere preceduto dalla parola `Bearer` e uno spazio.|
     |Intestazione|`Ocp-Apim-Subscription-Key`|Chiave di creazione.|
     |Intestazione|`Content-type`|`application/json`|
     |QueryString|`appid`|L'ID dell'app LUIS. 
-    |body||{"AzureSubscriptionId":"ddda2925-af7f-4b05-9ba1-2155c5fe8a8e",<br>"ResourceGroup": "resourcegroup-2",<br>"AccountName": "luis-uswest-S0-2"}|
+    |Corpo||{"AzureSubscriptionId":"ddda2925-af7f-4b05-9ba1-2155c5fe8a8e",<br>"ResourceGroup": "resourcegroup-2",<br>"AccountName": "luis-uswest-S0-2"}|
 
     Quando l'API ha esito positivo, restituisce 201 - stato creato. 
 

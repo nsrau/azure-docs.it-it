@@ -12,11 +12,11 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ms.openlocfilehash: d59a66b25b55572865f297436331971434d831c3
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78384310"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79256692"
 ---
 # <a name="best-practices-for-loading-data-for-data-warehousing"></a>Procedure consigliate per il caricamento dei dati per il data warehousing
 

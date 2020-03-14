@@ -11,12 +11,12 @@ author: srinia
 ms.author: srinia
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: 633c3ffc8e266087c88116a15c43469727a9a50d
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: e5b07ac0e9421cbca034b17c573cab16641f49f7
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77133638"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79214487"
 ---
 # <a name="create-configure-and-manage-elastic-jobs"></a>Creare, configurare e gestire processi elastici
 
@@ -35,13 +35,13 @@ Se non si sono mai usati processi elastici, vedere [altre informazioni sui conce
 
 1. Creazione di una credenziale per l'esecuzione del processo nel *database del processo* tramite [PowerShell](elastic-jobs-powershell.md) o [T-SQL](elastic-jobs-tsql.md#create-a-credential-for-job-execution).
 2. Definire il gruppo di destinazione (i database su cui si vuole eseguire il processo) usando [PowerShell](elastic-jobs-powershell.md) o [T-SQL](elastic-jobs-tsql.md#create-a-target-group-servers).
-3. Creare una credenziale di agente di processo in ogni database in cui verrà eseguito il processo[, aggiungendo l'utente (o il ruolo) a ogni database del gruppo](sql-database-control-access.md). Per un esempio, vedere l'[esercitazione di PowerShell](elastic-jobs-powershell.md).
+3. Creare una credenziale di agente di processo in ogni database in cui verrà eseguito il processo[, aggiungendo l'utente (o il ruolo) a ogni database del gruppo](sql-database-manage-logins.md). Per un esempio, vedere l'[esercitazione di PowerShell](elastic-jobs-powershell.md).
 4. Creare un processo usando [PowerShell](elastic-jobs-powershell.md) o [T-SQL](elastic-jobs-tsql.md#deploy-new-schema-to-many-databases).
 5. Aggiungere passaggi di processo usando [PowerShell](elastic-jobs-powershell.md) o [T-SQL](elastic-jobs-tsql.md#deploy-new-schema-to-many-databases).
 6. Eseguire un processo usando [PowerShell](elastic-jobs-powershell.md#run-the-job) o [T-SQL](elastic-jobs-tsql.md#begin-ad-hoc-execution-of-a-job).
 7. Monitorare lo stato di esecuzione del processo usando il portale, [PowerShell](elastic-jobs-powershell.md#monitor-status-of-job-executions) o [T-SQL](elastic-jobs-tsql.md#monitor-job-execution-status).
 
-   ![Portal](media/elastic-jobs-overview/elastic-job-executions-overview.png)
+   ![Portale](media/elastic-jobs-overview/elastic-job-executions-overview.png)
 
 ## <a name="credentials-for-running-jobs"></a>Credenziali per l'esecuzione di processi
 

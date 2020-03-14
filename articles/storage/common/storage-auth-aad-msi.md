@@ -11,11 +11,11 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: f3bac0d47a53da1ec4d1fa08b5f0933f5f65dc56
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78393232"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79255340"
 ---
 # <a name="authorize-access-to-blob-and-queue-data-with-managed-identities-for-azure-resources"></a>Autorizzare l'accesso ai dati BLOB e di Accodamento con le identità gestite per le risorse di Azure
 
@@ -93,7 +93,7 @@ Il comando `az ad sp create-for-rbac` restituisce un elenco di proprietà dell'e
 
 La libreria client di identità di Azure legge i valori da tre variabili di ambiente in fase di esecuzione per autenticare l'entità servizio. Nella tabella seguente viene descritto il valore da impostare per ogni variabile di ambiente.
 
-|Variabile di ambiente|Valore
+|Variabile di ambiente|valore
 |-|-
 |`AZURE_CLIENT_ID`|ID app per l'entità servizio
 |`AZURE_TENANT_ID`|ID tenant Azure AD dell'entità servizio

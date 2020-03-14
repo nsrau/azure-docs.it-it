@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: travisw
 ms.openlocfilehash: d687d1d353c1734c5d98121f658003afde2eb182
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78394810"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79219533"
 ---
 # <a name="about-voice-assistants"></a>Informazioni sugli assistenti vocali
 
@@ -56,9 +56,9 @@ Indipendentemente dal fatto che si scelga [Direct Line Speech](direct-line-speec
 
 Sono disponibili guide introduttive progettate per l'esecuzione di codice in meno di 10 minuti. Questa tabella include un elenco di guide introduttive per Assistente vocale, organizzate in base alla lingua.
 
-| Guida rapida | Platform | Riferimento all'API |
+| Guida introduttiva | Piattaforma | Informazioni di riferimento sulle API |
 |------------|----------|---------------|
-| C#, UWP | WINDOWS | [Sfoglia](https://aka.ms/csspeech/csharpref) |
+| C#, UWP | Windows | [Sfoglia](https://aka.ms/csspeech/csharpref) |
 | Java | Windows, macOS, Linux | [Sfoglia](https://aka.ms/csspeech/javaref) |
 | Java | Android | [Sfoglia](https://aka.ms/csspeech/javaref) |
 

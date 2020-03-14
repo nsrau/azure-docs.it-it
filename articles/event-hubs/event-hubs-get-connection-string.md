@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 02/19/2019
 ms.author: spelluru
-ms.openlocfilehash: 744151a1ce8cde630e26c17ccf06569ebd0efb61
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 77a768f907ad989a457ee498f26ad0f6e004f786
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771003"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79264934"
 ---
 # <a name="get-an-event-hubs-connection-string"></a>Ottenere una stringa di connessione ad Hub eventi
 
@@ -55,7 +55,7 @@ Questo articolo illustra in dettaglio vari modi per ottenere la stringa di conne
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-È possibile usare [Get-AzEventHubNamespaceKey](/powershell/module/az.eventhub/get-azeventhubkey) per ottenere la stringa di connessione per il nome specifico dei criteri o della regola, come mostrato di seguito:
+È possibile usare [Get-AzEventHubKey](/powershell/module/az.eventhub/get-azeventhubkey) per ottenere la stringa di connessione per il nome di criteri/regola specifico, come illustrato di seguito:
 
 ```azurepowershell-interactive
 Get-AzEventHubKey -ResourceGroupName dummyresourcegroup -NamespaceName dummynamespace -AuthorizationRuleName RootManageSharedAccessKey

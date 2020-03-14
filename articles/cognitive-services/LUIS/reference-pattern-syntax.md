@@ -11,11 +11,11 @@ ms.topic: reference
 ms.date: 12/09/2019
 ms.author: diberry
 ms.openlocfilehash: 696f4bdc22bed01a4b5be8bff63ade482a8dbe0a
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75890263"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79219731"
 ---
 # <a name="pattern-syntax"></a>Sintassi dei criteri
 
@@ -33,7 +33,7 @@ La sintassi del modello supporta la sintassi seguente:
 |Entità| parentesi graffe {}|2|Dove è il formato {nome-entità}?|
 |facoltativo|[]-parentesi quadre<BR><BR>È previsto un limite di 3 per i livelli di nidificazione di qualsiasi combinazione di facoltativo e raggruppamento |2|Il punto interrogativo è facoltativo [?]|
 |raggruppamento|()-parentesi|2|is (a \| b)|
-|Oppure| \|-barra verticale (pipe)<br><br>È previsto un limite di 2 sulle barre verticali (o) in un gruppo |-|Dove è form ({form-name-Short} &#x7c; {form-name-Long} &#x7c; {form-Number})|
+|o| \|-barra verticale (pipe)<br><br>È previsto un limite di 2 sulle barre verticali (o) in un gruppo |-|Dove è form ({form-name-Short} &#x7c; {form-name-Long} &#x7c; {form-Number})|
 |inizio e/o fine dell'espressione|^-punto di inserimento|-|^ iniziare il enunciato<br>l'espressione è stata eseguita ^<br>^ corrispondenza letterale Strict dell'intero enunciato con {Number} entità ^|
 
 ## <a name="nesting-syntax-in-patterns"></a>Annidamento della sintassi nei modelli
@@ -118,7 +118,7 @@ Si consideri il criterio "[find] email about {subject} [from {person}]".
 
 Nelle espressioni seguenti le entità **subject** e **person** vengono estratte in modo corretto e non corretto:
 
-|Espressione|Persona giuridica|Estrazione corretta|
+|Espressione|Entità|Estrazione corretta|
 |--|--|:--:|
 |email about dogs from Chris|subject=dogs<br>person=Chris|✔|
 |email about the man from La Mancha|subject=the man<br>person=La Mancha|X|

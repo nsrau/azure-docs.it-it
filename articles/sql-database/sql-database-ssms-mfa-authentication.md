@@ -14,11 +14,11 @@ ms.reviewer: vanto
 ms.date: 02/06/2020
 tags: azure-synapse
 ms.openlocfilehash: e9a4aa5b54cf7ed48daf1899bb5801c609dfbf32
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78194037"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79255873"
 ---
 # <a name="using-multi-factor-aad-authentication-with-azure-sql-database-and-azure-synapse-analytics-ssms-support-for-mfa"></a>Uso dell'autenticazione di AAD a più fattori con il database SQL di Azure e Azure sinapsi Analytics (supporto di SSMS per l'autenticazione a più fattori)
 Il database SQL di Azure e la sinapsi di Azure supportano le connessioni da SQL Server Management Studio (SSMS) con *Active Directory l'autenticazione universale*. In questo articolo vengono illustrate le differenze tra le varie opzioni di autenticazione e anche le limitazioni associate all'utilizzo dell'autenticazione universale. 

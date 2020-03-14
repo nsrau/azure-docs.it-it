@@ -11,14 +11,16 @@ ms.author: keli19
 ms.custom: seodec18
 ms.date: 05/25/2018
 ms.reviewer: jmartens, mldocs
-ms.openlocfilehash: a4ce383959b10836791ea065ffe8a9c243f6ad0d
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 03341b9e663398f2c42266dead0d2dd01e97c3f3
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168979"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79204546"
 ---
 # <a name="view-and-delete-in-product-user-data-from-azure-ai-gallery"></a>Visualizzare ed eliminare i dati utente interni al prodotto da Azure AI Gallery
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 È possibile visualizzare ed eliminare i dati utente interni al prodotto da Azure AI Gallery usando l'interfaccia o l'API catalogo di AI Gallery. Questo articolo descrive come esportare o eliminare i dati.
 
@@ -30,9 +32,9 @@ ms.locfileid: "77168979"
 
 È possibile visualizzare gli elementi pubblicati tramite l'interfaccia utente del sito Web di Azure AI Gallery. Gli utenti possono visualizzare soluzioni, progetti, esperimenti e altri elementi pubblicati, sia pubblici che non in elenco:
 
-1.  Accedere ad [Azure AI Gallery](https://gallery.azure.ai/).
-2.  Fare clic sull'immagine del profilo nell'angolo superiore destro e quindi sul nome dell'account per caricare la pagina del profilo.
-3.  La pagina del profilo visualizza tutti gli elementi pubblicati nella raccolta, inclusi gli elementi non in elenco.
+1.    Accedere ad [Azure AI Gallery](https://gallery.azure.ai/).
+2.    Fare clic sull'immagine del profilo nell'angolo superiore destro e quindi sul nome dell'account per caricare la pagina del profilo.
+3.    La pagina del profilo visualizza tutti gli elementi pubblicati nella raccolta, inclusi gli elementi non in elenco.
 
 ## <a name="use-the-ai-gallery-catalog-api-to-view-your-data"></a>Usare l'API catalogo di AI Gallery per visualizzare i dati
 
@@ -43,9 +45,9 @@ Le risposte del catalogo vengono restituite in formato JSON.
 ### <a name="get-an-author-id"></a>Ottenere un ID autore
 L'ID autore è basato sull'indirizzo di posta elettronica usato per eseguire la pubblicazione in Azure AI Gallery. Non cambia mai.
 
-1.  Accedere ad [Azure AI Gallery](https://gallery.azure.ai/).
-2.  Fare clic sull'immagine del profilo nell'angolo superiore destro e quindi sul nome dell'account per caricare la pagina del profilo.
-3.  L'URL nella barra degli indirizzi visualizza l'ID alfanumerico dopo `authorId=`. Ad esempio, per l'URL: `https://gallery.azure.ai/Home/Author?authorId=99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA`
+1.    Accedere ad [Azure AI Gallery](https://gallery.azure.ai/).
+2.    Fare clic sull'immagine del profilo nell'angolo superiore destro e quindi sul nome dell'account per caricare la pagina del profilo.
+3.    L'URL nella barra degli indirizzi visualizza l'ID alfanumerico dopo `authorId=`. Ad esempio, per l'URL: `https://gallery.azure.ai/Home/Author?authorId=99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA`
         
     L'ID autore è: `99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA`
 
@@ -55,12 +57,12 @@ Per visualizzare le entità non in elenco tramite l'API catalogo, è necessario 
 
 Per ottenere un token di accesso, è necessario esaminare l'intestazione `DataLabAccessToken` di una richiesta HTTP inviata dal browser all'API catalogo mentre si è connessi:
 
-1.  Accedere ad [Azure AI Gallery](https://gallery.azure.ai/).
-2.  Fare clic sull'immagine del profilo nell'angolo superiore destro e quindi sul nome dell'account per caricare la pagina del profilo.
-3.  Aprire il riquadro Strumenti di sviluppo del browser premendo F12, selezionare la scheda Rete e aggiornare la pagina. 
+1.    Accedere ad [Azure AI Gallery](https://gallery.azure.ai/).
+2.    Fare clic sull'immagine del profilo nell'angolo superiore destro e quindi sul nome dell'account per caricare la pagina del profilo.
+3.    Aprire il riquadro Strumenti di sviluppo del browser premendo F12, selezionare la scheda Rete e aggiornare la pagina. 
 4. Filtrare le richieste sulla stringa *catalog* digitando nella casella di testo Filtro.
-5.  In richieste all'URL `https://catalog.cortanaanalytics.com/entities`trovare una richiesta GET e selezionare la scheda *intestazioni* . scorrere verso il basso fino alla sezione *intestazioni richiesta* .
-6.  Sotto l'intestazione `DataLabAccessToken` c'è il token alfanumerico. Per garantire la sicurezza dei dati, non condividere questo token.
+5.    In richieste all'URL `https://catalog.cortanaanalytics.com/entities`trovare una richiesta GET e selezionare la scheda *intestazioni* . scorrere verso il basso fino alla sezione *intestazioni richiesta* .
+6.    Sotto l'intestazione `DataLabAccessToken` c'è il token alfanumerico. Per garantire la sicurezza dei dati, non condividere questo token.
 
 ### <a name="view-user-information"></a>Visualizzare le informazioni utente
 Usando l'ID autore ottenuto nei passaggi precedenti, visualizzare le informazioni del profilo di un utente sostituendo `[AuthorId]` nell'URL seguente:
@@ -92,9 +94,9 @@ Ad esempio:
 
 Questa query visualizza solo le entità pubbliche. Per visualizzare tutte le entità, incluse quelle non in elenco, specificare il token di accesso ottenuto nella sezione precedente.
 
-1.  Usando uno strumento come [Postman](https://www.getpostman.com), creare una richiesta HTTP GET per l'URL del catalogo, come descritto in [Ottenere il token di accesso](#get-your-access-token).
-2.  Creare un'intestazione di richiesta HTTP denominata `DataLabAccessToken`, con il valore impostato sul token di accesso.
-3.  Inviare la richiesta HTTP.
+1.    Usando uno strumento come [Postman](https://www.getpostman.com), creare una richiesta HTTP GET per l'URL del catalogo, come descritto in [Ottenere il token di accesso](#get-your-access-token).
+2.    Creare un'intestazione di richiesta HTTP denominata `DataLabAccessToken`, con il valore impostato sul token di accesso.
+3.    Inviare la richiesta HTTP.
 
 > [!TIP]
 > Se le entità non in elenco non vengono visualizzate nelle risposte dell'API catalogo, è possibile che l'utente abbia un token di accesso non valido o scaduto. Disconnettersi da Azure AI Gallery e ripetere la procedura descritta in [Ottenere il token di accesso](#get-your-access-token) per rinnovare il token. 

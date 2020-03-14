@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: 37932a3669dc1ed7f8f3f103db93ee6757a06aad
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: dbea68f5699f26b866d2e22c960c0359bcb3479b
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78390451"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79267196"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Servizio metadati di Azure: eventi pianificati per macchine virtuali Linux
 
@@ -46,7 +46,7 @@ Grazie agli eventi pianificati, l'applicazione è in grado di sapere quando verr
 Gli eventi pianificati informano sugli eventi nei casi d'uso seguenti:
 
 - [Manutenzione avviata dalla piattaforma](https://docs.microsoft.com/azure/virtual-machines/linux/maintenance-and-updates) (ad esempio, riavvio della macchina virtuale, migrazione in tempo reale o aggiornamenti con mantenimento della memoria per l'host)
-- Hardware danneggiato
+- La macchina virtuale è in esecuzione in un [hardware host danneggiato](https://azure.microsoft.com/blog/find-out-when-your-virtual-machine-hardware-is-degraded-with-scheduled-events) per cui si prevede un errore a breve
 - Manutenzione avviata dall'utente, ad esempio il riavvio o la ridistribuzione di una macchina virtuale eseguita dall'utente
 - Eliminazioni di istanze della [macchina virtuale](spot-vms.md) e del [set di scalabilità](../../virtual-machine-scale-sets/use-spot.md) spot.
 
@@ -54,7 +54,7 @@ Gli eventi pianificati informano sugli eventi nei casi d'uso seguenti:
 
   Il servizio metadati presenta informazioni sulle macchine virtuali in esecuzione usando un endpoint REST accessibile dall'interno della macchina virtuale. Le informazioni sono disponibili tramite un indirizzo IP non instradabile, in modo da non essere esposte al di fuori della macchina virtuale.
 
-### <a name="scope"></a>Ambito
+### <a name="scope"></a>Scope
 Gli eventi pianificati vengono recapitati a:
 
 - Macchine virtuali autonome.
@@ -76,10 +76,10 @@ Il servizio eventi pianificati è un servizio con versione. Le versioni sono obb
 
 | Versione | Tipo di versione | Regioni | Note sulla versione | 
 | - | - | - | - | 
-| 2019-01-01 | Disponibilità generale | Tutte | <li> Aggiunta del supporto per i set di scalabilità di macchine virtuali EventType ' terminate ' |
-| 2017-11-01 | Disponibilità generale | Tutte | <li> Aggiunta del supporto per la rimozione della macchina virtuale spot ' preemptive '<br> | 
-| 2017-08-01 | Disponibilità generale | Tutte | <li> È stato rimosso il carattere di sottolineatura all'inizio dei nomi delle risorse per le macchine virtuali IaaS<br><li>Requisito dell'intestazione dei metadati applicato per tutte le richieste | 
-| 2017-03-01 | Anteprima | Tutte | <li>Versione iniziale |
+| 2019-01-01 | Disponibilità generale | Tutti | <li> Aggiunta del supporto per i set di scalabilità di macchine virtuali EventType ' terminate ' |
+| 2017-11-01 | Disponibilità generale | Tutti | <li> Aggiunta del supporto per la rimozione della macchina virtuale spot ' preemptive '<br> | 
+| 2017-08-01 | Disponibilità generale | Tutti | <li> È stato rimosso il carattere di sottolineatura all'inizio dei nomi delle risorse per le macchine virtuali IaaS<br><li>Requisito dell'intestazione dei metadati applicato per tutte le richieste | 
+| 2017-03-01 | Anteprima | Tutti | <li>Versione iniziale |
 
 
 > [!NOTE] 
@@ -97,7 +97,7 @@ Se si riavvia una macchina virtuale, viene pianificato un evento di tipo `Reboot
 
 ## <a name="use-the-api"></a>Usare l'API
 
-### <a name="headers"></a>Intestazioni
+### <a name="headers"></a>Headers
 Quando si eseguono query sul servizio metadati, è necessario specificare l'intestazione `Metadata:true` per garantire che la richiesta non sia stata reindirizzata accidentalmente. L'intestazione `Metadata:true` è obbligatoria per tutte le richieste di eventi pianificati. Se non si include l'intestazione nella richiesta, il servizio metadati restituisce una risposta di richiesta non valida.
 
 ### <a name="query-for-events"></a>Query per gli eventi
@@ -126,7 +126,7 @@ Nel caso in cui siano presenti eventi pianificati, la risposta contiene una matr
 }
 ```
 
-### <a name="event-properties"></a>Proprietà evento
+### <a name="event-properties"></a>Proprietà dell'evento
 |Proprietà  |  Descrizione |
 | - | - |
 | EventId | Identificatore globalmente univoco per l'evento. <br><br> Esempio: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
@@ -141,11 +141,14 @@ Ogni evento è pianificato con un ritardo minimo che dipende dal tipo di evento.
 
 |EventType  | Preavviso minimo |
 | - | - |
-| Bloccare| 15 minuti |
+| Freeze| 15 minuti |
 | Riavvio | 15 minuti |
-| Ridistribuisci | 10 minuti |
+| Ripetere la distribuzione | 10 minuti |
 | Hanno | 30 secondi |
 | Terminazione | [Configurabile dall'utente](../../virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification.md#enable-terminate-notifications): da 5 a 15 minuti |
+
+> [!NOTE] 
+> In alcuni casi, Azure è in grado di stimare gli errori dell'host dovuti all'hardware danneggiato e tenterà di attenuare le interruzioni del servizio tramite la pianificazione di una migrazione. Le macchine virtuali interessate riceveranno un evento pianificato con un `NotBefore` che in genere è costituito da pochi giorni in futuro. Il tempo effettivo varia a seconda della valutazione del rischio di errore stimato. Azure tenta di dare preavviso di 7 giorni, quando possibile, ma il tempo effettivo varia e potrebbe essere inferiore se la stima è che è probabile che si verifichi un problema di hardware imminente. Per ridurre al minimo i rischi per il servizio in caso di errore dell'hardware prima della migrazione iniziata dal sistema, è consigliabile ridistribuire la macchina virtuale non appena possibile.
 
 ### <a name="start-an-event"></a>Avviare un evento 
 

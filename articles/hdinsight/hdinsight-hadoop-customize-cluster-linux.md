@@ -8,11 +8,11 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/26/2020
 ms.openlocfilehash: 12e6892930afe8ba9c7bad9b05fd39eeaf8835fc
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78206725"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79272500"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Personalizzare i cluster HDInsight di Azure usando azioni script
 
@@ -128,7 +128,7 @@ Gli script di azione script possono essere usati tramite le utilità seguenti:
 
 HDInsight fornisce script di esempio per installare i componenti seguenti nei cluster HDInsight:
 
-| Name | Script |
+| Nome | Script |
 | --- | --- |
 | Aggiungere un account di archiviazione di Azure |`https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh`. Vedere [Aggiungere altri account di archiviazione a HDInsight](hdinsight-hadoop-add-storage.md). |
 | Installare Hue |`https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh`. Vedere [Installare e usare Hue nei cluster Hadoop di HDInsight](hdinsight-hadoop-hue-linux.md). |
@@ -150,10 +150,10 @@ In questa sezione vengono illustrate le diverse modalità d'uso delle azioni scr
 
     La tabella seguente illustra gli elementi nel modulo:
 
-    | Proprietà | Valore |
+    | Proprietà | valore |
     | --- | --- |
     | Selezionare uno script | Per usare uno script personalizzato, selezionare __Personalizzato__. In caso contrario, selezionare uno degli script disponibili. |
-    | Name |Specificare un nome per l'azione script. |
+    | Nome |Specificare un nome per l'azione script. |
     | URI script Bash |Specificare l'URI dello script. |
     | Head/Worker/ZooKeeper |Specificare i nodi in cui viene eseguito lo script: **Head**, **Worker**o **ZooKeeper**. |
     | Parametri |Specificare i parametri, se richiesti dallo script. |
@@ -224,10 +224,10 @@ Questa sezione illustra come applicare azioni script a un cluster in esecuzione.
 
     La tabella seguente illustra gli elementi nel modulo:
 
-    | Proprietà | Valore |
+    | Proprietà | valore |
     | --- | --- |
     | Selezionare uno script | Per usare uno script personalizzato, selezionare __Personalizzato__. In caso contrario, selezionare uno degli script disponibili. |
-    | Name |Specificare un nome per l'azione script. |
+    | Nome |Specificare un nome per l'azione script. |
     | URI script Bash |Specificare l'URI dello script. |
     | Head/Worker/Zookeeper |Specificare i nodi in cui viene eseguito lo script: **Head**, **Worker**o **ZooKeeper**. |
     | Parametri |Specificare i parametri, se richiesti dallo script. |
@@ -361,7 +361,7 @@ Il servizio HDInsight permette di usare i componenti personalizzati in molti mod
 
 3. **Esempi**. Microsoft e altri utenti possono fornire esempi relativi all'uso dei componenti personalizzati più diffusi nei cluster HDInsight. Questi esempi vengono forniti senza supporto.
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 È possibile usare l'interfaccia utente Web Ambari per visualizzare le informazioni registrate dalle azioni script. Se lo script ha esito negativo durante la creazione del cluster, i log sono disponibili anche nell'account di archiviazione predefinito associato al cluster. Questa sezione include informazioni su come recuperare i log usando entrambe le opzioni.
 
@@ -439,7 +439,7 @@ Per informazioni sulla connessione al cluster con SSH, vedere [Connettersi a HDI
 
 Se il cluster è stato creato prima del 15 marzo 2016, potrebbe non essere visualizzata una voce nella cronologia delle azioni script. Ridimensionando il cluster, gli script verranno visualizzati nella cronologia delle azioni script.
 
-Esistono due eccezioni:
+Sussistono due eccezioni:
 
 * Il cluster è stato creato prima del 1° settembre 2015. Le azioni script sono state introdotte in questa data. Per i cluster creati prima di tale data non possono quindi essere state usate le azioni script.
 

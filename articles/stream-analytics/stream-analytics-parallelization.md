@@ -8,11 +8,11 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.openlocfilehash: d1afb6037b5fc290de93faba405982ebd1fb68ea
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78364565"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79254339"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Sfruttare i vantaggi della parallelizzazione delle query in Analisi di flusso di Azure
 Questo articolo illustra come sfruttare i vantaggi della parallelizzazione in Analisi di flusso di Azure. Si apprenderà come ridimensionare i processi di Analisi di flusso configurando partizioni di input e ottimizzando la definizione di query.
@@ -32,7 +32,7 @@ Tutti gli input di Analisi di flusso di Azure possono sfruttare i vantaggi del p
 -   Hub IoT (è necessario impostare la chiave di partizione in modo esplicito con PARTITION BY)
 -   Archiviazione BLOB
 
-### <a name="outputs"></a>Outputs
+### <a name="outputs"></a>Output
 
 Quando si usa Analisi di flusso di Azure, è possibile sfruttare il partizionamento negli output:
 -   Archiviazione di Azure Data Lake
@@ -262,7 +262,7 @@ Le osservazioni seguenti usano un processo di analisi di flusso con query senza 
 
 La soluzione [Hub eventi](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-eventhubs) si ridimensiona in modo lineare in termini di unità di streaming e velocità effettiva, rendendola il modo più efficiente ed efficace per analizzare e trasmettere i dati da analisi di flusso. I processi possono essere ridimensionati fino a 192 unità di streaming, che approssimativamente si traduce nell'elaborazione fino a 200 MB/s o 19 mila miliardi eventi al giorno.
 
-#### <a name="azure-sql"></a>Azure SQL
+#### <a name="azure-sql"></a>SQL di Azure
 |Velocità di inserimento (eventi al secondo) | Unità di streaming | Risorse di output  |
 |---------|------|-------|
 |    1\.000   |   3  |  S3   |
@@ -303,7 +303,7 @@ Tutti gli [esempi di streaming su larga scala di Azure](https://github.com/Azure
 
 Usare il riquadro metriche nel processo di analisi di flusso di Azure per identificare i colli di bottiglia nella pipeline. Esaminare **gli eventi di input/output** per la velocità effettiva e il ["ritardo della filigrana"](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/) o **gli eventi con backlog** per verificare se il processo è in grado di mantenere la frequenza di input. Per le metriche dell'hub eventi, cercare **le richieste limitate** e modificare di conseguenza le unità di soglia. Per Cosmos DB metrica, esaminare il **numero massimo di ur/sec utilizzati per ogni intervallo di chiavi di partizione** in velocità effettiva per assicurarsi che gli intervalli di chiavi di partizione siano utilizzati in modo uniforme. Per il database SQL di Azure, monitorare IO e **CPU**del **log** .
 
-## <a name="get-help"></a>Guida in linea
+## <a name="get-help"></a>Ottenere aiuto
 
 Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 

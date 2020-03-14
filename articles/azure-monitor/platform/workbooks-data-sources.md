@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
 ms.openlocfilehash: d57910ae31d4db9be17b3dc46b5920a925ab4fcf
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78394072"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79248580"
 ---
 # <a name="azure-monitor-workbooks-data-sources"></a>Origini dati delle cartelle di lavoro di monitoraggio di Azure
 
 Le cartelle di lavoro sono compatibili con un numero elevato di origini dati. In questo articolo vengono illustrate le origini dati attualmente disponibili per le cartelle di lavoro di monitoraggio di Azure.
 
-## <a name="logs"></a>Registri
+## <a name="logs"></a>Log
 
 Le cartelle di lavoro consentono di eseguire query sui log dalle origini seguenti:
 

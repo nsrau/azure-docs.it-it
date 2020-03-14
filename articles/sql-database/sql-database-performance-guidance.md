@@ -1,24 +1,24 @@
 ---
-title: Linee guida sull'ottimizzazione delle prestazioni
-description: Informazioni su come usare le raccomandazioni per ottimizzare le prestazioni delle query del database SQL di Azure.
+title: Linee guida per l'ottimizzazione delle prestazioni per applicazioni e database
+description: Informazioni sull'ottimizzazione di database e applicazioni di database per le prestazioni nel database SQL di Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: juliemsft
-ms.author: jrasnick
-ms.reviewer: carlrab
-ms.date: 01/25/2019
-ms.openlocfilehash: 0dc3a121b30f33d533b1079d9c81501130487017
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+author: CarlRabeler
+ms.author: carlrab
+ms.reviewer: carlrab; jrasnick
+ms.date: 03/10/2020
+ms.openlocfilehash: 4f30ebe39d86db7076baa8c29b2a5cf060b07bf5
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74009093"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79255951"
 ---
-# <a name="manual-tune-query-performance-in-azure-sql-database"></a>Ottimizzazione manuale delle prestazioni delle query in Database SQL di Azure
+# <a name="tune-applications-and-databases-for-performance-in-azure-sql-database"></a>Ottimizzare le applicazioni e i database per le prestazioni nel database SQL di Azure
 
 Dopo aver identificato un problema di prestazioni che si verifica con Database SQL, grazie alle informazioni incluse in questo articolo è possibile:
 
@@ -232,6 +232,10 @@ Esaminando **sys.resource_stats** è possibile determinare se la risorsa usata p
 
 Se un carico di lavoro include un set di query ripetute, è spesso consigliabile acquisire e confermare la validità delle scelte del piano perché determinerà l'unità di dimensioni minima delle risorse per ospitare il database. Dopo la convalida, esaminare di nuovo occasionalmente i piani per assicurarsi che siano ancora ottimali. Per altre informazioni, vedere [Hint per la query (Transact-SQL)](https://msdn.microsoft.com/library/ms181714.aspx).
 
+### <a name="very-large-database-architectures"></a>Architetture di database di dimensioni molto grandi
+
+Prima del rilascio del livello di servizio di [iperscalabilità](sql-database-service-tier-hyperscale.md) per database singoli nel database SQL di Azure, i clienti usavano per raggiungere i limiti di capacità per i singoli database. Questi limiti di capacità sono ancora disponibili per i database in pool in pool elastici e database di istanza in istanze gestite. Nelle due sezioni seguenti vengono illustrate due opzioni per la risoluzione dei problemi con database di grandi dimensioni nel database SQL di Azure quando non è possibile usare il livello di servizio di iperscalabilità.
+
 ### <a name="cross-database-sharding"></a>Partizionamento orizzontale tra database
 
 Poiché il database SQL di Azure viene eseguito in hardware apposito, i limiti della capacità per un database singolo sono inferiori a quelli per un'installazione locale tradizionale di SQL Server. Alcuni clienti usano tecniche di partizionamento orizzontale per estendere le operazioni in più database quando non rientrano nei limiti relativi a un database singolo nel database SQL di Azure. La maggior parte dei clienti che usa le tecniche di partizionamento orizzontale nel database SQL di Azure suddivide i dati di una singola dimensione in più database. Per questo approccio è necessario comprendere che le applicazioni OLTP eseguono spesso transazioni applicabili a una riga o a un piccolo gruppo di righe nello schema.
@@ -243,7 +247,7 @@ Se, ad esempio, un database include il nome del cliente, l'ordine e i dettagli d
 
 Anche se il partizionamento orizzontale del database non riduce la capacità aggregata delle risorse per una soluzione, è notevolmente efficace nel supportare soluzioni di dimensioni molto elevate distribuite in più database. Ogni database può essere eseguito a dimensioni di calcolo diverse per supportare database "efficaci" di dimensioni molto grandi con requisiti molto elevati a livello di risorse.
 
-### <a name="functional-partitioning"></a>Partizionamento funzionale
+#### <a name="functional-partitioning"></a>Partizionamento funzionale
 
 Gli utenti di SQL Server combinano spesso molte funzioni all'interno di un singolo database. Se un'applicazione include ad esempio la logica per gestire l'inventario di un negozio, è possibile che quel database includa la logica associata all'inventario, il rilevamento degli ordini di acquisto, le stored procedure e le viste indicizzate o materializzate mediante le quali sono stati gestiti i report di fine mese. Questa tecnica semplifica l'amministrazione del database per operazioni quali il backup, ma richiede anche il ridimensionamento dell'hardware per gestire il carico massimo in tutte le funzioni di un'applicazione.
 

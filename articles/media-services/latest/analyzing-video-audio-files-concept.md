@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 01/30/2020
 ms.author: juliako
 ms.openlocfilehash: 1d28fc37b98493322b9e201ac899b7911dd1d705
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78359469"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79269887"
 ---
 # <a name="analyze-video-and-audio-files-with-azure-media-services"></a>Analizzare i file audio e video con servizi multimediali di Azure
 
@@ -67,12 +67,12 @@ L'output include un file JSON (Insights. Json) con tutte le informazioni dettagl
 
 ### <a name="transcript"></a>transcript
 
-|Name|Descrizione|
+|Nome|Descrizione|
 |---|---|
 |id|ID della riga.|
-|testo|Testo della trascrizione.|
-|language|Lingua della trascrizione. Questo elemento è stato progettato per supportare trascrizioni in cui ogni riga può avere una lingua diversa.|
-|istanze|Elenco degli intervalli di tempo in cui è presente la riga. Se l'istanza corrisponde a un'intera trascrizione, è riportata una sola istanza.|
+|text|Testo della trascrizione.|
+|Linguaggio|Lingua della trascrizione. Questo elemento è stato progettato per supportare trascrizioni in cui ogni riga può avere una lingua diversa.|
+|instances|Elenco degli intervalli di tempo in cui è presente la riga. Se l'istanza corrisponde a un'intera trascrizione, è riportata una sola istanza.|
 
 Esempio:
 
@@ -105,13 +105,13 @@ Esempio:
 
 ### <a name="ocr"></a>ocr
 
-|Name|Descrizione|
+|Nome|Descrizione|
 |---|---|
 |id|ID della riga di riconoscimento ottico dei caratteri.|
-|testo|Testo risultante dal riconoscimento ottico dei caratteri.|
+|text|Testo risultante dal riconoscimento ottico dei caratteri.|
 |confidence|Grado di attendibilità del riconoscimento.|
-|language|Lingua del riconoscimento ottico dei caratteri.|
-|istanze|Elenco degli intervalli di tempo in cui è presente la riga di riconoscimento ottico dei caratteri. La stessa riga può apparire più volte.|
+|Linguaggio|Lingua del riconoscimento ottico dei caratteri.|
+|instances|Elenco degli intervalli di tempo in cui è presente la riga di riconoscimento ottico dei caratteri. La stessa riga può apparire più volte.|
 
 ```json
 "ocr": [
@@ -148,7 +148,7 @@ Esempio:
 
 ### <a name="faces"></a>faces
 
-|Name|Descrizione|
+|Nome|Descrizione|
 |---|---|
 |id|ID del volto.|
 |name|Nome del volto. Può essere "Unknown #0", una celebrità identificata o una persona con training del cliente.|
@@ -160,7 +160,7 @@ Esempio:
 |referenceType|Attualmente solo Bing.|
 |title|Il titolo (se si tratta di una celebrità, ad esempio, "CEO di Microsoft").|
 |imageUrl|L'URL dell'immagine, se si tratta di una celebrità.|
-|istanze|Istanze in cui la faccia appare nell'intervallo di tempo specificato. Ogni istanza è associata anche un thumbnailsId. |
+|instances|Istanze in cui la faccia appare nell'intervallo di tempo specificato. Ogni istanza è associata anche un thumbnailsId. |
 
 ```json
 "faces": [{
@@ -193,11 +193,11 @@ Esempio:
 
 ### <a name="shots"></a>shots
 
-|Name|Descrizione|
+|Nome|Descrizione|
 |---|---|
 |id|ID dello scatto.|
 |keyFrames|Elenco dei fotogrammi chiave inclusi nello scatto, ciascuno con un ID e un elenco degli intervalli di tempo delle istanze. Le istanze dei fotogrammi chiave hanno un campo thumbnailId con l'ID anteprima del fotogramma chiave.|
-|istanze|Elenco degli intervalli di tempo dello scatto. Per gli scatti è prevista una sola istanza.|
+|instances|Elenco degli intervalli di tempo dello scatto. Per gli scatti è prevista una sola istanza.|
 
 ```json
 "Shots": [
@@ -250,7 +250,7 @@ Esempio:
 
 ### <a name="statistics"></a>statistiche
 
-|Name|Descrizione|
+|Nome|Descrizione|
 |---|---|
 |CorrespondenceCount|Numero di corrispondenze nel video.|
 |WordCount|Numero di parole per ogni voce.|
@@ -263,11 +263,11 @@ Esempio:
 
 Le valutazioni vengono aggregate in base al campo sentimentType (positivo/neutro/negativo), ad esempio 0-0.1, 0.1-0.2.
 
-|Name|Descrizione|
+|Nome|Descrizione|
 |---|---|
 |id|ID della valutazione.|
 |averageScore |Media di tutti i punteggi di tutte le istanze di un determinato tipo di valutazione: positivo/neutro/negativo.|
-|istanze|Elenco degli intervalli di tempo in cui è presente la valutazione.|
+|instances|Elenco degli intervalli di tempo in cui è presente la valutazione.|
 |sentimentType |Il tipo può essere "Positive", "Neutral" o "Negative".|
 
 ```json
@@ -296,14 +296,14 @@ Le valutazioni vengono aggregate in base al campo sentimentType (positivo/neutro
 ]
 ```
 
-### <a name="labels"></a>etichette
+### <a name="labels"></a>Etichette
 
-|Name|Descrizione|
+|Nome|Descrizione|
 |---|---|
 |id|ID dell'etichetta.|
 |name|Nome dell'etichetta, ad esempio 'Computer' o 'TV'.|
-|language|Lingua del nome dell'etichetta, quando tradotto. BCP-47|
-|istanze|Elenco degli intervalli di tempo in cui è presente l'etichetta. La stessa etichetta può apparire più volte. Ogni istanza ha un campo che indica il grado di attendibilità. |
+|Linguaggio|Lingua del nome dell'etichetta, quando tradotto. BCP-47|
+|instances|Elenco degli intervalli di tempo in cui è presente l'etichetta. La stessa etichetta può apparire più volte. Ogni istanza ha un campo che indica il grado di attendibilità. |
 
 ```json
 "labels": [
@@ -354,15 +354,15 @@ Le valutazioni vengono aggregate in base al campo sentimentType (positivo/neutro
   ] 
 ```
 
-### <a name="keywords"></a>parole chiave
+### <a name="keywords"></a>keywords
 
-|Name|Descrizione|
+|Nome|Descrizione|
 |---|---|
 |id|ID della parola chiave.|
-|testo|Testo della parola chiave.|
+|text|Testo della parola chiave.|
 |confidence|Grado di attendibilità del riconoscimento della parola chiave.|
-|language|Lingua della parola chiave, quando tradotta.|
-|istanze|Elenco degli intervalli di tempo in cui è presente la parola chiave. La stessa parola chiave può apparire più volte.|
+|Linguaggio|Lingua della parola chiave, quando tradotta.|
+|instances|Elenco degli intervalli di tempo in cui è presente la parola chiave. La stessa parola chiave può apparire più volte.|
 
 ```json
 "keywords": [
@@ -407,12 +407,12 @@ Il blocco visualContentModeration contiene gli intervalli di tempo in cui Video 
 
 I video in cui vengono rilevati contenuti per adulti o spinti potrebbero essere disponibili solo per la visualizzazione privata. Gli utenti possono inviare una richiesta di revisione umana del contenuto, nel qual caso l'attributo `IsAdult` conterrà il risultato della revisione umana.
 
-|Name|Descrizione|
+|Nome|Descrizione|
 |---|---|
 |id|ID della moderazione dei contenuti visivi.|
 |adultScore|Punteggio contenuti per adulti (dalla moderazione del contenuto).|
 |racyScore|Punteggio contenuti spinti (dalla moderazione del contenuto).|
-|istanze|Elenco degli intervalli di tempo in cui è presente questa moderazione dei contenuti visivi.|
+|instances|Elenco degli intervalli di tempo in cui è presente questa moderazione dei contenuti visivi.|
 
 ```json
 "VisualContentModeration": [

@@ -18,11 +18,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6071e6553fb1275fea63a37b4897aef2685bd509
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78248768"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79253767"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: account e autorizzazioni
 
@@ -38,7 +38,7 @@ Azure AD Connect usa 3 account per sincronizzare le informazioni da locale o da 
 
 - **Account del connettore di Azure AD**:     usato per scrivere informazioni in Azure AD
 
-Oltre a questi tre account usati per eseguire Azure AD Connect, per installare Azure AD Connect sono necessari anche gli account aggiuntivi seguenti.  ovvero:
+Oltre a questi tre account usati per eseguire Azure AD Connect, per installare Azure AD Connect sono necessari anche gli account aggiuntivi seguenti.  Si tratta di:
 
 - **Account amministratore locale**: l'amministratore che sta installando Azure AD Connect e possiede autorizzazioni di amministratore locale per il computer.
 
@@ -85,7 +85,7 @@ Queste credenziali vengono usate solo durante l'installazione e non dopo il comp
 ### <a name="ad-ds-connector-account-required-permissions-for-express-settings"></a>Autorizzazioni necessarie per l'account del connettore di AD DS per le impostazioni rapide
 L'account del connettore di Active Directory Domain Services è creato per la lettura e la scrittura in AD di Windows Server e ha le autorizzazioni seguenti se creato tramite impostazioni rapide:
 
-| Autorizzazione | Utilizzato per |
+| Autorizzazione | Utilizzo |
 | --- | --- |
 | <li>Replica modifiche directory</li><li>Replica modifiche directory - Tutto |Sincronizzazione dell'hash delle password |
 | Lettura/scrittura di tutte le proprietà - Utente |Importazione ed Exchange ibrido |
@@ -104,7 +104,7 @@ Di seguito è riportato un riepilogo delle pagine della procedura guidata di ins
 | --- | --- | --- | --- |
 | N/D |Utente che esegue l'installazione guidata |Amministratore del server locale |<li>Crea l'account di servizio ADSync usato per eseguire il servizio di sincronizzazione. |
 | Connessione ad Azure AD |Credenziali di directory di Azure AD |Ruolo di amministratore in Azure AD |<li>Abilitazione della sincronizzazione nella directory di Azure AD.</li>  <li>Creazione dell'account del connettore di Azure AD usato per le operazioni di sincronizzazione ricorrenti in Azure AD.</li> |
-| Connessione a Servizi di dominio Active Directory |Credenziali Active Directory locali |Membro del gruppo Enterprise Admins (EA) in Active Directory |<li>Crea l'account del connettore di Active Directory Domain Services in Active Directory e concede le relative autorizzazioni. L'account creato viene usato per leggere e scrivere informazioni di directory durante la sincronizzazione.</li> |
+| Connettersi ad AD DS |Credenziali Active Directory locali |Membro del gruppo Enterprise Admins (EA) in Active Directory |<li>Crea l'account del connettore di Active Directory Domain Services in Active Directory e concede le relative autorizzazioni. L'account creato viene usato per leggere e scrivere informazioni di directory durante la sincronizzazione.</li> |
 
 
 ## <a name="custom-installation-settings"></a>Impostazioni di installazione personalizzata
@@ -141,7 +141,7 @@ L'account specificato nella pagina **Connessione delle directory** deve essere p
 
 Le autorizzazioni necessarie dipendono dalle funzionalità facoltative abilitate. Se si dispone di più domini, le autorizzazioni devono essere concesse per tutti i domini nella foresta. Se queste funzionalità non vengono abilitate, sono sufficienti le autorizzazioni dell' **utente di dominio** predefinite.
 
-| Caratteristica | Autorizzazioni |
+| Funzionalità | Autorizzazioni |
 | --- | --- |
 | funzionalità ms-DS-ConsistencyGuid |Autorizzazioni di scrittura per l'attributo ms-DS-ConsistencyGuid documentato in [Concetti di progettazione - Uso di ms-DS-ConsistencyGuid come sourceAnchor](plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor). | 
 | Sincronizzazione dell'hash delle password |<li>Replica modifiche directory</li>  <li>Replica modifiche directory - Tutto |
@@ -158,7 +158,7 @@ Quando si aggiorna da una versione di Azure AD Connect a una nuova versione, è 
 >A partire dalla build 1.1.484, in Azure AD Connect è stato introdotto un bug di regressione che richiede autorizzazioni sysadmin per aggiornare il database SQL.  Questo bug è stato corretto nella build 1.1.647.  Se si esegue l'aggiornamento a questa build, saranno necessarie autorizzazioni sysadmin.  Le autorizzazioni dbo non sono sufficienti.  Se si tenta di eseguire l'aggiornamento di Azure AD Connect senza disporre delle autorizzazioni sysadmin, l'aggiornamento avrà esito negativo e Azure AD Connect non funzionerà più correttamente in seguito.  Microsoft è al corrente di questo problema e sta lavorando a una soluzione.
 
 
-| Server principale | Autorizzazioni necessarie | Utilizzato per |
+| Server principale | Autorizzazioni necessarie | Utilizzo |
 | --- | --- | --- |
 | Utente che esegue l'installazione guidata |Amministratore del server locale |Aggiornare i file binari. |
 | Utente che esegue l'installazione guidata |Membro di ADSyncAdmins |Apportare modifiche alle regole di sincronizzazione e ad altre configurazioni. |

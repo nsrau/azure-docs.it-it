@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 02/28/2019
 ms.author: mayg
 ms.openlocfilehash: f443f0362ecad8448895322686a7175b2813141e
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78367098"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79257784"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Gestire il server di configurazione per il ripristino di emergenza di server fisici
 
@@ -20,7 +20,7 @@ Si configura un server di configurazione locale quando si usa il servizio [Azure
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 La tabella riepiloga i prerequisiti per la distribuzione del computer server di configurazione locale.
 
@@ -31,14 +31,14 @@ La tabella riepiloga i prerequisiti per la distribuzione del computer server di 
 | Numero di dischi | 3, inclusi disco del sistema operativo, disco della cache del server di elaborazione e unità di conservazione per il failback |
 | Spazio libero su disco (cache del server di elaborazione) | 600 GB
 | Spazio libero su disco (disco di conservazione) | 600 GB|
-| Sistema operativo  | Windows Server 2012 R2 <br> Windows Server 2016 |
+| Sistema operativo  | Windows Server 2012 R2 <br> Windows Server 2016 |
 | Impostazioni locali del sistema operativo | Inglese (Stati Uniti)|
 | Versione di VMware vSphere PowerCLI | Facoltativo|
 | Ruoli di Windows Server | Non abilitare questi ruoli: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V |
 | Criteri di gruppo| Non abilitare questi criteri di gruppo: <br> - Impedisci accesso al prompt dei comandi <br> - Impedisci accesso agli strumenti di modifica del Registro di sistema <br> - Logica di attendibilità per file allegati <br> - Attiva l'esecuzione di script <br> [Altre informazioni](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
 | IIS | - Nessun sito Web predefinito preesistente <br> - Abilitare l'[autenticazione anonima](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> - Abilitare l'impostazione di [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx)  <br> - Nessun sito Web o applicazione preesistente in ascolto sulla porta 443<br>|
 | Tipo di scheda di interfaccia di rete | VMXNET3 (quando distribuito come macchina virtuale VMware) |
-| Tipo di indirizzo IP | Static |
+| Tipo di indirizzo IP | Statico |
 | Accesso a Internet | Il server deve poter accedere a questi URL: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://management.azure.com <br> - *.services.visualstudio.com <br> - https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi (non necessario per i server di elaborazione scale-out) <br> - time.nist.gov <br> - time.windows.com |
 | Porte | 443 (orchestrazione del canale di controllo)<br>9443 (trasporto dei dati)|
 
@@ -71,7 +71,7 @@ L'ultima versione del file di installazione del server di configurazione è disp
      ![Firewall](./media/physical-manage-configuration-server/combined-wiz4.png)
 6. In **Controllo dei prerequisiti** il programma di installazione esegue un controllo per assicurarsi che sia possibile eseguire l'installazione. Se viene visualizzato un avviso relativo al **Global time sync check** (Controllo della sincronizzazione ora globale), verificare che l'ora del clock di sistema, nelle impostazioni di **Data e ora**, corrisponda al fuso orario.
 
-    ![Prerequisiti](./media/physical-manage-configuration-server/combined-wiz5.png)
+    ![Prerequisites](./media/physical-manage-configuration-server/combined-wiz5.png)
 7. In **MySQL Configuration** (Configurazione MySQL) creare le credenziali per l'accesso all'istanza del server MySQL che viene installata.
 
     ![MySQL](./media/physical-manage-configuration-server/combined-wiz6.png)
@@ -118,12 +118,12 @@ Eseguire il file di installazione come segue:
 |/PSIP|Obbligatoria|Indirizzo IP della scheda di interfaccia di rete da utilizzare per il trasferimento di dati di replica| Qualsiasi indirizzo IP valido|
 |/CSIP|Obbligatoria|Indirizzo IP della scheda di interfaccia di rete su cui il server di configurazione è in ascolto| Qualsiasi indirizzo IP valido|
 |/PassphraseFilePath|Obbligatoria|Percorso completo del file della passphrase|Percorso del file valido|
-|/BypassProxy|Facoltativa|Specifica che il server di configurazione si connette ad Azure senza un proxy|Per ottenere questo valore da Venu|
-|/ProxySettingsFilePath|Facoltativa|Impostazioni proxy, il proxy predefinito richiede l'autenticazione o un proxy personalizzato|Il file deve essere nel formato specificato di seguito|
-|DataTransferSecurePort|Facoltativa|Numero di porta su PSIP da usare per i dati di replica| Numero di porta valido (il valore predefinito è 9433)|
-|/SkipSpaceCheck|Facoltativa|Ignora la verifica dello spazio per il disco della cache| |
+|/BypassProxy|Facoltativo|Specifica che il server di configurazione si connette ad Azure senza un proxy|Per ottenere questo valore da Venu|
+|/ProxySettingsFilePath|Facoltativo|Impostazioni proxy, il proxy predefinito richiede l'autenticazione o un proxy personalizzato|Il file deve essere nel formato specificato di seguito|
+|DataTransferSecurePort|Facoltativo|Numero di porta su PSIP da usare per i dati di replica| Numero di porta valido (il valore predefinito è 9433)|
+|/SkipSpaceCheck|Facoltativo|Ignora la verifica dello spazio per il disco della cache| |
 |/AcceptThirdpartyEULA|Obbligatoria|Il flag implica l'accettazione dell'EULA di terze parti| |
-|/ShowThirdpartyEULA|Facoltativa|Visualizza le condizioni di licenza di terze parti. Se specificato come input, tutti gli altri parametri vengono ignorati| |
+|/ShowThirdpartyEULA|Facoltativo|Visualizza le condizioni di licenza di terze parti. Se specificato come input, tutti gli altri parametri vengono ignorati| |
 
 
 
@@ -217,7 +217,7 @@ ProxyPassword="Password"
 
 ## <a name="upgrade-a-configuration-server"></a>Aggiornare un server di configurazione
 
-Per aggiornare il server di configurazione si eseguono aggiornamenti cumulativi. È possibile applicare gli aggiornamenti a un massimo di N-4 versioni. Ad esempio,
+Per aggiornare il server di configurazione si eseguono aggiornamenti cumulativi. È possibile applicare gli aggiornamenti a un massimo di N-4 versioni. Ad esempio:
 
 - Se si esegue la versione 9.7, 9.8, 9.9 o 9.10, è possibile eseguire l'aggiornamento direttamente alla versione a 9.11.
 - Se si esegue la versione 9.6 o una versione precedente e si desidera eseguire l'aggiornamento alla 9.11, è necessario prima eseguire l'aggiornamento alla versione 9.7 e poi alla 9.11.

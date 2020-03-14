@@ -7,11 +7,11 @@ ms.date: 06/28/2019
 ms.topic: conceptual
 ms.author: ramamill
 ms.openlocfilehash: 10b3e572ec61d1eff342f24a6a5a7bcba6276983
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78363057"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79257316"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Abilitare la replica per le macchine virtuali VMware in Azure
 
@@ -23,7 +23,7 @@ Questo articolo descrive come abilitare la replica delle macchine virtuali VMwar
 * Il disco del sistema operativo deve essere un disco di base e non un disco dinamico.
 * Per le macchine virtuali abilitate per la generazione 2/UEFI, la famiglia di sistemi operativi deve essere Windows e il disco di avvio deve essere inferiore a 300 GB.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Questo articolo presuppone che l'utente abbia:
 

@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: sutalasi
 ms.openlocfilehash: 45921bdf802a649b7b802f44d2842a543e44f02b
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78362801"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79257121"
 ---
 # <a name="configure-and-manage-replication-policies-for-vmware-disaster-recovery"></a>Configurare e gestire i criteri di replica per il ripristino di emergenza di VMware
 
@@ -53,7 +53,7 @@ Modificare i criteri come indicato di seguito:
 2. Selezionare i criteri di replica che si desidera modificare.
 3. Fare clic su **Modifica impostazioni**e aggiornare i campi soglia RPO/ore di conservazione del punto di ripristino/frequenza snapshot coerenti con l'app secondo le esigenze.
 4. Se si desidera disattivare la generazione di punti di coerenza dell'applicazione, scegliere valore "disattivato" nell'elenco a discesa della **frequenza di snapshot coerenti**con l'app campo.
-5. Fare clic su **Save**. Il criterio deve essere aggiornato da 30 a 60 secondi.
+5. Fare clic su **Salva**. Il criterio deve essere aggiornato da 30 a 60 secondi.
 
 
 

@@ -6,13 +6,14 @@ ms.author: danis
 ms.date: 01/23/2020
 ms.topic: article
 ms.service: virtual-machines-linux
+ms.subservice: imaging
 manager: gwallace
-ms.openlocfilehash: 08a1ca0c85d69d1a5262f1dcac5d46fb82b1c22b
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 870c8856cdc22b0586199051575de02312420990
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78191793"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79267261"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Anteprima: creare un modello di generatore di immagini di Azure 
 
@@ -102,7 +103,7 @@ Questa sezione facoltativa può essere usata per garantire che le dipendenze ven
 
 Per altre informazioni, vedere [definire le dipendenze delle risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-define-dependencies#dependson).
 
-## <a name="identity"></a>Identity
+## <a name="identity"></a>Identità
 Per impostazione predefinita, Image Builder supporta l'uso di script o la copia di file da più posizioni, ad esempio GitHub e archiviazione di Azure. Per usarli, devono essere accessibili pubblicamente.
 
 È anche possibile usare un'identità gestita assegnata dall'utente di Azure, definita dall'utente, per consentire a Generatore di immagini di accedere ad archiviazione di Azure, purché all'identità sia stato concesso un minimo di "lettore dati BLOB di archiviazione" nell'account di archiviazione di Azure. Ciò significa che non è necessario rendere i BLOB di archiviazione accessibili esternamente o configurare i token SAS.

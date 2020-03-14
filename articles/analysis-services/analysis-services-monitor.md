@@ -8,11 +8,11 @@ ms.date: 03/04/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: aaa3a6d128fe7dd466f6f60ab515f05fa38ba63b
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78375116"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79252805"
 ---
 # <a name="monitor-server-metrics"></a>Monitorare le metriche dei server
 
@@ -40,7 +40,7 @@ Usare questa tabella per determinare le metriche più adatte allo scenario di mo
 |Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|Descrizione|
 |---|---|---|---|---|
 |CommandPoolJobQueueLength|Lunghezza coda processi nel pool di comandi|Conteggio|Media|Numero dei processi nella coda del pool dei thread dei comandi.|
-|CurrentConnections|Connessione: connessioni correnti|Conteggio|Media|Numero corrente di connessioni client stabilite.|
+|CurrentConnections|Connessione: connessioni correnti|Conteggio|Media|Numero corrente delle connessioni client stabilite.|
 |CurrentUserSessions|Sessioni utente correnti|Conteggio|Media|Numero corrente di sessioni utente attive.|
 |mashup_engine_memory_metric|Memoria Motore M|Byte|Media|Utilizzo della memoria da parte dei processi del motore mashup|
 |mashup_engine_qpu_metric|QPU Motore M|Conteggio|Media|Utilizzo QPU da parte dei processi motore mashup|
@@ -54,8 +54,8 @@ Usare questa tabella per determinare le metriche più adatte allo scenario di mo
 |MemoryLimitLow|Memoria: limite memoria minimo|Byte|Media|Limite inferiore della memoria, dal file di configurazione.|
 |MemoryLimitVertiPaq|Memoria: limite memoria VertiPaq|Byte|Media|Limite in memoria dal file di configurazione.|
 |MemoryUsage|Memoria: utilizzo memoria|Byte|Media|Utilizzo della memoria del processo server utilizzato per il calcolo del prezzo di una memoria più pulita. Equivale al contatore Process\PrivateBytes più le dimensioni dei dati con mapping in memoria, ignorando la memoria con mapping o allocazione eseguita dal motore di analisi in memoria (VertiPaq) in eccesso rispetto al limite di memoria del motore.|
-|private_bytes_metric|Byte privati |Byte|Media|Quantità totale di memoria allocata dal processo del motore Analysis Services e dai processi del contenitore mashup, esclusa la memoria condivisa con altri processi.|
-|virtual_bytes_metric|Byte virtuali |Byte|Media|Dimensioni correnti dello spazio degli indirizzi virtuali usato dal processo del motore Analysis Services e dai processi del contenitore mashup.|
+|private_bytes_metric|Private Bytes |Byte|Media|Quantità totale di memoria allocata dal processo del motore Analysis Services e dai processi del contenitore mashup, esclusa la memoria condivisa con altri processi.|
+|virtual_bytes_metric|Virtual Bytes |Byte|Media|Dimensioni correnti dello spazio degli indirizzi virtuali usato dal processo del motore Analysis Services e dai processi del contenitore mashup.|
 |mashup_engine_private_bytes_metric|Byte privati motore M |Byte|Media|La quantità totale di processi del contenitore mashup di memoria è stata allocata, esclusa la memoria condivisa con altri processi.|
 |mashup_engine_virtual_bytes_metric|Byte virtuali del motore M |Byte|Media|Dimensioni correnti dello spazio degli indirizzi virtuali che i processi del contenitore mashup usano.|
 |Quota|Memoria: quota|Byte|Media|Quota di memoria corrente, in byte. Le quote di memoria sono note anche come concessioni di memoria o prenotazioni di memoria.|

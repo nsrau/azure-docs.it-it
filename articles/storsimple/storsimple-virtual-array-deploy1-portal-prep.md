@@ -9,11 +9,11 @@ ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 7f2c7a6f9c1146627f81dc20386c59a91724b245
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78365611"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79254534"
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>Distribuire l'array virtuale StorSimple: preparare il portale di Azure
 
@@ -30,7 +30,7 @@ Per completare il processo di installazione e configurazione sono necessari priv
 
 Le informazioni pubblicate in questo articolo si applicano alla distribuzione di array virtuali StorSimple nel portale di Azure e nel cloud di Microsoft Azure per enti pubblici.
 
-### <a name="get-started"></a>Attività iniziali
+### <a name="get-started"></a>Introduzione
 Il flusso di lavoro di distribuzione consiste nella preparazione del portale, nel provisioning di un array virtuale nell'ambiente virtualizzato e nel completamento dell'installazione. Per iniziare la distribuzione dell'array virtuale StorSimple come file server o server iSCSI, è necessario fare riferimento alle seguenti risorse catalogate.
 
 #### <a name="deployment-articles"></a>Articoli sulla distribuzione
@@ -52,7 +52,7 @@ L'elenco di controllo configurazione descrive le informazioni che è necessario 
 * Scaricare l' [elenco di controllo configurazione StorSimple Virtual Array come file server](https://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayFileServerConfigurationChecklist.pdf).
 * Scaricare l' [elenco di controllo configurazione StorSimple Virtual Array come server iSCSI](https://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayiSCSIServerConfigurationChecklist.pdf).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Ecco i prerequisiti di configurazione per il servizio Gestione dispositivi StorSimple, l'array virtuale StorSimple e la rete del datacenter.
 
@@ -149,7 +149,7 @@ Eseguire i passaggi seguenti nel [portale di Azure](https://ms.portal.azure.com/
 
 1. Passare al servizio Gestione dispositivi, selezionare e fare doppio clic. Si apre il pannello **Panoramica**.
 2. Selezionare **Credenziali dell'account di archiviazione** nella sezione **Configurazione**.
-3. Fare clic su **Add**.
+3. Fare clic su **Aggiungi**.
 4. Nel pannello **Aggiungi un account di archiviazione** eseguire le operazioni seguenti:
    
    1. Per **Sottoscrizione** selezionare **Corrente**.
@@ -158,7 +158,7 @@ Eseguire i passaggi seguenti nel [portale di Azure](https://ms.portal.azure.com/
    
    3. Selezionare**Abilita** per creare un canale sicuro per la comunicazione di rete tra il dispositivo StorSimple e il cloud. Selezionare **Disabilita** solo se si opera all'interno di un cloud privato.
    
-   4. Fare clic su **Add**. Quando la creazione dell'account di archiviazione viene completata, si riceve una notifica.<br></br>
+   4. Fare clic su **Aggiungi**. Quando la creazione dell'account di archiviazione viene completata, si riceve una notifica.<br></br>
    
       ![Aggiungere le credenziali di un account di archiviazione esistente](./media/storsimple-virtual-array-manage-storage-accounts/ova-add-storageacct.png)
 

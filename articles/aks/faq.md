@@ -4,11 +4,11 @@ description: Trovare le risposte ad alcune domande comuni sul servizio Azure Kub
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.openlocfilehash: 1531308a8d0bd5a09952d8ad8ccd03c92f2f99eb
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78374642"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79252948"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Domande frequenti relative al servizio Azure Kubernetes
 
@@ -117,7 +117,7 @@ In un contratto di servizio (SLA), il provider accetta di rimborsare il costo de
 
 In AKS è possibile impostare il valore `maxPods` quando si crea il cluster usando l'interfaccia della riga di comando di Azure e i modelli di Azure Resource Manager. Tuttavia, sia Kubenet che Azure CNI richiedono un *valore minimo* (convalidato al momento della creazione):
 
-| Rete | Minimo | Massimo |
+| Rete | Minima | Massimo |
 | -- | :--: | :--: |
 | Azure CNI | 30 | 250 |
 | Kubenet | 30 | 110 |

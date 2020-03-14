@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: 26c734b7a2e9f5592ee6d51dfee4650a3998ab1a
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78362773"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79257524"
 ---
 # <a name="run-a-test-failover-disaster-recovery-drill-to-azure"></a>Eseguire un failover di test (esercitazione sul ripristino di emergenza) in Azure 
 

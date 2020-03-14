@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 01/17/2020
 ms.openlocfilehash: 3cd330e9c4ceba2feeb7a74cafe9f094fd03d690
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78360847"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79249165"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Che cosa viene monitorato da monitoraggio di Azure?
 Questo articolo descrive i diversi servizi e applicazioni monitorati da monitoraggio di Azure. 

@@ -6,18 +6,18 @@ ms.topic: conceptual
 ms.date: 06/08/2018
 ms.author: pepogors
 ms.openlocfilehash: 5efdbd17db20e69ace33b379ddbb99b2c4a20e69
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78382844"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79258395"
 ---
 # <a name="multi-container-application-and-service-manifest-examples"></a>Esempi di manifesti dell'applicazione e del servizio per applicazioni multicontenitore
 Di seguito sono riportati alcuni esempi di manifesto dell'applicazione e del servizio per un'applicazione di Service Fabric con più contenitori. Lo scopo di questi esempi è mostrare le impostazioni disponibili e come usarle. Questi manifesti dell'applicazione e del servizio sono basati sui manifesti descritti nell'[esempio di contenitore di Windows Server 2016](https://github.com/Azure-Samples/service-fabric-containers/tree/master/Windows).
 
 Sono disponibili le funzionalità seguenti:
 
-|Manifest|Funzionalità|
+|Manifesto|Funzionalità|
 |---|---|
 |[Manifesto dell'applicazione](#application-manifest)| [override delle variabili di ambiente](service-fabric-get-started-containers.md#configure-and-set-environment-variables), [configurazione del mapping da porta a host del contenitore](service-fabric-get-started-containers.md#configure-container-port-to-host-port-mapping-and-container-to-container-discovery), [configurazione dell'autenticazione del registro contenitori](service-fabric-get-started-containers.md#configure-container-repository-authentication), [governance delle risorse](service-fabric-resource-governance.md), [impostazione della modalità di isolamento](service-fabric-get-started-containers.md#configure-isolation-mode), [specifica delle immagini del contenitore specifiche delle build del sistema operativo](service-fabric-get-started-containers.md#specify-os-build-specific-container-images)| 
 |[Manifesto del servizio FrontEndService](#frontendservice-service-manifest)| [impostazione delle variabili di ambiente](service-fabric-get-started-containers.md#configure-and-set-environment-variables), [configurazione di un endpoint](service-fabric-get-started-containers.md#configure-communication), passaggio di comandi al contenitore, [importazione di un certificato in un contenitore](service-fabric-securing-containers.md)| 

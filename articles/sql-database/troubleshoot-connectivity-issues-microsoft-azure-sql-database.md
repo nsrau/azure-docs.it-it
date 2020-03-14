@@ -9,16 +9,16 @@ author: ramakoni1
 ms.author: ramakoni
 ms.reviewer: carlrab,vanto
 ms.date: 01/14/2020
-ms.openlocfilehash: 6baf9d4edba9ba8db008c5c6a8d7af6832ba3273
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 578d076dfc2fc383051c0c3a8528cdbb0fbcdb15
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77591235"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79208791"
 ---
 # <a name="troubleshooting-connectivity-issues-and-other-errors-with-microsoft-azure-sql-database"></a>Risoluzione dei problemi di connettività e di altri errori con database SQL di Microsoft Azure
 
-Quando la connessione al database SQL di Azure non riesce, vengono visualizzati messaggi di errore. Questi problemi di connessione possono essere causati dalla riconfigurazione del database SQL di Azure, dalle impostazioni del firewall, da un timeout di connessione, da informazioni di accesso non corrette o da un errore per applicare le procedure consigliate e le linee guida per la progettazione durante [progettazione sql-database-develop-overview.md). Inoltre, se viene raggiunto il limite massimo per alcune risorse del database SQL di Azure, non è possibile connettersi al database SQL di Azure.
+Quando la connessione al database SQL di Azure non riesce, vengono visualizzati messaggi di errore. Questi problemi di connessione possono essere causati dalla riconfigurazione del database SQL di Azure, dalle impostazioni del firewall, da un timeout di connessione, da informazioni di accesso non corrette o da un errore di applicazione delle procedure consigliate e delle linee guida di progettazione [durante il processo](sql-database-develop-overview.md) Inoltre, se viene raggiunto il limite massimo per alcune risorse del database SQL di Azure, non è possibile connettersi al database SQL di Azure.
 
 ## <a name="transient-fault-error-messages-40197-40613-and-others"></a>Messaggi di errore temporanei di errore (40197, 40613 e altri)
 

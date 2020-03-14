@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 3/25/2019
 ms.author: rohink
 ms.openlocfilehash: fac6c29d5371c536c20eca58d90ee5d54d7e90d1
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77462667"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79244888"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Risoluzione dei nomi per le risorse in reti virtuali di Azure
 
@@ -58,7 +58,7 @@ Oltre alla risoluzione dei nomi DNS pubblici, Azure offre la risoluzione dei nom
 ### <a name="features"></a>Funzionalità
 
 La risoluzione dei nomi fornita da Azure presenta le caratteristiche seguenti:
-* Semplicità d'uso. Nessuna configurazione richiesta.
+* Semplicità d'uso. Non è richiesta alcuna configurazione.
 * Disponibilità elevata. Non è necessario creare e gestire i cluster dei server DNS propri.
 * Possibilità di usare il servizio in combinazione con i propri server DNS per risolvere i nomi host locali e quelli di Azure.
 * Possibilità di usare la risoluzione dei nomi tra istanze del ruolo e macchine virtuali presenti nello stesso servizio cloud, senza la necessità di un nome di dominio completo.

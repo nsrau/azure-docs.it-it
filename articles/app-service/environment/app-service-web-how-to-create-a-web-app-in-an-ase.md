@@ -8,11 +8,11 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 5c947617f0c27708e72f9bff92e2b0041473cd92
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422059"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79266195"
 ---
 # <a name="create-a-web-app-in-an-app-service-environment-v1"></a>Creare un'app Web in un ambiente del servizio app (versione 1)
 
@@ -20,7 +20,7 @@ ms.locfileid: "75422059"
 > Questo articolo riguarda l'ambiente del servizio app v1.  Esiste una nuova versione dell'ambiente del servizio app che, oltre ad essere più facile da usare, può essere eseguita in un'infrastruttura più potente. Per altre informazioni su questa nuova versione, vedere [Introduzione ad Ambiente del servizio app](intro.md).
 > 
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 Questa esercitazione illustra come creare app Web e piani di servizio app in un [ambiente del servizio app (versione 1)](app-service-app-service-environment-intro.md). 
 
 > [!NOTE]
@@ -28,10 +28,10 @@ Questa esercitazione illustra come creare app Web e piani di servizio app in un 
 > 
 > 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 Questa esercitazione presuppone che l'utente abbia creato un ambiente del servizio app. Se questa operazione non è ancora stata eseguita, vedere [Creare un ambiente del servizio app](app-service-web-how-to-create-an-app-service-environment.md). 
 
-## <a name="create-a-web-app"></a>Crea un'app Web
+## <a name="create-a-web-app"></a>Creare un'app Web
 1. Nel [portale di Azure](https://portal.azure.com/) fare clic su **Crea una risorsa > Web e dispositivi mobili > App Web**. 
    
     ![][1]

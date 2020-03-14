@@ -1,5 +1,5 @@
 ---
-title: Dataset
+title: Set di dati
 description: Informazioni sui set di impostazioni in Data Factory. I set di dati rappresentano dati di input o di output.
 services: data-factory
 documentationcenter: ''
@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/25/2019
 ms.openlocfilehash: 878ad98b118fa02a6659584ac60e3343a948cd20
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78381766"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79246266"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Set di dati in Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -40,7 +40,7 @@ Nel diagramma seguente viene illustrata la relazione tra pipeline, attività, se
 ![Relazione tra pipeline, attività, set di dati, i servizi collegati](media/concepts-datasets-linked-services/relationship-between-data-factory-entities.png)
 
 
-## <a name="dataset-json"></a>Formato JSON del set di dati
+## <a name="dataset-json"></a>Set di dati JSON
 Un set di dati in Data Factory viene definito nel formato JSON seguente:
 
 ```json
@@ -71,7 +71,7 @@ Proprietà | Descrizione | Obbligatoria |
 -------- | ----------- | -------- |
 name | Nome del set di dati. Vedere [Azure Data Factory - Regole di denominazione](naming-rules.md). |  Sì |
 type | Tipo del set di dati. Specificare uno dei tipi supportati da Data Factory, ad esempio AzureBlob o AzureSqlTable. <br/><br/>Per informazioni dettagliate, vedere [Tipi di set di dati](#dataset-type). | Sì |
-Struttura | Schema del set di dati. Per informazioni dettagliate, vedere [schema del set di dati](#dataset-structure-or-schema). | No |
+structure | Schema del set di dati. Per informazioni dettagliate, vedere [schema del set di dati](#dataset-structure-or-schema). | No |
 typeProperties | Le proprietà del tipo sono diverse per ogni tipo, ad esempio: BLOB di Azure, tabella SQL di Azure. Per informazioni dettagliate sui tipi supportati e le relative proprietà, vedere la sezione [Tipo di set di dati](#dataset-type). | Sì |
 
 ### <a name="data-flow-compatible-dataset"></a>Set di dati compatibile con il flusso di dati
@@ -182,7 +182,7 @@ Proprietà | Descrizione | Obbligatoria
 -------- | ----------- | --------
 name | Nome della colonna. | Sì
 type | Tipo di dati della colonna. Data Factory supporta i tipi di dati provvisori seguenti come valori consentiti: **Int16, Int32, Int64, Single, Double, Decimal, Byte[], Boolean, String, Guid, Datetime, Datetimeoffset e Timespan** | No
-lingua | Cultura basata su .NET da usare quando il tipo è un tipo .NET: `Datetime` o `Datetimeoffset`. Il valore predefinito è `en-us`. | No
+culture | Cultura basata su .NET da usare quando il tipo è un tipo .NET: `Datetime` o `Datetimeoffset`. Il valore predefinito è `en-us`. | No
 format | Stringa di formato da usare quando il tipo è un tipo .NET: `Datetime` o `Datetimeoffset`. Per informazioni su come formattare datetime, vedere [Stringhe di formato di data e ora personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). | No
 
 ### <a name="example"></a>Esempio

@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 ms.date: 07/11/2019
-ms.openlocfilehash: 802dfa7e3b2d0b9deac957662ac1e7604d085fd9
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 6bae9e871be2a5d56d057d2a077de53329b8c3ec
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73828084"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79208935"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migrazione di un'istanza di SQL Server a un'istanza gestita di database SQL di Azure
 
@@ -72,14 +72,14 @@ Di seguito sono elencati alcuni parametri che è necessario misurare nell'istanz
 - Monitorare il carico di lavoro e le prestazioni delle query o l'istanza di SQL Server esaminando viste a gestione dinamica o Query Store se si esegue la migrazione da SQL Server versione 2016 +. Identificare la durata media e l'utilizzo della CPU delle query più importanti nel carico di lavoro per confrontarle con le query in esecuzione nel Istanza gestita.
 
 > [!Note]
-> Se si riscontrano problemi con il carico di lavoro in SQL Server, ad esempio un utilizzo elevato della CPU, un numero costante di richieste di memoria, tempdb o parametrizzazione, è consigliabile provare a risolverli nell'istanza del SQL Server di origine prima di eseguire la migrazione e la baseline. La migrazione di informazioni sui problemi di qualsiasi nuovo migh di sistema causa risultati imprevisti e invalida qualsiasi confronto delle prestazioni.
+> Se si riscontrano problemi con il carico di lavoro in SQL Server, ad esempio un utilizzo elevato della CPU, un numero costante di richieste di memoria, problemi di parametrizzazione o di tempdb, provare a risolverli nell'istanza del SQL Server di origine prima di eseguire la migrazione e la baseline. La migrazione di informazioni sui problemi di qualsiasi nuovo migh di sistema causa risultati imprevisti e invalida qualsiasi confronto delle prestazioni.
 
 Come risultato di questa attività, è necessario aver documentato i valori medi e massimi per l'utilizzo della CPU, della memoria e dell'i/o nel sistema di origine, nonché la durata media e massima e l'utilizzo della CPU delle query dominanti e più critiche nel carico di lavoro. Usare questi valori in un secondo momento per confrontare le prestazioni del carico di lavoro in Istanza gestita con le prestazioni di base del carico di lavoro nel SQL Server di origine.
 
 ## <a name="deploy-to-an-optimally-sized-managed-instance"></a>Eseguire la distribuzione in un'istanza gestita di dimensioni ottimali
 
 L'istanza gestita è progettata appositamente per carichi di lavoro locali che si intende spostare nel cloud. Introduce un [nuovo modello di acquisto](sql-database-service-tiers-vcore.md) che offre maggiore flessibilità nella selezione del livello appropriato di risorse per i carichi di lavoro. Nell'ambiente locale, si è probabilmente soliti dimensionare i carichi di lavoro usando core fisici o larghezza di banda di I/O. Il modello di acquisto dell'istanza gestita è basato sui core virtuali, o "vCore", con I/O e spazio di archiviazione aggiuntivi disponibili separatamente. Il modello basato su vCore semplifica la comprensione dei requisiti di calcolo nel cloud rispetto alle risorse usate attualmente in locale. Questo nuovo modello consente di dimensionare correttamente l'ambiente di destinazione nel cloud. Alcune linee guida generali che possono essere utili per scegliere il livello di servizio e le caratteristiche corretti sono descritte di seguito:
-- In base all'utilizzo della CPU di base, è possibile effettuare il provisioning di un Istanza gestita corrispondente al numero di core usati in SQL Server, tenendo presente che è possibile che le caratteristiche della CPU debbano essere ridimensionate in modo da corrispondere alle [caratteristiche della macchina virtuale in cui è installato istanza gestita ](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics).
+- In base all'utilizzo della CPU di base, è possibile effettuare il provisioning di un Istanza gestita corrispondente al numero di core usati in SQL Server, tenendo presente che è possibile che le caratteristiche della CPU debbano essere ridimensionate in modo da corrispondere alle [caratteristiche della macchina virtuale in cui è installato istanza gestita](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics).
 - In base all'utilizzo della memoria di base, scegliere [il livello di servizio con memoria corrispondente](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics). La quantità di memoria non può essere scelta direttamente, quindi è necessario selezionare la Istanza gestita con la quantità di Vcore con memoria corrispondente (ad esempio, 5,1 GB/vCore in quinta generazione). 
 - In base alla latenza di i/o di base del sottosistema di file, scegliere tra per utilizzo generico (latenza maggiore di 5 ms) e business critical livelli di servizio (latenza inferiore a 3 ms).
 - In base alla velocità effettiva di base, pre-allocare le dimensioni dei file di dati o di log per ottenere le prestazioni di i/o previste.

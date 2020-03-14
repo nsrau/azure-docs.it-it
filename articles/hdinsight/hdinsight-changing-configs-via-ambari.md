@@ -9,11 +9,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.openlocfilehash: 15a2c75a7619a815655be0fd9fd3044d86acd057
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78386936"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79272565"
 ---
 # <a name="use-apache-ambari-to-optimize-hdinsight-cluster-configurations"></a>Usare Apache Ambari per ottimizzare le configurazioni cluster HDInsight
 
@@ -175,7 +175,7 @@ I processi Hadoop presentano in genere colli di bottiglia a causa dell'I/O. La c
 
 I tipi di compressione disponibili sono:
 
-| Formato | Strumento | Algoritmo | Estensione file | Divisibile |
+| Format | Strumento | Algoritmo | Estensione file | Divisibile |
 | -- | -- | -- | -- | -- |
 | Gzip | Gzip | DEFLATE | gz | No |
 | Bzip2 | Bzip2 | Bzip2 |bz2 | Sì |
@@ -201,7 +201,7 @@ Come regola generale, è importante che il metodo di compressione sia divisibile
 
     c. Nella finestra Add Property (Aggiungi proprietà) immettere `mapred.map.output.compression.codec` come chiave e `org.apache.hadoop.io.compress.SnappyCodec` come valore.
 
-    d. Fare clic su **Aggiungi**.
+    d. Selezionare **Aggiungi**.
 
     ![Apache Hive aggiunta proprietà personalizzata](./media/hdinsight-changing-configs-via-ambari/hive-custom-property.png)
 
@@ -266,7 +266,7 @@ Le sezioni seguenti descrivono altre ottimizzazioni relative a Hive che è possi
 
 Il tipo di join predefinito in Hive è un *join casuale*. In Hive speciali mapper leggono l'input e generano una coppia chiave/valore di join per un file intermedio. Hadoop ordina e unisce queste coppie in una fase casuale. Questa fase casuale è costosa. La scelta del join appropriato in base ai dati può migliorare considerevolmente le prestazioni.
 
-| Tipo di join | Quando | Modalità | Settings di Hive | Comments |
+| Tipo di join | Se | Come | Settings di Hive | Commenti |
 | -- | -- | -- | -- | -- |
 | Join casuale | <ul><li>Scelta predefinita</li><li>È sempre valido</li></ul> | <ul><li>Legge da parte di una delle tabelle</li><li>Raggruppa e ordina nella chiave di join</li><li>Invia un bucket a ogni elemento reduce</li><li>Il join viene eseguito sul lato Reduce</li></ul> | Non sono necessarie impostazioni di Hive significative | Funziona sempre |
 | Map Join | <ul><li>La memoria disponibile è sufficiente per una tabella</li></ul> | <ul><li>Legge una tabella di piccole dimensioni nella tabella hash della memoria</li><li>Passa attraverso parte del file di grandi dimensioni</li><li>Crea un join con ogni record della tabella hash</li><li>I join vengono eseguiti tramite il solo mapper</li></ul> | `hive.auto.confvert.join=true` | Molto veloce, ma limitato |

@@ -12,11 +12,11 @@ ms.author: genemi
 ms.reviewer: billgib, sstein
 ms.date: 12/18/2018
 ms.openlocfilehash: 6f660426c41b37dd27438c28cbf603bdbf1e58b3
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78359111"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79269198"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>Gestire lo schema in un'applicazione SaaS che usa più database SQL multi-tenant
 
@@ -40,7 +40,7 @@ In questa esercitazione si apprenderà come:
 > * Aggiornare i dati di riferimento in tutti i database tenant.
 > * Creare un indice su una tabella in tutti i database tenant.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - L'app SaaS Wingtip Tickets per database multi-tenant deve essere già stata distribuita:
     - Per istruzioni, vedere la prima esercitazione, in cui viene presentata l'app SaaS per database multi-tenant Wingtip Tickets:<br />[Distribuire ed esplorare un'applicazione di database multi-tenant partizionato che usa il database SQL di Azure](saas-multitenantdb-get-started-deploy.md).
@@ -58,7 +58,7 @@ In questa esercitazione si apprenderà come:
 
 Il modello di database multi-tenant partizionato usato in questo esempio consente a un database tenant di contenere uno o più tenant. Questo esempio illustra la possibilità di usare una combinazione di database per più tenant e a tenant singolo, che abilita un modello *ibrido* di gestione del tenant. La gestione delle modifiche a questi database può essere complessa. Il servizio [Processi elastici](elastic-jobs-overview.md) facilita l'amministrazione e la gestione di un numero elevato di database. I processi consentono di eseguire script Transact-SQL in modo sicuro e affidabile come attività, rispetto a un gruppo di database tenant. Le attività sono indipendenti dall'interazione o dall'input dell'utente. Questo metodo può essere usato per distribuire modifiche dello schema e dei dati di riferimento comuni a tutti i tenant in un'applicazione. Il servizio Processi elastici possono essere usati anche per conservare una copia del modello finale del database. Il modello viene usato per creare nuovi tenant, assicurando che siano sempre in uso lo schema e i dati di riferimento più recenti.
 
-![progettazione](media/saas-multitenantdb-schema-management/schema-management.png)
+![schermata](media/saas-multitenantdb-schema-management/schema-management.png)
 
 ## <a name="elastic-jobs-limited-preview"></a>Anteprima limitata del servizio Processi elastici
 
@@ -81,7 +81,7 @@ Lo script *Demo-SchemaManagement.ps1* chiama lo script *Deploy-SchemaManagement.
 
 ## <a name="create-a-job-to-deploy-new-reference-data-to-all-tenants"></a>Creare un processo per distribuire nuovi dati di riferimento a tutti i tenant
 
-#### <a name="prepare"></a>Prepare
+#### <a name="prepare"></a>Preparazione
 
 Ogni database del tenant include un set di tipi di sedi nella tabella **VenueTypes**. Ogni tipo di sede definisce il tipo di eventi ospitati in una sede. Questi tipi di sedi corrispondono alle immagini di sfondo visualizzate nell'app degli eventi del tenant.  Questo esercizio illustra come distribuire un aggiornamento a tutti i database per aggiungere due tipi di eventi aggiuntivi: *Motorcycle Racing* (Gare motociclistiche) e *Swimming Club* (Club nuoto).
 

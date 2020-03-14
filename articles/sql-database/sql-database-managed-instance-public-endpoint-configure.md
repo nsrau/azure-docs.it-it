@@ -11,17 +11,17 @@ ms.author: srbozovi
 ms.reviewer: vanto, carlrab
 ms.date: 05/07/2019
 ms.openlocfilehash: 1acd7d6a3b203997e3acd8d7959b1572e09845f3
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227991"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79256159"
 ---
 # <a name="configure-public-endpoint-in-azure-sql-database-managed-instance"></a>Configurare l'endpoint pubblico nell'istanza gestita di database SQL di Azure
 
 L'endpoint pubblico per un' [istanza gestita](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index) consente l'accesso ai dati all'istanza gestita dall'esterno della [rete virtuale](../virtual-network/virtual-networks-overview.md). È possibile accedere all'istanza gestita da servizi di Azure multi-tenant, ad esempio Power BI, app Azure servizio o una rete locale. Usando l'endpoint pubblico in un'istanza gestita, non è necessario usare una VPN, che può aiutare a evitare problemi di velocità effettiva della VPN.
 
-In questo articolo viene spiegato come:
+In questo articolo si apprenderà come:
 
 > [!div class="checklist"]
 > - Abilitare l'endpoint pubblico per l'istanza gestita nel portale di Azure
@@ -29,7 +29,7 @@ In questo articolo viene spiegato come:
 > - Configurare il gruppo di sicurezza di rete dell'istanza gestita per consentire il traffico all'endpoint pubblico dell'istanza gestita
 > - Ottenere la stringa di connessione dell'endpoint pubblico dell'istanza gestita
 
-## <a name="permissions"></a>autorizzazioni
+## <a name="permissions"></a>Autorizzazioni
 
 A causa della riservatezza dei dati presenti in un'istanza gestita, la configurazione per abilitare l'endpoint pubblico dell'istanza gestita richiede un processo in due passaggi. Questa misura di sicurezza si attiene alla separazione dei compiti (SoD):
 
@@ -92,14 +92,14 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
 
 1. Selezionare la scheda **regole di sicurezza in ingresso** e **aggiungere** una regola con una priorità più alta rispetto alla regola **deny_all_inbound** con le impostazioni seguenti: </br> </br>
 
-    |Impostazione  |Valore consigliato  |DESCRIZIONE  |
+    |Impostazione  |Valore consigliato  |Descrizione  |
     |---------|---------|---------|
     |**Origine**     |Qualsiasi indirizzo IP o tag di servizio         |<ul><li>Per i servizi di Azure come Power BI, selezionare il tag del servizio cloud di Azure</li> <li>Per il computer o la macchina virtuale di Azure, usare l'indirizzo IP NAT</li></ul> |
     |**Intervalli di porte di origine**     |*         |Lasciarlo a * (qualsiasi) perché le porte di origine vengono in genere allocate in modo dinamico e come tali, imprevedibili |
     |**Destinazione**     |Qualsiasi         |Uscita da destinazione per consentire il traffico nella subnet dell'istanza gestita |
     |**Intervalli di porte di destinazione**     |3342         |Porta di destinazione dell'ambito su 3342, ovvero l'endpoint TDS pubblico dell'istanza gestita |
     |**Protocollo**     |TCP         |Istanza gestita usa il protocollo TCP per TDS |
-    |**Azione**     |Consenti         |Consentire il traffico in ingresso verso l'istanza gestita tramite l'endpoint pubblico |
+    |**Azione**     |Allow         |Consentire il traffico in ingresso verso l'istanza gestita tramite l'endpoint pubblico |
     |**Priorità**     |1300         |Verificare che questa regola abbia una priorità più alta rispetto alla regola di **deny_all_inbound** |
 
     ![mi-nsg-rules.png](media/sql-database-managed-instance-public-endpoint-configure/mi-nsg-rules.png)

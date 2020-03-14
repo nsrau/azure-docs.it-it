@@ -4,11 +4,11 @@ description: Viene descritto come risolvere gli errori comuni che possono verifi
 ms.topic: troubleshooting
 ms.date: 11/7/2019
 ms.openlocfilehash: 8872cfe87df9b8d0553d777f72fe7102d08dea4d
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77916864"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79273293"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Risolvere i problemi di backup di database SAP HANA in Azure
 

@@ -3,12 +3,12 @@ title: Matrice di supporto per l'agente MARS
 description: Questo articolo riepiloga il supporto di backup di Azure quando si esegue il backup dei computer che eseguono l'agente di Servizi di ripristino di Microsoft Azure (MARS).
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: ef57688dd7b5ccee4e71ac0a54138ac567320aa2
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 6085bc647c06b5907282460a2d8706b8549e1bc2
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77582637"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79247865"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Matrice di supporto per il backup con l'agente di Servizi di ripristino di Microsoft Azure
 
@@ -97,7 +97,7 @@ Per ulteriori informazioni, vedere i [requisiti di routing di ExpressRoute](http
 Controllo della larghezza di banda | Supportato. Nell'agente MARS usare **modifica proprietà** per regolare la larghezza di banda.
 Limitazione della larghezza di banda della rete | Non disponibile per computer sottoposti a backup che eseguono Windows Server 2008 R2, Windows Server 2008 SP2 o Windows 7.
 
-## <a name="support-for-direct-backups"></a>Supporto per i backup diretti
+## <a name="supported-operating-systems"></a>Sistemi operativi supportati
 
 >[!NOTE]
 > L'agente MARS non supporta gli SKU di Windows Server Core.
@@ -114,7 +114,6 @@ I sistemi operativi devono essere di 64 bit ed eseguire gli aggiornamenti e i pa
 Windows 10 (Enterprise, Pro, Home) | Sì | No |  Controllare la versione del server corrispondente per i requisiti software/modulo
 Windows 8.1 (Enterprise, Pro)| Sì |No | Controllare la versione del server corrispondente per i requisiti software/modulo
 Windows 8 (Enterprise, Pro) | Sì | No | Controllare la versione del server corrispondente per i requisiti software/modulo
-Windows 7 (Ultimate, Enterprise, Pro, Home Premium/Basic, Starter) | Sì | No | Controllare la versione del server corrispondente per i requisiti software/modulo
 Windows Server 2016 (Standard, Datacenter, Essentials) | Sì | Sì | -.NET 4,5 <br> -Windows PowerShell <br> -Versione più recente compatibile di Microsoft VC + + Redistributable <br> -Microsoft Management Console (MMC) 3,0
 Windows Server 2012 R2 (Standard, Datacenter, Foundation, Essentials) | Sì | Sì | -.NET 4,5 <br> -Windows PowerShell <br> -Versione più recente compatibile di Microsoft VC + + Redistributable <br> -Microsoft Management Console (MMC) 3,0
 Windows Server 2012 (Standard, Datacenter, Foundation) | Sì | Sì |-.NET 4,5 <br> \- Windows PowerShell <br> -Versione più recente compatibile di Microsoft VC + + Redistributable <br> -Microsoft Management Console (MMC) 3,0 <br> -Gestione e manutenzione immagini distribuzione (DISM. exe)
@@ -122,6 +121,20 @@ Windows Storage Server 2016/2012 R2/2012 (standard, Workgroup) | Sì | No | -.NE
 Windows Server 2019 (Standard, Datacenter, Essentials) | Sì | Sì | -.NET 4,5 <br> -Windows PowerShell <br> -Versione più recente compatibile di Microsoft VC + + Redistributable <br> -Microsoft Management Console (MMC) 3,0
 
 Per ulteriori informazioni, vedere i [sistemi operativi supportati da MAB e DPM](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems).
+
+### <a name="operating-systems-at-end-of-support"></a>Sistemi operativi alla fine del supporto
+
+I sistemi operativi seguenti sono al termine del supporto ed è vivamente consigliabile aggiornare il sistema operativo per continuare a rimanere protetti.
+
+Se gli impegni esistenti impediscono l'aggiornamento del sistema operativo, è consigliabile eseguire la migrazione dei server Windows alle macchine virtuali di Azure e sfruttare i backup delle VM di Azure per continuare a rimanere protetti. Visitare la [pagina](https://azure.microsoft.com/migration/windows-server/) relativa alla migrazione per ulteriori informazioni sulla migrazione di Windows Server.
+
+Per gli ambienti locali o ospitati, in cui non è possibile aggiornare il sistema operativo o eseguire la migrazione ad Azure, attivare gli aggiornamenti della sicurezza estesa affinché i computer continuino a rimanere protetti e supportati. Si noti che solo edizioni specifiche sono idonee per gli aggiornamenti della sicurezza estesi. Per ulteriori informazioni, visitare la [pagina delle domande frequenti](https://www.microsoft.com/cloud-platform/extended-security-updates) .
+
+| **Sistema operativo**                                       | **File/cartelle** | **Stato del sistema** | **Requisiti del software/modulo**                           |
+| ------------------------------------------------------------ | ----------------- | ------------------ | ------------------------------------------------------------ |
+| Windows 7 (Ultimate, Enterprise, Pro, Home Premium/Basic, starter) | Sì               | No                 | Controllare la versione del server corrispondente per i requisiti software/modulo |
+| Windows Server 2008 R2 (standard, Enterprise, Datacenter, Foundation) | Sì               | Sì                | -.NET 3,5, .NET 4,5 <br>  -Windows PowerShell <br>  -Compatibile con Microsoft VC + + Redistributable <br>  -Microsoft Management Console (MMC) 3,0 <br>  -Gestione e manutenzione immagini distribuzione (DISM. exe) |
+| Windows Server 2008 SP2 (standard, Datacenter, Foundation)  | Sì               | No                 | -.NET 3,5, .NET 4,5 <br>  -Windows PowerShell <br>  -Compatibile con Microsoft VC + + Redistributable <br>  -Microsoft Management Console (MMC) 3,0 <br>  -Gestione e manutenzione immagini distribuzione (DISM. exe) <br>  -Server virtuale 2005 base + KB KB948515 |
 
 ## <a name="backup-limits"></a>Limiti relativi a Backup
 
@@ -145,7 +158,7 @@ Windows 7| 1\.700 GB
 
 **Tipo** | **Supporto**
 --- | ---
-Crittografato| Supportato.
+<sup>*</sup> crittografati| Supportato.
 Compresso | Supportato.
 Sparse | Supportato.
 Compresso e sparse |Supportato.
@@ -156,6 +169,8 @@ Flusso compresso| Non supportato. Ignorato.
 Flusso di tipo sparse| Non supportato. Ignorato.
 OneDrive (i file sincronizzati sono flussi sparse)| Non supportato.
 Cartelle con Replica DFS abilitata | Non supportato.
+
+\* assicurarsi che l'agente MARS abbia accesso ai certificati necessari per accedere ai file crittografati. I file inaccessibili verranno ignorati.
 
 ## <a name="supported-drives-or-volumes-for-backup"></a>Unità o volumi supportati per il backup
 

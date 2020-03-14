@@ -8,15 +8,15 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/26/2019
 ms.openlocfilehash: db1d530c9cab77ae612c83a0d4f52478fb9ee270
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74024025"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79251739"
 ---
 # <a name="best-practices-for-using-power-bi-to-query-and-visualize-azure-data-explorer-data"></a>Procedure consigliate per l'uso di Power BI per eseguire query e visualizzare i dati di Azure Esplora dati
 
-Esplora dati di Azure è un servizio di esplorazione dei dati rapido e a scalabilità elevata per dati di log e di telemetria. [Power bi](https://docs.microsoft.com/power-bi/) è una soluzione di analisi business che consente di visualizzare i dati e condividere i risultati nell'intera organizzazione. Azure Esplora dati offre tre opzioni per la connessione ai dati Power BI. Usare il [connettore incorporato](power-bi-connector.md), [importare una query da Azure Esplora dati in Power bi](power-bi-imported-query.md)oppure usare una [query SQL](power-bi-sql-query.md). Questo articolo fornisce suggerimenti per l'esecuzione di query e la visualizzazione dei dati di Azure Esplora dati con Power BI. 
+Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. [Power bi](https://docs.microsoft.com/power-bi/) è una soluzione di analisi business che consente di visualizzare i dati e condividere i risultati nell'intera organizzazione. Azure Esplora dati offre tre opzioni per la connessione ai dati Power BI. Usare il [connettore incorporato](power-bi-connector.md), [importare una query da Azure Esplora dati in Power bi](power-bi-imported-query.md)oppure usare una [query SQL](power-bi-sql-query.md). Questo articolo fornisce suggerimenti per l'esecuzione di query e la visualizzazione dei dati di Azure Esplora dati con Power BI. 
 
 ## <a name="best-practices-for-using-power-bi"></a>Procedure consigliate per l'utilizzo di Power BI 
 

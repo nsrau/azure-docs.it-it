@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 11/02/2017
 ms.author: alkohli
 ms.openlocfilehash: fa53213e577028628d48db91704578e23888f2a8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61411570"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79254508"
 ---
 # <a name="install-update-10-on-your-storsimple-virtual-array"></a>Installare l'aggiornamento 1.0 nell'array virtuale StorSimple
 
@@ -58,7 +58,7 @@ Quando si usa l'interfaccia utente Web locale, è necessario eseguire due passag
 * Installare l'aggiornamento o l'hotfix
 
 > [!IMPORTANT] 
-> **Procedere con questo aggiornamento solo se si esegue l'aggiornamento 0.6 (10.0.10293.0). Se si esegue una versione precedente, [installare prima l'aggiornamento 0.6](storsimple-virtual-array-install-update-06.md) sul dispositivo e quindi applicare l'aggiornamento 1.**
+> **Procedere con questo aggiornamento solo se si esegue l'aggiornamento 0,6 (10.0.10293.0). Se si esegue una versione precedente, installare prima l' [aggiornamento 0,6](storsimple-virtual-array-install-update-06.md) nel dispositivo e quindi applicare l'aggiornamento 1.**
 
 ### <a name="download-the-update-or-the-hotfix"></a>Scaricare l'aggiornamento o l'hotfix
 
@@ -99,7 +99,7 @@ Per completare questa procedura di aggiornamento sono necessari circa 4 minuti. 
 
 #### <a name="to-install-the-update-or-the-hotfix"></a>Per installare l'aggiornamento o l'hotfix
 
-1. Nell'interfaccia utente Web locale, accedere a **Manutenzione** > **Aggiornamento software**. Prendere nota della versione del software in esecuzione. **Procedere con questo aggiornamento solo se si esegue l'aggiornamento 0.6 (10.0.10293.0). Se si esegue una versione precedente, [installare prima l'aggiornamento 0.6](storsimple-virtual-array-install-update-06.md) sul dispositivo e quindi applicare l'aggiornamento 1.**
+1. Nell'interfaccia utente Web locale, accedere a **Manutenzione** > **Aggiornamento software**. Prendere nota della versione del software in esecuzione. **Procedere con questo aggiornamento solo se si esegue l'aggiornamento 0,6 (10.0.10293.0). Se si esegue una versione precedente, installare prima l' [aggiornamento 0,6](storsimple-virtual-array-install-update-06.md) nel dispositivo e quindi applicare l'aggiornamento 1.**
    
     ![aggiornamento dispositivo](./media/storsimple-virtual-array-install-update-1/update1m.png)
 

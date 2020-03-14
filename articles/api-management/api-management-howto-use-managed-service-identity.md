@@ -1,6 +1,6 @@
 ---
-title: Usa identità gestite in Gestione API di Azure | Microsoft Docs
-description: Informazioni su come usare identità gestite in Gestione API
+title: Usare identità gestite in gestione API di Azure | Microsoft Docs
+description: Informazioni su come usare le identità gestite in gestione API
 services: api-management
 documentationcenter: ''
 author: miaojiang
@@ -12,25 +12,25 @@ ms.topic: article
 ms.date: 10/18/2017
 ms.author: apimpm
 ms.openlocfilehash: 49576b805e6c6d01340e663bfb5d8e9013917625
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67461598"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79249633"
 ---
-# <a name="use-managed-identities-in-azure-api-management"></a>Usa identità gestite in Gestione API di Azure
+# <a name="use-managed-identities-in-azure-api-management"></a>Usare identità gestite in gestione API di Azure
 
-Questo articolo illustra come creare un'identità gestita per un'istanza del servizio Gestione API e come accedere ad altre risorse. Un'identità gestita generata da Azure Active Directory (Azure AD) consente all'istanza di gestione API semplice e sicuro accedere ad altre risorse di protetto AD Azure, ad esempio Azure Key Vault. Questa identità viene gestita da Azure e non è necessario effettuare il provisioning o ruotare alcun segreto. Per altre informazioni sulle identità gestita, vedere [What ' s identità gestita per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md).
+Questo articolo illustra come creare un'identità gestita per un'istanza del servizio gestione API e come accedere ad altre risorse. Un'identità gestita generata da Azure Active Directory (Azure AD) consente all'istanza di gestione API di accedere in modo semplice e sicuro ad altre risorse protette da Azure AD, ad esempio Azure Key Vault. Questa identità viene gestita da Azure e non richiede il provisioning o la rotazione di segreti. Per altre informazioni sulle identità gestite, vedere informazioni sulle [identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
 ## <a name="create-a-managed-identity-for-an-api-management-instance"></a>Creare un'identità gestita per un'istanza di gestione API
 
 ### <a name="using-the-azure-portal"></a>Uso del portale di Azure
 
-Per configurare un'identità gestita nel portale, si verrà innanzitutto creata un'istanza di gestione API come di consueto e quindi abilitare la funzionalità.
+Per configurare un'identità gestita nel portale, è innanzitutto necessario creare un'istanza di gestione API come di consueto e quindi abilitare la funzionalità.
 
 1. Creare un'istanza di Gestione API nel portale come di consueto. Accedervi nel portale.
 2. Selezionare **identità del servizio gestito**.
-3. Impostare Registra con Azure Active Directory su ON. Fare clic su Save.
+3. Impostare Registra con Azure Active Directory su ON. Fare clic su Salva.
 
 ![Abilitare l'identità del servizio gestita](./media/api-management-msi/enable-msi.png)
 
@@ -75,14 +75,14 @@ Ad esempio, un modello completo di Azure Resource Manager può essere simile al 
 ## <a name="use-the-managed-service-identity-to-access-other-resources"></a>Usare l'identità del servizio gestita per accedere ad altre risorse
 
 > [!NOTE]
-> Attualmente, le identità gestito utilizzabile per ottenere i certificati da Azure Key Vault per i nomi di dominio personalizzato di gestione API. Altri scenari saranno supportati a breve.
+> Attualmente, è possibile usare le identità gestite per ottenere i certificati da Azure Key Vault per i nomi di dominio personalizzati di gestione API. Altri scenari saranno supportati a breve.
 >
 >
 
 
 ### <a name="obtain-a-certificate-from-azure-key-vault"></a>Ottenere un certificato da Azure Key Vault
 
-#### <a name="prerequisites"></a>Prerequisiti
+#### <a name="prerequisites"></a>Prerequisites
 1. L'istanza di Key Vault contenente il certificato PFX deve trovarsi nella stessa sottoscrizione di Azure e nello stesso gruppo di risorse del servizio Gestione API. Si tratta di un requisito del modello di Azure Resource Manager.
 2. Il contenuto del segreto deve essere di tipo *application/x-pkcs12*. Per caricare il certificato è possibile usare lo script seguente:
 
@@ -233,8 +233,8 @@ L'esempio seguente mostra un modello di Azure Resource Manager che contiene i pa
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni sulle identità gestita per le risorse di Azure:
+Altre informazioni sulle identità gestite per le risorse di Azure:
 
-* [Che cos'è l'identità gestita per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md)
+* [Informazioni sulle identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md)
 * [Modelli di Gestione risorse di Azure](https://github.com/Azure/azure-quickstart-templates)
 * [Eseguire l'autenticazione con un'identità gestita in un criterio](./api-management-authentication-policies.md#ManagedIdentity)

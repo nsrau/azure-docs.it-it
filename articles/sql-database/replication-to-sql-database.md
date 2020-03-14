@@ -12,11 +12,11 @@ ms.author: xiwu
 ms.reviewer: mathoma
 ms.date: 01/25/2019
 ms.openlocfilehash: f718bc17b987926f4324635f096d5983acdb63fc
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74997276"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79256471"
 ---
 # <a name="replication-to-sql-database-single-and-pooled-databases"></a>Replica in database SQL singoli e in pool
 
@@ -28,7 +28,7 @@ La replica di SQL Server può essere configurata in database singoli e in pool s
 - Il database SQL di Azure deve essere un sottoscrittore push di un server di pubblicazione SQL Server.  
 - Il database di distribuzione e gli agenti di replica non possono essere collocati in un database SQL di Azure.  
 - La replica snapshot e la replica transazionale unidirezionale sono supportate. La replica transazionale peer-to-peer e la replica di tipo merge non sono supportate.
-- La replica è disponibile in anteprima pubblica in Istanza gestita di database SQL di Azure. L'istanza gestita può ospitare database di pubblicazione, di distribuzione e sottoscrittore. Per altre informazioni, vedere [Replica con Istanza gestita di database SQL](replication-with-sql-database-managed-instance.md).
+- La replica è disponibile per l'anteprima pubblica in Istanza gestita di database SQL di Azure. L'istanza gestita può ospitare database di pubblicazione, di distribuzione e sottoscrittore. Per altre informazioni, vedere [Replica con Istanza gestita di database SQL](replication-with-sql-database-managed-instance.md).
 
 ## <a name="versions"></a>Versioni  
 
@@ -104,9 +104,9 @@ Le opzioni seguenti non sono supportate per le sottoscrizioni del database SQL d
 - Copia regole di confronto  
 - Esecuzione in una transazione serializzata della stored procedure  
 
-## <a name="examples"></a>esempi
+## <a name="examples"></a>Esempi
 
-Creare una pubblicazione e una sottoscrizione push. Per scoprire di più, vedi:
+Creare una pubblicazione e una sottoscrizione push. Per altre informazioni, vedere:
   
 - [Creare una pubblicazione](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
 - [Creare una sottoscrizione push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) usando il nome del server di database SQL di Azure come sottoscrittore (ad esempio **N'azuresqldbdns.database.windows.net'** ) e il nome del database SQL di Azure SQL come database di destinazione (ad esempio **AdventureWorks**).  

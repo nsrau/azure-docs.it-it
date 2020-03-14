@@ -4,11 +4,11 @@ description: Preparare il failback delle VM VMware dopo il failover con Azure Si
 ms.topic: conceptual
 ms.date: 12/24/2019
 ms.openlocfilehash: 5a330f8cba31640d0116ca3d5ccab352ce5b3509
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78362848"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79257186"
 ---
 # <a name="prepare-for-reprotection-and-failback-of-vmware-vms"></a>Preparare la riprotezione e il failback delle macchine virtuali VMware
 

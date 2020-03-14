@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/12/2019
-ms.openlocfilehash: 31ad7a9d1108adc9071812454419252a813cb93e
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: HT
+ms.openlocfilehash: e7a64776cba00a6840af70cecad5bf9c02b3f38e
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78364483"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79251973"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Effettuare il provisioning della velocità effettiva per contenitori e database
 
@@ -87,11 +87,11 @@ Se i carichi di lavoro comportano l'eliminazione e la ricreazione di tutte le ra
 
 ## <a name="update-throughput-on-a-database-or-a-container"></a>Aggiornamento della velocità effettiva in un database o in un contenitore
 
-Dopo aver creato un contenitore di Azure Cosmos o un database, è possibile aggiornare la velocità effettiva con provisioning. Non esiste alcun limite alla velocità effettiva massima con provisioning che è possibile configurare nel database o nel contenitore. La velocità effettiva minima con provisioning dipende dai fattori seguenti: 
+Dopo aver creato un contenitore di Azure Cosmos o un database, è possibile aggiornare la velocità effettiva con provisioning. Non esiste alcun limite alla velocità effettiva massima con provisioning che è possibile configurare nel database o nel contenitore. La [velocità effettiva minima con provisioning](concepts-limits.md#storage-and-throughput) dipende dai fattori seguenti: 
 
 * Dimensioni massime dei dati che è possibile archiviare nel contenitore
 * Velocità effettiva massima di cui si esegue il provisioning nel contenitore
-* Il numero massimo di contenitori di Azure Cosmos creati in un database con velocità effettiva condivisa. 
+* Il numero corrente di contenitori di Azure Cosmos presenti in un database con velocità effettiva condivisa. 
 
 È possibile recuperare la velocità effettiva minima di un contenitore o di un database a livello di programmazione usando gli SDK o visualizzare il valore nel portale di Azure. Quando si usa .NET SDK, il metodo [DocumentClient. ReplaceOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.replaceofferasync?view=azure-dotnet) consente di ridimensionare il valore della velocità effettiva con provisioning. Quando si usa Java SDK, il metodo [RequestOptions. setOfferThroughput](sql-api-java-samples.md#offer-examples) consente di ridimensionare il valore della velocità effettiva con provisioning. 
 
@@ -107,7 +107,7 @@ Quando si usa .NET SDK, il metodo [DocumentClient. ReadOfferAsync](https://docs.
 |UR minime per contenitore|100|400|
 |UR massime|Illimitate, nel database.|Illimitate, nel contenitore.|
 |UR assegnate o disponibili per un contenitore specifico|Nessuna garanzia. Le UR assegnate a un determinato contenitore dipendono dalle proprietà. Le proprietà possono essere, a scelta, le chiavi di partizione dei contenitori che condividono la velocità effettiva, la distribuzione del carico di lavoro e il numero di contenitori. |Tutte le UR configurate nel contenitore sono riservate esclusivamente per il contenitore.|
-|Archiviazione massima per un contenitore|Illimitato.|Illimitato.|
+|Archiviazione massima per un contenitore|Senza limiti.|Senza limiti.|
 |Velocità effettiva massima per partizione logica di un contenitore|10.000 UR|10.000 UR|
 |Spazio di archiviazione massimo (data + indice) per partizione logica di un contenitore|20 GB|20 GB|
 

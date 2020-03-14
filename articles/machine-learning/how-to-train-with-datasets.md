@@ -10,18 +10,18 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 09/25/2019
-ms.openlocfilehash: c00ed0b0ee24028e0a9e90f3fd3707e4a545ace6
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.date: 03/09/2020
+ms.openlocfilehash: 401383f2d483836bf725051810d78167869f7b22
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "78924700"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79283498"
 ---
 # <a name="train-with-datasets-in-azure-machine-learning"></a>Eseguire il training con set di impostazioni in Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In questo articolo vengono illustrati i due modi per utilizzare [Azure Machine Learning set](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py) di dati in un training di esperimento remoto senza preoccuparsi delle stringhe di connessione o dei percorsi di dati.
+In questo articolo vengono illustrate le due modalità di utilizzo [Azure Machine Learning set](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py) di dati in un esperimento remoto viene eseguito senza doversi preoccupare delle stringhe di connessione o dei percorsi di dati.
 
 - Opzione 1: Se sono presenti dati strutturati, creare un TabularDataset e usarlo direttamente nello script di training.
 
@@ -33,7 +33,7 @@ I dataset di Azure Machine Learning forniscono un'integrazione perfetta con i pr
 
 Per creare ed eseguire il training con i set di impostazioni, è necessario:
 
-* Una sottoscrizione di Azure. Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
+* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
 
 * [Area di lavoro Azure Machine Learning](how-to-manage-workspace.md).
 

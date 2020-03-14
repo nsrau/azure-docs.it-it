@@ -5,15 +5,15 @@ services: storage
 author: SnehaGunda
 ms.service: storage
 ms.topic: article
-ms.date: 04/23/2018
+ms.date: 03/09/2020
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 95272956da4567ec21e1c4603b88472e45373a39
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 8df639eea757c374554fa19e57c43cef79308e98
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78387125"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79255145"
 ---
 # <a name="design-scalable-and-performant-tables"></a>Progettare tabelle scalabili ad alte prestazioni
 
@@ -140,19 +140,8 @@ Nel servizio tabelle, le transazioni di gruppi di entità (EGT, Entity Group Tra
 Le transazioni EGT richiedono anche la valutazione di un potenziale compromesso nella progettazione. L'uso di un maggior numero di partizioni aumenta infatti la scalabilità dell'applicazione, in quanto Azure ha maggiori opportunità di bilanciamento del carico delle richieste tra i nodi. Ma l'uso di più partizioni potrebbe limitare la capacità dell'applicazione di eseguire transazioni atomiche e mantenere la coerenza assoluta per i dati. Ci sono inoltre specifici obiettivi di scalabilità a livello di partizione, che potrebbero limitare la velocità effettiva delle transazioni prevista per un singolo nodo. Per altre informazioni sugli obiettivi di scalabilità per gli account di archiviazione standard di Azure, vedere [obiettivi di scalabilità per gli account di archiviazione standard](../common/scalability-targets-standard-account.md). Per altre informazioni sugli obiettivi di scalabilità per il servizio tabelle, vedere [Obiettivi di scalabilità e prestazioni per l'archiviazione tabelle](scalability-targets.md).
 
 ## <a name="capacity-considerations"></a>Considerazioni sulla capacità
-La tabella seguente descrive alcuni valori chiave da tenere presenti quando si progetta una soluzione di servizio tabelle:  
 
-| Capacità totale di un account di archiviazione di Azure | 500 TB |
-| --- | --- |
-| Numero di tabelle in un account di archiviazione di Azure |Limitato solo dalla capacità dell'account di archiviazione |
-| Numero di partizioni in una tabella |Limitato solo dalla capacità dell'account di archiviazione |
-| Numero di entità in una partizione |Limitato solo dalla capacità dell'account di archiviazione |
-| Dimensioni di una singola entità |Fino a 1 MB con un massimo di 255 proprietà (incluse **PartitionKey**, **RowKey** e **Timestamp**) |
-| Dimensioni di **PartitionKey** |Stringa con dimensioni fino a 1 KB. |
-| Dimensioni di **RowKey** |Stringa con dimensioni fino a 1 KB. |
-| Dimensioni di una transazione di gruppi di entità |Una transazione può includere al massimo 100 entità e le dimensioni del payload devono essere inferiori a 4 MB. Una transazione EGT può aggiornare una sola entità per volta. |
-
-Per altre informazioni, vedere [Informazioni sul modello di dati del servizio tabelle](https://msdn.microsoft.com/library/azure/dd179338.aspx).  
+[!INCLUDE [storage-table-scale-targets](../../../includes/storage-tables-scale-targets.md)]
 
 ## <a name="cost-considerations"></a>Considerazioni sul costo
 Anche se l'archiviazione tabelle è relativamente poco costosa, è consigliabile includere le stime dei costi sia per l'utilizzo della capacità che per la quantità di transazioni nella valutazione di una soluzione di servizio tabelle. In molti scenari, tuttavia, l'archiviazione di dati denormalizzati o duplicati per migliorare le prestazioni o la scalabilità della soluzione costituisce un approccio valido. Per altre informazioni sui prezzi, vedere [Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/).  
