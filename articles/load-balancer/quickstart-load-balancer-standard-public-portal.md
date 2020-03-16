@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/08/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 2477d91ac885d4ef39df7b9246f7272d66c3f7ee
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: b424fe315737b84479283eed2d77398c8ce4f148
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78251869"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898825"
 ---
 # <a name="quickstart-create-a-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Guida introduttiva: Creare una risorsa Load Balancer per bilanciare il carico delle macchine virtuali con il portale di Azure
 
@@ -34,7 +34,7 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
 
 ## <a name="create-a-load-balancer"></a>Creare una risorsa Load Balancer
 
-In questa sezione verrà creata una risorsa Load Balancer che consente di bilanciare il carico delle macchine virtuali. È possibile creare una risorsa Load Balancer pubblica o interna. Quando si crea una risorsa Load Balancer pubblica, è necessario creare anche un nuovo indirizzo IP pubblico che viene configurato come front-end (denominato *LoadBalancerFrontend* per impostazione predefinita) per la risorsa Load Balancer.
+In questa sezione verrà creata una risorsa Load Balancer che consente di bilanciare il carico delle macchine virtuali. È possibile creare una risorsa Load Balancer pubblica o interna. Quando si crea una risorsa Load Balancer pubblica, è necessario creare anche un nuovo indirizzo IP pubblico che viene configurato come front-end (denominato *LoadBalancerFrontend* per impostazione predefinita).
 
 1. In alto a sinistra nella schermata selezionare **Crea una risorsa** > **Rete** > **Load Balancer**.
 2. Nella scheda **Generale** della pagina **Crea servizio di bilanciamento del carico** immettere o selezionare le informazioni seguenti, accettare le impostazioni predefinite per le opzioni rimanenti e quindi selezionare **Rivedi e crea**:

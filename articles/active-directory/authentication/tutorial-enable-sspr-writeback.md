@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d383acae83f0f42f9c16fcb5d4ea7efbdf2b5f8
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: ccc64fb8dd8bd8abc198d9bfc9d643ef618188ea
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77486479"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78967797"
 ---
 # <a name="tutorial-enable-azure-active-directory-self-service-password-reset-writeback-to-an-on-premises-environment"></a>Esercitazione: Abilitare il writeback della reimpostazione della password self-service di Azure Active Directory in un ambiente locale
 
@@ -30,7 +30,7 @@ In questa esercitazione verranno illustrate le procedure per:
 > * Abilitare l'opzione di writeback delle password in Azure AD Connect
 > * Abilitare il writeback delle password nella reimpostazione della password self-service di Azure AD
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare l'esercitazione, sono necessari i privilegi e le risorse seguenti:
 
@@ -42,6 +42,7 @@ Per completare l'esercitazione, sono necessari i privilegi e le risorse seguenti
     * Se necessario, [completare l'esercitazione precedente per abilitare la reimpostazione della password self-service di Azure AD](tutorial-enable-sspr.md).
 * Un ambiente Active Directory Domain Services locale esistente configurato con una versione corrente di Azure AD Connect.
     * Se necessario, configurare Azure AD Connect usando la modalità [Rapida](../hybrid/how-to-connect-install-express.md) o [Personalizzata](../hybrid/how-to-connect-install-custom.md).
+    * Per usare il writeback delle password, i controller di dominio devono essere Windows Server 2008 R2 o versioni successive.
 
 ## <a name="configure-account-permissions-for-azure-ad-connect"></a>Configurare le autorizzazioni dell'account per Azure AD Connect
 

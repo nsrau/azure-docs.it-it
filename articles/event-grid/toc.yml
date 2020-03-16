@@ -8,6 +8,8 @@
       href: overview.md
     - name: Confrontare i servizi di messaggistica
       href: compare-messaging-services.md
+    - name: Livelli Premium e Basic
+      href: premium-basic-tiers.md
 - name: Avvi rapidi
   expanded: true
   items:
@@ -102,6 +104,8 @@
           href: security-authentication.md
         - name: Autorizzazione
           href: security-authorization.md
+        - name: Sicurezza di rete
+          href: network-security.md
     - name: Recapito e nuovo tentativo
       href: delivery-and-retry.md
     - name: Filtro eventi
@@ -118,6 +122,12 @@
       href: geo-disaster-recovery.md
 - name: Guide pratiche
   items:
+    - name: Configurare gli endpoint privati (anteprima)
+      href: configure-private-endpoints.md
+    - name: Configurare il firewall IP (anteprima)
+      href: configure-firewall.md
+    - name: Aggiornare il piano tariffario
+      href: update-tier.md
     - name: Inserire post sull'argomento personalizzato
       href: post-to-custom-topic.md
     - name: Ricevere eventi in un endpoint HTTP

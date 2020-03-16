@@ -12,12 +12,12 @@ author: Ninarn
 ms.author: ninarn
 ms.reviewer: carlrab
 ms.date: 10/24/2019
-ms.openlocfilehash: 3990d7ec63c312d38168fe76269e1a920f1a6817
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: b3ccc2a5343cf02127990dca80a1300959fa06a3
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827104"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79087172"
 ---
 # <a name="quickstart-use-the-azure-portals-sql-query-editor-to-connect-and-query-data"></a>Guida introduttiva: Usare l'editor di query SQL del portale di Azure per connettersi ed eseguire query sui dati
 
@@ -103,7 +103,7 @@ La configurazione di un amministratore di Azure Active Directory (Azure AD) cons
 
    ![Risultati dell'Editor di query](./media/sql-database-connect-query-portal/query-editor-results.png)
 
-## <a name="insert-data"></a>Inserire dati
+## <a name="insert-data"></a>Inserire i dati
 
 Eseguire l'istruzione [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL seguente per aggiungere un nuovo prodotto nella tabella `SalesLT.Product`.
 
@@ -167,6 +167,8 @@ Quando si usa l'editor di query è necessario tenere presente quanto segue.
 
 * L'editor di query usa le porte 443 e 1443 per comunicare.  Assicurarsi di aver abilitato il traffico HTTPS in uscita su queste porte. È anche necessario aggiungere l'indirizzo IP in uscita per le regole del firewall consentite del server per accedere ai database e ai data warehouse.
 
+* L'editor di query funziona con Collegamento privato senza la necessità di aggiungere l'indirizzo IP del client al firewall del database SQL
+
 * Premendo F5, la pagina dell'editor di query verrà aggiornata e qualsiasi query su cui si sta lavorando andrà persa.
 
 * L'editor di query non supporta la connessione al database `master`.
@@ -176,6 +178,8 @@ Quando si usa l'editor di query è necessario tenere presente quanto segue.
 * L'editor di query supporta solo la proiezione cilindrica per i tipi di dati Geography.
 
 * Non è disponibile alcun supporto per IntelliSense per le tabelle e le viste di database. L'editor supporta tuttavia il completamento automatico per i nomi già digitati.
+
+
 
 
 ## <a name="next-steps"></a>Passaggi successivi

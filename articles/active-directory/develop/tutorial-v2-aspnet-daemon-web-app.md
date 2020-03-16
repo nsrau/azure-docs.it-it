@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: ec6664e7c55057c29c5b741203b326ce460c6e91
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 635b12cc2ffc4d318eaaa74fffc17e4ce4d58c0b
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701230"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129959"
 ---
 # <a name="tutorial-build-a-multitenant-daemon-that-uses-the-microsoft-identity-platform-endpoint"></a>Esercitazione: Creare un daemon multi-tenant che usa l'endpoint di Microsoft Identity Platform
 
@@ -39,7 +39,8 @@ L'app viene creata come applicazione MVC ASP.NET. Usa il middleware OWIN OpenID 
 
 Il componente "daemon" in questo esempio è un controller API, `SyncController.cs`. Quando viene chiamato, il controller recupera da Microsoft Graph un elenco di utenti del tenant di Azure Active Directory (Azure AD) del cliente. `SyncController.cs` viene attivato da una chiamata AJAX nell'applicazione Web. Usa [Microsoft Authentication Library (MSAL) per .NET](msal-overview.md) per acquisire un token di accesso per Microsoft Graph.
 
-Per un'applicazione daemon console più semplice, vedere l'[argomento di avvio rapido sul daemon .NET Core](quickstart-v2-netcore-daemon.md).
+>[!NOTE]
+> Se non si ha familiarità con Microsoft Identity Platform, è consigliabile iniziare con l'[argomento di avvio rapido sul daemon .NET Core](quickstart-v2-netcore-daemon.md).
 
 ## <a name="scenario"></a>Scenario
 
@@ -49,7 +50,7 @@ Poiché l'app è multi-tenant per i clienti aziendali Microsoft, deve fornire un
 
 Per altre informazioni sui concetti di questo esempio, leggere la [documentazione relativa al protocollo di credenziali client per l'endpoint di Identity Platform](v2-oauth2-client-creds-grant-flow.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per eseguire l'esempio in questo argomento di avvio rapido, è necessario avere:
 

@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/08/2019
 ms.author: alkohli
-ms.openlocfilehash: d930b1db48e3a5c4bda96f0b7d80a9c9f24d53d9
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 623ec5e082a8ed889329936d020bf28434a56fbf
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400650"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942533"
 ---
 # <a name="tutorial-transfer-data-with-azure-data-box-gateway"></a>Esercitazione: Trasferire i dati con Azure Data Box Gateway
 
@@ -24,7 +24,7 @@ Questo articolo illustra come aggiungere condivisioni in Data Box Gateway e conn
 
 Per completare questa procedura sono necessari circa 10 minuti.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Aggiungere una condivisione
@@ -61,7 +61,7 @@ Per creare una condivisione, seguire questa procedura:
    
     5. Questo passaggio varia a seconda che si stia creando una condivisione SMB o NFS.
      
-    - **Condivisione SMB**: in **Utente locale con tutti i privilegi** selezionare **Crea nuovo** oppure **Usa esistente**. Se si crea un nuovo utente locale, immettere un **nome utente** e una **password** e quindi **confermare la password**. Vengono così assegnate le autorizzazioni all'utente locale. Dopo aver assegnato le autorizzazioni in questo contesto, è possibile modificarle usando Esplora file.
+    - **Condivisione SMB**: in **Utente locale con tutti i privilegi** selezionare **Crea nuovo** oppure **Usa esistente**. Se si crea un nuovo utente locale, immettere un **nome utente** e una **password** e quindi **confermare la password**. Vengono così assegnate le autorizzazioni all'utente locale. La modifica delle autorizzazioni a livello di condivisione non è attualmente supportata.
     
         ![Aggiunta di una condivisione SMB](./media/data-box-gateway-deploy-add-shares/add-share-smb-1.png)
         

@@ -1,6 +1,6 @@
 ---
-title: 'Guida introduttiva: Creare un data warehouse (PowerShell)'
-description: Creare rapidamente un server logico di data warehouse di Azure Synapse Analytics con una regola del firewall a livello di server usando Azure PowerShell.
+title: Creare ed eseguire query in un pool SQL di Synapse con Azure PowerShell
+description: Creare rapidamente un server logico di un pool SQL di Synapse con una regola del firewall a livello di server usando Azure PowerShell.
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -11,23 +11,23 @@ ms.date: 4/11/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 9df9b4b1bdb33a856d9e31d65981e8654af049d2
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 3cf55a400c1894794d555e1362f2197aad44a96b
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78200006"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79130302"
 ---
-# <a name="quickstart-create--query-a-data-warehouse-with-azure-powershell"></a>Guida introduttiva: Creare un data warehouse ed eseguire query con Azure PowerShell
+# <a name="quickstart-create-and-query-a-synapse-sql-pool-with-azure-powershell"></a>Guida introduttiva: Creare ed eseguire query in un pool SQL di Synapse con Azure PowerShell
 
-Creare un data warehouse di Azure Synapse Analytics effettuando il provisioning di un pool SQL usando Azure PowerShell.
+Creare un pool SQL di Synapse (data warehouse) in Azure Synapse Analytics usando Azure PowerShell.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-> [!NOTE]
-> La creazione di un warehouse può risultare in un servizio fatturabile.  Per altre informazioni, vedere [Prezzi di Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+> [!IMPORTANT]
+> La creazione di un pool SQL può risultare in un nuovo servizio fatturabile.  Per altre informazioni, vedere [Prezzi di Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -94,7 +94,9 @@ New-AzSqlServer -ResourceGroupName $resourcegroupname `
 
 ## <a name="configure-a-server-firewall-rule"></a>Configurare una regola del firewall del server
 
-Creare una [regola del firewall a livello di server SQL di Azure](../sql-database/sql-database-firewall-configure.md) con il comando [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule). Una regola del firewall a livello di server consente a un'applicazione esterna, ad esempio SQL Server Management Studio o l'utility SQLCMD, di connettersi a un'istanza di SQL Data Warehouse tramite il firewall del servizio SQL Data Warehouse. Nell'esempio seguente, il firewall è aperto solo per altre risorse di Azure. Per abilitare la connettività esterna, modificare l'indirizzo IP in un indirizzo appropriato per l'ambiente. Per aprire tutti gli indirizzi IP, usare 0.0.0.0 come indirizzo IP iniziale e 255.255.255.255 come indirizzo finale.
+Creare una [regola del firewall a livello di server SQL di Azure](../sql-database/sql-database-firewall-configure.md) con il comando [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule). Una regola del firewall a livello di server consente a un'applicazione esterna, ad esempio SQL Server Management Studio o l'utilità SQLCMD, di connettersi a un pool SQL tramite il firewall del servizio pool SQL. 
+
+Nell'esempio seguente, il firewall è aperto solo per altre risorse di Azure. Per abilitare la connettività esterna, modificare l'indirizzo IP in un indirizzo appropriato per l'ambiente. Per aprire tutti gli indirizzi IP, usare 0.0.0.0 come indirizzo IP iniziale e 255.255.255.255 come indirizzo finale.
 
 ```powershell
 New-AzSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
@@ -107,8 +109,8 @@ New-AzSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
 >
 
 
-## <a name="create-a-data-warehouse"></a>Creare un data warehouse
-Questo esempio crea un data warehouse usando le variabili definite in precedenza.  Specifica l'obiettivo di servizio come DW100c, ovvero un punto iniziale a basso costo per il data warehouse. 
+## <a name="create-a-sql-pool"></a>Creare un pool SQL
+L'esempio seguente crea un pool SQL usando le variabili definite in precedenza.  Specifica l'obiettivo di servizio come DW100c, ovvero un punto iniziale a basso costo per il pool SQL. 
 
 ```Powershell
 New-AzSqlDatabase `
@@ -124,10 +126,10 @@ New-AzSqlDatabase `
 I parametri obbligatori sono:
 
 * **RequestedServiceObjectiveName**: quantità di [unità di data warehouse](what-is-a-data-warehouse-unit-dwu-cdwu.md) richiesta. L'aumento di questa quantità comporta l'aumento dei costi di calcolo. Per un elenco di valori supportati, vedere [Memory and concurrency limits](memory-concurrency-limits.md) (Limiti di memoria e concorrenza).
-* **DatabaseName**: il nome del data warehouse che si sta creando.
+* **DatabaseName**: il nome del pool SQL da creare.
 * **ServerName**: nome del server che si sta usando per la creazione.
 * **ResourceGroupName**: gruppo di risorse in uso. Per trovare i gruppi di risorse disponibili nella sottoscrizione, usare Get-AzureResource.
-* **Edition**: per creare un data warehouse, deve essere "DataWarehouse".
+* **Edition**: per creare un pool SQL, deve essere "DataWarehouse".
 
 I parametri facoltativi sono:
 
@@ -151,6 +153,4 @@ Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Sono stati creati un data warehouse e una regola del firewall, è stata stabilita una connessione al data warehouse e sono state eseguite alcune query. Per altre informazioni, continuare con l'esercitazione sul caricamento dei dati.
-> [!div class="nextstepaction"]
->[Caricare i dati in un data warehouse](load-data-from-azure-blob-storage-using-polybase.md)
+Sono stati creati un pool SQL e una regola del firewall, è stata stabilita una connessione al pool SQL e sono state eseguite alcune query. Per altre informazioni, continuare con l'articolo [Caricare i dati in un pool SQL](load-data-from-azure-blob-storage-using-polybase.md).

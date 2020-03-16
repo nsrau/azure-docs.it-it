@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: c96caf7a90f35913bcba04a00553ad1df2689999
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: dbf3531f84d218543b0ab1fb2199a66bdbde2926
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514426"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79117245"
 ---
 ::: zone target = "docs"
 
@@ -46,7 +46,7 @@ Questa guida fornisce istruzioni su come verificare i prerequisiti, cablare e co
 
 ::: zone-end
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare, verificare che:
 
@@ -100,7 +100,7 @@ Per cablare il dispositivo, eseguire la procedura seguente.
 
 In uno dei nodi del dispositivo eseguire la procedura seguente per configurare il cablaggio di rete.
 
-1. Usare un cavo di rete RJ-45 CAT 6 (cavo blu nella figura) per connettere il computer host alla porta di gestione da 1 Gbps.
+1. Usare un cavo di rete RJ-45 CAT 6 (in alto a destra nella figura, collegato a una presa con etichetta MGMT) per connettere il computer host alla porta di gestione da 1 Gbps.
 2. Usare un cavo QSFP+ (fibra o rame) per connettere almeno una interfaccia di rete a 40 Gbps (preferita rispetto a quella a 1 Gbps) per i dati. Se si usa uno switch da 10 Gbps, usare un cavo SFP+ con un adattatore da QSFP+ a SFP+ (adattatore QSA) per connettere l'interfaccia di rete da 40 Gbps per i dati.
 
     ![Porte di Data Box Heavy cablate](media/data-box-heavy-deploy-set-up/data-box-heavy-ports-cabled.png)

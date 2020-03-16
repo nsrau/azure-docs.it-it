@@ -7,18 +7,19 @@ ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 01/27/2020
 ms.author: helohr
-ms.openlocfilehash: 6cb8362b2de1f8345f693b00df021afe84f2d5a5
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+manager: lizross
+ms.openlocfilehash: 0a32ee682490c5930b8c48d069087020c4763dcb
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77471772"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127763"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Informazioni su Desktop virtuale Windows 
 
 Desktop virtuale Windows è un servizio di virtualizzazione per desktop e app eseguito sul cloud.
 
-Di seguito è riportato cosa si può fare quando si esegue Desktop virtuale Windows in Azure:
+Ecco cosa si può fare quando si esegue Desktop virtuale Windows in Azure:
 
 * Configurare una distribuzione di Windows 10 multisessione che offre una versione completa Windows 10 con scalabilità
 * Virtualizzare Office 365 ProPlus e ottimizzarlo per l'esecuzione in scenari virtuali multiutente

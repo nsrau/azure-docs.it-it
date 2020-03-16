@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Sospendere e riprendere il calcolo - Portale di Azure '
+title: Sospendere e riprendere le risorse di calcolo in un pool SQL di Synapse con il portale di Azure
 description: Usare il portale di Azure per sospendere il calcolo per un pool SQL per risparmiare sui costi. Riprendere il calcolo quando si è pronti a usare il data warehouse.
 services: sql-data-warehouse
 author: kevinvngo
@@ -11,18 +11,16 @@ ms.date: 04/18/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 49684e6844c2d9f58e9b750b12991428218e4426
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 3a131c1ebbf2a69f1c738cbc3421635406500d3c
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78200624"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79130372"
 ---
-# <a name="quickstart-pause-and-resume-compute-in-azure-synapse-analytics-sql-pool-in-the-azure-portal"></a>Guida introduttiva: Sospendere e riprendere il calcolo in un pool SQL di Azure Synapse Analytics nel portale di Azure
+# <a name="quickstart-pause-and-resume-compute-in-synapse-sql-pool-via-the-azure-portal"></a>Guida introduttiva: Sospendere e riprendere le risorse di calcolo in un pool SQL di Synapse con il portale di Azure
 
-Usare il portale di Azure per sospendere il calcolo per un pool SQL per risparmiare sui costi. [Riprendere il calcolo](sql-data-warehouse-manage-compute-overview.md) quando si è pronti a usare il data warehouse.
-
-Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+È possibile usare il portale di Azure per sospendere e riprendere le risorse di calcolo del pool SQL di Synapse (data warehouse). Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 
@@ -34,9 +32,11 @@ Vedere [Creare e connettere - portale](create-data-warehouse-portal.md) per crea
 
 ## <a name="pause-compute"></a>Sospendere le risorse di calcolo
 
-Per ridurre i costi, è possibile sospendere e riprendere le risorse di calcolo su richiesta. Ad esempio, se non si usa il database durante la notte e nei fine settimana, è possibile sospenderlo in questi intervalli di tempo e riprenderne l'esecuzione durante il giorno. Mentre il database è sospeso, non verranno addebitati costi per le risorse di calcolo. Continueranno tuttavia a essere applicati addebiti per l'archiviazione. 
+Per ridurre i costi, è possibile sospendere e riprendere le risorse di calcolo su richiesta. Ad esempio, se non si usa il database durante la notte e nei fine settimana, è possibile sospenderlo in questi intervalli di tempo e riprenderne l'esecuzione durante il giorno. 
+>[!NOTE]
+>Mentre il database è sospeso, non verranno addebitati costi per le risorse di calcolo. Continueranno tuttavia a essere applicati addebiti per l'archiviazione. 
 
-Per sospendere un pool SQL, seguire questa procedura.
+Per sospendere un pool SQL, seguire questa procedura:
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Fare clic su **Azure Synapse Analytics (in precedenza SQL DW)** nella pagina di spostamento sinistra del portale di Azure.
@@ -80,7 +80,7 @@ Per riprendere un pool SQL, seguire questa procedura.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Verranno addebitati le unità del data warehouse e i dati archiviati nel data warehouse. Le risorse di calcolo e archiviazione vengono fatturate separatamente. 
+Verranno addebitati i costi per le unità di data warehouse e i dati archiviati nel pool SQL. Le risorse di calcolo e archiviazione vengono fatturate separatamente. 
 
 - Se si vogliono mantenere i dati nelle risorse di archiviazione, sospendere il calcolo.
 - Per evitare di ricevere addebiti in futuro, è possibile eliminare il pool SQL. 
@@ -95,14 +95,15 @@ Seguire questa procedura per pulire le risorse nel modo desiderato.
 
 2. Per rimuovere il pool SQL in modo da non ricevere addebiti per risorse di calcolo o di archiviazione, fare clic su **Elimina**.
 
-3. Per rimuovere il server SQL creato, fare clic su **sqlpoolservername.database.windows.net** e quindi su **Elimina**.  Fare attenzione quando si esegue questa operazione perché l'eliminazione del server comporta anche quella di tutti i database assegnati al server.
+3. Per rimuovere il server SQL creato, fare clic su **sqlpoolservername.database.windows.net** e quindi su **Elimina**.  
 
-4. Per rimuovere il gruppo di risorse, fare clic su **myResourceGroup** e quindi su **Elimina gruppo di risorse**.
+   > [!CAUTION]
+   > Fare attenzione quando si esegue questa operazione perché l'eliminazione del server comporta anche quella di tutti i database assegnati al server.
+
+5. Per rimuovere il gruppo di risorse, fare clic su **myResourceGroup** e quindi su **Elimina gruppo di risorse**.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È stato sospeso e ripreso il calcolo per il pool SQL. Per i passaggi successivi, continuare con l'esercitazione sul caricamento dei dati.
+È stato sospeso e ripreso il calcolo per il pool SQL. Per altre informazioni, vedere l'articolo successivo [Caricare i dati in un pool SQL](load-data-from-azure-blob-storage-using-polybase.md). Per altre informazioni sulla gestione delle funzionalità di calcolo, vedere l'articolo [Panoramica sulla gestione delle risorse di calcolo](sql-data-warehouse-manage-compute-overview.md). 
 
-> [!div class="nextstepaction"]
-> [Caricare i dati in un pool SQL](load-data-from-azure-blob-storage-using-polybase.md)

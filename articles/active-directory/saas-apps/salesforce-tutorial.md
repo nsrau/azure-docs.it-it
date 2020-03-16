@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/31/2020
+ms.date: 02/17/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 564e8dd8e6d7c4c0e3747469875e030be30b1a9b
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: a875cee7e6796a2c865bde4a62f2f0463eb12130
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77046704"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78967713"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-salesforce"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Salesforce
 
@@ -88,13 +88,13 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Nella sezione **Configurazione SAML di base** immettere i valori per i campi seguenti:
 
-    a. Nella casella di testo **URL di accesso** digitare il valore usando il modello seguente:
+    a. Nella casella di testo **URL di accesso** digitare il valore nel formato seguente:
 
     Account aziendale: `https://<subdomain>.my.salesforce.com`
 
     Account sviluppatore: `https://<subdomain>-dev-ed.my.salesforce.com`
 
-    b. Nella casella di testo **Identificatore** digitare il valore adottando il modello seguente:
+    b. Nella casella di testo **Identificatore** digitare il valore nel formato seguente:
 
     Account aziendale: `https://<subdomain>.my.salesforce.com`
 
@@ -180,7 +180,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
     ![Configure Single Sign-On](./media/salesforce-tutorial/xmlchoose.png)
 
-1. Nella pagina **SAML Single Sign-On Settings** (Impostazioni SAML Single Sign-On) i campi vengono popolati automaticamente. Quindi fare clic su Salva.
+1. Nella pagina **SAML Single Sign-On Settings** (Impostazioni SAML Single Sign-On) i campi vengono popolati automaticamente. Selezionare l'opzione **User Provisioning Enabled** (Provisioning utente abilitato) e quindi fare clic su **Save** (Salva).
 
     ![Configure Single Sign-On](./media/salesforce-tutorial/salesforcexml.png)
 
@@ -201,7 +201,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 ### <a name="create-salesforce-test-user"></a>Creare l'utente di test di Salesforce
 
-In questa sezione viene creato un utente di nome B.Simon in Salesforce. Salesforce supporta il provisioning JIT, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se non esiste già un utente in Salesforce, ne viene creato uno nuovo quando si prova ad accedere a Salesforce. Salesforce supporta anche il provisioning utenti automatico; [qui](salesforce-provisioning-tutorial.md) è possibile trovare altre informazioni su come configurare il provisioning utenti automatico.
+In questa sezione viene creato un utente di nome B.Simon in Salesforce. Salesforce supporta il provisioning JIT che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se non esiste già un utente in Salesforce, ne viene creato uno nuovo quando si prova ad accedere a Salesforce. Salesforce supporta anche il provisioning utenti automatico; [qui](salesforce-provisioning-tutorial.md) è possibile trovare altre informazioni su come configurare il provisioning utenti automatico.
 
 ## <a name="test-sso"></a>Testare l'accesso SSO
 

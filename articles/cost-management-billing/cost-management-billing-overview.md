@@ -8,16 +8,16 @@ ms.date: 01/24/2020
 ms.topic: overview
 ms.service: cost-management-billing
 ms.custom: ''
-ms.openlocfilehash: 1c6f03663a7487e814272c6296f6e7862c65c806
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: c2d039dbf2ac7cfaeaad7ad038eb669337243cce
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76769895"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78970112"
 ---
 # <a name="what-is-azure-cost-management-and-billing"></a>Che cos'è Gestione dei costi e fatturazione di Azure?
 
-Con i prodotti e i servizi di Azure, si paga solo per le risorse che si usano. Quando si creano e si usano le risorse di Azure, vengono addebitati i relativi costi. Le funzionalità di Gestione dei costi e fatturazione di Azure consentono di eseguire attività amministrative di fatturazione e di gestire l'accesso ai costi della fatturazione. È anche possibile monitorare e controllare la spesa di Azure e ottimizzare l'uso delle risorse di Azure.
+Con i prodotti e i servizi di Azure, si paga solo per le risorse che si usano. Quando si creano e si usano le risorse di Azure, vengono addebitati i relativi costi. Le funzionalità di Gestione dei costi e fatturazione di Azure consentono di eseguire attività amministrative di fatturazione e di gestire l'accesso ai costi della fatturazione. È anche possibile usare le funzionalità per monitorare e controllare la spesa di Azure e ottimizzare l'uso delle risorse di Azure.
 
 ## <a name="understand-azure-billing"></a>Informazioni sulla fatturazione di Azure
 

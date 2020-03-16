@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/04/2020
 ms.author: allensu
-ms.openlocfilehash: 45cb07de9ddc7854e6da8b8739acfaa95dd0ed01
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: d920bde856521f1e662536c1187881e143612039
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/05/2020
-ms.locfileid: "78304124"
+ms.locfileid: "78359102"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources-public-preview"></a>Progettazione di reti virtuali con risorse gateway NAT (anteprima pubblica)
 
@@ -335,7 +335,7 @@ Una porta SNAT è disponibile per il riutilizzo nello stesso indirizzo IP di des
 ## <a name="limitations"></a>Limitazioni
 
 - NAT è compatibile con risorse di indirizzi IP pubblici, prefissi di indirizzi IP pubblici e servizi di bilanciamento del carico di SKU standard.   Le risorse di base, ad esempio il servizio di bilanciamento del carico di base, nonché qualsiasi prodotto derivato non sono compatibili con NAT.  Le risorse di base devono essere inserite in una subnet non configurata con NAT.
-- La famiglia di indirizzi IPv4 è supportata.  NAT non interagisce con la famiglia di indirizzi IPv6.
+- La famiglia di indirizzi IPv4 è supportata.  NAT non interagisce con la famiglia di indirizzi IPv6.  Non è possibile distribuire NAT in una subnet con prefisso IPv6.
 - La registrazione del flusso del gruppo di sicurezza di rete non è supportato con l'uso di NAT.
 - NAT non può estendersi in più reti virtuali.
 
@@ -352,7 +352,7 @@ Ci interessa sapere come possiamo migliorare il servizio. Gli utenti sono invita
 * Informazioni sul [servizio NAT di rete virtuale](nat-overview.md).
 * Informazioni su [metriche e avvisi per le risorse gateway NAT](nat-metrics.md).
 * Informazioni sulla [risoluzione dei problemi delle risorse gateway NAT](troubleshoot-nat.md).
-* [Inviare suggerimenti per nuove funzionalità in UserVoice](https://aka.ms/natuservoice).
+* [Segnalare le nuove funzionalità richieste per NAT di rete virtuale in UserVoice](https://aka.ms/natuservoice).
 * [Inviare feedback sull'anteprima pubblica](https://aka.ms/natfeedback).
 * Esercitazione per la convalida del gateway NAT
   - [Interfaccia della riga di comando di Azure](tutorial-create-validate-nat-gateway-cli.md)

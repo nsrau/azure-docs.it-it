@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/24/2020
+ms.date: 03/05/2020
 ms.author: allensu
-ms.openlocfilehash: 0e19271b5c69610dd9f44c3121e195b80732279c
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 205826a6ad952383582f5a8086cbd8b85dbc3794
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77669540"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78359247"
 ---
 # <a name="what-is-virtual-network-nat-public-preview"></a>Che cos'è NAT di rete virtuale (anteprima pubblica)?
 
@@ -192,13 +192,13 @@ Ci interessa sapere come possiamo migliorare il servizio. Gli utenti sono invita
 
 ## <a name="limitations"></a>Limitazioni
 
-- NAT è compatibile con risorse di indirizzi IP pubblici, prefissi di indirizzi IP pubblici e servizi di bilanciamento del carico di SKU standard.   Le risorse di base, ad esempio il servizio di bilanciamento del carico di base, nonché qualsiasi prodotto derivato non sono compatibili con NAT.  Le risorse di base devono essere inserite in una subnet non configurata con NAT.
-- La famiglia di indirizzi IPv4 è supportata.  NAT non interagisce con la famiglia di indirizzi IPv6.
-- La registrazione del flusso del gruppo di sicurezza di rete non è supportato con l'uso di NAT.
-- NAT non può estendersi in più reti virtuali.
+* NAT è compatibile con risorse di indirizzi IP pubblici, prefissi di indirizzi IP pubblici e servizi di bilanciamento del carico di SKU standard.   Le risorse di base, ad esempio il servizio di bilanciamento del carico di base, nonché qualsiasi prodotto derivato non sono compatibili con NAT.  Le risorse di base devono essere inserite in una subnet non configurata con NAT.
+* La famiglia di indirizzi IPv4 è supportata.  NAT non interagisce con la famiglia di indirizzi IPv6.  Non è possibile distribuire NAT in una subnet con prefisso IPv6.
+* La registrazione del flusso del gruppo di sicurezza di rete non è supportato con l'uso di NAT.
+* NAT non può estendersi in più reti virtuali.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni sulla [risorsa gateway NAT](./nat-gateway-resource.md).
-- [Inviare suggerimenti per nuove funzionalità in UserVoice](https://aka.ms/natuservoice).
-- [Inviare feedback sull'anteprima pubblica](https://aka.ms/natfeedback).
+* Informazioni sulla [risorsa gateway NAT](./nat-gateway-resource.md).
+* [Segnalare le nuove funzionalità richieste per NAT di rete virtuale in UserVoice](https://aka.ms/natuservoice).
+* [Inviare feedback sull'anteprima pubblica](https://aka.ms/natfeedback).

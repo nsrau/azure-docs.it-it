@@ -6,14 +6,14 @@ ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.topic: tutorial
-ms.date: 03/03/2020
+ms.date: 03/06/2020
 ms.author: banders
-ms.openlocfilehash: ca1064ce3414f4a796110c022125b68c0674e0d6
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: 5de6baf81f67ef6bee43b54e7aa0d62088c15be9
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78270184"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898647"
 ---
 # <a name="understand-your-azure-enterprise-agreement-bill"></a>Informazioni sulla fattura del contratto Enterprise di Azure
 
@@ -118,7 +118,7 @@ La tabella seguente elenca i termini e le descrizioni mostrate nella fattura e s
 
 Questa sezione si applica solo se si risiede in Australia, Giappone o Singapore.
 
-Confrontare il totale di Azure Marketplace in **Report** > **Riepilogo uso** nel portale Enterprise con la fattura di marketplace. La fattura di marketplace è solo per gli acquisti e l'uso di Azure Marketplace. Gli importi nel **Riepilogo uso** non includono l'imposta.
+Confrontare il totale di Azure Marketplace in **Report** > **Riepilogo uso** nel portale Enterprise con la fattura di marketplace. La fattura di marketplace è solo per gli acquisti e l'uso di Azure Marketplace. Gli importi indicati in **Riepilogo utilizzo** includono già un'imposta, determinata dall'editore.
 
 Accedere a [Enterprise Portal](https://ea.azure.com) e quindi selezionare **Report**. Nell'angolo superiore destro della scheda passare dalla vista **M** alla **C** e abbinare il periodo alla fattura.  
 

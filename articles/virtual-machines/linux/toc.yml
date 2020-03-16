@@ -648,8 +648,10 @@
           href: snapshot-copy-managed-disk.md
         - name: Riservare archiviazione su disco
           href: disks-reserved-capacity.md
-        - name: Creare uno snapshot incrementale
+        - name: Creare uno snapshot incrementale - Interfaccia della riga di comando
           href: disks-incremental-snapshots.md
+        - name: Creare uno snapshot incrementale - Portale
+          href: disks-incremental-snapshots-portal.md
         - name: Eseguire il backup di dischi non gestiti
           href: incremental-snapshots.md
         - name: Migrazione e conversione

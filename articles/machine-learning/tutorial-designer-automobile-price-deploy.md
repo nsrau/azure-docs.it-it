@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 6fc6479ccda77bff84319d3244b2bd4a0599dc47
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: aeccd604a4dae3b2ca83f5b599d9a6857acee34a
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76934016"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037179"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer-preview"></a>Esercitazione: Distribuire un modello di Machine Learning con la finestra di progettazione (anteprima)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -27,7 +27,7 @@ ms.locfileid: "76934016"
 > * Distribuire l'endpoint in tempo reale.
 > * Testare l'endpoint in tempo reale.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Completare [la prima parte dell'esercitazione](tutorial-designer-automobile-price-train-score.md) per apprendere come eseguire il training e assegnare un punteggio a un modello di Machine Learning nella finestra di progettazione.
 
@@ -39,7 +39,7 @@ Per distribuire la pipeline, è necessario prima convertire la pipeline di train
 
 1. Sopra il canvas della pipeline selezionare **Create inference pipeline** > **Real-time inference pipeline** (Crea pipeline di inferenza > Pipeline di inferenza in tempo reale).
 
-    ![Screenshot che mostra dove trovare il pulsante per creare la pipeline](./media/tutorial-designer-automobile-price-deploy/create-inference-pipeline.png)
+    ![Screenshot che mostra dove trovare il pulsante per creare la pipeline](./media/tutorial-designer-automobile-price-deploy/tutorial2-create-inference-pipeline.png)
 
     La pipeline dovrebbe ora avere un aspetto simile al seguente: 
 
@@ -56,7 +56,7 @@ Per distribuire la pipeline, è necessario prima convertire la pipeline di train
     > Per impostazione predefinita, **Input servizio Web** prevede lo stesso schema di dati dei dati di training usati per creare la pipeline predittiva. In questo scenario il prezzo è incluso nello schema. Tuttavia, non viene usato come fattore durante la previsione.
     >
 
-1. Selezionare **Run** (Esegui) e usare la stessa destinazione di calcolo e lo stesso esperimento usati nella prima parte.
+1. Selezionare **Submit** (Invia) e usare la stessa destinazione di calcolo e lo stesso esperimento usati nella prima parte.
 
 1. Selezionare **Distribuisci**.
 
@@ -123,4 +123,4 @@ Una volta completata la distribuzione, è possibile testare l'endpoint in tempo 
 In questa esercitazione sono stati illustrati i principali passaggi per creare, distribuire e usare un modello di Machine Learning nella finestra di progettazione. Per altre informazioni su come usare la finestra di progettazione per risolvere altri tipi di problemi, vedere le altre pipeline di esempio.
 
 > [!div class="nextstepaction"]
-> [Esempio di classificazione del rischio di credito](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
+> [Esempi della finestra di progettazione](samples-designer.md)

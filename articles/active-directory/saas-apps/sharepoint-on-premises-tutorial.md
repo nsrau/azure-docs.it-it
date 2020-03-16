@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 60ff8769192191ba112008e7baee23740147dfe9
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: bd9e916d1e50d9d5bc0717a1d283b3dcf5d383c9
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367025"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037021"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sharepoint-on-premises"></a>Esercitazione: Integrazione di Azure Active Directory con SharePoint locale
 
@@ -134,7 +134,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con SharePoint locale, segu
 
     a. URL di accesso
 
-    b. Identificatore di Azure AD
+    b. Identificatore Azure AD
 
     c. URL di chiusura sessione
 
@@ -218,7 +218,7 @@ Questa sezione descrive come creare un utente di test di nome Britta Simon nel p
 
     ![Creare un gruppo di sicurezza di Azure AD](./media/sharepoint-on-premises-tutorial/newgroup.png)
 
-3. Compilare **Tipo di gruppo**, **Nome gruppo**, **Descrizione gruppo**, **Tipo di appartenenza**. Fare clic sulla freccia per selezionare i membri e quindi cercare o fare clic sul membro che si vuole aggiungere al gruppo. Fare clic su **Seleziona** per aggiungere i membri selezionati e quindi fare clic su **Crea**.
+3. Compilare **Tipo di gruppo**, **Nome gruppo**, **Descrizione gruppo**, **Tipo di appartenenza**. Fare clic sulla freccia per selezionare i membri e quindi cercare o fare clic sul membro che si desidera aggiungere al gruppo. Fare clic su **Seleziona** per aggiungere i membri selezionati e quindi fare clic su **Crea**.
 
     ![Creare un gruppo di sicurezza di Azure AD](./media/sharepoint-on-premises-tutorial/addingmembers.png)
 
@@ -271,7 +271,7 @@ Questa sezione descrive come creare un utente di test di nome Britta Simon nel p
 10. Configurare AzureCP nella farm SharePoint locale o in una soluzione di provider di attestazioni personalizzate alternative.  In questo esempio viene usato AzureCP.
 
     > [!NOTE]
-    > Si noti che AzureCP non è un prodotto Microsoft o supportato dal team di supporto Microsoft. Scaricare, installare e configurare AzureCP nella farm SharePoint locale secondo le istruzioni riportate in https://yvand.github.io/AzureCP/ 
+    > Si noti che AzureCP non è un prodotto Microsoft o supportato dal team di supporto Microsoft. Scaricare, installare e configurare AzureCP nella farm SharePoint locale secondo le istruzioni riportate in [https://yvand.github.io/AzureCP/](https://yvand.github.io/AzureCP/) 
 
 11. **Concedere l'accesso al gruppo di sicurezza di Azure Active Directory in SharePoint locale**: in SharePoint locale è necessario concedere ai gruppi l'accesso all'applicazione.  Usare la procedura seguente per impostare le autorizzazioni per accedere all'applicazione Web.
 

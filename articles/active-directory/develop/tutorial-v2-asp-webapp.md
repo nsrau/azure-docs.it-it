@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 50eb88373b05d979d7f4b67b317e98c2a944459b
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: e33f52d5c1f9c06a5acbae5c66b051ca82ef14c0
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701331"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79126635"
 ---
 # <a name="add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Aggiungere le informazioni di accesso a Microsoft in un'app Web ASP.NET
 
@@ -30,6 +30,9 @@ Questa guida illustra come implementare le informazioni di accesso a Microsoft u
 Al termine di questa guida, l'applicazione potrà accettare accessi di account personali, come quelli di outlook.com e live.com. L'accesso all'app sarà consentito anche ad account aziendali o dell'istituto di istruzione di qualsiasi organizzazione o azienda che abbia eseguito l'integrazione con Microsoft Identity Platform.
 
 > Questa guida richiede Microsoft Visual Studio 2019.  Se non lo si ha, è possibile  [Scaricare gratuitamente Visual Studio 2019](https://www.visualstudio.com/downloads/).
+
+>[!NOTE]
+> Se non si ha familiarità con Microsoft Identity Platform, è consigliabile iniziare con l'articolo [Aggiungere l'accesso Microsoft Identity Platform a un'app Web ASP.NET](quickstart-v2-aspnet-webapp.md).
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Funzionamento dell'app di esempio generata da questa guida
 

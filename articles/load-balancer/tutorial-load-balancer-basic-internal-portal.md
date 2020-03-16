@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: d167a157935c6d51c025d2fbb11586343a2ef3f2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6f62771d707d1aebccbfaf809dee7d0dedf5fefa
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453512"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096123"
 ---
 # <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>Esercitazione: Bilanciare il carico del traffico interno con un servizio di bilanciamento del carico Basic nel portale di Azure
 
@@ -121,10 +121,10 @@ Per distribuire il traffico alle macchine virtuali, il servizio di bilanciamento
 1. Nella pagina **Aggiungi un pool back-end** digitare o selezionare i valori seguenti:
    
    - **Name**: Digitare *MyBackEndPool*.
-   - **Associato a**: Selezionare **Set di disponibilità** dall'elenco a discesa.
-   - **Set di disponibilità**: Selezionare **MyAvailabilitySet**.
+   - **Associato a**: nell'elenco a discesa e selezionare **Macchina virtuale**.
    
-1. Selezionare **Aggiungi una configurazione IP della rete di destinazione**. 
+   
+1. Selezionare **Macchina virtuale**. 
    1. Aggiungere **MyVM1** e **MyVM2** al pool back-end.
    2. Dopo avere aggiunto ogni macchina, selezionare l'opzione **Configurazione IP della rete** corrispondente dall'elenco a discesa. 
    

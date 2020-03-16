@@ -3,12 +3,12 @@ title: Panoramica dello stato di Azure | Microsoft Docs
 description: Visualizzazione globale dell'integrità dei servizi di Azure
 ms.topic: overview
 ms.date: 06/11/2019
-ms.openlocfilehash: 4f4a0bf09c9256362e71466b9545389f4341ef38
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 766e9795b01c4a09916a025cba77744dea235faf
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77654155"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898333"
 ---
 # <a name="azure-status-overview"></a>Panoramica di Stato di Azure
 
@@ -26,7 +26,7 @@ La pagina relativa allo stato di Azure viene aggiornata in tempo reale quando l'
 
 Mentre la pagina relativa allo stato di Azure mostra sempre i dati sull'integrità più recenti, è possibile visualizzare gli eventi meno recenti usando la [pagina della cronologia dello stato di Azure](https://status.azure.com/status/history/).
 
-Qui è possibile visualizzare gli eventi dei 90 giorni precedenti, incluso una causa radice preliminare, la mitigazione dei rischi e i passaggi successivi in Azure.
+A partire dagli eventi pubblicati a novembre 2019, nella pagina Cronologia stato vengono visualizzati eventi risalenti fino a 365 giorni prima, tra cui informazioni preliminari sulla causa radice e sulla mitigazione, oltre ai passaggi successivi per Azure.
 
 ## <a name="rss-feed"></a>Feed RSS
 

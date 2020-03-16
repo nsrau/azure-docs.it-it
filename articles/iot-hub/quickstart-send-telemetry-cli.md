@@ -9,12 +9,12 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/06/2019
-ms.openlocfilehash: 948dfd25881a6a90dd441ad640091d88812cc298
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 711e15986265324bbb353fb2b4404cbfeb48dc84
+ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931822"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78851441"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-monitor-it-with-the-azure-cli"></a>Guida introduttiva: Inviare dati di telemetria da un dispositivo a un hub IoT e monitorarli con l'interfaccia della riga di comando di Azure
 
@@ -35,6 +35,7 @@ Indipendentemente dal fatto che l'interfaccia della riga di comando venga esegui
 In questa sezione viene avviata un'istanza di Azure Cloud Shell. Se si usa l'interfaccia della riga di comando in locale, passare alla sezione [Preparare due sessioni dell'interfaccia della riga di comando](#prepare-two-cli-sessions).
 
 Per avviare Cloud Shell:
+
 1. Selezionare il pulsante **Cloud Shell** nella barra dei menu in alto a destra nel portale di Azure. 
 
     ![Pulsante Cloud Shell nel portale di Azure](media/quickstart-send-telemetry-cli/cloud-shell-button.png)
@@ -42,25 +43,30 @@ Per avviare Cloud Shell:
     > [!NOTE]
     > Se è la prima volta che si usa Cloud Shell, viene richiesto di creare una risorsa di archiviazione necessaria per usare Cloud Shell.  Selezionare una sottoscrizione per creare un account di archiviazione e una condivisione File di Microsoft Azure. 
 
-1. Selezionare l'ambiente dell'interfaccia della riga di comando preferito nell'elenco a discesa **Seleziona ambiente**. In questa Guida introduttiva viene usato l'ambiente **Bash**. Tutti i comandi dell'interfaccia della riga di comando seguenti funzionano anche nell'ambiente PowerShell. 
+2. Selezionare l'ambiente dell'interfaccia della riga di comando preferito nell'elenco a discesa **Seleziona ambiente**. In questa Guida introduttiva viene usato l'ambiente **Bash**. Tutti i comandi dell'interfaccia della riga di comando seguenti funzionano anche nell'ambiente PowerShell. 
 
     ![Selezionare l'ambiente dell'interfaccia della riga di comando](media/quickstart-send-telemetry-cli/cloud-shell-environment.png)
 
 ## <a name="prepare-two-cli-sessions"></a>Preparare due sessioni dell'interfaccia della riga di comando
+
 In questa sezione vengono preparate due sessioni dell'interfaccia della riga di comando di Azure. Se si usa Cloud Shell, le due sessioni vengono eseguite in schede separate del browser. Se si usa un client dell'interfaccia della riga di comando locale, vengono eseguite due istanze dell'interfaccia separate. La prima sessione viene usata come dispositivo simulato, mentre la seconda viene usata per il monitoraggio e l'invio di messaggi. Per eseguire un comando, selezionare **Copia** per copiare un blocco di codice in questa Guida introduttiva, incollarlo nella sessione della shell e quindi eseguirlo.
 
 L'interfaccia della riga di comando di Azure richiede l'accesso all'account Azure. Tutte le comunicazioni tra la sessione della shell dell'interfaccia della riga di comando di Azure e l'hub IoT vengono autenticate e crittografate. Di conseguenza, in questa Guida introduttiva non è richiesta alcuna autenticazione aggiuntiva, ad esempio una stringa di connessione, da usare con un dispositivo reale.
 
-1. Eseguire il comando [az extension add](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az-extension-add) per aggiungere l'estensione Microsoft Azure IoT per l'interfaccia della riga di comando di Azure alla shell in uso. L'estensione IoT aggiunge i comandi specifici di hub IoT, IoT Edge e servizio Device Provisioning in hub IoT all'interfaccia della riga di comando di Azure.
+*  Eseguire il comando [az extension add](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az-extension-add) per aggiungere l'estensione Microsoft Azure IoT per l'interfaccia della riga di comando di Azure alla shell in uso. L'estensione IoT aggiunge i comandi specifici di hub IoT, IoT Edge e servizio Device Provisioning in hub IoT all'interfaccia della riga di comando di Azure.
 
    ```azurecli
-   az extension add --name azure-cli-iot-ext
+   az extension add --name azure-iot
    ```
-    Dopo aver installato l'estensione Azure IoT, non è necessario installarla nuovamente in alcuna sessione di Cloud Shell. 
+   
+   Dopo aver installato l'estensione Azure IoT, non è necessario installarla nuovamente in alcuna sessione di Cloud Shell. 
 
-1. Aprire una seconda sessione dell'interfaccia della riga di comando.  Se si usa Cloud Shell, selezionare **Apri nuova sessione**. Se si usa l'interfaccia della riga di comando in locale, aprire una seconda istanza. 
+   [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
-    ![Aprire una nuova sessione di Cloud Shell](media/quickstart-send-telemetry-cli/cloud-shell-new-session.png)
+*  Aprire una seconda sessione dell'interfaccia della riga di comando.  Se si usa Cloud Shell, selezionare **Apri nuova sessione**. Se si usa l'interfaccia della riga di comando in locale, aprire una seconda istanza. 
+
+    >[!div class="mx-imgBorder"]
+    >![Aprire una nuova sessione di Cloud Shell](media/quickstart-send-telemetry-cli/cloud-shell-new-session.png)
 
 ## <a name="create-an-iot-hub"></a>Creare un hub IoT
 In questa sezione viene usata l'interfaccia della riga di comando di Azure per creare un gruppo di risorse e un hub IoT.  Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. Un hub IoT funge da hub centrale dei messaggi per la comunicazione bidirezionale tra l'applicazione IoT e i dispositivi. 
@@ -76,7 +82,7 @@ In questa sezione viene usata l'interfaccia della riga di comando di Azure per c
 
 1. Eseguire il comando [az iot hub create](https://docs.microsoft.com/cli/azure/iot/hub?view=azure-cli-latest#az-iot-hub-create) per creare un hub IoT. La creazione di un hub IoT potrebbe richiedere alcuni minuti. 
 
-    *YourIotHubName*. Sostituire il segnaposto con il nome scelto per l'hub IoT. Un nome dell'hub IoT deve essere univoco a livello globale in Azure. Tale segnaposto viene usato nella parte restante di questa Guida introduttiva per rappresentare il nome dell'hub IoT.
+    *YourIotHubName*. sostituire il segnaposto in basso con il nome scelto per l'hub IoT. Un nome dell'hub IoT deve essere univoco a livello globale in Azure. Tale segnaposto viene usato nella parte restante di questa Guida introduttiva per rappresentare il nome dell'hub IoT.
 
     ```azurecli
     az iot hub create --resource-group MyResourceGroup --name {YourIoTHubName}
@@ -88,7 +94,7 @@ In questa sezione viene creato un dispositivo simulato nella prima sessione dell
 Per creare e avviare un dispositivo simulato:
 1. Eseguire il comando [az iot hub device-identity create](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-device-identity-create) nella prima sessione dell'interfaccia della riga di comando. Verrà creata l'identità del dispositivo simulato. 
 
-    *YourIotHubName*. Sostituire il segnaposto con il nome scelto per l'hub IoT. 
+    *YourIotHubName*. sostituire il segnaposto in basso con il nome scelto per l'hub IoT. 
 
     *simDevice*. È possibile usare questo nome direttamente per il dispositivo simulato nella parte restante di questa Guida introduttiva. Facoltativamente, usare un nome diverso. 
 
@@ -98,7 +104,7 @@ Per creare e avviare un dispositivo simulato:
 
 1. Eseguire il comando [az iot device simulate](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/device?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-device-simulate) nella prima sessione dell'interfaccia della riga di comando.  Verrà avviato il dispositivo simulato. Il dispositivo invia i dati di telemetria all'hub IoT e riceve i messaggi da quest'ultimo.  
 
-    *YourIotHubName*. Sostituire il segnaposto con il nome scelto per l'hub IoT. 
+    *YourIotHubName*. sostituire il segnaposto in basso con il nome scelto per l'hub IoT. 
 
     ```azurecli
     az iot device simulate -d simDevice -n {YourIoTHubName}
@@ -107,7 +113,7 @@ Per creare e avviare un dispositivo simulato:
 Per monitorare un dispositivo:
 1. Nella seconda sessione dell'interfaccia della riga di comando eseguire il comando [az iot hub monitor-events](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-monitor-events). Verrà avviato il monitoraggio del dispositivo simulato. L'output mostra i dati di telemetria che il dispositivo simulato invia all'hub IoT.
 
-    *YourIotHubName*. Sostituire il segnaposto con il nome scelto per l'hub IoT. 
+    *YourIotHubName*. sostituire il segnaposto in basso con il nome scelto per l'hub IoT. 
 
     ```azurecli
     az iot hub monitor-events --output table --hub-name {YourIoTHubName}
@@ -122,7 +128,7 @@ In questa sezione viene usata la seconda sessione dell'interfaccia della riga di
 
 1. Nella prima sessione dell'interfaccia della riga di comando verificare che il dispositivo simulato sia in esecuzione. Se il dispositivo è stato arrestato, eseguire questo comando seguente per avviarlo:
 
-    *YourIotHubName*. Sostituire il segnaposto con il nome scelto per l'hub IoT. 
+    *YourIotHubName*. sostituire il segnaposto in basso con il nome scelto per l'hub IoT. 
 
     ```azurecli
     az iot device simulate -d simDevice -n {YourIoTHubName}
@@ -130,7 +136,7 @@ In questa sezione viene usata la seconda sessione dell'interfaccia della riga di
 
 1. Nella seconda sessione dell'interfaccia della riga di comando, eseguire il comando [az iot device c2d-message send](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/device/c2d-message?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-device-c2d-message-send). Viene inviato un messaggio da cloud a dispositivo dall'hub IoT al dispositivo simulato. Il messaggio include una stringa e due coppie chiave-valore.  
 
-    *YourIotHubName*. Sostituire il segnaposto con il nome scelto per l'hub IoT. 
+    *YourIotHubName*. sostituire il segnaposto in basso con il nome scelto per l'hub IoT. 
 
     ```azurecli
     az iot device c2d-message send -d simDevice --data "Hello World" --props "key0=value0;key1=value1" -n {YourIoTHubName}
@@ -193,4 +199,4 @@ In questa Guida introduttiva è stata usata l'interfaccia della riga di comando 
 Per uno sviluppatore di dispositivi, il passaggio successivo suggerito consiste nel vedere la Guida introduttiva per i dati di telemetria che usa Azure IoT SDK per dispositivi per C. Facoltativamente, vedere uno degli articoli della Guida introduttiva ai dati di telemetria dell'hub IoT di Azure per la telemetria nel linguaggio preferito o nell'SDK.
 
 > [!div class="nextstepaction"]
-> [Guida introduttiva: Inviare dati di telemetria da un dispositivo a un hub IoT (C)](quickstart-send-telemetry-c.md)
+> [Avvio rapido: Inviare dati di telemetria da un dispositivo a un hub IoT (C)](quickstart-send-telemetry-c.md)

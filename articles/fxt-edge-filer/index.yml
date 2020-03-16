@@ -1,42 +1,60 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Documentazione di Azure FXT Edge Filer
+summary: La cache di archiviazione ibrida Azure FXT Edge Filer è un sistema ibrido hardware/software che velocizza l'accesso ai dati per flussi di lavoro HPC (High Performance Computing) basati su file e a elevato utilizzo di operazioni di lettura.
 metadata:
   title: Documentazione di Azure FXT Edge Filer
-  description: Usare Azure FXT Edge Filer come livello di memorizzazione nella cache per attività HPC (High-Performance Computing ) a elevato utilizzo di operazioni di lettura
-  author: ekpgh
+  description: Usare Azure FXT Edge Filer come livello di memorizzazione nella cache per attività HPC (High-Performance Computing ) a elevato utilizzo di operazioni di lettura.
   ms.service: fxt-edge-filer
   ms.topic: landing-page
-  ms.date: 07/10/2019
+  author: ronhogue
   ms.author: rohogue
-abstract:
-  description: 'La cache di archiviazione ibrida Azure FXT Edge Filer è un sistema ibrido hardware/software che velocizza l''accesso ai dati per flussi di lavoro HPC (High Performance Computing) basati su file e a elevato utilizzo di operazioni di lettura. Un cluster composto da tre o più dispositivi Azure FXT Edge Filer può accelerare le prestazioni di archiviazione per sistemi NAS locali (NetApp o Dell EMC Isilon), archiviazione nel cloud o una combinazione di soluzioni.'
-sections:
-  - title: Esercitazioni dettagliate
-    items:
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="fxt-install">Installare l'hardware di Azure FXT Edge Filer</a>
-          - html: <a href="fxt-network-power">Creare connessioni di rete per Azure FXT Edge Filer</a>
-          - html: <a href="fxt-node-password">Impostare password radice nei nodi hardware</a>
-          - html: <a href="fxt-cluster-create">Creare il cluster di cache di archiviazione ibrida</a>
-          - html: <a href="fxt-add-nodes">Aggiungere nodi del cluster</a>
-          - html: <a href="fxt-add-storage">Aggiungere archiviazione back-end e configurare lo spazio dei nomi virtuale</a>
-          - html: <a href="fxt-configure-network">Configurare le impostazioni di rete del cluster</a>
-  - title: Guide alle procedure
-    items:
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="fxt-mount-clients">Connettere i client al cluster Azure FXT Edge Filer</a>
-          - html: <a href="fxt-monitor">Monitorare Azure FXT Edge Filer</a>
-          - html: <a href="fxt-power-off">Spegnere in sicurezza un nodo hardware</a>
-  - title: Risorse
-    items:
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="fxt-specs">Specifiche hardware</a>
-          - html: <a href="fxt-additional-doc">Documentazione aggiuntiva</a>
-          - html: <a href="fxt-support-ticket">Aprire un ticket di supporto</a>
+  ms.date: 03/11/2020
+  ms.openlocfilehash: bf1ab34e0ac7477133933886bb07d16f4574c788
+  ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 03/13/2020
+  ms.locfileid: "79298853"
+landingContent:
+- title: Informazioni su Azure FXT Edge Filer
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Informazioni su Azure FXT Edge Filer
+      url: fxt-overview.md
+- title: Introduzione
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: 1 - Installare l'hardware
+      url: fxt-install.md
+    - text: 2 - Connettere i cavi
+      url: fxt-network-power.md
+    - text: 3 - Impostare le password dell'hardware
+      url: fxt-node-password.md
+    - text: 4 - Creare un cluster
+      url: fxt-cluster-create.md
+    - text: 5 - Aggiungere nodi del cluster
+      url: fxt-add-nodes.md
+    - text: 6 - Aggiungere l'archiviazione back-end e configurare lo spazio dei nomi virtuale
+      url: fxt-add-storage.md
+    - text: 7 - Configurare le impostazioni di rete del cluster
+      url: fxt-configure-network.md
+- title: Gestione
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Montare client nel cluster
+      url: fxt-mount-clients.md
+    - text: Monitorare lo stato dell'hardware
+      url: fxt-monitor.md
+    - text: Spegnere l'hardware in modo sicuro
+      url: fxt-power-off.md
+- title: Risorse
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Specifiche hardware
+      url: fxt-specs.md
+    - text: Documentazione aggiuntiva
+      url: fxt-additional-doc.md

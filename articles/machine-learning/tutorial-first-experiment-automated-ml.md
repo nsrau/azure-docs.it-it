@@ -1,7 +1,7 @@
 ---
-title: Creare il primo esperimento di ML automatizzato
+title: Creare modelli di classificazione di ML automatizzato
 titleSuffix: Azure Machine Learning
-description: Informazioni su come eseguire il training e la distribuzione di un modello di classificazione con Machine Learning automatizzato in Azure Machine Learning Studio.
+description: Informazioni su come eseguire il training e la distribuzione di modelli di classificazione con l'interfaccia di Machine Learning automatizzato (ML automatizzato) in Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,17 +10,17 @@ ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
 ms.date: 02/04/2020
-ms.openlocfilehash: 70fcdb1c22664a0bd3091fea88c8e23e3d1b81e5
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 96af942ab68d4ae738df56bf94d8410ee5d8cc34
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048292"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129683"
 ---
-# <a name="tutorial-create-your-first-classification-model-with-automated-machine-learning"></a>Esercitazione: Creare il primo modello di classificazione con apprendimento automatico
+# <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>Esercitazione: Creare un modello di classificazione con ML automatizzato in Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-In questa esercitazione viene descritto come creare il primo esperimento di Machine Learning automatizzato in Azure Machine Learning Studio senza scrivere una sola riga di codice. Questo esempio crea un modello di classificazione per stimare se un cliente sottoscriverà un deposito a termine fisso presso un istituto finanziario.
+In questa esercitazione viene descritto come creare un modello di classificazione di base senza scrivere una sola riga di codice usando l'interfaccia di Machine Learning automatizzato di Azure Machine Learning. Questo modello di classificazione consente di stimare se un cliente sottoscriverà un deposito a termine fisso presso un istituto finanziario.
 
 Con l'apprendimento automatico automatizzato, è possibile automatizzare le attività a elevato utilizzo di tempo. L'apprendimento automatico automatizzato esegue rapidamente l'iterazione su numerose combinazioni di algoritmi e iperparametri per aiutare a trovare il modello migliore in base a una metrica di riuscita di propria scelta.
 
@@ -32,7 +32,7 @@ In questa esercitazione si apprenderà come eseguire le attività seguenti:
 > * Visualizzare i dettagli sull'esperimento.
 > * Distribuire il modello.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://aka.ms/AMLFree).
 
@@ -42,7 +42,7 @@ In questa esercitazione si apprenderà come eseguire le attività seguenti:
 
 Un'area di lavoro di Machine Learning è una risorsa cloud fondamentale usata per eseguire gli esperimenti, il training e la distribuzione di modelli di Machine Learning. Collega la sottoscrizione e il gruppo di risorse di Azure a un oggetto di facile utilizzo nel servizio. 
 
-Per creare un'area di lavoro tramite Azure Machine Learning Studio, è necessario usare una console basata sul Web per la gestione delle risorse di Azure.
+Per creare un'area di lavoro è necessario usare il portale di Azure, una console basata sul Web per la gestione delle risorse di Azure.
 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal-enterprise.md)]
 
@@ -51,9 +51,9 @@ Per creare un'area di lavoro tramite Azure Machine Learning Studio, è necessari
 
 ## <a name="create-and-run-the-experiment"></a>Creare ed eseguire l'esperimento
 
-Completare i passaggi seguenti di configurazione ed esecuzione dell'esperimento in Azure Machine Learning Studio, un'interfaccia consolidata che include strumenti di Machine Learning per l'esecuzione di scenari di data science per esperti della materia di qualsiasi livello di competenza. Studio non è supportato nei browser Internet Explorer.
+Completare i passaggi seguenti di configurazione ed esecuzione dell'esperimento tramite Azure Machine Learning in https://ml.azure.com, un'interfaccia Web consolidata che include strumenti di Machine Learning per l'esecuzione di scenari di data science per esperti della materia di qualsiasi livello di competenza. Questa interfaccia non è supportata nei browser Internet Explorer.
 
-1. Accedere ad [Azure Machine Learning Studio](https://ml.azure.com).
+1. Accedere ad Azure Machine Learning in https://ml.azure.com.
 
 1. Selezionare la sottoscrizione e l'area di lavoro create.
 
@@ -63,13 +63,13 @@ Completare i passaggi seguenti di configurazione ed esecuzione dell'esperimento 
 
    Poiché si tratta del primo esperimento di Machine Learning automatizzato, verranno visualizzati un elenco vuoto e collegamenti alla documentazione.
 
-   ![Azure Machine Learning Studio](./media/tutorial-first-experiment-automated-ml/get-started.png)
+   ![Pagina delle attività iniziali](./media/tutorial-first-experiment-automated-ml/get-started.png)
 
 1. Selezionare **New automated ML run** (Nuova esecuzione di ML automatizzato). 
 
 1. Creare un nuovo set di dati selezionando **From local files** (Da file locali) dall'elenco a discesa **+Create dataset** (Crea set di dati). 
 
-    1. Nel modulo **Informazioni di base** assegnare un nome al set di dati e specificare una descrizione facoltativa. Il servizio ML automatizzato in Azure Machine Learning Studio attualmente supporta solo set di dati tabulari, quindi il tipo di set di dati dovrebbe essere tabulare per impostazione predefinita.
+    1. Nel modulo **Informazioni di base** assegnare un nome al set di dati e specificare una descrizione facoltativa. L'interfaccia di ML automatizzato attualmente supporta solo set di dati tabulari, quindi il tipo di set di dati dovrebbe essere *tabulare* per impostazione predefinita.
 
     1. Selezionare **Avanti** in basso a sinistra
 
@@ -163,9 +163,9 @@ Di seguito vengono esaminate le schede **Dettagli del modello** e **Visualizzazi
 
 ![Dettagli sull'esecuzione delle iterazioni](./media/tutorial-first-experiment-automated-ml/run-detail.gif)
 
-## <a name="deploy-the-model"></a>Distribuire il modello
+## <a name="deploy-the-best-model"></a>Distribuire il modello migliore
 
-Machine Learning automatizzato in Azure Machine Learning Studio consente di distribuire il modello migliore come servizio Web con pochi passaggi. La distribuzione è l'integrazione del modello per consentire la stima su nuovi dati e identificare le potenziali aree di opportunità. 
+L'interfaccia di Machine Learning automatizzato consente di distribuire il modello migliore come servizio Web con pochi passaggi. La distribuzione è l'integrazione del modello per consentire la stima su nuovi dati e identificare le potenziali aree di opportunità. 
 
 Per questo esperimento, attraverso la distribuzione a un servizio Web l'istituto finanziario ha ora una soluzione Web iterativa e scalabile per l'identificazione dei potenziali clienti con deposito a termine fisso. 
 
@@ -201,9 +201,9 @@ I file di distribuzione sono più grandi dei file di dati e di esperimento e di 
 
 ### <a name="delete-the-deployment-instance"></a>Eliminare l'istanza di distribuzione
 
-Eliminare solo l'istanza di distribuzione da Azure Machine Learning Studio se si intende mantenere il gruppo di risorse e l'area di lavoro per altre esercitazioni e attività di esplorazione. 
+Eliminare solo l'istanza di distribuzione da Azure Machine Learning in https://ml.azure.com/ se si intende mantenere il gruppo di risorse e l'area di lavoro per altre esercitazioni e attività di esplorazione. 
 
-1. Passare ad [Azure Machine Learning Studio](https://ml.azure.com/). Passare all'area di lavoro e nel riquadro di sinistra **Risorse** selezionare **Endpoint**. 
+1. Passare ad Azure Machine Learning in https://ml.azure.com/. Passare all'area di lavoro e nel riquadro di sinistra **Risorse** selezionare **Endpoint**. 
 
 1. Selezionare la distribuzione che si vuole eliminare e scegliere **Elimina**. 
 
@@ -215,15 +215,15 @@ Eliminare solo l'istanza di distribuzione da Azure Machine Learning Studio se si
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione di Machine Learning automatizzato è stato usato Azure Machine Learning Studio per creare e distribuire un modello di classificazione. Per altre informazioni e per i passaggi successivi, vedere questi articoli:
+In questa esercitazione di Machine Learning automatizzato è stata usata l'interfaccia di ML automatizzato di Azure Machine Learning per creare e distribuire un modello di classificazione. Per altre informazioni e per i passaggi successivi, vedere questi articoli:
 
 > [!div class="nextstepaction"]
 > [Utilizzare un servizio Web](how-to-consume-web-service.md#consume-the-service-from-power-bi)
 
-+ Altre informazioni sullo [sviluppo di funzionalità](how-to-create-portal-experiments.md#featurization).
-+ Altre informazioni sulla [profilatura dei dati](how-to-create-portal-experiments.md#profile).
 + [Funzionalità automatizzate di Machine Learning](concept-automated-ml.md).
-+ Per altre informazioni sulle metriche e sui grafici di classificazione, vedere l'articolo [Informazioni sui risultati di Machine Learning automatizzato](how-to-understand-automated-ml.md#classification).
++ Per altre informazioni sulle metriche e sui grafici di classificazione, vedere l'articolo [Informazioni sui risultati di Machine Learning automatizzato](how-to-understand-automated-ml.md#classification). Vedere anche [Definizione delle funzionalità](how-to-use-automated-ml-for-ml-models.md#featurization).
++ Altre informazioni sulla [profilatura dei dati](how-to-use-automated-ml-for-ml-models.md#profile).
+
 
 >[!NOTE]
 > Questo set di dati di marketing bancario viene reso disponibile in [Creative Comm (CCO: Public Domain) License](https://creativecommons.org/publicdomain/zero/1.0/). Tutti i diritti per i singoli contenuti del database vengono concessi in licenza ai sensi della [licenza relativa ai contenuti del database](https://creativecommons.org/publicdomain/zero/1.0/) e resi disponibili in [Kaggle](https://www.kaggle.com/janiobachmann/bank-marketing-dataset). Questo set di dati era originariamente disponibile all'interno del [database di Machine Learning UCI](https://archive.ics.uci.edu/ml/datasets/bank+marketing).<br><br>

@@ -7,18 +7,18 @@ ms.topic: quickstart
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 9efedd5b619a2a3bd592019fea3ca48b7244ca10
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 6274e24bae2e2a6eade0122fe244652eb29cacf9
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76278493"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399219"
 ---
 # <a name="deprecated-deploy-a-dcos-cluster"></a>(DEPRECATO) Distribuire un cluster DC/OS
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
-DC/OS fornisce una piattaforma distribuita per l'esecuzione di applicazioni in contenitori e moderne. Con il servizio Azure Container, il provisioning di un cluster DC/OS pronto per la produzione è semplice e rapido. Questa guida rapida illustra in dettaglio i passaggi di base necessari per distribuire un cluster DC/OS ed eseguire un carico di lavoro di base.
+DC/OS fornisce una piattaforma distribuita per l'esecuzione di applicazioni in contenitori e moderne. Con il servizio Azure Container, il provisioning di un cluster DC/OS pronto per la produzione è semplice e rapido. Questo argomento di avvio rapido illustra in dettaglio i passaggi di base necessari per distribuire un cluster DC/OS ed eseguire un carico di lavoro di base.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -128,19 +128,19 @@ Il meccanismo di pianificazione predefinito per un cluster DC/OS del servizio co
 
 Eseguire il comando seguente per pianificare l'esecuzione dell'applicazione nel cluster DC/OS.
 
-```azurecli
+```console
 dcos marathon app add marathon-app.json
 ```
 
 Per visualizzare lo stato di distribuzione per l'app, eseguire il comando seguente.
 
-```azurecli
+```console
 dcos marathon app list
 ```
 
 Quando il valore della colonna **WAITING** (Attesa) passa da *True* a *False*, la distribuzione dell'applicazione è stata completata.
 
-```azurecli
+```output
 ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD   
 /test   32   1     1/1    ---       ---      False      DOCKER   None
 ```
@@ -165,7 +165,7 @@ az group delete --name myResourceGroup --no-wait
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida rapida è stato distribuito un cluster DC/OS ed è stato eseguito un contenitore Docker semplice nel cluster. Per altre informazioni sul servizio Azure Container, continuare con le esercitazioni relative a questo servizio.
+In questo argomento di avvio rapido è stato distribuito un cluster DC/OS ed è stato eseguito un semplice contenitore Docker al suo interno. Per altre informazioni sul servizio Azure Container, continuare con le esercitazioni relative a questo servizio.
 
 > [!div class="nextstepaction"]
 > [Gestire un cluster DC/OS del servizio contenitore di Azure](container-service-dcos-manage-tutorial.md)

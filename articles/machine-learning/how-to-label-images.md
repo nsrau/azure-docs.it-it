@@ -7,12 +7,12 @@ ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 1e27fca86613757c36ac664e2e449cabed68d550
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 6d0a9bf172039adcaa756660d38acc1547e91b49
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772449"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898691"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Aggiungere tag alle immagini in un progetto di etichettatura
 
@@ -23,7 +23,7 @@ Dopo che l'amministratore del progetto ha [creato un progetto di etichettatura](
 > * Gli strumenti di etichettatura
 > * Come usare gli strumenti per attività di etichettatura specifiche
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * URL del portale di etichettatura per un progetto di etichettatura dei dati in esecuzione
 * Un [account Microsoft](https://account.microsoft.com/account) o un account Azure Active Directory per l'organizzazione e il progetto
@@ -58,6 +58,16 @@ Azure abilita il pulsante **Invia** solo dopo aver completato l'aggiunta dei tag
 
 Dopo aver inviato i tag per i dati a disposizione, Azure aggiornerà la pagina con un nuovo set di immagini dalla coda di lavoro.
 
+### <a name="assisted-machine-learning"></a>Machine Learning assistito 
+
+Gli algoritmi di Machine Learning possono essere attivati durante un'attività di classificazione multi-classe o multi-etichetta. Se nel progetto sono abilitati questi algoritmi, è possibile che vengano visualizzati gli elementi seguenti:
+
+* Dopo aver etichettato una certa quantità di immagini, è possibile visualizzare **Attività raggruppate** nella parte superiore della schermata accanto al nome del progetto.  Ciò significa che le immagini vengono raggruppate per presentare immagini simili nella stessa pagina.  In tal caso, passare a una delle visualizzazioni di più immagini per sfruttare i vantaggi del raggruppamento.  
+
+* In un secondo momento, è possibile visualizzare **Attività pre-etichettate** accanto al nome del progetto.  Le immagini verranno quindi visualizzate con un'etichetta suggerita che deriva da un modello di classificazione di Machine Learning. Nessun modello di Machine Learning ha una precisione del 100%. Sebbene vengano usate solo le immagini per cui il modello è attendibile, è possibile che le immagini siano ancora pre-etichettate in modo errato.  Quando vengono visualizzate queste etichette, correggere eventuali etichette errate prima di inviare la pagina.  
+
+Soprattutto all'inizio di un progetto di etichettatura, il modello di Machine Learning può essere sufficientemente accurato da pre-etichettare solo un piccolo subset di immagini. Una volta etichettate queste immagini, il progetto di etichettatura tornerà all'etichettatura manuale per raccogliere più dati per il ciclo successivo di training del modello. Con il tempo, il modello diventerà più affidabile rispetto a una proporzione più elevata di immagini, ottenendo in seguito più attività di pre-etichettatura nel progetto.
+
 ## <a name="tag-images-for-multi-class-classification"></a>Aggiunta di tag alle immagini per la classificazione multi-classe
 
 Se il progetto è di tipo "Classificazione delle immagini multi-classe", verrà assegnato un singolo tag all'intera immagine. Per esaminare le istruzioni in qualsiasi momento, passare alla pagina **Istruzioni** e selezionare **Visualizza istruzioni dettagliate**.
@@ -81,6 +91,7 @@ Per correggere un errore, è possibile fare clic sulla "**X**" per cancellare si
 ![Screenshot che mostra più opzioni deselezionate](./media/how-to-label-images/multiple-deselection.png)
 
 Azure abiliterà il pulsante **Invia** solo dopo aver applicato almeno un tag a ogni immagine. Selezionare **Invia** per salvare il lavoro.
+
 
 ## <a name="tag-images-and-specify-bounding-boxes-for-object-detection"></a>Assegnazione di tag alle immagini e aggiunta di rettangoli di selezione per il rilevamento di oggetti
 

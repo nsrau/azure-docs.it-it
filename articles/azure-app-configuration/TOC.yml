@@ -64,8 +64,6 @@
   items:
     - name: Archivio chiave-valore
       href: concept-key-value.md
-    - name: Crittografare con chiavi gestite dal cliente
-      href: concept-customer-managed-keys.md
     - name: Snapshot temporizzato
       href: concept-point-time-snapshot.md
     - name: Gestione delle funzionalità
@@ -74,8 +72,12 @@
       href: concept-github-action.md
     - name: Gestione degli eventi
       href: concept-app-configuration-event.md
-    - name: Authentication
+    - name: Security
       items:
+        - name: Crittografare con chiavi gestite dal cliente
+          href: concept-customer-managed-keys.md
+        - name: Proteggere l'archivio di configurazione con Endpoint privati
+          href: concept-private-endpoint.md
         - name: Integrazione con l'identità gestita di Azure
           href: howto-integrate-azure-managed-service-identity.md
         - name: Abilitare l'accesso con Azure Active Directory

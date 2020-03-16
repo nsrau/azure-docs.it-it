@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/31/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ddc2622a67979f989c030d615c402387e7762d5
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 3f4084532ac370880df69d825927240c297dd371
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76983479"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129897"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con GitHub
 
@@ -163,6 +163,8 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
     c. Aprire il certificato scaricato nel Blocco note dal portale di Azure e incollarne il contenuto nella casella di testo **Certificato pubblico**.
 
     d. Fare clic sull'icona **Modifica** icona per modificare **Metodo di firma** e **Metodo digest** da **RSA-SHA1** e **SHA1**alla **RSA-SHA256** e **SHA256** come illustrato di seguito.
+    
+    e. Aggiornare l'**URL del servizio consumer di asserzione (URL di risposta)** dall'URL predefinito in modo che l'URL in GitHub corrisponda all'URL nella registrazione dell'app di Azure.
 
     ![image](./media/github-tutorial/tutorial_github_sha.png)
 
@@ -177,7 +179,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 ### <a name="create-github-test-user"></a>Creare l'utente di test di GitHub
 
-Questa sezione descrive come creare un utente chiamato Britta Simon in GitHub. GitHub supporta il provisioning utenti automatico, che è abilitato per impostazione predefinita. Altri dettagli su come configurare il provisioning utenti automatico sono disponibili [qui](github-provisioning-tutorial.md).
+Questa sezione descrive come creare un utente di nome Britta Simon in GitHub. GitHub supporta il provisioning utenti automatico, che è abilitato per impostazione predefinita. Altri dettagli su come configurare il provisioning utenti automatico sono disponibili [qui](github-provisioning-tutorial.md).
 
 **Per creare un utente manualmente, seguire questa procedura:**
 

@@ -7,15 +7,15 @@ titleSuffix: Azure SQL Database and SQL Data Warehouse
 ms.service: sql-database
 ms.topic: overview
 ms.reviewer: vanto
-ms.date: 09/17/2019
-ms.openlocfilehash: 427ba0e46f8f4090ce8c2080b1d6780b165e864c
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.date: 03/09/2020
+ms.openlocfilehash: ab9c5c5c1134d2e09a790a788a3b7e55f807dd9b
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76121081"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78945377"
 ---
-# <a name="private-link-for-azure-sql-database-and-data-warehouse-preview"></a>Collegamento privato per il database SQL di Azure e Azure SQL Data Warehouse (anteprima)
+# <a name="private-link-for-azure-sql-database-and-data-warehouse"></a>Collegamento privato per Database SQL di Azure e Data Warehouse
 
 Il servizio Collegamento privato consente di connettersi a diversi servizi PaaS in Azure tramite un **endpoint privato**. Per un elenco dei servizi PaaS che supportano la funzionalità Collegamento privato, visitare la pagina [Documentazione di Collegamento privato](../private-link/index.yml). Un endpoint privato è un indirizzo IP privato all'interno di una [rete virtuale](../virtual-network/virtual-networks-overview.md) e una subnet specifiche. 
 
@@ -145,7 +145,7 @@ Il risultato mostra che un indirizzo IP è attivo, ossia quello corrispondente a
 
 ### <a name="check-connectivity-using-sql-server-management-studio-ssms"></a>Verificare la connettività con SQL Server Management Studio (SSMS)
 > [!NOTE]
->Usare il **nome di dominio completo (FQDN)** del server nelle stringhe di connessione per i client. In base alla progettazione, eventuali tentativi di accesso effettuati direttamente all'indirizzo IP non riusciranno.
+> Usare il **nome di dominio completo (FQDN)** del server nelle stringhe di connessione per i client. Eventuali tentativi di accesso effettuati direttamente all'indirizzo IP non riusciranno. Questo comportamento è da progettazione, perché l'endpoint privato instrada il traffico al gateway SQL nell'area ed è necessario specificare il nome FQDN affinché gli accessi riescano.
 
 Seguire questa procedura per usare [SSMS per connettersi al database SQL](sql-database-connect-query-ssms.md). Dopo aver stabilito la connessione al database SQL tramite SSMS, verificare che la connessione sia stata eseguita dall'indirizzo IP privato della macchina virtuale di Azure eseguendo la query seguente:
 
@@ -153,8 +153,9 @@ Seguire questa procedura per usare [SSMS per connettersi al database SQL](sql-da
 select client_net_address from sys.dm_exec_connections 
 where session_id=@@SPID
 ````
-> [!NOTE]
-> In anteprima, le connessioni all'endpoint privato supportano solo **Proxy** come [criterio di connessione](sql-database-connectivity-architecture.md#connection-policy)
+
+## <a name="limitations"></a>Limitazioni 
+Le connessioni all'endpoint privato supportano solo **Proxy** come [criterio di connessione](sql-database-connectivity-architecture.md#connection-policy)
 
 
 ## <a name="connecting-from-an-azure-vm-in-peered-virtual-network-vnet"></a>Connessione da una VM di Azure in una rete virtuale con peering 

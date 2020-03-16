@@ -4,15 +4,15 @@ description: Questo articolo offre una panoramica di Web application firewall (W
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 10/04/2019
+ms.date: 03/06/2020
 ms.author: victorh
 ms.topic: overview
-ms.openlocfilehash: 7b43a6bdac254493da8693b55158e15746e76dc3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 44bc8db5d8ada0378f8f9d0911ed398ba491d289
+ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488287"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78851181"
 ---
 # <a name="what-is-azure-web-application-firewall"></a>Che cos'è Web Application Firewall di Azure?
 
@@ -24,7 +24,11 @@ La prevenzione di tali attacchi nel codice dell'applicazione è un'operazione co
 
 Una soluzione WAF è in grado di reagire più velocemente a una minaccia alla sicurezza tramite l'applicazione centralizzata di patch per una vulnerabilità nota, invece di proteggere ogni singola applicazione Web.
 
-WAF può essere distribuito con Gateway applicazione di Azure e con il servizio Frontdoor di Azure. Al momento, WAF include funzionalità personalizzate per ogni servizio specifico. Per altre informazioni sulle funzionalità di WAF per ciascun servizio, vedere la panoramica relativa ad ognuno di questi.
+## <a name="supported-services"></a>Servizi supportati
+
+WAF può essere distribuito con [Gateway applicazione di Azure](../application-gateway/overview.md) e con il servizio [Frontdoor di Azure](../frontdoor/front-door-overview.md). Entrambi i servizi sono servizi di bilanciamento del carico di livello 7 (HTTP/S), ma Gateway applicazione è un servizio a livello di area e Frontdoor è un servizio globale. WAF include funzionalità personalizzate per ogni servizio specifico.
+
+Per altre informazioni, vedere la panoramica di WAF per ogni servizio.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

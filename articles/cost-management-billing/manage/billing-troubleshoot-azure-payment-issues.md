@@ -10,20 +10,37 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/12/2020
+ms.date: 03/06/2020
 ms.author: jaserano
-ms.openlocfilehash: 199d32efef256fe3b56dbcf0a5d3ac6351f2d0b3
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: cd9d17eb365937035919b7e712a4b5824f747bda
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200915"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942584"
 ---
 # <a name="troubleshoot-azure-payment-issues"></a>Risolvere i problemi di pagamento di Azure
 
 Si verifica un problema o un errore quando si prova ad aggiornare le informazioni di pagamento di un account nel portale di Microsoft Azure o nel Centro account di Azure.
 
 Per risolvere il problema, selezionare l'argomento riportato di seguito che rispecchia maggiormente l'errore verificatosi.
+
+## <a name="my-credit-card-was-declined-when-i-tried-to-sign-up-for-azure"></a>La carta di credito è stata rifiutata quando si è tentato di iscriversi ad Azure
+
+Per risolvere i problemi riguardanti una carta rifiutata, vedere [Risolvere un problema di carta rifiutata all'iscrizione ad Azure](troubleshoot-declined-card.md).
+
+## <a name="unable-to-see-subscriptions-under-my-account-to-update-the-payment-method"></a>Impossibile visualizzare le sottoscrizioni nell'account per aggiornare il metodo di pagamento
+
+È possibile che si stia usando un ID di posta elettronica diverso da quello usato per le sottoscrizioni.
+
+Per risolvere questo problema, vedere [Errore di accesso Non sono state trovate sottoscrizioni per il portale di Azure o il Centro account di Azure](no-subscriptions-found.md).
+
+## <a name="unable-to-use-a-virtual-or-prepaid-credit-or-debit-card-as-a-payment-method"></a>Non è possibile usare una carta di credito o di debito prepagata o virtuale come metodo di pagamento.
+
+*   Le carte di credito prepagate o virtuali non sono accettate come metodo di pagamento per le sottoscrizioni di Azure.
+*   Le carte di debito non sono accettate come metodo di pagamento per le sottoscrizioni di Azure.
+
+Per altre informazioni, vedere [Risolvere un problema di carta rifiutata all'iscrizione ad Azure](troubleshoot-declined-card.md).
 
 ## <a name="unable-to-remove-a-credit-card-from-a-saved-billing-payment-method"></a>Impossibile rimuovere una carta di credito da un metodo di pagamento salvato
 
@@ -33,19 +50,11 @@ Se è necessario eliminare una carta esistente, è necessario aggiungerne una nu
 
 ## <a name="unable-to-delete-an-old-payment-method-after-adding-a-new-payment-method"></a>Impossibile eliminare un vecchio metodo di pagamento dopo averne aggiunto uno nuovo
 
-Il nuovo strumento di pagamento potrebbe non essere associato alla sottoscrizione. Per associare lo strumento di pagamento alla sottoscrizione, vedere [Aggiungere, aggiornare o rimuovere una carta di debito o di credito per Azure](change-credit-card.md).
-
-Per risolvere i problemi di carta rifiutata, vedere [Risolvere un problema di carta rifiutata all'iscrizione ad Azure](troubleshoot-declined-card.md).
+Il nuovo strumento di pagamento potrebbe non essere associato alla sottoscrizione. Per associare lo strumento di pagamento alla sottoscrizione, vedere [Aggiungere, aggiornare o rimuovere una carta di credito per Azure](change-credit-card.md).
 
 ## <a name="unable-to-delete-a-payment-method-because-of-cannot-delete-payment-method-error"></a>Impossibile eliminare un metodo di pagamento a causa del messaggio di errore *Impossibile eliminare il metodo di pagamento*
 
 Ciò si verifica perché c'è un saldo scoperto. Risolvere eventuali saldi scoperti prima di eliminare il metodo di pagamento.
-
-## <a name="unable-to-see-subscriptions-under-my-account-to-update-the-payment-method"></a>Impossibile visualizzare le sottoscrizioni nell'account per aggiornare il metodo di pagamento
-
-È possibile che si stia usando un ID di posta elettronica diverso da quello usato per le sottoscrizioni.
-
-Per risolvere questo problema, vedere [Errore di accesso Non sono state trovate sottoscrizioni per il portale di Azure o il Centro account di Azure](no-subscriptions-found.md).
 
 ## <a name="unable-to-make-payment-for-a-subscription"></a>Impossibile effettuare il pagamento di una sottoscrizione
 

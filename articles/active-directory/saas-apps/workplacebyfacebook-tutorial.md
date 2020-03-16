@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/31/2020
+ms.date: 03/03/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c58ff181ec144dcd0b1089b0e53f868f241be73f
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 98706d0c9a86d53ae31d05bec48d7071f251b651
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76985272"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944399"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workplace-by-facebook"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Workplace by Facebook
 
@@ -30,7 +30,7 @@ Questa esercitazione descrive come integrare Workplace by Facebook con Azure Act
 * Abilitare gli utenti per l'accesso automatico a Workplace by Facebook con gli account Azure AD personali.
 * Gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/what-is-single-sign-on).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -157,6 +157,8 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
     a. Selezionare l'opzione **Single-sign on (SSO)** (Accesso SSO).
     
     b. Fare clic su **+Add new SSO Provider** (+ Aggiungi nuovo provider SSO).
+    > [!NOTE]
+    > Assicurarsi di selezionare anche la casella di controllo Password login (Accesso tramite password). Gli amministratori potrebbero scegliere di usare questa opzione per l'accesso durante la distribuzione dei certificati, in modo da impedirne il blocco.
 
 1. Nella scheda **Authentication** (Autenticazione) selezionare **Single-Sign On (SSO)** e seguire questa procedura:
 
@@ -201,7 +203,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 In questa sezione si crea un utente di nome B.Simon in Workplace by Facebook. Workplace by Facebook supporta il provisioning JIT, abilitato per impostazione predefinita.
 
-Non è necessaria alcuna azione dell'utente in questa sezione. Se un utente non esiste in Workplace by Facebook, si crea una nuova istanza quando si prova ad accedere a Workplace by Facebook.
+Non è necessaria alcuna azione dell'utente in questa sezione. Se un utente non esiste in Workplace by Facebook, si crea una nuova istanza quando si tenta di accedere a Workplace by Facebook.
 
 >[!Note]
 >Se è necessario creare un utente manualmente, contattare il [team di supporto al cliente di Workplace by Facebook](https://workplace.fb.com/faq/)
@@ -210,7 +212,7 @@ Non è necessaria alcuna azione dell'utente in questa sezione. Se un utente non 
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Facendo clic sul riquadro Workplace by Facebook nel pannello di accesso si dovrebbe accedere automaticamente all'istanza di Workplace by Facebook per cui è stato configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Facendo clic sul riquadro Workplace by Facebook nel pannello di accesso si dovrebbe accedere automaticamente all'istanza di Workplace by Facebook per si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="test-sso-for-workplace-by-facebook-mobile"></a>Testare l'accesso SSO per Workplace by Facebook (per dispositivi mobili)
 
@@ -238,7 +240,7 @@ Facendo clic sul riquadro Workplace by Facebook nel pannello di accesso si dovre
 
 - [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/what-is-single-sign-on)
 
 - [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
@@ -247,4 +249,3 @@ Facendo clic sul riquadro Workplace by Facebook nel pannello di accesso si dovre
 - [Provare Workplace by Facebook con Azure AD](https://aad.portal.azure.com)
 
 - [Informazioni sul controllo sessioni in Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-

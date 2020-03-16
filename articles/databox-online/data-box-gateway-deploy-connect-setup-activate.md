@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: alkohli
-ms.openlocfilehash: 33333f8df1e4809a330815e34074d1bca556cd14
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: c2a0dde496d6af66387210ca9b2ebf9cb4bdae7f
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77561834"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79087948"
 ---
 # <a name="tutorial-connect-set-up-activate-azure-data-box-gateway"></a>Esercitazione: Connettere, configurare e attivare Azure Data Box Gateway
 
@@ -29,7 +29,7 @@ In questa esercitazione verranno illustrate le procedure per:
 > * Connettersi a un dispositivo virtuale
 > * Configurare e attivare il dispositivo virtuale
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di configurare Data Box Gateway, assicurarsi di:
 
@@ -92,6 +92,11 @@ Il dashboard visualizza le diverse impostazioni necessarie per configurare e reg
    2. In **Autenticazione** selezionare **Nessuna** o **NTLM**.
    3. Se si usa l'autenticazione, immettere un **nome utente** e una **password**.
    4. Per convalidare e applicare le impostazioni del proxy Web configurate, selezionare **Applica**.
+
+   > [!NOTE]
+   > I file PAC (proxy-auto config) non sono supportati. Un file PAC definisce il modo in cui i Web browser e altri agenti utente possono scegliere automaticamente il server proxy appropriato (metodo di accesso) per recuperare un determinato URL.
+   > I proxy che tentano di intercettare e leggere tutto il traffico (quindi firmare nuovamente tutti gli elementi con la propria certificazione) non sono compatibili perché il certificato del proxy non è attendibile.
+   > In genere i proxy trasparenti funzionano correttamente con Azure Data Box Gateway.
 
 4. (Facoltativo) Nel riquadro sinistro selezionare **Impostazioni ora**, quindi configurare il fuso orario e i server NTP primario e secondario per il dispositivo. 
 

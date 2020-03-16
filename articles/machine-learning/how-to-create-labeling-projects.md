@@ -1,20 +1,22 @@
 ---
 title: Creare un progetto di etichettatura dei dati
 titleSuffix: Azure Machine Learning
-description: Informazioni su come creare ed eseguire i progetti di etichettatura per aggiungere tag ai dati per Machine Learning.
-author: lobrien
-ms.author: laobri
+description: Informazioni su come creare ed eseguire i progetti di etichettatura per aggiungere tag ai dati per Machine Learning.  Gli strumenti includono l'etichettatura assistita da ML o l'etichettatura Human-in-the-loop per facilitare l'attività.
+author: sdgilley
+ms.author: sgilley
 ms.service: machine-learning
 ms.topic: tutorial
-ms.date: 11/04/2019
-ms.openlocfilehash: e469837c8e374e62824bd8f7a7feb110ed1be9c9
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 03/01/2020
+ms.openlocfilehash: 9974b42f582a3b5f26df0b6e77b42a03f23c47dd
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77153112"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898711"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Creare un progetto di etichettatura dei dati ed esportare le etichette 
+
+[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 L'etichettatura di un volume elevato di dati in progetti di Machine Learning è spesso un'operazione complicata. I progetti che includono un componente visione artificiale, ad esempio la classificazione di immagini o il rilevamento di oggetti, richiedono in genere le etichette per migliaia di immagini.
  
@@ -22,7 +24,7 @@ L'etichettatura di un volume elevato di dati in progetti di Machine Learning è 
 
 Machine Learning tiene traccia dello stato di avanzamento e mantiene la coda delle attività di etichettatura incomplete. Gli etichettatori non necessitano di un account Azure per partecipare. Una volta eseguita l'autenticazione con il proprio account Microsoft personale o con [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis), possono eseguire il numero di attività di etichettatura desiderato, a seconda del tempo a disposizione.
 
-In Machine Learning è possibile avviare e arrestare il progetto, aggiungere e rimuovere utenti e team, nonché monitorare lo stato di avanzamento. È possibile esportare i dati etichettati in formato COCO o come set di dati di Azure Machine Learning.
+È possibile avviare e arrestare il progetto, aggiungere e rimuovere etichettatori e team e monitorare lo stato di avanzamento dell'etichettatura. È possibile esportare i dati etichettati in formato COCO o come set di dati di Azure Machine Learning.
 
 > [!Important]
 > Attualmente sono supportati solo i progetti etichettatura per la classificazione di immagini e l'identificazione degli oggetti. Le immagini dei dati devono inoltre essere disponibili in un archivio dati BLOB di Azure. Se non si dispone di un archivio dati esistente, è possibile caricare le immagini durante la creazione del progetto. 
@@ -37,9 +39,9 @@ In questo articolo si apprenderà come:
 > * Esportare le etichette
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
-* I dati da etichettare, inclusi in file locali o in una risorsa di archiviazione di Azure.
+* I dati da etichettare, inclusi in file locali o nell'archiviazione BLOB di Azure.
 * I set di etichette da applicare.
 * Le istruzioni per l'etichettatura.
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://aka.ms/AMLFree) prima di iniziare.
@@ -55,8 +57,8 @@ Per creare un progetto, scegliere **Aggiungi il progetto**. Assegnare al progett
 
 ![Creazione guidata progetto di assegnazione di etichette](./media/how-to-create-labeling-projects/labeling-creation-wizard.png)
 
-* Scegliere **Classificazione delle immagini multi-etichetta** per i progetti in cui applicare a un'immagine *una o più* etichette da un set di classi. Ad esempio, la foto di un cane potrebbe essere etichettata sia con *cane* che con *giorno*.
 * Scegliere **Classificazione delle immagini multi-classe** per i progetti in cui applicare a un'immagine solo una *classe singola* da un set di classi.
+* Scegliere **Classificazione delle immagini multi-etichetta** per i progetti in cui applicare a un'immagine *una o più* etichette da un set di classi. Ad esempio, la foto di un cane potrebbe essere etichettata sia con *cane* che con *giorno*.
 * Scegliere **Identificazione oggetto (rettangolo di selezione)** per i progetti in cui assegnare una classe e un rettangolo di selezione a ogni oggetto all'interno di un'immagine.
 
 Selezionare **Avanti** quando si è pronti per procedere.
@@ -64,6 +66,7 @@ Selezionare **Avanti** quando si è pronti per procedere.
 ## <a name="specify-the-data-to-label"></a>Specificare i dati da etichettare
 
 Se è già stato creato un set di dati contenente i dati da usare, è possibile selezionarlo nell'elenco a discesa **Seleziona un set di dati esistente**. In alternativa, selezionare **Crea un set di dati** per usare un archivio dati di Azure esistente o caricare i file locali.
+
 
 ### <a name="create-a-dataset-from-an-azure-datastore"></a>Creare un set di dati da un archivio dati di Azure
 
@@ -81,6 +84,9 @@ Per creare un set di dati da dati già archiviati nell'archiviazione BLOB di Azu
 1. Fornire una descrizione del set di dati.
 1. Selezionare **Avanti**.
 1. Confermare i dettagli. Selezionare **Indietro** per modificare le impostazioni oppure **Crea** per creare il set di dati.
+
+> [!NOTE]
+> I dati scelti vengono caricati nel progetto.  L'aggiunta di altri dati all'archivio dati non verrà visualizzata in questo progetto dopo la creazione del progetto.  
 
 ### <a name="create-a-dataset-from-uploaded-data"></a>Creare un set di dati dai dati caricati
 
@@ -105,7 +111,7 @@ Immettere un'etichetta per riga. Usare il pulsante **+** per aggiungere una nuov
 
 ## <a name="describe-the-labeling-task"></a>Descrivere l'attività di etichettatura
 
-È importante spiegare chiaramente l'attività di etichettatura. Nella pagina **Istruzioni di etichettatura** è possibile aggiungere un collegamento a un sito esterno per tali istruzioni. Le istruzioni devono essere basate sull'attività e appropriate per i destinatari. Considerare queste domande:
+È importante spiegare chiaramente l'attività di etichettatura. Nella pagina **Istruzioni di etichettatura** è possibile aggiungere un collegamento a un sito esterno per tali istruzioni o fornire le istruzioni nella casella di modifica della pagina. Le istruzioni devono essere basate sull'attività e appropriate per i destinatari. Considerare queste domande:
 
 * Che cosa sono le etichette visualizzate e come verranno scelte? Esiste un testo di riferimento da consultare?
 * Cosa è necessario fare se nessuna etichetta risulta appropriata?
@@ -119,9 +125,42 @@ Per i rettangoli di selezione, le domande importanti sono:
 
 * Come viene definito il rettangolo di selezione per questa attività? Deve trovarsi completamente all'interno dell'oggetto o all'esterno? Deve essere ritagliato il più possibile o è accettabile lasciare uno spazio vuoto?
 * Qual è il livello di attenzione e coerenza che l'etichettatore dovrà applicare per la definizione dei rettangoli di selezione?
+* Come etichettare l'oggetto visualizzato parzialmente nell'immagine? 
+* Come etichettare l'oggetto parzialmente coperto da un altro oggetto?
 
 >[!NOTE]
 > Tenere presente che gli etichettatori potranno selezionare le prime 9 etichette usando i tasti numerici 1-9.
+
+## <a name="use-ml-assisted-labeling"></a>Usare l'etichettatura assistita da ML
+
+[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
+
+La pagina **Etichettatura assistita da ML** consente di attivare modelli di Machine Learning automatici per accelerare l'attività di etichettatura. All'inizio del progetto di etichettatura, le immagini vengono mescolate in modo casuale per ridurre le potenziali distorsioni. Tuttavia, eventuali distorsioni presenti nel set di dati si rifletteranno nel modello con training. Se, ad esempio, l'80% delle immagini appartiene a una singola classe, circa l'80% dei dati usati per il training del modello sarà di tale classe. Questo training non include l'apprendimento attivo.
+
+Questa funzionalità è disponibile per le attività di classificazione delle immagini (multi-classe o multi-etichetta).  
+
+Selezionare *Abilita etichettatura assistita da ML* e specificare una GPU per abilitare l'etichettatura assistita, costituita da due fasi:
+* Clustering
+* Pre-etichettatura
+
+Il numero esatto di immagini etichettate necessarie per avviare l'etichettatura assistita non è un numero fisso.  Può variare in modo significativo da un progetto di etichettatura a un altro. Per alcuni progetti, talvolta è possibile visualizzare le attività di pre-etichettatura o di clustering dopo che sono state etichettate manualmente 300 immagini. L'etichettatura assistita da ML usa una tecnica chiamata *Apprendimento induttivo*, che usa un modello con pre-training per avviare rapidamente il processo di training. Se le classi del set di dati sono simili a quelle del modello con pre-training, è possibile che le pre-etichette siano disponibili solo dopo alcune centinaia di immagini etichettate manualmente. Se il set di dati è significativamente diverso dai dati usati per il pre-training del modello, potrebbe essere necessario molto più tempo.
+
+Poiché le etichette finali si basano ancora sull'input dell'etichettatore, questa tecnologia viene a volte chiamata etichettatura *human in the loop*.
+
+### <a name="clustering"></a>Clustering
+
+Dopo l'invio di un determinato numero di etichette, il modello di Machine Learning inizia a raggruppare immagini simili.  Queste immagini simili vengono presentate all'etichettatore nella stessa schermata per velocizzare l'assegnazione manuale di tag. Il clustering è particolarmente utile quando l'etichettatore visualizza una griglia di 4, 6 o 9 immagini. 
+
+Dopo aver eseguito il training di un modello di Machine Learning sui dati etichettati manualmente, il modello viene troncato all'ultimo livello completamente connesso. Le immagini non etichettate vengono quindi passate attraverso il modello troncato in un processo comunemente noto come "incorporamento" o "definizione delle funzionalità". Questa operazione incorpora ogni immagine in uno spazio altamente dimensionale definito da questo livello del modello. Le immagini vicine più prossime nello spazio vengono usate per le attività di clustering. 
+
+### <a name="prelabeling"></a>Pre-etichettatura
+
+Dopo l'invio di altre etichette di immagine, viene usato un modello di classificazione per stimare i tag di immagine.  L'etichettatore ora visualizza le pagine che contengono etichette stimate già presenti in ogni immagine.  L'attività è quindi quella di controllare queste etichette e correggere eventuali immagini non etichettate correttamente prima di inviare la pagina.  
+
+Dopo avere eseguito il training di un modello di Machine Learning sui dati etichettati manualmente, il modello viene valutato su un set di test di immagini etichettate manualmente per determinarne l'accuratezza in base a una varietà di soglie di attendibilità diverse. Questo processo di valutazione viene usato per determinare una soglia di attendibilità oltre la quale il modello è sufficientemente accurato per mostrare le pre-etichette. Il modello viene quindi valutato in base ai dati non etichettati. Le immagini con stime più attendibili di questa soglia vengono usate per la pre-etichettatura.
+
+> [!NOTE]
+> L'etichettatura assistita da ML è disponibile **solo** nelle aree di lavoro Enterprise Edition.
 
 ## <a name="initialize-the-labeling-project"></a>Inizializzare il progetto di etichettatura
 
@@ -149,7 +188,7 @@ Per sospendere o riavviare il progetto, selezionare il pulsante **Sospendi**/**A
 
 È possibile etichettare i dati direttamente dalla pagina **Dettagli del progetto** selezionando **Etichetta dati**.
 
-## <a name="add-labels-to-a-project"></a>Aggiungere etichette a un progetto
+## <a name="add-new-label-class-to-a-project"></a>Aggiungere una nuova classe di etichetta a un progetto
 
 Durante il processo di etichettatura, si potrebbe rilevare che sono necessarie etichette aggiuntive per classificare le immagini.  Ad esempio, si potrebbe scegliere di aggiungere un'etichetta "Sconosciuto" o "Altro" per indicare immagini confuse.
 

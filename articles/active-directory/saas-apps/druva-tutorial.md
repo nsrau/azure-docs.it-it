@@ -11,17 +11,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/14/2019
+ms.date: 03/06/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16b23ef246561d052935642c323c2d830e21cbe7
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: f019d818fb5a017d184bda8d773eb0aaf0f3645a
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "73570231"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944406"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-druva"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Druva
 
@@ -44,7 +43,8 @@ Per iniziare, sono necessari gli elementi seguenti:
 
 In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
 
-* Druva supporta l'accesso SSO avviato da **SP e IDP**
+* Druva supporta l'accesso SSO avviato da **IDP**
+* Dopo aver configurato Druva SSO, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 > [!NOTE]
 > Dal momento che l'identificatore di questa applicazione è un valore stringa fisso, è possibile configurare una sola istanza in un solo tenant.
@@ -81,13 +81,15 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML**.
 1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona Modifica (la penna) relativa a **Configurazione SAML di base** per modificare le impostazioni.
 
-1. Nella sezione **Configurazione SAML di base**, se si vuole configurare l'applicazione in modalità avviata da **IDP**, non è necessario eseguire alcun passaggio, perché l'app è già preintegrata in Azure.
+   ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-1. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
+1. Nella sezione **Configurazione SAML di base** seguire questa procedura:
 
-    Nella casella di testo **URL di accesso** digitare un URL: `https://login.druva.com/api/commonlogin/samlconsume`
+    a. Nella casella di testo **Identificatore (ID entità)** digitare il valore stringa `DCP-login`.
+    
+    b. Nella casella di testo **URL di risposta (URL del servizio consumer di asserzione)** digitare l'URL: `https://cloud.druva.com/wrsaml/consume`.
 
-1. Fare clic su **Save**.
+1. Fare clic su **Salva**.
 
 1. L'applicazione Druva prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti.
 
@@ -95,10 +97,10 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Oltre quelli elencati in precedenza, l'applicazione Druva prevede il passaggio di altri attributi nella risposta SAML. Tali attributi sono indicati di seguito. Anche questi attributi vengono prepopolati, ma è possibile esaminarli in base ai requisiti.
 
-    | NOME | Attributo di origine|
+    | Nome | Attributo di origine|
     | ------------------- | -------------------- |
     | emailAddress | user.email |
-    | druva_auth_token | Token SSO generato dalla console di amministrazione DCP, senza virgolette.  Ad esempio:  X-XXXXX-XXXX-S-A-M-P-L-E+TXOXKXEXNX=. Azure racchiude automaticamente il token di autenticazione tra virgolette. |
+    | druva_auth_token | Token SSO generato dalla console di amministrazione DCP, senza virgolette.  Ad esempio: X-XXXXX-XXXX-S-A-M-P-L-E+TXOXKXEXNX=. Azure racchiude automaticamente il token di autenticazione tra virgolette. |
 
 1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare **Certificato (Base64)** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer.
 
@@ -161,7 +163,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
        > [!NOTE]
        > Per abilitare l'accesso Single Sign-on per gli amministratori, selezionare le caselle di controllo **Administrators log into Druva Cloud through SSO provider** (Gli amministratori accedono a Druva Cloud tramite il provider SSO) e **Allow failsafe access to Druva Cloud administrators (recommended)** (Consenti accesso failsafe agli amministratori di Druva Cloud - scelta consigliata). Druva consiglia di abilitare l'opzione **Failsafe for Administrators** (Failsafe per amministratori) in modo da consentire l'accesso alla console DCP in caso di errori con l'IdP. Consente inoltre agli amministratori di usare sia SSO che la password DCP per accedere alla console DCP.
 
-    1. Fare clic su **Save**. In questo modo è possibile accedere a Druva Cloud Platform tramite SSO.
+    1. Fare clic su **Salva**. In questo modo è possibile accedere a Druva Cloud Platform tramite SSO.
 
 ### <a name="create-druva-test-user"></a>Creare l'utente di test di Druva
 
@@ -171,7 +173,7 @@ In questa sezione viene creato un utente di nome B.Simon in Druva. Druva support
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di Druva nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Druva per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di Druva nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Druva per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
@@ -182,3 +184,5 @@ Quando si fa clic sul riquadro di Druva nel pannello di accesso, si dovrebbe acc
 - [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Provare Druva con Azure AD](https://aad.portal.azure.com/)
+
+- [Informazioni sul controllo sessioni in Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

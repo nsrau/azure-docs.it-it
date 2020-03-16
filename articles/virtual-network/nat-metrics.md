@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/04/2020
 ms.author: allensu
-ms.openlocfilehash: 268f5f5b7bf1bed27a01085974bea72af6a84f3b
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 51713db8532eb33f102de9320dea9eaeb98c4019
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/05/2020
-ms.locfileid: "78304056"
+ms.locfileid: "78359089"
 ---
 # <a name="azure-virtual-network-nat-metrics"></a>Metriche del servizio NAT di rete virtuale di Azure
 
@@ -57,8 +57,10 @@ Il servizio Integrità risorse non è supportato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni sul [servizio NAT di rete virtuale](nat-overview.md)
-- Informazioni sulla [risorsa gateway NAT](nat-gateway-resource.md)
-- Informazioni su [Monitoraggio di Azure](../azure-monitor/overview.md)
-- Informazioni sulla [risoluzione dei problemi delle risorse gateway NAT](troubleshoot-nat.md).
+* Informazioni sul [servizio NAT di rete virtuale](nat-overview.md)
+* Informazioni sulla [risorsa gateway NAT](nat-gateway-resource.md)
+* Informazioni su [Monitoraggio di Azure](../azure-monitor/overview.md)
+* Informazioni sulla [risoluzione dei problemi delle risorse gateway NAT](troubleshoot-nat.md).
+* [Segnalare le nuove funzionalità richieste per NAT di rete virtuale in UserVoice](https://aka.ms/natuservoice).
+
 

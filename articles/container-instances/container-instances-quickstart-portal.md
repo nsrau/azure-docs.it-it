@@ -1,20 +1,15 @@
 ---
 title: "Avvio rapido: Distribuire un contenitore Docker in un'istanza di contenitore - Portale"
 description: In questo argomento di avvio rapido viene usato il portale di Azure per distribuire rapidamente un'app Web in contenitori, che viene eseguita in un'istanza di contenitore Azure isolata
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: quickstart
-ms.date: 04/17/2019
-ms.author: danlep
+ms.date: 03/09/2020
 ms.custom: seodec18, mvc
-ms.openlocfilehash: e0c5ba57c7664a64c1b11bed215f419f31630d39
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 7a872e955db46b76d3b12f8ffc38d4a8e497ea63
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533519"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79087996"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-portal"></a>Guida introduttiva: Distribuzione dell'istanza di contenitore in Azure con il portale di Azure
 
@@ -40,15 +35,16 @@ Nella pagina **Generale**, immettere i seguenti valori nelle caselle di testo **
 
 * Gruppo di risorse: **Crea nuovo** > `myresourcegroup`
 * Nome contenitore: `mycontainer`
-* Immagine del contenitore: `mcr.microsoft.com/azuredocs/aci-helloworld`
+* Origine immagine: **immagini di avvio rapido**
+* Immagine del contenitore: `mcr.microsoft.com/azuredocs/aci-helloworld` (Linux)
 
 ![Configurazione delle impostazioni di base per una nuova istanza di contenitore nel portale di Azure][aci-portal-03]
 
-Per questo Avvio rapido, usare l'impostazione predefinita **Tipo di immagine** di **Pubblico** per distribuire l'immagine pubblica `aci-helloworld` Microsoft. In questa immagine Linux è inclusa una piccola app Web scritta in Node.js che distribuisce una pagina HTML statica.
+Per questo argomento di avvio rapido, usare le impostazioni predefinite per distribuire l'immagine `aci-helloworld` Microsoft pubblica. In questa immagine Linux di esempio è inclusa una piccola app Web scritta in Node.js che distribuisce una pagina HTML statica. È anche possibile usare le proprie immagini del contenitore archiviate in Registro Azure Container, Docker Hub o altri registri.
 
 Nella pagina **Rete** specificare un'**etichetta del nome DNS** per il contenitore. Il nome deve essere univoco all'interno dell'area di Azure in cui si crea l'istanza di contenitore. Il contenitore sarà pubblicamente raggiungibile in `<dns-name-label>.<region>.azurecontainer.io`. Se si riceve il messaggio di errore "L'etichetta del nome DNS non è disponibile", provare con un'etichetta del nome DNS diversa.
 
-![Configurazione di una nuova istanza di contenitore nel portale di Azure][aci-portal-04]
+![Configurazione delle impostazioni di rete per una nuova istanza di contenitore nel portale di Azure][aci-portal-04]
 
 Lasciare invariate le altre impostazioni predefinite e quindi selezionare **Verifica e Crea**.
 
@@ -56,7 +52,7 @@ Al termine della convalida, viene visualizzato un riepilogo delle impostazioni d
 
 ![Riepilogo delle impostazioni per una nuova istanza di contenitore nel portale di Azure][aci-portal-05]
 
-All'avvio della distribuzione, viene visualizzata una notifica che indica che la distribuzione è in corso. Un'altra notifica viene visualizzata dopo che il gruppo di contenitori è stato distribuito.
+All'avvio della distribuzione, viene visualizzata una notifica che indica che la procedura è in corso. Un'altra notifica viene visualizzata dopo che il gruppo di contenitori è stato distribuito.
 
 Aprire la panoramica per il gruppo di contenitori passando a **Gruppi di risorse** > **myresourcegroup** > **mycontainer**. Prendere nota dell'**FQDN** (nome di dominio completo) dell'istanza di contenitore, nonché dello **Stato**.
 

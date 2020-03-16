@@ -8,20 +8,20 @@ ms.subservice: edge
 ms.topic: overview
 ms.date: 11/04/2019
 ms.author: alkohli
-ms.openlocfilehash: 98ea00eb4d45ad045e1da3c4c5680f44e6705432
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: f463e8883efd5e2dfc4d7fff80912c193665b850
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78300979"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399792"
 ---
-# <a name="what-is-azure-stack-edge"></a>Che cos'è Azure Stack Edge? 
+# <a name="what-is-azure-stack-edge"></a>Che cos'è Azure Stack Edge?
 
 [!INCLUDE [data-box-edge-gateway-rename-note](../../includes/data-box-edge-gateway-rename-note.md)]
 
-Azure Stack Edge è un dispositivo di edge computing abilitato per l'intelligenza artificiale con funzionalità di trasferimento dei dati di rete. Questo articolo contiene una panoramica della soluzione Azure Stack Edge, nonché dei vantaggi, delle funzionalità chiave e degli scenari in cui distribuire questo dispositivo. 
+Azure Stack Edge è un dispositivo di edge computing abilitato per l'intelligenza artificiale con funzionalità di trasferimento dei dati di rete. Questo articolo contiene una panoramica della soluzione Azure Stack Edge, nonché dei vantaggi, delle funzionalità chiave e degli scenari in cui distribuire questo dispositivo.
 
-Azure Stack Edge è una soluzione Hardware-as-a-service. Microsoft offre un dispositivo gestito dal cloud con un FPGA (Field Programmable Gate Array) incorporato che consente l'inferenza per intelligenza artificiale accelerata e offre tutte le funzionalità di un gateway di archiviazione di rete. 
+Azure Stack Edge è una soluzione Hardware-as-a-service. Microsoft offre un dispositivo gestito dal cloud con un FPGA (Field Programmable Gate Array) incorporato che consente l'inferenza per intelligenza artificiale accelerata e offre tutte le funzionalità di un gateway di archiviazione di rete.
 
 ## <a name="use-cases"></a>Casi d'uso
 
@@ -37,7 +37,6 @@ Di seguito vengono indicati i diversi scenari in cui è possibile usare Azure St
     - Analizzare e rispondere a eventi IoT. 
 
 - **Trasferire i dati sulla rete in Azure**: usare Azure Stack Edge per trasferire rapidamente e facilmente i dati in Azure per consentire ulteriori analisi ed elaborazioni o per scopi di archiviazione. 
-
 
 ## <a name="key-capabilities"></a>Funzionalità principali
 
@@ -55,13 +54,13 @@ In Azure Stack Edge sono disponibili le funzionalità seguenti:
 |Aggiornamento dati     | Possibilità di aggiornare i file locali con quelli più recenti nel cloud.|
 |Crittografia    | Supporto BitLocker per crittografare i dati in locale e proteggere tramite *https* il trasferimento dei dati nel cloud.|
 |Limitazione della larghezza di banda| Limitare l'utilizzo della larghezza di banda durante le ore di picco.|
-
+|ExpressRoute | Maggiore sicurezza tramite ExpressRoute. Usare la configurazione in peering se il traffico tra i dispositivi locali e gli endpoint di archiviazione cloud viaggia su ExpressRoute. Per altre informazioni, vedere la [panoramica di ExpressRoute](../expressroute/expressroute-introduction.md).
 
 ## <a name="components"></a>Componenti
 
 La soluzione Azure Stack Edge è costituita dalla risorsa e dal dispositivo fisico Azure Stack Edge e da un'interfaccia utente Web locale.
 
-* **Dispositivo fisico Azure Stack Edge**: un server montato su rack 1U fornito da Microsoft che può essere configurato per inviare dati ad Azure. 
+* **Dispositivo fisico Azure Stack Edge**: un server montato su rack 1U fornito da Microsoft che può essere configurato per inviare dati ad Azure.
     
 * **Risorsa Azure Stack Edge**: una risorsa del portale di Azure che consente di gestire un dispositivo Azure Stack Edge da un'interfaccia Web accessibile da posizioni geografiche diverse. Usare la risorsa Azure Stack Edge per creare e gestire risorse, visualizzare e gestire dispositivi e avvisi e gestire condivisioni.  
 
@@ -75,22 +74,16 @@ La soluzione Azure Stack Edge è costituita dalla risorsa e dal dispositivo fisi
 
     Per informazioni sull'uso dell'interfaccia utente basata sul Web, vedere l'articolo relativo all'[uso dell'interfaccia utente basata sul Web per amministrare Azure Stack Edge](data-box-edge-manage-access-power-connectivity-mode.md).
 
-
 ## <a name="region-availability"></a>Aree di disponibilità
 
 Il dispositivo fisico Azure Stack Edge, la risorsa di Azure e l'account di archiviazione di destinazione in cui trasferire i dati non devono necessariamente trovarsi tutti nella stessa area.
 
 - **Aree di disponibilità**: per un elenco delle aree in cui la risorsa Azure Stack Edge è disponibile, vedere l'[elenco dei prodotti Azure disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). È possibile distribuire Azure Stack Edge anche nel cloud di Azure per enti pubblici. Per altre informazioni, vedere [What is Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) (Informazioni su Azure per enti pubblici).
     
-- **Account di archiviazione di destinazione**: gli account che archiviano i dati sono disponibili in tutte le aree di Azure. Per garantire prestazioni ottimali, le aree in cui gli account archiviano i dati di Azure Stack Edge devono trovarsi nelle vicinanze del dispositivo. Un account di archiviazione lontano dal dispositivo si traduce in lunghe latenze e prestazioni ridotte. 
-
+- **Account di archiviazione di destinazione**: gli account che archiviano i dati sono disponibili in tutte le aree di Azure. Per garantire prestazioni ottimali, le aree in cui gli account archiviano i dati di Azure Stack Edge devono trovarsi nelle vicinanze del dispositivo. Un account di archiviazione lontano dal dispositivo si traduce in lunghe latenze e prestazioni ridotte.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Esaminare i [requisiti di sistema di Azure Stack Edge](data-box-edge-system-requirements.md).
 - Informazioni sui [limiti di Azure Stack Edge](data-box-edge-limits.md).
 - Distribuire [Azure Stack Edge](data-box-edge-deploy-prep.md)nel portale di Azure.
-
-
-
-

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 4a62026ecec2317173361f166adcc3a7981f6d1c
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 68473ff5a3faddd36bd4299dfdc882f679acd068
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701179"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129893"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Chiamare l'API Microsoft Graph da un'applicazione della piattaforma UWP (XAML)
 
@@ -32,6 +32,9 @@ Al termine di questa guida, l'applicazione chiama un'API protetta usando account
 
 >[!NOTE]
 > Per seguire le indicazioni di questa guida è necessario che sia installato Visual Studio con la piattaforma di sviluppo UWP. Consultare [Per iniziare](https://docs.microsoft.com/windows/uwp/get-started/get-set-up) per istruzioni su come scaricare e configurare Visual Studio per sviluppare app per piattaforma UWP.
+
+>[!NOTE]
+> Se non si ha familiarità con Microsoft Identity Platform, è consigliabile iniziare con l'argomento di avvio rapido [Chiamare l'API Microsoft Graph da un'applicazione della piattaforma UWP (Universal Windows Platform)](quickstart-v2-uwp.md).
 
 ## <a name="how-this-guide-works"></a>Come interpretare questa guida
 

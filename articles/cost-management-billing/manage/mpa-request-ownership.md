@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: 8e272267ffc8dd2946a390470df78b179ebbdf92
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: f8f2db3e81c498757bfc39bf70999ce1e70c09da
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199654"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79117187"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-to-your-mpa-account"></a>Ottenere la proprietà della fatturazione delle sottoscrizioni di Azure dall'account del contratto Microsoft Partner
 
@@ -24,7 +24,7 @@ Per richiedere la proprietà della fatturazione, è necessario disporre del ruol
 
 Le informazioni in questo articolo si applicano agli account di fatturazione per i contratti Microsoft Partner. Questi account vengono creati per i provider CSP e consentire loro di gestire la fatturazione per conto dei clienti nella nuova esperienza Commerce. La nuova esperienza è disponibile per i partner che hanno almeno un cliente che ha accettato un Contratto del cliente Microsoft con un piano di Azure. [Verificare di avere accesso a un Contratto Microsoft Partner](#check-access-to-a-microsoft-partner-agreement).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 1. Stabilire una [relazione come rivenditore](https://docs.microsoft.com/partner-center/request-a-relationship-with-a-customer) con il cliente. Controllare la [panoramica delle autorizzazioni a livello di area per CSP](https://docs.microsoft.com/partner-center/regional-authorization-overview) per assicurarsi che il tenant del cliente e il tenant del partner risiedano nelle stesse aree autorizzate.  
 
@@ -139,7 +139,7 @@ I prodotti di Azure Marketplace disponibili per le sottoscrizioni gestite tramit
 
 ### <a name="azure-reservations-transfer"></a>Trasferimento di prenotazioni di Azure
 
-Le prenotazioni di Azure non vengono spostate automaticamente con le sottoscrizioni. Per spostare le prenotazioni, [contattare il supporto tecnico di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Le prenotazioni di Azure non vengono spostate automaticamente con le sottoscrizioni. È possibile mantenere la prenotazione o [annullarla e riacquistarla](https://docs.microsoft.com/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations) in CSP. 
 
 ### <a name="access-to-azure-services"></a>Accesso ai servizi di Azure
 

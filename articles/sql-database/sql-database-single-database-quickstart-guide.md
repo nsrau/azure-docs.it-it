@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 ms.date: 07/29/2019
-ms.openlocfilehash: 4332d57c8d5587a34ba3a593deb9bd635132b03d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 6070b53e5f906bc378402d98275b8f798f57b505
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820961"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78674438"
 ---
 # <a name="getting-started-with-single-databases-in-azure-sql-database"></a>Introduzione ai database singoli in Database SQL di Azure
 
@@ -34,10 +34,8 @@ Questa sezione contiene una panoramica degli articoli disponibili da consultare 
 
 È possibile usare PowerShell o l'interfaccia della riga di comando di Azure per creare, configurare e ridimensionare il database.
 
-- [Creare e configurare un database singolo con PowerShell](scripts/sql-database-create-and-configure-database-powershell.md)
-- [Creare e configurare un database singolo con l'interfaccia della riga di comando di Azure](scripts/sql-database-create-and-configure-database-cli.md)
-- [Aggiornare il database singolo e ridimensionare le risorse con PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md)
-- [Aggiornare il database singolo e ridimensionare le risorse con l'interfaccia della riga di comando di Azure](scripts/sql-database-monitor-and-scale-database-cli.md)
+- [Creare e configurare un database singolo con PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) o con l'[interfaccia della riga di comando di Azure](scripts/sql-database-create-and-configure-database-cli.md)
+- [Aggiornare il database singolo e ridimensionare le risorse con PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md) o con l'[interfaccia della riga di comando di Azure](scripts/sql-database-monitor-and-scale-database-cli.md)
 
 ## <a name="migrating-to-a-single-database-with-minimal-downtime"></a>Migrazione a un database singolo con tempo di inattività minimo
 

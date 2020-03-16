@@ -8,12 +8,12 @@
       displayName: release notes
       href: release-notes.md
 - name: Avvi rapidi
+  expanded: true
   items:
     - name: Evento live con portale e Wirecast
       displayName: 'live, event, portal, wirecast'
       href: live-events-wirecast-quickstart.md
 - name: Esercitazioni
-  expanded: true
   items:
     - name: Codificare il file remoto e trasmettere il video in streaming
       items:
@@ -42,7 +42,7 @@
       href: protect-with-drm.md
 - name: Esempi
   items:
-    - name: Esempi di Servizi multimediali
+    - name: Esempi di Servizi multimediali v3
       displayName: '.NET, Java'
       href: 'https://docs.microsoft.com/samples/browse/?products=azure-media-services'
     - name: Esempi REST di Servizi multimediali v3
@@ -71,8 +71,6 @@
         - name: Trasformazioni e processi
           href: transforms-jobs-concept.md
           displayName: 'preset, schema'
-        - name: Codici di errore
-          href: job-error-codes.md
     - name: Codifica del contenuto
       items:
         - name: Panoramica
@@ -92,8 +90,6 @@
           displayName: 'analyzing, presets, jobs'
         - name: Trasformazioni e processi
           href: transforms-jobs-concept.md
-        - name: Codici di errore dei processi
-          href: job-error-codes.md
     - name: Streaming live
       items:
         - name: Panoramica
@@ -101,7 +97,7 @@
         - name: Eventi live e output live
           href: live-events-outputs-concept.md
           displayName: 'vanity, ingest'
-        - name: Codificatori live consigliati
+        - name: Codificatori live locali testati
           href: recommended-on-premises-live-encoders.md
         - name: Time-shifting e VOD in diretta
           displayName: 'archive, dvr'
@@ -114,10 +110,6 @@
           href: live-event-states-billing.md
         - name: Latenza
           href: live-event-latency.md
-        - name: Diventare un partner di codificatore locale
-          href: become-on-premises-encoder-partner.md
-        - name: Codici errore di eventi live
-          href: live-event-error-codes.md
     - name: Creazione di pacchetti e recapito
       items:
         - name: creazione dinamica dei pacchetti
@@ -138,8 +130,6 @@
           href: streaming-locators-concept.md
         - name: Criteri di streaming
           href: streaming-policy-concept.md
-        - name: Codici di errore degli endpoint di streaming
-          href: streaming-endpoint-error-codes.md
     - name: Protezione del contenuto
       items:
         - name: Crittografia dinamica e distribuzione delle chiavi
@@ -211,20 +201,24 @@
   items:
     - name: Introduzione
       items:
-        - name: Creare un account - Portale
-          href: create-account-portal.md
-        - name: Creare un account - Interfaccia della riga di comando
-          href: create-account-cli-how-to.md
-          displayName: storage
-        - name: Reimpostare le credenziali dell'account - Interfaccia della riga di comando
+        - name: Creare un account
+          items:
+            - name: Con il portale
+              href: create-account-portal.md
+            - name: Con l'interfaccia della riga di comando
+              href: create-account-cli-how-to.md
+              displayName: storage
+        - name: Reimpostare le credenziali dell'account
           href: cli-reset-account-credentials.md
-        - name: Accedere alle API - Portale
-          href: access-api-portal.md
-        - name: Accedere alle API - Interfaccia della riga di comando
-          href: access-api-cli-how-to.md
-        - name: Ridimensionare le Media Reserved Unit - Interfaccia della riga di comando
+        - name: Accedere alle API
+          items:
+            - name: Con il portale
+              href: access-api-portal.md
+            - name: Con l'interfaccia della riga di comando
+              href: access-api-cli-how-to.md
+        - name: Ridimensionare le unità riservate di codifica
           href: media-reserved-units-cli-how-to.md
-        - name: Creare un asset - Interfaccia della riga di comando
+        - name: Creare un asset
           href: cli-create-asset.md
     - name: Guide per sviluppatori
       items:
@@ -244,31 +238,33 @@
               href: configure-connect-python-howto.md
     - name: Caricare contenuti
       items:
-        - name: Da HTTPS - .NET
+        - name: Da HTTPS
           displayName: upload
           href: job-input-from-http-how-to.md
-        - name: Da un file locale - .NET
-          displayName: upload
-          href: job-input-from-local-file-how-to.md
-        - name: Da un file locale - REST
-          displayName: upload
-          href: upload-files-rest-how-to.md
-        - name: Da un file locale - Interfaccia della riga di comando
-          href: cli-upload-file-asset.md
+        - name: Da un file locale
+          items:
+            - name: Con .NET
+              displayName: upload
+              href: job-input-from-local-file-how-to.md
+            - name: Con REST
+              displayName: upload
+              href: upload-files-rest-how-to.md
+            - name: Con l'interfaccia della riga di comando
+              href: cli-upload-file-asset.md
     - name: Creare trasformazioni e processi
       items:
-        - name: Creare trasformazioni - Interfaccia della riga di comando
+        - name: Creare trasformazioni
           href: cli-create-transform.md
-        - name: Creare i processi - Interfaccia della riga di comando
+        - name: Creare processi
           href: cli-create-jobs.md
         - name: Processi con più output di trasformazione
           href: job-multiple-transform-outputs.md
     - name: Codificare contenuti
       items:
-        - name: HTTPS come input del processo - .NET
+        - name: HTTPS come input del processo
           displayName: 'encode, encoding'
           href: job-input-from-http-how-to.md
-        - name: File locale come input del processo - .NET
+        - name: File locale come input del processo
           displayName: 'encode, encoding'
           href: job-input-from-local-file-how-to.md
         - name: Codificare con una trasformazione personalizzata
@@ -290,6 +286,16 @@
             - name: Con REST
               href: subclip-video-rest-howto.md
               displayName: 'subclipping, clip, edit, trim, clipping'
+        - name: Codici di errore dei processi
+          href: job-error-codes.md
+    - name: Streaming live
+      items:
+        - name: Evento live con portale e Wirecast
+          href: live-events-wirecast-quickstart.md
+        - name: Verificare il codificatore locale
+          href: become-on-premises-encoder-partner.md
+        - name: Codici errore di eventi live
+          href: live-event-error-codes.md
     - name: Usare Griglia di eventi
       items:
         - name: Monitorare gli eventi - Portale
@@ -304,7 +310,7 @@
           href: media-services-diagnostic-logs-howto.md
     - name: Proteggere il contenuto
       items:
-        - name: Ottenere i criteri di chiave simmetrica - .NET
+        - name: Ottenere i criteri di chiave simmetrica
           href: get-content-key-policy-dotnet-howto.md
         - name: Fairplay offline per iOS
           href: offline-fairplay-for-ios.md
@@ -325,7 +331,9 @@
           displayName: filters
     - name: Distribuire contenuti
       items:
-        - name: Pubblicare un asset - Interfaccia della riga di comando
+        - name: Gestire gli endpoint di streaming
+          href: manage-streaming-endpoints-howto.md
+        - name: Pubblicare un asset
           href: cli-publish-asset.md
         - name: Creare un localizzatore di streaming e gli URL di compilazione
           href: create-streaming-locator-build-url.md
