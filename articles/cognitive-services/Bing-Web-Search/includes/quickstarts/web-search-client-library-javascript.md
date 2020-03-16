@@ -6,20 +6,20 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 02/24/2020
+ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: 3f8d0e8996aa972aa63f31d6d5cf8b3fb3c00bd8
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 0380dc8d2ff34cf9eecaad063a305491a357ca29
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77651755"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78924830"
 ---
 La libreria client di Ricerca Web Bing facilita l'integrazione di Ricerca Web Bing nell'applicazione Node.js. In questa guida introduttiva si apprenderà come creare un'istanza di un client, inviare una richiesta e stampare la risposta.
 
 Per vedere il codice subito, Esempi per le [librerie client di Ricerca Bing per JavaScript](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/tree/master/Samples) sono disponibili su GitHub.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 Prima di eseguire i passaggi illustrati in questa guida introduttiva, verificare di avere quanto segue:
 
 * [Node.js 6](https://nodejs.org/en/download/) o versione successiva

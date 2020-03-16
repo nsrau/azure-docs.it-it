@@ -5,12 +5,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
 ms.author: dapine
-ms.openlocfilehash: 44ca89cb9d1ecb1a6b7fb91a146cd440f40bb303
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 2ee6b12923bfd0e06343e8f185226cb72280d806
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77562740"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78383854"
 ---
 In questa guida di avvio rapido si apprenderà come usare Speech Devices SDK per Android per compilare un prodotto abilitato al riconoscimento vocale o usarlo come dispositivo di [trascrizione conversazione](../conversation-transcription-service.md).
 
@@ -18,7 +18,7 @@ Per riprodurre le procedure di questa guida, è necessario un account di [Serviz
 
 Il codice sorgente dell'applicazione di esempio è incluso in Speech Devices SDK ed è anche [disponibile in GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare a usare Speech Devices SDK, è necessario:
 
@@ -96,7 +96,7 @@ Per convalidare la configurazione del kit di sviluppo, compilare e installare l'
     Aggiornare **build.gradle(Module:app)** aggiungendo questa riga alla sezione dipendenze. 
     
     ```xml
-    implementation'com.microsoft.cognitiveservices.speech:client-sdk:1.9.0'
+    implementation'com.microsoft.cognitiveservices.speech:client-sdk:1.10.0'
     ```
     
 1. Aggiungere la chiave di sottoscrizione del Servizio di riconoscimento vocale al codice sorgente. Se si vuole provare la funzionalità Riconoscimento finalità, aggiungere anche la chiave di sottoscrizione e l'ID applicazione del [servizio Language Understanding](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).

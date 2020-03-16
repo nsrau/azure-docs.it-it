@@ -6,20 +6,20 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 02/24/2020
+ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: 6ba6aab1a1b4a78af1a991cbf74083a41f0c0306
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 32a31892317cadb37f16e48df80bef7d6d8a99ef
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77651779"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78924738"
 ---
 La libreria client di Ricerca Web Bing facilita l'integrazione di Ricerca Web Bing nell'applicazione C#. In questa guida introduttiva si apprenderà come creare un'istanza di un client, inviare una richiesta e stampare la risposta.
 
 Per vedere il codice subito, Esempi per le [librerie client di Ricerca Bing per .NET](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7) sono disponibili su GitHub.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 Prima di eseguire i passaggi illustrati in questa guida introduttiva, verificare di avere quanto segue:
 
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/) o
@@ -422,3 +422,4 @@ Dopo aver terminato di usare questo progetto, rimuovere la chiave di sottoscrizi
 
 > [!div class="nextstepaction"]
 > [Esempi di SDK Node.js per Servizi cognitivi](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/)
+                                    

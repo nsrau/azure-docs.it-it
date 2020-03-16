@@ -5,12 +5,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
 ms.author: dapine
-ms.openlocfilehash: d2f8603b659fe44f83b725a92fb7b73cfe34cf37
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 11d2f9788f41e259058af50a728b8b82eeb10131
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77562732"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78383999"
 ---
 In questa Guida introduttiva, si apprenderà come usare Speech Devices SDK per Windows per compilare un prodotto abilitato al riconoscimento vocale o usarlo come dispositivo di [trascrizione conversazione](../conversation-transcription-service.md). Per la trascrizione conversazione è supportato solo [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/). Per altri tipi di riconoscimento vocale sono supportati gruppi di microfoni lineari che forniscono una geometria per gruppi di microfoni.
 
@@ -20,7 +20,7 @@ Per riprodurre le procedure di questa guida, è necessario un account di [Serviz
 
 Il codice sorgente dell'[applicazione di esempio](https://aka.ms/sdsdk-download-JRE) è incluso in Speech Devices SDK ed è anche [disponibile in GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Questa guida introduttiva richiede:
 
@@ -74,7 +74,7 @@ Se si prevede di usare la finalità è necessaria una sottoscrizione al [servizi
         <dependency>
              <groupId>com.microsoft.cognitiveservices.speech</groupId>
              <artifactId>client-sdk</artifactId>
-             <version>1.9.0</version>
+             <version>1.10.0</version>
         </dependency>
     </dependencies>
    ```

@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 02/10/2020
 ms.author: erhopf
-ms.openlocfilehash: 2f9e02af0652108fe10e4b73e7bb43c48451ca77
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 1287eb5de1391f40c4409d5d10522d8979ae4207
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77123147"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78383903"
 ---
 Per creare un progetto di Visual Studio per lo sviluppo di applicazioni desktop con C++, è necessario configurare le opzioni di sviluppo di Visual Studio, creare il progetto, selezionare l'architettura di destinazione e installare Speech SDK.
 
@@ -77,4 +77,4 @@ Installare infine il [pacchetto NuGet Speech SDK](https://aka.ms/csspeech/nuget)
 
 1. Nella finestra di dialogo **Anteprima modifiche** fare clic su **OK**.
 
-1. Nella finestra di dialogo **Accettazione della licenza** visualizzare la licenza e quindi fare clic su **Accetto**. Inizierà l'installazione del pacchetto e, al termine, nel riquadro **Output** verrà visualizzato un messaggio simile al testo seguente: `Successfully installed 'Microsoft.CognitiveServices.Speech 1.9.0' to helloworld`.
+1. Nella finestra di dialogo **Accettazione della licenza** visualizzare la licenza e quindi fare clic su **Accetto**. Inizierà l'installazione del pacchetto e, al termine, nel riquadro **Output** verrà visualizzato un messaggio simile al testo seguente: `Successfully installed 'Microsoft.CognitiveServices.Speech 1.10.0' to helloworld`.

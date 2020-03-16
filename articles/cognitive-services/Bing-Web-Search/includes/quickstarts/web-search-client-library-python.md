@@ -6,14 +6,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 02/24/2020
+ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: ffa493c5bed152eea58d29bbf56215af7ebce5b1
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: 019abc79091527b105238ef83bfca1913fae600b
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78208238"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78926121"
 ---
 La libreria client di Ricerca Web Bing facilita l'integrazione di Ricerca Web Bing nell'applicazione Python. In questa guida introduttiva si apprenderà come inviare una richiesta, ricevere una risposta JSON e filtrare e analizzare i risultati.
 
