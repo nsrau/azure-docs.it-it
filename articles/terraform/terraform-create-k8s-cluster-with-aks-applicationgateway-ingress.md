@@ -1,14 +1,15 @@
 ---
 title: 'Esercitazione: Creare un controller del traffico in ingresso del gateway applicazione nel servizio Azure Kubernetes'
-description: Esercitazione che illustra come creare un cluster Kubernetes con il servizio Azure Kubernetes con il gateway applicazione come controller di ingresso
+description: Questa esercitazione illustra come creare un cluster Kubernetes con il servizio Azure Kubernetes e il gateway applicazione come controller di ingresso
+keywords: azure devops terraform gateway applicazione ingresso servizio azure kubernetes kubernetes
 ms.topic: tutorial
-ms.date: 11/13/2019
-ms.openlocfilehash: 14b8f6ba74a06c126da239671cbb2053df19af7d
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.date: 03/09/2020
+ms.openlocfilehash: 6b48d0acb654f0b0643c0754e53f6bc6ea76bb45
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78251767"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78945326"
 ---
 # <a name="tutorial-create-an-application-gateway-ingress-controller-in-azure-kubernetes-service"></a>Esercitazione: Creare un controller di ingresso del gateway applicazione nel servizio Azure Kubernetes
 
@@ -77,7 +78,10 @@ Creare il file di configurazione Terraform che dichiara il provider di Azure.
 
     ```hcl
     provider "azurerm" {
-        version = "~>1.18"
+      # The "feature" block is required for AzureRM provider 2.x. 
+      # If you are using version 1.x, the "features" block is not allowed.
+      version = "~>2.0"
+      features {}
     }
 
     terraform {
@@ -442,11 +446,10 @@ Creare il file di configurazione Terraform che crea tutte le risorse.
         }
       }
 
-      agent_pool_profile {
+      default_node_pool {
         name            = "agentpool"
-        count           = var.aks_agent_count
+        node_count      = var.aks_agent_count
         vm_size         = var.aks_agent_vm_size
-        os_type         = "Linux"
         os_disk_size_gb = var.aks_agent_os_disk_size
         vnet_subnet_id  = data.azurerm_subnet.kubesubnet.id
       }

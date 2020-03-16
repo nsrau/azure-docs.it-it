@@ -6,19 +6,23 @@ ms.author: lcozzens
 ms.date: 03/05/2020
 ms.topic: quickstart
 ms.service: azure-app-configuration
-ms.custom: mvc
-ms.openlocfilehash: 7c6f4b2ea9494c004067a8b19df2c2f098ac2b7f
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.custom:
+- mvc
+- subject-armqs
+ms.openlocfilehash: c45f6855c33dff2790ced306fd7f049b98dd1387
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78274510"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79126388"
 ---
-# <a name="quickstart-automated-vm-deployment-with-app-configuration"></a>Guida introduttiva: Distribuzione automatizzata di VM con Configurazione app
+# <a name="quickstart-automated-vm-deployment-with-app-configuration-and-resource-manager-template"></a>Guida introduttiva: Distribuzione automatizzata di macchine virtuali con Configurazione app e un modello di Resource Manager
 
 Il modulo Azure PowerShell viene usato per creare e gestire le risorse di Azure usando cmdlet o script di PowerShell. Questo argomento di avvio rapido illustra come usare Azure PowerShell e i modelli di Azure Resource Manager per distribuire un archivio di Configurazione app di Azure. Si apprenderà quindi come usare le coppie chiave-valore dell'archivio per distribuire una VM.
 
 Usare il modello indicato nei prerequisiti per creare un archivio di Configurazione app e quindi aggiungervi le coppie chiave-valore tramite il portale di Azure o l'interfaccia della riga di comando di Azure. Il modello principale fa riferimento a configurazioni di coppie chiave-valore esistenti di un archivio di configurazione esistente. I valori recuperati vengono usati per impostare le proprietà delle risorse create dal modello, come una VM in questo esempio.
+
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -85,7 +89,7 @@ Per poter applicare le coppie chiave-valore alla macchina virtuale, è necessari
       },
       "skuName": {
         "type": "string",
-        "defaultValue": "free",
+        "defaultValue": "standard",
         "metadata": {
           "description": "Specifies the SKU of the app configuration store."
         }
@@ -332,7 +336,7 @@ Ora che sono state aggiunte le coppie chiave-valore nell'archivio, è possibile 
                     "imageReference": {
                         "publisher": "MicrosoftWindowsServer",
                         "offer": "WindowsServer",
-                        "sku": "[listKeyValue(variables('appConfigRef'), '2019-02-01-preview', variables('windowsOSVersionParameters')).value]",
+                        "sku": "[listKeyValue(variables('appConfigRef'), '2019-10-01', variables('windowsOSVersionParameters')).value]",
                         "version": "latest"
                     },
                     "osDisk": {
@@ -340,7 +344,7 @@ Ora che sono state aggiunte le coppie chiave-valore nell'archivio, è possibile 
                     },
                     "dataDisks": [
                         {
-                            "diskSizeGB": "[listKeyValue(variables('appConfigRef'), '2019-02-01-preview', variables('diskSizeGBParameters')).value]",
+                            "diskSizeGB": "[listKeyValue(variables('appConfigRef'), '2019-10-01', variables('diskSizeGBParameters')).value]",
                             "lun": 0,
                             "createOption": "Empty"
                         }

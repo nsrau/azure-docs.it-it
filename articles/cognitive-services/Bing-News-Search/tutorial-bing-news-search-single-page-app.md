@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: tutorial
-ms.date: 12/12/2019
+ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: e128daa82eca8142a636df0958ddca574e398713
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 801bfcf02174c5dd98d4c7231c674299ef411aff
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75383116"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943107"
 ---
 # <a name="tutorial-create-a-single-page-web-app"></a>Esercitazione: Creare app Web a pagina singola
 
@@ -39,6 +39,12 @@ L'applicazione di esercitazione illustra come:
 > * Gestire gli errori che potrebbero verificarsi
 
 La pagina dell'esercitazione è autonoma, non usa framework, fogli di stile o file di immagine esterni. Usa solo funzionalità del linguaggio JavaScript ampiamente supportate e funziona con le versioni correnti di tutti i Web browser principali.
+
+
+## <a name="prerequisites"></a>Prerequisiti
+
+Per proseguire con l'esercitazione sono necessarie le chiavi di sottoscrizione per l'API Ricerca Bing. Se non si possiedono le chiavi, è possibile usare una [chiave di valutazione](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) e una [chiave di Bing Maps di base](https://www.microsoft.com/maps/create-a-bing-maps-key).
+
 
 ## <a name="app-components"></a>Componenti dell'app
 Come qualsiasi applicazione Web a pagina singola, questa applicazione di esercitazione include tre parti:

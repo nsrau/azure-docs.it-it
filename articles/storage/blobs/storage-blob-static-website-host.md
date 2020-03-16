@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 1/22/2020
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: 69acb9152d1dc30d986276939e29e8c183095b18
-ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
+ms.openlocfilehash: 03850315a05f569d2c6ba9405b6ec38bb6b1305d
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77539604"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78330396"
 ---
 <!---Customer intent: I want to host files for a static website in Blob storage and access the website from an Azure endpoint.--->
 
@@ -27,7 +27,7 @@ In questa esercitazione verranno illustrate le procedure per:
 > * Configurare l'hosting di siti Web statici
 > * Distribuire un sito Web Hello World
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
@@ -93,9 +93,7 @@ Creare quindi una pagina Web Hello World con Visual Studio Code e distribuirla n
 
 Visual Studio Code caricherà i file nell'endpoint Web e visualizzerà la barra di stato con esito positivo. Avviare il sito Web per visualizzarlo in Azure.
 
-![Visualizzare la distribuzione del sito Web statico in Azure](media/storage-blob-static-website-host/view-static-website-endpoint.png)
-
-L'esercitazione è stata completata correttamente ed è stato distribuito un sito Web statico in Azure.
+L'esercitazione è stata completata ed è stato distribuito un sito Web statico in Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: tutorial
-ms.date: 12/19/2019
+ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: 93ee5df4327aa396573665cd0c2cbd8222015cce
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e0df0773daf8f9be21ac70d8390013adfd93483a
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448907"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78402680"
 ---
 # <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>Esercitazione: Rilevamento anomalie nei dati di streaming con Azure Databricks
 
@@ -40,14 +40,12 @@ Questa esercitazione illustra le attività seguenti:
 > * Eseguire il rilevamento anomalie sui tweet
 
 > [!Note]
-> Questa esercitazione introduce un approccio all'implementazione dell'[architettura della soluzione](https://azure.microsoft.com/solutions/architecture/anomaly-detector-process/) consigliata per l'API Rilevamento anomalie.
+> * Questa esercitazione introduce un approccio all'implementazione dell'[architettura della soluzione](https://azure.microsoft.com/solutions/architecture/anomaly-detector-process/) consigliata per l'API Rilevamento anomalie.
+> * Non è possibile completare questa esercitazione con una versione di valutazione gratuita dell'API Rilevamento anomalie i du Azure Databricks. 
 
-Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+Creare una [sottoscrizione di Azure](https://azure.microsoft.com/free/), se non se ne possiede una.
 
-> [!Note]
-> Questa esercitazione non può essere completata con una chiave della versione di valutazione gratuita per l'API Rilevamento anomalie. Per usare un account gratuito per creare il cluster Azure Databricks, prima di creare il cluster, passare al profilo personale e impostare la sottoscrizione per il **pagamento in base al consumo**. Per altre informazioni, vedere [Account gratuito di Azure](https://azure.microsoft.com/free/).
-
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 - Uno [spazio dei nomi di Hub eventi di Azure](https://docs.microsoft.com/azure/event-hubs/event-hubs-create) e un hub eventi.
 

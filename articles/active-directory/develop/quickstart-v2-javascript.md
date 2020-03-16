@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
-ms.openlocfilehash: 9077d5c471911c9967c327c457d683b06856b920
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 40f5935c7d653ce90aa56bc5ee2bb15711bb9dd8
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78249061"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399264"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Guida introduttiva: Accedere agli utenti e ottenere un token di accesso in un'applicazione a pagina singola JavaScript
 
@@ -82,9 +82,11 @@ In questa guida di avvio rapido si usa codice di esempio per dimostrare in che m
 > [Scaricare il codice di esempio]()
 
 > [!div renderon="docs"]
+
 > #### <a name="step-3-configure-your-javascript-app"></a>Passaggio 3: Configurare l'app JavaScript
 >
-> Nella cartella *JavaScriptSPA* modificare *authConfig.js* e impostare i valori `clientID` e `authority` presenti nella sezione `msalConfig`.
+> Nella cartella *JavaScriptSPA* modificare *authConfig.js* e impostare i valori `clientID`, `authority` e `redirectUri` in `msalConfig`.
+>
 > ```javascript
 >
 >  // Config object to be passed to Msal on creation
@@ -97,10 +99,10 @@ In questa guida di avvio rapido si usa codice di esempio per dimostrare in che m
 >    cache: {
 >      cacheLocation: "sessionStorage", // This configures where your cache will be stored
 >      storeAuthStateInCookie: false, // Set this to "true" if you are having issues on IE11 or Edge
->      forceRefresh: false // Set this to "true" to skip a cached token and go to the server to get a new
 >    }
 >  };  
-> ```
+>
+>```
 
 > [!div renderon="portal"]
 > > [!NOTE]
@@ -124,6 +126,27 @@ In questa guida di avvio rapido si usa codice di esempio per dimostrare in che m
 > Il progetto è stato configurato con i valori delle proprietà dell'app. 
 
 > [!div renderon="docs"]
+> 
+> Quindi, sempre nella stessa cartella modificare il file *graphConfig.js* per impostare `graphMeEndpoint` e `graphMeEndpoint` per l'oggetto `apiConfig`.
+> ```javascript
+>   // Add here the endpoints for MS Graph API services you would like to use.
+>   const graphConfig = {
+>     graphMeEndpoint: "Enter_the_Graph_Endpoint_Herev1.0/me",
+>     graphMailEndpoint: "Enter_the_Graph_Endpoint_Herev1.0/me/messages"
+>   };
+>
+>   // Add here scopes for access token to be used at MS Graph API endpoints.
+>   const tokenRequest = {
+>       scopes: ["Mail.Read"]
+>   };
+> ```
+>
+
+> [!div renderon="docs"]
+>
+> Dove:
+> - *\<Enter_the_Graph_Endpoint_Here >* è l'endpoint in cui verranno eseguire le chiamate API. Per il servizio API Microsoft Graph principale o globale, è sufficiente immettere `https://graph.microsoft.com`. Per altre informazioni, vedere [Distribuzione di un cloud nazionale](https://docs.microsoft.com/graph/deployments)
+>
 > #### <a name="step-4-run-the-project"></a>Passaggio 4: Eseguire il progetto
 
 Eseguire il progetto con un server Web usando [Node.js](https://nodejs.org/en/download/):
@@ -155,7 +178,6 @@ Con la libreria MSAL è possibile concedere l'accesso agli utenti e richiedere i
 > [!TIP]
 > È possibile sostituire la versione precedente con l'ultima versione rilasciata disponibile nella pagina delle [versioni di MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases).
 
-
 In alternativa, se Node.js è già installato, è possibile scaricare l'ultima versione tramite Node.js Package Manager (npm):
 
 ```batch
@@ -177,7 +199,6 @@ Il codice di avvio rapido illustra anche come inizializzare la libreria MSAL:
     cache: {
       cacheLocation: "sessionStorage", // This configures where your cache will be stored
       storeAuthStateInCookie: false, // Set this to "true" if you are having issues on IE11 or Edge
-      forceRefresh: false // Set this to "true" to skip a cached token and go to the server to get a new
     }
   };  
 
@@ -228,7 +249,7 @@ In MSAL sono disponibili tre metodi per acquisire i token: `acquireTokenRedirect
 Il metodo `acquireTokenSilent` gestisce le acquisizioni e i rinnovi dei token senza alcuna interazione da parte dell'utente. Dopo aver eseguito il metodo `loginRedirect` o `loginPopup` la prima volta, per le chiamate successive il metodo comunemente usato per ottenere i token usati per accedere a risorse protette è `acquireTokenSilent`. Le chiamate per richiedere o rinnovare i token vengono eseguite in modo invisibile per l'utente.
 
 ```javascript
-// Add scopes for the access token to be used at Microsoft Graph API endpoints.
+
 const tokenRequest = {
     scopes: ["Mail.Read"]
 };

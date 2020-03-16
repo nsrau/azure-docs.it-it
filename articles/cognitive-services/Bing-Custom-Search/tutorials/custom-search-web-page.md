@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: tutorial
-ms.date: 12/09/2019
+ms.date: 03/05/2019
 ms.author: aahi
-ms.openlocfilehash: c3d571f494d5f08c7c9e3c551eba88fb86e1ec23
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c7b41f77f8eb57c39489f1e5a69b0ac1c3c9c7d4
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448781"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943919"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>Esercitazione: Compilare una pagina Web di Ricerca personalizzata
 
@@ -32,10 +32,10 @@ Sono descritte queste attività:
 > - Aggiungere voci fissate in alto
 > - Integrare la ricerca personalizzata in una pagina Web
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
-- Per proseguire con l'esercitazione è necessaria una chiave di sottoscrizione per l'API Ricerca personalizzata Bing.  Per ottenere una chiave, vedere [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search).
-- Se Visual Studio 2017 o versione successiva non è ancora installato, è possibile scaricare e usare la versione **gratuita** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/).
+- Per proseguire con l'esercitazione è necessaria una chiave di sottoscrizione per l'API Ricerca personalizzata Bing.  Per ottenere una chiave, [Creare una risorsa Ricerca personalizzata Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingCustomSearch) nel portale di Azure. è anche possibile usare una [chiave di valutazione](https://azure.microsoft.com/try/cognitive-services).
+- Se Visual Studio 2017 o versione successiva non è ancora installato, è possibile scaricare e usare la versione **gratuita** di [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/).
 
 ## <a name="create-a-custom-search-instance"></a>Creare un'istanza di Ricerca personalizzata
 
@@ -45,7 +45,7 @@ Per creare un'istanza di Ricerca personalizzata Bing:
   
 2. Passare al [portale](https://customsearch.ai) di Ricerca personalizzata.  
   
-3. Accedere al portale usando un account Microsoft (account del servizio gestito). Se non si ha un account Microsoft, fare clic su **Crea un account Microsoft**. Se è la prima volta che si usa il portale, verranno chieste le autorizzazioni necessarie per accedere ai dati. Fare clic su **Sì**.  
+3. Accedere al portale usando un account Microsoft (account del servizio gestito). Se non si ha un account del servizio gestito, fare clic su **Crea un account Microsoft**. Se è la prima volta che si usa il portale, verranno richieste le autorizzazioni necessarie per accedere ai dati. Fare clic su **Sì**.  
   
 4. Dopo aver eseguito l'accesso, fare clic su **New custom search** (Nuova ricerca personalizzata). Nella finestra **Create a new custom search instance** (Crea una nuova istanza di Ricerca personalizzata) immettere un nome significativo che descriva il tipo di contenuto restituito dalla ricerca. È possibile modificare il nome in qualsiasi momento.  
   
@@ -60,11 +60,11 @@ Per creare un'istanza di Ricerca personalizzata Bing:
 
 Per includere i risultati di siti Web o URL specifici, aggiungerli alla scheda **Active** (Elementi attivi).
 
-1.  Nella pagina **Configuration** (Configurazione) fare clic sulla scheda **Active** (Elementi attivi) e immettere l'URL di uno o più siti Web da includere nella ricerca.
+1.       Nella pagina **Configuration** (Configurazione) fare clic sulla scheda **Active** (Elementi attivi) e immettere l'URL di uno o più siti Web da includere nella ricerca.
 
     ![Screenshot della scheda Active (Elementi attivi) nell'editor delle definizioni](../media/customSrchEditor.png)
 
-2.  Per verificare che l'istanza restituisca risultati, immettere una query nel riquadro di anteprima a destra. Bing restituisce solo i risultati per i siti Web pubblici indicizzati.
+2.       Per verificare che l'istanza restituisca risultati, immettere una query nel riquadro di anteprima a destra. Bing restituisce solo i risultati per i siti Web pubblici indicizzati.
 
 ## <a name="add-blocked-entries"></a>Aggiungere voci bloccate
 
@@ -79,7 +79,7 @@ Per escludere i risultati da siti Web o URL specifici, aggiungerli alla scheda *
 
 ## <a name="add-pinned-entries"></a>Aggiungere voci fissate in alto
 
-Per aggiungere una specifica pagina Web in cima ai risultati della ricerca, aggiungere la pagina Web e il termine di query alla scheda **Pinned** (Elementi aggiunti in alto). La scheda **Pinned** (Elementi aggiunti in alto) contiene un elenco di coppie costituite da termine di query e pagina Web che specificano la pagina Web che viene visualizzata come primo risultato per una query specifica. La pagina Web viene aggiunta in alto solo se la stringa di query dell'utente corrisponde alla stringa di query dell'elemento aggiunto in alto in base alla condizione di corrispondenza dell'elemento aggiunto in alto. Nelle ricerche verranno visualizzate solo le pagine Web indicizzate. Per altre informazioni, vedere [Definire una vista personalizzata](../define-your-custom-view.md#pin-slices-to-the-top-of-search-results).
+Per aggiungere una specifica pagina Web in cima ai risultati della ricerca, aggiungere la pagina Web e il termine di query alla scheda **Pinned** (Elementi aggiunti in alto). La scheda **Pinned** (Elementi aggiunti in alto) contiene un elenco di coppie costituite da termine di query e pagina Web che specificano la pagina Web che viene visualizzata come primo risultato per una query specifica. La pagina Web viene aggiunta solo se la stringa di query dell'utente corrisponde alla stringa di query in base alla condizione di corrispondenza dell'elemento aggiunto. Nelle ricerche verranno visualizzate solo le pagine Web indicizzate. Per altre informazioni, vedere [Definire una vista personalizzata](../define-your-custom-view.md#pin-slices-to-the-top-of-search-results).
 
 1. Nella pagina **Configuration** (Configurazione) fare clic sulla scheda **Pinned** (Elementi aggiunti in alto) e immettere la pagina Web e il termine di query della pagina Web da restituire come primo risultato.  
   

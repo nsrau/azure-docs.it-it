@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 28dc5131366c54db30e9233ea1061cc9bc7a54ce
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: 3ad011529f8b4be90fc0c108a2049c30d1c69302
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77500085"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78897321"
 ---
 # <a name="tutorial-build-an-aspnet-core-and-sql-database-app-in-azure-app-service"></a>Esercitazione: Compilare un'app ASP.NET Core e database SQL in Servizio app di Azure
 
@@ -34,12 +34,12 @@ Si apprenderà come:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa esercitazione:
 
 * [Installare Git](https://git-scm.com/)
-* [Installare .NET Core](https://www.microsoft.com/net/core/)
+* [Installare .NET Core SDK](https://dotnet.microsoft.com/download)
 
 ## <a name="create-local-net-core-app"></a>Creare l'app .NET Core locale
 
@@ -216,7 +216,7 @@ Se questo codice rileva di essere in esecuzione nell'ambiente di produzione (cor
 La chiamata di `Database.Migrate()` è utile in caso di esecuzione in Azure perché crea automaticamente i database necessari per l'app .NET Core, in base alla configurazione della migrazione. 
 
 > [!IMPORTANT]
-> Per le app di produzione che è necessario ampliare, seguire le procedure consigliate illustrate in [Applicazione delle migrazioni nell'ambiente di produzione](/aspnet/core/data/ef-rp/migrations#applying-migrations-in-production).
+> Per le app di produzione per cui è necessario aumentare il numero di istanze, seguire le procedure consigliate illustrate in [Applicazione delle migrazioni nell'ambiente di produzione](/aspnet/core/data/ef-rp/migrations#applying-migrations-in-production).
 > 
 
 Salvare le modifiche, quindi eseguire il commit nel repository Git. 

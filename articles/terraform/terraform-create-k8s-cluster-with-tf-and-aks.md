@@ -1,14 +1,15 @@
 ---
 title: 'Esercitazione: Creare un cluster Kubernetes con il servizio Azure Kubernetes usando Terraform'
-description: Esercitazione che illustra come creare un cluster Kubernetes con il servizio Azure Kubernetes e Terraform
+description: Questa esercitazione illustra come creare un cluster Kubernetes con il servizio Azure Kubernetes e Terraform
+keywords: azure devops terraform servizio azure kubernetes kubernetes
 ms.topic: tutorial
-ms.date: 11/07/2019
-ms.openlocfilehash: eb8619418cf6d42f600499bb5a12322adce6f44b
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.date: 03/09/2020
+ms.openlocfilehash: 0a193c8da6441a04f742894797521fe92f26b2e1
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77472248"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78945303"
 ---
 # <a name="tutorial-create-a-kubernetes-cluster-with-azure-kubernetes-service-using-terraform"></a>Esercitazione: Creare un cluster Kubernetes con il servizio Azure Kubernetes usando Terraform
 
@@ -21,7 +22,7 @@ In questa esercitazione si apprenderà come eseguire le attività seguenti:
 > * Usare Terraform e servizio Azure Kubernetes per creare un cluster Kubernetes
 > * Usare lo strumento kubectl per verificare la disponibilità di un cluster Kubernetes
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 - **Sottoscrizione di Azure**: Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare.
 
@@ -71,7 +72,10 @@ Creare il file di configurazione Terraform che dichiara il provider di Azure.
 
     ```hcl
     provider "azurerm" {
-        version = "~>1.5"
+        # The "feature" block is required for AzureRM provider 2.x. 
+        # If you are using version 1.x, the "features" block is not allowed.
+        version = "~>2.0"
+        features {}
     }
 
     terraform {

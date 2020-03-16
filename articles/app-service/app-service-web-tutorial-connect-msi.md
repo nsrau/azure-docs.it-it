@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/18/2019
 ms.custom: mvc, cli-validate
-ms.openlocfilehash: b57ee458b857db5692f34e51f388ca8374a3c03b
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: af44f4a96567cc86c9f884cdfe5e28ff6b7bd8f3
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77524394"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78897681"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Esercitazione: Proteggere la connessione al database SQL di Azure dal servizio app con un'identità gestita
 
@@ -41,7 +41,7 @@ Contenuto dell'esercitazione:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Questo articolo continua da dove è stato interrotto in [Esercitazione: Creare un'app ASP.NET in Azure con un database SQL](app-service-web-tutorial-dotnet-sqldatabase.md) o [Esercitazione: Compilare un'app ASP.NET Core e database SQL in Servizio app di Azure](app-service-web-tutorial-dotnetcore-sqldb.md). Se non è già stato fatto, seguire prima una delle due esercitazioni. In alternativa, è possibile adattare le procedure alla propria app .NET con un database SQL.
 
@@ -127,6 +127,9 @@ In *Web.config* apportare le modifiche seguenti partendo dall'inizio del file:
 
 - Trovare la stringa di connessione denominata `MyDbConnection` e sostituire il relativo valore `connectionString` con `"server=tcp:<server-name>.database.windows.net;database=<db-name>;UID=AnyString;Authentication=Active Directory Interactive"`. Sostituire _\<server-name>_ e _\<db-name>_ con i nomi del server e del database in uso.
 
+> [!NOTE]
+> Il provider SqlAuthenticationProvider appena registrato è basato sulla libreria AppAuthentication installata in precedenza. Per impostazione predefinita, usa un'identità assegnata dal sistema. Per sfruttare un'identità assegnata dall'utente, sarà necessario specificare una configurazione aggiuntiva. Per la libreria AppAuthentication, vedere le [opzioni supportate per la stringa di connessione](../key-vault/service-to-service-authentication.md#connection-string-support).
+
 Per connettersi al database SQL non sono necessarie altre modifiche. Quando si esegue il debug in Visual Studio, il codice usa l'utente di Azure AD configurato in [Configurare Visual Studio](#set-up-visual-studio). Il server di database SQL verrà configurato in un secondo momento per consentire la connessione dall'identità gestita dell'app del servizio app.
 
 Digitare `Ctrl+F5` per eseguire di nuovo l'app. La stessa app CRUD nel browser si connette ora al database SQL di Azure direttamente, usando l'autenticazione di Azure AD. Questa configurazione consente di eseguire migrazioni del database da Visual Studio.
@@ -189,6 +192,9 @@ Digitare `Ctrl+F5` per eseguire di nuovo l'app. La stessa app CRUD nel browser s
 
 Configurare quindi l'app del servizio app per la connessione al database SQL con un'identità gestita assegnata dal sistema.
 
+> [!NOTE]
+> In questa sezione vengono riportate le istruzioni per l'uso di un'identità assegnata dal sistema, ma è anche possibile usare un'identità assegnata dall'utente. A tale scopo, è necessario modificare il comando `az webapp identity assign command` per assegnare l'identità assegnata dall'utente desiderata. Quindi, quando si crea l'utente SQL, assicurarsi di usare il nome della risorsa identità assegnata dall'utente anziché il nome del sito.
+
 ### <a name="enable-managed-identity-on-app"></a>Abilitare l'identità gestita nell'app
 
 Per abilitare un'identità gestita per l'app Azure, usare il comando [az webapp identity assign](/cli/azure/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign) in Cloud Shell. Nel comando seguente sostituire *\<app-name>* .
@@ -237,9 +243,12 @@ ALTER ROLE db_ddladmin ADD MEMBER [<identity-name>];
 GO
 ```
 
-*\<identity-name >* è il nome dell'identità gestita in Azure AD. Poiché è assegnato dal sistema, è sempre uguale al nome dell'app del servizio app. Per concedere le autorizzazioni per un gruppo di Azure AD, usare invece il nome visualizzato del gruppo, ad esempio *myAzureSQLDBAccessGroup*.
+*\<identity-name >* è il nome dell'identità gestita in Azure AD. Se l'identità è assegnata dal sistema, il nome corrisponde sempre a quello dell'app del servizio app. Per concedere le autorizzazioni per un gruppo di Azure AD, usare invece il nome visualizzato del gruppo, ad esempio *myAzureSQLDBAccessGroup*.
 
 Digitare `EXIT` per tornare al prompt di Cloud Shell.
+
+> [!NOTE]
+> Anche i servizi back-end delle identità gestite [gestiscono una cache di token](overview-managed-identity.md#obtain-tokens-for-azure-resources) che aggiorna il token per una risorsa di destinazione solo quando scade. Se si commette un errore durante la configurazione delle autorizzazioni per il database SQL e si tenta di modificare le autorizzazioni *dopo* aver provato a ottenere un token con l'applicazione, non si otterrà un nuovo token con le autorizzazioni aggiornate fino alla scadenza del token memorizzato nella cache.
 
 ### <a name="modify-connection-string"></a>Modificare la stringa di connessione
 

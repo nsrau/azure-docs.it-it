@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Assistente vocale personalizzato per Java (Windows, Linux) - Servizio Voce'
+title: 'Guida introduttiva: Assistente vocale personalizzato per Java (Windows, Linux) - Servizio Voce'
 titleSuffix: Azure Cognitive Services
 description: Questa guida di avvio rapido spiega come usare Speech SDK di Servizi cognitivi in un'applicazione console Java. Viene spiegato come connettere l'applicazione client a un bot di Bot Framework creato in precedenza e configurato per l'uso del canale Direct Line Speech e abilitare un'esperienza di assistente vocale.
 services: cognitive-services
@@ -10,24 +10,24 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 02/10/2020
 ms.author: dapine
-ms.openlocfilehash: 45719eebb9cd74b0a5c4278e87b90978dcc3790f
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 6baa98d50c50146e93b4832053f63f3bead90a6d
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77119693"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78330831"
 ---
-# <a name="quickstart-create-a-voice-assistant-with-the-speech-sdk-java-preview"></a>Avvio rapido: Creare un assistente vocale con Speech SDK, Java (anteprima)
+# <a name="quickstart-create-a-voice-assistant-with-the-speech-sdk-java-preview"></a>Guida introduttiva: Creare un assistente vocale con Speech SDK, Java (anteprima)
 
 Sono disponibili guide di avvio rapido anche per il [riconoscimento vocale](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-java&tabs=jre), la [sintesi vocale](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-java&tabs=jre) e la [traduzione vocale](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-java&tabs=jre).
 
-In questo articolo viene creata un'applicazione console Java usando [Speech SDK di Servizi cognitivi di Azure](speech-sdk.md). L'applicazione si connetterà a un bot creato in precedenza e configurato per l'uso del canale Direct Line Speech, invierà una richiesta vocale e restituirà un'attività di risposta vocale (se configurata). L'applicazione viene creata con il pacchetto Maven di Speech SDK e l'IDE Eclipse Java in Windows, Ubuntu Linux o in macOS. Viene eseguito su un ambiente Java 8 runtime a 64 bit (JRE).
+In questo articolo viene creata un'applicazione console Java usando [Speech SDK di Servizi cognitivi di Azure](speech-sdk.md). L'applicazione si connetterà a un bot creato in precedenza e configurato per l'uso del canale Direct Line Speech, invierà una richiesta vocale e restituirà un'attività di risposta vocale (se configurata). L'applicazione viene creata con il pacchetto Maven di Speech SDK e l'ambiente IDE Eclipse Java in Windows, Linux o in macOS. Viene eseguito su un ambiente Java 8 runtime a 64 bit (JRE).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Questa guida introduttiva richiede:
 
-- Sistema operativo: Windows (a 64 bit), Ubuntu Linux 16.04/18.04 (a 64 bit) o macOS 10.13 o versione successiva.
+- Sistema operativo: Windows (a 64 bit), Ubuntu Linux 16.04/18.04 (a 64 bit), RHEL/CentOS 8 (x64) o macOS 10.13 o versione successiva.
 - [Ambiente IDE Java Eclipse](https://www.eclipse.org/downloads/).
 - [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) o [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html).
 - Una chiave di sottoscrizione di Azure per il servizio Voce. [È possibile ottenerne una gratuitamente](get-started.md) o crearla nel [portale di Azure](https://portal.azure.com).
@@ -42,6 +42,17 @@ Se si esegue Ubuntu 16.04/18.04, assicurarsi che queste dipendenze siano install
 sudo apt-get update
 sudo apt-get install build-essential libssl1.0.0 libasound2 wget
 ```
+
+In RHEL/CentOS 8:
+
+```sh
+sudo yum update
+sudo yum groupinstall "Development tools"
+sudo yum install alsa-lib java-1.8.0-openjdk-devel openssl wget
+```
+
+> [!NOTE]
+> In RHEL/CentOS 8 seguire le istruzioni riportate in [Come configurare OpenSSL per Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
 
 Se si esegue Windows (64 bit), assicurarsi di avere installato Microsoft Visual C++ Redistributable per la piattaforma in uso:
 
