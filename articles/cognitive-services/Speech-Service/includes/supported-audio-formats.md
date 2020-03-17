@@ -2,19 +2,19 @@
 author: IEvangelist
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/09/2020
+ms.date: 03/10/2020
 ms.author: dapine
-ms.openlocfilehash: b260bf8afc33972875a05c773e503edf0b5634fd
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
-ms.translationtype: MT
+ms.openlocfilehash: fe895bc3c3a46c7b6ed9ccd34e3b1201152e4f5d
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78942685"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037271"
 ---
-Il formato di streaming audio predefinito è WAV (16 KHz, 16 bit e PCM mono). Al di fuori di WAV/PCM, sono supportati i formati di input compressi di codec seguenti:
+Il formato di streaming audio predefinito è WAV (16 KHz, 16 bit e PCM mono). Oltre a WAV/PCM, sono supportati anche i formati di input compresso codec seguenti:
 
 - MP3
 - OPUS/OGG
 - FLAC
-- ALEGGE nel contenitore WAV
-- MULAW nel contenitore WAV
+- ALAW nel contenitore wav
+- MULAW nel contenitore wav
