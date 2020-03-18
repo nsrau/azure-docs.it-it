@@ -10,21 +10,20 @@ ms.subservice: speech-service
 ms.date: 12/09/2019
 ms.author: erhopf
 ms.topic: include
-ms.openlocfilehash: 70db4e23aebe2a986c9aa4c85c28ac6529ac3202
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e84c7423e0f061004a827ac45c211d7db9c556df
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "76156002"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78924852"
 ---
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare, assicurarsi di:
 
 > [!div class="checklist"]
 > * [Creare una risorsa Voce di Azure](../../../../get-started.md)
-> * [Configurare l'ambiente di sviluppo](../../../../quickstarts/setup-platform.md?tabs=uwp)
-> * [Creare un progetto di esempio vuoto](../../../../quickstarts/create-project.md?tabs=uwp)
+> * [Configurare l'ambiente di sviluppo e creare un progetto vuoto](../../../../quickstarts/setup-platform.md?tabs=uwp)
 
 ## <a name="add-sample-code"></a>Aggiungere il codice di esempio
 

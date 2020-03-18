@@ -4,20 +4,19 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/13/2020
 ms.author: dapine
-ms.openlocfilehash: 1225a1e528b32401f350374fb9393c52225c49e8
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 02e0e1494a897b31cb6ef28083677fa48f854c91
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75942727"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78926051"
 ---
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare, assicurarsi di:
 
 > [!div class="checklist"]
-> * [Configurare l'ambiente di sviluppo](../../../../quickstarts/setup-platform.md?tabs=jre&pivots=programmming-language-java)
-> * [Creare un progetto di esempio vuoto](../../../../quickstarts/create-project.md?pivots=programmming-language-java)
+> * [Configurare l'ambiente di sviluppo e creare un progetto vuoto](../../../../quickstarts/setup-platform.md?tabs=jre&pivots=programmming-language-java)
 > * [Creare una risorsa Voce di Azure](../../../../get-started.md)
 > * [Caricare un file di origine in un BLOB di Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
 
@@ -32,7 +31,9 @@ Il primo passaggio consiste nel verificare che il progetto sia aperto in Eclipse
 ## <a name="add-a-reference-to-gson"></a>Aggiungere un riferimento a Gson
 In questo argomento di avvio rapido verrà usato un serializzatore/deserializzatore JSON esterno. Per Java abbiamo scelto [Gson](https://github.com/google/gson).
 
-Aprire il file pom.xml e aggiungere il seguente riferimento: [!code-xml[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/pom.xml?range=19-25)]
+Aprire il file pom.xml e aggiungere il riferimento seguente.
+
+[!code-xml[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/pom.xml?range=19-25)]
 
 ## <a name="start-with-some-boilerplate-code"></a>Iniziare con un codice boilerplate
 

@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Eseguire la sintesi vocale, Java (Windows, Linux, macOS) - Servizio Voce'
+title: 'Avvio rapido: Eseguire la sintesi vocale, Java (Windows, Linux, macOS) - Servizio Voce'
 titleSuffix: Azure Cognitive Services
 description: In questo argomento di avvio rapido si imparerà a creare una semplice applicazione Java per acquisire, eseguire la sintesi vocale e riprodurre la voce con l'altoparlante predefinito.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 09/19/2019
 ms.author: yulili
-ms.openlocfilehash: d7ca86092b973d369d37cbeac1bc9f8cfcf9b462
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: a49fadee598d1fa87c6dddbbf6ad388243ea6fb8
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74818431"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78925169"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -23,8 +23,7 @@ Prima di iniziare, assicurarsi di:
 
 > [!div class="checklist"]
 > * [Creare una risorsa Voce di Azure](../../../../get-started.md)
-> * [Configurare l'ambiente di sviluppo](../../../../quickstarts/setup-platform.md?tabs=jre)
-> * [Creare un progetto di esempio vuoto](../../../../quickstarts/create-project.md?tabs=jre)
+> * [Configurare l'ambiente di sviluppo e creare un progetto vuoto](../../../../quickstarts/setup-platform.md?tabs=jre)
 
 ## <a name="add-sample-code"></a>Aggiungere il codice di esempio
 

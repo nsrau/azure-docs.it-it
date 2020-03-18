@@ -6,19 +6,18 @@ ms.date: 01/27/2020
 ms.topic: include
 ms.author: dapine
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 1a9a85ebc9d883db0415382ecf40de343d300667
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.openlocfilehash: 724f52317ce2afda023ae0514a330da0032e8710
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77446523"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78925447"
 ---
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare:
 
-* Se si tratta del primo progetto Python, usare questa guida per <a href="~/articles/cognitive-services/Speech-Service/quickstarts/create-project.md" target="_blank">creare un progetto di esempio vuoto<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
-* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md" target="_blank">Installare Speech SDK per l'ambiente di sviluppo <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md" target="_blank">Installare Speech SDK per l'ambiente di sviluppo e creare un progetto di esempio vuoto<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ## <a name="create-a-luis-app-for-intent-recognition"></a>Creare un'app LUIS per il riconoscimento delle finalità
 
@@ -74,7 +73,7 @@ Inserire questo codice sotto `IntentRecognizer`. Assicurarsi di sostituire `"You
 
 Dall'oggetto `IntentRecognizer` chiamare il metodo `recognize_once()`. Questo metodo consente al servizio Voce di rilevare che si sta inviando una singola frase per il riconoscimento e di interrompere il riconoscimento vocale una volta identificata la frase.
 
-Inserire questo codice sotto il modello:
+Inserire questo codice sotto il modello.
 
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=35)]
 
@@ -82,11 +81,13 @@ Inserire questo codice sotto il modello:
 
 Quando il servizio Voce restituisce il risultato del riconoscimento, in genere lo si usa per qualche scopo. Per semplicità, in questo caso il risultato verrà stampato sulla console.
 
-Sotto la chiamata a `recognize_once()` aggiungere il codice seguente: [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=38-47)]
+Sotto la chiamata a `recognize_once()` aggiungere il codice seguente.
+
+[!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=38-47)]
 
 ## <a name="check-your-code"></a>Controllare il codice
 
-A questo punto il codice dovrà avere questo aspetto:
+A questo punto l'aspetto del codice sarà simile al seguente.
 
 > [!NOTE]
 > In questa versione sono stati aggiunti alcuni commenti.

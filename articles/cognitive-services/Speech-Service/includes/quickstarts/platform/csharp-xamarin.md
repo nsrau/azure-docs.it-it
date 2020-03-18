@@ -10,20 +10,20 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/10/2019
 ms.author: erhopf
-ms.openlocfilehash: 664dbd01ae3e9db7b765eec85e874267c32691e1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f8ba4ef590b3becd9259230246555d6c74b0078b
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75467555"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78925259"
 ---
-Questa guida illustra come installare [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) per [Xamarin](https://docs.microsoft.com/xamarin/get-started/what-is-xamarin), una piattaforma open source per la creazione di applicazioni moderne e performanti per iOS, Android e Windows con .NET. 
+Questa guida illustra come installare [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) per [Xamarin](https://docs.microsoft.com/xamarin/get-started/what-is-xamarin), una piattaforma open source per la creazione di applicazioni moderne e performanti per iOS, Android e Windows con .NET. Se si vuole solo il nome del pacchetto per iniziare autonomamente, eseguire `Install-Package Microsoft.CognitiveServices.Speech` nella console NuGet.
 
 [!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
-Questa guida introduttiva richiede:
+Questa guida di avvio rapido richiede:
 
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
 

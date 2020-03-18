@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Eseguire la sintesi vocale, C++ (Windows) - Servizio Voce'
+title: 'Avvio rapido: Eseguire la sintesi vocale, C++ (Windows) - Servizio Voce'
 titleSuffix: Azure Cognitive Services
 description: Informazioni su come seguire la sintesi vocale in C++ su Windows Desktop con Speech SDK
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 08/24/2019
 ms.author: yinhew
-ms.openlocfilehash: 35c8eb640e3c8c9e33486d5126f83dd40b5b96e0
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: ab2193a1ea34b176e5f97806f0099dfc86d75965
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74818390"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78925423"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -23,8 +23,7 @@ Prima di iniziare, assicurarsi di:
 
 > [!div class="checklist"]
 > * [Creare una risorsa Voce di Azure](../../../../get-started.md)
-> * [Configurare l'ambiente di sviluppo](../../../../quickstarts/setup-platform.md?tabs=windows)
-> * [Creare un progetto di esempio vuoto](../../../../quickstarts/create-project.md?tabs=windows)
+> * [Configurare l'ambiente di sviluppo e creare un progetto vuoto](../../../../quickstarts/setup-platform.md?tabs=windows)
 
 ## <a name="add-sample-code"></a>Aggiungere il codice di esempio
 

@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: a11b291ab89dc9f8159e00e1f2304706f041068e
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: f121be4ec8c3d3ab618e2955d9dbd8ab5eea461d
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67180325"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129209"
 ---
 ## <a name="test-your-code"></a>Testare il codice
 
@@ -41,10 +41,10 @@ Al primo accesso all'applicazione viene richiesto anche di specificare il consen
 
 Dopo l'accesso dovrebbero essere visualizzate le informazioni sul profilo utente restituite dalla chiamata all'API Microsoft Graph . I risultati vengono visualizzati nella casella **API Call Results** (Risultati della chiamata API). Le informazioni di base sul token acquisito tramite la chiamata a `AcquireTokenInteractive` o `AcquireTokenSilent` dovrebbero essere visibili nella casella **Token Info** (Info sul token). I risultati contengono le proprietà seguenti:
 
-|Proprietà  |Format  |DESCRIZIONE |
+|Proprietà  |Format  |Descrizione |
 |---------|---------|---------|
-
-|**Username** |<span>user@domain.com</span> |Il nome utente usato per identificare l'utente.| |**Token Expires** |DateTime |La data e l'ora di scadenza del token. MSAL estende la data di scadenza rinnovando il token in base alla necessità.|
+|**Nome utente** |<span>user@domain.com</span> |Nome utente usato per identificare l'utente.|
+|**Token Expires** (Scadenza token) |Datetime |Ora in cui scadrà il token. MSAL estende la data di scadenza rinnovando il token in base alla necessità.|
 
 
 <!--start-collapse-->

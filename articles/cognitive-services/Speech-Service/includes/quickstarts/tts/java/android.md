@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Eseguire la sintesi vocale, Java (Android) - Servizio Voce'
+title: 'Avvio rapido: Eseguire la sintesi vocale, Java (Android) - Servizio Voce'
 titleSuffix: Azure Cognitive Services
 description: Informazioni sulla sintesi vocale in Java in Android con Speech SDK
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 09/19/2019
 ms.author: yulili
-ms.openlocfilehash: e38b1bdd3258675dfac9a155f7cee338a1f8f806
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 230b4abb9a740e830392a92369477c7dc44f60ee
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74818220"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78924798"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -23,8 +23,7 @@ Prima di iniziare, assicurarsi di:
 
 > [!div class="checklist"]
 > * [Creare una risorsa Voce di Azure](../../../../get-started.md)
-> * [Configurare l'ambiente di sviluppo](../../../../quickstarts/setup-platform.md?tabs=android)
-> * [Creare un progetto di esempio vuoto](../../../../quickstarts/create-project.md?tabs=android)
+> * [Configurare l'ambiente di sviluppo e creare un progetto vuoto](../../../../quickstarts/setup-platform.md?tabs=android)
 
 ## <a name="create-user-interface"></a>Creare l'interfaccia utente
 

@@ -10,20 +10,20 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/10/2019
 ms.author: erhopf
-ms.openlocfilehash: db00398efa638ac945bc188ad0c44f904059e689
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a09b969ee3e11aeb04f338cf035b21b5da9bd952
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75467017"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78925236"
 ---
-Questa guida spiega come installare [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) per .NET Framework (Windows).
+Questa guida spiega come installare [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) per .NET Framework (Windows). Se si vuole solo il nome del pacchetto per iniziare autonomamente, eseguire `Install-Package Microsoft.CognitiveServices.Speech` nella console NuGet.
 
 [!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
-Questa guida introduttiva richiede:
+Questa guida di avvio rapido richiede:
 
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
 
@@ -71,7 +71,21 @@ Sarà necessario procedere all'installazione del [pacchetto NuGet Speech SDK](ht
 
    Dopo aver installato il pacchetto, viene visualizzato un messaggio di conferma nella finestra della **Console di Gestione pacchetti**.
 
-Ora è possibile procedere ai [Passaggi successivi](#next-steps) qui sotto.
+### <a name="choose-target-architecture"></a>Scegliere l'architettura di destinazione
+
+Per compilare ed eseguire l'applicazione console, creare una configurazione della piattaforma corrispondente all'architettura del computer.
+
+1. Nella barra dei menu selezionare **Compila** > **Gestione configurazione**. Verrà visualizzata finestra di dialogo **Gestione configurazione**.
+
+   ![Finestra di dialogo Gestione configurazione](~/articles/cognitive-services/speech-service/media/sdk/vs-configuration-manager-dialog-box.png)
+
+1. Nella casella a discesa **Piattaforma soluzione attiva** selezionare **Nuova**. Verrà visualizzata la finestra di dialogo **Nuova piattaforma soluzione**.
+
+1. Nella casella a discesa **Digitare o selezionare la nuova piattaforma**:
+   - Se è in esecuzione Windows a 64 bit, selezionare **x64**.
+   - Se è in esecuzione Windows a 32 bit, selezionare **x86**.
+
+1. Fare clic su **OK** e quindi su **Chiudi**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
