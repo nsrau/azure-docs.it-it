@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/19/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: be858e9200191de7e0bda0ae227519666d80fb7a
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
-ms.translationtype: MT
+ms.openlocfilehash: ec684e5e6fa2ef8e9ed30be49f59e8aa7ef3a28b
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77500595"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79117126"
 ---
 ### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>Quanti endpoint client VPN è possibile includere nella configurazione da punto sito?
 
@@ -40,11 +40,11 @@ Sono supportati i sistemi operativi client seguenti:
 
 Azure supporta tre tipi di opzioni VPN da punto a sito:
 
-* SSTP (Secure Socket Tunneling Protocol). SSTP è una soluzione basata su SSL proprietaria di Microsoft che può penetrare i firewall poiché la maggior parte dei firewall apre la porta TCP in uscita utilizzata da 443 SSL.
+* SSTP (Secure Socket Tunneling Protocol). SSTP è una soluzione proprietaria Microsoft basata su SSL che può penetrare i firewall perché la porta TCP 443 in uscita usata da SSL viene aperta dalla maggior parte dei firewall.
 
-* OpenVPN. OpenVPN è una soluzione basata su SSL che può penetrare i firewall poiché la maggior parte dei firewall apre la porta TCP in uscita utilizzata da 443 SSL.
+* OpenVPN. OpenVPN è una soluzione basata su SSL che può penetrare i firewall perché la porta TCP 443 in uscita usata da SSL viene aperta dalla maggior parte dei firewall.
 
-* VPN IKEv2. La VPN IKEv2 è una soluzione VPN IPsec basata su standard che usa le porte UDP in uscita 500 e 4500 e il protocollo IP No. 50. Non sempre queste porte vengono aperte dai firewall ed esiste quindi la possibilità che la VPN IKEv2 non riesca ad attraversare proxy e firewall.
+* VPN IKEv2. La VPN IKEv2 è una soluzione VPN IPsec basata sugli standard che usa le porte UDP 500 e 4500 in uscita e il protocollo IP numero 50. Non sempre queste porte vengono aperte dai firewall ed esiste quindi la possibilità che la VPN IKEv2 non riesca ad attraversare proxy e firewall.
 
 ### <a name="if-i-restart-a-client-computer-configured-for-point-to-site-will-the-vpn-automatically-reconnect"></a>Se si riavvia un computer client configurato per la funzionalità Da punto a sito, la VPN verrà riconnessa automaticamente?
 
@@ -58,9 +58,13 @@ La riconnessione automatica e il DNS dinamico non sono supportati attualmente ne
 
 Sì. Per il modello di distribuzione Resource Manager, è necessario un gateway di tipo VPN RouteBased. Per il modello di distribuzione classica è necessario un gateway dinamico. La configurazione da punto a sito non è supportata per gateway VPN con routing statico o PolicyBased.
 
-### <a name="can-i-configure-a-point-to-site-client-to-connect-to-multiple-virtual-networks-at-the-same-time"></a>È possibile configurare un client da punto a sito per connettersi contempo a più reti virtuali?
+### <a name="can-i-configure-a-point-to-site-client-to-connect-to-multiple-virtual-network-gateways-at-the-same-time"></a>È possibile configurare un client da punto a sito per connettersi contemporaneamente a più gateway di rete virtuale?
 
-No. Un client da punto a sito può connettersi solo alle risorse nella rete virtuale in cui risiede il gateway di rete virtuale.
+A seconda del software client VPN usato, potrebbe essere possibile connettersi a più gateway di rete virtuale purché nelle reti virtuali a cui si è connessi non siano presenti né spazi di indirizzi in conflitto tra loro né la rete da cui si connette il client.  Anche se il client VPN di Azure supporta molte connessioni VPN, è possibile stabilire una sola connessione alla volta.
+
+### <a name="can-i-configure-a-point-to-site-client-to-connect-to-multiple-virtual-networks-at-the-same-time"></a>È possibile configurare un client da punto a sito per connettersi contemporaneamente a più reti virtuali?
+
+Sì, le connessioni da punto a sito a un gateway di rete virtuale distribuito in una rete virtuale con peering con altre reti virtuali possono avere accesso ad altre reti virtuali con peering.  Se le reti virtuali con peering usano le funzionalità UseRemoteGateway/AllowGatewayTransit, il client da punto a sito sarà in grado di connettersi a tali reti virtuali con peering.  Per altre informazioni, vedere [questo](../articles/vpn-gateway/vpn-gateway-about-point-to-site-routing.md) articolo.
 
 ### <a name="how-much-throughput-can-i-expect-through-site-to-site-or-point-to-site-connections"></a>Che velocità effettiva è possibile prevedere usando connessioni da sito a sito o da punto a sito?
 
@@ -68,11 +72,11 @@ No. Un client da punto a sito può connettersi solo alle risorse nella rete virt
 
 ### <a name="can-i-use-any-software-vpn-client-for-point-to-site-that-supports-sstp-andor-ikev2"></a>Per la connettività da punto a sito è possibile usare qualsiasi client VPN software che supporta SSTP e/o IKEv2?
 
-No. È possibile usare solo il client VPN nativo in Windows per SSTP e il client VPN nativo in Mac per IKEv2. Tuttavia, è possibile usare il client OpenVPN su tutte le piattaforme per connettersi tramite il protocollo OpenVPN. Vedere l'elenco dei sistemi operativi client supportati.
+No. È possibile usare solo il client VPN nativo in Windows per SSTP e il client VPN nativo in Mac per IKEv2. È tuttavia possibile usare il client OpenVPN su tutte le piattaforme per connettersi tramite il protocollo OpenVPN. Vedere l'elenco dei sistemi operativi client supportati.
 
 ### <a name="does-azure-support-ikev2-vpn-with-windows"></a>Azure supporta VPN IKEv2 con Windows?
 
-IKEv2 è supportato in Windows 10 e Server 2016. Per poter usare IKEv2, è però necessario installare gli aggiornamenti e impostare in locale un valore della chiave del Registro di sistema. Le versioni del sistema operativo precedenti a Windows 10 non sono supportate e possono usare solo il protocollo SSTP o **OpenVPN®**.
+IKEv2 è supportato in Windows 10 e Server 2016. Per poter usare IKEv2, è però necessario installare gli aggiornamenti e impostare in locale un valore della chiave del Registro di sistema. Le versioni del sistema operativo precedenti a Windows 10 non sono supportate e possono usare solo SSTP o il **protocollo OpenVPN®**.
 
 Per preparare Windows 10 o Server 2016 per IKEv2:
 
@@ -99,9 +103,9 @@ Per VPN da punto a sito Azure supporta Windows, Mac e Linux.
 
 Sì, è possibile abilitare queste nuove funzionalità in gateway già distribuiti, usando Powershell o il portale di Azure, purché la SKU del gateway in uso supporti RADIUS e/o IKEv2. Lo SKU Basic del gateway VPN, ad esempio, non supporta l'autenticazione RADIUS o IKEv2.
 
-### <a name="removeconfig"></a>Ricerca per categorie rimuovere la configurazione di una connessione P2S?
+### <a name="removeconfig"></a>Come si rimuove la configurazione di una connessione da punto a sito?
 
-È possibile rimuovere una configurazione P2S usando l'interfaccia della riga di comando di Azure e PowerShell usando i comandi seguenti:
+Per rimuovere una configurazione di una connessione da punto a sito nell'interfaccia della riga di comando di Azure e PowerShell, è possibile usare i comandi seguenti:
 
 #### <a name="azure-powershell"></a>Azure PowerShell
 
