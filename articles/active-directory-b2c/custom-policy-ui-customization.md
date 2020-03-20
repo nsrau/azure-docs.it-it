@@ -12,11 +12,11 @@ ms.date: 02/13/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 8e07d3e1815c1b47b9d37c08e8fac5359b71fe7c
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78374858"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79245993"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Personalizzare l'interfaccia utente dell'applicazione usando un criterio personalizzato in Azure Active Directory B2C
 
@@ -30,11 +30,11 @@ Completare la procedura descritta in [Introduzione ai criteri personalizzati](cu
 
 [!INCLUDE [active-directory-b2c-html-how-to](../../includes/active-directory-b2c-html-how-to.md)]
 
-## <a name="4-modify-the-extensions-file"></a>4. modificare il file delle estensioni
+## <a name="4-modify-the-extensions-file"></a>4. Modificare il file delle estensioni
 
 Per configurare la personalizzazione dell'interfaccia utente, copiare **ContentDefinition** e i relativi elementi figlio dal file di base nel file delle estensioni.
 
-1. Aprire il file di base dei criteri, Ad esempio, <em>`SocialAndLocalAccounts/` **`TrustFrameworkBase.xml`** </em> . Questo file di base è uno dei file di criteri inclusi nello Starter Pack del criterio personalizzato, che è necessario ottenere nel prerequisito, [Introduzione ai criteri personalizzati](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom).
+1. Aprire il file di base dei criteri, Ad esempio, <em>`SocialAndLocalAccounts/` **`TrustFrameworkBase.xml`** </em>. Questo file di base è uno dei file di criteri inclusi nello Starter Pack del criterio personalizzato, che è necessario ottenere nel prerequisito, [Introduzione ai criteri personalizzati](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom).
 1. Cercare e copiare l'intero contenuto dell'elemento **ContentDefinitions**.
 1. Aprire il file di estensione. ad esempio *TrustFrameworkExtensions.xml*. Cercare l'elemento **BuildingBlocks**. Se l'elemento non esiste, aggiungerlo.
 1. Incollare l'intero contenuto dell'elemento **ContentDefinitions** copiato come figlio dell'elemento **BuildingBlocks**.
@@ -60,7 +60,7 @@ Per configurare la personalizzazione dell'interfaccia utente, copiare **ContentD
 
 1. Salvare il file delle estensioni.
 
-## <a name="5-upload-and-test-your-updated-custom-policy"></a>5. caricare e testare i criteri personalizzati aggiornati
+## <a name="5-upload-and-test-your-updated-custom-policy"></a>5. Caricare e testare i criteri personalizzati aggiornati
 
 ### <a name="51-upload-the-custom-policy"></a>5,1 caricare i criteri personalizzati
 
