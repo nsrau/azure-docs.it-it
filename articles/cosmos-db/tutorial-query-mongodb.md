@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 12/03/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 5b9bc78f6af833d89a3404de0295ddad78ebdf20
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74870140"
 ---
 # <a name="query-data-by-using-azure-cosmos-dbs-api-for-mongodb"></a>Eseguire query sui dati usando l'API Azure Cosmos DB per MongoDB
@@ -58,7 +58,7 @@ Le query di questo articolo usano il documento di esempio seguente.
   "isRegistered": false
 }
 ```
-## <a id="examplequery1"></a>Query di esempio 1 
+## <a name="example-query-1"></a><a id="examplequery1"></a>Query di esempio 1 
 
 Nel precedente documento della famiglia, la query seguente restituisce i documenti in cui il campo ID corrisponde a `WakefieldFamily`.
 
@@ -108,7 +108,7 @@ Nel precedente documento della famiglia, la query seguente restituisce i documen
     "isRegistered": false
     }
 
-## <a id="examplequery2"></a>Query di esempio 2 
+## <a name="example-query-2"></a><a id="examplequery2"></a>Query di esempio 2 
 
 La query seguente restituisce tutti i figli della famiglia. 
 
@@ -141,7 +141,7 @@ La query seguente restituisce tutti i figli della famiglia.
     }
 
 
-## <a id="examplequery3"></a>Query di esempio 3 
+## <a name="example-query-3"></a><a id="examplequery3"></a>Query di esempio 3 
 
 La query seguente restituisce tutte le famiglie registrate. 
 
@@ -150,7 +150,7 @@ La query seguente restituisce tutte le famiglie registrate.
     db.families.find( { "isRegistered" : true })
 **Risultati** Non viene restituito alcun documento. 
 
-## <a id="examplequery4"></a>Query di esempio 4
+## <a name="example-query-4"></a><a id="examplequery4"></a>Query di esempio 4
 
 La query seguente restituisce tutte le famiglie non registrate. 
 
@@ -194,7 +194,7 @@ La query seguente restituisce tutte le famiglie non registrate.
     "isRegistered": false
 }
 
-## <a id="examplequery5"></a>Query di esempio 5
+## <a name="example-query-5"></a><a id="examplequery5"></a>Query di esempio 5
 
 La query seguente restituisce tutte le famiglie non registrate e il cui stato di residenza è NY. 
 
@@ -240,7 +240,7 @@ La query seguente restituisce tutte le famiglie non registrate e il cui stato di
 }
 
 
-## <a id="examplequery6"></a>Query di esempio 6
+## <a name="example-query-6"></a><a id="examplequery6"></a>Query di esempio 6
 
 La query seguente restituisce tutte le famiglie in cui il grado della classe frequentata dai figli corrisponde a 8.
 
@@ -285,7 +285,7 @@ La query seguente restituisce tutte le famiglie in cui il grado della classe fre
     "isRegistered": false
 }
 
-## <a id="examplequery7"></a>Query di esempio 7
+## <a name="example-query-7"></a><a id="examplequery7"></a>Query di esempio 7
 
 La query seguente restituisce tutte le famiglie in cui la dimensione della matrice dei figli corrisponde a 3.
 

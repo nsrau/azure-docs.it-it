@@ -17,10 +17,10 @@ ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9edadd6462052f82f92c05c1678f845ece856cfb
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73160662"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mimecast-admin-console"></a>Esercitazione: Integrazione di Azure Active Directory con Mimecast Admin Console
@@ -35,7 +35,7 @@ L'integrazione di Mimecast Admin Console con Azure AD offre i vantaggi seguenti:
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per configurare l'integrazione di Azure AD con Mimecast Admin Console, sono necessari gli elementi seguenti:
 
@@ -90,7 +90,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 Per configurare l'accesso Single Sign-On di Azure AD con Mimecast Admin Console, seguire questa procedura:
 
-1. Nella pagina di integrazione dell'applicazione **Mimecast Admin Console** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
+1. Nella pagina di integrazione dell'applicazione [Mimecast Admin Console](https://portal.azure.com/) del **portale di Azure** selezionare **Single Sign-On**.
 
     ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 
@@ -136,7 +136,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Mimecast Admin Console,
 
 2. Passare a **Services \> Application**.
 
-    ![Servizi](./media/mimecast-admin-console-tutorial/ic794998.png "Servizi")
+    ![Services](./media/mimecast-admin-console-tutorial/ic794998.png "Servizi")
 
 3. Fare clic su **Authentication Profiles**.
 
@@ -169,7 +169,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Mimecast Admin Console,
     
     h. Selezionare **Allow Single Sign On**.
     
-    i. Fare clic su **Save**.
+    i. Fare clic su **Salva**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
@@ -190,13 +190,13 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
     b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
-    Ad esempio: BrittaSimon@contoso.com
+    Ad esempio, usare BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
     d. Fare clic su **Crea**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure tramite la concessione dell'accesso a Mimecast Admin Console.
 
@@ -246,11 +246,11 @@ Per consentire agli utenti di Azure AD di accedere a Mimecast Admin Console, è 
 
 5. Nella finestra di dialogo del nuovo indirizzo, seguire questa procedura:
    
-    ![Salva](./media/mimecast-admin-console-tutorial/ic795006.png "Salva")
+    ![Salva](./media/mimecast-admin-console-tutorial/ic795006.png "Salvare")
    
     a. Nelle caselle di testo corrispondenti digitare gli attributi **indirizzo di posta elettronica**, **nome globale**, **password** e **conferma password** di un account Azure AD valido di cui si intende effettuare il provisioning.
 
-    b. Fare clic su **Save**.
+    b. Fare clic su **Salva**.
 
 >[!NOTE]
 >È possibile usare qualsiasi altro strumento di creazione di account utente di Mimecast Admin Console o le API fornite da Mimecast Admin Console per effettuare il provisioning degli account utente di Azure AD. 

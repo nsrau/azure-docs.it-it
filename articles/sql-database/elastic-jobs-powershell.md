@@ -12,10 +12,10 @@ ms.author: joke
 ms.reviwer: sstein
 ms.date: 03/13/2019
 ms.openlocfilehash: 74a72df9d8c0bc8a578fea57ab81fb496f8e6add
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74420364"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>Creare un agente processo elastico con PowerShell
@@ -34,7 +34,7 @@ Questa esercitazione illustra la procedura necessaria per eseguire una query tra
 > * Avviare l'esecuzione di un processo
 > * Monitorare un processo
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 La versione aggiornata dei processi di database elastico include un nuovo set di cmdlet di PowerShell per l'uso durante la migrazione. Questi nuovi cmdlet consentono di trasferire tutte le credenziali di processo esistenti, le destinazioni (inclusi database, server e raccolte personalizzate), i trigger dei processi, le pianificazioni dei processi, il contenuto dei processi e i processi in un nuovo agente processo elastico.
 
@@ -149,7 +149,7 @@ I processi usano credenziali con ambito database per la connessione ai database 
 
 Le credenziali con ambito database devono essere create nel database di processo. Tutti i database di destinazione devono disporre di un accesso con autorizzazioni sufficienti per completare correttamente il processo.
 
-![Credenziali di processi elastici](media/elastic-jobs-overview/job-credentials.png)
+![Credenziali dei processi elastici](media/elastic-jobs-overview/job-credentials.png)
 
 Oltre alle credenziali riportate nella figura, si noti l'aggiunta dei comandi **GRANT** nello script seguente. Queste autorizzazioni sono necessarie per lo script che è stato scelto per il processo di esempio. Poiché nell'esempio viene creata una nuova tabella nei database di destinazione, ogni database di destinazione necessita di autorizzazioni appropriate per la corretta esecuzione.
 
@@ -274,7 +274,7 @@ $jobExecution | Get-AzSqlElasticJobTargetExecution -Count 2
 
 La tabella seguente elenca i possibili stati di esecuzione dei processi:
 
-|Stato|DESCRIZIONE|
+|State|Descrizione|
 |:---|:---|
 |**Creato** | L'esecuzione del processo è stata appena creata e non è ancora in corso.|
 |**InProgress** | L'esecuzione del processo è attualmente in corso.|

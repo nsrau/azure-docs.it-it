@@ -13,31 +13,31 @@ ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
 ms.openlocfilehash: bf4039b661ac7e0ee9630b86b9e15d1388991431
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74108496"
 ---
 # <a name="import-an-api-app-as-an-api"></a>Importare un'app per le API come API
 
 Questo articolo illustra come importare un'app per le API come API e come testare l'API di Gestione API.
 
-In questo articolo viene spiegato come:
+In questo articolo vengono illustrate le operazioni seguenti:
 
 > [!div class="checklist"]
 > * Importare un'app per le API come API
 > * Testare l'API nel portale di Azure
 > * Testare l'API nel portale per sviluppatori
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
-+ Completare l'argomento di avvio rapido seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md)
++ Completare la guida introduttiva seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md)
 + Verificare che sia disponibile un'app per le API nella sottoscrizione. Per altre informazioni, vedere la [documentazione del servizio app](https://docs.microsoft.com/azure/app-service/)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-## <a name="create-api"> </a>Importare e pubblicare un'API back-end
+## <a name="import-and-publish-a-back-end-api"></a><a name="create-api"> </a>Importare e pubblicare un'API back-end
 
 1. Selezionare **API** in **GESTIONE API**.
 2. Selezionare **App per le API** dall'elenco **Add a new API** (Aggiungere una nuova API).

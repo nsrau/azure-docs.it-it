@@ -8,10 +8,10 @@ ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: owend
 ms.openlocfilehash: 4d8c753f06e58fd1cce1c55eca213637cb70e436
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73572325"
 ---
 # <a name="tutorial-connect-with-power-bi-desktop"></a>Esercitazione: Connettersi con Power BI Desktop
@@ -23,7 +23,7 @@ In questa esercitazione si usa Power BI Desktop per connettersi al database mode
 > * Connettersi usando Power BI Desktop
 > * Creare un report di base
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - [Aggiungere il database modello di esempio adventureworks](../analysis-services-create-sample-model.md) al server.
 - Avere le autorizzazioni di [*lettura*](../analysis-services-server-admins.md) per il database modello di esempio adventureworks.

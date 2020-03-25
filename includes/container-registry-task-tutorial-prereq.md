@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 05/02/2019
 ms.author: danlep
 ms.openlocfilehash: 40cc1856a5e943ca5596e7d11712febadd30e3ec
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67133560"
 ---
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 ### <a name="get-sample-code"></a>Ottenere il codice di esempio
 
@@ -19,7 +19,7 @@ Questa esercitazione presuppone che siano già state completate le procedure del
 
 ### <a name="container-registry"></a>Registro contenitori
 
-Per completare questa esercitazione è necessario che la sottoscrizione di Azure includa un Registro Azure Container. Se occorre un registro, vedere l'[esercitazione precedente](../articles/container-registry/container-registry-tutorial-quick-task.md), o la [Guida introduttiva: Create a Registro Container using the Azure CLI](../articles/container-registry/container-registry-get-started-azure-cli.md) (Creare un registro contenitori con l'interfaccia della riga di comando di Azure).
+Per completare questa esercitazione è necessario che la sottoscrizione di Azure includa un Registro Azure Container. Se è necessario un registro, vedere l'[esercitazione precedente](../articles/container-registry/container-registry-tutorial-quick-task.md) oppure [Guida introduttiva: Creare un registro contenitori con l'interfaccia della riga di comando di Azure](../articles/container-registry/container-registry-get-started-azure-cli.md).
 
 ## <a name="create-a-github-personal-access-token"></a>Creare un token di accesso personale GitHub
 

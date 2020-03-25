@@ -16,10 +16,10 @@ ms.date: 10/25/2018
 ms.author: damendo
 ms.custom: mvc
 ms.openlocfilehash: acdaf2318c3082db876ed9c69b704d3d00cd4c90
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76834655"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Esercitazione: Monitorare la comunicazione di rete tra due macchine virtuali tramite il portale di Azure
@@ -159,7 +159,7 @@ Per impostazione predefinita, Azure consente la comunicazione su tutte le porte 
 
     È possibile notare che esiste un'icona punto esclamativo di colore rosso nella colonna stato per l'interfaccia di rete **myvm2529**.
 
-6. Per informazioni sui motivi per cui lo stato è stato modificato, selezionare 10.0.0.5, nell'immagine precedente. Il monitoraggio della connessione indica che il motivo della mancata comunicazione è: *Traffico bloccato a causa della regola del gruppo di sicurezza di rete seguente: UserRule_DenySshInbound*.
+6. Per informazioni sui motivi per cui lo stato è stato modificato, selezionare 10.0.0.5, nell'immagine precedente. Il monitoraggio della connessione indica che la causa dell'errore di comunicazione è: *Traffico bloccato a causa la regola del gruppo di sicurezza di rete seguente: UserRule_DenySshInbound*.
 
     Se si era a conoscenza che un utente ha implementato la regola di protezione creata nel passaggio 4, si è appreso dal monitoraggio della connessione che la regola provoca il problema di comunicazione. È quindi stato possibile modificare, eseguire l'override o rimuovere la regola, per ripristinare la comunicazione tra le VM.
 

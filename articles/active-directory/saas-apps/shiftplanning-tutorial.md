@@ -17,13 +17,13 @@ ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fd7cfe93aa39982836944230f860c603c7117ceb
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74233429"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-humanity"></a>Esercitazione: Integrazione di Azure Active Directory con Humanity
+# <a name="tutorial-azure-active-directory-integration-with-humanity"></a>Esercitazione: integrazione di Azure Active Directory con Humanity
 
 Questa esercitazione descrive come integrare Humanity con Azure Active Directory (Azure AD).
 L'integrazione di Humanity con Azure AD offre i vantaggi seguenti:
@@ -35,7 +35,7 @@ L'integrazione di Humanity con Azure AD offre i vantaggi seguenti:
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per configurare l'integrazione di Azure AD con Humanity, sono necessari gli elementi seguenti:
 
@@ -90,7 +90,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 Per configurare l'accesso Single Sign-On di Azure AD con Humanity, seguire questa procedura:
 
-1. Nella pagina di integrazione dell'applicazione **Humanity** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
+1. Nella pagina di integrazione dell'applicazione [Humanity](https://portal.azure.com/) del **portale di Azure** selezionare **Single Sign-On**.
 
     ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 
@@ -133,12 +133,12 @@ Per configurare l'accesso Single Sign-On di Azure AD con Humanity, seguire quest
 
 2. Nel menu in alto fare clic su **Admin**.
 
-    ![Admin](./media/shiftplanning-tutorial/iC786619.png "Admin")
+    ![Admin](./media/shiftplanning-tutorial/iC786619.png "Amministrativi")
 3. In **Integrazione** fare clic su **Single Sign-On**.
 
     ![Single Sign-On](./media/shiftplanning-tutorial/iC786620.png "Single Sign-On")
 
-4. Nella sezione **Single Sign-On** , seguire questa procedura:
+4. Nella sezione **Single Sign-On** , eseguire la procedura seguente:
 
     ![Single Sign-On](./media/shiftplanning-tutorial/iC786905.png "Single Sign-On")
 
@@ -156,7 +156,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Humanity, seguire quest
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
-Questa sezione descrive come creare un utente di test di nome Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -173,7 +173,7 @@ Questa sezione descrive come creare un utente di test di nome Britta Simon nel p
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
     b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
-    Ad esempio: BrittaSimon@contoso.com
+    Ad esempio, usare BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
@@ -181,7 +181,7 @@ Questa sezione descrive come creare un utente di test di nome Britta Simon nel p
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
-In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Humanity.
+In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Humanity.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Humanity**.
 
@@ -209,13 +209,13 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 Per consentire agli utenti di Azure AD di accedere a Humanity, è necessario effettuarne il provisioning in Humanity. Nel caso di Humanity, il provisioning è un'attività manuale.
 
-**Per effettuare il provisioning di un account utente, seguire questa procedura:**
+**Per eseguire il provisioning di un account utente, seguire questa procedura:**
 
 1. Accedere al sito aziendale di **Humanity** come amministratore.
 
 2. Fare clic su **Admin**.
 
-    ![Admin](./media/shiftplanning-tutorial/iC786619.png "Admin")
+    ![Admin](./media/shiftplanning-tutorial/iC786619.png "Amministrativi")
 
 3. Fare clic su **Personale**.
 
@@ -225,7 +225,7 @@ Per consentire agli utenti di Azure AD di accedere a Humanity, è necessario eff
 
     ![Aggiungere dipendenti](./media/shiftplanning-tutorial/iC786624.png "Aggiungi dipendenti")
 
-5. Nella sezione **Aggiungi dipendenti** seguire questa procedura:
+5. Nella sezione **Aggiungi dipendenti** eseguire la procedura seguente:
 
     ![Salvare dipendenti](./media/shiftplanning-tutorial/iC786625.png "Salva dipendenti")
 
@@ -240,7 +240,7 @@ Per consentire agli utenti di Azure AD di accedere a Humanity, è necessario eff
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di Humanity nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Humanity per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di Humanity nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Humanity per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

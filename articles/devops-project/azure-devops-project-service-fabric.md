@@ -10,10 +10,10 @@ ms.date: 07/09/2018
 author: mlearned
 monikerRange: vsts
 ms.openlocfilehash: 5f14164da5cd89cc7d0578e6b64c39d227734d75
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "71969468"
 ---
 # <a name="tutorial-deploy-your-aspnet-core-app-to-azure-service-fabric-by-using-azure-devops-projects"></a>Esercitazione: Distribuire l'app ASP.NET Core in Azure Service Fabric usando Azure DevOps Projects
@@ -35,7 +35,7 @@ In questa esercitazione si apprenderà come:
 > * Eseguire il commit in GIT e la distribuzione automatica in Azure
 > * Pulire le risorse
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Una sottoscrizione di Azure. È possibile ottenerne una gratuita tramite [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
@@ -161,7 +161,7 @@ Se si stanno eseguendo test, è possibile pulire le risorse per evitare che veng
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Facoltativamente, è possibile modificare questa pipeline di integrazione continua/distribuzione continua in base alle esigenze del team. È anche possibile usare questo modello di CI/CD come modello per altre pipeline. Questa esercitazione illustra come:
+Facoltativamente, è possibile modificare questa pipeline di integrazione continua/distribuzione continua in base alle esigenze del team. È anche possibile usare questo modello di CI/CD come modello per altre pipeline. In questa esercitazione sono state illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Usare DevOps Projects per creare un'app ASP.NET Core e distribuirla in Service Fabric

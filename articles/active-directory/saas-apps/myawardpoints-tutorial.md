@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: integrazione di Azure Active Directory con My Award Points Top Sub/Top Team | Microsoft Docs'
+title: 'Esercitazione: Integrazione di Azure Active Directory con My Award Points Top Sub/Top Team | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e My Award Points Top Sub/Top Team.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
 ms.openlocfilehash: b1de9e394dd1e6b4c47b8de3175dd1e8fba1d87e
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73161332"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-my-award-points-top-subtop-team"></a>Esercitazione: integrazione di Azure Active Directory con My Award Points Top Sub/Top Team
+# <a name="tutorial-azure-active-directory-integration-with-my-award-points-top-subtop-team"></a>Esercitazione: Integrazione di Azure Active Directory con My Award Points Top Sub/Top Team
 
 Questa esercitazione descrive come integrare My Award Points Top Sub/Top Team con Azure Active Directory (Azure AD).
 L'integrazione di My Award Points Top Sub/Top Team con Azure AD offre i vantaggi seguenti:
@@ -34,7 +34,7 @@ L'integrazione di My Award Points Top Sub/Top Team con Azure AD offre i vantaggi
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per configurare l'integrazione di Azure AD con My Award Points Top Sub/Top Team, sono necessari gli elementi seguenti:
 
@@ -131,7 +131,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con My Award Points Top Sub
 
 Per configurare l'accesso Single Sign-On sul lato **My Award Points Top Sub/Top Team**, è necessario inviare il file **XML metadati federazione** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di My Award Points Top Sub/Top Team](mailto:myawardpoints@biworldwide.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
@@ -150,13 +150,13 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
     b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
-    Ad esempio: BrittaSimon@contoso.com
+    Ad esempio, usare BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
     d. Fare clic su **Crea**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a My Award Points Top Sub/Top Team.
 

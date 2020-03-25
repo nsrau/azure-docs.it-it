@@ -5,13 +5,13 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
 ms.openlocfilehash: f1b813576a94541cdc2ab0a67fea71b6f49696c5
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78251807"
 ---
-# <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Esercitazione: Ridimensionare un cluster di Service Fabric in Azure
+# <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Esercitazione: ridimensionare un cluster di Service Fabric in Azure
 
 Questa esercitazione è la terza di una serie e illustra come aumentare e ridurre il numero di istanze del cluster esistente. Al termine, si riuscirà a ridimensionare il cluster e a pulire le risorse rimaste.  Per altre informazioni sul ridimensionamento di un cluster in esecuzione in Azure, vedere [Ridimensionamento dei cluster di Service Fabric](service-fabric-cluster-scaling.md).
 
@@ -33,7 +33,7 @@ In questa serie di esercitazioni si apprenderà come:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare questa esercitazione:
 

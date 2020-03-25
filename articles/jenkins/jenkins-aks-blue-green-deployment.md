@@ -5,10 +5,10 @@ keywords: jenkins, azure, devops, kubernetes, k8s, servizio Azure Kubernetes, di
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.openlocfilehash: 9d6551f910bd99322f844b44130ebb03732df83c
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78251483"
 ---
 # <a name="deploy-to-azure-kubernetes-service-aks-by-using-jenkins-and-the-bluegreen-deployment-pattern"></a>Eseguire la distribuzione nel servizio Azure Kubernetes usando Jenkins e il modello di distribuzione di tipo blu-verde
@@ -26,10 +26,10 @@ In questa esercitazione è possibile scoprire come si eseguono le seguenti attiv
 > * Configurare manualmente un cluster Kubernetes.
 > * Creare ed eseguire un processo Jenkins.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 - [Account GitHub](https://github.com): è necessario per clonare il repository di esempio.
 - [Interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest): viene usata per creare il cluster Kubernetes.
-- [Chocolatey](https://chocolatey.org): un sistema di gestione pacchetti usato per installare kubectl.
+- [Chocolatey](https://chocolatey.org): una gestione pacchetti usata per installare kubectl.
 - [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/): interfaccia della riga di comando usata per l'esecuzione di comandi per i cluster Kubernetes.
 - [jq](https://stedolan.github.io/jq/download/): processore JSON leggero da riga di comando.
 
@@ -255,7 +255,7 @@ In questa sezione verrà illustrato come preparare il server Jenkins per eseguir
 
 ## <a name="run-the-job"></a>Eseguire il processo
 
-1. Verificare che sia possibile eseguire correttamente il progetto nell'ambiente locale. Ecco come: [Eseguire il progetto sul computer locale](https://github.com/Microsoft/todo-app-java-on-azure/blob/master/README.md#run-it).
+1. Verificare che sia possibile eseguire correttamente il progetto nell'ambiente locale. Ecco come [eseguire il progetto sul computer locale](https://github.com/Microsoft/todo-app-java-on-azure/blob/master/README.md#run-it).
 
 1. Eseguire il processo Jenkins. La prima volta che si esegue il processo, l'app di elenco attività verrà distribuita da Jenkins nell'ambiente blu, che è l'ambiente inattivo predefinito. 
 
@@ -280,7 +280,7 @@ Quando le risorse create in questa esercitazione non sono più necessarie, è po
 az group delete -y --no-wait -n <your-resource-group-name>
 ```
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 Se si rilevano bug con i plug-in Jenkins, segnalare un problema in [Jenkins JIRA](https://issues.jenkins-ci.org/) per il componente specifico.
 

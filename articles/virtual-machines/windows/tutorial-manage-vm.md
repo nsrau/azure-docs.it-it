@@ -16,13 +16,13 @@ ms.date: 06/06/2019
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: c48d5e514d854568043d001a22411b6a67f79e6a
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74067801"
 ---
-# <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>Esercitazione: Creare e gestire VM Windows con Azure PowerShell
+# <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>Esercitazione: Creare e gestire macchine virtuali Windows con Azure PowerShell
 
 Le macchine virtuali di Azure offrono un ambiente di elaborazione completamente configurabile e flessibile. Questa esercitazione illustra le attività di base della distribuzione di una macchina virtuale di Azure, ad esempio la selezione delle dimensioni di una macchina virtuale, la selezione dell'immagine di una macchina virtuale e la distribuzione di una macchina virtuale. Si apprenderà come:
 
@@ -180,7 +180,7 @@ La dimensione di VM determina la quantità di risorse di calcolo, come CPU, GPU 
 
 La tabella seguente classifica le dimensioni a seconda dei casi d'uso.  
 
-| Type                     | Dimensioni comuni           |    DESCRIZIONE       |
+| Type                     | Dimensioni comuni           |    Descrizione       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [Utilizzo generico](sizes-general.md)         |B, Dsv3, Dv3, DSv2, Dv2, Av2, DC| Rapporto equilibrato tra CPU e memoria. Soluzione ideale per sviluppo/test e soluzioni di dati e applicazioni medio-piccole.  |
 | [Ottimizzate per il calcolo](sizes-compute.md)   | Fsv2          | Rapporto elevato tra CPU e memoria. Soluzione idonea per applicazioni con livelli medi di traffico, dispositivi di rete e processi batch.        |
@@ -241,7 +241,7 @@ Start-AzVM `
 Una macchina virtuale di Azure può avere uno dei diversi stati di alimentazione. 
 
 
-| Stato di alimentazione | DESCRIZIONE
+| Stato di alimentazione | Descrizione
 |----|----|
 | Avvio in corso | È in corso l'avvio della macchina virtuale. |
 | In esecuzione | La macchina virtuale è in esecuzione. |

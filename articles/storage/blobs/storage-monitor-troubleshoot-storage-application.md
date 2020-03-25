@@ -9,10 +9,10 @@ ms.date: 07/20/2018
 ms.author: normesta
 ms.reviewer: fryu
 ms.openlocfilehash: 3a2381302a378e7b2635b84c32a87e844e4605a7
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68844891"
 ---
 # <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>Monitorare e risolvere i problemi relativi a un'applicazione di archiviazione cloud
@@ -22,7 +22,7 @@ Questa esercitazione è la quarta e ultima parte di una serie di esercitazioni. 
 Nella quarta parte della serie si apprenderà come:
 
 > [!div class="checklist"]
-> * attivare le metriche e la registrazione
+> * Attivare le metriche e la registrazione
 > * attivare gli avvisi per gli errori di autorizzazione
 > * eseguire il traffico di test con token SAS non corretti
 > * scaricare e analizzare i log

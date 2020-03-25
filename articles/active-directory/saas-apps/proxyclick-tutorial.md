@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 6a4d1c8a390ebd1194d14c057bb32d3111bf39be
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67093500"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-proxyclick"></a>Esercitazione: Integrazione di Azure Active Directory con Proxyclick
+# <a name="tutorial-azure-active-directory-integration-with-proxyclick"></a>Esercitazione: integrazione di Azure Active Directory con Proxyclick
 
 Questa esercitazione descrive come integrare Proxyclick con Azure Active Directory (Azure AD).
 Questa integrazione offre i seguenti vantaggi:
@@ -35,7 +35,7 @@ Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Acces
 
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per configurare l'integrazione di Azure AD con Proxyclick, sono necessari gli elementi seguenti:
 
@@ -167,7 +167,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Proxyclick, seguire que
 
     1. Selezionare **Save changes** (Salva modifiche).
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
 In questa sezione verrà creato un utente di test di nome Britta Simon nel portale di Azure.
 
@@ -191,7 +191,7 @@ In questa sezione verrà creato un utente di test di nome Britta Simon nel porta
 
     1. Selezionare **Create** (Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione Britta Simon sarà abilitata per l'uso dell'accesso Single Sign-On di Azure, concedendole l'accesso a Proxyclick.
 
@@ -249,7 +249,7 @@ Per creare un account utente, seguire questi passaggi:
 
 Il passaggio finale consiste nel testare la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si seleziona il riquadro di Proxyclick nel Pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Proxyclick per cui si è configurato l'accesso SSO. Per altre informazioni sul Pannello di accesso, vedere [Accedere e usare le app nel portale App personali](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si seleziona il riquadro di Proxyclick nel Pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Proxyclick per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Accedere e usare le app nel portale di My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
