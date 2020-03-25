@@ -6,7 +6,7 @@
       items:
         - name: Informazioni sull'API Traduzione testuale
           href: translator-info-overview.md
-    - name: Guide introduttive
+    - name: Avvi rapidi
       items:
         - name: Traduci testo
           href: quickstart-translate.md
@@ -32,7 +32,7 @@
           href: customization.md
         - name: Modalità di conteggio caratteri dell'API
           href: character-counts.md
-    - name: Guide alle procedure
+    - name: Guide pratiche
       items:
         - name: Iscriversi per ottenere l'API Traduzione testuale
           href: translator-text-how-to-signup.md
@@ -46,12 +46,6 @@
           href: prevent-translation.md
         - name: Usare la funzione di dizionario dinamico
           href: dynamic-dictionary.md
-        - name: Usare i contenitori
-          items:
-            - name: Installare ed eseguire i contenitori
-              href: how-to-install-containers.md
-            - name: Configurare i contenitori
-              href: translator-text-container-config.md
         - name: Tradurre in ambienti protetti da firewall
           href: firewalls.md
     - name: Esempi
@@ -70,7 +64,7 @@
           href: 'https://github.com/MicrosoftTranslator/Text-Translation-API-V3-PHP'
         - name: Ruby
           href: 'https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Ruby'
-    - name: riferimento
+    - name: Riferimento
       items:
         - name: Informazioni di riferimento sull'API Traduzione testuale v3
           href: reference/v3-0-reference.md
@@ -122,7 +116,7 @@
       items:
         - name: Informazioni su Custom Translator
           href: custom-translator/overview.md
-    - name: Guide introduttive
+    - name: Avvi rapidi
       items:
         - name: Creare un modello personalizzato
           href: custom-translator/quickstart-build-deploy-custom-model.md
@@ -144,7 +138,7 @@
           href: custom-translator/training-and-model.md
         - name: Punteggio BLEU
           href: custom-translator/what-is-bleu-score.md
-    - name: Guide alle procedure
+    - name: Guide pratiche
       items:
         - name: Creare un progetto
           href: custom-translator/how-to-create-project.md
@@ -168,7 +162,7 @@
           href: custom-translator/unsupported-language-deployments.md
     - name: Risorse
       items:
-        - name: Supporto per le lingue
+        - name: Supporto delle lingue
           href: 'https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization'
         - name: Glossario
           href: custom-translator/glossary.md
@@ -178,5 +172,7 @@
           href: 'https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/'
         - name: Conformità
           href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
+        - name: Crittografia
+          href: translator-encryption-of-data-at-rest.md
         - name: Stack Overflow
           href: 'https://stackoverflow.com/questions/tagged/microsoft-translator'

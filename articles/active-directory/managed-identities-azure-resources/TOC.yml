@@ -120,7 +120,7 @@
           href: how-to-view-managed-identity-service-principal-cli.md
         - name: PowerShell
           href: how-to-view-managed-identity-service-principal-powershell.md
-- name: Informazioni di riferimento
+- name: Riferimento
   items:
     - name: CLI
       href: /cli/azure/identity

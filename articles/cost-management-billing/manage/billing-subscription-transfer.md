@@ -11,11 +11,11 @@ ms.date: 02/12/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 84b36c1357bedfc120cec72af84fdd79f52a2f57
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78245396"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79238160"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Trasferire la proprietà della fatturazione di una sottoscrizione di Azure in un altro account
 
@@ -124,7 +124,7 @@ Il trasferimento di sottoscrizioni nel portale di Azure è disponibile per i tip
 
 Queste domande frequenti si applicano agli utenti che trasferiscono la proprietà della fatturazione di una sottoscrizione di Azure in un altro account.
 
-### <a name="whoisaa"></a> Chi è l'amministratore fatturazione di un account?
+### <a name="who-is-a-billing-administrator-of-an-account"></a><a name="whoisaa"></a> Chi è l'amministratore fatturazione di un account?
 
 L'amministratore fatturazione è una persona autorizzata a gestire la fatturazione per un account. Ha l'autorizzazione per accedere alla fatturazione nel [portale di Azure](https://portal.azure.com) ed eseguire varie attività collegate, ad esempio creare sottoscrizioni, visualizzare e pagare fatture oppure aggiornare i metodi di pagamento.
 
@@ -204,17 +204,17 @@ Sì. Durante l'accettazione della richiesta di trasferimento, è possibile selez
 
 L'amministratore dell'organizzazione può aggiornare la proprietà dell'account per qualsiasi account anche dopo che il proprietario dell'account originale non fa più parte dell'organizzazione. Questa operazione può essere effettuata seguendo le istruzioni per il [trasferimento della proprietà dell'account per tutte le sottoscrizioni](https://ea.azure.com/helpdocs/changeAccountOwnerForASubscription) in EA Portal.
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
-### <a id="no-button"></a> Perché non viene visualizzato il pulsante Trasferisci sottoscrizione?
+### <a name="why-dont-i-see-the-transfer-subscription-button"></a><a id="no-button"></a> Perché non viene visualizzato il pulsante Trasferisci sottoscrizione?
 
 Il trasferimento della sottoscrizione in modalità self-service non è disponibile per questo account di fatturazione. Attualmente, nel portale di Azure non è supportato il trasferimento della proprietà della fatturazione delle sottoscrizioni negli account del contratto Enterprise Agreement (EA). Inoltre, gli account con contratto del cliente Microsoft creati in collaborazione con un rappresentante Microsoft non supportano il trasferimento della proprietà della fatturazione.
 
-### <a id="no-button"></a> Perché un tipo di sottoscrizione non supporta il trasferimento?
+### <a name="why-doesnt-my-subscription-type-support-transfer"></a><a id="no-button"></a> Perché un tipo di sottoscrizione non supporta il trasferimento?
 
 Non tutti i tipi di sottoscrizione supportano il trasferimento della proprietà della fatturazione. Per visualizzare l'elenco dei tipi che li supportano, vedere [Tipi di sottoscrizione supportati](#supported-subscription-types).
 
-### <a id="no-button"></a> Perché si riceve un errore di accesso negato quando si prova a trasferire la proprietà della fatturazione di una sottoscrizione?
+### <a name="why-am-i-receiving-an-access-denied-error-when-i-try-to-transfer-billing-ownership-of-a-subscription"></a><a id="no-button"></a> Perché si riceve un errore di accesso negato quando si prova a trasferire la proprietà della fatturazione di una sottoscrizione?
 
 Questo errore viene visualizzato se si prova a trasferire una sottoscrizione di un piano di Microsoft Azure e non si hanno le autorizzazioni necessarie. Per trasferire una sottoscrizione di un piano di Microsoft Azure, è necessario essere un proprietario o un collaboratore nella sezione della fattura in cui viene addebitata la sottoscrizione. Per altre informazioni, vedere la sezione [Gestire le sottoscrizioni per la sezione della fattura](understand-mca-roles.md#manage-subscriptions-for-invoice-section).
 

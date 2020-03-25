@@ -139,6 +139,8 @@
           href: cloud-services-allocation-failures.md
         - name: Cause comuni del riciclo di ruoli dei servizi cloud
           href: cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md
+        - name: L'applicazione non supporta TLS 1.2
+          href: applications-dont-support-tls-1-2.md
         - name: Dimensioni della cartella TEMP predefinita insufficienti per un ruolo
           href: cloud-services-troubleshoot-default-temp-folder-size-too-small-web-worker-role.md
         - name: Problemi di distribuzione comuni
@@ -159,7 +161,7 @@
               href: cloud-services-connectivity-and-networking-faq.md
             - name: Domande frequenti sullo sviluppo
               href: cloud-services-deployment-faq.md
-- name: Informazioni di riferimento
+- name: Riferimento
   items:
     - name: Esempi di codice
       href: 'https://azure.microsoft.com/resources/samples/?service=cloud-services'

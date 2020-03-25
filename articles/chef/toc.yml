@@ -22,7 +22,7 @@
       items:
         - name: Creare un'app Windows
           href: ./chef-automation.md
-- name: Informazioni di riferimento
+- name: Riferimento
   items:
     - name: Estensione Chef per Azure
       href: 'https://docs.chef.io/azure_portal.html#azure-chef-extension'

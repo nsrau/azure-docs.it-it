@@ -129,7 +129,7 @@
       href: tutorial-rotation.md
     - name: Integrazione con Criteri di Azure
       href: azure-policy.md
-    - name: Integrazione con il servizio di collegamento privato di Azure (anteprima)
+    - name: Integrazione con il servizio Collegamento privato di Azure
       href: private-link-service.md
     - name: Registrazione di Azure Key Vault
       href: key-vault-logging.md
@@ -151,7 +151,7 @@
       items:
         - name: Usare Spring Boot Starter
           href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault
-- name: Informazioni di riferimento
+- name: Riferimento
   items:
     - name: Codici di errore REST di Key Vault
       href: rest-error-codes.md

@@ -1,19 +1,18 @@
 ---
 title: Analizzare i costi di Azure con l'app Power BI
 description: Questo articolo illustra come installare e usare l'app Power BI Gestione costi di Azure.
-keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 03/05/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: benshy
-ms.openlocfilehash: bc676910a05dbec97ae05578399029f85f71e1ef
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.openlocfilehash: cd82c5880762e670a42066416042be57ef018a99
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78399646"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79203152"
 ---
 # <a name="analyze-cost-with-the-azure-cost-management-power-bi-app-for-enterprise-agreements-ea"></a>Analizzare i costi con l'app Power BI Gestione costi di Azure per contratti Enterprise (EA)
 

@@ -1,20 +1,18 @@
 ---
 title: Configurare l'integrazione di AWS con Gestione costi di Azure
 description: Questo articolo illustra come impostare e configurare l'integrazione del report di costi e utilizzo di AWS con Gestione costi di Azure.
-keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 02/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: matrive
-ms.custom: ''
-ms.openlocfilehash: 90d75383c1bd7c67b3feeb77fe2284d7b4e0cdf9
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: c0f6f18abf7c05cf5ae6dcaa31a57974ecfca806
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199994"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79203084"
 ---
 # <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>Impostare e configurare l'integrazione del report di costi e utilizzo di AWS
 
@@ -39,11 +37,11 @@ Usare la pagina **Cost & Usage Reports** (Report di costi e utilizzo) della cons
 9. Nella finestra di dialogo Configure S3 Bucket (Configura bucket S3) eseguire una di queste operazioni:
     1. Selezionare un bucket esistente dall'elenco a discesa e scegliere **Next** (Avanti).
     2. Immettere un nome di bucket e l'area in cui si vuole creare un nuovo bucket, quindi scegliere **Next** (Avanti).
-10. Selezionare **I have confirmed that this policy is correct** (Ho confermato che il criterio è corretto) e scegliere **Save** (Salva).
-11. (Facoltativo) In Report path prefix (Prefisso percorso report) immettere il prefisso del percorso del report che si vuole anteporre al nome del report.
+10.    Selezionare **I have confirmed that this policy is correct** (Ho confermato che il criterio è corretto) e scegliere **Save** (Salva).
+11.    (Facoltativo) In Report path prefix (Prefisso percorso report) immettere il prefisso del percorso del report che si vuole anteporre al nome del report.
 Se non si specifica un prefisso, quello predefinito è il nome specificato per il report. L'intervallo di date ha il formato `/report-name/date-range/`.
 12. In **Time unit** (Unità di tempo) scegliere  **Hourly** (Ogni ora).
-13. In **Report versioning** (Controllo delle versioni del report) scegliere se si vuole che ogni versione del report sovrascriva quella precedente o se si vuole creare nuovi report aggiuntivi.
+13.    In **Report versioning** (Controllo delle versioni del report) scegliere se si vuole che ogni versione del report sovrascriva quella precedente o se si vuole creare nuovi report aggiuntivi.
 14. In **Enable data integration for** (Abilita integrazione dei dati per) non è necessaria alcuna selezione.
 15. In **Compression** (Compressione) selezionare **GZIP**.
 16. Selezionare **Avanti**.
@@ -124,8 +122,8 @@ Il codice JSON del criterio deve essere simile all'esempio riportato di seguito.
             "Effect": "Allow",
             "Action": [
 "organizations:ListAccounts",
-            "ce:*",
-            "cur:DescribeReportDefinitions"
+             "ce:*",
+             "cur:DescribeReportDefinitions"
             ],
             "Resource": "*"
         },

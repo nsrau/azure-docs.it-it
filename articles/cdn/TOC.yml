@@ -85,7 +85,7 @@
           items:
             - name: Contenuto Web di Azure
               href: cdn-manage-expiration-of-cloud-service-content.md
-            - name: Archiviazione BLOB di Azure
+            - name: Archivio BLOB di Azure
               href: cdn-manage-expiration-of-blob-content.md
         - name: Autenticazione tramite token
           href: cdn-token-auth.md
@@ -136,7 +136,7 @@
           href: cdn-troubleshoot-compression.md
         - name: Autorità di certificazione consentite
           href: cdn-troubleshoot-allowed-ca.md
-- name: Informazioni di riferimento
+- name: Riferimento
   items:
     - name: Informazioni di riferimento sul motore regole standard
       href: cdn-standard-rules-engine-reference.md

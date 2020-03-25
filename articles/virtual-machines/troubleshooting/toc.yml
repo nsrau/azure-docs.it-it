@@ -81,7 +81,7 @@
           href: troubleshoot-reboot-loop.md
         - name: Blocco in Windows Update
           href: troubleshoot-stuck-updating-boot-error.md
-- name: Non è possibile connettersi alla macchina virtuale
+- name: Impossibile connettersi alla macchina virtuale
   items:
     - name: RDP
       href: rdp.md

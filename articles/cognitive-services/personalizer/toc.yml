@@ -69,7 +69,7 @@
       href: how-to-manage-model.md
     - name: Analizzare con una valutazione offline
       href: how-to-offline-evaluation.md
-- name: Informazioni di riferimento
+- name: Riferimento
   items:
     - name: Esempi
       href: 'https://go.microsoft.com/fwlink/?linkid=2092083'
@@ -79,7 +79,7 @@
       items:
         - name: .NET
           items:
-            - name: Informazioni di riferimento
+            - name: Riferimento
               href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/personalizer?view=azure-dotnet'
             - name: Pacchetto NuGet
               href: 'https://go.microsoft.com/fwlink/?linkid=2092272'
@@ -89,24 +89,26 @@
               href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/personalizer/v1.0/personalizer'
         - name: Node.js
           items:
-            - name: Informazioni di riferimento
+            - name: Riferimento
               href: 'https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-personalizer/?view=azure-node-latest'
             - name: NPM
               href: 'https://www.npmjs.com/package/@azure/cognitiveservices-personalizer/v/1.0.0'
         - name: Python
           items:
-            - name: Informazioni di riferimento
+            - name: Riferimento
               href: 'https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/personalizer?view=azure-python'
             - name: Pacchetto Pypi
               href: 'https://pypi.org/project/azure-cognitiveservices-personalizer/'
 - name: Risorse
   items:
-    - name: Risoluzione dei problemi
+    - name: risoluzione dei problemi
       href: troubleshooting.md
-    - name: Disponibilità a livello di area
+    - name: Disponibilità internazionale
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
     - name: Conformità
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
+    - name: Crittografia
+      href: personalizer-encryption-of-data-at-rest.md
     - name: Roadmap per Azure
       href: 'https://go.microsoft.com/fwlink/?linkid=2092153'
     - name: Prezzi

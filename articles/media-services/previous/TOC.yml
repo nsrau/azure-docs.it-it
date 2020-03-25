@@ -440,7 +440,7 @@
           href: media-services-error-codes.md
         - name: Logica di retry
           href: media-services-retry-logic-in-dotnet-sdk.md
-- name: Informazioni di riferimento
+- name: Riferimento
   items:
     - name: Esempi di codice
       href: 'https://azure.microsoft.com/resources/samples/?service=media-services'

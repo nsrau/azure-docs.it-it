@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/22/2020
 ms.author: yegu
 ms.openlocfilehash: 4ad28bd65fe9bc240e963f103ca5bd658e90fdfd
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77529620"
 ---
 # <a name="how-the-reservation-discount-is-applied-to-azure-cache-for-redis"></a>Come viene applicato lo sconto della prenotazione ad Azure Cache for Redis
@@ -36,7 +36,7 @@ Per gli altri esempi, si presuppone che la capacità riservata acquistata per Az
 
 * **Esempio 2:** Si eseguono due cache di 13 GB per un'ora. Lo sconto della prenotazione di 26 GB viene applicato all'utilizzo di risorse di calcolo di entrambe le cache.
 
-* **Esempio 3**: Si esegue una cache di 26 GB dalle 13:00 alle 13:30. Si esegue un'altra cache di 26 GB dalle 13:30 alle 14.00. Lo sconto della prenotazione viene applicato a entrambe.
+* **Esempio 3**: Si esegue una cache di 26 GB dalle 13:00 alle 13:30. Si esegue un'altra cache di 26 GB dalle 13:30 alle 14.00. A entrambi i database viene applicato lo sconto sulla prenotazione.
 
 * **Esempio 4**: Si esegue una cache di 26 GB dalle 13:00 alle 13:45. Si esegue un'altra cache di 26 GB dalle 13:30 alle 14.00. Viene addebitata la tariffa con pagamento in base al consumo per la sovrapposizione di 15 minuti. Lo sconto sulla prenotazione viene applicato all'utilizzo delle risorse di calcolo per il resto del tempo.
 

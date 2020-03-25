@@ -68,7 +68,7 @@
               href: manage-certificates-for-federated-single-sign-on.md
             - name: Restrizioni relative ai tenant
               href: tenant-restrictions.md
-            - name: Configurare la crittografia dei token SAML (anteprima)
+            - name: Configurare la crittografia dei token SAML
               href: howto-saml-token-encryption.md
             - name: Portali degli utenti finali
               href: end-user-experiences.md
@@ -139,9 +139,7 @@
               href: grant-admin-consent.md
             - name: Configurare il flusso di lavoro di consenso dell'amministratore (anteprima)
               href: configure-admin-consent-workflow.md
-            - name: Metodi per l'assegnazione di utenti e gruppi a un'app
-              href: methods-for-assigning-users-and-groups.md
-            - name: Assegnare un utente a un'app
+            - name: Assegnare un utente o un gruppo a un'app
               href: assign-user-or-group-access-portal.md
             - name: Creare raccolte in App personali
               href: access-panel-collections.md
@@ -327,7 +325,7 @@
       items:
         - name: Proteggere le app legacy con reti o controller di distribuzione delle app
           href: secure-hybrid-access.md
-- name: Informazioni di riferimento
+- name: Riferimento
   items:
     - name: Domande frequenti sul proxy dell'applicazione
       href: application-proxy-faq.md

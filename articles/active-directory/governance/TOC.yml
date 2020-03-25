@@ -38,7 +38,7 @@
       items:
         - name: Scenari comuni
           href: entitlement-management-scenarios.md
-        - name: Amministratori
+        - name: Administrators
           items:
             - name: Delega agli autori di cataloghi
               href: entitlement-management-delegate-catalog.md

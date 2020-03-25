@@ -75,7 +75,7 @@
       href: ./export-delete-data.md
     - name: Aggiornare l'app all'API 3.0
       href: ./update-application-to-3.0-sdk.md
-- name: Informazioni di riferimento
+- name: Riferimento
   items:
     - name: API Training di Custom Vision
       href: 'https://go.microsoft.com/fwlink/?linkid=865446'
@@ -109,7 +109,7 @@
       href: 'https://stackoverflow.com/questions/tagged/microsoft-cognitive'
     - name: Roadmap per Azure
       href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
-    - name: Disponibilità a livello di area
+    - name: Disponibilità internazionale
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
     - name: Conformità
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'

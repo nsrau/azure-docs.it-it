@@ -79,7 +79,7 @@
           href: face-resource-container-config.md
         - name: Usare istanze di contenitore
           href: Face-API-How-to-Topics/deploy-face-container-on-container-instances.md
-- name: Informazioni di riferimento
+- name: Riferimento
   items:
     - name: API Viso
       href: APIReference.md
@@ -111,9 +111,11 @@
       href: 'https://stackoverflow.com/questions/tagged/microsoft-cognitive'
     - name: Roadmap per Azure
       href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
-    - name: Disponibilità a livello di area
+    - name: Disponibilità internazionale
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
     - name: Conformità
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
+    - name: Crittografia
+      href: face-encryption-of-data-at-rest.md
     - name: Note sulla versione
       href: ReleaseNotes.md

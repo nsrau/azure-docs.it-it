@@ -125,7 +125,7 @@
       items:
         - name: Risolvere i problemi di Azure Load Balancer
           href: load-balancer-troubleshoot.md
-- name: Informazioni di riferimento
+- name: Riferimento
   items:
     - name: Esempi di codice
       href: 'https://azure.microsoft.com/resources/samples/?service=load-balancer'

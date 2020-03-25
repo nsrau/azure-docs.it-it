@@ -135,6 +135,9 @@
         - name: Selezionare un tipo di disco
           href: ../virtual-machines/windows/disks-types.md
           maintainContext: true
+        - name: Crittografia
+          href: ../virtual-machines/windows/disk-encryption.md?toc=%2fazure%2fvirtual-machine-scale-sets%2ftoc.json
+          maintainContext: true
         - name: Prestazioni di Archiviazione Premium
           href: ../virtual-machines/windows/premium-storage-performance.md
           maintainContext: true
@@ -152,7 +155,7 @@
     - name: Automatizzazione dell'infrastruttura
       href: ../virtual-machines/windows/infrastructure-automation.md
       maintainContext: true
-    - name: Sicurezza
+    - name: Security
       items:
         - name: Sicurezza e criteri
           href: ../virtual-machines/windows/security-policy.md
@@ -219,7 +222,7 @@
           items:
             - name: Usare PowerShell
               href: disk-encryption-powershell.md
-            - name: Usare l'interfaccia della riga di comando di Azure
+            - name: Utilizzare l’interfaccia della riga di comando di Azure
               href: disk-encryption-cli.md
             - name: Usare i modelli di Gestione risorse di Azure
               href: disk-encryption-azure-resource-manager.md
@@ -237,7 +240,7 @@
       items:
         - name: Attività di gestione comuni
           items:
-            - name: Usare l'interfaccia della riga di comando di Azure
+            - name: Utilizzare l’interfaccia della riga di comando di Azure
               href: virtual-machine-scale-sets-manage-cli.md
             - name: Usare Azure PowerShell
               href: virtual-machine-scale-sets-manage-powershell.md
@@ -288,7 +291,7 @@
         - name: Ridimensionare automaticamente un set di scalabilità
           href: /azure/ansible/ansible-auto-scale-vmss
           maintainContext: true
-- name: Informazioni di riferimento
+- name: Riferimento
   items:
     - name: Azure PowerShell
       href: /powershell/azure/overview

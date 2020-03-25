@@ -41,6 +41,8 @@
           href: howto-azure-monitor-v4.md
     - name: Distribuire un'istanza autonoma di Prometheus in un cluster Azure Red Hat OpenShift
       href: howto-deploy-prometheus.md
+    - name: Gestire progetti in un cluster di Azure Red Hat OpenShift
+      href: howto-manage-projects.md
     - name: Creare un cluster privato di Azure Red Hat OpenShift
       href: howto-create-private-cluster.md
     - name: Monitoraggio e registrazione
@@ -55,7 +57,7 @@
               maintainContext: true
     - name: Eseguire contenitori con privilegi in un cluster di Azure Red Hat OpenShift
       href: howto-run-privileged-containers.md
-- name: Informazioni di riferimento
+- name: Riferimento
   items:
     - name: Interfaccia della riga di comando di Azure Red Hat OpenShift
       href: /cli/azure/openshift
@@ -65,11 +67,11 @@
   items:
     - name: Domande frequenti
       href: openshift-faq.md
-    - name: Risoluzione dei problemi
+    - name: risoluzione dei problemi
       href: troubleshoot.md
     - name: Risorse supportate
       href: supported-resources.md
-    - name: Disponibilità a livello di area
+    - name: Disponibilità internazionale
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Documentazione di Red Hat OpenShift
       href: 'https://docs.openshift.com/aro/welcome/index.html'

@@ -143,8 +143,6 @@
           href: consuming-from-excel.md
         - name: Usare il componente aggiuntivo di Excel
           href: excel-add-in-for-web-services.md
-        - name: Usare un pool di Batch
-          href: dedicated-capacity-for-bes-jobs.md
     - name: Casi d'uso
       items:
         - name: Abbandono dei clienti

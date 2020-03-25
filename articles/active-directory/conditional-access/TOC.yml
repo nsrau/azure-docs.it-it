@@ -92,7 +92,7 @@
       href: howto-conditional-access-session-lifetime.md
     - name: Eseguire la migrazione di criteri classici
       href: policy-migration-mfa.md
-    - name: Risoluzione dei problemi
+    - name: risoluzione dei problemi
       items:
         - name: Risolvere i problemi durante l'uso dello strumento What If
           href: troubleshoot-conditional-access-what-if.md

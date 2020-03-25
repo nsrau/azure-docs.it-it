@@ -8,18 +8,17 @@ metadata:
   description: "L'API Analisi del testo è un servizio basato sul cloud che fornisce elaborazione avanzata in linguaggio naturale su testo non elaborato e include quattro funzioni principali: analisi del sentiment, estrazione di frasi chiave, riconoscimento di entità denominate e rilevamento della lingua. Informazioni su come analizzare il contenuto in modi diversi con le guide introduttive, le esercitazioni e gli esempi."
   author: aahill
   manager: nitinme
-  layout: LandingPage
   ms.service: cognitive-services
   ms.subservice: text-analytics
   ms.topic: landing-page
   ms.date: 01/29/2019
   ms.author: aahi
-  ms.openlocfilehash: c98f6b9994dfa80f51a78d9be22e283cca700ce9
-  ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+  ms.openlocfilehash: 468315f79f7d0f9d10013c4068b5bb29436b3166
+  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 02/21/2020
-  ms.locfileid: "77524598"
+  ms.lasthandoff: 03/24/2020
+  ms.locfileid: "79415139"
 landingContent:
 - title: Informazioni sull'API Analisi del testo
   linkLists:
@@ -115,7 +114,7 @@ landingContent:
     links:
     - text: Riconoscimento delle entità
       url: how-tos/text-analytics-how-to-entity-linking.md
-- title: Informazioni di riferimento
+- title: Riferimento
   linkLists:
   - linkListType: reference
     links:

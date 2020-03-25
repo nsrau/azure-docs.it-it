@@ -121,7 +121,7 @@
       items:
         - name: Guida per la risoluzione dei problemi
           href: dns-troubleshoot.md
-- name: Informazioni di riferimento
+- name: Riferimento
   items:
     - name: DNS pubblico
       items:
@@ -157,22 +157,6 @@
           href: /dotnet/api/overview/azure/privatedns/management
         - name: REST
           href: /rest/api/dns/privatedns/privatezones
-- name: Risorse correlate
-  items:
-    - name: Collegamento privato
-      href: ../private-link/private-link-overview.md
-    - name: Gateway applicazione
-      href: /azure/application-gateway/
-    - name: Rete virtuale
-      href: /azure/virtual-network/
-    - name: Macchina virtuale
-      href: /azure/virtual-machines/
-    - name: Load Balancer
-      href: /azure/load-balancer/
-    - name: Gestione traffico
-      href: /azure/traffic-manager/
-    - name: App Web
-      href: /azure/app-service/
 - name: Risorse
   items:
     - name: Roadmap per Azure
