@@ -17,15 +17,15 @@ ms.date: 12/15/2017
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 26d453adb4ded59de162fda0ae62322399fa4d9a
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74040286"
 ---
 # <a name="encrypt-a-linux-virtual-machine-in-azure"></a>Crittografare una macchina virtuale Linux in Azure
 
-Questo script crea un insieme di credenziali delle chiavi di Azure sicuro, le chiavi di crittografia, un'entità servizio di Azure Active Directory e una macchina virtuale (VM) Linux. La VM viene quindi crittografata usando la chiave di crittografia di Key Vault e le credenziali dell'entità servizio.
+Questo script crea un insieme di credenziali delle chiavi di Azure sicuro, le chiavi di crittografia, un'entità servizio di Azure Active Directory e una macchina virtuale (VM) Linux. La VM viene quindi crittografata usando la chiave di crittografia del Key Vault e le credenziali dell'entità servizio.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -50,7 +50,7 @@ Questo script usa i comandi seguenti per creare un gruppo di risorse, un insieme
 | Comando | Note |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
-| [az keyvault create](https://docs.microsoft.com/cli/azure/keyvault) | Crea un insieme di credenziali delle chiavi di Azure per archiviare i dati protetti, ad esempio le chiavi di crittografia. |
+| [az keyvault create](https://docs.microsoft.com/cli/azure/keyvault) | Crea un Azure Key Vault per archiviare i dati protetti, ad esempio le chiavi di crittografia. |
 | [az keyvault key create](https://docs.microsoft.com/cli/azure/keyvault/key) | Crea una chiave di crittografia in Key Vault. |
 | [az ad sp create-for-rbac](https://docs.microsoft.com/cli/azure/ad/sp) | Crea un'entità servizio di Azure Active Directory per autenticare in modo sicuro e controllare l'accesso alle chiavi di crittografia. |
 | [az keyvault set-policy](https://docs.microsoft.com/cli/azure/keyvault) | Imposta le autorizzazioni in Key Vault per concedere l'accesso dell'entità servizio alle chiavi di crittografia. |

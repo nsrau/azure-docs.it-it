@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 10/16/2019
 ms.author: mimart
 ms.openlocfilehash: 9d394b07ff17ab24305b2580efc8bedfc5e7d384
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78183382"
 ---
 #### <a name="applications"></a>[Applicazioni](#tab/applications/)
@@ -17,8 +17,8 @@ ms.locfileid: "78183382"
 1. Selezionare **Applicazioni**.
 1. Selezionare l'applicazione *webapi1* per aprire la pagina **Proprietà**.
 1. Selezionare **Ambiti pubblicati**. Gli ambiti pubblicati possono essere usati per concedere a un'applicazione client determinate autorizzazioni per l'API Web.
-1. Immettere `demo.read` come **AMBITO** e `Read access to the web API` come **DESCRIZIONE**.
-1. Immettere `demo.write` come **AMBITO** e `Write access to the web API` come **DESCRIZIONE**.
+1. Immettere **come**AMBITO`demo.read` e **come**DESCRIZIONE`Read access to the web API`.
+1. Immettere **come**AMBITO`demo.write` e **come**DESCRIZIONE`Write access to the web API`.
 1. Selezionare **Salva**.
 
 #### <a name="app-registrations-preview"></a>[Registrazioni app (anteprima)](#tab/app-reg-preview/)

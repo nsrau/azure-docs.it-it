@@ -14,10 +14,10 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
 ms.openlocfilehash: 6841695cca5d3864e6823085520d8e9162e54043
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "70067950"
 ---
 # <a name="mock-api-responses"></a>Simulare le risposte di un'API
@@ -27,7 +27,7 @@ Le API back-end possono essere importate in un'API di Gestione API o create e ge
 + Quando la facciata dell'API viene progettata prima e l'implementazione del back-end viene eseguita in seguito o quando il back-end viene sviluppato in parallelo.
 + Quando il back-end è temporaneamente non operativo o non è possibile ridimensionarlo.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare un'API di test 
@@ -37,11 +37,11 @@ In questa esercitazione si apprenderà come:
 
 ![Risposta di operazione fittizia](./media/mock-api-responses/mock-api-responses01.png)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 + Acquisire familiarità con la [terminologia di Gestione API di Azure](api-management-terminology.md).
 + Comprendere il [concetto di criteri in Gestione API di Azure](api-management-howto-policies.md).
-+ Completare l'avvio rapido seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
++ Completare la guida introduttiva seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
 
 ## <a name="create-a-test-api"></a>Creare un'API di test 
 
@@ -63,7 +63,7 @@ I passaggi descritti in questa sezione illustrano come creare un'API vuota senza
 1. Selezionare l'API creata nel passaggio precedente.
 2. Fare clic su **+ Aggiungi operazione**.
 
-    | Impostazione             | Valore                             | DESCRIZIONE                                                                                                                                                                                   |
+    | Impostazione             | valore                             | Descrizione                                                                                                                                                                                   |
     |---------------------|-----------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | **Nome visualizzato**    | *Test call*                       | Nome visualizzato nel **portale per sviluppatori**.                                                                                                                                       |
     | **URL** (verbo HTTP) | GET                               | È possibile scegliere tra uno dei verbi HTTP predefiniti.                                                                                                                                         |
@@ -97,7 +97,7 @@ I passaggi descritti in questa sezione illustrano come creare un'API vuota senza
 
     ![Abilitare la simulazione della risposta](./media/mock-api-responses/mock-api-responses-set-mocking.png)
 
-7. Fare clic su **Save**.
+7. Fare clic su **Salva**.
 
 ## <a name="test-the-mocked-api"></a>Testare l'API fittizia
 
@@ -121,7 +121,7 @@ I passaggi descritti in questa sezione illustrano come creare un'API vuota senza
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+In questa esercitazione sono state illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare un'API di test

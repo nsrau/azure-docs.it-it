@@ -10,13 +10,13 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 07/29/2019
 ms.openlocfilehash: 382dff156c088f367200f0dd46c3758193ade189
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75889235"
 ---
-# <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>Esercitazione: Analisi della valutazione sui dati in streaming con Azure Databricks
+# <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>Esercitazione: Analisi del sentiment su dati in streaming con Azure Databricks
 
 In questa esercitazione si apprenderà come eseguire l'analisi della valutazione su un flusso di dati near real time con Azure Databricks. Il sistema di inserimento dati viene configurato con Hub eventi di Azure. I messaggi di Hub eventi verranno usati in Azure Databricks tramite il connettore di Hub eventi per Apache Spark. Si useranno infine le API Servizi cognitivi per eseguire l'analisi del sentiment sui dati trasmessi.
 

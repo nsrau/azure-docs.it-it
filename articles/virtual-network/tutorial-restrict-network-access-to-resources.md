@@ -17,15 +17,15 @@ ms.workload: infrastructure
 ms.date: 08/23/2018
 ms.author: kumud
 ms.openlocfilehash: 85fc5687b82947ed16bde0c30ca2b947514ba958
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74186363"
 ---
 # <a name="tutorial-restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-portal"></a>Esercitazione: Limitare l'accesso di rete alle risorse PaaS con gli endpoint servizio di rete virtuale usando il portale di Azure
 
-Gli endpoint servizio di rete virtuale consentono di limitare l'accesso di rete ad alcune risorse dei servizi di Azure a una subnet della rete virtuale. È anche possibile rimuovere l'accesso Internet alle risorse. Gli endpoint di servizio forniscono la connessione diretta dalla rete virtuale ai servizi di Azure supportati, consentendo di usare lo spazio indirizzi privato della rete virtuale per accedere ai servizi di Azure. Il traffico destinato alle risorse di Azure tramite gli endpoint di servizio rimane sempre nella rete backbone di Microsoft Azure. In questa esercitazione si apprenderà come:
+Gli endpoint servizio di rete virtuale consentono di limitare l'accesso di rete ad alcune risorse dei servizi di Azure a una subnet della rete virtuale. È anche possibile rimuovere l'accesso Internet alle risorse. Gli endpoint di servizio forniscono la connessione diretta dalla rete virtuale ai servizi di Azure supportati, consentendo di usare lo spazio indirizzi privato della rete virtuale per accedere ai servizi di Azure. Il traffico destinato alle risorse di Azure tramite gli endpoint di servizio rimane sempre nella rete backbone di Microsoft Azure. In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare una rete virtuale con una subnet
@@ -49,7 +49,7 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 2. Selezionare **Rete** e quindi **Rete virtuale**.
 3. Immettere o selezionare le informazioni seguenti e quindi selezionare **Crea**:
 
-   |Impostazione|Valore|
+   |Impostazione|valore|
    |----|----|
    |Nome| myVirtualNetwork |
    |Spazio degli indirizzi| 10.0.0.0/16|
@@ -75,7 +75,7 @@ Gli endpoint di servizio sono abilitati per servizio e per subnet. Creare una su
 
 3. In **Aggiungi subnet** selezionare o immettere le informazioni seguenti e quindi fare clic su **OK**:
 
-    |Impostazione|Valore|
+    |Impostazione|valore|
     |----|----|
     |Nome| Privato |
     |Intervallo di indirizzi| 10.0.1.0/24|
@@ -92,9 +92,9 @@ Per impostazione predefinita, tutte le macchine virtuali in una subnet possono c
 2. Selezionare **Rete** e quindi selezionare **Gruppo di sicurezza di rete**.
 3. In **Create a network security group** (Crea un gruppo di sicurezza di rete) immettere o selezionare le informazioni seguenti e quindi selezionare **Crea**:
 
-    |Impostazione|Valore|
+    |Impostazione|valore|
     |----|----|
-    |NOME| myNsgPrivate |
+    |Nome| myNsgPrivate |
     |Subscription| Selezionare la propria sottoscrizione|
     |Resource group | Selezionare **Usa esistente** e selezionare *myResourceGroup*.|
     |Location| Selezionare **Stati Uniti orientali**. |
@@ -104,7 +104,7 @@ Per impostazione predefinita, tutte le macchine virtuali in una subnet possono c
 6. Selezionare **+ Aggiungi**.
 7. Creare una regola che consenta le comunicazioni in uscita al servizio Archiviazione di Azure. Immettere o selezionare le informazioni seguenti e quindi fare clic su **Aggiungi**:
 
-    |Impostazione|Valore|
+    |Impostazione|valore|
     |----|----|
     |Source (Sorgente)| Selezionare **VirtualNetwork** |
     |Intervalli di porte di origine| * |
@@ -112,13 +112,13 @@ Per impostazione predefinita, tutte le macchine virtuali in una subnet possono c
     |Tag del servizio di destinazione | Selezionare **Archiviazione**|
     |Intervalli di porte di destinazione| * |
     |Protocollo|Qualsiasi|
-    |Azione|CONSENTI|
+    |Azione|Allow|
     |Priorità|100|
-    |NOME|Allow-Storage-All|
+    |Nome|Allow-Storage-All|
 
 8. Creare un'altra regola di sicurezza in uscita che neghi la comunicazione in Internet. Questa regola esegue l'override di una regola predefinita in tutti i gruppi di sicurezza di rete che consente le comunicazioni Internet in uscita. Completare di nuovo il passaggio 5-7, usando i valori seguenti:
 
-    |Impostazione|Valore|
+    |Impostazione|valore|
     |----|----|
     |Source (Sorgente)| Selezionare **VirtualNetwork** |
     |Intervalli di porte di origine| * |
@@ -128,22 +128,22 @@ Per impostazione predefinita, tutte le macchine virtuali in una subnet possono c
     |Protocollo|Qualsiasi|
     |Azione|Nega|
     |Priorità|110|
-    |NOME|Deny-Internet-All|
+    |Nome|Deny-Internet-All|
 
 9. In **IMPOSTAZIONI** selezionare **Regole di sicurezza in ingresso**.
 10. Selezionare **+ Aggiungi**.
 11. Creare una regola di sicurezza in ingresso che consenta il traffico Remote Desktop Protocol (RDP) verso la subnet da qualsiasi posizione. La regola esegue l'override di una regola di sicurezza predefinita che rifiuta tutto il traffico in ingresso da Internet. Sono consentite le connessioni Desktop remoto alla subnet per poter testare la connettività in un passaggio successivo. In **IMPOSTAZIONI**  selezionare **Regole di sicurezza in ingresso**, selezionare **+Aggiungi**, immettere i valori seguenti e quindi selezionare **Aggiungi**:
 
-    |Impostazione|Valore|
+    |Impostazione|valore|
     |----|----|
     |Source (Sorgente)| Qualsiasi |
     |Intervalli di porte di origine| * |
     |Destination | Selezionare **VirtualNetwork**|
     |Intervalli di porte di destinazione| 3389 |
     |Protocollo|Qualsiasi|
-    |Azione|CONSENTI|
+    |Azione|Allow|
     |Priorità|120|
-    |NOME|Allow-RDP-All|
+    |Nome|Allow-RDP-All|
 
 12. In **Impostazioni** selezionare **Subnet**.
 13. Selezionare **+ Associa**
@@ -160,9 +160,9 @@ I passaggi necessari per limitare l'accesso di rete alle risorse create tramite 
 2. Selezionare **Archiviazione** e quindi **Account di archiviazione: BLOB, File, Tabelle, Code**.
 3. Immettere o selezionare le informazioni seguenti, accettare le impostazioni predefinite rimanenti e quindi selezionare **Crea**:
 
-    |Impostazione|Valore|
+    |Impostazione|valore|
     |----|----|
-    |NOME| Immettere un nome univoco per tutte le località di Azure, di lunghezza compresa tra 3 e 24 caratteri e costituito solo da numeri e lettere minuscole.|
+    |Nome| Immettere un nome univoco per tutte le località di Azure, di lunghezza compresa tra 3 e 24 caratteri e costituito solo da numeri e lettere minuscole.|
     |Tipo di account|Archiviazione v2 (utilizzo generico v2)|
     |Location| Selezionare **Stati Uniti orientali**. |
     |Replica| Archiviazione con ridondanza locale|
@@ -189,7 +189,7 @@ Per impostazione predefinita, gli account di archiviazione accettano connessioni
 3. Selezionare **+Aggiungi rete virtuale esistente**.
 4. In **Aggiungi reti** selezionare i valori seguenti e quindi selezionare **Aggiungi**:
 
-    |Impostazione|Valore|
+    |Impostazione|valore|
     |----|----|
     |Subscription| Selezionare la propria sottoscrizione.|
     |Reti virtuali|Selezionare **myVirtualNetwork** in **Reti virtuali**|
@@ -215,9 +215,9 @@ Per testare l'accesso di rete a un account di archiviazione, distribuire una VM 
 2. Selezionare **Calcolo** e quindi **Windows Server 2016 Datacenter**.
 3. Immettere o selezionare le informazioni seguenti e quindi fare clic su **OK**:
 
-   |Impostazione|Valore|
+   |Impostazione|valore|
    |----|----|
-   |NOME| myVmPublic|
+   |Nome| myVmPublic|
    |Nome utente|Immettere un nome utente a scelta.|
    |Password| Immettere una password a scelta. La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
    |Subscription| Selezionare la propria sottoscrizione.|

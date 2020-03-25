@@ -8,11 +8,11 @@ ms.author: mbullwin
 ms.date: 08/13/2019
 ms.custom: mvc
 ms.openlocfilehash: 98d7c1552a7b1f2b02ae4df1cad24e20f7ac76e1
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77661567"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79223678"
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Rilevare e diagnosticare i problemi di prestazioni con Azure Application Insights
 
@@ -25,7 +25,7 @@ Azure Application Insights raccoglie i dati di telemetria dall'applicazione per 
 > * Analizzare i dettagli delle visualizzazioni pagina usando il linguaggio di query
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare questa esercitazione:
 
