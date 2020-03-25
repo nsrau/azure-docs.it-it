@@ -13,10 +13,10 @@ metadata:
   titleSuffix: Azure Cognitive Services
   description: Personalizza esperienze di Azure è un servizio API basato sul cloud che consente di scegliere la migliore esperienza da mostrare agli utenti, apprendendo dal loro comportamento in tempo reale.
   ms.openlocfilehash: c703673ec85cadb57e2cc69d1ee1a0d023d53436
-  ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 02/21/2020
+  ms.lasthandoff: 03/24/2020
   ms.locfileid: "77525024"
 landingContent:
 - title: Informazioni su Personalizza esperienze
@@ -115,7 +115,7 @@ landingContent:
   linkLists:
   - linkListType: reference
     links:
-    - text: Risoluzione dei problemi
+    - text: risoluzione dei problemi
       url: troubleshooting.md
     - text: Inviare domande a Stack Overflow
       url: https://stackoverflow.com/questions/tagged/personalizer

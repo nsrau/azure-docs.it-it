@@ -1,18 +1,18 @@
 ---
 title: Creare applicazioni per dispositivi mobili con Visual Studio App Center e servizi di Azure
 description: Informazioni su come usare servizi come Visual Studio App Center per creare applicazioni per dispositivi mobili reali insieme ad altri servizi di Azure.
-author: elamalani
+author: codemillmatt
 ms.assetid: 98899889-9b3c-4faf-8588-ccff02097224
 ms.service: vs-appcenter
 ms.topic: article
-ms.date: 10/22/2019
-ms.author: emalani
-ms.openlocfilehash: 6e60aa223b3c4f362ed13411c54212e9d1fa2c87
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 03/24/2020
+ms.author: masoucou
+ms.openlocfilehash: 19d317ca564f925562994a5f90cd3892d0ee1d08
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75454413"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80240843"
 ---
 # <a name="mobile-application-development-in-microsoft"></a>Sviluppo di applicazioni per dispositivi mobili in Microsoft
 I decision maker, i team di sviluppo e i reparti IT devono definire una solida strategia di sviluppo di applicazioni per dispositivi mobili che:

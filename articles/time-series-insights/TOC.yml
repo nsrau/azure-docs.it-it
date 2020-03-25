@@ -111,7 +111,7 @@
           href: time-series-insights-update-how-to-shape-events.md
         - name: Connettersi a Power BI
           href: how-to-connect-power-bi.md
-- name: Informazioni di riferimento
+- name: Riferimento
   items:
     - name: Time Series Insights
       items:

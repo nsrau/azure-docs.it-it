@@ -350,7 +350,7 @@
           href: logic-apps-scenario-error-and-exception-handling.md
         - name: Elaborazione B2B
           href: logic-apps-enterprise-integration-b2b.md
-- name: Informazioni di riferimento
+- name: Riferimento
   items:
     - name: Modelli di architettura
       items:

@@ -63,7 +63,7 @@
       items:
         - name: Monitorare il servizio di inoltro di Azure con Monitoraggio di Azure
           href: relay-metrics-azure-monitor.md
-- name: Informazioni di riferimento
+- name: Riferimento
   items:
     - name: .NET
       items:

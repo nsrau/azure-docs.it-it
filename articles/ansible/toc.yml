@@ -99,7 +99,7 @@
       href: 'https://github.com/microsoft/ansiblelabs'
     - name: Esempi di playbook di Ansible Azure
       href: 'https://github.com/Azure-Samples/ansible-playbooks'
-- name: Informazioni di riferimento
+- name: Riferimento
   items:
     - name: Ruoli dei playbook
       items:
@@ -111,7 +111,7 @@
       href: ./ansible-matrix.md
     - name: Tutti i moduli per Azure
       href: 'https://docs.ansible.com/ansible/latest/modules/list_of_cloud_modules#azure'
-- name: Strumenti
+- name: Risorse
   items:
     - name: Estensione Visual Studio Code per Ansible
       href: 'https://marketplace.visualstudio.com/items?itemName=vscoss.vscode-ansible'

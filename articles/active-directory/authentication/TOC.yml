@@ -209,7 +209,7 @@
           href: multi-factor-authentication-faq.md
         - name: Estensione del server dei criteri di rete
           href: howto-mfa-nps-extension-errors.md
-- name: Informazioni di riferimento
+- name: Riferimento
   items:
     - name: Manuale dell'utente di Multi-Factor Authentication
       href: ./end-user/current/multi-factor-authentication-end-user.md

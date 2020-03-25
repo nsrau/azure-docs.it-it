@@ -89,7 +89,7 @@
               href: customize-language-model-with-website.md
             - name: con l'API Video Indexer
               href: customize-language-model-with-api.md
-- name: Informazioni di riferimento
+- name: Riferimento
   items:
     - name: API Video Indexer
       href: 'https://api-portal.videoindexer.ai/'
@@ -99,7 +99,7 @@
       href: 'https://azure.microsoft.com/roadmap/?category=web-mobile'
     - name: Prezzi
       href: 'https://azure.microsoft.com/pricing/details/media-services/'
-    - name: Disponibilità a livello di area
+    - name: Disponibilità internazionale
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Regioni
       href: regions.md

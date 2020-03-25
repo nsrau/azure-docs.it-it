@@ -160,7 +160,7 @@
           href: 'https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-create-vmss'
         - name: Ridimensionare una macchina virtuale Windows
           href: 'https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-create-vmss'
-- name: Informazioni di riferimento
+- name: Riferimento
   items:
     - name: REST
       href: 'https://docs.microsoft.com/rest/api/'

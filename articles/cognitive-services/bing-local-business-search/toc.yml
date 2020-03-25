@@ -10,7 +10,7 @@
     - name: Confrontare le API di ricerca Bing
       href: ../Bing-Web-Search/bing-api-comparison.md
       maintainContext: true
-- name: Guide introduttive
+- name: Avvi rapidi
   items:
     - name: API REST
       expanded: true
@@ -31,7 +31,7 @@
       href: specify-geographic-search.md
     - name: Categorie di ricerca di aziende locali
       href: local-categories.md
-- name: riferimento
+- name: Riferimento
   items:
     - name: Requisiti per l'uso e la visualizzazione
       href: ../Bing-Web-Search/use-display-requirements.md

@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 10/01/2019
-  ms.openlocfilehash: e7c04f587f900342031f25210f6640b46fbc358b
-  ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+  ms.openlocfilehash: 428ff52a94c41a564e023d859f70af6eb56df7fa
+  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 03/01/2020
-  ms.locfileid: "78207082"
+  ms.lasthandoff: 03/24/2020
+  ms.locfileid: "80131692"
 landingContent:
 - title: Informazioni su Visione artificiale
   linkLists:
@@ -41,15 +41,15 @@ landingContent:
   - linkListType: quickstart
     links:
     - text: Uso di .NET SDK
-      url: quickstarts-sdk/csharp-sdk.md
+      url: quickstarts-sdk/client-library.md?pivots=programming-language-csharp
     - text: Uso di Python SDK
-      url: quickstarts-sdk/python-sdk.md
+      url: quickstarts-sdk/client-library.md?pivots=programming-language-python
     - text: Uso di Java SDK
-      url: quickstarts-sdk/java-sdk.md
+      url: quickstarts-sdk/client-library.md?pivots=programming-language-java
     - text: Uso di Node SDK
-      url: quickstarts-sdk/node-sdk.md
+      url: quickstarts-sdk/client-library.md?pivots=programming-language-javascript
     - text: Uso di Go SDK
-      url: quickstarts-sdk/go-sdk.md
+      url: quickstarts-sdk/client-library.md?pivots=programming-language-go
 - title: Rilevare oggetti nelle immagini
   linkLists:
   - linkListType: concept
@@ -59,15 +59,15 @@ landingContent:
   - linkListType: quickstart
     links:
     - text: Uso di .NET SDK
-      url: quickstarts-sdk/csharp-sdk.md
+      url: quickstarts-sdk/client-library.md?pivots=programming-language-csharp
     - text: Uso di Python SDK
-      url: quickstarts-sdk/python-sdk.md
+      url: quickstarts-sdk/client-library.md?pivots=programming-language-python
     - text: Uso di Java SDK
-      url: quickstarts-sdk/java-sdk.md
+      url: quickstarts-sdk/client-library.md?pivots=programming-language-java
     - text: Uso di Node SDK
-      url: quickstarts-sdk/node-sdk.md
+      url: quickstarts-sdk/client-library.md?pivots=programming-language-javascript
     - text: Uso di Go SDK
-      url: quickstarts-sdk/go-sdk.md
+      url: quickstarts-sdk/client-library.md?pivots=programming-language-go
 - title: Applicare tag di contenuto alle immagini
   linkLists:
   - linkListType: concept
@@ -77,15 +77,15 @@ landingContent:
   - linkListType: quickstart
     links:
     - text: Uso di .NET SDK
-      url: quickstarts-sdk/csharp-sdk.md
+      url: quickstarts-sdk/client-library.md?pivots=programming-language-csharp
     - text: Uso di Python SDK
-      url: quickstarts-sdk/python-sdk.md
+      url: quickstarts-sdk/client-library.md?pivots=programming-language-python
     - text: Uso di Java SDK
-      url: quickstarts-sdk/java-sdk.md
+      url: quickstarts-sdk/client-library.md?pivots=programming-language-java
     - text: Uso di Node SDK
-      url: quickstarts-sdk/node-sdk.md
+      url: quickstarts-sdk/client-library.md?pivots=programming-language-javascript
     - text: Uso di Go SDK
-      url: quickstarts-sdk/go-sdk.md
+      url: quickstarts-sdk/client-library.md?pivots=programming-language-go
 - title: Usare i contenitori
   linkLists:
   - linkListType: get-started
@@ -111,16 +111,16 @@ landingContent:
   - linkListType: quickstart
     links:
     - text: Uso di .NET SDK
-      url: quickstarts-sdk/csharp-sdk.md
+      url: quickstarts-sdk/client-library.md?pivots=programming-language-csharp
     - text: Uso di Python SDK
-      url: quickstarts-sdk/python-sdk.md
+      url: quickstarts-sdk/client-library.md?pivots=programming-language-python
     - text: Uso di Java SDK
-      url: quickstarts-sdk/java-sdk.md
+      url: quickstarts-sdk/client-library.md?pivots=programming-language-java
     - text: Uso di Node SDK
-      url: quickstarts-sdk/node-sdk.md
+      url: quickstarts-sdk/client-library.md?pivots=programming-language-javascript
     - text: Uso di Go SDK
-      url: quickstarts-sdk/go-sdk.md
-- title: Informazioni di riferimento
+      url: quickstarts-sdk/client-library.md?pivots=programming-language-go
+- title: Riferimento
   linkLists:
   - linkListType: reference
     links:

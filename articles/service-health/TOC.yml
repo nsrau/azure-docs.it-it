@@ -4,7 +4,7 @@
   items:
     - name: Servizio Integrità dei servizi di Azure
       href: overview.md
-- name: Guide introduttive
+- name: Avvi rapidi
   items:
     - name: Configurare gli avvisi per gli eventi di Integrità dei servizi
       href: ../azure-monitor/platform/alerts-activity-log-service-notifications.md
@@ -34,7 +34,7 @@
       href: service-health-rest.md
     - name: Configurare gli avvisi per gli eventi di integrità delle risorse
       href: resource-health-alert-arm-template-guide.md
-- name: riferimento
+- name: Riferimento
   items:
     - name: Proprietà delle notifiche sull'integrità dei servizi
       href: service-health-notifications-properties.md

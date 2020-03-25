@@ -115,7 +115,7 @@
               href: virtual-machines-windows-portal-sql-create-failover-cluster.md
             - name: Con condivisione file Premium
               href: virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share.md
-- name: Informazioni di riferimento
+- name: Riferimento
   items:
     - name: Azure PowerShell
       href: /powershell/azure/overview

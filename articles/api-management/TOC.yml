@@ -235,7 +235,7 @@
               href: ../service-fabric/service-fabric-api-management-overview.md
             - name: Esercitazione
               href: ../service-fabric/service-fabric-tutorial-deploy-api-management.md
-- name: Informazioni di riferimento
+- name: Riferimento
   items:
     - name: Azure PowerShell
       href: /powershell/module/az.apimanagement/?view=azps-2.6.0
@@ -251,7 +251,7 @@
       href: api-management-faq.md
     - name: Prezzi
       href: 'https://aka.ms/apimpricing'
-    - name: Disponibilità a livello di area
+    - name: Disponibilità internazionale
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Roadmap
       href: 'https://aka.ms/apimroadmap'

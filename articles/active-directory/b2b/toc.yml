@@ -99,7 +99,7 @@
           href: auditing-and-reporting.md
         - name: Risoluzione dei problemi di B2B
           href: troubleshoot.md
-    - name: Informazioni di riferimento
+    - name: Riferimento
       items:
         - name: API di gestione degli inviti
           href: customize-invitation-api.md

@@ -14,14 +14,14 @@
               tocHref: /azure/storage/blobs/
               topicHref: /azure/storage/index
               items:
-                - name: Blobs
+                - name: BLOB
                   tocHref: /azure/storage/blobs/
                   topicHref: /azure/storage/blobs/index
             - name: Archiviazione
               tocHref: /azure/storage/common/
               topicHref: /azure/storage/index
               items:
-                - name: Blobs
+                - name: BLOB
                   tocHref: /azure/storage/common/
                   topicHref: /azure/storage/blobs/index
 - name: Azure

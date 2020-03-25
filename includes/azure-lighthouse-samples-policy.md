@@ -9,10 +9,10 @@ ms.date: 12/19/2019
 ms.author: jenhayes
 ms.custom: include file
 ms.openlocfilehash: 55eee87ed1e07b61a7f8287e86ddc0a7a6aa4df9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/25/2020
 ms.locfileid: "75456735"
 ---
 Questi esempi mostrano come usare Criteri di Azure con le sottoscrizioni di cui è stato eseguito l'onboarding per la gestione risorse delegate.

@@ -62,7 +62,7 @@
           href: supportability/sku-series-unavailable.md
         - name: Acquisire una traccia del browser per la risoluzione dei problemi
           href: capture-browser-trace.md
-- name: Informazioni di riferimento
+- name: Riferimento
   items:
     - name: Tasti di scelta rapida
       href: azure-portal-keyboard-shortcuts.md
@@ -78,7 +78,7 @@
       href: /learn/browse/?products=azure-portal
     - name: Calcolatore prezzi
       href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Disponibilità a livello di area
+    - name: Disponibilità internazionale
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-management-portal'

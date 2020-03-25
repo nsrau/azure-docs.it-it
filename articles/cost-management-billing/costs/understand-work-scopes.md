@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: 5e1117bdefc4916fedc5c316632641d77c2f09d3
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: bbed4209d26fe32f95b93b2c7411e1ab74f03ede
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78206028"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80131367"
 ---
 # <a name="understand-and-work-with-scopes"></a>Informazioni e utilizzo degli ambiti
 
@@ -65,7 +65,7 @@ Collaboratore di Gestione costi è il ruolo con privilegi minimi consigliato. Co
 
 - **Agire quando i budget vengono superati**: i Collaboratori di Gestione costi devono anche accedere per creare e/o gestire gruppi di azioni che possano automaticamente reagire in caso di eccedenza. Considerare la possibilità di concedere il ruolo [Collaboratore per il monitoraggio](../../role-based-access-control/built-in-roles.md#monitoring-contributor) a un gruppo di risorse che contiene il gruppo di azioni da usare quando vengono superate le soglie del budget. L'automazione di azioni specifiche richiede ruoli aggiuntivi per i servizi specifici usati, ad esempio Automazione e Funzioni di Azure.
 - **Pianificare l'esportazione dei dati sui costi**: i Collaboratori di Gestione costi devono anche accedere per gestire gli account di archiviazione per pianificare un'esportazione per la copia dei dati in un account di archiviazione. Considerare la possibilità di concedere il ruolo [Collaboratore Account di archiviazione](../../role-based-access-control/built-in-roles.md#storage-account-contributor) a un gruppo di risorse che contiene l'account di archiviazione in cui vengono esportati i dati sui costi.
-- **Visualizzazione delle raccomandazioni per il risparmio sui costi**: per impostazione predefinita, i Lettori di Gestione costi e i Collaboratori di Gestione costi hanno accesso per *visualizzare* le raccomandazioni sui costi. L'accesso per agire sulle raccomandazioni sui costi richiede tuttavia l'accesso alle singole risorse. Considerare la possibilità di concedere un [ruolo specifico del servizio](../../role-based-access-control/built-in-roles.md#descriptions-and-ids) se si vuole agire su una raccomandazione basata sui costi.
+- **Visualizzazione delle raccomandazioni per il risparmio sui costi**: per impostazione predefinita, i Lettori di Gestione costi e i Collaboratori di Gestione costi hanno accesso per *visualizzare* le raccomandazioni sui costi. L'accesso per agire sulle raccomandazioni sui costi richiede tuttavia l'accesso alle singole risorse. Considerare la possibilità di concedere un [ruolo specifico del servizio](../../role-based-access-control/built-in-roles.md#all) se si vuole agire su una raccomandazione basata sui costi.
 
 ## <a name="enterprise-agreement-scopes"></a>Ambiti del Contratto Enterprise
 

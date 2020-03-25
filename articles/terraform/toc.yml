@@ -71,7 +71,7 @@
   items:
     - name: Modelli di configurazione
       href: 'https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples'
-- name: Informazioni di riferimento
+- name: Riferimento
   items:
     - name: Registro moduli per Azure
       href: 'https://registry.terraform.io/modules/Azure'

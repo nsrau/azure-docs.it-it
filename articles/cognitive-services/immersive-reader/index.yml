@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Documentazione dello strumento di lettura immersiva
-summary: Lo strumento di lettura immersiva implementa tecniche comprovate per migliorare la comprensione della lettura per lettori emergenti, studenti di lingue e persone con differenze nell'apprendimento. È possibile usare lo strumento di lettura immersiva nell'applicazione Web con Immersive Reader SDK.
+summary: Lo strumento i lettura immersiva implementa tecniche comprovate per migliorare la comprensione della lettura per lettori emergenti, studenti di lingue e persone con differenze nell'apprendimento. È possibile usare lo strumento di lettura immersiva nell'applicazione Web con Immersive Reader SDK.
 metadata:
   title: Documentazione dello strumento di lettura immersiva
-  description: Lo strumento di lettura immersiva implementa tecniche comprovate per migliorare la comprensione della lettura per lettori emergenti, studenti di lingue e persone con differenze nell'apprendimento. È possibile usare lo strumento di lettura immersiva nell'applicazione Web con Immersive Reader SDK.
+  description: Lo strumento i lettura immersiva implementa tecniche comprovate per migliorare la comprensione della lettura per lettori emergenti, studenti di lingue e persone con differenze nell'apprendimento. È possibile usare lo strumento di lettura immersiva nell'applicazione Web con Immersive Reader SDK.
   services: service
   ms.service: cognitive-services
   ms.subservice: immersive-reader
@@ -13,10 +13,10 @@ metadata:
   ms.author: dapine
   ms.date: 01/23/2020
   ms.openlocfilehash: 2ba262c7adf778099e47e636a9106f74314c2254
-  ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 02/09/2020
+  ms.lasthandoff: 03/24/2020
   ms.locfileid: "77108698"
 landingContent:
 - title: Informazioni sullo strumento di lettura immersiva
@@ -45,7 +45,7 @@ landingContent:
       url: tutorial-python.md
     - text: Usare più risorse dello strumento di lettura immersiva
       url: tutorial-multiple-resources.md
-- title: Esplorare lo strumento di lettura immersiva
+- title: Esplorare Immersive Reader
   linkLists:
   - linkListType: how-to-guide
     links:

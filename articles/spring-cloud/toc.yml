@@ -66,7 +66,7 @@
       href: spring-cloud-github-actions-key-vault.md
     - name: CI/CD con Jenkins
       href: /azure/jenkins/tutorial-jenkins-deploy-cli-spring-cloud-service
-- name: Informazioni di riferimento
+- name: Riferimento
   items:
     - name: Plug-in dell'interfaccia della riga di comando di Azure
       href: spring-cloud-cli-reference.md

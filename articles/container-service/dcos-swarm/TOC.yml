@@ -4,7 +4,7 @@
   items:
     - name: Informazioni sul servizio contenitore
       href: container-service-intro.md
-- name: Guide introduttive
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Docker Swarm
@@ -25,7 +25,7 @@
   items:
     - name: Proteggere i contenitori
       href: container-service-security.md
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Ridimensionare un cluster del servizio contenitore di Azure
       href: container-service-scale.md
@@ -65,7 +65,7 @@
           href: container-service-docker-swarm-setup-ci-cd.md
         - name: Integrazione continua/distribuzione continua con Docker Swarm (motore ACS) e Azure DevOps
           href: container-service-docker-swarm-mode-setup-ci-cd-acs-engine.md
-- name: riferimento
+- name: Riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/acs

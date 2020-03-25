@@ -286,7 +286,7 @@
         - name: Risolvere i problemi di State Configuration (DSC)
           href: troubleshoot/desired-state-configuration.md
           displayName: 'Desired State Configuration, troubleshoot'
-    - name: Informazioni di riferimento
+    - name: Riferimento
       items:
         - name: Soluzioni della community
           items:
@@ -305,11 +305,11 @@
 - name: Gestire le risorse condivise
   items:
     - name: Certificati
-      href: automation-certificates.md
+      href: shared-resources/certificates.md
     - name: Connessioni
       href: automation-connections.md
     - name: Credenziali
-      href: automation-credentials.md
+      href: shared-resources/credentials.md
     - name: Moduli di PowerShell
       items:
         - name: Moduli
@@ -319,9 +319,9 @@
         - name: Aggiornare i moduli di Azure PowerShell
           href: automation-update-azure-modules.md
     - name: Pianificazioni
-      href: automation-schedules.md
+      href: shared-resources/schedules.md
     - name: variables
-      href: automation-variables.md
+      href: shared-resources/variables.md
     - name: Gestire i pacchetti di Python 2
       href: python-packages.md
     - name: Risolvere i problemi delle immagini condivise
@@ -356,7 +356,7 @@
     - name: Eseguire la migrazione dall'agente di orchestrazione
       href: automation-orchestrator-migration.md
       displayName: 'SCORCH, runbooks'
-- name: Informazioni di riferimento
+- name: Riferimento
   items:
     - name: Azure PowerShell
       href: /powershell/module/azurerm.automation

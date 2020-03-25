@@ -4,7 +4,7 @@
   items:
     - name: Che cos'è Data Lake Analytics?
       href: data-lake-analytics-overview.md
-- name: Attività iniziali
+- name: Introduzione
   items:
     - name: Portale di Azure
       href: data-lake-analytics-get-started-portal.md
@@ -72,7 +72,7 @@
               href: data-lake-analytics-u-sql-programmability-guide.md
         - name: Visual Studio
           items:
-            - name: Installa
+            - name: Installazione
               href: data-lake-analytics-data-lake-tools-install.md
             - name: Esecuzione locale
               href: data-lake-analytics-data-lake-tools-local-run.md
@@ -132,7 +132,7 @@
           href: runtime-troubleshoot.md
         - name: Risolvere i problemi di un aggiornamento di .NET
           href: dotnet-upgrade-troubleshoot.md
-- name: riferimento
+- name: Riferimento
   items:
     - name: Azure PowerShell
       href: /powershell/module/az.datalakeanalytics
@@ -156,7 +156,7 @@
       href: 'https://azure.microsoft.com/roadmap/?category=intelligence-analytics'
     - name: Richiedere modifiche
       href: 'https://feedback.azure.com/forums/327234-data-lake'
-    - name: Forum di MSDN
+    - name: Forum MSDN
       href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake'
     - name: Prezzi
       href: 'https://azure.microsoft.com/pricing/details/data-lake-analytics/'

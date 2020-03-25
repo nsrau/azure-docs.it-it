@@ -52,7 +52,7 @@
 - name: Risolvere problemi
   displayName: 'errors, violation'
   href: ./troubleshoot/general.md
-- name: Informazioni di riferimento
+- name: Riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/ext/resource-graph/graph

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
 ms.openlocfilehash: f0b093950b7f8fbbfbb0ca8ceb48cb0aa6341e10
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77200283"
 ---
 # <a name="how-a-reservation-discount-is-applied-to-azure-sql-databases"></a>Come viene applicato lo sconto per le prenotazioni ai database SQL di Azure
@@ -32,13 +32,13 @@ Quando si arresta una risorsa, lo sconto per la prenotazione si applica automati
 
 Gli esempi seguenti mostrano come viene applicato lo sconto sulla capacità riservata dei database SQL a seconda del numero di core acquistati e dei tempi di esecuzione.
 
-- Scenario 1: si acquista capacità riservata per un database SQL con 8 core. Si esegue un database SQL con 16 core che corrisponde agli altri attributi della prenotazione. Viene addebitata la tariffa con pagamento in base al consumo per 8 core di utilizzo delle risorse di calcolo del database SQL. Si ottiene lo sconto sulla prenotazione per un'ora di utilizzo delle risorse di calcolo del database SQL con 8 core.
+- Scenario 1: Si acquista capacità riservata per un database SQL con 8 core. Si esegue un database SQL con 16 core che corrisponde agli altri attributi della prenotazione. Viene addebitata la tariffa con pagamento in base al consumo per 8 core di utilizzo delle risorse di calcolo del database SQL. Si ottiene lo sconto sulla prenotazione per un'ora di utilizzo delle risorse di calcolo del database SQL con 8 core.
 
 Per gli altri esempi, si presuppone che la capacità riservata del database SQL acquistata sia per un database SQL con 16 core e che gli altri attributi della prenotazione corrispondano ai database SQL in esecuzione.
 
-- Scenario 2: si eseguono per un'ora due database SQL con 8 core ciascuno. Lo sconto sulla prenotazione di 16 core viene applicato all'utilizzo delle risorse di calcolo per entrambi i database SQL con 8 core.
-- Scenario 3: si esegue un database SQL con 16 core dalle 13.00 alle 13.30. Si esegue un altro database SQL con 16 core dalle 13.30 alle 14.00. A entrambi i database viene applicato lo sconto sulla prenotazione.
-- Scenario 4: si esegue un database SQL con 16 core dalle 13.00 alle 13.45. Si esegue un altro database SQL con 16 core dalle 13.30 alle 14.00. Viene addebitata la tariffa con pagamento in base al consumo per la sovrapposizione di 15 minuti. Lo sconto sulla prenotazione viene applicato all'utilizzo delle risorse di calcolo per il resto del tempo.
+- Scenario 2: Si eseguono per un'ora due database SQL con 8 core ciascuno. Lo sconto sulla prenotazione di 16 core viene applicato all'utilizzo delle risorse di calcolo per entrambi i database SQL con 8 core.
+- Scenario 3: Si esegue un database SQL con 16 core dalle 13.00 alle 13.30. Si esegue un altro database SQL con 16 core dalle 13.30 alle 14.00. A entrambi i database viene applicato lo sconto sulla prenotazione.
+- Scenario 4: Si esegue un database SQL con 16 core dalle 13.00 alle 13.45. Si esegue un altro database SQL con 16 core dalle 13.30 alle 14.00. Viene addebitata la tariffa con pagamento in base al consumo per la sovrapposizione di 15 minuti. Lo sconto sulla prenotazione viene applicato all'utilizzo delle risorse di calcolo per il resto del tempo.
 
 Per informazioni sull'applicazione delle prenotazioni di Azure nei report sull'utilizzo per la fatturazione, vedere [Informazioni sull'utilizzo delle prenotazioni di Azure](understand-reserved-instance-usage-ea.md).
 

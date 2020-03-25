@@ -10,7 +10,7 @@
       href: ../functions-compare-logic-apps-ms-flow-webjobs.md?toc=%2fazure%2fazure-functions%2fdurable%2ftoc.json
     - name: Versioni di Durable Functions
       href: durable-functions-versions.md
-- name: Guide introduttive
+- name: Avvi rapidi
   expanded: true
   items:
     - name: 'Creare un''istanza di Durable Functions - C#'
@@ -73,7 +73,7 @@
       href: durable-functions-perf-and-scale.md
     - name: Disponibilità elevata
       href: durable-functions-disaster-recovery-geo-distribution.md
-- name: riferimento
+- name: Riferimento
   items:
     - name: Impostazioni di Host.json
       href: 'durable-functions-bindings.md#host-json'
@@ -83,7 +83,7 @@
       href: durable-functions-http-api.md
     - name: API .NET
       href: /dotnet/api/microsoft.azure.webjobs.extensions.durabletask?view=azure-dotnet
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Sviluppo
       items:

@@ -56,7 +56,7 @@
           href: how-to-troubleshoot.md
         - name: Attributi duplicati
           href: 'https://docs.microsoft.com/office365/troubleshoot/administration/duplicate-attributes-prevent-dirsync'
-- name: Informazioni di riferimento
+- name: Riferimento
   items:
     - name: Cronologia delle versioni dell'agente di provisioning cloud di Azure AD Connect
       href: /azure/active-directory/manage-apps/provisioning-agent-release-version-history?context=azure/active-directory/cloud-provisioning/context/cp-context

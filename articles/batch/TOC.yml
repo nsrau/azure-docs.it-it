@@ -188,7 +188,7 @@
           href: batch-rendering-architectures.md
     - name: Elaborazione dati con Batch e Data Factory
       href: ../data-factory/transform-data-using-dotnet-custom-activity.md?toc=%2fazure%2fbatch%2ftoc.json
-- name: Informazioni di riferimento
+- name: Riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/batch

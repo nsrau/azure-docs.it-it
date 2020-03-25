@@ -173,7 +173,7 @@
         - name: Offerta di un'applicazione Azure
           href: ./cloud-partner-portal/azure-applications/cpp-azure-app-offer.md
           items:
-            - name: Prerequisiti
+            - name: Prerequisites
               href: ./cloud-partner-portal/azure-applications/cpp-prerequisites.md
             - name: Creare un'offerta per un'applicazione di Azure
               href: ./cloud-partner-portal/azure-applications/cpp-create-offer.md
@@ -199,7 +199,7 @@
         - name: Servizi di consulenza
           href: ./cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer.md
           items:
-            - name: Prerequisiti
+            - name: Prerequisites
               href: ./cloud-partner-portal/consulting-services/cpp-consulting-service-prerequisites.md
             - name: Creare un'offerta di un servizio di consulenza
               href: ./cloud-partner-portal/consulting-services/cpp-consulting-service-create-offer.md
@@ -213,7 +213,7 @@
         - name: Offerta di contenitori
           href: ./cloud-partner-portal/containers/cpp-containers-offer.md
           items:
-            - name: Prerequisiti
+            - name: Prerequisites
               href: ./cloud-partner-portal/containers/cpp-prerequisites.md
             - name: Creare un'offerta di contenitori
               href: ./cloud-partner-portal/containers/cpp-create-offer.md
@@ -250,7 +250,7 @@
         - name: Offerta Dynamics 365 for Customer Engagement
           href: ./cloud-partner-portal/dyn365ce/cpp-customer-engagement-offer.md
           items:
-            - name: Prerequisiti
+            - name: Prerequisites
               href: ./cloud-partner-portal/dyn365ce/cpp-prerequisites.md
             - name: Creare un'offerta Customer Engagement
               href: ./cloud-partner-portal/dyn365ce/cpp-create-offer.md
@@ -272,7 +272,7 @@
         - name: Offerta Dynamics 365 for Operations
           href: ./cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md
           items:
-            - name: Prerequisiti
+            - name: Prerequisites
               href: ./cloud-partner-portal-orig/pre-requisites.md
             - name: Come eseguire la pubblicazione
               href: ./cloud-partner-portal-orig/manage-dynamics-365-for-operations.md
@@ -289,7 +289,7 @@
         - name: Offerta di modulo IoT Edge
           href: ./cloud-partner-portal/iot-edge-module/cpp-offer-process-parts.md
           items:
-            - name: Prerequisiti
+            - name: Prerequisites
               href: ./cloud-partner-portal/iot-edge-module/cpp-prerequisites.md
             - name: Creare un'offerta di modulo IoT Edge
               href: ./cloud-partner-portal/iot-edge-module/cpp-create-offer.md
@@ -311,7 +311,7 @@
         - name: Offerta per app Power BI
           href: ./cloud-partner-portal/power-bi/cpp-power-bi-offer.md
           items:
-            - name: Prerequisiti
+            - name: Prerequisites
               href: ./cloud-partner-portal/power-bi/cpp-prerequisites.md
             - name: Creare un'offerta per app Power BI
               href: ./cloud-partner-portal/power-bi/cpp-create-offer.md
@@ -335,7 +335,7 @@
         - name: Offerta di una macchina virtuale
           href: ./cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer.md
           items:
-            - name: Prerequisiti
+            - name: Prerequisites
               href: ./cloud-partner-portal/virtual-machine/cpp-prerequisites.md
             - name: Creare un'offerta per le macchine virtuali
               href: ./cloud-partner-portal/virtual-machine/cpp-create-offer.md
@@ -399,7 +399,7 @@
       items:
         - name: Panoramica
           href: ./cloud-partner-portal-orig/cloud-partner-portal-api-overview.md
-        - name: Prerequisiti
+        - name: Prerequisites
           href: ./cloud-partner-portal-orig/cloud-partner-portal-api-prerequisites.md
         - name: Considerazioni
           href: ./cloud-partner-portal-orig/cloud-partner-portal-api-considerations.md

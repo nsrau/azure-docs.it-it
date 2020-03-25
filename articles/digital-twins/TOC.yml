@@ -67,7 +67,7 @@
           href: how-to-navigate-apis.md
         - name: Modelli di query comuni
           href: how-to-query-common-apis.md
-- name: Informazioni di riferimento
+- name: Riferimento
   items:
     - name: Libreria client di funzioni definite dall'utente
       href: reference-user-defined-functions-client-library.md

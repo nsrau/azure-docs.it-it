@@ -34,7 +34,7 @@
       items:
         - name: Autenticare le chiamate in uscita
           href: scheduler-outbound-authentication.md
-- name: Informazioni di riferimento
+- name: Riferimento
   items:
     - name: Azure PowerShell
       href: /powershell/module/azurerm.scheduler

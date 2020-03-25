@@ -18,7 +18,7 @@
           href: iot-hub-integration.md
         - name: Agenti di sicurezza
           href: security-agents.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Eseguire l'onboarding del Centro sicurezza di Azure per IoT nell'hub IoT
@@ -89,5 +89,5 @@
       href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
     - name: 'Blog su sicurezza, privacy e conformità per Azure'
       href: 'https://blogs.msdn.com/b/azuresecurity/'
-    - name: Disponibilità a livello di area
+    - name: Disponibilità internazionale
       href: 'https://azure.microsoft.com/regions/services/'

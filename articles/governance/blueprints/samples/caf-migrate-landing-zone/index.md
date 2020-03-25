@@ -4,10 +4,10 @@ description: Panoramica e architettura del progetto di esempio della zona di des
 ms.date: 08/20/2019
 ms.topic: sample
 ms.openlocfilehash: 08171a39c83ea6822243d7239882a19b053f213e
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/25/2020
 ms.locfileid: "74545503"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-migration-landing-zone-blueprint-sample"></a>Panoramica del progetto di esempio della zona di destinazione per la migrazione di Microsoft Cloud Adoption Framework per Azure
@@ -16,7 +16,7 @@ Il progetto della zona di destinazione per la migrazione di Microsoft Cloud Adop
 
 Il progetto di esempio di [definizione della base di Cloud Adoption Framework](../caf-foundation/index.md) costituisce un'estensione di questo esempio.
 
-## <a name="architecture"></a>Architettura
+## <a name="architecture"></a>Architecture
 
 Il progetto di esempio della zona di destinazione per la migrazione di Cloud Adoption Framework distribuisce le risorse dell'infrastruttura di base in Azure che possono essere usate dalle organizzazioni per preparare la sottoscrizione in cui eseguire la migrazione delle macchine virtuali. Consente inoltre di predisporre i controlli di governance necessari per gestire l'ambiente cloud. Con questo esempio verranno distribuite e imposte risorse, criteri e modelli che permetteranno a un'organizzazione di iniziare a usare Azure in modo sicuro.
 

@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 02/13/2020
 ms.author: banders
 ms.openlocfilehash: 8ebda9716df2e9e45050760ee8d0434c12838370
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77199127"
 ---
 # <a name="tutorial-review-your-individual-azure-bill"></a>Esercitazione: Controllare una singola fattura di Azure
@@ -27,7 +27,7 @@ In questa esercitazione verranno illustrate le procedure per:
 > * Confrontare gli addebiti fatturati con il file di utilizzo
 > * Confrontare gli addebiti e l'utilizzo nell'analisi dei costi
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 È necessario avere un account di fatturazione del *Programma di Microsoft Online Services* a pagamento. L'account viene creato quando ci si iscrive ad Azure tramite il sito Web di Azure. Ad esempio, se si ha un [account con tariffe con pagamento in base al consumo](https://azure.microsoft.com/offers/ms-azr-0003p/) o se si è un [sottoscrittore di Visual Studio](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/).
 
@@ -120,7 +120,7 @@ I costi mostrati nell'analisi dei costi devono corrispondere esattamente al cost
 
 ![Addebiti di utilizzo nella fattura](./media/review-individual-bill/invoice-usage-charges.png)
 
-## <a name="external"></a>Servizi esterni fatturati separatamente
+## <a name="external-services-billed-separately"></a><a name="external"></a>Servizi esterni fatturati separatamente
 
 I servizi esterni o gli addebiti per Marketplace riguardano le risorse create da fornitori di software di terze parti. Tali risorse sono disponibili per l'uso in Azure Marketplace. Un firewall Barracuda è ad esempio una risorsa di Azure Marketplace offerta da terze parti. Tutti gli addebiti per il firewall e i relativi contatori corrispondenti verranno visualizzati come addebiti per servizi esterni.
 
@@ -149,7 +149,7 @@ Dopo la creazione della VM, ogni contatore inizia a emettere record di utilizzo.
 
 È possibile visualizzare i contatori usati per calcolare la fattura nel file CSV di utilizzo.
 
-## <a name="payment"></a>Pagare la fattura
+## <a name="pay-your-bill"></a><a name="payment"></a>Pagare la fattura
 
 Se si configura una carta di credito come metodo di pagamento, il pagamento viene addebitato automaticamente entro 10 giorni dalla fine del periodo di fatturazione. Nell'estratto conto della carta di credito la voce sarà **MSFT Azure**.
 

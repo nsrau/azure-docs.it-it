@@ -65,7 +65,7 @@
       href: snat-private-range.md
     - name: Creare gruppi IP
       href: create-ip-group.md
-- name: Informazioni di riferimento
+- name: Riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/ext/azure-firewall/network/firewall
@@ -95,5 +95,5 @@
       href: 'https://azure.microsoft.com/documentation/templates'
     - name: Prezzi
       href: 'https://azure.microsoft.com/pricing/details/azure-firewall/'
-    - name: Disponibilità a livello di area
+    - name: Disponibilità internazionale
       href: 'https://azure.microsoft.com/regions/services/'

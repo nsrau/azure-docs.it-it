@@ -7,7 +7,7 @@
           items:
             - name: Informazioni su Data Box
               href: data-box-overview.md
-        - name: Guide introduttive
+        - name: Avvi rapidi
           expanded: true
           items:
             - name: Configurazione - Portale di Azure
@@ -82,7 +82,7 @@
           items:
             - name: Informazioni su Data Box Disk
               href: data-box-disk-overview.md
-        - name: Guide introduttive
+        - name: Avvi rapidi
           expanded: true
           items:
             - name: Configurazione - Portale di Azure
@@ -131,7 +131,7 @@
           items:
             - name: Informazioni su Data Box Heavy
               href: data-box-heavy-overview.md
-        - name: Guide introduttive
+        - name: Avvi rapidi
           items:
             - name: Configurazione - Portale di Azure
               href: data-box-heavy-quickstart-portal.md

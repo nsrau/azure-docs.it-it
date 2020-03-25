@@ -61,7 +61,7 @@
       href: search-responses.md
     - name: Limitazione delle richieste
       href: throttling-requests.md
-- name: Informazioni di riferimento
+- name: Riferimento
   items:
     - name: API Ricerca Web Bing v7
       href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference'
@@ -93,7 +93,7 @@
       href: web-search-endpoints.md
     - name: Prezzi
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/search-api/web/'
-    - name: Disponibilità a livello di area
+    - name: Disponibilità internazionale
       href: 'https://azure.microsoft.com/global-infrastructure/services/'
     - name: Supporto di lingua e area geografica
       href: language-support.md

@@ -86,7 +86,7 @@
       href: Review-Tool-User-Guide/Configure.md
     - name: Esportare o eliminare i dati dell'account
       href: ./export-delete-data.md
-- name: Informazioni di riferimento
+- name: Riferimento
   items:
     - name: API Content Moderator
       href: api-reference.md
@@ -124,13 +124,15 @@
       href: 'https://cognitive.uservoice.com/forums/559960-content-moderator'
     - name: Knowledge Base
       href: 'https://cognitive.uservoice.com/knowledgebase/topics/132073-content-moderator'
-    - name: Lingue supportate
+    - name: Supporto per le lingue
       href: language-support.md
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/microsoft-cognitive'
-    - name: Disponibilità a livello di area
+    - name: Disponibilità internazionale
       href: 'https://azure.microsoft.com/global-infrastructure/services/'
     - name: Roadmap per Azure
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
     - name: Conformità
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
+    - name: Crittografia
+      href: content-moderator-encryption-of-data-at-rest.md

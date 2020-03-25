@@ -316,8 +316,6 @@
               href: service-fabric-cluster-resource-manager-defragmentation-metrics.md
             - name: Bilanciare un cluster
               href: service-fabric-cluster-resource-manager-balancing.md
-            - name: Subclustering
-              href: service-fabric-cluster-resource-manager-subclustering.md
             - name: Limitazione
               href: service-fabric-cluster-resource-manager-advanced-throttling.md
             - name: Spostamento dei servizi
@@ -775,7 +773,7 @@
           href: how-to-managed-identity-service-fabric-app-code.md
         - name: Concedere l'accesso ad altre risorse di Azure
           href: how-to-grant-access-other-resources.md
-- name: Informazioni di riferimento
+- name: Riferimento
   items:
     - name: Azure PowerShell
       href: /powershell/module/az.servicefabric/

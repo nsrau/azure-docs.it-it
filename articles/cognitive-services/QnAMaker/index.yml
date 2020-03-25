@@ -12,10 +12,10 @@ metadata:
   title: Documentazione di QnA Maker
   description: QnA Maker è un servizio API basato sul cloud che crea un livello di domande e risposte simile a una conversazione sui dati. QnA Maker consente di sviluppare un servizio di domande e risposte a partire dal contenuto semistrutturato, ad esempio documenti con domande frequenti, URL e manuali di prodotti. Il servizio QnA Maker risponde alle domande degli utenti in un linguaggio naturale associandole alle migliori risposte possibili presenti nelle domande e risposte della knowledge base.
   ms.openlocfilehash: e566fdb18bdabe80447de9b2882cf7d57209d15e
-  ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 01/29/2020
+  ms.lasthandoff: 03/24/2020
   ms.locfileid: "76844110"
 landingContent:
 - title: Informazioni su QnA Maker
@@ -48,9 +48,9 @@ landingContent:
       url: concepts/knowledge-base.md
   - linkListType: get-started
     links:
-    - text: 'Avvio rapido: Creare una nuova knowledge base'
+    - text: 'Guida introduttiva: Creare una nuova knowledge base'
       url: quickstarts/create-publish-knowledge-base.md
-    - text: 'Avvio rapido: Aggiungere domande e risposte'
+    - text: 'Guida introduttiva: Aggiungere domande e risposte'
       url: quickstarts/add-question-metadata-portal.md
   - linkListType: how-to-guide
     links:
@@ -64,11 +64,11 @@ landingContent:
   linkLists:
   - linkListType: get-started
     links:
-    - text: 'Avvio rapido: Uso di Postman o cURL'
+    - text: 'Guida introduttiva: Uso di Postman o cURL'
       url: quickstarts/get-answer-from-knowledge-base-using-url-tool.md
-    - text: 'Avvio rapido: Uso di REST e C#'
+    - text: 'Guida introduttiva: Uso di REST e C#'
       url: quickstarts/get-answer-from-knowledge-base-csharp.md
-    - text: "Avvio rapido: Uso dell'SDK"
+    - text: "Guida introduttiva: Uso dell'SDK"
       url: quickstarts/quickstart-sdk.md
   - linkListType: how-to-guide
     links:
