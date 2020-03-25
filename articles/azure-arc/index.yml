@@ -11,10 +11,10 @@ metadata:
   ms.date: 11/04/2019
   ms.author: robreed
   ms.openlocfilehash: 2ff0b9a194faf4d5a6b9e5181c52dc135208bdee
-  ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 11/04/2019
+  ms.lasthandoff: 03/25/2020
   ms.locfileid: "73508551"
 landingContent:
 - title: Panoramica di Azure Arc
@@ -33,5 +33,5 @@ landingContent:
     links:
     - text: Connettere i computer ad Azure con Azure Arc per server - Portale
       url: ./servers/quickstart-onboard-portal.md
-    - text: Connettere i computer ad Azure con Azure Arc per server - PowerShell
+    - text: Connettere computer ad Azure con Azure Arc per server - PowerShell
       url: ./servers/quickstart-onboard-portal.md

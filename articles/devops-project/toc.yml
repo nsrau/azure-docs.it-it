@@ -4,7 +4,7 @@
   items:
     - name: Informazioni su Azure DevOps Projects
       href: overview.md
-- name: Guide introduttive
+- name: Avvi rapidi
   expanded: true
   items:
     - name: .NET

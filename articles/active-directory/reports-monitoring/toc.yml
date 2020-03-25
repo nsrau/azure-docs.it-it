@@ -6,7 +6,7 @@
       href: overview-reports.md
     - name: Informazioni sul monitoraggio di Azure AD
       href: overview-monitoring.md
-- name: Guide introduttive
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Scaricare un report relativo agli accessi
@@ -35,7 +35,7 @@
       href: concept-usage-insights-report.md
     - name: Accessi a rischio
       href: concept-risky-sign-ins.md
-    - name: Rilevamenti degli eventi di rischio
+    - name: Rilevamenti dei rischi
       href: concept-risk-events.md
     - name: Utenti a rischio.
       href: concept-user-at-risk.md
@@ -45,7 +45,7 @@
       href: concept-reporting-api.md
     - name: Log di Azure AD in Monitoraggio di Azure
       href: concept-activity-logs-azure-monitor.md
-- name: Guide alle procedure
+- name: Guide pratiche
   expanded: true
   items:
     - name: Report
@@ -82,7 +82,7 @@
           href: troubleshoot-missing-data-download.md
         - name: Non è possibile accedere alle API Graph per la creazione di report
           href: troubleshoot-graph-api.md
-- name: riferimento
+- name: Riferimento
   expanded: true
   items:
     - name: Cmdlet di Azure AD PowerShell per la creazione di report

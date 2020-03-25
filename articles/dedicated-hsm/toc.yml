@@ -20,9 +20,9 @@
       href: Networking.md
     - name: Sicurezza fisica
       href: physical-security.md
-    - name: Supporto
+    - name: Facilità di supporto
       href: supportability.md
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Scelta dell'architettura di distribuzione
       href: deployment-architecture.md

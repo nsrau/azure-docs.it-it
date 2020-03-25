@@ -22,7 +22,7 @@
       href: app-service-mobile-xamarin-forms-get-started.md
     - name: Xamarin.iOS
       href: app-service-mobile-xamarin-ios-get-started.md
-- name: Procedure
+- name: Guide pratiche
   items:
     - name: Pianificare e progettare
       items:
@@ -172,7 +172,7 @@
         - name: Rete virtuale di Azure
           href: ../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
         - name: Gruppi di risorse
-          href: '../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json#app-service-limitations'
+          href: ../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
           items:
             - name: Eseguire attività in background con processi Web
               href: ../app-service/webjobs-create.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
@@ -247,7 +247,7 @@
           href: ../app-service/troubleshoot-diagnostic-logs.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
         - name: Risolvere i problemi con Visual Studio
           href: ../app-service/troubleshoot-dotnet-visual-studio.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
-- name: Informazioni di riferimento
+- name: Riferimento
   items:
     - name: .NET backend SDK
       href: 'https://msdn.microsoft.com/library/azure/dn961176.aspx'
@@ -261,12 +261,10 @@
       href: 'https://azure.github.io/azure-mobile-apps-js-client/'
     - name: Windows/Xamarin client SDK
       href: 'https://msdn.microsoft.com/library/azure/mt419521.aspx'
-- name: Risorse correlate
+- name: Risorse
   items:
     - name: Repository GitHub
       href: 'https://github.com/Azure/azure-mobile-apps'
-- name: Risorse
-  items:
     - name: Procedure consigliate per il servizio app
       href: ../app-service/app-service-best-practices.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
     - name: Roadmap per Azure

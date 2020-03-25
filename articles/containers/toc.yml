@@ -1,7 +1,7 @@
 - name: Azure per contenitori
   href: index.yml
   items:
-    - name: Kubernetes Service (AKS)
+    - name: Servizio Kubernetes
       href: 'https://docs.microsoft.com/azure/aks/'
       expanded: true
       items:
@@ -75,7 +75,7 @@
               href: ../openshift/tutorial-scale-cluster.md
             - name: 3 - Eliminare un cluster di Azure Red Hat OpenShift
               href: ../openshift/tutorial-delete-cluster.md
-    - name: riferimento
+    - name: Riferimento
       items:
         - name: Istanze di Azure Container (az container)
           href: 'https://docs.microsoft.com/cli/azure/container'

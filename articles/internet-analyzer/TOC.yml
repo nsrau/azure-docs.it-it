@@ -10,7 +10,7 @@
       href: internet-analyzer-create-test-portal.md
     - name: Creare un test dell'analizzatore Internet con l'interfaccia della riga di comando
       href: internet-analyzer-cli.md
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Incorporare il client
       href: internet-analyzer-embed-client.md

@@ -1,0 +1,99 @@
+### YamlMime:Landing
+title: Azure Synapse Analytics (in precedenza Azure SQL Data Warehouse)
+summary: Azure Synapse è un servizio di analisi senza limiti che riunisce funzionalità aziendali di data warehousing e analisi di Big Data. Offre la libertà di eseguire query sui dati in base alle proprie esigenze, usando risorse serverless su richiesta o con provisioning, su larga scala.
+metadata:
+  title: Azure Synapse Analytics
+  description: Azure Synapse è un servizio di analisi senza limiti che riunisce funzionalità aziendali di data warehousing e analisi di Big Data. Offre la libertà di eseguire query sui dati in base alle proprie esigenze, usando risorse serverless su richiesta o con provisioning, su larga scala.
+  services: sql-data-warehouse
+  ms.service: sql-data-warehouse
+  ms.subservice: design
+  ms.topic: landing-page
+  ms.collection: collection
+  author: julieMSFT
+  ms.author: jrasnick
+  ms.date: 10/03/2019
+  ms.openlocfilehash: 36943d330d0bd97fe6139f5cfa19da571fc70835
+  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 03/24/2020
+  ms.locfileid: "80135675"
+landingContent:
+- title: Informazioni Azure Synapse Analytics
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Che cos'è Azure Synapse?
+      url: sql-data-warehouse-overview-what-is.md
+  - linkListType: architecture
+    links:
+    - text: Architettura di Azure Synapse
+      url: massively-parallel-processing-mpp-architecture.md
+    - text: Suggerimenti e procedure consigliate
+      url: cheat-sheet.md
+    - text: Architettura di riferimento
+      url: https://docs.microsoft.com/azure/architecture/reference-architectures/data/enterprise-bi-synapse
+- title: Introduzione
+  linkLists:
+  - linkListType: deploy
+    links:
+    - text: Creare un pool SQL (data warehouse)
+      url: create-data-warehouse-portal.md
+- title: Caricare dati
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Progettare la strategia di caricamento di dati
+      url: design-elt-data-loading.md
+    - text: Procedure consigliate
+      url: guidance-for-loading-data.md
+  - linkListType: how-to-guide
+    links:
+    - text: Caricare dati da Azure Data Lake Storage
+      url: sql-data-warehouse-load-from-azure-data-lake-store.md
+  - linkListType: tutorial
+    links:
+    - text: Caricare dati da archiviazione BLOB di Azure
+      url: load-data-from-azure-blob-storage-using-polybase.md
+- title: Ottimizzazione delle prestazioni
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Procedure consigliate
+      url: sql-data-warehouse-best-practices.md
+    - text: Ottimizzazione dell'indice columnstore cluster ordinato
+      url: performance-tuning-ordered-cci.md
+    - text: Usare viste materializzate per l'ottimizzazione del carico di lavoro
+      url: performance-tuning-materialized-views.md
+  - linkListType: how-to-guide
+    links:
+    - text: Analizzare il carico di lavoro
+      url: analyze-your-workload.md
+- title: Gestire e monitorare
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Informazioni su come gestire e monitorare il data warehouse
+      url: sql-data-warehouse-overview-manageability-monitoring.md
+  - linkListType: how-to-guide
+    links:
+    - text: Monitoraggio del carico di lavoro mediante DMV
+      url: sql-data-warehouse-manage-monitor.md
+    - text: Gestire e monitorare la priorità del carico di lavoro
+      url: sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md
+- title: Proteggere il data warehouse
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Nozioni di base sulla protezione del data warehouse
+      url: sql-data-warehouse-overview-manage-security.md
+  - linkListType: how-to-guide
+    links:
+    - text: Configurare l'autenticazione di Azure Active Directory
+      url: /azure/sql-database/sql-database-aad-authentication-configure?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
+- title: Risorse
+  linkLists:
+  - linkListType: video
+    links:
+    - text: Guardare i video più recenti su data warehouse
+      url: sql-data-warehouse-videos.md

@@ -4,12 +4,12 @@
   items:
     - name: Cos'è Genomica di Microsoft?
       href: overview-what-is-genomics.md
-- name: Guide introduttive
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Eseguire un flusso di lavoro di esempio di Genomica di Microsoft
       href: quickstart-run-genomics-workflow-portal.md
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Usare diversi formati di file di input
       items:

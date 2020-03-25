@@ -43,7 +43,7 @@
           href: data-powerbi.md
         - name: Usare i dati in SQL Management Studio
           href: data-sql-management-studio.md
-- name: Informazioni di riferimento
+- name: Riferimento
   items:
     - name: Configurazione
       href: configuration.md

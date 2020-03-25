@@ -5,7 +5,7 @@
   items:
     - name: Informazioni sull'API di Riconoscimento input penna
       href: overview.md
-- name: Guide introduttive
+- name: Avvi rapidi
   expanded: true
   items:
     - name: API REST
@@ -14,7 +14,7 @@
           href: quickstarts/csharp.md
         - name: Java
           href: quickstarts/java.md
-        - name: JavaScript
+        - name: Javascript
           href: quickstarts/javascript.md
 - name: Concetti
   items:
@@ -32,7 +32,7 @@
       href: 'https://go.microsoft.com/fwlink/?linkid=2089906'
     - name: App Swift e per dispositivi mobili iOS
       href: 'https://go.microsoft.com/fwlink/?linkid=2089805'
-- name: riferimento
+- name: Riferimento
   items:
     - name: Informazioni di riferimento sulle API REST
       href: 'https://go.microsoft.com/fwlink/?linkid=2089907'

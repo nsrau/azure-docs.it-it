@@ -56,7 +56,7 @@
       href: configure-identity-auth.md
     - name: Risolvere problemi
       href: troubleshoot.md
-- name: Informazioni di riferimento
+- name: Riferimento
   items:
     - name: API REST
       href: api.md

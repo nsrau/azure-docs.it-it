@@ -4,7 +4,7 @@
   items:
     - name: Che cos'è il database SQL Edge?
       href: overview.md
-- name: Guide introduttive
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Distribuire il database SQL Edge

@@ -4,7 +4,7 @@
   items:
     - name: Informazioni su Azure Analysis Services
       href: analysis-services-overview.md
-- name: Guide introduttive
+- name: Avvi rapidi
   items:
     - name: Creare un server - Portale
       href: analysis-services-create-server.md
@@ -38,7 +38,7 @@
       href: analysis-services-bcdr.md
     - name: Origini dati supportate
       href: analysis-services-datasource.md
-- name: Procedura
+- name: Procedure
   items:
     - name: Server
       items:
@@ -82,7 +82,7 @@
           href: analysis-services-database-users.md
         - name: Gestire gli amministratori del server
           href: analysis-services-server-admins.md
-    - name: Connettere
+    - name: Connessione
       items:
         - name: Connettersi con Excel
           href: analysis-services-connect-excel.md
@@ -90,7 +90,7 @@
           href: analysis-services-connect-pbi.md
         - name: Creare un file con estensione odc
           href: analysis-services-odc.md
-- name: riferimento
+- name: Riferimento
   items:
     - name: PowerShell
       href: analysis-services-powershell.md

@@ -14,7 +14,7 @@
           href: data-factory-create-datasets.md
         - name: Pianificazione ed esecuzione
           href: data-factory-scheduling-and-execution.md
-- name: Attività iniziali
+- name: Introduzione
   expanded: true
   items:
     - name: Creare una pipeline per copiare i dati
@@ -181,7 +181,7 @@
           href: data-factory-troubleshoot-gateway-issues.md
     - name: Richiamare pacchetti SSIS tramite attività stored procedure
       href: how-to-invoke-ssis-package-stored-procedure-activity.md
-- name: riferimento
+- name: Riferimento
   items:
     - name: Esempi di codice
       href: 'https://azure.microsoft.com/resources/samples/?service=data-factory'
@@ -201,7 +201,7 @@
       href: data-factory-customer-case-studies.md
     - name: Percorso di apprendimento
       href: 'https://azure.microsoft.com/documentation/learning-paths/data-factory'
-    - name: Forum di MSDN
+    - name: Forum MSDN
       href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureDataFactory'
     - name: Prezzi
       href: 'https://azure.microsoft.com/pricing/details/data-factory/'

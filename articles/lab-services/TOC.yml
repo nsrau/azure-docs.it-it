@@ -243,7 +243,7 @@
           href: troubleshoot-vm-environment-creation-failures.md
         - name: Risolvere gli errori relativi agli artefatti
           href: devtest-lab-troubleshoot-artifact-failure.md
-- name: Informazioni di riferimento
+- name: Riferimento
   items:
     - name: CLI
       href: /cli/azure/lab

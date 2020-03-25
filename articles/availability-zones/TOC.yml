@@ -23,7 +23,7 @@
         - name: Dischi gestiti
           items:
             - name: Aggiungere un disco gestito nelle zone di disponibilità con l'interfaccia della riga di comando
-              href: '../virtual-machines/linux/add-disk.md#use-managed-disks'
+              href: '../virtual-machines/linux/add-disk.md#attach-a-new-disk-to-a-vm'
             - name: Aggiungere un disco gestito nelle zone di disponibilità con PowerShell
               href: '../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine'
         - name: set di scalabilità di macchine virtuali
@@ -68,11 +68,11 @@
         - name: Hub eventi
           items:
             - name: Ripristino di emergenza geografico di Hub eventi
-              href: '../event-hubs/event-hubs-geo-dr.md#availability-zones-preview'
+              href: '../event-hubs/event-hubs-geo-dr.md#availability-zones'
         - name: Bus di servizio
           items:
             - name: Ripristino di emergenza geografico del bus di servizio
-              href: '../service-bus-messaging/service-bus-geo-dr.md#availability-zones-preview'
+              href: '../service-bus-messaging/service-bus-geo-dr.md#availability-zones'
         - name: Gateway VPN
           items:
             - name: Creare un gateway di rete virtuale con ridondanza della zona

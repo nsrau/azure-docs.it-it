@@ -9,6 +9,8 @@
           href: review-customer-agreement-bill.md
         - name: Esaminare la fattura del Contratto Microsoft Partner
           href: review-partner-agreement-bill.md
+        - name: Esaminare la fattura del Contratto Enterprise
+          href: review-enterprise-agreement-bill.md
     - name: Concetti
       items:
         - name: Condizioni per l'utilizzo di singole sottoscrizioni

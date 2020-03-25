@@ -83,8 +83,6 @@
       items:
         - name: Introduzione ad Azure EA Portal
           href: ea-portal-get-started.md
-        - name: Informazioni sulla fattura del Contratto Enterprise
-          href: ../understand/review-enterprise-agreement-bill.md
         - name: Ruoli del Contratto Enterprise in Azure
           href: understand-ea-roles.md
         - name: Amministrazione di Azure EA Portal
@@ -135,7 +133,7 @@
           href: 'https://github.com/Azure-Samples/billing-dotnet-usage-api'
         - name: Esempio di codice per l'API RateCard
           href: 'https://github.com/Azure-Samples/billing-dotnet-ratecard-api'
-- name: Informazioni di riferimento
+- name: Riferimento
   items:
     - name: Scenari di automazione della fatturazione
       href: cost-management-automation-scenarios.md

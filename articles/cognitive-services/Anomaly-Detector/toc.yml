@@ -5,7 +5,7 @@
   items:
     - name: Cos'è l'API Rilevamento anomalie?
       href: overview.md
-- name: Guide introduttive
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Libreria client
@@ -30,7 +30,7 @@
       href: tutorials/batch-anomaly-detection-powerbi.md
     - name: Rilevamento anomalie nei dati di streaming con Azure Databricks
       href: tutorials/anomaly-detection-streaming-databricks.md
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Identificare le anomalie nei dati
       href: how-to/identify-anomalies.md
@@ -48,7 +48,7 @@
   items:
     - name: Procedure consigliate per l'API Rilevamento anomalie
       href: concepts/anomaly-detection-best-practices.md
-- name: riferimento
+- name: Riferimento
   items:
     - name: Informazioni di riferimento sulle API REST
       href: 'https://aka.ms/anomaly-detector-rest-api-ref'

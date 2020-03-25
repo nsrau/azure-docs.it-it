@@ -2,20 +2,20 @@
   items:
     - name: Informazioni sul portale per Cloud Partner
       href: ./cloud-partner-portal-what-is-the-cloud-partner-portal.md
-- name: Attività iniziali
+- name: Introduzione
   items:
     - name: Introduzione al portale per Cloud Partner
       href: ./cloud-partner-portal-getting-started-with-the-cloud-partner-portal.md
     - name: Prodotti supportati
       href: ./Cloud-partner-portal-products-that-can-get-published-via-portal.md
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Gestire le macchine virtuali
       items:
         - name: Creare un'offerta per le macchine virtuali
           href: ./cloud-partner-portal-publish-virtual-machine.md
           items:
-            - name: Prerequisiti
+            - name: Prerequisites
               href: './cloud-partner-portal-publish-virtual-machine.md#what-are-pre-requisites-for-publishing-a-vm'
             - name: Registrazione di un account Microsoft Developer
               href: ./cloud-partner-portal-dev-center-accounts-registration.md

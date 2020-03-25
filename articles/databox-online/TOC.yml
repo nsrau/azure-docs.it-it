@@ -31,7 +31,7 @@
           href: data-box-gateway-use-cases.md
     - name: Procedure
       items:
-        - name: Gestisci
+        - name: Gestione
           items:
             - name: Condivisioni
               href: data-box-gateway-manage-shares.md
@@ -91,7 +91,7 @@
       items:
         - name: 'Sviluppare un modulo C#'
           href: data-box-edge-create-iot-edge-module.md
-        - name: Gestisci
+        - name: Gestione
           items:
             - name: Calcolo Edge
               href: data-box-edge-manage-compute.md

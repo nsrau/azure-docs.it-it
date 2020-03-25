@@ -2,7 +2,7 @@
   items:
     - name: Panoramica
       items:
-        - name: Attività iniziali
+        - name: Introduzione
           href: overview.md
         - name: Carichi di lavoro
           href: partner-workloads.md
@@ -14,7 +14,7 @@
           href: concepts/mainframe-storage-azure.md
     - name: Micro Focus
       items:
-        - name: Attività iniziali
+        - name: Introduzione
           href: microfocus/get-started.md
         - name: Installare Enterprise Server
           href: microfocus/set-up-micro-focus-azure.md
@@ -24,13 +24,13 @@
           href: microfocus/run-enterprise-server-container.md
     - name: TmaxSoft OpenFrame
       items:
-        - name: Attività iniziali
+        - name: Introduzione
           href: tmaxsoft/get-started.md
         - name: Installare OpenFrame
           href: tmaxsoft/install-openframe-azure.md
     - name: IBM
       items:
-        - name: Attività iniziali
+        - name: Introduzione
           href: ibm/get-started.md
         - name: Installare IBM zD&T
           href: ibm/install-ibm-z-environment.md

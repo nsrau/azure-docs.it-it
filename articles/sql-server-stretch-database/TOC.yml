@@ -4,9 +4,9 @@
   items:
     - name: Che cos'è Stretch Database?
       href: /sql/sql-server/stretch-database/stretch-database
-    - name: Limitazioni e problemi di blocco
+    - name: Limitazioni e problemi che causano un blocco
       href: /sql/sql-server/stretch-database/limitations-for-stretch-database
-- name: Attività iniziali
+- name: Introduzione
   items:
     - name: Identificare database e tabelle
       href: /sql/sql-server/stretch-database/stretch-database-databases-and-tables-stretch-database-advisor
@@ -14,15 +14,15 @@
       href: /sql/sql-server/stretch-database/get-started-by-running-the-enable-database-for-stretch-wizard
 - name: Procedure
   items:
-    - name: Abilita
+    - name: Abilitare
       items:
         - name: Abilitare un database
           href: /sql/sql-server/stretch-database/enable-stretch-database-for-a-database
         - name: Abilitare una tabella
           href: /sql/sql-server/stretch-database/enable-stretch-database-for-a-table
-        - name: Selezionare le righe per la migrazione
+        - name: Selezionare le righe di cui eseguire la migrazione
           href: /sql/sql-server/stretch-database/select-rows-to-migrate-by-using-a-filter-function-stretch-database
-    - name: Gestisci
+    - name: Gestione
       items:
         - name: Monitorare la migrazione dei dati
           href: /sql/sql-server/stretch-database/monitor-and-troubleshoot-data-migration-stretch-database
@@ -36,7 +36,7 @@
           href: /sql/sql-server/stretch-database/restore-stretch-enabled-databases-stretch-database
         - name: Disabilitare Stretch Database
           href: /sql/sql-server/stretch-database/disable-stretch-database-and-bring-back-remote-data
-- name: riferimento
+- name: Riferimento
   items:
     - name: Esempi di codice
       href: 'https://azure.microsoft.com/resources/samples/?service=sql-server-database'

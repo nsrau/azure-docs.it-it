@@ -7,7 +7,7 @@
     - name: Confrontare le API di ricerca Bing
       href: ../Bing-Web-Search/bing-api-comparison.md
       maintainContext: true
-- name: Guide introduttive
+- name: Avvi rapidi
   items:
     - name: API REST
       expanded: true
@@ -32,7 +32,7 @@
   items:
     - name: Compilare un'app Web di controllo ortografico
       href: tutorials/spellcheck.md
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Aggiornamento da v5 a v7
       href: bing-spell-check-upgrade-guide-v5-to-v7.md
@@ -46,7 +46,7 @@
   items:
     - name: Esempi di codice
       href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Spell+Check'
-- name: riferimento
+- name: Riferimento
   items:
     - name: API Controllo ortografico Bing v7
       href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference'

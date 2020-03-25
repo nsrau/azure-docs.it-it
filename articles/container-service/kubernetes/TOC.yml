@@ -4,7 +4,7 @@
   items:
     - name: Kubernetes in Azure
       href: container-service-intro-kubernetes.md
-- name: Guide introduttive
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Kubernetes in Azure
@@ -29,7 +29,7 @@
   items:
     - name: 'Entità servizio: Kubernetes'
       href: container-service-kubernetes-service-principal.md
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Kubernetes con Windows
       href: container-service-kubernetes-windows-walkthrough.md
@@ -61,7 +61,7 @@
           href: container-service-deploy-spring-boot-app-on-kubernetes.md
         - name: Distribuire un'app Spring Boot con il plug-in Maven fabric8
           href: container-service-deploy-spring-boot-app-using-fabric8-maven-plugin.md
-- name: riferimento
+- name: Riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/acs

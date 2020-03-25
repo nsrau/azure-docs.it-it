@@ -4,10 +4,10 @@ description: Panoramica dell'esempio di progetto ISO 27001. Questo esempio di pr
 ms.date: 01/13/2020
 ms.topic: sample
 ms.openlocfilehash: e61ccaea9903eb2aa050b0b49ea9cfe9b8c52d72
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2020
+ms.lasthandoff: 03/25/2020
 ms.locfileid: "75920591"
 ---
 # <a name="overview-of-the-iso-27001-blueprint-sample"></a>Panoramica dell'esempio di progetto ISO 27001

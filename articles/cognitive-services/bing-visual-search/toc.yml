@@ -7,7 +7,7 @@
     - name: Confrontare le API di ricerca Bing
       href: ../Bing-Web-Search/bing-api-comparison.md
       maintainContext: true
-- name: Guide introduttive
+- name: Avvi rapidi
   items:
     - name: API REST
       expanded: true
@@ -56,7 +56,7 @@
     - name: Analisi per l'API Ricerca visiva
       maintainContext: true
       href: ../bing-web-search/bing-web-stats.md
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Ottenere informazioni dettagliate tramite token
       href: use-insights-token.md
@@ -67,7 +67,7 @@
       href: tutorial-visual-search-insights-token.md
     - name: Creare un'app Web a pagina singola
       href: tutorial-bing-visual-search-single-page-app.md
-- name: riferimento
+- name: Riferimento
   items:
     - name: API REST v7
       href: 'https://aka.ms/bingvisualsearchreferencedoc'

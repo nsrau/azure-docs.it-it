@@ -20,7 +20,7 @@
       items:
         - name: Creare un piano di esecuzione
           href: example-terraform-bash.md
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Cloud Shell di PowerShell per utenti Windows
       href: cloud-shell-windows-users.md
@@ -36,7 +36,7 @@
   href: using-cloud-shell-editor.md
 - name: Risoluzione dei problemi e limitazioni
   href: troubleshooting.md
-- name: riferimento
+- name: Riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure

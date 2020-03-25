@@ -2,7 +2,7 @@
   items:
     - name: Monitoraggio degli agenti
       href: ../monitoring/index.md
-- name: Attività iniziali
+- name: Introduzione
   items:
     - name: Log di Monitoraggio di Azure
       href: ../log-analytics/log-analytics-get-started.md
@@ -14,7 +14,7 @@
       href: ../site-recovery/site-recovery-overview.md
 - name: Procedure
   items:
-    - name: Analizzare
+    - name: Analisi
       items:
         - name: Log di Monitoraggio di Azure
           href: ../azure-monitor/log-query/log-query-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json
@@ -28,7 +28,7 @@
           href: ../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2foperations-management-suite%2ftoc.json
         - name: Panoramica di Site Recovery
           href: ../site-recovery/site-recovery-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json
-    - name: Proteggere
+    - name: Sicurezza
       items:
         - name: Monitorare le risorse
           href: ../security-center/security-center-monitoring.md
@@ -88,7 +88,7 @@
               href: ../azure-monitor/insights/wire-data.md?toc=%2fazure%2foperations-management-suite%2ftoc.json
         - name: Automazione e controllo
           items:
-            - name: Change Tracking
+            - name: Rilevamento modifiche
               href: ../log-analytics/log-analytics-change-tracking.md?toc=%2fazure%2foperations-management-suite%2ftoc.json
             - name: Gestione degli aggiornamenti
               href: oms-solution-update-management.md
@@ -106,7 +106,7 @@
           href: ../azure-monitor/insights/solutions-resources-automation.md
         - name: Avvisi e ricerche nei log
           href: ../azure-monitor/insights/solutions-resources-searches-alerts.md
-        - name: Visualizzazioni
+        - name: Viste
           href: ../azure-monitor/insights/solutions-resources-views.md
         - name: Procedure consigliate
           href: ../azure-monitor/insights/solutions-best-practices.md

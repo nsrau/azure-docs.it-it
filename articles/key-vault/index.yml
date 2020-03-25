@@ -12,27 +12,27 @@ metadata:
   manager: rkarlin
   ms.date: 09/19/2019
   ms.openlocfilehash: cbd1ca9ead64bfda8401876ec54487f767363d3c
-  ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 09/26/2019
+  ms.lasthandoff: 03/24/2020
   ms.locfileid: "71299780"
 landingContent:
 - title: Informazioni su Azure Key Vault
   linkLists:
   - linkListType: overview
     links:
-    - text: Cos'è l'insieme di credenziali chiave di Azure?
+    - text: Informazioni sull'insieme di credenziali delle chiavi di Azure
       url: key-vault-overview.md
   - linkListType: concept
     links:
-    - text: Concetti di base
+    - text: Concetti fondamentali
       url: basic-concepts.md
     - text: Eliminazione temporanea
       url: key-vault-ovw-soft-delete.md
     - text: Limitazione
       url: key-vault-ovw-throttling.md
-- title: Attività iniziali
+- title: Introduzione
   linkLists:
   - linkListType: quickstart
     links:

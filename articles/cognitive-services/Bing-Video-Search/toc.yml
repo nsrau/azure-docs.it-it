@@ -43,7 +43,7 @@
   items:
     - name: Esempi di codice
       href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Video+Search'
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Ottenere informazioni dettagliate per i video
       href: video-insights.md
@@ -63,7 +63,7 @@
       href: concepts/get-videos.md
     - name: Invio delle richieste di ricerca
       href: concepts/sending-requests.md
-- name: riferimento
+- name: Riferimento
   items:
     - name: API Ricerca video Bing v7
       href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference'

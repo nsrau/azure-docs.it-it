@@ -5,16 +5,16 @@
       href: ../../media-services/video-indexer/video-indexer-overview.md
     - name: Concetti
       href: ../../media-services/video-indexer/video-indexer-concepts.md
-- name: Guide introduttive
+- name: Avvi rapidi
   expanded: true
   items:
-    - name: Attività iniziali
+    - name: Introduzione
       href: ../../media-services/video-indexer/video-indexer-get-started.md
 - name: Guide pratiche
   items:
     - name: Eseguire la migrazione dalla versione 1 alla versione 2
       href: ../../media-services/video-indexer/migrate-from-v1-to-v2.md
-    - name: Connect to Azure
+    - name: Connettersi ad Azure
       href: ../../media-services/video-indexer/connect-to-azure.md
     - name: Gestire un account connesso ad Azure
       href: ../../media-services/video-indexer/manage-account-connected-to-azure.md
@@ -32,7 +32,7 @@
       href: ../../media-services/video-indexer/video-indexer-create-new.md
     - name: Incorporare widget nell'applicazione
       href: ../../media-services/video-indexer/video-indexer-embed-widgets.md
-- name: riferimento
+- name: Riferimento
   items:
     - name: API Video Indexer
       href: 'https://api-portal.videoindexer.ai/'

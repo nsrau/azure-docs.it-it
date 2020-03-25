@@ -4,7 +4,7 @@
   items:
     - name: Informazioni su Azure Notebooks
       href: azure-notebooks-overview.md
-- name: Guide introduttive
+- name: Avvi rapidi
   items:
     - name: Accedere e impostare un ID utente
       href: quickstart-sign-in-azure-notebooks.md
@@ -30,7 +30,7 @@
       href: azure-notebooks-user-account.md
     - name: Profili
       href: azure-notebooks-user-profile.md
-- name: Guide alle procedure
+- name: Guide pratiche
   items:
     - name: Creare e clonare progetti
       href: create-clone-jupyter-notebooks.md

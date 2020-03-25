@@ -49,7 +49,7 @@ sections:
           - html: '<a href="https://github.com/Azure/azure-notificationhubs-dotnet">.NET SDK</a>'
           - html: '<a href="https://github.com/Azure/azure-notificationhubs-samples">Repository di esempi (altre piattaforme)</a>'
           - html: <a href="/azure/notification-hubs/samples-powershell">PowerShell</a>
-  - title: riferimento
+  - title: Riferimento
     items:
       - type: list
         style: unordered
