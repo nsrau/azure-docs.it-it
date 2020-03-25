@@ -8,10 +8,10 @@ ms.date: 02/20/2018
 ms.author: rogarana
 ms.subservice: blobs
 ms.openlocfilehash: dc0f8171e18598e4f805a03a4bc6d17de220fbe1
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68698983"
 ---
 # <a name="verify-throughput-and-latency-metrics-for-a-storage-account"></a>Verificare le metriche di velocità effettiva e latenza per un account di archiviazione
@@ -42,7 +42,7 @@ Le metriche elencate di seguito consentono di conoscere la latenza e la velocit�
 |**Latenza server operazioni riuscite**|Tempo medio necessario per l'elaborazione di una richiesta con esito positivo da parte di Archiviazione di Azure. Questo valore non include la latenza di rete specificata in SuccessE2ELatency. |
 |**Transazioni**|Numero di richieste eseguite in un servizio di archiviazione o nell'operazione API specificata. Questo numero include le richieste con esito positivo e negativo, oltre alle richieste che hanno restituito errori. Nell'esempio, la dimensione dei blocchi è stata impostata su 100 MB. In questo caso, ogni blocco di 100 MB viene considerato una transazione.|
 |**Dati in ingresso**|Quantità di dati in ingresso. Questo numero include i dati in ingresso da un client esterno in Archiviazione di Azure, oltre ai dati in ingresso in Azure. |
-|**Dati in uscita**|Quantità di dati in uscita. Questo numero include i dati in uscita da un client esterno verso Archiviazione di Azure, oltre ai dati in uscita entro Azure. Questo numero non rispecchia quindi dati in uscita fatturabili. |
+|**Dati in uscita**|Quantità di dati in uscita. Questo numero include i dati in uscita da un client esterno verso Archiviazione di Azure, oltre ai dati in uscita in Azure. Questo numero non rispecchia quindi dati in uscita fatturabili. |
 
 Selezionare **Last 24 hours (Automatic)** (Ultime 24 ore - Automatico) accanto a **Tempo**. Scegliere **Ultima ora** e **Minuto** per **Time granularity** (Granularità temporale) e quindi fare clic su **Applica**.
 
