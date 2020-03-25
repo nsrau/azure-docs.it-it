@@ -16,11 +16,11 @@ ms.date: 12/04/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 67cfb04f67e3454bde25969b634116f2871cbeb5
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78393196"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79221888"
 ---
 # <a name="tutorial-create-and-manage-azure-virtual-networks-for-windows-virtual-machines-with-azure-powershell"></a>Esercitazione: Creare e gestire reti virtuali di Azure per macchine virtuali Windows con Azure PowerShell
 

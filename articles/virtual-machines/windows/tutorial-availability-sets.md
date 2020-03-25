@@ -16,17 +16,17 @@ ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 0f94f4d312cefec80a0f294e256ee1ad908b903c
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74068124"
 ---
 # <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-azure-powershell"></a>Esercitazione: Creare e distribuire macchine virtuali a disponibilità elevata con Azure PowerShell
 
 Questa esercitazione illustra come aumentare la disponibilità e l'affidabilità delle macchine virtuali (VM) usando set di disponibilità. I set di disponibilità garantiscono che le VM vengano distribuite in Azure tra più nodi hardware isolati all'interno di un cluster. 
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare un set di disponibilità
@@ -130,7 +130,7 @@ Accedere al [portale di Azure](https://portal.azure.com), selezionare **Tutti i 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+In questa esercitazione sono state illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare un set di disponibilità

@@ -17,10 +17,10 @@ ms.date: 12/17/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 89ea2c45e16dfeb63801f70fa4480c0d865a890f
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73160078"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform"></a>Esercitazione: Integrazione di Azure Active Directory con SAP Cloud Platform
@@ -35,7 +35,7 @@ L'integrazione di SAP Cloud Platform con Azure AD offre i vantaggi seguenti:
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per configurare l'integrazione di Azure AD con SAP Cloud Platform, sono necessari gli elementi seguenti:
 
@@ -96,7 +96,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 Per configurare l'accesso Single Sign-On di Azure AD con SAP Cloud Platform, seguire questa procedura:
 
-1. Nella pagina di integrazione dell'applicazione **SAP Cloud Platform** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
+1. Nella pagina di integrazione dell'applicazione [SAP Cloud Platform](https://portal.azure.com/) del **portale di Azure** selezionare **Single Sign-On**.
 
     ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 
@@ -175,7 +175,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con SAP Cloud Platform, seg
 
     f. In **Force Authentication** selezionare **Disabled**.
 
-    g. Fare clic su **Save**.
+    g. Fare clic su **Salva**.
 
 4. Dopo il salvataggio delle impostazioni **Local Service Provider**, eseguire le operazioni seguenti per ottenere l'URL di risposta:
    
@@ -208,7 +208,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con SAP Cloud Platform, seg
 
 8. Nella scheda **Attributes** eseguire la procedura seguente:
     
-    ![Attributes (Attributi)](./media/sap-hana-cloud-platform-tutorial/ic790804.png "Attributi") 
+    ![Attributes (Attributi)](./media/sap-hana-cloud-platform-tutorial/ic790804.png "Attributes") 
 
     a. Fare clic su **Add Assertion-Based Attribute** e quindi aggiungere gli attributi basati su asserzione seguenti:
        
@@ -255,13 +255,13 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
     b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
-    Ad esempio: BrittaSimon@contoso.com
+    Ad esempio, usare BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
     d. Fare clic su **Crea**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendo l'accesso a SAP Cloud Platform.
 
@@ -307,7 +307,7 @@ Per consentire agli utenti di Azure AD di accedere a SAP Cloud Platform è neces
 
     d. Fare clic su **Assign** per assegnare l'utente a un ruolo.
 
-    e. Fare clic su **Save**.
+    e. Fare clic su **Salva**.
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On 
 

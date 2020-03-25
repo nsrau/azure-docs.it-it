@@ -10,10 +10,10 @@ author: sakash279
 ms.author: akshanka
 ms.reviewer: sngun
 ms.openlocfilehash: 7994b478321c925b3eab73291a109d50b9066fef
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76770868"
 ---
 # <a name="how-to-use-azure-table-storage-and-the-azure-cosmos-db-table-api-with-ruby"></a>Come usare l'archiviazione tabelle di Azure o l'API Tabelle di Azure Cosmos DB con Ruby
@@ -94,10 +94,10 @@ azure_table_service.insert_entity("testtable", entity)
 ## <a name="update-an-entity"></a>Aggiornare un'entità
 Esistono vari metodi per aggiornare un'entità esistente:
 
-* **update_entity():** aggiorna un'entità esistente sostituendola.
-* **merge_entity():** aggiorna un'entità esistente unendovi nuovi valori delle proprietà.
-* **insert_or_merge_entity():** aggiorna un'entità esistente sostituendola. Se non esiste alcuna entità, ne verrà inserita una nuova:
-* **insert_or_replace_entity():** aggiorna un'entità esistente unendovi nuovi valori delle proprietà. Se non esiste alcuna entità, ne verrà inserita una nuova.
+* **update_entity()** : aggiorna un'entità esistente sostituendola.
+* **merge_entity()** : aggiorna un'entità esistente unendovi nuovi valori delle proprietà.
+* **insert_or_merge_entity()** : aggiorna un'entità esistente sostituendola. Se non esiste alcuna entità, ne verrà inserita una nuova:
+* **insert_or_replace_entity()** : aggiorna un'entità esistente unendovi nuovi valori delle proprietà. Se non esiste alcuna entità, ne verrà inserita una nuova.
 
 L'esempio seguente illustra l'aggiornamento di un'entità mediante **update_entity()** :
 

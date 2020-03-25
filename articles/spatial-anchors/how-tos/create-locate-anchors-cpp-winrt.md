@@ -9,10 +9,10 @@ ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 084058edca59eda776c47a3e20bb49178de78681
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74790077"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-cwinrt"></a>Come creare e individuare ancoraggi usando Ancoraggi nello spazio di Azure in C++/WinRT
@@ -32,7 +32,7 @@ Ancoraggi nello spazio di Azure è un servizio che consente di condividere ancor
 - Caricarli nel cloud.
 - Trovare ed eliminare gli ancoraggi nello spazio nel cloud.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare questa guida, accertarsi di avere:
 

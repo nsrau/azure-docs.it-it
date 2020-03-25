@@ -8,10 +8,10 @@ ms.subservice: cosmosdb-mongo
 ms.topic: sample
 ms.date: 9/25/2019
 ms.openlocfilehash: 20516a66fe664e415b97e40beacd77c34c7ccaea
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "71275048"
 ---
 # <a name="update-rus-for-a-database-and-collection-for-mongodb-api-for-azure-cosmos-db-using-azure-cli"></a>Aggiornare il valore di UR/s per un database e una raccolta per l'API MongoDB per Azure Cosmos DB tramite l'interfaccia della riga di comando di Azure

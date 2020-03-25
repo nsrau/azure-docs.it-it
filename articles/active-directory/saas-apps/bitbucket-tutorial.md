@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con SAML SSO for Bitbucket by resolution GmbH | Microsoft Docs'
+title: 'Esercitazione: Integrazione di Azure Active Directory con SAML SSO for Bitbucket di resolution GmbH | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e SAML SSO for Bitbucket di resolution GmbH.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 57ae83aee563d4893f767331fff2289a4595cc60
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73157655"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-bitbucket-by-resolution-gmbh"></a>Esercitazione: Integrazione di Azure Active Directory con SAML SSO for Bitbucket by resolution GmbH
+# <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-bitbucket-by-resolution-gmbh"></a>Esercitazione: Integrazione di Azure Active Directory con SAML SSO for Bitbucket di resolution GmbH
 
 Questa esercitazione spiega come integrare la funzionalità SAML SSO for Bitbucket di resolution GmbH con Azure Active Directory (Azure AD).
 L'integrazione di SAML SSO for Bitbucket di resolution GmbH con Azure AD offre i vantaggi seguenti:
@@ -35,7 +35,7 @@ L'integrazione di SAML SSO for Bitbucket di resolution GmbH con Azure AD offre i
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per configurare l'integrazione di Azure AD con SAML SSO for Bitbucket di resolution GmbH, sono necessari gli elementi seguenti:
 
@@ -92,7 +92,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 Per configurare l'accesso Single Sign-On di Azure AD con SAML SSO for Bitbucket by resolution GmbH, seguire questa procedura:
 
-1. Nella pagina di integrazione dell'applicazione **SAML SSO for Bitbucket by resolution GmbH** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
+1. Nella pagina di integrazione dell'applicazione [SAML SSO for Bitbucket by resolution GmbH](https://portal.azure.com/) del **portale di Azure** selezionare **Single Sign-On**.
 
     ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 
@@ -133,7 +133,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con SAML SSO for Bitbucket 
 
 3. Passare alla sezione ACCOUNT e fare clic su **SAML SingleSignOn** sulla barra dei menu.
 
-    ![SAML SingleSignOn](./media/bitbucket-tutorial/tutorial_bitbucket_samlsingle.png)
+    ![Samlsingle](./media/bitbucket-tutorial/tutorial_bitbucket_samlsingle.png)
 
 4. Nella pagina **SAML SingleSignOn Plugin Configuration** (Configurazione plug-in SAML SingleSignOn) fare clic su **Add idp** (Aggiungi IdP). 
 
@@ -184,13 +184,13 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
     b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
-    Ad esempio: BrittaSimon@contoso.com
+    Ad esempio, usare BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
     d. Fare clic su **Crea**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a SAML SSO for Bitbucket di resolution GmbH.
 

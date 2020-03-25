@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/12/2020
 ms.author: dacoulte
 ms.openlocfilehash: 2e06ead04f192c8f63b6498124208de49b640e68
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79381595"
 ---
 |Nome |Descrizione |Effetto/i |Versione |GitHub |

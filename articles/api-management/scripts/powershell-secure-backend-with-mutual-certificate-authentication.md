@@ -13,10 +13,10 @@ ms.date: 11/16/2017
 ms.author: apimpm
 ms.custom: mvc
 ms.openlocfilehash: b9501cc88e5d83b5c5724b0fbb2f988a8ca1509e
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "70067555"
 ---
 # <a name="secure-back-end"></a>Proteggere il back-end

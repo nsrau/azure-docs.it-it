@@ -14,11 +14,11 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
 ms.openlocfilehash: b06301ab424a29d8f0e31e8f4dee26265327896b
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028362"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79221928"
 ---
 # <a name="monitor-published-apis"></a>Monitorare le API pubblicate
 
@@ -39,8 +39,8 @@ Il video seguente illustra come monitorare Gestione API usando Monitoraggio di A
 ## <a name="prerequisites"></a>Prerequisites
 
 + Acquisire familiarità con la [terminologia di Gestione API di Azure](api-management-terminology.md).
-+ Completare l'avvio rapido seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
-+ Completare anche l'esercitazione seguente: [Importare e pubblicare la prima API](import-and-publish.md)
++ Completare la guida introduttiva seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
++ Completare anche l'esercitazione seguente: [Importare e pubblicare la prima API](import-and-publish.md).
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -190,7 +190,7 @@ Attualmente Gestione API offre log di diagnostica (in batch orari) sulle singole
 | callerIpAddress | string | Indirizzo IP del chiamante gateway immediato (può essere un intermediario) |
 | correlationId | string | Identificatore richiesta http univoco assegnato da Gestione API |
 | posizione | string | Nome dell'area di Azure in cui si trovava il gateway che ha elaborato la richiesta |
-| httpStatusCodeCategory | string | Categoria di codice di stato della risposta HTTP: richiesta riuscita (minore o uguale a 301 oppure 304 o 307), richiesta non autorizzata (401, 403, 429), errore (400, valore compreso tra 500 e 600), altro |
+| httpStatusCodeCategory | string | Categoria del codice di stato della risposta HTTP: richiesta riuscita (minore o uguale a 301 oppure 304 o 307), richiesta non autorizzata (401, 403, 429), errore (400, valore compreso tra 500 e 600), altro |
 | resourceId | string | ID della risorsa di Gestione API /SUBSCRIPTIONS/\<subscription>/RESOURCEGROUPS/\<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/\<name> |
 | properties | object | Proprietà della richiesta corrente |
 | method | string | Metodo HTTP della richiesta in ingresso |

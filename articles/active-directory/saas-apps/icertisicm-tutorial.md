@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
 ms.openlocfilehash: 4d105fd9d0611ad56cd5ec2ecaa36bdcf9deed18
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67100733"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-icertis-contract-management-platform"></a>Esercitazione: Integrazione di Azure Active Directory con Icertis Contract Management Platform
@@ -34,7 +34,7 @@ L'integrazione di Icertis Contract Management Platform con Azure AD offre i vant
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per configurare l'integrazione di Azure AD con Icertis Contract Management Platform, sono necessari gli elementi seguenti:
 
@@ -79,7 +79,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Icertis Contr
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On per Icertis Contract Management Platform](#configure-icertis-contract-management-platform-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare un utente di test di Icertis Contract Management Platform](#create-icertis-contract-management-platform-test-user)** : per avere una controparte di Britta Simon in Icertis Contract Management Platform collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -107,7 +107,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Icertis Contract Manage
 
     a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<company name>.icertis.com`
 
-    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://<company name>.icertis.com`
+    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `https://<company name>.icertis.com`
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori contattare il [team di supporto clienti di Icertis Contract Management Platform](https://www.icertis.com/company/contact/). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
@@ -131,7 +131,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Icertis Contract Manage
 
 Per configurare l'accesso Single Sign-On sul lato **Icertis Contract Management Platform**, è necessario inviare il file **XML dei metadati di federazione** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di Contract Management Platform](https://www.icertis.com/company/contact/). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
@@ -153,9 +153,9 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
-    d. Fare clic su **Create**(Crea).
+    d. Fare clic su **Crea**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Icertis Contract Management Platform.
 

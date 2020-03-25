@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: integrazione di Azure Active Directory con Vibe HCM | Microsoft Docs'
+title: 'Esercitazione: Integrazione di Azure Active Directory con Vibe HCM | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Vibe HCM.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: 4267b75be72c1d162b4abaf7184afcdd02c38720
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68943098"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-vibe-hcm"></a>Esercitazione: integrazione di Azure Active Directory con Vibe HCM
+# <a name="tutorial-azure-active-directory-integration-with-vibe-hcm"></a>Esercitazione: Integrazione di Azure Active Directory con Vibe HCM
 
 Questa esercitazione descrive come integrare Vibe HCM con Azure Active Directory (Azure AD).
 L'integrazione di Vibe HCM con Azure AD offre i vantaggi seguenti:
@@ -34,7 +34,7 @@ L'integrazione di Vibe HCM con Azure AD offre i vantaggi seguenti:
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per configurare l'integrazione di Azure AD con Vibe HCM sono necessari gli elementi seguenti:
 
@@ -79,7 +79,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Vibe HCM, è 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di Vibe HCM](#configure-vibe-hcm-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare un utente di test di Vibe HCM](#create-vibe-hcm-test-user)** : per avere una controparte di Britta Simon in Vibe HCM collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -114,7 +114,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Vibe HCM, seguire quest
     > [!NOTE]
     > Poiché non è reale, è necessario aggiornare questo valore con l'URL di accesso effettivo. Per ottenere il valore, contattare il [team di supporto clienti di Vibe HCM](mailto:support@vibehcm.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-6. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic sul pulsante Copia per copiare l'**URL dei metadati di federazione dell'app** e salvarlo nel computer in uso.
+6. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic sul pulsante Copia per copiare l'**URL dei metadati di federazione dell'app** e salvarlo nel computer.
 
     ![Collegamento di download del certificato](common/copy-metadataurl.png)
 
@@ -122,7 +122,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Vibe HCM, seguire quest
 
 Per configurare l'accesso Single Sign-On sul lato **Vibe HCM**, è necessario inviare l'**URL dei metadati di federazione dell'app** al [team di supporto di Vibe HCM](mailto:support@vibehcm.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
@@ -140,13 +140,13 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
-    b. Nel campo **Nome utente** digitare brittasimon@yourcompanydomain.extension. Ad esempio: BrittaSimon@contoso.com
+    b. Nel campo **Nome utente** digitare brittasimon@yourcompanydomain.extension. Ad esempio, usare BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
-    d. Fare clic su **Create**(Crea).
+    d. Fare clic su **Crea**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso ad Vibe HCM.
 

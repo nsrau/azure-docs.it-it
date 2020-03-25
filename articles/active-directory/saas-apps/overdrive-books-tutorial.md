@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 391ae72a9e2bc78ed120cf4f5fdf844a6248566a
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74233477"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-overdrive"></a>Esercitazione: Integrazione di Azure Active Directory con Overdrive
@@ -34,7 +34,7 @@ L'integrazione di Overdrive con Azure AD offre i vantaggi seguenti:
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per configurare l'integrazione di Azure AD con Overdrive, sono necessari gli elementi seguenti:
 
@@ -82,7 +82,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Overdrive, è
 2. **[Configurare l'accesso Single Sign-On di Overdrive](#configure-overdrive-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare l'utente di test di Overdrive](#create-overdrive-test-user)** : per avere una controparte di Britta Simon in Overdrive collegata alla rappresentazione dell'utente in Azure AD.
+5. **[Creare un utente di test di Overdrive](#create-overdrive-test-user)** : per avere una controparte di Britta Simon in Overdrive collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -91,7 +91,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 Per configurare l'accesso Single Sign-On di Azure AD con Overdrive, seguire questa procedura:
 
-1. Nella pagina di integrazione dell'applicazione **Overdrive** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
+1. Nella pagina di integrazione dell'applicazione [Overdrive](https://portal.azure.com/) del **portale di Azure** selezionare **Single Sign-On**.
 
     ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 
@@ -116,7 +116,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Overdrive, seguire ques
 
     ![Collegamento di download del certificato](common/metadataxml.png)
 
-6. Nella sezione **Configura Overdrive** copiare gli URL appropriati in base alle esigenze.
+6. Nella sezione **Configura Overdrive** copiare gli URL appropriati in base alle proprie esigenze.
 
     ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
 
@@ -132,7 +132,7 @@ Per configurare l'accesso Single Sign-On sul lato **Overdrive**, è necessario i
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
-Questa sezione descrive come creare un utente di test di nome Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -149,7 +149,7 @@ Questa sezione descrive come creare un utente di test di nome Britta Simon nel p
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
     b. Nel campo **Nome utente** digitare **brittasimon@yourcompanydomain.extension**  
-    Ad esempio: BrittaSimon@contoso.com
+    Ad esempio, usare BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
@@ -157,7 +157,7 @@ Questa sezione descrive come creare un utente di test di nome Britta Simon nel p
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
-In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Overdrive.
+In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Overdrive.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Overdrive**.
 
@@ -181,9 +181,9 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
-### <a name="create-overdrive-test-user"></a>Creare l'utente di test di Overdrive
+### <a name="create-overdrive-test-user"></a>Creare un utente di test di Overdrive
 
-In questa sezione viene creato un utente di nome Britta Simon in Overdrive. Overdrive supporta il provisioning utenti JIT, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se non esiste già un utente in Overdrive, ne viene creato uno nuovo dopo l'autenticazione.
+In questa sezione viene creato un utente di nome Britta Simon in Overdrive. Overdrive supporta il provisioning JIT, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se non esiste già un utente in Overdrive, ne viene creato uno nuovo dopo l'autenticazione.
 
 >[!NOTE]
 >È possibile usare qualsiasi altro strumento o API di creazione di account utente forniti da OverDrive per effettuare il provisioning degli account utente di Azure AD.
@@ -193,7 +193,7 @@ In questa sezione viene creato un utente di nome Britta Simon in Overdrive. Over
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di Overdrive nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Overdrive per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di Overdrive nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Overdrive per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

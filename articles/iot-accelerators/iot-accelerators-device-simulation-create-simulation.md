@@ -10,11 +10,11 @@ ms.custom: mvc
 ms.date: 03/08/2019
 ms.author: troyhop
 ms.openlocfilehash: 09a6920e0d3a50da1bdacbf2bc7a80396c885897
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58180705"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "61448563"
 ---
 # <a name="tutorial-create-and-run-an-iot-device-simulation"></a>Esercitazione: Creare ed eseguire una simulazione di dispositivi IoT
 
@@ -30,11 +30,11 @@ In questa esercitazione:
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per seguire questa esercitazione, è necessaria un'istanza distribuita di Simulazione dispositivi nella sottoscrizione di Azure.
 
-Se la soluzione Simulazione dispositivi non è stata ancora distribuita, è necessario completare la guida di avvio rapido [Distribuire ed eseguire una soluzione di simulazione dei dispositivi in Azure](quickstart-device-simulation-deploy.md).
+Se la soluzione Simulazione dispositivi non è stata ancora distribuita, è necessario completare la guida introduttiva [Distribuire ed eseguire una simulazione dei dispositivi IoT in Azure](quickstart-device-simulation-deploy.md).
 
 ## <a name="open-device-simulation"></a>Aprire Simulazione dispositivi
 
@@ -42,7 +42,7 @@ Per eseguire Simulazione dispositivi nel browser, passare innanzitutto al sito [
 
 Potrebbe essere necessario accedere con le credenziali della sottoscrizione di Azure.
 
-Fare quindi clic su **Avvio** nel riquadro per la soluzione Simulazione dispositivi distribuita nella [guida di avvio rapido](quickstart-device-simulation-deploy.md).
+Fare quindi clic su **Avvio** nel riquadro per la soluzione Simulazione dispositivi distribuita nella [guida introduttiva](quickstart-device-simulation-deploy.md).
 
 ## <a name="view-simulations"></a>Visualizzare le simulazioni
 

@@ -10,13 +10,13 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: allensu
 ms.openlocfilehash: b7beb5186bd039d7098883915663e8a3286fb99d
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76274611"
 ---
-# <a name="azure-powershell-script-example-load-balance-multiple-websites"></a>Esempio di script di Azure PowerShell: Eseguire il bilanciamento del carico per più siti Web
+# <a name="azure-powershell-script-example-load-balance-multiple-websites"></a>Esempio di script di Azure PowerShell - Eseguire il bilanciamento del carico di più siti Web
 
 Questo esempio di script di Azure PowerShell crea una rete virtuale con due macchine virtuali che fanno parte di un set di disponibilità. Il bilanciamento del carico indirizza il traffico di due diversi indirizzi IP verso le due macchine virtuali. Dopo l'esecuzione dello script, è possibile distribuire il software del server Web alle macchine virtuali e ospitare più siti Web, ciascuno con il suo indirizzo IP.
 

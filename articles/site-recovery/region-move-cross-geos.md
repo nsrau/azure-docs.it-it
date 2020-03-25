@@ -8,10 +8,10 @@ ms.date: 04/16/2019
 ms.author: rajanaki
 ms.custom: MVC
 ms.openlocfilehash: acaf16e7469b3ea4e5e391db91e37dc76be3b261
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78298531"
 ---
 # <a name="move-azure-vms-between-azure-government-and-public-regions"></a>Spostare le VM di Azure tra aree per enti pubblici e aree pubbliche 
@@ -210,9 +210,9 @@ Per monitorare i server aggiunti, è possibile controllare l'ora dell'ultima ind
 1. Passare all'insieme di credenziali e in **Impostazioni** > **Elementi replicati** fare clic sulla macchina virtuale che si intende spostare nell'area di destinazione e quindi sull'icona **+Failover di Test**.
 2. In **Failover di test** selezionare un punto di ripristino in cui eseguire il failover:
 
-   - **Elaborato più recente**: viene eseguito il failover della macchina virtuale al punto di recupero più recente elaborato dal servizio Site Recovery. Viene visualizzato il timestamp. Con questa opzione, non viene impiegato alcun tempo di elaborazione dati e viene quindi fornito un valore RTO (Recovery Time Objective) basso.
-   - **Coerente con l'app più recente**: questa opzione esegue il failover di tutte le macchine virtuali al più recente punto di recupero coerente con l'app. Viene visualizzato il timestamp.
-   - **Custom**: selezionare qualsiasi punto di recupero.
+   - **Ultima elaborazione**: viene eseguito il failover della macchina virtuale nel punto di ripristino più recente che è stato elaborato dal servizio Site Recovery. Viene visualizzato il timestamp. Con questa opzione, non viene impiegato alcun tempo di elaborazione dati e viene quindi fornito un valore RTO (Recovery Time Objective) basso.
+   - **Coerente con l'app più recente**: questa opzione esegue il failover su tutte le macchine virtuali al punto di ripristino coerente con l'app. Viene visualizzato il timestamp.
+   - **Personalizzazione**: selezionare qualsiasi punto di ripristino.
 
 3. Selezionare la rete virtuale di Azure di destinazione in cui si vogliono spostare le VM di Azure per testare la configurazione. 
 

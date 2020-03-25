@@ -15,11 +15,11 @@ ms.custom: mvc
 ms.date: 02/10/2020
 ms.author: spelluru
 ms.openlocfilehash: dba6a4c07691f3d7ec88d8b889e68d6ac7116f07
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78361053"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79223468"
 ---
 # <a name="tutorial-set-up-a-lab-account-with-azure-lab-services"></a>Esercitazione: Configurare un account lab con Azure Lab Services
 In Azure Lab Services l'account lab funge da account centrale in cui vengono gestiti tutti i lab dell'organizzazione. Nell'account lab si concedono ad altri utenti le autorizzazioni alla creazione di lab e di impostano criteri che si applicano a tutti i lab all'interno dell'account lab. Questa esercitazione illustra come creare un account lab. 

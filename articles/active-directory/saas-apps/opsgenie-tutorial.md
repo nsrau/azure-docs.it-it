@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con OpsGenie | Microsoft Docs'
+title: 'Esercitazione: Integrazione di Azure Active Directory con OpsGenie | Documentazione Microsoft'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e OpsGenie.
 services: active-directory
 documentationCenter: na
@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 446ac54d84f7b2b3bf3aaf6eaf5536f0dfb804fe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67095764"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-opsgenie"></a>Esercitazione: Integrazione di Azure Active Directory con OpsGenie
@@ -34,7 +34,7 @@ L'integrazione di OpsGenie con Azure AD offre i vantaggi seguenti:
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per configurare l'integrazione di Azure AD con OpsGenie, sono necessari gli elementi seguenti:
 
@@ -89,7 +89,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 Per configurare Single Sign-On di Azure AD con OpsGenie, seguire questa procedura:
 
-1. Nella pagina di integrazione dell'applicazione **OpsGenie** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
+1. Nella pagina di integrazione dell'applicazione [OpsGenie](https://portal.azure.com/) del **portale di Azure** selezionare **Single Sign-On**.
 
     ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 
@@ -107,7 +107,7 @@ Per configurare Single Sign-On di Azure AD con OpsGenie, seguire questa procedur
 
     Nella casella di testo **URL di accesso** digitare un URL: `https://app.opsgenie.com/auth/login`
 
-5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic sul pulsante Copia per copiare l'**URL dei metadati di federazione dell'app** e salvarlo nel computer in uso.
+5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic sul pulsante Copia per copiare l'**URL dei metadati di federazione dell'app** e salvarlo nel computer.
 
     ![Collegamento di download del certificato](common/copy-metadataurl.png)
 
@@ -147,7 +147,7 @@ Per configurare Single Sign-On di Azure AD con OpsGenie, seguire questa procedur
     
     c. Fare clic su **Salva modifiche**.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
 In questa sezione viene creato un utente di test di nome B. Simon nel portale di Azure.
 
@@ -166,13 +166,13 @@ In questa sezione viene creato un utente di test di nome B. Simon nel portale di
     a. Nel campo **Nome** immettere **B. Simon**.
   
     b. Nel campo **Nome utente** digitare **bsimon@yourcompanydomain.extension**  
-    Ad esempio: BSimon@contoso.com
+    Ad esempio, usare BSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
-    d. Fare clic su **Create**(Crea).
+    d. Fare clic su **Crea**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione B. Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a OpsGenie.
 
@@ -218,7 +218,7 @@ In questa sezione viene creato un utente di nome B. Simon in OpsGenie.
    
     b. Nella casella di testo **Full Name** (Nome completo) digitare **B. Simon**.
    
-    c. Fare clic su **Save**. 
+    c. Fare clic su **Salva**. 
 
 >[!NOTE]
 >B. Simon riceve un messaggio di posta elettronica con istruzioni per la configurazione del profilo.

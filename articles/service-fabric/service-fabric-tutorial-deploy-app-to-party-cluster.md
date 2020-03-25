@@ -7,10 +7,10 @@ ms.date: 07/22/2019
 ms.author: mikhegn
 ms.custom: mvc
 ms.openlocfilehash: 9951610732cbb1c5884a7b7e830033f427db0ab1
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75646008"
 ---
 # <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>Esercitazione: Distribuire un'applicazione Service Fabric in un cluster in Azure

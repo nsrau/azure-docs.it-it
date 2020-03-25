@@ -15,17 +15,17 @@ ms.workload: na
 ms.date: 01/25/2019
 ms.author: juliako
 ms.openlocfilehash: 44cf234fd8419164f7dd7f8320952a5c6c0842e0
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74896128"
 ---
-# <a name="cli-example-publish-an-asset"></a>Esempio di interfaccia della riga di comando: Pubblicare un asset
+# <a name="cli-example-publish-an-asset"></a>Esempio dell'interfaccia della riga di comando: Pubblicare un asset
 
 Lo script dell'interfaccia della riga di comando di Azure in questo articolo mostra come creare un localizzatore di streaming e ottenere gli URL di streaming. 
 
-## <a name="prerequisites"></a>Prerequisiti 
+## <a name="prerequisites"></a>Prerequisites 
 
 [Creare un account di Servizi multimediali di Azure](create-account-cli-how-to.md).
 

@@ -15,13 +15,13 @@ ms.workload: na
 ms.date: 01/29/2018
 ms.author: labrenne
 ms.openlocfilehash: 2a11e3d7b8ba2b9f4a0d0d373367575a779eebc4
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77017089"
 ---
-# <a name="cli-example-create-a-batch-account-in-batch-service-mode"></a>Esempio di interfaccia della riga di comando: Creare un account Batch in modalità servizio Batch
+# <a name="cli-example-create-a-batch-account-in-batch-service-mode"></a>Esempio dell'interfaccia della riga di comando: creare un account Batch in modalità servizio Batch
 
 Questo script crea un account Azure Batch in modalità servizio Batch e mostra come eseguire query o aggiornamenti su varie proprietà dell'account. Quando si crea un account Batch in modalità servizio Batch predefinita, i nodi di calcolo vengono assegnati internamente dal servizio Batch. I nodi di calcolo allocati sono soggetti a una quota di memoria centrale vCPU separata e l'account può essere autenticato tramite credenziali con chiave condivisa o un token di Azure Active Directory.
 

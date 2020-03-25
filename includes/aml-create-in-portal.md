@@ -10,10 +10,10 @@ ms.custom: include file
 ms.topic: include
 ms.date: 11/04/2019
 ms.openlocfilehash: 8ccd3e6129f4a061eacf83a1f4e70174c697480f
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73633683"
 ---
 1. Accedere al [portale di Azure](https://portal.azure.com/) usando le credenziali della sottoscrizione di Azure.
@@ -30,7 +30,7 @@ ms.locfileid: "73633683"
 
 1. Specificare le informazioni seguenti per configurare la nuova area di lavoro:
 
-   Campo|DESCRIZIONE 
+   Campo|Descrizione 
    ---|---
    Nome dell'area di lavoro |Immettere un nome univoco che identifichi l'area di lavoro. In questo esempio si usa **docs-ws**. I nomi devono essere univoci all'interno del gruppo di risorse. Usare un nome facile da ricordare e da distinguere dai nomi delle aree di lavoro create da altri utenti.  
    Subscription |Selezionare la sottoscrizione di Azure da usare.

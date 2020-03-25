@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 01/30/2020
 ms.author: lcozzens
 ms.openlocfilehash: c744557471a9b37bd620bb9195bdb709c24649ab
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77047282"
 ---
 # <a name="integrate-with-a-cicd-pipeline"></a>Integrare una pipeline CI/CD

@@ -15,10 +15,10 @@ ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 664686511df8f310295a9f6ed6bc689b3a999544
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75430742"
 ---
 # <a name="customize-the-style-of-the-developer-portal-pages"></a>Personalizzare lo stile delle pagine del portale per sviluppatori
@@ -40,8 +40,8 @@ Questo articolo illustra come personalizzare lo stile degli elementi nelle pagin
 ## <a name="prerequisites"></a>Prerequisites
 
 + Acquisire familiarità con la [terminologia di Gestione API di Azure](api-management-terminology.md).
-+ Completare l'avvio rapido seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
-+ Completare anche l'esercitazione seguente: [Importare e pubblicare la prima API](import-and-publish.md)
++ Completare la guida introduttiva seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
++ Completare anche l'esercitazione seguente: [Importare e pubblicare la prima API](import-and-publish.md).
 
 ## <a name="customize-the-developer-portal"></a>Personalizzare il portale per sviluppatori
 

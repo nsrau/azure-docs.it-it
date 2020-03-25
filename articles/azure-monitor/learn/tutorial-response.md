@@ -8,10 +8,10 @@ ms.author: bwren
 ms.date: 10/05/2018
 ms.custom: mvc
 ms.openlocfilehash: 756ce6c8551d259fc27855489b4276d90c7aa771
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77670373"
 ---
 # <a name="respond-to-events-with-azure-monitor-alerts"></a>Rispondere agli eventi con gli avvisi di Monitoraggio di Azure

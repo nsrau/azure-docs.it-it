@@ -9,10 +9,10 @@ ms.topic: sample
 ms.custom: mvc
 ms.date: 02/28/2018
 ms.openlocfilehash: d2b54d1173b9591de2482f4b3368d3dde8b8c766
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "71947804"
 ---
 # <a name="list-and-update-configurations-of-an-azure-database-for-postgresql-server-using-azure-cli"></a>Elencare e aggiornare le configurazioni di un server di Database di Azure per PostgreSQL tramite l'interfaccia della riga di comando di Azure
@@ -43,6 +43,6 @@ Questo script usa i comandi illustrati nella tabella seguente:
 | [az group delete](/cli/azure/group) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Per altre informazioni sull'interfaccia della riga di comando di Azure: [Documentazione dell'interfaccia della riga di comando di Azure](/cli/azure).
-- Provare altri script: [Azure CLI samples for Azure Database for PostgreSQL](../sample-scripts-azure-cli.md) (Esempi di interfaccia della riga di comando di Azure per Database di Azure per PostgreSQL)
+- Altre informazioni sull'interfaccia della riga di comando di Azure: [documentazione sull'interfaccia della riga di comando di Azure](/cli/azure).
+- Provare a eseguire altri script: [esempi dell'interfaccia della riga di comando di Azure per il database di Azure per PostgreSQL](../sample-scripts-azure-cli.md)
 - Per altre informazioni sui parametri di server, vedere [Come configurare i parametri del server nel portale di Azure](../howto-configure-server-parameters-using-portal.md).

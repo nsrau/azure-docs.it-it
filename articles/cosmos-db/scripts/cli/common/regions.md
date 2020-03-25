@@ -8,10 +8,10 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 9/25/2019
 ms.openlocfilehash: b7b6be0ce781debcb19b5c0fb7b6a4b0123ef366
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "71275108"
 ---
 # <a name="add-regions-change-failover-priority-trigger-failover-for-an-azure-cosmos-account-using-azure-cli"></a>Aggiungere aree, cambiare la priorità di failover e attivare un failover per un account Azure Cosmos tramite l'interfaccia della riga di comando di Azure

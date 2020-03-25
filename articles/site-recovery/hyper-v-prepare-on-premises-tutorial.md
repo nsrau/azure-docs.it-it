@@ -8,11 +8,11 @@ ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: b36e4688ebd6e929a56869a6bb191d98b2f1f432
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78385119"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79224028"
 ---
 # <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>Predisporre i server Hyper-V locali per il ripristino di emergenza in Azure
 

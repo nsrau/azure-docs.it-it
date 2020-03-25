@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 06/21/2019
 ms.custom: mvc
 ms.openlocfilehash: bda8f1e3419f80faabb2f469a9ac5fd5c77bd79e
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78674387"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
@@ -37,7 +37,7 @@ In questa esercitazione si eseguono le seguenti attività:
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Le due applicazioni di esempio eseguite in questa guida introduttiva sono scritte in Node.js. È necessario disporre di Node.js v10.x.x o versioni successive nel computer di sviluppo.
 

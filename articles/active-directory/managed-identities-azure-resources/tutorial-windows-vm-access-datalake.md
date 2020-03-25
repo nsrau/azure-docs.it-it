@@ -16,10 +16,10 @@ ms.date: 11/14/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c03f78341b7521267f8aaf72d58ebd4c912949ce
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75977871"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-data-lake-store"></a>Esercitazione: Usare un'identità gestita assegnata dal sistema per una macchina virtuale Windows per accedere ad Azure Data Lake Store
@@ -54,7 +54,7 @@ Nell'istanza di Data Lake Store creare una nuova cartella e concedere all'identi
 2. Fare clic sull'istanza di Data Lake Store che si vuole usare per questa esercitazione.
 3. Fare clic su **Esplora dati** sulla barra dei comandi.
 4. Viene selezionata la cartella radice dell'istanza di Data Lake Store.  Fare clic su **Accedi** sulla barra dei comandi.
-5. Scegliere **Aggiungi**.  Nel campo **Seleziona** immettere il nome della VM, ad esempio **DevTestVM**.  Fare clic per selezionare la VM nei risultati della ricerca, quindi fare clic su **Seleziona**.
+5. Fare clic su **Aggiungi**.  Nel campo **Seleziona** immettere il nome della VM, ad esempio **DevTestVM**.  Fare clic per selezionare la VM nei risultati della ricerca, quindi fare clic su **Seleziona**.
 6. Fare clic su **Selezionare le autorizzazioni**.  Selezionare **Lettura** ed **Esecuzione**, aggiungere a **Questa cartella** e aggiungere come **An access permission only** (Solo autorizzazione di accesso).  Fare clic su **OK**.  L'autorizzazione verrà aggiunta correttamente.
 7. Chiudere il pannello **Accesso**.
 8. Per questa esercitazione creare una nuova cartella.  Fare clic su **Nuova cartella** sulla barra dei comandi e assegnare un nome alla nuova cartella, ad esempio **TestFolder**.  Fare clic su **OK**.

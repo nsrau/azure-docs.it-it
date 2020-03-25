@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 Customer intent: As a developer, I want to build a Java application to query data stored in a Cassandra API account of Azure Cosmos DB so that customers can manage the key/value data and utilize the global distribution, elastic scaling, multi-master, and other capabilities offered by Azure Cosmos DB.
 ms.openlocfilehash: 69a9bc912f2cd52e52ca6403187f993413539ecd
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038178"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "60899900"
 ---
 # <a name="tutorial-query-data-from-a-cassandra-api-account-in-azure-cosmos-db"></a>Esercitazione: Eseguire query sui dati da un account dell'API Cassandra in Azure Cosmos DB
 
@@ -24,11 +24,11 @@ Questa esercitazione illustra le attività seguenti:
 
 > [!div class="checklist"]
 > * Eseguire query sui dati da una tabella di Cassandra
-> * Esecuzione dell'app
+> * Eseguire l'app
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Questo articolo fa parte di un'esercitazione in più parti. Prima di iniziare, assicurarsi di completare i passaggi precedenti per creare account, keyspace e tabella dell'API Cassandra e per [caricare dati di esempio nella tabella](cassandra-api-load-data.md). 
 

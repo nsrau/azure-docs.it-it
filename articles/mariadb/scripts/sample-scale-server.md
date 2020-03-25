@@ -9,10 +9,10 @@ ms.topic: sample
 ms.custom: mvc
 ms.date: 12/02/2019
 ms.openlocfilehash: 562f265cccf444740c177a41e516f9066188613e
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74771636"
 ---
 # <a name="monitor-and-scale-an-azure-database-for-mariadb-server-using-azure-cli"></a>Monitorare e ridimensionare un server Database di Azure per MariaDB usando l'interfaccia della riga di comando di Azure
@@ -43,5 +43,5 @@ Questo script usa i comandi illustrati nella tabella seguente:
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Altre informazioni sulle [risorse di calcolo e archiviazione del database di Azure per MariaDB](../concepts-pricing-tiers.md)
-- Provare altri script: [Esempi dell'interfaccia della riga di comando di Azure per Database di Azure per MariaDB](../sample-scripts-azure-cli.md)
+- Provare a eseguire altri script: [esempi dell'interfaccia della riga di comando di Azure per Database di Azure per MariaDB](../sample-scripts-azure-cli.md)
 - Altre informazioni sull'[interfaccia della riga di comando di Azure](/cli/azure)

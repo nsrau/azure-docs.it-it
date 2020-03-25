@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 1ec668fac087773001ca401eefb5ca8bc10ea2b8
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.openlocfilehash: ba5ecc29edbcd69324500e87add846e4395ce0a3
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78367099"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80067558"
 ---
 # <a name="prepare-azure-for-on-premises-disaster-recovery-to-azure"></a>Preparare Azure per il ripristino di emergenza in locale in Azure
 

@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 04/24/2019
 ms.author: jeedes
 ms.openlocfilehash: 43d7e58f0c267afe8a22c217d9800abb041df8cb
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68723053"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-zscloud"></a>Esercitazione: Integrazione di Azure Active Directory con Zscaler ZSCloud
@@ -34,7 +34,7 @@ L'integrazione di Zscaler ZSCloud con Azure AD offre i vantaggi seguenti:
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per configurare l'integrazione di Azure AD con Zscaler ZSCloud, sono necessari gli elementi seguenti:
 
@@ -91,7 +91,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 Per configurare l'accesso Single Sign-On di Azure AD con Zscaler ZSCloud, seguire questa procedura:
 
-1. Nella pagina di integrazione dell'applicazione **Zscaler ZSCloud** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
+1. Nella pagina di integrazione dell'applicazione [Zscaler ZSCloud](https://portal.azure.com/) del **portale di Azure** selezionare **Single Sign-On**.
 
     ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 
@@ -105,7 +105,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Zscaler ZSCloud, seguir
 
 4. Nella sezione **Configurazione SAML di base** seguire questa procedura:
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Zscaler ZSCloud](common/sp-signonurl.png)
+    ![Informazioni su URL e dominio per Single Sign-On di Zscaler ZSCloud](common/sp-signonurl.png)
 
     Nella casella di testo **URL di accesso** digitare l'URL usato dagli utenti per accedere all'applicazione Zscaler ZSCloud.
 
@@ -136,7 +136,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Zscaler ZSCloud, seguir
 
     e. Nell'elenco **Attributo di origine** selezionare il valore dell'attributo indicato per la riga.
     
-    f. Fare clic su **Save**.
+    f. Fare clic su **Salva**.
 
     > [!NOTE]
     > Fare clic [qui](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management) per sapere come configurare un Ruolo in Azure AD
@@ -169,7 +169,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Zscaler ZSCloud, seguir
 
 4. Passare a **Amministrazione > Autenticazione > Impostazioni di autenticazione** ed eseguire i passaggi seguenti:
    
-    ![Amministrazione](./media/zscaler-zscloud-tutorial/ic800206.png "Administration")
+    ![Amministrazione](./media/zscaler-zscloud-tutorial/ic800206.png "Amministrazione")
 
     a. In Tipo di autenticazione scegliere **SAML**.
 
@@ -193,11 +193,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con Zscaler ZSCloud, seguir
 
     g. Nella casella di testo **Attributo nome reparto** immettere **department** se si desidera abilitare il provisioning automatico di SAML per gli attributi department.
 
-    h. Fare clic su **Save**.
+    h. Fare clic su **Salva**.
 
 6. Nella pagina della finestra di dialogo **Configure User Authentication** seguire questa procedura:
 
-    ![Administration](./media/zscaler-zscloud-tutorial/ic800207.png)
+    ![Amministrazione](./media/zscaler-zscloud-tutorial/ic800207.png)
 
     a. Passare il mouse sul menu **Attivazione** nella parte inferiore sinistra.
 
@@ -214,7 +214,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Zscaler ZSCloud, seguir
 
 3. Fare clic sulla scheda **Connessioni** .   
   
-     ![Connessioni](./media/zscaler-zscloud-tutorial/ic769493.png "connessioni")
+     ![Connessioni](./media/zscaler-zscloud-tutorial/ic769493.png "Connessioni")
 
 4. Fare clic su **Impostazioni LAN** per aprire la finestra di dialogo **Impostazioni LAN**.
 
@@ -236,7 +236,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Zscaler ZSCloud, seguir
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
-Questa sezione descrive come creare un utente di test di nome Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -252,7 +252,7 @@ Questa sezione descrive come creare un utente di test di nome Britta Simon nel p
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
-    b. Nel campo **Nome utente** digitare brittasimon@yourcompanydomain.extension. Ad esempio: BrittaSimon@contoso.com
+    b. Nel campo **Nome utente** digitare brittasimon@yourcompanydomain.extension. Ad esempio, usare BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
@@ -304,7 +304,7 @@ In questa sezione viene creato un utente di nome Britta Simon in Zscaler ZSCloud
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di Zscaler ZSCloud nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Zscaler ZSCloud per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di Zscaler ZSCloud nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Zscaler ZSCloud per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

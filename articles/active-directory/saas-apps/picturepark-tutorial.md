@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 04/18/2019
 ms.author: jeedes
 ms.openlocfilehash: 08c5bd8da0dda74156b2d44c8106ed345ef749dd
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73177010"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-picturepark"></a>Esercitazione: Integrazione di Azure Active Directory con Picturepark
@@ -34,7 +34,7 @@ L'integrazione di Picturepark con Azure AD offre i vantaggi seguenti:
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per configurare l'integrazione di Azure AD con Picturepark, sono necessari gli elementi seguenti:
 
@@ -89,7 +89,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 Per configurare l'accesso Single Sign-On di Azure AD con Picturepark, seguire questa procedura:
 
-1. Nella pagina di integrazione dell'applicazione **Picturepark** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
+1. Nella pagina di integrazione dell'applicazione [Picturepark](https://portal.azure.com/) del **portale di Azure** selezionare **Single Sign-On**.
 
     ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 
@@ -188,13 +188,13 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
-    b. Nel campo **Nome utente** digitare `brittasimon@yourcompanydomain.extension`. Ad esempio: BrittaSimon@contoso.com
+    b. Nel campo **Nome utente** digitare `brittasimon@yourcompanydomain.extension`. Ad esempio, usare BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
     d. Fare clic su **Crea**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Picturepark.
 
@@ -238,7 +238,7 @@ Per consentire agli utenti di Azure AD di accedere a Picturepark, è necessario 
 
 1. Nella finestra di dialogo **Crea utente** eseguire i passaggi seguenti per un utente di Azure Active Directory valido di cui si vuole eseguire il provisioning:
    
-    ![Creare l'utente](./media/picturepark-tutorial/ic795069.png "Crea utente")
+    ![Creare un utente](./media/picturepark-tutorial/ic795069.png "Crea utente")
    
     a. Nella casella di testo **Email Address** (Indirizzo di posta elettronica) digitare l'**indirizzo di posta elettronica** dell'utente `BrittaSimon@contoso.com`.  
    
@@ -258,7 +258,7 @@ Per consentire agli utenti di Azure AD di accedere a Picturepark, è necessario 
 
     i. Selezionare una **Language**.
    
-    j. Fare clic su **Create**(Crea).
+    j. Fare clic su **Crea**.
 
 >[!NOTE]
 >È possibile usare qualsiasi altro strumento o API di creazione di account utente offerta da Picturepark per eseguire il provisioning degli account utente di Azure AD.

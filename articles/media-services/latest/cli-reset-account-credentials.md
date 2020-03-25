@@ -15,17 +15,17 @@ ms.workload: na
 ms.date: 08/20/2019
 ms.author: juliako
 ms.openlocfilehash: 09c93e2d851bea22e9d54dde35398f36335eb896
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "70967582"
 ---
-# <a name="cli-example-reset-the-account-credentials"></a>Esempio di interfaccia della riga di comando: Reimpostare le credenziali dell'account
+# <a name="cli-example-reset-the-account-credentials"></a>Esempio dell'interfaccia della riga di comando: Reimpostare le credenziali dell'account
 
 Lo script dell'interfaccia della riga di comando di Azure in questo articolo mostra come reimpostare le credenziali dell'account e ottenere le impostazioni di app.config.
 
-## <a name="prerequisites"></a>Prerequisiti 
+## <a name="prerequisites"></a>Prerequisites 
 
 [Creare un account di Servizi multimediali di Azure](create-account-cli-how-to.md).
 

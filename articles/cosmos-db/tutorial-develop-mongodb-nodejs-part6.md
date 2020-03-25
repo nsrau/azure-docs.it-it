@@ -11,10 +11,10 @@ ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
 ms.openlocfilehash: 0c39ffe40a490ee23ac65f892c46fba2578bce74
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75441096"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---add-crud-functions-to-the-app"></a>Creare un'app Angular con l'API di Azure Cosmos DB per MongoDB - Aggiungere funzioni CRUD all'app

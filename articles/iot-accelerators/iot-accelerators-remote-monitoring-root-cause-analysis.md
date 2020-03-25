@@ -9,13 +9,13 @@ ms.date: 11/20/2018
 ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: c3cb940583677d813873c07fbfa679fdcc1dff59
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77565469"
 ---
-# <a name="tutorial-conduct-a-root-cause-analysis-on-an-alert"></a>Esercitazione: Eseguire un'analisi della causa radice su un avviso
+# <a name="tutorial-conduct-a-root-cause-analysis-on-an-alert"></a>Esercitazione: Eseguire un'analisi della causa radice di un avviso
 
 In questa esercitazione si apprenderà come usare l'acceleratore di soluzione Monitoraggio remoto per diagnosticare la causa radice di un avviso. Si vedrà che è stato attivato un avviso nel dashboard della soluzione Monitoraggio remoto e quindi si userà Azure Time Series Insights Explorer per ricercare la causa radice.
 

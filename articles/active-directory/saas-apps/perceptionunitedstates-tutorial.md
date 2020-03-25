@@ -1,6 +1,6 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con Perception United States (Non-UltiPro) | Microsoft Docs'
-description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Perception United States (Non-UltiPro).
+title: 'Esercitazione: Integrazione di Azure Active Directory con Perception Stati Uniti (Non-UltiPro) | Microsoft Docs'
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Perception Stati Uniti (Non-UltiPro).
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -16,42 +16,42 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: e9ba42f780c93486409077383750d0635637e99b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67094846"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-perception-united-states-non-ultipro"></a>Esercitazione: Integrazione di Azure Active Directory con Perception United States (Non-UltiPro)
+# <a name="tutorial-azure-active-directory-integration-with-perception-united-states-non-ultipro"></a>Esercitazione: Integrazione di Azure Active Directory con Perception Stati Uniti (Non-UltiPro)
 
-Questa esercitazione descrive come integrare Perception United States (Non-UltiPro) con Azure Active Directory (Azure AD).
-L'integrazione di Perception United States (Non-UltiPro) con Azure AD offre i vantaggi seguenti:
+Questa esercitazione descrive come integrare Perception Stati Uniti (Non-UltiPro) con Azure Active Directory (Azure AD).
+L'integrazione di Perception Stati Uniti (Non-UltiPro) con Azure AD offre i vantaggi seguenti:
 
-* È possibile controllare in Azure AD chi può accedere a Perception United States (Non-UltiPro).
-* È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a Perception United States (Non-UltiPro) con gli account Azure AD personali.
+* È possibile controllare in Azure AD chi può accedere a Perception Stati Uniti (Non-UltiPro).
+* È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a Perception Stati Uniti (Non-UltiPro) con gli account Azure AD personali.
 * È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
-Per configurare l'integrazione di Azure AD con Perception United States (Non-UltiPro), sono necessari gli elementi seguenti:
+Per configurare l'integrazione di Azure AD con Perception Stati Uniti (Non-UltiPro), sono necessari gli elementi seguenti:
 
 * Una sottoscrizione di Azure AD. Se non si dispone di un ambiente Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/)
-* Sottoscrizione di Perception United States (Non-UltiPro) abilitata per l'accesso Single Sign-On
+* Sottoscrizione di Perception Stati Uniti (Non-UltiPro) abilitata per l'accesso Single Sign-On
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 
 In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
 
-* Perception United States (Non-UltiPro) supporta l'accesso SSO avviato da **IDP**
+* Perception Stati Uniti (Non-UltiPro) supporta l'accesso SSO avviato da **IDP**
 
-## <a name="adding-perception-united-states-non-ultipro-from-the-gallery"></a>Aggiunta di Perception United States (Non-UltiPro) dalla raccolta
+## <a name="adding-perception-united-states-non-ultipro-from-the-gallery"></a>Aggiunta di Perception Stati Uniti (Non-UltiPro) dalla raccolta
 
-Per configurare l'integrazione di Perception United States (Non-UltiPro) in Azure AD, è necessario aggiungere Perception United States (Non-UltiPro) dalla raccolta all'elenco di app SaaS gestite.
+Per configurare l'integrazione di Perception Stati Uniti (Non-UltiPro) in Azure AD, è necessario aggiungere Perception Stati Uniti (Non-UltiPro) dalla raccolta all'elenco di app SaaS gestite.
 
-**Per aggiungere Perception United States (Non-UltiPro) dalla raccolta, seguire questa procedura:**
+**Per aggiungere Perception Stati Uniti (Non-UltiPro) dalla raccolta, seguire questa procedura:**
 
 1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro.
 
@@ -65,31 +65,31 @@ Per configurare l'integrazione di Perception United States (Non-UltiPro) in Azur
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca digitare **Perception United States (Non-UltiPro)** , selezionare **Perception United States (Non-UltiPro)** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca digitare **Perception Stati Uniti (Non-UltiPro)** , selezionare **Perception Stati Uniti (Non-UltiPro)** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-     ![Perception United States (Non-UltiPro) nell'elenco risultati](common/search-new-app.png)
+     ![Perception Stati Uniti (Non-UltiPro) nell'elenco risultati](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Perception United States (Non-UltiPro) usando un utente di test di nome **Britta Simon**.
-Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Perception United States (Non-UltiPro).
+In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Perception Stati Uniti (Non-UltiPro) usando un utente di test di nome **Britta Simon**.
+Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Perception Stati Uniti (Non-UltiPro).
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con Perception United States (Non-UltiPro), è necessario completare le procedure di base seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con Perception Stati Uniti (Non-UltiPro), è necessario completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On di Perception United States (Non-UltiPro)](#configure-perception-united-states-non-ultipro-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
+2. **[Configurare l'accesso Single Sign-On di Perception Stati Uniti (Non-UltiPro)](#configure-perception-united-states-non-ultipro-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare l'utente di test di Perception United States (Non-UltiPro)](#create-perception-united-states-non-ultipro-test-user)** : per avere una controparte di Britta Simon in Perception United States (Non-UltiPro) collegata alla rappresentazione dell'utente in Azure AD.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare l'utente di test di Perception Stati Uniti (Non-UltiPro)](#create-perception-united-states-non-ultipro-test-user)** : per avere una controparte di Britta Simon in Perception Stati Uniti (Non-UltiPro) collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
 In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure.
 
-Per configurare l'accesso Single Sign-On di Azure AD con Perception United States (Non-UltiPro), seguire questa procedura:
+Per configurare l'accesso Single Sign-On di Azure AD con Perception Stati Uniti (Non-UltiPro), seguire questa procedura:
 
-1. Nella pagina di integrazione dell'applicazione [Perception United States (Non-UltiPro)](https://portal.azure.com/) del **portale di Azure** selezionare **Single Sign-On**.
+1. Nella pagina di integrazione dell'applicazione [Perception Stati Uniti (Non-UltiPro)](https://portal.azure.com/) del **portale di Azure** selezionare **Single Sign-On**.
 
     ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 
@@ -103,7 +103,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Perception United State
 
 4. Nella pagina **Configura l'accesso Single Sign-On con SAML** eseguire questa procedura:
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Perception United States (Non-UltiPro)](common/idp-intiated.png)
+    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Perception Stati Uniti (Non-UltiPro)](common/idp-intiated.png)
 
     a. Nella casella di testo **Identificatore** digitare un URL: `https://perception.kanjoya.com/sp`
 
@@ -121,7 +121,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Perception United State
 
     ![Collegamento di download del certificato](common/metadataxml.png)
 
-6. Nella sezione **Configurare Perception United States (Non-UltiPro)** copiare gli URL appropriati in base alle esigenze.
+6. Nella sezione **Configurare Perception Stati Uniti (Non-UltiPro)** copiare gli URL appropriati in base alle esigenze.
 
     ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
 
@@ -131,17 +131,17 @@ Per configurare l'accesso Single Sign-On di Azure AD con Perception United State
 
     c. URL di chiusura sessione   
 
-### <a name="configure-perception-united-states-non-ultipro-single-sign-on"></a>Configurare l'accesso Single Sign-On di Perception United States (Non-UltiPro)
+### <a name="configure-perception-united-states-non-ultipro-single-sign-on"></a>Configurare l'accesso Single Sign-On di Perception Stati Uniti (Non-UltiPro)
 
-1. In un'altra finestra del browser accedere al sito aziendale di Perception United States (Non-UltiPro) come amministratore.
+1. In un'altra finestra del browser accedere al sito aziendale di Perception Stati Uniti (Non-UltiPro) come amministratore.
 
 2. Sulla barra degli strumenti principale fare clic su **Account Settings** (Impostazioni account).
 
-    ![Utente di Perception United States (Non-UltiPro)](./media/perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_user.png)
+    ![Utente di Perception Stati Uniti (Non-UltiPro)](./media/perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_user.png)
 
 3. Nella pagina **Account Settings** (Impostazioni account) seguire questa procedura:
 
-    ![Utente di Perception United States (Non-UltiPro)](./media/perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_account.png)
+    ![Utente di Perception Stati Uniti (Non-UltiPro)](./media/perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_account.png)
 
     a. Nella casella di testo **Company Name** (Nome società) digitare il nome della **società**.
     
@@ -153,7 +153,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Perception United State
 
 4. Nella pagina **SSO Configuration** (Configurazione SSO) seguire questa procedura:
 
-    ![Configurazione SSO di Perception United States (Non-UltiPro)](./media/perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_ssoconfig.png)
+    ![Configurazione SSO di Perception Stati Uniti (Non-UltiPro)](./media/perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_ssoconfig.png)
 
     a. Per **SAML NameID Type** (Tipo ID nome SAML) selezionare **EMAIL** (POSTA ELETTRONICA).
 
@@ -167,7 +167,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Perception United State
 
     f. Fare clic su **Update**.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
@@ -185,23 +185,23 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
-    b. Nel campo **Nome utente** digitare brittasimon@yourcompanydomain.extension. Ad esempio: BrittaSimon@contoso.com
+    b. Nel campo **Nome utente** digitare brittasimon@yourcompanydomain.extension. Ad esempio, usare BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
-    d. Fare clic su **Create**(Crea).
+    d. Fare clic su **Crea**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
-In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Perception United States (Non-UltiPro).
+In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Perception Stati Uniti (Non-UltiPro).
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Perception United States (Non-UltiPro)** .
+1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Perception Stati Uniti (Non-UltiPro)** .
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco delle applicazioni selezionare **Perception United States (Non-UltiPro)** .
+2. Nell'elenco delle applicazioni selezionare **Perception Stati Uniti (Non-UltiPro)** .
 
-    ![Collegamento di Perception United States (Non-UltiPro) nell'elenco delle applicazioni](common/all-applications.png)
+    ![Collegamento di Perception Stati Uniti (Non-UltiPro) nell'elenco delle applicazioni](common/all-applications.png)
 
 3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
@@ -217,15 +217,15 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
-### <a name="create-perception-united-states-non-ultipro-test-user"></a>Creare l'utente di test di Perception United States (Non-UltiPro)
+### <a name="create-perception-united-states-non-ultipro-test-user"></a>Creare l'utente di test di Perception Stati Uniti (Non-UltiPro)
 
-In questa sezione viene creato un utente di nome Britta Simon in Perception United States (Non-UltiPro). Collaborare con il [team di supporto clienti di Perception United States (Non-UltiPro)](https://www.ultimatesoftware.com/Contact/ContactUs) per aggiungere gli utenti nella piattaforma Perception United States (Non-UltiPro).
+In questa sezione viene creato un utente di nome Britta Simon in Perception Stati Uniti (Non-UltiPro). Collaborare con il [team di supporto clienti di Perception Stati Uniti (Non-UltiPro)](https://www.ultimatesoftware.com/Contact/ContactUs) per aggiungere gli utenti nella piattaforma Perception Stati Uniti (Non-UltiPro).
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On 
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro Perception United States (Non-UltiPro) nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Perception United States (Non-UltiPro) per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro Perception Stati Uniti (Non-UltiPro) nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Perception Stati Uniti (Non-UltiPro) per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

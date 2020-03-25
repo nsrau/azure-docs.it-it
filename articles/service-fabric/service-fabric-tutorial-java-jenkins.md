@@ -7,10 +7,10 @@ ms.date: 08/27/2018
 ms.author: suhuruli
 ms.custom: mvc
 ms.openlocfilehash: dee1d5a744ddfc2ad38cbe93447377a8af27a2f7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75376653"
 ---
 # <a name="tutorial-configure-a-jenkins-environment-to-enable-cicd-for-a-java-application-on-service-fabric"></a>Esercitazione: Configurare un ambiente Jenkins per abilitare CI/CD per un'applicazione Java in Service Fabric

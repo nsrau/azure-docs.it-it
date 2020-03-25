@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con Infor Retail – Information Management | Microsoft Docs'
+title: 'Esercitazione: Integrazione di Azure Active Directory con Infor Retail – Information Management | Documentazione Microsoft'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Infor Retail – Information Management.
 services: active-directory
 documentationCenter: na
@@ -17,10 +17,10 @@ ms.date: 04/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6572560833e6336495b3bec782a096b584be1ec0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67100278"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infor-retail--information-management"></a>Esercitazione: Integrazione di Azure Active Directory con Infor Retail – Information Management
@@ -35,7 +35,7 @@ L'integrazione di Infor Retail – Information Management con Azure AD offre i v
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per configurare l'integrazione di Azure AD con Infor Retail – Information Management, sono necessari gli elementi seguenti:
 
@@ -80,7 +80,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Infor Retail 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On per Infor Retail – Information Management](#configure-infor-retail--information-management-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare un utente di test di Infor Retail – Information Management](#create-infor-retail--information-management-test-user)** : per avere una controparte di Britta Simon in Infor Retail – Information Management collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -90,7 +90,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 Per configurare l'accesso Single Sign-On di Azure AD con Infor Retail – Information Management, seguire questa procedura:
 
-1. Nella pagina di integrazione dell'applicazione **Infor Retail – Information Management** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
+1. Nella pagina di integrazione dell'applicazione [Infor Retail – Information Management](https://portal.azure.com/) del **portale di Azure** selezionare **Single Sign-On**.
 
     ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 
@@ -142,7 +142,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Infor Retail – Inform
 
 Per configurare l'accesso Single Sign-On sul lato **Infor Retail – Information Management**, è necessario inviare il file **XML metadati** scaricato e gli URL copiati appropriati al [team di supporto di Infor Retail – Information Management](mailto:innovate@infor.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
@@ -160,13 +160,13 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
-    b. Nel campo **Nome utente** digitare `brittasimon@yourcompanydomain.extension`. Ad esempio: BrittaSimon@contoso.com
+    b. Nel campo **Nome utente** digitare `brittasimon@yourcompanydomain.extension`. Ad esempio, usare BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
-    d. Fare clic su **Create**(Crea).
+    d. Fare clic su **Crea**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Infor Retail – Information Management.
 

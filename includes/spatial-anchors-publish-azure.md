@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 1/30/2019
 ms.author: rgarcia
 ms.openlocfilehash: 0dab71b6d169e26a3d7dc208dd09efe1143fbe13
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67179836"
 ---
 ### <a name="open-the-publish-wizard"></a>Aprire la pubblicazione guidata
@@ -41,10 +41,10 @@ Accanto a **Piano di hosting** selezionare **Nuovo**.
 
 Nella finestra di dialogo **Configura piano di hosting** usare le impostazioni seguenti:
 
-| Impostazione | Valore consigliato | DESCRIZIONE |
+| Impostazione | Valore consigliato | Descrizione |
 |-|-|-|
 |Piano di servizio app| MySharingServicePlan | Nome del piano di servizio app. |
-| Località | Stati Uniti occidentali | Data center in cui è ospitata l'app Web. |
+| Location | Stati Uniti occidentali | Data center in cui è ospitata l'app Web. |
 | Dimensione | Gratuito | Il [piano tariffario](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) che determina le funzionalità di hosting. |
 
 Selezionare **OK**.

@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7288e5d8c01122bea7650274cdaf358c7fc24cd0
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.openlocfilehash: 940de5e100da934e0bc4efdfc6686f8040e10954
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78392392"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79457322"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Come usare l'eliminazione temporanea di Key Vault con l'interfaccia della riga di comando
 
@@ -23,7 +23,7 @@ La funzionalità di eliminazione temporanea di Azure Key Vault consente il recup
 - Supporto per l'eliminazione reversibile di un insieme di credenziali delle chiavi
 - Supporto per l'eliminazione reversibile di oggetti di insiemi di credenziali delle chiavi: chiavi, segreti e certificati
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Interfaccia della riga di comando di Azure: se non è ancora installata nell'ambiente di lavoro, vedere [Gestire Key Vault tramite l'interfaccia della riga di comando di Azure](key-vault-manage-with-cli2.md).
 
@@ -36,7 +36,7 @@ Le operazioni di Key Vault vengono gestite separatamente tramite autorizzazioni 
 | Operazione | Descrizione | Autorizzazione utente |
 |:--|:--|:--|
 |Elenco|Elenca gli insiemi di credenziali delle chiavi eliminati.|Microsoft.KeyVault/deletedVaults/read|
-|Ripristina|Recupera un insieme di credenziali delle chiavi eliminato.|Microsoft.KeyVault/vaults/write|
+|Recupera|Recupera un insieme di credenziali delle chiavi eliminato.|Microsoft.KeyVault/vaults/write|
 |Ripulisci|Rimuove in modo permanente un insieme di credenziali delle chiavi eliminato e tutti i relativi contenuti.|Microsoft.KeyVault/locations/deletedVaults/purge/action|
 
 Per altre informazioni sulle autorizzazioni e il controllo degli accessi, vedere [Proteggere l'insieme di credenziali delle chiavi](key-vault-secure-your-key-vault.md).
@@ -53,7 +53,7 @@ La funzione di eliminazione temporanea viene abilitata per consentire il recuper
 Per un insieme di credenziali delle chiavi esistente denominato ContosoVault, è possibile abilitare l'eliminazione temporanea come indicato di seguito. 
 
 ```azurecli
-az resource update --id $(az keyvault show --name ContosoVault -o tsv | awk '{print $1}') --set properties.enableSoftDelete=true
+az keyvault update -n ContosoVault --enable-soft-delete true
 ```
 
 ### <a name="new-key-vault"></a>Insieme di credenziali delle chiavi nuovo
@@ -134,7 +134,7 @@ Quando si elimina una chiave in un insieme di credenziali delle chiavi con elimi
 
 Analogamente agli insiemi di credenziali delle chiavi, anche una chiave, un segreto o un certificato eliminato rimane in stato "eliminato" per un massimo di 90 giorni, a meno che non si scelga di recuperarlo o eliminarlo in modo definitivo.
 
-#### <a name="keys"></a>Keys
+#### <a name="keys"></a>Chiavi
 
 Per recuperare una chiave eliminata temporaneamente:
 
@@ -233,13 +233,13 @@ Quando la protezione dall'eliminazione è attivata, un insieme di credenziali o 
 
 Per attivare l'eliminazione temporanea e la protezione dall'eliminazione durante la creazione di un insieme di credenziali, usare il comando [az keyvault create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create):
 
-```
+```azurecli
 az keyvault create --name ContosoVault --resource-group ContosoRG --location westus --enable-soft-delete true --enable-purge-protection true
 ```
 
 Per aggiungere la protezione dall'eliminazione a un insieme di credenziali esistente (per cui è già abilitata l'eliminazione temporanea), usare il comando [az keyvault update](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-update):
 
-```
+```azurecli
 az keyvault update --name ContosoVault --resource-group ContosoRG --enable-purge-protection true
 ```
 

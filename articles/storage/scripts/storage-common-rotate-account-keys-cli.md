@@ -2,25 +2,19 @@
 title: Esempio di script dell'interfaccia della riga di comando di Azure - Ruotare le chiavi di accesso dell'account di archiviazione | Microsoft Docs
 description: Creare un account di Archiviazione di Azure, quindi recuperare e ruotare le relative chiavi di accesso.
 services: storage
-documentationcenter: na
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: ''
-ms.custom: mvc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: azurecli
+ms.subservice: blobs
+ms.devlang: cli
 ms.topic: sample
 ms.date: 06/22/2017
 ms.author: tamram
-ms.openlocfilehash: ac58886225221677aa003833167ff58cd578255d
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: aa7cba00d865bb7b2c1e0fd1f0059fb35ffff690
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55693922"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80060837"
 ---
 # <a name="create-a-storage-account-and-rotate-its-account-access-keys"></a>Creare un account di archiviazione e ruotare le relative chiavi di accesso
 
@@ -34,7 +28,7 @@ Lo script crea un account di Archiviazione di Azure, consente di visualizzare le
 
 [!code-azurecli-interactive[main](../../../cli_scripts/storage/rotate-storage-account-keys/rotate-storage-account-keys.sh "Rotate storage account keys")]
 
-## <a name="clean-up-deployment"></a>Pulire la distribuzione 
+## <a name="clean-up-deployment"></a>Pulire la distribuzione
 
 Eseguire il comando seguente per rimuovere il gruppo di risorse, l'account di archiviazione e tutte le risorse correlate.
 

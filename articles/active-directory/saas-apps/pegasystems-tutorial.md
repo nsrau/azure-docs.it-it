@@ -16,17 +16,17 @@ ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
 ms.openlocfilehash: bd54466e054055ff84cd5bb2b28c5cc074ac0017
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72026811"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pega-systems"></a>Esercitazione: Integrazione di Azure Active Directory con Pegasystems
 
 Questa esercitazione descrive come integrare Pegasystems con Azure Active Directory (Azure AD).
 
-Questa integrazione offre i vantaggi seguenti:
+Questa integrazione offre i seguenti vantaggi:
 
 * È possibile usare Azure AD per controllare chi può accedere a Pegasystems.
 * È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a Pegasystems con gli account Azure AD personali.
@@ -36,7 +36,7 @@ Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Acces
 
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per configurare l'integrazione di Azure AD con Pegasystems, sono necessari gli elementi seguenti:
 
@@ -89,7 +89,7 @@ In questa sezione verrà abilitato l'accesso Single Sign-On di Azure AD nel port
 
 Per configurare l'accesso Single Sign-On di Azure AD con Pegasystems, seguire questa procedura:
 
-1. Nella pagina di integrazione dell'applicazione **Pegasystems** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**:
+1. Nella pagina di integrazione dell'applicazione [Pegasystems](https://portal.azure.com/) del **portale di Azure** selezionare **Single Sign-On**:
 
     ![Selezionare Single Sign-On](common/select-sso.png)
 
@@ -272,7 +272,7 @@ A questo punto occorre creare un utente di nome Britta Simon in Pegasystems. Col
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 
-Il passaggio finale consiste nel testare la configurazione dell'accesso Single Sign-On di Azure AD usando il Pannello di accesso.
+Il passaggio finale consiste nel testare la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si seleziona il riquadro di Pegasystems nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza Pegasystems per cui si è configurato l'accesso SSO. Per altre informazioni, vedere [Accedere e usare le app nel portale App personali](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 

@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 05/18/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9ede78933e6b9e6933b0c5dabce395eb10713c88
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 0506c7fcb4e3734414fdc3b868aca84450ad8d07
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76278444"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80067039"
 ---
-# <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli"></a>Esercitazione: Scalare automaticamente un set di scalabilità di una macchina virtuale con l'interfaccia della riga di comando di Azure
+# <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli"></a>Esercitazione: Ridimensionare automaticamente un set di scalabilità di macchine virtuali con l'interfaccia della riga di comando di Azure
 
 Quando si crea un set di scalabilità, definire il numero di istanze di macchine virtuali da eseguire. È possibile aumentare o ridurre automaticamente il numero di istanze di macchine virtuali in base alle richieste dell'applicazione. La scalabilità automatica consente di adattarsi alle esigenze dei clienti o di rispondere alle prestazioni dell'applicazione durante il ciclo di vita dell'app. In questa esercitazione si apprenderà come:
 
@@ -118,50 +118,50 @@ L'output di esempio seguente mostra il nome dell'istanza, l'indirizzo IP pubblic
 
 Connettersi tramite SSH alla prima istanza di VM. Specificare l'indirizzo IP pubblico e il numero di porta con il parametro `-p`, in base a quanto visualizzato dal comando precedente:
 
-```azurecli-interactive
+```console
 ssh azureuser@13.92.224.66 -p 50001
 ```
 
 Dopo aver effettuato l'accesso, installare l'utilità **stress**. Avviare *10* ruoli di lavoro di **stress**che generano carico della CPU. Questi ruoli di lavoro vengono eseguiti per *420* secondi, che costituiscono un intervallo di tempo sufficiente affinché le regole di scalabilità automatica implementino l'azione desiderata.
 
-```azurecli-interactive
+```console
 sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
 
-Quando **stress** visualizza un output simile a *stress: info: [2688] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd* premere *INVIO* per tornare al prompt.
+Quando l'output visualizzato da **stress** è simile a *stress: info: [2688] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd*, premere *INVIO* per tornare al prompt.
 
 Per verificare che **stress** generi carico della CPU, esaminare il carico di sistema attivo con l'utilità **top**:
 
-```azurecli-interactive
+```console
 top
 ```
 
 Uscire da **top** e quindi chiudere la connessione all'istanza di VM. **stress** continuerà a essere eseguito nell'istanza di VM.
 
-```azurecli-interactive
+```console
 Ctrl-c
 exit
 ```
 
 Connettersi alla seconda istanza di VM con il numero di porta elencato dal precedente comando [az vmss list-instance-connection-info](/cli/azure/vmss):
 
-```azurecli-interactive
+```console
 ssh azureuser@13.92.224.66 -p 50003
 ```
 
 Installare ed eseguire **stress** e quindi avviare dieci ruoli di lavoro in questa seconda istanza di VM.
 
-```azurecli-interactive
+```console
 sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
 
-Anche in questo caso, quando **stress** visualizza un output simile a *stress: info: [2713] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd* premere *INVIO* per tornare al prompt.
+Anche in questo caso, quando l'output visualizzato da **stress** è simile a *stress: info: [2713] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd*, premere *INVIO* per tornare al prompt.
 
 Chiudere la connessione alla seconda istanza di VM. **stress** continuerà a essere eseguito nell'istanza di VM.
 
-```azurecli-interactive
+```console
 exit
 ```
 
@@ -178,7 +178,7 @@ watch az vmss list-instances \
 
 Al raggiungimento della soglia relativa alla CPU, le regole di scalabilità automatica aumentano il numero di istanze di VM nel set di scalabilità. L'output seguente mostra tre VM create con l'aumento automatico del numero di istanze nel set di scalabilità:
 
-```bash
+```output
 Every 2.0s: az vmss list-instances --resource-group myResourceGroup --name myScaleSet --output table
 
   InstanceId  LatestModelApplied    Location    Name          ProvisioningState    ResourceGroup    VmId
@@ -192,7 +192,7 @@ Every 2.0s: az vmss list-instances --resource-group myResourceGroup --name mySca
 
 All'arresto di **stress** nelle istanze di VM iniziali, il carico medio della CPU torna alla normalità. Dopo altri 5 minuti, le regole di scalabilità automatica riducono quindi il numero di istanze di VM. Le azioni di riduzione del numero di istanze rimuovono per prime le istanze di VM con gli ID più elevati. Quando un set di scalabilità usa i set di disponibilità o le zone di disponibilità, le azioni di scalabilità vengono distribuite in modo uniforme tra le istanze di macchina virtuale. L'output di esempio seguente mostra l'eliminazione di un'istanza di VM con la riduzione automatica del numero di istanze nel set di scalabilità:
 
-```bash
+```output
            6  True                  eastus      myScaleSet_6  Deleting             myResourceGroup  9e4133dd-2c57-490e-ae45-90513ce3b336
 ```
 

@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 12/03/2018
 ms.reviewer: sngun
 ms.openlocfilehash: 1dde7bfc74c6a7b0c03d8f192f4e6eaf72e2de6b
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74870174"
 ---
 # <a name="tutorial-query-azure-cosmos-db-gremlin-api-by-using-gremlin"></a>Esercitazione: Eseguire query nell'API Gremlin di Azure Cosmos DB con Gremlin
@@ -24,7 +24,7 @@ Questo articolo illustra le attività seguenti:
 > [!div class="checklist"]
 > * Esecuzione di query sui dati con Gremlin
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per il funzionamento di queste query è necessario disporre di un account Azure Cosmos DB e nel contenitore devono essere presenti dati grafo. Questi requisiti non sono disponibili? Completare la [Guida introduttiva di 5 minuti](create-graph-dotnet.md) o l'[esercitazione per sviluppatori](tutorial-query-graph.md) per creare un account e popolare il database. È possibile eseguire le query seguenti usando la [console Gremlin](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) o il driver Gremlin preferito.
 

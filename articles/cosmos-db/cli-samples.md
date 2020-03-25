@@ -8,10 +8,10 @@ ms.topic: sample
 ms.date: 9/25/2019
 ms.author: mjbrown
 ms.openlocfilehash: defeacc3f0bc4cd9d77e538f8ceac5ca09a4068a
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "71272363"
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db-sql-core-api"></a>Esempi dell'interfaccia della riga di comando di Azure per l'API SQL (Core) di Azure Cosmos DB

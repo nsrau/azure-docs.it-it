@@ -12,10 +12,10 @@ ms.author: datrigan
 ms.reviewer: carlrab, vanto
 ms.date: 08/05/2019
 ms.openlocfilehash: f5e107058f983df98f7d14dbe1b41ce5a66f2535
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76719977"
 ---
 # <a name="use-powershell-to-configure-sql-database-auditing-and-advanced-threat-protection"></a>Usare PowerShell per configurare il controllo e Advanced Threat Protection per il database SQL

@@ -9,17 +9,17 @@ ms.date: 11/14/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 8d89c7eda845f0e5ed9bc8ccc7b6b3812ba275f9
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74133001"
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>Configurare il ripristino di emergenza per macchine virtuali Hyper-V in un sito locale secondario
 
 Il servizio [Azure Site Recovery](site-recovery-overview.md) favorisce l'attuazione della strategia di ripristino di emergenza gestendo e coordinando le operazioni di replica, failover e failback di computer locali e macchine virtuali di Azure.
 
-In questo articolo viene illustrato come configurare il ripristino di emergenza in un sito secondario, per macchine virtuali Hyper-V locali gestite nei cloud di System Center Virtual Machine Manager (VMM). In questo articolo viene spiegato come:
+In questo articolo viene illustrato come configurare il ripristino di emergenza in un sito secondario, per macchine virtuali Hyper-V locali gestite nei cloud di System Center Virtual Machine Manager (VMM). In questo articolo vengono illustrate le operazioni seguenti:
 
 > [!div class="checklist"]
 > * Preparare il server VMM e gli host Hyper-V locali
@@ -30,7 +30,7 @@ In questo articolo viene illustrato come configurare il ripristino di emergenza 
 > * Abilitare la replica per una macchina virtuale
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare questo scenario:
 
@@ -134,7 +134,7 @@ Prima di iniziare, assicurarsi che tutti gli host che usano i criteri abbiano lo
 2. In **Conservazione del punto di recupero**specificare la durata in ore dell'intervallo di conservazione per ogni punto di recupero. I computer replicati possono essere ripristinati in qualsiasi punto all'interno di un intervallo.
 3. In **Frequenza snapshot coerenti con l'app** specificare la frequenza, da 1 a 12 ore, per la creazione di punti di ripristino contenenti snapshot coerenti con l'applicazione. Hyper-V usa due tipi di snapshot:
     - **Snapshot standard**: fornisce uno snapshot incrementale dell'intera macchina virtuale.
-    - **Snapshot coerente con l'app**: snapshot temporizzato dei dati dell'applicazione all'interno della macchina virtuale. Il servizio Copia Shadow del volume assicura che lo stato dell'app sia coerente quando viene creato lo snapshot. L'abilitazione di snapshot coerenti con l'app influisce sulle prestazioni dell'app su macchine virtuali di origine. Impostare un valore inferiore al numero di punti di ripristino aggiuntivi configurati.
+    - **Snapshot coerente con l'app**: è uno snapshot temporizzato dei dati dell'applicazione all'interno della macchina virtuale. Il servizio Copia Shadow del volume assicura che lo stato dell'app sia coerente quando viene creato lo snapshot. L'abilitazione di snapshot coerenti con l'app influisce sulle prestazioni dell'app su macchine virtuali di origine. Impostare un valore inferiore al numero di punti di ripristino aggiuntivi configurati.
 4. In **Compressione trasferimento dati**, specificare se i dati replicati che vengono trasferiti devono essere compressi.
 5. Selezionare **Eliminare la macchina virtuale di replica** per specificare che la macchina virtuale di replica deve essere eliminata nel caso in cui si disabiliti la protezione per la VM di origine. Con questa impostazione abilitata, quando si disabilita la protezione per la macchina virtuale di origine, questa viene rimossa dalla console di Site Recovery, le impostazioni di Site Recovery relative a VMM vengono rimosse dalla console VMM e la replica viene eliminata.
 6. Se si esegue la replica in rete, in **Metodo di replica iniziale** specificare se si preferisce avviare la replica iniziale o pianificarla. Per risparmiare larghezza di banda di rete, è opportuno pianificarla al di fuori dell'orario di lavoro. Fare quindi clic su **OK**.

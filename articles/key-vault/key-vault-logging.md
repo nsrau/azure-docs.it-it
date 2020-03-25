@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 8915970cd4c70228fad3b49921f4c81d6d90aa72
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78195329"
 ---
 # <a name="azure-key-vault-logging"></a>Registrazione di Azure Key Vault
@@ -38,7 +38,7 @@ Usare questa esercitazione per un'introduzione alla registrazione dell'insieme d
 
 Per informazioni generali su Key Vault, vedere [Cos'è Azure Key Vault?](key-vault-overview.md). Per informazioni sulla disponibilità di Key Vault, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/key-vault/).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare l'esercitazione è necessario quanto segue:
 
@@ -46,7 +46,7 @@ Per completare l'esercitazione è necessario quanto segue:
 * Azure PowerShell, versione minima 1.0.0. Per installare Azure PowerShell e associarlo alla sottoscrizione di Azure, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview). Se Azure PowerShell è già stato installato ma non si conosce la versione, dalla console di Azure PowerShell immettere `$PSVersionTable.PSVersion`.  
 * Spazio di archiviazione sufficiente in Azure per i log dell'insieme di credenziali delle chiavi.
 
-## <a id="connect"></a>Connettersi alla sottoscrizione di Key Vault
+## <a name="connect-to-your-key-vault-subscription"></a><a id="connect"></a>Connettersi alla sottoscrizione di Key Vault
 
 Il primo passaggio per la configurazione della registrazione delle chiavi consiste nell'indirizzare Azure PowerShell all'insieme di credenziali delle chiavi che si vuole registrare.
 
@@ -72,7 +72,7 @@ Set-AzContext -SubscriptionId <subscription ID>
 
 Indirizzare PowerShell alla sottoscrizione giusta è un passaggio importante, particolarmente utile se si hanno più sottoscrizioni associate all'account. Per altre informazioni sulla configurazione di Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
 
-## <a id="storage"></a>Creare un account di archiviazione per i log
+## <a name="create-a-storage-account-for-your-logs"></a><a id="storage"></a>Creare un account di archiviazione per i log
 
 Anche se è possibile usare un account di archiviazione esistente per i log, si creerà un account di archiviazione dedicato ai log di Key Vault. Per praticità, si archivieranno i dettagli in una variabile denominata **sa**, in modo che siano disponibili quando sarà necessario specificarli in seguito.
 
@@ -87,7 +87,7 @@ Per rendere la gestione ancora più facile, si userà anche lo stesso gruppo di 
 >
 >
 
-## <a id="identify"></a>Identificare l'insieme di credenziali delle chiavi per i log
+## <a name="identify-the-key-vault-for-your-logs"></a><a id="identify"></a>Identificare l'insieme di credenziali delle chiavi per i log
 
 Nell'[esercitazione introduttiva](key-vault-get-started.md), il nome dell'insieme di credenziali delle chiavi è **ContosoKeyVault**. Si continuerà a usare quel nome e si archivieranno i dettagli in una variabile denominata **kv**:
 
@@ -95,7 +95,7 @@ Nell'[esercitazione introduttiva](key-vault-get-started.md), il nome dell'insiem
 $kv = Get-AzKeyVault -VaultName 'ContosoKeyVault'
 ```
 
-## <a id="enable"></a>Abilitare la registrazione
+## <a name="enable-logging"></a><a id="enable"></a>Abilitare la registrazione
 
 Per abilitare la registrazione per Key Vault, si userà il cmdlet **Set-AzDiagnosticSetting** con le variabili create per il nuovo account di archiviazione e l'insieme di credenziali delle chiavi. Inoltre, il flag **-Enabled** verrà impostato su **$true** e la categoria su **AuditEvent**, la sola disponibile per la registrazione di Key Vault:
 
@@ -132,7 +132,7 @@ Informazioni registrate:
   * Firma, verifica, crittografia, decrittografia, wrapping e annullamento del wrapping delle chiavi, recupero di segreti ed elenco di chiavi e segreti (e delle relative versioni).
 * Richieste non autenticate che generano una risposta 401. Alcuni esempi sono le richieste che non hanno un token di connessione, hanno un formato non valido, sono scadute o hanno un token non valido.  
 
-## <a id="access"></a>Accedere ai log
+## <a name="access-your-logs"></a><a id="access"></a>Accedere ai log
 
 I log di Key Vault vengono archiviati nel contenitore **insights-log-auditevent** nell'account di archiviazione specificato. Per visualizzare i log, è necessario scaricare i BLOB.
 
@@ -214,7 +214,7 @@ A questo punto si può iniziare a osservare il contenuto dei log. Prima di proce
 * Per eseguire una query sullo stato delle impostazioni di diagnostica per la risorsa insieme di credenziali delle chiavi, usare:`Get-AzDiagnosticSetting -ResourceId $kv.ResourceId`
 * Per disabilitare la registrazione per la risorsa insieme di credenziali delle chiavi, usare: `Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $false -Category AuditEvent`
 
-## <a id="interpret"></a>Interpretare i log dell'insieme di credenziali delle chiavi
+## <a name="interpret-your-key-vault-logs"></a><a id="interpret"></a>Interpretare i log dell'insieme di credenziali delle chiavi
 
 I singoli BLOB vengono archiviati come testo, formattati come BLOB JSON. Ecco un esempio di voce di registro. Eseguire questo comando:
 
@@ -303,13 +303,13 @@ La tabella seguente include un elenco di valori **operationName** con il comando
 | **SecretList** |[Elencare i segreti in un insieme di credenziali](https://msdn.microsoft.com/library/azure/dn903614.aspx) |
 | **SecretListVersions** |[Elencare le versioni di un segreto](https://msdn.microsoft.com/library/azure/dn986824.aspx) |
 
-## <a id="loganalytics"></a>Usare i log di Monitoraggio di Azure
+## <a name="use-azure-monitor-logs"></a><a id="loganalytics"></a>Usare i log di Monitoraggio di Azure
 
 È possibile usare la soluzione Key Vault nei log di Monitoraggio di Azure per esaminare i log **AuditEvent** di Key Vault. Nei log di Monitoraggio di Azure è possibile usare le query di log per analizzare i dati e ottenere le informazioni necessarie. 
 
 Per altre informazioni e per approfondire l'impostazione di questa funzionalità vedere [Soluzione Azure Key Vault nei log di Monitoraggio di Azure](../azure-monitor/insights/azure-key-vault.md). Questo articolo contiene anche istruzioni su come eseguire la migrazione, nel caso fosse necessario, dalla precedente soluzione Key Vault offerta nell'anteprima dei log di Monitoraggio di Azure, dove sono stati indirizzati la prima volta i log a un account di Archiviazione di Azure e da dove sono stati configurati i log di Monitoraggio di Azure per la lettura.
 
-## <a id="next"></a>Passaggi successivi
+## <a name="next-steps"></a><a id="next"></a>Passaggi successivi
 
 Per un'esercitazione sull'uso di Azure Key Vault in un'applicazione Web .NET, vedere [Usare Azure Key Vault da un'app Web](tutorial-net-create-vault-azure-web-app.md).
 

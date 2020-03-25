@@ -9,19 +9,19 @@ ms.date: 09/11/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: 6911f769b95967aac933dd9762263e7506aef4b5
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77192621"
 ---
 ## <a name="create-the-webapi-project"></a>Creare il progetto WebAPI
 
 Le sezioni seguenti illustrano la creazione di un nuovo back-end WebAPI ASP.NET. Questo processo ha tre obiettivi principali:
 
-- **Autenticare i client**: aggiungere un gestore di messaggi per autenticare le richieste client e associare l'utente alla richiesta.
-- **Eseguire la registrazione per le notifiche tramite il back-end WebAPI**: aggiungere un controller per gestire le nuove registrazioni in modo che un dispositivo cliente riceva le notifiche. Il nome utente autenticato verrà aggiunto automaticamente alla registrazione come [tag](../articles/notification-hubs/notification-hubs-tags-segment-push-message.md).
-- **Inviare notifiche ai client**: aggiungere un controller per consentire agli utenti di attivare un push sicuro per i dispositivi e i client associati al tag.
+- **Autenticare i client**: si aggiunge un gestore di messaggi per autenticare le richieste client e associare l'utente alla richiesta.
+- **Eseguire la registrazione per le notifiche usando il back-end WebAPI**: si aggiunge un controller per gestire le nuove registrazioni e consentire a un dispositivo client di ricevere le notifiche. Il nome utente autenticato verrà aggiunto automaticamente alla registrazione come [tag](../articles/notification-hubs/notification-hubs-tags-segment-push-message.md).
+- **Inviare notifiche ai client**: si aggiunge un controller per consentire agli utenti di attivare un push sicuro per i dispositivi e i client associati al tag.
 
 Creare un nuovo back-end WebAPI ASP.NET eseguendo le azioni seguenti:
 

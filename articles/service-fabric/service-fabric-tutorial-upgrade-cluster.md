@@ -5,13 +5,13 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
 ms.openlocfilehash: 2fb08d7aba3e35fb6147b75bbcee35b46873b5f6
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78252741"
 ---
-# <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster-in-azure"></a>Esercitazione: Aggiornare il runtime di un cluster di Service Fabric in Azure
+# <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster-in-azure"></a>Esercitazione: aggiornare il runtime di un cluster di Service Fabric in Azure
 
 Questa esercitazione, che costituisce la quarta parte di una serie, illustra come aggiornare il runtime di Service Fabric in un cluster di Azure Service Fabric. Questa parte dell'esercitazione è scritta per cluster di Service Fabric in esecuzione in Azure e non si applica a cluster di Service Fabric autonomi.
 
@@ -37,7 +37,7 @@ In questa serie di esercitazioni si apprenderà come:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare questa esercitazione:
 

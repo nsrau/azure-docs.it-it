@@ -15,13 +15,13 @@ ms.workload: na
 ms.date: 01/29/2018
 ms.author: labrenne
 ms.openlocfilehash: 5cab96c148d52597ee024f1ddb0b683db8d52dd7
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77024518"
 ---
-# <a name="cli-example-create-a-batch-account-in-user-subscription-mode"></a>Esempio di interfaccia della riga di comando: Creare un account Batch in modalità sottoscrizione utente
+# <a name="cli-example-create-a-batch-account-in-user-subscription-mode"></a>Esempio di interfaccia della riga di comando: creare un account Batch in modalità sottoscrizione utente
 
 Questo script crea un account Azure Batch in modalità sottoscrizione utente. Un account che alloca nodi di calcolo nella sottoscrizione deve essere autenticato tramite un token di Azure Active Directory. I nodi di calcolo allocati vengono conteggiati nella quota di memoria centrale vCPU della sottoscrizione. 
 

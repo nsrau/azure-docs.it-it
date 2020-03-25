@@ -9,11 +9,11 @@ ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
 ms.openlocfilehash: 28ee64f70cd281a2563a855fb1fca91f229ec7bd
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55507519"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "61330599"
 ---
 # <a name="build-an-app-using-nodejs-and-azure-cosmos-dbs-api-for-mongodb"></a>Creare un'app usando Node.js e l'API di Azure Cosmos DB per MongoDB 
 > [!div class="op_single_selector"]
@@ -115,7 +115,7 @@ Per usare questo esempio è necessario:
     });
     ```
     
-    **Facoltativo**: Se si usa il **driver Node.js 2.2 di MongoDB**, sostituire il frammento di codice seguente:
+    **Facoltativo**: se si usa il **driver Node.js 2.2 di MongoDB**, sostituire il frammento di codice seguente:
 
     Originale:
 
@@ -157,7 +157,7 @@ Per usare questo esempio è necessario:
     > [!IMPORTANT]
     > Il **driver Node.js 3.0 di MongoDB** richiede la codifica dei caratteri speciali nella password di Cosmos DB. Assicurarsi di codificare i caratteri '=' come %3D
     >
-    > Esempio: La password *jm1HbNdLg5zxEuyD86ajvINRFrFCUX0bIWP15ATK3BvSv==* viene codificata in *jm1HbNdLg5zxEuyD86ajvINRFrFCUX0bIWP15ATK3BvSv%3D%3D*
+    > Esempio: la password *jm1HbNdLg5zxEuyD86ajvINRFrFCUX0bIWP15ATK3BvSv==* viene codificata in *jm1HbNdLg5zxEuyD86ajvINRFrFCUX0bIWP15ATK3BvSv%3D%3D*
     >
     > Il **driver Node.js 2.2 di MongoDB** non richiede la codifica dei caratteri speciali nella password di Cosmos DB.
     >

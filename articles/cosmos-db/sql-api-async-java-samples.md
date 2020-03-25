@@ -1,5 +1,5 @@
 ---
-title: "Azure Cosmos DB: esempi di Java Async dell'API SQL"
+title: "Azure Cosmos DB: esempi di Java Async per l'API SQL"
 description: Esempi di Java Async in GitHub per attività comuni con l'API SQL di Azure Cosmos DB, tra cui operazioni CRUD.
 author: SnehaGunda
 ms.service: cosmos-db
@@ -8,13 +8,13 @@ ms.topic: sample
 ms.date: 12/03/2018
 ms.author: sngun
 ms.openlocfilehash: 0a9b58a78ee9de48b721511646728bd8140ef980
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72170169"
 ---
-# <a name="azure-cosmos-db-async-java-examples-for-the-sql-api"></a>Azure Cosmos DB: esempi di Java Async dell'API SQL
+# <a name="azure-cosmos-db-async-java-examples-for-the-sql-api"></a>Azure Cosmos DB: esempi di Java Async per l'API SQL
 
 > [!div class="op_single_selector"]
 > * [Esempi di .NET V2 SDK](sql-api-dotnet-samples.md)
@@ -36,7 +36,7 @@ Le applicazioni di esempio più recenti che eseguono operazioni CRUD e altre ope
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
   
-- È possibile [attivare i vantaggi della sottoscrizione Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio): Con l'abbonamento Visual Studio ogni mese si accumulano crediti che è possibile usare per i servizi di Azure a pagamento.
+- È possibile [attivare i benefici della sottoscrizione Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio): con la sottoscrizione Visual Studio ogni mese si accumulano crediti che è possibile usare per i servizi di Azure a pagamento.
 
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
@@ -88,7 +88,7 @@ Per l'esecuzione dalla riga di comando:
    > 
 
 ## <a name="database-examples"></a>Esempi di database
-Il file [DatabaseCrudAsyncAPITest](https://github.com/Azure/azure-cosmosdb-java/blob/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples/DatabaseCRUDAsyncAPITest.java) illustra come eseguire le attività seguenti. Per informazioni sui database di Azure Cosmos prima di eseguire gli esempi seguenti, vedere l’articolo concettuale [Utilizzo di database, contenitori ed elementi](databases-containers-items.md). 
+Il file [DatabaseCrudAsyncAPITest](https://github.com/Azure/azure-cosmosdb-java/blob/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples/DatabaseCRUDAsyncAPITest.java) illustra come eseguire le attività seguenti. Per saperne di più sui database di Azure Cosmos prima di passare agli esempi seguenti, vedere l'articolo concettuale [Usare database, contenitori ed elementi](databases-containers-items.md). 
 
 | Attività | Informazioni di riferimento sulle API |
 | --- | --- |
@@ -99,7 +99,7 @@ Il file [DatabaseCrudAsyncAPITest](https://github.com/Azure/azure-cosmosdb-java/
 | [Creare ed eseguire query in un database](https://github.com/Azure/azure-cosmosdb-java/blob/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples/DatabaseCRUDAsyncAPITest.java#L282-L312) | [AsyncDocumentClient.queryDatabases](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx.asyncdocumentclient.querydatabases) |
 
 ## <a name="collection-examples"></a>Esempi di raccolta
-Il file [CollectionCrudAsyncAPITest](https://github.com/Azure/azure-cosmosdb-java/blob/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples/CollectionCRUDAsyncAPITest.java) illustra come eseguire le attività seguenti. Per informazioni sulle raccolte di Azure Cosmos prima di eseguire gli esempi seguenti, vedere l’articolo concettuale [Utilizzo di database, contenitori ed elementi](databases-containers-items.md). 
+Il file [CollectionCrudAsyncAPITest](https://github.com/Azure/azure-cosmosdb-java/blob/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples/CollectionCRUDAsyncAPITest.java) illustra come eseguire le attività seguenti. Per saperne di più sulle raccolte di Azure Cosmos prima di passare agli esempi seguenti, vedere l'articolo concettuale [Usare database, contenitori ed elementi](databases-containers-items.md). 
 
 | Attività | Informazioni di riferimento sulle API |
 | --- | --- |
@@ -111,7 +111,7 @@ Il file [CollectionCrudAsyncAPITest](https://github.com/Azure/azure-cosmosdb-jav
 | [Creare ed eseguire query in una raccolta](https://github.com/Azure/azure-cosmosdb-java/blob/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples/CollectionCRUDAsyncAPITest.java#L339-L372) | [AsyncDocumentClient.queryCollection](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx.asyncdocumentclient.querycollections) |
 
 ## <a name="document-examples"></a>Esempi di documento
-Il file [DocumentCrudAsyncAPITest](https://github.com/Azure/azure-cosmosdb-java/blob/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples/DocumentCRUDAsyncAPITest.java) illustra come eseguire le attività seguenti. Per informazioni sui documenti di Azure Cosmos prima di eseguire gli esempi seguenti, vedere l’articolo concettuale [Utilizzo di database, contenitori ed elementi](databases-containers-items.md). 
+Il file [DocumentCrudAsyncAPITest](https://github.com/Azure/azure-cosmosdb-java/blob/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples/DocumentCRUDAsyncAPITest.java) illustra come eseguire le attività seguenti. Per saperne di più sui documenti di Azure Cosmos prima di passare agli esempi seguenti, vedere l'articolo concettuale [Usare database, contenitori ed elementi](databases-containers-items.md). 
 
 | Attività | Informazioni di riferimento sulle API |
 | --- | --- |
@@ -125,7 +125,7 @@ Il file [DocumentCrudAsyncAPITest](https://github.com/Azure/azure-cosmosdb-java/
 | [Creare e leggere un documento](https://github.com/Azure/azure-cosmosdb-java/blob/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples/DocumentCRUDAsyncAPITest.java#L437-L458) | [AsyncDocumentClient.readDocument](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx.asyncdocumentclient.readdocument) |
 
 ## <a name="indexing-examples"></a>Esempi di indicizzazione
-Il file [CollectionCrudAsyncAPITest](https://github.com/Azure/azure-cosmosdb-java/blob/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples/CollectionCRUDAsyncAPITest.java) illustra come eseguire le attività seguenti.  Per altre informazioni sull'indicizzazione di Azure Cosmos DB prima di eseguire gli esempi seguenti, vedere gli articoli concettuali su [criteri di indicizzazione](index-policy.md), [tipi di indicizzazione](index-types.md) e [percorsi di indicizzazione](index-paths.md). 
+Il file [CollectionCrudAsyncAPITest](https://github.com/Azure/azure-cosmosdb-java/blob/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples/CollectionCRUDAsyncAPITest.java) illustra come eseguire le attività seguenti.  Per saperne di più sull'indicizzazione in Azure Cosmos DB prima di passare agli esempi seguenti, vedere gli articoli concettuali su [criteri di indicizzazione](index-policy.md), [tipi di indicizzazione](index-types.md) e [percorsi di indicizzazione](index-paths.md). 
 
 | Attività | Informazioni di riferimento sulle API |
 | --- | --- |
@@ -134,7 +134,7 @@ Il file [CollectionCrudAsyncAPITest](https://github.com/Azure/azure-cosmosdb-jav
 Per altre informazioni sull'indicizzazione, vedere [Criteri di indicizzazione di Azure Cosmos DB](index-policy.md).
 
 ## <a name="query-examples"></a>Esempi di query
-Il file [DocumentQuerySamples](https://github.com/Azure/azure-cosmosdb-java/blob/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples/DocumentQueryAsyncAPITest.java) illustra come eseguire le attività seguenti. Per informazioni di riferimento sulle query SQL in Azure Cosmos DB prima di passare agli esempi seguenti, vedere l'articolo concettuale [Esempi di query SQL](how-to-sql-query.md). 
+Il file [DocumentQuerySamples](https://github.com/Azure/azure-cosmosdb-java/blob/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples/DocumentQueryAsyncAPITest.java) illustra come eseguire le attività seguenti. Per saperne di più sulle query SQL in Azure Cosmos DB prima di passare agli esempi seguenti, vedere l'articolo concettuale [Esempi di query SQL](how-to-sql-query.md). 
 
 | Attività | Informazioni di riferimento sulle API |
 | --- | --- |

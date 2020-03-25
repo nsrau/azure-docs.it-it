@@ -5,11 +5,11 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
 ms.openlocfilehash: 077c2ab67efa51542baa3048eb678fa22b0bc2eb
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78382744"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79222728"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Esercitazione: Aggiungere un endpoint HTTPS a un servizio front-end API Web ASP.NET Core usando Kestrel
 

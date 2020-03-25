@@ -16,10 +16,10 @@ ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: 422251da25ae0ef911eb723bb0342a84fe99559c
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79129917"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Chiamare l'API Microsoft Graph da un'app Windows Desktop
@@ -89,14 +89,14 @@ Per creare l'applicazione, eseguire le operazioni seguenti:
 
 È possibile registrare l'applicazione in uno dei due modi descritti di seguito.
 
-### <a name="option-1-express-mode"></a>Opzione 1: modalità Rapida
+### <a name="option-1-express-mode"></a>Opzione 1: Modalità rapida
 
 È possibile registrare rapidamente l'applicazione seguendo questa procedura:
 1. Passare alla [registrazione delle applicazioni nel portale di Azure](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/WinDesktopQuickstartPage/sourceType/docs).
 1. Immettere un nome per l'applicazione e fare clic su **Registra**.
 1. Seguire le istruzioni per scaricare e configurare automaticamente la nuova applicazione con un clic.
 
-### <a name="option-2-advanced-mode"></a>Opzione 2: modalità Avanzata
+### <a name="option-2-advanced-mode"></a>Opzione 2: Modalità avanzata
 
 Per registrare l'applicazione e aggiungere le relative informazioni di registrazione alla soluzione, seguire questa procedura:
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
@@ -109,7 +109,7 @@ Per registrare l'applicazione e aggiungere le relative informazioni di registraz
 1. Nell'elenco delle pagine per l'app selezionare **Autenticazione**.
    1. Nella sezione **URI di reindirizzamento**, nell'elenco URI di reindirizzamento:
    1. Nella colonna **TIPO** selezionare **Client pubblico (per dispositivi mobili e desktop)** .
-   1. Immettere `https://login.microsoftonline.com/common/oauth2/nativeclient` nella colonna **URI DI REINDIRIZZAMENTO**
+   1. Immettere **nella colonna**URI DI REINDIRIZZAMENTO`https://login.microsoftonline.com/common/oauth2/nativeclient`
 1. Selezionare **Registra**.
 1. Passare a Visual Studio, aprire il file *App.xaml.cs* e quindi sostituire `Enter_the_Application_Id_here` nel frammento di codice seguente con l'ID applicazione appena registrato e copiato.
 

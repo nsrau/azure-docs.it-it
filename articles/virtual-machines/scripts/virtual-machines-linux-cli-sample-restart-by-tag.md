@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/01/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 5545fc07bd7b30225bcaf01eee8f10a141cd8d57
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 47a6db8d554cd0e6b913e887a4dd3d7bdc438ed0
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74040241"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80066466"
 ---
 # <a name="restart-vms"></a>Riavviare le VM
 
@@ -33,13 +33,13 @@ Questo esempio illustra un paio di modi per ottenere alcune VM e riavviarle.
 
 Il primo riavvia tutte le VM nel gruppo di risorse.
 
-```bash
+```azurecli
 az vm restart --ids $(az vm list --resource-group myResourceGroup --query "[].id" -o tsv)
 ```
 
 Il secondo ottiene le VM con tag tramite `az resource list` e filtra le risorse che sono VM quindi riavvia queste VM.
 
-```bash
+```azurecli
 az vm restart --ids $(az resource list --tag "restart-tag" --query "[?type=='Microsoft.Compute/virtualMachines'].id" -o tsv)
 ```
 
@@ -77,7 +77,7 @@ Questo script riavvia tutte le VM nel gruppo di risorse e quindi riavvia solo le
 
 Dopo l'esecuzione dello script di esempio, eseguire il comando seguente per rimuovere i gruppi di risorse, le macchine virtuali e tutte le risorse correlate.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group delete -n myResourceGroup --no-wait --yes
 ```
 

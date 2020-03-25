@@ -8,10 +8,10 @@ ms.date: 01/28/2020
 ms.author: dech
 ms.reviewer: sngun
 ms.openlocfilehash: 0a705ad81925491fe054d846143472c6e4432b69
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77561903"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Configurare una pipeline CI/CD con l'attività di compilazione dell'emulatore di Azure Cosmos DB in Azure DevOps
@@ -59,7 +59,7 @@ Import-Module "$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules\Microsoft.Az
 Start-CosmosDbEmulator
 ```
 
-## <a name="addEmulatorBuildTaskToBuildDefinition"></a>Aggiungere l'attività a una pipeline di compilazione
+## <a name="add-the-task-to-a-build-pipeline"></a><a name="addEmulatorBuildTaskToBuildDefinition"></a>Aggiungere l'attività a una pipeline di compilazione
 
 1. Prima di aggiungere un'attività alla pipeline di compilazione, occorre aggiungere un processo agente. Passare alla pipeline di compilazione, selezionare **...** e scegliere **Aggiungi un processo agente**.
 

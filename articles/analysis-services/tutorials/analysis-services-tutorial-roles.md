@@ -8,13 +8,13 @@ ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: owend
 ms.openlocfilehash: c7d53ae71ac68559877561bf9fd15fe0f341e03a
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78273690"
 ---
-# <a name="tutorial-configure-server-administrator-and-user-roles"></a>Esercitazione: Configurare i ruoli amministratore e utente del server
+# <a name="tutorial-configure-server-administrator-and-user-roles"></a>Esercitazione: Configurare i ruoli utente e di amministratore del server
 
  In questa esercitazione si usa SQL Server Management Studio (SSMS) per connettersi al server in Azure per configurare i ruoli del database modello e di amministratore del server. Viene anche presentato [Tabular Model Scripting Language (TMSL)](https://docs.microsoft.com/analysis-services/tabular-model-programming-compatibility-level-1200/tabular-model-programming-for-compatibility-level-1200). TMSL è un linguaggio di scripting basato su JSON per i modelli tabulari ai livelli di compatibilità 1200 e superiori. Può essere usato per automatizzare molte attività di modellazione tabulare. TMSL viene spesso usato con PowerShell, ma in questa esercitazione si usa l'editor di query XMLA in SSMS. Con questa esercitazione, si completano le attività seguenti: 
   
@@ -27,7 +27,7 @@ ms.locfileid: "78273690"
 
 Per altre informazioni sulla sicurezza utente in Azure Analysis Services, vedere [Autenticazione e autorizzazioni utente](../analysis-services-manage-users.md). 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Azure Active Directory nella sottoscrizione.
 - Avere creato un [server di Azure Analysis Services](../analysis-services-create-server.md) nella sottoscrizione.

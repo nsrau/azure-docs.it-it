@@ -10,10 +10,10 @@ author: sakash279
 ms.author: akshanka
 ms.reviewer: sngun
 ms.openlocfilehash: b3a6f4397ca1b8c56f06f6d967804c94096ee308
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76770998"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-python"></a>Introduzione all'archiviazione tabelle di Azure e all'API Tabelle di Azure Cosmos DB con Python

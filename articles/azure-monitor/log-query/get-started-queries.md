@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 10/24/2019
 ms.openlocfilehash: f56abe2bf6ccea1f55f9b3fe94b75016d449b46b
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77670180"
 ---
 # <a name="get-started-with-log-queries-in-azure-monitor"></a>Introduzione alle query di log in Monitoraggio di Azure

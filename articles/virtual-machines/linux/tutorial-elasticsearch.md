@@ -13,12 +13,12 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 10/11/2017
 ms.author: routlaw
-ms.openlocfilehash: 4d6dce952eca3d528a310685106a017dd7e3b80f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1b7b4d3c25794a62bc19925ade278159ebb37615
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66166012"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80066536"
 ---
 # <a name="install-the-elastic-stack-on-an-azure-vm"></a>Installare Elastic Stack in una macchina virtuale di Azure
 
@@ -45,7 +45,7 @@ Creare un gruppo di risorse con il comando [az group create](/cli/azure/group). 
 
 L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella località *stati uniti orientali*.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
@@ -55,7 +55,7 @@ Creare una VM con il comando [az vm create](/cli/azure/vm).
 
 L'esempio seguente crea una macchina virtuale denominata *myVM* e le chiavi SSH, se non esistono già in un percorso predefinito. Per usare un set specifico di chiavi, utilizzare l'opzione `--ssh-key-value`.  
 
-```azurecli-interactive 
+```azurecli-interactive
 az vm create \
     --resource-group myResourceGroup \
     --name myVM \
@@ -66,7 +66,7 @@ az vm create \
 
 Dopo che la VM è stata creata, l'interfaccia della riga di comando di Azure mostra informazioni simili all'esempio seguente. Prendere nota di `publicIpAddress`. Questo indirizzo viene usato per accedere alla VM.
 
-```azurecli-interactive 
+```output
 {
   "fqdns": "",
   "id": "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",

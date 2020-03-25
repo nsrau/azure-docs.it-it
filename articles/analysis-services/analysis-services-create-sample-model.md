@@ -8,13 +8,13 @@ ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: a72236843c13e139f33a669b54f108e91679c8c6
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74326573"
 ---
-# <a name="tutorial-add-a-sample-model-from-the-portal"></a>Esercitazione: aggiungere un modello di esempio dal portale
+# <a name="tutorial-add-a-sample-model-from-the-portal"></a>Esercitazione: Aggiungere un modello di esempio dal portale
 
 In questa esercitazione si aggiunge un database modello tabulare Adventure Works di esempio al server. Il modello di esempio è una versione completa del modello di dati di esempio Adventure Works Internet Sales (1200). Un modello di esempio è utile per il test della gestione del modello, la connessione a strumenti e applicazioni client e l'esecuzione di query sui dati del modello. Questa esercitazione usa il [portale di Azure](https://portal.azure.com) e [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) per: 
 
@@ -73,6 +73,6 @@ Questi passaggi descrivono come eliminare un modello da un server usando SQL Ser
 In questa esercitazione è stato illustrato come aggiungere un modello di esempio di base al server. Dopo aver creato un database modello, è possibile connettersi a esso da SQL Server Management Studio e aggiungere i ruoli utente. Per altre informazioni, continuare con l'esercitazione successiva.
 
 > [!div class="nextstepaction"]
-> [Esercitazione: configurare l'amministratore del server e i ruoli dell'utente](tutorials/analysis-services-tutorial-roles.md)
+> [Esercitazione: Configurare i ruoli utente e di amministratore del server](tutorials/analysis-services-tutorial-roles.md)
 
 

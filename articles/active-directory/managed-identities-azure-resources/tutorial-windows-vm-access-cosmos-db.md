@@ -16,10 +16,10 @@ ms.date: 01/14/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9648c714ddbac93bcc76d84e7f6d8f2fcfaed992
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78248227"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-cosmos-db"></a>Esercitazione: Usare un'identità gestita assegnata dal sistema per una macchina virtuale Windows per accedere ad Azure Cosmos DB
@@ -34,7 +34,7 @@ Questa esercitazione illustra come usare un'identità gestita assegnata dal sist
 > * Ottenere un token di accesso usando l'identità gestita assegnata dal sistema della macchina virtuale Windows per chiamare Azure Resource Manager
 > * Ottenere le chiavi di accesso da Azure Resource Manager per eseguire le chiamate a Cosmos DB
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 

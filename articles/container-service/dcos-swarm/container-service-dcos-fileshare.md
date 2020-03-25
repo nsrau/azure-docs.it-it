@@ -1,6 +1,6 @@
 ---
 title: (DEPRECATO) Condivisione dei file per cluster DC/OS di Azure
-description: Creare e montare una condivisione di file per un cluster DC/OS nel servizio contenitore di Azure
+description: Creare e montare una condivisione di file per un cluster DC/OS nel servizio Azure Container
 services: container-service
 author: julienstroheker
 manager: dcaro
@@ -10,11 +10,11 @@ ms.date: 06/07/2017
 ms.author: juliens
 ms.custom: mvc
 ms.openlocfilehash: e6651fc5988a1e1830807219cda02ab057db9a4f
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329821"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "60480385"
 ---
 # <a name="deprecated-create-and-mount-a-file-share-to-a-dcos-cluster"></a>(DEPRECATO) Creare e montare una condivisione di file per un cluster DC/OS
 
@@ -27,7 +27,7 @@ Questa esercitazione illustra nei dettagli come creare una condivisione file in 
 > * Creare una condivisione file
 > * Montare la condivisione nel cluster DC/OS
 
-È necessario un cluster DC/OS del servizio contenitore di Azure per completare i passaggi in questa esercitazione. Se necessario, questo [script di esempio](./../kubernetes/scripts/container-service-cli-deploy-dcos.md) può crearne uno appositamente.
+È necessario un cluster del controller di dominio/sistema operativo del servizio contenitore di Azure per completare i passaggi in questa esercitazione. Se necessario, questo [script di esempio](./../kubernetes/scripts/container-service-cli-deploy-dcos.md) può crearne uno appositamente.
 
 Questa esercitazione richiede l'interfaccia della riga di comando di Azure 2.0.4 o versioni successive. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli). 
 
@@ -87,7 +87,7 @@ Copiare la chiave privata nel nodo master. Questa chiave è necessaria per crear
 scp ~/.ssh/id_rsa azureuser@$FQDN:~/.ssh
 ```
 
-Creare una connessione SSH con il master (o il primo master) del cluster basato su DC/OS. Aggiornare il nome utente se è stato usato un valore non predefinito al momento della creazione del cluster.
+Creare un collegamento SSH con il master (o il primo master) del cluster basato su controller di dominio/sistema operativo. Aggiornare il nome utente se è stato usato un valore non predefinito al momento della creazione del cluster.
 
 ```azurecli-interactive
 ssh azureuser@$FQDN
@@ -151,7 +151,7 @@ In questa esercitazione è stata resa disponibile una condivisione file di Azure
 > * Creare una condivisione file
 > * Montare la condivisione nel cluster DC/OS
 
-Passare alla prossima esercitazione per informazioni sull'integrazione di Registro contenitori di Azure. con DC/OS in Azure.  
+Passare alla prossima esercitazione per informazioni sull'integrazione di Registro Azure Container con DC/OS in Azure.  
 
 > [!div class="nextstepaction"]
 > [Bilanciare il carico delle applicazioni](container-service-dcos-acr.md)

@@ -10,10 +10,10 @@ ms.date: 03/12/2018
 ms.author: tarcher
 ms.custom: Jenkins
 ms.openlocfilehash: 5439de30b02b0ce05853c8112f9e29239743ef98
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67180767"
 ---
 1. Nel browser aprire l'[immagine di Azure Marketplace per Jenkins](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.jenkins?tab=Overview).

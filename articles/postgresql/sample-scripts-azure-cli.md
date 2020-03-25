@@ -9,10 +9,10 @@ ms.topic: sample
 ms.custom: sample, mvc
 ms.date: 5/6/2019
 ms.openlocfilehash: 154dc8b8569162992f4fc231caee2a43682db456
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74774721"
 ---
 # <a name="azure-cli-samples-for-azure-database-for-postgresql---single-server"></a>Esempi di interfaccia della riga di comando di Azure per Database di Azure per PostgreSQL - Server singolo

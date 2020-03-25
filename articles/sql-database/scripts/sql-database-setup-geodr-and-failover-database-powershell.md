@@ -12,10 +12,10 @@ ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 03/12/2019
 ms.openlocfilehash: ddaf9de7fdb09f8c93815c918edac010555bb4d8
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73691517"
 ---
 # <a name="use-powershell-to-configure-active-geo-replication-for-a-single-database-in-azure-sql-database"></a>Usare PowerShell per configurare la replica geografica attiva per un database singolo di database SQL di Azure

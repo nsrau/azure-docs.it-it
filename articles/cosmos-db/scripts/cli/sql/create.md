@@ -8,10 +8,10 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 9/25/2019
 ms.openlocfilehash: ae958c7e48b1c4a93a09c607d5a2e51abf49a8ca
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "71275028"
 ---
 # <a name="create-an-azure-cosmos-sql-core-api-account-database-and-container-using-azure-cli"></a>Creare un account, un database e un contenitore dell'API SQL (Core) per Azure Cosmos tramite l'interfaccia della riga di comando di Azure

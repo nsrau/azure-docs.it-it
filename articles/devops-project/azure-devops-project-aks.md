@@ -10,10 +10,10 @@ ms.date: 07/09/2018
 author: mlearned
 monikerRange: vsts
 ms.openlocfilehash: b27d56d78296dc5500f97802f811a8923c4e87a8
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "71969679"
 ---
 # <a name="tutorial-deploy-aspnet-core-apps-to-azure-kubernetes-service-with-azure-devops-projects"></a>Esercitazione: Distribuire app ASP.NET Core nel servizio Azure Kubernetes usando Azure DevOps Projects
@@ -37,7 +37,7 @@ In questa esercitazione si apprenderà come:
 > * Eseguire il commit delle modifiche in Git e la distribuzione automatica in Azure
 > * Pulire le risorse
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Una sottoscrizione di Azure. È possibile ottenerne una gratuita tramite [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
@@ -177,7 +177,7 @@ Se si stanno eseguendo test, è possibile pulire le risorse per evitare che veng
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Facoltativamente, è possibile modificare queste pipeline di compilazione e di versione in base alle esigenze del team. È anche possibile usare questo modello di CI/CD come modello per altre pipeline. Questa esercitazione illustra come:
+Facoltativamente, è possibile modificare queste pipeline di compilazione e di versione in base alle esigenze del team. È anche possibile usare questo modello di CI/CD come modello per altre pipeline. In questa esercitazione sono state illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Usare DevOps Projects per distribuire un'app ASP.NET Core in servizio Azure Kubernetes

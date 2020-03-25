@@ -9,10 +9,10 @@ ms.date: 02/20/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: dc80141d796b66dd7e610342166f7b88df58f530
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2020
+ms.lasthandoff: 03/25/2020
 ms.locfileid: "75928023"
 ---
 ## <a name="create-a-namespace-in-the-azure-portal"></a>Creare uno spazio dei nomi nel portale di Azure

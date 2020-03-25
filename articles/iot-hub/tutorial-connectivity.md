@@ -10,10 +10,10 @@ ms.date: 02/22/2019
 ms.topic: tutorial
 ms.service: iot-hub
 ms.openlocfilehash: 78b9d81e20013db41693c24aa8c4a649c724c8b8
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78674421"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Esercitazione: Usare un dispositivo simulato per testare la connettività con l'hub IoT
@@ -31,7 +31,7 @@ In questa esercitazione verranno illustrate le procedure per:
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Gli script dell'interfaccia della riga di comando eseguiti in questa esercitazione usano l'[estensione IoT di Microsoft Azure per l'interfaccia della riga di comando di Azure](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md). Per installare questa estensione, eseguire il comando dell'interfaccia della riga di comando seguente:
 

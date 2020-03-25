@@ -7,10 +7,10 @@ ms.date: 07/22/2019
 ms.author: dekapur
 ms.custom: mvc
 ms.openlocfilehash: 124fc6035c1d0ad504a34b7db227f0f4675f24f7
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75613959"
 ---
 # <a name="tutorial-deploy-an-application-on-your-service-fabric-standalone-cluster"></a>Esercitazione: Distribuire un'applicazione in un cluster autonomo di Service Fabric

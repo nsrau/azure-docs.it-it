@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con MCM | Microsoft Docs'
+title: 'Esercitazione: Integrazione di Azure Active Directory con MCM | Documentazione Microsoft'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e MCM.
 services: active-directory
 documentationCenter: na
@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
 ms.openlocfilehash: 4ed3e5c543f96876d9b6078f1bd47839a0a0396a
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76293420"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mcm"></a>Esercitazione: Integrazione di Azure Active Directory con MCM
@@ -89,7 +89,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 Per configurare l'accesso Single Sign-On di Azure AD con MCM, seguire questa procedura:
 
-1. Nella pagina di integrazione dell'applicazione **MCM** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
+1. Nella pagina di integrazione dell'applicazione [MCM](https://portal.azure.com/) del **portale di Azure** selezionare **Single Sign-On**.
 
     ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 

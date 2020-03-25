@@ -12,10 +12,10 @@ ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 03/12/2019
 ms.openlocfilehash: d8fa054bc418fc3230c1a69fb2767faadc59a9a8
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74421890"
 ---
 # <a name="use-powershell-to-sync-between-a-sql-database-and-a-sql-server-on-premises-database"></a>Usare PowerShell per la sincronizzazione tra un database SQL e un database SQL Server locale
@@ -26,14 +26,14 @@ Questo esempio di PowerShell permette di configurare la sincronizzazione dei dat
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare PowerShell in locale, per questa esercitazione è necessario AZ PowerShell 1.4.0 o successiva. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzAccount` per creare una connessione con Azure.
+Se si sceglie di installare e usare PowerShell in locale, per questa esercitazione è necessario AZ PowerShell 1.4.0 o versione successiva. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzAccount` per creare una connessione con Azure.
 
 Per una panoramica della sincronizzazione dati SQL, vedere [Sincronizzare i dati tra più database cloud e locali con la sincronizzazione dati SQL di Azure](../sql-database-sync-data.md).
 
 > [!IMPORTANT]
 > Al momento, la sincronizzazione dati SQL di Azure non supporta Istanza gestita di database SQL di Azure.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Creare un database SQL di Azure dal database di esempio AdventureWorksLT come database hub
 - Creare un database SQL di Azure nella stessa area del database di sincronizzazione
@@ -313,7 +313,7 @@ Per altre informazioni sulla sincronizzazione dati SQL, vedere:
 
 - Panoramica: [Sincronizzare i dati tra più database cloud e locali con la sincronizzazione dati SQL di Azure](../sql-database-sync-data.md)
 - Configurare la sincronizzazione dati
-    - Nel portale - [Esercitazione: Configurare la sincronizzazione dati SQL per sincronizzare i dati tra il database SQL di Azure e SQL Server in locale](../sql-database-get-started-sql-data-sync.md)
+    - Nel portale: [Esercitazione: Configurare la sincronizzazione dati SQL per sincronizzare i dati tra il database SQL di Azure e SQL Server in locale](../sql-database-get-started-sql-data-sync.md)
     - Con PowerShell
         - [Usare PowerShell per sincronizzare più database SQL di Azure](sql-database-sync-data-between-sql-databases.md)
 - Agente di sincronizzazione dei dati: [Agente di sincronizzazione dei dati per la sincronizzazione dati SQL di Azure](../sql-database-data-sync-agent.md)

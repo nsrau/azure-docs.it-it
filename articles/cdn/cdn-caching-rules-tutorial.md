@@ -15,13 +15,13 @@ ms.date: 04/20/2018
 ms.author: magattus
 ms.custom: mvc
 ms.openlocfilehash: 5330c99f4d42f591944ddc5c58ac98bea6387da5
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74278156"
 ---
-# <a name="tutorial-set-azure-cdn-caching-rules"></a>Esercitazione: Impostare le regole di memorizzazione nella cache della rete CDN di Azure
+# <a name="tutorial-set-azure-cdn-caching-rules"></a>Esercitazione: Impostare regole di memorizzazione nella cache della rete CDN di Azure
 
 > [!NOTE] 
 > Le regole di memorizzazione nella cache sono disponibili solo per i profili di **rete CDN Standard di Azure con tecnologia Verizon** e di **rete CDN Standard di Azure con tecnologia Akamai**. Per i profili della **rete CDN di Azure di Microsoft**, è necessario usare il [motore regole Standard](cdn-standard-rules-engine-reference.md). Per i profili della **rete CDN di Azure Premium di Verizon**, è necessario usare il [motore regole Verizon Premium](cdn-rules-engine.md) nel portale di **gestione** per funzionalità simili.
@@ -32,7 +32,7 @@ Questa esercitazione descrive come è possibile usare le regole di memorizzazion
 
 - Regole di memorizzazione nella cache personalizzate: è possibile impostare una o più regole di memorizzazione nella cache personalizzate per ogni endpoint nel profilo. Le regole di memorizzazione nella cache personalizzate corrispondono a percorsi ed estensioni dei file specifici, vengono elaborate in ordine e sostituiscono la regola di memorizzazione nella cache globale, se impostata. 
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 > [!div class="checklist"]
 > - Aprire la pagina delle regole di memorizzazione nella cache.
 > - Creare una regola di memorizzazione nella cache globale.
@@ -40,9 +40,9 @@ In questa esercitazione si apprenderà come:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
-Prima di poter completare i passaggi di questa esercitazione, è necessario creare un profilo della rete CDN e almeno un endpoint della rete CDN. Per altre informazioni, vedere [Avvio rapido: Creare un profilo e un endpoint della rete CDN di Azure](cdn-create-new-endpoint.md).
+Prima di poter completare i passaggi di questa esercitazione, è necessario creare un profilo della rete CDN e almeno un endpoint della rete CDN. Per altre informazioni, vedere [Guida introduttiva: Creare un profilo e un endpoint della rete CDN di Azure](cdn-create-new-endpoint.md).
 
 ## <a name="open-the-azure-cdn-caching-rules-page"></a>Aprire la pagina delle regole di memorizzazione nella cache della rete CDN di Azure
 
@@ -103,7 +103,7 @@ Nei passaggi precedenti sono state create regole di memorizzazione nella cache. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+In questa esercitazione sono state illustrate le procedure per:
 
 > [!div class="checklist"]
 > - Aprire la pagina delle regole di memorizzazione nella cache.

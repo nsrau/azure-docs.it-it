@@ -8,24 +8,24 @@ ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: tutorial
 ms.openlocfilehash: 8a512676ab0e56f51c0fb9c59f2e530cfcf73333
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791427"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "60617626"
 ---
 # <a name="tutorial-render-a-blender-scene-using-batch-explorer"></a>Esercitazione: Eseguire il rendering di una scena di Blender con Batch Explorer
 
 Questa esercitazione illustra come eseguire il rendering di più fotogrammi da una scena dimostrativa di Blender. Per l'esercitazione viene usato Blender perché è gratuito sia per le VM client sia per quelle di rendering, ma il processo è molto simile anche se si usano altre applicazioni, come Maya o 3ds Max.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 > [!div class="checklist"]
 > * Caricare una scena di Blender nell'archivio di Azure
 > * Creare un pool Batch con più nodi per eseguire il rendering
 > * Eseguire il rendering di più fotogrammi
 > * Visualizzare e scaricare i file dei fotogrammi sottoposti a rendering
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per usare le applicazioni di rendering in Batch con pagamento in base al consumo è necessaria una sottoscrizione con pagamento in base al consumo o un'altra opzione di acquisto di Azure. Le licenze con pagamento in base al consumo non sono supportate se si usa un'offerta gratuita di Azure che garantisce un credito monetario.
 
@@ -109,13 +109,13 @@ Creare un processo per eseguire il rendering di alcuni fotogrammi usando il pool
 
 ![Modello di processo per Blender](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_job_template.png)
 
-Al termine della creazione del processo e di tutte le attività, verrà visualizzato il processo insieme alle relative attività: ![Elenco delle attività di processo](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_task_list.png)
+Al termine della creazione del processo e di tutte le attività, verrà visualizzato il processo insieme alle relative attività: ![Elenco delle attività del processo](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_task_list.png)
 
 Quando viene avviata per la prima volta l'esecuzione di un'attività in una VM del pool, viene eseguita un'attività di preparazione del processo Batch che copia i file della scena dal gruppo di file di archiviazione alla VM per consentire a Blender di accedervi.
 Lo stato del rendering può essere determinato visualizzando il file di log stdout.txt generato da Blender.  Selezionando un'attività, per impostazione predefinita viene visualizzata la scheda "Task Outputs" (Output attività) ed è possibile selezionare e visualizzare il file "stdout.txt".
 ![File stdout](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_stdout.png)
 
-Se viene selezionato il pool "blender-windows", le VM del pool risulteranno in stato di esecuzione: ![Mappa termica del pool con l'esecuzione di nodi](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_pool_heatmap_running.png)
+Se viene selezionato il pool "blender-windows", le VM del pool risulteranno in stato di esecuzione: ![Mappa termica del pool con nodi in esecuzione](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_pool_heatmap_running.png)
 
 La generazione delle immagini sottoposte a rendering richiederà diversi minuti, in base alla dimensione di VM selezionata.  Usando la VM F16 specificata sopra, il rendering dei fotogrammi ha richiesto circa 16 minuti.
 

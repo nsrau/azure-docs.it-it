@@ -7,13 +7,13 @@ ms.date: 07/22/2019
 ms.author: dekapur
 ms.custom: mvc
 ms.openlocfilehash: bfb23ca5f5eb9540491fbd05efdfd6997db15e6b
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75639021"
 ---
-# <a name="tutorial-clean-up-your-standalone-cluster"></a>Esercitazione: Eseguire la pulizia di un cluster autonomo
+# <a name="tutorial-clean-up-your-standalone-cluster"></a>Esercitazione: Pulire il cluster autonomo
 
 I cluster autonomi di Service Fabric offrono la possibilità di scegliere il proprio ambiente e creare un cluster come parte dell'approccio "qualsiasi sistema operativo, qualsiasi cloud" adottato da Service Fabric. In questa serie di esercitazioni viene creato un cluster autonomo ospitato in AWS o Azure e viene installata un'applicazione al suo interno.
 

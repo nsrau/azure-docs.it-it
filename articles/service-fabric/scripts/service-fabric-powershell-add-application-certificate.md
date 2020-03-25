@@ -15,10 +15,10 @@ ms.date: 01/18/2018
 ms.author: atsenthi
 ms.custom: mvc
 ms.openlocfilehash: 61c22a3949008d61bbe3472f601d2d0dd597a0ac
-ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77114352"
 ---
 # <a name="add-an-application-certificate-to-a-service-fabric-cluster"></a>Aggiungere la certificazione dell'applicazione a un cluster di Service Fabric.
@@ -93,7 +93,7 @@ Update-AzVmss -ResourceGroupName $ResourceGroupName -VirtualMachineScaleSet $VMS
 
 ## <a name="script-explanation"></a>Spiegazione dello script
 
-Questo script usa i comandi seguenti: Ogni comando della tabella include collegamenti alla documentazione specifica del comando.
+Lo script usa i seguenti comandi: ogni comando della tabella include collegamenti alla documentazione specifica del comando.
 
 | Comando | Note |
 |---|---|

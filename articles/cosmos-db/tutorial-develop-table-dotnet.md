@@ -9,11 +9,11 @@ ms.devlang: dotnet
 ms.topic: sample
 ms.date: 12/03/2019
 ms.openlocfilehash: f4d6e1bb0d5db0dbfc30e14abc58321bce8d0baf
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78370861"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79222048"
 ---
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>Introduzione all'API Tabella di Azure Cosmos DB e all'archiviazione tabelle con .NET SDK
 
@@ -25,7 +25,7 @@ ms.locfileid: "78370861"
 
 Questa esercitazione descrive un esempio che illustra come usare la [libreria di tabelle Microsoft Azure Cosmos DB per .NET](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) con l'API Tabella di Azure Cosmos DB e l'archiviazione tabelle di Azure. È necessario usare la connessione specifica per il servizio di Azure. Questi scenari vengono esaminati usando esempi C# che illustrano come creare tabelle, inserire/aggiornare i dati, eseguire query sui dati ed eliminare le tabelle.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare correttamente l'esempio sono necessari gli elementi seguenti:
 
@@ -49,7 +49,7 @@ In Visual Studio creare una nuova applicazione console .NET. La procedura seguen
 
 1. Nel campo **Nome progetto** immettere un nome per l'applicazione, ad esempio **CosmosTableSamples**. (È possibile immettere un nome diverso in base alle esigenze).
 
-1. Selezionare **Crea**.
+1. Selezionare **Create** (Crea).
 
 Tutti gli esempi di codice in questo esempio possono essere aggiunti al metodo Main() del file **Program.cs** dell'applicazione console.
 

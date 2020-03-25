@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.openlocfilehash: db767a8d2f0452a9bedeaf8495152ef337255111
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75439031"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-resource-manager-template"></a>Esercitazione: Creare la prima data factory di Azure usando il modello di Azure Resource Manager
@@ -28,14 +28,14 @@ ms.locfileid: "75439031"
 > 
  
 > [!NOTE]
-> Le informazioni di questo articolo sono valide per la versione 1 di Data Factory. Se si usa la versione corrente del servizio Data Factory, vedere [Quickstart: Create a data factory using Azure Data Factory](../quickstart-create-data-factory-dot-net.md) (Creare una data factory con Azure Data Factory).
+> Le informazioni di questo articolo sono valide per la versione 1 di Data Factory. Se si usa la versione corrente del servizio Data Factory, vedere la [guida introduttiva per la creazione di una data factory con Azure Data Factory](../quickstart-create-data-factory-dot-net.md).
 
 In questo articolo viene usato un modello di Azure Resource Manager per creare la prima data factory di Azure. Per eseguire l'esercitazione usando altri strumenti/SDK, selezionare una delle opzioni dall'elenco a discesa.
 
-La pipeline in questa esercitazione include un'attività: **Attività Hive di HDInsight**. che esegue uno script Hive in un cluster Azure HDInsight per trasformare i dati di input e generare i dati di output. L'esecuzione della pipeline è pianificata una volta al mese tra le ore di inizio e di fine specificate. 
+La pipeline in questa esercitazione include un'attività, l'**attività Hive di HDInsight**, che esegue uno script Hive in un cluster Azure HDInsight per trasformare i dati di input e generare i dati di output. L'esecuzione della pipeline è pianificata una volta al mese tra le ore di inizio e di fine specificate. 
 
 > [!NOTE]
-> La pipeline di dati in questa esercitazione trasforma i dati di input per produrre dati di output. Per un'esercitazione su come copiare dati usando Azure Data Factory, vedere [Tutorial: Copy data from Blob Storage to SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) (Esercitazione: Copiare dati da archiviazione BLOB a database SQL).
+> La pipeline di dati in questa esercitazione trasforma i dati di input per produrre dati di output. Per un'esercitazione su come copiare dati usando Azure Data Factory, vedere [Copiare dati da un archivio BLOB al database SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 > 
 > La pipeline in questa esercitazione include solo un'attività di tipo HDInsightHive. Una pipeline può includere più attività ed è possibile concatenarne due, ovvero eseguire un'attività dopo l'altra, impostando il set di dati di output di un'attività come set di dati di input dell'altra. Per altre informazioni, vedere [Pianificazione ed esecuzione in Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline). 
 
@@ -261,7 +261,7 @@ Creare un file JSON denominato **ADFTutorialARM.json** nella cartella **C:\ADFGe
 ```
 
 > [!NOTE]
-> Un altro esempio di modello di Resource Manager per la creazione di un'istanza di Azure Data Factory è disponibile in [Tutorial: Create a pipeline with Copy Activity using an Azure Resource Manager template](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md) (Esercitazione: Creare una pipeline con l'attività di copia tramite un modello di Azure Resource Manager).  
+> È possibile trovare un altro esempio del modello di Resource Manager per la creazione di una data factory di Azure in [Tutorial: Create a pipeline with Copy Activity using an Azure Resource Manager template](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md) (Esercitazione: Creare una pipeline con l'attività di copia usando un modello di Resource Manager).  
 > 
 > 
 

@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.openlocfilehash: 64c4e65ca7b69c7d61c706b48591ac19be3bfcf5
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72792516"
 ---
 # <a name="add-suggestions-or-autocomplete-to-your-azure-cognitive-search-application"></a>Aggiungere suggerimenti o completamento automatico all'applicazione Ricerca cognitiva di Azure
@@ -36,7 +36,7 @@ L'esercizio guida l'utente nell'esecuzione delle le attività seguenti:
 > * In C# definire i suggerimenti e le azioni di completamento automatico in HomeController.cs
 > * In JavaScript chiamare direttamente le API REST per fornire la funzionalità equivalente
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Un servizio di ricerca cognitiva di Azure è facoltativo per questo esercizio perché la soluzione usa un servizio sandbox live che ospita un indice demo di NYCJobs preparato. Se si vuole eseguire questo esempio nel proprio servizio di ricerca, vedere [Configure l'indice di NYC Jobs](#configure-app) per le istruzioni.
 
@@ -58,7 +58,7 @@ L'opzione JavaScript chiama l'API REST di Ricerca cognitiva di Azure direttament
 
 Prova a digitare alcune lettere in ciascuna casella di ricerca per scoprire cosa succede.
 
-## <a name="search-box"></a>Casella di ricerca
+## <a name="search-box"></a>Casella Cerca
 
 Per entrambe le versioni C# e JavaScript, l'implementazione della casella di ricerca è esattamente la stessa. 
 
@@ -291,7 +291,7 @@ Alla riga 148 è possibile trovare uno script che chiama `autocompleteUri`. La p
 
 Fino ad adesso, è stato usato l'indice demo di NYCJobs ospitato. Per una visibilità completa su tutto il codice, incluso l'indice, seguire queste istruzioni per creare e caricare l'indice nel proprio servizio di ricerca.
 
-1. [Creare un servizio di ricerca cognitiva di Azure](search-create-service-portal.md) o [trovare un servizio esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) nella sottoscrizione corrente. Per questo esempio è possibile usare un servizio gratuito. 
+1. [Creare un servizio di Ricerca cognitiva di Azure](search-create-service-portal.md) o [trovare un servizio esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) nella sottoscrizione corrente. Per questo esempio è possibile usare un servizio gratuito. 
 
    > [!Note]
    > Se si usa il servizio di ricerca cognitiva di Azure gratuito, è previsto un limite di tre indici. Il caricatore dati NYCJobs crea due indici. Assicurati di disporre dello spazio necessario perché il servizio possa per ospitare i nuovi indici.

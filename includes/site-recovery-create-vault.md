@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: raynew
 ms.openlocfilehash: fd1a7f133c5719873133554fc2292e94e6fe26a4
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75980315"
 ---
 1. Accedere a [portale di Azure](https://portal.azure.com) > **Servizi di ripristino**.

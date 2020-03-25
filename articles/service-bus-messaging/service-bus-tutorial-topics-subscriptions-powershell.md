@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
 ms.openlocfilehash: 3d1e1491ad045eba88ca7bbe54a1acb38199f7d7
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "65987905"
 ---
 # <a name="tutorial-update-inventory-using-powershell-and-topicssubscriptions"></a>Esercitazione: Aggiornare l'inventario usando PowerShell e argomenti/sottoscrizioni
@@ -22,7 +22,7 @@ Il bus di servizio di Microsoft Azure è un servizio di messaggistica cloud mult
 
 Questa esercitazione illustra come inviare e ricevere messaggi verso e da una coda del bus di servizio, usando PowerShell per creare uno spazio dei nomi di messaggistica e una coda in tale spazio dei nomi e come ottenere le credenziali di autorizzazione per tale spazio dei nomi. La procedura illustra quindi come inviare e ricevere messaggi da questa coda usando la [libreria .NET Standard](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 > [!div class="checklist"]
 > * Creare un argomento del bus di servizio e una o più sottoscrizioni a tale argomento usando Azure PowerShell
 > * Aggiungere filtri di argomento usando PowerShell
@@ -39,7 +39,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito][] prima d
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare questa esercitazione, accertarsi di avere installato:
 
@@ -271,7 +271,7 @@ static async Task ProcessMessagesAsync(Message message, CancellationToken token)
 ```
 
 > [!NOTE]
-> È possibile gestire le risorse del bus di servizio con [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer permette agli utenti di connettersi a uno spazio dei nomi del bus di servizio e di amministrare le entità di messaggistica in modo semplice. Lo strumento offre caratteristiche avanzate, tra cui funzionalità di importazione/esportazione o la possibilità di testare argomenti, code, sottoscrizioni, servizi di inoltro, hub di notifica e hub eventi. 
+> È possibile gestire le risorse del bus di servizio con [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer consente agli utenti di connettersi a uno spazio dei nomi del bus di servizio e di amministrare le entità di messaggistica in modo semplice. Lo strumento offre caratteristiche avanzate, tra cui funzionalità di importazione/esportazione o la possibilità di testare argomenti, code, sottoscrizioni, servizi di inoltro, hub di notifica e hub eventi. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

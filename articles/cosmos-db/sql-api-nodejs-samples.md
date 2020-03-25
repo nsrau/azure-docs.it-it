@@ -8,10 +8,10 @@ ms.topic: sample
 ms.date: 08/23/2019
 ms.author: dech
 ms.openlocfilehash: 4ac3d74cb76a936cc88261a2fedf16764e8ae52f
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76718294"
 ---
 # <a name="nodejs-examples-to-manage-data-in-azure-cosmos-db"></a>Esempi di Node.js per la gestione dei dati in Azure Cosmos DB
@@ -36,7 +36,7 @@ Alcune soluzioni di esempio che eseguono operazioni CRUD e altre operazioni comu
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-- È possibile [attivare i vantaggi della sottoscrizione Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio): Con l'abbonamento Visual Studio ogni mese si accumulano crediti che è possibile usare per i servizi di Azure a pagamento.
+- È possibile [attivare i benefici della sottoscrizione Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio): con la sottoscrizione Visual Studio ogni mese si accumulano crediti che è possibile usare per i servizi di Azure a pagamento.
 
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 

@@ -7,13 +7,13 @@ ms.date: 07/10/2019
 ms.author: dekapur
 ms.custom: mvc
 ms.openlocfilehash: b226c37c36da033862377860be4c413229651fb6
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75614044"
 ---
-# <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>Esercitazione: Monitorare e diagnosticare un'applicazione ASP.NET Core in Service Fabric usando Application Insights
+# <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>Esercitazione: monitorare e diagnosticare un'applicazione ASP.NET Core in Service Fabric usando Application Insights
 
 Questa è la quinta di una serie di esercitazioni. Analizza i passaggi per configurare il monitoraggio e la diagnostica per un'applicazione ASP.NET Core in esecuzione in un cluster di Service Fabric con Application Insights. Verranno raccolti i dati di telemetria dall'applicazione sviluppata nella prima parte dell'esercitazione, [Creare un'applicazione di Service Fabric .NET](service-fabric-tutorial-create-dotnet-app.md).
 

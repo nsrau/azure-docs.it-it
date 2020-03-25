@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 01dbbcddf7df8e261e865fbb61c1fcfd5abbd5fc
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 12bde51222e1e648f97476d5dab039b4ad2adfe8
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76278240"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80067050"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli"></a>Esercitazione: Creare e usare dischi con un set di scalabilità di macchine virtuali con l'interfaccia della riga di comando di Azure
 I set di scalabilità di macchine virtuali usano dischi per archiviare il sistema operativo, le applicazioni e i dati dell'istanza di macchina virtuale. Quando si crea e si gestisce un set di scalabilità, è importante scegliere le dimensioni del disco e la configurazione appropriate per il carico di lavoro previsto. Questa esercitazione illustra la creazione e la gestione dei dischi di VM. In questa esercitazione si apprenderà come:
@@ -146,7 +146,7 @@ az vmss list-instance-connection-info \
 
 Usare il proprio indirizzo IP pubblico e numero di porta per connettersi alla prima istanza di macchina virtuale, come illustrato nell'esempio seguente:
 
-```azurecli-interactive
+```console
 ssh azureuser@52.226.67.166 -p 50001
 ```
 
@@ -198,7 +198,7 @@ sudo df -h
 
 L'output di esempio seguente mostra che i filesystem dei tre dischi sono montati correttamente in */datadisks*:
 
-```bash
+```output
 Filesystem      Size  Used Avail Use% Mounted on
 /dev/sda1        30G  1.3G   28G   5% /
 /dev/sdb1        50G   52M   47G   1% /mnt

@@ -17,16 +17,16 @@ ms.date: 04/24/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 07b0f8112f724c857ffb46378f7aa7ef605b9bbb
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68943297"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-beta"></a>Esercitazione: Integrazione di Azure Active Directory con Zscaler Beta
 
 Questa esercitazione spiega come integrare Zscaler Beta con Azure Active Directory (Azure AD).
-Integrando Zscaler Beta con Azure AD, è possibile:
+Quando si integra Zscaler Beta con Azure AD, è possibile:
 
 * Controllare in Azure AD chi può accedere a Zscaler Beta.
 * Consentire agli utenti di eseguire l'accesso automatico (Single Sign-On) a Zscaler Beta con gli account Azure AD personali. Questo controllo di accesso è denominato accesso Single Sign-On (SSO).
@@ -35,7 +35,7 @@ Integrando Zscaler Beta con Azure AD, è possibile:
 Per altre informazioni sull'integrazione di app SaaS (Software as a Service) con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per configurare l'integrazione di Azure AD con Zscaler Beta, sono necessari gli elementi seguenti:
 
@@ -91,7 +91,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 Per configurare l'accesso Single Sign-On di Azure AD con Zscaler Beta, seguire questa procedura.
 
-1. Nella pagina di integrazione dell'applicazione **Zscaler Beta** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
+1. Nella pagina di integrazione dell'applicazione [Zscaler Beta](https://portal.azure.com/) del **portale di Azure** selezionare **Single Sign-On**.
 
     ![Configurare il collegamento Single Sign-On](common/select-sso.png)
 
@@ -169,7 +169,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Zscaler Beta, seguire q
 
 4. Passare ad **Administration** (Amministrazione)  > **Authentication** (Autenticazione)  > **Authentication Settings** (Impostazioni di autenticazione) e seguire questa procedura.
    
-    ![Amministrazione](./media/zscaler-beta-tutorial/ic800206.png "Administration")
+    ![Amministrazione](./media/zscaler-beta-tutorial/ic800206.png "Amministrazione")
 
     a. In **Authentication Type** (Tipo di autenticazione) selezionare **SAML**.
 
@@ -214,7 +214,7 @@ Per configurare le impostazioni proxy in Internet Explorer, seguire questa proce
 
 3. Selezionare la scheda **Connessioni**. 
   
-     ![Scheda Connessioni](./media/zscaler-beta-tutorial/ic769493.png "connessioni")
+     ![Scheda Connessioni](./media/zscaler-beta-tutorial/ic769493.png "Connessioni")
 
 4. Selezionare **Impostazioni LAN** per aprire la finestra di dialogo **Impostazione rete locale (LAN)** .
 
@@ -301,7 +301,7 @@ In questa sezione viene creato l'utente Britta Simon in Zscaler Beta. Zscaler Be
 
 Testare la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si seleziona il riquadro di Zscaler Beta nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Zscaler Beta per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si seleziona il riquadro di Zscaler Beta nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Zscaler Beta per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

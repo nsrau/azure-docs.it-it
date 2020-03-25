@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
 ms.openlocfilehash: 824e9c459df75ea0307fe314fbf4118cca6e69d3
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76841779"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gigya"></a>Esercitazione: Integrazione di Azure Active Directory con Gigya
@@ -89,7 +89,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 Per configurare l'accesso Single Sign-On di Azure AD con Gigya, seguire questa procedura:
 
-1. Nella pagina di integrazione dell'applicazione **Gigya** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
+1. Nella pagina di integrazione dell'applicazione [Gigya](https://portal.azure.com/) del **portale di Azure** selezionare **Single Sign-On**.
 
     ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 

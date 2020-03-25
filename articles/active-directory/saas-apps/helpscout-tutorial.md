@@ -17,10 +17,10 @@ ms.date: 10/24/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b71ccbc6cfdb9d3d37fc46b0e932fa98eee2fb43
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73159102"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-help-scout"></a>Esercitazione: Integrazione di Azure Active Directory con Help Scout
@@ -35,7 +35,7 @@ L'integrazione di Help Scout con Azure AD offre i vantaggi seguenti:
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per configurare l'integrazione di Azure AD con Help Scout, sono necessari gli elementi seguenti:
 
@@ -80,7 +80,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 Per configurare l'accesso Single Sign-On di Azure AD con Help Scout, seguire questa procedura:
 
-1. Nella pagina di integrazione dell'applicazione **Help Scout** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
+1. Nella pagina di integrazione dell'applicazione [Help Scout](https://portal.azure.com/) del **portale di Azure** selezionare **Single Sign-On**.
 
     ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 
@@ -142,13 +142,13 @@ Questa sezione descrive come creare un utente di test di nome B.Simon nel portal
     a. Nel campo **Nome** immettere **B.Simon**.
   
     b. Nel campo **Nome utente** digitare **B.Simon\@dominioaziendale.estensione**  
-    Ad esempio: B.Simon@contoso.com
+    Ad esempio, usare B.Simon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
     d. Fare clic su **Crea**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Help Scout.
 
@@ -178,7 +178,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 1. Per automatizzare la configurazione all'interno di Help Scout, è necessario installare l'**estensione del browser per l'accesso sicuro My Apps** facendo clic su **Installa l'estensione**.
 
-    ![Estensione per App personali](common/install-myappssecure-extension.png)
+    ![Estensione MyApps](common/install-myappssecure-extension.png)
 
 1. Dopo aver aggiunto l'estensione al browser, fare clic su **Configura Help Scout** per passare direttamente all'applicazione Help Scout. Nell'applicazione specificare le credenziali di amministratore per accedere a Help Scout. L'estensione del browser configurerà automaticamente l'applicazione per l'utente e automatizzerà i passaggi da 3 a 7.
 
@@ -214,7 +214,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
     d. Infine, è possibile attivare o disattivare **Force SAML Sign-on** (Forza accesso SAML) se si desidera che gli utenti accedano a Guida Scout solo tramite questo metodo. Se si desidera lasciare l'opzione per poter accedere con le proprie credenziali di Scout Guida, è possibile lasciarla disattivata. Anche se questa opzione è abilitata, il proprietario dell'account sarà sempre in grado di accedere a Scout Guida con la password dell'account.
 
-    e. Fare clic su **Save**.
+    e. Fare clic su **Salva**.
 
 ### <a name="create-help-scout-test-user"></a>Creare l'utente di test di Help Scout
 

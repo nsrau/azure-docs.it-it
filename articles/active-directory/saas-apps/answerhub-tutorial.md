@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con AnswerHub | Microsoft Docs'
+title: 'Esercitazione: Integrazione di Azure Active Directory con AnswerHub | Documentazione Microsoft'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e AnswerHub.
 services: active-directory
 documentationCenter: na
@@ -17,10 +17,10 @@ ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a124832bd42a0a144ebc6000b818fb825aa422ef
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73152982"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-answerhub"></a>Esercitazione: Integrazione di Azure Active Directory con AnswerHub
@@ -35,7 +35,7 @@ L'integrazione di AnswerHub con Azure AD offre i vantaggi seguenti:
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per configurare l'integrazione di Azure AD con AnswerHub, sono necessari gli elementi seguenti:
 
@@ -79,7 +79,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con AnswerHub, è
 
 1. [Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on) per consentire agli utenti di usare questa funzionalità.
 2. [Configurare l'accesso Single Sign-On per AnswerHub](#configure-answerhub-single-sign-on) per configurare le impostazioni di Single Sign-On sul lato applicazione.
-3. [Creare un utente di test di Azure AD](#create-an-azure-ad-test-user) denominata Britta Simon.
+3. [Creare un utente di test di Azure AD](#create-an-azure-ad-test-user) denominato Britta Simon.
 4. [Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user) per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. Creare un utente di test di AnswerHub che corrisponde ed è collegato all'utente di test di Azure AD.
 6. [Testare l'accesso Single Sign-On](#test-single-sign-on) per verificare se la configurazione funziona.
@@ -90,7 +90,7 @@ In questa sezione si configura l'accesso Single Sign-On di Azure AD nel portale 
 
 **Per configurare l'accesso Single Sign-On di Azure AD con AnswerHub:**
 
-1. Nella pagina di integrazione dell'applicazione **AnswerHub** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
+1. Nella pagina di integrazione dell'applicazione [AnswerHub](https://portal.azure.com/) del **portale di Azure** selezionare **Single Sign-On**.
 
     ![Pulsante per l'accesso Single Sign-On](common/select-sso.png)
 
@@ -192,7 +192,7 @@ In questa sezione viene creato un utente di test chiamato Britta Simon nel porta
 
     d. Selezionare **Create** (Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione si configura l'utente di nome Britta Simon per l'uso dell'accesso AD Single Sign-On di Azure AD concedendole l'accesso ad AnswerHub.
 
@@ -236,7 +236,7 @@ Per consentire agli utenti di Azure AD di accedere ad AnswerHub, è necessario a
 
 4. Nel riquadro sinistro selezionare **Create or import users** (Crea o importa utenti) nella sezione **Manage Users** (Gestisci utenti) e quindi selezionare **Users & Groups** (Utenti e gruppi).
 
-   ![Scheda per utenti e gruppi](./media/answerhub-tutorial/ic785175.png "Users & Groups")
+   ![Scheda per utenti e gruppi](./media/answerhub-tutorial/ic785175.png "Utenti e gruppi")
 
 5. Nelle caselle appropriate immettere l'**indirizzo di posta elettronica**, il **nome utente** e la **password** di un account Azure AD valido da aggiungere e quindi selezionare **Save** (Salva).
 

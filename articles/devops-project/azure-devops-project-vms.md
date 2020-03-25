@@ -10,10 +10,10 @@ ms.date: 07/09/2018
 author: mlearned
 monikerRange: vsts
 ms.openlocfilehash: b03fb27c46d4fd925b91b8927fdd50ff4912aaec
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "71969567"
 ---
 # <a name="tutorial-deploy-your-aspnet-app-to-azure-virtual-machines-by-using-azure-devops-projects"></a>Esercitazione: Distribuire un'app ASP.NET in Macchine virtuali di Azure usando Azure DevOps Projects
@@ -37,7 +37,7 @@ In questa esercitazione si apprenderà come:
 > * Configurare il monitoraggio di Azure Application Insights
 > * Pulire le risorse
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Una sottoscrizione di Azure. È possibile ottenerne una gratuita tramite [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
@@ -208,7 +208,7 @@ Facoltativamente, è possibile modificare queste pipeline di compilazione e di v
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+In questa esercitazione sono state illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Usare DevOps Projects per distribuire la propria app ASP.NET

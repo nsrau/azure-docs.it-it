@@ -15,19 +15,19 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a51175d192a5afb1f84f8d0ed2de9796f198f82d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58102401"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "60296749"
 ---
-# <a name="tutorial-federate-a-single-ad-forest-environment-to-the-cloud"></a>Esercitazione: Attuare la federazione di un ambiente con singola foresta di AD sul cloud
+# <a name="tutorial-federate-a-single-ad-forest-environment-to-the-cloud"></a>Esercitazione: Attuare la federazione di un ambiente a singola foresta Active Directory nel cloud
 
 ![Create](media/tutorial-federation/diagram.png)
 
 L'esercitazione seguente illustrerà come creare un ambiente ibrido di gestione delle identità usando la federazione.  Questo ambiente può essere usato a scopo di test oppure per acquisire familiarità con il funzionamento di una soluzione ibrida di gestione delle identità.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 Per completare questa esercitazione sono necessari i requisiti seguenti
 - Un computer in cui è installato [Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/hyper-v-technology-overview).  È consigliabile installarlo in un computer con [Windows 10](https://docs.microsoft.com/virtualization/hyper-v-on-windows/about/supported-guest-os) o in un computer con [Windows Server 2016](https://docs.microsoft.com/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
 - Una [sottoscrizione di Azure](https://azure.microsoft.com/free)
@@ -88,8 +88,8 @@ Per concludere la creazione della macchina virtuale, è necessario completare l'
 5. Fare clic su **Installa**.
 6. Immettere il codice di licenza e fare clic su **Avanti**.
 7. Accettare le condizioni di licenza e fare clic su **Avanti**.
-8. Selezionare **Custom:  Install Windows Only (Advanced)** (Personalizzato: installare solo Windows - Avanzato)
-9. Fare clic su **Avanti**
+8. Selezionare **Custom:  Install Windows Only (Advanced)** (Personalizzato: installare solo Windows (Avanzato))
+9. Scegliere **Avanti**
 10. Dopo aver completato l'installazione, riavviare la macchina virtuale, accedere ed eseguire gli aggiornamenti di Windows per assicurarsi che la macchina virtuale sia aggiornata.  Installare gli aggiornate più recenti.
 
 ## <a name="install-active-directory-pre-requisites"></a>Installare i prerequisiti di Active Directory
@@ -204,7 +204,7 @@ A questo punto è necessario creare un tenant di Azure Active Directory in modo 
 1. Selezionare il [portale di Azure](https://portal.azure.com) e accedere con un account che dispone di una sottoscrizione di Azure.
 2. Selezionare l'**icona +** e cercare **Azure Active Directory**.
 3. Selezionare **Azure Active Directory** dai risultati della ricerca.
-4. Selezionare **Create**.</br>
+4. Selezionare **Create** (Crea).</br>
 ![Creare](media/tutorial-password-hash-sync/create1.png)</br>
 5. Specificare un **nome per l'organizzazione** e il **nome di dominio iniziale**. Selezionare quindi **Crea**. Verrà così creata la directory.
 6. A questo punto, selezionare il collegamento **qui** per gestire la directory.

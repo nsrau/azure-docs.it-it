@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: integrazione di Azure Active Directory con Uberflip | Microsoft Docs'
+title: 'Esercitazione: Integrazione di Azure Active Directory con Uberflip | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Uberflip.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 6710344e73e3c0ea6f9b3491209689871cc14a4f
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: d20c05e6ec5a413b81ede9cb4906de2595967115
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160946"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80048468"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-uberflip"></a>Esercitazione: integrazione di Azure Active Directory con Uberflip
+# <a name="tutorial-azure-active-directory-integration-with-uberflip"></a>Esercitazione: Integrazione di Azure Active Directory con Uberflip
 
 Questa esercitazione descrive come integrare Uberflip con Azure Active Directory (Azure AD).
 
@@ -34,7 +34,7 @@ L'integrazione di Uberflip con Azure AD offre i vantaggi seguenti:
 
 Per dettagli sull'integrazione di app SaaS (Software as a Service) con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per configurare l'integrazione di Azure AD con Uberflip, sono necessari gli elementi seguenti:
 
@@ -159,7 +159,7 @@ In questa sezione viene creato un utente di test chiamato B. Simon nel portale d
 
     1. Selezionare **Create** (Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione B. Simon riceve l'abilitazione per l'uso dell'accesso Single Sign-On di Azure concedendo l'accesso ad Uberflip.
 

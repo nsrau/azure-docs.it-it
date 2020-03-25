@@ -10,11 +10,11 @@ ms.custom: mvc
 ms.date: 10/25/2018
 ms.author: troyhop
 ms.openlocfilehash: 302b863e7ad7d6df286adf53342356f279ab92d2
-ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50756789"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "61450545"
 ---
 # <a name="tutorial-create-a-custom-simulated-device"></a>Esercitazione: Creare un dispositivo simulato personalizzato
 
@@ -30,11 +30,11 @@ In questa esercitazione:
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per seguire questa esercitazione, è necessaria un'istanza distribuita di Simulazione dispositivi nella sottoscrizione di Azure.
 
-Se la soluzione Simulazione dispositivi non è stata ancora distribuita, è necessario completare la guida introduttiva [Distribuire ed eseguire una soluzione di simulazione dei dispositivi in Azure](quickstart-device-simulation-deploy.md).
+Se la soluzione Simulazione dispositivi non è stata ancora distribuita, è necessario completare la guida introduttiva [Distribuire ed eseguire una simulazione dei dispositivi IoT in Azure](quickstart-device-simulation-deploy.md).
 
 ## <a name="open-device-simulation"></a>Aprire Simulazione dispositivi
 
@@ -60,11 +60,11 @@ In questa esercitazione viene creato un frigorifero simulato che invia i dati re
 
 Compilare il modulo con le informazioni seguenti:
 
-| Impostazione             | Valore                                                |
+| Impostazione             | valore                                                |
 | ------------------- | ---------------------------------------------------- |
 | Device model name (Nome modello di dispositivo)   | Refrigerator                                         |
 | Descrizione modello   | Frigorifero con sensori di temperatura e umidità |
-| Version             | 1.0                                                  |
+| Versione             | 1.0                                                  |
 
 > [!NOTE]
 > Il nome del modello di dispositivo deve essere univoco.

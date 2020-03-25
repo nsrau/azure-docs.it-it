@@ -9,10 +9,10 @@ ms.date: 07/31/2019
 ms.author: rajanaki
 ms.custom: MVC
 ms.openlocfilehash: 32dff9a165125ab1949560ce36438ae266cd3036
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74090306"
 ---
 # <a name="move-a-recovery-services-vault-and-azure-site-recovery-configuration-to-another-azure-region"></a>Spostare un insieme di credenziali di Servizi di ripristino e la configurazione di Azure Site Recovery in un'altra area di Azure
@@ -33,7 +33,7 @@ In questo documento si apprenderà come:
 > [!IMPORTANT]
 > Attualmente, non esiste un metodo di prima classe per spostare un insieme di credenziali di Servizi di ripristino e la configurazione di ripristino di emergenza in un'area diversa. Questo articolo illustra il processo di disabilitazione della replica e di configurazione nella nuova area.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Prima di provare a spostare le VM di Azure in un'altra area, assicurarsi di rimuovere ed eliminare la configurazione di ripristino di emergenza. 
 

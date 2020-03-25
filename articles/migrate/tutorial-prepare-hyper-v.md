@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 01/01/2020
 ms.custom: mvc
 ms.openlocfilehash: 1d327f558806e0205540c183c56b92ba31e33cb7
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77031221"
 ---
 # <a name="prepare-for-assessment-and-migration-of-hyper-v-vms-to-azure"></a>Preparare le VM Hyper-V per la valutazione e la migrazione ad Azure
@@ -79,13 +79,13 @@ L'amministratore tenant/globale può concedere le autorizzazioni nel modo seguen
     ![Autorizzazioni di Azure AD](./media/tutorial-prepare-hyper-v/aad.png)
 
 > [!NOTE]
-> Si tratta di un'impostazione predefinita che non è sensibile. [Altre informazioni](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added#who-has-permission-to-add-applications-to-my-azure-ad-instance)
+> Si tratta di un'impostazione predefinita che non è sensibile. [Altre informazioni](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added#who-has-permission-to-add-applications-to-my-azure-ad-instance).
 
 
 
 #### <a name="assign-application-developer-role"></a>Assegnare il ruolo Sviluppatore di applicazioni
 
-L'amministratore tenant/globale può assegnare il ruolo Sviluppatore di applicazioni a un account. [Altre informazioni](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal)
+L'amministratore tenant/globale può assegnare il ruolo Sviluppatore di applicazioni a un account. [Altre informazioni](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
 
 
 ## <a name="prepare-hyper-v-for-assessment"></a>Preparare Hyper-V per la valutazione

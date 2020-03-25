@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 10/24/2018
 ms.author: victorh
 ms.openlocfilehash: da46cf826da40658883d22692e5038b09d222907
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75974520"
 ---
 # <a name="tutorial-monitor-azure-firewall-logs-and-metrics"></a>Esercitazione: Monitorare i log e le metriche di Firewall di Azure
@@ -94,8 +94,8 @@ Per abilitare la registrazione diagnostica, eseguire la procedura seguente:
 
 È possibile visualizzare e analizzare i dati del log attività usando uno dei metodi seguenti:
 
-* **Strumenti di Azure**: consente di recuperare informazioni dal log attività con Azure PowerShell, l'interfaccia della riga di comando di Azure, l'API REST di Azure o il portale di Azure. Le istruzioni dettagliate di ciascun metodo sono fornite nell'articolo [Operazioni attività con Resource Manager](../azure-resource-manager/management/view-activity-logs.md).
-* **Power BI**: se non esiste ancora un account [Power BI](https://powerbi.microsoft.com/pricing), è possibile crearne uno di prova gratuitamente. Usando il [pacchetto di contenuto dei log attività di Azure per Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/) è possibile analizzare i dati con i dashboard preconfigurati che possono anche essere personalizzati.
+* **Strumenti di Azure**: recuperare le informazioni dal log attività con Azure PowerShell, l'interfaccia della riga di comando (CLI) di Azure, l'API REST di Azure o il portale di Azure. Le istruzioni dettagliate di ciascun metodo sono fornite nell'articolo [Operazioni attività con Resource Manager](../azure-resource-manager/management/view-activity-logs.md).
+* **Power BI**: se non si ha ancora un account [Power BI](https://powerbi.microsoft.com/pricing) , è possibile crearne uno di prova gratuitamente. Usando il [pacchetto di contenuto dei log attività di Azure per Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/) è possibile analizzare i dati con i dashboard preconfigurati che possono anche essere personalizzati.
 
 ## <a name="view-and-analyze-the-network-and-application-rule-logs"></a>Visualizzare e analizzare i log delle regole di rete e di applicazione
 

@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: integrazione di Azure Active Directory con Workspot Control | Microsoft Docs'
+title: 'Esercitazione: Integrazione di Azure Active Directory con Workspot Control | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On per Azure Active Directory e Workspot Control.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 3/11/2019
 ms.author: jeedes
 ms.openlocfilehash: 086ec95531b01477be56d4b1a19d189f167a020f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67086671"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-workspot-control"></a>Esercitazione: integrazione di Azure Active Directory con Workspot Control
+# <a name="tutorial-azure-active-directory-integration-with-workspot-control"></a>Esercitazione: Integrazione di Azure Active Directory con Workspot Control
 
 Questa esercitazione descrive come integrare Workspot Control con Azure Active Directory (Azure AD). Integrando Workspot Control con Azure AD:
 
@@ -32,7 +32,7 @@ Questa esercitazione descrive come integrare Workspot Control con Azure Active D
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per configurare l'integrazione di Azure AD con Workspot Control, sono necessari i requisiti seguenti:
 
@@ -90,7 +90,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 Per configurare l'accesso Single Sign-On di Azure AD con Workspot Control, seguire questa procedura:
 
-1. Nella pagina di integrazione dell'applicazione [Workspot Control](https://portal.azure.com/) nel **portale di Azure** selezionare **Single Sign-On**.
+1. Nella pagina di integrazione dell'applicazione **Workspot Control** nel [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
 
     ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 
@@ -158,7 +158,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Workspot Control, segui
 
     1. Selezionare **Salva**.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
 In questa sezione viene creato un utente di test nel portale di Azure.
 
@@ -182,7 +182,7 @@ In questa sezione viene creato un utente di test nel portale di Azure.
 
     1. Selezionare **Create** (Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione viene concesso a Britta Simon l'accesso a Workspot Control per consentirle di usare l'accesso Single Sign-On di Azure.
 

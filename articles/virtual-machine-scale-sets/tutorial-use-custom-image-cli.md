@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 95e22b40b56d3ac3129573958c77b8643c0e72dc
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 6d9f625bf425a33b690fd303a4f13d032bd59fa0
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76276138"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80062725"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-the-azure-cli"></a>Esercitazione: Creare e usare un'immagine personalizzata per i set di scalabilità di macchine virtuali con l'interfaccia della riga di comando di Azure
 Quando si crea un set di scalabilità, si specifica un'immagine da usare quando vengono distribuite le istanze di macchina virtuale. Per ridurre il numero di attività dopo la distribuzione delle istanze di macchina virtuale, è possibile usare un'immagine di VM personalizzata. Questa immagine di VM personalizzata include le installazioni o le configurazioni delle applicazioni necessarie. Le istanze di macchina virtuale create nel set di scalabilità usano l'immagine di VM personalizzata e sono pronte per gestire il traffico delle applicazioni. In questa esercitazione si apprenderà come:
@@ -51,7 +51,7 @@ az vm create \
 
 L'indirizzo IP pubblico della VM viene visualizzato nell'output del comando [az vm create](/cli/azure/vm). Connettersi all'indirizzo IP pubblico della macchina virtuale tramite SSH, come segue:
 
-```azurecli-interactive
+```console
 ssh azureuser@<publicIpAddress>
 ```
 

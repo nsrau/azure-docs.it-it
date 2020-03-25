@@ -10,10 +10,10 @@ ms.topic: sample
 ms.date: 05/30/2018
 ms.author: alzam
 ms.openlocfilehash: 703ffac5775c979199afdd44afe0941b1416369b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "66113687"
 ---
 # <a name="create-a-vpn-gateway-and-add-point-to-site-configuration-using-powershell"></a>Creare un gateway VPN e aggiungere la configurazione da punto a sito tramite PowerShell

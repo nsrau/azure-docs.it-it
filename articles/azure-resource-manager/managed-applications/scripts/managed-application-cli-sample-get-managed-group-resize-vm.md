@@ -7,10 +7,10 @@ ms.topic: sample
 ms.date: 10/25/2017
 ms.author: tomfitz
 ms.openlocfilehash: 878a8d660495c932cc8fa44bb1ed06e79576729b
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75648778"
 ---
 # <a name="get-resources-in-a-managed-resource-group-and-resize-vms-with-azure-cli"></a>Ottenere risorse in un gruppo di risorse gestite e ridimensionare le macchine virtuali con l'interfaccia della riga di comando di Azure

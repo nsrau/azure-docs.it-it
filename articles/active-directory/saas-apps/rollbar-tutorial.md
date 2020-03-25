@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/15/2019
 ms.author: jeedes
 ms.openlocfilehash: d76f4e9d61d8fd210fe9332084f9f44d19e54eed
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67092688"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rollbar"></a>Esercitazione: Integrazione di Azure Active Directory con Rollbar
@@ -34,7 +34,7 @@ L'integrazione di Rollbar con Azure AD offre i vantaggi seguenti:
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per configurare l'integrazione di Azure AD con Rollbar, sono necessari gli elementi seguenti:
 
@@ -79,7 +79,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Rollbar, è n
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di Rollbar](#configure-rollbar-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare un utente di test di Rollbar](#create-rollbar-test-user)** per avere una controparte di Britta Simon in Rollbar collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -89,7 +89,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 Per configurare l'accesso Single Sign-On di Azure AD con Rollbar, eseguire questa procedura:
 
-1. Nella pagina di integrazione dell'**applicazione Rollbar** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
+1. Nella pagina di integrazione dell'[applicazione Rollbar](https://portal.azure.com/) del **portale di Azure** selezionare **Single Sign-On**.
 
     ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 
@@ -152,7 +152,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Rollbar, eseguire quest
 
     b. Aprire il certificato scaricato in Blocco note, copiarne il contenuto negli Appunti e quindi incollarlo nella casella di testo **SAML Metadata** (Metadati SAML).
 
-    c. Fare clic su **Save**.
+    c. Fare clic su **Salva**.
 
 1. Dopo che si è fatto clic su Save (Salva), la schermata avrà l'aspetto seguente:
 
@@ -166,9 +166,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Rollbar, eseguire quest
 
     b.  Quando si ritorna alla schermata, selezionare la casella di controllo **Require login via SAML Identity Provider** (Richiedi accesso tramite provider di identità SAML).
 
-    b. Fare clic su **Save**.
+    b. Fare clic su **Salva**.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
@@ -187,13 +187,13 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
     b. Nel campo **Nome utente** digitare `brittasimon@yourcompanydomain.extension`.  
-    Ad esempio: BrittaSimon@contoso.com
+    Ad esempio, usare BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
-    d. Fare clic su **Create**(Crea).
+    d. Fare clic su **Crea**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione, Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure tramite concessione dell'accesso a Rollbar.
 

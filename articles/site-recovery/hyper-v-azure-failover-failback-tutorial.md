@@ -9,10 +9,10 @@ ms.date: 12/16/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 03826abf6da94859c510f4c127dfce035aa79370
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/26/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75498167"
 ---
 # <a name="fail-over-hyper-v-vms-to-azure"></a>Effettuare il failover delle macchine virtuali Hyper-V in Azure
@@ -38,9 +38,9 @@ Assicurarsi che non siano presenti snapshot nella macchina virtuale e che la mac
 
 Le operazioni di failover e failback includono tre fasi:
 
-1. **Failover in Azure**: failover delle macchine virtuali Hyper-V dal sito locale ad Azure.
-2. **Failback nel sito locale**: failover delle macchine virtuali di Azure nel sito locale, quando questo è disponibile. Inizia la sincronizzazione dei dati da Azure in locale e al completamento, vengono visualizzate le macchine virtuali in locale.  
-3. **Replica inversa delle macchine virtuali locali**: dopo il failback nel sito locale, replica inversa delle macchine virtuali locali per avviarne la replica in Azure.
+1. **Failover in Azure**: eseguire il failover delle macchine virtuali Hyper-V dal sito locale ad Azure.
+2. **Failover nel sito locale**: eseguire il failover delle macchine virtuali di Azure nel sito locale, quando questo è disponibile. Inizia la sincronizzazione dei dati da Azure in locale e al completamento, vengono visualizzate le macchine virtuali in locale.  
+3. **Replica inversa delle macchine virtuali locali**: dopo il failback dei dati in locale, eseguire la replica inversa delle macchine virtuali locali per avviarne la replica in Azure.
 
 ## <a name="verify-vm-properties"></a>Verificare le proprietà della macchina virtuale
 
@@ -64,7 +64,7 @@ In **Elementi protetti** fare clic su **Elementi replicati** > macchina virtuale
 4. Dopo la verifica del failover, fare clic su **Esegui commit**. Vengono eliminati tutti i punti di ripristino disponibili.
 
 > [!WARNING]
-> **Non annullare un failover in corso**: Se si annulla un failover in corso, il failover viene arrestato ma non viene eseguita di nuovo la replica della macchina virtuale.
+> **Non annullare un failover in corso**: se si annulla l'operazione in corso, il failover viene arrestato, ma la macchina virtuale non viene più replicata.
 
 ## <a name="connect-to-failed-over-vm"></a>Connettersi alla VM sottoposta a failover
 

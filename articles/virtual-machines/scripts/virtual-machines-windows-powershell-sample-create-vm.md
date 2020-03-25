@@ -16,10 +16,10 @@ ms.date: 03/02/2017
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: e4e19c4e0389cb4ae4b430f3dfc12cd5c25eeab3
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74038922"
 ---
 # <a name="create-a-fully-configured-virtual-machine-with-powershell"></a>Creare una macchina virtuale completamente configurata con PowerShell

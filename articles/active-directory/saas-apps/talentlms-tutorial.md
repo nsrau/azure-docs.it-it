@@ -17,10 +17,10 @@ ms.date: 04/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 970ab9de270b1227884a13ac578d4c439043b20c
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74233372"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-talentlms"></a>Esercitazione: Integrazione di Azure Active Directory con TalentLMS
@@ -35,7 +35,7 @@ L'integrazione di TalentLMS con Azure AD offre i vantaggi seguenti:
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per configurare l'integrazione di Azure AD con TalentLMS, sono necessari gli elementi seguenti:
 
@@ -75,13 +75,13 @@ Per configurare l'integrazione di TalentLMS in Azure AD, è necessario aggiunger
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con TalentLMS usando un utente di test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in TalentLMS.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con TalentLMS, è necessario completare le procedure di base seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con TalentLMS, è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di TalentLMS](#configure-talentlms-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare l'utente di test di TalentLMS](#create-talentlms-test-user)** : per avere una controparte di Britta Simon in TalentLMS collegata alla relativa rappresentazione in Azure AD.
+5. **[Creare un utente di test di TalentLMS](#create-talentlms-test-user)** : per avere una controparte di Britta Simon in TalentLMS collegata alla relativa rappresentazione in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -90,7 +90,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 Per configurare l'accesso Single Sign-On di Azure AD con TalentLMS, seguire questa procedura:
 
-1. Nella pagina di integrazione dell'applicazione **TalentLMS** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
+1. Nella pagina di integrazione dell'applicazione [TalentLMS](https://portal.azure.com/) del **portale di Azure** selezionare **Single Sign-On**.
 
     ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 
@@ -165,11 +165,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con TalentLMS, seguire ques
 
     * Nella casella di testo **Email** (Posta elettronica) digitare `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
 
-1. Fare clic su **Save**.
+1. Fare clic su **Salva**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
-Questa sezione descrive come creare un utente di test di nome Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -185,7 +185,7 @@ Questa sezione descrive come creare un utente di test di nome Britta Simon nel p
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
-    b. Nel campo **Nome utente** digitare `brittasimon@yourcompanydomain.extension`. Ad esempio: BrittaSimon@contoso.com
+    b. Nel campo **Nome utente** digitare `brittasimon@yourcompanydomain.extension`. Ad esempio, usare BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
@@ -193,13 +193,13 @@ Questa sezione descrive come creare un utente di test di nome Britta Simon nel p
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
-In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a TalentLMS.
+In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a TalentLMS.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **TalentLMS**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco delle applicazioni selezionare **TalentLMS**.
+2. Nell'elenco di applicazioni selezionare **TalentLMS**.
 
     ![Collegamento a TalentLMS nell'elenco delle applicazioni](common/all-applications.png)
 
@@ -221,7 +221,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 Per consentire agli utenti di Azure AD di accedere a TalentLMS, è necessario eseguirne il provisioning in TalentLMS. Nel caso di TalentLMS, il provisioning è un'attività manuale.
 
-**Per effettuare il provisioning di un account utente, seguire questa procedura:**
+**Per eseguire il provisioning di un account utente, seguire questa procedura:**
 
 1. Accedere al tenant **TalentLMS**.
 
@@ -246,7 +246,7 @@ Per consentire agli utenti di Azure AD di accedere a TalentLMS, è necessario es
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di TalentLMS nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di TalentLMS per cui si è configurato l'accesso Single Sign-On. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di TalentLMS nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione TalentLMS per cui si è configurato l'accesso Single Sign-On. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

@@ -4,13 +4,13 @@ description: Informazioni su come creare Funzioni di Azure in esecuzione in un'i
 ms.date: 01/15/2020
 ms.topic: tutorial
 ms.custom: mvc
-zone_pivot_groups: programming-languages-set-functions01
-ms.openlocfilehash: b714806c163a94bbae7069c357e603b82ba797ba
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+zone_pivot_groups: programming-languages-set-functions
+ms.openlocfilehash: 8c074c677c645dd03e3cf5288d82aa3e65720e8b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77482361"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79223728"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Creare una funzione in Linux tramite un contenitore personalizzato
 
@@ -35,7 +35,7 @@ In questa esercitazione verranno illustrate le procedure per:
 
 ## <a name="prerequisites"></a>Prerequisites
 
-- Un account Azure con una sottoscrizione attiva. [Creare un account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - [Azure Functions Core Tools](./functions-run-local.md#v2) versione 2.7.1846 o successiva
 - L'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) versione 2.0.77 o successiva
 - Il [runtime di Funzioni di Azure 2.x](functions-versions.md)
@@ -61,7 +61,7 @@ In questa esercitazione verranno illustrate le procedure per:
 
 ### <a name="prerequisite-check"></a>Controllo dei prerequisiti
 
-1. In un terminale o una finestra di comando eseguire `func --version` per verificare che la versione di Azure Functions Core Tools sia 2.7.1846 o successiva.
+1. In una finestra di comando o di terminale eseguire `func --version` per verificare che la versione di Azure Functions Core Tools sia 2.7.1846 o successiva.
 1. Eseguire `az --version` per verificare che la versione dell'interfaccia della riga di comando di Azure sia 2.0.76 o successiva.
 1. Eseguire `az login` per accedere ad Azure e verificare la presenza di una sottoscrizione attiva.
 1. Eseguire `docker login` per accedere a Docker. Questo comando non riesce se Docker non è in esecuzione, nel qual caso avviare Docker e riprovare.
@@ -70,7 +70,7 @@ In questa esercitazione verranno illustrate le procedure per:
 
 1. In un terminale o un prompt dei comandi creare una cartella per questa esercitazione in una posizione appropriata, quindi passare a tale cartella.
 
-1. Seguire le istruzioni riportate in [Creare e attivare un ambiente virtuale](functions-create-first-function-python.md#create-and-activate-a-virtual-environment) per creare un ambiente virtuale da usare per questa esercitazione.
+1. Seguire le istruzioni riportate in [Creare e attivare un ambiente virtuale](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python#create-venv) per creare un ambiente virtuale da usare per questa esercitazione.
 
 1. Eseguire il comando seguente per il linguaggio scelto per creare un progetto di app per le funzioni in una cartella denominata `LocalFunctionsProject`. L'opzione `--docker` genera un `Dockerfile` per il progetto, che definisce un contenitore personalizzato adatto da usare con Funzioni di Azure e con il runtime selezionato.
 
@@ -339,8 +339,9 @@ Un'app per le funzioni in Azure gestisce l'esecuzione delle funzioni nel piano d
 
     ```azurecli
     az storage account show-connection-string --resource-group AzureFunctionsContainers-rg --name <storage_name> --query connectionString --output tsv
+    ```
     
-1. Add this setting to the function app by using the [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) command. In the following command, replace `<app_name>` with the name of your function app, and replace `<connection_string>` with the connection string from the previous step (a long encoded string that begins with "DefaultEndpointProtocol="):
+1. Aggiungere questa impostazione all'app per le funzioni usando il comando [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set). Nel comando seguente sostituire `<app_name>` con il nome dell'app per le funzioni e sostituire `<connection_string>` con la stringa di connessione del passaggio precedente (una stringa codificata lunga che inizia con "DefaultEndpointProtocol="):
  
     ```azurecli
     az functionapp config appsettings set --name <app_name> --resource-group AzureFunctionsContainers-rg --settings AzureWebJobsStorage=<connection_string>

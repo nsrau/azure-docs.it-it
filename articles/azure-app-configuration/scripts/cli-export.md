@@ -10,10 +10,10 @@ ms.topic: sample
 ms.date: 02/19/2020
 ms.author: lcozzens
 ms.openlocfilehash: 3e014504fc1e94c3b323a49b408fa992de00d14a
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77523621"
 ---
 # <a name="export-from-an-azure-app-configuration-store"></a>Esportare da un archivio di Configurazione app di Azure

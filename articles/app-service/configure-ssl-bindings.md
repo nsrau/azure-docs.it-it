@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 60a4646b77f083590a6eb8a8648d6dea932f0bdd
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 263b4e76d334aab82f6bbac9aa268a50f4dd3784
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849752"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79223838"
 ---
 # <a name="secure-a-custom-dns-name-with-an-ssl-binding-in-azure-app-service"></a>Proteggere un nome DNS personalizzato con un'associazione SSL nel Servizio app di Azure
 
@@ -24,7 +24,7 @@ La protezione di un [dominio personalizzato](app-service-web-tutorial-custom-dom
 - [Aggiungere un certificato privato a Servizio app di Azure](configure-ssl-certificate.md) che soddisfi tutti i requisiti per le [associazioni SSL](configure-ssl-certificate.md#private-certificate-requirements).
 -  Creare un'associazione SSL al dominio personalizzato corrispondente. Questo articolo tratta proprio questo secondo passaggio.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Aggiornare il piano tariffario dell'app
@@ -33,7 +33,7 @@ In questa esercitazione si apprenderà come:
 > * Applicare TLS 1.1/1.2
 > * Automatizzare la gestione TLS con script
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare questa guida pratica:
 
@@ -50,9 +50,9 @@ Per completare questa guida pratica:
 
 ## <a name="secure-a-custom-domain"></a>Proteggere un dominio personalizzato
 
-Seguire anche questa procedura:
+Eseguire i passaggi seguenti:
 
-Nel menu a sinistra nel <a href="https://portal.azure.com" target="_blank">portale di Azure</a> scegliere **Servizi app** >  **\<nome app>** .
+Nel menu a sinistra del <a href="https://portal.azure.com" target="_blank">portale di Azure</a> scegliere **Servizi app** >  **\<nome app>** .
 
 Dalla barra di spostamento a sinistra dell'app avviare la finestra di dialogo **Associazione TLS/SSL** tramite:
 
@@ -79,7 +79,7 @@ Se l'app non dispone di certificato per il dominio personalizzato selezionato, s
 
 Usare la tabella seguente per informazioni sulla configurazione dell'associazione SSL nella finestra di dialogo **Associazione TSL/SSL**, quindi fare clic su **Aggiungi associazione**.
 
-| Impostazione | DESCRIZIONE |
+| Impostazione | Descrizione |
 |-|-|
 | Dominio personalizzato | Nome di dominio per cui aggiungere l'associazione SSL. |
 | Identificazione personale del certificato privato | Certificato da associare. |
@@ -147,6 +147,12 @@ Nel riquadro di spostamento a sinistra della pagina dell'app selezionare **Impos
 
 Al termine dell'operazione, l'app rifiuta tutte le connessioni con versioni di TLS meno recenti.
 
+## <a name="handle-ssl-termination"></a>Gestire la terminazione SSL
+
+Nel servizio app la [terminazione SSL](https://wikipedia.org/wiki/TLS_termination_proxy) si verifica nei servizi di bilanciamento del carico di rete, pertanto tutte le richieste HTTPS raggiungano l'app come richieste HTTP non crittografate. Se la logica dell'app deve controllare se le richieste degli utenti sono crittografate o meno, esaminare l'intestazione `X-Forwarded-Proto`.
+
+Le guide di configurazione specifiche del linguaggio, ad esempio la guida alla [configurazione di Node.js per Linux](containers/configure-language-nodejs.md#detect-https-session), illustrano come rilevare una sessione HTTPS nel codice dell'applicazione.
+
 ## <a name="automate-with-scripts"></a>Automatizzazione con gli script
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
@@ -160,4 +166,4 @@ Al termine dell'operazione, l'app rifiuta tutte le connessioni con versioni di T
 ## <a name="more-resources"></a>Altre risorse
 
 * [Usare un certificato SSL nel codice dell'applicazione](configure-ssl-certificate-in-code.md)
-* [FAQ: App Service Certificates](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/) (Domande frequenti: certificati del servizio app)
+* [Domande frequenti: Certificati del servizio app](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/)

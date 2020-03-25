@@ -10,11 +10,11 @@ ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: 676f1133a516174478a456a97bc467e7770fe6e7
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78392270"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79223568"
 ---
 # <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>Esercitazione: rilevare i problemi con i dispositivi connessi alla soluzione di monitoraggio
 

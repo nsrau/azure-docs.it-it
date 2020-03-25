@@ -8,10 +8,10 @@ ms.subservice: cosmosdb-graph
 ms.topic: sample
 ms.date: 9/25/2019
 ms.openlocfilehash: 46914952e59e5f4fc3d5cd78f80842de09b11184
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "71274898"
 ---
 # <a name="create-an-azure-cosmos-gremlin-api-account-database-and-graph-using-azure-cli"></a>Creare un account, un database e un grafo dell'API Gremlin di Azure Cosmos tramite l'interfaccia della riga di comando di Azure

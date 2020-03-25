@@ -4,17 +4,18 @@ titleSuffix: Azure Storage
 description: Calcolare le dimensioni di un contenitore dell'Archiviazione BLOB di Azure sommando le dimensioni di ognuno dei relativi BLOB.
 services: storage
 author: tamram
-ms.custom: mvc
 ms.service: storage
+ms.subservice: blobs
+ms.devlang: powershell
 ms.topic: sample
 ms.date: 12/04/2019
 ms.author: tamram
-ms.openlocfilehash: 890da96ac1d97a2eb84f5296c74a02824d657273
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: de51ed7d91ba1102f5a9cd376ab95f49dd54d9f3
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895053"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80067064"
 ---
 # <a name="calculate-the-size-of-a-blob-container-with-powershell"></a>Calcolare le dimensioni di un contenitore BLOB con PowerShell
 
@@ -25,13 +26,13 @@ Lo script consente di calcolare le dimensioni di un contenitore dell'Archiviazio
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 > [!IMPORTANT]
-> Questo script di PowerShell offre una dimensione stimata per il contenitore e non deve essere usato per calcoli di fatturazione. Per uno script che calcoli le dimensioni del contenitore per la fatturazione, vedere [Calcolare le dimensioni di un contenitore di archiviazione BLOB per la fatturazione](../scripts/storage-blobs-container-calculate-billing-size-powershell.md). 
+> Questo script di PowerShell offre una dimensione stimata per il contenitore e non deve essere usato per calcoli di fatturazione. Per uno script che calcoli le dimensioni del contenitore per la fatturazione, vedere [Calcolare le dimensioni di un contenitore di archiviazione BLOB per la fatturazione](../scripts/storage-blobs-container-calculate-billing-size-powershell.md).
 
 ## <a name="sample-script"></a>Script di esempio
 
 [!code-powershell[main](../../../powershell_scripts/storage/calculate-container-size/calculate-container-size.ps1 "Calculate container size")]
 
-## <a name="clean-up-deployment"></a>Pulire la distribuzione 
+## <a name="clean-up-deployment"></a>Pulire la distribuzione
 
 Eseguire il comando seguente per rimuovere il gruppo di risorse, il contenitore e tutte le risorse correlate.
 

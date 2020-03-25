@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 03/20/2018
 ms.author: kumud
 ms.openlocfilehash: c11a2249b66d56706783c865a77c14a276d870ed
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74091358"
 ---
 # <a name="filter-inbound-and-outbound-vm-network-traffic-script-sample"></a>Esempio di script per filtrare il traffico di rete della VM in ingresso e in uscita

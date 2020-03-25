@@ -16,13 +16,13 @@ ms.date: 05/14/2018
 ms.author: magattus
 ms.custom: mvc
 ms.openlocfilehash: 1b67522834497a264d95fc9b80246b16841d6026
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67594232"
 ---
-# <a name="tutorial-add-azure-cdn-to-an-azure-app-service-web-app"></a>Esercitazione: Aggiungere una rete CDN di Azure a un'app Web di Servizio app di Azure
+# <a name="tutorial-add-azure-cdn-to-an-azure-app-service-web-app"></a>Esercitazione: Aggiungere una rete CDN a un'app Web del Servizio app di Azure
 
 Questa esercitazione illustra come aggiungere la [rete CDN di Azure](cdn-overview.md) a un'[app Web nel servizio app di Azure](../app-service/overview.md). Le app Web sono un servizio per l'hosting di applicazioni Web, API REST e back-end mobili. 
 
@@ -38,7 +38,7 @@ Contenuto dell'esercitazione:
 > * Usare stringhe di query per controllare le versioni memorizzate nella cache.
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare questa esercitazione:
 
@@ -72,7 +72,7 @@ Nella pagina **Rete per la distribuzione di contenuti di Azure** specificare le 
 
 ![Creare un profilo e un endpoint nel portale](media/cdn-add-to-web-app/portal-new-endpoint.png)
 
-| Impostazione | Valore consigliato | DESCRIZIONE |
+| Impostazione | Valore consigliato | Descrizione |
 | ------- | --------------- | ----------- |
 | **Profilo CDN** | myCDNProfile | Un profilo di rete CDN è una raccolta di endpoint della rete CDN con lo stesso piano tariffario. |
 | **Piano tariffario** | Standard Akamai | Il [piano tariffario](cdn-features.md) specifica il provider e le funzionalità disponibili. Questa esercitazione usa *Akamai standard*. |

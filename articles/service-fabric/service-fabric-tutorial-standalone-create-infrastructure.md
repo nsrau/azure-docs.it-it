@@ -7,13 +7,13 @@ ms.date: 05/11/2018
 ms.author: dekapur
 ms.custom: mvc
 ms.openlocfilehash: b6348d9fdcd4133a4fa69aac3ccf5494e904094e
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75613976"
 ---
-# <a name="tutorial-create-aws-infrastructure-to-host-a-service-fabric-cluster"></a>Esercitazione: Creare l'infrastruttura AWS per ospitare un cluster di Service Fabric
+# <a name="tutorial-create-aws-infrastructure-to-host-a-service-fabric-cluster"></a>Esercitazione: Creare l'infrastruttura di AWS per ospitare un cluster di Service Fabric
 
 I cluster autonomi di Service Fabric offrono la possibilità di scegliere il proprio ambiente e creare un cluster come parte dell'approccio "qualsiasi sistema operativo, qualsiasi cloud" adottato da Service Fabric. In questa serie di esercitazioni viene creato un cluster autonomo ospitato in AWS e viene installata un'applicazione al suo interno.
 
@@ -41,7 +41,7 @@ Selezionare **Launch Instance** (Avvia istanza), quindi nella schermata successi
 
 ![Selezione dell'istanza EC2][aws-ec2instance]
 
-Selezionare **t2.medium** e quindi **Next: Configure Instance Details** (Avanti: Configura dettagli dell'istanza), nella schermata successiva modificare il numero di istanze in `3` e infine selezionare **Advanced Details** (Dettagli avanzati) per espandere la sezione.
+Selezionare **t2.medium**, quindi **Next: Configure Instance Details** (Avanti: Configura dettagli dell'istanza), nella schermata successiva modificare il numero di istanze in `3` e infine selezionare **Advanced Details** (Dettagli avanzati) per espandere la sezione.
 
 Per connettere le macchine virtuali insieme in Service Fabric, le macchine virtuali che ospitano l'infrastruttura devono avere le stesse credenziali.  Esistono due modi comuni per ottenere credenziali coerenti: unirle tutte allo stesso dominio o impostare la stessa password di amministratore in ogni macchina virtuale.  Per questa esercitazione, viene usato uno script di dati utente per impostare le istanze EC2 in modo da avere tutte la stessa password.  In un ambiente di produzione è più sicuro unire gli host a un dominio Windows.
 

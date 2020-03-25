@@ -1,5 +1,5 @@
 ---
-title: Esportare/copiare il disco rigido virtuale di un disco gestito in un account di archiviazione di un'area diversa - Esempio di PowerShell
+title: Esportare o copiare il disco rigido virtuale di un disco gestito in un account di archiviazione di un'area diversa - Esempio di PowerShell
 description: Esempio di script di Azure PowerShell - Esportare/Copiare il disco rigido virtuale di un disco gestito in un account di archiviazione della stessa area o di un'area diversa
 services: virtual-machines-windows
 documentationcenter: storage
@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 09/17/2018
 ms.author: ramankum
 ms.openlocfilehash: 9d088c443490d22a68570daf4ce035639861b90d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75368862"
 ---
 # <a name="exportcopy-the-vhd-of-a-managed-disk-to-a-storage-account-in-different-region-with-powershell"></a>Esportare/Copiare il disco rigido virtuale di un disco gestito in un account di archiviazione di un'area diversa con PowerShell

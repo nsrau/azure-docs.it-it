@@ -8,10 +8,10 @@ ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: 60ca1ef3d5c14a0f3dea5b662fc5c95184e6574d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75420645"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Risolvere i problemi delle modifiche nell'ambiente
@@ -100,7 +100,7 @@ Nella finestra **Configurazione dell'area di lavoro** aggiungere le chiavi del R
 |Attivato     | Determina se l'impostazione viene applicata        |
 |Nome elemento     | Nome descrittivo del file da rilevare        |
 |Gruppo     | Nome del gruppo per il raggruppamento logico dei file        |
-|Chiave del Registro di sistema di Windows   | Percorso in cui cercare il file, ad esempio: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
+|Chiave del Registro di sistema di Windows   | Percorso in cui cercare il file, ad esempio "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
 
 ### <a name="add-a-windows-file"></a>Aggiungere un file di Windows
 

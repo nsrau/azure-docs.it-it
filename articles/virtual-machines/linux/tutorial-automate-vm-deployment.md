@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/12/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 27c7e32f081003ac236c6d1405eb3512f6c4433c
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 62a8c68b11562cac7bb9e8a318cbe08084449423
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034645"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80066514"
 ---
 # <a name="tutorial---how-to-use-cloud-init-to-customize-a-linux-virtual-machine-in-azure-on-first-boot"></a>Esercitazione: Come usare cloud-init per personalizzare una macchina virtuale Linux in Azure al primo avvio
 
@@ -44,12 +44,12 @@ Microsoft collabora con i partner per promuovere l'inclusione e il funzionamento
 
 | Editore | Offerta | SKU | Versione | Pronta per cloud-init |
 |:--- |:--- |:--- |:--- |:--- |
-|Canonical |UbuntuServer |18.04-LTS |più recenti |Sì | 
-|Canonical |UbuntuServer |16.04-LTS |più recenti |Sì | 
-|Canonical |UbuntuServer |14.04.5-LTS |più recenti |Sì |
-|CoreOS |CoreOS |Stabile |più recenti |Sì |
+|Canonical |UbuntuServer |18.04-LTS |più recenti |sì | 
+|Canonical |UbuntuServer |16.04-LTS |più recenti |sì | 
+|Canonical |UbuntuServer |14.04.5-LTS |più recenti |sì |
+|CoreOS |CoreOS |Stable |più recenti |sì |
 |OpenLogic 7.6 |CentOS |7-CI |più recenti |preview |
-|RedHat 7.6 |RHEL |7-RAW-CI |7.6.2019072418 |Sì |
+|RedHat 7.6 |RHEL |7-RAW-CI |7.6.2019072418 |sì |
 |RedHat 7.7 |RHEL |7-RAW-CI |7.7.2019081601 |preview |
 
 
@@ -58,7 +58,7 @@ Per visualizzare cloud-init in azione, creare una macchina virtuale, installare 
 
 Al prompt di Bash o in Cloud Shell creare un file denominato *cloud-init.txt* e incollare la configurazione seguente. Ad esempio, digitare `sensible-editor cloud-init.txt` per creare il file e visualizzare un elenco degli editor disponibili. Assicurarsi che l'intero file cloud-init venga copiato correttamente, in particolare la prima riga:
 
-```azurecli-interactive
+```bash
 #cloud-config
 package_upgrade: true
 packages:
@@ -109,7 +109,7 @@ Per poter creare una macchina virtuale è prima necessario creare un gruppo di r
 az group create --name myResourceGroupAutomate --location eastus
 ```
 
-Creare quindi una macchina virtuale con il comando [az vm create](/cli/azure/vm#az-vm-create). Usare il parametro `--custom-data` per specificare il file di configurazione di cloud-init. Se il file è stato salvato all'esterno della directory di lavoro corrente, specificare il percorso completo della configurazione *cloud-init.txt* . L'esempio seguente crea una macchina virtuale denominata *myVM*:
+Creare quindi una macchina virtuale con il comando [az vm create](/cli/azure/vm#az-vm-create). Usare il parametro `--custom-data` per specificare il file di configurazione di cloud-init. Se il file è stato salvato all'esterno della directory di lavoro corrente, specificare il percorso completo della configurazione *cloud-init.txt* . L'esempio seguente crea una VM denominata *myVM*:
 
 ```azurecli-interactive
 az vm create \

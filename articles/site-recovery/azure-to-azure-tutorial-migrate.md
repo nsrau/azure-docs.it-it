@@ -9,10 +9,10 @@ ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
 ms.openlocfilehash: 4882206692c334d6ab6af28feb5d2cba5277eea1
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78303937"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Spostare macchine virtuali di Azure in un'altra area
@@ -34,7 +34,7 @@ In questa esercitazione si apprenderà come:
 > [!NOTE]
 > Questa esercitazione illustra come spostare VM di Azure da un'area a un'altra così come sono. Se è necessario migliorare la disponibilità spostando le VM di un set di disponibilità in VM aggiunte a una zona in un'altra area, vedere l'esercitazione [Spostare macchine virtuali di Azure nelle zone di disponibilità](move-azure-vms-avset-azone.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Verificare che le VM di Azure si trovino nell'area di Azure da cui si vuole eseguire lo spostamento.
 - Verificare che la [combinazione di area di origine-area di destinazione scelta sia supportata](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support) e prendere una decisione basata su informazioni aggiornate in merito all'area di destinazione.

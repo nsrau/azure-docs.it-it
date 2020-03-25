@@ -5,11 +5,11 @@ ms.topic: tutorial
 ms.date: 04/30/2017
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 70dc664d27fde3b7cf9fe4e5e3a99c041236ac16
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74454443"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79222148"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Esercitazione: Preparare un Registro Azure Container con replica geografica
 
@@ -45,7 +45,7 @@ Selezionare **Crea una risorsa** > **Contenitori** > **Registro Azure Container*
 
 Configurare il nuovo registro con le impostazioni seguenti:
 
-* **Nome registro**: creare un nome di registro univoco a livello globale all'interno di Azure e contenente da 5 a 50 caratteri alfanumerici.
+* **Nome registro**: creare un nome di registro univoco a livello globale all'interno di Azure e contenente da 5 a 50 caratteri alfanumerici
 * **Gruppo di risorse**: **Crea nuovo** > `myResourceGroup`
 * **Percorso**: `West US`
 * **Utente amministratore**: `Enable` (obbligatorio per app Web per contenitori per eseguire il pull delle immagini)

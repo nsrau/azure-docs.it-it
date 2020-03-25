@@ -9,11 +9,11 @@ ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 72d25582d15e745b0bdefcde5f68af94eab49293
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277293"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79222608"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-unity"></a>Come creare e individuare ancoraggi usando Ancoraggi nello spazio di Azure in Unity
 
@@ -32,7 +32,7 @@ Ancoraggi nello spazio di Azure è un servizio che consente di condividere ancor
 - Caricarli nel cloud.
 - Trovare ed eliminare gli ancoraggi nello spazio nel cloud.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare questa guida, accertarsi di avere:
 

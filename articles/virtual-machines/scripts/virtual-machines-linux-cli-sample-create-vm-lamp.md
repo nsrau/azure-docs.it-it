@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.custom: mvc
 ms.date: 04/05/2017
 ms.openlocfilehash: 00aa744f09b7bcbbbc258b92a8fd5ab750e447c7
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74039105"
 ---
 # <a name="deploy-the-lamp-stack-in-a-load-balanced-virtual-machine-scale-set"></a>Distribuire lo stack LAMP in un set di scalabilità di macchine virtuali con carico bilanciato
@@ -30,7 +30,7 @@ Questo esempio crea un set di scalabilità di macchine virtuali e applica un'est
 
 [!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/create-scaleset-php-ansible/build-stack.sh "Create virtual machine scale set with LAMP stack")]
 
-## <a name="connect"></a>Connettere
+## <a name="connect"></a>Connessione
 
 Usare questo codice per vedere come connettersi alle macchine virtuali e al set di scalabilità.
 

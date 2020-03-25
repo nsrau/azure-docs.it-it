@@ -7,10 +7,10 @@ ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
 ms.openlocfilehash: fe06da759a1ad42ef5cef888f98c440cdfb9569c
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78252778"
 ---
 # <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>Esercitazione: Creare immagini del contenitore su un cluster Linux di Service Fabric
@@ -31,7 +31,7 @@ In questa serie di esercitazioni si apprenderà come:
 > * [Creare ed eseguire un'applicazione di Service Fabric con i contenitori](service-fabric-tutorial-package-containers.md)
 > * [Come vengono gestiti i failover e il ridimensionamento in Service Fabric](service-fabric-tutorial-containers-failover.md)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Configurare l'ambiente di sviluppo Linux di Service Fabric. Seguire le istruzioni [qui](service-fabric-get-started-linux.md) per configurare l'ambiente Linux.
 * Questa esercitazione richiede l'interfaccia della riga di comando di Azure 2.0.4 o versioni successive. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli).

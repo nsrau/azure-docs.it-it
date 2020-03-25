@@ -17,10 +17,10 @@ ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: af71bc8e0ad793c37084ce3e5cc9f48ef8f55714
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74037704"
 ---
 # <a name="monitor-a-vm-with-azure-monitor"></a>Monitorare una macchina virtuale con Monitoraggio di Azure

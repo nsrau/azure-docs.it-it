@@ -14,10 +14,10 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/29/2019
 ms.openlocfilehash: ce85f45d823df42e70af53824e175968439621d3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73819874"
 ---
 # <a name="add-an-r-package-to-azure-sql-database-machine-learning-services-preview"></a>Aggiungere un pacchetto R in Machine Learning Services nel database SQL di Azure (anteprima)
@@ -26,7 +26,7 @@ Questo articolo spiega come aggiungere un pacchetto R in Machine Learning Servic
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Installare [R](https://www.r-project.org) e [RStudio Desktop](https://www.rstudio.com/products/rstudio/download/) nel computer locale. R è disponibile per Windows, MacOS e Linux. Questo articolo presuppone che sia in uso Windows.
 
@@ -92,7 +92,7 @@ Nell'esempio seguente verrà installato il pacchetto **[glue](https://cran.r-pro
 
 ### <a name="add-the-package"></a>Aggiungere il pacchetto
 
-1. Aprire RStudio e creare un nuovo file **Script R**. 
+1. Aprire RStudio e creare un nuovo file di **script R**. 
 
 1. Usare il codice R seguente per installare il pacchetto **glue** tramite **sqlmlutils**. Sostituire le informazioni di connessione del database SQL di Azure personalizzate.
 
@@ -108,7 +108,7 @@ Nell'esempio seguente verrà installato il pacchetto **[glue](https://cran.r-pro
     ```
 
     > [!TIP]
-    > L'ambito (**scope**) può essere **PUBLIC** o **PRIVATE**. L'ambito pubblico è utile all'amministratore del database per installare pacchetti che tutti gli utenti possono usare. L'ambito privato rende il pacchetto disponibile solo per l'utente che ne esegue l'installazione. Se non si specifica l'ambito, il valore predefinito è **PRIVATE**.
+    > L'ambito (**scope**) può essere **PUBLIC** o **PRIVATE**. L'ambito pubblico è utile all'amministratore del database per installare i pacchetti che possono essere usati da tutti gli utenti. L'ambito privato consente di limitare la disponibilità del pacchetto all'utente che lo ha installato. Se non si specifica l'ambito, il valore predefinito è **PRIVATE**.
 
 ### <a name="verify-the-package"></a>Verificare il pacchetto
 

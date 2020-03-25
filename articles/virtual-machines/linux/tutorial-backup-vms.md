@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 2a53086b959f5b93d17d307a59682a44fe1f33a8
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 6c8b29052b4ca1d3ccd6f1f9b6afba5177dbd6c8
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034590"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80066484"
 ---
 # <a name="tutorial-back-up-and-restore-files-for-linux-virtual-machines-in-azure"></a>Esercitazione: Backup e ripristino di file per macchine virtuali Linux in Azure
 
@@ -64,7 +64,7 @@ Se accidentalmente si elimina o si apportano modifiche a un file, è possibile u
 
 Questo esempio illustra come ripristinare la pagina Web di nginx predefinita /var/www/html/index.nginx-debian.html. L'indirizzo IP pubblico della macchina virtuale in questo esempio è *13.69.75.209*. È possibile trovare l'indirizzo IP della macchina virtuale tramite:
 
- ```bash 
+ ```azurecli
  az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv
  ```
 
@@ -78,6 +78,7 @@ Questo esempio illustra come ripristinare la pagina Web di nginx predefinita /va
     ```bash
     ssh 13.69.75.209
     ```
+
 2. Eliminare /var/www/html/index.nginx-debian.html.
 
     ```bash
@@ -122,7 +123,7 @@ Questo esempio illustra come ripristinare la pagina Web di nginx predefinita /va
     
 12. L'output dello script fornisce il percorso per il punto di montaggio. L'output è simile al seguente:
 
-    ```bash
+    ```output
     Microsoft Azure VM Backup - File Recovery
     ______________________________________________
                           
@@ -160,7 +161,7 @@ Questo esempio illustra come ripristinare la pagina Web di nginx predefinita /va
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+In questa esercitazione sono state illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare un backup di una macchina virtuale

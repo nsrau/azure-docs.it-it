@@ -17,10 +17,10 @@ ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7774fd55a64df198a9b025a67ce377deebefe8fe
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74232080"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bime"></a>Esercitazione: Integrazione di Azure Active Directory con Bime
@@ -35,7 +35,7 @@ L'integrazione di Bime con Azure AD offre i vantaggi seguenti:
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per configurare l'integrazione di Azure AD con Bime, sono necessari gli elementi seguenti:
 
@@ -90,7 +90,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 Per configurare l'accesso Single Sign-On di Azure AD con Bime, seguire questa procedura:
 
-1. Nella pagina di integrazione dell'applicazione **Bime** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
+1. Nella pagina di integrazione dell'applicazione [Bime](https://portal.azure.com/) del **portale di Azure** selezionare **Single Sign-On**.
 
     ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 
@@ -137,11 +137,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con Bime, seguire questa pr
 
 2. Nella barra degli strumenti fare clic su **Admin** e quindi su **Account**.
   
-    ![Admin](./media/bime-tutorial/ic775558.png "Admin")
+    ![Admin](./media/bime-tutorial/ic775558.png "Amministrativi")
 
 3. Nella pagina di configurazione dell’account, eseguire la procedura seguente:
   
-    ![Configura accesso Single Sign-On](./media/bime-tutorial/ic775559.png "Configure Single Sign-On")
+    ![Configurare Single Sign-On](./media/bime-tutorial/ic775559.png "Configure Single Sign-On")
 
     a. Selezionare **Enable SAML authentication**.
 
@@ -170,13 +170,13 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
     b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
-    Ad esempio: BrittaSimon@contoso.com
+    Ad esempio, usare BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
     d. Fare clic su **Crea**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Bime.
 
@@ -212,7 +212,7 @@ Per consentire agli utenti di Azure AD di accedere a Bime, è necessario eseguir
 
 2. Nella barra degli strumenti fare clic su **Admin** e quindi su **Users** (Utenti).
 
-    ![Admin](./media/bime-tutorial/ic775561.png "Admin")
+    ![Admin](./media/bime-tutorial/ic775561.png "Amministrativi")
 
 3. In **Users List** (Elenco utenti) fare clic su **"+"** per aggiungere un nuovo utente.
 
@@ -228,7 +228,7 @@ Per consentire agli utenti di Azure AD di accedere a Bime, è necessario eseguir
 
     c. Nella casella di testo **Email** (Posta elettronica) immettere l'indirizzo di posta elettronica dell'utente, ad esempio **brittasimon\@contoso.com**.
 
-    d. Fare clic su **Save**.
+    d. Fare clic su **Salva**.
 
 > [!NOTE]
 > È possibile usare qualsiasi altro strumento o API di creazione di account utente fornito da Bime per effettuare il provisioning degli account utente Azure AD.

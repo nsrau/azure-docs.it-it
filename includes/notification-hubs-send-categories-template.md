@@ -9,10 +9,10 @@ ms.date: 11/07/2019
 ms.author: sethm
 ms.custom: include file
 ms.openlocfilehash: 48907713082ebb1008ad963121671b36af7f2731
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74228173"
 ---
 In questa sezione si invieranno notizie aggiornate come notifiche modello con tag da un'app console .NET.

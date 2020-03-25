@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/20/2018
 ms.openlocfilehash: 2c89b53d66b93ff38a7cff07b2889faf8eda24ce
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75439302"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Caricare dati in modo incrementale da più tabelle in SQL Server a un database SQL di Azure
@@ -448,7 +448,7 @@ Questa pipeline accetta un elenco di nomi di tabella come parametro. L'attività
         
 1. Eseguire i passaggi seguenti:
 
-    1. In **Proprietà set di dati** immettere `@{item().TABLE_NAME}` per il parametro **SinkTableName**.
+    1. In **Proprietà set di dati** immettere **per il parametro**SinkTableName`@{item().TABLE_NAME}`.
     1. Per la proprietà **Stored Procedure Name** (Nome stored procedure) immettere `@{item().StoredProcedureNameForMergeOperation}`.
     1. Per la proprietà **Table Type** (Tipo di tabella) immettere `@{item().TableType}`.
     1. Per la proprietà **Table type parameter name** (Nome del parametro di tipo di tabella) immettere `@{item().TABLE_NAME}`.

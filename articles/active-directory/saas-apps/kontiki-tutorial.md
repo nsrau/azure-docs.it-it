@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: integrazione di Azure Active Directory con Kontiki | Microsoft Docs'
+title: 'Esercitazione: Integrazione di Azure Active Directory con Kontiki | Documentazione Microsoft'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Kontiki.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bfb154bce34b2ceda99b82c7ca3534b8a8ee0a1f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67098497"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-kontiki"></a>Esercitazione: integrazione di Azure Active Directory con Kontiki
+# <a name="tutorial-azure-active-directory-integration-with-kontiki"></a>Esercitazione: Integrazione di Azure Active Directory con Kontiki
 
 Questa esercitazione descrive come integrare Kontiki con Azure Active Directory (Azure AD).
 
@@ -35,7 +35,7 @@ L'integrazione di Kontiki con Azure AD offre i vantaggi seguenti:
 
 Per altre informazioni sull'integrazione di app SaaS (Software as a Service) con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per configurare l'integrazione di Azure AD con Kontiki sono necessari gli elementi seguenti:
 
@@ -48,7 +48,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 Uberflip supporta le funzionalità seguenti:
 
-* **Accesso Single Sign-On avviato da SP**
+* **Accesso Single Sign-On avviato da provider di servizi**
 * **Provisioning JIT**
 
 ## <a name="add-kontiki-in-the-azure-portal"></a>Aggiungere Kontiki al portale di Azure
@@ -79,7 +79,7 @@ In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure 
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Kontiki è necessario completare i blocchi predefiniti seguenti:
 
-| Attività | DESCRIZIONE |
+| Attività | Descrizione |
 | --- | --- |
 | **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** | Consente agli utenti di usare questa funzionalità. |
 | **[Configurare l'accesso Single Sign-On di Kontiki](#configure-kontiki-single-sign-on)** | Consente di configurare le impostazioni di accesso Single Sign-On nell'applicazione. |
@@ -92,7 +92,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Kontiki è ne
 
 In questa sezione si configura l'accesso Single Sign-On di Azure AD con Kontiki nel portale di Azure.
 
-1. Nel riquadro di integrazione dell'applicazione **Kontiki** del [portale di Azure](https://portal.azure.com/) selezionare **Single sign-on**.
+1. Nel riquadro di integrazione dell'applicazione [Kontiki](https://portal.azure.com/) del **portale di Azure** selezionare **Single sign-on**.
 
     ![Configurare l'opzione Single Sign-On](common/select-sso.png)
 
@@ -127,7 +127,7 @@ In questa sezione si configura l'accesso Single Sign-On di Azure AD con Kontiki 
 
 Per configurare l'accesso Single Sign-On sul lato Kontiki, inviare il file di XML metadati federazione scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di Kontiki](https://customersupport.kontiki.com/enterprise/contactsupport.html). Il team di supporto di Kontiki usa le informazioni inviate per assicurarsi che la connessione Single Sign-On SAML venga impostata correttamente su entrambi i lati.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
 In questa sezione viene creato un utente di test chiamato Britta Simon nel portale di Azure.
 
@@ -151,7 +151,7 @@ In questa sezione viene creato un utente di test chiamato Britta Simon nel porta
 
     ![Riquadro Utente](common/user-properties.png)
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione si concede a Britta Simon l'accesso a Kontiki in modo che possa usare l'accesso Single Sign-On di Azure.
 

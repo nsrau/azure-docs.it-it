@@ -13,10 +13,10 @@ ms.topic: tutorial
 ms.date: 11/08/2017
 ms.author: apimpm
 ms.openlocfilehash: 6be36493fabce07838991c789e111e918a9a826d
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "70072166"
 ---
 # <a name="edit-an-api"></a>Modificare un'API
@@ -26,7 +26,7 @@ I passaggi di questa esercitazione illustrano come usare Gestione API per modifi
 + È possibile modificare l'API aggiungendo, eliminando e rinominando operazioni nell'istanza di Gestione API. 
 + È possibile modificare lo swagger dell'API.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 + [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md)
 + [Importare e pubblicare la prima API](import-and-publish.md)

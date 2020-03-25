@@ -15,17 +15,17 @@ ms.workload: na
 ms.date: 05/01/2019
 ms.author: juliako
 ms.openlocfilehash: c21a16d043f972042949d6340985774741b3df6a
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74888616"
 ---
-# <a name="cli-example-create-a-transform"></a>Esempio di interfaccia della riga di comando: Creare un oggetto Transform
+# <a name="cli-example-create-a-transform"></a>Esempio dell'interfaccia della riga di comando: Creare una trasformazione
 
-Lo script dell'interfaccia della riga di comando di Azure in questo articolo mostra come creare una trasformazione. Le trasformazioni descrivono un semplice flusso di lavoro di attività per l'elaborazione dei file video o audio, spesso noto come "recipe". È sempre opportuno verificare se esiste già una trasformazione con il nome e il "recipe" desiderati. In caso affermativo, è consigliabile riutilizzarla.
+Lo script dell'interfaccia della riga di comando di Azure in questo articolo mostra come creare una trasformazione. Le trasformazioni descrivono un semplice flusso di lavoro di attività per l'elaborazione dei file video o audio, detto spesso "recipe". È necessario verificare sempre se esiste già una trasformazione con il nome e il "recipe" desiderati. In caso affermativo, è consigliabile riutilizzarla.
 
-## <a name="prerequisites"></a>Prerequisiti 
+## <a name="prerequisites"></a>Prerequisites 
 
 [Creare un account di Servizi multimediali di Azure](create-account-cli-how-to.md).
 

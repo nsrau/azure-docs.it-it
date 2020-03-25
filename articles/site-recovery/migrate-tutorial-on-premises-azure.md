@@ -9,10 +9,10 @@ ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 24015810a295ef88b7d3e63bfc464ddddef6b55f
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73939631"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Eseguire la migrazione di computer locali ad Azure
@@ -51,9 +51,9 @@ Selezionare gli elementi da replicare e la posizione in cui eseguire la replica.
 1. Fare clic su **Insiemi di credenziali dei servizi di ripristino** e quindi sull'insieme di credenziali.
 2. Nel menu Risorsa fare clic su **Site Recovery** > **Preparare l'infrastruttura** > **Obiettivo di protezione**.
 3. In **Protection goal** (Obiettivo di protezione) selezionare ciò che si intende migrare.
-    - **VMware**: Selezionare **In Azure** > **Sì, con VMWare vSphere Hypervisor**.
-    - **Computer fisico**: Selezionare **In Azure** > **Non virtualizzato/Altro**.
-    - **Hyper-V**: Selezionare **In Azure** >  **,** . Se le macchine virtuali Hyper-V sono gestite da VMM, selezionare **Sì**.
+    - **VMware**: selezionare **In Azure** > **Sì con VMWare vSphere Hypervisor**.
+    - **Computer fisico**: selezionare **In Azure** > **Non virtualizzato/Altro**.
+    - **Hyper-V**: selezionare **In Azure** > **Sì con Hyper-V**. Se le macchine virtuali Hyper-V sono gestite da VMM, selezionare **Sì**.
 
 
 ## <a name="set-up-the-source-environment"></a>Configurare l'ambiente di origine
@@ -115,7 +115,7 @@ Eseguire un failover per i computer di cui si vuole eseguire la migrazione.
 
 
 > [!WARNING]
-> **Non annullare un failover in corso**: Prima dell'avvio del failover, la replica della macchina virtuale viene arrestata. Se si annulla un failover in corso, il failover viene arrestato ma non viene eseguita di nuovo la replica della macchina virtuale.
+> **Non annullare un failover in corso**: prima dell'avvio del failover, la replica della macchina virtuale viene arrestata. Se si annulla un failover in corso, il failover viene arrestato ma non viene eseguita di nuovo la replica della macchina virtuale.
 
 In alcuni scenari il failover richiede un'altra elaborazione il cui completamento richiede da 8 a 10 minuti. L'esecuzione del failover di test potrebbe richiedere più tempo per server fisici, computer Linux VMware, macchine virtuali VMware per cui non è abilitato il servizio DHCP e macchine virtuali VMware che non hanno i driver di avvio seguenti: storvsc, vmbus, storflt, intelide, atapi.
 
@@ -136,8 +136,8 @@ Alcuni passaggi possono essere automatizzati nell'ambito del processo di migrazi
     - Se si esegue la migrazione di macchine virtuali Hyper-V in Azure, dopo la migrazione è necessario installare l'agente di macchine virtuali di Azure nella macchina virtuale di Azure.
 - Rimuovere manualmente qualsiasi provider/agente di Site Recovery dalla macchina virtuale. Se si esegue la migrazione di server fisici o VM VMware, disinstallare il servizio Mobility dalla VM.
 - Per una maggiore resilienza:
-    - Proteggere i dati eseguendo il backup delle macchine virtuali di Azure con il servizio Backup di Azure. [Altre informazioni]( https://docs.microsoft.com/azure/backup/quick-backup-vm-portal)
-    - Mantenere i carichi di lavoro in esecuzione e sempre disponibili eseguendo la replica delle macchine virtuali di Azure in un'area secondaria con Site Recovery. [Altre informazioni](azure-to-azure-quickstart.md)
+    - Proteggere i dati eseguendo il backup delle macchine virtuali di Azure con il servizio Backup di Azure. [Altre informazioni]( https://docs.microsoft.com/azure/backup/quick-backup-vm-portal).
+    - Mantenere i carichi di lavoro in esecuzione e sempre disponibili eseguendo la replica delle macchine virtuali di Azure in un'area secondaria con Site Recovery. [Altre informazioni](azure-to-azure-quickstart.md).
 - Per una maggiore sicurezza:
     - Bloccare e limitare l'accesso del traffico in ingresso con la funzionalità [Amministrazione JIT]( https://docs.microsoft.com/azure/security-center/security-center-just-in-time) del Centro sicurezza di Azure.
     - Limitare il traffico di rete verso gli endpoint di gestione con la funzionalità [Gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/security-overview).
@@ -158,7 +158,7 @@ Alcuni passaggi possono essere automatizzati nell'ambito del processo di migrazi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stata eseguita la migrazione dalle macchine virtuali locali alle macchine virtuali di Azure. Now
+In questa esercitazione è stata eseguita la migrazione dalle macchine virtuali locali alle macchine virtuali di Azure. Adesso
 
 > [!div class="nextstepaction"]
 > [Configurare il ripristino di emergenza](azure-to-azure-replicate-after-migration.md) in un'area di Azure secondaria per le macchine virtuali di Azure.

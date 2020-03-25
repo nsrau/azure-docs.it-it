@@ -8,10 +8,10 @@ author: tomarchermsft
 ms.author: tarcher
 ms.date: 02/22/2020
 ms.openlocfilehash: 824e4df7662ee67c3f0786877053c39a8d952d49
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77589495"
 ---
 # <a name="quickstart---configure-a-windows-virtual-machine-in-azure-using-chef"></a>Avvio rapido: Configurare una macchina virtuale Windows in Azure con Chef

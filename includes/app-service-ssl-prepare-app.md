@@ -9,10 +9,10 @@ ms.date: 10/15/2018
 ms.author: cephalin
 ms.custom: include file
 ms.openlocfilehash: 4c5c0197ab6cecbba4bac4c0bff5ef76de24b6de
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/25/2020
 ms.locfileid: "78301004"
 ---
 ## <a name="prepare-your-web-app"></a>Preparare l'app Web
@@ -37,7 +37,7 @@ Viene visualizzata la pagina di gestione dell'app Web.
 
 ### <a name="check-the-pricing-tier"></a>Scegliere il piano tariffario
 
-Nel riquadro di spostamento a sinistra della pagina dell'app Web scorrere fino alla sezione **Impostazioni** e selezionare **Aumenta prestazioni (piano di servizio app)** .
+Nel riquadro di spostamento a sinistra della pagina dell'app Web scorrere fino alla sezione **Impostazioni** e selezionare **Scala verticalmente (piano di servizio app)** .
 
 ![Menu di scalabilità verticale](./media/app-service-ssl-prepare-app/scale-up-menu.png)
 
@@ -51,7 +51,7 @@ Il certificato SSL personalizzato non è supportato nel livello **F1** o **D1**.
 
 Selezionare uno dei livelli non gratuiti (**B1**, **B2**, **B3** o uno qualsiasi dei livelli della categoria **Produzione**). Per altre opzioni, fare clic su **Visualizza opzioni aggiuntive**.
 
-Fare clic su **Applica**.
+Fare clic su **Apply**.
 
 ![Scegliere un piano tariffario](./media/app-service-ssl-prepare-app/choose-pricing-tier.png)
 

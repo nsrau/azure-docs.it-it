@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 02/28/2017
 ms.author: cynthn
 ms.openlocfilehash: 1ec0ada9143d193f8ee976d53d0b9754904efbe5
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74039967"
 ---
 # <a name="quick-create-a-virtual-machine-with-the-azure-cli"></a>Creare rapidamente una macchina virtuale con l'interfaccia della riga di comando di Azure

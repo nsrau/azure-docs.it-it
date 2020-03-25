@@ -9,10 +9,10 @@ ms.date: 09/11/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: ccb5e40738680181e7339b8652d029597c7d0bd4
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "70935141"
 ---
 1. Accedere alla [console di Firebase](https://firebase.google.com/console/). Creare un nuovo progetto Firebase se non è già disponibile.

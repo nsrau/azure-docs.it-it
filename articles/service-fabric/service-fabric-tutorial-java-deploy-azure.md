@@ -7,10 +7,10 @@ ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
 ms.openlocfilehash: b7754a289c06dff37aedcf8da76d35dfac4b183d
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78252810"
 ---
 # <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>Esercitazione: Distribuire un'applicazione Java in un cluster di Service Fabric in Azure
@@ -32,7 +32,7 @@ In questa serie di esercitazioni si apprenderà come:
 > * [Configurare il monitoraggio e la diagnostica per l'applicazione](service-fabric-tutorial-java-elk.md)
 > * [Configurare CI/CD](service-fabric-tutorial-java-jenkins.md)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare questa esercitazione:
 

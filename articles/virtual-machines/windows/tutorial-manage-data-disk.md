@@ -17,10 +17,10 @@ ms.author: cynthn
 ms.custom: mvc
 ms.subservice: disks
 ms.openlocfilehash: b288091172c71be82e70d90eb8817b2130f2cbef
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76277300"
 ---
 # <a name="tutorial---manage-azure-disks-with-azure-powershell"></a>Esercitazione: gestire i dischi di Azure con Azure PowerShell

@@ -8,10 +8,10 @@ ms.author: mbullwin
 ms.date: 09/20/2017
 ms.custom: mvc
 ms.openlocfilehash: cc6c7fc94e940732ba180c83344eabf29597d849
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77670356"
 ---
 # <a name="use-azure-application-insights-to-understand-how-customers-are-using-your-application"></a>Usare Azure Application Insights per comprendere in che modo i clienti usano l'applicazione
@@ -28,7 +28,7 @@ Azure Application Insights raccoglie informazioni sull'utilizzo che consentono d
 > * Controllare la modalità di navigazione degli utenti all'interno dell'applicazione
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare questa esercitazione:
 

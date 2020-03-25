@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/03/2018
 ms.author: memildin
 ms.openlocfilehash: 4b40b7c6f755eb2107a09b1b881ea33fa2187f29
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73686342"
 ---
 # <a name="tutorial-protect-your-resources-with-azure-security-center"></a>Esercitazione: Protezione delle risorse con Centro sicurezza di Azure
@@ -30,7 +30,7 @@ In questa esercitazione si apprenderà come:
 > * Configurare i criteri di accesso JIT alle macchine virtuali
 > * Configurazione dei criteri di controllo delle applicazioni
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 Per esaminare le funzionalità descritte in questa esercitazione è necessario il piano tariffario Standard del Centro sicurezza. È possibile provare il livello Standard del Centro sicurezza gratuitamente. Per altre informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/). La [Guida introduttiva per il Centro sicurezza di Azure ](security-center-get-started.md) illustra come eseguire l'aggiornamento al livello Standard.
 
 ## <a name="manage-vm-access"></a>Gestire l'accesso alle macchine virtuali
@@ -123,7 +123,7 @@ In questa esercitazione è stato descritto come limitare l'esposizione a minacce
 Passare all'esercitazione successiva per informazioni su come rispondere agli eventi imprevisti relativi alla sicurezza.
 
 > [!div class="nextstepaction"]
-> [Esercitazione: Rispondere agli eventi imprevisti relativi alla sicurezza](tutorial-security-incident.md)
+> [Tutorial: Respond to security incidents](tutorial-security-incident.md) (Esercitazione: Rispondere agli eventi imprevisti della sicurezza)
 
 <!--Image references-->
 [1]: ./media/tutorial-protect-resources/just-in-time-vm-access.png

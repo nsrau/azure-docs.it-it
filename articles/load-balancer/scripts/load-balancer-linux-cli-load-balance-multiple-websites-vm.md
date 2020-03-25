@@ -10,13 +10,13 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: allensu
 ms.openlocfilehash: 80ec18ca722b9833307fc270c710abd93c6fb6f9
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76274628"
 ---
-# <a name="azure-cli-script-example-load-balance-multiple-websites"></a>Esempio di script dell'interfaccia della riga di comando di Azure: Eseguire il bilanciamento del carico per più siti Web
+# <a name="azure-cli-script-example-load-balance-multiple-websites"></a>Esempio di script dell'interfaccia della riga di comando di Azure: bilanciare il carico di più siti Web
 
 Questo esempio di script dell'interfaccia della riga di comando di Azure crea una rete virtuale con due macchine virtuali che fanno parte di un set di disponibilità. Il bilanciamento del carico indirizza il traffico di due diversi indirizzi IP verso le due macchine virtuali. Dopo l'esecuzione dello script, è possibile distribuire il software del server Web alle macchine virtuali e ospitare più siti Web, ciascuno con il suo indirizzo IP.
 

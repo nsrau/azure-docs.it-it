@@ -11,10 +11,10 @@ ms.workload: Active
 ms.date: 12/08/2019
 ms.author: alehall
 ms.openlocfilehash: fa5568a5af483a61b4e0854cbc7c2ade3b8dc4b1
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75889138"
 ---
 # <a name="tutorial-stream-data-into-azure-databricks-using-event-hubs"></a>Esercitazione: Trasmettere dati in Azure Databricks tramite Hub eventi

@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con &frankly | Microsoft Docs'
+title: 'Esercitazione: Integrazione di Azure Active Directory con &frankly | Documentazione Microsoft'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e &frankly.
 services: active-directory
 documentationCenter: na
@@ -17,10 +17,10 @@ ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 736cca668057f38431f91e36ff8fa97840274a38
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76120656"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-frankly"></a>Esercitazione: Integrazione di Azure Active Directory con &frankly
@@ -35,7 +35,7 @@ L'integrazione di &frankly con Azure AD offre i vantaggi seguenti:
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per configurare l'integrazione di Azure AD con &frankly, sono necessari gli elementi seguenti:
 
@@ -82,7 +82,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con &frankly, è 
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare l'utente di test di &frankly](#create-frankly-test-user)** : per avere una controparte di Britta Simon in &frankly collegata alla rappresentazione dell'utente in Azure AD.
-6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** : per verificare se la configurazione funziona.
+6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
@@ -90,7 +90,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 Per configurare l'accesso Single Sign-On di Azure AD con &frankly, seguire questa procedura:
 
-1. Nella pagina di integrazione dell'applicazione **&frankly** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
+1. Nella pagina di integrazione dell'applicazione [&frankly](https://portal.azure.com/) del **portale di Azure** selezionare **Single Sign-On**.
 
     ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 
@@ -135,7 +135,7 @@ Per abilitare l'accesso Single Sign-On in &frankly:
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
-Questa sezione descrive come creare un utente di test di nome Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -186,13 +186,13 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 ### <a name="create-frankly-test-user"></a>Creare l'utente di test di &frankly
 
-In questa sezione viene creato un utente di nome Britta Simon in &frankly. Collaborare con il  [team di supporto di &frankly](mailto:help@andfrankly.com) per aggiungere gli utenti alla piattaforma &frankly. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente chiamato Britta Simon in &frankly. Collaborare con il  [team di supporto di &frankly](mailto:help@andfrankly.com) per aggiungere gli utenti alla piattaforma &frankly. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di &frankly nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di &frankly per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di &frankly nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione &frankly per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

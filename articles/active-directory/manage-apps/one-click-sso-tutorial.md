@@ -17,10 +17,10 @@ ms.date: 06/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a83d27af4fd783b95c53ef3a9169cb72bfc29d34
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67872434"
 ---
 # <a name="one-click-app-configuration-of-single-sign-on"></a>Configurazione dell'accesso Single Sign-On con un clic per l'app
@@ -37,7 +37,7 @@ La funzionalità di accesso SSO con un clic è progettata in modo da consentire 
 - Configurazione dell'accesso SSO più efficiente e accurata.
 - Nessuna necessità di comunicare con il partner o l'assistenza per completare la configurazione. Interfaccia utente per la configurazione SAML inclusa nell'applicazione.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Una sottoscrizione attiva per l'applicazione da configurare con l'accesso SSO. Sono necessarie anche le credenziali dell'amministratore.
 - **Estensione del browser My Apps Secure Sign-in** Microsoft installata nel browser. Per altre informazioni, vedere [Accedere e usare le app nel portale App personali](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access).

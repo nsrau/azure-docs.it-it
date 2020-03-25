@@ -15,17 +15,17 @@ ms.workload: na
 ms.date: 05/01/2019
 ms.author: juliako
 ms.openlocfilehash: d6720200da341ee466339edde6dded02dd4fddc6
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74970109"
 ---
-# <a name="cli-example-upload-a-local-file-to-a-container"></a>Esempio di interfaccia della riga di comando: Caricare un file locale in un contenitore 
+# <a name="cli-example-upload-a-local-file-to-a-container"></a>Esempio dell'interfaccia della riga di comando: Caricare un file locale in un contenitore 
 
 Lo script dell'interfaccia della riga di comando di Azure in questo articolo mostra come caricare un file locale in un contenitore di archiviazione.
 
-## <a name="prerequisites"></a>Prerequisiti 
+## <a name="prerequisites"></a>Prerequisites 
 
 [Creare un account di Servizi multimediali di Azure](create-account-cli-how-to.md).
 

@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Visualizzare i dati da Esplora dati di Azure in Power BI'
+title: 'Esercitazione: visualizzare i dati in Power BI da Esplora dati di Azure'
 description: Questa esercitazione fornisce informazioni su come connettersi a Esplora dati di Azure con Power BI e visualizzare i dati.
 author: orspod
 ms.author: orspodek
@@ -8,19 +8,19 @@ ms.service: data-explorer
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.openlocfilehash: ec1579792a6e247bf49946bb8609a626154fbd46
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74037351"
 ---
-# <a name="tutorial-visualize-data-from-azure-data-explorer-in-power-bi"></a>Esercitazione: Visualizzare i dati da Esplora dati di Azure in Power BI
+# <a name="tutorial-visualize-data-from-azure-data-explorer-in-power-bi"></a>Esercitazione: visualizzare i dati in Power BI da Esplora dati di Azure
 
 Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. Power BI è una soluzione di analisi aziendale che consente di visualizzare i dati e condividere i risultati all'interno dell'organizzazione. In questa esercitazione vengono anzitutto fornite informazioni su come eseguire il rendering degli oggetti visivi in Esplora dati di Azure. In secondo luogo, ci si connette a Esplora dati di Azure con Power BI, si compila un report basato sui dati di esempio e si pubblica il report nel servizio Power BI.
 
 Se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare. Se non si è iscritti a Power BI Pro, [iscriversi a una versione di valutazione gratuita](https://app.powerbi.com/signupredirect?pbi_source=web) prima di iniziare.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Eseguire il rendering degli oggetti visivi in Esplora dati di Azure
@@ -29,7 +29,7 @@ In questa esercitazione si apprenderà come:
 > * Creare un report con gli oggetti visivi
 > * Pubblicare e condividere il report
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Oltre alle sottoscrizioni ad Azure e Power BI, per completare quest'esercitazione è necessario quanto segue:
 
@@ -83,7 +83,7 @@ Collegarsi ora a Esplora dati di Azure in Power BI Desktop.
 
 1. Nella scheda **Home** di Power BI Desktop selezionare **Recupera dati** e quindi **Altro**.
 
-    ![Ottenere i dati](media/visualize-power-bi/get-data-more.png)
+    ![Recuperare i dati](media/visualize-power-bi/get-data-more.png)
 
 1. Cercare *Esplora dati di Azure*, selezionare **Esplora dati di Azure (beta)** e quindi **Connetti**.
 

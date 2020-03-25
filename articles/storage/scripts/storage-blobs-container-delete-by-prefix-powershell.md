@@ -2,25 +2,19 @@
 title: Esempio di script di Azure PowerShell - Eliminare i contenitori mediante prefisso | Microsoft Docs
 description: Eliminare i contenitori BLOB dell'Archiviazione di Azure in base a un prefisso del nome.
 services: storage
-documentationcenter: na
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: ''
-ms.custom: mvc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: azurecli
+ms.subservice: blobs
+ms.devlang: powershell
 ms.topic: sample
 ms.date: 06/13/2017
 ms.author: tamram
-ms.openlocfilehash: e0c41ed1fc2cdb7559d36a7056ebb7b9a6ecc186
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 73c2f221d2ac0b3ceb76e3db0fdc6379a6dd330a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242771"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80060874"
 ---
 # <a name="delete-containers-based-on-container-name-prefix"></a>Eliminare i contenitori in base al prefisso del nome
 
@@ -34,7 +28,7 @@ Lo script elimina i contenitori nell'Archiviazione BLOB di Azure in base a un pr
 
 [!code-powershell[main](../../../powershell_scripts/storage/delete-containers-by-prefix/delete-containers-by-prefix.ps1 "Delete containers by prefix")]
 
-## <a name="clean-up-deployment"></a>Pulire la distribuzione 
+## <a name="clean-up-deployment"></a>Pulire la distribuzione
 
 Eseguire il comando seguente per rimuovere il gruppo di risorse, i contenitori rimanenti e tutte le risorse correlate.
 

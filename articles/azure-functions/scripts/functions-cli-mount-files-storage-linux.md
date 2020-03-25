@@ -4,10 +4,10 @@ description: Creare un'app per le funzioni Python serverless e montare una condi
 ms.topic: sample
 ms.date: 03/01/2020
 ms.openlocfilehash: 3d66f84d124b36f1be335c3a2204f21690510ee8
-ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79086288"
 ---
 # <a name="mount-a-file-share-to-a-python-function-app-using-azure-cli"></a>Montare una condivisione file in un'app per le funzioni Python con l'interfaccia della riga di comando di Azure

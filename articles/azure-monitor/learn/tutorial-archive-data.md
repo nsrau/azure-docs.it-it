@@ -9,10 +9,10 @@ ms.author: johnkem
 ms.custom: mvc
 ms.subservice: metrics
 ms.openlocfilehash: 3ed00b1c68c41bc392b09c97dd47c9cdb8fa890d
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77661726"
 ---
 # <a name="archive-azure-metric-and-log-data-using-azure-storage"></a>Archiviare dati di metrica e log di Azure con Archiviazione di Azure
@@ -102,7 +102,7 @@ Il monitoraggio dei dati nella risorsa viene quindi trasmesso all'account di arc
 > [!NOTE]
 > L'invio delle metriche multidimensionali tramite impostazioni di diagnostica non è attualmente supportato. Le metriche con dimensioni sono esportate come metriche a singola dimensione di tipo flat e aggregate a livello di valori di dimensione.
 >
-> *Ad esempio*: la metrica "Messaggi in arrivo" su un hub eventi può essere esplorata e rappresentata in un grafico a livello di singola coda. Tuttavia, in caso di esportazione tramite impostazione di diagnostica, la metrica verrà rappresentata come tutti i messaggi in ingresso in tutte le code nell'hub eventi.
+> *Ad esempio*: la metrica 'Messaggi in ingresso' su un hub eventi può essere esplorata e rappresentata in un grafico a livello di singola coda. Tuttavia, in caso di esportazione tramite impostazione di diagnostica, la metrica verrà rappresentata come tutti i messaggi in ingresso in tutte le code nell'hub eventi.
 >
 >
 

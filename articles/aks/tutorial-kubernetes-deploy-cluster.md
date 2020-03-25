@@ -6,13 +6,13 @@ ms.topic: tutorial
 ms.date: 02/25/2020
 ms.custom: mvc
 ms.openlocfilehash: bc31a4197b08cbeb1a99820d7ff490f20147c7bf
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78191266"
 ---
-# <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>Esercitazione: Distribuire un cluster del servizio Azure Kubernetes
+# <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>Esercitazione: distribuire un cluster del servizio Azure Kubernetes
 
 Kubernetes fornisce una piattaforma distribuita per applicazioni in contenitori. Il servizio Azure Kubernetes consente di creare rapidamente un cluster Kubernetes per la produzione. In questa esercitazione, la terza di sette parti, viene distribuito un cluster Kubernetes in servizio Azure Kubernetes. Si apprenderà come:
 

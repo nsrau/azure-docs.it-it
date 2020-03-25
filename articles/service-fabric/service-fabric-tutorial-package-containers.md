@@ -7,13 +7,13 @@ ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
 ms.openlocfilehash: cc1d6e04b19d36f0ca8c7ed4b2bb3d62f5e8e15a
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78252755"
 ---
-# <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>Esercitazione: Creare un pacchetto e distribuire contenitori come un'applicazione di Service Fabric usando Yeoman
+# <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>Esercitazione: creare un pacchetto e distribuire contenitori come un'applicazione di Service Fabric usando Yeoman
 
 Questa è la seconda di una serie di esercitazioni. In questa esercitazione viene usato uno strumento generatore di modelli (Yeoman) per generare una definizione di applicazione di Service Fabric. Questa applicazione può quindi essere usata per distribuire i contenitori in Service Fabric. In questa esercitazione si apprenderà come:
 
@@ -25,7 +25,7 @@ Questa è la seconda di una serie di esercitazioni. In questa esercitazione vien
 > * Distribuire ed eseguire l'applicazione
 > * Eseguire la pulizia dell'applicazione
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * Vengono usate le immagini del contenitore di cui è stato eseguito il push in Registro Azure Container creato nella [prima](service-fabric-tutorial-create-container-images.md) di questa serie di esercitazioni.
 * Viene [configurato](service-fabric-tutorial-create-container-images.md) l'ambiente di sviluppo Linux.

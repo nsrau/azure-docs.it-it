@@ -9,10 +9,10 @@ ms.custom: mvc
 ms.topic: sample
 ms.date: 08/07/2019
 ms.openlocfilehash: 24aaf461576e6e043979660f9de968358763e003
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68882995"
 ---
 # <a name="monitor-and-scale-a-single-postgresql-server-using-azure-cli"></a>Monitorare e scalare un singolo server PostgreSQL tramite l'interfaccia della riga di comando di Azure
@@ -43,5 +43,5 @@ Questo script usa i comandi illustrati nella tabella seguente:
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Altre informazioni sulle [risorse di calcolo e archiviazione del database di Azure per PostgreSQL](../concepts-pricing-tiers.md)
-- Provare altri script: [Azure CLI samples for Azure Database for PostgreSQL](../sample-scripts-azure-cli.md) (Esempi di interfaccia della riga di comando di Azure per Database di Azure per PostgreSQL)
+- Provare a eseguire altri script: [esempi dell'interfaccia della riga di comando di Azure per il database di Azure per PostgreSQL](../sample-scripts-azure-cli.md)
 - Altre informazioni sull'[interfaccia della riga di comando di Azure](/cli/azure)
