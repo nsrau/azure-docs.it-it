@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Creare una pipeline con la Copia guidata '
+title: 'Esercitazione: Creare una pipeline usando la Copia guidata '
 description: In questa esercitazione viene creata una pipeline di Azure Data Factory con un'attività di copia usando la Copia guidata supportata da Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,10 +13,10 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 8bbe32a202af3b8684c16cc2e56d5a111511bef5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75438906"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Esercitazione: Creare una pipeline con l'attività di copia usando la Copia guidata di Data Factory
@@ -61,7 +61,7 @@ In questo passaggio viene usato il portale di Azure per creare un'istanza di Azu
       - Selezionare **Usa esistente** per scegliere un gruppo di risorse esistente.
       - Selezionare **Crea nuovo** per immettere un nome per un gruppo di risorse.
           
-        Alcuni passaggi di questa esercitazione presuppongono che venga usato il nome **ADFTutorialResourceGroup** per il gruppo di risorse. Per informazioni sui gruppi di risorse, vedere l'articolo relativo all'[uso di gruppi di risorse per la gestione delle risorse di Azure](../../azure-resource-manager/management/overview.md).
+        Alcuni dei passaggi di questa esercitazione presuppongono l'uso del nome **ADFTutorialResourceGroup** per il gruppo di risorse. Per informazioni sui gruppi di risorse, vedere l'articolo relativo all'[uso di gruppi di risorse per la gestione delle risorse di Azure](../../azure-resource-manager/management/overview.md).
    4. Selezionare una **località** per la data factory.
    5. Selezionare la casella di controllo **Aggiungi al dashboard** nella parte inferiore del pannello.  
    6. Fare clic su **Crea**.
