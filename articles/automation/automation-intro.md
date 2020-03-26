@@ -8,10 +8,10 @@ ms.date: 10/18/2018
 ms.custom: mvc
 ms.topic: overview
 ms.openlocfilehash: 3359d99d7e20bbced8950171fa34592fd2612500
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76930392"
 ---
 # <a name="an-introduction-to-azure-automation"></a>Introduzione ad Automazione di Azure
@@ -37,7 +37,7 @@ La [configurazione dello stato desiderato](automation-dsc-overview.md) di Automa
 
 Aggiornare i sistemi Windows e Linux in ambienti ibridi con Automazione di Azure. È possibile ottenere la visibilità della conformità degli aggiornamenti in Azure, nell'ambiente locale e in altri ambienti cloud. È possibile creare distribuzioni pianificate per orchestrare l'installazione degli aggiornamenti all'interno di una finestra di manutenzione definita. Se un aggiornamento non deve essere installato in un computer, è possibile escluderlo da una distribuzione.
 
-### <a name="shared-resources"></a>Risorse condivise
+### <a name="shared-resources"></a><a name="shared-resources"></a>Risorse condivise
 
 Automazione di Azure è costituito da un set di risorse condivise che semplificano l'automazione e la configurazione degli ambienti su larga scala.
 

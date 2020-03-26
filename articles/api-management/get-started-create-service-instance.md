@@ -13,10 +13,10 @@ ms.custom: mvc
 ms.date: 11/28/2017
 ms.author: apimpm
 ms.openlocfilehash: acfa10ea506e063bf6b230386ca0722f1c959d18
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75442567"
 ---
 # <a name="create-a-new-azure-api-management-service-instance"></a>Creare una nuova istanza del servizio Gestione API di Azure

@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Creare una pipeline CI/CD per Python con Azure DevOps Projects'
+title: 'Guida introduttiva: Creare una pipeline CI/CD per Python con Azure DevOps Projects'
 description: DevOps Projects consente di iniziare a usare Azure in modo semplice. Con pochi rapidi passaggi, è possibile avviare un'app in un servizio di Azure a scelta.
 ms.prod: devops
 ms.technology: devops-cicd
@@ -17,10 +17,10 @@ ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
 ms.openlocfilehash: b912dfe3fb6461a925977192a6631ecac1357d35
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77049830"
 ---
 # <a name="create-a-cicd-pipeline-for-python-with-azure-devops-projects"></a>Creare una pipeline CI/CD per Python con Azure DevOps Projects

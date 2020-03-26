@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3dd1b4cf554e773f49a15ac5cedcbcc5b3e710b9
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74380097"
 ---
 # <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>Guida introduttiva: Richiedere l'accettazione di condizioni per l'utilizzo prima dell'accesso alle app cloud
@@ -31,7 +31,7 @@ Questa guida di avvio rapido illustra come configurare [criteri di accesso condi
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare lo scenario in questa guida introduttiva, sono necessari gli elementi seguenti:
 
@@ -82,7 +82,7 @@ Questa sezione illustra i passaggi necessari per creare un esempio di condizioni
    1. Per **Lingua**, selezionare **Inglese**.
    1. Per **Richiedi agli utenti di espandere le Condizioni d'uso** selezionare **Attivata**.
    1. Per **Applica con i modelli di criteri di accesso condizionale** selezionare **Criteri personalizzati**.
-   1. Fare clic su **Create**(Crea).
+   1. Fare clic su **Crea**.
 
 ## <a name="create-your-conditional-access-policy"></a>Creare i criteri di accesso condizionale
 
@@ -93,7 +93,7 @@ Questa sezione illustra come creare i criteri di accesso condizionale necessari.
 
 Nei criteri, impostare:
 
-| Impostazione | Valore |
+| Impostazione | valore |
 | --- | --- |
 | Utenti e gruppi | Isabella Simonsen |
 | App cloud | Gestione di Microsoft Azure |
@@ -105,7 +105,7 @@ Nei criteri, impostare:
 
 1. Nella casella di testo **Nome** della pagina **Nuovo** digitare **Require TOU for Isabella** (Richiedi condizioni per l'utilizzo per Isabella).
 
-   ![NOME](./media/require-tou/71.png)
+   ![Nome](./media/require-tou/71.png)
 
 1. Nella sezione **Assegnazioni** fare clic su **Utenti e gruppi**.
 
@@ -137,7 +137,7 @@ Nei criteri, impostare:
 
 1. Nella pagina **Concedi**:
 
-   ![Concessione](./media/require-tou/111.png)
+   ![Concedi](./media/require-tou/111.png)
 
    1. Selezionare **Concedi accesso**.
    1. Selezionare **My TOU** (Condizioni per l'utilizzo personali).
@@ -146,7 +146,7 @@ Nei criteri, impostare:
 
    ![Abilitare i criteri](./media/require-tou/18.png)
 
-1. Fare clic su **Create**(Crea).
+1. Fare clic su **Crea**.
 
 ## <a name="evaluate-a-simulated-sign-in"></a>Valutare un accesso simulato
 

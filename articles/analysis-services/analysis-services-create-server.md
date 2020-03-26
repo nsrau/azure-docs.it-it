@@ -8,10 +8,10 @@ ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 4c1b22d4871d3e490f59be71b63569fdf563ce45
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75442830"
 ---
 # <a name="quickstart-create-a-server---portal"></a>Avvio rapido: Creare un server - Portale
@@ -20,7 +20,7 @@ Questa guida introduttiva descrive come creare una risorsa server Analysis Servi
 
 ## <a name="prerequisites"></a>Prerequisites 
 
-* **Sottoscrizione di Azure**: visitare la pagina [Versione di prova gratuita di Azure](https://azure.microsoft.com/offers/ms-azr-0044p/) per creare un account.
+* **Sottoscrizione di Azure**: visitare la pagina [Versione di valutazione gratuita di Azure](https://azure.microsoft.com/offers/ms-azr-0044p/) per creare un account.
 * **Azure Active Directory**: la sottoscrizione deve essere associata a un tenant Azure Active Directory. Inoltre è necessario essere registrati ad Azure con un account nell'Azure Active Directory specifica. Per altre informazioni, vedere [Autenticazione e autorizzazioni utente](analysis-services-manage-users.md).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure 
@@ -37,13 +37,13 @@ Questa guida introduttiva descrive come creare una risorsa server Analysis Servi
 2. In **Analysis Services** compilare i campi obbligatori e quindi fare clic su **Crea**.
    
    * **Nome server**: digitare un nome univoco usato per fare riferimento al server. Il nome del server deve iniziare con una lettera minuscola e contenere tra 3 e 128 caratteri minuscoli e numeri. Gli spazi e i caratteri speciali non sono consentiti.
-   * **Sottoscrizione** selezionare la sottoscrizione a cui il server verrà associato.
+   * **Sottoscrizione**: selezionare la sottoscrizione a cui il server verrà associato.
    * **Gruppo di risorse**: creare un nuovo gruppo di risorse o selezionarne uno già esistente. I gruppi di risorse sono progettati per facilitare la gestione di una raccolta di risorse di Azure. Per altre informazioni, vedere [Gruppi di risorse](../azure-resource-manager/management/overview.md).
    * **Località**: località del data center di Azure che ospita il server. Selezionare una località vicina alla base di utenti più estesa.
-   * **Piano tariffario**: Selezione di un piano tariffario. Se si sta eseguendo il test e si intende installare il database modello di esempio, selezionare il piano gratuito **D1**. Per altre informazioni, vedere [Prezzi di Azure Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services/). 
+   * **Piano tariffario**: selezionare un piano tariffario. Se si sta eseguendo il test e si intende installare il database modello di esempio, selezionare il piano gratuito **D1**. Per altre informazioni, vedere [Prezzi di Azure Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services/). 
    * **Amministratore**: per impostazione predefinita, sarà l'account con cui si esegue l'accesso. È possibile scegliere un altro account da Azure Active Directory.
-   * **Impostazione dell'archiviazione di backup**: Facoltativa. Se si ha già un [account di archiviazione](../storage/common/storage-introduction.md), è possibile specificarlo come account predefinito per il backup del database modello. Le impostazioni di [backup e ripristino](analysis-services-backup.md) possono essere specificate successivamente.
-   * **Scadenza della chiave di archiviazione**: Facoltativa. Specificare un periodo di scadenza della chiave di archiviazione.
+   * **Impostazione dell'archiviazione di backup**: facoltativa. Se si ha già un [account di archiviazione](../storage/common/storage-introduction.md), è possibile specificarlo come account predefinito per il backup del database modello. Le impostazioni di [backup e ripristino](analysis-services-backup.md) possono essere specificate successivamente.
+   * **Scadenza della chiave di archiviazione**: facoltativa. Specificare un periodo di scadenza della chiave di archiviazione.
 
 La creazione del server in genere richiede meno di un minuto. Se si seleziona **Add to Portal** (Aggiungi al portale), spostarsi nel portale per vedere il nuovo server. In alternativa, passare a **Tutti i servizi** > **Analysis Services** per vedere se il server è pronto. I server supportano modelli tabulari con livelli di compatibilità 1200 e successivi. Il livello di compatibilità dei modelli è specificato in Visual Studio o SSMS.
 
@@ -58,6 +58,6 @@ Quando non è più necessario, eliminare il server. Nel riquadro **Panoramica** 
 In questa guida introduttiva si è appreso come creare un server nella sottoscrizione di Azure. Una volta creato il server, è consigliabile garantirne la sicurezza configurando un firewall (facoltativo). È inoltre possibile aggiungere un modello di dati di esempio al server, direttamente dal portale. Un modello di esempio è utile per avere informazioni sulla configurazione dei ruoli del database modello e sul test delle connessioni client. Per altre informazioni, continuare con l'esercitazione per l'aggiunta di un modello di esempio.
 
 > [!div class="nextstepaction"]
-> [Avvio rapido: configurare il firewall del server - Portale](analysis-services-qs-firewall.md)   
+> [Avvio rapido: Configurare il firewall del server - Portale](analysis-services-qs-firewall.md)   
 > [!div class="nextstepaction"]
-> [Esercitazione: aggiungere un modello di esempio al server](analysis-services-create-sample-model.md)
+> [Esercitazione: Aggiungere un modello di esempio al server](analysis-services-create-sample-model.md)

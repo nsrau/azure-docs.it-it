@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
 ms.date: 06/21/2019
-ms.openlocfilehash: 3399cc47af20df05d6315a4bd77965f799eaf5f9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f15a4605d28beaf97e877f337051a2ec13148a41
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75426175"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80235753"
 ---
 # <a name="what-is-azure-stream-analytics"></a>Informazioni su Analisi di flusso di Azure
 
@@ -39,7 +39,7 @@ Per ogni processo è presente un output per i dati trasformati ed è possibile c
 
 L'immagine seguente mostra il modo in cui i dati vengono inviati ad Analisi di flusso, analizzati e inviati per altre azioni, tra cui archiviazione o presentazione:
 
-![Pipeline introduttiva di Analisi di flusso](./media/stream-analytics-introduction/stream-analytics-intro-pipeline.png)
+![Pipeline introduttiva di Analisi di flusso](./media/stream-analytics-introduction/stream-analytics-e2e-pipeline.png)
 
 ## <a name="key-capabilities-and-benefits"></a>Funzionalità e vantaggi principali
 

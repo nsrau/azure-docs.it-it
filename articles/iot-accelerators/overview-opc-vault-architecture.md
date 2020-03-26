@@ -9,10 +9,10 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 1e08968034134e2b9ab3b8064387d18663d5c866
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/23/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "71200153"
 ---
 # <a name="opc-vault-architecture"></a>Architettura OPC Vault
@@ -36,7 +36,7 @@ Il microservizio OPC Vault è progettato per supportare il flusso di lavoro basa
 Per garantire la compatibilità con le soluzioni OPC UA esistenti, i servizi includono il supporto per un modulo Edge basato su un microservizio OPC Vault. In questo modo viene implementata l'interfaccia del **server di individuazione globale e gestione certificati di OPC UA** per la distribuzione di certificati ed elenchi di attendibilità conformemente alla parte 12 della specifica. 
 
 
-## <a name="architecture"></a>Architettura
+## <a name="architecture"></a>Architecture
 
 L'architettura è basata sul microservizio OPC Vault con un modulo IoT Edge OPC Vault per la rete factory e un'esperienza utente Web di esempio per controllare il flusso di lavoro:
 

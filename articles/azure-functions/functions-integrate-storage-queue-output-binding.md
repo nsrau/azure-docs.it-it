@@ -6,10 +6,10 @@ ms.topic: quickstart
 ms.date: 09/19/2017
 ms.custom: mvc
 ms.openlocfilehash: 73f8d23dcd53b4cbbb3fbd902c789e868c2b021b
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75769184"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Aggiungere messaggi a una coda di archiviazione di Azure tramite Funzioni
@@ -26,7 +26,7 @@ Per completare questa guida introduttiva:
 
 * Installare [Microsoft Azure Storage Explorer](https://storageexplorer.com/). Si tratta di uno strumento che consente di esaminare i messaggi della coda creati dall'associazione di output.
 
-## <a name="add-binding"></a>Aggiungere un binding di output
+## <a name="add-an-output-binding"></a><a name="add-binding"></a>Aggiungere un binding di output
 
 In questa sezione si usa l'interfaccia utente del portale per aggiungere un'associazione di output di archiviazione code alla funzione creata in precedenza. Questa associazione permetterà di scrivere una quantità minima di codice per creare un messaggio in una coda. Non è necessario scrivere codice per attività come aprire una connessione di archiviazione, creare una coda o ottenere un riferimento a una coda. Queste attività vengono eseguite dal runtime di Funzioni di Azure e dall'associazione di output della coda.
 
@@ -66,7 +66,7 @@ In questa sezione si aggiunge il codice che scrive un messaggio nella coda di ou
 
 1. Aggiornare il codice della funzione a seconda del linguaggio della funzione:
 
-    # <a name="ctabcsharp"></a>[C\#](#tab/csharp)
+    # <a name="c"></a>[C\#](#tab/csharp)
 
     Aggiungere un parametro **outputQueueItem** alla firma del metodo come illustrato nell'esempio seguente.
 
@@ -84,7 +84,7 @@ In questa sezione si aggiunge il codice che scrive un messaggio nella coda di ou
     outputQueueItem.Add("Name passed to the function: " + name);
     ```
 
-    # <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
+    # <a name="javascript"></a>[JavaScript](#tab/nodejs)
 
     Aggiungere il codice che usa il binding di output nell'oggetto `context.bindings` per creare un messaggio della coda. Aggiungere questo codice prima dell'istruzione `context.done`.
 

@@ -9,13 +9,13 @@ ms.date: 12/02/2019
 ms.author: sngun
 ms.subservice: tables
 ms.openlocfilehash: 63495206ffffc57a895a9ec1efc88410a02ea097
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75979956"
 ---
-# <a name="quickstart-create-an-azure-storage-table-in-the-azure-portal"></a>Avvio rapido: Creare una tabella di archiviazione di Azure nel portale di Azure 
+# <a name="quickstart-create-an-azure-storage-table-in-the-azure-portal"></a>Guida introduttiva: Creare una tabella di archiviazione di Azure nel portale di Azure 
 
 Questa guida introduttiva mostra come creare tabelle ed entità nel portale di Azure basato sul Web. Questa guida introduttiva illustra anche come creare un account di archiviazione di Azure.
 

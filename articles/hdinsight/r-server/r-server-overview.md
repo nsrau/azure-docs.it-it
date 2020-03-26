@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: overview
 ms.date: 02/10/2020
 ms.openlocfilehash: a77771880da962298f6e80782e5f3e251f5f4641
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77122364"
 ---
 # <a name="what-is-ml-services-in-azure-hdinsight"></a>Informazioni su ML Services in Azure HDInsight
@@ -23,7 +23,7 @@ ML Services su HDInsight offre le più recenti funzioni di analisi basate su R p
 
 Il nodo perimetrale di un cluster offre una posizione pratica per connettersi al cluster ed eseguire gli script R. Con un nodo perimetrale è possibile eseguire le funzioni distribuite parallelizzate di ScaleR nei core del server del nodo perimetrale. È anche possibile eseguire tali funzioni tra i nodi del cluster usando contesti di calcolo Hadoop MapReduce o Apache Spark di ScaleR.
 
-I modelli o le previsioni che risultano dalle analisi possono essere scaricate per l'uso locale oppure usati in un altro punto di Azure, in particolare tramite il [servizio Web](../../machine-learning/studio/deploy-a-machine-learning-web-service.md) [Azure Machine Learning Studio (versione classica)](https://studio.azureml.net).
+I modelli o le previsioni che risultano dalle analisi possono essere scaricate per l'uso locale oppure usati in un altro punto di Azure, in particolare tramite il [servizio Web](https://studio.azureml.net) [Azure Machine Learning Studio (versione classica)](../../machine-learning/studio/deploy-a-machine-learning-web-service.md).
 
 ## <a name="get-started-with-ml-services-on-hdinsight"></a>Introduzione all'uso di ML Services in HDInsight
 

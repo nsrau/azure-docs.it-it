@@ -17,10 +17,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: df45ab0a7b1729ae6c1602c9769cd5b6da26f6ac
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74014349"
 ---
 # <a name="quickstart-configure-named-locations-in-azure-active-directory"></a>Guida introduttiva: Configurare località denominate in Azure Active Directory
@@ -31,7 +31,7 @@ Con le località denominate è possibile etichettare gli intervalli di indirizzi
 
 In questa guida introduttiva si apprenderà come configurare le località denominate nell'ambiente in uso.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per completare l'esercitazione introduttiva, sono necessari gli elementi seguenti:
 
@@ -55,7 +55,7 @@ Per completare l'esercitazione introduttiva, sono necessari gli elementi seguent
 
    * Nella casella **Nome** digitare un nome per la località denominata.
    * Nella casella **Intervalli IP** digitare l'intervallo IP in formato CIDR.  
-   * Fare clic su **Create**(Crea).
+   * Fare clic su **Crea**.
     
      ![Pannello Nuovo](./media/quickstart-configure-named-locations/61.png)
 

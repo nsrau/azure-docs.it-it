@@ -9,10 +9,10 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 05/21/2019
 ms.openlocfilehash: 075b55b5a798924b55ef9d901e4d2e9ecfc9dc1e
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77597576"
 ---
 # <a name="introduction-to-the-azure-cosmos-db-cassandra-api"></a>Introduzione all'API Cassandra di Azure Cosmos DB
@@ -35,7 +35,7 @@ L'API Cassandra consente di interagire con i dati archiviati in Azure Cosmos DB,
 
 **Livelli di coerenza:** Azure Cosmos DB consente di scegliere tra cinque livelli di coerenza ben definiti, per ottenere un compromesso ottimale tra coerenza e prestazioni. I livelli di coerenza possibili sono: Strong, Bounded Staleness, Session, Consistent Prefix ed Eventual. Si tratta di livelli di coerenza ben definiti, pratici e intuitivi, che permettono agli sviluppatori di ottenere compromessi precisi tra coerenza, disponibilità e latenza. Vedere l'articolo [livelli di coerenza](consistency-levels.md) per altre informazioni. 
 
-**Livello enterprise**: Azure Cosmos DB offre [certificazioni di conformità](https://www.microsoft.com/trustcenter) affinché gli utenti possano usare la piattaforma in modo sicuro. Fornisce inoltre la crittografia dei dati inattivi e in transito, firewall IP e log di controllo per le attività del piano di controllo.
+**Classe enterprise**: Azure Cosmos DB offre [certificazioni di conformità](https://www.microsoft.com/trustcenter) affinché gli utenti possano usare la piattaforma in modo sicuro. Fornisce inoltre la crittografia dei dati inattivi e in transito, firewall IP e log di controllo per le attività del piano di controllo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

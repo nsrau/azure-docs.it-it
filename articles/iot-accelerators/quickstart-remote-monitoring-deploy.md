@@ -10,13 +10,13 @@ ms.custom: mvc
 ms.date: 03/25/2019
 ms.author: dobett
 ms.openlocfilehash: 32e2d3f9e8bbd63944188355774558ca5ea7bd9d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58792502"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "60890162"
 ---
-# <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>Avvio rapido: Provare una soluzione di monitoraggio remoto basata sul cloud
+# <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>Guida introduttiva: Provare una soluzione di monitoraggio remoto basata sul cloud
 
 Questa guida introduttiva illustra come distribuire l'acceleratore di soluzione Monitoraggio remoto di IoT di Azure. In questa soluzione basata sul cloud viene usata la pagina **Dashboard** per visualizzare i dispositivi simulati su una mappa e la pagina **Maintenance** (Manutenzione) per rispondere a un avviso di pressione da un dispositivo refrigeratore simulato. È possibile usare questo acceleratore di soluzione come punto di partenza per un'implementazione personalizzata o come strumento di apprendimento.
 
@@ -145,4 +145,4 @@ In questa guida introduttiva, è stato distribuito l'acceleratore della soluzion
 Per altre informazioni sull'acceleratore di soluzione con dispositivi simulati, continuare con l'esercitazione successiva.
 
 > [!div class="nextstepaction"]
-> [Esercitazione: Monitorare i dispositivi IoT](iot-accelerators-remote-monitoring-monitor.md)
+> [Esercitazione: monitorare i dispositivi IoT](iot-accelerators-remote-monitoring-monitor.md)

@@ -15,10 +15,10 @@ ms.topic: overview
 ms.date: 02/27/2020
 ms.author: b-juche
 ms.openlocfilehash: 70d3a2a501952a5e20b1ff8e99f48f4d7aefce8d
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78163965"
 ---
 # <a name="what-is-the-storage-hierarchy-of-azure-netapp-files"></a>Che cos'è la gerarchia di archiviazione di Azure NetApp Files
@@ -28,14 +28,14 @@ Prima di creare un volume in Azure NetApp Files, è necessario acquistare e conf
 > [!IMPORTANT] 
 > Azure NetApp Files attualmente non supporta la migrazione delle risorse tra sottoscrizioni.
 
-## <a name="azure_netapp_files_account"></a>Account di NetApp
+## <a name="netapp-accounts"></a><a name="azure_netapp_files_account"></a>Account di NetApp
 
 - Un account di NetApp funge da raggruppamento amministrativo dei pool di capacità che lo costituiscono.  
 - Un account di NetApp non equivale all'account di archiviazione di Azure generale. 
 - Un account di NetApp ha un ambito a livello di area.   
 - È possibile avere più account di NetApp in un'area, ma ogni account di NetApp è associato a una singola area.
 
-## <a name="capacity_pools"></a>Pool di capacità
+## <a name="capacity-pools"></a><a name="capacity_pools"></a>Pool di capacità
 
 - Un pool di capacità viene misurato in base alla rispettiva capacità di cui è stato effettuato il provisioning.  
 - Il provisioning della capacità viene effettuato in base agli SKU fissi acquistati, ad esempio, una capacità di 4 TiB.
@@ -45,7 +45,7 @@ Prima di creare un volume in Azure NetApp Files, è necessario acquistare e conf
   Ad esempio, nel [diagramma concettuale della gerarchia di archiviazione](#conceptual_diagram_of_storage_hierarchy) di seguito, il pool di capacità 1 non può essere spostato dall'account di NetApp di Stati Uniti orientali all'account di NetApp di Stati Uniti occidentali 2.  
 - Non è possibile eliminare un pool di capacità prima che siano stati eliminati tutti i volumi in esso contenuti.
 
-## <a name="volumes"></a>Volumi
+## <a name="volumes"></a><a name="volumes"></a>Volumi
 
 - Un volume viene misurato in base all'utilizzo della capacità logica ed è scalabile. 
 - L'utilizzo della capacità di un volume concorre al calcolo della capacità di cui è stato effettuato il provisioning del pool.
@@ -54,7 +54,7 @@ Prima di creare un volume in Azure NetApp Files, è necessario acquistare e conf
   Ad esempio, nel [diagramma concettuale della gerarchia di archiviazione](#conceptual_diagram_of_storage_hierarchy) riportato di seguito non è possibile spostare i volumi dal pool di capacità 1 al pool di capacità 2.
 - Non è possibile eliminare un volume prima che siano stati eliminati tutti i relativi snapshot.
 
-## <a name="conceptual_diagram_of_storage_hierarchy"></a>Diagramma concettuale della gerarchia di archiviazione 
+## <a name="conceptual-diagram-of-storage-hierarchy"></a><a name="conceptual_diagram_of_storage_hierarchy"></a>Diagramma concettuale della gerarchia di archiviazione 
 L'esempio seguente mostra le relazioni tra sottoscrizione di Azure, account di NetApp, pool di capacità e volumi.   
 
 ![Diagramma concettuale della gerarchia di archiviazione](../media/azure-netapp-files/azure-netapp-files-storage-hierarchy.png)

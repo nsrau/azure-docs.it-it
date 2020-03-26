@@ -12,11 +12,11 @@ ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dd7b412e99526935738c2494d31a16fded7101a6
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78386047"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79215809"
 ---
 # <a name="what-is-azure-active-directory"></a>Informazioni su Azure Active Directory
 
@@ -65,7 +65,7 @@ Per una migliore comprensione di Azure AD e della rispettiva documentazione, è 
 
 |Termine o concetto|Descrizione|
 |---------------|-----------|
-|Identity| Una cosa che può essere autenticata. Un'identità può essere un utente con un nome utente e password. Le identità includono anche le applicazioni o altri server che potrebbero richiedere l'autenticazione tramite certificati o chiavi private.|
+|Identità| Una cosa che può essere autenticata. Un'identità può essere un utente con un nome utente e password. Le identità includono anche le applicazioni o altri server che potrebbero richiedere l'autenticazione tramite certificati o chiavi private.|
 |Account| Un'identità che contiene dati associati. Non è possibile avere un account senza un'identità.|
 |Account Azure AD| Identità creata tramite Azure AD o un altro servizio cloud Microsoft, ad esempio Office 365. Le identità vengono archiviate in Azure AD e sono accessibili alle sottoscrizioni dei servizi cloud dell'organizzazione. Questo account viene a volte definito account aziendale o dell'istituto di istruzione.|
 |Sottoscrizione di Azure| Usata per pagare i servizi cloud di Azure. È possibile avere più sottoscrizioni, collegate a una carta di credito.|
@@ -87,7 +87,7 @@ Dopo la scelta della licenza di Azure AD, sarà possibile accedere ad alcune o a
 |Category|Descrizione|
 |-------|-----------|
 |Gestione delle applicazioni|Consente di gestire le app cloud e locali con Application Proxy, accesso Single Sign-On, portale App personali (definito anche pannello di accesso) e app SaaS (Software as a Service). Per altre informazioni, vedere [Come fornire l'accesso remoto sicuro alle applicazioni locali](../manage-apps/application-proxy.md) e la [Documentazione della gestione delle applicazioni](../manage-apps/index.yml).|
-|Autenticazione|Consente di gestire la reimpostazione della password self-service di Azure Active Directory, Multi-Factor Authentication, l'elenco personalizzato di password escluse e il blocco intelligente. Per altre informazioni, vedere la [Documentazione di Autenticazione di Azure AD](../authentication/index.yml).|
+|Authentication|Consente di gestire la reimpostazione della password self-service di Azure Active Directory, Multi-Factor Authentication, l'elenco personalizzato di password escluse e il blocco intelligente. Per altre informazioni, vedere la [Documentazione di Autenticazione di Azure AD](../authentication/index.yml).|
 |Business-to-Business (B2B)|Consente di gestire gli utenti guest e i partner esterni, mantenendo al tempo stesso il controllo sui propri dati aziendali. Per altre informazioni, vedere la [Documentazione di Azure Active Directory B2B](../b2b/index.yml).|
 |Business-to-Customer (B2C)|Consente di personalizzare e controllare la modalità con cui gli utenti accedono e gestiscono i propri profili quando usano le app. Per altre informazioni, vedere la [documentazione di Azure Active Directory B2C](../../active-directory-b2c/index.yml).|
 |Accesso condizionale|Consente di gestire l'accesso alle app cloud. Per altre informazioni, vedere la [Documentazione sull'accesso condizionale di Azure AD](../conditional-access/index.yml).|

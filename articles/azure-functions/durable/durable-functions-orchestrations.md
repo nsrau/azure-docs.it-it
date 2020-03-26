@@ -6,11 +6,11 @@ ms.topic: overview
 ms.date: 09/08/2019
 ms.author: azfuncdf
 ms.openlocfilehash: caa62483373a240991cfec96437cea7849d9b19c
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76261552"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79290109"
 ---
 # <a name="durable-orchestrations"></a>Orchestrazioni durevoli
 
@@ -57,7 +57,7 @@ Quando a una funzione di orchestrazione vengono assegnate altre operazioni da es
 
 Il comportamento di Event Sourcing di Durable Task Framework è strettamente collegato al codice delle funzioni dell'agente di orchestrazione che si scrive. Si supponga di avere una funzione dell'agente di orchestrazione per il concatenamento di attività, come quella riportata di seguito:
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("E1_HelloSequence")]
@@ -75,7 +75,7 @@ public static async Task<List<string>> Run(
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -135,18 +135,18 @@ Di seguito vengono indicate alcune note sui valori di colonna.
 * **EventType**: rappresenta uno dei tipi di evento indicati di seguito.
   * **OrchestrationStarted**: funzione dell'agente di orchestrazione ripresa da un'istruzione await oppure in esecuzione per la prima volta. La colonna `Timestamp` viene utilizzata per popolare il valore deterministico per le API `CurrentUtcDateTime` (.NET) e `currentUtcDateTime` (JavaScript).
   * **ExecutionStarted**: esecuzione della funzione dell'agente di orchestrazione avviata per la prima volta. Questo evento contiene anche l'input della funzione nella colonna `Input`.
-  * **TaskScheduled**: una funzione di attività pianificata. Il nome della funzione di attività viene acquisito nella colonna `Name`.
-  * **TaskCompleted**: una funzione di attività completata. Il risultato della funzione è nella colonna `Result`.
-  * **TimerCreated**: un timer permanente creato. La colonna `FireAt` contiene l'ora UTC pianificata per la scadenza del timer.
+  * **TaskScheduled**: funzione di attività pianificata. Il nome della funzione di attività viene acquisito nella colonna `Name`.
+  * **TaskCompleted**: funzione di attività completata. Il risultato della funzione è nella colonna `Result`.
+  * **TimerCreated**: timer permanente creato. La colonna `FireAt` contiene l'ora UTC pianificata per la scadenza del timer.
   * **TimerFired**: un timer permanente attivato.
   * **EventRaised**: evento esterno inviato all'istanza di orchestrazione. La colonna `Name` acquisisce il nome dell'evento, mentre la colonna `Input` ne acquisisce il payload.
-  * **OrchestratorCompleted**: la funzione dell'agente di orchestrazione attesa.
+  * **OrchestratorCompleted**: funzione dell'agente di orchestrazione in attesa.
   * **ContinueAsNew**: la funzione dell'agente di orchestrazione completata e riavviata con un nuovo stato. La colonna `Result` contiene il valore che viene usato come input nell'istanza riavviata.
-  * **ExecutionCompleted**: la funzione dell'agente di orchestrazione eseguita fino al completamento (oppure non riuscita). Gli output della funzione o i dettagli dell'errore vengono archiviati nella colonna `Result`.
+  * **ExecutionCompleted**: funzione dell'agente di orchestrazione stata eseguita fino al completamento (oppure non riuscita). Gli output della funzione o i dettagli dell'errore vengono archiviati nella colonna `Result`.
 * **Timestamp**: timestamp UTC dell'evento di cronologia.
 * **Name**: nome della funzione richiamata.
-* **Input**: l'input in formato JSON della funzione.
-* **Result**: l'output della funzione, ovvero il valore restituito.
+* **Input**: input in formato JSON della funzione.
+* **Result**: output della funzione, ovvero il valore restituito.
 
 > [!WARNING]
 > Benché sia utile come strumento di debug, usare con cautela questa tabella che può cambiare con l'evoluzione dell'estensione Funzioni permanenti.
@@ -216,7 +216,7 @@ La funzionalità delle sezioni critiche è anche utile per coordinare le modific
 
 Le funzioni dell'agente di orchestrazione non possono eseguire operazioni di I/O, come descritto nell'articolo sui [vincoli di codice delle funzioni dell'agente di orchestrazione](durable-functions-code-constraints.md). La tipica soluzione alternativa per questa limitazione consiste nell'eseguire il wrapping del codice che deve svolgere operazioni di I/O in una funzione di attività. Le orchestrazioni che interagiscono con sistemi esterni usano spesso funzioni di attività per effettuare chiamate HTTP e restituire il risultato.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Per semplificare questo modello comune, le funzioni dell'agente di orchestrazione possono usare il metodo `CallHttpAsync` per richiamare direttamente le API HTTP.
 
@@ -238,7 +238,7 @@ public static async Task CheckSiteAvailable(
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -265,7 +265,7 @@ Per altre informazioni e per alcuni esempi dettagliati, vedere l'articolo sulle 
 
 Non è possibile passare più parametri direttamente a una funzione di attività. In questo caso è consigliabile passare una matrice di oggetti o oggetti compositi.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 In .NET è anche possibile usare oggetti [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples). L'esempio seguente usa le nuove funzionalità di [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) aggiunte con [C# 7](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7#tuples):
 
@@ -304,7 +304,7 @@ public static async Task<object> Mapper([ActivityTrigger] IDurableActivityContex
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 #### <a name="orchestrator"></a>Orchestrator
 

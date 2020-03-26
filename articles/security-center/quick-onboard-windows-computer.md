@@ -15,18 +15,18 @@ ms.workload: na
 ms.date: 12/3/2018
 ms.author: memildin
 ms.openlocfilehash: 417d8379d019a9ef0da41638cba4a1f9cb7b8bc2
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73686513"
 ---
-# <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Guida introduttiva: Onboarding di computer Windows in Centro sicurezza di Azure
+# <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Guida introduttiva: Onboarding di computer Windows su Centro sicurezza
 Dopo l'onboarding delle sottoscrizioni di Azure, è possibile abilitare il Centro sicurezza per le risorse in esecuzione all'esterno di Azure, ad esempio in locale o in altri cloud, effettuando il provisioning di Microsoft Monitoring Agent.
 
 Questa Guida introduttiva illustra come installare Microsoft Monitoring Agent in un computer Windows.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 Per iniziare a usare Centro sicurezza, è necessario avere una sottoscrizione di Microsoft Azure. Se non si ha una sottoscrizione, è possibile ottenere un [account gratuito](https://azure.microsoft.com/pricing/free-trial/).
 
 Prima di iniziare questa guida introduttiva, è necessario essere nel piano tariffario Standard del Centro sicurezza. Vedere [Guida introduttiva per il Centro sicurezza di Azure](security-center-get-started.md) per istruzioni sull'aggiornamento. È possibile provare il livello Standard del Centro sicurezza gratuitamente. Per altre informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/).
@@ -41,7 +41,7 @@ Prima di iniziare questa guida introduttiva, è necessario essere nel piano tari
 3. Scegliere **Introduzione** dal menu principale del Centro sicurezza.
 4. Selezionare la scheda **Introduzione**.
 
-   ![Attività iniziali][3]
+   ![Introduzione][3]
 
 5. Fare clic su **Configura** in **Aggiungi nuovi computer non Azure**. Viene visualizzato un elenco delle aree di lavoro di Log Analytics. L'elenco include, se applicabile, l'area di lavoro predefinita creata dal Centro sicurezza quando è stato abilitato il provisioning automatico. Selezionare l'area di lavoro che si desidera usare.
 
@@ -64,7 +64,7 @@ Ora è necessario installare il file scaricato nel computer di destinazione.
 4. Nella pagina **Cartella di destinazione** modificare o mantenere la cartella di installazione predefinita e quindi scegliere **Avanti**.
 5. Nella pagina **Opzioni di installazione dell'agente** scegliere di connettere l'agente ad Azure Log Analytics e quindi selezionare **Avanti**.
 6. Nella pagina **Azure Log Analytics** incollare l'**ID area di lavoro** e la **chiave dell'area di lavoro (chiave primaria)** copiati nel Blocco note nella procedura precedente.
-7. Se il computer deve fare riferimento a un'area di lavoro Log Analytics nel cloud di Azure per enti pubblici, selezionare **Azure per enti pubblici statunitensi** nell'elenco a discesa **Cloud di Azure**. Se il computer deve comunicare tramite un server proxy con il servizio Log Analytics, scegliere **Avanzate** e specificare l'URL e il numero di porta del server proxy.
+7. Se il computer deve fare riferimento a un'area di lavoro Log Analytics nel cloud di Azure per enti pubblici, selezionare **Azure US Gov** nell'elenco a discesa **Cloud di Azure**. Se il computer deve comunicare tramite un server proxy con il servizio Log Analytics, scegliere **Avanzate** e specificare l'URL e il numero di porta del server proxy.
 8. Scegliere **Avanti** dopo aver specificato le impostazioni di configurazione necessarie.
 
    ![Installare l'agente][5]

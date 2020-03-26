@@ -14,13 +14,13 @@ ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 8994079cf18a9af5f5e1368761015bbd8b836bd9
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74790902"
 ---
-# <a name="quickstart-create-a-sql-server-windows-virtual-machine-with-azure-powershell"></a>Guida introduttiva: Creare una macchina virtuale Windows di SQL Server con Azure PowerShell
+# <a name="quickstart-create-a-sql-server-windows-virtual-machine-with-azure-powershell"></a>Guida introduttiva: Creare una macchina virtuale Windows con SQL Server tramite Azure PowerShell
 
 Questa guida introduttiva illustra la creazione di una macchina virtuale di SQL Server con Azure PowerShell.
 
@@ -28,12 +28,12 @@ Questa guida introduttiva illustra la creazione di una macchina virtuale di SQL 
 > - Questa guida introduttiva offre un percorso per effettuare il provisioning e connettersi rapidamente a una macchina virtuale SQL. Per altre informazioni su altre opzioni di Azure PowerShell per la creazione di macchine virtuali SQL, vedere [Guida al provisioning di macchine virtuali SQL Server con Azure PowerShell](virtual-machines-windows-ps-sql-create.md).
 > - In caso di domande sulle macchine virtuali SQL Server, vedere le [domande frequenti](virtual-machines-windows-sql-server-iaas-faq.md).
 
-## <a id="subscription"></a> Ottenere una sottoscrizione di Azure
+## <a name="get-an-azure-subscription"></a><a id="subscription"></a> Ottenere una sottoscrizione di Azure
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 
-## <a id="powershell"></a>Ottenere Azure PowerShell
+## <a name="get-azure-powershell"></a><a id="powershell"></a>Ottenere Azure PowerShell
 
 [!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]
 
@@ -170,17 +170,17 @@ Per ottenere l'integrazione del portale e le funzionalità della macchina virtua
 
 1. Quando vengono richieste le credenziali, scegliere di immettere le credenziali per un account diverso. Immettere il nome utente preceduto da una barra rovesciata, ad esempio `\azureadmin`, e la password impostata in precedenza in questa guida introduttiva.
 
-## <a name="connect-to-sql-server"></a>Connettersi a SQL Server
+## <a name="connect-to-sql-server"></a>Connessione a SQL Server
 
 1. Dopo aver eseguito l'accesso a una sessione di Desktop remoto, avviare **SQL Server Management Studio 2017** dal menu Start.
 
-1. Nella finestra di dialogo **Connetti al server** mantenere i valori predefiniti. Il nome del server è il nome della VM. L'autenticazione è impostata su **Autenticazione di Windows**. Selezionare **Connessione**.
+1. Nella finestra di dialogo **Connetti al server** mantenere i valori predefiniti. Il nome del server è il nome della VM. L'autenticazione è impostata su **Autenticazione di Windows**. Selezionare **Connetti**.
 
 Si è ora connessi localmente a SQL Server. Se ci si vuole connettere in remoto, è necessario [configurare la connettività](virtual-machines-windows-sql-connect.md) dal portale o manualmente.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Se non è necessario che la VM sia continuamente in esecuzione, è possibile evitare addebiti superflui arrestandola quando non è in uso. Il comando seguente arresta la VM ma la lascia disponibile per un uso futuro.
+Se non è necessario che la macchina virtuale sia continuamente in esecuzione, è possibile evitare addebiti superflui arrestandola quando non è in uso. Il comando seguente arresta la VM ma la lascia disponibile per un uso futuro.
 
 ```powershell
 Stop-AzVM -Name $VMName -ResourceGroupName $ResourceGroupName

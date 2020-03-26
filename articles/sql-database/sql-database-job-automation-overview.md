@@ -9,17 +9,18 @@ ms.topic: overview
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
-ms.date: 02/07/2020
-ms.openlocfilehash: 1ffa17bd0e35e3753cde3e915c0ee70d8000147a
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.date: 03/10/2020
+ms.openlocfilehash: dcaaf3c2f793e7148e1695cdfaa68c768db5fff6
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77083113"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79215459"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>Automatizzare le attività di gestione con processi di database
 
-Database SQL di Azure consente di creare e pianificare processi eseguibili periodicamente su uno o più database per eseguire query T-SQL e attività di manutenzione. Ogni processo registra lo stato di esecuzione e ripete automaticamente le operazioni se si verificano errori.
+Database SQL di Azure consente di creare e pianificare processi eseguibili periodicamente su uno o più database per eseguire query T-SQL e attività di manutenzione.
+Ogni processo registra lo stato di esecuzione e ripete automaticamente le operazioni se si verificano errori.
 È possibile definire il database o i gruppi di database SQL di Azure di destinazione in cui verrà eseguito il processo, nonché le pianificazioni per l'esecuzione.
 Un processo gestisce l'attività di accesso al database di destinazione. È anche possibile definire, gestire e mantenere script Transact-SQL da eseguire su un gruppo di database SQL di Azure.
 
@@ -48,10 +49,10 @@ In Database SQL di Azure sono disponibili le tecnologie di pianificazione dei pr
 
 È opportuno notare alcune differenze tra SQL Agent, disponibile in locale e come parte di Istanza gestita di database SQL, e l'agente dei processi di database elastico, disponibile per database singoli in Database SQL di Azure e per database in SQL Data Warehouse.
 
-|  |Processi elastici  |SQL Agent |
+| |Processi elastici |SQL Agent |
 |---------|---------|---------|
-|Scope     |  Qualsiasi numero di database SQL di Azure e/o di data warehouse nello stesso cloud di Azure dell'agente di processo. Le destinazioni possono trovarsi in server di database SQL, sottoscrizioni e/o aree differenti. <br><br>I gruppi di destinazione possono essere composti da singoli database o data warehouse o da tutti i database in un server, pool o mappa delle partizioni (enumerati dinamicamente al momento dell'esecuzione del processo). | Qualsiasi database singolo nella stessa istanza di SQL Server di SQL Agent. |
-|API e strumenti supportati     |  Portale, PowerShell, T-SQL, Azure Resource Manager      |   T-SQL, SQL Server Management Studio (SSMS)     |
+|Scope | Qualsiasi numero di database SQL di Azure e/o di data warehouse nello stesso cloud di Azure dell'agente di processo. Le destinazioni possono trovarsi in server di database SQL, sottoscrizioni e/o aree differenti. <br><br>I gruppi di destinazione possono essere composti da singoli database o data warehouse o da tutti i database in un server, pool o mappa delle partizioni (enumerati dinamicamente al momento dell'esecuzione del processo). | Qualsiasi database singolo nella stessa istanza di SQL Server di SQL Agent. |
+|API e strumenti supportati | Portale, PowerShell, T-SQL, Azure Resource Manager | T-SQL, SQL Server Management Studio (SSMS) |
 
 ## <a name="sql-agent-jobs"></a>Processi di SQL Agent
 
@@ -106,8 +107,8 @@ EXECUTE msdb.dbo.sysmail_add_account_sp
     @email_address = '$(loginEmail)',
     @display_name = 'SQL Agent Account',
     @mailserver_name = '$(mailserver)' ,
-    @username = '$(loginEmail)' ,  
-    @password = '$(password)' 
+    @username = '$(loginEmail)' ,
+    @password = '$(password)'
 
 -- Create a Database Mail profile
 EXECUTE msdb.dbo.sysmail_add_profile_sp
@@ -125,13 +126,13 @@ Sarà anche necessario abilitare Posta elettronica database in Istanza gestita:
 
 ```sql
 GO
-EXEC sp_configure 'show advanced options', 1;  
-GO  
-RECONFIGURE;  
-GO  
-EXEC sp_configure 'Database Mail XPs', 1;  
-GO  
-RECONFIGURE 
+EXEC sp_configure 'show advanced options', 1;
+GO
+RECONFIGURE;
+GO
+EXEC sp_configure 'Database Mail XPs', 1;
+GO
+RECONFIGURE
 ```
 
 È possibile notificare all'operatore che si sono verificati determinati eventi nei processi di SQL Agent. Un operatore definisce le informazioni di contatto per la persona responsabile della manutenzione di una o più istanze gestite. Le responsabilità di operatore vengono talvolta assegnate a una sola persona.
@@ -140,23 +141,24 @@ Nei sistemi con più istanze di SQL Server o Istanza gestita, possono essere con
 È possibile creare gli operatori usando SSMS o lo script Transact-SQL illustrato nell'esempio seguente:
 
 ```sql
-EXEC msdb.dbo.sp_add_operator 
-    @name=N'Mihajlo Pupun', 
-        @enabled=1, 
-        @email_address=N'mihajlo.pupin@contoso.com'
+EXEC msdb.dbo.sp_add_operator
+    @name=N'Mihajlo Pupun',
+    @enabled=1,
+    @email_address=N'mihajlo.pupin@contoso.com'
 ```
 
 È possibile modificare qualsiasi processo e assegnare gli operatori che riceveranno una notifica tramite posta elettronica in caso di completamento, esito negativo o esito positivo del processo usando SSMS o lo script Transact-SQL seguente:
 
 ```sql
-EXEC msdb.dbo.sp_update_job @job_name=N'Load data using SSIS', 
-        @notify_level_email=3,                        -- Options are: 1 on succeed, 2 on failure, 3 on complete
-        @notify_email_operator_name=N'Mihajlo Pupun'
+EXEC msdb.dbo.sp_update_job @job_name=N'Load data using SSIS',
+    @notify_level_email=3, -- Options are: 1 on succeed, 2 on failure, 3 on complete
+    @notify_email_operator_name=N'Mihajlo Pupun'
 ```
 
 ### <a name="sql-agent-job-limitations"></a>Limitazioni dei processi di SQL Agent
 
 Alcune delle funzionalità di SQL Agent disponibili in SQL Server non sono supportate in Istanza gestita:
+
 - Le impostazioni dell'agente SQL sono di sola lettura. La routine `sp_set_agent_properties` non è supportata in Istanza gestita.
 - L'abilitazione/disabilitazione di SQL Agent non è attualmente supportata in Istanza gestita. SQL Agent è sempre in esecuzione.
 - Le notifiche sono supportate in modo parziale.
@@ -180,17 +182,16 @@ La figura seguente mostra un agente di processo che esegue processi tra diversi 
 
 ### <a name="elastic-job-components"></a>Componenti del processo elastico
 
-|Componente  | Descrizione (altri dettagli sono disponibili sotto la tabella) |
+|Componente | Descrizione (altri dettagli sono disponibili sotto la tabella) |
 |---------|---------|
-|[**Agente di processo elastico**](#elastic-job-agent) |  Risorsa di Azure creata per eseguire e gestire i processi.   |
-|[**Database di processo**](#job-database)    |    Database SQL di Azure usato dall'agente di processo per archiviare dati correlati ai processi, definizioni dei processi e così via.      |
-|[**Gruppo di destinazione**](#target-group)      |  Il set di server, pool, database e mappe delle partizioni in cui eseguire un processo.       |
-|[**Processo**](#job)  |  Un processo è un'unità di lavoro costituita da uno o più [passaggi](#job-step). I passaggi del processo specificano lo script T-SQL da eseguire, nonché altri dettagli necessari per eseguirlo.  |
-
+|[**Agente di processo elastico**](#elastic-job-agent) | Risorsa di Azure creata per eseguire e gestire i processi. |
+|[**Database di processo**](#job-database) | Database SQL di Azure usato dall'agente di processo per archiviare dati correlati ai processi, definizioni dei processi e così via. |
+|[**Gruppo di destinazione**](#target-group) | Il set di server, pool, database e mappe delle partizioni in cui eseguire un processo. |
+|[**Processo**](#job) | Un processo è un'unità di lavoro costituita da uno o più [passaggi](#job-step). I passaggi del processo specificano lo script T-SQL da eseguire, nonché altri dettagli necessari per eseguirlo. |
 
 #### <a name="elastic-job-agent"></a>Agente di processo elastico
 
-Un agente di processo elastico è la risorsa di Azure per la creazione, l'esecuzione e la gestione dei processi. L'agente di processo elastico è una risorsa di Azure che viene creata nel portale (sono anche supportati [PowerShell](elastic-jobs-powershell.md) e REST). 
+Un agente di processo elastico è la risorsa di Azure per la creazione, l'esecuzione e la gestione dei processi. L'agente di processo elastico è una risorsa di Azure che viene creata nel portale (sono anche supportati [PowerShell](elastic-jobs-powershell.md) e REST).
 
 La creazione di un **agente di processo elastico** richiede un database SQL esistente. L'agente configura il database esistente come [*database di processo*](#job-database).
 
@@ -202,24 +203,20 @@ Il *database di processo* viene usato per definire i processi e tracciare lo sta
 
 Per l'anteprima corrente, è necessario un database SQL di Azure esistente (S0 o superiore) per creare un agente di processo elastico.
 
-Il *database di processo* non deve essere necessariamente nuovo, ma deve essere pulito, vuoto e con obiettivo di servizio S0 o superiore. L'obiettivo di servizio consigliato per il *database di processo* è S1 o superiore, ma la scelta ottimale dipende dalle prestazioni richieste dai processi, ovvero numero di passaggi del processo, numero di obiettivi del processo e frequenza delle esecuzioni. Un database S0 può essere ad esempio sufficiente per un agente di processo che esegue pochi processi ogni ora destinati a meno di dieci database, mentre l'esecuzione di un processo ogni minuto potrebbe non essere abbastanza veloce con un database S0, rendendo opportuno un livello di servizio superiore. 
+Il *database di processo* non deve essere necessariamente nuovo, ma deve essere pulito, vuoto e con obiettivo di servizio S0 o superiore. L'obiettivo di servizio consigliato per il *database di processo* è S1 o superiore, ma la scelta ottimale dipende dalle prestazioni richieste dai processi, ovvero numero di passaggi del processo, numero di obiettivi del processo e frequenza delle esecuzioni. Un database S0 può essere ad esempio sufficiente per un agente di processo che esegue pochi processi ogni ora destinati a meno di dieci database, mentre l'esecuzione di un processo ogni minuto potrebbe non essere abbastanza veloce con un database S0, rendendo opportuno un livello di servizio superiore.
 
-Se le operazioni eseguite sul database dei processi sono più lente del previsto, [monitorare](sql-database-monitor-tune-overview.md#monitor-database-performance) le prestazioni del database e l'utilizzo delle risorse nel database dei processi durante i periodi di lentezza usando il portale di Azure o la DMV [sys. dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database). Se l'utilizzo di una risorsa, ad esempio CPU, I/O dati o scrittura log si avvicina al 100% ed è correlato a periodi di lentezza, valutare il ridimensionamento incrementale del database a obiettivi di servizio più elevati (nel [modello DTU](sql-database-service-tiers-dtu.md) o nel modello [vCore](sql-database-service-tiers-vcore.md)) finché le prestazioni del database del processo non sono sufficientemente migliorate.
-
+Se le operazioni eseguite sul database dei processi sono più lente del previsto, [monitorare](sql-database-monitor-tune-overview.md#sql-database-resource-monitoring) le prestazioni del database e l'utilizzo delle risorse nel database dei processi durante i periodi di lentezza usando il portale di Azure o la DMV [sys. dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database). Se l'utilizzo di una risorsa, ad esempio CPU, I/O dati o scrittura log si avvicina al 100% ed è correlato a periodi di lentezza, valutare il ridimensionamento incrementale del database a obiettivi di servizio più elevati (nel [modello DTU](sql-database-service-tiers-dtu.md) o nel modello [vCore](sql-database-service-tiers-vcore.md)) finché le prestazioni del database del processo non sono sufficientemente migliorate.
 
 ##### <a name="job-database-permissions"></a>Autorizzazioni per il database di processo
 
 Durante la creazione di un agente di processo vengono creati uno schema, tabelle e un ruolo denominato *jobs_reader* nel *database di processo*. Il ruolo viene creato con l'autorizzazione seguente ed è progettato per fornire agli amministratori un controllo di accesso più preciso per il monitoraggio dei processi:
 
-
-|Nome del ruolo  |Autorizzazioni per lo schema "jobs"  |Autorizzazioni per lo schema 'jobs_internal'  |
+|Nome del ruolo |Autorizzazioni per lo schema "jobs" |Autorizzazioni per lo schema 'jobs_internal' |
 |---------|---------|---------|
-|**jobs_reader**     |    SELECT     |    nessuno     |
+|**jobs_reader** | SELECT | nessuno |
 
 > [!IMPORTANT]
 > Prima di concedere l'accesso al *database di processo* come amministratore del database, considerare le implicazioni per la sicurezza. Un utente malintenzionato con le autorizzazioni di creazione o modifica dei processi potrebbe creare o modificare un processo che usa una credenziale archiviata per connettersi a un database con il controllo dell'utente malintenzionato, consentendo a questo utente di determinare la password della credenziale.
-
-
 
 #### <a name="target-group"></a>Gruppo di destinazione
 
@@ -246,7 +243,6 @@ L'**esempio 2** mostra un gruppo di destinazione contenente un server di Azure S
 L'**esempio 3** mostra un gruppo di destinazione simile a quello dell'*esempio 2*, ma con l'esclusione specifica di un singolo database. L'azione del passaggio del processo *non* verrà eseguita nel database escluso.<br>
 L'**esempio 4** mostra un gruppo di destinazione contenente un pool elastico come destinazione. Analogamente all'*esempio 2*, il pool verrà enumerato in modo dinamico in fase di esecuzione del processo per determinare l'elenco dei database nel pool.
 <br><br>
-
 
 ![Esempi di gruppi di destinazione](media/elastic-jobs-overview/targetgroup-examples2.png)
 
@@ -287,7 +283,7 @@ Per garantire che le risorse non siano sovraccariche quando si eseguono processi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Informazioni su SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) 
-- [Come creare e gestire processi elastici](elastic-jobs-overview.md) 
-- [Creare e gestire processi elastici usando PowerShell](elastic-jobs-powershell.md) 
-- [Creare e gestire processi elastici usando Transact-SQL (T-SQL)](elastic-jobs-tsql.md) 
+- [Informazioni su SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent)
+- [Come creare e gestire processi elastici](elastic-jobs-overview.md)
+- [Creare e gestire processi elastici usando PowerShell](elastic-jobs-powershell.md)
+- [Creare e gestire processi elastici usando Transact-SQL (T-SQL)](elastic-jobs-tsql.md)

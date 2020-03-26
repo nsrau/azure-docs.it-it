@@ -8,13 +8,13 @@ ms.date: 07/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 071c44136d917874843bdf080de775ec6739937a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75442862"
 ---
-# <a name="quickstart-create-a-server---powershell"></a>Avvio rapido: creare un server: PowerShell
+# <a name="quickstart-create-a-server---powershell"></a>Avvio rapido: Creare un server - PowerShell
 
 Questa guida introduttiva descrive l'uso di PowerShell dalla riga di comando, per la creazione di un server di Azure Analysis Services nella sottoscrizione di Azure.
 
@@ -22,7 +22,7 @@ Questa guida introduttiva descrive l'uso di PowerShell dalla riga di comando, pe
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-- **Sottoscrizione di Azure**: visitare la pagina [Versione di prova gratuita di Azure](https://azure.microsoft.com/offers/ms-azr-0044p/) per creare un account.
+- **Sottoscrizione di Azure**: visitare la pagina [Versione di valutazione gratuita di Azure](https://azure.microsoft.com/offers/ms-azr-0044p/) per creare un account.
 - **Azure Active Directory**: la sottoscrizione deve essere associata a un tenant Azure Active Directory ed è necessario avere un account in tale directory. Per altre informazioni, vedere [Autenticazione e autorizzazioni utente](analysis-services-manage-users.md).
 - **Azure PowerShell**. Per trovare la versione installata, eseguire `Get-Module -ListAvailable Az`. Per eseguire l'installazione o l'aggiornamento, vedere [Installare il modulo di Azure PowerShell](/powershell/azure/install-Az-ps).
 
@@ -72,6 +72,6 @@ Remove-AzAnalysisServicesServer -Name "myserver" -ResourceGroupName "myResourceG
 In questa guida introduttiva si è appreso come creare un server nella sottoscrizione di Azure utilizzando PowerShell. Una volta creato il server, è consigliabile garantirne la sicurezza configurando un firewall (facoltativo). È inoltre possibile aggiungere un modello di dati di esempio al server, direttamente dal portale. Un modello di esempio è utile per avere informazioni sulla configurazione dei ruoli del database modello e sul test delle connessioni client. Per altre informazioni, continuare con l'esercitazione per l'aggiunta di un modello di esempio.
 
 > [!div class="nextstepaction"]
-> [Avvio rapido: configurare il firewall del server - Portale](analysis-services-qs-firewall.md)      
+> [Avvio rapido: Configurare il firewall del server - Portale](analysis-services-qs-firewall.md)      
 > [!div class="nextstepaction"]
-> [Esercitazione: aggiungere un modello di esempio al server](analysis-services-create-sample-model.md)
+> [Esercitazione: Aggiungere un modello di esempio al server](analysis-services-create-sample-model.md)

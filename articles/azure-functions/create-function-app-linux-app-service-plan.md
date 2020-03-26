@@ -4,10 +4,10 @@ description: Informazioni su come creare la prima funzione di Azure per l'esecuz
 ms.topic: quickstart
 ms.date: 02/28/2019
 ms.openlocfilehash: 1492188f72eb4a691ddceb78aa269601f192e467
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76963836"
 ---
 # <a name="create-a-function-app-on-linux-in-an-azure-app-service-plan"></a>Creare un'app per le funzioni in Linux in un piano di servizio app di Azure
@@ -57,7 +57,7 @@ Per ospitare l'esecuzione delle funzioni in Linux, è necessaria un'app per le f
 
 Si creerà ora una funzione nella nuova app per le funzioni. Anche dopo che l'app per le funzioni è disponibile, l'inizializzazione completa potrebbe richiedere alcuni minuti.
 
-## <a name="create-function"></a>Creare una funzione attivata tramite HTTP
+## <a name="create-an-http-triggered-function"></a><a name="create-function"></a>Creare una funzione attivata tramite HTTP
 
 Questa sezione illustra come creare una funzione nella nuova app per le funzioni nel portale.
 

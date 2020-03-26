@@ -10,13 +10,13 @@ ms.custom: mvc
 ms.date: 03/08/2019
 ms.author: troyhop
 ms.openlocfilehash: 68e0c3c89698bafbab65ca786231e0364900213a
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "65467847"
 ---
-# <a name="quickstart-deploy-and-run-an-iot-device-simulation-in-azure"></a>Avvio rapido: Distribuire ed eseguire una soluzione di simulazione dei dispositivi IoT in Azure
+# <a name="quickstart-deploy-and-run-an-iot-device-simulation-in-azure"></a>Guida introduttiva: Distribuire ed eseguire una soluzione di simulazione dei dispositivi IoT in Azure
 
 Questa guida introduttiva illustra come distribuire la soluzione Simulazione dispositivi di Azure IoT per testare la soluzione IoT. Dopo aver distribuito l'acceleratore di soluzione, si esegue una simulazione di esempio per iniziare.
 
@@ -64,7 +64,7 @@ Alla prima apertura, il dashboard di Simulazione dispositivi viene visualizzato 
 
 Essendo una simulazione di esempio, non è possibile modificare questa simulazione. La simulazione può essere configurata con le impostazioni seguenti:
 
-| Impostazione             | Valore                       |
+| Impostazione             | valore                       |
 | ------------------- | --------------------------- |
 | Hub IoT di destinazione      | "Use pre-provisioned IoT Hub" (Usa l'hub IoT di cui è già stato eseguito il provisioning) |
 | Modello del dispositivo        | Truck (Veicolo)                       |

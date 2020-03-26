@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: eliotgra
 ms.openlocfilehash: 92eb4157abb55b7056952d1fb064c7c7d7500335
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77021697"
 ---
 # <a name="continuous-patient-monitoring-architecture"></a>Architettura del monitoraggio pazienti continuo
@@ -42,7 +42,7 @@ La funzione principale dell'applicazione per telefoni cellulari prevede l'inseri
 ### <a name="export-to-azure-api-for-fhirreg"></a>Esportare nell'API di Azure per FHIR&reg;
 Azure IoT Central è conforme a HIPAA e dotato di certificazione HITRUST&reg;, ma potrebbe essere necessario inviare i dati sanitari dei pazienti all'API di Azure per FHIR. L'[API di Azure per FHIR](../../healthcare-apis/overview.md) è un'API conforme, basata su standard e completamente gestita per i dati sanitari clinici, che consente di creare nuovi sistemi di engagement con i dati sanitari. Consente lo scambio di dati rapido tramite le API per FHIR ed è supportata da un'offerta PaaS (Platform-as-a-Service) gestita nel cloud. Usando la funzionalità di esportazione dei dati continua di IoT Central, è possibile inviare i dati all'API di Azure per FHIR.
 
-### <a name="machine-learning"></a>Machine Learning
+### <a name="machine-learning"></a>Machine learning
 Dopo aver aggregato i dati e averli convertiti nel formato FHIR, è possibile creare modelli di Machine Learning in grado di arricchire le informazioni dettagliate e abilitare processi decisionali più intelligente per il team di assistenza sanitaria. È disponibile un'ampia gamma di servizi che possono essere usati per creare, sottoporre a training e distribuire modelli di Machine Learning. Per altre informazioni su come usare le offerte di Machine Learning di Azure, vedere la [documentazione di Machine Learning](../../machine-learning/index.yml).
 
 ### <a name="provider-dashboard"></a>Dashboard del provider

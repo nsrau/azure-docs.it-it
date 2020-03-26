@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 10/24/2019
 ms.author: victorh
 ms.openlocfilehash: 0e0e67bfb893e1bf141182e45ce4a49f5f6880ca
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73495497"
 ---
 # <a name="whats-new-in-azure-web-application-firewall"></a>Novità di Web Application Firewall di Azure
@@ -25,7 +25,7 @@ Web Application Firewall di Azure viene aggiornato regolarmente. Per stare al pa
 
 ## <a name="new-features"></a>Nuove funzionalità
 
-|Funzionalità  |DESCRIZIONE  |Data di aggiunta  |
+|Funzionalità  |Descrizione  |Data di aggiunta  |
 |---------|---------|---------|
 |Set di regole di mitigazione dei bot (anteprima)|È possibile abilitare un set di regole di mitigazione dei bot, insieme al set di regole CRS scelto. | Novembre 2019 |
 |Integrazione di GeoDB (anteprima)|Ora è possibile creare regole personalizzate per limitare il traffico in base al paese di origine. | Novembre 2019 |

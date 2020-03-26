@@ -8,10 +8,10 @@ ms.date: 11/06/2018
 ms.topic: quickstart
 ms.custom: mvc
 ms.openlocfilehash: 6c3ff10f37233294b75eceddd62c0a33f8864484
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75421635"
 ---
 # <a name="configure-a-virtual-machine-with-desired-state-configuration"></a>Configurare una macchina virtuale con Desired State Configuration
@@ -104,7 +104,7 @@ Per importare la configurazione:
 
 ## <a name="compile-a-configuration"></a>Compilare una configurazione
 
-Le configurazioni DSC devono essere compilate in una configurazione nodo (documento MOF) prima di essere assegnate a un nodo. La compilazione convalida la configurazione e consente l'input dei valori dei parametri. Per altre informazioni sulla compilazione di una configurazione, vedere: [Compilazione di configurazioni in Automation DSC per Azure](https://docs.microsoft.com/azure/automation/automation-dsc-compile)
+Le configurazioni DSC devono essere compilate in una configurazione nodo (documento MOF) prima di essere assegnate a un nodo. La compilazione convalida la configurazione e consente l'input dei valori dei parametri. Per altre informazioni sulla compilazione di una configurazione, vedere [Compilazione di configurazioni in Automation DSC per Azure](https://docs.microsoft.com/azure/automation/automation-dsc-compile)
 
 Per compilare la configurazione:
 

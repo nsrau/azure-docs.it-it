@@ -1,17 +1,17 @@
 ---
-title: Connettere funzioni ad Archiviazione di Azure con Visual Studio Code
-description: Informazioni su come aggiungere un binding di output per connettere le funzioni a una coda di Archiviazione di Azure con Visual Studio Code.
-ms.date: 06/25/2019
+title: Connettere Funzioni di Azure ad Archiviazione di Azure con Visual Studio Code
+description: Informazioni su come connettere Funzioni di Azure a una coda di Archiviazione di Azure aggiungendo un binding di output nel progetto di Visual Studio Code.
+ms.date: 02/07/2020
 ms.topic: quickstart
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 5b7d7be7854a216b7cb7b610ea6d51fdc496a93f
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 22f7df52e90a35a3ed9a26a7672f8354efc173e3
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845671"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79290069"
 ---
-# <a name="connect-functions-to-azure-storage-using-visual-studio-code"></a>Connettere funzioni ad Archiviazione di Azure con Visual Studio Code
+# <a name="connect-azure-functions-to-azure-storage-using-visual-studio-code"></a>Connettere Funzioni di Azure ad Archiviazione di Azure con Visual Studio Code
 
 [!INCLUDE [functions-add-storage-binding-intro](../../includes/functions-add-storage-binding-intro.md)]
 
@@ -19,7 +19,7 @@ Questo articolo illustra come usare Visual Studio Code per connettere la funzion
 
 La maggior parte dei binding richiede una stringa di connessione archiviata che verrà usata da Funzioni per accedere al servizio associato. Per semplicità, usare l'account di archiviazione creato con l'app per le funzioni. La connessione a questo account è già archiviata in un'impostazione dell'app denominata `AzureWebJobsStorage`.  
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="configure-your-local-environment"></a>Configurare l'ambiente locale
 
 Prima di iniziare questo articolo, è necessario soddisfare i requisiti seguenti:
 
@@ -90,98 +90,17 @@ In Funzioni ogni tipo di binding richiede di definire `direction`, `type` e un v
 
 Una volta definito il binding, è possibile usare il relativo valore `name` per accedervi come attributo nella firma della funzione. Usando un binding di output, non è necessario usare il codice di Azure Storage SDK per l'autenticazione, per recuperare un riferimento alla coda o per scrivere dati. Queste attività vengono eseguite automaticamente dal runtime di Funzioni e dal binding di output.
 
-::: zone pivot="programming-language-javascript"
-
+::: zone pivot="programming-language-javascript"  
 [!INCLUDE [functions-add-output-binding-js](../../includes/functions-add-output-binding-js.md)]
+::: zone-end  
 
-::: zone-end
-
-::: zone pivot="programming-language-typescript"
-
-Aggiungere il codice che usa l'oggetto `msg` del binding di output in `context.bindings` per creare un messaggio della coda. Aggiungere questo codice prima dell'istruzione `context.res`.
-
-```typescript
-// Add a message to the Storage queue.
-context.bindings.msg = "Name passed to the function: " + name;
-```
-
-A questo punto, la funzione sarà come indicato di seguito:
-
-```javascript
-import { AzureFunction, Context, HttpRequest } from "@azure/functions"
-
-const httpTrigger: AzureFunction = async function (context: Context, req: HttpRequest): Promise<void> {
-    context.log('HTTP trigger function processed a request.');
-    const name = (req.query.name || (req.body && req.body.name));
-
-    if (name) {
-        // Add a message to the Storage queue.
-        context.bindings.msg = "Name passed to the function: " + name; 
-        // Send a "hello" response.
-        context.res = {
-            // status: 200, /* Defaults to 200 */
-            body: "Hello " + (req.query.name || req.body.name)
-        };
-    }
-    else {
-        context.res = {
-            status: 400,
-            body: "Please pass a name on the query string or in the request body"
-        };
-    }
-};
-
-export default httpTrigger;
-```
-
-::: zone-end
+::: zone pivot="programming-language-typescript"  
+[!INCLUDE [functions-add-output-binding-ts](../../includes/functions-add-output-binding-ts.md)]
+::: zone-end  
 
 ::: zone pivot="programming-language-powershell"
 
-Aggiungere il codice che usa il cmdlet `Push-OutputBinding` per scrivere un testo nella coda usando il binding di output `msg`. Aggiungere questo codice prima di impostare lo stato OK nell'istruzione `if`.
-
-```powershell
-# Write the $name value to the queue.
-$outputMsg = "Name passed to the function: $name"
-Push-OutputBinding -name msg -Value $outputMsg
-```
-
-A questo punto, la funzione sarà come indicato di seguito:
-
-```powershell
-using namespace System.Net
-
-# Input bindings are passed in via param block.
-param($Request, $TriggerMetadata)
-
-# Write to the Azure Functions log stream.
-Write-Host "PowerShell HTTP trigger function processed a request."
-
-# Interact with query parameters or the body of the request.
-$name = $Request.Query.Name
-if (-not $name) {
-    $name = $Request.Body.Name
-}
-
-if ($name) {
-    # Write the $name value to the queue.
-    $outputMsg = "Name passed to the function: $name"
-    Push-OutputBinding -name msg -Value $outputMsg
-
-    $status = [HttpStatusCode]::OK
-    $body = "Hello $name"
-}
-else {
-    $status = [HttpStatusCode]::BadRequest
-    $body = "Please pass a name on the query string or in the request body."
-}
-
-# Associate values to output bindings by calling 'Push-OutputBinding'.
-Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
-    StatusCode = $status
-    Body = $body
-})
-```
+[!INCLUDE [functions-add-output-binding-powershell](../../includes/functions-add-output-binding-powershell.md)]
 
 ::: zone-end
 
@@ -191,11 +110,9 @@ Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
 
 ::: zone-end
 
-::: zone pivot="programming-language-csharp"
-
+::: zone pivot="programming-language-csharp"  
 [!INCLUDE [functions-add-storage-binding-csharp-library-code](../../includes/functions-add-storage-binding-csharp-library-code.md)]
-
-::: zone-end
+::: zone-end  
 
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-python"
 
@@ -265,7 +182,27 @@ Per completare queste guide introduttive sono state create risorse. Per tali ris
 
 La funzione di trigger HTTP è stata aggiornata per scrivere dati in una coda di archiviazione. A questo punto, è possibile ottenere maggiori informazioni sullo sviluppo di funzioni con Visual Studio Code:
 
-> [!div class="nextstepaction"]
-> [Sviluppare Funzioni di Azure con Visual Studio Code](functions-develop-vs-code.md)
-
-[Azure Storage Explorer]: https://storageexplorer.com/
++ [Sviluppare Funzioni di Azure con Visual Studio Code](functions-develop-vs-code.md)
+::: zone pivot="programming-language-csharp"  
++ [Esempi di progetti di Funzioni completi in C#](/samples/browse/?products=azure-functions&languages=csharp).
++ [Guida di riferimento per gli sviluppatori C# di Funzioni di Azure](functions-dotnet-class-library.md)  
+::: zone-end 
+::: zone pivot="programming-language-javascript"  
++ [Esempi di progetti di Funzioni completi in JavaScript](/samples/browse/?products=azure-functions&languages=javascript).
++ [Guida per gli sviluppatori JavaScript di Funzioni di Azure](functions-reference-node.md)  
+::: zone-end  
+::: zone pivot="programming-language-typescript"  
++ [Esempi di progetti di Funzioni completi in TypeScript](/samples/browse/?products=azure-functions&languages=typescript).
++ [Guida per sviluppatori TypeScript di Funzioni di Azure](functions-reference-node.md#typescript)  
+::: zone-end  
+::: zone pivot="programming-language-python"  
++ [Esempi di progetti di Funzioni completi in Python](/samples/browse/?products=azure-functions&languages=python)
++ [Guida per sviluppatori Python per Funzioni di Azure](functions-reference-python.md)  
+::: zone-end  
+::: zone pivot="programming-language-powershell"  
++ [Esempi di progetti di Funzioni completi in PowerShell](/samples/browse/?products=azure-functions&languages=azurepowershell).
++ [Guida per sviluppatori PowerShell per Funzioni di Azure](functions-reference-powershell.md) 
+::: zone-end
++ [Trigger e associazioni di Funzioni di Azure](functions-triggers-bindings.md)
++ [Pagina dei prezzi di Funzioni](https://azure.microsoft.com/pricing/details/functions/)
++ Articolo [Stima dei costi del piano a consumo](functions-consumption-costs.md)

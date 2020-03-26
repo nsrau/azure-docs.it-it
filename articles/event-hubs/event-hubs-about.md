@@ -11,10 +11,10 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: e8a91647d7532a9904901c247bb0b4096ffa0a1c
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77161699"
 ---
 # <a name="azure-event-hubs--a-big-data-streaming-platform-and-event-ingestion-service"></a>Hub eventi di Azure - Piattaforma di streaming di Big Data e servizio di inserimento di eventi
@@ -67,9 +67,9 @@ Con un ampio ecosistema disponibile in diversi [linguaggi (.NET, Java, Python, G
 Hub eventi contiene gli [elementi chiave](event-hubs-features.md) seguenti:
 
 - **Producer di eventi**: qualsiasi entità che invia dati a un hub eventi. Gli autori di eventi possono pubblicare eventi usando HTTPS o AMQP 1.0 o Apache Kafka (1.0 e versioni successive)
-- **Partizioni**: ogni consumer legge solo un subset specifico, o partizione, del flusso di messaggi.
-- **Gruppi di consumer**: una vista (stato, posizione o offset) di un intero hub eventi. I gruppi di consumer consentono a più applicazioni di avere ognuna una visualizzazione distinta del flusso di eventi. I consumer leggono il flusso in modo indipendente in base al proprio ritmo e con offset specifici.
-- **Unità elaborate**: unità di capacità pre-acquistate che controllano la capacità di velocità effettiva degli hub eventi.
+- **Partizione**: ogni consumer legge solo un subset specifico, o partizione, del flusso di messaggi.
+- **Gruppi di consumer**: una visualizzazione (stato, posizione o offset) di un intero hub eventi. I gruppi di consumer consentono a più applicazioni di avere ognuna una visualizzazione distinta del flusso di eventi. I consumer leggono il flusso in modo indipendente in base al proprio ritmo e con offset specifici.
+- **Unità di velocità effettiva**: unità di capacità pre-acquistate che controllano la capacità di velocità effettiva di Hub eventi.
 - **Ricevitori di eventi**: qualsiasi entità che legge i dati dell'evento da un hub eventi. Tutti i consumer di Hub eventi si connettono tramite la sessione AMQP 1.0. Il servizio Hub eventi distribuisce gli eventi tramite una sessione non appena diventano disponibili. Tutti i consumer Kafka si connettono tramite il protocollo Kafka 1.0 e versioni successive.
 
 La figura seguente illustra l'architettura di elaborazione del flusso di Hub eventi:

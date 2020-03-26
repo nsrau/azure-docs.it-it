@@ -10,13 +10,13 @@ ms.date: 04/10/2018
 ms.author: sngun
 ms.custom: seo-python-october2019
 ms.openlocfilehash: 9de9739efce13fc96bf550759eb0ef68d732af1e
-ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77212763"
 ---
-# <a name="quickstart-build-a-table-api-app-with-python-and-azure-cosmos-db"></a>Avvio rapido: Creare un'app dell'API Tabella con Python e Azure Cosmos DB
+# <a name="quickstart-build-a-table-api-app-with-python-and-azure-cosmos-db"></a>Guida introduttiva: Creare un'app dell'API Tabelle con Python e Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-table-dotnet.md)
@@ -97,7 +97,7 @@ Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di 
 
 2. Selezionare l'ambiente Python corrente e quindi fare clic con il pulsante destro del mouse.
 
-2. Scegliere *Installa pacchetto Python* e quindi immettere **azure-storage-table**.
+2. Scegliere **Installa pacchetto Python** e quindi immettere *azure-storage-table*.
 
 3. Premere F5 per eseguire l'applicazione. L'app viene visualizzata nel browser. 
 

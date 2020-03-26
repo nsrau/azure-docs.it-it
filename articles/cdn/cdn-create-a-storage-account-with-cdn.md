@@ -16,14 +16,14 @@ ms.date: 05/24/2018
 ms.author: magattus
 ms.custom: mvc
 ms.openlocfilehash: ffcbeb311a91791432bb285b59f5486393ffe4f7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75386987"
 ---
-# <a name="quickstart-integrate-an-azure-storage-account-with-azure-cdn"></a>Avvio rapido: Integrare un account di archiviazione di Azure con la rete CDN di Azure
-In questa guida introduttiva, la [rete per la distribuzione di contenuti (rete CDN) di Azure](cdn-overview.md) viene abilitata per memorizzare nella cache i contenuti dall'archiviazione di Azure. La rete CDN di Azure offre agli sviluppatori una soluzione globale per distribuire contenuti con esigenze di larghezza di banda elevata. Consente di memorizzare nella cache oggetti BLOB e contenuti statici di istanze di calcolo in nodi fisici negli Stati Uniti, in Europa, Asia, Australia e Sud America.
+# <a name="quickstart-integrate-an-azure-storage-account-with-azure-cdn"></a>Guida introduttiva: Integrare un account di archiviazione di Azure con la rete CDN di Azure
+In questa guida introduttiva, la [rete per la distribuzione di contenuti (rete CDN) di Azure](cdn-overview.md) viene abilitata per memorizzare nella cache i contenuti dall'archiviazione di Azure. La rete CDN di Azure offre agli sviluppatori una soluzione globale per distribuire contenuti con esigenze di larghezza di banda elevata. Consente di memorizzare nella cache oggetti BLOB e contenuti statici di istanze di calcolo in nodi fisici negli Stati Uniti, in Europa, Asia, Australia e America del Sud.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -31,7 +31,7 @@ In questa guida introduttiva, la [rete per la distribuzione di contenuti (rete C
 Accedere al [portale di Azure](https://portal.azure.com) con il proprio account Azure.
 
 ## <a name="create-a-storage-account"></a>Creare un account di archiviazione
-Usare la procedura seguente per creare un nuovo account di archiviazione per una sottoscrizione ad Azure. Un account di archiviazione consente di accedere ai servizi di archiviazione di Azure. L'account di archiviazione rappresenta il livello più elevato dello spazio dei nomi per l'accesso a ogni componente del servizio Archiviazione di Azure: BLOB di Azure, Coda di Azure e Archivio tabelle. Per altre informazioni, vedere [Introduzione ad Archiviazione di Microsoft Azure](../storage/common/storage-introduction.md).
+Usare la procedura seguente per creare un nuovo account di archiviazione per una sottoscrizione ad Azure. Un account di archiviazione consente di accedere ai servizi di archiviazione di Azure. L'account di archiviazione rappresenta il livello più elevato dello spazio dei nomi per l'accesso a ogni componente dei servizi di archiviazione di Azure: ovvero servizi BLOB, servizi di accodamento e servizi tabelle. Per altre informazioni, vedere [Introduzione ad Archiviazione di Microsoft Azure](../storage/common/storage-introduction.md).
 
 Per creare un account di archiviazione, è necessario essere amministratori del servizio o coamministratori della sottoscrizione.
 

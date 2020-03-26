@@ -7,10 +7,10 @@ ms.topic: quickstart
 ms.date: 02/22/2019
 ms.author: alkarche
 ms.openlocfilehash: 189a0bc80ab2894b2888b496b3beb45249d859f6
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75921127"
 ---
 # <a name="create-a-function-using-azure-for-students-starter"></a>Creare una funzione usando Azure for Students Starter
@@ -72,7 +72,7 @@ Per ospitare l'esecuzione delle funzioni è necessaria un'app per le funzioni. U
 
 Si creerà ora una funzione nella nuova app per le funzioni.
 
-## <a name="create-function"></a>Creare una funzione attivata tramite HTTP
+## <a name="create-an-http-triggered-function"></a><a name="create-function"></a>Creare una funzione attivata tramite HTTP
 
 1. Espandere la nuova app per le funzioni, selezionare il pulsante **+** accanto a to **Funzioni**, scegliere **Nel portale** e quindi selezionare **Continua**.
 

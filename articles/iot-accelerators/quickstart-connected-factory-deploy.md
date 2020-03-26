@@ -10,13 +10,13 @@ ms.custom: mvc
 ms.date: 03/08/2019
 ms.author: dobett
 ms.openlocfilehash: 6338403818259c7263fe66af7d8c8840d98efbcd
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "62127464"
 ---
-# <a name="quickstart-try-a-cloud-based-solution-to-manage-my-industrial-iot-devices"></a>Avvio rapido: Provare una soluzione basata sul cloud per gestire dispositivi IoT industriali
+# <a name="quickstart-try-a-cloud-based-solution-to-manage-my-industrial-iot-devices"></a>Guida introduttiva: Provare una soluzione basata sul cloud per gestire dispositivi IoT industriali
 
 Questa guida introduttiva illustra come distribuire l'acceleratore di soluzione Connected Factory di Azure IoT per l'esecuzione di una simulazione del monitoraggio e della gestione basati sul cloud per dispositivi IoT industriali. Nel momento in cui viene distribuito, l'acceleratore di soluzione Connected Factory viene prepopolato con risorse simulate che consentono di esaminare uno scenario IoT industriale comune. Diversi stabilimenti simulati connessi alla soluzione generano report con i valori dei dati necessari per calcolare l'efficienza complessiva delle attrezzature e gli indicatori di prestazioni chiave (KPI). Questa guida introduttiva illustra come usare il dashboard della soluzione per:
 
@@ -76,7 +76,7 @@ Il pannello **Efficienza complessiva delle attrezzature** mostra i valori di eff
 
 [![Efficienza complessiva delle attrezzature](./media/quickstart-connected-factory-deploy/oee-inline.png)](./media/quickstart-connected-factory-deploy/oee-expanded.png#lightbox)
 
-Il valore di efficienza complessiva delle attrezzature valuta l'efficienza del processo di produzione usando parametri operativi correlati alla produzione. Il valore di OEE è una misura standard del settore calcolata moltiplicando la disponibilità, le prestazioni e la qualità: Valore di OEE = disponibilità x prestazioni x qualità.
+Il valore di efficienza complessiva delle attrezzature valuta l'efficienza del processo di produzione usando parametri operativi correlati alla produzione. Il valore di OEE è una misura standard di settore calcolata moltiplicando la disponibilità, le prestazioni e la qualità: OEE = disponibilità x prestazioni x qualità.
 
 È possibile analizzare ulteriormente l'efficienza complessiva delle attrezzature per qualsiasi livello della gerarchia dei dati. Fare clic sul comando radiale della percentuale di efficienza complessiva, disponibilità, prestazioni o qualità. Viene visualizzato un pannello contestuale con visualizzazioni che mostrano i dati su scale cronologiche diverse:
 
