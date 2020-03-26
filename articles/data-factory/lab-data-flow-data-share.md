@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/08/2020
 ms.openlocfilehash: 6c501205812ac72da8cd970b61b71e493888cef1
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76156727"
 ---
 # <a name="data-integration-using-azure-data-factory-and-azure-data-share"></a>Integrazione dei dati con Azure Data Factory e Condivisione dati di Azure
@@ -22,7 +22,7 @@ In questo workshop si userà Azure Data Factory (ADF) per inserire i dati di un 
 
 I dati usati in questo lab sono relativi ai taxi di New York. Per importarli nel database SQL di Azure, scaricare il [file bacpac taxi-data](https://github.com/djpmsft/ADF_Labs/blob/master/sample-data/taxi-data.bacpac).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * **Sottoscrizione di Azure**: Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 

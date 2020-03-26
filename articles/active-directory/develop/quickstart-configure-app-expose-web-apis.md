@@ -13,19 +13,19 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
 ms.openlocfilehash: e005ba9c5458849863bd4668ffde1e0f6fb4bf91
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76704222"
 ---
-# <a name="quickstart-configure-an-application-to-expose-web-apis"></a>Avvio rapido: Configurare un'applicazione per l'esposizione di API Web
+# <a name="quickstart-configure-an-application-to-expose-web-apis"></a>Guida introduttiva: Configurare un'applicazione per l'esposizione di API Web
 
 È possibile sviluppare un'API Web e renderla disponibile per applicazioni client esponendo [ambiti/autorizzazioni](developer-glossary.md#scopes) e [ruoli](developer-glossary.md#roles). Un'API Web correttamente configurata viene resa disponibile come le altre API Web Microsoft, tra cui l'API Graph e le API di Office 365.
 
 In questa guida introduttiva verrà illustrato come configurare un'applicazione in modo da esporre un nuovo ambito e renderla così disponibile per applicazioni client.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per iniziare, assicurarsi di soddisfare questi prerequisiti:
 

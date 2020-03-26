@@ -7,10 +7,10 @@ ms.author: brendm
 author: bmitchell287
 ms.date: 10/06/2019
 ms.openlocfilehash: f08a3b5d0a03b0e898457bbb783dd5031c4b0f27
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76277484"
 ---
 # <a name="scale-an-application-in-azure-spring-cloud"></a>Ridimensionare un'applicazione in Azure Spring Cloud
@@ -21,7 +21,7 @@ Aumentare e ridurre le prestazioni dell'applicazione modificando il numero di CP
 
 Al termine, si saprà come apportare rapide modifiche manuali a ogni applicazione nel servizio. Il ridimensionamento diventa effettivo entro pochi secondi e non richiede alcuna modifica del codice o ridistribuzione.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa esercitazione, sono necessari:
 
@@ -51,7 +51,7 @@ Se si modificano gli attributi di ridimensionamento, tenere presente quanto segu
 
 * **Memoria/GB**: la quantità massima di memoria consentita è di 8 GB per ogni istanza dell'applicazione. La quantità totale di memoria per un'applicazione corrisponde al valore impostato qui moltiplicato per il numero di istanze dell'applicazione.
 
-* **Numero di istanze**: il livello Standard può essere ampliato fino a un massimo di 20 istanze. Questo valore modifica il numero di istanze in esecuzione separate dell'applicazione di microservizi.
+* **Numero di istanze**: nel livello Standard è possibile aumentare il numero di istanze fino a un massimo di 20. Questo valore modifica il numero di istanze in esecuzione separate dell'applicazione di microservizi.
 
 Assicurarsi selezionare **Salva** per applicare le impostazioni di ridimensionamento.
 

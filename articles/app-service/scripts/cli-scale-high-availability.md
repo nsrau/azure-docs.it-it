@@ -8,13 +8,13 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
-ms.custom: seodec18
-ms.openlocfilehash: 82845977efe3141dda8c0f0f05c1fbcb3f741bd2
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.custom: mvc, seodec18
+ms.openlocfilehash: fcd82297ae698707503a69d9e47f6ca4241d6db9
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74689358"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80044875"
 ---
 # <a name="scale-an-app-service-app-worldwide-with-a-high-availability-architecture-using-azure-cli"></a>Ridimensionare un'app del servizio app a livello globale con un'architettura a disponibilità elevata usando l'interfaccia della riga di comando di Azure
 

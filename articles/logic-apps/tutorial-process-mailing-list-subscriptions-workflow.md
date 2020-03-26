@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/20/2019
 ms.openlocfilehash: 7d7f573e5b18e6e0e63d3275aecefe408a9143fb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75456603"
 ---
 # <a name="tutorial-create-automated-approval-based-workflows-by-using-azure-logic-apps"></a>Esercitazione: Creare flussi di lavoro automatizzati basati su approvazione tramite App per la logica di Azure
@@ -33,7 +33,7 @@ Al termine, a livello generale l'app per la logica dovrebbe avere un flusso di l
 
 ![Panoramica generale dell'app per la logica completata](./media/tutorial-process-mailing-list-subscriptions-workflow/tutorial-high-level-overview.png)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione, [iscriversi per creare un account di Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 

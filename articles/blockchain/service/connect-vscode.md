@@ -5,10 +5,10 @@ ms.date: 12/05/2019
 ms.topic: quickstart
 ms.reviewer: chrisseg
 ms.openlocfilehash: 1bcdfdafa9253fc4dc20ccb7cc237cb794b0af53
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74977073"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-to-an-azure-blockchain-service-consortium-network"></a>Guida introduttiva: Usare Visual Studio Code per connettersi alla rete di un consorzio del servizio Azure Blockchain
@@ -31,7 +31,7 @@ In questa guida di avvio rapido si installa e si usa l'estensione Azure Blockcha
 In Windows è necessario un compilatore C++ installato per il modulo node-gyp. È possibile usare gli strumenti MSBuild:
 
 * Se è installato Visual Studio 2017, configurare npm per l'uso degli strumenti MSBuild con il comando `npm config set msvs_version 2017 -g`
-* Se è installato Visual Studio 2019, impostare il percorso degli strumenti MSBuild per npm. Ad esempio: `npm config set msbuild_path "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\MSBuild.exe"`
+* Se è installato Visual Studio 2019, impostare il percorso degli strumenti MSBuild per npm. Ad esempio, usare `npm config set msbuild_path "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\MSBuild.exe"`
 * In caso contrario, installare gli strumenti autonomi di compilazione di Visual Studio usando `npm install --global windows-build-tools` in una shell di comandi con privilegi elevati *Esegui come amministratore*.
 
 Per altre informazioni su node-gyp, vedere il [repository node-gyp in GitHub](https://github.com/node-gyp).

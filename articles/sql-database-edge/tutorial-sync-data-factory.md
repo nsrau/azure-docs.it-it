@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 11/04/2019
 ms.openlocfilehash: e6fd9e6431137708ba93328a8ed1359b93b4ee1f
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74851690"
 ---
 # <a name="tutorial-sync-data-from-sql-database-edge-to-azure-blob-storage-by-using-azure-data-factory"></a>Esercitazione: Sincronizzare i dati dal database SQL Edge all'archivio BLOB di Azure usando Azure Data Factory
@@ -195,7 +195,7 @@ Creare una data factory seguendo le istruzioni di [questa esercitazione](../data
 
     2. Per specificare i valori dei parametri della stored procedure, selezionare **Import parameter** (Importa parametro) e immettere i valori seguenti per i parametri:
 
-    |NOME|Type|Valore|
+    |Nome|Type|valore|
     |-----|----|-----|
     |LastModifiedtime|Datetime|@{activity('NewWaterMark').output.firstRow.NewWatermarkvalue}|
     |TableName|string|@{activity('OldWaterMark').output.firstRow.TableName}|

@@ -3,13 +3,13 @@ title: 'Guida introduttiva: Contenitore Windows (anteprima)'
 description: Distribuire il primo contenitore Windows nel servizio app di Azure. Sfruttare i vantaggi offerti dall'inserimento in contenitori e personalizzare il contenitore Windows come si preferisce.
 ms.topic: quickstart
 ms.date: 08/30/2019
-ms.custom: seodec18
-ms.openlocfilehash: 7901498772b8e746fb2c87a5237f06ab279e3b64
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.custom: mvc, seodec18
+ms.openlocfilehash: cd6b78e5fd824cc013cc946d23677237923f485e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75922305"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80047111"
 ---
 # <a name="run-a-custom-windows-container-in-azure-preview"></a>Eseguire un contenitore Windows personalizzato in Azure (anteprima)
 
@@ -17,7 +17,7 @@ Il [servizio app di Azure](overview.md) offre stack di applicazioni predefiniti 
 
 Questa guida di avvio rapido illustra come distribuire un'app ASP.NET in un'immagine Windows in [Docker Hub](https://hub.docker.com/) da Visual Studio ed eseguirla in un contenitore personalizzato in Servizio app di Azure.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa esercitazione:
 
@@ -145,7 +145,7 @@ I log trasmessi sono simili al seguente:
    ```HTML
    <div class="jumbotron">
        <h1>ASP.NET in Azure!</h1>
-       <p class="lead">This is a simple app that we’ve built that demonstrates how to deploy a .NET app to Azure App Service.</p>
+       <p class="lead">This is a simple app that we've built that demonstrates how to deploy a .NET app to Azure App Service.</p>
    </div>
    ```
 

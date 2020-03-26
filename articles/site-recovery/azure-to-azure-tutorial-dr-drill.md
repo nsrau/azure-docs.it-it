@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 01/16/2020
 ms.custom: mvc
 ms.openlocfilehash: b2ce157f0f192135ab0507e4aae4c0a282bda1ea
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76166185"
 ---
 # <a name="run-a-disaster-recovery-drill-to-a-secondary-region-for-azure-vms"></a>Eseguire un'esercitazione sul ripristino di emergenza in un'area secondaria per le VM di Azure
@@ -25,7 +25,7 @@ Questa esercitazione illustra come eseguire un'analisi del ripristino di emergen
 > [!NOTE]
 > Questa esercitazione consente di eseguire un'analisi di ripristino di emergenza con un numero minimo di passaggi. Per altre informazioni sulle varie funzioni correlate a un'analisi di ripristino di emergenza, vedere la documentazione relativa a [replica](azure-to-azure-how-to-enable-replication.md), [rete](azure-to-azure-about-networking.md), [automazione](azure-to-azure-powershell.md) o [risoluzione dei problemi](azure-to-azure-troubleshoot-errors.md) delle macchine virtuali di Azure.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di procedere con questa esercitazione, verificare quanto segue:
 
