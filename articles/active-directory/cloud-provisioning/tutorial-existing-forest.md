@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: aa14b45235f2a62f05e84efafc41b899dc531d49
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74868678"
 ---
 # <a name="integrate-an-existing-forest-and-a-new-forest-with-a-single-azure-ad-tenant"></a>Integrare una foresta esistente e una nuova con un singolo tenant di Azure AD
@@ -56,7 +56,7 @@ In questo scenario una foresta esistente viene sincronizzata con un tenant di Az
 1. Accedere al server aggiunto al dominio.  Se si usa l'esercitazione [Ambiente di AD e Azure di base](tutorial-basic-ad-azure.md), sarà DC1.
 2. Accedere al portale di Azure con le credenziali di amministratore globale solo cloud.
 3. A sinistra selezionare **Azure Active Directory**, fare clic su **Azure AD Connect** e al centro selezionare **Gestione del provisioning (anteprima)** .</br>
-![Portale di Azure](media/how-to-install/install6.png)</br>
+![Azure portal](media/how-to-install/install6.png)</br>
 4. Fare clic su "Scarica l'agente"
 5. Eseguire l'agente di provisioning cloud di Azure AD Connect
 6. Nella schermata iniziale **accettare** le condizioni di licenza e fare clic su **Installa**.</br>
@@ -82,7 +82,7 @@ Per verificare se l'agente viene visto da Azure, seguire questa procedura:
 
 1. Accedere al portale di Azure.
 2. A sinistra selezionare **Azure Active Directory**, fare clic su **Azure AD Connect** e al centro selezionare **Gestione del provisioning (anteprima)** .</br>
-![Portale di Azure](media/how-to-install/install6.png)</br>
+![Azure portal](media/how-to-install/install6.png)</br>
 
 3.  Nella schermata **Provisioning di Azure AD (anteprima)** fare clic su **Verifica tutti gli agenti**.
 ![Provisioning di Azure AD](media/how-to-install/install7.png)</br>
@@ -96,7 +96,7 @@ Per verificare se l'agente è in esecuzione, seguire questa procedura:
 1.  Accedere al server con un account amministratore
 2.  Aprire **Servizi** passando all'opzione oppure tramite Start/Esegui/Services.msc.
 3.  In **Servizi** assicurarsi che siano presenti i servizi **Microsoft Azure AD Connect Agent Updater** e **Microsoft Azure AD Connect Provisioning Agent** e che il relativo stato sia **In esecuzione**.
-![Servizi](media/how-to-troubleshoot/troubleshoot1.png)
+![Services](media/how-to-troubleshoot/troubleshoot1.png)
 
 ## <a name="configure-azure-ad-connect-cloud-provisioning"></a>Configurare il provisioning cloud di Azure AD Connect
  Per configurare il provisioning, seguire questa procedura

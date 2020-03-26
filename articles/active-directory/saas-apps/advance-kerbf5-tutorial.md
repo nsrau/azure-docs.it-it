@@ -17,10 +17,10 @@ ms.date: 11/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 984fd0c7946a50922315269c87e08b1c35b74348
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74074767"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con F5
@@ -120,7 +120,7 @@ In questa sezione verrà creato un utente di test di nome B.Simon nel portale di
    1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
    1. Fare clic su **Crea**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a F5.
 
@@ -188,7 +188,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
     >[!Note]
     >Sarà necessario creare e specificare l'account di delega Kerberos. Fare riferimento alla sezione KCD (vedere l'appendice relativa ai riferimenti per le variabili)
 
-    •   Origine nome utente  `session.saml.last.attr.name. http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
+    •   Origine nome utente  `session.saml.last.attr.name.http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
 
     •   Origine area di autenticazione utente  `session.logon.last.domain`
 
