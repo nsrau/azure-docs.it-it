@@ -21,7 +21,7 @@ ms.locfileid: "77062643"
 ---
 # <a name="register-your-verification-method-info-to-reset-your-own-password"></a>Registrare le informazioni sul metodo di verifica per reimpostare la password
 
-Se si dimentica la password per un account aziendale o dell'istituto di istruzione, la password non è mai stata inviata dall'organizzazione oppure l'account è stato bloccato, è possibile usare le informazioni di sicurezza e il dispositivo mobile per reimpostare la password per un account aziendale o dell'istituto di istruzione.
+Se si dimentica la password per un account aziendale o dell'istituto di istruzione, la password non è mai stata inviata dall'organizzazione oppure l'account è stato bloccato, è possibile usare le informazioni di sicurezza e il dispositivo mobile per reimpostare tale password.
 
 L'amministratore deve attivare questa funzionalità per poter registrare le informazioni e reimpostare la propria password. Se non viene visualizzata l'opzione **password dimenticata** , significa che l'amministratore non ha attivato la funzionalità per l'organizzazione. Se si ritiene che si tratti di un errore, contattare l'help desk per assistenza.
 
@@ -32,7 +32,7 @@ L'amministratore deve attivare questa funzionalità per poter registrare le info
 
 1. Aprire il Web browser nel dispositivo e passare alla pagina delle [informazioni di sicurezza](https://account.activedirectory.windowsazure.com/PasswordReset/Register.aspx?regref=ssprsetup).
 
-2. A seconda del modo in cui l'amministratore ha configurato l'organizzazione, saranno disponibili una o più delle opzioni seguenti per la configurazione come metodo di verifica della sicurezza. Se sono disponibili più opzioni, è consigliabile usare più di uno come metodo di verifica di sicurezza, nel caso in cui uno dei metodi diventi non disponibile.
+2. A seconda del modo in cui l'amministratore ha configurato l'organizzazione, saranno disponibili una o più delle opzioni seguenti per la configurazione come metodo di verifica della sicurezza. Se sono disponibili più opzioni, è consigliabile usarne più di una come metodo di verifica di sicurezza, nel caso in cui uno dei metodi diventi non disponibile.
 
     - **App di autenticazione.** Scegliere di usare l'app Microsoft Authenticator o un'altra app di autenticazione come metodo di verifica di sicurezza. Per altre informazioni sulla configurazione dell'app, vedere [configurare l'app Microsoft Authenticator come metodo di verifica](security-info-setup-auth-app.md).
 
