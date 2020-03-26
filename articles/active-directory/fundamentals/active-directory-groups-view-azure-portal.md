@@ -14,22 +14,22 @@ ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d52c90db5414c39c4e916bbab19c43739d9ea904
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75423022"
 ---
 <!--As a brand-new Azure AD administrator, I need to view my organization’s groups along with the assigned members, so I can manage permissions to apps and services for people in my organization-->
 
-# <a name="quickstart-view-your-organizations-groups-and-members-in-azure-active-directory"></a>Avvio rapido: Visualizzare i gruppi e i membri dell'organizzazione in Azure Active Directory
+# <a name="quickstart-view-your-organizations-groups-and-members-in-azure-active-directory"></a>Guida introduttiva: Visualizzare i gruppi e i membri dell'organizzazione in Azure Active Directory
 È possibile visualizzare i gruppi esistenti dell'organizzazione e i membri dei gruppi usando il portale di Azure. I gruppi vengono usati per gestire gli utenti (membri) che necessitano tutti dello stesso accesso e delle stesse autorizzazioni per le app e i servizi con potenziali restrizioni.
 
 In questa guida introduttiva si visualizzeranno tutti i gruppi esistenti dell'organizzazione e i membri assegnati.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 Prima di iniziare, è necessario:
 
 - Creare un tenant di Azure Active Directory. Per altre informazioni, vedere [Accedere al portale di Azure Active Directory e creare un nuovo tenant](active-directory-access-create-new-tenant.md).

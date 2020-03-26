@@ -5,10 +5,10 @@ ms.date: 10/14/2019
 ms.topic: tutorial
 ms.reviewer: brendal
 ms.openlocfilehash: 5761bf1294691c2d50e0e389fe69ec286df4a06c
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74324050"
 ---
 # <a name="tutorial-using-applications-in-azure-blockchain-workbench"></a>Esercitazione: Uso di applicazioni in Azure Blockchain Workbench
@@ -61,7 +61,7 @@ A seconda dello stato in cui si trova il contratto, i membri possono eseguire az
 
     ![Dettagli sul contratto](./media/use/contract-details.png)
 
-    | Sezione  | DESCRIZIONE  |
+    | Sezione  | Descrizione  |
     |---------|---------|
     | Stato | Elenca lo stato di avanzamento corrente all'interno delle fasi del contratto |
     | Dettagli | Valori correnti del contratto |

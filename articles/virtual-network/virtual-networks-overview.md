@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 06/19/2019
 ms.author: anavin
 ms.openlocfilehash: 3b908406c8717d2fa8834bc4dff1bcd27ec4761f
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78372393"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79290199"
 ---
 # <a name="what-is-azure-virtual-network"></a>Che cos'è Rete virtuale di Azure?
 
@@ -26,10 +26,10 @@ Rete virtuale di Azure (VNet) è il blocco predefinito fondamentale per la rete 
 
 ## <a name="vnet-concepts"></a>Concetti di VNet
 
-- **Spazio degli indirizzi:** Quando si crea un VNet, è necessario specificare uno spazio di indirizzi IP privato personalizzato usando indirizzi pubblici e privati (RFC 1918). Azure assegna alle risorse di una rete virtuale un indirizzo IP privato dello spazio indirizzi specificato. Se, ad esempio, si distribuisce una macchina virtuale in una rete virtuale con spazio indirizzi 10.0.0.0/16, alla macchina virtuale verrà assegnato un indirizzo IP privato come 10.0.0.4.
-- **Subnet:** Le subnet consentono di segmentare la rete virtuale in una o più sottoreti e di allocare una parte dello spazio degli indirizzi della rete virtuale a ogni subnet. È quindi possibile distribuire le risorse di Azure in una subnet specifica. Proprio come le reti tradizionali, le subnet consentono di segmentare lo spazio indirizzi della rete virtuale in segmenti appropriati per la rete interna dell'organizzazione. In questo modo, anche l'allocazione degli indirizzi risulta più efficiente. È possibile proteggere le risorse all'interno delle subnet con i gruppi di sicurezza di rete. Per altre informazioni, vedere [Gruppi di sicurezza](security-overview.md).
-- **Regions**: VNet è limitato a una singola area/posizione; Tuttavia, più reti virtuali di aree diverse possono essere connesse insieme usando il peering di rete virtuale.
-- **Sottoscrizione:** VNet è limitato a una sottoscrizione. È possibile implementare più reti virtuali in ogni [sottoscrizione](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) e [area](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#region) di Azure.
+- **Spazio indirizzi**: quando si crea una rete virtuale, è necessario specificare uno spazio indirizzi IP privato personalizzato con indirizzi pubblici e privati (RFC 1918). Azure assegna alle risorse di una rete virtuale un indirizzo IP privato dello spazio indirizzi specificato. Se, ad esempio, si distribuisce una macchina virtuale in una rete virtuale con spazio indirizzi 10.0.0.0/16, alla macchina virtuale verrà assegnato un indirizzo IP privato come 10.0.0.4.
+- **Subnet:** le subnet consentono di segmentare la rete virtuale in una o più reti secondarie e di allocare una parte dello spazio indirizzi della rete virtuale a ogni subnet. È quindi possibile distribuire le risorse di Azure in una subnet specifica. Proprio come le reti tradizionali, le subnet consentono di segmentare lo spazio indirizzi della rete virtuale in segmenti appropriati per la rete interna dell'organizzazione. In questo modo, anche l'allocazione degli indirizzi risulta più efficiente. È possibile proteggere le risorse all'interno delle subnet con i gruppi di sicurezza di rete. Per altre informazioni, vedere [Gruppi di sicurezza](security-overview.md).
+- **Aree di Azure**: l'ambito di una rete virtuale è una singola area/località; tuttavia, è possibile connettere più reti virtuali da diverse aree di Azure usando il peering di rete virtuale.
+- **Sottoscrizione:** l'ambito di una rete virtuale è una sottoscrizione. È possibile implementare più reti virtuali in ogni [sottoscrizione](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) e [area](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#region) di Azure.
 
 ## <a name="best-practices"></a>Procedure consigliate
 
@@ -38,7 +38,7 @@ Durante la creazione della rete in Azure, è importante tenere presente i princi
 - Verificare che gli spazi indirizzi non si sovrappongano. Assicurarsi che lo spazio indirizzi della rete virtuale (blocco CIDR) non si sovrapponga con altri intervalli di rete dell'organizzazione.
 - È importante che le subnet non coprano l'intero spazio indirizzi della rete virtuale, in modo da poter riservare una parte dello spazio indirizzi per esigenze future.
 - È preferibile avere poche reti virtuali di grandi dimensioni piuttosto che tante reti virtuali di piccole dimensioni. In questo modo, si eviterà infatti un sovraccarico di gestione.
-- Proteggere i VNet assegnando gruppi di sicurezza di rete (gruppi) alle subnet sottostanti.
+- Proteggere le reti virtuali assegnando gruppi di sicurezza di rete alle subnet sottostanti.
 
 ## <a name="communicate-with-the-internet"></a>Comunicare con Internet
 
@@ -51,9 +51,9 @@ Per impostazione predefinita, tutte le risorse in una rete virtuale possono comu
 
 Le risorse di Azure comunicano in modo sicuro tra di esse in uno dei modi seguenti:
 
-- **Tramite una rete virtuale**: è possibile distribuire VM e diversi altri tipi di risorse di Azure in una rete virtuale, ad esempio ambienti del servizio app di Azure, servizio Azure Kubernetes e set di scalabilità di macchine virtuali di Azure. Per visualizzare un elenco completo delle risorse di Azure che è possibile distribuire in una rete virtuale, vedere [Integrazione del servizio di rete virtuale](virtual-network-for-azure-services.md).
+- **Tramite una rete virtuale**: è possibile distribuire macchine virtuali e diversi altri tipi di risorse di Azure in una rete virtuale, ad esempio ambienti del servizio app di Azure, servizio Azure Kubernetes e set di scalabilità di macchine virtuali di Azure. Per visualizzare un elenco completo delle risorse di Azure che è possibile distribuire in una rete virtuale, vedere [Integrazione del servizio di rete virtuale](virtual-network-for-azure-services.md).
 - **Tramite un endpoint servizio di rete virtuale**: estendere lo spazio di indirizzi privato della rete virtuale e l'identità della rete virtuale alle risorse dei servizi di Azure, ad esempio gli account di archiviazione di Azure e i database SQL di Azure, tramite una connessione diretta. Gli endpoint servizio consentono di associare le risorse critiche dei servizi di Azure solo a una rete virtuale. Per altre informazioni, vedere [Panoramica degli endpoint servizio di rete virtuale](virtual-network-service-endpoints-overview.md).
-- **Tramite il peering VNet**: è possibile connettere le reti virtuali tra loro, consentendo alle risorse in entrambe le reti virtuali di comunicare tra loro, usando il peering di rete virtuale. Le reti virtuali connesse possono essere in aree di Azure uguali o diversi. Per altre informazioni, vedere [Peering di rete virtuale](virtual-network-peering-overview.md).
+- **Tramite il peering di reti virtuali**: È possibile connettere le reti virtuali tra di esse, per poter consentire alle risorse in qualsiasi rete virtuale di comunicare con le altre usando il peering di rete virtuale. Le reti virtuali connesse possono essere in aree di Azure uguali o diversi. Per altre informazioni, vedere [Peering di rete virtuale](virtual-network-peering-overview.md).
 
 ## <a name="communicate-with-on-premises-resources"></a>Comunicare con le risorse locali
 
@@ -67,15 +67,15 @@ Le risorse di Azure comunicano in modo sicuro tra di esse in uno dei modi seguen
 
 È possibile filtrare il traffico di rete tra subnet usando una o entrambe le opzioni seguenti.
 
-- **Gruppi di sicurezza:** I gruppi di sicurezza di rete e i gruppi di sicurezza delle applicazioni possono contenere più regole di sicurezza in ingresso e in uscita che consentono di filtrare il traffico da e verso le risorse in base a indirizzo IP di origine e destinazione, porta e protocollo. Per altre informazioni, consultare [Gruppi di sicurezza di rete](security-overview.md#network-security-groups) e [Gruppi di sicurezza delle applicazioni](security-overview.md#application-security-groups).
-- **Appliance virtuali di rete:** un'appliance virtuale di rete è una VM che esegue una funzione di rete, ad esempio un firewall, un'ottimizzazione WAN o un'altra funzione di rete. Per visualizzare un elenco delle appliance virtuali di rete disponibili che è possibile distribuire in una rete virtuale di Azure, vedere [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances).
+- **Gruppi di sicurezza:** gruppi di sicurezza di rete e gruppi di sicurezza delle applicazioni possono contenere più regole di sicurezza in ingresso e in uscita che consentono di filtrare il traffico verso e dalle risorse per protocollo, porta e indirizzo IP di origine e di destinazione. Per altre informazioni, consultare [Gruppi di sicurezza di rete](security-overview.md#network-security-groups) e [Gruppi di sicurezza delle applicazioni](security-overview.md#application-security-groups).
+- **Appliance virtuali di rete:** un'appliance virtuale di rete è una macchina virtuale che esegue una funzione di rete, ad esempio un firewall, un'ottimizzazione WAN o un'altra funzione di rete. Per visualizzare un elenco delle appliance virtuali di rete disponibili che è possibile distribuire in una rete virtuale di Azure, vedere [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances).
 
 ## <a name="route-network-traffic"></a>Indirizzare il traffico di rete
 
 Azure instrada il traffico tra subnet, reti virtuali connesse, reti locali e Internet, per impostazione predefinita. Per sostituire le route predefinite create da Azure, è possibile implementare una o entrambe le opzioni seguenti.
 
-- **Tabelle di route:** è possibile creare tabelle di route personalizzate con route che controllano l'instradamento del traffico per ogni subnet. Altre informazioni sulle [tabelle di route](virtual-networks-udr-overview.md#user-defined).
-- **Route BGP (Border Gateway Protocol):** se si connette la rete virtuale alla rete locale con un gateway VPN di Azure o una connessione ExpressRoute, è possibile propagare le route BGP locale alle reti virtuali. Altre informazioni sull'uso di BGP con [Gateway VPN di Azure](../vpn-gateway/vpn-gateway-bgp-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ed [ExpressRoute](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#dynamic-route-exchange).
+- **Tabelle di route:** è possibile creare tabelle di route personalizzate con route che controllano dove viene instradato il traffico per ogni subnet. Altre informazioni sulle [tabelle di route](virtual-networks-udr-overview.md#user-defined).
+- **Route Border Gateway Protocol (BGP):** se si connette la rete virtuale alla rete locale con un gateway VPN di Azure o una connessione ExpressRoute, è possibile propagare le route BGP locali alle reti virtuali. Altre informazioni sull'uso di BGP con [Gateway VPN di Azure](../vpn-gateway/vpn-gateway-bgp-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ed [ExpressRoute](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#dynamic-route-exchange).
 
 ## <a name="azure-vnet-limits"></a>Limiti della rete virtuale di Azure
 

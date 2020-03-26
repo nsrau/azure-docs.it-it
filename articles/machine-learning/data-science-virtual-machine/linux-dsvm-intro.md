@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Creare una Data Science Virtual Machine CentOS'
+title: 'Guida introduttiva: Creare una Data Science Virtual Machine CentOS'
 titleSuffix: Azure Data Science Virtual Machine
 description: Configurare e creare una Data Science Virtual Machine per Linux (CentOS) per attività di analisi e Machine Learning.
 ms.service: machine-learning
@@ -9,17 +9,17 @@ ms.author: gopalv
 ms.topic: quickstart
 ms.date: 09/13/2019
 ms.openlocfilehash: 73541b31125ee6e99dc2351e26f6a564a1603487
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77526026"
 ---
-# <a name="quickstart-set-up-a-centos-linux-data-science-virtual-machine-in-azure"></a>Avvio rapido: Configurare una Data Science Virtual Machine CentOS (Linux) in Azure
+# <a name="quickstart-set-up-a-centos-linux-data-science-virtual-machine-in-azure"></a>Guida introduttiva: Configurare una Data Science Virtual Machine CentOS (Linux) in Azure
 
 Iniziare a usare una Data Science Virtual Machine basata su CentOS.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per creare una Data Science Virtual Machine CentOS, è necessaria una **sottoscrizione di Azure**. [Creare una sottoscrizione gratuita](https://azure.com/free).
 

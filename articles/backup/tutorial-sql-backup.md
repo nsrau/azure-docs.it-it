@@ -4,15 +4,15 @@ description: In questa esercitazione viene descritto come eseguire il backup di 
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.openlocfilehash: 3216404b04647e2fb5f15beb09b9a4ccd6648bba
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74171877"
 ---
 # <a name="back-up-a-sql-server-database-in-an-azure-vm"></a>Eseguire il backup di un database di SQL Server in una VM di Azure
 
-Questa esercitazione illustra come eseguire il backup di un database di SQL Server in esecuzione in una VM di Azure in un insieme di credenziali di Servizi di ripristino di Backup di Azure. In questo articolo viene spiegato come:
+Questa esercitazione illustra come eseguire il backup di un database di SQL Server in esecuzione in una VM di Azure in un insieme di credenziali di Servizi di ripristino di Backup di Azure. In questo articolo vengono illustrate le operazioni seguenti:
 
 > [!div class="checklist"]
 >

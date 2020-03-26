@@ -9,10 +9,10 @@ ms.date: 01/22/2020
 ms.author: sngun
 ms.custom: include file
 ms.openlocfilehash: 8f7a69b81430d964d1aade26ed179354171e4164
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77134675"
 ---
 1. In una nuova finestra del browser accedere al [portale di Azure](https://portal.azure.com/).

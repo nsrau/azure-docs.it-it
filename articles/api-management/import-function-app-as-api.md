@@ -14,10 +14,10 @@ ms.topic: tutorial
 ms.date: 06/28/2019
 ms.author: apimpm
 ms.openlocfilehash: cec1d3e07800dd3093ca79a87cafcf5fceafbf2f
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77209189"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Importare un'app per le funzioni di Azure come API in Gestione API di Azure
@@ -35,14 +35,14 @@ Si apprenderà come:
 > * Testare l'API nel portale di Azure
 > * Testare l'API nel portale per sviluppatori
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Completare la guida introduttiva [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
 * Verificare che nella sottoscrizione sia disponibile un'app Funzioni di Azure. Per altre informazioni, vedere [come creare un'app per le funzioni di Azure](../azure-functions/functions-create-first-azure-function.md#create-a-function-app). Deve contenere funzioni con trigger HTTP e livello di autorizzazione impostato su *Anonimo* o su *Funzione*.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-## <a name="add-new-api-from-azure-function-app"></a> Importare un'app per le funzioni di Azure come nuova API
+## <a name="import-an-azure-function-app-as-a-new-api"></a><a name="add-new-api-from-azure-function-app"></a> Importare un'app per le funzioni di Azure come nuova API
 
 Per creare una nuova API da un'app per le funzioni di Azure, seguire questa procedura.
 
@@ -77,7 +77,7 @@ Per creare una nuova API da un'app per le funzioni di Azure, seguire questa proc
 
 8. Fare clic su **Crea**.
 
-## <a name="append-azure-function-app-to-api"></a>Aggiungere l'app per le funzioni di Azure a un'API esistente
+## <a name="append-azure-function-app-to-an-existing-api"></a><a name="append-azure-function-app-to-api"></a>Aggiungere l'app per le funzioni di Azure a un'API esistente
 
 Per aggiungere l'app per le funzioni di Azure a un'API esistente, seguire questa procedura.
 
@@ -111,7 +111,7 @@ Per aggiungere l'app per le funzioni di Azure a un'API esistente, seguire questa
 
     ![Aggiungere da app per le funzioni](./media/import-function-app-as-api/append-04.png)
 
-## <a name="authorization"></a> Autorizzazione
+## <a name="authorization"></a><a name="authorization"></a> Autorizzazione
 
 L'importazione di un'app per le funzioni di Azure genera automaticamente:
 
@@ -143,7 +143,7 @@ Passare all'istanza di Gestione API di Azure e selezionare **Valori denominati**
 
 ![Aggiungere da app per le funzioni](./media/import-function-app-as-api/keys-01.png)
 
-## <a name="test-in-azure-portal"></a> Testare la nuova API nel portale di Azure
+## <a name="test-the-new-api-in-the-azure-portal"></a><a name="test-in-azure-portal"></a> Testare la nuova API nel portale di Azure
 
 È possibile chiamare le operazioni direttamente dal portale di Azure. Il portale di Azure offre un sistema pratico per visualizzare e testare le operazioni di un'API.  
 

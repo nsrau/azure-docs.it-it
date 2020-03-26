@@ -10,10 +10,10 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 05/14/2019
 ms.openlocfilehash: 17ac29de243f4abfff1cfc83fc6424799978bf0e
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74978152"
 ---
 # <a name="tutorial-design-a-multi-tenant-database-by-using-azure-database-for-postgresql--hyperscale-citus"></a>Esercitazione: Progettare un database multi-tenant con Database di Azure per PostgreSQL - Hyperscale (Citus)
@@ -35,7 +35,7 @@ In questa esercitazione si usa Database di Azure per PostgreSQL - Hyperscale (Ci
 
 ## <a name="use-psql-utility-to-create-a-schema"></a>Usare l'utilità psql per creare uno schema
 
-Una volta connessi a Database di Azure per PostgreSQL - Hyperscale (Citus) tramite psql, è possibile completare alcune attività di base. Questa esercitazione illustra come creare un'app Web che consente agli inserzionisti di tenere traccia delle proprie campagne pubblicitarie.
+Dopo aver eseguito la connessione a Database di Azure per PostgreSQL - Hyperscale (Citus) tramite psql, è possibile completare alcune attività di base. Questa esercitazione illustra come creare un'app Web che consente agli inserzionisti di tenere traccia delle proprie campagne pubblicitarie.
 
 Poiché l'app può essere usata da più aziende, si creeranno una tabella in cui includere le aziende e un'altra tabella per le campagne pubblicitarie. Nella console di psql eseguire questi comandi:
 

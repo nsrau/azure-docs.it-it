@@ -17,10 +17,10 @@ ms.date: 10/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 47fde1a72d651dd79de9d5d32fb4874c62ae1e39
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75638647"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-heybuddy"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con HeyBuddy
@@ -33,7 +33,7 @@ Questa esercitazione descrive come integrare HeyBuddy con Azure Active Directory
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per iniziare, sono necessari gli elementi seguenti:
 
@@ -52,7 +52,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-heybuddy-from-the-gallery"></a>Aggiunta di HeyBuddy dalla raccolta
 
-Per configurare l'integrazione di HeyBuddy in Azure AD, è necessario aggiungere HeyBuddy dalla raccolta all'elenco di app SaaS gestite.
+Per configurare l'integrazione di HeyBuddy in Azure AD, è necessario aggiungere HeyBuddy dalla raccolta al proprio elenco di app SaaS gestite.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
 1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory**.
@@ -69,8 +69,8 @@ Configurare e testare l'accesso SSO di Azure AD con HeyBuddy usando un utente di
 Per configurare e testare l'accesso SSO di Azure AD con HeyBuddy, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
-    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
+    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
+    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Configurare l'accesso Single Sign-On di HeyBuddy](#configure-heybuddy-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
     1. **[Creare l'utente di test di HeyBuddy](#create-heybuddy-test-user)** : per avere una controparte di B.Simon in HeyBuddy collegata alla rappresentazione dell'utente in Azure AD.
 1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
@@ -146,9 +146,9 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 Per configurare l'accesso Single Sign-On sul lato **HeyBuddy**, è necessario inviare l'**URL dei metadati di federazione dell'app** al [team di supporto di HeyBuddy](mailto:support@heybuddy.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
-### <a name="create-heybuddy-test-user"></a>Creare l'utente di test di HeyBuddy
+### <a name="create-heybuddy-test-user"></a>Creare un utente di test di HeyBuddy
 
-In questa sezione viene creato un utente di nome Britta Simon in HeyBuddy. HeyBuddy supporta il provisioning utenti JIT, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se non esiste già un utente in HeyBuddy, ne viene creato uno nuovo dopo l'autenticazione.
+In questa sezione viene creato un utente di nome Britta Simon in HeyBuddy. HeyBuddy supporta il provisioning JIT, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se non esiste già un utente in HeyBuddy, ne viene creato uno nuovo dopo l'autenticazione.
 
 > [!Note]
 > Per creare un utente manualmente, contattare il [team di supporto di HeyBuddy](mailto:support@heybuddy.com).
@@ -157,7 +157,7 @@ In questa sezione viene creato un utente di nome Britta Simon in HeyBuddy. HeyBu
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si seleziona il riquadro di HeyBuddy nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di HeyBuddy per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si seleziona il riquadro di HeyBuddy nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione HeyBuddy per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

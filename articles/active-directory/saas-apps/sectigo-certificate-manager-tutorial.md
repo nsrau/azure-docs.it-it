@@ -17,10 +17,10 @@ ms.date: 04/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0447a8dd464363ae7e076dde2520565005d7c0a5
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67588243"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sectigo-certificate-manager"></a>Esercitazione: Integrazione di Azure Active Directory con Sectigo Certificate Manager
@@ -48,7 +48,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 Sectigo Certificate Manager supporta le funzionalità seguenti:
 
-* **Accesso Single Sign-On avviato da SP**
+* **Accesso Single Sign-On avviato da provider di servizi**
 * **Accesso Single Sign-On avviato da IDP**
 
 ## <a name="add-sectigo-certificate-manager-in-the-azure-portal"></a>Aggiungere Sectigo Certificate Manager nel portale di Azure
@@ -79,7 +79,7 @@ In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure 
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Sectigo Certificate Manager, è necessario completare le procedure di base seguenti:
 
-| Attività | DESCRIZIONE |
+| Attività | Descrizione |
 | --- | --- |
 | **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** | Consente agli utenti di usare questa funzionalità. |
 | **[Configurare l'accesso Single Sign-On di Sectigo Certificate Manager](#configure-sectigo-certificate-manager-single-sign-on)** | Consente di configurare le impostazioni di accesso Single Sign-On nell'applicazione. |
@@ -146,7 +146,7 @@ In questa sezione si configura l'accesso Single Sign-On di Azure AD con Sectigo 
 
 Per configurare l'accesso Single Sign-On sul lato Sectigo Certificate Manager, inviare il file del certificato (Base64) scaricato e gli URL appropriati, copiati dal portale di Azure, al [team di supporto di Sectigo Certificate Manager](https://sectigo.com/support). Il team di supporto di Sectigo Certificate Manager usa le informazioni inviate per assicurarsi che la connessione Single Sign-On SAML venga impostata correttamente su entrambi i lati.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
 In questa sezione viene creato un utente di test chiamato Britta Simon nel portale di Azure.
 
@@ -170,7 +170,7 @@ In questa sezione viene creato un utente di test chiamato Britta Simon nel porta
 
     ![Riquadro Utente](common/user-properties.png)
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione si concede a Britta Simon l'accesso a Sectigo Certificate Manager in modo che possa usare l'accesso Single Sign-On di Azure.
 

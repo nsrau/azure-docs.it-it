@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Libreria client di archiviazione BLOB di Azure per .NET'
+title: 'Guida introduttiva: Libreria client di archiviazione BLOB di Azure per .NET'
 description: In questo argomento di avvio rapido verrà illustrato come usare la libreria client di archiviazione BLOB di Azure per creare un contenitore e un BLOB in un'archiviazione BLOB (di oggetti). Verrà successivamente illustrato come scaricare il BLOB nel computer locale e come elencare tutti i BLOB in un contenitore.
 author: mhopkins-msft
 ms.author: mhopkins
@@ -8,13 +8,13 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.openlocfilehash: b243d05619642e1dd3ad8dfe2bbe1d0a9661b773
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75351311"
 ---
-# <a name="quickstart-azure-blob-storage-client-library-v11-for-net"></a>Avvio rapido: Libreria client di archiviazione BLOB di Azure v11 per .NET
+# <a name="quickstart-azure-blob-storage-client-library-v11-for-net"></a>Guida introduttiva: Libreria client di archiviazione BLOB di Azure v11 per .NET
 
 Introduzione alla libreria client di archiviazione BLOB di Azure v11 per .NET. Archiviazione BLOB di Azure è la soluzione di archiviazione di oggetti Microsoft per il cloud. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base. L'archiviazione BLOB è ottimizzata per archiviare enormi quantità di dati non strutturati.
 
@@ -31,7 +31,7 @@ Usare la libreria client di Archiviazione BLOB di Azure per .NET per:
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
 * Account di archiviazione di Azure: [creare un account di archiviazione](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)

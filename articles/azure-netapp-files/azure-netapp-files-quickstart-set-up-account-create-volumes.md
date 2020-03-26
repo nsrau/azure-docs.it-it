@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Configurare Azure NetApp Files e un volume NFS'
+title: 'Guida introduttiva: Configurare Azure NetApp Files e un volume NFS'
 description: Avvio rapido - Descrive come configurare rapidamente Azure NetApp Files e creare un volume.
 author: b-juche
 ms.author: b-juche
@@ -8,13 +8,13 @@ ms.workload: storage
 ms.topic: quickstart
 ms.date: 12/01/2019
 ms.openlocfilehash: fc7f13fb7ffe1667aaeaa4a3cc1916c6049a98c1
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75551642"
 ---
-# <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Avvio rapido: Configurare Azure NetApp Files e creare un volume NFS 
+# <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Guida introduttiva: Configurare Azure NetApp Files e creare un volume NFS 
 
 Questo articolo illustra come configurare rapidamente Azure NetApp Files e creare un volume. 
 
@@ -42,13 +42,13 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 > Il completamento del processo di registrazione può richiedere del tempo.
 >
 
-# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
+# <a name="portal"></a>[Portale](#tab/azure-portal)
 
 Per la procedura di registrazione tramite il portale, aprire una sessione Cloud Shell come indicato in precedenza e seguire questi passaggi dell'interfaccia della riga di comando di Azure:
 
 [!INCLUDE [azure-netapp-files-cloudshell-include](../../includes/azure-netapp-files-azure-cloud-shell-window.md)]
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Questa procedura richiede il modulo Azure PowerShell Az 2.6.0 o versioni successive. Eseguire `Get-Module -ListAvailable Az` per trovare la versione corrente. Se è necessario eseguire l'installazione o l'aggiornamento, vedere come [installare il modulo Azure PowerShell](/powershell/azure/install-Az-ps). Se si preferisce, è possibile usare la console di Cloud Shell in una sessione di PowerShell.
 
@@ -62,7 +62,7 @@ Questa procedura richiede il modulo Azure PowerShell Az 2.6.0 o versioni success
     Register-AzResourceProvider -ProviderNamespace Microsoft.NetApp
     ```
 
-# <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 [!INCLUDE [azure-netapp-files-cloudshell-include](../../includes/azure-netapp-files-azure-cloud-shell-window.md)]
 
@@ -70,7 +70,7 @@ Questa procedura richiede il modulo Azure PowerShell Az 2.6.0 o versioni success
 
 ## <a name="create-a-netapp-account"></a>Creare un account di NetApp
 
-# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
+# <a name="portal"></a>[Portale](#tab/azure-portal)
 
 1. Nella casella di ricerca del portale di Azure immettere **Azure NetApp Files** e quindi selezionare **Azure NetApp Files** dall'elenco visualizzato.
 
@@ -92,7 +92,7 @@ Questa procedura richiede il modulo Azure PowerShell Az 2.6.0 o versioni success
 
 4. Fare clic su **Crea** per creare il nuovo account NetApp.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 1. Definire alcune variabili in modo che sia possibile farvi riferimento nei restanti esempi:
 
@@ -119,7 +119,7 @@ Questa procedura richiede il modulo Azure PowerShell Az 2.6.0 o versioni success
     New-AzNetAppFilesAccount -ResourceGroupName $resourceGroup -Location $location -Name $anfAccountName
     ```
 
-# <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 1. Definire alcune variabili in modo che sia possibile farvi riferimento nei restanti esempi:
 
@@ -154,7 +154,7 @@ Questa procedura richiede il modulo Azure PowerShell Az 2.6.0 o versioni success
 
 ## <a name="set-up-a-capacity-pool"></a>Configurare un pool di capacità
 
-# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
+# <a name="portal"></a>[Portale](#tab/azure-portal)
 
 1. Nel pannello di gestione di Azure NetApp Files selezionare l'account di NetApp appena creato (**myaccount1**).
 
@@ -175,7 +175,7 @@ Questa procedura richiede il modulo Azure PowerShell Az 2.6.0 o versioni success
 
 5. Fare clic su **OK**.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 1. Definizione di alcune nuove variabili per riferimento futuro
 
@@ -191,7 +191,7 @@ Questa procedura richiede il modulo Azure PowerShell Az 2.6.0 o versioni success
     New-AzNetAppFilesPool -ResourceGroupName $resourceGroup -Location $location -AccountName $anfAccountName -Name $poolName -PoolSize $poolSizeBytes -ServiceLevel $serviceLevel
     ```
 
-# <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 1. Definizione di alcune nuove variabili per riferimento futuro
 
@@ -217,7 +217,7 @@ Questa procedura richiede il modulo Azure PowerShell Az 2.6.0 o versioni success
 
 ## <a name="create-nfs-volume-for-azure-netapp-files"></a>Creare un volume NFS per Azure NetApp Files
 
-# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
+# <a name="portal"></a>[Portale](#tab/azure-portal)
 
 1. Nell'area del pannello di gestione di Azure NetApp Files relativa al proprio account NetApp selezionare **Volumi**.
 
@@ -261,7 +261,7 @@ Questa procedura richiede il modulo Azure PowerShell Az 2.6.0 o versioni success
 
     ![Volume creato](../media/azure-netapp-files/azure-netapp-files-create-volume-created.png)  
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 1. Creare una delega della subnet a "Microsoft. NetApp/volumes" con il comando [New-AzDelegation](/powershell/module/az.network/new-azdelegation).
 
@@ -299,7 +299,7 @@ Questa procedura richiede il modulo Azure PowerShell Az 2.6.0 o versioni success
         -ProtocolType NFSv3
     ```
 
-# <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 1. Definizione di alcune variabili per un uso successivo.
     
@@ -356,7 +356,7 @@ Questa procedura richiede il modulo Azure PowerShell Az 2.6.0 o versioni success
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
+# <a name="portal"></a>[Portale](#tab/azure-portal)
 
 Al termine, se si vuole, è possibile eliminare il gruppo di risorse. L'azione di eliminazione di un gruppo di risorse è irreversibile.  
 
@@ -380,7 +380,7 @@ Al termine, se si vuole, è possibile eliminare il gruppo di risorse. L'azione d
 
     ![Eliminare un gruppo di risorse](../media/azure-netapp-files/azure-netapp-files-azure-confirm-resource-group-deletion.png ) 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Al termine, se si vuole, è possibile eliminare il gruppo di risorse. L'azione di eliminazione di un gruppo di risorse è irreversibile.  
 
@@ -393,7 +393,7 @@ Al termine, se si vuole, è possibile eliminare il gruppo di risorse. L'azione d
     Remove-AzResourceGroup -Name $resourceGroup
     ```
 
-# <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 Al termine, se si vuole, è possibile eliminare il gruppo di risorse. L'azione di eliminazione di un gruppo di risorse è irreversibile.  
 

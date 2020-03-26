@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Creare una zona e un record DNS di Azure - Azure PowerShell'
+title: 'Guida introduttiva: Creare una zona e un record DNS di Azure - Azure PowerShell'
 titleSuffix: Azure DNS
 description: Informazioni su come creare una zona e un record DNS in DNS Azure. Si tratta di una guida introduttiva dettagliata per creare e gestire la prima zona e il primo record DNS con Azure PowerShell.
 services: dns
@@ -9,13 +9,13 @@ ms.topic: quickstart
 ms.date: 3/11/2019
 ms.author: rohink
 ms.openlocfilehash: e33f6fdba1a15032d76b94804d610e292f663d59
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76937167"
 ---
-# <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-powershell"></a>Avvio rapido: Creare una zona e un record DNS di Azure con Azure PowerShell
+# <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-powershell"></a>Guida introduttiva: Creare una zona e un record DNS di Azure con Azure PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

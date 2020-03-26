@@ -6,14 +6,14 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 02/15/2020
 ms.author: brendm
-ms.openlocfilehash: a215fe2305b320fe27ef9d868d060f3e9cb14c1c
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.openlocfilehash: 9cd59fdf81e9b5d56872d20c76e8ea177b3c8577
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77431336"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79470895"
 ---
-# <a name="quickstart-launch-an-existing-azure-spring-cloud-application-using-the-azure-portal"></a>Avvio rapido: Avviare un'applicazione Azure Spring Cloud esistente con il portale di Azure
+# <a name="quickstart-launch-an-existing-azure-spring-cloud-application-using-the-azure-portal"></a>Guida introduttiva: Avviare un'applicazione Azure Spring Cloud esistente con il portale di Azure
 
 Questo argomento di avvio rapido illustra come distribuire un'applicazione Spring Cloud esistente in Azure. Azure Spring Cloud consente di eseguire facilmente applicazioni di microservizi basate su Spring Cloud in Azure. 
 
@@ -28,7 +28,7 @@ Seguendo questo argomento di avvio rapido, si apprenderà come:
 > * Distribuire ogni microservizio
 > * Assegnare un endpoint pubblico per l'applicazione
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 >[!Note]
 > Azure Spring Cloud è attualmente disponibile come anteprima pubblica. Le offerte di anteprima pubblica consentono ai clienti di sperimentare le nuove funzionalità prima del rilascio della versione ufficiale.  I servizi e le funzionalità di anteprima pubblica non sono destinati all'uso in produzione.  Per altre informazioni sul supporto durante le anteprime, vedere le [domande frequenti](https://azure.microsoft.com/support/faq/) o inviare una [richiesta di supporto](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
@@ -48,7 +48,7 @@ Per completare questa guida introduttiva:
 
 Installare l'estensione Azure Spring Cloud per l'interfaccia della riga di comando di Azure usando il comando seguente
 
-```Azure CLI
+```azurecli
 az extension add --name spring-cloud
 ```
 
@@ -105,7 +105,7 @@ Per distribuire il servizio sono necessari circa 5 minuti.  Una volta completata
 
 3. Fare clic su **Applica** per salvare le modifiche.
 
-    ![Screenshot del portale di Azure Spring Cloud](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
+    ![Screenshot del portale ASC](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
 
 > [!div class="nextstepaction"]
 > [Si è verificato un problema](https://www.research.net/r/javae2e?tutorial=asc-portal-quickstart&step=config-server)
@@ -114,7 +114,7 @@ Per distribuire il servizio sono necessari circa 5 minuti.  Una volta completata
 
 1. Aprire un'istanza di [Azure Cloud Shell](https://shell.azure.com) e clonare il repository dell'app di esempio nel computer locale.  Qui viene prima di tutto creata una directory temporanea denominata `source-code` prima di clonare l'app.
 
-    ```azurecli
+    ```console
     mkdir source-code
     cd source-code
     git clone https://github.com/Azure-Samples/piggymetrics
@@ -122,10 +122,11 @@ Per distribuire il servizio sono necessari circa 5 minuti.  Una volta completata
 
 2. Compilare il pacchetto clonato.
 
-    ```azurecli
+    ```console
     cd piggymetrics
     mvn clean package -DskipTests
     ```
+
 3. Assegnare i nomi al gruppo di risorse e al servizio. Assicurarsi di sostituire i segnaposto con il nome del gruppo di risorse e il nome del servizio di cui è stato effettuato il provisioning in precedenza in questa esercitazione.
 
     ```azurecli
@@ -162,11 +163,11 @@ Per distribuire il servizio sono necessari circa 5 minuti.  Una volta completata
 
 3. Selezionare **Assign Endpoint** (Assegna endpoint) per assegnare un endpoint pubblico al gateway. L'operazione potrebbe richiedere alcuni minuti.
 
-    ![Screenshot del portale di Azure Spring Cloud](media/spring-cloud-quickstart-launch-app-portal/portal-endpoint.png)
+    ![Screenshot del portale ASC](media/spring-cloud-quickstart-launch-app-portal/portal-endpoint.png)
 
 4. Immettere l'IP pubblico assegnato (etichettato come **URL**) nel browser per visualizzare l'applicazione in esecuzione.
 
-    ![Screenshot del portale di Azure Spring Cloud](media/spring-cloud-quickstart-launch-app-portal/sample-app.png)
+    ![Screenshot del portale ASC](media/spring-cloud-quickstart-launch-app-portal/sample-app.png)
 
 > [!div class="nextstepaction"]
 > [Si è verificato un problema](https://www.research.net/r/javae2e?tutorial=asc-portal-quickstart&step=public-endpoint)

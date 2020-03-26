@@ -13,10 +13,10 @@ ms.author: mimart
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: af0a826c499790c86a20ea7061075a6c3e66b3a4
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73062607"
 ---
 # <a name="add-a-gallery-app-to-your-azure-ad-organization"></a>Aggiungere un'app della raccolta all'organizzazione di Azure AD
@@ -43,7 +43,7 @@ Azure Active Directory (Azure AD) offre una raccolta contenente migliaia di appl
 
  4. Passare alla nuova esperienza di anteprima della raccolta: Nel banner nella parte superiore della **pagina Aggiungi applicazione** selezionare il collegamento **Fare clic qui per provare la nuova raccolta di app migliorata**.
 
-5. Viene visualizzato il riquadro **Esplora la raccolta di Azure AD**, contenente sezioni per le piattaforme cloud, le applicazioni locali e le applicazioni in primo piano. Si noti che per le applicazioni elencate nella sezione **Applicazioni in primo piano** vengono visualizzate icone che indicano se sono supportati l'accesso Single Sign-On (SSO) federato e il provisioning.
+5. Viene visualizzato il riquadro **Esplora la raccolta di Azure AD**, contenente sezioni per le piattaforme cloud, le applicazioni locali e le applicazioni in primo piano. Si noti che per le applicazioni elencate nella sezione **Applicazioni in primo piano** vengono visualizzate icone che indicano se l'accesso Single Sign-On (SSO) federato e il provisioning sono supportati.
 
     ![Cercare un'app per nome o categoria](media/add-gallery-app/browse-gallery.png)
 
@@ -70,13 +70,13 @@ Azure Active Directory (Azure AD) offre una raccolta contenente migliaia di appl
        | Impostazioni delle proprietà dell'applicazione | | | Esperienza degli utenti assegnati | |
        |---|---|---|---|---|
        | Abilitata per l'accesso degli utenti? | Assegnazione utenti obbligatoria | Visibile agli utenti? | Gli utenti assegnati possono eseguire l'accesso? | L'applicazione viene visualizzata agli utenti assegnati?* |
-       | Sì | Sì | Sì | Sì | Sì  |
-       | Sì | Sì | no  | Sì | no   |
-       | Sì | no  | Sì | Sì | Sì  |
-       | Sì | no  | no  | Sì | no   |
-       | no  | Sì | Sì | no  | no   |
-       | no  | Sì | no  | no  | no   |
-       | no  | no  | Sì | no  | no   |
+       | sì | sì | sì | sì | sì  |
+       | sì | sì | no  | sì | no   |
+       | sì | no  | sì | sì | sì  |
+       | sì | no  | no  | sì | no   |
+       | no  | sì | sì | no  | no   |
+       | no  | sì | no  | no  | no   |
+       | no  | no  | sì | no  | no   |
        | no  | no  | no  | no  | no   |
 
       Comportamento per gli utenti **non assegnati**:
@@ -84,13 +84,13 @@ Azure Active Directory (Azure AD) offre una raccolta contenente migliaia di appl
        | Impostazioni delle proprietà dell'applicazione | | | Esperienza degli utenti non assegnati | |
        |---|---|---|---|---|
        | Abilitata per l'accesso degli utenti? | Assegnazione utenti obbligatoria | Visibile agli utenti? | Gli utenti non assegnati possono eseguire l'accesso? | L'applicazione viene visualizzata agli utenti non assegnati?* |
-       | Sì | Sì | Sì | no  | no   |
-       | Sì | Sì | no  | no  | no   |
-       | Sì | no  | Sì | Sì | no   |
-       | Sì | no  | no  | Sì | no   |
-       | no  | Sì | Sì | no  | no   |
-       | no  | Sì | no  | no  | no   |
-       | no  | no  | Sì | no  | no   |
+       | sì | sì | sì | no  | no   |
+       | sì | sì | no  | no  | no   |
+       | sì | no  | sì | sì | no   |
+       | sì | no  | no  | sì | no   |
+       | no  | sì | sì | no  | no   |
+       | no  | sì | no  | no  | no   |
+       | no  | no  | sì | no  | no   |
        | no  | no  | no  | no  | no   |
 
      *L'applicazione viene visualizzata agli utenti nel pannello di accesso e nell'icona di avvio delle app di Office 365?

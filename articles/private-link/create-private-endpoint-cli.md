@@ -8,13 +8,13 @@ ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: allensu
 ms.openlocfilehash: dbcb833e6f8b90cebd3d013e58168558bcd96827
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75459965"
 ---
-# <a name="quickstart-create-a-private-endpoint-using-azure-cli"></a>Avvio rapido: Creare un endpoint privato con l'interfaccia della riga di comando di Azure
+# <a name="quickstart-create-a-private-endpoint-using-azure-cli"></a>Guida introduttiva: Creare un endpoint privato con l'interfaccia della riga di comando di Azure
 Un endpoint privato è il blocco predefinito fondamentale per il servizio Collegamento privato in Azure. Consente alle risorse di Azure, come le macchine virtuali, di comunicare privatamente con risorse Collegamento privato. Questa guida di avvio rapido illustrerà come creare una macchina virtuale in una rete virtuale e un server di database SQL con un endpoint privato tramite l'interfaccia della riga di comando di Azure. Sarà quindi possibile accedere alla macchina virtuale e accedere in modo sicuro alla risorsa Collegamento privato (in questo esempio, un server di database SQL di Azure privato). 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]

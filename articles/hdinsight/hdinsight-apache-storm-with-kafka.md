@@ -9,17 +9,17 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/25/2019
 ms.openlocfilehash: eac9bee6992520492b846e3b579d8a05c327e749
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73494352"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>Esercitazione: usare Apache Storm con Apache Kafka in HDInsight
 
 Questa esercitazione illustra come usare una topologia di [Apache Storm](https://storm.apache.org/) per leggere e scrivere dati con [Apache Kafka](https://kafka.apache.org/) in HDInsight. Questa esercitazione illustra inoltre come rendere persistenti i dati nella risorsa di archiviazione compatibile con [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html) nel cluster Storm.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Storm e Kafka
@@ -366,7 +366,7 @@ streams:
 
 Il progetto contiene un file denominato `dev.properties` che viene usato per passare i parametri usati dalle topologie. Questo file definisce le proprietà seguenti:
 
-| File dev.properties | DESCRIZIONE |
+| File dev.properties | Descrizione |
 | --- | --- |
 | `kafka.zookeeper.hosts` | Host [Apache ZooKeeper](https://zookeeper.apache.org/) per il cluster Kafka. |
 | `kafka.broker.hosts` | Host broker Kafka (nodi ruolo di lavoro). |
@@ -406,7 +406,7 @@ Per creare una Rete virtuale di Microsoft Azure e quindi crearvi i cluster Kafka
 
    1. Usare le informazioni seguenti per popolare le voci nella sezione **Modello personalizzato**:
 
-      | Impostazione | Valore |
+      | Impostazione | valore |
       | --- | --- |
       | Subscription | Sottoscrizione di Azure |
       | Resource group | Gruppo di risorse che contiene le risorse. |

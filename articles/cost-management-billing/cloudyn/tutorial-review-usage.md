@@ -1,20 +1,20 @@
 ---
-title: "Esercitazione: Esaminare l'utilizzo e i costi di Azure con Cloudyn | Microsoft Docs"
+title: "Esercitazione: Esaminare l'utilizzo e i costi con Cloudyn in Azure"
 description: In questa esercitazione si esamineranno l'utilizzo e i costi per tenere traccia delle tendenze, rilevare le inefficienze e creare avvisi.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 03/12/2020
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.custom: seodec18
 ms.reviewer: benshy
-ms.openlocfilehash: a2d4525b0b29feb230f5496196a84e651e651e52
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ROBOTS: NOINDEX
+ms.openlocfilehash: 8a15de717ea960b411d95061b560b64abb94d98f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76774033"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79474561"
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
 -->
@@ -35,7 +35,9 @@ In questa esercitazione verranno illustrate le procedure per:
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisites
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
+
+## <a name="prerequisites"></a>Prerequisiti
 
 - È necessario disporre di un account Azure.
 - È necessario disporre di una registrazione di valutazione o una sottoscrizione a pagamento per Cloudyn.
@@ -74,7 +76,7 @@ Il problema è che l'infrastruttura esistente è già stata pagata. Gli utenti p
 
 Il report Cost Effective Sizing Recommendations (Consigli di ridimensionamento per la riduzione dei costi) identifica i risparmi annuali potenziali confrontando la capacità dei tipi di istanza delle macchine virtuali con i dati cronologici di utilizzo della CPU e della memoria.  
 
-Nel menu nella parte superiore del portale fare clic su **Optimizer** (Utilità di ottimizzazione)  > **Pricing Optimization** (Ottimizzazione dimensioni)  > **Cost Effective Sizing Recommendations** (Consigli di ridimensionamento per la riduzione dei costi). Se utile, applicare un filtro per ridurre il numero di risultati. Di seguito è riportata una figura di esempio.
+Nel menu nella parte superiore del portale fare clic su **Optimizer** (Utilità di ottimizzazione)  > **Pricing Optimization** (Ottimizzazione dimensioni)  > **Cost Effective Sizing Recommendations** (Consigli di ridimensionamento per la riduzione dei costi). Se utile, applicare un filtro per ridurre il numero di risultati. Di seguito è riportata un'immagine di esempio.
 
 ![Report Cost Effective Sizing Recommendations (Consigli di ridimensionamento per la riduzione dei costi) per le macchine virtuali di Azure](./media/tutorial-review-usage/sizing01.png)
 

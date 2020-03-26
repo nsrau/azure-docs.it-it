@@ -10,10 +10,10 @@ ms.date: 03/12/2019
 ms.author: robinsh
 ms.custom: mvc
 ms.openlocfilehash: 38a40d628b883c0e7ada824d47d3fdf3d29caf93
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74084377"
 ---
 # <a name="tutorial-use-the-azure-cli-and-azure-portal-to-configure-iot-hub-message-routing"></a>Esercitazione: Usare l'interfaccia della riga di comando di Azure e il portale di Azure per configurare il routing dei messaggi per l'hub IoT
@@ -31,7 +31,7 @@ Copiare e incollare lo script seguente in Cloud Shell e premere INVIO. Lo script
 Diversi nomi di risorse devono essere univoci globali, come il nome dell'hub IoT e il nome dell'account di archiviazione. Per semplicità, a questi nomi di risorse viene aggiunto un valore alfanumerico casuale denominato *randomValue*. Il valore randomValue viene generato una sola volta all'inizio dello script e viene aggiunto ai nomi delle risorse, se necessario, nell'intero script. Se non si vuole che il valore sia casuale, è possibile impostarlo su una stringa vuota o su un valore specifico.
 
 > [!TIP]
-> Suggerimento sul debug: questo script usa il simbolo di continuazione (barra rovesciata `\`) per migliorare la leggibilità. Se si verifica un problema con l'esecuzione dello script, assicurarsi che la sessione Cloud Shell sia in esecuzione `bash` e che non vi siano spazi dopo le barre rovesciate.
+> Suggerimento sul debug: questo script usa il simbolo di continuazione (barra rovesciata `\`) per migliorare la leggibilità. Se si verifica un problema durante l'esecuzione dello script, assicurarsi che la sessione Cloud Shell esegua `bash` e che non vi siano spazi dopo le barre rovesciate.
 >
 
 ```azurecli-interactive
@@ -162,7 +162,7 @@ Ora configurare il routing per l'account di archiviazione. Passare al riquadro R
 
 9. Completare ora il resto delle informazioni per la query di routing. Questa query specifica i criteri per l'invio di messaggi al contenitore di archiviazione appena aggiunto come endpoint. Compilare i campi sullo schermo.
 
-   **Nome**: immettere un nome per la query di routing. Questa esercitazione usa **ContosoStorageRoute**.
+   **Name**: immettere un nome per la query di routing. Questa esercitazione usa **ContosoStorageRoute**.
 
    **Endpoint**: viene visualizzato l'endpoint appena configurato.
 
@@ -200,7 +200,7 @@ Ora configurare il routing per la coda del bus di servizio. Passare al riquadro 
 
 6. Completare ora il resto delle informazioni per la query di routing. Questa query specifica i criteri per l'invio di messaggi alla coda del bus di servizio appena aggiunta come endpoint. Compilare i campi sullo schermo. 
 
-   **Nome**: immettere un nome per la query di routing. Questa esercitazione usa **ContosoSBQueueRoute**. 
+   **Name**: immettere un nome per la query di routing. Questa esercitazione usa **ContosoSBQueueRoute**. 
 
    **Endpoint**: viene visualizzato l'endpoint appena configurato.
 

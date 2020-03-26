@@ -9,17 +9,17 @@ ms.date: 07/05/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: e1abb759c80e770f1e650c232b6b2e21232b7e6f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75457733"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-hololens-unity-app-using-azure-spatial-anchors"></a>Esercitazione: Istruzioni dettagliate per la creazione di una nuova app HoloLens Unity usando Ancoraggi nello spazio di Azure
 
 Questa esercitazione illustra come creare una nuova app HoloLens Unity con Ancoraggi nello spazio di Azure.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa esercitazione, accertarsi di avere:
 
@@ -141,7 +141,7 @@ Successivamente, aggiungere un modo per aggiungere un'Azione alla Coda. Aggiunge
 
 ## <a name="get-the-azure-spatial-anchors-sdk"></a>Ottenere l'SDK degli Ancoraggi nello spazio di Azure
 
-## <a name="via-unity-packagetabunitypackage"></a>[Tramite il pacchetto Unity](#tab/UnityPackage)
+## <a name="via-unity-package"></a>[Tramite il pacchetto Unity](#tab/UnityPackage)
 
 Scaricare l'SDK degli Ancoraggi nello spazio di Azure. Passare alla [pagina delle versioni di GitHub per gli Ancoraggi nello spazio di Azure](https://github.com/Azure/azure-spatial-anchors-samples/releases). In Assets (Asset) scaricare **AzureSpatialAnchors.unitypackage**. In Unity, andare a **Risorse** e fare clic su **Importa pacchetto** > **Pacchetto personalizzato...** . Passare al pacchetto e selezionare **Apri**.
 
@@ -149,7 +149,7 @@ Nella nuova finestra **Import Unity Package** (Importa pacchetto Unity), deselez
 
 È ora necessario ripristinare i pacchetti Nuget per ottenere l'SDK degli Ancoraggi nello spazio di Azure. Eseguire la compilazione da **Unity** e quindi aprire e compilare nuovamente la soluzione **Visual Studio** risultante, come descritto in maniera dettagliata in [Prova pratica](#trying-it-out).
 
-## <a name="via-nugetforunitytabnugetforunity"></a>[Tramite NuGetForUnity](#tab/NuGetForUnity)
+## <a name="via-nugetforunity"></a>[Tramite NuGetForUnity](#tab/NuGetForUnity)
 
 Prima di tutto è necessario installare NuGetForUnity. Passare alla [pagina delle versioni di GitHub per NuGetForUnity](https://github.com/GlitchEnzo/NuGetForUnity/releases). In Assets (Asset) scaricare il pacchetto di **NuGetForUnity.unitypackage** più recente. In Unity, andare a **Risorse** e fare clic su **Importa pacchetto** > **Pacchetto personalizzato...** . Passare al pacchetto e selezionare **Apri**. A questo punto, Unity installerà NugetForUnity. Se non viene visualizzato un nuovo elenco a discesa **NuGet** in Unity, potrebbe essere necessario fare clic con il pulsante destro del mouse su **Projects** > **Assets** (Progetti > Asset) e quindi scegliere **Reimport All** (Reimporta tutto).
 

@@ -8,12 +8,12 @@ ms.topic: overview
 author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
-ms.openlocfilehash: 4c6a9a2b5991c9f99bf728ecfed144cc77e4c49a
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: b8dbbb2810277bef20cb3b9b47a63deeea3e0ff9
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314335"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79290469"
 ---
 # <a name="what-is-azure-machine-learning"></a>Informazioni su Azure Machine Learning
 
@@ -21,7 +21,7 @@ Questo articolo illustra Azure Machine Learning, un ambiente basato sul cloud ut
 
 È possibile usare Azure Machine Learning per qualsiasi tipo di Machine Learning, dalla forma classica al Deep Learning, con e senza supervisione. Che si preferisca scrivere codice Python o R oppure usare opzioni senza codice o con poco codice, come la [finestra di progettazione](tutorial-designer-automobile-price-train-score.md), si possono creare, sottoporre a training e monitorare modelli di Machine Learning e Deep Learning estremamente accurati in un'area di lavoro di Azure Machine Learning. 
 
-Iniziare il training nel computer locale per poi scalare orizzontalmente nel cloud. 
+Iniziare il training nel computer locale per poi aumentare il numero di istanze nel cloud. 
 
 Il servizio interagisce anche con gli strumenti open source più diffusi, ad esempio PyTorch, TensorFlow e Scikit-learn.
 
@@ -56,7 +56,7 @@ Azure Machine Learning offre tutti gli strumenti necessari agli sviluppatori e a
 
 ## <a name="build-ml-models-in-python-or-r"></a>Creare modelli di Machine Learning in Python o R
 
-Iniziare il training nel computer locale usando Azure Machine Learning <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Python SDK</a> o <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">R SDK</a> per poi scalare orizzontalmente nel cloud. 
+Iniziare il training nel computer locale usando Azure Machine Learning <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Python SDK</a> o <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">R SDK</a> per poi aumentare il numero di istanze nel cloud. 
 
 Grazie alla disponibilità di molte [destinazioni di calcolo](how-to-set-up-training-targets.md), ad esempio l'ambiente di calcolo di Azure Machine Learning e [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks), e a [servizi avanzati per l'ottimizzazione degli iperparametri](how-to-tune-hyperparameters.md), è possibile creare modelli migliori in modo più rapido, sfruttando la potenza del cloud.
 
@@ -66,7 +66,7 @@ Grazie alla disponibilità di molte [destinazioni di calcolo](how-to-set-up-trai
 
 Per un training e una distribuzione senza codice o con poco codice, provare:
 
-+ **Finestra di progettazione di Azure Machine Learning**
++ **Finestra di progettazione di Azure Machine Learning (anteprima)**
 
   Usare la finestra di progettazione per preparare i dati, eseguire il training, testare, distribuire, gestire e tenere traccia dei modelli di Machine Learning senza scrivere codice. Non sono necessarie operazioni di programmazione, è sufficiente collegare visivamente i set di dati e i moduli per costruire il modello. Provare l'[esercitazione relativa alla finestra di progettazione](tutorial-designer-automobile-price-train-score.md).
 
@@ -116,7 +116,7 @@ Azure Machine Learning interagisce con altri servizi nella piattaforma Azure e s
 
 È possibile usare l'account di archiviazione di Azure, le destinazioni di calcolo e le altre risorse in modo sicuro all'interno di una rete virtuale per eseguire il training dei modelli e l'inferenza. Per altre informazioni, vedere [Proteggere la sperimentazione e l'inferenza in una rete virtuale](how-to-enable-virtual-network.md).
 
-## <a name="sku"></a>Edizioni Basic ed Enterprise
+## <a name="basic--enterprise-editions"></a><a name="sku"></a>Edizioni Basic ed Enterprise
 
 Azure Machine Learning offre due edizioni personalizzate per le esigenze di Machine Learning:
 + Basic (disponibile a livello generale)

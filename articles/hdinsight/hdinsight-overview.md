@@ -1,6 +1,6 @@
 ---
-title: Informazioni su Azure HDInsight
-description: Introduzione a HDInsight e allo stack di tecnologie e ai componenti di Apache Hadoop e Apache Spark, tra cui Kafka, hive, Storm e HBase per l'analisi di Big Data.
+title: Che cos'è Azure HDInsight
+description: Introduzione a HDInsight e allo stack di tecnologie Apache Hadoop e Apache Spark con i relativi componenti, tra cui Kafka, Hive, Storm e HBase, per l'analisi dei Big Data.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,11 +9,11 @@ ms.topic: overview
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.date: 02/27/2020
 ms.openlocfilehash: 31e8506067133304144614ff58974ee21e9680be
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78361341"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79216429"
 ---
 # <a name="what-is-azure-hdinsight"></a>Che cos'è Azure HDInsight?
 
@@ -36,12 +36,12 @@ Questa sezione elenca le funzionalità di Azure HDInsight.
 |Funzionalità  |Descrizione  |
 |---------|---------|
 |Cloud nativo     |     Azure HDInsight permette di creare cluster ottimizzati per [Hadoop](./hadoop/apache-hadoop-linux-tutorial-get-started.md), [Spark](./spark/apache-spark-jupyter-spark-sql.md), [Interactive Query (LLAP)](./interactive-query/apache-interactive-query-get-started.md), [Kafka](./kafka/apache-kafka-get-started.md), [Storm](./storm/apache-storm-tutorial-get-started-linux.md), [HBase](./hbase/apache-hbase-tutorial-get-started-linux.md) e  [ML Services](./r-server/r-server-overview.md) in Azure. HDInsight fornisce anche un contratto di servizio end-to-end per tutti i carichi di lavoro di produzione.  |
-|Costi contenuti e scalabilità     | HDInsight consente di [ridimensionare](./hdinsight-administer-use-portal-linux.md#scale-clusters) i carichi di lavoro aumentando o riducendo le prestazioni. È possibile ridurre i costi [creando cluster su richiesta](./hdinsight-hadoop-create-linux-clusters-adf.md) e pagando solo per le risorse usate. È anche possibile compilare pipeline di dati per rendere operativi i processi. Calcolo e archiviazione disaccoppiati offrono migliori prestazioni e flessibilità. |
+|Costi contenuti e scalabilità     | HDInsight consente di [ridimensionare](./hdinsight-administer-use-portal-linux.md#scale-clusters) i carichi di lavoro aumentando o riducendo le prestazioni. È possibile ridurre il costo  [creando cluster su richiesta](./hdinsight-hadoop-create-linux-clusters-adf.md)  e pagando solo per le risorse usate. È anche possibile compilare pipeline di dati per rendere operativi i processi. Calcolo e archiviazione disaccoppiati offrono migliori prestazioni e flessibilità. |
 |Sicurezza e conformità    | HDInsight consente di proteggere i dati aziendali usando [Rete virtuale di Azure](./hdinsight-plan-virtual-network-deployment.md), la [crittografia](./hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md) e l'integrazione con [Azure Active Directory](./domain-joined/hdinsight-security-overview.md). HDInsight soddisfa anche i più diffusi [standard di conformità](https://azure.microsoft.com/overview/trusted-cloud) del settore e governativi.        |
 |Monitoraggio    | Azure HDInsight si integra con i [log di Monitoraggio di Azure](./hdinsight-hadoop-oms-log-analytics-tutorial.md) per fornire una singola interfaccia che consente di monitorare tutti i cluster.        |
 |Disponibilità globale | HDInsight è disponibile in più  [aree](https://azure.microsoft.com/regions/services/)  di qualsiasi altra offerta di analisi di Big Data. Azure HDInsight è anche disponibile in Azure per enti pubblici, Cina e Germania per soddisfare le esigenze aziendali nelle principali aree sovrane. |  
 |Produttività     |  Azure HDInsight consente di usare strumenti di produttività avanzati per Hadoop e Spark con gli ambienti di sviluppo più diffusi. Questi ambienti di sviluppo includono [Visual Studio](./hadoop/apache-hadoop-visual-studio-tools-get-started.md), [VSCode](./hdinsight-for-vscode.md), [Eclipse](./spark/apache-spark-eclipse-tool-plugin.md) e [IntelliJ](./spark/apache-spark-intellij-tool-plugin.md) per supportare Scala, Python, R, Java e .NET. I data scientist possono anche collaborare usando notebook diffusi, ad esempio [Jupyter](./spark/apache-spark-jupyter-notebook-kernels.md) e [Zeppelin](./spark/apache-spark-zeppelin-notebook.md).    |
-|Extensibility     |  È possibile estendere i cluster HDInsight con componenti installati (Hue, Presto e così via) con [azioni script](./hdinsight-hadoop-customize-cluster-linux.md), l'[aggiunta di nodi perimetrali](./hdinsight-apps-use-edge-node.md) o l'[integrazione con altre applicazioni Big Data certificate](./hdinsight-apps-install-applications.md). HDInsight consente un'integrazione senza problemi con le più diffuse soluzioni Big Data tramite una distribuzione [con un clic](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/).|
+|Estendibilità     |  È possibile estendere i cluster HDInsight con componenti installati (Hue, Presto e così via) con [azioni script](./hdinsight-hadoop-customize-cluster-linux.md), l'[aggiunta di nodi perimetrali](./hdinsight-apps-use-edge-node.md) o l'[integrazione con altre applicazioni Big Data certificate](./hdinsight-apps-install-applications.md). HDInsight consente un'integrazione senza problemi con le più diffuse soluzioni Big Data tramite una distribuzione [con un clic](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/).|
 
 ## <a name="scenarios-for-using-hdinsight"></a>Scenari per l'uso di HDInsight
 
@@ -55,11 +55,11 @@ L'estrazione, trasformazione e caricamento (ETL) è un processo in cui dati stru
 
 È possibile usare HDInsight per eseguire query interattive nell'ordine di grandezza di petabyte su dati strutturati o non strutturati in qualsiasi formato. È anche possibile compilare modelli che le connettono a strumenti di business intelligence. Per altre informazioni, [vedere la storia di questo cliente](https://customers.microsoft.com/story/milliman).
 
-![Architettura di HDInsight: data warehousing](./hadoop/media/apache-hadoop-introduction/hdinsight-architecture-data-warehouse.png "Architettura del data warehousing di HDInsight")
+![Architettura di HDInsight: Data warehousing](./hadoop/media/apache-hadoop-introduction/hdinsight-architecture-data-warehouse.png "Architettura del data warehousing di HDInsight")
 
 ### <a name="internet-of-things-iot"></a>Internet delle cose
 
-È possibile usare HDInsight per elaborare i dati di streaming ricevuti in tempo reale da diversi tipi di dispositivi. Per altre informazioni, [leggere questo post di blog di Azure che annuncia l'anteprima pubblica di Apache Kafka su HDInsight con Azure Managed Disks](https://azure.microsoft.com/blog/announcing-public-preview-of-apache-kafka-on-hdinsight-with-azure-managed-disks/).
+È possibile usare HDInsight per elaborare dati di streaming ricevuti in tempo reale da diversi tipi di dispositivi. Per altre informazioni, [leggere questo post di blog di Azure che annuncia l'anteprima pubblica di Apache Kafka su HDInsight con Azure Managed Disks](https://azure.microsoft.com/blog/announcing-public-preview-of-apache-kafka-on-hdinsight-with-azure-managed-disks/).
 
 ![Architettura di HDInsight: Internet delle cose](./hadoop/media/apache-hadoop-introduction/hdinsight-architecture-iot.png "Architettura IoT di HDInsight")
 
@@ -67,13 +67,13 @@ L'estrazione, trasformazione e caricamento (ETL) è un processo in cui dati stru
 
 HDInsight consente di compilare applicazioni che estraggono informazioni critiche dai dati. È anche possibile usare Azure Machine Learning per prevedere le tendenze future per l'azienda. Per altre informazioni, [vedere la storia di questo cliente](https://customers.microsoft.com/story/pros).
 
-![Architettura di HDInsight: Data Science](./hadoop/media/apache-hadoop-introduction/hdinsight-architecture-data-science.png "Architettura data science di HDInsight")
+![Architettura di HDInsight: Data science](./hadoop/media/apache-hadoop-introduction/hdinsight-architecture-data-science.png "Architettura data science di HDInsight")
 
 ### <a name="hybrid"></a>Ibrido
 
 È possibile usare HDInsight per estendere l'infrastruttura per Big Data locale esistente ad Azure per sfruttare le funzionalità di analisi avanzata del cloud.
 
-![Architettura di HDInsight: ibrido](./hadoop/media/apache-hadoop-introduction/hdinsight-architecture-hybrid.png "Architettura ibrida di HDInsight")
+![Architettura di HDInsight: Ibrida](./hadoop/media/apache-hadoop-introduction/hdinsight-architecture-hybrid.png "Architettura ibrida di HDInsight")
 
 ## <a name="cluster-types-in-hdinsight"></a>Tipi di cluster in HDInsight
 
@@ -95,11 +95,11 @@ Azure HDInsight consente di creare cluster con framework open source, ad esempio
 
 ## <a name="programming-languages-in-hdinsight"></a>Linguaggi di programmazione in HDInsight
 
-I cluster di HDInsight, tra cui Spark, HBase, Kafka, Hadoop e altri, supportano molti linguaggi di programmazione. Alcuni linguaggi di programmazione non sono installati per impostazione predefinita. Per le librerie, i moduli o i pacchetti non installati per impostazione predefinita, [usare un'azione script per installare il componente](./hdinsight-hadoop-script-actions-linux.md).
+I cluster di HDInsight, tra cui Spark, HBase, Kafka, Hadoop e altri, supportano molti linguaggi di programmazione. Alcuni linguaggi di programmazione non sono installati per impostazione predefinita. Per le librerie, i moduli o i pacchetti non installati per impostazione predefinita, [usare un'azione script per installarli](./hdinsight-hadoop-script-actions-linux.md).
 
 |Linguaggio di programmazione  |Informazioni  |
 |---------|---------|
-|Supporto per i linguaggi di programmazione predefiniti     | Per impostazione predefinita, i cluster HDInsight supportano:<ul><li>Java</li><li>Python</li><li>.NET</li><li>Vai</li></ul>  |
+|Supporto per i linguaggi di programmazione predefiniti     | Per impostazione predefinita, i cluster HDInsight supportano:<ul><li>Java</li><li>Python</li><li>.NET</li><li>Go</li></ul>  |
 |Linguaggi per macchine virtuali Java     | Molti linguaggi diversi da Java possono essere eseguiti in una macchina virtuale Java. Se tuttavia si eseguono alcuni di questi linguaggi, potrebbe essere necessario installare componenti aggiuntivi sui cluster. I linguaggi seguenti basati su JVM sono supportati nei cluster HDInsight: <ul><li>Clojure</li><li>Jython (Python per Java)</li><li>Scala</li></ul>     |
 |Linguaggi specifici di Hadoop     | I cluster HDInsight supportano i linguaggi seguenti, specifici dello stack di tecnologie Hadoop: <ul><li>Pig Latin per processi Pig</li><li>HiveQL per processi Hive e SparkSQL</li></ul>        |
 

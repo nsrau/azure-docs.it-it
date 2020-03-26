@@ -17,10 +17,10 @@ ms.date: 09/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0e08ef72dca09f873ad1cfcc91e132063b88406b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74227525"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-freshservice"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Freshservice
@@ -123,7 +123,7 @@ In questa sezione verrà creato un utente di test di nome B.Simon nel portale di
    1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
    1. Fare clic su **Crea**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Freshservice.
 
@@ -145,7 +145,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 1. Per automatizzare la configurazione all'interno di Freshservice, è necessario installare l'**estensione del browser per l'accesso sicuro alle app personali** facendo clic su **Installa estensione**.
 
-    ![Estensione per App personali](common/install-myappssecure-extension.png)
+    ![Estensione MyApps](common/install-myappssecure-extension.png)
 
 2. Dopo aver aggiunto l'estensione al browser, fare clic su **Setup Freshservice** (Configura Freshservice) per passare direttamente all'applicazione Freshservice. Da qui, fornire le credenziali di amministratore per accedere a Freshservice. L'estensione del browser configurerà automaticamente l'applicazione e automatizzerà i passaggi da 3 a 6.
 
@@ -155,7 +155,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 4. Nel menu in alto fare clic su **Admin**.
 
-    ![Admin](./media/freshservice-tutorial/ic790814.png "Admin")
+    ![Admin](./media/freshservice-tutorial/ic790814.png "Amministrativi")
 
 5. Nel **portale dei clienti** fare clic su **Security** (Sicurezza).
 
@@ -187,7 +187,7 @@ Per consentire agli utenti di Azure AD di accedere a Freshservice, è necessario
 
 2. Nel menu in alto fare clic su **Admin**.
 
-    ![Admin](./media/freshservice-tutorial/ic790814.png "Admin")
+    ![Admin](./media/freshservice-tutorial/ic790814.png "Amministrativi")
 
 3. Nella sezione **User Management** (Gestione utenti) fare clic su **Requesters** (Richiedenti).
 
@@ -203,7 +203,7 @@ Per consentire agli utenti di Azure AD di accedere a Freshservice, è necessario
 
     a. Nelle caselle **First Name** e **Email** immettere il nome e l'indirizzo di posta elettronica di un account Azure Active Directory valido di cui si vuole eseguire il provisioning.
 
-    b. Fare clic su **Save**.
+    b. Fare clic su **Salva**.
 
     > [!NOTE]
     > Il titolare dell'account Azure Active Directory riceve un messaggio di posta elettronica con un collegamento da selezionare per confermare l'account e attivarlo.

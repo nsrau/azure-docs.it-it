@@ -7,10 +7,10 @@ ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: zhshang
 ms.openlocfilehash: dfa17720b34962611d240aa7c35ba8092bf99082
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74158139"
 ---
 # <a name="tutorial-azure-signalr-service-authentication-with-azure-functions"></a>Esercitazione: Autenticazione del servizio Azure SignalR con Funzioni di Azure
@@ -47,20 +47,20 @@ L'app Funzioni di Azure verrà compilata e testata in locale. L'app accederà a 
 
 1. Fare clic sul pulsante **Crea una risorsa** ( **+** ) per creare una nuova risorsa di Azure.
 
-1. Cercare il **servizio SignalR** e selezionarlo. Fare clic su **Create**(Crea).
+1. Cercare il **servizio SignalR** e selezionarlo. Fare clic su **Crea**.
 
     ![Nuovo servizio SignalR](media/signalr-tutorial-authenticate-azure-functions/signalr-quickstart-new.png)
 
 1. Immettere le seguenti informazioni.
 
-    | NOME | Valore |
+    | Nome | valore |
     |---|---|
     | Nome risorsa | Nome univoco per l'istanza del servizio SignalR |
     | Resource group | Creare un nuovo gruppo di risorse con un nome univoco |
     | Location | Selezionare una località vicina |
     | Piano tariffario | Gratuito |
 
-1. Fare clic su **Create**(Crea).
+1. Fare clic su **Crea**.
 
 1. Dopo che l'istanza è stata distribuita, aprirla nel portale e individuare la relativa pagina delle impostazioni. Modificare l'impostazione della modalità Servizio su *Serverless*.
 
@@ -145,11 +145,11 @@ Quando l'app di chat viene aperta per la prima volta nel browser, richiede crede
 
 1. Quando richiesto, specificare le informazioni seguenti.
 
-    | NOME | Valore |
+    | Nome | valore |
     |---|---|
     | Cartella dell'app per le funzioni | Selezionare la cartella di progetto principale |
     | Modello | Trigger HTTP |
-    | NOME | negotiate |
+    | Nome | negotiate |
     | Livello di autorizzazione | Anonima |
 
     Viene creata una cartella denominata **negotiate** che contiene la nuova funzione.
@@ -204,11 +204,11 @@ L'app Web richiede anche un'API HTTP per inviare i messaggi di chat. Si creerà 
 
 1. Quando richiesto, specificare le informazioni seguenti.
 
-    | NOME | Valore |
+    | Nome | valore |
     |---|---|
     | Cartella dell'app per le funzioni | Selezionare la cartella di progetto principale |
     | Modello | Trigger HTTP |
-    | NOME | SendMessage |
+    | Nome | SendMessage |
     | Livello di autorizzazione | Anonima |
 
     Viene creata una cartella denominata **SendMessage** contenente la nuova funzione.
@@ -315,7 +315,7 @@ Un account di archiviazione di Azure è richiesto da un'app per le funzioni in e
 
 1. Immettere le seguenti informazioni.
 
-    | NOME | Valore |
+    | Nome | valore |
     |---|---|
     | Subscription | Selezionare la sottoscrizione contenente l'istanza del servizio SignalR |
     | Resource group | Selezionare lo stesso gruppo di risorse |
@@ -338,7 +338,7 @@ Un account di archiviazione di Azure è richiesto da un'app per le funzioni in e
 
 1. In **Nome del documento di indice** immettere *index.html*.
 
-1. Fare clic su **Save**.
+1. Fare clic su **Salva**.
 
 1. Viene visualizzato un **endpoint primario**. Prendere nota di questo valore. Sarà necessario per configurare l'app per le funzioni.
 
@@ -371,7 +371,7 @@ Quando si invia un messaggio, l'app può decidere se inviarlo a tutti i client c
 
 1. Quando richiesto, specificare le informazioni seguenti.
 
-    | NOME | Valore |
+    | Nome | valore |
     |---|---|
     | Cartella per la distribuzione | Selezionare la cartella di progetto principale |
     | Subscription | Selezionare la propria sottoscrizione |
@@ -390,7 +390,7 @@ Quando si invia un messaggio, l'app può decidere se inviarlo a tutti i client c
 
 1. Quando richiesto, specificare le informazioni seguenti.
 
-    | NOME | Valore |
+    | Nome | valore |
     |---|---|
     | File di impostazioni locali | local.settings.json |
     | Subscription | Selezionare la propria sottoscrizione |
@@ -449,7 +449,7 @@ L'applicazione Web verrà ospitata usando la funzionalità dei siti Web statici 
 
 1. Immettere i valori seguenti:
 
-    | NOME | Valore |
+    | Nome | valore |
     |---|---|
     | Subscription | Selezionare la propria sottoscrizione |
     | Account di archiviazione | Selezionare l'account di archiviazione creato in precedenza |

@@ -5,10 +5,10 @@ keywords: ansible, azure, devops, bash, playbook, apache hadoop, hdinsight
 ms.topic: tutorial
 ms.date: 04/30/2019
 ms.openlocfilehash: 2281c9683583e1def034b79809829a068ef9f3e6
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74156660"
 ---
 # <a name="tutorial-configure-a-cluster-in-azure-hdinsight-using-ansible"></a>Esercitazione: Configurare un cluster in Azure HDInsight tramite Ansible
@@ -361,7 +361,7 @@ ansible-playbook hdinsight.yml
 
 Quando non sono più necessarie, eliminare le risorse create in questo articolo. 
 
-Aggiungere il codice seguente come `cleanup.yml`:
+Salvare il codice seguente come `cleanup.yml`:
 
 ```yml
 - hosts: localhost

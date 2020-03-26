@@ -10,11 +10,11 @@ ms.date: 08/29/2019
 ms.author: alkohli
 ms.localizationpriority: high
 ms.openlocfilehash: 475e628901a96334976dbdbbaa8b362197ec3bc3
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914040"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79214208"
 ---
 ::: zone target = "docs"
 
@@ -32,7 +32,7 @@ ms.locfileid: "70914040"
 
 Questa esercitazione descrive come connettersi al computer host e copiarne i dati usando l'interfaccia utente Web locale.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Connettersi a Data Box Heavy
@@ -171,7 +171,7 @@ Dopo aver stabilito la connessione alla condivisione SMB, avviare la copia dei d
     ```
     Gli attributi sono descritti nella tabella seguente.
     
-    |Attributo  |DESCRIZIONE  |
+    |Attributo  |Descrizione  |
     |---------|---------|
     |/e      |Copia le sottodirectory, incluse le directory vuote.         |
     |/r:     |Specifica il numero di tentativi per le copie non riuscite.         |

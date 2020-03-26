@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 02/18/2020
 ms.author: victorh
 ms.openlocfilehash: 3dc94a8be265682fbe2128f2e5870dfdf5850a2d
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77443058"
 ---
 # <a name="tutorial-secure-your-virtual-wan-using-azure-firewall-manager-preview"></a>Esercitazione: Proteggere la rete WAN virtuale con Gestione firewall di Azure (anteprima) 
@@ -142,9 +142,9 @@ Per testare le regole del firewall, è necessario distribuire un paio di server.
 2. Selezionare **Windows Server 2016 Datacenter** nell'elenco **Più comuni**.
 3. Immettere i valori seguenti per la macchina virtuale:
 
-   |Impostazione  |Valore  |
+   |Impostazione  |valore  |
    |---------|---------|
-   |Gruppo di risorse     |**FW-Manager**|
+   |Resource group     |**FW-Manager**|
    |Nome macchina virtuale     |**Jump-Srv**|
    |Region     |**(USA) Stati Uniti orientali**|
    |Nome utente amministratore     |**azureuser**|
@@ -163,7 +163,7 @@ Per testare le regole del firewall, è necessario distribuire un paio di server.
 
 Usare le informazioni nella tabella seguente per configurare un'altra macchina virtuale denominata **Workload-Srv**. Il resto della configurazione è uguale a quella della macchina virtuale Srv-Jump.
 
-|Impostazione  |Valore  |
+|Impostazione  |valore  |
 |---------|---------|
 |Subnet|**Workload-SN**|
 |IP pubblico|**Nessuno**|

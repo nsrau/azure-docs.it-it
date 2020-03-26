@@ -9,13 +9,13 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 02/10/2020
 ms.openlocfilehash: 6a3bbdae0d3fa898621c1c805388252beb891ecf
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78379743"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79290429"
 ---
-# <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Guida introduttiva: creare un indice di Azure ricerca cognitiva nel portale di Azure
+# <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Guida introduttiva: Creare un indice di Ricerca cognitiva di Azure nel portale di Azure
 > [!div class="op_single_selector"]
 > * [Portale](search-get-started-portal.md)
 > * [C#](search-get-started-dotnet.md)
@@ -43,7 +43,7 @@ Sezioni del dashboard del servizio mostrano il numero di indici, indicizzatori e
 
 ![Elenchi di indici, indicizzatori e origini dati](media/search-get-started-portal/tiles-indexers-datasources.png)
 
-## <a name="create-index"></a> Creare un indice e caricare i dati
+## <a name="create-an-index-and-load-data"></a><a name="create-index"></a> Creare un indice e caricare i dati
 
 Le query di ricerca eseguono iterazioni su un [*indice*](search-what-is-an-index.md) contenente dati ricercabili, metadati e costrutti aggiuntivi usati per l'ottimizzazione di determinati comportamenti di ricerca.
 
@@ -106,7 +106,7 @@ Fare clic su **Invia** per creare e contemporaneamente eseguire l'indicizzatore.
 
   ![Indicizzatore di hotels](media/search-get-started-portal/hotels-indexer.png)
 
-## <a name="monitor-progress"></a>Monitorare lo stato di avanzamento
+## <a name="monitor-progress"></a>Monitorare lo stato
 
 La procedura guidata dovrebbe consentire di visualizzare l'elenco Indicizzatori in cui è possibile monitorarne lo stato. In caso contrario, passare alla pagina Panoramica e fare clic su **Indicizzatori**.
 
@@ -132,7 +132,7 @@ Altri costrutti, ad esempio i profili di punteggio e le opzioni CORS, possono es
 
 Per capire chiaramente cosa è possibile o meno modificare durante la progettazione di indici, prendersi un po' di tempo per controllare le opzioni di definizione dell'indice. Le opzioni di grigio indicano che un valore non può essere modificato o eliminato. 
 
-## <a name="query-index"></a> Eseguire query usando Esplora ricerche
+## <a name="query-using-search-explorer"></a><a name="query-index"></a> Eseguire query usando Esplora ricerche
 
 A questo punto dovrebbe essere disponibile un indice di ricerca pronto per le query tramite la pagina predefinita per le query [**Esplora ricerche**](search-explorer.md). In questa pagina è disponibile una casella di ricerca che consente di testare stringhe di query arbitrarie.
 
@@ -176,7 +176,7 @@ A questo punto dovrebbe essere disponibile un indice di ricerca pronto per le qu
 
 * **$top=10** restituisce i 10 documenti con classificazione più alta nel totale. Per impostazione predefinita, Ricerca cognitiva di Azure restituisce le 50 migliori corrispondenze. Per aumentare o diminuire la quantità è possibile usare **$top**.
 
-### <a name="filter-query"></a> Filtrare la query
+### <a name="filter-the-query"></a><a name="filter-query"></a> Filtrare la query
 
 Quando si aggiunge il parametro **$filter**, vengono inclusi filtri nelle richieste di ricerca. 
 
@@ -186,7 +186,7 @@ Quando si aggiunge il parametro **$filter**, vengono inclusi filtri nelle richie
 
 * La sintassi del filtro è una costruzione OData. Per altre informazioni, vedere l'articolo relativo alla [sintassi OData per i filtri](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 
-### <a name="facet-query"></a> Applicare un facet alla query
+### <a name="facet-the-query"></a><a name="facet-query"></a> Applicare un facet alla query
 
 Nelle richieste di ricerca vengono inclusi filtri facet. È possibile usare il parametro facet per restituire un conteggio aggregato dei documenti che corrispondono a un valore facet specificato.
 
@@ -206,7 +206,7 @@ Nelle richieste di ricerca vengono inclusi filtri facet. È possibile usare il p
 * Il campo *Rating* è un valore a virgola mobile e precisione doppia e il raggruppamento verrà effettuato in base a un valore preciso. Per altre informazioni sul raggruppamento in base a un intervallo, ad esempio la classificazione a 3 stelle o 4 stelle, vedere [Come implementare l'esplorazione in base a facet in Ricerca cognitiva di Azure](https://docs.microsoft.com/azure/search/search-faceted-navigation#filter-based-on-a-range).
 
 
-### <a name="highlight-query"></a> Evidenziare i risultati della ricerca
+### <a name="highlight-search-results"></a><a name="highlight-query"></a> Evidenziare i risultati della ricerca
 
 L'evidenziazione dei risultati si riferisce alla formattazione del testo corrispondente alla parola chiave, date le corrispondenze trovate in un campo specifico. Se il termine di ricerca si trova all'interno di una descrizione, è possibile aggiungere l'evidenziazione dei risultati per trovarli più facilmente.
 
@@ -220,7 +220,7 @@ L'evidenziazione dei risultati si riferisce alla formattazione del testo corrisp
 
 * Ricerca cognitiva di Azure supporta 56 analizzatori, sia Microsoft che Lucene. L'analizzatore predefinito usato da Ricerca cognitiva di Azure è l'analizzatore Lucene standard.
 
-### <a name="fuzzy-search"></a> Provare la ricerca fuzzy
+### <a name="try-fuzzy-search"></a><a name="fuzzy-search"></a> Provare la ricerca fuzzy
 
 Per impostazione predefinita, in una ricerca tipica i termini di query con errori di ortografia, ad esempio *seatle* invece di "Seattle", non restituiscono corrispondenze. L'esempio seguente non restituisce alcun risultato.
 
@@ -238,7 +238,7 @@ La ricerca fuzzy e la ricerca con caratteri jolly hanno implicazioni per l'outpu
 
 Per altre informazioni sugli scenari di query abilitati dal parser di query completa, vedere [Sintassi di query Lucene in Ricerca cognitiva di Azure](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search).
 
-### <a name="geo-search"></a> Provare la ricerca geospaziale
+### <a name="try-geospatial-search"></a><a name="geo-search"></a> Provare la ricerca geospaziale
 
 La ricerca geospaziale è supportata tramite il [tipo di dati edm.GeographyPoint](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) in un campo che contiene coordinate. La ricerca geografica è un tipo di filtro, illustrato nell'articolo relativo alla [sintassi OData per i filtri](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 

@@ -9,10 +9,10 @@ ms.date: 06/14/2019
 ms.author: hrasheed
 ms.custom: mvc
 ms.openlocfilehash: 24173b553f30f652caf20b1ec7500fd9c4d2f7a0
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73241231"
 ---
 # <a name="quickstart-create-and-monitor-an-apache-storm-topology-in-azure-hdinsight"></a>Guida introduttiva: Creare e monitorare una topologia Apache Storm in Azure HDInsight
@@ -55,7 +55,7 @@ Usare la procedura seguente per monitorare la topologia con l'interfaccia utente
 
     Nella nuova pagina sono disponibili le informazioni seguenti:
 
-    |Proprietà | DESCRIZIONE |
+    |Proprietà | Descrizione |
     |---|---|
     |Topology stats|Informazioni di base sulle prestazioni della topologia, organizzate in intervalli di tempo. La selezione di un intervallo di tempo specifico determina la modifica dell'intervallo di tempo relativo a informazioni visualizzate in altre sezioni della pagina.|
     |Spouts|Informazioni di base sugli spout, incluso l'ultimo errore restituito da ciascuno di essi.|
@@ -72,7 +72,7 @@ Usare la procedura seguente per monitorare la topologia con l'interfaccia utente
 
     Nella nuova pagina vengono visualizzate le informazioni seguenti:
 
-    |Proprietà | DESCRIZIONE |
+    |Proprietà | Descrizione |
     |---|---|
     |Spout/Bolt stats|Informazioni di base sulle prestazioni, organizzate in intervalli di tempo. La selezione di un intervallo di tempo specifico determina la modifica dell'intervallo di tempo relativo a informazioni visualizzate in altre sezioni della pagina.|
     |Input stats (solo bolt)|Informazioni sui componenti che generano i dati usati dal bolt.|

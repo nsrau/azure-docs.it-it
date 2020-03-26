@@ -9,15 +9,15 @@ ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: overview
 ms.openlocfilehash: 1a210ff7da57147762dcf13e1dda7fee26dbe5f0
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74384105"
 ---
 # <a name="azure-web-application-firewall-on-azure-application-gateway"></a>Web Application Firewall di Azure nel gateway applicazione di Azure
 
-Web Application Firewall (WAF) di Azure nel gateway applicazione di Azure offre protezione centralizzata delle applicazioni Web da exploit e vulnerabilità comuni. Le applicazioni Web sono sempre più vittime di attacchi che sfruttano le più comuni vulnerabilità note. Gli attacchi SQL injection e quelli tramite script da altri siti sono tra i più comuni.
+Web Application Firewall (WAF) di Azure nel gateway applicazione di Azure offre protezione centralizzata delle applicazioni Web da exploit e vulnerabilità comuni. Le applicazioni Web sono sempre più vittime di attacchi che sfruttano le più comuni e note vulnerabilità. Gli attacchi SQL injection e quelli tramite scripting intersito sono tra i più comuni.
 
 WAF in gateway applicazione basa sullo standard [CRS (Core Rule Set)](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.1, 3.0 o 2.2.9 dell'OWASP (Open Web Application Security Project). WAF si aggiorna automaticamente per includere la protezione contro le nuove vulnerabilità, senza alcuna configurazione aggiuntiva. 
 
@@ -98,7 +98,7 @@ Per altre informazioni, vedere [Regole personalizzate per il gateway applicazion
 
 ### <a name="bot-mitigation-preview"></a>Mitigazione dei bot (anteprima)
 
-Per WAF è possibile abilitare un set di regole gestito di protezione dai bot per bloccare o registrare le richieste provenienti da indirizzi IP noti per essere dannosi, oltre al set di regole gestito. Gli indirizzi IP sono originati dal feed di Microsoft Threat Intelligence. La soluzione Microsoft Threat Intelligence, basata su Intelligent Security Graph, viene usata da più servizi, tra cui Centro sicurezza di Azure.
+Per WAF è possibile abilitare un set di regole gestito di protezione dai bot per bloccare o registrare le richieste provenienti da indirizzi IP noti per essere dannosi, oltre al set di regole gestito. Gli indirizzi IP hanno origine dal feed di Microsoft Threat Intelligence. La soluzione Microsoft Threat Intelligence, basata su Intelligent Security Graph, viene usata da più servizi, tra cui Centro sicurezza di Azure.
 
 > [!NOTE]
 > Il set di regole di protezione dai bot è attualmente disponibile in anteprima pubblica e viene fornito con un contratto di servizio di anteprima. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Vedere [Condizioni supplementari per l'uso delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -123,10 +123,10 @@ In modalità tradizionale, il traffico che corrisponde a qualsiasi regola viene 
 
 In questa modalità, il traffico che corrisponde a qualsiasi regola non viene immediatamente bloccato se il firewall è in modalità di prevenzione. Le regole hanno uno specifico livello di gravità: *critico*, *errore*, *avviso* o *notifica*. Questo livello determina un valore numerico per la richiesta, ossia il punteggio di anomalia. Ad esempio, una regola di tipo *avviso* aggiunge 3 al punteggio. Una regola di livello *critico* aggiunge 5.
 
-|Gravità  |Valore  |
+|Gravità  |valore  |
 |---------|---------|
 |Critico     |5|
-|Tipi di errore        |4|
+|Errore        |4|
 |Avviso      |3|
 |Notifica       |2|
 

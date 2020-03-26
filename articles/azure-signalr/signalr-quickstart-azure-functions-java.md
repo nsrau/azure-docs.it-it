@@ -8,17 +8,17 @@ ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: zhshang
 ms.openlocfilehash: 890fc381afe0146e721e084e2dcd7eae9215d004
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77083212"
 ---
-# <a name="quickstart-use-java-to-create-a-chat-room-with-azure-functions-and-signalr-service"></a>Avvio rapido: Usare Java per creare una chat room con Funzioni di Azure e il servizio SignalR
+# <a name="quickstart-use-java-to-create-a-chat-room-with-azure-functions-and-signalr-service"></a>Guida introduttiva: Usare Java per creare una chat room con Funzioni di Azure e il servizio SignalR
 
 Il servizio Azure SignalR consente di aggiungere facilmente funzionalità in tempo reale all'applicazione e Funzioni di Azure è una piattaforma serverless che consente di eseguire il codice senza gestire alcuna infrastruttura. Questo argomento di avvio rapido illustra come usare Java per creare un'applicazione serverless di chat in tempo reale con il Servizio SignalR e Funzioni di Azure.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 - Un editor di codice, ad esempio [Visual Studio Code](https://code.visualstudio.com/)
 - Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).

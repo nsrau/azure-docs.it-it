@@ -4,10 +4,10 @@ description: Questa esercitazione illustra come usare i blocchi delle risorse in
 ms.date: 11/21/2019
 ms.topic: tutorial
 ms.openlocfilehash: ee57ff0c08f4fb8aa710dd2fa4dcef664484973d
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74327453"
 ---
 # <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>Esercitazione: Proteggere le nuove risorse con blocchi delle risorse in Azure Blueprints
@@ -21,7 +21,7 @@ In questa esercitazione si completeranno i passaggi seguenti:
 > - Contrassegnare la definizione di progetto come **pubblicato**
 > - Assegnare la definizione del progetto a una sottoscrizione esistente
 > - Esaminare il nuovo gruppo di risorse
-> - Annullare l'assegnazione progetto per rimuovere i blocchi
+> - Annullare l'assegnazione del progetto per rimuovere i blocchi
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -152,9 +152,9 @@ Dopo aver pubblicato la definizione di progetto, è possibile assegnarla a una s
 
      I parametri definiti in questa sezione si applicano all'artefatto in cui sono definiti. Si tratta di [parametri dinamici](../concepts/parameters.md#dynamic-parameters), in quanto vengono definiti durante l'assegnazione del progetto. Per ogni artefatto impostare il parametro sul valore definito nella colonna **Valore**.
 
-     |Nome dell'artefatto|Tipo di artefatto|Nome parametro|Valore|DESCRIZIONE|
+     |Nome dell'artefatto|Tipo di artefatto|Nome parametro|valore|Descrizione|
      |-|-|-|-|-|
-     |Gruppo di risorse RGtoLock|Resource group|NOME|TestingBPLocks|Definisce il nome del nuovo gruppo di risorse a cui applicare i blocchi del progetto.|
+     |Gruppo di risorse RGtoLock|Resource group|Nome|TestingBPLocks|Definisce il nome del nuovo gruppo di risorse a cui applicare i blocchi del progetto.|
      |Gruppo di risorse RGtoLock|Resource group|Location|Stati Uniti occidentali 2|Definisce la posizione del nuovo gruppo di risorse a cui applicare i blocchi del progetto.|
      |StorageAccount|Modello di Resource Manager|storageAccountType (Account di archiviazione)|Standard_GRS|SKU di archiviazione. Il valore predefinito è _Standard_LRS_.|
 

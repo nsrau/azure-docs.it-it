@@ -11,10 +11,10 @@ author: iainfoulds
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 253eb23be03c1cc0f2abf4ad1fed734426dc287d
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77154679"
 ---
 # <a name="tutorial-secure-user-sign-in-events-with-azure-multi-factor-authentication"></a>Esercitazione: Proteggere gli eventi di accesso con Azure Multi-Factor Authentication
@@ -30,7 +30,7 @@ In questa esercitazione si apprenderà come:
 > * Configurare le condizioni dei criteri che richiedono l'autenticazione a più fattori
 > * Testare il processo di autenticazione a più fattori come utente
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare l'esercitazione, sono necessari i privilegi e le risorse seguenti:
 

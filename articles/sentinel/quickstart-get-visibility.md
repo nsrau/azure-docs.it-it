@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Introduzione ad Azure Sentinel'
+title: 'Guida introduttiva: Introduzione ad Azure Sentinel'
 description: Avvio rapido di Azure Sentinel - Introduzione all'anteprima di Azure Sentinel
 services: sentinel
 author: yelevin
@@ -7,17 +7,17 @@ manager: rkarlin
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
-ms.custom: fasttrack-edit
+ms.custom: mvc, fasttrack-edit
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: 2b83fc6231f590b3c0765ec647101b22920058da
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 95dcc135593c566eb1319ed52df3df6c1ada6609
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77581668"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80067690"
 ---
-# <a name="quickstart-get-started-with-azure-sentinel"></a>Avvio rapido: Introduzione ad Azure Sentinel
+# <a name="quickstart-get-started-with-azure-sentinel"></a>Guida introduttiva: Introduzione ad Azure Sentinel
 
 
 
@@ -51,7 +51,7 @@ Il corpo principale della pagina di panoramica offre informazioni dettagliate a 
 
    ![Mappa di Azure Sentinel](./media/qs-get-visibility/anomolies.png)
 
-## Usare cartelle di lavoro predefinite<a name="dashboards"></a>
+## <a name="use-built-in-workbooks"></a>Usare cartelle di lavoro predefinite<a name="dashboards"></a>
 
 Le cartelle di lavoro predefinite offrono dati integrati provenienti dalle origini dati connesse e consentono quindi di esaminare in modo approfondito gli eventi generati in tali servizi. Sono disponibili cartelle di lavoro predefinite per Azure AD, eventi relativi ad attività di Azure ed eventi locali, che possono essere dati di eventi di Windows provenienti da server, avvisi proprietari, eventuali terze parti, inclusi i log del traffico firewall, Office 365 e protocolli non sicuri basati su eventi di Windows. Le cartelle di lavoro sono basate sulle cartelle di lavoro di Monitoraggio di Azure per offrire una maggiore personalizzazione e flessibilità durante la progettazione di una cartella di lavoro personalizzata. Per altre informazioni, vedere l'articolo sulle [cartelle di lavoro](../azure-monitor/app/usage-workbooks.md).
 

@@ -9,10 +9,10 @@ ms.date: 07/02/2019
 ms.author: hrasheed
 ms.custom: hdinsightactive,mvc
 ms.openlocfilehash: d1136c153a529f58db1de277ec84ac332b9f78ae
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73494147"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-interactive-query-in-azure-hdinsight"></a>Esercitazione: Estrarre, trasformare e caricare dati usando Interactive Query in Azure HDInsight
@@ -30,7 +30,7 @@ Questa esercitazione illustra le attività seguenti:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un cluster di Interactive Query su HDInsight. Consultare [Creare cluster di Apache Hadoop usando il portale di Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selezionare **Interactive Query** per **Tipo di cluster**.
+* Un cluster Interactive Query in HDInsight. Consultare [Creare cluster di Apache Hadoop usando il portale di Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selezionare **Interactive Query** per **Tipo di cluster**.
 
 * Database SQL di Azure. Come archivio dati di destinazione usare un database SQL di Azure. Se non si ha un database SQL, vedere [Creare un database SQL di Azure nel portale di Azure](/azure/sql-database/sql-database-single-database-get-started).
 
@@ -42,7 +42,7 @@ Questa esercitazione illustra le attività seguenti:
 
 2. Nella pagina deselezionare tutti i campi e quindi selezionare i valori seguenti:
 
-   | NOME | Valore |
+   | Nome | valore |
    | --- | --- |
    | Filter Year |2019 |
    | Filter Period |January |

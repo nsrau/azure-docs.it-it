@@ -1,5 +1,5 @@
 ---
-title: "Avvio rapido: Esplorare l'ambiente demo di anteprima - Azure Time Series Insights | Microsoft Docs"
+title: "Guida introduttiva: Esplorare l'ambiente demo di anteprima - Azure Time Series Insights | Microsoft Docs"
 description: Esplorare le funzionalità principali dell'ambiente demo Azure Time Series Insights (anteprima).
 ms.service: time-series-insights
 services: time-series-insights
@@ -11,13 +11,13 @@ ms.workload: big-data
 ms.custom: mvc seodec18
 ms.date: 02/07/2020
 ms.openlocfilehash: dc4a8da69b0398c6487008c106a9f5bcdb8a885e
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77110241"
 ---
-# <a name="quickstart-explore-the-azure-time-series-insights-preview-demo-environment"></a>Avvio rapido: Esplorare l'ambiente demo Anteprima di Azure Time Series Insights
+# <a name="quickstart-explore-the-azure-time-series-insights-preview-demo-environment"></a>Guida introduttiva: Esplorare l'ambiente demo Anteprima di Azure Time Series Insights
 
 Questa guida di avvio rapido offre informazioni introduttive sull'ambiente di anteprima di Azure Time Series Insights. La demo gratuita offre una panoramica delle funzionalità principali aggiunte ad Anteprima di Time Series Insights.
 

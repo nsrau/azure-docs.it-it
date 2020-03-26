@@ -8,10 +8,10 @@ ms.service: azure-databricks
 ms.topic: tutorial
 ms.date: 04/17/2019
 ms.openlocfilehash: 4ac8c01e986cf1f3158c615a0791ba476e5bf1bb
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74706156"
 ---
 # <a name="tutorial-implement-azure-databricks-with-a-cosmos-db-endpoint"></a>Esercitazione: Implementare Azure Databricks con un endpoint di Cosmos DB
@@ -51,11 +51,11 @@ Prima di iniziare, eseguire le operazioni seguenti:
 
 ## <a name="create-a-cosmos-db-account"></a>Creare un account Cosmos DB
 
-1. Aprire il Portale di Azure. In alto a sinistra nella schermata selezionare **Crea una risorsa > Database > Azure Cosmos DB**.
+1. Aprire il portale di Azure. In alto a sinistra nella schermata selezionare **Crea una risorsa > Database > Azure Cosmos DB**.
 
 2. Compilare **Dettagli dell'istanza** nella scheda **Generale** con le impostazioni seguenti:
 
-   |Impostazione|Valore|
+   |Impostazione|valore|
    |-------|-----|
    |Subscription|*sottoscrizione in uso*|
    |Gruppo di risorse|*Il gruppo di risorse*|
@@ -63,7 +63,7 @@ Prima di iniziare, eseguire le operazioni seguenti:
    |API|Core (SQL)|
    |Location|Stati Uniti occidentali|
    |Ridondanza geografica|Disabilitazione|
-   |Scritture in più aree|Abilita|
+   |Scritture in più aree|Abilitare|
 
    ![Aggiungere un endpoint di servizio di Cosmos DB](./media/service-endpoint-cosmosdb/create-cosmosdb-account-basics.png)
 

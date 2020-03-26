@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 02/15/2020
 ms.author: brendm
-ms.openlocfilehash: 48d05dad45a5ff4c561f492e424b53c918998c7c
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: c05e53bd8ad8ade8c1e42729f46c99a0059c4dce
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78945447"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79470861"
 ---
 # <a name="quickstart-launch-a-java-spring-application-using-the-azure-cli"></a>Guida introduttiva: Avviare un'applicazione Java Spring tramite l'interfaccia della riga di comando di Azure
 
@@ -69,6 +69,7 @@ az extension add --name spring-cloud
     ```azurecli
         az group create --location eastus --name <resource group name>
     ```
+
     Altre informazioni sui [gruppi di risorse di Azure](../azure-resource-manager/management/overview.md).
 
 4. Aprire una finestra dell'interfaccia della riga di comando di Azure ed eseguire i comandi seguenti per effettuare il provisioning di un'istanza di Azure Spring Cloud.
@@ -104,14 +105,14 @@ az spring-cloud config-server git set -n <service instance name> --uri https://g
 
 1. Creare una nuova cartella e clonare il repositori di app di esempio nell'account di Azure Cloud.  
 
-    ```azurecli
+    ```console
         mkdir source-code
         git clone https://github.com/Azure-Samples/piggymetrics
     ```
 
 2. Cambiare directory e creare il progetto.
 
-    ```azurecli
+    ```console
         cd piggymetrics
         mvn clean package -D skipTests
     ```
@@ -150,16 +151,21 @@ az spring-cloud app deploy -n auth-service --jar-path ./auth-service/target/auth
 ```azurecli
 az spring-cloud app update -n gateway --is-public true
 ```
+
 2. Eseguire una query sull'applicazione **gateway** per trovare il relativo indirizzo IP pubblico in modo da verificare se è in esecuzione:
 
 Linux:
+
 ```azurecli
 az spring-cloud app show --name gateway | grep url
 ```
+
 Windows:
+
 ```azurecli
 az spring-cloud app show -s <service name> -g <resource group> -n gateway -o table
 ```
+
 3. Passare all'URL specificato dal comando precedente per eseguire l'applicazione PiggyMetrics.
     ![Screenshot di PiggyMetrics in esecuzione](media/spring-cloud-quickstart-launch-app-cli/launch-app.png)
 

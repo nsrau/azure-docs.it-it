@@ -9,13 +9,13 @@ ms.topic: quickstart
 ms.date: 02/21/2020
 ms.author: lbosq
 ms.openlocfilehash: f700b06e6ade0d72178777b67cb734f3120b36dc
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78395471"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79214959"
 ---
-# <a name="quickstart-build-a-net-framework-or-core-application-using-the-azure-cosmos-db-gremlin-api-account"></a>Guida introduttiva: creare un'applicazione .NET Framework o Core con l'account dell'API Azure Cosmos DB Gremlin
+# <a name="quickstart-build-a-net-framework-or-core-application-using-the-azure-cosmos-db-gremlin-api-account"></a>Guida introduttiva: Creare un'applicazione .NET Framework o Core usando l'account dell'API Gremlin di Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [Console Gremlin](create-graph-gremlin-console.md)
@@ -30,7 +30,7 @@ Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito
 
 Questo avvio rapido illustra come creare un account, un database e un grafo (contenitore) dell'[API Gremlin](graph-introduction.md) in Azure Cosmos DB tramite il portale di Azure. In seguito, si crea e si esegue un'app console basata sul driver open source [Gremlin.Net](https://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet).  
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Se Visual Studio 2019 non è ancora installato, è possibile scaricare e usare la **versione gratuita** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Durante l'installazione di Visual Studio abilitare **Sviluppo di Azure**.
 
@@ -91,11 +91,11 @@ Tutti i frammenti di codice seguenti sono tratti dal file Program.cs.
 
    :::code language="csharp" source="~/azure-cosmosdb-graph-dotnet/GremlinNetSample/Program.cs" id="defineQueries":::
 
-* Creare una nuova `GremlinServer` e `GremlinClient` oggetti connessione utilizzando i parametri forniti in precedenza:
+* Creare i nuovi oggetti connessione `GremlinServer` e `GremlinClient` usando i parametri forniti in precedenza:
 
    :::code language="csharp" source="~/azure-cosmosdb-graph-dotnet/GremlinNetSample/Program.cs" id="defineClientandServerObjects":::
 
-* Eseguire ogni query Gremlin usando l'oggetto `GremlinClient` con un'attività asincrona. È possibile leggere le query Gremlin dal dizionario definito nel passaggio precedente ed eseguirle. Ottenere successivamente il risultato e leggere i valori, formattati come dizionario, usando la classe `JsonSerializer` del pacchetto Newtonsoft. JSON:
+* Eseguire ogni query Gremlin usando l'oggetto `GremlinClient` con un'attività asincrona. È possibile leggere le query Gremlin dal dizionario definito nel passaggio precedente ed eseguirle. Recuperare successivamente il risultato e leggere i valori, formattati come dizionario, usando la classe `JsonSerializer` del pacchetto Newtonsoft.Json:
 
    :::code language="csharp" source="~/azure-cosmosdb-graph-dotnet/GremlinNetSample/Program.cs" id="executeQueries":::
 
@@ -111,18 +111,18 @@ Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di 
 
     ![Copiare l'endpoint](./media/create-graph-dotnet/endpoint.png)
 
-   Per eseguire questo esempio, copiare il valore dell' **endpoint Gremlin** , eliminare il numero di porta alla fine, ovvero l'URI diventa `https://<your cosmos db account name>.gremlin.cosmosdb.azure.com`. Il valore dell'endpoint dovrebbe essere simile `testgraphacct.gremlin.cosmosdb.azure.com`
+   Per eseguire questo esempio, copiare il valore **Endpoint Gremlin** ed eliminare il numero di porta alla fine, in modo che l'URI diventi `https://<your cosmos db account name>.gremlin.cosmosdb.azure.com`. Il valore dell'endpoint dovrebbe essere simile a `testgraphacct.gremlin.cosmosdb.azure.com`
 
-1. Passare quindi alla scheda **chiavi** e copiare il valore della **chiave primaria** dal portale di Azure. 
+1. Passare quindi alla scheda **Chiavi** e copiare il valore **PRIMARY KEY** dal portale di Azure. 
 
-1. Dopo aver copiato l'URI e la chiave primaria dell'account, salvarli in una nuova variabile di ambiente nel computer locale che esegue l'applicazione. Per impostare la variabile di ambiente, aprire una finestra del prompt dei comandi ed eseguire il comando seguente. Assicurarsi di sostituire < Your_Azure_Cosmos_account_URI > e < i valori Your_Azure_Cosmos_account_PRIMARY_KEY >.
+1. Dopo aver copiato l'URI e il valore PRIMARY KEY dell'account, salvarli in una nuova variabile di ambiente nel computer locale che esegue l'applicazione. Per impostare la variabile di ambiente, aprire una finestra del prompt dei comandi ed eseguire il comando seguente. Assicurarsi di sostituire i valori <URI_account_Azure_Cosmos> e <Valore_PRIMARY_KEY_account_Azure_Cosmos>.
 
    ```console
    setx EndpointUrl "https://<your cosmos db account name>.gremlin.cosmosdb.azure.com"
    setx PrimaryKey "<Your_Azure_Cosmos_account_PRIMARY_KEY>"
    ```
 
-1. Aprire il file *Program.cs* e aggiornare le variabili "database e" container "con il database e il contenitore (che è anche il nome del grafo) creati in precedenza.
+1. Aprire il file *Program.cs* e aggiornare le variabili "database" e "container" con i nomi del database e del contenitore (che è anche il nome del grafico) creati sopra.
 
     `private static string database = "your-database-name";` `private static string container = "your-container-or-graph-name";`
 

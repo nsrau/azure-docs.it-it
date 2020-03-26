@@ -13,10 +13,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/25/2019
 ms.openlocfilehash: 28b35f273783b2e4d0b8f59c5bc5be384b933ba2
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73826882"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-and-query-an-azure-sql-database"></a>Guida introduttiva: Usare Visual Studio Code per connettersi a un database SQL di Azure ed eseguire query
@@ -34,7 +34,7 @@ ms.locfileid: "73826882"
   || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
   | Configurare | [Regola del firewall IP a livello di server](sql-database-server-level-firewall-rule.md)| [Connettività da una VM](sql-database-managed-instance-configure-vm.md)|
   |||[Connettività da locale](sql-database-managed-instance-configure-p2s.md)
-  |Caricare i dati|Adventure Works caricato in base alla guida introduttiva|[Ripristinare Wide World Importers](sql-database-managed-instance-get-started-restore.md)
+  |Caricare dati|Adventure Works caricato in base alla guida introduttiva|[Ripristinare Wide World Importers](sql-database-managed-instance-get-started-restore.md)
   |||Ripristinare o importare Adventure Works dal file [BACPAC](sql-database-import.md) ottenuto da [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
   |||
 
@@ -109,10 +109,10 @@ Usare Visual Studio Code per stabilire una connessione al server di database SQL
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Nome server** | Nome completo del server | Ad esempio, **mynewserver20170313.database.windows.net**. |
    | **Nome database** | mySampleDatabase | Database a cui connettersi. |
-   | **autenticazione** | Account di accesso SQL| Questa esercitazione usa l'autenticazione SQL. |
+   | **autenticazione** | Account di accesso SQL| In questa esercitazione viene usata l'autenticazione SQL. |
    | **Nome utente** | Nome utente | Nome utente dell'account amministratore del server usato per creare il server. |
-   | **Password (SQL Login)** (Password - Account di accesso SQL) | Password | Password dell'account amministratore del server usato per creare il server. |
-   | **Save Password?** (Salvare la password?) | Sì o No | Selezionare **Sì** se non si vuole immettere la password ogni volta. |
+   | **Password (account di accesso SQL)** | Password | Password dell'account amministratore del server usato per creare il server. |
+   | **Salvare la password?** | Sì o No | Selezionare **Sì** se non si vuole immettere la password ogni volta. |
    | **Immettere un nome per questo profilo** | Nome di profilo, ad esempio **mySampleProfile** | Un profilo salvato velocizza la connessione agli accessi successivi. |
 
    Se l'operazione ha esito positivo, viene visualizzata una notifica che informa che il profilo è stato creato e connesso.
@@ -134,7 +134,7 @@ Eseguire l'istruzione [SELECT](https://msdn.microsoft.com/library/ms189499.aspx)
 
     ![Eseguire una query per recuperare dati da 2 tabelle](./media/sql-database-connect-query-vscode/query.png)
 
-## <a name="insert-data"></a>Inserire dati
+## <a name="insert-data"></a>Inserire i dati
 
 Eseguire l'istruzione [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL seguente per aggiungere un nuovo prodotto nella tabella `SalesLT.Product`.
 

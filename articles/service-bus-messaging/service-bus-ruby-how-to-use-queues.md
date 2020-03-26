@@ -15,19 +15,19 @@ ms.topic: quickstart
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: a699543bb442e7c57d57e72acb2cdf6ac40159c1
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76760590"
 ---
-# <a name="quickstart-how-to-use-service-bus-queues-with-ruby"></a>Avvio rapido: Come usare le code del bus di servizio con Ruby
+# <a name="quickstart-how-to-use-service-bus-queues-with-ruby"></a>Guida introduttiva: Come usare le code del bus di servizio con Ruby
 
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
 Questa esercitazione illustra come creare applicazioni Ruby per inviare e ricevere messaggi da una coda del bus di servizio. Gli esempi sono scritti in Ruby e utilizzano la gemma di Azure.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 1. Una sottoscrizione di Azure. Per completare l'esercitazione, è necessario un account Azure. È possibile attivare i [vantaggi della sottoscrizione MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) o registrarsi per ottenere un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 2. Seguire la procedura descritta nell'articolo [Usare il portale di Azure per creare una coda del bus di servizio](service-bus-quickstart-portal.md).
     1. Leggere la breve **panoramica** delle **code** del bus di servizio. 

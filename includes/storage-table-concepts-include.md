@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
 ms.openlocfilehash: 91a52e7eac40c0ac2ab682f251a2ae0013259b25
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77013883"
 ---
 ## <a name="what-is-table-storage"></a>Informazioni sull'Archiviazione tabelle
@@ -26,7 +26,7 @@ L'Archiviazione tabelle contiene i componenti seguenti:
 
 ![Diagramma dei componenti di Archiviazione tabelle][Table1]
 
-* **Formato URL:** gli account di archiviazione tabelle di Azure usano il formato `http://<storage account>.table.core.windows.net/<table>`
+* **Formato URL:** gli account di archiviazione tabelle di Azure usano questo formato: `http://<storage account>.table.core.windows.net/<table>`
 
   Gli account di API di tabella di Azure Cosmos DB usano questo formato: `http://<storage account>.table.cosmosdb.azure.com/<table>`  
 

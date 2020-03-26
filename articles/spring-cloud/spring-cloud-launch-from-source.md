@@ -6,14 +6,14 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/30/2019
 ms.author: brendm
-ms.openlocfilehash: b506fdcdec1ae3e98c1a4afe9c5124e284ed4d99
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 3ab4b1729ea380671b72a9bb01740930a186d5c3
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77589012"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79470795"
 ---
-# <a name="quickstart-launch-your-spring-cloud-application-from-source-code"></a>Avvio rapido: Avviare l'applicazione Spring Cloud dal codice sorgente
+# <a name="quickstart-launch-your-spring-cloud-application-from-source-code"></a>Guida introduttiva: Avviare l'applicazione Spring Cloud dal codice sorgente
 
 Azure Spring Cloud consente di eseguire facilmente applicazioni di microservizi basate su Spring Cloud in Azure.
 
@@ -28,7 +28,7 @@ Seguendo questo argomento di avvio rapido, si apprenderà come:
 > * Distribuire ogni microservizio
 > * Assegnare un endpoint pubblico per l'applicazione
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 >[!Note]
 > Azure Spring Cloud è attualmente disponibile come anteprima pubblica. Le offerte di anteprima pubblica consentono ai clienti di sperimentare le nuove funzionalità prima del rilascio della versione ufficiale.  I servizi e le funzionalità di anteprima pubblica non sono destinati all'uso in produzione.  Per altre informazioni sul supporto durante le anteprime, vedere le [domande frequenti](https://azure.microsoft.com/support/faq/) o inviare una [richiesta di supporto](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
@@ -48,7 +48,7 @@ Prima di iniziare, verificare che la sottoscrizione di Azure abbia le dipendenze
 
 Installare l'estensione Azure Spring Cloud per l'interfaccia della riga di comando di Azure con il comando seguente
 
-```Azure CLI
+```azurecli
 az extension add --name spring-cloud
 ```
 
@@ -56,7 +56,7 @@ az extension add --name spring-cloud
 
 Accedere all'interfaccia della riga di comando di Azure e scegliere una sottoscrizione attiva. Assicurarsi di scegliere una sottoscrizione attiva autorizzata per Azure Spring Cloud
 
-```Azure CLI
+```azurecli
 az login
 az account list -o table
 az account set --subscription

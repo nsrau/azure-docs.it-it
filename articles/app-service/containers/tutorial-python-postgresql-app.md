@@ -10,10 +10,10 @@ ms.custom:
 - seo-python-october2019
 - cli-validate
 ms.openlocfilehash: 13431b62e64774a4c31cf95200def3ba77f973d7
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77523935"
 ---
 # <a name="tutorial-run-a-python-django-web-app-with-postgresql-in-azure-app-service"></a>Esercitazione: Eseguire un'app Web Python (Django) con PostgreSQL nel Servizio app di Azure
@@ -32,7 +32,7 @@ In questa esercitazione verranno illustrate le procedure per:
 
 I passaggi illustrati in questo articolo possono essere eseguiti in macOS, Linux o Windows. Le procedure sono simili nella maggior parte dei casi, anche se le differenze non sono descritte in questa esercitazione. La maggior parte degli esempi seguenti usa una finestra del terminale `bash` in Linux. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare questa esercitazione, è necessario:
 

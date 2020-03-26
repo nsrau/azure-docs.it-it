@@ -8,15 +8,15 @@ ms.topic: overview
 ms.date: 10/16/2019
 ms.author: mebeatty
 ms.openlocfilehash: 3d9d1240e31d40a3d9c75d56314acc1721d90b99
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73488137"
 ---
 # <a name="what-is-internet-analyzer-preview"></a>Che cos'è l'analizzatore Internet? (Anteprima)
 
-L'analizzatore Internet è una piattaforma di misurazione lato client che consente di testare l'impatto delle modifiche apportate all'infrastruttura di rete sulle prestazioni dei clienti. Indipendentemente dal fatto che si esegua la migrazione da locale ad Azure o che si stia valutando un nuovo servizio di Azure, l'analizzatore Internet consente di acquisire dai dati degli utenti e dalle analisi avanzate di Microsoft le informazioni necessarie sull'architettura di rete per ottimizzarla con Azure prima della migrazione.
+L'analizzatore Internet è una piattaforma di misurazione lato client che consente di testare l'impatto delle modifiche apportate all'infrastruttura di rete sulle prestazioni dei clienti. Indipendentemente dal fatto si esegua la migrazione da locale ad Azure o che si stia valutando un nuovo servizio di Azure, l'analizzatore Internet di Azure consente di acquisire dai dati degli utenti e dalle analisi avanzate di Microsoft le informazioni necessarie sull'architettura di rete per ottimizzarla con Azure prima della migrazione.
 
 L'analizzatore Internet usa un piccolo client JavaScript incorporato nell'applicazione Web per misurare la latenza dagli utenti finali al set selezionato di destinazioni di rete, denominate _endpoint_. L'analizzatore Internet permette di configurare più test affiancati, consentendo di valutare diversi scenari in base all'evoluzione dell'infrastruttura e delle esigenze dei clienti. L'analizzatore Internet fornisce endpoint personalizzati e preconfigurati, per garantire al tempo stesso la praticità e la flessibilità di prendere decisioni attendibili sulle prestazioni per gli utenti finali. 
 

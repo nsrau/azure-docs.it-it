@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Creare un indice di ricerca in Node.js con le API REST'
+title: 'Guida introduttiva: Creare un indice di ricerca in Node.js con le API REST'
 titleSuffix: Azure Cognitive Search
 description: Questo argomento di avvio rapido su Node.js illustra come creare un indice, caricare i dati ed eseguire query in Ricerca cognitiva di Azure usando JavaScript e le API REST.
 author: HeidiSteen
@@ -10,13 +10,13 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 02/25/2020
 ms.openlocfilehash: cbef6029b93f134f95ee54aa87ce0dd65bcdf50d
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77624003"
 ---
-# <a name="quickstart-create-an-azure-cognitive-search-index-in-nodejs-using-rest-apis"></a>Avvio rapido: Creare un indice di Ricerca cognitiva di Azure in Node.js con le API REST
+# <a name="quickstart-create-an-azure-cognitive-search-index-in-nodejs-using-rest-apis"></a>Guida introduttiva: Creare un indice di Ricerca cognitiva di Azure in Node.js con le API REST
 > [!div class="op_single_selector"]
 > * [JavaScript](search-get-started-nodejs.md)
 > * [C#](search-get-started-dotnet.md)
@@ -29,7 +29,7 @@ Creare un'applicazione Node.js che crea e carica un indice di Ricerca cognitiva 
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per creare e testare il contenuto di questo argomento di avvio rapido sono stati usati il software e i servizi seguenti:
 

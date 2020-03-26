@@ -7,10 +7,10 @@ ms.topic: overview
 ms.date: 01/16/2020
 ms.custom: H1Hack27Feb2017, mvc
 ms.openlocfilehash: f0948cb58ba9403a34fbfd61ec43c29bed3440bc
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77621016"
 ---
 # <a name="an-introduction-to-azure-functions"></a>Introduzione a Funzioni di Azure
@@ -67,7 +67,7 @@ Funzioni è un'ottima soluzione per l'elaborazione di dati in blocco, l'integraz
 
 - **Argomento del bus di servizio**: connettersi ad altri servizi di Azure o locali [rispondendo ai messaggi dell'argomento del bus di servizio](./functions-bindings-service-bus.md)
 
-## <a name="pricing"></a>Quanto costa Funzioni?
+## <a name="how-much-does-functions-cost"></a><a name="pricing"></a>Quanto costa Funzioni?
 
 Funzioni di Azure offre tre tipi di piani tariffari. Scegliere quello più adatto alle proprie esigenze:
 

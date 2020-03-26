@@ -17,10 +17,10 @@ ms.date: 9/18/2018
 ms.author: aanandr
 ms.custom: ''
 ms.openlocfilehash: 5146675b6eefd11fc1e6875ed9009ece92753ffb
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "72028101"
 ---
 # <a name="deploy-the-azure-virtual-network-container-network-interface-plug-in"></a>Distribuire il plug-in CNI (Container Network Interface) della rete virtuale di Azure
@@ -31,7 +31,7 @@ Il plug-in CNI (Container Network Interface) della rete virtuale di Azure viene 
 
 Il motore ACS distribuisce un cluster Kubernetes con un modello di Azure Resource Manager. La configurazione del cluster è specificata in un file JSON che viene passato allo strumento durante la generazione del modello. Per altre informazioni sull'intero elenco delle impostazioni di cluster supportate e le relative descrizioni, vedere [Microsoft Azure Container Service Engine - Cluster Definition](https://github.com/Azure/acs-engine/blob/master/docs/clusterdefinition.md) (Motore del servizio Microsoft Azure Container - Definizione del cluster). Il plug-in corrisponde al plug-in di rete predefinito per i cluster creati con il motore ACS. Le seguenti impostazioni di configurazione di rete sono importanti per la configurazione del plug-in:
 
-  | Impostazione                              | DESCRIZIONE                                                                                                           |
+  | Impostazione                              | Descrizione                                                                                                           |
   |--------------------------------------|------------------------------------------------------------------------------------------------------                 |
   | firstConsecutiveStaticIP             | L'indirizzo IP allocato al nodo master. Si tratta di un'impostazione obbligatoria.                                     |
   | clusterSubnet sotto kubernetesConfig | CIDR della subnet della rete virtuale in cui viene distribuito il cluster e da cui gli indirizzi IP vengono allocati ai pod   |

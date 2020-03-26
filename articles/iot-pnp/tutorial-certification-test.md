@@ -9,10 +9,10 @@ ms.author: koichih
 author: konichi3
 ms.date: 12/27/2019
 ms.openlocfilehash: dc2c33659f3f3a3df0f11fcc6ab36a9fc993da43
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75550163"
 ---
 # <a name="tutorial-certify-your-iot-plug-and-play-preview-device"></a>Esercitazione: Certificare il dispositivo di anteprima Plug and Play IoT
@@ -28,7 +28,7 @@ In questa esercitazione si apprenderà:
 > * Come rivedere le interfacce di Plug and Play IoT ed eseguire i test di certificazione.
 > * Come pubblicare il dispositivo Plug and Play IoT nel catalogo.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa esercitazione, sono necessari:
 

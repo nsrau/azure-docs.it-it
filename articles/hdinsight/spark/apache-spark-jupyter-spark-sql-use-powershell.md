@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Creare un cluster Apache Spark in Azure HDInsight con Azure PowerShell'
+title: 'Guida introduttiva: Creare un cluster Apache Spark in Azure HDInsight con Azure PowerShell'
 description: Questa guida di avvio rapido illustra come usare Azure PowerShell per creare un cluster Apache Spark in HDInsight di Azure ed eseguire una query Spark SQL semplice.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,13 +9,13 @@ ms.topic: quickstart
 ms.date: 06/12/2019
 ms.custom: mvc
 ms.openlocfilehash: 7416c25128da8dcaf803a9f03144110941200ab2
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77049133"
 ---
-# <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-powershell"></a>Avvio rapido: Creare cluster Apache Spark in Azure HDInsight usando PowerShell
+# <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-powershell"></a>Guida introduttiva: Creare cluster Apache Spark in Azure HDInsight usando PowerShell
 
 In questa guida di avvio rapido si usa Azure PowerShell per creare un cluster Apache Spark in Azure HDInsight. Creare quindi un notebook Jupyter e usarlo per eseguire query Spark SQL su tabelle Apache Hive. Azure HDInsight è un servizio di analisi open source, gestito e ad ampio spettro per le aziende. Il framework Apache Spark per Azure HDInsight consente di velocizzare cluster computing e analisi dei dati grazie all'elaborazione in memoria. Il notebook Jupyter consente di interagire con i dati, combinare codice e testo Markdown ed eseguire visualizzazioni semplici.
 
@@ -35,7 +35,7 @@ La creazione di un cluster HDInsight include la creazione dei seguenti oggetti e
 
 - Un gruppo di risorse di Azure. Un gruppo di risorse di Azure è un contenitore per le risorse di Azure.
 - Un account di archiviazione di Azure o Azure Data Lake Storage.  Ogni cluster HDInsight richiede una risorsa di archiviazione per i dati dipendenti. In questa guida di avvio rapido viene creato un cluster che usa BLOB del servizio di archiviazione di Azure come risorsa di archiviazione del cluster. Per altre informazioni sull'uso di Data Lake Storage Gen2, vedi [Avvio rapido: Impostazione dei cluster in HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
-- Un cluster di tipi di cluster diversi in HDInsight.  In questa guida di avvio rapido verrà creato un cluster Spark 2.3.
+- Un cluster di tipi di cluster diversi in HDInsight.  In questa guida introduttiva verrà creato un cluster Spark 2.3.
 
 Per creare le risorse si usa uno script di PowerShell. 
 

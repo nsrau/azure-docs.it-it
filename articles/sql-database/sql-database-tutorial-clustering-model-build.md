@@ -14,20 +14,20 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/29/2019
 ms.openlocfilehash: 9f16ebc5acff7bbccc9de28e2fab0d223c6e244b
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68640005"
 ---
 # <a name="tutorial-build-a-clustering-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Esercitazione: Creare un modello di clustering in R con Machine Learning Services del database SQL di Azure (anteprima)
 
 Nella seconda parte di questa serie di esercitazioni in tre parti verrà creato un modello K-means in R per eseguire il clustering. Nella parte successiva di questa serie questo modello verrà distribuito in un database SQL con Machine Learning Services di Database SQL di Azure (anteprima).
 
-L'articolo spiega come:
+In questo articolo si apprenderà come:
 
 > [!div class="checklist"]
-> * Definire il numero di cluster per un algoritmo K-means
+> * Definire il numero di cluster per un algoritmo K-Means
 > * Eseguire il clustering
 > * Analizzare i risultati
 
@@ -43,13 +43,13 @@ Nella [terza parte](sql-database-tutorial-clustering-model-deploy.md) si apprend
 
 ## <a name="define-the-number-of-clusters"></a>Definire il numero di cluster
 
-Per inserire in cluster i dati dei clienti, si userà l'algoritmo di clustering **K-means**, uno dei modi più semplici e noti per raggruppare dati.
-Per altre informazioni su K-means, vedere la [guida completa all'algoritmo di clustering K-means](https://www.kdnuggets.com/2019/05/guide-k-means-clustering-algorithm.html).
+Per raggruppare i dati dei clienti si userà l'algoritmo di clustering **K-Means**, una delle modalità di raggruppamento dei dati più semplici e note.
+Per altre informazioni su K-Means, vedere la [guida completa all'algoritmo di clustering K-Means](https://www.kdnuggets.com/2019/05/guide-k-means-clustering-algorithm.html).
 
-L'algoritmo accetta due input: I dati stessi e un numero predefinito "*k*" che rappresenta il numero di cluster da generare.
-L'output è costituito da *k* cluster con i dati di input ripartiti tra i cluster.
+L'algoritmo accetta due input: i dati stessi e un numero predefinito "*k*" che rappresenta il numero di cluster da generare.
+L'output è *k* cluster con i dati di input partizionati tra i cluster.
 
-Per determinare il numero di cluster che l'algoritmo deve usare, usare un tracciato della somma dei quadrati all'interno dei gruppi, per numero di cluster estratti. Il numero appropriato di cluster da usare è indicato in corrispondenza dell'incrocio a gomito del tracciato.
+Per determinare il numero di cluster che l'algoritmo deve usare, usare un tracciato della media della somma dei quadrati all'interno dei gruppi, per numero di cluster estratti. Il numero appropriato di cluster da usare è quello in corrispondenza della curva o del "gomito" del tracciato.
 
 ```r
 # Determine number of clusters by using a plot of the within groups sum of squares,
@@ -62,7 +62,7 @@ plot(1:20, wss, type = "b", xlab = "Number of Clusters", ylab = "Within groups s
 
 ![Grafico a gomito](./media/sql-database-tutorial-clustering-model-build/elbow-graph.png)
 
-In base al grafico, sembra che *k = 4* sia un valore appropriato per effettuare un tentativo. Con il valore *k* i clienti verranno raggruppati in quattro cluster.
+In base al grafico, *k = 4* sembrerebbe un buon valore da provare. Questo valore di *k* raggruppa i clienti in quattro cluster.
 
 ## <a name="perform-clustering"></a>Eseguire il clustering
 
@@ -122,18 +122,18 @@ Within cluster sum of squares by cluster:
     0.0000  1329.0160 18561.3157   363.2188
 ```
 
-Per specificare i quattro cluster, vengono usate le variabili definite nella [prima parte](sql-database-tutorial-clustering-model-prepare-data.md#separate-customers):
+Le medie dei quattro cluster si ottengono usando le variabili definite nella [parte uno](sql-database-tutorial-clustering-model-prepare-data.md#separate-customers):
 
-* *orderRatio* = rapporto ordini restituiti (numero totale di ordini parzialmente o totalmente restituiti rispetto al numero totale di ordini)
-* *itemsRatio* = rapporto articoli restituiti (numero totale di articoli restituiti rispetto al numero di articoli acquistati)
-* *monetaryRatio* = rapporto importi restituiti (totale importo monetario di articoli restituiti rispetto all'importo di articoli acquistati)
-* *frequency* = frequenza di restituzione
+* *orderRatio* = rapporto ordini di reso (numero totale di ordini parzialmente o completamente resi rispetto al numero totale di ordini)
+* *itemsRatio* = rapporto articoli resi (numero totale di articoli resi rispetto al numero di articoli acquistati)
+* *monetaryRatio* = rapporto importi resi (importo monetario totale di articoli resi rispetto all'importo di articoli acquistati)
+* *frequency* = frequenza dei resi
 
-Per il data mining con K-means sono spesso richiesti un'ulteriore analisi dei risultati, nonché ulteriori passaggi per comprendere meglio ogni cluster, ma tale approccio consente di ottenere alcuni lead validi.
-Ecco alcuni modi in cui è possibile interpretare questi risultati:
+Il data mining con K-Means spesso richiede un'ulteriore analisi dei risultati e ulteriori passaggi per comprendere meglio ogni cluster, ma può fornire alcune indicazioni valide.
+Ecco alcuni modi in cui possono essere interpretati i risultati:
 
 * Il cluster 1 (quello più grande) sembra corrispondere a un gruppo di clienti che non sono attivi (tutti i valori sono pari a zero).
-* Il cluster 3 sembra essere un gruppo che si distingue in termini di comportamento di restituzione.
+* Il cluster 3 sembra essere un gruppo che si distingue per il comportamento relativo ai resi.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -148,9 +148,9 @@ Seguire questa procedura nel portale di Azure:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Nella seconda parte di questa serie di esercitazioni sono stati completati questi passaggi:
+Nella seconda parte di questa serie di esercitazioni sono stati completati i passaggi seguenti:
 
-* Definire il numero di cluster per un algoritmo K-means
+* Definire il numero di cluster per un algoritmo K-Means
 * Eseguire il clustering
 * Analizzare i risultati
 

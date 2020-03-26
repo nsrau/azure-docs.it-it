@@ -1,16 +1,16 @@
 ---
-title: "Avvio rapido: Creare un'app PHP in Linux"
+title: "Guida introduttiva: Creare un'app PHP in Linux"
 description: Introduzione all'uso delle app Linux nel servizio app di Azure distribuendo la prima app PHP in un contenitore Linux nel servizio app.
 ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
 ms.topic: quickstart
 ms.date: 03/27/2019
-ms.custom: seodec18
-ms.openlocfilehash: 7608c10f2d101a3c24209a5e09bccc6dc31401ca
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.custom: mvc, cli-validatem seodec18
+ms.openlocfilehash: 5a2abaf49071c90ea4fe0d5b5a454ce91f2cb1e4
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77524105"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80046061"
 ---
 # <a name="create-a-php-app-in-app-service-on-linux"></a>Creare un'app PHP nel servizio app in Linux
 
@@ -26,7 +26,7 @@ Il [Servizio app in Linux](app-service-linux-intro.md) offre un servizio di host
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa guida introduttiva:
 

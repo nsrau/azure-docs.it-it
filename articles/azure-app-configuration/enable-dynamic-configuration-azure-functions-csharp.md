@@ -16,17 +16,17 @@ ms.author: zhenlwa
 ms.custom: azure-functions
 ms.tgt_pltfrm: Azure Functions
 ms.openlocfilehash: ba70d5f186c1424b2019716ab7a87aeae85f8913
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74187295"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-azure-functions-app"></a>Esercitazione: Usare la configurazione dinamica in un'app di Funzioni di Azure
 
 Il provider di configurazione .NET Standard di Configurazione app supporta la memorizzazione nella cache e l'aggiornamento della configurazione dinamicamente in base all'attività dell'applicazione. Questa esercitazione mostra come è possibile implementare aggiornamenti dinamici della configurazione nel codice. Si basa sull'app di Funzioni di Azure presentata negli argomenti di avvio rapido. Prima di continuare, completare le procedure descritte in [Creare un'app di Funzioni di Azure con Configurazione app](./quickstart-azure-functions-csharp.md).
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Configurare l'app di Funzioni di Azure per aggiornarne la configurazione in risposta alle modifiche in un archivio di Configurazione app.
@@ -41,7 +41,7 @@ In questa esercitazione si apprenderà come:
 
 ## <a name="reload-data-from-app-configuration"></a>Ricaricare i dati di Configurazione app
 
-1. Aprire *Function1.cs*. Oltre alla proprietà `static` `Configuration`, aggiungere una nuova proprietà `static` `ConfigurationRefresher` per tenere un'istanza singleton di `IConfigurationRefresher` che verrà usata in seguito per segnalare gli aggiornamenti della configurazione durante le chiamate di Funzioni.
+1. Aprire *Function1.cs*. Oltre alla proprietà `static``Configuration`, aggiungere una nuova proprietà `static``ConfigurationRefresher` per tenere un'istanza singleton di `IConfigurationRefresher` che verrà usata in seguito per segnalare gli aggiornamenti della configurazione durante le chiamate di Funzioni.
 
     ```csharp
     private static IConfiguration Configuration { set; get; }
@@ -114,7 +114,7 @@ In questa esercitazione si apprenderà come:
 
 6. Selezionare **Configuration Explorer** e aggiornare i valori delle chiavi seguenti:
 
-    | Chiave | Valore |
+    | Chiave | valore |
     |---|---|
     | TestApp:Settings:Message | Dati di Configurazione app di Azure - Aggiornati |
 

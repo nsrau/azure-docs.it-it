@@ -17,10 +17,10 @@ ms.date: 07/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bf05fc30a2b111a12c0b8e131db5117ec784075b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74232129"
 ---
 # <a name="tutorial-integrate-adaptive-insights-with-azure-active-directory"></a>Esercitazione: Integrare Adaptive Insights con Azure Active Directory
@@ -104,7 +104,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 2. Passare a **Administration**.
 
-    ![Administration](./media/adaptivesuite-tutorial/ic805644.png "Admin")
+    ![Admin](./media/adaptivesuite-tutorial/ic805644.png "Amministrativi")
 
 3. Nella sezione **Users and Roles** (Utenti e ruoli) fare clic su **SAML SSO Settings** (Impostazioni SSO SAML).
 
@@ -136,7 +136,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     g. Copiare l'**URL SSO di Adaptive Insights** e incollarlo nelle caselle di testo **Identificatore (ID entità)** e **URL di risposta** della sezione **Configurazione SAML di base** nel portale di Azure.
 
-    h. Fare clic su **Save**.
+    h. Fare clic su **Salva**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
@@ -150,7 +150,7 @@ In questa sezione verrà creato un utente di test di nome B.Simon nel portale di
    1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
    1. Fare clic su **Crea**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Adaptive Insights.
 
@@ -178,11 +178,11 @@ Per consentire agli utenti di Azure AD di accedere ad Adaptive Insights, è nece
 
 2. Passare a **Administration**.
 
-   ![Administration](./media/adaptivesuite-tutorial/IC805644.png "Admin")
+   ![Admin](./media/adaptivesuite-tutorial/IC805644.png "Amministrativi")
 
 3. Nella sezione **Users and Roles** (Utenti e ruoli) fare clic su **Users** (Utenti).
 
-   ![Aggiungere un utente](./media/adaptivesuite-tutorial/IC805648.png "Aggiunta di un utente")
+   ![Add User](./media/adaptivesuite-tutorial/IC805648.png "Aggiunta di un utente")
 
 4. Nella sezione **Nuovo utente** seguire questa procedura:
 
