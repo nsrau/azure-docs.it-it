@@ -6,10 +6,10 @@ ms.topic: overview
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: b067b18985905b226287f9dd10ad4b937fab6df1
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76767975"
 ---
 # <a name="overview-of-azure-farmbeats-preview"></a>Panoramica di Azure FarmBeats (anteprima)

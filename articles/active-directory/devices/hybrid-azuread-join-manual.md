@@ -12,13 +12,13 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6754393bdeabcd67dcf6514102e3c825a26fc3e9
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
-ms.translationtype: MT
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78672244"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79222948"
 ---
-# <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Esercitazione: Configurare manualmente dispositivi aggiunti all'identità ibrida di Azure Active Directory
+# <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Esercitazione: Configurare manualmente i dispositivi aggiunti ad Azure Active Directory ibrido
 
 Con la gestione dei dispositivi in Azure Active Directory (Azure AD), è possibile assicurarsi che gli utenti accedano alle risorse da dispositivi che soddisfano gli standard di sicurezza e conformità dell'organizzazione. Per altre informazioni, vedere [Introduzione alla gestione dei dispositivi in Azure Active Directory](overview.md).
 
@@ -35,7 +35,7 @@ Se in un ambiente Active Directory locale Per aggiungere ad Azure AD i dispositi
 > * Verificare i dispositivi aggiunti
 > * Risolvere i problemi di implementazione
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Questa esercitazione presuppone che l'utente abbia familiarità con:
 
@@ -503,7 +503,7 @@ Se alcuni dei dispositivi aggiunti a un dominio sono dispositivi di livello infe
 
 Per registrare i dispositivi Windows di livello inferiore, verificare che l'impostazione per consentire agli utenti di registrare i dispositivi in Azure AD sia abilitata. Per trovare questa impostazione nel portale di Azure, selezionare **Azure Active Directory** > **Utenti e gruppi** > **Impostazioni del dispositivo**.
 
-Il criterio seguente deve essere impostato su **tutti**: **gli utenti possono registrare i propri dispositivi con Azure ad**.
+Il criterio seguente deve essere impostato su **Tutti**: **Gli utenti possono registrare i loro dispositivi con Azure AD**.
 
 ![Il pulsante Tutti consente agli utenti di registrare i dispositivi](./media/hybrid-azuread-join-manual/23.png)
 

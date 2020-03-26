@@ -7,17 +7,17 @@ ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm
 ms.topic: quickstart
-ms.custom: H1Hack27Feb2017
+ms.custom: mvc, H1Hack27Feb2017
 ms.date: 10/23/2019
 ms.author: cynthn
-ms.openlocfilehash: 2acde4efa1dc118498f3c7da29c75e48c0478ac0
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 41bfe86f4635a54c56a8313fabefa1f381f4a4ee
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76543138"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80062750"
 ---
-# <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Avvio rapido: Creare un set di scalabilità di macchine virtuali nel portale di Azure
+# <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Guida introduttiva: Creare un set di scalabilità di macchine virtuali nel portale di Azure
 
 Un set di scalabilità di macchine virtuali consente di distribuire e gestire un set di macchine virtuali identiche con scalabilità automatica. È possibile ridimensionare manualmente il numero di VM nel set di scalabilità o definire regole di scalabilità automatica in base all'uso delle risorse, ad esempio la CPU, alla richiesta di memoria o al traffico di rete. Un servizio Azure Load Balancer distribuisce quindi il traffico alle istanze di macchina virtuale nel set di scalabilità. In questa guida introduttiva si crea un set di scalabilità di macchine virtuali nel portale di Azure.
 
@@ -42,7 +42,7 @@ Creare prima di tutto un servizio Load Balancer Standard pubblico usando il port
     | Resource group | Selezionare **Crea nuovo** e digitare *myVMSSResourceGroup* nella casella di testo.|
     | Nome           | *myLoadBalancer*         |
     | Region         | Selezionare **Stati Uniti orientali**.       |
-    | Type          | Selezionare **Pubblica**.       |
+    | Type          | Selezionare **Pubblico**.       |
     | SKU           | Selezionare **Standard**.       |
     | Indirizzo IP pubblico | Selezionare **Crea nuovo**. |
     | Nome dell'indirizzo IP pubblico  | *MyPip*   |

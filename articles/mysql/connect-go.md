@@ -7,18 +7,18 @@ ms.service: mysql
 ms.custom: mvc
 ms.devlang: go
 ms.topic: quickstart
-ms.date: 12/02/2019
-ms.openlocfilehash: b3ee0caa380cacc697a87307c3107b93aa241afb
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: 5b55c457f5e30b1b844aafd0114f73b62bdbcac7
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770765"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80067968"
 ---
-# <a name="azure-database-for-mysql-use-go-language-to-connect-and-query-data"></a>Database di Azure per MySQL: usare il linguaggio Go per connettersi ed eseguire query sui dati
+# <a name="azure-database-for-mysql-use-go-language-to-connect-and-query-data"></a>Database di Azure per MySQL: usare il linguaggio Go per connettersi ai dati ed eseguire query
 Questa guida introduttiva illustra come connettersi a un database di Azure per MySQL dalle piattaforme Windows, Ubuntu Linux e Apple macOS usando codice scritto nel linguaggio [Go](https://golang.org/). Spiega come usare le istruzioni SQL per eseguire query, inserire, aggiornare ed eliminare dati nel database. Questo argomento presuppone che si abbia familiarità con lo sviluppo con Go, ma non con Database di Azure per MySQL.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 Questa guida introduttiva usa le risorse create in una delle guide seguenti come punto di partenza:
 - [Create an Azure Database for MySQL server using Azure portal](./quickstart-create-mysql-server-database-using-azure-portal.md) (Creare un database di Azure per il server MySQL usando il portale di Azure)
 - [Creare un database di Azure per il server MySQL tramite l'interfaccia della riga di comando di Azure](./quickstart-create-mysql-server-database-using-azure-cli.md)

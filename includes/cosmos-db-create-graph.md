@@ -9,10 +9,10 @@ ms.date: 04/13/2018
 ms.author: sngun
 ms.custom: include file
 ms.openlocfilehash: 837231ca07abcfdbd6ce932bb24bd890d91506a8
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "69541494"
 ---
 È ora possibile usare lo strumento Esplora dati nel portale di Azure per creare un database a grafo. 
@@ -25,7 +25,7 @@ ms.locfileid: "69541494"
 
 2. Nella pagina **Add Graph** (Aggiungi grafo) immettere le impostazioni per il nuovo grafo.
 
-    Impostazione|Valore consigliato|DESCRIZIONE
+    Impostazione|Valore consigliato|Descrizione
     ---|---|---
     ID database|sample-database|Immettere *sample-database* come nome del nuovo database. I nomi dei database devono avere una lunghezza compresa tra 1 e 255 caratteri e non possono contenere `/ \ # ?` o spazi finali.
     Velocità effettiva|400 UR/s|Modificare la velocità effettiva in 400 unità richiesta al secondo (UR/sec). Se si vuole ridurre la latenza, è possibile aumentare la velocità effettiva in un secondo momento.

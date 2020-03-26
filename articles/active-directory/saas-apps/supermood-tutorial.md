@@ -16,10 +16,10 @@ ms.date: 12/31/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: acb3704541e4c573da4d5331ee10a9c7256162e1
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75640160"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-supermood"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Supermood
@@ -32,7 +32,7 @@ Questa esercitazione descrive come integrare Supermood con Azure Active Director
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per iniziare, sono necessari gli elementi seguenti:
 
@@ -48,7 +48,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-supermood-from-the-gallery"></a>Aggiunta di Supermood dalla raccolta
 
-Per configurare l'integrazione di Supermood in Azure AD, è necessario aggiungere Supermood dalla raccolta all'elenco di app SaaS gestite.
+Per configurare l'integrazione di Supermood in Azure AD, è necessario aggiungere Supermood dalla raccolta al proprio elenco di app SaaS gestite.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
 1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory**.
@@ -64,8 +64,8 @@ Configurare e testare l'accesso SSO di Azure AD con Supermood usando un utente d
 Per configurare e testare l'accesso SSO di Azure AD con Supermood, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    * **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
-    * **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
+    * **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
+    * **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Configurare l'accesso Single Sign-On di Supermood](#configure-supermood-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
     * **[Creare l'utente di test di Supermood](#create-supermood-test-user)** : per avere una controparte di B.Simon in Supermood collegata alla rappresentazione dell'utente in Azure AD.
 1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
@@ -124,7 +124,7 @@ In questa sezione verrà creato un utente di test di nome B.Simon nel portale di
 In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Supermood.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
-1. Nell'elenco delle applicazioni selezionare **Supermood**.
+1. Nell'elenco di applicazioni selezionare **Supermood**.
 1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi**.
 
    ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
@@ -159,15 +159,15 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
     c. Scegliere **Aggiungi**.
 
-### <a name="create-supermood-test-user"></a>Creare l'utente di test di Supermood
+### <a name="create-supermood-test-user"></a>Creare un utente di test di Supermood
 
-In questa sezione viene creato un utente di nome Britta Simon in Supermood. Supermood supporta il provisioning utenti JIT, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se non esiste già un utente in Supermood, ne viene creato uno nuovo dopo l'autenticazione. Se è necessario creare un utente manualmente, contattare il [team di supporto di Supermood](mailto:hello@supermood.fr).
+In questa sezione si crea un utente di nome Britta Simon in Supermood. Supermood supporta il provisioning utenti JIT, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se non esiste già un utente in Supermood, ne viene creato uno nuovo dopo l'autenticazione. Se è necessario creare un utente manualmente, contattare il [team di supporto di Supermood](mailto:hello@supermood.fr).
 
 ## <a name="test-sso"></a>Testare l'accesso SSO 
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di Supermood nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Supermood per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di Supermood nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Supermood per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

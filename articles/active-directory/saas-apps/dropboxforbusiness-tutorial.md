@@ -16,17 +16,17 @@ ms.date: 01/31/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: df7fc366c5087e66c3022c212870397d77e6e34d
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77046752"
 ---
 # <a name="tutorial-integrate-dropbox-for-business-with-azure-active-directory"></a>Esercitazione: Integrare Dropbox for Business con Azure Active Directory
 
-Questa esercitazione descrive come integrare Dropbox for Business con Azure Active Directory (Azure AD). Integrando Dropbox for Business con Azure AD, è possibile:
+Questa esercitazione descrive come integrare Dropbox for Business con Azure Active Directory (Azure AD). Con l'integrazione di Dropbox for Business con Azure AD è possibile:
 
-* Controllare in Azure AD chi può accedere a Dropbox for Business.
+* Controllare in Azure AD quali utenti possono accedere a Dropbox for Business.
 * Abilitare gli utenti per l'accesso automatico a Dropbox for Business con gli account Azure AD personali.
 * Gestire gli account in un'unica posizione centrale: il portale di Azure.
 
@@ -48,7 +48,7 @@ Per iniziare, sono necessari gli elementi seguenti:
 
 ## <a name="adding-dropbox-for-business-from-the-gallery"></a>Aggiunta di Dropbox for Business dalla raccolta
 
-Per configurare l'integrazione di Dropbox for Business in Azure AD, è necessario aggiungere Dropbox for Business dalla raccolta all'elenco di app SaaS gestite.
+Per configurare l'integrazione di Dropbox for Business in Azure AD, è necessario aggiungere Dropbox for Business dalla raccolta al proprio elenco di app SaaS gestite.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
 1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory**.
@@ -67,7 +67,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Dropbox for B
     1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
     1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Configurare l'accesso Single Sign-On per Dropbox for Business](#configure-dropbox-for-business-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
-    1. **[Creare l'utente di test di Dropbox for Business](#create-dropbox-for-business-test-user)** : per avere una controparte di Britta Simon in Dropbox for Business collegata alla rappresentazione dell'utente in Azure AD.
+    1. **[Creare un utente di test di Dropbox for Business](#create-dropbox-for-business-test-user)** : per avere una controparte di Britta Simon in Dropbox for Business collegata alla rappresentazione dell'utente in Azure AD.
 1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurare l'accesso SSO di Azure AD
@@ -160,7 +160,7 @@ In questa sezione Britta Simon verrà abilitata per l'uso dell'accesso Single Si
 
     ![Configurare l'accesso Single Sign-On](./media/dropboxforbusiness-tutorial/configure3.png "Configura accesso Single Sign-On")
 
-7. Selezionare l'opzione **Single sign-on** nella sezione **Autenticazione**.
+7. Selezionare l’opzione **Single sign-on** sotto la sezione **Autenticazione**.
 
     ![Configurare l'accesso Single Sign-On](./media/dropboxforbusiness-tutorial/configure4.png "Configura accesso Single Sign-On")
 
@@ -180,16 +180,16 @@ In questa sezione Britta Simon verrà abilitata per l'uso dell'accesso Single Si
 
     e. Fare clic su **Salva**.
 
-### <a name="create-dropbox-for-business-test-user"></a>Creare l'utente di test di Dropbox for Business
+### <a name="create-dropbox-for-business-test-user"></a>Creare un utente di test di Dropbox for Business
 
-In questa sezione viene creato un utente di nome Britta Simon in Dropbox for Business. Dropbox for Business supporta il provisioning utenti JIT, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se non esiste già un utente in Dropbox for Business, ne viene creato uno nuovo dopo l'autenticazione.
+In questa sezione viene creato un utente di nome Britta Simon in Dropbox for Business. Dropbox for Business supporta il provisioning JIT, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se non esiste già un utente in Dropbox for Business, ne viene creato uno nuovo dopo l'autenticazione.
 
 >[!Note]
 >Se è necessario creare un utente manualmente, contattare il [team di supporto clienti di Dropbox for Business](https://www.dropbox.com/business/contact)
 
 ### <a name="test-sso"></a>Testare l'accesso SSO
 
-Quando si seleziona il riquadro di Dropbox for Business nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Dropbox for Business per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si seleziona il riquadro di Dropbox for Business nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Dropbox for Business per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

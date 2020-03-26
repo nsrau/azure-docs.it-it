@@ -12,31 +12,31 @@ ms.reviewer: v-masebo
 ms.date: 03/25/2019
 ms.custom: seo-javascript-september2019, seo-javascript-october2019
 ms.openlocfilehash: c0da38a41bf613237ea3b164d70e4729a7284ca7
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76768611"
 ---
-# <a name="quickstart-use-nodejs-to-query-an-azure-sql-database"></a>Avvio rapido: Usare Node.js per eseguire query su un database SQL di Azure
+# <a name="quickstart-use-nodejs-to-query-an-azure-sql-database"></a>Guida introduttiva: Usare Node.js per eseguire query su un database SQL di Azure
 
 Questo argomento di avvio rapido illustra come usare Node.js per connettersi a un database SQL di Azure e usare le istruzioni T-SQL per eseguire query sui dati.
 
 ## <a name="prerequisites"></a>Prerequisites
 
-- Un account Azure con una sottoscrizione attiva. [Creare un account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Un [database SQL di Azure](sql-database-single-database-get-started.md)
 - Software correlato a [Node.js](https://nodejs.org)
 
-  # <a name="macostabmacos"></a>[macOS](#tab/macos)
+  # <a name="macos"></a>[macOS](#tab/macos)
 
   Installare Homebrew, Node.js, quindi il driver ODBC e SQLCMD seguendo i passaggi **1.2** e **1.3** della procedura [Creare app Node.js con SQL Server in macOS](https://www.microsoft.com/sql-server/developer-get-started/node/mac/).
 
-  # <a name="ubuntutabubuntu"></a>[Ubuntu](#tab/ubuntu)
+  # <a name="ubuntu"></a>[Ubuntu](#tab/ubuntu)
 
   Installare Node.js, quindi il driver ODBC e SQLCMD seguendo i passaggi **1.2** e **1.3** della procedura [Creare app Node.js con SQL Server in Ubuntu](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu/).
 
-  # <a name="windowstabwindows"></a>[Windows](#tab/windows)
+  # <a name="windows"></a>[Windows](#tab/windows)
 
   Installare Chocolatey, Node.js, quindi il driver ODBC e SQLCMD seguendo i passaggi **1.2** e **1.3** della procedura [Creare app Node.js con SQL Server in Windows](https://www.microsoft.com/sql-server/developer-get-started/node/windows/).
 

@@ -6,18 +6,18 @@ ms.author: andrela
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 12/02/2019
-ms.openlocfilehash: b8923000b0bbc75e6d96b1b27a1154ef8ff87f24
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: 58683cb6eb74fcc3bc2f90245d6f76ef65bdf2e6
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770714"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80067912"
 ---
-# <a name="azure-database-for-mysql-use-php-to-connect-and-query-data"></a>Database di Azure per MySQL: Usare PHP per connettersi ai dati ed eseguire query sui dati
+# <a name="azure-database-for-mysql-use-php-to-connect-and-query-data"></a>Database di Azure per MySQL: usare PHP per connettersi ed eseguire query sui dati
 Questa guida introduttiva illustra come connettersi a un database di Azure per MySQL usando un'applicazione [PHP](https://secure.php.net/manual/intro-whatis.php). Spiega come usare le istruzioni SQL per eseguire query, inserire, aggiornare ed eliminare dati nel database. Questo argomento presuppone che si abbia familiarità con lo sviluppo con PHP, ma non con Database di Azure per MySQL.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 Questa guida introduttiva usa le risorse create in una delle guide seguenti come punto di partenza:
 - [Create an Azure Database for MySQL server using Azure portal](./quickstart-create-mysql-server-database-using-azure-portal.md) (Creare un database di Azure per il server MySQL usando il portale di Azure)
 - [Creare un database di Azure per il server MySQL tramite l'interfaccia della riga di comando di Azure](./quickstart-create-mysql-server-database-using-azure-cli.md)
@@ -85,7 +85,7 @@ mysqli_close($conn);
 ?>
 ```
 
-## <a name="insert-data"></a>Inserire dati
+## <a name="insert-data"></a>Inserire i dati
 Usare il codice seguente per connettersi e inserire i dati usando un'istruzione SQL **INSERT**.
 
 Il codice usa la classe di **estensioni MySQL Improved** (mysqli) inclusa in PHP. Il codice usa il metodo [mysqli_prepare](https://secure.php.net/manual/mysqli.prepare.php) per creare un'istruzione insert preparata, quindi associa i parametri per ogni valore di colonna inserito usando il metodo [mysqli_stmt_bind_param](https://secure.php.net/manual/mysqli-stmt.bind-param.php). Il codice esegue l'istruzione usando il metodo [mysqli_stmt_execute](https://secure.php.net/manual/mysqli-stmt.execute.php) e successivamente chiude l'istruzione usando il metodo [mysqli_stmt_close](https://secure.php.net/manual/mysqli-stmt.close.php).

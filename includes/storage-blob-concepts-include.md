@@ -9,10 +9,10 @@ ms.date: 11/05/2019
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: e90e750bf248bdcc8e50c6ddc6e9fa0273660195
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79136019"
 ---
 L'archivio BLOB di Azure è la soluzione di archiviazione di oggetti Microsoft per il cloud. L'archiviazione BLOB è ottimizzata per archiviare enormi quantità di dati non strutturati. I dati non strutturati sono dati che non seguono una definizione o un modello di dati specifico, ad esempio dati di testo o binari.

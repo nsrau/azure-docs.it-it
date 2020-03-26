@@ -17,10 +17,10 @@ ms.date: 09/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 917ba9274276fec5d01a40bdf7219e8d4fee1395
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78897753"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-fiori"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con SAP Fiori
@@ -62,14 +62,14 @@ Per configurare l'integrazione di SAP Fiori in Azure AD, è necessario aggiunger
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-sap-fiori"></a>Configurare e testare l'accesso Single Sign-On di Azure AD per SAP Fiori
 
-Configurare e testare l'accesso SSO di Azure AD con SAP Fiori usando un utente di test di nome **B.Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in SAP Fiori.
+Configurare e testare l'accesso SSO di Azure AD con SAP Fiori usando un utente di test di nome **B.Simon**. Per il corretto funzionamento dell'accesso SSO, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in SAP Fiori.
 
 Per configurare e testare l'accesso SSO di Azure AD con SAP Fiori, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
-    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
-1. **[Configurare l'accesso SSO di SAP Fiori](#configure-sap-fiori-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
+    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
+    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
+1. **[Configurare l'accesso SSO di SAP Fiori](#configure-sap-fiori-sso)** : per configurare le impostazioni dell'accesso Single Sign-On sul lato applicazione.
     1. **[Creare l'utente di test di SAP Fiori](#create-sap-fiori-test-user)** : per avere una controparte di B.Simon in SAP Fiori collegata alla rappresentazione dell'utente in Azure AD.
 1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
 
@@ -81,9 +81,9 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Assicurarsi che i servizi **http** e **https** siano attivi e che le relative porte siano assegnate al codice di transazione **SMICM**.
 
-1. Accedere al client SAP aziendale per il sistema SAP **T01**, in cui è obbligatorio l'accesso Single Sign-On. Attivare quindi la gestione della sessione di sicurezza HTTP.
+1. Accedere al client SAP aziendale per il sistema SAP **T01**, in cui è obbligatorio l’accesso Single Sign-On. Attivare quindi la gestione della sessione di sicurezza HTTP.
 
-    1. Passare al codice di transazione **SICF_SESSIONS**. Verranno visualizzati tutti i parametri di profilo rilevanti con i valori correnti. Il risultato dovrebbe essere simile al seguente:
+    1. Selezionare il codice di transazione **SICF_SESSIONS**. Verranno visualizzati tutti i parametri di profilo rilevanti con i valori correnti. Il risultato dovrebbe essere simile al seguente:
 
         ```
         login/create_sso2_ticket = 2
@@ -115,7 +115,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
         /sap/bc/webdynpro/sap/sec_diag_tool (This is only to enable / disable trace)
         ```
 
-1. Passare al codice di transazione **SAML2** nel client aziendale del sistema SAP [**T01/122**]. L'interfaccia utente di configurazione viene aperta in una nuova finestra del browser. In questo esempio, utilizziamo il client aziendale per il sistema SAP 122.
+1. Selezionare il codice di transazione **SAML2** nel client aziendale del sistema SAP [**T01/122**]. L’interfaccia utente di configurazione viene aperta in una nuova finestra del browser. In questo esempio, utilizziamo il client aziendale per il sistema SAP 122.
 
     ![Pagina di accesso del client SAP Fiori aziendale](./media/sapfiori-tutorial/tutorial-sapnetweaver-sapbusinessclient.png)
 
@@ -161,7 +161,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     > Set-AzureADServicePrincipal -ObjectId $ServicePrincipalObjectId -ReplyUrls "<Your Correct Reply URL(s)>"
     > ``` 
     > 
-    > È possibile impostare l'ID oggetto `ServicePrincipal` prima di eseguire lo script oppure in questo momento.
+    > È possibile impostare l’ID oggetto `ServicePrincipal` prima di eseguire lo script oppure in questo momento.
 
 1. L'applicazione SAP Fiori prevede un formato specifico per le asserzioni SAML. Configurare le attestazioni seguenti per questa applicazione. Per gestire questi valori di attributo, nel riquadro **Configura l'accesso Single Sign-On con SAML**, selezionare **Modifica**.
 
@@ -185,7 +185,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     ![Collegamento di download del certificato](common/metadataxml.png)
 
-1. Nella sezione **Configura SAP Fiori** copiare gli URL appropriati in base alle esigenze.
+1. Nella sezione **Configura SAP Fiori** copiare gli URL appropriati in base alle proprie esigenze.
 
     ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
 
@@ -221,7 +221,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 ## <a name="configure-sap-fiori-sso"></a>Configurare l'accesso SSO di SAP Fiori
 
-1. Accedere al sistema SAP e passare al codice di transazione **SAML2**. Verrà aperta una nuova finestra del browser con la pagina di configurazione SAML.
+1. Accedere al sistema SAP e selezionare il codice di transazione **SAML2**. Verrà aperta una nuova finestra del browser con la pagina di configurazione SAML.
 
 1. Per configurare i provider di identità attendibili (Azure AD) negli endpoint, selezionare la scheda **Provider attendibili**.
 
@@ -255,9 +255,9 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
     ![Opzioni Artifact Endpoints (Endpoint artefatto) in SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-artifactendpoint.png)
 
-1. In **Requisiti per l'autenticazione**, selezionare **Fine**.
+1. In **Requisiti per l’autenticazione**, selezionare **Fine**.
 
-    ![Opzioni Requisiti per l'autenticazione e Fine in SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-authentication.png)
+    ![Opzioni Requisiti per l’autenticazione e Fine in SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-authentication.png)
 
 1. Selezionare **Provider attendibile** > **Federazione delle identità** nella parte inferiore della pagina. Selezionare **Modifica**.
 
@@ -303,11 +303,11 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 ### <a name="create-sap-fiori-test-user"></a>Creare l'utente di test di SAP Fiori
 
-In questa sezione viene creato un utente di nome Britta Simon in SAP Fiori. Collaborare con il team di esperti SAP interno o con il partner SAP dell'organizzazione per aggiungere l'utente alla piattaforma SAP Fiori.
+In questa sezione viene creato un utente di nome Britta Simon in SAP Fiori. Collaborare con il team di esperti SAP interno o con il partner SAP dell'organizzazione per aggiungere l’utente alla piattaforma SAP Fiori.
 
 ## <a name="test-sso"></a>Testare l'accesso SSO
 
-1. Dopo aver attivato l'istanza Azure AD del provider di identità in SAP Fiori, accedere a uno degli URL seguenti per testare l'accesso Single Sign-On (non dovrebbero essere richiesti nome utente e password):
+1. Dopo aver attivato l’istanza Azure AD del provider di identità in SAP Fiori, accedere a uno degli URL seguenti per testare l'accesso Single Sign-On (non dovrebbero essere richiesti nome utente e password):
 
     * https:\//\<sapurl\>/sap/bc/bsp/sap/it00/default.htm
     * https:\//\<sapurl\>/sap/bc/bsp/sap/it00/default.htm
@@ -315,11 +315,11 @@ In questa sezione viene creato un utente di nome Britta Simon in SAP Fiori. Coll
     > [!NOTE]
     > Sostituire *sapurl* con il nome host SAP effettivo.
 
-1. L'URL di test consente di accedere alla pagina di test successiva in SAP. Se la pagina si apre, l'accesso Single Sign-On di Azure AD è configurato correttamente.
+1. L'URL di test consente di accedere alla pagina di test successiva in SAP. Se la pagina si apre, l’accesso Single Sign-On di Azure AD è configurato correttamente.
 
     ![Pagina di test standard in SAP](./media/sapfiori-tutorial/testingsso.png)
 
-1. Se viene chiesto di immettere nome utente e password, abilitare l'analisi per agevolare la diagnosi del problema. Per l'analisi, usare l'URL seguente: https:\//\<sapurl\>/sap/bc/webdynpro/sap/sec_diag_tool?sap-client=122&sap-language=EN#.
+1. Se viene chiesto di immettere nome utente e password, abilitare l’analisi per agevolare la diagnosi del problema. Per l’analisi, usare il seguente URL: https:\//\<sapurl\>/sap/bc/webdynpro/sap/sec_diag_tool?client-sap=122&lingua-sap=EN#.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

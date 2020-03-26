@@ -16,10 +16,10 @@ ms.date: 02/07/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a22a36d5e6c36008c3a574cbcf9be8ec4f52b82b
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77086434"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-boomi"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Boomi
@@ -48,7 +48,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-boomi-from-the-gallery"></a>Aggiunta di Boomi dalla raccolta
 
-Per configurare l'integrazione di Boomi in Azure AD, è necessario aggiungere Boomi dalla raccolta all'elenco di app SaaS gestite.
+Per configurare l'integrazione di Boomi in Azure AD, è necessario aggiungere Boomi dalla raccolta al proprio elenco di app SaaS gestite.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
 1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory**.
@@ -65,8 +65,8 @@ Configurare e testare l'accesso SSO di Azure AD con Boomi usando un utente di te
 Per configurare e testare l'accesso SSO di Azure AD con Boomi, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    * **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
-    * **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
+    * **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
+    * **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Configurare l'accesso Single Sign-On di Boomi](#configure-boomi-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
     * **[Creare l'utente di test di Boomi](#create-boomi-test-user)** : per avere una controparte di B.Simon in Boomi collegata alla rappresentazione dell'utente in Azure AD.
 1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
@@ -166,9 +166,9 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
     e. Copiare l'**URL dei metadati di AtomSphere**, passare all'**URL dei metadati** tramite il browser preferito e salvare l'output in un file. Caricare l'**URL dei metadati** nella sezione **Configurazione SAML di base** del portale di Azure.
 
-    f. Fare clic sul pulsante **Salva**.
+    f. Fare clic sul pulsante **Salva** .
 
-### <a name="create-boomi-test-user"></a>Creare l'utente di test di Boomi
+### <a name="create-boomi-test-user"></a>Creare un utente test di Boomi
 
 Per consentire agli utenti di Azure AD di accedere a Boomi, è necessario effettuarne il provisioning in Boomi. Nel caso di Boomi, il provisioning è un'attività manuale.
 
@@ -199,13 +199,13 @@ Per consentire agli utenti di Azure AD di accedere a Boomi, è necessario effett
     f. Fare clic su **OK**.
 
     > [!NOTE]
-    > L'utente non riceverà un messaggio di notifica di benvenuto contenente una password che può essere usata per accedere all'account di AtomSphere perché la password viene gestita tramite il provider di identità. È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da Boomi per eseguire il provisioning degli account utente di AAD.
+    > L'utente non riceverà un messaggio di notifica di benvenuto contenente una password che può essere utilizzata per accedere all'account di AtomSphere perché la password viene gestita tramite il provider di identità. È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da Boomi per eseguire il provisioning degli account utente di AAD.
 
 ## <a name="test-sso"></a>Testare l'accesso SSO
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di Boomi nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Boomi per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di Boomi nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Boomi per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e1a6858d5eda8227b3f7c1b90dee86f44273a258
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74846352"
 ---
 # <a name="tutorial-use-risk-detections-to-trigger-multi-factor-authentication-and-password-changes"></a>Esercitazione: Usare i rilevamenti di eventi di rischio per attivare Multi-Factor Authentication e modifiche delle password
@@ -59,7 +59,7 @@ Azure AD Identity Protection include un criterio predefinito che può essere uti
 1. Fare clic su **Registrazione MFA**.
 1. Impostare Imponi criteri su **Sì**.
    1. Con l'impostazione di questo criterio, tutti gli utenti dovranno registrare i metodi per prepararsi all'uso di Multi-Factor Authentication.
-1. Fare clic su **Save**.
+1. Fare clic su **Salva**.
 
    ![Richiedere agli utenti di registrarsi per l'autenticazione a più fattori all'accesso](./media/tutorial-risk-based-sspr-mfa/risk-based-require-mfa-registration.png)
 

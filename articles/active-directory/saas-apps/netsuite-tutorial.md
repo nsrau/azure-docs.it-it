@@ -16,10 +16,10 @@ ms.date: 01/22/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6a920e58f1ffd4c3e3e9769bf6346100a8677b90
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76760054"
 ---
 # <a name="tutorial-integrate-azure-ad-single-sign-on-sso-with-netsuite"></a>Esercitazione: Integrare l'accesso Single Sign-On (SSO) di Azure Active Directory con NetSuite
@@ -146,7 +146,7 @@ In questa sezione viene creato un utente di test di nome B.Simon nel portale di 
 In questa sezione si abilita l'utente B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a NetSuite.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
-1. Nell'elenco delle applicazioni selezionare **NetSuite**.
+1. Nell'elenco di applicazioni selezionare **NetSuite**.
 1. Nel riquadro della panoramica cercare la sezione **Gestione** e quindi selezionare il collegamento **Utenti e gruppi**.
 
    ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
@@ -256,7 +256,7 @@ In questa sezione si abilita l'utente B.Simon all'uso dell'accesso Single Sign-O
 
 ### <a name="create-the-netsuite-test-user"></a>Creare l'utente di test di NetSuite
 
-In questa sezione viene creato un utente di nome B.Simon in NetSuite. NetSuite supporta il provisioning utenti JIT, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se non esiste già un utente in NetSuite, ne viene creato uno nuovo dopo l'autenticazione.
+In questa sezione viene creato un utente di nome B.Simon in NetSuite. NetSuite supporta il provisioning JIT, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se non esiste già un utente in NetSuite, ne viene creato uno nuovo dopo l'autenticazione.
 
 ## <a name="test-sso"></a>Testare l'accesso SSO
 

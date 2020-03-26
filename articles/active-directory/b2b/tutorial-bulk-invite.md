@@ -12,10 +12,10 @@ manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c429648adeb0c81799bff2dca1650de965395a60
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77166447"
 ---
 # <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users-preview"></a>Esercitazione: Invitare in blocco utenti di Collaborazione B2B di Azure AD (anteprima)
@@ -38,7 +38,7 @@ Se si usa Collaborazione B2B di Azure Active Directory (Azure AD) per collaborar
 
 Se non si ha Azure Active Directory, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Sono necessari almeno due account di posta elettronica di test a cui inviare gli inviti. Gli account devono essere esterni all'organizzazione. È possibile usare qualsiasi tipo di account, inclusi gli account di social networking, come gli indirizzi gmail.com o outlook.com.
 

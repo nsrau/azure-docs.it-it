@@ -16,10 +16,10 @@ ms.date: 02/20/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9c598222978a1c831be6f5e9db9eb87b2d6b6b96
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78968673"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-8x8"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con 8x8
@@ -68,8 +68,8 @@ Configurare e testare l'accesso SSO di Azure AD con 8x8 usando un utente di test
 Per configurare e testare l'accesso SSO di Azure AD con 8x8, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
-    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
+    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
+    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Configurare l'accesso Single Sign-On di 8x8](#configure-8x8-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
     1. **[Creare l'utente di test di 8x8](#create-8x8-test-user)** : per avere una controparte di B.Simon in 8x8 collegata alla rappresentazione dell'utente in Azure AD.
 1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
@@ -196,11 +196,11 @@ La parte successiva dell'esercitazione dipende dal tipo di sottoscrizione 8x8 sc
 
     d. Fare clic sul pulsante **Sfoglia** per caricare il certificato scaricato dal portale di Azure.
 
-    e. Fare clic sul pulsante **Salva**.
+    e. Fare clic sul pulsante **Salva** .
 
 ### <a name="create-8x8-test-user"></a>Creare l'utente di test di 8x8
 
-In questa sezione viene creato un utente di nome Britta Simon in 8x8. Collaborare con il [team di supporto di 8x8](https://www.8x8.com/about-us/contact-us) per aggiungere gli utenti alla piattaforma 8x8. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente di nome Britta Simon in 8x8. Collaborare con il[team di supporto di 8x8](https://www.8x8.com/about-us/contact-us) per aggiungere gli utenti alla piattaforma 8x8. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ## <a name="test-sso"></a>Testare l'accesso SSO
 

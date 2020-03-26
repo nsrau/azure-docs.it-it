@@ -4,10 +4,10 @@ description: In questa esercitazione si usa l'effetto Modify di Criteri di Azure
 ms.date: 11/25/2019
 ms.topic: tutorial
 ms.openlocfilehash: 5e9cb9a4acb930c117374281a3debaeecce47110
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75965992"
 ---
 # <a name="tutorial-manage-tag-governance-with-azure-policy"></a>Esercitazione: Gestire la governance dei tag con Criteri di Azure
@@ -28,7 +28,7 @@ In questa esercitazione verranno completate le attività seguenti:
 > - Abbinare ogni requisito a una definizione dei criteri
 > - Raggruppare i criteri di tag in un'iniziativa
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare l'esercitazione, è necessaria una sottoscrizione di Azure. Se non se ne ha una, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 

@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
 ms.openlocfilehash: a6c1f893757baf1e6c85420b31997a5073cff684
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67094606"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-percolate"></a>Esercitazione: Integrazione di Azure Active Directory con Percolate
@@ -150,7 +150,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Percolate, seguire ques
 
     1. Selezionare **Salva**.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
 In questa sezione verrà creato un utente di test di nome Britta Simon nel portale di Azure.
 
@@ -174,7 +174,7 @@ In questa sezione verrà creato un utente di test di nome Britta Simon nel porta
 
     1. Selezionare **Create** (Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure AD, concedendole così accesso a Percolate.
 

@@ -17,10 +17,10 @@ ms.date: 10/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3a56c567d9548fd42be33cb9da7898029614ef61
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72533055"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-achieve3000"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Achieve3000
@@ -67,8 +67,8 @@ Configurare e testare l'accesso SSO di Azure AD con Achieve3000 usando un utente
 Per configurare e testare l'accesso SSO di Azure AD con Achieve3000, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
-    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
+    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
+    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Configurare l'accesso Single Sign-On di Achieve3000](#configure-achieve3000-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
     1. **[Creare l'utente di test di Achieve3000](#create-achieve3000-test-user)** : per avere una controparte di B.Simon in Achieve3000 collegata alla rappresentazione dell'utente in Azure AD.
 1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
@@ -144,7 +144,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 Per configurare l'accesso Single Sign-On sul lato **Achieve3000**, è necessario inviare il file di **XML metadati federazione** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di Achieve3000](https://www.achieve3000.com/contact-us/). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
-### <a name="create-achieve3000-test-user"></a>Creare l'utente di test di Achieve3000
+### <a name="create-achieve3000-test-user"></a>Creare un utente di test di Achieve3000
 
 In questa sezione viene creato un utente di nome B.Simon in Achieve3000. Per aggiungere utenti nella piattaforma Achieve3000, rivolgersi al  [team di supporto di Achieve3000](https://www.achieve3000.com/contact-us/). Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
@@ -152,7 +152,7 @@ In questa sezione viene creato un utente di nome B.Simon in Achieve3000. Per agg
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Facendo clic sul riquadro Achieve3000 nel pannello di accesso si dovrebbe accedere automaticamente all'istanza di Achieve3000 per cui è stato configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Facendo clic sul riquadro Achieve3000 nel pannello di accesso si dovrebbe accedere automaticamente all'applicazione Achieve3000 per cui è stato configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

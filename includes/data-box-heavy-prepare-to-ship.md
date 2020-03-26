@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 05/28/2019
 ms.author: alkohli
 ms.openlocfilehash: f5b60d862be0d71f71f770c47d88ad39f2fc6ac7
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "66419959"
 ---
 Il passaggio finale consiste nel preparare il dispositivo per la spedizione. In questo passaggio tutte le condivisioni del dispositivo vengono portate offline. Non è possibile accedere alle condivisioni dopo l'avvio del processo.

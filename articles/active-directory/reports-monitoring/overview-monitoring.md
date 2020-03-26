@@ -3,7 +3,7 @@ title: Che cos'è il monitoraggio di Azure Active Directory? | Microsoft Docs
 description: Offre una panoramica generale sul monitoraggio di Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: e2b3d8ce-708a-46e4-b474-123792f35526
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 04/18/2019
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 21102a52c6aa7ae97f3b1c2d671a341f19615a8e
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: d63f8440ca527a746f73574bc156037d85fc3599
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "68988198"
 ---
 # <a name="what-is-azure-active-directory-monitoring"></a>Che cos'è il monitoraggio di Azure Active Directory?
@@ -63,7 +63,7 @@ L'indirizzamento dei log a un hub eventi di Azure consente l'integrazione con st
 
 I [log di Monitoraggio di Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) sono una soluzione che consente di consolidare i dati di monitoraggio di diverse origini e offre un linguaggio di query e un motore di analisi per ottenere informazioni dettagliate sul funzionamento delle applicazioni e delle risorse. Inviando i log attività di Azure AD ai log di Monitoraggio di Azure è possibile recuperare e monitorare i dati rapidamente, nonché generare avvisi in modo efficace per i dati raccolti. Vedere come [inviare dati ai log di Monitoraggio di Azure](howto-integrate-activity-logs-with-log-analytics.md).
 
-È anche possibile installare le visualizzazioni predefinite per i log attività di Azure AD per il monitoraggio di scenari comuni relativi agli accessi e agli eventi di controllo. Vedere come [installare e usare le viste di Log Analytics per i log attività di Azure AD](howto-install-use-log-analytics-views.md).
+È anche possibile installare le visualizzazioni predefinite per i log attività di Azure AD per il monitoraggio di scenari comuni relativi agli accessi e agli eventi di controllo. Vedere come [installare e usare le viste di analisi dei log per i log attività di Azure AD](howto-install-use-log-analytics-views.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

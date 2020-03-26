@@ -5,10 +5,10 @@ keywords: jenkins, azure, devops, panoramica
 ms.topic: overview
 ms.date: 10/23/2019
 ms.openlocfilehash: a9297ebc116d75cfe1d4f37d4e9ada7d5198beae
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77620176"
 ---
 # <a name="azure-and-jenkins"></a>Azure e Jenkins

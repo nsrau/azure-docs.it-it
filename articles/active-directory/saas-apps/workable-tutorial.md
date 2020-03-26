@@ -17,10 +17,10 @@ ms.date: 04/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5fc1f6434bea8f75c7bcc7859c6f90d7abdd031b
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "71091044"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workable"></a>Esercitazione: Integrazione di Azure Active Directory con Workable
@@ -81,7 +81,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Workable, è 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di Workable](#configure-workable-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare un utente di test di Workable](#create-workable-test-user)** : per avere una controparte di Britta Simon in Workable collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -107,7 +107,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Workable, seguire quest
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Workable](common/both-replyurl.png)
 
-    Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://www.workable.com/auth/saml/<SUBDOMAIN>/callback`
+    Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://www.workable.com/auth/saml/<SUBDOMAIN>/callback`
 
 5. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 
@@ -144,7 +144,7 @@ Per abilitare il Single Sign-On in Workable, contattare l'account manager dedica
 
 Una volta abilitato il Single Sign-On, l'account manager di Workable lo comunicherà e si potrà usare la [pagina dell'accesso Single Sign-On di Workable](https://help.workable.com/hc/en-us/articles/360000067753-Single-Sign-on-SSO-Overview-Pro) per accedere tramite il sottodominio dell'account Workable.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
@@ -168,7 +168,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     d. Fare clic su **Crea**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Workable.
 

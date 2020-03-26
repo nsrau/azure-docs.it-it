@@ -17,10 +17,10 @@ ms.date: 12/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4c6eaf23950f83592a33709574be464f4499f0ab
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74823033"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-claromentis"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Claromentis
@@ -119,7 +119,7 @@ In questa sezione verrà creato un utente di test di nome B.Simon nel portale di
    1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
    1. Fare clic su **Crea**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione si abiliterà B. Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Claromentis.
 
@@ -173,7 +173,7 @@ In questa sezione si abiliterà B. Simon all'uso dell'accesso Single Sign-On di 
 
     c. Caricare il file **XML dei metadati della federazione** scaricato dal portale di Azure.
 
-    d. Fare clic su **Save**.
+    d. Fare clic su **Salva**.
 
 1. Si noterà ora che sono stati inseriti tutti gli URL nella sezione **Identity Provider** (Provider di identità) di **SAML Config** (Configurazione SAML).
 

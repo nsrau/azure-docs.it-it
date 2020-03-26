@@ -17,11 +17,11 @@ ms.author: markvi
 ROBOTS: NOINDEX,NOFOLLOW
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 57b68ebb21c0c10c3fbe3fd77d11785d16a10053
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58445916"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "60443467"
 ---
 # <a name="tutorial-use-a-user-assigned-managed-identity-on-a-linux-vm-to-access-azure-resource-manager"></a>Esercitazione: Usare un'identità gestita assegnata dall'utente in una macchina virtuale Linux per accedere ad Azure Resource Manager
 
@@ -29,7 +29,7 @@ ms.locfileid: "58445916"
 
 Questa esercitazione illustra come creare un'identità gestita assegnata dall'utente, assegnarla a una macchina virtuale Linux e quindi usare tale identità per accedere all'API di Azure Resource Manager. Le identità gestite per le risorse di Azure vengono gestite automaticamente da Azure. Tali identità consentono di eseguire l'autenticazione ai servizi che supportano l'autenticazione di Azure AD senza la necessità di incorporare le credenziali nel codice. 
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare un'identità gestita assegnata dall'utente

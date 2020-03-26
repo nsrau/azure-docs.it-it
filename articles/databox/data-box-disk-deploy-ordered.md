@@ -10,10 +10,10 @@ ms.date: 07/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ms.openlocfilehash: c1626542aba71f971ad96fe9f187ce9f1c1a99f3
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "70012933"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk"></a>Esercitazione: Ordinare un disco di Azure Data Box
@@ -60,13 +60,13 @@ Per ordinare Data Box Disk, seguire questa procedura.
     
    ![Cercare Azure Data Box 1](media/data-box-disk-deploy-ordered/search-data-box11.png)
 
-2. Fare clic su **Create**(Crea).
+2. Fare clic su **Crea**.
 
 3. Controllare se il servizio Data Box è disponibile nella propria area. Immettere o selezionare le informazioni seguenti e quindi fare clic su **Applica**.
 
     ![Selezionare l'opzione Data Box Disk](media/data-box-disk-deploy-ordered/select-data-box-sku-1.png)
 
-    |Impostazione|Valore|
+    |Impostazione|valore|
     |---|---|
     |Subscription|Selezionare la sottoscrizione per cui è abilitato il servizio Data Box.<br> La sottoscrizione viene collegata all'account di fatturazione. |
     |Tipo di trasferimento| Importa in Azure|
@@ -80,9 +80,9 @@ Per ordinare Data Box Disk, seguire questa procedura.
 
 6.  In **Ordine** specificare i **Dettagli ordine**. Immettere o selezionare le informazioni seguenti.
 
-    |Impostazione|Valore|
+    |Impostazione|valore|
     |---|---|
-    |NOME|Specificare un nome descrittivo per tenere traccia dell'ordine.<br> Il nome può contenere da 3 a 24 caratteri che possono essere lettere, numeri e trattini. <br> Il nome deve iniziare e terminare con una lettera o un numero. |
+    |Nome|Specificare un nome descrittivo per tenere traccia dell'ordine.<br> Il nome può contenere da 3 a 24 caratteri che possono essere lettere, numeri e trattini. <br> Il nome deve iniziare e terminare con una lettera o un numero. |
     |Resource group| Usare un gruppo esistente o crearne uno nuovo. <br> Un gruppo di risorse è un contenitore logico per le risorse che possono essere gestite o distribuite insieme. |
     |Area di Azure di destinazione| Selezionare l'area per l'account di archiviazione.<br> Attualmente sono supportati gli account di archiviazione in tutte le aree di Stati Uniti, Europa occidentale e settentrionale, Canada e Australia. |
     |Dimensioni dei dati stimate in TB| Immettere una stima in TB. <br>In base alle dimensioni dei dati, Microsoft invia un numero appropriato di dischi SSD da 8 TB (con capacità utilizzabile di 7 TB). <br>La capacità massima utilizzabile nei 5 dischi è di 35 TB. |
@@ -95,7 +95,7 @@ Per ordinare Data Box Disk, seguire questa procedura.
 
     Se si usa Data Box Disk per creare dischi gestiti da dischi rigidi virtuali in locale, è necessario fornire anche le informazioni seguenti:
 
-    |Impostazione  |Valore  |
+    |Impostazione  |valore  |
     |---------|---------|
     |Resource group     | Se si prevede la creazione di dischi gestiti da dischi rigidi virtuali in locale, creare un nuovo gruppo di risorse. Usare un gruppo di risorse esistente solo se è stato creato per l'ordine di Data Box Disk per il disco gestito dal servizio Data Box. <br> È supportato un solo gruppo di risorse.|
 

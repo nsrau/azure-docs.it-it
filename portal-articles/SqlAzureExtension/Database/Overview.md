@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/09/2019
 ms.author: ninarn
 ms.openlocfilehash: 99f19971eafaa1ddad1f96b187e18b79810560a2
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "61244460"
 ---
 # <a name="sql-database-documentation"></a>Documentazione sul database SQL
@@ -23,7 +23,7 @@ Il database SQL di Azure è un database relazionale distribuito come servizio (D
 
 Il database SQL di Azure consente di eseguire facilmente attività di gestione di base tramite il portale di Azure, l'interfaccia della riga di comando di Azure e Azure PowerShell. Informazioni su come eseguire attività di gestione di base usando i seguenti esempi introduttivi:
 
-- [Portale di Azure](/azure/sql-database/sql-database-single-database-get-started)
+- [Azure portal](/azure/sql-database/sql-database-single-database-get-started)
 - [Azure PowerShell](/azure/sql-database/sql-database-get-started-powershell)
 - [Interfaccia della riga di comando di Azure](/azure/sql-database/sql-database-get-started-cli)
 

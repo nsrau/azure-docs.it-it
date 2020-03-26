@@ -17,10 +17,10 @@ ms.date: 10/01/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f699e2244cde53200a9885602bd20c899c0ce4cd
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72241551"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-velpic-saml"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Velpic SAML
@@ -131,7 +131,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 1. Per automatizzare la configurazione all'interno di Velpic SAML, è necessario installare l'**estensione del browser per l'accesso sicuro ad App personali** facendo clic su **Installa l'estensione**.
 
-    ![Estensione per App personali](common/install-myappssecure-extension.png)
+    ![Estensione MyApps](common/install-myappssecure-extension.png)
 
 2. Dopo aver aggiunto l'estensione al browser, fare clic su **Configura Velpic SAML** per passare direttamente all'applicazione Velpic SAML. Specificare quindi le credenziali di amministratore per accedere a Velpic SAML. L'estensione del browser configurerà automaticamente l'applicazione e automatizzerà i passaggi da 3 a 8.
 
@@ -169,7 +169,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
     e. Copiare l'**URL di Single Sign-On** dalla casella di testo e incollarlo nel portale di Azure.
     
-    f. Fare clic su **Save**.
+    f. Fare clic su **Salva**.
 
 ### <a name="create-velpic-saml-test-user"></a>Creare l'utente di test di Velpic SAML
 
@@ -183,7 +183,7 @@ Accedere al sito aziendale di Velpic SAML come amministratore e seguire questa p
 
 2. Nella finestra di dialogo **Create New User** (Crea nuovo utente) effettuare le operazioni seguenti.
 
-    ![user](./media/velpicsaml-tutorial/velpic_8.png)
+    ![utente](./media/velpicsaml-tutorial/velpic_8.png)
     
     a. Nella casella di testo **First Name** (Nome) digitare il nome B.
 

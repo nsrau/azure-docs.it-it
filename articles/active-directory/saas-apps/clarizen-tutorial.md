@@ -17,10 +17,10 @@ ms.date: 01/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7b34e6087f3a6e7f3cc0f46c53d4fe903838d210
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73158607"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clarizen"></a>Esercitazione: Integrazione di Azure Active Directory con Clarizen
@@ -137,7 +137,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Clarizen, seguire quest
 
 1. Fare clic sulla scheda **Global Settings** (Impostazioni globali), quindi accanto a **Federated Authentication** (Autenticazione federata) fare clic su **edit** (modifica).
 
-    ![Scheda delle impostazioni globali](./media/clarizen-tutorial/tutorial_clarizen_002.png "Global Settings")
+    ![Scheda delle impostazioni globali](./media/clarizen-tutorial/tutorial_clarizen_002.png "Impostazioni globali")
 
 1. Nella finestra di dialogo **Federated Authentication** (Autenticazione federata) seguire questa procedura:
 
@@ -153,7 +153,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Clarizen, seguire quest
 
     e. Selezionare **Utilizza POST**.
 
-    f. Fare clic su **Save**.
+    f. Fare clic su **Salva**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
@@ -174,13 +174,13 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
     b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
-    Ad esempio: BrittaSimon@contoso.com
+    Ad esempio, usare BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
     d. Fare clic su **Crea**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Clarizen.
 

@@ -17,10 +17,10 @@ ms.date: 11/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bc887e95b6fa6f8b17fbbb3dbaae5105385a07fa
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74132147"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-screencast-o-matic"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Screencast-O-Matic
@@ -49,7 +49,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-screencast-o-matic-from-the-gallery"></a>Aggiunta di Screencast-O-Matic dalla raccolta
 
-Per configurare l'integrazione di Screencast-O-Matic in Azure AD, è necessario aggiungere Screencast-O-Matic dalla raccolta all'elenco di app SaaS gestite.
+Per configurare l'integrazione di Screencast-O-Matic in Azure AD, è necessario aggiungere Screencast-O-Matic dalla raccolta al proprio elenco delle app SaaS gestite.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
 1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory**.
@@ -65,8 +65,8 @@ Configurare e testare l'accesso SSO di Azure AD con Screencast-O-Matic usando un
 Per configurare e testare l'accesso SSO di Azure AD con Screencast-O-Matic, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    * **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
-    * **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
+    * **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
+    * **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Configurare l'accesso Single Sign-On di Screencast-O-Matic](#configure-screencast-o-matic-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
     * **[Creare l'utente di test di Screencast-O-Matic](#create-screencast-o-matic-test-user)** : per avere una controparte di B.Simon in Screencast-O-Matic collegata alla rappresentazione dell'utente in Azure AD.
 1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
@@ -130,7 +130,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 1. Per automatizzare la configurazione all'interno di Screencast-O-Matic, è necessario installare l'**estensione del browser per l'accesso sicuro ad App personali** facendo clic su **Installa l'estensione**.
 
-    ![Estensione per App personali](common/install-myappssecure-extension.png)
+    ![Estensione MyApps](common/install-myappssecure-extension.png)
 
 1. Dopo aver aggiunto l'estensione al browser, fare clic su **Configura Screencast-O-Matic** per passare direttamente all'applicazione Screencast-O-Matic. Nell'applicazione specificare le credenziali di amministratore per accedere a Screencast-O-Matic. L'estensione del browser configurerà automaticamente l'applicazione e automatizzerà i passaggi da 3 a 11.
 
@@ -160,15 +160,15 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
     ![Accesso](./media/screencast-tutorial/tutorial_screencast_save.png)
 
-### <a name="create-screencast-o-matic-test-user"></a>Creare l'utente di test di Screencast-O-Matic
+### <a name="create-screencast-o-matic-test-user"></a>Creare un utente di test di Screencast-O-Matic
 
-In questa sezione viene creato un utente di nome Britta Simon in Screencast-O-Matic. Screencast-O-Matic supporta il provisioning utenti JIT, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se non esiste già un utente in Screencast-O-Matic, ne viene creato uno nuovo dopo l'autenticazione. Per creare un utente manualmente, contattare il [team del supporto clienti di Screencast-O-Matic](mailto:support@screencast-o-matic.com).
+In questa sezione si crea un utente di nome Britta Simon in Screencast-O-Matic. Screencast-O-Matic supporta il provisioning utenti JIT, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se non esiste già un utente in Screencast-O-Matic, ne viene creato uno nuovo dopo l'autenticazione. Per creare un utente manualmente, contattare il [team del supporto clienti di Screencast-O-Matic](mailto:support@screencast-o-matic.com).
 
 ## <a name="test-sso"></a>Testare l'accesso SSO
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di Screencast-O-Matic nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Screencast-O-Matic per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di Screencast-O-Matic nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Screencast-O-Matic per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

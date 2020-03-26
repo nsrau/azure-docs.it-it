@@ -17,10 +17,10 @@ ms.date: 05/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ea824cfd5e80ce3aff06774a2e1525cf97d15f65
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67091860"
 ---
 # <a name="tutorial-integrate-sansan-with-azure-active-directory"></a>Esercitazione: Integrazione di Sansan con Azure Active Directory
@@ -29,7 +29,7 @@ Questa esercitazione descrive come integrare Sansan con Azure Active Directory (
 
 * Controllare in Azure AD chi può accedere a Sansan.
 * Abilitare gli utenti per l'accesso automatico a Sansan con gli account Azure AD personali.
-* È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
+* Gestire gli account in un'unica posizione centrale: il portale di Azure.
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
@@ -105,7 +105,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 Per configurare l'accesso Single Sign-On sul lato **Sansan**, è necessario inviare il file **Certificato (Base64)** scaricato e gli URL copiati appropriati dal portale di Azure al [team di supporto clienti di Sansan](https://www.sansan.com/form/contact). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
 In questa sezione verrà creato un utente di test di nome Britta Simon nel portale di Azure.
 
@@ -115,15 +115,15 @@ In questa sezione verrà creato un utente di test di nome Britta Simon nel porta
    1. Nel campo **Nome** immettere `Britta Simon`.  
    1. Nel campo **Nome utente** immettere username@companydomain.extension. Ad esempio: `BrittaSimon@contoso.com`.
    1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
-   1. Fare clic su **Create**(Crea).
+   1. Fare clic su **Crea**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione Britta Simon verrà abilitata per l'uso dell'accesso Single Sign-On di Azure concedendo l'accesso a Sansan.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
 1. Nell'elenco delle applicazioni selezionare **Sansan**.
-1. Nella pagina di panoramica dell'app trovare la sezione **Manage** (Gestione) e selezionare **Utenti e gruppi**.
+1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi**.
 
    ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
 

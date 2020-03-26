@@ -1,6 +1,6 @@
 ---
 title: Informazioni su Esplora dati di Azure
-description: Esplora dati di Azure è un servizio di esplorazione dei dati rapido e a scalabilità elevata per dati di log e di telemetria.
+description: Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
@@ -8,15 +8,15 @@ ms.service: data-explorer
 ms.topic: overview
 ms.date: 09/24/2018
 ms.openlocfilehash: 02b239922f481240341225ea68d8d0ee7492c48b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59044175"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "60445806"
 ---
 # <a name="what-is-azure-data-explorer"></a>Informazioni su Esplora dati di Azure
 
-Esplora dati di Azure è un servizio di esplorazione dei dati rapido e a scalabilità elevata per dati di log e di telemetria. Consente di gestire i numerosi flussi di dati generati dal software moderno, in modo da poter raccogliere, archiviare e analizzare i dati. Esplora dati di Azure è ideale per l'analisi di grandi volumi di dati eterogenei da qualsiasi origine dati, ad esempio siti Web, applicazioni, dispositivi IoT e altro ancora. Questi dati vengono usati per la diagnostica, il monitoraggio, la creazione di report, l'apprendimento automatico e altre funzionalità di analisi. Esplora dati di Azure semplifica l'inserimento dei dati e consente di eseguire complesse query ad hoc sui dati in pochi secondi.
+Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. Consente di gestire i numerosi flussi di dati generati dal software moderno, in modo da poter raccogliere, archiviare e analizzare i dati. Esplora dati di Azure è ideale per l'analisi di grandi volumi di dati eterogenei da qualsiasi origine dati, ad esempio siti Web, applicazioni, dispositivi IoT e altro ancora. Questi dati vengono usati per la diagnostica, il monitoraggio, la creazione di report, l'apprendimento automatico e altre funzionalità di analisi. Esplora dati di Azure semplifica l'inserimento dei dati e consente di eseguire complesse query ad hoc sui dati in pochi secondi.
 
 ## <a name="what-makes-azure-data-explorer-unique"></a>Caratteristiche di Esplora dati di Azure
 
@@ -44,9 +44,9 @@ Il diagramma seguente illustra i diversi aspetti dell'uso di Esplora dati di Azu
 
 L'uso di Esplora dati di Azure in genere segue questo modello:
 
-1. **Creare il database:** creare un *cluster* e quindi creare uno o più *database* al suo interno. [Guida introduttiva: Creare un database e un cluster di Esplora dati di Azure](create-cluster-database-portal.md)
+1. **Creare il database:** Creare un *cluster* e quindi creare uno o più *database* in tale cluster. [Quickstart: Create an Azure Data Explorer cluster and database](create-cluster-database-portal.md) (Guida introduttiva: creare un cluster e un database di Esplora dati di Azure)
 
-1. **Inserire dati:** caricare i dati nelle tabelle del database per poter eseguire query. [Guida introduttiva: Inserire dati dall'hub eventi in Esplora dati di Azure](ingest-data-event-hub.md)
+1. **Inserire i dati:** caricare i dati nelle tabelle del database per poter eseguire query. [Guida introduttiva: Inserire dati dall'hub eventi in Esplora dati di Azure](ingest-data-event-hub.md)
 
 1. **Eseguire query sul database:** usare l'applicazione Web per eseguire, esaminare e condividere le query e i risultati. È disponibile nel portale di Azure e come applicazione autonoma. È anche possibile inviare le query a livello di codice (con un SDK) o a un endpoint dell'API REST. [Guida introduttiva: Eseguire query sui dati in Esplora dati di Azure](web-query-data.md)
 
@@ -70,7 +70,7 @@ Tutti i commenti e suggerimenti su Esplora dati di Azure e sul relativo linguagg
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Guida introduttiva: Creare un database e un cluster di Esplora dati di Azure](create-cluster-database-portal.md)
+[Quickstart: Create an Azure Data Explorer cluster and database](create-cluster-database-portal.md) (Guida introduttiva: creare un cluster e un database di Esplora dati di Azure)
 
 [Guida introduttiva: Inserire dati dall'hub eventi in Esplora dati di Azure](ingest-data-event-hub.md)
 

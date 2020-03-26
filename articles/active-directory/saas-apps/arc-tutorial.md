@@ -17,10 +17,10 @@ ms.date: 10/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 19acb111cc672b0e044142b3f8ccdc7fb7572559
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74893281"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-arc-publishing---sso"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Arc Publishing - SSO
@@ -69,8 +69,8 @@ Configurare e testare l'accesso SSO di Azure AD con Arc Publishing - SSO usando 
 Per configurare e testare l'accesso SSO di Azure AD con Arc Publishing - SSO, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
-    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
+    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
+    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Configurare l'accesso Single Sign-On di Arc Publishing - SSO](#configure-arc-publishing---sso-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
     1. **[Creare l'utente di test di Arc Publishing - SSO](#create-arc-publishing---sso-test-user)** : per avere una controparte di B.Simon in Arc Publishing - SSO collegata alla rappresentazione dell'utente in Azure AD.
 1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
@@ -105,7 +105,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 1. Oltre quelli elencati in precedenza, l'applicazione Arc Publishing - SSO prevede il passaggio di altri attributi nella risposta SAML. Tali attributi sono indicati di seguito. Anche questi attributi vengono prepopolati, ma è possibile esaminarli in base ai requisiti.
 
 
-    | NOME | Attributo di origine|
+    | Nome | Attributo di origine|
     | ---------------| --------------- |    
     | firstName | user.givenname |
     | lastName | user.surname |
@@ -159,7 +159,7 @@ Per configurare l'accesso Single Sign-On sul lato **Arc Publishing - SSO** è ne
 
 ### <a name="create-arc-publishing---sso-test-user"></a>Creare l'utente di test di Arc Publishing - SSO
 
-In questa sezione viene creato un utente di nome Britta Simon in Arc Publishing - SSO. Arc Publishing - SSO supporta il provisioning utenti JIT, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se non esiste già un utente in Arc Publishing - SSO, ne viene creato uno nuovo dopo l'autenticazione.
+In questa sezione viene creato un utente di nome Britta Simon in Arc Publishing - SSO. Arc Publishing - SSO supporta il provisioning JIT, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se non esiste già un utente in Arc Publishing - SSO, ne viene creato uno nuovo dopo l'autenticazione.
 
 > [!Note]
 > Se è necessario creare un utente manualmente, contattare il [team di supporto di Arc Publishing - SSO](mailto:inf@washpost.com).
@@ -168,7 +168,7 @@ In questa sezione viene creato un utente di nome Britta Simon in Arc Publishing 
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di Arc Publishing - SSO nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Arc Publishing - SSO per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di Arc Publishing - SSO nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Arc Publishing - SSO per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

@@ -5,10 +5,10 @@ ms.date: 07/22/2019
 ms.topic: quickstart
 ms.custom: mvc
 ms.openlocfilehash: 171479a0f60741b545a171315e99cc5e4e8bc843
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74849208"
 ---
 # <a name="connect-functions-to-azure-storage-using-visual-studio"></a>Connettere funzioni ad Archiviazione di Azure con Visual Studio
@@ -19,7 +19,7 @@ Questo articolo illustra come usare Visual Studio per connettere la funzione cre
 
 La maggior parte dei binding richiede una stringa di connessione archiviata che verrà usata da Funzioni per accedere al servizio associato. Per semplicità, usare l'account di archiviazione creato con l'app per le funzioni. La connessione a questo account è già archiviata in un'impostazione dell'app denominata `AzureWebJobsStorage`.  
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Prima di iniziare questo articolo, è necessario: 
 
@@ -79,7 +79,7 @@ Quando il binding di output viene usato per la prima volta, nell'account di arch
 
 1. Espandere il nodo **Code**, quindi fare doppio clic sulla coda denominata **outqueue** per visualizzarne il contenuto in Visual Studio. 
 
-   La coda contiene il messaggio creato dall'associazione di output della coda quando è stata eseguita la funzione attivata da HTTP. Se la funzione è stata richiamata con il valore predefinito di `name` *Azure*, il messaggio della coda è *Name passed to the function: Azure*.
+   La coda contiene il messaggio creato dall'associazione di output della coda quando è stata eseguita la funzione attivata da HTTP. Se la funzione è stata richiamata con il valore predefinito di `name`*Azure*, il messaggio della coda è *Name passed to the function: Azure*.
 
     ![Messaggio della coda visualizzato in Azure Storage Explorer](./media/functions-add-output-binding-storage-queue-vs-code/function-queue-storage-output-view-queue.png)
 

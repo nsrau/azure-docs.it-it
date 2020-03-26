@@ -17,10 +17,10 @@ ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3c7f8c8efcad0a07a3d3a56925866b10d94f82ed
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68227472"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pagedna"></a>Esercitazione: Integrazione di Azure Active Directory con PageDNA
@@ -145,7 +145,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con PageDNA, seguire questa
 
 Per configurare l'accesso Single Sign-On sul lato PageDNA, è necessario inviare il certificato (base) scaricato e gli URL appropriati, copiati dal portale di Azure, al [team di supporto di PageDNA](mailto:success@pagedna.com). Il team di PageDNA verificherà che la connessione Single Sign-On SAML sia impostata correttamente su entrambi i lati.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
 In questa sezione viene creato un utente di test di nome Britta Simon nel portale di Azure.
 
@@ -169,7 +169,7 @@ In questa sezione viene creato un utente di test di nome Britta Simon nel portal
 
     1. Selezionare **Create** (Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione si abilita l'utente di nome Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a PageDNA.
 

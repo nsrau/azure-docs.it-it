@@ -17,12 +17,12 @@ ms.workload: media
 ms.date: 03/09/2020
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 7e4a242c1f81a504872dae6399683483c836daf2
-ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
+ms.openlocfilehash: bd3890757377525cf9c178866a2a2fbc0791b9de
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79086897"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79461011"
 ---
 # <a name="azure-media-services-v3-overview"></a>Panoramica di Servizi multimediali di Azure v3
 
@@ -31,7 +31,7 @@ Servizi multimediali di Azure è una piattaforma basata su cloud che consente di
 Gli SDK di Servizi multimediali v3 sono basati sulla [specifica OpenAPI (Swagger) per Servizi multimediali v3](https://aka.ms/ams-v3-rest-sdk).
 
 > [!NOTE]
-> Attualmente, è possibile usare il [portale di Azure](https://portal.azure.com/) per gestire gli [eventi live](live-events-outputs-concept.md) si Servizi multimediali v3, visualizzare (non gestire) gli [asset](assets-concept.md) v3 e [ottenere informazioni sull'accesso alle API](access-api-portal.md). Per tutte le altre attività di gestione, ad esempio, [trasformazioni e processi](transforms-jobs-concept.md) e [protezione del contenuto](content-protection-overview.md), usare l'[API REST](https://aka.ms/ams-v3-rest-ref), l'[interfaccia della riga di comando](https://aka.ms/ams-v3-cli-ref) o uno degli [SDK](media-services-apis-overview.md#sdks) supportati.
+> Attualmente, è possibile usare il [portale di Azure](https://portal.azure.com/) per gestire gli [eventi live](live-events-outputs-concept.md) si Servizi multimediali v3, visualizzare (non gestire) gli [asset](assets-concept.md) v3 e [ottenere informazioni sull'accesso alle API](access-api-portal.md). Per tutte le altre attività di gestione, ad esempio, [trasformazioni e processi](transforms-jobs-concept.md) e [protezione del contenuto](content-protection-overview.md), usare l'[API REST](https://docs.microsoft.com/rest/api/media/), l'[interfaccia della riga di comando](https://aka.ms/ams-v3-cli-ref) o uno degli [SDK](media-services-apis-overview.md#sdks) supportati.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -47,7 +47,7 @@ Per informazioni su conformità, privacy e sicurezza in Servizi multimediali, vi
 
 Servizi multimediali consente di creare un'ampia gamma di flussi di lavoro multimediali nel cloud. Di seguito vengono indicati alcuni esempi di ciò che è possibile fare con Servizi multimediali:
 
-* Distribuire video in vari formati in modo da poterli riprodurre su una vasta gamma di browser e dispositivi. Per la distribuzione in streaming live e on demand su vari client (dispositivi mobili, TV, PC e così via), è necessario codificare e creare pacchetti di contenuti audio e video in modo appropriato. Per informazioni su come distribuire e trasmettere questo tipo di contenuto, vedere [Avvio rapido: Codificare e trasmettere i file](stream-files-dotnet-quickstart.md).
+* Distribuire video in vari formati in modo da poterli riprodurre su una vasta gamma di browser e dispositivi. Per la distribuzione in streaming live e on demand su vari client (dispositivi mobili, TV, PC e così via), è necessario codificare e creare pacchetti di contenuti audio e video in modo appropriato. Per informazioni su come distribuire ed eseguire lo streaming di questo tipo di contenuti, vedere [Guida introduttiva: Eseguire lo streaming di file video](stream-files-dotnet-quickstart.md).
 * Eseguire lo streaming live di eventi sportivi per un vasto pubblico online, ad esempio calcio, baseball, eventi sportivi universitari e liceali e altro ancora.
 * Trasmettere riunioni pubbliche ed eventi, quali riunioni comunali o municipali e di enti legislativi.
 * Analizzare contenuti audio o video registrati. Per migliorare la soddisfazione dei clienti, le organizzazioni possono ad esempio eseguire la conversione della voce in testo scritto e creare indici di ricerca e dashboard. Possono quindi estrarre informazioni su reclami comuni, origini dei reclami e altri dati rilevanti.

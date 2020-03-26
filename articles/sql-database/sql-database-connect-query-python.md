@@ -12,29 +12,29 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/25/2019
 ms.openlocfilehash: e82f8feae0096202e48a58296dd2e9d21bb61885
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76768565"
 ---
-# <a name="quickstart-use-python-to-query-an-azure-sql-database"></a>Avvio rapido: Usare Python per eseguire query su un database SQL di Azure
+# <a name="quickstart-use-python-to-query-an-azure-sql-database"></a>Guida introduttiva: Usare Python per eseguire query su un database SQL di Azure
 
 Questo argomento di avvio rapido illustra come usare Python per connettersi a un database SQL di Azure e usare le istruzioni T-SQL per eseguire query sui dati.
 
 ## <a name="prerequisites"></a>Prerequisites
 
-- Un account Azure con una sottoscrizione attiva. [Creare un account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Un [database SQL di Azure](sql-database-single-database-get-started.md)
 - [Python](https://python.org/downloads) 3 e software correlato
 
-  # <a name="macostabmacos"></a>[macOS](#tab/macos)
+  # <a name="macos"></a>[macOS](#tab/macos)
 
   Per installare Homebrew e Python, il driver ODBC, SQLCMD e il driver Python per SQL Server, seguire i passaggi **1.2**, **1.3** e **2.1** della procedura [Creare app Python con SQL Server in macOS](https://www.microsoft.com/sql-server/developer-get-started/python/mac/).
 
   Per altre informazioni, vedere [Driver Microsoft ODBC in macOS](/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server).
 
-  # <a name="ubuntutabubuntu"></a>[Ubuntu](#tab/ubuntu)
+  # <a name="ubuntu"></a>[Ubuntu](#tab/ubuntu)
 
   Per installare Python e altri pacchetti necessari, usare `sudo apt-get install python python-pip gcc g++ build-essential`.
 
@@ -42,7 +42,7 @@ Questo argomento di avvio rapido illustra come usare Python per connettersi a un
 
   Per altre informazioni, vedere [Driver Microsoft ODBC in Linux](/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server).
 
-  # <a name="windowstabwindows"></a>[Windows](#tab/windows)
+  # <a name="windows"></a>[Windows](#tab/windows)
 
   Per installare Python, il driver ODBC, SQLCMD e il driver Python per SQL Server, vedere [Configurare un ambiente per lo sviluppo di pyodbc Python](/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development#windows).
 

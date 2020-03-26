@@ -9,10 +9,10 @@ ms.date: 05/24/2018
 ms.author: cfowler
 ms.custom: include file
 ms.openlocfilehash: 8aa6cb3f10b86a6821cd93190ecc2135508739cb
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "67594001"
 ---
 ## <a name="create-a-new-cdn-profile"></a>Creare un nuovo profilo di rete CDN
@@ -31,7 +31,7 @@ Un profilo di rete CDN è un contenitore per endpoint della rete CDN e specifica
 
 3. Per le impostazioni del profilo della rete CDN, usare i valori specificati nella tabella seguente:
    
-    | Impostazione  | Valore |
+    | Impostazione  | valore |
     | -------- | ----- |
     | **Nome** | Immettere *my-cdn-profile-123* per il nome del profilo. Il nome deve essere univoco a livello globale. Se è già in uso, è possibile immettere un nome diverso. |
     | **Sottoscrizione** | Selezionare una sottoscrizione di Azure dall'elenco a discesa. |

@@ -8,11 +8,11 @@ ms.topic: overview
 ms.date: 07/26/2019
 ms.author: sngun
 ms.openlocfilehash: 5b2e2c51eaa878ba0ce8bc31c001575acebe6919
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967555"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79214909"
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Introduzione ad Azure Cosmos DB: API di tabella
 
@@ -39,11 +39,11 @@ Se attualmente si usa l'archivio tabelle di Azure, passando all'API Tabelle di A
 | Distribuzione globale | Singola area con un'area di lettura secondaria leggibile facoltativa per la disponibilità elevata. Non è possibile avviare il failover. | [Distribuzione globale chiavi in mano](distribute-data-globally.md) da una a qualsiasi numero di aree. Supporto per [failover automatici e manuali](high-availability.md) in qualsiasi momento, ovunque nel mondo. Funzionalità multimaster che consente a qualsiasi area di accettare operazioni di scrittura. |
 | Indicizzazione | Solo indice primario in PartitionKey e RowKey. Nessun indice secondario. | Indicizzazione automatica e completa su tutte le proprietà per impostazione predefinita, senza gestione degli indici. |
 | Query | L'esecuzione di query usa l'indice per la chiave primaria ed esegue l'analisi negli altri casi. | Le query possono trarre vantaggio dall'indicizzazione automatica sulle proprietà, per query con durata ridotta. |
-| Consistency | Assoluta entro l'area primaria. Eventuale entro l'area secondaria. | [Cinque livelli di coerenza ben definiti](consistency-levels.md) per bilanciare disponibilità, latenza, velocità effettiva e coerenza in base alle esigenze dell'applicazione. |
+| Consistenza | Assoluta entro l'area primaria. Eventuale entro l'area secondaria. | [Cinque livelli di coerenza ben definiti](consistency-levels.md) per bilanciare disponibilità, latenza, velocità effettiva e coerenza in base alle esigenze dell'applicazione. |
 | Prezzi | Ottimizzati per l'archiviazione. | Ottimizzati per la velocità effettiva. |
 | Contratti di servizio | Disponibilità dal 99,9% al 99,99%, a seconda della strategia di replica. | Disponibilità del 99,999% in lettura, disponibilità del 99,99% in scrittura per gli account di una singola area e disponibilità del 99,999% in scrittura per gli account di più aree. [Contratti di servizio completi](https://azure.microsoft.com/support/legal/sla/cosmos-db/) relativi a disponibilità, latenza, velocità effettiva e coerenza. |
 
-## <a name="get-started"></a>Attività iniziali
+## <a name="get-started"></a>Introduzione
 
 Creare un account Azure Cosmos DB nel [portale di Azure](https://portal.azure.com). Vedere quindi [Avvio rapido per l'API di tabella con .NET](create-table-dotnet.md). 
 

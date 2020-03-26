@@ -16,10 +16,10 @@ ms.date: 01/16/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d49915271580b5665981bf7e212f3d5712c86456
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76292980"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-successfactors"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con SuccessFactors
@@ -48,7 +48,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-successfactors-from-the-gallery"></a>Aggiunta di SuccessFactors dalla raccolta
 
-Per configurare l'integrazione di SuccessFactors in Azure AD, è necessario aggiungerla dalla raccolta all'elenco di app SaaS gestite.
+Per configurare l'integrazione di SuccessFactors in Azure AD, è necessario aggiungerla dalla raccolta al proprio elenco di app SaaS gestite.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
 1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory**.
@@ -60,15 +60,15 @@ Per configurare l'integrazione di SuccessFactors in Azure AD, è necessario aggi
 
 ## <a name="configure-and-test-azure-ad-sso-for-successfactors"></a>Configurare e testare l'accesso Single Sign-On di Azure AD per SuccessFactors
 
-Configurare e testare l'accesso SSO di Azure AD con SuccessFactors usando un utente di test di nome **B.Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in SuccessFactors.
+Configurare e testare l'accesso SSO di Azure AD con SuccessFactors usando un utente di test di nome **B.Simon**. Per il corretto funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in SuccessFactors.
 
 Per configurare e testare l'accesso SSO di Azure AD con SuccessFactors, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
-    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
+    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
+    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
 2. **[Configurare l'accesso Single Sign-On di SuccessFactors](#configure-successfactors-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
-    1. **[Creare l'utente di test di SuccessFactors](#create-successfactors-test-user)** : per avere una controparte di B.Simon in SuccessFactors collegata alla rappresentazione dell'utente in Azure AD.
+    1. **[Creare un utente di test di SuccessFactors](#create-successfactors-test-user)** : per avere una controparte di B. Simon in SuccessFactors collegata alla rappresentazione dell'utente in Azure AD.
 3. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurare l'accesso SSO di Azure AD
@@ -149,7 +149,7 @@ In questa sezione verrà creato un utente di test di nome B.Simon nel portale di
 In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a SuccessFactors.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
-1. Nell'elenco delle applicazioni selezionare **SuccessFactors**.
+1. Nell'elenco di applicazioni, selezionare **SuccessFactors**.
 1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi**.
 
     ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
@@ -183,7 +183,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
   
     b. Impostare **SAML Asserting Party Name** (Nome dell'entità di asserzione SAML), ad esempio Autorità di certificazione SAML + Nome società.
 
-    c. Nella casella di testo **URL autorità di certificazione** incollare il valore di **Identificatore di Azure AD** copiato dal portale di Azure.
+    c. Nella casella di testo **URL autorità di certificazione** incollare il valore di **Identificatore Azure AD** copiato dal portale di Azure.
 
     d. Selezionare **Asserzione** per **Require Mandatory Signature** (Richiedi firma obbligatoria).
 
@@ -239,7 +239,7 @@ Per creare utenti in SuccessFactors, è necessario contattare il [team di suppor
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di SuccessFactors nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di SuccessFactors per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di SuccessFactors nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione SuccessFactors per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

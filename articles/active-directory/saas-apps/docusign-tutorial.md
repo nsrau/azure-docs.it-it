@@ -16,10 +16,10 @@ ms.date: 01/31/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 01f969c3bc6f546025b3bbe5826181efdfa69be0
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76983638"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-docusign"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con DocuSign
@@ -109,7 +109,7 @@ In questa sezione verrà creato un utente di test di nome B.Simon nel portale di
 1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
-   1. Nel campo **Nome** immettere **B.Simon**.  
+   1. Nel campo **Nome** immettere **B. Simon**.  
    1. Nel campo **Nome utente** immettere `<username>@<companydomain>.<extension>`. Ad esempio: `B.Simon@contoso.com`.
    1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
    1. Selezionare **Create** (Crea).

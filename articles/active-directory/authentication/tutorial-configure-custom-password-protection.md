@@ -11,10 +11,10 @@ author: iainfoulds
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4abb15462689470c87e9cf5ba8d5be8af2e45bfd
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78253121"
 ---
 # <a name="tutorial-configure-custom-banned-passwords-for-azure-active-directory-password-protection"></a>Esercitazione: Configurare password personalizzate escluse per password di protezione di Azure Active Directory
@@ -71,7 +71,7 @@ Per abilitare l'elenco di password personalizzate escluse e aggiungervi voci, se
 1. Aggiungere stringhe all'**Elenco password personalizzate escluse**, una stringa per riga. Per l'elenco di password personalizzate escluse valgono le considerazioni e le limitazioni seguenti:
 
     * L'elenco di password personalizzate escluse può contenere fino a 1000 termini.
-    * L'elenco di password personalizzate escluse fa distinzione tra maiuscole e minuscole.
+    * L'elenco personalizzato di password escluse fa distinzione tra maiuscole e minuscole.
     * L'elenco di password personalizzate escluse tiene conto della sostituzione dei caratteri comuni, ad esempio "o" e "0" oppure "a" e "\@".
     * La lunghezza minima delle stringhe è quattro caratteri, la massima è 16 caratteri.
 

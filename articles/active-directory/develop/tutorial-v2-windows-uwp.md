@@ -16,10 +16,10 @@ ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: 68473ff5a3faddd36bd4299dfdc882f679acd068
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "79129893"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Chiamare l'API Microsoft Graph da un'applicazione della piattaforma UWP (XAML)
@@ -206,7 +206,7 @@ Questa sezione illustra come usare MSAL per ottenere un token per l'API Microsof
     }
     ```
 
-#### Ottenere un token utente in modo interattivo<a name="more-information"></a>
+#### <a name="get-a-user-token-interactively"></a>Ottenere un token utente in modo interattivo<a name="more-information"></a>
 
 Con il metodo `AcquireTokenInteractive` viene visualizzata una finestra in cui viene chiesto agli utenti di eseguire l'accesso. Le applicazioni in genere richiedono agli utenti di eseguire l'accesso in modo interattivo quando accedono per la prima volta a una risorsa protetta. Potrebbe essere necessario eseguire l'accesso anche quando un'operazione invisibile all'utente per l'acquisizione di un token ha esito negativo. Ad esempio, quando scade la password dell'utente.
 
@@ -295,7 +295,7 @@ Per disconnettere l'utente, aggiungere il metodo seguente al file *MainPage.xaml
 > [!NOTE]
 > MSAL.NET usa metodi asincroni per acquisire i token o modificare gli account. È necessario supportare le azioni dell'interfaccia utente nel thread di interfaccia utente. È per questo motivo che viene effettuata la chiamata a `Dispatcher.RunAsync` e vengono adottate le precauzioni per chiamare `ConfigureAwait(false)`.
 
-#### Altre informazioni sulla disconnessione<a name="more-information-on-sign-out"></a>
+#### <a name="more-information-about-signing-out"></a>Altre informazioni sulla disconnessione<a name="more-information-on-sign-out"></a>
 
 Il metodo `SignOutButton_Click` rimuove l'utente dalla cache utente MSAL. Questo metodo indica in modo efficace a MSAL di dimenticare l'utente corrente. Una richiesta futura di acquisizione di un token ha esito positivo solo se è interattiva.
 
@@ -320,7 +320,7 @@ Aggiungere il metodo seguente al file *MainPage.xaml.cs* per visualizzare inform
    }
    ```
 
-#### Altre informazioni<a name="more-information-1"></a>
+#### <a name="more-information"></a>Altre informazioni<a name="more-information-1"></a>
 
 I token ID acquisiti tramite **OpenID Connect** includono anche un piccolo subset di informazioni relative all'utente. `DisplayBasicTokenInfo` visualizza le informazioni di base contenute nel token. Queste informazioni includono il nome visualizzato e l'ID dell'utente, nonché la data di scadenza del token e la stringa che rappresenta il token di accesso stesso. Selezionando più volte il pulsante **Chiamare API Microsoft Graph**, è possibile notare che lo stesso token è stato riutilizzato per richieste successive. Se MSAL decide che è il momento di rinnovare il token, è possibile anche visualizzare la data di scadenza estesa.
 

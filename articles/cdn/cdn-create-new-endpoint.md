@@ -16,18 +16,18 @@ ms.date: 05/24/2018
 ms.author: magattus
 ms.custom: mvc
 ms.openlocfilehash: 2a3325217c1ec854e4f6cef3facce5580fb06a57
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78383586"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79215069"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint"></a>Guida introduttiva: Creare un profilo e un endpoint della rete CDN di Azure
 In questa guida introduttiva si abilita la rete per la distribuzione di contenuti (rete CDN) di Azure creando un nuovo profilo e un nuovo endpoint della rete CDN. Dopo aver creato un profilo e un endpoint, è possibile avviare la distribuzione di contenuti ai clienti.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 Ai fini di questa guida introduttiva è necessario aver creato un account di archiviazione denominato *mystorageacct123*, che verrà usato per il nome host dell'origine. Per altre informazioni, vedere [Integrare un account di archiviazione di Azure con la rete CDN di Azure](cdn-create-a-storage-account-with-cdn.md).
 
 ## <a name="log-in-to-the-azure-portal"></a>Accedere al Portale di Azure
@@ -51,7 +51,7 @@ Dopo aver creato un profilo di rete CDN, è possibile usarlo per creare un endpo
 
 3. Per le impostazioni dell'endpoint, usare i valori specificati nella tabella seguente:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | ------- | ----- |
     | **Nome** | Immettere *my-endpoint-123* come nome host dell'endpoint. Il nome deve essere univoco a livello globale. Se è già in uso, è possibile immettere un nome diverso. Questo nome viene usato per accedere alle risorse memorizzate nella cache nel dominio _&lt;nome endpoint&gt;_ .azureedge.net.|
     | **Tipo di origine** | Selezionare **Archiviazione**. | 

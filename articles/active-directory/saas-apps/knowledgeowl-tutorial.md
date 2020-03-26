@@ -17,10 +17,10 @@ ms.date: 10/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dc7d481b757a76ba65e0c78a93bde1bc58ace7cc
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72791629"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-knowledgeowl"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con KnowledgeOwl
@@ -66,8 +66,8 @@ Configurare e testare l'accesso SSO di Azure AD con KnowledgeOwl usando un utent
 Per configurare e testare l'accesso SSO di Azure AD con KnowledgeOwl, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    * **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
-    * **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
+    * **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
+    * **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Configurare l'accesso Single Sign-On di KnowledgeOwl](#configure-knowledgeowl-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
     * **[Creare l'utente di test di KnowledgeOwl](#create-knowledgeowl-test-user)** : per avere una controparte di B.Simon in KnowledgeOwl collegata alla rappresentazione dell'utente in Azure AD.
 1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
@@ -153,7 +153,7 @@ In questa sezione verrà creato un utente di test di nome B.Simon nel portale di
 In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a KnowledgeOwl.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
-1. Nell'elenco delle applicazioni selezionare **KnowledgeOwl**.
+1. Nell'elenco di applicazioni selezionare **KnowledgeOwl**.
 1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi**.
 
    ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
@@ -206,7 +206,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
     ![Configurazione di KnowledgeOwl](./media/knowledgeowl-tutorial/configure4.png)
 
-### <a name="create-knowledgeowl-test-user"></a>Creare l'utente di test di KnowledgeOwl
+### <a name="create-knowledgeowl-test-user"></a>Creare un utente di test di KnowledgeOwl
 
 In questa sezione viene creato un utente di nome B.Simon in KnowledgeOwl. KnowledgeOwl supporta il provisioning utenti JIT, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se non esiste già un utente in KnowledgeOwl, ne viene creato uno nuovo dopo l'autenticazione.
 
@@ -217,7 +217,7 @@ In questa sezione viene creato un utente di nome B.Simon in KnowledgeOwl. Knowle
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di KnowledgeOwl nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di KnowledgeOwl per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di KnowledgeOwl nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione KnowledgeOwl per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

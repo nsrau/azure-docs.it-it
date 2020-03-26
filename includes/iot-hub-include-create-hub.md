@@ -9,10 +9,10 @@ ms.date: 02/14/2020
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: cc53f7ae6eb6254eaa05bf643ecfa0188650df95
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77461863"
 ---
 Questa sezione illustra come creare un hub IoT usando il [portale di Azure](https://portal.azure.com).
@@ -56,7 +56,7 @@ Questa sezione illustra come creare un hub IoT usando il [portale di Azure](http
 
 1.  Selezionare **Avanti: Tag** per passare alla schermata successiva.
 
-    I tag sono coppie nome-valore. È possibile assegnare lo stesso tag a più risorse e gruppi di risorse per classificare le risorse e consolidare la fatturazione. Per altre informazioni, vedere [Usare tag per organizzare le risorse di Azure](../articles/azure-resource-manager/management/tag-resources.md).
+    I tag sono coppie nome/valore. È possibile assegnare lo stesso tag a più risorse e gruppi di risorse per classificare le risorse e consolidare la fatturazione. Per altre informazioni, vedere [Usare tag per organizzare le risorse di Azure](../articles/azure-resource-manager/management/tag-resources.md).
 
     ![Assegnare tag per l'hub con il portale di Azure](./media/iot-hub-include-create-hub/iot-hub-create-tabs.png)
 

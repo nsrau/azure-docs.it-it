@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 12/13/2017
 ms.author: sewatson
 ms.openlocfilehash: bd5951fe86bde7e71c77d5564216421c1d2d1ea4
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "64708476"
 ---
 # <a name="azure-cosmos-db-documentation"></a>Documentazione di Azure Cosmos DB

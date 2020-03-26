@@ -16,10 +16,10 @@ ms.date: 01/16/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e2835fda7b709ded9fac5503d4ba0bf4b8bdd5ec
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76290666"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-gotomeeting"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con GoToMeeting
@@ -65,8 +65,8 @@ Configurare e testare l'accesso SSO di Azure AD con GoToMeeting usando un utente
 Per configurare e testare l'accesso SSO di Azure AD con GoToMeeting, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    * **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
-    * **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
+    * **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
+    * **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Configurare l'accesso Single Sign-On di GoToMeeting](#configure-gotomeeting-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
     * **[Creare l'utente di test di GoToMeeting](#create-gotomeeting-test-user)** : per avere una controparte di B.Simon in GoToMeeting collegata alla rappresentazione dell'utente in Azure AD.
 1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
@@ -108,13 +108,13 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     ![Collegamento di download del certificato](common/certificatebase64.png)
 
-6. Nella sezione **Configura GoToMeeting** copiare gli URL appropriati in base alle esigenze.
+6. Nella sezione **Configura GoToMeeting** copiare gli URL appropriati in base alle proprie esigenze.
 
     ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
 
     a. URL di accesso
 
-    b. Identificatore di Azure AD
+    b. Identificatore Azure AD
 
     c. URL di chiusura sessione
 
@@ -155,11 +155,11 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 2. Attivare la casella di controllo "My Identity Provider has been updated with the new domain" (Il provider di identità è stato aggiornato con il nuovo dominio). Al termine, fare clic su **Done** (Operazione completata).
 
-### <a name="create-gotomeeting-test-user"></a>Creare l'utente di test di GoToMeeting
+### <a name="create-gotomeeting-test-user"></a>Creare un utente test di GoToMeeting
 
-In questa sezione viene creato un utente di nome Britta Simon in in GoToMeeting. GoToMeeting supporta il provisioning JIT (Just-In-Time), abilitato per impostazione predefinita.
+In questa sezione si crea un utente di nome Britta Simon in GoToMeeting. GoToMeeting supporta il provisioning JIT (Just-In-Time), abilitato per impostazione predefinita.
 
-Non è necessario alcun intervento dell'utente in questa sezione. Se non esiste già un utente in GoToMeeting, ne viene creato uno nuovo quando si prova ad accedere a GoToMeeting.
+Non è necessario alcun intervento dell'utente in questa sezione. Se un utente non è già presente in GoToMeeting, ne viene creato uno nuovo quando si prova ad accedere a GoToMeeting.
 
 > [!NOTE]
 > Se è necessario creare un utente manualmente, contattare il [team di supporto di GoToMeeting](https://support.logmeininc.com/gotomeeting).
@@ -168,7 +168,7 @@ Non è necessario alcun intervento dell'utente in questa sezione. Se non esiste 
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di GoToMeeting nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di GoToMeeting per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di GoToMeeting nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione GoToMeeting per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

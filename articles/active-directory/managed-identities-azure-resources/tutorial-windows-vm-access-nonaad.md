@@ -16,10 +16,10 @@ ms.date: 01/10/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cd9f85e3bfd11ee655ce581c60a5b65e13f4497b
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75971857"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-key-vault"></a>Esercitazione: Usare un'identità gestita assegnata dal sistema per una macchina virtuale Windows per accedere ad Azure Key Vault 
@@ -35,7 +35,7 @@ Si apprenderà come:
 > * Concedere alla macchina virtuale l'accesso a un segreto archiviato in un insieme di credenziali delle chiavi 
 > * Ottenere un token di accesso usando l'identità  della macchina virtuale e usarlo per recuperare il segreto dall'insieme di credenziali delle chiavi 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 

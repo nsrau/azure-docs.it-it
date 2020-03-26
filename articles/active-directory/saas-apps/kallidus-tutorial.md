@@ -17,15 +17,15 @@ ms.date: 07/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e3caa48e1461552f2999aa2fd91447a41d146379
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76120316"
 ---
 # <a name="tutorial-integrate-kallidus-with-azure-active-directory"></a>Esercitazione: Integrare Kallidus con Azure Active Directory
 
-Questa esercitazione descrive come integrare Kallidus con Azure Active Directory (Azure AD). Integrando Kallidus con Azure AD, è possibile:
+Questa esercitazione descrive come integrare Kallidus con Azure Active Directory (Azure AD). Quando si integra Kallidus con Azure AD, è possibile:
 
 * Controllare in Azure AD chi può accedere a Kallidus.
 * Abilitare gli utenti per l'accesso automatico a Kallidus con gli account Azure AD personali.
@@ -57,16 +57,16 @@ Per configurare l'integrazione di Kallidus in Azure AD, è necessario aggiungere
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-Configurare e testare l'accesso SSO di Azure AD con Kallidus usando un utente di test di nome **B.Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Kallidus.
+Configurare e testare l'accesso SSO di Azure AD con Kallidus usando un utente di test di nome **B. Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Kallidus.
 
 Per configurare e testare l'accesso SSO di Azure AD con Kallidus, completare le procedure di base seguenti:
 
-1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
+1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare Kallidus](#configure-kallidus)** per configurare le impostazioni di Single Sign-On sul lato applicazione.
-3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
+3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
 4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** per consentire a B.Simon di usare l'accesso Single Sign-On di Azure AD.
-5. **[Creare l'utente di test di Kallidus](#create-kallidus-test-user)** per avere una controparte di B.Simon in Kallidus collegata alla rappresentazione dell'utente in Azure AD.
-6. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
+5. **[Creare l'utente di test di Kallidus](#create-kallidus-test-user)** per avere una controparte di B. Simon in Kallidus collegata alla rappresentazione dell'utente in Azure AD.
+6. **[Testare l'accesso Single Sign-On](#test-sso)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-sso"></a>Configurare l'accesso SSO di Azure AD
 
@@ -85,7 +85,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     > [!NOTE]
     > Poiché non è reale, è necessario aggiornare questo valore con l'URL di risposta effettivo. Per ottenere il valore, contattare il [team di supporto clienti di Kallidus](https://kallidus.zendesk.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML**fare clic sul pulsante Copia per copiare l'**URL dei metadati di federazione dell'app** e salvarlo nel computer.
+1. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic sul pulsante Copia per copiare l'**URL dei metadati di federazione dell'app** e salvarlo nel computer in uso.
 
    ![Collegamento di download del certificato](common/copy-metadataurl.png)
 
@@ -107,7 +107,7 @@ In questa sezione verrà creato un utente di test di nome B.Simon nel portale di
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
-In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Kallidus.
+In questa sezione si abiliterà B. Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Kallidus.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
 1. Nell'elenco delle applicazioni selezionare **Kallidus**.

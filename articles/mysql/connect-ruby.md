@@ -9,19 +9,19 @@ ms.devlang: ruby
 ms.topic: quickstart
 ms.date: 12/02/2019
 ms.openlocfilehash: dc8c7352856b11cb6cc4c9c404eb567cb72b720d
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74770646"
 ---
-# <a name="azure-database-for-mysql-use-ruby-to-connect-and-query-data"></a>Database di Azure per MySQL: Usare Ruby per connettersi ai dati ed eseguire query
+# <a name="azure-database-for-mysql-use-ruby-to-connect-and-query-data"></a>Database di Azure per MySQL: usare Ruby per connettersi ed eseguire query sui dati
 Questa guida introduttiva illustra come connettersi a un database di Azure per MySQL usando un'applicazione [Ruby](https://www.ruby-lang.org) e Gem [mysql2](https://rubygems.org/gems/mysql2) dalle piattaforme Windows, Ubuntu Linux e Mac. Spiega come usare le istruzioni SQL per eseguire query, inserire, aggiornare ed eliminare dati nel database. Questo argomento presuppone che si abbia familiarità con lo sviluppo con Ruby, ma non con Database di Azure per MySQL.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 Questa guida introduttiva usa le risorse create in una delle guide seguenti come punto di partenza:
 - [Create an Azure Database for MySQL server using Azure portal](./quickstart-create-mysql-server-database-using-azure-portal.md) (Creare un database di Azure per il server MySQL usando il portale di Azure)
-- [Create an Azure Database for MySQL server using Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md) (Creare un database di Azure per il server MySQL usando l'interfaccia della riga di comando di Azure)
+- [Creare un database di Azure per il server MySQL tramite l'interfaccia della riga di comando di Azure](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
 ## <a name="install-ruby"></a>Installare Ruby
 Installare Ruby, Gem e la libreria MySQL2 nel computer. 

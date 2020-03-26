@@ -17,10 +17,10 @@ ms.date: 05/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 08453928ab000cf906c451fa6c1cd619a00ee4ca
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/04/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67561193"
 ---
 # <a name="tutorial-integrate-appraisd-with-azure-active-directory"></a>Esercitazione: Integrare Appraisd con Azure Active Directory
@@ -105,7 +105,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Per automatizzare la configurazione all'interno di Appraisd, è necessario installare l'**estensione del browser per l'accesso sicuro alle app personali** facendo clic su **Installa estensione**.
 
-    ![Estensione My Apps](common/install-myappssecure-extension.png)
+    ![Estensione MyApps](common/install-myappssecure-extension.png)
 
 2. Dopo aver aggiunto l'estensione al browser, fare clic su **Configura Appraisd** per passare direttamente all'applicazione Appraisd. Da qui, fornire le credenziali di amministratore per accedere ad Appraisd. L'estensione del browser configurerà automaticamente l'applicazione per l'utente e automatizzerà i passaggi da 3 a 7.
 
@@ -139,7 +139,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     c. Nel Blocco note aprire il certificato con codifica Base 64 scaricato dal portale di Azure, copiarne il contenuto e quindi incollarlo nella casella **X.509 Certificate** (Certificato X.509) e fare clic su **Save** (Salva).
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
 In questa sezione verrà creato un utente di test di nome B. Simon nel portale di Azure.
 
@@ -149,9 +149,9 @@ In questa sezione verrà creato un utente di test di nome B. Simon nel portale d
    1. Nel campo **Nome** immettere `B. Simon`.  
    1. Nel campo **Nome utente** immettere username@companydomain.extension. Ad esempio: `B. Simon@contoso.com`.
    1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
-   1. Fare clic su **Create**(Crea).
+   1. Fare clic su **Crea**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione B. Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso ad Appraisd.
 

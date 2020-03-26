@@ -13,10 +13,10 @@ ms.topic: quickstart
 ms.date: 01/30/2020
 ms.author: spelluru
 ms.openlocfilehash: 34583ef49b2f919391af3fe5700a558b2dc40700
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77187231"
 ---
 # <a name="capture-event-hubs-data-in-azure-storage-and-read-it-by-using-python-azure-eventhub-version-5"></a>Acquisire i dati di Hub eventi in archiviazione di Azure e leggerli con Python (azure-eventhub versione 5)
@@ -28,7 +28,7 @@ In questo argomento di avvio rapido si usa [Azure Python SDK](https://azure.micr
 > [!IMPORTANT]
 > In questo argomento di avvio rapido si usa le versione 5 di Python SDK per Hub eventi di Azure. Per un argomento di avvio rapido sulla versione 1 di Python SDK, vedere [questo articolo](event-hubs-capture-python.md). 
 
-Questa guida di avvio rapido spiega come: 
+Questa guida introduttiva spiega come: 
 
 > [!div class="checklist"]
 > * Creare un account di archiviazione e un contenitore BLOB di Azure nel portale di Azure.
@@ -37,7 +37,7 @@ Questa guida di avvio rapido spiega come:
 > * Inviare i dati all'hub eventi tramite uno script Python.
 > * Leggere ed elaborare i file ottenuti da Acquisizione di Hub eventi tramite un altro script Python.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Python 2.7 e 3.5 o versione successiva con PIP installato e aggiornato.  
 - Una sottoscrizione di Azure. Se non se ne ha una, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.  

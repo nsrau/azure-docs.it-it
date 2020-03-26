@@ -7,13 +7,13 @@ ms.date: 07/17/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 276f8860f407693a7ff08048399fa6edf16aaf0a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75459073"
 ---
-# <a name="quickstart-create-and-deploy-a-web-app-to-azure-service-fabric-mesh"></a>Avvio rapido: Creare e distribuire un'app Web in mesh Azure Service Fabric
+# <a name="quickstart-create-and-deploy-a-web-app-to-azure-service-fabric-mesh"></a>Guida introduttiva: Creare e distribuire un'app Web in Azure Service Fabric Mesh
 
 Azure Service Fabric Mesh è un servizio completamente gestito che consente agli sviluppatori di distribuire applicazioni di microservizi senza dover gestire macchine virtuali, archiviazione o connettività di rete.
 
@@ -27,7 +27,7 @@ In questa guida introduttiva si creerà una nuova applicazione Service Fabric Me
 
 Aprire Visual Studio e selezionare **File** > **Nuovo** > **Progetto**.
 
-Nella finestra di dialogo **Nuovo progetto** digitare `mesh` nella casella di **ricerca** visualizzata nella parte superiore. Selezionare il modello **Service Fabric Mesh Application** (Applicazione Service Fabric Mesh). Se non viene visualizzato il modello, verificare di avere installato Service Fabric Mesh SDK e la versione di anteprima degli strumenti di Visual Studio, come descritto in [Configurare l'ambiente di sviluppo](service-fabric-mesh-howto-setup-developer-environment-sdk.md). 
+Nella finestra di dialogo **Nuovo progetto** digitare **nella casella di**ricerca`mesh` visualizzata nella parte superiore. Selezionare il modello **Service Fabric Mesh Application** (Applicazione Service Fabric Mesh). Se non viene visualizzato il modello, verificare di avere installato Service Fabric Mesh SDK e la versione di anteprima degli strumenti di Visual Studio, come descritto in [Configurare l'ambiente di sviluppo](service-fabric-mesh-howto-setup-developer-environment-sdk.md). 
 
 Nella casella **Nome** digitare **ServiceFabricMesh1** e nella casella **Percorso** impostare il percorso della cartella in cui verranno archiviati i file per il progetto.
 

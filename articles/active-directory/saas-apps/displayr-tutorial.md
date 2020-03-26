@@ -17,10 +17,10 @@ ms.date: 05/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3cd1785595cf2f6b2401837780106f52fdc97e36
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67103978"
 ---
 # <a name="tutorial-integrate-displayr-with-azure-active-directory"></a>Esercitazione: Integrazione di Displayr con Azure Active Directory
@@ -111,7 +111,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     e. Selezionare **Crea gruppi come attestazioni dei ruoli**.
 
-    f. Fare clic su **Save**.
+    f. Fare clic su **Salva**.
 
 1. Nella sezione **Configura Displayr** copiare gli URL appropriati in base alle proprie esigenze.
 
@@ -121,7 +121,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Per automatizzare la configurazione all'interno di Displayr, è necessario installare l'**estensione del browser per l'accesso sicuro My Apps** facendo clic su **Installa estensione**.
 
-    ![Estensione My Apps](common/install-myappssecure-extension.png)
+    ![Estensione MyApps](common/install-myappssecure-extension.png)
 
 2. Dopo aver aggiunto l'estensione al browser, fare clic su **Setup Displayr** (Configura Displayr) per passare direttamente all'applicazione Displayr. Da qui, fornire le credenziali di amministratore per accedere a Displayr. L'estensione del browser configurerà automaticamente l'applicazione e automatizzerà i passaggi da 3 a 6.
 
@@ -153,9 +153,9 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     f. I valori di **Group mappings** (Mapping dei gruppi) sono facoltativi.
 
-    g. Fare clic su **Save**.  
+    g. Fare clic su **Salva**.  
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
 In questa sezione verrà creato un utente di test di nome Britta Simon nel portale di Azure.
 
@@ -165,9 +165,9 @@ In questa sezione verrà creato un utente di test di nome Britta Simon nel porta
    1. Nel campo **Nome** immettere `Britta Simon`.  
    1. Nel campo **Nome utente** immettere username@companydomain.extension. Ad esempio: `BrittaSimon@contoso.com`.
    1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
-   1. Fare clic su **Create**(Crea).
+   1. Fare clic su **Crea**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione Britta Simon verrà abilitata per l'uso dell'accesso Single Sign-On di Azure concedendo l'accesso a Displayr.
 
@@ -211,7 +211,7 @@ Per consentire agli utenti di Azure AD di accedere a Displayr, è necessario eff
 
     c. Selezionare i valori appropriati per **Group membership** (Appartenenza a gruppi).
 
-    d. Fare clic su **Save**.
+    d. Fare clic su **Salva**.
 
 ### <a name="test-sso"></a>Testare l'accesso SSO
 

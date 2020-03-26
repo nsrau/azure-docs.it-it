@@ -11,15 +11,15 @@ ms.workload: infrastructure-services
 ms.date: 05/10/2019
 ms.author: eamono
 ms.openlocfilehash: 9f99ce5862850c2453e9e72241fff77fe091616f
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "65521419"
 ---
 # <a name="tutorial-integrate-azure-automation-with-event-grid-and-microsoft-teams"></a>Esercitazione: Integrazione di Automazione di Azure con Griglia di eventi e Microsoft Teams
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Importare un runbook di esempio della Griglia di eventi.

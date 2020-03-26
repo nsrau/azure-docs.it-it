@@ -10,11 +10,11 @@ keywords: automazione di azure, DSC, powershell, configurazione dello stato desi
 ms.date: 02/24/2020
 ms.topic: overview
 ms.openlocfilehash: 57b44db9c1bb9a607ad8478b7208df40441020c2
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78372257"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79290129"
 ---
 # <a name="what-is-azure-arc-for-servers-preview"></a>Che cos'è Azure Arc per server (anteprima)
 
@@ -72,7 +72,7 @@ Prima di configurare le macchine virtuali con Azure Arc per server (anteprima), 
 
 ## <a name="tls-12-protocol"></a>Protocollo TLS 1.2
 
-Per garantire la sicurezza dei dati in transito in Azure, si consiglia vivamente di configurare il computer per l'uso di Transport Layer Security (TLS) 1,2. Le versioni precedenti di TLS/Secure Sockets Layer (SSL) sono state considerate vulnerabili. Nonostante siano ancora attualmente in uso per questioni di compatibilità con le versioni precedenti, **non sono consigliate**. 
+Per garantire la sicurezza dei dati in transito verso Azure, è consigliabile configurare la macchina per usare il protocollo Transport Layer Security (TLS) 1.2. Le versioni precedenti di TLS/Secure Sockets Layer (SSL) sono state considerate vulnerabili. Nonostante siano ancora attualmente in uso per questioni di compatibilità con le versioni precedenti, **non sono consigliate**. 
 
 |Piattaforma/linguaggio | Supporto | Altre informazioni |
 | --- | --- | --- |
@@ -135,7 +135,7 @@ az provider register --namespace 'Microsoft.GuestConfiguration'
 
 ## <a name="connected-machine-agent"></a>Agente Connected Machine
 
-È possibile scaricare il pacchetto agente computer connesso di Azure per Windows e Linux dalle posizioni elencate di seguito.
+È possibile scaricare il pacchetto dell'agente Azure Connected Machine per Windows e Linux dai percorsi elencati di seguito.
 
 - [Pacchetto di installazione dell'agente Connected Machine per Windows](https://aka.ms/AzureConnectedMachineAgent) dall'Area download Microsoft.
 - Il pacchetto dell'agente per Linux viene distribuito dal [repository dei pacchetti](https://packages.microsoft.com/) di Microsoft usando il formato di pacchetto preferito per la distribuzione (RPM o DEB).
@@ -143,11 +143,11 @@ az provider register --namespace 'Microsoft.GuestConfiguration'
 >[!NOTE]
 >Durante questa anteprima è stato rilasciato un solo pacchetto, adatto per Ubuntu 16.04 o 18.04.
 
-L'agente del computer connesso di Azure per Windows e Linux può essere aggiornato alla versione più recente manualmente o automaticamente in base alle esigenze. Per Windows, l'aggiornamento dell'agente può essere eseguito automaticamente usando Windows Update e per Ubuntu, usando lo strumento da riga di comando [apt](https://help.ubuntu.com/lts/serverguide/apt.html) .
+L'agente Azure Connected Machine per Windows e Linux può essere aggiornato alla versione più recente manualmente o automaticamente in base alle esigenze. Per Windows, l'aggiornamento dell'agente può essere eseguito automaticamente usando Windows Update e per Ubuntu, usando lo strumento da riga di comando [apt](https://help.ubuntu.com/lts/serverguide/apt.html).
 
-### <a name="agent-status"></a>Stato agente
+### <a name="agent-status"></a>Stato dell'agente
 
-L'agente del computer connesso Invia un messaggio di heartbeat normale al servizio ogni 5 minuti. Se uno non viene ricevuto per 15 minuti, il computer viene considerato offline e lo stato verrà automaticamente modificato in **disconnesso** nel portale. Quando si riceve un messaggio di heartbeat successivo dall'agente del computer connesso, il relativo stato verrà automaticamente impostato su **connesso**.
+L'agente Connected Machine invia un messaggio regolare di tipo heartbeat al servizio ogni 5 minuti. Se uno non viene ricevuto per 15 minuti, il computer viene considerato offline e lo stato verrà automaticamente modificato in **Disconnesso** nel portale. Alla ricezione di un messaggio successivo di tipo heartbeat dall'agente Connected Machine, il relativo stato verrà automaticamente modificato in **Connesso**.
 
 ## <a name="install-and-configure-agent"></a>Installare e configurare l'agente
 

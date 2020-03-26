@@ -17,10 +17,10 @@ ms.date: 06/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 14eac7240c183911fba763bf21c37077107cc275
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68944927"
 ---
 # <a name="tutorial-integrate-globalone-with-azure-active-directory"></a>Esercitazione: Integrare GlobalOne con Azure Active Directory
@@ -91,7 +91,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     | FirstName | user.givenname |
     | LastName | user.surname |
     | Email | user.mail |
-    | Azienda | `<YOUR COMPANY NAME>` |
+    | Company | `<YOUR COMPANY NAME>` |
 
     a. Fare clic su **Aggiungi nuova attestazione** per aprire la finestra di dialogo **Gestisci attestazioni utente**.
 
@@ -107,9 +107,9 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     e. Nell'elenco **Attributo di origine** selezionare il valore dell'attributo indicato per la riga.
 
-    f. Fare clic su **Ok**
+    f. Fare clic su **OK**.
 
-    g. Fare clic su **Save**.
+    g. Fare clic su **Salva**.
 
 1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** trovare **Certificato (base)** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer in uso.
 
@@ -123,7 +123,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 Per configurare l'accesso Single Sign-On sul lato **GlobalOne**, è necessario inviare il file **Certificato (base)** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di GlobalOne](mailto:globalone.support@ey.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
 In questa sezione verrà creato un utente di test di nome B. Simon nel portale di Azure.
 
@@ -133,9 +133,9 @@ In questa sezione verrà creato un utente di test di nome B. Simon nel portale d
    1. Nel campo **Nome** immettere `B. Simon`.  
    1. Nel campo **Nome utente** immettere username@companydomain.extension. Ad esempio: `B. Simon@contoso.com`.
    1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
-   1. Fare clic su **Create**(Crea).
+   1. Fare clic su **Crea**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione si abiliterà B. Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a GlobalOne.
 

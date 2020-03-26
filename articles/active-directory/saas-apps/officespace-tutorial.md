@@ -17,10 +17,10 @@ ms.date: 10/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 80712c7f59845287006c1699524573c6094498b3
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75561712"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-officespace-software"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con OfficeSpace Software
@@ -33,7 +33,7 @@ Questa esercitazione descrive come integrare OfficeSpace Software con Azure Acti
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per iniziare, sono necessari gli elementi seguenti:
 
@@ -52,7 +52,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-officespace-software-from-the-gallery"></a>Aggiunta di OfficeSpace Software dalla raccolta
 
-Per configurare l'integrazione di OfficeSpace Software in Azure AD, è necessario aggiungere OfficeSpace Software dalla raccolta all'elenco di app SaaS gestite.
+Per configurare l'integrazione di OfficeSpace Software in Azure AD, è necessario aggiungere OfficeSpace Software dalla raccolta al proprio elenco di app SaaS gestite.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
 1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory**.
@@ -69,8 +69,8 @@ Configurare e testare l'accesso SSO di Azure AD con OfficeSpace Software usando 
 Per configurare e testare l'accesso SSO di Azure AD con OfficeSpace Software, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
-    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
+    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
+    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Configurare l'accesso Single Sign-On di OfficeSpace Software](#configure-officespace-software-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
     1. **[Creare l'utente di test di OfficeSpace Software](#create-officespace-software-test-user)** : per avere una controparte di B.Simon in OfficeSpace Software collegata alla rappresentazione dell'utente in Azure AD.
 1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
@@ -136,7 +136,7 @@ In questa sezione verrà creato un utente di test di nome B.Simon nel portale di
 In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a OfficeSpace Software.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
-1. Nell'elenco delle applicazioni selezionare **OfficeSpace Software**.
+1. Nell'elenco di applicazioni selezionare **OfficeSpace Software**.
 1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi**.
 
    ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
@@ -155,15 +155,15 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 2. Passare a **Impostazioni** e fare clic su **Connettori**.
 
-    ![Configurare l'accesso Single Sign-On sul lato app](./media/officespace-tutorial/tutorial_officespace_002.png)
+    ![Configurazione accesso Single Sign-On sul lato app](./media/officespace-tutorial/tutorial_officespace_002.png)
 
 3. Fare clic su **Autenticazione SAML**.
 
-    ![Configurare l'accesso Single Sign-On sul lato app](./media/officespace-tutorial/tutorial_officespace_003.png)
+    ![Configurazione accesso Single Sign-On sul lato app](./media/officespace-tutorial/tutorial_officespace_003.png)
 
 4. Nella sezione **SAML Authentication** seguire questa procedura:
 
-    ![Configurare l'accesso Single Sign-On sul lato app](./media/officespace-tutorial/tutorial_officespace_004.png)
+    ![Configurazione accesso Single Sign-On sul lato app](./media/officespace-tutorial/tutorial_officespace_004.png)
 
     a. Nella casella di testo **Logout provider url** (URL provider di disconnessione) incollare il valore di **URL di disconnessione** copiato dal portale di Azure.
 
@@ -184,7 +184,7 @@ In questa sezione viene creato un utente di nome B.Simon in OfficeSpace Software
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di OfficeSpace Software nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di OfficeSpace Software per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di OfficeSpace Software nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione OfficeSpace Software per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

@@ -16,10 +16,10 @@ ms.date: 01/16/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 64cae5812a380725d612d27190042797542ee255
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76289102"
 ---
 # <a name="tutorial-integrate-oracle-cloud-infrastructure-console-with-azure-active-directory"></a>Esercitazione: Integrare Oracle Cloud Infrastructure Console con Azure Active Directory
@@ -48,7 +48,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-oracle-cloud-infrastructure-console-from-the-gallery"></a>Aggiunta di Oracle Cloud Infrastructure Console dalla raccolta
 
-Per configurare l'integrazione di Oracle Cloud Infrastructure Console in Azure AD, è necessario aggiungere Oracle Cloud Infrastructure Console dalla raccolta all'elenco di app SaaS gestite.
+Per configurare l'integrazione di Oracle Cloud Infrastructure Console in Azure AD, è necessario aggiungere Oracle Cloud Infrastructure Console dalla raccolta all'elenco delle app SaaS gestite.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
 1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory**.
@@ -59,16 +59,16 @@ Per configurare l'integrazione di Oracle Cloud Infrastructure Console in Azure A
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-Configurare e testare l'accesso SSO di Azure AD con Oracle Cloud Infrastructure Console usando un utente di test di nome **B. Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Oracle Cloud Infrastructure Console.
+Configurare e testare l'accesso SSO di Azure AD con Oracle Cloud Infrastructure Console usando un utente di test di nome **B. Simon**. Per il corretto funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Oracle Cloud Infrastructure Console.
 
 Per configurare e testare l'accesso SSO di Azure AD con Oracle Cloud Infrastructure Console, completare le procedure di base seguenti:
 
-1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
-    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
+1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** per consentire agli utenti di usare questa funzionalità.
+    1. **[Creare un utente test di Azure AD](#create-an-azure-ad-test-user)** per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
+    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Configurare Oracle Cloud Infrastructure Console](#configure-oracle-cloud-infrastructure-console)** per configurare le impostazioni dell'accesso Single Sign-On (SSO) sul lato applicazione.
-    1. **[Creare l'utente di test di Oracle Cloud Infrastructure Console](#create-oracle-cloud-infrastructure-console-test-user)** per avere una controparte di B.Simon in Oracle Cloud Infrastructure Console collegata alla rappresentazione dell'utente in Azure AD.
-1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
+    1. **[Creare un utente di test di Oracle Cloud Infrastructure Console](#create-oracle-cloud-infrastructure-console-test-user)** per avere una controparte di B. Simon in Oracle Cloud Infrastructure Console collegata alla rappresentazione dell'utente in Azure AD.
+1. **[Testare l'accesso Single Sign-On](#test-sso)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-sso"></a>Configurare l'accesso SSO di Azure AD
 
@@ -155,7 +155,7 @@ In questa sezione verrà creato un utente di test di nome B. Simon nel portale d
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
-In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Oracle Cloud Infrastructure Console.
+In questa sezione si abiliterà B. Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Oracle Cloud Infrastructure Console.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
 1. Nell'elenco delle applicazioni selezionare **Oracle Cloud Infrastructure Console**.
@@ -207,7 +207,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
    
 ### <a name="create-oracle-cloud-infrastructure-console-test-user"></a>Creare l'utente di test di Oracle Cloud Infrastructure Console
 
- Oracle Cloud Infrastructure Console supporta il provisioning utenti JIT, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Durante un tentativo di accesso non viene creato un nuovo utente e non è necessario crearne uno.
+ Oracle Cloud Infrastructure Console supporta il provisioning JIT, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Durante un tentativo di accesso non viene creato un nuovo utente e non è necessario crearne uno.
 
 ### <a name="test-sso"></a>Testare l'accesso SSO
 

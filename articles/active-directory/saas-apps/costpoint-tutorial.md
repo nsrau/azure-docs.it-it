@@ -17,10 +17,10 @@ ms.date: 08/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 01168540e27605db0d240c0774159a710b5d5254
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "71840055"
 ---
 # <a name="tutorial-integrate-costpoint-with-azure-active-directory"></a>Esercitazione: Integrare Costpoint con Azure Active Directory
