@@ -9,19 +9,19 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.openlocfilehash: 9ed62ea6fdfc0732128ed340cc0bc48481eb73ec
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76841081"
 ---
-# <a name="quickstart-create-a-search-app-in-the-portal-azure-cognitive-search"></a>Avvio rapido: Creare un'app di ricerca nel portale di Azure (Ricerca cognitiva di Azure)
+# <a name="quickstart-create-a-search-app-in-the-portal-azure-cognitive-search"></a>Guida introduttiva: Creare un'app di ricerca nel portale di Azure (Ricerca cognitiva di Azure)
 
 Usare la procedura guidata **Crea app di ricerca** del portale per generare un'app Web di tipo "localhost" scaricabile che viene eseguita in un browser. A seconda della configurazione, l'app generata è operativa al primo utilizzo, con una connessione dinamica a un indice remoto. Un'app predefinita può includere una barra di ricerca, un'area dei risultati, i filtri della barra laterale e il supporto per il completamento automatico.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 A questo punto, per questa guida di avvio rapido è opportuno eseguire l'aggiornamento alla [versione più recente di Microsoft Edge](https://www.microsoft.com/edge) o usare il browser Chrome di Google.
 

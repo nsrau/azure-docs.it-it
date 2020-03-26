@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Creare un server - Interfaccia della riga di comando di Azure - Database di Azure per PostgreSQL - Server singolo'
+title: 'Guida introduttiva: Creare un server - Interfaccia della riga di comando di Azure - Database di Azure per PostgreSQL - Server singolo'
 description: Guida di avvio rapido che mostra come creare un database di Azure per PostgreSQL - Server singolo tramite l'interfaccia della riga di comando di Azure.
 author: rachel-msft
 ms.author: raagyema
@@ -9,13 +9,13 @@ ms.topic: quickstart
 ms.date: 06/25/2019
 ms.custom: mvc
 ms.openlocfilehash: ed78d3dd4e6fbde10c69403cc3dcff24072dc676
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75358048"
 ---
-# <a name="quickstart-create-an-azure-database-for-postgresql---single-server-using-the-azure-cli"></a>Avvio rapido: Creare un Database di Azure per PostgreSQL - Server singolo usando l'interfaccia della riga di comando di Azure
+# <a name="quickstart-create-an-azure-database-for-postgresql---single-server-using-the-azure-cli"></a>Guida introduttiva: Creare un Database di Azure per PostgreSQL - Server singolo usando l'interfaccia della riga di comando di Azure
 
 > [!TIP]
 > Può essere opportuno usare il comando dell'interfaccia della riga di comando di Azure più semplice [az postgres up](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) (attualmente in anteprima). Provare l'[argomento di avvio rapido](./quickstart-create-server-up-azure-cli.md).

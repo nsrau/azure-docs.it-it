@@ -1,6 +1,6 @@
 ---
-title: "Avvio rapido: Leggere i dati acquisiti dall'app Python - Hub eventi di Azure"
-description: 'Avvio rapido: Script che usano Azure Python SDK per illustrare la funzionalità Acquisizione di Hub eventi.'
+title: "Guida introduttiva: Leggere i dati acquisiti dall'app Python - Hub eventi di Azure"
+description: 'Guida introduttiva: Script che usano Azure Python SDK per illustrare la funzionalità Acquisizione di Hub eventi.'
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -15,13 +15,13 @@ ms.custom: seodec18
 ms.date: 01/15/2020
 ms.author: shvija
 ms.openlocfilehash: 6c830cf871c2ae650bb61e8b3712a664e9e405d4
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77187297"
 ---
-# <a name="quickstart-event-hubs-capture-walkthrough-python-azure-eventhub-version-1"></a>Avvio rapido: Procedura dettagliata sull'acquisizione di Hub eventi: Python (azure-eventhub versione 1)
+# <a name="quickstart-event-hubs-capture-walkthrough-python-azure-eventhub-version-1"></a>Guida introduttiva: Procedura dettagliata sull'acquisizione di Hub eventi: Python (azure-eventhub versione 1)
 
 L'acquisizione è una funzionalità di Hub eventi di Azure. È possibile usare la funzionalità Acquisizione per inviare automaticamente i dati di streaming dell'hub eventi a un determinato account di archiviazione BLOB di Azure. Questa funzionalità semplifica l'esecuzione dell'elaborazione batch su dati di streaming in tempo reale. In questo articolo viene descritto come usare l'acquisizione di Hub eventi con Python. Per altre informazioni su Acquisizione di Hub eventi, vedere [Acquisire eventi tramite Hub eventi di Azure][Overview of Event Hubs Capture].
 
@@ -38,7 +38,7 @@ Questa procedura dettagliata è costituita dai passaggi seguenti:
 > * Inviare i dati all'hub eventi tramite uno script Python.
 > * Leggere ed elaborare i file ottenuti da Acquisizione di Hub eventi tramite un altro script Python.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 - Python 3.4 o versione successiva con `pip` installato e aggiornato.
   

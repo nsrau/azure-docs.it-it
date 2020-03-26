@@ -14,13 +14,13 @@ ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: jingwang
 ms.openlocfilehash: 7f527d3c57f086e7941505a9ca4396885c746762
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75440073"
 ---
-# <a name="quickstart-create-an-azure-data-factory-using-powershell"></a>Avvio rapido: Creare una data factory di Azure con PowerShell
+# <a name="quickstart-create-an-azure-data-factory-using-powershell"></a>Guida introduttiva: Creare una data factory di Azure con PowerShell
 
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)

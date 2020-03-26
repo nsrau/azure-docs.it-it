@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.service: event-grid
 ms.custom: seodec18
 ms.openlocfilehash: 2773d06fdfc606faaab88340fc2ef9685bba21f9
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73720710"
 ---
 # <a name="tutorial-route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>Esercitazione: Instradare eventi personalizzati a Connessioni ibride di Inoltro di Azure con l'interfaccia della riga di comando di Azure e Griglia di eventi

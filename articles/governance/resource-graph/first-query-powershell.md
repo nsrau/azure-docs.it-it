@@ -4,11 +4,11 @@ description: Questo argomento di avvio rapido illustra la procedura per abilitar
 ms.date: 11/21/2019
 ms.topic: quickstart
 ms.openlocfilehash: dd96324671f46f98d5b6c8bae1839a5b02d38b23
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78360249"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79215629"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-powershell"></a>Guida introduttiva: Eseguire la prima query di Resource Graph usando Azure PowerShell
 

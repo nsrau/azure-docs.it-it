@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.date: 04/10/2019
 ms.author: spelluru
 ms.openlocfilehash: e34599b12b8b0c487c6813038951b051d1eaf425
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "66400253"
 ---
 # <a name="quickstart-use-the-azure-cli-to-create-a-service-bus-queue"></a>Guida introduttiva: Usare l'interfaccia della riga di comando di Azure per creare una coda del bus di servizio

@@ -4,10 +4,10 @@ description: Questa esercitazione illustra come configurare un'attività del Reg
 ms.topic: tutorial
 ms.date: 01/22/2020
 ms.openlocfilehash: e8aae8a91288d470c801dc4d82cfa6b44369d832
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77617684"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-another-private-container-registry"></a>Esercitazione: Automatizzare le compilazioni di immagini dei contenitori quando viene aggiornata un'immagine di base in un altro registro contenitori privato 
@@ -29,7 +29,7 @@ Contenuto dell'esercitazione:
 
 Se si preferisce usare l'interfaccia della riga di comando di Azure in locale, è necessario che sia installata l'interfaccia della riga di comando di Azure versione **2.0.68** o successiva. Eseguire `az --version` per trovare la versione. Se è necessario installare o aggiornare l'interfaccia della riga di comando, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli].
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 ### <a name="complete-the-previous-tutorials"></a>Completare le esercitazioni precedenti
 

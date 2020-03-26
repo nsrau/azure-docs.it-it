@@ -17,10 +17,10 @@ ms.date: 10/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b23abcf9a39ce7f6d77bc40e7143505bc68e8b72
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72554996"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zscaler-three"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Zscaler Three
@@ -69,8 +69,8 @@ Configurare e testare l'accesso SSO di Azure AD con Zscaler Three usando un uten
 Per configurare e testare l'accesso SSO di Azure AD con Zscaler Three, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
-    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
+    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
+    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Configurare l'accesso Single Sign-On di Zscaler Three](#configure-zscaler-three-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
     1. **[Creare l'utente di test di Zscaler Three](#create-zscaler-three-test-user)** : per avere una controparte di B.Simon in Zscaler Three collegata alla rappresentazione dell'utente in Azure AD.
 1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
@@ -154,7 +154,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 4. Passare a **Amministrazione > Autenticazione > Impostazioni di autenticazione** ed eseguire i passaggi seguenti:
    
-    ![Amministrazione](./media/zscaler-three-tutorial/ic800206.png "Administration")
+    ![Amministrazione](./media/zscaler-three-tutorial/ic800206.png "Amministrazione")
 
     a. In Tipo di autenticazione scegliere **SAML**.
 
@@ -178,11 +178,11 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
     g. Nella casella di testo **Attributo nome reparto** immettere **department** se si desidera abilitare il provisioning automatico di SAML per gli attributi department.
 
-    h. Fare clic su **Save**.
+    h. Fare clic su **Salva**.
 
 6. Nella pagina della finestra di dialogo **Configure User Authentication** seguire questa procedura:
 
-    ![Administration](./media/zscaler-three-tutorial/ic800207.png)
+    ![Amministrazione](./media/zscaler-three-tutorial/ic800207.png)
 
     a. Passare il mouse sul menu **Attivazione** nella parte inferiore sinistra.
 
@@ -199,7 +199,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 3. Fare clic sulla scheda **Connessioni** .   
   
-     ![Connessioni](./media/zscaler-three-tutorial/ic769493.png "connessioni")
+     ![Connessioni](./media/zscaler-three-tutorial/ic769493.png "Connessioni")
 
 4. Fare clic su **Impostazioni LAN** per aprire la finestra di dialogo **Impostazioni LAN**.
 
@@ -219,9 +219,9 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 6. Fare clic su **OK** per chiudere la finestra di dialogo **Opzioni Internet**.
 
-### <a name="create-zscaler-three-test-user"></a>Creare l'utente di test di Zscaler Three
+### <a name="create-zscaler-three-test-user"></a>Creare un utente di test di Zscaler Three
 
-In questa sezione viene creato un utente di nome B.Simon in Zscaler Three. Zscaler Three supporta il provisioning utenti JIT, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se non esiste già un utente in Zscaler Three, ne viene creato uno nuovo quando si prova ad accedere a Zscaler Three.
+In questa sezione viene creato un utente di nome B.Simon in Zscaler Three. Zscaler Three supporta il provisioning JIT, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se non esiste già un utente in Zscaler Three, ne viene creato uno nuovo quando si prova ad accedere a Zscaler Three.
 
 >[!Note]
 >Per creare un utente manualmente, è necessario contattare il [team di supporto di Zscaler Three](https://www.zscaler.com/company/contact).
@@ -230,7 +230,7 @@ In questa sezione viene creato un utente di nome B.Simon in Zscaler Three. Zscal
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di Zscaler Three nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Zscaler Three per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di Zscaler Three nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Zscaler Three per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

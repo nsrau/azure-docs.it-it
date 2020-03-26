@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28d6e5362df9f41822525af0d256cfd99568d6de
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 1a61c89199c89f09b5cc0e553dbbf48655ad1b6a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76512131"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79222968"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Esercitazione: configurare l'aggiunta all'identità ibrida di Azure Active Directory per i domini federati
 
@@ -40,7 +40,7 @@ Un ambiente federato deve includere un provider di identità che supporta i requ
    `/adfs/services/trust/13/certificatemixed` 
 
 > [!WARNING] 
-> Sia **adfs/services/trust/2005/windowstransport** che **adfs/services/trust/13/windowstransport** devono essere abilitati solo come endpoint per Intranet e NON devono essere esposti come endpoint per Extranet tramite Proxy applicazione Web. Per altre informazioni su come disabilitare gli endpoint Windows WS-Trust, vedere [Disabilitare gli endpoint Windows WS-Trust sul proxy](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). È possibile verificare gli endpoint abilitati nella console di gestione di AD FS, in **Servizio** > **Endpoint**.
+> Sia **adfs/services/trust/2005/windowstransport** che **adfs/services/trust/13/windowstransport** devono essere abilitati solo come endpoint per Intranet e NON devono essere esposti come endpoint per Extranet tramite Proxy applicazione Web. Per altre informazioni su come disabilitare gli endpoint Windows WS-Trust, vedere [Disabilitare gli endpoint Windows WS-Trust sul proxy](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). È possibile verificare gli endpoint abilitati nella console di gestione di AD FS, in **Servizio** > **Endpoint**.
 
 Questa esercitazione illustra come configurare l'aggiunta ad Azure AD ibrido per i dispositivi di computer aggiunti a un dominio di Active Directory in un ambiente federato con AD FS.
 
@@ -52,7 +52,7 @@ Si apprenderà come:
 > * Verificare la registrazione
 > * Risolvere problemi
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Questa esercitazione presuppone che l'utente abbia familiarità con gli articoli seguenti:
 
@@ -83,7 +83,7 @@ Per l'aggiunta ad Azure AD ibrido i dispositivi devono avere accesso alle risors
 
 A partire da Windows 10 1803, se l'aggiunta istantanea ad Azure AD ibrido per un ambiente federato con AD FS non riesce, è possibile usare Azure AD Connect per sincronizzare l'oggetto computer in Azure AD che verrà successivamente usato per completare la registrazione del dispositivo per l'aggiunta ad Azure AD ibrido. Verificare che Azure AD Connect abbia sincronizzato gli oggetti computer dei dispositivi che devono essere aggiunti ad Azure AD ibrido. Se gli oggetti computer appartengono a unità organizzative specifiche, è necessario configurare anche le unità organizzative per la sincronizzazione in Azure AD Connect. Per altre informazioni su come sincronizzare oggetti computer con Azure AD Connect, vedere [Configurare il filtro con Azure AD Connect](../hybrid/how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering).
 
-Se l'organizzazione deve accedere a Internet tramite un proxy in uscita, è consigliabile [implementare WPAD (Web Proxy Auto-Discovery)](https://docs.microsoft.com/previous-versions/tn-archive/cc995261(v%3dtechnet.10)) per consentire ai computer Windows 10 di eseguire la registrazione di dispositivi con Azure AD. In caso di problemi nella configurazione e nella gestione di WPAD, vedere [Risolvere i problemi di rilevamento automatico](https://docs.microsoft.com/previous-versions/tn-archive/cc302643(v=technet.10)). 
+Se l'organizzazione deve accedere a Internet tramite un proxy in uscita, è consigliabile [implementare WPAD (Web Proxy Auto-Discovery)](/previous-versions/tn-archive/cc995261(v%3dtechnet.10)) per consentire ai computer Windows 10 di eseguire la registrazione di dispositivi con Azure AD. In caso di problemi nella configurazione e nella gestione di WPAD, vedere [Risolvere i problemi di rilevamento automatico](/previous-versions/tn-archive/cc302643(v=technet.10)). 
 
 Se non si non usa WPAD e si vuole configurare le impostazioni proxy nel computer in uso, è possibile farlo a partire da Windows 10 1709. Per altre informazioni, vedere [Configurare le impostazioni WinHTTP tramite un oggetto Criteri di gruppo (GPO)](https://blogs.technet.microsoft.com/netgeeks/2018/06/19/winhttp-proxy-settings-deployed-by-gpo/).
 
@@ -172,7 +172,7 @@ Per completare l'aggiunta ad Azure AD ibrido dei dispositivi Windows di livello 
 
 Per registrare i dispositivi Windows di livello inferiore, le organizzazioni devono installare [Microsoft Workplace Join for non-Windows 10 computers](https://www.microsoft.com/download/details.aspx?id=53554). Microsoft Workplace Join for non-Windows 10 computers è disponibile nell'Area download Microsoft.
 
-È possibile distribuire il pacchetto usando un sistema di distribuzione software come  [Microsoft Endpoint Configuration Manager](https://docs.microsoft.com/configmgr/). Il pacchetto supporta le opzioni standard di installazione invisibile all'utente con il parametro `quiet`. Configuration Manager Current Branch offre vantaggi aggiuntivi rispetto alle versioni precedenti, come la possibilità di tenere traccia delle registrazioni completate.
+È possibile distribuire il pacchetto usando un sistema di distribuzione software come  [Microsoft Endpoint Configuration Manager](/configmgr/). Il pacchetto supporta le opzioni standard di installazione invisibile all'utente con il parametro `quiet`. Configuration Manager Current Branch offre vantaggi aggiuntivi rispetto alle versioni precedenti, come la possibilità di tenere traccia delle registrazioni completate.
 
 Il programma di installazione crea nel sistema un'attività pianificata che viene eseguita nel contesto utente. e attivata nel momento in cui l'utente accede a Windows. L'attività aggiunge automaticamente il dispositivo ad Azure AD usando le credenziali utente dopo l'autenticazione con Azure AD.
 

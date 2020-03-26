@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7b044a4fd4e29bfe35abff7a4b36e5bae783328b
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
-ms.translationtype: MT
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78671896"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79215989"
 ---
 # <a name="what-is-conditional-access"></a>Informazioni sull'accesso condizionale
 
@@ -26,7 +26,7 @@ L'accesso condizionale è lo strumento usato da Azure Active Directory per raggr
 
 ![Segnale condizionale concettuale oltre a decisione per l'applicazione di criteri](./media/overview/conditional-access-signal-decision-enforcement.png)
 
-I criteri di accesso condizionale nella loro forma più semplice sono istruzioni if-then: se un utente vuole accedere a una risorsa, deve completare un'azione. Esempio: un responsabile delle retribuzioni vuole accedere all'applicazione per le retribuzioni ed è necessario per eseguire l'autenticazione a più fattori per accedervi.
+I criteri di accesso condizionale nella loro forma più semplice sono istruzioni if-then: se un utente vuole accedere a una risorsa, deve completare un'azione. Esempio: Un responsabile retribuzioni per accedere all'apposita applicazione deve eseguire l'autenticazione a più fattori.
 
 Gli amministratori devono perseguire due obiettivi principali:
 
@@ -61,7 +61,7 @@ I segnali comuni su cui si basa l'accesso condizionale per stabilire i criteri i
 
 - Blocca accesso
    - Decisione più restrittiva
-- Concedi accesso
+- Concedere l'accesso
    - Decisione meno restrittiva, può comunque richiedere una o più opzioni seguenti:
       - Richiedi autenticazione a più fattori
       - Richiedere che i dispositivi siano contrassegnati come conformi

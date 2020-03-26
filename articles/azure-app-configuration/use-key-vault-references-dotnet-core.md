@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/21/2020
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: 4e896c5fa6f8656be29eed7eb8d4e8854a94ecfa
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: eceb4a9d4e0cc84166280f30b094b82088f53a4a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77116611"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79475307"
 ---
 # <a name="tutorial-use-key-vault-references-in-an-aspnet-core-app"></a>Esercitazione: Usare i riferimenti a Key Vault in un'app ASP.NET Core
 
@@ -41,7 +41,7 @@ In questa esercitazione verranno illustrate le procedure per:
 > * Creare una chiave di Configurazione app che faccia riferimento a un valore archiviato in Key Vault.
 > * Accedere al valore di questa chiave da un'applicazione Web ASP.NET Core.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare questa esercitazione, installare [.NET Core SDK](https://dotnet.microsoft.com/download).
 
@@ -110,7 +110,6 @@ Per aggiungere un segreto all'insieme di credenziali, sono sufficienti alcuni pa
     "tenantId": "35ad10f1-7799-4766-9acf-f2d946161b77",
     "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
     "resourceManagerEndpointUrl": "https://management.azure.com/",
-    "activeDirectoryGraphResourceId": "https://graph.windows.net/",
     "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
     "galleryEndpointUrl": "https://gallery.azure.com/",
     "managementEndpointUrl": "https://management.core.windows.net/"
@@ -125,7 +124,7 @@ Per aggiungere un segreto all'insieme di credenziali, sono sufficienti alcuni pa
 
 1. Aggiungere le variabili di ambiente per archiviare i valori di *clientId*, *clientSecret* e *tenantId*.
 
-    #### <a name="windows-command-prompttabcmd"></a>[Prompt dei comandi di Windows](#tab/cmd)
+    #### <a name="windows-command-prompt"></a>[Prompt dei comandi di Windows](#tab/cmd)
 
     ```cmd
     setx AZURE_CLIENT_ID <clientId-of-your-service-principal>
@@ -133,7 +132,7 @@ Per aggiungere un segreto all'insieme di credenziali, sono sufficienti alcuni pa
     setx AZURE_TENANT_ID <tenantId-of-your-service-principal>
     ```
 
-    #### <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+    #### <a name="powershell"></a>[PowerShell](#tab/powershell)
 
     ```PowerShell
     $Env:AZURE_CLIENT_ID = <clientId-of-your-service-principal>
@@ -141,7 +140,7 @@ Per aggiungere un segreto all'insieme di credenziali, sono sufficienti alcuni pa
     $Env:AZURE_TENANT_ID = <tenantId-of-your-service-principal>
     ```
 
-    #### <a name="bashtabbash"></a>[Bash](#tab/bash)
+    #### <a name="bash"></a>[Bash](#tab/bash)
 
     ```bash
     export AZURE_CLIENT_ID = <clientId-of-your-service-principal>
@@ -174,7 +173,7 @@ Per aggiungere un segreto all'insieme di credenziali, sono sufficienti alcuni pa
 
 1. Aggiornare il metodo `CreateWebHostBuilder` per usare Configurazione app effettuando una chiamata al metodo `config.AddAzureAppConfiguration`. Includere l'opzione `ConfigureKeyVault` e passare le credenziali corrette a Key Vault.
 
-    #### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
+    #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -195,7 +194,7 @@ Per aggiungere un segreto all'insieme di credenziali, sono sufficienti alcuni pa
             .UseStartup<Startup>();
     ```
 
-    #### <a name="net-core-3xtabcore3x"></a>[.NET Core 3.x](#tab/core3x)
+    #### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
 
     ```csharp
         public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -245,13 +244,13 @@ Per aggiungere un segreto all'insieme di credenziali, sono sufficienti alcuni pa
 
 1. Per compilare l'app usando l'interfaccia della riga di comando di .NET Core, eseguire questo comando nella shell dei comandi:
 
-    ```
+    ```dotnetcli
     dotnet build
     ```
 
 1. Al termine della compilazione, usare questo comando per eseguire l'app Web in locale:
 
-    ```
+    ```dotnetcli
     dotnet run
     ```
 

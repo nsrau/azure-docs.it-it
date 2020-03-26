@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Creare un cluster Spark in HDInsight usando il portale di Azure'
+title: 'Guida introduttiva: Creare un cluster Spark in HDInsight usando il portale di Azure'
 description: Questa guida di avvio rapido illustra come usare il portale di Azure per creare un cluster Apache Spark in HDInsight di Azure ed eseguire una query Spark SQL.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,13 +9,13 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/25/2020
 ms.openlocfilehash: 5f4d1b8ef742a8dcafa2b8e34a6209f85ae050d9
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77650634"
 ---
-# <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-azure-portal"></a>Avvio rapido: Creare cluster Apache Spark in Azure HDInsight usando il portale di Azure
+# <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-azure-portal"></a>Guida introduttiva: Creare cluster Apache Spark in Azure HDInsight usando il portale di Azure
 
 In questa guida di avvio rapido si usa il portale di Azure per creare un cluster Apache Spark in Azure HDInsight. Creare quindi un notebook Jupyter e usarlo per eseguire query Spark SQL su tabelle Apache Hive. Azure HDInsight è un servizio di analisi open source, gestito e ad ampio spettro per le aziende. Il framework Apache Spark per HDInsight consente di velocizzare cluster computing e analisi dei dati grazie all'elaborazione in memoria. Il notebook Jupyter consente di interagire con i dati, combinare codice e testo Markdown ed eseguire visualizzazioni semplici.
 
@@ -24,7 +24,7 @@ Per una spiegazione approfondita delle configurazioni disponibili, vedere [Confi
 > [!IMPORTANT]  
 > La fatturazione dei cluster HDInsight viene calcolata al minuto, indipendentemente dal fatto che siano in uso o meno. Assicurarsi di eliminare il cluster dopo aver finito di usarlo. Per altre informazioni, vedere la sezione [Pulire le risorse](#clean-up-resources) di questo articolo.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 

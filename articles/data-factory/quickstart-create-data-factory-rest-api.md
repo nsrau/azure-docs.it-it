@@ -14,13 +14,13 @@ ms.topic: quickstart
 ms.date: 06/10/2019
 ms.author: jingwang
 ms.openlocfilehash: fbfd3e2577655e8cfccd84fffe2971ff509bd2f4
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977445"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79215789"
 ---
-# <a name="quickstart-create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>Avvio rapido: Creare una data factory di Azure e una pipeline usando l'API REST
+# <a name="quickstart-create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>Guida introduttiva: Creare una data factory di Azure e una pipeline usando l'API REST
 
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
@@ -32,7 +32,7 @@ Questa guida introduttiva descrive come usare l'API REST per creare una data fac
 
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

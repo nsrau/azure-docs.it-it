@@ -8,10 +8,10 @@ ms.service: storage
 ms.subservice: common
 ms.topic: sample
 ms.openlocfilehash: a4c9188c8f1315a3af452cd0c1fb5cf45ab82081
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77486118"
 ---
 # <a name="azure-storage-samples-using-v12-net-client-libraries"></a>Esempi di Archiviazione di Azure che usano le librerie client .NET v12
@@ -23,7 +23,7 @@ La tabella seguente fornisce una panoramica del repository di esempi e degli sce
 
 ## <a name="blob-samples"></a>Esempi di BLOB
 
-### <a name="authentication"></a>Autenticazione
+### <a name="authentication"></a>Authentication
 
 :::row:::
    :::column span="":::
@@ -94,7 +94,7 @@ La tabella seguente fornisce una panoramica del repository di esempi e degli sce
 
 ## <a name="data-lake-storage-gen2-samples"></a>Esempi di Data Lake Storage Gen2
 
-### <a name="authentication"></a>Autenticazione
+### <a name="authentication"></a>Authentication
 
 :::row:::
    :::column span="":::
@@ -180,7 +180,7 @@ La tabella seguente fornisce una panoramica del repository di esempi e degli sce
 
 ## <a name="azure-files-samples"></a>Esempi di File di Azure
 
-### <a name="authentication"></a>Autenticazione
+### <a name="authentication"></a>Authentication
 
 :::row:::
    :::column span="":::
@@ -222,7 +222,7 @@ La tabella seguente fornisce una panoramica del repository di esempi e degli sce
 
 ## <a name="queue-samples"></a>Esempi di code
 
-### <a name="authentication"></a>Autenticazione
+### <a name="authentication"></a>Authentication
 
 :::row:::
    :::column span="":::
@@ -254,7 +254,7 @@ La tabella seguente fornisce una panoramica del repository di esempi e degli sce
    :::column-end:::
 :::row-end:::
 
-### <a name="message"></a>Messaggio
+### <a name="message"></a>Message
 
 :::row:::
    :::column span="":::
@@ -324,10 +324,10 @@ Per visualizzare le librerie complete .NET di esempio, vedere:
 
 Per istruzioni su come installare e iniziare a utilizzare le librerie client di Archiviazione di Azure, consultare le seguenti guide.
 
-* [Introduzione al servizio BLOB di Azure in .NET](../blobs/storage-quickstart-blobs-dotnet.md)
-* [Introduzione al servizio di accodamento di Azure in .NET](../queues/storage-quickstart-queues-dotnet.md)
-* [Introduzione al servizio tabelle di Azure in .NET](../../cosmos-db/tutorial-develop-table-dotnet.md)
-* [Introduzione al servizio File di Azure in .NET](../files/storage-dotnet-how-to-use-files.md)
+* [Getting Started with Azure Blob Service in .NET](../blobs/storage-quickstart-blobs-dotnet.md)
+* [Getting Started with Azure Queue Service in .NET](../queues/storage-quickstart-queues-dotnet.md)
+* [Getting Started with Azure Table Service in .NET](../../cosmos-db/tutorial-develop-table-dotnet.md)
+* [Getting Started with Azure File Service in .NET](../files/storage-dotnet-how-to-use-files.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

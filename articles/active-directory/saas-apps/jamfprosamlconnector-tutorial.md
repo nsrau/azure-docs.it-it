@@ -17,10 +17,10 @@ ms.date: 02/11/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1d83dbe756e8e6acdb58861ac359801bc13a63c4
-ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/17/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77373217"
 ---
 # <a name="tutorial-azure-active-directory-sso-integration-with-jamf-pro"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Jamf Pro
@@ -177,7 +177,7 @@ In questa sezione si concede a B.Simon l'accesso a Jamf Pro.
 
     d. Nella stessa pagina scorrere verso il basso fino alla sezione **Security** (Sicurezza) e selezionare **Allow users to bypass the Single Sign-On authentication** (Consenti agli utenti di ignorare l'autenticazione Single Sign-on). In questo modo, gli utenti non vengono reindirizzati alla pagina di accesso del provider di identità per l'autenticazione e possono accedere direttamente a Jamf Pro. Se un utente prova ad accedere a Jamf Pro tramite il provider di identità, l'autenticazione SSO e l'autorizzazione vengono avviate dal provider di identità.
 
-    e. Selezionare **Save** (Salva).
+    e. Selezionare **Salva**.
 
 ### <a name="create-a-jamf-pro-test-user"></a>Creare un utente di test di Jamf Pro
 
@@ -219,7 +219,7 @@ Per effettuare il provisioning di un account utente, seguire questa procedura:
 
     f. Nel campo **VERIFY PASSWORD** (VERIFICA PASSWORD) digitare nuovamente la password dell'utente.
 
-    g. Selezionare **Save** (Salva).
+    g. Selezionare **Salva**.
 
 ## <a name="test-the-sso-configuration"></a>Testare la configurazione dell'accesso Single Sign-On
 

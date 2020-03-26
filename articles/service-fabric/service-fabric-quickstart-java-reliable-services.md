@@ -1,5 +1,5 @@
 ---
-title: "Avvio rapido: Creare un'app Java in Azure Service Fabric"
+title: "Guida introduttiva: Creare un'app Java in Azure Service Fabric"
 description: In questa guida introduttiva viene creata un'applicazione Java per Azure usando un'applicazione Reliable Services Service Fabric di esempio.
 author: suhuruli
 ms.topic: quickstart
@@ -7,19 +7,19 @@ ms.date: 01/29/2019
 ms.author: suhuruli
 ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019
 ms.openlocfilehash: fc615149b092aebfdde767fb3b716fb897bfd551
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77121497"
 ---
-# <a name="quickstart--deploy-a-java-app-to-azure-service-fabric-on-linux"></a>Avvio rapido:  Distribuire un'app Java in Azure Service Fabric in Linux
+# <a name="quickstart--deploy-a-java-app-to-azure-service-fabric-on-linux"></a>Guida introduttiva:  Distribuire un'app Java in Azure Service Fabric in Linux
 
 Questo argomento di avvio rapido illustra come distribuire un'applicazione Java in Azure Service Fabric usando l'IDE Eclipse in un computer di sviluppo Linux. Al termine, sarà disponibile un'applicazione di voto con un front-end Web Java che salva i risultati delle votazioni in un servizio back-end con stato nel cluster.
 
 Azure Service Fabric è una piattaforma di sistemi distribuiti per la distribuzione e la gestione di microservizi e contenitori.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 - [Ambiente Java](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-java-development) e [Yeoman](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-yeoman-generators-for-containers-and-guest-executables)
 - [Eclipse Neon (4.6)+](https://www.eclipse.org/downloads/packages/) e [plug-in Eclipse per Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#install-the-eclipse-plug-in-optional)

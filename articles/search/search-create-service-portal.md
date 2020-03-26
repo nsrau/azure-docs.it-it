@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Creare un servizio di ricerca nel portale'
+title: 'Guida introduttiva: Creare un servizio di ricerca nel portale'
 titleSuffix: Azure Cognitive Search
 description: Questo argomento di avvio rapido sul portale illustra come creare una risorsa Ricerca cognitiva di Azure nel portale di Azure. Scegliere gruppi di risorse, aree e SKU o piano tariffario.
 manager: nitinme
@@ -9,13 +9,13 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 02/10/2020
 ms.openlocfilehash: 3bc3edcd0e75d8f6e3e4d6f9b200032909318040
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77209359"
 ---
-# <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Avvio rapido: Creare un servizio Ricerca cognitiva di Azure nel portale
+# <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Guida introduttiva: Creare un servizio Ricerca cognitiva di Azure nel portale
 
 Ricerca cognitiva di Azure è una risorsa autonoma usata per aggiungere un'esperienza di ricerca alle app personalizzate. Ricerca cognitiva di Azure si integra facilmente con altri servizi di Azure, con le app dei server di rete o con il software in esecuzione in altre piattaforme cloud.
 

@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 08/20/2018
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 5b075e1065ef8c30837000f490cc93525b4b61cc
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74456096"
 ---
 # <a name="tutorial-deploy-a-web-app-from-a-geo-replicated-azure-container-registry"></a>Esercitazione: Distribuire un'app Web da un Registro Azure Container con replica geografica
@@ -45,7 +45,7 @@ Se l'opzione "Distribuisci nell'app Web" è disabilitata, potrebbe non essere st
 
 In **App Web per contenitori** che viene visualizzata dopo aver selezionato "Distribuisci nell'app Web" specificare i valori seguenti per ogni impostazione:
 
-| Impostazione | Valore |
+| Impostazione | valore |
 |---|---|
 | **Nome del sito** | Un nome univoco globale per l'app Web. In questo esempio viene usato il formato `<acrName>-westus` per identificare facilmente il registro e l'area da cui viene distribuita l'app Web. |
 | **Gruppo di risorse** | **Usare il**  > `myResourceGroup` esistente |
@@ -78,7 +78,7 @@ Una volta distribuita l'immagine Docker dal registro contenitori con replica geo
 
 Usare la procedura descritta nella sezione precedente per distribuire una seconda app Web nell'area degli *Stati Uniti orientali*. In **App Web per contenitori** specificare i valori seguenti:
 
-| Impostazione | Valore |
+| Impostazione | valore |
 |---|---|
 | **Nome del sito** | Un nome univoco globale per l'app Web. In questo esempio viene usato il formato `<acrName>-eastus` per identificare facilmente il registro e l'area da cui viene distribuita l'app Web. |
 | **Gruppo di risorse** | **Usare il**  > `myResourceGroup` esistente |

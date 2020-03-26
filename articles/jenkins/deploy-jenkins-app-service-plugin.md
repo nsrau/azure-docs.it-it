@@ -5,10 +5,10 @@ keywords: jenkins, azure, devops, servizio app
 ms.topic: tutorial
 ms.date: 07/31/2018
 ms.openlocfilehash: fcaf45003e865cc5aac3f6bd4580479a27d38b50
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78251454"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Eseguire la distribuzione nel Servizio app di Azure con il plug-in Jenkins 
@@ -46,7 +46,7 @@ sudo apt-get install -y maven
 
 Per eseguire la distribuzione in app Web per contenitori, installare Docker nel master Jenkins o nell'agente di macchine virtuali usato per la compilazione. Per istruzioni sull'installazione, vedere la guida all'[installazione di Docker su Ubuntu](https://docs.docker.com/engine/installation/linux/ubuntu/).
 
-## <a name="service-principal"></a> Aggiungere un'entità servizio di Azure alle credenziali di Jenkins
+## <a name="add-an-azure-service-principal-to-the-jenkins-credentials"></a><a name="service-principal"></a> Aggiungere un'entità servizio di Azure alle credenziali di Jenkins
 
 Per la distribuzione in Azure è necessaria un'entità servizio di Azure. 
 

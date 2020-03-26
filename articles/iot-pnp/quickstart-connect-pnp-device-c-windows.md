@@ -9,13 +9,13 @@ ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
 ms.openlocfilehash: 1c8b6a5d133d8838c2c7a23f8881092affa424dc
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75531211"
 ---
-# <a name="quickstart-connect-a-sample-iot-plug-and-play-preview-device-application-running-on-windows-to-iot-hub-c-windows"></a>Avvio rapido: Connettere un'applicazione per dispositivi Plug and Play IoT (anteprima) di esempio in esecuzione in Windows all'hub IoT (C Windows)
+# <a name="quickstart-connect-a-sample-iot-plug-and-play-preview-device-application-running-on-windows-to-iot-hub-c-windows"></a>Guida introduttiva: Connettere un'applicazione per dispositivi Plug and Play IoT (anteprima) di esempio in esecuzione in Windows all'hub IoT (C Windows)
 
 [!INCLUDE [iot-pnp-quickstarts-2-selector.md](../../includes/iot-pnp-quickstarts-2-selector.md)]
 
@@ -23,7 +23,7 @@ Questa guida di avvio rapido illustra come creare un'applicazione dispositivo Pl
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa guida di avvio rapido, è necessario installare il software seguente nel computer locale:
 

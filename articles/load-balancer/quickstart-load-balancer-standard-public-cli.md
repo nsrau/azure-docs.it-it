@@ -17,14 +17,14 @@ ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: fdbd002ac946f3ac3a1a67980905d4ed6f5510c5
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 1f6a05fdfc28adf412ffbd1402e37b69d1c51634
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77470344"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79477766"
 ---
-# <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-azure-cli"></a>Avvio rapido: Creare un'istanza di Load Balancer Standard per bilanciare il carico delle macchine virtuali tramite l'interfaccia della riga di comando di Azure
+# <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-azure-cli"></a>Guida introduttiva: Creare un'istanza di Load Balancer Standard per bilanciare il carico delle macchine virtuali tramite l'interfaccia della riga di comando di Azure
 
 Questa guida di avvio rapido illustra come creare una risorsa Load Balancer pubblica. Per testare il servizio di bilanciamento del carico, si distribuiscono due macchine virtuali (VM) che eseguono Ubuntu Server e si bilancia il carico di un'app Web tra le due macchine virtuali.
 
@@ -58,7 +58,7 @@ Per creare un indirizzo IP pubblico di zona nella zona 1 usare:
   az network public-ip create --resource-group myResourceGroupSLB --name myPublicIP --sku standard --zone 1
 ```
 
-Usare ```-SKU Basic``` per creare un indirizzo IP pubblico Basic. Gli indirizzi IP pubblici Basic non sono compatibili con Load Balancer **Standard**. Per i carichi di lavoro di produzione è consigliabile usare il livello **Standard**.
+Usare `-SKU Basic` per creare un indirizzo IP pubblico Basic. Gli indirizzi IP pubblici Basic non sono compatibili con Load Balancer **Standard**. Per i carichi di lavoro di produzione è consigliabile usare il livello **Standard**.
 
 > [!IMPORTANT]
 > Il resto di questa guida di avvio rapido presuppone che durante il precedente processo di selezione dello SKU venga scelto lo SKU **Standard**.
@@ -73,7 +73,7 @@ Questa sezione descrive dettagliatamente come creare e configurare i componenti 
 
 ### <a name="create-the-load-balancer"></a>Creare il servizio di bilanciamento del carico
 
-Usare il comando [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) per creare un servizio Azure Load Balancer pubblico denominato **myLoadBalancer**, che include un pool front-end denominato **myFrontEnd** e un pool back-end denominato **myBackEndPool**, associato all'indirizzo IP pubblico **myPublicIP** creato nel passaggio precedente. Usare ```--sku basic``` per creare un indirizzo IP pubblico Basic. Microsoft consiglia di scegliere SKU Standard per i carichi di lavoro di produzione.
+Usare il comando [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) per creare un servizio Azure Load Balancer pubblico denominato **myLoadBalancer**, che include un pool front-end denominato **myFrontEnd** e un pool back-end denominato **myBackEndPool**, associato all'indirizzo IP pubblico **myPublicIP** creato nel passaggio precedente. Usare `--sku basic` per creare un indirizzo IP pubblico Basic. Microsoft consiglia di scegliere SKU Standard per i carichi di lavoro di produzione.
 
 ```azurecli-interactive
   az network lb create \
@@ -83,7 +83,7 @@ Usare il comando [az network lb create](https://docs.microsoft.com/cli/azure/net
     --public-ip-address myPublicIP \
     --frontend-ip-name myFrontEnd \
     --backend-pool-name myBackEndPool       
-  ```
+```
 
 > [!IMPORTANT]
 > Il resto di questa guida di avvio rapido presuppone che durante il precedente processo di selezione dello SKU venga scelto lo SKU **Standard**.
@@ -133,7 +133,8 @@ Creare una rete virtuale denominata *myVnet* con una subnet denominata *mySubnet
     --name myVnet \
     --subnet-name mySubnet
 ```
-###  <a name="create-a-network-security-group"></a>Creare un gruppo di sicurezza di rete
+
+### <a name="create-a-network-security-group"></a>Creare un gruppo di sicurezza di rete
 
 Per un'istanza di Load Balancer Standard le macchine virtuali nell'indirizzo back-end devono avere le schede di interfaccia di rete appartenenti a un gruppo di sicurezza di rete. Creare un gruppo di sicurezza di rete per definire le connessioni in ingresso alla rete virtuale.
 
@@ -161,6 +162,7 @@ Creare una regola del gruppo di sicurezza di rete per consentire il traffico in 
     --access allow \
     --priority 200
 ```
+
 ### <a name="create-nics"></a>Creare NIC
 
 Creare tre interfacce di rete con il comando [az network nic create](/cli/azure/network/nic#az-network-nic-create) e associarle all'indirizzo IP pubblico e al gruppo di sicurezza di rete. 
@@ -246,11 +248,11 @@ runcmd:
   - npm init
   - npm install express -y
   - nodejs index.js
-``` 
- 
+```
+
 Creare le macchine virtuali con il comando [az vm create](/cli/azure/vm#az-vm-create).
 
- ```azurecli-interactive
+```azurecli-interactive
 
   az vm create \
     --resource-group myResourceGroupSLB \
@@ -283,6 +285,7 @@ Creare le macchine virtuali con il comando [az vm create](/cli/azure/vm#az-vm-cr
     --no-wait
 
 ```
+
 La distribuzione delle macchine virtuali può richiedere alcuni minuti.
 
 ## <a name="test-the-load-balancer"></a>Testare il servizio di bilanciamento del carico
@@ -295,16 +298,18 @@ Per ottenere l'indirizzo IP pubblico del servizio di bilanciamento del carico, u
     --name myPublicIP \
     --query [ipAddress] \
     --output tsv
-``` 
+```
+
    ![Testare il bilanciamento del carico](./media/load-balancer-standard-public-cli/running-nodejs-app.png)
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
 Quando non sono più necessari, è possibile rimuovere il gruppo di risorse, il servizio di bilanciamento del carico e tutte le risorse correlate tramite il comando [az group delete](/cli/azure/group#az-group-delete).
 
-```azurecli-interactive 
+```azurecli-interactive
   az group delete --name myResourceGroupSLB
 ```
+
 ## <a name="next-steps"></a>Passaggi successivi
 In questo argomento di avvio rapido si è creata un'istanza di Load Balancer Standard, si sono collegate macchine virtuali a tale istanza, si è configurata la regola del traffico di Load Balancer, si è definito il probe di integrità e quindi si è testata l'istanza di Load Balancer. Per altre informazioni su Azure Load Balancer, passare alle [Esercitazioni su Azure Load Balancer](tutorial-load-balancer-standard-public-zone-redundant-portal.md).
 

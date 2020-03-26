@@ -1,5 +1,5 @@
 ---
-title: "Avvio rapido: Creare un'app HoloLens con Unity"
+title: "Guida introduttiva: Creare un'app HoloLens con Unity"
 description: In questa guida introduttiva viene illustrato come compilare un'app HoloLens con Unity usando il servizio Ancoraggi nello spazio.
 author: craigktreasure
 manager: vriveras
@@ -9,13 +9,13 @@ ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 2a427eab107c70b19932b7b8ddc5a7fc531ef19a
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77615418"
 ---
-# <a name="quickstart-create-a-unity-hololens-app-that-uses-azure-spatial-anchors"></a>Avvio rapido: Creare un'app HoloLens in Unity che usa gli ancoraggi nello spazio di Azure
+# <a name="quickstart-create-a-unity-hololens-app-that-uses-azure-spatial-anchors"></a>Guida introduttiva: Creare un'app HoloLens in Unity che usa gli ancoraggi nello spazio di Azure
 
 Questo argomento di avvio rapido illustra come creare un'app HoloLens in Unity che usa [Ancoraggi nello spazio di Azure](../overview.md). Ancoraggi nello spazio è un servizio per lo sviluppo multipiattaforma che consente di creare esperienze di realtà mista con oggetti la cui posizione persiste tra dispositivi nel corso del tempo. Al termine si avrà un'app HoloLens compilata con Unity in grado di salvare e richiamare un ancoraggio nello spazio.
 
@@ -29,7 +29,7 @@ Si apprenderà come:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa guida introduttiva:
 

@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Creare una risorsa Load Balancer - Azure PowerShell'
+title: 'Guida introduttiva: Creare una risorsa Load Balancer - Azure PowerShell'
 titleSuffix: Azure Load Balancer
 description: Questa guida di avvio rapido mostra come creare una risorsa Load Balancer usando Azure PowerShell
 services: load-balancer
@@ -16,14 +16,14 @@ ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: allensu
 ms:custom: seodec18
-ms.openlocfilehash: 0cd2bb54bb436beaa933195b88bc6f13a1b23e6f
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: f169d7694199e496e472a6c32312cf6782270378
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77470429"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80247215"
 ---
-# <a name="quickstart-create-a-load-balancer-using-azure-powershell"></a>Avvio rapido: Creare una risorsa Load Balancer con Azure PowerShell
+# <a name="quickstart-create-a-load-balancer-using-azure-powershell"></a>Guida introduttiva: Creare una risorsa Load Balancer con Azure PowerShell
 
 Questa guida introduttiva mostra come creare un'istanza di Load Balancer Standard usando Azure PowerShell. Per testare il servizio di bilanciamento del carico, distribuire tre macchine virtuali che eseguono Windows Server e bilanciare il carico di un'app Web tra le VM. Per saperne di più su Load Balancer Standard, vedere [Panoramica di Azure Load Balancer Standard](load-balancer-standard-overview.md).
 
@@ -64,7 +64,7 @@ $publicIp = New-AzPublicIpAddress `
  -Name 'myPublicIP' `
  -Location $location `
  -AllocationMethod static `
- -SKU Standard
+ -SKU Standard `
  -zone 1
 ```
 

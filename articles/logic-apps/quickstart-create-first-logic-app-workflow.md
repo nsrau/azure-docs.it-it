@@ -8,13 +8,13 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/20/2019
 ms.openlocfilehash: c2a26f2f40e0312fbfa0962e69ddfd0cfdabad5f
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77191287"
 ---
-# <a name="quickstart-create-your-first-workflow-by-using-azure-logic-apps---azure-portal"></a>Avvio rapido: Creare il primo flusso di lavoro con App per la logica di Azure - Portale di Azure
+# <a name="quickstart-create-your-first-workflow-by-using-azure-logic-apps---azure-portal"></a>Guida introduttiva: Creare il primo flusso di lavoro con App per la logica di Azure - Portale di Azure
 
 Questa guida di avvio rapido introduce i concetti generali di base sulla creazione del primo flusso di lavoro usando [App per la logica di Azure](../logic-apps/logic-apps-overview.md), ad esempio la creazione di un'app per la logica vuota, l'aggiunta di un trigger e un'azione e il test dell'app per la logica. In questa guida di avvio rapido viene creata un'app per la logica che verifica la presenza di nuovi elementi nel feed RSS di un sito Web a intervalli regolari. Se sono presenti nuovi elementi, l'app per la logica invia un messaggio di posta elettronica per ogni elemento. Al termine, a livello generale l'app per la logica dovrebbe avere un flusso di lavoro simile al seguente:
 

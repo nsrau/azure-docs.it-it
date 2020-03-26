@@ -7,21 +7,21 @@ ms.service: mysql
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 12/02/2019
-ms.openlocfilehash: 96590faae26892771ce27c539bb6e71c84b65b10
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.date: 3/18/2020
+ms.openlocfilehash: a8c4f84fe958c1b2762509432596fea772e39d7e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76938952"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80067941"
 ---
-# <a name="quickstart-use-nodejs-to-connect-and-query-data-in-azure-database-for-mysql"></a>Avvio rapido: usare Node.js per connettersi ai dati ed eseguire query nel Database di Azure per MySQL
+# <a name="quickstart-use-nodejs-to-connect-and-query-data-in-azure-database-for-mysql"></a>Guida introduttiva: usare Node.js per connettersi ai dati ed eseguire query nel Database di Azure per MySQL
 
 In questo argomento di avvio rapido ci si connette a un'istanza di Database di Azure per MySQL usando Node.js. È quindi possibile usare istruzioni SQL per eseguire query, inserire, aggiornare ed eliminare dati nel database dalle piattaforme Mac, Ubuntu Linux e Windows. 
 
 Questo argomento presuppone che si abbia familiarità con lo sviluppo con Node.js, ma non con Database di Azure per MySQL.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 - Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Un'istanza di Database di Azure per il server MySQL. [Creare un database di Azure per il server MySQL tramite il portale di Azure](quickstart-create-mysql-server-database-using-azure-portal.md) o [Creare un database di Azure per il server MySQL tramite l'interfaccia della riga di comando di Azure](quickstart-create-mysql-server-database-using-azure-cli.md).

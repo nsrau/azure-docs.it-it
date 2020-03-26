@@ -17,10 +17,10 @@ ms.date: 07/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1fd01c86086c7491d22f655fcba5da237286412f
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68347789"
 ---
 # <a name="tutorial-integrate-sap-analytics-cloud-with-azure-active-directory"></a>Esercitazione: Integrare SAP Analytics Cloud con Azure Active Directory
@@ -100,7 +100,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     > [!NOTE] 
     > I valori in questi URL sono forniti solo a scopo dimostrativo. Aggiornare i valori con l'URL di accesso e l'URL dell'identificatore effettivi. Per ottenere l'URL di accesso, contattare il [team di supporto clienti di SAP Analytics Cloud](https://help.sap.com/viewer/product/SAP_BusinessObjects_Cloud/release/). Per ottenere l'URL dell'identificatore, scaricare i metadati di SAP Analytics Cloud dalla console di amministrazione. Questo concetto verrà spiegato più avanti nell'esercitazione.
 
-4. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare **XML metadati federazione** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer in uso.
+4. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare il file **XML dei metadati della federazione** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer.
 
     ![Collegamento di download del certificato](common/metadataxml.png)
 
@@ -144,7 +144,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     ![Icona Salva](./media/sapboc-tutorial/save.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
@@ -154,9 +154,9 @@ In questa sezione verrà creato un utente di test di nome B.Simon nel portale di
    1. Nel campo **Nome** immettere `B.Simon`.  
    1. Nel campo **Nome utente** immettere username@companydomain.extension. Ad esempio: `B.Simon@contoso.com`.
    1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
-   1. Fare clic su **Create**(Crea).
+   1. Fare clic su **Crea**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a SAP Analytics Cloud.
 

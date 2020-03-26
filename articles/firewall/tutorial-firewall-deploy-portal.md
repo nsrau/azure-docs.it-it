@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: distribuire & configurare il firewall di Azure usando il portale di Azure'
+title: 'Esercitazione: Distribuire e configurare Firewall di Azure tramite il portale di Azure'
 description: Questa esercitazione mostra come distribuire e configurare Firewall di Azure tramite il portale di Azure.
 services: firewall
 author: vhorne
@@ -9,11 +9,11 @@ ms.date: 02/21/2020
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: 064fcf618914bca31ad9e7e60c76df8f599cd8bf
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78359211"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79223648"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Esercitazione: Distribuire e configurare Firewall di Azure tramite il portale di Azure
 
@@ -26,7 +26,7 @@ Il controllo dell'accesso alla rete in uscita è un componente importante di un 
 
 Il traffico di rete è sottoposto alle regole del firewall configurate quando si instrada il traffico di rete al firewall come gateway predefinito della subnet.
 
-Per questa esercitazione viene creata una singola rete virtuale semplificata con tre subnet per facilitare la distribuzione. Per le distribuzioni di produzione, è consigliabile usare un [modello hub e spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) . Il firewall si trova nel proprio VNet. I server del carico di lavoro si trovano nelle reti virtuali associate all'interno della stessa area con una o più subnet.
+Per questa esercitazione viene creata una singola rete virtuale semplificata con tre subnet per facilitare la distribuzione. Per le distribuzioni di produzione è consigliabile un [modello hub e spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke), in cui il firewall si trova nella propria rete virtuale. I server del carico di lavoro si trovano nelle reti virtuali associate all'interno della stessa area con una o più subnet.
 
 * **AzureFirewallSubnet**: in questa subnet si trova il firewall.
 * **Workload-SN**: in questa subnet si trova il server del carico di lavoro. Il traffico di rete di questa subnet passa attraverso il firewall.
@@ -60,7 +60,7 @@ Il gruppo di risorse contiene tutte le risorse per l'esercitazione.
 2. Nel menu del portale di Azure selezionare **Gruppi di risorse** oppure cercare e selezionare *Gruppi di risorse* da qualsiasi pagina. Quindi selezionare **Aggiungi**.
 3. In **Nome del gruppo di risorse** immettere *Test-FW-RG*.
 4. In **Sottoscrizione** selezionare la propria sottoscrizione.
-5. In **Località del gruppo di risorse** selezionare una località. Tutte le altre risorse create devono trovarsi nella stessa posizione.
+5. In **Località del gruppo di risorse** selezionare una località. Tutte le altre risorse create devono risiedere nella stessa località.
 6. Selezionare **Create** (Crea).
 
 ### <a name="create-a-vnet"></a>Creare una rete virtuale
@@ -113,11 +113,11 @@ Creare ora le macchine virtuali per il jump server e il server del carico di lav
 4. In **Regole porta in ingresso** selezionare **Consenti porte selezionate** per **Porte in ingresso pubbliche**.
 5. In **Selezionare le porte in ingresso** selezionare **RDP (3389)** .
 
-6. Accettare le altre impostazioni predefinite e selezionare **Avanti: dischi**.
-7. Accettare le impostazioni predefinite del disco e selezionare **Avanti: rete**.
+6. Accettare tutte le altre impostazioni predefinite e selezionare **Avanti: Dischi**.
+7. Accettare tutte le impostazioni predefinite del disco e selezionare **Avanti: Rete**.
 8. Assicurarsi che **Test-FW-VN** sia selezionato per la rete virtuale e che la subnet sia **Jump-SN**.
 9. Per **Indirizzo IP pubblico**, accettare il nome predefinito del nuovo indirizzo IP pubblico indirizzo (Srv-Jump-ip).
-11. Accettare le altre impostazioni predefinite e selezionare **Avanti: gestione**.
+11. Accettare tutte le altre impostazioni predefinite e selezionare **Avanti: Gestione**.
 12. Selezionare **Disattivato** per disabilitare la diagnostica di avvio. Accettare tutte le altre impostazioni predefinite e selezionare **Rivedi e crea**.
 13. Verificare le impostazioni nella pagina di riepilogo e quindi selezionare **Crea**.
 
@@ -144,7 +144,7 @@ Distribuire il firewall nella rete virtuale.
    |Resource group     |**Test-FW-RG** |
    |Nome     |**Test-FW01**|
    |Location     |Selezionare la stessa località usata in precedenza|
-   |Scegliere una rete virtuale     |**Usa esistente**: **test-FW-VN**|
+   |Scegliere una rete virtuale     |**Use existing** (Usa esistente): **Test-FW-VN**|
    |Indirizzo IP pubblico     |**Aggiungi nuovo**. L'indirizzo IP pubblico deve essere di tipo SKU Standard.|
 
 5. Selezionare **Rivedi e crea**.
@@ -193,8 +193,8 @@ Si tratta della regola di applicazione che consente l'accesso in uscita a www.go
 6. In **Priorità** immettere **200**.
 7. In **Azione** selezionare **Consenti**.
 8. In **Regole**, **FQDN di destinazione**, immettere **Allow-Google** in **Nome**.
-9. In **tipo di origine**selezionare **indirizzo IP**.
-10. Per **origine**Digitare **10.0.2.0/24**.
+9. In **Tipo di origine** selezionare **Indirizzo IP**.
+10. In **Origine** digitare **10.0.2.0/24**.
 11. In **Protocollo:Porta** immettere **http, https**.
 12. In **FQDN di destinazione** immettere **www.google.com**
 13. Selezionare **Aggiungi**.
@@ -210,11 +210,11 @@ Si tratta della regola di rete che consente l'accesso in uscita a due indirizzi 
 3. In **Nome** immettere **Net-Coll01**.
 4. In **Priorità** immettere **200**.
 5. In **Azione** selezionare **Consenti**.
-6. In **Rules**( **indirizzi IP**), per **nome**digitare **Allow-DNS**.
+6. In **Regole**, **Indirizzi IP** digitare **Allow-DNS** in **Nome**.
 7. In **Protocollo** selezionare **UDP**.
-9. In **tipo di origine**selezionare **indirizzo IP**.
-1. Per **origine**Digitare **10.0.2.0/24**.
-2. Per **indirizzo di destinazione**, digitare **209.244.0.3, 209.244.0.4**
+9. In **Tipo di origine** selezionare **Indirizzo IP**.
+1. In **Origine** digitare **10.0.2.0/24**.
+2. In **Indirizzo di destinazione** digitare **209.244.0.3,209.244.0.4**
 
    Si tratta di server DNS pubblici gestiti da CenturyLink.
 1. In **Porte di destinazione** immettere **53**.
@@ -259,4 +259,4 @@ A questo punto si è verificato che le regole del firewall funzionano:
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Esercitazione: Monitorare i log di Firewall di Azure](./tutorial-diagnostics.md)
+> [Esercitazione: monitorare i log del Firewall di Azure](./tutorial-diagnostics.md)

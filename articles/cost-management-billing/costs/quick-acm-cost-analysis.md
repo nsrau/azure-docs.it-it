@@ -1,19 +1,19 @@
 ---
-title: Avvio rapido - Esplorare i costi di Azure con l'analisi | Microsoft Docs
+title: Avvio rapido - Esplorare i costi di Azure con l'analisi dei costi
 description: Questo guida introduttiva consente di usare l'analisi dei costi per esplorare e analizzare i costi aziendali di Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/11/2020
+ms.date: 03/24/2020
 ms.topic: quickstart
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.custom: seodec18
-ms.openlocfilehash: 82cd596f08136f6d9b327fc83122c0f32d8f9914
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 53e1ef2f5e4faecd3ab2dee1350f3e9087df8e9d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77649297"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80155954"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Guida introduttiva: Esplorare e analizzare i costi con l'analisi dei costi
 
@@ -27,12 +27,13 @@ In questa guida introduttiva si apprende come:
 - Personalizzare le visualizzazioni dei costi
 - Scaricare i dati dell'analisi dei costi
 
-
 ## <a name="prerequisites"></a>Prerequisiti
 
 L'analisi dei costi supporta diversi tipi di account di Azure. Per visualizzare l'elenco completo dei tipi di account supportati, vedere [Informazioni sui dati di Gestione costi](understand-cost-mgt-data.md). Per visualizzare i dati relativi ai costi, è necessario disporre almeno dell''accesso in lettura per l''account Azure.
 
 Per informazioni sull'assegnazione dell'accesso ai dati di Gestione costi di Azure, vedere [Assegnare l'accesso ai dati](../../cost-management/assign-access-acm-data.md).
+
+Se si ha una nuova sottoscrizione, non è possibile usare immediatamente le funzionalità di Gestione costi. Potrebbero essere necessarie fino a 48 ore prima di poter usarle usare tutte.
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
@@ -43,6 +44,10 @@ Per informazioni sull'assegnazione dell'accesso ai dati di Gestione costi di Azu
 Per esaminare i costi nell'analisi dei costi, aprire l'ambito nel portale di Azure e scegliere **Analisi dei costi** dal menu. Passare ad esempio a **Sottoscrizioni**, selezionare una sottoscrizione nell'elenco e quindi selezionare **Analisi dei costi** nel menu. Usare l'etichetta **Ambito** per passare a un ambito diverso nell'analisi dei costi. Per altre informazioni sugli ambiti, vedere [Informazioni e utilizzo degli ambiti](understand-work-scopes.md).
 
 L'ambito selezionato viene usato in tutto il servizio Gestione costi per fornire il consolidamento dati e per controllare l'accesso alle informazioni sui costi. Quando si usano gli ambiti, non si esegue una selezione di ambiti diversi. Si seleziona piuttosto un ambito più ampio, a cui fanno riferimento gli altri, quindi si applica il filtro fino agli ambiti annidati necessari. È importante comprendere questo approccio perché alcuni utenti potrebbero non avere accesso a un singolo ambito padre, che copre più ambiti annidati.
+
+Guardare il video [How to use Cost Management in the Azure portal](https://www.youtube.com/watch?v=mfxysF-kTFA) (Come usare Gestione costi nel portale di Azure) per altre informazioni su come usare Analisi dei costi.
+
+>[!VIDEO https://www.youtube.com/embed/mfxysF-kTFA]
 
 La visualizzazione dell'analisi dei costi iniziale include le aree seguenti.
 
@@ -65,7 +70,6 @@ La visualizzazione dell'analisi dei costi iniziale include le aree seguenti.
 La previsione dei costi mostra una proiezione dei costi stimati per il periodo di tempo selezionato. Il modello è basato su un modello di regressione della serie temporale. Richiede almeno 10 giorni di dati recenti relativi a costi e utilizzo per poter fare una previsione accurata dei costi. Per poter eleborare un modello di previsione per un determinato periodo di tempo, è necessario disporre di dati di training relativi a un periodo di tempo della stessa durata. Ad esempio, per una proiezione di tre mesi sono necessari almeno tre mesi di dati recenti relativi a costi e utilizzo.
 
 Il modello usa i dati di training relativi a un periodo massimo di sei mesi per proiettare i costi per un anno. Ha bisogno di almeno sette giorni di dati di training per modificare la stima. La stima è basata su modifiche notevoli, come picchi e flessioni, nei modelli di costo e utilizzo. La previsione non genera singole proiezioni per ogni elemento nelle proprietà **Raggruppa per**. Fornisce solo una previsione per i costi totali accumulati. Se si usano più valute, il modello fornisce previsioni per i costi solo in USD.
-
 
 ## <a name="customize-cost-views"></a>Personalizzare le visualizzazioni dei costi
 
@@ -174,11 +178,17 @@ Per altre informazioni sui termini, vedere [Informazioni sui termini usati nel f
 
 Salvare le visualizzazioni personalizzate e condividerle con altre persone aggiungendo l'analisi dei costi al dashboard del portale di Azure oppure copiando un collegamento all'analisi.
 
+Per altre informazioni su come usare il portale per condividere informazioni sui costi nell'organizzazione, vedere il video [Sharing and saving views in Azure Cost Management](https://www.youtube.com/watch?v=kQkXXj-SmvQ) (Condivisione e salvataggio delle visualizzazioni in Gestione costi di Azure).
+
+>[!VIDEO https://www.youtube.com/embed/kQkXXj-SmvQ]
+
 Per aggiungere l'analisi dei costi, selezionare l'icona Aggiungi nell'angolo in alto a destra. Aggiungendo l'analisi dei costi verrà salvata solo la visualizzazione grafico o tabella principale. Condividere il dashboard per concedere ad altre persone l'accesso al riquadro. Tenere presente che in questo modo si condivide solo la configurazione del dashboard e non si concede ad altre persone l'accesso ai dati sottostanti. Se non si ha accesso ai costi ma si ha accesso a un dashboard condiviso, verrà visualizzato un messaggio di accesso negato.
 
 Per condividere un collegamento all'analisi dei costi, selezionare **Condividi** nella parte superiore del pannello. Verrà visualizzato un URL personalizzato, che apre questa specifica visualizzazione per questo specifico ambito. Se non si ha accesso ai costi e si ottiene questo URL, verrà visualizzato un messaggio di accesso negato.
 
 Per altre informazioni su come concedere l'accesso ai costi per ogni ambito supportato, vedere [Informazioni e utilizzo degli ambiti](understand-work-scopes.md).
+
+
 
 ## <a name="automation-and-offline-analysis"></a>Automazione e analisi offline
 

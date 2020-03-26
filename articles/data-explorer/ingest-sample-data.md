@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 08/12/2019
 ms.openlocfilehash: 3ece5a9d225e48654a0a3a96c3b7b78327565841
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74975177"
 ---
 # <a name="quickstart-ingest-sample-data-into-azure-data-explorer"></a>Guida introduttiva: Inserire i dati di esempio in Esplora dati di Azure
@@ -60,5 +60,5 @@ Il set di dati di esempio **StormEvents** contiene dati relativi al meteo del [N
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Inserimento dati in Esplora dati di Azure](ingest-data-overview.md) per acquisire altre informazioni sui metodi di inserimento.
-* [Guida introduttiva: Eseguire query sui dati nell'interfaccia utente Web di Esplora dati di Azure](web-query-data.md).
+* [Avvio rapido: Eseguire query sui dati nell'interfaccia utente Web di Esplora dati di Azure](web-query-data.md).
 * [Scrivere query](write-queries.md) con il linguaggio di query Kusto.

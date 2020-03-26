@@ -7,10 +7,10 @@ ms.service: data-catalog
 ms.topic: overview
 ms.date: 08/01/2019
 ms.openlocfilehash: 9b7a5d5ca6cbad897839c8e28c9e3efd1eeabaf0
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "68736989"
 ---
 # <a name="what-is-azure-data-catalog"></a>Che cos'è il Catalogo dei dati di Azure?
@@ -72,5 +72,5 @@ Per altre informazioni sulle funzionalità di Data Catalog, vedere:
 
 Introduzione a Data Catalog:
 
-* [Guida introduttiva: Creare un'istanza di Azure Data Catalog](data-catalog-get-started.md)
+* [Avvio rapido: Creare un'istanza di Azure Data Catalog](data-catalog-get-started.md)
 * [Aprire Azure Data Catalog](https://www.azuredatacatalog.com)

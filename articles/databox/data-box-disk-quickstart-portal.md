@@ -10,15 +10,15 @@ ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
 ms.openlocfilehash: fcc7c6ff74e17db2066d97597849c985f5a961e9
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76514069"
 ---
 ::: zone target="docs"
 
-# <a name="quickstart-deploy-azure-data-box-disk-using-the-azure-portal"></a>Avvio rapido: Distribuire Azure Data Box Disk usando il portale di Azure
+# <a name="quickstart-deploy-azure-data-box-disk-using-the-azure-portal"></a>Guida introduttiva: Distribuire Azure Data Box Disk usando il portale di Azure
 
 Questa guida introduttiva descrive come distribuire Azure Data Box Disk tramite il portale di Azure. Le procedure descrivono come creare rapidamente un ordine, ricevere i dischi, controllare il pacchetto, collegare i dischi e copiare i dati nei dischi per caricarli in Azure.
 
@@ -36,7 +36,7 @@ In questa guida vengono illustrati i passaggi per l'uso di Azure Data Box Disk n
 
 ::: zone target="docs"
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare:
 

@@ -10,10 +10,10 @@ ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
 ms.openlocfilehash: c8ef6a87e839e6d8dfb296e7b24f3d0d95843d1c
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78675474"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>Guida introduttiva: Abilitare SSH e RDP su un flusso del dispositivo dell'hub IoT con un'applicazione proxy C# (anteprima)

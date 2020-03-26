@@ -4,10 +4,10 @@ description: Usare Terraform per configurare e specificare la versione di un set
 ms.topic: tutorial
 ms.date: 11/07/2019
 ms.openlocfilehash: 92a8221d625f8b6b73343f74b85fdfcf5e578b23
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77472206"
 ---
 # <a name="tutorial-create-an-azure-virtual-machine-scale-set-from-a-packer-custom-image-by-using-terraform"></a>Esercitazione: Creare un set di scalabilità di macchine virtuali di Azure da un'immagine personalizzata Packer usando Terraform
@@ -26,7 +26,7 @@ In questa esercitazione verranno illustrate le procedure per:
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 - **Terraform**: [installare Terraform e configurare l'accesso ad Azure](terraform-install-configure.md).
 - **Coppia di chiavi SSH**: [creare una coppia di chiavi SSH](/azure/virtual-machines/linux/mac-create-ssh-keys).

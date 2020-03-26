@@ -4,17 +4,17 @@ titleSuffix: Azure Storage
 description: Questa guida di avvio rapido illustra come usare Azure Storage Explorer per creare un contenitore e un BLOB, scaricare il BLOB nel computer locale e visualizzare tutti i BLOB nel contenitore.
 services: storage
 author: tamram
-ms.custom: mvc
 ms.service: storage
+ms.subservice: blobs
 ms.topic: quickstart
 ms.date: 12/04/2019
 ms.author: tamram
-ms.openlocfilehash: f19152b5b8bc569fa07109b6135fa85b9b55bff1
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 04530844316610bb8a97e8a299b5fb41ebf49955
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892465"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80061381"
 ---
 # <a name="quickstart-use-azure-storage-explorer-to-create-a-blob"></a>Guida introduttiva: Usare Azure Storage Explorer per creare un BLOB
 
@@ -52,7 +52,7 @@ Per creare un contenitore, espandere l'account di archiviazione creato nel passa
 
 ## <a name="upload-blobs-to-the-container"></a>Caricare i BLOB nel contenitore
 
-L'archiviazione BLOB supporta BLOB in blocchi, BLOB di aggiunta e BLOB di pagine. I file VHD usati per il backup di macchine virtuali IaaS sono BLOB di pagine. I BLOB di accodamento sono usati per la registrazione, ad esempio quando si vuole scrivere in un file e poi continuare ad aggiungere altre informazioni. La maggior parte dei file presenti nell'archiviazione BLOB è costituita da BLOB in blocchi.
+L'archiviazione BLOB supporta BLOB in blocchi, BLOB di aggiunta e BLOB di pagine. I file VHD usati per il backup di macchine virtuali IaaS sono BLOB di pagine. I BLOB di accodamento sono usati per la registrazione, ad esempio quando si desidera scrivere in un file e poi continuare ad aggiungere altre informazioni. La maggior parte dei file presenti nell'archiviazione BLOB è costituita da BLOB in blocchi.
 
 Sulla barra multifunzione del contenitore selezionare **Carica**. Questa operazione consente di caricare una cartella o un file.
 

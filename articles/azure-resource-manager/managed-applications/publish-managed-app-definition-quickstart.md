@@ -5,14 +5,14 @@ author: tfitzmac
 ms.topic: quickstart
 ms.date: 09/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: 11d4eb396d332327addcd85ed7badd36ef8f1d10
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 5168dab7501cdb2907b3eede5877dce39e9e5c97
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647942"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79473048"
 ---
-# <a name="publish-an-azure-managed-application-definition"></a>Pubblicare una definizione di applicazione gestita di Azure
+# <a name="quickstart-publish-an-azure-managed-application-definition"></a>Guida introduttiva: Pubblicare una definizione di applicazione gestita di Azure
 
 Questa guida introduttiva fornisce un'introduzione all'uso delle applicazioni gestite. È possibile aggiungere una definizione di applicazione gestita a un catalogo interno per gli utenti dell'organizzazione Per semplificare l'introduzione, i file per l'applicazione gestita sono già stati compilati. Questi file sono disponibili tramite GitHub. Nell'esercitazione [Create service catalog application](publish-service-catalog-app.md) (Creareun'applicazione del catalogo di servizi) viene illustrato come compilare questi file.
 

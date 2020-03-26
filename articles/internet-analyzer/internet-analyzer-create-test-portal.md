@@ -1,6 +1,6 @@
 ---
 title: Creare un test dell'analizzatore Internet tramite il portale | Microsoft Docs
-description: In questo articolo sono disponibili informazioni su come creare il primo test dell'analizzatore Internet.
+description: Questo articolo spiega come creare il primo test dell'analizzatore Internet.
 services: internet-analyzer
 author: megan-beatty
 ms.service: internet-analyzer
@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: mebeatty
 ms.openlocfilehash: 64bbed9b558d4c20889b28a5247e2113d20daa77
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73509835"
 ---
 # <a name="create-an-internet-analyzer-test-using-portal-preview"></a>Creare un test dell'analizzatore Internet tramite il portale (anteprima)
@@ -24,7 +24,7 @@ Per creare una risorsa analizzatore Internet è possibile procedere in due modi,
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-L'anteprima pubblica è disponibile per l'uso a livello globale. L'archiviazione dei dati è tuttavia limitata all'area *Stati Uniti occidentali 2* durante l'anteprima.
+L'anteprima pubblica è disponibile per l'uso a livello globale. Durante l'anteprima l'archiviazione dei dati è tuttavia limitata all'area *Stati Uniti occidentali 2*.
 
 ## <a name="basics"></a>Nozioni di base
 
@@ -70,7 +70,7 @@ Il completamento dei passaggi di base costituisce un prerequisito per la configu
 
 ## <a name="embed-client"></a>Incorporare il client
 
-Per iniziare qualsiasi test, è necessario che il client JavaScript sia incorporato nell'applicazione Web. Dopo aver configurato almeno un test, fare clic su **Rivedi e crea**, passare a **Impostazioni > Configurazione** e copiare il client JavaScript. Istruzioni specifiche sono disponibili nella pagina [Incorporare il client dell'analizzatore Internet](internet-analyzer-embed-client.md).  
+Per iniziare qualsiasi test, è necessario che il client JavaScript sia incorporato nell'applicazione Web. Dopo aver configurato almeno un test, fare clic su **Rivedi e crea**, passare a **Impostazioni > Configurazione** e copiare il client JavaScript. Per le istruzioni specifiche, vedere la pagina [Incorporare il client dell'analizzatore Internet](internet-analyzer-embed-client.md).  
 
 ## <a name="next-steps"></a>Passaggi successivi
 

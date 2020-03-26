@@ -1,14 +1,14 @@
 ---
 title: Esercitazione - Configurare funzionalità di rete di Azure CNI nel servizio Azure Kubernetes con Ansible
 description: Informazioni su come usare Ansible per configurare funzionalità di rete kubenet nel cluster del servizio Azure Kubernetes
-keywords: ansible, azure, devops, bash, cloudshell, playbook, servizio Azure Kubernetes, contenitore, servizio Azure Container, kubernetes
+keywords: ansible, azure, devops, bash, cloudshell, playbook, servizio Azure Kubernetes, contenitore, servizio Azure Kubernetes, kubernetes
 ms.topic: tutorial
 ms.date: 04/30/2019
 ms.openlocfilehash: e3667ad7a561f56d5fddaacad705c53d1de9ac36
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74156907"
 ---
 # <a name="tutorial-configure-azure-cni-networking-in-azure-kubernetes-service-aks-using-ansible"></a>Esercitazione: Configurare funzionalità di rete di Azure CNI nel servizio Azure Kubernetes usando Ansible
@@ -22,13 +22,13 @@ Usando il servizio Azure Kubernetes è possibile distribuire un cluster che usa 
 - [Funzionalità di rete kubenet](/azure/aks/configure-kubenet): le risorse di rete vengono in genere create e configurate quando viene distribuito il cluster del servizio Azure Kubernetes.
 - [Funzionalità di rete di Azure CNI](/azure/aks/configure-azure-cni): il cluster servizio Azure Kubernetes viene connesso alle risorse di rete virtuale (VNET) e alle configurazioni esistenti.
 
-Per altre informazioni sulle funzionalità di rete per l'applicazione nel servizio Azure Kubernetes, vedere [Concetti relativi alla rete per le applicazioni nel servizio Azure Kubernetes](/azure/aks/concepts-network).
+Per altre informazioni sulle funzionalità di rete per le applicazioni nel servizio Azure Kubernetes, vedere [Concetti relativi alla rete per le applicazioni nel servizio Azure Kubernetes](/azure/aks/concepts-network).
 
 [!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
 
 > [!div class="checklist"]
 >
-> * Creare un cluster del servizio Azure Container
+> * Creare un cluster AKS
 > * Configurare le funzionalità di rete dell'interfaccia di rete dei contenitori di Azure
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -39,7 +39,7 @@ Per altre informazioni sulle funzionalità di rete per l'applicazione nel serviz
 
 ## <a name="create-a-virtual-network-and-subnet"></a>Creare una rete virtuale e una subnet
 
-Il codice di playbook di esempio in questa sezione viene usato per:
+Il codice del playbook di esempio in questa sezione viene usato per:
 
 - Crea rete virtuale
 - Creare una subnet all'interno della rete virtuale
@@ -65,7 +65,7 @@ Salvare il playbook seguente come `vnet.yml`:
 
 ## <a name="create-an-aks-cluster-in-the-virtual-network"></a>Creare un cluster del servizio Azure Kubernetes nella rete virtuale
 
-Il codice di playbook di esempio in questa sezione viene usato per:
+Il codice del playbook di esempio in questa sezione viene usato per:
 
 - Creare un cluster del servizio Azure Kubernetes in una rete virtuale.
 
@@ -102,7 +102,7 @@ Salvare il playbook seguente come `aks.yml`:
   register: aks
 ```
 
-Quando si usa il playbook di esempio è necessario tenere conto di alcuni concetti fondamentali:
+Quando si usa il playbook di esempio, è necessario tenere conto di alcuni concetti fondamentali:
 
 - Usare il modulo `azure_rm_aks_version` per trovare la versione supportata.
 - `vnet_subnet_id` è la subnet creata nella sezione precedente.
@@ -146,7 +146,7 @@ Salvare il playbook seguente come `aks-azure-cni.yml`:
            var: aks
 ```
 
-Quando si usa il playbook di esempio è necessario tenere conto di alcuni concetti fondamentali:
+Quando si usa il playbook di esempio, è necessario tenere conto di alcuni concetti fondamentali:
 
 - Modificare il valore `aksansibletest` nel nome del gruppo di risorse.
 - Modificare il valore `aksansibletest` nel nome del servizio Azure Kubernetes.
@@ -246,7 +246,7 @@ localhost                  : ok=9    changed=4    unreachable=0    failed=0    s
 
 Quando non sono più necessarie, eliminare le risorse create in questo articolo. 
 
-Il codice di playbook di esempio in questa sezione viene usato per:
+Il codice del playbook di esempio in questa sezione viene usato per:
 
 - Eliminare un gruppo di risorse a cui si è fatto riferimento nella sezione `vars`.
 
@@ -265,7 +265,7 @@ Salvare il playbook seguente come `cleanup.yml`:
             force: yes
 ```
 
-Quando si usa il playbook di esempio è necessario tenere conto di alcuni concetti fondamentali:
+Quando si usa il playbook di esempio, è necessario tenere conto di alcuni concetti fondamentali:
 
 - Sostituire il segnaposto `{{ resource_group_name }}` con il nome del proprio gruppo di risorse.
 - Tutte le risorse nel gruppo di risorse specificato verranno eliminate.

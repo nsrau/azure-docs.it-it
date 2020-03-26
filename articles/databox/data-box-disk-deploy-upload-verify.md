@@ -10,11 +10,11 @@ ms.localizationpriority: high
 ms.date: 09/04/2019
 ms.author: alkohli
 ms.openlocfilehash: 3f89d713003f1f4265a7ab7c467454af750fab48
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200130"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79214293"
 ---
 ::: zone target="docs"
 
@@ -26,7 +26,7 @@ Questa è l'ultima esercitazione della serie: Distribuire Azure Data Box Disk. I
 > * Verificare il caricamento dei dati in Azure
 > * Cancellazione dei dati dai dischi di Data Box
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare, assicurarsi di aver completato l'[Esercitazione: Restituire Azure Data Box Disk](data-box-disk-deploy-picked-up.md).
 

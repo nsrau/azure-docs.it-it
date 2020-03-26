@@ -8,10 +8,10 @@ ms.subservice: security
 ms.topic: quickstart
 ms.date: 10/02/2019
 ms.openlocfilehash: 9f09f28dc63e7f061946a66beb59bd4c62be70aa
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78970566"
 ---
 # <a name="quickstart-create-and-encrypt-a-virtual-machine-with-the-azure-portal"></a>Guida introduttiva: Creare e crittografare una macchina virtuale con il portale di Azure

@@ -9,13 +9,13 @@ ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
 ms.openlocfilehash: f0c95e495e222cc72f0a6fc432404fcbaa47df65
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75434674"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79216349"
 ---
-# <a name="quickstart-provision-an-x509-simulated-device-using-the-azure-iot-c-sdk"></a>Avvio rapido: Effettuare il provisioning di un dispositivo simulato X.509 tramite Azure IoT C SDK
+# <a name="quickstart-provision-an-x509-simulated-device-using-the-azure-iot-c-sdk"></a>Guida introduttiva: Effettuare il provisioning di un dispositivo simulato X.509 tramite Azure IoT C SDK
 
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
 
@@ -32,7 +32,7 @@ Questo articolo descrive le registrazioni singole.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 I prerequisiti seguenti si riferiscono a un ambiente di sviluppo Windows. Per Linux o macOS, vedere la sezione appropriata in [Preparare l'ambiente di sviluppo](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) nella documentazione dell'SDK.
 

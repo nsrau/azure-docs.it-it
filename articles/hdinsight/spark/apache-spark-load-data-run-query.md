@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.custom: hdinsightactive,mvc
 ms.date: 02/12/2020
 ms.openlocfilehash: 5eb6788a558e4429296731f1693edd18bf92f98f
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77198889"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>Esercitazione: Caricare i dati ed eseguire query in un cluster Apache Spark in Azure HDInsight
@@ -24,7 +24,7 @@ In questa esercitazione verranno illustrate le procedure per:
 > * Creare un frame di dati da un file csv
 > * Eseguire query sul frame di dati
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Un cluster Apache Spark in HDInsight. Vedere [Creare un cluster Apache Spark](./apache-spark-jupyter-spark-sql-use-portal.md).
 

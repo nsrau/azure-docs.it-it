@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 01/09/2019
 ms.custom: mvc
 ms.openlocfilehash: acf5f3cdf761e1773d6e9384a4ceb99a645ed7cc
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74773518"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-using-azure-cli"></a>Guida introduttiva: Creare un database di Azure per il server MySQL tramite l'interfaccia della riga di comando di Azure
@@ -36,7 +36,7 @@ az account set --subscription 00000000-0000-0000-0000-000000000000
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 Creare un [gruppo di risorse di Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) con il comando [az group create](/cli/azure/group#az-group-create). Un gruppo di risorse è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite come gruppo.
 
-Nell'esempio seguente viene creato un gruppo di risorse denominato `myresourcegroup` nella posizione `westus`.
+L'esempio seguente consente di creare un gruppo di risorse denominato `myresourcegroup` nell'area `westus`.
 
 ```azurecli-interactive
 az group create --name myresourcegroup --location westus
@@ -52,7 +52,7 @@ resource-group | myresourcegroup | Specificare il nome del gruppo di risorse di 
 sku-name | GP_Gen5_2 | Il nome dello SKU. Segue la convenzione {piano tariffario}\_{generazione di calcolo}\_{Vcore} in sintassi abbreviata. Vedere più avanti in questa tabella per altre informazioni sul parametro sku-name.
 backup-retention | 7 | Specifica per quanto tempo deve essere conservato un backup. L'unità è giorni. L'intervallo è da 7 a 35. 
 geo-redundant-backup | Disabled | Indica se abilitare i backup con ridondanza geografica per questo server. Valori consentiti: Enabled, Disabled.
-location | westus | Località di Azure per il server.
+posizione | westus | Località di Azure per il server.
 ssl-enforcement | Attivato | Indica se abilitare SSL per questo server. Valori consentiti: Enabled, Disabled.
 storage-size | 51200 | Capacità di archiviazione del server (l'unità è MB). Le dimensioni valide per la capacità di archiviazione partono da un minimo di 5120 MB e aumentano con incrementi di 1024 MB. Vedere il documento sui [piani tariffari](./concepts-pricing-tiers.md) per altre informazioni sui limiti delle dimensioni di archiviazione. 
 version | 5.7 | La versione principale di MySQL.
@@ -67,7 +67,7 @@ Il valore del parametro sku-name segue la convenzione {piano tariffario}\_{gener
 
 Vedere la documentazione dei [piani tariffari](./concepts-pricing-tiers.md) per comprendere i valori validi per area e livello.
 
-L'esempio seguente crea negli Stati Uniti occidentali un server MySQL 5.7 denominato `mydemoserver` nel gruppo di risorse `myresourcegroup` con l'account di accesso amministratore server `myadmin`. Questo è un server per **utilizzo generico** di **generazione 4** con 2 **vCore**. Sostituire `<server_admin_password>` con il proprio valore.
+L'esempio seguente crea negli Stati Uniti occidentali un server MySQL 5.7 denominato `mydemoserver` nel gruppo di risorse `myresourcegroup` con l'account di accesso amministratore server `myadmin`. Questo è un server per **utilizzo generico** di **generazione 4** con **2 vCore**. Sostituire `<server_admin_password>` con il proprio valore.
 
 ```azurecli-interactive
 az mysql server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 5.7
@@ -108,7 +108,7 @@ Per connettersi al server, è necessario specificare le informazioni sull'host e
 az mysql server show --resource-group myresourcegroup --name mydemoserver
 ```
 
-Il risultato è in formato JSON. Annotare i valori di **fullyQualifiedDomainName** e **administratorLogin**.
+Il risultato è in formato JSON. Annotare il **fullyQualifiedDomainName** e l'**administratorLogin**.
 ```json
 {
   "administratorLogin": "myadmin",
@@ -208,7 +208,7 @@ mysql>
 |---|---|---|
 |   Connection Name (Nome connessione) | Connessione in uso | Specificare un'etichetta per la connessione (può essere qualsiasi nome) |
 | Connection Method (Metodo di connessione) | Scegliere Standard (TCP/IP) | Usare il protocollo TCP/IP per connettersi a Database di Azure per MySQL> |
-| Nome host | mydemoserver.mysql.database.azure.com | Nome del server annotato in precedenza. |
+| nomehost | mydemoserver.mysql.database.azure.com | Nome del server annotato in precedenza. |
 | Porta | 3306 | Viene usata la porta predefinita per MySQL. |
 | Username | myadmin@mydemoserver | Account di accesso amministratore server annotato in precedenza. |
 | Password | **** | Usare la password dell'account amministratore configurata in precedenza. |

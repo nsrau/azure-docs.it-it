@@ -1,5 +1,5 @@
 ---
-title: "Avvio rapido: Effettuare il provisioning di un dispositivo TPM simulato nell'hub IoT di Azure usando C"
+title: "Guida introduttiva: Effettuare il provisioning di un dispositivo TPM simulato nell'hub IoT di Azure usando C"
 description: Questa guida introduttiva usa registrazioni singole. In questa guida di avvio rapido viene creato un dispositivo TPM simulato e ne viene effettuato il provisioning con l'SDK per dispositivi C per il servizio Device Provisioning in hub IoT di Azure.
 author: wesmc7777
 ms.author: wesmc
@@ -10,13 +10,13 @@ services: iot-dps
 manager: philmea
 ms.custom: mvc
 ms.openlocfilehash: d41c4757f0b81312cefa580c3a3263f87bccffa9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75434648"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79290599"
 ---
-# <a name="quickstart-provision-a-simulated-tpm-device-using-the-azure-iot-c-sdk"></a>Avvio rapido: Effettuare il provisioning di un dispositivo simulato TPM tramite l'SDK IoT di Azure
+# <a name="quickstart-provision-a-simulated-tpm-device-using-the-azure-iot-c-sdk"></a>Guida introduttiva: Effettuare il provisioning di un dispositivo simulato TPM tramite l'SDK IoT di Azure
 
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-tpm](../../includes/iot-dps-selector-quick-create-simulated-device-tpm.md)]
 
@@ -32,7 +32,7 @@ Questo articolo descrive le registrazioni singole.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 I prerequisiti seguenti si riferiscono a un ambiente di sviluppo Windows. Per Linux o macOS, vedere la sezione appropriata in [Preparare l'ambiente di sviluppo](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) nella documentazione dell'SDK.
 

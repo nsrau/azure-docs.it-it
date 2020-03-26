@@ -17,10 +17,10 @@ ms.date: 10/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0a75869c257e6b875a00036218b05db5521e8d0b
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72532961"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-nuclino"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Nuclino
@@ -65,8 +65,8 @@ Configurare e testare l'accesso SSO di Azure AD con Nuclino usando un utente di 
 Per configurare e testare l'accesso SSO di Azure AD con Nuclino, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
-    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
+    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
+    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Configurare l'accesso Single Sign-On di Nuclino](#configure-nuclino-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
     1. **[Creare l'utente di test di Nuclino](#create-nuclino-test-user)** : per avere una controparte di B.Simon in Nuclino collegata alla rappresentazione dell'utente in Azure AD.
 1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
@@ -133,7 +133,7 @@ In questa sezione verrà creato un utente di test di nome B.Simon nel portale di
 In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Nuclino.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
-1. Nell'elenco delle applicazioni selezionare **Nuclino**.
+1. Nell'elenco di applicazioni selezionare **Nuclino**.
 1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi**.
 
    ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
@@ -150,7 +150,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 1. Per automatizzare la configurazione all'interno di Nuclino, è necessario installare l'**estensione del browser per l'accesso sicuro ad App personali** facendo clic su **Installa l'estensione**.
 
-    ![Estensione per App personali](common/install-myappssecure-extension.png)
+    ![Estensione MyApps](common/install-myappssecure-extension.png)
 
 2. Dopo aver aggiunto l'estensione al browser, fare clic su **Configura Nuclino** per passare direttamente all'applicazione Nuclino. Nell'applicazione specificare le credenziali di amministratore per accedere a Nuclino. L'estensione del browser configurerà automaticamente l'applicazione per l'utente e automatizzerà i passaggi da 3 a 7.
 
@@ -188,9 +188,9 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
     g. Fare clic su **SAVE CHANGES** (Salva modifiche).
 
-### <a name="create-nuclino-test-user"></a>Creare l'utente di test di Nuclino
+### <a name="create-nuclino-test-user"></a>Creare un utente di test di Nuclino
 
-In questa sezione viene creato un utente di nome B.Simon in Nuclino. Nuclino supporta il provisioning utenti JIT, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se non esiste già un utente in Nuclino, ne viene creato uno nuovo dopo l'autenticazione.
+In questa sezione viene creato un utente di nome B.Simon in Nuclino. Nuclino supporta il provisioning JIT, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se non esiste già un utente in Nuclino, ne viene creato uno nuovo dopo l'autenticazione.
 
 > [!Note]
 > Se è necessario creare un utente manualmente, contattare il [team di supporto di Nuclino](mailto:contact@nuclino.com).
@@ -199,7 +199,7 @@ In questa sezione viene creato un utente di nome B.Simon in Nuclino. Nuclino sup
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di Nuclino nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Nuclino per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di Nuclino nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Nuclino per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

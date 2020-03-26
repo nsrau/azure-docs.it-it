@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: quickstart
 ms.date: 06/12/2019
 ms.author: hrasheed
-ms.openlocfilehash: a6896eaad86c5e361c50cd81257131ee75a8d6a8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 1c400e41c4c10023d2595bde8c0d62e26184cf05
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467032"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79370322"
 ---
 # <a name="quickstart-query-apache-hbase-in-azure-hdinsight-with-apache-phoenix"></a>Guida introduttiva: Eseguire query Apache HBase in Azure HDInsight con Apache Phoenix
 
@@ -23,7 +23,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un cluster Apache HBase. Per creare un cluster HDInsight, vedere [Creare un cluster](../hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).  Assicurarsi di scegliere il tipo di cluster **HBase**.
+* Un cluster Apache HBase. Per creare un cluster HDInsight, vedere [Creare un cluster](../hadoop/apache-hadoop-linux-tutorial-get-started.md).  Assicurarsi di scegliere il tipo di cluster **HBase**.
 
 * Un client SSH. Per altre informazioni, vedere [Connettersi a HDInsight (Apache Hadoop) con SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 

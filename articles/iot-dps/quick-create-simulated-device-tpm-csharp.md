@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
 ms.openlocfilehash: 82bd284ede23e8880f79c614f4a6e2f588a4293c
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74976996"
 ---
 # <a name="quickstart-create-and-provision-a-simulated-tpm-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>Guida introduttiva: Creare ed effettuare il provisioning di un dispositivo simulato TPM usando l'SDK per dispositivi C# per il servizio Device Provisioning in hub IoT
@@ -103,7 +103,7 @@ Se si prevede di continuare a usare ed esplorare l'esempio di client dispositivo
 1. Chiudere la finestra di output di esempio di client del dispositivo sul computer.
 1. Chiudere la finestra del simulatore TPM sul computer.
 1. Nel portale di Azure selezionare **Tutte le risorse** nel menu a sinistra e quindi il servizio Device Provisioning. Nella parte superiore del pannello **Panoramica** fare clic su **Elimina** in alto nel riquadro.  
-1. Nel portale di Azure selezionare **Tutte le risorse** nel menu a sinistra e quindi l'hub IoT. Nella parte superiore del pannello **Panoramica** fare clic su **Elimina** in alto nel riquadro.  
+1. Nel menu a sinistra nel portale di Azure selezionare **Tutte le risorse** e quindi selezionare l'hub IoT. Nella parte superiore del pannello **Panoramica** fare clic su **Elimina** in alto nel riquadro.  
 
 ## <a name="next-steps"></a>Passaggi successivi
 

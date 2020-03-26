@@ -17,15 +17,15 @@ ms.date: 10/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 465b41aaf3c3b16dcba489d1ea9ba951a3108c8e
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77046592"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-eab-navigate-impl"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con EAB Navigate IMPL
 
-Questa esercitazione descrive come integrare EAB Navigate IMPL con Azure Active Directory (Azure AD). Integrando EAB Navigate IMPL con Azure AD, è possibile:
+In questa esercitazione si apprenderà come integrare EAB Navigate IMPL con Azure Active Directory (Azure AD). Integrando EAB Navigate IMPL con Azure AD, è possibile:
 
 * Controllare in Azure AD chi può accedere a EAB Navigate IMPL.
 * Abilitare gli utenti per l'accesso automatico a EAB Navigate IMPL con gli account Azure AD personali.
@@ -62,13 +62,13 @@ Per configurare l'integrazione di EAB Navigate IMPL in Azure AD, è necessario a
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-eab-navigate-impl"></a>Configurare e testare l'accesso Single Sign-On di Azure AD per EAB Navigate IMPL
 
-Configurare e testare l'accesso SSO di Azure AD con EAB Navigate IMPL usando un utente di test di nome **B.Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in EAB Navigate IMPL.
+Configurare e testare l'accesso SSO di Azure AD con EAB Navigate IMPL usando un utente di test di nome **B.Simon**. Per il corretto funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in EAB Navigate IMPL.
 
 Per configurare e testare l'accesso SSO di Azure AD con EAB Navigate IMPL, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    * **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
-    * **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
+    * **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
+    * **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Configurare l'accesso Single Sign-On per EAB Navigate IMPL](#configure-eab-navigate-impl-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
     * **[Creare un utente di test di EAB Navigate IMPL](#create-eab-navigate-impl-test-user)** : per avere una controparte di B.Simon in EAB Navigate IMPL collegata alla rappresentazione dell'utente in Azure AD.
 1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.

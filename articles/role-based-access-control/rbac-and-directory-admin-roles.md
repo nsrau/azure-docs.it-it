@@ -16,11 +16,11 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
 ms.openlocfilehash: e8d82011fe4fdd40bb07c77411ad0e948ddad049
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78376871"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79214829"
 ---
 # <a name="classic-subscription-administrator-roles-azure-rbac-roles-and-azure-ad-administrator-roles"></a>Ruoli di amministratore sottoscrizione classico, ruoli di controllo degli accessi in base al ruolo di Azure e ruoli di amministratore di Azure AD
 
@@ -60,7 +60,7 @@ Per altre informazioni, vedere [Amministratori della sottoscrizione classica di 
 
 ### <a name="azure-account-and-azure-subscriptions"></a>Account e sottoscrizioni di Azure
 
-Un account di Azure rappresenta una relazione di fatturazione. Un account di Azure include un'identità utente, una o più sottoscrizioni di Azure e un set associato di risorse di Azure. La persona che crea l'account è l'amministratore dell'account per tutte le sottoscrizioni create al suo interno, nonché l'amministratore del servizio predefinito per tale sottoscrizione.
+Un account di Azure rappresenta una relazione di fatturazione. Un account di Azure include un'identità utente, una o più sottoscrizioni di Azure e un set associato di risorse di Azure. La persona che crea l'account è l'amministratore account di tutte le sottoscrizioni create nell'account. È anche l'amministratore del servizio predefinito per la sottoscrizione.
 
 Le sottoscrizioni di Azure consentono di organizzare l'accesso alle risorse di Azure. Consentono inoltre di controllare come l'utilizzo delle risorse viene segnalato, fatturato e pagato. Ogni sottoscrizione può disporre di un’impostazione di fatturazione e pagamento diversa, in modo da poter avere sottoscrizioni e piani diversi per ufficio, reparto, progetto e così via. Ogni servizio appartiene a una sottoscrizione e l'ID sottoscrizione può essere necessario per le operazioni a livello di codice.
 
@@ -100,8 +100,8 @@ I ruoli di amministratore di Azure AD consentono di gestire le risorse di Azure 
 | Ruolo di amministratore di Azure AD | Autorizzazioni | Note |
 | --- | --- | --- |
 | [Amministratore globale](../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator-permissions) | <ul><li>Gestire l'accesso a tutte le funzionalità di amministrazione in Azure Active Directory, nonché ai servizi che attuano la federazione in Azure Active Directory</li><li>Assegnare i ruoli di amministratore ad altri utenti</li><li>Reimpostare la password per qualsiasi utente e per tutti gli altri amministratori</li></ul> | La persona che effettua l'iscrizione per il tenant di Azure Active Directory diventa amministratore globale. |
-| [Amministratore utenti](../active-directory/users-groups-roles/directory-assign-admin-roles.md#user-administrator) | <ul><li>Creare e gestire tutti gli aspetti di utenti e gruppi</li><li>Gestisce i ticket di supporto</li><li>Monitorare l'integrità dei servizi</li><li>Modificare le password degli utenti, degli amministratori del supporto tecnico e di altri amministratori degli utenti</li></ul> |  |
-| [Amministratore fatturazione](../active-directory/users-groups-roles/directory-assign-admin-roles.md#billing-administrator) | <ul><li>Effettuare acquisti</li><li>Gestisci sottoscrizioni</li><li>Gestisce i ticket di supporto</li><li>Monitorare l'integrità dei servizi</li></ul> |  |
+| [Amministratore utenti](../active-directory/users-groups-roles/directory-assign-admin-roles.md#user-administrator) | <ul><li>Creare e gestire tutti gli aspetti di utenti e gruppi</li><li>Gestire i ticket di supporto</li><li>Monitorare l'integrità dei servizi</li><li>Modificare le password degli utenti, degli amministratori del supporto tecnico e di altri amministratori degli utenti</li></ul> |  |
+| [Amministratore fatturazione](../active-directory/users-groups-roles/directory-assign-admin-roles.md#billing-administrator) | <ul><li>Effettuare acquisti</li><li>Gestire le sottoscrizioni</li><li>Gestire i ticket di supporto</li><li>Monitorare l'integrità dei servizi</li></ul> |  |
 
 Nel portale di Azure è possibile visualizzare l'elenco dei ruoli di amministratore di Azure AD nel pannello **Ruoli e amministratori**. Per un elenco di tutti i ruoli di amministratore di Azure AD, vedere [Autorizzazioni del ruolo di amministratore in Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 

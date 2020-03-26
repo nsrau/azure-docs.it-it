@@ -10,10 +10,10 @@ ms.date: 07/11/2019
 author: mlearned
 monikerRange: vsts
 ms.openlocfilehash: 229b4b9f53ea3866dce1169645f6d6da20827271
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73888896"
 ---
 # <a name="deploy-nodejs-apps-powered-by-azure-cosmos-db-with-devops-projects"></a>Distribuire app Node.js con tecnologia Azure Cosmos DB con DevOps Projects
@@ -158,7 +158,7 @@ Quando non servono più, eliminare le risorse correlate create in precedenza. Us
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È possibile modificare queste pipeline di compilazione e di versione in base alle esigenze del team. È anche possibile usare questo modello di CI/CD come modello per altre pipeline. Questa esercitazione illustra come:
+È possibile modificare queste pipeline di compilazione e di versione in base alle esigenze del team. È anche possibile usare questo modello di CI/CD come modello per altre pipeline. In questa esercitazione sono state illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Usare DevOps Projects per distribuire un'app Node.js con tecnologia Azure Cosmos DB

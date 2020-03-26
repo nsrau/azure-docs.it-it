@@ -17,10 +17,10 @@ ms.date: 10/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 71d3078b553843922cd51e4e0f43ea84b6dcde16
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74170754"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-tinfoil-security"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con TINFOIL SECURITY
@@ -91,7 +91,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Oltre quelli elencati in precedenza, l'applicazione Visitly prevede il passaggio di altri attributi nella risposta SAML. Tali attributi sono indicati di seguito. Anche questi attributi vengono prepopolati, ma è possibile esaminarli in base ai requisiti.
 
-    | NOME | Attributo di origine |
+    | Nome | Attributo di origine |
     | ------------------- | -------------|
     | accountid | UXXXXXXXXXXXXX |
 
@@ -122,7 +122,7 @@ In questa sezione verrà creato un utente di test di nome B.Simon nel portale di
    1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
    1. Fare clic su **Crea**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a TINFOIL SECURITY.
 
@@ -146,7 +146,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 1. Nel barra degli strumenti in alto fare clic su **Account**.
 
-    ![Dashboard](./media/tinfoil-security-tutorial/ic798971.png "dashboard")
+    ![Dashboard](./media/tinfoil-security-tutorial/ic798971.png "Dashboard")
 
 1. Fare clic su **Security**.
 
@@ -154,7 +154,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 1. Nella pagina di configurazione **Single Sign-On** eseguire la procedura seguente:
 
-    ![Accesso Single Sign-On](./media/tinfoil-security-tutorial/ic798973.png "Single Sign-On")
+    ![Single Sign-On](./media/tinfoil-security-tutorial/ic798973.png "Single Sign-On")
 
     a. Selezionare **Enable SAML**.
 
@@ -166,7 +166,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
   
     e. Copiare il valore **Your Account ID** (ID account) e incollarlo nella casella di testo **Attributo di origine** nella sezione **Attributi utente e attestazioni** del portale di Azure.
 
-    f. Fare clic su **Save**.
+    f. Fare clic su **Salva**.
 
 ### <a name="create-tinfoil-security-test-user"></a>Creare l'utente di test di TINFOIL SECURITY
 

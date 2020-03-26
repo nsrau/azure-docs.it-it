@@ -7,17 +7,17 @@ ms.service: data-catalog
 ms.topic: tutorial
 ms.date: 08/01/2019
 ms.openlocfilehash: 4bd2b7093100ff24b21b67ea84613ac9b2ec8299
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68950240"
 ---
 # <a name="tutorial-register-data-assets-in-azure-data-catalog"></a>Esercitazione: Registrare gli asset di dati in Azure Data Catalog
 
 Questa esercitazione descrive come usare lo strumento di registrazione per registrare gli asset di dati dell'esempio di database SQL di Azure con il catalogo. La registrazione è il processo di estrazione dei metadati strutturali chiave, quali nomi, tipi e percorsi, dall'origine dati e dagli asset che contiene e di copia dei metadati nel catalogo. Le origini dati e gli asset di dati rimangono dove sono, ma i metadati vengono usati dal catalogo per renderli più facilmente individuabili e comprensibili.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 > [!div class="checklist"]
 > * Registrare gli asset di dati 
 > * Eseguire ricerche negli asset di dati

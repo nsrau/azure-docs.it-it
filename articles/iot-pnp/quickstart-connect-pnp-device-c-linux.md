@@ -9,13 +9,13 @@ ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
 ms.openlocfilehash: 8134c0a97f6350cfa2cf616695c5990618455393
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75531251"
 ---
-# <a name="quickstart-connect-a-sample-iot-plug-and-play-preview-device-application-running-on-linux-to-iot-hub-c-linux"></a>Avvio rapido: Connettere un'applicazione per dispositivi Plug and Play IoT (anteprima) in esecuzione in Linux nell'hub IoT (C Linux)
+# <a name="quickstart-connect-a-sample-iot-plug-and-play-preview-device-application-running-on-linux-to-iot-hub-c-linux"></a>Guida introduttiva: Connettere un'applicazione per dispositivi Plug and Play IoT (anteprima) in esecuzione in Linux nell'hub IoT (C Linux)
 
 [!INCLUDE [iot-pnp-quickstarts-2-selector.md](../../includes/iot-pnp-quickstarts-2-selector.md)]
 
@@ -23,7 +23,7 @@ Questa guida di avvio rapido illustra come creare in Linux un'applicazione per d
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Questa guida di avvio rapido presuppone l'uso di Ubuntu Linux. I passaggi in questa esercitazione sono stati testati con Ubuntu 18.04.
 

@@ -1,20 +1,20 @@
 ---
-title: 'Esercitazione: Gestire i costi con Cloudyn di Azure | Microsoft Docs'
+title: 'Esercitazione: Gestire i costi con Cloudyn in Azure'
 description: In questa esercitazione si apprenderà come gestire i costi usando l'allocazione dei costi e i report di showback e chargeback.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 03/12/2020
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.custom: seodec18
 ms.reviewer: benshy
-ms.openlocfilehash: c628a30e5a49e6bf9c0938ca8cccc0f349777668
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ROBOTS: NOINDEX
+ms.openlocfilehash: a492f611ed5a785ae148894baf3f24c2df773df2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76769903"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79474578"
 ---
 # <a name="tutorial-manage-costs-by-using-cloudyn"></a>Esercitazione: Gestire i costi usando Cloudyn
 
@@ -32,7 +32,9 @@ In questa esercitazione verranno illustrate le procedure per:
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisites
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
+
+## <a name="prerequisites"></a>Prerequisiti
 
 - È necessario disporre di un account Azure.
 - È necessario disporre di una registrazione di valutazione o una sottoscrizione a pagamento per Cloudyn.
@@ -46,7 +48,7 @@ Cloudyn ottiene i dati di tag gruppo di risorse di Azure e propaga automaticamen
 
 Usando il modello di allocazione dei costi, si definiscono le categorie (tag) che vengono applicati internamente alle risorse senza categoria (senza tag) per raggruppare i costi e definire le regole per gestire i costi senza tag. Le regole di allocazione dei costi sono istruzioni salvate in cui i costi di un servizio sono distribuiti a un altro servizio. In seguito, tali risorse mostrano quindi i tag/categorie nei report di *allocazione dei costi* selezionando il modello creato.
 
-Tenere presente che le informazioni sui tag non sono visualizzate per le risorse nei report di *analisi dei costi*. Inoltre, i tag applicati con Cloudyn usando l'allocazione dei costi non sono inviati ad Azure, dunque non vengono visualizzati nel portale di Azure.
+Tenere presente che le informazioni sui tag non sono visualizzate per le risorse nei report di *analisi dei costi*. Inoltre, i tag applicati in Cloudyn usando l'allocazione dei costi non sono inviati ad Azure e non verranno quindi visualizzati nel portale di Azure.
 
 Quando si inizia il processo di allocazione dei costi, è innanzitutto necessario definire l'ambito usando un modello dei costi. In questo modello i costi non vengono modificati, ma distribuiti. Quando si crea un modello dei costi, si segmentano i dati in base a entità di costo, account o sottoscrizione e anche in base a più tag. Tra i tag di esempio comuni possono essere inclusi un codice di fatturazione, un centro di costo o un nome di gruppo. I tag sono anche utili per eseguire lo showback o il chargeback ad altre parti dell'organizzazione.
 

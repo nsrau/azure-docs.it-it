@@ -7,10 +7,10 @@ ms.date: 01/11/2019
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 1b9070e826c30bbeafdee4185ea45cfb53d9efd2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75351813"
 ---
 # <a name="tutorial-scale-an-application-running-in-service-fabric-mesh"></a>Esercitazione: Ridimensionare un'applicazione in esecuzione in Service Fabric Mesh
@@ -32,7 +32,7 @@ In questa serie di esercitazioni si apprenderà come:
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare questa esercitazione:
 

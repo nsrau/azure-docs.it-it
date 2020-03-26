@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Creare una zona e un record DNS di Azure - Interfaccia della riga di comando di Azure'
+title: 'Guida introduttiva: Creare una zona e un record DNS di Azure - Interfaccia della riga di comando di Azure'
 titleSuffix: Azure DNS
 description: "Guida introduttiva: Informazioni su come creare una zona e un record DNS in DNS di Azure. Si tratta di una guida dettagliata per creare e gestire la prima zona e il primo record DNS con l'interfaccia della riga di comando di Azure."
 services: dns
@@ -9,13 +9,13 @@ ms.topic: quickstart
 ms.date: 3/11/2019
 ms.author: rohink
 ms.openlocfilehash: e6904c013cf2ed897bdc7c8b32f04fe500fc31d9
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76937188"
 ---
-# <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-cli"></a>Avvio rapido: Creare una zona e un record DNS di Azure con l'interfaccia della riga di comando di Azure
+# <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-cli"></a>Guida introduttiva: Creare una zona e un record DNS di Azure con l'interfaccia della riga di comando di Azure
 
 Questo articolo illustra i passaggi per creare la prima zona e il primo record DNS con l'interfaccia della riga di comando di Azure disponibile per Windows, Mac e Linux. È anche possibile eseguire questi passaggi tramite il [portale di Azure](dns-getstarted-portal.md) o [Azure PowerShell](dns-getstarted-powershell.md).
 

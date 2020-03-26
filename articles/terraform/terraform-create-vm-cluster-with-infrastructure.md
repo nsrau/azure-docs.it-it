@@ -5,10 +5,10 @@ keywords: azure devops terraform vm macchina virtuale cluster
 ms.topic: tutorial
 ms.date: 03/09/2020
 ms.openlocfilehash: ae1b8eac15309ff27297d9472e70d32e68acaaac
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78945261"
 ---
 # <a name="tutorial-create-an-azure-vm-cluster-with-terraform-and-hcl"></a>Esercitazione: Creare un cluster di macchine virtuali di Azure con Terraform e HCL

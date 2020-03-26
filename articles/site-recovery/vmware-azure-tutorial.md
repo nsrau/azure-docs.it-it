@@ -9,11 +9,11 @@ ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 37fdd42adf66ebcb11b357ece6ea63384630d9f4
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78362899"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79222638"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Configurare il ripristino di emergenza in Azure per le macchine virtuali VMware locali
 
@@ -41,7 +41,7 @@ Completare le esercitazioni precedenti:
 3. Questa esercitazione illustra come eseguire la replica di una singola macchina virtuale. Se si intende distribuire più macchine virtuali VMware, è consigliabile usare lo strumento [Deployment Planner](https://aka.ms/asr-deployment-planner). [Altre informazioni](site-recovery-deployment-planner.md) su questo strumento.
 4. Per questa esercitazione è possibile scegliere tra diverse opzioni per eseguire le operazioni:
     - Questa esercitazione usa un modello OVA per creare la macchina virtuale VMware per il server di configurazione. Se per qualche motivo questa opzione non è accettabile, seguire [questa procedura](physical-manage-configuration-server.md) per configurare il server di configurazione manualmente.
-    - In questa esercitazione Site Recovery scarica e installa automaticamente MySQL nel server di configurazione. Se si preferisce, è possibile configurarlo manualmente. [Altre informazioni](vmware-azure-deploy-configuration-server.md#configure-settings).
+    - In questa esercitazione Site Recovery scarica e installa automaticamente MySQL nel server di configurazione. Se si preferisce, è possibile configurarlo manualmente. [Altre informazioni](vmware-azure-deploy-configuration-server.md#configure-settings)
 
 
 
@@ -60,9 +60,9 @@ Completare le esercitazioni precedenti:
 
 Nell'ambiente di origine è necessario un singolo computer locale a disponibilità elevata per ospitare i componenti locali di Site Recovery:
 
-- **Server di configurazione**: il server di configurazione coordina le comunicazioni tra l'ambiente locale e Azure e gestisce la replica dei dati.
-- **Server di elaborazione**: il server di elaborazione funge da gateway di replica. Riceve i dati di replica, li ottimizza con la memorizzazione nella cache, la compressione e la crittografia e li invia a un account di archiviazione cache in Azure. Il server di elaborazione installa anche l'agente del servizio Mobility nelle macchine virtuali da replicare ed esegue l'individuazione automatica delle macchine virtuali VMware locali.
-- **Server di destinazione master**: il server di destinazione master gestisce i dati di replica durante il failback da Azure.
+- **Server di configurazione**: Il server di configurazione coordina le comunicazioni tra i componenti locali e Azure e gestisce la replica dei dati.
+- **Server di elaborazione** Il server di elaborazione funge da gateway di replica. Riceve i dati di replica, li ottimizza con la memorizzazione nella cache, la compressione e la crittografia e li invia a un account di archiviazione cache in Azure. Il server di elaborazione installa anche l'agente del servizio Mobility nelle macchine virtuali da replicare ed esegue l'individuazione automatica delle macchine virtuali VMware locali.
+- **Server master di destinazione**: Il server di destinazione master gestisce i dati di replica durante il failback da Azure.
 
 
 Tutti questi componenti vengono installati insieme nei singoli computer locali noti come *server di configurazione*. Per impostazione predefinita, per il ripristino di emergenza di VMware il server di configurazione viene configurato come macchina virtuale VMware a disponibilità elevata. A questo scopo, scaricare un modello OVA (Open Virtualization Application) preparato e importarlo in VMware per creare la macchina virtuale. 

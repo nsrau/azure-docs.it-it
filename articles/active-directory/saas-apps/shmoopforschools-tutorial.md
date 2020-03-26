@@ -17,10 +17,10 @@ ms.date: 08/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 06ce2e51f72b9b4f709bf26ce6d92ad3861d36db
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74081652"
 ---
 # <a name="tutorial-integrate-shmoop-for-schools-with-azure-active-directory"></a>Esercitazione: Integrare Shmoop For Schools con Azure Active Directory
@@ -44,12 +44,12 @@ Per iniziare, sono necessari gli elementi seguenti:
 
 In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
 
-* Shmoop For Schools supporta l'accesso Single Sign-On avviato da **SP**
-* Shmoop For Schools supporta il provisioning utenti **JIT**
+* Shmoop For Schools supporta l'accesso Single Sign-On avviato da **provider di servizi**
+* Shmoop For Schools supporta il provisioning utenti **Just-In-Time** (JIT)
 
 ## <a name="adding-shmoop-for-schools-from-the-gallery"></a>Aggiunta di Shmoop For Schools dalla raccolta
 
-Per configurare l'integrazione di Shmoop For Schools in Azure AD, è necessario aggiungere Shmoop For Schools dalla raccolta all'elenco di app SaaS gestite.
+Per configurare l'integrazione di Shmoop For Schools in Azure AD, è necessario aggiungere Shmoop For Schools dalla raccolta al proprio elenco di app SaaS gestite.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
 1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory**.
@@ -65,8 +65,8 @@ Configurare e testare l'accesso SSO di Azure AD con Shmoop For Schools usando un
 Per configurare e testare l'accesso SSO di Azure AD con Shmoop For Schools, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    * **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
-    * **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
+    * **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
+    * **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
 2. **[Configurare l'accesso Single Sign-On di Shmoop For Schools](#configure-shmoop-for-schools-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
     * **[Creare l'utente di test di Shmoop For Schools](#create-shmoop-for-schools-test-user)** : per avere una controparte di B.Simon in Shmoop For Schools collegata alla rappresentazione dell'utente in Azure AD.
 3. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
@@ -99,11 +99,11 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Oltre quelli elencati in precedenza, l'applicazione Shmoop For Schools prevede il passaggio di altri attributi nella risposta SAML. Tali attributi sono indicati di seguito. Anche questi attributi vengono prepopolati, ma è possibile esaminarli in base ai requisiti.
 
-    | NOME |  Attributo di origine|
+    | Nome |  Attributo di origine|
     | --------- | --------------- |
-    | role      | user.assignedroles |
+    | ruolo      | user.assignedroles |
 
-1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** fare clic sul pulsante Copia per copiare l'**URL dei metadati di federazione dell'app** e salvarlo nel computer.
+1. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic sul pulsante Copia per copiare l'**URL dei metadati di federazione dell'app** e salvarlo nel computer.
 
     ![Collegamento di download del certificato](common/copy-metadataurl.png)
 
@@ -124,7 +124,7 @@ In questa sezione verrà creato un utente di test di nome B.Simon nel portale di
 In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Shmoop For Schools.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
-1. Nell'elenco delle applicazioni selezionare **Shmoop For Schools**.
+1. Nell'elenco di applicazioni selezionare **Shmoop For Schools**.
 1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi**.
 
     ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
@@ -143,7 +143,7 @@ Per configurare l'accesso Single Sign-On sul lato **Shmoop For Schools**, è nec
 
 ### <a name="create-shmoop-for-schools-test-user"></a>Creare l'utente di test di Shmoop For Schools
 
-In questa sezione viene creato un utente di nome B.Simon in Shmoop For Schools. Shmoop For Schools supporta il provisioning utenti JIT, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se non esiste già un utente in Shmoop For Schools, ne viene creato uno nuovo dopo l'autenticazione.
+In questa sezione viene creato un utente di nome B.Simon in Shmoop For Schools. Shmoop For Schools supporta il provisioning utenti Just-In-Time (JIT), che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se non esiste già un utente in Shmoop For Schools, ne viene creato uno nuovo dopo l'autenticazione.
 
 > [!NOTE]
 > Se è necessario creare un utente manualmente, contattare il [team di supporto di Shmoop For Schools](mailto:support@shmoop.com).
@@ -152,7 +152,7 @@ In questa sezione viene creato un utente di nome B.Simon in Shmoop For Schools. 
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di Shmoop For Schools nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Shmoop For Schools per cui si è configurato l'accesso Single Sign-On. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di Shmoop For Schools nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Shmoop For Schools per cui si è configurato l'accesso Single Sign-On. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

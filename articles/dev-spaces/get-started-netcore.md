@@ -5,12 +5,12 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: Questa esercitazione illustra come usare Azure Dev Spaces e Visual Studio Code per eseguire il debug e l'iterazione rapida di un'applicazione .NET Core nel servizio Azure Kubernetes
 keywords: Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s
-ms.openlocfilehash: 306e1c7a43ddd10faa0a537d567257fe95336c23
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: d4078113f93159ef981a78a9917ed65bd03a304b
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78942499"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80240560"
 ---
 # <a name="create-a-kubernetes-dev-space-visual-studio-code-and-net-core-with-azure-dev-spaces"></a>Creare uno spazio di sviluppo Kubernetes: Visual Studio Code e .NET Core con Azure Dev Spaces
 
@@ -106,7 +106,7 @@ Il comando `azds prep` dell'interfaccia della riga di comando di Azure genera gl
 * Un [grafico Helm](https://docs.helm.sh) in `./charts/webfrontend` descrive come distribuire il contenitore a Kubernetes.
 
 > [!TIP]
-> Il [Dockerfile e il grafico Helm](how-dev-spaces-works.md#prepare-your-code) per il progetto vengono usati da Azure Dev Spaces per compilare ed eseguire il codice, ma è possibile modificare questi file se si vuole cambiare il modo in cui il progetto viene compilato ed eseguito.
+> Il [Dockerfile e il grafico Helm](how-dev-spaces-works-prep.md#prepare-your-code) per il progetto vengono usati da Azure Dev Spaces per compilare ed eseguire il codice, ma è possibile modificare questi file se si vuole cambiare il modo in cui il progetto viene compilato ed eseguito.
 
 Per il momento non è necessario comprendere l'intero contenuto di questi file. Vale la pena sottolineare, tuttavia, che **gli stessi asset configuration-as-code Kubernetes e Docker possono essere utilizzati dallo sviluppo alla produzione, in modo da garantire una maggiore coerenza tra ambienti diversi.**
  

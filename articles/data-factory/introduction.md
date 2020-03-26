@@ -10,10 +10,10 @@ ms.workload: data-services
 ms.topic: overview
 ms.date: 09/30/2019
 ms.openlocfilehash: e23268d21b01435aa71d4f471afc6d37ee9e9c1d
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73672690"
 ---
 # <a name="what-is-azure-data-factory"></a>Che cos'è Azure Data Factory?

@@ -10,13 +10,13 @@ ms.date: 04/10/2018
 ms.author: sngun
 ms.custom: seo-java-august2019, seo-java-september2019
 ms.openlocfilehash: c8427333a0a395ca4a0998662cacf13dea662e04
-ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77212837"
 ---
-# <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-table-api-data"></a>Avvio rapido: Creare un'app Java per gestire i dati dell'API Tabella di Azure Cosmos DB
+# <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-table-api-data"></a>Guida introduttiva: Creare un'app Java per gestire i dati dell'API Tabella di Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-table-dotnet.md)
@@ -27,7 +27,7 @@ ms.locfileid: "77212837"
 
 In questa guida di avvio rapido si crea un account dell'API Tabella di Azure Cosmos DB e si usano Esplora dati e un'app Java clonata da GitHub per creare tabelle ed entità. Azure Cosmos DB è un servizio di database modello che consente di creare ed eseguire rapidamente query su database di documenti, tabelle, valori chiave e grafi, con funzionalità di scalabilità orizzontale e distribuzione globale.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 - Un account Azure con una sottoscrizione attiva. [È possibile crearne uno gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). In alternativa, è possibile [provare gratuitamente Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) senza una sottoscrizione di Azure. È anche possibile usare l'[Emulatore di Azure Cosmos DB](https://aka.ms/cosmosdb-emulator) con l'URI `https://localhost:8081` e la chiave `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==`.
 - [Java Development Kit (JDK) 8](https://www.azul.com/downloads/azure-only/zulu/?&version=java-8-lts&architecture=x86-64-bit&package=jdk). Indirizzare la variabile di ambiente `JAVA_HOME` alla cartella di installazione di JDK.

@@ -15,13 +15,13 @@ ms.date: 11/05/2019
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 002d374f5be606688121ef4a3952383567c43e85
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78363510"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79214749"
 ---
-# <a name="quickstart-create-a-windows-virtual-machine-in-the-azure-portal"></a>Guida introduttiva: Creare una macchina virtuale Windows nel portale di Azure
+# <a name="quickstart-create-a-windows-virtual-machine-in-the-azure-portal"></a>Guida introduttiva: Creare una macchina virtuale di Windows nel portale di Azure
 
 È possibile creare macchine virtuali di Azure tramite il portale di Azure. Questo metodo fornisce un'interfaccia utente basata su browser per creare le macchine virtuali e le risorse associate. Questa Guida di avvio rapido illustra come usare il portale di Azure per distribuire una macchina virtuale in Azure che esegue Windows Server 2019. Per vedere la macchina virtuale in azione, eseguire RDP nella macchina virtuale e installare il server Web IIS.
 
@@ -31,7 +31,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
-## <a name="create-virtual-machine"></a>Crea macchina virtuale
+## <a name="create-virtual-machine"></a>Creare macchina virtuale
 
 1. Digitare **macchine virtuali** nella casella di ricerca.
 1. In **Servizi** selezionare **Macchine virtuali**.
@@ -44,7 +44,7 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
     ![Sezione Dettagli dell'istanza](./media/quick-create-portal/instance-details.png)
 
-1. Sotto **Account amministratore**, specificare un nome utente, ad esempio *azureuser*, e una password. La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](faq.md#what-are-the-password-requirements-when-creating-a-vm).
+1. In**Account amministratore**, specificare un nome utente, ad esempio *azureuser*, e una password. La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](faq.md#what-are-the-password-requirements-when-creating-a-vm).
 
     ![Immettere il proprio nome utente e la password](./media/quick-create-portal/administrator-account.png)
 
@@ -59,9 +59,9 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 ## <a name="connect-to-virtual-machine"></a>Connettersi alla macchina virtuale
 
-Creare una connessione Desktop remoto alla macchina virtuale. Queste istruzioni spiegano come connettersi alla macchina virtuale da un computer Windows. In Mac, è necessario un client RDP come questo [client Desktop remoto](https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12) disponibile nel Mac App Store.
+Creare una connessione Desktop remoto alla macchina virtuale. Queste istruzioni spiegano come connettersi alla macchina virtuale da un computer Windows. In un Mac, è necessario un client RDP come questo [client Desktop remoto](https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12) disponibile nel Mac App Store.
 
-1. Fare clic sul pulsante **Connetti** nella pagina Panoramica della macchina virtuale. 
+1. Fare clic sul pulsante **Connetti** nella pagina di panoramica della macchina virtuale. 
 
     ![Connettersi a una macchina virtuale di Azure dal portale](./media/quick-create-portal/portal-quick-start-9.png)
     
@@ -86,7 +86,7 @@ Al termine chiudere la connessione RDP con la macchina virtuale.
 
 ## <a name="view-the-iis-welcome-page"></a>Visualizzare la pagina iniziale di IIS
 
-Nel portale selezionare la macchina virtuale e nella panoramica della VM usare il pulsante **fare clic per copiare** a destra dell'indirizzo IP per copiarlo e incollarlo in una scheda del browser. Verrà visualizzata la pagina iniziale predefinita di IIS, che dovrebbe essere simile alla seguente:
+Nel portale, selezionare la macchina virtuale e nella panoramica della macchina virtuale, usare il pulsante **Fare clic per copiare** a destra dell'indirizzo IP per copiarlo e incollarlo in una scheda del browser. Si aprirà la pagina iniziale di IIS predefinita, che avrà il seguente aspetto:
 
 ![Sito IIS predefinito](./media/quick-create-powershell/default-iis-website.png)
 

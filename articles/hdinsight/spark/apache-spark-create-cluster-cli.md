@@ -1,5 +1,5 @@
 ---
-title: "Avvio rapido: Cluster Apache Spark con l'interfaccia della riga di comando di Azure - Azure HDInsight"
+title: "Guida introduttiva: Cluster Apache Spark con l'interfaccia della riga di comando di Azure - Azure HDInsight"
 description: Questo argomento di avvio rapido illustra come usare l'interfaccia della riga di comando di Azure per creare un cluster Apache Spark in Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,13 +8,13 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 02/03/2020
 ms.openlocfilehash: e4679d5a04be7b8c0145fd93818e4187170b4194
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77049690"
 ---
-# <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-azure-cli"></a>Avvio rapido: Creare cluster Apache Spark in Azure HDInsight usando l'interfaccia della riga di comando di Azure
+# <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-azure-cli"></a>Guida introduttiva: Creare cluster Apache Spark in Azure HDInsight usando l'interfaccia della riga di comando di Azure
 
 Questa guida di avvio rapido illustra come creare un cluster Apache Spark in Azure HDInsight con l'interfaccia della riga di comando di Azure. Azure HDInsight è un servizio di analisi open source, gestito e ad ampio spettro per le aziende. Il framework Apache Spark per HDInsight consente di velocizzare cluster computing e analisi dei dati grazie all'elaborazione in memoria. L'interfaccia della riga di comando di Azure è l'esperienza di riga di comando multipiattaforma Microsoft per la gestione delle risorse di Azure.
 

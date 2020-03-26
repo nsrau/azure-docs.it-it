@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione-Azure Toolkit for IntelliJ: app Spark-HDInsight'
+title: 'Esercitazione: Azure Toolkit for IntelliJ: App Spark - HDInsight'
 description: 'Esercitazione: Usare Azure Toolkit for IntelliJ per sviluppare applicazioni Spark scritte in Scala e inviarle a un cluster HDInsight Spark.'
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,19 +9,19 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 09/04/2019
 ms.openlocfilehash: 2631a0906a0f0886bdc106f1afef99860a6fe00b
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78381629"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79223588"
 ---
-# <a name="tutorial-use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-hdinsight-cluster"></a>Esercitazione: usare Azure Toolkit for IntelliJ per creare Apache Spark applicazioni per il cluster HDInsight
+# <a name="tutorial-use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-hdinsight-cluster"></a>Esercitazione: Usare Azure Toolkit for IntelliJ per creare applicazioni Apache Spark per un cluster HDInsight
 
-Questa esercitazione illustra come sviluppare applicazioni di Apache Spark in Azure HDInsight usando il plug-in **Azure Toolkit** per l'IDE di IntelliJ. [Azure HDInsight](../hdinsight-overview.md) è un servizio di analisi open source gestito nel cloud che consente di usare framework open source come Hadoop, Apache Spark, Apache Hive e Apache Kafka.
+Questa esercitazione illustra come sviluppare applicazioni Apache Spark in Azure HDInsight usando il plug-in **Azure Toolkit** per IntelliJ IDE. [Azure HDInsight](../hdinsight-overview.md) è un servizio di analisi open source gestito nel cloud che consente di usare framework open source come Hadoop, Apache Spark, Apache Hive e Apache Kafka.
 
-È possibile usare il plug-in **Toolkit di Azure** in diversi modi:
+È possibile usare il plug-in **Azure Toolkit** in vari modi:
 
-* Sviluppare e inviare un'applicazione Spark in scala a un cluster HDInsight Spark.
+* Sviluppare e inviare un'applicazione Spark in Scala in un cluster HDInsight Spark.
 * Accedere alle risorse cluster HDInsight Spark di Azure.
 * Sviluppare ed eseguire un'applicazione Spark in Scala localmente.
 
@@ -31,13 +31,13 @@ In questa esercitazione verranno illustrate le procedure per:
 > * Sviluppare applicazioni Apache Spark
 > * Inviare un'applicazione al cluster Azure HDInsight
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Un cluster Apache Spark in HDInsight. Per istruzioni, vedere l'articolo dedicato alla [creazione di cluster Apache Spark in Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 
 * [Kit di sviluppo di Oracle Java](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).  Questa esercitazione usa Java versione 8.0.202.
 
-* IntelliJ IDEA. Questo articolo usa [INTELLIJ idea community ver.  2018.3.4](https://www.jetbrains.com/idea/download/).
+* IntelliJ IDEA. Questo articolo usa [IntelliJ IDEA Community versione  2018.3.4](https://www.jetbrains.com/idea/download/).
 
 * Azure Toolkit for IntelliJ.  Vedere [Installazione di Azure Toolkit for IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-installation?view=azure-java-stable).
 
@@ -228,7 +228,7 @@ Dopo aver creato un'applicazione Scala, è possibile inviarla al cluster.
 
       ![Comando di invio dell'applicazione Spark a HDInsight](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-1.png)
 
-2. Nella finestra di dialogo **Invia applicazione Spark** selezionare **1. Spark in HDInsight**.
+2. Nella finestra di dialogo **Submit Spark Application**, selezionare **1. Spark in HDInsight**.
 
 3. Nella finestra **Modifica configurazione** specificare i valori seguenti e quindi selezionare **OK**:
 
@@ -239,7 +239,7 @@ Dopo aver creato un'applicazione Scala, è possibile inviarla al cluster.
     |Nome della classe principale|Il valore predefinito corrisponde alla classe principale del file selezionato. È possibile modificare la classe selezionando i puntini di sospensione ( **...** ) e scegliendo una classe diversa.|
     |Configurazioni del processo|È possibile modificare le chiavi predefinite e/o i valori. Per altre informazioni, vedere [Apache Livy REST API](https://livy.incubator.apache.org/docs/latest/rest-api.html) (API REST di Apache Livy).|
     |Argomenti della riga di comando|È possibile immettere gli argomenti divisi da uno spazio per la classe principale, se necessario.|
-    |Referenced Jars (file JAR di riferimento) e Referenced Files (file di riferimento)|È possibile immettere i percorsi per file e jar di riferimento, se presenti. È anche possibile selezionare i file nel file system virtuale di Azure, che attualmente supporta solo cluster di Azure Data Lake Store Gen 2. Per altre informazioni, [Apache Spark configurazione](https://spark.apache.org/docs/latest/configuration.html#runtime-environment).  Vedere anche [Come caricare le risorse nel cluster](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer).|
+    |Referenced Jars (file JAR di riferimento) e Referenced Files (file di riferimento)|È possibile immettere i percorsi per file e jar di riferimento, se presenti. È anche possibile selezionare i file nel file system virtuale di Azure, che attualmente supporta solo cluster di Azure Data Lake Store Gen 2. Per altre informazioni: [Apache Spark Configuration](https://spark.apache.org/docs/latest/configuration.html#runtime-environment) (Configurazione di Apache Spark).  Vedere anche [Come caricare le risorse nel cluster](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer).|
     |Archivio di caricamento del processo|Espandere per visualizzare le opzioni aggiuntive.|
     |Tipo di archiviazione|Selezionare **Usare Azure Blob per caricare** nell'elenco a discesa.|
     |Account di archiviazione|Immettere l'account di archiviazione.|
@@ -424,7 +424,7 @@ Quando gli utenti inviano processi a un cluster con autorizzazione di sola lettu
 
 1. Creare una configurazione di HDInsight e quindi selezionare **Remotely Run in Cluster** (Esecuzione remota nel cluster).
 
-2. Selezionare un cluster con autorizzazione di ruolo di sola lettura per **Spark clusters(Linux only)** (Spark cluster (solo Linux)). Viene visualizzato un messaggio di avviso. È possibile fare clic su **collega questo cluster** per collegare il cluster.
+2. Selezionare un cluster con autorizzazione di ruolo di sola lettura per **Spark clusters(Linux only)** (Spark cluster (solo Linux)). Verrà visualizzato un messaggio di avviso. È possibile fare clic su **Link this cluster** (Collega questo cluster) per collegare il cluster.
 
    ![IntelliJ IDEA: creazione della configurazione di esecuzione/debug](./media/apache-spark-intellij-tool-plugin/create-configuration.png)
 
@@ -483,4 +483,4 @@ Se non si intende continuare a usare questa applicazione, eliminare il cluster c
 In questa esercitazione si è appreso come usare il plug-in Azure Toolkit for IntelliJ per sviluppare applicazioni Apache Spark scritte in [Scala](https://www.scala-lang.org/) e quindi inviarle a un cluster HDInsight Spark direttamente dall'ambiente di sviluppo integrato (IDE) di IntelliJ. Passare all'articolo successivo per scoprire come eseguire il pull dei dati registrati in Apache Spark in uno strumento di analisi BI come Power BI.
 
 > [!div class="nextstepaction"]
-> [Analizzare i dati Apache Spark tramite Power BI](apache-spark-use-bi-tools.md)
+> [Analizzare i dati di Apache Spark usando Power BI](apache-spark-use-bi-tools.md)

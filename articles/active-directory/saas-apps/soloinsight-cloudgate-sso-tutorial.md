@@ -17,10 +17,10 @@ ms.date: 05/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b88822f164e0fe8cdf55eddfa981644f725e01f3
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73159925"
 ---
 # <a name="tutorial-integrate-soloinsight-cloudgate-sso-with-azure-active-directory"></a>Esercitazione: Integrare Soloinsight-CloudGate SSO con Azure Active Directory
@@ -99,7 +99,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Per automatizzare la configurazione all'interno di Soloinsight-CloudGate SSO, è necessario installare l'**estensione del browser per l'accesso sicuro alle app personali** facendo clic su **Installa l'estensione**.
 
-    ![Estensione per App personali](common/install-myappssecure-extension.png)
+    ![Estensione MyApps](common/install-myappssecure-extension.png)
 
 2. Dopo aver aggiunto l'estensione al browser, facendo clic su **Configura Soloinsight-CloudGate SSO** si verrà indirizzati all'applicazione Soloinsight-CloudGate SSO. Da qui, fornire le credenziali di amministratore per accedere a Soloinsight-CloudGate SSO. L'estensione del browser configurerà automaticamente l'applicazione e automatizzerà i passaggi da 3 a 8.
 
@@ -159,7 +159,7 @@ In questa sezione verrà creato un utente di test di nome Britta Simon nel porta
    1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
    1. Fare clic su **Crea**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione si abiliterà Britta Simon per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Soloinsight-CloudGate SSO.
 

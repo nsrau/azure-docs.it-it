@@ -16,15 +16,15 @@ ms.date: 11/15/2019
 ms.author: magattus
 ms.custom: mvc
 ms.openlocfilehash: 64b906c8a6b52d9c9655f3fe2b13d504d8eed4cb
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74278081"
 ---
 # <a name="compare-azure-cdn-product-features"></a>Confronto tra funzionalità dei prodotti della rete CDN di Azure
 
-La rete CDN di Azure include quattro prodotti: **rete CDN Standard di Azure con tecnologia Microsoft**, **rete CDN Standard di Azure con tecnologia Akamai**, **rete CDN Standard di Azure con tecnologia Verizon** e **rete CDN Premium di Azure con tecnologia Verizon**. Per informazioni sulla migrazione di un profilo di **rete CDN di Azure Standard di Verizon** a un profilo di **rete CDN di Azure Premium di Verizon**, vedere [Migrare un profilo di rete CDN di Azure da Standard Verizon a Premium Verizon](cdn-migrate.md). Si noti che, sebbene sia disponibile un percorso di aggiornamento da Verizon standard a Premium, al momento non esiste alcun meccanismo di conversione tra gli altri prodotti.
+La rete per la distribuzione di contenuti (rete CDN) di Azure include quattro prodotti: **rete CDN Standard di Azure con tecnologia Microsoft**, **rete CDN Standard di Azure con tecnologia Akamai**, **rete CDN Standard di Azure con tecnologia Verizon** e **rete CDN Premium di Azure con tecnologia Verizon**. Per informazioni sulla migrazione di un profilo di **rete CDN di Azure Standard di Verizon** a un profilo di **rete CDN di Azure Premium di Verizon**, vedere [Migrare un profilo di rete CDN di Azure da Standard Verizon a Premium Verizon](cdn-migrate.md). Si noti che, sebbene sia disponibile un percorso di aggiornamento da Verizon standard a Premium, al momento non esiste alcun meccanismo di conversione tra gli altri prodotti.
 
 La tabella seguente confronta le funzionalità disponibili con ogni prodotto.
 

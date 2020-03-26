@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: yelevin
-ms.openlocfilehash: 311bb367748be98af704ab11919abea6e38d0ff3
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 9d2d1985b23e1c7f5e0f7d9fd2795bd85e28ace0
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77588332"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79214809"
 ---
 # <a name="connect-data-sources"></a>Connettere le origini dati
 
@@ -56,7 +56,6 @@ Azure Sentinel supporta i metodi di connessione dati seguenti:
     - [Office 365](connect-office-365.md)
     - [Microsoft Defender ATP](connect-microsoft-defender-advanced-threat-protection.md)
     - [Microsoft web application firewall](connect-microsoft-waf.md)
-    - [Eventi di sicurezza di Windows](connect-windows-security-events.md) 
     - [Windows Firewall](connect-windows-firewall.md)
     - [Eventi di sicurezza di Windows](connect-windows-security-events.md)
 
@@ -91,7 +90,7 @@ Azure Sentinel supporta i metodi di connessione dati seguenti:
     - Server Linux
     - Altri cloud
     
-## Opzioni di connessione tramite agente<a name="agent-options"></a>
+## <a name="agent-connection-options"></a>Opzioni di connessione tramite agente<a name="agent-options"></a>
 
 Per connettere l'appliance esterna ad Azure Sentinel, l'agente deve essere distribuito in un computer dedicato (macchina virtuale o locale) per supportare la comunicazione tra l'appliance e Azure Sentinel. È possibile distribuire l'agente manualmente o automaticamente. La distribuzione automatica è disponibile solo se il computer dedicato è una nuova macchina virtuale che si sta creando in Azure. 
 

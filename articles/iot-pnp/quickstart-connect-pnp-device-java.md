@@ -9,13 +9,13 @@ ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
 ms.openlocfilehash: aa676dd374eccf2a4b5c4622689ed402c8679e5a
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76964823"
 ---
-# <a name="quickstart-connect-a-sample-iot-plug-and-play-preview-device-application-to-iot-hub-java"></a>Avvio rapido: Connettere un'applicazione dispositivo Plug and Play IoT (anteprima) di esempio all'hub IoT (Java)
+# <a name="quickstart-connect-a-sample-iot-plug-and-play-preview-device-application-to-iot-hub-java"></a>Guida introduttiva: Connettere un'applicazione dispositivo Plug and Play IoT (anteprima) di esempio all'hub IoT (Java)
 
 [!INCLUDE [iot-pnp-quickstarts-2-selector.md](../../includes/iot-pnp-quickstarts-2-selector.md)]
 
@@ -23,7 +23,7 @@ Questa guida di avvio rapido illustra come creare un'applicazione dispositivo Pl
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa guida di avvio rapido, è necessario Java SE 8 nel computer di sviluppo. È anche necessario installare Maven 3.
 

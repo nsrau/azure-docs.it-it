@@ -17,10 +17,10 @@ ms.date: 10/18/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2dd24d57ca78d2c9a41dc9ad29324726bc431e2f
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72599784"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ecornell"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con eCornell
@@ -65,8 +65,8 @@ Configurare e testare l'accesso SSO di Azure AD con eCornell usando un utente di
 Per configurare e testare l'accesso SSO di Azure AD con eCornell, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    * **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
-    * **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
+    * **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
+    * **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Configurare l'accesso Single Sign-On di eCornell](#configure-ecornell-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
     * **[Creare l'utente di test di eCornell](#create-ecornell-test-user)** : per avere una controparte di B.Simon in eCornell collegata alla rappresentazione dell'utente in Azure AD.
 1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.

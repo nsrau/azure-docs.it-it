@@ -17,10 +17,10 @@ ms.date: 07/30/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d4f5004571c849d90b7d811906684e66c10ee487
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68825297"
 ---
 # <a name="tutorial-integrate-wandera-with-azure-active-directory"></a>Esercitazione: Integrare Wandera con Azure Active Directory
@@ -88,7 +88,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     > [!NOTE]
     > Poiché non è reale, è necessario aggiornare questo valore con l'URL di risposta effettivo. Per ottenere il valore, contattare il [team di supporto clienti di Wandera](https://www.wandera.com/about-wandera/contact/#supportsection). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare **XML metadati federazione** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer in uso.
+1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare il file **XML dei metadati della federazione** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer.
 
     ![Collegamento di download del certificato](common/metadataxml.png)
 
@@ -108,7 +108,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Per automatizzare la configurazione all'interno di Wandera, è necessario installare l'**estensione del browser My Apps Secure Sign-in** facendo clic su **Installa l'estensione**.
 
-    ![Estensione My Apps](common/install-myappssecure-extension.png)
+    ![Estensione MyApps](common/install-myappssecure-extension.png)
 
 2. Dopo aver aggiunto l'estensione al browser, fare clic su **Configura Wandera** per passare direttamente all'applicazione Wandera. Specificare quindi le credenziali di amministratore per accedere a Wandera. L'estensione del browser configurerà automaticamente l'applicazione e automatizzerà i passaggi da 3 a 4.
 
@@ -126,9 +126,9 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     c. Aprire il file XML dei metadati della federazione nel Blocco note, copiarne il contenuto e incollarlo nella casella di testo **IdP Public X.509 Certificate** (Certificato X.509 pubblico IdP).
 
-    d. Fare clic su **Save**.
+    d. Fare clic su **Salva**.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
@@ -138,9 +138,9 @@ In questa sezione verrà creato un utente di test di nome B.Simon nel portale di
    1. Nel campo **Nome** immettere `B.Simon`.  
    1. Nel campo **Nome utente** immettere username@companydomain.extension. Ad esempio: `B.Simon@contoso.com`.
    1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
-   1. Fare clic su **Create**(Crea).
+   1. Fare clic su **Crea**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione si abiliterà B. Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Wandera.
 

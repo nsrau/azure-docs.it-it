@@ -1,16 +1,16 @@
 ---
-title: "Avvio rapido: Nuova assegnazione di criteri con l'interfaccia della riga di comando di Azure"
+title: "Guida introduttiva: Nuova assegnazione di criteri con l'interfaccia della riga di comando di Azure"
 description: In questo argomento di avvio rapido viene usata l'interfaccia della riga di comando di Azure per creare un'assegnazione di criteri di Azure per identificare le risorse non conformi.
 ms.date: 01/11/2020
 ms.topic: quickstart
 ms.openlocfilehash: 7f76191d97a936c745fc2b13b54011e787e0b5e6
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75978312"
 ---
-# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-azure-cli"></a>Avvio rapido: Creare un criterio per identificare le risorse non conformi con l'interfaccia della riga di comando di Azure
+# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-azure-cli"></a>Guida introduttiva: Creare un criterio per identificare le risorse non conformi con l'interfaccia della riga di comando di Azure
 
 Il primo passaggio per comprendere la conformità in Azure consiste nell'identificare lo stato delle risorse.
 Questa guida introduttiva illustra il processo di creazione di un'assegnazione di criteri per identificare le macchine virtuali che non usano dischi gestiti.
@@ -19,7 +19,7 @@ Alla fine di questo processo, verranno identificate le macchine virtuali che non
 
 L'interfaccia della riga di comando di Azure viene usata per creare e gestire le risorse di Azure dalla riga di comando o negli script. Questa guida usa l'interfaccia della riga di comando di Azure per creare un'assegnazione di criteri per identificare le risorse non conformi nell'ambiente Azure.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 - Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 

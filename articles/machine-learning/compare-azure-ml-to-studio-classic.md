@@ -9,10 +9,10 @@ author: j-martens
 ms.author: jmartens
 ms.date: 10/29/2019
 ms.openlocfilehash: a3122a3ae1687369b87d193efc693b3b7c659aac
-ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/10/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76311462"
 ---
 # <a name="how-azure-machine-learning-differs-from-machine-learning-studio-classic"></a>Differenze tra Azure Machine Learning e Machine Learning Studio (versione classica)

@@ -10,10 +10,10 @@ ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc
 ms.openlocfilehash: 8f245653a8b84944e1e8a3f48a49992f0065be58
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74084396"
 ---
 # <a name="tutorial-use-an-azure-resource-manager-template-to-configure-iot-hub-message-routing"></a>Esercitazione: Usare un modello di Azure Resource Manager per configurare il routing dei messaggi per l'hub IoT

@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Creare un hub eventi tramite PowerShell - Hub eventi di Azure'
+title: 'Guida introduttiva: Creare un hub eventi tramite PowerShell - Hub eventi di Azure'
 description: Questa guida introduttiva illustra come creare un hub eventi usando Azure PowerShell e inviare e ricevere eventi usando .NET Standard SDK.
 services: event-hubs
 author: spelluru
@@ -11,19 +11,19 @@ ms.custom: seodec18
 ms.date: 11/05/2019
 ms.author: spelluru
 ms.openlocfilehash: 89ec1957e75fa45eef6c7939a77e5cc1b3cf7806
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77162124"
 ---
-# <a name="quickstart-create-an-event-hub-using-azure-powershell"></a>Avvio rapido: Creare un hub eventi usando Azure PowerShell
+# <a name="quickstart-create-an-event-hub-using-azure-powershell"></a>Guida introduttiva: Creare un hub eventi usando Azure PowerShell
 
 Hub eventi di Azure è una piattaforma di Big Data streaming e un servizio di inserimento di eventi che consente di ricevere ed elaborare milioni di eventi al secondo. Hub eventi consente di elaborare e archiviare eventi, dati o dati di telemetria generati dal software distribuito e dai dispositivi. I dati inviati a un hub eventi possono essere trasformati e archiviati usando qualsiasi provider di analisi in tempo reale o adattatori di invio in batch/archiviazione. Per una panoramica dettagliata di Hub eventi, vedere [Panoramica di Hub eventi](event-hubs-about.md) e [Funzionalità di Hub eventi](event-hubs-features.md).
 
 In questa guida introduttiva viene creato un hub eventi usando Azure PowerShell.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

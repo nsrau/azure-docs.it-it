@@ -6,12 +6,12 @@ ms.topic: quickstart
 description: Questa guida di avvio rapido illustra come usare Azure Dev Spaces e Visual Studio Code per eseguire il debug e l'iterazione rapida di un'applicazione .NET Core nel servizio Azure Kubernetes
 keywords: Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 6593cc3d5926fae05b2afd1e926552a2996ae885
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: b38562879fa67d7ee82e3251ea2fcaa57a2075d6
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78943712"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80240220"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-visual-studio-code-and-net-core---azure-dev-spaces"></a>Guida introduttiva: Eseguire il debug e l'iterazione in Kubernetes: Visual Studio Code e .NET Core - Azure Dev Spaces
 
@@ -96,7 +96,7 @@ Quando Visual Studio Code richiede anche di configurare l'endpoint pubblico, sce
 Questo comando consente di preparare il progetto per l'esecuzione in Azure Dev Spaces generando un Dockerfile e un grafico Helm. Genera inoltre una directory *.vscode* con la configurazione di debug alla radice del progetto.
 
 > [!TIP]
-> Il [Dockerfile e il grafico Helm](how-dev-spaces-works.md#prepare-your-code) per il progetto vengono usati da Azure Dev Spaces per compilare ed eseguire il codice, ma è possibile modificare questi file se si vuole cambiare il modo in cui il progetto viene compilato ed eseguito.
+> Il [Dockerfile e il grafico Helm](how-dev-spaces-works-prep.md#prepare-your-code) per il progetto vengono usati da Azure Dev Spaces per compilare ed eseguire il codice, ma è possibile modificare questi file se si vuole cambiare il modo in cui il progetto viene compilato ed eseguito.
 
 ## <a name="build-and-run-code-in-kubernetes-from-visual-studio-code"></a>Compilare ed eseguire il codice in Kubernetes da Visual Studio Code
 

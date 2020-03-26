@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 05/06/2019
 ms.openlocfilehash: 1fffeec1434cb066487bf383589554edec2e6a86
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75443685"
 ---
 # <a name="tutorial-custom-net-deserializers-for-azure-stream-analytics"></a>Esercitazione: Deserializzatori .NET personalizzati per Analisi di flusso di Azure
@@ -28,7 +28,7 @@ In questa esercitazione verranno illustrate le procedure per:
 > * Configurare un processo di analisi di flusso per l'uso del deserializzatore personalizzato.
 > * Eseguire un processo di analisi di flusso per testare il deserializzatore personalizzato.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 

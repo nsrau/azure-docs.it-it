@@ -12,10 +12,10 @@ ms.author: timlt
 author: timlt
 ms.date: 11/12/2019
 ms.openlocfilehash: fea3440dd7c017b85d6fffa2ec0fe5d26cd98b97
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77022172"
 ---
 # <a name="tutorial--customize-the-operator-dashboard-and-manage-devices-in-azure-iot-central"></a>Esercitazione:  Personalizzare il dashboard dell'operatore e gestire i dispositivi in Azure IoT Central
@@ -32,7 +32,7 @@ In questa esercitazione verranno illustrate le procedure per:
 > * Aggiungere riquadri di proprietà per visualizzare i dettagli dei dispositivi
 > * Aggiungere riquadri di comando per eseguire comandi
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Lo sviluppatore deve completare l'esercitazione che illustra come creare l'applicazione di analisi dei punti vendita in Azure IoT Central e aggiungere dispositivi:
 

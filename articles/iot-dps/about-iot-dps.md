@@ -9,11 +9,11 @@ ms.service: iot-dps
 services: iot-dps
 manager: eliotgra
 ms.openlocfilehash: e564660b502a950021ba4e4754ff5c210dfd477f
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78378909"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79216369"
 ---
 # <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service"></a>Provisioning di dispositivi con il servizio Device Provisioning in hub IoT di Azure
 Microsoft Azure include un ampio set di servizi cloud pubblici integrati per tutte le esigenze di soluzioni IoT. Il servizio Device Provisioning in hub IoT è un servizio helper per Hub IoT che consente di effettuare il provisioning JIT automatizzato nell'hub IoT corretto senza alcun intervento dell'utente. Consente di effettuare il provisioning di milioni di dispositivi in modo sicuro e scalabile.

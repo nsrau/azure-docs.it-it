@@ -4,10 +4,10 @@ description: Questo articolo descrive come valutare i server fisici locali per l
 ms.topic: tutorial
 ms.date: 11/18/2019
 ms.openlocfilehash: c89c731712a625e5f3b7a1a7e9306f6a7480b96b
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76990301"
 ---
 # <a name="assess-physical-servers-with-azure-migrate-server-assessment"></a>Valutare i server fisici con Azure Migrate: Server Assessment
@@ -30,7 +30,7 @@ Questa esercitazione è la seconda di una serie che illustra come valutare i ser
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/pricing/free-trial/) prima di iniziare.
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 - [Completare](tutorial-prepare-physical.md) la prima esercitazione di questa serie. In caso contrario, le istruzioni di questa esercitazione non funzioneranno.
 - Ecco le operazioni che dovrebbero essere state completate nella prima esercitazione:

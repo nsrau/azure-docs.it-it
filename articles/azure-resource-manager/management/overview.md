@@ -2,15 +2,15 @@
 title: Panoramica
 description: Viene descritto come utilizzare Gestione risorse di Azure per la distribuzione, la gestione e il controllo dell’accesso delle risorse in Azure.
 ms.topic: overview
-ms.date: 08/29/2019
-ms.openlocfilehash: f7e11ada8bf10baa99faf08d2b4b401e3bea2d9e
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.date: 03/25/2020
+ms.openlocfilehash: 1e2a6959117749b4e7d08a9768b4189b97ef08bd
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78344570"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80258142"
 ---
-# <a name="azure-resource-manager-overview"></a>Panoramica di Gestione risorse di Microsoft Azure
+# <a name="what-is-azure-resource-manager"></a>Informazioni su Azure Resource Manager
 
 Azure Resource Manager è il servizio di distribuzione e gestione di Azure. Fornisce un livello di gestione che consente di creare, aggiornate ed eliminare risorse nella sottoscrizione di Azure. È possibile usare funzionalità di gestione, come il controllo di accesso, i blocchi e i tag, per proteggere e organizzare le risorse dopo la distribuzione.
 
@@ -20,7 +20,7 @@ Per informazioni sui modelli di Azure Resource Manager, vedere [Panoramica della
 
 Quando un utente invia una richiesta da uno strumento, un'API o un SDK di Azure, Resource Manager riceve la richiesta, la autentica e la autorizza. Resource Manager invia la richiesta al servizio di Azure, che accetta l'azione richiesta. Poiché tutte le richieste vengono gestite tramite la stessa API, i risultati e le funzionalità risultano coerenti in tutti i vari strumenti.
 
-La figura seguente illustra il ruolo di Azure Resource Manager nella gestione delle richieste di Azure. 
+La figura seguente illustra il ruolo di Azure Resource Manager nella gestione delle richieste di Azure.
 
 ![Modello di richiesta di Resource Manager](./media/overview/consistent-management-layer.png)
 
@@ -102,12 +102,8 @@ Questa resilienza si applica ai servizi che ricevono le richieste tramite Resour
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per tutte le altre operazioni offerte dai provider di risorse, vedere le [API REST di Azure](/rest/api/azure/).
-
 * Per informazioni sullo spostamento di risorse, vedere [Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi](move-resource-group-and-subscription.md).
 
 * Per altre informazioni sull'applicazione di tag alle risorse, vedere [Uso dei tag per organizzare le risorse di Azure](tag-resources.md).
 
 * Per informazioni sul blocco delle risorse, vedere [Bloccare le risorse per impedire modifiche impreviste](lock-resources.md).
-
-* Per informazioni sulla creazione di modelli per le distribuzioni, vedere [Panoramica della distribuzione di modelli](../templates/overview.md).

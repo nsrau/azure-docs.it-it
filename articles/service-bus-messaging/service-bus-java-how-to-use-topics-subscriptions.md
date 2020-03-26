@@ -15,20 +15,20 @@ ms.topic: quickstart
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 9b75b5cd5e674020f41897309a3c69b9371cc768
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: a08a071466f4f10c1364cefdda7c9c136e1e1ef5
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759296"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79137989"
 ---
-# <a name="quickstart-use-service-bus-topics-and-subscriptions-with-java"></a>Avvio rapido: Usare gli argomenti e le sottoscrizioni del bus di servizio con Java
+# <a name="quickstart-use-service-bus-topics-and-subscriptions-with-java"></a>Guida introduttiva: Usare gli argomenti e le sottoscrizioni del bus di servizio con Java
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
 In questa guida di avvio rapido viene scritto codice Java per inviare messaggi a un argomento del bus di servizio di Azure e quindi ricevere messaggi dalle sottoscrizioni all'argomento. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 1. Una sottoscrizione di Azure. Per completare l'esercitazione, è necessario un account Azure. È possibile attivare i [vantaggi della sottoscrizione Visual Studio o MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) oppure registrarsi per ottenere un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 2. Seguire la procedura descritta in [Avvio rapido: Usare il portale di Azure per creare un argomento del bus di servizio e le sottoscrizioni all'argomento](service-bus-quickstart-topics-subscriptions-portal.md) per eseguire le attività seguenti:
@@ -182,7 +182,7 @@ public class MyServiceBusTopicClient {
         receiveClient.registerMessageHandler(
                     messageHandler,
                     // callback invoked when the message handler has an exception to report
-                // 1 concurrent call, messages are auto-completed, auto-renew duration
+                // 1 concurrent call, messages aren't auto-completed, auto-renew duration
                 new MessageHandlerOptions(1, false, Duration.ofMinutes(1)));
 
     }

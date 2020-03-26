@@ -9,13 +9,13 @@ ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
 ms.openlocfilehash: ea1cae1f5a30d4cd76df39fec43f3818178fc213
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77484197"
 ---
-# <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-azure-cli"></a>Avvio rapido: Configurare il servizio Device Provisioning in hub IoT con l'interfaccia della riga di comando di Azure
+# <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-azure-cli"></a>Guida introduttiva: Configurare il servizio Device Provisioning in hub IoT con l'interfaccia della riga di comando di Azure
 
 L'interfaccia della riga di comando di Azure viene usata per creare e gestire le risorse di Azure dalla riga di comando o negli script. Questo argomento di avvio rapido illustra l'uso dell'interfaccia della riga di comando di Azure per creare un hub IoT e un servizio Device Provisioning in hub IoT e collegare i due servizi tra loro. 
 

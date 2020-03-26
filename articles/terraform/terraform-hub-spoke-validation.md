@@ -4,10 +4,10 @@ description: Esercitazione per la convalida della topologia di rete hub-spoke co
 ms.topic: tutorial
 ms.date: 10/26/2019
 ms.openlocfilehash: 9ba4780c59e5e9da4999573abbc08ecd2738a2cd
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74159195"
 ---
 # <a name="tutorial-validate-a-hub-and-spoke-network-in-azure-using-terraform"></a>Esercitazione: Convalidare una rete hub-spoke in Azure con Terraform
@@ -93,7 +93,7 @@ Questa sezione illustra come testare la connettività dall'ambiente locale simul
 
 1. Nella scheda **onprem-vnet-rg** selezionare la macchina virtuale denominata **onprem-vm**.
 
-1. Selezionare **Connessione**.
+1. Selezionare **Connetti**.
 
 1. Accanto al testo **Accedi con l'account locale della macchina virtuale** copiare il comando **ssh** negli Appunti.
 

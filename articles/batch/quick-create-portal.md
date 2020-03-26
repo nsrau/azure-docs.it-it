@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.date: 07/03/2018
 ms.author: labrenne
 ms.custom: mvc
-ms.openlocfilehash: 8d725834cb2dd86163909b2ae598e61026ae4bb9
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 6ce0066765de3d99f8309bf568b467518f38923e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024110"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79215309"
 ---
-# <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Avvio rapido: Eseguire il primo processo batch con il portale di Azure
+# <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Guida introduttiva: Eseguire il primo processo Batch nel portale di Azure
 
 Questa guida introduttiva illustra come usare il portale di Azure per creare un account Batch, un *pool* di nodi di calcolo (macchine virtuali) e un *processo* che esegue *attività* di base nel pool. Dopo aver completato questa guida introduttiva, saranno chiari i concetti fondamentali del servizio Batch e sarà possibile provare Batch con carichi di lavoro più realistici su scala più ampia.
 
@@ -24,7 +24,7 @@ Questa guida introduttiva illustra come usare il portale di Azure per creare un 
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure 
 
-Accedere al portale di Azure all'indirizzo https://portal.azure.com.
+Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-batch-account"></a>Creare un account Batch
 

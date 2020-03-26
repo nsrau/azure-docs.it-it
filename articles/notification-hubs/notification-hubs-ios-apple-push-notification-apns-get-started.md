@@ -19,10 +19,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 05/21/2019
 ms.openlocfilehash: 032ca8d4ecbcf1fc7f3c22cbe5a0ee934fc5e17c
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74407370"
 ---
 # <a name="tutorial-send-push-notifications-to-ios-apps-using-azure-notification-hubs"></a>Esercitazione: Inviare notifiche push alle app iOS con Hub di notifica di Azure
@@ -122,7 +122,7 @@ Il completamento di questa esercitazione costituisce un prerequisito per tutte l
 
         ![Decomprimere Azure SDK][10]
 
-6. Aggiungere un nuovo file di intestazione denominato **Constants.h** al progetto. A tale scopo, fare clic con il pulsante destro del mouse sul nome del progetto e scegliere **New File...** (Nuovo file). Selezionare quindi **Header File** (File di intestazione). Questo file include le costanti per l'hub di notifica. Quindi selezionare **Avanti**. Assegnare al file il nome **Constants. h**.
+6. Aggiungere un nuovo file di intestazione denominato **Constants.h** al progetto. A tale scopo, fare clic con il pulsante destro del mouse sul nome del progetto e scegliere **New File...** (Nuovo file). Selezionare quindi **Header File** (File di intestazione). Questo file include le costanti per l'hub di notifica. Fare quindi clic su **Avanti**. Assegnare al file il nome **Constants. h**.
 
 7. Aggiungere il seguente codice al file Constants.h:
 
@@ -479,7 +479,7 @@ Il completamento di questa esercitazione costituisce un prerequisito per tutte l
 
 ## <a name="send-test-push-notifications"></a>Inviare notifiche push di prova
 
-È possibile testare rapidamente la ricezione di notifiche nell'app con l'opzione *Invio di prova* nel [portale di Azure]. Verrà inviata una notifica push di prova al dispositivo.
+È possibile testare rapidamente la ricezione di notifiche nell'app con l'opzione *Invio di prova* nel [Azure portal]. Verrà inviata una notifica push di prova al dispositivo.
 
 ![Portale di Azure - Invio di prova][30]
 
@@ -493,7 +493,7 @@ Per testare le notifiche push in iOS, è necessario distribuire l'app in un disp
 
     ![Test di registrazione notifica push per app iOS][33]
 
-2. Ora viene inviata una notifica push di prova dal [portale di Azure], come illustrato nella sezione precedente.
+2. Ora viene inviata una notifica push di prova dal [Azure portal], come illustrato nella sezione precedente.
 
 3. La notifica push viene inviata a tutti i dispositivi registrati per la ricezione di notifiche dall'hub di notifica specifico.
 
@@ -530,4 +530,4 @@ In questo semplice esempio le notifiche push sono state trasmesse a tutti i disp
 [Azure Notification Hubs Notify Users for iOS with .NET backend]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
 [Use Notification Hubs to send breaking news]: notification-hubs-ios-xplat-segmented-apns-push-notification.md
 [Local and Push Notification Programming Guide]: https://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
-[Portale di Azure]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com

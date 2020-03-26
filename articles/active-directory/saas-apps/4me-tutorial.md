@@ -17,10 +17,10 @@ ms.date: 08/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a3e8b753a9afb6b6d27466adb086717b52838e3a
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72596303"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-4me"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con 4me
@@ -49,7 +49,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-4me-from-the-gallery"></a>Aggiunta di 4me dalla raccolta
 
-Per configurare l'integrazione di 4me in Azure AD è necessario aggiungere 4me dalla raccolta all'elenco di app SaaS gestite..
+Per configurare l'integrazione di 4me in Azure AD è necessario aggiungere 4me dalla raccolta al proprio elenco di app SaaS gestite.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
 1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory**.
@@ -65,8 +65,8 @@ Configurare e testare l'accesso SSO di Azure AD con 4me usando un utente di test
 Per configurare e testare l'accesso SSO di Azure AD con 4me, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    * **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
-    * **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
+    * **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
+    * **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Configurare l'accesso Single Sign-On di 4me](#configure-4me-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
     * **[Creare l'utente di test di 4me](#create-4me-test-user)** : per avere una controparte di B.Simon in 4me collegata alla rappresentazione dell'utente in Azure AD.
 1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
@@ -175,11 +175,11 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
     d. Nella casella di testo **Certificate fingerprint** (Impronta digitale certificato) incollare il valore **IDENTIFICAZIONE PERSONALE** separato da due punti in un ordine basato su dupletti (AA:BB:CC:DD:EE:FF:GG:HH:II), copiato dal portale di Azure.
 
-    e. Fare clic su **Save**.
+    e. Fare clic su **Salva**.
 
 ### <a name="create-4me-test-user"></a>Creare l'utente di test di 4me
 
-In questa sezione viene creato un utente di nome Britta Simon in 4me. 4me supporta il provisioning utenti JIT, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se non esiste già un utente in 4me, ne viene creato uno nuovo dopo l'autenticazione.
+In questa sezione viene creato un utente di nome Britta Simon in 4me. 4me supporta il provisioning JIT, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se non esiste già un utente in 4me, ne viene creato uno nuovo dopo l'autenticazione.
 
 > [!Note]
 > Se è necessario creare un utente manualmente, contattare il [team di supporto di 4me](mailto:support@4me.com).
@@ -188,7 +188,7 @@ In questa sezione viene creato un utente di nome Britta Simon in 4me. 4me suppor
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di 4me nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di 4me per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di 4me nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione 4me per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

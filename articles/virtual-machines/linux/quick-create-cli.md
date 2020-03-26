@@ -20,10 +20,10 @@ ms.custom:
 - seo-javascript-october2019
 - seo-python-october2019
 ms.openlocfilehash: 7732320e987e6397dde2aff0f6c4328d551d99b1
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "72427943"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-with-the-azure-cli"></a>Guida introduttiva: Creare una macchina virtuale Linux con l'interfaccia della riga di comando di Azure
@@ -50,7 +50,7 @@ Creare un gruppo di risorse con il comando [az group create](/cli/azure/group). 
 az group create --name myResourceGroup --location eastus
 ```
 
-## <a name="create-virtual-machine"></a>Crea macchina virtuale
+## <a name="create-virtual-machine"></a>Creare macchina virtuale
 
 Creare una VM con il comando [az vm create](/cli/azure/vm).
 

@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: spelluru
 ms.openlocfilehash: 6f5bd129b175210cd5b9415a65b8db06d904e24d
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73718192"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>Esercitazione: Trasmettere Big Data a un data warehouse
@@ -87,7 +87,7 @@ In questo passaggio, implementare l'infrastruttura necessaria con un [modello di
     1. Specificare un nome per il **gruppo di risorse**
     2. Premere **INVIO**. 
 
-        Di seguito è fornito un esempio:
+        Esempio:
     
         ```azurecli
         user@Azure:~$ az group create -l eastus -n ehubegridgrp

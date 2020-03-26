@@ -10,13 +10,13 @@ ms.topic: quickstart
 ms.date: 01/15/2020
 ms.author: spelluru
 ms.openlocfilehash: 22f6b2aba36e560e9bd335baa92925fe9846c670
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77162600"
 ---
-# <a name="quickstart-send-and-receive-events-with-event-hubs-using-python-azure-eventhub-version-1"></a>Avvio rapido: Inviare e ricevere eventi con Hub eventi tramite Python (azure-eventhub versione 1)
+# <a name="quickstart-send-and-receive-events-with-event-hubs-using-python-azure-eventhub-version-1"></a>Guida introduttiva: Inviare e ricevere eventi con Hub eventi tramite Python (azure-eventhub versione 1)
 Questa guida di avvio rapido illustra come inviare e ricevere eventi da un hub eventi con il pacchetto Python **azure-eventhub versione 1**. 
 
 > [!WARNING]
@@ -26,7 +26,7 @@ Questa guida di avvio rapido illustra come inviare e ricevere eventi da un hub e
 ## <a name="prerequisites"></a>Prerequisiti
 Se non si ha familiarità con Hub eventi di Azure, vedere [Panoramica di Hub eventi](event-hubs-about.md) prima di procedere con questa guida di avvio rapido. 
 
-Per completare questa guida di avvio rapido è necessario soddisfare i prerequisiti seguenti:
+Per completare questa guida introduttiva è necessario soddisfare i prerequisiti seguenti:
 
 - **Sottoscrizione di Microsoft Azure**. Per usare i servizi di Azure, tra cui Hub eventi di Azure, è necessaria una sottoscrizione.  Se non si ha un account Azure, è possibile iscriversi per ottenere una [versione di valutazione gratuita](https://azure.microsoft.com/free/) oppure usare i vantaggi della sottoscrizione di MSDN per la [creazione di un account](https://azure.microsoft.com).
 - Python 3.4 o versione successiva con `pip` installato e aggiornato.

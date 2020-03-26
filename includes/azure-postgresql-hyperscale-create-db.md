@@ -9,10 +9,10 @@ ms.date: 09/12/2019
 ms.author: jonels
 ms.custom: include file
 ms.openlocfilehash: e7a6f7b4ba4219483cd3eb8f4600bc94213df131
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74973416"
 ---
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.

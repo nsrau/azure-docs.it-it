@@ -4,10 +4,10 @@ description: Procedura di distribuzione degli esempi di progetti UK OFFICIAL e U
 ms.date: 06/26/2019
 ms.topic: sample
 ms.openlocfilehash: 3d69f4477163618aa225150ac6352a16e901f826
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74546388"
 ---
 # <a name="deploy-the-uk-official-and-uk-nhs-blueprint-samples"></a>Distribuire gli esempi di progetti UK OFFICIAL e UK NHS
@@ -64,7 +64,7 @@ Dopo che la copia dell'esempio di progetto è stata **pubblicata** correttamente
 
    - Nozioni di base
 
-     - **Sottoscrizioni**: selezionare una o più sottoscrizioni presenti nel gruppo di gestione in cui è stata salvata la copia dell'esempio di progetto. Se si selezionano più sottoscrizioni, viene creata un'assegnazione per ciascuna usando i parametri immessi.
+     - **Sottoscrizioni**: selezionare una o più sottoscrizioni presenti nel gruppo di gestione in cui è stata salvata la copia dell'esempio di progetto. Se si selezionano più sottoscrizioni, viene creata un'assegnazione per ognuna usando i parametri immessi.
      - **Nome dell'assegnazione**: il nome viene prepopolato in base al nome del progetto.
        Cambiarlo, se necessario, o lasciarlo inalterato.
      - **Località**: selezionare un'area in cui creare l'identità gestita. Azure Blueprint usa questa identità gestita per distribuire tutti gli elementi nel progetto assegnato. Per altre informazioni, vedere [Managed identities for Azure resources](../../../../active-directory/managed-identities-azure-resources/overview.md) (Identità gestite per risorse di Azure).
@@ -91,7 +91,7 @@ Dopo che la copia dell'esempio di progetto è stata **pubblicata** correttamente
 
 La tabella seguente contiene un elenco dei parametri degli artefatti del progetto:
 
-Nome dell'artefatto|Tipo di artefatto|Nome parametro|DESCRIZIONE|
+Nome dell'artefatto|Tipo di artefatto|Nome parametro|Descrizione|
 |-|-|-|-|
 |Iniziativa progetto per UK OFFICIAL o UK NHS|Assegnazione di criteri |Tipi di risorsa per il controllo dei log di diagnostica (criteri: iniziativa progetto per UK OFFICIAL o UK NHS) |Elenco dei tipi di risorse per il controllo, se l'impostazione dei log di diagnostica non è abilitata.  Per informazioni sui valori accettabili, vedere [Servizi, schemi e categorie supportati per i log di diagnostica di Azure](../../../../azure-monitor/platform/diagnostic-logs-schema.md) |
 |\[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Linux |Assegnazione di criteri |Facoltativo: elenco delle immagini delle macchine virtuali che supportano il sistema operativo Linux da aggiungere all'ambito (Criteri: \[Anteprima\]: Distribuisci l'agente di Log Analytics per le macchine virtuali Linux) |(Facoltativo) Il valore predefinito è _nessuno_. Per altre informazioni, vedere [Creare un'area di lavoro Log Analytics nel portale di Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |

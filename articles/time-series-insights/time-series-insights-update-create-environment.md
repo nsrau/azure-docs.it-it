@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 02/20/2020
 ms.custom: seodec18
 ms.openlocfilehash: af15a7366fd07cecb376ff76ad383f784202a887
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77526816"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-preview-environment"></a>Esercitazione: Configurare un ambiente di anteprima di Azure Time Series Insights
@@ -37,7 +37,7 @@ In questa esercitazione verranno illustrate le procedure per:
 
 Registrarsi per creare una [sottoscrizione di Azure gratuita](https://azure.microsoft.com/free/), se non è già stato fatto.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * È necessario avere almeno il ruolo **Collaboratore** per la sottoscrizione di Azure. Per altre informazioni, vedere [Gestire l'accesso mediante il controllo degli accessi in base al ruolo e il portale di Azure](../role-based-access-control/role-assignments-portal.md).
 

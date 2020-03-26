@@ -16,10 +16,10 @@ ms.date: 07/02/2019
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 607ad17af42b88737d8ca4ebc379504d9b0b40df
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74073447"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-in-azure-with-powershell"></a>Guida introduttiva: Creare una macchina virtuale Windows in Azure con PowerShell

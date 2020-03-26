@@ -5,10 +5,10 @@ keywords: ansible, azure, devops, bash, cloudshell, playbook, servizio Azure Kub
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.openlocfilehash: 6672c3fac1c5d546a61622e3fd6df6c5397f87a2
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74156675"
 ---
 # <a name="tutorial-configure-azure-kubernetes-service-aks-clusters-in-azure-using-ansible"></a>Esercitazione: Configurare cluster del servizio Azure Kubernetes Service in Azure con Ansible
@@ -23,7 +23,7 @@ ms.locfileid: "74156675"
 
 > [!div class="checklist"]
 >
-> * Creare un cluster del servizio Azure Container
+> * Creare un cluster AKS
 > * Configurare un cluster del servizio Azure Kubernetes
 
 ## <a name="prerequisites"></a>Prerequisiti

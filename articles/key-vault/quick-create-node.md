@@ -7,12 +7,12 @@ ms.date: 10/20/2019
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.openlocfilehash: 2091916b0ec2eab68904a485d93f5d2353261f68
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: bda51b71ff1e6c89414bd1540bb38dcfea1d4a3c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78197743"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79457220"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-nodejs-v4"></a>Guida introduttiva: Libreria client di Azure Key Vault per Node.js (v4)
 
@@ -85,7 +85,6 @@ Questa operazione restituisce una serie di coppie chiave-valore.
   "tenantId": "35ad10f1-7799-4766-9acf-f2d946161b77",
   "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
   "resourceManagerEndpointUrl": "https://management.azure.com/",
-  "activeDirectoryGraphResourceId": "https://graph.windows.net/",
   "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
   "galleryEndpointUrl": "https://gallery.azure.com/",
   "managementEndpointUrl": "https://management.core.windows.net/"

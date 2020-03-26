@@ -9,13 +9,13 @@ ms.topic: quickstart
 ms.date: 01/15/2020
 ms.author: spelluru
 ms.openlocfilehash: 0a4b76bd1febca864cab6060fbdbd96dd0061cff
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77162617"
 ---
-# <a name="quickstart-send-events-to-or-receive-events-from-azure-event-hubs-using-javascript-azureevent-hubs-version-2"></a>Avvio rapido: Inviare o ricevere eventi da Hub eventi di Azure con JavaScript (@azure/event-hubs versione 2)
+# <a name="quickstart-send-events-to-or-receive-events-from-azure-event-hubs-using-javascript-azureevent-hubs-version-2"></a>Guida introduttiva: Inviare o ricevere eventi da Hub eventi di Azure con JavaScript (@azure/event-hubs versione 2)
 Questa guida di avvio rapido illustra come creare applicazioni JavaScript per inviare o ricevere eventi da un hub eventi usando il pacchetto JavaScript azure/event-hubs versione 2. 
 
 > [!WARNING]
@@ -26,7 +26,7 @@ Questa guida di avvio rapido illustra come creare applicazioni JavaScript per in
 
 Se non si ha familiarità con Hub eventi di Azure, vedere [Panoramica di Hub eventi](event-hubs-about.md) prima di procedere con questa guida di avvio rapido. 
 
-Per completare questa guida di avvio rapido è necessario soddisfare i prerequisiti seguenti:
+Per completare questa guida introduttiva è necessario soddisfare i prerequisiti seguenti:
 
 - **Sottoscrizione di Microsoft Azure**. Per usare i servizi di Azure, tra cui Hub eventi di Azure, è necessaria una sottoscrizione.  Se non si ha un account Azure, è possibile iscriversi per ottenere una [versione di valutazione gratuita](https://azure.microsoft.com/free/) oppure usare i vantaggi della sottoscrizione di MSDN per la [creazione di un account](https://azure.microsoft.com).
 - Node.js versione 8.x e successiva. Scaricare la versione LTS più recente da [https://nodejs.org](https://nodejs.org).
@@ -52,7 +52,7 @@ npm install @azure/event-processor-host
 Questa sezione illustra come creare un'applicazione JavaScript che invia eventi a un hub eventi. 
 
 > [!NOTE]
-> È possibile scaricare questa guida di avvio rapido come esempio da [GitHub](https://github.com/Azure/azure-event-hubs-node/tree/master/client), sostituire le stringhe `EventHubConnectionString` e `EventHubName` con i valori dell'hub eventi in uso ed eseguirla. In alternativa, è possibile seguire la procedura illustrata in questa esercitazione per creare una soluzione propria.
+> È possibile scaricare questa guida introduttiva come esempio da [GitHub](https://github.com/Azure/azure-event-hubs-node/tree/master/client), sostituire le stringhe `EventHubConnectionString` e `EventHubName` con i valori dell'hub eventi in uso ed eseguirla. In alternativa, è possibile seguire la procedura illustrata in questa esercitazione per creare una soluzione propria.
 
 1. Aprire l'editor preferito, ad esempio[Visual Studio Code](https://code.visualstudio.com). 
 2. Creare un file denominato `send.js` e incollarvi il codice riportato di seguito. Ottenere la stringa di connessione per lo spazio dei nomi dell'hub eventi seguendo le istruzioni disponibili nell'articolo: [Ottenere una stringa di connessione](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). 

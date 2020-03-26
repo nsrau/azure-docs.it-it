@@ -1,5 +1,5 @@
 ---
-title: "Avvio rapido: Creare un'app Xamarin Android"
+title: "Guida introduttiva: Creare un'app Xamarin Android"
 description: Questo argomento di avvio rapido illustra come creare un'app Android con Xamarin usando Ancoraggi nello spazio.
 author: craigktreasure
 manager: vriveras
@@ -9,13 +9,13 @@ ms.date: 07/22/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 94906d645ec38a24d54536ee8aa93e7418c8dc35
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75465188"
 ---
-# <a name="quickstart-create-a-xamarin-android-app-with-azure-spatial-anchors"></a>Avvio rapido: Creare un'app Android in Xamarin con Ancoraggi nello spazio di Azure
+# <a name="quickstart-create-a-xamarin-android-app-with-azure-spatial-anchors"></a>Guida introduttiva: Creare un'app Android in Xamarin con Ancoraggi nello spazio di Azure
 
 Questo argomento di avvio rapido illustra come creare un'app Android con Xamarin usando [Ancoraggi nello spazio di Azure](../overview.md). Ancoraggi nello spazio di Azure è un servizio per lo sviluppo multipiattaforma che consente di creare esperienze di realtà mista usando oggetti la cui posizione persiste tra dispositivi nel corso del tempo. Al termine, si avrà un'app Android in grado di salvare e richiamare un ancoraggio nello spazio.
 
@@ -28,7 +28,7 @@ Si apprenderà come:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa guida introduttiva, accertarsi di disporre di quanto segue:
 - Un computer Windows o macOS:
@@ -69,13 +69,13 @@ Accendere il dispositivo Android, eseguire l'accesso e connetterlo al computer c
 
 Impostare il progetto di avvio su **SampleXamarin.Android**, modificare il valore di **Configurazione soluzione** in **Rilascio** e selezionare il dispositivo di destinazione della distribuzione nell'elenco a discesa di selezione del dispositivo.
 
-# <a name="windowstabdeploy-windows"></a>[Windows](#tab/deploy-windows)
+# <a name="windows"></a>[Windows](#tab/deploy-windows)
 
 ![Configurazione di Visual Studio](./media/get-started-xamarin-android/visual-studio-windows-configuration.png)
 
 Selezionare **Debug** > **Avvia debug** per distribuire e avviare l'app.
 
-# <a name="macostabdeploy-macos"></a>[macOS](#tab/deploy-macos)
+# <a name="macos"></a>[macOS](#tab/deploy-macos)
 
 ![Configurazione di Visual Studio](./media/get-started-xamarin-android/visual-studio-macos-configuration.jpg)
 

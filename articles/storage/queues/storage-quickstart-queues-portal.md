@@ -9,10 +9,10 @@ ms.subservice: queues
 ms.topic: quickstart
 ms.reviewer: cbrooks
 ms.openlocfilehash: 2876d2a680aa41372557a9f04c1d6a5eed56b8ae
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74269237"
 ---
 # <a name="quickstart-create-a-queue-and-add-a-message-with-the-azure-portal"></a>Guida introduttiva: Creare una coda e aggiungere un messaggio con il portale di Azure

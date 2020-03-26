@@ -14,13 +14,13 @@ ms.topic: quickstart
 ms.date: 06/24/2019
 ms.author: jingwang
 ms.openlocfilehash: a2b775afcd9e603a11b560bb7c42d6cf76be9b34
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77597916"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79290389"
 ---
-# <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>Avvio rapido: Creare una data factory e una pipeline con .NET SDK
+# <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>Guida introduttiva: Creare una data factory e una pipeline con .NET SDK
 
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)

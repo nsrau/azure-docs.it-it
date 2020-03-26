@@ -9,17 +9,17 @@ manager: gwallace
 ms.author: tarcher
 ms.date: 04/30/2019
 ms.openlocfilehash: 44007000475793005560914fd816cd0c16927f9a
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77202443"
 ---
-# <a name="quickstart-install-ansible-on-linux-virtual-machines-in-azure"></a>Avvio rapido: Installare Ansible in macchine virtuali Linux in Azure
+# <a name="quickstart-install-ansible-on-linux-virtual-machines-in-azure"></a>Guida introduttiva: Installare Ansible in macchine virtuali Linux in Azure
 
 Ansible consente di automatizzare la distribuzione e la configurazione delle risorse nell'ambiente in uso. Questo articolo illustra come configurare Ansible per alcune delle distribuzioni Linux più comuni. Per installare Ansible in altre distribuzioni, modificare i pacchetti installati per adattarli alla piattaforma specifica. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 [!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [open-source-devops-prereqs-create-sp.md](../../includes/open-source-devops-prereqs-create-service-principal.md)]

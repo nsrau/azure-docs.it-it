@@ -16,10 +16,10 @@ ms.date: 02/10/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e7d487aaf7ba4aaf666962cf91ca86d46115055b
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78190739"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-iamip-patent-platform"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con IamIP Patent Platform
@@ -123,7 +123,7 @@ In questa sezione verrà creato un utente di test di nome B.Simon nel portale di
    1. Nella casella **Nome** immettere **B.Simon**.  
    1. Nella casella **Nome utente** immettere \<nomeutente>@\<dominioaziendale>.\<estensione>. Ad esempio: `B.Simon@contoso.com`.
    1. Selezionare **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
-   1. Selezionare **Crea**.
+   1. Selezionare **Create** (Crea).
 
 ### <a name="grant-access-to-the-test-user"></a>Concedere l'accesso all'utente di test
 

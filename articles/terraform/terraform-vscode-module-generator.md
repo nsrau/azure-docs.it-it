@@ -4,10 +4,10 @@ description: Informazioni su come creare un modello Terraform di base in Azure c
 ms.topic: tutorial
 ms.date: 10/26/2019
 ms.openlocfilehash: 82c3f5e640789547abb716b55959e1821a61e6d0
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77472146"
 ---
 # <a name="tutorial-create-a-terraform-base-template-in-azure-using-yeoman"></a>Esercitazione: Creare un modello Terraform di base in Azure con Yeoman
@@ -21,7 +21,7 @@ In questo articolo si apprenderà come eseguire le attività seguenti:
 > * Eseguire il modulo Terraform con un file Docker.
 > * Eseguire il modulo Terraform in modalità nativa in Azure Cloud Shell.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 - **Sottoscrizione di Azure**: Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 - **Visual Studio Code**: [scaricare Visual Studio Code](https://code.visualstudio.com/download) per la piattaforma in uso.

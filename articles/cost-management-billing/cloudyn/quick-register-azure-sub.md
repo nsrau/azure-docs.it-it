@@ -1,24 +1,26 @@
 ---
-title: Registrare la sottoscrizione di Azure in Cloudyn | Microsoft Docs
+title: Registrare la sottoscrizione di Azure con Cloudyn
 description: Questa guida introduttiva illustra nei dettagli il processo di registrazione necessario per creare una sottoscrizione di valutazione di Cloudyn e accedere al suo portale.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 03/12/2020
 ms.topic: quickstart
 ms.custom: seodec18
 ms.service: cost-management-billing
 ms.reviewer: benshy
-ms.openlocfilehash: 084cd852e0211ea494504a0d6e2350df567de0b1
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ROBOTS: NOINDEX
+ms.openlocfilehash: f3b529d3dbe0fe41fb13fabfe32dfad208ef5012
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77117789"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79474629"
 ---
 # <a name="register-an-individual-azure-subscription-and-view-cost-data"></a>Registrare una singola sottoscrizione di Azure e visualizzare i dati sui costi
 
 È possibile usare la sottoscrizione di Azure per effettuare la registrazione in Cloudyn. La registrazione consente di accedere al portale di Cloudyn. Questa guida introduttiva illustra nei dettagli il processo di registrazione necessario per creare una sottoscrizione di valutazione di Cloudyn e accedere al suo portale. Descrive anche come iniziare a visualizzare da subito i dati sui costi.
+
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 

@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Libreria client di Archiviazione BLOB di Azure versione 2.1 per Python'
+title: 'Guida introduttiva: Libreria client di Archiviazione BLOB di Azure versione 2.1 per Python'
 description: In questa guida introduttiva si creano un account di archiviazione e un contenitore nell'archivio oggetti (BLOB). La libreria client di archiviazione viene usata quindi per Python per caricare un BLOB in Archiviazione di Azure, scaricare un BLOB ed elencare i BLOB presenti in un contenitore.
 author: mhopkins-msft
 ms.author: mhopkins
@@ -9,17 +9,17 @@ ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: seo-python-october2019
 ms.openlocfilehash: 4b0248604b6e9189d5275177a4960e4c352e8215
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76906431"
 ---
-# <a name="quickstart-manage-blobs-with-python-v21-sdk"></a>Avvio rapido: Gestire i BLOB con Python v2.1 SDK
+# <a name="quickstart-manage-blobs-with-python-v21-sdk"></a>Guida introduttiva: Gestire i BLOB con Python v2.1 SDK
 
 In questo argomento di avvio rapido viene illustrato come gestire i BLOB con Python. I BLOB sono oggetti che possono contenere grandi quantità di dati di testo o binari, tra cui immagini, documenti, flussi multimediali e dati di archiviazione. Verranno caricati, scaricati ed elencati i BLOB e verranno creati ed eliminati i contenitori.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 - Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Un account dell'Archiviazione di Azure. [Creare un account di archiviazione](../common/storage-account-create.md).

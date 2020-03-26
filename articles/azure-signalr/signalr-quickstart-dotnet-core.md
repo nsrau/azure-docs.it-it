@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: zhshang
 ms.openlocfilehash: 022780f2b37c8bed49c81774d443b69bae41e5e7
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73476749"
 ---
 # <a name="quickstart-create-a-chat-room-by-using-signalr-service"></a>Guida introduttiva: Creare una chat room mediante il servizio SignalR

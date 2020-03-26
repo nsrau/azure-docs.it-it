@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 04/18/2019
 ms.author: jeedes
 ms.openlocfilehash: 60463a00c6864bed7b3a18e816ef0143d3573782
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67103246"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-everbridge"></a>Esercitazione: Integrazione di Azure Active Directory con Everbridge
@@ -174,7 +174,7 @@ Per configurare l'accesso SSO in **Everbridge** come applicazione del **portale 
 
 Per configurare l'accesso Single Sign-On in **Everbridge** come **portale dei membri di Everbridge**, inviare il file **XML dei metadati della federazione** scaricato al [team di supporto di Everbridge](mailto:support@everbridge.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
 Per creare l'utente di test Britta Simon nel portale di Azure, seguire questa procedura.
 
@@ -198,7 +198,7 @@ Per creare l'utente di test Britta Simon nel portale di Azure, seguire questa pr
 
     d. Selezionare **Create** (Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 Abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Everbridge.
 

@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 02/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 49c15365b60359bc393dcd854c7f9487810f0a7d
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73156300"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-explanation-based-auditing-system"></a>Esercitazione: Integrazione di Azure Active Directory con Explanation-Based Auditing System
@@ -117,7 +117,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con il Explanation-Based Au
 
 Per configurare l'accesso Single Sign-On dal lato **Explanation-Based Auditing System**, è necessario inviare l'**Url metadati di federazione dell'app** al [team di supporto di Explanation-Based Auditing System](mailto:support@maizeanalytics.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
@@ -136,13 +136,13 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
     b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
-    Ad esempio: BrittaSimon@contoso.com
+    Ad esempio, usare BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
     d. Fare clic su **Crea**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Explanation-Based Auditing System.
 

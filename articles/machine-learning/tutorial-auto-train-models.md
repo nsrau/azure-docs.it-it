@@ -11,10 +11,10 @@ ms.author: trbye
 ms.reviewer: trbye
 ms.date: 02/10/2020
 ms.openlocfilehash: 75e61ea3f4fa6c2b346f912a9effd66ad94e7e93
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77116459"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>Esercitazione: Usare il servizio Machine Learning automatizzato per stimare le tariffe dei taxi
@@ -33,7 +33,7 @@ In questa esercitazione si apprenderà come eseguire le attività seguenti:
 
 Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare la [versione gratuita o a pagamento](https://aka.ms/AMLFree) di Azure Machine Learning.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Completare l'[esercitazione relativa all'installazione](tutorial-1st-experiment-sdk-setup.md) se non si ha già un'area di lavoro di Azure Machine Learning o una macchina virtuale per notebook.
 * Al termine dell'esercitazione sull'installazione, aprire il notebook *tutorials/regression-automl-nyc-taxi-data/regression-automated-ml.ipynb* usando lo stesso server notebook.

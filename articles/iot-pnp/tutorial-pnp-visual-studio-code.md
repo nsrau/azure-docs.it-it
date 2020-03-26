@@ -10,10 +10,10 @@ ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
 ms.openlocfilehash: 720b3e56e1dd45bd2940b337adefa6ebdaa2e5a1
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76719722"
 ---
 # <a name="tutorial-create-and-test-a-device-capability-model-using-visual-studio-code"></a>Esercitazione: Creare e testare un modello di funzionalità di dispositivo usando Visual Studio Code
@@ -30,7 +30,7 @@ In questa esercitazione verranno illustrate le procedure per:
 > * Implementare gli stub nel codice generato
 > * Eseguire il codice per testare le interazioni con un hub IoT
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per usare il modello di funzionalità di dispositivo in questa esercitazione, è necessario:
 

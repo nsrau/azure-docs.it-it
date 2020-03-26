@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 01/30/2020
 ms.author: spelluru
 ms.openlocfilehash: e296ae36eeeb816d8704ab03824f8cbb80082ea6
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77163008"
 ---
 # <a name="send-events-to-or-receive-events-from-event-hubs-by-using-javascript--azureevent-hubs-version-5"></a>Inviare o ricevere eventi da Hub eventi con JavaScript (azure/event-hubs versione 5)
@@ -24,7 +24,7 @@ Questa guida di avvio rapido illustra come inviare e ricevere eventi da un hub e
 ## <a name="prerequisites"></a>Prerequisiti
 Se non si ha familiarità con Hub eventi di Azure, vedere [Panoramica di Hub eventi](event-hubs-about.md) prima di procedere con questa guida di avvio rapido. 
 
-Per completare questa guida di avvio rapido è necessario soddisfare i prerequisiti seguenti:
+Per completare questa guida introduttiva è necessario soddisfare i prerequisiti seguenti:
 
 - **Sottoscrizione di Microsoft Azure**. Per usare i servizi di Azure, tra cui Hub eventi di Azure, è necessaria una sottoscrizione.  Se non si ha un account Azure, è possibile iscriversi per ottenere una [versione di valutazione gratuita](https://azure.microsoft.com/free/) oppure usare i vantaggi della sottoscrizione di MSDN per la [creazione di un account](https://azure.microsoft.com).
 - Node.js 8.x o versione successiva. Scaricare l'ultima [versione con supporto a lungo termine (LTS)](https://nodejs.org).  

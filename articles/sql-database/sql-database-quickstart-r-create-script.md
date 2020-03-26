@@ -14,19 +14,19 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
 ms.openlocfilehash: 5b2f8231952d25f5858f8e06a957f1056ecc3651
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76768500"
 ---
-# <a name="quickstart-create-and-run-simple-r-scripts-in-azure-sql-database-machine-learning-services-preview"></a>Avvio rapido: Creare ed eseguire script R semplici nei Machine Learning Services nel database SQL di Azure (anteprima)
+# <a name="quickstart-create-and-run-simple-r-scripts-in-azure-sql-database-machine-learning-services-preview"></a>Guida introduttiva: Creare ed eseguire script R semplici nei Machine Learning Services nel database SQL di Azure (anteprima)
 
 In questo argomento di avvio rapido viene creato ed eseguito un set di script R tramite Machine Learning Services (con R) in Database SQL di Azure.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 - Un account Azure con una sottoscrizione attiva. [Creare un account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Un [database SQL di Azure](sql-database-single-database-get-started.md) con una [regola del firewall a livello di server](sql-database-server-level-firewall-rule.md)

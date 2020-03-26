@@ -9,17 +9,17 @@ ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.openlocfilehash: c9ed675dc970b093f6407d15b3db2ac2668c626b
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74327565"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-hdinsight"></a>Esercitazione: Estrarre, trasformare e caricare dati con Azure HDInsight
 
 In questa esercitazione viene eseguita un'operazione ETL (Extract, Transform, Load), ossia estrazione, trasformazione e caricamento dei dati. Un file di dati non elaborati in formato CSV verrà importato in un cluster Azure HDInsight, trasformato con Apache Hive e caricato in un database SQL di Azure con Apache Sqoop.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Estrarre e caricare i dati in un cluster HDInsight.
@@ -50,7 +50,7 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 2. Selezionare i valori seguenti nella pagina:
 
-   | Nome | Valore |
+   | Nome | valore |
    | --- | --- |
    | Filter Year |2013 |
    | Filter Period |January |
@@ -76,7 +76,7 @@ In questa sezione verranno caricati i dati nel cluster HDInsight e quindi questi
 
    Se si usa una password per l'autenticazione in SSH, viene richiesto di specificarla.
 
-   Se si usa una chiave pubblica, può essere necessario usare il parametro `-i` e specificare il percorso alla chiave privata corrispondente. Ad esempio, `scp -i ~/.ssh/id_rsa <file_name>.zip <user-name>@<cluster-name>-ssh.azurehdinsight.net:`.
+   Se si usa una chiave pubblica, può essere necessario usare il parametro `-i` e specificare il percorso alla chiave privata corrispondente. Ad esempio: `scp -i ~/.ssh/id_rsa <file_name>.zip <user-name>@<cluster-name>-ssh.azurehdinsight.net:`.
 
 2. Al termine del caricamento connettersi al cluster tramite SSH. Nel prompt dei comandi immettere il comando seguente:
 

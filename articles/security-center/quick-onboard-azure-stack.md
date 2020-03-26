@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/02/2019
 ms.author: fiseraci
 ms.openlocfilehash: c186dcb2d7d7d423f5c001bdb4d3f3503beebd9c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73686516"
 ---
 # <a name="quickstart-onboard-your-azure-stack-virtual-machines-to-security-center"></a>Guida introduttiva: Onboarding delle macchine virtuali di Azure Stack nel Centro sicurezza
@@ -41,7 +41,7 @@ Prima di iniziare questo argomento di avvio rapido, è necessario avere una sott
 3. Scegliere **Introduzione** dal menu principale del Centro sicurezza.
 4. Selezionare la scheda **Introduzione**.
 
-   ![Attività iniziali][3]
+   ![Introduzione][3]
 
 5. Fare clic su **Configura** in **Aggiungi nuovi computer non Azure**. Viene visualizzato un elenco delle aree di lavoro di Log Analytics. L'elenco include, se applicabile, l'area di lavoro predefinita creata dal Centro sicurezza quando è stato abilitato il provisioning automatico. Selezionare questa o un'altra area di lavoro in cui inviare i dati di sicurezza della VM di Azure Stack.
 

@@ -7,10 +7,10 @@ ms.date: 08/12/2019
 ms.topic: quickstart
 ms.devlang: javascript
 ms.openlocfilehash: fb79f4b87d8ddc5303fea834c81329315401464a
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74688981"
 ---
 # <a name="create-a-nodejs-app-in-azure"></a>Creare un'app Node.js in Azure
@@ -31,7 +31,7 @@ Una volta installata l'estensione, accedere all'account Azure. Sulla barra delle
 
 ![Accedere ad Azure](./media/quickstart-nodejs/sign-in.png)
 
-### <a name="troubleshooting"></a>risoluzione dei problemi
+### <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Se viene visualizzato l'errore **"Impossibile trovare la sottoscrizione [ID sottoscrizione]"** , è possibile che un proxy impedisca di raggiungere l'API di Azure. Configurare le variabili di ambiente `HTTP_PROXY` e `HTTPS_PROXY` con le informazioni del proxy nel terminale usando `export`.
 
@@ -134,7 +134,7 @@ Nell'area **SERVIZIO APP DI AZURE** selezionare l'icona della freccia verso l'al
 
 Una volta completata la distribuzione, selezionare **Esplora sito Web** nel messaggio per visualizzare l'app Web appena distribuita.
 
-### <a name="troubleshooting"></a>risoluzione dei problemi
+### <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Se viene visualizzato l'errore **"Non si dispone delle autorizzazioni necessarie per visualizzare la directory o la pagina"** , è probabile che l'applicazione non sia stata avviata correttamente. Passare alla sezione successiva e visualizzare l'output del log per individuare e correggere l'errore. Se non è possibile risolvere il problema, contattare il supporto facendo clic sul pulsante **Si è verificato un problema** qui sotto. Microsoft sarà lieta di fornire aiuto.
 

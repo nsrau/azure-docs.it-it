@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.date: 03/05/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: b711a12161bc134bdcbb8c1f3e74f2e5ae06e701
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 3cda4db558210ecbfcfc8ce2aaed8c6f69f5e026
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083147"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79458784"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint-using-resource-manager-template"></a>Guida introduttiva: Creare un profilo e un endpoint della rete CDN di Azure usando un modello di Resource Manager
 
@@ -42,7 +42,7 @@ Tutte le risorse devono essere distribuite nello stesso gruppo di risorse.
 
 Creare il gruppo di risorse nella località selezionata. Questo esempio descrive la creazione di un gruppo di risorse denominato cdn nell'area Stati Uniti orientali.
 
-```bash
+```azurecli-interactive
 az group create --name cdn --location eastus
 ```
 
@@ -180,7 +180,7 @@ Salvare il modello come **resource-manager-cdn.json**.
 
 Distribuire il modello tramite l'interfaccia della riga di comando di Azure. Verranno richiesti due input:
 
-**cdnProfileSku**: il provider della rete CDN che si vuole usare. Le opzioni sono:
+**cdnProfileSku**: il provider della rete CDN che si vuole usare. Le opzioni disponibili sono le seguenti:
 
 * Standard_Microsoft
 * Standard_Akamai
@@ -189,7 +189,7 @@ Distribuire il modello tramite l'interfaccia della riga di comando di Azure. Ver
 
 **endpointOriginHostName**: l'endpoint che verrà gestito tramite la rete CDN, ad esempio cdndemo.azurewebsites.net.
 
-```bash
+```azurecli-interactive
 az group deployment create --resource-group cdn --template-file arm-cdn.json
 ```
 
@@ -197,7 +197,7 @@ az group deployment create --resource-group cdn --template-file arm-cdn.json
 
 ## <a name="view-the-cdn-profile"></a>Visualizzare il profilo della rete CDN
 
-```bash
+```azurecli-interactive
 az cdn profile list --resource-group cdn -o table
 ```
 
@@ -205,7 +205,7 @@ az cdn profile list --resource-group cdn -o table
 
 ## <a name="view-the-cdn-endpoint-for-the-profile-standard-microsoft"></a>Visualizzare l'endpoint della rete CDN per il profilo standard-microsoft
 
-```bash
+```azurecli-interactive
 az cdn endpoint list --profile-name standard-microsoft --resource-group cdn -o table
 ```
 
@@ -217,7 +217,7 @@ Usare i dati specificati per HostName per visualizzare il contenuto. Accedere ad
 
 L'eliminazione del gruppo di risorse comporterà la rimozione automatica di tutte le risorse che sono state distribuite in tale gruppo.
 
-```bash
+```azurecli-interactive
 az group delete --name cdn
 ```
 

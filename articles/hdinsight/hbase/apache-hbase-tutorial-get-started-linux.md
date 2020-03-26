@@ -10,17 +10,17 @@ ms.topic: tutorial
 ms.date: 06/25/2019
 ms.author: hrasheed
 ms.openlocfilehash: e43d2d64535085a9b22d2febc761fc7026498ba8
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "71077149"
 ---
 # <a name="tutorial-use-apache-hbase-in-azure-hdinsight"></a>Esercitazione: Usare Apache HBase in Azure HDInsight
 
 Questa esercitazione illustra come creare un cluster Apache HBase in Azure HDInsight, come creare tabelle HBase e come eseguire query sulle tabelle con Apache Hive.  Per informazioni generali su HBase, vedere [Panoramica di HDInsight HBase](./apache-hbase-overview.md).
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare un cluster Apache HBase
@@ -45,7 +45,7 @@ La procedura seguente usa un modello di Azure Resource Manager per creare un clu
 
 2. Compilare i campi seguenti del pannello **Distribuzione personalizzata**:
 
-    |Proprietà |DESCRIZIONE |
+    |Proprietà |Descrizione |
     |---|---|
     |Subscription|selezionare la sottoscrizione di Azure che viene usata per creare il cluster.|
     |Resource group|creare un nuovo gruppo di Azure Resource Manager o usarne uno esistente.|

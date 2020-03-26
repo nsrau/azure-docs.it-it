@@ -5,10 +5,10 @@ keywords: ansible, azure, devops, bash, playbook, macchina virtuale, set di scal
 ms.topic: tutorial
 ms.date: 04/30/2019
 ms.openlocfilehash: e1cc40459988fb9bc38e3dbbcde563cebb531e3d
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74156544"
 ---
 # <a name="tutorial-configure-virtual-machine-scale-sets-in-azure-using-ansible"></a>Esercitazione: Configurare set di scalabilità di macchine virtuali in Azure tramite Ansible
@@ -209,7 +209,7 @@ Il [set di scalabilità configurato](#configure-a-scale-set) include attualmente
     }
     ```
 
-## <a name="scale-out-a-scale-set"></a>Ampliare un set di scalabilità
+## <a name="scale-out-a-scale-set"></a>Aumentare il numero di istanze per un set di scalabilità
 
 Il codice del playbook in questa sezione consente di recuperare informazioni sul set di scalabilità e di modificarne la capacità da due a tre.
 

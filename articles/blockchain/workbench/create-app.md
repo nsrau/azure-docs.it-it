@@ -5,10 +5,10 @@ ms.date: 10/14/2019
 ms.topic: tutorial
 ms.reviewer: brendal
 ms.openlocfilehash: 33a9e9c10c07d0808626353a7edfd505e0f60bc9
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74324815"
 ---
 # <a name="tutorial-create-a-blockchain-application-for-azure-blockchain-workbench"></a>Esercitazione: Creare un'applicazione blockchain per Azure Blockchain Workbench
@@ -339,7 +339,7 @@ Aggiungere membri all'applicazione per avviare ed eseguire operazioni sui contra
 2. Il numero di membri associati all'applicazione è mostrato nell'angolo superiore destro della pagina. Per una nuova applicazione il numero di membri è zero.
 3. Selezionare il collegamento **membri** nell'angolo superiore destro della pagina. Compare l'elenco dei membri attuali per l'applicazione.
 4. Nell'elenco dei membri selezionare **Aggiungi membri**.
-5. Selezionare o immettere il nome del membro da aggiungere. Sono elencati solo gli utenti di Azure AD che esistono nel tenant di Blockchain Workbench. Se l'utente non viene trovato, è necessario [aggiungere utenti di Azure AD](manage-users.md#add-azure-ad-users).
+5. Selezionare o immettere il nome del membro da aggiungere. Vengono elencati solo gli utenti di Azure AD presenti nel tenant di Blockchain Workbench. Se l'utente non viene trovato, è necessario [aggiungere utenti di Azure AD](manage-users.md#add-azure-ad-users).
 6. Selezionare il **ruolo** per il membro. Per il primo membro selezionare il ruolo **Richiedente**.
 7. Selezionare **Aggiungi** per aggiungere il membro con il ruolo associato all'applicazione.
 8. Aggiungere un altro membro all'applicazione con il ruolo **Risponditore**.

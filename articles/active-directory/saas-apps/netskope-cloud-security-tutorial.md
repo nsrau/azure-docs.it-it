@@ -17,10 +17,10 @@ ms.date: 10/31/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dec8f8065114b89dfa7bcaceee3f26855953dde2
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74081869"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netskope-administrator-console"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Netskope Administrator Console
@@ -64,8 +64,8 @@ Configurare e testare l'accesso SSO di Azure AD con Netskope Administrator Conso
 Per configurare e testare l'accesso SSO di Azure AD con Netskope Administrator Console, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    * **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
-    * **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
+    * **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
+    * **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Configurare l'accesso Single Sign-On di Netskope Administrator Console](#configure-netskope-administrator-console-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
     * **[Creare l'utente di test di Netskope Administrator Console](#create-netskope-administrator-console-test-user)** : per avere una controparte di B.Simon in Netskope Administrator Console collegata alla rappresentazione dell'utente in Azure AD.
 1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
@@ -102,7 +102,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Oltre quelli elencati in precedenza, l'applicazione Netskope Administrator Console prevede il passaggio di altri attributi nella risposta SAML. Tali attributi sono indicati di seguito. Anche questi attributi vengono prepopolati, ma è possibile esaminarli in base ai requisiti.
 
-    | NOME |  Attributo di origine|
+    | Nome |  Attributo di origine|
     | ---------| --------- |
     | admin-role | user.assignedroles |
 
@@ -181,7 +181,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
     a. Selezionare **Enable SSO** (Abilita SSO).
 
-    b. Nella casella di testo **IDP URL** (URL dell'IdP) incollare il valore di **URL di accesso** copiato dal portale di Azure.
+    b. Nella casella di testo **IDP URL** (URL dell'IDP) incollare il valore di **URL di accesso** copiato dal portale di Azure.
 
     c. Nella casella di testo **IDP ENTITY ID** (ID ENTITÀ IDP) incollare il valore di **Identificatore Azure AD** copiato dal portale di Azure.
 

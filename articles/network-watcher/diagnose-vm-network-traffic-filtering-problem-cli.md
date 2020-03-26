@@ -19,10 +19,10 @@ ms.date: 04/20/2018
 ms.author: kumud
 ms.custom: mvc
 ms.openlocfilehash: 251f72ab4f4d53fc2c836f06c78a1faa291b3a8a
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74276081"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem---azure-cli"></a>Guida introduttiva: Diagnosticare un problema di filtro del traffico di rete di una macchina virtuale - Interfaccia della riga di comando di Azure
@@ -72,7 +72,7 @@ az network watcher configure \
 
 ### <a name="use-ip-flow-verify"></a>Usare la verifica del flusso IP
 
-Quando si crea una macchina virtuale, per impostazione predefinita Azure consente e nega il traffico di rete da e verso la macchina virtuale. È possibile sostituire in un secondo momento le impostazioni predefinite di Azure, consentendo o negando altri tipi di traffico. Per verificare se il traffico verso destinazioni diverse e da un indirizzo IP di origine è consentito o negato, usare il comando [az network watcher test-ip-flow](/cli/azure/network/watcher#az-network-watcher-test-ip-flow).
+Quando si crea una macchina virtuale, per impostazione predefinita Azure consente e nega il traffico di rete da e verso la macchina virtuale. È possibile eseguire l'override in un secondo momento delle impostazioni predefinite di Azure, consentendo o negando altri tipi di traffico. Per verificare se il traffico verso destinazioni diverse e da un indirizzo IP di origine è consentito o negato, usare il comando [az network watcher test-ip-flow](/cli/azure/network/watcher#az-network-watcher-test-ip-flow).
 
 Testare le comunicazioni in uscita dalla macchina virtuale a uno degli indirizzi IP di www.bing.com:
 
@@ -173,7 +173,7 @@ L'output restituito include il testo seguente per la regola **AllowInternetOutbo
 
 Nell'output precedente il valore di **destinationAddressPrefix** è **Internet**. Tuttavia, non è chiaro come 13.107.21.200 sia correlato a **Internet**. In **expandedDestinationAddressPrefix** sono elencati numerosi prefissi degli indirizzi. Uno dei prefissi nell'elenco è **12.0.0.0/6**, che comprende l'intervallo di indirizzi IP 12.0.0.1-15.255.255.254. Poiché 13.107.21.200 è compreso in tale intervallo di indirizzi, la regola **AllowInternetOutBound** consente il traffico in uscita. Inoltre, nell'output precedente non sono presenti regole con priorità più alta (numero inferiore) che sostituiscono questa regola. Per impedire le comunicazioni in uscita verso un indirizzo IP, è possibile aggiungere una regola di sicurezza con una priorità più alta, che neghi l'accesso in uscita dalla porta 80 verso l'indirizzo IP.
 
-Quando si esegue il comando `az network watcher test-ip-flow` per testare le comunicazioni in uscita verso 172.131.0.100 in [Usare la verifica del flusso IP](#use-ip-flow-verify), l'output informa l'utente che la regola **DefaultOutboundDenyAll** ha negato la comunicazione. La regola **DefaultOutboundDenyAll** equivale alla regola **DenyAllOutBound** indicata nell'output derivante dal comando `az network nic list-effective-nsg`:
+Quando si esegue il comando `az network watcher test-ip-flow` per testare la comunicazione in uscita verso 172.131.0.100 in [Usare la verifica del flusso IP](#use-ip-flow-verify), l'output informa l'utente che la regola **DefaultOutboundDenyAll** ha negato la comunicazione. La regola **DefaultOutboundDenyAll** equivale alla regola **DenyAllOutBound** indicata nell'output seguente del comando `az network nic list-effective-nsg`:
 
 ```azurecli
 {
@@ -206,7 +206,7 @@ Quando si esegue il comando `az network watcher test-ip-flow` per testare le com
 
 La regola indica **0.0.0.0/0** come valore di **destinationAddressPrefix**. La regola nega la comunicazione in uscita verso 172.131.0.100, perché l'indirizzo non rientra nel valore di **destinationAddressPrefix** di nessuna delle altre regole in uscita nell'output derivanti dal comando `az network nic list-effective-nsg`. Per consentire la comunicazione in uscita, è possibile aggiungere una regola di sicurezza con una priorità più alta, che consente il traffico in uscita sulla porta 80 verso 172.131.0.100.
 
-Quando si esegue il comando `az network watcher test-ip-flow` in [Usare la verifica del flusso IP](#use-ip-flow-verify) per testare le comunicazioni in ingresso da 172.131.0.100, l'output informa l'utente che la regola **DefaultInboundDenyAll** ha negato la comunicazione. La regola **DefaultInboundDenyAll** equivale alla regola **DenyAllInBound** indicata nell'output derivante dal comando `az network nic list-effective-nsg`:
+Quando si esegue il comando `az network watcher test-ip-flow` in [Usare la verifica del flusso IP](#use-ip-flow-verify) per testare le comunicazioni in ingresso da 172.131.0.100, l'output informa l'utente che la regola **DefaultInboundDenyAll** ha negato la comunicazione. La regola **DefaultInboundDenyAll** equivale alla regola **DenyAllInBound** indicata nell'output seguente del comando `az network nic list-effective-nsg`:
 
 ```azurecli
 {

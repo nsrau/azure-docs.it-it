@@ -7,21 +7,21 @@ ms.service: mysql
 ms.custom: mvc, devcenter, seo-java-july2019, seo-java-august2019
 ms.topic: quickstart
 ms.devlang: java
-ms.date: 12/02/2019
-ms.openlocfilehash: 18a61c215f6c10bb399beaa83ec53ad2ebc62970
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.date: 3/18/2020
+ms.openlocfilehash: 0a41dfbdbfb1a0f588c1a334aefeb4fb5043e813
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76938977"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80067954"
 ---
-# <a name="quickstart-use-java-to-connect-to-and-query-data-in-azure-database-for-mysql"></a>Avvio rapido: Usare Java per connettersi ed eseguire query sui dati in Database di Azure per MySQL
+# <a name="quickstart-use-java-to-connect-to-and-query-data-in-azure-database-for-mysql"></a>Guida introduttiva: Usare Java per connettersi ed eseguire query sui dati in Database di Azure per MySQL
 
 In questo argomento di avvio rapido ci si connette a un'istanza di Database di Azure per MySQL usando un'applicazione Java e il driver JDBC MariaDB Connector/J. È quindi possibile usare istruzioni SQL per eseguire query, inserire, aggiornare ed eliminare dati nel database dalle piattaforme Mac, Ubuntu Linux e Windows. 
 
 Questo argomento presuppone che si abbia familiarità con lo sviluppo con Java, ma non con Database di Azure per MySQL.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 - Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Un'istanza di Database di Azure per il server MySQL. [Creare un database di Azure per il server MySQL tramite il portale di Azure](quickstart-create-mysql-server-database-using-azure-portal.md) o [Creare un database di Azure per il server MySQL tramite l'interfaccia della riga di comando di Azure](quickstart-create-mysql-server-database-using-azure-cli.md).

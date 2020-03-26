@@ -10,19 +10,19 @@ services: iot-central
 ms.custom: mvc
 manager: philmea
 ms.openlocfilehash: e56b733a567c706c2a15f2c30ed93a47c244db11
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77168704"
 ---
-# <a name="quickstart-use-azure-iot-central-to-monitor-your-devices"></a>Avvio rapido: Usare Azure IoT Central per monitorare i dispositivi
+# <a name="quickstart-use-azure-iot-central-to-monitor-your-devices"></a>Guida introduttiva: Usare Azure IoT Central per monitorare i dispositivi
 
 *Questo articolo è rivolto a operatori, autori e amministratori.*
 
 Questo avvio rapido illustra come un operatore può usare l'applicazione Microsoft Azure IoT Central per monitorare i dispositivi e modificare le impostazioni.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare, è opportuno completare i tre avvii rapidi precedenti [Creare un'applicazione Azure IoT Central](./quick-deploy-iot-central.md), [Aggiungere un dispositivo simulato a un'applicazione IoT Central](./quick-create-pnp-device.md) e [Configurare le regole e le azioni per il dispositivo](quick-configure-rules.md).
 

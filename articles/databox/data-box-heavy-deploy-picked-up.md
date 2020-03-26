@@ -10,11 +10,11 @@ ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
 ms.openlocfilehash: cfb9f54f5ba219a4db87144ab1e7ebff2b72b69e
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514443"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79214191"
 ---
 ::: zone target = "docs"
 
@@ -35,13 +35,13 @@ Questa esercitazione illustra come restituire Azure Data Box Heavy e verificare 
 In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
-> * Prerequisites
+> * Prerequisiti
 > * Preparare per la spedizione
 > * Spedire Data Box Heavy a Microsoft
 > * Verificare il caricamento dei dati in Azure
 > * Cancellare i dati da Data Box Heavy
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare, verificare che:
 
@@ -134,7 +134,7 @@ Una volta completato il caricamento in Azure, i dati vengono cancellati dai disc
 In questa esercitazione sono stati presentati argomenti relativi ad Azure Data Box, ad esempio:
 
 > [!div class="checklist"]
-> * Prerequisites
+> * Prerequisiti
 > * Preparare per la spedizione
 > * Spedire Data Box Heavy a Microsoft
 > * Verificare il caricamento dei dati in Azure

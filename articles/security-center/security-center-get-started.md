@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/3/2018
 ms.author: memildin
 ms.openlocfilehash: 26d62f2c027a093ba518b98fa37ce3a31a14f175
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73664294"
 ---
 # <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>Guida introduttiva: Caricamento della sottoscrizione di Azure al livello Standard del Centro di sicurezza
@@ -26,7 +26,7 @@ Il Centro sicurezza di Azure fornisce la gestione unificata della sicurezza e la
 
 Questo articolo descrive come eseguire l'aggiornamento al livello Standard per aumentare la sicurezza e come installare Microsoft Monitoring Agent nelle macchine virtuali per monitorare le vulnerabilità di sicurezza e le minacce.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 Per iniziare a usare Centro sicurezza, è necessario avere una sottoscrizione di Microsoft Azure. Se non si ha una sottoscrizione, è possibile ottenere un [account gratuito](https://azure.microsoft.com/pricing/free-trial/).
 
 Per aggiornare una sottoscrizione al livello Standard, è necessario disporre del ruolo di proprietario della sottoscrizione, collaboratore alla sottoscrizione o amministratore della sicurezza.
@@ -54,7 +54,7 @@ Ai fini della Guida introduttiva e delle esercitazioni per il Centro di sicurezz
 
 1. Scegliere **Introduzione** dal menu principale del Centro sicurezza.
  
-   ![Attività iniziali][4]
+   ![Introduzione][4]
 
 2. In **Aggiorna**, il Centro sicurezza di Azure elenca tutte le sottoscrizioni e i carichi di lavoro idonei per il caricamento. 
    - È possibile espandere **Applica la versione di prova gratuita** per visualizzare un elenco di tutte le sottoscrizioni e aree di lavoro con il relativo stato di idoneità di valutazione.
@@ -106,7 +106,7 @@ Se si vuole disabilitare il provisioning automatico:
 In questa Guida rapida è stato eseguito l'aggiornamento al livello Standard ed è stato eseguito il provisioning di Microsoft Monitoring Agent per la gestione unificata della sicurezza e della protezione dalle minacce per i carichi di lavoro di cloud ibrido. Per altre informazioni su come usare il Centro sicurezza, continuare con le indicazioni presenti nella Guida introduttiva per l'onboarding di computer Windows in locale o in altri ambienti cloud.
 
 > [!div class="nextstepaction"]
-> [Guida introduttiva: Onboarding di computer Windows in Centro sicurezza di Azure](quick-onboard-windows-computer.md)
+> [Guida introduttiva: Onboarding di computer Windows in Centro sicurezza](quick-onboard-windows-computer.md)
 
 <!--Image references-->
 [2]: ./media/security-center-get-started/overview.png

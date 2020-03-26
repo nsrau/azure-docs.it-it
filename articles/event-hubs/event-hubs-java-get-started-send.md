@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 02/11/2020
 ms.author: spelluru
 ms.openlocfilehash: 2c9baa4c0e048419ece09b954cee1af21b1f0cc1
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77158010"
 ---
 # <a name="use-java-to-send-events-to-or-receive-events-from-azure-event-hubs-azure-eventhubs"></a>Usare Java per inviare o ricevere eventi da Hub eventi di Azure (azure-eventhubs)
@@ -27,7 +27,7 @@ Questa guida di avvio rapido illustra come inviare e ricevere eventi da un hub e
 
 Se non si ha familiarità con Hub eventi di Azure, vedere [Panoramica di Hub eventi](event-hubs-about.md) prima di procedere con questa guida di avvio rapido. 
 
-Per completare questa guida di avvio rapido è necessario soddisfare i prerequisiti seguenti:
+Per completare questa guida introduttiva è necessario soddisfare i prerequisiti seguenti:
 
 - **Sottoscrizione di Microsoft Azure**. Per usare i servizi di Azure, tra cui Hub eventi di Azure, è necessaria una sottoscrizione.  Se non si ha un account Azure, è possibile iscriversi per ottenere una [versione di valutazione gratuita](https://azure.microsoft.com/free/) oppure usare i vantaggi della sottoscrizione di MSDN per la [creazione di un account](https://azure.microsoft.com).
 - Ambiente di sviluppo in Java. In questa guida di avvio rapido si usa [Eclipse](https://www.eclipse.org/).
@@ -37,7 +37,7 @@ Per completare questa guida di avvio rapido è necessario soddisfare i prerequis
 Questa sezione illustra come creare un'applicazione Java per inviare eventi a un hub eventi. 
 
 > [!NOTE]
-> È possibile scaricare questa guida di avvio rapido come esempio da [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/SimpleSend), sostituire le stringhe `EventHubConnectionString` e `EventHubName` con i valori dell'hub eventi in uso ed eseguirla. In alternativa, è possibile seguire la procedura illustrata in questa guida di avvio rapido per creare una soluzione personalizzata.
+> È possibile scaricare questa guida introduttiva come esempio da [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/SimpleSend), sostituire le stringhe `EventHubConnectionString` e `EventHubName` con i valori dell'hub eventi in uso ed eseguirla. In alternativa, è possibile seguire la procedura illustrata in questa guida di avvio rapido per creare una soluzione personalizzata.
 
 ### <a name="add-reference-to-azure-event-hubs-library"></a>Aggiungere il riferimento alla libreria di Hub eventi di Azure
 

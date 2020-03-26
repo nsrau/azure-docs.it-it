@@ -14,23 +14,23 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/29/2019
 ms.openlocfilehash: 800dbfc05c47a949bf024e9a5c671979b49ad201
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68639981"
 ---
 # <a name="tutorial-prepare-data-to-perform-clustering-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Esercitazione: Preparare i dati per eseguire il clustering in R con Machine Learning Services di database SQL di Azure (anteprima)
 
 Nella prima parte di questa serie di esercitazioni in tre parti, si importeranno e prepareranno i dati di un database SQL di Azure usando R. Più avanti nella serie, questi dati verranno usati per eseguire il training e la distribuzione di un modello di clustering in R con Machine Learning Services di Database SQL di Azure (anteprima).
 
-Per *clustering* si intende l'organizzazione dei dati in gruppi, i cui membri presentano analogie.
-Per eseguire il clustering di clienti in un set di dati relativi ad acquisti e restituzioni di prodotti, si userà l'algoritmo **K-means**. Organizzando i clienti in cluster, è possibile definire iniziative di marketing più efficaci e mirate a gruppi specifici.
-Il clustering K-means è un algoritmo di *apprendimento non supervisionato* che cerca nei dati modelli basati sulle analogie.
+Per *clustering* si intende l'organizzazione dei dati in gruppi in cui i membri di ciascun gruppo sono simili per certi aspetti.
+Si userà l'algoritmo **K-Means** per eseguire il clustering dei clienti in un set di dati di acquisti e resi di prodotti. Il clustering dei clienti favorisce attività di marketing più mirate rivolte a gruppi specifici.
+Il clustering K-Means è un algoritmo di *apprendimento non supervisionato* che cerca schemi nei dati in base ad analogie.
 
 Nella prima e nella seconda parte di questa serie si svilupperanno alcuni script R in RStudio per preparare i dati ed eseguire il training di un modello di Machine Learning. Quindi, nella terza parte, questi script R verranno eseguiti all'interno di un database SQL tramite stored procedure.
 
-L'articolo spiega come:
+In questo articolo si apprenderà come:
 
 > [!div class="checklist"]
 > * Importare un database di esempio in un database SQL di Azure
@@ -61,7 +61,7 @@ Accedere al [portale di Azure](https://portal.azure.com/).
 
 ## <a name="import-the-sample-database"></a>Importare il database di esempio
 
-Il set di dati di esempio usato in questa esercitazione è stato salvato in un file di backup del database **.bacpac** per poter essere scaricato e usato. Questo set di dati deriva dal set di dati [tpcx-bb](http://www.tpc.org/tpcx-bb/default.asp) fornito da [Transaction Processing Performance Council (TPC)](http://www.tpc.org/default.asp).
+Il set di dati di esempio usato in questa esercitazione è stato salvato in un file di backup del database **.bacpac** per poter essere scaricato e usato. Questo set di dati deriva dal set di dati [tpcx-bb](http://www.tpc.org/tpcx-bb/default.asp) fornito dal [Transaction Processing Performance Council (TPC)](http://www.tpc.org/default.asp).
 
 1. Scaricare il file [tpcxbb_1gb.bacpac](https://sqlchoice.blob.core.windows.net/sqlchoice/static/tpcxbb_1gb.bacpac).
 
@@ -76,10 +76,10 @@ Il set di dati di esempio usato in questa esercitazione è stato salvato in un f
 Creare un nuovo file RScript in RStudio ed eseguire lo script seguente.
 Nella query SQL si separeranno i clienti in base alle dimensioni seguenti:
 
-* **orderRatio** = rapporto ordini restituiti (numero totale di ordini parzialmente o totalmente restituiti rispetto al numero totale di ordini)
-* **itemsRatio** = rapporto articoli restituiti (numero totale di articoli restituiti rispetto al numero di articoli acquistati)
-* **monetaryRatio** = rapporto importi restituiti (totale importo monetario di articoli restituiti rispetto all'importo di articoli acquistati)
-* **frequency** = frequenza di restituzione
+* **orderRatio** = rapporto ordini di reso (numero totale di ordini parzialmente o completamente resi rispetto al numero totale di ordini)
+* **itemsRatio** = rapporto articoli resi (numero totale di articoli resi rispetto al numero di articoli acquistati)
+* **monetaryRatio** = rapporto importi resi (importo monetario totale di articoli resi rispetto all'importo di articoli acquistati)
+* **frequency** = frequenza dei resi
 
 Nella funzione **paste** sostituire **Server**, **UID** e **PWD** con le informazioni di connessione personali.
 
@@ -182,7 +182,7 @@ customer_data <- rxDataStep(customer_returns);
 head(customer_data, n = 5);
 ```
 
-Verranno visualizzati risultati simili ai seguenti.
+I risultati visualizzati saranno simili ai seguenti:
 
 ```results
   customer orderRatio itemsRatio monetaryRatio frequency
@@ -206,7 +206,7 @@ Seguire questa procedura nel portale di Azure:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Nella prima parte di questa serie di esercitazioni sono stati completati questi passaggi:
+Nella prima parte di questa serie di esercitazioni sono stati completati i passaggi seguenti:
 
 * Importare un database di esempio in un database SQL di Azure
 * Separare i clienti in base alle diverse dimensioni usando R

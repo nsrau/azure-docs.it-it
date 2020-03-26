@@ -17,10 +17,10 @@ ms.date: 10/18/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 207b277d22d6c16d51813ed66782b8a40684b14e
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74889703"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-innoverse"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Innoverse
@@ -52,7 +52,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-innoverse-from-the-gallery"></a>Aggiunta di Innoverse dalla raccolta
 
-Per configurare l'integrazione di Innoverse in Azure AD è necessario aggiungere Innoverse dalla raccolta all'elenco di app SaaS gestite.
+Per configurare l'integrazione di Innoverse in Azure AD è necessario aggiungere Innoverse dalla raccolta al proprio elenco di app SaaS gestite.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
 1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory**.
@@ -69,8 +69,8 @@ Configurare e testare l'accesso SSO di Azure AD con Innoverse usando un utente d
 Per configurare e testare l'accesso SSO di Azure AD con Innoverse, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
-    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
+    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
+    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Configurare l'accesso Single Sign-On di Innoverse](#configure-innoverse-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
     1. **[Creare l'utente di test di Innoverse](#create-innoverse-test-user)** : per avere una controparte di B.Simon in Innoverse collegata alla rappresentazione dell'utente in Azure AD.
 1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
@@ -104,7 +104,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Oltre quelli elencati in precedenza, l'applicazione Innoverse prevede il passaggio di altri attributi nella risposta SAML. Tali attributi sono indicati di seguito. Anche questi attributi vengono prepopolati, ma è possibile esaminarli in base ai requisiti.
 
-    | NOME | Spazio dei nomi | Attributo di origine| 
+    | Nome | Spazio dei nomi | Attributo di origine| 
     | ---------------| --------- | ----------------|
     | displayname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.userprincipalname` |
 
@@ -146,7 +146,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 Per configurare l'accesso Single Sign-On sul lato **Innoverse**, è necessario inviare l'**URL dei metadati di federazione dell'app** al [team di supporto di Innoverse](mailto:support@readify.net). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
-### <a name="create-innoverse-test-user"></a>Creare l'utente di test di Innoverse
+### <a name="create-innoverse-test-user"></a>Creare un utente di test di Innoverse
 
 In questa sezione viene creato un utente di nome Britta Simon in Innoverse. Innoverse supporta il provisioning utenti JIT, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se non esiste già un utente in Innoverse, ne viene creato uno nuovo dopo l'autenticazione.
 
@@ -154,7 +154,7 @@ In questa sezione viene creato un utente di nome Britta Simon in Innoverse. Inno
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di Innoverse nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Innoverse per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di Innoverse nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Innoverse per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

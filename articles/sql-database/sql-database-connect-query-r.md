@@ -14,19 +14,19 @@ ms.reviewer: davidph, carlrab
 manager: cgronlun
 ms.date: 05/29/2019
 ms.openlocfilehash: 7103afc29e4021d950d9a3634b190f4439ecfe8d
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76768505"
 ---
-# <a name="quickstart-use-r-with-machine-learning-services-to-query-an-azure-sql-database-preview"></a>Avvio rapido: Usare R con Machine Learning Services per eseguire query su un database SQL di Azure (anteprima)
+# <a name="quickstart-use-r-with-machine-learning-services-to-query-an-azure-sql-database-preview"></a>Guida introduttiva: Usare R con Machine Learning Services per eseguire query su un database SQL di Azure (anteprima)
 
 Questo argomento di avvio rapido illustra come usare R con Machine Learning Services per connettersi a un database SQL di Azure e usare le istruzioni T-SQL per eseguire query sui dati.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 - Un account Azure con una sottoscrizione attiva. [Creare un account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Un [database SQL di Azure](sql-database-single-database-get-started.md)

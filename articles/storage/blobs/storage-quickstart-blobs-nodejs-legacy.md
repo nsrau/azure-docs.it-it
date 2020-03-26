@@ -8,10 +8,10 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.openlocfilehash: c2bf401713dc7ae3b060181f1df56d0915f68aed
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78269495"
 ---
 # <a name="quickstart-manage-blobs-with-javascript-v10-sdk-in-nodejs"></a>Guida introduttiva: Gestire i BLOB con JavaScript v10 SDK in Node.js

@@ -14,13 +14,13 @@ ms.date: 07/11/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 801a6fc0602882d1af49c06bafcfd51942e6da2e
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75965644"
 ---
-# <a name="quickstart-create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>Avvio rapido: Creare una macchina virtuale Windows di SQL Server 2017 nel portale di Azure
+# <a name="quickstart-create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>Guida introduttiva: Creare una macchina virtuale Windows di SQL Server 2017 nel portale di Azure
 
 > [!div class="op_single_selector"]
 > * [Windows](quickstart-sql-vm-create-portal.md)
@@ -33,11 +33,11 @@ Questa guida introduttiva illustra la creazione di una macchina virtuale di SQL 
   > - Questa guida introduttiva offre un percorso per effettuare il provisioning e connettersi rapidamente a una macchina virtuale SQL. Per altre informazioni su altre opzioni di provisioning delle macchine virtuali SQL, vedere [Guida al provisioning di macchine virtuali Windows con SQL Server nel portale di Azure](virtual-machines-windows-portal-sql-server-provision.md).
   > - In caso di domande sulle macchine virtuali SQL Server, vedere le [domande frequenti](virtual-machines-windows-sql-server-iaas-faq.md).
 
-## <a id="subscription"></a> Ottenere una sottoscrizione di Azure
+## <a name="get-an-azure-subscription"></a><a id="subscription"></a> Ottenere una sottoscrizione di Azure
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a id="select"></a> Selezionare un'immagine di VM di SQL Server
+## <a name="select-a-sql-server-vm-image"></a><a id="select"></a> Selezionare un'immagine di VM di SQL Server
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con il proprio account.
 
@@ -51,7 +51,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
    ![Finestra di ricerca Nuovo](./media/quickstart-sql-vm-create-portal/create-sql-2017-vm-image.png)
 
-## <a id="configure"></a> Specificare i dettagli di base
+## <a name="provide-basic-details"></a><a id="configure"></a> Specificare i dettagli di base
 
 Nella scheda **Nozioni di base** specificare le informazioni seguenti:
 
@@ -116,7 +116,7 @@ Nella scheda **Rivedi e crea** esaminare il riepilogo e fare clic su **Crea** pe
 
     ![connessione a ssms](./media/quickstart-sql-vm-create-portal/ssms-connect.png)
 
-## <a id="remotedesktop"></a> Accedere alla macchina virtuale in modalità remota
+## <a name="log-in-to-the-vm-remotely"></a><a id="remotedesktop"></a> Accedere alla macchina virtuale in modalità remota
 
 Seguire questa procedura per connettersi alla macchina virtuale SQL Server con Desktop remoto:
 

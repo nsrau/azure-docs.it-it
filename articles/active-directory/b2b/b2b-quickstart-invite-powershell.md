@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: aggiungere un utente guest con PowerShell-Azure AD'
+title: 'Guida introduttiva: Aggiungere un utente guest con PowerShell - Azure AD'
 description: In questa guida introduttiva si apprenderà come usare PowerShell per inviare un invito a un utente esterno di Collaborazione B2B di Azure AD.
 services: active-directory
 ms.service: active-directory
@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50c283122fe707e922275b6c1a6c576009964855
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.openlocfilehash: b0faaf0394bddc2e443afc194bbd0ecef72625f9
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78377777"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79216009"
 ---
 # <a name="quickstart-add-a-guest-user-with-powershell"></a>Guida introduttiva: Aggiungere un utente guest con PowerShell
 
@@ -25,7 +25,7 @@ Esistono diversi modi per invitare partner esterni ad accedere alle app e ai ser
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 ### <a name="install-the-latest-azureadpreview-module"></a>Installare il modulo AzureADPreview più recente
 Verificare che sia installata la versione più recente del modulo di Azure AD PowerShell per Graph (AzureADPreview). 
@@ -78,7 +78,7 @@ Immettere le credenziali quando richiesto.
 1. Per inviare un invito all'account di posta elettronica di test, eseguire il comando PowerShell seguente (sostituire **"Sanda"** e **sanda\@fabrikam.com** con il nome e l'indirizzo dell'account di posta elettronica di test): 
 
    ```powershell
-   New-AzureADMSInvitation -InvitedUserDisplayName "Sanda" -InvitedUserEmailAddress sanda@fabrikam.com -InviteRedirectURL https://myapps.azure.com -SendInvitationMessage $true
+   New-AzureADMSInvitation -InvitedUserDisplayName "Sanda" -InvitedUserEmailAddress sanda@fabrikam.com -InviteRedirectURL https://myapps.microsoft.com -SendInvitationMessage $true
    ```
 2. Il comando invia un invito all'indirizzo di posta elettronica specificato. Verificare l'output, che dovrebbe essere simile all'esempio seguente:
 

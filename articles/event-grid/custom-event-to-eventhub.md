@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
 ms.openlocfilehash: 832c4e453befc9e54051c968e0c364d22afd2bc2
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73721417"
 ---
 # <a name="quickstart-route-custom-events-to-azure-event-hubs-with-azure-cli-and-event-grid"></a>Guida introduttiva: Instradare eventi personalizzati a Hub eventi di Azure con l'interfaccia della riga di comando di Azure e Griglia di eventi
@@ -59,7 +59,7 @@ az eventhubs eventhub create --name $hubname --namespace-name $namespace --resou
 
 ## <a name="subscribe-to-a-custom-topic"></a>Sottoscrivere un argomento personalizzato
 
-Si sottoscrive un argomento della griglia di eventi per indicare alla griglia di eventi quali sono gli eventi di cui si vuole tenere traccia. L'esempio seguente sottoscrive l'argomento personalizzato creato e passa l'ID risorsa dell'hub eventi per l'endpoint. L'endpoint è nel formato:
+Si sottoscrive un argomento della Griglia di eventi per indicare alla griglia di eventi quali sono gli eventi di cui si vuole tenere traccia. L'esempio seguente sottoscrive l'argomento personalizzato creato e passa l'ID risorsa dell'hub eventi per l'endpoint. L'endpoint è nel formato:
 
 `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.EventHub/namespaces/<namespace-name>/eventhubs/<hub-name>`
 

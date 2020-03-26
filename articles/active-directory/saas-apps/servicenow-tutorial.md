@@ -16,10 +16,10 @@ ms.date: 01/31/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c18613233d6dec59c76db120ed7f089dfbb5fbac
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77046728"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-servicenow"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con ServiceNow
@@ -131,7 +131,7 @@ In questa sezione verrà creato un utente di test, di nome B.Simon, nel portale 
 In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a ServiceNow.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali** > **Tutte le applicazioni**.
-1. Nell'elenco delle applicazioni selezionare **ServiceNow**.
+1. Nell'elenco di applicazioni, selezionare **ServiceNow**.
 1. Nella pagina di panoramica dell'app individuare la sezione **Gestione** e selezionare **Utenti e gruppi**.
 
    ![Screenshot della sezione Gestione con Utenti e gruppi evidenziato](common/users-groups-blade.png)

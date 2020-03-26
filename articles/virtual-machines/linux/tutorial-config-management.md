@@ -16,13 +16,13 @@ ms.date: 09/27/2019
 ms.author: magoedte
 ms.custom: mvc
 ms.openlocfilehash: 5dd35ed2f4533d19cc3a59788d6422416dce13f5
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78372840"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79223248"
 ---
-# <a name="tutorial-monitor-changes-and-update-a-linux-virtual-machine-in-azure"></a>Esercitazione: monitorare le modifiche e aggiornare una macchina virtuale Linux in Azure
+# <a name="tutorial-monitor-changes-and-update-a-linux-virtual-machine-in-azure"></a>Esercitazione: Monitorare le modifiche e aggiornare una macchina virtuale Linux in Azure
 
 [Rilevamento modifiche](../../automation/change-tracking.md) di Azure consente di identificare facilmente le modifiche, mentre [Gestione aggiornamenti](../../automation/automation-update-management.md) permette di gestire gli aggiornamenti del sistema operativo per le macchine virtuali Linux di Azure.
 

@@ -5,20 +5,20 @@ author: vhorne
 ms.service: web-application-firewall
 services: web-application-firewall
 ms.topic: tutorial
-ms.date: 09/07/2019
+ms.date: 03/10/2020
 ms.author: victorh
-ms.openlocfilehash: 991111e01713afe48355aac44a151b98fa828c5f
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: be66a93ea4a518b26d973d222caf58e73b6986a3
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186731"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79475842"
 ---
 # <a name="tutorial-create-a-web-application-firewall-policy-on-azure-front-door-using-the-azure-portal"></a>Esercitazione: Creare un criterio di web application firewall in Frontdoor di Azure usando il portale di Azure
 
 Questa esercitazione illustra come creare un criterio di base di web application firewall (WAF) di Azure e applicarlo a un host front-end in Frontdoor di Azure.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare un criterio WAF
@@ -36,17 +36,17 @@ Come prima cosa, creare un criterio WAF di base con il set di regole predefinite
 1. Nella parte superiore sinistra della schermata selezionare **Crea una risorsa**, cercare **WAF**, selezionare **Web application firewall (anteprima)** e infine selezionare **Crea**.
 2. Nella scheda **Generale** della pagina **Crea un criterio WAF** immettere o selezionare le informazioni seguenti, accettare le impostazioni predefinite per le opzioni rimanenti e quindi selezionare **Rivedi e crea**:
 
-    | Impostazione                 | Valore                                              |
+    | Impostazione                 | valore                                              |
     | ---                     | ---                                                |
     | Subscription            |Selezionare il nome della sottoscrizione di Frontdoor.|
     | Resource group          |Selezionare il nome del gruppo di risorse di Frontdoor.|
-    | Nome criterio             |Immettere un nome univoco per il criterio WAF.|
+    | Nome criteri             |Immettere un nome univoco per il criterio WAF.|
 
    ![Creare un criterio WAF](../media/waf-front-door-create-portal/basic.png)
 
 3. Nella scheda **Associazione** della pagina **Crea un criterio WAF** selezionare **Aggiungi host front-end**, immettere le impostazioni seguenti e quindi selezionare **Aggiungi**:
 
-    | Impostazione                 | Valore                                              |
+    | Impostazione                 | valore                                              |
     | ---                     | ---                                                |
     | Frontdoor              | Selezionare il nome del profilo Frontdoor.|
     | Host front-end           | Selezionare il nome dell'host Frontdoor, quindi selezionare **Aggiungi**.|

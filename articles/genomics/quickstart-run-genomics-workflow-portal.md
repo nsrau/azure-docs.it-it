@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Eseguire un flusso di lavoro - Genomica di Microsoft'
+title: 'Guida introduttiva: Eseguire un flusso di lavoro - Genomica di Microsoft'
 description: La guida introduttiva mostra come caricare dati di input in un archivio BLOB di Azure ed eseguire un flusso di lavoro tramite il servizio Genomica di Microsoft.
 services: genomics
 author: grhuynh
@@ -9,17 +9,17 @@ ms.service: genomics
 ms.topic: quickstart
 ms.date: 01/11/2019
 ms.openlocfilehash: 05b94ca9bd14392bad5288882a80f5c75590ef7b
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76931752"
 ---
-# <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>Avvio rapido: Eseguire un flusso di lavoro tramite il servizio Genomica di Microsoft
+# <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>Guida introduttiva: Eseguire un flusso di lavoro tramite il servizio Genomica di Microsoft
 
 In questo argomento di avvio rapido si caricano i dati di input in un account di archiviazione BLOB di Azure e si esegue un flusso di lavoro tramite il servizio Genomica di Microsoft usando il client di genomica Python. Genomica di Microsoft è un servizio scalabile e sicuro per l'analisi secondaria che consente di elaborare rapidamente un genoma, a partire dalle letture non elaborate e per la produzione di letture allineate e chiamate delle varianti. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 - Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). 
 - [Python 2.7.12+](https://www.python.org/downloads/release/python-2714/) con `pip` installato e `python` nel percorso di sistema. Il client Genomica di Microsoft non è compatibile con Python 3. 

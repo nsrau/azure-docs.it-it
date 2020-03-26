@@ -7,10 +7,10 @@ ms.topic: overview
 ms.date: 07/01/2019
 ms.author: rohogue
 ms.openlocfilehash: acf35015ff7851f7ea2a2527852be2573512e35d
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "72254849"
 ---
 # <a name="what-is-azure-fxt-edge-filer-hybrid-storage-cache"></a>Informazioni sulla cache di archiviazione ibrida Azure FXT Edge Filer

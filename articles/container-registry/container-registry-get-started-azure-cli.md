@@ -5,10 +5,10 @@ ms.topic: quickstart
 ms.date: 01/22/2019
 ms.custom: seodec18, H1Hack27Feb2017, mvc
 ms.openlocfilehash: 551a3659feb39943c9f794484abb6f2da4367f39
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74455161"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-the-azure-cli"></a>Guida introduttiva: Creare un registro contenitori privato usando l'interfaccia della riga di comando di Azure

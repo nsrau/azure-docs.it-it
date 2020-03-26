@@ -15,10 +15,10 @@ ms.date: 04/24/2018
 ms.author: damendo
 ms.custom: mvc
 ms.openlocfilehash: 81621a2b63eec804aaa7c74e1d77b06ef1adb79a
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76844990"
 ---
 # <a name="what-is-azure-network-watcher"></a>Informazioni su Azure Network Watcher
@@ -27,7 +27,7 @@ Azure Network Watcher fornisce gli strumenti per il monitoraggio, la diagnostica
 
 ## <a name="monitoring"></a>Monitoraggio
 
-### <a name = "connection-monitor"></a>Monitorare la comunicazione tra una macchina virtuale e un endpoint
+### <a name="monitor-communication-between-a-virtual-machine-and-an-endpoint"></a><a name = "connection-monitor"></a>Monitorare la comunicazione tra una macchina virtuale e un endpoint
 
 Gli endpoint possono essere un'altra macchina virtuale (VM), un nome di dominio completo (FQDN), un URI (Uniform Resource Identifier) o un indirizzo IPv4. La funzionalità di *monitoraggio connessione* monitora la comunicazione a intervalli regolari e informa l'utente in merito a modifiche relative a raggiungibilità, latenza e topologia di rete tra la macchina virtuale e l'endpoint. Può ad esempio esserci una macchina virtuale del server Web che comunica con una macchina virtuale del server di database. Un utente nell'organizzazione potrebbe, a insaputa di altri, applicare una route personalizzata o una regola di sicurezza di rete alla subnet o alla macchina virtuale del server Web o del server di database.
 
@@ -55,7 +55,7 @@ Quando si distribuisce una macchina virtuale, Azure applica diverse regole di si
 
 Quando si crea una rete virtuale, Azure crea diverse route predefinite in uscita per il traffico di rete. Il traffico in uscita da tutte le risorse, ad esempio le macchine virtuali, distribuite in una rete virtuale, viene instradato in base alle route predefinite di Azure. È possibile eseguire l'override delle route predefinite di Azure o creare route aggiuntive. È possibile che una macchina virtuale non riesca più a comunicare con altre risorse a causa di una route specifica. La funzionalità di *hop successivo* consente di specificare un indirizzo IPv4 di origine e di destinazione. L'hop successivo testa quindi la comunicazione e indica all'utente il tipo di hop successivo usato per instradare il traffico. È quindi possibile rimuovere, modificare o aggiungere una route, per risolvere un problema di routing. Leggere altre informazioni sulla funzionalità di [hop successivo](diagnose-vm-network-routing-problem.md).
 
-### <a name="connection-troubleshoot"></a>Diagnosticare i problemi delle connessioni in uscita da una macchina virtuale
+### <a name="diagnose-outbound-connections-from-a-vm"></a><a name="connection-troubleshoot"></a>Diagnosticare i problemi delle connessioni in uscita da una macchina virtuale
 
 La funzionalità di *risoluzione dei problemi di connessione* consente di testare una connessione tra una macchina virtuale e un'altra macchina virtuale, un FQDN, un URI o un indirizzo IPv4. Il test restituisce informazioni simili a quelle restituite quando si usa la funzionalità di [monitoraggio connessione](#connection-monitor), ma viene verificata la connessione in un determinato momento, invece di monitorarla nel tempo, come avviene con il monitoraggio connessione. Leggere altre informazioni sulla risoluzione dei problemi di connessione tramite la funzionalità di [risoluzione dei problemi di connessione](network-watcher-connectivity-overview.md).
 

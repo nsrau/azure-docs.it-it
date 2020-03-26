@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 04/09/2018
 ms.author: makromer
 ms.openlocfilehash: e964be548a2f82ecc268a147dd20817b232f51a6
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74924816"
 ---
 # <a name="compare-azure-data-factory-with-data-factory-version-1"></a>Confrontare Azure Data Factory con Data Factory versione 1
@@ -71,7 +71,7 @@ Un caso d'uso chiave nel modello ETL è rappresentato dai "caricamenti differenz
 ### <a name="other-control-flow-activities"></a>Altre attività di flusso di controllo
 Di seguito sono riportate alcune altre attività di flusso di controllo supportate dalla versione corrente di Data Factory. 
 
-Attività di controllo | DESCRIZIONE
+Attività di controllo | Descrizione
 ---------------- | -----------
 [Attività ForEach](control-flow-for-each-activity.md) | Definisce un flusso di controllo ripetuto nella pipeline. Questa attività viene usata per scorrere una raccolta ed eseguire attività specifiche in un ciclo. L'implementazione di cicli di questa attività è simile alla struttura di esecuzione in ciclo Foreach nei linguaggi di programmazione.
 [Attività Web](control-flow-web-activity.md) | Chiama un endpoint REST personalizzato da una pipeline di Data Factory. È possibile passare set di dati e servizi collegati in modo che l'attività possa usarli e accedervi. 

@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.date: 03/04/2019
 ms.author: rohink
 ms.openlocfilehash: 0ab7392b4fa6e248d51392706fedaed156344a99
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76934810"
 ---
-# <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application-using-azure-powershell"></a>Avvio rapido: Creare un profilo di Gestione traffico per un'applicazione Web a disponibilità elevata usando Azure PowerShell
+# <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application-using-azure-powershell"></a>Guida introduttiva: Creare un profilo di Gestione traffico per un'applicazione Web a disponibilità elevata usando Azure PowerShell
 
 Questo argomento di avvio rapido descrive come creare un profilo di Gestione traffico che fornisce disponibilità elevata per l'applicazione Web.
 

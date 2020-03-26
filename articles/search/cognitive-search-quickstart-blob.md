@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Creare un set di competenze nel portale di Azure'
+title: 'Guida introduttiva: Creare un set di competenze nel portale di Azure'
 titleSuffix: Azure Cognitive Search
 description: Questo argomento di avvio rapido sul portale illustra come usare la procedura guidata Importa dati per aggiungere competenze a una pipeline di indicizzazione in Ricerca cognitiva di Azure. Le competenze includono il riconoscimento ottico dei caratteri (OCR) e l'elaborazione del linguaggio naturale.
 manager: nitinme
@@ -9,13 +9,13 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 12/20/2019
 ms.openlocfilehash: e2e17ba6af60fa495a03e7d46a07cfe6b66f4e68
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77472418"
 ---
-# <a name="quickstart-create-an-azure-cognitive-search-cognitive-skillset-in-the-azure-portal"></a>Avvio rapido: Creare un set di competenze cognitive di Ricerca cognitiva di Azure nel portale di Azure
+# <a name="quickstart-create-an-azure-cognitive-search-cognitive-skillset-in-the-azure-portal"></a>Guida introduttiva: Creare un set di competenze cognitive di Ricerca cognitiva di Azure nel portale di Azure
 
 Un set di competenze è una funzionalità di intelligenza artificiale che estrae le informazioni e la struttura da file di testo o immagine non differenziati di grandi dimensioni e le rende indicizzabili e ricercabili per le query di ricerca full-text in Ricerca cognitiva di Azure. 
 
@@ -166,7 +166,7 @@ Infine, si è appreso che è possibile verificare il contenuto eseguendo una que
 
 Quando si lavora nella propria sottoscrizione, alla fine di un progetto è opportuno verificare se le risorse create sono ancora necessarie. L'esecuzione continua delle risorse può avere un costo. È possibile eliminare le singole risorse oppure il gruppo di risorse per eliminare l'intero set di risorse.
 
-Per trovare e gestire le risorse nel portale, usare il collegamento **Tutte le risorse** o **Gruppi di risorse** nel riquadro di spostamento sinistro.
+Per trovare e gestire le risorse nel portale, usare il collegamento **Tutte le risorse** o **Gruppi di risorse** nel riquadro di spostamento a sinistra.
 
 Se si usa un servizio gratuito, tenere presente che il numero di indicizzatori e origini dati è limitato a tre. Per non superare il limite, è possibile eliminare i singoli elementi nel portale. 
 

@@ -17,10 +17,10 @@ ms.reviewer: arvinh
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1d40e968bb7079d50e3fa18889ae996c9b59c90f
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74421807"
 ---
 # <a name="quickstart-view-your-azure-active-directory-tenant-applications"></a>Guida introduttiva: Visualizzare le applicazioni del tenant di Azure Active Directory

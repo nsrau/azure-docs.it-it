@@ -4,10 +4,10 @@ description: Procedura di distribuzione per l'esempio di progetto NIST SP 800-53
 ms.date: 11/18/2019
 ms.topic: sample
 ms.openlocfilehash: db8c2302a6c2311e096be2cdc78935bdab2ef9c7
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74546599"
 ---
 # <a name="deploy-the-nist-sp-800-53-r4-blueprint-sample"></a>Distribuire l'esempio di progetto NIST SP 800-53 R4
@@ -64,7 +64,7 @@ Dopo che la copia dell'esempio di progetto è stata **pubblicata** correttamente
 
    - Nozioni di base
 
-     - **Sottoscrizioni**: selezionare una o più sottoscrizioni presenti nel gruppo di gestione in cui è stata salvata la copia dell'esempio di progetto. Se si selezionano più sottoscrizioni, viene creata un'assegnazione per ciascuna usando i parametri immessi.
+     - **Sottoscrizioni**: selezionare una o più sottoscrizioni presenti nel gruppo di gestione in cui è stata salvata la copia dell'esempio di progetto. Se si selezionano più sottoscrizioni, viene creata un'assegnazione per ognuna usando i parametri immessi.
      - **Nome dell'assegnazione**: il nome viene prepopolato in base al nome del progetto.
        Cambiarlo, se necessario, o lasciarlo inalterato.
      - **Località**: selezionare un'area in cui creare l'identità gestita. Azure Blueprint usa questa identità gestita per distribuire tutti gli elementi nel progetto assegnato. Per altre informazioni, vedere [Managed identities for Azure resources](../../../../active-directory/managed-identities-azure-resources/overview.md) (Identità gestite per risorse di Azure).
@@ -91,7 +91,7 @@ Dopo che la copia dell'esempio di progetto è stata **pubblicata** correttamente
 
 La tabella seguente contiene un elenco dei parametri degli artefatti del progetto:
 
-|Nome dell'artefatto|Tipo di artefatto|Nome parametro|DESCRIZIONE|
+|Nome dell'artefatto|Tipo di artefatto|Nome parametro|Descrizione|
 |-|-|-|-|
 |\[Anteprima\]: Verificare i controlli NIST SP 800-53 R4 e distribuire estensioni macchina virtuale specifiche per supportare i requisiti di controllo|Assegnazione di criteri|ID dell'area di lavoro di Log Analytics per cui le macchine virtuali devono essere configurate|Si tratta dell'ID (GUID) dell'area di lavoro di Log Analytics per cui le macchine virtuali devono essere configurate.|
 |\[Anteprima\]: Verificare i controlli NIST SP 800-53 R4 e distribuire estensioni macchina virtuale specifiche per supportare i requisiti di controllo|Assegnazione di criteri|Elenco dei tipi di risorsa per cui è necessario abilitare i log di diagnostica|Elenco dei tipi di risorse per il controllo, se l'impostazione dei log di diagnostica non è abilitata. I valori accettabili sono disponibili negli [schemi dei log di diagnostica di Monitoraggio di Azure](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type).|

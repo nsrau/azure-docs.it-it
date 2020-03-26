@@ -15,10 +15,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b17300fa69b61c7713c860e2a35e63fcb6584bc4
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "66474010"
 ---
 # <a name="tutorial--integrate-a-single-ad-forest-using-password-hash-sync-phs"></a>Esercitazione:  Integrare una singola foresta di AD mediante la sincronizzazione dell'hash delle password
@@ -83,7 +83,7 @@ Per concludere la creazione della macchina virtuale, è necessario completare l'
 6. Immettere il codice di licenza e fare clic su **Avanti**.
 7. Accettare le condizioni di licenza e fare clic su **Avanti**.
 8. Selezionare **Custom:  Install Windows Only (Advanced)** (Personalizzato: installare solo Windows - Avanzato)
-9. Fare clic su **Avanti**
+9. Scegliere **Avanti**
 10. Dopo aver completato l'installazione, riavviare la macchina virtuale, accedere ed eseguire gli aggiornamenti di Windows per assicurarsi che la macchina virtuale sia aggiornata.  Installare gli aggiornate più recenti.
 
 ## <a name="install-active-directory-prerequisites"></a>Installare i prerequisiti di Active Directory

@@ -9,17 +9,17 @@ ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: victorh
 ms.openlocfilehash: ca6be666a9b77532b4f1c61f6e3391c239e82c91
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74075144"
 ---
 # <a name="tutorial-create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Esercitazione: Creare e configurare un gateway applicazione per ospitare più siti Web usando il portale di Azure
 
 È possibile usare il portale di Azure per configurare l'[hosting di più siti Web](multiple-site-overview.md) quando si crea un [gateway applicazione](overview.md). In questa esercitazione si definiranno pool di indirizzi back-end usando macchine virtuali. e quindi si configurano i listener e le regole in base ai domini di cui si è proprietari per assicurarsi che il traffico Web raggiunga i server appropriati nei pool. Questa esercitazione presuppone che l'utente sia proprietario di più domini e che usi gli esempi di *www.contoso.com* e *www.fabrikam.com*.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare un gateway applicazione
@@ -56,7 +56,7 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
 
     In **Configura rete virtuale** selezionare **Crea nuovo** per creare una nuova rete virtuale. Nella finestra **Crea rete virtuale** visualizzata immettere i valori seguenti per creare la rete virtuale e due subnet:
 
-    - **Nome**: immettere *myVnet* come nome della rete virtuale.
+    - **Name**: immettere *myVnet* come nome della rete virtuale.
 
     - **Nome subnet** (subnet del gateway applicazione): Nella griglia **Subnet** verrà visualizzata una subnet denominata *Predefinita*. Modificare il nome della subnet in *myAGSubnet*.<br>La subnet del gateway applicazione può contenere solo i gateway applicazione. Non sono consentite altre risorse.
 
@@ -90,7 +90,7 @@ Il pool back-end viene usato per instradare le richieste ai server back-end che 
 
 2. Nella finestra **Aggiungi un pool back-end** visualizzata immettere i valori seguenti per creare un pool back-end vuoto:
 
-    - **Nome**: immettere *contosoPool* come nome del pool back-end.
+    - **Name**: immettere *contosoPool* come nome del pool back-end.
     - **Aggiungi pool back-end senza destinazioni**: selezionare **Sì** per creare un pool back-end senza destinazioni. Le destinazioni back-end verranno aggiunte dopo la creazione del gateway applicazione.
 
 3. Nella finestra **Aggiungi un pool back-end** selezionare **Aggiungi** per salvare la configurazione del pool back-end e tornare alla scheda **Back-end**.

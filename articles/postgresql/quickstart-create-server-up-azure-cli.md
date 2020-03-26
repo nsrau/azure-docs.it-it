@@ -8,10 +8,10 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 05/06/2019
 ms.openlocfilehash: fe15c02286223ec0829b31664811b7f589cf16aa
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74774833"
 ---
 # <a name="quickstart-use-an-azure-cli-command-az-postgres-up-preview-to-create-an-azure-database-for-postgresql---single-server"></a>Guida introduttiva: Usare un comando dell'interfaccia della riga di comando di Azure, az postgres up (anteprima), per creare un'istanza di server singolo Database di Azure per PostgreSQL
@@ -62,7 +62,7 @@ resource-group | Generata dal sistema | Nuovo gruppo di risorse di Azure.
 sku-name | GP_Gen5_2 | Il nome dello SKU. Segue la convenzione {piano tariffario}\_{generazione di calcolo}\_{Vcore} in sintassi abbreviata. L'impostazione predefinita è un server per utilizzo generico di quinta generazione con 2 vCore. Per altre informazioni sui livelli, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/postgresql/).
 backup-retention | 7 | Per quanto tempo viene conservata una copia di backup. L'unità è giorni.
 geo-redundant-backup | Disabled | Indica se abilitare i backup con ridondanza geografica per questo server.
-location | westus2 | Località di Azure per il server.
+posizione | westus2 | Località di Azure per il server.
 ssl-enforcement | Disabled | Indica se abilitare SSL per questo server.
 storage-size | 5120 | Capacità di archiviazione del server (l'unità è MB).
 version | 10 | La versione principale di PostgreSQL.
@@ -90,7 +90,7 @@ Al termine del comando `az postgres up`, viene restituito un elenco di stringhe 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Eseguire la pulizia di tutte le risorse create in questa guida di avvio rapido con il comando seguente. Questo comando elimina il server Database di Azure per PostgreSQL e il gruppo di risorse.
+Eseguire la pulizia di tutte le risorse create nell'avvio rapido con il comando seguente. Questo comando elimina il server Database di Azure per PostgreSQL e il gruppo di risorse.
 
 ```azurecli
 az postgres down --delete-group

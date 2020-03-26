@@ -11,10 +11,10 @@ ms.reviewer: nibaccam
 author: cartacioS
 ms.date: 01/27/2020
 ms.openlocfilehash: 11e0a8a0076fb2e68c379b279f471ff74846df2e
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77088325"
 ---
 # <a name="tutorial-forecast-bike-sharing-demand-with-automated-machine-learning"></a>Esercitazione: Prevedere la domanda di bike sharing con Machine Learning automatizzato
@@ -30,7 +30,7 @@ In questa esercitazione si apprenderà come eseguire le attività seguenti:
 > * Esplorare i risultati dell'esperimento.
 > * Distribuire il modello migliore.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Un'area di lavoro di Azure Machine Learning Enterprise Edition. Se non è disponibile, [creare un'area di lavoro Enterprise Edition](how-to-manage-workspace.md). 
     * Machine Learning automatizzato in Azure Machine Learning Studio è disponibile solo per le aree di lavoro Enterprise Edition. 

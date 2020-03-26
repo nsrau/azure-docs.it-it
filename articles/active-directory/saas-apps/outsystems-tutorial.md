@@ -17,10 +17,10 @@ ms.date: 07/18/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7f631a641ab63d33d27d1e4520a000b4b01132be
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68478577"
 ---
 # <a name="tutorial-integrate-outsystems-azure-ad-with-azure-active-directory"></a>Esercitazione: Integrare OutSystems Azure AD con Azure Active Directory
@@ -103,7 +103,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 Per configurare l'accesso Single Sign-On sul lato OutSystems, è necessario scaricare il componente [IdP forge](https://www.outsystems.com/forge/component-overview/599/idp) e configurarlo come indicato nelle [istruzioni](https://success.outsystems.com/Documentation/Development_FAQs/How_to_configure_OutSystems_to_use_identity_providers_using_SAML#Configure_your_application_to_use_IdP_connector). Dopo aver installato il componente e apportato le modifiche necessarie ai codici, configurare Azure AD scaricando l'XML metadati federazione dal portale di Azure e caricarlo nel componente OutSystems IdP attenendosi alle [istruzioni](https://success.outsystems.com/Documentation/Development_FAQs/How_to_configure_OutSystems_to_use_identity_providers_using_SAML#Azure_AD_.2F_ADFS) seguenti.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
 In questa sezione verrà creato un utente di test di nome B. Simon nel portale di Azure.
 
@@ -113,9 +113,9 @@ In questa sezione verrà creato un utente di test di nome B. Simon nel portale d
    1. Nel campo **Nome** immettere `B. Simon`.  
    1. Nel campo **Nome utente** immettere username@companydomain.extension. Ad esempio: `BrittaSimon@contoso.com`.
    1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
-   1. Fare clic su **Create**(Crea).
+   1. Fare clic su **Crea**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione si abiliterà B. Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a OutSystems Azure AD.
 

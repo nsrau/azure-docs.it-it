@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 177bc34162c2b5e4dadc54e1166c5f6061068bae
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77064105"
 ---
 # <a name="tutorial-configure-zscaler-three-for-automatic-user-provisioning"></a>Esercitazione: Configurare Zscaler Three per il provisioning utenti automatico
@@ -29,7 +29,7 @@ In questa esercitazione si apprenderà come configurare Azure Active Directory (
 > [!NOTE]
 > L'esercitazione descrive un connettore basato sul servizio di provisioning utenti di Azure AD. Per informazioni dettagliate sul funzionamento di questo servizio e per risposte a domande frequenti, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../active-directory-saas-app-provisioning.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare i passaggi descritti in questa esercitazione, sono necessari gli elementi seguenti:
 

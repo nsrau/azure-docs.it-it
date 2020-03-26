@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Apache Hadoop, Apache Hive e il portale di Azure in HDInsight'
+title: 'Guida introduttiva: Apache Hadoop, Apache Hive e il portale di Azure in HDInsight'
 description: In questo argomento di avvio rapido si userà il portale di Azure per creare un cluster Hadoop in HDInsight.
 keywords: introduzione a Hadoop, Hadoop basato su Linux, guida introduttiva a Hadoop, introduzione a Hive, guida introduttiva a Hive
 author: hrasheed-msft
@@ -9,14 +9,14 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.date: 02/24/2020
-ms.openlocfilehash: 7d2dd65224aad231db9574aa5a1fa4a00b328da8
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 8939d9b342094342d576c00cf02e622286c8fc0f
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77623547"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80130530"
 ---
-# <a name="quickstart-create-apache-hadoop-cluster-in-azure-hdinsight-using-azure-portal"></a>Avvio rapido: Creare cluster Apache Hadoop in Azure HDInsight usando il portale di Azure
+# <a name="quickstart-create-apache-hadoop-cluster-in-azure-hdinsight-using-azure-portal"></a>Guida introduttiva: Creare cluster Apache Hadoop in Azure HDInsight usando il portale di Azure
 
 Questo articolo illustra come creare cluster Apache Hadoop in HDInsight con il portale di Azure e quindi eseguire processi Apache Hive in HDInsight. La maggior parte dei processi Hadoop è costituita da processi batch. Viene creato un cluster, si eseguono alcuni processi e quindi si elimina il cluster. In questo articolo vengono eseguite tutte e tre le attività. Per una spiegazione approfondita delle configurazioni disponibili, vedere [Configurare i cluster in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). Per altre informazioni sull'uso del portale per la creazione di cluster, vedere [Creare cluster nel portale](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
@@ -52,7 +52,7 @@ In questa sezione viene creato un cluster Hadoop in HDInsight usando il portale 
     |Nome utente Secure Shell (SSH) | Il nome utente predefinito è **sshuser**.  È possibile fornire un altro nome come nome utente SSH. |
     |Usare la password di accesso del cluster per SSH| Selezionare questa casella di controllo se si vuole usare per l'utente SSH la stessa password fornita per l'utente di accesso del cluster.|
 
-    ![Introduzione alla creazione di un cluster HDInsight Linux - Specifica dei valori di base](./media/apache-hadoop-linux-create-cluster-get-started-portal/azure-portal-cluster-basics-blank.png "Specifica dei valori di base per la creazione di un cluster HDInsight")
+    ![Introduzione alla creazione di un cluster HDInsight Linux - Specifica dei valori di base](./media/apache-hadoop-linux-create-cluster-get-started-portal/azure-portal-cluster-basics.png "Specifica dei valori di base per la creazione di un cluster HDInsight")
 
     Fare clic sul pulsante **Avanti: Archiviazione>>** per passare alle impostazioni di archiviazione.
 

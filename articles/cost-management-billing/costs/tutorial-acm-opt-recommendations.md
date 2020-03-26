@@ -3,21 +3,25 @@ title: 'Esercitazione: Ridurre i costi di Azure con le raccomandazioni'
 description: Questa esercitazione consente di ridurre i costi di Azure quando si agisce seguendo gli elementi consigliati di ottimizzazione.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/02/2020
+ms.date: 03/24/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 6f84b3fb75a3774dc14fd1ea045ab9cf1eeb5451
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: de558ddad37e1621c633d26fff51d1506c237577
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78245402"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80155920"
 ---
 # <a name="tutorial-optimize-costs-from-recommendations"></a>Esercitazione: Ottimizzare i costi grazie agli elementi consigliati
 
 Gestione costi di Azure funziona con Azure Advisor per fornire elementi consigliati di ottimizzazione dei costi. Azure Advisor consente di ottimizzare e migliorare l'efficienza identificando le risorse inattive e sottoutilizzate. Questa esercitazione illustra un esempio in cui si identificano le risorse di Azure sottoutilizzate e quindi si interviene per ridurre i costi.
+
+Guardare il video [Optimizing cloud investments in Azure Cost Management](https://www.youtube.com/watch?v=cSNPoAb-TNc) (Ottimizzazione degli investimenti per il cloud in Gestione costi di Azure) per altre informazioni su come usare Advisor per ottimizzare i costi.
+
+>[!VIDEO https://www.youtube.com/embed/cSNPoAb-TNc]
 
 In questa esercitazione verranno illustrate le procedure per:
 

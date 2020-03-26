@@ -1,5 +1,5 @@
 ---
-title: "Avvio rapido: Creare un'app per Android"
+title: "Guida introduttiva: Creare un'app per Android"
 description: In questa guida introduttiva si apprenderà come creare un'app Android usando Ancoraggi nello spazio.
 author: craigktreasure
 manager: vriveras
@@ -9,13 +9,13 @@ ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 0501c8bb1d71c6cff6033fc937cda019c8890056
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75376461"
 ---
-# <a name="quickstart-create-an-android-app-with-azure-spatial-anchors"></a>Avvio rapido: Creare un'app Android con Ancoraggi nello spazio di Azure
+# <a name="quickstart-create-an-android-app-with-azure-spatial-anchors"></a>Guida introduttiva: Creare un'app Android con Ancoraggi nello spazio di Azure
 
 Questa guida introduttiva illustra come creare un'app Android usando [Ancoraggi nello spazio di Azure](../overview.md) in Java o C++/NDK. Ancoraggi nello spazio di Azure è un servizio per lo sviluppo multipiattaforma che consente di creare esperienze di realtà mista usando oggetti la cui posizione persiste tra dispositivi nel corso del tempo. Al termine, si avrà un'app ARCore per Android in grado di salvare e richiamare un ancoraggio nello spazio.
 
@@ -28,7 +28,7 @@ Si apprenderà come:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa guida introduttiva, accertarsi di disporre di quanto segue:
 
@@ -44,11 +44,11 @@ Per completare questa guida introduttiva, accertarsi di disporre di quanto segue
 
 ## <a name="open-the-sample-project"></a>Aprire il progetto di esempio
 
-# <a name="javatabopenproject-java"></a>[Java](#tab/openproject-java)
+# <a name="java"></a>[Java](#tab/openproject-java)
 
 [!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 
-# <a name="ndktabopenproject-ndk"></a>[NDK](#tab/openproject-ndk)
+# <a name="ndk"></a>[NDK](#tab/openproject-ndk)
 
 [!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 
@@ -64,11 +64,11 @@ git submodule update --init --recursive
 
 Aprire Android Studio.
 
-# <a name="javatabopenproject-java"></a>[Java](#tab/openproject-java)
+# <a name="java"></a>[Java](#tab/openproject-java)
 
 Selezionare **Open an existing Android Studio project** (Apri un progetto di Android Studio esistente) e selezionare il progetto disponibile in `Android/Java/`.
 
-# <a name="ndktabopenproject-ndk"></a>[NDK](#tab/openproject-ndk)
+# <a name="ndk"></a>[NDK](#tab/openproject-ndk)
 
 Selezionare **Open an existing Android Studio project** (Apri un progetto di Android Studio esistente) e selezionare il progetto disponibile in `Android/NDK/`.
 
@@ -78,7 +78,7 @@ Selezionare **Open an existing Android Studio project** (Apri un progetto di And
 
 Il passaggio successivo consiste nel configurare l'app in modo da usare l'identificatore e la chiave dell'account. Questi dati sono stati copiati in un editor di testo durante la [configurazione della risorsa Ancoraggi nello spazio](#create-a-spatial-anchors-resource).
 
-# <a name="javatabopenproject-java"></a>[Java](#tab/openproject-java)
+# <a name="java"></a>[Java](#tab/openproject-java)
 
 Aprire `Android/Java/app/src/main/java/com/microsoft/sampleandroid/AzureSpatialAnchorsManager.java`.
 
@@ -86,7 +86,7 @@ Individuare il campo `SpatialAnchorsAccountKey` e sostituire `Set me` con la chi
 
 Individuare il campo `SpatialAnchorsAccountId` e sostituire `Set me` con l'identificatore dell'account.
 
-# <a name="ndktabopenproject-ndk"></a>[NDK](#tab/openproject-ndk)
+# <a name="ndk"></a>[NDK](#tab/openproject-ndk)
 
 Aprire `Android/NDK/app/src/main/cpp/AzureSpatialAnchorsApplication.cpp`.
 

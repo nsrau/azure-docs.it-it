@@ -16,10 +16,10 @@ ms.date: 01/08/2020
 ms.author: allensu
 ms.custom: mvc
 ms.openlocfilehash: b424fe315737b84479283eed2d77398c8ce4f148
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78898825"
 ---
 # <a name="quickstart-create-a-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Guida introduttiva: Creare una risorsa Load Balancer per bilanciare il carico delle macchine virtuali con il portale di Azure

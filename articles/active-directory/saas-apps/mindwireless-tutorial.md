@@ -17,10 +17,10 @@ ms.date: 10/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ee64f14491a97c754f3e1dbbbf6e6a7ed6f93844
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72596226"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-mindwireless"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con mindWireless
@@ -64,8 +64,8 @@ Configurare e testare l'accesso SSO di Azure AD con mindWireless usando un utent
 Per configurare e testare l'accesso SSO di Azure AD con mindWireless, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    * **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
-    * **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
+    * **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
+    * **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Configurare l'accesso Single Sign-On di mindWireless](#configure-mindwireless-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
     * **[Creare l'utente di test di mindWireless](#create-mindwireless-test-user)** : per avere una controparte di B.Simon in mindWireless collegata alla rappresentazione dell'utente in Azure AD.
 1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
@@ -127,7 +127,7 @@ In questa sezione verrà creato un utente di test di nome B.Simon nel portale di
 In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a mindWireless.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
-1. Nell'elenco delle applicazioni selezionare **mindWireless**.
+1. Nell'elenco di applicazioni selezionare **mindWireless**.
 1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi**.
 
    ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
@@ -144,7 +144,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 Per configurare l'accesso Single Sign-On sul lato **mindWireless** è necessario inviare il file **Certificato (Base64)** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di mindWireless](mailto:sdulloor@mindwireless.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
-### <a name="create-mindwireless-test-user"></a>Creare l'utente di test di mindWireless
+### <a name="create-mindwireless-test-user"></a>Creare un utente di test di mindWireless
 
 In questa sezione viene creato un utente di nome B.Simon in mindWireless. Collaborare con il  [team di supporto di mindWireless](mailto:sdulloor@mindwireless.com) per aggiungere gli utenti alla piattaforma mindWireless. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
@@ -152,7 +152,7 @@ In questa sezione viene creato un utente di nome B.Simon in mindWireless. Collab
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di mindWireless nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di mindWireless per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di mindWireless nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione mindWireless per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

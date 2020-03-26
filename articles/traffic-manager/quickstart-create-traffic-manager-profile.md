@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: rohink
 ms.openlocfilehash: 559ed0a134bb6db78d1e89634138b4025e04152b
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76934776"
 ---
-# <a name="quickstart-create-a-traffic-manager-profile-using-the-azure-portal"></a>Avvio rapido: Creare un profilo di Gestione traffico usando il portale di Azure
+# <a name="quickstart-create-a-traffic-manager-profile-using-the-azure-portal"></a>Guida introduttiva: Creare un profilo di Gestione traffico usando il portale di Azure
 
 Questo argomento di avvio rapido descrive come creare un profilo di Gestione traffico che fornisce disponibilità elevata per l'applicazione Web.
 
@@ -31,7 +31,7 @@ Se non si ha una sottoscrizione di Azure, creare ora un [account gratuito](https
 
 Accedere al [portale di Azure](https://portal.azure.com).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per questo avvio rapido, saranno necessarie due istanze di un'applicazione Web distribuita in due aree di Azure diverse (*Stati Uniti orientali* ed *Europa occidentale*). Ognuna verrà usata come endpoint primario e di failover per Gestione traffico.
 

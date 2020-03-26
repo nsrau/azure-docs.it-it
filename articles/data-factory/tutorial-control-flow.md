@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 9/27/2019
 ms.openlocfilehash: 7ba921656d0dad059b1d15f443bcefeff03ade50
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75977392"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Diramazione e concatenamento delle attività in una pipeline di Data factory
@@ -42,7 +42,7 @@ In questa esercitazione viene usato .NET SDK. È possibile usare altri meccanism
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Account di archiviazione di Azure. Come archivio dati di origine si usa un archivio BLOB. Se non si ha un account di archiviazione di Azure, vedere [Creare un account di archiviazione](../storage/common/storage-account-create.md).
 * Azure Storage Explorer Per installare lo strumento, vedere [Azure Storage Explorer](https://storageexplorer.com/).
@@ -66,7 +66,7 @@ Creare un'applicazione come descritto in [Creare un'applicazione Azure Active Di
 1. Aprire Azure Storage Explorer. Espandere l'account di archiviazione. Fare clic con il pulsante destro del mouse su **Contenitori BLOB** e scegliere **Crea contenitore BLOB**.
 1. Assegnare al nuovo contenitore il nome *adfv2branch* e selezionare **Carica** per aggiungere il file *input.txt* al contenitore.
 
-## Creare un progetto di Visual Studio<a name="create-visual-studio-project"></a>
+## <a name="create-visual-studio-project"></a>Creare un progetto di Visual Studio<a name="create-visual-studio-project"></a>
 
 Creare un'applicazione console .NET in C#:
 

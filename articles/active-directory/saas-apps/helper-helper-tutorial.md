@@ -17,10 +17,10 @@ ms.date: 05/31/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0d70cdade93b028c90c9f62374cd6b997556dd52
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "67101279"
 ---
 # <a name="tutorial-integrate-helper-helper-with-azure-active-directory"></a>Esercitazione: Integrare Helper Helper con Azure Active Directory
@@ -111,7 +111,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 Per configurare l'accesso Single Sign-On sul lato **Helper Helper**, è necessario inviare l'**URL dei metadati di federazione dell'app** al [team di supporto di Helper Helper](mailto:info@helperhelper.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
 In questa sezione verrà creato un utente di test di nome B. Simon nel portale di Azure.
 
@@ -121,9 +121,9 @@ In questa sezione verrà creato un utente di test di nome B. Simon nel portale d
    1. Nel campo **Nome** immettere `B. Simon`.  
    1. Nel campo **Nome utente** immettere username@companydomain.extension. Ad esempio: `BrittaSimon@contoso.com`.
    1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
-   1. Fare clic su **Create**(Crea).
+   1. Fare clic su **Crea**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione si abiliterà B. Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Helper Helper.
 

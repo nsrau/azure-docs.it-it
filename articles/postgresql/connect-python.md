@@ -9,17 +9,17 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/07/2019
 ms.openlocfilehash: 3694c0b74393068538a0c8f496444a1541d88fee
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76769052"
 ---
-# <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Avvio rapido: Usare Python per connettersi ed eseguire query sui dati in Database di Azure per PostgreSQL - Server singolo
+# <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Guida introduttiva: Usare Python per connettersi ed eseguire query sui dati in Database di Azure per PostgreSQL - Server singolo
 
 In questa guida di avvio rapido si usa un'istanza di Database di Azure per PostgreSQL con Python in macOS, Ubuntu Linux o Windows. La Guida introduttiva illustra come connettersi al database e usare istruzioni SQL per eseguire query, inserire, aggiornare ed eliminare dati. L'articolo presuppone che l'utente abbia familiarità con Python, ma non con Database di Azure per PostgreSQL.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 - Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 

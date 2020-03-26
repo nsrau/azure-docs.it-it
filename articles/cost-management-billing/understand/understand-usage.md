@@ -6,14 +6,14 @@ ms.reviewer: micflan
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 03/20/2020
 ms.author: banders
-ms.openlocfilehash: e45ef26f3d0a4b968b601e70658c5f3680492682
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 3b4a5601f18a07ba1ecd6fdd93628d671a0acad2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199025"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80065649"
 ---
 # <a name="understand-the-terms-in-your-azure-usage-and-charges-file"></a>Informazioni sui termini nel file dei dati di utilizzo e addebiti di Azure
 
@@ -74,10 +74,12 @@ MeterName | Tutti | Nome del contatore.
 MeterRegion | Tutti | Nome della località del data center per i servizi addebitati in base alla località. Vedere Location.
 MeterSubCategory | Tutti | Nome della categoria di sottoclassificazione del contatore.
 OfferId<sup>1</sup> | Tutti | Nome dell'offerta acquistata.
+PayGPrice | Tutti | Prezzo al dettaglio per la risorsa.
 PartNumber<sup>1</sup> | Contratto Enterprise, Con pagamento in base al consumo | Identificatore usato per ottenere i prezzi specifici del contatore.
 PlanName | Contratto Enterprise, Con pagamento in base al consumo | Nome del piano del Marketplace.
 PreviousInvoiceId | Contratto del cliente Microsoft | Riferimento a una fattura originale se questa voce è un rimborso.
 PricingCurrency | Contratto del cliente Microsoft | Valuta usata per la classificazione in base ai prezzi negoziati.
+PricingModel | Tutti | Identificatore che indica come viene valutato il prezzo del contatore. (Valori: su richiesta, prenotazione, spot)
 Prodotto | Tutti | Nome del prodotto.
 ProductId<sup>1</sup> | Contratto del cliente Microsoft | Identificatore univoco per il prodotto.
 ProductOrderId | Tutti | Identificatore univoco per l'ordine del prodotto.

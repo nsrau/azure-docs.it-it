@@ -17,10 +17,10 @@ ms.date: 10/31/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1748c6945dc50554c84fa8c178cece02baf9d840
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74075256"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-euromonitor-passport"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Euromonitor Passport
@@ -44,7 +44,7 @@ Per iniziare, sono necessari gli elementi seguenti:
 
 In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
 
-* Euromonitor Passport supporta l'accesso SSO avviato da **SP e IDP**
+* Euromonitor Passport supporta l'accesso SSO avviato da **provider di servizi e provider di identità**
 
 > [!NOTE]
 > Dal momento che l'identificatore di questa applicazione è un valore stringa fisso, è possibile configurare una sola istanza in un solo tenant.
@@ -67,8 +67,8 @@ Configurare e testare l'accesso SSO di Azure AD con Euromonitor Passport usando 
 Per configurare e testare l'accesso SSO di Azure AD con Euromonitor Passport, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    * **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
-    * **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
+    * **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
+    * **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Configurare l'accesso Single Sign-On di Euromonitor Passport](#configure-euromonitor-passport-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
     * **[Creare l'utente di test di Euromonitor Passport](#create-euromonitor-passport-test-user)** : per avere una controparte di B.Simon in Euromonitor Passport collegata alla rappresentazione dell'utente in Azure AD.
 1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
@@ -89,7 +89,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     Incollare il valore dell'URL di accesso ottenuto dal team di supporto di Euromonitor Passport nella casella di testo URL di accesso.
 
-1. Fare clic su **Save**.
+1. Fare clic su **Salva**.
 
 1. L'applicazione Euromonitor Passport prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti.
 
@@ -97,7 +97,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Oltre quelli elencati in precedenza, l'applicazione Euromonitor Passport prevede il passaggio di altri attributi nella risposta SAML. Tali attributi sono indicati di seguito. Anche questi attributi vengono prepopolati, ma è possibile esaminarli in base ai requisiti.
 
-    | NOME | Attributo di origine|
+    | Nome | Attributo di origine|
     | ---------------| --------- |
     | Valore identificatore nome | user.userprincipalname |
 
@@ -150,7 +150,7 @@ In questa sezione viene creato un utente di nome B.Simon in Euromonitor Passport
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di Euromonitor Passport nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Euromonitor Passport per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di Euromonitor Passport nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Euromonitor Passport per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

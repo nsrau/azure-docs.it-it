@@ -8,11 +8,11 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/08/2019
 ms.openlocfilehash: 693b2fd8ac7440b67f53de0aedb9a8268a90de76
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78386589"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79290529"
 ---
 # <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Guida introduttiva: Creare attività, processi e flussi di lavoro automatizzati con App per la logica di Azure - Visual Studio
 

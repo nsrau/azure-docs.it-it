@@ -4,10 +4,10 @@ description: Mapping dei controlli dell'esempio di progetto SWIFT CSP-CSCF v2020
 ms.date: 09/24/2019
 ms.topic: sample
 ms.openlocfilehash: 1826e4820f06fc3a858ce6cd5f8906baaa9808cc
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74546519"
 ---
 # <a name="control-mapping-of-the-swift-csp-cscf-v2020-blueprint-sample"></a>Mapping dei controlli dell'esempio di progetto SWIFT CSP-CSCF v2020

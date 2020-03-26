@@ -8,10 +8,10 @@ ms.date: 10/16/2019
 author: sivethe
 ms.author: sivethe
 ms.openlocfilehash: 12e5dba0339b6092564e5d35c1a6250b0c47f50f
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "72754994"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-32-version-supported-features-and-syntax"></a>API di Azure Cosmos DB per MongoDB (versione 3.2): funzionalità e sintassi supportate
@@ -38,7 +38,7 @@ L'API di Azure Cosmos DB per MongoDB supporta i comandi di database seguenti:
 ### <a name="query-and-write-operation-commands"></a>Comandi per le operazioni di query e scrittura
 
 - delete
-- find
+- trovare
 - findAndModify
 - getLastError
 - getMore
@@ -314,7 +314,7 @@ $all | ```{ "Location.coordinates": { $all: [-121.758, 46.87] } }``` |
 $elemMatch | ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } } }``` |
 $size | ```{ "Location.coordinates": { $size: 2 } }``` |
 $comment |  ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } }, $comment: "Negative values"}``` |
-$text |  | Non supportati. In alternativa, usare $regex.
+$text |  | Non supportato. In alternativa, usare $regex.
 
 ## <a name="unsupported-operators"></a>Operatori non supportati
 

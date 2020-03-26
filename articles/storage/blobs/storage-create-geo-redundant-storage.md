@@ -12,10 +12,10 @@ ms.reviewer: artek
 ms.custom: mvc
 ms.subservice: blobs
 ms.openlocfilehash: 0eabd918b5f8f52049792ceb28ef8055945d6475
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77162175"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Esercitazione: Compilare un'applicazione a disponibilità elevata con l'archivio BLOB
@@ -35,22 +35,22 @@ Nella prima parte della serie si apprenderà come:
 > * Impostare la stringa di connessione
 > * Eseguire l'applicazione console
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa esercitazione:
 
-# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
+# <a name="net"></a>[.NET](#tab/dotnet)
 
 * Installare [Visual Studio 2019](https://www.visualstudio.com/downloads/) con il carico di lavoro **Sviluppo di Azure**.
 
   ![Sviluppo di Azure (in Web e cloud)](media/storage-create-geo-redundant-storage/workloads.png)
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 * Installare [Python](https://www.python.org/downloads/)
 * Scaricare e installare [Azure Storage SDK per Python](https://github.com/Azure/azure-storage-python)
 
-# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
 * Installare [Node.js](https://nodejs.org).
 
@@ -86,7 +86,7 @@ Seguire questa procedura per creare un account di archiviazione con ridondanza g
 
 ## <a name="download-the-sample"></a>Scaricare l'esempio
 
-# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
+# <a name="net"></a>[.NET](#tab/dotnet)
 
 [Scaricare il progetto di esempio](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs/archive/master.zip) ed estrarre (decomprimere) il file storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.zip. È anche possibile usare [git](https://git-scm.com/) per scaricare una copia dell'applicazione nell'ambiente di sviluppo. Il progetto di esempio contiene un'applicazione console.
 
@@ -94,7 +94,7 @@ Seguire questa procedura per creare un account di archiviazione con ridondanza g
 git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.git
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 [Scaricare il progetto di esempio](https://github.com/Azure-Samples/storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs/archive/master.zip) ed estrarre (decomprimere) il file storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs.zip. È anche possibile usare [git](https://git-scm.com/) per scaricare una copia dell'applicazione nell'ambiente di sviluppo. Il progetto di esempio contiene un'applicazione Python di base.
 
@@ -102,7 +102,7 @@ git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-patter
 git clone https://github.com/Azure-Samples/storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs.git
 ```
 
-# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
 [Scaricare il progetto di esempio](https://github.com/Azure-Samples/storage-node-v10-ha-ra-grs) e decomprimere il file. È anche possibile usare [git](https://git-scm.com/) per scaricare una copia dell'applicazione nell'ambiente di sviluppo. Il progetto di esempio contiene un'applicazione Node.js di base.
 
@@ -114,7 +114,7 @@ git clone https://github.com/Azure-Samples/storage-node-v10-ha-ra-grs
 
 ## <a name="configure-the-sample"></a>Configurare l'esempio
 
-# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
+# <a name="net"></a>[.NET](#tab/dotnet)
 
 Nell'applicazione è necessario inserire la stringa di connessione per l'account di archiviazione. È possibile archiviare questa stringa di connessione in una variabile di ambiente nel computer locale che esegue l'applicazione. Seguire uno degli esempi riportati più avanti, in base al sistema operativo, per creare la variabile di ambiente.
 
@@ -132,7 +132,7 @@ export storageconnectionstring=<yourconnectionstring>
 setx storageconnectionstring "<yourconnectionstring>"
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Nell'applicazione è necessario specificare le credenziali dell'account di archiviazione. È possibile archiviare queste informazioni nelle variabili di ambiente del computer locale che esegue l'applicazione. Seguire uno degli esempi seguenti, in base al sistema operativo, per creare le variabili di ambiente.
 
@@ -152,7 +152,7 @@ setx accountname "<youraccountname>"
 setx accountkey "<youraccountkey>"
 ```
 
-# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
 Per eseguire l'esempio, è necessario aggiungere le credenziali dell'account di archiviazione nel file `.env.example` e rinominarlo in `.env`.
 
@@ -169,7 +169,7 @@ Installare le dipendenze richieste. A questo scopo, aprire un prompt dei comandi
 
 ## <a name="run-the-console-application"></a>Eseguire l'applicazione console
 
-# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
+# <a name="net"></a>[.NET](#tab/dotnet)
 
 In Visual Studio premere **F5** o selezionare **Avvia** per avviare il debug dell'applicazione. Visual Studio ripristina automaticamente i pacchetti NuGet mancanti, se sono stati configurati. Per altre informazioni, vedere l'articolo relativo a [installazione e reinstallazione di pacchetti con Ripristino pacchetto](https://docs.microsoft.com/nuget/consume-packages/package-restore#package-restore-overview).
 
@@ -179,7 +179,7 @@ Si apre una finestra della console e l'applicazione avvia l'esecuzione. L'applic
 
 Nell'esempio di codice l'attività `RunCircuitBreakerAsync` nel file `Program.cs` viene usata per scaricare un'immagine dall'account di archiviazione con il metodo [DownloadToFileAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadtofileasync). Prima del download viene definita una classe [OperationContext](/dotnet/api/microsoft.azure.cosmos.table.operationcontext). Il contesto dell'operazione definisce i gestori dell'evento, generati quando il download viene completato correttamente o se un download ha esito negativo ed esegue un nuovo tentativo.
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Per eseguire l'applicazione in un terminale o al prompt dei comandi, passare alla directory **circuitbreaker.py** e quindi immettere `python circuitbreaker.py`. L'applicazione carica l'immagine **HelloWorld.png** dalla soluzione nell'account di archiviazione. L'applicazione verifica che l'immagine sia stata replicata nell'endpoint RA-GRS secondario. Si avvia quindi il download dell'immagine fino a 999 volte. Ogni lettura è rappresentata da una **P** o una **S**. **P** rappresenta l'endpoint primario e **S** rappresenta l'endpoint secondario.
 
@@ -191,7 +191,7 @@ La funzione di ripetizione dei tentativi dell'oggetto di archiviazione è impost
 
 Prima del download vengono definite le funzioni [retry_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) e [response_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) dell'oggetto del servizio, che definiscono i gestori eventi che vengono attivati quando un download viene completato oppure ha esito negativo e viene eseguito un nuovo tentativo.
 
-# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
 Per eseguire l'esempio, aprire un prompt dei comandi, passare alla cartella dell'esempio e quindi immettere `node index.js`.
 
@@ -222,7 +222,7 @@ Deleted container newcontainer1550799840726
 
 ## <a name="understand-the-sample-code"></a>Informazioni sul codice di esempio
 
-### <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
+### <a name="net"></a>[.NET](#tab/dotnet)
 
 ### <a name="retry-event-handler"></a>Riprovare il gestore dell'evento
 
@@ -273,7 +273,7 @@ private static void OperationContextRequestCompleted(object sender, RequestEvent
 }
 ```
 
-### <a name="pythontabpython"></a>[Python](#tab/python)
+### <a name="python"></a>[Python](#tab/python)
 
 ### <a name="retry-event-handler"></a>Riprovare il gestore dell'evento
 
@@ -316,7 +316,7 @@ def response_callback(response):
             secondary_read_count = 0
 ```
 
-### <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
+### <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
 Con l'SDK Node.js V10, i gestori di callback non sono necessari. Al contrario, l'esempio crea una pipeline configurata con opzioni di ripetizione e un endpoint secondario. In questo modo l'applicazione passa automaticamente alla pipeline secondaria se non riesce ad accedere ai dati tramite quella primaria.
 

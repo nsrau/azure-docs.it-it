@@ -17,10 +17,10 @@ ms.date: 10/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bcec326ddab1e74f43e1bb7ef446998a40799fd0
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73043569"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-veracode"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Veracode
@@ -90,7 +90,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Veracode prevede inoltre il passaggio di qualche altro attributo nella risposta SAML. Anche questi attributi vengono prepopolati, ma è possibile esaminarli in base alle esigenze.
 
-    | NOME | Attributo di origine|
+    | Nome | Attributo di origine|
     | ---------------| --------------- |
     | firstname |User.givenname |
     | lastname |User.surname |
@@ -106,13 +106,13 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Dal menu in alto selezionare **Settings** (Impostazioni)  > **Admin**.
    
-    ![Screenshot della schermata di amministrazione di Veracode, con l'icona delle impostazioni e l'opzione per l'accesso come amministratore evidenziate](./media/veracode-tutorial/ic802911.png "Administration")
+    ![Screenshot della schermata di amministrazione di Veracode, con l'icona delle impostazioni e l'opzione per l'accesso come amministratore evidenziate](./media/veracode-tutorial/ic802911.png "Amministrazione")
 
 1. Selezionare la scheda **SAML**.
 
 1. Nella sezione **Impostazioni SAML dell’organizzazione** seguire questa procedura:
 
-    ![Screenshot della sezione relativa alle impostazioni SAML dell'organizzazione](./media/veracode-tutorial/ic802912.png "Administration")
+    ![Screenshot della sezione relativa alle impostazioni SAML dell'organizzazione](./media/veracode-tutorial/ic802912.png "Amministrazione")
 
     a.  Nella casella di testo **Issuer** (Autorità di certificazione) incollare il valore di **Identificatore Azure AD** copiato dal portale di Azure.
 
@@ -122,7 +122,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Nella sezione **Self Registration Settings** (Impostazioni di registrazione self-service) seguire questa procedura e quindi fare clic su **Save** (Salva):
 
-    ![Screenshot della sezione delle impostazioni di registrazione self-service con diverse opzioni evidenziate](./media/veracode-tutorial/ic802913.png "Administration")
+    ![Screenshot della sezione delle impostazioni di registrazione self-service con diverse opzioni evidenziate](./media/veracode-tutorial/ic802913.png "Amministrazione")
 
     a. Per **New User Activation** (Attivazione nuovo utente) selezionare **No Activation Required** (Nessuna attivazione richiesta).
 
@@ -153,7 +153,7 @@ In questa sezione verrà creato un utente di test di nome B.Simon nel portale di
    1. Selezionare **Mostra password** e prendere nota del valore visualizzato.
    1. Selezionare **Create** (Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Veracode.
 

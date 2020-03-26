@@ -5,10 +5,10 @@ keywords: ansible, azure, devops, bash, playbook, servizio app di Azure, app Web
 ms.topic: tutorial
 ms.date: 04/30/2019
 ms.openlocfilehash: 9eb50922361c817de8047dece4849a9b221677f0
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74155920"
 ---
 # <a name="tutorial-scale-apps-in-azure-app-service-using-ansible"></a>Esercitazione: Ridimensionare app nel servizio app di Azure tramite Ansible
@@ -35,7 +35,7 @@ ms.locfileid: "74155920"
 Sono disponibili due flussi di lavoro per la scalabilità, l'*aumento delle prestazioni* e l'*aumento del numero di istanze*.
 
 **Aumentare le prestazioni:** aumentare le prestazioni significa acquisire più risorse. Queste risorse includono CPU, memoria, spazio su disco, macchine virtuali e altro ancora. È possibile aumentare le prestazioni di un'app cambiando il piano tariffario del piano di servizio app a cui appartiene l'app. 
-**Aumentare il numero di istanze:** è possibile incrementare il numero di istanze di macchine virtuali che eseguono l'app. A seconda del piano tariffario del piano di servizio app, è possibile specificare al massimo 20 istanze. La [scalabilità automatica](/azure/azure-monitor/platform/autoscale-get-started) consente di aumentare automaticamente il numero di istanze in base a pianificazioni e regole predefinite.
+**Aumentare il numero di istanze:** è possibile aumentare il numero di istanze di macchine virtuali che eseguono l'app. A seconda del piano tariffario del piano di servizio app, è possibile aumentare il numero di istanze fino a un massimo di 20. La [scalabilità automatica](/azure/azure-monitor/platform/autoscale-get-started) consente di aumentare automaticamente il numero di istanze in base a pianificazioni e regole predefinite.
 
 Il codice del playbook in questa sezione definisce l'operazione seguente:
 

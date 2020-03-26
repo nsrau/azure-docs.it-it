@@ -11,12 +11,12 @@ ms.author: vaidyas
 author: vaidya-s
 ms.date: 01/15/2020
 ms.custom: Ignite2019
-ms.openlocfilehash: 313ba2c02fd65a967ab1969b6f99893de9a3bdb4
-ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
+ms.openlocfilehash: 3d283d1094336b928869aa281b4a640d7a62dd94
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79037354"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79477188"
 ---
 # <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>Eseguire l'inferenza batch su grandi quantità di dati usando Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -329,7 +329,7 @@ parallelrun_step = ParallelRunStep(
 >[!Note]
 > Il passaggio precedente dipende da `azureml-contrib-pipeline-steps`, come descritto nei [prerequisiti](#prerequisites). 
 
-### <a name="run-the-pipeline"></a>Eseguire la pipeline
+### <a name="submit-the-pipeline"></a>Inviare la pipeline
 
 Eseguire ora la pipeline Creare prima di tutto un oggetto [`Pipeline`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?view=azure-ml-py) usando il riferimento all'area di lavoro e il passaggio della pipeline creato. Il parametro `steps` è una matrice di passaggi. In questo caso, è presente un solo passaggio per l'assegnazione di punteggi in batch. Per creare pipeline con più passaggi, inserire i passaggi nell'ordine corretto in questa matrice.
 

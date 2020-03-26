@@ -1,5 +1,5 @@
 ---
-title: "Avvio rapido: Creare un'app Spring Boot in Azure Service Fabric | Microsoft Docs"
+title: "Guida introduttiva: Creare un'app Spring Boot in Azure Service Fabric | Microsoft Docs"
 description: In questa guida introduttiva viene distribuita un'applicazione Spring Boot per Azure Service Fabric usando un'applicazione Spring Boot di esempio.
 author: suhuruli
 ms.topic: quickstart
@@ -7,25 +7,25 @@ ms.date: 01/29/2019
 ms.author: suhuruli
 ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019
 ms.openlocfilehash: eb96989b4a2731e78471b848d690b48352408d1c
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77121477"
 ---
-# <a name="quickstart-deploy-a-java-spring-boot-app-on-azure-service-fabric"></a>Avvio rapido: Distribuire un'app Spring Boot Java in Azure Service Fabric
+# <a name="quickstart-deploy-a-java-spring-boot-app-on-azure-service-fabric"></a>Guida introduttiva: Distribuire un'app Spring Boot Java in Azure Service Fabric
 
 In questo argomento di avvio rapido si distribuisce un'applicazione Spring Boot Java in Azure Service Fabric usando strumenti della riga di comando familiari in Linux o MacOS. Azure Service Fabric è una piattaforma di sistemi distribuiti per la distribuzione e la gestione di microservizi e contenitori. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
-#### <a name="linuxtablinux"></a>[Linux](#tab/linux)
+#### <a name="linux"></a>[Linux](#tab/linux)
 
 - [Ambiente Java](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-java-development) e [Yeoman](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-yeoman-generators-for-containers-and-guest-executables)
 - [Service Fabric SDK e l'interfaccia della riga di comando di Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
 - [Git](https://git-scm.com/downloads)
 
-#### <a name="macostabmacos"></a>[MacOS](#tab/macos)
+#### <a name="macos"></a>[MacOS](#tab/macos)
 
 - [Ambiente Java e Yeoman](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-mac#create-your-application-on-your-mac-by-using-yeoman)
 - [Service Fabric SDK e l'interfaccia della riga di comando di Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli#cli-mac)

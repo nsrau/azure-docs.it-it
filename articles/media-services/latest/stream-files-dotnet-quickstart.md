@@ -14,10 +14,10 @@ ms.custom: mvc
 ms.date: 08/19/2019
 ms.author: juliako
 ms.openlocfilehash: df4092ecc3f7d075f1a2821854cdb668ee2cebe5
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77191214"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---net"></a>Esercitazione: Codificare un file remoto basato su URL ed eseguire lo streaming del video - .NET
@@ -31,7 +31,7 @@ Al termine dell'esercitazione, sarà possibile eseguire lo streaming di un video
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 - Se Visual Studio non è installato, è possibile scaricare [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
 - [Creare un account di Servizi multimediali di Azure](create-account-cli-how-to.md).<br/>Assicurarsi di ricordare i valori usati per il nome del gruppo di risorse e il nome dell'account di Servizi multimediali.

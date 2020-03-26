@@ -9,15 +9,15 @@ ms.topic: quickstart
 ms.date: 03/21/2019
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 9901b3f18973365dc9ceb8c85ff8587b6c2ea894
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74533616"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-azure-powershell"></a>Guida introduttiva: Distribuire un'istanza di contenitore in Azure con Azure PowerShell
 
-Il servizio Istanze di Azure Container consente di eseguire contenitori Docker serverless in Azure in modo semplice e rapido. Distribuire un'applicazione in un'istanza di contenitore su richiesta quando non è necessaria una piattaforma di orchestrazione di contenitori completa come il servizio Azure Kubernetes.
+Istanze di Azure Container consente di eseguire i contenitori Docker serverless in Azure in modo semplice e rapido. Distribuire un'applicazione in un'istanza di contenitore su richiesta quando non è necessaria una piattaforma di orchestrazione di contenitori completa come il servizio Azure Kubernetes.
 
 In questo argomento di avvio rapido viene usato Azure PowerShell per distribuire un contenitore Windows isolato e renderne disponibile l'applicazione con un nome di dominio completo (FQDN). Pochi secondi dopo aver eseguito un singolo comando di distribuzione, è possibile passare all'applicazione in esecuzione nel contenitore:
 

@@ -13,10 +13,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3e5ad7badfa44a006fd7e71d3b0e42ee95ac698d
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "64918998"
 ---
 # <a name="tutorial--setting-up-phs-as-backup-for-ad-fs-in-azure-ad-connect"></a>Esercitazione:  Configurare PHS come backup per AD FS in Azure AD Connect
@@ -98,7 +98,7 @@ Ora verrà illustrato come tornare alla federazione.  A tale scopo, eseguire que
 Ora è necessario reimpostare la relazione di trust tra AD FS e Azure.
 
 1.  Fare doppio clic sull'icona Azure AD Connect creata sul desktop
-2.  Fare clic su **Configura**.
+2.  Fare clic su **Configure**.
 3.  Selezionare **Gestisci la federazione** e fare clic su **Avanti**.
 4.  Selezionare **Reimposta il trust di Azure AD** e fare clic su **Avanti**.
 ![Reimpostazione](media/tutorial-phs-backup/backup6.png)</br>

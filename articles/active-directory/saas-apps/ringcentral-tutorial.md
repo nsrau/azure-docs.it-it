@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: jeedes
 ms.openlocfilehash: de7cf57d177902efdbb44524703481e8c65c75c5
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72991463"
 ---
 # <a name="tutorial-integrate-ringcentral-with-azure-active-directory"></a>Esercitazione: Integrare RingCentral con Azure Active Directory
@@ -120,7 +120,7 @@ In questa sezione verrà creato un utente di test di nome Britta Simon nel porta
    1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
    1. Fare clic su **Crea**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione Britta Simon verrà abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a RingCentral.
 
@@ -142,7 +142,7 @@ In questa sezione Britta Simon verrà abilitata per l'uso dell'accesso Single Si
 
 1. Per automatizzare la configurazione all'interno di RingCentral, è necessario installare l'**estensione del browser per l'accesso sicuro alle app personali** facendo clic su **Installa l'estensione**.
 
-    ![Estensione per App personali](common/install-myappssecure-extension.png)
+    ![Estensione MyApps](common/install-myappssecure-extension.png)
 
 1. Dopo aver aggiunto l'estensione al browser, fare clic su **Configura RingCentral** per passare direttamente all'applicazione RingCentral. Nell'applicazione specificare le credenziali di amministratore per accedere a RingCentral. L'estensione del browser configurerà automaticamente l'applicazione per l'utente e automatizzerà i passaggi da 3 a 7.
 
@@ -172,7 +172,7 @@ In questa sezione Britta Simon verrà abilitata per l'uso dell'accesso Single Si
 
     c. Nella sezione **Attribute Mapping** (Mapping attributi), in **Map Email Attribute to** (Esegui mapping attributo posta elettronica in) selezionare `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
 
-    d. Fare clic su **Save**.
+    d. Fare clic su **Salva**.
 
     e. In **Step 2** (Passaggio 2) fare clic su **Download** (Scarica) per scaricare il **file di metadati del provider di servizi** e caricarlo nella sezione **Configurazione SAML di base** per popolare automaticamente i valori **Identificatore** e **URL di risposta** nel portale di Azure.
 
@@ -186,7 +186,7 @@ In questa sezione Britta Simon verrà abilitata per l'uso dell'accesso Single Si
 
     * Selezionare **Allow users to log in with SSO or RingCentral credential** (Consenti agli utenti di accedere con le credenziali SSO o RingCentral).
 
-    * Fare clic su **Save**.
+    * Fare clic su **Salva**.
 
 ### <a name="create-ringcentral-test-user"></a>Creare un utente di test di RingCentral
 

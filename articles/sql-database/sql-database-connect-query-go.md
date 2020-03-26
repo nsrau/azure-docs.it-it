@@ -12,10 +12,10 @@ ms.author: craigg
 ms.reviewer: MightyPen
 ms.date: 02/12/2019
 ms.openlocfilehash: 9b85b1bfb8935b5e311bb7d9503c17261a210127
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73827071"
 ---
 # <a name="quickstart-use-golang-to-query-an-azure-sql-database"></a>Guida introduttiva: Usare Golang per eseguire query su un database SQL di Azure
@@ -35,7 +35,7 @@ Per completare questa esercitazione, sono necessari:
   || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
   | Configurare | [Regola del firewall IP a livello di server](sql-database-server-level-firewall-rule.md)| [Connettività da una VM](sql-database-managed-instance-configure-vm.md)|
   |||[Connettività da locale](sql-database-managed-instance-configure-p2s.md)
-  |Caricare i dati|Adventure Works caricato in base alla guida introduttiva|[Ripristinare Wide World Importers](sql-database-managed-instance-get-started-restore.md)
+  |Caricare dati|Adventure Works caricato in base alla guida introduttiva|[Ripristinare Wide World Importers](sql-database-managed-instance-get-started-restore.md)
   |||Ripristinare o importare Adventure Works dal file [BACPAC](sql-database-import.md) ottenuto da [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
   |||
 

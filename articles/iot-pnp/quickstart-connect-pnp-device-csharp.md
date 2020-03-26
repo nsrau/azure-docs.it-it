@@ -9,13 +9,13 @@ ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
 ms.openlocfilehash: 90d39635ac6302f816f39ca19cc00a39cfbbf850
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77121024"
 ---
-# <a name="quickstart-connect-a-sample-iot-plug-and-play-preview-device-application-to-iot-hub-c"></a>Avvio rapido: Connettere un'applicazione dispositivo Plug and Play IoT (anteprima) di esempio all'hub IoT (C#)
+# <a name="quickstart-connect-a-sample-iot-plug-and-play-preview-device-application-to-iot-hub-c"></a>Guida introduttiva: Connettere un'applicazione dispositivo Plug and Play IoT (anteprima) di esempio all'hub IoT (C#)
 
 [!INCLUDE [iot-pnp-quickstarts-2-selector.md](../../includes/iot-pnp-quickstarts-2-selector.md)]
 
@@ -23,7 +23,7 @@ Questa guida di avvio rapido illustra come creare un'applicazione dispositivo Pl
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa guida di avvio rapido, è necessario installare .NET Core 3.0 nel computer di sviluppo. È possibile scaricare questa versione di .NET Core SDK per più piattaforme dalla pagina [Download di .NET Core 3.0](https://dotnet.microsoft.com/download/dotnet-core/3.0).
 

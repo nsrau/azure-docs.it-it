@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 02/20/2019
 ms.author: rolyon
 ms.openlocfilehash: f1a6e72e1444a26b675379d9948217a7773c4a1c
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77138257"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79224068"
 ---
 # <a name="tutorial-create-a-custom-role-for-azure-resources-using-azure-cli"></a>Esercitazione: creare un ruolo personalizzato per le risorse di Azure tramite l'interfaccia della riga di comando di Azure
 
@@ -34,7 +34,7 @@ In questa esercitazione verranno illustrate le procedure per:
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa esercitazione è necessario quanto segue:
 

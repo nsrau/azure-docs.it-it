@@ -12,11 +12,11 @@ ms.custom: mvc
 ms.date: 09/03/2019
 ms.author: mbaldwin
 ms.openlocfilehash: a57370b7bf63ad73318ba13eff1b554aead7e186
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78381345"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79216289"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Guida introduttiva: Impostare e recuperare un segreto da Azure Key Vault tramite il portale di Azure
 

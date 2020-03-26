@@ -9,13 +9,13 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 07/12/2019
 ms.openlocfilehash: 0981ed30c6bcd9d4246ce1eb047aa66168e3884a
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78364482"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79215279"
 ---
-# <a name="quickstart-build-a-net-console-app-to-manage-azure-cosmos-db-sql-api-resources"></a>Guida introduttiva: creare un'app console .NET per gestire Azure Cosmos DB risorse API SQL
+# <a name="quickstart-build-a-net-console-app-to-manage-azure-cosmos-db-sql-api-resources"></a>Guida introduttiva: Compilare un'app console .NET per gestire le risorse dell'API SQL di Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET V3](create-sql-api-dotnet.md)
@@ -45,7 +45,7 @@ Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito
 
 Questa sezione illustra la creazione di un account Azure Cosmos e la configurazione di un progetto che usa la libreria client dell'API SQL di Azure Cosmos DB per .NET per gestire le risorse. Il codice di esempio descritto in questo articolo crea un database `FamilyDatabase` e i membri della famiglia (ogni membro della famiglia è un elemento) all'interno del database. Ogni membro della famiglia ha proprietà come `Id, FamilyName, FirstName, LastName, Parents, Children, Address,`. La proprietà `LastName` viene usata come chiave di partizione per il contenitore. 
 
-### <a id="create-account"></a>Creare un account Azure Cosmos
+### <a name="create-an-azure-cosmos-account"></a><a id="create-account"></a>Creare un account Azure Cosmos
 
 Se si usa l'opzione [Prova gratuitamente Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) per creare un account Azure Cosmos, è necessario creare un account Azure Cosmos DB di tipo **API SQL**. È già stato creato automaticamente un account di test Azure Cosmos DB. Non è necessario creare l'account in modo esplicito, quindi è possibile ignorare questa sezione e passare a quella successiva.
 
@@ -82,7 +82,7 @@ az cosmosdb create \
 
 La creazione dell'account Azure Cosmos richiede un po' di tempo. Al termine dell'operazione, è possibile visualizzare l'output di conferma. Dopo che il comando viene completato correttamente, accedere al [portale di Azure](https://portal.azure.com/) e verificare che sia presente l'account Azure Cosmos con il nome specificato. È possibile chiudere la finestra di Azure Cloud Shell dopo la creazione della risorsa. 
 
-### <a id="create-dotnet-core-app"></a>Creare una nuova app .NET
+### <a name="create-a-new-net-app"></a><a id="create-dotnet-core-app"></a>Creare una nuova app .NET
 
 Creare una nuova applicazione .NET nell'ambiente di sviluppo integrato o nell'editor preferito. Aprire il prompt dei comandi di Windows o una finestra del terminale dal computer locale. Tutti i comandi delle sezioni successive dovranno essere eseguiti dal prompt dei comandi o dal terminale.  Eseguire il comando dotnet new riportato di seguito per creare una nuova app denominata `todo`. Il parametro --langVersion imposta la proprietà LangVersion nel file di progetto creato.
 
@@ -111,7 +111,7 @@ Build succeeded.
 Time Elapsed 00:00:34.17
 ```
 
-### <a id="install-package"></a>Installare il pacchetto di Azure Cosmos DB
+### <a name="install-the-azure-cosmos-db-package"></a><a id="install-package"></a>Installare il pacchetto di Azure Cosmos DB
 
 Sempre nella directory dell'applicazione, installare la libreria client di Azure Cosmos DB per .NET Core usando il comando dotnet add package.
 
@@ -154,14 +154,14 @@ export EndpointUrl = "<Your_Azure_Cosmos_account_URI>"
 export PrimaryKey = "<Your_Azure_Cosmos_account_PRIMARY_KEY>"
 ```
 
- ## <a id="object-model"></a>Modello a oggetti
+ ## <a name="object-model"></a><a id="object-model"></a>Modello a oggetti
 
 Prima di iniziare a compilare l'applicazione, verranno esaminati la gerarchia di risorse in Azure Cosmos DB e il modello a oggetti usato per creare e accedere a queste risorse. Azure Cosmos DB crea le risorse nell'ordine seguente:
 
 * Account Azure Cosmos 
 * Database 
 * Contenitori 
-* Elementi
+* Items
 
 Per altre informazioni sulla gerarchia delle diverse entità, vedere l'articolo sull'[uso di database, contenitori ed elementi in Azure Cosmos DB](databases-containers-items.md). Per interagire con queste risorse, si useranno le classi .NET seguenti:
 
@@ -179,7 +179,7 @@ Per altre informazioni sulla gerarchia delle diverse entità, vedere l'articolo 
 
 * [DeleteAsync](/dotnet/api/microsoft.azure.cosmos.database.deleteasync?view=azure-dotnet): elimina il database specificato dall'account Azure Cosmos. Il metodo `DeleteAsync` elimina solo il database. L'eliminazione dell'istanza di `Cosmosclient` deve essere eseguita separatamente, nel metodo DeleteDatabaseAndCleanupAsync. 
 
- ## <a id="code-examples"></a>Esempi di codice
+ ## <a name="code-examples"></a><a id="code-examples"></a>Esempi di codice
 
 Il codice di esempio descritto in questo articolo crea un database relativo alla famiglia in Azure Cosmos DB. Il database contiene i dettagli della famiglia, ad esempio nome, indirizzo, località e genitori, figli e animali domestici associati. Prima di popolare i dati nell'account Azure Cosmos, definire le proprietà di un elemento della famiglia. Creare una nuova classe denominata `Family.cs` al livello radice dell'applicazione di esempio e aggiungervi il codice seguente:
 

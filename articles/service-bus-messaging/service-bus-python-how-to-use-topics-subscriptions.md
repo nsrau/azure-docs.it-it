@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Usare gli argomenti e le sottoscrizioni del bus di servizio di Azure con Python'
+title: 'Guida introduttiva: Usare gli argomenti e le sottoscrizioni del bus di servizio di Azure con Python'
 description: Questo articolo illustra come creare un argomento del bus di servizio di Azure, una sottoscrizione, inviare messaggi a un argomento e ricevere messaggi dalla sottoscrizione.
 services: service-bus-messaging
 documentationcenter: python
@@ -14,13 +14,13 @@ ms.topic: quickstart
 ms.date: 01/27/2020
 ms.author: aschhab
 ms.openlocfilehash: 03e22c4c179850e5140015c0abc2d89f16d4b624
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76774551"
 ---
-# <a name="quickstart-use-service-bus-topics-and-subscriptions-with-python"></a>Avvio rapido: Usare gli argomenti e le sottoscrizioni del bus di servizio con Python
+# <a name="quickstart-use-service-bus-topics-and-subscriptions-with-python"></a>Guida introduttiva: Usare gli argomenti e le sottoscrizioni del bus di servizio con Python
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
@@ -32,7 +32,7 @@ Questo articolo descrive come usare Python con gli argomenti e le sottoscrizioni
 - Ricevere messaggi da sottoscrizioni
 - Eliminare argomenti e sottoscrizioni
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 - Una sottoscrizione di Azure. È possibile attivare i [vantaggi per i sottoscrittori di Visual Studio o MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) oppure registrarsi per ottenere un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 - Uno spazio dei nomi del bus di servizio, creato seguendo la procedura descritta in [Avvio rapido: Usare il portale di Azure per creare un argomento del bus di servizio e le sottoscrizioni](service-bus-quickstart-topics-subscriptions-portal.md). Copiare il nome dello spazio dei nomi, il nome della chiave di accesso condiviso e il valore della chiave primaria dalla schermata**Criteri di accesso condiviso**, che verranno usati più avanti in questo argomento di avvio rapido. 
 - Python 3.4x o versione successiva, con il pacchetto [Azure Python SDK][Azure Python package] installato. Per altre informazioni, vedere la [Guida all'installazione di Python](/azure/python/python-sdk-azure-install).

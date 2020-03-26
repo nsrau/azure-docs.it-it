@@ -17,10 +17,10 @@ ms.date: 07/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d7ac085beaa85a7ddf3a6c3bfc61820e8e5a63ea
-ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68496566"
 ---
 # <a name="tutorial-integrate-amazon-business-with-azure-active-directory"></a>Esercitazione: Integrare Amazon Business con Azure Active Directory
@@ -108,11 +108,11 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Lo screenshot seguente mostra l'elenco degli attributi predefiniti. Modificare gli attributi facendo clic sull'icona **Modifica** nella sezione **Attributi utente e attestazioni**.
 
-    ![Attributi](media/amazon-business-tutorial/map-attribute3.png)
+    ![Attributes](media/amazon-business-tutorial/map-attribute3.png)
 
 1. Modificare gli attributi e copiare il valore di **Spazio dei nomi** di questi attributi nel Blocco note.
 
-    ![Attributi](media/amazon-business-tutorial/map-attribute4.png)
+    ![Attributes](media/amazon-business-tutorial/map-attribute4.png)
 
 1. Oltre quelli elencati in precedenza, l'applicazione Amazon Business prevede il passaggio di qualche altro attributo nella risposta SAML. Nella sezione **Attributi utente e attestazioni** della finestra di dialogo **Attestazioni dei gruppi** seguire questa procedura:
 
@@ -128,7 +128,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     d. Selezionare la casella di controllo **Personalizza il nome dell'attestazione basata su gruppo** e immettere il nome del gruppo in base alle esigenze dell'organizzazione.
 
-    e. Fare clic su **Save**.
+    e. Fare clic su **Salva**.
 
 1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare **XML dei metadati** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer in uso.
 
@@ -168,11 +168,11 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Nella procedura guidata **Upload your Attribute statement** (Carica dichiarazione degli attributi) fare clic su **Skip** (Ignora).
 
-    ![Attributi](media/amazon-business-tutorial/map-attribute1.png)
+    ![Attributes](media/amazon-business-tutorial/map-attribute1.png)
 
 1. Nella procedura guidata **Attribute mapping** (Mapping attributi) aggiungere i campi richiesti facendo clic sull'opzione **+ Add a field** (+ Aggiungi un campo). Aggiungere i valori degli attributi, incluso lo spazio dei nomi copiato dalla sezione **Attributi utente e attestazioni** del portale di Azure nel campo **SAML AttributeName** (Nome attributo SAML) e fare clic su **Next** (Avanti).
 
-    ![Attributi](media/amazon-business-tutorial/map-attribute2.png)
+    ![Attributes](media/amazon-business-tutorial/map-attribute2.png)
 
 1. Nella procedura guidata **Amazon connection data** (Dati della connessione ad Amazon) fare clic su **Next** (Avanti).
 
@@ -198,7 +198,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     ![Connessione](media/amazon-business-tutorial/sso-connection5.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
@@ -211,7 +211,7 @@ In questa sezione verrà creato un utente di test di nome B.Simon nel portale di
    1. Nel campo **Nome** immettere `B.Simon`.  
    1. Nel campo **Nome utente** immettere username@companydomain.extension. Ad esempio: `B.Simon@contoso.com`.
    1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
-   1. Fare clic su **Create**(Crea).
+   1. Fare clic su **Crea**.
 
 ### <a name="create-an-azure-ad-security-group-in-the-azure-portal"></a>Creare un gruppo di sicurezza di Azure AD nel portale di Azure
 
@@ -227,7 +227,7 @@ In questa sezione verrà creato un utente di test di nome B.Simon nel portale di
 
     ![Creare un gruppo di sicurezza di Azure AD](./media/amazon-business-tutorial/group-information.png)
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso ad Amazon Business.
 

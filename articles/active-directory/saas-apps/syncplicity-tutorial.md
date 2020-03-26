@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 06/10/2019
 ms.author: jeedes
 ms.openlocfilehash: 663958ae367162eaeb336c819d1d219dc74a2cbe
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74233275"
 ---
 # <a name="tutorial-integrate-syncplicity-with-azure-active-directory"></a>Esercitazione: Integrare Syncplicity con Azure Active Directory
@@ -132,7 +132,7 @@ In questa sezione verrà creato un utente di test di nome B.Simon nel portale di
    1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
    1. Fare clic su **Crea**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione si abiliterà B. Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Syncplicity.
 
@@ -160,7 +160,7 @@ Per consentire agli utenti di Azure AD di accedere, è necessario effettuarne il
 
 1. Fare clic su **admin** (amministrazione) e selezionare **user accounts** (account utente), quindi fare clic su **ADD A USER** (AGGIUNGI UN UTENTE).
 
-    ![Gestire gli utenti](./media/syncplicity-tutorial/ic769764.png "Manage Users")
+    ![Gestire gli utenti](./media/syncplicity-tutorial/ic769764.png "Gestire gli utenti")
 
 1. Digitare gli **indirizzi di posta elettronica** di un account Azure AD di cui effettuare il provisioning, selezionare **User** (Utente) come valore di **Role** (Ruolo) e quindi fare clic su **NEXT** (AVANTI).
 

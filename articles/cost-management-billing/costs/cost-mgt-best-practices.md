@@ -1,20 +1,19 @@
 ---
-title: Ottimizzare gli investimenti per il cloud con Gestione costi di Azure | Microsoft Docs
+title: Ottimizzare gli investimenti per il cloud con Gestione costi di Azure
 description: Questo articolo consente di ottenere il massimo valore dagli investimenti per il cloud, ridurre i costi e valutare come viene speso il denaro.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
+ms.date: 03/24/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 6d13bf4b2a3abd3a1552ac656a6a15fed8c7cb60
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 4941c1be8fd20dfa88e3ac36bfa30af77a2b1be1
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201068"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80157212"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Come ottimizzare gli investimenti per il cloud con Gestione costi di Azure
 
@@ -116,7 +115,7 @@ Per altre informazioni, vedere [Calcolatore prezzi di Azure](https://azure.micro
 
 Azure Migrate è un servizio che valuta i carichi di lavoro correnti dell'organizzazione nei data center locali. Offre informazioni su ciò che potrebbe essere necessario per una soluzione sostitutiva di Azure. In primo luogo, Migrate analizza i computer locali per determinare se la migrazione è fattibile, quindi suggerisce il dimensionamento delle macchine virtuali in Azure per ottimizzare le prestazioni. Infine, crea anche una stima dei costi per una soluzione basata su Azure.
 
-Per altre informazioni, vedere [Azure Migrate](../../site-recovery/migrate-overview.md).
+Per altre informazioni, vedere [Azure Migrate](https://docs.microsoft.com/azure/migrate/migrate-services-overview).
 
 ## <a name="analyze-and-manage-your-costs"></a>Analizzare e gestire i costi
 
@@ -125,6 +124,11 @@ Rimanere informati su come i costi dell'organizzazione evolvono nel tempo. Usare
 ### <a name="organize-and-tag-your-resources"></a>Organizzare e contrassegnare le risorse
 
 Organizzare le risorse tenendo in considerazione i costi. Quando si creano sottoscrizioni e gruppi di risorse, considerare i team responsabili dei costi associati. Assicurarsi che la creazione di report tenga presente l'organizzazione. Le sottoscrizioni e i gruppi di risorse sono strumenti adatti per organizzare e attribuire le spese all'interno dell'organizzazione. I tag offrono un modo valido per attribuire i costi. È possibile usare i tag come filtro e per creare raggruppamenti quando si analizzano i dati e si esaminano i costi. I clienti con contratto Enterprise possono anche creare reparti in cui inserire le sottoscrizioni. L'organizzazione basata sui costi in Azure consente di fare in modo che le persone rilevanti all'interno dell'organizzazione continuino a essere responsabili della riduzione delle spese del team.
+
+Guardare il video [How to review tag policies with Azure Cost Management](https://www.youtube.com/watch?v=nHQYcYGKuyw) (Come esaminare i criteri per i tag con Gestione costi di Azure) per informazioni gli strumenti disponibili per l'imposizione di tag delle risorse scalabili nell'organizzazione.
+
+>[!VIDEO https://www.youtube.com/embed/nHQYcYGKuyw]
+
 
 ### <a name="use-cost-analysis"></a>Usare l'analisi dei costi
 

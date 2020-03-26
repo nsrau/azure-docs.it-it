@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: f8f2db3e81c498757bfc39bf70999ce1e70c09da
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: c4366b272aab160828afca927f6432c98a8fecd7
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79117187"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79370730"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-to-your-mpa-account"></a>Ottenere la proprietà della fatturazione delle sottoscrizioni di Azure dall'account del contratto Microsoft Partner
 
@@ -139,7 +139,7 @@ I prodotti di Azure Marketplace disponibili per le sottoscrizioni gestite tramit
 
 ### <a name="azure-reservations-transfer"></a>Trasferimento di prenotazioni di Azure
 
-Le prenotazioni di Azure non vengono spostate automaticamente con le sottoscrizioni. È possibile mantenere la prenotazione o [annullarla e riacquistarla](https://docs.microsoft.com/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations) in CSP. 
+Le prenotazioni di Azure non vengono spostate automaticamente con le sottoscrizioni. È possibile mantenere la prenotazione nel contratto Enterprise per altre sottoscrizioni o [annullare la prenotazione](https://docs.microsoft.com/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations) e consentire al partner di riacquistarla nel programma CSP. 
 
 ### <a name="access-to-azure-services"></a>Accesso ai servizi di Azure
 

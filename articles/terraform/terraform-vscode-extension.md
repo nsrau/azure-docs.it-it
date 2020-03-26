@@ -4,10 +4,10 @@ description: Questo articolo illustra come installare e usare l'estensione Azure
 ms.topic: tutorial
 ms.date: 10/26/2019
 ms.openlocfilehash: fcb47024fd26f061ca4475b01d00f1ae13303b61
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77472282"
 ---
 # <a name="tutorial-configure-the-azure-terraform-visual-studio-code-extension"></a>Esercitazione: Configurare l'estensione Azure Terraform di Visual Studio Code
@@ -20,7 +20,7 @@ In questo articolo vengono illustrate le operazioni seguenti:
 > * Installare e usare l'estensione Terraform di Visual Studio Code per i servizi di Azure.
 > * Usare Visual Studio Code per scrivere, definire ed eseguire i piani Terraform.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 - **Sottoscrizione di Azure**: Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare.
 
 - **Terraform**: [installare e configurare Terraform](terraform-install-configure.md).

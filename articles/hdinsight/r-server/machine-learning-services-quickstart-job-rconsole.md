@@ -9,10 +9,10 @@ ms.date: 06/19/2019
 ms.author: hrasheed
 ms.custom: mvc
 ms.openlocfilehash: af41a7569dedc9a56f67be8ae791d7185e0c7489
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73241592"
 ---
 # <a name="quickstart-execute-an-r-script-on-an-ml-services-cluster-in-azure-hdinsight-using-r-console"></a>Guida introduttiva: Eseguire uno script R in un cluster ML Services in Azure HDInsight con la console R
@@ -23,7 +23,7 @@ Questa guida introduttiva illustra come eseguire uno script R con una console R 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un cluster ML Services in HDInsight. Consultare [Creare cluster di Apache Hadoop usando il portale di Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selezionare **ML Services** per **Tipo di cluster**.
+* Un cluster ML Services in HDInsight. Vedere [Creare cluster di Apache Hadoop usando il portale di Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selezionare **ML Services** per **Tipo di cluster**.
 
 * Un client SSH. Per altre informazioni, vedere [Connettersi a HDInsight (Apache Hadoop) con SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 

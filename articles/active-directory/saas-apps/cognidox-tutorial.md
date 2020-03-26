@@ -17,10 +17,10 @@ ms.date: 07/18/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ad06d2f695109866bab60502a67f0d2c2f425477
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68480264"
 ---
 # <a name="tutorial-integrate-cognidox-with-azure-active-directory"></a>Esercitazione: Integrare Cognidox con Azure Active Directory
@@ -101,7 +101,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 6. Oltre a quelli elencati in precedenza, l'applicazione Cognidox prevede il passaggio di altri attributi nella risposta SAML. Nella sezione Attestazioni utente della finestra di dialogo Attributi utente eseguire la procedura seguente per aggiungere l'attributo del token SAML come illustrato nella tabella seguente: 
 
-    | NOME | Spazio dei nomi  |  Trasformazione | Parametro 1 |
+    | Nome | Spazio dei nomi  |  Trasformazione | Parametro 1 |
     | ---------------| --------------- | --------- |
     | wanshort | http://appinux.com/windowsaccountname2 | ExtractMailPrefix() | user.userprincipalname |
 
@@ -118,9 +118,9 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     f. Nell'elenco **Parametro 1** digitare il valore indicato per la riga.
 
-    g. Fare clic su **Save**.
+    g. Fare clic su **Salva**.
 
-4. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare **XML metadati federazione** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer in uso.
+4. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare il file **XML dei metadati della federazione** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer.
 
     ![Collegamento di download del certificato](common/metadataxml.png)
 
@@ -132,7 +132,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 Per configurare l'accesso Single Sign-On sul lato **Cognidox**, è necessario inviare il file **XML metadati federazione** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di Cognidox](mailto:support@cognidox.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
@@ -142,9 +142,9 @@ In questa sezione verrà creato un utente di test di nome B.Simon nel portale di
    1. Nel campo **Nome** immettere `B.Simon`.  
    1. Nel campo **Nome utente** immettere username@companydomain.extension. Ad esempio: `B.Simon@contoso.com`.
    1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
-   1. Fare clic su **Create**(Crea).
+   1. Fare clic su **Crea**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Cognidox.
 

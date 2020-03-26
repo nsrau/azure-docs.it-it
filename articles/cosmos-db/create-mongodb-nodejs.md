@@ -1,5 +1,5 @@
 ---
-title: "Avvio rapido: Connettere un'app MongoDB Node.js ad Azure Cosmos DB"
+title: "Guida introduttiva: Connettere un'app MongoDB Node.js ad Azure Cosmos DB"
 description: Questo Avvio rapido illustra come connettere un'app MongoDB esistente scritta in Node. js ad Azure Cosmos DB.
 author: markjbrown
 ms.author: mjbrown
@@ -10,13 +10,13 @@ ms.topic: quickstart
 ms.date: 05/21/2019
 ms.custom: seo-javascript-september2019, seo-javascript-october2019
 ms.openlocfilehash: 7e3e9e6c76d67db03ea812a4832e98f4449c9aba
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77061659"
 ---
-# <a name="quickstart-migrate-an-existing-mongodb-nodejs-web-app-to-azure-cosmos-db"></a>Avvio rapido: Eseguire la migrazione di un'app Web Node.js MongoDB esistente ad Azure Cosmos DB 
+# <a name="quickstart-migrate-an-existing-mongodb-nodejs-web-app-to-azure-cosmos-db"></a>Guida introduttiva: Eseguire la migrazione di un'app Web Node.js MongoDB esistente ad Azure Cosmos DB 
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -29,8 +29,8 @@ ms.locfileid: "77061659"
 
 In questa guida di avvio rapido si apprenderà a creare e gestire un account API Azure Cosmos DB per Mongo DB usando Azure Cloud Shell e con un'app MEAN (MongoDB, Express, Angolare e Node.js) clonata da GitHub. Azure Cosmos DB è un servizio di database modello che consente di creare ed eseguire rapidamente query su database di documenti, tabelle, valori chiave e grafi, con funzionalità di scalabilità orizzontale e distribuzione globale.
 
-## <a name="prerequisites"></a>Prerequisites
-- Un account Azure con una sottoscrizione attiva. [È possibile crearne uno gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). In alternativa, è possibile [provare gratuitamente Azure DB Cosmos](https://azure.microsoft.com/try/cosmosdb/) senza una sottoscrizione di Azure. È anche possibile usare l'[Emulatore di Azure Cosmos DB](https://aka.ms/cosmosdb-emulator) con la stringa di connessione `.mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true`.
+## <a name="prerequisites"></a>Prerequisiti
+- Un account Azure con una sottoscrizione attiva. [È possibile crearne uno gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). In alternativa, è possibile [provare gratuitamente Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) senza una sottoscrizione di Azure. È anche possibile usare l'[Emulatore di Azure Cosmos DB](https://aka.ms/cosmosdb-emulator) con la stringa di connessione `.mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true`.
 - [Node.js](https://nodejs.org/) e la conoscenza pratica di Node.js.
 - [Git](https://git-scm.com/downloads).
 - Se non si vuole usare Azure Cloud Shell, [Azure CLI 2.0+](/cli/azure/install-azure-cli).

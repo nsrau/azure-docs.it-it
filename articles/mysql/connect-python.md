@@ -4,24 +4,26 @@ description: Questa guida introduttiva fornisce diversi esempi di codice Python 
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.custom: seo-python-october2019
+ms.custom:
+- mvc
+- seo-python-october2019
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/09/2020
-ms.openlocfilehash: 96296a4ecea8dd1d546adf2292291746bd37507d
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: c9ea155f3cc71dd961a3780e3b188a6d062606bc
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76938925"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80067907"
 ---
-# <a name="quickstart-use-python-to-connect-and-query-data-with-azure-database-for-mysql"></a>Avvio rapido: usare Python per connettersi ed eseguire query sui dati con Database di Azure per MySQL
+# <a name="quickstart-use-python-to-connect-and-query-data-with-azure-database-for-mysql"></a>Guida introduttiva: usare Python per connettersi ed eseguire query sui dati con Database di Azure per MySQL
 
 In questo argomento di avvio rapido ci si connette a un'istanza di Database di Azure per MySQL usando Python. È quindi possibile usare istruzioni SQL per eseguire query, inserire, aggiornare ed eliminare dati nel database dalle piattaforme Mac, Ubuntu Linux e Windows. 
 
 Questo argomento presuppone che si abbia familiarità con lo sviluppo con Python, ma non con Database di Azure per MySQL.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 - Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Un'istanza di Database di Azure per il server MySQL. [Creare un database di Azure per il server MySQL tramite il portale di Azure](quickstart-create-mysql-server-database-using-azure-portal.md) o [Creare un database di Azure per il server MySQL tramite l'interfaccia della riga di comando di Azure](quickstart-create-mysql-server-database-using-azure-cli.md).

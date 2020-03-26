@@ -1,6 +1,6 @@
 ---
-title: 'Avvio rapido: Inviare eventi di archiviazione BLOB a un endpoint Web - Portale'
-description: "Avvio rapido: Usare Griglia di eventi di Azure e il portale di Azure per creare l'account di archiviazione BLOB e sottoscrivere gli eventi. Inviare gli eventi a un webhook."
+title: 'Guida introduttiva: Inviare eventi di archiviazione BLOB a un endpoint Web - Portale'
+description: "Guida introduttiva: Usare Griglia di eventi di Azure e il portale di Azure per creare l'account di archiviazione BLOB e sottoscrivere gli eventi. Inviare gli eventi a un webhook."
 services: event-grid
 keywords: ''
 author: spelluru
@@ -10,13 +10,13 @@ ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
 ms.openlocfilehash: 2daf17ccef1bca363fe92f71a332fbfa78637135
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76844778"
 ---
-# <a name="quickstart-route-blob-storage-events-to-web-endpoint-with-the-azure-portal"></a>Avvio rapido: Indirizzare gli eventi di archiviazione BLOB a un endpoint Web con il portale di Azure
+# <a name="quickstart-route-blob-storage-events-to-web-endpoint-with-the-azure-portal"></a>Guida introduttiva: Indirizzare gli eventi di archiviazione BLOB a un endpoint Web con il portale di Azure
 
 La griglia di eventi di Azure è un servizio di gestione degli eventi per il cloud. In questo articolo si usa il portale di Azure per creare un account di archiviazione BLOB, sottoscrivere gli eventi per l'archiviazione BLOB e attivare un evento per visualizzare il risultato. In genere, si inviano eventi a un endpoint che elabora i dati dell'evento e intraprende azioni. Per maggiore semplicità, tuttavia, in questo articolo gli eventi vengono inviati a un'app Web che raccoglie e visualizza i messaggi.
 

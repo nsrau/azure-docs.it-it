@@ -16,10 +16,10 @@ ms.date: 01/16/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3eace60445dc9d52f9690da74360282efbb4cbe5
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76291212"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-lucidchart"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Lucidchart
@@ -49,7 +49,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-lucidchart-from-the-gallery"></a>Aggiunta di Lucidchart dalla raccolta
 
-Per configurare l'integrazione di Lucidchart in Azure AD, è necessario aggiungere Lucidchart dalla raccolta all'elenco di app SaaS gestite.
+Per configurare l'integrazione di Lucidchart in Azure AD, è necessario aggiungere Lucidchart dalla raccolta al proprio elenco di app SaaS gestite.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
 1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory**.
@@ -66,8 +66,8 @@ Configurare e testare l'accesso SSO di Azure AD con Lucidchart usando un utente 
 Per configurare e testare l'accesso SSO di Azure AD con Lucidchart, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    * **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
-    * **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
+    * **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
+    * **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Configurare l'accesso Single Sign-On di Lucidchart](#configure-lucidchart-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
     * **[Creare l'utente di test di Lucidchart](#create-lucidchart-test-user)** : per avere una controparte di B.Simon in Lucidchart collegata alla rappresentazione dell'utente in Azure AD.
 1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
@@ -96,7 +96,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     a. URL di accesso
 
-    b. Identificatore di Azure AD
+    b. Identificatore Azure AD
 
     c. URL di chiusura sessione
 
@@ -164,13 +164,13 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 Non è richiesta alcuna operazione per configurare il provisioning degli utenti in Lucidchart.  Quando un utente assegnato tenta di accedere a Lucidchart utilizzando il pannello di accesso, Lucidchart controlla se l'utente esiste.  
 
-Se l'account utente non è ancora disponibile, viene creato automaticamente da Lucidchart.
+Se l’account utente non è ancora disponibile, viene creato automaticamente da Lucidchart.
 
 ## <a name="test-sso"></a>Testare l'accesso SSO 
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di Lucidchart nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Lucidchart per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di Lucidchart nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Lucidchart per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

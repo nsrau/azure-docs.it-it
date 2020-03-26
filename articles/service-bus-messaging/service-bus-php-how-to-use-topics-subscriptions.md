@@ -15,13 +15,13 @@ ms.topic: quickstart
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: 92f25f4bdac4942478c93f717c81eadd2c2f5b4a
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76760675"
 ---
-# <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-php"></a>Avvio rapido: Come usare gli argomenti e le sottoscrizioni del bus di servizio con PHP
+# <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-php"></a>Guida introduttiva: Come usare gli argomenti e le sottoscrizioni del bus di servizio con PHP
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
@@ -33,7 +33,7 @@ In questo articolo verrà descritto come usare gli argomenti e le sottoscrizioni
 - Ricezione di messaggi da una sottoscrizione
 - Eliminazione di argomenti e sottoscrizioni
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 1. Una sottoscrizione di Azure. Per completare l'esercitazione, è necessario un account Azure. È possibile attivare i [vantaggi per i sottoscrittori di Visual Studio o MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) oppure registrarsi per ottenere un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 2. Seguire la procedura descritta in [Avvio rapido: Usare il portale di Azure per creare un argomento del bus di servizio e le sottoscrizioni all'argomento](service-bus-quickstart-topics-subscriptions-portal.md) per creare uno **spazio dei nomi** del bus di servizio e ottenere la **stringa di connessione**.
 

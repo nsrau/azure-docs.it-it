@@ -8,14 +8,14 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 06/05/2019
 ms.author: lbosq
-ms.openlocfilehash: 7ab259886409610fc89c35f4c96c9babb977b44d
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: e6456c79dbce1f8bb874ce4c88b932e592235a82
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77061821"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80244427"
 ---
-# <a name="quickstart-build-a-nodejs-application-by-using-azure-cosmos-db-gremlin-api-account"></a>Avvio rapido: Creare un'applicazione Node.js usando l'account dell'API Gremlin di Azure Cosmos DB
+# <a name="quickstart-build-a-nodejs-application-by-using-azure-cosmos-db-gremlin-api-account"></a>Guida introduttiva: Creare un'applicazione Node.js usando l'account dell'API Gremlin di Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [Console Gremlin](create-graph-gremlin-console.md)
@@ -28,7 +28,7 @@ ms.locfileid: "77061821"
 
 In questo argomento di avvio rapido si apprenderà a creare e gestire un account API Gremlin di Azure Cosmos DB (grafo) dal portale di Azure e aggiungere dati usando un'app Node.js clonata da GitHub. Azure Cosmos DB è un servizio di database modello che consente di creare ed eseguire rapidamente query su database di documenti, tabelle, valori chiave e grafi, con funzionalità di scalabilità orizzontale e distribuzione globale.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 - Un account Azure con una sottoscrizione attiva. [È possibile crearne uno gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). 
 - [Node.js 0.10.29+](https://nodejs.org/).
 - [Git](https://git-scm.com/downloads).
@@ -169,7 +169,7 @@ Ecco un esempio dell'aspetto che dovrebbe avere il file *config.js* completato:
 ```javascript
 var config = {}
 
-// Note that this must not have HTTPS or the port number
+// Note that this must include the protocol (HTTPS:// for .NET SDK URI or wss:// for Gremlin Endpoint) and the port number
 config.endpoint = "https://testgraphacct.gremlin.cosmosdb.azure.com:443/"; 
 config.primaryKey = "Pams6e7LEUS7LJ2Qk0fjZf3eGo65JdMWHmyn65i52w8ozPX2oxY3iP0yu05t9v1WymAHNcMwPIqNAEv3XDFsEg==";
 config.database = "graphdb"

@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Creare un indice di ricerca in C# con .NET'
+title: 'Guida introduttiva: Creare un indice di ricerca in C# con .NET'
 titleSuffix: Azure Cognitive Search
 description: Questo argomento di avvio rapido su C# illustra come creare un indice, caricare dati ed eseguire query con .NET SDK di Ricerca cognitiva di Azure.
 manager: nitinme
@@ -10,13 +10,13 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 02/10/2020
 ms.openlocfilehash: 3d0006a3c77050c1bb21a0da8d6be51e659f933d
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77589216"
 ---
-# <a name="quickstart-create-an-azure-cognitive-search-index-in-c-using-the-net-sdk"></a>Avvio rapido: Creare un indice di Ricerca cognitiva di Azure in C# con .NET SDK
+# <a name="quickstart-create-an-azure-cognitive-search-index-in-c-using-the-net-sdk"></a>Guida introduttiva: Creare un indice di Ricerca cognitiva di Azure in C# con .NET SDK
 > [!div class="op_single_selector"]
 > * [C#](search-get-started-dotnet.md)
 > * [Portale](search-get-started-portal.md)
@@ -32,7 +32,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 > [!NOTE]
 > Per semplicità, nel codice di esempio incluso in questo articolo si usano i metodi sincroni di .NET SDK di Ricerca cognitiva di Azure. Per scenari di produzione, è però consigliabile usare i metodi asincroni nelle proprie applicazioni per mantenerle scalabili e reattive. È ad esempio possibile usare `CreateAsync` e `DeleteAsync` invece di `Create` e `Delete`.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per questa guida di avvio rapido sono richiesti i servizi e gli strumenti seguenti.
 

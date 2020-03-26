@@ -9,13 +9,13 @@ ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
 ms.openlocfilehash: 765b7e5bb7341974a6a16d3f1ed0bcabf415f9f3
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76029172"
 ---
-# <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>Avvio rapido: Configurare il servizio Device Provisioning in hub IoT con il portale di Azure
+# <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>Guida introduttiva: Configurare il servizio Device Provisioning in hub IoT con il portale di Azure
 
 Il servizio Device Provisioning in hub IoT può essere usato con l'hub IoT per consentire il provisioning JIT automatico nell'hub IoT desiderato senza alcun intervento dell'utente, permettendo ai clienti di effettuare il provisioning di milioni di dispositivi in modo sicuro e scalabile. Il servizio Device provisioning in hub IoT di Azure supporta dispositivi IoT con TPM, chiavi simmetriche e autenticazioni di certificati X.509. Per altre informazioni, vedere [Panoramica del servizio Device Provisioning in hub IoT](./about-iot-dps.md)
 

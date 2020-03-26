@@ -17,10 +17,10 @@ ms.date: 09/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b37bfbfbe17a8fa6fdb9118c32bce7ea87a2636c
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "71241182"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-whitesource"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Whitesource
@@ -66,8 +66,8 @@ Configurare e testare l'accesso SSO di Azure AD con Whitesource usando un utente
 Per configurare e testare l'accesso SSO di Azure AD con Whitesource, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
-    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
+    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
+    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Configurare l'accesso Single Sign-On di Whitesource](#configure-whitesource-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
     1. **[Creare l'utente di test di Whitesource](#create-whitesource-test-user)** : per avere una controparte di B.Simon in Whitesource collegata alla rappresentazione dell'utente in Azure AD.
 1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.

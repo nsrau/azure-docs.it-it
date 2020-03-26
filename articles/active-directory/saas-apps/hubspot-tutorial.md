@@ -17,10 +17,10 @@ ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c4b235426a7029abb9bb79ba56e582cccc3b14a6
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68944439"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hubspot"></a>Esercitazione: Integrazione di Azure Active Directory con HubSpot
@@ -39,7 +39,7 @@ Per altre informazioni sull'integrazione di app SaaS (Software as a Service) con
 
 Per configurare l'integrazione di Azure AD con HubSpot, sono necessari gli elementi seguenti:
 
-* Una sottoscrizione di Azure AD. Se non si ha una sottoscrizione di Azure AD, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+* Una sottoscrizione di Azure AD. Se non si dispone di una sottoscrizione di Azure AD, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 * Una sottoscrizione a HubSpot con accesso Single Sign-On abilitato.
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
@@ -79,12 +79,12 @@ In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure 
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con HubSpot, è necessario completare le procedure di base seguenti:
 
-| Attività | DESCRIZIONE |
+| Attività | Descrizione |
 | --- | --- |
-| **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** | Abilitare gli utenti all'uso di questa funzionalità. |
-| **[Configurare l'accesso Single Sign-On per HubSpot](#configure-hubspot-single-sign-on)** | Configurare le impostazioni dell'accesso Single Sign-On nell'applicazione. |
+| **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** | Consente agli utenti di usare questa funzionalità. |
+| **[Configurare l'accesso Single Sign-On per HubSpot](#configure-hubspot-single-sign-on)** | Consente di configurare le impostazioni di accesso Single Sign-On nell'applicazione. |
 | **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** | Consente di verificare l'accesso Single Sign-On di Azure AD per un utente chiamato Britta Simon. |
-| **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** | Abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD. |
+| **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** | Consente a Britta Simon di usare l'accesso Single Sign-On di Azure AD. |
 | **[Creare un utente di test di HubSpot](#create-a-hubspot-test-user)** | Crea una controparte di Britta Simon in HubSpot collegata alla rappresentazione dell'utente in Azure AD. |
 | **[Testare l'accesso Single Sign-On](#test-single-sign-on)** | Verifica se la configurazione funziona. |
 
@@ -117,7 +117,7 @@ In questa sezione si configura l'accesso Single Sign-On di Azure AD con HubSpot 
 
 1. Per configurare l'applicazione in *modalità avviata da SP*:
 
-    1. Selezionare **Impostare URL aggiuntivi**.
+    1. Selezionare **Imposta URL aggiuntivi**.
 
     1. Nella casella **URL di accesso** immettere **https:\//app.hubspot.com/login**.
 
@@ -167,7 +167,7 @@ In questa sezione si configura l'accesso Single Sign-On di Azure AD con HubSpot 
 
         ![Sezione Set Up Single Sign-On (Configura Single Sign-On) in HubSpot](./media/hubspot-tutorial/config4.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
 In questa sezione viene creato un utente di test chiamato Britta Simon nel portale di Azure.
 
@@ -191,7 +191,7 @@ In questa sezione viene creato un utente di test chiamato Britta Simon nel porta
 
     ![Riquadro Utente](common/user-properties.png)
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione si concede a Britta Simon l'accesso a HubSpot in modo che possa usare l'accesso Single Sign-On di Azure.
 

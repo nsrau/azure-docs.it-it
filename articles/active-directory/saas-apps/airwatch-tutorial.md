@@ -17,15 +17,15 @@ ms.date: 07/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 772b37816b83c275bae927d825434dc3ca76a35c
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74231982"
 ---
 # <a name="tutorial-integrate-airwatch-with-azure-active-directory"></a>Esercitazione: Integrare AirWatch con Azure Active Directory
 
-Questa esercitazione descrive come integrare AirWatch con Azure Active Directory (Azure AD). Integrando AirWatch con Azure AD, è possibile:
+Questa esercitazione descriverà come integrare AirWatch con Azure Active Directory (Azure AD). Integrando AirWatch con Azure AD, è possibile:
 
 * Controllare in Azure AD chi può accedere ad AirWatch.
 * Abilitare gli utenti per l'accesso automatico ad AirWatch con gli account Azure AD personali.
@@ -57,7 +57,7 @@ Per configurare l'integrazione di AirWatch in Azure AD, è necessario aggiungere
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-Configurare e testare l'accesso Single Sign-On di Azure AD con AirWatch usando un utente di test di nome **B.Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in AirWatch.
+Configurare e testare l'accesso Single Sign-On di Azure AD con AirWatch usando un utente di test di nome **B. Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in AirWatch.
 
 Per configurare e testare l'accesso SSO di Azure AD con AirWatch, completare le procedure di base seguenti:
 
@@ -110,7 +110,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     f. Fare clic su **OK**.
 
-    g. Fare clic su **Save**.
+    g. Fare clic su **Salva**.
 
 1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare **XML metadati federazione** e selezionare **Scarica** per scaricare il file XML dei metadati e salvarlo nel computer in uso.
 
@@ -160,7 +160,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     d. Per **Authentication Request Security** (Sicurezza della richiesta di autenticazione) selezionare **None** (Nessuna).
 
-    e. Fare clic su **Save**.
+    e. Fare clic su **Salva**.
 
 1. Fare di nuovo clic sulla scheda **User** .
 
@@ -182,7 +182,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     f. Nella casella di testo **Email** (Posta elettronica) digitare `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
-    g. Fare clic su **Save**.
+    g. Fare clic su **Salva**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
@@ -198,7 +198,7 @@ In questa sezione verrà creato un utente di test di nome B.Simon nel portale di
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
-In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso ad AirWatch.
+In questa sezione si abiliterà B. Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso ad AirWatch.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
 1. Nell'elenco delle applicazioni selezionare **AirWatch**.
@@ -234,16 +234,16 @@ Per consentire agli utenti di Azure AD di accedere ad AirWatch, è necessario ef
 
    ![Add User](./media/airwatch-tutorial/ic791931.png "Aggiunta di un utente")
 
-   a. Nelle caselle di testo **Username**, **Password**, **Confirm Password**, **First Name**, **Last Name** e **Email Address** digitare il nome utente, la password, la conferma password, il nome e il cognome di un account Azure Active Directory valido di cui si vuole effettuare il provisioning.
+   a. Nelle caselle di testo **Username**, **Password**, **Confirm Password**, **First Name**, **Last Name** e **Email Address** digitare il nome utente, la password, la conferma password, il nome e il cognome di un account Azure Active Directory valido di cui si vuole eseguire il provisioning.
 
-   b. Fare clic su **Save**.
+   b. Fare clic su **Salva**.
 
 > [!NOTE]
 > È possibile usare qualsiasi altro strumento o API di creazione di account utente forniti da AirWatch per effettuare il provisioning degli account utente di Azure AD.
 
 ### <a name="test-sso"></a>Testare l'accesso SSO
 
-Quando si seleziona il riquadro di AirWatch nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di AirWatch per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si seleziona il riquadro di AirWatch nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione AirWatch per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

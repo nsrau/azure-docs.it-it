@@ -17,10 +17,10 @@ ms.date: 08/28/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e908cb76a57f027494230edc648b69da0730ac27
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "70164234"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-onit"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Onit
@@ -64,8 +64,8 @@ Configurare e testare l'accesso SSO di Azure AD con Onit usando un utente di tes
 Per configurare e testare l'accesso SSO di Azure AD con Onit, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
-    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
+    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
+    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Configurare l'accesso Single Sign-On di Onit](#configure-onit-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
     1. **[Creare l'utente di test di Onit](#create-onit-test-user)** : per avere una controparte di B.Simon in Onit collegata alla rappresentazione dell'utente in Azure AD.
 1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
@@ -137,7 +137,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 2. Scegliere **Amministrazione**dal menu disponibile nella parte superiore.
    
-    ![Amministrazione](./media/onit-tutorial/IC791174.png "Administration")
+    ![Amministrazione](./media/onit-tutorial/IC791174.png "Amministrazione")
 
 3. Fare clic su **Edit Corporation**.
    
@@ -169,7 +169,7 @@ Per consentire agli utenti di Azure AD di accedere a Onit, è necessario eseguir
 
 2. Fare clic su **Add User**.
 
-    ![Amministrazione](./media/onit-tutorial/IC791180.png "Administration")
+    ![Amministrazione](./media/onit-tutorial/IC791180.png "Amministrazione")
 
 3. Nella pagina della finestra di dialogo **Aggiungi utente** eseguire la procedura seguente:
 
@@ -177,7 +177,7 @@ Per consentire agli utenti di Azure AD di accedere a Onit, è necessario eseguir
 
     a. Digitare il **nome** e l'**indirizzo e-mail** di un account Azure AD valido di cui si vuole effettuare il provisioning nelle caselle di testo correlate.
 
-    b. Fare clic su **Create**(Crea).
+    b. Fare clic su **Crea**.
 
     > [!NOTE]
     > Il titolare dell'account Azure Active Directory riceve un messaggio di posta elettronica con un collegamento da selezionare per confermare l'account e attivarlo.

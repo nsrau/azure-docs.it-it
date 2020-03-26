@@ -15,10 +15,10 @@ ms.topic: tutorial
 ms.date: 01/28/2020
 ms.author: jeedes
 ms.openlocfilehash: 768756e013a4301ea11f5f9478178bdad46f9d67
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76983997"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-oc-tanner---appreciatehub"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con O.C. Tanner - AppreciateHub
@@ -64,8 +64,8 @@ Configurare e testare l'accesso SSO di Azure AD con O.C. Tanner - AppreciateHub 
 Per configurare e testare l'accesso SSO di Azure AD con O.C. Tanner - AppreciateHub, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    * **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
-    * **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
+    * **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
+    * **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Configurare l'accesso Single Sign-On di O.C. Tanner - AppreciateHub](#configure-oc-tanner---appreciatehub-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
     * **[Creare un utente di test di O.C. Tanner - AppreciateHub](#create-oc-tanner---appreciatehub-test-user)** : per avere una controparte di B.Simon in O.C. Tanner - AppreciateHub collegata alla relativa rappresentazione in Azure AD.
 1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
@@ -74,7 +74,7 @@ Per configurare e testare l'accesso SSO di Azure AD con O.C. Tanner - Appreciate
 
 Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire questa procedura.
 
-1. Nel [portale di Azure](https://portal.azure.com/) nella pagina di integrazione dell'applicazione **O.C. Tanner - AppreciateHub** individuare la sezione **Gestione** e selezionare **Single Sign-On**.
+1. Nella pagina di integrazione dell'applicazione [O.C. Tanner - AppreciateHub](https://portal.azure.com/) del **portale Tanner - AppreciateHub** individuare la sezione **Gestione** e selezionare **Single Sign-On**.
 1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML**.
 1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona Modifica (la penna) relativa a **Configurazione SAML di base** per modificare le impostazioni.
 
@@ -128,7 +128,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 ## <a name="configure-oc-tanner---appreciatehub-sso"></a>Configurare l'accesso Single Sign-On di O.C. Tanner - AppreciateHub
 
-Per configurare l'accesso Single Sign-On sul lato **O.C. Tanner - AppreciateHub**, è necessario inviare il file di **XML metadati federazione** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di O.C. Tanner - AppreciateHub](mailto:sso@octanner.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+Per configurare l’accesso Single Sign-On sul lato **O.C. Tanner - AppreciateHub**, è necessario inviare il file di **XML metadati federazione** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di O.C. Tanner - AppreciateHub](mailto:sso@octanner.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 ### <a name="create-oc-tanner---appreciatehub-test-user"></a>Creare un utente di test di O.C. Tanner - AppreciateHub
 
@@ -142,7 +142,7 @@ Chiedere al [team. di supporto di O.C. Tanner - AppreciateHub](mailto:sso@octann
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro O.C. Tanner - AppreciateHub nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di O.C. Tanner - AppreciateHub per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro O.C. Tanner - AppreciateHub nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione O.C. Tanner - AppreciateHub per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

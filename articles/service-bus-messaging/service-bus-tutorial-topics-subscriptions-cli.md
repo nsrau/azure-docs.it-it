@@ -10,17 +10,17 @@ ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
 ms.openlocfilehash: 0bd0d8eb8abe6f320f73e35b1e3b08e1d8dc1de3
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73718916"
 ---
 # <a name="tutorial-update-inventory-using-cli-and-topicssubscriptions"></a>Esercitazione: Aggiornare l'inventario usando l'interfaccia della riga di comando e argomenti/sottoscrizioni
 
 Il bus di servizio di Microsoft Azure è un servizio di messaggistica cloud multi-tenant che invia informazioni tra applicazioni e servizi. Le operazioni asincrone offrono messaggistica negoziata flessibile, insieme a funzionalità di messaggistica e pubblicazione/sottoscrizione FIFO (First-In-First-Out) strutturate. Questa esercitazione illustra come usare gli argomenti del bus di servizio e le sottoscrizioni in uno scenario di magazzino al dettaglio, con i canali di pubblicazione/sottoscrizione tramite l'interfaccia della riga di comando di Azure e Java.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 > [!div class="checklist"]
 > * Creare un argomento del bus di servizio e una o più sottoscrizioni a tale argomento usando l'interfaccia della riga di comando di Azure
 > * Aggiungere filtri di argomento usando l'interfaccia della riga di comando di Azure

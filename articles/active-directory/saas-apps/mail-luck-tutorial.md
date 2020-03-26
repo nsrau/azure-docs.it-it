@@ -17,10 +17,10 @@ ms.date: 10/24/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: daf86270224d2a76eb124e879594ac2588b46776
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72969733"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-mail-luck"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Mail Luck!
@@ -105,7 +105,7 @@ In questa sezione verrà creato un utente di test di nome B.Simon nel portale di
    1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
    1. Fare clic su **Crea**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Mail Luck!.
 

@@ -12,10 +12,10 @@ ms.author: sachinp
 ms.reviewer: vanto, carlrab
 ms.date: 02/11/2019
 ms.openlocfilehash: ff2508952b75bad88ff8ff92388c20ba52f50f42
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73818249"
 ---
 # <a name="quickstart-create-a-server-level-firewall-rule-for-single-and-pooled-databases-using-the-azure-portal"></a>Guida introduttiva: Creare una regola del firewall a livello di server per database singoli e in pool con il portale di Azure

@@ -9,10 +9,10 @@ ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 06/26/2019
 ms.openlocfilehash: 6e46d7403e251bccd69467cfcdaa1d5073b4e454
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73494557"
 ---
 # <a name="tutorial-build-an-apache-spark-machine-learning-application-in-azure-hdinsight"></a>Esercitazione: Compilare un'applicazione di apprendimento automatico Apache Spark in Azure HDInsight
@@ -21,7 +21,7 @@ In questa esercitazione si apprenderà come usare [Jupyter Notebook](https://jup
 
 [MLib](https://spark.apache.org/docs/latest/ml-guide.html) è la libreria di Machine Learning scalabile di Spark costituita da utilità e algoritmi di apprendimento comuni, tra cui classificazione, regressione, clustering, filtro collaborativo, riduzione della dimensionalità, nonché primitive di ottimizzazione sottostanti.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 > [!div class="checklist"]
 > * Sviluppare un'applicazione di apprendimento automatico Apache Spark
 
@@ -186,7 +186,7 @@ In questa applicazione si usa una [pipeline ML](https://spark.apache.org/docs/2.
 
 ## <a name="use-anaconda-scikit-learn-library-for-spark-machine-learning"></a>Usare la libreria Anaconda scikit-learn per Machine Learning Spark
 
-I cluster Apache Spark in HDInsight includono librerie Anaconda. Include inoltre la libreria **scikit-learn** per Machine Learning. La libreria include inoltre diversi set di dati che è possibile usare per compilare applicazioni di esempio direttamente da un notebook Jupyter. Per esempi sull'uso della libreria scikit-learn, vedere [ https://scikit-learn.org/stable/auto_examples/index.html ](https://scikit-learn.org/stable/auto_examples/index.html).
+I cluster Apache Spark in HDInsight includono librerie Anaconda. Include inoltre la libreria **scikit-learn** per Machine Learning. La libreria include inoltre diversi set di dati che è possibile usare per compilare applicazioni di esempio direttamente da un notebook Jupyter. Per esempi sull'uso della libreria scikit-learn, vedere [https://scikit-learn.org/stable/auto_examples/index.html](https://scikit-learn.org/stable/auto_examples/index.html).
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

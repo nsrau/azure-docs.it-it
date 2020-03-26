@@ -1,26 +1,28 @@
 ---
-title: Usare i report di Cloudyn in Azure | Microsoft Docs
+title: Usare i report di Cloudyn in Azure
 description: Questo articolo illustra lo scopo dei report di Cloudyn che sono inclusi nel portale di Cloudyn e come usarli in modo efficace.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 03/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: benshy
 ms.custom: seodec18
-ms.openlocfilehash: b3563e08963b0b32542dcbece2529c350981f557
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ROBOTS: NOINDEX
+ms.openlocfilehash: 633bf8126c1745cfd8db117966975bbf4ea2c9c8
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200011"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79463544"
 ---
 # <a name="reports-available-in-the-cloudyn-portal"></a>Report disponibili nel portale di Cloudyn
 
 Questo articolo illustra lo scopo dei report di Cloudyn costi che sono inclusi nel portale di Cloudyn. Descrive anche come usare in modo efficace i report. La maggior parte dei report presenta le informazioni in modo intuitivo e con un aspetto grafico uniforme. La maggior parte delle azioni che è possibile eseguire in un report, è possibile anche in altri report. Per una panoramica su come usare i report di Cloudyn, incluse le procedure per personalizzare e salvare o pianificare i report, vedere [Informazioni sui report dei costi](understanding-cost-reports.md).
 
 Gestione costi di Azure offre funzionalità simili a quelle di Cloudyn. Gestione costi di Azure è una soluzione di gestione costi nativa di Azure. È un modo per analizzare i costi, creare e gestire budget, esportare i dati, esaminare e implementare gli elementi consigliati per l'ottimizzazione e di conseguenza risparmiare. Per altre informazioni, vedere [Gestione costi di Azure](../cost-management-billing-overview.md).
+
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
 ## <a name="report-types"></a>Tipi di report
 

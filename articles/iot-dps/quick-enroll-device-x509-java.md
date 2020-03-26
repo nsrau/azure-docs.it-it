@@ -10,19 +10,19 @@ services: iot-dps
 ms.devlang: java
 ms.custom: mvc
 ms.openlocfilehash: 534956a53615cfafeffa611127bc8c3cc4493753
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77604908"
 ---
-# <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-java"></a>Avvio rapido: Registrare i dispositivi X.509 nel servizio Device Provisioning con Java
+# <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-java"></a>Guida introduttiva: Registrare i dispositivi X.509 nel servizio Device Provisioning con Java
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-x509](../../includes/iot-dps-selector-quick-enroll-device-x509.md)]
 
 Questa guida di avvio rapido descrive come usare Java per registrare a livello di codice un gruppo di dispositivi simulati X.509 nel servizio Device Provisioning in hub IoT di Azure. I dispositivi vengono registrati in un'istanza del servizio di provisioning creando un gruppo di registrazione o una registrazione singola. Questa guida di avvio rapido descrive come creare entrambi i tipi di registrazioni usando Java Service SDK e un'applicazione Java di esempio.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 - Completamento dell'esercitazione [Configurare il servizio Device Provisioning in hub IoT con il portale di Azure](./quick-setup-auto-provision.md).
 - Un account Azure con una sottoscrizione attiva. [È possibile crearne uno gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).

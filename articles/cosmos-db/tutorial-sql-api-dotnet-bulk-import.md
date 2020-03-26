@@ -7,11 +7,11 @@ ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 40dd7066d959b56f4554ea9d0390e8b1eb41e77f
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 79771e082a4a6ffae15f33f636b0300e93bcdaba
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77587567"
 ---
 # <a name="bulk-import-data-to-azure-cosmos-db-sql-api-account-by-using-the-net-sdk"></a>Importare in blocco i dati nell'account dell'API SQL di Azure Cosmos DB con .NET SDK
@@ -27,7 +27,7 @@ Contenuto dell'esercitazione:
 > * Connessione a un account Azure Cosmos con il supporto dell'esecuzione in blocco abilitato
 > * Eseguire un'importazione dati tramite operazioni di creazione simultanee
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di seguire le istruzioni di questo articolo, verificare di avere le risorse seguenti:
 
@@ -120,13 +120,13 @@ Si inizierà sovrascrivendo il metodo `Main` predefinito e definendo le variabil
 
 All'interno del metodo `Main` aggiungere il codice seguente per inizializzare l'oggetto CosmosClient:
 
-:::code language="csharp" source="~/cosmos-dotnet-bulk-import/src/Program.cs" id="CreateClient":::
+[!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=CreateClient)]
 
 Dopo l'abilitazione dell'esecuzione in blocco, CosmosClient raggruppa internamente le operazioni simultanee in singole chiamate del servizio. In questo modo, ottimizza l'utilizzo della velocità effettiva distribuendo le chiamate del servizio tra le partizioni e assegnando infine i singoli risultati ai chiamanti originari.
 
 È quindi possibile creare un contenitore per archiviare tutti gli elementi.  Definire `/pk` come chiave di partizione, 50000 UR/sec come velocità effettiva con provisioning e un criterio di indicizzazione personalizzato che escluda tutti i campi per ottimizzare la velocità effettiva in scrittura. Aggiungere il codice seguente dopo l'istruzione di inizializzazione di CosmosClient:
 
-:::code language="csharp" source="~/cosmos-dotnet-bulk-import/src/Program.cs" id="Initialize":::
+[!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=Initialize)]
 
 ## <a name="step-6-populate-a-list-of-concurrent-tasks"></a>Passaggio 6: Popolare un elenco di attività simultanee
 
@@ -141,22 +141,22 @@ Prima di tutto aggiungere il pacchetto Bogus alla soluzione usando il comando do
 
 Definire la definizione degli elementi che si intende salvare. È necessario definire la classe `Item` all'interno del file `Program.cs`:
 
-:::code language="csharp" source="~/cosmos-dotnet-bulk-import/src/Program.cs" id="Model":::
+[!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=Model)]
 
 Creare quindi una funzione helper all'interno della classe `Program`. Questa funzione helper otterrà il numero di elementi definiti per l'inserimento e genererà dati casuali:
 
-:::code language="csharp" source="~/cosmos-dotnet-bulk-import/src/Program.cs" id="Bogus":::
+[!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=Bogus)]
 
 Leggere gli elementi e serializzarli in istanze di flusso usando la classe `System.Text.Json`. Vista la natura dei dati generati automaticamente, si serializzano i dati come flussi. È anche possibile usare direttamente l'istanza dell'elemento, ma eseguendo la conversione in flussi, è possibile sfruttare le prestazioni delle API di flusso in CosmosClient. In genere è possibile usare i dati direttamente, purché si conosca la chiave di partizione. 
 
 
 Per convertire i dati in istanze di flusso, all'interno del metodo `Main`, aggiungere il codice seguente subito dopo la creazione del contenitore:
 
-:::code language="csharp" source="~/cosmos-dotnet-bulk-import/src/Program.cs" id="Operations":::
+[!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=Operations)]
 
 Usare quindi i flussi di dati per creare attività simultanee e popolare l'elenco delle attività per inserire gli elementi nel contenitore. Per eseguire questa operazione, aggiungere il codice seguente alla classe `Program`:
 
-:::code language="csharp" source="~/cosmos-dotnet-bulk-import/src/Program.cs" id="ConcurrentTasks":::
+[!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=ConcurrentTasks)]
 
 Tutte queste operazioni punto simultanee verranno eseguite insieme, ovvero in blocco, come descritto nella sezione introduttiva.
 

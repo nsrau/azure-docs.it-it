@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 04/03/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: c02595ebdb2f011dcc94b517771a79a4b2df754d
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: e1773ef81a5b727187a9a69ccc7ce7ad0421fb2c
+ms.sourcegitcommit: 940e16ff194d5163f277f98d038833b1055a1a3e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78161721"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80246773"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-android-app-using-azure-spatial-anchors"></a>Esercitazione: Istruzioni dettagliate per la creazione di una nuova app Android usando Ancoraggi nello spazio di Azure
 
@@ -69,7 +69,7 @@ dependencies {
 
 ## <a name="integrating-_sceneform_"></a>Integrazione di _Sceneform_
 
-<a href="https://developers.google.com/ar/develop/java/sceneform/" target="_blank">_Sceneform_</a> semplifica il rendering di scene 3D realistiche nelle app di realtà aumentata, senza la necessità di competenze in OpenGL.
+[_Sceneform_](https://developers.google.com/sceneform/develop/) semplifica il rendering di scene 3D realistiche nelle app di realtà aumentata, senza la necessità di competenze in OpenGL.
 
 Modificare `Gradle Scripts\build.gradle (Module: app)` per includere le voci seguenti. Questo codice consente all'app di usare i costrutti del linguaggio Java 8, richiesti da `Sceneform`. Assicura inoltre che l'app sia destinata alla versione 1.8 di `Sceneform`, perché deve corrispondere alla versione di ARCore usata dall'app. Dopo aver apportato questa modifica, è possibile che venga visualizzata una notifica di Gradle che chiede di eseguire la sincronizzazione. Fare clic su **Sync now** (Sincronizza ora).
 

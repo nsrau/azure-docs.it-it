@@ -17,10 +17,10 @@ ms.date: 10/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b46ac34db21576c7e2de2271a468e3e782ff6aa9
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73885343"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-check-point-cloudguard-dome9-arc"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Check Point CloudGuard Dome9 Arc
@@ -102,7 +102,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Oltre quelli elencati in precedenza, l'applicazione Check Point CloudGuard Dome9 Arc prevede il passaggio di altri attributi nella risposta SAML. Tali attributi sono indicati di seguito. Anche questi attributi vengono prepopolati, ma è possibile esaminarli in base ai requisiti.
     
-    | NOME |  Attributo di origine|
+    | Nome |  Attributo di origine|
     | ---------------| --------------- |
     | memberof | user.assignedroles |
 
@@ -129,7 +129,7 @@ In questa sezione verrà creato un utente di test di nome B.Simon nel portale di
    1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
    1. Fare clic su **Crea**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione si abiliterà B. Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Check Point CloudGuard Dome9 Arc.
 
@@ -151,7 +151,7 @@ In questa sezione si abiliterà B. Simon all'uso dell'accesso Single Sign-On di 
 
 1. Per automatizzare la configurazione all'interno di Check Point CloudGuard Dome9 Arc, è necessario installare l'**estensione del browser per l'accesso sicuro ad App personali** facendo clic su **Installa l'estensione**.
 
-    ![Estensione per App personali](common/install-myappssecure-extension.png)
+    ![Estensione MyApps](common/install-myappssecure-extension.png)
 
 2. Dopo aver aggiunto l'estensione al browser, fare clic su **Configura Check Point CloudGuard Dome9 Arc** per passare direttamente all'applicazione Check Point CloudGuard Dome9 Arc. Da qui, fornire le credenziali di amministratore per accedere a Check Point CloudGuard Dome9 Arc. L'estensione del browser configurerà automaticamente l'applicazione e automatizzerà i passaggi da 3 a 6.
 
@@ -179,7 +179,7 @@ In questa sezione si abiliterà B. Simon all'uso dell'accesso Single Sign-On di 
 
     d. Aprire il certificato con codifica Base64 scaricato nel Blocco note, copiarne il contenuto negli Appunti e quindi incollarlo nella casella di testo **X.509 certificate** (Certificato X.509).
 
-    e. Fare clic su **Save**.
+    e. Fare clic su **Salva**.
 
 ### <a name="create-check-point-cloudguard-dome9-arc-test-user"></a>Creare l'utente di test di Check Point CloudGuard Dome9 Arc
 

@@ -5,11 +5,11 @@ ms.topic: overview
 ms.date: 04/09/2018
 ms.custom: mvc
 ms.openlocfilehash: bd9f3bfe1578b632707382cfe422f19514e7ce48
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78356098"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79290049"
 ---
 > [!NOTE]
 > Microsoft Flow ora si chiama Power Automate. Per altre informazioni, vedere questo [blog](https://aka.ms/flow-now-pa).

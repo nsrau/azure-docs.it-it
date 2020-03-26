@@ -17,10 +17,10 @@ ms.date: 01/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ed06586435315935566ca0b1519b182d4fc47d39
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73159047"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-highgear"></a>Esercitazione: Integrazione di Azure Active Directory con HighGear
@@ -150,7 +150,7 @@ Per configurare HighGear per Single Sign-On, accedere al sistema HighGear. Dopo 
 
 ![Voce di menu Single Sign-On Settings](media/highgear-tutorial/single-sign-on-settings-menu-item.png)
 
-1. In **Nome del provider di identità** digitare una breve descrizione che verrà visualizzata sul pulsante Single Sign-On di HighGear nella pagina di accesso. Ad esempio:  Azure AD
+1. In **Nome del provider di identità** digitare una breve descrizione che verrà visualizzata sul pulsante Single Sign-On di HighGear nella pagina di accesso. Ad esempio: Azure AD
 
 2. Nel campo **Single Sign-On (SSO) URL** (URL Single Sign-On (SSO)) in HighGear incollare il valore del campo **URL di accesso** presente nella sezione **Configura HighGear** in Azure.
 
@@ -183,13 +183,13 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
     b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
-    Ad esempio: BrittaSimon@contoso.com
+    Ad esempio, usare BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
     d. Fare clic su **Crea**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a HighGear.
 
@@ -230,7 +230,7 @@ Per creare un utente di test di HighGear per testare la configurazione di Single
     Sulla destra apparirà un riquadro in cui digitare le informazioni relative al nuovo utente.  
     ![Modulo New Contact](media/highgear-tutorial/new-contact-form.png)
 
-3. Nel campo **Name** (Nome) digitare un nome per il contatto. Ad esempio:  Britta Simon
+3. Nel campo **Name** (Nome) digitare un nome per il contatto. Ad esempio: Britta Simon
 
 4. Fare clic sul menu **More Options** (Altre opzioni) e selezionare la voce di menu **Account Info** (Informazioni account).
 

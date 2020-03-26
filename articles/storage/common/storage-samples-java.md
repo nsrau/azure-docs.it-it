@@ -8,10 +8,10 @@ ms.service: storage
 ms.subservice: common
 ms.topic: sample
 ms.openlocfilehash: 46f19748ea56777bd1c23b3cf066fa28787d8882
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77486101"
 ---
 # <a name="azure-storage-samples-using-v12-java-client-libraries"></a>Esempi di Archiviazione di Azure che usano le librerie client Java v12
@@ -23,7 +23,7 @@ La tabella seguente fornisce una panoramica del repository di esempi e degli sce
 
 ## <a name="blob-samples"></a>Esempi di BLOB
 
-### <a name="authentication"></a>Autenticazione
+### <a name="authentication"></a>Authentication
 
 :::row:::
    :::column span="":::
@@ -225,7 +225,7 @@ La tabella seguente fornisce una panoramica del repository di esempi e degli sce
 
 ## <a name="azure-file-samples"></a>Esempi di file di Azure
 
-### <a name="authentication"></a>Autenticazione
+### <a name="authentication"></a>Authentication
 
 :::row:::
    :::column span="2":::
@@ -338,7 +338,7 @@ La tabella seguente fornisce una panoramica del repository di esempi e degli sce
 
 ## <a name="queue-samples"></a>Esempi di code
 
-### <a name="authentication"></a>Autenticazione
+### <a name="authentication"></a>Authentication
 
 :::row:::
    :::column span="2":::

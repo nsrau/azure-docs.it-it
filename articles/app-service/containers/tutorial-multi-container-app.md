@@ -8,10 +8,10 @@ ms.date: 04/29/2019
 ms.author: msangapu
 ms.custom: cli-validate
 ms.openlocfilehash: 92a9368bf6aa4f2cf043b3aabd443b37cdcde390
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77523950"
 ---
 # <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>Esercitazione: Creare un'app multi-contenitore (anteprima) in App Web per contenitori
@@ -33,7 +33,7 @@ In questa esercitazione verranno illustrate le procedure per:
 
 [!INCLUDE [Free trial note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa esercitazione è necessario avere una buona conoscenza di [Docker Compose](https://docs.docker.com/compose/).
 
@@ -486,7 +486,7 @@ WordPress si connette al server Redis. Lo **stato** della connessione viene visu
 
 ![WordPress si connette al server Redis. Lo **stato** della connessione viene visualizzato nella stessa pagina.][6]
 
-WordPress è ora **connesso** a Redis. A questo punto, l'app pronta per la produzione usa **Database di Azure per MySQL, l'archiviazione permanente e Redis**. È ora possibile scalare orizzontalmente il piano di servizio app per più istanze.
+WordPress è ora **connesso** a Redis. A questo punto, l'app pronta per la produzione usa **Database di Azure per MySQL, l'archiviazione permanente e Redis**. È ora possibile aumentare il numero di istanze per il piano di servizio app.
 
 ## <a name="find-docker-container-logs"></a>Trovare i log dei contenitori Docker
 

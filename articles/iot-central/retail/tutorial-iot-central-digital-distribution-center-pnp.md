@@ -8,10 +8,10 @@ ms.subservice: iot-central-retail
 ms.topic: overview
 ms.date: 10/20/2019
 ms.openlocfilehash: 93a77d73b5cc249c39609f98f055a7b1927dd6ed
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77025487"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-digital-distribution-center-application-template"></a>Esercitazione: Distribuire ed esaminare un modello di applicazione del centro distribuzione digitale
@@ -24,7 +24,7 @@ In questa esercitazione si apprenderà come:
 * Creare un'applicazione per il centro distribuzione digitale 
 * Esaminare l'applicazione 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 * Non sono richiesti prerequisiti specifici per distribuire l'app
 * È consigliabile avere una sottoscrizione di Azure, ma è anche possibile provare senza
 

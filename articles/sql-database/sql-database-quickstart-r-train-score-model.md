@@ -14,19 +14,19 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
 ms.openlocfilehash: a54d418f668d8c7292c8332c1b14c4df45e59308
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76768455"
 ---
-# <a name="quickstart-create-and-train-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Avvio rapido: Creare ed eseguire il training di un modello predittivo in R con Machine Learning Services di database SQL di Azure (anteprima)
+# <a name="quickstart-create-and-train-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Guida introduttiva: Creare ed eseguire il training di un modello predittivo in R con Machine Learning Services di database SQL di Azure (anteprima)
 
 In questo argomento di avvio rapido si userà R per creare un modello predittivo, che verrà sottoposto a training, quindi verrà salvato in una tabella del database e infine verrà usato per prevedere i valori dai nuovi dati tramite Machine Learning Services (con R) in Database SQL di Azure.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 - Un account Azure con una sottoscrizione attiva. [Creare un account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Un [database SQL di Azure](sql-database-single-database-get-started.md) con una [regola del firewall a livello di server](sql-database-server-level-firewall-rule.md)

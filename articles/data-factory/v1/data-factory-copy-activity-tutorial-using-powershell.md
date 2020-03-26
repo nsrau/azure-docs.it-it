@@ -14,10 +14,10 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 215ed088b17125e7e41877e3c188a6bf3d77e8bb
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73682847"
 ---
 # <a name="tutorial-create-a-data-factory-pipeline-that-moves-data-by-using-azure-powershell"></a>Esercitazione: Creare una pipeline di Data Factory per lo spostamento di dati con Azure PowerShell
@@ -27,7 +27,7 @@ ms.locfileid: "73682847"
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Modello di Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
-> * [API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
+> * [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
 > [!NOTE]
@@ -274,9 +274,9 @@ In questo passaggio viene creato un set di dati denominato InputDataset che punt
 
     La tabella seguente fornisce le descrizioni delle proprietà JSON usate nel frammento di codice:
 
-    | Proprietà | DESCRIZIONE |
+    | Proprietà | Descrizione |
     |:--- |:--- |
-    | Tipo | La proprietà type è impostata su **AzureBlob** perché i dati risiedono in un archivio BLOB di Azure. |
+    | type | La proprietà type è impostata su **AzureBlob** perché i dati risiedono in un archivio BLOB di Azure. |
     | linkedServiceName | Fa riferimento all'oggetto **AzureStorageLinkedService** creato in precedenza. |
     | folderPath | Specifica il **contenitore** BLOB e la **cartella** che contiene i BLOB di input. In questa esercitazione adftutorial è il contenitore BLOB e la cartella è la cartella radice. | 
     | fileName | Questa proprietà è facoltativa. Se si omette questa proprietà, vengono selezionati tutti i file da folderPath. In questa esercitazione come fileName si specifica **emp.txt** e viene quindi selezionato per l'elaborazione solo tale file. |
@@ -339,9 +339,9 @@ In questa parte del passaggio si crea un set di dati di output denominato **Outp
 
     La tabella seguente fornisce le descrizioni delle proprietà JSON usate nel frammento di codice:
 
-    | Proprietà | DESCRIZIONE |
+    | Proprietà | Descrizione |
     |:--- |:--- |
-    | Tipo | La proprietà type viene impostata su **AzureSqlTable** perché i dati vengono copiati in una tabella in un database SQL di Azure. |
+    | type | La proprietà type viene impostata su **AzureSqlTable** perché i dati vengono copiati in una tabella in un database SQL di Azure. |
     | linkedServiceName | Fa riferimento all'oggetto **AzureSqlLinkedService** creato in precedenza. |
     | tableName | Specifica la **tabella** in cui i dati vengono copiati. | 
     | frequency/interval | La frequenza viene impostata su **Hour** e l'intervallo è **1**, quindi le sezioni di output vengono generate **ogni ora** tra l'ora di inizio e di fine della pipeline e non prima o dopo queste ore.  |
@@ -427,7 +427,7 @@ Attualmente, è il set di dati di output a determinare la pianificazione. In que
      
      Sostituire il valore della proprietà **start** con il giorno corrente e il valore di **end** con il giorno successivo. È possibile specificare solo la parte relativa alla data e ignorare la parte relativa all'ora, ad esempio "2016-02-03", che equivale a "2016-02-03T00:00:00Z".
      
-     Per la data e ora di inizio è necessario usare il [formato ISO](https://en.wikipedia.org/wiki/ISO_8601), Ad esempio:  2016-10-14T16:32:41Z. Il valore di **end** è facoltativo, ma in questa esercitazione viene usato. 
+     Per la data e ora di inizio è necessario usare il [formato ISO](https://en.wikipedia.org/wiki/ISO_8601), Ad esempio: 2016-10-14T16:32:41Z. Il valore di **end** è facoltativo, ma in questa esercitazione viene usato. 
      
      Se non si specifica alcun valore per la proprietà **end**, il valore verrà calcolato come "**start + 48 hours**". Per eseguire la pipeline illimitatamente, specificare **9999-09-09** come valore per la proprietà **end**.
      

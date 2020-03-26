@@ -9,17 +9,17 @@ ms.author: normesta
 ms.reviewer: seguler
 ms.subservice: common
 ms.openlocfilehash: f7155053072b3533503765dc6f4fbf185d21f0d4
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74327509"
 ---
 #  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-with-azcopy"></a>Esercitazione: Eseguire la migrazione dei dati locali in una risorsa di archiviazione nel cloud con AzCopy
 
 AzCopy è uno strumento da riga di comando per la copia di dati da o verso l'archiviazione BLOB di Azure, File di Azure e Archiviazione tabelle di Azure usando semplici comandi progettati per garantire prestazioni ottimali. Con AzCopy è possibile copiare dati tra un file system e un account di archiviazione o tra più account di archiviazione. È possibile usare AzCopy per copiare i dati di uno spazio dati locale in un account di archiviazione.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare un account di archiviazione. 
@@ -121,11 +121,11 @@ Questi esempi presuppongono che la cartella sia denominata `myFolder`, che il no
 > [!NOTE]
 > L'esempio Linux aggiunge un token di firma di accesso condiviso. Sarà necessario specificarne uno nel comando. La versione corrente di AzCopy v10 non supporta l'autorizzazione di Azure AD nei processi cron.
 
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+# <a name="linux"></a>[Linux](#tab/linux)
 
     azcopy sync "/mnt/myfiles" "https://mystorageaccount.blob.core.windows.net/mycontainer?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-05-30T06:57:40Z&st=2019-05-29T22:57:40Z&spr=https&sig=BXHippZxxx54hQn%2F4tBY%2BE2JHGCTRv52445rtoyqgFBUo%3D" --recursive=true
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+# <a name="windows"></a>[Windows](#tab/windows)
 
     azcopy sync "C:\myFolder" "https://mystorageaccount.blob.core.windows.net/mycontainer" --recursive=true
 
@@ -135,7 +135,7 @@ In questa esercitazione viene usato il comando [Schtasks](https://msdn.microsoft
 
  **Schtasks** consente agli amministratori di creare, eliminare, interrogare, modificare, eseguire e terminare attività pianificate in un computer locale o remoto. **Cron** consente agli utenti di Linux e Unix di eseguire comandi o script in una data e a un'ora specifiche usando [espressioni cron](https://en.wikipedia.org/wiki/Cron#CRON_expression).
 
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+# <a name="linux"></a>[Linux](#tab/linux)
 
 Per creare un processo cron in Linux, immettere il comando seguente su un terminale:
 
@@ -146,7 +146,7 @@ crontab -e
 
 Se nel comando si specifica l'espressione cron `*/5 * * * *`, si indica che lo script di shell `script.sh` deve essere eseguito ogni cinque minuti. È possibile pianificare lo script in modo che venga eseguito a un'ora specifica ogni giorno, mese o anno. Per altre informazioni sull'impostazione della data e dell'ora di esecuzione del processo, vedere la sezione sulle [espressioni cron](https://en.wikipedia.org/wiki/Cron#CRON_expression).
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+# <a name="windows"></a>[Windows](#tab/windows)
 
 Per creare un'attività pianificata in Windows, immettere il comando seguente al prompt dei comandi o in PowerShell:
 

@@ -9,18 +9,18 @@ ms.topic: tutorial
 ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 23ddbdc62b2592a8fbfb7cdccaca52cbfe9aee62
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 87f6febaf89f82c2c81b397c94d744229b3f4b34
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074432"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80239498"
 ---
 # <a name="tutorial-create-an-application-gateway-with-url-path-based-redirection-using-the-azure-cli"></a>Esercitazione: Creare un gateway applicazione con reindirizzamento basato su percorsi URL usando l'interfaccia della riga di comando di Azure
 
 È possibile usare l'interfaccia della riga di comando di Azure per configurare [regole di routing basato su percorsi URL](tutorial-url-route-cli.md) quando si crea un [gateway applicazione](application-gateway-introduction.md). In questa esercitazione si creano pool back-end usando i [set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Si creano quindi le regole di routing degli URL per garantire che il traffico Web venga reindirizzato nel pool back-end appropriato.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Configurare la rete
@@ -133,9 +133,9 @@ az network application-gateway frontend-port create \
   --name rport
 ```
 
-## <a name="add-listeners-and-rules"></a>Aggiunta di listener e regole
+## <a name="add-listeners-and-rules"></a>Aggiungere listener e regole
 
-### <a name="add-listeners"></a>Aggiunta di listener
+### <a name="add-listeners"></a>Aggiungere i listener
 
 Aggiungere i listener back-end denominati *backendListener* e *redirectedListener* necessari per instradare il traffico usando [az network application-gateway http-listener create](/cli/azure/network/application-gateway/http-listener).
 
@@ -196,7 +196,7 @@ az network application-gateway redirect-config create \
   --target-listener backendListener
 ```
 
-### <a name="add-the-redirection-url-path-map"></a>Aggiunta della mappa dei percorsi URL di reindirizzamento
+### <a name="add-the-redirection-url-path-map"></a>Aggiunta della mappa del percorso URL di reindirizzamento
 
 ```azurecli-interactive
 az network application-gateway url-path-map create \
@@ -208,7 +208,7 @@ az network application-gateway url-path-map create \
   --rule-name redirectPathRule
 ```
 
-### <a name="add-routing-rules"></a>Aggiunta delle regole di routing
+### <a name="add-routing-rules"></a>Aggiungere le regole di routing
 
 Le regole di routing associano le mappe dei percorsi URL ai listener creati. È possibile aggiungere le regole denominate *defaultRule* e *redirectedRule* usando [az network application-gateway rule create](/cli/azure/network/application-gateway/rule).
 
@@ -286,7 +286,7 @@ done
 
 Per ottenere l'indirizzo IP pubblico del gateway applicazione, usare [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). Copiare l'indirizzo IP pubblico e quindi incollarlo nella barra degli indirizzi del browser. Ad esempio `http://40.121.222.19`, `http://40.121.222.19:8080/images/test.htm`, `http://40.121.222.19:8080/video/test.htm` oppure `http://40.121.222.19:8081/images/test.htm`.
 
-```azurepowershell-interactive
+```azurecli-interactive
 az network public-ip show \
   --resource-group myResourceGroupAG \
   --name myAGPublicIPAddress \

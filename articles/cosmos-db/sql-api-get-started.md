@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: kirankk
 ms.openlocfilehash: 2681b2199f321f695bc621ed5580319a5e907b34
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78274020"
 ---
 # <a name="tutorial-build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>Esercitazione: Compilare un'app console .NET per gestire i dati in un account API SQL di Azure Cosmos DB
@@ -58,7 +58,7 @@ Creare prima di tutto un account Azure Cosmos DB. Se si ha già un account che s
 
 [!INCLUDE [create-dbaccount-preview](../../includes/cosmos-db-create-dbaccount.md)]
 
-## <a id="SetupVS"></a>Passaggio 2: Configurare il progetto di Visual Studio
+## <a name="step-2-set-up-your-visual-studio-project"></a><a id="SetupVS"></a>Passaggio 2: Configurare il progetto di Visual Studio
 
 1. Aprire Visual Studio e selezionare **Crea un nuovo progetto**.
 1. In **Crea un nuovo progetto** scegliere **App console (.NET Framework)** per C#, quindi selezionare **Avanti**.
@@ -75,7 +75,7 @@ Creare prima di tutto un account Azure Cosmos DB. Se si ha già un account che s
 
 L'installazione è riuscita. Ora che abbiamo completato l'installazione, iniziamo a scrivere il codice. Per il progetto completo di questa esercitazione, vedere [Sviluppo di un'app console .NET tramite Azure Cosmos DB](https://github.com/Azure-Samples/cosmos-dotnet-getting-started).
 
-## <a id="Connect"></a>Passaggio 3: collegarsi a un account di Azure Cosmos DB
+## <a name="step-3-connect-to-an-azure-cosmos-db-account"></a><a id="Connect"></a>Passaggio 3: collegarsi a un account di Azure Cosmos DB
 
 1. Sostituire i riferimenti all'inizio dell'applicazione C#, nel file *Program.cs*, con questi riferimenti:
 
@@ -270,7 +270,7 @@ Un database è un contenitore logico di elementi partizionati tra contenitori. I
 
 Congratulazioni! La creazione di un database Azure Cosmos è stata completata.  
 
-## <a id="CreateColl"></a>Passaggio 5: Creare un contenitore
+## <a name="step-5-create-a-container"></a><a id="CreateColl"></a>Passaggio 5: Creare un contenitore
 
 > [!WARNING]
 > Il metodo `CreateContainerIfNotExistsAsync` crea un nuovo contenitore, che presenta implicazioni per i prezzi. Per altre informazioni, visitare la [pagina relativa ai prezzi](https://azure.microsoft.com/pricing/details/cosmos-db/).
@@ -301,7 +301,7 @@ Un contenitore può essere creato usando il metodo [**CreateContainerIfNotExists
 
 Congratulazioni! La creazione di un contenitore Azure Cosmos è stata completata.  
 
-## <a id="CreateDoc"></a>Passaggio 6: Aggiungere elementi al contenitore
+## <a name="step-6-add-items-to-the-container"></a><a id="CreateDoc"></a>Passaggio 6: Aggiungere elementi al contenitore
 
 Il metodo [**CreateItemAsync**](/dotnet/api/microsoft.azure.cosmos.container.createitemasync?view=azure-dotnet#Microsoft_Azure_Cosmos_Container_CreateItemAsync__1___0_System_Nullable_Microsoft_Azure_Cosmos_PartitionKey__Microsoft_Azure_Cosmos_ItemRequestOptions_System_Threading_CancellationToken_) della classe `CosmosContainer` può creare un elemento. Quando si usa l'API SQL, gli elementi vengono proiettati come documenti, che sono contenuti JSON arbitrari definiti dall'utente. È ora possibile inserire un elemento nel contenitore Azure Cosmos.
 
@@ -342,7 +342,7 @@ Prima di tutto creare una classe `Family` che rappresenterà gli oggetti archivi
 
 Congratulazioni! La creazione di due elementi Azure Cosmos è stata completata.  
 
-## <a id="Query"></a>Passaggio 7: eseguire query sulle risorse di Azure Cosmos DB
+## <a name="step-7-query-azure-cosmos-db-resources"></a><a id="Query"></a>Passaggio 7: eseguire query sulle risorse di Azure Cosmos DB
 
 Azure Cosmos DB supporta le query complesse sui documenti JSON archiviati in ogni contenitore. Per altre informazioni, vedere [Introduzione alle query SQL](sql-api-sql-query.md). Il codice di esempio seguente mostra come eseguire una query sugli elementi inseriti nella procedura precedente.
 
@@ -370,7 +370,7 @@ Azure Cosmos DB supporta le query complesse sui documenti JSON archiviati in ogn
 
 Congratulazioni! Sono state eseguite query su un contenitore Azure Cosmos.
 
-## <a id="ReplaceItem"></a>Passaggio 8: sostituire un elemento JSON
+## <a name="step-8-replace-a-json-item"></a><a id="ReplaceItem"></a>Passaggio 8: sostituire un elemento JSON
 
 Aggiornare ora un elemento in Azure Cosmos DB. Cambiare la proprietà `IsRegistered` di `Family` e l'oggetto `Grade` di uno dei figli.
 
@@ -399,7 +399,7 @@ Aggiornare ora un elemento in Azure Cosmos DB. Cambiare la proprietà `IsRegiste
 
 Congratulazioni! La sostituzione di un elemento Azure Cosmos è stata completata.
 
-## <a id="DeleteDocument"></a>Passaggio 9: Elimina elemento
+## <a name="step-9-delete-item"></a><a id="DeleteDocument"></a>Passaggio 9: Elimina elemento
 
 Eliminare ora un elemento in Azure Cosmos DB.
 
@@ -429,7 +429,7 @@ Eliminare ora un elemento in Azure Cosmos DB.
 
 Congratulazioni! L'eliminazione di un elemento Azure Cosmos è stata completata.
 
-## <a id="DeleteDatabase"></a>Passaggio 10: eliminare il database
+## <a name="step-10-delete-the-database"></a><a id="DeleteDatabase"></a>Passaggio 10: eliminare il database
 
 A questo punto verrà eliminato il database. Se si elimina il database creato, vengono rimosse tutte le risorse figlio, come contenitori, elementi ed eventuali stored procedure, funzioni definite dall'utente e trigger. Verrà anche eliminata l'istanza di `CosmosClient`.
 
@@ -445,7 +445,7 @@ A questo punto verrà eliminato il database. Se si elimina il database creato, v
 
 Congratulazioni! L'eliminazione di un database Azure Cosmos è stata completata.
 
-## <a id="Run"></a>Passaggio 11: eseguire l'intera applicazione console C#
+## <a name="step-11-run-your-c-console-application-all-together"></a><a id="Run"></a>Passaggio 11: eseguire l'intera applicazione console C#
 
 Premere F5 in Visual Studio per compilare ed eseguire l'applicazione in modalità di debug.
 
@@ -478,7 +478,7 @@ End of demo, press any key to exit.
 
 Congratulazioni! L'esercitazione è stata completata ed è stata creata un'applicazione console C# funzionante.
 
-## <a id="GetSolution"></a> Ottenere la soluzione completa per l'esercitazione
+## <a name="get-the-complete-tutorial-solution"></a><a id="GetSolution"></a> Ottenere la soluzione completa per l'esercitazione
 
 Se non si ha tempo per completare le procedure dell'esercitazione o se si vogliono solo ottenere gli esempi di codice, è possibile scaricarli.
 

@@ -17,10 +17,10 @@ ms.date: 11/18/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8e2e442c043a004a48dfd358d123c7c705dfa3f8
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74483890"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-onedesk"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con OneDesk
@@ -65,8 +65,8 @@ Configurare e testare l'accesso SSO di Azure AD con OneDesk usando un utente di 
 Per configurare e testare l'accesso SSO di Azure AD con OneDesk, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    * **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
-    * **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
+    * **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
+    * **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Configurare l'accesso Single Sign-On di OneDesk](#configure-onedesk-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
     * **[Creare l'utente di test di OneDesk](#create-onedesk-test-user)** : per avere una controparte di B.Simon in OneDesk collegata alla rappresentazione dell'utente in Azure AD.
 1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
@@ -136,7 +136,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 1. Per automatizzare la configurazione all'interno di OneDesk, è necessario installare l'**estensione del browser per l'accesso sicuro ad App personali** facendo clic su **Installa l'estensione**.
 
-    ![Estensione per App personali](common/install-myappssecure-extension.png)
+    ![Estensione MyApps](common/install-myappssecure-extension.png)
 
 1. Dopo aver aggiunto l'estensione al browser, fare clic su **Configura OneDesk** per passare direttamente all'applicazione OneDesk. Nell'applicazione specificare le credenziali di amministratore per accedere a OneDesk. L'estensione del browser configurerà automaticamente l'applicazione e automatizzerà i passaggi da 3 a 5.
 

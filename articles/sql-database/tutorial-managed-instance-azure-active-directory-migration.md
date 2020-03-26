@@ -11,10 +11,10 @@ ms.author: mireks
 ms.reviewer: vanto
 ms.date: 10/30/2019
 ms.openlocfilehash: 2c8d7252b4e4ca8caa465727c0d2328c4aafaefb
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74227915"
 ---
 # <a name="tutorial-migrate-sql-server-on-premises-windows-users-and-groups-to-azure-sql-database-managed-instance-using-t-sql-ddl-syntax"></a>Esercitazione: Eseguire la migrazione di utenti e gruppi locali di Windows in SQL Server a un'istanza gestita di database SQL di Azure con la sintassi DDL T-SQL
@@ -24,7 +24,7 @@ ms.locfileid: "74227915"
 
 Questo articolo illustra il processo di migrazione di utenti e gruppi locali di Windows in SQL Server a un'istanza gestita esistente di database SQL di Azure con la sintassi T-SQL.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > - Creare account di accesso per SQL Server
@@ -46,7 +46,7 @@ Per completare questa esercitazione, è necessario soddisfare i prerequisiti seg
 - [Creare un amministratore di Azure AD per l'istanza gestita](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance).
 - È possibile connettersi all'istanza gestita all'interno della rete. Per altre informazioni, vedere gli articoli seguenti: 
     - [Connettere un'applicazione a un'istanza gestita di database SQL di Azure](sql-database-managed-instance-connect-app.md)
-    - [Guida introduttiva: Configurare una connessione da punto a sito a un'Istanza gestita di database SQL di Azure da un computer locale](sql-database-managed-instance-configure-p2s.md)
+    - [Avvio rapido: Configurare una connessione da punto a sito a un'Istanza gestita di database SQL di Azure da un computer locale](sql-database-managed-instance-configure-p2s.md)
     - [Configurare endpoint pubblici in Istanza gestita di database SQL di Azure](sql-database-managed-instance-public-endpoint-configure.md)
 
 ## <a name="t-sql-ddl-syntax"></a>Sintassi DDL T-SQL

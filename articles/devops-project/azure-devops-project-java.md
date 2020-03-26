@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Creare una pipeline CI/CD per Java - Azure DevOps Projects'
+title: 'Guida introduttiva: Creare una pipeline CI/CD per Java - Azure DevOps Projects'
 description: DevOps Projects consente di iniziare a usare Azure in modo semplice. Con pochi rapidi passaggi, è possibile avviare un'app in un servizio di Azure a scelta.
 ms.prod: devops
 ms.technology: devops-cicd
@@ -17,17 +17,17 @@ ms.author: mlearned
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 monikerRange: vsts
 ms.openlocfilehash: 1a276770887bee39972ba8630fb13f52bcbe802d
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77049954"
 ---
-# <a name="quickstart-set-up-a-cicd-pipeline-for-a-java-app-with-azure-devops-projects"></a>Avvio rapido: Configurare una pipeline CI/CD per un'app Java con Azure DevOps Projects
+# <a name="quickstart-set-up-a-cicd-pipeline-for-a-java-app-with-azure-devops-projects"></a>Guida introduttiva: Configurare una pipeline CI/CD per un'app Java con Azure DevOps Projects
 
 In questo argomento di avvio rapido si userà l'esperienza semplificata di Azure DevOps Projects per configurare una pipeline di integrazione continua (CI, Continuous Integration) e recapito continuo (CD, Continuous Delivery) per l'app Java in Azure Pipelines. È possibile usare DevOps Projects per configurare tutto ciò che occorre per lo sviluppo, la distribuzione e il monitoraggio di un'app. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 - Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). 
 - Un account e un'organizzazione [Azure DevOps](https://azure.microsoft.com/services/devops/).

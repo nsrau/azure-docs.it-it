@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 07/29/2019
 ms.openlocfilehash: 369c708fd3181076c6deb9d7ac9134c57a18f819
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73827099"
 ---
 # <a name="quickstart-use-net-core-c-to-query-an-azure-sql-database"></a>Guida introduttiva: Usare .NET Core (C#) per eseguire query su un database SQL di Azure
@@ -25,7 +25,7 @@ In questa guida introduttiva si userà [.NET Core](https://www.microsoft.com/net
 > [!TIP]
 > Il seguente modulo Microsoft Learn gratuito contiene informazioni su come [sviluppare e configurare un'applicazione ASP.NET che esegue query su un database SQL di Azure](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per eseguire questa esercitazione, è necessario avere:
 
@@ -38,7 +38,7 @@ Per eseguire questa esercitazione, è necessario avere:
   || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
   | Configurare | [Regola del firewall IP a livello di server](sql-database-server-level-firewall-rule.md)| [Connettività da una VM](sql-database-managed-instance-configure-vm.md)|
   |||[Connettività da locale](sql-database-managed-instance-configure-p2s.md)
-  |Caricare i dati|Adventure Works caricato in base alla guida introduttiva|[Ripristinare Wide World Importers](sql-database-managed-instance-get-started-restore.md)
+  |Caricare dati|Adventure Works caricato in base alla guida introduttiva|[Ripristinare Wide World Importers](sql-database-managed-instance-get-started-restore.md)
   |||Ripristinare o importare Adventure Works dal file [BACPAC](sql-database-import.md) ottenuto da [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
   |||
 
@@ -64,7 +64,7 @@ Ottenere le informazioni di connessione necessarie per connettersi al database S
 
 1. Passare alla pagina **mySampleDatabase** e, in **Impostazioni**, selezionare **Stringhe di connessione**.
 
-2. Esaminare la stringa di connessione completa **ADO.NET**.
+2. Esaminare l'intera stringa di connessione **ADO.NET**.
 
     ![Stringa di connessione ADO.NET](./media/sql-database-connect-query-dotnet/adonet-connection-string2.png)
 

@@ -10,14 +10,16 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 9aeaed6565e69409bc55a71985296b2393226ba4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8feca17f10bb891f0ca5577b2363f95901da4a46
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427480"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79217861"
 ---
 # <a name="tutorial-2-train-credit-risk-models---azure-machine-learning-studio-classic"></a>Esercitazione 2: Eseguire il training di modelli di rischio di credito - Azure Machine Learning Studio (versione classica)
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 In questa esercitazione si esamina il processo di sviluppo di una soluzione di analisi predittiva. Si svilupperà un modello semplice in Machine Learning Studio (versione classica).  Il modello verrà quindi distribuito come servizio Web di Azure Machine Learning.  Questo modello distribuito può creare previsioni usando nuovi dati. Questa esercitazione è la **seconda di una serie in tre parti**.
 
@@ -38,11 +40,11 @@ In questa parte dell'esercitazione verranno eseguite queste operazioni:
 
 Nella [terza parte dell'esercitazione](tutorial-part3-credit-risk-deploy.md) si distribuirà il modello come servizio Web.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Completare la [prima parte dell'esercitazione](tutorial-part1-credit-risk.md).
 
-## <a name="train"></a>Eseguire il training di più modelli
+## <a name="train-multiple-models"></a><a name="train"></a>Eseguire il training di più modelli
 
 Uno dei vantaggi che offre Azure Machine Learning Studio (versione classica) per la creazione di modelli di Machine Learning è la possibilità di valutare più tipi di modelli contemporaneamente in un singolo esperimento e confrontare i risultati. Questo tipo di esperimento consente di trovare la soluzione migliore per il problema che si desidera risolvere.
 

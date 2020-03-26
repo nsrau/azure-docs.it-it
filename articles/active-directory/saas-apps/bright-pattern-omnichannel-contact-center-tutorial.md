@@ -17,10 +17,10 @@ ms.date: 10/18/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 27cda1f1a797ca0cb8e1b9d1c4cd7498c22ddde5
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74081930"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-bright-pattern-omnichannel-contact-center"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Bright Pattern Omnichannel Contact Center
@@ -64,15 +64,15 @@ Per configurare l'integrazione di Bright Pattern Omnichannel Contact Center in A
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-bright-pattern-omnichannel-contact-center"></a>Configurare e testare l'accesso Single Sign-On di Azure AD per Bright Pattern Omnichannel Contact Center
 
-Configurare e testare l'accesso SSO di Azure AD con Bright Pattern Omnichannel Contact Center usando un utente di test di nome **B.Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Bright Pattern Omnichannel Contact Center.
+Configurare e testare l'accesso SSO di Azure AD con Bright Pattern Omnichannel Contact Center usando un utente di test di nome **B. Simon**. Per il corretto funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Bright Pattern Omnichannel Contact Center.
 
 Per configurare e testare l'accesso SSO di Azure AD con Bright Pattern Omnichannel Contact Center, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
-    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
+    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
+    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Configurare l'accesso Single Sign-On di Bright Pattern Omnichannel Contact Center](#configure-bright-pattern-omnichannel-contact-center-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
-    1. **[Creare l'utente di test di Bright Pattern Omnichannel Contact Center](#create-bright-pattern-omnichannel-contact-center-test-user)** : per avere una controparte di B.Simon in Bright Pattern Omnichannel Contact Center collegata alla rappresentazione dell'utente in Azure AD.
+    1. **[Creare un utente di test di Bright Pattern Omnichannel Contact Center](#create-bright-pattern-omnichannel-contact-center-test-user)** : per avere una controparte di B. Simon in Bright Pattern Omnichannel Contact Center collegata alla rappresentazione dell'utente in Azure AD.
 1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurare l'accesso SSO di Azure AD
@@ -104,7 +104,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Oltre quelli elencati in precedenza, l'applicazione Bright Pattern Omnichannel Contact Center prevede il passaggio di altri attributi nella risposta SAML. Tali attributi sono indicati di seguito. Anche questi attributi vengono prepopolati, ma è possibile esaminarli in base ai requisiti.
 
-    | NOME | Spazio dei nomi  |
+    | Nome | Spazio dei nomi  |
     | ---------------| --------------- |
     | firstName | user.givenname |
     | lastName | user.surname |
@@ -132,7 +132,7 @@ In questa sezione verrà creato un utente di test di nome B.Simon nel portale di
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
-In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Bright Pattern Omnichannel Contact Center.
+In questa sezione si abiliterà B. Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Bright Pattern Omnichannel Contact Center.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
 1. Nell'elenco delle applicazioni selezionare **Bright Pattern Omnichannel Contact Center**.
@@ -154,7 +154,7 @@ Per configurare l'accesso Single Sign-On sul lato **Bright Pattern Omnichannel C
 
 ### <a name="create-bright-pattern-omnichannel-contact-center-test-user"></a>Creare l'utente di test di Bright Pattern Omnichannel Contact Center
 
-In questa sezione viene creato un utente di nome B.Simon in Bright Pattern Omnichannel Contact Center. Bright Pattern Omnichannel Contact Center supporta il provisioning utenti JIT, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se non esiste già un utente in Bright Pattern Omnichannel Contact Center, ne viene creato uno nuovo dopo l'autenticazione.
+In questa sezione viene creato un utente di nome B. Simon in Bright Pattern Omnichannel Contact Center. Bright Pattern Omnichannel Contact Center supporta il provisioning utenti JIT, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se non esiste già un utente in Bright Pattern Omnichannel Contact Center, ne viene creato uno nuovo dopo l'autenticazione.
 
 ## <a name="test-sso"></a>Testare l'accesso SSO 
 

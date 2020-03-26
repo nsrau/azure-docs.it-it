@@ -6,14 +6,14 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: brendm
-ms.openlocfilehash: dd8ce6d9b4dc63592e491a06a0055a7d065252b5
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: d1e6d6db1465b20f1f32a8ffb2f978d0a04a1033
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201433"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79470844"
 ---
-# <a name="quickstart-launch-an-azure-spring-cloud-app-using-the-maven-plug-in"></a>Avvio rapido: Avviare un'app Azure Spring Cloud tramite il plug-in Maven
+# <a name="quickstart-launch-an-azure-spring-cloud-app-using-the-maven-plug-in"></a>Guida introduttiva: Avviare un'app Azure Spring Cloud tramite il plug-in Maven
 
 Con il plug-in Maven di Azure Spring Cloud è possibile creare e aggiornare facilmente le applicazioni di Azure Spring Cloud. Con una configurazione predefinita, è possibile distribuire applicazioni nel servizio Azure Spring Cloud esistente. In questo articolo viene usata un'applicazione di esempio denominata PiggyMetrics per dimostrare questa funzionalità.
 
@@ -77,13 +77,13 @@ Per distribuire il servizio sono necessari circa 5 minuti. Dopo la distribuzione
 
 1. Clonare il repository Git eseguendo il comando seguente:
 
-    ```azurecli
+    ```console
     git clone https://github.com/Azure-Samples/PiggyMetrics
     ```
   
 1. Cambiare directory e compilare il progetto eseguendo il comando seguente:
 
-    ```azurecli
+    ```console
     cd piggymetrics
     mvn clean package -DskipTests
     ```
@@ -92,7 +92,7 @@ Per distribuire il servizio sono necessari circa 5 minuti. Dopo la distribuzione
 
 1. Per generare le configurazioni, eseguire questo comando nella cartella radice di PiggyMetrics contenente il file POM padre:
 
-    ```azurecli
+    ```console
     mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:1.0.0:config
     ```
 
@@ -106,7 +106,7 @@ Per distribuire il servizio sono necessari circa 5 minuti. Dopo la distribuzione
 
 1. Il file POM contiene ora le dipendenze e le configurazioni del plug-in. Distribuire le app usando il comando seguente:
 
-   ```azurecli
+   ```console
    mvn azure-spring-cloud:deploy
    ```
 

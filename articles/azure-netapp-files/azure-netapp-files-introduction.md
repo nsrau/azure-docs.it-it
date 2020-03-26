@@ -15,10 +15,10 @@ ms.topic: overview
 ms.date: 03/28/2018
 ms.author: b-juche
 ms.openlocfilehash: 33a90f876f5ce35b52bb2d5625fa9d91a0a33dee
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "65522985"
 ---
 # <a name="what-is-azure-netapp-files"></a>Informazioni su Azure NetApp Files
@@ -35,4 +35,4 @@ La documentazione di Azure NetApp Files include istruzioni per la creazione e la
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Informazioni sulla gerarchia di archiviazione di Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md) 
-* [Guida introduttiva: Configurare Azure NetApp Files e creare un volume NFS](azure-netapp-files-quickstart-set-up-account-create-volumes.md)
+* [Avvio rapido: Configurare Azure NetApp Files e creare un volume NFS](azure-netapp-files-quickstart-set-up-account-create-volumes.md)

@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Diagnosticare un problema di filtro del traffico di rete di una VM - Azure PowerShell'
+title: 'Guida introduttiva: Diagnosticare un problema di filtro del traffico di rete di una VM - Azure PowerShell'
 titleSuffix: Azure Network Watcher
 description: In questa guida introduttiva si apprende come diagnosticare un problema di filtro del traffico di rete di una macchina virtuale usando la funzionalità di verifica del flusso IP di Azure Network Watcher.
 services: network-watcher
@@ -18,13 +18,13 @@ ms.date: 04/20/2018
 ms.author: damendo
 ms.custom: mvc
 ms.openlocfilehash: 5438cc07670393cab69344544ea1b68c46c42bd6
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76844025"
 ---
-# <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem---azure-powershell"></a>Avvio rapido: Diagnosticare un problema di filtro del traffico di rete di una macchina virtuale - Azure PowerShell
+# <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem---azure-powershell"></a>Guida introduttiva: Diagnosticare un problema di filtro del traffico di rete di una macchina virtuale - Azure PowerShell
 
 In questa guida introduttiva si distribuisce una macchina virtuale e quindi si controllano le comunicazioni verso un indirizzo IP e un URL e da un indirizzo IP. Viene determinata la causa di un errore di comunicazione e si apprende come è possibile risolverlo.
 

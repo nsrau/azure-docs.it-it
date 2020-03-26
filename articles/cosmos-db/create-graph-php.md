@@ -9,10 +9,10 @@ ms.topic: quickstart
 ms.date: 01/05/2019
 ms.author: lbosq
 ms.openlocfilehash: e38f3e2029bdc8dc8c13ce330e37053d491317f3
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "68736639"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-php-and-the-azure-portal"></a>Guida introduttiva: Creare un database a grafo in Azure Cosmos DB usando PHP e il portale di Azure
@@ -34,7 +34,7 @@ Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]In alternativa, è possibile [provare gratuitamente Microsoft Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) senza una sottoscrizione di Azure e senza impegno.
 
-Eseguire anche queste operazioni:
+Inoltre:
 * [PHP](https://php.net/) 5.6 o versioni successive
 * [Composer](https://getcomposer.org/download/)
 
@@ -206,7 +206,7 @@ Tornare ora al portale di Azure per recuperare la stringa di connessione e copia
 
 5. Fare clic su **Add property** (Aggiungi proprietà) per aggiungere ognuna delle proprietà seguenti. Si noti che è possibile creare proprietà univoche per ogni persona del grafo. È necessaria solo la chiave **id**.
 
-    Chiave | Valore | Note
+    Chiave | valore | Note
     ----|----|----
     **id** | ashley | Identificatore univoco per il vertice. Se non si specifica alcun ID, ne verrà generato automaticamente uno.
     **gender** | female | 
@@ -223,7 +223,7 @@ Tornare ora al portale di Azure per recuperare la stringa di connessione e copia
 
 9. Fare clic su **Add property** (Aggiungi proprietà) per aggiungere ognuna delle proprietà seguenti:
     
-    Chiave | Valore | Note
+    Chiave | valore | Note
     ----|----|----
     **id** | rakesh | Identificatore univoco per il vertice. Se non si specifica alcun ID, ne verrà generato automaticamente uno.
     **gender** | male | 

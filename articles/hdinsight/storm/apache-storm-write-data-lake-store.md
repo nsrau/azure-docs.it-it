@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/24/2019
 ms.openlocfilehash: 579163180f6c7ba19927ca66d20bd92d1b2de52e
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73241202"
 ---
 # <a name="tutorial-write-to-apache-hadoop-hdfs-from-apache-storm-on-azure-hdinsight"></a>Esercitazione: Eseguire operazioni di scrittura in Apache Hadoop HDFS da Apache Storm in HDInsight
@@ -21,7 +21,7 @@ Questa esercitazione illustra come usare Apache Storm per scrivere dati nell'arc
 
 La topologia di esempio usata in questo documento si basa su componenti inclusi con Storm in HDInsight. Può essere necessario apportare delle modifiche per usare Azure Data Lake Storage con altri cluster Apache Storm.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Configurare il cluster con un'azione script
@@ -112,12 +112,12 @@ Per altre informazioni sul framework Flux, vedere [https://storm.apache.org/rele
 
 Per impostazione predefinita, Storm in HDInsight non include i componenti usati da `HdfsBolt` per comunicare con Archiviazione di Azure o Data Lake Storage nel classpath di Storm. Usare la seguente azione script per aggiungere questi componenti alla directory `extlib` per Storm nel cluster:
 
-| Proprietà | Valore |
+| Proprietà | valore |
 |---|---|
 |Tipo di script |- Personalizzato|
 |URI script Bash |`https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh`|
 |Tipo/i di nodo |Nimbus, Supervisor|
-|Parametri |Nessuna|
+|Parametri |nessuno|
 
 Per informazioni sull'uso di questo script con il cluster, vedere il documento [Customize HDInsight clusters using script actions](./../hdinsight-hadoop-customize-cluster-linux.md) (Personalizzare i cluster HDInsight con le azioni script).
 

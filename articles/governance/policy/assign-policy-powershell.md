@@ -1,23 +1,23 @@
 ---
-title: 'Avvio rapido: Nuova assegnazione di criteri con PowerShell'
+title: 'Guida introduttiva: Nuova assegnazione di criteri con PowerShell'
 description: In questa guida di avvio rapido si userà Azure PowerShell per creare un'assegnazione di criteri di Azure per identificare le risorse non conformi.
 ms.date: 11/25/2019
 ms.topic: quickstart
 ms.openlocfilehash: 3fd6060d1f38c523ccf22e80807f6220bfdf3cbc
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75978298"
 ---
-# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-azure-powershell"></a>Avvio rapido: Creare un'assegnazione di criteri per identificare le risorse non conformi con Azure PowerShell
+# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-azure-powershell"></a>Guida introduttiva: Creare un'assegnazione di criteri per identificare le risorse non conformi con Azure PowerShell
 
 Il primo passaggio per comprendere la conformità in Azure consiste nell'identificare lo stato delle risorse. In questo avvio rapido si creerà un'assegnazione di criteri per identificare le macchine virtuali che non usano dischi gestiti. Al termine, si identificheranno le macchine virtuali _non conformi_.
 
 Il modulo Azure PowerShell viene usato per gestire le risorse di Azure dalla riga di comando o in script.
 Questa guida illustra come usare il modulo Az per creare un'assegnazione di criteri.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 - Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 

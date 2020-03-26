@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: raynew
-ms.openlocfilehash: 91b9c71e7c735fca08f71ca37ed28734c8d634a1
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.openlocfilehash: 23fa1a2a0b035d04334c51c02411de6de70f2cad
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79079859"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79453647"
 ---
 # <a name="assess-servers-by-using-imported-data"></a>Valutare i server con i dati importati
 
@@ -142,7 +142,6 @@ Nella tabella seguente vengono riepilogati i campi del file da compilare:
 **Titolare dell'azienda** | No | Titolare business unit.
 **Nome applicazione aziendale** | No | Nome dell'applicazione cui appartiene l'app.
 **Posizione** | No | Data center in cui si trova il server.
-**Data di rimozione del server** | No | Data di rimozione del server fisico o del server fisico sottostante il server virtuale.
 
 ### <a name="add-operating-systems"></a>Aggiungere sistemi operativi
 

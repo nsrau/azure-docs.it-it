@@ -10,10 +10,10 @@ ms.topic: overview
 ms.date: 08/28/2019
 ms.author: alkohli
 ms.openlocfilehash: 362b7457538a16d389c3cc40fc44da19b073c0b0
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "70142910"
 ---
 # <a name="what-is-azure-data-box-heavy"></a>Che cos'è Azure Data Box Heavy?
@@ -59,13 +59,13 @@ Data Box Heavy è stato progettato per spostare grandi quantità di dati in Azur
 
 In questa versione il dispositivo Data Box Heavy include le caratteristiche seguenti.
 
-| Specifiche                                          | DESCRIZIONE              |
+| Specifiche                                          | Descrizione              |
 |---------------------------------------------------------|--------------------------|
 | Peso                                                  | ~ 22 kg (500 libbre) <br>Dispositivo su ruote bloccate per il trasporto|
 | Dimensioni                                              | Larghezza: 66 cm (26 pollici) Altezza: 71 cm (28 pollici) Lunghezza: 122 cm (48 pollici) |
 | Spazio nel rack                                              | Non può essere montato su rack|
 | Cavi necessari                                         | Sono inclusi 4 cavi di alimentazione da 120 V/10 A (NEMA 5-15) con messa a terra <br> Il dispositivo supporta fino a 240 V ed è dotato di connettori per cavi di alimentazione C-13 <br> Usare cavi di rete compatibili con [Mellanox MCX314A-BCCT](https://store.mellanox.com/products/mellanox-mcx314a-bcct-connectx-3-pro-en-network-interface-card-40-56gbe-dual-port-qsfp-pcie3-0-x8-8gt-s-rohs-r6.html)  |
-| Potenza                                                    | 4 unità di alimentazione incorporate, condivise tra i nodi del dispositivo <br> Consumo energetico tipico di 1.200 watt|
+| Power                                                    | 4 unità di alimentazione incorporate, condivise tra i nodi del dispositivo <br> Consumo energetico tipico di 1.200 watt|
 | Capacità di archiviazione                                        | Capacità nominale di circa 1 PB, 70 dischi da 14 TB ciascuno <br> Capacità utilizzabile di 770 TB|
 | Numero di nodi                                          | 2 nodi indipendenti per ogni dispositivo (500 TB ciascuno) |
 | Interfacce di rete per nodo                             | 4 interfacce di rete per ogni nodo <br><br> MGMT, DATA3 <ul><li> 2 interfacce da 1 GbE </li><li> MGMT è un'interfaccia per la gestione e la configurazione iniziale, non è configurabile dall'utente </li><li> DATA3 è un'interfaccia configurabile dall'utente e DHCP (Dynamic Host Configuration Protocol) per impostazione predefinita</li></ul>Interfacce dati DATA1 e DATA2 <ul><li>2 interfacce da 40 GbE </li><li> Configurabile dall'utente per DHCP (impostazione predefinita) o statici</li></ul>|
@@ -118,7 +118,7 @@ Per iscriversi a Data Box Heavy, seguire questa procedura:
 
 1. Accedere al portale di Azure all'indirizzo: https://portal.azure.com.
 2. Fare clic su **Crea una risorsa** per creare una nuova risorsa. Cercare **Azure Data Box**. Selezionare il servizio **Azure Data Box**.
-3. Fare clic su **Create**(Crea).
+3. Fare clic su **Crea**.
 4. Selezionare la sottoscrizione che si vuole usare per Data Box Heavy. Selezionare l'area in cui si intende distribuire la risorsa Data Box Heavy. Nell'opzione **Data Box Heavy** fare clic su **Iscrizione**.
 5. Rispondere alle domande relative al paese o all'area geografica di residenza dei dati, all'intervallo di tempo, al servizio di Azure di destinazione per il trasferimento dei dati, alla larghezza di banda della rete e alla frequenza di trasferimento dei dati. Esaminare l'Informativa sulla privacy e le condizioni e selezionare la casella di controllo che consente a Microsoft di usare l'indirizzo di posta elettronica per contattare l'utente.
 

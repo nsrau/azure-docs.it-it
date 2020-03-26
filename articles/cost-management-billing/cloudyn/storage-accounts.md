@@ -1,20 +1,20 @@
 ---
-title: Configurare gli account di archiviazione per Cloudyn di Azure | Microsoft Docs
+title: Configurare gli account di archiviazione per Cloudyn in Azure
 description: Questo articolo descrive come configurare gli account di archiviazione di Azure e i contenitori di archiviazione di AWS per Cloudyn.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 03/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: benshy
 ms.custom: secdec18
-ms.openlocfilehash: ec6c68d209f867ab3547e855f3cf754bc27d53c5
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ROBOTS: NOINDEX
+ms.openlocfilehash: c741f303958630415d54cabc62c04430f0b8b89d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77117633"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79474595"
 ---
 # <a name="configure-storage-accounts-for-cloudyn"></a>Configurare gli account di archiviazione per Cloudyn
 
@@ -22,7 +22,9 @@ ms.locfileid: "77117633"
 
 È possibile salvare i report di Cloudyn nel portale di Cloudyn, nell'archiviazione di Azure o nei contenitori di archiviazione di AWS. Il salvataggio dei report nel portale di Cloudyn è gratuito. Il salvataggio dei report in una risorsa di archiviazione del provider di servizi cloud è tuttavia facoltativo e comporta un costo aggiuntivo. Questo articolo consente di configurare gli account di archiviazione di Azure e i bucket di archiviazione di Amazon Web Services (AWS) per l'archiviazione dei report.
 
-## <a name="prerequisites"></a>Prerequisites
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
+
+## <a name="prerequisites"></a>Prerequisiti
 
 È necessario un account di archiviazione di Azure o un bucket di archiviazione di Amazon.
 

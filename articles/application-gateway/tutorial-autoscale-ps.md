@@ -9,17 +9,17 @@ ms.date: 11/13/2019
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: e07fc34c7177e3a1dace34ab298b64dc3aa6a06a
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74011372"
 ---
 # <a name="tutorial-create-an-application-gateway-that-improves-web-application-access"></a>Esercitazione: creare un gateway applicazione per migliorare l'accesso alle applicazioni Web
 
 Gli amministratori IT che desiderano migliorare l'accesso alle applicazioni Web possono ottimizzare il gateway applicazione in modo da ridimensionarsi in base alla richiesta dei clienti ed estendersi a più zone di disponibilità. Questa esercitazione aiuta a configurare funzioni del gateway applicazione di Azure per eseguire operazioni di scalabilità automatica, ridondanza della zona e indirizzi VIP riservati (indirizzi IP statici). Per risolvere il problema si useranno cmdlet di Azure PowerShell e il modello di distribuzione Azure Resource Manager.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare un certificato autofirmato
@@ -193,4 +193,4 @@ Innanzitutto, esplorare le risorse che sono state create con il gateway applicaz
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Creare un gateway applicazione con regole di routing basato su percorsi URL](./tutorial-url-route-powershell.md)
+> [Creare un gateway applicazione con regole di routing basate su percorsi URL](./tutorial-url-route-powershell.md)

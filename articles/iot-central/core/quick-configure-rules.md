@@ -10,13 +10,13 @@ services: iot-central
 ms.custom: mvc
 manager: philmea
 ms.openlocfilehash: 4bbf571d6b73a6f43c1c3b1ce261da6963a74183
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77169486"
 ---
-# <a name="quickstart-configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>Avvio rapido: Configurare regole e azioni per il dispositivo in Azure IoT Central
+# <a name="quickstart-configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>Guida introduttiva: Configurare regole e azioni per il dispositivo in Azure IoT Central
 
 *Questo articolo è rivolto a operatori, autori e amministratori.*
 
@@ -74,7 +74,7 @@ Subito dopo aver salvato la regola, questa viene applicata. Quando vengono soddi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida di avvio rapido si è appreso come:
+In questa guida introduttiva si è appreso come:
 
 * Creare una regola basata su dati di telemetria
 * Aggiungere un'azione

@@ -6,10 +6,10 @@ ms.author: msangapu
 ms.topic: tutorial
 ms.date: 2/28/2020
 ms.openlocfilehash: d543a9364311b2cf5f0258fbf9185d27bb1bfb2f
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78399523"
 ---
 # <a name="tutorial-troubleshoot-an-app-service-app-with-azure-monitor"></a>Esercitazione: Risolvere i problemi di un'app del servizio app con Monitoraggio di Azure
@@ -272,7 +272,7 @@ Contenuto dell'esercitazione:
 > * Invio di log a Log Analytics
 > * Uso di query su log per identificare e risolvere i problemi relativi agli errori delle app Web
 
-## <a name="nextsteps"></a> Passaggi successivi
+## <a name="next-steps"></a><a name="nextsteps"></a> Passaggi successivi
 * [Eseguire query sui log con Monitoraggio di Azure](../../azure-monitor/log-query/log-query-overview.md)
 * [Risoluzione dei problemi del Servizio app di Azure in Visual Studio](../troubleshoot-dotnet-visual-studio.md)
 * [Analizzare i log delle app in HDInsight](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)

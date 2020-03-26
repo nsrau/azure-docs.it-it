@@ -8,13 +8,13 @@ ms.date: 02/01/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 6bbab0ee2eefe6e86c150d5bddab4f8e91a7c92d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75463902"
 ---
-# <a name="quickstart-create-and-manage-azure-files-share-with-windows-virtual-machines"></a>Avvio rapido: Creare e gestire una condivisione file di Azure con macchine virtuali Windows
+# <a name="quickstart-create-and-manage-azure-files-share-with-windows-virtual-machines"></a>Guida introduttiva: Creare e gestire una condivisione file di Azure con macchine virtuali Windows
 
 L'articolo illustra i passaggi di base per la creazione e l'uso di una condivisione file di Azure. In questa guida introduttiva, particolare attenzione è dedicata a come configurare rapidamente una condivisione file di Azure in modo da sperimentare il funzionamento del servizio. Se sono necessarie istruzioni più dettagliate per la creazione e l'uso di condivisioni file di Azure nel proprio ambiente, vedere [Usare una condivisione file di Azure con Windows](storage-how-to-use-files-windows.md).
 

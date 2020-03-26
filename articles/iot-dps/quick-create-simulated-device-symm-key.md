@@ -10,13 +10,13 @@ services: iot-dps
 manager: philmea
 ms.custom: mvc
 ms.openlocfilehash: 6047051a36459d61bb5f02907dde9e73a70e86ec
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75945208"
 ---
-# <a name="quickstart-provision-a-simulated-device-with-symmetric-keys"></a>Avvio rapido: Effettuare il provisioning di un dispositivo simulato con chiavi simmetriche
+# <a name="quickstart-provision-a-simulated-device-with-symmetric-keys"></a>Guida introduttiva: Effettuare il provisioning di un dispositivo simulato con chiavi simmetriche
 
 In questa guida introduttiva si apprenderà come creare ed eseguire un simulatore di dispositivo in un computer di sviluppo Windows. Si configurerà il dispositivo simulato per usare una chiave simmetrica da autenticare con un'istanza del servizio Device Provisioning e da assegnare a un hub IoT. Si userà un codice di esempio da [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) per simulare una sequenza di avvio per il dispositivo che avvia il processo di provisioning. Il dispositivo verrà riconosciuto in base alla registrazione singola nell'istanza del servizio di provisioning e assegnato all'hub IoT.
 
@@ -32,7 +32,7 @@ Questo articolo si riferisce a una workstation basata su Windows. Tuttavia, è p
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 I prerequisiti seguenti si riferiscono a un ambiente di sviluppo Windows. Per Linux o macOS, vedere la sezione appropriata in [Preparare l'ambiente di sviluppo](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) nella documentazione dell'SDK.
 

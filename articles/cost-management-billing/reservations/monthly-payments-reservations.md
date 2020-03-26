@@ -5,36 +5,24 @@ author: bandersmsft
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/24/2020
+ms.date: 03/24/2020
 ms.author: banders
-ms.openlocfilehash: 77d663fa01e24acf63acd68d0b8d7cf4cc741055
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: ede60adc13dadc38e18ee5ade468e01b16523f4f
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77587091"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80235735"
 ---
 # <a name="purchase-reservations-with-monthly-payments"></a>Acquistare prenotazioni con pagamenti mensili
 
-Fino ad ora le prenotazioni di Azure richiedevano il pagamento anticipato. Da ora però è possibile pagare le prenotazioni con pagamenti mensili. A differenza di un acquisto anticipato, in cui si paga l'importo completo, l'opzione di pagamento mensile divide il costo totale della prenotazione in modo uniforme per ogni mese del periodo. Il costo totale delle prenotazioni con pagamento anticipato e mensile è lo stesso e non vengono addebitate spese aggiuntive quando si sceglie di pagare mensilmente.
+Ora è possibile pagare le prenotazioni con pagamenti mensili. A differenza di un acquisto anticipato, in cui si paga l'importo completo, l'opzione di pagamento mensile divide il costo totale della prenotazione in modo uniforme per ogni mese del periodo. Il costo totale delle prenotazioni con pagamento anticipato e mensile è lo stesso e non vengono addebitate spese aggiuntive quando si sceglie di pagare mensilmente.
 
-Sono possibili variazioni all'importo del pagamento mensile in base al tasso di cambio del mese corrente per la valuta locale.
+Se la prenotazione è stata acquistata tramite un Contratto del cliente Microsoft, l'importo del pagamento mensile potrebbe essere soggetto a variazioni in base al tasso di cambio del mese corrente per la valuta locale.
 
-I pagamenti mensili sono disponibili per:
+I pagamenti mensili non sono disponibili per: Databricks, prenotazioni SUSE Linux, piani Red Hat e calcolo Azure Red Hat OpenShift.
 
-- Macchine virtuali
-- Archiviazione di Azure
-- DATABASE SQL
-- SQL Data Warehouse
-- Cosmos DB
-- Tariffa stamp del servizio app
-- Managed Disks
-- Esplora dati di Azure
-- Database di Azure per MariaDB, MySQL e PostgreSQL
-- Soluzione Azure VMware di CloudSimple
-
-
-Acquistare le prenotazioni nel [portale di Azure](https://portal.azure.com/?Microsoft_Azure_Reservations_EnableMultiCart=true&amp;paymentPlan=true#blade/Microsoft_Azure_Reservations/CreateBlade).
+Acquistare le prenotazioni nel [portale di Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/Docs).
 
 ![Esempio che mostra l'acquisto di una prenotazione](./media/monthly-payments-reservations/purchase-reservation.png)
 
@@ -58,11 +46,11 @@ Al rinnovo di una prenotazione, è possibile cambiare la frequenza di fatturazio
 
 ## <a name="exchange-and-refunds"></a>Cambio e rimborsi
 
-Analogamente ad altre prenotazioni, è possibile scambiare le prenotazioni acquistate con la fatturazione mensile o ottenere un rimborso. Attualmente è possibile inviare una richiesta di supporto per avviare uno scambio o ottenere un rimborso per una prenotazione acquistata con fatturazione mensile.
+Analogamente ad altre prenotazioni, è possibile scambiare le prenotazioni acquistate con la fatturazione mensile o ottenere un rimborso. 
 
 Quando si scambia una prenotazione con pagamento mensile, il costo di durata totale del nuovo acquisto deve essere superiore ai pagamenti rimanenti annullati per la prenotazione restituita. Non sono previsti altri limiti o tariffe per gli scambi. È possibile scambiare una prenotazione pagata in anticipo per acquistare una nuova prenotazione fatturata mensilmente. Il valore di durata della nuova prenotazione, tuttavia, deve essere maggiore del valore ripartito in modo proporzionale della prenotazione da restituire.
 
-Se si annulla una prenotazione con pagamento mensile, Microsoft potrebbe applicare una penale del 12% ai pagamenti impegnati futuri annullati. Tuttavia, Microsoft attualmente non addebita la penale. I pagamenti impegnati annullati vengono accumulati fino al raggiungimento del limite di rimborso di 50.000 USD. Se viene addebitata, la penale di annullamento non influisce sul limite di rimborso.
+Se si annulla una prenotazione con pagamento mensile, i pagamenti futuri annullati vengono cumulati fino al limite di rimborso di $ 50.000 USD.
 
 Per altre informazioni su scambi e rimborsi, vedere [Scambi e rimborsi in modalità self-service per le prenotazioni di Azure](exchange-and-refund-azure-reservations.md).
 

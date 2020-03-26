@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Caricare dati in Azure Sentinel'
+title: 'Guida introduttiva: Caricare dati in Azure Sentinel'
 description: Questa Guida introduttiva illustra come raccogliere dati in Azure Sentinel.
 services: sentinel
 author: yelevin
@@ -10,13 +10,13 @@ ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.openlocfilehash: 11fecd875385d8ba044cbe44e2270eed11d61ce1
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77581550"
 ---
-# <a name="quickstart-on-board-azure-sentinel"></a>Avvio rapido: Caricare dati in Azure Sentinel
+# <a name="quickstart-on-board-azure-sentinel"></a>Guida introduttiva: Caricare dati in Azure Sentinel
 
 Questa Guida introduttiva illustra come caricare dati in Azure Sentinel. 
 
@@ -39,7 +39,7 @@ Dopo aver connesso le origini dati, è possibile effettuare una scelta in una ra
 - Possono essere necessarie autorizzazioni aggiuntive per connettere origini dati specifiche.
 - Azure Sentinel è un servizio a pagamento. Per informazioni sui prezzi, vedere [Informazioni su Azure Sentinel](https://go.microsoft.com/fwlink/?linkid=2104058).
  
-## Abilitare Azure Sentinel <a name="enable"></a>
+## <a name="enable-azure-sentinel"></a>Abilitare Azure Sentinel <a name="enable"></a>
 
 1. Accedere al portale di Azure. Assicurarsi che la sottoscrizione in cui è stato creato Azure Sentinel sia selezionata.
 

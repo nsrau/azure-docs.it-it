@@ -14,10 +14,10 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/26/2019
 ms.openlocfilehash: 9fa816b2a8e736f03c99b66b898f48bd2a483b31
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68596766"
 ---
 # <a name="tutorial-deploy-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Esercitazione: Distribuire un modello predittivo in R con Machine Learning Services del database SQL di Azure (anteprima)
@@ -30,8 +30,8 @@ In questo articolo, usando gli script R sviluppati nella prima e nella seconda p
 
 > [!div class="checklist"]
 > * Creare una stored procedure che genera il modello di Machine Learning
-> * Memorizzare il modello in una tabella di database
-> * Creare una stored procedure per le stime in base al modello
+> * Archiviare il modello in una tabella del database
+> * Creare una stored procedure che esegue stime usando il modello
 > * Eseguire il modello con nuovi dati
 
 Nella [prima parte](sql-database-tutorial-predictive-model-prepare-data.md) si è appreso come importare un database di esempio e quindi preparare i dati da usare per il training di un modello predittivo in R.
@@ -44,7 +44,7 @@ Nella [seconda parte](sql-database-tutorial-predictive-model-build-compare.md) s
 
 * Per la terza parte di questa serie di esercitazioni è necessario aver completato la [**prima parte**](sql-database-tutorial-predictive-model-prepare-data.md) e la [**seconda parte**](sql-database-tutorial-predictive-model-build-compare.md).
 
-## <a name="create-a-stored-procedure-that-generates-the-model"></a>Creare una stored procedure per la generazione del modello
+## <a name="create-a-stored-procedure-that-generates-the-model"></a>Creare una stored procedure che genera il modello
 
 Nella seconda parte di questa serie di esercitazioni, si è scelto come più accurato un albero delle decisioni (dtree). Adesso, usando gli script R sviluppati, creare una stored procedure (`generate_rental_rx_model`) per il training e la generazione del modello dtree usando rxDTree del pacchetto RevoScaleR.
 
@@ -88,9 +88,9 @@ END;
 GO
 ```
 
-## <a name="store-the-model-in-a-database-table"></a>Memorizzare il modello in una tabella di database
+## <a name="store-the-model-in-a-database-table"></a>Archiviare il modello in una tabella del database
 
-Creare una tabella nel database TutorialDB e quindi salvare il modello di tabella.
+Creare una tabella nel database TutorialDB e quindi salvare il modello nella tabella.
 
 1. Creare una tabella (`rental_rx_models`) per memorizzare il modello.
 
@@ -128,7 +128,7 @@ Creare una tabella nel database TutorialDB e quindi salvare il modello di tabell
     FROM rental_rx_models;
     ```
 
-## <a name="create-a-stored-procedure-that-makes-predictions"></a>Creare una stored procedure per le stime
+## <a name="create-a-stored-procedure-that-makes-predictions"></a>Creare una stored procedure che esegue stime
 
 Creare una stored procedure (`predict_rentalcount_new`) per le stime in base al modello di cui è stato eseguito il training e un set di nuovi dati.
 
@@ -197,7 +197,7 @@ RentalCount_Predicted
 332.571428571429
 ```
 
-È stato creato, eseguito il training e distribuito correttamente un modello nel database SQL di Azure. Questo modello è stato quindi usato in una stored procedure per stimare i valori in base ai nuovi dati.
+È stato creato, eseguito il training e distribuito correttamente un modello nel database SQL di Azure. Il modello è stato quindi usato in una stored procedure per stimare i valori in base ai nuovi dati.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -212,11 +212,11 @@ Seguire questa procedura nel portale di Azure:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Nella seconda parte di questa serie di esercitazioni sono stati completati questi passaggi:
+Nella terza parte di questa serie di esercitazioni sono stati completati i passaggi seguenti:
 
 * Creare una stored procedure che genera il modello di Machine Learning
-* Memorizzare il modello in una tabella di database
-* Creare una stored procedure per le stime in base al modello
+* Archiviare il modello in una tabella del database
+* Creare una stored procedure che esegue stime usando il modello
 * Eseguire il modello con nuovi dati
 
 Per altre informazioni su come usare R in Machine Learning Services nel database SQL di Azure (anteprima), vedere:

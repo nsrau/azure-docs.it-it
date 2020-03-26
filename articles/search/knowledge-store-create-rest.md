@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 12/30/2019
 ms.openlocfilehash: 478a7e03b432006b429c96e03307fd8e494c88ff
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77472316"
 ---
 # <a name="create-a-knowledge-store-using-rest-and-postman"></a>Creare un archivio conoscenze con REST e Postman
