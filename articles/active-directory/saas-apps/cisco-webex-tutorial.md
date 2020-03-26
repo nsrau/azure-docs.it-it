@@ -17,10 +17,10 @@ ms.date: 08/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d4e497c556bde1be4e498cd85a68282a0e3b2666
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72026259"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cisco-webex-meetings"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Cisco Webex Meetings
@@ -50,7 +50,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-cisco-webex-meetings-from-the-gallery"></a>Aggiunta di Cisco Webex Meetings dalla raccolta
 
-Per configurare l'integrazione di Cisco Webex Meetings in Azure AD, è necessario aggiungere Cisco Webex Meetings dalla raccolta all'elenco di app SaaS gestite.
+Per configurare l'integrazione di Cisco Webex Meetings in Azure AD, è necessario aggiungere Cisco Webex Meetings dalla raccolta al proprio elenco di app SaaS gestite.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
 1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory**.
@@ -103,7 +103,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 6. Oltre quelli elencati in precedenza, l'applicazione Cisco Webex Meetings prevede il passaggio di qualche altro attributo nella risposta SAML. Nella sezione Attestazioni utente della finestra di dialogo Attributi utente eseguire la procedura seguente per aggiungere l'attributo del token SAML come illustrato nella tabella seguente: 
 
-    | NOME | Attributo di origine|
+    | Nome | Attributo di origine|
     | ---------------|  --------- |
     |   firstname    | user.givenname |
     |   lastname    | user.surname |
@@ -120,7 +120,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     e. Nell'elenco **Attributo di origine** selezionare il valore dell'attributo indicato per la riga dall'elenco a discesa.
 
-    f. Fare clic su **Save**.
+    f. Fare clic su **Salva**.
 
 4. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare il file **XML dei metadati della federazione** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer.
 
@@ -185,14 +185,14 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
     >[!NOTE]
     >Per l'abilitazione del provisioning utenti **just-in-time** è necessario controllare la **Auto Account Creation** (Creazione automatica dell'account). Inoltre, gli attributi token SAML devono essere passati nella risposta SAML.
 
-    f. Fare clic su **Save**.
+    f. Fare clic su **Salva**.
 
     >[!NOTE]
     >Questa configurazione è valida solo per i clienti che usano Webex UserID nel formato dell'indirizzo di posta elettronica.
 
 ### <a name="create-cisco-webex-meetings-test-user"></a>Creare l'utente di test di Cisco Webex Meetings
 
-Questa sezione descrive come creare un utente di nome B.Simon in Cisco Webex Meetings. Cisco Webex Meetings supporta il provisioning **just-in-time**, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se non esiste già un utente in Cisco Webex Meetings, ne viene creato uno nuovo quando si prova ad accedere a Cisco Webex Meetings.
+Questa sezione descrive come creare un utente di nome B.Simon in Cisco Webex Meetings. Cisco Webex Meetings supporta il provisioning **just-in-time**, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se un utente non esiste in Cisco Webex Meetings, ne viene creato uno nuovo quando si tenta di accedere a Cisco Webex Meetings.
 
 ## <a name="test-sso"></a>Testare l'accesso SSO 
 

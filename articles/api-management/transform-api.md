@@ -14,10 +14,10 @@ ms.topic: tutorial
 ms.date: 02/26/2019
 ms.author: apimpm
 ms.openlocfilehash: 5dec08bd4bc0a63a419d2bdc63383348a69b02db
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "70067460"
 ---
 # <a name="transform-and-protect-your-api"></a>Trasformare e proteggere l'API
@@ -26,7 +26,7 @@ L'esercitazione illustra come trasformare l'API in modo che non riveli le inform
 
 Questa esercitazione illustra quanto sia semplice aggiungere la protezione all'API back-end configurando il limite di frequenza con Gestione API di Azure. Potrebbe, ad esempio, essere necessario limitare il numero di chiamate all'API in modo che non venga usata in modo eccessivo dagli sviluppatori. Per altre informazioni, vedere [Criteri in Gestione API](api-management-policies.md)
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 >
@@ -201,7 +201,7 @@ La parte rimanente della sezione testa le trasformazioni dei criteri impostate i
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+In questa esercitazione sono state illustrate le procedure per:
 
 > [!div class="checklist"]
 >

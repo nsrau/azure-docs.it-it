@@ -10,15 +10,15 @@ ms.date: 08/05/2019
 ms.author: raynew
 ms.custom: mvc
 ms.openlocfilehash: 9bc0d25e19ad3412e62eb3386b0faf3ae5d2a444
-ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68782600"
 ---
 # <a name="fail-over-and-reprotect-azure-vms-between-regions"></a>Eseguire il failover e riproteggere le VM di Azure tra aree
 
-Questa esercitazione descrive come effettuare il failover di una macchina virtuale di Azure (VM) in un'area di Azure secondaria con il servizio [Azure Site Recovery](site-recovery-overview.md). Dopo aver eseguito il failover, si riproteggerà la VM. In questa esercitazione si apprenderà come:
+Questa esercitazione descrive come effettuare il failover di una macchina virtuale di Azure (VM) in un'area di Azure secondaria con il servizio [Azure Site Recovery](site-recovery-overview.md). Dopo aver eseguito il failover, si riproteggerà la VM. In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Eseguire il failover della macchina virtuale di Azure
@@ -44,7 +44,7 @@ Questa esercitazione descrive come effettuare il failover di una macchina virtua
 
    * **Più recente** (impostazione predefinita): determina l'elaborazione di tutti i dati nel servizio Site Recovery e offre il valore RPO (Recovery Point Objective) più basso.
    * **Elaborato più recente**: ripristina la macchina virtuale all'ultimo punto di ripristino che è stato elaborato dal servizio Site Recovery.
-   * **Personalizzato**: consente di eseguire il failover in un determinato punto di ripristino ed è particolarmente utile per eseguire un failover di test.
+   * **Custom**: consente di eseguire il failover in un determinato punto di ripristino ed è particolarmente utile per eseguire un failover di test.
 
 3. Selezionare **Arrestare la macchina prima di iniziare il failover** se si vuole provare ad arrestare le macchine virtuali di origine tramite Site Recovery prima di attivare il failover. L'arresto del sistema consente di evitare perdite di dati. Il failover continua anche se l'arresto ha esito negativo. Site Recovery non esegue la pulizia dell'origine dopo il failover.
 

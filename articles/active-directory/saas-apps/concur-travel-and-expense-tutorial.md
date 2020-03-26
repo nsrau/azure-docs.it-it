@@ -17,10 +17,10 @@ ms.date: 03/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9dddd9f6904aa5ef7840850792aeabf04666dddc
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72373434"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-concur-travel-and-expense"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Concur Travel and Expense
@@ -28,7 +28,7 @@ ms.locfileid: "72373434"
 Questa esercitazione descrive come integrare Concur Travel and Expense con Azure Active Directory (Azure AD). Integrando Concur Travel and Expense con Azure AD, è possibile:
 
 * Controllare in Azure AD chi può accedere a Concur Travel and Expense.
-* Abilitare gli utenti per l'accesso automatico a Concur Travel and Expense con gli account Azure AD personali.
+* Abilitare gli utenti per l'accesso automatico a Concur Travel and Expense con i rispettivi account Azure AD.
 * Gestire gli account in un'unica posizione centrale: il portale di Azure.
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -64,13 +64,13 @@ Per configurare l'integrazione di Concur Travel and Expense in Azure AD, è nece
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-concur-travel-and-expense"></a>Configurare e testare l'accesso Single Sign-On di Azure AD per Concur Travel and Expense
 
-Configurare e testare l'accesso SSO di Azure AD con Concur Travel and Expense usando un utente di test di nome **B.Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Concur Travel and Expense.
+Configurare e testare l'accesso SSO di Azure AD con Concur Travel and Expense usando un utente di test di nome **B.Simon**. Per il corretto funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Concur Travel and Expense.
 
 Per configurare e testare l'accesso SSO di Azure AD con Concur Travel and Expense, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
-    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
+    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
+    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Configurare l'accesso Single Sign-On di Concur Travel and Expense](#configure-concur-travel-and-expense-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
     1. **[Creare l'utente di test di Concur Travel and Expense](#create-concur-travel-and-expense-test-user)** : per avere in Concur Travel and Expense una controparte di B.Simon collegata alla rappresentazione dell'utente in Azure AD.
 1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
@@ -115,7 +115,7 @@ In questa sezione verrà creato un utente di test di nome B.Simon nel portale di
 In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendo l'accesso a Concur Travel and Expense.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
-1. Nell'elenco delle applicazioni selezionare **Concur Travel and Expense**.
+1. Nell'elenco di applicazioni selezionare **Concur Travel and Expense**.
 1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi**.
 
    ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
@@ -132,14 +132,14 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 1. Per configurare l'accesso Single Sign-On sul lato **Concur Travel and Expense**, è necessario caricare il file **XML dei metadati della federazione** scaricato in [Concur SSO Self-Service Tool](https://www.concursolutions.com/nui/authadmin/ssoadmin) e accedere con un account con il ruolo "Company Administrator" (Amministratore aziendale). 
 
-1. Fare clic su **Aggiungi**.
+1. Scegliere **Aggiungi**.
 1. Immettere un nome personalizzato per il provider di identità, ad esempio "Azure AD (US)". 
 1. Fare clic su **Upload XML File** (Carica file XML) e allegare il file **XML dei metadati della federazione** scaricato in precedenza.
 1. Fare clic su **Add Metadata** (Add metadati) per salvare la modifica.
 
     ![Screenshot dello strumento self-service per l'accesso SSO di Concur](./media/concur-travel-and-expense-tutorial/add-metadata-concur-self-service-tool.png)
 
-### <a name="create-concur-travel-and-expense-test-user"></a>Creare l'utente di test di Concur Travel and Expense
+### <a name="create-concur-travel-and-expense-test-user"></a>Creare un utente di test in Concur Travel and Expense
 
 In questa sezione viene creato un utente di nome B.Simon in Concur Travel and Expense. Collaborare con il team di supporto di Concur per aggiungere gli utenti alla piattaforma Concur Travel and Expense. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On. 
 
@@ -160,7 +160,7 @@ Per abilitare l'accesso Single Sign-On di Concur per dispositivi mobili, è nece
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro Concur Travel and Expense nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Concur Travel and Expense per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro Concur Travel and Expense nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Concur Travel and Expense per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

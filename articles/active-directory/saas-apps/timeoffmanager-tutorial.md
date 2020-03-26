@@ -17,10 +17,10 @@ ms.date: 12/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 06aa2ddf3e7168147ec091ef6fb9826025f23364
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75561814"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-timeoffmanager"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con TimeOffManager
@@ -33,7 +33,7 @@ Questa esercitazione descrive come integrare TimeOffManager con Azure Active Dir
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per iniziare, sono necessari gli elementi seguenti:
 
@@ -72,8 +72,8 @@ Configurare e testare l'accesso SSO di Azure AD con TimeOffManager usando un ute
 Per configurare e testare l'accesso SSO di Azure AD con TimeOffManager, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
-    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
+    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
+    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Configurare l'accesso Single Sign-On di TimeOffManager](#configure-timeoffmanager-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
     1. **[Creare l'utente di test di TimeOffManager](#create-timeoffmanager-test-user)** : per avere una controparte di B.Simon in TimeOffManager collegata alla rappresentazione dell'utente in Azure AD.
 1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
@@ -153,11 +153,11 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
    
     ![Impostazioni per l'accesso Single Sign-On](./media/timeoffmanager-tutorial/ic795917.png "Single Sign-On Settings")
 
-3. Nella sezione **Single Sign-On Settings** seguire questa procedura:
+3. Nella sezione **Single Sign-On Settings** , eseguire la procedura seguente:
    
     ![Impostazioni per l'accesso Single Sign-On](./media/timeoffmanager-tutorial/ic795918.png "Single Sign-On Settings")
    
-    a. Aprire il certificato con codifica Base 64 nel Blocco note, copiarne il contenuto negli Appunti e incollare l'intero certificato nella casella di testo **X.509 Certificate**  (Certificato X.509).
+    a. Aprire il certificato con codifica Base 64 nel Blocco note, copiarne il contenuto negli Appunti e incollare l’intero certificato nella casella di testo **Certificate X.509** .
    
     b. Nella casella di testo **IdP Issuer** (Autorità di certificazione IDP) incollare il valore di **Identificatore Azure AD** copiato dal portale di Azure.
    
@@ -186,7 +186,7 @@ In questa sezione viene creato un utente di nome Britta Simon in TimeOffManager.
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di TimeOffManager nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di TimeOffManager per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di TimeOffManager nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione TimeOffManager per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
