@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 310bf168b701ba6c37f71bc968da8e9114458e6f
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 120caf459a7a8ca4e60d5e447a1e4130c0bce389
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425308"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79223918"
 ---
 # <a name="add-an-ssl-certificate-in-azure-app-service"></a>Aggiungere un certificato SSL al servizio app di Azure
 
@@ -117,8 +117,8 @@ Usare la tabella seguente per informazioni sulla configurazione del certificato.
 |-|-|
 | Nome | Nome descrittivo per il certificato del servizio app. |
 | Nome host di dominio di tipo naked | Specificare qui il dominio radice. Il certificato emesso protegge *sia* il dominio radice sia il sottodominio `www`. Nel certificato emesso, il campo relativo al nome comune contiene il dominio radice e quello relativo al nome alternativo del soggetto contiene il dominio `www`. Per proteggere solo un sottodominio, specificare qui il nome di dominio completo del sottodominio, ad esempio `mysubdomain.contoso.com`.|
-| Sottoscrizione | Sottoscrizione che conterrà il certificato. |
-| Gruppo di risorse | Gruppo di risorse che conterrà il certificato. È possibile usare un nuovo gruppo di risorse o selezionare lo stesso gruppo di risorse, ad esempio, dell'app del servizio app. |
+| Subscription | Sottoscrizione che conterrà il certificato. |
+| Resource group | Gruppo di risorse che conterrà il certificato. È possibile usare un nuovo gruppo di risorse o selezionare lo stesso gruppo di risorse, ad esempio, dell'app del servizio app. |
 | Certificato SKU | Determina il tipo di certificato da creare, se si tratta di un certificato standard o di un [certificato con caratteri jolly](https://wikipedia.org/wiki/Wildcard_certificate). |
 | Note legali | Fare clic per confermare che si accettano le condizioni legali. I certificati vengono ottenuti da GoDaddy. |
 
@@ -137,8 +137,8 @@ Nella pagina **Stato insieme di credenziali delle chiavi** fare clic su **Reposi
 | Impostazione | Descrizione |
 |-|-|
 | Nome | Nome univoco costituito da caratteri alfanumerici e trattini. |
-| Gruppo di risorse | È consigliabile selezionare lo stesso gruppo di risorse del certificato del servizio app. |
-| Località | Selezionare la stessa località dell'app del servizio app. |
+| Resource group | È consigliabile selezionare lo stesso gruppo di risorse del certificato del servizio app. |
+| Location | Selezionare la stessa località dell'app del servizio app. |
 | Piano tariffario | Per altre informazioni, vedere [Prezzi di Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/). |
 | Criteri di accesso| Definisce le applicazioni e l'accesso consentito alle risorse dell'insieme di credenziali. È possibile configurare questa impostazione in un secondo momento, seguendo i passaggi descritti in [Concedere a diverse applicazioni l'autorizzazione per accedere a un insieme di credenziali delle chiavi](../key-vault/key-vault-group-permissions-for-apps.md). |
 | Accesso alla rete virtuale | Limitare l'accesso all'insieme di credenziali a determinate reti virtuali di Azure. È possibile configurare questa impostazione in un secondo momento, seguendo i passaggi descritti in [Configurare reti virtuali e firewall di Azure Key Vault](../key-vault/key-vault-network-security.md) |
@@ -193,7 +193,7 @@ La tabella seguente contiene informazioni utili per facilitare la selezione del 
 
 | Impostazione | Descrizione |
 |-|-|
-| Sottoscrizione | La sottoscrizione a cui appartiene l'istanza di Key Vault. |
+| Subscription | La sottoscrizione a cui appartiene l'istanza di Key Vault. |
 | Key Vault | L'insieme di credenziali con il certificato da importare. |
 | Certificato | Selezionare il certificato dall'elenco di certificati PKCS12 nell'insieme di credenziali. Tutti i certificati PKCS12 nell'insieme di credenziali sono elencati con le relative identificazioni, ma non tutti sono supportati nel servizio app. |
 
@@ -349,7 +349,7 @@ Il file *appservicecertificate.pfx* scaricato è un file PKCS12 non elaborato ch
 
 ### <a name="delete-certificate"></a>Eliminazione di un certificato 
 
-L'eliminazione di un certificato del servizio app è un'operazione definitiva e irreversibile. Qualsiasi associazione a questo certificato nel servizio app diventa non valida. Per impedire l'eliminazione accidentale, Azure applica un blocco al certificato. Per eliminare un certificato del servizio app, è necessario prima rimuovere il blocco per l'eliminazione sul certificato.
+L'eliminazione di un certificato del servizio app è un'operazione definitiva e irreversibile. L'eliminazione di una risorsa certificato del servizio app comporta la revoca del certificato. Qualsiasi associazione a questo certificato nel servizio app diventa non valida. Per impedire l'eliminazione accidentale, Azure applica un blocco al certificato. Per eliminare un certificato del servizio app, è necessario prima rimuovere il blocco per l'eliminazione sul certificato.
 
 Selezionare il certificato nella pagina [Certificati del servizio app](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) e quindi selezionare **Blocchi** nel riquadro di spostamento a sinistra.
 

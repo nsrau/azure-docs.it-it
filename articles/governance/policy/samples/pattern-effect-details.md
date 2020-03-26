@@ -4,10 +4,10 @@ description: Questo modello di Criteri di Azure fornisce un esempio di come usar
 ms.date: 01/31/2020
 ms.topic: sample
 ms.openlocfilehash: b86a24bc0af6c9bdd7b29bb0a931d6c78865218b
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77170459"
 ---
 # <a name="azure-policy-pattern-effects"></a>Modello di Criteri di Azure: effetti

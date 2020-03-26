@@ -16,10 +16,10 @@ ms.date: 01/23/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 74da278dbbc0ac32407c345524e224ca5f7616da
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77194659"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-coda"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Coda
@@ -69,8 +69,8 @@ Per configurare e testare l'accesso SSO di Azure AD con Coda, completare le proc
 
 1. **[Avviare la configurazione dell'accesso Single Sign-On per Coda](#begin-configuration-of-coda-sso)** : per avviare la configurazione dell'accesso Single Sign-On in Coda.
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-   * **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
-   * **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
+   * **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
+   * **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Configurare l'accesso Single Sign-On di Coda](#configure-coda-sso)** : per completare la configurazione delle impostazioni di Single Sign-On in Coda.
    * **[Creare l'utente di test di Coda](#create-coda-test-user)** : per avere una controparte di B.Simon in Coda collegata alla rappresentazione dell'utente in Azure AD.
 1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
@@ -112,7 +112,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
    b. Nella casella di testo **URL di risposta** immettere il valore di "SAML Response URL" (URL della risposta SAML) annotato in precedenza. Tale valore deve essere conforme al formato `https://coda.io/login/sso/saml/<CUSTOMID>/consume`
 
    > [!NOTE]
-   > I valori effettivi sono diversi rispetto a quanto indicato sopra. È possibile individuarli nella console "Configure SAML" (Configura SAML) di Coda. Aggiornarli con l'identificatore e l'URL di risposta effettivi.
+   > I valori effettivi sono diversi rispetto a quanto indicato sopra. È possibile individuarli nella console "Configure SAML" (Configura SAML) di Coda. è necessario aggiornarli con l'identificatore e l'URL di risposta effettivi.
 
 1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare **Certificato (Base64)** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer.
 
@@ -162,7 +162,7 @@ Per completare la configurazione, immettere i valori di Azure Active Directory n
 1. In **Identity Provider Login URL** (URL di accesso del provider di identità) incollare il valore di **URL di accesso** della console di Azure.
 1. In **Identity Provider Issuer** (Autorità di certificazione del provider di identità) incollare il valore di **Identificatore Azure AD** della console di Azure.
 1. In **Identity Provider Public Certificate** (Certificato pubblico del provider di identità) selezionare l'opzione **Upload Certificate** (Carica certificato) e selezionare il file scaricato in precedenza.
-1. Selezionare **Save** (Salva).
+1. Selezionare **Salva**.
 
 La procedura di configurazione della connessione SSO SAML è stata completata.
 

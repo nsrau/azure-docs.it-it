@@ -7,10 +7,10 @@ ms.topic: tutorial
 ms.service: container-service
 ms.date: 05/06/2019
 ms.openlocfilehash: c335236a2b0b05f03bef1ebef37f1129a5d0352b
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76278764"
 ---
 # <a name="tutorial-delete-an-azure-red-hat-openshift-cluster"></a>Esercitazione: Eliminare un cluster di Azure Red Hat OpenShift
@@ -28,7 +28,7 @@ In questa serie di esercitazioni si apprenderà come:
 > * [Ridimensionare un cluster di Azure Red Hat OpenShift](tutorial-scale-cluster.md)
 > * Eliminare un cluster di Azure Red Hat OpenShift
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare questa esercitazione:
 

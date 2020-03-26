@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: iainfou
 ms.openlocfilehash: 26122278ad74fb1d383ca7a900810b6060ee78f5
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73172695"
 ---
 # <a name="tutorial-configure-virtual-networking-for-an-azure-active-directory-domain-services-instance"></a>Esercitazione: Configurare una rete virtuale per un'istanza di Azure Active Directory Domain Services
@@ -22,7 +22,7 @@ Per fornire connettività a utenti e applicazioni, un dominio gestito di Azure A
 
 Questa esercitazione illustra come creare e configurare una subnet di rete virtuale dedicata oppure come collegare in peering una rete diversa alla rete virtuale di un dominio gestito di Azure AD DS.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Identificare le opzioni di connettività di reti virtuali per le risorse aggiunte a dominio in Azure AD DS
@@ -141,7 +141,7 @@ Quando si crea una VM che deve usare il dominio gestito di Azure AD DS, assicura
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+In questa esercitazione sono state illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Identificare le opzioni di connettività di reti virtuali per le risorse aggiunte a dominio in Azure AD DS

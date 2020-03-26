@@ -5,10 +5,10 @@ keywords: ansible, azure, devops, bash, playbook, macchina virtuale, set di scal
 ms.topic: tutorial
 ms.date: 04/30/2019
 ms.openlocfilehash: b7d3053c09d2dcb667a4fc407035f4814f786932
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74155857"
 ---
 # <a name="tutorial-update-the-custom-image-of-azure-virtual-machine-scale-sets-using-ansible"></a>Esercitazione: Aggiornare l'immagine personalizzata di set di scalabilità di macchine virtuali di Azure tramite Ansible
@@ -407,7 +407,7 @@ Si noterà che l'immagine personalizzata sottostante alla macchina virtuale è a
 
 Quando non sono più necessarie, eliminare le risorse create in questo articolo. 
 
-Aggiungere il codice seguente come `cleanup.yml`:
+Salvare il codice seguente come `cleanup.yml`:
 
 ```yml
 - hosts: localhost

@@ -8,18 +8,18 @@ author: tomarchermsft
 manager: gwallace
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 7ee17fa1ddb0c70921f8a9625944053e71ec016f
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 111003718fc82683f1756276132def0aea7b7375
+ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201929"
+ms.lasthandoff: 03/25/2020
+ms.locfileid: "80239563"
 ---
-# <a name="quickstart-configure-linux-virtual-machines-in-azure-using-ansible"></a>Avvio rapido: Configurare macchine virtuali Linux in Azure tramite Ansible
+# <a name="quickstart-configure-linux-virtual-machines-in-azure-using-ansible"></a>Guida introduttiva: Configurare macchine virtuali Linux in Azure tramite Ansible
 
 Attraverso un linguaggio dichiarativo, Ansible permette di automatizzare la creazione, la configurazione e la distribuzione di risorse di Azure tramite *playbook* Ansible. Questo articolo presenta un playbook di Ansible di esempio per la configurazione di macchine virtuali Linux. Il [playbook Ansible completo](#complete-sample-ansible-playbook) è riportato alla fine di questo articolo.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 [!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation1.md)]
@@ -220,7 +220,7 @@ Questa sezione descrive in modo dettagliato l'esecuzione del playbook Ansible di
 
 1. Creare un file (che conterrà il playbook) denominato `azure_create_complete_vm.yml` e aprirlo nell'editor VI, in questo modo:
 
-   ```azurecli-interactive
+   ```bash
    vi azure_create_complete_vm.yml
    ```
 

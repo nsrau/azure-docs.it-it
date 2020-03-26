@@ -10,13 +10,13 @@ ms.date: 09/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Data Box Edge so I can use it to transform the data before sending it to Azure.
 ms.openlocfilehash: b641ae62ba6e0cdacaeb46b1ffee2f02c7544763
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78397310"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79222858"
 ---
-# <a name="tutorial-transform-data-with-azure-data-box-edge"></a>Esercitazione: trasformare i dati con Azure Data Box Edge
+# <a name="tutorial-transform-data-with-azure-data-box-edge"></a>Esercitazione: Trasformare i dati con Azure Data Box Edge
 
 Questa esercitazione descrive come configurare un ruolo di calcolo nel dispositivo Azure Data Box Edge. Dopo aver configurato il ruolo di calcolo, Data Box Edge può trasformare i dati prima che vengano inviati ad Azure.
 
@@ -31,7 +31,7 @@ In questa esercitazione verranno illustrate le procedure per:
 > * Verificare la trasformazione e il trasferimento dei dati
 
  
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di configurare un ruolo di calcolo nel dispositivo Data Box Edge, assicurarsi di:
 

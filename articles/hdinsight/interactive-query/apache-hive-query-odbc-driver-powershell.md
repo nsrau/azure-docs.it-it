@@ -9,10 +9,10 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 06/27/2019
 ms.openlocfilehash: f6139bb98fa0272e43c8e180d4ec029f7a7538bb
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73494328"
 ---
 # <a name="tutorial-query-apache-hive-with-odbc-and-powershell"></a>Esercitazione: Eseguire query in Apache Hive con ODBC e PowerShell
@@ -52,19 +52,19 @@ I passaggi seguenti descrivono come creare un'origine dati ODBC Apache Hive.
 
 1. Digitare o selezionare i valori seguenti:
 
-   | Proprietà | DESCRIZIONE |
+   | Proprietà | Descrizione |
    | --- | --- |
    |  Data Source Name |Assegnare un nome all'origine dati |
-   |  Host |Immettere `CLUSTERNAME.azurehdinsight.net`. Ad esempio: `myHDICluster.azurehdinsight.net` |
+   |  Host |Immettere `CLUSTERNAME.azurehdinsight.net`. Ad esempio, usare `myHDICluster.azurehdinsight.net` |
    |  Porta |Utilizzare **443**.|
    |  Database |Usare l'**impostazione predefinita**. |
    |  Mechanism |Selezionare **Servizio HDInsight di Microsoft Azure** |
-   |  User Name |Immettere il nome utente HTTP del cluster HDInsight. Il nome utente predefinito è **admin**. |
+   |  Nome utente |Immettere il nome utente HTTP del cluster HDInsight. Il nome utente predefinito è **admin**. |
    |  Password |Immettere la password utente del cluster HDInsight. Selezionare la casella di controllo **Save Password (Encrypted)** (Salva password (crittografata)).|
 
 1. Facoltativo: selezionare **Opzioni avanzate**.  
 
-   | Parametro | DESCRIZIONE |
+   | Parametro | Descrizione |
    | --- | --- |
    |  Use Native Query |Quando è selezionato, il driver ODBC NON cerca di convertire TSQL in HiveQL. Usare questa opzione solo se sussiste la massima sicurezza che si stanno inviando istruzioni HiveQL pure. Quando ci si connette al database SQL di Azure o SQL Server, è consigliabile lasciarlo deselezionato. |
    |  Rows fetched per block |Quando si recupera un numero elevato di record, potrebbe essere necessario ottimizzare questo parametro per assicurare prestazioni ottimali. |

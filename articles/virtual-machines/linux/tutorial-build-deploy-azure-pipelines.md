@@ -12,10 +12,10 @@ ms.date: 1/3/2020
 ms.author: ushan
 ms.custom: devops
 ms.openlocfilehash: bb7c773d02c5da5c115af79cd9e90c78e71eb6bf
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "76988329"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-using-azure-devops-services-and-azure-pipelines"></a>Esercitazione: Distribuire l'app su macchine virtuali Linux in Azure con Azure DevOps Services e Azure Pipelines
@@ -53,7 +53,7 @@ Se si ha già un'app in GitHub che si vuole distribuire, è possibile provare a 
 
 Per i nuovi utenti, è invece preferibile iniziare con il codice di esempio. In questo caso, creare una copia tramite fork di questo repository in GitHub:
 
-#### <a name="javatabjava"></a>[Java](#tab/java)
+#### <a name="java"></a>[Java](#tab/java)
 
 ```
 https://github.com/spring-projects/spring-petclinic
@@ -62,7 +62,7 @@ https://github.com/spring-projects/spring-petclinic
 > [!NOTE]
 > Petclinic è un'applicazione [Java Spring Boot](https://spring.io/guides/gs/spring-boot) creata usando [Maven](https://spring.io/guides/gs/maven/).
 
-#### <a name="javascripttabjava-script"></a>[JavaScript](#tab/java-script)
+#### <a name="javascript"></a>[JavaScript](#tab/java-script)
 
 ```
 https://github.com/azure-devops/fabrikam-node
@@ -82,13 +82,13 @@ https://github.com/azure-devops/fabrikam-node
 Le app di esempio menzionate in precedenza sono state testate in Ubuntu 16.04 ed è consigliabile usare la stessa versione della VM Linux per questo argomento di avvio rapido.
 Seguire i passaggi aggiuntivi descritti di seguito in base allo stack di runtime usato per l'app.
 
-#### <a name="javatabjava"></a>[Java](#tab/java)
+#### <a name="java"></a>[Java](#tab/java)
 
 - Per la distribuzione di app basate su Java Spring Boot e Spring Cloud, creare una VM Linux in Azure usando [questo](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804) modello, che fornisce un runtime completamente supportato basato su OpenJDK.
 - Per la distribuzione di servlet Java in server Tomcat, creare una VM Linux con Java 8 usando [questo](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804) modello di Azure e [configurare Tomcat 9.x come servizio](https://tomcat.apache.org/tomcat-9.0-doc/setup.html).
 - Per la distribuzione di app basate su Java EE, usare un modello di Azure per creare una [VM Linux + Java + WebSphere 9.x](https://azuremarketplace.microsoft.com/marketplace/apps/midvision.websphere-application-server-nde-90), una [VM Linux + Java + WebLogic 12.x](https://azuremarketplace.microsoft.com/marketplace/apps/oracle.20191009-arm-oraclelinux-wls-admin) o una [VM Linux + Java + WildFly/JBoss 14](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804) 
 
-#### <a name="javascripttabjava-script"></a>[JavaScript](#tab/java-script)
+#### <a name="javascript"></a>[JavaScript](#tab/java-script)
 
 Per installare un'app JavaScript o un'app Node.js, è necessaria una VM Linux con server Web Nginx per distribuirla.
 Se non si ha già una VM Linux con Nginx, crearne una ora in Azure usando la procedura descritta in [questo esempio](/azure/virtual-machines/linux/quick-create-cli).
@@ -141,7 +141,7 @@ Le macchine virtuali possono essere aggiunte come risorse all'interno di [ambien
 
 1. Azure Pipelines analizzerà il repository e consiglierà un modello di pipeline appropriato.
 
-#### <a name="javatabjava"></a>[Java](#tab/java)
+#### <a name="java"></a>[Java](#tab/java)
 
 Selezionare il modello **starter** e copiare il frammento di codice YAML seguente per creare il progetto Java ed eseguire i test con Apache Maven:
 
@@ -165,7 +165,7 @@ Selezionare il modello **starter** e copiare il frammento di codice YAML seguent
 
 Per altre informazioni, seguire la procedura descritta in [Compilare l'app Java con Maven](https://docs.microsoft.com/azure/devops/pipelines/ecosystems/java).
 
-#### <a name="javascripttabjava-script"></a>[JavaScript](#tab/java-script)
+#### <a name="javascript"></a>[JavaScript](#tab/java-script)
 
 Selezionare il modello **starter** e copiare il frammento di codice YAML seguente per creare un progetto Node.js generale con npm.
 

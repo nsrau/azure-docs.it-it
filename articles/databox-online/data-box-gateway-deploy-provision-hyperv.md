@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 63d88f1b9903eaad7ed4f57f59ca2a49445e3d40
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77365314"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-hyper-v"></a>Esercitazione: Effettuare il provisioning di Azure Data Box Gateway in Hyper-V
@@ -118,7 +118,7 @@ Eseguire i passaggi seguenti per il provisioning di un dispositivo in hypervisor
 12. Nella pagina **Impostazioni**, nel riquadro di sinistra, fare clic su **Processore**. Nel riquadro di destra, impostare **Numero di processori virtuali** su 4 (o oltre). Fare clic su **Applica**.
 
     ![Impostare il numero di processori virtuali nella pagina Impostazioni](./media/data-box-gateway-deploy-provision-hyperv/image10.png)
-13. Per soddisfare i requisiti minimi, è necessario anche aggiungere un disco dati virtuale da 2 TB. Nella pagina **Impostazioni**:
+13. Per soddisfare i requisiti minimi, è necessario anche aggiungere un disco dati virtuale da 2 TB. Nella pagina **Impostazioni** :
 
     1. Nel riquadro di sinistra selezionare **Controller SCSI**.
     2. Nel riquadro di destra selezionare **Disco rigido** e fare clic su **Aggiungi**.

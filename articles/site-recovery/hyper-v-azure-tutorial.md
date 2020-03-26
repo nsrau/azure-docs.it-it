@@ -9,11 +9,11 @@ ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 741d4718b5e6140f4ddd2bb22e1a2ec830763176
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74029939"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79224038"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Configurare il ripristino di emergenza di macchine virtuali Hyper-V locali in Azure
 
@@ -21,7 +21,7 @@ Il servizio [Azure Site Recovery](site-recovery-overview.md) favorisce l'attuazi
 
 Questa è la terza esercitazione di una serie. Descrive come configurare il ripristino di emergenza di macchine virtuali Hyper-V locali in Azure. L'esercitazione si applica alle macchine virtuali Hyper-V non gestite da System Center Virtual Machine Manager (VMM).
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Selezionare l'origine e la destinazione della replica.

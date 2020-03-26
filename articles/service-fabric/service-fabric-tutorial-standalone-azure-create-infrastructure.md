@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
 ms.openlocfilehash: 93a7e2507ab3a467ef83924479872694cae2dd5b
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75614010"
 ---
 # <a name="tutorial-create-azure-vm-infrastructure-to-host-a-service-fabric-cluster"></a>Esercitazione: Creare un'infrastruttura di macchine virtuali di Azure per ospitare un cluster di Service Fabric
@@ -25,7 +25,7 @@ Nella prima parte della serie si apprenderà come:
 > * Accedere a una delle istanze
 > * Preparare l'istanza per Service Fabric
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare l'esercitazione, è necessaria una sottoscrizione di Azure.  Se non si ha ancora un account, accedere al [portale di Azure](https://portal.azure.com) per crearne uno.
 

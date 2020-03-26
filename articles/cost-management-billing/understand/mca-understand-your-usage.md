@@ -6,14 +6,14 @@ ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/10/2020
+ms.date: 03/20/2020
 ms.author: banders
-ms.openlocfilehash: ef6ef96bf248c449b318cebaba9c53f63e448855
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: c6883dfd0f4c3bc11afdd68ead8c8c84729b1880
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199161"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80065697"
 ---
 # <a name="terms-in-the-azure-usage-and-charges-file-for-a-microsoft-customer-agreement"></a>Condizioni nel file Utilizzo e addebiti di Azure per un Contratto del cliente Microsoft
 
@@ -21,9 +21,9 @@ Questo articolo di applica a un account di fatturazione per un Contratto del cli
 
 Il file CSV Utilizzo e addebiti di Azure contiene gli addebiti sia a livello giornaliero sia a livello di contatore per il periodo di fatturazione corrente.
 
-Per ottenere il file Utilizzo e addebiti di Azure, vedere [Visualizzare e scaricare utilizzo e addebiti di Azure per il Contratto del cliente di Microsoft](download-azure-daily-usage.md). È disponibile in un formato di file CSV (valori separati dalla virgola) che è possibile aprire in un foglio di calcolo.
+Per ottenere il file Utilizzo e addebiti di Azure, vedere [Visualizzare e scaricare utilizzo e addebiti di Azure per il Contratto del cliente di Microsoft](download-azure-daily-usage.md). È disponibile in un formato di file CSV (valori delimitati da virgole) che è possibile aprire in un'applicazione foglio di calcolo.
 
-Gli addebiti in base all'utilizzo corrispondono agli addebiti **mensili** totali per una sottoscrizione e non tengono in considerazione eventuali accrediti o sconti applicabili.
+Gli addebiti in base all'utilizzo corrispondono agli addebiti **mensili** totali per una sottoscrizione Gli addebiti per l'utilizzo non tengono in considerazione eventuali crediti o sconti applicabili.
 
 ## <a name="changes-from-azure-ea-usage-and-charges"></a>Modifiche dell'utilizzo e degli addebiti del Contratto Enterprise di Azure
 
@@ -88,6 +88,8 @@ meterCategory | Nome della categoria di classificazione per il contatore. Ad ese
 meterSubCategory | Nome della categoria di sottoclassificazione del contatore
 meterRegion | Nome dell'area in cui è disponibile il contatore per il servizio. Identifica la posizione del datacenter per determinati servizi il cui prezzo dipende dalla posizione stessa.
 offer | Nome dell'offerta acquistata
+PayGPrice | Prezzo al dettaglio per la risorsa.
+PricingModel | Identificatore che indica come viene valutato il prezzo del contatore (valori: su richiesta, prenotazione, spot)
 productId | Identificatore univoco per il prodotto che determina un incremento dei costi
 product | Nome del prodotto che determina un incremento dei costi
 ID sottoscrizione | Identificatore univoco per la sottoscrizione che determina un incremento dei costi

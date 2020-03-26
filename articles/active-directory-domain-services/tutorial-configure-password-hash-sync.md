@@ -10,13 +10,13 @@ ms.topic: tutorial
 ms.date: 02/10/2020
 ms.author: iainfou
 ms.openlocfilehash: 93e5ee9b46fb3387b70dd5092f72efcaa8a2bc19
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
-ms.translationtype: MT
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78669175"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79223068"
 ---
-# <a name="tutorial-enable-password-synchronization-in-azure-active-directory-domain-services-for-hybrid-environments"></a>Esercitazione: abilitare la sincronizzazione password in Azure Active Directory Domain Services per gli ambienti ibridi
+# <a name="tutorial-enable-password-synchronization-in-azure-active-directory-domain-services-for-hybrid-environments"></a>Esercitazione: Abilitare la sincronizzazione delle password in Azure Active Directory Domain Services per ambienti ibridi
 
 Per gli ambienti ibridi è possibile usare Azure AD Connect per configurare un tenant di Azure Active Directory (Azure AD) per la sincronizzazione con un ambiente Active Directory Domain Services locale. Per impostazione predefinita, Azure AD Connect non sincronizza gli hash delle password di NT LAN Manager (NTLM) e Kerberos legacy necessari per Azure Active Directory Domain Services.
 
@@ -32,7 +32,7 @@ In questa esercitazione si apprenderà:
 
 Se non si ha una sottoscrizione di Azure, [creare un account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare l'esercitazione, sono necessarie le risorse seguenti:
 
@@ -60,7 +60,7 @@ Per autenticare gli utenti nel dominio gestito, Azure Active Directory Domain Se
 Dopo aver installato e configurato Azure AD Connect per la sincronizzazione con Azure AD, configurare ora la sincronizzazione degli hash delle password legacy per NTLM e Kerberos. Per configurare le impostazioni necessarie e quindi avviare una sincronizzazione completa delle password con Azure AD, si usa uno script PowerShell. Al termine del processo di sincronizzazione degli hash delle password di Azure AD Connect, gli utenti possono accedere tramite Azure Active Directory Domain Services alle applicazioni che usano hash delle password NTLM o Kerberos legacy.
 
 1. Nel computer in cui è installato Azure AD Connect fare clic su Start e quindi su **Azure AD Connect > Synchronization Service** (Azure AD Connect > Servizio di sincronizzazione).
-1. Selezionare la scheda **connettori** . Sono elencate le informazioni di connessione usate per stabilire la sincronizzazione tra l'ambiente di servizi di dominio Active Directory locale e Azure AD.
+1. Selezionare la scheda **Connettori**. Sono elencate le informazioni di connessione usate per stabilire la sincronizzazione tra l'ambiente Azure Active Directory Domain Services locale e Azure AD.
 
     L'opzione **Tipo** indica *Windows Azure Active Directory (Microsoft)* per il connettore Azure AD oppure *Active Directory Domain Services* per il connettore Azure Active Directory Domain Services locale. Prendere nota dei nomi di connettore da usare nello script PowerShell nel passaggio successivo.
 
@@ -68,7 +68,7 @@ Dopo aver installato e configurato Azure AD Connect per la sincronizzazione con 
 
     In questo esempio di screenshot vengono usati i connettori seguenti:
 
-    * Il connettore Azure AD è denominato *aaddscontoso.onmicrosoft.com-AAD*
+    * Il connettore Azure AD è denominato *aaddscontoso.onmicrosoft.com - AAD*
     * Il connettore Azure Active Directory Domain Services locale è denominato *onprem.contoso.com*
 
 1. Copiare e incollare lo script PowerShell seguente nel computer in cui è installato Azure AD Connect. Lo script attiva una sincronizzazione completa delle password che include gli hash delle password legacy. Aggiornare le variabili `$azureadConnector` e `$adConnector` con i nomi di connettore del passaggio precedente.

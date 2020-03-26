@@ -1,20 +1,18 @@
 ---
-title: Informazioni sui dati di Gestione costi di Azure | Microsoft Docs
+title: Informazioni sui dati di Gestione costi di Azure
 description: Questo articolo fornisce informazioni sui dati inclusi in Gestione costi di Azure e sulla frequenza di elaborazione, raccolta, visualizzazione e chiusura dei dati.
-keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
-ms.custom: ''
-ms.openlocfilehash: ff3ed7ee65fd34ef9cd3541832f9cffc306e1aa8
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 2af84ccf679d28251e34f4c76ced38b0cb653a58
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78245381"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79203016"
 ---
 # <a name="understand-cost-management-data"></a>Informazioni sui dati di Gestione costi
 
@@ -165,9 +163,9 @@ Quando si usano le [API di gestione dei costi](../index.yml), PowerBI o il porta
 I costi indicati in Gestione costi sono arrotondati. I costi restituiti dall'API di query non sono arrotondati. Ad esempio:
 
 - Analisi dei costi nel portale di Azure: gli addebiti vengono arrotondati con le regole standard, ossia se i valori sono maggiori di 0,5 vengono arrotondati per eccesso, altrimenti per difetto. L'arrotondamento viene applicato solo ai valori visualizzati. Non si verifica durante l'elaborazione e l'aggregazione dei dati. Ad esempio, con l'analisi i costi vengono aggregati come segue:
-  - Addebito 1: $ 0,004
+  -    Addebito 1: $ 0,004
   - Addebito 2: $ 0,004
-  - Aggregazione degli addebiti: 0,004 + 0,004 = 0,008. L'addebito visualizzato è $ 0,01.
+  -    Aggregazione degli addebiti: 0,004 + 0,004 = 0,008. L'addebito visualizzato è $ 0,01.
 - API di query: gli addebiti vengono visualizzati con otto cifre decimali senza arrotondamento.
 
 

@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 02/05/2020
 ms.author: dobett
 ms.openlocfilehash: 046116addf643d6c0eb0faf2f821b6ef78d440c6
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77050628"
 ---
 # <a name="choose-the-right-iot-solution"></a>Scegliere la soluzione IoT appropriata
@@ -55,7 +55,7 @@ Quale struttura dei prezzi è più adatta alle proprie esigenze?
 
 - Scegliere l'approccio basato sulla piattaforma app gestita per una struttura dei prezzi semplice e prevedibile.
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 L'approccio basato sui servizi della piattaforma è ideale per un'azienda che conosce già soluzioni e dispositivi cloud e vuole:
 

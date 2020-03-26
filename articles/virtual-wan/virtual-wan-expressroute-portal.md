@@ -9,10 +9,10 @@ ms.date: 02/13/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
 ms.openlocfilehash: 35ca071cd8495611f0f350511ef9406f82c5be23
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77209427"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan"></a>Esercitazione: Creare un'associazione ExpressRoute con la rete WAN virtuale di Azure
@@ -44,7 +44,7 @@ Prima di iniziare la configurazione, verificare di soddisfare i criteri seguenti
 
 * Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="openvwan"></a>Creare una rete WAN virtuale
+## <a name="create-a-virtual-wan"></a><a name="openvwan"></a>Creare una rete WAN virtuale
 
 In un browser passare al [portale di Azure](https://portal.azure.com) e accedere con l'account Azure.
 
@@ -62,19 +62,19 @@ In un browser passare al [portale di Azure](https://portal.azure.com) e accedere
 4. Dopo aver completato i campi, selezionare **Rivedi e crea**.
 5. Al termine della convalida selezionare **Crea** per creare la rete WAN virtuale.
 
-## <a name="hub"></a>Creare un hub virtuale e un gateway
+## <a name="create-a-virtual-hub-and-gateway"></a><a name="hub"></a>Creare un hub virtuale e un gateway
 
 Un hub virtuale è una rete virtuale che viene creata e usata dalla rete WAN virtuale. Può contenere vari gateway, ad esempio VPN ed ExpressRoute. In questa sezione si crea un gateway ExpressRoute per l'hub virtuale. È possibile creare il gateway con la [creazione di un nuovo hub virtuale](#newhub) o con la sua modifica in un [hub esistente](#existinghub). 
 
 I gateway ExpressRoute vengono sottoposti a provisioning in unità da 2 Gbps. 1 unità di scala = 2 Gbps con supporto fino a 10 unità di scala = 20 Gbps. Occorrono circa 30 minuti per la creazione completa di un hub virtuale e di un gateway.
 
-### <a name="newhub"></a>Per la creazione di un nuovo hub virtuale e un gateway
+### <a name="to-create-a-new-virtual-hub-and-a-gateway"></a><a name="newhub"></a>Per la creazione di un nuovo hub virtuale e un gateway
 
 Creare un nuovo hub virtuale. Dopo aver creato un hub, verranno addebitati i relativi costi, anche se si non collega alcun sito.
 
 [!INCLUDE [Create a hub](../../includes/virtual-wan-tutorial-er-hub-include.md)]
 
-### <a name="existinghub"></a>Per la creazione di un gateway in un hub esistente
+### <a name="to-create-a-gateway-in-an-existing-hub"></a><a name="existinghub"></a>Per la creazione di un gateway in un hub esistente
 
 È anche possibile creare un gateway in un hub esistente modificando il gateway stesso.
 
@@ -90,7 +90,7 @@ Dopo aver creato un gateway ExpressRoute, è possibile visualizzare i dettagli d
 
 ![Visualizza gateway](./media/virtual-wan-expressroute-portal/viewgw.png "visualizza gateway")
 
-## <a name="connectvnet"></a>Connettere la rete virtuale a un hub
+## <a name="connect-your-vnet-to-the-hub"></a><a name="connectvnet"></a>Connettere la rete virtuale a un hub
 
 In questa sezione si crea la connessione di peering tra l'hub e una rete virtuale. Ripetere questi passaggi per ogni rete virtuale a cui ci si vuole connettere.
 
@@ -103,7 +103,7 @@ In questa sezione si crea la connessione di peering tra l'hub e una rete virtual
     * **Sottoscrizione** - Verificare la sottoscrizione.
     * **Rete virtuale** - Selezionare la rete virtuale che si vuole connettere all'hub. La rete virtuale non può avere un gateway di rete virtuale già esistente (né VPN, né ExpressRoute).
 
-## <a name="connectcircuit"></a>Connettere il circuito al gateway hub
+## <a name="connect-your-circuit-to-the-hub-gateway"></a><a name="connectcircuit"></a>Connettere il circuito al gateway hub
 
 Una volta creato il gateway, è possibile connettervi un [circuito ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md). I circuiti Premium di ExpressRoute che si trovano in località supportate da Copertura globale per ExpressRoute, possono connettersi a un gateway ExpressRoute della rete WAN virtuale.
 
@@ -116,7 +116,7 @@ Nel portale passare alla pagina **Hub virtuale -> Connettività -> ExpressRoute*
 
    ![connetti circuiti](./media/virtual-wan-expressroute-portal/cktconnect.png "connetti circuiti")
 
-### <a name="authkey"></a>Connettersi riscattando una chiave di autorizzazione
+### <a name="to-connect-by-redeeming-an-authorization-key"></a><a name="authkey"></a>Connettersi riscattando una chiave di autorizzazione
 
 Usare chiave di autorizzazione e URI del circuito specificati per la connessione.
 

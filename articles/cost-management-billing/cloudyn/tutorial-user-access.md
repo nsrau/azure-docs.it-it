@@ -1,20 +1,20 @@
 ---
-title: 'Esercitazione: Assegnare un accesso in Azure con Cloudyn | Microsoft Docs'
+title: 'Esercitazione: Assegnare un accesso a Cloudyn in Azure'
 description: In questa esercitazione si apprenderà come assegnare un accesso ai dati di Cloudyn con account utente che definiscono i livelli di accesso alle entità.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 03/12/2020
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.custom: seodec18
 ms.reviewer: benshy
-ms.openlocfilehash: b93dfd7699ab2f1e2851b4d1f7e6d4c721186a2e
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ROBOTS: NOINDEX
+ms.openlocfilehash: e8fff8b75ff419cffc7f496f921dcba734109e5a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76773995"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79463612"
 ---
 # <a name="tutorial-assign-access-to-cloudyn-data"></a>Esercitazione: Assegnare un accesso ai dati di Cloudyn
 
@@ -34,7 +34,9 @@ Al momento della registrazione dell'account o del contratto di Azure, in Cloudyn
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisites
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
+
+## <a name="prerequisites"></a>Prerequisiti
 
 - È necessario disporre di un account Azure.
 - È necessario disporre di una registrazione di valutazione o una sottoscrizione a pagamento per Cloudyn.
@@ -66,11 +68,11 @@ Quando si elimina un utente, tutte le entità a cui ha accesso l'utente rimangon
 Non è possibile rimuovere se stessi come utente.
 
 > [!WARNING]
-> Quando si elimina un utente, non può essere ripristinato.
+> Quando si elimina un utente, non è possibile ripristinarlo.
 
-1.  Nel portale di Cloudyn fare clic sul simbolo a forma di ingranaggio in alto a destra e quindi selezionare **Gestione utenti**.
-2.  Nell'elenco di utenti selezionare l'utente che si vuole eliminare e quindi fare clic su **Elimina utente** (simbolo di Cestino).
-3.  Nella finestra Elimina utente fare clic su **Sì** e quindi fare clic su **OK**.
+1.    Nel portale di Cloudyn fare clic sul simbolo a forma di ingranaggio in alto a destra e quindi selezionare **Gestione utenti**.
+2.    Nell'elenco di utenti selezionare l'utente che si vuole eliminare e quindi fare clic su **Elimina utente** (simbolo di Cestino).
+3.    Nella finestra Elimina utente fare clic su **Sì** e quindi fare clic su **OK**.
 
 
 ## <a name="delete-or-export-personal-data"></a>Eliminare o esportare i dati personali

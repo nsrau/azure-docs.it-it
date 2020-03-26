@@ -1,5 +1,5 @@
 ---
-title: Errore Non sono state trovate sottoscrizioni - Accesso al portale di Azure | Microsoft Docs
+title: Errore Non sono state trovate sottoscrizioni - Accesso al portale di Azure
 description: Fornisce la soluzione al problema per cui si verifica l'errore Non sono state trovate sottoscrizioni quando si accede al portale di Azure o al Centro account di Azure.
 author: genlin
 ms.reviewer: dcscontentpm
@@ -9,12 +9,12 @@ ms.topic: troubleshooting
 ms.date: 02/12/2020
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: 5011f0a09e33221650cf050578db5ab1d6b0a033
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 709d30d3d8563b07c73658a0a9d96748615eb899
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200623"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79202880"
 ---
 # <a name="no-subscriptions-found-sign-in-error-for-azure-portal-or-azure-account-center"></a>Errore di accesso Non sono state trovate sottoscrizioni per il portale di Azure o il Centro account di Azure
 

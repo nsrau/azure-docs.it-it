@@ -9,17 +9,17 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/21/2019
 ms.openlocfilehash: 73ca0d089ab758fb13e69d341337139d79194cc5
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "71121932"
 ---
 # <a name="tutorial-use-r-in-a-spark-compute-context-in-azure-hdinsight"></a>Esercitazione: Usare R nel contesto di calcolo Spark in Azure HDInsight
 
 Questa esercitazione include un'introduzione dettagliata all'uso delle funzioni R in Apache Spark in esecuzione in un cluster di Machine Learning Services per Azure HDInsight.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Scaricare i dati di esempio nella risorsa di archiviazione locale
@@ -160,7 +160,7 @@ Il passaggio dovrebbe essere completato in circa 10 secondi.
 
 In un contesto di calcolo Spark è possibile creare origini dati con le funzioni seguenti:
 
-|Funzione | DESCRIZIONE |
+|Funzione | Descrizione |
 |---------|-------------|
 |`RxTextData` | Un'origine dati di testo delimitato da virgole. |
 |`RxXdfData` | Dati in formato di file XDF. In RevoScaleR il formato di file XDF è modificato per Hadoop per archiviare dati in un set di file compositi invece che in un singolo file. |

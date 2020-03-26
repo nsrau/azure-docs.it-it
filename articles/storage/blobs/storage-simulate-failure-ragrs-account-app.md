@@ -5,16 +5,17 @@ description: Simulare un errore durante la lettura dei dati dall'area primaria q
 services: storage
 author: tamram
 ms.service: storage
+ms.subservice: blobs
 ms.topic: tutorial
 ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: artek
-ms.openlocfilehash: 522ed13681a98535c35552128fc8432782ec1ca2
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 3693ae8c9c425c35ab1a4ebf88b6cd3dfb58f92c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77162702"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80061281"
 ---
 # <a name="tutorial-simulate-a-failure-in-reading-data-from-the-primary-region"></a>Esercitazione: Simulare un errore durante la lettura dei dati dall'area primaria
 
@@ -31,7 +32,7 @@ Nella seconda parte della serie si apprenderà come:
 > * Simulare un errore con una [route statica non valida](#simulate-a-failure-with-an-invalid-static-route) o con [Fiddler](#simulate-a-failure-with-fiddler)
 > * Simulare il ripristino di un endpoint primario
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare questa esercitazione, completare quella precedente: [Applicare la disponibilità elevata ai dati delle applicazioni con l'archiviazione di Azure][previous-tutorial].
 

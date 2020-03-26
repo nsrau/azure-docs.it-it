@@ -16,12 +16,12 @@ ms.date: 05/08/2019
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 6280f3784247b671521a4994be1f233d4913d90c
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: f6953fb5d016c802db260c55bc4970c3f029ab1a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77194501"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79215869"
 ---
 # <a name="microsoft-identity-platform-v20-overview"></a>Panoramica di Microsoft Identity Platform (v2.0)
 
@@ -33,7 +33,7 @@ Microsoft Identity Platform è un'evoluzione della piattaforma per sviluppatori 
   - Account di social networking o locali (tramite Azure AD B2C)
 - **Librerie open source**: Microsoft Authentication Library (MSAL) e supporto per altre librerie conformi agli standard
 - **Portale di gestione delle applicazioni**: esperienza di registrazione e configurazione integrata nel portale di Azure, insieme a tutte le altre funzionalità di gestione di Azure.
-- **API di configurazione delle applicazioni e PowerShell**: per eseguire la configurazione a livello di codice delle applicazioni tramite l'API REST (Microsoft Graph e Azure Active Directory Graph 1.6) e PowerShell, in modo da automatizzare le attività DevOps.
+- **API di configurazione delle applicazioni e PowerShell**: per eseguire la configurazione a livello di codice delle applicazioni tramite l'API Microsoft Graph e PowerShell, in modo da automatizzare le attività DevOps.
 - **Contenuti per gli sviluppatori**: documentazione concettuale e di riferimento, esempi di avvio rapido, esempi di codice, esercitazioni e guide pratiche.
 
 Agli sviluppatori Microsoft Identity Platform offre un'integrazione uniforme con le innovazioni nell'area di sicurezza e identità, ad esempio l'autenticazione senza password, l'autenticazione incrementale e l'accesso condizionale.  Non è necessario implementare queste funzionalità personalmente: le applicazioni integrate con Microsoft Identity Platform sfruttano in modo nativo queste innovazioni.

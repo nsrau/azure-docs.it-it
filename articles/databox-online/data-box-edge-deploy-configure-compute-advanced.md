@@ -10,13 +10,13 @@ ms.date: 05/20/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Data Box Edge for advanced deployment flow so I can use it to transform the data before sending it to Azure.
 ms.openlocfilehash: b446a3ebf92f6240d3bc02a148fbb8296efec926
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78384745"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79222888"
 ---
-# <a name="tutorial-transform-data-with-azure-data-box-edge-for-advanced-deployment-flow"></a>Esercitazione: trasformare i dati con Azure Data Box Edge per un flusso di distribuzione avanzato
+# <a name="tutorial-transform-data-with-azure-data-box-edge-for-advanced-deployment-flow"></a>Esercitazione: Trasformare i dati con Azure Data Box Edge per il flusso di distribuzione avanzata
 
 Questa esercitazione descrive come configurare un ruolo di calcolo per il flusso di distribuzione avanzata nel dispositivo Azure Data Box Edge. Dopo aver configurato il ruolo di calcolo, Data Box Edge può trasformare i dati prima che vengano inviati ad Azure.
 
@@ -41,7 +41,7 @@ In questa esercitazione verranno illustrate le procedure per:
 > * Verificare la trasformazione e il trasferimento dei dati
 
  
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di configurare un ruolo di calcolo nel dispositivo Data Box Edge, assicurarsi di:
 

@@ -17,10 +17,10 @@ ms.date: 08/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 700f2ca4d46b3483531fa0784cb78699befb20ca
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78897743"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-netweaver"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con SAP NetWeaver
@@ -50,7 +50,7 @@ SAP NetWeaver supporta sia **SAML** (**accesso SSO avviato da SP**) che **OAuth*
 
 ## <a name="adding-sap-netweaver-from-the-gallery"></a>Aggiunta di SAP NetWeaver dalla raccolta
 
-Per configurare l'integrazione di SAP NetWeaver in Azure AD, è necessario aggiungere SAP NetWeaver dalla raccolta all'elenco di app SaaS gestite.
+Per configurare l'integrazione di SAP NetWeaver in Azure AD, è necessario aggiungere SAP NetWeaver dalla raccolta al proprio elenco di app SaaS gestite.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
 1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory**.
@@ -66,7 +66,7 @@ Configurare e testare l'accesso SSO di Azure AD con SAP NetWeaver usando un uten
 Per configurare e testare l'accesso SSO di Azure AD con SAP NetWeaver, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** per consentire agli utenti di usare questa funzionalità.
-    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
+    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
     1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** per consentire a B.Simon di usare l'accesso Single Sign-On di Azure AD.
 1. **[Configurare SAP NetWeaver con SAML](#configure-sap-netweaver-using-saml)** : per configurare le impostazioni dell'accesso Single Sign-On sul lato applicazione.
     1. **[Creare l'utente di test di SAP NetWeaver ](#create-sap-netweaver-test-user)** : per avere una controparte di B.Simon in SAP NetWeaver collegata alla rappresentazione dell'utente in Azure AD.
@@ -301,7 +301,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
     ![Configure Single Sign-On](./media/sapnetweaver-tutorial/configuration2.png)
 
-    ### <a name="create-sap-netweaver-test-user"></a>Creare l'utente di test di SAP NetWeaver
+    ### <a name="create-sap-netweaver-test-user"></a>Creare un utente di test di SAP NetWeaver
 
     In questa sezione viene creato un utente di nome B.Simon in SAP NetWeaver. Collaborare con il team di esperti SAP interno o con il partner SAP dell'organizzazione per aggiungere gli utenti nella piattaforma SAP NetWeaver.
 

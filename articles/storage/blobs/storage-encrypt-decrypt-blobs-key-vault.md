@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
 ms.openlocfilehash: c83e56a47f4b212a5612cb9e6965ce8e73228dcb
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74892890"
 ---
 # <a name="tutorial---encrypt-and-decrypt-blobs-using-azure-key-vault"></a>Esercitazione: Crittografare e decrittografare BLOB con Azure Key Vault
@@ -29,7 +29,7 @@ Per informazioni generali sulla crittografia lato client per Archiviazione di Az
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per completare l'esercitazione, sono necessari gli elementi seguenti:
+Per completare l'esercitazione è necessario quanto segue:
 
 * Un account di archiviazione Azure
 * Visual Studio 2013 o versioni successive

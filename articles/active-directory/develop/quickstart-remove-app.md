@@ -13,13 +13,13 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
 ms.openlocfilehash: 3cc9e4458f14a63bad7f484bc16683248895ede9
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704086"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79215899"
 ---
-# <a name="quickstart-remove-an-application-registered-with-the-microsoft-identity-platform"></a>Avvio rapido: Rimuovere un'applicazione registrata con Microsoft Identity Platform
+# <a name="quickstart-remove-an-application-registered-with-the-microsoft-identity-platform"></a>Guida introduttiva: Rimuovere un'applicazione registrata con Microsoft Identity Platform
 
 Gli sviluppatori aziendali e i provider SaaS (Software as a Service) che hanno registrato applicazioni con Microsoft Identity Platform potrebbero dover rimuovere la registrazione di un'applicazione.
 
@@ -28,7 +28,7 @@ In questa guida introduttiva si apprende come:
 * Rimuovere un'applicazione creata dall'utente o dalla relativa organizzazione
 * Rimuovere un'applicazione creata da un'altra organizzazione
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 È necessario avere un tenant in cui sono registrate applicazioni. Per informazioni su come aggiungere e registrare app, vedere [Registrare un'applicazione con Microsoft Identity Platform](quickstart-register-app.md).
 

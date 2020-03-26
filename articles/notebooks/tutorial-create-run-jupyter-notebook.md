@@ -4,10 +4,10 @@ description: Informazioni su come creare ed eseguire Jupyter Notebook in Azure N
 ms.topic: tutorial
 ms.date: 01/11/2019
 ms.openlocfilehash: 8a1c13f41ef1588b040b3540b852d83764c6ce79
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75660818"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Esercitazione: creare ed eseguire un notebook di Jupyter con Python
@@ -155,12 +155,12 @@ I gruppi di comandi di menu sono i seguenti:
 | --- | --- |
 | File | Comandi per gestire il file del notebook, inclusi i comandi per creare e copiare i notebook, visualizzare un'anteprima di stampa e scaricare il notebook in diversi formati. |
 | Modifica | Normali comandi per tagliare, copiare e incollare celle, trovare e sostituire valori, gestire gli allegati delle celle e inserire immagini.  |
-| Visualizza | Comandi per controllare la visibilità delle diverse parti dell'interfaccia utente di Jupyter. |
-| Inserimento | Comandi per inserire una nuova cella sopra o sotto la cella corrente. Questi comandi vengono usati di frequente durante la creazione di un notebook. |
+| Visualizzazione | Comandi per controllare la visibilità delle diverse parti dell'interfaccia utente di Jupyter. |
+| Insert | Comandi per inserire una nuova cella sopra o sotto la cella corrente. Questi comandi vengono usati di frequente durante la creazione di un notebook. |
 | Cell (Cella) | I vari comandi **Run** (Esegui) consentono di eseguire una o più celle in diverse combinazioni. I comandi **Cell Type** (Tipo di cella) consentono di modificare il tipo di una cella tra **Code** (Codice), **Markdown** e **Raw NBConvert** (testo normale). I comandi **Current Outputs** (Output correnti) e **All Outputs** (Tutti gli output) consentono di controllare la visualizzazione dell'output del codice eseguito e includono un comando per cancellare tutto l'output. |
 | Kernel | Comandi per gestire la modalità di esecuzione del codice nel kernel, insieme a **Change kernel** (Cambia kernel) per modificare il linguaggio o la versione di Python usati per eseguire il notebook. |
-| data | Comandi per caricare e scaricare i file dal progetto o dalla sessione. Vedere [Lavorare con i file di dati di progetto](work-with-project-data-files.md) |
-| Widgets (Widget) | Comandi per gestire i [widget di Jupyter](https://ipywidgets.readthedocs.io/en/stable/examples/Widget%20Basics.html), che offrono funzionalità aggiuntive per la visualizzazione, il mapping e il tracciato.|
+| Data | Comandi per caricare e scaricare i file dal progetto o dalla sessione. Vedere [Lavorare con i file di dati di progetto](work-with-project-data-files.md) |
+| Widget | Comandi per gestire i [widget di Jupyter](https://ipywidgets.readthedocs.io/en/stable/examples/Widget%20Basics.html), che offrono funzionalità aggiuntive per la visualizzazione, il mapping e il tracciato.|
 | Guida | Comandi che consentono di accedere alla Guida e alla documentazione per l'interfaccia di Jupyter. |
 
 La maggior parte dei comandi sulla barra degli strumenti dispone di comandi di menu equivalenti. L'unica eccezione è rappresentata da **Enter/Edit RISE Slideshow** (Immetti/modifica presentazione RISE), come descritto in [Condividere e presentare i notebook](present-jupyter-notebooks-slideshow.md).

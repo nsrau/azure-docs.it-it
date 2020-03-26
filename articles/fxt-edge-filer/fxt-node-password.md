@@ -7,10 +7,10 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.openlocfilehash: 8cb5f639deb0630575c46db30efe70ad967324a8
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75550892"
 ---
 # <a name="tutorial-set-hardware-passwords"></a>Esercitazione: Impostare password per l'hardware
@@ -34,7 +34,7 @@ Ripetere questi passaggi per ogni nodo che verrà usato nel cluster.
 
 Il completamento di questa esercitazione richiede circa 15 minuti. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare questa esercitazione, completare i passaggi seguenti: 
 

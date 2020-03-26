@@ -6,14 +6,14 @@ ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 3/11/2020
 ms.author: banders
-ms.openlocfilehash: e22663cf8cabd5d2abf487c96f2d69aeaaa90ab7
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 0e0003b3adfdb6ebba49bd8d014fc0ba287ca3aa
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199705"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79238143"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Evitare addebiti imprevisti con la gestione dei costi e della fatturazione di Azure
 
@@ -25,6 +25,8 @@ Quando si effettua l'iscrizione ad Azure, è consigliabile eseguire alcune opera
 - Integrare i dati della fatturazione e dei costi con il proprio sistema di creazione di report usando le API per la [fatturazione](https://docs.microsoft.com/rest/api/billing/) e l'[utilizzo](https://docs.microsoft.com/rest/api/consumption/).
 - Usare le risorse e gli strumenti aggiuntivi per i clienti con contratto Enterprise (EA), Cloud Solution Provider (CSP) e Azure Sponsorship.
 - Sfruttare [gratuitamente alcuni dei servizi di Azure più diffusi per 12 mesi](create-free-services.md) disponibili con l'[account Azure gratuito](https://azure.microsoft.com/free/). Oltre ai consigli elencati di seguito, vedere l'argomento su come [evitare di pagare l'account gratuito](avoid-charges-free-account.md).
+
+Se è necessario annullare la sottoscrizione di Azure, vedere [Annullare la sottoscrizione di Azure](cancel-azure-subscription.md).
 
 ## <a name="get-estimated-costs-before-adding-azure-services"></a>Ottenere una stima dei costi prima di aggiungere servizi di Azure
 
@@ -67,7 +69,7 @@ Se si ha accesso ad Azure tramite un contratto Enterprise (EA) o un Contratto de
 
 È possibile creare [budget](../costs/tutorial-acm-create-budgets.md) per gestire i costi e creare [avvisi](../costs/cost-mgt-alerts-monitor-usage-spending.md) per informare automaticamente l'utente e gli stakeholder in caso di anomalie di spesa e rischi di costi eccessivi.
 
-### <a name="costs"></a> Esplorare e analizzare i costi con l'analisi dei costi
+### <a name="explore-and-analyze-costs-with-cost-analysis"></a><a name="costs"></a> Esplorare e analizzare i costi con l'analisi dei costi
 
 Una volta che i servizi di Azure sono in esecuzione, controllare regolarmente i costi per monitorare la spesa di Azure. È possibile usare l'analisi dei costi per ottenere informazioni sull'origine dei costi per l'utilizzo di Azure.
 
@@ -120,7 +122,7 @@ Se si usa Azure tramite un Contratto del cliente Microsoft, è anche possibile [
 
 Usare le API di [fatturazione](https://docs.microsoft.com/rest/api/billing/) e [utilizzo](https://docs.microsoft.com/rest/api/consumption/) di Azure per ottenere i dati relativi alla fatturazione e ai costi a livello di codice. Usare insieme l'API RateCard e l'API Usage per ottenere l'utilizzo addebitato. Per altre informazioni, vedere [Ottenere informazioni dettagliate sul consumo di risorse di Microsoft Azure](usage-rate-card-overview.md).
 
-## <a name="other-offers"></a> Risorse aggiuntive e casi speciali
+## <a name="additional-resources-and-special-cases"></a><a name="other-offers"></a> Risorse aggiuntive e casi speciali
 
 ### <a name="ea-csp-and-sponsorship-customers"></a>Clienti EA, CSP e Sponsorship
 Per iniziare, rivolgersi all'account manager o al partner di Azure.
@@ -133,7 +135,7 @@ Per iniziare, rivolgersi all'account manager o al partner di Azure.
 
 Se si è responsabili della gestione IT per un'organizzazione di grandi dimensioni, è consigliabile leggere l'articolo relativo allo [scaffolding aziendale Azure](/azure/architecture/cloud-adoption-guide/subscription-governance) e il [white paper per l'IT aziendale](https://download.microsoft.com/download/F/F/F/FFF60E6C-DBA1-4214-BEFD-3130C340B138/Azure_Onboarding_Guide_for_IT_Organizations_EN_US.pdf) (download file PDF, solo in lingua inglese).
 
-### <a name="EA"></a> Visualizzazioni dei costi per i contratti Enterprise Agreement nel portale di Azure
+### <a name="enterprise-agreement-cost-views-in-the-azure-portal"></a><a name="EA"></a> Visualizzazioni dei costi per i contratti Enterprise Agreement nel portale di Azure
 
 Le visualizzazioni dei costi aziendali sono attualmente disponibili in versione di anteprima pubblica. Elementi da considerare:
 
@@ -167,7 +169,7 @@ Per richiedere un credito:
 2. Creare una nuova richiesta di supporto.
 3. In **Tipo di problema** selezionare **Fatturazione**.
 4. In **Tipo di problema**, selezionare **Refund Request** (Richiesta di rimborso).
-5. Aggiungere i dettagli per specificare che si sta richiedendo un credito per il contratto di servizio, menzionare data/ora/fuso orario e i servizi interessati (macchine virtuali, siti Web e così via)
+5. Aggiungere i dettagli per specificare che si sta richiedendo un credito per il contratto di servizio, menzionare data/ora/fuso orario e i servizi interessati (macchine virtuali, siti Web e così via).
 6. Verificare i dettagli del contatto e selezionare **Crea** per inviare la richiesta.
 
 Le soglie del contratto di servizio variano in base al servizio. Ad esempio al livello Web SQL è associato un contratto di servizio del 99,9%, alle macchine virtuali del 99,95% e al livello standard SQL del 99,99%.

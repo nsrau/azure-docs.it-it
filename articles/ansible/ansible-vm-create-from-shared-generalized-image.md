@@ -5,10 +5,10 @@ keywords: ansible, azure, devops, bash, playbook, macchina virtuale, set di scal
 ms.topic: tutorial
 ms.date: 10/14/2019
 ms.openlocfilehash: f784419736854095cc1bc5da14f3867ac3f7eb12
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74155833"
 ---
 # <a name="tutorial-create-a-vm-or-virtual-machine-scale-set-from-the-azure-shared-image-gallery-using-ansible"></a>Esercitazione: Creare una VM o un set di scalabilità di macchine virtuali dalla Raccolta immagini condivise di Azure con Ansible
@@ -386,7 +386,7 @@ Salvare il playbook seguente come `cleanup.yml`:
         state: absent
 ```
 
-Quando si usa il playbook di esempio è necessario tenere conto di alcuni concetti fondamentali:
+Quando si usa il playbook di esempio, è necessario tenere conto di alcuni concetti fondamentali:
 
 - Sostituire il segnaposto `{{ resource_group_name }}` con il nome del proprio gruppo di risorse.
 - Tutte le risorse nei due gruppi di risorse specificati verranno eliminate.

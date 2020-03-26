@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Usare Azure Cache for Redis con app .NET Core'
+title: 'Guida introduttiva: Usare Azure Cache for Redis con app .NET Core'
 description: Questa guida introduttiva illustra come accedere a Cache Redis di Azure nelle app .NET Core
 author: yegu-ms
 ms.author: yegu
@@ -9,17 +9,17 @@ ms.custom: mvc
 ms.topic: quickstart
 ms.date: 05/18/2018
 ms.openlocfilehash: d723ffc4e94dcdcb63d74d65c55288015931adad
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75413045"
 ---
-# <a name="quickstart-use-azure-cache-for-redis-with-a-net-core-app"></a>Avvio rapido: Usare Cache Redis di Azure con un'app .NET Core
+# <a name="quickstart-use-azure-cache-for-redis-with-a-net-core-app"></a>Guida introduttiva: Usare Cache Redis di Azure con un'app .NET Core
 
 In questa guida di avvio rapido si incorpora Azure Cache for Redis in un'app .NET Core per accedere a una cache sicura e dedicata accessibile da qualsiasi applicazione in Azure. Si usa specificamente il client [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) con codice C# in un'app console .NET Core.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 - Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
 - [ASP.NET Core SDK](https://dotnet.microsoft.com/download)

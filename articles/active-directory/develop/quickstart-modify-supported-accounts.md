@@ -12,20 +12,20 @@ ms.date: 05/08/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 56771658380e0a5b946c3acc70df98a262561b5c
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 94fed6f4aa62c7e649cf7d644e571b30561e0da4
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77160690"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80050235"
 ---
-# <a name="quickstart-modify-the-accounts-supported-by-an-application"></a>Avvio rapido: Modificare gli account supportati da un'applicazione
+# <a name="quickstart-modify-the-accounts-supported-by-an-application"></a>Guida introduttiva: Modificare gli account supportati da un'applicazione
 
 Quando si registra un'applicazione in Microsoft Identity Platform, potrebbe essere opportuno consentire l'accesso all'applicazione solo agli utenti dell'organizzazione. In alternativa, potrebbe anche essere opportuno che l'applicazione sia accessibile da utenti di organizzazioni esterne oppure sia da utenti di organizzazioni esterne che da utenti non necessariamente parte di un'organizzazione (account personali).
 
 In questa guida introduttiva verrà illustrato come modificare la configurazione dell'applicazione per modificare gli utenti o gli account che possono accedervi.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per iniziare, assicurarsi di soddisfare questi prerequisiti:
 
@@ -49,7 +49,7 @@ Per poter configurare l'app, seguire prima questa procedura:
 Se si scrive un'applicazione che si vuole rendere disponibile a clienti o partner esterni all'organizzazione, è necessario aggiornare la definizione dell'applicazione nel portale di Azure.
 
 > [!IMPORTANT]
-> Per le applicazioni multi-tenant, Azure AD richiede che l'URI dell'ID applicazione sia univoco a livello globale. L'URI dell'ID App è uno dei modi in cui un'applicazione viene identificata nei messaggi di protocollo. Per un'applicazione a tenant singolo, è sufficiente che l'URI dell'ID app sia univoco all'interno del tenant. Per un'applicazione multi-tenant, è necessario che sia univoco a livello globale in modo da Azure AD possa trovare l'applicazione in tutti i tenant. L'univocità globale viene applicata richiedendo che l'URI dell'ID App abbia un nome host corrispondente a un dominio verificato del tenant di Azure AD. Se il nome del tenant è contoso.onmicrosoft.com, ad esempio, un URI dell'ID app valido sarà https://contoso.onmicrosoft.com/myapp. Se il tenant dispone del dominio verificato contoso.com, anche https://contoso.com/myapp è un URI di ID app valido. Se l'URI dell'ID App non segue questo modello, l'impostazione di un'applicazione come multi-tenant ha esito negativo.
+> Per le applicazioni multi-tenant, Azure AD richiede che l'URI dell'ID applicazione sia univoco a livello globale. L'URI dell'ID App è uno dei modi in cui un'applicazione viene identificata nei messaggi di protocollo. Per un'applicazione a tenant singolo, è sufficiente che l'URI dell'ID app sia univoco all'interno del tenant. Per un'applicazione multi-tenant, è necessario che sia univoco a livello globale in modo da Azure AD possa trovare l'applicazione in tutti i tenant. L'univocità globale viene applicata richiedendo che l'URI dell'ID App abbia un nome host corrispondente a un dominio verificato del tenant di Azure AD. Se il nome del tenant è contoso.onmicrosoft.com, ad esempio, un URI dell'ID app valido sarà `https://contoso.onmicrosoft.com/myapp`. Se il tenant dispone del dominio verificato contoso.com, anche `https://contoso.com/myapp` è un URI di ID app valido. Se l'URI dell'ID App non segue questo modello, l'impostazione di un'applicazione come multi-tenant ha esito negativo.
 
 ### <a name="to-change-who-can-access-your-application"></a>Per modificare gli utenti che hanno accesso all'applicazione
 

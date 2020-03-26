@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 06/19/2019
 ms.author: jobreen
 ms.openlocfilehash: 09df78955de6423244c2d8ec94e1e1c06ecab257
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75648738"
 ---
 # <a name="create-and-use-a-custom-provider"></a>Creare e usare un provider personalizzato
@@ -109,7 +109,7 @@ Dopo aver creato un provider personalizzato, è possibile usare le nuove API di 
 
 ### <a name="custom-actions"></a>Azioni personalizzate
 
-# <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 > [!NOTE]
 > È necessario sostituire i segnaposto `{subscriptionId}` e `{resourceGroupName}` con la sottoscrizione e il gruppo di risorse in cui è stato distribuito il provider personalizzato.
@@ -129,7 +129,7 @@ Parametro | Obbligatoria | Descrizione
 *ids* | Sì | L'ID risorsa del provider personalizzato
 *request-body* | No | Il corpo della richiesta che verrà inviato all'endpoint
 
-# <a name="templatetabtemplate"></a>[Modello](#tab/template)
+# <a name="template"></a>[Modello](#tab/template)
 
 No.
 
@@ -137,7 +137,7 @@ No.
 
 ### <a name="custom-resources"></a>Risorse personalizzate
 
-# <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 > [!NOTE]
 > È necessario sostituire i segnaposto `{subscriptionId}` e `{resourceGroupName}` con la sottoscrizione e il gruppo di risorse in cui è stato distribuito il provider personalizzato.
@@ -182,7 +182,7 @@ Parametro | Obbligatoria | Descrizione
 ---|---|---
 *id* | Sì | ID della risorsa personalizzata. Questo ID è un'estensione dell'ID risorsa del provider personalizzato.
 
-# <a name="templatetabtemplate"></a>[Modello](#tab/template)
+# <a name="template"></a>[Modello](#tab/template)
 
 Esempio di modello di Resource Manager:
 

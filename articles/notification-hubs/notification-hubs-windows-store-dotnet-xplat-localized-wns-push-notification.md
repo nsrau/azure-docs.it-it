@@ -18,10 +18,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 03/22/2019
 ms.openlocfilehash: 4ccf62dd8a249c9ba23bbb4510164b35a58db917
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72387408"
 ---
 # <a name="tutorial-send-localized-push-notifications-to-windows-apps-using-azure-notification-hubs"></a>Esercitazione: Inviare notifiche push localizzate alle app Windows con Hub di notifica di Azure
@@ -39,7 +39,7 @@ Questa esercitazione illustra come inviare notifiche push localizzate ai disposi
 
 Dopo aver completato l'esercitazione, l'applicazione per dispositivi mobili consente di registrarsi per le categorie di interesse e anche di specificare una lingua in cui si intende ricevere le notifiche. L'applicazione back-end invia le notifiche localizzate in base alla lingua e dispositivo.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Aggiornare l'app di Windows per supportare informazioni sulle impostazioni locali

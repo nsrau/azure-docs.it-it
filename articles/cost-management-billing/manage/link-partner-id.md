@@ -1,5 +1,5 @@
 ---
-title: Collegare un account Azure a un ID partner | Microsoft Docs
+title: Collegare un account Azure a un ID partner
 description: Tener traccia degli engagement con i clienti di Azure collegando un ID partner all'account utente usato per gestire le risorse del cliente.
 author: dhirajgandhi
 ms.reviewer: dhgandhi
@@ -7,18 +7,18 @@ ms.author: banders
 ms.date: 02/13/2020
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.openlocfilehash: 761f4345c591864b8158d7216d737ac287692252
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: c3f5dd4d1b67f5b1079a56d5c3428d286fd9d77f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77651373"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79204801"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Collegare un ID partner agli account Azure
 
-I partner Microsoft offrono servizi che aiutano i clienti a raggiungere i loro obiettivi in termini di business e mission usando i prodotti Microsoft. Per occuparsi per conto del cliente delle attività di gestione, configurazione e supporto dei servizi di Azure, gli utenti del partner dovranno avere accesso all'ambiente del cliente. Tramite il collegamento amministratore partner, i partner possono associare il loro ID Partner Network alle credenziali usate per la fornitura dei servizi.
+I partner Microsoft offrono servizi che aiutano i clienti a raggiungere i loro obiettivi in termini di business e mission usando i prodotti Microsoft. Per occuparsi per conto del cliente delle attività di gestione, configurazione e supporto dei servizi di Azure, gli utenti del partner dovranno avere accesso all'ambiente del cliente. Tramite il collegamento amministratore partner, i partner possono associare l'ID Partner Network alle credenziali usate per la fornitura dei servizi.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+Il collegamento amministratore partner consente a Microsoft di identificare e riconoscere i partner che contribuiscono al successo dei clienti di Azure. Microsoft può attribuire all'organizzazione fattori di influenza e ricavi per l'utilizzo di Azure a seconda delle autorizzazioni dell'account (ruolo di controllo degli accessi in base al ruolo) e all'ambito (sottoscrizione, gruppo di risorse, risorsa).
 
 ## <a name="get-access-from-your-customer"></a>Ottenere l'accesso dal cliente
 

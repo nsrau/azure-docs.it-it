@@ -5,10 +5,10 @@ keywords: ansible, azure, devops, bash, playbook, rete, peering
 ms.topic: tutorial
 ms.date: 04/30/2019
 ms.openlocfilehash: 78699a005d721b46a88a26452f5db68438793d34
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74155722"
 ---
 # <a name="tutorial-configure-azure-virtual-network-peering-using-ansible"></a>Esercitazione: Configurare il peering di rete virtuale di Azure tramite Ansible
@@ -229,7 +229,7 @@ Il codice del playbook di esempio in questa sezione viene usato per:
 
 Il codice del playbook di esempio in questa sezione viene usato per testare varie funzionalità illustrate in questa esercitazione.
 
-Quando si usa il playbook di esempio è necessario tenere conto di alcuni aspetti fondamentali:
+Quando si usa il playbook di esempio, è necessario tenere conto di alcuni concetti fondamentali:
 
 - Nella sezione `vars` sostituire il segnaposto `{{ resource_group_name }}` con il nome del proprio gruppo di risorse.
 
@@ -315,7 +315,7 @@ Salvare il playbook seguente come `cleanup.yml`:
         state: absent
 ```
 
-Quando si usa il playbook di esempio è necessario tenere conto di alcuni aspetti fondamentali:
+Quando si usa il playbook di esempio, è necessario tenere conto di alcuni concetti fondamentali:
 
 - Sostituire il segnaposto `{{ resource_group_name-1 }}` con il nome del primo gruppo di risorse creato.
 - Sostituire il segnaposto `{{ resource_group_name-2 }}` con il nome del secondo gruppo di risorse creato.

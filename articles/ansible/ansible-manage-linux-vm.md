@@ -8,18 +8,18 @@ author: tomarchermsft
 manager: gwallace
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 90113373535c835e5cddf707bcb520789e596aec
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: d94858391951aaf9387394afeb5ad2ae373fa7b5
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77202433"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80239527"
 ---
-# <a name="quickstart-manage-linux-virtual-machines-in-azure-using-ansible"></a>Avvio rapido: Gestire macchine virtuali Linux in Azure tramite Ansible
+# <a name="quickstart-manage-linux-virtual-machines-in-azure-using-ansible"></a>Guida introduttiva: Gestire macchine virtuali Linux in Azure tramite Ansible
 
 Ansible consente di automatizzare la distribuzione e la configurazione delle risorse nell'ambiente in uso. In questo articolo si usa un playbook Ansible per avviare e arrestare una macchina virtuale Linux. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 [!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
@@ -34,7 +34,7 @@ In questa sezione si usa Ansible per deallocare (arrestare) una macchina virtual
 
 1. Creare un file denominato `azure-vm-stop.yml` e aprirlo nell'editor:
 
-    ```azurecli-interactive
+    ```bash
     code azure-vm-stop.yml
     ```
 
@@ -87,7 +87,7 @@ In questa sezione si usa Ansible per avviare una macchina virtuale di Azure deal
 
 1. Creare un file denominato `azure-vm-start.yml` e aprirlo nell'editor:
 
-    ```azurecli-interactive
+    ```bash
     code azure-vm-start.yml
     ```
 

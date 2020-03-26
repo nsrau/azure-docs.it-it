@@ -14,25 +14,32 @@ ms.devlang: multiple
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: spelluru
-ms.openlocfilehash: 3fb2f4a4969e8df94a60ac20c761f073b6a9d030
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fef325b67c38eda09a05dac9d74bd5b97df164cc
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75462095"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80067774"
 ---
 # <a name="tutorial-respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions-and-azure-logic-apps"></a>Esercitazione: Rispondere agli eventi del bus di servizio di Azure ricevuti tramite Griglia di eventi di Azure usando Funzioni di Azure e App per la logica di Azure
-Questa esercitazione descrive come rispondere agli eventi del bus di servizio di Azure ricevuti tramite Griglia di eventi di Azure usando Funzioni di Azure e App per la logica di Azure. Verranno eseguiti i passaggi seguenti:
- 
-- Creare una funzione di Azure di test per il debug e la visualizzazione del flusso iniziale di eventi da Griglia di eventi.
-- Creare una funzione di Azure per ricevere ed elaborare i messaggi del bus di servizio in base agli eventi di Griglia di eventi.
-- Creare un'app per la logica per rispondere agli eventi di Griglia di eventi
+Questa esercitazione descrive come rispondere agli eventi del bus di servizio di Azure ricevuti tramite Griglia di eventi di Azure usando Funzioni di Azure e App per la logica di Azure. 
 
-Dopo aver creato gli artefatti del bus di servizio, di Griglia di eventi, di Funzioni di Azure e di App per la logica, eseguire le operazioni seguenti: 
+In questa esercitazione verranno illustrate le procedure per:
+> [!div class="checklist"]
+> * Creare uno spazio dei nomi del bus di servizio
+> * Preparare un'applicazione di esempio per inviare messaggi
+> * Configurare una funzione di test in Azure
+> * Connettere la funzione e lo spazio dei nomi tramite Griglia di eventi
+> * Inviare messaggi all'argomento del bus di servizio
+> * Ricevere messaggi usando Funzioni di Azure
+> * Ricevere messaggi usando App per la logica
 
-1. Inviare messaggi a un argomento del bus di servizio. 
-2. Verificare che le sottoscrizioni dell'argomento abbiano ricevuto tali messaggi
-3. Verificare che la funzione o l'app che ha sottoscritto l'evento abbia ricevuto l'evento. 
+## <a name="prerequisites"></a>Prerequisiti
+
+Per completare questa esercitazione, accertarsi di avere installato:
+
+- [Visual Studio 2017 Update 3 (versione 15.3, 26730.01)](https://www.visualstudio.com/vs) o versioni successive.
+- [NET Core SDK](https://www.microsoft.com/net/download/windows) versione 2.0 o successiva.
 
 ## <a name="create-a-service-bus-namespace"></a>Creare uno spazio dei nomi del bus di servizio
 Seguire le istruzioni disponibili nell'esercitazione [Avvio rapido: Usare il portale di Azure per creare un argomento del bus di servizio e le sottoscrizioni all'argomento](service-bus-quickstart-topics-subscriptions-portal.md) per eseguire le attività seguenti:
@@ -65,7 +72,7 @@ Prima di affrontare l'intero scenario, configurare almeno una semplice funzione 
 Eseguire la procedura seguente: 
 
 
-# <a name="azure-functions-v2tabv2"></a>[Funzioni di Azure v2](#tab/v2)
+# <a name="azure-functions-v2"></a>[Funzioni di Azure v2](#tab/v2)
 
 1. Espandere **Funzioni** nella visualizzazione struttura ad albero e selezionare la funzione. Sostituire il codice della funzione con il codice seguente: 
 
@@ -122,7 +129,7 @@ Eseguire la procedura seguente:
 
     ![Ottenere l'URL della funzione](./media/service-bus-to-event-grid-integration-example/get-function-url.png)
 
-# <a name="azure-functions-v1tabv1"></a>[Funzioni di Azure v1](#tab/v1)
+# <a name="azure-functions-v1"></a>[Funzioni di Azure v1](#tab/v1)
 
 1. Configurare la funzione in modo che usi la versione **v1**: 
     1. Selezionare l'app per le funzioni nella visualizzazione struttura ad albero e selezionare **Impostazioni dell'app per le funzioni**. 

@@ -1,5 +1,5 @@
 ---
-title: Informazioni su Azure Databricks
+title: Che cos'è Azure Databricks?
 description: Informazioni su Azure Databricks e sul modo in cui introduce Spark in Databricks in Azure. Azure Databricks è una piattaforma di analisi basata su Apache Spark ottimizzata per la piattaforma dei servizi cloud di Microsoft Azure.
 services: azure-databricks
 author: mamccrea
@@ -10,20 +10,20 @@ ms.topic: overview
 ms.date: 05/08/2019
 ms.author: mamccrea
 ms.custom: mvc
-ms.openlocfilehash: ed93f332c6361d2f7cd5189ee5fedf3d9f5cf82d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 53f1b9a2fde20cacccd0730213695f26c1200fa7
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75410454"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80132528"
 ---
-# <a name="what-is-azure-databricks"></a>Informazioni su Azure Databricks
+# <a name="what-is-azure-databricks"></a>Che cos'è Azure Databricks?
 
 Azure Databricks è una piattaforma di analisi basata su Apache Spark ottimizzata per la piattaforma dei servizi cloud di Microsoft Azure. Progettato con i fondatori di Apache Spark, Databricks è integrato con Azure per offrire l'installazione con un clic, i flussi di lavoro semplificati e un'area di lavoro interattiva che consente la collaborazione tra data scientist, ingegneri dei dati e business analyst.
 
-![Informazioni su Azure Databricks](./media/what-is-azure-databricks/azure-databricks-overview.png "Informazioni su Azure Databricks")
+![Informazioni su Azure Databricks](./media/what-is-azure-databricks/azure-databricks-overview.png "Che cos'è Azure Databricks?")
 
-Azure Databricks è un servizio di analisi veloce, semplice e collaborativo basato su Apache Spark. Nel caso di una pipeline di Big Data, i dati (non elaborati o strutturati) vengono inseriti in Azure tramite Azure Data Factory in batch o trasmessi quasi in tempo reale con l'IoT Hub, Hub eventi o Kafka. I dati vengono inseriti in un data lake per un'archiviazione permanente a lungo termine, in Archiviazione BLOB di Azure o Azure Data Lake Storage. Nel corso del flusso di lavoro dell'analisi, si usa Azure Databricks per leggere i dati da più origini, ad esempio [Archiviazione BLOB di Azure](../storage/blobs/storage-blobs-introduction.md), [Azure Data Lake Storage](../data-lake-store/index.md), [Azure Cosmos DB](../cosmos-db/index.yml) oppure [Azure SQL Data Warehouse](../sql-data-warehouse/index.yml), e trasformarli in informazioni significative con Spark.
+Azure Databricks è un servizio di analisi veloce, semplice e collaborativo basato su Apache Spark. Nel caso di una pipeline di Big Data, i dati (non elaborati o strutturati) vengono inseriti in Azure tramite Azure Data Factory in batch o trasmessi quasi in tempo reale con l'IoT Hub, Hub eventi o Kafka. I dati vengono inseriti in un data lake per un'archiviazione permanente a lungo termine, in Archiviazione BLOB di Azure o Azure Data Lake Storage. Nel corso del flusso di lavoro dell'analisi, si usa Azure Databricks per leggere i dati da più origini, ad esempio [Archiviazione BLOB di Azure](../storage/blobs/storage-blobs-introduction.md), [Azure Data Lake Storage](../data-lake-store/index.yml), [Azure Cosmos DB](../cosmos-db/index.yml) oppure [Azure SQL Data Warehouse](../synapse-analytics/sql-data-warehouse/index.yml), e trasformarli in informazioni significative con Spark.
 
 ![Pipeline di Databricks](./media/what-is-azure-databricks/databricks-pipeline.png)
 

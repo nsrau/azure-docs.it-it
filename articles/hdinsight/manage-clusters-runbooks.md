@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 12/27/2019
 ms.openlocfilehash: 05c0aaf6cc33442fa4f36eb38eb0d6d593fc6c1f
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75553121"
 ---
 # <a name="tutorial-create-azure-hdinsight-clusters-with-azure-automation"></a>Esercitazione: Creare cluster Azure HDInsight con Automazione di Azure
@@ -28,7 +28,7 @@ In questa esercitazione verranno illustrate le procedure per:
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Un [account di Automazione di Azure](../automation/automation-quickstart-create-account.md) esistente.
 * Un [account di archiviazione di Azure](../storage/common/storage-account-create.md) esistente, che verrà usato come risorsa di archiviazione del cluster.

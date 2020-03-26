@@ -18,10 +18,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 08/01/2019
 ms.openlocfilehash: 0e4354fa7466efcf27f430bbce7edb30bb9a304c
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "72387662"
 ---
 # <a name="tutorial-send-push-notifications-to-xamarinandroid-apps-using-notification-hubs"></a>Esercitazione: Inviare notifiche push alle app Xamarin.Android con Hub di notifica di Azure
@@ -135,8 +135,8 @@ L'hub di notifica è configurato per l'uso con FCM e sono disponibili le stringh
 
 3. Raccogliere le informazioni seguenti per l'app Android e l'hub di notifica:
 
-   * **Stringa di connessione per l'ascolto**: nel dashboard del [portale di Azure] scegliere **Visualizza stringhe di connessione**. Copiare la stringa di connessione `DefaultListenSharedAccessSignature` per questo valore.
-   * **Nome hub**: il nome dell'hub indicato nel [portale di Azure]. Ad esempio, *mynotificationhub2*.
+   * **Stringa di connessione per l'ascolto**: nel dashboard del [Azure portal] scegliere **Visualizza stringhe di connessione**. Copiare la stringa di connessione `DefaultListenSharedAccessSignature` per questo valore.
+   * **Nome hub**: il nome dell'hub indicato nel [Azure portal]. Ad esempio, *mynotificationhub2*.
 4. Nella finestra **Esplora soluzioni** fare clic con il pulsante destro del mouse sul **progetto**, scegliere **Aggiungi** e selezionare **Classe**.
 5. Creare una classe `Constants.cs` per il progetto Xamarin e definire i valori costanti seguenti nella classe. Sostituire i segnaposto con i valori.
 
@@ -318,7 +318,7 @@ L'hub di notifica è configurato per l'uso con FCM e sono disponibili le stringh
 
 ## <a name="send-test-notification-from-the-azure-portal"></a>Inviare notifiche di prova dal portale di Azure
 
-È possibile testare rapidamente la ricezione di notifiche nell'app con l'opzione **Invio di prova** nel [portale di Azure]. Verrà inviata una notifica push di prova al dispositivo.
+È possibile testare rapidamente la ricezione di notifiche nell'app con l'opzione **Invio di prova** nel [Azure portal]. Verrà inviata una notifica push di prova al dispositivo.
 
 ![Portale di Azure - Invio di prova](media/partner-xamarin-notification-hubs-android-get-started/send-test-notification.png)
 
@@ -361,7 +361,7 @@ In questa esercitazione, le notifiche sono state trasmesse a tutti i dispositivi
 [JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-push-js
 [Visual Studio con Xamarin]: https://docs.microsoft.com/visualstudio/install/install-visual-studio
 [Visual Studio per Mac]: https://www.visualstudio.com/vs/visual-studio-mac/
-[Portale di Azure]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 [wns object]: https://go.microsoft.com/fwlink/p/?LinkId=260591
 [Notification Hubs Guidance]: https://msdn.microsoft.com/library/jj927170.aspx
 [Notification Hubs How-To for Android]: https://msdn.microsoft.com/library/dn282661.aspx

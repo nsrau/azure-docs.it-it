@@ -6,13 +6,13 @@ ms.topic: quickstart
 ms.date: 01/21/2020
 ms.custom: mvc, seo-javascript-october2019
 ms.openlocfilehash: f4885bea686267ce0397e9ca6f3e2c0ac8640971
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78390317"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79215569"
 ---
-# <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>Guida introduttiva: distribuire un cluster Azure Kubernetes Service (AKS) usando il portale di Azure
+# <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>Guida introduttiva: Distribuire un cluster del servizio Azure Kubernetes usando il portale di Azure
 
 Il servizio Azure Kubernetes è un servizio Kubernetes gestito che permette di distribuire e gestire rapidamente i cluster. In questa guida introduttiva viene distribuito un cluster del servizio Azure Container usando il portale di Azure. Nel cluster verrà eseguita un'applicazione multi-contenitore che include un front-end Web e un'istanza di Redis. Verrà quindi descritto come monitorare l'integrità del cluster e dei pod che eseguono l'applicazione.
 
@@ -35,16 +35,16 @@ Per creare un cluster del servizio Azure Kubernetes, seguire questa procedura:
 2. Selezionare **Contenitori** >  **Servizio Kubernetes**.
 
 3. Nella pagina **Informazioni di base** configurare le opzioni seguenti:
-    - **Dettagli progetto**: selezionare una **sottoscrizione**di Azure e quindi selezionare o creare un **gruppo di risorse**di Azure, ad esempio *myResourceGroup*.
-    - **Dettagli cluster**: immettere un **nome per il cluster Kubernetes**, ad esempio *myAKSCluster*. Selezionare un'**area**, una **versione di Kubernetes** e il **prefisso di nome DNS** per il cluster del servizio Azure Kubernetes.
-    - **Pool di nodi primari**: selezionare le **dimensioni del nodo** della VM per i nodi AKS. *Non è possibile* modificare le dimensioni della macchina virtuale dopo la distribuzione di un cluster del servizio Azure Kubernetes. 
+    - **Dettagli del progetto**: Selezionare una **sottoscrizione** di Azure, quindi selezionare o creare un **gruppo di risorse** di Azure, ad esempio *myResourceGroup*.
+    - **Dettagli del cluster**: Immettere un **nome cluster Kubernetes**, ad esempio *myAKSCluster*. Selezionare un'**area**, una **versione di Kubernetes** e il **prefisso di nome DNS** per il cluster del servizio Azure Kubernetes.
+    - **Pool di nodi primario**: Selezionare le **dimensioni del nodo** della macchina virtuale per i nodi del servizio Azure Kubernetes. *Non è possibile* modificare le dimensioni della macchina virtuale dopo la distribuzione di un cluster del servizio Azure Kubernetes. 
             - Selezionare il numero di nodi da distribuire nel cluster. Per questa guida introduttiva, impostare **Numero di nodi** su *1*. Il numero di nodi *può* essere modificato dopo che il cluster è stato distribuito.
     
     ![Creare un cluster del servizio Azure Kubernetes - fornire informazioni di base](media/kubernetes-walkthrough-portal/create-cluster-basics.png)
 
-    Selezionare **Avanti: ridimensiona** al termine.
+    Selezionare **Avanti: Scala** al termine.
 
-4. Nella pagina **Scala** mantenere le opzioni predefinite. Nella parte inferiore della schermata fare clic su **Avanti: autenticazione**.
+4. Nella pagina **Scala** mantenere le opzioni predefinite. Nella parte inferiore della schermata fare clic su **Successivo: Autenticazione**.
     > [!CAUTION]
     > Quando si creano nuove entità servizio AAD, queste potrebbero propagarsi e diventare disponibili dopo diversi minuti, causando errori di entità servizio non trovata e di convalida nel portale di Azure. In questo caso, visitare [questa pagina](troubleshooting.md#im-receiving-errors-that-my-service-principal-was-not-found-when-i-try-to-create-a-new-cluster-without-passing-in-an-existing-one) per avere informazioni su come mitigare tali problemi.
 
@@ -92,7 +92,7 @@ Un file manifesto di Kubernetes definisce uno stato desiderato per il cluster, a
 > [!TIP]
 > In questa guida introduttiva, si creano e distribuiscono manualmente i manifesti dell'applicazione nel cluster servizio Azure Kubernetes. In altre situazioni reali, è possibile usare [Azure Dev Spaces][azure-dev-spaces] per eseguire rapidamente l'iterazione e il debug del codice direttamente nel cluster servizio Azure Kubernetes. È possibile usare Dev Spaces su piattaforme del sistema operativo e ambienti di sviluppo e collaborare con altri utenti nel team.
 
-Nella Cloud Shell utilizzare il comando `nano azure-vote.yaml` o `vi azure-vote.yaml` per creare un file denominato `azure-vote.yaml`. Copiare al suo interno la definizione YAML seguente:
+In Cloud Shell usare il comando `nano azure-vote.yaml` o `vi azure-vote.yaml` per creare un file denominato `azure-vote.yaml`. Copiare al suo interno la definizione YAML seguente:
 
 ```yaml
 apiVersion: apps/v1

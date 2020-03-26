@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 51c14fd7f427c29c47521a7355309e62ab2254ca
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78298616"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Scrittura di espressioni per il mapping degli attributi in Azure Active Directory
@@ -80,17 +80,17 @@ La sintassi per le espressioni per i mapping degli attributi è simile a quella 
 |[Word](#word)|La funzione Word restituisce una parola contenuta in una stringa, in base ai parametri che descrivono i delimitatori da usare e il numero della parola da restituire.|
 
 ---
-### <a name="append"></a>Append
+### <a name="append"></a>Accoda
 **Funzione:**<br> Append(source, suffix)
 
 **Descrizione:**<br> Accetta un valore di stringa di origine e aggiunge un suffisso alla fine del valore.
 
 **Parametri:**<br> 
 
-   | Nome | Obbligatorio/Ripetuto | Tipo | Note |
+   | Nome | Obbligatorio/Ripetuto | Type | Note |
    | --- | --- | --- | --- |
-   | **source** |Obbligatorio |string |In genere è il nome dell'attributo dell'oggetto di origine. |
-   | **suffix** |Obbligatorio |string |Stringa da aggiungere alla fine del valore di origine. |
+   | **source** |Obbligatoria |string |In genere è il nome dell'attributo dell'oggetto di origine. |
+   | **suffix** |Obbligatoria |string |Stringa da aggiungere alla fine del valore di origine. |
 
 ---
 ### <a name="bitand"></a>BitAnd
@@ -250,11 +250,11 @@ Se l'attributo accountName non è presente, viene generato un errore nell'oggett
 
 **Parametri:**<br> 
 
-   | Nome | Obbligatorio/Ripetuto | Tipo | Note |
+   | Nome | Obbligatorio/Ripetuto | Type | Note |
    | --- | --- | --- | --- |
-   | **source** |Obbligatorio |string |In genere è il nome dell'attributo dell'oggetto di origine. |
-   | **inputFormat** |Obbligatorio |string |Formato previsto del valore source. Per informazioni sui formati supportati, vedere [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
-   | **outputFormat** |Obbligatorio |string |Formato della data di output. |
+   | **source** |Obbligatoria |string |In genere è il nome dell'attributo dell'oggetto di origine. |
+   | **inputFormat** |Obbligatoria |string |Formato previsto del valore source. Per informazioni sui formati supportati, vedere [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
+   | **outputFormat** |Obbligatoria |string |Formato della data di output. |
 
 ---
 ### <a name="guid"></a>Guid
@@ -392,9 +392,9 @@ Se uno dei valori di origine è un attributo multivalore, verranno uniti tutti i
 
 **Parametri:**<br> 
 
-   | Nome | Obbligatorio/Ripetuto | Tipo | Note |
+   | Nome | Obbligatorio/Ripetuto | Type | Note |
    | --- | --- | --- | --- |
-   | **separator** |Obbligatorio |string |Stringa usata per separare i valori di origine quando sono concatenati in una stringa. Può essere "" se non sono necessari separatori. |
+   | **separator** |Obbligatoria |string |Stringa usata per separare i valori di origine quando sono concatenati in una stringa. Può essere "" se non sono necessari separatori. |
    | **source1 … sourceN** |Obbligatorio per un numero variabile di volte |string |Valori stringa da unire. |
 
 ---
@@ -429,11 +429,11 @@ Restituisce `Joh`.
 
 **Parametri:**<br> 
 
-   | Nome | Obbligatorio/Ripetuto | Tipo | Note |
+   | Nome | Obbligatorio/Ripetuto | Type | Note |
    | --- | --- | --- | --- |
-   | **source** |Obbligatorio |string |Corrisponde in genere al nome dell'attributo. |
-   | **start** |Obbligatorio |integer |Indice nella stringa **source** che indica il punto di inizio della sottostringa. L'indice del primo carattere della stringa sarà pari a 1, quello del secondo carattere a 2 e così via. |
-   | **length** |Obbligatorio |integer |Lunghezza della sottostringa. Se la lunghezza eccede la stringa **source**, la funzione restituirà una sottostringa dall'indice **start** fino alla fine della stringa **source**. |
+   | **source** |Obbligatoria |string |Corrisponde in genere al nome dell'attributo. |
+   | **start** |Obbligatoria |integer |Indice nella stringa **source** che indica il punto di inizio della sottostringa. L'indice del primo carattere della stringa sarà pari a 1, quello del secondo carattere a 2 e così via. |
+   | **length** |Obbligatoria |integer |Lunghezza della sottostringa. Se la lunghezza eccede la stringa **source**, la funzione restituirà una sottostringa dall'indice **start** fino alla fine della stringa **source**. |
 
 ---
 ### <a name="normalizediacritics"></a>NormalizeDiacritics
@@ -443,9 +443,9 @@ Restituisce `Joh`.
 
 **Parametri:**<br> 
 
-   | Nome | Obbligatorio/Ripetuto | Tipo | Note |
+   | Nome | Obbligatorio/Ripetuto | Type | Note |
    | --- | --- | --- | --- |
-   | **source** |Obbligatorio |string | In genere un attributo nome o cognome. |
+   | **source** |Obbligatoria |string | In genere un attributo nome o cognome. |
 
 ---
 ### <a name="not"></a>Not
@@ -455,9 +455,9 @@ Restituisce `Joh`.
 
 **Parametri:**<br> 
 
-   | Nome | Obbligatorio/Ripetuto | Tipo | Note |
+   | Nome | Obbligatorio/Ripetuto | Type | Note |
    | --- | --- | --- | --- |
-   | **source** |Obbligatorio |Stringa booleana |I valori previsti per **source** sono "True" o "False". |
+   | **source** |Obbligatoria |Stringa booleana |I valori previsti per **source** sono "True" o "False". |
 
 ---
 ### <a name="removeduplicates"></a>RemoveDuplicates
@@ -497,9 +497,9 @@ Sostituisce i valori all'interno di una stringa. Funziona in modo diverso a seco
 
 **Parametri:**<br> 
 
-   | Nome | Obbligatorio/Ripetuto | Tipo | Note |
+   | Nome | Obbligatorio/Ripetuto | Type | Note |
    | --- | --- | --- | --- |
-   | **source** |Obbligatorio |string |In genere è il nome dell'attributo dell'oggetto **source**. |
+   | **source** |Obbligatoria |string |In genere è il nome dell'attributo dell'oggetto **source**. |
    | **oldValue** |Facoltativo |string |Valore da sostituire in **source** o **template**. |
    | **regexPattern** |Facoltativo |string |Criterio di espressione regolare per il valore da sostituire in **source**. Se invece si usa **replacementPropertyName**, corrisponde al modello usato per estrarre il valore da **replacementPropertyName**. |
    | **regexGroupName** |Facoltativo |string |Nome del gruppo in **regexPattern**. Solo se si usa **replacementPropertyName**, il valore di questo gruppo verrà estratto come **replacementValue** da **replacementPropertyName**. |
@@ -522,7 +522,7 @@ Sostituisce i valori all'interno di una stringa. Funziona in modo diverso a seco
 
 **Parametri:**<br> 
 
-   | Nome | Obbligatorio/Ripetuto | Tipo | Note |
+   | Nome | Obbligatorio/Ripetuto | Type | Note |
    | --- | --- | --- | --- |
    | **uniqueValueRule1  … uniqueValueRuleN** |Sono necessari almeno 2 argomenti, nessun limite superiore |string | Elenco delle regole di generazione di valori univoci da valutare. |
 
@@ -535,9 +535,9 @@ Sostituisce i valori all'interno di una stringa. Funziona in modo diverso a seco
 
 **Parametri:**<br> 
 
-  | Nome | Obbligatorio/Ripetuto | Tipo | Note |
+  | Nome | Obbligatorio/Ripetuto | Type | Note |
   |--- | --- | --- | --- |
-  | **[appRoleAssignments]** |Obbligatorio |string |Oggetto **[appRoleAssignments]** . |
+  | **[appRoleAssignments]** |Obbligatoria |string |Oggetto **[appRoleAssignments]** . |
 
 ---
 ### <a name="split"></a>Split
@@ -547,10 +547,10 @@ Sostituisce i valori all'interno di una stringa. Funziona in modo diverso a seco
 
 **Parametri:**<br> 
 
-   | Nome | Obbligatorio/Ripetuto | Tipo | Note |
+   | Nome | Obbligatorio/Ripetuto | Type | Note |
    | --- | --- | --- | --- |
-   | **source** |Obbligatorio |string |**source** da aggiornare. |
-   | **delimiter** |Obbligatorio |string |Specifica il carattere che verrà usato per dividere la stringa (esempio: ",") |
+   | **source** |Obbligatoria |string |**source** da aggiornare. |
+   | **delimiter** |Obbligatoria |string |Specifica il carattere che verrà usato per dividere la stringa (esempio: ",") |
 
 ---
 ### <a name="stringfromsid"></a>StringFromSid
@@ -568,9 +568,9 @@ La funzione StringFromSid converte una matrice di byte contenente un ID di sicur
 
 **Parametri:**<br> 
 
-   | Nome | Obbligatorio/Ripetuto | Tipo | Note |
+   | Nome | Obbligatorio/Ripetuto | Type | Note |
    | --- | --- | --- | --- |
-   | **source** |Obbligatorio |string |**source** da aggiornare. |
+   | **source** |Obbligatoria |string |**source** da aggiornare. |
 
 ---
 ### <a name="switch"></a>Opzione
@@ -580,12 +580,12 @@ La funzione StringFromSid converte una matrice di byte contenente un ID di sicur
 
 **Parametri:**<br> 
 
-   | Nome | Obbligatorio/Ripetuto | Tipo | Note |
+   | Nome | Obbligatorio/Ripetuto | Type | Note |
    | --- | --- | --- | --- |
-   | **source** |Obbligatorio |string |Valore **source** da controllare. |
+   | **source** |Obbligatoria |string |Valore **source** da controllare. |
    | **defaultValue** |Facoltativo |string |Valore predefinito da usare se l'origine non corrisponde ad alcuna chiave. Può essere una stringa vuota (""). |
-   | **key** |Obbligatorio |string |Parametro **key** con cui confrontare il valore di **source**. |
-   | **value** |Obbligatorio |string |Valore di sostituzione per il valore **source** corrispondente al parametro key. |
+   | **key** |Obbligatoria |string |Parametro **key** con cui confrontare il valore di **source**. |
+   | **value** |Obbligatoria |string |Valore di sostituzione per il valore **source** corrispondente al parametro key. |
 
 ---
 ### <a name="tolower"></a>ToLower
@@ -595,9 +595,9 @@ La funzione StringFromSid converte una matrice di byte contenente un ID di sicur
 
 **Parametri:**<br> 
 
-   | Nome | Obbligatorio/Ripetuto | Tipo | Note |
+   | Nome | Obbligatorio/Ripetuto | Type | Note |
    | --- | --- | --- | --- |
-   | **source** |Obbligatorio |string |In genere è il nome dell'attributo dell'oggetto di origine. |
+   | **source** |Obbligatoria |string |In genere è il nome dell'attributo dell'oggetto di origine. |
    | **Impostazioni cultura** |Facoltativo |string |Il formato per il nome delle impostazioni cultura basato su RFC 4646 è *languagecode2-country/regioncode2*, in cui *languagecode2* è il codice lingua a due lettere e *country/regioncode2* è il codice di impostazioni cultura secondarie a due lettere. Tra gli esempi sono inclusi ja-JP per Giapponese (Giappone) ed en-US per Inglese (Stati Uniti). Nei casi in cui non è disponibile un codice lingua a due lettere, viene usato un codice a tre lettere derivato da ISO 639-2.|
 
 ---
@@ -609,9 +609,9 @@ La funzione StringFromSid converte una matrice di byte contenente un ID di sicur
 
 **Parametri:**<br> 
 
-  | Nome | Obbligatorio/Ripetuto | Tipo | Note |
+  | Nome | Obbligatorio/Ripetuto | Type | Note |
   | --- | --- | --- | --- |
-  | **source** |Obbligatorio |string |In genere è il nome dell'attributo dell'oggetto di origine. |
+  | **source** |Obbligatoria |string |In genere è il nome dell'attributo dell'oggetto di origine. |
   | **Impostazioni cultura** |Facoltativo |string |Il formato per il nome delle impostazioni cultura basato su RFC 4646 è *languagecode2-country/regioncode2*, in cui *languagecode2* è il codice lingua a due lettere e *country/regioncode2* è il codice di impostazioni cultura secondarie a due lettere. Tra gli esempi sono inclusi ja-JP per Giapponese (Giappone) ed en-US per Inglese (Stati Uniti). Nei casi in cui non è disponibile un codice lingua a due lettere, viene usato un codice a tre lettere derivato da ISO 639-2.|
 
 ---

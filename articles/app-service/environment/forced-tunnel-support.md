@@ -6,13 +6,13 @@ ms.assetid: 384cf393-5c63-4ffb-9eb2-bfd990bc7af1
 ms.topic: quickstart
 ms.date: 05/29/2018
 ms.author: ccompy
-ms.custom: seodec18
-ms.openlocfilehash: e0164ac3903c63632c97c4a089066cf6ad23b31b
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 3e0c56ed669ecda5a130dcf9df103bc8a19faf06
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687184"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80057436"
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>Configurare Ambiente del servizio app con il tunneling forzato
 
@@ -60,7 +60,7 @@ Puoi configurare la subnet dell'ambiente del servizio app per ignorare tutte le 
 Per configurare la subnet dell'ambiente del servizio app al fine di ignorare le route BGP:
 
 * crea una route definita dall'utente e assegnala alla subnet dell'ambiente del servizio app se non ne disponi già.
-* Nel portale di Azure, apri l'interfaccia utente per la tabella di route assegnata alla subnet dell'ambiente del servizio app.  Seleziona Configurazione.  Imposta la propagazione della route BGP su Disabilitata.  Fare clic su Save. La documentazione sulla disattivazione è consultabile nell'articolo [Creare una tabella di route][routetable].
+* Nel portale di Azure, apri l'interfaccia utente per la tabella di route assegnata alla subnet dell'ambiente del servizio app.  Seleziona Configurazione.  Imposta la propagazione della route BGP su Disabilitata.  Fare clic su Salva. La documentazione sulla disattivazione è consultabile nell'articolo [Creare una tabella di route][routetable].
 
 Dopo aver configurato la subnet dell'ambiente del servizio app di Azure in modo da ignorare tutte le route BGP, le app non riusciranno più a raggiungere l'ambiente locale. Per abilitare le app ad accedere alle risorse in locale, modificare la route definita dall'utente assegnata alla subnet dell'ambiente del servizio app e aggiungere le route per gli intervalli degli indirizzi locali. Il tipo di hop successivo deve essere impostato su Gateway di rete virtuale. 
 

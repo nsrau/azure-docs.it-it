@@ -6,10 +6,10 @@ ms.author: lazinnat
 author: lazinnat
 ms.date: 06/20/2019
 ms.openlocfilehash: c3750da6bd76c8cb3908fbdc71ba676f09d77def
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75648808"
 ---
 # <a name="tutorial-create-managed-application-with-custom-actions-and-resources"></a>Esercitazione: Creare un'applicazione gestita con azioni e risorse personalizzate
@@ -26,7 +26,7 @@ Questa esercitazione include i passaggi seguenti:
 > * Distribuire un'istanza di applicazione gestita
 > * Eseguire azioni personalizzate e creare risorse personalizzate
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa esercitazione, è necessario sapere come:
 
@@ -219,7 +219,7 @@ Eseguire il seguente script dell'interfaccia della riga di comando di Azure oppu
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-# <a name="azure-clitabazurecli-interactive"></a>[Interfaccia della riga di comando di Azure](#tab/azurecli-interactive)
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azurecli-interactive)
 
 ```azurecli-interactive
 resourceGroup="appResourcesGroup"
@@ -244,7 +244,7 @@ az managedapp definition create \
   --package-file-uri "path to your app.zip package"
 ```
 
-# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
+# <a name="portal"></a>[Portale](#tab/azure-portal)
 
 1. Nel portale di Azure fare clic su **Tutti i servizi**. Nell'elenco di risorse digitare e selezionare **Centro applicazioni gestite**.
 2. Nel **Centro applicazioni gestite** scegliere **Definizione di applicazione del catalogo di servizi** e fare clic su **Aggiungi**. 
@@ -277,7 +277,7 @@ az managedapp definition create \
 
 Quando viene distribuita la definizione di applicazione gestita, eseguire lo script seguente o seguire i passaggi descritti nel portale di Azure per distribuire l'istanza di applicazione gestita con il provider personalizzato:
 
-# <a name="azure-clitabazurecli-interactive"></a>[Interfaccia della riga di comando di Azure](#tab/azurecli-interactive)
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azurecli-interactive)
 
 ```azurecli-interactive
 appResourcesGroup="appResourcesGroup"
@@ -300,7 +300,7 @@ az managedapp create \
   --parameters "{\"funcname\": {\"value\": \"managedusersappfunction\"}, \"storageName\": {\"value\": \"managedusersappstorage\"}}"
 ```
 
-# <a name="portaltabazure-portal"></a>[Portale](#tab/azure-portal)
+# <a name="portal"></a>[Portale](#tab/azure-portal)
 
 1. Nel portale di Azure fare clic su **Tutti i servizi**. Nell'elenco di risorse digitare e selezionare **Centro applicazioni gestite**.
 2. Nel **Centro applicazioni gestite** scegliere **Applicazioni del catalogo di servizi** e fare clic su **Aggiungi**. 

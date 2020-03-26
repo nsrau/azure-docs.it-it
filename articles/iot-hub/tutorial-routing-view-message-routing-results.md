@@ -10,10 +10,10 @@ ms.date: 03/25/2018
 ms.author: robinsh
 ms.custom: mvc
 ms.openlocfilehash: bfee4e64070e5f37eaa3d63280409f00c0ed8672
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73890401"
 ---
 # <a name="tutorial-part-2---view-the-routed-messages"></a>Esercitazione: Parte 2 - Visualizzare i messaggi instradati
@@ -26,7 +26,7 @@ ms.locfileid: "73890401"
 
 Queste sono le regole per il routing dei messaggi, che sono state configurate nella parte 1 di questa esercitazione e che in questa seconda parte vengono viste in azione.
 
-|Valore |Risultato|
+|valore |Risultato|
 |------|------|
 |level="storage" |Scrivere ad archiviazione di Azure|
 |level="critical" |Scrivere a una coda del bus di servizio. Un'app per la logica recupera il messaggio dalla coda e usa Office 365 per inviare il messaggio con posta elettronica.|
@@ -40,7 +40,7 @@ La coda del Bus di servizio viene usata per la ricezione di messaggi designati c
 
 1. Nel [portale di Azure](https://portal.azure.com) selezionare **+ Crea una risorsa**. Inserire **app per la logica** nella casella di ricerca e fare clic su Invio. Nei risultati della ricerca visualizzati selezionare App per la logica, quindi **Crea** per passare al riquadro **Crea app per la logica**. Compilare i campi.
 
-   **Nome**: il nome dell'app per la logica. Questa esercitazione usa **ContosoLogicApp**.
+   **Name**: il nome dell'app per la logica. Questa esercitazione usa **ContosoLogicApp**.
 
    **Sottoscrizione** Selezionare la sottoscrizione di Azure.
 

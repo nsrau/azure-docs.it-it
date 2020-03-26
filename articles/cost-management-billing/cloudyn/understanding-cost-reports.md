@@ -1,24 +1,26 @@
 ---
-title: Informazioni sui report di gestione dei costi Cloudyn in Azure | Microsoft Docs
+title: Informazioni sui report di gestione dei costi di Cloudyn in Azure
 description: Questo articolo contiene informazioni utili per comprendere le funzioni e la struttura di base dei report di gestione dei costi Cloudyn.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 03/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 89bcbf75396a1eda9de4a715739adb3a3696e137
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ROBOTS: NOINDEX
+ms.openlocfilehash: 5d4f8e26aef5fbfb20c1721d1851a4940863121b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76773980"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79474544"
 ---
 # <a name="understanding-cloudyn-cost-management-reports"></a>Informazioni sui report di gestione dei costi Cloudyn
 
 Questo articolo contiene informazioni utili per comprendere le funzioni e la struttura di base dei report di gestione dei costi Cloudyn. La maggior parte dei report Cloudyn presenta le informazioni in modo intuitivo e con un aspetto grafico uniforme. Dopo avere letto questo articolo, sarà possibile usare qualsiasi report di gestione dei costi. Nei vari report sono disponibili molte funzionalità standard che ne facilitano l'esplorazione. I report sono personalizzabili ed è possibile selezionare diverse opzioni per calcolare e visualizzare i risultati.
+
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
 ## <a name="report-fields-and-options"></a>Campi e opzioni dei report
 
@@ -104,7 +106,7 @@ Ogni area numerata nella figura è descritta in dettaglio nei paragrafi seguenti
        - Tipo di risorsa in uso.
      - **Sub-Type** (Sottotipo)
        - Selezionare il sottotipo.
-     - **operazione**
+     - **Operazione**
        - Selezionare l'operazione o **Show all** (Mostra tutto).
      - **Price Model** (Modello di prezzo)
        - All Upfront (Tutto anticipato)

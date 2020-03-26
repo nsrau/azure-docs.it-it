@@ -10,10 +10,10 @@ ms.date: 11/05/2019
 ms.author: sngun
 Customer intent: As a developer, I want to build a Java application with the Async Java SDK to access and manage Azure Cosmos DB resources so that customers can utilize the global distribution, elastic scaling, multi-master, and other capabilities offered by Azure Cosmos DB.
 ms.openlocfilehash: 8704e399156b9cfc6b04ff47af49b956b597a539
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75444897"
 ---
 # <a name="tutorial-build-a-java-app-with-the-async-java-sdk-to-manage-data-stored-in-a-sql-api-account"></a>Esercitazione: Compilare un'app Java con l’SDK Async Java per gestire i dati archiviati in un account API SQL
@@ -36,7 +36,7 @@ Questa esercitazione illustra le attività seguenti:
 > * Creazione di documenti JSON
 > * Esecuzione di query sulla raccolta
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Assicurarsi di disporre delle risorse seguenti:
 
@@ -54,7 +54,7 @@ Eseguire i seguenti passaggi per creare un account Azure Cosmos:
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## <a id="GitClone"></a>Clonare il repository GitHub
+## <a name="clone-the-github-repository"></a><a id="GitClone"></a>Clonare il repository GitHub
 
 Clonare il repository GitHub per l'[introduzione ad Azure Cosmos DB e Java](https://github.com/Azure-Samples/azure-cosmos-db-sql-api-async-java-getting-started). Eseguire questo comando da una directory locale per recuperare il progetto di esempio in locale.
 
@@ -75,7 +75,7 @@ La directory contiene un file `pom.xml` e una cartella `src/main/java/com/micros
 </dependency>
 ```
 
-## <a id="Connect"></a>Connettersi a un account Azure Cosmos
+## <a name="connect-to-an-azure-cosmos-account"></a><a id="Connect"></a>Connettersi a un account Azure Cosmos
 
 Tornare al [portale di Azure](https://portal.azure.com) per recuperare l'endpoint e la chiave master primaria. L'endpoint e la chiave primaria di Azure Cosmos DB sono necessari all'applicazione per conoscere la destinazione della connessione e ad Azure Cosmos DB per considerare attendibile la connessione dell'applicazione. Il file `AccountSettings.java` contiene i valori relativi a chiave primaria e URI. 
 
@@ -112,7 +112,7 @@ client = new AsyncDocumentClient.Builder()
          .build();
 ```
 
-## <a id="CreateDatabase"></a>Creare un database
+## <a name="create-a-database"></a><a id="CreateDatabase"></a>Creare un database
 
 Creare un database Azure Cosmos usando il metodo `createDatabaseIfNotExists()` della classe DocumentClient. Un database è il contenitore logico per l'archiviazione di documenti JSON partizionato nelle raccolte.
 
@@ -156,7 +156,7 @@ private void createDatabaseIfNotExists() throws Exception
 }
 ```
 
-## <a id="CreateColl"></a>Creare una raccolta
+## <a name="create-a-collection"></a><a id="CreateColl"></a>Creare una raccolta
 
 È possibile creare una raccolta usando il metodo `createDocumentCollectionIfNotExists()` della classe DocumentClient. Una raccolta è un contenitore di documenti JSON e di logica dell'applicazione JavaScript associata.
 
@@ -200,7 +200,7 @@ private void createDocumentCollectionIfNotExists() throws Exception
     }
 ```
 
-## <a id="CreateDoc"></a>Creare documenti JSON
+## <a name="create-json-documents"></a><a id="CreateDoc"></a>Creare documenti JSON
 
 Creare un documento usando il metodo createDocument della classe DocumentClient. I documenti sono contenuto JSON definito dall'utente (arbitrario). Ora è possibile inserire uno o più documenti. Il file "src/main/java/com/microsoft/azure/cosmosdb/sample/Families.java" definisce i documenti JSON della famiglia. 
 
@@ -220,7 +220,7 @@ public static Family getJohnsonFamilyDocument() {
     }
 ```
 
-## <a id="Query"></a>Eseguire query sulle risorse di Azure Cosmos DB
+## <a name="query-azure-cosmos-db-resources"></a><a id="Query"></a>Eseguire query sulle risorse di Azure Cosmos DB
 
 Azure Cosmos DB supporta query avanzate sui documenti JSON archiviati in ogni raccolta. Il codice di esempio seguente mostra come eseguire query su documenti in Azure Cosmos DB usando la sintassi SQL con il metodo `queryDocuments`.
 
@@ -254,7 +254,7 @@ private void executeSimpleQueryAsyncAndRegisterListenerForResult(CountDownLatch 
 }
 ```
 
-## <a id="Run"></a>Eseguire l'applicazione console Java
+## <a name="run-your-java-console-application"></a><a id="Run"></a>Eseguire l'applicazione console Java
 
 Per eseguire l'applicazione dalla console, passare alla cartella del progetto e compilare usando Maven:
 

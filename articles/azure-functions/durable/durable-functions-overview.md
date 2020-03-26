@@ -7,17 +7,17 @@ ms.date: 08/07/2019
 ms.author: cgillum
 ms.reviewer: azfuncdf
 ms.openlocfilehash: 5d454aefaba89bef9dc9009ff442fa5543dae2ef
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78356697"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79290089"
 ---
 # <a name="what-are-durable-functions"></a>Informazioni su Durable Functions
 
 *Durable Functions* è un'estensione di [Funzioni di Azure](../functions-overview.md) che consente di scrivere funzioni con stato in un ambiente di calcolo serverless. L'estensione permette di definire flussi di lavoro con stato, scrivendo [*funzioni dell'agente di orchestrazione*](durable-functions-orchestrations.md), ed entità con stato, scrivendo [*funzioni di entità*](durable-functions-entities.md) tramite il modello di programmazione di Funzioni di Azure. Dietro le quinte, l'estensione gestisce automaticamente lo stato, i checkpoint e i riavvii, consentendo di concentrarsi sulla logica di business.
 
-## <a name="language-support"></a>Lingue supportate
+## <a name="supported-languages"></a><a name="language-support"></a>Lingue supportate
 
 Durable Functions supporta attualmente i linguaggi seguenti:
 
@@ -40,7 +40,7 @@ Il caso d'uso principale per Durable Functions è la semplificazione dei requisi
 * [Interazione umana](#human)
 * [Aggregatore (entità con stato)](#aggregator)
 
-### <a name="chaining"></a>Modello 1: Concatenamento di funzioni
+### <a name="pattern-1-function-chaining"></a><a name="chaining"></a>Modello 1: Concatenamento di funzioni
 
 Nel modello di concatenamento di funzioni, una sequenza di funzioni viene eseguita in un ordine specifico. L'output di una funzione viene applicato all'input di un'altra.
 
@@ -97,7 +97,7 @@ module.exports = df.orchestrator(function*(context) {
 
 ---
 
-### <a name="fan-in-out"></a>Modello 2: Fan-out/fan-in
+### <a name="pattern-2-fan-outfan-in"></a><a name="fan-in-out"></a>Modello 2: Fan-out/fan-in
 
 Nel modello di fan-out/fan-in vengono eseguite più funzioni in parallelo e poi si resta in attesa che vengano completate tutte. Spesso sui risultati restituiti dalle funzioni vengono eseguite alcune operazioni di aggregazione.
 
@@ -167,7 +167,7 @@ L'impostazione automatica di checkpoint che avviene alla chiamata di `yield` su 
 > [!NOTE]
 > In rari casi, è possibile che si verifichi un arresto anomalo nella finestra dopo che una funzione di attività è stata completata, ma prima che il completamento venga salvato nella cronologia dell'orchestrazione. In tal caso, la funzione di attività verrebbe rieseguita dall'inizio dopo il ripristino del processo.
 
-### <a name="async-http"></a>Modello 3: API HTTP asincrone
+### <a name="pattern-3-async-http-apis"></a><a name="async-http"></a>Modello 3: API HTTP asincrone
 
 Il modello di API HTTP asincrone riguarda il problema di coordinare lo stato delle operazioni a esecuzione prolungata con client esterni. Un modo comune per implementare questo modello consiste nell'impostare un endpoint HTTP che attiva l'azione a esecuzione prolungata. Quindi, il client viene reindirizzato a un endpoint di stato di cui esegue il polling per rilevare quando viene completata l'operazione.
 
@@ -206,7 +206,7 @@ L'estensione Durable Functions espone le API HTTP predefinite che gestiscono le 
 
 Per altre informazioni, vedere l'articolo sulle [funzionalità HTTP](durable-functions-http-features.md), che spiega come esporre i processi asincroni a esecuzione prolungata su HTTP usando l'estensione Durable Functions.
 
-### <a name="monitoring"></a>Modello 4: Monitorare
+### <a name="pattern-4-monitor"></a><a name="monitoring"></a>Modello 4: Monitorare
 
 Il modello di monitoraggio si riferisce a un processo flessibile e ricorrente in un flusso di lavoro. Un esempio è il polling eseguito finché non vengono soddisfatte determinate condizioni. È possibile usare un normale [trigger timer](../functions-bindings-timer.md) per gestire un semplice scenario, ad esempio un processo di pulizia periodico, ma l'intervallo è statico e la gestione delle durate delle istanze diventa complessa. È possibile usare Durable Functions per creare intervalli di ricorrenza flessibili, gestire le durate delle attività e creare più processi di monitoraggio da una singola orchestrazione.
 
@@ -280,7 +280,7 @@ module.exports = df.orchestrator(function*(context) {
 
 Quando viene ricevuta una richiesta, viene creata una nuova istanza di orchestrazione per tale ID di processo. L'istanza esegue il polling di uno stato fino a quando non viene soddisfatta una condizione e terminato il ciclo. Un timer durevole controlla l'intervallo di polling. Quindi, possono essere eseguite più operazioni oppure l'orchestrazione può terminare. Quando `nextCheck` supera `expiryTime`, il monitoraggio termina.
 
-### <a name="human"></a>Modello 5: Interazione umana
+### <a name="pattern-5-human-interaction"></a><a name="human"></a>Modello 5: Interazione umana
 
 Molti processi automatizzati comportano un'interazione umana di qualche tipo. Il problema in un processo automatizzato con interazione umana è che le persone non sono sempre disponibili e reattive quanto i servizi cloud. I processi automatizzati potrebbero consentire questa interazione tramite timeout e logica di compensazione.
 
@@ -382,7 +382,7 @@ module.exports = async function (context) {
 
 ---
 
-### <a name="aggregator"></a>Modello 6: Aggregatore (entità con stato)
+### <a name="pattern-6-aggregator-stateful-entities"></a><a name="aggregator"></a>Modello 6: Aggregatore (entità con stato)
 
 Il sesto modello riguarda l'aggregazione in una singola *entità* indirizzabile dei dati degli eventi relativi a un periodo di tempo. In questo modello i dati aggregati possono provenire da più origini, possono essere recapitati in batch o possono essere distribuiti in periodi di tempo prolungati. L'aggregatore potrebbe dover intervenire sui dati degli eventi non appena arrivano e i client esterni potrebbero dover eseguire query sui dati aggregati.
 

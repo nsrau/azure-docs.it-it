@@ -5,13 +5,13 @@ ms.assetid: 03c584f1-a93c-4e3d-ac1b-c82b50c75d3e
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 06/25/2018
-ms.custom: seodec18
-ms.openlocfilehash: 2a0b3994af48372b8ed0a3c6eaecf4289d0980c1
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.custom: mvc, devcenter, vs-azure, seodec18
+ms.openlocfilehash: a9acb55f0a03a6ec1ba0bb6bb38c665b059b672b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671386"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80047030"
 ---
 # <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>Esercitazione: Creare un'app ASP.NET in Azure con un database SQL
 
@@ -19,7 +19,7 @@ ms.locfileid: "74671386"
 
 ![Applicazione ASP.NET pubblicata in Servizio app di Azure](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare un database SQL in Azure
@@ -46,7 +46,7 @@ Se Visual Studio è già stato installato, aggiungere i carichi di lavoro in Vis
 
 Il progetto di esempio contiene un'app CRUD (create-read-update-delete) [ASP.NET MVC](https://www.asp.net/mvc) di base che usa [Code First di Entity Framework](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application).
 
-### <a name="run-the-app"></a>Esecuzione dell'app
+### <a name="run-the-app"></a>Eseguire l'app
 
 Aprire il file *dotnet-sqldb-tutorial-master/DotNetAppSqlDb.sln* in Visual Studio. 
 
@@ -107,7 +107,7 @@ Nella finestra di dialogo **Configura piano di servizio app** configurare il nuo
 
 ![Creare un piano di servizio app](./media/app-service-web-tutorial-dotnet-sqldatabase/configure-app-service-plan.png)
 
-| Impostazione  | Valore consigliato | Per altre informazioni |
+| Impostazione  | Valore consigliato | Per ulteriori informazioni |
 | ----------------- | ------------ | ----|
 |**Piano di servizio app**| myAppServicePlan | [Piani del servizio app](../app-service/overview-hosting-plans.md) |
 |**Posizione**| Europa occidentale | [Aree di Azure](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) |
@@ -146,7 +146,7 @@ Nella finestra di dialogo **Configura database SQL**:
 
 ![Configurare il database SQL](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database.png)
 
-La finestra di dialogo **Crea servizio app** visualizza le risorse configurate. Fare clic su **Create**(Crea). 
+La finestra di dialogo **Crea servizio app** visualizza le risorse configurate. Fare clic su **Crea**. 
 
 ![Risorse create](media/app-service-web-tutorial-dotnet-sqldatabase/app_svc_plan_done.png)
 
@@ -355,7 +355,7 @@ Per modificare i livelli di traccia per generare altri messaggi di traccia, torn
 
 Fare di nuovo clic con il pulsante destro del mouse sull'app Azure e scegliere **Visualizza impostazioni**.
 
-Nell'elenco a discesa **Registrazione applicazioni (file system)** selezionare **Dettagli**. Fare clic su **Save**.
+Nell'elenco a discesa **Registrazione applicazioni (file system)** selezionare **Dettagli**. Fare clic su **Salva**.
 
 ![Modificare il livello di traccia in Dettagli](./media/app-service-web-tutorial-dotnet-sqldatabase/trace-level-verbose.png)
 
@@ -401,7 +401,7 @@ Per impostazione predefinita, il portale visualizza la pagina **Panoramica**. ch
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+In questa esercitazione sono state illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Creare un database SQL in Azure

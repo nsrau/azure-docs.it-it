@@ -14,21 +14,21 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/26/2019
 ms.openlocfilehash: c1271d5b63fa796fe44b7a40c364953464a87539
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68596677"
 ---
 # <a name="tutorial-prepare-data-to-train-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Esercitazione: Preparare i dati per eseguire il training di un modello predittivo in R con Machine Learning Services di database SQL di Azure (anteprima)
 
 Nella prima parte di questa serie di esercitazioni in tre parti, si importeranno e prepareranno i dati di un database SQL di Azure usando R. Più avanti nella serie, questi dati verranno usati per eseguire il training e la distribuzione di un modello di Machine Learning predittivo in R con Machine Learning Services di Database SQL di Azure (anteprima).
 
-Per questa serie di esercitazioni, supporre di essere i proprietari di un'attività di noleggio di sci e di voler stimare il numero di noleggi che verranno richiesti in una data futura. Queste informazioni aiuteranno a tenere pronti il magazzino, il personale e le strutture.
+Per questa serie di esercitazioni, supporre di essere i proprietari di un'attività di noleggio di sci e di voler stimare il numero di noleggi che verranno richiesti in una data futura. Queste informazioni consentiranno di preparare correttamente le scorte, il personale e le strutture.
 
 Nella prima e nella seconda parte di questa serie si svilupperanno alcuni script R in RStudio per preparare i dati ed eseguire il training di un modello di Machine Learning. Quindi, nella terza parte, questi script R verranno eseguiti all'interno di un database SQL tramite stored procedure.
 
-L'articolo spiega come:
+In questo articolo si apprenderà come:
 
 > [!div class="checklist"]
 > * Importare un database di esempio in un database SQL di Azure con R
@@ -95,7 +95,7 @@ head(rentaldata);
 str(rentaldata);
 ```
 
-Verranno visualizzati risultati simili ai seguenti.
+I risultati visualizzati saranno simili ai seguenti:
 
 ```results
    Year  Month  Day  RentalCount  WeekDay  Holiday  Snow
@@ -130,7 +130,7 @@ rentaldata$WeekDay <- factor(rentaldata$WeekDay);
 str(rentaldata);
 ```
 
-Verranno visualizzati risultati simili ai seguenti.
+I risultati visualizzati saranno simili ai seguenti:
 
 ```results
 data.frame':      453 obs. of  7 variables:
@@ -158,7 +158,7 @@ Seguire questa procedura nel portale di Azure:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Nella prima parte di questa serie di esercitazioni sono stati completati questi passaggi:
+Nella prima parte di questa serie di esercitazioni sono stati completati i passaggi seguenti:
 
 * Importare un database di esempio in un database SQL di Azure con R
 * Caricare i dati del database SQL di Azure in un dataframe R

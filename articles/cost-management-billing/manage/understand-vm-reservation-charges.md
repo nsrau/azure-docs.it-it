@@ -1,17 +1,17 @@
 ---
-title: Informazioni sullo sconto delle istanze di macchina virtuale riservate di Azure | Microsoft Docs
+title: Informazioni sullo sconto per le istanze di macchina virtuale riservate di Azure
 description: Informazioni su come viene applicato lo sconto per le istanze di macchine virtuali riservate di Azure alle macchine virtuali in esecuzione.
 author: yashesvi
 ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: 89b1e22419564e4cc46124a9d3e6ca26f81defa0
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: ca54d5a0d196cbc39256668f21e19bdf9162dfbf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200453"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79202791"
 ---
 # <a name="how-the-azure-reservation-discount-is-applied-to-virtual-machines"></a>Come viene applicato lo sconto per la prenotazione di Azure alle macchine virtuali
 

@@ -1,5 +1,5 @@
 ---
-title: Gestire l'accesso alla fatturazione di Azure | Microsoft Docs
+title: Gestire l'accesso alla fatturazione di Azure
 description: Informazioni su come fornire l’accesso alle informazioni di fatturazione Azure ai membri del team.
 author: vikramdesai01
 ms.reviewer: amberb
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: 5a4d725d88ee38bb68ea3da4f3e2a6a9bfc7e201
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: e7a6f105c6c8292e8e95b388d60dd95c3548dbb5
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78344651"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79237667"
 ---
 # <a name="manage-access-to-billing-information-for-azure"></a>Gestire l'accesso alle informazioni di fatturazione per Azure
 
@@ -44,7 +44,7 @@ Per assegnare questi ruoli, vedere [Gestire l'accesso usando il controllo degli 
 ** Se si è un cliente con contratto EA, un proprietario dell'account può assegnare tale ruolo ad altri utenti del proprio team. Per consentire a questi utenti di visualizzare le informazioni di fatturazione, tuttavia, l'amministratore dell'organizzazione deve abilitare la visualizzazione degli addebiti per i proprietari dell'account in Enterprise Portal.
 
 
-### <a name="opt-in"></a> Consentire agli utenti di scaricare le fatture
+### <a name="allow-users-to-download-invoices"></a><a name="opt-in"></a> Consentire agli utenti di scaricare le fatture
 
 Dopo che un amministratore account ha assegnato i ruoli appropriati ad altri utenti, è necessario attivare l'accesso per il download delle fatture nel portale di Azure. Le fatture redatte prima di dicembre 2016 sono disponibili solo all'amministratore dell'account.
 

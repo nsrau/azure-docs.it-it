@@ -1,61 +1,34 @@
 ---
-title: Panoramica di Cloudyn in Azure | Microsoft Docs
+title: Panoramica di Cloudyn in Azure
 description: Cloudyn è una soluzione di gestione dei costi multi-cloud che consente di usare Azure e altre risorse cloud.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 03/12/2020
 ms.topic: overview
 ms.service: cost-management-billing
 ms.reviewer: benshy
 ms.custom: seodec18
-ms.openlocfilehash: bfd00613a3949b29e2defcb6f97398a39091d0e6
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ROBOTS: NOINDEX
+ms.openlocfilehash: 9e1acee631316ec961af364769daa1f2a3001e72
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76774049"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80065869"
 ---
 # <a name="what-is-the-cloudyn-service"></a>Che cos'è il servizio Cloudyn?
 
 Cloudyn, un'affiliata Microsoft, consente di tenere traccia dell'uso del cloud e delle spese per le risorse di Azure e altri provider cloud, tra cui AWS e Google. I dashboard report di facile comprensione agevolano l'allocazione dei costi e gli showback/chargeback. Cloudyn consente di ottimizzare la spesa per il cloud individuando le risorse scarsamente usate che è quindi possibile gestire e adattare.
 
-Per un video introduttivo, vedere [Introduzione a Cloudyn di Azure](https://azure.microsoft.com/resources/videos/azure-cost-management-overview-and-demo).
-
+Per un video introduttivo, vedere [Introduzione a Cloudyn di Azure](https://azure.microsoft.com/resources/videos/azure-cost-management-overview-and-demo/).
+ 
 Gestione costi di Azure offre funzionalità simili a quelle di Cloudyn. Gestione costi di Azure è una soluzione di gestione costi nativa di Azure. È un modo per analizzare i costi, creare e gestire budget, esportare i dati, esaminare e implementare gli elementi consigliati per l'ottimizzazione e di conseguenza risparmiare. Per altre informazioni, vedere [Gestione costi di Azure](../cost-management-billing-overview.md).
+ 
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
-Guardare il [video Azure Cost Management and Cloudyn](https://www.youtube.com/watch?v=PmwFWwSluh8) (Gestione costi di Azure e Cloudyn) per ottenere consigli su quando usare Gestione costi di Azure o Cloudyn in base alle proprie esigenze aziendali.
-
->[!VIDEO https://www.youtube.com/embed/PmwFWwSluh8]
-
-## <a name="cloudyn-features-moving-to-azure-cost-management"></a>Funzionalità di Cloudyn spostate in Gestione costi di Azure
-
-Microsoft ha acquisito Cloudyn e sta eseguendo la migrazione delle relative funzionalità di gestione dei costi dal portale di Cloudyn in modalità nativa in Azure. Per usare le nuove funzionalità, accedere al portale di Azure e passare a [Gestione costi e fatturazione](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/Menu/overview) nell'elenco di servizi di Azure. Rispetto a Cloudyn, l'esperienza nativa offre prestazioni più elevate e una latenza dei dati ridotta di circa otto ore.
-
-La migrazione delle funzionalità chiave per le categorie di offerte relative a contratto Enterprise, pagamento a consumo e MSDN a Gestione costi di Azure è stata completata. La migrazione delle sottoscrizioni CSP a Gestione costi di Azure è ancora in corso.
-
-Per le categorie di offerte non ancora trasferite, è necessario continuare a usare il portale Cloudyn. In tutti gli altri casi, è possibile usare Gestione costi di Azure.
-
-| Offerte e funzionalità di Microsoft Azure | Servizio di gestione dei costi consigliato |
-| --- | --- |
-| Contratto Enterprise di Azure | [Gestione costi di Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/Menu/overview) |
-| Azure Web Direct (pagamento a consumo/MSDN) | [Gestione costi di Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/Menu/overview) |
-| Azure Government | [Gestione costi di Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/Menu/overview) |
-| CSP di Azure | [Cloudyn](https://azure.cloudyn.com) |
-| Supporto per l'analisi dei costi tra cloud per AWS (in anteprima) | [Gestione costi di Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/Menu/overview) |
-| Raccomandazioni di AWS | [Cloudyn](https://azure.cloudyn.com) |
-
-Alcune funzionalità seguenti sono disponibili in Cloudyn, ma non tutte sono già disponibili in Gestione costi di Azure.
-
-- API
-- Raccomandazioni per il calcolo di Azure
-- Raccomandazioni per le prenotazioni di Azure
-- Budget
-- Analisi dei costi
-- Esportare i dati in un account di archiviazione di Azure
-- Latenza inferiore
-- Pacchetto di contenuto e connettore di Power BI
-- Supporto dei tag delle risorse
+Guardare il [video Azure Cost Management and Cloudyn](https://www.youtube.com/watch?v=15DzKPMBRxM) (Gestione costi di Azure e Cloudyn) per ottenere consigli su quando usare Gestione costi di Azure o Cloudyn in base alle proprie esigenze aziendali.
+ 
+>[!VIDEO https://www.youtube.com/embed/15DzKPMBRxM]
 
 ## <a name="monitor-usage-and-spending"></a>Monitorare l'uso e le spese
 
@@ -84,4 +57,4 @@ Se è stato eseguito il provisioning delle istanze riservate di AWS, è possibil
 
 Una volta acquisita familiarità con Cloudyn, il passaggio successivo consiste nel registrare l'ambiente cloud e iniziare a esplorare i dati.
 
-- [Registrare una singola sottoscrizione di Azure](quick-register-azure-sub.md)
+- [Eseguire la registrazione al programma per i partner CSP e visualizzare i dati sui costi](quick-register-csp.md)

@@ -10,10 +10,10 @@ ms.date: 08/06/2019
 ms.author: dech
 Customer intent: As a developer, I want to build a Node.js console application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
 ms.openlocfilehash: 67f0d79c6b074a822917829eee94c5fd3f6a1ef2
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78274046"
 ---
 # <a name="tutorial-build-a-nodejs-console-app-with-the-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Esercitazione: Compilare un'applicazione console Node.js con l'SDK JavaScript per gestire i dati API SQL di Azure Cosmos DB
@@ -53,7 +53,7 @@ Creare prima di tutto un account Azure Cosmos DB. Se è già disponibile un acco
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## <a id="SetupNode"></a>Configurare l'applicazione Node.js
+## <a name="set-up-your-nodejs-application"></a><a id="SetupNode"></a>Configurare l'applicazione Node.js
 
 Prima di iniziare la scrittura del codice per compilare l'applicazione, è possibile compilare il framework per l'applicazione. Eseguire i passaggi seguenti per configurare l'applicazione Node.js che ha il codice del framework:
 
@@ -75,7 +75,7 @@ Prima di iniziare la scrittura del codice per compilare l'applicazione, è possi
 5. Installare il modulo @azure/cosmos tramite npm. Usare il comando seguente:
    * ```npm install @azure/cosmos --save```
 
-## <a id="Config"></a>Impostare le configurazioni dell'applicazione
+## <a name="set-your-apps-configurations"></a><a id="Config"></a>Impostare le configurazioni dell'applicazione
 
 Ora che l'applicazione esiste, è necessario assicurarsi che possa comunicare con Azure Cosmos DB. Tramite l'aggiornamento di alcune impostazioni di configurazione, come illustrato nei passaggi seguenti, è possibile impostare l'applicazione per comunicare con Azure Cosmos DB:
 
@@ -101,7 +101,7 @@ Ora che l'applicazione esiste, è necessario assicurarsi che possa comunicare co
    
    Il codice `module.exports = config;` viene usato per esportare l'oggetto ```config``` in modo che sia possibile farvi riferimento all'interno del file ```app.js```.
 
-## <a id="Connect"></a>Collegarsi a un account Azure Cosmos DB
+## <a name="connect-to-an-azure-cosmos-db-account"></a><a id="Connect"></a>Collegarsi a un account Azure Cosmos DB
 
 1. Aprire il file ```app.js``` vuoto nell'editor di testo. Copiare e incollare il codice seguente per importare il modulo ```@azure/cosmos``` e il modulo ```config``` appena creato.
 
@@ -250,7 +250,7 @@ Ora che è disponibile il codice per inizializzare il client Azure Cosmos DB, è
    node app.js
    ```
 
-## <a id="CreateContainer"></a>Creare un contenitore
+## <a name="create-a-container"></a><a id="CreateContainer"></a>Creare un contenitore
 
 Successivamente, creare un contenitore all'interno dell'account Azure Cosmos DB, in modo da poter archiviare i dati e sottoporli a query. 
 
@@ -374,7 +374,7 @@ Successivamente, creare un contenitore all'interno dell'account Azure Cosmos DB,
    node app.js
    ```
 
-## <a id="CreateItem"></a>Crea un elemento
+## <a name="create-an-item"></a><a id="CreateItem"></a>Crea un elemento
 
 È possibile creare un elemento usando la funzione creare della classe **Elementi**. Quando si usa l'API SQL, gli elementi vengono proiettati come documenti, ovvero contenuti JSON definiti dall'utente (arbitrario). È ora possibile inserire un elemento in Azure Cosmos DB.
 
@@ -414,7 +414,7 @@ Successivamente, creare un contenitore all'interno dell'account Azure Cosmos DB,
    ```
 
 
-## <a id="Query"></a>Eseguire query sulle risorse di Azure Cosmos DB
+## <a name="query-azure-cosmos-db-resources"></a><a id="Query"></a>Eseguire query sulle risorse di Azure Cosmos DB
 
 Azure Cosmos DB supporta le query complesse sui documenti JSON archiviati in ogni contenitore. L'esempio di codice seguente illustra una query eseguibile nei documenti del contenitore.
 
@@ -471,7 +471,7 @@ Azure Cosmos DB supporta le query complesse sui documenti JSON archiviati in ogn
    ```
 
 
-## <a id="ReplaceItem"></a>Sostituire un elemento
+## <a name="replace-an-item"></a><a id="ReplaceItem"></a>Sostituire un elemento
 Azure Cosmos DB supporta la sostituzione del contenuto degli elementi.
 
 1. Copiare e incollare la funzione **replaceFamilyItem** sotto la funzione **queryContainer** nel file app.js. Si noti che la proprietà 'grade' di un elemento figlio è stata modificata in 6 rispetto al valore precedente 5.
@@ -516,7 +516,7 @@ Azure Cosmos DB supporta la sostituzione del contenuto degli elementi.
    ```
 
 
-## <a id="DeleteItem"></a>Eliminare un elemento
+## <a name="delete-an-item"></a><a id="DeleteItem"></a>Eliminare un elemento
 
 Azure Cosmos DB supporta l'eliminazione di elementi JSON.
 
@@ -561,7 +561,7 @@ Azure Cosmos DB supporta l'eliminazione di elementi JSON.
    ```
 
 
-## <a id="DeleteDatabase"></a>Eliminare il database
+## <a name="delete-the-database"></a><a id="DeleteDatabase"></a>Eliminare il database
 
 Se si elimina il database creato, insieme al database vengono rimosse tutte le risorse figlio, come contenitori, elementi e così via.
 
@@ -598,7 +598,7 @@ Se si elimina il database creato, insieme al database vengono rimosse tutte le r
       .catch((error) => { exit(`Completed with error ${JSON.stringify(error)}`) });
    ```
 
-## <a id="Run"></a>Eseguire l'applicazione Node.js
+## <a name="run-your-nodejs-application"></a><a id="Run"></a>Eseguire l'applicazione Node.js
 
 Il codice finale avrà un aspetto simile al seguente:
 
@@ -649,7 +649,7 @@ Verrà visualizzato l'output dell'app introduttiva. L'output dovrebbe essere ana
     Press any key to exit
    ```
 
-## <a id="GetSolution"></a>Ottenere la soluzione completa per l'esercitazione su Node.js 
+## <a name="get-the-complete-nodejs-tutorial-solution"></a><a id="GetSolution"></a>Ottenere la soluzione completa per l'esercitazione su Node.js 
 
 Se non si ha tempo per completare le procedure dell'esercitazione o se si vogliono solo scaricare gli esempi di codice, è possibile ottenerli da [GitHub](https://github.com/Azure-Samples/azure-cosmos-db-sql-api-nodejs-getting-started ). 
 

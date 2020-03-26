@@ -3,13 +3,13 @@ title: 'Esercitazione: App legacy con contenitore (anteprima)'
 description: Informazioni su come eseguire la migrazione di un contenitore Windows personalizzato in Servizio app di Azure e come distribuire un software personalizzato nel contenitore.
 ms.topic: tutorial
 ms.date: 10/22/2019
-ms.custom: seodec18
-ms.openlocfilehash: 5fc65a4d3f9989ac462d7716b7652a1011281413
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 74cb88bc1ace87155a35163ca8f9d3d6c4242ae0
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671968"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80046626"
 ---
 # <a name="migrate-an-aspnet-app-to-azure-app-service-using-a-windows-container-preview"></a>Eseguire la migrazione di un'app ASP.NET in Servizio app di Azure usando un contenitore Windows (anteprima)
 
@@ -45,7 +45,7 @@ In Esplora risorse passare a _custom-font-win-container-master/CustomFontSample_
 
 Questo tipo di carattere è disponibile pubblicamente in [Google Fonts](https://fonts.google.com/specimen/Fredericka+the+Great).
 
-### <a name="run-the-app"></a>Esecuzione dell'app
+### <a name="run-the-app"></a>Eseguire l'app
 
 Aprire il file *custom-font-win-container/CustomFontSample.sln* in Visual Studio. 
 
@@ -111,7 +111,7 @@ Nella finestra di dialogo **Crea un nuovo Registro Azure Container** selezionare
 
 Configurare il nuovo registro contenitori in base ai valori suggeriti nella tabella seguente. Al termine, fare clic su **Crea**.
 
-| Impostazione  | Valore consigliato | Per altre informazioni |
+| Impostazione  | Valore consigliato | Per ulteriori informazioni |
 | ----------------- | ------------ | ----|
 |**Prefisso DNS**| Mantenere il nome del registro generato oppure modificarlo scegliendo un altro nome univoco. |  |
 |**Gruppo di risorse**| Fare clic su **Nuovo**, digitare **myResourceGroup** e fare clic su **OK**. |  |
@@ -134,7 +134,7 @@ Dal menu a sinistra scegliere **Crea una risorsa** > **Web** > **App Web per con
 
 Nella scheda **Informazioni di base** configurare le impostazioni in base alla tabella seguente e quindi fare clic su **Avanti: Docker**.
 
-| Impostazione  | Valore consigliato | Per altre informazioni |
+| Impostazione  | Valore consigliato | Per ulteriori informazioni |
 | ----------------- | ------------ | ----|
 |**Sottoscrizione**| Assicurarsi che sia selezionata la sottoscrizione corretta. |  |
 |**Gruppo di risorse**| Selezionare **Crea nuovo**, digitare **myResourceGroup** e scegliere **OK**. |  |

@@ -6,17 +6,17 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 03/05/2020
-ms.openlocfilehash: b42acdf64612da6837bc67752f7a22169ddef7e2
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: c29790035ec4e971957784e826a1e8bd8e0c9329
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78673315"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79500490"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Novità della documentazione di Monitoraggio di Azure
 Questo articolo elenca gli articoli su Monitoraggio di Azure nuovi o aggiornati in modo significativo. L'articolo verrà aggiornato la prima settimana di ogni mese per includere gli aggiornamenti degli articoli del mese precedente.
 
-## <a name="march-2020"></a>Marzo 2020
+## <a name="february-2020"></a>Febbraio 2020
 
 ### <a name="agents"></a>Agenti
 Diversi aggiornamenti con la riscrittura del contenuto sull'estensione di diagnostica.
@@ -27,7 +27,7 @@ Diversi aggiornamenti con la riscrittura del contenuto sull'estensione di diagno
 - [Installare e configurare l'estensione di Diagnostica di Microsoft Azure](platform/diagnostics-extension-windows-install.md) - Nuovo articolo. 
 - [Schema dell'estensione di Diagnostica Microsoft](platform/diagnostics-extension-schema-windows.md) - Riorganizzazione del contenuto.
 - [Inviare dati dall'estensione di Diagnostica di Microsoft Azure a Hub eventi di Azure](platform/diagnostics-extension-stream-event-hubs.md) - Riscrittura completa e aggiornamento.
-- [Archiviare e visualizzare i dati di diagnostica in Archiviazione di Azure](platform/diagnostics-extension-to-storage.md) - Riscrittura completa e aggiornamento.
+- [Archiviare e visualizzare i dati di diagnostica in Archiviazione di Azure](/azure/cloud-services/diagnostics-extension-to-storage) - Riscrittura completa e aggiornamento.
 - [Estensione macchina virtuale Log Analytics per Windows](../virtual-machines/extensions/oms-windows.md) - Chiarimenti sulla relazione con l'agente di Log Analytics.
 - [Estensione macchina virtuale Monitoraggio di Azure per Linux](../virtual-machines/extensions/oms-linux.md) - Chiarimenti sulla relazione con l'agente di Log Analytics.
 

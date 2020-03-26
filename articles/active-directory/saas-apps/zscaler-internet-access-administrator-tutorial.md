@@ -17,10 +17,10 @@ ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a149527c6e00972991bf0b18e6f7c599799a0c91
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73161028"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-internet-access-administrator"></a>Esercitazione: Integrazione di Azure Active Directory con Zscaler Internet Access Administrator
@@ -134,7 +134,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Zscaler Internet Access
 
 6. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** configurare l'attributo del token SAML come mostrato nell'immagine precedente e seguire questa procedura:
 
-    | NOME  | Attributo di origine  |
+    | Nome  | Attributo di origine  |
     | ---------| ------------ |
     | Ruolo     | user.assignedroles |
 
@@ -148,7 +148,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Zscaler Internet Access
 
     c. Fare clic su **OK**.
 
-    d. Fare clic su **Save**.
+    d. Fare clic su **Salva**.
 
     > [!NOTE]
     > Fare clic [qui](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management) per sapere come configurare un Ruolo in Azure AD
@@ -173,7 +173,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Zscaler Internet Access
 
 2. Passare a **Amministrazione > Gestione amministratori**, eseguire i passaggi seguenti e fare clic su Salva:
 
-    ![Amministrazione](./media/zscaler-internet-access-administrator-tutorial/AdminSSO.png "Administration")
+    ![Amministrazione](./media/zscaler-internet-access-administrator-tutorial/AdminSSO.png "Amministrazione")
 
     a. Selezionare **Abilita autenticazione SAML**.
 
@@ -183,7 +183,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Zscaler Internet Access
 
 3. Nell'interfaccia utente di amministrazione seguire questa procedura:
 
-    ![Administration](./media/zscaler-internet-access-administrator-tutorial/ic800207.png)
+    ![Amministrazione](./media/zscaler-internet-access-administrator-tutorial/ic800207.png)
 
     a. Passare il mouse sul menu **Attivazione** nella parte inferiore sinistra.
 
@@ -208,13 +208,13 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
     b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
-    Ad esempio: BrittaSimon@contoso.com
+    Ad esempio, usare BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
     d. Fare clic su **Crea**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure, concedendole l'accesso a Zscaler Internet Access Administrator.
 

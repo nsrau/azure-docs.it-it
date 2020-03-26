@@ -9,15 +9,15 @@ ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
 ms.openlocfilehash: 925d1178ad630699cfd3d9e48677c0f029fc75af
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74976724"
 ---
 # <a name="tutorial-configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>Esercitazione: Configurare risorse cloud per il provisioning dei dispositivi con il servizio Device Provisioning in hub IoT
 
-Questa esercitazione illustra come configurare il cloud per il provisioning automatico dei dispositivi con il servizio Device Provisioning in hub IoT. In questa esercitazione si apprenderà come:
+Questa esercitazione illustra come configurare il cloud per il provisioning automatico dei dispositivi con il servizio Device Provisioning in hub IoT. In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Usare il portale di Azure per creare un servizio Device Provisioning in hub IoT e ottenere l'ambito ID
@@ -52,7 +52,7 @@ Seguire questa procedura per creare una nuova istanza del servizio Device Provis
 
    ![Immettere le informazioni di base sul servizio Device Provisioning nel portale](./media/tutorial-set-up-cloud/create-iot-dps-portal.png)
 
-5. Fare clic su **Create**(Crea). Dopo alcuni istanti viene creata l'istanza del servizio Device Provisioning e viene visualizzata la pagina **Panoramica**.
+5. Fare clic su **Crea**. Dopo alcuni istanti viene creata l'istanza del servizio Device Provisioning e viene visualizzata la pagina **Panoramica**.
 
 6. Nella pagina **Panoramica** della nuova istanza del servizio copiare il valore dell'**ambito ID** per usarlo successivamente. Questo valore viene usato per identificare gli ID di registrazione e offre una garanzia in merito al fatto che l'ID di registrazione sia univoco.
 
@@ -76,7 +76,7 @@ Il passaggio successivo consiste nel collegare il servizio Device Provisioning e
 
 2. Nella pagina Device Provisioning Service (Servizio Device Provisioning) fare clic su **Linked IoT hubs** (Hub IoT collegati).
 
-3. Fare clic su **Aggiungi**.
+3. Scegliere **Aggiungi**.
 
 4. Nella pagina **Aggiungi collegamento all'hub IoT** fornire le informazioni seguenti e fare clic su **Salva**:
 
@@ -112,7 +112,7 @@ Altre esercitazioni della raccolta si basano su questa. Se si prevede di continu
  
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+In questa esercitazione sono state illustrate le procedure per:
 
 > [!div class="checklist"]
 > * Usare il portale di Azure per creare un servizio Device Provisioning in hub IoT e ottenere l'ambito ID

@@ -7,11 +7,11 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 07/01/2019
 ms.openlocfilehash: bfe1d1aeeac55039acf0c7eb295001277be9cd2e
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78381410"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79223128"
 ---
 # <a name="tutorial-create-the-azure-fxt-edge-filer-cluster"></a>Esercitazione: Creare il cluster Azure FXT Edge Filer
 

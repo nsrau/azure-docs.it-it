@@ -14,10 +14,10 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/29/2019
 ms.openlocfilehash: 6f4d237d5e923aab61ae34a235d2e1f759399e6d
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68640917"
 ---
 # <a name="tutorial-deploy-a-clustering-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Esercitazione: Distribuire un modello di clustering in R con Machine Learning Services del database SQL di Azure (anteprima)
@@ -26,12 +26,12 @@ Nella terza parte di questa serie di esercitazioni in tre parti verrà distribui
 
 Si creerà una stored procedure con uno script R incorporato che esegue il clustering. Poiché il modello viene eseguito nel database SQL di Azure, è possibile eseguire facilmente il training con i dati archiviati nel database.
 
-L'articolo spiega come:
+In questo articolo si apprenderà come:
 
 > [!div class="checklist"]
-> * Creare una stored procedure per la generazione del modello
+> * Creare una stored procedure che genera il modello
 > * Eseguire il clustering nel database SQL
-> * Usare le informazioni del clustering
+> * Usare le informazioni sul clustering
 
 Nella [prima parte](sql-database-tutorial-clustering-model-prepare-data.md) si è appreso come preparare i dati di un database SQL di Azure per eseguire il clustering.
 
@@ -43,12 +43,12 @@ Nella [seconda parte](sql-database-tutorial-clustering-model-build.md) si è app
 
 * Per la terza parte di questa serie di esercitazioni è necessario aver completato la [**prima parte**](sql-database-tutorial-clustering-model-prepare-data.md) e la [**seconda parte**](sql-database-tutorial-clustering-model-build.md).
 
-## <a name="create-a-stored-procedure-that-generates-the-model"></a>Creare una stored procedure per la generazione del modello
+## <a name="create-a-stored-procedure-that-generates-the-model"></a>Creare una stored procedure che genera il modello
 
 Eseguire lo script T-SQL seguente per creare la stored procedure. La stored procedure ricrea i passaggi sviluppati nella prima e nella seconda parte di questa serie di esercitazioni:
 
-* classificazione dei clienti in base alla cronologia di acquisto e di restituzione
-* generazione di quattro cluster di clienti con un algoritmo K-means
+* Classificare i clienti in base alla cronologia degli acquisti e dei resi
+* Generare quattro cluster di clienti usando un algoritmo K-Means
 
 La stored procedure archivia i mapping dei cluster di clienti risultanti nella tabella di database **customer_return_clusters**.
 
@@ -206,9 +206,9 @@ cluster  customer  orderRatio  itemsRatio  monetaryRatio  frequency
 2        32549     0           0           0.031281       4
 ```
 
-## <a name="use-the-clustering-information"></a>Usare le informazioni del clustering
+## <a name="use-the-clustering-information"></a>Usare le informazioni sul clustering
 
-Dal momento che la stored procedure di clustering è stata archiviata nel database, può eseguire il clustering in modo efficiente sui dati dei clienti archiviati nello stesso database. È possibile eseguire la stored procedure ogni volta che i dati dei clienti viene aggiornati e usare le informazioni del clustering aggiornate.
+Poiché la stored procedure di clustering è stata archiviata nel database, può eseguire il clustering in modo efficiente sui dati dei clienti archiviati nello stesso database. È possibile eseguire la stored procedure ogni volta che i dati dei clienti vengono aggiornati e usare le informazioni sul clustering aggiornate.
 
 Si supponga di voler inviare un messaggio di posta elettronica promozionale ai clienti inclusi nei cluster 3, ovvero il gruppo che contiene il comportamento di restituzione più attivo (per una descrizione dei quattro cluster, vedere la [seconda parte](sql-database-tutorial-clustering-model-build.md#analyze-the-results)). Il codice seguente consente di selezionare gli indirizzi di posta elettronica dei clienti inclusi nel cluster 3.
 
@@ -237,11 +237,11 @@ Seguire questa procedura nel portale di Azure:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Nella seconda parte di questa serie di esercitazioni sono stati completati questi passaggi:
+Nella terza parte di questa serie di esercitazioni sono stati completati i passaggi seguenti:
 
-* Creare una stored procedure per la generazione del modello
+* Creare una stored procedure che genera il modello
 * Eseguire il clustering nel database SQL
-* Usare le informazioni del clustering
+* Usare le informazioni sul clustering
 
 Per altre informazioni su come usare R in Machine Learning Services nel database SQL di Azure (anteprima), vedere:
 

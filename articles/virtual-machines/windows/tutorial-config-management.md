@@ -16,13 +16,13 @@ ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: d97323f1916ee46e6b1f8d4ca8723b950baca39c
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
-ms.translationtype: MT
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78373023"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79222228"
 ---
-# <a name="tutorial-monitor-changes-and-update-a-windows-virtual-machine-in-azure"></a>Esercitazione: monitorare le modifiche e aggiornare una macchina virtuale Windows in Azure
+# <a name="tutorial-monitor-changes-and-update-a-windows-virtual-machine-in-azure"></a>Esercitazione: Monitorare le modifiche e aggiornare una macchina virtuale Windows in Azure
 
 Con [Rilevamento modifiche](../../automation/change-tracking.md) e [Gestione aggiornamenti](../../automation/automation-update-management.md) di Azure, è possibile identificare facilmente le modifiche apportate alle macchine virtuali Windows in Azure e gestire gli aggiornamenti del sistema operativo per tali VM.
 
@@ -144,9 +144,9 @@ Selezionare la distribuzione di aggiornamenti completata per visualizzare il das
 
 Il riquadro **Risultati aggiornamento** include un riepilogo del numero totale di aggiornamenti e dei risultati della distribuzione nella macchina virtuale. La tabella a destra offre una suddivisione dettagliata di ogni aggiornamento e dei risultati dell'installazione. Ogni risultato ha uno dei valori seguenti:
 
-* **Tentativo non**eseguito: l'aggiornamento non è installato. Il tempo disponibile in base alla durata della finestra di manutenzione definita non è sufficiente.
-* **Completato**: l'aggiornamento è stato completato.
-* **Non riuscito**: l'aggiornamento non è riuscito.
+* **Tentativo non eseguito**: l'aggiornamento non viene installato. Il tempo disponibile in base alla durata della finestra di manutenzione definita non è sufficiente.
+* **Riuscito**: aggiornamento completato.
+* **Non riuscito**: aggiornamento non riuscito.
 
 Selezionare **Tutti i log** per visualizzare tutte le voci di log create dalla distribuzione.
 
