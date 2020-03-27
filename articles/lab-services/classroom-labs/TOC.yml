@@ -30,12 +30,16 @@
   items:
     - name: Guida dell'amministratore
       href: administrator-guide.md
+    - name: Guida alla configurazione accelerata dell'account lab
+      href: account-setup-guide.md
+    - name: Guida alla configurazione accelerata del lab
+      href: setup-guide.md
     - name: Lab per le classi - Tipi di classe
       items:
         - name: Panoramica dei tipi di classi
           href: class-types.md
-        - name: Deep Learning nell'elaborazione naturale
-          href: class-type-deep-learning-natural-processing.md
+        - name: Deep Learning nell'elaborazione del linguaggio naturale
+          href: class-type-deep-learning-natural-language-processing.md
         - name: Script della shell in Linux
           href: class-type-shell-scripting-linux.md
         - name: Hacking etico
@@ -66,6 +70,8 @@
           href: how-to-configure-firewall-settings.md
         - name: Specificare immagini del Marketplace per i lab
           href: specify-marketplace-images.md
+        - name: Specificare le informazioni di supporto (proprietario dell'account lab)
+          href: lab-account-owner-support-information.md
     - name: Creare e configurare lab per le classi (istruttore)
       items:
         - name: Creare e gestire i lab per le classi
@@ -87,17 +93,29 @@
         - name: Abilitare l'arresto automatico alla disconnessione
           href: how-to-enable-shutdown-disconnect.md
         - name: Abilitare la virtualizzazione annidata in una VM modello
-          href: how-to-enable-nested-virtualization-template-vm.md
+          items:
+            - name: Abilitare la virtualizzazione annidata in una VM modello - Panoramica
+              href: how-to-enable-nested-virtualization-template-vm.md
+            - name: Abilitare la virtualizzazione annidata in una VM modello con l'interfaccia utente
+              href: how-to-enable-nested-virtualization-template-vm-ui.md
+            - name: Abilitare la virtualizzazione annidata in una VM modello con uno script
+              href: how-to-enable-nested-virtualization-template-vm-using-script.md
         - name: Preparare una VM modello Windows
           href: how-to-prepare-windows-template.md
+        - name: Visualizzare informazioni di supporto (istruttore)
+          href: lab-creator-support-information.md
     - name: Connettersi a una macchina virtuale in lab per le classi (studente)
       items:
         - name: Accedere ai lab per le classi
           href: how-to-use-classroom-lab.md
         - name: Usare Connessione desktop remoto per macchine virtuali Linux
           href: how-to-use-remote-desktop-linux-student.md
+        - name: Connettersi a una VM da Mac tramite RDP
+          href: connect-virtual-machine-mac-rdp.md
         - name: Impostare o reimpostare le password per le macchine virtuali
           href: how-to-set-virtual-machine-passwords-student.md
+        - name: Visualizzare informazioni di supporto (studente)
+          href: lab-user-support-information.md
 - name: Informazioni di riferimento
   items:
     - name: API REST

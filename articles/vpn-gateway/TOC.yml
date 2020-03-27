@@ -16,6 +16,12 @@
       href: powershell-samples.md
 - name: Concetti
   items:
+    - name: Supporto per lavorare in remoto
+      items:
+        - name: Lavorare in remoto
+          href: work-remotely-support.md
+        - name: Configurazioni di appliance virtuali di rete e lavoro remoto
+          href: nva-work-remotely-support.md
     - name: Informazioni sulle impostazioni del gateway VPN
       href: vpn-gateway-about-vpn-gateway-settings.md
     - name: Informazioni sui dispositivi VPN
@@ -150,6 +156,8 @@
               href: vpn-gateway-howto-openvpn.md
             - name: Configurare client OpenVPN
               href: vpn-gateway-howto-openvpn-clients.md
+        - name: Passare al protocollo OpenVPN o a IKEv2 da SSTP
+          href: ikev2-openvpn-from-sstp.md
         - name: Passaggio a un certificato del gateway CA pubblico per la connessione da punto a sito
           href: vpn-gateway-point-to-site-gateway-public-ca.md
         - name: Configurare un tunnel di dispositivo VPN Always On
@@ -217,7 +225,7 @@
           items:
             - name: Problemi di connessione da punto a sito
               href: vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md
-            - name: Problemi di connessione da punto a sito - Client VPN in Mac OS X
+            - name: Problemi di connessione da punto a sito - Client VPN in macOS X
               href: vpn-gateway-troubleshoot-point-to-site-osx-ikev2.md
             - name: Da punto a sito - Autenticazione di Azure AD
               href: troubleshoot-ad-vpn-client.md
@@ -245,7 +253,7 @@
           href: vpn-gateway-configure-vpn-gateway-mp.md
         - name: Migrazione dal modello di distribuzione classica a Resource Manager
           href: vpn-gateway-classic-resource-manager-migration.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Azure PowerShell
       href: '/powershell/module/az.network#vpn'

@@ -315,6 +315,10 @@
               href: disk-encryption-sample-scripts.md
             - name: Crittografia dischi in una rete isolata
               href: disk-encryption-isolated-network.md
+            - name: Come verificare lo stato della crittografia
+              href: how-to-verify-encryption-status.md
+            - name: Come configurare RAID LVM con la crittografia
+              href: how-to-configure-lvm-raid-on-crypt.md
             - name: Risoluzione dei problemi di crittografia dei dischi
               href: disk-encryption-troubleshooting.md
             - name: Domande frequenti sulla crittografia del disco
@@ -498,8 +502,6 @@
           href: capture-image.md
         - name: Creare un'immagine con Packer
           href: build-image-with-packer.md
-        - name: Immagini RHEL in Azure
-          href: rhel-images.md
         - name: Scaricare un disco esistente
           href: download-vhd.md
     - name: Disponibilità e scalabilità
@@ -520,6 +522,8 @@
           href: create-cli-availability-zone.md
     - name: Usare strumenti di automazione
       items:
+        - name: Dati personalizzati
+          href: ../custom-data.md
         - name: Ansible
           items:
             - name: Installazione e configurazione

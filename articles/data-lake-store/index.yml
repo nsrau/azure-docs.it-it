@@ -1,0 +1,102 @@
+### YamlMime:Landing
+title: Documentazione di Azure Data Lake Storage Gen1
+summary: Informazioni su come configurare, gestire e accedere a un repository Data Lake con iperscalabilità e compatibile con Hadoop per le analisi sui dati di qualsiasi dimensione, tipo e velocità di inserimento. Azure Data Lake Storage Gen2 è disponibile a livello generale. È consigliabile iniziare a usarlo oggi stesso.
+metadata:
+  title: Documentazione di Azure Data Lake Storage Gen1
+  description: Informazioni su come configurare, gestire e accedere a un repository Data Lake con iperscalabilità e compatibile con Hadoop per le analisi sui dati di qualsiasi dimensione, tipo e velocità di inserimento.
+  ms.service: data-lake-store
+  ms.topic: landing-page
+  author: twooley
+  ms.author: twooley
+  ms.date: 03/11/2020
+  ms.openlocfilehash: bf688b1230c8fd4eecba08ce361e92b9030a241f
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 03/25/2020
+  ms.locfileid: "79410092"
+landingContent:
+- title: Informazioni su Azure Data Lake Storage Gen1
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Che cos'è Azure Data Lake Storage Gen1?
+      url: data-lake-store-overview.md
+    - text: Confronto con Archiviazione di Azure
+      url: data-lake-store-comparison-with-blob-storage.md
+    - text: Passare alla documentazione di Data Lake Storage Gen2
+      url: ../storage/data-lake-storage/introduction.md
+- title: Introduzione
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Portale di Azure
+      url: data-lake-store-get-started-portal.md
+    - text: Azure PowerShell
+      url: data-lake-store-get-started-powershell.md
+    - text: Interfaccia della riga di comando di Azure
+      url: data-lake-store-get-started-cli-2.0.md
+- title: Caricare e spostare dati
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Uso di Data factory di Azure
+      url: ../data-factory/load-azure-data-lake-store.md
+    - text: Con Storage Explorer
+      url: data-lake-store-in-storage-explorer.md
+    - text: Con AdlCopy
+      url: data-lake-store-copy-data-azure-storage-blob.md
+    - text: Con DistCp
+      url: data-lake-store-copy-data-wasb-distcp.md
+    - text: Uso di Sqoop
+      url: data-lake-store-data-transfer-sql-sqoop.md
+- title: Proteggere i dati
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Panoramica della sicurezza
+      url: data-lake-store-security-overview.md
+    - text: Controllo di accesso
+      url: data-lake-store-access-control.md
+  - linkListType: how-to-guide
+    links:
+    - text: Proteggere i dati archiviati
+      url: data-lake-store-secure-data.md
+    - text: Crittografia
+      url: data-lake-store-encryption.md
+    - text: Integrazione della rete virtuale
+      url: data-lake-store-network-security.md
+- title: Authentication
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Opzioni di autenticazione
+      url: data-lakes-store-authentication-using-azure-active-directory.md
+  - linkListType: how-to-guide
+    links:
+    - text: Autenticazione dell'utente finale
+      url: data-lake-store-end-user-authenticate-using-active-directory.md
+    - text: Autenticazione da servizio a servizio
+      url: data-lake-store-service-to-service-authenticate-using-active-directory.md
+- title: Operazioni per file system
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: .NET SDK
+      url: data-lake-store-data-operations-net-sdk.md
+    - text: SDK per Java
+      url: data-lake-store-get-started-java-sdk.md
+    - text: API REST
+      url: data-lake-store-data-operations-rest-api.md
+    - text: Python
+      url: data-lake-store-data-operations-python.md
+- title: Operazioni di gestione dell'account
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: .NET SDK
+      url: data-lake-store-get-started-net-sdk.md
+    - text: API REST
+      url: data-lake-store-get-started-rest-api.md
+    - text: Python
+      url: data-lake-store-get-started-python.md

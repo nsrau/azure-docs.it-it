@@ -1,5 +1,5 @@
 - name: Documentazione di Data Lake Storage Gen1
-  href: index.md
+  href: index.yml
 - name: Passare alla documentazione di Data Lake Storage Gen2
   href: 'https://docs.microsoft.com/azure/storage/data-lake-storage/introduction'
 - name: Panoramica
@@ -14,7 +14,7 @@
       href: data-lake-store-compatible-oss-other-applications.md
     - name: Procedure consigliate
       href: data-lake-store-best-practices.md
-- name: Attività iniziali
+- name: Introduzione
   items:
     - name: Uso del portale di Azure
       href: data-lake-store-get-started-portal.md
@@ -144,13 +144,13 @@
           href: 'https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-store-connection-manager'
         - name: Altre opzioni di integrazione di Azure
           href: data-lake-store-integrate-with-other-services.md
-    - name: Gestisci
+    - name: Gestione
       items:
         - name: Accedere ai log di diagnostica
           href: data-lake-store-diagnostic-logs.md
         - name: Pianificare la disponibilità elevata
           href: data-lake-store-disaster-recovery-guidance.md
-- name: riferimento
+- name: Informazioni di riferimento
   items:
     - name: Esempi di codice
       href: 'https://azure.microsoft.com/resources/samples/?service=data-lake-store'
@@ -180,7 +180,7 @@
       href: 'https://blogs.msdn.microsoft.com/azuredatalake/'
     - name: Commenti e suggerimenti su UserVoice
       href: 'https://feedback.azure.com/forums/327234-data-lake'
-    - name: Forum di MSDN
+    - name: Forum MSDN
       href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake'
     - name: Prezzi
       href: 'https://azure.microsoft.com/pricing/details/data-lake-store/'

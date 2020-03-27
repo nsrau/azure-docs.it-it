@@ -4,7 +4,7 @@
   items:
     - name: Informazioni su Istanze di Azure Container
       href: container-instances-overview.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Distribuire un'istanza di contenitore - Interfaccia della riga di comando
@@ -59,6 +59,8 @@
           href: container-instances-vnet.md
         - name: Eseguire la distribuzione da Registro Azure Container
           href: container-instances-using-azure-container-registry.md
+        - name: Eseguire la distribuzione con azioni di GitHub (anteprima)
+          href: container-instances-github-action.md
         - name: Crittografare i dati della distribuzione
           href: container-instances-encrypt-data.md
         - name: Eseguire la distribuzione in host dedicati
@@ -83,6 +85,8 @@
           href: container-instances-gpu.md
         - name: Abilitare l'endpoint SSL in sidecar
           href: container-instances-container-group-ssl.md
+        - name: Esporre l'indirizzo IP statico
+          href: container-instances-application-gateway.md
     - name: Montare i volumi di dati
       items:
         - name: Condivisione file di Azure

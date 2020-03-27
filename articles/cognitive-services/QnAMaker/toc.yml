@@ -70,10 +70,12 @@
           href: How-To/business-continuity-plan.md
         - name: Collaborare
           href: How-To/collaborate-knowledge-base.md
+        - name: Attivare l'apprendimento attivo
+          href: How-To/use-active-learning.md
     - name: Gestire la knowledge base
       items:
         - name: Creare la knowledge base
-          href: Quickstarts/create-publish-knowledge-base.md
+          href: How-To/manage-knowledge-bases.md
         - name: Selezione della lingua
           href: How-To/language-knowledge-base.md
         - name: Aggiungere chit chat
@@ -85,7 +87,7 @@
           href: How-To/test-knowledge-base.md
     - name: Gestire set di domande e risposte
       items:
-        - name: Modificare la knowledge base
+        - name: Modificare il set di domande e risposte
           href: How-To/edit-knowledge-base.md
         - name: Aggiungere richieste di completamento
           href: How-To/multiturn-conversation.md

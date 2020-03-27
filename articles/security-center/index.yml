@@ -11,12 +11,12 @@ metadata:
   author: memildin
   ms.author: memildin
   ms.date: 11/04/2019
-  ms.openlocfilehash: 2896bee8f5a07a7432ca3fa2ca49caa529fdeb1e
-  ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+  ms.openlocfilehash: a1d764ce1ce332290c1bd68c5beb5f2731ae5e41
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 02/25/2020
-  ms.locfileid: "77604770"
+  ms.lasthandoff: 03/25/2020
+  ms.locfileid: "80159303"
 landingContent:
 - title: Informazioni sul Centro sicurezza
   linkLists:
@@ -32,15 +32,15 @@ landingContent:
     links:
     - text: Proteggere i contenitori
       url: container-security.md
-    - text: Aggiungere pacchetti di conformità dinamici
-      url: update-regulatory-compliance-packages.md
-    - text: Integrazione con Windows Admin Center
-      url: windows-admin-center-integration.md
+    - text: Valutazione della vulnerabilità integrata per le VM
+      url: built-in-vulnerability-assessment.md
+    - text: Esaminare gli schemi per gli avvisi di sicurezza
+      url: alerts-schemas.md
     - text: Automatizzare le risposte ad avvisi e raccomandazioni
       url: workflow-automation.md
     - text: Esportare avvisi e raccomandazioni di sicurezza
       url: continuous-export.md
-    - text: Configurare Advanced Threat Protection per Azure Key Vault
+    - text: Configurare la protezione dalle minacce per Azure Key Vault
       url: advanced-threat-protection-key-vault.md
 - title: Introduzione
   linkLists:
@@ -56,8 +56,8 @@ landingContent:
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Che cos'è un punteggio di sicurezza?
-      url: security-center-secure-score.md
+    - text: Informazioni sul punteggio di sicurezza
+      url: secure-score-security-controls.md
     - text: Correggere le raccomandazioni sulla sicurezza
       url: security-center-remediate-recommendations.md
     - text: Personalizzare le raccomandazioni sulla sicurezza

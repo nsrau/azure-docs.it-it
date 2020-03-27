@@ -44,9 +44,14 @@
     - name: Visualizzare e gestire i clienti
       displayName: my customers
       href: ./how-to/view-manage-customers.md
-    - name: Usare i log di Monitoraggio di Azure su larga scala
-      displayName: 'log, analytics, analyze, activity'
-      href: ./how-to/monitor-at-scale.md
+    - name: Integrazione di Monitoraggio di Azure
+      items:
+        - name: Usare i log di Monitoraggio di Azure su larga scala
+          displayName: 'log, analytics, analyze, activity'
+          href: ./how-to/monitor-at-scale.md
+        - name: Monitorare le modifiche delle deleghe
+          displayName: activity log
+          href: ./how-to/monitor-delegation-changes.md
     - name: Integrazione di Criteri di Azure
       items:
         - name: Distribuire un criterio su larga scala

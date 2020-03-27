@@ -1,14 +1,14 @@
 - name: Documentazione di StorSimple
-  href: index.md
+  href: index.yml
 - name: Array virtuale StorSimple
   items:
     - name: Panoramica
       items:
         - name: Informazioni sulla soluzione
           href: storsimple-ova-overview.md
-    - name: Attività iniziali
+    - name: Introduzione
       items:
-        - name: Pianificazione
+        - name: Piano
           items:
             - name: Esaminare i requisiti
               href: storsimple-ova-system-requirements.md
@@ -91,7 +91,7 @@
           href: storsimple-virtual-array-update-12-release-notes.md
         - name: Aggiornamento 1.1
           href: storsimple-virtual-array-update-11-release-notes.md
-        - name: Aggiornamento 1
+        - name: Update 1
           href: storsimple-virtual-array-update-1-release-notes.md
         - name: Archiviazione
           items:
@@ -119,9 +119,9 @@
           href: storsimple-8000-security.md
         - name: Aree di disponibilità
           href: storsimple-regions.md
-    - name: Attività iniziali
+    - name: Introduzione
       items:
-        - name: Pianificazione
+        - name: Piano
           items:
             - name: Esaminare i requisiti
               href: storsimple-8000-system-requirements.md
@@ -131,7 +131,7 @@
               href: storsimple-8000-limits.md
             - name: Procedure consigliate
               href: 'https://gallery.technet.microsoft.com/Azure-StorSimple-8000-72b01b68'
-        - name: Installa
+        - name: Installazione
           items:
             - name: Controllare la sicurezza
               href: storsimple-8000-safety.md
@@ -159,7 +159,7 @@
               href: storsimple-adapter-for-sharepoint.md
     - name: Procedure
       items:
-        - name: Gestisci
+        - name: Gestione
           items:
             - name: Uso del servizio StorSimple Manager
               href: storsimple-8000-manager-service-administration.md
@@ -345,7 +345,7 @@
               href: storsimple-update21-release-notes.md
             - name: Aggiornamento 2
               href: storsimple-update2-release-notes.md
-            - name: Aggiornamento 1
+            - name: Update 1
               href: storsimple-update1-release-notes.md
             - name: Aggiornamento 0.3
               href: storsimple-february-2015-release-notes.md
@@ -355,7 +355,7 @@
               href: storsimple-october-2014-release-notes.md
             - name: Versione - GA
               href: storsimple-july-2014-release-notes.md
-    - name: riferimento
+    - name: Informazioni di riferimento
       items:
         - name: API REST
           href: 'https://docs.microsoft.com/rest/api/storsimple'
@@ -369,7 +369,7 @@
       items:
         - name: Informazioni sulla soluzione
           href: storsimple-data-manager-overview.md
-    - name: Attività iniziali
+    - name: Introduzione
       items:
         - name: Uso di StorSimple Data Manager
           href: storsimple-data-manager-ui.md
@@ -387,7 +387,7 @@
       items:
         - name: Informazioni sulla soluzione
           href: storsimple-partner-csp-overview.md
-    - name: Attività iniziali
+    - name: Introduzione
       items:
         - name: Distribuire un array virtuale per CSP
           href: storsimple-partner-csp-deploy.md

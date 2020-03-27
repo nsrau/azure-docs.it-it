@@ -58,7 +58,21 @@
     - name: Concetti
       items:
         - name: Funzionamento di Dev Spaces
-          href: how-dev-spaces-works.md
+          items:
+            - name: Panoramica
+              href: how-dev-spaces-works.md
+            - name: Configurazione di un cluster
+              href: how-dev-spaces-works-cluster-setup.md
+            - name: Preparazione di un progetto
+              href: how-dev-spaces-works-prep.md
+            - name: Esecuzione del codice
+              href: how-dev-spaces-works-up.md
+            - name: Routing tra spazi di sviluppo
+              href: how-dev-spaces-works-routing.md
+            - name: Debug remoto
+              href: how-dev-spaces-works-remote-debugging.md
+            - name: Connessione del computer di sviluppo al servizio Azure Kubernetes
+              href: how-dev-spaces-works-connect.md
         - name: Funzionamento di VS Code con Dev Spaces
           href: how-vs-code-works-with-dev-spaces.md
         - name: Configurazione delle impostazioni di rete in topologie diverse

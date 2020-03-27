@@ -91,6 +91,8 @@
           href: password-policy.md
         - name: Abilitare gli eventi di controllo di sicurezza
           href: security-audit-events.md
+        - name: Analizzare gli eventi di controllo con Cartelle di lavoro di Monitoraggio di Azure
+          href: use-azure-monitor-workbooks.md
     - name: Aggiungere macchine virtuali al dominio
       items:
         - name: VM Windows Server da un modello

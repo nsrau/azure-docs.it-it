@@ -23,13 +23,11 @@
       href: stream-analytics-manage-job.md
     - name: 2 - Eseguire Funzioni di Azure
       href: stream-analytics-with-azure-functions.md
-    - name: 3 - Eseguire una funzione JavaScript definita dall'utente
-      href: stream-analytics-javascript-user-defined-functions.md
-    - name: 4 - Distribuire con integrazione continua/distribuzione continua in Azure Pipelines
+    - name: 3 - Distribuire con CI/CD in Azure Pipelines
       href: stream-analytics-tools-visual-studio-cicd-vsts.md
-    - name: '5 - Eseguire una funzione definita dall''utente C#'
+    - name: '4 - Eseguire una funzione definita dall''utente in C#'
       href: stream-analytics-edge-csharp-udf.md
-    - name: 6 - Creare il deserializzatore .NET personalizzato
+    - name: 5 - Creare un deserializzatore .NET personalizzato
       href: custom-deserializer.md
 - name: Esempi
   items:
@@ -61,6 +59,14 @@
           href: stream-analytics-sql-output-perf.md
         - name: Modelli di percorso personalizzati per i BLOB
           href: stream-analytics-custom-path-patterns-blob-storage-output.md
+    - name: Funzioni definite dall'utente
+      items:
+        - name: Funzione definita dall'utente di Machine Learning
+          href: machine-learning-udf.md
+        - name: 'Funzione definita dall''utente in C#'
+          href: stream-analytics-edge-csharp-udf-methods.md
+        - name: Funzione definita dall'utente in JavaScript
+          href: stream-analytics-javascript-user-defined-functions.md
     - name: Ottimizzare il processo di Analisi di flusso
       items:
         - name: Informazioni sulle unità di flusso e su come modificarle
@@ -187,8 +193,6 @@
           href: stream-analytics-tools-for-visual-studio-edge-jobs.md
         - name: Configurare una pipeline di integrazione continua/recapito continuo
           href: stream-analytics-tools-for-visual-studio-cicd.md
-        - name: Scrivere una funzione definita dall'utente .NET
-          href: stream-analytics-edge-csharp-udf-methods.md
     - name: Visual Studio Code
       items:
         - name: Testare in locale con dati di esempio

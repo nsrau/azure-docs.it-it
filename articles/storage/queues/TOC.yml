@@ -45,8 +45,11 @@
       items:
         - name: Suggerimenti per la sicurezza
           href: security-recommendations.md
-        - name: Crittografia di Archiviazione di Azure
+        - name: Crittografia dei dati inattivi di Archiviazione di Azure
           href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+          items:
+            - name: Chiavi gestite dal cliente con Azure Key Vault
+              href: ../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Autorizzazione di operazioni sui dati
           href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
           items:

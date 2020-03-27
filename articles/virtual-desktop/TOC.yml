@@ -86,6 +86,8 @@
       href: publish-apps.md
     - name: Configurare la connessione all'app MSIX
       href: app-attach.md
+    - name: Usare Microsoft Teams
+      href: teams-on-wvd.md
 - name: Concetti
   items:
     - name: Ambiente di Desktop virtuale Windows

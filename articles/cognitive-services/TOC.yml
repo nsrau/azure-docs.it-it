@@ -7,12 +7,28 @@
       href: Welcome.md
     - name: Servizi cognitivi e Machine Learning
       href: cognitive-services-and-machine-learning.md
-    - name: Reti virtuali per Servizi cognitivi
-      href: cognitive-services-virtual-networks.md
     - name: Sottodomini personalizzati per Servizi cognitivi
       href: cognitive-services-custom-subdomains.md
-    - name: Supporto per le lingue
+    - name: Lingue supportate
       href: language-support.md
+- name: Avvi rapidi
+  items:
+    - name: Creare una nuova risorsa con il portale di Azure
+      href: cognitive-services-apis-create-account.md
+    - name: Creare una nuova risorsa con l'interfaccia della riga di comando di Azure
+      href: cognitive-services-apis-create-account-cli.md
+    - name: Registrazione diagnostica
+      href: diagnostic-logging.md
+- name: Security
+  items:
+    - name: Sicurezza di Servizi cognitivi
+      href: cognitive-services-security.md
+    - name: Reti virtuali per Servizi cognitivi
+      href: cognitive-services-virtual-networks.md
+    - name: Configurare le chiavi gestite dal cliente
+      href: ./encryption/cognitive-services-encryption-keys-portal.md
+    - name: Autenticare le richieste a Servizi cognitivi
+      href: authentication.md
 - name: Supporto dei contenitori
   items:
     - name: Supporto dei contenitori
@@ -39,16 +55,6 @@
           href: ../container-registry/container-registry-get-started-azure-cli.md
         - name: Servizio Azure Kubernetes
           href: ../aks/tutorial-kubernetes-prepare-app.md
-- name: Guide introduttive
-  items:
-    - name: Creare una nuova risorsa con il portale di Azure
-      href: cognitive-services-apis-create-account.md
-    - name: Creare una nuova risorsa con l'interfaccia della riga di comando di Azure
-      href: cognitive-services-apis-create-account-cli.md
-    - name: Authentication
-      href: authentication.md
-    - name: Registrazione diagnostica
-      href: diagnostic-logging.md
 - name: Risorse
   items:
     - name: Roadmap per Azure
@@ -69,7 +75,7 @@
       href: 'https://azure.microsoft.com/blog/topics/cognitive-services/'
     - name: Aggiornamenti del servizio
       href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
-    - name: Inviare feedback sul prodotto
+    - name: Inviare commenti e suggerimenti per il prodotto
       href: 'https://cognitive.uservoice.com/'
     - name: Codice di comportamento
       href: 'https://go.microsoft.com/fwlink/?LinkId=698895'

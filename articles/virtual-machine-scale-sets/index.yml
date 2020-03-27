@@ -1,55 +1,87 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Documentazione dei set di scalabilità di macchine virtuali
+summary: I set di scalabilità di macchine virtuali di Azure consentono di creare e gestire un gruppo di VM identiche con bilanciamento del carico e scalabilità automatica.
 metadata:
-  title: 'I set di scalabilità di macchine virtuali di Azure consentono di creare e gestire un gruppo di VM identiche con bilanciamento del carico e scalabilità automatica. Informazioni su come creare, configurare, gestire e ridimensionare automaticamente i set di scalabilità di macchine virtuali con guide introduttive, esercitazioni ed esempi.'
-  services: virtual-machine-scale-sets
-  author: georgewallace
-  manager: gwallace
+  title: Documentazione dei set di scalabilità di macchine virtuali
+  description: Informazioni su come creare, configurare, gestire e ridimensionare automaticamente i set di scalabilità di macchine virtuali con guide introduttive, esercitazioni ed esempi.
   ms.service: virtual-machine-scale-sets
   ms.topic: landing-page
-  ms.date: 03/14/2018
-  ms.author: gwallace
-  description: I set di scalabilità di macchine virtuali di Azure consentono di creare e gestire un gruppo di VM con bilanciamento del carico e scalabilità automatica.
-sections:
-  - title: Guide introduttive
-    items:
-      - type: paragraph
-        text: Informazioni su come distribuire un server Web in un set di scalabilità di macchine virtuali.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/azure/virtual-machines/linux/media/index/portal.svg'
-            text: Portale di Azure
-            href: /azure/virtual-machine-scale-sets/quick-create-portal
-          - image:
-              src: 'https://docs.microsoft.com/azure/virtual-machines/linux/media/index/cli.svg'
-            text: Interfaccia della riga di comando di Azure
-            href: /azure/virtual-machine-scale-sets/quick-create-cli
-          - image:
-              src: 'https://docs.microsoft.com/azure/virtual-machines/linux/media/index/logo_powershell.svg'
-            text: Azure PowerShell
-            href: /azure/virtual-machine-scale-sets/quick-create-powershell
-  - title: Esercitazioni dettagliate
-    items:
-      - type: paragraph
-        text: 'Informazioni su come distribuire, gestire e ridimensionare automaticamente i set di scalabilità di macchine virtuali in Azure.'
-      - type: list
-        style: ordered
-        items:
-          - html: Creare e gestire un set di scalabilità con l'<a href="/azure/virtual-machine-scale-sets/tutorial-create-and-manage-cli">interfaccia della riga di comando di Azure</a> o <a href="/azure/virtual-machine-scale-sets/tutorial-create-and-manage-powershell">Azure PowerShell</a>
-          - html: Usare dischi dati con l'<a href="/azure/virtual-machine-scale-sets/tutorial-use-disks-cli">interfaccia della riga di comando di Azure</a> o <a href="/azure/virtual-machine-scale-sets/tutorial-use-disks-powershell">Azure PowerShell</a>
-          - html: Usare un'immagine di VM personalizzata con l'<a href="/azure/virtual-machine-scale-sets/tutorial-use-custom-image-cli">interfaccia della riga di comando di Azure</a> o <a href="/azure/virtual-machine-scale-sets/tutorial-use-custom-image-powershell">Azure PowerShell</a>
-          - html: Distribuire app in un set di scalabilità con l'<a href="/azure/virtual-machine-scale-sets/tutorial-install-apps-cli">interfaccia della riga di comando di Azure</a> o <a href="/azure/virtual-machine-scale-sets/tutorial-install-apps-powershell">Azure PowerShell</a>
-          - html: Ridimensionare automaticamente un set di scalabilità con l'<a href="/azure/virtual-machine-scale-sets/tutorial-autoscale-cli">interfaccia della riga di comando di Azure</a> o <a href="/azure/virtual-machine-scale-sets/tutorial-autoscale-powershell">Azure PowerShell</a>
-  - title: Esempi
-    items:
-      - type: paragraph
-        text: Distribuzioni di esempio per set di scalabilità di macchine virtuali.
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/virtual-machine-scale-sets/cli-samples">Interfaccia della riga di comando di Azure</a>
-          - html: <a href="/azure/virtual-machine-scale-sets/powershell-samples">Azure PowerShell</a>
+  author: ju-shim
+  ms.author: jushiman
+  manager: gwallace
+  ms.date: 03/16/2020
+  ms.openlocfilehash: 046d3d87a06c817044f7b07386bdfc03f65b1afb
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 03/25/2020
+  ms.locfileid: "80123389"
+landingContent:
+- title: Informazioni sui set di scalabilità di macchine virtuali
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Che cosa sono i set di scalabilità delle macchine virtuali?
+      url: overview.md
+    - text: Domande frequenti
+      url: virtual-machine-scale-sets-faq.md
+- title: Introduzione
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Portale di Azure
+      url: quick-create-portal.md
+    - text: Azure PowerShell
+      url: quick-create-powershell.md
+    - text: Interfaccia della riga di comando di Azure
+      url: disk-encryption-cli.md
+- title: Funzionalità più recenti
+  linkLists:
+  - linkListType: whats-new
+    links:
+    - text: Criteri di riduzione
+      url: virtual-machine-scale-sets-scale-in-policy.md
+    - text: Notifica di termine
+      url: virtual-machine-scale-sets-terminate-notification.md
+    - text: Protezione delle istanze
+      url: virtual-machine-scale-sets-instance-protection.md
+- title: Guide dettagliate
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Creare e gestire un set di scalabilità con l'interfaccia della riga di comando di Azure
+      url: tutorial-create-and-manage-cli.md
+    - text: Creare e gestire un set di scalabilità con Azure PowerShell
+      url: tutorial-create-and-manage-powershell.md
+    - text: Usare i dischi dati con l'interfaccia della riga di comando di Azure
+      url: tutorial-use-disks-cli.md
+    - text: Usare i dischi dati con Azure PowerShell
+      url: tutorial-use-disks-powershell.md
+    - text: Usare un'immagine di VM personalizzata con l'interfaccia della riga di comando di Azure
+      url: tutorial-use-custom-image-cli.md
+    - text: Usare un'immagine di VM personalizzata con Azure PowerShell
+      url: tutorial-use-custom-image-powershell.md
+    - text: Distribuire app in un set di scalabilità con l'interfaccia della riga di comando di Azure
+      url: tutorial-install-apps-cli.md
+    - text: Distribuire app in un set di scalabilità con Azure PowerShell
+      url: tutorial-install-apps-powershell.md
+    - text: Ridimensionare automaticamente un set di scalabilità con l'interfaccia della riga di comando di Azure
+      url: tutorial-autoscale-cli.md
+    - text: Ridimensionare automaticamente un set di scalabilità con Azure PowerShell
+      url: tutorial-autoscale-powershell.md
+- title: Esempi
+  linkLists:
+  - linkListType: sample
+    links:
+    - text: Esempio di distribuzione per set di scalabilità di macchine virtuali con l'interfaccia della riga di comando di Azure
+      url: cli-samples.md
+    - text: Esempio di distribuzione per set di scalabilità di macchine virtuali con Azure PowerShell
+      url: powershell-samples.md
+- title: Formazione autogestita
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: Compilare un'applicazione scalabile con i set di scalabilità di macchine virtuali
+      url: https://docs.microsoft.com/learn/modules/build-app-with-scale-sets/
+    - text: " Creare una macchina virtuale Windows in Azure"
+      url: https://docs.microsoft.com/learn/modules/create-windows-virtual-machine-in-azure/

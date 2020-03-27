@@ -37,9 +37,7 @@
       href: security-center-compliance-dashboard.md
 - name: Concetti
   items:
-    - name: Punteggio di sicurezza nel Centro sicurezza
-      href: security-center-secure-score.md
-    - name: Punteggio di sicurezza migliorato
+    - name: Punteggio di sicurezza
       href: secure-score-security-controls.md
     - name: Autorizzazioni
       href: security-center-permissions.md
@@ -59,16 +57,18 @@
           href: azure-kubernetes-service-integration.md
     - name: Protezione dalle minacce e avvisi di sicurezza
       items:
+        - name: Protezione dalle minacce nel Centro sicurezza di Azure
+          href: threat-protection.md
         - name: Panoramica sugli avvisi di sicurezza
           href: security-center-alerts-overview.md
         - name: Elenco di riferimento degli avvisi
           href: alerts-reference.md
+        - name: Schemi di avvisi
+          href: alerts-schemas.md
         - name: Gestire gli avvisi di sicurezza
           href: security-center-managing-and-responding-alerts.md
         - name: Gestire gli eventi imprevisti della sicurezza
           href: security-center-incident.md
-        - name: Protezione dalle minacce nel Centro sicurezza di Azure
-          href: threat-protection.md
         - name: Correlazione tra avvisi intelligenti cloud (incidenti)
           href: security-center-alerts-cloud-smart.md
         - name: Mappa degli avvisi di sicurezza e intelligence per le minacce
@@ -201,6 +201,8 @@
       href: security-center-features-retirement-july2019.md
     - name: Valutazione e consigli per la protezione degli endpoint
       href: security-center-endpoint-protection.md
+    - name: Punteggio di sicurezza (legacy)
+      href: security-center-secure-score.md
 - name: Risorse
   items:
     - name: Sviluppare le proprie competenze con Microsoft Learn

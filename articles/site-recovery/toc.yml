@@ -165,6 +165,8 @@
               href: azure-to-azure-about-networking.md
             - name: Personalizzare le configurazioni di rete della VM di Azure di destinazione
               href: azure-to-azure-customize-networking.md
+            - name: Configurare le impostazioni del proxy del servizio di mobilità
+              href: configure-mobility-service-proxy-settings.md
             - name: Configurare il mapping di rete e conservare gli indirizzi IP dopo il failover
               href: azure-to-azure-network-mapping.md
             - name: Esempi di conservazione degli indirizzi IP dopo il failover
@@ -396,7 +398,7 @@
         - name: Dynamics AX
           href: site-recovery-dynamicsax.md
         - name: Servizi desktop remoto
-          href: 'site-recovery-workload.md#protect-rds'
+          href: 'site-recovery-workload.md#protect-remote-desktop-services'
         - name: Exchange
           href: 'site-recovery-workload.md#protect-exchange'
         - name: SAP

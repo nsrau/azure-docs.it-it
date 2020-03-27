@@ -1,0 +1,65 @@
+### YamlMime:Landing
+title: Documentazione di StorSimple
+summary: Informazioni su come usare Azure StorSimple, una soluzione di archiviazione integrata che gestisce le attività di archiviazione tra i dispositivi locali e l'archiviazione cloud di Azure.
+metadata:
+  title: Documentazione di StorSimple
+  description: Informazioni su come usare Azure StorSimple, una soluzione di archiviazione integrata che gestisce le attività di archiviazione tra i dispositivi locali e l'archiviazione cloud di Azure.
+  ms.service: storsimple
+  services: storsimple
+  ms.topic: landing-page
+  author: twooley
+  ms.author: twooley
+  ms.date: 03/11/2020
+  ms.openlocfilehash: 7744e0fecadbdbcc7af82645b58bb86a9e0bbe18
+  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 03/25/2020
+  ms.locfileid: "79540307"
+landingContent:
+- title: Informazioni su StorSimple
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Confronto tra StorSimple e Sincronizzazione file di Azure e Data Box Edge
+      url: storsimple-8000-choose-storage-solution.md
+- title: Array virtuale StorSimple
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Che cos'è l'array virtuale StorSimple?
+      url: storsimple-ova-overview.md
+  - linkListType: get-started
+    links:
+    - text: Esaminare i requisiti
+      url: storsimple-ova-system-requirements.md
+- title: StorSimple serie 8000
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Che cos'è StorSimple serie 8000?
+      url: storsimple-overview.md
+  - linkListType: get-started
+    links:
+    - text: Esaminare i requisiti
+      url: storsimple-8000-system-requirements.md
+- title: StorSimple Data Manager
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Che cos'è StorSimple Data Manager?
+      url: storsimple-data-manager-overview.md
+  - linkListType: get-started
+    links:
+    - text: Gestire nel portale di Azure
+      url: storsimple-data-manager-ui.md
+- title: StorSimple per il programma Cloud Solutions Provider
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Che cos'è StorSimple per il programma Cloud Solutions Provider?
+      url: storsimple-partner-csp-overview.md
+  - linkListType: get-started
+    links:
+    - text: Distribuire
+      url: storsimple-partner-csp-deploy.md

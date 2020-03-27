@@ -2,7 +2,7 @@
   items:
     - name: Informazioni sulla rete di Azure
       href: networking-overview.md
-    - name: Architettura
+    - name: Architecture
       items:
         - name: Data center virtuali
           href: /azure/architecture/vdc/networking-virtual-datacenter
@@ -22,6 +22,8 @@
           href: disaster-recovery-dns-traffic-manager.md
     - name: Pianificare e progettare
       items:
+        - name: Supporto per il lavoro remoto
+          href: working-remotely-support.md
         - name: Reti virtuali
           href: ../virtual-network/virtual-network-vnet-plan-design-arm.md?toc=%2fazure%2fnetworking%2ftoc.json
         - name: 'Connettività cross-premise: VPN'
@@ -117,7 +119,7 @@
           href: ../virtual-machines/linux/tutorial-load-balancer.md?toc=%2fazure%2fnetworking%2ftoc.json
         - name: Connettere un computer a una rete virtuale
           href: ../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
-- name: riferimento
+- name: Informazioni di riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
       href: 'https://docs.microsoft.com/cli/azure/network'
@@ -145,7 +147,7 @@
       href: 'https://azure.microsoft.com/pricing'
     - name: Calcolatore prezzi
       href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Disponibilità internazionale
+    - name: Disponibilità a livello di area
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-virtual-network'

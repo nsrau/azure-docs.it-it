@@ -19,7 +19,7 @@
               href: service-bus-quickstart-powershell.md
             - name: Interfaccia della riga di comando di Azure
               href: service-bus-quickstart-cli.md
-            - name: Modello di Azure Resource Manager
+            - name: Modello ARM
               href: service-bus-resource-manager-namespace-queue.md
         - name: Inviare e ricevere messaggi
           items:
@@ -41,7 +41,7 @@
           items:
             - name: Portale di Azure
               href: service-bus-quickstart-topics-subscriptions-portal.md
-            - name: Modello di Azure Resource Manager
+            - name: Modello ARM
               href: service-bus-resource-manager-namespace-topic.md
         - name: Pubblicare e sottoscrivere messaggi
           items:
@@ -65,6 +65,8 @@
       href: service-bus-tutorial-topics-subscriptions-portal.md
     - name: Aggiornare l'inventario - Interfaccia della riga di comando
       href: service-bus-tutorial-topics-subscriptions-cli.md
+    - name: Rispondere agli eventi tramite Griglia di eventi
+      href: service-bus-to-event-grid-integration-example.md
 - name: Esempi
   items:
     - name: Esempi relativi al bus di servizio
@@ -104,6 +106,8 @@
                   href: authenticate-application.md
         - name: Criteri di sicurezza integrati
           href: service-bus-messaging-security-controls.md
+        - name: Sicurezza di rete
+          href: network-security.md
 - name: Guide pratiche
   items:
     - name: Eseguire la migrazione da API Service Manager (classiche) di Azure ad API Resource Manager
@@ -126,8 +130,6 @@
               href: message-expiration.md
             - name: Gestione dei messaggi tramite Griglia di eventi di Azure
               href: service-bus-to-event-grid-integration-concept.md
-            - name: Esempi di Griglia di eventi di Azure
-              href: service-bus-to-event-grid-integration-example.md
         - name: Filtri e azioni per gli argomenti
           href: topic-filters.md
         - name: Eseguire la migrazione da spazi dei nomi Standard a Premium
@@ -152,10 +154,6 @@
               href: service-bus-amqp-troubleshoot.md
         - name: Funzionalità avanzate
           items:
-            - name: Usare firewall
-              href: service-bus-ip-filtering.md
-            - name: Endpoint servizio di rete virtuale
-              href: service-bus-service-endpoints.md
             - name: Coda di messaggi non recapitabili
               href: service-bus-dead-letter-queues.md
             - name: Prelettura dei messaggi
@@ -192,7 +190,7 @@
           href: service-bus-diagnostic-logs.md
         - name: Sospendere e riattivare entità di messaggistica
           href: entity-suspend.md
-        - name: Usare i modelli di Gestione risorse di Azure
+        - name: Usare i modelli di Resource Manager
           href: service-bus-resource-manager-overview.md
           items:
             - name: Creare uno spazio dei nomi
@@ -203,7 +201,13 @@
               href: service-bus-resource-manager-namespace-topic-with-rule.md
     - name: Sicurezza
       items:
-        - name: Configurare le chiavi gestite dal cliente per la crittografia dei dati inattivi
+        - name: Configurare i firewall
+          href: service-bus-ip-filtering.md
+        - name: Configurare gli endpoint servizio di rete virtuale
+          href: service-bus-service-endpoints.md
+        - name: Configurare gli endpoint privati (anteprima)
+          href: private-link-service.md
+        - name: Configurare le chiavi gestite dal cliente
           href: configure-customer-managed-key.md
     - name: Risolvere problemi
       items:
