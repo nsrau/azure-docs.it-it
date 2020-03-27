@@ -23,7 +23,7 @@ ms.locfileid: "76985578"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-tableau-online"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Tableau Online
 
-Questa esercitazione descrive come integrare Tableau Online con Azure Active Directory (Azure AD). Integrando Tableau Online with Azure AD, è possibile:
+Questa esercitazione descrive come integrare Tableau Online con Azure Active Directory (Azure AD). Integrando Tableau Online con Azure AD, è possibile:
 
 * Controllare in Azure AD chi può accedere a Tableau Online.
 * Abilitare gli utenti per l'accesso automatico a Tableau Online con gli account Azure AD personali.
