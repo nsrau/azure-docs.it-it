@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 02/18/2020
 ms.author: victorh
 ms.openlocfilehash: cdd416bdb833e4784334a6847d724a7375e2ef8d
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77459954"
 ---
 # <a name="tutorial-secure-your-hub-virtual-network-using-azure-firewall-manager-preview"></a>Esercitazione: Proteggere la rete virtuale hub con Gestione firewall di Azure (anteprima) 
@@ -39,13 +39,13 @@ In questa esercitazione verranno illustrate le procedure per:
 > * Creare la rete virtuale
 > * Configurare e distribuire il firewall
 > * Creare e connettere i gateway VPN
-> * Eseguire il peering tra le reti virtuali hub e spoke
+> * Eseguire il peering tra le reti virtuali dell'hub e spoke
 > * Creare le route
 > * Creare le macchine virtuali
 > * Testare il firewall
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Una rete ibrida usa il modello di architettura hub-spoke per instradare il traffico tra le reti virtuali di Azure e le reti locali. L'architettura hub-spoke presenta i requisiti seguenti:
 
@@ -106,7 +106,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 2. Selezionare **Rivedi e crea**.
 3. Rivedere i dettagli e quindi selezionare **Crea**.
 
-## <a name="create-the-firewall-hub-virtual-network"></a>Creare la rete virtuale hub del firewall
+## <a name="create-the-firewall-hub-virtual-network"></a>Creare la rete virtuale dell'hub del firewall
 
 > [!NOTE]
 > La dimensione della subnet AzureFirewallSubnet è /26. Per altre informazioni sulle dimensioni delle subnet, vedere le [domande frequenti su Firewall di Azure](../firewall/firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
@@ -189,11 +189,11 @@ Convertire la rete virtuale **VNet-Hub** in una *rete virtuale hub* e proteggerl
 
 ## <a name="create-and-connect-the-vpn-gateways"></a>Creare e connettere i gateway VPN
 
-Le reti virtuali hub e locale sono connesse tramite gateway VPN.
+Le reti virtuali dell'hub e locale sono connesse tramite gateway VPN.
 
-### <a name="create-a-vpn-gateway-for-the-hub-virtual-network"></a>Creare un gateway VPN per la rete virtuale hub
+### <a name="create-a-vpn-gateway-for-the-hub-virtual-network"></a>Creare un gateway VPN per la rete virtuale dell'hub
 
-Creare ora un gateway VPN per la rete virtuale hub. Le configurazioni da rete a rete richiedono un tipo di VpnType RouteBased. La creazione di un gateway VPN spesso richiede anche più di 45 minuti, a seconda della SKU del gateway VPN selezionata.
+Creare ora un gateway VPN per la rete virtuale dell'hub. Le configurazioni da rete a rete richiedono un tipo di VpnType RouteBased. La creazione di un gateway VPN spesso richiede anche più di 45 minuti, a seconda della SKU del gateway VPN selezionata.
 
 1. Dalla home page del portale di Azure selezionare **Crea una risorsa**.
 2. Nella casella di testo di ricerca digitare **gateway di rete virtuale** e premere **INVIO**.
@@ -229,7 +229,7 @@ Creare ora un gateway VPN per la rete virtuale locale. Le configurazioni da rete
 
 A questo punto è possibile creare le connessioni VPN tra gateway locali e hub.
 
-In questo passaggio si crea la connessione dalla rete virtuale hub alla rete virtuale locale. Verrà visualizzata una chiave condivisa a cui si fa riferimento negli esempi. È possibile utilizzare i propri valori specifici per la chiave condivisa. L'importante è che la chiave condivisa corrisponda per entrambe le configurazioni. Il completamento della creazione di una connessione può richiedere un po' di tempo.
+In questo passaggio si crea la connessione dalla rete virtuale dell'hub alla rete virtuale locale. Verrà visualizzata una chiave condivisa a cui si fa riferimento negli esempi. È possibile utilizzare i propri valori specifici per la chiave condivisa. L'importante è che la chiave condivisa corrisponda per entrambe le configurazioni. Il completamento della creazione di una connessione può richiedere un po' di tempo.
 
 1. Aprire il gruppo di risorse **FW-Hybrid-Test** e selezionare il gateway **GW-hub**.
 2. Selezionare **Connessioni** nella colonna di sinistra.
@@ -240,7 +240,7 @@ In questo passaggio si crea la connessione dalla rete virtuale hub alla rete vir
 7. In **Chiave condivisa (PSK)** digitare **AzureA1b2C3**.
 8. Selezionare **OK**.
 
-Creare la connessione dalla rete virtuale locale alla rete virtuale hub. Questo passaggio è simile a quello precedente, con la differenza che viene creata la connessione da VNet-Onprem a VNet-hub. Assicurarsi che le chiavi condivise corrispondano. Dopo alcuni minuti la connessione verrà stabilita.
+Creare la connessione dalla rete virtuale locale alla rete virtuale dell'hub. Questo passaggio è simile a quello precedente, con la differenza che viene creata la connessione da VNet-Onprem a VNet-hub. Assicurarsi che le chiavi condivise corrispondano. Dopo alcuni minuti la connessione verrà stabilita.
 
 1. Aprire il gruppo di risorse **FW-Hybrid-Test** e selezionare il gateway **GW-Onprem**.
 2. Selezionare **Connessioni** nella colonna di sinistra.
@@ -258,9 +258,9 @@ Dopo circa cinque minuti lo stato di entrambe le connessioni dovrebbe essere **C
 
 ![Connessioni del gateway](media/secure-hybrid-network/gateway-connections.png)
 
-## <a name="peer-the-hub-and-spoke-virtual-networks"></a>Eseguire il peering tra le reti virtuali hub e spoke
+## <a name="peer-the-hub-and-spoke-virtual-networks"></a>Eseguire il peering tra le reti virtuali dell'hub e spoke
 
-Eseguire ora il peering tra le reti virtuali hub e spoke.
+Eseguire ora il peering tra le reti virtuali dell'hub e spoke.
 
 1. Aprire il gruppo di risorse **FW-Hybrid-Test** e selezionare la rete virtuale **VNet-hub**.
 2. Nella colonna di sinistra selezionare **Peering**.
