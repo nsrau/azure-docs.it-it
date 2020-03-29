@@ -1,5 +1,5 @@
 ---
-title: Raccolta dati utente di Azure multi-factor authentication-Azure Active Directory
+title: Azure MFA user data collection - Azure Active Directory
 description: Quali informazioni vengono usate per autenticare gli utenti da Azure Multi-Factor Authentication?
 services: multi-factor-authentication
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3bc0f0dbcd08df887b2484be6ca8c92a85962c1c
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74848290"
 ---
 # <a name="azure-multi-factor-authentication-user-data-collection"></a>Raccolta dati utente in Microsoft Azure Multi-Factor Authentication
@@ -86,7 +86,7 @@ Blocchi (usato per determinare lo stato bloccato e creare report):
 - Timestamp blocco
 - Blocco dal nome utente
 - Username
-- Indicativo paese
+- Prefisso internazionale
 - Numero di telefono
 - Numero di telefono formattato
 - Estensione
@@ -106,7 +106,7 @@ Bypass (usato per la creazione di report):
 - Secondi bypass
 - Bypass dal nome utente
 - Username
-- Indicativo paese
+- Prefisso internazionale
 - Numero di telefono
 - Numero di telefono formattato
 - Estensione
@@ -116,7 +116,7 @@ Bypass (usato per la creazione di report):
 - Risultati di completamento
 - Bypass usato
 
-Modifiche (usate per sincronizzare le modifiche dell'utente nel server di autenticazione a più fattori o Azure AD):
+Changes (used to sync user changes to MFA Server or Azure AD):
 
 - Timestamp di modifica
 - Username
@@ -138,7 +138,7 @@ Nella versione 8.0 o successiva di MFA Server, la seguente procedura consente ag
 - Accedere a MFA Server, passare alla scheda **Utenti**, selezionare l'utente in questione e fare clic sul pulsante **Modifica**. Acquisire schermate (Alt-Stamp) di ogni scheda per fornire all'utente le relative impostazioni correnti di Multi-Factor Authentication.
 - Dalla riga di comando del server MFA, eseguire il seguente comando di modifica del percorso in base all'installazione `C:\Program Files\Multi-Factor Authentication Server\MultiFactorAuthGdpr.exe export <username>` per produrre un file JSON formattato.
 - Gli amministratori hanno anche la possibilità di usare l'operazione di SDK GetUserGdpr del servizio Web per esportare tutte le informazioni del servizio cloud MFA raccolte per un determinato utente o incorporarle in una soluzione di report maggiore.
-- Cercare `C:\Program Files\Multi-Factor Authentication Server\Logs\MultiFactorAuthSvc.log` ed eventuali backup per "\<nomeutente >" (includere le virgolette nella ricerca) per trovare tutte le istanze del record utente da aggiungere o modificare.
+- Ricerca `C:\Program Files\Multi-Factor Authentication Server\Logs\MultiFactorAuthSvc.log` ed eventuali backup\<per " nome utente>" (includere le virgolette nella ricerca) per trovare tutte le istanze del record utente aggiunto o modificato.
    - Questi record possono essere limitati (ma non vengono eliminati) deselezionando **"Modifiche dell'utente di log"** nell'esperienza utente del server di MFA, sezione di registrazione, scheda File di log.
    - Se syslog è configurato e **"Modifiche dell'utente di log"** viene archiviato nell'esperienza utente di MFA, sezione di registrazione, scheda Syslog, le voci di log possono essere raccolte da syslog.
 - Altre occorrenze di nome utente nei file MultiFactorAuthSvc.log e altri file di log del server MFA relativi ai tentativi di autenticazione sono considerate operative e duplicati delle informazioni fornite usando l'esportazioneMultiFactorAuthGdpr.exe o il kit SDK GetUserGdpr del servizio Web.

@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.openlocfilehash: 147dd0f454bd85673bcba5cd6148c5da9716c580
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65409042"
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>Pianificare processi in più dispositivi
@@ -66,9 +66,9 @@ La condizione di query può anche trovarsi in un ID dispositivo singolo o in un 
 "queryCondition" = "deviceId IN ['MyDevice1']"
 ```
 
-[Linguaggio di query di hub IoT](iot-hub-devguide-query-language.md) illustra il linguaggio di query dell'hub IoT in maggiore dettaglio.
+[Linguaggio di query dell'hub IoT](iot-hub-devguide-query-language.md) illustra il linguaggio di query dell'hub IoT in maggiore dettaglio.
 
-Il frammento seguente illustra la richiesta e risposta per un processo pianificato per chiamare un metodo diretto denominato testMethod su tutti i dispositivi in contoso-hub-1:
+Il frammento di codice seguente mostra la richiesta e la risposta per un processo pianificato per chiamare un metodo diretto denominato testMethod su tutti i dispositivi in contoso-hub-1:The following snippet shows the request and response for a job scheduled to call a direct method named testMethod on all devices on contoso-hub-1:
 
 ```
 PUT https://contoso-hub-1.azure-devices.net/jobs/v2/job01?api-version=2018-06-30 HTTP/1.1
@@ -121,9 +121,9 @@ Content-Type: application/json; charset=utf-8
 ```
 
 > [!NOTE]
-> Il *updateTwin* proprietà richiede una corrispondenza di etag valido, ad esempio `etag="*"`.
+> La proprietà *updateTwin* richiede una corrispondenza etag valida. ad esempio, `etag="*"`.
 
-Il frammento seguente illustra la richiesta e risposta per un processo pianificato per aggiornare le proprietà del dispositivo gemello per dispositivo di test in contoso-hub-1:
+Il frammento di codice seguente mostra la richiesta e la risposta per un processo pianificato per aggiornare le proprietà del dispositivo gemello per il dispositivo di test in contoso-hub-1:The following snippet shows the request and response for a job scheduled to update device twin properties for test-device on contoso-hub-1:
 
 ```
 PUT https://contoso-hub-1.azure-devices.net/jobs/v2/job02?api-version=2018-06-30 HTTP/1.1
@@ -171,7 +171,7 @@ Content-Type: application/json; charset=utf-8
 
 La risposta fornisce continuationToken.
 
-Usando il [linguaggio di query di hub IoT per dispositivi gemelli, processi e routing di messaggi](iot-hub-devguide-query-language.md), è possibile eseguire query sullo stato di esecuzione dei processi su ogni dispositivo.
+Usando il [linguaggio di query dell'hub IoT per dispositivi gemelli, processi e routing di messaggi](iot-hub-devguide-query-language.md), è possibile eseguire query sullo stato di esecuzione dei processi su ogni dispositivo.
 
 ## <a name="jobs-properties"></a>Proprietà dei processi
 
@@ -179,26 +179,26 @@ Di seguito è riportato un elenco di proprietà e corrispondenti descrizioni che
 
 | Proprietà | Descrizione |
 | --- | --- |
-| **jobId** |ID fornito dall'applicazione per il processo. |
+| **Jobid** |ID fornito dall'applicazione per il processo. |
 | **startTime** |Ora di inizio fornita dall'applicazione (ISO 8601) per il processo. |
-| **endTime** |Data fornita dall'hub IoT (ISO 8601) per il completamento del processo. È valida solo quando il processo raggiunge lo stato di completamento. |
+| **Endtime** |Data fornita dall'hub IoT (ISO 8601) per il completamento del processo. È valida solo quando il processo raggiunge lo stato di completamento. |
 | **type** |Tipi di processi: |
-| | **scheduleUpdateTwin**: Un processo usato per aggiornare un set di proprietà o tag desiderati. |
-| | **scheduleDeviceMethod**: Un processo usato per richiamare un metodo di dispositivo in un set di dispositivi gemelli. |
+| | **scheduleUpdateTwin**: Processo utilizzato per aggiornare un set di proprietà o tag desiderati.scheduleUpdateTwin : A job used to update a set of desired properties or tags. |
+| | **scheduleDeviceMethod**: Processo utilizzato per richiamare un metodo del dispositivo su un set di dispositivi gemelli.scheduleDeviceMethod : A job used to invoke a device method on a set of device twins. |
 | **status** |Stato corrente del processo. Valori possibili per lo stato: |
-| | **In sospeso**: Pianificata e in attesa di essere prelevati dal servizio del processo. |
-| | **scheduled**: Pianificati per un momento successivo. |
-| | **running**: Processo attualmente attivo. |
-| | **canceled**: Processo è stato annullato. |
-| | **failed**: Processo non riuscito. |
-| | **completed**: Completamento del processo. |
+| | **pending**: processo pianificato e in attesa del prelievo da parte del servizio del processo. |
+| | **scheduled**: processo pianificato per un'ora futura. |
+| | **running**: processo attualmente attivo. |
+| | **canceled**: il processo è stato annullato. |
+| | **failed**: processo non riuscito. |
+| | **completed**: processo completato. |
 | **deviceJobStatistics** |Statistiche sull'esecuzione del processo. |
-| | Proprietà **deviceJobStatistics**: |
-| | **deviceJobStatistics.deviceCount**: Numero di dispositivi nel processo. |
-| | **deviceJobStatistics.failedCount**: Numero di dispositivi in cui il processo non è riuscito. |
-| | **deviceJobStatistics.succeededCount**: Numero di dispositivi in cui il processo è riuscito. |
-| | **deviceJobStatistics.runningCount**: Numero di dispositivi in cui il processo è in esecuzione. |
-| | **deviceJobStatistics.pendingCount**: Numero di dispositivi in cui il processo è in attesa. |
+| | **proprietà deviceJobStatistics:** |
+| | **deviceJobStatistics.deviceCount**: numero di dispositivi nel processo. |
+| | **deviceJobStatistics.deviceCount**: numero di dispositivi in cui il processo non è riuscito. |
+| | **deviceJobStatistics.succeededCount**: numero di dispositivi in cui il processo è riuscito. |
+| | **deviceJobStatistics.runningCount**: numero di dispositivi in cui il processo è in esecuzione. |
+| | **deviceJobStatistics.pendingCount**: numero di dispositivi in cui il processo è in sospeso. |
 
 ### <a name="additional-reference-material"></a>Materiale di riferimento
 
@@ -206,11 +206,11 @@ Di seguito sono indicati altri argomenti di riferimento reperibili nella Guida p
 
 * [Endpoint dell'hub IoT](iot-hub-devguide-endpoints.md) illustra i diversi endpoint esposti da ogni hub IoT per operazioni della fase di esecuzione e di gestione.
 
-* [Quote e limitazioni](iot-hub-devguide-quotas-throttling.md) descrive le quote applicabili al servizio hub IoT e il comportamento di limitazione previsto quando si usa il servizio.
+* [Quote e limitazioni](iot-hub-devguide-quotas-throttling.md) descrive le quote applicabili al servizio Hub IoT e il comportamento di limitazione previsto quando si usa il servizio.
 
 * [Azure IoT SDK per dispositivi e servizi](iot-hub-devguide-sdks.md) elenca gli SDK nei diversi linguaggi che è possibile usare quando si sviluppano app per dispositivi e servizi che interagiscono con l'hub IoT.
 
-* [Linguaggio di query di hub IoT per dispositivi gemelli, processi e routing di messaggi](iot-hub-devguide-query-language.md) descrive il linguaggio di query di hub IoT. Usare questo linguaggio di query per recuperare dall'hub IoT informazioni sui dispositivi gemelli e sui processi.
+* [Linguaggio di query dell'hub IoT per dispositivi gemelli, processi e routing di messaggi](iot-hub-devguide-query-language.md) descrive il linguaggio di query di hub IoT. Usare questo linguaggio di query per recuperare dall'hub IoT informazioni sui dispositivi gemelli e sui processi.
 
 * [Supporto di MQTT nell'hub IoT](iot-hub-mqtt-support.md) offre altre informazioni sul supporto dell'hub IoT per il protocollo MQTT.
 

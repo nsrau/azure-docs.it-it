@@ -1,6 +1,6 @@
 ---
-title: Gestire gli errori di connettività temporanei-database di Azure per PostgreSQL-server singolo
-description: Informazioni su come gestire gli errori di connettività temporanei per database di Azure per PostgreSQL-server singolo.
+title: Gestire gli errori di connettività temporanei - Database di Azure per PostgreSQL - Server singolo
+description: Informazioni su come gestire gli errori di connettività temporanei per il database di Azure per PostgreSQL - Server singolo.
 keywords: connessione postgresql, stringa di connessione, problemi di connettività, errore temporaneo, errore di connessione
 author: jan-eng
 ms.author: janeng
@@ -8,19 +8,19 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: fe5b772946bece165a4e09f170355dc7b595a48f
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74768844"
 ---
-# <a name="handling-transient-connectivity-errors-for-azure-database-for-postgresql---single-server"></a>Gestione degli errori di connettività temporanei per database di Azure per PostgreSQL-server singolo
+# <a name="handling-transient-connectivity-errors-for-azure-database-for-postgresql---single-server"></a>Gestione degli errori di connettività temporanei per Database di Azure per PostgreSQL - Server singolo
 
-Questo articolo descrive come gestire gli errori temporanei che si connettono al database di Azure per PostgreSQL.
+Questo articolo descrive come gestire gli errori temporanei che si connettono al database di Azure per PostgreSQL.This article describes how to handle transient errors connecting to Azure Database for PostgreSQL.
 
 ## <a name="transient-errors"></a>Errori temporanei
 
-Un errore temporaneo è un errore che si risolve in modo autonomo. Questi errori generalmente si manifestano come una connessione al server di database che viene interrotta. Inoltre non è possibile aprire nuove connessioni a un server. Possono verificarsi errori temporanei, ad esempio nel caso di un errore hardware o di rete. Un altro motivo potrebbe essere una nuova versione di un servizio PaaS che viene implementato. La maggior parte di questi eventi viene automaticamente attenuata dal sistema in meno di 60 secondi. Una procedura consigliata per la progettazione e lo sviluppo di applicazioni nel cloud è la previsione di errori temporanei, presupponendo che possano accadere in qualsiasi componente e in qualunque momento e che si disponga della logica appropriata per affrontare tali situazioni.
+Un errore temporaneo è un errore che si risolve in modo autonomo. Questi errori generalmente si manifestano come una connessione al server di database che viene interrotta. Inoltre non è possibile aprire nuove connessioni a un server. Possono verificarsi errori temporanei, ad esempio nel caso di un errore hardware o di rete. Un altro motivo potrebbe essere una nuova versione di un servizio PaaS che è in fase di implementazione. La maggior parte di questi eventi vengono attenuati automaticamente dal sistema in meno di 60 secondi. Una procedura consigliata per la progettazione e lo sviluppo di applicazioni nel cloud è la previsione di errori temporanei, presupponendo che possano accadere in qualsiasi componente e in qualunque momento e che si disponga della logica appropriata per affrontare tali situazioni.
 
 ## <a name="handling-transient-errors"></a>Gestione degli errori temporanei
 
@@ -46,4 +46,4 @@ Verificare di testare la logica di ripetizione dei tentativi. Ad esempio, provar
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Risolvere i problemi di connessione al Database di Azure per PostgreSQL](howto-troubleshoot-common-connection-issues.md)
+* [Risolvere i problemi di connessione a Database di Azure per PostgreSQL](howto-troubleshoot-common-connection-issues.md)

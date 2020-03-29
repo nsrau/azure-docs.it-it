@@ -1,16 +1,16 @@
 ---
-title: Distribuire e chiamare API Web & API REST da app per la logica di Azure
-description: Distribuire e chiamare API Web & API REST per i flussi di lavoro di integrazione di sistema in app per la logica di Azure
+title: Distribuire e chiamare API Web & API REST dalle app per la logica di AzureDeploy and call web APIs & REST APIs from Azure Logic Apps
+description: Distribuire e chiamare API Web & API REST per i flussi di lavoro di integrazione del sistema in App per la logica di AzureDeploy and call web APIs & REST APIs for system integration workflows in Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 05/26/2017
 ms.openlocfilehash: d1305be54a22b1460000a357074cbb1f67123bd6
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74790747"
 ---
 # <a name="deploy-and-call-custom-apis-from-workflows-in-azure-logic-apps"></a>Distribuire e chiamare API personalizzate da flussi di lavoro in App per la logica
@@ -31,7 +31,7 @@ Prima di chiamare l'API personalizzata da un'app per la logica, implementare l'A
 
    ![Collegarsi a un file OpenAPI per l'API personalizzata](./media/logic-apps-custom-api-deploy-call/custom-api-swagger-url.png)
 
-3. Scegliere **CORS** nell'area **API**. Impostare i criteri CORS per **Origini consentite** **"*"** (consenti tutto).
+3. Scegliere **CORS** nell'area **API**. Impostare il criterio CORS per **Origini consentite** **su '''** (consenti tutti).
 
    Questa impostazione consente le richieste da Progettazione app per la logica.
 
@@ -51,4 +51,4 @@ Dopo aver configurato le proprietà di definizione dell'API e CORS, i trigger e 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Panoramica del connettore personalizzato](../logic-apps/custom-connector-overview.md)
+* [Panoramica dei connettori personalizzati](../logic-apps/custom-connector-overview.md)

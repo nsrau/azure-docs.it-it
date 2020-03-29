@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: wesmc
 ms.openlocfilehash: 94ac75c4165b11e343ce5c31480a511ebf978a36
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67838772"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>Connettere Raspberry Pi ad Azure IoT Hub (C)
@@ -76,7 +76,7 @@ Gli elementi seguenti sono opzionali:
 * Un LED da 10 mm a luce diffusa.
 
 > [!NOTE]
-> Questi elementi sono opzionali, poiché l'esempio di codice supporta i dati del sensore simulato.
+> Questi elementi sono facoltativi perché l'esempio di codice supporta i dati simulati del sensore.
 >
 
 ## <a name="create-an-iot-hub"></a>Creare un hub IoT
@@ -89,7 +89,7 @@ Gli elementi seguenti sono opzionali:
 
 ## <a name="set-up-raspberry-pi"></a>Installare Raspberry Pi
 
-Ora configurare Raspberry Pi.
+Ora impostare il Raspberry Pi.
 
 ### <a name="install-the-raspbian-operating-system-for-pi"></a>Installare il sistema operativo Raspbian per Pi
 
@@ -97,13 +97,13 @@ Preparare la scheda microSD per l'installazione dell'immagine di Raspbian.
 
 1. Scaricare Raspbian.
 
-   1. [Scaricare Raspbian Stretch desktop](https://www.raspberrypi.org/downloads/raspbian/) (il file con estensione zip).
+   1. [Scarica Raspbian Stretch con Desktop](https://www.raspberrypi.org/downloads/raspbian/) (il file .zip).
 
    2. Estrarre l'immagine di Raspbian in una cartella nel computer.
 
 2. Installare Raspbian nella scheda microSD.
 
-   1. [Scaricare e installare l'utilità di masterizzazione Etcher per schede SD](https://etcher.io/).
+   1. [Scaricare e installare l'utilità di masterizzazione scheda Etcher SD](https://etcher.io/).
 
    2. Eseguire Etcher e selezionare l'immagine di Raspbian estratta nel passaggio 1.
 
@@ -117,9 +117,9 @@ Preparare la scheda microSD per l'installazione dell'immagine di Raspbian.
 
 ### <a name="enable-ssh-and-spi"></a>Abilitare SSH e SPI
 
-1. Collegare Pi al monitor, tastiera e mouse, avviare Pi e quindi accedere a Raspbian usando `pi` come nome utente e `raspberry` come password.
+1. Collegare Pi al monitor, alla tastiera e al mouse, avviare `pi` Pi e quindi `raspberry` accedere a Raspbian utilizzando come nome utente e come password.
  
-2. Fare clic sull'icona di Raspberry > **Preferenze** > **Raspberry Pi Configuration** (Configurazione di Raspberry Pi).
+2. Fare clic sull'icona Raspberry > **Preferenze** > **Raspberry Pi Configuration**.
 
    ![Il menu Preferenze di Raspbian](./media/iot-hub-raspberry-pi-kit-c-get-started/1-raspbian-preferences-menu.png)
 
@@ -133,7 +133,7 @@ Preparare la scheda microSD per l'installazione dell'immagine di Raspbian.
 
 ### <a name="connect-the-sensor-to-pi"></a>Connettere il sensore a Pi
 
-Usare i cavi ponticello e la basetta sperimentale per connettere un LED e un sensore BME280 a Pi, come indicato di seguito. In assenza di un sensore, [ignorare questa sezione](#connect-pi-to-the-network).
+Usare i cavi ponticello e la basetta sperimentale per connettere un LED e un sensore BME280 a Pi, come indicato di seguito. Se non si dispone del sensore, [ignorare questa sezione](#connect-pi-to-the-network).
 
 ![La connessione di Raspberry Pi e del sensore](./media/iot-hub-raspberry-pi-kit-c-get-started/3-raspberry-pi-sensor-connection.png)
 
@@ -166,7 +166,7 @@ Accendere Pi usando il cavo micro USB e l'alimentatore. Usare il cavo Ethernet p
 
 ## <a name="run-a-sample-application-on-pi"></a>Eseguire un'applicazione di esempio in Pi
 
-### <a name="sign-into-your-raspberry-pi"></a>Accedere al dispositivo Raspberry Pi
+### <a name="sign-into-your-raspberry-pi"></a>Accedi al tuo Raspberry Pi
 
 1. Per connettersi a Raspberry Pi, usare uno dei client SSH seguenti dal computer host.
    
@@ -230,9 +230,9 @@ Dovrebbe essere visibile l'output seguente che mostra i dati del sensore e i mes
 
 ## <a name="read-the-messages-received-by-your-hub"></a>Leggere i messaggi ricevuti dall'hub
 
-Un modo per monitorare i messaggi ricevuti dall'hub IoT dal dispositivo è usare gli strumenti di IoT di Azure per Visual Studio Code. Per altre informazioni, vedere [utilizza gli strumenti di IoT di Azure per Visual Studio Code inviare e ricevere messaggi tra il dispositivo e l'IoT Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
+Un modo per monitorare i messaggi ricevuti dall'hub IoT dal dispositivo consiste nell'usare gli strumenti IoT di Azure per il codice di Visual Studio.One way to monitor messages received by your IoT hub from your device is to use the Azure IoT Tools for Visual Studio Code. Per altre informazioni, vedere Usare gli strumenti IoT di Azure per il codice di Visual Studio per inviare e ricevere messaggi tra il dispositivo e l'hub IoT.To learn more, see [Use Azure IoT Tools for Visual Studio Code to send and receive messages between your device and IoT Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
 
-Per altre modalità elaborare i dati inviati dal dispositivo, continuare con la sezione successiva.
+Per ulteriori modi per elaborare i dati inviati dal dispositivo, passare alla sezione successiva.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

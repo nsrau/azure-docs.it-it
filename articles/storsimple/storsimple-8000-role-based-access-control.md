@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/11/2017
 ms.author: alkohli
 ms.openlocfilehash: a79753a897a62e194a759c23a9c0acc45c5f36c1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "66159170"
 ---
 # <a name="role-based-access-control-for-storsimple"></a>Controllo degli accessi in base al ruolo per StorSimple
@@ -33,7 +33,7 @@ Questo articolo si applica ai dispositivi StorSimple serie 8000 con Update 3.0 o
 
 Il controllo degli accessi in base al ruolo può essere assegnato in funzione dei ruoli, che assicurano determinati livelli di autorizzazione in base alle risorse disponibili nell'ambiente. Esistono due tipi di ruoli tra cui gli utenti di StorSimple possono scegliere: predefiniti o personalizzati.
 
-* **Ruoli predefiniti**: possono essere i ruoli di proprietario, collaboratore, lettore o amministratore Accesso utenti. Per altre informazioni, vedere [Ruoli predefiniti per il controllo degli accessi in base al ruolo di Azure](../role-based-access-control/built-in-roles.md).
+* **Ruoli predefiniti**: possono essere i ruoli di proprietario, collaboratore, lettore o amministratore Accesso utenti. Per altre informazioni, vedere Ruoli predefiniti per il controllo degli accessi in base al ruolo di Azure.For more information, see [Built-in roles for Azure Role-based Access Control](../role-based-access-control/built-in-roles.md).
 
 * **Ruoli personalizzati**: se i ruoli predefiniti non soddisfano le esigenze correnti, è possibile creare ruoli di controllo degli accessi in base al ruolo personalizzati per StorSimple. Per creare un ruolo di controllo degli accessi in base al ruolo personalizzato, usare un ruolo predefinito, modificarlo e quindi importarlo di nuovo nell'ambiente. Il download e l'upload del ruolo vengono gestiti tramite Azure PowerShell o l'interfaccia della riga di comando di Azure. Per altre informazioni, vedere [Creare ruoli personalizzati per il controllo degli accessi in base al ruolo di Azure](../role-based-access-control/custom-roles.md).
 
@@ -42,7 +42,7 @@ Per visualizzare i diversi ruoli disponibili per un utente di un dispositivo Sto
 
 ## <a name="create-a-custom-role-for-storsimple-infrastructure-administrator"></a>Creare un ruolo personalizzato per Amministratore dell'infrastruttura StorSimple
 
-Nell'esempio seguente si inizia con il ruolo predefinito **Lettore**, che consente agli utenti di visualizzare tutti gli ambiti di risorsa, ma non di modificarli o di crearne nuovi. Si estenderà quindi il ruolo per creare il nuovo ruolo personalizzato Amministratore dell'infrastruttura StorSimple. Questo ruolo viene assegnato agli utenti autorizzati a gestire l'infrastruttura per i dispositivi StorSimple.
+Nell'esempio seguente si inizia con il ruolo predefinito **Lettore**, che consente agli utenti di visualizzare tutti gli ambiti di risorsa, ma non di modificarli o di crearne nuovi. Questo ruolo viene quindi esteso per creare un nuovo ruolo personalizzato StorSimple Infrastructure admin. Questo ruolo viene assegnato agli utenti che possono gestire l'infrastruttura per i dispositivi StorSimple.This role is assigned to users who can manage the infrastructure for the StorSimple devices.
 
 1. Eseguire Windows PowerShell come amministratore.
 
@@ -165,7 +165,7 @@ AssignableScopes : {/subscriptions/<subscription_ID>/}
 
 Si concede l'accesso dalla risorsa, dal gruppo di risorse o dalla sottoscrizione che costituisce l'ambito dell'assegnazione di ruolo. Quando si concede l'accesso, tenere presente che l'accesso concesso al nodo padre viene ereditato dal figlio. Per altre informazioni, vedere [Controllo degli accessi in base al ruolo](../role-based-access-control/overview.md).
 
-1. Selezionare **Controllo di accesso (IAM)** . Fare clic su **+Aggiungi** nel pannello Controllo di accesso.
+1. Selezionare **Controllo di accesso (IAM)**. Fare clic su **+Aggiungi** nel pannello Controllo di accesso.
 
     ![Aggiungere l'accesso al ruolo di controllo degli accessi in base al ruolo](./media/storsimple-8000-role-based-access-control/rbac-add-role.png)
 
@@ -183,7 +183,7 @@ La notifica **Aggiunta dell'utente in corso** tiene traccia dello stato di avanz
 
 Dopo aver creato il ruolo, è possibile visualizzare le autorizzazioni associate al ruolo nel portale di Azure.
 
-1. Per visualizzare le autorizzazioni associate al ruolo, passare a **Controllo di accesso (IAM) > Ruoli > Amministratore dell'infrastruttura StorSimple**. Viene visualizzato l'elenco degli utenti in questo ruolo.
+1. Per visualizzare le autorizzazioni associate a questo ruolo, passare a **Controllo di accesso (IAM) > Ruoli > StorSimple Infrastructure Admin**. Viene visualizzato l'elenco degli utenti in questo ruolo.
 
 2. Selezionare un utente Amministratore dell'infrastruttura StorSimple e fare clic su **Autorizzazioni**.
 

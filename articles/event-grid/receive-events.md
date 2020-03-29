@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/01/2019
 ms.author: babanisa
 ms.openlocfilehash: cb38fd17c0c1bfbe3e5957d8f432f0a43b285c93
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60803770"
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>Ricevere eventi in un endpoint HTTP
@@ -28,7 +28,7 @@ Questo articolo descrive come [convalidare un endpoint HTTP](security-authentica
 
 ## <a name="add-dependencies"></a>Aggiungere le dipendenze
 
-Se si sviluppa in .NET, [aggiungere una dipendenza](../azure-functions/functions-reference-csharp.md#referencing-custom-assemblies) alla funzione per il [pacchetto NuGet](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) `Microsoft.Azure.EventGrid`. Gli esempi di questo articolo richiedono la versione 1.4.0 o successiva.
+Se si sviluppa in .NET, [aggiungere una dipendenza](../azure-functions/functions-reference-csharp.md#referencing-custom-assemblies) alla funzione per il `Microsoft.Azure.EventGrid` [pacchetto NuGet](https://www.nuget.org/packages/Microsoft.Azure.EventGrid). Gli esempi di questo articolo richiedono la versione 1.4.0 o successiva.
 
 Gli SDK per le altre lingue sono disponibili tramite il riferimento agli [SDK di pubblicazione](./sdk-overview.md#data-plane-sdks). Questi pacchetti dispongono di modelli per i tipi di evento nativo, ad esempio `EventGridEvent`, `StorageBlobCreatedEventData` e `EventHubCaptureFileCreatedEventData`.
 

@@ -1,6 +1,6 @@
 ---
 title: Impostazioni delle porte di Inoltro di Azure | Documentazione Microsoft
-description: Questo articolo include una tabella che descrive la configurazione necessaria per i valori di porta per il servizio di inoltro di Azure.
+description: Questo articolo include una tabella che descrive la configurazione necessaria per i valori di porta per l'inoltro di Azure.This article includes a table that describes the required configuration for port values for Azure Relay.
 services: service-bus-relay
 documentationcenter: na
 author: spelluru
@@ -15,17 +15,17 @@ ms.workload: na
 ms.date: 01/21/2020
 ms.author: spelluru
 ms.openlocfilehash: 55bb6b620c7ba9ee13068213cbc867b165acc185
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76514885"
 ---
 # <a name="azure-relay-port-settings"></a>Impostazioni delle porte di inoltro di Azure
 
 La tabella seguente descrive la configurazione necessaria per i valori della porta del servizio Inoltro di Azure.
 
-## <a name="hybrid-connections"></a>Connessioni ibride
+## <a name="hybrid-connections"></a>connessioni ibride
 
 Connessioni ibride si avvale di WebSocket sulla porta 443 come meccanismo di trasporto di base che usa solo **HTTPS**. 
 
@@ -53,4 +53,4 @@ Connessioni ibride si avvale di WebSocket sulla porta 443 come meccanismo di tra
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sul servizio di inoltro di Azure, vedere i collegamenti seguenti:
 * [Che cos'è il servizio di inoltro di Azure?](relay-what-is-it.md)
-* [Domande frequenti sull'inoltro](relay-faq.md)
+* [Domande frequenti sul servizio di inoltro](relay-faq.md)

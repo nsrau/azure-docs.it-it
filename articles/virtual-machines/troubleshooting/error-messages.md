@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 5/22/2017
 ms.author: xujing
 ms.openlocfilehash: f5639d1cf94c77d699dc6de9841698b045ac1f96
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76543019"
 ---
 # <a name="understand-common-error-messages-when-you-manage-virtual-machines-in-azure"></a>Informazioni sui messaggi di errore comuni quando si gestiscono le macchine virtuali in Azure
@@ -179,7 +179,7 @@ Questa sezione contiene un elenco dei messaggi di errore comuni che possono esse
 |  OSProvisioningTimedOut  |  Il provisioning del sistema operativo per la macchina virtuale '{0}' non è stato completato nel tempo assegnato. La macchina virtuale può comunque completare il provisioning. Controllare lo stato del provisioning più tardi. Assicurarsi inoltre che l'immagine sia stata preparata correttamente (generalizzata).   <ul><li>Istruzioni per Windows: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/ </li><li> Istruzioni per Linux: https://azure.microsoft.com/documentation/articles/virtual-machines-linux-capture-image/</li></ul>  |
 |  OSProvisioningTimedOut  |  Il provisioning del sistema operativo per la macchina virtuale '{0}' non è stato completato nel tempo assegnato. Tuttavia, è stato rilevato che l'agente guest di macchine virtuali è in esecuzione. Questo può indicare che il sistema operativo guest non è stato preparato correttamente per essere usato come immagine di macchina virtuale (con CreateOption=FromImage). Per risolvere il problema, usare il disco rigido virtuale così com'è con CreateOption=Attach oppure prepararlo correttamente per essere usato come immagine:   <ul><li>Istruzioni per Windows: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/ </li><li> Istruzioni per Linux: https://azure.microsoft.com/documentation/articles/virtual-machines-linux-capture-image/</li></ul>  |
 |  OverConstrainedAllocationRequest  |  Le dimensioni della macchina virtuale richieste non sono attualmente disponibili nel percorso selezionato.  |
-|  ResourceUpdateBlockedOnPlatformUpdate  |  Non è possibile aggiornare la risorsa in questo momento perché è in corso un aggiornamento della piattaforma. Riprova più tardi.  |
+|  ResourceUpdateBlockedOnPlatformUpdate  |  Non è possibile aggiornare la risorsa in questo momento perché è in corso un aggiornamento della piattaforma. Riprovare più tardi.  |
 |  StorageAccountLimitation  |  L'account di archiviazione '{0}' non supporta i BLOB di pagine richiesti per creare i dischi.  |
 |  StorageAccountLimitation  |  È stata superata la quota allocata per l'account di archiviazione '{0}'.  |
 |  StorageAccountLocationMismatch  |  Non è stato possibile risolvere l'account di archiviazione {0}. Verificare che sia stato creato con il provider delle risorse di archiviazione nello stesso percorso della risorsa di calcolo.  |
@@ -205,7 +205,7 @@ Questa sezione contiene un elenco dei messaggi di errore comuni che possono esse
 |  VMExtensionManagementInternalError  |  Si sono verificati più errori durante la preparazione delle estensioni della macchina virtuale. Per informazioni, vedere la visualizzazione dell'istanza dell'estensione della macchina virtuale.  |
 |  VMExtensionProvisioningError  |  La macchina virtuale ha segnalato un errore durante l'elaborazione dell'estensione '{0}'. Messaggio di errore: "{1}".  |
 |  VMExtensionProvisioningError  |  Il provisioning di più estensioni della macchina virtuale non è riuscito nella macchina virtuale. Per informazioni, vedere la visualizzazione dell'istanza dell'estensione della macchina virtuale.  |
-|  VMExtensionProvisioningTimeout  |  Timeout del provisioning dell'estensione della macchina virtuale '{0}'. L'installazione dell'estensione potrebbe richiedere troppo tempo oppure non è stato possibile ottenere lo stato dell'estensione.  |
+|  VMExtensionProvisioningTimeout  |  Il provisioning dell'estensione VM '{0}' è scaduto. L'installazione dell'estensione potrebbe richiedere troppo tempo o non è stato possibile ottenere lo stato dell'estensione.  |
 |  VMMarketplaceInvalidInput  |  Per la creazione di una macchina virtuale da un'immagine non Marketplace non sono richieste informazioni sul piano. Rimuovere le informazioni sul piano nella richiesta. Il nome del disco del sistema operativo è {0}.  |
 |  VMMarketplaceInvalidInput  |  Le informazioni di acquisto non corrispondono. La distribuzione dall'immagine Marketplace non è riuscita. Il nome del disco del sistema operativo è {0}.  |
 |  VMMarketplaceInvalidInput  |  Per la creazione di una macchina virtuale da un'immagine Marketplace sono richieste informazioni sul piano nella richiesta. Il nome del disco del sistema operativo è {0}.  |
@@ -216,4 +216,4 @@ Questa sezione contiene un elenco dei messaggi di errore comuni che possono esse
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per ricevere assistenza, contattare gli esperti di Azure nei [forum MSDN e Stack Overflow relativi ad Azure](https://azure.microsoft.com/support/forums/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare **Ottenere supporto**.
+Per ricevere assistenza, contattare gli esperti di Azure nei [forum MSDN e Stack Overflow relativi ad Azure](https://azure.microsoft.com/support/forums/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Passare al [sito del supporto](https://azure.microsoft.com/support/options/) di Azure e selezionare Ottieni **supporto**.

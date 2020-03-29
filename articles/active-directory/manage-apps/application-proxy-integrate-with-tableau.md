@@ -14,10 +14,10 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a1aa99e7e71ad78a62c1a9da303b2ecc8347ebeb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65783857"
 ---
 # <a name="azure-active-directory-application-proxy-and-tableau"></a>Azure Active Directory Application Proxy e Tableau 
@@ -50,7 +50,7 @@ Per:
 **Per pubblicare l'app**: 
 
 
-1. Accedi per il [portale di Azure](https://portal.azure.com) come amministratore dell'applicazione. 
+1. Accedere al [portale](https://portal.azure.com) di Azure come amministratore dell'applicazione. 
 
 2. Selezionare **Azure Active Directory > Applicazioni aziendali**. 
 
@@ -60,9 +60,9 @@ Per:
 
 5. Compilare i campi obbligatori con le informazioni della nuova app. Usare le seguenti linee guida per le impostazioni: 
 
-    - **URL interno**: l'applicazione deve avere un URL interno, che corrisponde all'URL Tableau. Ad esempio: `https://adventure-works.tableau.com`. 
+    - **URL interno**: questa applicazione deve avere un URL interno, che corrisponde all'URL Tableau. Ad esempio: `https://adventure-works.tableau.com`. 
 
-    - **Metodo di preautenticazione**: Azure Active Directory (consigliato ma non obbligatorio). 
+    - **Metodo di autenticazione preliminare**: Azure Active Directory (consigliato ma non obbligatorio). 
 
 6. Selezionare **Aggiungi** nella parte superiore del pannello. L'applicazione viene aggiunta e si apre il menu di avvio rapido. 
 

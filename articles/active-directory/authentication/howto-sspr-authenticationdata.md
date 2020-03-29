@@ -1,5 +1,5 @@
 ---
-title: Requisiti dei dati di SSPR Azure AD-Azure Active Directory
+title: Azure AD SSPR data requirements - Azure Active Directory
 description: Requisiti dei dati per la Reimpostazione self-service delle password e informazioni su come soddisfarli
 services: active-directory
 ms.service: active-directory
@@ -12,15 +12,15 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a14338e552250ac63c344365099a16f20616ea9a
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74964030"
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Distribuire la reimpostazione della password senza richiedere la registrazione dell'utente finale
 
-Per distribuire la funzionalità di reimpostazione password self-service di Azure Active Directory (Azure AD) devono essere presenti i dati di autenticazione. Alcune organizzazioni richiedono agli utenti di immettere personalmente i dati di autenticazione. Altre organizzazioni preferiscono eseguire la sincronizzazione con i dati già esistenti nel Active Directory. Questi dati sincronizzati vengono resi disponibili per Azure AD e SSPR senza richiedere l'intervento dell'utente se si soddisfano i requisiti seguenti:
+Per distribuire la funzionalità di reimpostazione password self-service di Azure Active Directory (Azure AD) devono essere presenti i dati di autenticazione. Alcune organizzazioni richiedono agli utenti di immettere personalmente i dati di autenticazione. Altre organizzazioni preferiscono sincronizzarsi con i dati già esistenti in Active Directory. Questi dati sincronizzati vengono resi disponibili per Azure AD e SSPR senza richiedere l'interazione dell'utente se si soddisfano i requisiti seguenti:This synced data is made available to Azure AD and SSPR without requiring user interaction if you meet the following requirements:
 
 * I dati sono formattati correttamente nella directory locale dell'utente.
 * È stata eseguita la configurazione di [Azure AD Connect usando le impostazioni rapide](../hybrid/how-to-connect-install-express.md).
@@ -41,18 +41,18 @@ Se si usano le impostazioni predefinite in Azure AD Connect, vengono eseguiti i 
 | telephoneNumber | Telefono ufficio |
 | mobile | Cellulare |
 
-Quando un utente verifica il numero di telefono cellulare, il campo *telefonico* in **informazioni di contatto per l'autenticazione** in Azure ad viene popolato anche con tale numero.
+Dopo che un utente ha verificato il proprio numero di telefono cellulare, anche il campo *Telefono* in Informazioni di contatto per l'autenticazione in Azure AD viene popolato con tale numero. **Authentication contact info**
 
 ## <a name="authentication-contact-info"></a>Informazioni di contatto per l'autenticazione
 
-Nella pagina **metodi di autenticazione** per un utente Azure AD nel portale di Azure, un amministratore globale può impostare manualmente le informazioni di contatto per l'autenticazione, come illustrato nella schermata di esempio seguente:
+Nella pagina Metodi di autenticazione per un utente di Azure AD nel portale di Azure un amministratore globale può impostare manualmente le informazioni di contatto per l'autenticazione, come illustrato nella schermata di esempio seguente:On the **Authentication methods** page for an Azure AD user in the Azure portal, a Global Administrator can manually set the authentication contact information, as shown in the following example screenshot:
 
-![Informazioni di contatto per l'autenticazione di un utente in Azure AD][Contact]
+![Informazioni di contatto per l'autenticazione in un utente in Azure ADAuthentication contact info on a user in Azure AD][Contact]
 
-* Se il campo **telefono** è popolato e il **telefono cellulare** è abilitato nel criterio SSPR, l'utente visualizza tale numero nella pagina di registrazione per la reimpostazione della password e durante il flusso di lavoro di reimpostazione della password.
-* Il campo **telefono alternativo** non viene usato per la reimpostazione della password.
-* Se il campo **posta elettronica** è popolato e il **messaggio di posta elettronica** è abilitato nel criterio SSPR, l'utente visualizza tale messaggio nella pagina di registrazione della reimpostazione della password e durante il flusso di lavoro di reimpostazione della password.
-* Se il campo **indirizzo di posta elettronica alternativo** è popolato e il **messaggio di posta elettronica** è abilitato nel criterio SSPR, l'utente **non** visualizzerà il messaggio di posta elettronica nella pagina di registrazione per la reimpostazione della password, ma lo visualizzerà durante il flusso di lavoro
+* Se il campo **Telefono** è popolato e **il telefono cellulare** è abilitato nei criteri SSPR, l'utente visualizza tale numero nella pagina di registrazione della reimpostazione della password e durante il flusso di lavoro di reimpostazione della password.
+* Il campo **Telefono alternativo** non viene utilizzato per la reimpostazione della password.
+* Se il campo **Posta elettronica** è popolato e la **posta elettronica** è abilitata nei criteri SSPR, l'utente visualizza tale messaggio di posta elettronica nella pagina di registrazione della reimpostazione della password e durante il flusso di lavoro di reimpostazione della password.
+* Se il campo **Posta elettronica alternativa** è popolato e la posta **elettronica** è abilitata nei criteri SSPR, l'utente **non vedrà** tale messaggio nella pagina di registrazione della reimpostazione della password, ma lo vedrà durante il flusso di lavoro di reimpostazione della password.
 
 ## <a name="security-questions-and-answers"></a>Domande di sicurezza e risposte
 
@@ -66,13 +66,13 @@ Quando un utente si registra, i campi seguenti vengono impostati nella pagina di
 * **Indirizzo di posta elettronica per l'autenticazione**
 * **Domande di sicurezza e risposte**
 
-Se è stato specificato un valore per **Cellulare** o **Indirizzo di posta elettronica alternativo**, gli utenti possono usare immediatamente questi valori per reimpostare le password, anche se non hanno eseguito la registrazione per il servizio. Gli utenti visualizzano e possono modificare tali valori quando si registrano per la prima volta. Una volta eseguita la registrazione, questi valori vengono salvati in permanenza rispettivamente nei campi telefono per l' **autenticazione** e **indirizzo di posta elettronica di autenticazione** .
+Se è stato fornito un valore per **Cellulare** o **Indirizzo di posta elettronica alternativo**, gli utenti possono utilizzare immediatamente tali valori per reimpostare le password, anche se non si sono registrati per il servizio. Gli utenti visualizzano e possono modificare tali valori quando si registrano per la prima volta. Dopo la registrazione, questi valori vengono mantenuti nei campi **Telefono autenticazione** e **Email di autenticazione,** rispettivamente.
 
 ## <a name="set-and-read-the-authentication-data-through-powershell"></a>Impostare e leggere i dati di autenticazione tramite PowerShell
 
 I campi seguenti possono essere impostati tramite PowerShell:
 
-* **Indirizzo di posta elettronica alternativo**
+* **E-mail alternativa**
 * **Cellulare**
 * **Telefono ufficio**: può essere impostato solo se non in sincronizzazione con una directory locale
 
@@ -154,14 +154,14 @@ Get-AzureADUser | select DisplayName,UserPrincipalName,otherMails,Mobile,Telepho
 
 * [Come completare l'implementazione della reimpostazione della password self-service per gli utenti](howto-sspr-deployment.md)
 * [Reimpostare o modificare la password](../user-help/active-directory-passwords-update-your-own-password.md)
-* [Registrarsi per la reimpostazione della password self-service](../user-help/active-directory-passwords-reset-register.md)
-* [Domande sulle licenze](concept-sspr-licensing.md)
+* [Registrati per la reimpostazione della password self-service](../user-help/active-directory-passwords-reset-register.md)
+* [Hai una domanda di licenza?](concept-sspr-licensing.md)
 * [Metodi di autenticazione disponibili per gli utenti](concept-sspr-howitworks.md#authentication-methods)
 * [Opzioni dei criteri per la reimpostazione della password self-service](concept-sspr-policy.md)
 * [Panoramica del writeback delle password](howto-sspr-writeback.md)
 * [Come creare un report sull'attività relativa alla reimpostazione della password self-service](howto-sspr-reporting.md)
 * [Informazioni sulle opzioni della reimpostazione della password self-service](concept-sspr-howitworks.md)
-* [Credo che qualcosa sia rotto. Ricerca per categorie risolvere i problemi di SSPR?](active-directory-passwords-troubleshoot.md)
+* [Credo che qualcosa sia rotto. Come si risolvono i problemi relativi a SSPR?](active-directory-passwords-troubleshoot.md)
 * [Altre informazioni non illustrate altrove](active-directory-passwords-faq.md)
 
 [Contact]: ./media/howto-sspr-authenticationdata/user-authentication-contact-info.png "Gli amministratori globali possono modificare informazioni di contatto per l'autenticazione di un utente"

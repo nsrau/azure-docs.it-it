@@ -16,10 +16,10 @@ ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cbc5c356ea5a542fdc12b11aff236c56b146b3d5
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68477250"
 ---
 # <a name="working-with-claims-aware-apps-in-application-proxy"></a>Uso di app in grado di riconoscere attestazioni nel proxy di applicazione
@@ -38,7 +38,7 @@ Assicurarsi che il servizio token di sicurezza cui viene reindirizzata l'app in 
 
 È possibile configurare AD FS per le app in grado di riconoscere attestazioni in due modi diversi. Il primo consiste nell'usare domini personalizzati. Il secondo è con WS-Federation. 
 
-### <a name="option-1-custom-domains"></a>Opzione 1: Domini personalizzati
+### <a name="option-1-custom-domains"></a>Opzione 1: domini personalizzati
 
 Se tutti gli URL interni per le applicazioni sono nomi di dominio completi (FQDN), è possibile configurare [domini personalizzati](application-proxy-configure-custom-domain.md) per le applicazioni. Usare i domini personalizzati per creare URL esterni identici agli URL interni. Se gli URL esterni corrispondono agli URL interni, i reindirizzamenti del servizio token di sicurezza funzionano indipendentemente dal fatto che gli utenti siano in locale o in remoto. 
 

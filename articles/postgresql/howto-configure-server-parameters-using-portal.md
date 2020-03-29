@@ -1,19 +1,19 @@
 ---
-title: Configurare i parametri del server-portale di Azure-database di Azure per PostgreSQL-server singolo
-description: Questo articolo descrive come configurare i parametri Postgres nel database di Azure per PostgreSQL tramite il portale di Azure.
+title: Configurare i parametri del server - Portale di Azure - Database di Azure per PostgreSQL - Server singoloConfigure server parameters - Azure portal - Azure Database for PostgreSQL - Single Server
+description: Questo articolo descrive come configurare i parametri Postgres nel database di Azure per PostgreSQL tramite il portale di Azure.This article describes how to configure the Postgres parameters in Azure Database for PostgreSQL through the Azure portal.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/28/2018
 ms.openlocfilehash: a9d078fe9aab12b9044733d17a1437801d5130a4
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74763675"
 ---
-# <a name="configure-server-parameters-in-azure-database-for-postgresql---single-server-via-the-azure-portal"></a>Configurare i parametri del server nel database di Azure per PostgreSQL-server singolo tramite il portale di Azure 
+# <a name="configure-server-parameters-in-azure-database-for-postgresql---single-server-via-the-azure-portal"></a>Configurare i parametri del server nel database di Azure per PostgreSQL - Server singolo tramite il portale di AzureConfigure server parameters in Azure Database for PostgreSQL - Single Server via the Azure portal 
 È possibile elencare, visualizzare e aggiornare i parametri di configurazione per un database di Azure per PostgreSQL attraverso il portale di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti

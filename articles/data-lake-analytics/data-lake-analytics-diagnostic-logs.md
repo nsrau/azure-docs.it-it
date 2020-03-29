@@ -9,10 +9,10 @@ ms.assetid: cf5633d4-bc43-444e-90fc-f90fbd0b7935
 ms.topic: conceptual
 ms.date: 02/12/2018
 ms.openlocfilehash: 7fd88383e909ebd6be64c22721b813946e37179e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60616502"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Accesso ai log di diagnostica per Azure Data Lake Analytics
@@ -25,7 +25,7 @@ La registrazione diagnostica consente di raccogliere audit trail di accesso ai d
 
 ## <a name="enable-logging"></a>Abilitazione della registrazione
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Accedere al [portale](https://portal.azure.com)di Azure .
 
 2. Aprire l'account Data Lake Analytics e selezionare **Log di diagnostica** dalla sezione __Monitoraggio__. Selezionare quindi __Turn on diagnostics__ (Attiva diagnostica).
 
@@ -33,7 +33,7 @@ La registrazione diagnostica consente di raccogliere audit trail di accesso ai d
 
 3. Dalle __Impostazioni di diagnostica__ immettere un __Nome__ per la configurazione della registrazione e selezionare le opzioni di registrazione.
 
-    ![Attivare la diagnostica per acquisire i log di controllo e i log delle richieste](./media/data-lake-analytics-diagnostic-logs/enable-diagnostic-logs.png "Abilitare i log di diagnostica")
+    ![Attivare la diagnostica per acquisire i log di controllo e i log delle richieste.](./media/data-lake-analytics-diagnostic-logs/enable-diagnostic-logs.png "Abilitare i log di diagnostica")
 
    * È possibile scegliere di archiviare/elaborare i dati in tre modi diversi.
 
@@ -41,12 +41,12 @@ La registrazione diagnostica consente di raccogliere audit trail di accesso ai d
 
      * Selezionare **Stream to an Event Hub** (Esegui streaming in un Hub eventi) per trasmettere i dati di log a un Hub eventi di Azure. Usare questa opzione se si ha una pipeline di elaborazione downstream che analizza in tempo reale i log in ingresso. Se si seleziona questa opzione, è necessario fornire i dettagli dell'Hub eventi di Azure che si desidera utilizzare.
 
-     * Selezionare __Invia a Log Analitica__ per inviare i dati al servizio di monitoraggio di Azure. Usare questa opzione se si desidera usare i log di monitoraggio di Azure per raccogliere e analizzare i log.
+     * Selezionare Invia a Log Analytics per inviare i dati al servizio Monitoraggio di Azure.Select __Send to Log Analytics__ to send the data to the Azure Monitor service. Usare questa opzione se si vuole usare i log di Monitoraggio di Azure per raccogliere e analizzare i log.
    * Specificare se si desidera ottenere i log di controllo, i log delle richieste o entrambi.  Un log delle richieste acquisisce tutte le richieste API. Un log di controllo registra tutte le operazioni attivate dalla richiesta dell'API.
 
    * Per __Archivia in un account di archiviazione__ specificare il numero di giorni per cui i dati verranno conservati.
 
-   * Fare clic su __Save__.
+   * Fare clic su __Salva__.
 
         > [!NOTE]
         > È necessario selezionare una tra le opzioni __Archivia in un account di archiviazione__, __Streaming in un hub eventi__ o __Invia a Log Analytics__ prima di fare clic sul pulsante __Salva__.
@@ -125,7 +125,7 @@ Di seguito viene riportata una voce di esempio nel log delle richieste in format
 
 #### <a name="request-log-schema"></a>Schema del log delle richieste
 
-| NOME | Type | DESCRIZIONE |
+| Nome | Type | Descrizione |
 | --- | --- | --- |
 | time |string |Il timestamp del log (fusorario UTC) |
 | resourceId |string |Identificatore della risorsa interessata dall'operazione |
@@ -139,11 +139,11 @@ Di seguito viene riportata una voce di esempio nel log delle richieste in format
 
 #### <a name="request-log-properties-schema"></a>Schema delle proprietà del log di richiesta
 
-| NOME | Type | DESCRIZIONE |
+| Nome | Type | Descrizione |
 | --- | --- | --- |
 | HttpMethod |string |Il metodo HTTP utilizzato per l'operazione. Esempio: GET. |
-| path |string |Il percorso coinvolto nell'operazione |
-| RequestContentLength |int |La lunghezza del contenuto della richiesta HTTP |
+| Path |string |Il percorso coinvolto nell'operazione |
+| RequestContentLength |INT |La lunghezza del contenuto della richiesta HTTP |
 | ClientRequestId |string |Identificatore che identifica in modo univoco la richiesta |
 | StartTime |string |L'ora in cui il server ha ricevuto la richiesta |
 | EndTime |string |L'ora in cui il server ha inviato una risposta |
@@ -177,7 +177,7 @@ Di seguito viene riportata una voce di esempio nel log di controllo in formato J
 
 #### <a name="audit-log-schema"></a>Schema del log di controllo
 
-| NOME | Type | DESCRIZIONE |
+| Nome | Type | Descrizione |
 | --- | --- | --- |
 | time |string |Il timestamp del log (fusorario UTC) |
 | resourceId |string |Identificatore della risorsa interessata dall'operazione |
@@ -195,7 +195,7 @@ Di seguito viene riportata una voce di esempio nel log di controllo in formato J
 
 #### <a name="audit-log-properties-schema"></a>Schema delle proprietà del log di controllo
 
-| NOME | Type | DESCRIZIONE |
+| Nome | Type | Descrizione |
 | --- | --- | --- |
 | JobId |string |L'ID assegnato al processo |
 | JobName |string |Il nome fornito per il processo |
@@ -210,7 +210,7 @@ Di seguito viene riportata una voce di esempio nel log di controllo in formato J
 
 ## <a name="process-the-log-data"></a>Elaborare i dati di log
 
-Azure Data Lake Analytics fornisce un esempio su come elaborare e analizzare i dati di log. È possibile trovare l'esempio all'indirizzo [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample).
+Azure Data Lake Analytics fornisce un esempio su come elaborare e analizzare i dati di log. È possibile trovare [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample)l'esempio in .
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Panoramica di Azure Data Lake Analytics](data-lake-analytics-overview.md)

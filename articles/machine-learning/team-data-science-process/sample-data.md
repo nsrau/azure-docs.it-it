@@ -1,5 +1,5 @@
 ---
-title: Campionare i dati in diverse posizioni di archiviazione di Azure-processo di Data Science per i team
+title: Dati di esempio in posizioni di Archiviazione di Azure diverse - Processo di analisi scientifica dei dati del teamSample data in different Azure Storage locations - Team Data Science Process
 description: Dati di esempio in contenitori BLOB di Azure, SQL Server e tabelle Hive per ridurli a una dimensione più piccola ma rappresentativa e gestibile.
 services: machine-learning
 author: marktab
@@ -12,13 +12,13 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 22e91d50227fcb44c7b90478d76379c14161ae05
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76718604"
 ---
-# <a name="heading"></a>Campionare i dati in contenitori BLOB di Azure, SQL Server e nelle tabelle Hive
+# <a name="sample-data-in-azure-blob-containers-sql-server-and-hive-tables"></a><a name="heading"></a>Campionare i dati in contenitori BLOB di Azure, in SQL Server e nelle tabelle Hive
 
 Gli articoli seguenti illustrano come eseguire il campionamento di dati archiviati in una delle tre diverse posizioni di Azure:
 
@@ -30,5 +30,5 @@ Questo campionamento è un passaggio del [Processo di analisi scientifica dei da
 
 **Perché campionare i dati?**
 
-Se il set di dati da analizzare è grande, è in genere opportuno sottocampionare i dati per ridurlo e ottenere dimensioni inferiori più facilmente gestibili ma comunque rappresentative. Il ridimensionamento può facilitare la comprensione dei dati, l'esplorazione e la progettazione delle funzionalità. Questo ruolo di campionamento nel processo di analisi Cortana è l'abilitazione della prototipazione rapida delle funzioni di elaborazione dei dati e dei modelli di machine learning.
+Se il set di dati da analizzare è grande, è in genere opportuno sottocampionare i dati per ridurlo e ottenere dimensioni inferiori più facilmente gestibili ma comunque rappresentative. Il ridimensionamento può facilitare la comprensione, l'esplorazione e la progettazione delle funzionalità dei dati. Questo ruolo di campionamento nel processo di analisi di Cortana consiste nell'abilitare la prototipazione rapida delle funzioni di elaborazione dati e dei modelli di apprendimento automatico.
 

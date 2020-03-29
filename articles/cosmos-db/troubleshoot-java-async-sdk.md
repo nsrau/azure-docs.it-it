@@ -10,10 +10,10 @@ ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.openlocfilehash: 572139743c66546622450cef8f8a0fa264d24779
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65519989"
 ---
 # <a name="troubleshoot-issues-when-you-use-the-java-async-sdk-with-azure-cosmos-db-sql-api-accounts"></a>Risolvere i problemi durante l'uso di Java Async SDK con gli account API SQL di Azure Cosmos DB
@@ -22,12 +22,12 @@ Java Async SDK offre una rappresentazione logica lato client per accedere all'AP
 
 Iniziamo con un elenco:
 
-* Diamo un'occhiata alla sezione [Problemi comuni e soluzioni alternative] in questo articolo.
+* Diamo un'occhiata alla sezione [Problemi e soluzioni alternative comuni] in questo articolo.
 * Esaminare l'SDK, disponibile come [open source su GitHub](https://github.com/Azure/azure-cosmosdb-java). Include una [sezione per i problemi](https://github.com/Azure/azure-cosmosdb-java/issues) monitorata attivamente. Verificare se è già stato pubblicato un problema simile con una soluzione alternativa.
 * Esaminare i [suggerimenti sulle prestazioni](performance-tips-async-java.md) e seguire le procedure consigliate.
 * Leggere la parte restante di questo articolo, se non si trova una soluzione. Registrare poi un [problema in GitHub](https://github.com/Azure/azure-cosmosdb-java/issues).
 
-## <a name="common-issues-workarounds"></a>Problemi e soluzioni alternative comuni
+## <a name="common-issues-and-workarounds"></a><a name="common-issues-workarounds"></a>Problemi comuni e soluzioni alternative
 
 ### <a name="network-issues-netty-read-timeout-failure-low-throughput-high-latency"></a>Problemi di rete, errore di timeout nella lettura di Netty, ridotta velocità effettiva, latenza elevata
 
@@ -38,16 +38,16 @@ Iniziamo con un elenco:
 #### <a name="connection-throttling"></a>Limitazione della connessione
 La limitazione delle connessioni può verificarsi a causa di un [limite di connessioni nel computer host] o di un [esaurimento delle porte SNAT (PAT) di Azure].
 
-##### <a name="connection-limit-on-host"></a>Limite di connessioni nel computer host
+##### <a name="connection-limit-on-a-host-machine"></a><a name="connection-limit-on-host"></a>Limite di connessioni nel computer host
 Alcuni sistemi Linux, come Red Hat, prevedono un limite massimo per il numero totale di file aperti. I socket in Linux vengono implementati come file, per cui questo numero limita anche il numero totale di connessioni.
-Eseguire il comando indicato di seguito.
+Eseguire il comando seguente.
 
 ```bash
 ulimit -a
 ```
 Il numero massimo consentito di file aperti, identificati come "nofile", deve essere almeno il doppio della dimensione del pool di connessioni. Per altre informazioni, vedere [Suggerimenti sulle prestazioni](performance-tips-async-java.md).
 
-##### <a name="snat"></a>Esaurimento delle porte SNAT (PAT) di Azure
+##### <a name="azure-snat-pat-port-exhaustion"></a><a name="snat"></a>Esaurimento delle porte SNAT (PAT) di Azure
 
 Se l'app viene distribuita in macchine virtuali di Azure senza un indirizzo IP pubblico, per impostazione predefinita le [porte SNAT di Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports) stabiliscono le connessioni a qualsiasi endpoint all'esterno della macchina virtuale. Il numero di connessioni consentite dalla macchina virtuale all'endpoint di Azure Cosmos DB è limitato dalla [configurazione SNAT di Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports).
 
@@ -58,22 +58,22 @@ Se l'app viene distribuita in macchine virtuali di Azure senza un indirizzo IP p
     Quando l'endpoint del servizio è abilitato, le richieste non vengono più inviate da un indirizzo IP pubblico ad Azure Cosmos DB. Vengono invece inviate le identità di rete virtuale e subnet. Questa modifica può comportare blocchi del firewall se sono consentiti solo indirizzi IP pubblici. Se si usa un firewall, quando si abilita l'endpoint del servizio, aggiungere una subnet al firewall tramite [ACL di rete virtuale](https://docs.microsoft.com/azure/virtual-network/virtual-networks-acl).
 * Assegnare un indirizzo IP pubblico alla macchina virtuale di Azure.
 
-##### <a name="cant-connect"></a>Non è possibile raggiungere il servizio: firewall
-``ConnectTimeoutException`` indica che il SDK non riesce a raggiungere il servizio.
-Potrebbe essere visualizzato un errore simile al seguente quando si usa la modalità diretta:
+##### <a name="cant-reach-the-service---firewall"></a><a name="cant-connect"></a>Impossibile raggiungere il servizio - firewall
+``ConnectTimeoutException``indica che l'SDK non è in grado di raggiungere il servizio.
+Quando si utilizza la modalità diretta, è possibile che si verifichi un errore simile al seguente:
 ```
 GoneException{error=null, resourceAddress='https://cdb-ms-prod-westus-fd4.documents.azure.com:14940/apps/e41242a5-2d71-5acb-2e00-5e5f744b12de/services/d8aa21a5-340b-21d4-b1a2-4a5333e7ed8a/partitions/ed028254-b613-4c2a-bf3c-14bd5eb64500/replicas/131298754052060051p//', statusCode=410, message=Message: The requested resource is no longer available at the server., getCauseInfo=[class: class io.netty.channel.ConnectTimeoutException, message: connection timed out: cdb-ms-prod-westus-fd4.documents.azure.com/101.13.12.5:14940]
 ```
 
-Se è presente un firewall in esecuzione nel computer di app, aprire l'intervallo di porte 10.000 e 20.000 usati per la modalità diretta.
-Seguire anche le [limite di connessione in un computer host](#connection-limit-on-host).
+Se nel computer dell'app è in esecuzione un firewall, apri l'intervallo di porte da 10.000 a 20.000 che vengono usate dalla modalità diretta.
+Seguire anche il [limite di connessione su un computer host](#connection-limit-on-host).
 
 #### <a name="http-proxy"></a>Proxy HTTP
 
 Se si usa un proxy HTTP, assicurarsi che possa supportare il numero di connessioni configurate in `ConnectionPolicy` dell'SDK.
 In caso contrario, verranno riscontrati problemi di connessione.
 
-#### <a name="invalid-coding-pattern-blocking-netty-io-thread"></a>Modello di codifica non valida: blocco del thread di I/O Netty
+#### <a name="invalid-coding-pattern-blocking-netty-io-thread"></a>Modello di codifica non valido: blocco del thread I/O Netty
 
 L'SDK usa la libreria di I/O [Netty](https://netty.io/) per comunicare con Azure Cosmos DB. L'SDK include API asincrone e usa le API di I/O non bloccante di Netty. Le operazioni di I/O dell'SDK vengono eseguite su thread di I/O di Netty. Il numero di thread di I/O di Netty viene configurato in modo da corrispondere al numero di core della CPU del computer dell'app. 
 
@@ -161,23 +161,23 @@ Questo errore è un errore sul lato server. Indica l'esaurimento della velocità
 
 Il certificato HTTPS dell'emulatore di Azure Cosmos DB è autofirmato. Per poter usare l'SDK con l'emulatore, importare il certificato dell'emulatore in un Java TrustStore. Per altre informazioni, vedere [Esportare i certificati dell'emulatore di Azure Cosmos DB](local-emulator-export-ssl-certificates.md).
 
-### <a name="dependency-conflict-issues"></a>Problemi dei conflitti di dipendenza
+### <a name="dependency-conflict-issues"></a>Problemi relativi ai conflitti di dipendenzaDependency Conflict Issues
 
 ```console
 Exception in thread "main" java.lang.NoSuchMethodError: rx.Observable.toSingle()Lrx/Single;
 ```
 
-L'eccezione precedente suggerisce che è presente una dipendenza su una versione precedente di lib RxJava (ad esempio, 1.2.2). il SDK si basa su RxJava 1.3.8 con API non disponibili nella versione precedente di RxJava. 
+L'eccezione precedente suggerisce di avere una dipendenza da una versione precedente di RxJava lib (ad esempio, 1.2.2). Il nostro SDK si basa su RxJava 1.3.8 che ha API non disponibili nella versione precedente di RxJava. 
 
-La soluzione alternativa per questo tipo issuses consiste nell'identificare quali altre dipendenze integra in RxJava 1.2.2 escludere la dipendenza transitiva da RxJava 1.2.2 e consentire CosmosDB SDK portare alla versione più recente.
+La soluzione per tali issus consiste nell'identificare l'altra dipendenza che porta in RxJava-1.2.2 ed escludere la dipendenza transitiva su RxJava-1.2.2 e consentire cosmosDB SDK portare la versione più recente.
 
-Per identificare la libreria che consente il RxJava-1.2.2, eseguire il comando seguente accanto al file POM. XML del progetto:
+Per identificare quale libreria porta in RxJava-1.2.2, eseguire il comando seguente accanto al file pom.xml del progetto:
 ```bash
 mvn dependency:tree
 ```
-Per altre informazioni, vedere la [Guida di struttura ad albero di dipendenza maven](https://maven.apache.org/plugins/maven-dependency-plugin/examples/resolving-conflicts-using-the-dependency-tree.html).
+Per ulteriori informazioni, vedere la [guida all'albero delle dipendenze maven](https://maven.apache.org/plugins/maven-dependency-plugin/examples/resolving-conflicts-using-the-dependency-tree.html).
 
-Dopo avere identificato RxJava 1.2.2 è dipendenza transitiva di quali altre dipendenze del progetto, è possibile modificare la dipendenza su che lib nel file pom ed exclude dipendenza transitiva RxJava:
+Una volta identificato RxJava-1.2.2 è dipendenza transitiva di quale altra dipendenza del progetto, è possibile modificare la dipendenza da tale lib nel file pom ed escludere la dipendenza transitiva RxJava:
 
 ```xml
 <dependency>
@@ -193,10 +193,10 @@ Dopo avere identificato RxJava 1.2.2 è dipendenza transitiva di quali altre dip
 </dependency>
 ```
 
-Per altre informazioni, vedere la [escludere Guida dipendenza transitiva](https://maven.apache.org/guides/introduction/introduction-to-optional-and-excludes-dependencies.html).
+Per ulteriori informazioni, consultate la [guida all'esclusione delle dipendenze transitive.](https://maven.apache.org/guides/introduction/introduction-to-optional-and-excludes-dependencies.html)
 
 
-## <a name="enable-client-sice-logging"></a>Abilitare la registrazione dell'SDK del client
+## <a name="enable-client-sdk-logging"></a><a name="enable-client-sice-logging"></a>Abilitare la registrazione dell'SDK del client
 
 Java Async SDK usa SLF4j come interfaccia per supportare la registrazione in framework di registrazione diffusi come log4j e logback.
 
@@ -235,7 +235,7 @@ log4j.appender.A1.layout.ConversionPattern=%d %5X{pid} [%t] %-5p %c - %m%n
 
 Per altre informazioni, vedere il [manuale di registrazione di sfl4j](https://www.slf4j.org/manual.html).
 
-## <a name="netstats"></a>Statistiche di rete del sistema operativo
+## <a name="os-network-statistics"></a><a name="netstats"></a>Statistiche di rete del sistema operativo
 Eseguire il comando netstat per farsi un'idea di quante connessioni sono in stati come `ESTABLISHED` e `CLOSE_WAIT`.
 
 In Linux è possibile eseguire il comando seguente.
@@ -251,7 +251,7 @@ Molte connessioni all'endpoint di Azure Cosmos DB potrebbero trovarsi nello stat
  <!--Anchors-->
 [Problemi comuni e soluzioni alternative]: #common-issues-workarounds
 [Enable client SDK logging]: #enable-client-sice-logging
-[Limite di connessioni nel computer host]: #connection-limit-on-host
-[Esaurimento delle porte SNAT (PAT) di Azure]: #snat
+[Limite di connessione su un computer host]: #connection-limit-on-host
+[Esaurimento della porta Azure SNAT (PAT) Azure SNAT (PAT) port exhaustion]: #snat
 
 

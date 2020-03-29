@@ -1,5 +1,5 @@
 ---
-title: 'Risolvere i problemi relativi alle prestazioni del collegamento di rete: Azure'
+title: 'Risolvere i problemi relativi alle prestazioni dei collegamenti di rete: AzureTroubleshoot network link performance: Azure'
 description: Questa pagina fornisce un metodo standardizzato di test delle prestazioni dei collegamenti di rete di Azure.
 services: expressroute
 author: tracsman
@@ -9,10 +9,10 @@ ms.date: 12/20/2017
 ms.author: jonor
 ms.custom: seodec18
 ms.openlocfilehash: bb68919fba731caa32dcca3f4c991b8881afc6f9
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74869647"
 ---
 # <a name="troubleshooting-network-performance"></a>Risoluzione dei problemi di prestazioni di rete
@@ -44,7 +44,7 @@ Diamo una breve occhiata a ciascun componente del diagramma, da destra a sinistr
  - **Subnet NSG**: proprio come la scheda di interfaccia di rete, anche i gruppi di sicurezza di rete possono essere applicati alla subnet. Verificare che il set di regole dei gruppi di sicurezza di rete sia appropriato per il traffico da passare. (per il traffico che entra nella scheda di interfaccia di rete, si applica prima la Subnet NSG, poi la NIC NSG, mentre per il traffico che lascia la macchina virtuale, la NIC NSG viene applicata per prima, quindi entra in gioco la Subnet NSG).
  - **Subnet UDR**: le route definite dall'utente possono indirizzare il traffico verso un hop intermedio (ad esempio un firewall o un servizio di bilanciamento del carico). Verificare che sia presente una route definita dall'utente per il traffico e, in tal caso, dove va e cosa farà quell'hop successivo al proprio traffico. (ad esempio, un firewall può consentire il passaggio di un traffico mentre può negarne un altro tra gli stessi due host).
  - **Subnet gateway / NSG / UDR**: proprio come la subnet della macchina virtuale, la subnet del gateway può avere gruppi di sicurezza di rete e route definite dall'utente. Verificare la loro possibile presenza e il loro impatto sul traffico.
- - **VNet Gateway (ExpressRoute)** : dopo aver abilitato la VPN o il peering (ExpressRoute) non vi sono molte impostazioni che possono influenzare il routing del traffico o l'esistenza di questo routing. Se sono presenti più circuiti ExpressRoute o tunnel VPN collegati allo stesso VNet Gateway, è necessario conoscere l'impostazione del peso della connessione in quanto influisce sulle preferenze di connessione e sul percorso del traffico.
+ - **VNet Gateway (ExpressRoute)**: dopo aver abilitato la VPN o il peering (ExpressRoute) non vi sono molte impostazioni che possono influenzare il routing del traffico o l'esistenza di questo routing. Se sono presenti più circuiti ExpressRoute o tunnel VPN collegati allo stesso VNet Gateway, è necessario conoscere l'impostazione del peso della connessione in quanto influisce sulle preferenze di connessione e sul percorso del traffico.
  - **Route Filter** (non illustrato): un filtro di routing si applica solo al Peering Microsoft su ExpressRoute, ma è fondamentale verificare che le route previste non vengano visualizzate sul Peering Microsoft. 
 
 A questo punto si è nella parte WAN del collegamento. Questo dominio di routing può essere il provider di servizi, la WAN aziendale o Internet. Molti hop, tecnologie e aziende coinvolti in questi collegamenti possono rendere piuttosto difficile la risoluzione dei problemi. Spesso si fa in modo di escludere Azure e le reti aziendali prima di passare a questa moltitudine di aziende e hop.
@@ -59,7 +59,7 @@ La maggior parte dei problemi di rete può essere analizzata e isolata usando st
 Ho incluso tutti questi strumenti e questi metodi in un modulo PowerShell (AzureCT) che è possibile installare e usare.
 
 ### <a name="azurect---the-azure-connectivity-toolkit"></a>AzureCT: Azure Connectivity Toolkit
-Il modulo AzureCT di PowerShell prevede due componenti che [testano la disponibilità][Availability Doc] e [test delle prestazioni][Performance Doc]. Poiché questo documento tratta solo il Performance Testing (Test delle prestazioni), occorre concentrarsi sui due comandi del Link Performance (Prestazioni dei collegamenti) inclusi in questo modulo PowerShell.
+Il modulo PowerShell di AzureCT include due componenti: [Availability Testing][Availability Doc] (Test della disponibilità) e [Performance Testing][Performance Doc] (Test delle prestazioni). Poiché questo documento tratta solo il Performance Testing (Test delle prestazioni), occorre concentrarsi sui due comandi del Link Performance (Prestazioni dei collegamenti) inclusi in questo modulo PowerShell.
 
 L'uso di questo kit di strumenti per il Performance Testing (Test delle prestazioni) include tre passaggi fondamentali. 1) Installare il modulo PowerShell, 2) Installare le applicazioni di supporto iPerf e PSPing 3) Eseguire il test delle prestazioni.
 
@@ -97,7 +97,7 @@ L'uso di questo kit di strumenti per il Performance Testing (Test delle prestazi
 
     I risultati dettagliati di tutti i test iPerf e PSPing si trovano in singoli file di testo nella directory degli strumenti di AzureCT in "C:\ACTTools".
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 Se il test delle prestazioni non fornisce i risultati attesi, può essere consigliabile adottare un approccio graduale passo dopo passo. Dato il numero di componenti nel percorso, un approccio sistematico di solito risolve i problemi più velocemente di un approccio empirico in cui lo stesso test può essere eseguito inutilmente più volte.
 
 >[!NOTE]
@@ -144,7 +144,7 @@ Per problemi di rete aziendale, il reparto IT interno o un provider di servizi d
 
 Per quel che riguarda la WAN, la condivisione dei risultati del test con il provider di servizi o l'ISP può aiutarli a tenere tutto sotto controllo e impedire che riprendano alcuni dei test già effettuati. Non occorre offendersi se decidessero di verificare di persona i risultati già ottenuti. "Fidati, ma controlla" è un buon motto quando si tratta di risolvere i problemi dai risultati forniti da altre persone.
 
-Con Azure, dopo aver isolato il problema nel modo più dettagliato possibile, è possibile esaminare la [documentazione della rete di Azure][Network Docs] e, se ancora necessario, [aprire un ticket di supporto][Ticket Link].
+Con Azure, una volta isolato il problema nel modo più preciso possibile, è necessario esaminare la [Documentazione di Microsoft Azure][Network Docs] e quindi, se ancora necessario, [aprire un ticket di supporto][Ticket Link].
 
 ## <a name="references"></a>Riferimenti
 ### <a name="latencybandwidth-expectations"></a>Aspettative in termini di latenza e larghezza di banda
@@ -160,7 +160,7 @@ Configurazione di test:
  - Un circuito ExpressRoute Premium da 10 Gbps nella posizione identificata con Peering privato abilitato.
  - Una rete virtuale di Azure con un gateway UltraPerformance nella regione specificata.
  - Una macchina virtuale DS5v2 che esegue Windows Server 2016 sulla rete virtuale. La macchina virtuale non è stata aggiunta a un dominio ed è stata generata dall'immagine di Azure predefinita (nessuna ottimizzazione o personalizzazione) con AzureCT installato.
- - Tutti i test sono stati eseguiti usando il comando Get-LinkPerformance di AzureCT, con un test di carico di 5 minuti per ciascuna delle sei esecuzioni dei test. ad esempio:
+ - Tutti i test sono stati eseguiti usando il comando Get-LinkPerformance di AzureCT, con un test di carico di 5 minuti per ciascuna delle sei esecuzioni dei test. Ad esempio:
 
     ```powershell
     Get-LinkPerformance -RemoteHost 10.0.0.1 -TestSeconds 300
@@ -179,17 +179,17 @@ Configurazione di test:
 
 | | | | | | |
 |-|-|-|-|-|-|
-|ExpressRoute<br/>Località|Azure<br/>Area geografica|Distanza<br/>stimata (km)|Latency|1 Sessione<br/>Larghezza di banda|Massima<br/>Larghezza di banda|
+|ExpressRoute<br/>Location|Azure<br/>Region|Distanza<br/>stimata (km)|Latenza|1 Sessione<br/>Larghezza di banda|Massimo<br/>Larghezza di banda|
 | Seattle | Stati Uniti occidentali 2        |    191 km |   5 ms | 262,0 Mbit/sec |  3,74 Gbit/sec |
-| Seattle | Stati Uniti occidentali          |  1\.094 km |  18 ms |  82,3 Mbit/sec |  3,70 Gbit/sec |
-| Seattle | Stati Uniti centrali       |  2\.357 km |  40 ms |  38,8 Mbit/sec |  2,55 Gbit/sec |
-| Seattle | Stati Uniti centro-meridionali |  2\.877 km |  51 ms |  30,6 Mbit/sec |  2,49 Gbit/sec |
-| Seattle | Stati Uniti centro-settentrionali |  2\.792 km |  55 ms |  27,7 Mbit/sec |  2,19 Gbit/sec |
-| Seattle | Stati Uniti orientali 2        |  3\.769 km |  73 ms |  21,3 Mbit/sec |  1,79 Gbit/sec |
-| Seattle | Stati Uniti Orientali          |  3\.699 km |  74 ms |  21,1 Mbit/sec |  1,78 Gbit/sec |
-| Seattle | Giappone orientale       |  7\.705 km | 106 ms |  14,6 Mbit/sec |  1,22 Gbit/sec |
-| Seattle | Regno Unito meridionale         |  7\.708 km | 146 ms |  10,6 Mbit/sec |   896 Mbit/sec |
-| Seattle | Europa occidentale      |  7\.834 km | 153 ms |  10,2 Mbit/sec |   761 Mbit/sec |
+| Seattle | Stati Uniti occidentali          |  1.094 km |  18 ms |  82,3 Mbit/sec |  3,70 Gbit/sec |
+| Seattle | Stati Uniti centrali       |  2.357 km |  40 ms |  38,8 Mbit/sec |  2,55 Gbit/sec |
+| Seattle | Stati Uniti centro-meridionali |  2.877 km |  51 ms |  30,6 Mbit/sec |  2,49 Gbit/sec |
+| Seattle | Stati Uniti centro-settentrionali |  2.792 km |  55 ms |  27,7 Mbit/sec |  2,19 Gbit/sec |
+| Seattle | Stati Uniti orientali 2        |  3.769 km |  73 ms |  21,3 Mbit/sec |  1,79 Gbit/sec |
+| Seattle | Stati Uniti orientali          |  3.699 km |  74 ms |  21,1 Mbit/sec |  1,78 Gbit/sec |
+| Seattle | Giappone orientale       |  7.705 km | 106 ms |  14,6 Mbit/sec |  1,22 Gbit/sec |
+| Seattle | Regno Unito meridionale         |  7.708 km | 146 ms |  10,6 Mbit/sec |   896 Mbit/sec |
+| Seattle | Europa occidentale      |  7.834 km | 153 ms |  10,2 Mbit/sec |   761 Mbit/sec |
 | Seattle | Australia orientale   | 12.484 km | 165 ms |   9,4 Mbit/sec |   794 Mbit/sec |
 | Seattle | Asia sud-orientale   | 12.989 km | 170 ms |   9,2 Mbit/sec |   756 Mbit/sec |
 | Seattle | Brasile meridionale *   | 10.930 km | 189 ms |   8,2 Mbit/sec |   699 Mbit/sec |
@@ -198,14 +198,14 @@ Configurazione di test:
 \* La latenza in Brasile è un buon esempio in cui la distanza in linea d'aria differisce notevolmente dalla distanza in fibra ottica. Mentre la latenza dovrebbe normalmente essere di circa 160 ms, è di 189 ms. Questa differenza rispetto alle mie aspettative potrebbe indicare un problema di rete da qualche parte, ma molto probabilmente la fibra ottica in Brasile non va in linea retta e percorre circa 1.000 km in più per arrivare da Seattle.
 
 ## <a name="next-steps"></a>Passaggi successivi
-1. Scaricare Azure Connectivity Toolkit da GitHub all' [https://aka.ms/AzCT][ACT]
-2. Seguire le istruzioni per il [test delle prestazioni di collegamento][Performance Doc]
+1. Scaricare il toolkit di connettività di Azure da GitHub all'indirizzo[https://aka.ms/AzCT][ACT]
+2. Seguire le istruzioni per il [test delle prestazioni dei collegamenti][Performance Doc]
 
 <!--Image References-->
-[1]: ./media/expressroute-troubleshooting-network-performance/network-components.png "Componenti di rete di Azure"
-[2]: ./media/expressroute-troubleshooting-network-performance/expressroute-troubleshooting.png "Risoluzione dei problemi di ExpressRoute"
-[3]: ./media/expressroute-troubleshooting-network-performance/test-diagram.png "Ambiente di test delle prestazioni"
-[4]: ./media/expressroute-troubleshooting-network-performance/powershell-output.png "Output di PowerShell"
+[1]: ./media/expressroute-troubleshooting-network-performance/network-components.png "Componenti di rete di AzureAzure Network Components"
+[2]: ./media/expressroute-troubleshooting-network-performance/expressroute-troubleshooting.png "Risoluzione dei problemi di ExpressRouteExpressRoute Troubleshooting"
+[3]: ./media/expressroute-troubleshooting-network-performance/test-diagram.png "Ambiente di test Perf"
+[4]: ./media/expressroute-troubleshooting-network-performance/powershell-output.png "Output di PowerShellPowerShell Output"
 
 <!--Link References-->
 [Performance Doc]: https://github.com/Azure/NetworkMonitoring/blob/master/AzureCT/PerformanceTesting.md

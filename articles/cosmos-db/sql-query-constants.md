@@ -1,21 +1,21 @@
 ---
-title: Costanti SQL in Azure Cosmos DB
-description: Informazioni sulla modalità di utilizzo delle costanti di query SQL in Azure Cosmos DB per rappresentare un valore di dati specifico
+title: SQL constants in Azure Cosmos DB
+description: Informazioni su come le costanti di query SQL in Azure Cosmos DB vengono utilizzate per rappresentare un valore di dati specificoLearn about how the SQL query constants in Azure Cosmos DB are used to represent a specific data value
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: tisande
 ms.openlocfilehash: cca62c358037dbe99fd16746ee081b1540161df2
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74873421"
 ---
-# <a name="azure-cosmos-db-sql-query-constants"></a>Azure Cosmos DB costanti di query SQL  
+# <a name="azure-cosmos-db-sql-query-constants"></a>Costanti di query SQL del database Cosmos di AzureAzure Cosmos DB SQL query constants  
 
- Una costante, nota anche come valore letterale o scalare, è un simbolo che rappresenta un valore di dati specifico. Il formato di una costante dipende dal tipo di dati del valore che rappresenta.  
+ Una costante, denominata anche valore letterale o scalare, è un simbolo che rappresenta un valore di dati specifico. Il formato di una costante dipende dal tipo di dati del valore che essa rappresenta.  
   
  **Tipi di dati scalari supportati:**  
   
@@ -24,12 +24,12 @@ ms.locfileid: "74873421"
 |**Undefined**|Singolo valore: **non definito**|  
 |**Null**|Singolo valore: **null**|  
 |**Boolean**|Valori: **false**, **true**.|  
-|**Number**|Un numero a virgola mobile e precisione doppia, standard IEEE 754.|  
+|**Numero**|Un numero a virgola mobile e precisione doppia, standard IEEE 754.|  
 |**Stringa**|Una sequenza di zero o più caratteri Unicode. Le stringhe devono essere racchiuse tra virgolette singole o doppie.|  
-|**Array**|Una sequenza di zero o più elementi. Ogni elemento può essere un valore di qualsiasi tipo di dati scalari, ad eccezione di **undefined**.|  
-|**Object**|Un set non ordinato di zero o più coppie nome/valore. Il nome è una stringa Unicode, il valore può essere di qualsiasi tipo di dati scalare, tranne **Undefined**.|  
+|**Array**|Una sequenza di zero o più elementi. Ogni elemento può essere un valore di qualsiasi tipo di dati scalare, ad eccezione di **Undefined**.|  
+|**Oggetto**|Un set non ordinato di zero o più coppie nome/valore. Il nome è una stringa Unicode, il valore può essere di qualsiasi tipo di dati scalare, tranne **Undefined**.|  
   
-## <a name="bk_syntax"></a>Sintassi
+## <a name="syntax"></a><a name="bk_syntax"></a>Sintassi
   
 ```sql  
 <constant> ::=  
@@ -59,7 +59,7 @@ ms.locfileid: "74873421"
   
 ```  
   
-##  <a name="bk_arguments"></a> Argomenti
+##  <a name="arguments"></a><a name="bk_arguments"></a>Argomenti
   
 * `<undefined_constant>; Undefined`  
   
@@ -119,4 +119,4 @@ ms.locfileid: "74873421"
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Esempi relativi a Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmos-dotnet-v3)
-- [Dati del documento modello](modeling-data.md)
+- [Modellare i dati del documento](modeling-data.md)

@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 056d0caf2bfc6e99d5d659a2561bc41844feb79a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "64918785"
 ---
 # <a name="plan-for-enhancing-data-security-through-a-strong-identity-solution"></a>Pianificare il potenziamento della sicurezza dei dati attraverso una soluzione d'identità avanzata
@@ -44,7 +44,7 @@ Nell'era della mobilità, la maggior parte delle aziende ha un obiettivo comune:
 Esistono tuttavia alcuni aspetti di sicurezza di cui è importante tenere sempre conto, indipendentemente dal settore operativo.
 
 ## <a name="data-protection-paths"></a>Percorsi di protezione dei dati
-![Percorsi di protezione dati](./media/plan-hybrid-identity-design-considerations/data-protection-paths.png)
+![percorsi di protezione dei dati](./media/plan-hybrid-identity-design-considerations/data-protection-paths.png)
 
 **Percorsi di protezione dei dati**
 

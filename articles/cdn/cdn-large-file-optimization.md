@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/01/2018
 ms.author: magattus
 ms.openlocfilehash: 4fe72985a799595908a0ff6bceb1a73dca823c8f
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67593776"
 ---
 # <a name="large-file-download-optimization-with-azure-cdn"></a>Ottimizzazione del download di file di grandi dimensioni mediante la rete CDN di Azure
@@ -110,8 +110,8 @@ L'ottimizzazione per file di grandi dimensioni usa tempi di scadenza della memor
 
 |    | Distribuzione Web generica | Ottimizzazione per file di grandi dimensioni 
 --- | --- | --- 
-Caching: Positive <br> HTTP 200, 203, 300, <br> 301, 302 e 410 | 7 giorni |1 giorno  
-Caching: Negative <br> HTTP 204, 305, 404, <br> e 405 | Nessuna | 1 secondo 
+Memorizzazione nella cache: positiva <br> HTTP 200, 203, 300, <br> 301, 302 e 410 | 7 giorni |1 giorno  
+Memorizzazione nella cache: negativa <br> HTTP 204, 305, 404, <br> e 405 | nessuno | 1 secondo 
 
 ### <a name="deal-with-origin-failure"></a>Gestire gli errori di origine
 
@@ -130,7 +130,7 @@ Dimensione minima dei file | 10 MB
 Dimensione massima dei file | 150 GB 
 Caratteristiche del server di origine | Deve supportare richieste di intervalli di byte 
 
-## <a name="additional-considerations"></a>Ulteriori considerazioni
+## <a name="additional-considerations"></a>Altre considerazioni
 
 Per questo tipo di ottimizzazione, tenere presenti gli aspetti aggiuntivi seguenti:
 

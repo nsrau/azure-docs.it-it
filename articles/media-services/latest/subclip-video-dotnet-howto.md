@@ -1,6 +1,6 @@
 ---
-title: Un video di sottoclip durante la codifica con servizi multimediali di Azure
-description: In questo argomento viene descritto come un video di sottoclip durante la codifica con servizi multimediali di Azure con .NET SDK
+title: Clip secondario di un video durante la codifica con Servizi multimediali di AzureSubclip a video when encoding with Azure Media Services
+description: Questo argomento descrive come ritagliare un video in un video durante la codifica con Servizi multimediali di Azure usando .NET SDK
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,25 +14,25 @@ ms.topic: article
 ms.date: 06/09/2019
 ms.author: juliako
 ms.openlocfilehash: 3d584ee742aa93cdecf4b04d942afb2ed83a7357
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67305164"
 ---
-# <a name="subclip-a-video-when-encoding-with-media-services---net"></a>Un video di sottoclip durante la codifica con servizi multimediali - .NET
+# <a name="subclip-a-video-when-encoding-with-media-services---net"></a>Clip secondario di un video durante la codifica con Servizi multimediali - .NET
 
-È possibile tagliare o un video di sottoclip durante la codifica tramite un [processo](https://docs.microsoft.com/rest/api/media/jobs). Questa funzionalità funziona con qualsiasi [trasformare](https://docs.microsoft.com/rest/api/media/transforms) che viene compilato usando il [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) predefiniti, o il [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) i set di impostazioni.
+Potete tagliare o ritagliare un video durante la codifica utilizzando un [lavoro.](https://docs.microsoft.com/rest/api/media/jobs) Questa funzionalità funziona con qualsiasi [trasformazione](https://docs.microsoft.com/rest/api/media/transforms) compilata utilizzando i predefiniti [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) o [StandardEncoderPreset.](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset)
 
-Il seguente C# esempio viene creato un processo che rimuove un video in un Asset, come invia un processo di codifica. 
+Nell'esempio in Cè riportato di seguito viene creato un processo che taglia un video in un asset durante l'invio di un processo di codifica. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per completare i passaggi descritti in questo argomento, è necessario:
 
 - [Creare un account Servizi multimediali di Azure](create-account-cli-how-to.md)
-- Creare una trasformazione e input e gli asset di output. È possibile vedere come creare una trasformazione e gli asset di input e outpui del [caricare, codificare e trasmettere in streaming video con .NET](stream-files-tutorial-with-api.md) esercitazione.
-- Rivedere le [concetto di codifica](encoding-concept.md) argomento.
+- Creare una trasformazione e un asset di input e output. È possibile vedere come creare una trasformazione e gli asset di input e output nel [caricare, codificare e riprodurre in streaming i video utilizzando .NET](stream-files-tutorial-with-api.md) esercitazione.
+- Esaminare l'argomento [Concetto di codifica.](encoding-concept.md)
 
 ## <a name="example"></a>Esempio
 
@@ -91,4 +91,4 @@ private static async Task<Job> JobWithBuiltInStandardEncoderWithSingleClipAsync(
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Come codificare con una trasformazione personalizzata](customize-encoder-presets-how-to.md) 
+[Come codificare con una trasformazione personalizzataHow to encode with a custom transform](customize-encoder-presets-how-to.md) 

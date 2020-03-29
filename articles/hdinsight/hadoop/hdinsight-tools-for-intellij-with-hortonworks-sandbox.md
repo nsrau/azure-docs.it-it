@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 05/16/2018
 ms.openlocfilehash: 65a15a8506b88e95e14af8c87bcbe33087301519
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75647833"
 ---
 # <a name="use-hdinsight-tools-for-intellij-with-hortonworks-sandbox"></a>Usare gli strumenti HDInsight per IntelliJ con Hortonworks Sandbox
@@ -32,7 +32,7 @@ Per eseguire le procedure descritte nell'articolo sono necessari gli elementi se
 
 - [Java Developer Kit (JDK) versione 1.8 o successiva](https://aka.ms/azure-jdks). Azure Toolkit for IntelliJ richiede il kit JDK.
 
-- [IntelliJ IDEA Community Edition](https://www.jetbrains.com/idea/download) con i plug-in [Scala](https://plugins.jetbrains.com/idea/plugin/1347-scala) e [Azure Toolkit for IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij). Gli strumenti HDInsight per IntelliJ sono disponibili come parte di Azure Toolkit for IntelliJ. 
+- [Edizione della community di IntelliJ IDEA](https://www.jetbrains.com/idea/download) con il plug-in [Scala](https://plugins.jetbrains.com/idea/plugin/1347-scala) e il plug-in [Azure Toolkit for IntelliJ.](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij) Gli strumenti HDInsight per IntelliJ sono disponibili come parte di Azure Toolkit for IntelliJ. 
 
 Per installare i plug-in:
 
@@ -49,15 +49,15 @@ In questa sezione verrà creato un progetto Scala di esempio usando IntelliJ IDE
 
 1. Aprire IntelliJ IDEA nel computer in uso. Nella finestra di dialogo **New Project** (Nuovo progetto) completare questi passaggi:
 
-   1. Selezionare **HDInsight** > **Spark on HDInsight (Scala)** (Spark in HDInsight - Scala).
+   1. Selezionare **HDInsight** > **Spark in HDInsight (Scala)**.
    2. Nell'elenco **Build tool** (Strumento di compilazione) selezionare uno degli strumenti seguenti, a seconda dello scenario:
 
-      * **Maven**: per ottenere supporto per la creazione guidata di un progetto Scala.
+      * **Maven**: Per il supporto della creazione guidata progetto Scala.Maven : For Scala project-creation wizard support.
       * **SBT**: per la gestione delle dipendenze e la compilazione per il progetto Scala.
 
-   ![IntelliJ creare un nuovo progetto scala](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project.png)
+   ![Intellij crea un nuovo progetto scala](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project.png)
 
-2. Selezionare **Avanti**.
+2. Fare clic su **Avanti**.
 3. Nella finestra di dialogo **New Project**(Nuovo progetto) successiva completare questi passaggi:
 
    1. Nella casella **Project name** (Nome progetto) immettere un nome per il progetto.
@@ -68,11 +68,11 @@ In questa sezione verrà creato un progetto Scala di esempio usando IntelliJ IDE
       ![Proprietà della creazione del progetto IntelliJ Scala](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project-properties.png)
 
 
-4. Selezionare **Fine**.
+4. Fare clic su **Fine**.
 5. Se la visualizzazione **Project** (Progetto) non è già aperta, premere **ALT+1** per aprirla.
 6. In **Project Explorer** (Esplora progetti) espandere il progetto e quindi selezionare **src**.
 7. Fare clic con il pulsante destro del mouse su **src**, scegliere **New** (Nuovo) e quindi fare clic su **Scala class** (Classe Scala).
-8. Nella casella **Name** (Nome) immettere un nome. Nella casella **Kind** (Tipo) selezionare **Object** (Oggetto). Quindi selezionare **OK**.
+8. Nella casella **Nome** immettere un nome. Nella casella **Kind** (Tipo) selezionare **Object** (Oggetto). Selezionare quindi **OK**.
 
     ![Finestra di dialogo Create New Scala Class (Crea nuova classe Scala)](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-new-scala-class.png)
 
@@ -124,7 +124,7 @@ Per eseguire il collegamento a un emulatore:
 1. Aprire il progetto in IntelliJ.
 2. Dal menu **View** (Visualizza) scegliere **Tool Windows** (Finestre degli strumenti) e quindi selezionare **Azure Explorer**.
 3. Espandere **Azure**, fare clic con il pulsante destro del mouse su **HDInsight** e quindi scegliere **Link an Emulator** (Collega un emulatore).
-4. Nella finestra di dialogo **Link A New Emulator** (Collega nuovo emulatore) immettere la password impostata per l'account radice di Hortonworks Sandbox. Immettere quindi valori simili a quelli usati nello screenshot seguente. Quindi selezionare **OK**. 
+4. Nella finestra di dialogo **Link A New Emulator** (Collega nuovo emulatore) immettere la password impostata per l'account radice di Hortonworks Sandbox. Immettere quindi valori simili a quelli usati nello screenshot seguente. Selezionare quindi **OK**. 
 
    ![Finestra Link a New Emulator (Collega nuovo emulatore)](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-link-an-emulator.png)
 
@@ -144,7 +144,7 @@ Per inviare un progetto a un emulatore:
     1. Nell'elenco a discesa **Spark cluster (Linux only)** (Cluster Spark - solo Linux) selezionare l'ambiente Hortonworks Sandbox locale.
     2. Nella casella **Main class name** (Nome classe principale) scegliere o immettere il nome della classe principale. Per questo articolo, il nome è **GroupByTest**.
 
-3. Selezionare **Submit** (Invia). I log di invio dei processi vengono visualizzati nella finestra degli strumenti di invio Spark.
+3. Selezionare **Submit**. I log di invio dei processi vengono visualizzati nella finestra degli strumenti di invio Spark.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

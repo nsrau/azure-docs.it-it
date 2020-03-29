@@ -16,10 +16,10 @@ ms.date: 09/11/2018
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b2b42880f99f3e87d75854166047896860f9eb14
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65784436"
 ---
 # <a name="problem-adding-an-azure-ad-gallery-application"></a>Errore durante l'aggiunta di un'applicazione della raccolta di Azure AD
@@ -40,7 +40,7 @@ Se si verifica un errore quando si fa clic sul pulsante **Aggiungi**, viene visu
 
 ## <a name="i-dont-know-how-to-set-up-my-application-once-ive-added-it"></a>Non si sa come configurare l'applicazione dopo averla aggiunta
 
-Se ti serve assistenza a conoscere le applicazioni, il [elenco di esercitazioni sulla procedura di integrazione delle App SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) articolo è un buon punto di partenza.
+Se hai bisogno di aiuto per conoscere le applicazioni, [l'elenco di esercitazioni su come integrare le app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) è un buon punto di partenza.
 
 Vedere anche la [raccolta di documenti sulle applicazioni di Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-apps-index) che include informazioni sull'accesso Single Sign-On con Azure AD e ne illustra il funzionamento.
 
@@ -48,7 +48,7 @@ Vedere anche la [raccolta di documenti sulle applicazioni di Azure AD](https://d
 
 È possibile visualizzare i dettagli di qualsiasi notifica del portale seguendo questa procedura:
 
-1.  Selezionare il **notifiche** icona (la campanella) nella parte superiore destra del portale di Azure
+1.  Selezionare l'icona Notifiche (la campana) in alto a destra nel portale di AzureSelect the **Notifications** icon (the bell) in the upper right of the Azure portal
 
 2.  Selezionare una notifica con stato **Errore** contrassegnata con un punto esclamativo (!) rosso.
 
@@ -61,7 +61,7 @@ Vedere anche la [raccolta di documenti sulle applicazioni di Azure AD](https://d
 
 5.  In caso sia ancora necessaria assistenza sul problema, è possibile condividere queste informazioni con un tecnico di supporto o con il gruppo del prodotto.
 
-6.  Fare clic sull'**icona** **Copia** a destra della casella di testo **Copia errore** per copiare tutti i dettagli della notifica da condividere con un tecnico del supporto o con il gruppo del prodotto.
+6.  Fare clic **sull'icona** di **copia** a destra della casella di testo **Copia errore** per copiare tutti i dettagli della notifica da condividere con un supporto o un tecnico del gruppo di prodotti.
 
 ## <a name="how-to-get-help-by-sending-notification-details-to-a-support-engineer"></a>Come ottenere assistenza inviando i dettagli di notifica a un tecnico del supporto
 
@@ -75,7 +75,7 @@ Vedere le descrizioni seguenti per altri dettagli sulle notifiche.
 
 - **Titolo**: il titolo descrittivo della notifica
 
-  * Esempio: **Impostazioni proxy di applicazione**
+  * Esempio: **impostazioni proxy dell'applicazione**
 
 - **Descrizione**: la descrizione di ciò che si è verificato a seguito dell'operazione
 
@@ -89,15 +89,15 @@ Vedere le descrizioni seguenti per altri dettagli sulle notifiche.
 
   -   Esempio: **302fd775-3329-4670-a9f3-bea37004f0bc**
 
-- **Timestamp (UTC)** : il timestamp in cui si è verificata la notifica, basato sul sistema UTC
+- **Timestamp (UTC)**: il timestamp in cui si è verificata la notifica, basato sul sistema UTC
 
   -   Esempio: **2017-03-23T19:50:43.7583681Z**
 
-- **ID transazione interna** : l'ID interno, è possibile usare per cercare l'errore nei sistemi
+- **ID transazione interno** – l'ID interno che possiamo utilizzare per cercare l'errore nei nostri sistemi
 
   -   Esempio: **71a2f329-ca29-402f-aa72-bc00a7aca603**
 
-- **UPN** : l'utente che ha eseguito l'operazione
+- **UPN **: l'utente che ha eseguito l'operazione
 
   -   Esempio – **tperkins\@f128.info**
 
@@ -113,11 +113,11 @@ Vedere le descrizioni seguenti per altri dettagli sulle notifiche.
 
 -   **Nome visualizzato**: **(può essere vuoto)** un nome visualizzato più dettagliato per l'errore
 
-    -   Esempio: **Impostazioni proxy di applicazione**
+    -   Esempio: **impostazioni proxy dell'applicazione**
 
 -   **Stato**: lo stato specifico della notifica
 
-    -   Esempio: **Operazione non riuscita**
+    -   Esempio – **Non riuscitoExample** – Failed
 
 -   **ID oggetto**: **(può essere vuoto)** ID dell'oggetto su cui è stata eseguita l'operazione
 
@@ -125,7 +125,7 @@ Vedere le descrizioni seguenti per altri dettagli sulle notifiche.
 
 -   **Dettagli**: la descrizione dettagliata di ciò che si è verificato come conseguenza dell'operazione
 
-    -   Esempio – **url interno `https://bing.com/` non è valido perché è già in uso**
+    -   Esempio: **l'URL `https://bing.com/` interno non è valido perché è già in uso**
 
 -   **Copia errore**: fare clic sull'**icona Copia** a destra della casella di testo **Copia errore** per copiare tutti i dettagli della notifica da condividere con un tecnico del supporto o del gruppo di 
 -   engineer

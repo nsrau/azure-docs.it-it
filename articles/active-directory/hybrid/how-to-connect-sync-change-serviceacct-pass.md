@@ -1,5 +1,5 @@
 ---
-title: "Servizio di sincronizzazione Azure AD Connect:  Modifica dell'account del servizio ADSync | Microsoft Docs"
+title: "Sincronizzazione di Azure AD Connect: modifica dell'account del servizio ADSync Documenti Microsoft"
 description: Questo argomento descrive la chiave di crittografia e come abbandonarla dopo la modifica della password.
 services: active-directory
 keywords: Account del servizio Azure AD Sync, password
@@ -18,20 +18,20 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 077671ab4e964d7641aa3a0f0b435b39117eb6aa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65139385"
 ---
-# <a name="changing-the-adsync-service-account-password"></a>Modifica la password dell'account del servizio ADSync
-Se si modifica la password dell'account del servizio ADSync, il servizio di sincronizzazione non sarà in grado di avviare correttamente finché non si hanno abbandonato la chiave di crittografia e reinizializzare la password dell'account del servizio ADSync. 
+# <a name="changing-the-adsync-service-account-password"></a>Modifica della password dell'account del servizio ADSync
+Se si modifica la password dell'account del servizio ADSync, il servizio di sincronizzazione non sarà in grado di avviarsi correttamente fino a quando non si è abbandonata la chiave di crittografia e reinizializzata la password dell'account del servizio ADSync. 
 
-Come parte dei servizi di sincronizzazione Azure AD Connect, Usa una chiave di crittografia per archiviare le password dell'account di dominio Active Directory di AD Connector e account del servizio ADSync.  Questi account vengono crittografati prima di essere archiviati nel database. 
+Azure AD Connect, come parte di Synchronization Services usa una chiave di crittografia per archiviare le password dell'account del connettore di Servizi di dominio Active Directory e dell'account del servizio ADSync.  Questi account vengono crittografati prima di essere archiviati nel database. 
 
-La chiave di crittografia usata viene protetta con [Windows Data Protection (DPAPI)](https://msdn.microsoft.com/library/ms995355.aspx). DPAPI protegge la chiave di crittografia usando il **account del servizio ADSync**. 
+La chiave di crittografia usata viene protetta con [Windows Data Protection (DPAPI)](https://msdn.microsoft.com/library/ms995355.aspx). DPAPI protegge la chiave di crittografia utilizzando l'account del **servizio ADSync.** 
 
-Se è necessario modificare la password dell'account del servizio è possibile usare le procedure descritte in [abbandono della chiave di crittografia account del servizio ADSync](#abandoning-the-adsync-service-account-encryption-key) per eseguire questa operazione.  Queste procedure devono essere usate anche se è necessario abbandonare la chiave di crittografia per qualsiasi altro motivo.
+Se è necessario modificare la password dell'account del servizio, è possibile utilizzare le procedure descritte in Abbandonare la chiave di [crittografia dell'account](#abandoning-the-adsync-service-account-encryption-key) del servizio ADSync per eseguire questa operazione.  Queste procedure devono essere usate anche se è necessario abbandonare la chiave di crittografia per qualsiasi altro motivo.
 
 ## <a name="issues-that-arise-from-changing-the-password"></a>Problemi derivati dalla modifica della password
 Quando si modifica la password dell'account del servizio, è necessario eseguire due operazioni.
@@ -39,18 +39,18 @@ Quando si modifica la password dell'account del servizio, è necessario eseguire
 Prima di tutto, è necessario modificare la password in Gestione controllo servizi di Windows.  Finché non si risolve questo problema, verranno visualizzati gli errori seguenti:
 
 
-- Se si prova ad avviare il servizio di sincronizzazione in Gestione controllo servizi di Windows, viene visualizzato l'errore "**Impossibile avviare il servizio Microsoft Azure AD Sync su computer locale**". **Errore 1069: Il servizio non è stato avviato a causa di un errore in fase di accesso**.
-- Nel Visualizzatore eventi di Windows il registro eventi di sistema contiene un errore con **ID evento 7038** e il messaggio **Il servizio ADSync non è stato in grado di accedere con la password al momento configurata, a causa del seguente errore: Password o nome utente errato**.
+- Se si prova ad avviare il servizio di sincronizzazione in Gestione controllo servizi di Windows, viene visualizzato l'errore "**Impossibile avviare il servizio Microsoft Azure AD Sync su computer locale**". **Errore 1069: Il servizio non è stato avviato a causa di un errore in fase di accesso**".
+- Nel Visualizzatore eventi di Windows il registro eventi di sistema contiene un errore con **ID evento 7038** e il messaggio "**Il servizio ADSync non è stato in grado di accedere con la password al momento configurata, a causa del seguente errore: Password o nome utente errato**".
 
 In secondo luogo, se in condizioni specifiche la password viene aggiornata, il servizio di sincronizzazione non può più recuperare la chiave di crittografia tramite DPAPI. Senza la chiave di crittografia, il servizio di sincronizzazione non può decrittografare le password necessarie per eseguire la sincronizzazione a/da Active Directory e Azure AD locali.
 Verranno visualizzati gli errori seguenti:
 
-- Se in Gestione controllo servizi di Windows si prova ad avviare il servizio di sincronizzazione e questo non riesce a recuperare la chiave di crittografia, viene restituito l'errore <strong>Impossibile avviare il servizio Microsoft Azure AD Sync su computer locale. Per maggiori informazioni, consultare il registro eventi di sistema. Se non si tratta di un servizio Microsoft, contattare il fornitore del servizio e fare riferimento al codice di errore -21451857952</strong>.
-- Nel Visualizzatore eventi di Windows, log eventi dell'applicazione contiene un errore con **ID evento 6028** e il messaggio di errore *"la chiave di crittografia del server non è accessibile."*
+- In Gestione controllo servizi di Windows, se si tenta di avviare il servizio di sincronizzazione e non è possibile recuperare la chiave di crittografia, non riesce con errore<strong>"Windows non è stato possibile avviare la sincronizzazione di Microsoft Azure AD nel computer locale. Per ulteriori informazioni, esaminare il registro eventi di sistema. Se si tratta di un servizio non Microsoft, contattare il fornitore del servizio e fare riferimento al codice di errore specifico del servizio -21451857952</strong>."
+- Nel Visualizzatore eventi di Windows, il registro eventi dell'applicazione contiene un errore con **ID evento 6028** e il messaggio di errore "Impossibile accedere alla chiave di *crittografia del server".*
 
-Per assicurarsi che non si ricevono questi errori, seguire le procedure descritte in [abbandono della chiave di crittografia account del servizio ADSync](#abandoning-the-adsync-service-account-encryption-key) quando si modifica la password.
+Per assicurarsi di non ricevere questi errori, seguire le procedure descritte in Abbandonare la chiave di [crittografia dell'account](#abandoning-the-adsync-service-account-encryption-key) del servizio ADSync quando si modifica la password.
  
-## <a name="abandoning-the-adsync-service-account-encryption-key"></a>Abbandono della chiave di crittografia account del servizio ADSync
+## <a name="abandoning-the-adsync-service-account-encryption-key"></a>Abbandono della chiave di crittografia dell'account del servizio ADSync
 >[!IMPORTANT]
 >Le procedure seguenti si applicano solo ad Azure AD Connect build 1.1.443.0 o precedenti.
 
@@ -64,7 +64,7 @@ Se è necessario abbandonare la chiave di crittografia, usare le procedure segue
 
 1. [Abbandonare la chiave di crittografia esistente](#abandon-the-existing-encryption-key)
 
-2. [Specificare la password dell'account del connettore di AD DS](#provide-the-password-of-the-ad-ds-connector-account)
+2. [Fornire la password dell'account del connettore di Servizi di dominio Active Directory](#provide-the-password-of-the-ad-ds-connector-account)
 
 3. [Reinizializzare la password dell'account del servizio ADSync](#reinitialize-the-password-of-the-adsync-service-account)
 
@@ -80,7 +80,7 @@ Innanzitutto è possibile arrestare il servizio in Gestione controllo servizi di
 #### <a name="abandon-the-existing-encryption-key"></a>Abbandonare la chiave di crittografia esistente
 Abbandonare la chiave di crittografia esistente per poterne creare una nuova:
 
-1. Accedere al Server Azure AD Connect come amministratore.
+1. Accedere al server Azure AD Connect come amministratore.
 
 2. Avviare una nuova sessione di PowerShell.
 
@@ -90,8 +90,8 @@ Abbandonare la chiave di crittografia esistente per poterne creare una nuova:
 
 ![Utilità per la chiave di crittografia del servizio di sincronizzazione Azure AD Connect](./media/how-to-connect-sync-change-serviceacct-pass/key5.png)
 
-#### <a name="provide-the-password-of-the-ad-ds-connector-account"></a>Specificare la password dell'account del connettore di AD DS
-Come le password esistenti archiviate all'interno del database non possono più essere decrittografate, è necessario fornire il servizio di sincronizzazione con la password dell'account del connettore di AD DS. Il servizio di sincronizzazione crittografa le password usando la nuova chiave di crittografia:
+#### <a name="provide-the-password-of-the-ad-ds-connector-account"></a>Fornire la password dell'account del connettore di Servizi di dominio Active Directory
+Poiché le password esistenti archiviate all'interno del database non possono più essere decrittografate, è necessario fornire al servizio di sincronizzazione la password dell'account del connettore di Servizi di dominio Active Directory. Il servizio di sincronizzazione crittografa le password usando la nuova chiave di crittografia:
 
 1. Avviare Synchronization Service Manager (START → Servizio di sincronizzazione).
 </br>![Synchronization Service Manager](./media/how-to-connect-sync-change-serviceacct-pass/startmenu.png)  
@@ -122,6 +122,6 @@ Ora che il servizio di sincronizzazione ha accesso alla chiave di crittografia e
 ## <a name="next-steps"></a>Passaggi successivi
 **Argomenti generali**
 
-* [Servizio di sincronizzazione Azure AD Connect: comprendere e personalizzare la sincronizzazione](how-to-connect-sync-whatis.md)
+* [Servizio di sincronizzazione Azure AD Connect: Comprendere e personalizzare la sincronizzazione](how-to-connect-sync-whatis.md)
 
 * [Integrazione delle identità locali con Azure Active Directory](whatis-hybrid-identity.md)

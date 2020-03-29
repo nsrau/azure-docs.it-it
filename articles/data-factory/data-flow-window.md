@@ -1,6 +1,6 @@
 ---
-title: Trasformazione della finestra flusso di dati mapping
-description: Trasformazione finestra flusso di dati mapping Azure Data Factory
+title: Mapping data flow Window Transformation
+description: Azure Data Factory mapping data flow Window Transformation
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
@@ -9,44 +9,44 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/30/2019
 ms.openlocfilehash: fa34def67d91332a00bf0ee92b365957a47f9616
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74931473"
 ---
-# <a name="azure-data-factory-window-transformation"></a>Trasformazione finestra Azure Data Factory
+# <a name="azure-data-factory-window-transformation"></a>Azure Data Factory Window Transformation
 
 
 
 La trasformazione Finestra è la posizione in cui verranno definite le aggregazioni basate su finestra delle colonne nei flussi di dati. Nel generatore di espressioni è possibile definire diversi tipi di aggregazioni basate su finestre di dati o temporali (clausola OVER SQL), ad esempio LEAD, LAG, NTILE, CUMEDIST, RANK e così via. Verrà generato un nuovo campo nell'output che include queste aggregazioni. È anche possibile includere campi di raggruppamento facoltativi.
 
-![Opzioni finestra](media/data-flow/windows1.png "Windows 1")
+![Opzioni finestra](media/data-flow/windows1.png "finestre 1")
 
 ## <a name="over"></a>Over (Selezione)
 Impostare il partizionamento dei dati di colonna per la trasformazione Finestra. L'equivalente SQL è ```Partition By``` nella clausola Over in SQL. Se si vuole creare un calcolo o un'espressione da usare per il partizionamento, è possibile passare il mouse sul nome della colonna e selezionare "computed column" (colonna calcolata).
 
-![Opzioni finestra](media/data-flow/windows4.png "Windows 4")
+![Opzioni finestra](media/data-flow/windows4.png "finestre 4")
 
 ## <a name="sort"></a>Ordina
 Un'altra parte della clausola Over è l'impostazione di ```Order By```. Questa parte imposterà l'ordinamento dei dati. È anche possibile creare un'espressione per calcolare un valore in questo campo della colonna per l'ordinamento.
 
-![Opzioni finestra](media/data-flow/windows5.png "Windows 5")
+![Opzioni finestra](media/data-flow/windows5.png "finestre 5")
 
 ## <a name="range-by"></a>Range By (Criteri intervallo)
 Impostare poi l'intervallo della finestra come Unbounded (Non vincolato) o Bounded (Vincolato). Per impostare un intervallo della finestra non vincolato, impostare il dispositivo di scorrimento su Unbounded (Non vincolato) su entrambe le estremità. Se si sceglie un'impostazione compresa tra Unbounded (Non vincolato) e Current Row (Riga corrente), è necessario impostare i valori di inizio e fine per Offset. Entrambi i valori saranno numeri interi positivi. È possibile usare numeri relativi o valori dai dati.
 
 Nel dispositivo di scorrimento della finestra è necessario impostare due valori: i valori prima della riga corrente e i valori dopo la riga corrente. L'offset di inizio e di fine corrisponde ai due selettori nel dispositivo di scorrimento.
 
-![Opzioni finestra](media/data-flow/windows6.png "Windows 6")
+![Opzioni finestra](media/data-flow/windows6.png "finestre 6")
 
-## <a name="window-columns"></a>Colonne finestra
+## <a name="window-columns"></a>Colonne della finestra
 Infine, usare il generatore di espressioni per definire le aggregazioni da usare con le finestre di dati, come RANK, COUNT, MIN, MAX, DENSE RANK, LEAD, LAG e così via.
 
-![Opzioni finestra](media/data-flow/windows7.png "Windows 7")
+![Opzioni finestra](media/data-flow/windows7.png "finestre 7")
 
 L'elenco completo delle funzioni di aggregazione e analisi disponibili per l'uso nel linguaggio per le espressioni per i flussi di dati di Azure Data Factory tramite il generatore di espressioni è disponibile qui: https://aka.ms/dataflowexpressions.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se si sta cercando una semplice aggregazione Group-by, utilizzare la [trasformazione aggregazione](data-flow-aggregate.md)
+Se si sta cercando una semplice aggregazione group-by, utilizzare la [trasformazione Aggregazione](data-flow-aggregate.md)

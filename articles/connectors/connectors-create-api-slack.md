@@ -1,5 +1,5 @@
 ---
-title: Connettersi a slack da app per la logica di Azure
+title: Connettersi a Slack da App per la logica di AzureConnect to Slack from Azure Logic Apps
 description: Automatizzare attività e flussi di lavoro che monitorano i file e gestire canali, gruppi e i messaggi nell'account di Slack tramite le App per la logica di Azure
 services: logic-apps
 ms.suite: integration
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/25/2018
 tags: connectors
 ms.openlocfilehash: 5f61009ee7b43be618e37acb4a783a54dbf11e55
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74789172"
 ---
 # <a name="monitor-and-manage-slack-with-azure-logic-apps"></a>Monitorare e gestire Slack con App per la logica di Azure
@@ -23,7 +23,7 @@ Con App per la logica di Azure e il connettore Slack, è possibile creare attivi
 * Pubblicare messaggi.
 * Creare gruppi e impostare su non disturbare.
 
-È possibile usare i trigger per ottenere risposte dall'account Slack e rendere l'output disponibile per altre azioni. È possibile usare azioni che eseguono attività con l'account Slack. È anche possibile che altre azioni usino l'output delle azioni di Slack. Ad esempio, quando viene creato un nuovo file, è possibile inviare messaggi di posta elettronica con il connettore Office 365 Outlook. Se non si ha familiarità con App per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md).
+È possibile usare i trigger per ottenere risposte dall'account Slack e rendere l'output disponibile per altre azioni. È possibile usare azioni che eseguono attività con l'account Slack. È anche possibile che altre azioni usino l'output delle azioni di Slack. Ad esempio, quando viene creato un nuovo file, è possibile inviare messaggi di posta elettronica con il connettore Office 365 Outlook. Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -33,7 +33,7 @@ Con App per la logica di Azure e il connettore Slack, è possibile creare attivi
 
   Le credenziali autorizzano l'app per la logica alla creazione di una connessione e all'accesso all'account Slack.
 
-* Conoscenza di base di [come creare le app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Informazioni di base sulla [creazione di app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 * L'app per la logica in cui si vuole accedere all'account Slack. Per iniziare con un trigger di Slack, [creare un'app per la logica vuota](../logic-apps/quickstart-create-first-logic-app-workflow.md). Per usare un'azione di Slack, avviare l'app per la logica con un trigger, ad esempio un trigger di Slack o un altro trigger, ad esempio trigger di **Recurrence**.
 
@@ -49,10 +49,10 @@ Con App per la logica di Azure e il connettore Slack, è possibile creare attivi
 
    Per le app per la logica esistenti, nell'ultimo passaggio in cui si vuole aggiungere un'azione, scegliere **Nuovo passaggio**. 
    Nella casella di ricerca immettere "slack" come filtro. 
-   Nell'elenco delle azioni scegliere l'azione desiderata.
+   Nell'elenco delle azioni selezionare l'azione desiderata.
 
    Per aggiungere un'azione tra i passaggi, spostare il puntatore del mouse sulla freccia tra i passaggi. 
-   Scegliere il segno più ( **+** ) visualizzato e quindi selezionare **Aggiungi un'azione**.
+   Scegliere il segno**+** più ( ) visualizzato e quindi selezionare **Aggiungi un'azione**.
 
 1. Se viene richiesto di accedere a Slack, accedere all'area di lavoro Slack personale. 
 
@@ -68,7 +68,7 @@ Con App per la logica di Azure e il connettore Slack, è possibile creare attivi
 
 Per informazioni tecniche su trigger, azioni e limiti, illustrati dalla descrizione OpenAPI (in precedenza Swagger) del connettore, esaminare la [pagina di riferimento](/connectors/slack/) del connettore.
 
-## <a name="get-support"></a>Ottenere supporto
+## <a name="get-support"></a>Supporto
 
 * In caso di domande, visitare il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Per votare o inviare idee relative alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica](https://aka.ms/logicapps-wish).

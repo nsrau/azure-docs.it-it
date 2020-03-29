@@ -17,10 +17,10 @@ ms.author: mimart
 ms.reviewr: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8fa8ea75cc7fda05326c802c25a91d025b66b5ce
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65784421"
 ---
 # <a name="how-applications-appear-on-the-access-panel"></a>Come vengono visualizzate le applicazioni nel pannello di accesso
@@ -46,7 +46,7 @@ Un utente potrebbe vedere un'applicazione nel proprio pannello di accesso perch�
 
 Per controllare se un utente è assegnato all'applicazione, seguire questa procedura:
 
-1. Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale**.
+1. Aprire il portale di [**Azure**](https://portal.azure.com/) e accedere come **amministratore globale.**
 
 2. Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 
@@ -68,13 +68,13 @@ Per controllare se un utente è assegnato all'applicazione, seguire questa proce
 
 Per controllare le licenze assegnate a un utente, seguire questa procedura:
 
-1. Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale**.
+1. Aprire il portale di [**Azure**](https://portal.azure.com/) e accedere come **amministratore globale.**
 
 2. Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 
 3. Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
 
-4. Fare clic su **Utenti e gruppi** nel menu di navigazione.
+4. fai clic su **Utenti e gruppi** nel menu di navigazione.
 
 5. Fare clic su **Tutti gli utenti**.
 
@@ -88,7 +88,7 @@ Per controllare le licenze assegnate a un utente, seguire questa procedura:
 
 Un utente può visualizzare un'applicazione nel pannello di accesso perché è membro di un gruppo assegnato all'applicazione. Di seguito sono elencate alcune procedure per verificare questa situazione:
 
--   [Controllare le appartenenze ai gruppi di un utente ](#check-a-users-group-memberships)
+-   [Controllare le appartenenze a gruppi dell'utente](#check-a-users-group-memberships)
 
 -   [Controllare se un utente è membro di un gruppo assegnato a una licenza](#check-if-a-user-is-a-member-of-a-group-assigned-to-a-license)
 
@@ -96,19 +96,19 @@ Un utente può visualizzare un'applicazione nel pannello di accesso perché è m
 
 Per controllare l'appartenenza a un gruppo, seguire questa procedura:
 
-1. Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale**.
+1. Aprire il portale di [**Azure**](https://portal.azure.com/) e accedere come **amministratore globale.**
 
 2. Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 
 3. Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
 
-4. Fare clic su **Utenti e gruppi** nel menu di navigazione.
+4. fai clic su **Utenti e gruppi** nel menu di navigazione.
 
 5. Fare clic su **Tutti gli utenti**.
 
-6. **Ricercare** l'utente per cui si vuole verificare la licenza e **fare clic sulla relativa riga** per selezionarlo.
+6. **Cercare** l'utente desiderato e **fare clic sulla riga corrispondente** per selezionarlo.
 
-7. Fare clic su **gruppi.**
+7. fare clic su **Gruppi.**
 
 8. Controllare se un utente è membro di un gruppo assegnato all'applicazione.
 
@@ -116,19 +116,19 @@ Per controllare l'appartenenza a un gruppo, seguire questa procedura:
 
 ### <a name="check-if-a-user-is-a-member-of-a-group-assigned-to-a-license"></a>Controllare se un utente è membro di un gruppo assegnato a una licenza
 
-1. Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale**.
+1. Aprire il portale di [**Azure**](https://portal.azure.com/) e accedere come **amministratore globale.**
 
 2. Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 
 3. Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
 
-4. Fare clic su **Utenti e gruppi** nel menu di navigazione.
+4. fai clic su **Utenti e gruppi** nel menu di navigazione.
 
 5. Fare clic su **Tutti gli utenti**.
 
-6. **Ricercare** l'utente per cui si vuole verificare la licenza e **fare clic sulla relativa riga** per selezionarlo.
+6. **Cercare** l'utente desiderato e **fare clic sulla riga corrispondente** per selezionarlo.
 
-7. Fare clic su **gruppi.**
+7. fare clic su **Gruppi.**
 
 8. Fare clic sulla riga di un gruppo specifico.
 

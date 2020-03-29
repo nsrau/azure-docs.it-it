@@ -1,5 +1,5 @@
 ---
-title: Autenticazione basata su certificati Android-Azure Active Directory
+title: Autenticazione basata su certificati Android - Azure Active Directory
 description: Informazioni sugli scenari supportati e i requisiti per configurare l'autenticazione basata su certificati nelle soluzioni con i dispositivi Android
 services: active-directory
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f9f38c160a72b6c414cdde7d29e4056a4068cdc6
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74848817"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-android"></a>Autenticazione basata su certificati di Azure Active Directory in Android
@@ -35,16 +35,16 @@ Questa funzionalità è disponibile in anteprima nei piani di Office 365 US Gove
 
 | App | Supporto |
 | --- | --- |
-| App Azure Information Protection |![Segno di spunta che significa supporto per questa applicazione][1] |
-| Portale aziendale Intune |![Segno di spunta che significa supporto per questa applicazione][1] |
-| Microsoft Teams |![Segno di spunta che significa supporto per questa applicazione][1] |
-| OneNote |![Segno di spunta che significa supporto per questa applicazione][1] |
-| OneDrive |![Segno di spunta che significa supporto per questa applicazione][1] |
-| Outlook |![Segno di spunta che significa supporto per questa applicazione][1] |
-| Power BI |![Segno di spunta che significa supporto per questa applicazione][1] |
-| Skype for Business |![Segno di spunta che significa supporto per questa applicazione][1] |
-| Word / Excel / PowerPoint |![Segno di spunta che significa supporto per questa applicazione][1] |
-| Yammer |![Segno di spunta che significa supporto per questa applicazione][1] |
+| App Azure Information Protection |![Segno di spunta che indica il supporto per questa applicazione][1] |
+| Portale aziendale Intune |![Segno di spunta che indica il supporto per questa applicazione][1] |
+| Microsoft Teams |![Segno di spunta che indica il supporto per questa applicazione][1] |
+| OneNote |![Segno di spunta che indica il supporto per questa applicazione][1] |
+| OneDrive |![Segno di spunta che indica il supporto per questa applicazione][1] |
+| Outlook |![Segno di spunta che indica il supporto per questa applicazione][1] |
+| Power BI |![Segno di spunta che indica il supporto per questa applicazione][1] |
+| Skype for Business Online |![Segno di spunta che indica il supporto per questa applicazione][1] |
+| Word / Excel / PowerPoint |![Segno di spunta che indica il supporto per questa applicazione][1] |
+| Yammer |![Segno di spunta che indica il supporto per questa applicazione][1] |
 
 ### <a name="implementation-requirements"></a>Requisiti di implementazione
 

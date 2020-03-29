@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/04/2016
 ms.author: sedusch
 ms.openlocfilehash: 9525f339861b5de8dc22da753f7c36dcc6eede8a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70078981"
 ---
 # <a name="using-sap-on-linux-virtual-machines-in-azure"></a>Uso di SAP su macchine virtuali Linux in Azure
@@ -30,11 +30,11 @@ Grazie alle macchine virtuali Microsoft Azure, Microsoft offre una piattaforma I
 [!INCLUDE [virtual-machines-common-classic-sap-get-started](../../../../includes/virtual-machines-common-classic-sap-get-started.md)]
 
 ## <a name="sap-netweaver-on-azure-suse-linux-virtual-machines"></a>SAP NetWeaver nelle macchine virtuali SUSE Linux di Azure
-Titolo: Test di SAP NetWeaver nelle VM SUSE Linux di Microsoft Azure
+Titolo: Test di SAP NetWeaver nelle macchine virtuali SUSE Linux di Microsoft Azure
 
-Riepilogo: In questo momento non è disponibile alcun supporto ufficiale di SAP per l'esecuzione di SAP NetWeaver in macchine virtuali Linux di Azure. Tuttavia, i clienti potrebbero richiedere di eseguire alcuni test o considerare di eseguire SAP dimostrativi o sistemi di formazione in macchine virtuali Linux di Azure fino a quando non è necessario contattare il supporto SAP. In questo articolo viene descritto come configurare le macchine virtuali SUSE Linux di Azure per l'esecuzione di SAP; inoltre, vengono forniti alcuni suggerimenti di base per evitare errori potenziali comuni.
+Riepilogo: attualmente, non è previsto alcun supporto ufficiale di SAP per l'esecuzione di SAP NetWeaver nelle macchine virtuali Linux di Azure. Tuttavia, i clienti potrebbero richiedere di eseguire alcuni test o considerare di eseguire SAP dimostrativi o sistemi di formazione in macchine virtuali Linux di Azure fino a quando non è necessario contattare il supporto SAP. In questo articolo viene descritto come configurare le macchine virtuali SUSE Linux di Azure per l'esecuzione di SAP; inoltre, vengono forniti alcuni suggerimenti di base per evitare errori potenziali comuni.
 
-Aggiornato: dicembre 2015
+Ultimo aggiornamento: dicembre 2015
 
 [Questo articolo è disponibile qui](suse-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

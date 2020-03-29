@@ -1,5 +1,5 @@
 ---
-title: Approfondimento sulla reimpostazione della password self-service-Azure Active Directory
+title: Approfondimento sulla reimpostazione della password self-service - Azure Active Directory
 description: Funzionamento della reimpostazione della password self-service
 services: active-directory
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5b19c80378aa40a7f791a3eb61130b013217ddee
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74848579"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Funzionamento: reimpostazione self-service della password di Azure AD
@@ -36,7 +36,7 @@ Leggere i passaggi seguenti per informazioni sulla logica alla base della pagina
 
 1. L'utente seleziona il collegamento **Problemi di accesso all'account?** o accede direttamente a [https://aka.ms/sspr](https://passwordreset.microsoftonline.com).
    * In base alle impostazioni locali del browser viene eseguito il rendering dell'esperienza nella lingua appropriata. L'esperienza di reimpostazione della password viene localizzata nelle stesse lingue supportate da Office 365.
-   * Per visualizzare il portale di reimpostazione della password localizzato in un'altra lingua, accodare"?mkt=" alla fine dell'URL di reimpostazione della password seguendo questo esempio di localizzazione verso lo spagnolo [https://passwordreset.microsoftonline.com/?mkt=es-us](https://passwordreset.microsoftonline.com/?mkt=es-us).
+   * Per visualizzare il portale di reimpostazione della password in una lingua localizzata diversa, aggiungere "?mkt" alla fine dell'URL di reimpostazione della password con l'esempio che segue la localizzazione in spagnolo [https://passwordreset.microsoftonline.com/?mkt=es-us](https://passwordreset.microsoftonline.com/?mkt=es-us).
 2. L'utente immette un ID utente e un captcha.
 3. Azure AD verifica se l'utente può usare questa funzionalità tramite le operazioni seguenti:
    * Verifica che questa funzionalità sia abilitata per l'utente e che all'utente sia assegnata una licenza Azure AD.
@@ -54,11 +54,11 @@ Leggere i passaggi seguenti per informazioni sulla logica alla base della pagina
 
 ## <a name="authentication-methods"></a>Metodi di autenticazione
 
-Se è abilitata la reimpostazione della password self-service, è necessario selezionare almeno una delle opzioni seguenti per i metodi di autenticazione. Queste opzioni sono a volte denominate "attività di controllo". È consigliabile **scegliere due o più metodi di autenticazione** in modo che gli utenti abbiano una maggiore flessibilità nel caso in cui non siano in grado di accedere a uno di questi in un dato momento. Altre informazioni sui metodi elencati di seguito sono disponibili nell'articolo informazioni sui [metodi di autenticazione](concept-authentication-methods.md).
+Se è abilitata la reimpostazione della password self-service, è necessario selezionare almeno una delle opzioni seguenti per i metodi di autenticazione. Queste opzioni sono a volte denominate "attività di controllo". È consigliabile **scegliere due o più metodi di autenticazione** in modo che gli utenti abbiano una maggiore flessibilità nel caso in cui non siano in grado di accedere a uno di questi in un dato momento. Ulteriori dettagli sui metodi elencati di seguito sono disponibili nell'articolo Che cosa sono i metodi di [autenticazione?](concept-authentication-methods.md).
 
 * Notifica dell'app per dispositivi mobili
 * Codice app per dispositivi mobili
-* Indirizzo di posta elettronica
+* Email
 * Cellulare
 * Telefono ufficio
 * Domande di sicurezza
@@ -66,12 +66,12 @@ Se è abilitata la reimpostazione della password self-service, è necessario sel
 Gli utenti possono reimpostare la password solo se sono presenti dati nei metodi di autenticazione abilitati dall'amministratore.
 
 > [!IMPORTANT]
-> A partire da marzo 2019, le opzioni per le telefonate non saranno disponibili per gli utenti di multi-factor authentication e SSPR in un tenant gratuito/di valutazione Azure AD. Questa modifica non ha alcun effetto sui messaggi SMS. La telefonata continuerà a essere disponibile per gli utenti in tenant Azure AD a pagamento. Questa modifica ha effetto solo sui tenant di Azure AD gratuiti/di valutazione.
+> A partire da marzo 2019 le opzioni di chiamata telefonica non saranno disponibili per gli utenti di MFA e SSPR nei tenant di Azure AD gratuiti/di valutazione. I messaggi SMS non sono interessati da questa modifica. La telefonata continuerà a essere disponibile per gli utenti nei tenant di Azure AD a pagamento. Questa modifica influisce solo sui tenant di Azure AD gratuiti/di valutazione.
 
 > [!WARNING]
 > Gli account assegnati i ruoli di amministratore di Azure verrà richiesto di utilizzare i metodi definiti nella sezione [Differenze dei criteri di reimpostazione degli amministratori](concept-sspr-policy.md#administrator-reset-policy-differences).
 
-![Selezione dei metodi di autenticazione nel portale di Azure][Authentication]
+![Selezione dei metodi di autenticazione nel portale di AzureAuthentication methods selection in the Azure portal][Authentication]
 
 ### <a name="number-of-authentication-methods-required"></a>Numero di metodi di autenticazione necessari
 
@@ -86,22 +86,22 @@ Se un utente non ha registrato il numero minimo di metodi richiesti, viene visua
 Quando si usa un'app per dispositivi mobili, ad esempio l'app Microsoft Authenticator, come un metodo per la reimpostazione della password, è necessario essere a conoscenza delle seguenti avvertenze:
 
 * Quando gli amministratori richiedono l'uso di un solo metodo per la reimpostazione di una password, il codice di verifica è l'unica opzione disponibile.
-* Quando gli amministratori richiedono l'uso di due metodi per la reimpostazione della password, gli utenti possono **usare** la notifica **OPPURE** il codice di verifica, oltre a qualsiasi altro metodo abilitato.
+* Quando gli amministratori richiedono l'uso di due metodi per la reimpostazione della password, gli utenti possono **usare **la notifica **OPPURE** il codice di verifica, oltre a qualsiasi altro metodo abilitato.
 
 | Numero di metodi da reimpostare | Uno | Due |
 | :---: | :---: | :---: |
 | Funzionalità disponibili delle app per dispositivi mobili | Codice | Codice o notifica |
 
-Gli utenti non hanno la possibilità di registrare l'app per dispositivi mobili durante la registrazione per la reimpostazione della password in modalità self-service da [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup). Gli utenti possono registrare l'app per dispositivi mobili al link in [https://aka.ms/mfasetup](https://aka.ms/mfasetup) o nella nuova anteprima di registrazione delle informazioni di sicurezza alla pagina [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo).
+Gli utenti non hanno la possibilità di registrare la propria [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup)app mobile durante la registrazione per la reimpostazione della password self-service da . Gli utenti possono registrare la propria app per dispositivi mobili all'indirizzo [https://aka.ms/mfasetup](https://aka.ms/mfasetup)o nella nuova anteprima di registrazione delle informazioni di sicurezza all'indirizzo [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo).
 
 > [!WARNING]
 > È necessario abilitare la [registrazione convergente per la reimpostazione password self-service e Azure Multi-Factor Authentication (anteprima pubblica)](concept-registration-mfa-sspr-converged.md) prima che gli utenti siano in grado di accedere alla nuova esperienza in [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo).
 
 > [!IMPORTANT]
-> Non è possibile selezionare l'app Authenticator come unico metodo di autenticazione durante la configurazione di un criterio a 1 Gate. Analogamente, non è possibile selezionare l'app Authenticator e un solo metodo aggiuntivo durante la configurazione di un criterio a 2 porte.
-> Quindi, quando si configurano i criteri di SSPR che includono l'app Authenticator come metodo, è necessario selezionare almeno un metodo aggiuntivo durante la configurazione di un criterio a 1 Gate ed è necessario selezionare almeno due metodi aggiuntivi durante la configurazione di un criterio a 2 porte.
-> Il motivo di questo requisito è dovuto al fatto che l'esperienza di registrazione SSPR corrente non include l'opzione per registrare l'app di autenticazione. L'opzione per registrare l'app Authenticator è inclusa nella nuova [registrazione convergente per la reimpostazione della password self-service e multi-factor authentication di Azure (anteprima pubblica)](concept-registration-mfa-sspr-converged.md).
-> Consentendo ai criteri che usano solo l'app Authenticator (per i criteri a 1 Gate) o l'app Authenticator e un solo metodo aggiuntivo (per i criteri a 2 Gate), potrebbe impedire agli utenti di registrarsi per SSPR fino a quando non sono stati configurati per l'uso del nuovo Esperienza di registrazione.
+> L'app di autenticazione non può essere selezionata come unico metodo di autenticazione durante la configurazione di un criterio a 1 gate. Analogamente, non è possibile selezionare l'app di autenticazione e un solo metodo aggiuntivo quando si configura un criterio a 2 gate.
+> Quindi, quando si configurano i criteri SSPR che includono l'app di autenticazione come metodo, è necessario selezionare almeno un metodo aggiuntivo durante la configurazione di un criterio a 1 gate e almeno due metodi aggiuntivi devono essere selezionati quando si configura un criterio a 2 gate.
+> Il motivo di questo requisito è perché l'esperienza di registrazione SSPR corrente non include l'opzione per registrare l'app di autenticazione. L'opzione per registrare l'app di autenticazione è inclusa nella nuova [registrazione convergente per la reimpostazione della password self-service e nell'autenticazione](concept-registration-mfa-sspr-converged.md)a più fattori di Azure (anteprima pubblica).
+> Consentire criteri che utilizzano solo l'app di autenticazione (per i criteri a 1 gate) o l'app di autenticazione e un solo metodo aggiuntivo (per i criteri a 2 gate) potrebbe impedire agli utenti di registrarsi per SSPR fino a quando non sono stati configurati per l'utilizzo del nuovo esperienza di registrazione.
 
 ### <a name="change-authentication-methods"></a>Modifica dei metodi di autenticazione
 
@@ -132,7 +132,7 @@ L'abilitazione di questa opzione richiede che un utente completi la registrazion
 * Applicazioni federate
 * Applicazioni personalizzate che usano Azure AD
 
-Quando la richiesta di registrazione è disabilitata, gli utenti possono eseguire la registrazione manualmente. È possibile visitare [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup) oppure selezionare il collegamento **Registrazione per reimpostazione password** nella scheda **Profilo** nel pannello di accesso.
+Quando la richiesta di registrazione è disabilitata, gli utenti possono eseguire la registrazione manualmente. Possono visitare [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup) o selezionare il link **Registra per la reimpostazione della password** nella scheda **Profilo** del Pannello di accesso.
 
 > [!NOTE]
 > Gli utenti possono chiudere il portale per la registrazione della reimpostazione della password selezionando **Annulla** o chiudendo la finestra. Ogni volta che gli utenti eseguono l'accesso verrà tuttavia visualizzata una richiesta di registrazione finché non viene completato il processo di registrazione.
@@ -184,7 +184,7 @@ Questo controllo determina se il writeback delle password è abilitato per la di
 Questo controllo stabilisce se gli utenti che visitano il portale per la reimpostazione della password devono avere la possibilità di sbloccare il proprio account di Active Directory locale senza reimpostare la password. Per impostazione predefinita, Azure AD sblocca gli account quando esegue la reimpostazione di una password. Usare questa impostazione per distinguere queste due operazioni.
 
 * Se impostata su **Sì**, agli utenti viene offerta la possibilità di scegliere se reimpostare la password e sbloccare l'account o se sbloccare l'account senza reimpostare la password.
-* Se impostata su **No**, gli utenti potranno eseguire le operazioni di reimpostazione della password e di sblocco dell'account solo in abbinamento.
+* Se impostato su **No**, gli utenti saranno in grado di eseguire solo una combinazione di reimpostazione della password e di un'operazione di sblocco dell'account.
 
 ### <a name="on-premises-active-directory-password-filters"></a>Filtri della password di Active Directory locali
 
@@ -209,15 +209,15 @@ Gli articoli seguenti forniscono altre informazioni sull'uso della reimpostazion
 
 * [Come completare l'implementazione della reimpostazione della password self-service per gli utenti](howto-sspr-deployment.md)
 * [Reimpostare o modificare la password](../user-help/active-directory-passwords-update-your-own-password.md)
-* [Registrarsi per la reimpostazione della password self-service](../user-help/active-directory-passwords-reset-register.md)
-* [Domande sulle licenze](concept-sspr-licensing.md)
+* [Registrati per la reimpostazione della password self-service](../user-help/active-directory-passwords-reset-register.md)
+* [Hai una domanda di licenza?](concept-sspr-licensing.md)
 * [Dati usati dalla reimpostazione della password self-service e dati da immettere per gli utenti](howto-sspr-authenticationdata.md)
 * [Metodi di autenticazione disponibili per gli utenti](concept-sspr-howitworks.md#authentication-methods)
 * [Opzioni dei criteri per la reimpostazione della password self-service](concept-sspr-policy.md)
 * [Panoramica del writeback delle password](howto-sspr-writeback.md)
 * [Come creare un report sull'attività relativa alla reimpostazione della password self-service](howto-sspr-reporting.md)
 * [Informazioni sulle opzioni della reimpostazione della password self-service](concept-sspr-howitworks.md)
-* [Credo che qualcosa sia rotto. Ricerca per categorie risolvere i problemi di SSPR?](active-directory-passwords-troubleshoot.md)
+* [Credo che qualcosa sia rotto. Come si risolvono i problemi relativi a SSPR?](active-directory-passwords-troubleshoot.md)
 * [Altre informazioni non illustrate altrove](active-directory-passwords-faq.md)
 
 [Authentication]: ./media/concept-sspr-howitworks/manage-authentication-methods-for-password-reset.png "Metodi di autenticazione di Azure AD disponibili e quantità necessaria"

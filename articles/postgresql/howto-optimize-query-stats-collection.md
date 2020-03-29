@@ -1,19 +1,19 @@
 ---
-title: Ottimizzare la raccolta delle statistiche di query-database di Azure per PostgreSQL-server singolo
-description: Questo articolo descrive come è possibile ottimizzare la raccolta delle statistiche di query in un database di Azure per PostgreSQL-server singolo
+title: Ottimizzare la raccolta delle statistiche delle query - Database di Azure per PostgreSQL - Singolo serverOptimize query stats collection - Azure Database for PostgreSQL - Single Server
+description: Questo articolo descrive come ottimizzare la raccolta di statistiche delle query in un database di Azure per PostgreSQL - Singolo server
 author: dianaputnam
 ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: f467f01118470eb51f7decf3bd6457917c566723
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74770170"
 ---
-# <a name="optimize-query-statistics-collection-on-an-azure-database-for-postgresql---single-server"></a>Ottimizzare la raccolta delle statistiche sulle query in un database di Azure per PostgreSQL-server singolo
+# <a name="optimize-query-statistics-collection-on-an-azure-database-for-postgresql---single-server"></a>Ottimizzare la raccolta di statistiche delle query in un database di Azure per PostgreSQL - Singolo serverOptimize query statistics collection on an Azure Database for PostgreSQL - Single Server
 Questo articolo descrive come ottimizzare la raccolta di statistiche query in un server di Database di Azure per PostgreSQL.
 
 ## <a name="use-pg_stats_statements"></a>Usare pg_stats_statements
@@ -37,6 +37,6 @@ La funzionalità [Query Store](concepts-query-store.md) di Database di Azure per
 ## <a name="next-steps"></a>Passaggi successivi
 È consigliabile impostare `pg_stat_statements.track = NONE` nel [portale di Azure](howto-configure-server-parameters-using-portal.md) o usare l'[interfaccia della riga di comando di Azure](howto-configure-server-parameters-using-cli.md).
 
-Per scoprire di più, vedi: 
-- [Scenari di utilizzo dell'archivio query](concepts-query-store-scenarios.md) 
+Per altre informazioni, vedere: 
+- [Scenari di utilizzo di Query Store](concepts-query-store-scenarios.md) 
 - [Procedure consigliate per Query Store](concepts-query-store-best-practices.md) 

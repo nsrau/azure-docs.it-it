@@ -1,6 +1,6 @@
 ---
-title: Gestire i dati duplicati in Azure Esplora dati
-description: In questo argomento vengono illustrati diversi approcci per gestire i dati duplicati quando si usa Azure Esplora dati.
+title: Gestire i dati duplicati in Azure Data Explorer
+description: Questo argomento illustra vari approcci per gestire i dati duplicati quando si usa Azure Data Explorer.This topic will show you various approaches to deal with duplicate data when using Azure Data Explorer.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
@@ -8,13 +8,13 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/19/2018
 ms.openlocfilehash: 60ec2b86e0205060f907f1fe39d084dca3aac1cd
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68608220"
 ---
-# <a name="handle-duplicate-data-in-azure-data-explorer"></a>Gestire i dati duplicati in Azure Esplora dati
+# <a name="handle-duplicate-data-in-azure-data-explorer"></a>Gestire i dati duplicati in Azure Data Explorer
 
 I dispositivi che inviano dati al cloud mantengono una cache locale dei dati. A seconda delle dimensioni dei dati, la cache locale potrebbe archiviare i dati per giorni o anche mesi. Si vogliono proteggere i database analitici dai dispositivi non funzionanti che inviano di nuovo i dati memorizzati nella cache e causano la duplicazione dei dati nel database analitico. Questo argomento descrive le procedure consigliate per la gestione dei dati duplicati per questi tipi di scenari.
 
@@ -41,13 +41,13 @@ _data
 
 ## <a name="solutions-for-handling-duplicate-data"></a>Soluzioni di gestione dei dati duplicati
 
-### <a name="solution-1-dont-remove-duplicate-data"></a>Soluzione n. 1: Non rimuovere i dati duplicati
+### <a name="solution-1-dont-remove-duplicate-data"></a>#1 soluzione: non rimuovere i dati duplicati
 
 È importante conoscere i requisiti aziendali e la tolleranza dei dati duplicati. Alcuni set di dati possono gestire una certa percentuale di dati duplicati. Se i dati duplicati non hanno un impatto significativo, è possibile ignorarne la presenza. Il vantaggio di non rimuovere i dati duplicati è che non vengono generati overhead aggiuntivi nel processo di inserimento o nelle prestazioni delle query.
 
-### <a name="solution-2-handle-duplicate-rows-during-query"></a>Soluzione n. 2: Gestire le righe duplicate durante la query
+### <a name="solution-2-handle-duplicate-rows-during-query"></a>Soluzione #2: gestire le righe duplicate durante la query
 
-È anche possibile filtrare le righe duplicate nei dati durante la query. La funzione di aggregazione [`arg_max()`](/azure/kusto/query/arg-max-aggfunction) può essere usata per filtrare i record duplicati e restituire l'ultimo record in base al timestamp (o a un'altra colonna). Il vantaggio dell'uso di questo metodo è un inserimento più rapido perché durante la fase di query si verifica la deduplicazione. Tutti i record (inclusi quelli duplicati) sono inoltre disponibili per il controllo e la risoluzione dei problemi. Lo svantaggio di usare la funzione `arg_max` è la maggior durata della query e il carico sulla CPU ogni volta che viene eseguita una query dei dati. A seconda della quantità dei dati sottoposti a query, questa soluzione potrebbe diventare non funzionale o utilizzare troppa memoria e sarà necessario passare ad altre opzioni.
+È anche possibile filtrare le righe duplicate nei dati durante la query. La [`arg_max()`](/azure/kusto/query/arg-max-aggfunction) funzione aggregata può essere utilizzata per filtrare i record duplicati e restituire l'ultimo record in base al timestamp (o a un'altra colonna). Il vantaggio dell'uso di questo metodo è un inserimento più rapido perché durante la fase di query si verifica la deduplicazione. Tutti i record (inclusi quelli duplicati) sono inoltre disponibili per il controllo e la risoluzione dei problemi. Lo svantaggio di usare la funzione `arg_max` è la maggior durata della query e il carico sulla CPU ogni volta che viene eseguita una query dei dati. A seconda della quantità dei dati sottoposti a query, questa soluzione potrebbe diventare non funzionale o utilizzare troppa memoria e sarà necessario passare ad altre opzioni.
 
 Nell'esempio seguente viene eseguita una query dell'ultimo record inserito per trovare un set di colonne che determinano i record univoci:
 
@@ -68,9 +68,9 @@ DeviceEventsAll
 }
 ```
 
-### <a name="solution-3-filter-duplicates-during-the-ingestion-process"></a>Soluzione n. 3: Filtrare i duplicati durante il processo di inserimento
+### <a name="solution-3-filter-duplicates-during-the-ingestion-process"></a>Soluzione #3: filtrare i duplicati durante il processo di inserimento
 
-Un'altra soluzione consiste nel filtrare i duplicati durante il processo di inserimento. Il sistema ignora i dati duplicati durante l'inserimento nelle tabelle di Kusto. I dati vengono inseriti in una tabella di staging e copiati in un'altra tabella dopo la rimozione delle righe duplicate. Il vantaggio di questa soluzione è che le prestazioni delle query migliorano notevolmente rispetto alla soluzione precedente. Gli svantaggi includono una maggiore quantità di tempo per l'inserimento e costi aggiuntivi per l'archiviazione dei dati. Ulteriore, questa soluzione funziona solo se le duplicazioni non vengono inserite simultaneamente. Se sono presenti più inserimenti simultanei contenenti record duplicati, è possibile che vengano inseriti tutti poiché il processo di deduplicazione non troverà record corrispondenti nella tabella.    
+Un'altra soluzione consiste nel filtrare i duplicati durante il processo di inserimento. Il sistema ignora i dati duplicati durante l'inserimento nelle tabelle di Kusto. I dati vengono inseriti in una tabella di staging e copiati in un'altra tabella dopo la rimozione delle righe duplicate. Il vantaggio di questa soluzione è che le prestazioni delle query migliorano notevolmente rispetto alla soluzione precedente. Gli svantaggi includono una maggiore quantità di tempo per l'inserimento e costi aggiuntivi per l'archiviazione dei dati. Inoltre, questa soluzione funziona solo se le duplicazioni non vengono neeste contemporaneamente. Se sono presenti più inserimenti simultanei contenenti record duplicati, è possibile che tutti vengano ingeriti poiché il processo di deduplicazione non troverà alcun record corrispondente esistente nella tabella.    
 
 L'esempio seguente illustra questo metodo:
 

@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 08/19/2019
 ms.author: genli
 ms.openlocfilehash: e45de5c12f0d93645a0b1253acf8300527cafdbc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75374642"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Risolvere i problemi relativi a una macchina virtuale Linux collegando il disco del sistema operativo a una macchina virtuale di ripristino nel portale di Azure
@@ -26,7 +26,7 @@ Se nella VM Linux viene rilevato un errore di avvio o del disco, potrebbe essere
 I passaggi per la risoluzione dei problemi sono i seguenti:
 
 1. Arrestare la VM interessata.
-1. Eseguire uno snapshot per il disco del sistema operativo della macchina virtuale.
+1. Creare uno snapshot per il disco del sistema operativo della macchina virtuale.
 1. Creare un disco rigido virtuale dallo snapshot.
 1. Collegare e montare il disco rigido virtuale in un'altra VM Windows per risolvere i problemi riscontrati.
 1. Connettersi alla macchina virtuale usata per la risoluzione dei problemi. Modificare i file o eseguire eventuali strumenti per risolvere i problemi nel disco rigido virtuale originale.
@@ -45,22 +45,22 @@ Nel portale, selezionare la macchina virtuale e quindi scorrere verso il basso f
 
 È anche possibile fare clic su **Schermata** nella parte superiore del log della diagnostica di avvio per scaricare una schermata della macchina virtuale.
 
-## <a name="take-a-snapshot-of-the-os-disk"></a>Eseguire uno snapshot del disco del sistema operativo
-Uno snapshot è una copia completa di sola lettura di un disco rigido virtuale. È consigliabile arrestare la macchina virtuale prima di creare uno snapshot per cancellare tutti i processi in corso. Per creare uno snapshot di un disco del sistema operativo, attenersi alla procedura seguente:
+## <a name="take-a-snapshot-of-the-os-disk"></a>Creare un'istantanea del disco del sistema operativo
+Uno snapshot è una copia completa di sola lettura di un disco rigido virtuale. È consigliabile arrestare correttamente la macchina virtuale prima di creare uno snapshot, per eliminare tutti i processi in corso. Per creare un'istantanea di un disco del sistema operativo, attenersi alla seguente procedura:
 
-1. Accedere al [portale di Azure](https://portal.azure.com). Selezionare **macchine virtuali** dalla barra laterale, quindi selezionare la macchina virtuale con problemi.
-1. Nel riquadro sinistro selezionare **dischi**e quindi selezionare il nome del disco del sistema operativo.
-    ![immagine sul nome del disco del sistema operativo](./media/troubleshoot-recovery-disks-portal-windows/select-osdisk.png)
-1. Nella pagina **Panoramica** del disco del sistema operativo, quindi selezionare **Crea snapshot**.
-1. Creare uno snapshot nella stessa posizione del disco del sistema operativo.
+1. Accedere al [portale di Azure](https://portal.azure.com). Selezionare **Macchine virtuali** nella barra laterale e quindi selezionare la macchina virtuale che presenta un problema.
+1. Nel riquadro sinistro selezionare **Dischi**, quindi selezionare il nome del disco del sistema operativo.
+    ![Immagine sul nome del disco del sistema operativo](./media/troubleshoot-recovery-disks-portal-windows/select-osdisk.png)
+1. Nella pagina **Panoramica** del disco del sistema operativo selezionare **Crea snapshot**.
+1. Creare uno snapshot nello stesso percorso del disco del sistema operativo.
 
 ## <a name="create-a-disk-from-the-snapshot"></a>Creare un disco dallo snapshot
-Per creare un disco dallo snapshot, attenersi alla procedura seguente:
+Per creare un disco dallo snapshot, attenersi alla seguente procedura:
 
-1. Selezionare **cloud Shell** dalla portale di Azure.
+1. Selezionare Cloud Shell dal portale di Azure.Select **Cloud Shell** from the Azure portal.
 
-    ![Immagine delle Cloud Shell aperte](./media/troubleshoot-recovery-disks-portal-windows/cloud-shell.png)
-1. Eseguire i comandi di PowerShell riportati di seguito per creare un disco gestito dallo snapshot. È necessario sostituire questi nomi di esempio con i nomi appropriati.
+    ![Immagine di Open Cloud Shell](./media/troubleshoot-recovery-disks-portal-windows/cloud-shell.png)
+1. Eseguire i comandi di PowerShell seguenti per creare un disco gestito dallo snapshot. È necessario sostituire questi nomi di esempio con i nomi appropriati.
 
     ```powershell
     #Provide the name of your resource group
@@ -90,17 +90,17 @@ Per creare un disco dallo snapshot, attenersi alla procedura seguente:
      
     New-AzDisk -Disk $diskConfig -ResourceGroupName $resourceGroupName -DiskName $diskName
     ```
-3. Se i comandi vengono eseguiti correttamente, il nuovo disco viene visualizzato nel gruppo di risorse specificato.
+3. Se i comandi vengono eseguiti correttamente, verrà visualizzato il nuovo disco nel gruppo di risorse fornito.
 
-## <a name="attach-disk-to-another-vm"></a>Connetti disco a un'altra macchina virtuale
-Nei passaggi successivi viene utilizzata un'altra macchina virtuale per la risoluzione dei problemi. Dopo aver collegato il disco alla macchina virtuale per la risoluzione dei problemi, è possibile esplorare e modificare il contenuto del disco. Questo processo consente di correggere eventuali errori di configurazione o di esaminare ulteriori file di registro di sistema o dell'applicazione. Per aggiungere il disco a un'altra macchina virtuale, seguire questa procedura:
+## <a name="attach-disk-to-another-vm"></a>Collegare il disco a un'altra macchina virtualeAttach disk to another VM
+Nei passaggi successivi viene utilizzata un'altra macchina virtuale per la risoluzione dei problemi. Dopo aver collegato il disco alla macchina virtuale di risoluzione dei problemi, è possibile sfogliare e modificare il contenuto del disco. Questo processo consente di correggere eventuali errori di configurazione o di esaminare ulteriori file di registro dell'applicazione o del sistema. Per collegare il disco a un'altra macchina virtuale, attenersi alla seguente procedura:
 
-1. Nel portale, selezionare il gruppo di risorse e quindi la macchina virtuale da usare per la risoluzione dei problemi. Selezionare **dischi**, selezionare **modifica**e quindi fare clic su **Aggiungi disco dati**:
+1. Nel portale, selezionare il gruppo di risorse e quindi la macchina virtuale da usare per la risoluzione dei problemi. Selezionare **Dischi**, **selezionare Modifica**e quindi fare clic su **Aggiungi disco dati**:
 
     ![Collegare un disco esistente nel portale](./media/troubleshoot-recovery-disks-portal-windows/attach-existing-disk.png)
 
-2. Nell'elenco **dischi dati** selezionare il disco del sistema operativo della macchina virtuale identificata. Se il disco del sistema operativo non viene visualizzato, assicurarsi che la risoluzione dei problemi della macchina virtuale e del disco del sistema operativo si trovi nella stessa area (località). 
-3. Selezionare **Save (Salva** ) per applicare le modifiche.
+2. Nell'elenco **Dischi dati** selezionare il disco del sistema operativo della macchina virtuale identificata. Se il disco del sistema operativo non viene visualizzato, assicurarsi che la risoluzione dei problemi relativi alla macchina virtuale e al disco del sistema operativo si trovi nella stessa area (posizione). 
+3. Selezionare **Salva** per applicare le modifiche.
 
 ## <a name="mount-the-attached-data-disk"></a>Montare il disco dati collegato
 
@@ -166,13 +166,13 @@ Dopo aver risolto gli errori, scollegare il disco rigido virtuale esistente dall
 
 ## <a name="swap-the-os-disk-for-the-vm"></a>Scambiare il disco del sistema operativo per la macchina virtuale
 
-Portale di Azure supporta ora la modifica del disco del sistema operativo della macchina virtuale. A questo scopo, seguire questa procedura:
+Il portale di Azure supporta ora la modifica del disco del sistema operativo della macchina virtuale. A questo scopo, seguire questa procedura:
 
-1. Accedere al [portale di Azure](https://portal.azure.com). Selezionare **macchine virtuali** dalla barra laterale, quindi selezionare la macchina virtuale con problemi.
-1. Nel riquadro sinistro selezionare **dischi**e quindi fare clic su **Scambia disco del sistema operativo**.
-        ![immagine sullo scambio del disco del sistema operativo in portale di Azure](./media/troubleshoot-recovery-disks-portal-windows/swap-os-ui.png)
+1. Accedere al [portale di Azure](https://portal.azure.com). Selezionare **Macchine virtuali** nella barra laterale e quindi selezionare la macchina virtuale che presenta un problema.
+1. Nel riquadro sinistro selezionare **Dischi**, quindi **Scambia disco del sistema operativo**.
+        ![Immagine su Scambia disco del sistema operativo nel portale di AzureThe image about Swap OS disk in Azure portal](./media/troubleshoot-recovery-disks-portal-windows/swap-os-ui.png)
 
-1. Scegliere il nuovo disco che è stato riparato, quindi digitare il nome della macchina virtuale per confermare la modifica. Se il disco non è visualizzato nell'elenco, attendere 10 ~ 15 minuti dopo lo scollegamento del disco dalla macchina virtuale per la risoluzione dei problemi. Assicurarsi inoltre che il disco si trovi nello stesso percorso della macchina virtuale.
+1. Scegliere il nuovo disco riparato e quindi digitare il nome della macchina virtuale per confermare la modifica. Se il disco non è presente nell'elenco, attendere 10 e 15 minuti dopo aver scollegato il disco dalla macchina virtuale per la risoluzione dei problemi. Assicurarsi inoltre che il disco si trova nello stesso percorso della macchina virtuale.
 1. Selezionare OK.
 
 ## <a name="next-steps"></a>Passaggi successivi

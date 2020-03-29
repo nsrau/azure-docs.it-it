@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 1d88af2c0739c30b2562bad7660015b890e8159c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60578223"
 ---
 # <a name="use-the-device-summary-in-storsimple-device-manager-service"></a>Usare il riepilogo del dispositivo nel servizio Gestione dispositivi StorSimple
@@ -78,9 +78,9 @@ L'area relativa alle informazioni di base riporta alcune proprietà importanti, 
 
      In questo grafico, è possibile visualizzare le metriche per l'archiviazione primaria totale (la quantità di dati scritti dall'host per il dispositivo) e l'archiviazione cloud totale utilizzata dal dispositivo in un periodo di tempo.
   
-     In questo contesto, *archiviazione primaria* fa riferimento alla quantità totale di dati scritti dall'host e può essere suddivisa in base al tipo di volume: *archiviazione primaria a livelli* include sia i dati archiviati in locale sia quelli archiviati a livelli nel cloud, mentre *archiviazione primaria aggiunta in locale* include solo i dati archiviati in locale. L’*Archiviazione cloud*d'altra parte, è una misura della quantità totale di dati archiviati nel cloud. Questo tipo di archiviazione include i backup e i dati a più livelli. I dati archiviati nel cloud sono deduplicati e compressi, mentre l'archiviazione primaria indica la quantità di spazio di archiviazione usato prima che i dati vengano deduplicati e compressi. (È possibile confrontare i due numeri per avere un'idea del tasso di compressione). Per entrambe le archiviazioni, primaria e cloud, gli importi mostrati si basano sulla frequenza di rilevamento configurata. Se, ad esempio, si sceglie una frequenza settimanale, il grafico mostrerà i dati per ogni giorno della settimana precedente.
+     In questo contesto, *archiviazione primaria* fa riferimento alla quantità totale di dati scritti dall'host e può essere suddivisa in base al tipo di volume: *archiviazione primaria a livelli* include sia i dati archiviati in locale sia quelli archiviati a livelli nel cloud, mentre *archiviazione primaria aggiunta in locale* include solo i dati archiviati in locale. *Archiviazione cloud* rappresenta invece una misura della quantità totale di dati archiviati nel cloud. Questo tipo di archiviazione include i backup e i dati a più livelli. I dati archiviati nel cloud sono deduplicati e compressi, mentre l'archiviazione primaria indica la quantità di spazio di archiviazione usato prima che i dati vengano deduplicati e compressi. (È possibile confrontare questi due numeri per avere un'idea della velocità di compressione.) Per l'archiviazione primaria e cloud, gli importi visualizzati si basano sulla frequenza di rilevamento configurata. Se, ad esempio, si sceglie una frequenza settimanale, il grafico mostrerà i dati per ogni giorno della settimana precedente.
 
-     Per visualizzare la quantità di archiviazione cloud usata nel corso del tempo, selezionare l'opzione **SPAZIO DI ARCHIVIAZIONE CLOUD UTILIZZATO**. Per visualizzare l'archiviazione totale scritta dall'host, selezionare le opzioni **PRIMARY TIERED STORAGE USED** (ARCHIVIAZIONE PRIMARIA A LIVELLI USATA) e **PRIMARY LOCALLY PINNED STORAGE USED** (ARCHIVIAZIONE PRIMARIA AGGIUNTA IN LOCALE USATA). 
+     Per visualizzare la quantità di spazio di archiviazione cloud usato nel corso del tempo, selezionare l'opzione **SPAZIO DI ARCHIVIAZIONE CLOUD UTILIZZATO**. Per visualizzare l'archiviazione totale scritta dall'host, selezionare le opzioni **PRIMARY TIERED STORAGE USED** (ARCHIVIAZIONE PRIMARIA A LIVELLI USATA) e **PRIMARY LOCALLY PINNED STORAGE USED** (ARCHIVIAZIONE PRIMARIA AGGIUNTA IN LOCALE USATA). 
      Per ulteriori informazioni, vedere [Utilizzare il servizio StorSimple Manager per monitorare il dispositivo StorSimple](storsimple-monitor-device.md).
 
 
@@ -95,5 +95,5 @@ L'area relativa alle informazioni di base riporta alcune proprietà importanti, 
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Altre informazioni sul [pannello di riepilogo del servizio StorSimple](storsimple-8000-service-dashboard.md).
-* Altre informazioni sull'[utilizzo del servizio Gestione dispositivi StorSimple per amministrare il dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
+* Altre informazioni sull'[uso del servizio Gestione dispositivi StorSimple per amministrare il dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
 

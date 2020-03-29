@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 3a955060eb5f19544860c1c97abe1577084bef24
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67985553"
 ---
 # <a name="connect-qlik-sense-to-azure-cosmos-db-and-visualize-your-data"></a>Connettere Qlik Sense ad Azure Cosmos DB e visualizzare i dati
@@ -76,7 +76,7 @@ Prima di seguire le istruzioni di questo articolo, verificare che le risorse seg
 
 Cosmos DB è un database distribuito senza schema con i driver modellati in base alle esigenze degli sviluppatori. Il driver ODBC richiede un database con schema da cui dedurre le colonne, i relativi tipi di dati e altre proprietà. La normale query SQL o la sintassi DML con funzionalità relazionali non è applicabile all'API SQL di Cosmos DB perché l'API SQL non è SQL ANSI. Per questo motivo le istruzioni SQL emesse tramite il driver ODBC vengono convertite in sintassi SQL specifica per Cosmos DB che non ha equivalenti per tutti i costrutti. Per evitare questi problemi di conversione, è necessario applicare uno schema quando si configura la connessione ODBC. L'articolo [eseguire la connessione con il driver ODBC](odbc-driver.md) offre suggerimenti e metodi che consentono di configurare lo schema. Assicurarsi di creare questo mapping per ogni raccolta o database all'interno dell'account Cosmos DB.
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
 Se si usa uno strumento di visualizzazione diverso, ad esempio Power BI, è possibile connettersi a esso usando le istruzioni nel documento seguente:
 

@@ -1,6 +1,6 @@
 ---
 title: Configurare l'ambiente di sviluppo di Servizi multimediali di Azure | Documentazione Microsoft
-description: Questo articolo descrive come configurare l'ambiente per lo sviluppo con servizi multimediali di Azure.
+description: Questo articolo descrive come configurare l'ambiente per lo sviluppo con Servizi multimediali di Azure.This article describes how to set up your environment for developing with Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: 5ef9b3d6f13de70cdf2fff87d9aed0a8efc2b782
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74895793"
 ---
 # <a name="set-up-your-media-services-development-environment"></a>Configurare l'ambiente di sviluppo di Servizi multimediali  
 
 > [!NOTE]
-> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [linee guida sulla migrazione da V2 a V3](../latest/migrate-from-v2-to-v3.md)
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Scopri la versione più recente, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche le linee guida per la [migrazione dalla v2 alla v3](../latest/migrate-from-v2-to-v3.md)
 
 I passaggi seguenti descrivono i prerequisiti richiesti per lo sviluppo con Servizi multimediali di Azure.
 
@@ -51,6 +51,6 @@ Gli esempi di codice sono disponibili nella raccolta di **Esempi di codice per A
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Invia commenti e suggerimenti
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

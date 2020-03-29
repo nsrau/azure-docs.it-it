@@ -16,13 +16,13 @@ ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: juliako
 ms.openlocfilehash: d2f4ddfbff791fbfeb2eb006a628c0fdeb4fdce1
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74975194"
 ---
-# <a name="hybrid-design-of-drm-subsystems"></a>Progettazione ibrida di sottosistemi DRM 
+# <a name="hybrid-design-of-drm-subsystems"></a>Progettazione ibrida dei sottosistemi DRM 
 
 Questo articolo spiega come usare Servizi multimediali di Azure per la progettazione ibrida di sottosistemi DRM.
 
@@ -93,15 +93,15 @@ La configurazione di criteri di distribuzione di un asset permette di controllar
 
 ## <a name="scenarios-and-samples"></a>Scenari ed esempi
 
-In base alle spiegazioni fornite nella sezione precedente, sono cinque gli scenari ibridi in cui vengono rispettivamente usate le combinazioni di configurazioni con **Chiave simmetrica**-**Criteri di distribuzione dell'asset** (gli esempi citati nell'ultima colonna seguono la tabella):
+In base alle spiegazioni della sezione precedente, i cinque scenari ibridi seguenti utilizzano le rispettive combinazioni di configurazione**dei criteri** di distribuzione degli asset **chiave**-contenuto (gli esempi citati nell'ultima colonna seguono la tabella):
 
 |**Hosting e origine del contenuto**|**Crittografia DRM**|**Distribuzione di licenze DRM**|**Configurare la chiave simmetrica**|**Configurare i criteri di distribuzione dell'asset**|**Esempio**|
 |---|---|---|---|---|---|
-|AMS|AMS|AMS|SÌ|SÌ|Esempio 1|
-|AMS|AMS|Terze parti|SÌ|SÌ|Esempio 2|
-|AMS|Terze parti|AMS|SÌ|No|Esempio 3|
+|AMS|AMS|AMS|Sì|Sì|Esempio 1|
+|AMS|AMS|Terze parti|Sì|Sì|Esempio 2|
+|AMS|Terze parti|AMS|Sì|No|Esempio 3|
 |AMS|Terze parti|Esterno|No|No|Esempio 4|
-|Terze parti|Terze parti|AMS|SÌ|No|    
+|Terze parti|Terze parti|AMS|Sì|No|    
 
 Negli esempi, la protezione PlayReady funziona sia per DASH che per Smooth Streaming. Gli URL del video mostrati di seguito sono URL Smooth Streaming. Per ottenere gli URL DASH corrispondenti, aggiungere semplicemente "(format=mpd-time-csf)". È possibile usare il [lettore multimediale di test di Azure](https://aka.ms/amtest) per effettuare il test nel browser. Consente di configurare il protocollo di streaming e specificare in quale tecnologia usarlo. Internet Explorer 11 e Microsoft Edge in Windows 10 supportano PlayReady tramite EME. Per altre informazioni, vedere i [dettagli sullo strumento di test](https://blogs.msdn.microsoft.com/playready4/2016/02/28/azure-media-test-tool/).
 
@@ -129,9 +129,9 @@ Negli esempi, la protezione PlayReady funziona sia per DASH che per Smooth Strea
 
 ## <a name="additional-notes"></a>Note aggiuntive
 
-* Widevine è un servizio fornito da Google Inc. e soggetto alle condizioni per l'utilizzo e all'informativa sulla privacy di Google, Inc.
+* Widevine è un servizio fornito da Google Inc. e soggetto alle condizioni per l'utilizzo e all'informativa sulla privacy di Google Inc.
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 In sintesi, i componenti DRM di Servizi multimediali di Azure sono flessibili ed è possibile usarli in uno scenario ibrido configurando correttamente la chiave simmetrica e i criteri di distribuzione della licenza, come descritto in questo articolo.
 
@@ -140,6 +140,6 @@ Visualizzare i percorsi di apprendimento di Servizi multimediali.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Invia commenti e suggerimenti
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

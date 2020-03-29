@@ -1,15 +1,15 @@
 ---
-title: Note Reliable Actors sulla serializzazione del tipo Actor
+title: Note affidabili di Actors sulla serializzazione del tipo di attore
 description: Illustra i requisiti di base per la definizione delle classi serializzabili che possono essere usate per definire le interfacce e lo stato di Service Fabric Reliable Actors.
 author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: 876c4f5f45ff6c81a53274cf32e8bebecc1acfce
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75349297"
 ---
 # <a name="notes-on-service-fabric-reliable-actors-type-serialization"></a>Note sulla serializzazione dei tipi di Service Fabric Reliable Actors
@@ -137,9 +137,9 @@ public class VoicemailBox implements Serializable
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Ciclo di vita degli attori e Garbage Collection](service-fabric-reliable-actors-lifecycle.md)
+* [Ciclo di vita dell'attore e Garbage CollectionActor lifecycle and garbage collection](service-fabric-reliable-actors-lifecycle.md)
 * [Timer e promemoria degli attori](service-fabric-reliable-actors-timers-reminders.md)
-* [Eventi relativi agli attori](service-fabric-reliable-actors-events.md)
-* [Rientranza di Reliable Actors](service-fabric-reliable-actors-reentrancy.md)
+* [Eventi attori](service-fabric-reliable-actors-events.md)
+* [Rientranza attore](service-fabric-reliable-actors-reentrancy.md)
 * [Polimorfismo dell'attore e modelli di progettazione orientati a oggetti](service-fabric-reliable-actors-polymorphism.md)
 * [Diagnostica e monitoraggio delle prestazioni per Reliable Actors](service-fabric-reliable-actors-diagnostics.md)

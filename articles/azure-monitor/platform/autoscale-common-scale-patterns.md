@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 05/07/2017
 ms.subservice: autoscale
 ms.openlocfilehash: a77cf1704c20abb77d432eab16569071208f6da8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75396103"
 ---
 # <a name="overview-of-common-autoscale-patterns"></a>Panoramica di modelli comuni di scalabilità automatica
@@ -18,7 +18,7 @@ La scalabilità automatica di Monitoraggio di Azure si applica solo a [set di sc
 
 ## <a name="lets-get-started"></a>Introduzione
 
-Questo articolo presuppone che l'utente abbia familiarità con la scalabilità automatica. È possibile [iniziare da qui per ridimensionare la risorsa][1]. Di seguito sono indicati alcuni modelli comuni di scalabilità.
+Questo articolo presuppone che l'utente abbia familiarità con la scalabilità automatica. È disponibile un'[introduzione alla scalabilità della risorsa][1]. Di seguito sono indicati alcuni modelli comuni di scalabilità.
 
 ## <a name="scale-based-on-cpu"></a>Scalabilità in base alla CPU
 
@@ -50,7 +50,7 @@ Questo articolo presuppone che l'utente abbia familiarità con la scalabilità a
 
 ## <a name="scale-based-on-custom-metric"></a>Scalabilità in base a metriche personalizzate
 
-Si dispone di un front-end Web e di un livello API che comunica con il back-end.
+Si dispone di un front-end Web e un livello API che comunica con il back-end.
 
 - Si vuole ridimensionare il livello API in base a eventi personalizzati nel front-end, ad esempio si vuole ridimensionare il processo di completamento della transazione in base al numero di articoli contenuti nel carrello acquisti.
 

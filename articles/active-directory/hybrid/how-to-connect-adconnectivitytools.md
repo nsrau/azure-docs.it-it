@@ -1,6 +1,6 @@
 ---
 title: 'Azure AD Connect: Informazioni sul modulo di PowerShell ADConnectivityTool | Microsoft Docs'
-description: Questo documento introduce il nuovo modulo di ADConnectivity PowerShell e come può essere usato per risolvere i problemi.
+description: Questo documento introduce il nuovo modulo di PowerShell ADConnectivity e come può essere usato per risolvere i problemi.
 services: active-directory
 author: billmath
 manager: daveba
@@ -12,17 +12,17 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cd5340cd8c802df4ffbe0207b5401d2fee4e207e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "64571123"
 ---
-# <a name="troubleshoot-azure-ad-connectivity-with-the-adconnectivitytool-powershell-module"></a>Risolvere i problemi di connettività di Azure Active Directory con il modulo ADConnectivityTool PowerShell
+# <a name="troubleshoot-azure-ad-connectivity-with-the-adconnectivitytool-powershell-module"></a>Risolvere i problemi di connettività di Azure AD con il modulo PowerShell di ADConnectivityToolTroubleshoot Azure AD connectivity with the ADConnectivityTool PowerShell module
 
 Lo strumento ADConnectivity è un modulo di PowerShell che viene usato in una delle situazioni seguenti:
 
-- Durante l'installazione quando un problema di connettività di rete impedisce la convalida ha esito positivo di Active Directory le credenziali utente fornite nella procedura guidata.
+- Durante l'installazione quando un problema di connettività di rete impedisce la corretta convalida delle credenziali di Active Directory fornite dall'utente nella procedura guidata.
 - Dopo l'installazione da parte di un utente che chiama le funzioni da una sessione di PowerShell.
 
 Lo strumento si trova in: **C:\Programmi\Microsoft Azure Active Directory Connect\Tools\ ADConnectivityTool.psm1** 
@@ -41,13 +41,13 @@ Nella pagina **Connessione delle directory** della procedura guidata di Azure AD
 Quando si verifica uno o più di questi problemi, nella procedura guidata di AADConnect viene visualizzato un messaggio di errore correlato:
 
 
-![Tipi di errore](media/how-to-connect-adconnectivitytools/error1.png)
+![Errore](media/how-to-connect-adconnectivitytools/error1.png)
 
 Quando ad esempio si prova ad aggiungere una directory nella schermata **Connessione delle directory**, Azure AD Connect deve verificarla e deve poter comunicare con un controller di dominio tramite la porta 389.  Se non riesce, viene visualizzato l'errore mostrato nello screenshot precedente.  
 
 Ciò che effettivamente accade in background è che Azure AD Connect chiama la funzione `Start-NetworkConnectivityDiagnosisTools`.  Questa funzione viene chiamata quando la convalida delle credenziali non riesce a causa di un problema di connettività di rete.
 
-Viene infine generato un file di log dettagliato ogni volta che lo strumento viene chiamato dalla procedura guidata. Il log si trova in **C:\ProgramData\AADConnect\ADConnectivityTool-\<data >-\<ora >. log**
+Viene infine generato un file di log dettagliato ogni volta che lo strumento viene chiamato dalla procedura guidata. Il registro si trova nella **>>\<cartella C:\<**
 
 ## <a name="adconnectivitytools-post-installation"></a>ADConnectivityTools dopo l'installazione
 Dopo l'installazione di Azure AD Connect, è possibile usare qualsiasi funzione del modulo di PowerShell ADConnectivityTools.  
@@ -73,8 +73,8 @@ Se l'utente esegue questa funzione dopo che un problema è stato risolto (o se n
 
 
 
-## <a name="next-steps"></a>Fasi successive
-- [Azure AD Connect: Account e autorizzazioni](reference-connect-accounts-permissions.md)
+## <a name="next-steps"></a>Passaggi successivi
+- [Azure AD Connect: account e autorizzazioni](reference-connect-accounts-permissions.md)
 - [Installazione rapida](how-to-connect-install-express.md)
 - [Installazione personalizzata](how-to-connect-install-custom.md)
 - [Informazioni di riferimento su ADConnectivityTools](reference-connect-adconnectivitytools.md)

@@ -1,6 +1,6 @@
 ---
-title: Gli errori di creazione di pacchetti e l'origine di Azure Media Services | Microsoft Docs
-description: Questo argomento descrive gli errori che potrebbero ricevere dal servizio di Azure Media Services Endpoint di Streaming (Orgin).
+title: Errori di creazione di pacchetti e di origine di Servizi multimediali di Azure Documenti Microsoft
+description: Questo argomento descrive gli errori che è possibile ricevere dal servizio Azure Media Services Streaming Endpoint (Orgin).
 author: Juliako
 manager: femila
 editor: ''
@@ -14,24 +14,24 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: juliako
 ms.openlocfilehash: ebcda6026f79bc88df91471d8be88316ba57bfc6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65411381"
 ---
-# <a name="streaming-endpoint-origin-errors"></a>Gli errori dell'Endpoint (origine) di streaming 
+# <a name="streaming-endpoint-origin-errors"></a>Errori dell'endpoint di streaming (origine)Streaming Endpoint (Origin) errors 
 
-In questo argomento descrive gli errori che potrebbero ricevere da servizi multimediali di Azure [servizio Endpoint di Streaming](streaming-endpoint-concept.md).
+In questo argomento vengono descritti gli errori che è possibile ricevere dal [servizio Endpoint](streaming-endpoint-concept.md)di flusso di Servizi multimediali di Azure.
 
 ## <a name="400-bad-request"></a>400 - Richiesta non valida
 
-La richiesta contiene informazioni non valide e viene rifiutata con questi codici di errore e a causa di uno dei motivi seguenti:
+La richiesta contiene informazioni non valide e viene rifiutata con questi codici di errore e per uno dei seguenti motivi:
 
 |Codice di errore|Valore esadecimale |Descrizione dell'errore|
 |---|---|---|
-|MPE_BAD_URL_SYNTAX |0x80890201|Un errore di sintassi o formato di URL. Gli esempi includono le richieste di un tipo non valido, un frammento non è valido o un track non è valido. |
-|MPE_ENC_ENCRYPTION_NOT_SPECIFIED_IN_URL |0x8088024C|La richiesta contiene tag crittografia nell'URL. Le richieste CMAF richiedono un tag di crittografia nell'URL. Gli altri protocolli che sono configurati con più di un tipo di crittografia richiedono anche il tag di crittografia per la risoluzione dell'ambiguità. |
+|MPE_BAD_URL_SYNTAX |0x80890201|Sintassi dell'URL o errore di formato. Gli esempi includono le richieste per un tipo non valido, un frammento non valido o una traccia non valida. |
+|MPE_ENC_ENCRYPTION_NOT_SPECIFIED_IN_URL |0x8088024C|La richiesta non ha tag di crittografia nell'URL. Le richieste CMAF richiedono un tag di crittografia nell'URL. Anche altri protocolli configurati con più di un tipo di crittografia richiedono il tag di crittografia per la disambiguazione. |
 |MPE_STORAGE_BAD_URL_SYNTAX |0x808900E9|La richiesta di archiviazione per soddisfare la richiesta non è riuscita con un errore di richiesta non valida. |
 
 ## <a name="403-forbidden"></a>403 - Accesso negato
@@ -40,134 +40,134 @@ La richiesta non è consentita per uno dei motivi seguenti:
 
 |Codice di errore|Valore esadecimale |Descrizione dell'errore|
 |---|---|---|
-|MPE_STORAGE_AUTHENTICATION_FAILED |0x808900EA|La richiesta di archiviazione per soddisfare la richiesta non è riuscita con errore di autenticazione. Questa situazione può verificarsi se sono stati ruotare le chiavi di archiviazione e il servizio non è riuscito sincronizzare le chiavi di archiviazione. <br/><br/>Contatta Azure supportano visitando [Guida e supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) nel portale di Azure.|
-|MPE_STORAGE_INSUFFICIENT_ACCOUNT_PERMISSIONS |0x808900EB |Errore di operazione di archiviazione, accesso non è riuscita a causa di sufficienti autorizzazioni dell'Account. |
-|MPE_STORAGE_ACCOUNT_IS_DISABLED |0x808900EC |La richiesta di archiviazione per soddisfare la richiesta non riuscita perché l'account di archiviazione è disabilitata. |
-|MPE_STORAGE_AUTHENTICATION_FAILURE |0x808900F3 |Errore di operazione di archiviazione, accesso non è riuscita a causa di errori generici. |
-|MPE_OUTPUT_FORMAT_BLOCKED |0x80890207 |Il formato di output è bloccato a causa della configurazione nel StreamingPolicy. |
-|MPE_ENC_ENCRYPTION_REQUIRED |0x8088021E |La crittografia è necessaria per il contenuto, criteri di distribuzione sono obbligatorio per il formato di output. |
-|MPE_ENC_ENCRYPTION_NOT_SET_IN_DELIVERY_POLICY |0x8088024D |Crittografia non è impostata nelle impostazioni di criteri di recapito. |
+|MPE_STORAGE_AUTHENTICATION_FAILED |0x808900EA|La richiesta di archiviazione per soddisfare la richiesta non è riuscita con un errore di autenticazione. Ciò può verificarsi se le chiavi di archiviazione sono state ruotate e il servizio non è stato in grado di sincronizzare le chiavi di archiviazione. <br/><br/>Contattare il supporto di Azure accedendo a Guida e supporto nel portale di Azure.Contact Azure support by going to [Help - support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.|
+|MPE_STORAGE_INSUFFICIENT_ACCOUNT_PERMISSIONS |0x808900EB |Errore di funzionamento di archiviazione, l'accesso non è riuscito a causa di autorizzazioni dell'account insufficienti. |
+|MPE_STORAGE_ACCOUNT_IS_DISABLED |0x808900EC |La richiesta di archiviazione per soddisfare la richiesta non è riuscita perché l'account di archiviazione è disabilitato. |
+|MPE_STORAGE_AUTHENTICATION_FAILURE |0x808900F3 |Errore dell'operazione di archiviazione, accesso non riuscito a causa di errori generici. |
+|MPE_OUTPUT_FORMAT_BLOCKED |0x80890207 |Il formato di output è bloccato a causa della configurazione in StreamingPolicy. |
+|MPE_ENC_ENCRYPTION_REQUIRED |0x8088021E |La crittografia è necessaria per il contenuto, i criteri di recapito sono necessari per il formato di output. |
+|MPE_ENC_ENCRYPTION_NOT_SET_IN_DELIVERY_POLICY |0x8088024D |La crittografia non è impostata nelle impostazioni dei criteri di recapito. |
 
 ## <a name="404-not-found"></a>404 - Non trovato
 
-L'operazione sta tentando di eseguire operazioni su una risorsa che non esiste più. Ad esempio, la risorsa potrebbe avere già stata eliminata.
+L'operazione tenta di agire su una risorsa che non esiste più. È ad esempio possibile che la risorsa sia già stata eliminata.
 
 |Codice di errore|Valore esadecimale |Descrizione dell'errore|
 |---|---|---|
 |MPE_EGRESS_TRACK_NOT_FOUND |0x80890209 |La traccia richiesta non è stata trovata. |
-|MPE_RESOURCE_NOT_FOUND |0x808901F9 |La risorsa richiesta non viene trovata. |
+|MPE_RESOURCE_NOT_FOUND |0x808901F9 |La risorsa richiesta non è stata trovata. |
 |MPE_UNAUTHORIZED |0x80890244 |L'accesso non è autorizzato. |
 |MPE_EGRESS_TIMESTAMP_NOT_FOUND |0x8089020A |Il timestamp richiesto non è stato trovato. |
-|MPE_EGRESS_FILTER_NOT_FOUND |0x8089020C |Il filtro manifesto dinamico richiesto non viene trovato. |
+|MPE_EGRESS_FILTER_NOT_FOUND |0x8089020C |Il filtro del manifesto dinamico richiesto non è stato trovato. |
 |MPE_FRAGMENT_BY_INDEX_NOT_FOUND |0x80890252 |L'indice del frammento richiesto non rientra nell'intervallo valido. |
-|MPE_LIVE_MEDIA_ENTRIES_NOT_FOUND |0x80890254 |Live multimediale non è possibile trovare le voci per ottenere il buffer moov. |
-|MPE_FRAGMENT_TIMESTAMP_NOT_FOUND |0x80890255 |Impossibile trovare il frammento nel momento richiesto per un determinato track.<br/><br/>Potrebbe essere che il frammento non è nell'archiviazione. Provare un altro livello della presentazione che potrebbe avere un frammento. |
-|MPE_MANIFEST_MEDIA_ENTRY_NOT_FOUND |0x80890256 |Impossibile trovare la voce di supporto per la velocità in bit richiesto nel manifesto. <br/><br/>Potrebbe essere che il lettore richiesto per una traccia video di un determinato a velocità in bit che non era nel manifesto.|
-|MPE_METADATA_NOT_FOUND |0x80890257 |Impossibile trovare alcuni metadati nel manifesto o non è stato trovato riassegnazione dall'archiviazione. |
-|MPE_STORAGE_RESOURCE_NOT_FOUND |0x808900ED |Errore di operazione di archiviazione, non sono state trovate risorse. |
+|MPE_LIVE_MEDIA_ENTRIES_NOT_FOUND |0x80890254 |Non è possibile trovare voci multimediali in tempo reale per ottenere il buffer di moov. |
+|MPE_FRAGMENT_TIMESTAMP_NOT_FOUND |0x80890255 |Impossibile trovare il frammento all'ora richiesta per una traccia specifica.<br/><br/>Potrebbe essere che il frammento non è in deposito. Provare un livello diverso della presentazione che potrebbe avere un frammento. |
+|MPE_MANIFEST_MEDIA_ENTRY_NOT_FOUND |0x80890256 |Impossibile trovare la voce multimediale per la velocità di bit richiesta nel manifesto. <br/><br/>Potrebbe essere che il giocatore ha chiesto una traccia video di un certo bitrate che non era nel manifesto.|
+|MPE_METADATA_NOT_FOUND |0x80890257 |Impossibile trovare determinati metadati nel manifesto o non è possibile trovare rebase dall'archivio. |
+|MPE_STORAGE_RESOURCE_NOT_FOUND |0x808900ED |Errore dell'operazione di archiviazione, risorsa non trovata. |
 
 ## <a name="409-conflict"></a>409 - Conflitto
 
-L'ID fornito per una risorsa in un `PUT` o `POST` operazione è stata usata da una risorsa esistente. Per risolvere questo problema, usare un ID diverso per la risorsa.
+L'ID fornito per `PUT` una `POST` risorsa in un'operazione o è stato preso da una risorsa esistente. Utilizzare un altro ID per la risorsa per risolvere il problema.
 
 |Codice di errore|Valore esadecimale |Descrizione dell'errore|
 |---|---|---|
-|MPE_STORAGE_CONFLICT  |0x808900EE  |Errore di operazione di archiviazione, errore di conflitto.  |
+|MPE_STORAGE_CONFLICT  |0x808900EEE  |Errore dell'operazione di archiviazione, errore di conflitto.  |
 
 ## <a name="410"></a>410
 
 |Codice di errore|Valore esadecimale |Descrizione dell'errore|
 |---|---|---|
-|MPE_FILTER_FORCE_END_LEFT_EDGE_CROSSED_DVR_WINDOW|0x80890263|Per lo streaming live, quando il filtro che ha impostato su true, l'inizio o fine timestamp forceEndTimestamp è all'esterno dell'intervallo DVR corrente.|
+|MPE_FILTER_FORCE_END_LEFT_EDGE_CROSSED_DVR_WINDOW|0x80890263|Per il live streaming, quando il filtro con forceEndTimestamp impostato su true, il timestamp iniziale o finale è esterno alla finestra DVR corrente.|
 
-## <a name="412-precondition-failure"></a>Errore 412-condizione preliminare
+## <a name="412-precondition-failure"></a>412 Precondition Failure
 
-L'operazione ha specificato un eTag diverso dalla versione disponibile nel server, vale a dire, un errore di concorrenza ottimistica. Ripetere la richiesta dopo aver letto la versione più recente della risorsa e aggiornare il valore eTag nella richiesta.
+L'operazione ha specificato un eTag diverso da quello disponibile nel server, ovvero un errore di concorrenza ottimistica. Riprovare la richiesta dopo aver letto la versione più recente della risorsa e aver aggiornato l'eTag sulla richiesta.
 
 |Codice di errore|Valore esadecimale |Descrizione dell'errore|
 |---|---|---|
 |MPE_FRAGMENT_NOT_READY |0x80890200 |Il frammento richiesto non è pronto.|
 |MPE_STORAGE_PRECONDITION_FAILED| 0x808900EF|Errore di operazione di archiviazione, un errore di precondizione.|
 
-## <a name="415-unsupported-media-type"></a>415 unsupported Media Type
+## <a name="415-unsupported-media-type"></a>415 Tipo di supporto non supportato
 
 Il formato di payload inviato dal client è in un formato non supportato.
 
 |Codice di errore|Valore esadecimale |Descrizione dell'errore|
 |---|---|---|
-|MPE_ENC_ALREADY_ENCRYPTED| 0x8088021F| Nel contenuto già crittografato non è consigliabile applicare la crittografia.|
+|MPE_ENC_ALREADY_ENCRYPTED| 0x8088021F| Non deve applicare la crittografia sul contenuto già crittografato.|
 |MPE_ENC_INVALID_INPUT_ENCRYPTION_FORMAT|0x8088021D |La crittografia non è valida per il formato di input.|
-|MPE_INVALID_ASSET_DELIVERY_POLICY_TYPE|0x8088021C| Tipo di criteri di recapito non è valido.|
-|MPE_ENC_MULTIPLE_SAME_DELIVERY_TYPE|0x8088024E |Le impostazioni originali può essere condiviso da più formati di output.|
-|MPE_FORMAT_NOT_SUPPORTED|0x80890205|Il tipo o formato multimediale non è supportata. Ad esempio, servizi multimediali non supporta conteggio a livello di qualità che è più di 64. Nel tag video FLV, servizi multimediali non supporta un fotogramma video con Service Pack più e più PPS.|
-|MPE_INPUT_FORMAT_NOT_SUPPORTED|0x80890218| Il formato di input dell'asset richiesto non è supportato. Servizi multimediali supporta (interattiva), Smooth MP4 (VoD) e formati di download progressivo.|
-|MPE_OUTPUT_FORMAT_NOT_SUPPORTED|0x8089020D|Il formato di output richiesto non è supportato. Servizi multimediali supporta Smooth, DASH (CSF, CMAF), HLS (v3, v4, CMAF) e la progressiva Scarica formati.|
-|MPE_ENCRYPTION_NOT_SUPPORTED|0x80890208|Rilevato tipo di crittografia non supportato.|
-|MPE_MEDIA_TYPE_NOT_SUPPORTED|0x8089020E|Il tipo di supporto richiesto non è supportato per il formato di output. I tipi supportati sono i video, audio o un sottotitolo "SUBT".|
-|MPE_MEDIA_ENCODING_NOT_SUPPORTED|0x8089020F|Supporto di asset di origine è stato codificato con un formato multimediale che non è compatibile con il formato di output.|
-|MPE_VIDEO_ENCODING_NOT_SUPPORTED|0x80890210|Asset di origine è stato codificato con un formato video non è compatibile con il formato di output. H.264, AVC, H.265 (HEVC, hev1 o hvc1) sono supportati.|
-|MPE_AUDIO_ENCODING_NOT_SUPPORTED|0x80890211|Asset di origine è stato codificato con un formato audio che non è compatibile con il formato di output. Formati audio supportati sono AAC, E-AC3 (DD +), Dolby DTS.|
-|MPE_SOURCE_PROTECTION_CONVERSION_NOT_SUPPORTED|0x80890212|Asset protetto di origine non può essere convertito nel formato di output.|
-|MPE_OUTPUT_PROTECTION_FORMAT_NOT_SUPPORTED|0x80890213|Il formato di protezione non è supportato per il formato di output.|
-|MPE_INPUT_PROTECTION_FORMAT_NOT_SUPPORTED|0x80890219|Il formato di protezione non è supportato per il formato di input.|
-|MPE_INVALID_VIDEO_NAL_UNIT|0x80890231|Non è valido video NAL unità, ad esempio, solo il primo NAL nell'esempio può essere un AUD.|
-|MPE_INVALID_NALU_SIZE|0x80890260|Dimensioni dell'unità NAL non valida.|
-|MPE_INVALID_NALU_LENGTH_FIELD|0x80890261|Valore lunghezza unit NAL non valido.|
-|MPE_FILTER_INVALID|0x80890236|Filtri manifesto dinamico non validi.|
-|MPE_FILTER_VERSION_INVALID|0x80890237|Versioni di filtro non valido o non è supportato.|
-|MPE_FILTER_TYPE_INVALID|0x80890238|Tipo di filtro non è valido.|
-|MPE_FILTER_RANGE_ATTRIBUTE_INVALID|0x80890239|Intervallo non valido viene specificato dal filtro.|
-|MPE_FILTER_TRACK_ATTRIBUTE_INVALID|0x8089023A|Attributo di traccia non valido specificato dal filtro.|
-|MPE_FILTER_PRESENTATION_WINDOW_INVALID|0x8089023B|La lunghezza della finestra di presentazione non valido viene specificato dal filtro.|
-|MPE_FILTER_LIVE_BACKOFF_INVALID|0x8089023C|Non valido in tempo reale Backoff specificato dal filtro.|
-|MPE_FILTER_MULTIPLE_SAME_TYPE_FILTERS|0x8089023D|È supportato un solo elemento absTimeInHNS nei filtri legacy.|
-|MPE_FILTER_REMOVED_ALL_STREAMS|0x8089023E|Non è affatto non flussi più dopo aver applicato i filtri.|
-|MPE_FILTER_LIVE_BACKOFF_OVER_DVRWINDOW|0x8089023F|Il backoff in tempo reale è oltre la finestra DVR.|
-|MPE_FILTER_LIVE_BACKOFF_OVER_PRESENTATION_WINDOW|0x80890262|Il backoff in tempo reale è maggiore della finestra di presentazione.|
-|MPE_FILTER_COMPOSITION_FILTER_COUNT_OVER_LIMIT|0x80890246|Superato i filtri predefiniti consentiti massimo dieci (10).|
-|MPE_FILTER_COMPOSITION_MULTIPLE_FIRST_QUALITY_OPERATOR_NOT_ALLOWED|0x80890248|Più primo operatore di qualità video non è consentito nei filtri richiesta combinato.|
-|MPE_FILTER_FIRST_QUALITY_ATTRIBUTE_INVALID|0x80890249|Il numero di prima qualità a velocità in bit attributi deve essere uno (1).|
-|MPE_HLS_SEGMENT_TOO_LARGE|0x80890243|Durata dei segmenti HLS deve essere inferiori a un terzo della finestra DVR e HLS il backoff.|
-|MPE_KEY_FRAME_INTERVAL_TOO_LARGE|0x808901FE|Durate di frammento che devono essere minore o uguale a circa 20 secondi, o i livelli di qualità di input non sono ora allineato.|
-|MPE_DTS_RESERVEDBOX_EXPECTED|0x80890105|Errore specifico del DTS, non è possibile trovare il ReservedBox quando devono presentare nel DTSSpecficBox durante la finestra di DTS di analisi.|
-|MPE_DTS_INVALID_CHANNEL_COUNT|0x80890106|Errore specifico di DTS, nessun canale trovato nel DTSSpecficBox durante l'analisi di DTS casella.|
-|MPE_DTS_SAMPLETYPE_MISMATCH|0x80890107|Errore specifico di DTS, mancata corrispondenza tra tipi di esempio nel DTSSpecficBox.|
-|MPE_DTS_MULTIASSET_DTSH_MISMATCH|0x80890108|Errore specifico del DTS, multi-asset è impostata ma mancata corrispondenza tra tipi di esempio DTSH.|
-|MPE_DTS_INVALID_CORESTREAM_SIZE|0x80890109|Errore specifico del DTS, dimensioni del flusso principale non sono valida.|
-|MPE_DTS_INVALID_SAMPLE_RESOLUTION|0x8089010A|Errore specifico del DTS, la risoluzione di esempio non è valida.|
-|MPE_DTS_INVALID_SUBSTREAM_INDEX|0x8089010B|Errore specifico del DTS, flusso secondario estensione per indice non valida.|
-|MPE_DTS_INVALID_BLOCK_NUM|0x8089010C|Errore specifico del DTS, numero di blocchi di flusso secondario non è valido.|
-|MPE_DTS_INVALID_SAMPLING_FREQUENCE|0x8089010D|Errore specifico del DTS, frequenza di campionamento non è valida.|
-|MPE_DTS_INVALID_REFCLOCKCODE|0x8089010E|Errore di DTS specifico, il codice di orologio riferimento nell'estensione flusso secondario non è valido.|
-|MPE_DTS_INVALID_SPEAKERS_REMAP|0x8089010F|Errore di DTS specifico, il numero di set di rimappatura dei relatori non è valido.|
+|MPE_INVALID_ASSET_DELIVERY_POLICY_TYPE|0x8088021C| Il tipo di criterio di recapito non è valido.|
+|MPE_ENC_MULTIPLE_SAME_DELIVERY_TYPE|0x8088024E |Le impostazioni originali potrebbero essere condivise da più formati di output.|
+|MPE_FORMAT_NOT_SUPPORTED|0x80890205|Il formato o il tipo di supporto non è supportato. Ad esempio, Servizi multimediali non supporta il numero di livelli di qualità superiore a 64. Nel tag video FLV, Servizi multimediali non supporta un fotogramma video con più SPS e più PPS.|
+|MPE_INPUT_FORMAT_NOT_SUPPORTED|0x80890218| Il formato di input dell'asset richiesto non è supportato. Media Services supporta i formati Smooth (live), MP4 (VoD) e Progressive.|
+|MPE_OUTPUT_FORMAT_NOT_SUPPORTED|0x8089020D|Il formato di output richiesto non è supportato. Servizi multimediali supporta i formati Smooth, DASH(CSF, CMAF), HLS (v3, v4, CMAF) e Progressive.|
+|MPE_ENCRYPTION_NOT_SUPPORTED|0x80890208|Tipo di crittografia non supportato rilevato.|
+|MPE_MEDIA_TYPE_NOT_SUPPORTED|0x8089020E|Il tipo di supporto richiesto non è supportato dal formato di output. I tipi supportati sono video, audio o sottotitolo "SUBT".|
+|MPE_MEDIA_ENCODING_NOT_SUPPORTED|0x8089020F|Il supporto dell'asset di origine è stato codificato con un formato multimediale non compatibile con il formato di output.|
+|MPE_VIDEO_ENCODING_NOT_SUPPORTED|0x80890210|L'asset sorgente è stato codificato con un formato video non compatibile con il formato di output. Sono supportati H.264, AVC, H.265 (HEVC, hev1 o hvc1).|
+|MPE_AUDIO_ENCODING_NOT_SUPPORTED|0x80890211|L'asset sorgente è stato codificato con un formato audio non compatibile con il formato di output. I formati audio supportati sono AAC, E-AC3 (DD) , Dolby DTS.|
+|MPE_SOURCE_PROTECTION_CONVERSION_NOT_SUPPORTED|0x80890212|L'asset protetto di origine non può essere convertito nel formato di output.|
+|MPE_OUTPUT_PROTECTION_FORMAT_NOT_SUPPORTED|0x80890213|Il formato di protezione non è supportato dal formato di output.|
+|MPE_INPUT_PROTECTION_FORMAT_NOT_SUPPORTED|0x80890219|Il formato di protezione non è supportato dal formato di input.|
+|MPE_INVALID_VIDEO_NAL_UNIT|0x80890231|Unità NAL video non valida, ad esempio, solo il primo NAL nel campione può essere un AUD.|
+|MPE_INVALID_NALU_SIZE|0x80890260|Dimensione unità NAL non valida.|
+|MPE_INVALID_NALU_LENGTH_FIELD|0x80890261|Valore di lunghezza dell'unità NAL non valido.|
+|MPE_FILTER_INVALID|0x80890236|Filtri di manifesto dinamici non validi.|
+|MPE_FILTER_VERSION_INVALID|0x80890237|Versioni di filtro non valide o non supportate.|
+|MPE_FILTER_TYPE_INVALID|0x80890238|Tipo di filtro non valido.|
+|MPE_FILTER_RANGE_ATTRIBUTE_INVALID|0x80890239|L'intervallo non valido è specificato dal filtro.|
+|MPE_FILTER_TRACK_ATTRIBUTE_INVALID|0x8089023A|Attributo track non valido specificato dal filtro.|
+|MPE_FILTER_PRESENTATION_WINDOW_INVALID|0x8089023B|La lunghezza della finestra di presentazione non valida viene specificata dal filtro.|
+|MPE_FILTER_LIVE_BACKOFF_INVALID|0x8089023C|Il valore in tempo reale non valido viene specificato dal filtro.|
+|MPE_FILTER_MULTIPLE_SAME_TYPE_FILTERS|0x8089023D|Nei filtri legacy è supportato un solo elemento absTimeInHNS.|
+|MPE_FILTER_REMOVED_ALL_STREAMS|0x8089023E|Non ci sono più flussi dopo l'applicazione dei filtri.|
+|MPE_FILTER_LIVE_BACKOFF_OVER_DVRWINDOW|0x8089023F|Il live back off è oltre la finestra DVR.|
+|MPE_FILTER_LIVE_BACKOFF_OVER_PRESENTATION_WINDOW|0x80890262|Il live back off è maggiore della finestra di presentazione.|
+|MPE_FILTER_COMPOSITION_FILTER_COUNT_OVER_LIMIT|0x80890246|Superato dieci (10) massimo consentito filtri predefiniti.|
+|MPE_FILTER_COMPOSITION_MULTIPLE_FIRST_QUALITY_OPERATOR_NOT_ALLOWED|0x80890248|Più operatori di qualità video non sono consentiti nei filtri di richiesta combinati.|
+|MPE_FILTER_FIRST_QUALITY_ATTRIBUTE_INVALID|0x80890249|Il numero di attributi bitrate di qualità di prima qualità deve essere uno (1).|
+|MPE_HLS_SEGMENT_TOO_LARGE|0x80890243|La durata del segmento HLS deve essere inferiore a un terzo della finestra DVR e HLS si distoglie.|
+|MPE_KEY_FRAME_INTERVAL_TOO_LARGE|0x808901FE|Le durate dei frammenti devono essere inferiori o uguali a circa 20 secondi oppure i livelli di qualità di input non sono allineati nel tempo.|
+|MPE_DTS_RESERVEDBOX_EXPECTED|0x80890105|Errore specifico DTS, impossibile trovare il ReservedBox quando deve essere presente nel DTSSpecficBox durante l'analisi della casella DTS.|
+|MPE_DTS_INVALID_CHANNEL_COUNT|0x80890106|Errore specifico dTS, nessun canale trovato nel DTSSpecficBox durante l'analisi della casella DTS.|
+|MPE_DTS_SAMPLETYPE_MISMATCH|0x80890107|Errore specifico di DTS, tipo di esempio non corrispondente nel DTSSpecficBox.|
+|MPE_DTS_MULTIASSET_DTSH_MISMATCH|0x80890108|Errore specifico DTS, multi-asset è impostato ma DTSH tipo di esempio non corrispondente.|
+|MPE_DTS_INVALID_CORESTREAM_SIZE|0x80890109|Errore specifico DTS, la dimensione del flusso principale non è valida.|
+|MPE_DTS_INVALID_SAMPLE_RESOLUTION|0x8089010A|Errore specifico dTS, risoluzione del campione non valida.|
+|MPE_DTS_INVALID_SUBSTREAM_INDEX|0x8089010B|Errore specifico DTS, l'indice di estensione del flusso secondario non è valido.|
+|MPE_DTS_INVALID_BLOCK_NUM|0x8089010C|Errore specifico DTS, il numero di blocco del flusso secondario non è valido.|
+|MPE_DTS_INVALID_SAMPLING_FREQUENCE|0x8089010D|Errore specifico dTS, frequenza di campionamento non valida.|
+|MPE_DTS_INVALID_REFCLOCKCODE|0x8089010E|DTS-specifica errore, il codice orologio di riferimento nell'estensione del flusso secondario non è valido.|
+|MPE_DTS_INVALID_SPEAKERS_REMAP|0x8089010F|DTS-specifica errore, il numero di altoparlanti remap impostato non è valido.|
 
-Per la crittografia articoli ed esempi, vedere:
+Per articoli ed esempi di crittografia, vedere:For encryption articles and examples, see:
 
-- [Concetto: protezione del contenuto](content-protection-overview.md)
-- [Concetto: Criteri di chiave del contenuto](content-key-policy-concept.md)
+- [Concetto: protezione dei contenuti](content-protection-overview.md)
+- [Concetto: Criteri chiave del contenuto](content-key-policy-concept.md)
 - [Concetto: Criteri di streaming](streaming-policy-concept.md)
-- [Esempio: proteggere con la crittografia AES](protect-with-aes128.md)
-- [Esempio: proteggere contenuti con DRM](protect-with-drm.md)
+- [Esempio: protezione con crittografia AES](protect-with-aes128.md)
+- [Esempio: protezione con DRM](protect-with-drm.md)
 
-Per materiale sussidiario di filtro, vedere:
+Per indicazioni sui filtri, vedere:For filter guidance, see:
 
-- [Concetto: grazie ai manifesti dinamici](filters-dynamic-manifest-overview.md)
-- [Concetto: i filtri](filters-concept.md)
-- [Esempio: creare filtri con le API REST](filters-dynamic-manifest-rest-howto.md)
+- [Concetto: manifesti dinamici](filters-dynamic-manifest-overview.md)
+- [Concetto: filtri](filters-concept.md)
+- [Esempio: creare filtri con LE API REST](filters-dynamic-manifest-rest-howto.md)
 - [Esempio: creare filtri con .NET](filters-dynamic-manifest-dotnet-howto.md)
 - [Esempio: creare filtri con CLI](filters-dynamic-manifest-cli-howto.md)
 
-Per articoli in tempo reale ed esempi, vedere:
+Per articoli ed esempi in tempo reale, vedere:
 
-- [Concetto: Panoramica di live streaming](live-streaming-overview.md)
-- [Concetto: Gli eventi in tempo reale e gli output in tempo reale](live-events-outputs-concept.md)
-- [: Esempio esercitazione di streaming in tempo reale](stream-live-tutorial-with-api.md)
+- [Concetto: panoramica del live streaming](live-streaming-overview.md)
+- [Concetto: eventi dal vivo e uscite dal vivo](live-events-outputs-concept.md)
+- [Esempio: esercitazione in live streaming](stream-live-tutorial-with-api.md)
 
-## <a name="416-range-not-satisfiable"></a>416 intervallo non Impossibile attenersi all'
+## <a name="416-range-not-satisfiable"></a>416 Gamma Non soddisfacente
 
 |Codice di errore|Valore esadecimale |Descrizione dell'errore|
 |---|---|---|
-|MPE_STORAGE_INVALID_RANGE|0x808900F1|Errore operazione di archiviazione, ha restituito l'errore http 416, intervallo non valido.|
+|MPE_STORAGE_INVALID_RANGE|0x808900F1|Errore dell'operazione di archiviazione, restituito errore http 416, intervallo non valido.|
 
 ## <a name="500-internal-server-error"></a>500 - Errore interno del server
 
@@ -175,12 +175,12 @@ Durante l'elaborazione della richiesta, in Servizi multimediali viene generato u
 
 |Codice di errore|Valore esadecimale |Descrizione dell'errore|
 |---|---|---|
-|MPE_STORAGE_SOCKET_TIMEOUT|0x808900F4|Ricevuto e tradotto da Winhttp codice di errore ERROR_WINHTTP_TIMEOUT (0x00002ee2).|
-|MPE_STORAGE_SOCKET_CONNECTION_ERROR|0x808900F5|Ricevuto e tradotto da Winhttp codice di errore ERROR_WINHTTP_CONNECTION_ERROR (0x00002efe).|
-|MPE_STORAGE_SOCKET_NAME_NOT_RESOLVED|0x808900F6|Ricevuto e tradotto da Winhttp codice di errore ERROR_WINHTTP_NAME_NOT_RESOLVED (0x00002ee7).|
-|MPE_STORAGE_INTERNAL_ERROR|0x808900E6|Errore di operazione di archiviazione, InternalError generale di uno degli errori HTTP 500.|
-|MPE_STORAGE_OPERATION_TIMED_OUT|0x808900E7|Errore di operazione di archiviazione, OperationTimedOut generale di uno degli errori HTTP 500.|
-|MPE_STORAGE_FAILURE|0x808900F2|Errore di operazione di archiviazione, gli altri errori HTTP 500 InternalError o OperationTimedOut.|
+|MPE_STORAGE_SOCKET_TIMEOUT|0x808900F4|Ricevuto e tradotto da Winhttp codice di errore di ERROR_WINHTTP_TIMEOUT (0x00002ee2).|
+|MPE_STORAGE_SOCKET_CONNECTION_ERROR|0x808900F5|Ricevuto e tradotto da Winhttp codice di errore di ERROR_WINHTTP_CONNECTION_ERROR (0x00002efe).|
+|MPE_STORAGE_SOCKET_NAME_NOT_RESOLVED|0x808900F6|Ricevuto e tradotto da Winhttp codice di errore di ERROR_WINHTTP_NAME_NOT_RESOLVED (0x00002ee7).|
+|MPE_STORAGE_INTERNAL_ERROR|0x808900E6|Errore dell'operazione di archiviazione, InternalError generale di uno degli errori HTTP 500.|
+|MPE_STORAGE_OPERATION_TIMED_OUT|0x808900E7|Errore dell'operazione di archiviazione, generale OperationTimedOut di uno degli errori HTTP 500.|
+|MPE_STORAGE_FAILURE|0x808900F2|Errore dell'operazione di archiviazione, altri errori HTTP 500 oltre a InternalError o OperationTimedOut.|
 
 ## <a name="503-service-unavailable"></a>503 - Servizio non disponibile
 
@@ -192,7 +192,7 @@ Il server non è attualmente in grado di ricevere richieste. Questo errore può 
 
 |Codice di errore|Valore esadecimale |Descrizione dell'errore|
 |---|---|---|
-|MPE_STORAGE_SERVER_BUSY|0x808900E8|Errore di operazione di archiviazione, ha ricevuto l'errore sulla disponibilità del server HTTP 503.|
+|MPE_STORAGE_SERVER_BUSY|0x808900E8|Errore dell'operazione di archiviazione, ricevuto l'errore di occupato del server HTTP 503.|
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>Porre domande, fornire feedback, ottenere aggiornamenti
 
@@ -201,9 +201,9 @@ Consultare l'articolo [Community di Servizi multimediali di Azure](media-service
 ## <a name="see-also"></a>Vedere anche
 
 - [Codici di errore di codifica](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode)
-- [Concetti di servizi multimediali di Azure](concepts-overview.md)
+- [Concetti relativi ai Servizi multimediali di Azure](concepts-overview.md)
 - [Quote e limitazioni](limits-quotas-constraints.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Esempio: accedere a codice di errore e il messaggio da ApiException con .NET](configure-connect-dotnet-howto.md#connect-to-the-net-client)
+[Esempio: accesso ErrorCode e Message from ApiException con .NET](configure-connect-dotnet-howto.md#connect-to-the-net-client)

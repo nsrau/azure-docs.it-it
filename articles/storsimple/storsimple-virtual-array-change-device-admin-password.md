@@ -16,10 +16,10 @@ ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 5308badf439254062a8aefca1840eb21bc234ace
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60580417"
 ---
 # <a name="change-the-storsimple-virtual-array-device-administrator-password-via-storsimple-device-manager"></a>Modificare la password amministratore del dispositivo array virtuale StorSimple tramite Gestione dispositivi StorSimple
@@ -60,7 +60,7 @@ Eseguire i passaggi seguenti per modificare la password amministratore del dispo
 
 #### <a name="to-change-the-device-administrator-password-via-the-local-web-ui"></a>Per modificare la password amministratore del dispositivo tramite l'interfaccia utente Web locale
 
-1. Nell'interfaccia utente Web locale fare clic su **Manutenzione** > **Modifica password** per il dispositivo.
+1. Nell'interfaccia utente Web locale fare clic su**Modifica password** di **manutenzione** > per il dispositivo.
    
     ![cambiare password1](./media/storsimple-virtual-array-change-device-admin-password/image40.png)
 2. Immettere la **Password corrente**.

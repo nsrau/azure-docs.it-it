@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
 ms.openlocfilehash: ef8acf1c3c9211168ebacc8d62647f6789c745a2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60630609"
 ---
 # <a name="use-storsimple-monitoring-indicators-to-manage-your-device"></a>Utilizzare gli indicatori di monitoraggio StorSimple per gestire il dispositivo
@@ -55,13 +55,13 @@ Utilizzare la seguente tabella per identificare lo stato indicato dai LED sul pa
 
 | Alimentazione del sistema | Errore del modulo | Errore logico | Allarme | Stato |
 | --- | --- | --- | --- | --- |
-| Rosso-ambra |DISATTIVA |DISATTIVA |N/D |Alimentazione CA persa, funzionamento con alimentazione di backup oppure alimentazione CA ATTIVA con i moduli di controllo rimossi. |
-| Verde |ATTIVA |ATTIVA |N/D |Stato del test di alimentazione del pannello delle operazioni acceso (5 sec) |
-| Verde |DISATTIVA |DISATTIVA |N/D |Acceso, funzionamento corretto |
-| Verde |ATTIVA |N/D |LED di errore PCM, LED di malfunzionamento ventola |Qualsiasi errore PCM, errore delle ventola oppure sotto o sovratemperatura |
-| Verde |ATTIVA |N/D |LED modulo I/O |Qualsiasi errore del modulo controller |
-| Verde |ATTIVA |N/D |N/D |Errore logico chassis |
-| Verde |Lampeggiante |N/D |LED di stato del modulo sul modulo controller. LED di errore PCM, LED di malfunzionamento ventola |Tipo di modulo controller installato sconosciuto, errore del bus I2C, errore di configurazione del controller del modulo VPD (vital product data) |
+| Rosso-ambra |OFF |OFF |N/D |Alimentazione CA persa, funzionamento con alimentazione di backup oppure alimentazione CA ATTIVA con i moduli di controllo rimossi. |
+| Green |ATTIVA |ATTIVA |N/D |Stato del test di alimentazione del pannello delle operazioni acceso (5 sec) |
+| Green |OFF |OFF |N/D |Acceso, funzionamento corretto |
+| Green |ATTIVA |N/D |LED di errore PCM, LED di malfunzionamento ventola |Qualsiasi errore PCM, errore delle ventola oppure sotto o sovratemperatura |
+| Green |ATTIVA |N/D |LED modulo I/O |Qualsiasi errore del modulo controller |
+| Green |ATTIVA |N/D |N/D |Errore logico chassis |
+| Green |Lampeggiante |N/D |LED di stato del modulo sul modulo controller. LED di errore PCM, LED di malfunzionamento ventola |Tipo di modulo controller installato sconosciuto, errore del bus I2C, errore di configurazione del controller del modulo VPD (vital product data) |
 
 ## <a name="power-cooling-module-pcm-indicator-leds"></a>Indicatori LED del modulo di alimentazione e raffreddamento (PCM)
 Gli indicatori LED del modulo di alimentazione e raffreddamento (PCM) sono disponibili nella parte posteriore dello chassis principale o nello chassis EBOD di ogni modulo PCM. In questo argomento viene descritto come utilizzare i seguenti LED per monitorare lo stato del dispositivo StorSimple.  
@@ -88,24 +88,24 @@ Lo stato del PCM è indicato sul pannello dei LED. Il pannello dei LED PCM del d
 ### <a name="pcm-indicator-leds-for-power-supply-and-fan"></a>Indicatori LED del PCM per l'alimentatore e la ventola
 | Stato | PCM OK (verde) | Guasto CA (ambra) | Guasto ventola (ambra) | Guasto CC (ambra) |
 | --- | --- | --- | --- | --- |
-| Alimentazione CA assente (allo chassis) |DISATTIVA |DISATTIVA |DISATTIVA |DISATTIVA |
-| Alimentazione CA assente (solo questo PCM) |DISATTIVA |ATTIVA |DISATTIVA |ATTIVA |
-| CA presente PCM ATTIVO - OK |ATTIVA |DISATTIVA |DISATTIVA |DISATTIVA |
-| Guasto PCM (guasto ventola) |DISATTIVA |DISATTIVA |ATTIVA |N/D |
-| Errore PCM (sovramperaggio, sovratensione, sovracorrente) |DISATTIVA |ATTIVA |ATTIVA |ATTIVA |
-| PCM (ventola fuori tolleranza) |ATTIVA |DISATTIVA |DISATTIVA |ATTIVA |
-| Modalità standby |Intermittente |DISATTIVA |DISATTIVA |DISATTIVA |
-| Download firmware PCM |DISATTIVA |Intermittente |Intermittente |Intermittente |
+| Alimentazione CA assente (allo chassis) |OFF |OFF |OFF |OFF |
+| Alimentazione CA assente (solo questo PCM) |OFF |ATTIVA |OFF |ATTIVA |
+| CA presente PCM ATTIVO - OK |ATTIVA |OFF |OFF |OFF |
+| Guasto PCM (guasto ventola) |OFF |OFF |ATTIVA |N/D |
+| Errore PCM (sovramperaggio, sovratensione, sovracorrente) |OFF |ATTIVA |ATTIVA |ATTIVA |
+| PCM (ventola fuori tolleranza) |ATTIVA |OFF |OFF |ATTIVA |
+| Modalità standby |Intermittente |OFF |OFF |OFF |
+| Download firmware PCM |OFF |Intermittente |Intermittente |Intermittente |
 
 ### <a name="pcm-indicator-leds-for-the-backup-battery"></a>Indicatori LED del PCM per la batteria di backup
 | Stato | Batteria integra (verde) | Errore batteria (ambra) |
 | --- | --- | --- |
-| Batteria assente |DISATTIVA |DISATTIVA |
-| Batteria presente e carica |ATTIVA |DISATTIVA |
-| Batteria in carica o scarica per manutenzione |Intermittente |DISATTIVA |
-| Errore batteria "software" (recuperabile) |DISATTIVA |Intermittente |
-| Errore batteria "hardware" (non recuperabile) |DISATTIVA |ATTIVA |
-| Batteria disattivata |Intermittente |DISATTIVA |
+| Batteria assente |OFF |OFF |
+| Batteria presente e carica |ATTIVA |OFF |
+| Batteria in carica o scarica per manutenzione |Intermittente |OFF |
+| Errore batteria "software" (recuperabile) |OFF |Intermittente |
+| Errore batteria "hardware" (non recuperabile) |OFF |ATTIVA |
+| Batteria disattivata |Intermittente |OFF |
 
 ## <a name="pcm-leds-for-the-ebod-enclosure"></a>LED PCM per lo chassis EBOD
 Lo chassis EBOD dispone di un PCM da 580 W senza batteria aggiuntiva. Il pannello PCM per lo chassis EBOD dispone di indicatori LED esclusivi per gli alimentatori e la ventola. Nella figura seguente vengono illustrati tali LED.
@@ -116,14 +116,14 @@ Lo chassis EBOD dispone di un PCM da 580 W senza batteria aggiuntiva. Il pannell
 
 | Stato | PCM OK (verde) | Guasto CA (ambra) | Guasto ventola (ambra) | Guasto CC (ambra) |
 | --- | --- | --- | --- | --- |
-| Alimentazione CA assente (allo chassis) |DISATTIVA |DISATTIVA |DISATTIVA |DISATTIVA |
-| Alimentazione CA assente (solo questo PCM) |DISATTIVA |ATTIVA |DISATTIVA |ATTIVA |
-| CA presente PCM ATTIVO - OK |ATTIVA |DISATTIVA |DISATTIVA |DISATTIVA |
-| Guasto PCM (guasto ventola) |DISATTIVA |DISATTIVA |ATTIVA |X |
-| Errore PCM (sovramperaggio, sovratensione, sovracorrente) |DISATTIVA |ATTIVA |ATTIVA |ATTIVA |
-| PCM (ventola fuori tolleranza) |ATTIVA |DISATTIVA |DISATTIVA |ATTIVA |
-| Modello standby |Intermittente |DISATTIVA |DISATTIVA |DISATTIVA |
-| Download firmware PCM |DISATTIVA |Intermittente |Intermittente |Intermittente |
+| Alimentazione CA assente (allo chassis) |OFF |OFF |OFF |OFF |
+| Alimentazione CA assente (solo questo PCM) |OFF |ATTIVA |OFF |ATTIVA |
+| CA presente PCM ATTIVO - OK |ATTIVA |OFF |OFF |OFF |
+| Guasto PCM (guasto ventola) |OFF |OFF |ATTIVA |X |
+| Errore PCM (sovramperaggio, sovratensione, sovracorrente) |OFF |ATTIVA |ATTIVA |ATTIVA |
+| PCM (ventola fuori tolleranza) |ATTIVA |OFF |OFF |ATTIVA |
+| Modello standby |Intermittente |OFF |OFF |OFF |
+| Download firmware PCM |OFF |Intermittente |Intermittente |Intermittente |
 
 ## <a name="controller-module-indicator-leds"></a>Indicatori LED del modulo controller
 Il dispositivo StorSimple contiene LED per il controller primario e i moduli del controller EBOD.   
@@ -160,9 +160,9 @@ Utilizzare la tabella seguente per determinare se il modulo controller EBOD funz
 ### <a name="ebod-controller-module-indicator-leds"></a>Indicatori LED del modulo controller EBOD
 | Stato | Modulo I/O OK (verde) | Errore modulo I/O (ambra) | Attività porta host (verde) |
 | --- | --- | --- | --- |
-| Modulo controller OK |ATTIVA |DISATTIVA |- |
-| Errore del modulo controller |DISATTIVA |ATTIVA |- |
-| Nessuna connessione porta host esterna |- |- |DISATTIVA |
+| Modulo controller OK |ATTIVA |OFF |- |
+| Errore del modulo controller |OFF |ATTIVA |- |
+| Nessuna connessione porta host esterna |- |- |OFF |
 | Connessione porta host esterna – Nessuna attività |- |- |ATTIVA |
 | Connessione porta host esterna – Attività |- |- |Intermittente |
 | Errore metadati modulo controller |Intermittente |- |- |
@@ -179,11 +179,11 @@ Utilizzare la tabella seguente per determinare lo stato di ogni unità disco che
 ### <a name="disk-drive-indicator-leds-for-the-ebod-enclosure"></a>Indicatori LED dell’unità disco per lo chassis EBOD
 | Stato | LED attività OK (verde) | LED errore (rosso-ambra) | LED pannello delle operazioni associato |
 | --- | --- | --- | --- |
-| Nessuna unità installata |DISATTIVA |DISATTIVA |Nessuna |
-| Unità installata e operativa |Intermittente acceso/spento in base all’attività |X |Nessuna |
-| Set di identità del dispositivo servizi chassis SCSI (SES) |ATTIVA |Intermittenza 1 secondo accesa/1 secondo spenta |Nessuna |
+| Nessuna unità installata |OFF |OFF |nessuno |
+| Unità installata e operativa |Intermittente acceso/spento in base all’attività |X |nessuno |
+| Set di identità del dispositivo servizi chassis SCSI (SES) |ATTIVA |Intermittenza 1 secondo accesa/1 secondo spenta |nessuno |
 | Set bit errore dispositivo SES |ATTIVA |ATTIVA |Errore logico (rosso) |
-| Errore circuito di controllo alimentazione |DISATTIVA |ATTIVA |Errore del modulo (rosso) |
+| Errore circuito di controllo alimentazione |OFF |ATTIVA |Errore del modulo (rosso) |
 
 ## <a name="audible-alarms"></a>Allarmi acustici
 Un dispositivo StorSimple contiene allarmi acustici associati sia allo chassis principale che allo chassis EBOD. Un allarme acustico si trova sul pannello anteriore (noto anche come il pannello delle operazioni) di entrambi gli chassis. L’allarme acustico indica quando è presente una condizione di errore. L’allarme viene attivato dalle seguenti condizioni:  
@@ -203,9 +203,9 @@ Nella tabella seguente vengono descritti i vari stati di allarme.
 | Stato di allarme | Azione | Azione con il pulsante di disattivazione audio premuto |
 | --- | --- | --- |
 | S0 |Modalità normale: invisibile all'utente |Doppio segnale acustico |
-| S1 |Modalità errore: 1 secondo sul/1 secondo spenta |Passaggio da S2 a S3 (vedere le note) |
-| S2 |Modalità promemoria: segnale acustico intermittente |Nessuna |
-| S3 |Modalità disattivato: invisibile all'utente |Nessuna |
+| S1 |Modalità errore: 1 secondo accesa/1 secondo spenta |Passaggio da S2 a S3 (vedere le note) |
+| S2 |Modalità promemoria: segnale acustico intermittente |nessuno |
+| S3 |Modalità disattivato: invisibile all'utente |nessuno |
 | S4 |Modalità errore critico: allarme continuo |Non disponibile: disattivazione non attiva |
 
 > [!NOTE]
@@ -225,7 +225,7 @@ Nella tabella seguente vengono descritte le varie condizioni di allarme.
 | Avviso PCM - Interruzione dell'alimentazione CD da un singolo PCM |Errore – Perdita di ridondanza |S1 |Errore del modulo |
 | Guasto ventola del PCM |Errore – Perdita di ridondanza |S1 |Errore del modulo |
 | Errore PCM rilevato dal modulo SBB |Errore |S1 |Errore del modulo |
-| PCM rimosso |Errore di configurazione |Nessuna |Errore del modulo |
+| PCM rimosso |Errore di configurazione |nessuno |Errore del modulo |
 | Errore di configurazione dello chassis |Errore - Critico |S1 |Errore del modulo |
 | Allerta temperatura di avviso bassa |Avviso |S1 |Errore del modulo |
 | Allerta temperatura di avviso alta |Avviso |S1 |Errore del modulo |
@@ -235,14 +235,14 @@ Nella tabella seguente vengono descritte le varie condizioni di allarme.
 | Errore del controller |Errore - Critico |S1 |Errore del modulo |
 | Errore del modulo di interfaccia SBB |Errore - Critico |S1 |Errore del modulo |
 | Errore del modulo di interfaccia SBB - Moduli funzionanti rimanenti non presenti |Errore - Critico |S4 |Errore del modulo |
-| Modulo interfaccia SBB rimosso |Avviso |Nessuna |Errore del modulo |
+| Modulo interfaccia SBB rimosso |Avviso |nessuno |Errore del modulo |
 | Errore di controllo dell’alimentazione dell’unità |Avviso - Interruzione dell'alimentazione dell’unità assente |S1 |Errore del modulo |
 | Errore di controllo dell’alimentazione dell’unità |Errore - Critico; interruzione dell'alimentazione unità |S1 |Errore del modulo |
-| Unità rimossa |Avviso |Nessuna |Errore del modulo |
-| Disponibilità alimentazione insufficiente |Avviso |None |Errore del modulo |
+| Unità rimossa |Avviso |nessuno |Errore del modulo |
+| Disponibilità alimentazione insufficiente |Avviso |none |Errore del modulo |
 
 ## <a name="next-steps"></a>Passaggi successivi
-Ulteriori informazioni sui [componenti hardware e sullo stato di StorSimple](storsimple-8000-monitor-hardware-status.md)
+Ulteriori informazioni su [StorSimple componenti hardware e stato](storsimple-8000-monitor-hardware-status.md).
 
 [1]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE01.png
 [2]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE02.png

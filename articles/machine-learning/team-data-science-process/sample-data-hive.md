@@ -12,14 +12,14 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: df85edc3de00e2b0342bc3102fe9e85564a9835b
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76719994"
 ---
 # <a name="sample-data-in-azure-hdinsight-hive-tables"></a>Dati di esempio nelle tabelle Hive di Azure HDInsight
-Questo articolo descrive come eseguire il sottocampionamento dei dati archiviati nelle tabelle Hive di Azure HDInsight usando query Hive per ridurli a una dimensione più facilmente gestibile a scopo di analisi. Vengono illustrati tre metodi di campionamento usati comunemente:
+Questo articolo descrive come eseguire il sottocampionamento dei dati archiviati nelle tabelle Hive di Azure HDInsight usando query Hive per ridurli a una dimensione più facilmente gestibile a scopo di analisi. Esso copre tre metodi di campionamento comunemente utilizzati:
 
 * Campionamento casuale uniforme
 * Campionamento casuale per gruppi
@@ -31,9 +31,9 @@ Se il set di dati da analizzare è grande, è in genere opportuno sottocampionar
 Questo campionamento è un passaggio del [Processo di analisi scientifica dei dati per i team (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
 ## <a name="how-to-submit-hive-queries"></a>Come inviare query Hive
-Le query Hive possono essere inviate dalla console della riga di comando di Hadoop nel nodo head del cluster Hadoop.  Accedere al nodo head del cluster Hadoop, aprire la console della riga di comando di Hadoop e inviare le query hive da questa posizione. Per istruzioni su come inviare le query Hive nella console della riga di comando di Hadoop, vedere [Come inviare le query Hive](move-hive-tables.md#submit).
+Le query Hive possono essere inviate dalla console della riga di comando di Hadoop nel nodo head del cluster Hadoop.  Accedere al nodo head del cluster Hadoop, aprire la console della riga di comando Hadoop e inviare le query Hive da lì. Per istruzioni su come inviare le query Hive nella console della riga di comando di Hadoop, vedere [Come inviare le query Hive](move-hive-tables.md#submit).
 
-## <a name="uniform"></a> Campionamento casuale uniforme
+## <a name="uniform-random-sampling"></a><a name="uniform"></a> Campionamento casuale uniforme
 Nel campionamento casuale uniforme tutte le righe del set di dati hanno la stessa possibilità di essere sottoposte a campionamento. Questo metodo può essere implementato aggiungendo un ulteriore campo casuale () al set di dati relativo alla query "select" interna e a quella "select" esterna che condizionano il campo casuale.
 
 Di seguito è fornito un esempio di query:
@@ -51,7 +51,7 @@ Di seguito è fornito un esempio di query:
 
 In questo caso, `<sample rate, 0-1>` indica la proporzione di record che gli utenti desiderano campionare.
 
-## <a name="group"></a> Campionamento casuale per gruppi
+## <a name="random-sampling-by-groups"></a><a name="group"></a> Campionamento casuale per gruppi
 Quando si esegue il campionamento dei dati di categoria, è possibile scegliere di includere o di escludere tutte le istanze di un valore della variabile di categoria. Questo tipo di campionamento è chiamato "campionamento per gruppo". Se, ad esempio, si ha una variabile di categoria "*State*" con valori quali NY, MA, CA, NJ e PA, è possibile che l'utente voglia che i record di uno stesso stato siano sempre visualizzati insieme, che siano campionati o meno.
 
 Di seguito è presentata una query di esempio che consente di eseguire il campionamento per gruppi:
@@ -80,7 +80,7 @@ Di seguito è presentata una query di esempio che consente di eseguire il campio
         )c
     on b.catfield=c.catfield
 
-## <a name="stratified"></a> Campionamento stratificato
+## <a name="stratified-sampling"></a><a name="stratified"></a> Campionamento stratificato
 Il campionamento casuale è stratificato rispetto a una variabile di categoria nel caso in cui i campioni ottenuti presentino, per quella categoria, valori di proporzione equivalente a quelli del popolamento padre. Usando lo stesso esempio precedente, si supponga che i dati presentino le osservazioni seguenti in base allo stato: NJ presenta 100 osservazioni, NY 60 osservazioni e WA 300 osservazioni. Se si specifica che la proporzione del campionamento stratificato sia pari a 0,5, il campione ottenuto deve disporre all'incirca di 50, 30 e 150 osservazioni per NJ, NY e WA
 
 Di seguito è fornito un esempio di query:

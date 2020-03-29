@@ -1,5 +1,5 @@
 ---
-title: Connettersi a Twilio da app per la logica di Azure
+title: Connettersi a Twilio da App per la logica di AzureConnect to Twilio from Azure Logic Apps
 description: Automatizzare le attività e i flussi di lavoro per la gestione dei messaggi SMS, MMS e IP globali tramite il proprio account Twilio usando App per la logica di Azure
 services: logic-apps
 ms.suite: integration
@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 08/25/2018
 tags: connectors
 ms.openlocfilehash: e5b218efd9c8cfaad99d76d8118d181390a977c3
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74789104"
 ---
 # <a name="manage-messages-in-twilio-with-azure-logic-apps"></a>Gestire i messaggi in Twilio con App per la logica di Azure
 
-Con App per la logica di Azure e il connettore Twilio, è possibile creare attività e flussi di lavoro automatizzati per ottenere, inviare ed elencare messaggi in Twilio, inclusi i messaggi SMS, MMS e IP globali. È possibile usare queste azioni per eseguire attività con l'account Twilio. È anche possibile fare in modo che altre azioni usino l'output delle azioni di Twilio. Ad esempio, quando arriva un nuovo messaggio, è possibile inviare il contenuto del messaggio con il connettore Slack. Se non si ha familiarità con App per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md).
+Con App per la logica di Azure e il connettore Twilio, è possibile creare attività e flussi di lavoro automatizzati per ottenere, inviare ed elencare messaggi in Twilio, inclusi i messaggi SMS, MMS e IP globali. È possibile usare queste azioni per eseguire attività con l'account Twilio. È anche possibile fare in modo che altre azioni usino l'output delle azioni di Twilio. Ad esempio, quando arriva un nuovo messaggio, è possibile inviare il contenuto del messaggio con il connettore Slack. Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -33,7 +33,7 @@ Con App per la logica di Azure e il connettore Twilio, è possibile creare attiv
 
   * Un numero di telefono Twilio verificato in grado di ricevere SMS
 
-* Conoscenza di base di [come creare le app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Informazioni di base sulla [creazione di app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 * L'app per la logica in cui si vuole accedere all'account Twilio. Per usare un'azione di Twilio, avviare l'app per la logica con un altro trigger, ad esempio, il trigger **Ricorrenza**.
 
@@ -50,12 +50,12 @@ Con App per la logica di Azure e il connettore Twilio, è possibile creare attiv
        -oppure-
 
      * Spostare il puntatore del mouse sulla freccia visualizzata tra i passaggi in cui si vuole aggiungere un'azione. 
-     Scegliere il segno più ( **+** ) visualizzato e quindi selezionare **Aggiungi un'azione**.
+     Scegliere il segno**+** più ( ) visualizzato e quindi selezionare **Aggiungi un'azione**.
      
        Nella casella di ricerca immettere "twilio" come filtro. 
-       Nell'elenco delle azioni scegliere l'azione desiderata.
+       Nell'elenco delle azioni selezionare l'azione desiderata.
 
-1. Specificare i dettagli necessari per la connessione e quindi scegliere **Crea**:
+1. Specificare i dettagli necessari per la connessione, quindi scegliere **Crea:**
 
    * Nome da usare per la connessione
    * ID dell'account Twilio 
@@ -67,7 +67,7 @@ Con App per la logica di Azure e il connettore Twilio, è possibile creare attiv
 
 Per informazioni tecniche su trigger, azioni e limiti, illustrati dalla descrizione OpenAPI (in precedenza Swagger) del connettore, esaminare la [pagina di riferimento](/connectors/twilio/) del connettore.
 
-## <a name="get-support"></a>Ottenere supporto
+## <a name="get-support"></a>Supporto
 
 * In caso di domande, visitare il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Per votare o inviare idee relative alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica](https://aka.ms/logicapps-wish).

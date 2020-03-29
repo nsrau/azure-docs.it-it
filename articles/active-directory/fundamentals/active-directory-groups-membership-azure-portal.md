@@ -1,5 +1,5 @@
 ---
-title: Aggiungere o rimuovere un gruppo da un altro gruppo-Azure AD
+title: Aggiungere o rimuovere un gruppo da un altro gruppo - Azure ADAdd or remove a group from another group - Azure AD
 description: Istruzioni su come aggiungere o rimuovere un gruppo da un altro gruppo con Azure Active Directory.
 services: active-directory
 author: msaburnley
@@ -14,10 +14,10 @@ ms.custom: it-pro, seodec18
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 830bf7134b3a8b0425c53673a1347dd77897a5bd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75423090"
 ---
 # <a name="add-or-remove-a-group-from-another-group-using-azure-active-directory"></a>Aggiungere o rimuovere un gruppo da un altro gruppo con Azure Active Directory
@@ -61,7 +61,7 @@ Questo articolo descrive come aggiungere o rimuovere un gruppo da un altro grupp
 ### <a name="to-remove-a-member-group-from-another-group"></a>Per rimuovere un gruppo membri da un altro gruppo
 1. Nella pagina **Gruppi - Tutti i gruppi** cercare e selezionare il gruppo da rimuovere come membro di un altro gruppo. Per questo esercizio, viene usato ancora il gruppo **MDM policy - West**.
 
-2. Nella pagina **Panoramica MDM policy - West**  selezionare **Appartenenze a gruppi**.
+2. Nella pagina **Panoramica MDM policy - West ** selezionare **Appartenenze a gruppi**.
 
 3. Selezionare il gruppo **MDM policy - All org** nella pagina **MDM policy - West - Appartenenze a gruppi** e quindi selezionare **Rimuovi** dai dettagli della pagina **MDM policy - West**.
 
@@ -78,6 +78,6 @@ Questi articoli forniscono informazioni aggiuntive su Azure Active Directory.
 
 - [Modificare le impostazioni del gruppo](active-directory-groups-settings-azure-portal.md)
 
-- [Utilizzare un gruppo per gestire l'accesso alle applicazioni SaaS](../users-groups-roles/groups-saasapps.md)
+- [Uso di un gruppo per gestire l'accesso ad applicazioni SaaS](../users-groups-roles/groups-saasapps.md)
 
 - [Scenari, limitazioni e problemi noti relativi all'uso dei gruppi per gestire le licenze in Azure Active Directory](../users-groups-roles/licensing-group-advanced.md#limitations-and-known-issues)

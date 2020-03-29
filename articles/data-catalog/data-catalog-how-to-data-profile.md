@@ -7,17 +7,17 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: 04ac6c2bf0137289221a4ae6ed58d5a71ad21739
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68950228"
 ---
-# <a name="how-to-data-profile-data-sources-in-azure-data-catalog"></a>Come profilare origini dati in Azure Data Catalog
+# <a name="how-to-data-profile-data-sources-in-azure-data-catalog"></a>Come profilare le origini dati in Azure Data CatalogHow to data profile data sources in Azure Data Catalog
 
 ## <a name="introduction"></a>Introduzione
 
-**Microsoft Azure Data Catalog** è un servizio cloud completamente gestito che funge da sistema di registrazione e di individuazione per origini dati aziendali. In altre parole, il **Catalogo dati di Azure** consente agli utenti di individuare, comprendere e usare origini dati e aiuta le organizzazioni a ottenere maggior valore dai dati esistenti. Quando un'origine dati viene registrata con **Azure Data Catalog**, i relativi metadati vengono copiati e indicizzati dal servizio, ma non è tutto.
+**Microsoft Azure Data Catalog** è un servizio cloud completamente gestito che funge da sistema di registrazione e di individuazione per origini dati aziendali. In altre parole, **Azure Data Catalog** consente agli utenti di individuare, comprendere e usare le origini dati e aiutare le organizzazioni a ottenere più valore dai dati esistenti. Quando un'origine dati viene registrata con **Azure Data Catalog**, i relativi metadati vengono copiati e indicizzati dal servizio, ma non è tutto.
 
 La funzione di **profiling dati** di **Azure Data Catalog** esamina i dati delle origini dati supportate nel catalogo e raccoglie statistiche e informazioni sui dati. È facile includere un profilo degli asset di dati. Quando si registra un asset di dati, scegliere **Includi profilo dati** nello strumento di registrazione delle origini dati.
 
@@ -67,7 +67,7 @@ Per trovare asset di dati che includono un profilo dati, è possibile specificar
 
 Dopo aver individuato un'origine dati adatta con un profilo, è possibile visualizzare i dettagli relativi al profilo dati. Per visualizzare il profilo dati, selezionare un asset di dati e scegliere **Profilo dati** nella finestra del portale di Azure Data Catalog.
 
-![Scheda profilo dati](media/data-catalog-data-profile/data-catalog-view.png)
+![Scheda Profilo dati](media/data-catalog-data-profile/data-catalog-view.png)
 
 Un profilo dati in **Azure Data Catalog** include informazioni sul profilo a livello di tabella e di colonna, ad esempio:
 
@@ -91,4 +91,4 @@ Il profiling dati fornisce statistiche e informazioni sugli asset di dati regist
 ## <a name="see-also"></a>Vedere anche
 
 * [Come registrare le origini dati](data-catalog-how-to-register.md)
-* [Introduzione ad Azure Data Catalog](data-catalog-get-started.md)
+* [Introduzione al Catalogo dati di Azure](data-catalog-get-started.md)

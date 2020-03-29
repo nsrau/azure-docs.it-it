@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: aggiornamento automatico | Microsoft Docs'
+title: 'Azure AD Connect: aggiornamento automatico | Documentazione Microsoft'
 description: Questo argomento illustra la funzionalità di aggiornamento automatico predefinita nel servizio di sincronizzazione Azure AD Connect.
 services: active-directory
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bfd61b78ca3027ade1f2f48dec33e0a8ed508d3d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60349845"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: aggiornamento automatico
@@ -37,20 +37,20 @@ L'aggiornamento automatico è abilitato per impostazione predefinita per gli sce
 
 Lo stato corrente dell'aggiornamento automatico può essere visualizzato con il cmdlet `Get-ADSyncAutoUpgrade` di PowerShell e include gli stati seguenti:
 
-| Stato | Commento |
+| State | Comment |
 | --- | --- |
-| Enabled |L'aggiornamento automatico è abilitato. |
+| Attivato |L'aggiornamento automatico è abilitato. |
 | Suspended |Impostato solo dal sistema. Il sistema **non è attualmente idoneo** per la ricezione di aggiornamenti automatici. |
 | Disabled |L'aggiornamento automatico è disabilitato. |
 
-Per passare da **Enabled** a **Disabled**, è possibile usare `Set-ADSyncAutoUpgrade`. Lo stato **Suspended**deve essere impostato solo dal sistema.  Prima di 1.1.750.0 il cmdlet Set-ADSyncAutoUpgrade bloccherà Autoupgrade se lo stato di aggiornamento automatico è stato impostato su sospeso. Questa funzionalità è ora modificato in modo che non venga bloccato AutoUpgrade.
+Per passare da **Enabled** a **Disabled**, è possibile usare `Set-ADSyncAutoUpgrade`. Lo stato **Suspended**deve essere impostato solo dal sistema.  Prima della versione 1.1.750.0 il cmdlet Set-ADSyncAutoUpgrade bloccheva l'aggiornamento automatico se lo stato dell'aggiornamento automatico fosse impostato su Sospeso. Questa funzionalità è stata modificata in modo da non bloccare l'aggiornamento automatico.
 
 L'aggiornamento automatico usa Azure AD Connect Health per l'infrastruttura di aggiornamento. Per il corretto funzionamento dell'aggiornamento automatico, assicurarsi di avere aperto gli URL nel server proxy per **Azure AD Connect Health** , come documentato in [URL e intervalli di indirizzi IP per Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
 
 
 Se l'interfaccia utente di **Synchronization Service Manager** è in esecuzione nel server, l'aggiornamento viene sospeso fino alla chiusura dell'interfaccia utente.
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 Se l'installazione di Connect non viene aggiornata automaticamente, seguire questa procedura per individuare eventuali errori.
 
 In primo luogo, tenere presente che l'aggiornamento automatico non viene eseguito il primo giorno di rilascio di una nuova versione. Il tentativo di aggiornamento viene eseguito intenzionalmente con una tempistica casuale. Non allarmarsi se l'installazione non viene aggiornata immediatamente.
@@ -69,7 +69,7 @@ Il codice risultato presenta un prefisso con una panoramica dello stato.
 
 | Prefisso codice risultato | Descrizione |
 | --- | --- |
-| Riuscito |L'installazione è stata aggiornata correttamente. |
+| Operazione completata |L'installazione è stata aggiornata correttamente. |
 | UpgradeAborted |Una condizione temporanea ha interrotto l'aggiornamento. Verrà ripetuto di nuovo e si prevede che in seguito riuscirà. |
 | UpgradeNotSupported |La configurazione del sistema impedisce l'aggiornamento automatico del sistema stesso. Verrà ripetuto per verificare se lo stato viene modificato, ma si prevede che il sistema debba essere aggiornato manualmente. |
 

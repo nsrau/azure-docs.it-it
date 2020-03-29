@@ -9,10 +9,10 @@ ms.reviewer: jonfan, divswa, logicappspm
 ms.topic: article
 ms.date: 01/27/2017
 ms.openlocfilehash: 257cbd0b1a68ddd2b16235e6f8dec5d5b0eb10e2
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74790653"
 ---
 # <a name="encode-edifact-messages-for-azure-logic-apps-with-enterprise-integration-pack"></a>Messaggi Encode EDIFACT in App per la logica di Azure con Enterprise Integration Pack
@@ -25,7 +25,7 @@ Per usare questo connettore, è necessario aggiungerlo a un trigger esistente ne
 Sono necessari gli elementi seguenti:
 
 * Un account Azure, che è possibile [creare gratuitamente](https://azure.microsoft.com/free)
-* Un [account di integrazione](logic-apps-enterprise-integration-create-integration-account.md) già definito e associato alla sottoscrizione di Azure. Per usare il connettore di messaggi Encode EDIFACT è necessario un account di integrazione. 
+* Un account di [integrazione](logic-apps-enterprise-integration-create-integration-account.md) già definito e associato alla sottoscrizione di Azure.An integration account that's already defined and associated with your Azure subscription. Per usare il connettore di messaggi Encode EDIFACT è necessario un account di integrazione. 
 * Almeno due [partner](logic-apps-enterprise-integration-partners.md) già definiti nell'account di integrazione.
 * Un [contratto EDIFACT](logic-apps-enterprise-integration-edifact.md) già definito nell'account di integrazione.
 
@@ -35,7 +35,7 @@ Sono necessari gli elementi seguenti:
 
 2. Il connettore di messaggi Encode EDIFACT non dispone di trigger, pertanto è necessario aggiungerne uno per avviare l'app per la logica, ad esempio un trigger di richiesta. In Progettazione app per la logica aggiungere un trigger e un'azione all'app per la logica.
 
-3.  Nella casella di ricerca, digitare "EDIFACT" come filtro. Selezionare **Codifica in un messaggio EDIFACT in base al nome dell'accordo** o **Codifica in un messaggio EDIFACT in base alle identità**.
+3.  Nella casella di ricerca, digitare "EDIFACT" come filtro. Selezionare **Codifica messaggio EDIFACT in base al nome dell'accordo** o Codifica nel messaggio **EDIFACT in base alle identità**.
    
     ![ricerca di EDIFACT](media/logic-apps-enterprise-integration-edifact-encode/edifactdecodeimage1.png)  
 
@@ -92,5 +92,5 @@ Il connettore Encode EDIFACT esegue queste attività:
 Per visualizzare i dettagli di Swagger per il connettore EDIFACT, vedere [EDIFACT](/connectors/edifact/).
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Altre informazioni su Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Informazioni sulle Enterprise Integration Pack") 
+[Altre informazioni su Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Scopri di più su Enterprise Integration Pack") 
 

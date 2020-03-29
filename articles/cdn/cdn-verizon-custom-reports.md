@@ -1,6 +1,6 @@
 ---
 title: Report personalizzati di Verizon | Microsoft Docs
-description: 'È possibile visualizzare i modelli di utilizzo per la rete CDN usando i report seguenti: Larghezza di banda, dati trasferiti, riscontri, stati della Cache, Cache Hit Ratio, IPV4 e IPV6 dati trasferiti.'
+description: 'È possibile visualizzare i modelli di utilizzo per la rete CDN usando i report seguenti: Larghezza di banda, Dati trasferiti, Riscontri, Stati della cache, Percentuale riscontri cache, Dati trasferiti IPv4/IPv6.'
 services: cdn
 documentationcenter: ''
 author: mdgattuso
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/11/2017
 ms.author: magattus
 ms.openlocfilehash: 15f17ac6556c4ff731372dc7f738d0f58bdc3e31
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67593310"
 ---
 # <a name="custom-reports-from-verizon"></a>Report personalizzati di Verizon
@@ -45,17 +45,17 @@ La registrazione dei dati per il report personalizzato inizia un'ora dopo aver a
 
 Generare un report personalizzato definendo le opzioni di report seguenti:
 
-- Metriche: Sono supportate le opzioni seguenti:
+- Metrics (Metriche): sono supportate le opzioni seguenti:
 
-   - Riscontri: Indica il numero totale di richieste indirizzate a un CNAME perimetrale in cui è abilitata la funzionalità di creazione di report personalizzati. Questa metrica non include il codice di stato restituito al client.
+   - Hits (Riscontri): indica il numero totale di richieste indirizzate a un CNAME perimetrale in cui è abilitata la funzionalità di creazione di report personalizzati. Questa metrica non include il codice di stato restituito al client.
 
-   - Dati trasferiti: Indica la quantità totale di dati trasferiti dai server perimetrali ai client HTTP (ad esempio, i browser web) per le richieste indirizzate a un CNAME perimetrale in cui è abilitata la funzionalità di creazione di report personalizzati. La quantità di dati trasferiti viene calcolata aggiungendo le intestazioni di risposta HTTP al corpo della risposta. La quantità di dati trasferiti per ogni asset è quindi maggiore delle dimensioni file effettive.
+   - Data Transferred (Dati trasferiti): indica la quantità totale di dati trasferiti dai server perimetrali ai client HTTP (ad esempio i Web browser) per le richieste indirizzate a un CNAME perimetrale in cui è abilitata la funzionalità di creazione di report personalizzati. La quantità di dati trasferiti viene calcolata aggiungendo le intestazioni di risposta HTTP al corpo della risposta. La quantità di dati trasferiti per ogni asset è quindi maggiore delle dimensioni file effettive.
 
-- Raggruppamenti: Determina il tipo di statistiche visualizzate sotto il grafico a barre. Sono supportate le opzioni seguenti:
+- Groupings (Raggruppamenti): determina il tipo di statistiche visualizzate sotto il grafico a barre. Sono supportate le opzioni seguenti:
 
-   - Codici di risposta HTTP: Organizza le statistiche in base al codice di risposta HTTP (ad esempio, 200, 403, e così via) restituito al client. 
+   - HTTP Response Codes (Codici di risposta HTTP): organizza le statistiche in base al codice di risposta HTTP restituito dal client, ad esempio 200, 403 e così via. 
 
-   - Stato della cache: Organizza le statistiche in base allo stato della cache.
+   - Cache Status: (Stato cache): organizza le statistiche in base allo stato della cache.
 
 
 Per impostare le date per il report, è possibile selezionare un intervallo predefinito dall'elenco a discesa, ad esempio **Today** (Oggi) o **This Week** (Questa settimana), oppure selezionare **Custom** (Personalizzato) e immettere manualmente un intervallo di date facendo clic sulle icone del calendario. 
@@ -81,7 +81,7 @@ Dopo aver selezionato l'intervallo di date, fare clic su **Go** (Vai) per genera
 | Riscontri                      | Indica il numero totale di richieste inviate al CNAME perimetrale |
 | Misses (Mancati riscontri)                    | Indica il numero totale di richieste o dati trasferiti (MB) per il CNAME perimetrale che restituisce un mancato riscontro nella cache, ad esempio TCP_CLIENT_REFRESH_MISS, TCP_EXPIRED_MISS o TCP_MISS. Un mancato riscontro nella cache si verifica quando il contenuto richiesto non è stato memorizzato nella cache del server perimetrale che ha soddisfatto la richiesta. | 
 | No Cache (Nessuna cache)                  | Indica il numero totale di richieste o dati trasferiti (MB) per il CNAME perimetrale che restituisce un codice di stato cache CONFIG_NOCACHE.  |
-| Altro                     | Indica il numero totale di richieste o dati trasferiti (MB) per il CNAME perimetrale che restituisce un codice di stato HTTP che non rientra nell'intervallo 2xx - 5xx. |
+| Altri                     | Indica il numero totale di richieste o dati trasferiti (MB) per il CNAME perimetrale che restituisce un codice di stato HTTP che non rientra nell'intervallo 2xx - 5xx. |
 | Piattaforma                  | Indica la piattaforma che gestisce il traffico del CNAME perimetrale. |
 | Unassigned (Non assegnato)               | Indica il numero totale di richieste o dati trasferiti (MB) per il CNAME perimetrale per il quale non è stato registrato il codice di stato cache o il codice di stato HTTP.  |
 | Uncacheable (Non inseribile nella cache)               | Indica il numero totale di richieste o dati trasferiti (MB) per il CNAME perimetrale che restituisce un codice di stato cache UNCACHEABLE.  |

@@ -1,6 +1,6 @@
 ---
-title: Schema di eventi SignalR Azure griglia di eventi di Azure
-description: Vengono descritte le proprietà che sono disponibili per gli eventi di Azure SignalR con griglia di eventi di Azure
+title: Schema dell'evento Azure Event Grid Azure SignalR
+description: Descrive le proprietà fornite per gli eventi SignalR di Azure con Griglia di eventi di AzureDescribes the properties that are provided for Azure SignalR events with Azure Event Grid
 services: event-grid
 author: chenyl
 ms.service: event-grid
@@ -8,29 +8,29 @@ ms.topic: reference
 ms.date: 06/11/2019
 ms.author: chenyl
 ms.openlocfilehash: 3b072ff2b680ad6d144c7441190ab2df9870f5d0
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67789072"
 ---
-# <a name="azure-event-grid-event-schema-for-signalr-service"></a>Schema di eventi di griglia di eventi Azure per SignalR Service
+# <a name="azure-event-grid-event-schema-for-signalr-service"></a>Azure Event Grid event schema for SignalR Service
 
-Questo articolo illustra le proprietà e schema per gli eventi di SignalR Service. Per un'introduzione agli schemi di eventi, vedere [Schema di eventi di Griglia di eventi di Azure](event-schema.md).
+In questo articolo vengono fornite le proprietà e lo schema per gli eventi del servizio SignalR.Per un'introduzione agli schemi di eventi, vedere [Schema di eventi di Griglia di eventi di Azure](event-schema.md).
 
 
 ## <a name="available-event-types"></a>Tipi di evento disponibili
 
-SignalR Service genera i tipi di evento seguenti:
+SignalR Service genera i seguenti tipi di evento:
 
-| Tipo evento | Descrizione |
+| Tipo di evento | Descrizione |
 | ---------- | ----------- |
-| Microsoft.SignalRService.ClientConnectionConnected | Generato quando una connessione di client connessi. |
-| Microsoft.SignalRService.ClientConnectionDisconnected | Generato quando una connessione di client disconnessa. |
+| Microsoft.SignalRService.ClientConnectionConnected | Generato quando si è connessa una connessione client. |
+| Microsoft.SignalRService.ClientConnectionDisconnected | Generato quando una connessione client è stata disconnessa. |
 
 ## <a name="example-event"></a>Evento di esempio
 
-Nell'esempio seguente mostra lo schema di un client di connessione connessi evento: 
+Nell'esempio seguente viene illustrato lo schema di un evento connesso di connessione client:The following example shows the schema of a client connection connected event: 
 
 ```json
 [{
@@ -50,7 +50,7 @@ Nell'esempio seguente mostra lo schema di un client di connessione connessi even
 }]
 ```
 
-Lo schema per un evento disconnesso connessione client è simile: 
+Lo schema per un evento disconnesso di connessione client è simile:The schema for a client connection disconnected event is similar: 
 
 ```json
 [{
@@ -75,9 +75,9 @@ Lo schema per un evento disconnesso connessione client è simile:
 
 Un evento presenta i seguenti dati di primo livello:
 
-| Proprietà | Type | DESCRIZIONE |
+| Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
-| topic | string | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
+| argomento | string | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
 | subject | string | Percorso dell'oggetto dell'evento definito dall'autore. |
 | eventType | string | Uno dei tipi di evento registrati per l'origine evento. |
 | eventTime | string | Ora di generazione dell'evento in base all'ora UTC del provider. |
@@ -90,11 +90,11 @@ Di seguito sono elencate le proprietà dell'oggetto dati:
 
 | Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
-| timestamp | string | Ora di generazione dell'evento in base all'ora UTC del provider. |
-| hubName | string | L'hub a cui appartiene la connessione client. |
-| connectionId | string | Identificatore univoco per la connessione client. |
-| userId | string | L'identificatore utente definito nell'attestazione. |
-| errorMessage | string | L'errore che causa la connessione è disconnesso. |
+|  timestamp | string | Ora di generazione dell'evento in base all'ora UTC del provider. |
+| hubName | string | Hub a cui appartiene la connessione client. |
+| connectionId | string | Identificatore univoco della connessione client. |
+| userId | string | Identificatore utente definito nell'attestazione. |
+| errorMessage | string | Errore che causa la connessione disconnessa. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

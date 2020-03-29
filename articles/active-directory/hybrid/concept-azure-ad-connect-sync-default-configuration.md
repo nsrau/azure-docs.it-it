@@ -17,14 +17,14 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c2886b842aab81732beec0fdd7957aab8e2b4f5e
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76548867"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Servizio di sincronizzazione Azure AD Connect: Informazioni sulla configurazione predefinita
-In questo articolo vengono illustrate le regole di configurazione predefinite, elencando le regole e spiegando come influiscono sulla configurazione. Viene inoltre illustrata la configurazione predefinita della sincronizzazione Azure AD Connect. L'obiettivo è che il lettore conosca il modo in cui il modello di configurazione, denominato provisioning dichiarativo, sta funzionando in un esempio reale. Nell'articolo si presuppone che l'utente abbia già installato e configurato il servizio di sincronizzazione Azure AD Connect tramite l'Installazione guidata.
+In questo articolo vengono illustrate le regole di configurazione predefinite, elencando le regole e spiegando come influiscono sulla configurazione. Viene inoltre illustrata la configurazione predefinita della sincronizzazione di Azure AD Connect.It also walks you through the default configuration of Azure AD Connect sync. L'obiettivo è che il lettore comprenda il funzionamento del modello di configurazione, denominato provisioning dichiarativo, in un esempio reale. Nell'articolo si presuppone che l'utente abbia già installato e configurato il servizio di sincronizzazione Azure AD Connect tramite l'Installazione guidata.
 
 Per i dettagli del modello di configurazione, vedere [Servizio di sincronizzazione Azure AD Connect: Informazioni sul provisioning dichiarativo](concept-azure-ad-connect-sync-declarative-provisioning.md).
 
@@ -52,7 +52,7 @@ Gli oggetti utente seguenti **non** vengono sincronizzati con Azure AD:
   * `(Left([sAMAccountName], 4) = "CAS_" && (InStr([sAMAccountName], "}")> 0))`
 * Non sincronizzare gli oggetti che non funzionerebbero in Exchange Online.
   `CBool(IIF(IsPresent([msExchRecipientTypeDetails]),BitAnd([msExchRecipientTypeDetails],&H21C07000) > 0,NULL))`  
-  Questa maschera di bit (&H21C07000) filtra gli oggetti seguenti:
+   Questa maschera di bit (&H21C07000) filtra gli oggetti seguenti:
   * Cartella pubblica abilitata alla posta elettronica (in anteprima a partire dalla versione 1.1.524.0)
   * Cassetta postale Supervisore sistema
   * Cassetta postale Database cassette postali (cassetta postale di sistema)
@@ -131,7 +131,7 @@ La configurazione può essere visualizzata e modificata usando l'editor delle re
 
 ![Icona dell'editor delle regole di sincronizzazione](./media/concept-azure-ad-connect-sync-default-configuration/sre.png)
 
-SRE è uno strumento del Resource Kit e viene installato con Azure AD Connect Sync. Per poterla avviare, è necessario essere un membro del gruppo ADSyncAdmins. All'avvio viene visualizzato un pannello simile al seguente:
+SRE è uno strumento del resource kit che viene installato con la sincronizzazione di Azure AD Connect.The SRE is a resource kit tool and it is installed with Azure AD Connect sync. Per poterlo avviare, è necessario essere membri del gruppo ADSyncAdmins. All'avvio viene visualizzato un pannello simile al seguente:
 
 ![Regole di sincronizzazione in ingresso](./media/concept-azure-ad-connect-sync-default-configuration/syncrulesinbound.png)
 
@@ -148,14 +148,14 @@ Essendo una regola predefinita, verrà visualizzato un avviso quando la si apre.
 
 Una regola di sincronizzazione include quattro sezioni di configurazione: descrizione, filtro per la definizione dell'ambito, regole di unione e trasformazioni.
 
-#### <a name="description"></a>Description
+#### <a name="description"></a>Descrizione
 La prima sezione fornisce informazioni di base, ad esempio il nome e una descrizione.
 
 ![Scheda Description (Descrizione) nell'editor delle regole di sincronizzazione](./media/concept-azure-ad-connect-sync-default-configuration/syncruledescription.png)
 
 Sono anche disponibili informazioni sul sistema connesso a cui la regola è correlata, sul tipo di oggetto presente nel sistema connesso a cui si applica la regola e sul tipo di oggetto del metaverse. Il tipo di oggetto del metaverse è sempre una persona, indipendentemente dal fatto che il tipo di oggetto di origine sia un utente, iNetOrgPerson o un contatto. Il tipo di oggetto del metaverse deve rimanere invariato, pertanto, viene creato come tipo generico. Il tipo di collegamento può essere impostato su Join, StickyJoin o Provision. Questa impostazione interagisce con la sezione Join rules (Regole di unione) e verrà discussa più avanti.
 
-È inoltre possibile notare che questa regola di sincronizzazione viene utilizzata per la sincronizzazione delle password. Se un utente rientra nell'ambito di questa regola di sincronizzazione, la password viene sincronizzata da locale a cloud (presupponendo che sia stata abilitata la funzionalità di sincronizzazione delle password).
+È inoltre possibile vedere che questa regola di sincronizzazione viene utilizzata per la sincronizzazione delle password. Se un utente rientra nell'ambito di questa regola di sincronizzazione, la password viene sincronizzata da locale a cloud (supponendo che sia stata abilitata la funzionalità di sincronizzazione delle password).
 
 #### <a name="scoping-filter"></a>Filtro per la definizione dell'ambito
 La sezione Filtro per la definizione dell'ambito viene usata per configurare i tempi di applicazione di una regola di sincronizzazione. Dal momento che il nome della regola di sincronizzazione in esame indica che deve essere applicata solo per utenti abilitati, l'ambito viene configurato in modo che l'attributo AD **userAccountControl** non abbia il bit 2 impostato. Quando il motore di sincronizzazione trova un utente in AD, applica questa regola di sincronizzazione quando **userAccountControl** è impostato sul valore decimale 512, ovvero utente normale abilitato. Non applica la regola quando l'utente ha **userAccountControl** impostato su 514, ovvero utente normale disabilitato.
@@ -173,7 +173,7 @@ La terza sezione viene usata per configurare il modo in cui gli oggetti presenti
 
 ![Scheda Join rules (Regole di unione) nell'editor delle regole di sincronizzazione](./media/concept-azure-ad-connect-sync-default-configuration/syncrulejoinrules.png)
 
-Il contenuto della regola di unione dipende dall'opzione corrispondente selezionata nell'installazione guidata. Per una regola in ingresso, la valutazione inizia con un oggetto presente nello spazio connettore di origine. Ogni gruppo nelle regole di unione viene valutato in sequenza. Se, usando una delle regole di unione, la valutazione di un oggetto di origine indica che questo corrisponde esattamente a un oggetto presente nel metaverse, i due oggetti verranno uniti. Se dopo la valutazione di tutte le regole non risulta alcuna associazione, viene usato il tipo di collegamento indicato nella pagina di descrizione. Se questa configurazione è impostata su **provisioning**, viene creato un nuovo oggetto nella destinazione, il metaverse, se è presente almeno un attributo nei criteri di join (con un valore). Il provisioning di un nuovo oggetto nel metaverse viene definito anche **proiezione** di un oggetto nel metaverse.
+Il contenuto della regola di unione dipende dall'opzione corrispondente selezionata nell'installazione guidata. Per una regola in ingresso, la valutazione inizia con un oggetto presente nello spazio connettore di origine. Ogni gruppo nelle regole di unione viene valutato in sequenza. Se, usando una delle regole di unione, la valutazione di un oggetto di origine indica che questo corrisponde esattamente a un oggetto presente nel metaverse, i due oggetti verranno uniti. Se dopo la valutazione di tutte le regole non risulta alcuna associazione, viene usato il tipo di collegamento indicato nella pagina di descrizione. Se questa configurazione è impostata su **Provisioning**, viene creato un nuovo oggetto nella destinazione, il metaverse, se è presente almeno un attributo nei criteri di join (ha un valore). Il provisioning di un nuovo oggetto nel metaverse viene definito anche **proiezione** di un oggetto nel metaverse.
 
 Le regole di unione vengono valutate una sola volta. Quando un oggetto dello spazio connettore viene unito a un oggetto del metaverse, i due oggetti rimangono uniti finché l'ambito della regola di sincronizzazione risulta soddisfatto.
 

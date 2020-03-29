@@ -7,27 +7,27 @@ author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
 ms.openlocfilehash: a394fee7178b2e3e167c8bd905ab175b25d1d813
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75397461"
 ---
 # <a name="work-with-strings-in-azure-monitor-log-queries"></a>Usare le stringhe nelle query di log di Monitoraggio di Azure
 
 
 > [!NOTE]
-> Prima di completare questa esercitazione, è necessario completare l'introduzione a [monitoraggio di azure log Analytics](get-started-portal.md) e [iniziare a usare le query di log di monitoraggio di Azure](get-started-queries.md) .
+> È necessario completare [Introduzione a Azure Monitor Log Analytics](get-started-portal.md) e Introduzione alle query di log di Monitoraggio di [Azure](get-started-queries.md) prima di completare questa esercitazione.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
 Questo articolo descrive come modificare e confrontare le stringhe, eseguire ricerche al loro interno e svolgere numerose altre operazioni sulle stringhe.
 
-Ogni carattere in una stringa ha un numero di indice, in base alla relativa posizione. Il primo carattere è in corrispondenza dell'indice 0, il carattere successivo è 1 e così via. Diverse funzioni di stringa usano i numeri di indice, come illustrato nelle sezioni seguenti. Molti degli esempi seguenti usano il comando **print** per illustrare la manipolazione della stringa senza usare un'origine dati specifica.
+Ogni carattere in una stringa ha un numero di indice, in base alla relativa posizione. Il primo carattere si trova in corrispondenza dell'indice 0, il carattere successivo è 1 e così via. Diverse funzioni di stringa usano i numeri di indice, come illustrato nelle sezioni seguenti. Molti degli esempi seguenti usano il comando **print** per illustrare la manipolazione della stringa senza usare un'origine dati specifica.
 
 
 ## <a name="strings-and-escaping-them"></a>Stringhe e caratteri di escape
-I valori di stringa sono racchiusi tra virgolette singole o doppie. La barra rovesciata (\\) viene utilizzata per utilizzare caratteri di escape per il carattere che lo segue, ad esempio \t per Tab, \n per la nuova riga e \" carattere virgolette.
+I valori di stringa sono racchiusi tra virgolette singole o doppie. La barra\\rovesciata ( ) viene utilizzata per eseguire l'escape dei caratteri nel \" carattere che lo segue, ad esempio "t" per la tabulazione, al carattere di nuova riga e al carattere di virgolette stesso.
 
 ```Kusto
 print "this is a 'string' literal in double \" quotes"
@@ -46,7 +46,7 @@ print @"C:\backslash\not\escaped\with @ prefix"
 
 ## <a name="string-comparisons"></a>Confronti di stringhe
 
-Operatore       |Description                         |Distinzione maiuscole/minuscole|Esempio (restituisce `true`)
+Operatore       |Descrizione                         |Distinzione maiuscole/minuscole|Esempio (restituisce `true`)
 ---------------|------------------------------------|--------------|-----------------------
 `==`           |Uguale a                              |Sì           |`"aBc" == "aBc"`
 `!=`           |Non uguale a                          |Sì           |`"abc" != "ABC"`
@@ -93,7 +93,7 @@ countof(text, search [, kind])
 ### <a name="arguments"></a>Argomenti:
 - `text`: stringa di input 
 - `search`: stringa di testo normale o espressione regolare di cui trovare la corrispondenza nel testo.
-- `kind` - _normal_ | _regex_ (valore predefinito: normal).
+- `kind` - _regex normale_ | _regex_ (impostazione predefinita: normale).
 
 ### <a name="returns"></a>Valori di codice restituiti
 

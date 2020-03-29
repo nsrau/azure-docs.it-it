@@ -1,13 +1,13 @@
 ---
-title: Descrizione delle app e dei servizi di Azure Service Fabric
+title: Descrizione dei servizi e delle app di Azure Service FabricDescribing Azure Service Fabric apps and services
 description: Viene descritto come vengono usati i manifesti per descrivere applicazioni e servizi di Service Fabric.
 ms.topic: conceptual
 ms.date: 8/12/2019
 ms.openlocfilehash: 6014ef6a9b6ec810aafd5e5be96223b8ed92d576
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75349972"
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Manifesti delle applicazioni e dei servizi di Service Fabric
@@ -74,7 +74,7 @@ Per altre informazioni su come configurare SetupEntryPoint, vedere [Configurare 
 
 **DataPackage** (non impostato nell'esempio precedente) dichiara una cartella, denominata dall'attributo **Name**, che contiene i dati statici arbitrari che devono essere usati dal processo in fase di esecuzione.
 
-**ConfigPackage** dichiara una cartella, denominata dall'attributo **Name**, che contiene un file *Settings.xml*. Questo file di impostazioni contiene sezioni di impostazioni di coppie chiave-valore definite dall'utente che vengono lette dal processo in fase di esecuzione. Durante un aggiornamento, se è stata modificata solo la **versione** **ConfigPackage** , il processo in esecuzione non viene riavviato. Un callback piuttosto notifica al processo che le impostazioni di configurazione sono cambiate affinché vengano ricaricate in modo dinamico. Questo è un esempio di file *Settings.xml* :
+**ConfigPackage** dichiara una cartella, denominata dall'attributo **Name**, che contiene un file *Settings.xml*. Questo file di impostazioni contiene sezioni di impostazioni di coppie chiave-valore definite dall'utente che vengono lette dal processo in fase di esecuzione. Durante un aggiornamento, se è stata modificata solo la **versione** di **ConfigPackage,** il processo in esecuzione non viene riavviato. Un callback piuttosto notifica al processo che le impostazioni di configurazione sono cambiate affinché vengano ricaricate in modo dinamico. Questo è un esempio di file *Settings.xml* :
 
 ```xml
 <Settings xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -85,11 +85,11 @@ Per altre informazioni su come configurare SetupEntryPoint, vedere [Configurare 
 </Settings>
 ```
 
-Un **endpoint** del servizio Service Fabric è un esempio di una risorsa Service Fabric. Una risorsa Service Fabric può essere dichiarata/modificata senza modificare il codice compilato. È possibile controllare l'accesso alle risorse Service Fabric specificate nel manifesto del servizio tramite **SecurityGroup** nel manifesto dell'applicazione. Quando una risorsa dell'endpoint viene definita nel manifesto del servizio, Service Fabric assegna le porte dall'intervallo di porte riservate dell'applicazione se non è esplicitamente specificata una porta. Sono disponibili altre informazioni su come [specificare o eseguire l'override di risorse endpoint](service-fabric-service-manifest-resources.md).
+Un endpoint del servizio Service Fabric è un esempio di una risorsa di Service Fabric.A Service Fabric Service **Endpoint** is an example of a Service Fabric Resource. Una risorsa di Service Fabric può essere dichiarata/modificata senza modificare il codice compilato. È possibile controllare l'accesso alle risorse Service Fabric specificate nel manifesto del servizio tramite **SecurityGroup** nel manifesto dell'applicazione. Quando una risorsa dell'endpoint viene definita nel manifesto del servizio, Service Fabric assegna le porte dall'intervallo di porte riservate dell'applicazione se non è esplicitamente specificata una porta. Sono disponibili altre informazioni su come [specificare o eseguire l'override di risorse endpoint](service-fabric-service-manifest-resources.md).
 
  
 > [!WARNING]
-> Le porte statiche di progettazione non devono sovrapporsi all'intervallo di porte dell'applicazione specificato in ClusterManifest. Se si specifica una porta statica, assegnarla al di fuori dell'intervallo di porte dell'applicazione. in caso contrario, verrà generato un conflitto tra porte. Con la versione 6.5 CU2 verrà emesso un **avviso di integrità** quando si rileva un conflitto di questo tipo, ma si lascia che la distribuzione continui a essere sincronizzata con il comportamento 6,5 fornito. Tuttavia, potrebbe impedire la distribuzione dell'applicazione dalle versioni principali successive.
+> Per impostazione della progettazione, le porte statiche non devono sovrapporsi all'intervallo di porte dell'applicazione specificato in ClusterManifest. Se si specifica una porta statica, assegnarla all'esterno dell'intervallo di porte dell'applicazione, altrimenti si tradurrà in conflitti di porta. Con la versione 6.5CU2 verrà emanato un **avviso** di integrità quando si rileva un conflitto di questo tipo, ma si lascia che la distribuzione continui in sincronia con il comportamento fornito 6.5. Tuttavia, è possibile impedire la distribuzione dell'applicazione dalle versioni principali successive.
 >
 
 <!--
@@ -157,12 +157,12 @@ Analogamente ai manifesti dei servizi, gli attributi **Version** sono stringhe n
 
 **Certificates** (non impostato nell'esempio precedente) dichiara i certificati usati per [configurare gli endpoint HTTPS](service-fabric-service-manifest-resources.md#example-specifying-an-https-endpoint-for-your-service) o [crittografare i segreti nel manifesto dell'applicazione](service-fabric-application-secret-management.md).
 
-I **vincoli di posizionamento** sono le istruzioni che definiscono dove devono essere eseguiti i servizi. Queste istruzioni sono associate a singoli servizi selezionati per una o più proprietà del nodo. Per altre informazioni, vedere [vincoli di posizionamento e sintassi delle proprietà dei nodi](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-cluster-description#placement-constraints-and-node-property-syntax)
+**Vincoli di posizionamento** sono le istruzioni che definiscono dove devono essere eseguiti i servizi. Queste istruzioni sono associate a singoli servizi selezionati per una o più proprietà del nodo. Per altre informazioni, vedere [Vincoli di posizionamento e sintassi](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-cluster-description#placement-constraints-and-node-property-syntax) delle proprietà dei nodiFor more information, see Placement constraints and node property syntax
 
-**Criteri** (non impostati nell'esempio precedente) descrive i criteri di raccolta dei log, [esecuzione predefinita](service-fabric-application-runas-security.md), [integrità](service-fabric-health-introduction.md#health-policies)e [accesso di sicurezza](service-fabric-application-runas-security.md) da impostare a livello di applicazione, compreso se i servizi hanno accesso al Runtime Service Fabric.
+**I criteri** (non impostati nell'esempio precedente) descrivono la raccolta di log, l'esecuzione [predefinita come](service-fabric-application-runas-security.md), l'integrità e i criteri di accesso di [sicurezza](service-fabric-application-runas-security.md) da impostare a livello di applicazione, incluso se i servizi hanno accesso al runtime di Service Fabric. [health](service-fabric-health-introduction.md#health-policies)
 
 > [!NOTE] 
-> Per impostazione predefinita, le applicazioni Service Fabric hanno accesso al runtime di Service Fabric, sotto forma di un endpoint che accetta richieste specifiche dell'applicazione e variabili di ambiente che puntano a percorsi di file nell'host che contiene file di infrastruttura e specifici dell'applicazione . Provare a disabilitare questo accesso quando l'applicazione ospita codice non attendibile (ad esempio il codice la cui origine è sconosciuta o il proprietario dell'applicazione non è sicuro per l'esecuzione). Per ulteriori informazioni, vedere la pagina relativa alle [procedure consigliate per la sicurezza in Service Fabric](service-fabric-best-practices-security.md#platform-isolation). 
+> Per impostazione predefinita, le applicazioni Service Fabric hanno accesso al runtime di Service Fabric, sotto forma di endpoint che accetta richieste specifiche dell'applicazione e variabili di ambiente che puntano a percorsi di file nell'host contenente l'infrastruttura e i file specifici dell'applicazione. . È consigliabile disabilitare questo accesso quando l'applicazione ospita codice non attendibile (ovvero codice la cui provenienza è sconosciuta o che il proprietario dell'applicazione sa di non essere sicuro da eseguire). Per altre informazioni, vedere Procedure consigliate per la [sicurezza in Service Fabric](service-fabric-best-practices-security.md#platform-isolation). 
 >
 
 **Principals** (non impostato nell'esempio precedente) descrive le entità di sicurezza (utenti o gruppi) necessarie per [eseguire i servizi e proteggere le risorse correlate](service-fabric-application-runas-security.md).  Alle entità di sicurezza viene fatto riferimento nelle sezioni **Policies**.
@@ -184,7 +184,7 @@ For more information about other features supported by application manifests, re
 - [Creare il pacchetto di un'applicazione](service-fabric-package-apps.md) e prepararlo per la distribuzione.
 - [Distribuire e rimuovere applicazioni](service-fabric-deploy-remove-applications.md).
 - [Configure parameters and environment variables for different application instances](service-fabric-manage-multiple-environment-app-configuration.md) (Configurare parametri e variabili di ambiente per istanze di applicazione diverse).
-- [Configurare i criteri di sicurezza per l'applicazione](service-fabric-application-runas-security.md).
+- [Configurare i criteri di sicurezza per l'applicazione.](service-fabric-application-runas-security.md)
 - [Setup HTTPS endpoints](service-fabric-service-manifest-resources.md#example-specifying-an-https-endpoint-for-your-service) (Configurare gli endpoint HTTPS).
 - [Encrypt secrets in the application manifest](service-fabric-application-secret-management.md) (Crittografare i segreti nel manifesto dell'applicazione)
 

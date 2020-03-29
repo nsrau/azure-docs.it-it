@@ -1,5 +1,5 @@
 ---
-title: Connetti a Oracle Database
+title: Connettersi al database Oracle
 description: Inserire e gestire i record con le API REST di Oracle Database e App per la logica di Azure
 services: logic-apps
 ms.suite: integration
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/29/2017
 tags: connectors
 ms.openlocfilehash: 99abd48bde97c2a2e085688cdfbb365e5e4cfd56
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74789427"
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Introduzione al connettore Oracle Database
@@ -32,9 +32,9 @@ Questo articolo illustra come usare il connettore Oracle Database in un'app per 
 * Installare il gateway dati locale. Questi passaggi sono illustrati in [Connettersi ai dati locali dalle app per la logica](../logic-apps/logic-apps-gateway-connection.md). Il gateway è necessario per connettersi a un'istanza locale di Oracle Database o a una VM di Azure con Oracle DB installato. 
 
     > [!NOTE]
-    > Il gateway dati locale svolge la funzione di bridge e consente il trasferimento sicuro dei dati tra i dati locali (non nel cloud) e le app per la logica. Lo stesso gateway può essere anche usato con più servizi e più origini dati. Quindi, potrebbe essere necessario installare il gateway una sola volta.
+    > Il gateway dati locale svolge la funzione di bridge e consente il trasferimento sicuro dei dati tra i dati locali (non nel cloud) e le app per la logica. Lo stesso gateway può essere anche usato con più servizi e più origini dati.Potrebbe quindi essere necessario installare il gateway una sola volta.
 
-* Installare il client Oracle nella macchina in cui è stato installato il gateway dati locale. Assicurarsi di installare il provider di dati Oracle a 64 bit per .NET da Oracle:  
+* Installare il client Oracle nella macchina in cui è stato installato il gateway dati locale.Assicurarsi di installare il provider di dati Oracle a 64 bit per .NET da Oracle:  
 
   [ODAC 64 bit 12c versione 4 (12.1.0.2.4) per Windows x64](https://www.oracle.com/technetwork/database/windows/downloads/index-090165.html)
 
@@ -47,7 +47,7 @@ Questo articolo illustra come usare il connettore Oracle Database in un'app per 
 > [!IMPORTANT]
 > Questo connettore non include trigger. Ha solo azioni. Quando si crea l'app per la logica, aggiungere quindi un altro trigger per avviare l'app per la logica, ad esempio **Pianificazione - Ricorrenza** o **Richiesta/Risposta - Risposta**. 
 
-1. Nel [portale di Azure](https://portal.azure.com) creare un'app per la logica vuota.
+1. Nel [portale di Azure](https://portal.azure.com)creare un'app per la logica vuota.
 
 2. All'avvio dell'app per la logica, selezionare il trigger **Richiesta/Risposta - Risposta**: 
 
@@ -95,9 +95,9 @@ Questo articolo illustra come usare il connettore Oracle Database in un'app per 
 
 **Causa**: il gateway dati locale non è in grado di connettersi al cloud. 
 
-**Mitigazione**: assicurarsi che il gateway sia in esecuzione nel computer locale in cui è stato installato e che sia in grado di connettersi a Internet.  Si consiglia di non installare il gateway in un computer che potrebbe essere disattivato o sospeso. È anche possibile riavviare il servizio gateway dati locale (PBIEgwService).
+**Mitigazione**: assicurarsi che il gateway sia in esecuzione nel computer locale in cui è stato installato e che sia in grado di connettersi a Internet.È consigliabile non installare il gateway in un computer che potrebbe venire spento o andare in sospensione.È anche possibile riavviare il servizio gateway dati locale (PBIEgwService).
 
-#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**Errore**: Il provider usato è deprecato: 'System.Data.OracleClient richiede il software client Oracle versione 8.1.7 o versione successiva.' Per installare il provider ufficiale, vedere [https://go.microsoft.com/fwlink/p/?LinkID=272376](https://go.microsoft.com/fwlink/p/?LinkID=272376).
+#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**Errore**: Il provider usato è deprecato: 'System.Data.OracleClient richiede il software client Oracle versione 8.1.7 o versione successiva.' Vedere [https://go.microsoft.com/fwlink/p/?LinkID=272376](https://go.microsoft.com/fwlink/p/?LinkID=272376) per installare il provider ufficiale.
 
 **Causa**: Oracle client SDK non è installato nel computer in cui è in esecuzione il gateway dati locale.  
 
@@ -111,7 +111,7 @@ Questo articolo illustra come usare il connettore Oracle Database in un'app per 
 
 #### <a name="currently-not-supported"></a>Attualmente non supportati
 
-* Visualizzazioni 
+* Viste 
 * Tabelle con chiavi composte
 * Tipi di oggetti annidati nelle tabelle
  
@@ -123,7 +123,7 @@ Per visualizzare eventuali azioni e trigger definiti in Swagger ed eventuali lim
 
 Il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) è il posto ideale per porre domande, fornire risposte e vedere cosa stanno facendo gli altri utenti di App per la logica. 
 
-È possibile migliorare App per la logica e i connettori votando e inviando le idee nella pagina [https://aka.ms/logicapps-wish](https://aka.ms/logicapps-wish). 
+È possibile contribuire a migliorare le app per la [https://aka.ms/logicapps-wish](https://aka.ms/logicapps-wish)logica e i connettori votando e inviando le proprie idee all'indirizzo . 
 
 
 ## <a name="next-steps"></a>Passaggi successivi

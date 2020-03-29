@@ -1,26 +1,26 @@
 ---
 title: Aggiunta di risorse personalizzate all'API REST di Azure
-description: Informazioni su come aggiungere risorse personalizzate all'API REST di Azure. In questo articolo vengono illustrati i requisiti e le procedure consigliate per gli endpoint che desiderano implementare risorse personalizzate.
+description: Informazioni su come aggiungere risorse personalizzate all'API REST di Azure.Learn how to add custom resources to the Azure REST API. Questo articolo illustra i requisiti e le procedure consigliate per gli endpoint che desiderano implementare risorse personalizzate.
 ms.topic: conceptual
 ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
 ms.openlocfilehash: b6c5f5b8e437ad2dc2e8a3be3f3f2ed03a613b44
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75650526"
 ---
-# <a name="adding-custom-resources-to-azure-rest-api"></a>Aggiunta di risorse personalizzate all'API REST di Azure
+# <a name="adding-custom-resources-to-azure-rest-api"></a>Aggiunta di risorse personalizzate all'API REST di AzureAdding Custom Resources to Azure REST API
 
-Questo articolo illustra i requisiti e le procedure consigliate per la creazione di endpoint del provider di risorse personalizzati di Azure che implementano risorse personalizzate. Se non si ha familiarità con i provider di risorse personalizzati di Azure, vedere [la panoramica sui provider di risorse personalizzati](overview.md).
+Questo articolo illustra i requisiti e le procedure consigliate per la creazione di endpoint del provider di risorse personalizzato di Azure che implementa risorse personalizzate. Se non si ha familiarità con i provider di risorse personalizzate di Azure, vedere [panoramica sui provider](overview.md)di risorse personalizzati.
 
-## <a name="how-to-define-a-resource-endpoint"></a>Come definire un endpoint di risorsa
+## <a name="how-to-define-a-resource-endpoint"></a>Come definire un endpoint di risorsaHow to define a resource endpoint
 
-Un **endpoint** è un URL che punta a un servizio che implementa il contratto sottostante tra l'IT e Azure. L'endpoint è definito nel provider di risorse personalizzato e può essere qualsiasi URL accessibile pubblicamente. Nell'esempio seguente è presente un oggetto **ResourceType** denominato `myCustomResource` implementato da `endpointURL`.
+Un endpoint è un URL che punta a un servizio, che implementa il contratto sottostante tra esso e Azure.An **endpoint** is a URL that points to a service, which implements the underlying contract between it and Azure. L'endpoint è definito nel provider di risorse personalizzato e può essere qualsiasi URL accessibile pubblicamente. Nell'esempio riportato di `myCustomResource` seguito `endpointURL`è riportato **un resourceType** chiamato implemented da .
 
-**ResourceProvider**di esempio:
+**Risorsa di esempio:**
 
 ```JSON
 {
@@ -40,45 +40,45 @@ Un **endpoint** è un URL che punta a un servizio che implementa il contratto so
 }
 ```
 
-## <a name="building-a-resource-endpoint"></a>Compilazione di un endpoint di risorsa
+## <a name="building-a-resource-endpoint"></a>Creazione di un endpoint di risorseBuilding a resource endpoint
 
-Un **endpoint** che implementa un oggetto **ResourceType** deve gestire la richiesta e la risposta per la nuova API in Azure. Quando viene creato un provider di risorse personalizzato con un oggetto **ResourceType** , viene generato un nuovo set di API in Azure. In questo caso, il **ResourceType** genererà una nuova API di risorse di Azure per `PUT`, `GET`e `DELETE` per eseguire CRUD su una singola risorsa, nonché `GET` per recuperare tutte le risorse esistenti:
+Un endpoint che implementa un resourceType deve gestire la richiesta e la risposta per la nuova API in Azure.An **endpoint** that implements an **resourceType** must handle the request and response for the new API in Azure. Quando viene creato un provider di risorse personalizzato con un **resourceType,** verrà generato un nuovo set di API in Azure.When a custom resource provider with an resourceType is created, it will generate a new set of APIs in Azure. In questo caso, resourceType genererà una nuova API `DELETE` di risorsa di Azure per `GET` , , ed esegue CRUD su una singola risorsa e per recuperare tutte le risorse esistenti:In this case, the **resourceType** will generate a new Azure resource API for `PUT`, `GET`, and to perform CRUD on a single resource as well as to retrieve all existing resources:
 
-Modificare una singola risorsa (`PUT`, `GET`e `DELETE`):
+Manipolazione di`PUT` `GET`una `DELETE`singola risorsa ( , , e ):
 
 ``` JSON
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResource/{myCustomResourceName}
 ```
 
-Recupera tutte le risorse (`GET`):
+Recupera tutte`GET`le risorse ( ):
 
 ``` JSON
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResource
 ```
 
-Per le risorse personalizzate, i provider di risorse personalizzati offrono due tipi di **routingTypes**: "`Proxy`" e "`Proxy, Cache`".
+Per le risorse personalizzate, i provider di`Proxy`risorse personalizzate`Proxy, Cache`offrono due tipi di **routingTipi:**" " e " ".
 
 ### <a name="proxy-routing-type"></a>tipo di routing proxy
 
-Il **routingType** "`Proxy`" proxy tutti i metodi di richiesta all' **endpoint** specificato nel provider di risorse personalizzato. Quando usare "`Proxy`":
+"`Proxy`" **routingType** invia tramite proxy tutti i metodi di richiesta all'endpoint specificato nel provider di risorse personalizzato. **endpoint** Quando usare`Proxy`" ":
 
-- Il controllo completo sulla risposta è necessario.
+- È necessario il pieno controllo sulla risposta.
 - Integrazione dei sistemi con le risorse esistenti.
 
-Per ulteriori informazioni sulle risorse "`Proxy`", vedere [il riferimento al proxy di risorsa personalizzato](proxy-resource-endpoint-reference.md) .
+Per ulteriori informazioni`Proxy`sulle risorse " ", vedere il riferimento al [proxy di risorse personalizzate](proxy-resource-endpoint-reference.md)
 
 ### <a name="proxy-cache-routing-type"></a>tipo di routing della cache proxy
 
-I proxy **routingType** "`Proxy, Cache`" `PUT` e `DELETE` i metodi di richiesta all' **endpoint** specificato nel provider di risorse personalizzato. Il provider di risorse personalizzato restituirà automaticamente `GET` richieste in base al contenuto archiviato nella cache. Se una risorsa personalizzata è contrassegnata con la cache, anche il provider di risorse personalizzato aggiunge/sovrascrive i campi nella risposta per rendere le API conformi ad Azure. Quando usare "`Proxy, Cache`":
+I`Proxy, Cache`metodi " " **routingType** solo `PUT` proxy e `DELETE` richiesta all'endpoint specificato nel provider di risorse personalizzato. **endpoint** Il provider di risorse `GET` personalizzato restituirà automaticamente le richieste in base a ciò che ha archiviato nella cache. Se una risorsa personalizzata è contrassegnata con cache, il provider di risorse personalizzato aggiungerà/sovrascriverà anche i campi nella risposta per rendere le API compatibili con Azure.If a custom resource is marked with cache, the custom resource provider will also add /overwrite fields in response to make the APIs Azure compliant. Quando usare`Proxy, Cache`" ":
 
-- Creazione di un nuovo sistema privo di risorse esistenti.
+- Creazione di un nuovo sistema senza risorse esistenti.
 - Usare l'ecosistema di Azure esistente.
 
-Per ulteriori informazioni sulle risorse "`Proxy, Cache`", vedere [il riferimento alla cache delle risorse personalizzate](proxy-cache-resource-endpoint-reference.md) .
+Per ulteriori informazioni`Proxy, Cache`sulle risorse " ", vedere le informazioni di riferimento sulla [cache delle risorse personalizzate](proxy-cache-resource-endpoint-reference.md)
 
-## <a name="creating-a-custom-resource"></a>Creazione di una risorsa personalizzata
+## <a name="creating-a-custom-resource"></a>Creazione di una risorsa personalizzataCreating a custom resource
 
-Esistono due modi principali per creare una risorsa personalizzata da un provider di risorse personalizzato:
+Esistono due modi principali per creare una risorsa personalizzata da un provider di risorse personalizzato:There are two main ways of creating a custom resource off of a custom resource provider:
 
 - Interfaccia della riga di comando di Azure
 - Modelli di Azure Resource Manager
@@ -102,11 +102,11 @@ az resource create --is-full-object \
                     }'
 ```
 
-Parametro | Obbligatorio | Description
+Parametro | Obbligatoria | Descrizione
 ---|---|---
-is-full-object | *sì* | Indica che l'oggetto proprietà include altre opzioni, come location, tags, sku, e/o plan.
-id | *sì* | ID della risorsa personalizzata. Questo dovrebbe esistere all'esterno del **ResourceProvider**
-properties | *sì* | Il corpo della richiesta che verrà inviato all' **endpoint**.
+is-full-object | *Sì* | Indica che l'oggetto proprietà include altre opzioni, come location, tags, sku, e/o plan.
+id | *Sì* | ID della risorsa personalizzata. Questo dovrebbe esistere al di fuori del **ResourceProvider**
+properties | *Sì* | Corpo della richiesta che verrà inviato **all'endpoint.**
 
 Eliminare una risorsa personalizzata di Azure:
 
@@ -114,9 +114,9 @@ Eliminare una risorsa personalizzata di Azure:
 az resource delete --id /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/{resourceTypeName}/{customResourceName}
 ```
 
-Parametro | Obbligatorio | Description
+Parametro | Obbligatoria | Descrizione
 ---|---|---
-id | *sì* | ID della risorsa personalizzata. Questa operazione deve essere disattivata da **ResourceProvider**.
+id | *Sì* | ID della risorsa personalizzata. Questo dovrebbe esistere al di fuori di **ResourceProvider**.
 
 Recuperare una risorsa personalizzata di Azure:
 
@@ -124,18 +124,18 @@ Recuperare una risorsa personalizzata di Azure:
 az resource show --id /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/{resourceTypeName}/{customResourceName}
 ```
 
-Parametro | Obbligatorio | Description
+Parametro | Obbligatoria | Descrizione
 ---|---|---
-id | *sì* | ID della risorsa personalizzata. Questo dovrebbe esistere all'esterno del **ResourceProvider**
+id | *Sì* | ID della risorsa personalizzata. Questo dovrebbe esistere al di fuori del **ResourceProvider**
 
 ### <a name="azure-resource-manager-template"></a>Modello di Azure Resource Manager
 
 > [!NOTE]
-> Per le risorse è necessario che la risposta contenga un `id`appropriato, `name`e `type` dall' **endpoint**.
+> Le risorse richiedono che `id`la `name`risposta `type` contenga un oggetto , e dall'endpoint . **endpoint**
 
-Per i modelli di Azure Resource Manager è necessario che `id`, `name`e `type` vengano restituiti correttamente dall'endpoint downstream. Una risposta di risorsa restituita deve essere nel formato seguente:
+I modelli di `id`Azure `name`Resource `type` Manager richiedono tale , e vengono restituiti correttamente dall'endpoint downstream. Una risposta alla risorsa restituita deve essere nel formato seguente:A returned resource response should be in the form:
 
-Risposta dell' **endpoint** di esempio:
+Esempio di risposta **all'endpoint:Sample endpoint** response:
 
 ``` JSON
 {
@@ -174,17 +174,17 @@ Modello di Azure Resource Manager di esempio:
 }
 ```
 
-Parametro | Obbligatorio | Description
+Parametro | Obbligatoria | Descrizione
 ---|---|---
-resourceTypeName | *sì* | **Nome** del **ResourceType** definito nel provider personalizzato.
-resourceProviderName | *sì* | Nome dell'istanza del provider di risorse personalizzato.
-customResourceName | *sì* | Nome della risorsa personalizzata.
+resourceTypeName | *Sì* | **Nome** del **resourceType** definito nel provider personalizzato.
+resourceProviderName | *Sì* | Nome dell'istanza del provider di risorse personalizzato.
+customResourceName | *Sì* | Nome della risorsa personalizzata.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Panoramica sui provider di risorse personalizzati di Azure](overview.md)
-- [Guida introduttiva: creare un provider di risorse personalizzato di Azure e distribuire risorse personalizzate](./create-custom-provider.md)
-- [Esercitazione: creare azioni e risorse personalizzate in Azure](./tutorial-get-started-with-custom-providers.md)
-- [Procedura: aggiungere azioni personalizzate all'API REST di Azure](./custom-providers-action-endpoint-how-to.md)
-- [Riferimento: riferimento al proxy di risorsa personalizzato](proxy-resource-endpoint-reference.md)
-- [Riferimento: informazioni di riferimento sulla cache delle risorse personalizzate](proxy-cache-resource-endpoint-reference.md)
+- [Panoramica sui provider di risorse personalizzate di AzureOverview on Azure Custom Resource Providers](overview.md)
+- [Guida introduttiva: Creare il provider di risorse personalizzato di Azure e distribuire risorse personalizzate](./create-custom-provider.md)
+- [Esercitazione: Creare azioni e risorse personalizzate in AzureTutorial: Create custom actions and resources in Azure](./tutorial-get-started-with-custom-providers.md)
+- [Procedura: Aggiunta di azioni personalizzate all'API REST di AzureHow To: Adding Custom Actions to Azure REST API](./custom-providers-action-endpoint-how-to.md)
+- [Riferimento: Riferimento al proxy di risorsa personalizzatoReference: Custom Resource Proxy Reference](proxy-resource-endpoint-reference.md)
+- [Riferimento: Riferimento alla cache delle risorse personalizzataReference: Custom Resource Cache Reference](proxy-cache-resource-endpoint-reference.md)

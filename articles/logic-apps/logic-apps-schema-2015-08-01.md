@@ -1,5 +1,5 @@
 ---
-title: Aggiornamenti dello schema per l'anteprima di agosto 1-2015
+title: Aggiornamenti dello schema per l'anteprima di agosto-1-2015
 description: Anteprima del 1° agosto 2015 della versione aggiornata dello schema per le definizioni di App per la logica di Azure
 services: logic-apps
 ms.suite: integration
@@ -9,10 +9,10 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/31/2016
 ms.openlocfilehash: b6746baaede777eb8c2afcae9eb3fe80b669c468
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74792853"
 ---
 # <a name="schema-updates-for-azure-logic-apps---august-1-2015-preview"></a>Aggiornamenti dello schema per App per la logica di Azure: anteprima del 1° agosto 2015
@@ -20,7 +20,7 @@ ms.locfileid: "74792853"
 Questo schema e la versione dell'API per App per la logica di Azure includono importanti miglioramenti che rendono le app per la logica più affidabili e più facili da usare:
 
 * Il tipo di azione **APIApp** è ora denominato [**APIConnection**](#api-connections).
-* L'azione **Repeat** è ora denominata [ **Foreach**](#foreach).
+* L'azione **Repeat** è ora denominata [**Foreach**](#foreach).
 * L'[app per le API **Listener HTTP**](#http-listener) non è più necessaria.
 * La chiamata a flussi di lavoro figlio usa un [nuovo schema](#child-workflows).
 
@@ -288,9 +288,9 @@ A questo punto, è possibile compilare un'azione HTTP simile e lasciare la sezio
 
 La tabella seguente illustra le singole proprietà:
 
-| Proprietà dell'azione | Description |
+| Proprietà dell'azione | Descrizione |
 | --- | --- |
-| `type` | `Http` anziché `APIapp` |
+| `type` | `Http` invece di `APIapp` |
 | `metadata.apiDefinitionUrl` | Per usare questa azione nella finestra di progettazione di app per la logica, includere l'endpoint dei metadati, costituito da: `{api app host.gateway}/api/service/apidef/{last segment of the api app host.id}/?api-version=2015-01-14&format=swagger-2.0-standard` |
 | `inputs.uri` | Costituito da: `{api app host.gateway}/api/service/invoke/{last segment of the api app host.id}/{api app operation}?api-version=2015-01-14` |
 | `inputs.method` | Sempre `POST` |
@@ -417,7 +417,7 @@ Con queste modifiche, App per la logica sostituisce la funzione `@accessKeys()` 
 
 ## <a name="call-child-workflows"></a>Chiamare flussi di lavoro figlio
 
-In precedenza, per la chiamata a flussi di lavoro figlio era necessario passare al flusso di lavoro, ottenere il token di accesso e incollare il token nella definizione dell'app per la logica in cui si vuole chiamare tale flusso di lavoro figlio. Con questo schema, il motore di App per la logica genera automaticamente una firma di accesso condiviso in fase di esecuzione per il flusso di lavoro figlio, quindi non è necessario incollare segreti nella definizione. Di seguito è fornito un esempio:
+In precedenza, per la chiamata a flussi di lavoro figlio era necessario passare al flusso di lavoro, ottenere il token di accesso e incollare il token nella definizione dell'app per la logica in cui si vuole chiamare tale flusso di lavoro figlio. Con questo schema, il motore di App per la logica genera automaticamente una firma di accesso condiviso in fase di esecuzione per il flusso di lavoro figlio, quindi non è necessario incollare segreti nella definizione. Esempio:
 
 ``` json
 "myNestedWorkflow": {

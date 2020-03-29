@@ -1,6 +1,6 @@
 ---
 title: Telemetria di Servizi multimediali di Azure | Documentazione Microsoft
-description: Questo articolo fornisce una panoramica dei dati di telemetria Servizi multimediali di Microsoft Azure.
+description: Questo articolo offre una panoramica dei dati di telemetria di Servizi multimediali di Microsoft Azure.This article provides an overview of Microsoft Azure Media Services telemetry.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: e2cbb36158722a47518f575b391340b5e25bd908
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74895786"
 ---
 # <a name="azure-media-services-telemetry"></a>Telemetria di Servizi multimediali di Azure  
 
 
 > [!NOTE]
-> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [linee guida sulla migrazione da V2 a V3](../latest/migrate-from-v2-to-v3.md)
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Scopri la versione più recente, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche le linee guida per la [migrazione dalla v2 alla v3](../latest/migrate-from-v2-to-v3.md)
 
-Tramite Servizi multimediali di Azure è possibile accedere ai dati di telemetria e delle metriche relativi ai servizi. La versione corrente di AMS consente di raccogliere i dati di telemetria relativi alle entità **Channel** live, **StreamingEndpoint** e **Archive** live. 
+Tramite Servizi multimediali di Azure è possibile accedere ai dati di telemetria e delle metriche relativi ai servizi. La versione corrente di AMS consente di raccogliere dati di telemetria per le entità **Live Channel**, **StreamingEndpoint**ed **Live Archive.** 
 
 I dati di telemetria vengono scritti in una tabella di archiviazione all'interno di un account di Archiviazione di Azure specificato dall'utente (in genere quello associato all'account di AMS). 
 
@@ -74,13 +74,13 @@ Ciò dovrebbe garantire l'efficienza di molte query comuni:
 
 I dati di telemetria sono archiviati tutti insieme nella tabella "TelemetryMetrics20160321" dove "20160321" è la data di creazione della tabella. Il sistema di telemetria crea una nuova tabella per ogni giornata alle ore 00:00 UTC. In questa tabella vengono archiviati i valori ricorrenti, come la velocità in bit delle operazioni di inserimento in un determinato intervallo di tempo, i byte inviati e così via. 
 
-Proprietà|Value|Esempi/note
+Proprietà|valore|Esempi/note
 ---|---|---
 PartitionKey|{ID account}_{ID entità}|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66<br/<br/>L'ID dell'account viene incluso nella chiave di partizione per semplificare i flussi di lavoro in quei casi in cui nello stesso account di archiviazione scrivono più account di Servizi multimediali.
 RowKey|{secondi a mezzanotte}_{valore casuale}|01688_00199<br/><br/>La chiave di riga inizia con il numero di secondi che mancano alla mezzanotte per consentire le principali query di stile all'interno di una partizione. Per altre informazioni, vedere [questo](../../cosmos-db/table-storage-design-guide.md#log-tail-pattern) articolo. 
 Timestamp|Data/ora|Timestamp automatico della tabella di Azure 2016-09-09T22:43:42.241Z
 Type|Tipo di entità che fornisce i dati di telemetria|Channel/StreamingEndpoint/Archive<br/><br/>Il tipo di evento è semplicemente un valore stringa.
-name|Nome dell'evento di telemetria|ChannelHeartbeat/StreamingEndpointRequestLog
+Nome|Nome dell'evento di telemetria|ChannelHeartbeat/StreamingEndpointRequestLog
 ObservedTime|L'ora (UTC) in cui si è verificato l'evento di telemetria|2016-09-09T22:42:36.924Z<br/><br/>L'ora osservata è fornita dall'entità che invia i dati di telemetria (ad esempio un canale). Poiché possono esserci problemi di sincronizzazione tra i componenti, questo valore è approssimativo
 ServiceID|{ID servizio}|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
 Proprietà specifiche di entità|Come definito dall'evento|NomeFlusso: flusso1, bitrate 10123, ...<br/><br/>Vengono definite le proprietà rimanenti per il tipo di evento specificato. Il contenuto della tabella di Azure corrisponde a coppie valore-chiave.  (ovvero a diverse righe della tabella corrispondono diversi set di proprietà).
@@ -93,15 +93,15 @@ Esistono tre tipi di dati di telemetria specifici di entità inseriti con la seg
 - Canali live: ogni minuto
 - Archivio live: ogni minuto
 
-**Endpoint di streaming**
+**Streaming Endpoint**
 
-Proprietà|Value|esempi
+Proprietà|valore|Esempi
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
 Timestamp|Timestamp|Timestamp automatico della tabella di Azure 2016-09-09T22:43:42.241Z
 Type|Type|StreamingEndpoint
-name|name|StreamingEndpointRequestLog
+Nome|Nome|StreamingEndpointRequestLog
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z
 ServiceID|ID del servizio|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
 HostName|Nome host dell'endpoint|builddemoserver.Origin.mediaservices.Windows.NET
@@ -114,13 +114,13 @@ E2ELatency|Latenza end-to-end media|250
 
 **Canale live**
 
-Proprietà|Value|Esempi/note
+Proprietà|valore|Esempi/note
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
 Timestamp|Timestamp|Timestamp automatico della tabella di Azure 2016-09-09T22:43:42.241Z
-Type|Type|canale
-name|name|ChannelHeartbeat
+Type|Type|Channel
+Nome|Nome|ChannelHeartbeat
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z
 ServiceID|ID del servizio|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
 TrackType|Tipo di testo traccia di testo/video/audio|video/audio
@@ -132,20 +132,20 @@ OverlapCount|Sovrapposizione nell'inserimento|0
 DiscontinuityCount|Discontinuità di traccia|0
 LastTimestamp|Timestamp degli ultimi dati inseriti|1800488800
 NonincreasingCount|Numero di frammenti scartati a causa del timestamp invariato|2
-UnalignedKeyFrames|Eventuali frammenti (con vari livelli di qualità) ricevuti con fotogrammi chiave non allineati |Vero
-UnalignedPresentationTime|Eventuali frammenti (con vari livelli/tracce di qualità) ricevuti con l'ora di presentazione non allineata|Vero
-UnexpectedBitrate|True, se la frequenza in bit audio/video calcolata/effettiva è > 40.000 bps e IncomingBitrate è = = 0 O i valori IncomingBitrate e actualBitrate sono diversi del 50% |Vero
-Integro|True, se <br/>overlapCount, <br/>DiscontinuityCount, <br/>NonIncreasingCount, <br/>UnalignedKeyFrames, <br/>UnalignedPresentationTime, <br/>UnexpectedBitrate<br/> sono tutti pari a 0|Vero<br/><br/>Healthy è una funzione composita che restituisce il valore false in presenza di una delle seguenti condizioni:<br/><br/>- OverlapCount > 0<br/>- DiscontinuityCount > 0<br/>- NonincreasingCount > 0<br/>- UnalignedKeyFrames == True<br/>- UnalignedPresentationTime == True<br/>- UnexpectedBitrate == True
+UnalignedKeyFrames|Eventuali frammenti (con vari livelli di qualità) ricevuti con fotogrammi chiave non allineati |True
+UnalignedPresentationTime|Eventuali frammenti (con vari livelli/tracce di qualità) ricevuti con l'ora di presentazione non allineata|True
+UnexpectedBitrate|True, se la frequenza in bit audio/video calcolata/effettiva è > 40.000 bps e IncomingBitrate è = = 0 O i valori IncomingBitrate e actualBitrate sono diversi del 50% |True
+Healthy|True, se <br/>overlapCount, <br/>DiscontinuityCount, <br/>NonIncreasingCount, <br/>UnalignedKeyFrames, <br/>UnalignedPresentationTime, <br/>UnexpectedBitrate<br/> sono tutti pari a 0|True<br/><br/>Healthy è una funzione composita che restituisce il valore false in presenza di una delle seguenti condizioni:<br/><br/>- OverlapCount > 0<br/>- DiscontinuityCount > 0<br/>- NonincreasingCount > 0<br/>- UnalignedKeyFrames == True<br/>- UnalignedPresentationTime == True<br/>- UnexpectedBitrate == True
 
-**Archivio live**
+**Archivio dal vivo**
 
-Proprietà|Value|Esempi/note
+Proprietà|valore|Esempi/note
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
 Timestamp|Timestamp|Timestamp automatico della tabella di Azure 2016-09-09T22:43:42.241Z
-Type|Type|Archivio
-name|name|ArchiveHeartbeat
+Type|Type|Archiviazione
+Nome|Nome|ArchiveHeartbeat
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z
 ServiceID|ID del servizio|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
 ManifestName|URL del programma|asset-eb149703-ed0a-483c-91c4-e4066e72cce3/a0a5cfbf-71ec-4bd2-8c01-a92a2b38c9ba.ism
@@ -153,7 +153,7 @@ TrackName|Nome della traccia|audio_1
 TrackType|Tipo di traccia|Audio/video
 CustomAttribute|Stringa esadecimale che opera la distinzione fra tracce diverse con lo stesso nome e la stessa velocità in bit (diverse angolazioni)|
 Bitrate|Velocità in bit della traccia|785000
-Integro|True, se FragmentDiscardedCount == 0 e ArchiveAcquisitionError == False|True (questi due valori non sono presenti nella metrica, ma lo sono nell'evento di origine)<br/><br/>Healthy è una funzione composita che restituisce il valore false in presenza di una delle seguenti condizioni:<br/><br/>- FragmentDiscardedCount > 0<br/>- ArchiveAcquisitionError == True
+Healthy|True, se FragmentDiscardedCount == 0 e ArchiveAcquisitionError == False|True (questi due valori non sono presenti nella metrica, ma lo sono nell'evento di origine)<br/><br/>Healthy è una funzione composita che restituisce il valore false in presenza di una delle seguenti condizioni:<br/><br/>- FragmentDiscardedCount > 0<br/>- ArchiveAcquisitionError == True
 
 ## <a name="general-qa"></a>Domande generali
 
@@ -220,6 +220,6 @@ Il sistema di telemetria non consente di gestire la conservazione dei dati o l'e
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Invia commenti e suggerimenti
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

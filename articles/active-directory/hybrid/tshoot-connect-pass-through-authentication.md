@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: risolvere i problemi di autenticazione pass-through | Microsoft Docs'
+title: 'Azure AD Connect: Risolvere i problemi di autenticazione pass-through | Microsoft Docs'
 description: Questo articolo descrive come risolvere i problemi di autenticazione pass-through di Azure Active Directory (Azure AD).
 services: active-directory
 keywords: Risolvere i problemi di autenticazione pass-through di Azure AD Connect, installare Active Directory, componenti necessari per Azure AD, SSO, Single Sign-On
@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ae83cea866367fa6a6596caa683d0287bea96c29
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60456182"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Risolvere i problemi di autenticazione pass-through di Azure Active Directory
@@ -28,7 +28,7 @@ ms.locfileid: "60456182"
 Questo articolo consente di trovare informazioni utili per risolvere i problemi comuni relativi all'autenticazione pass-through di Azure AD.
 
 >[!IMPORTANT]
->Se si verificano problemi di accesso utente con l'autenticazione pass-through, non disabilitare la funzionalità o disinstallare gli agenti di autenticazione pass-through se non è disponibile un account amministratore globale solo cloud per eseguire il fallback. Informazioni su come [aggiungere un account amministratore globale di tipo solo cloud](../active-directory-users-create-azure-portal.md). L'esecuzione di questo passaggio è fondamentale ed evita di rimanere bloccati fuori dal tenant.
+>Se si verificano problemi di accesso utente con l'autenticazione pass-through, non disabilitare la funzionalità o disinstallare gli agenti di autenticazione pass-through se non è disponibile un account amministratore globale solo cloud per eseguire il fallback. Informazioni [sull'aggiunta di un account amministratore globale solo cloud.](../active-directory-users-create-azure-portal.md) L'esecuzione di questo passaggio è fondamentale ed evita di rimanere bloccati fuori dal tenant.
 
 ## <a name="general-issues"></a>Problemi generali
 
@@ -44,7 +44,7 @@ Verificare che la funzionalità di autenticazione pass-through sia ancora **abil
 
 Se l'utente non è in grado di accedere usando l'autenticazione pass-through, è possibile che venga visualizzato uno dei seguenti errori nella schermata di accesso di Azure AD: 
 
-|Tipi di errore|Descrizione|Risoluzione
+|Errore|Descrizione|Risoluzione
 | --- | --- | ---
 |AADSTS80001|Impossibile connettersi ad Active Directory|Verificare che i server degli agenti siano membri della stessa foresta AD degli utenti le cui password devono essere convalidate e siano in grado di connettersi ad Active Directory.  
 |AADSTS8002|Si è verificato un timeout di connessione ad Active Directory|Verificare che Active Directory sia disponibile e risponda alle richieste degli agenti.
@@ -58,7 +58,7 @@ Se al tenant è associata una licenza di Azure AD Premium, è anche possibile es
 
 ![Interfaccia di amministrazione di Azure Active Directory - Report sugli accessi](./media/tshoot-connect-pass-through-authentication/pta4.png)
 
-Passare ad **Azure Active Directory** -> **Accessi** nell'[interfaccia di amministrazione di Azure Active Directory](https://aad.portal.azure.com/) e fare clic sull'attività di accesso di un utente specifico. Individuare il campo **CODICE ERRORE DI ACCESSO**. Eseguire il mapping del valore del campo a un motivo e una risoluzione dell'errore usando la tabella seguente:
+Passare ad**Accessi** ad **Azure Active Directory** -> nell'interfaccia di amministrazione di [Azure Active Directory](https://aad.portal.azure.com/) e fare clic sull'attività di accesso di un utente specifico. Individuare il campo **CODICE ERRORE DI ACCESSO**. Eseguire il mapping del valore del campo a un motivo e una risoluzione dell'errore usando la tabella seguente:
 
 |Codice dell'errore di accesso|Motivo dell'errore di accesso|Risoluzione
 | --- | --- | ---
@@ -67,13 +67,13 @@ Passare ad **Azure Active Directory** -> **Accessi** nell'[interfaccia di ammini
 | 80002 | Timeout della richiesta di convalida della password dell'agente di autenticazione. | Verificare se Active Directory è raggiungibile dall'agente di autenticazione.
 | 80003 | Risposta non valida ricevuta dall'agente di autenticazione. | Se il problema è riproducibile in modo coerente tra più utenti, controllare la configurazione di Active Directory.
 | 80004 | È stato usato un nome dell'entità utente (UPN) non corretto nella richiesta di accesso. | Chiedere all'utente di accedere con il nome utente corretto.
-| 80005 | Agente di autenticazione: Si è verificato un errore. | Errore temporaneo. Riprovare.
+| 80005 | Agente di autenticazione: si è verificato un errore. | Errore temporaneo. Riprovare più tardi.
 | 80007 | L'agente di autenticazione non è in grado di connettersi ad Active Directory. | Verificare se Active Directory è raggiungibile dall'agente di autenticazione.
 | 80010 | L'agente di autenticazione non è in grado di decrittografare la password. | Se il problema è riproducibile in modo coerente, installare e registrare un nuovo agente di autenticazione. E disinstallare quello corrente. 
 | 80011 | L'agente di autenticazione non è in grado di recuperare la chiave di decrittografia. | Se il problema è riproducibile in modo coerente, installare e registrare un nuovo agente di autenticazione. E disinstallare quello corrente.
 
 >[!IMPORTANT]
->Gli agenti di autenticazione pass-through autenticare gli utenti di Azure AD, convalidando i relativi nomi utente e password in Active Directory tramite la chiamata di [API LogonUser Win32](https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx). Di conseguenza, se è stato impostato l'impostazione di "Accesso a" in Active Directory per limitare l'accesso di workstation logon, è necessario aggiungere i server che ospitano gli agenti di autenticazione pass-through all'elenco di "Accesso" To"anche un server. Se non si esegue questo bloccherà l'accesso in Azure AD degli utenti.
+>Gli agenti di autenticazione pass-through autenticano gli utenti di Azure AD convalidando i nomi utente e le password rispetto ad Active Directory chiamando [l'API LogonUser Win32](https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx). Di conseguenza, se è stata impostata l'impostazione "Accesso a" in Active Directory per limitare l'accesso all'accesso alla workstation, sarà necessario aggiungere i server che ospitano gli agenti di autenticazione pass-through anche all'elenco dei server "Accedi a". In caso contrario, gli utenti non acquisiranno l'accesso ad Azure AD.
 
 ## <a name="authentication-agent-installation-issues"></a>Problemi di installazione dell'agente di autenticazione
 
@@ -99,7 +99,7 @@ Assicurarsi di usare un account amministratore globale solo cloud per tutte le o
 
 ### <a name="warning-message-when-uninstalling-azure-ad-connect"></a>Messaggio di avviso quando si disinstalla Azure AD Connect
 
-Se l'autenticazione pass-through è abilitata nel tenant e si prova a disinstallare Azure AD Connect, viene visualizzato un messaggio di avviso indicante che gli utenti non potranno accedere ad Azure AD se non sono installati altri agenti di autenticazione pass-through in altri server.
+Se l'autenticazione pass-through è abilitata nel tenant e si tenta di disinstallare Azure AD Connect, un messaggio di avviso indica che gli utenti non potranno accedere ad Azure AD se non sono installati altri agenti di autenticazione pass-through in altri server.
 
 Verificare che l'installazione in uso sia a [disponibilità elevata](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability) prima di disinstallare Azure AD Connect per evitare interruzioni degli accessi utente.
 
@@ -133,7 +133,7 @@ Per un'analisi dettagliata, abilitare il log sessione (fare clic con il pulsante
 
 ### <a name="detailed-trace-logs"></a>Log di traccia dettagliati
 
-Per risolvere gli errori di accesso utente, esaminare i log di traccia in **%ProgramData%\Microsoft\Azure AD Connect Authentication Agent\Trace\\** . Questi log includono i motivi per cui l'accesso di un utente specifico non è riuscito tramite la funzionalità di autenticazione pass-through. Questi errori sono anche associati ai motivi degli errori di accesso indicati nella tabella dei motivi degli errori di accesso precedente. Di seguito è riportato un esempio di voce di registro:
+Per risolvere gli errori di accesso utente, esaminare i log di traccia in **%ProgramData%\Microsoft\Azure AD Connect Authentication Agent\Trace\\**. Questi log includono i motivi per cui l'accesso di un utente specifico non è riuscito tramite la funzionalità di autenticazione pass-through. Questi errori sono anche associati ai motivi degli errori di accesso indicati nella tabella dei motivi degli errori di accesso precedente. Di seguito è riportato un esempio di voce di registro:
 
 ```
     AzureADConnectAuthenticationAgentService.exe Error: 0 : Passthrough Authentication request failed. RequestId: 'df63f4a4-68b9-44ae-8d81-6ad2d844d84e'. Reason: '1328'.
@@ -141,7 +141,7 @@ Per risolvere gli errori di accesso utente, esaminare i log di traccia in **%Pro
         DateTime=xxxx-xx-xxTxx:xx:xx.xxxxxxZ
 ```
 
-È possibile ottenere una descrizione dettagliata dell'errore ("1328" nell'esempio precedente) aprendo il prompt dei comandi ed eseguendo il comando seguente. Nota: sostituire "1328" con il numero di errore effettivo riportato nei log:
+È possibile ottenere una descrizione dettagliata dell'errore, "1328" nell'esempio precedente, aprendo il prompt dei comandi ed eseguendo il comando seguente (sostituire "1328" con il numero di errore effettivo visualizzato nei log):
 
 `Net helpmsg 1328`
 

@@ -1,5 +1,5 @@
 ---
-title: '.NET SDK: Operazioni di gestione in Azure Data Lake archiviazione Gen1 account | Microsoft Docs'
+title: '.NET SDK: Operazioni di gestione di account in Azure Data Lake Storage Gen1 | Microsoft Docs'
 description: Usare .NET SDK in Azure Data Lake Storage Gen1 per eseguire operazioni di gestione di account in Data Lake Storage Gen1
 services: data-lake-store
 documentationcenter: ''
@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 8da40aa04381542c8c750c8d7e33c9a29879371d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65900870"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>Operazioni di gestione di account in Azure Data Lake Storage Gen1 con .NET SDK
 > [!div class="op_single_selector"]
 > * [.NET SDK](data-lake-store-get-started-net-sdk.md)
-> * [API REST](data-lake-store-get-started-rest-api.md)
+> * [REST API](data-lake-store-get-started-rest-api.md)
 > * [Python](data-lake-store-get-started-python.md)
 >
 >
@@ -32,26 +32,26 @@ Questo articolo descrive come eseguire operazioni di gestione di account in Azur
 Per istruzioni su come eseguire le operazioni di gestione di dati in Data Lake Storage Gen1 con .NET SDK, vedere [Operazioni del file system in Data Lake Storage Gen1 con .NET SDK](data-lake-store-data-operations-net-sdk.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
-* **Visual Studio 2013 o versione successiva**. Le istruzioni seguenti usano Visual Studio 2019.
+* **Visual Studio 2013 o versione successiva**. Le istruzioni seguenti usano Visual Studio 2019.The instructions below use Visual Studio 2019.
 
-* **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Una sottoscrizione di Azure.** Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="create-a-net-application"></a>Creare un'applicazione .NET
-1. In Visual Studio, selezionare la **File** dal menu **New**e quindi **progetto**.
-2. Scegli **App Console (.NET Framework)** , quindi selezionare **successivo**.
-3. Nelle **nome progetto**, immettere `CreateADLApplication`, quindi selezionare **Create**.
+1. In Visual Studio selezionare il menu **File** , **Nuovo**, quindi **Progetto**.
+2. Scegliere **App console (.NET Framework)** e quindi **avanti**.
+3. In **Nome del progetto** immettere `CreateADLApplication` e quindi selezionare **Crea**.
 
 4. Aggiungere i pacchetti NuGet al progetto.
 
    1. Fare clic con il pulsante destro del mouse sul nome del progetto in Esplora soluzioni e scegliere **Gestisci pacchetti NuGet**.
-   2. Nella scheda **Gestione pacchetti NuGet** assicurarsi che **Origine pacchetto** sia impostato su **nuget.org** e che la casella di controllo **Includi versione preliminare** sia selezionata.
+   2. Nella scheda **Gestione pacchetti NuGet** verificare che l'opzione **Origine pacchetto** sia impostata su **nuget.org** e che la casella di controllo Includi versione **non definitiva** sia selezionata.
    3. Cercare e installare i pacchetti NuGet seguenti:
 
       * `Microsoft.Azure.Management.DataLake.Store` - Questa esercitazione usa v2.1.3-preview.
       * `Microsoft.Rest.ClientRuntime.Azure.Authentication` - Questa esercitazione usa la versione 2.2.12.
 
-        ![Aggiungere un'origine NuGet](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "Creare un nuovo account Azure Data Lake")
-   4. Chiudere **Gestione pacchetti NuGet**.
+        ![Aggiungere un'origine NuGetAdd a NuGet source](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "Creare un nuovo account Azure Data LakeCreate a new Azure Data Lake account")
+   4. Chiudere **NuGet Package Manager**.
 5. Aprire **Program.cs**, eliminare il codice esistente e quindi includere le istruzioni seguenti per aggiungere riferimenti agli spazi dei nomi.
 
         using System;

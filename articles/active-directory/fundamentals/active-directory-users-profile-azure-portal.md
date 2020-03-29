@@ -1,5 +1,5 @@
 ---
-title: Aggiungere o aggiornare le informazioni sul profilo utente-Azure AD
+title: Aggiungere o aggiornare le informazioni del profilo utente - Azure ADAdd or update user profile information - Azure AD
 description: Vengono fornite istruzioni su come aggiungere informazioni al profilo dell'utente in Azure Active Directory, inclusi i dettagli di un'immagine e del processo.
 services: active-directory
 author: msaburnley
@@ -13,10 +13,10 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8ba51b0ad7f314058f34092dff4e26411020086a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75422887"
 ---
 # <a name="add-or-update-a-users-profile-information-using-azure-active-directory"></a>Aggiungere o aggiornare informazioni di un profilo utente con Azure Active Directory
@@ -26,7 +26,7 @@ Aggiungere informazioni sul profilo utente, inclusi un'immagine del profilo, inf
 Come si vedrà, le informazioni disponibili in un profilo utente sono molte di più rispetto a quelle che è possibile aggiungere durante la creazione dell'utente. Tutte queste informazioni aggiuntive sono facoltative e possono essere aggiunte in base alle esigenze dell'organizzazione.
 
 ## <a name="to-add-or-change-profile-information"></a>Per aggiungere o modificare le informazioni sul profilo utente
-1. Accedere al [portale di Azure](https://portal.azure.com/) come amministratore dell'organizzazione.
+1. Accedere al [portale](https://portal.azure.com/) di Azure come amministratore utente per l'organizzazione.
 
 2. Selezionare **Azure Active Directory**, **Utenti** e quindi selezionare un utente. Ad esempio, _Alain Charon_.
 
@@ -40,13 +40,13 @@ Come si vedrà, le informazioni disponibili in un profilo utente sono molte di p
 
     - **Immagine del profilo.** Selezionare un'immagine di anteprima per l'account dell'utente. Questa immagine viene visualizzata in Azure Active Directory e nelle pagine personali dell'utente, ad esempio nella pagina myapps.microsoft.com.
 
-    - **Identità.** Aggiungere o aggiornare un valore Identity aggiuntivo per l'utente, ad esempio un cognome sposato. È possibile impostare questo nome in modo indipendente dai valori del nome e del cognome. Ad esempio, è possibile usarlo per includere le iniziali, il nome della società o per modificare la sequenza di nomi visualizzati. In un altro esempio, per due utenti i cui nomi sono ' Chris Green ', è possibile usare la stringa Identity per impostare i relativi nomi su' Chris B. Green '' Chris R. Green (contoso) .'
+    - **Identità.** Aggiungere o aggiornare un valore di identità aggiuntivo per l'utente, ad esempio un cognome sposato. È possibile impostare questo nome indipendentemente dai valori di Nome e Cognome. Ad esempio, è possibile utilizzarlo per includere le iniziali, il nome di una società o per modificare la sequenza di nomi visualizzati. In un altro esempio, per due utenti i cui nomi sono "Chris Green", è possibile utilizzare la stringa Identity per impostarne i nomi su "Chris B. Green" "Chris R. Green (Contoso).'
 
     - **Job info.** (Informazioni professionali) Aggiungere eventuali informazioni relative alle mansioni dell'utente, ad esempio posizione, reparto o manager.
 
     - **Impostazioni.** Decidere se l'utente può accedere al tenant di Azure Active Directory. È anche possibile specificare la posizione globale dell'utente.
 
-    - **Informazioni contatto.** Aggiungere le informazioni di contatto rilevanti per l'utente, ad eccezione delle informazioni di contatto telefoniche o mobili dell'utente (solo un amministratore globale può aggiornare per gli utenti nei ruoli di amministratore).
+    - **Informazioni contatto.** Aggiungere tutte le informazioni di contatto rilevanti per l'utente, ad eccezione del telefono o delle informazioni di contatto per dispositivi mobili di un utente (solo un amministratore globale può aggiornare gli utenti con ruoli di amministratore).
 
     - **Informazioni di contatto per l'autenticazione.** Verificare le informazioni per assicurarsi che vi sia un indirizzo di posta elettronica e numero di telefono attivi per l'utente. Queste informazioni sono usate da Azure Active Directory per accertarsi dell'identità dell'utente durante l'accesso. Le informazioni di contatto per l'autenticazione possono essere aggiornate solo da un amministratore globale.
 

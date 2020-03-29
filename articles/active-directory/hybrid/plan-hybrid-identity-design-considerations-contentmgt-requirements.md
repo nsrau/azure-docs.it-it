@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0d970fd133f8c43319e7f1fdb6b3a50c3c05f687
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "64918450"
 ---
 # <a name="determine-content-management-requirements-for-your-hybrid-identity-solution"></a>Determinare i requisiti di gestione dei contenuti per una soluzione di identità ibrida
@@ -28,7 +28,7 @@ Comprendere i requisiti aziendali relativi alla gestione dei contenuti può inci
 
 La soluzione di identità deve essere inoltre sottoposta a vari controlli tecnici per permettere la gestione dei contenuti, come illustrato nella figura seguente:
 
-![Controlli di sicurezza](./media/plan-hybrid-identity-design-considerations/securitycontrols.png)
+![controlli di sicurezza](./media/plan-hybrid-identity-design-considerations/securitycontrols.png)
 
 **Controlli di protezione che interessano il sistema di gestione delle identità**
 
@@ -43,7 +43,7 @@ In generale, i requisiti di gestione dei contenuti interessano il sistema di ges
 > 
 > 
 
-Quando si pianifica una soluzione di identità ibrida, assicurarsi che venga fornita una risposta alle domande seguenti, in base ai requisiti aziendali:
+Quando si pianifica una soluzione ibrida di gestione delle identità, assicurarsi che venga fornita una risposta alle domande seguenti, in base ai requisiti aziendali:
 
 * Sono presenti in azienda controlli di sicurezza per garantire la riservatezza dei dati?
   * In caso affermativo, sarà possibile integrarli con la soluzione di identità ibrida che si intende adottare?

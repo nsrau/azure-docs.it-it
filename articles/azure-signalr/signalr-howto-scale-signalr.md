@@ -1,39 +1,39 @@
 ---
-title: Ridimensionare un'istanza del servizio Azure SignalR
-description: Informazioni su come ridimensionare un'istanza del servizio Azure SignalR per aggiungere o ridurre la capacità, tramite portale di Azure o l'interfaccia della riga di comando di Azure.
+title: Ridimensionare un'istanza del servizio SignalR di AzureScale an instance of Azure SignalR Service
+description: Informazioni su come ridimensionare un'istanza del servizio SignalR di Azure per aggiungere o ridurre la capacità tramite il portale di Azure o l'interfaccia della riga di comando di Azure.Learn how to scale an Azure SignalR Service instance to add or reduce capacity, through Azure portal or Azure CLI.
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 12/11/2019
 ms.author: zhshang
 ms.openlocfilehash: c8d74342e624b837c7ee803a2bcdcc12a3fb814b
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75659288"
 ---
-# <a name="how-to-scale-an-azure-signalr-service-instance"></a>Come ridimensionare un'istanza del servizio Azure SignalR?
-Questo articolo illustra come ridimensionare l'istanza del servizio Azure SignalR. Esistono due scenari per il ridimensionamento, la scalabilità verticale e orizzontale.
+# <a name="how-to-scale-an-azure-signalr-service-instance"></a>Come ridimensionare un'istanza del servizio SignalR di AzureHow to scale an Azure SignalR Service instance?
+Questo articolo illustra come ridimensionare l'istanza del servizio SignalR di Azure.This article shows you how to scale your instance of Azure SignalR Service. Esistono due scenari per la scalabilità verticale, la scalabilità verticale e la scalabilità orizzontale.
 
-* [Scalabilità verticale](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Ottieni altre unità, connessioni, messaggi e altro ancora. Per aumentare il livello di prestazioni, è possibile modificare il piano tariffario da gratuito a standard.
-* [Scale out](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): aumentare il numero di unità SignalR. È possibile scalare in orizzontale fino a un massimo di 100 unità.
+* [Scalabilità verticale:](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling)ottieni più unità, connessioni, messaggi e altro ancora. È possibile aumentare le dimensioni modificando il piano tariffario da Gratuito a Standard.
+* [Scalabilità orizzontale](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Aumentare il numero di unità SignalR. È possibile scalare orizzontalmente fino a 100 unità.
 
-Sono necessari alcuni minuti per applicare le impostazioni di scalabilità. In rari casi, l'applicazione potrebbe richiedere circa 30 minuti. Non è necessario modificare il codice o ridistribuire l'applicazione server.
+L'applicazione delle impostazioni di scala richiede alcuni minuti. In rari casi, la domanda potrebbe richiedere circa 30 minuti. Non richiedono la modifica del codice o la ridistribuzione dell'applicazione server.
 
-Per informazioni sui prezzi e le capacità del servizio Single SignalR, vedere [Dettagli prezzi del servizio Azure SignalR](https://azure.microsoft.com/pricing/details/signalr-service/).  
+Per informazioni sui prezzi e le capacità dei singoli servizi SignalR, vedere Dettagli sui prezzi del servizio SignalR di Azure.For information about the pricing and capacities of individual SignalR Service, see [Azure SignalR Service Pricing Details](https://azure.microsoft.com/pricing/details/signalr-service/).  
 
 > [!NOTE]
-> Cambiando il servizio SignalR dal livello **gratuito** al livello **standard** o viceversa, l'indirizzo IP del servizio pubblico verrà modificato e richiede in genere 30-60 minuti per propagare la modifica ai server DNS sull'intera Internet. Il servizio potrebbe non essere raggiungibile prima che il DNS venga aggiornato. In genere, non è consigliabile modificare il piano tariffario troppo spesso.
+> Modificando il servizio SignalR dal livello **Gratuito** al livello **Standard** o viceversa, l'IP del servizio pubblico verrà modificato e in genere sono necessari 30-60 minuti per propagare la modifica ai server DNS su tutta La rete Internet. Il servizio potrebbe non essere raggiungibile prima dell'aggiornamento del DNS. In genere non è consigliabile modificare il piano tariffario troppo spesso.
 
 
-## <a name="scale-on-azure-portal"></a>Scalabilità in portale di Azure
+## <a name="scale-on-azure-portal"></a>Scalabilità nel portale di AzureScale on Azure portal
 
-1. Accedere al [portale di Azure](https://portal.azure.com) nel browser.
+1. Nel browser aprire il portale di [Azure](https://portal.azure.com).
 
-2. Nel menu a sinistra della pagina del servizio SignalR selezionare **Ridimensiona**.
+2. Nella pagina Servizio SignalR, dal menu a sinistra, selezionare **Scala**.
    
-3. Scegliere il piano tariffario e quindi fare clic su **Seleziona**. Imposta il numero di unità per il livello **standard** .
+3. Scegliere il piano tariffario e quindi fare clic su **Seleziona**. Impostare il numero di unità per Livello **Standard.**
    
     ![Scalabilità nel portale](./media/signalr-howto-scale/signalr-howto-scale.png)
 
@@ -41,7 +41,7 @@ Per informazioni sui prezzi e le capacità del servizio Single SignalR, vedere [
 
 ## <a name="scale-using-azure-cli"></a>Ridimensionare la cache tramite l'interfaccia della riga di comando di Azure
 
-Questo script crea una nuova risorsa del servizio SignalR di livello **gratuito** e un nuovo gruppo di risorse e la ridimensiona fino al livello **standard** . 
+Questo script crea una nuova risorsa SignalR Service di livello gratuito e un nuovo gruppo di risorse e la scala fino al livello **Standard.This** script creates a new SignalR Service resource of **Free** Tier and a new resource group, and scales up to Standard Tier. 
 
 ```azurecli-interactive
 #!/bin/bash
@@ -79,15 +79,15 @@ Annotare il nome effettivo generato per il nuovo gruppo di risorse. Il nome del 
 
 ## <a name="compare-pricing-tiers"></a>Confrontare i piani tariffari
 
-Per informazioni dettagliate, ad esempio i messaggi e le connessioni inclusi per ogni piano tariffario, vedere [Dettagli prezzi del servizio SignalR](https://azure.microsoft.com/pricing/details/signalr-service/).
+Per informazioni dettagliate, ad esempio i messaggi e le connessioni inclusi per ogni piano tariffario, vedere Dettagli sui prezzi del [servizio SignalR](https://azure.microsoft.com/pricing/details/signalr-service/).
 
-Per una tabella di limiti, quote e vincoli del servizio in ogni livello, vedere [limiti del servizio SignalR](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-signalr-service-limits).
+Per una tabella dei limiti, delle quote e dei vincoli del servizio in ogni livello, vedere [Limiti del servizio SignalR](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-signalr-service-limits).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida è stato illustrato come ridimensionare l'istanza del servizio Single SignalR.
+In questa guida è stato illustrato come ridimensionare una singola istanza del servizio SignalR.In this guide, you learned about how to scale single SignalR Service instance.
 
-Sono supportati anche più endpoint per la scalabilità, il partizionamento orizzontale e scenari tra aree diverse.
+Sono supportati più endpoint anche per scenari di scalabilità, partizionamento orizzontale e tra aree.
 
 > [!div class="nextstepaction"]
-> [ridimensionare il servizio SignalR con più istanze](./signalr-howto-scale-multi-instances.md)
+> [servizio SignalR di scalabilità con più istanzeScale SignalR Service with multiple instances](./signalr-howto-scale-multi-instances.md)

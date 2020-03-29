@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 661747754369c17ca98ae69d477e04124b6a2942
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60245485"
 ---
 # <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Servizio di sincronizzazione Azure AD Connect: Informazioni su utenti, gruppi e contatti
@@ -47,16 +47,16 @@ Aspetti importanti da tenere presenti durante la sincronizzazione dei gruppi di 
 
     * Se l'attributo *proxyAddress* del gruppo è vuoto, il relativo attributo *mail* deve avere un valore
 
-    * Se l'attributo *proxyAddress* del gruppo non è vuoto, deve contenere almeno un valore dell'indirizzo proxy SMTP. Ecco alcuni esempi:
+    * Se l'attributo *proxyAddress* del gruppo non è vuoto, deve contenere almeno un valore dell'indirizzo proxy SMTP. Di seguito sono riportati alcuni esempi:
     
       * Un gruppo di Active Directory il cui attributo proxyAddress ha il valore *{"X500:/0=contoso.com/ou=users/cn=testgroup"}* non sarà abilitato per la posta elettronica in Azure AD. Non dispone di un indirizzo SMTP.
       
-      * Un gruppo di Active Directory il cui attributo proxyAddress ha valori *{"X500:/0=contoso.com/ou=users/cn=testgroup","SMTP:johndoe\@contoso.com"}* saranno abilitati alla posta in Azure AD.
+      * Un gruppo di Active Directory il cui attributo proxyAddress ha i valori *"X500:/0"contoso.com/ou/users/cn-testgroup","SMTP:johndoe\@contoso.com"* sarà abilitato alla posta elettronica in Azure AD.
       
-      * Un gruppo di Active Directory il cui attributo proxyAddress ha valori *{"X500:/0=contoso.com/ou=users/cn=testgroup", "smtp:johndoe\@contoso.com"}* sarà anche abilitato per la posta elettronica in Azure AD.
+      * Un gruppo di Active Directory il cui attributo proxyAddress ha i valori *"X500:/0"contoso.com/ou/users/cn-testgroup", "smtp:johndoe\@contoso.com"* sarà abilitato alla posta elettronica anche in Azure AD.
 
 ## <a name="contacts"></a>Contatti
-I contatti che rappresentano un utente in una foresta diversa costituiscono una situazione comune dopo un'operazione di acquisizione o fusione in cui la soluzione GALSync collega due o più foreste di Exchange. L'oggetto contatto viene sempre aggiunto dallo spazio connettore allo spazio metaverse usando l'attributo mail. Se è già presente un oggetto contatto o un oggetto utente con lo stesso indirizzo di posta elettronica, gli oggetti vengono uniti. Questo comportamento è configurato nella regola **In ingresso da Active Directory - Aggiunta contatto**. Esiste anche una regola denominata **In ingresso da Active Directory - Contatto comune** con un flusso dell'attributo all'attributo metaverse **sourceObjectType** con la costante **Contact**. Questa regola presenta una precedenza molto bassa, quindi se un oggetto utente viene aggiunto allo stesso oggetto metaverse, la regola **In ingresso da Active Directory - Utente comune** fornirà il valore Utente a questo attributo. Con questa regola l'attributo avrà il valore Contact solo se non sono stati aggiunti utenti e il valore User se è stato trovato almeno un utente.
+I contatti che rappresentano un utente in una foresta diversa costituiscono una situazione comune dopo un'operazione di acquisizione o fusione in cui la soluzione GALSync collega due o più foreste di Exchange. L'oggetto contatto viene sempre aggiunto dallo spazio connettore allo spazio metaverse usando l'attributo mail. Se è già presente un oggetto contatto o un oggetto utente con lo stesso indirizzo di posta elettronica, gli oggetti vengono uniti. Questo comportamento è configurato nella regola **In ingresso da Active Directory - Aggiunta contatto**. Esiste anche una regola denominata **In ingresso da Active Directory - Contatto comune** con un flusso dell'attributo all'attributo metaverse **sourceObjectType** con la costante **Contact**. Questa regola presenta una precedenza molto bassa, quindi se un oggetto utente viene aggiunto allo stesso oggetto metaverse, la regola **In ingresso da Active Directory - Utente comune** fornirà il valore User a questo attributo. Con questa regola l'attributo avrà il valore Contact solo se non sono stati aggiunti utenti e il valore User se è stato trovato almeno un utente.
 
 Per eseguire il provisioning di un oggetto in Azure AD, la regola in uscita **In uscita ad Azure AD - Unione contatto** creerà un oggetto contatto se l'attributo metaverse **sourceObjectType** è impostato su **Contatto**. Se questo attributo è impostato su **Utente**, la regola **In uscita ad Azure AD - Unione utente** creerà un oggetto utente.
 È possibile che un oggetto venga innalzato di livello da Contact a User quando vengono importate e sincronizzate più directory di Active Directory di origine.
@@ -71,9 +71,9 @@ Anche gli account disabilitati vengono sincronizzati con Azure AD. Gli account d
 Si presuppone che se viene trovato un account utente disabilitato, non verrà trovato un altro account attivo successivamente e verrà effettuato il provisioning dell'oggetto in Azure AD con gli attributi userPrincipalName e sourceAnchor trovati. Se un altro account attivo viene aggiunto allo stesso oggetto metaverse, verranno usati i relativi attributi userPrincipalName e sourceAnchor.
 
 ## <a name="changing-sourceanchor"></a>Modifica dell'attributo sourceAnchor
-Dopo che un oggetto è stato esportato in Azure AD, non è più possibile modificarne l'attributo sourceAnchor. Dopo che l'oggetto è stato esportato, l'attributo metaverse **cloudSourceAnchor** viene impostato sul valore **sourceAnchor** accettato da Azure AD. Se **sourceAnchor** viene modificato e non corrisponde a **cloudSourceAnchor**, la regola **In uscita ad Azure AD - Unisci utente** genera un errore indicante che **l'attributo sourceAnchor è stato modificato**. In questo caso, è necessario correggere la configurazione o i dati in modo che lo stesso attributo sourceAnchor sia di nuovo presente nell'oggetto metaverse prima che l'oggetto venga sincronizzato di nuovo.
+Dopo che un oggetto è stato esportato in Azure AD, non è più possibile modificarne l'attributo sourceAnchor. Dopo che l'oggetto è stato esportato, l'attributo metaverse **cloudSourceAnchor** viene impostato sul valore **sourceAnchor** accettato da Azure AD. Se **sourceAnchor** viene modificato e non corrisponde a **cloudSourceAnchor**, la regola **In uscita ad Azure AD - Aggiunta utente** genererà l'errore che indica che **l'attributo sourceAnchor è stato modificato**. In questo caso, è necessario correggere la configurazione o i dati in modo che lo stesso attributo sourceAnchor sia di nuovo presente nell'oggetto metaverse prima che l'oggetto venga sincronizzato di nuovo.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
-* [Servizio di sincronizzazione Azure AD Connect: personalizzazione delle opzioni di sincronizzazione](how-to-connect-sync-whatis.md)
+* [Sincronizzazione di Azure AD Connect: Personalizzazione delle opzioni di sincronizzazioneAzure AD Connect Sync: Customizing Synchronization options](how-to-connect-sync-whatis.md)
 * [Integrazione delle identità locali con Azure Active Directory](whatis-hybrid-identity.md)
 
