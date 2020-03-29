@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 1138c95274c769186a9a29aa4d35517e378baeae
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76720487"
 ---
 # <a name="deployment-stage-of-the-team-data-science-process-lifecycle"></a>Fase di distribuzione del ciclo di vita del processo di data science per i team
@@ -52,7 +52,7 @@ Quando si ottiene un set di modelli con prestazioni ottimali, è possibile rende
 
 Per esempi su come rendere operativi i modelli con un servizio Web di Azure Machine Learning, vedere [Pubblicare un servizio Web di Azure Machine Learning](../studio/deploy-a-machine-learning-web-service.md). È anche opportuno creare dati di telemetria e monitorare il modello di produzione e la pipeline di dati distribuiti. Questa procedura consente allo stato del sistema successivo di segnalare eventuali problemi e risolverli.  
 
-## <a name="artifacts"></a>Artefatti
+## <a name="artifacts"></a>Elementi
 
 * Dashboard di stato che mostra l'integrità del sistema e le metriche chiave
 * Report di modellazione finale con informazioni dettagliate sulla distribuzione

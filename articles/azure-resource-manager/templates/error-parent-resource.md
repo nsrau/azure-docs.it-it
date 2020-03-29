@@ -1,13 +1,13 @@
 ---
 title: Errori delle risorse padre
-description: Viene descritto come risolvere gli errori quando si utilizza una risorsa padre in un modello di Azure Resource Manager.
+description: Viene descritto come risolvere gli errori quando si utilizza una risorsa padre in un modello di Azure Resource Manager.Describes how to resolve errors when working with a parent resource in an Azure Resource Manager template.
 ms.topic: troubleshooting
 ms.date: 08/01/2018
 ms.openlocfilehash: f1847389d60ddf3c6abc70bc3309940c2246084e
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76154041"
 ---
 # <a name="resolve-errors-for-parent-resources"></a>Risolvere gli errori delle risorse padre
@@ -78,4 +78,4 @@ Per risolvere questo errore quando la risorsa padre è stata distribuita in prec
 }
 ```
 
-Per altre informazioni, leggere [Definire l'ordine per la distribuzione delle risorse nei modelli di Azure Resource Manager](define-resource-dependency.md).
+Per altre informazioni, vedere Definire l'ordine di distribuzione delle risorse nei modelli di Azure Resource Manager.For more information, see Define the [order for deploying resources in Azure Resource Manager templates.](define-resource-dependency.md)

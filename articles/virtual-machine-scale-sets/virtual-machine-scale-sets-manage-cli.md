@@ -1,5 +1,5 @@
 ---
-title: Gestire i set di scalabilità di macchine virtuali con l'interfaccia della riga di comando
+title: Gestire i set di scalabilità di macchine virtuali con l'interfaccia della riga di comando di AzureManage Virtual Machine Scale Sets with the Azure CLI
 description: Comandi comuni dell'interfaccia della riga di comando di Azure per la gestione dei set di scalabilità di macchine virtuali, ad esempio per l'avvio e l'arresto di un'istanza o la modifica della capacità del set di scalabilità.
 author: cynthn
 tags: azure-resource-manager
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: cynthn
 ms.openlocfilehash: d8f40708cf5a9989146a72e2093de7bad47ffde9
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76275742"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Gestione di un set di scalabilità di macchine virtuali con l'interfaccia della riga di comando di Azure

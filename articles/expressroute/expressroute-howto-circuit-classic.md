@@ -1,5 +1,5 @@
 ---
-title: 'Azure ExpressRoute: modificare un circuito: PowerShell: classico'
+title: 'Azure ExpressRoute: Modify a circuit: PowerShell:classic'
 description: Questo articolo illustra i passaggi per verificare lo stato, aggiornare o eliminare ed effettuare il deprovisioning del circuito del modello di distribuzione classica ExpressRoute.
 services: expressroute
 author: cherylmc
@@ -8,28 +8,28 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: cherylmc
 ms.openlocfilehash: e421a534b04f74d2a2eb0bc06aeffa52684ae17a
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74931969"
 ---
 # <a name="modify-an-expressroute-circuit-using-powershell-classic"></a>Modificare un circuito ExpressRoute mediante PowerShell (versione classica)
 
 > [!div class="op_single_selector"]
-> * [Azure portal](expressroute-howto-circuit-portal-resource-manager.md)
-> * [PowerShell](expressroute-howto-circuit-arm.md)
-> * [interfaccia della riga di comando di Azure](howto-circuit-cli.md)
-> * [Modello di Azure Resource Manager](expressroute-howto-circuit-resource-manager-template.md)
+> * [Portale di Azure](expressroute-howto-circuit-portal-resource-manager.md)
+> * [Powershell](expressroute-howto-circuit-arm.md)
+> * [Interfaccia della riga di comando di AzureAzure](howto-circuit-cli.md)
+> * [Modello di Azure Resource ManagerAzure Resource Manager template](expressroute-howto-circuit-resource-manager-template.md)
 > * [Video - Portale di Azure](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
-> * [PowerShell (classico)](expressroute-howto-circuit-classic.md)
+> * [PowerShell (versione classica)](expressroute-howto-circuit-classic.md)
 >
 
 Questo articolo illustra i passaggi per verificare lo stato, aggiornare o eliminare ed effettuare il deprovisioning del circuito del modello di distribuzione classica ExpressRoute. Questo articolo si applica al modello di distribuzione classica.
 
 [!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
 
-**Informazioni sui modelli di distribuzione di Azure**
+**Informazioni sui modelli di distribuzione di AzureAbout Azure deployment models**
 
 [!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
@@ -93,7 +93,7 @@ get-help get-azurededicatedcircuit -detailed
 * Abilitare o disabilitare un componente aggiuntivo ExpressRoute Premium per il circuito ExpressRoute.
 * Aumentare la larghezza di banda del circuito ExpressRoute, a condizione che sulla porta sia disponibile capacità. Il downgrade della larghezza di banda di un circuito non è supportato.
 * Modificare il piano di misurazione da Dati a consumo a Dati senza limiti. La modifica del piano di misurazione da Dati senza limiti a Dati a consumo non è supportata.
-* È possibile abilitare e disabilitare l'opzione *Allow Classic Operations*(Consenti operazioni classiche).
+* È possibile abilitare e disabilitare l'opzione *Consenti operazioni classiche*.
 
 Per altre informazioni su limiti e limitazioni, vedere [Domande frequenti su ExpressRoute](expressroute-faqs.md) .
 
@@ -194,7 +194,7 @@ At line:1 char:1
 ### <a name="considerations"></a>Considerazioni
 
 * Affinché l'operazione abbia esito positivo, è necessario scollegare tutte le reti virtuali dal circuito ExpressRoute. Se l'operazione ha esito negativo, controllare se sono presenti reti virtuali collegate al circuito.
-* Se lo stato di provisioning del provider del servizio del circuito ExpressRoute è **Provisioning in corso** o **Provisioning eseguito**, è necessario collaborare con il provider di servizi per eseguire il deprovisioning del circuito sul lato del provider. Le risorse continuano a essere riservate e la fatturazione continuerà a essere applicata finché il provider di servizi non avrà completato il deprovisioning del circuito e inviato una notifica a Microsoft.
+* Se lo stato di provisioning del provider di servizi di circuiti ExpressRoute è **Provisioning** o **Provisioning,** è necessario collaborare con il provider di servizi per eseguire il deprovisioning del circuito sul lato. Le risorse continuano a essere riservate e la fatturazione continuerà a essere applicata finché il provider di servizi non avrà completato il deprovisioning del circuito e inviato una notifica a Microsoft.
 * Se il provider di servizi ha eseguito il deprovisioning del circuito, ovvero lo stato di provisioning del provider di servizi è impostato su **Senza provisioning**, è possibile eliminare il circuito. Viene così interrotta la fatturazione per il circuito.
 
 #### <a name="delete-a-circuit"></a>Eliminare un circuito

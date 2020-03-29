@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
 ms.openlocfilehash: 8babacfede6e13fde629492e1cd9f80af7f0e53f
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78943060"
 ---
 # <a name="create-and-test-a-new-simulated-device"></a>Creare e testare un nuovo dispositivo simulato
@@ -76,7 +76,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa guida pratica, sono necessari gli elementi seguenti:
 
@@ -99,7 +99,7 @@ Le istruzioni presenti in questo articolo presuppongono che si usi Windows. Se s
 
 ### <a name="download-the-microservices"></a>Scaricare i microservizi
 
-Scaricare e decomprimere i [microservizi di monitoraggio remoto](https://github.com/Azure/remote-monitoring-services-dotnet/archive/master.zip) da GitHub in un percorso appropriato nel computer locale. L'articolo presuppone che il nome di questa cartella sia **remote-monitoring-services-dotnet-master**.
+Scaricare e decomprimere i [microservizi](https://github.com/Azure/remote-monitoring-services-dotnet/archive/master.zip) di monitoraggio remoto da GitHub in una posizione appropriata nel computer locale. L'articolo presuppone che il nome di questa cartella sia **remote-monitoring-services-dotnet-master**.
 
 Scaricare e decomprimere il [microservizio di simulazione dispositivi](https://github.com/Azure/device-simulation-dotnet/archive/master.zip) da GitHub in un percorso appropriato nel computer locale. L'articolo presuppone che il nome di questa cartella sia **device-simulation-dotnet-master**.
 
@@ -107,7 +107,7 @@ Scaricare e decomprimere il [microservizio di simulazione dispositivi](https://g
 
 Aprire la cartella **remote-monitoring-services-dotnet-master\storage-adapter** in Visual Studio Code. Fare clic su un pulsante **Ripristina** per risolvere le dipendenze non risolte.
 
-Aprire il file **storage-Adapter/WebService/appSettings. ini** e assegnare la stringa di connessione Cosmos DB alla variabile **documentDBConnectionString** .
+Aprire il file **storage-adapter/WebService/appsettings.ini** e assegnare la stringa di connessione Cosmos DB alla variabile **documentDBConnectionString.**
 
 Per eseguire il microservizio in locale, fare clic su **Debug > Avvia debug**.
 
@@ -424,7 +424,7 @@ In questa sezione vengono testati i tipi di dispositivi creati in locale nelle s
 
 Aprire la cartella **device-simulation-dotnet-master** scaricata da GitHub in una nuova istanza di Visual Studio Code. Fare clic su un pulsante **Ripristina** per risolvere le dipendenze non risolte.
 
-Aprire il file **WebService/appSettings. ini** e assegnare la stringa di connessione Cosmos DB alla variabile **documentdb_connstring** e modificare anche le impostazioni come segue:
+Aprire il file **WebService/appsettings.ini** e assegnare la stringa di connessione Cosmos DB alla variabile **documentdb_connstring,** quindi modificare le impostazioni come segue:
 
 ```ini
 device_models_folder = C:\temp\devicemodels\

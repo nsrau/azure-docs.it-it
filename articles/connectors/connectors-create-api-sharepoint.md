@@ -1,5 +1,5 @@
 ---
-title: Connettersi a SharePoint da app per la logica di Azure
+title: Connettersi a SharePoint da App per la logica di AzureConnect to SharePoint from Azure Logic Apps
 description: Automatizzare le attività e i flussi di lavoro per il monitoraggio e la gestione delle risorse in SharePoint Online o SharePoint Server in locale usando App per la logica di Azure
 services: logic-apps
 ms.suite: integration
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/25/2018
 tags: connectors
 ms.openlocfilehash: bb82ef2d6fb83c2e1b0fa81aa9504c9bb7d8234b
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74789257"
 ---
 # <a name="monitor-and-manage-sharepoint-resources-with-azure-logic-apps"></a>Monitorare e gestire le risorse di SharePoint con App per la logica di Azure
@@ -31,7 +31,7 @@ Con App per la logica di Azure e il connettore SharePoint, è possibile creare a
 * Ottenere valori di entità.
 
 È possibile usare i trigger per ottenere risposte da SharePoint e rendere l'output disponibile per altre azioni. È possibile usare azioni nelle app per la logica per eseguire attività in SharePoint. È anche possibile fare in modo che altre azioni usino l'output delle azioni di SharePoint. Se ad esempio si recuperano periodicamente file da SharePoint, è possibile inviare messaggi al proprio team tramite il connettore Slack.
-Se non si ha familiarità con App per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md).
+Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -43,7 +43,7 @@ Se non si ha familiarità con App per la logica, consultare [Informazioni su App
 
 * Prima di poter connettere le app per la logica a sistemi locali, ad esempio SharePoint Server, è necessario [installare e configurare un gateway dati locale](../logic-apps/logic-apps-gateway-install.md). In questo modo, è possibile specificare di usare l'installazione del gateway quando si crea la connessione a SharePoint Server per l'app per la logica.
 
-* Conoscenza di base di [come creare le app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Informazioni di base sulla [creazione di app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 * L'app per la logica in cui si vuole accedere all'account SharePoint. Per iniziare con un trigger di SharePoint, [creare un'app per la logica vuota](../logic-apps/quickstart-create-first-logic-app-workflow.md). Per usare un'azione di SharePoint, avviare l'app per la logica con un trigger, ad esempio un trigger Salesforce, se si ha un account Salesforce.
 
@@ -63,12 +63,12 @@ Se non si ha familiarità con App per la logica, consultare [Informazioni su App
 
    Per le app per la logica esistenti, nell'ultimo passaggio in cui si vuole aggiungere un'azione di SharePoint, scegliere **Nuovo passaggio**. 
    Nella casella di ricerca immettere "sharepoint" come filtro. 
-   Nell'elenco delle azioni scegliere l'azione desiderata.
+   Nell'elenco delle azioni selezionare l'azione desiderata.
 
    Per aggiungere un'azione tra i passaggi, spostare il puntatore del mouse sulla freccia tra i passaggi. 
-   Scegliere il segno più ( **+** ) visualizzato e quindi selezionare **Aggiungi un'azione**.
+   Scegliere il segno**+** più ( ) visualizzato e quindi selezionare **Aggiungi un'azione**.
 
-1. Quando viene chiesto di eseguire l'accesso, specificare le informazioni di connessione necessarie. Se si usa SharePoint Server, assicurarsi **di selezionare Connetti tramite il gateway dati locale**. Al termine dell'operazione, scegliere **Crea**.
+1. Quando viene chiesto di eseguire l'accesso, specificare le informazioni di connessione necessarie. Se si usa SharePoint Server, assicurarsi di selezionare **Connetti tramite gateway dati locale.** Al termine dell'operazione, scegliere **Crea**.
 
 1. Specificare i dettagli necessari per l'azione o il trigger selezionato e continuare a creare il flusso di lavoro dell'app per la logica.
 
@@ -76,7 +76,7 @@ Se non si ha familiarità con App per la logica, consultare [Informazioni su App
 
 Per informazioni tecniche su trigger, azioni e limiti, illustrati dalla descrizione OpenAPI (in precedenza Swagger) del connettore, esaminare la [pagina di riferimento](/connectors/sharepoint/) del connettore.
 
-## <a name="get-support"></a>Ottenere supporto
+## <a name="get-support"></a>Supporto
 
 * In caso di domande, visitare il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Per votare o inviare idee relative alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica](https://aka.ms/logicapps-wish).

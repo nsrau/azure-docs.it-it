@@ -1,6 +1,6 @@
 ---
-title: Registrare app a singola pagina-piattaforma di identità Microsoft | Azure
-description: Informazioni su come creare un'applicazione a singola pagina (registrazione dell'app)
+title: Registrare le app a pagina singola - Piattaforma di identità Microsoft Azure
+description: Scopri come creare un'applicazione a pagina singola (registrazione dell'app)
 services: active-directory
 documentationcenter: dev-center-name
 author: navyasric
@@ -15,35 +15,35 @@ ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.openlocfilehash: 5b18b10748e0587920c6965f1d235376da928469
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76701893"
 ---
-# <a name="single-page-application-app-registration"></a>Applicazione a pagina singola: registrazione dell'app
+# <a name="single-page-application-app-registration"></a>Applicazione a pagina singola: Registrazione app
 
-Questa pagina illustra le specifiche di registrazione delle app per un'applicazione a singola pagina (SPA).
+Questa pagina spiega le specifiche di registrazione dell'app per un'applicazione a pagina singola (SPA).
 
-Seguire i passaggi per [registrare una nuova applicazione con la piattaforma di identità Microsoft](quickstart-register-app.md)e selezionare gli account supportati per l'applicazione. Lo scenario SPA può supportare l'autenticazione con account dell'organizzazione o qualsiasi organizzazione e account Microsoft personali.
+Seguire i passaggi per [registrare una nuova applicazione con la piattaforma](quickstart-register-app.md)di identità Microsoft e selezionare gli account supportati per l'applicazione. Lo scenario SPA può supportare l'autenticazione con account nell'organizzazione o con qualsiasi organizzazione e account Microsoft personali.
 
-Successivamente, vengono illustrati gli aspetti specifici della registrazione dell'applicazione che si applicano alle applicazioni a singola pagina.
+Successivamente, apprendere gli aspetti specifici della registrazione delle applicazioni che si applicano alle applicazioni a pagina singola.
 
-## <a name="register-a-redirect-uri"></a>Registrare un URI di Reindirizzamento
+## <a name="register-a-redirect-uri"></a>Registrare un URI di reindirizzamentoRegister a redirect URI
 
-Il flusso implicito invia i token in un reindirizzamento all'applicazione a singola pagina in esecuzione in un Web browser. È quindi importante registrare un URI di reindirizzamento in cui l'applicazione può ricevere i token. Verificare che l'URI di reindirizzamento corrisponda esattamente all'URI per l'applicazione.
+Il flusso implicito invia i token in un reindirizzamento all'applicazione a pagina singola in esecuzione in un Web browser. È quindi importante registrare un URI di reindirizzamento in cui l'applicazione può ricevere i token. Assicurarsi che l'URI di reindirizzamento corrisponda esattamente all'URI dell'applicazione.
 
-Nella [portale di Azure](https://go.microsoft.com/fwlink/?linkid=2083908)passare all'applicazione registrata. Nella pagina **autenticazione** dell'applicazione selezionare la piattaforma **Web** . Immettere il valore dell'URI di reindirizzamento per l'applicazione nel campo **URI di reindirizzamento** .
+Nel [portale di Azure](https://go.microsoft.com/fwlink/?linkid=2083908)passare all'applicazione registrata. Nella pagina **Autenticazione** dell'applicazione selezionare la piattaforma **Web.** Immettere il valore dell'URI di reindirizzamento per l'applicazione nel campo **URI di reindirizzamento.**
 
-## <a name="enable-the-implicit-flow"></a>Abilitare il flusso implicito
+## <a name="enable-the-implicit-flow"></a>Abilitare il flusso implicitoEnable the implicit flow
 
-Nella stessa pagina di **autenticazione** , in **Impostazioni avanzate**, è necessario abilitare anche la **concessione implicita**. Se l'applicazione sta effettuando l'accesso solo agli utenti e ricevendo i token ID, è sufficiente selezionare la casella di controllo **token ID** .
+Nella stessa pagina **Autenticazione,** in **Impostazioni avanzate**, è inoltre necessario abilitare **la concessione implicita.** Se l'applicazione accede solo agli utenti e ottiene i token ID, è sufficiente selezionare la casella di controllo **Token ID.**
 
-Se l'applicazione deve anche ottenere i token di accesso per chiamare le API, assicurarsi di selezionare la casella di controllo **token di accesso** . Per altre informazioni, vedere [token ID](./id-tokens.md) e [token di accesso](./access-tokens.md).
+Se l'applicazione deve anche ottenere i token di accesso per chiamare le API, assicurarsi di selezionare anche la casella di controllo **Token** di accesso. Per ulteriori informazioni, vedere [token ID](./id-tokens.md) e token di [accesso](./access-tokens.md).
 
 ## <a name="api-permissions"></a>Autorizzazioni delle API
 
-Le applicazioni a singola pagina possono chiamare le API per conto dell'utente che ha eseguito l'accesso. Devono richiedere autorizzazioni delegate. Per informazioni dettagliate, vedere [aggiungere autorizzazioni per accedere alle API Web](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis).
+Le applicazioni a pagina singola possono chiamare le API per conto dell'utente connesso. Devono richiedere autorizzazioni delegate. Per informazioni dettagliate, vedere [Aggiungere autorizzazioni per accedere alle API Web.](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

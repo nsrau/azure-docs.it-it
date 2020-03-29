@@ -1,5 +1,5 @@
 ---
-title: Serie NC-macchine virtuali di Azure
+title: Serie NC - Macchine virtuali di Azure
 description: Specifiche per le macchine virtuali della serie NC.
 services: virtual-machines
 author: vikancha
@@ -8,23 +8,23 @@ ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
 ms.openlocfilehash: eab7dfe79aa5cdf234c8bc9472387214f7df3563
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78164526"
 ---
 # <a name="nc-series"></a>Serie NC
 
-Le macchine virtuali della serie NC sono basate sulla scheda [NVIDIA Tesla K80](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/Tesla-K80-BoardSpec-07317-001-v05.pdf) e sul processore Intel Xeon E5-2690 V3 (Haswell). Gli utenti possono elaborare i dati più velocemente sfruttando i core CUDA per eseguire l'analisi del consumo delle applicazioni, simulazioni di arresto anomalo, rendering con ray tracing, Deep Learning e altro ancora. La configurazione NC24r offre un'interfaccia di rete ad alta velocità effettiva e a bassa latenza, ottimizzata per carichi di lavoro di calcolo paralleli strettamente associati.
+Le macchine virtuali della serie NC sono alimentate dalla scheda [NVIDIA Tesla K80](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/Tesla-K80-BoardSpec-07317-001-v05.pdf) e dal processore Intel Xeon E5-2690 v3 (Haswell). Gli utenti possono elaborare i dati più velocemente sfruttando i core CUDA per eseguire l'analisi del consumo delle applicazioni, simulazioni di arresto anomalo, rendering con ray tracing, Deep Learning e altro ancora. La configurazione NC24r offre un'interfaccia di rete ad alta velocità effettiva e a bassa latenza, ottimizzata per carichi di lavoro di calcolo paralleli strettamente associati.
 
 Archiviazione Premium: non supportata
 
-Caching archiviazione Premium: non supportato
+Memorizzazione nella cache di archiviazione Premium: non supportata
 
 Live Migration: non supportato
 
-Aggiornamenti con mantenimento della memoria: non supportato
+Aggiornamenti di conservazione della memoria: non supportatiMemory Preserving Updates: Not Supported
 
 | Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | GPU | Memoria GPU: GiB | Numero massimo di dischi dati | Schede di interfaccia di rete max |
 |---|---|---|---|---|---|---|---|
@@ -41,15 +41,15 @@ Aggiornamenti con mantenimento della memoria: non supportato
 
 ## <a name="supported-operating-systems-and-drivers"></a>Sistemi operativi e driver supportati
 
-Per sfruttare i vantaggi delle funzionalità GPU delle VM serie N di Azure, è necessario installare i driver GPU NVIDIA.
+Per sfruttare le funzionalità GPU delle macchine virtuali di Azure Serie N, è necessario installare i driver GPU NVIDIA.
 
 L'[estensione del driver NVIDIA GPU](./extensions/hpccompute-gpu-windows.md) consente di installare i driver NVIDIA CUDA o GRID appropriati in una macchina virtuale serie N. Installare o gestire l'estensione usando il portale di Azure o strumenti come i modelli di Azure PowerShell Azure o Azure Resource Manager. Vedere la [documentazione dell'estensione dei driver GPU NVIDIA](./extensions/hpccompute-gpu-windows.md) per informazioni sui sistemi operativi supportati e sui passaggi di distribuzione. Per altre informazioni sulle estensioni macchina virtuale, vedere [Azure virtual machine extensions and features](./extensions/overview.md) (Funzionalità ed estensioni macchina virtuale di Azure).
 
-Se si sceglie di installare manualmente i driver GPU NVIDIA, vedere la pagina relativa alla [configurazione di driver GPU della serie n per](./windows/n-series-driver-setup.md) la configurazione di driver GPU per Windows o [serie n per Linux](./linux/n-series-driver-setup.md) per i sistemi operativi, i driver, l'installazione e i passaggi di verifica supportati.
+Se si sceglie di installare manualmente i driver GPU NVIDIA, vedere [Configurazione dei driver GPU di serie N per Windows](./windows/n-series-driver-setup.md) o Configurazione del driver [GPU di serie N per Linux](./linux/n-series-driver-setup.md) per i passaggi operativi supportati, i driver, l'installazione e la verifica.
 
 ## <a name="other-sizes"></a>Altre dimensioni
 
-- [Utilizzo generico](sizes-general.md)
+- [Finalità generale](sizes-general.md)
 - [Ottimizzate per la memoria](sizes-memory.md)
 - [Ottimizzate per l'archiviazione](sizes-storage.md)
 - [Ottimizzate per la GPU](sizes-gpu.md)

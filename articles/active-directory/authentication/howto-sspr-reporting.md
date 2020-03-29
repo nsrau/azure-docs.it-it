@@ -12,17 +12,17 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 27d219f46f82f4a74cb5dee0a6b11b673a4a3509
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76155008"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Opzioni di creazione di rapporti per la gestione delle password di Azure AD
 
 Dopo la distribuzione molte organizzazioni vogliono sapere come o se il servizio Reimpostazione password self-service viene effettivamente usato. La funzionalità di creazione di report disponibile in Azure Active Directory (Azure AD) consente di rispondere a domande specifiche grazie a report predefiniti. Se si dispone di una licenza appropriata, è anche possibile creare query personalizzate.
 
-![Creazione di report su SSPR tramite i log di controllo in Azure AD][Reporting]
+![Creazione di report su SSPR usando i log di controllo in Azure ADReporting on SSPR using the audit logs in Azure AD][Reporting]
 
 È possibile rispondere alle domande seguenti grazie ai report presenti nel [Portale di Azure](https://portal.azure.com/):
 
@@ -43,17 +43,17 @@ Dopo la distribuzione molte organizzazioni vogliono sapere come o se il servizio
 
 Nel portale di Azure è disponibile un modo migliore per visualizzare la reimpostazione delle password e l'attività di registrazione per la reimpostazione delle password. Attenersi alla procedura seguente per trovare gli eventi correlati alla reimpostazione delle password e alla registrazione per la reimpostazione delle password:
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Passare al [portale di Azure](https://portal.azure.com).
 2. Selezionare **Tutti i servizi** nel riquadro a sinistra.
 3. Cercare **Azure Active Directory** nell'elenco dei servizi e selezionarlo.
-4. Selezionare **utenti** nella sezione Gestisci.
-5. Selezionare **log di controllo** nel pannello **utenti** . Vengono visualizzati tutti gli eventi di controllo che si verificano per tutti gli utenti nella directory. È possibile filtrare la visualizzazione per vedere tutti gli eventi correlati alle password.
-6. Dal menu **filtro** nella parte superiore del riquadro selezionare l'elenco a discesa **servizio** e modificarlo nel tipo di servizio di gestione delle **password self-service** .
+4. Selezionare Utenti dalla sezione Gestisci.Select **Users** from the Manage section.
+5. Selezionare Registri di controllo dal pannello **Utenti.Select Audit Logs** from the **Users** blade. Vengono visualizzati tutti gli eventi di controllo che si verificano per tutti gli utenti nella directory. È possibile filtrare la visualizzazione per vedere tutti gli eventi correlati alle password.
+6. Dal menu **Filtro** nella parte superiore del riquadro, selezionare l'elenco a discesa **Servizio** e impostarlo sul tipo di servizio **Gestione password self-service.**
 7. Facoltativamente, è possibile filtrare ulteriormente l'elenco scegliendo un'attività specifica in **Attività**.
 
 ### <a name="converged-registration-preview"></a>Registrazione convergente (anteprima)
 
-Se si partecipa all'anteprima pubblica della registrazione convergente, le informazioni relative all'attività dell'utente nei log di controllo saranno disponibili in **sicurezza** > **metodi di autenticazione**.
+Se si partecipa all'anteprima pubblica della registrazione convergente, le informazioni relative all'attività dell'utente nei registri di controllo saranno disponibili **in** > Metodi di**autenticazione**di protezione .
 
 ## <a name="description-of-the-report-columns-in-the-azure-portal"></a>Descrizione delle colonne dei report nel portale di Azure
 
@@ -70,7 +70,7 @@ Nella tabella seguente sono descritti i diversi valori che è possibile impostar
 
 | Colonna | Valori consentiti e relativi significati |
 | --- | --- |
-| Dati registrati |**Indirizzo di posta elettronica alternativo**: l'utente ha usato un indirizzo di posta elettronica alternativo o di autenticazione per autenticarsi.<p><p>**Telefono ufficio**: l'utente ha usato il telefono dell'ufficio per autenticarsi.<p>**Telefono cellulare**: l'utente ha usato un telefono cellulare o di autenticazione per autenticarsi.<p>**Domande di sicurezza**: l'utente ha usato le domande di sicurezza per autenticarsi.<p>**Qualsiasi combinazione dei metodi precedenti (ad esempio, indirizzo di posta elettronica alternativo + cellulare)** : si verifica quando vengono specificati criteri con doppio controllo che indicano i due metodi usati dall'utente durante l'autenticazione per richiedere la reimpostazione della password. |
+| Dati registrati |**Indirizzo di posta elettronica alternativo**: l'utente ha usato un indirizzo di posta elettronica alternativo o di autenticazione per autenticarsi.<p><p>**Telefono ufficio**: l'utente ha usato il telefono dell'ufficio per autenticarsi.<p>**Telefono cellulare**: l'utente ha usato un telefono cellulare o di autenticazione per autenticarsi.<p>**Domande di sicurezza**: l'utente ha usato le domande di sicurezza per autenticarsi.<p>**Qualsiasi combinazione dei metodi precedenti (ad esempio, indirizzo di posta elettronica alternativo + cellulare)**: si verifica quando vengono specificati criteri con doppio controllo che indicano i due metodi usati dall'utente durante l'autenticazione per richiedere la reimpostazione della password. |
 
 ## <a name="self-service-password-management-activity-types"></a>Tipi di attività di gestione delle password self-service
 
@@ -81,7 +81,7 @@ Vengono visualizzati i seguenti tipi di attività nella categoria degli eventi d
 * [Reimpostare la password (amministratore)](#activity-type-reset-password-by-admin): indica che un amministratore ha eseguito una reimpostazione della password per conto di un utente dal portale di Azure.
 * [Reimpostare la password (self-service)](#activity-type-reset-password-self-service): indica che un utente ha reimpostato correttamente la propria password nel [portale di reimpostazione delle password di Azure AD](https://passwordreset.microsoftonline.com).
 * [Stato di avanzamento dell'attività di reimpostazione della password self-service](#activity-type-self-serve-password-reset-flow-activity-progress): indica ogni passaggio specifico seguito da un utente (come il passaggio dell'attività di controllo dell'autenticazione per la reimpostazione della password) come parte del processo di reimpostazione della password.
-* [Sbloccare l'account utente (self-service)](#activity-type-unlock-a-user-account-self-service)): indica che un utente ha sbloccato correttamente l'account Active Directory senza reimpostare la password dal [portale di reimpostazione della password Azure ad](https://passwordreset.microsoftonline.com) usando la funzionalità Active Directory di sblocco dell'account senza reimpostazione.
+* [Sblocca account utente (self-service):](#activity-type-unlock-a-user-account-self-service)indica che un utente ha sbloccato correttamente il proprio account Active Directory senza reimpostare la password dal portale di [reimpostazione](https://passwordreset.microsoftonline.com) della password di Azure AD usando la funzionalità Active Directory di sblocco dell'account senza reimpostazione.
 * [Utente registrato per la reimpostazione della password self-service](#activity-type-user-registered-for-self-service-password-reset): indica che un utente ha registrato tutte le informazioni necessarie per essere in grado di reimpostare la password in conformità con i criteri di reimpostazione della password del tenant attualmente specificati.
 
 ### <a name="activity-type-blocked-from-self-service-password-reset"></a>Tipo di attività: Bloccato dalla reimpostazione self-service delle password
@@ -113,7 +113,7 @@ Nell'elenco seguente viene illustrata in dettaglio questa attività:
 Nell'elenco seguente viene illustrata in dettaglio questa attività:
 
 * **Activity Description** (Descrizione attività): indica che un amministratore ha eseguito una reimpostazione della password per conto di un utente dal portale di Azure.
-* **Activity Actor** (Attore attività): l'amministratore che ha eseguito la reimpostazione della password per conto di un altro utente finale o amministratore. Deve essere un amministratore password, un amministratore utente o un amministratore del supporto tecnico.
+* **Activity Actor** (Attore attività): l'amministratore che ha eseguito la reimpostazione della password per conto di un altro utente finale o amministratore. Deve essere un amministratore della password, un amministratore utente o un amministratore del supporto tecnico.
 * **Activity Target** (Destinatario attività): l'utente la cui password è stata reimpostata. L'utente può essere un utente finale o un amministratore diverso.
 * **Stati attività**:
   * _Success_ (Operazione riuscita): indica che un amministratore ha reimpostato correttamente la password dell'utente.
@@ -171,17 +171,17 @@ Nell'elenco seguente viene illustrata in dettaglio questa attività:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Report sull'utilizzo e informazioni dettagliate su SSPR e multi-factor authentication](howto-authentication-methods-usage-insights.md)
+* [Report di utilizzo e approfondimenti di SSPR e MFA](howto-authentication-methods-usage-insights.md)
 * [Come completare l'implementazione della reimpostazione della password self-service per gli utenti](howto-sspr-deployment.md)
 * [Reimpostare o modificare la password](../user-help/active-directory-passwords-update-your-own-password.md).
 * [Registrarsi per la reimpostazione della password self-service](../user-help/active-directory-passwords-reset-register.md).
-* [Domande sulle licenze](concept-sspr-licensing.md)
+* [Hai una domanda di licenza?](concept-sspr-licensing.md)
 * [Dati usati dalla reimpostazione della password self-service e dati da immettere per gli utenti](howto-sspr-authenticationdata.md)
 * [Metodi di autenticazione disponibili per gli utenti](concept-sspr-howitworks.md#authentication-methods)
 * [Opzioni dei criteri per la reimpostazione della password self-service](concept-sspr-policy.md)
 * [Panoramica del writeback delle password](howto-sspr-writeback.md)
 * [Informazioni sulle opzioni della reimpostazione della password self-service](concept-sspr-howitworks.md)
-* [Credo che qualcosa sia rotto. Ricerca per categorie risolvere i problemi di SSPR?](active-directory-passwords-troubleshoot.md)
+* [Credo che qualcosa sia rotto. Come si risolvono i problemi relativi a SSPR?](active-directory-passwords-troubleshoot.md)
 * [Altre informazioni non illustrate altrove](active-directory-passwords-faq.md)
 
 [Reporting]: ./media/howto-sspr-reporting/sspr-reporting.png "Esempio di log di controllo delle attività di reimpostazione password self-service in Azure AD"

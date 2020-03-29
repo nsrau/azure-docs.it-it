@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 10/28/2018
 ms.author: memildin
 ms.openlocfilehash: 0e60e782fa65cd5868bebe081673f9a158e07799
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77921318"
 ---
 # <a name="permissions-in-azure-security-center"></a>Autorizzazioni nel Centro sicurezza di Azure
@@ -41,7 +41,7 @@ Oltre a questi ruoli, esistono due ruoli specifici del Centro sicurezza:
 
 La tabella seguente contiene i ruoli e le azioni consentite in Centro sicurezza.
 
-| Ruolo | Modificare i criteri di sicurezza | Applicare i suggerimenti per la sicurezza per una risorsa</br> (incluso con ' correzione rapida!') | Ignorare gli avvisi e le raccomandazioni | Visualizzare gli avvisi e le raccomandazioni |
+| Ruolo | Modificare i criteri di sicurezza | Applicare i suggerimenti per la sicurezza per una risorsa</br> (incluso con 'Quick Fix!') | Ignorare gli avvisi e le raccomandazioni | Visualizzare gli avvisi e le raccomandazioni |
 |:--- |:---:|:---:|:---:|:---:|
 | Proprietario della sottoscrizione | ✔ | ✔ | ✔ | ✔ |
 | Collaboratore alla sottoscrizione | -- | ✔ | ✔ | ✔ |
@@ -59,8 +59,8 @@ La tabella seguente contiene i ruoli e le azioni consentite in Centro sicurezza.
 ## <a name="next-steps"></a>Passaggi successivi
 In questo articolo è stato descritto come Centro sicurezza usa PC usa il controllo degli accessi in base al ruolo per assegnare autorizzazioni agli utenti e sono state identificate le azioni consentite per ogni ruolo. Ora che è stata acquisita familiarità con le assegnazioni di ruolo necessari per monitorare lo stato di sicurezza della sottoscrizione, modificare i criteri di sicurezza e applicare i consigli, si apprenderà come eseguire queste operazioni:
 
-- [Impostare criteri di sicurezza in Centro sicurezza](tutorial-security-policy.md)
+- [Impostare i criteri di sicurezza nel Centro sicurezza](tutorial-security-policy.md)
 - [Gestire i suggerimenti per la sicurezza in Centro sicurezza](security-center-recommendations.md)
 - [Monitorare l'integrità della sicurezza delle risorse di Azure](security-center-monitoring.md)
-- [Gestire e rispondere agli avvisi di sicurezza in Centro sicurezza](security-center-managing-and-responding-alerts.md)
+- [Gestire e rispondere agli avvisi di sicurezza nel Centro sicurezza](security-center-managing-and-responding-alerts.md)
 - [Monitorare le soluzioni di sicurezza dei partner](security-center-partner-solutions.md)

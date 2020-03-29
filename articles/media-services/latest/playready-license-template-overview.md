@@ -1,5 +1,5 @@
 ---
-title: Modello di licenza di servizi multimediali di Azure V3 con Microsoft PlayReady
+title: Servizi multimediali di Azure v3 con modello di licenza Microsoft PlayReadyAzure Media Services v3 with Microsoft PlayReady license template
 description: Questo argomento offre una panoramica di un modello di licenza PlayReady usato per configurare le licenze PlayReady.
 author: juliako
 manager: femila
@@ -14,13 +14,13 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: juliako
 ms.openlocfilehash: 6b12dcee2303632c4ec2ccc3602348a4e17fcd05
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76705888"
 ---
-# <a name="media-services-v3-with-playready-license-template"></a>Modello di licenza PlayReady di servizi multimediali V3 con 
+# <a name="media-services-v3-with-playready-license-template"></a>Servizi multimediali v3 con modello di licenza PlayReady 
 
 Servizi multimediali di Azure consente di crittografare il contenuto con **Microsoft PlayReady**. Servizi multimediali offre anche un servizio per la distribuzione delle licenze PlayReady. È possibile usare l'API di Servizi multimediali per configurare le licenze PlayReady. Quando un lettore tenta di riprodurre un contenuto protetto da PlayReady, viene inviata una richiesta al servizio di distribuzione delle licenze per ottenere una licenza. Se il servizio licenze approva la richiesta, la licenza viene rilasciata e inviata al client e verrà usata per decrittografare e riprodurre il contenuto specificato.
 
@@ -31,7 +31,7 @@ Le licenze PlayReady contengono i diritti e le limitazioni che il runtime Digita
 * Salvataggio della licenza in archivio permanente nel client. Le licenze permanenti vengono in genere usate per permettere la riproduzione offline del contenuto.
 * Il livello di sicurezza minimo che un lettore deve offrire per poter riprodurre il contenuto. 
 * Livello di protezione dell'output per i controlli output del contenuto audio/video. 
-* Per altre informazioni, vedere la sezione relativa ai "controlli di output" (3.5) nel documento relativo alle [regole di conformità di PlayReady](https://www.microsoft.com/playready/licensing/compliance/).
+* Per ulteriori informazioni, vedere la sezione "Controlli di output" (3.5) nel documento Regole di conformità PlayReady.For more information, see the "Output Controls" section (3.5) in the [PlayReady Compliance Rules](https://www.microsoft.com/playready/licensing/compliance/) document.
 
 > [!NOTE]
 > Attualmente è possibile configurare solo l'elemento PlayRight della licenza PlayReady. È un diritto obbligatorio. PlayRight consente al client di riprodurre il contenuto. È possibile usare PlayRight anche per configurare le restrizioni specifiche per la riproduzione. 
@@ -58,7 +58,7 @@ L'XML è conforme all'XML schema del modello di licenza PlayReady definito nella
     </PlayReadyLicenseResponseTemplate>
 
 
-## <a id="classes"></a>Usare le API di Servizi multimediali per configurare modelli di licenza
+## <a name="use-media-services-apis-to-configure-license-templates"></a><a id="classes"></a>Usare le API di Servizi multimediali per configurare modelli di licenza
 
 Servizi multimediali offre tipi utili per configurare un modello di licenza PlayReady. 
 
@@ -88,7 +88,7 @@ objContentKeyPolicyPlayReadyLicense = new ContentKeyPolicyPlayReadyLicense
 };
 ```
 
-## <a id="schema"></a>Schema XML del modello di licenza PlayReady
+## <a name="playready-license-template-xml-schema"></a><a id="schema"></a>Schema XML del modello di licenza PlayReady
     <?xml version="1.0" encoding="utf-8"?>
     <xs:schema xmlns:tns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1" xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1" xmlns:xs="https://www.w3.org/2001/XMLSchema">
       <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />

@@ -16,12 +16,12 @@ ms.date: 05/31/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e822906a072ec8244c7108e98289482adebb5a7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 18b5f19e3e994aa05fa99caf360d0c1be69ec7a5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60244935"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80049783"
 ---
 # <a name="multiple-domain-support-for-federating-with-azure-ad"></a>Supporto di più domini per la federazione con Azure AD
 La documentazione seguente fornisce indicazioni su come usare più domini di primo livello e sottodomini durante la federazione con domini di Office 365 o Azure AD.
@@ -69,7 +69,7 @@ Se si esaminano le impostazioni del dominio bmfabrikam.com, si può notare quant
 
 In questo modo durante l'autenticazione in Azure AD oppure Office 365 l'elemento IssuerUri nel token dell'utente viene usato per individuare il dominio in Azure AD.  Se non viene rilevata una corrispondenza, l'autenticazione non riuscirà.
 
-Se ad esempio l'UPN di un utente è bsimon@bmcontoso.com, l'elemento IssuerUri nel token emesso da AD FS sarà impostato su <http://bmcontoso.com/adfs/services/trust>. Se questo elemento corrisponde alla configurazione di Azure AD, l'autenticazione avrà esito positivo.
+Se ad esempio l'UPN di un utente è bsimon@bmcontoso.com, l'elemento IssuerUri nel token emesso da AD FS sarà impostato su `http://bmcontoso.com/adfs/services/trust`. Se questo elemento corrisponde alla configurazione di Azure AD, l'autenticazione avrà esito positivo.
 
 Di seguito è riportata la regola attestazioni personalizzata che implementa questa logica:
 
@@ -82,7 +82,7 @@ Di seguito è riportata la regola attestazioni personalizzata che implementa que
 >
 
 ## <a name="how-to-update-the-trust-between-ad-fs-and-azure-ad"></a>Come aggiornare il trust tra AD FS e Azure AD
-Se il trust federativo non è stato configurato tra AD FS e l'istanza di Azure AD, potrebbe essere necessario crearlo di nuovo,  perché, quando viene configurato in origine senza il parametro `-SupportMultipleDomain`, il valore IssuerUri viene impostato con il valore predefinito.  Nella schermata seguente, è possibile visualizzare il IssuerUri è impostato su https://adfs.bmcontoso.com/adfs/services/trust.
+Se il trust federativo non è stato configurato tra AD FS e l'istanza di Azure AD, potrebbe essere necessario crearlo di nuovo,  perché, quando viene configurato in origine senza il parametro `-SupportMultipleDomain`, il valore IssuerUri viene impostato con il valore predefinito.  Nella schermata seguente, è possibile visualizzare il IssuerUri è impostato su `https://adfs.bmcontoso.com/adfs/services/trust`.
 
 Se un nuovo dominio è stato aggiunto correttamente al portale di Azure AD e si prova a convertirlo usando `Convert-MsolDomaintoFederated -DomainName <your domain>`, verrà visualizzato l'errore seguente.
 
@@ -126,18 +126,18 @@ Usare la procedura seguente per aggiungere il nuovo dominio di primo livello tra
 5. Fare clic su Installa.
 
 ### <a name="verify-the-new-top-level-domain"></a>Verificare il nuovo dominio di primo livello
-Usando il comando `Get-MsolDomainFederationSettings -DomainName <your domain>`di PowerShell, è possibile visualizzare la proprietà IssuerUri aggiornata.  La schermata seguente mostra le impostazioni di federazione aggiornate sul dominio originale http://bmcontoso.com/adfs/services/trust
+Usando il comando `Get-MsolDomainFederationSettings -DomainName <your domain>`di PowerShell, è possibile visualizzare la proprietà IssuerUri aggiornata.  La schermata seguente mostra le impostazioni di federazione aggiornate sul dominio originale `http://bmcontoso.com/adfs/services/trust`
 
 ![Get-MsolDomainFederationSettings](./media/how-to-connect-install-multiple-domains/MsolDomainFederationSettings.png)
 
-E IssuerUri nel nuovo dominio è stato impostato su https://bmfabrikam.com/adfs/services/trust
+E IssuerUri nel nuovo dominio è stato impostato su `https://bmfabrikam.com/adfs/services/trust`
 
 ![Get-MsolDomainFederationSettings](./media/how-to-connect-install-multiple-domains/settings2.png)
 
 ## <a name="support-for-subdomains"></a>Supporto per i sottodomini
 A causa della modalità di gestione dei domini in Azure AD, eventuali sottodomini aggiunti erediteranno le impostazioni del dominio padre.  La proprietà IssuerUri deve quindi corrispondere a quella degli elementi padre.
 
-Si supponga ad esempio che sia presente il dominio bmcontoso.com e che quindi si aggiunga corp.bmcontoso.com.  Dovrà essere IssuerUri per un utente da corp.bmcontoso.com  **http://bmcontoso.com/adfs/services/trust.**  Tuttavia la regola standard implementata sopra per Azure AD genererà un token con un emittente come **http://corp.bmcontoso.com/adfs/services/trust.** che non corrisponderà al valore di dominio obbligatorio e l'autenticazione avrà esito negativo.
+Si supponga ad esempio che sia presente il dominio bmcontoso.com e che quindi si aggiunga corp.bmcontoso.com.  IssuerUri per un utente da corp.bmcontoso.com dovrà essere ** http://bmcontoso.com/adfs/services/trust.**  Tuttavia, la regola standard implementata in precedenza per Azure AD genererà un token con un'autorità emittente come ** http://corp.bmcontoso.com/adfs/services/trust.** che non corrisponderà al valore di dominio obbligatorio e l'autenticazione avrà esito negativo.
 
 ### <a name="how-to-enable-support-for-subdomains"></a>Come abilitare il supporto per sottodomini
 Per risolvere questo problema, è necessario che il trust della relying party di AD FS per Microsoft Online venga aggiornato.  Per eseguire questa operazione, è necessario configurare una regola attestazioni personalizzata, in modo che vengano rimossi tutti i sottodomini dal suffisso UPN di un utente durante la creazione del valore Issuer personalizzato.
@@ -169,8 +169,8 @@ Usare la procedura seguente per aggiungere un'attestazione personalizzata per il
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo aver installato Azure AD Connect è possibile [verificare l'installazione e assegnare le licenze](how-to-connect-post-installation.md).
 
-Altre informazioni su queste funzionalità che sono state abilitate con l'installazione: [Aggiornamento automatico](how-to-connect-install-automatic-upgrade.md), [Prevenzione delle eliminazioni accidentali](how-to-connect-sync-feature-prevent-accidental-deletes.md) e [Azure AD Connect Health](how-to-connect-health-sync.md).
+Altre informazioni su queste funzionalità che sono state abilitate con l'installazione: [Aggiornamento automatico](how-to-connect-install-automatic-upgrade.md), [Impedire eliminazioni accidentali](how-to-connect-sync-feature-prevent-accidental-deletes.md) e [Azure AD Connect Health](how-to-connect-health-sync.md).
 
 Altre informazioni su questi argomenti comuni: [utilità di pianificazione e come attivare la sincronizzazione](how-to-connect-sync-feature-scheduler.md).
 
-Ulteriori informazioni su [Integrazione delle identità locali con Azure Active Directory](whatis-hybrid-identity.md).
+Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](whatis-hybrid-identity.md).

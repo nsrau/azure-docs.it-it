@@ -11,10 +11,10 @@ ms.date: 05/29/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: eb96be187502afcccfd3fb2c88f709facfbc3b59
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76278136"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Panoramica della scalabilità automatica con i set di scalabilità di macchine virtuali di Azure
@@ -34,9 +34,9 @@ Nelle ore serali o nel fine settimana è possibile che la richiesta delle applic
 
 È possibile creare regole di scalabilità automatica che usano metriche basate su host con uno degli strumenti seguenti:
 
-- [Azure portal](virtual-machine-scale-sets-autoscale-portal.md)
+- [Portale di Azure](virtual-machine-scale-sets-autoscale-portal.md)
 - [Azure PowerShell](tutorial-autoscale-powershell.md)
-- [Interfaccia della riga di comando di Azure](tutorial-autoscale-cli.md)
+- [Interfaccia della riga di comando di AzureAzure](tutorial-autoscale-cli.md)
 - [Modello di Azure](tutorial-autoscale-template.md)
 
 Per creare le regole di scalabilità automatica che usano metriche delle prestazioni più dettagliate, è possibile [installare e configurare l'estensione Diagnostica di Azure](#in-guest-vm-metrics-with-the-azure-diagnostics-extension) sulle istanze di macchine virtuali o [configurare l'applicazione in modo che usi App Insights](#application-level-metrics-with-app-insights).
@@ -84,9 +84,9 @@ Le regole di scalabilità automatica vengono attivate quando le metriche vengono
 
 | Operatore                 |
 |--------------------------|
-| Più di             |
+| Maggiore di             |
 | Maggiore o uguale a |
-| Meno di                |
+| Minore di                |
 | Minore o uguale a    |
 | Uguale a                 |
 | Diverso da             |
@@ -133,10 +133,10 @@ Di seguito sono riportati alcuni scenari di esempio che possono trarre vantaggio
 È possibile creare regole di scalabilità automatica che usano metriche basate su host con uno degli strumenti seguenti:
 
 - [Azure PowerShell](tutorial-autoscale-powershell.md)
-- [Interfaccia della riga di comando di Azure](tutorial-autoscale-cli.md)
+- [Interfaccia della riga di comando di AzureAzure](tutorial-autoscale-cli.md)
 - [Modello di Azure](tutorial-autoscale-template.md)
 
-Questa panoramica ha descritto in dettaglio come usare le regole di scalabilità automatica per scalare orizzontalmente e aumentare o diminuire il *numero* di istanze di macchine virtuali nel set di scalabilità. È possibile anche scalare verticalmente per aumentare o diminuire le *dimensioni* delle istanze di macchine virtuali. Per altre informazioni, vedere [Ridimensionamento automatico verticale con set di scalabilità di macchine virtuali](virtual-machine-scale-sets-vertical-scale-reprovision.md).
+Questa panoramica ha descritto in dettaglio come usare le regole di scalabilità automatica per scalare orizzontalmente e aumentare o diminuire il *numero* di istanze di macchine virtuali nel set di scalabilità. È possibile anche scalare verticalmente per aumentare o diminuire le *dimensioni* delle istanze di macchine virtuali. Per ulteriori informazioni, vedere [Scalabilità automatica verticale con set](virtual-machine-scale-sets-vertical-scale-reprovision.md)di scalabilità di macchine virtuali .
 
 Per informazioni su come gestire le istanze di macchine virtuali, vedere [Gestire set di scalabilità di macchine virtuali con Azure PowerShell](virtual-machine-scale-sets-windows-manage.md).
 

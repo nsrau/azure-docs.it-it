@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: e94ffb3d34082745c3d7ca86cfda2b93c0ed08da
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77919414"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>Informazioni sul riavvio del sistema della macchina virtuale di Azure
@@ -30,11 +30,11 @@ Il modo migliore per proteggere un'applicazione in esecuzione in Azure dalle con
 
 Per garantire questo livello di ridondanza dell'applicazione, è consigliabile raggruppare due o più macchine virtuali in un set di disponibilità. Questa configurazione assicura infatti che, nel corso di un evento di manutenzione pianificata o non pianificata, almeno una delle macchine virtuali sia sempre disponibile e soddisfi per almeno il 99,95% i requisiti del [contratto di servizio di Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_5/).
 
-Per altre informazioni sui set di disponibilità, vedere [gestire la disponibilità delle macchine virtuali](../windows/manage-availability.md)
+Per altre informazioni sui set di disponibilità, vedere [Gestire la disponibilità delle macchine virtualiFor](../windows/manage-availability.md) more information about availability sets, see Manage the availability of VMs
 
 ## <a name="resource-health-information"></a>Informazioni su Integrità risorse
 
-Integrità risorse di Azure è un nuovo servizio che espone l'integrità delle singole risorse di Azure e offre consigli pratici per risolvere i problemi. In un ambiente cloud in cui non è possibile accedere direttamente ai server o agli elementi dell'infrastruttura, l'obiettivo di Integrità risorse è quello di ridurre il tempo impiegato per la risoluzione dei problemi, in particolare lo scopo è ridurre il tempo impiegato per determinare se il problema è interno all'applicazione o dovuto a un evento specifico della piattaforma Azure. Per altre informazioni, vedere [Panoramica su Integrità risorse di Azure](../../resource-health/resource-health-overview.md).
+Integrità risorse di Azure è un nuovo servizio che espone l'integrità delle singole risorse di Azure e offre consigli pratici per risolvere i problemi. In un ambiente cloud in cui non è possibile accedere direttamente ai server o agli elementi dell'infrastruttura, l'obiettivo di Integrità risorse è quello di ridurre il tempo impiegato per la risoluzione dei problemi, in particolare lo scopo è ridurre il tempo impiegato per determinare se il problema è interno all'applicazione o dovuto a un evento specifico della piattaforma Azure. Per ulteriori informazioni, vedere [Comprendere e usare Integrità risorse](../../resource-health/resource-health-overview.md).
 
 ## <a name="actions-and-events-that-can-cause-the-vm-to-reboot"></a>Azioni e gli eventi che possono generare il riavvio della macchina virtuale
 
@@ -47,7 +47,7 @@ Altri aggiornamenti, invece, richiedono il riavvio. In questi casi, le macchine 
 Per informazioni sulla manutenzione pianificata di Azure e su come può influire sulla disponibilità delle macchine virtuali Linux, vedere gli articoli elencati qui. Gli articoli forniscono informazioni di base sul processo di manutenzione pianificata di Azure e su come pianificare la manutenzione per ridurre ulteriormente l'impatto.
 
 - [Manutenzione pianificata per le macchine virtuali in Azure](../windows/planned-maintenance.md)
-- [Come pianificare la manutenzione nelle VM di Azure](../windows/classic/planned-maintenance-schedule.md)
+- [Come pianificare la manutenzione pianificata nelle macchine virtuali di AzureHow to schedule planned maintenance on Azure VMs](../windows/classic/planned-maintenance-schedule.md)
 
 ### <a name="memory-preserving-updates"></a>Aggiornamenti con mantenimento della memoria
 
@@ -64,7 +64,7 @@ Gli aggiornamenti a istanza multipla (per le macchine virtuali in un set di disp
 
 ### <a name="user-initiated-reboot-or-shutdown-actions"></a>Azioni di arresto o riavvio avviate dall'utente
 
-Se si esegue un riavvio dalla portale di Azure, Azure PowerShell, dall'interfaccia della riga di comando o dall'API REST, è possibile trovare l'evento nel [log attività di Azure](../../azure-monitor/platform/platform-logs-overview.md).
+Se si esegue un riavvio dal portale di Azure, da Azure PowerShell, dall'interfaccia della riga di comando o dall'API REST, è possibile trovare l'evento nel log attività di [Azure.](../../azure-monitor/platform/platform-logs-overview.md)
 
 Se si esegue l'azione dal sistema operativo della VM, è possibile trovare l'evento nei log di sistema.
 
@@ -86,7 +86,7 @@ La macchina virtuale è ospitata in un server fisico in esecuzione in un data ce
 
 Gli errori del server vengono solitamente generati da errori hardware, ad esempio dal guasto di un disco rigido o di un'unità SSD. Azure monitorizza in modo continuo queste occorrenze, identifica i bug sottostanti e rilascia gli aggiornamenti dopo aver implementato e testato l'attenuazione.
 
-Poiché alcuni errori del server host possono essere specifici del server, una situazione di riavvio ripetuto di una macchina virtuale può essere migliorata ridistribuendo manualmente la macchina virtuale in un altro server host. Questa operazione può essere attivata usando l'opzione **Ridistribuisci** nella pagina dei dettagli della macchina virtuale oppure arrestando e riavviando la macchina virtuale nel portale di Azure.
+Poiché alcuni errori del server host possono essere specifici del server, una situazione di riavvio ripetuto di una macchina virtuale può essere migliorata ridistribuendo manualmente la macchina virtuale in un altro server host. Questa operazione può essere attivata usando l'opzione **di ridistribuzione** nella pagina dei dettagli della macchina virtuale o arrestando e riavviando la macchina virtuale nel portale di Azure.This operation can be triggered by using the redeploy option on the details page of the VM, or by stopping and restarting the VM in the Azure portal.
 
 ### <a name="auto-recovery"></a>Ripristino automatico
 
@@ -115,7 +115,7 @@ La durata dell'arresto può essere di cinque minuti o molto più lunga. Di segui
 
 **Superamento dei limiti di I/O**
 
-È possibile che si verifichi un arresto temporaneo delle macchine virtuali quando le richieste di I/O vengono continuamente limitate perché il volume di operazioni di input/output al secondo (IOPS) è superiore ai limiti per il disco. (L'archiviazione su disco standard è limitata a 500 IOPS). Per attenuare questo problema, usare lo striping del disco o configurare lo spazio di archiviazione all'interno della macchina virtuale Guest, a seconda del carico di lavoro. Per altre informazioni, vedere [Configurazione delle macchine virtuali di Azure per prestazioni di archiviazione ottimali](https://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx).
+È possibile che si verifichi un arresto temporaneo delle macchine virtuali quando le richieste di I/O vengono continuamente limitate perché il volume di operazioni di input/output al secondo (IOPS) è superiore ai limiti per il disco. L'archiviazione su disco standard è limitata a 500 IOPS. Per ridurre questo problema, usare lo striping del disco o configurare lo spazio di archiviazione all'interno della macchina virtuale guest, a seconda del carico di lavoro. Per altre informazioni, vedere [Configurazione delle macchine virtuali di Azure per prestazioni di archiviazione ottimali](https://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx).
 
 ### <a name="other-incidents"></a>Altri eventi imprevisti
 

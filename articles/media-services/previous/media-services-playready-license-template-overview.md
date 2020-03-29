@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: fb0630f3f7a4acebcfe5dcad343030c9d1184263
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74976401"
 ---
 # <a name="media-services-playready-license-template-overview"></a>Panoramica del modello di licenza PlayReady di Servizi multimediali
@@ -32,7 +32,7 @@ Di seguito sono disponibili alcuni esempi di limitazioni che possono essere spec
 * Salvataggio della licenza in archivio permanente nel client. Le licenze permanenti vengono in genere usate per permettere la riproduzione offline del contenuto.
 * Il livello di sicurezza minimo che un lettore deve offrire per poter riprodurre il contenuto. 
 * Livello di protezione dell'output per i controlli output del contenuto audio/video. 
-* Per altre informazioni, vedere la sezione relativa ai "controlli di output" (3.5) nel documento relativo alle [regole di conformità di PlayReady](https://www.microsoft.com/playready/licensing/compliance/).
+* Per ulteriori informazioni, vedere la sezione "Controlli di output" (3.5) nel documento Regole di conformità PlayReady.For more information, see the "Output Controls" section (3.5) in the [PlayReady Compliance Rules](https://www.microsoft.com/playready/licensing/compliance/) document.
 
 > [!NOTE]
 > Attualmente è possibile configurare solo l'elemento PlayRight della licenza PlayReady. È un diritto obbligatorio. PlayRight consente al client di riprodurre il contenuto. È possibile usare PlayRight anche per configurare le restrizioni specifiche per la riproduzione. Per altre informazioni, vedere [PlayReadyPlayRight](media-services-playready-license-template-overview.md#PlayReadyPlayRight).
@@ -60,7 +60,7 @@ Servizi multimediali definisce anche un set di classi .NET che può essere usato
 
 Per un esempio completo che usa le classi .NET per configurare il modello di licenza PlayReady, vedere [Usare la crittografia dinamica e il servizio di distribuzione di licenze PlayReady](media-services-protect-with-playready-widevine.md).
 
-## <a id="classes"></a>Classi .NET di Servizi multimediali che vengono usate per configurare i modelli di licenza
+## <a name="media-services-net-classes-that-are-used-to-configure-license-templates"></a><a id="classes"></a>Classi .NET di Servizi multimediali che vengono usate per configurare i modelli di licenza
 Le classi seguenti sono le classi .NET principali usate per configurare i modelli di licenza PlayReady di Servizi multimediali. Queste classi vengono mappate ai tipi definiti in [Schema XML del modello di licenza PlayReady](media-services-playready-license-template-overview.md#schema).
 
 La [MediaServicesLicenseTemplateSerializer](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.mediaserviceslicensetemplateserializer.aspx) viene usata per serializzare e deserializzare da e verso l'XML del modello di licenza di Servizi multimediali.
@@ -73,7 +73,7 @@ In quanto classe di "livello superiore" nella gerarchia dei modelli, il modello 
 ### <a name="playreadylicensetemplate"></a>PlayReadyLicenseTemplate
 [PlayReadyLicenseTemplate](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadylicensetemplate.aspx): questa classe rappresenta un modello di licenza usato per creare licenze PlayReady da restituire agli utenti. Contiene i dati della chiave simmetrica nella licenza. Include anche eventuali diritti e restrizioni che il runtime DRM di PlayReady deve applicare quando viene usata la chiave simmetrica.
 
-### <a id="PlayReadyPlayRight"></a>PlayReadyPlayRight
+### <a name="playreadyplayright"></a><a id="PlayReadyPlayRight"></a>PlayReadyPlayRight
 [PlayReadyPlayRight](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadyplayright.aspx): questa classe rappresenta l'elemento PlayRight di una licenza PlayReady. Garantisce all'utente la possibilità di riprodurre il contenuto soggetto alle restrizioni configurate nella licenza e nell'elemento PlayRight stesso, per i criteri specifici di riproduzione. La maggior parte dei criteri in un elemento PlayRight riguarda le restrizioni di output che controllano i tipi di output su cui è possibile riprodurre il contenuto. Include anche eventuali restrizioni che devono essere applicate quando si usa un determinato output. Se, ad esempio, DigitalVideoOnlyContentRestriction è abilitato, il runtime DRM consente di visualizzare il video solo su output digitali. Non è consentito riprodurre il contenuto su output video analogici.
 
 > [!IMPORTANT]
@@ -83,7 +83,7 @@ In quanto classe di "livello superiore" nella gerarchia dei modelli, il modello 
 
 Per un esempio dei livelli di protezione supportati da Silverlight, vedere [Supporto Silverlight per la protezione dell'output](https://go.microsoft.com/fwlink/?LinkId=617318).
 
-## <a id="schema"></a>Schema XML del modello di licenza PlayReady
+## <a name="playready-license-template-xml-schema"></a><a id="schema"></a>Schema XML del modello di licenza PlayReady
     <?xml version="1.0" encoding="utf-8"?>
     <xs:schema xmlns:tns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1" xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1" xmlns:xs="https://www.w3.org/2001/XMLSchema">
       <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
@@ -308,11 +308,11 @@ Per un esempio dei livelli di protezione supportati da Silverlight, vedere [Supp
 
 ## <a name="additional-notes"></a>Note aggiuntive
 
-* Widevine è un servizio fornito da Google Inc. e soggetto alle condizioni per l'utilizzo e all'informativa sulla privacy di Google, Inc.
+* Widevine è un servizio fornito da Google Inc. e soggetto alle condizioni per l'utilizzo e all'informativa sulla privacy di Google Inc.
 
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Invia commenti e suggerimenti
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

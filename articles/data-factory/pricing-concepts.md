@@ -1,5 +1,5 @@
 ---
-title: Informazioni sui prezzi Azure Data Factory tramite esempi
+title: Informazioni sui prezzi di Azure Data Factory tramite esempiUnderstanding Azure Data Factory pricing through examples
 description: Questo articolo spiega e illustra il modello di determinazione dei prezzi di Azure Data Factory con esempi dettagliati
 documentationcenter: ''
 author: djpmsft
@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/27/2019
 ms.openlocfilehash: ee5acc97e4b05a0e93f4ceee8c04b400da211b49
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76769502"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>Determinazione dei prezzi di Data Factory ed esempi
@@ -22,7 +22,7 @@ ms.locfileid: "76769502"
 Questo articolo spiega e illustra il modello di determinazione dei prezzi di Azure Data Factory con esempi dettagliati.
 
 > [!NOTE]
-> I prezzi usati negli esempi seguenti sono ipotetici e non sono destinati a implicare prezzi effettivi.
+> I prezzi utilizzati in questi esempi sono ipotetici e non hanno lo scopo di implicare prezzi effettivi.
 
 ## <a name="copy-data-from-aws-s3-to-azure-blob-storage-hourly"></a>Copiare i dati da AWS S3 in Archiviazione BLOB di Azure ogni ora
 
@@ -126,21 +126,21 @@ Per eseguire lo scenario è necessario creare una pipeline con gli elementi segu
   - Attività di pipeline = $ 0,00003 (in quote per 1 minuto di tempo di esecuzione; $ 0,002/ora in Azure Integration Runtime)
   - Attività di pipeline esterna = $ 0,000041 (in quote per 10 minuti di tempo di esecuzione; $ 0,00025/ora in Azure Integration Runtime)
 
-## <a name="using-mapping-data-flow-debug-for-a-normal-workday"></a>Uso del debug del flusso di dati di mapping per una giornata lavorativa normale
+## <a name="using-mapping-data-flow-debug-for-a-normal-workday"></a>Utilizzo del debug del flusso di dati di mapping per una giornata lavorativa normaleUsing mapping data flow debug for a normal workday
 
-In qualità di ingegnere dei dati, l'utente è responsabile della progettazione, della compilazione e del testing di flussi di dati di mapping ogni giorno. Accedere all'interfaccia utente di ADF al mattino e abilitare la modalità di debug per i flussi di dati. Il valore TTL predefinito per le sessioni di debug è 60 minuti. Si lavora in tutto il giorno per 8 ore, quindi la sessione di debug non scade mai. L'addebito per la giornata sarà quindi:
+In qualità di data engineer, sei responsabile della progettazione, della creazione e del test della mappatura dei flussi di dati ogni giorno. Accedere all'interfaccia utente di ADF al mattino e attivare la modalità di debug per i flussi di dati. Il valore TTL predefinito per le sessioni di debug è 60 minuti. Si lavora tutto il giorno per 8 ore, in modo che la sessione di Debug non scade mai. Pertanto, l'addebito per il giorno sarà:
 
-**8 (ore) x 8 (Core ottimizzati per il calcolo) x $0,193 = $12,35**
+**8 (ore) x 8 (core ottimizzati per il calcolo) x 0,193 USD**
 
-## <a name="transform-data-in-blob-store-with-mapping-data-flows"></a>Trasformare i dati nell'archivio BLOB con i flussi di dati di mapping
+## <a name="transform-data-in-blob-store-with-mapping-data-flows"></a>Trasformare i dati nell'archivio BLOB con il mapping dei flussi di datiTransform data in blob store with mapping data flows
 
-In questo scenario si desidera trasformare i dati nell'archivio BLOB in modo visivo in ADF mapping dei flussi di dati in base a una pianificazione oraria.
+In questo scenario si vuole trasformare i dati nell'archivio BLOB visivamente nei flussi di dati di mapping di ADF in base a una pianificazione oraria.
 
 Per eseguire lo scenario è necessario creare una pipeline con gli elementi seguenti:
 
 1. Un'attività flusso di dati con la logica di trasformazione.
 
-2. Un set di dati di input per i dati in archiviazione di Azure.
+2. Un set di dati di input per i dati in Archiviazione di Azure.An input dataset for the data on Azure Storage.
 
 3. Un set di dati di output per i dati in Archiviazione di Azure.
 
@@ -153,24 +153,24 @@ Per eseguire lo scenario è necessario creare una pipeline con gli elementi segu
 | Creare una pipeline | 3 Entità di lettura/scrittura (1 per la creazione di pipeline, 2 per i riferimenti a set di dati) |
 | Ottenere la pipeline | 1 Entità di lettura/scrittura |
 | Eseguire la pipeline | 2 Esecuzioni di attività (1 per l'esecuzione di trigger, 1 per le esecuzioni di attività) |
-| Presupposti del flusso di dati: tempo di esecuzione = 10 min + 10 min TTL | 10 \* 16 core di calcolo generale con un valore TTL di 10 |
+| Presupposti del flusso di dati: tempo di esecuzione : 10 min - 10 min TTL | 10 \* 16 core di Calcolo Generale con TTL di 10 |
 | Presupposto di monitoraggio della pipeline: solo 1 esecuzione effettuata | 2 Record di esecuzione monitoraggio ritentata (1 per l'esecuzione di pipeline, 1 per l'esecuzione di attività) |
 
-**Prezzi dello scenario totale: $1,4631**
+**Prezzi totali dello scenario: 1.4631 USD**
 
 - Operazioni di Data Factory = **$ 0,0001**
   - Lettura/scrittura = 10\*00001 = $ 0,0001 [1 L/S = $ 0,50/50000 = 0,00001]
   - Monitoraggio = 2\*000005 = $ 0,00001 [1 monitoraggio = $ 0,25/50000 = 0,000005]
-- Esecuzione &amp; orchestrazione pipeline = **$1,463**
+- Esecuzione dell'orchestrazione &amp; della pipeline - **1,463 USD**
   - Esecuzioni di attività = 001\*2 = 0,002 [1 esecuzione = $ 1/1000 = 0,001]
-  - Attività flusso di dati = $1,461 propagate per 20 minuti (tempo di esecuzione di 10 minuti + TTL di 10 minuti). $0.274/hour in Azure Integration Runtime con 16 core calcolo generale
+  - Attività del flusso di dati - 1,461 USD ripartito proporzionalmente per 20 minuti (10 minuti di tempo di esecuzione e 10 minuti TTL). 0,274 USD all'ora in Azure Integration Runtime con calcolo generale di 16 core
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Ora che si conoscono i prezzi per Azure Data Factory, è possibile iniziare!
 
-- [Creare una data factory usando l'interfaccia utente di Azure Data Factory](quickstart-create-data-factory-portal.md)
+- [Creare una data factory usando l'interfaccia utente di Azure Data FactoryCreate a data factory by using the Azure Data Factory UI](quickstart-create-data-factory-portal.md)
 
-- [Introduzione al servizio Azure Data Factory](introduction.md)
+- [Introduzione a Data factory di Azure](introduction.md)
 
-- [Creazione di oggetti visivi in Azure Data Factory](author-visually.md)
+- [Creazione visiva in Azure Data FactoryVisual authoring in Azure Data Factory](author-visually.md)

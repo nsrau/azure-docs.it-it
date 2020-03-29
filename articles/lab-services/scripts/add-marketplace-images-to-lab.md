@@ -1,5 +1,5 @@
 ---
-title: PowerShell-aggiungere un'immagine del Marketplace a un Lab in Azure DevTest Labs
+title: "PowerShell: aggiungere un'immagine del marketplace a un lab in Lab di Azure DevTestPowerShell - Add a marketplace image to a lab in Azure DevTest Labs"
 description: Questo script di PowerShell aggiunge un'immagine del marketplace a un lab in Azure DevTest Labs.
 services: lab-services
 author: spelluru
@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 01/16/2020
 ms.author: spelluru
 ms.openlocfilehash: 3d699a22ed06022c6d9df12ade7f202fb304648c
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76166437"
 ---
 # <a name="use-powershell-to-add-a-marketplace-image-to-a-lab-in-azure-devtest-labs"></a>Usare PowerShell per aggiunge un'immagine del marketplace a un lab in Azure DevTest Labs

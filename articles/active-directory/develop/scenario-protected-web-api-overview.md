@@ -1,5 +1,5 @@
 ---
-title: API Web protetta-Panoramica
+title: API Web protetta - Panoramica
 titleSuffix: Microsoft identity platform
 description: Informazioni su come creare un'API Web protetta (panoramica).
 services: active-directory
@@ -16,17 +16,17 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: abe4ecf77e7a65251830ff822b15f79291471202
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76773345"
 ---
 # <a name="scenario-protected-web-api"></a>Scenario: API Web protetta
 
-In questo scenario viene illustrato come esporre un'API Web. Si apprenderà anche come proteggere l'API Web in modo che solo gli utenti autenticati possano accedervi.
+In questo scenario, si apprenderà come esporre un'API web. Si apprenderà inoltre come proteggere l'API Web in modo che solo gli utenti autenticati possano accedervi.
 
-Per usare l'API Web, è necessario abilitare gli utenti autenticati con account aziendali o dell'Istituto di istruzione o abilitare account personali Microsoft.
+Per usare l'API Web, è necessario abilitare gli utenti autenticati con account aziendali e dell'istituto di istruzione oppure abilitare gli account personali Microsoft.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -34,10 +34,10 @@ Per usare l'API Web, è necessario abilitare gli utenti autenticati con account 
 
 ## <a name="specifics"></a>Specifiche
 
-Di seguito sono riportate informazioni specifiche che è necessario tenere presente per proteggere le API Web:
+Ecco le informazioni specifiche che è necessario conoscere per proteggere le API Web:Here is specific information you need to know to protect web APIs:
 
-- La registrazione dell'app deve esporre almeno un ambito. La versione del token accettata dall'API Web dipende dai destinatari dell'accesso.
-- La configurazione del codice per l'API Web deve convalidare il token usato quando viene chiamata l'API Web.
+- La registrazione dell'app deve esporre almeno un ambito. La versione del token accettata dall'API Web dipende dal gruppo di destinatari di accesso.
+- La configurazione del codice per l'API Web deve convalidare il token utilizzato quando viene chiamata l'API Web.The code configuration for the web API must validate the token used when the web API is called.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

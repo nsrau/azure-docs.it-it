@@ -1,6 +1,6 @@
 ---
-title: Trasformazione EXISTS nel flusso di dati di mapping
-description: Verificare la presenza di righe esistenti utilizzando la trasformazione EXISTS nel flusso di dati di mapping Azure Data Factory
+title: Esiste la trasformazione nel mapping del flusso di datiExists transformation in mapping data flow
+description: Verificare la presenza di righe esistenti usando la trasformazione exists nel flusso di dati di mapping di Azure Data FactoryCheck for existing rows using the exists transformation in Azure Data Factory mapping data flow
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
@@ -9,36 +9,36 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/16/2019
 ms.openlocfilehash: efcc45dcf3565b70305323701810c49c4a720394
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74930416"
 ---
-# <a name="exists-transformation-in-mapping-data-flow"></a>Trasformazione EXISTS nel flusso di dati di mapping
+# <a name="exists-transformation-in-mapping-data-flow"></a>Esiste la trasformazione nel mapping del flusso di datiExists transformation in mapping data flow
 
-La trasformazione EXISTS è una trasformazione filtro di riga che controlla se i dati esistono in un'altra origine o in un altro flusso. Il flusso di output include tutte le righe nel flusso a sinistra che esistono o non esistono nel flusso di destra. La trasformazione EXISTS è simile a ```SQL WHERE EXISTS``` e ```SQL WHERE NOT EXISTS```.
+La trasformazione exists è una trasformazione del filtro di riga che controlla se i dati sono presenti in un'altra origine o flusso. Il flusso di output include tutte le righe nel flusso sinistro che esistono o non esistono nel flusso di destra. La trasformazione esistente ```SQL WHERE EXISTS``` ```SQL WHERE NOT EXISTS```è simile a e .
 
 ## <a name="configuration"></a>Configurazione
 
-1. Scegliere il flusso di dati che si sta controllando di esistere nell'elenco a discesa **flusso destro** .
-1. Specificare se si desidera che i dati esistano o non esistano nell'impostazione del **tipo exist** .
-1. Specificare se si desidera un' **espressione personalizzata**.
-1. Consente di scegliere le colonne chiave da confrontare con le condizioni esistenti. Per impostazione predefinita, il flusso di dati cerca l'uguaglianza tra una colonna in ogni flusso. Per eseguire il confronto tramite un valore calcolato, passare il puntatore del mouse sull'elenco a discesa della colonna e selezionare **colonna calcolata**.
+1. Scegli quale flusso di dati stai controllando l'esistenza nell'elenco a discesa **Flusso a destra.**
+1. Specificare se si sta cercando i dati esistenti o meno nell'impostazione **Tipo di consissioni.**
+1. Selezionare se si desidera o meno **un'espressione personalizzata.**
+1. Scegliere le colonne chiave da confrontare con le condizioni esistenti. Per impostazione predefinita, il flusso di dati cerca l'uguaglianza tra una colonna in ogni flusso. Per eseguire il confronto tramite un valore calcolato, passare il mouse sull'elenco a discesa delle colonne e selezionare **Colonna calcolata**.
 
-![Impostazioni exists](media/data-flow/exists.png "esistente 1")
+![Impostazioni esistenti](media/data-flow/exists.png "esiste 1")
 
-### <a name="multiple-exists-conditions"></a>Più condizioni exists
+### <a name="multiple-exists-conditions"></a>Esistono più condizioni
 
-Per confrontare più colonne da ogni flusso, aggiungere una nuova condizione exists facendo clic sull'icona a forma di segno più accanto a una riga esistente. Ogni condizione aggiuntiva viene unita in join da un'istruzione "and". Il confronto di due colonne equivale all'espressione seguente:
+Per confrontare più colonne di ogni flusso, aggiungere una nuova condizione esistente facendo clic sull'icona più accanto a una riga esistente. Ogni condizione aggiuntiva è unita da un'istruzione "and". Il confronto di due colonne equivale all'espressione seguente:
 
 `source1@column1 == source2@column1 && source1@column2 == source2@column2`
 
 ### <a name="custom-expression"></a>Espressione personalizzata
 
-Per creare un'espressione in formato libero che contenga operatori diversi da "e" e "uguale a", selezionare il campo **espressione personalizzata** . Immettere un'espressione personalizzata tramite il generatore di espressioni del flusso di dati facendo clic sulla casella blu.
+Per creare un'espressione in formato libero contenente operatori diversi da "and" e "uguale a", selezionare il campo **Espressione personalizzata.** Immettere un'espressione personalizzata tramite il generatore di espressioni del flusso di dati facendo clic sulla casella blu.
 
-![Impostazioni personalizzate exists](media/data-flow/exists1.png "esistente personalizzato")
+![Esiste impostazioni personalizzate](media/data-flow/exists1.png "esiste personalizzato")
 
 ## <a name="data-flow-script"></a>Script del flusso di dati
 
@@ -55,13 +55,13 @@ Per creare un'espressione in formato libero che contenga operatori diversi da "e
 
 ### <a name="example"></a>Esempio
 
-L'esempio seguente è una trasformazione exists denominata `checkForChanges` che accetta il flusso sinistro `NameNorm2` e il flusso destro `TypeConversions`.  La condizione EXISTS è l'espressione `NameNorm2@EmpID == TypeConversions@EmpID && NameNorm2@Region == DimEmployees@Region` che restituisce true se le colonne `EMPID` e `Region` in ogni flusso corrispondono. Mentre viene verificata l'esistenza, `negate` è false. Non è abilitata alcuna trasmissione nella scheda Optimize, in modo `broadcast` `'none'`valore.
+L'esempio seguente è `checkForChanges` una trasformazione `NameNorm2` esistente `TypeConversions`denominata che accetta il flusso sinistro e il flusso destro.  La condizione exists `NameNorm2@EmpID == TypeConversions@EmpID && NameNorm2@Region == DimEmployees@Region` è l'espressione `EMPID` che `Region` restituisce true se entrambe le colonne e in ogni flusso corrispondono. Come stiamo controllando l'esistenza, `negate` è falso. Non stiamo abilitando alcuna trasmissione `broadcast` nella `'none'`scheda Ottimizza così ha valore .
 
-In Data Factory UX questa trasformazione è simile all'immagine seguente:
+Nell'esperienza utente di Data Factory questa trasformazione è simile all'immagine seguente:In the Data Factory UX, this transformation looks like the below image:
 
 ![Esempio exists](media/data-flow/exists-script.png "Esempio exists")
 
-Lo script del flusso di dati per questa trasformazione si trova nel frammento di codice seguente:
+Lo script del flusso di dati per questa trasformazione si trova nel frammento di codice seguente:The data flow script for this transformation is in the snippet below:
 
 ```
 NameNorm2, TypeConversions
@@ -74,4 +74,4 @@ NameNorm2, TypeConversions
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Le trasformazioni simili sono [ricerca](data-flow-lookup.md) e [join](data-flow-join.md).
+Trasformazioni simili sono [Ricerca](data-flow-lookup.md) e [Join](data-flow-join.md).

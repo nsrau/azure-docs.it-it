@@ -1,5 +1,5 @@
 ---
-title: Strumento Copia dati Azure Data Factory
+title: Strumento Copia dati di Azure Data FactoryCopy Data tool Azure Data Factory
 description: Contiene informazioni sullo strumento Copia dati nell'interfaccia utente di Azure Data Factory
 services: data-factory
 documentationcenter: ''
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 06/18/2018
 ms.author: yexu
 ms.openlocfilehash: a6de5c28115d3a451256cc43d26552c269ba245a
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74927491"
 ---
 # <a name="copy-data-tool-in-azure-data-factory"></a>Strumento Copia dati di Azure Data Factory
@@ -78,7 +78,7 @@ Lo screenshot seguente mostra una query SQL usata per filtrare i dati.
 ![Filtrare i dati in un database](./media/copy-data-tool/filter-data-in-database.png)
 
 ### <a name="filter-data-in-an-azure-blob-folder"></a>Filtrare i dati in una cartella BLOB di Azure
-Per copiare i dati da una cartella, è possibile usare variabili nel percorso della cartella. Le variabili supportate sono **{year}** , **{month}** , **{day}** , **{hour}** e **{minute}** . Ad esempio: inputfolder/{year}/{month}/{day}. 
+Per copiare i dati da una cartella, è possibile usare variabili nel percorso della cartella. Le variabili supportate sono **{year}**, **{month}**, **{day}**, **{hour}** e **{minute}**. Ad esempio: inputfolder/{year}/{month}/{day}. 
 
 Si supponga di avere cartelle di input nel formato seguente: 
 
@@ -91,7 +91,7 @@ Si supponga di avere cartelle di input nel formato seguente:
 
 Fare clic sul pulsante **Esplora** per **File o cartella**, passare a una di queste cartelle, ad esempio 2016->03->01->02, e fare clic su **Scegli**. Nella casella di testo dovrebbe essere visualizzato 2016/03/01/02. 
 
-Sostituire quindi **2016** con **{year}** , **03** con **{month}** , **01** con **{day}** e **02** con **{hour}** e premere **TAB**. Dovrebbero essere visualizzati elenchi a discesa da cui selezionare il formato per queste quattro variabili:
+Sostituire quindi **2016** con **{year}**, **03** con **{month}**, **01** con **{day}** e **02** con **{hour}** e premere **TAB**. Dovrebbero essere visualizzati elenchi a discesa da cui selezionare il formato per queste quattro variabili:
 
 ![Filtrare un file o una cartella](./media/copy-data-tool/filter-file-or-folder.png)
 

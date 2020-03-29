@@ -1,6 +1,6 @@
 ---
-title: Bus di servizio di Azure-sospendere le entità di messaggistica
-description: Questo articolo illustra come sospendere temporaneamente e riattivare le entità messaggio del bus di servizio di Azure (code, argomenti e sottoscrizioni).
+title: Bus di servizio di Azure - sospendere le entità di messaggisticaAzure Service Bus - suspend messaging entities
+description: Questo articolo spiega come sospendere e riattivare temporaneamente le entità messaggio del bus di servizio di Azure (code, argomenti e sottoscrizioni).
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: 7386932f19eee064926184eb17f5e92e30add98e
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76760386"
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>Sospendere e riattivare le entità di messaggistica (disabilitazione)
@@ -28,7 +28,7 @@ La sospensione di un'entità viene in genere eseguita per motivi amministrativi 
 
 Una sospensione o una riattivazione può essere eseguita dall'utente o dal sistema. Il sistema sospende le entità solo per gravi motivi amministrativi, ad esempio per il raggiungimento del limite di spesa della sottoscrizione. Le entità disabilitate dal sistema non possono essere riattivate dall'utente, ma vengono ripristinate dopo che la causa della sospensione è stata risolta.
 
-Nel portale la sezione **Properties** per la rispettiva entità consente di modificare lo stato; lo screenshot seguente mostra l'interruttore per una coda:
+Nel portale, la sezione **Proprietà** per la rispettiva entità consente di modificare lo stato. la schermata seguente mostra l'interruttore per una coda:
 
 ![][1]
 

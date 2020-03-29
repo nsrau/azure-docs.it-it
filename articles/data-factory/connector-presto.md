@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
 ms.openlocfilehash: 71bff5e3761d72236e6896733b96bd6e01460e52
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74927794"
 ---
 # <a name="copy-data-from-presto-using-azure-data-factory-preview"></a>Copiare dati da Presto tramite Azure Data Factory (anteprima)
@@ -27,16 +27,16 @@ Questo articolo illustra come usare l'attività di copia in Azure Data Factory p
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
 
-Questo connettore presto è supportato per le attività seguenti:
+Questo connettore Presto è supportato per le seguenti attività:
 
 - [Attività di copia](copy-activity-overview.md) con [matrice di origine/sink supportata](copy-activity-overview.md)
-- [Attività Lookup](control-flow-lookup-activity.md)
+- [Attività di ricerca](control-flow-lookup-activity.md)
 
 È possibile copiare dati da Presto a qualsiasi archivio dati di sink supportato. Per un elenco degli archivi dati supportati come origini/sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
 
 Azure Data Factory offre un driver predefinito per consentire la connettività, pertanto non è necessario installare manualmente alcun driver usando questo connettore.
 
-## <a name="getting-started"></a>Inizia ora
+## <a name="getting-started"></a>Introduzione
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -46,21 +46,21 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che veng
 
 Per il servizio collegato di Presto sono supportate le proprietà seguenti:
 
-| Proprietà | Description | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su: **Presto**. | SÌ |
-| host | Indirizzo IP o nome host del server Presto, ovvero 192.168.222.160  | SÌ |
-| serverVersion | Versione del server Presto, ovvero 0.148-t.  | SÌ |
-| catalog | Il contesto del catalogo di tutte le richieste sul server.  | SÌ |
+| type | La proprietà type deve essere impostata su: **Presto**. | Sì |
+| host | Indirizzo IP o nome host del server Presto, ovvero 192.168.222.160.  | Sì |
+| serverVersion | Versione del server Presto, ovvero 0.148-t.  | Sì |
+| catalogo | Il contesto del catalogo di tutte le richieste sul server.  | Sì |
 | port | Porta TCP che il server Presto usa per l'ascolto delle connessioni client. Il valore predefinito è 8080.  | No |
-| authenticationType | Meccanismo di autenticazione usato per la connessione al server Presto. <br/>I valori consentiti sono: **Anonima**, **LDAP**. | SÌ |
-| Nome utente | Nome utente usato per connettersi al server Presto.  | No |
-| password | Password corrispondente al nome utente. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | No |
-| enableSsl | Specifica se le connessioni al server sono crittografate tramite SSL. Il valore predefinito è False.  | No |
+| authenticationType | Meccanismo di autenticazione usato per la connessione al server Presto. <br/>I valori consentiti sono: **Anonima**, **LDAP**. | Sì |
+| username | Nome utente usato per connettersi al server Presto.  | No |
+| password | Password corrispondente al nome utente. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | No |
+| enableSsl | Specifica se le connessioni al server sono crittografate tramite SSL. Il valore predefinito è false.  | No |
 | trustedCertPath | Percorso completo del file PEM contenente i certificati CA attendibili per la verifica del server in caso di connessione tramite SSL. È possibile impostare questa proprietà solo quando si usa SSL nel runtime di integrazione self-hosted. Il valore predefinito è il file cacerts.pem installato con il runtime di integrazione.  | No |
-| useSystemTrustStore | Specifica se usare o meno un certificato della CA dall'archivio di scopi consentiti o da un file .pem specificato. Il valore predefinito è False.  | No |
-| allowHostNameCNMismatch | Specifica se è necessario che il nome del certificato SSL rilasciato dall'Autorità di certificazione corrisponda al nome host del server per la connessione tramite SSL. Il valore predefinito è False.  | No |
-| allowSelfSignedServerCert | Specifica se consentire o meno i certificati autofirmati dal server. Il valore predefinito è False.  | No |
+| useSystemTrustStore | Specifica se usare o meno un certificato della CA dall'archivio di scopi consentiti o da un file .pem specificato. Il valore predefinito è false.  | No |
+| allowHostNameCNMismatch | Specifica se è necessario che il nome del certificato SSL rilasciato dall'Autorità di certificazione corrisponda al nome host del server per la connessione tramite SSL. Il valore predefinito è false.  | No |
+| allowSelfSignedServerCert | Specifica se consentire o meno i certificati autofirmati dal server. Il valore predefinito è false.  | No |
 | timeZoneID | Fuso orario locale usato dalla connessione. I valori validi per questa opzione vengono specificati nel database del fuso orario IANA. Il valore predefinito è il fuso orario di sistema.  | No |
 
 **Esempio:**
@@ -93,12 +93,12 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da Presto, impostare la proprietà type del set di dati su **PrestoObject**. Sono supportate le proprietà seguenti:
 
-| Proprietà | Description | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà Type del set di dati deve essere impostata su: **PrestoObject** | SÌ |
+| type | La proprietà type del dataset deve essere impostata su: **PrestoObject** | Sì |
 | schema | Nome dello schema. |No (se nell'origine dell'attività è specificato "query")  |
-| table | Nome della tabella. |No (se nell'origine dell'attività è specificato "query")  |
-| tableName | Nome della tabella con schema. Questa proprietà è supportata per compatibilità con le versioni precedenti. Usare `schema` e `table` per un nuovo carico di lavoro. | No (se nell'origine dell'attività è specificato "query") |
+| tabella | Nome della tabella. |No (se nell'origine dell'attività è specificato "query")  |
+| tableName | Nome della tabella con schema. Questa proprietà è supportata per compatibilità con le versioni precedenti. Utilizzare `schema` `table` e per un nuovo carico di lavoro. | No (se nell'origine dell'attività è specificato "query") |
 
 **Esempio**
 
@@ -125,10 +125,10 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da Presto, impostare il tipo di origine nell'attività di copia su **PrestoSource**. Nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | Description | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su: **PrestoSource**. | SÌ |
-| query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"SELECT * FROM MyTable"`. | No (se nel set di dati è specificato "tableName") |
+| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su: **PrestoSource**. | Sì |
+| query | Usare la query SQL personalizzata per leggere i dati. Ad esempio `"SELECT * FROM MyTable"`. | No (se nel set di dati è specificato "tableName") |
 
 **Esempio:**
 
@@ -162,9 +162,9 @@ Per copiare dati da Presto, impostare il tipo di origine nell'attività di copia
 ]
 ```
 
-## <a name="lookup-activity-properties"></a>Proprietà attività di ricerca
+## <a name="lookup-activity-properties"></a>Proprietà dell'attività di ricerca
 
-Per informazioni dettagliate sulle proprietà, controllare l' [attività di ricerca](control-flow-lookup-activity.md).
+Per informazioni dettagliate sulle proprietà, selezionare [Attività di ricerca](control-flow-lookup-activity.md).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

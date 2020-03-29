@@ -1,5 +1,5 @@
 ---
-title: Aggiungere istruzioni switch a flussi di lavoro
+title: Aggiungere istruzioni switch ai flussi di lavoro
 description: Come creare istruzioni switch che controllano le azioni del flusso di lavoro in base a valori specifici nella App per la logica di Azure
 services: logic-apps
 ms.suite: integration
@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/08/2018
 ms.openlocfilehash: 5c40feec2dca65e4bc9617a71a6d0a8e4c872a3a
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74793242"
 ---
 # <a name="create-switch-statements-that-run-workflow-actions-based-on-specific-values-in-azure-logic-apps"></a>Creare istruzioni switch che eseguono le azioni del flusso di lavoro in base a valori specifici nella App per la logica di Azure
@@ -42,7 +42,7 @@ Si supponga, ad esempio, che sia necessaria un'app per la logica che esegue pass
 
 1. Per questo esempio, aggiungere un'istruzione switch alla fine del flusso di lavoro di esempio. Dopo l'ultimo passaggio, scegliere **Nuovo passaggio**.
 
-   Quando si vuole aggiungere un'istruzione switch tra un passaggio e l'altro, spostare il puntatore sulla freccia in cui si vuole aggiungere l'istruzione switch. Scegliere il **segno più** ( **+** ) visualizzato, quindi **Aggiungi un'azione**.
+   Quando si vuole aggiungere un'istruzione switch tra un passaggio e l'altro, spostare il puntatore sulla freccia in cui si vuole aggiungere l'istruzione switch. Scegliere il segno**+** **più** ( ) visualizzato, quindi scegliere Aggiungi **un'azione**.
 
 1. Nella casella di ricerca digitare "switch" come filtro. Selezionare questa azione: **Switch - Controllo**
 
@@ -65,9 +65,9 @@ Si supponga, ad esempio, che sia necessaria un'app per la logica che esegue pass
 
    | N. case | **SelectedOption** | Azione |
    |--------|--------------------|--------|
-   | Case 1 | **Approve** | Aggiungere l'azione **Invia un messaggio di posta elettronica** di Outlook per inviare i dettagli dell'elemento RSS solo quando il responsabile approvazione ha selezionato **Approve**. |
-   | Case 2 | **Reject** | Aggiungere l'azione **Invia un messaggio di posta elettronica** di Outlook per notificare agli altri responsabili approvazione che l'elemento RSS è stato rifiutato. |
-   | Predefinito | Nessuno | Nessuna azione necessaria. In questo esempio il case **predefinito** è vuoto perché **SelectedOption** ha solo due opzioni. |
+   | Case 1 | **Approvazione** | Aggiungere l'azione **Invia un messaggio di posta elettronica** di Outlook per inviare i dettagli dell'elemento RSS solo quando il responsabile approvazione ha selezionato **Approve**. |
+   | Case 2 | **Rifiutare** | Aggiungere l'azione **Invia un messaggio di posta elettronica** di Outlook per notificare agli altri responsabili approvazione che l'elemento RSS è stato rifiutato. |
+   | Predefinito | nessuno | Nessuna azione necessaria. In questo esempio il case **predefinito** è vuoto perché **SelectedOption** ha solo due opzioni. |
    |||
 
    ![Istruzione switch completata](./media/logic-apps-control-flow-switch-statement/finished-switch.png)
@@ -110,7 +110,7 @@ Dopo aver creato un'app per la logica usando un'istruzione switch, esaminare la 
 }
 ```
 
-| Etichette | Description |
+| Etichetta | Descrizione |
 |-------|-------------|
 | `"Switch"`         | Nome dell'istruzione switch che può essere rinominata per migliorarne la leggibilità |
 | `"type": "Switch"` | Specifica che l'azione è un'istruzione switch |
@@ -119,7 +119,7 @@ Dopo aver creato un'app per la logica usando un'istruzione switch, esaminare la 
 | `"case"` | Specifica il valore del case, che deve essere un valore costante e univoco usato dall'istruzione switch per effettuare un confronto. Se nessun case corrisponde al risultato dell'espressione switch, vengono eseguite le azioni nella sezione `"default"`. | 
 | | | 
 
-## <a name="get-support"></a>Ottenere supporto
+## <a name="get-support"></a>Supporto
 
 * In caso di domande, visitare il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Per votare o inviare suggerimenti relativi alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica di Azure](https://aka.ms/logicapps-wish).

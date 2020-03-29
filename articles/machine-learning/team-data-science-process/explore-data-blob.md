@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 29011760a94a05020150ceddeba4303b87c2f610
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76722187"
 ---
 # <a name="explore-data-in-azure-blob-storage-with-pandas"></a>Esplorare i dati nell'archiviazione BLOB di Azure con Pandas
@@ -62,7 +62,7 @@ dataframe_blobdata = pd.read_csv(LOCALFILE)
 
 A questo punto si è pronti per esplorare i dati e generare le funzionalità di questo set di dati.
 
-## <a name="blob-dataexploration"></a>Esempi di esplorazione dei dati tramite Pandas
+## <a name="examples-of-data-exploration-using-pandas"></a><a name="blob-dataexploration"></a>Esempi di esplorazione dei dati con i panda
 Di seguito sono riportati alcuni esempi dei modi per esplorare i dati usando Pandas:
 
 1. Controllare il **numero di righe e colonne**

@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 01/16/2020
 ms.author: spelluru
 ms.openlocfilehash: 2dc3aa000cefc0e65305b58f8fdce93b94bfd35f
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76169560"
 ---
 # <a name="configure-azure-marketplace-image-settings-in-azure-devtest-labs"></a>Configurare le impostazioni dell'immagine di Azure Marketplace in Azure DevTest Labs
 Lab di sviluppo/test supporta la creazione di VM basate su immagini di Azure Marketplace in base alla configurazione delle immagini di Azure Marketplace da usare nel lab. Questo articolo illustra come specificare eventuali immagini di Azure Marketplace da usare durante la creazione di VM in un lab. Ciò garantisce che il team abbia accesso solo alle immagini del Marketplace necessarie. 
 
 ## <a name="select-which-azure-marketplace-images-are-allowed-when-creating-a-vm"></a>Selezionare le immagini di Azure Marketplace consentite per la creazione di una macchina virtuale
-1. Accedere al [portale di Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Accedere al [portale](https://go.microsoft.com/fwlink/p/?LinkID=525040)di Azure .
 2. Selezionare **Tutti i servizi** e quindi **DevTest Labs** nell'elenco.
 3. Nell'elenco dei lab selezionare il lab desiderato. 
 4. Nel pannello del lab selezionare **Configurazione e criteri**.

@@ -1,6 +1,6 @@
 ---
-title: Trasformazione filtro nel flusso di dati di mapping
-description: Filtrare le righe utilizzando la trasformazione filtro nel flusso di dati del mapping Azure Data Factory
+title: Trasformazione del filtro nel mapping del flusso di datiFilter transformation in mapping data flow
+description: Filtrare le righe usando la trasformazione del filtro nel flusso di dati di mapping di Azure Data FactoryFilter out rows using the filter transformation in Azure Data Factory mapping data flow
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
@@ -9,21 +9,21 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/16/2019
 ms.openlocfilehash: 84b935d1646ea4f13d5926fc68797fd8efd03dea
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74930363"
 ---
-# <a name="filter-transformation-in-mapping-data-flow"></a>Trasformazione filtro nel flusso di dati di mapping
+# <a name="filter-transformation-in-mapping-data-flow"></a>Trasformazione del filtro nel mapping del flusso di datiFilter transformation in mapping data flow
 
-Le trasformazioni di filtro consentono di filtrare le righe in base a una condizione. Il flusso di output include tutte le righe che corrispondono alla condizione di filtro. La trasformazione filtro è simile a una clausola WHERE in SQL.
+Il filtro trasforma consente il filtraggio delle righe in base a una condizione. Il flusso di output include tutte le righe che corrispondono alla condizione di filtro. La trasformazione del filtro è simile a una clausola WHERE in SQL.
 
 ## <a name="configuration"></a>Configurazione
 
-Utilizzare il generatore di espressioni del flusso di dati per immettere un'espressione per la condizione di filtro. Per aprire il generatore di espressioni, fare clic sulla casella blu. La condizione di filtro deve essere di tipo booleano. Per ulteriori informazioni su come creare un'espressione, vedere la documentazione del [Generatore di espressioni](concepts-data-flow-expression-builder.md) .
+Utilizzare il generatore di espressioni del flusso di dati per immettere un'espressione per la condizione di filtro. Per aprire il generatore di espressioni, fare clic sulla casella blu. La condizione di filtro deve essere di tipo booleano. Per altre informazioni su come creare un'espressione, vedere la documentazione del [generatore di espressioni.](concepts-data-flow-expression-builder.md)
 
-![Filtra trasformazione](media/data-flow/filter1.png "Filtra trasformazione")
+![Trasformazione del filtro](media/data-flow/filter1.png "Trasformazione del filtro")
 
 ## <a name="data-flow-script"></a>Script del flusso di dati
 
@@ -38,13 +38,13 @@ Utilizzare il generatore di espressioni del flusso di dati per immettere un'espr
 
 ### <a name="example"></a>Esempio
 
-Nell'esempio seguente viene illustrata una trasformazione filtro denominata `FilterBefore1960` che accetta `CleanData`flusso in ingresso. La condizione di filtro è l'espressione `year <= 1960`.
+L'esempio seguente è `FilterBefore1960` una trasformazione `CleanData`di filtro denominata che accetta nel flusso in ingresso. La condizione di `year <= 1960`filtro è l'espressione .
 
-In Data Factory UX questa trasformazione è simile all'immagine seguente:
+Nell'esperienza utente di Data Factory questa trasformazione è simile all'immagine seguente:In the Data Factory UX, this transformation looks like the below image:
 
-![Filtra trasformazione](media/data-flow/filter1.png "Filtra trasformazione")
+![Trasformazione del filtro](media/data-flow/filter1.png "Trasformazione del filtro")
 
-Lo script del flusso di dati per questa trasformazione si trova nel frammento di codice seguente:
+Lo script del flusso di dati per questa trasformazione si trova nel frammento di codice seguente:The data flow script for this transformation is in the snippet below:
 
 ```
 CleanData
@@ -56,4 +56,4 @@ CleanData
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Filtrare le colonne con la [trasformazione Select](data-flow-select.md)
+Filtrare le colonne con la [trasformazione di selezione](data-flow-select.md)

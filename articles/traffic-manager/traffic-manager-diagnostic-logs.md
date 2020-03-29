@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: rohink
 ms.openlocfilehash: 0ed2ecef86795f62aa3fe5798dcd0d07adbaf9cc
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76938681"
 ---
 # <a name="enable-diagnostic-logging-in-azure-traffic-manager"></a>Abilitare la registrazione diagnostica in Gestione traffico di Azure
@@ -24,7 +24,7 @@ Questo articolo descrive come abilitare la registrazione diagnostica e accedere 
 
 I log di diagnostica di Gestione traffico di Azure possono offrire informazioni dettagliate sul comportamento della risorsa del profilo di Gestione traffico. È possibile, ad esempio, usare i dati di log del profilo per determinare il motivo per cui si è verificato il timeout di singoli probe rispetto a un endpoint.
 
-## <a name="enable-diagnostic-logging"></a>Abilitare la funzionalità di registrazione diagnostica
+## <a name="enable-diagnostic-logging"></a>Abilitare la registrazione diagnostica
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -55,7 +55,7 @@ I log di diagnostica di Gestione traffico di Azure possono offrire informazioni 
       Assicurarsi che tutte le categorie di log associate alla risorsa del profilo di Gestione traffico vengano visualizzate come abilitate. Verificare inoltre che l'account di archiviazione sia configurato correttamente.
 
 ## <a name="access-log-files"></a>Accedere ai file di log
-1. Accedere al [portale di Azure](https://portal.azure.com). 
+1. Accedere al [portale](https://portal.azure.com)di Azure . 
 1. Passare all'account di archiviazione di Azure nel portale.
 2. Nella pagina **Panoramica** dell'account di archiviazione di Azure, in **Servizi**, selezionare **BLOB**.
 3. Per **Contenitori** selezionare **insights-log-probehealthstatusevents** e scorrere verso il basso fino al file PT1H.json e fare clic su **Download** per scaricare e salvare una copia di questo file di log.

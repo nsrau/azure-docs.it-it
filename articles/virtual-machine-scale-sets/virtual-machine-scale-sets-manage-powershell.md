@@ -1,5 +1,5 @@
 ---
-title: Gestire i set di scalabilità di macchine virtuali con Azure PowerShell
+title: Gestire i set di scalabilità delle macchine virtuali con Azure PowerShellManage Virtual Machine Scale Sets with Azure PowerShell
 description: Cmdlet comuni di Azure PowerShell per la gestione dei set di scalabilità di macchine virtuali, ad esempio per l'avvio e l'arresto di un'istanza o la modifica della capacità del set di scalabilità.
 author: cynthn
 tags: azure-resource-manager
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: cynthn
 ms.openlocfilehash: cc83c8b73c73b2aa70bc36bad175e5c19c1ab700
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76275707"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Gestire un set di scalabilità di macchine virtuali con Azure PowerShell
@@ -85,7 +85,7 @@ Start-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -
 
 
 ## <a name="restart-vms-in-a-scale-set"></a>Riavviare le macchine virtuali in un set di scalabilità
-Per riavviare una o più macchine virtuali in un set di scalabilità, usare [Restart-AzVmss](/powershell/module/az.compute/restart-azvmss). Il parametro `-InstanceId` consente di specificare una o più macchine virtuali da riavviare. Se non si specifica un ID istanza, vengono riavviate tutte le macchine virtuali del set di scalabilità. Per riavviare più VM, separare gli ID istanza con una virgola.
+Per riavviare una o più macchine virtuali in un set di scalabilità, usare [Riavvia-AzVmss](/powershell/module/az.compute/restart-azvmss). Il parametro `-InstanceId` consente di specificare una o più macchine virtuali da riavviare. Se non si specifica un ID istanza, vengono riavviate tutte le macchine virtuali del set di scalabilità. Per riavviare più VM, separare gli ID istanza con una virgola.
 
 L'esempio seguente riavvia l'istanza *0* nel set di scalabilità denominato *myScaleSet* e nel gruppo di risorse *myResourceGroup*. Specificare i valori personalizzati nel modo seguente:
 

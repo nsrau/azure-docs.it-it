@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
 ms.openlocfilehash: 7bc2c0f472a03c3f069a889c360bea9017a780f2
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77918207"
 ---
 #  <a name="cannot-rdp-to-a-vm-because-the-vm-boots-into-safe-mode"></a>Non è possibile stabilire una connessione RDP a una macchina virtuale perché questa viene avviata in modalità provvisoria
@@ -73,9 +73,9 @@ Per risolvere questo problema, usare il controllo seriale per configurare la mac
 
 #### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Collegare il disco del sistema operativo alla macchina virtuale di ripristino
 
-1. [Collegare il disco del sistema operativo alla macchina virtuale di ripristino](../windows/troubleshoot-recovery-disks-portal.md).
+1. [Collegare il disco del sistema operativo a una macchina virtuale](../windows/troubleshoot-recovery-disks-portal.md)di ripristino.
 2. Avviare una connessione Desktop remoto alla macchina virtuale di ripristino.
-3. Verificare che il disco sia contrassegnato come **Online** nella console di Gestione disco. Prendere nota della lettera di unità assegnata al disco del sistema operativo collegato.
+3. Assicurarsi che il disco sia contrassegnato come **in linea** nella console Gestione disco. Prendere nota della lettera di unità assegnata al disco del sistema operativo collegato.
 
 #### <a name="enable-dump-log-and-serial-console-optional"></a>Abilitare il log del dump e la console seriale (facoltativo)
 

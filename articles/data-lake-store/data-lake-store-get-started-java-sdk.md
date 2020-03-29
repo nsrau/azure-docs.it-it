@@ -13,22 +13,22 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: bc6e0718cdc4ccb18480dc760279da9c177db4cb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60877465"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-java-sdk"></a>Operazioni del file system in Azure Data Lake Storage Gen1 con Java SDK
 > [!div class="op_single_selector"]
 > * [.NET SDK](data-lake-store-data-operations-net-sdk.md)
-> * [SDK per Java](data-lake-store-get-started-java-sdk.md)
-> * [API REST](data-lake-store-data-operations-rest-api.md)
+> * [Java SDK](data-lake-store-get-started-java-sdk.md)
+> * [REST API](data-lake-store-data-operations-rest-api.md)
 > * [Python](data-lake-store-data-operations-python.md)
 >
 > 
 
-Informazioni su come usare Java SDK di Azure Data Lake Storage Gen1 per eseguire le operazioni di base, ad esempio creare cartelle, caricare e scaricare i file di dati e così via. Per altre informazioni su Data Lake Storage Gen1, vedere [Azure Data Lake Storage Gen1](data-lake-store-overview.md).
+Informazioni su come usare Azure Data Lake Storage Gen1 Java SDK per eseguire operazioni di base come creare cartelle, caricare e scaricare file di dati e così via. Per altre informazioni su Data Lake Storage Gen1, vedere Azure Data Lake Storage Gen1.For more information about Data Lake [Storage Gen1,](data-lake-store-overview.md)see Azure Data Lake Storage Gen1 .
 
 Per la documentazione dell'API Java SDK per Data Lake Storage Gen1 accedere a [Documentazione dell'API Java di Azure Data Lake Storage Gen1](https://azure.github.io/azure-data-lake-store-java/javadoc/).
 
@@ -43,7 +43,7 @@ Il codice di esempio disponibile in [GitHub](https://azure.microsoft.com/documen
 
 1. Creare un progetto Maven usando l'[archetipo mvn](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html) dalla riga di comando o con un IDE. Per istruzioni su come creare un progetto Java usando IntelliJ, vedere [qui](https://www.jetbrains.com/help/idea/2016.1/creating-and-running-your-first-java-application.html). Per istruzioni su come creare un progetto Java usando Eclipse, vedere [qui](https://help.eclipse.org/mars/index.jsp?topic=%2Forg.eclipse.jdt.doc.user%2FgettingStarted%2Fqs-3.htm). 
 
-2. Aggiungere le dipendenze seguenti al file **pom.xml** di Maven. Aggiungere il frammento di codice seguente prima del tag **\</project>** :
+2. Aggiungere le dipendenze seguenti al file **pom.xml** di Maven. Aggiungere il frammento ** \<** di codice seguente prima del tag /project>:
    
         <dependencies>
           <dependency>

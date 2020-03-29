@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: robinsh
 ms.openlocfilehash: a06583e9aab4b082517d47c1022f7bec5184b9bc
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78673393"
 ---
 # <a name="develop-for-android-things-platform-using-azure-iot-sdks"></a>Sviluppare per la piattaforma Android Things tramite Azure IoT SDK
@@ -20,7 +20,7 @@ Gli [SDK per l'hub IoT di Azure](https://docs.microsoft.com/azure/iot-hub/iot-hu
 
 Questa esercitazione illustra i passaggi per compilare un'applicazione lato dispositivo in Android Things con Azure IoT Java SDK.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Hardware supportato da Android Things con il sistema operativo Android Things in esecuzione.  È possibile fare riferimento alla [documentazione di Android Things](https://developer.android.com/things/get-started/kits#flash-at) per informazioni su come eseguire il flashing del sistema operativo Android Things.  Assicurarsi che il dispositivo Android Things sia connesso a Internet con periferiche di base quali la tastiera, lo schermo e il mouse collegati.  Questa esercitazione usa Raspberry Pi 3.
 
@@ -42,14 +42,14 @@ Questa esercitazione illustra i passaggi per compilare un'applicazione lato disp
 
    **YourIoTHubName**: sostituire questo segnaposto con il nome scelto per l'hub IoT.
 
-   **MyAndroidThingsDevice** : nome specificato per il dispositivo registrato. Usare MyAndroidThingsDevice come illustrato. Se si sceglie un altro nome per il dispositivo, sarà necessario usare tale nome nell'ambito di questo articolo e aggiornare il nome del dispositivo nelle applicazioni di esempio prima di eseguirle.
+   **MyAndroidThingsDevice** : Questo è il nome dato per il dispositivo registrato. Usare MyAndroidThingsDevice come illustrato. Se si sceglie un altro nome per il dispositivo, sarà necessario usare tale nome nell'ambito di questo articolo e aggiornare il nome del dispositivo nelle applicazioni di esempio prima di eseguirle.
 
     ```azurecli-interactive
     az extension add --name azure-iot
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyAndroidThingsDevice
     ```
 
-2. Eseguire i comandi seguenti in Azure Cloud Shell per ottenere la *stringa di connessione del dispositivo* per il dispositivo appena registrato. Sostituire `YourIoTHubName` di seguito con il nome scelto per l'hub Internet delle cose.
+2. Eseguire i comandi seguenti in Azure Cloud Shell per ottenere la stringa di connessione del *dispositivo* per il dispositivo appena registrato. Sostituisci `YourIoTHubName` di seguito con il nome scelto per l'hub IoT.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyAndroidThingsDevice --output table
@@ -65,7 +65,7 @@ Questa esercitazione illustra i passaggi per compilare un'applicazione lato disp
 
 1. Il primo passaggio per la compilazione di un'applicazione Android Things consiste nel connettersi ai dispositivi Android Things. Connettere il dispositivo Android Things a uno schermo e a Internet. Android Things mette a disposizione la [documentazione](https://developer.android.com/things/get-started/kits) con informazioni su come connettersi al Wi-Fi. Dopo la connessione a Internet, prendere nota dell'indirizzo IP elencato in Reti.
 
-2. Usare lo strumento [adb](https://developer.android.com/studio/command-line/adb) per connettere il dispositivo Android Things all'indirizzo IP annotato in precedenza. Verificare la connessione usando il comando seguente dal terminale. I dispositivi verranno visualizzati come "connessi".
+2. Usare lo strumento [adb](https://developer.android.com/studio/command-line/adb) per connettere il dispositivo Android Things all'indirizzo IP annotato in precedenza. Verificare la connessione usando il comando seguente dal terminale. Dovresti vedere i tuoi dispositivi elencati come "connessi".
 
    ```
    adb devices

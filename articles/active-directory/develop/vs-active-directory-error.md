@@ -1,5 +1,5 @@
 ---
-title: Diagnosticare gli errori con Azure AD servizio connesso (Visual Studio)
+title: Diagnosticare gli errori con il servizio connesso ad Azure AD (Visual Studio)Diagnose errors with Azure AD connected service (Visual Studio)
 description: Il servizio connesso di Active Directory ha rilevato un tipo di autenticazione incompatibile.
 author: ghogen
 manager: jillfra
@@ -12,25 +12,25 @@ ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
 ms.openlocfilehash: a6ec31f0d60c7f6e3737dc4042b05a6d8bf3dd5e
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76699972"
 ---
 # <a name="diagnosing-errors-with-the-azure-active-directory-connected-service"></a>Diagnosi degli errori con il servizio connesso di Azure Active Directory
 
-Durante il rilevamento del codice di autenticazione precedente, il servizio Azure Active Directory connesso ha rilevato un tipo di autenticazione incompatibile.
+Durante il rilevamento del codice di autenticazione precedente, il servizio connesso ad Azure Active Directory ha rilevato un tipo di autenticazione incompatibile.
 
-Per rilevare correttamente il codice di autenticazione precedente in un progetto, è necessario ricompilare il progetto. Se viene visualizzato questo errore e non si dispone di un codice di autenticazione precedente nel progetto, ricompilare e riprovare.
+Per rilevare correttamente il codice di autenticazione precedente in un progetto, è necessario ricompilare il progetto. Se viene visualizzato questo errore e non è presente un codice di autenticazione precedente nel progetto, ricompilare e riprovare.
 
 ## <a name="project-types"></a>Tipi di progetto
 
-Il servizio connesso verifica il tipo di progetto in corso di sviluppo, in modo da potervi inserire la logica di autenticazione corretta. Se è presente un controller che deriva da `ApiController` nel progetto, il progetto viene considerato un progetto WebAPI. Se nel progetto sono presenti solo controller che derivano da `MVC.Controller`, il progetto verrà considerato come un progetto MVC. Il servizio connesso non supporta altri tipi di progetto.
+Il servizio connesso verifica il tipo di progetto in corso di sviluppo, in modo da potervi inserire la logica di autenticazione corretta. Se nel progetto è presente `ApiController` un controller che deriva, il progetto viene considerato un progetto WebAPI. Se nel progetto sono presenti solo controller che derivano da `MVC.Controller`, il progetto verrà considerato come un progetto MVC. Il servizio connesso non supporta altri tipi di progetto.
 
 ## <a name="compatible-authentication-code"></a>Codice di autenticazione compatibile
 
-Il servizio connesso cerca inoltre le impostazioni di autenticazione configurate in precedenza o compatibili. Se sono presenti tutte le impostazioni, questo viene considerato un caso rientrante e il servizio connesso viene visualizzato per visualizzare le impostazioni.  Se sono presenti solo alcune impostazioni, viene considerato un caso di errore.
+Il servizio connesso cerca inoltre le impostazioni di autenticazione configurate in precedenza o compatibili. Se sono presenti tutte le impostazioni, viene considerato un caso rientrante e il servizio connesso si apre visualizza le impostazioni.  Se sono presenti solo alcune delle impostazioni, viene considerato un caso di errore.
 
 In un progetto MVC il servizio connesso cerca le impostazioni seguenti che derivano da usi precedenti del servizio:
 
@@ -39,7 +39,7 @@ In un progetto MVC il servizio connesso cerca le impostazioni seguenti che deriv
     <add key="ida:AADInstance" value="" />
     <add key="ida:PostLogoutRedirectUri" value="" />
 
-Il servizio connesso controlla anche la presenza di una qualsiasi delle impostazioni seguenti in un progetto API Web, risultante dall'uso precedente del servizio:
+Inoltre, il servizio connesso verifica la presenza di una delle impostazioni seguenti in un progetto API Web, risultante dall'utilizzo precedente del servizio:
 
     <add key="ida:ClientId" value="" />
     <add key="ida:Tenant" value="" />

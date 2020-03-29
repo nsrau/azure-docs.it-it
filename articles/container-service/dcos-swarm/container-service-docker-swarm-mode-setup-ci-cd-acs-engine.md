@@ -8,10 +8,10 @@ ms.date: 05/27/2017
 ms.author: dimart
 ms.custom: mvc
 ms.openlocfilehash: 1ec7ece6f5afd1bbd2613ae08af04b82e8a156b2
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76277923"
 ---
 # <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-azure-devops"></a>(DEPRECATO) Pipeline CI/CD completa per distribuire un'applicazione con più contenitori nel servizio Azure Container con il motore ACS e la modalità Docker Swarm tramite Azure DevOps
@@ -49,7 +49,7 @@ Prima di iniziare questa esercitazione, è necessario soddisfare i requisiti seg
 
 - [Creare un cluster in modalità Swarm nel servizio Azure Container con il motore del servizio Azure Container](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acsengine-swarmmode)
 - [Connettersi a un cluster Swarm nel servizio Azure Container](../container-service-connect.md)
-- [Creare un Registro Azure Container](../../container-registry/container-registry-get-started-portal.md)
+- [Creare un registro contenitori di AzureCreate an Azure container registry](../../container-registry/container-registry-get-started-portal.md)
 - [Disporre di un'organizzazione Azure DevOps e di un progetto creato](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student)
 - [Creare una fork del repository GitHub nell'account GitHub](https://github.com/jcorioland/MyShop/tree/docker-linux)
 
@@ -67,7 +67,7 @@ In questa sezione, si configura l'organizzazione di Azure DevOps. Per configurar
 
 Impostare una connessione tra il progetto Azure DevOps e l'account Azure.
 
-1. A sinistra fare clic su **Nuovo endpoint del servizio** > **Azure Resource Manager**.
+1. A sinistra, fai clic su **Nuovo endpoint del servizio Azure** > **Resource Manager.**
 2. Per consentire ad Azure DevOps di funzionare insieme all'account Azure, selezionare la **Sottoscrizione** e fare clic su **OK**.
 
     ![Azure DevOps - Autorizzare Azure](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-azure.PNG)
@@ -76,7 +76,7 @@ Impostare una connessione tra il progetto Azure DevOps e l'account Azure.
 
 Configurare una connessione tra il progetto Azure DevOps e l'account GitHub.
 
-1. A sinistra fare clic su **Nuovo endpoint del servizio** > **GitHub**.
+1. A sinistra, fai clic su **Nuovo endpoint** > del servizio**GitHub**.
 2. Per autorizzare Azure DevOps a lavorare con il proprio account GitHub, fare clic su **Autorizza** e seguire la procedura nella finestra visualizzata.
 
     ![Azure DevOps - Autorizzare GitHub](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-github.png)
@@ -182,7 +182,7 @@ Sono necessari due passaggi di Docker per ogni immagine, uno per compilare l'imm
 
    ![Azure DevOps - Nuova coda](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-queue.png) 
 
-6. Se la **compilazione**  è corretta, viene visualizzata la schermata seguente:
+6. Se la **compilazione ** è corretta, viene visualizzata la schermata seguente:
 
    ![DevOps di Azure - Compilazione completata](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-succeeded.png) 
 
@@ -194,9 +194,9 @@ Azure DevOps consente di [gestire le versione in diversi ambienti](https://www.v
 
 ### <a name="initial-release-setup"></a>Configurazione iniziale del rilascio
 
-1. Per creare una pipeline di versione, fare clic su **Rilascio** >  **+ Rilascio**
+1. Per creare una pipeline di rilascio, fare clic su **Rilasci** > **e rilascio**
 
-2. Per configurare l'origine dell'elemento, fare clic su **Elementi** > **Collega un'origine elemento**. In questo caso, è possibile collegare questa nuova pipeline di versione alla compilazione definita nel passaggio precedente. Successivamente, il file docker-compose.yml è disponibile nel processo di rilascio.
+2. Per configurare l'origine dell'elemento, fare clic su **Collegamento elementi** > **a un'origine artefatto**. In questo caso, è possibile collegare questa nuova pipeline di versione alla compilazione definita nel passaggio precedente. Successivamente, il file docker-compose.yml è disponibile nel processo di rilascio.
 
     ![Servizi di Azure DevOps - Rilasciare elementi](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-release-artefacts.png) 
 
@@ -248,6 +248,6 @@ Dopo aver completato la configurazione, è il momento di testare la nuova pipeli
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per altre informazioni su CI/CD con Azure DevOps, vedere l'articolo della [documentazione Azure Pipelines](/azure/devops/pipelines/?view=azure-devops) .
+* Per altre informazioni su CI/CD con Azure DevOps, vedere l'articolo Documentazione sulle pipeline di Azure.For more information about CI/CD with Azure DevOps, see the [Azure Pipelines Documentation](/azure/devops/pipelines/?view=azure-devops) article.
 * Per altre informazioni sul motore del servizio contenitore di Azure, vedere il [repository di GitHub sul motore del servizio contenitore di Azure](https://github.com/Azure/acs-engine).
 * Per altre informazioni sulla modalità Docker Swarm, vedere [Docker Swarm mode overview](https://docs.docker.com/engine/swarm/) (Panoramica della modalità Docker Swarm).

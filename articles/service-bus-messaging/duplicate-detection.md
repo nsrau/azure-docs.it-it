@@ -1,6 +1,6 @@
 ---
 title: Rilevamento di messaggi duplicati nel bus di servizio di Azure | Microsoft Docs
-description: Questo articolo illustra come è possibile rilevare i duplicati nei messaggi del bus di servizio di Azure. Il messaggio duplicato può essere ignorato e eliminato.
+description: Questo articolo illustra come rilevare i duplicati nei messaggi del bus di servizio di Azure.This article explains how you can detect duplicates in Azure Service Bus messages. Il messaggio duplicato può essere ignorato ed eliminato.
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: c109b9fd310a09e5eb4c6d18cc3536e4d8069c0b
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76760369"
 ---
 # <a name="duplicate-detection"></a>Rilevamento duplicati
@@ -37,7 +37,7 @@ Per un processo di business in cui vengono inviati più messaggi durante la gest
 Il *MessageId* può sempre essere un GUID, ma ancorare l'identificatore al processo di business garantisce una ripetibilità prevedibile, necessaria per sfruttare la funzionalità di rilevamento dei duplicati in modo efficace.
 
 > [!NOTE]
-> Se il rilevamento dei duplicati è abilitato e l'ID di sessione o la chiave di partizione non sono impostati, l'ID del messaggio viene usato come chiave di partizione. Se anche l'ID del messaggio non è impostato, le librerie .NET e AMQP generano automaticamente un ID di messaggio per il messaggio. Per altre informazioni, vedere [uso delle chiavi di partizione](service-bus-partitioning.md#use-of-partition-keys).
+> Se il rilevamento duplicati è abilitato e l'ID sessione o la chiave di partizione non sono impostati, l'ID messaggio viene utilizzato come chiave di partizione. Se non è impostato anche l'ID messaggio, le librerie .NET e AMQP generano automaticamente un ID messaggio per il messaggio. Per ulteriori informazioni, consultate [Utilizzo delle chiavi di partizione.](service-bus-partitioning.md#use-of-partition-keys)
 
 ## <a name="enable-duplicate-detection"></a>Abilitare il rilevamento dei duplicati
 
@@ -68,7 +68,7 @@ Per altre informazioni sulla messaggistica del bus di servizio, vedere gli argom
 * [Introduzione alle code del bus di servizio](service-bus-dotnet-get-started-with-queues.md)
 * [Come usare gli argomenti e le sottoscrizioni del bus di servizio](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 
-Negli scenari in cui il codice client non è in grado di inviare di nuovo un messaggio con lo stesso *MessageID* di prima, è importante progettare messaggi che possono essere rielaborati in modo sicuro. Questo [post di Blog su l'idempotenza](https://particular.net/blog/what-does-idempotent-mean) descrive le varie tecniche per eseguire questa operazione.
+Negli scenari in cui il codice client non è in grado di inviare nuovamente un messaggio con lo stesso *MessageId* come in precedenza, è importante progettare messaggi che possono essere rielaborati in modo sicuro. Questo [post di blog sull'idempotence](https://particular.net/blog/what-does-idempotent-mean) descrive varie tecniche su come farlo.
 
 [1]: ./media/duplicate-detection/create-queue.png
 [2]: ./media/duplicate-detection/queue-prop.png

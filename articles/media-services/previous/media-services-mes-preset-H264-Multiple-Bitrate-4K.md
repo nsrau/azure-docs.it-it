@@ -1,6 +1,6 @@
 ---
 title: Media Encoder Standard a bitrate multipli H.264 con risoluzione 4K preimpostato - Azure | Documentazione Microsoft
-description: Questo articolo offre una panoramica del set di impostazioni di attività **4K a più velocità in bit media encoder standard H264** .
+description: L'articolo fornisce una panoramica del preset attività Media Encoder Standard **H264 Multiple Bitrate 4K.**
 author: Juliako
 manager: femila
 editor: ''
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: cec0fa3bd059cd31d9bd94773b0cce42d0f12a75
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74887018"
 ---
 # <a name="h264-multiple-bitrate-4k"></a>Codec video H.264 a bitrate multipli con risoluzione 4K

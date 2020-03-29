@@ -1,19 +1,19 @@
 ---
-title: Connettersi al servizio Azure Kubernetes-database di Azure per PostgreSQL-server singolo
-description: Informazioni sulla connessione di Azure Kubernetes Service (AKS) con database di Azure per PostgreSQL-server singolo
+title: Connettersi al servizio Azure Kubernetes - Database di Azure per PostgreSQL - Server singoloConnect to Azure Kubernetes Service - Azure Database for PostgreSQL - Single Server
+description: Informazioni sulla connessione del servizio Azure Kubernetes (AKS) con Il database di Azure per PostgreSQL - Server singoloLearn about connecting Azure Kubernetes Service (AKS) with Azure Database for PostgreSQL - Single Server
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.date: 5/6/2019
 ms.topic: conceptual
 ms.openlocfilehash: 46aa411826dd3ea578a2d98b0fe631ab0a12ef4a
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74769881"
 ---
-# <a name="connecting-azure-kubernetes-service-and-azure-database-for-postgresql---single-server"></a>Connessione del servizio Azure Kubernetes e del database di Azure per PostgreSQL-server singolo
+# <a name="connecting-azure-kubernetes-service-and-azure-database-for-postgresql---single-server"></a>Connessione del servizio Azure Kubernetes e del database di Azure per PostgreSQL - Server singoloConnecting Azure Kubernetes Service and Azure Database for PostgreSQL - Single Server
 
 Il servizio Azure Kubernetes fornisce un cluster Kubernetes gestito che è possibile usare in Azure. Di seguito sono riportate alcune opzioni da prendere in considerazione quando si usano insieme il servizio Azure Kubernetes e Database di Azure per PostgreSQL per creare un'applicazione.
 
@@ -47,7 +47,7 @@ az network nic list --resource-group nodeResourceGroup -o table
 Con OSBA è possibile creare un server di Database di Azure per PostgreSQL e associarlo al cluster del servizio Azure Kubernetes usando il linguaggio nativo di Kubernetes. Per informazioni su come usare OSBA e Database di Azure per PostgreSQL insieme, vedere la [pagina GitHub per OSBA](https://github.com/Azure/open-service-broker-azure/blob/master/docs/modules/postgresql.md). 
 
 
-## <a name="connection-pooling"></a>Pooling di connessioni
+## <a name="connection-pooling"></a>Pool di connessioni
 Un'utilità per il pooling di connessioni riduce al minimo i costi e i tempi associati alla creazione e alla chiusura di nuove connessioni al database. Il pool è una raccolta di connessioni che possono essere riutilizzate. 
 
 Esistono più utilità per il pooling di connessioni che è possibile usare con PostgreSQL. Una di queste è [PgBouncer](https://pgbouncer.github.io/). Nel Registro Container Microsoft viene fornita un'istanza leggera inclusa in contenitori di PgBouncer, che può essere usata in un contenitore collaterale per raggruppare le connessioni dal servizio Azure Kubernetes a Database di Azure per PostgreSQL. Per informazioni su come accedere a questa immagine e su come usarla, vedere la [pagina dell'hub Docker](https://hub.docker.com/r/microsoft/azureossdb-tools-pgbouncer/). 

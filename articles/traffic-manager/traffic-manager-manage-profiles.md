@@ -1,6 +1,6 @@
 ---
 title: Gestire i profili di Gestione Traffico di Azure | Documentazione Microsoft
-description: Questo articolo consente di creare, disabilitare, abilitare ed eliminare un profilo di gestione traffico di Azure.
+description: Questo articolo consente di creare, disabilitare, abilitare ed eliminare un profilo di Gestione traffico di Azure.This article helps you create, disable, enable, and delete an Azure Traffic Manager profile.
 services: traffic-manager
 documentationcenter: ''
 author: rohinkoul
@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: rohink
 ms.openlocfilehash: adfe7d117d2329832a5b5e9e782a9029a682ff3b
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76938600"
 ---
 # <a name="manage-an-azure-traffic-manager-profile"></a>Gestire un profilo di Gestione traffico di Azure
@@ -29,8 +29,8 @@ I profili di Gestione traffico di Azure usano metodi di routing del traffico per
 
 ### <a name="to-create-a-traffic-manager-profile"></a>Per creare un profilo di Gestione traffico
 
-1. Da un browser accedere al [portale di Azure](https://portal.azure.com). Se non si ha già di un account, è possibile iscriversi per ottenere una [versione di valutazione gratuita della durata di un mese](https://azure.microsoft.com/free/). 
-2. Fare clic su **Crea una risorsa** > **Rete** > **Profilo di Gestione traffico** > **Crea**.
+1. Da un browser accedere al portale di [Azure.](https://portal.azure.com) Se non si dispone già di un account, è possibile iscriversi per una prova gratuita di [un mese](https://azure.microsoft.com/free/). 
+2. Fare clic su **Crea un** > **profilo** > di Gestione traffico**di** > rete**Creare**.
 4. In **Crea profilo di Gestione traffico** procedere come segue:
     1. In **Nome** specificare un nome per il profilo. Questo nome deve essere univoco all'interno della zona trafficmanager.net e determina il nome DNS `<name>`, trafficmanager.net, che viene usato per accedere al profilo di Gestione traffico.
     2. In **Metodo di routing** selezionare il metodo di routing **Priorità**.
@@ -48,16 +48,16 @@ I profili di Gestione traffico di Azure usano metodi di routing del traffico per
 
 1. Se si usa un nome di dominio personalizzato, modificare il record CNAME per il server DNS Internet in modo che non punti più al profilo di Gestione traffico.
 2. Il traffico non sarà più indirizzato agli endpoint attraverso le impostazioni del profilo di Gestione traffico.
-3. Da un browser accedere al [portale di Azure](https://portal.azure.com).
+3. Da un browser accedere al portale di [Azure.](https://portal.azure.com)
 2. Nella barra di ricerca del portale cercare il nome del **profilo di Gestione traffico** che si vuole modificare e quindi fare clic su tale profilo nei risultati visualizzati.
-3. Fare clic su **Panoramica** > **Disabilita**.
+3. Fare clic su**Disattivazione** **panoramica** > .
 4. Confermare che si vuole disabilitare il profilo di Gestione traffico.
 
 ### <a name="to-enable-a-profile"></a>Per abilitare un profilo
 
-1. Da un browser accedere al [portale di Azure](https://portal.azure.com).
+1. Da un browser accedere al portale di [Azure.](https://portal.azure.com)
 2. Nella barra di ricerca del portale cercare il nome del **profilo di Gestione traffico** che si vuole modificare e quindi fare clic su tale profilo nei risultati visualizzati.
-3. Fare clic su **Panoramica** > **Abilita**.
+3. Fare clic su**Abilita** **panoramica** > .
 1. Se si usa un nome di dominio personalizzato, creare un record di risorse CNAME sul server DNS Internet in modo da puntare al nome di dominio del profilo di Gestione traffico.
 2. Il traffico verrà nuovamente indirizzato verso gli endpoint.
 
@@ -65,7 +65,7 @@ I profili di Gestione traffico di Azure usano metodi di routing del traffico per
 
 1. Assicurarsi che il record di risorse DNS sul server DNS Internet non usi più un record di risorse CNAME che punta al nome di dominio del profilo di Gestione traffico.
 2. Nella barra di ricerca del portale cercare il nome del **profilo di Gestione traffico** che si vuole modificare e quindi fare clic su tale profilo nei risultati visualizzati.
-3. Fare clic su **Panoramica** > **Elimina**.
+3. Fare clic su **Eliminazione panoramica** > **.**
 4. Confermare che si vuole eliminare il profilo di Gestione traffico.
 
 ## <a name="next-steps"></a>Passaggi successivi

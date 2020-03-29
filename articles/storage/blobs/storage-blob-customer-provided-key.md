@@ -1,6 +1,6 @@
 ---
-title: Specificare una chiave fornita dal cliente per una richiesta all'archivio BLOB con .NET-archiviazione di Azure
-description: Informazioni su come specificare una chiave fornita dal cliente per una richiesta di archiviazione BLOB con .NET.
+title: Specificare una chiave fornita dal cliente in una richiesta all'archiviazione BLOB con .NET - Archiviazione di AzureSpecify a customer-provided key on a request to Blob storage with .NET - Azure Storage
+description: Informazioni su come specificare una chiave fornita dal cliente in una richiesta all'archiviazione BLOB tramite .NET.
 services: storage
 author: tamram
 ms.service: storage
@@ -10,25 +10,25 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: ea8254f108aed9d40e6970a27409035b1e10ab41
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74807001"
 ---
-# <a name="specify-a-customer-provided-key-on-a-request-to-blob-storage-with-net"></a>Specificare una chiave fornita dal cliente per una richiesta all'archivio BLOB con .NET
+# <a name="specify-a-customer-provided-key-on-a-request-to-blob-storage-with-net"></a>Specificare una chiave fornita dal cliente in una richiesta all'archiviazione BLOB con .NETSpecify a customer-provided key on a request to Blob storage with .NET
 
-I client che effettuano richieste nell'archivio BLOB di Azure hanno la possibilità di fornire una chiave di crittografia per una singola richiesta. L'inclusione della chiave di crittografia nella richiesta offre un controllo granulare sulle impostazioni di crittografia per le operazioni di archiviazione BLOB. Le chiavi fornite dal cliente (anteprima) possono essere archiviate in Azure Key Vault o in un altro archivio chiavi.
+I client che effettuano richieste per l'archiviazione BLOB di Azure hanno la possibilità di fornire una chiave di crittografia in una singola richiesta. L'inclusione della chiave di crittografia nella richiesta offre un controllo granulare sulle impostazioni di crittografia per le operazioni di archiviazione BLOB. Le chiavi fornite dal cliente (anteprima) possono essere archiviate in Archiviazione delle chiavi di Azure o in un altro archivio chiavi.
 
-Questo articolo illustra come specificare una chiave fornita dal cliente per una richiesta con .NET.
+In questo articolo viene illustrato come specificare una chiave fornita dal cliente in una richiesta con .NET.
 
 [!INCLUDE [storage-install-packages-blob-and-identity-include](../../../includes/storage-install-packages-blob-and-identity-include.md)]
 
-Per altre informazioni su come eseguire l'autenticazione con la libreria client di identità di Azure da archiviazione di Azure, vedere la sezione **eseguire l'autenticazione con la libreria di identità di Azure** in [autorizzare l'accesso a BLOB e code con Azure Active Directory e identità gestite per le risorse di Azure](../common/storage-auth-aad-msi.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#authenticate-with-the-azure-identity-library).
+Per altre informazioni su come eseguire l'autenticazione con la libreria client di Azure Identity da Archiviazione di Azure, vedere la sezione **Autenticazione con la libreria di identità** di Azure in [Autorizzare l'accesso a BLOB e code con Azure Active Directory e le identità gestite per](../common/storage-auth-aad-msi.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#authenticate-with-the-azure-identity-library)le risorse di Azure.To learn more about how to authenticate with the Azure Identity client library from Azure Storage, see the section titled Authenticate with the Azure Identity library in Authorize access to blobs and queues with Azure Active Directory and managed identities for Azure Resources.
 
-## <a name="example-use-a-customer-provided-key-to-upload-a-blob"></a>Esempio: usare una chiave fornita dal cliente per caricare un BLOB
+## <a name="example-use-a-customer-provided-key-to-upload-a-blob"></a>Esempio: usare una chiave fornita dal cliente per caricare un BLOBExample: Use a customer-provided key to upload a blob
 
-Nell'esempio seguente viene creata una chiave fornita dal cliente e tale chiave viene utilizzata per caricare un BLOB. Il codice consente di caricare un blocco, quindi di eseguire il commit dell'elenco di blocchi per scrivere il BLOB in archiviazione di Azure.
+L'esempio seguente crea una chiave fornita dal cliente e la usa per caricare un BLOB. The code uploads a block, then commits the block list to write the blob to Azure Storage.
 
 ```csharp
 async static Task UploadBlobWithClientKey(string accountName, string containerName,
@@ -74,5 +74,5 @@ async static Task UploadBlobWithClientKey(string accountName, string containerNa
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Crittografia di archiviazione di Azure per dati inattivi](../common/storage-service-encryption.md)
-- [Autorizzare l'accesso a BLOB e code con Azure Active Directory e identità gestite per le risorse di Azure](../common/storage-auth-aad-msi.md)
+- [Crittografia di Archiviazione di Azure per i dati inattiviAzure Storage encryption for data at rest](../common/storage-service-encryption.md)
+- [Autorizzare l'accesso a BLOB e code con Azure Active Directory e le identità gestite per le risorse di AzureAuthorize access to blobs and queues with Azure Active Directory and managed identities for Azure Resources](../common/storage-auth-aad-msi.md)

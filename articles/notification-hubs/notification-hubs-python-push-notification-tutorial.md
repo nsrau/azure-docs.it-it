@@ -1,6 +1,6 @@
 ---
 title: Come usare Hub di notifica con Python
-description: Informazioni su come usare hub di notifica di Azure da un'applicazione Python.
+description: Informazioni su come usare gli hub di notifica di Azure da un'applicazione Python.Learn how to use Azure Notification Hubs from a Python application.
 services: notification-hubs
 documentationcenter: ''
 author: sethmanheim
@@ -17,10 +17,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 1ff8c382813654b1dee38a99bf2cc0ca67afbedd
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76313828"
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>Come usare Hub di notifica da Python
@@ -301,7 +301,7 @@ hub = NotificationHub("myConnectionString", "myNotificationHubName", isDebug)
 
 L'URL HTTP della richiesta di invio a Hub di notifica viene aggiunto con una querystring "test" come risultato.
 
-## <a name="complete-tutorial"></a>Completare l'esercitazione
+## <a name="complete-the-tutorial"></a><a name="complete-tutorial"></a>Completare l'esercitazione
 
 È ora possibile completare l'esercitazione introduttiva inviando la notifica da un back-end Python.
 
@@ -445,12 +445,12 @@ hub.send_template_notification(template_payload)
 
 ![][5]
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
 Questo articolo ha illustrato come creare un client REST Python per Hub di notifica. Da qui è possibile:
 
 - Scaricare l'intero [esempio di wrapper REST Python], che contiene tutto il codice indicato in questo articolo.
-- Visualizzare altre informazioni sulla funzionalità di aggiunta tag di Hub di notifica nell' [esercitazione sull'invio delle ultime notizie]
+- Continua a imparare la funzione di tagging degli hub di notifica [nell'esercitazione sulle ultime notizie]
 - Per altre informazioni sulla funzionalità relativa ai modelli di Hub di notifica, vedere l' [esercitazione sull'invio di notizie localizzate]
 
 <!-- URLs -->

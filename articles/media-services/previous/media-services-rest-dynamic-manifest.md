@@ -16,10 +16,10 @@ ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewr: cenkdin
 ms.openlocfilehash: b778ad8c59cf51f92584cd3590f7d99244f37b2c
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76774962"
 ---
 # <a name="creating-filters-with-azure-media-services-rest-api"></a>Creazione di filtri con l'API REST di Servizi multimediali di Azure 
@@ -38,7 +38,7 @@ Questo articolo illustra come usare le API REST per creare, aggiornare ed elimin
 ## <a name="types-used-to-create-filters"></a>Tipi usati per la creazione dei filtri
 Durante la creazione dei filtri vengono usati i tipi seguenti:  
 
-* [Filter](https://docs.microsoft.com/rest/api/media/operations/filter)
+* [Filtro](https://docs.microsoft.com/rest/api/media/operations/filter)
 * [AssetFilter](https://docs.microsoft.com/rest/api/media/operations/assetfilter)
 * [PresentationTimeRange](https://docs.microsoft.com/rest/api/media/operations/presentationtimerange)
 * [FilterTrackSelect e FilterTrackPropertyCondition](https://docs.microsoft.com/rest/api/media/operations/filtertrackselect)
@@ -47,7 +47,7 @@ Durante la creazione dei filtri vengono usati i tipi seguenti:
 > 
 > Quando si accede alle entità in Servizi multimediali, è necessario impostare valori e campi di intestazione specifici nelle richieste HTTP. Per altre informazioni, vedere [Panoramica dell'API REST di Servizi multimediali](media-services-rest-how-to-use.md).
 
-## <a name="connect-to-media-services"></a>Connettersi a Servizi Multimediali
+## <a name="connect-to-media-services"></a>Connettersi a Servizi multimediali
 
 Per informazioni su come connettersi all'API AMS, vedere [Accedere all'API di Servizi multimediali di Azure con l'autenticazione di Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
@@ -325,7 +325,7 @@ Gli esempi seguenti illustrano come aggiungere filtri agli URL di streaming.
 
     http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3, filter=MyFilter)
 
-**Smooth Streaming**
+**Streaming fluido**
 
     http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=MyFilter)
 
@@ -333,7 +333,7 @@ Gli esempi seguenti illustrano come aggiungere filtri agli URL di streaming.
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Invia commenti e suggerimenti
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Vedere anche

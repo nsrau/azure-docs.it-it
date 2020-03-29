@@ -12,17 +12,17 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 4c47dfb8b221b6cb4b6237669ecd17c1637107a2
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76721099"
 ---
-# <a name="heading"></a>Elaborare i dati BLOB di Azure con analisi avanzate
+# <a name="process-azure-blob-data-with-advanced-analytics"></a><a name="heading"></a>Elaborare i dati BLOB di Azure con l'analisi avanzata
 In questo documento vengono descritte l'esplorazione dei dati e la creazione di funzionalità da dati archiviati nell’archivio BLOB di Azure. 
 
 ## <a name="load-the-data-into-a-pandas-data-frame"></a>Caricare i dati in un intervallo di dati Pandas
-Per esplorare e modificare un set di dati, è necessario scaricarlo dall'origine BLOB in un file locale che può essere quindi caricato in un frame di dati Pandas. Ecco i passaggi da seguire per questa procedura:
+Per esplorare e modificare un set di dati, è necessario scaricarlo dall'origine BLOB in un file locale che può quindi essere caricato in un frame di dati Pandas. Ecco i passaggi da seguire per questa procedura:
 
 1. Scaricare i dati dal BLOB di Azure con il codice Python di esempio seguente usando il servizio BLOB. Sostituire la variabile nel codice riportato di seguito con i valori specifici: 
    
@@ -48,7 +48,7 @@ Per esplorare e modificare un set di dati, è necessario scaricarlo dall'origine
 
 A questo punto si è pronti per esplorare i dati e generare le funzionalità di questo set di dati.
 
-## <a name="blob-dataexploration"></a>Esplorazione dei dati
+## <a name="data-exploration"></a><a name="blob-dataexploration"></a>Esplorazione dei dati
 Di seguito sono riportati alcuni esempi dei modi per esplorare i dati utilizzando Pandas:
 
 1. Controllare il numero di righe e colonne 
@@ -94,10 +94,10 @@ Di seguito sono riportati alcuni esempi dei modi per esplorare i dati utilizzand
         #correlation between column_a and column_b
         dataframe_blobdata[['<column_a>', '<column_b>']].corr()
 
-## <a name="blob-featuregen"></a>Creazione di funzionalità
+## <a name="feature-generation"></a><a name="blob-featuregen"></a>Generazione di funzionalità
 È quindi possibile generare funzionalità tramite Python come indicato di seguito:
 
-### <a name="blob-countfeature"></a>Creazione di funzionalità basata sul valore dell'indicatore
+### <a name="indicator-value-based-feature-generation"></a><a name="blob-countfeature"></a>Creazione di funzionalità basata sul valore dell'indicatore
 Le funzionalità relative alle categorie possono essere create come indicato di seguito:
 
 1. Controllare la distribuzione della colonna relativa alla categoria:
@@ -116,7 +116,7 @@ Le funzionalità relative alle categorie possono essere create come indicato di 
         #Remove the original column rate_code in df1_with_dummy
         dataframe_blobdata_with_identity.drop('<categorical_column>', axis=1, inplace=True)
 
-### <a name="blob-binningfeature"></a>Creazione di contenitori per la creazione di funzionalità
+### <a name="binning-feature-generation"></a><a name="blob-binningfeature"></a>Creazione di contenitori per la creazione di funzionalità
 Per creare funzionalità in contenitori, procedere come indicato di seguito:
 
 1. Aggiungere una sequenza di colonne per suddividere una colonna numerica
@@ -130,8 +130,8 @@ Per creare funzionalità in contenitori, procedere come indicato di seguito:
    
         dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool)    
 
-## <a name="sql-featuregen"></a>Scrittura dei dati nel BLOB di Azure e utilizzo in Azure Machine Learning
-Dopo aver esplorato i dati e creato le funzionalità necessarie, è possibile caricare i dati (sampled o trasformato) in un BLOB di Azure e usarli in Azure Machine Learning usando la procedura seguente: è possibile creare funzionalità aggiuntive nella Azure Machine Learning Studio (classico). 
+## <a name="writing-data-back-to-azure-blob-and-consuming-in-azure-machine-learning"></a><a name="sql-featuregen"></a>Scrittura dei dati nel BLOB di Azure e utilizzo in Azure Machine Learning
+Dopo aver esplorato i dati e creato le funzionalità necessarie, è possibile caricare i dati (campionati o featurizzati) in un BLOB di Azure e usarli in Azure Machine Learning usando la procedura seguente: È possibile creare funzionalità aggiuntive in Azure Machine Learning Studio (classico) pure. 
 
 1. Scrivere il frame di dati in file locali
    

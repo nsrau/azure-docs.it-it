@@ -1,5 +1,5 @@
 ---
-title: Usare l'estensione integrità dell'applicazione con i set di scalabilità di macchine virtuali di Azure
+title: Usare l'estensione dell'integrità dell'applicazione con i set di scalabilità delle macchine virtuali di AzureUse Application Health extension with Azure virtual machine scale sets
 description: Informazioni su come usare l'estensione Integrità applicazione per monitorare l'integrità delle applicazioni distribuite nei set di scalabilità di macchine virtuali.
 author: mayanknayar
 tags: azure-resource-manager
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: manayar
 ms.openlocfilehash: 37d93b04e6755512eac6c2a168bd2a04f8ac298f
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76275885"
 ---
 # <a name="using-application-health-extension-with-virtual-machine-scale-sets"></a>Uso dell'estensione Integrità applicazione con i set di scalabilità di macchine virtuali di Azure
@@ -21,7 +21,7 @@ In questo articolo viene descritto come usare l'estensione Integrità applicazio
 
 ## <a name="prerequisites"></a>Prerequisiti
 Questo articolo presuppone che l'utente abbia familiarità con:
--   [Estensioni](../virtual-machines/extensions/overview.md) delle macchine virtuali di Azure
+-   [Estensioni](../virtual-machines/extensions/overview.md) delle macchine virtuali di AzureAzure virtual machine extensions
 -   [Modifica](virtual-machine-scale-sets-upgrade-scale-set.md) dei set di scalabilità di macchine virtuali
 
 ## <a name="when-to-use-the-application-health-extension"></a>Quando usare l'estensione Integrità applicazione
@@ -60,14 +60,14 @@ Il codice JSON riportato di seguito mostra lo schema dell'estensione Integrità 
 | apiVersion | `2018-10-01` | Data |
 | publisher | `Microsoft.ManagedServices` | string |
 | type | `ApplicationHealthLinux` (Linux), `ApplicationHealthWindows` (Windows) | string |
-| typeHandlerVersion | `1.0` | int |
+| typeHandlerVersion | `1.0` | INT |
 
 ### <a name="settings"></a>Impostazioni
 
 | Nome | Valore/Esempio | Tipo di dati
 | ---- | ---- | ----
 | protocol | `http` o `tcp` | string |
-| port | Facoltativo se il protocollo è `http`, obbligatorio se il protocollo è `tcp` | int |
+| port | Facoltativo se il protocollo è `http`, obbligatorio se il protocollo è `tcp` | INT |
 | requestPath | Obbligatorio se il protocollo è `http`, non consentito se il protocollo è `tcp` | string |
 
 ## <a name="deploy-the-application-health-extension"></a>Distribuire l'estensione Integrità applicazione
@@ -141,7 +141,7 @@ Update-AzVmss -ResourceGroupName $vmScaleSetResourceGroup `
 
 Usare [az vmss extension set](/cli/azure/vmss/extension#az-vmss-extension-set) per aggiungere l'estensione Integrità applicazione alla definizione del modello del set di scalabilità.
 
-Nell'esempio seguente viene aggiunta l'estensione dell'integrità dell'applicazione al modello del set di scalabilità di un set di scalabilità basato su Linux.
+L'esempio seguente aggiunge l'estensione dell'integrità dell'applicazione al modello di set di scalabilità di un set di scalabilità basato su Linux.The following example adds the Application Health extension to the scale set model of a Linux-based scale set.
 
 ```azurecli-interactive
 az vmss extension set \
@@ -152,7 +152,7 @@ az vmss extension set \
   --vmss-name <myVMScaleSet> \
   --settings ./extension.json
 ```
-Contenuto del file Extension. JSON.
+Contenuto del file extension.json.
 
 ```json
 {

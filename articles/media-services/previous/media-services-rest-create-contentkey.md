@@ -1,6 +1,6 @@
 ---
 title: Creazione di entità ContentKey mediante REST | Microsoft Docs
-description: Questo articolo illustra come creare chiavi simmetriche che forniscono l'accesso sicuro agli asset.
+description: In questo articolo viene illustrato come creare chiavi di contenuto che forniscono accesso sicuro alle risorse.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: d256f417fb3bacbf3f363fc2a9f8701a1bb49d71
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76773635"
 ---
 # <a name="create-content-keys-with-rest"></a>Creazione di entità ContentKey mediante REST
@@ -75,7 +75,7 @@ Questo articolo non illustra come generare una chiave AES, eseguirne la crittogr
 > 
 > Quando si accede alle entità in Servizi multimediali, è necessario impostare valori e campi di intestazione specifici nelle richieste HTTP. Per altre informazioni, vedere [Panoramica dell'API REST di Servizi multimediali](media-services-rest-how-to-use.md).
 
-## <a name="connect-to-media-services"></a>Connettersi a Servizi Multimediali
+## <a name="connect-to-media-services"></a>Connettersi a Servizi multimediali
 
 Per informazioni su come connettersi all'API AMS, vedere [Accedere all'API di Servizi multimediali di Azure con l'autenticazione di Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
@@ -177,7 +177,7 @@ Uno dei valori che è necessario impostare quando si crea la chiave simmetrica �
     }
 
 
-L'esempio seguente mostra come creare **ContentKey** con **ContentKeyType** impostato per la crittografia di archiviazione ("1") e **ProtectionKeyType** impostato su "0" per indicare che l'ID della chiave di protezione è l'identificazione personale del certificato X.509.  
+Nell'esempio seguente viene illustrato come creare un **ContentKey** con un **ContentKeyType** impostato per la crittografia di archiviazione ("1") e **ProtectionKeyType** impostato su "0" per indicare che l'ID della chiave di protezione è l'identificazione personale del certificato X.509.  
 
 Richiesta
 
@@ -253,6 +253,6 @@ Risposta:
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Invia commenti e suggerimenti
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

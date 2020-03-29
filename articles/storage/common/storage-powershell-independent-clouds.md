@@ -1,7 +1,7 @@
 ---
-title: Usare PowerShell per gestire i dati nei cloud indipendenti di Azure
+title: Usare PowerShell per gestire i dati nei cloud indipendenti di AzureUse PowerShell to manage data in Azure independent clouds
 titleSuffix: Azure Storage
-description: Gestione dell'archiviazione nel cloud cinese, nel cloud per enti pubblici e nel cloud tedesco con Azure PowerShell.
+description: Gestione dell'archiviazione nel cloud cinese, nel cloud governativo e nel cloud tedesco tramite Azure PowerShell.Managing Storage in the China Cloud, Government Cloud, and German Cloud Using Azure PowerShell.
 services: storage
 author: tamram
 ms.service: storage
@@ -10,18 +10,18 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 5fa515515c06466e121a5c0ee925fd4d14245363
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74895244"
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>Gestione dell'archiviazione nei cloud indipendenti di Azure con PowerShell
 
 La maggior parte delle persone usa il cloud pubblico di Azure per la distribuzione globale di Azure. Per motivi di sovranità e altro, sono disponibili anche alcune distribuzioni indipendenti di Microsoft Azure, denominate "ambienti". L'elenco seguente illustra in dettaglio i cloud indipendenti attualmente disponibili.
 
-* [Cloud di Azure per enti pubblici](https://azure.microsoft.com/features/gov/)
-* [Azure China 21Vianet cloud gestito da 21Vianet in Cina](http://www.windowsazure.cn/)
+* [Azure Government Cloud (Cloud Azure per enti pubblici)](https://azure.microsoft.com/features/gov/)
+* [Azure China 21Vianet Cloud gestito da 21Vianet in Cina](http://www.windowsazure.cn/)
 * [Cloud di Azure per la Germania](../../germany/germany-welcome.md)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
@@ -60,7 +60,7 @@ Get-AzLocation | select Location, DisplayName
 
 La tabella seguente mostra le località restituite per il cloud per la Germania.
 
-|Località | Nome visualizzato |
+|Location | Nome visualizzato |
 |----|----|
 | `germanycentral` | Germania centrale|
 | `germanynortheast` | Germania nord-orientale |
@@ -74,7 +74,7 @@ Il suffisso dell'endpoint per ognuno di questi ambienti è diverso dall'endpoint
 
 Recuperare il suffisso dell'endpoint con [Get-AzEnvironment](/powershell/module/az.accounts/get-azenvironment). L'endpoint è la proprietà *StorageEndpointSuffix* dell'ambiente.
 
-Nei frammenti di codice seguenti viene illustrato come recuperare il suffisso dell'endpoint. Tutti questi comandi restituiscono un valore simile a "core.cloudapp.net" o "core.cloudapi.de" e così via. Aggiungere il suffisso al servizio di archiviazione per accedere al servizio. Ad esempio, "queue.core.cloudapi.de" accede al servizio di accodamento del cloud per la Germania.
+I frammenti di codice seguenti illustrano come recuperare il suffisso dell'endpoint. Tutti questi comandi restituiscono qualcosa come "core.cloudapp.net" o "core.cloudapi.de", ecc. Aggiungere il suffisso al servizio di archiviazione per accedere a tale servizio. Ad esempio, "queue.core.cloudapi.de" accede al servizio di accodamento del cloud per la Germania.
 
 Questo frammento di codice recupera tutti gli ambienti e il suffisso dell'endpoint per ognuno di essi.
 
@@ -84,7 +84,7 @@ Get-AzEnvironment | select Name, StorageEndpointSuffix
 
 Questo comando restituisce i risultati seguenti.
 
-| name| StorageEndpointSuffix|
+| Nome| StorageEndpointSuffix|
 |----|----|
 | AzureChinaCloud | core.chinacloudapi.cn|
 | AzureCloud | core.windows.net |
@@ -97,11 +97,11 @@ Per recuperare tutte le proprietà per l'ambiente specificato, chiamare **Get-Az
 Get-AzEnvironment -Name AzureGermanCloud
 ```
 
-I risultati sono simili ai valori seguenti:
+I risultati sono simili ai seguenti:
 
-|Nome proprietà|Value|
+|Nome proprietà|valore|
 |----|----|
-| name | `AzureGermanCloud` |
+| Nome | `AzureGermanCloud` |
 | EnableAdfsAuthentication | `False` |
 | ActiveDirectoryServiceEndpointResourceI | `http://management.core.cloudapi.de/` |
 | GalleryURL | `https://gallery.cloudapi.de/` |
@@ -125,7 +125,7 @@ Questo comando restituisce le informazioni seguenti:
 
 ### <a name="get-endpoint-from-a-storage-account"></a>Ottenere l'endpoint da un account di archiviazione
 
-È anche possibile esaminare le proprietà di un account di archiviazione per recuperare gli endpoint:
+È anche possibile esaminare le proprietà di un account di archiviazione per recuperare gli endpoint:You can also examine the properties of a storage account to retrieve the endpoints:
 
 ```powershell
 # Get a reference to the storage account.
@@ -141,7 +141,7 @@ Write-Host "queue endpoint = " $storageAccount.PrimaryEndPoints.Queue
 Write-Host "table endpoint = " $storageAccount.PrimaryEndPoints.Table
 ```
 
-Per un account di archiviazione nel cloud per enti pubblici, questo comando restituisce l'output seguente:
+Per un account di archiviazione in Government Cloud, questo comando restituisce l'output seguente:For a storage account in the Government Cloud, this command returns the following output:
 
 ```
 blob endpoint = http://myexistingstorageaccount.blob.core.usgovcloudapi.net/
@@ -156,7 +156,7 @@ Da questo punto in poi è possibile usare la stessa istanza di PowerShell usata 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Se sono stati creati un nuovo gruppo di risorse e un account di archiviazione per questo esercizio, è possibile rimuovere entrambi gli asset eliminando il gruppo di risorse. Se si elimina un gruppo di risorse, vengono eliminate tutte le risorse contenute in esso.
+Se sono stati creati un nuovo gruppo di risorse e un account di archiviazione per questo esercizio, è possibile rimuovere entrambe le risorse eliminando il gruppo di risorse. Se si elimina un gruppo di risorse, vengono eliminate tutte le risorse contenute in esso.
 
 ```powershell
 Remove-AzResourceGroup -Name $resourceGroup
@@ -165,7 +165,7 @@ Remove-AzResourceGroup -Name $resourceGroup
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Persistenza degli accessi utente tra le sessioni di PowerShell](/powershell/azure/context-persistence)
-* [Archiviazione di Azure per enti pubblici](../../azure-government/documentation-government-services-storage.md)
-* [Guida per sviluppatori di soluzioni Microsoft Azure per enti pubblici](../../azure-government/documentation-government-developer-guide.md)
-* [Note per gli sviluppatori per le applicazioni Azure Cina 21Vianet](https://msdn.microsoft.com/library/azure/dn578439.aspx)
+* [Archiviazione di Azure per enti pubbliciAzure Government storage](../../azure-government/documentation-government-services-storage.md)
+* [Guida per gli sviluppatori di Microsoft Azure Government](../../azure-government/documentation-government-developer-guide.md)
+* [Note per gli sviluppatori per le applicazioni di Azure China 21VianetDeveloper Notes for Azure China 21Vianet Applications](https://msdn.microsoft.com/library/azure/dn578439.aspx)
 * [Documentazione di Azure per la Germania](../../germany/germany-welcome.md)

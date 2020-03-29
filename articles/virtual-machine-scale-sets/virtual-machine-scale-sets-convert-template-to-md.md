@@ -1,6 +1,6 @@
 ---
 title: Convertire un modello di set di scalabilità per l'uso di dischi gestiti
-description: Convertire un modello di set di scalabilità di macchine virtuali Azure Resource Manager in un modello di set di scalabilità di dischi gestiti.
+description: Convertire un modello di set di scalabilità della macchina virtuale di Azure Resource Manager in un modello di set di scalabilità del disco gestito.
 keywords: set di scalabilità di macchine virtuali
 author: mayanknayar
 tags: azure-resource-manager
@@ -10,15 +10,15 @@ ms.topic: conceptual
 ms.date: 5/18/2017
 ms.author: manayar
 ms.openlocfilehash: 4ab5c48c6673a2353c70fe808d09aa15675e0424
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76278122"
 ---
 # <a name="convert-a-scale-set-template-to-a-managed-disk-scale-set-template"></a>Convertire un modello di set di scalabilità in un modello di set di scalabilità per i dischi gestiti
 
-I clienti con un modello di Resource Manager per la creazione di un set di scalabilità che non usa i dischi gestiti potrebbero volerlo modificare per usare i dischi gestiti. Questo articolo illustra come usare i dischi gestiti, usando come esempio una richiesta pull dai [modelli di avvio rapido di Azure](https://github.com/Azure/azure-quickstart-templates), un repository gestito dalla community di modelli di Resource Manager di esempio. La richiesta pull completa può essere visualizzata qui: [https://github.com/Azure/azure-quickstart-templates/pull/2998](https://github.com/Azure/azure-quickstart-templates/pull/2998), e le parti pertinenti del diff sono disponibili di seguito, con spiegazioni:
+I clienti con un modello di Resource Manager per la creazione di un set di scalabilità che non usa i dischi gestiti potrebbero volerlo modificare per usare i dischi gestiti. Questo articolo illustra come usare i dischi gestiti, usando come esempio una richiesta pull dai [modelli di avvio rapido di Azure](https://github.com/Azure/azure-quickstart-templates), un repository gestito dalla community di modelli di Resource Manager di esempio. La richiesta pull completa può [https://github.com/Azure/azure-quickstart-templates/pull/2998](https://github.com/Azure/azure-quickstart-templates/pull/2998)essere visto qui: , e le parti rilevanti del diff sono qui sotto, insieme a spiegazioni:
 
 ## <a name="making-the-os-disks-managed"></a>Impostazione dei dischi del sistema operativo come gestiti
 
@@ -137,7 +137,7 @@ Per altre informazioni sull'uso dei dischi dati con i set di scalabilità, veder
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Ad esempio, per i modelli di Resource Manager con set di scalabilità, cercare "vmss" nel [repository di GitHub dei modelli di avvio rapido di Azure](https://github.com/Azure/azure-quickstart-templates).
+Ad esempio, i modelli di Resource Manager che usano i set di scalabilità, cercare "vmss" nel [repository GitHub](https://github.com/Azure/azure-quickstart-templates)dei modelli di guida rapida di Azure.
 
 Per informazioni generali, vedere la [pagina di destinazione principale per i set di scalabilità](https://azure.microsoft.com/services/virtual-machine-scale-sets/).
 

@@ -1,6 +1,6 @@
 ---
-title: Panoramica degli esempi di messaggistica del bus di servizio di Azure
-description: Gli esempi di messaggistica del bus di servizio illustrano le funzionalità principali della messaggistica del bus di servizio di Azure. Fornisce collegamenti ad esempi su GitHub.
+title: Panoramica degli esempi di messaggistica del bus di servizio di AzureAzure Service Bus messaging samples overview
+description: Gli esempi di messaggistica del bus di servizio illustrano le funzionalità principali nella messaggistica del bus di servizio di Azure.The Service Bus messaging samples demonstrate key features in Azure Service Bus messaging. Fornisce collegamenti a campioni in GitHub.
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
@@ -14,14 +14,14 @@ ms.workload: na
 ms.date: 01/27/2020
 ms.author: aschhab
 ms.openlocfilehash: ccaca451ac4fb7b4301aca429a42baea91e5ed10
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76773457"
 ---
 # <a name="service-bus-messaging-samples"></a>Esempi di messaggistica del bus di servizio
-Gli esempi di messaggistica del bus di servizio illustrano le funzionalità chiave nella [messaggistica del bus di servizio](https://azure.microsoft.com/services/service-bus/). Attualmente, è possibile trovare gli esempi nelle posizioni seguenti:
+Gli esempi di messaggistica del bus di servizio illustrano le funzionalità chiave nella [messaggistica del bus di servizio](https://azure.microsoft.com/services/service-bus/). Attualmente, è possibile trovare gli esempi nelle seguenti posizioni:
 
 | Linguaggio di programmazione | SDK o percorso degli esempi |
 | -------------------- | ----------------------- |

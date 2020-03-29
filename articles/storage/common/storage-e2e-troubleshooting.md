@@ -1,5 +1,5 @@
 ---
-title: Risoluzione dei problemi relativi alle operazioni dati con diagnostica e Message Analyzer
+title: Risoluzione dei problemi relativi alle operazioni sui dati con la diagnostica e Message AnalyzerTroubleshooting data operations with diagnostics and Message Analyzer
 titleSuffix: Azure Storage
 description: Esercitazione che illustra la risoluzione dei problemi end-to-end mediante Analisi archiviazione di Azure, AzCopy e Microsoft Message Analyzer
 author: normesta
@@ -10,10 +10,10 @@ ms.author: normesta
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 69983502fb7d099f474fb1c4c084f5d381a173e9
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76314760"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Risoluzione dei problemi end-to-end mediante le metriche e la registrazione di Archiviazione di Azure, AzCopy e Message Analyzer
@@ -35,7 +35,7 @@ Per risolvere i problemi relativi alle applicazioni client mediante Archiviazion
   * **metriche di archiviazione** tengono traccia delle metriche relative alle transazioni e alla capacità per l'account di archiviazione. Le metriche consentono di determinare le prestazioni dell'applicazione in base a un'ampia gamma di misure diverse. Per altre informazioni sui tipi di metriche di cui Analisi archiviazione tiene traccia, vedere [Schema di tabella della metrica di Analisi archiviazione](/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema) .
   * **registrazione di archiviazione** registra tutte le richieste in arrivo ai servizi di Archiviazione di Azure in un log sul lato server. Nel log vengono registrati dati dettagliati per ogni richiesta, tra cui l'operazione eseguita, lo stato dell'operazione e le informazioni sulla latenza. Per altre informazioni sui dati di richiesta e risposta che vengono scritti nei log di Analisi di archiviazione, vedere [Formato del log di Analisi archiviazione](/rest/api/storageservices/Storage-Analytics-Log-Format) .
 
-* **portale di Azure**. Nel [portale di Azure](https://portal.azure.com) è possibile configurare le metriche e la registrazione dell'account di archiviazione. È possibile anche visualizzare grafici che mostrano le prestazioni dell'applicazione nel tempo e configurare gli avvisi per ricevere una notifica se le prestazioni dell'applicazione si discostano dal previsto per una determinata metrica.
+* **Portale di Azure**. Nel [portale di Azure](https://portal.azure.com) è possibile configurare le metriche e la registrazione dell'account di archiviazione. È possibile anche visualizzare grafici che mostrano le prestazioni dell'applicazione nel tempo e configurare gli avvisi per ricevere una notifica se le prestazioni dell'applicazione si discostano dal previsto per una determinata metrica.
 
     Per informazioni sulla configurazione del monitoraggio nel portale di Azure, vedere [Monitorare un account di archiviazione nel portale di Azure](storage-monitor-storage-account.md).
 * **AzCopy**. I log di Archiviazione di Azure vengono memorizzati come BLOB, quindi è possibile usare AzCopy per copiare i BLOB di log in una directory locale per l'analisi mediante Microsoft Message Analyzer. Per altre informazioni su AzCopy, vedere [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md) .
@@ -43,7 +43,7 @@ Per risolvere i problemi relativi alle applicazioni client mediante Archiviazion
 
 ## <a name="about-the-sample-scenario"></a>Informazioni sullo scenario di esempio
 
-In questa esercitazione verrà esaminato uno scenario in cui le metriche di Archiviazione di Azure indicano una bassa percentuale di operazioni riuscite per un'applicazione che chiama Archiviazione di Azure. La metrica relativa alla bassa percentuale di operazioni riuscite (visualizzata come **PercentSuccess** nel [portale di Azure](https://portal.azure.com) e nelle tabelle di metriche) tiene traccia delle operazioni che hanno esito positivo ma restituiscono un codice di stato HTTP maggiore di 299. Nei file di log dell'archiviazione sul lato server, queste operazioni vengono registrate con stato della transazione **ClientOtherErrors**. Per maggiori dettagli sulla metrica relativa alla bassa percentuale di operazioni riuscite, vedere [Le metriche indicano un valore PercentSuccess basso o le voci del log contengono operazioni con stato della transazione ClientOtherErrors](storage-monitoring-diagnosing-troubleshooting.md#metrics-show-low-percent-success).
+In questa esercitazione verrà esaminato uno scenario in cui le metriche di Archiviazione di Azure indicano una bassa percentuale di operazioni riuscite per un'applicazione che chiama Archiviazione di Azure. La metrica della percentuale di operazioni riuscite bassa (mostrata come PercentSuccess nel portale di Azure e nelle tabelle delle metriche) tiene traccia delle operazioni che hanno esito positivo, ma che restituiscono un codice di stato HTTP maggiore di 299.The low percent success rate metric (shown as **PercentSuccess** in the [Azure portal](https://portal.azure.com) and in the metrics tables) tracks operations that succeed, but that return an HTTP status code that is greater than 299. Nei file di log dell'archiviazione sul lato server, queste operazioni vengono registrate con stato della transazione **ClientOtherErrors**. Per maggiori dettagli sulla metrica relativa alla bassa percentuale di operazioni riuscite, vedere [Le metriche indicano un valore PercentSuccess basso o le voci del log contengono operazioni con stato della transazione ClientOtherErrors](storage-monitoring-diagnosing-troubleshooting.md#metrics-show-low-percent-success).
 
 Le operazioni di Archiviazione di Azure possono restituire codici di stato HTTP maggiori di 299 in condizioni di funzionalità normali. In alcuni casi, tuttavia, questi errori indicano che è possibile ottimizzare l'applicazione client per migliorare le prestazioni.
 
@@ -57,20 +57,20 @@ Gli esempi seguenti presentano un campione di errori della serie 400 per le rich
 
 Tenere presente che gli elenchi riportati sotto sono tutt'altro che completi. Per informazioni dettagliate sugli errori generali di Archiviazione di Azure e sugli errori specifici dei singoli servizi di archiviazione, vedere [Codici di stato e di errore](https://msdn.microsoft.com/library/azure/dd179382.aspx) su MSDN.
 
-#### <a name="status-code-404-not-found-examples"></a>Esempi di codice di stato 404 (non trovato)
+#### <a name="status-code-404-not-found-examples"></a>Esempi di codice di stato 404 (Non trovato)
 
 Si verifica quando un'operazione di lettura in un contenitore o BLOB non riesce perché non viene trovato il BLOB o il contenitore.
 
 * Si verifica se un contenitore o BLOB è stato eliminato da un altro client prima di questa richiesta.
 * Si verifica se si usa una chiamata API che crea il contenitore o il BLOB dopo averne controllato l'esistenza. Le API CreateIfNotExists effettuano una chiamata HEAD per verificare l'esistenza del contenitore o del BLOB. Se non esiste, viene restituito un errore 404 e quindi viene eseguita una seconda chiamata PUT per scrivere il contenitore o il BLOB.
 
-#### <a name="status-code-409-conflict-examples"></a>Esempi di codice di stato 409 (conflitto)
+#### <a name="status-code-409-conflict-examples"></a>Esempi di codice di stato 409 (Conflitto)
 
 * Si verifica se si usa un'API di creazione per creare un nuovo contenitore o BLOB, senza controllarne prima l'esistenza, ed esiste già un contenitore o BLOB con lo stesso nome.
 * Si verifica se è in corso l'eliminazione di un contenitore e si tenta di crearne uno nuovo con lo stesso nome prima del completamento dell'operazione di eliminazione.
 * Si verifica se si specifica un lease in un contenitore o BLOB ed è già presente un lease.
 
-#### <a name="status-code-412-precondition-failed-examples"></a>Esempi di codice di stato 412 (condizione preliminare non riuscita)
+#### <a name="status-code-412-precondition-failed-examples"></a>Esempi di codice di stato 412 (Condizione preliminare non riuscita)
 
 * Si verifica quando la condizione specificata da un'intestazione condizionale non viene soddisfatta.
 * Si verifica quando l'ID lease specificato non corrisponde all'ID lease per il contenitore o BLOB.
@@ -85,7 +85,7 @@ In questa esercitazione viene usato Message Analyzer per utilizzare tre diversi 
 
 ### <a name="configure-server-side-logging-and-metrics"></a>Configurare le metriche e la registrazione sul lato server
 
-Prima di tutto, è necessario configurare la registrazione e le metriche di archiviazione di Azure, in modo da analizzare i dati dal lato del servizio. La registrazione e le metriche possono essere configurate in diversi modi: tramite il [portale di Azure](https://portal.azure.com), con PowerShell o a livello di codice. Per informazioni dettagliate sulla configurazione della registrazione e della metrica, vedere [abilitare le metriche](storage-analytics-metrics.md#enable-metrics-using-the-azure-portal) e [abilitare la registrazione](storage-analytics-logging.md#enable-storage-logging) .
+In primo luogo, è necessario configurare la registrazione e le metriche di Archiviazione di Azure, in modo da disporre di dati dal lato del servizio da analizzare. È possibile configurare la registrazione e le metriche in diversi modi, tramite il portale di [Azure,](https://portal.azure.com)tramite PowerShell o a livello di codice. Per informazioni dettagliate sulla configurazione della registrazione e delle metriche, vedere [Abilitare le metriche](storage-analytics-metrics.md#enable-metrics-using-the-azure-portal) e [Abilitare la registrazione.](storage-analytics-logging.md#enable-storage-logging)
 
 ### <a name="configure-net-client-side-logging"></a>Configurare la registrazione sul lato client .NET
 
@@ -126,7 +126,7 @@ Per informazioni dettagliate, vedere [l'argomento relativo all'uso delle funzion
 
 ## <a name="review-metrics-data-in-the-azure-portal"></a>Esaminare i dati delle metriche nel portale di Azure
 
-Dopo un certo periodo di esecuzione dell'applicazione, è possibile esaminare i grafici delle metriche visualizzati nel [portale di Azure](https://portal.azure.com) per verificare le prestazioni del servizio.
+Dopo che l'applicazione è stata eseguita per un periodo di tempo, è possibile esaminare i grafici delle metriche visualizzati nel portale di [Azure](https://portal.azure.com) per osservare le prestazioni del servizio.
 
 Come primo passaggio, accedere all'account di archiviazione nel portale di Azure. Per impostazione predefinita, nel pannello dell'account viene visualizzato un grafico di monitoraggio con la metrica **Percentuale di operazioni riuscite**. Se il grafico è stato precedentemente modificato in modo da visualizzare altri tipi di metriche, aggiungere la metrica **Percentuale di operazioni riuscite**.
 
@@ -143,7 +143,7 @@ Per altre informazioni sull'aggiunta e la personalizzazione di grafici di metric
 
 Archiviazione di Azure scrive i dati di log del server nei BLOB, mentre le metriche vengono scritti nelle tabelle. I BLOB di log sono disponibili nel noto contenitore `$logs` per l'account di archiviazione. Dato che i BLOB sono denominati in modo gerarchico per anno, mese, giorno e ora, è possibile individuare facilmente l'intervallo di tempo da esaminare. Ad esempio, nell'account `storagesample`, il contenitore per i BLOB di log relativi al 02/01/2015, dalle 8 alle 9, è `https://storagesample.blob.core.windows.net/$logs/blob/2015/01/08/0800`. I singoli BLOB nel contenitore sono denominati in sequenza, a partire da `000000.log`.
 
-È possibile usare lo strumento da riga di comando AzCopy per scaricare questi file di log lato server nel percorso desiderato sul computer locale. Ad esempio, è possibile usare il comando seguente per scaricare i file di log per le operazioni BLOB effettuate il 2 gennaio 2015 alla cartella `C:\Temp\Logs\Server`; sostituire `<storageaccountname>` con il nome dell'account di archiviazione:
+È possibile usare lo strumento da riga di comando AzCopy per scaricare questi file di log lato server nel percorso desiderato sul computer locale. Ad esempio, è possibile usare il comando seguente per scaricare i file di log per `C:\Temp\Logs\Server`le operazioni BLOB avvenute il 2 gennaio 2015 nella cartella ; sostituire `<storageaccountname>` con il nome dell'account di archiviazione:
 
 ```azcopy
 azcopy copy 'http://<storageaccountname>.blob.core.windows.net/$logs/blob/2015/01/02' 'C:\Temp\Logs\Server'  --recursive
@@ -232,7 +232,7 @@ Oltre a usare i layout di visualizzazione di Archiviazione di Azure, è possibil
 
 Le risorse di archiviazione includono anche regole colore, che consentono di identificare visivamente i diversi tipi di errore nella griglia di analisi. Le regole colore predefinite sono valide per gli errori HTTP, quindi sono disponibili solo per il log del server e per la traccia di rete.
 
-Per applicare le regole colore, selezionare **Regole colori** sulla barra multifunzione. Nel menu sono presenti le regole colore di Archiviazione di Azure. Per l'esercitazione selezionare **Errori del client (StatusCode tra 400 e 499)** , come mostrato nell'immagine seguente.
+Per applicare le regole colore, selezionare **Regole colori** sulla barra multifunzione. Nel menu sono presenti le regole colore di Archiviazione di Azure. Per l'esercitazione selezionare **Errori del client (StatusCode tra 400 e 499)**, come mostrato nell'immagine seguente.
 
 ![Layout di visualizzazione di Archiviazione di Azure](./media/storage-e2e-troubleshooting/color-rules-menu.png)
 
@@ -287,8 +287,8 @@ L'immagine seguente mostra una richiesta specifica in cui un'operazione Get Blob
 
 Successivamente, questo ID richiesta client verrà correlato con i dati del log del client per mostrare le azioni che il client stava effettuando quando si è verificato l'errore. È possibile ottenere una nuova visualizzazione della griglia di analisi per la sessione corrente per visualizzare i dati del log del client, che viene aperto in una seconda scheda:
 
-1. Copiare innanzitutto il valore del campo **ClientRequestId** negli Appunti. A questo scopo, selezionare una delle due righe, trovare il campo **ClientRequestId**, fare clic con il pulsante destro del mouse sul valore dei dati e scegliere **Copia 'ClientRequestId'** .
-2. Sulla barra multifunzione selezionare **nuovo Visualizzatore**, quindi selezionare **griglia di analisi** per aprire una nuova scheda. La nuova scheda Mostra tutti i dati nei file di log, senza raggruppamento, filtro o regole colore.
+1. Copiare innanzitutto il valore del campo **ClientRequestId** negli Appunti. A questo scopo, selezionare una delle due righe, trovare il campo **ClientRequestId**, fare clic con il pulsante destro del mouse sul valore dei dati e scegliere **Copia 'ClientRequestId'**.
+2. Nella barra multifunzione della barra degli strumenti selezionare **Nuovo visualizzatore**, quindi **Griglia di analisi** per aprire una nuova scheda. La nuova scheda mostra tutti i dati nei file di registro, senza regole di raggruppamento, filtro o colore.
 3. Sulla barra multifunzione selezionare **Visualizza layout** e scegliere **Tutte le colonne del client .NET** nella sezione **Archiviazione di Azure**. In questo layout di visualizzazione sono presenti dati tratti dal log del client, nonché dal log del server e dal log della traccia di rete. Per impostazione predefinita, è ordinato in base alla colonna **MessageNumber** .
 4. Cercare quindi l'ID richiesta client nel log del client. Sulla barra multifunzione selezionare **Trova messaggi** e specificare un filtro personalizzato in base all'ID richiesta client nel campo **Trova**. Usare questa sintassi per il filtro, specificando il proprio ID richiesta client:
 
@@ -311,14 +311,14 @@ Dopo avere acquisito familiarità con l'uso di Message Analyzer per analizzare i
 | Ritardi imprevisti nel recapito dei messaggi in una coda |AzureStorageClientDotNetV4.Description   contains "Retrying failed operation." |Client |
 | Aumento di PercentThrottlingError HTTP |HTTP.Response.StatusCode   == 500 &#124;&#124; HTTP.Response.StatusCode == 503 |Rete |
 | Aumento di PercentTimeoutError |HTTP.Response.StatusCode   == 500 |Rete |
-| Aumento di PercentTimeoutError (tutti) |*StatusCode   == 500 |Tutto |
+| Aumento di PercentTimeoutError (tutti) |*StatusCode   == 500 |Tutti |
 | Aumento di PercentNetworkError |AzureStorageClientDotNetV4.EventLogEntry.Level   < 2 |Client |
 | Messaggi HTTP 403 (Accesso negato) |HTTP.Response.StatusCode   == 403 |Rete |
 | Messaggi HTTP 404 (Non trovato) |HTTP.Response.StatusCode   == 404 |Rete |
-| 404 (tutti) |*StatusCode   == 404 |Tutto |
+| 404 (tutti) |*StatusCode   == 404 |Tutti |
 | Problema di autorizzazione della firma di accesso condiviso |AzureStorageLog.RequestStatus ==  "SASAuthorizationError" |Rete |
 | Messaggi HTTP 409 (Conflitto) |HTTP.Response.StatusCode   == 409 |Rete |
-| 409 (tutti) |*StatusCode   == 409 |Tutto |
+| 409 (tutti) |*StatusCode   == 409 |Tutti |
 | Un valore PercentSuccess basso o le voci del log di analisi contengono operazioni con stato della transazione ClientOtherErrors |AzureStorageLog.RequestStatus ==   "ClientOtherError" |Server |
 | Avviso Nagle |((AzureStorageLog.EndToEndLatencyMS   - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS *   1.5)) e (AzureStorageLog.RequestPacketSize <1460) e (AzureStorageLog.EndToEndLatencyMS -   AzureStorageLog.ServerLatencyMS >= 200) |Server |
 | Intervallo di tempo nei log del server e di rete |#Timestamp   >= 2014-10-20T16:36:38 e #Timestamp <= 2014-10-20T16:36:39 |Server, Rete |
@@ -328,8 +328,8 @@ Dopo avere acquisito familiarità con l'uso di Message Analyzer per analizzare i
 
 Per altre informazioni sugli scenari end-to-end di risoluzione dei problemi di archiviazione di Azure, vedere le risorse seguenti:
 
-* [Monitoraggio, diagnosi e risoluzione dei problemi del servizio di archiviazione di Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md)
-* [Analisi archiviazione](https://msdn.microsoft.com/library/azure/hh343270.aspx)
+* [Monitorare, diagnosticare e risolvere i problemi dell'Archiviazione di Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md)
+* [di Analisi archiviazione](https://msdn.microsoft.com/library/azure/hh343270.aspx)
 * [Monitorare un account di archiviazione nel portale di Azure](storage-monitor-storage-account.md)
 * [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md)
 * [Guida operativa di Microsoft Message Analyzer](https://technet.microsoft.com/library/jj649776.aspx)

@@ -1,15 +1,15 @@
 ---
-title: INTERFACCIA della riga di comando di Azure Service Fabric-cluster sfctl
-description: Informazioni su sfctl, l'interfaccia della riga di comando di Azure Service Fabric. Include un elenco di comandi per la gestione dei cluster.
+title: Interfaccia di rete di Azure Service Fabric - cluster sfctlAzure Service Fabric CLI- sfctl cluster
+description: Informazioni su sfctl, l'interfaccia della riga di comando di Azure Service Fabric.Learn about sfctl, the Azure Service Fabric command line interface. Include un elenco di comandi per la gestione dei cluster.
 author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 007ad6f59f0ce304db579f4faa1bb95611a93a37
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76906146"
 ---
 # <a name="sfctl-cluster"></a>sfctl cluster
@@ -17,11 +17,11 @@ Selezionare, gestire e usare dei cluster di Service Fabric.
 
 ## <a name="commands"></a>Comandi:
 
-|Comando|Description|
+|Comando|Descrizione|
 | --- | --- |
 | code-versions | Mostra un elenco di versioni del codice di un'infrastruttura di cui viene effettuato il provisioning in un cluster di Service Fabric. |
 | config-versions | Mostra un elenco di versioni di configurazione di un'infrastruttura di cui viene effettuato il provisioning in un cluster di Service Fabric. |
-| settore sanitario | Mostra l'integrità di un cluster di Service Fabric. |
+| health | Mostra l'integrità di un cluster di Service Fabric. |
 | manifest | Mostra il manifesto del cluster di Service Fabric. |
 | operation-cancel | Annulla un'operazione di errore indotta dall'utente. |
 | operation-list | Mostra un elenco di operazioni di errore indotte dall'utente filtrato in base all'input specificato. |
@@ -44,14 +44,14 @@ Mostra un elenco di informazioni sulle versioni del codice di un'infrastruttura 
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --code-version | Versione del prodotto di Service Fabric. |
-| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica il periodo di tempo durante il quale il client è disposto ad attendere il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |
@@ -66,14 +66,14 @@ Mostra un elenco di informazioni sulle versioni di configurazione di un'infrastr
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --config-version | Versione di configurazione di Service Fabric. |
-| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica il periodo di tempo durante il quale il client è disposto ad attendere il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |
@@ -88,18 +88,18 @@ Usare EventsHealthStateFilter per filtrare la raccolta di eventi di stato riport
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --applications-health-state-filter | Consente di filtrare gli oggetti dello stato di integrità delle applicazioni restituiti nel risultato della query sull'integrità dei cluster in base al relativo stato di integrità. I valori possibili per questo parametro includono il valore intero ottenuto da membri o operazioni bit per bit sui membri dell'enumerazione HealthStateFilter. Vengono restituite solo le applicazioni che corrispondono al filtro. Tutte le applicazioni vengono usate per valutare lo stato di integrità aggregato. Se non specificato diversamente, vengono restituite tutte le voci. I valori dello stato sono enumerati in base al flag, pertanto il valore potrebbe essere una combinazione di questi valori ottenuti usando l'operatore "OR" bit per bit. Ad esempio, se il valore indicato è 6, viene restituito lo stato di integrità delle applicazioni il cui valore di HealthState è OK (2) e Warning (4).  <br> - Default - Valore predefinito. Consente di ricercare qualsiasi stato di integrità. Il valore predefinito è zero.  <br> - None - Il filtro non corrisponde ad alcun valore di stato di integrità. Usato per non restituire alcun risultato in un determinato insieme di stati. Il valore è uguale a 1.  <br> -Ok - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Ok. Il valore è 2.  <br> -Warning - filtro che ricerca le corrispondenze di input con valore di stato di integrità Avviso. Il valore è 4.  <br> - Error - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Errore. Il valore è 8.  <br> -All - Filtro che ricerca le corrispondenze di input con qualsiasi valore di stato di integrità. Il valore è 65535. |
 | --events-health-state-filter | Consente di filtrare la raccolta di oggetti HealthEvent restituiti in base allo stato di integrità. I valori possibili per questo parametro includono il valore intero di uno dei seguenti stati di integrità. Vengono restituiti solo gli eventi che corrispondono al filtro. Tutti gli eventi vengono usati per valutare lo stato di integrità aggregato. Se non specificato diversamente, vengono restituite tutte le voci. I valori dello stato sono enumerati in base al flag, pertanto il valore potrebbe essere una combinazione di questi valori ottenuti usando l'operatore "OR" bit per bit. Ad esempio, se il valore fornito è 6, vengono restituiti tutti gli eventi con valore dello stato di integrità OK (2) e di Avviso (4).  <br> - Default - Valore predefinito. Consente di ricercare qualsiasi stato di integrità. Il valore predefinito è zero.  <br> - None - Il filtro non corrisponde ad alcun valore di stato di integrità. Usato per non restituire alcun risultato in un determinato insieme di stati. Il valore è uguale a 1.  <br> -Ok - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Ok. Il valore è 2.  <br> -Warning - filtro che ricerca le corrispondenze di input con valore di stato di integrità Avviso. Il valore è 4.  <br> - Error - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Errore. Il valore è 8.  <br> -All - Filtro che ricerca le corrispondenze di input con qualsiasi valore di stato di integrità. Il valore è 65535. |
 | --exclude-health-statistics | Indica se le statistiche di integrità devono essere restituite come parte del risultato della query. False per impostazione predefinita. Le statistiche indicano il numero di entità figlio il cui stato di integrità è Ok, Avviso ed Errore. |
 | --include-system-application-health-statistics | Indica se le statistiche di integrità devono includere le statistiche di integrità di sistema dell'applicazione fabric\:/System. False per impostazione predefinita. Se IncludeSystemApplicationHealthStatistics è impostato su true, le statistiche di integrità includono le entità che appartengono all'applicazione fabric\:/System. In caso contrario, il risultato della query includerà soltanto le statistiche di integrità per le applicazioni utente. Per applicare questo parametro, è necessario includere le statistiche di integrità nel risultato della query. |
 | --nodes-health-state-filter | Consente di filtrare gli oggetti dello stato di integrità dei nodi restituiti nel risultato della query sull'integrità dei cluster in base al relativo stato di integrità. I valori possibili per questo parametro includono il valore intero di uno dei seguenti stati di integrità. Vengono restituiti solo i nodi che corrispondono al filtro. Tutti i nodi vengono usati per valutare lo stato di integrità aggregato. Se non specificato diversamente, vengono restituite tutte le voci. I valori dello stato sono enumerati in base al flag, pertanto il valore potrebbe essere una combinazione di questi valori ottenuti usando l'operatore "OR" bit per bit. Ad esempio, se il valore fornito è 6, viene restituito lo stato di integrità dei nodi con valore di HealthState OK (2) e Warning (4).  <br> - Default - Valore predefinito. Consente di ricercare qualsiasi stato di integrità. Il valore predefinito è zero.  <br> - None - Il filtro non corrisponde ad alcun valore di stato di integrità. Usato per non restituire alcun risultato in un determinato insieme di stati. Il valore è uguale a 1.  <br> -Ok - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Ok. Il valore è 2.  <br> -Warning - filtro che ricerca le corrispondenze di input con valore di stato di integrità Avviso. Il valore è 4.  <br> - Error - Filtro che ricerca le corrispondenze di input con valore di stato di integrità Errore. Il valore è 8.  <br> -All - Filtro che ricerca le corrispondenze di input con qualsiasi valore di stato di integrità. Il valore è 65535. |
-| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica il periodo di tempo durante il quale il client è disposto ad attendere il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |
@@ -110,17 +110,17 @@ Usare EventsHealthStateFilter per filtrare la raccolta di eventi di stato riport
 ## <a name="sfctl-cluster-manifest"></a>sfctl cluster manifest
 Mostra il manifesto del cluster di Service Fabric.
 
-Mostra il manifesto del cluster di Service Fabric. Il manifesto del cluster contiene le proprietà del cluster che includono tipi di nodo diversi nel cluster, le configurazioni di sicurezza, gli errori e le topologie di dominio di aggiornamento e così via. Queste proprietà vengono specificate come parte del file ClusterConfig. JSON durante la distribuzione di un cluster autonomo. Tuttavia, la maggior parte delle informazioni contenute nel manifesto del cluster viene generata internamente da Service Fabric durante la distribuzione del cluster in altri scenari di distribuzione (ad esempio, quando si usa il portale di Azure). Il contenuto del manifesto del cluster è solo a scopo informativo; gli utenti non sono tenuti a usare una dipendenza dal formato del contenuto dei file o dalla loro interpretazione.
+Mostra il manifesto del cluster di Service Fabric. Il manifesto del cluster contiene le proprietà del cluster che includono diversi tipi di nodo nel cluster, configurazioni di sicurezza, errori e topologie di dominio di aggiornamento e così via. Queste proprietà vengono specificate come parte del file ClusterConfig.JSON durante la distribuzione di un cluster autonomo. Tuttavia, la maggior parte delle informazioni contenute nel manifesto del cluster viene generata internamente da Service Fabric durante la distribuzione del cluster in altri scenari di distribuzione (ad esempio, quando si usa il portale di Azure). Il contenuto del manifesto del cluster è solo a scopo informativo; gli utenti non sono tenuti a usare una dipendenza dal formato del contenuto dei file o dalla loro interpretazione.
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
-| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica il periodo di tempo durante il quale il client è disposto ad attendere il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |
@@ -131,19 +131,19 @@ Mostra il manifesto del cluster di Service Fabric. Il manifesto del cluster cont
 ## <a name="sfctl-cluster-operation-cancel"></a>sfctl cluster operation-cancel
 Annulla un'operazione di errore indotta dall'utente.
 
-Le API seguenti avviano le operazioni di errore che possono essere annullate usando CancelOperation\: StartDataLoss, StartQuorumLoss, StartPartitionRestart, StartNodeTransition. Se force è false, l'operazione specificata indotta dall'utente verrà normalmente arrestata e pulita.  Se force è true, il comando verrà interrotto e parte dello stato interno potrebbe permanere.  L'impostazione di force su true deve essere usata con cautela. La chiamata a questa API con force impostato su true è consentita solo se questa API è già stata chiamata prima sullo stesso comando di test con force impostato su false oppure se il valore di un elemento OperationState del comando di test è già OperationState.RollingBack. Chiarimento\: OperationState.RollingBack indica che il sistema eseguirà/esegue la pulizia dello stato del sistema interno in seguito all'esecuzione del comando.  Non ripristinerà i dati se il comando di test doveva causare la perdita dei dati.  Se ad esempio si chiama StartDataLoss, quindi si chiama questa API, il sistema pulirà lo stato interno solo a partire dall'esecuzione del comando. Non ripristinerà i dati della partizione di destinazione, se il comando è stato eseguito abbastanza a lungo da causare la perdita di dati. Nota importante\: se questa API viene richiamata con Force = = true, lo stato interno potrebbe essere lasciato indietro.
+Le API seguenti avviano operazioni di errore che\: possono essere annullate utilizzando CancelOperation StartDataLoss, StartQuorumLoss, StartPartitionRestart, StartNodeTransition.The following APIs start fault operations that may be canceled by using CancelOperation StartDataLoss, StartQuorumLoss, StartPartitionRestart, StartNodeTransition. Se force è false, l'operazione specificata indotta dall'utente verrà normalmente arrestata e pulita.  Se force è true, il comando verrà interrotto e parte dello stato interno potrebbe permanere.  L'impostazione di force su true deve essere usata con cautela. La chiamata a questa API con force impostato su true è consentita solo se questa API è già stata chiamata prima sullo stesso comando di test con force impostato su false oppure se il valore di un elemento OperationState del comando di test è già OperationState.RollingBack. Chiarimento\: OperationState.RollingBack indica che il sistema eseguirà/esegue la pulizia dello stato del sistema interno in seguito all'esecuzione del comando.  Non ripristinerà i dati se il comando di test doveva causare la perdita dei dati.  Se ad esempio si chiama StartDataLoss, quindi si chiama questa API, il sistema pulirà lo stato interno solo a partire dall'esecuzione del comando. Non ripristinerà i dati della partizione di destinazione, se il comando è stato eseguito abbastanza a lungo da causare la perdita di dati. Nota\: importante: se questa API viene richiamata con force, lo stato interno può essere lasciato indietro.
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --operation-id [obbligatorio] | Una GUID che identifica una chiamata dell'API.  Viene passato all'API GetProgress corrispondente. |
 | --force | Indica se eseguire normalmente il rollback e pulire lo stato di sistema interno modificato eseguendo l'operazione indotta dall'utente. |
-| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica il periodo di tempo durante il quale il client è disposto ad attendere il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |
@@ -158,15 +158,15 @@ Mostra l'elenco di operazioni di errore indotte dall'utente filtrato in base all
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
-| --state-filter | Usato per filtrare le operazioni indotte dall'utente negli elementi OperationState. -65535-Seleziona tutto-1-Seleziona in esecuzione-2-Selezionare RollingBack-8-seleziona completato-16-seleziona Errori-32-seleziona annullato-64-selezionare ForceCancelled.  Impostazione predefinita\: 65535. |
-| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
-| --type-filter | Usato per filtrare le operazioni indotte dall'utente negli elementi OperationType. -65535-selezionare All-1-Select PartitionDataLoss. -2-Selezionare PartitionQuorumLoss. -4: selezionare PartitionRestart. -8: selezionare NodeTransition.  Impostazione predefinita\: 65535. |
+| --state-filter | Usato per filtrare le operazioni indotte dall'utente negli elementi OperationState. - 65535 - selezionare Tutto - 1 - selezionare In esecuzione - 2 - selezionare RollBack - 8 - selezionare Completato - 16 - selezionare Errore - 32 - selezionare Annullato - 64 - selezionare ForceCancelled.  Impostazione predefinita\: 65535. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica il periodo di tempo durante il quale il client è disposto ad attendere il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
+| --type-filter | Usato per filtrare le operazioni indotte dall'utente negli elementi OperationType. - 65535 - selezionare tutto - 1 - selezionare PartitionDataLoss. - 2 - selezionare PartitionQuorumLoss.- 2 - select PartitionQuorumLoss. - 4 - selezionare PartitionRestart.- 4 - select PartitionRestart. - 8 - selezionare NodeTransition.- 8 - select NodeTransition.  Impostazione predefinita\: 65535. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |
@@ -181,15 +181,15 @@ Esegue la convalida e il provisioning dei pacchetti di codici o configurazioni d
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --cluster-manifest-file-path | Percorso file del manifesto del cluster. |
 | --code-file-path | Percorso file del pacchetto di codice del cluster. |
-| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica il periodo di tempo durante il quale il client è disposto ad attendere il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |
@@ -204,13 +204,13 @@ Indica al cluster di Service Fabric che deve provare a recuperare i servizi di s
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
-| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica il periodo di tempo durante il quale il client è disposto ad attendere il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |
@@ -221,11 +221,11 @@ Indica al cluster di Service Fabric che deve provare a recuperare i servizi di s
 ## <a name="sfctl-cluster-report-health"></a>sfctl cluster report-health
 Invia un report di integrità nel cluster di Service Fabric.
 
-Invia un report di stato su un cluster Service Fabric. Il report deve contenere le informazioni relative all'origine del report sull'integrità e alla proprietà in cui viene segnalato. Il report viene inviato a un nodo del gateway di Service Fabric, che lo inoltra all'archivio integrità. Il report può essere accettato dal gateway, ma rifiutato dall'archivio integrità dopo la convalida aggiuntiva. L'archivio integrità, ad esempio, può rifiutare il report a causa di un parametro non valido, come un numero di sequenza non aggiornato. Per verificare se il report è stato applicato nell'archivio integrità, eseguire GetClusterHealth e verificare che il report venga visualizzato nella sezione HealthEvents.
+Invia un report sull'integrità in un cluster di Service Fabric. Il report deve contenere le informazioni relative all'origine del report sull'integrità e alla proprietà in cui viene segnalato. Il report viene inviato a un nodo del gateway di Service Fabric, che lo inoltra all'archivio integrità. Il report può essere accettato dal gateway, ma rifiutato dall'archivio integrità dopo la convalida aggiuntiva. L'archivio integrità, ad esempio, può rifiutare il report a causa di un parametro non valido, come un numero di sequenza non aggiornato. Per verificare se il report è stato applicato nell'archivio integrità, eseguire GetClusterHealth e verificare che venga visualizzato nella sezione HealthEvents.
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --health-property [obbligatorio] | Proprietà delle informazioni sull'integrità. <br><br> Un'entità può avere report sull'integrità per proprietà diverse. La proprietà è una stringa e non un'enumerazione fissa, che assicura al reporter la flessibilità necessaria per definire la categoria della condizione di stato che attiva il report. Ad esempio, un reporter con SourceId "LocalWatchdog" può monitorare lo stato del disco disponibile in un nodo e può quindi segnalare la proprietà "AvailableDisk" in tale nodo. Lo stesso reporter può monitorare la connettività del nodo e può quindi segnalare una proprietà "Connectivity" nello stesso nodo. Entrambi questi report vengono considerati come eventi di integrità separati nell'archivio integrità per il nodo specificato. Insieme a SourceId, la proprietà identifica in modo univoco le informazioni sull'integrità. |
 | --health-state    [obbligatorio] | I valori possibili sono\: "Invalid", "Ok", "Warning", "Error", "Unknown". |
@@ -239,7 +239,7 @@ Invia un report di stato su un cluster Service Fabric. Il report deve contenere 
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |
@@ -250,23 +250,23 @@ Invia un report di stato su un cluster Service Fabric. Il report deve contenere 
 ## <a name="sfctl-cluster-select"></a>sfctl cluster select
 Si connette a un endpoint di cluster di Service Fabric.
 
-In caso di connessione a un cluster sicuro, specificare un percorso assoluto a un certificato (CRT), un file di chiave (KEY) o un singolo file con entrambi (PEM). Non specificare entrambi. Facoltativamente, in caso di connessione a un cluster sicuro, specificare anche un percorso assoluto a un file di aggregazione CA o a una directory di certificati della CA attendibili.  Non esiste alcuna connessione a un cluster senza eseguire prima questo comando, inclusa una connessione a localhost. Tuttavia, non è necessario alcun endpoint esplicito per la connessione a un cluster locale.  Se si usa un certificato autofirmato o un altro certificato non firmato da un'autorità di certificazione ben nota, passare il parametro--CA per assicurarsi che la convalida venga passata. Se non è presente in un cluster di produzione, per ignorare la convalida lato client (utile per la firma autofirmata o non nota firmata), usare l'opzione--No-Verify. Sebbene sia possibile, non è consigliabile per i cluster di produzione. In caso contrario, può verificarsi un errore di verifica del certificato.
+In caso di connessione a un cluster sicuro, specificare un percorso assoluto a un certificato (CRT), un file di chiave (KEY) o un singolo file con entrambi (PEM). Non specificare entrambi. Facoltativamente, in caso di connessione a un cluster sicuro, specificare anche un percorso assoluto a un file di aggregazione CA o a una directory di certificati della CA attendibili.  Non esiste alcuna connessione a un cluster senza prima eseguire questo comando, inclusa una connessione a localhost. Tuttavia, non è necessario alcun endpoint esplicito per la connessione a un cluster locale.  Se si utilizza un certificato autofirmato o un altro certificato non firmato da una CA nota, passare il parametro --ca per assicurarsi che la convalida venga superata. Se non si è in un cluster di produzione, per ignorare la convalida lato client (utile per CA autofirmata o non nota), utilizzare l'opzione --no-verify. Sebbene possibile, non è consigliabile per i cluster di produzione. Un errore di verifica del certificato può causare un altro risultato.
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --aad | Consente di usare l'autenticazione tramite Azure Active Directory. |
-| --ca | Percorso assoluto alla directory contenente i certificati delle autorità di certificazione da considerare come validi o al file di aggregazione delle autorità di certificazione. Se si usa una directory di certificati della CA, è prima necessario eseguire il comando `c_rehash <directory>` OpenSSL per calcolare gli hash dei certificati e creare i collegamenti simbolici appropriati. Viene usato per verificare che il certificato restituito dal cluster sia valido. |
+| --ca | Percorso assoluto alla directory contenente i certificati delle autorità di certificazione da considerare come validi o al file di aggregazione delle autorità di certificazione. Se si usa una directory di certificati della CA, è prima necessario eseguire il comando `c_rehash <directory>` OpenSSL per calcolare gli hash dei certificati e creare i collegamenti simbolici appropriati. Viene utilizzato per verificare che il certificato restituito dal cluster sia valido. |
 | --cert | Percorso assoluto a un file di certificato client. |
-| --endpoint | URL dell'endpoint del cluster, incluso la porta e il prefisso HTTP o HTTPS. In genere, l'endpoint sarà simile a https\://< l'URL >\:19080. Se non viene specificato alcun endpoint, il valore predefinito sarà http\://localhost\:19080.  Il valore predefinito\: http\://localhost\:19080. |
+| --endpoint | URL dell'endpoint del cluster, incluso la porta e il prefisso HTTP o HTTPS. In genere, l'endpoint\:avrà un aspetto \:simile a https //<your-url>19080. Se non viene fornito alcun endpoint, il valore predefinito sarà http\://localhost\:19080.  Predefinito\: \:http //localhost\:19080. |
 | --key | Percorso assoluto al file della chiave del certificato client. |
 | --no-verify | Disabilita la verifica dei certificati quando si usa il protocollo HTTPS. Nota\: si tratta di un'opzione non sicura, che non deve essere usata per gli ambienti di produzione. |
 | --pem | Percorso assoluto a un certificato client, sotto forma di file con estensione PEM. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |
@@ -279,7 +279,7 @@ Mostra i cluster di Service Fabric a cui è connessa l'istanza sfctl.
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |
@@ -294,15 +294,15 @@ Annulla il provisioning dei pacchetti di codici o configurazioni di un cluster d
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --code-version | Versione del pacchetto di codice del cluster. |
 | --config-version | Versione del manifesto del cluster. |
-| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica il periodo di tempo durante il quale il client è disposto ad attendere il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |
@@ -317,7 +317,7 @@ Convalida i parametri di aggiornamento forniti e avvia l'aggiornamento della ver
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --app-health-map | Dizionario con codifica JSON delle coppie di nomi dell'applicazione e percentuale massima di stato non integro prima che venga generato l'errore. |
 | --app-type-health-map | Dizionario con codifica JSON delle coppie di nomi del tipo di applicazione e percentuale massima di stato non integro prima che venga generato l'errore. |
@@ -342,7 +342,7 @@ Convalida i parametri di aggiornamento forniti e avvia l'aggiornamento della ver
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |
@@ -357,14 +357,14 @@ Consente all'aggiornamento del codice o della configurazione del cluster di pass
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --upgrade-domain [Obbligatorio] | Dominio di aggiornamento successivo per questo aggiornamento del cluster. |
-| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica il periodo di tempo durante il quale il client è disposto ad attendere il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |
@@ -379,13 +379,13 @@ Esegue il rollback dell'aggiornamento di codici o configurazioni di un cluster d
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
-| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica il periodo di tempo durante il quale il client è disposto ad attendere il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |
@@ -400,13 +400,13 @@ Mostra lo stato di avanzamento corrente dell'aggiornamento del cluster in corso.
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
-| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica la durata del periodo di attesa del client per il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
+| --timeout -t | Timeout del server per l'esecuzione dell'operazione in secondi. Questo timeout specifica il periodo di tempo durante il quale il client è disposto ad attendere il completamento dell'operazione richiesta. Il valore predefinito per questo parametro è 60 secondi.  Impostazione predefinita\: 60. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |
@@ -419,7 +419,7 @@ Aggiorna i parametri di aggiornamento di un cluster di Service Fabric.
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --app-health-map | Dizionario con codifica JSON delle coppie di nomi dell'applicazione e percentuale massima di stato non integro prima che venga generato l'errore. |
 | --app-type-health-map | Dizionario con codifica JSON delle coppie di nomi del tipo di applicazione e percentuale massima di stato non integro prima che venga generato l'errore. |
@@ -443,7 +443,7 @@ Aggiorna i parametri di aggiornamento di un cluster di Service Fabric.
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |

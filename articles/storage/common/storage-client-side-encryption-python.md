@@ -1,5 +1,5 @@
 ---
-title: Crittografia lato client con Python
+title: Crittografia lato client con PythonClient-side encryption with Python
 titleSuffix: Azure Storage
 description: La libreria client di archiviazione di Azure per Python offre supporto per la crittografia lato client per la massima sicurezza delle applicazioni di archiviazioni Azure.
 services: storage
@@ -12,13 +12,13 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 16e66cd762b86b27dc6703542ca7261b2300a33b
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74895377"
 ---
-# <a name="client-side-encryption-with-python"></a>Crittografia lato client con Python
+# <a name="client-side-encryption-with-python"></a>Crittografia lato client con PythonClient-side encryption with Python
 
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
 
@@ -54,7 +54,7 @@ La decrittografia tramite la tecnica basata su envelope funziona nel modo seguen
 La libreria client di archiviazione usa [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) per la crittografia dei dati utente. In particolare, si avvale della modalità [Cipher Block Chaining (CBC)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) con AES. Ogni servizio funziona in modo diverso, pertanto qui verrà illustrato ciascuno di essi.
 
 ### <a name="blobs"></a>BLOB
-La libreria client attualmente supporta la crittografia solo di interi BLOB. In particolare, la crittografia è supportata quando gli utenti utilizzano i metodi **create***. Per i download, sono supportati sia i download completi che quelli di intervallo ed è disponibile il calcolo parallelo dei download e degli upload.
+La libreria client attualmente supporta la crittografia solo di interi BLOB. In particolare, la crittografia è supportata quando gli utenti utilizzano i metodi **create**\*. Per i download, sono supportati sia i download completi che quelli di intervallo ed è disponibile il calcolo parallelo dei download e degli upload.
 
 Durante la crittografia, la libreria client genererà un vettore di inizializzazione (IV) casuale di 16 byte con una chiave di crittografia del contenuto (CEK) casuale di 32 byte ed eseguirà la crittografia envelope dei dati BLOB utilizzando queste informazioni. La CEK con wrapping e alcuni metadati di crittografia aggiuntivi vengono quindi archiviati come metadati BLOB insieme al BLOB crittografato nel servizio.
 
@@ -63,9 +63,9 @@ Durante la crittografia, la libreria client genererà un vettore di inizializzaz
 > 
 > 
 
-Il download di un BLOB crittografato comporta il recupero del contenuto dell'intero BLOB usando i metodi di servizio **get***. La CEK con wrapping viene sottoposta a rimozione del wrapping e utilizzata con il vettore di inizializzazione (archiviato come metadati BLOB in questo caso) per restituire i dati decrittografati agli utenti.
+Il download di un BLOB crittografato comporta il recupero del contenuto dell'intero BLOB usando i metodi di servizio **get**\*. La CEK con wrapping viene sottoposta a rimozione del wrapping e utilizzata con il vettore di inizializzazione (archiviato come metadati BLOB in questo caso) per restituire i dati decrittografati agli utenti.
 
-Il download di un intervallo arbitrario (metodi**get*** con parametri di intervallo passati) nel BLOB crittografato implica la regolazione dell'intervallo fornito dagli utenti per ottenere una piccola quantità di dati aggiuntivi che possono essere utilizzati per decrittografare correttamente l'intervallo richiesto.
+Il download di un intervallo arbitrario (metodi **get**\* con parametri di intervallo passati) nel BLOB crittografato implica la regolazione dell'intervallo fornito dagli utenti per ottenere una piccola quantità di dati aggiuntivi che possono essere utilizzati per decrittografare correttamente l'intervallo richiesto.
 
 I BLOB in blocchi e BLOB di pagine possono essere crittografati/decrittografati solamente con questo schema. Attualmente non è disponibile nessun supporto per la crittografia dei blob di accodamento.
 
@@ -97,7 +97,7 @@ La crittografia dei dati della tabella funziona nel modo seguente:
 
    Si noti che solo le proprietà di stringa possono essere crittografate. Se devono essere crittografati altri tipi di proprietà, essi devono essere convertiti in stringhe. Le stringhe crittografate vengono archiviate nel servizio come proprietà binarie e vengono convertite nuovamente in stringhe (stringhe non elaborate, non proprietà dell'entità con tipo EdmType.STRING) dopo la decrittografia.
 
-   Per le tabelle, oltre al criterio di crittografia, gli utenti devono specificare le proprietà da crittografare. Tale operazione può essere effettuata archiviando le proprietà in oggetti TableEntity con tipo impostato su EdmType.STRING e la crittografia impostata su true oppure impostando il parametro encryption_resolver_function sull'oggetto tableservice. Un resolver di crittografia è una funzione che accetta una chiave di partizione, una chiave di riga e un nome di proprietà e restituisce un valore booleano che indica se tale proprietà deve essere crittografata. Durante la crittografia, la libreria client utilizzerà queste informazioni per decidere se una proprietà deve essere crittografata durante la scrittura in rete. Il delegato fornisce inoltre la possibilità di logica per la modalità di crittografia delle proprietà. (Ad esempio, se X, quindi crittografare la proprietà A; in caso contrario, crittografare le proprietà A e B). Si noti che non è necessario fornire queste informazioni durante la lettura o l'esecuzione di query sulle entità.
+   Per le tabelle, oltre al criterio di crittografia, gli utenti devono specificare le proprietà da crittografare. Tale operazione può essere effettuata archiviando le proprietà in oggetti TableEntity con tipo impostato su EdmType.STRING e la crittografia impostata su true oppure impostando il parametro encryption_resolver_function sull'oggetto tableservice. Un resolver di crittografia è una funzione che accetta una chiave di partizione, una chiave di riga e un nome di proprietà e restituisce un valore booleano che indica se tale proprietà deve essere crittografata. Durante la crittografia, la libreria client utilizzerà queste informazioni per decidere se una proprietà deve essere crittografata durante la scrittura in rete. Il delegato fornisce inoltre la possibilità di logica per la modalità di crittografia delle proprietà. Ad esempio, se X, crittografare le proprietà A; altrimenti crittografare le proprietà A e B. Si noti che non è necessario fornire queste informazioni durante la lettura o l'esecuzione di query sulle entità.
 
 ### <a name="batch-operations"></a>Operazioni batch
 Un criterio di crittografia si applica a tutte le righe nel batch. La libreria client genera internamente un nuovo vettore di inizializzazione casuale e una CEK casuale per ogni riga nel batch. Gli utenti possono scegliere anche di crittografare proprietà diverse per ogni operazione nel batch mediante la definizione di questo comportamento nel resolver di crittografia.
@@ -141,7 +141,7 @@ Il resolver di chiavi deve implementare almeno un metodo che, dato un ID della c
   * Se specificato per ottenere la chiave, viene richiamato il resolver di chiave. Se il resolver è specificato, ma non dispone di un mapping per l'identificatore di chiave, viene generato un errore.
   * Se il resolver non è specificato, ma viene specificata una chiave, la chiave viene utilizzata se l’identificatore corrisponde all’identificatore della chiave richiesta. Se l'identificatore non corrisponde, viene generato un errore.
 
-    Gli esempi di crittografia in Azure. storage. Samples illustrano uno scenario end-to-end più dettagliato per BLOB, code e tabelle.
+    Gli esempi di crittografia in azure.storage.samples rappresentano uno scenario end-to-end più dettagliato per BLOB, code e tabelle.
       Esempi di implementazione del resolver di chiavi e della chiave KEK sono forniti nei file di esempio come KeyWrapper e KeyResolver.
 
 ### <a name="requireencryption-mode"></a>Modalità RequireEncryption

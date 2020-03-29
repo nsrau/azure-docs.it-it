@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 6854400f2152a5952a7b24dbd860d7ad4bfc943d
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76774928"
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>Come codificare un asset mediante Media Encoder Standard
@@ -29,11 +29,11 @@ ms.locfileid: "76774928"
 >
 >
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 
 Per distribuire un video digitale in Internet è necessario comprimere il file multimediale. I file video digitali hanno dimensioni piuttosto elevate e possono risultare troppo grandi per la distribuzione su Internet o per la visualizzazione corretta nei dispositivi dei clienti. Mediante il processo di codifica è possibile comprimere video e audio per consentire ai clienti di visualizzare i file multimediali.
 
-I processi di codifica sono tra le operazioni di elaborazione più frequenti in Servizi multimediali di Azure. I processi vengono codificati per convertire file multimediali da una codifica all'altra. Durante la codifica è possibile usare il codificatore multimediale incorporato in Servizi multimediali (Media Encoder Standard). È inoltre possibile usare un codificatore fornito da un partner di Servizi multimediali. I codificatori di terze parti sono disponibili tramite il Marketplace di Azure. È possibile specificare i dettagli relativi alle attività di codifica usando stringhe di set di impostazioni definite per il codificatore oppure file di configurazione di set di impostazioni. Per i tipi di set di impostazioni disponibili, vedere [Task Presets for Media Encoder Standard](https://msdn.microsoft.com/library/mt269960) (Set di impostazioni disponibili per Media Encoder Standard).
+I processi di codifica sono tra le operazioni di elaborazione più frequenti in Servizi multimediali di Azure. Questi processi vengono creati per convertire i file multimediali da una codifica all'altra. Durante la codifica è possibile usare il codificatore multimediale incorporato in Servizi multimediali (Media Encoder Standard). È inoltre possibile usare un codificatore fornito da un partner di Servizi multimediali. I codificatori di terze parti sono disponibili tramite il Marketplace di Azure. È possibile specificare i dettagli relativi alle attività di codifica usando stringhe di set di impostazioni definite per il codificatore oppure file di configurazione di set di impostazioni. Per i tipi di set di impostazioni disponibili, vedere [Task Presets for Media Encoder Standard](https://msdn.microsoft.com/library/mt269960) (Set di impostazioni disponibili per Media Encoder Standard).
 
 Ogni processo può includere una o più attività in base al tipo di elaborazione che si desidera eseguire. Usando l'API REST è possibile creare i processi e le attività correlate procedendo in due modi diversi:
 
@@ -42,7 +42,7 @@ Ogni processo può includere una o più attività in base al tipo di elaborazion
 
 È consigliabile codificare sempre i file di origine in un set MP4 a velocità in bit adattiva e quindi convertire il set nel formato desiderato mediante la [creazione dinamica dei pacchetti](media-services-dynamic-packaging-overview.md).
 
-Se l'asset di output è protetto con crittografia di archiviazione, è necessario configurare i criteri di distribuzione degli asset. Per altre informazioni, vedere [Configurazione dei criteri di distribuzione degli asset](media-services-rest-configure-asset-delivery-policy.md).
+Se l'asset di output è protetto con crittografia di archiviazione, è necessario configurare i criteri di distribuzione degli asset. Per ulteriori informazioni, consultate Configurazione dei criteri di [distribuzione degli asset.](media-services-rest-configure-asset-delivery-policy.md)
 
 ## <a name="considerations"></a>Considerazioni
 
@@ -50,7 +50,7 @@ Quando si accede alle entità in Servizi multimediali, è necessario impostare v
 
 Prima di iniziare a fare riferimento ai supporti multimediali, verificare di avere il corretto processore ID del supporto. Per altre informazioni, vedere [Ottenere processori di contenuti multimediali](media-services-rest-get-media-processor.md).
 
-## <a name="connect-to-media-services"></a>Connettersi a Servizi Multimediali
+## <a name="connect-to-media-services"></a>Connettersi a Servizi multimediali
 
 Per informazioni su come connettersi all'API AMS, vedere [Accedere all'API di Servizi multimediali di Azure con l'autenticazione di Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
@@ -59,7 +59,7 @@ Per informazioni su come connettersi all'API AMS, vedere [Accedere all'API di Se
 > [!NOTE]
 > Quando si usa l'API REST di Servizi multimediali, tenere presenti le seguenti considerazioni:
 >
-> Quando si accede alle entità in Servizi multimediali, è necessario impostare valori e campi di intestazione specifici nelle richieste HTTP. Per altre informazioni, vedere [Configurazione dello sviluppo dell'API REST di Servizi multimediali](media-services-rest-how-to-use.md).
+> Quando si accede alle entità in Servizi multimediali, è necessario impostare valori e campi di intestazione specifici nelle richieste HTTP. Per altre informazioni, vedere Configurazione per lo sviluppo di API REST di [Servizi multimediali.](media-services-rest-how-to-use.md)
 >
 > Se si usa JSON e si specifica di usare la parola chiave **__metadata** nella richiesta (ad esempio, per fare riferimento a un oggetto collegato) è necessario impostare l'intestazione **Accetta** sul [formato JSON Verbose](https://www.odata.org/documentation/odata-version-3-0/json-verbose-format/): Accetta: application/json;odata=verbose.
 >
@@ -273,11 +273,11 @@ Se l'esito è positivo, viene restituita la seguente risposta:
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Invia commenti e suggerimenti
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo aver spiegato il processo per la codifica di un asset, si può passare all'argomento [Procedura per controllare lo stato dei processi con Servizi multimediali](media-services-rest-check-job-progress.md).
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 [Ottenere processori di contenuti multimediali](media-services-rest-get-media-processor.md)

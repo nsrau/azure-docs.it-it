@@ -1,5 +1,5 @@
 ---
-title: Aggiungere un disco dati gestito a una macchina virtuale Windows-Azure
+title: Collegare un disco dati gestito a una macchina virtuale Windows - AzureAttach a managed data disk to a Windows VM - Azure
 description: Come collegare un disco dati gestito a una macchina virtuale Windows usando il portale di Azure.
 author: roygara
 ms.service: virtual-machines-windows
@@ -8,10 +8,10 @@ ms.date: 02/06/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: 0fe04941821de2ac6e4e873e8d073c3e9b9d9508
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77919380"
 ---
 # <a name="attach-a-managed-data-disk-to-a-windows-vm-by-using-the-azure-portal"></a>Collegare un disco dati gestito a una macchina virtuale Windows usando il portale di Azure
@@ -21,7 +21,7 @@ Questo articolo illustra come collegare un nuovo disco dati gestito a una macchi
 
 ## <a name="add-a-data-disk"></a>Aggiungere un disco dati
 
-1. Passare alla [portale di Azure](https://portal.azure.com) per aggiungere un disco dati. Cercare e selezionare **macchine virtuali**.
+1. Passare al portale di [Azure](https://portal.azure.com) per aggiungere un disco dati. Cercare e selezionare **Macchine virtuali**.
 2. Selezionare una macchina virtuale dall'elenco.
 3. Nella pagina **Macchina virtuale** selezionare **Dischi**.
 4. Nella pagina **Dischi** selezionare **Aggiungi disco dati**.
@@ -37,7 +37,7 @@ Questo articolo illustra come collegare un nuovo disco dati gestito a una macchi
 1. Nella macchina virtuale in esecuzione selezionare il menu **Start** di Windows e immettere **diskmgmt.msc** nella casella di ricerca. Viene visualizzata la console **Gestione disco**.
 2. Gestione disco rileva la presenza di un nuovo disco non inizializzato e viene quindi visualizzata la finestra **Inizializza disco**.
 3. Verificare che il nuovo disco sia selezionato e fare clic su **OK** per inizializzarlo.
-4. Il nuovo disco verrà visualizzato come **Non allocato**. Fare clic sul disco e scegliere **Nuovo volume semplice...** . Si avvia così la **Creazione guidata nuovo volume semplice**.
+4. Il nuovo disco verrà visualizzato come **Non allocato**. Fare clic sul disco e scegliere **Nuovo volume semplice...**. Si avvia così la **Creazione guidata nuovo volume semplice**.
 5. Eseguire la procedura guidata mantenendo tutti i valori predefiniti e, al termine, scegliere **Fine**.
 6. Chiudere **Gestione disco**.
 7. Viene visualizzata una finestra popup che indica la necessità di formattare il nuovo disco prima di poterlo usare. Selezionare **Formatta disco**.
@@ -48,4 +48,4 @@ Questo articolo illustra come collegare un nuovo disco dati gestito a una macchi
 ## <a name="next-steps"></a>Passaggi successivi
 
 - È anche possibile [collegare un disco dati usando PowerShell](attach-disk-ps.md).
-- Se l'applicazione deve usare l'unità *D:* : per archiviare i dati, è possibile [modificare la lettera di unità del disco temporaneo di Windows](change-drive-letter.md).
+- Se l'applicazione deve utilizzare l'unità *D:* per archiviare i dati, è possibile [modificare la lettera dell'unità del disco temporaneo di Windows.](change-drive-letter.md)

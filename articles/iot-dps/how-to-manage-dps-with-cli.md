@@ -1,6 +1,6 @@
 ---
-title: Gestire il servizio Device provisioning in hub Internet usando l'interfaccia della riga di comando di Azure & estensione Internet
-description: Informazioni su come usare l'interfaccia della riga di comando di Azure e l'estensione Internet per gestire il servizio Device provisioning in hub Internet (DPS)
+title: Gestire il servizio di provisioning dei dispositivi hub IoT usando l'interfaccia della riga di comando di AzureManage IoT Hub Device Provisioning Service using Azure CLI & IoT extension
+description: Informazioni su come usare l'interfaccia della riga di comando di Azure e l'estensione IoT per gestire il servizio DiOT Hub Device Provisioning Service (DPS)
 author: chrissie926
 ms.author: menchi
 ms.date: 01/17/2018
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: 03ec0b41ad910ff0d1dcdc17148e01ec94ea9fb0
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78674509"
 ---
 # <a name="how-to-use-azure-cli-and-the-iot-extension-to-manage-the-iot-hub-device-provisioning-service"></a>Come usare l'interfaccia della riga di comando di Azure e l'estensione IoT per gestire i servizi Device Provisioning in hub IoT
@@ -32,9 +32,9 @@ In questa esercitazione viene completata prima di tutto la procedura per la conf
 
 ### <a name="install-the-azure-cli"></a>Installare l'interfaccia della riga di comando di Azure
 
-Seguire le [istruzioni di installazione](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) per configurare l'interfaccia della riga di comando di Azure nell'ambiente. Come minimo, la versione dell'interfaccia della riga di comando di Azure deve essere 2.0.70 o successiva. Usare il comando `az –version` per verificare. Questa versione supporta i comandi dell'estensione az e introduce il framework dei comandi Knack. Un modo semplice per eseguire l'installazione in Windows è quello di scaricare e installare il file [MSI](https://aka.ms/InstallAzureCliWindows).
+Seguire le [istruzioni di installazione](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) per configurare l'interfaccia della riga di comando di Azure nell'ambiente. Come minimo, la versione dell'interfaccia della riga di comando di Azure deve essere 2.0.70 o superiore. Usare il comando `az –version` per verificare. Questa versione supporta i comandi dell'estensione az e introduce il framework dei comandi Knack. Un modo semplice per eseguire l'installazione in Windows è quello di scaricare e installare il file [MSI](https://aka.ms/InstallAzureCliWindows).
 
-### <a name="install-iot-extension"></a>Installare l'estensione Internet
+### <a name="install-iot-extension"></a>Installare l'estensione IoT
 
 Il [file Leggimi dell'estensione IoT](https://github.com/Azure/azure-iot-cli-extension) illustra diverse modalità per installare l'estensione. Il modo più semplice è quello di eseguire `az extension add --name azure-iot`. Dopo l'installazione, è possibile usare `az extension list` per convalidare le estensioni attualmente installate o `az extension show --name azure-iot` per visualizzare informazioni dettagliate sull'estensione IoT. Per rimuovere l'estensione, è possibile usare `az extension remove --name azure-iot`.
 
@@ -46,20 +46,20 @@ Questo esempio illustra come accedere all'account Azure, creare un gruppo di ris
 Prima di iniziare, completare la procedura di installazione illustrata in precedenza. Se non si ha un account Azure, è possibile [creare un account gratuito](https://azure.microsoft.com/free/?v=17.39a) subito. 
 
 
-### <a name="1-log-in-to-the-azure-account"></a>1. accedere all'account Azure
+### <a name="1-log-in-to-the-azure-account"></a>1. Accedere all'account Azure
   
     az login
 
 ![login](./media/how-to-manage-dps-with-cli/login.jpg)
 
-### <a name="2-create-a-resource-group-iothubblogdemo-in-eastus"></a>2. creare un gruppo di risorse IoTHubBlogDemo in eastus
+### <a name="2-create-a-resource-group-iothubblogdemo-in-eastus"></a>2. Creare un gruppo di risorse IoTHubBlogDemo in eastus
 
     az group create -l eastus -n IoTHubBlogDemo
 
 ![Creare un gruppo di risorse](./media/how-to-manage-dps-with-cli/create-resource-group.jpg)
 
 
-### <a name="3-create-two-device-provisioning-services"></a>3. creare due servizi Device provisioning
+### <a name="3-create-two-device-provisioning-services"></a>3. Creare due servizi di provisioning dei dispositivi
 
     az iot dps create --resource-group IoTHubBlogDemo --name demodps
 
@@ -67,20 +67,20 @@ Prima di iniziare, completare la procedura di installazione illustrata in preced
 
     az iot dps create --resource-group IoTHubBlogDemo --name demodps2
 
-### <a name="4-list-all-the-existing-device-provisioning-services-under-this-resource-group"></a>4. elencare tutti i servizi Device provisioning esistenti in questo gruppo di risorse
+### <a name="4-list-all-the-existing-device-provisioning-services-under-this-resource-group"></a>4. Elencare tutti i servizi di provisioning dispositivi esistenti in questo gruppo di risorse
 
     az iot dps list --resource-group IoTHubBlogDemo
 
 ![Elenco dei servizi Device Provisioning](./media/how-to-manage-dps-with-cli/list-dps.jpg)
 
 
-### <a name="5-create-an-iot-hub-blogdemohub-under-the-newly-created-resource-group"></a>5. creare un hub blogDemoHub nel gruppo di risorse appena creato
+### <a name="5-create-an-iot-hub-blogdemohub-under-the-newly-created-resource-group"></a>5. Creare un blog dell'hub IoTDemoHub nel gruppo di risorse appena creato
 
     az iot hub create --name blogDemoHub --resource-group IoTHubBlogDemo
 
 ![Creare un hub IoT](./media/how-to-manage-dps-with-cli/create-hub.jpg)
 
-### <a name="6-link-one-existing-iot-hub-to-a-device-provisioning-service"></a>6. Collegare un hub Internet esistente a un servizio Device provisioning
+### <a name="6-link-one-existing-iot-hub-to-a-device-provisioning-service"></a>6. Collegare un hub IoT esistente a un servizio di provisioning dei dispositivi
 
     az iot dps linked-hub create --resource-group IoTHubBlogDemo --dps-name demodps --connection-string <connection string> -l westus
 

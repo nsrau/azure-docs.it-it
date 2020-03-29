@@ -1,5 +1,5 @@
 ---
-title: Trasformare i dati con lo script U-SQL
+title: Trasformare i dati usando lo script U-SQLTransform data using U-SQL script
 description: Informazioni su come elaborare o trasformare i dati eseguendo gli script U-SQL nel servizio di calcolo di Azure Data Lake Analytics.
 services: data-factory
 documentationcenter: ''
@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/01/2018
 ms.openlocfilehash: 257c71f7994b889540ec8cc5d0f384f3f8894f4d
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74913283"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Trasformare i dati eseguendo script U-SQL in Azure Data Lake Analytics 
@@ -34,13 +34,13 @@ Creare un servizio collegato di **Azure Data Lake Analytics** per collegare un s
 
 La tabella seguente fornisce le descrizioni delle proprietà generiche usate nella definizione JSON. 
 
-| Proprietà                 | Description                              | Obbligatoria                                 |
+| Proprietà                 | Descrizione                              | Obbligatoria                                 |
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
-| **type**                 | La proprietà type deve essere impostata su **AzureDataLakeAnalytics**. | SÌ                                      |
-| **accountName**          | Nome dell'account di Azure Data Lake Analytics.  | SÌ                                      |
+| **type**                 | La proprietà type deve essere impostata su **AzureDataLakeAnalytics**. | Sì                                      |
+| **Accountname**          | Nome dell'account di Azure Data Lake Analytics.  | Sì                                      |
 | **dataLakeAnalyticsUri** | URI di Azure Data Lake Analytics.           | No                                       |
-| **subscriptionId**       | ID sottoscrizione di Azure                    | No                                       |
-| **resourceGroupName**    | Nome del gruppo di risorse di Azure                | No                                       |
+| **Subscriptionid**       | ID sottoscrizione di Azure                    | No                                       |
+| **ResourceGroupName (NomeGruppoRisorsa)**    | Nome del gruppo di risorse di Azure                | No                                       |
 
 ### <a name="service-principal-authentication"></a>Autenticazione di un'entità servizio
 Per connettersi al servizio Azure Data Lake Analytics, il servizio collegato di Azure Data Lake Analytics richiede l'autenticazione di un'entità servizio. Per usare l'autenticazione basata su entità servizio, registrare un'entità applicazione in Azure Active Directory (Azure AD) e concedere a questa l'accesso ai servizi Data Lake Analytics e Data Lake Store che usa. Per la procedura dettaglia, vedere [Autenticazione da servizio a servizio](../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Prendere nota dei valori seguenti che si usano per definire il servizio collegato:
@@ -53,11 +53,11 @@ Concedere le autorizzazioni dell'entità servizio in Azure Data Lake Analytics u
 
 Usare l'autenticazione basata su entità servizio specificando le proprietà seguenti:
 
-| Proprietà                | Description                              | Obbligatoria |
+| Proprietà                | Descrizione                              | Obbligatoria |
 | :---------------------- | :--------------------------------------- | :------- |
-| **servicePrincipalId**  | Specificare l'ID client dell'applicazione.     | SÌ      |
-| **servicePrincipalKey** | Specificare la chiave dell'applicazione.           | SÌ      |
-| **tenant**              | Specificare le informazioni sul tenant (nome di dominio o ID tenant) in cui si trova l'applicazione. È possibile recuperarlo passando il cursore del mouse sull'angolo superiore destro del portale di Azure. | SÌ      |
+| **servicePrincipalId (IdServizioPrincipale)**  | Specificare l'ID client dell'applicazione.     | Sì      |
+| **servicePrincipalKey** | Specificare la chiave dell'applicazione.           | Sì      |
+| **Inquilino**              | Specificare le informazioni sul tenant (nome di dominio o ID tenant) in cui si trova l'applicazione. È possibile recuperarlo passando il cursore del mouse sull'angolo superiore destro del portale di Azure. | Sì      |
 
 **Esempio: autenticazione basata su entità servizio**
 ```json
@@ -117,17 +117,17 @@ Il frammento JSON seguente definisce una pipeline con un'attività U-SQL di Data
 
 Nella tabella seguente vengono descritti i nomi e le descrizioni delle proprietà specifiche per questa attività. 
 
-| Proprietà            | Description                              | Obbligatoria |
+| Proprietà            | Descrizione                              | Obbligatoria |
 | :------------------ | :--------------------------------------- | :------- |
-| name                | Nome dell'attività nella pipeline     | SÌ      |
+| name                | Nome dell'attività nella pipeline     | Sì      |
 | description         | Testo che descrive l'attività.  | No       |
-| type                | Per l'attività U-SQL di Data Lake Analytics, il tipo corrisponde a **DataLakeAnalyticsU-SQL**. | SÌ      |
-| linkedServiceName   | Servizio collegato ad Azure Data Lake Analytics. Per informazioni su questo servizio collegato, vedere l'articolo [Servizi collegati di calcolo](compute-linked-services.md).  |SÌ       |
-| scriptPath          | Percorso della cartella contenente lo script U-SQL. Il nome del file distingue tra maiuscole e minuscole. | SÌ      |
-| scriptLinkedService | Servizio collegato che collega alla data factory l'archivio **Azure Data Lake Store** o **Archiviazione di Azure** contenente lo script | SÌ      |
+| type                | Per l'attività U-SQL di Data Lake Analytics, il tipo corrisponde a **DataLakeAnalyticsU-SQL**. | Sì      |
+| linkedServiceName   | Servizio collegato ad Azure Data Lake Analytics. Per informazioni su questo servizio collegato, vedere l'articolo [Servizi collegati di calcolo](compute-linked-services.md).  |Sì       |
+| scriptPath          | Percorso della cartella contenente lo script U-SQL. Il nome del file distingue tra maiuscole e minuscole. | Sì      |
+| scriptLinkedService | Servizio collegato che collega alla data factory l'archivio **Azure Data Lake Store** o **Archiviazione di Azure** contenente lo script | Sì      |
 | degreeOfParallelism | Il numero massimo di nodi usati contemporaneamente per eseguire il processo. | No       |
 | priority            | Determina quali processi rispetto a tutti gli altri disponibili nella coda devono essere selezionati per essere eseguiti per primi. Più è basso il numero, maggiore sarà la priorità. | No       |
-| Parametri          | Parametri da passare allo script U-SQL.    | No       |
+| parametri          | Parametri da passare allo script U-SQL.    | No       |
 | runtimeVersion      | Versione di runtime del motore di U-SQL da usare. | No       |
 | compilationMode     | <p>Modalità di compilazione di U-SQL. Deve corrispondere a uno dei valori seguenti: **Semantic:** consente di eseguire solo controlli semantici e i controlli di integrità necessari. **Full:** consente di eseguire una compilazione completa, inclusi il controllo della sintassi, l'ottimizzazione, la generazione di codice e così via. **SingleBox:** consente di eseguire una compilazione completa usando SingleBox come impostazione di TargetType. Se per questa proprietà non si specifica alcun valore, il server determina la modalità di compilazione ottimale. | No |
 
@@ -162,7 +162,7 @@ OUTPUT @rs1
       USING Outputters.Tsv(quoting:false, dateTimeFormat:null);
 ```
 
-Nell'esempio di script precedente, l'input e l'output dello script sono definiti in **\@in** e **\@parametri out** . I valori per **\@in** e **\@parametri out** nello script U-SQL vengono passati in modo dinamico da data factory usando la sezione "Parameters". 
+Nell'esempio di script precedente, l'input ** \@** e l'output nello script vengono definiti nei parametri in e ** \@out.** I valori ** \@** per ** \@** i parametri in e out nello script U-SQL vengono passati in modo dinamico da Data Factory usando la sezione 'parameters'. 
 
 È possibile specificare anche altre proprietà come degreeOfParallelism e priorità nella definizione della pipeline per i processi in esecuzione sul servizio Azure Data Lake Analytics.
 
@@ -176,7 +176,7 @@ Nell'esempio di definizione di pipeline i parametri in e out vengono assegnati c
 }
 ```
 
-È anche possibile usare parametri dinamici. ad esempio: 
+È anche possibile usare parametri dinamici. Ad esempio: 
 
 ```json
 "parameters": {
@@ -188,12 +188,12 @@ Nell'esempio di definizione di pipeline i parametri in e out vengono assegnati c
 In questo caso, i file di input vengono prelevati dalla cartella /datalake/input e i file di output vengono generati nella cartella /datalake/output. I nomi dei file sono dinamici in base all'ora di inizio della finestra passata quando viene attivata la pipeline.  
 
 ## <a name="next-steps"></a>Passaggi successivi
-Vedere gli articoli seguenti che illustrano come trasformare i dati in altri modi: 
+Vedere gli articoli seguenti, che illustrano altre modalità di trasformazione dei dati: 
 
 * [Attività Hive](transform-data-using-hadoop-hive.md)
-* [Attività Pig](transform-data-using-hadoop-pig.md)
+* [Attività suina](transform-data-using-hadoop-pig.md)
 * [Attività MapReduce](transform-data-using-hadoop-map-reduce.md)
-* [Attività di streaming di Hadoop](transform-data-using-hadoop-streaming.md)
+* [Attività di Hadoop Streaming](transform-data-using-hadoop-streaming.md)
 * [Attività Spark](transform-data-using-spark.md)
 * [Attività personalizzata .NET](transform-data-using-dotnet-custom-activity.md)
 * [Machine Learning Bach Execution Activity](transform-data-using-machine-learning.md) (Attività di esecuzione batch di Machine Learning)

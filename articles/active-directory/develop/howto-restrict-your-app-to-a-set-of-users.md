@@ -1,5 +1,5 @@
 ---
-title: Limitare Azure AD app a un set di utenti | Azure
+title: Limitare l'app Azure AD a un set di utenti Azure
 titleSuffix: Microsoft identity platform
 description: Informazioni su come limitare l'accesso alle app registrate in Azure AD a un set di utenti.
 services: active-directory
@@ -14,13 +14,13 @@ ms.author: kkrishna
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: cccd2df334828c0b8103e4da2ffcd8549673b69c
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76696997"
 ---
-# <a name="how-to-restrict-your-azure-ad-app-to-a-set-of-users"></a>Procedura: limitare l'app Azure AD a un set di utenti
+# <a name="how-to-restrict-your-azure-ad-app-to-a-set-of-users"></a>Procedura: Limitare l'app Azure AD a un set di utentiHow to: Restrict your Azure AD app to a set of users
 
 Per impostazione predefinita, le applicazioni registrate in un tenant di Azure Active Directory (Azure AD) sono disponibili per tutti gli utenti del tenant che eseguono correttamente l'autenticazione.
 
@@ -43,17 +43,17 @@ La possibilità di limitare un'app a un set specifico di utenti o gruppi di sicu
 
 ## <a name="update-the-app-to-enable-user-assignment"></a>Aggiornare l'app per abilitare l'assegnazione degli utenti
 
-Esistono due modi per creare un'applicazione con l'assegnazione utente abilitata. Uno richiede il ruolo di **amministratore globale** , il secondo no.
+Esistono due modi per creare un'applicazione con l'assegnazione utente abilitata. Uno richiede il ruolo **di amministratore globale,** il secondo non lo richiede.
 
 ### <a name="enterprise-applications-requires-the-global-administrator-role"></a>Applicazioni aziendali (richiede il ruolo di amministratore globale)
 
-1. Passare alla [**portale di Azure**](https://portal.azure.com/) e accedere come **amministratore globale**.
+1. Passare al portale di [**Azure**](https://portal.azure.com/) e accedere come **amministratore globale.**
 1. Nella barra superiore selezionare l'account connesso. 
 1. Nell'elenco **Directory** selezionare il tenant di Azure AD in cui verrà registrata l'app.
 1. Nel menu di spostamento a sinistra selezionare **Azure Active Directory**. Se Azure Active Directory non è disponibile nel riquadro di spostamento, attenersi alla seguente procedura:
 
     1. Selezionare **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
-    1. Digitare **Azure Active Directory** nella casella di ricerca del filtro e quindi selezionare l'elemento **Azure Active Directory** dal risultato.
+    1. Digitare **Azure Active Directory** nella casella di ricerca del filtro e quindi selezionare l'elemento Azure Active **Directory** dal risultato.
 
 1. Nel riquadro **Azure Active Directory** selezionare **Applicazioni aziendali** all'interno del menu di spostamento a sinistra di **Azure Active Directory**.
 1. Selezionare **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
@@ -61,20 +61,20 @@ Esistono due modi per creare un'applicazione con l'assegnazione utente abilitata
      Se l'applicazione desiderata non viene visualizzata, usare i filtri disponibili nella parte superiore dell'elenco **Tutte le applicazioni** per limitare l'elenco o scorrerlo verso il basso fino a trovare l'applicazione.
 
 1. Selezionare dall'elenco l'applicazione che si vuole assegnare a un utente o un gruppo di sicurezza.
-1. Nella pagina **Panoramica** dell'applicazione selezionare **Proprietà** nel menu di navigazione a sinistra dell'applicazione.
+1. Nella pagina **Panoramica** dell'applicazione selezionare **Proprietà** dal menu di spostamento a sinistra dell'applicazione.
 1. Trovare l'impostazione **Assegnazione utenti obbligatoria** e impostarla su **Sì**. Quando questa opzione è impostata su **Sì**, gli utenti devono prima essere assegnati a questa applicazione prima di potervi accedere.
 1. Selezionare **Salva** per salvare questa modifica di configurazione.
 
 ### <a name="app-registration"></a>Registrazione delle app
 
-1. Passare alla [**portale di Azure**](https://portal.azure.com/).
+1. Passare al [**portale di Azure**](https://portal.azure.com/).
 1. Nella barra superiore selezionare l'account connesso. 
 1. Nell'elenco **Directory** selezionare il tenant di Azure AD in cui verrà registrata l'app.
 1. Nel menu di spostamento a sinistra selezionare **Azure Active Directory**.
-1. Nel riquadro **Azure Active Directory** selezionare registrazioni per l' **app** dal menu di spostamento a sinistra **Azure Active Directory** .
-1. Creare o selezionare l'app che si vuole gestire. È necessario essere **proprietario** di questa registrazione dell'app.
-1. Nella pagina **Panoramica** dell'applicazione, seguire il collegamento **applicazione gestita in directory locale** sotto gli elementi di base nella parte superiore della pagina. Questa operazione consente di passare all' _applicazione aziendale gestita_ della registrazione dell'app.
-1. Nel pannello di navigazione a sinistra selezionare **Proprietà**.
+1. Nel riquadro **Azure Active Directory** selezionare Registrazioni app dal menu di spostamento a sinistra di Azure Active Directory.In the Azure Active Directory pane, select **App Registrations** from the **Azure Active Directory** left-hand navigation menu.
+1. Crea o seleziona l'app che vuoi gestire. Devi essere **proprietario** di questa registrazione dell'app.
+1. Nella pagina **Panoramica** dell'applicazione seguire il collegamento **Applicazione gestita nella directory locale** sotto gli elementi essenziali nella parte superiore della pagina. Verrà visualizzato _l'applicazione Enterprise gestita_ della registrazione dell'app.
+1. Nel pannello di spostamento a sinistra selezionare **Proprietà**.
 1. Trovare l'impostazione **Assegnazione utenti obbligatoria** e impostarla su **Sì**. Quando questa opzione è impostata su **Sì**, gli utenti devono prima essere assegnati a questa applicazione prima di potervi accedere.
 1. Selezionare **Salva** per salvare questa modifica di configurazione.
 

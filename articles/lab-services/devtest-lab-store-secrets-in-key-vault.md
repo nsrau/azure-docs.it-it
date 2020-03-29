@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/11/2018
 ms.author: spelluru
 ms.openlocfilehash: 29a4d20390575778ccdecde390c257ccf6a48eb1
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76720929"
 ---
 # <a name="store-secrets-in-a-key-vault-in-azure-devtest-labs"></a>Archiviare segreti in un insieme di credenziali delle chiavi in Azure DevTest Labs
@@ -26,7 +26,7 @@ Potrebbe essere necessario inserire un segreto complesso quando si usa Azure Dev
 
 Per risolvere questo problema e mantenere i segreti in un luogo sicuro, DevTest Labs supporta l'archiviazione dei segreti in un [insieme di credenziali delle chiavi di Azure](../key-vault/key-vault-overview.md). Quando un utente salva un segreto per la prima volta, il servizio DevTest Labs crea automaticamente un insieme di credenziali delle chiavi nello stesso gruppo di risorse che contiene il lab e archivia il segreto nell'insieme di credenziali delle chiavi. DevTest Labs crea un insieme di credenziali delle chiavi separato per ogni utente. 
 
-Si noti che l'utente Lab dovrà prima creare una macchina virtuale Lab prima di poter creare un segreto nell'insieme di credenziali delle chiavi. Questo perché il servizio DevTest lab deve associare l'utente del Lab a un documento utente valido prima di poter creare e archiviare i segreti nell'insieme di credenziali delle chiavi. 
+Si noti che l'utente del lab dovrà prima creare una macchina virtuale lab prima di poter creare un segreto nell'insieme di credenziali delle chiavi. Il servizio DevTest Lab deve associare all'utente del lab un documento utente valido prima di poter creare e archiviare segreti nell'insieme di credenziali delle chiavi. 
 
 
 ## <a name="save-a-secret-in-azure-key-vault"></a>Salvare un segreto in Azure Key Vault

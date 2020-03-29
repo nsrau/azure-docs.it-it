@@ -8,10 +8,10 @@ ms.date: 04/10/2017
 ms.author: saudas
 ms.custom: mvc
 ms.openlocfilehash: a32c9fab3877a693d2df26571b9fae4aa7b4380c
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76271090"
 ---
 # <a name="deprecated-use-helm-to-deploy-containers-on-a-kubernetes-cluster"></a>(DEPRECATO) Usare Helm per distribuire i contenitori in un cluster Kubernetes
@@ -21,7 +21,7 @@ ms.locfileid: "76271090"
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
-[Helm](https://github.com/kubernetes/helm/) è uno strumento di creazione dei pacchetti open source che consente di installare e gestire il ciclo di vita delle applicazioni Kubernetes. Analogamente ai responsabili di pacchetto Linux, ad esempio Apt-get e Yum, Helm viene usato per gestire i grafici Kubernetes, che sono pacchetti di risorse Kubernetes preconfigurati. In questo articolo viene illustrato come usare Helm in un cluster Kubernetes distribuito nel servizio Azure Container.
+[Helm](https://github.com/kubernetes/helm/) è uno strumento per la creazione di pacchetti open source che consente di installare e gestire il ciclo di vita delle applicazioni Kubernetes. Analogamente ai responsabili di pacchetto Linux, ad esempio Apt-get e Yum, Helm viene usato per gestire i grafici Kubernetes, che sono pacchetti di risorse Kubernetes preconfigurati. In questo articolo viene illustrato come usare Helm in un cluster Kubernetes distribuito nel servizio Azure Container.
 
 Helm presenta due componenti: 
 * L'**interfaccia della riga di comando Helm** è un client in esecuzione nel computer locale o nel cloud  
@@ -30,7 +30,7 @@ Helm presenta due componenti:
  
 ## <a name="prerequisites"></a>Prerequisiti
 
-* [Creare un cluster Kubernetes](container-service-kubernetes-walkthrough.md) nel servizio Azure Container
+* [Creare un cluster Kubernetes](container-service-kubernetes-walkthrough.md) nel servizio contenitore di AzureCreate a Kubernetes cluster in Azure Container Service
 
 * [Installare e configurare `kubectl`](../container-service-connect.md) in un computer locale
 
@@ -143,7 +143,7 @@ sudo mysql –h v1-mariadb
 ```
  
  
-È ora possibile usare i comandi SQL standard per creare database, tabelle e così via. Ad esempio, `Create DATABASE testdb1;` crea un database vuoto. 
+È ora possibile utilizzare i comandi SQL standard per creare database, tabelle e così via. Ad esempio, `Create DATABASE testdb1;` crea un database vuoto. 
  
  
  

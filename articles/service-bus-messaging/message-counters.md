@@ -1,6 +1,6 @@
 ---
-title: Bus di servizio di Azure-numero messaggi
-description: Recuperare il numero di messaggi contenuti in code e sottoscrizioni usando Azure Resource Manager e le API NamespaceManager del bus di servizio di Azure.
+title: Bus di servizio di Azure - conteggio messaggiAzure Service Bus - message count
+description: Recuperare il numero di messaggi contenuti nelle code e nelle sottoscrizioni usando Azure Resource Manager e le API NamespaceManager del bus di servizio di Azure.Retrieve the count of messages held in queues and subscriptions by using Azure Resource Manager and the Azure Service Bus NamespaceManager APIs.
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: 3a4fca0b3b60fcb76bcdc4f5f2d53df816c5053b
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76756378"
 ---
 # <a name="message-counters"></a>Contatori di messaggi

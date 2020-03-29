@@ -1,6 +1,6 @@
 ---
 title: Caricare un file VHD in Azure DevTest Labs usando PowerShell | Microsoft Docs
-description: Questo articolo fornisce una procedura dettagliata che illustra come caricare un file VHD in Azure DevTest Labs usando PowerShell.
+description: Questo articolo offre una procedura dettagliata che illustra come caricare un file VHD in Azure DevTest Labs usando PowerShell.This article provides a walkthrough that shows you how to upload a VHD file to Azure DevTest Labs using PowerShell.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: spelluru
 ms.openlocfilehash: a9e5a69cd7840bbaff081a4d47cb60f62a76eda6
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76759756"
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-powershell"></a>Caricare un file VHD nell'account di archiviazione del lab usando PowerShell
@@ -31,15 +31,15 @@ In Azure DevTest Labs è possibile usare i file VHD per creare immagini personal
 
 La procedura seguente illustra come caricare un file VHD in Azure DevTest Labs usando PowerShell. 
 
-1. Accedere al [portale di Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Accedere al [portale](https://go.microsoft.com/fwlink/p/?LinkID=525040)di Azure .
 
-1. Selezionare **Tutti i servizi** e quindi **DevTest Labs** dall'elenco.
+1. Selezionare **Tutti i servizi**e quindi **DevTest Labs** dall'elenco.
 
 1. Nell'elenco dei lab selezionare il lab desiderato.  
 
 1. Nel pannello del lab selezionare **Configurazione**. 
 
-1. Nel pannello **Configurazione** del lab selezionare **Immagini personalizzate (dischi rigidi virtuali)** .
+1. Nel pannello **Configurazione** del lab selezionare **Immagini personalizzate (dischi rigidi virtuali)**.
 
 1. Nel pannello **Immagini personalizzate** selezionare **+Aggiungi**. 
 

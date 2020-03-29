@@ -1,6 +1,6 @@
 ---
-title: Come configurare la conservazione nell'ambiente-Azure Time Series Insights | Microsoft Docs
-description: Informazioni su come configurare la conservazione nell'ambiente Azure Time Series Insights.
+title: Come configurare la conservazione nell'ambiente - Informazioni dettagliate sulle serie temporali di Azure Documenti Microsoft
+description: Informazioni su come configurare la conservazione nell'ambiente Azure Time Series Insights.Learn how to configure retention in your Azure Time Series Insights environment.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.custom: seodec18
 ms.openlocfilehash: 3fdc007caaa4cb79f6083599a5bc176bc022fb03
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76278601"
 ---
 # <a name="configuring-retention-in-time-series-insights"></a>Configurazione della conservazione in Time Series Insights
@@ -23,9 +23,9 @@ Questo articolo descrive come configurare il **periodo di conservazione dei dati
 
 ## <a name="summary"></a>Riepilogo
 
-Ogni ambiente Azure Time Series Insights dispone di un'impostazione per configurare il **periodo di conservazione dei dati**. Il valore va da 1 a 400 giorni. I dati vengono eliminati in base alla capacità di archiviazione dell'ambiente o alla durata della conservazione, che va da 1 a 400 giorni, a seconda della condizione che si verifica per prima.
+Ogni ambiente Azure Time Series Insights ha un'impostazione per configurare il tempo di **conservazione dei dati.** Il valore va da 1 a 400 giorni. I dati vengono eliminati in base alla capacità di archiviazione dell'ambiente o alla durata della conservazione, che va da 1 a 400 giorni, a seconda della condizione che si verifica per prima.
 
-Ogni ambiente Time Series Insights ha un'impostazione aggiuntiva del **limite di archiviazione superato il comportamento**. Questa impostazione controlla il comportamento di traffico in ingresso e pulizia quando viene raggiunta la capacità massima di un ambiente. È possibile scegliere tra due tipi di comportamento:
+Ogni ambiente Time Series Insights ha un'impostazione **aggiuntiva Limite di archiviazione superato il comportamento**. Questa impostazione controlla il comportamento di traffico in ingresso e pulizia quando viene raggiunta la capacità massima di un ambiente. È possibile scegliere tra due tipi di comportamento:
 
 - **Eliminare i dati meno recenti** (impostazione predefinita)
 - **Sospendere il traffico in ingresso**
@@ -34,28 +34,28 @@ Per informazioni dettagliate per comprendere meglio queste impostazioni, vedere 
 
 ## <a name="configure-data-retention"></a>Configurare la conservazione dei dati
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Accedere al [portale](https://portal.azure.com)di Azure .
 
 1. Individuare l'ambiente Time Series Insights esistente. Selezionare **Tutte le risorse** nel menu a sinistra del portale di Azure. Selezionare l'ambiente Time Series Insights.
 
 1. Sotto l'intestazione **Impostazioni** selezionare **Configurazione archiviazione**.
 
-    [![in impostazioni selezionare Configurazione archiviazione](media/data-retention/configure-data-retention.png)](media/data-retention/configure-data-retention.png#lightbox)
+    [![In Impostazioni selezionare Configurazione archiviazione](media/data-retention/configure-data-retention.png)](media/data-retention/configure-data-retention.png#lightbox)
 
-1. Selezionare il **periodo di conservazione dei dati (in giorni)** per configurare la conservazione usando la barra del dispositivo di scorrimento o digitare un numero nella casella di testo.
+1. Selezionare il tempo di **conservazione dei dati (in giorni)** per configurare la conservazione utilizzando la barra di scorrimento o digitare un numero nella casella di testo.
 
 1. Si noti l'impostazione **Capacità**, poiché questa configurazione influisce sulla quantità massima di eventi di dati e sulla capacità di archiviazione totale per l'archiviazione dei dati.
 
 1. Attivare o disattivare l'impostazione **Comportamento limite di archiviazione superato**. Selezionare il comportamento **Purge old data** (Eliminare i dati meno recenti) o **Pause ingress** (Sospendere il traffico in ingresso).
 
-    [![sospendere il traffico in ingresso: accetta e Salva.](media/data-retention/pause-ingress-accept-and-save.png)](media/data-retention/pause-ingress-accept-and-save.png#lightbox)
+    [![Mettere in pausa - accettare e salvare.](media/data-retention/pause-ingress-accept-and-save.png)](media/data-retention/pause-ingress-accept-and-save.png#lightbox)
 
-1. Esaminare la documentazione per conoscere i potenziali rischi di perdita dei dati. Selezionare **Salva** per configurare le modifiche.
+1. Consultare la documentazione per comprendere i potenziali rischi di perdita di dati. Selezionare **Salva** per configurare le modifiche.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per altre informazioni, vedere [Understanding retention in Time Series Insights](time-series-insights-concepts-retention.md) (Informazioni sulla conservazione in Time Series Insights).
 
-- Informazioni [su come ridimensionare l'ambiente di Time Series Insights](time-series-insights-how-to-scale-your-environment.md).
+- Informazioni su [come ridimensionare l'ambiente Time Series Insights.](time-series-insights-how-to-scale-your-environment.md)
 
-- Informazioni sulla [pianificazione dell'ambiente](time-series-insights-environment-planning.md).
+- Informazioni sulla [pianificazione dell'ambiente.](time-series-insights-environment-planning.md)

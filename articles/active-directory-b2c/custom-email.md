@@ -1,7 +1,7 @@
 ---
-title: Verifica della posta elettronica personalizzata
+title: Verifiche email personalizzate
 titleSuffix: Azure AD B2C
-description: Informazioni su come personalizzare il messaggio di posta elettronica di verifica inviato ai clienti quando si iscrivono per l'uso delle applicazioni abilitate per Azure AD B2C.
+description: Informazioni su come personalizzare la posta elettronica di verifica inviata ai clienti quando si iscrivono per usare le applicazioni abilitate per Azure AD B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,32 +12,32 @@ ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 6cc0508a63f26b955ac5e0ebf3ef58a184a35997
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78671641"
 ---
-# <a name="custom-email-verification-in-azure-active-directory-b2c"></a>Verifica della posta elettronica personalizzata in Azure Active Directory B2C
+# <a name="custom-email-verification-in-azure-active-directory-b2c"></a>Verifica della posta elettronica personalizzata in Azure Active Directory B2CCustom email verification in Azure Active Directory B2C
 
-Usare un indirizzo di posta elettronica personalizzato in Azure Active Directory B2C (Azure AD B2C) per inviare messaggi di posta elettronica personalizzati agli utenti che si iscrivono per l'uso delle applicazioni. Usando [DisplayControls](display-controls.md) (attualmente disponibile in anteprima) e un provider di posta elettronica di terze parti, è possibile usare il proprio modello di posta elettronica e *da:* indirizzo e oggetto, nonché la localizzazione del supporto e le impostazioni della password monouso (OTP) personalizzate.
+Usare la posta elettronica personalizzata in Azure Active Directory B2C (Azure AD B2C) per inviare posta elettronica personalizzata agli utenti che si iscrivono per usare le applicazioni. Utilizzando [DisplayControls](display-controls.md) (attualmente in anteprima) e un provider di posta elettronica di terze parti, è possibile utilizzare il proprio modello di posta elettronica e *Da:* indirizzo e oggetto, nonché supportare la localizzazione e le impostazioni personalizzate della password monouso (OTP).
 
-Per la verifica tramite posta elettronica personalizzata è necessario usare un provider di posta elettronica di terze parti, ad esempio [SendGrid](https://sendgrid.com) o [SPARKPOST](https://sparkpost.com), un'API REST personalizzata o qualsiasi provider di posta elettronica basato su http (incluso il proprio). Questo articolo descrive la configurazione di una soluzione che usa SendGrid.
+La verifica personalizzata della posta elettronica richiede l'utilizzo di un provider di posta elettronica di terze parti, ad esempio [SendGrid](https://sendgrid.com) o [SparkPost](https://sparkpost.com), un'API REST personalizzata o qualsiasi provider di posta elettronica basato su HTTP (incluso il proprio). In questo articolo viene descritta la configurazione di una soluzione che utilizza SendGrid.This article describes setting up a solution that uses SendGrid.
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
 ## <a name="create-a-sendgrid-account"></a>Creare un account SendGrid
 
-Se non si ha già un account, iniziare con la configurazione di un account SendGrid (i clienti di Azure possono sbloccare 25.000 messaggi di posta elettronica gratuiti al mese). Per le istruzioni di installazione, vedere la sezione [creare un account SendGrid](../sendgrid-dotnet-how-to-send-email.md#create-a-sendgrid-account) di [come inviare messaggi di posta elettronica usando SendGrid con Azure](../sendgrid-dotnet-how-to-send-email.md).
+Se non ne hai già uno, inizia configurando un account SendGrid (i clienti di Azure possono sbloccare 25.000 email gratuite ogni mese). Per istruzioni sull'installazione, vedere la sezione [Creare un account SendGrid](../sendgrid-dotnet-how-to-send-email.md#create-a-sendgrid-account) in [Come inviare messaggi di posta elettronica usando SendGrid con Azure.](../sendgrid-dotnet-how-to-send-email.md)
 
-Assicurarsi di completare la sezione in cui si [Crea una chiave API SendGrid](../sendgrid-dotnet-how-to-send-email.md#to-find-your-sendgrid-api-key). Registrare la chiave API da usare in un passaggio successivo.
+Assicurarsi di completare la sezione in cui si [crea una chiave API SendGrid](../sendgrid-dotnet-how-to-send-email.md#to-find-your-sendgrid-api-key). Registrare la chiave API da usare in un passaggio successivo.
 
-## <a name="create-azure-ad-b2c-policy-key"></a>Crea chiave dei criteri di Azure AD B2C
+## <a name="create-azure-ad-b2c-policy-key"></a>Creare la chiave dei criteri B2C di Azure ADCreate Azure AD B2C policy key
 
-Quindi, archiviare la chiave API SendGrid in una chiave dei criteri di Azure AD B2C per fare riferimento ai criteri.
+Archiviare quindi la chiave API SendGrid in una chiave dei criteri B2C di Azure AD per fare riferimento ai criteri.
 
-1. Accedere al [portale di Azure](https://portal.azure.com/).
-1. Assicurarsi di usare la directory che contiene il tenant del Azure AD B2C. Selezionare il filtro **directory + sottoscrizione** nel menu in alto e scegliere la directory Azure ad B2C.
+1. Accedere al [portale](https://portal.azure.com/)di Azure .
+1. Assicurarsi di usare la directory che contiene il tenant B2C di Azure AD. Nel menu **superiore,** selezionare il filtro Directory e sottoscrizione e scegliere la directory B2C di Azure AD.
 1. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Azure AD B2C**.
 1. Nella pagina Panoramica selezionare **Framework dell'esperienza di gestione delle identità**.
 1. Selezionare **Chiavi dei criteri** e quindi selezionare **Aggiungi**.
@@ -45,17 +45,17 @@ Quindi, archiviare la chiave API SendGrid in una chiave dei criteri di Azure AD 
 1. Immettere un **nome** per la chiave dei criteri. Ad esempio: `SendGridSecret`. Verrà aggiunto automaticamente il prefisso `B2C_1A_` al nome della chiave.
 1. In **Segreto** immettere il segreto client registrato in precedenza.
 1. In **Uso chiave** selezionare `Signature`.
-1. Selezionare **Create** (Crea).
+1. Selezionare **Crea**.
 
 ## <a name="create-sendgrid-template"></a>Crea modello SendGrid
 
-Con un account SendGrid creato e una chiave API SendGrid archiviata in una chiave dei criteri di Azure AD B2C, creare un [modello transazionale SendGrid dinamico](https://sendgrid.com/docs/ui/sending-email/how-to-send-an-email-with-dynamic-transactional-templates/).
+Con un account SendGrid creato e una chiave API SendGrid archiviata in una chiave dei criteri B2C di Azure AD, creare un [modello transazionale dinamico](https://sendgrid.com/docs/ui/sending-email/how-to-send-an-email-with-dynamic-transactional-templates/)SendGrid.
 
-1. Nel sito di SendGrid aprire la pagina [modelli transazionali](https://sendgrid.com/dynamic_templates) e selezionare **Crea modello**.
-1. Immettere un nome di modello univoco, ad esempio `Verification email`, quindi selezionare **Salva**.
+1. Nel sito SendGrid aprire la pagina [dei modelli transazionali](https://sendgrid.com/dynamic_templates) e selezionare **Crea modello**.
+1. Immettere un nome `Verification email` di modello univoco, quindi selezionare **Salva**.
 1. Per iniziare a modificare il nuovo modello, selezionare **Aggiungi versione**.
-1. Selezionare **Editor del codice** e **continuare**.
-1. Nell'editor HTML incollare il modello HTML seguente o usare il proprio. I parametri `{{otp}}` e `{{email}}` verranno sostituiti in modo dinamico con il valore della password monouso e con l'indirizzo di posta elettronica dell'utente.
+1. Selezionare **Editor di codice** e quindi **Continua**.
+1. Nell'editor HTML, incolla il seguente modello HTML o usa il tuo. I `{{otp}}` `{{email}}` parametri e verranno sostituiti dinamicamente con il valore della password mono(e l'indirizzo e-mail dell'utente).
 
     ```HTML
     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -151,16 +151,16 @@ Con un account SendGrid creato e una chiave API SendGrid archiviata in una chiav
     </html>
     ```
 
-1. Espandere **Impostazioni** a sinistra e per **oggetto posta elettronica**immettere `{{subject}}`.
+1. Espandere **Impostazioni** a sinistra e, per `{{subject}}`Oggetto **e-mail,** immettere .
 1. Selezionare **Salva modello**.
-1. Tornare alla pagina **modelli transazionali** selezionando la freccia indietro.
-1. Registrare l' **ID** del modello creato per l'uso in un passaggio successivo. Ad esempio: `d-989077fbba9746e89f3f6411f596fb96`. Questo ID viene specificato quando si [aggiunge la trasformazione delle attestazioni](#add-the-claims-transformation).
+1. Tornare alla pagina **Modelli transazionali** selezionando la freccia indietro.
+1. Registrare **l'ID** del modello creato per l'utilizzo in un passaggio successivo. Ad esempio: `d-989077fbba9746e89f3f6411f596fb96`. Questo ID viene specificato quando si [aggiunge la trasformazione delle attestazioni.](#add-the-claims-transformation)
 
-## <a name="add-azure-ad-b2c-claim-types"></a>Aggiungere Azure AD B2C tipi di attestazione
+## <a name="add-azure-ad-b2c-claim-types"></a>Aggiungere i tipi di attestazione Azure AD B2CAdd Azure AD B2C claim types
 
-Nel criterio aggiungere i tipi di attestazione seguenti all'elemento `<ClaimsSchema>` in `<BuildingBlocks>`.
+Nei criteri aggiungere i tipi di `<ClaimsSchema>` attestazione seguenti all'elemento all'interno di `<BuildingBlocks>`.
 
-Questi tipi di attestazioni sono necessari per generare e verificare l'indirizzo di posta elettronica usando un codice OTP (One-time password).
+Questi tipi di attestazioni sono necessari per generare e verificare l'indirizzo di posta elettronica utilizzando un codice OTP (One-Time Password).
 
 ```XML
 <ClaimType Id="Otp">
@@ -179,17 +179,17 @@ Questi tipi di attestazioni sono necessari per generare e verificare l'indirizzo
 </ClaimType>
 ```
 
-## <a name="add-the-claims-transformation"></a>Aggiungere la trasformazione delle attestazioni
+## <a name="add-the-claims-transformation"></a>Aggiungere la trasformazione delle attestazioniAdd the claims transformation
 
-Quindi, è necessaria una trasformazione delle attestazioni per restituire un'attestazione stringa JSON che costituirà il corpo della richiesta inviata a SendGrid.
+Successivamente, è necessaria una trasformazione delle attestazioni per generare un'attestazione di stringa JSON che sarà il corpo della richiesta inviata a SendGrid.Next, you need a claims transformation to output a JSON string claim that will be the body of the request sent to SendGrid.
 
-La struttura dell'oggetto JSON è definita dagli ID nella notazione del punto di InputParameters e TransformationClaimTypes di InputClaims. I numeri nella notazione del punto implicano matrici. I valori provengono dalle proprietà InputClaims ' Values e InputParameters ' "value". Per ulteriori informazioni sulle trasformazioni delle attestazioni JSON, vedere le [trasformazioni delle attestazioni JSON](json-transformations.md).
+La struttura dell'oggetto JSON è definita dagli ID in notazione del punto di InputParameters e TransformationClaimTypes di InputClaims. I numeri nella notazione del punto implicano matrici. I valori provengono dai valori di InputClaims e dalle proprietà "Value" di InputParameters. Per altre informazioni sulle trasformazioni delle attestazioni JSON, vedere [Trasformazioni delle attestazioni JSON.](json-transformations.md)
 
-Aggiungere la trasformazione delle attestazioni seguente all'elemento `<ClaimsTransformations>` in `<BuildingBlocks>`. Apportare gli aggiornamenti seguenti all'XML di trasformazione delle attestazioni:
+Aggiungere la trasformazione `<ClaimsTransformations>` delle `<BuildingBlocks>`attestazioni seguente all'elemento all'interno di . Apportare gli aggiornamenti seguenti all'XML di trasformazione delle attestazioni:Make the following updates to the claims transformation XML:
 
-* Aggiornare il valore di `template_id` InputParameter con l'ID del modello transazionale SendGrid creato in precedenza in [create SendGrid template](#create-sendgrid-template).
-* Aggiornare il valore dell'indirizzo `from.email`. Usare un indirizzo di posta elettronica valido per evitare che la posta elettronica di verifica venga contrassegnata come posta indesiderata.
-* Aggiornare il valore del parametro di input della riga di `personalizations.0.dynamic_template_data.subject` oggetto con una riga dell'oggetto appropriata per l'organizzazione.
+* Aggiornare `template_id` il valore InputParameter con l'ID del modello transazionale SendGrid creato in precedenza in [Crea modello SendGrid](#create-sendgrid-template).
+* Aggiornare `from.email` il valore dell'indirizzo. Utilizza un indirizzo email valido per evitare che l'email di verifica venga contrassegnata come spam.
+* Aggiornare il `personalizations.0.dynamic_template_data.subject` valore del parametro di input della riga dell'oggetto con una riga dell'oggetto appropriata per l'organizzazione.
 
 ```XML
 <ClaimsTransformation Id="GenerateSendGridRequestBody" TransformationMethod="GenerateJson">
@@ -211,9 +211,9 @@ Aggiungere la trasformazione delle attestazioni seguente all'elemento `<ClaimsTr
 </ClaimsTransformation>
 ```
 
-## <a name="add-datauri-content-definition"></a>Aggiungere la definizione del contenuto DataUri
+## <a name="add-datauri-content-definition"></a>Aggiungere la definizione di contenuto DataUriAdd DataUri content definition
 
-Sotto le trasformazioni delle attestazioni all'interno `<BuildingBlocks>`aggiungere il [ContentDefinition](contentdefinitions.md) seguente per fare riferimento alla versione 2.0.0 URI dei dati:
+Sotto le trasformazioni `<BuildingBlocks>`delle attestazioni all'interno di , aggiungere la [contentDefinition](contentdefinitions.md) seguente per fare riferimento all'URI dei dati della versione 2.0.0:
 
 ```XML
 <ContentDefinitions>
@@ -223,20 +223,20 @@ Sotto le trasformazioni delle attestazioni all'interno `<BuildingBlocks>`aggiung
 </ContentDefinitions>
 ```
 
-## <a name="create-a-displaycontrol"></a>Creare un DisplayControl
+## <a name="create-a-displaycontrol"></a>Creare un DisplayControlCreate a DisplayControl
 
-Viene usato un controllo di visualizzazione verifica per verificare l'indirizzo di posta elettronica con un codice di verifica inviato all'utente.
+Un controllo di visualizzazione della verifica viene utilizzato per verificare l'indirizzo di posta elettronica con un codice di verifica inviato all'utente.
 
-Questo controllo di visualizzazione di esempio è configurato per:
+Questo esempio di controllo di visualizzazione è configurato per:This example display control is configured to:
 
-1. Raccogliere il tipo di attestazione indirizzo `email` dall'utente.
-1. Attendere che l'utente fornisca il tipo di attestazione `verificationCode` con il codice inviato all'utente.
-1. Restituisce il `email` al profilo tecnico autocertificato che contiene un riferimento a questo controllo di visualizzazione.
-1. Utilizzando l'azione `SendCode`, generare un codice OTP e inviare all'utente un messaggio di posta elettronica con il codice OTP.
+1. Raccogliere `email` il tipo di attestazione indirizzo dall'utente.
+1. Attendere che l'utente `verificationCode` fornisca il tipo di attestazione con il codice inviato all'utente.
+1. Riportare `email` la ritorna al profilo tecnico auto-asserito che ha un riferimento a questo controllo di visualizzazione.
+1. Utilizzando `SendCode` l'azione, generare un codice OTP e inviare un messaggio di posta elettronica con il codice OTP all'utente.
 
-![Invia l'azione di posta elettronica del codice di verifica](media/custom-email/display-control-verification-email-action-01.png)
+![Invia il codice di verifica e-mail azione](media/custom-email/display-control-verification-email-action-01.png)
 
-In definizioni contenuto, sempre in `<BuildingBlocks>`, aggiungere il seguente [DisplayControl](display-controls.md) di tipo [VerificationControl](display-control-verification.md) al criterio.
+In definizioni di `<BuildingBlocks>`contenuto, ancora all'interno di , aggiungere il seguente [DisplayControl](display-controls.md) di tipo [VerificationControl](display-control-verification.md) ai criteri.
 
 ```XML
 <DisplayControls>
@@ -267,9 +267,9 @@ In definizioni contenuto, sempre in `<BuildingBlocks>`, aggiungere il seguente [
 
 ## <a name="add-otp-technical-profiles"></a>Aggiungere profili tecnici OTP
 
-Il profilo tecnico `GenerateOtp` genera un codice per l'indirizzo di posta elettronica. Il profilo tecnico `VerifyOtp` verifica il codice associato all'indirizzo di posta elettronica. È possibile modificare la configurazione del formato e la scadenza della password monouso. Per altre informazioni sui profili tecnici OTP, vedere [definire un profilo tecnico](one-time-password-technical-profile.md)monouso per la password.
+Il `GenerateOtp` profilo tecnico genera un codice per l'indirizzo di posta elettronica. Il `VerifyOtp` profilo tecnico verifica il codice associato all'indirizzo di posta elettronica. È possibile modificare la configurazione del formato e la scadenza della password mono(abitrare. Per ulteriori informazioni sui profili tecnici OTP, vedere Definire un profilo tecnico per [password monoorarie.](one-time-password-technical-profile.md)
 
-Aggiungere i seguenti profili tecnici all'elemento `<ClaimsProviders>`.
+Aggiungere i seguenti profili `<ClaimsProviders>` tecnici all'elemento.
 
 ```XML
 <ClaimsProvider>
@@ -309,11 +309,11 @@ Aggiungere i seguenti profili tecnici all'elemento `<ClaimsProviders>`.
 </ClaimsProvider>
 ```
 
-## <a name="add-a-rest-api-technical-profile"></a>Aggiungere un profilo tecnico dell'API REST
+## <a name="add-a-rest-api-technical-profile"></a>Aggiungere un profilo tecnico dell'API RESTAdd a REST API technical profile
 
-Questo profilo tecnico dell'API REST genera il contenuto di posta elettronica (usando il formato SendGrid). Per altre informazioni sui profili tecnici RESTful, vedere [definire un profilo tecnico RESTful](restful-technical-profile.md).
+Questo profilo tecnico dell'API REST genera il contenuto dell'e-mail (utilizzando il formato SendGrid). Per ulteriori informazioni sui profili tecnici RESTful, vedere [Definire un profilo tecnico RESTful](restful-technical-profile.md).
 
-Come per i profili tecnici OTP, aggiungere i seguenti profili tecnici all'elemento `<ClaimsProviders>`.
+Come per i profili tecnici OTP, aggiungere `<ClaimsProviders>` i seguenti profili tecnici all'elemento.
 
 ```XML
 <ClaimsProvider>
@@ -342,11 +342,11 @@ Come per i profili tecnici OTP, aggiungere i seguenti profili tecnici all'elemen
 </ClaimsProvider>
 ```
 
-## <a name="make-a-reference-to-the-displaycontrol"></a>Creare un riferimento a DisplayControl
+## <a name="make-a-reference-to-the-displaycontrol"></a>Creare un riferimento al DisplayControl
 
-Nel passaggio finale aggiungere un riferimento al DisplayControl creato. Se è stata usata una versione precedente dei criteri di Azure AD B2C, sostituire il profilo tecnico esistente `LocalAccountSignUpWithLogonEmail` autocertificato con il codice seguente. Questo profilo tecnico USA `DisplayClaims` con un riferimento a DisplayControl.
+Nel passaggio finale, aggiungere un riferimento al DisplayControl creato. Sostituire il `LocalAccountSignUpWithLogonEmail` profilo tecnico auto-asserito esistente con quanto segue se è stata usata una versione precedente dei criteri B2C di Azure AD. Questo profilo `DisplayClaims` tecnico utilizza con un riferimento al DisplayControl.This technical profile uses with a reference to the DisplayControl.
 
-Per altre informazioni, vedere [profilo tecnico autocertificato](restful-technical-profile.md) e [DisplayControl](display-controls.md).
+Per ulteriori informazioni, vedere [Profilo tecnico con asserazione automatica](restful-technical-profile.md) e [DisplayControl](display-controls.md).
 
 ```XML
 <ClaimsProvider>
@@ -393,14 +393,14 @@ Per altre informazioni, vedere [profilo tecnico autocertificato](restful-technic
 </ClaimsProvider>
 ```
 
-## <a name="optional-localize-your-email"></a>Opzionale Localizzare il messaggio di posta elettronica
+## <a name="optional-localize-your-email"></a>[Facoltativo] Localizzare la posta elettronica
 
-Per localizzare il messaggio di posta elettronica, è necessario inviare le stringhe localizzate a SendGrid o al provider di posta elettronica. Ad esempio, per localizzare l'oggetto del messaggio di posta elettronica, il corpo, il messaggio del codice o la firma del messaggio di posta elettronica. A tale scopo, è possibile usare la trasformazione delle attestazioni [GetLocalizedStringsTransformation](string-transformations.md) per copiare le stringhe localizzate in tipi di attestazione. Nella trasformazione `GenerateSendGridRequestBody` Claims, che genera il payload JSON, USA le attestazioni di input che contengono le stringhe localizzate.
+Per localizzare il messaggio di posta elettronica, è necessario inviare stringhe localizzate a SendGrid o al provider di posta elettronica. Ad esempio, per localizzare l'oggetto del messaggio di posta elettronica, il corpo, il messaggio di codice o la firma del messaggio di posta elettronica. A tale scopo, è possibile utilizzare la trasformazione attestazioni [GetLocalizedStringsTransformation](string-transformations.md) per copiare le stringhe localizzate nei tipi di attestazione. Nella `GenerateSendGridRequestBody` trasformazione delle attestazioni, che genera il payload JSON, usa le attestazioni di input che contengono le stringhe localizzate.
 
-1. Nel criterio definire le seguenti attestazioni di stringa: oggetto, messaggio, codeintro e firma.
-1. Definire una trasformazione delle attestazioni [GetLocalizedStringsTransformation](string-transformations.md) per sostituire i valori di stringa localizzata nelle attestazioni del passaggio 1.
-1. Modificare la trasformazione delle attestazioni `GenerateSendGridRequestBody` per utilizzare le attestazioni di input con il frammento di codice XML seguente.
-1. Aggiornare il modello di SendGrind per usare i parametri dinamici al posto di tutte le stringhe che verranno localizzate da Azure AD B2C.
+1. Nei criteri definire le attestazioni stringa seguenti: subject, message, codeIntro e signature.
+1. Definire una trasformazione delle attestazioni GetLocalizedStringsTransformation per sostituire i valori stringa localizzati nelle attestazioni del passaggio 1.Define a [GetLocalizedStringsTransformation](string-transformations.md) claims transformation to substitute localized string values into the claims from step 1.
+1. Modificare `GenerateSendGridRequestBody` la trasformazione delle attestazioni in modo da usare le attestazioni di input con il frammento XML seguente.
+1. Aggiornare il modello SendGrind per usare i parametri dinamici al posto di tutte le stringhe che verranno localizzate da Azure AD B2C.
 
 ```XML
 <ClaimsTransformation Id="GenerateSendGridRequestBody" TransformationMethod="GenerateJson">
@@ -425,8 +425,8 @@ Per localizzare il messaggio di posta elettronica, è necessario inviare le stri
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È possibile trovare un esempio di criteri di verifica della posta elettronica personalizzati in GitHub:
+È possibile trovare un esempio di criteri di verifica della posta elettronica personalizzati in GitHub:You can find an example of a custom email verification policy on GitHub:
 
-[Verifica della posta elettronica personalizzata-DisplayControls](https://github.com/azure-ad-b2c/samples/tree/master/policies/custom-email-verifcation-displaycontrol)
+[Verifica e-mail personalizzata - DisplayControls](https://github.com/azure-ad-b2c/samples/tree/master/policies/custom-email-verifcation-displaycontrol)
 
-Per informazioni sull'uso di un'API REST personalizzata o di qualsiasi provider di posta elettronica SMTP basato su HTTP, vedere [definire un profilo tecnico RESTful in un Azure ad B2C criteri personalizzati](restful-technical-profile.md).
+Per informazioni sull'utilizzo di un'API REST personalizzata o di qualsiasi provider di posta elettronica SMTP basato su HTTP, vedere [Definire un profilo tecnico RESTful in un criterio personalizzato B2C](restful-technical-profile.md)di Azure AD.

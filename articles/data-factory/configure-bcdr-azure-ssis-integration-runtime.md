@@ -1,5 +1,5 @@
 ---
-title: Configurare Azure-SSIS Integration Runtime per il failover del database SQL
+title: Configurare il runtime di integrazione Azure-SSIS per il failover del database SQLConfigure Azure-SSIS Integration Runtime for SQL Database failover
 description: Questo articolo descrive come configurare Azure-SSIS Integration Runtime eseguendo il failover e la replica geografica del Database SQL di Azure per il database SSISDB
 services: data-factory
 ms.service: data-factory
@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/14/2018
 ms.openlocfilehash: 92f7d25a9c19409b220b6a71fba87da91e51a415
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74928490"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-with-azure-sql-database-geo-replication-and-failover"></a>Configurare Azure-SSIS Integration Runtime con la replica geografica del Database SQL di Azure e il failover
@@ -51,11 +51,11 @@ Questa sezione si applica quando una delle condizioni seguenti è vera:
 
 - Azure-SSIS Integration Runtime fa riferimento all'endpoint del server primario del gruppo di failover. Questo endpoint viene modificato quando si verifica il failover.
 
-  Oppure
+  o
 
 - Il server di database SQL di Azure è configurato con la regola dell'endpoint servizio di rete virtuale.
 
-  Oppure
+  o
 
 - Il server di database è un'Istanza gestita di database SQL configurata con una rete virtuale.
 
@@ -79,7 +79,7 @@ Le sezioni seguenti descrivono questi passaggi in modo più dettagliato.
 
 - Se si usa un'installazione personalizzata, potrebbe essere necessario preparare un altro URI di firma di accesso condiviso per il contenitore BLOB in cui è archiviato lo script di installazione personalizzato e i file associati, in modo che continui a essere accessibile durante un'interruzione del servizio. Per altre informazioni, vedere [Personalizzare l'installazione del runtime di integrazione Azure-SSIS](how-to-configure-azure-ssis-ir-custom-setup.md).
 
-### <a name="steps"></a>Procedure
+### <a name="steps"></a>Passaggi
 
 Seguire questi passaggi per arrestare il runtime di integrazione Azure-SSIS, passare il runtime di integrazione in una nuova area e avviarlo nuovamente.
 
@@ -100,9 +100,9 @@ Seguire questi passaggi per arrestare il runtime di integrazione Azure-SSIS, pas
 
 3. Avviare nuovamente il runtime di integrazione.
 
-## <a name="scenario-3---attaching-an-existing-ssisdb-ssis-catalog-to-a-new-azure-ssis-ir"></a>Scenario 3: associazione di un database SSISDB esistente (catalogo SSIS) a una nuova Azure-SSIS IR
+## <a name="scenario-3---attaching-an-existing-ssisdb-ssis-catalog-to-a-new-azure-ssis-ir"></a>Scenario 3 - Attaching an existing SSISDB (SSIS catalog) to a new Azure-SSIS IR
 
-Quando si verifica un'emergenza di ADF o Azure-SSIS IR nell'area corrente, è possibile fare in modo che il database SSISDB continui a funzionare con una nuova Azure-SSIS IR in una nuova area.
+Quando si verifica un'emergenza Di scalo ADF o Azure-SSIS nell'area corrente, è possibile fare in modo che SSISDB continui a lavorare con un nuovo ir di Azure-SSIS in una nuova area.
 
 ### <a name="prerequisites"></a>Prerequisiti
 
@@ -110,26 +110,26 @@ Quando si verifica un'emergenza di ADF o Azure-SSIS IR nell'area corrente, è po
 
 - Se si usa un'installazione personalizzata, potrebbe essere necessario preparare un altro URI di firma di accesso condiviso per il contenitore BLOB in cui è archiviato lo script di installazione personalizzato e i file associati, in modo che continui a essere accessibile durante un'interruzione del servizio. Per altre informazioni, vedere [Personalizzare l'installazione del runtime di integrazione Azure-SSIS](how-to-configure-azure-ssis-ir-custom-setup.md).
 
-### <a name="steps"></a>Procedure
+### <a name="steps"></a>Passaggi
 
 Seguire questi passaggi per arrestare il runtime di integrazione Azure-SSIS, passare il runtime di integrazione in una nuova area e avviarlo nuovamente.
 
-1. Eseguire stored procedure per rendere SSISDB collegato al **\<new_data_factory_name\>** o **\<new_integration_runtime_name\>.**
+1. Eseguire la stored procedure per rendere SSISDB collegato a ** \<new_data_factory_name\> ** o ** \<new_integration_runtime_name\>**.
    
   ```SQL
     EXEC [catalog].[failover_integration_runtime] @data_factory_name='<new_data_factory_name>', @integration_runtime_name='<new_integration_runtime_name>'
    ```
 
-2. Creare un nuovo data factory denominato **\<new_data_factory_name\>** nella nuova area. Per altre informazioni, vedere creare un data factory.
+2. Creare una nuova ** \<data\> ** factory denominata new_data_factory_name nella nuova area. Per altre info, vedi Creare una data factory.
 
      ```powershell
      Set-AzDataFactoryV2 -ResourceGroupName "new resource group name" `
                          -Location "new region"`
                          -Name "<new_data_factory_name>"
      ```
-    Per altre informazioni su questo comando di PowerShell, vedere [creare un data factory di Azure con PowerShell](quickstart-create-data-factory-powershell.md)
+    Per altre informazioni su questo comando di PowerShell, vedere Creare una data factory di [Azure usando PowerShellFor](quickstart-create-data-factory-powershell.md) more info about this PowerShell command, see Create an Azure data factory using PowerShell
 
-3. Creare un nuovo Azure-SSIS IR denominato **\<new_integration_runtime_name\>** nella nuova area utilizzando Azure PowerShell.
+3. Creare un nuovo ir Azure-SSIS denominato ** \<new_integration_runtime_name\> ** nella nuova area usando Azure PowerShell.Create a new Azure-SSIS IR named new_integration_runtime_name in the new region using Azure PowerShell.
 
     ```powershell
     Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName "new resource group name" `
@@ -161,4 +161,4 @@ Considerare queste altre opzioni di configurazione per il runtime di integrazion
 
 - [Personalizzare l'installazione del runtime di integrazione Azure-SSIS](how-to-configure-azure-ssis-ir-custom-setup.md)
 
-- [Provisioning della Enterprise Edition per il runtime di integrazione Azure-SSIS](how-to-configure-azure-ssis-ir-enterprise-edition.md)
+- [Provisioning della Enterprise Edition per il Runtime di integrazione Azure-SSIS](how-to-configure-azure-ssis-ir-enterprise-edition.md)

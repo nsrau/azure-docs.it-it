@@ -1,8 +1,8 @@
 ---
-title: Aggiungere, rimuovere e disporre i preferiti nei portale di Azure | Microsoft Docs
-description: Informazioni su come aggiungere o rimuovere elementi dall'elenco Preferiti e ridisporre l'ordine degli elementi
+title: Aggiunta, rimozione e disposizione dei preferiti nel portale di Azure Documenti Microsoft
+description: Informazioni su come aggiungere o rimuovere elementi dall'elenco Preferiti e modificare l'ordine degli elementi
 services: azure-portal
-keywords: Preferiti, portale
+keywords: preferiti,portale
 author: mgblythe
 ms.author: mblythe
 ms.date: 12/20/2019
@@ -11,59 +11,59 @@ ms.service: azure-portal
 ms.custom: ''
 manager: mtillman
 ms.openlocfilehash: d6b580accb02efb6a44c0c245af583d2e3850409
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76310816"
 ---
-# <a name="add-remove-and-rearrange-favorites"></a>Aggiunta, rimozione e ridisposizione di Preferiti
+# <a name="add-remove-and-rearrange-favorites"></a>Aggiungere, rimuovere e ridisporre i preferiti
 
-Aggiungere o rimuovere elementi dall'elenco **Preferiti** in modo da poter passare rapidamente ai servizi usati più spesso. Sono già stati aggiunti alcuni servizi comuni all'elenco **Preferiti** , ma è probabile che si desideri personalizzarli. Si è l'unico utente che vede le modifiche apportate ai **Preferiti**.
+Aggiungere o rimuovere elementi dall'elenco **Preferiti** in modo da poter accedere rapidamente ai servizi utilizzati più di frequente. Abbiamo già aggiunto alcuni servizi comuni all'elenco **Preferiti,** ma probabilmente vorrai personalizzarlo. Sei l'unico che vede le modifiche apportate **ai Preferiti**.
 
-## <a name="add-a-favorite"></a>Aggiungi un preferito
+## <a name="add-a-favorite"></a>Aggiungere un preferito
 
-Gli elementi elencati in **Preferiti** sono selezionati da **tutti i servizi**. Passare il puntatore del mouse su un nome di servizio per visualizzare le informazioni e le risorse correlate al servizio. Un'icona a stella piena ![icona a stella piena](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-graystar.png) accanto al nome del servizio indica che l'elemento è visualizzato nell'elenco **Preferiti** . Selezionare l'icona a stella per aggiungere un servizio all'elenco **Preferiti** .
+Gli elementi elencati in **Preferiti** vengono selezionati in **Tutti i servizi**. Passare il mouse sul nome di un servizio per visualizzare informazioni e risorse correlate al servizio. Un'icona ![a forma di](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-graystar.png) stella piena Icona a forma di stella piena accanto al nome del servizio indica che l'elemento viene visualizzato nell'elenco **Preferiti.** Selezionare l'icona a forma di stella per aggiungere un servizio all'elenco **Preferiti.**
 
-### <a name="add-cost-management--billing-to-favorites"></a>Aggiungi gestione costi e fatturazione ai Preferiti
+### <a name="add-cost-management--billing-to-favorites"></a>Aggiunta della gestione dei costi e della fatturazione ai Preferiti
 
-1. Selezionare **tutti i servizi** dal menu portale di Azure.
+1. Selezionare **Tutti i servizi** dal menu del portale di Azure.Select All services from the Azure portal menu.
 
-    ![Screenshot che Mostra tutti i servizi selezionati](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-new-all-services.png)
+    ![Schermata che mostra tutti i servizi selezionati](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-new-all-services.png)
 
-1. Immettere la parola "cost" nel campo di ricerca. Vengono visualizzati i servizi con "costo" nel titolo o con "costo" come parola chiave.
+1. Inserisci la parola "costo" nel campo di ricerca. Vengono visualizzati i servizi che hanno "costo" nel titolo o che hanno "costo" come parola chiave.
 
-   ![Screenshot che mostra la ricerca in tutti i servizi](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-find-service.png)
+   ![Schermata che mostra la ricerca in Tutti i servizi](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-find-service.png)
 
-1. Passare il puntatore del mouse sul nome del servizio per visualizzare la scheda **Gestione costi** e informazioni di fatturazione. Selezionare l'icona a stella.
+1. Passare il mouse sul nome del servizio per visualizzare la scheda **Informazioni gestione costi - Fatturazione.** Selezionare l'icona a forma di stella.
 
-   ![Screenshot che mostra la stella accanto a gestione costi + fatturazione selezionata](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-add.png)
+   ![Screenshot che mostra la stella accanto a Gestione costi - fatturazione selezionata](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-add.png)
 
-1. **Gestione costi + fatturazione** viene ora aggiunto come ultimo elemento nell'elenco **Preferiti** .
+1. **Gestione costi: la fatturazione** viene ora aggiunta come ultimo elemento dell'elenco **Preferiti.**
 
 ## <a name="remove-an-item-from-favorites"></a>Rimuovere un elemento dai Preferiti
 
-È ora possibile rimuovere un elemento direttamente dall'elenco **Preferiti** .
+È ora possibile rimuovere un elemento direttamente dall'elenco **Preferiti.**
 
-1. Nella sezione **Preferiti** del menu del portale passare il puntatore del mouse sul nome del servizio che si desidera rimuovere.
+1. Nella sezione **Preferiti** del menu del portale passare il mouse sul nome del servizio che si desidera rimuovere.
 
-   ![Screenshot che mostra il comportamento del passaggio del mouse nei Preferiti](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-remove.png)
+   ![Schermata che mostra il comportamento al passaggio del mouse nei Preferiti](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-remove.png)
 
-2. Nella scheda informazioni selezionare la stella in modo che cambi da riempito a non riempito. Il servizio viene rimosso dall'elenco **Preferiti** .
+2. Nella scheda informazioni, selezionare la stella in modo che cambi da riempita a non riempita. Il servizio viene rimosso dall'elenco **Preferiti.**
 
-## <a name="rearrange-favorites"></a>Ridisponi Preferiti
+## <a name="rearrange-favorites"></a>Ridisporre i preferiti
 
-È possibile modificare l'ordine in cui sono elencati i servizi preferiti. È sufficiente trascinare e rilasciare la voce di menu in un altro percorso in **Preferiti**.
+È possibile modificare l'ordine di elenco dei servizi preferiti. Basta trascinare e rilasciare la voce di menu in un'altra posizione sotto **Preferiti**.
 
-### <a name="move-cost-management--billing-to-the-top-of-favorites"></a>Spostare gestione costi e fatturazione nella parte superiore dei Preferiti
+### <a name="move-cost-management--billing-to-the-top-of-favorites"></a>Spostare Gestione costi - Fatturazione nella parte superiore dei Preferiti
 
-1. Selezionare e mantenere la voce **Gestione costi e fatturazione** nell'elenco **Preferiti** .
+1. Selezionare e tenere premuta la voce **Gestione costi - Fatturazione** nell'elenco **Preferiti.**
 
-   ![Screenshot che Mostra gestione costi e fatturazione selezionata](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-sort.png)
+   ![Screenshot della gestione dei costi e dell'opzione di fatturazione selezionata](./media/azure-portal-add-remove-sort-favorites/azure-portal-favorites-sort.png)
 
-1. Quando si continua a essere in attesa, trascinare l'elemento nella parte superiore dei **Preferiti** e quindi rilasciare.
+1. Continuando a tenere premuto, trascinare l'elemento nella parte superiore dei **Preferiti** e quindi rilasciare.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per creare un'area di lavoro incentrata sul progetto, vedere [creare e condividere dashboard nel portale di Azure](../azure-portal/azure-portal-dashboards.md)
-* Scopri di più sulle procedure nella serie di [video di portale di Azure](https://www.youtube.com/playlist?list=PLLasX02E8BPBKgXP4oflOL29TtqTzwhxR)
+* Per creare un'area di lavoro incentrata sul progetto, vedere Creare e condividere dashboard nel portale di AzureTo create a project-focused workspace, see [Create and share dashboards in the Azure portal](../azure-portal/azure-portal-dashboards.md)
+* Scopri altre procedure nella [serie di video how-to](https://www.youtube.com/playlist?list=PLLasX02E8BPBKgXP4oflOL29TtqTzwhxR) del portale di Azure

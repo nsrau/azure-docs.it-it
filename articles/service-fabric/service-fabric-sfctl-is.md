@@ -1,15 +1,15 @@
 ---
-title: 'INTERFACCIA della riga di comando di Azure Service Fabric: sfctl'
-description: Informazioni su sfctl, l'interfaccia della riga di comando di Azure Service Fabric. Include un elenco di comandi per la gestione dell'infrastruttura.
+title: Azure Service Fabric CLI - sfctl è
+description: Informazioni su sfctl, l'interfaccia della riga di comando di Azure Service Fabric.Learn about sfctl, the Azure Service Fabric command-line interface. Include un elenco di comandi per la gestione dell'infrastruttura.
 author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: a64aaca97c9df61d795c82d64e6048d6f9ae032f
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76906086"
 ---
 # <a name="sfctl-is"></a>sfctl is
@@ -17,7 +17,7 @@ Consente di eseguire query e inviare comandi al servizio di infrastruttura.
 
 ## <a name="commands"></a>Comandi:
 
-|Comando|Description|
+|Comando|Descrizione|
 | --- | --- |
 | command | Richiama un comando amministrativo sull'istanza del servizio di infrastruttura specificato. |
 | query | Richiama una query di sola lettura sull'istanza del servizio di infrastruttura specificato. |
@@ -29,7 +29,7 @@ Per i cluster che dispongono di una o più istanze del servizio di infrastruttur
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --command [Obbligatorio] | Il testo del comando da richiamare. Il contenuto del comando è specifico dell'infrastruttura. |
 | --service-id | L'identità del servizio di infrastruttura. <br><br> Si tratta del nome completo del servizio di infrastruttura senza lo schema URI "fabric\:". Questo parametro è obbligatorio solo per il cluster con più di un'istanza del servizio di infrastruttura in esecuzione. |
@@ -37,7 +37,7 @@ Per i cluster che dispongono di una o più istanze del servizio di infrastruttur
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |
@@ -52,7 +52,7 @@ Per i cluster che dispongono di una o più istanze del servizio di infrastruttur
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --command [Obbligatorio] | Il testo del comando da richiamare. Il contenuto del comando è specifico dell'infrastruttura. |
 | --service-id | L'identità del servizio di infrastruttura. <br><br> Si tratta del nome completo del servizio di infrastruttura senza lo schema URI "fabric\:". Questo parametro è obbligatorio solo per il cluster con più di un'istanza del servizio di infrastruttura in esecuzione. |
@@ -60,7 +60,7 @@ Per i cluster che dispongono di una o più istanze del servizio di infrastruttur
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |

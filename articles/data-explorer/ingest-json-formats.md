@@ -1,6 +1,6 @@
 ---
-title: Inserire dati in formato JSON in Azure Esplora dati
-description: Informazioni su come inserire dati in formato JSON in Esplora dati di Azure.
+title: Inserire i dati in formato JSON in Esplora dati di AzureIngest JSON formatted data into Azure Data Explorer
+description: Informazioni su come inserire dati in formato JSON in Azure Data Explorer.Learn about how to ing json formatted data into Azure Data Explorer.
 author: orspod
 ms.author: orspodek
 ms.reviewer: kerend
@@ -8,33 +8,33 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/27/2020
 ms.openlocfilehash: d293b76e004d693813a074cb8551a86cb3c0bec2
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76772339"
 ---
-# <a name="ingest-json-formatted-sample-data-into-azure-data-explorer"></a>Inserire dati di esempio in formato JSON in Azure Esplora dati
+# <a name="ingest-json-formatted-sample-data-into-azure-data-explorer"></a>Inserire i dati di esempio in formato JSON in Esplora dati di AzureIngest JSON formatted sample data into Azure Data Explorer
 
-Questo articolo illustra come inserire dati in formato JSON in un database di Esplora dati di Azure. Si inizierà con semplici esempi di JSON non elaborati e mappati, si continuerà a usare JSON con più righe e quindi si affronteranno schemi JSON più complessi contenenti matrici e dizionari.  Gli esempi illustrano in dettaglio il processo di inserimento dei dati in formato JSON usando kusto Query Language C#(KQL), o Python. Il linguaggio di query kusto `ingest` i comandi di controllo vengono eseguiti direttamente nell'endpoint del motore. Negli scenari di produzione, l'inserimento viene eseguito al servizio Gestione dati usando le librerie client o le connessioni dati. Leggi i dati di inserimento [usando la libreria Python di azure Esplora dati](/azure/data-explorer/python-ingest-data) e Inserisci [dati usando Azure Esplora dati .NET standard SDK](/azure/data-explorer/net-standard-ingest-data) per una procedura dettagliata sull'inserimento di dati con queste librerie client.
+Questo articolo illustra come inserire dati in formato JSON in un database di Azure Data Explorer.This article shows you how to ingest JSON formatted data into an Azure Data Explorer database. Inizierai con semplici esempi di JSON non elaborato e mappato, continuerai con JSON multilineato e quindi affronterai schemi JSON più complessi contenenti matrici e dizionari.  Negli esempi viene descritto in dettaglio il processo di inserimento di dati in formato JSON utilizzando Kusto query Language (KQL), C' o Python. I comandi del `ingest` controllo del linguaggio di query Kusto vengono eseguiti direttamente all'endpoint del motore. Negli scenari di produzione, l'inserimento viene eseguito nel servizio di gestione dati tramite librerie client o connessioni dati. Leggere [Ingest data using the Azure Data Explorer Python library](/azure/data-explorer/python-ingest-data) and [Ingest data using the Azure Data Explorer .NET Standard SDK](/azure/data-explorer/net-standard-ingest-data) for a walk-through regarding ingesting data with these client libraries.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 [Un cluster e un database di test](create-cluster-database-portal.md)
 
-## <a name="the-json-format"></a>Formato JSON
+## <a name="the-json-format"></a>Il formato JSON
 
-Azure Esplora dati supporta due formati di file JSON:
-* `json`: codice JSON separato da righe. Ogni riga nei dati di input include esattamente un record JSON.
-* `multijson`: JSON con più righe. Il parser ignora i separatori di riga e legge un record dalla posizione precedente fino alla fine di un file JSON valido.
+Azure Data Explorer supporta due formati di file JSON:Azure Data Explorer supports two JSON file formats:
+* `json`: JSON separato da riga. Ogni riga nei dati di input ha esattamente un record JSON.
+* `multijson`: JSON multilineato. Il parser ignora i separatori di riga e legge un record dalla posizione precedente alla fine di un JSON valido.
 
-### <a name="ingest-and-map-json-formatted-data"></a>Inserire e mappare i dati in formato JSON
+### <a name="ingest-and-map-json-formatted-data"></a>Inserimento e mapping dei dati in formato JSON
 
-Per l'inserimento di dati in formato JSON è necessario specificare il *formato* usando la [Proprietà](/azure/kusto/management/data-ingestion/index#ingestion-properties)di inserimento. L'inserimento di dati JSON richiede il [mapping](/azure/kusto/management/mappings), che esegue il mapping di una voce di origine JSON alla relativa colonna di destinazione. Quando si inseriscono dati, utilizzare la proprietà di inserimento `jsonMappingReference` predefinita o specificare la proprietà di inserimento `jsonMapping`. In questo articolo verrà utilizzata la proprietà di inserimento `jsonMappingReference`, che è predefinita nella tabella utilizzata per l'inserimento. Negli esempi seguenti si inizierà inserendo i record JSON come dati non elaborati in una tabella a colonna singola. Si userà quindi il mapping per inserire ogni proprietà nella relativa colonna mappata. 
+L'inserimento di dati in formato JSON richiede di specificare il *formato* utilizzando la [proprietà di inserimento.](/azure/kusto/management/data-ingestion/index#ingestion-properties) L'inserimento di dati JSON richiede [il mapping](/azure/kusto/management/mappings), che esegue il mapping di una voce di origine JSON alla relativa colonna di destinazione. Quando si ingeriscono dati, usare la proprietà di inserimento predefinita `jsonMappingReference` o specificare la `jsonMapping`proprietà di inserimento. Questo articolo userà la `jsonMappingReference` proprietà di inserimento, che è predefinita nella tabella usata per l'inserimento. Negli esempi seguenti, inizieremo inserendo i record JSON come dati non elaborati in una singola tabella di colonna. Quindi useremo il mapping per ingerire ogni proprietà alla relativa colonna mappata. 
 
 ### <a name="simple-json-example"></a>Esempio JSON semplice
 
-L'esempio seguente è un semplice JSON, con una struttura flat. I dati hanno informazioni sulla temperatura e sull'umidità, raccolti da diversi dispositivi. Ogni record è contrassegnato con un ID e un timestamp.
+L'esempio seguente è un JSON semplice, con una struttura piatta. I dati confondono informazioni su temperatura e umidità, raccolte da diversi dispositivi. Ogni record è contrassegnato con un ID e un timestamp.
 
 ```json
 {
@@ -46,27 +46,27 @@ L'esempio seguente è un semplice JSON, con una struttura flat. I dati hanno inf
 }
 ```
 
-## <a name="ingest-raw-json-records"></a>Inserire record JSON non elaborati 
+## <a name="ingest-raw-json-records"></a>Inserimento di record JSON non elaborati 
 
-In questo esempio si inseriscono i record JSON come dati non elaborati in una tabella a colonna singola. La manipolazione dei dati, l'utilizzo di query e i criteri di aggiornamento vengono eseguiti dopo l'inserimento dei dati.
+In questo esempio, si inserino i record JSON come dati non elaborati in una tabella a colonna singola. La modifica dei dati, l'utilizzo di query e i criteri di aggiornamento vengono eseguiti dopo l'inserimento dei dati.
 
-# <a name="kqltabkusto-query-language"></a>[KQL](#tab/kusto-query-language)
+# <a name="kql"></a>[KQL](#tab/kusto-query-language)
 
-Usare il linguaggio di query kusto per inserire i dati in un formato JSON non elaborato.
+Usare il linguaggio di query Kusto per l'inserimento di dati in formato JSON non elaborato.
 
 1. Accedere a [https://dataexplorer.azure.com](https://dataexplorer.azure.com).
 
-1. Selezionare **Add cluster**  (Aggiungi cluster).
+1. Selezionare **Add cluster ** (Aggiungi cluster).
 
 1. Nella finestra di dialogo **Add cluster** (Aggiungi cluster) immettere l'URL del cluster nel modulo`https://<ClusterName>.<Region>.kusto.windows.net/`, quindi selezionare **Aggiungi**.
 
-1. Incollare il comando seguente e selezionare Run ( **Esegui** ) per creare la tabella.
+1. Incollare il comando seguente e selezionare **Esegui** per creare la tabella.
 
     ```Kusto
     .create table RawEvents (Event: dynamic)
     ```
 
-    Questa query crea una tabella con una singola colonna `Event` di un tipo di dati [dinamico](/azure/kusto/query/scalar-data-types/dynamic) .
+    Questa query crea una `Event` tabella con una singola colonna di un tipo di dati [dinamici.](/azure/kusto/query/scalar-data-types/dynamic)
 
 1. Creare il mapping JSON.
 
@@ -74,19 +74,19 @@ Usare il linguaggio di query kusto per inserire i dati in un formato JSON non el
     .create table RawEvents ingestion json mapping 'RawEventMapping' '[{"column":"Event","path":"$"}]'
     ```
 
-    Questo comando crea un mapping ed esegue il mapping del percorso radice JSON `$` alla colonna `Event`.
+    Questo comando crea un mapping ed `$` esegue `Event` il mapping del percorso radice JSON alla colonna.
 
-1. Inserire i dati nella tabella `RawEvents`.
+1. Inserire i dati `RawEvents` nella tabella.
 
     ```Kusto
     .ingest into table RawEvents h'https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/simple.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D' with (format=json, jsonMappingReference=RawEventMapping)
     ```
 
-# <a name="ctabc-sharp"></a>[C#](#tab/c-sharp)
+# <a name="c"></a>[C #](#tab/c-sharp)
 
-Usare C# per inserire dati in formato JSON non elaborato.
+Usare c'è per l'inserimento di dati in formato JSON non elaborato.
 
-1. Creare la tabella `RawEvents`.
+1. Creare `RawEvents` la tabella.
 
     ```C#
     var kustoUri = "https://<ClusterName>.<Region>.kusto.windows.net:443/";
@@ -128,9 +128,9 @@ Usare C# per inserire dati in formato JSON non elaborato.
 
     kustoClient.ExecuteControlCommand(command);
     ```
-    Questo comando crea un mapping ed esegue il mapping del percorso radice JSON `$` alla colonna `Event`.
+    Questo comando crea un mapping ed `$` esegue `Event` il mapping del percorso radice JSON alla colonna.
 
-1. Inserire i dati nella tabella `RawEvents`.
+1. Inserire i dati `RawEvents` nella tabella.
 
     ```C#
     var ingestUri = "https://ingest-<ClusterName>.<Region>.kusto.windows.net:443/";
@@ -157,13 +157,13 @@ Usare C# per inserire dati in formato JSON non elaborato.
     ```
 
 > [!NOTE]
-> I dati vengono aggregati in base ai criteri di invio in [batch](/azure/kusto/concepts/batchingpolicy), con conseguente latenza di pochi minuti.
+> I dati vengono aggregati in base ai criteri di [invio in batch](/azure/kusto/concepts/batchingpolicy), con una latenza di alcuni minuti.
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
-Usare Python per inserire dati in formato JSON non elaborato.
+Usare Python per l'inserimento di dati in formato JSON non elaborato.
 
-1. Creare la tabella `RawEvents`.
+1. Creare `RawEvents` la tabella.
 
     ```Python
     KUSTO_URI = "https://<ClusterName>.<Region>.kusto.windows.net:443/"
@@ -185,7 +185,7 @@ Usare Python per inserire dati in formato JSON non elaborato.
     dataframe_from_result_table(RESPONSE.primary_results[0])
     ```
 
-1. Inserire i dati nella tabella `RawEvents`.
+1. Inserire i dati `RawEvents` nella tabella.
 
     ```Python
     INGEST_URI = "https://ingest-<ClusterName>.<Region>.kusto.windows.net:443/"
@@ -200,17 +200,17 @@ Usare Python per inserire dati in formato JSON non elaborato.
     ```
 
     > [!NOTE]
-    > I dati vengono aggregati in base ai criteri di invio in [batch](/azure/kusto/concepts/batchingpolicy), con conseguente latenza di pochi minuti.
+    > I dati vengono aggregati in base ai criteri di [invio in batch](/azure/kusto/concepts/batchingpolicy), con una latenza di alcuni minuti.
 
 ---
 
-## <a name="ingest-mapped-json-records"></a>Inserire record JSON mappati
+## <a name="ingest-mapped-json-records"></a>Eseguire l'inserimento di record JSON mappati
 
-In questo esempio si inseriscono i dati dei record JSON. Ogni proprietà JSON è mappata a una singola colonna nella tabella. 
+In questo esempio vengono ingeriti i dati dei record JSON. Ogni proprietà JSON viene mappata a una singola colonna nella tabella. 
 
-# <a name="kqltabkusto-query-language"></a>[KQL](#tab/kusto-query-language)
+# <a name="kql"></a>[KQL](#tab/kusto-query-language)
 
-1. Creare una nuova tabella con uno schema simile ai dati di input JSON. Questa tabella verrà usata per tutti gli esempi e i comandi di inserimento seguenti. 
+1. Creare una nuova tabella, con uno schema simile ai dati di input JSON. Questa tabella verrà usata per tutti gli esempi seguenti e per i comandi di inserimento. 
 
     ```Kusto
     .create table Events (Time: datetime, Device: string, MessageId: string, Temperature: double, Humidity: double)
@@ -222,19 +222,19 @@ In questo esempio si inseriscono i dati dei record JSON. Ogni proprietà JSON è
     .create table Events ingestion json mapping 'FlatEventMapping' '[{"column":"Time","path":"$.timestamp"},{"column":"Device","path":"$.deviceId"},{"column":"MessageId","path":"$.messageId"},{"column":"Temperature","path":"$.temperature"},{"column":"Humidity","path":"$.humidity"}]'
     ```
 
-    In questo mapping, in base a quanto definito dallo schema della tabella, le voci `timestamp` verranno inserite nella colonna `Time` come tipi di dati `datetime`.
+    In questo mapping, come definito dallo `timestamp` schema della tabella, le `Time` voci `datetime` verranno rese in genere nella colonna come tipi di dati.
 
-1. Inserire i dati nella tabella `Events`.
+1. Inserire i dati `Events` nella tabella.
 
     ```Kusto
     .ingest into table Events h'https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/simple.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D' with (format=json, jsonMappingReference=FlatEventMapping)
     ```
 
-    Il file ' Simple. JSON ' contiene alcuni record JSON delimitati da righe. Il formato è `json`e il mapping usato nel comando di inserimento è il `FlatEventMapping` creato.
+    Il file 'simple.json' contiene alcuni record JSON separati da riga. Il formato `json`è e il mapping utilizzato nel `FlatEventMapping` comando di inserimento è quello creato dall'utente.
 
-# <a name="ctabc-sharp"></a>[C#](#tab/c-sharp)
+# <a name="c"></a>[C #](#tab/c-sharp)
 
-1. Creare una nuova tabella con uno schema simile ai dati di input JSON. Questa tabella verrà usata per tutti gli esempi e i comandi di inserimento seguenti. 
+1. Creare una nuova tabella, con uno schema simile ai dati di input JSON. Questa tabella verrà usata per tutti gli esempi seguenti e per i comandi di inserimento. 
 
     ```C#
     var table = "Events";
@@ -273,9 +273,9 @@ In questo esempio si inseriscono i dati dei record JSON. Ogni proprietà JSON è
     kustoClient.ExecuteControlCommand(command);
     ```
 
-    In questo mapping, in base a quanto definito dallo schema della tabella, le voci `timestamp` verranno inserite nella colonna `Time` come tipi di dati `datetime`.    
+    In questo mapping, come definito dallo `timestamp` schema della tabella, le `Time` voci `datetime` verranno rese in genere nella colonna come tipi di dati.    
 
-1. Inserire i dati nella tabella `Events`.
+1. Inserire i dati `Events` nella tabella.
 
     ```C#
     var blobPath = "https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/simple.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D";
@@ -289,11 +289,11 @@ In questo esempio si inseriscono i dati dei record JSON. Ogni proprietà JSON è
     ingestClient.IngestFromSingleBlob(blobPath, deleteSourceOnSuccess: false, ingestionProperties: properties);
     ```
 
-    Il file ' Simple. JSON ' contiene alcuni record JSON delimitati da righe. Il formato è `json`e il mapping usato nel comando di inserimento è il `FlatEventMapping` creato.
+    Il file 'simple.json' contiene alcuni record JSON separati da riga. Il formato `json`è e il mapping utilizzato nel `FlatEventMapping` comando di inserimento è quello creato dall'utente.
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
-1. Creare una nuova tabella con uno schema simile ai dati di input JSON. Questa tabella verrà usata per tutti gli esempi e i comandi di inserimento seguenti. 
+1. Creare una nuova tabella, con uno schema simile ai dati di input JSON. Questa tabella verrà usata per tutti gli esempi seguenti e per i comandi di inserimento. 
 
     ```Python
     TABLE = "RawEvents"
@@ -311,7 +311,7 @@ In questo esempio si inseriscono i dati dei record JSON. Ogni proprietà JSON è
     dataframe_from_result_table(RESPONSE.primary_results[0])
     ```
 
-1. Inserire i dati nella tabella `Events`.
+1. Inserire i dati `Events` nella tabella.
 
     ```Python
     BLOB_PATH = 'https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/simple.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D'
@@ -322,24 +322,24 @@ In questo esempio si inseriscono i dati dei record JSON. Ogni proprietà JSON è
         BLOB_DESCRIPTOR, ingestion_properties=INGESTION_PROPERTIES)
     ```
 
-    Il file ' Simple. JSON ' contiene alcuni record JSON delimitati da righe. Il formato è `json`e il mapping usato nel comando di inserimento è il `FlatEventMapping` creato.    
+    Il file 'simple.json' contiene alcuni record JSON separati da righe. Il formato `json`è e il mapping utilizzato nel `FlatEventMapping` comando di inserimento è quello creato dall'utente.    
 ---
 
-## <a name="ingest-multi-lined-json-records"></a>Inserire record JSON con più righe
+## <a name="ingest-multi-lined-json-records"></a>Inserimento di record JSON su più righe
 
-In questo esempio si inseriscono record JSON a più righe. Ogni proprietà JSON è mappata a una singola colonna nella tabella. Il file ' multilined. JSON ' contiene alcuni record JSON rientrati. Il formato `multijson` indica al motore di leggere i record dalla struttura JSON.
+In questo esempio vengono ingeriti record JSON con più righe. Ogni proprietà JSON viene mappata a una singola colonna nella tabella. Il file 'multilined.json' contiene alcuni record JSON rientrati. Il `multijson` formato indica al motore di leggere i record in base alla struttura JSON.
 
-# <a name="kqltabkusto-query-language"></a>[KQL](#tab/kusto-query-language)
+# <a name="kql"></a>[KQL](#tab/kusto-query-language)
 
-Inserire i dati nella tabella `Events`.
+Inserire i dati `Events` nella tabella.
 
 ```Kusto
 .ingest into table Events h'https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/multilined.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D' with (format=multijson, jsonMappingReference=FlatEventMapping)
 ```
 
-# <a name="ctabc-sharp"></a>[C#](#tab/c-sharp)
+# <a name="c"></a>[C #](#tab/c-sharp)
 
-Inserire i dati nella tabella `Events`.
+Inserire i dati `Events` nella tabella.
 
 ```C#
 var tableMapping = "FlatEventMapping";
@@ -354,9 +354,9 @@ var properties =
 ingestClient.IngestFromSingleBlob(blobPath, deleteSourceOnSuccess: false, ingestionProperties: properties);
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
-Inserire i dati nella tabella `Events`.
+Inserire i dati `Events` nella tabella.
 
 ```Python
 MAPPING = "FlatEventMapping"
@@ -369,9 +369,9 @@ INGESTION_CLIENT.ingest_from_blob(
 
 ---
 
-## <a name="ingest-json-records-containing-arrays"></a>Inserire record JSON contenenti matrici
+## <a name="ingest-json-records-containing-arrays"></a>Inserimento di record JSON contenenti matriciIngest JSON records containing arrays
 
-I tipi di dati matrice sono una raccolta ordinata di valori. L'inserimento di una matrice JSON viene eseguito da un [criterio di aggiornamento](/azure/kusto/management/update-policy). Il codice JSON viene inserito così com'è in una tabella intermedia. Un criterio di aggiornamento esegue una funzione predefinita nella tabella `RawEvents`, inserendo nuovamente i risultati nella tabella di destinazione. I dati vengono inseriti con la struttura seguente:
+I tipi di dati matrice sono una raccolta ordinata di valori. L'inserimento di una matrice JSON viene eseguito da un criterio di [aggiornamento.](/azure/kusto/management/update-policy) Il codice JSON viene ingerito così com'è in una tabella intermedia. Un criterio di aggiornamento esegue una `RawEvents` funzione predefinita nella tabella, rimuovendo i risultati alla tabella di destinazione. Insereremo i dati con la seguente struttura:
 
 ```json
 {
@@ -395,9 +395,9 @@ I tipi di dati matrice sono una raccolta ordinata di valori. L'inserimento di un
 }
 ```
 
-# <a name="kqltabkusto-query-language"></a>[KQL](#tab/kusto-query-language)
+# <a name="kql"></a>[KQL](#tab/kusto-query-language)
 
-1. Creare una funzione `update policy` che espande la raccolta di `records` in modo che ogni valore nella raccolta riceva una riga distinta, usando l'operatore di `mv-expand`. Si userà Table `RawEvents` come tabella di origine e `Events` come tabella di destinazione.
+1. Creare `update policy` una funzione che espande `records` la raccolta di in modo che ogni `mv-expand` valore nella raccolta riceva una riga separata, utilizzando l'operatore . Useremo la `RawEvents` tabella come tabella `Events` di origine e come tabella di destinazione.
 
     ```Kusto
     .create function EventRecordsExpand() {
@@ -418,27 +418,27 @@ I tipi di dati matrice sono una raccolta ordinata di valori. L'inserimento di un
     EventRecordsExpand() | getschema
     ```
 
-1. Aggiungere i criteri di aggiornamento alla tabella di destinazione. Questi criteri eseguiranno automaticamente la query su tutti i dati appena inseriti nella `RawEvents` tabella intermedia e inseriranno i risultati nella tabella `Events`. Definire un criterio di conservazione zero per evitare che la tabella intermedia venga mantenuta.
+1. Aggiungere il criterio di aggiornamento nella tabella di destinazione. Questo criterio eseguirà automaticamente la query su tutti `RawEvents` i dati appena inseriti `Events` nella tabella intermedia e inserirà i risultati nella tabella. Definire un criterio di conservazione zero per evitare di rendere persistente la tabella intermedia.
 
     ```Kusto
     .alter table Events policy update @'[{"Source": "RawEvents", "Query": "EventRecordsExpand()", "IsEnabled": "True"}]'
     ```
 
-1. Inserire i dati nella tabella `RawEvents`.
+1. Inserire i dati `RawEvents` nella tabella.
 
     ```Kusto
     .ingest into table Events h'https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/array.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D' with (format=multijson, jsonMappingReference=RawEventMapping)
     ```
 
-1. Esaminare i dati nella tabella `Events`.
+1. Esaminare i `Events` dati nella tabella.
 
     ```Kusto
     Events
     ```
 
-# <a name="ctabc-sharp"></a>[C#](#tab/c-sharp)
+# <a name="c"></a>[C #](#tab/c-sharp)
 
-1. Creare una funzione di aggiornamento che espande la raccolta di `records` in modo che ogni valore nella raccolta riceva una riga distinta, usando l'operatore `mv-expand`. Si userà Table `RawEvents` come tabella di origine e `Events` come tabella di destinazione.   
+1. Creare una funzione di aggiornamento `records` che espande la raccolta di in modo che `mv-expand` ogni valore nella raccolta riceva una riga separata, utilizzando l'operatore . Useremo la `RawEvents` tabella come tabella `Events` di origine e come tabella di destinazione.   
 
     ```C#
     var command =
@@ -463,7 +463,7 @@ I tipi di dati matrice sono una raccolta ordinata di valori. L'inserimento di un
     > [!NOTE]
     > Lo schema ricevuto dalla funzione deve corrispondere allo schema della tabella di destinazione.
 
-1. Aggiungere i criteri di aggiornamento alla tabella di destinazione. Questo criterio eseguirà automaticamente la query su tutti i dati appena inseriti nella `RawEvents` tabella intermedia e li inserirà nella tabella `Events`. Definire un criterio di conservazione zero per evitare che la tabella intermedia venga mantenuta.
+1. Aggiungere il criterio di aggiornamento nella tabella di destinazione. Questo criterio eseguirà automaticamente la query su tutti `RawEvents` i dati appena inseriti `Events` nella tabella intermedia e inserirà i risultati nella tabella. Definire un criterio di conservazione zero per evitare di rendere persistente la tabella intermedia.
 
     ```C#
     var command =
@@ -472,7 +472,7 @@ I tipi di dati matrice sono una raccolta ordinata di valori. L'inserimento di un
     kustoClient.ExecuteControlCommand(command);
     ```
 
-1. Inserire i dati nella tabella `RawEvents`.
+1. Inserire i dati `RawEvents` nella tabella.
 
     ```C#
     var table = "RawEvents";
@@ -488,11 +488,11 @@ I tipi di dati matrice sono una raccolta ordinata di valori. L'inserimento di un
     ingestClient.IngestFromSingleBlob(blobPath, deleteSourceOnSuccess: false, ingestionProperties: properties);
     ```
     
-1. Esaminare i dati nella tabella `Events`.
+1. Esaminare i `Events` dati nella tabella.
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
-1. Creare una funzione di aggiornamento che espande la raccolta di `records` in modo che ogni valore nella raccolta riceva una riga distinta, usando l'operatore `mv-expand`. Si userà Table `RawEvents` come tabella di origine e `Events` come tabella di destinazione.   
+1. Creare una funzione di aggiornamento `records` che espande la raccolta di in modo che `mv-expand` ogni valore nella raccolta riceva una riga separata, utilizzando l'operatore . Useremo la `RawEvents` tabella come tabella `Events` di origine e come tabella di destinazione.   
 
     ```Python
     CREATE_FUNCTION_COMMAND = 
@@ -513,7 +513,7 @@ I tipi di dati matrice sono una raccolta ordinata di valori. L'inserimento di un
     > [!NOTE]
     > Lo schema ricevuto dalla funzione deve corrispondere allo schema della tabella di destinazione.
 
-1. Aggiungere i criteri di aggiornamento alla tabella di destinazione. Questo criterio eseguirà automaticamente la query su tutti i dati appena inseriti nella `RawEvents` tabella intermedia e li inserirà nella tabella `Events`. Definire un criterio di conservazione zero per evitare che la tabella intermedia venga mantenuta.
+1. Aggiungere il criterio di aggiornamento nella tabella di destinazione. Questo criterio eseguirà automaticamente la query su tutti `RawEvents` i dati appena inseriti `Events` nella tabella intermedia e inserirà i risultati nella tabella. Definire un criterio di conservazione zero per evitare di rendere persistente la tabella intermedia.
 
     ```Python
     CREATE_UPDATE_POLICY_COMMAND = 
@@ -522,7 +522,7 @@ I tipi di dati matrice sono una raccolta ordinata di valori. L'inserimento di un
     dataframe_from_result_table(RESPONSE.primary_results[0])
     ```
 
-1. Inserire i dati nella tabella `RawEvents`.
+1. Inserire i dati `RawEvents` nella tabella.
 
     ```Python
     TABLE = "RawEvents"
@@ -534,13 +534,13 @@ I tipi di dati matrice sono una raccolta ordinata di valori. L'inserimento di un
         BLOB_DESCRIPTOR, ingestion_properties=INGESTION_PROPERTIES)
     ```
 
-1. Esaminare i dati nella tabella `Events`.
+1. Esaminare i `Events` dati nella tabella.
 
 ---    
 
-## <a name="ingest-json-records-containing-dictionaries"></a>Inserire record JSON contenenti dizionari
+## <a name="ingest-json-records-containing-dictionaries"></a>Inserimento di record JSON contenenti dizionari
 
-Il JSON strutturato del dizionario contiene coppie chiave-valore. I record JSON subiscono il mapping di inserimento usando un'espressione logica nel `JsonPath`. È possibile inserire dati con la struttura seguente:
+Il dizionario strutturato JSON contiene coppie chiave-valore. I record Json vengono sottoposti al `JsonPath`mapping di inserimento utilizzando l'espressione logica nell'oggetto . È possibile inserire dati con la struttura seguente:You can ingest data with the following structure:
 
 ```json
 {
@@ -570,7 +570,7 @@ Il JSON strutturato del dizionario contiene coppie chiave-valore. I record JSON 
 }
 ```
 
-# <a name="kqltabkusto-query-language"></a>[KQL](#tab/kusto-query-language)
+# <a name="kql"></a>[KQL](#tab/kusto-query-language)
 
 1. Creare un mapping JSON.
 
@@ -578,13 +578,13 @@ Il JSON strutturato del dizionario contiene coppie chiave-valore. I record JSON 
     .create table Events ingestion json mapping 'KeyValueEventMapping' '[{"column":"Time","path":"$.event[?(@.Key == 'timestamp')]"},{"column":"Device","path":"$.event[?(@.Key == 'deviceId')]"},{"column":"MessageId","path":"$.event[?(@.Key == 'messageId')]"},{"column":"Temperature","path":"$.event[?(@.Key == 'temperature')]"},{"column":"Humidity","path":"$.event[?(@.Key == 'humidity')]"}]'
     ```
 
-1. Inserire i dati nella tabella `Events`.
+1. Inserire i dati `Events` nella tabella.
 
     ```Kusto
     .ingest into table Events h'https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/dictionary.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D' with (format=multijson, jsonMappingReference=KeyValueEventMapping)
     ```
 
-# <a name="ctabc-sharp"></a>[C#](#tab/c-sharp)
+# <a name="c"></a>[C #](#tab/c-sharp)
 
 1. Creare un mapping JSON.
 
@@ -607,7 +607,7 @@ Il JSON strutturato del dizionario contiene coppie chiave-valore. I record JSON 
     kustoClient.ExecuteControlCommand(command);
     ```
 
-1. Inserire i dati nella tabella `Events`.
+1. Inserire i dati `Events` nella tabella.
 
     ```C#
     var blobPath = "https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/dictionary.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D";
@@ -621,7 +621,7 @@ Il JSON strutturato del dizionario contiene coppie chiave-valore. I record JSON 
     ingestClient.IngestFromSingleBlob(blobPath, deleteSourceOnSuccess: false, ingestionProperties: properties);
     ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 1. Creare un mapping JSON.
 
@@ -632,7 +632,7 @@ Il JSON strutturato del dizionario contiene coppie chiave-valore. I record JSON 
     dataframe_from_result_table(RESPONSE.primary_results[0])
     ```
 
-1. Inserire i dati nella tabella `Events`.
+1. Inserire i dati `Events` nella tabella.
 
      ```Python
     MAPPING = "KeyValueEventMapping"
@@ -647,5 +647,5 @@ Il JSON strutturato del dizionario contiene coppie chiave-valore. I record JSON 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Panoramica dell'inserimento dei dati](ingest-data-overview.md)
+* [Panoramica dell'inserimento dati](ingest-data-overview.md)
 * [Scrivere query](write-queries.md)

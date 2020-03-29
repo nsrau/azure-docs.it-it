@@ -1,5 +1,5 @@
 ---
-title: Usare Media Encoder Standard per generare automaticamente una scala a bitrate-Azure | Microsoft Docs
+title: Usare Media Encoder Standard per generare automaticamente una scala in bit - Azure Documenti Microsoft
 description: In questo argomento viene illustrato come usare Media Encoder Standard (MES) per generare automaticamente un bitrate ladder in base alla risoluzione di input e alla velocità in bit.
 services: media-services
 documentationcenter: ''
@@ -14,13 +14,13 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: b7f0b77ba11a0c9c1670ec240caf45fcf61a934d
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74896010"
 ---
-#  <a name="use-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>Usare Media Encoder Standard per generare automaticamente una scala a bitrate  
+#  <a name="use-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>Utilizzare Media Encoder Standard per generare automaticamente una scala a bitrate  
 
 ## <a name="overview"></a>Panoramica
 
@@ -34,20 +34,20 @@ Se si intende codificare il video di origine solo per lo streaming, è necessari
 
 Se si intende codificare un video di origine per lo streaming e per produrre file MP4 per il download progressivo, è necessario usare il set di impostazioni "Content Adaptive Multiple Bitrate MP4" durante la creazione di un'attività di codifica. Quando si usa il set di impostazioni **Content Adaptive Multiple Bitrate MP4**, il codificatore MES applica la stessa logica di codifica illustrata in precedenza, ma ora l'asset di output conterrà file MP4 in cui audio e video sono di tipo Interleaved. È possibile usare uno di questi file MP4 (ad esempio la versione con bitrate più elevato) come file di download progressivo.
 
-## <a id="encoding_with_dotnet"></a>Codifica con l’SDK .NET dei servizi multimediali
+## <a name="encoding-with-media-services-net-sdk"></a><a id="encoding_with_dotnet"></a>Codifica con l’SDK .NET dei servizi multimediali
 
-Il seguente codice usa l'SDK .NET di Servizi multimediali per eseguire le seguenti attività:
+Il seguente codice usa l'SDK .NET di Servizi multimediali per eseguire le seguenti attività: 
 
 - Creare un processo di codifica.
 - Ottenere un riferimento al codificatore Media Encoder Standard.
-- Aggiungere un'attività di codifica al processo e specificare l'uso del set di impostazioni per **streaming adattivo**. 
+- Aggiungere un'attività di codifica al processo e specificare l'uso del set di impostazioni **Flusso adattivo**. 
 - Creare un asset di output che contenga l'asset codificato.
 - Aggiungere un gestore eventi per controllare l'avanzamento del processo.
 - Inviare il processo.
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Creare e configurare un progetto di Visual Studio
 
-Configurare l'ambiente di sviluppo e popolare il file app.config con le informazioni di connessione, come descritto in [Sviluppo di applicazioni di Servizi multimediali con .NET](media-services-dotnet-how-to-use.md). 
+Configurare l'ambiente di sviluppo e popolare il file app.config con le informazioni di connessione, come descritto in Sviluppo di [Servizi multimediali con .NET](media-services-dotnet-how-to-use.md). 
 
 #### <a name="example"></a>Esempio
 
@@ -167,7 +167,7 @@ namespace AdaptiveStreamingMESPresest
 }
 ```
 
-## <a id="output"></a>Output
+## <a name="output"></a><a id="output"></a>Output
 
 Questa sezione mostra tre esempi dei livelli di output prodotti da MES in seguito alla codifica con il set di impostazioni **Flusso adattivo**. 
 
@@ -205,7 +205,7 @@ L'origine con altezza "360" e una frequenza frame "29.970" produce 3 livelli vid
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Invia commenti e suggerimenti
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Vedere anche

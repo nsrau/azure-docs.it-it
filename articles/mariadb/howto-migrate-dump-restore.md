@@ -1,5 +1,5 @@
 ---
-title: Eseguire la migrazione con dump e ripristino-database di Azure per MariaDB
+title: Eseguire la migrazione con dump e ripristino - Database di Azure per MariaDBMigrate with dump and restore - Azure Database for MariaDB
 description: Questo articolo illustra due modi comuni per eseguire il backup e il ripristino dei database nel database di Azure per MariaDB usando strumenti come mysqldump, MySQL Workbench e PHPMyAdmin.
 author: ajlam
 ms.author: andrela
@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 2/27/2020
 ms.openlocfilehash: 72735e83af97fde8377e27daa45501704ef5a3c8
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78164543"
 ---
 # <a name="migrate-your-mariadb-database-to-azure-database-for-mariadb-using-dump-and-restore"></a>Eseguire la migrazione del database MariaDB a Database di Azure per MariaDB tramite dump e ripristino
@@ -21,11 +21,11 @@ Questo articolo illustra due modi comuni per eseguire il backup e il ripristino 
 ## <a name="before-you-begin"></a>Prima di iniziare
 Per proseguire con questa guida è necessario:
 - [Creare un database di Azure per il server MariaDB - portale di Azure](quickstart-create-mariadb-server-database-using-azure-portal.md)
-- Avere installato su un computer l'utilità della riga di comando [mysqldump](https://mariadb.com/kb/en/library/mysqldump/).
-- MySQL Workbench [MySQL Workbench download](https://dev.mysql.com/downloads/workbench/) o un altro strumento MySQL di terze parti per eseguire i comandi dump e Restore.
+- Utilità della riga di comando [mysqldump](https://mariadb.com/kb/en/library/mysqldump/) installata in un computer.
+- MySQL Workbench [MySQL Workbench Scarica](https://dev.mysql.com/downloads/workbench/) o un altro strumento MySQL di terze parti per eseguire comandi di dump e ripristino.
 
 ## <a name="use-common-tools"></a>Usare strumenti comuni
-Usare utilità e strumenti comuni, come MySQL Workbench o mysqldump, per connettersi in modalità remota e ripristinare i dati nel database di Azure per MariaDB. Usare tali strumenti sul computer client con una connessione internet per connettersi al database di Azure per MariaDB. Usare una connessione SSL crittografata per le procedure di sicurezza consigliate. Vedere anche [Configure SSL connectivity in Azure Database for MariaDB](concepts-ssl-connection-security.md) (Configurare la connettività SSL nel database di Azure per MariaDB). Durante la migrazione al database di Azure per MariaDB non è necessario spostare i file di dump in alcun percorso cloud speciale. 
+Usare utilità e strumenti comuni come MySQL Workbench o mysqldump per connettere e ripristinare in remoto i dati nel database di Azure per MariaDB.Use common utilities and tools such as MySQL Workbench or mysqldump to remotely connect and restore data into Azure Database for MariaDB. Usare tali strumenti sul computer client con una connessione internet per connettersi al database di Azure per MariaDB. Usare una connessione SSL crittografata per le procedure di sicurezza consigliate. Vedere anche [Configure SSL connectivity in Azure Database for MariaDB](concepts-ssl-connection-security.md) (Configurare la connettività SSL nel database di Azure per MariaDB). Durante la migrazione al database di Azure per MariaDB non è necessario spostare i file di dump in alcun percorso cloud speciale. 
 
 ## <a name="common-uses-for-dump-and-restore"></a>Usi comuni per il dump e ripristino
 È possibile usare le utilità di MySQL come mysqldump e mysqlpump per il dump e il caricamento di database in un database di Azure per MariaDB in diversi scenari comuni. 
@@ -81,7 +81,7 @@ $ mysqldump -u root -p --databases testdb1 testdb3 testdb5 > testdb135_backup.sq
 ```
 
 ## <a name="create-a-database-on-the-target-server"></a>Creare un database sul server di destinazione
-Creare un database vuoto nel database di Azure per il server MariaDB di destinazione in cui si vuole eseguire la migrazione dei dati. Usare uno strumento come MySQL Workbench per creare il database. Il database può avere lo stesso nome del database che contiene i dati di dump; in alternativa, è possibile creare un database con un nome diverso.
+Creare un database vuoto nel database di Azure per il server MariaDB di destinazione in cui si vuole eseguire la migrazione dei dati. Utilizzare uno strumento come MySQL Workbench per creare il database. Il database può avere lo stesso nome del database che contiene i dati di dump; in alternativa, è possibile creare un database con un nome diverso.
 
 Per la connessione, individuare le informazioni di connessione nella pagina **Panoramica** del database di Azure per MariaDB.
 
@@ -105,7 +105,7 @@ $ mysql -h mydemoserver.mariadb.database.azure.com -u myadmin@mydemoserver -p te
 Per l'esportazione è possibile usare lo strumento comune phpMyAdmin, che potrebbe essere già installato in locale nel proprio ambiente. Per esportare il database MariaDB mediante PHPMyAdmin:
 1. Aprire phpMyAdmin.
 2. Selezionare il database. Fare clic sul nome del database nell'elenco a sinistra. 
-3. Fare clic sul collegamento **Export** (Esporta). Viene visualizzata una nuova pagina per eseguire il dump del database.
+3. Fare clic sul collegamento **Esporta.** Viene visualizzata una nuova pagina per eseguire il dump del database.
 4. Nell'area Export (Esporta) fare clic sul collegamento **Select All** (Seleziona tutto) per scegliere le tabelle nel database. 
 5. Nell'area delle opzioni SQL, fare clic sulle opzioni appropriate. 
 6. Fare clic sull'opzione **Save as file** (Salva come file) e sull'opzione di compressione corrispondente e quindi fare clic sul pulsante **Go** (Vai). Verrà visualizzata una finestra di dialogo che richiede di salvare il file in locale.
@@ -116,7 +116,7 @@ L'importazione del database è simile all'esportazione. Procedere come segue:
 2. Nella pagina di impostazione di phpMyAdmin fare clic su **Add** (Aggiungi) per aggiungere il database di Azure per il server MariaDB. Specificare i dettagli della connessione e le informazioni di accesso.
 3. Creare un database denominato in modo appropriato e selezionarlo a sinistra della schermata. Per riscrivere il database esistente, fare clic sul nome del database, selezionare tutte le caselle di controllo accanto ai nomi delle tabelle e selezionare **Drop** (Elimina) per eliminare le tabelle esistenti. 
 4. Fare clic sul collegamento **SQL** per visualizzare la pagina in cui è possibile digitare i comandi SQL o caricare il file SQL. 
-5. Usare il pulsante **Browse** (Sfoglia) per trovare il file nel database. 
+5. Utilizzare il pulsante **Sfoglia** per trovare il file di database. 
 6. Fare clic sul pulsante **Go** (Vai) per esportare il backup, eseguire i comandi SQL e ricreare il database.
 
 ## <a name="next-steps"></a>Passaggi successivi

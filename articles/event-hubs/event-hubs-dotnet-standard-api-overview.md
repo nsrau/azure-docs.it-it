@@ -10,22 +10,22 @@ ms.topic: article
 ms.date: 08/13/2018
 ms.author: shvija
 ms.openlocfilehash: b09f39f45936a7c43dbc1ef109780315d62c768f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60821902"
 ---
 # <a name="event-hubs-net-standard-api-overview"></a>Panoramica dell'API .NET Standard di Hub eventi
 
 Questo articolo presenta una sintesi di alcune delle principali [API client .NET Standard](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) di Hub eventi di Azure. Esistono attualmente due librerie client .NET Standard per Hub eventi:
 
-* [Microsoft.Azure.EventHubs](/dotnet/api/microsoft.azure.eventhubs): Offre tutte le operazioni di runtime di base.
-* [Microsoft.Azure.EventHubs.Processor](/dotnet/api/microsoft.azure.eventhubs.processor): Consente di aggiungere altre funzionalità che permettono di tenere traccia degli eventi elaborati e rappresenta la modalità più semplice di lettura da un hub eventi.
+* [Microsoft.Azure.EventHubs](/dotnet/api/microsoft.azure.eventhubs): fornisce tutte le operazioni di runtime di base.
+* [Microsoft.Azure.EventHubs.Processor](/dotnet/api/microsoft.azure.eventhubs.processor): aggiunge altre funzionalità che consentono di tenere traccia degli eventi elaborati e rappresenta la modalità più semplice di lettura da un hub eventi.
 
 ## <a name="event-hubs-client"></a>Client di Hub eventi
 
-[EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient) è l'oggetto principale da usare per inviare eventi, creare ricevitori e ottenere informazioni di runtime. Questo client è collegato a un determinato hub eventi e crea una nuova connessione all'endpoint di Hub eventi.
+[EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient) è l'oggetto principale utilizzato per inviare eventi, creare ricevitori e ottenere informazioni in fase di esecuzione. Questo client è collegato a un determinato hub eventi e crea una nuova connessione all'endpoint di Hub eventi.
 
 ### <a name="create-an-event-hubs-client"></a>Creare un client di Hub eventi
 
@@ -48,7 +48,7 @@ var eventHubClient = EventHubClient.CreateFromConnectionString(connectionStringB
 
 ### <a name="send-events"></a>Inviare eventi
 
-Per inviare eventi a un hub eventi, usare la classe [EventData](/dotnet/api/microsoft.azure.eventhubs.eventdata). Il corpo deve essere un array `byte` o un segmento di array `byte`.
+Per inviare eventi a un hub eventi, usare la classe [EventData.To](/dotnet/api/microsoft.azure.eventhubs.eventdata) send events to an event hub, use the EventData class. Il corpo deve essere un array `byte` o un segmento di array `byte`.
 
 ```csharp
 // Create a new EventData object by encoding a string as a byte array
@@ -185,7 +185,7 @@ public class SimpleEventProcessor : IEventProcessor
 Per altre informazioni sugli scenari di Hub eventi, visitare i collegamenti seguenti:
 
 * [Che cos'è l'hub di eventi di Azure?](event-hubs-what-is-event-hubs.md)
-* [Available Event Hubs apis](event-hubs-api-overview.md) (API di Hub eventi disponibili)
+* [Hub eventi disponibili apis](event-hubs-api-overview.md)
 
 I riferimenti API .NET sono qui:
 

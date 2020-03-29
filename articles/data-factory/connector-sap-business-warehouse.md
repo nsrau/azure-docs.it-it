@@ -1,5 +1,5 @@
 ---
-title: Copia i dati da SAP BW
+title: Copiare dati da SAP BW
 description: Informazioni su come copiare dati da SAP Business Warehouse in archivi dati di sink supportati usando un'attività di copia in una pipeline di Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/04/2019
 ms.openlocfilehash: 0c37d77ca73ddbe8b79351f90275a1d639757633
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74923728"
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>Copiare dati da SAP Business Warehouse usando Azure Data Factory
@@ -27,14 +27,14 @@ ms.locfileid: "74923728"
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da un database SAP Business Warehouse (BW). Si basa sull'articolo di [panoramica dell'attività di copia](copy-activity-overview.md) che presenta una panoramica generale sull'attività di copia.
 
 >[!TIP]
->Per informazioni sul supporto generale di ADF sullo scenario di integrazione dei dati SAP, vedere l'articolo relativo all' [integrazione dei dati SAP con Azure Data Factory whitepaper](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) con informazioni dettagliate introduttive, comparsing e linee guida.
+>Per informazioni sul supporto generale di ADF sullo scenario di integrazione dei dati SAP, vedere il [white paper sull'integrazione](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) dei dati SAP con introduzione, comparsa e indicazioni dettagliate.
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
 
-Questo connettore SAP Business Warehouse è supportato per le attività seguenti:
+Questo connettore SAP Business Warehouse è supportato per le attività seguenti:This SAP Business Warehouse connector is supported for the following activities:
 
 - [Attività di copia](copy-activity-overview.md) con [matrice di origine/sink supportata](copy-activity-overview.md)
-- [Attività Lookup](control-flow-lookup-activity.md)
+- [Attività di ricerca](control-flow-lookup-activity.md)
 
 È possibile copiare dati da SAP Business Warehouse in qualsiasi archivio dati di sink supportato. Per un elenco degli archivi dati supportati come origini/sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -48,15 +48,15 @@ In particolare, il connettore SAP Business Warehouse supporta:
 
 Per usare il connettore SAP Business Warehouse, è necessario:
 
-- Configurare un runtime di integrazione self-hosted. Per i dettagli, vedere l'articolo [Runtime di integrazione self-hosted](create-self-hosted-integration-runtime.md).
-- Installare la **libreria SAP NetWeaver** nel computer del runtime di integrazione. È possibile ottenere la libreria SAP Netweaver dal proprio amministratore SAP o direttamente dall'[area per il download di software SAP](https://support.sap.com/swdc). Per ottenere il percorso di download della versione più recente, cercare **SAP Note #1025361**. Assicurarsi di selezionare la libreria SAP NetWeaver a **64 bit**, che corrisponde all'installazione del runtime di integrazione in uso. Installare quindi tutti i file inclusi in SAP NetWeaver RFC SDK in base alla nota SAP. La libreria SAP NetWeaver è inclusa anche nell'installazione degli strumenti client SAP.
+- Configurare un runtime di integrazione self-hosted. Per informazioni dettagliate, vedere l'articolo [Self-hosted Integration Runtime.See Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md) article for details.
+- Installare la **libreria SAP NetWeaver** nel computer del runtime di integrazione. È possibile ottenere la libreria SAP Netweaver dal proprio amministratore SAP o direttamente dall'[area per il download di software SAP](https://support.sap.com/swdc). Per ottenere il percorso di download della versione più recente, cercare **SAP Note #1025361**. Assicurarsi di scegliere la libreria SAP NetWeaver a **64 bit** che corrisponde all'installazione di Integration Runtime. Installare quindi tutti i file inclusi in SAP NetWeaver RFC SDK in base alla nota SAP. La libreria SAP NetWeaver è inclusa anche nell'installazione degli strumenti client SAP.
 
 >[!TIP]
 >Per risolvere un problema di connettività a SAP BW, assicurarsi che:
 >- Tutte le librerie di dipendenza estratte da NetWeaver RFC SDK siano disponibili nella cartella %windir%\system32. In genere la cartella contiene icudt34.dll, icuin34.dll, icuuc34.dll, libicudecnumber.dll, librfc32.dll, libsapucum.dll, sapcrypto.dll, sapcryto_old.dll, sapnwrfc.dll.
 >- Le porte necessarie per la connessione al server SAP siano abilitate nel computer del runtime di integrazione self-hosted. In genere sono le porte 3300 e 3201.
 
-## <a name="getting-started"></a>Inizia ora
+## <a name="getting-started"></a>Introduzione
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -66,15 +66,15 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che veng
 
 Per il servizio collegato di SAP Business Warehouse (BW) sono supportate le proprietà seguenti:
 
-| Proprietà | Description | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su: **SapBw** | SÌ |
-| server | Nome del server in cui si trova l'istanza di SAP BW. | SÌ |
-| systemNumber | Numero del sistema SAP BW.<br/>Valore consentito: numero decimale a due cifre rappresentato come stringa. | SÌ |
-| clientId | ID del client nel sistema SAP BW.<br/>Valore consentito: numero decimale a tre cifre rappresentato come stringa. | SÌ |
-| userName | Nome dell'utente che ha accesso al server SAP. | SÌ |
-| password | Password per l'utente. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | SÌ |
-| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È necessario un runtime di integrazione self-hosted come indicato in [Prerequisiti](#prerequisites). |SÌ |
+| type | La proprietà type deve essere impostata su: **SapBw** | Sì |
+| server | Nome del server in cui si trova l'istanza di SAP BW. | Sì |
+| systemNumber | Numero del sistema SAP BW.<br/>Valore consentito: numero decimale a due cifre rappresentato come stringa. | Sì |
+| clientId | ID del client nel sistema SAP BW.<br/>Valore consentito: numero decimale a tre cifre rappresentato come stringa. | Sì |
+| userName | Nome dell'utente che ha accesso al server SAP. | Sì |
+| password | Password per l'utente. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
+| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È necessario un runtime di integrazione self-hosted come indicato in [Prerequisiti](#prerequisites). |Sì |
 
 **Esempio:**
 
@@ -105,7 +105,7 @@ Per il servizio collegato di SAP Business Warehouse (BW) sono supportate le prop
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sui [set di dati](concepts-datasets-linked-services.md). Questa sezione presenta un elenco delle proprietà supportate dal set di dati SAP BW.
 
-Per copiare dati da SAP BW, impostare la proprietà Type del set di dati su **SapBwCube**. Il set di dati SAP BW di tipo RelationalTable non supporta alcuna proprietà specifica del tipo.
+Per copiare i dati da SAP BW, impostare la proprietà type del dataset su **SapBwCube**. Il set di dati SAP BW di tipo RelationalTable non supporta alcuna proprietà specifica del tipo.
 
 **Esempio:**
 
@@ -124,7 +124,7 @@ Per copiare dati da SAP BW, impostare la proprietà Type del set di dati su **Sa
 }
 ```
 
-Se si usa `RelationalTable` DataSet tipizzato, è ancora supportato così com'è, mentre si consiglia di usare quello nuovo in futuro.
+Se si `RelationalTable` utilizza un set di dati tipizzato, è comunque supportato così com'è, mentre viene suggerito di usare quello nuovo in futuro.
 
 ## <a name="copy-activity-properties"></a>Proprietà dell'attività di copia
 
@@ -132,12 +132,12 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 ### <a name="sap-bw-as-source"></a>SAP BW come origine
 
-Per copiare dati da SAP BW, nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
+Per copiare i dati da SAP BW, nella sezione **dell'origine dell'attività** di copia sono supportate le proprietà seguenti:
 
-| Proprietà | Description | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà Type dell'origine dell'attività di copia deve essere impostata su: **SapBwSource** | SÌ |
-| query | Specifica la query MDX che consente di leggere i dati dall'istanza di SAP BW. | SÌ |
+| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su: **SapBwSource** | Sì |
+| query | Specifica la query MDX che consente di leggere i dati dall'istanza di SAP BW. | Sì |
 
 **Esempio:**
 
@@ -171,7 +171,7 @@ Per copiare dati da SAP BW, nella sezione **origine** dell'attività di copia so
 ]
 ```
 
-Se si usa `RelationalSource` origine tipizzata, questo è ancora supportato così com'è, mentre si consiglia di usare quello nuovo in futuro.
+Se si `RelationalSource` utilizza l'origine digitata, questa è comunque supportata così com'è, mentre viene consigliato di utilizzare quella nuova in futuro.
 
 ## <a name="data-type-mapping-for-sap-bw"></a>Mapping dei tipi di dati per SAP BW
 
@@ -180,32 +180,32 @@ Quando si copiano dati da SAP BW, vengono usati i mapping seguenti tra i tipi di
 | Tipo di dati di SAP BW | Tipo di dati provvisori di Data Factory |
 |:--- |:--- |
 | ACCP | Int |
-| CHAR | Stringa |
-| CLNT | Stringa |
-| CURR | DECIMAL |
-| CUKY | Stringa |
-| DEC | DECIMAL |
-| FLTP | DOUBLE |
+| CHAR | string |
+| CLNT | string |
+| CURR | Decimal |
+| CUKY | string |
+| DEC | Decimal |
+| FLTP | Double |
 | INT1 | Byte |
 | INT2 | Int16 |
 | INT4 | Int |
-| LANG | Stringa |
-| LCHR | Stringa |
+| LANG | string |
+| LCHR | string |
 | LRAW | Byte[] |
 | PREC | Int16 |
-| QUAN | DECIMAL |
+| QUAN | Decimal |
 | RAW | Byte[] |
 | RAWSTRING | Byte[] |
-| STRING | Stringa |
-| UNITÀ | Stringa |
-| DATS | Stringa |
-| NUMC | Stringa |
-| TIMS | Stringa |
+| STRING | string |
+| UNITÀ | string |
+| DATS | string |
+| NUMC | string |
+| TIMS | string |
 
 
-## <a name="lookup-activity-properties"></a>Proprietà attività di ricerca
+## <a name="lookup-activity-properties"></a>Proprietà dell'attività di ricerca
 
-Per informazioni dettagliate sulle proprietà, controllare l' [attività di ricerca](control-flow-lookup-activity.md).
+Per informazioni dettagliate sulle proprietà, selezionare [Attività di ricerca](control-flow-lookup-activity.md).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

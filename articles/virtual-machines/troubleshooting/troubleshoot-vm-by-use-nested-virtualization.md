@@ -1,5 +1,5 @@
 ---
-title: Risolvere i problemi di una VM di Azure non funzionante usando la virtualizzazione annidata in Azure | Microsoft Docs
+title: Risolvere i problemi di una macchina virtuale di Azure difettosa usando la virtualizzazione annidata in Azure. Documenti Microsoft
 description: Come risolvere i problemi relativi a una macchina virtuale di Azure usando la virtualizzazione annidata in Azure
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,19 +14,19 @@ ms.topic: article
 ms.date: 11/19/2019
 ms.author: genli
 ms.openlocfilehash: e1acfc3216ccfaeac035f1ff31e82c7b67c17daf
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76119619"
 ---
-# <a name="troubleshoot-a-faulty-azure-vm-by-using-nested-virtualization-in-azure"></a>Risolvere i problemi di una VM di Azure non funzionante usando la virtualizzazione annidata in Azure
+# <a name="troubleshoot-a-faulty-azure-vm-by-using-nested-virtualization-in-azure"></a>Risolvere i problemi di una macchina virtuale di Azure difettosa usando la virtualizzazione annidata in AzureTroubleshoot a faulty Azure VM by using nested virtualization in Azure
 
-Questo articolo illustra come creare un ambiente di virtualizzazione annidato in Microsoft Azure, in modo che sia possibile montare il disco della macchina virtuale difettosa nell'host Hyper-V (macchina virtuale di ripristino) per la risoluzione dei problemi.
+Questo articolo illustra come creare un ambiente di virtualizzazione annidato in Microsoft Azure, in modo da poter montare il disco della macchina virtuale difettosa nell'host Hyper-V (Rescue VM) per la risoluzione dei problemi.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per montare la macchina virtuale difettosa, è necessario che la macchina virtuale di ripristino usi lo stesso tipo di account di archiviazione (standard o Premium) della macchina virtuale difettosa.
+Per montare la macchina virtuale difettosa, la macchina virtuale di ripristino deve usare lo stesso tipo di account di archiviazione (Standard o Premium) della macchina virtuale difettosa.
 
 ## <a name="step-1-create-a-rescue-vm-and-install-hyper-v-role"></a>Passaggio 1: Creare una macchina virtuale di ripristino e installare il ruolo Hyper-V
 
@@ -36,19 +36,19 @@ Per montare la macchina virtuale difettosa, è necessario che la macchina virtua
 
     -  Dimensione: qualsiasi macchina virtuale della serie V3 con almeno due core che supportano la virtualizzazione annidata. Per altre informazioni, vedere [Introducing the new Dv3 and Ev3 VM sizes](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/) (Introduzione alle nuove dimensioni Dv3 ed Ev3 delle macchine virtuali).
 
-    -  Lo stesso percorso, l'account di archiviazione e il gruppo di risorse della macchina virtuale difettosa.
+    -  Stesso percorso, account di archiviazione e gruppo di risorse della macchina virtuale difettosa.
 
-    -  Selezionare lo stesso tipo di archiviazione della macchina virtuale difettosa (standard o Premium).
+    -  Selezionare lo stesso tipo di archiviazione della macchina virtuale difettosa (Standard o Premium).
 
 2.  Dopo aver creato la macchina virtuale di ripristino, stabilire una connessione Desktop remoto con la macchina virtuale di ripristino.
 
-3.  In Server Manager scegliere **Gestione** > **Aggiungi ruoli e funzionalità**.
+3.  In Server Manager selezionare **Gestisci** > **aggiungere ruoli e funzionalità**.
 
 4.  Nella sezione **Tipo di installazione** selezionare **Installazione basata su ruoli o basata su funzionalità**.
 
 5.  Nella sezione **Selezione server di destinazione** verificare che la macchina virtuale di ripristino sia selezionata.
 
-6.  Selezionare il **ruolo Hyper-V** > **Aggiungi funzionalità**.
+6.  Selezionare il >  **ruolo Hyper-V**Aggiungi**funzionalità**.
 
 7.  Scegliere **Avanti** nella sezione **Funzionalità**.
 
@@ -64,17 +64,17 @@ Per montare la macchina virtuale difettosa, è necessario che la macchina virtua
 
 13. Consentire al server di installare il ruolo Hyper-V. Questa operazione richiede alcuni minuti e il server verrà riavviato automaticamente.
 
-## <a name="step-2-create-the-faulty-vm-on-the-rescue-vms-hyper-v-server"></a>Passaggio 2: creare la macchina virtuale difettosa nel server Hyper-V della macchina virtuale di ripristino
+## <a name="step-2-create-the-faulty-vm-on-the-rescue-vms-hyper-v-server"></a>Passaggio 2: Creare la macchina virtuale difettosa nel server Hyper-V della macchina virtuale di ripristinoStep 2: Create the faulty VM on the Rescue VM's Hyper-V server
 
-1.  [Creare un disco snapshot](troubleshoot-recovery-disks-portal-windows.md#take-a-snapshot-of-the-os-disk) per il disco del sistema operativo della macchina virtuale in cui si è verificato il problema e quindi alleghi il disco snapshot alla macchina virtuale ricusare.
+1.  [Creare un disco snapshot](troubleshoot-recovery-disks-portal-windows.md#take-a-snapshot-of-the-os-disk) per il disco del sistema operativo della macchina virtuale che presenta un problema e quindi collegare il disco snapshot alla macchina virtuale reuse.
 
-2.  Desktop remoto per la macchina virtuale di ripristino.
+2.  Desktop remoto alla macchina virtuale Rescue.
 
-3.  Aprire Gestione disco (diskmgmt.msc). Verificare che il disco della VM difettosa sia impostato su **offline**.
+3.  Aprire Gestione disco (diskmgmt.msc). Assicurarsi che il disco della macchina virtuale difettosa sia impostato su **Offline**.
 
 4.  Aprire la console di gestione di Hyper-V: in **Server Manager** selezionare il **ruolo Hyper-V**. Fare clic con il pulsante destro del mouse sul server e quindi scegliere **Console di gestione di Hyper-V**.
 
-5.  Nella console di gestione di Hyper-V fare clic con il pulsante destro del mouse sulla macchina virtuale di ripristino e quindi scegliere **Nuovo** > **Macchina virtuale** > **Avanti**.
+5.  Nella console di gestione di Hyper-V fare clic con il pulsante destro del mouse sulla macchina virtuale di ripristino e quindi **scegliere Avanti nuova** > **macchina** > **virtuale**.
 
 6.  Digitare un nome per la macchina virtuale e quindi scegliere **Avanti**.
 
@@ -96,7 +96,7 @@ Per montare la macchina virtuale difettosa, è necessario che la macchina virtua
 
     ![immagine relativa all'aggiunta del nuovo disco rigido](media/troubleshoot-vm-by-use-nested-virtualization/create-new-drive.png)    
 
-14. In **disco rigido fisico**selezionare il disco della macchina virtuale difettosa collegata alla macchina virtuale di Azure. Se nell'elenco non sono presenti dischi, controllare se il disco è impostato su offline usando Gestione disco.
+14. In Disco rigido fisico selezionare il disco della macchina virtuale difettosa collegata alla macchina virtuale di Azure.In **Physical Hard Disk**, select the disk of the faulty VM that you attached to the Azure VM. Se nell'elenco non sono presenti dischi, controllare se il disco è impostato su offline usando Gestione disco.
 
     ![immagine relativa al montaggio del disco](media/troubleshoot-vm-by-use-nested-virtualization/mount-disk.png)  
 
@@ -107,14 +107,14 @@ Per montare la macchina virtuale difettosa, è necessario che la macchina virtua
 
 17. È ora possibile usare la macchina virtuale come macchina virtuale locale e quindi eseguire le procedure di risoluzione dei problemi necessarie.
 
-## <a name="step-3-replace-the-os-disk-used-by-the-faulty-vm"></a>Passaggio 3: sostituire il disco del sistema operativo usato dalla macchina virtuale difettosa
+## <a name="step-3-replace-the-os-disk-used-by-the-faulty-vm"></a>Passaggio 3: Sostituire il disco del sistema operativo utilizzato dalla macchina virtuale difettosaStep 3: Replace the OS disk used by the faulty VM
 
 1.  Dopo aver ripristinato la macchina virtuale online, arrestare la macchina virtuale nella console di gestione di Hyper-V.
 
 2.  [Smontare e scollegare il disco del sistema operativo riparato](troubleshoot-recovery-disks-portal-windows.md#unmount-and-detach-original-virtual-hard-disk
 ).
-3.  [Sostituire il disco del sistema operativo usato dalla VM con il disco del sistema operativo riparato](troubleshoot-recovery-disks-portal-windows.md#swap-the-os-disk-for-the-vm
-).
+3.  [Sostituire il disco del sistema operativo utilizzato dalla macchina virtuale con il disco del sistema operativo riparato.](troubleshoot-recovery-disks-portal-windows.md#swap-the-os-disk-for-the-vm
+)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

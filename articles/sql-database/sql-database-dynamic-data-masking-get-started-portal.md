@@ -1,5 +1,5 @@
 ---
-title: 'Portale di Azure: maschera dati dinamica'
+title: 'Portale di Azure: mascheramento dinamico dei datiAzure portal: Dynamic data masking'
 description: Introduzione alla maschera dati dinamica del database SQL nel portale di Azure
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 03/04/2018
 ms.openlocfilehash: a8098b31c6b389b640fc03e756da44c70d9f3a70
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76722119"
 ---
 # <a name="get-started-with-sql-database-dynamic-data-masking-with-the-azure-portal"></a>Introduzione alla funzione Maschera dati dinamica del database SQL nel portale di Azure
@@ -24,7 +24,7 @@ Questo articolo illustra come implementare la funzione [Maschera dati dinamica](
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-the-azure-portal"></a>Configurare il mascheramento dei dati dinamici per il database tramite il portale di Azure
 
-1. Avviare il portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
+1. Avviare il [https://portal.azure.com](https://portal.azure.com)portale di Azure all'indirizzo .
 2. Accedere alla pagina di configurazione del database che include i dati sensibili a cui si desidera applicare la maschera.
 3. Fare clic sul riquadro **Maschera dati dinamica**. Verrà aperta la pagina di configurazione **Maschera dati dinamica**.
 
