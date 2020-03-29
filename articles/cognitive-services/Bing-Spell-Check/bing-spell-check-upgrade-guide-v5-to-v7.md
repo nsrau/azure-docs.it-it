@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: scottwhi
 ms.openlocfilehash: 545772a28a67310b12eb55cd1fb14e8d12a95a58
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68500810"
 ---
 # <a name="spell-check-api-upgrade-guide"></a>Guida all'aggiornamento dell'API Controllo ortografico
@@ -25,7 +25,7 @@ Questa guida all'aggiornamento indica le differenze tra la versione 5 e la versi
 
 ### <a name="endpoints"></a>Endpoint
 
-- Il numero di versione dell'endpoint è stato modificato da v5 a v7. Ad esempio `https://api.cognitive.microsoft.com/bing/v7.0/spellcheck`.
+- Il numero di versione dell'endpoint è stato modificato da v5 a v7. Ad esempio: `https://api.cognitive.microsoft.com/bing/v7.0/spellcheck`.
 
 ### <a name="error-response-objects-and-error-codes"></a>Oggetti di risposta di errore e codici di errore
 
@@ -40,7 +40,7 @@ Questa guida all'aggiornamento indica le differenze tra la versione 5 e la versi
   
 |Codice|Sottocodice|Descrizione
 |-|-|-
-|ServerError|UnexpectedError<br/>ResourceError<br/>Non implementato|Bing restituisce ServerError ogni volta che si verifica una delle condizioni del sottocodice. La risposta include questi errori se il codice di stato HTTP è 500.
+|ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|Bing restituisce ServerError ogni volta che si verifica una delle condizioni del sottocodice. La risposta include questi errori se il codice di stato HTTP è 500.
 |InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Bloccato|Bing restituisce InvalidRequest ogni volta che una parte della richiesta non è valida, ad esempio quando non è specificato un parametro obbligatorio o un valore di parametro non è valido.<br/><br/>Se l'errore è ParameterMissing o ParameterInvalidValue, il codice di stato HTTP è 400.<br/><br/>Se l'errore è HttpNotAllowed, il codice di stato HTTP è 410.
 |RateLimitExceeded||Bing restituisce RateLimitExceeded ogni volta che si supera la quota di query al secondo (QPS) o di query al mese (QPM).<br/><br/>Bing restituisce il codice di stato HTTP 429 se è stata superata la quota di query al secondo e 403 se è stata superata la quota di query al mese.
 |InvalidAuthorization|AuthorizationMissing<br/>AuthorizationRedundancy|Bing restituisce InvalidAuthorization quando non riesce ad autenticare il chiamante, ad esempio quando l'intestazione `Ocp-Apim-Subscription-Key` non è specificata o la chiave di sottoscrizione non è valida.<br/><br/>La ridondanza si verifica se si specificano più metodi di autenticazione.<br/><br/>Se l'errore è InvalidAuthorization, il codice di stato HTTP è 401.

@@ -1,7 +1,7 @@
 ---
 title: Ottenere Speech Devices SDK
 titleSuffix: Azure Cognitive Services
-description: Il servizio di riconoscimento vocale funziona con un'ampia gamma di dispositivi e origini audio. Ora è possibile portare le applicazioni vocali a un livello superiore con hardware e software abbinati. In questo articolo si apprenderà come ottenere l'accesso all'SDK per i dispositivi vocali e iniziare a sviluppare.
+description: Il servizio di riconoscimento vocale funziona con un'ampia gamma di dispositivi e sorgenti audio. Ora è possibile portare le applicazioni vocali a un livello superiore con hardware e software abbinati. In questo articolo verrà illustrato come ottenere l'accesso all'SDK dei dispositivi di riconoscimento vocale e iniziare a sviluppare.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -11,28 +11,28 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
 ms.openlocfilehash: f8c1500dbbd9135a850e145199de8fea68cc4630
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79220534"
 ---
 # <a name="get-the-cognitive-services-speech-devices-sdk"></a>Ottenere Speech Devices SDK di Servizi cognitivi
 
-Speech Devices SDK è una libreria presintonizzata progettata per funzionare con un kit di sviluppo progettato per lo sviluppo e per diverse configurazioni di matrici di microfoni.
+Speech Devices SDK è una libreria pretuned progettata per funzionare con kit di sviluppo appositamente progettati e diverse configurazioni di array di microfoni.
 
-## <a name="choose-a-development-kit"></a>Scegliere un kit di sviluppo
+## <a name="choose-a-development-kit"></a>Scegli un kit di sviluppo
 
 |Dispositivi|Specifiche|Descrizione|Scenari|
 |--|--|--|--|
-|[Roobo smart audio Dev Kit](https://ddk.roobo.com)<br>[Programma di installazione](speech-devices-sdk-roobo-v1.md) / [avvio rapido](speech-devices-sdk-android-quickstart.md)![Roobo Smart Audio Dev Kit](media/speech-devices-sdk/device-roobo-v1.jpg)|7 mic Array, ARM SOC, WIFI, audio out, IO. <br>[Android](speech-devices-sdk-android-quickstart.md)|Il primo SDK per dispositivi vocali per adattare Microsoft MIC array e front processing SDK per lo sviluppo di scenari di traduzione e sintesi vocale di alta qualità|Trascrizione delle conversazioni, Smart speaker, agente vocale, indossabile|
-|[Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/)<br>[Configurare](https://docs.microsoft.com/azure/Kinect-dk/set-up-azure-kinect-dk) / [avvio rapido](speech-devices-sdk-windows-quickstart.md)![Azure Kinect dk](media/speech-devices-sdk/device-azure-kinect-dk.jpg)|7 fotocamere RGB e profondità della matrice MIC. <br>[Windows](speech-devices-sdk-windows-quickstart.md)/[Linux](speech-devices-sdk-linux-quickstart.md)|Kit per sviluppatori con sensori di intelligenza artificiale avanzati per la creazione di sofisticati modelli di visione artificiale e riconoscimento vocale. Combina una fotocamera di livello superiore e una fotocamera di profondità con una videocamera e un sensore di orientamento, il tutto in un piccolo dispositivo con più modalità, opzioni e SDK per gestire una gamma di tipi di calcolo.|Trascrizione di conversazioni, Robotica, compilazione intelligente|
-|Roobo smart audio Dev Kit 2<br>[Configurazione](speech-devices-sdk-roobo-v2.md)<br>![Roobo smart audio Dev Kit 2](media/speech-devices-sdk/device-roobo-v2.jpg)|7 mic Array, ARM SOC, WIFI, Bluetooth, IO. <br>Linux|L'SDK per dispositivi vocali di seconda generazione che fornisce un sistema operativo alternativo e altre funzionalità in una progettazione di riferimento economicamente conveniente.|Trascrizione delle conversazioni, Smart speaker, agente vocale, indossabile|
-|Scheda di sviluppo di URbetter T11![URbetter DDK](media/speech-devices-sdk/device-urbetter.jpg)|7 mic Array, ARM SOC, WIFI, Ethernet, HDMI, videocamera USB. <br>Linux|Un SDK per dispositivi vocali a livello di settore che adatta Microsoft MIC array e supporta l'I/O esteso, ad esempio HDMI/Ethernet e altre periferiche USB|Trascrizione di conversazioni, istruzione, ospedale, robot, OTT box, agente vocale, Drive Thru|
+|[Kit di sviluppo audio intelligente Roobo](https://ddk.roobo.com)<br>[Guida introduttiva](speech-devices-sdk-roobo-v1.md) / [Quickstart](speech-devices-sdk-android-quickstart.md)![Roobo Smart Audio Dev Kit](media/speech-devices-sdk/device-roobo-v1.jpg)|7 Mic Array, ARM SOC, WIFI, Audio Out, IO. <br>[Android](speech-devices-sdk-android-quickstart.md)|Il primo SDK di Speech Devices per adattare Microsoft Mic Array e l'SDK di elaborazione frontale, per lo sviluppo di scenari di trascrizione e riconoscimento vocale di alta qualità|Trascrizione conversazione, Smart Speaker, Voice Agent, Wearable|
+|[Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/)<br>[Guida](https://docs.microsoft.com/azure/Kinect-dk/set-up-azure-kinect-dk) / [introduttiva](speech-devices-sdk-windows-quickstart.md)![Di Azure Kinect DK](media/speech-devices-sdk/device-azure-kinect-dk.jpg)|7 Telecamere RGB e Profondità dell'array di microfoni. <br>[Windows](speech-devices-sdk-windows-quickstart.md)/[Linux](speech-devices-sdk-linux-quickstart.md)|Un kit di sviluppo con sensori avanzati di intelligenza artificiale (AI) per la creazione di sofisticati modelli di visione artificiale e di linguaggio. Combina un array di microfoni spaziali di prim'insieme e una telecamera di profondità con una videocamera e un sensore di orientamento, il tutto in un unico piccolo dispositivo con più modalità, opzioni e SDK per ospitare una gamma di tipi di calcolo.|Trascrizione delle conversazioni, Robotica, Edificio intelligente|
+|Kit di sviluppo audio intelligente Roobo 2<br>[Installazione](speech-devices-sdk-roobo-v2.md)<br>![Kit di sviluppo audio intelligente Roobo 2](media/speech-devices-sdk/device-roobo-v2.jpg)|7 Mic Array, ARM SOC, WIFI, Bluetooth, IO. <br>Linux|L'SDK dei dispositivi vocali di seconda generazione che fornisce un sistema operativo alternativo e più funzionalità in una progettazione di riferimento conveniente.|Trascrizione conversazione, Smart Speaker, Voice Agent, Wearable|
+|Comitato di Sviluppo URbetter T11![URbetter DDK](media/speech-devices-sdk/device-urbetter.jpg)|7 Mic Array, ARM SOC, WIFI, Ethernet, HDMI, Fotocamera USB. <br>Linux|SDK di dispositivi vocali a livello di settore che adatta l'array Microsoft Mic e supporta l'I/O esteso, ad esempio HDMI/Ethernet e più periferiche USB|Trascrizione della conversazione, Istruzione, Ospedale, Robot, OTT Box, Agente vocale, Drive Thru|
 
 ## <a name="download-the-speech-devices-sdk"></a>Scaricare Speech Devices SDK
 
-Scaricare l' [SDK per i dispositivi vocali](https://aka.ms/sdsdk-download).
+Scaricare [l'SDK dei dispositivi vocali](https://aka.ms/sdsdk-download).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

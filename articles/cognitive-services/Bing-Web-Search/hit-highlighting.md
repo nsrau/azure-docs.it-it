@@ -12,44 +12,44 @@ ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: scottwhi
 ms.openlocfilehash: a6d394fec6e7cf0a230f61ad05c236a1f84dad9d
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68854032"
 ---
 # <a name="using-decoration-markers-to-highlight-text"></a>Uso degli indicatori di effetto per evidenziare il testo
 
-Bing supporta l'evidenziazione dei riscontri, che contrassegna i termini di query (o altri termini ritenuti rilevanti da Bing) nelle stringhe di visualizzazione di alcune risposte. Ad esempio, i campi, `name` `displayUrl`e `snippet` del risultato della pagina Web possono contenere termini di query contrassegnati. 
+Bing supporta l'evidenziazione dei risultati, che contrassegna i termini di query (o altri termini che Bing trova pertinenti) nelle stringhe di visualizzazione di alcune risposte. Ad esempio, i campi `name`, `displayUrl`, `snippet` e i risultati di una pagina Web potrebbero contenere termini di query contrassegnati. 
 
-Per impostazione predefinita, Bing non include i marcatori di evidenziazione nelle stringhe visualizzate. Per abilitare i marcatori, includere `textDecorations` il parametro di query nella richiesta e impostarlo `true`su.
+Per impostazione predefinita, Bing non include i marcatori di evidenziazione nelle stringhe visualizzate. Per abilitare i marcatori, includere il `textDecorations` parametro `true`di query nella richiesta e impostarlo su .
 
-## <a name="hit-highlighting-example"></a>Esempio di hit highlighting
+## <a name="hit-highlighting-example"></a>Esempio di evidenziazione dei risultati
 
-Nell'esempio seguente viene illustrato un risultato Web `Sailing Dinghy`per. Bing ha contrassegnato l'inizio e la fine del termine della query usando i caratteri Unicode E000 e E001.
+Nell'esempio seguente viene `Sailing Dinghy`illustrato un risultato Web per . Bing ha contrassegnato l'inizio e la fine del termine di query utilizzando i caratteri Unicode E000 ed E001.
   
 ![Evidenziazione dei risultati](./media/cognitive-services-bing-web-api/bing-hit-highlighting.png) 
 
 Prima di visualizzare il risultato nell'interfaccia utente, sostituire i caratteri Unicode con quelli appropriati per il formato di visualizzazione.
 
-## <a name="marker-formatting"></a>Formattazione marcatore
+## <a name="marker-formatting"></a>Formattazione dei marcatori
 
-Bing fornisce la possibilità di usare i caratteri Unicode o i tag HTML come marcatori. Per specificare i marcatori da usare, includere il parametro di query [textFormat](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#textformat): 
+Bing offre la possibilità di utilizzare caratteri Unicode o tag HTML come marcatori. Per specificare i marcatori da utilizzare, includere il parametro di query [textFormat:](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#textformat) 
 
-| Value             | Marcatore                       |
+| valore             | Marcatore                       |
 |-------------------|------------------------------|
 | `textFormat=Raw`  | Caratteri Unicode (impostazione predefinita) |
 | `textFormat=HTML` | Caratteri HTML              |
 
 ## <a name="additional-text-decorations"></a>Decorazioni di testo aggiuntive
 
-Bing può restituire diverse decorazioni di testo. Una `Computation` risposta, ad esempio, può contenere marcatori di pedice per `log(2)` il termine `expression` di query nel campo.
+Bing può restituire diverse decorazioni di testo diverse. Ad esempio, `Computation` una risposta può contenere indicatori `log(2)` di `expression` pedice per il termine di query nel campo.
 
 ![Marcatori in computation](./media/cognitive-services-bing-web-api/bing-markers-computation.png) 
 
-Se la richiesta non specifica le decorazioni, il `expression` campo conterrà `log10(2)`. 
+Se la richiesta non specificasse le decorazioni, il `expression` campo conterrà `log10(2)`. 
 
-Se `textDecorations` è`true`, Bing può includere i marcatori seguenti nelle stringhe di visualizzazione delle risposte. Se non è presente alcun tag HTML equivalente, la cella della tabella è vuota.
+Se `textDecorations` `true`è , Bing può includere i seguenti marcatori nelle stringhe di visualizzazione delle risposte. Se non è presente alcun tag HTML equivalente, la cella della tabella è vuota.
 
 |Unicode|HTML|Descrizione
 |-|-|-
@@ -78,5 +78,5 @@ Se `textDecorations` è`true`, Bing può includere i marcatori seguenti nelle st
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Qual è la API Ricerca Web Bing?](overview.md) 
+* [Informazioni sull'API Ricerca Web Bing](overview.md) 
 * [Ridimensionare e ritagliare le anteprime](resize-and-crop-thumbnails.md)

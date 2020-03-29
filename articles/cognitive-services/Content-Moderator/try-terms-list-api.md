@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
 ms.openlocfilehash: 16cfb6c15a4d17ff3fb4f7f41f59f9f80af1e9e7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75382124"
 ---
 # <a name="moderate-with-custom-term-lists-in-the-api-console"></a>Moderare il testo con elenchi personalizzati nella console dell'API
 
 L'elenco globale di termini predefinito in Azure Content Moderator è sufficiente per quasi tutte le esigenze di moderazione del contenuto. Può tuttavia essere necessario filtrare termini specifici per la propria organizzazione. Può ad esempio essere opportuno contrassegnare con tag i nomi delle società concorrenti per una successiva analisi. 
 
-Usare l'[API di gestione degli elenchi](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f) per creare elenchi personalizzati di termini da usare con l'API di moderazione del testo. L'operazione di **visualizzazione della schermata del testo** analizza il testo per la volgarità e confronta il testo con elenchi dei blocchi personalizzati e condivisi.
+Usare l'[API di gestione degli elenchi](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f) per creare elenchi personalizzati di termini da usare con l'API di moderazione del testo. L'operazione **Testo - Schermo** analizza il testo alla ricerca di volgarità e confronta anche il testo con le liste di blocco personalizzate e condivise.
 
 > [!NOTE]
 > È previsto un limite massimo di **cinque elenchi di termini** e ogni elenco **non può includere più di 10.000 termini**.
@@ -89,7 +89,7 @@ Dopo avere modificato un elenco di termini, è necessario aggiornarne l'indice i
 
    Aggiungere i metadati dell'elenco come coppie chiave-valore e non i termini effettivi.
  
-6. Selezionare **Send** (Invia). L'elenco è stato creato. Si noti il valore di **ID** associato al nuovo elenco. Questo ID è necessario per altre funzioni di gestione degli elenchi di termini.
+6. Selezionare **Invia**. L'elenco è stato creato. Si noti il valore di **ID** associato al nuovo elenco. Questo ID è necessario per altre funzioni di gestione degli elenchi di termini.
 
    ![ID dell'elenco visualizzato nella casella del contenuto della risposta nella console Term Lists - Create (Elenchi di termini - Crea)](images/try-terms-list-create-2.png)
  
@@ -111,7 +111,7 @@ Dopo avere modificato un elenco di termini, è necessario aggiornarne l'indice i
 
     Viene visualizzata la console dell'API **Term - Get All Terms** (Termine - Ottieni tutti i termini).
 
-11. Nella casella **listId** immettere l'ID dell'elenco e quindi la chiave di sottoscrizione. Selezionare **Send** (Invia).
+11. Nella casella **listId** immettere l'ID dell'elenco e quindi la chiave di sottoscrizione. Selezionare **Invia**.
 
 12. Nella casella **Response content** (Contenuto della risposta) verificare i termini specificati.
 

@@ -10,10 +10,10 @@ ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
 ms.openlocfilehash: a875cc8f5e69be8b940f9d177d3b915bfaa2c973
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68595693"
 ---
 # <a name="train-a-model"></a>Eseguire il training di un modello
@@ -28,15 +28,15 @@ Per eseguire il training di un modello:
 
     -  Document name (Nome documento): nome del documento.
 
-    -  Pairing (Associazione): indica se il documento è monolingua o parallelo. I documenti monolingua non sono attualmente supportati per il training.
+    -  Pairing (Associazione): indica se il documento è un documento monolingua o parallelo. I documenti monolingua non sono attualmente supportati per il training.
 
-    -  Document type (Tipo di documento): può essere destinato al training, all'ottimizzazione o al test oppure può essere un dizionario.
+    -  Document type (Tipo di documento): il documento può essere destinato al training, all'ottimizzazione, al test o essere un dizionario.
 
-    -  Language pair (Coppia di lingue): mostra la lingua di origine e quella di destinazione per il progetto.
+    -  Language pair (Coppia di lingue): vengono visualizzate la lingua di origine e la lingua di destinazione per il progetto.
 
-    -  Source sentences (Frasi di origine): mostra il numero di frasi estratte dal file di origine.
+    -  Frasi di origine: mostra il numero di frasi estratte dal file di origine.
 
-    -  Target sentences (Frasi di destinazione): mostra il numero di frasi estratte dal file di destinazione.
+    -  Frasi di destinazione: mostra il numero di frasi estratte dal file di destinazione.
 
     ![Eseguire il training del modello](media/how-to/how-to-train-model.png)
 
@@ -53,7 +53,7 @@ Per eseguire il training di un modello:
     ![Pagina Train model (Esegui il training del modello)](media/how-to/how-to-train-model-3.png)
 
 >[!Note]
->Il convertitore personalizzato supporta 10 Training simultanei in un'area di lavoro in qualsiasi momento.
+>Custom Translator supporta 10 corsi di formazione simultanei all'interno di un'area di lavoro in qualsiasi momento.
 
 
 ## <a name="edit-a-model"></a>Modificare un modello
@@ -70,7 +70,7 @@ Per eseguire il training di un modello:
 
         ![Finestra di dialogo Edit Model (Modifica modello)](media/how-to/how-to-edit-model-dialog.png)
 
-3.  Fare clic su Save.
+3.  Fare clic su Salva.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

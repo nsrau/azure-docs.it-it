@@ -11,21 +11,21 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: scottwhi
 ms.openlocfilehash: 5249a3a1f51eea2ecd0999d71c6b08fdacf37a34
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68405405"
 ---
 # <a name="autosuggest-api-upgrade-guide"></a>Guida all'aggiornamento dell'API Suggerimenti automatici
 
-Questa guida all'aggiornamento indica le differenze tra la versione 5 e la versione 7 dell'API Suggerimenti automatici Bing. Usare questa guida per aggiornare l'applicazione in modo da usare la versione 7.
+Questa guida all'aggiornamento indica le differenze tra la versione 5 e la versione 7 dell'API Suggerimenti automatici Bing. Utilizzare questa guida per aggiornare l'applicazione per l'utilizzo della versione 7.Use this guide to help update your application to use version 7.
 
 ## <a name="breaking-changes"></a>Modifiche che causano un'interruzione
 
 ### <a name="endpoints"></a>Endpoint
 
-- Il numero di versione dell'endpoint è stato modificato da v5 a v7. Ad esempio, https:\//API.cognitive.Microsoft.com/Bing/\*\*v 7.0 * */suggestions.
+- Il numero di versione dell'endpoint è stato modificato da v5 a v7. Ad esempio,\/https:\*\*/api.cognitive.microsoft.com/bing/ v7.0/Suggestions.
 
 ### <a name="error-response-objects-and-error-codes"></a>Oggetti di risposta di errore e codici di errore
 
@@ -37,7 +37,7 @@ Questa guida all'aggiornamento indica le differenze tra la versione 5 e la versi
 
 - I codici di errore della versione 5 sono stati sostituiti con i possibili valori `code` e `subCode` seguenti.
 
-|Codice|Sottocodice|DESCRIZIONE
+|Codice|Sottocodice|Descrizione
 |-|-|-
 |ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|Bing restituisce ServerError ogni volta che si verifica una delle condizioni del sottocodice. La risposta include questi errori se il codice di stato HTTP è 500.
 |InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Bloccato|Bing restituisce InvalidRequest ogni volta che una parte della richiesta non è valida, ad esempio quando non è specificato un parametro obbligatorio o un valore di parametro non è valido.<br/><br/>Se l'errore è ParameterMissing o ParameterInvalidValue, il codice di stato HTTP è 400.<br/><br/>Se l'errore è HttpNotAllowed, il codice di stato HTTP è 410.

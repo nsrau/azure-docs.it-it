@@ -1,7 +1,7 @@
 ---
-title: Riferimento API-Face
+title: Riferimento API - Faccia
 titleSuffix: Azure Cognitive Services
-description: Informazioni di riferimento sulle API fornisce informazioni sulle API person, LargePersonGroup/gruppo, LargeFaceList/facet e degli algoritmi Face.
+description: Il riferimento alle API fornisce informazioni sulle API Person, LargePersonGroup/PersonGroup, LargeFaceList/FaceList e Face Algorithms.
 services: cognitive-services
 author: SteveMSFT
 manager: nitinme
@@ -11,21 +11,21 @@ ms.topic: reference
 ms.date: 03/01/2018
 ms.author: sbowles
 ms.openlocfilehash: 431525964eb69431600d36ba8249c6dc465a5df3
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "76169938"
 ---
-# <a name="face-api-reference-list"></a>Elenco di API Viso di riferimento
+# <a name="face-api-reference-list"></a>Elenco di riferimento dell'API Viso
 
-Azure facet è un servizio basato sul cloud che fornisce algoritmi per il rilevamento e il riconoscimento dei volti. Le API Viso comprendono le categorie seguenti:
+Azure Face è un servizio basato su cloud che fornisce algoritmi per il rilevamento e il riconoscimento facciali. Le API Viso comprendono le categorie seguenti:
 
-- API per l'algoritmo viso: coprire le funzioni di base, ad esempio il [rilevamento](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), [trovare simili](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237), [Verifica](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a), [Identificazione](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239)e [gruppo](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238).
-- [API facet](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b): utilizzata per gestire un facet per la [ricerca simile](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237).
-- [API person LargePersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40): usata per gestire i visi di LargePersonGroup person per l' [Identificazione](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
-- [API LargePersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d): usata per gestire un set di dati LargePersonGroup per l' [Identificazione](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
-- [API LargeFaceList](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc): usata per gestire un LargeFaceList per la [ricerca simile](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237).
-- [API person gruppo](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c): usata per gestire i visi di gruppo person per l' [Identificazione](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
-- [API gruppo](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244): usata per gestire un set di dati gruppo per l' [Identificazione](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
-- [API snapshot](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/snapshot-take): usato per gestire uno snapshot per la migrazione dei dati tra sottoscrizioni.
+- API dell'algoritmo facciale: funzioni di base di copertura quali [Rilevamento](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), [Trova simile](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237), [Verifica](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a), [Identificazione](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239)e [Gruppo](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238).
+- [API FaceList](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b): utilizzato per gestire un FaceList per [Trova simile](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237).
+- [LargePersonGroup Person APIs](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40): Utilizzato per gestire LargePersonGroup Person Faces for [Identification](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
+- [API LargePersonGroup:](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d)utilizzato per gestire un set di dati LargePersonGroup per [l'identificazione](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
+- [API LargeFaceList:](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc)utilizzato per gestire un controllo LargeFaceList per [la ricerca simile.](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237)
+- [PersonGroup Person APIs](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c): Utilizzato per gestire PersonGroup Person Faces for [Identification](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
+- [API PersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244): utilizzato per gestire un set di dati PersonGroup per [l'identificazione](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
+- [API snapshot:](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/snapshot-take)utilizzato per gestire uno snapshot per la migrazione dei dati tra sottoscrizioni.

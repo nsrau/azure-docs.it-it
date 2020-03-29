@@ -1,7 +1,7 @@
 ---
 title: Eseguire la migrazione a V3 - API Traduzione testuale
 titleSuffix: Azure Cognitive Services
-description: Questo articolo illustra i passaggi per eseguire la migrazione da V2 a V3 dei servizi cognitivi di Azure API Traduzione testuale.
+description: Questo articolo illustra i passaggi per facilitare la migrazione da V2 a V3 dell'API Testo traduttore Servizi cognitivi di Azure.This article provides the steps to help you migrate from V2 to V3 of the Azure Cognitive Services Translator Text API.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: swmachan
 ms.openlocfilehash: eb43d549d3e0cd449c865d533fc8701c4c3912fd
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73837320"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Migrazione dell'API Traduzione testuale dalla versione 2 alla versione 3
 
 > [!NOTE]
-> V2 è stato deprecato il 30 aprile 2018. Eseguire la migrazione delle applicazioni a V3 per sfruttare i vantaggi delle nuove funzionalità disponibili esclusivamente in V3.
+> V2 è stato deprecato il 30 aprile 2018. Eseguire la migrazione delle applicazioni a V3 per sfruttare le nuove funzionalità disponibili esclusivamente in V3.
 > 
-> L'Hub Microsoft Translator verrà ritirato il 17 maggio 2019. [Visualizzare le informazioni e le date importanti per la migrazione](https://www.microsoft.com/translator/business/hub/).  
+> Microsoft Translator Hub verrà ritirato il 17 maggio 2019. [Visualizzare informazioni e date importanti sulla migrazione](https://www.microsoft.com/translator/business/hub/).  
 
 Il team di Microsoft Translator ha rilasciato la versione 3 (V3) dell'API Traduzione testuale. Questa versione include nuove funzionalità, metodi deprecati e un nuovo formato per inviare e ricevere dati dal servizio Microsoft Translator. Questo documento fornisce informazioni per modificare le applicazioni da usare nella V3. 
 
@@ -43,10 +43,10 @@ L'elenco di metodi delle versioni 2 e 3 seguente individua le API e i metodi del
 
 | Metodo API V2   | Compatibilità API V3 |
 |:----------- |:-------------|
-| `Translate`     | [Translate](reference/v3-0-translate.md)          |
-| `TranslateArray`      | [Translate](reference/v3-0-translate.md)        |
-| `GetLanguageNames`      | [Linguaggi](reference/v3-0-languages.md)         |
-| `GetLanguagesForTranslate`     | [Linguaggi](reference/v3-0-languages.md)       |
+| `Translate`     | [Traduci](reference/v3-0-translate.md)          |
+| `TranslateArray`      | [Traduci](reference/v3-0-translate.md)        |
+| `GetLanguageNames`      | [Languages](reference/v3-0-languages.md)         |
+| `GetLanguagesForTranslate`     | [Languages](reference/v3-0-languages.md)       |
 | `GetLanguagesForSpeak`      | [Servizio Voce Microsoft](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech)         |
 | `Speak`     | [Servizio Voce Microsoft](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
 | `Detect`     | [Detect](reference/v3-0-detect.md)         |
@@ -65,7 +65,7 @@ Tale modifica interesserà diversi aspetti di un'applicazione scritta per l'API 
 
 Il metodo Languages non richiede l'autenticazione. Facendo clic sul collegamento seguente è possibile visualizzare tutte le informazioni sulla lingua per la V3 in formato JSON:
 
-[https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation,dictionary,transliteration](https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation,dictionary,transliteration)
+[https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation,dizionario,traslitterazione](https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation,dictionary,transliteration)
 
 ## <a name="authentication-key"></a>Chiave di autenticazione
 
@@ -86,7 +86,7 @@ Microsoft Translator V3 ha lo stesso prezzo della V2; per ogni carattere, inclus
 
 ## <a name="v3-end-points"></a>Obiettivi della V3
 
-Globale
+Global
 
 * api.cognitive.microsofttranslator.com
 
@@ -110,7 +110,7 @@ Globale
 
 > [!NOTE]
 > 
-> L'Hub Microsoft Translator verrà ritirato il 17 maggio 2019. [Visualizzare le informazioni e le date importanti per la migrazione](https://www.microsoft.com/translator/business/hub/).   
+> Microsoft Translator Hub verrà ritirato il 17 maggio 2019. [Visualizzare informazioni e date importanti sulla migrazione](https://www.microsoft.com/translator/business/hub/).   
 
 Microsoft Translator V3 usa la traduzione neurale automatica per impostazione predefinita. Di conseguenza, non può essere usato con l'hub di Microsoft Translator, che supporta solo la traduzione automatica statistica legacy. La personalizzazione per la traduzione neurale è ora disponibile usando Custom Translator (traduttore personalizzato). [Altre informazioni sulla personalizzazione della traduzione automatica neurale](custom-translator/overview.md)
 

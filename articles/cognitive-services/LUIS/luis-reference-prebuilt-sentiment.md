@@ -12,17 +12,17 @@ ms.topic: reference
 ms.date: 10/22/2019
 ms.author: diberry
 ms.openlocfilehash: dee07859da97f76d9a2db3ccbb71ae74d8ff4846
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78270413"
 ---
 # <a name="sentiment-analysis"></a>Analisi del sentiment
 Se l'analisi del sentiment è configurata, è inclusa nella risposta json LUIS. Per ulteriori informazioni sull'analisi del sentiment, vedere la documentazione [Analisi del testo](https://docs.microsoft.com/azure/cognitive-services/text-analytics/).
 
 
-## <a name="resolution-for-sentiment"></a>Risoluzione per i sentimenti
+## <a name="resolution-for-sentiment"></a>Risoluzione per il sentiment
 
 I dati sentiment sono un punteggio compreso tra 1 e 0 che indica il sentiment positivo (più vicino a 1) o negativo (più vicino a 0) dei dati.
 
@@ -37,7 +37,7 @@ Quando le impostazioni cultura sono `en-us`, la risposta è:
 }
 ```
 
-#### <a name="other-languages"></a>[Altri linguaggi](#tab/other-languages)
+#### <a name="other-languages"></a>[Altre lingue](#tab/other-languages)
 
 Per tutte le altre impostazioni cultura, la risposta è:
 

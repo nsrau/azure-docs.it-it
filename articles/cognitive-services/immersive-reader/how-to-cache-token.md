@@ -1,7 +1,7 @@
 ---
-title: Memorizzare nella cache il token di autenticazione
+title: Memorizzare il token di autenticazione nella cache
 titleSuffix: Azure Cognitive Services
-description: In questo articolo viene illustrato come memorizzare nella cache il token di autenticazione.
+description: Questo articolo ti mostrerà come memorizzare nella cache il token di autenticazione.
 author: metanMSFT
 manager: guillasi
 ms.service: cognitive-services
@@ -10,19 +10,19 @@ ms.topic: conceptual
 ms.date: 01/14/2020
 ms.author: metan
 ms.openlocfilehash: e652aa29b1c1935fcc4887dbe13ef9b683a8bd05
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75946166"
 ---
-# <a name="how-to-cache-the-authentication-token"></a>Come memorizzare nella cache il token di autenticazione
+# <a name="how-to-cache-the-authentication-token"></a>Come memorizzare nella cache il token di autenticazioneHow to cache the authentication token
 
-Questo articolo illustra come memorizzare nella cache il token di autenticazione per migliorare le prestazioni dell'applicazione.
+In questo articolo viene illustrato come memorizzare nella cache il token di autenticazione per migliorare le prestazioni dell'applicazione.
 
 ## <a name="using-aspnet"></a>Utilizzo di ASP.NET
 
-Importare il pacchetto NuGet **Microsoft. IdentityModel. clients. ActiveDirectory** , usato per acquisire un token. Usare quindi il codice seguente per acquisire una `AuthenticationResult`, usando i valori di autenticazione ottenuti quando è stata [creata la risorsa Reader immersiva](./how-to-create-immersive-reader.md).
+Importare il pacchetto **Microsoft.IdentityModel.Clients.ActiveDirectory** NuGet, utilizzato per acquisire un token. Successivamente, utilizzare il codice `AuthenticationResult`seguente per acquisire un oggetto , utilizzando i valori di autenticazione ottenuti al momento [della creazione della risorsa Lettore immersivo](./how-to-create-immersive-reader.md).
 
 ```csharp
 private async Task<AuthenticationResult> GetTokenAsync()
@@ -34,11 +34,11 @@ private async Task<AuthenticationResult> GetTokenAsync()
 }
 ```
 
-L'oggetto `AuthenticationResult` dispone di una proprietà `AccessToken` che è il token effettivo che verrà usato quando si avvia il Reader immersivo usando l'SDK. Dispone inoltre di una proprietà `ExpiresOn` che indica quando scadrà il token. Prima di avviare il Reader immersivo, è possibile verificare se il token è scaduto e acquisire un nuovo token solo se è scaduto.
+L'oggetto `AuthenticationResult` `AccessToken` dispone di una proprietà che è il token effettivo che verrà utilizzato quando si avvia Immersive Reader utilizzando l'SDK. Ha anche `ExpiresOn` una proprietà che indica quando il token scadrà. Prima di avviare il lettore immersivo, è possibile verificare se il token è scaduto e acquisire un nuovo token solo se è scaduto.
 
-## <a name="using-nodejs"></a>Uso di node. JS
+## <a name="using-nodejs"></a>Utilizzo di Node.JS
 
-Aggiungere il pacchetto NPM della [**richiesta**](https://www.npmjs.com/package/request) al progetto. Usare il codice seguente per acquisire un token, usando i valori di autenticazione ottenuti quando è stata [creata la risorsa Reader immersiva](./how-to-create-immersive-reader.md).
+Aggiungere il pacchetto della [**richiesta**](https://www.npmjs.com/package/request) npm al progetto. Utilizzare il codice seguente per acquisire un token, utilizzando i valori di autenticazione ottenuti al momento [della creazione della risorsa Lettore immersivo](./how-to-create-immersive-reader.md).
 
 ```javascript
 router.get('/token', function(req, res) {
@@ -64,7 +64,7 @@ router.get('/token', function(req, res) {
 });
 ```
 
-La proprietà `expires_on` è la data e l'ora in cui il token scade, espresso come numero di secondi a partire dal 1 ° gennaio 1970 UTC. Usare questo valore per determinare se il token è scaduto prima di tentare di acquisirne uno nuovo.
+La `expires_on` proprietà è la data e l'ora di scadenza del token, espresse come numero di secondi dal 1 gennaio 1970 UTC. Utilizzare questo valore per determinare se il token è scaduto prima di tentare di acquisire uno nuovo.
 
 ```javascript
 async function getToken() {
@@ -77,4 +77,4 @@ async function getToken() {
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Informazioni di [riferimento su immersive Reader SDK](./reference.md)
+* Leggere le [informazioni di riferimento su Immersive Reader SDK](./reference.md)

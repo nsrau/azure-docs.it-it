@@ -1,5 +1,5 @@
 ---
-title: Autenticazione
+title: Authentication
 titleSuffix: Azure Cognitive Services
 description: 'Esistono tre modi per autenticare una richiesta a una risorsa di Servizi cognitivi di Azure: tramite una chiave di sottoscrizione, un token di connessione o una sottoscrizione multiservizio. Questo articolo descrive ciascun modo e come effettuare una richiesta.'
 services: cognitive-services
@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: erhopf
 ms.openlocfilehash: 1c13c2cc4d4e562d3512de90338d874091dfeef6
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74423937"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Autenticare le richieste a Servizi cognitivi di Azure
@@ -23,19 +23,19 @@ Ogni richiesta a un servizio di Servizi cognitivi di Azure deve includere un'int
 * [Eseguire l'autenticazione con una chiave di sottoscrizione a servizio singolo](#authenticate-with-a-single-service-subscription-key)
 * [Eseguire l'autenticazione con una chiave di sottoscrizione multiservizio](#authenticate-with-a-multi-service-subscription-key)
 * [Eseguire l'autenticazione con un token](#authenticate-with-an-authentication-token)
-* [Eseguire l'autenticazione con Azure Active Directory (AAD)](#authenticate-with-azure-active-directory)
+* [Eseguire l'autenticazione con Azure Active Directory (AAD)Authenticate with Azure Active Directory (AAD)](#authenticate-with-azure-active-directory)
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
-Per poter effettuare una richiesta, è necessario disporre di un account Azure e di una sottoscrizione di Servizi cognitivi di Azure. Se si dispone già di un account, passare direttamente alla sezione successiva. Se non si dispone di un account, è presente una guida che consente di configurare in pochi minuti: [creare un account di servizi cognitivi per Azure](cognitive-services-apis-create-account.md).
+Per poter effettuare una richiesta, è necessario disporre di un account Azure e di una sottoscrizione di Servizi cognitivi di Azure. Se si dispone già di un account, passare direttamente alla sezione successiva. Se non si dispone di un account, è disponibili una guida per la configurazione in minuti: [Creare un account di servizi cognitivi per Azure.](cognitive-services-apis-create-account.md)
 
-È possibile ottenere la chiave di sottoscrizione dalla [portale di Azure](cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) dopo la creazione dell'account o l'attivazione di una [versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/my-apis).
+È possibile ottenere la chiave di sottoscrizione dal portale di [Azure](cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) dopo aver creato l'account o aver attivato una versione di [valutazione gratuita.](https://azure.microsoft.com/try/cognitive-services/my-apis)
 
 ## <a name="authentication-headers"></a>Intestazioni di autenticazione
 
 È opportuno esaminare rapidamente le intestazioni di autenticazione disponibili per l'uso con Servizi cognitivi di Azure.
 
-| Intestazione | DESCRIZIONE |
+| Intestazione | Descrizione |
 |--------|-------------|
 | Ocp-Apim-Subscription-Key | Usare questa intestazione per eseguire l'autenticazione con una chiave di sottoscrizione per un servizio specifico o una chiave di sottoscrizione multiservizio. |
 | Ocp-Apim-Subscription-Region | Questa intestazione è richiesta solo quando si usa una chiave di sottoscrizione multiservizio con l'[API Traduzione testuale](./Translator/reference/v3-0-reference.md). Usare questa intestazione per specificare l'area di sottoscrizione. |
@@ -66,17 +66,17 @@ Il video seguente illustra l'uso di una chiave di Servizi cognitivi.
 ## <a name="authenticate-with-a-multi-service-subscription-key"></a>Eseguire l'autenticazione con una chiave di sottoscrizione multiservizio
 
 >[!WARNING]
-> A questo punto, questi servizi **non** supportano chiavi multiservizio: QnA Maker, servizi vocali, visione personalizzata e rilevamento anomalie.
+> Al momento, questi servizi **non** supportano le chiavi multiservizio: QnA Maker, Speech Services, Custom Vision e Anomaly Detector.
 
 Questa opzione usa anche una chiave di sottoscrizione per autenticare le richieste. La differenza principale è che una chiave di sottoscrizione non è associata a un servizio specifico. Una singola chiave può infatti essere usata per autenticare le richieste per più servizi cognitivi. Per informazioni sulla disponibilità regionale, le funzionalità supportate e i prezzi, vedere [Prezzi di Servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services/).
 
 La chiave di sottoscrizione viene specificata in ogni richiesta come intestazione `Ocp-Apim-Subscription-Key`.
 
-[![Dimostrazione d'uso della chiave di sottoscrizione multiservizio per Servizi cognitivi](./media/index/single-key-demonstration-video.png)](https://www.youtube.com/watch?v=psHtA1p7Cas&feature=youtu.be)
+[![Dimostrazione della chiave di sottoscrizione multiservizio per servizi cognitiviMulti-service subscription key demonstration for Cognitive Services](./media/index/single-key-demonstration-video.png)](https://www.youtube.com/watch?v=psHtA1p7Cas&feature=youtu.be)
 
 ### <a name="supported-regions"></a>Aree supportate
 
-Quando si usa la chiave di sottoscrizione multiservizio per effettuare una richiesta a `api.cognitive.microsoft.com`, è necessario includere l'area nell'URL. Ad esempio: `westus.api.cognitive.microsoft.com`.
+Quando si usa la chiave di sottoscrizione multiservizio per effettuare una richiesta a `api.cognitive.microsoft.com`, è necessario includere l'area nell'URL. Ad esempio `westus.api.cognitive.microsoft.com`.
 
 Quando si usa la chiave di sottoscrizione multiservizio con l'API Traduzione testuale, è necessario specificare l'area di sottoscrizione con l'intestazione `Ocp-Apim-Subscription-Region`.
 
@@ -115,11 +115,11 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 Alcuni Servizi cognitivi di Azure accettano e in alcuni casi richiedono un token di autenticazione. Questi servizi attualmente supportano i token di autenticazione:
 
 * API Traduzione testuale
-* Servizi di riconoscimento vocale: API REST per sintesi vocale
-* Servizi vocali: API REST di sintesi vocale
+* Servizi di riconoscimento vocale: API REST dal riconoscimento vocale al testoSpeech Services: Speech-to-text REST API
+* Servizi di riconoscimento vocale: API REST di sintesi vocale
 
 >[!NOTE]
-> Anche QnA Maker usa l'intestazione di autorizzazione, ma richiede una chiave di endpoint. Per ulteriori informazioni, vedere [QnA Maker: ottenere la risposta dalla Knowledge base](./qnamaker/quickstarts/get-answer-from-knowledge-base-using-url-tool.md).
+> Anche QnA Maker usa l'intestazione di autorizzazione, ma richiede una chiave di endpoint. Per ulteriori informazioni, vedere [QnA Maker: Ottenere una risposta dalla Knowledge Base](./qnamaker/quickstarts/get-answer-from-knowledge-base-using-url-tool.md).
 
 >[!WARNING]
 > I servizi che supportano i token di autenticazione possono cambiare nel tempo. Controllare l'API di riferimento per un servizio prima di usare questo metodo di autenticazione.

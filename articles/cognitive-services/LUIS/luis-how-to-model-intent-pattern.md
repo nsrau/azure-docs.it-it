@@ -1,7 +1,7 @@
 ---
-title: Modelli Aggiungi accuratezza-LUIS
+title: I modelli aggiungono precisione - LUISPatterns add accuracy - LUIS
 titleSuffix: Azure Cognitive Services
-description: Aggiungere modelli modello per migliorare l'accuratezza della stima nelle applicazioni Language Understanding (LUIS).
+description: Aggiungere modelli di modello per migliorare l'accuratezza della stima nelle applicazioni LUIS (Language Understanding).
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,63 +12,63 @@ ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: diberry
 ms.openlocfilehash: 21afb12bf2464218119ebf52ebd980745e3d731d
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "76311717"
 ---
-# <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Come aggiungere modelli per migliorare l'accuratezza della stima
-Dopo la ricezione di espressioni di endpoint da un'app LUIS, usare un [modello](luis-concept-patterns.md) per migliorare l'accuratezza della stima per le espressioni che rivelano un modello in Word Order e Word Choice. I modelli usano una [sintassi](luis-concept-patterns.md#pattern-syntax) specifica per indicare la posizione di: [entità](luis-concept-entity-types.md), [ruoli](luis-concept-roles.md)di entità e testo facoltativo.
+# <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Come aggiungere modelli per migliorare l'accuratezza della stimaHow to add patterns to improve prediction accuracy
+Dopo che un'app LUIS riceve le espressioni endpoint, usare un [modello](luis-concept-patterns.md) per migliorare l'accuratezza della stima per le espressioni che rivelano un modello nell'ordine delle parole e nella scelta delle parole. I modelli utilizzano [una sintassi](luis-concept-patterns.md#pattern-syntax) specifica per indicare la posizione di: [entità](luis-concept-entity-types.md), [ruoli](luis-concept-roles.md)di entità e testo facoltativo.
 
 [!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
 > [!CAUTION]
-> I modelli includono solo elementi padre di entità apprese dal computer, non sottocomponenti.
+> I modelli includono solo gli elementi padre di entità appresi dal computer, non i sottocomponenti.
 
-## <a name="adding-example-utterances-as-pattern"></a>Aggiunta di espressioni di esempio come modello
+## <a name="adding-example-utterances-as-pattern"></a>Aggiunta di espressioni di esempio come modelloAdding example utterances as pattern
 
-Se si desidera aggiungere un modello per un'entità, il modo _più semplice_ consiste nel creare il modello dalla pagina Dettagli finalità. Ciò garantisce che la sintassi corrisponda all'espressione di esempio.
+Se si desidera aggiungere un motivo per un'entità, il modo _più semplice_ consiste nel creare il motivo dalla pagina Dettagli intento. In questo modo la sintassi corrisponde all'espressione di esempio.
 
-1. Nel [portale di anteprima Luis](https://preview.luis.ai)selezionare l'app dalla pagina **app personali** .
-1. Nella pagina dell'elenco **Intents** selezionare il nome dell'espressione di esempio da cui si vuole creare un modello di espressione.
-1. Nella pagina Dettagli finalità selezionare la riga per l'espressione di esempio che si vuole usare come espressione modello, quindi selezionare **+ Aggiungi come modello** dalla barra degli strumenti del contesto.
-
-    > [!div class="mx-imgBorder"]
-    > ![screenshot della selezione dell'espressione di esempio come modello di modello nella pagina Dettagli finalità.](./media/luis-how-to-model-intent-pattern/add-example-utterances-as-pattern-template-utterance-from-intent-detail-page.png)
-
-1. Nella casella popup selezionare **fatto** nella pagina **conferma modelli** . Non è necessario definire i sottocomponenti, i vincoli o i descrittori delle entità. È sufficiente elencare l'entità Machine-Learned.
+1. Nel [portale LUIS](https://preview.luis.ai)preview selezionare l'app nella pagina **App personali.**
+1. Nella pagina elenco **Finalità** selezionare il nome della finalità dell'espressione di esempio da cui si vuole creare un'espressione del modello.
+1. Nella pagina Dettagli intento selezionare la riga per l'espressione di esempio che si vuole usare come espressione del modello, quindi selezionare **Aggiungi come modello** dalla barra degli strumenti di contesto.
 
     > [!div class="mx-imgBorder"]
-    > ![screenshot della conferma dell'espressione di esempio come modello di modello nella pagina Dettagli finalità.](./media/luis-how-to-model-intent-pattern/confirm-patterns-from-example-utterance-intent-detail-page.png)
+    > ![Screenshot della selezione dell'espressione di esempio come modello di modello nella pagina Dettagli finalità.](./media/luis-how-to-model-intent-pattern/add-example-utterances-as-pattern-template-utterance-from-intent-detail-page.png)
 
-1. Se è necessario modificare il modello, ad esempio selezionando testo come facoltativo, con le parentesi quadre `[]`, è necessario apportare questa modifica dalla pagina **Patterns (modelli** ).
+1. Nella casella popup, selezionare **Fatto** nella pagina **Conferma modelli.** Non è necessario definire sottocomponenti, vincoli o descrittori delle entità. È sufficiente elencare l'entità appresa dal computer.
 
-1. Nella barra di spostamento selezionare **Train** per eseguire il training dell'app con il nuovo modello.
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot della conferma dell'espressione di esempio come modello nella pagina Dettagli finalità.](./media/luis-how-to-model-intent-pattern/confirm-patterns-from-example-utterance-intent-detail-page.png)
 
-## <a name="add-template-utterance-using-correct-syntax"></a>Aggiungere un'espressione modello usando la sintassi corretta
+1. Se è necessario modificare il modello, ad esempio `[]` selezionando il testo come facoltativo, con le parentesi quadre (quadrate), è necessario apportare questa modifica dalla pagina **Modelli.**
+
+1. Nella barra di spostamento seleziona **Addestra** per addestrare l'app con il nuovo modello.
+
+## <a name="add-template-utterance-using-correct-syntax"></a>Aggiungere l'espressione del modello usando la sintassi correttaAdd template utterance using correct syntax
 
 1. Apri l'applicazione selezionando il corrispettivo nome nella pagina **App personali** e quindi seleziona **Criteri** nel riquadro sinistro, nella sezione **Migliora le prestazioni dell'applicazione**.
 
     > [!div class="mx-imgBorder"]
-    > ![screenshot dell'elenco dei modelli](./media/luis-how-to-model-intent-pattern/patterns-1.png)
+    > ![Schermata dell'elenco dei criteri](./media/luis-how-to-model-intent-pattern/patterns-1.png)
 
 1. Seleziona la finalità corretta per il criterio.
 
 1. Nella casella di testo del modello, digita l'espressione del modello e premi Invio. Quando vuoi inserire il nome dell'entità, usa la sintassi dell'entità corretta del criterio. Inizia la sintassi dell'entità con `{`. Viene visualizzato l'elenco di entità. Selezionare l'entità corretta.
 
     > [!div class="mx-imgBorder"]
-    > ![screenshot dell'entità per pattern](./media/luis-how-to-model-intent-pattern/patterns-3.png)
+    > ![Schermata dell'entità per il criterio](./media/luis-how-to-model-intent-pattern/patterns-3.png)
 
-    Se l'entità include un [ruolo](luis-concept-roles.md), indicare il ruolo con un solo segno di due punti, `:`, dopo il nome dell'entità, ad esempio `{Location:Origin}`. I ruoli per le entità vengono visualizzati in un elenco. Seleziona il ruolo, quindi fai clic su Invio.
+    Se l'entità include un [ruolo](luis-concept-roles.md), indicare il ruolo con un singolo segno di due punti, `:`, dopo il nome dell'entità, ad `{Location:Origin}`esempio . I ruoli per le entità vengono visualizzati in un elenco. Seleziona il ruolo, quindi fai clic su Invio.
 
     > [!div class="mx-imgBorder"]
-    > ![screenshot dell'entità con](./media/luis-how-to-model-intent-pattern/patterns-4.png) ruolo
+    > ![Schermata dell'entità con un ruolo](./media/luis-how-to-model-intent-pattern/patterns-4.png)
 
     Dopo aver selezionato l'entità corretta, completa l'inserimento del criterio, quindi premi Invio. Al termine dell'inserimento dei criteri [esegui il training](luis-how-to-train.md) dell'app.
 
     > [!div class="mx-imgBorder"]
-    > ![screenshot del modello immesso con entrambi i tipi di entità](./media/luis-how-to-model-intent-pattern/patterns-5.png)
+    > ![Schermata del criterio inserito con entrambi i tipi di entità](./media/luis-how-to-model-intent-pattern/patterns-5.png)
 
 ## <a name="train-your-app-after-changing-model-with-patterns"></a>Eseguire il training dell'app dopo la modifica del modello con i criteri
 Dopo aver aggiunto, modificato, rimosso o riassegnato un criterio, [esegui il training](luis-how-to-train.md) e [pubblica](luis-how-to-publish-app.md) l'app affinché le modifiche siano attive per le query di endpoint.
@@ -84,22 +84,22 @@ Dopo aver aggiunto, modificato, rimosso o riassegnato un criterio, [esegui il tr
 <a name="remove-entity-or-intent-filter"></a>
 <a name="add-pattern-from-existing-utterance-on-intent-or-entity-page"></a>
 
-## <a name="use-contextual-toolbar"></a>Usa barra degli strumenti contestuale
+## <a name="use-contextual-toolbar"></a>Utilizzare la barra degli strumenti contestuale
 
-La barra degli strumenti contestuale sopra l'elenco di modelli consente di:
+La barra degli strumenti contestuale sopra l'elenco dei modelli consente di:
 
 * Ricerca di modelli
 * Modificare un criterio
 * Riassegnare un criterio singolo a diverse finalità
 * Riassegnare diversi criteri a finalità diverse
-* Delete-a-singolo modello
+* Eliminare un modello singoloDelete-a-single-pattern
 * Eliminare diversi criteri
 * Filtrare l'elenco dei criteri per entità
-* Filter-pattern-list-by-Intent
+* Filtro-modello-elenco-per finalità
 * Rimuovere il filtro entità o finalità
 * Aggiungi un criterio da un'espressione esistente nella pagina delle entità o finalità
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Informazioni su come [creare un modello](luis-tutorial-pattern.md) con un modello. tutti i ruoli e con un'esercitazione.
+* Informazioni su come [creare un modello](luis-tutorial-pattern.md) con un pattern.any e ruoli con un'esercitazione.
 * Informazioni su come [eseguire il training](luis-how-to-train.md) dell'app.

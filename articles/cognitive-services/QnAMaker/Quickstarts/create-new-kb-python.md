@@ -6,10 +6,10 @@ ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27
 ms.topic: conceptual
 ms.openlocfilehash: bb51a47efc7bcae5014d5ea004674fed7cb33fe0
-ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78851817"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-python"></a>Guida introduttiva: Creare una knowledge base in QnA Maker con Python
@@ -17,16 +17,16 @@ ms.locfileid: "78851817"
 Questa guida introduttiva illustra come creare e pubblicare a livello di codice una knowledge base QnA Maker di esempio. QnA Maker estrae automaticamente domande e risposte da contenuto semistrutturato, come le domande frequenti, delle [origini dati](../Concepts/knowledge-base.md). Il modello per la knowledge base è definito nel codice JSON inviato nel corpo della richiesta API.
 
 In questa guida introduttiva viene chiamata l'API QnA Maker seguente:
-* [Create Knowledgebase](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create) (Creare la knowledge base)
-* [Get Operation Details](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/operations/getdetails) (Ottenere i dettagli dell'operazione)
+* [Creare la knowledge base](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create)
+* [Ottenere i dettagli dell'operazione](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/operations/getdetails)
 
-[Documentazione di riferimento](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase) | [Esempio di Python](https://github.com/Azure-Samples/cognitive-services-qnamaker-python/blob/master/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base-3x.py)
+[Documentazione](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase) | di riferimento[Esempio Python](https://github.com/Azure-Samples/cognitive-services-qnamaker-python/blob/master/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base-3x.py)
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* [Python 3.7](https://www.python.org/downloads/)
+* [Pitone 3.7](https://www.python.org/downloads/)
 * È necessario disporre di un [servizio QnA Maker](../How-To/set-up-qnamaker-service-azure.md). Per recuperare la chiave e l'endpoint (che include il nome della risorsa), selezionare **Avvio rapido** per la risorsa nel portale di Azure.
 
 ## <a name="create-a-knowledge-base-python-file"></a>Creare un file Python per la knowledge base

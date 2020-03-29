@@ -1,7 +1,7 @@
 ---
-title: Suggerimenti per i dispositivi vocali SDK per array microfoni
+title: Consigli per l'array di microfoni di Speech Devices SDK
 titleSuffix: Azure Cognitive Services
-description: Suggerimenti per i dispositivi vocali SDK per array di microfoni. Queste geometrie di matrice sono consigliate per l'uso con lo stack audio Microsoft.
+description: Consigli per l'array di microfoni di Speech Devices SDK. Queste geometrie di matrice sono consigliate per l'utilizzo con Microsoft Audio Stack.These array geometries are recommended for use with the Microsoft Audio Stack.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -11,105 +11,105 @@ ms.topic: conceptual
 ms.date: 07/16/2019
 ms.author: erhopf
 ms.openlocfilehash: a87bdd7a55036e8b70f0bc5816d2b587c1569202
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77168134"
 ---
-# <a name="speech-devices-sdk-microphone-array-recommendations"></a>Suggerimenti per i dispositivi vocali SDK per array microfoni
+# <a name="speech-devices-sdk-microphone-array-recommendations"></a>Suggerimenti per l'array di microfoni di Speech Devices SDK
 
-In questo articolo si apprenderà come progettare un array di microfoni per i dispositivi vocali SDK.
+In questo articolo imparerai a progettare un array di microfoni per l'SDK dei dispositivi di riconoscimento vocale.
 
-L'SDK per dispositivi vocali funziona meglio con una matrice di microfoni progettata in base alle linee guida seguenti, tra cui la geometria del microfono e la selezione dei componenti. Il materiale sussidiario viene fornito anche per considerazioni sull'integrazione e sull'elettricità.
+L'SDK dei dispositivi di riconoscimento vocale funziona meglio con un array di microfoni progettato in base alle linee guida seguenti, tra cui la geometria del microfono e la selezione dei componenti. Vengono inoltre fornite indicazioni sull'integrazione e considerazioni elettriche.
 
-## <a name="microphone-geometry"></a>Geometria microfono
+## <a name="microphone-geometry"></a>Geometria del microfono
 
-Le seguenti geometrie di matrice sono consigliate per l'uso con lo stack audio Microsoft. Il percorso delle origini audio e il rifiuto del rumore di ambiente sono migliorati con un numero maggiore di microfoni con dipendenze da applicazioni specifiche, scenari utente e il fattore di forma del dispositivo.
+Le geometrie di matrice seguenti sono consigliate per l'utilizzo con Microsoft Audio Stack. La posizione delle sorgenti audio e il rifiuto del rumore ambientale sono migliorati con un maggior numero di microfoni con dipendenze da applicazioni specifiche, scenari utente e il fattore di forma del dispositivo.
 
-|     | Matrice circolare |     | Matrice lineare |     |
+|     | Serie circolare |     | Serie lineare |     |
 | --- | -------------- | --- | ------------ | --- |
 |     | <img src="media/speech-devices-sdk/7-mic-c.png" alt="7 mic circular array" width="150"/> | <img src="media/speech-devices-sdk/4-mic-c.png" alt="4 mic circular array" width="150"/> | <img src="media/speech-devices-sdk/4-mic-l.png" alt="4 mic linear array" width="150"/> | <img src="media/speech-devices-sdk/2-mic-l.png" alt="2 mic linear array" width="150"/> |
-| Microfoni \# | 7 | 4 | 4 | 2 |
-| Geometry | 6 esterno, 1 centro, raggio = 42,5 mm, spazio uniforme | 3 esterno, 1 centro, raggio = 42,5 mm, spazio uniforme | Lunghezza = 120 mm, spaziatura = 40 mm | Spaziatura = 40 mm |
+| \#Microfoni | 7 | 4 | 4 | 2 |
+| Geometry | 6 Esterno, 1 Centro, Raggio - 42,5 mm, Spaziati uniformemente | 3 Esterno, 1 Centro, Raggio - 42,5 mm, Spaziato uniformemente | Lunghezza : 120 mm, Spaziatura - 40 mm | Spaziatura: 40 mm |
 
-I canali del microfono devono essere ordinati in base alla numerazione raffigurata per ogni matrice precedente, aumentando da 0. Lo stack audio Microsoft richiederà un flusso di riferimento aggiuntivo per la riproduzione audio per eseguire l'annullamento Echo.
+I canali del microfono devono essere ordinati in base alla numerazione raffigurata per ogni array precedente, aumentando da 0. Lo stack audio Microsoft richiederà un flusso di riferimento aggiuntivo di riproduzione audio per eseguire l'annullamento dell'eco.
 
-## <a name="component-selection"></a>Selezione componenti
+## <a name="component-selection"></a>Selezione dei componenti
 
-È necessario selezionare i componenti del microfono per riprodurre accuratamente un segnale senza rumore e distorsione.
+I componenti del microfono devono essere selezionati per riprodurre con precisione un segnale privo di rumore e distorsione.
 
-Le proprietà consigliate quando si selezionano i microfoni sono:
+Le proprietà consigliate per la selezione dei microfoni sono:
 
 | Parametro | Consigliato |
 | --------- | ----------- |
-| SNR | \>= 65 dB (1 kHz Signal 94 dBSPL, A-weighted Noise) |
-| Corrispondenza dell'ampiezza | ± 1 dB a 1 kHz |
-| Corrispondenza fase | ± 2 ° @ 1 kHz |
-| Punto di sovraccarico acustico (AOP) | \>= 120 dBSPL (THD = 10%) |
+| Snr | \>65 dB (1 kHz segnale 94 dBSPL, rumore ponderato A) |
+| Corrispondenza ampiezza | 1 dB - 1 kHz |
+| Corrispondenza di fase | 2o 1 kHz |
+| Punto di sovraccarico acustico (AOP) | \>120 dBSPL (THD - 10%) |
 | Velocità in bit | Minimo 24 bit |
-| Frequenza di campionamento | \* minimo 16 kHz |
-| Risposta frequenza | ± 3 dB, 200-8000 Hz a maschera mobile\* |
-| Affidabilità | Intervallo di temperatura di archiviazione: da 40 a 70 ° c<br />Intervallo temperatura operativa-da 20 a 55 ° c |
+| Frequenza di campionamento | Minimo 16 kHz\* |
+| Risposta di frequenza | - Maschera mobile da 3 dB, 200-8000 Hz\* |
+| Affidabilità | Intervallo di temperatura di immagazzinamento da -40 a 70 gradi centigradi<br />Gamma di temperatura di funzionamento da -20 a 55 gradi centigradi |
 
-\*frequenze _di campionamento più elevate o intervalli di frequenza "più ampi" possono essere necessari per applicazioni di comunicazione di alta qualità (VoIP)_
+\*_Frequenze di campionamento più elevate o intervalli di frequenza "più larghi" possono essere necessari per le applicazioni di comunicazione di alta qualità (VoIP)_
 
-Per evitare di compromettere le prestazioni dei componenti usati, è necessario associare una selezione di componenti ottimali con una corretta integrazione con elettroacustica. I casi di utilizzo univoci possono richiedere requisiti aggiuntivi (ad esempio, intervalli di temperatura operativi).
+Una buona selezione dei componenti deve essere abbinata a una buona integrazione elettroacustica per evitare di compromettere le prestazioni dei componenti utilizzati. Casi d'uso unici possono anche richiedere requisiti aggiuntivi (ad esempio: intervalli di temperatura di funzionamento).
 
-## <a name="microphone-array-integration"></a>Integrazione di array di microfoni
+## <a name="microphone-array-integration"></a>Integrazione dell'array del microfono
 
-Le prestazioni dell'array di microfoni quando integrato in un dispositivo si differenziano dalla specifica del componente. È importante assicurarsi che i microfoni siano abbinati correttamente dopo l'integrazione. Pertanto, le prestazioni del dispositivo misurate dopo qualsiasi guadagno fisso o EQ devono soddisfare le raccomandazioni seguenti:
+Le prestazioni dell'array di microfoni quando integrato in un dispositivo sarà diverso da quello del componente. È importante assicurarsi che i microfoni siano ben abbinati dopo l'integrazione. Pertanto le prestazioni del dispositivo misurate dopo qualsiasi guadagno fisso o EQ devono soddisfare le seguenti raccomandazioni:
 
 | Parametro          | Consigliato                                        |
 | ------------------ | -------------------------------------------------- |
-| SNR                | \> 63 dB (1 kHz Signal 94 dBSPL, A-weighted Noise) |
-| Sensibilità output | -26 dBFS/PA a 1 kHz (scelta consigliata)                  |
-| Corrispondenza dell'ampiezza | ± 2 dB, 200-8000 Hz                                |
-| THD%\*             | ≤ 1%, 200-8000 Hz, 94 dBSPL, 5a ordine             |
-| Risposta frequenza | ± 6 dB, 200-8000 Hz maschera a virgola mobile\*\*              |
+| Snr                | \>63 dB (1 kHz segnale 94 dBSPL, rumore ponderato A) |
+| Sensibilità all'uscita | -26 dBFS/Pa - 1 kHz (consigliato)                  |
+| Corrispondenza ampiezza | 2 dB, 200-8000 Hz                                |
+| THD%\*             | 1%, 200-8000 Hz, 94 dBSPL, 5o Ordine             |
+| Risposta di frequenza | - Maschera mobile da 6 dB, 200-8000 Hz\*\*              |
 
-\*\*_è necessario un altoparlante a bassa distorsione per misurare THD, ad esempio Neumann KH120_
+\*\*_Per misurare il THD (ad esempio Neumann KH120) è necessario un altoparlante a bassa distorsione_
 
-\*\*_intervalli di frequenza "più ampi" possono essere necessari per le applicazioni di comunicazione di alta qualità (VoIP)_
+\*\*_Per le applicazioni di comunicazione di alta qualità (VoIP) possono essere necessarie intervalli di frequenza "più ampi"_
 
-## <a name="speaker-integration-recommendations"></a>Suggerimenti per l'integrazione di speaker
+## <a name="speaker-integration-recommendations"></a>Raccomandazioni per l'integrazione degli oratori
 
-Poiché l'annullamento Echo è necessario per i dispositivi di riconoscimento vocale che contengono altoparlanti, vengono fornite indicazioni aggiuntive per la selezione e l'integrazione del relatore.
+Poiché l'annullamento dell'eco è necessario per i dispositivi di riconoscimento vocale che contengono altoparlanti, vengono forniti suggerimenti aggiuntivi per la selezione e l'integrazione degli altoparlanti.
 
 | Parametro | Consigliato |
 | --------- | ----------- |
-| Considerazioni sulla linearità | Nessuna elaborazione non lineare dopo il riferimento del relatore; in caso contrario, è necessario un flusso di riferimento loopback basato su hardware |
-| Loopback altoparlante | Fornito tramite WASAPI, le API private, il plug-in ALSA personalizzato (Linux) o fornito tramite il canale del firmware |
-| THD | 3 bande di ottave, minimo 5 ordine, 70 dBA riproduzione @ 0,8 m ≤ 6,3%, 315-500 Hz ≤ 5%, 630-5000 Hz |
-| Accoppiamento Echo ai microfoni | TCLw di database \>-10 utilizzando il metodo ITU-T G. 122 Annex B. 4, normalizzato a livello MIC<br />TCLw = TCLwmeasured \+ (livello misurato-sensibilità output di destinazione)<br />TCLw = TCLwmeasured \+ (livello misurato-(-26)) |
+| Considerazioni sulla linearità | Nessuna elaborazione non lineare dopo il riferimento dell'altoparlante, altrimenti è necessario un flusso di riferimento loopback basato su hardware |
+| Loopback degli altoparlanti | Fornito tramite WASAPI, API private, plug-in ALSA personalizzato (Linux) o fornito tramite canale firmware |
+| THD% | 3a Banda di ottava minima 5a, 70 dBA Riproduzione - 0,8 m - 6,3%, 315-500 Hz - 5%, 630-5000 Hz |
+| Accoppiamento dell'eco ai microfoni | \>-10 dB TCLw con metodo ITU-T G.122 Annex B.4, normalizzato a livello del microfono<br />TCLw - TCLwmeasured (Livello misurato \+ - Target Output Sensitivity)<br />TCLw - TCLwmeasured \+ (Livello misurato - (-26)) |
 
 ## <a name="integration-design-architecture"></a>Architettura di progettazione dell'integrazione
 
-Le linee guida seguenti per l'architettura sono necessarie quando si integrano i microfoni in un dispositivo:
+Quando si integrano microfoni in un dispositivo, sono necessarie le seguenti linee guida per l'architettura:
 
 | Parametro | Recommendation |
 | --------- | -------------- |
-| Somiglianza porta MIC | Tutte le porte del microfono hanno la stessa lunghezza nella matrice |
-| Dimensioni porta MIC | Dimensioni porta da Ø 0.8 a 1,0 mm. Lunghezza porta/diametro porta \< 2 |
-| Sealing MIC         | Guarnizioni sealing implementate in modo uniforme nello stack. Consigliare \> percentuale di compressione del 70% per le guarnizioni di schiuma |
-| Affidabilità MIC     | Mesh deve essere usato per evitare la polvere e il traffico in ingresso (tra i PCB per i microfoni con porta inferiore e la guarnizione di chiusura/copertura superiore) |
-| Isolamento MIC       | Guarnizioni di gomma e separazione delle vibrazioni attraverso la struttura, in particolare per isolare i percorsi di vibrazione a causa di altoparlanti integrati |
-| Clock di campionamento      | L'audio del dispositivo deve essere privo di jitter e drop-out con una bassa deviazione |
-| Funzionalità di registrazione   | Il dispositivo deve essere in grado di registrare i singoli flussi RAW del canale simultaneamente |
-| USB                 | Tutti i dispositivi di input audio USB devono impostare i descrittori in base alla [specifica rev3 dispositivi audio USB](https://www.usb.org/document-library/usb-audio-devices-rev-30-and-adopters-agreement) |
-| Geometria microfono | I driver devono implementare correttamente i [descrittori di geometria della matrice microfonica](https://docs.microsoft.com/windows-hardware/drivers/audio/ksproperty-audio-mic-array-geometry) |
-| Individuabilità     | I dispositivi non devono disporre di hardware, firmware o algoritmi di elaborazione audio non lineari basati su software di terze parti per/dal dispositivo |
-| Formato di acquisizione      | I formati di acquisizione devono usare una frequenza di campionamento minima di 16 kHz e la profondità consigliata a 24 bit |
+| Somiglianza porta mic | Tutte le porte del microfono sono della stessa lunghezza nell'array |
+| Dimensioni porta microfono | Dimensioni della porta: 0,8-1,0 mm. Lunghezza porta / \< Diemetro porta 2 |
+| Sigillamento del microfono         | Guarnizioni di sigillamento uniformemente implementate in stack-up. Raccomandare \> il rapporto di compressione del 70% per le guarnizioni in schiuma |
+| Affidabilità del microfono     | La rete deve essere utilizzata per prevenire la polvere e l'ingresso (tra PCB per microfoni con portamento inferiore e guarnizione guarnizione/copertura superiore) |
+| Isolamento del microfono       | Guarnizioni in gomma e disaccoppiamento delle vibrazioni attraverso la struttura, in particolare per isolare eventuali percorsi di vibrazione grazie a altoparlanti integrati |
+| Orologio di campionamento      | L'audio del dispositivo deve essere privo di jitter e drop-out con deriva bassa |
+| Capacità di registrazione   | Il dispositivo deve essere in grado di registrare contemporaneamente i flussi raw dei singoli canali |
+| USB                 | Tutti i dispositivi di input audio USB devono impostare i descrittori in base alle [specifiche Rev3](https://www.usb.org/document-library/usb-audio-devices-rev-30-and-adopters-agreement) dei dispositivi audio USB |
+| Geometria del microfono | I driver devono implementare correttamente i descrittori della [geometria dell'array di microfoni](https://docs.microsoft.com/windows-hardware/drivers/audio/ksproperty-audio-mic-array-geometry) |
+| Individuabilità     | I dispositivi non devono avere hardware, firmware o algoritmi di elaborazione audio non lineari basati su software di terze parti da/verso il dispositivo |
+| Formato di acquisizione      | I formati di acquisizione devono utilizzare una frequenza di campionamento minima di 16 kHz e una profondità di 24 bit consigliata |
 
 ## <a name="electrical-architecture-considerations"></a>Considerazioni sull'architettura elettrica
 
-Laddove applicabile, le matrici possono essere connesse a un host USB (ad esempio un SoC che esegue lo stack audio Microsoft) e le interfacce ai servizi vocali o ad altre applicazioni.
+Se applicabile, gli array possono essere collegati a un host USB (ad esempio un SoC che esegue Microsoft Audio Stack) e interfacce ai servizi di riconoscimento vocale o ad altre applicazioni.
 
-I componenti hardware, ad esempio la conversione da PDM a TDM, devono garantire che l'intervallo dinamico e l'SNR dei microfoni vengano conservati nei ricampionatori.
+I componenti hardware come la conversione da PDM a TDM devono garantire che l'intervallo dinamico e la SNR dei microfoni siano conservati all'interno di re-campionatori.
 
-La classe audio USB ad alta velocità 2,0 dovrebbe essere supportata all'interno di qualsiasi MCU audio per fornire la larghezza di banda necessaria per un massimo di sette canali a frequenze di campionamento superiori e profondità dei bit.
+La classe audio USB 2.0 ad alta velocità deve essere supportata all'interno di qualsiasi MCU audio al fine di fornire la larghezza di banda necessaria per un massimo di sette canali a velocità di campionamento e profondità di bit più elevate.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Altre informazioni sull'SDK dei dispositivi vocali](speech-devices-sdk.md)
+> [Ulteriori informazioni sull'SDK dei dispositivi di riconoscimento vocale](speech-devices-sdk.md)

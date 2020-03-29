@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/04/2020
 ms.author: aahi
 ms.openlocfilehash: 6847059de2a8685a56719f07a041a40456f2aa06
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79219247"
 ---
 # <a name="example-user-scenarios-for-the-text-analytics-api"></a>Scenari utente di esempio per l'API di Analisi di testo
@@ -29,7 +29,7 @@ L'API Analisi del testo è un servizio basato sul cloud che fornisce l'elaborazi
 
 ## <a name="analyze-recorded-inbound-customer-calls"></a>Analizzare le chiamate dei clienti in ingresso registrate
 
-Estrarre informazioni approfondite dalle chiamate al servizio clienti usando la sintesi vocale, l'analisi del sentiment, e l'estrazione di frasi chiave. Visualizzare i risultati nel dashboard di Power BI o in un portale per conoscere meglio i clienti, evidenziare le tendenze del servizio clienti e aumentare il coinvolgimento dei clienti. Inviare le richieste API come batch per la creazione di report o in tempo reale per gli interventi. Vedere il codice [di esempio su GitHub](https://github.com/rlagh2/callcenteranalytics).
+Estrarre informazioni approfondite dalle chiamate al servizio clienti usando la sintesi vocale, l'analisi del sentiment, e l'estrazione di frasi chiave. Visualizzare i risultati nel dashboard di Power BI o in un portale per conoscere meglio i clienti, evidenziare le tendenze del servizio clienti e aumentare il coinvolgimento dei clienti. Inviare le richieste API come batch per la creazione di report o in tempo reale per gli interventi. Vedere il codice di esempio [in GitHub](https://github.com/rlagh2/callcenteranalytics).
 
 ![Immagine che illustra come automatizzare l'acquisizione di informazioni accurate dalle chiamate al servizio clienti usando l'analisi del sentiment](media/use-cases/azure-inbound.svg)
 
@@ -45,11 +45,11 @@ Monitorare i commenti e suggerimenti degli utenti sul prodotto nella pagina Twit
 
 ![Immagine che illustra come monitorare i commenti sul prodotto e sull'azienda sui social media usando l'estrazione di frasi chiave](media/use-cases/social-feed.svg)
 
-## <a name="classify-and-redact-documents-that-have-sensitive-information"></a>Classificare e offuscare documenti con informazioni riservate
+## <a name="classify-and-redact-documents-that-have-sensitive-information"></a>Classificare e redigere i documenti con informazioni riservate
 
-Usare il riconoscimento delle entità denominato per identificare le informazioni personali e riservate nei documenti. Usare i dati per classificare i documenti o offuscare in modo che possano essere condivisi in modo sicuro.
+Utilizzare il riconoscimento delle entità con nome per identificare le informazioni personali e riservate nei documenti. Utilizzare i dati per classificare i documenti o redigerli in modo che possano essere condivisi in modo sicuro.
 
-![Un'immagine che descrive come usare NER per rilevare le informazioni personali e classificare e offuscare i documenti](media/use-cases/sensitive-docs.jpg)
+![Immagine che descrive come utilizzare NER per rilevare informazioni personali e classificare e redigere i documenti](media/use-cases/sensitive-docs.jpg)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

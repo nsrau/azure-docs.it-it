@@ -1,5 +1,5 @@
 ---
-title: Domande frequenti-LUIS
+title: Domande frequenti (FAQ) - LUIS
 titleSuffix: Azure Cognitive Services
 description: Questo articolo contiene risposte alle domande frequenti su LUIS.
 author: diberry
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 11/08/2019
 ms.author: diberry
 ms.openlocfilehash: a2472064720af0a25568a2f173b971898b1f2e25
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79219709"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Risposte alle domande frequenti per Language Understanding (LUIS)
@@ -24,7 +24,7 @@ Questo articolo contiene risposte alle domande frequenti su LUIS.
 
 ## <a name="whats-new"></a>Novità
 
-[Altre](whats-new.md) informazioni sulle novità di Language Understanding (Luis).
+[Ulteriori informazioni](whats-new.md) sulle novità di Language Understanding (LUIS).
 
 <a name="luis-authoring"></a>
 
@@ -53,7 +53,7 @@ Vedere l'esercitazione [API Controllo ortografico Bing V7](luis-tutorial-bing-sp
 Per modificare l'app LUIS a livello di codice, usare l'[API di creazione](https://go.microsoft.com/fwlink/?linkid=2092087). Vedere [Chiamare l'API di creazione LUIS](./get-started-get-model-rest-apis.md) e [Compilare un'app LUIS a livello di codice con Node.js](./luis-tutorial-node-import-utterances-csv.md) per esempi su come chiamare l'API di creazione. L'API di creazione richiede l'uso di una [chiave di creazione](luis-concept-keys.md#azure-resources-for-luis) e non di una chiave di endpoint. La creazione a livello di codice consente fino a 1.000.000 di chiamate al mese e cinque transazioni al secondo. Per altre informazioni sulle chiavi usate con LUIS, vedere [Gestire le chiavi](./luis-concept-keys.md).
 
 ### <a name="where-is-the-pattern-feature-that-provided-regular-expression-matching"></a>Dove si trova la funzionalità Criterio che offre l'associazione di espressioni regolari?
-La **funzionalità Criterio** precedente è attualmente deprecata ed è sostituita da **[Modelli](luis-concept-patterns.md)** .
+La **funzionalità Criterio** precedente è attualmente deprecata ed è sostituita da **[Modelli](luis-concept-patterns.md)**.
 
 ### <a name="how-do-i-use-an-entity-to-pull-out-the-correct-data"></a>Come si può usare un'entità per estrarre i dati corretti?
 Vedere [entità](luis-concept-entity-types.md) ed [estrazione dei dati](luis-concept-data-extraction.md).
@@ -68,17 +68,17 @@ Le app Cortana predefinite sono state deprecate nel 2017. Non sono più supporta
 ### <a name="how-do-i-transfer-ownership-of-a-luis-app"></a>Come si trasferisce la proprietà di un'app LUIS?
 Per trasferire un'app LUIS in un'altra sottoscrizione di Azure, esportare l'app LUIS e importarla usando un nuovo account. Aggiornare l'ID dell'app LUIS nell'applicazione client che la chiama. La nuova app può restituire punteggi LUIS leggermente diversi rispetto all'app originale.
 
-### <a name="a-prebuilt-entity-is-tagged-in-an-example-utterance-instead-of-my-custom-entity-how-do-i-fix-this"></a>Un'entità predefinita è contrassegnata con un enunciato di esempio invece che con l'entità personalizzata. Ricerca per categorie risolvere questo problema? 
+### <a name="a-prebuilt-entity-is-tagged-in-an-example-utterance-instead-of-my-custom-entity-how-do-i-fix-this"></a>Un'entità predefinita viene contrassegnata in un'espressione di esempio anziché con l'entità personalizzata. Com'è possibile risolvere il problema? 
 
-Nel portale LUIS è possibile etichettare il testo per l'entità esatta a cui si è interessati per l'estrazione. Se il portale LUIS non Visualizza la stima dell'entità corretta, potrebbe essere necessario aggiungere più espressioni ed etichettare l'entità all'interno del testo o aggiungere un descrittore (ad esempio una funzionalità). 
+Nel portale LUIS è possibile etichettare il testo per l'entità esatta che si desidera estrarre. Se il portale LUIS non mostra la stima dell'entità corretta, potrebbe essere necessario aggiungere altre espressioni ed etichettare l'entità all'interno del testo o aggiungere un descrittore (ad esempio una funzionalità). 
 
-### <a name="i-tried-to-import-an-app-or-version-file-but-i-got-an-error-what-happened"></a>Si è tentato di importare un'app o un file di versione, ma si è verificato un errore? 
+### <a name="i-tried-to-import-an-app-or-version-file-but-i-got-an-error-what-happened"></a>Ho provato a importare un file di app o di versione ma ho ricevuto un errore, cosa è successo? 
 
-Altre informazioni sugli [errori di importazione della versione](luis-how-to-manage-versions.md#import-errors).
+Ulteriori informazioni sugli errori di importazione delle [versioni](luis-how-to-manage-versions.md#import-errors).
 
 <a name="luis-collaborating"></a>
 
-## <a name="collaborating-and-contributing"></a>Collaborazione e contributo
+## <a name="collaborating-and-contributing"></a>Collaborare e contribuire
 
 ### <a name="how-do-i-give-collaborators-access-to-luis-with-azure-active-directory-azure-ad-or-role-based-access-control-rbac"></a>Come si concede ai collaboratori l'accesso a LUIS con Azure Active Directory (Azure AD) o il controllo degli accessi in base al ruolo (RBAC)?
 
@@ -88,30 +88,30 @@ Per informazioni su come concedere l'accesso ai collaboratori, vedere [Risorse d
 
 ## <a name="endpoint"></a>Endpoint
 
-### <a name="i-received-an-http-403-error-status-code-how-do-i-fix-it"></a>È stato ricevuto un codice di stato di errore HTTP 403. Risoluzione
+### <a name="i-received-an-http-403-error-status-code-how-do-i-fix-it"></a>Ho ricevuto un codice di stato di errore HTTP 403. Risoluzione
 
-Si ottengono i codici di stato di errore 403 e 429 quando si superano le transazioni al secondo o le transazioni al mese per il piano tariffario. Aumentare il piano tariffario o usare Language Understanding [contenitori](luis-container-howto.md).
+I codici di stato di errore 403 e 429 vengono ottenuti quando si superano le transazioni al secondo o le transazioni al mese per il piano tariffario. Aumentare il piano tariffario o utilizzare i [contenitori](luis-container-howto.md)Di Language Understanding .
 
-Quando si usano tutte le query di endpoint 1000 gratuite o si supera la quota di transazioni mensili del piano tariffario, si riceve un codice di stato di errore HTTP 403. 
+Quando si usano tutte le query gratuite di 1000 endpoint o si supera la quota di transazioni mensili del piano tariffario, viene visualizzato un codice di stato di errore HTTP 403. 
 
-Per correggere l'errore, è necessario [modificare il piano tariffario](luis-how-to-azure-subscription.md#change-pricing-tier) a un livello superiore o [creare una nuova risorsa](get-started-portal-deploy-app.md#create-the-endpoint-resource) e [assegnarla all'app](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal).
+Per correggere questo errore, è necessario [modificare il piano tariffario](luis-how-to-azure-subscription.md#change-pricing-tier) in un livello superiore oppure [creare una nuova risorsa](get-started-portal-deploy-app.md#create-the-endpoint-resource) e [assegnarla all'app.](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal)
 
-Le soluzioni per questo errore includono:
+Le soluzioni per questo errore includono:Solutions for this error include:
 
-* Nel [portale di Azure](https://portal.azure.com), sulla risorsa Language Understanding, nel piano **tariffario di gestione delle risorse->** modificare il piano tariffario in un livello di TPS superiore. Non è necessario eseguire alcuna operazione nel portale di Language Understanding se la risorsa è già stata assegnata all'app Language Understanding.
-*  Se l'utilizzo supera il piano tariffario più elevato, aggiungere altre Language Understanding risorse con un servizio di bilanciamento del carico. Il [contenitore Language Understanding](luis-container-howto.md) con Kubernetes o Docker compose può essere utile per questa operazione.
+* Nel [portale di Azure](https://portal.azure.com), nella risorsa Informazioni sulla lingua, nel **livello Gestione risorse - > dei prezzi**, modificare il livello tariffario in un livello TPS superiore. Non è necessario eseguire alcuna operazione nel portale Informazioni sulla lingua se la risorsa è già assegnata all'app Language Understanding.
+*  Se l'utilizzo supera il piano tariffario più alto, aggiungere altre risorse Informazioni sulla lingua con un servizio di bilanciamento del carico. Il [contenitore Language Understanding](luis-container-howto.md) con Kubernetes o Docker Compose può aiutare in questo.
 
-### <a name="i-received-an-http-429-error-status-code-how-do-i-fix-it"></a>È stato ricevuto un codice di stato di errore HTTP 429. Risoluzione
+### <a name="i-received-an-http-429-error-status-code-how-do-i-fix-it"></a>Ho ricevuto un codice di stato di errore HTTP 429. Risoluzione
 
-Si ottengono i codici di stato di errore 403 e 429 quando si superano le transazioni al secondo o le transazioni al mese per il piano tariffario. Aumentare il piano tariffario o usare Language Understanding [contenitori](luis-container-howto.md).
+I codici di stato di errore 403 e 429 vengono ottenuti quando si superano le transazioni al secondo o le transazioni al mese per il piano tariffario. Aumentare il piano tariffario o utilizzare i [contenitori](luis-container-howto.md)Di Language Understanding .
 
 Questo codice di stato viene restituito quando le transazioni al secondo superano il piano tariffario.  
 
 Le soluzioni includono:
 
-* Se non si è al livello più elevato, è possibile [aumentare il piano tariffario](luis-how-to-azure-subscription.md#change-pricing-tier).
-* Se l'utilizzo supera il piano tariffario più elevato, aggiungere altre Language Understanding risorse con un servizio di bilanciamento del carico. Il [contenitore Language Understanding](luis-container-howto.md) con Kubernetes o Docker compose può essere utile per questa operazione.
-* È possibile controllare le richieste dell'applicazione client con i [criteri di ripetizione](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults#general-guidelines) implementati quando si ottiene questo codice di stato. 
+* È possibile [aumentare il piano tariffario,](luis-how-to-azure-subscription.md#change-pricing-tier)se non si è al livello più alto.
+* Se l'utilizzo supera il piano tariffario più alto, aggiungere altre risorse Informazioni sulla lingua con un servizio di bilanciamento del carico. Il [contenitore Language Understanding](luis-container-howto.md) con Kubernetes o Docker Compose può aiutare in questo.
+* È possibile gate le richieste dell'applicazione client con un criterio di ripetizione dei [tentativi](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults#general-guidelines) che si implementa manualmente quando si ottiene questo codice di stato. 
 
 ### <a name="my-endpoint-query-returned-unexpected-results-what-should-i-do"></a>La query dell'endpoint ha restituito risultati imprevisti. Cosa devo fare?
 
@@ -127,10 +127,10 @@ Per altri suggerimenti, rivedere le [procedure consigliate](luis-concept-best-pr
 LUIS [suddivide in token](luis-glossary.md#token) l'espressione in base alle [impostazioni cultura](luis-language-support.md#tokenization). Il valore originale e il valore in formato token sono entrambi disponibili per l'[estrazione dei dati](luis-concept-data-extraction.md#tokenized-entity-returned).
 
 ### <a name="how-do-i-create-and-assign-a-luis-endpoint-key"></a>Come è possibile creare e assegnare una chiave di endpoint di LUIS?
-[Creare la chiave di endpoint](luis-how-to-azure-subscription.md) in Azure per il livello di [servizio](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/). [Assegnare la chiave](luis-how-to-azure-subscription.md) nella pagina **[delle risorse di Azure](luis-how-to-azure-subscription.md)** . Non vi è alcuna API corrispondente per questa azione. È necessario quindi modificare la richiesta HTTP all'endpoint per fare in modo che [usi la nuova chiave dell'endpoint](luis-concept-keys.md).
+[Creare la chiave di endpoint](luis-how-to-azure-subscription.md) in Azure per il livello di [servizio](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/). [Assegnare la chiave](luis-how-to-azure-subscription.md) nella pagina Risorse di **[Azure.Assign](luis-how-to-azure-subscription.md)** the key on the Azure Resources page. Non vi è alcuna API corrispondente per questa azione. È necessario quindi modificare la richiesta HTTP all'endpoint per fare in modo che [usi la nuova chiave dell'endpoint](luis-concept-keys.md).
 
 ### <a name="how-do-i-interpret-luis-scores"></a>Come si interpretano i punteggi di LUIS?
-Il sistema deve usare la finalità di punteggio più elevata, indipendentemente dal relativo valore. Ad esempio, un punteggio al di sotto di 0,5 (inferiore al 50%) non significa necessariamente che LUIS disponga di una confidenza bassa. Fornendo più dati di training sarà possibile aumentare il [punteggio](luis-concept-prediction-score.md) della finalità più probabile.
+Il sistema deve usare la finalità di punteggio più elevata, indipendentemente dal relativo valore. Ad esempio, un punteggio al di sotto di 0,5 (inferiore al 50%) non significa necessariamente che LUIS disponga di una confidenza bassa. Fornire più dati di training può contribuire ad aumentare il [punteggio](luis-concept-prediction-score.md) dell'intento più probabile.
 
 ### <a name="why-dont-i-see-my-endpoint-hits-in-my-apps-dashboard"></a>Perché non vengono visualizzate le occorrenze degli endpoint nella dashboard dell'app?
 Le occorrenze totali dell'endpoint nel dashboard dell'app vengono aggiornate periodicamente, ma le metriche associate alla chiave endpoint a LUIS nel portale di Azure vengono aggiornate più di frequente.
@@ -148,7 +148,7 @@ Get-AzCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Na
 ``` 
 
 ### <a name="my-luis-app-was-working-yesterday-but-today-im-getting-403-errors-i-didnt-change-the-app-how-do-i-fix-it"></a>Ieri l'app LUIS funzionava, mentre oggi si ricevono errori 403. L'app non è stata modificata. Risoluzione
-Seguire queste [istruzioni](#how-do-i-create-and-assign-a-luis-endpoint-key) per creare una chiave dell'endpoint Luis e assegnarla all'app. Quindi è necessario modificare la richiesta HTTP dell'applicazione client all'endpoint per [usare la nuova chiave dell'endpoint](luis-concept-keys.md). Se è stata creata una nuova risorsa in un'area diversa, modificare anche l'area della richiesta del client HTTP.
+Seguire queste [istruzioni](#how-do-i-create-and-assign-a-luis-endpoint-key) per creare una chiave dell'endpoint LUIS e assegnarla all'app. È quindi necessario modificare la richiesta HTTP dell'applicazione client all'endpoint per [utilizzare la nuova chiave dell'endpoint.](luis-concept-keys.md) Se è stata creata una nuova risorsa in un'area diversa, modificare anche l'area della richiesta client HTTP.
 
 ### <a name="how-do-i-secure-my-luis-endpoint"></a>Come si protegge l'endpoint LUIS?
 Vedere [Protezione dell'endpoint](luis-concept-keys.md#securing-the-endpoint).
@@ -210,19 +210,19 @@ Se l'app esisteva prima che LUIS fosse disponibile a livello generale (GA), le c
 
 ### <a name="how-do-i-know-what-key-i-need-where-i-get-it-and-what-i-do-with-it"></a>Come si fa a sapere quale chiave è necessaria, dove si trova e cosa farne? 
 
-Per informazioni sulle differenze tra la chiave di creazione e la chiave del runtime di stima, vedere [creazione e modifica delle chiavi degli endpoint di stima in Luis](luis-concept-keys.md) . 
+Per informazioni sulle differenze tra la chiave di creazione e la chiave di runtime di stima e la chiave di runtime di stima, vedere [Creazione e creazione di chiavi dell'endpoint](luis-concept-keys.md) di stima delle query in LUIS. 
 
 ### <a name="i-got-an-error-about-being-out-of-quota-how-do-i-fix-it"></a>È stato restituito un errore per segnalare il superamento della quota. Risoluzione 
 
-Per altre informazioni, vedere correggere il codice di stato HTTP [403](#i-received-an-http-403-error-status-code-how-do-i-fix-it) e [429](#i-received-an-http-429-error-status-code-how-do-i-fix-it) .
+Vedere Fix HTTP status code [403](#i-received-an-http-403-error-status-code-how-do-i-fix-it) e [429](#i-received-an-http-429-error-status-code-how-do-i-fix-it) per ulteriori informazioni.
 
 ### <a name="i-need-to-handle-more-endpoint-queries-how-do-i-do-that"></a>È necessario gestire più query di endpoint. Come procedere? 
 
-Per altre informazioni, vedere correggere il codice di stato HTTP [403](#i-received-an-http-403-error-status-code-how-do-i-fix-it) e [429](#i-received-an-http-429-error-status-code-how-do-i-fix-it) .
+Vedere Fix HTTP status code [403](#i-received-an-http-403-error-status-code-how-do-i-fix-it) e [429](#i-received-an-http-429-error-status-code-how-do-i-fix-it) per ulteriori informazioni.
 
-### <a name="i-created-an-authoring-key-but-it-isnt-showing-in-the-luis-portal-what-happened"></a>È stata creata una chiave di creazione, ma non viene visualizzata nel portale LUIS. Che cosa è successo?
+### <a name="i-created-an-authoring-key-but-it-isnt-showing-in-the-luis-portal-what-happened"></a>Ho creato una chiave di creazione, ma non viene visualizzata nel portale LUIS. Che cosa è successo?
 
-Le chiavi di creazione sono disponibili nel portale LUIS dopo [la migrazione all'esperienza di creazione della chiave](luis-migration-authoring.md).  
+Le chiavi di creazione sono disponibili nel portale LUIS dopo [la migrazione all'esperienza](luis-migration-authoring.md)della chiave di creazione.  
 
 ## <a name="app-management"></a>Gestione app
 
@@ -242,7 +242,7 @@ Se si usa il log per l'analisi delle stime, non acquisire le espressioni di test
 ### <a name="can-i-delete-data-from-luis"></a>È possibile eliminare dati da LUIS?
 
 * È sempre possibile eliminare le espressioni di esempio usate per il training di LUIS. Le espressioni di esempio eliminate dall'app LUIS vengono rimosse dal servizio Web LUIS e non sono più disponibili per l'esportazione.
-* È possibile eliminare le espressioni dall'elenco di espressioni utente suggerite da LUIS nella pagina **Review endpoint utterances** (Esamina espressioni endpoint). Le espressioni eliminate da questo elenco non vengono più suggerite, ma non vengono eliminate dai log.
+* È possibile eliminare espressioni dall'elenco di espressioni utente suggerite da LUIS nella pagina **Revisiona espressioni endpoint.** Le espressioni eliminate da questo elenco non vengono più suggerite, ma non vengono eliminate dai log.
 * Se si elimina un account, vengono eliminate tutte le app insieme ai relativi log ed espressioni di esempio. I dati vengono mantenuti nei server per 60 giorni prima di essere eliminati in modo permanente.
 
 ### <a name="how-does-microsoft-manage-data-i-send-to-luis"></a>In che modo Microsoft gestisce i dati inviati a LUIS?
@@ -315,15 +315,15 @@ Sì, è possibile usare il [contenitore](luis-container-howto.md) LUIS per quest
 
 ## <a name="migrating-to-the-next-version"></a>Migrazione alla versione successiva
 
-### <a name="how-do-i-migrate-to-preview-v3-api"></a>Ricerca per categorie eseguire la migrazione all'API anteprima V3? 
+### <a name="how-do-i-migrate-to-preview-v3-api"></a>Come si esegue la migrazione all'anteprima dell'API V3? 
 
-Vedere [la guida alla migrazione da API v2 a V3 per le app Luis](luis-migration-api-v3.md)
+Vedere [Guida alla migrazione da API v2 a v3 per le app LUIS](luis-migration-api-v3.md)
 
-## <a name="build-2019-conference-announcements"></a>Build 2019 annunci di conferenza
+## <a name="build-2019-conference-announcements"></a>Costruire gli annunci della conferenza 2019
 
-Le funzionalità seguenti sono state rilasciate alla conferenza Build 2019:
+Le seguenti funzionalità sono state rilasciate alla conferenza Build 2019:
 
-* [Anteprima della Guida alla migrazione dell'API V3](luis-migration-api-v3.md)
+* [Anteprima della guida alla migrazione delle API V3](luis-migration-api-v3.md)
 * [Dashboard di analisi migliorato](luis-how-to-use-dashboard.md)
 * [Domini predefiniti migliorati](luis-reference-prebuilt-domains.md) 
 * [Entità elenco dinamico](luis-migration-api-v3.md#dynamic-lists-passed-in-at-prediction-time)
@@ -331,7 +331,7 @@ Le funzionalità seguenti sono state rilasciate alla conferenza Build 2019:
 
 Video:
 
-* [Come usare l'intelligenza artificiale per la conversazione di Azure per la scalabilità dell'azienda per la prossima generazione](https://www.youtube.com/watch?v=_k97jd-csuk&feature=youtu.be)
+* [Come usare l'iA conversazionale di Azure per ridimensionare l'azienda per la prossima generazioneHow to use Azure Conversational AI to scale your business for the next generation](https://www.youtube.com/watch?v=_k97jd-csuk&feature=youtu.be)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,17 +1,17 @@
 ---
-title: Estrazione dei dati-LUIS
-description: Estrae i dati da testo enunciato con Intent ed entità. Informazioni sul tipo di dati che è possibile estrarre da Language Understanding (LUIS).
+title: Estrazione dei dati - LUIS
+description: Estrarre dati dal testo dell'espressione con finalità ed entità. Informazioni sul tipo di dati che è possibile estrarre da LuiS (Language Understanding).
 author: diberry
 ms.topic: conceptual
 ms.date: 01/23/2020
 ms.openlocfilehash: 1c1a744c06e5347625fb96518bd809481ee797e5
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79221084"
 ---
-# <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Estrai i dati da testo enunciato con Intent ed entità
+# <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Estrarre dati dal testo dell'espressione con finalità ed entitàExtract data from utterance text with intents and entities
 LUIS consente di ottenere informazioni da espressioni in linguaggio naturale dell'utente. Le informazioni vengono estratte in modo che possano essere usate da un programma, applicazione o chatbot per intervenire. Le sezioni seguenti spiegano quali dati vengono restituiti da finalità ed entità con esempi di JSON.
 
 I dati più difficili da estrarre sono i dati appresi in modo automatico perché non rappresentano una corrispondenza di testo esatta. L'estrazione dati delle [entità](luis-concept-entity-types.md) apprese in modo automatico deve far parte del [ciclo di creazione](luis-concept-app-iteration.md) finché non si è certi di ricevere i dati previsti.
@@ -77,12 +77,12 @@ Altre informazioni sull'[endpoint di previsione V3](luis-migration-api-v3.md).
 |--|--|--|--|
 |Finalità|string|topScoringIntent.intent|"GetStoreInfo"|
 
-Se l'app chatbot o LUIS-Calling prende una decisione in base a più di un punteggio preventivo, restituisce tutti i punteggi di Intent.
+Se il chatbot o l'app che chiama LUIS prende una decisione in base a più di un punteggio di finalità, restituisci tutti i punteggi delle finalità.
 
 
 #### <a name="v2-prediction-endpoint-response"></a>[Risposta dell'endpoint di previsione V2](#tab/V2)
 
-Impostare il parametro QueryString, `verbose=true`. La risposta dell'endpoint è:
+Impostare il parametro querystring, `verbose=true`. La risposta dell'endpoint è:
 
 ```JSON
 {
@@ -107,7 +107,7 @@ Impostare il parametro QueryString, `verbose=true`. La risposta dell'endpoint è
 
 #### <a name="v3-prediction-endpoint-response"></a>[Risposta dell'endpoint di previsione V3](#tab/V3)
 
-Impostare il parametro QueryString, `show-all-intents=true`. La risposta dell'endpoint è:
+Impostare il parametro querystring, `show-all-intents=true`. La risposta dell'endpoint è:
 
 ```JSON
 {
@@ -247,7 +247,7 @@ Altre informazioni sull'[endpoint di previsione V3](luis-migration-api-v3.md).
 
 ## <a name="tokenized-entity-returned"></a>Entità in formato token restituita
 
-Esaminare il [supporto dei token](luis-language-support.md#tokenization) in Luis.
+Esaminare il [supporto](luis-language-support.md#tokenization) token in LUIS.
 
 ## <a name="simple-entity-data"></a>Dati entità semplice
 
@@ -255,11 +255,11 @@ Un'[entità semplice](reference-entity-simple.md) è un valore appreso in modo a
 
 ## <a name="composite-entity-data"></a>Dati entità composita
 
-Un' [entità composita](reference-entity-composite.md) è costituita da altre entità, ad esempio entità predefinite, semplici, espressioni regolari ed elenchi. Le entità separate formano un'entità intera.
+[Un'entità composita](reference-entity-composite.md) è costituita da altre entità, ad esempio entità predefinite, espressioni semplici, espressioni regolari ed entità di elenco. Le entità separate formano un'entità intera.
 
 ## <a name="list-entity-data"></a>Dati entità elenco
 
-Le [entità di elenco](reference-entity-list.md) rappresentano un set fisso e chiuso di parole correlate insieme ai relativi sinonimi. LUIS non individua valori aggiuntivi per le entità elenco. Usare la funzione **consigliata** per visualizzare i suggerimenti per le nuove parole in base all'elenco corrente. Se sono presenti più entità elenco con lo stesso valore, ogni entità viene restituita nella query endpoint.
+[Le entità elenco](reference-entity-list.md) rappresentano un set fisso e chiuso di parole correlate insieme ai relativi sinonimi. LUIS non individua valori aggiuntivi per le entità elenco. Usare la funzione **consigliata** per visualizzare i suggerimenti per le nuove parole in base all'elenco corrente. Se sono presenti più entità elenco con lo stesso valore, ogni entità viene restituita nella query endpoint.
 
 ## <a name="prebuilt-entity-data"></a>Dati entità predefinita
 Vengono trovate le entità [predefinite](luis-concept-entity-types.md) in base alla corrispondenza con espressione regolare usando il progetto [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) open-source. Le entità predefinite vengono restituite nella matrice di entità e usano il nome tipo con prefisso `builtin::`. Il testo seguente è un'espressione di esempio con entità predefinite restituite:
@@ -349,7 +349,7 @@ Vengono trovate le entità [predefinite](luis-concept-entity-types.md) in base a
 
 #### <a name="v3-prediction-endpoint-response"></a>[Risposta dell'endpoint di previsione V3](#tab/V3)
 
-Senza il parametro QueryString, `verbose=true`:
+Senza il parametro `verbose=true`querystring, :
 
 ```json
 "entities": {
@@ -391,7 +391,7 @@ Senza il parametro QueryString, `verbose=true`:
 }
 ```
 
-Con il parametro QueryString, `verbose=true`:
+Con il parametro `verbose=true`querystring, :
 
 ```json
 
@@ -529,7 +529,7 @@ Altre informazioni sull'[endpoint di previsione V3](luis-migration-api-v3.md).
 * * *
 ## <a name="regular-expression-entity-data"></a>Dati entità espressione regolare
 
-Un' [entità di espressione regolare](reference-entity-regular-expression.md) estrae un'entità in base a un modello di espressione regolare fornito dall'utente.
+[Un'entità di espressione regolare](reference-entity-regular-expression.md) estrae un'entità in base a un modello di espressione regolare fornito.
 
 ## <a name="extracting-names"></a>Estrazione di nomi
 Ottenere i nomi da un'espressione è difficile perché un nome può essere qualsiasi combinazione di lettere e parole. Le opzioni disponibili variano a seconda del tipo di nome estratto. I suggerimenti seguenti non sono regole, ma linee guida.
@@ -540,17 +540,17 @@ Le entità [PersonName](luis-reference-prebuilt-person.md) e [GeographyV2](luis-
 
 ### <a name="names-of-people"></a>Nomi di persone
 
-I nomi delle persone possono presentare un formato a seconda della lingua e delle impostazioni cultura. Utilizzare un'entità **[PersonName](luis-reference-prebuilt-person.md)** predefinita o un' **[entità semplice](luis-concept-entity-types.md#simple-entity)** con [ruoli](luis-concept-roles.md) di nome e cognome.
+I nomi delle persone possono presentare un formato a seconda della lingua e delle impostazioni cultura. Usare un'entità **[personName](luis-reference-prebuilt-person.md)** predefinita o **[un'entità semplice](luis-concept-entity-types.md#simple-entity)** con [ruoli](luis-concept-roles.md) di nome e cognome.
 
-Se si usa l'entità semplice, assicurarsi di fornire esempi che usano il nome e il cognome in parti diverse dell'espressione, in espressioni di lunghezze diverse ed espressioni in tutti gli Intent, inclusa la finalità None. [Rivedere](luis-how-to-review-endoint-utt.md) regolarmente le espressioni endpoint per etichettare qualsiasi nome non stimato correttamente.
+Se si usa l'entità semplice, assicurarsi di fornire esempi che usano il nome e il cognome in parti diverse dell'espressione, in espressioni di lunghezza diversa e espressioni in tutte le finalità, inclusa la finalità None. [Rivedere](luis-how-to-review-endoint-utt.md) regolarmente le espressioni endpoint per etichettare qualsiasi nome non stimato correttamente.
 
 ### <a name="names-of-places"></a>Nomi di località
 
-I nomi di località sono impostati e noti come città, contee, Stati, Province e paesi/aree geografiche. Usare l'entità predefinita **[geographyV2](luis-reference-prebuilt-geographyv2.md)** per estrarre le informazioni sul percorso.
+I nomi delle località sono impostati e noti, ad esempio città, contee, stati, province e paesi/aree geografiche. Utilizzare l'entità predefinita **[geographyV2](luis-reference-prebuilt-geographyv2.md)** per estrarre le informazioni sulla posizione.
 
 ### <a name="new-and-emerging-names"></a>Nomi nuovi ed emergenti
 
-Alcune app devono essere in grado di trovare nomi nuovi ed emergenti, ad esempio prodotti o aziende. Questi tipi di nomi sono il tipo più complesso di estrazione dei dati. Iniziare con un' **[entità semplice](luis-concept-entity-types.md#simple-entity)** e aggiungere un [elenco di frasi](luis-concept-feature.md). [Rivedere](luis-how-to-review-endoint-utt.md) regolarmente le espressioni endpoint per etichettare qualsiasi nome non stimato correttamente.
+Alcune app devono essere in grado di trovare nomi nuovi ed emergenti, ad esempio prodotti o aziende. Questi tipi di nomi sono il tipo più difficile di estrazione dei dati. Iniziare con **[un'entità semplice](luis-concept-entity-types.md#simple-entity)** e aggiungere un [elenco di frasi](luis-concept-feature.md). [Rivedere](luis-how-to-review-endoint-utt.md) regolarmente le espressioni endpoint per etichettare qualsiasi nome non stimato correttamente.
 
 ## <a name="pattern-roles-data"></a>Dati ruoli criterio
 I ruoli sono differenze contestuali di entità.
@@ -558,7 +558,7 @@ I ruoli sono differenze contestuali di entità.
 
 #### <a name="v2-prediction-endpoint-response"></a>[Risposta dell'endpoint di previsione V2](#tab/V2)
 
-Il nome dell'entità è `Location`, con due ruoli, `Origin` e `Destination`.
+Il nome `Location`dell'entità `Origin` è `Destination`, con due ruoli e .
 
 ```JSON
 "entities": [
@@ -591,11 +591,11 @@ Il nome dell'entità è `Location`, con due ruoli, `Origin` e `Destination`.
 
 #### <a name="v3-prediction-endpoint-response"></a>[Risposta dell'endpoint di previsione V3](#tab/V3)
 
-In V3, il **nome del ruolo** è il nome primario dell'oggetto.
+In V3, il nome del **ruolo** è il nome primario dell'oggetto.
 
-Il nome dell'entità è `Location`, con due ruoli, `Origin` e `Destination`.
+Il nome `Location`dell'entità `Origin` è `Destination`, con due ruoli e .
 
-Senza il parametro QueryString, `verbose=true`:
+Senza il parametro `verbose=true`querystring, :
 
 ```json
 "entities": {
@@ -611,7 +611,7 @@ Senza il parametro QueryString, `verbose=true`:
 }
 ```
 
-Con il parametro QueryString, `verbose=true`:
+Con il parametro `verbose=true`querystring, :
 
 ```json
 "entities": {
@@ -679,7 +679,7 @@ Altre informazioni sull'[endpoint di previsione V3](luis-migration-api-v3.md).
 
 ## <a name="patternany-entity-data"></a>Dati entità Pattern.any
 
-[Pattern. any](reference-entity-pattern-any.md) è un segnaposto a lunghezza variabile usato solo nell'espressione di modello di un modello per contrassegnare l'inizio e la fine dell'entità.
+[Pattern.any](reference-entity-pattern-any.md) è un segnaposto di lunghezza variabile utilizzato solo nell'espressione del modello di un modello per contrassegnare il punto di inizio e di fine dell'entità.
 
 ## <a name="sentiment-analysis"></a>Analisi del sentiment
 Se l'analisi del sentiment è configurata, è inclusa nella risposta json LUIS. Per ulteriori informazioni sull'analisi del sentiment, vedere la documentazione [Analisi del testo](https://docs.microsoft.com/azure/cognitive-services/text-analytics/).
@@ -748,7 +748,7 @@ L'entità estrazione frasi chiave restituisce frasi chiave nell'espressione, for
 
 Altre informazioni sull'[endpoint di previsione V3](luis-migration-api-v3.md).
 
-Senza il parametro QueryString, `verbose=true`:
+Senza il parametro `verbose=true`querystring, :
 
 ```json
 "entities": {
@@ -760,7 +760,7 @@ Senza il parametro QueryString, `verbose=true`:
 }
 ```
 
-Con il parametro QueryString, `verbose=true`:
+Con il parametro `verbose=true`querystring, :
 
 ```json
 "entities": {
@@ -950,7 +950,7 @@ L'endpoint LUIS può individuare gli stessi dati in entità diverse.
 
 #### <a name="v3-prediction-endpoint-response"></a>[Risposta dell'endpoint di previsione V3](#tab/V3)
 
-Senza `verbose=true` come parametro QueryString.
+Senza `verbose=true` come parametro querystring.
 
 ```json
 "entities": {
@@ -987,7 +987,7 @@ Senza `verbose=true` come parametro QueryString.
 }
 ```
 
-Con `verbose=true` come parametro QueryString.
+Con `verbose=true` come parametro querystring.
 
 
 ```json

@@ -1,7 +1,7 @@
 ---
-title: Supporto lingua e area geografica per l'API di riconoscimento input penna
+title: Supporto di lingue e aree geografiche per l'API di riconoscimento dell'input penna
 titleSuffix: Azure Cognitive Services
-description: Un elenco dei linguaggi naturali supportati dall'API di riconoscimento di input penna.
+description: Un elenco di lingue naturali supportate dall'API Ink Recognizer.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: aahi
 ms.openlocfilehash: 36f2fa65f47f824ccc3544f5c13b5f5ee9afd21a
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67721748"
 ---
-# <a name="language-and-region-support-for-the-ink-recognizer-api"></a>Supporto lingua e area geografica per l'API di riconoscimento input penna
+# <a name="language-and-region-support-for-the-ink-recognizer-api"></a>Supporto di lingue e aree geografiche per l'API di riconoscimento dell'input penna
 
-Questo articolo spiega in quali lingue sono supportate per l'API di riconoscimento input penna. Contenuto di input penna digitale scritto nelle seguenti lingue può essere interpretato ed elaborato dall'API.
+Questo articolo spiega quali lingue sono supportate per l'API Ink Recognizer. Il contenuto dell'input penna digitale scritto nelle lingue seguenti può essere interpretato ed elaborato dall'API.
 
 ## <a name="supported-languages"></a>Lingue supportate
 
@@ -57,7 +57,7 @@ Questo articolo spiega in quali lingue sono supportate per l'API di riconoscimen
 | Kiswahili (Kenya)                          |     `sw-KE`     |
 | Coreano                                     |     `ko-KR`     |
 | Lussemburghese                              |     `lb-LU`     |
-| Malay (Brunei Darussalam)                  |     `ms-BN`     |
+| Malese (Brunei Darussalam)                  |     `ms-BN`     |
 | Malese (Malaysia)                           |     `ms-MY`     |
 | Maori                                      |     `mi-NZ`     |
 | Norvegese (Bokmål)                         |     `nb-NO`     |
@@ -65,18 +65,18 @@ Questo articolo spiega in quali lingue sono supportate per l'API di riconoscimen
 | Polacco                                     |     `pl-PL`     |
 | Portoghese (Brasile)                        |     `pt-BR`     |
 | Portoghese (Portogallo)                      |     `pt-PT`     |
-| Romansh                                    |     `rm-CH`     |
+| Romancio                                    |     `rm-CH`     |
 | Rumeno                                   |     `ro-RO`     |
 | Russo                                    |     `ru-RU`     |
-| Gaelico scozzese                            |     `gd-GB`     |
+| Scozzese Gaelico                            |     `gd-GB`     |
 | Sotho del nord                           |    `nso-ZA`     |
 | Serbo (alfabeto cirillico, Bosnia ed Erzegovina) |  `sr-Cyrl-BA`   |
 | Serbo (alfabeto cirillico, Montenegro)             |  `sr-Cyrl-ME`   |
 | Serbo (alfabeto cirillico, Serbia)                 |  `sr-Cyrl-RS`   |
 | Serbo (alfabeto latino, Bosnia ed Erzegovina)    |  `sr-Latn-BA`   |
-| Serbian (Latin, Montenegro)                |  `sr-Latn-ME`   |
+| Serbo (alfabeto latino, Montenegro)                |  `sr-Latn-ME`   |
 | Serbo (alfabeto latino, Serbia)                    |  `sr-Latn-RS`   |
-| SeTswana (Sudafrica)                    |     `tn-ZA`     |
+| Setswana (Sudafrica)                    |     `tn-ZA`     |
 | Slovacco                                     |     `sk-SK`     |
 | Sloveno                                  |     `sl-SI`     |
 | Spagnolo (Argentina)                        |     `es-AR`     |
@@ -87,9 +87,9 @@ Questo articolo spiega in quali lingue sono supportate per l'API di riconoscimen
 | Gallese                                      |     `cy-GB`     |
 | Wolof                                      |     `wo-SN`     |
 | Xhosa                                      |     `xh-ZA`     |
-| Zulu                                       |     `zu-ZA`     |
+| Zulù                                       |     `zu-ZA`     |
 
 ## <a name="see-also"></a>Vedere anche
 
-* [Informazioni sull'API Riconoscimento input penna](overview.md)
-* [L'invio di tratti input penna digitale all'API di riconoscimento di input penna](concepts/send-ink-data.md)
+* [Informazioni sull'API di Riconoscimento input penna](overview.md)
+* [Invio di tratti di inchiostro digitale all'API Ink Recognizer](concepts/send-ink-data.md)

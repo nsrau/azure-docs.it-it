@@ -1,35 +1,35 @@
 ---
-title: Raccolta dei parametri obbligatori
+title: Raccolta dei parametri necessari
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
-description: Parametri per tutti i contenitori di servizi cognitivi
+description: I parametri per tutti i contenitori di Servizi cognitivi
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/15/2019
 ms.author: dapine
 ms.openlocfilehash: bf4e8f06642a4a764794a75e2b49f15958796c61
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73465925"
 ---
-## <a name="gathering-required-parameters"></a>Raccolta dei parametri obbligatori
+## <a name="gathering-required-parameters"></a>Raccolta dei parametri necessari
 
-Sono disponibili tre parametri primari per tutti i contenitori di servizi cognitivi richiesti. Il contratto di licenza con l'utente finale deve essere presente con il valore `accept`. Sono inoltre necessari un URL dell'endpoint e una chiave API.
+Esistono tre parametri principali per tutti i contenitori di Servizi cognitivi necessari. Il contratto di licenza con l'utente finale `accept`(EULA) deve essere presente con un valore di . Inoltre, sono necessari sia un URL dell'endpoint che una chiave API.
 
-### <a name="endpoint-uri-endpoint_uri"></a>URI dell'endpoint `{ENDPOINT_URI}`
+### <a name="endpoint-uri-endpoint_uri"></a>Endpoint URI`{ENDPOINT_URI}`
 
-Il valore dell'URI dell' **endpoint** è disponibile nella pagina *Panoramica* portale di Azure della risorsa del servizio cognitiva corrispondente. Passare alla pagina *Panoramica* , posizionare il puntatore del mouse sull'endpoint e verrà <span class="docon docon-edit-copy x-hidden-focus"></span> visualizzata un'icona `Copy to clipboard`. Copiare e usare se necessario.
+Il valore URI **dell'endpoint** è disponibile nella pagina *Panoramica* del portale di Azure della risorsa Servizio cognitivo corrispondente. Passare alla pagina *Panoramica,* passare il `Copy to clipboard` <span class="docon docon-edit-copy x-hidden-focus"></span> mouse sull'endpoint e verrà visualizzata un'icona. Copiare e utilizzare dove necessario.
 
-![Raccogliere l'URI dell'endpoint per un uso successivo](../media/overview-endpoint-uri.png)
+![Raccogliere l'URI dell'endpoint per un utilizzo successivoGather the endpoint uri for later use](../media/overview-endpoint-uri.png)
 
-### <a name="keys-api_key"></a>Chiavi `{API_KEY}`
+### <a name="keys-api_key"></a>Chiavi`{API_KEY}`
 
-Questa chiave viene usata per avviare il contenitore ed è disponibile nella pagina chiavi del portale di Azure della risorsa del servizio cognitiva corrispondente. Passare alla pagina *chiavi* e fare clic sull'icona `Copy to clipboard` <span class="docon docon-edit-copy x-hidden-focus"></span> .
+Questa chiave viene usata per avviare il contenitore ed è disponibile nella pagina Chiavi del portale di Azure della risorsa del servizio cognitivo corrispondente. Passare alla pagina *Chiavi* e `Copy to clipboard` <span class="docon docon-edit-copy x-hidden-focus"></span> fare clic sull'icona.
 
-![Ottenere una delle due chiavi per un uso successivo](../media/keys-copy-api-key.png)
+![Ottenere una delle due chiavi per un uso successivoGet one of the two keys for later use](../media/keys-copy-api-key.png)
 
 > [!IMPORTANT]
-> Queste chiavi di sottoscrizione vengono usate per accedere all'API di servizi cognitivi. Non condividere le chiavi. Archiviarli in modo sicuro, ad esempio usando Azure Key Vault. Si consiglia inoltre di rigenerare regolarmente queste chiavi. È necessaria una sola chiave per effettuare una chiamata API. Quando si rigenera la prima chiave, è possibile usare la seconda chiave per l'accesso continuo al servizio.
+> Queste chiavi di sottoscrizione vengono usate per accedere all'API del servizio cognitivo. Non condividere le chiavi. Archiviarli in modo sicuro, ad esempio usando L'insieme di credenziali delle chiavi di Azure.Store them securely, for example, using Azure Key Vault. Si consiglia inoltre di rigenerare questi tasti regolarmente. Per effettuare una chiamata API è necessaria una sola chiave. Quando si rigenera la prima chiave, è possibile utilizzare la seconda chiave per l'accesso continuo al servizio.

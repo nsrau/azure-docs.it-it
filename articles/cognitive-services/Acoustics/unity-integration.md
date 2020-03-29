@@ -1,7 +1,7 @@
 ---
-title: Integrazione e distribuzione in Project Acoustics Unity
+title: Integrazione e distribuzione di Project Acoustics Unity
 titlesuffix: Azure Cognitive Services
-description: Questo articolo descrive come integrare il plug-in del progetto Acoustics Unity nel progetto Unity.
+description: In questo articolo viene descritto come integrare il plug-in Unità acustica progetto nel progetto Unity.
 services: cognitive-services
 author: NoelCross
 manager: nitinme
@@ -12,62 +12,62 @@ ms.date: 03/20/2019
 ms.author: noelc
 ROBOTS: NOINDEX
 ms.openlocfilehash: a8ddb0e4ca2ee4396a25a70c8b60b653aebb72d8
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "72243007"
 ---
-# <a name="project-acoustics-unity-integration"></a>Integrazione di unità acustiche del progetto
-Questo articolo descrive come integrare il plug-in del progetto Acoustics Unity nel progetto Unity.
+# <a name="project-acoustics-unity-integration"></a>Integrazione di Project Acoustics Unity
+In questo articolo viene descritto come integrare il plug-in Unità acustica progetto nel progetto Unity.
 
 Requisiti software:
 * [Unity 2018.2+](https://unity3d.com) per Windows
-* [Pacchetto di unità acustiche del progetto](https://www.microsoft.com/download/details.aspx?id=57346)
+* [Pacchetto Project Acoustics Unity](https://www.microsoft.com/download/details.aspx?id=57346)
 
 ## <a name="import-the-plug-in"></a>Importare il plug-in
-1. Importare i file unitypackage Tools acustici nel progetto. 
- In Unity passare a **asset** > **Import Package** > **Package Custom**.
+1. Importare l'acustica UnityPackage nel progetto. 
+ In Unity, passare a Pacchetto**personalizzato****di importazione** >  **risorse** > .
 
-    ![Menu del pacchetto di importazione Unity](media/import-package.png)  
+    ![Menu Unity Import Package](media/import-package.png)  
 
-1. Scegliere **ProjectAcoustics. file unitypackage Tools**.
+1. Scegliere **ProjectAcoustics.unitypackage**.
 
-1. Selezionare il pulsante **Importa** per integrare il pacchetto Unity nel progetto.
+1. Selezionare il pulsante **Import** (Importa) per integrare il pacchetto Unity nel progetto.
 
-    ![Finestra di dialogo Importa pacchetto di Unity](media/import-dialog.png)  
+    ![Finestra di dialogo Import Package in Unity](media/import-dialog.png)  
 
-Se si sta importando il plug-in in un progetto esistente, il progetto potrebbe avere già un file *MCS. rsp* nella radice del progetto. Questo file specifica le opzioni per C# il compilatore. Unire il contenuto del file con il file MCS. rsp incluso nel plug-in Acoustics del progetto.
+Se si sta importando il plug-in in un progetto esistente, è possibile che il progetto disponga già di un file *mcs.rsp* nella radice del progetto. Questo file consente di specificare le opzioni per il compilatore C. Unire il contenuto di tale file con il file mcs.rsp fornito con il plug-in Proione progetto.
 
 ## <a name="enable-the-plug-in"></a>Abilitare il plug-in
-La parte Bake del Toolkit Acoustics richiede .NET 4. *x* versione runtime di scripting. Importazione pacchetti Aggiorna le impostazioni del lettore Unity. Riavviare Unity per l'applicazione di queste impostazioni.
+La parte bake del toolkit acustico richiede .NET 4. x versione runtime *di* scripting. L'importazione dei pacchetti aggiorna le impostazioni del lettore Unity. Riavviare Unity per l'applicazione di queste impostazioni.
 
-![Pannello Impostazioni lettore Unity](media/player-settings.png)
+![Il pannello Impostazioni di Unity Player](media/player-settings.png)
 
-![Pannello Impostazioni lettore Unity con .NET 4,5 selezionato](media/net45.png)
+![Pannello Impostazioni di Unity Player con .NET 4.5 selezionato](media/net45.png)
 
-## <a name="set-up-audio-dsp"></a>Configurare il DSP audio
-Il progetto Acoustics include il DSP del runtime audio che si integra nel Framework Spatializer del motore audio di Unity. Include sia la spazializzazione basata su HRTF che quella di panoramica. Per abilitare il progetto Acoustics DSP, passare a **Edit** > **Project Settings** > **audio** per aprire le impostazioni audio di Unity. Selezionare **progetto Acoustics** come plug-in **Spatializer** per il progetto. Verificare che le **dimensioni del buffer DSP** siano impostate in modo da *ottenere prestazioni ottimali*.
+## <a name="set-up-audio-dsp"></a>Configurare DSP audio
+Project Acoustics include DSP di runtime audio che si integra nel framework dello spaziozzante del motore audio Unity. Include sia la spazializzazione basata su HRTF che la spazializzazione panning. Per attivare il DSP per l'acustica del progetto, accedere a **Modifica** > **impostazioni** > progetto**audio** per aprire le impostazioni audio di Unity. Selezionare Acustica progetto come **plug-in** **dello spatializer** per il progetto. Assicurarsi che **Dimensione buffer DSP** sia impostato su *Prestazioni ottimali*.
 
-![Menu Impostazioni progetto Unity](media/project-settings.png)  
+![Menu Settings del progetto Unity](media/project-settings.png)  
 
-![Pannello impostazioni Spatializer di Unity con Spatializer del progetto Acoustics selezionati](media/choose-spatializer.png)
+![Pannello delle impostazioni dello spazioizzatore Unity con lo spazializzatore proiette progetti selezionato](media/choose-spatializer.png)
 
-Aprire quindi il mixer audio (**finestra** > **audio mixer**). Assicurarsi di disporre di almeno un mixer con un gruppo. Se non si dispone di un, selezionare il pulsante **+** a destra di **mixer**. Fare clic sulla parte inferiore della barra del canale nella sezione effetti e aggiungere l'effetto **Microsoft Acoustics Mixer** (Mixer Microsoft Acoustics). È supportato un solo Mixer acustico di un progetto alla volta.
+Successivamente, aprire il Mixer audio (**Miscelatore audio****finestra** > ). Assicurarsi di avere almeno un mixer, con un gruppo. Se non si dispone di **+** uno, selezionare il pulsante a destra di **Mixers**. Fare clic sulla parte inferiore della barra del canale nella sezione effetti e aggiungere l'effetto **Microsoft Acoustics Mixer** (Mixer Microsoft Acoustics). È supportato un solo mixer di acustica di progetto alla volta.
 
-![Mixer audio Unity che ospita il progetto Acoustics mixer](media/audio-mixer.png)
+![Il mixer Unity Audio che ospita il mixer prodittiera del progetto](media/audio-mixer.png)
 
-## <a name="enable-acoustics-on-sound-sources"></a>Abilitare l'acustica nelle origini audio
-Creare un'origine audio: Selezionare la casella di controllo **Spatialize** nella parte inferiore del pannello audiosource Inspector. Assicurarsi che **Blend spaziale** sia impostato su Full *3D*.  
+## <a name="enable-acoustics-on-sound-sources"></a>Abilitare l'acustica sulle sorgenti sonore
+Creare una sorgente audio: seleziona la casella di controllo **Spazializza** nella parte inferiore del pannello di impostazioni AudioSource. Assicuratevi che **Fusione spaziale** sia impostata su *3D*completo.  
 
-![Pannello di origine audio Unity](media/audio-source.png)
+![Pannello Sorgente audio Unity](media/audio-source.png)
 
 ## <a name="enable-acoustic-design"></a>Abilitare la progettazione acustica
-Alleghi lo script *AcousticsAdjust* a un'origine audio nella scena per abilitare parametri di progettazione dell'origine aggiuntivi: Selezionare **Add Component** e scegliere **script** > **Acoustics Adjust**.
+Associare lo script *AcousticsAdjust* a una sorgente audio nella scena per abilitare parametri di progettazione sorgente aggiuntivi: selezionate **Aggiungi componente** e scegliete**Regolazione acustica** **script** > .
 
-![Script Unity AcousticsAdjust](media/acoustics-adjust.png)
+![Script AcousticsAdjust in Unity](media/acoustics-adjust.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Preparare la scena con l'acustica del progetto per Unity](unity-baking.md).
-* [Creare un account Azure batch](create-azure-account.md) per preparare la scena nel cloud.
-* Esplorare il [processo di progettazione di Project Acoustics Unity](unity-workflow.md).
+* [Cuocere la scena con Project Acoustics for Unity](unity-baking.md).
+* [Creare un account Batch](create-azure-account.md) di Azure per cuocere la scena nel cloud.
+* Esplora il processo di [progettazione di Project Acoustics Unity.](unity-workflow.md)
