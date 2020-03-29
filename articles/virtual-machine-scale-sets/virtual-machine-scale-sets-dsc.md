@@ -1,6 +1,6 @@
 ---
-title: Uso della configurazione dello stato desiderato con i set di scalabilità di macchine virtuali
-description: Usare i set di scalabilità di macchine virtuali con l'estensione di configurazione dello stato desiderato di Azure per configurare le macchine virtuali.
+title: Utilizzo della configurazione dello stato desiderato con i set di scalabilità delle macchine virtualiUsing Desired State Configuration With Virtual Machine Scale Sets
+description: Utilizzo dei set di scalabilità di macchine virtuali con l'estensione di configurazione dello stato desiderato di Azure per configurare le macchine virtuali.
 author: zjalexander
 tags: azure-service-management,azure-resource-manager
 ms.assetid: c8f047b5-0e6c-4ef3-8a47-f1b284d32942
@@ -10,10 +10,10 @@ ms.tgt_pltfrm: vm-windows
 ms.date: 04/05/2017
 ms.author: zachal
 ms.openlocfilehash: a93a8a9c27be5a1736a50e6c4c4b830980b7d974
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76278080"
 ---
 # <a name="using-virtual-machine-scale-sets-with-the-azure-dsc-extension"></a>Utilizzo dei set di scalabilità di macchine virtuali con l'estensione DSC di Azure

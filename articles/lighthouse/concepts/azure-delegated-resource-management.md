@@ -4,10 +4,10 @@ description: Le offerte di servizi gestiti consentono ai provider di servizi di 
 ms.date: 01/30/2020
 ms.topic: conceptual
 ms.openlocfilehash: 15814b1ca3b1b78de521033836e3614d18fd0c71
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76904306"
 ---
 # <a name="azure-delegated-resource-management"></a>Gestione risorse delegate di Azure
@@ -44,7 +44,7 @@ Di seguito viene illustrato il funzionamento generale della gestione risorse del
 
 ## <a name="support-for-azure-delegated-resource-management"></a>Supporto per la gestione risorse delegate di Azure
 
-Per assistenza relativa alla gestione risorse delegate di Azure, è possibile aprire una richiesta di supporto nel portale di Azure. Per **Tipo di problema** scegliere **Tecnico**. Selezionare una sottoscrizione e quindi selezionare **Lighthouse** (in **monitoraggio & gestione**).
+Per assistenza relativa alla gestione risorse delegate di Azure, è possibile aprire una richiesta di supporto nel portale di Azure. Per **Tipo di problema** scegliere **Tecnico**. Selezionare un abbonamento, quindi selezionare **Faro** (in **Gestione & di monitoraggio**).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

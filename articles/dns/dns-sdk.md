@@ -1,7 +1,7 @@
 ---
 title: Creare zone e set di record DNS con .NET SDK
 titleSuffix: Azure DNS
-description: In questo percorso di apprendimento iniziare a creare zone e set di record DNS in DNS di Azure con .NET SDK.
+description: In questo percorso formativo iniziare a creare zone DNS e set di record in DNS di Azure usando .NET SDK.
 services: dns
 documentationcenter: na
 author: rohinkoul
@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 09/19/2016
 ms.author: rohink
 ms.openlocfilehash: c497209e456ff838786edaa19e46ebc5c1858d5f
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76938869"
 ---
 # <a name="create-dns-zones-and-record-sets-using-the-net-sdk"></a>Creare zone e set di record DNS con .NET SDK
@@ -43,7 +43,7 @@ L'accesso a livello di programmazione alle risorse di Azure viene in genere conc
 Per usare Azure .NET SDK per DNS è necessario installare il pacchetto NuGet **Azure DNS Management Library** e altri pacchetti necessari di Azure.
 
 1. In **Visual Studio**aprire un progetto o un nuovo progetto.
-2. Passare a **strumenti** **>** **Gestione pacchetti NuGet** **>** **Gestisci pacchetti NuGet per la soluzione...** .
+2. Passare a **Strumenti** **>** **NuGet Package Manager** **>** **Gestire i pacchetti NuGet per**la soluzione... .
 3. Fare clic su **Sfoglia**, selezionare la casella di controllo **Includi versione preliminare** e digitare **Microsoft.Azure.Management.Dns** nella casella di ricerca.
 4. Selezionare il pacchetto e fare clic su **Installa** per aggiungerlo al progetto di Visual Studio.
 5. Ripetere il processo precedente per installare anche i seguenti pacchetti: **Microsoft.Rest.ClientRuntime.Azure.Authentication** e **Microsoft.Azure.Management.ResourceManager**.
@@ -146,7 +146,7 @@ recordSet = await dnsClient.RecordSets.CreateOrUpdateAsync(resourceGroupName, zo
 
 ## <a name="list-zones-and-record-sets"></a>Elencare zone e set di record
 
-Per elencare le zone, usare i metodi *DnsManagementClient. Zones. list...* , che supportano l'elenco di tutte le zone in un determinato gruppo di risorse o di tutte le zone in una sottoscrizione di Azure specifica (tra gruppi di risorse). Per elencare i set di record, usare i metodi *DnsManagementClient. Recordsets. list...* che supportano l'elenco di tutti i set di record in una determinata zona o solo i set di record di un tipo specifico.
+Per elencare le zone, usare i metodi *DnsManagementClient.zones.list...,* che supportano l'elenco di tutte le zone in un determinato gruppo di risorse o di tutte le zone in una determinata sottoscrizione di Azure (tra gruppi di risorse). Per elencare i set di record, utilizzare i metodi *DnsManagementClient.RecordSets.List...,* che supportano l'elenco di tutti i set di record in una determinata zona o solo i set di record di un tipo specifico.
 
 Quando si elencano le zone e i set di record, i risultati potrebbero essere impaginati.  L'esempio seguente illustra come scorrere le pagine dei risultati. Vengono usate dimensioni della pagina artificialmente ridotte pari a '2' per forzare il paging; nella pratica questo parametro deve essere omesso e verranno usate le dimensioni della pagina predefinite.
 

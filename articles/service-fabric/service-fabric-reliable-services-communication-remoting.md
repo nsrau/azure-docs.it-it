@@ -1,21 +1,21 @@
 ---
-title: Comunicazione remota del servizio C# tramite in Service Fabric
+title: Servizi remoti tramite C 'NET in Service FabricService remoting by using C'è in Service Fabric
 description: La comunicazione remota di Service Fabric consente a client e servizi di comunicare con i servizi C# tramite una chiamata di procedura remota.
 author: vturecek
 ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: vturecek
 ms.openlocfilehash: 0d59275f25931a11b2d551a2e9eb019838e4c1b3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75433876"
 ---
 # <a name="service-remoting-in-c-with-reliable-services"></a>Comunicazione remota nei servizi C# con Reliable Services
 
 > [!div class="op_single_selector"]
-> * [C# su Windows](service-fabric-reliable-services-communication-remoting.md)
+> * [C'è su Windows](service-fabric-reliable-services-communication-remoting.md)
 > * [Java su Linux](service-fabric-reliable-services-communication-remoting-java.md)
 >
 >
@@ -313,7 +313,7 @@ A tale scopo, seguire questa procedura:
 Per eseguire l'aggiornamento da V1 a V2 (compatibile con l'interfaccia e noto anche come V2_1), sono necessari due passaggi di aggiornamento. Seguire i passaggi descritti in questa sequenza.
 
 > [!NOTE]
-> Quando si esegue l'aggiornamento da V1 a V2, assicurarsi che lo spazio dei nomi `Remoting` venga aggiornato in modo da usare V2. Esempio:' Microsoft. ServiceFabric. Services. Remoting. v2. FabricTransport. client '
+> Quando si esegue l'aggiornamento da `Remoting` V1 a V2, assicurarsi che lo spazio dei nomi sia aggiornato per usare V2. Esempio: 'Microsoft.ServiceFabric.Services.Remoting.V2.FabricTransport.Client'
 >
 >
 

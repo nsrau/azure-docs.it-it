@@ -1,22 +1,22 @@
 ---
-title: Serie di migrazione di contoso | Microsoft Docs
+title: Serie di migrazione Contoso Documenti Microsoft
 description: Presenta una panoramica della strategia e degli scenari usati da Contoso per eseguire la migrazione del proprio data center locale ad Azure.
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.author: raynew
 ms.openlocfilehash: d37bee589eb7ee2e6e30c8dcea2531dd1f063481
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78939186"
 ---
 # <a name="contoso-migration-series"></a>Serie di migrazione Contoso
 
 
-È presente una serie di articoli che illustrano in che modo l'organizzazione fittizia Contoso esegue la migrazione dell'infrastruttura locale al cloud [Microsoft Azure](https://azure.microsoft.com/overview/what-is-azure/) . 
+Sono disponibili una serie di articoli che illustrano come l'organizzazione fittizia Contoso esegue la migrazione dell'infrastruttura locale al cloud di [Microsoft Azure.We](https://azure.microsoft.com/overview/what-is-azure/) have a series of articles that demonstrates how the fictitious organization Contoso migrates on-premises infrastructure to the Microsoft Azure cloud. 
 
-La serie include informazioni e scenari che illustrano come configurare la migrazione di un'infrastruttura ed eseguire diversi tipi di migrazioni. Gli scenari crescono in modo più complesso durante l'avanzamento. Negli articoli viene illustrata la strategia adottata da Contoso per completare la migrazione, ma al tempo stesso vengono fornite anche nozioni di carattere più generale e istruzioni specifiche.
+La serie include informazioni e scenari che illustrano come configurare la migrazione di un'infrastruttura ed eseguire diversi tipi di migrazioni. Gli scenari aumentano di complessità man mano che progrediscono. Negli articoli viene illustrata la strategia adottata da Contoso per completare la migrazione, ma al tempo stesso vengono fornite anche nozioni di carattere più generale e istruzioni specifiche.
 
 ## <a name="migration-articles"></a>Articoli sulla migrazione
 
@@ -44,5 +44,5 @@ Nella tabella seguente sono riepilogati gli articoli della serie.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Scopri di più sulla](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/) migrazione cloud.
-- Informazioni sulle strategie di migrazione per altri scenari (coppie di origine/destinazione) nella [Guida alla migrazione del database](https://datamigration.microsoft.com/).
+- [Informazioni sulla](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/) migrazione cloud.
+- Informazioni sulle strategie di migrazione per altri scenari (coppie origine/destinazione) nella Guida alla migrazione del [database.](https://datamigration.microsoft.com/)

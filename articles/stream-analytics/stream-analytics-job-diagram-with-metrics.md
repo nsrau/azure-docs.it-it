@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/01/2017
 ms.openlocfilehash: 3c0c29e1793e56efae8d13cb01d57faf257d8805
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75426068"
 ---
 # <a name="data-driven-debugging-by-using-the-job-diagram"></a>Debug guidato dai dati mediante il diagramma di processo
@@ -78,12 +78,12 @@ Se il passaggio di query precedente è un processore di input, usare le metriche
 *   **Input Events Backlogged (Total)** (Totale eventi con backlog di input) indica quanti altri messaggi devono essere letti per gli input di Hub eventi e dell'hub IoT di Azure. Quando questo numero è maggiore di 0, significa che il processo non è in grado di elaborare i dati alla stessa velocità di ingresso. In questo caso potrebbe essere necessario aumentare il numero di unità di streaming e/o verificare se il processo può essere eseguito in parallelo. È possibile visualizzare altre informazioni su questo argomento nella [pagina relativa alla parallelizzazione delle query](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization). 
 
 
-## <a name="get-help"></a>Ottenere supporto
+## <a name="get-help"></a>Ottenere aiuto
 Per ottenere assistenza aggiuntiva, provare ad accedere al [forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Presentazione di Analisi di flusso](stream-analytics-introduction.md)
-* [Introduzione ad Analisi di flusso](stream-analytics-real-time-fraud-detection.md)
-* [Scalabilità dei processi di Analisi di flusso](stream-analytics-scale-jobs.md)
+* [Introduzione ad Analisi dei flussi](stream-analytics-real-time-fraud-detection.md)
+* [Ridimensionare i processi di Analisi di flusso](stream-analytics-scale-jobs.md)
 * [Informazioni di riferimento sul linguaggio di query di Analisi di flusso](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Informazioni di riferimento sull'API REST di gestione di Analisi di flusso](https://msdn.microsoft.com/library/azure/dn835031.aspx)

@@ -1,6 +1,6 @@
 ---
-title: Criteri di allocazione personalizzati con il servizio Device provisioning in hub Azure
-description: Come usare i criteri di allocazione personalizzati con il servizio Device provisioning in hub Azure
+title: Custom allocation policies with Azure IoT Hub Device Provisioning Service
+description: Come usare criteri di allocazione personalizzati con il servizio di provisioning dei dispositivi hub IoT (DPS) di Azure IoTHow to use custom allocation policies with the Azure IoT Hub Device Provisioning Service (DPS)
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/14/2019
@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: 87ffca1957d4ec449753f1966ed05cf3948f5ca2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75453949"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Come usare i criteri di allocazione personalizzati
 
 I criteri di allocazione personalizzati offrono maggiore controllo sulle modalità di assegnazione dei dispositivi a un hub IoT. A tale scopo viene usato un codice personalizzato in una [funzione di Azure](../azure-functions/functions-overview.md) per assegnare dispositivi a un hub IoT. Il servizio Device Provisioning chiama il codice della funzione di Azure per fornire tutte le informazioni rilevanti sul dispositivo e la registrazione. Viene eseguito il codice della funzione, che restituisce le informazioni dell'hub IoT usate per il provisioning del dispositivo.
 
-Con i criteri di allocazione personalizzati è possibile definire i propri criteri di allocazione quando i criteri forniti dal servizio Device provisioning non soddisfano i requisiti dello scenario.
+Utilizzando criteri di allocazione personalizzati, si definiscono criteri di allocazione personalizzati quando i criteri forniti dal servizio Device Provisioning non soddisfano i requisiti dello scenario.
 
-Ad esempio, si potrebbe voler esaminare il certificato usato da un dispositivo durante il provisioning e assegnare il dispositivo a un hub Internet in base a una proprietà del certificato. In alternativa, è possibile che si disponga di informazioni archiviate in un database per i dispositivi e che sia necessario eseguire una query sul database per determinare a quale hub Internet deve essere assegnato un dispositivo.
+Ad esempio, è possibile esaminare il certificato utilizzato da un dispositivo durante il provisioning e assegnare il dispositivo a un hub IoT in base a una proprietà del certificato. In alternativa, è possibile che le informazioni siano archiviate in un database per i dispositivi ed è necessario eseguire query sul database per determinare a quale hub IoT deve essere assegnato un dispositivo.
 
 Questo articolo illustra i criteri di allocazione personalizzati che usano una funzione di Azure scritta in C#. Vengono creati due nuovi hub IoT per rappresentare una *divisione toaster di Contoso* e una *divisione pompe di calore di Contoso*. Per essere accettati per il provisioning, i dispositivi che richiedono questo servizio devono avere un ID di registrazione con uno dei suffissi di seguito:
 
@@ -29,45 +29,45 @@ Questo articolo illustra i criteri di allocazione personalizzati che usano una f
 
 Il provisioning dei dispositivi verrà effettuato sulla base di uno di questi suffissi richiesti per l'ID di registrazione. Questi dispositivi verranno simulati usando un esempio di provisioning incluso in [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c).
 
-In questo articolo vengono eseguiti i passaggi seguenti:
+In questo articolo si esegue la procedura seguente:
 
 * Usare l'interfaccia della riga di comando di Azure per creare due hub IoT per le divisioni di Contoso (**divisione toaster di Contoso** e **divisione pompe di calore di Contoso**)
 * Creare una nuova registrazione di gruppo con una funzione di Azure per i criteri di allocazione personalizzati
 * Creare le chiavi di dispositivo per due simulazioni di dispositivo.
 * Configurare un ambiente di sviluppo per Azure IoT C SDK
-* Simulare i dispositivi e verificare che vengano sottoposti a provisioning in base al codice di esempio nei criteri di allocazione personalizzati
+* Simulare i dispositivi e verificare che ne venga eseguito il provisioning in base al codice di esempio nei criteri di allocazione personalizzatiSimulate the devices and verify that they are provisioned according to the example code in the custom allocation policy
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-I prerequisiti seguenti sono per un ambiente di sviluppo Windows. Per Linux o macOS, vedere la sezione appropriata in [preparare l'ambiente di sviluppo](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) nella documentazione di SDK.
+I prerequisiti seguenti si riferiscono a un ambiente di sviluppo Windows. Per Linux o macOS, vedere la sezione appropriata in [Preparare l'ambiente di sviluppo](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) nella documentazione dell'SDK.
 
-* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 con il carico di lavoro [' C++sviluppo di applicazioni desktop con '](https://docs.microsoft.com/cpp/?view=vs-2019#pivot=workloads) abilitato. Sono supportati anche Visual Studio 2015 e Visual Studio 2017.
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) con il carico di lavoro ['Sviluppo di applicazioni desktop con C++'](https://docs.microsoft.com/cpp/?view=vs-2019#pivot=workloads) abilitato. Sono supportati anche Visual Studio 2015 e Visual Studio 2017.
 
 * La versione più recente di [Git](https://git-scm.com/download/) installata.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="create-the-provisioning-service-and-two-divisional-iot-hubs"></a>Creare il servizio di provisioning e due hub di Internet delle cose
+## <a name="create-the-provisioning-service-and-two-divisional-iot-hubs"></a>Creare il servizio di provisioning e due hub IoT divisionaliCreate the provisioning service and two divisional IoT hubs
 
-In questa sezione si usa il Azure Cloud Shell per creare un servizio di provisioning e due hub Internet che rappresentano la **divisione dei tostapane di Contoso** e la divisione delle pompe di calore di **Contoso**.
+In questa sezione si usa Azure Cloud Shell per creare un servizio di provisioning e due hub IoT che rappresentano la **divisione Contoso Toasters** e la **divisione Contoso Heat Pumps**.
 
 > [!TIP]
-> I comandi usati in questo articolo creano il servizio di provisioning e altre risorse nella località Stati Uniti occidentali. Si consiglia di creare le risorse nell'area più vicina all'utente che supporta il servizio Device provisioning. Per un elenco delle località disponibili, è possibile eseguire il comando `az provider show --namespace Microsoft.Devices --query "resourceTypes[?resourceType=='ProvisioningServices'].locations | [0]" --out table` oppure passare alla pagina [Stato di Azure](https://azure.microsoft.com/status/) e cercare "Servizio Device Provisioning". Nei comandi, i percorsi possono essere specificati in un formato Word o in più parole; ad esempio: westus, Stati Uniti occidentali, Stati Uniti occidentali e così via. Il valore non fa distinzione tra maiuscole e minuscole. Se si usa il formato a più parole per specificare la località, racchiudere il valore tra virgolette, ad esempio `-- location "West US"`.
+> I comandi usati in questo articolo creano il servizio di provisioning e altre risorse nella posizione stati Uniti occidentali. È consigliabile creare le risorse nell'area più vicina a tale area che supporta il servizio Device Provisioning. Per un elenco delle località disponibili, è possibile eseguire il comando `az provider show --namespace Microsoft.Devices --query "resourceTypes[?resourceType=='ProvisioningServices'].locations | [0]" --out table` oppure passare alla pagina [Stato di Azure](https://azure.microsoft.com/status/) e cercare "Servizio Device Provisioning". Nei comandi, le posizioni possono essere specificate in formato una parola o più parole; ad esempio: westus, West US, WEST US, ecc. Il valore non fa distinzione tra maiuscole e minuscole. Se si usa il formato a più parole per specificare la località, racchiudere il valore tra virgolette, ad esempio `-- location "West US"`.
 >
 
 1. Usare Azure Cloud Shell per creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az-group-create). Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite.
 
-    Nell'esempio seguente viene creato un gruppo di risorse denominato *Contoso-US-Resource-Group* nell'area *westus* . È consigliabile usare questo gruppo per tutte le risorse create in questo articolo. Questo approccio renderà più semplice la pulizia al termine dell'operazione.
+    Nell'esempio seguente viene creato un gruppo di risorse denominato *contoso-us-resource-group* nell'area *westus.* È consigliabile usare questo gruppo per tutte le risorse create in questo articolo. Questo approccio renderà la pulizia più facile dopo il termine.
 
     ```azurecli-interactive 
     az group create --name contoso-us-resource-group --location westus
     ```
 
-2. Usare il Azure Cloud Shell per creare un servizio Device provisioning con il comando [AZ Internet create](/cli/azure/iot/dps#az-iot-dps-create) . Il servizio di provisioning verrà aggiunto a *Contoso-US-Resource-Group*.
+2. Usare Azure Cloud Shell per creare un servizio di provisioning dei dispositivi con il comando [az iot dps create.Use](/cli/azure/iot/dps#az-iot-dps-create) the Azure Cloud Shell to create a device provisioning service with the az iot dps create command. Il servizio di provisioning verrà aggiunto al *gruppo di risorse contoso-us-resource.*
 
-    Nell'esempio seguente viene creato un servizio di provisioning denominato *Contoso-Provisioning-Service-1098* nella località *westus* . È necessario usare un nome di servizio univoco. Creare il proprio suffisso nel nome del servizio al posto di **1098**.
+    Nell'esempio seguente viene creato un servizio di provisioning denominato *contoso-provisioning-service-1098* nella posizione *westus.* È necessario utilizzare un nome di servizio univoco. Creare il proprio suffisso nel nome del servizio al posto di **1098**.
 
     ```azurecli-interactive 
     az iot dps create --name contoso-provisioning-service-1098 --resource-group contoso-us-resource-group --location westus
@@ -77,7 +77,7 @@ In questa sezione si usa il Azure Cloud Shell per creare un servizio di provisio
 
 3. Usare Azure Cloud Shell per creare l'hub IoT della **divisione toaster di Contoso** con il comando [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create). L'hub IoT verrà aggiunto a *contoso-us-resource-group*.
 
-    L'esempio seguente crea un hub tutto denominato *Contoso-tostapane-Hub-1098* nella località *westus* . È necessario usare un nome di hub univoco. Creare il proprio suffisso nel nome dell'hub da sostituire a **1098**. Il codice di esempio per i criteri di allocazione personalizzati richiede `-toasters-` nel nome dell'hub.
+    L'esempio seguente crea un hub IoT denominato *contoso-toasters-hub-1098* nella posizione *westus.* È necessario utilizzare un nome hub univoco. Creare il proprio suffisso nel nome dell'hub da sostituire a **1098**. Il codice di esempio per i criteri di allocazione personalizzati richiede `-toasters-` nel nome dell'hub.
 
     ```azurecli-interactive 
     az iot hub create --name contoso-toasters-hub-1098 --resource-group contoso-us-resource-group --location westus --sku S1
@@ -87,7 +87,7 @@ In questa sezione si usa il Azure Cloud Shell per creare un servizio di provisio
 
 4. Usare Azure Cloud Shell per creare l'hub IoT della **divisione pompe di calore di Contoso** con il comando [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create). Questo hub IoT verrà aggiunto anche a *contoso-us-resource-group*.
 
-    L'esempio seguente crea un hub tutto denominato *Contoso-Heatpumps-Hub-1098* nella località *westus* . È necessario usare un nome di hub univoco. Creare il proprio suffisso nel nome dell'hub da sostituire a **1098**. Il codice di esempio per i criteri di allocazione personalizzati richiede `-heatpumps-` nel nome dell'hub.
+    Nell'esempio seguente viene creato un hub IoT denominato *contoso-heatpumps-hub-1098* nella posizione *westus.* È necessario utilizzare un nome hub univoco. Creare il proprio suffisso nel nome dell'hub da sostituire a **1098**. Il codice di esempio per i criteri di allocazione personalizzati richiede `-heatpumps-` nel nome dell'hub.
 
     ```azurecli-interactive 
     az iot hub create --name contoso-heatpumps-hub-1098 --resource-group contoso-us-resource-group --location westus --sku S1
@@ -95,46 +95,46 @@ In questa sezione si usa il Azure Cloud Shell per creare un servizio di provisio
 
     Il completamento del comando può richiedere alcuni minuti.
 
-## <a name="create-the-custom-allocation-function"></a>Creazione della funzione di allocazione personalizzata
+## <a name="create-the-custom-allocation-function"></a>Creare la funzione di allocazione personalizzataCreate the custom allocation function
 
-In questa sezione viene creata una funzione di Azure che implementa i criteri di allocazione personalizzati. Questa funzione decide quale Hub di tutti i componenti di un dispositivo deve essere registrato a seconda che l'ID di registrazione contenga la stringa **-Contoso-tstrsd-007** o **-Contoso-hpsd-088**. Imposta anche lo stato iniziale del dispositivo gemello a seconda che il dispositivo sia un tostapane o una pompa termica.
+In questa sezione viene creata una funzione di Azure che implementa i criteri di allocazione personalizzati. Questa funzione decide in quale hub IoT divisionale deve essere registrato un dispositivo in base al fatto che il relativo ID di registrazione contenga la stringa **-contoso-tstrsd-007** o **-contoso-hpsd-088**. Imposta anche lo stato iniziale del dispositivo gemello a seconda se il dispositivo è un tostapane o una pompa di calore.
 
-1. Accedere al [portale di Azure](https://portal.azure.com). Dal home page selezionare **+ Crea una risorsa**.
+1. Accedere al [portale](https://portal.azure.com)di Azure . Dalla home page, selezionare **Crea una risorsa**.
 
-2. Nella casella Cerca nel *Marketplace* digitare "app per le funzioni". Nell'elenco a discesa selezionare **app per le funzioni**e quindi fare clic su **Crea**.
+2. Nella casella di ricerca *Cerca nel Marketplace* digitare "App funzione". Nell'elenco a discesa selezionare **App per**le funzioni , quindi **scegliere Crea**.
 
-3. Nella pagina **app per le funzioni** crea, nella scheda **nozioni di base** , immettere le impostazioni seguenti per la nuova app per le funzioni e selezionare **Verifica + crea**:
+3. Nella scheda Nozioni di base della pagina di creazione **dell'app per** le funzioni, nella scheda **Nozioni di base,** immettere le impostazioni seguenti per la nuova app per le funzioni e selezionare **Revisione e creazione:**
 
-    **Gruppo di risorse**: selezionare **Contoso-US-Resource-Group** per includere insieme tutte le risorse create in questo articolo.
+    Gruppo di **risorse:** selezionare il **gruppo di risorse contoso-us-resource** per mantenere insieme tutte le risorse create in questo articolo.
 
-    **Nome app per le funzioni**: immettere un nome univoco per l'app per le funzioni. Questo esempio usa **Contoso-Function-app-1098**.
+    **Nome app funzione**: Immettere un nome univoco per l'app per le funzioni. In questo esempio viene **utilizzato contoso-function-app-1098**.
 
-    **Publish**: verificare che il **codice** sia selezionato.
+    **Pubblica**: Verificare che sia selezionato **Codice.**
 
     **Stack di runtime**: selezionare **.NET Core** dall'elenco a discesa.
 
-    **Area**: selezionare la stessa area del gruppo di risorse. Questo esempio usa **Stati Uniti occidentali**.
+    **Area:** selezionare la stessa area del gruppo di risorse. In questo esempio viene utilizzato **West US**.
 
     > [!NOTE]
-    > Per impostazione predefinita, Application Insights è abilitato. Application Insights non è necessario per questo articolo, ma può essere utile per comprendere e analizzare eventuali problemi riscontrati con l'allocazione personalizzata. Se si preferisce, è possibile disabilitare Application Insights selezionando la scheda **monitoraggio** e selezionando **No** per **Abilita Application Insights**.
+    > Per impostazione predefinita, Application Insights è abilitato. Application Insights non è necessario per questo articolo, ma potrebbe essere utile comprendere e analizzare eventuali problemi riscontrati con l'allocazione personalizzata. Se si preferisce, è possibile disabilitare Application Insights selezionando la scheda **Monitoraggio** e quindi **no** per Abilita Application **Insights**.
 
-    ![Creare una app per le funzioni di Azure per ospitare la funzione di allocazione personalizzata](./media/how-to-use-custom-allocation-policies/create-function-app.png)
+    ![Creare un'app per le funzioni di Azure per ospitare la funzione di allocazione personalizzataCreate an Azure Function App to host the custom allocation function](./media/how-to-use-custom-allocation-policies/create-function-app.png)
 
 4. Nella pagina **Riepilogo** selezionare **Crea** per creare l'app per le funzioni. Questa operazione può richiedere alcuni minuti. Al termine, selezionare **Vai alla risorsa**.
 
-5. Nel riquadro sinistro della pagina **Panoramica** dell'app per le funzioni selezionare **+** accanto a **funzioni** per aggiungere una nuova funzione.
+5. Nel riquadro sinistro della pagina **Panoramica** dell'app per le funzioni selezionare **+** accanto a **Funzioni** per aggiungere una nuova funzione.
 
-    ![Aggiungere una funzione al app per le funzioni](./media/how-to-use-custom-allocation-policies/create-function.png)
+    ![Aggiungere una funzione all'app per le funzioniAdd a function to the Function App](./media/how-to-use-custom-allocation-policies/create-function.png)
 
-6. Nella pagina di **Introduzione a funzioni di Azure per .NET** : per il passaggio **scegliere un ambiente di distribuzione** selezionare il riquadro **nel portale** , quindi selezionare **continua**.
+6. Nella pagina Funzioni di **Azure per .NET - Introduzione,** per il passaggio **CHOOSE A DEPLOYMENT ENVIRONMENT,** selezionare il riquadro **In-portal,** quindi selezionare **Continue**.
 
     ![Selezionare l'ambiente di sviluppo del portale](./media/how-to-use-custom-allocation-policies/function-choose-environment.png)
 
-7. Nella pagina successiva, per il passaggio **creare una funzione** , selezionare il riquadro **webhook + API** , quindi selezionare **Crea**. Viene creata una funzione denominata **HttpTrigger1** e il portale Visualizza il contenuto del file di codice **Run. CSX** .
+7. Nella pagina successiva, per il passaggio **CREATE A FUNCTION,** selezionare il riquadro **Webhook e API,** quindi selezionare **Create**. Viene creata una funzione denominata **HttpTrigger1** e nel portale viene visualizzato il contenuto del file di codice **run.csx.**
 
-8. Fare riferimento ai pacchetti NuGet necessari. Per creare il dispositivo gemello iniziale, la funzione di allocazione personalizzata usa le classi definite in due pacchetti NuGet che devono essere caricati nell'ambiente host. Con funzioni di Azure, viene fatto riferimento ai pacchetti NuGet usando un file *Function. host* . In questo passaggio si salva e si carica un file *Function. host* .
+8. Fare riferimento ai pacchetti Nuget obbligatori. Per creare il dispositivo gemello iniziale, la funzione di allocazione personalizzata utilizza classi definite in due pacchetti Nuget che devono essere caricati nell'ambiente di hosting. Con Funzioni di Azure, i pacchetti Nuget fanno riferimento usando un file *function.host.With* Azure Functions, Nuget packages are referenced using a function.host file. In questo passaggio si salva e si carica un file *function.host.*
 
-    1. Copiare le righe seguenti nell'editor preferito e salvare il file nel computer come *Function. host*.
+    1. Copiare le righe seguenti nell'editor preferito e salvare il file nel computer come *function.host*.
 
         ```xml
         <Project Sdk="Microsoft.NET.Sdk">  
@@ -150,13 +150,13 @@ In questa sezione viene creata una funzione di Azure che implementa i criteri di
 
     2. Nella funzione **HttpTrigger1** espandere la scheda **Visualizza file** sul lato destro della finestra.
 
-        ![Apri file di visualizzazione](./media/how-to-use-custom-allocation-policies/function-open-view-files.png)
+        ![Aprire i file di visualizzazione](./media/how-to-use-custom-allocation-policies/function-open-view-files.png)
 
-    3. Selezionare **carica**, passare al file **Function. proj** e selezionare Open ( **Apri** ) per caricare il file.
+    3. Selezionare **Carica (Upload),** individuare il file **function.proj** e scegliere **Open (Apri)** per caricare il file.
 
-        ![Seleziona file di caricamento](./media/how-to-use-custom-allocation-policies/function-choose-upload-file.png)
+        ![Seleziona il file di caricamento](./media/how-to-use-custom-allocation-policies/function-choose-upload-file.png)
 
-9. Sostituire il codice per la funzione **HttpTrigger1** con il codice seguente e selezionare **Save (Salva**):
+9. Sostituire il codice per la funzione **HttpTrigger1** con il codice seguente e selezionare **Salva**:
 
     ```csharp
     #r "Newtonsoft.Json"
@@ -297,13 +297,13 @@ In questa sezione viene creata una funzione di Azure che implementa i criteri di
 
 ## <a name="create-the-enrollment"></a>Creare la registrazione
 
-In questa sezione verrà creato un nuovo gruppo di registrazione che usa i criteri di allocazione personalizzati. Per semplicità, in questo articolo viene usata l'[attestazione con chiave simmetrica](concepts-symmetric-key-attestation.md) per la registrazione. Per una soluzione più sicura è consigliabile usare l'[attestazione del certificato X.509](concepts-security.md#x509-certificates) con una catena di certificati.
+In questa sezione verrà creato un nuovo gruppo di registrazione che utilizza i criteri di allocazione personalizzati. Per semplicità, in questo articolo viene usata l'[attestazione con chiave simmetrica](concepts-symmetric-key-attestation.md) per la registrazione. Per una soluzione più sicura è consigliabile usare l'[attestazione del certificato X.509](concepts-security.md#x509-certificates) con una catena di certificati.
 
-1. Sempre nella [portale di Azure](https://portal.azure.com)aprire il servizio di provisioning.
+1. Sempre nel portale di [Azure,](https://portal.azure.com)aprire il servizio di provisioning.
 
-2. Selezionare **Gestisci registrazioni** nel riquadro sinistro, quindi selezionare il pulsante **Aggiungi gruppo di registrazioni** nella parte superiore della pagina.
+2. Selezionare **Gestisci registrazioni** nel riquadro sinistro e quindi selezionare il pulsante **Aggiungi gruppo** di registrazione nella parte superiore della pagina.
 
-3. In **Aggiungi gruppo di registrazione**immettere le informazioni seguenti e selezionare il pulsante **Salva** .
+3. In **Aggiungi gruppo di registrazione**immettere le informazioni seguenti e selezionare il pulsante **Salva.**
 
     **Nome del gruppo**: immettere **contoso-custom-allocated-devices**.
 
@@ -311,13 +311,13 @@ In questa sezione verrà creato un nuovo gruppo di registrazione che usa i crite
 
     **Genera chiavi automaticamente**: questa casella di controllo dovrebbe essere già selezionata.
 
-    **Selezionare la modalità secondo cui assegnare i dispositivi agli hub**: selezionare **Personalizzata (usa funzione di Azure)** .
+    **Selezionare la modalità secondo cui assegnare i dispositivi agli hub**: selezionare **Personalizzata (usa funzione di Azure)**.
 
     ![Aggiungere il gruppo di registrazioni dell'allocazione personalizzata per l'attestazione con chiave simmetrica](./media/how-to-use-custom-allocation-policies/create-custom-allocation-enrollment.png)
 
-4. In **Aggiungi un gruppo di registrazione**selezionare **collega un nuovo hub** Internet per collegare entrambi i nuovi hub di Internet delle cose.
+4. In **Aggiungi gruppo di registrazione**selezionare Collega un nuovo hub **IoT** per collegare entrambi i nuovi hub IoT divisionali.
 
-    Eseguire questo passaggio per entrambi gli hub di Internet delle cose.
+    Eseguire questo passaggio per entrambi gli hub IoT di divisione.
 
     **Sottoscrizione**: se si dispone di più sottoscrizioni, scegliere quella in cui sono stati creati gli hub IoT delle divisioni.
 
@@ -331,7 +331,7 @@ In questa sezione verrà creato un nuovo gruppo di registrazione che usa i crite
 
     ![Creare il gruppo dell'hub della divisione per la registrazione](./media/how-to-use-custom-allocation-policies/enrollment-divisional-hub-group.png)
 
-6. In **Aggiungi gruppo di registrazione**scorrere verso il basso fino alla sezione **selezionare la funzione di Azure** e selezionare l'app per le funzioni creata nella sezione precedente. Selezionare quindi la funzione creata e fare clic su Save (Salva) per salvare il gruppo di registrazione.
+6. In **Aggiungi gruppo di registrazione**scorrere verso il basso fino alla sezione Seleziona funzione di **Azure** e selezionare l'app Funzione creata nella sezione precedente. Selezionare quindi la funzione creata e selezionare Salva per salvare il gruppo di registrazione.
 
     ![Selezionare la funzione e salvare il gruppo di registrazione](./media/how-to-use-custom-allocation-policies/save-enrollment.png)
 
@@ -341,7 +341,7 @@ In questa sezione verrà creato un nuovo gruppo di registrazione che usa i crite
 
 In questa sezione vengono create due chiavi univoche del dispositivo. Una chiave verrà utilizzata per simulare un dispositivo toaster, l'altra chiave per simulare un dispositivo pompa di calore.
 
-Per generare la chiave del dispositivo, usare la **chiave primaria** annotata in precedenza per calcolare il [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) dell'ID registrazione del dispositivo per ogni dispositivo e convertire il risultato in formato Base64. Per altre informazioni sulla creazione di chiavi di dispositivo derivate con i gruppi di registrazione, vedere la sezione sulle registrazioni di gruppo dell'articolo [Attestazione con chiave simmetrica](concepts-symmetric-key-attestation.md).
+Per generare la chiave del dispositivo, utilizzare la **chiave primaria** annotata in precedenza per calcolare [l'HMAC-SHA256](https://wikipedia.org/wiki/HMAC) dell'ID di registrazione del dispositivo per ogni dispositivo e convertire il risultato nel formato Base64. Per altre informazioni sulla creazione di chiavi di dispositivo derivate con i gruppi di registrazione, vedere la sezione sulle registrazioni di gruppo dell'articolo [Attestazione con chiave simmetrica](concepts-symmetric-key-attestation.md).
 
 Per l'esempio di questo articolo, usare i due ID di registrazione del dispositivo seguenti e calcolare una chiave di dispositivo per entrambi i dispositivi. Entrambi gli ID di registrazione presentano un suffisso valido per il funzionamento con il codice di esempio per i criteri di allocazione personalizzati:
 
@@ -350,7 +350,7 @@ Per l'esempio di questo articolo, usare i due ID di registrazione del dispositiv
 
 ### <a name="linux-workstations"></a>Workstation di Linux
 
-Se si usa una workstation Linux, è possibile usare OpenSSL per generare le chiavi del dispositivo derivate, come illustrato nell'esempio seguente.
+Se si usa una workstation Linux, è possibile usare openssl per generare le chiavi del dispositivo derivate, come illustrato nell'esempio seguente.
 
 1. Sostituire il valore della **CHIAVE** con la **chiave primaria** annotata in precedenza.
 
@@ -403,17 +403,17 @@ I dispositivi simulati useranno le chiavi di dispositivo derivate con ogni ID di
 
 ## <a name="prepare-an-azure-iot-c-sdk-development-environment"></a>Preparare un ambiente di sviluppo per Azure IoT C SDK
 
-In questa sezione viene preparato l'ambiente di sviluppo usato per compilare l' [SDK di Azure](https://github.com/Azure/azure-iot-sdk-c). L'SDK include il codice di esempio per il dispositivo simulato. Il dispositivo simulato tenterà di effettuare il provisioning durante la sequenza di avvio del dispositivo.
+In questa sezione viene preparato l'ambiente di sviluppo usato per compilare [Azure IoT C SDK.](https://github.com/Azure/azure-iot-sdk-c) L'SDK include il codice di esempio per il dispositivo simulato. Il dispositivo simulato tenterà di effettuare il provisioning durante la sequenza di avvio del dispositivo.
 
 Questa sezione si riferisce a una workstation basata su Windows. Per un esempio di Linux, vedere la configurazione delle macchine virtuali in [Come effettuare il provisioning per la multi-tenancy](how-to-provision-multitenant.md).
 
 1. Scaricare il [sistema di compilazione CMake](https://cmake.org/download/).
 
-    È importante che nel computer siano installati i prerequisiti di Visual Studio (Visual Studio e carico di lavoro 'Sviluppo di applicazioni desktop con C++') **prima** di avviare l'installazione di `CMake`. Quando i prerequisiti sono pronti e il download è stato verificato, installare il sistema di compilazione CMake.
+    È importante che i prerequisiti di Visual Studio (Visual Studio e il carico di **before** lavoro `CMake` 'Sviluppo desktop con C') sono installati nel computer, prima di avviare l'installazione. Quando i prerequisiti sono pronti e il download è stato verificato, installare il sistema di compilazione CMake.
 
 2. Trovare il nome del tag per la [versione più recente](https://github.com/Azure/azure-iot-sdk-c/releases/latest) dell'SDK.
 
-3. Aprire un prompt dei comandi o la shell Git Bash. Eseguire i comandi seguenti per clonare la versione più recente del repository GitHub di [Azure-C SDK](https://github.com/Azure/azure-iot-sdk-c) . Usare il tag trovato nel passaggio precedente come valore per il parametro `-b`:
+3. Aprire un prompt dei comandi o la shell Git Bash. Eseguire i comandi seguenti per clonare la versione più recente del repository GitHub [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c). Usare il tag trovato nel passaggio precedente come valore per il parametro `-b`:
 
     ```cmd/sh
     git clone -b <release-tag> https://github.com/Azure/azure-iot-sdk-c.git
@@ -436,7 +436,7 @@ Questa sezione si riferisce a una workstation basata su Windows. Per un esempio 
     cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     ```
 
-    Se `cmake` non trova il C++ compilatore, è possibile che vengano generati errori di compilazione durante l'esecuzione del comando. In tal caso, provare a eseguire il comando nel [prompt dei comandi di Visual Studio](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs).
+    Se `cmake` non trova il compilatore di C, è possibile che si verifichino errori di compilazione durante l'esecuzione del comando. In tal caso, provare a eseguire il comando nel prompt dei comandi di [Visual Studio.](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs)
 
     Al termine della compilazione, le ultime righe di output saranno simili all'output seguente:
 
@@ -456,11 +456,11 @@ Questa sezione si riferisce a una workstation basata su Windows. Per un esempio 
 
 ## <a name="simulate-the-devices"></a>Simulare i dispositivi
 
-In questa sezione viene aggiornato un esempio di provisioning denominato **dimostrativo\_dev\_client\_esempio** che si trova nell'SDK di Azure in Azure.
+In questa sezione si aggiorna un esempio di provisioning denominato **prov\_dev\_client\_esempio** disponibile nell'SDK C IoT di Azure configurato in precedenza.
 
 Questo codice di esempio simula una sequenza di avvio di dispositivo che invia la richiesta di provisioning all'istanza del servizio Device Provisioning. La sequenza di avvio riconoscerà il dispositivo toaster e lo assegnerà all'hub IoT usando i criteri di allocazione personalizzati.
 
-1. Nel portale di Azure selezionare la scheda **Panoramica** per il servizio Device Provisioning e prendere nota del valore di **_Ambito ID_** .
+1. Nel portale di Azure selezionare la scheda **Panoramica** per il servizio Device Provisioning e prendere nota del valore di **_Ambito ID_**.
 
     ![Estrarre le informazioni dell'endpoint del servizio Device Provisioning dal pannello del portale](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 
@@ -498,7 +498,7 @@ Questo codice di esempio simula una sequenza di avvio di dispositivo che invia l
     //prov_dev_set_symmetric_key_info("<symm_registration_id>", "<symmetric_Key>");
     ```
 
-    Rimuovere il commento dalla chiamata di funzione e sostituire i valori segnaposto (incluse le parentesi angolari) con l'ID di registrazione del tostapane e la chiave del dispositivo derivato generata in precedenza. Il valore di chiave **JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=** visualizzato di seguito viene fornito solo come esempio.
+    Rimuovere il commento dalla chiamata di funzione e sostituire i valori segnaposto (incluse le parentesi angolari) con l'ID di registrazione toaster e la chiave del dispositivo derivata generata in precedenza. Il valore di chiave **JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=** visualizzato di seguito viene fornito solo come esempio.
 
     ```c
     // Set the symmetric key if using they auth type
@@ -507,9 +507,9 @@ Questo codice di esempio simula una sequenza di avvio di dispositivo che invia l
 
     Salvare il file.
 
-2. Nel menu di Visual Studio selezionare **Debug** > **Avvia senza eseguire debug** per eseguire la soluzione. Nella richiesta di ricompilare il progetto fare clic su **Sì** per ricompilare il progetto prima dell'esecuzione.
+2. Scegliere **Avvia debug** > **senza eseguire il debug** per eseguire la soluzione dal menu Visual Studio. Nel prompt di richiesta di ricompilare il progetto, selezionare **Sì**, per ricompilare il progetto prima dell'esecuzione.
 
-    L'output seguente è un esempio del dispositivo del tostapane simulato che esegue correttamente l'avvio e la connessione all'istanza del servizio di provisioning da assegnare all'hub degli elementi del tostapane da parte dei criteri di allocazione personalizzati:
+    L'output seguente è un esempio del corretto avvio e connessione al dispositivo tostapane simulato per l'avvio e la connessione all'istanza del servizio di provisioning per essere assegnati all'hub IoT dei tostapane dai criteri di allocazione personalizzati:
 
     ```cmd
     Provisioning API Version: 1.3.6
@@ -536,9 +536,9 @@ Questo codice di esempio simula una sequenza di avvio di dispositivo che invia l
 
     Salvare il file.
 
-2. Nel menu di Visual Studio selezionare **Debug** > **Avvia senza eseguire debug** per eseguire la soluzione. Nella richiesta di ricompilazione del progetto, selezionare **Sì** per ricompilare il progetto prima di eseguire.
+2. Scegliere **Avvia debug** > **senza eseguire il debug** per eseguire la soluzione dal menu Visual Studio. Nella richiesta di ricompilare il progetto fare clic su **Sì** per ricompilare il progetto prima dell'esecuzione.
 
-    L'output seguente è un esempio del dispositivo a pompa termica simulato che esegue correttamente l'avvio e la connessione all'istanza del servizio di provisioning da assegnare all'hub delle risorse di approvvigionamento di Contoso per i criteri di allocazione personalizzati:
+    L'output seguente è un esempio del dispositivo di pompa di calore simulato che si avvia correttamente e si connette all'istanza del servizio di provisioning da assegnare all'hub IoT delle pompe di calore Contoso dal criterio di allocazione personalizzato:
 
     ```cmd
     Provisioning API Version: 1.3.6
@@ -556,7 +556,7 @@ Questo codice di esempio simula una sequenza di avvio di dispositivo che invia l
 
 ## <a name="troubleshooting-custom-allocation-policies"></a>Risoluzione dei problemi relativi ai criteri di allocazione personalizzati
 
-La tabella seguente illustra gli scenari previsti e i codici di errore dei risultati che potrebbero essere ricevuti. Usare questa tabella come supporto per la risoluzione dei problemi relativi ai criteri di allocazione personalizzati con le Funzioni di Azure.
+Nella tabella seguente vengono illustrati gli scenari previsti e i codici di errore dei risultati che potrebbero essere visualizzati. Usare questa tabella come supporto per la risoluzione dei problemi relativi ai criteri di allocazione personalizzati con le Funzioni di Azure.
 
 | Scenario | Risultato della registrazione dal servizio di provisioning | Effettuare il provisioning dei risultati SDK |
 | -------- | --------------------------------------------- | ------------------------ |
@@ -569,7 +569,7 @@ La tabella seguente illustra gli scenari previsti e i codici di errore dei risul
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Se si prevede di continuare a usare le risorse create in questo articolo, è possibile lasciarle invariate. Se non si prevede di continuare a usare le risorse, attenersi alla procedura seguente per eliminare tutte le risorse create in questo articolo per evitare addebiti superflui.
+Se si prevede di continuare a lavorare con le risorse create in questo articolo, è possibile lasciarle. Se non si prevede di continuare a usare le risorse, usare la procedura seguente per eliminare tutte le risorse create in questo articolo per evitare addebiti non necessari.
 
 Questi passaggi presuppongono che tutte le risorse in questo articolo siano state create come indicato nello stesso gruppo di risorse denominato **contoso-us-resource-group**.
 
@@ -579,15 +579,15 @@ Questi passaggi presuppongono che tutte le risorse in questo articolo siano stat
 
 Per eliminare il gruppo di risorse per nome:
 
-1. Accedere al [portale di Azure](https://portal.azure.com) e selezionare **Gruppi di risorse**.
+1. Accedere al [portale](https://portal.azure.com) di Azure e selezionare **Gruppi di**risorse .
 
 2. Nella casella di testo **Filtra per nome...** digitare il nome del gruppo di risorse che contiene le risorse di interesse, **contoso-us-resource-group**. 
 
 3. A destra del gruppo di risorse nell'elenco dei risultati selezionare **...** quindi su **Elimina gruppo di risorse**.
 
-4. Verrà richiesto di confermare l'eliminazione del gruppo di risorse. Digitare di nuovo il nome del gruppo di risorse per confermare e quindi selezionare **Elimina**. Dopo qualche istante il gruppo di risorse e tutte le risorse che contiene vengono eliminati.
+4. Verrà chiesto di confermare l'eliminazione del gruppo di risorse. Digitare di nuovo il nome del gruppo di risorse per confermare e quindi selezionare **Elimina**. Dopo qualche istante il gruppo di risorse e tutte le risorse che contiene vengono eliminati.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per ulteriori informazioni sul nuovo provisioning, vedere [concetti relativi al provisioning dei dispositivi dell'hub](concepts-device-reprovision.md) . 
-* Per ulteriori informazioni sul deprovisioning, vedere [come eseguire il](how-to-unprovision-devices.md) deprovisioning di dispositivi precedentemente sottoposti a provisioning automatico 
+* Per altre informazioni su Reprovisioning, vedere Concetti relativi al riprovisioning del nuovo provisioning dei dispositivi hub IoTTo learn more Reprovisioning, see [IoT Hub Device reprovisioning concepts](concepts-device-reprovision.md) 
+* Per altre informazioni sul deprovisioning, vedere Come eseguire il deprovisioning dei dispositivi di cui [è stato eseguito il provisioning automatico in precedenzaTo](how-to-unprovision-devices.md) learn more Deprovisioning, see How to deprovision devices that were previously autoprovisioned 

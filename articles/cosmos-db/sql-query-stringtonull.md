@@ -1,5 +1,5 @@
 ---
-title: StringToNull in linguaggio di query Azure Cosmos DB
+title: StringToNull nel linguaggio di query del database Cosmos di AzureStringToNull in Azure Cosmos DB query language
 description: Informazioni sulla funzione di sistema SQL StringToNull in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
@@ -8,10 +8,10 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 7e17547f88465103b61eabec04978ea806ffa2c9
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78296440"
 ---
 # <a name="stringtonull-azure-cosmos-db"></a>StringToNull (Azure Cosmos DB)
@@ -26,7 +26,7 @@ StringToNull(<str_expr>)
 ## <a name="arguments"></a>Argomenti
   
 *str_expr*  
-   Espressione stringa da analizzare come espressione null.
+   È un'espressione stringa da analizzare come espressione null.
   
 ## <a name="return-types"></a>Tipi restituiti
   
@@ -34,7 +34,7 @@ StringToNull(<str_expr>)
   
 ## <a name="examples"></a>Esempi
   
-  Nell'esempio seguente viene illustrato il comportamento di `StringToNull` tra tipi diversi. 
+  Nell'esempio seguente `StringToNull` viene illustrato come si comporta in diversi tipi. 
 
 Di seguito sono riportati esempi con input valido.
 
@@ -55,7 +55,7 @@ SELECT
 
 Di seguito sono riportati esempi con input non valido.
 
-Null fa distinzione tra maiuscole e minuscole e deve essere scritto con caratteri minuscoli, ovvero "null".
+Null fa distinzione tra maiuscole e minuscole e deve essere scritto con tutti i caratteri minuscoli, ad esempio "null".
 
 ```sql
 SELECT    
@@ -69,7 +69,7 @@ SELECT
 [{}]
 ```  
 
-L'espressione passata verrà analizzata come espressione null; questi input non restituiscono il tipo null e pertanto restituiscono undefined.
+L'espressione passata verrà analizzata come espressione null. questi input non restituiscono il tipo null e pertanto restituiscono undefined.
 
 ```sql
 SELECT    
@@ -91,6 +91,6 @@ Questa funzione di sistema non utilizzerà l'indice.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Funzioni stringa Azure Cosmos DB](sql-query-string-functions.md)
+- [Funzioni stringa Database Cosmos di AzureString functions Azure Cosmos DB](sql-query-string-functions.md)
 - [Funzioni di sistema Azure Cosmos DB](sql-query-system-functions.md)
-- [Introduzione a Azure Cosmos DB](introduction.md)
+- [Introduzione ad Azure Cosmos DB](introduction.md)

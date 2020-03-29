@@ -1,5 +1,5 @@
 ---
-title: Visualizzare i modelli di traffico di rete con strumenti open source
+title: Visualizza i modelli di traffico di rete con gli strumenti open source
 titleSuffix: Azure Network Watcher
 description: Questo articolo illustra come usare l'acquisizione pacchetti di Network Watcher con CapAnalysis per visualizzare i modelli di traffico da e verso le macchine virtuali.
 services: network-watcher
@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: f36db28b58cd57b6407019b378a82632aa6c6228
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76840656"
 ---
 # <a name="visualize-network-traffic-patterns-to-and-from-your-vms-using-open-source-tools"></a>Visualizzare i modelli di traffico di rete da e verso le macchine virtuali usando strumenti open source
@@ -31,7 +31,7 @@ Una semplice applicazione Web è distribuita in una macchina virtuale in Azure e
 
 ![scenario][1]
 
-## <a name="steps"></a>Procedure
+## <a name="steps"></a>Passaggi
 
 ### <a name="install-capanalysis"></a>Installare CapAnalysis
 
@@ -74,7 +74,7 @@ CapAnalysis offre varie opzioni di visualizzazione dell'acquisizione pacchetti, 
 
 1. Mappa geografica
 
-    Questo riquadro offre una visualizzazione mappa del traffico di rete, con il ridimensionamento dei colori al volume di traffico da ogni paese/area geografica. È possibile selezionare i paesi o le aree evidenziati per visualizzare statistiche di flusso aggiuntive, ad esempio la percentuale di dati inviati e ricevuti dagli indirizzi IP in tale paese/area geografica.
+    Questo riquadro fornisce una visualizzazione mappa del traffico di rete, con colori che scalano il volume di traffico da ogni paese/area geografica. È possibile selezionare i paesi evidenziati per visualizzare statistiche di flusso aggiuntive, ad esempio la percentuale di dati inviati e ricevuti da indirizzi IP in tale paese.You can select highlighted countries to view additional flow statistics such as the proportion of data sent and received from IPs in that country/region.
 
     ![Mappa geografica][8]
 
@@ -84,7 +84,7 @@ CapAnalysis offre varie opzioni di visualizzazione dell'acquisizione pacchetti, 
 
     ![filters][11]
 
-    Per altre informazioni su tutte le funzionalità di CapAnalysis, vedere [https://www.capanalysis.net/ca/#about](https://www.capanalysis.net/ca/#about).
+    Visita [https://www.capanalysis.net/ca/#about](https://www.capanalysis.net/ca/#about) per saperne di più su tutte le funzionalità di CapAnalysis.
 
 ## <a name="conclusion"></a>Conclusioni
 

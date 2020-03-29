@@ -1,15 +1,15 @@
 ---
-title: 'Testabilità: comunicazione tra servizi'
+title: 'Testabilità: Comunicazione del servizio'
 description: Le comunicazioni da servizio a servizio sono un punto di integrazione critico di un'applicazione Infrastruttura di servizi. Questo articolo illustra alcune considerazioni di progettazione e tecniche di test.
 author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: 87b922cb9655588a22c739d26c9ce9e49d35781a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75465557"
 ---
 # <a name="service-fabric-testability-scenarios-service-communication"></a>Scenari di Testabilità di Service Fabric: comunicazione tra servizi
@@ -35,7 +35,7 @@ Dal momento che i servizi si spostano all'interno del cluster, i client e gli al
 
 La gestione normale di questi scenari è importante per garantire che il sistema funzioni senza problemi. A tale scopo, tenere presente quanto segue:
 
-* Ogni servizio a cui è possibile connettersi ha un *indirizzo* sul quale è in ascolto, ad esempio HTTP o WebSocket. Quando un'istanza o una partizione del servizio si sposta, il relativo endpoint dell'indirizzo cambia. Si sposta in un nodo diverso con un indirizzo IP diverso. Se si usano i componenti di comunicazione incorporati, questi gestiranno la ririsoluzione degli indirizzi del servizio.
+* Ogni servizio a cui è possibile connettersi ha un *indirizzo* sul quale è in ascolto, ad esempio HTTP o WebSocket. Quando un'istanza o una partizione del servizio si sposta, il relativo endpoint dell'indirizzo cambia. (Si sposta in un altro nodo con un indirizzo IP diverso.) Se si utilizzano i componenti di comunicazione incorporati, questi gestiranno la risoluzione degli indirizzi dei servizi.
 * Potrebbe esserci un aumento temporaneo della latenza del servizio quando l'istanza del servizio avvia nuovamente il listener. Ciò dipende dalla rapidità con cui il servizio apre il listener dopo lo spostamento dell'istanza del servizio.
 * Tutte le connessioni esistenti devono essere chiuse e riaperte dopo l'apertura del servizio in un nuovo nodo. Un arresto o un riavvio normale del nodo consente di attendere che le connessioni esistenti siano arrestate normalmente.
 

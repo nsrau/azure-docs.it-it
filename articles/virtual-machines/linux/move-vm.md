@@ -1,6 +1,6 @@
 ---
-title: Spostare una VM con l'interfaccia della riga di comando di Azure
-description: Spostare una VM in un'altra sottoscrizione o gruppo di risorse di Azure usando l'interfaccia della riga di comando di Azure.
+title: Spostare una macchina virtuale usando l'interfaccia della riga di comando di AzureMove a VM in using the Azure CLI
+description: Spostare una macchina virtuale in un'altra sottoscrizione o gruppo di risorse di Azure usando l'interfaccia della riga di comando di Azure.Move a VM to another Azure subscription or resource group using the Azure CLI.
 author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
@@ -8,13 +8,13 @@ ms.topic: article
 ms.date: 09/12/2018
 ms.author: cynthn
 ms.openlocfilehash: ebcd5f166fd1876f67121787c23d23860c9fa4b6
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78944594"
 ---
-# <a name="move-a-vm-to-another-subscription-or-resource-group"></a>Spostare una macchina virtuale in un'altra sottoscrizione o gruppo di risorse
+# <a name="move-a-vm-to-another-subscription-or-resource-group"></a>Spostare una macchina virtuale in un'altra sottoscrizione o gruppo di risorseMove a VM to another subscription or resource group
 Questo articolo illustra come spostare una macchina virtuale (VM) tra gruppi di risorse o sottoscrizioni. Lo spostamento di una VM tra sottoscrizioni può essere comodo se è stata creata una VM in una sottoscrizione personale e ora si desidera spostarla alla sottoscrizione dell'azienda.
 
 > [!IMPORTANT]

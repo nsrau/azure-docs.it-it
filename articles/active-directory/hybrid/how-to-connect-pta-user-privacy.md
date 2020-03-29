@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0af1c42e7e2c163e7f9e7407d0236e35bfacf8e8
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76931017"
 ---
 # <a name="user-privacy-and-azure-active-directory-pass-through-authentication"></a>Privacy dell'utente e autenticazione pass-through di Azure Active Directory
@@ -29,7 +29,7 @@ ms.locfileid: "76931017"
 
 [!INCLUDE [Privacy](../../../includes/gdpr-intro-sentence.md)]
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 
 L'autenticazione pass-through di Azure AD crea il seguente tipo di log, che può contenere informazioni personali:
 
@@ -73,7 +73,7 @@ Per visualizzare i log correlati all'agente di autenticazione pass-through, apri
 
 ### <a name="delete-authentication-agent-trace-log-files"></a>Eliminare i file di log di traccia dell'agente di autenticazione
 
-È consigliabile controllare regolarmente il contenuto di **%ProgramData%\MICROSOFT\AZURE ad Connect Authentication Agent\Trace** ed eliminare il contenuto di questa cartella ogni 48 ore. 
+È necessario controllare regolarmente il contenuto di **%ProgramData%** Microsoft Azure AD Connect Authentication Agent Trace ed eliminare il contenuto di questa cartella ogni 48 ore. 
 
 >[!IMPORTANT]
 >Se il servizio agente di autenticazione è in esecuzione, non sarà possibile eliminare il file di log corrente nella cartella. Arrestare il servizio prima di riprovare. Per evitare errori di accesso dell'utente, l'autenticazione pass-through deve essere già configurata per la [disponibilità elevata](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability).
@@ -92,13 +92,13 @@ Per pianificare l'esecuzione di questo script ogni 48 ore, seguire questa proced
 
 1.  Salvare lo script in un file con estensione "PS1".
 2.  Aprire **Pannello di controllo** e fare clic su **Sistema e sicurezza**.
-3.  In **Strumenti di amministrazione** fare clic su **Pianifica attività**.
+3.  Sotto **l'intestazione Strumenti di amministrazione,** fare clic su "**Pianifica attività**".
 4.  In **Utilità di pianificazione** fare clic con il pulsante destro del mouse su **Libreria Utilità di pianificazione** e scegliere **Crea attività di base**.
 5.  Immettere il nome per la nuova attività e fare clic su **Avanti**.
 6.  Selezionare **Ogni giorno** per **Attivazione** e fare clic su **Avanti**.
 7.  Impostare la ricorrenza su due giorni e fare clic su **Avanti**.
 8.  Selezionare **Avvio programma** come azione e fare clic su **Avanti**.
-9.  Digitare **PowerShell** nella casella Programma/script e nella casella **Aggiungi argomenti (facoltativo):** immettere il percorso completo dello script creato in precedenza, quindi fare clic su **Avanti**.
+9.  Digitare "**PowerShell**" nella casella del programma/script e nella casella **"Aggiungi argomenti (facoltativo)**", immettere il percorso completo dello script creato in precedenza, quindi fare clic su **Avanti**.
 10. La schermata successiva mostra un riepilogo dell'attività che si sta per creare. Verificare i valori e fare clic su **Fine** per creare l'attività:
  
 ### <a name="note-about-domain-controller-logs"></a>Nota sui log del controller di dominio
@@ -107,4 +107,4 @@ Se è abilitata la registrazione di controllo, questo prodotto può generare log
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Consultare l'Informativa sulla privacy Microsoft nel Trust Center](https://www.microsoft.com/trustcenter)
-* [**Risoluzione dei problemi**](tshoot-connect-pass-through-authentication.md): informazioni su come risolvere i problemi comuni relativi a questa funzionalità.
+* [**Risoluzione dei problemi:**](tshoot-connect-pass-through-authentication.md) informazioni su come risolvere i problemi comuni relativi alla funzionalità.

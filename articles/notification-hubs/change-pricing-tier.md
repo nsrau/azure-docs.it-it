@@ -1,6 +1,6 @@
 ---
 title: Cambiare il piano tariffario di uno spazio dei nomi di Hub di notifica | Microsoft Docs
-description: Informazioni su come modificare il piano tariffario di uno spazio dei nomi di hub di notifica di Azure.
+description: Informazioni su come modificare il piano tariffario di uno spazio dei nomi di Hub di notifica di Azure.Learn how to change the pricing tier of an Azure Notification Hubs namespace.
 services: notification-hubs
 author: sethmanheim
 manager: femila
@@ -14,16 +14,16 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/28/2019
 ms.openlocfilehash: 51d0880b7f56d523a01fbc993993b3caf7328134
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76261076"
 ---
 # <a name="change-pricing-tier-of-an-azure-notification-hubs-namespace"></a>Cambiare il piano tariffario di uno spazio dei nomi di Hub di notifica di Azure
 Hub di notifica è disponibile con tre piani tariffari: **Gratuito**, **Basic** e **Standard**. Questo articolo illustra come cambiare il piano tariffario per uno spazio dei nomi di Hub di notifica di Azure. 
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 In Hub di notifica di Azure un **hub** corrisponde alla risorsa o entità più piccola, in genere mappata a un'applicazione e in grado di contenere un certificato per ogni Platform Notification System supportato per l'app. L'applicazione può essere ibrida o nativa e multipiattaforma.
 
 Uno **spazio dei nomi** è una raccolta di hub di notifica. Ogni spazio dei nomi in genere è costituito da hub correlati e usati per uno scopo specifico. Ad esempio, si possono avere tre diversi spazi dei nomi rispettivamente a scopo di sviluppo, test e produzione. 
@@ -36,8 +36,8 @@ Quando si usa il portale di Azure, è possibile cambiare il piano tariffario per
 ### <a name="change-tier-on-the-namespace-page"></a>Cambiare piano tariffario nella pagina dello spazio dei nomi
 La procedura seguente illustra i passaggi per cambiare il piano tariffario per uno spazio dei nomi nella pagina dello spazio dei nomi. Quando si cambia il piano tariffario per uno spazio dei nomi, la modifica viene applicata a tutti gli hub nello spazio dei nomi.
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Scegliere **Tutti i servizi** dal menu a sinistra. 
+1. Accedere al [portale](https://portal.azure.com)di Azure .
+2. Selezionare **Tutti i servizi** nel menu a sinistra. 
 3. Selezionare **Spazi dei nomi dell'hub di notifica** nella sezione **Internet delle cose**. Se si seleziona la stella (`*`) accanto al testo, la pagina viene aggiunta alla barra di spostamento a sinistra sotto **PREFERITI**. Da questo momento in poi, si riuscirà ad accedere più rapidamente alla pagina degli spazi dei nomi. Dopo aver aggiunto la pagina ai PREFERITI, selezionare **Spazi dei nomi dell'hub di notifica**. 
 
     ![Tutti i servizi -> Spazi dei nomi dell'hub di notifica](./media/change-pricing-tier/all-services-nhub.png)
@@ -56,8 +56,8 @@ La procedura seguente illustra i passaggi per cambiare il piano tariffario per u
 ### <a name="change-tier-on-the-hub-page"></a>Cambiare piano tariffario nella pagina dell'hub
 La procedura seguente illustra i passaggi per cambiare il piano tariffario per uno spazio dei nomi nella pagina dell'hub. Anche se si parte dalla pagina dell'hub per eseguire questi passaggi, in realtà si cambia il piano tariffario per lo spazio dei nomi e per tutti gli hub in esso inclusi. 
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Scegliere **Tutti i servizi** dal menu a sinistra.
+1. Accedere al [portale](https://portal.azure.com)di Azure .
+2. Selezionare **Tutti i servizi** nel menu a sinistra.
 3. Selezionare **Hub di notifica** nella sezione **Internet delle cose**. 
 4. Selezionare l'**hub** di notifica. 
 5. Scegliere **Piano tariffario** dal menu a sinistra. 

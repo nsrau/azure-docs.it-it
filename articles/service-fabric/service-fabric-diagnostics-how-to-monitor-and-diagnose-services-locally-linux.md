@@ -1,16 +1,16 @@
 ---
-title: Eseguire il debug di app Service Fabric di Azure in Linux
+title: Debug Azure Service Fabric apps in Linux
 description: Informazioni su come eseguire il monitoraggio e la diagnosi dei servizi Service Fabric in un computer di sviluppo locale Linux.
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: d8b5ec2f2190586f5eced5eee112b190a82504c3
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75526295"
 ---
-# <a name="monitor-and-diagnose-services-in-a-local-linux-machine-development-setup"></a>Monitorare e diagnosticare i servizi in una configurazione di sviluppo per computer Linux locale
+# <a name="monitor-and-diagnose-services-in-a-local-linux-machine-development-setup"></a>Monitorare e diagnosticare i servizi in una configurazione di sviluppo del computer Linux localeMonitor and diagnose services in a local Linux machine development setup
 
 
 > [!div class="op_single_selector"]
@@ -24,7 +24,7 @@ Le operazioni di monitoraggio, rilevamento, diagnosi e risoluzione dei problemi 
 
 ## <a name="debugging-service-fabric-java-applications"></a>Debug delle applicazioni Java di Service Fabric
 
-Per le applicazioni Java sono disponibili [più framework di registrazione](https://en.wikipedia.org/wiki/Java_logging_framework) . Dato che `java.util.logging` è l'opzione predefinita con JRE, viene usato anche per gli [esempi di codice in GitHub](https://github.com/Azure-Samples/service-fabric-java-getting-started). Di seguito viene illustrato come configurare il framework `java.util.logging` .
+Per le applicazioni Java sono disponibili [più framework di registrazione](https://en.wikipedia.org/wiki/Java_logging_framework) . Poiché `java.util.logging` è l'opzione predefinita con JRE, viene utilizzata anche per gli esempi di [codice in GitHub](https://github.com/Azure-Samples/service-fabric-java-getting-started). Di seguito viene illustrato come configurare il framework `java.util.logging` .
 
 Usando java.util.logging è possibile reindirizzare i log dell'applicazione a memoria, flussi di output, file di console o socket. Nel framework sono disponibili gestori predefiniti per ognuna di queste opzioni. È possibile creare un file `app.properties` per configurare il gestore di file per l'applicazione in modo da reindirizzare tutti i log a un file locale.
 
@@ -53,7 +53,7 @@ Con questa configurazione, i log verranno raccolti a rotazione in `/tmp/servicef
 
 Se non viene configurato in modo esplicito alcun gestore, per impostazione predefinita viene registrato il gestore della console. È possibile visualizzare i log in syslog, in /var/log/syslog.
 
-Per altre informazioni, vedere gli [GitHub](https://github.com/Azure-Samples/service-fabric-java-getting-started).
+Per ulteriori informazioni, vedere gli esempi di [codice in GitHub](https://github.com/Azure-Samples/service-fabric-java-getting-started).
 
 
 ## <a name="debugging-service-fabric-c-applications"></a>Debug di applicazioni C# di Service Fabric

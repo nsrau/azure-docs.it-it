@@ -1,15 +1,15 @@
 ---
-title: Monitoraggio delle prestazioni di Azure Service Fabric
+title: Azure Service Fabric Performance Monitoring
 description: Informazioni sui contatori delle prestazioni per il monitoraggio e la diagnostica dei cluster di Azure Service Fabric.
 author: srrengar
 ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: srrengar
 ms.openlocfilehash: 30b9b8393007033a7c2e6798cd57d9cf0128820d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75464708"
 ---
 # <a name="performance-metrics"></a>Metriche delle prestazioni
@@ -24,11 +24,11 @@ Per i computer presenti nel cluster è opportuno raccogliere i contatori delle p
 | --- | --- |
 | Logical Disk | Spazio disponibile su disco logico |
 | PhysicalDisk(per Disk) | Lunghezza media coda lettura disco |
-| PhysicalDisk(per Disk) | Lunghezza media coda di scrittura su disco |
+| PhysicalDisk(per Disk) | Lunghezza media coda scrittura disco |
 | PhysicalDisk(per Disk) | Media letture disco/sec |
-| PhysicalDisk(per Disk) | Media scritture disco/sec |
-| PhysicalDisk(per Disk) | Letture disco/sec |
-| PhysicalDisk(per Disk) | Byte letti da disco/sec |
+| PhysicalDisk(per Disk) | Media Scritture disco/sec |
+| PhysicalDisk(per Disk) | Letture disco/sec  |
+| PhysicalDisk(per Disk) | Byte letti da disco/sec  |
 | PhysicalDisk(per Disk) | Scritture disco/sec |
 | PhysicalDisk(per Disk) | Byte scritti su disco/sec |
 | Memoria | MByte disponibili |

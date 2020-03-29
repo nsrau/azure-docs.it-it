@@ -8,10 +8,10 @@ ms.subservice: cosmosdb-graph
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.openlocfilehash: 42f3c7f3351bddab429489dccf28587549d76e18
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78897841"
 ---
 # <a name="use-azure-cosmos-db-resource-tokens-with-the-gremlin-sdk"></a>Usare token di risorsa di Azure Cosmos DB con Gremlin SDK
@@ -95,11 +95,11 @@ builder.authProperties(authenticationProperties);
 
 ## <a name="limit"></a>Limite
 
-Con un singolo account Gremlin si può rilasciare un numero illimitato di token. È tuttavia possibile usare solo un massimo di 100 token contemporaneamente in 1 ora. Se un'applicazione supera il limite di token all'ora, una richiesta di autenticazione viene negata e viene visualizzato un messaggio di errore che informa che è stato superato il limite consentito di 100 token di risorsa utilizzabili contemporaneamente. È inutile chiudere le connessioni attive che usano token specifici per liberare slot per i nuovi token. Il motore di database Gremlin di Azure Cosmos DB tiene traccia dei token univoci nell'ora immediatamente precedente alla richiesta di autenticazione.
+Con un singolo account Gremlin si può rilasciare un numero illimitato di token. È tuttavia possibile usare solo un massimo di 100 token contemporaneamente in 1 ora. Se un'applicazione supera il limite di token all'ora, una richiesta di autenticazione viene negata e viene visualizzato il seguente messaggio di errore: "Superato il limite di token di risorsa consentiti pari a 100 che può essere utilizzato contemporaneamente". È inutile chiudere le connessioni attive che usano token specifici per liberare slot per i nuovi token. Il motore di database Gremlin di Azure Cosmos DB tiene traccia dei token univoci nell'ora immediatamente precedente alla richiesta di autenticazione.
 
 ## <a name="permission"></a>Autorizzazione
 
-Un errore comune che si verifica nelle applicazioni durante l'uso dei token di risorsa è costituito da autorizzazioni insufficienti nell'intestazione dell'autorizzazione per la richiesta corrispondente. Viene quindi indicato di riprovare con un'altra intestazione dell'autorizzazione. Questo errore viene restituito quando un attraversamento di Gremlin tenta di scrivere un arco o un vertice ma il token di risorsa concede solo autorizzazioni *Read*. Controllare l'attraversamento per verificare se contiene uno dei passaggi seguenti: *.addV()* , *.addE()* , *.drop()* o *.property()* .
+Un errore comune che si verifica nelle applicazioni durante l'uso dei token di risorsa è costituito da autorizzazioni insufficienti nell'intestazione dell'autorizzazione per la richiesta corrispondente. Viene quindi indicato di riprovare con un'altra intestazione dell'autorizzazione. Questo errore viene restituito quando un attraversamento di Gremlin tenta di scrivere un arco o un vertice ma il token di risorsa concede solo autorizzazioni *Read*. Controllare l'attraversamento per verificare se contiene uno dei passaggi seguenti: *.addV()*, *.addE()*, *.drop()* o *.property()*.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Controllo degli accessi in base al ruolo](role-based-access-control.md) in Azure Cosmos DB

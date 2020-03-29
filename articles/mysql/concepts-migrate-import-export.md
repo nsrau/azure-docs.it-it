@@ -1,5 +1,5 @@
 ---
-title: Importazione ed esportazione-database di Azure per MySQL
+title: Importazione ed esportazione - Database di Azure per MySQLImport and export - Azure Database for MySQL
 description: Questo articolo illustra i metodi comuni per importare ed esportare database nel database di Azure per MySQL mediante strumenti come MySQL Workbench.
 author: ajlam
 ms.author: andrela
@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 2/27/2020
 ms.openlocfilehash: 83b0a69e063e9427c726216ef873f5a1c97f9582
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78163727"
 ---
 # <a name="migrate-your-mysql-database-by-using-import-and-export"></a>Migrare il database MySQL mediante l'importazione ed esportazione
@@ -19,10 +19,10 @@ In questo articolo vengono illustrati due approcci comuni per importare ed espor
 ## <a name="before-you-begin"></a>Prima di iniziare
 Per proseguire con questa guida, si richiedono:
 - Un database di Azure per il server MySQL, seguendo la procedura descritta in [Creare un database di Azure per il server MySQL tramite il portale di Azure](quickstart-create-mysql-server-database-using-azure-portal.md).
-- MySQL Workbench [MySQL Workbench download](https://dev.mysql.com/downloads/workbench/) o un altro strumento MySQL di terze parti per eseguire l'importazione/esportazione.
+- MySQL Workbench [MySQL Workbench Scaricare](https://dev.mysql.com/downloads/workbench/) o un altro strumento MySQL di terze parti per eseguire l'importazione/esportazione.
 
 ## <a name="use-common-tools"></a>Usare strumenti comuni
-Usare utilità e strumenti comuni, come MySQL Workbench o mysqldump, per connettersi in modalità remota e importare o esportare dati in database di Azure per MySQL. 
+Usare utilità e strumenti comuni come MySQL Workbench o mysqldump per connettere e importare o esportare dati in remoto in Azure Database per MySQL.Use common utilities and tools such as MySQL Workbench or mysqldump to remotely connect and import or export data into Azure Database for MySQL. 
 
 Usare tali strumenti sul computer client con una connessione Internet per connettersi al database di Azure per MySQL. Usare una connessione SSL crittografata per le procedure di sicurezza consigliate, come descritto in [Configurare la connettività SSL nel database di Azure per MySQL](concepts-ssl-connection-security.md).
 

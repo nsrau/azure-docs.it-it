@@ -1,5 +1,5 @@
 ---
-title: Come pianificare l'implementazione di Azure Active Directory join
+title: Come pianificare l'implementazione di join di Azure Active DirectoryHow to plan your Azure Active Directory join implementation
 description: Descrive i passaggi necessari per implementare dispositivi aggiunti ad Azure AD nell'ambiente in uso.
 services: active-directory
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a6bbecf0e365ba7a8424da775245181fa64c21f6
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78672691"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Procedura: Pianificare l'implementazione dell'aggiunta ad Azure AD
@@ -24,13 +24,13 @@ L'aggiunta ad Azure AD permette di aggiungere dispositivi direttamente ad Azure 
 
 Questo articolo contiene le informazioni necessarie per pianificare l'implementazione dell'aggiunta ad Azure AD.
  
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Questo articolo presuppone che l'utente abbia familiarità con quanto descritto in [Introduzione alla gestione dei dispositivi in Azure Active Directory](../device-management-introduction.md).
 
 ## <a name="plan-your-implementation"></a>Pianificare l'implementazione
 
-Per pianificare l'implementazione di Azure AD join, è necessario acquisire familiarità con:
+Per pianificare l'implementazione di join di Azure AD, è necessario acquisire familiarità con:To plan your Azure AD join implementation, you should familiaryourself yourself with:
 
 |   |   |
 |---|---|
@@ -78,7 +78,7 @@ Quando si usa AD FS, è necessario abilitare gli endpoint WS-Trust seguenti: `/a
 Se il provider di identità non supporta questi protocolli, l'aggiunta ad Azure AD non funziona in modo nativo. 
 
 >[!NOTE]
-> Attualmente, Azure AD join non funziona con [AD FS 2019 configurato con provider di autenticazione esterni come metodo di autenticazione principale](/windows-server/identity/ad-fs/operations/additional-authentication-methods-ad-fs#enable-external-authentication-methods-as-primary). Per impostazione predefinita, Azure AD join è l'autenticazione con password come metodo principale, che comporta errori di autenticazione in questo scenario
+> Attualmente, l'aggiunta ad Azure AD non funziona con [AD FS 2019 configurato con provider](/windows-server/identity/ad-fs/operations/additional-authentication-methods-ad-fs#enable-external-authentication-methods-as-primary)di autenticazione esterni come metodo di autenticazione principale. Il join di Azure AD per impostazione predefinita è l'autenticazione della password come metodo principale, con conseguente errori di autenticazione in questo scenarioAzure AD join defaults to password authentication as the primary method, which results in authentication failures in this scenario
 
 
 ### <a name="smartcards-and-certificate-based-authentication"></a>Smart card e autenticazione basata su certificato
@@ -110,10 +110,10 @@ L'aggiunta ad Azure AD:
 
 ### <a name="management-platform"></a>Piattaforma di gestione
 
-La gestione dei dispositivi per Azure AD dispositivi aggiunti si basa su una piattaforma MDM, ad esempio Intune, e DSN MDM. Windows 10 include un agente MDM integrato che funziona con tutte le soluzioni MDM compatibili.
+La gestione dei dispositivi per i dispositivi aggiunti ad Azure AD si basa su una piattaforma MDM, ad esempio Intune, e CSP MDM. Windows 10 include un agente MDM integrato che funziona con tutte le soluzioni MDM compatibili.
 
 > [!NOTE]
-> I criteri di gruppo non sono supportati nei dispositivi Azure AD aggiunti perché non sono connessi a Active Directory locali. La gestione dei dispositivi Azure AD aggiunti è possibile solo tramite MDM
+> I criteri di gruppo non sono supportati nei dispositivi aggiunti ad Azure AD in quanto non sono connessi ad Active Directory locale. La gestione dei dispositivi aggiunti ad Azure AD è possibile solo tramite MDM
 
 Esistono due approcci per la gestione dei dispositivi aggiunti ad Azure AD:
 
@@ -129,7 +129,7 @@ Esaminare i criteri supportati e non supportati per determinare se sia possibile
 
 Se la soluzione MDM non è disponibile tramite la raccolta di app Azure AD, è possibile aggiungerla seguendo il processo descritto in [Azure Active Directory integration with MDM](/windows/client-management/mdm/azure-active-directory-integration-with-mdm) (Integrazione di Azure Active Directory con MDM). 
 
-Tramite la co-gestione, è possibile usare SCCM per gestire determinati aspetti dei dispositivi, mentre i criteri vengono distribuiti tramite la piattaforma MDM. Microsoft Intune permette la co-gestione con SCCM. Per altre informazioni sulla co-gestione per i dispositivi Windows 10, vedere [che cos'è la co-gestione?](/configmgr/core/clients/manage/co-management-overview). Se si usa un prodotto MDM diverso da Intune, verificare con il provider MDM gli scenari di co-gestione applicabili.
+Tramite la co-gestione, è possibile usare SCCM per gestire determinati aspetti dei dispositivi, mentre i criteri vengono distribuiti tramite la piattaforma MDM. Microsoft Intune permette la co-gestione con SCCM. Per ulteriori informazioni sulla co-gestione per i dispositivi Windows 10, vedere [Che cos'è la co-gestione?](/configmgr/core/clients/manage/co-management-overview). Se si usa un prodotto MDM diverso da Intune, verificare con il provider MDM gli scenari di co-gestione applicabili.
 
 **Consiglio:** prendere in considerazione la gestione solo MDM per i dispositivi aggiunti ad Azure AD.
 
@@ -290,13 +290,13 @@ Se per i dispositivi aggiunti ad Azure AD è stato configurato un provider MDM, 
 
 ![Dispositivo conforme](./media/azureadjoin-plan/46.png)
 
-È possibile usare questa implementazione per [richiedere i dispositivi gestiti per l'accesso alle app cloud con accesso condizionale](../conditional-access/require-managed-devices.md).
+È possibile usare questa implementazione per [richiedere dispositivi gestiti per l'accesso](../conditional-access/require-managed-devices.md)alle app cloud con accesso condizionale .
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Aggiungere un nuovo dispositivo Windows 10 con Azure AD in fase di completamento dell'installazione](azuread-joined-devices-frx.md)
-> [Aggiungere il dispositivo aziendale alla rete dell'organizzazione](/azure/active-directory/user-help/user-help-join-device-on-network)
+> [Aggiungere un nuovo dispositivo Windows 10 con Azure AD durante una prima esecuzione](azuread-joined-devices-frx.md)
+> Aggiungere il dispositivo di[lavoro alla rete dell'organizzazione](/azure/active-directory/user-help/user-help-join-device-on-network)
 
 <!--Image references-->
 [1]: ./media/azureadjoin-plan/12.png

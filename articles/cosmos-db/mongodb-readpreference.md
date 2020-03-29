@@ -1,5 +1,5 @@
 ---
-title: Usare la preferenza di lettura con l'API Azure Cosmos DB per MongoDB
+title: Usare la preferenza Lettura con l'API di Azure Cosmos DB per MongoDBUse Read preference with the Azure Cosmos DB's API for MongoDB
 description: Informazioni su come usare le preferenze di lettura di MongoDB con l'API di Azure Cosmos DB per MongoDB
 author: sivethe
 ms.author: sivethe
@@ -9,10 +9,10 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.openlocfilehash: 10e6ed556abe8f8c438e5436fbb93c1b70b85d2b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75445168"
 ---
 # <a name="how-to-globally-distribute-reads-using-azure-cosmos-dbs-api-for-mongodb"></a>Come distribuire a livello globale le letture tramite l'API di Azure Cosmos DB per MongoDB

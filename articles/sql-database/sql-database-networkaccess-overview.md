@@ -1,6 +1,6 @@
 ---
 title: Controlli di accesso alla rete
-description: Panoramica dei controlli di accesso alla rete per il database SQL di Azure e data warehouse per gestire l'accesso e configurare un database singolo o in pool.
+description: Panoramica dei controlli di accesso alla rete per il database SQL di Azure e il data warehouse per gestire l'accesso e configurare un database singolo o in pool.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -13,59 +13,59 @@ ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 03/09/2020
 ms.openlocfilehash: 822fab5c00501d415c3c184587141e869523e417
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78945385"
 ---
-# <a name="azure-sql-database-and-data-warehouse-network-access-controls"></a>Controlli di accesso alla rete del database SQL di Azure e data warehouse
+# <a name="azure-sql-database-and-data-warehouse-network-access-controls"></a>Controlli di accesso alla rete del database SQL di Azure e del data warehouseAzure SQL Database and Data Warehouse network access controls
 
 > [!NOTE]
 > Questo articolo è applicabile al server SQL di Azure e ai database SQL e di SQL Data Warehouse creati nel server SQL di Azure. Per semplicità, "database SQL" viene usato per fare riferimento sia al database SQL che al database di SQL Data Warehouse.
 
 > [!IMPORTANT]
-> Le informazioni di questo articolo *non* sono valide per **Istanza gestita di database SQL di Azure**. Per ulteriori informazioni sulla configurazione di rete, vedere la pagina relativa [alla connessione a un istanza gestita](sql-database-managed-instance-connect-app.md) .
+> Le informazioni di questo articolo *non* sono valide per **Istanza gestita di database SQL di Azure**. Per ulteriori informazioni sulla configurazione di rete, vedere [connessione a un'istanza gestita](sql-database-managed-instance-connect-app.md) .
 
-Quando si crea una nuova SQL Server di Azure dalla [portale di Azure](sql-database-single-database-get-started.md), il risultato è un endpoint pubblico nel formato *yourservername.database.Windows.NET*.
+Quando si crea un nuovo sql Server di Azure dal portale di [Azure,](sql-database-single-database-get-started.md)il risultato è un endpoint pubblico nel formato *yourservername.database.windows.net*.
 
-È possibile usare i seguenti controlli di accesso alla rete per consentire selettivamente l'accesso al database SQl tramite l'endpoint pubblico:
-- Consenti i servizi di Azure: quando è impostato su ON, altre risorse all'interno del limite di Azure, ad esempio una macchina virtuale di Azure, possono accedere al database SQL
+È possibile utilizzare i seguenti controlli di accesso alla rete per consentire selettivamente l'accesso al database SQl tramite l'endpoint pubblico:You can use the following network access controls to selectively allow access to the SQl Database via the public endpoint:
+- Consenti servizi di Azure: se impostato su ON, altre risorse all'interno del limite di Azure, ad esempio una macchina virtuale di Azure, possono accedere al database SQLAllow Azure Services: When set to ON, other resources within the Azure boundary, for example an Azure Virtual Machine, can access SQL Database
 
-- Regole del firewall IP: usare questa funzionalità per consentire in modo esplicito le connessioni da un indirizzo IP specifico, ad esempio da computer locali
+- Regole del firewall IP: utilizzare questa funzionalità per consentire in modo esplicito le connessioni da un indirizzo IP specifico, ad esempio da computer locali
 
-È anche possibile consentire l'accesso privato al database SQL dalle [reti virtuali](../virtual-network/virtual-networks-overview.md) tramite:
-- Regole del firewall della rete virtuale: usare questa funzionalità per consentire il traffico da una rete virtuale specifica entro il limite di Azure
+È inoltre possibile consentire l'accesso privato al database SQL da reti virtuali tramite:You can also allow private access to the SQL Database from [Virtual Networks](../virtual-network/virtual-networks-overview.md) via:
+- Regole del firewall della rete virtuale: usare questa funzionalità per consentire il traffico da una rete virtuale specifica all'interno del limite di AzureVirtual Network firewall rules: Use this feature to allow traffic from a specific Virtual Network within the Azure boundary
 
-- Collegamento privato: usare questa funzionalità per creare un endpoint privato per SQL Server di Azure in una rete virtuale specifica
+- Private Link: Use this feature to create a private endpoint for Azure SQL Server within a specific Virtual Network
 
 
 
-Vedere il video seguente per una spiegazione di alto livello di questi controlli di accesso e le operazioni eseguite:
+Guarda il video qui sotto per una spiegazione di alto livello di questi controlli di accesso e di cosa fanno:
 > [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/Data-Exposed--SQL-Database-Connectivity-Explained/player?WT.mc_id=dataexposed-c9-niner]
 
 
-## <a name="allow-azure-services"></a>Consenti i servizi di Azure 
-Durante la creazione di una nuova SQL Server di Azure [da portale di Azure](sql-database-single-database-get-started.md), questa impostazione rimane deselezionata.
+## <a name="allow-azure-services"></a>Consentire i servizi di AzureAllow Azure services 
+Durante la creazione di un nuovo Azure SQL Server dal portale di [Azure,](sql-database-single-database-get-started.md)questa impostazione viene lasciata deselezionata.
 
 
 
-È anche possibile modificare questa impostazione tramite il riquadro Firewall dopo la creazione del SQL Server di Azure come indicato di seguito.
+È anche possibile modificare questa impostazione tramite il riquadro del firewall dopo la creazione di Azure SQL Server come indicato di seguito.
   
- ![Screenshot della gestione del firewall del server][2]
+ ![Schermata della gestione del firewall del server][2]
 
-Quando è impostato **su in** Azure SQL Server consente le comunicazioni da tutte le risorse all'interno del limite di Azure, che possono o meno essere parte della sottoscrizione.
+Se impostato su **ON** Azure SQL Server consente comunicazioni da tutte le risorse all'interno del limite di Azure, che possono o non possono far parte della sottoscrizione.
 
-In molti casi, l'impostazione on è più permissiva rispetto **a** quella che la maggior parte dei clienti desidera. Potrebbe essere necessario impostare questa impostazione su **off** e sostituirla con regole del firewall IP più restrittive o regole del firewall della rete virtuale. Questa operazione influiscono sulle funzionalità seguenti che vengono eseguite in macchine virtuali in Azure che non fanno parte della VNet e quindi si connettono al database SQL tramite un indirizzo IP di Azure.
+In molti casi, l'impostazione **ON** è più permissiva di quella che la maggior parte dei clienti desidera. È possibile che si desideri impostare questa impostazione **su OFF** e sostituirla con regole firewall IP più restrittive o regole del firewall della rete virtuale. Questa operazione influisce sulle funzionalità seguenti eseguite nelle macchine virtuali in Azure che non fanno parte della rete virtuale e quindi si connettono al database SQL tramite un indirizzo IP di Azure.Doing so affects the following features that run on VMs in Azure that not part of your VNet and then connect to Sql Database via an Azure IP address.
 
 ### <a name="import-export-service"></a>Servizio Importazione/Esportazione di Azure
-Il servizio importazione/esportazione non funziona **consente ai servizi di Azure di accedere al server** impostato su disattivato. Tuttavia è possibile aggirare il problema eseguendo [manualmente SqlPackage. exe da una macchina virtuale di Azure o eseguendo l'esportazione](https://docs.microsoft.com/azure/sql-database/import-export-from-vm) direttamente nel codice usando l'API DACFx.
+Il servizio di esportazione dell'importazione non funziona **Consenti ai servizi di Azure** di accedere al server impostato su OFF. Tuttavia, è possibile aggirare il problema [eseguendo manualmente sqlpackage.exe da una macchina virtuale di Azure o eseguendo l'esportazione](https://docs.microsoft.com/azure/sql-database/import-export-from-vm) direttamente nel codice usando l'API DACFx.However you can work around the problem by manually running sqlpackage.exe from an Azure VM or performing the export directly in your code by using the DACFx API.
 
 ### <a name="data-sync"></a>Sincronizzazione dei dati
-Per usare la funzionalità di sincronizzazione dati con **Consenti ai servizi di Azure di accedere al server** impostato su disattivato, è necessario creare singole voci di regole del firewall per [aggiungere indirizzi IP](sql-database-server-level-firewall-rule.md) dal tag del **servizio SQL** per l'area che ospita il database **Hub** .
-Aggiungere queste regole del firewall a livello di server ai server logici che ospitano i database di **Hub** e **membri** (che possono trovarsi in aree diverse)
+Per usare la funzionalità di sincronizzazione dei dati con **Consenti ai servizi di Azure** di accedere al server impostato su OFF, è necessario creare singole voci delle regole del firewall per aggiungere indirizzi [IP](sql-database-server-level-firewall-rule.md) dal tag del **servizio Sql** per l'area che ospita il database **Hub.**
+Aggiungere queste regole del firewall a livello di server ai server logici che ospitano i database **Hub** e **Member** (che possono trovarsi in aree diverse)
 
-Usare lo script di PowerShell seguente per generare gli indirizzi IP corrispondenti al tag del servizio SQL per l'area Stati Uniti occidentali
+Usare lo script di PowerShell seguente per generare gli indirizzi IP corrispondenti al tag di servizio Sql per l'area Stati Uniti occidentaliUse the following PowerShell script to generate the IP addresses corresponding to Sql service tag for West US region
 ```powershell
 PS C:\>  $serviceTags = Get-AzNetworkServiceTag -Location eastus2
 PS C:\>  $sql = $serviceTags.Values | Where-Object { $_.Name -eq "Sql.WestUS" }
@@ -81,9 +81,9 @@ PS C:\> $sql.Properties.AddressPrefixes
 ```
 
 > [!TIP]
-> Get-AzNetworkServiceTag restituisce l'intervallo globale per il tag del servizio SQL, sebbene specifichi il parametro location. Assicurarsi di filtrarlo nell'area che ospita il database hub usato dal gruppo di sincronizzazione
+> Get-AzNetworkServiceTag restituisce l'intervallo globale per il tag del servizio SQL nonostante specifichi il parametro Location. Assicurarsi di filtrarlo in base all'area che ospita il database Hub utilizzato dal gruppo di sincronizzazione
 
-Si noti che l'output dello script di PowerShell è in notazione CIDR (Inter-Domain Routing), che deve essere convertito in un formato di indirizzo IP iniziale e finale usando [Get-IPrangeStartEnd. ps1](https://gallery.technet.microsoft.com/scriptcenter/Start-and-End-IP-addresses-bcccc3a9) come questo
+Si noti che l'output dello script di PowerShell è in notazione Classless Tra-Domain Routing (CIDR) e questo deve essere convertito in un formato di indirizzo IP iniziale e finale utilizzando [Get-IPrangeStartEnd.ps1](https://gallery.technet.microsoft.com/scriptcenter/Start-and-End-IP-addresses-bcccc3a9) in questo modo
 ```powershell
 PS C:\> Get-IPrangeStartEnd -ip 52.229.17.93 -cidr 26                                                                   
 start        end
@@ -91,7 +91,7 @@ start        end
 52.229.17.64 52.229.17.127
 ```
 
-Eseguire i passaggi aggiuntivi seguenti per convertire tutti gli indirizzi IP da CIDR al formato indirizzo IP iniziale e finale.
+Eseguire la procedura aggiuntiva seguente per convertire tutti gli indirizzi IP da CIDR al formato di indirizzo IP iniziale e finale.
 
 ```powershell
 PS C:\>foreach( $i in $sql.Properties.AddressPrefixes) {$ip,$cidr= $i.split('/') ; Get-IPrangeStartEnd -ip $ip -cidr $cidr;}                                                                                                                
@@ -101,57 +101,57 @@ start          end
 13.86.216.128  13.86.216.191
 13.86.216.192  13.86.216.223
 ```
-È ora possibile aggiungerli come regole del firewall distinte, quindi impostare **Consenti ai servizi di Azure di accedere al server** .
+È ora possibile aggiungerli come regole del firewall distinte e quindi impostare **Consenti ai servizi di Azure di accedere al server** su OFF.
 
 
 ## <a name="ip-firewall-rules"></a>Regole del firewall IP
-Il firewall basato su IP è una funzionalità di SQL Server di Azure che impedisce l'accesso al server di database finché non si aggiungono in modo esplicito [gli indirizzi IP](sql-database-server-level-firewall-rule.md) dei computer client.
+Firewall basato su IP è una funzionalità di Azure SQL Server che impedisce l'accesso al server di database fino a quando non si aggiungono in modo esplicito [gli indirizzi IP](sql-database-server-level-firewall-rule.md) dei computer client.
 
 
-## <a name="virtual-network-firewall-rules"></a>Regole del firewall della rete virtuale
+## <a name="virtual-network-firewall-rules"></a>Regole del firewall della rete virtualeVirtual Network firewall rules
 
-Oltre alle regole IP, Azure SQL Server Firewall consente di definire *le regole della rete virtuale*.  
-Per altre informazioni, vedere [endpoint del servizio di rete virtuale e regole per il database SQL di Azure](sql-database-vnet-service-endpoint-rule-overview.md) o guardare questo video:
+Oltre alle regole IP, il firewall di Azure SQL Server consente di definire le regole di *rete virtuale.*  
+Per altre informazioni, vedere Endpoint e regole del servizio di rete virtuale per il database SQL di Azure o guardare questo video:To learn more, see [Virtual Network service endpoints and rules for Azure SQL Database](sql-database-vnet-service-endpoint-rule-overview.md) or watch this video:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/Data-Exposed--Demo--Vnet-Firewall-Rules-for-SQL-Database/player?WT.mc_id=dataexposed-c9-niner]
 
- ### <a name="azure-networking-terminology"></a>Terminologia di rete di Azure  
-Quando si esplorano le regole del firewall di rete virtuale, tenere presenti le condizioni di rete di Azure seguenti:
+ ### <a name="azure-networking-terminology"></a>Terminologia di Rete di AzureAzure Networking terminology  
+Tenere presente i seguenti termini di Rete di Azure durante l'esplorazione delle regole del firewall della rete virtuale
 
-**Rete virtuale:** È possibile avere reti virtuali associate alla sottoscrizione di Azure 
+**Rete virtuale:** È possibile avere reti virtuali associate alla sottoscrizione di AzureYou can have virtual networks associated with your Azure subscription 
 
 **Subnet:** una rete virtuale contiene **subnet**. Le macchine virtuali (VM) di Azure esistenti vengono assegnate a subnet. Una subnet può contenere varie VM o altri nodi di calcolo. I nodi di calcolo esterni alla rete virtuale non possono accedervi, a meno che non si configuri la sicurezza in modo da consentirne l'accesso.
 
-**Endpoint servizio di rete virtuale:** un [endpoint servizio di rete virtuale](../virtual-network/virtual-network-service-endpoints-overview.md) è una subnet in cui i valori delle proprietà includono uno o più nomi formali di tipi di servizi Azure. Questo articolo è incentrato sul nome del tipo **Microsoft.Sql**, che fa riferimento al servizio Azure denominato Database SQL.
+**Endpoint servizio di rete virtuale:** un [endpoint servizio di rete virtuale](../virtual-network/virtual-network-service-endpoints-overview.md) è una subnet in cui i valori di proprietà includono uno o più nomi formali di tipi di servizi Azure. Questo articolo è incentrato sul nome del tipo **Microsoft.Sql**, che fa riferimento al servizio Azure denominato Database SQL.
 
 **Regola di rete virtuale:** una regola di rete virtuale per il server di database SQL è una subnet presente nell'elenco di controllo di accesso (ACL) del server di database SQL. Per essere nell'elenco ACL del database SQL, la subnet deve contenere il nome del tipo **Microsoft.Sql**. Una regola di rete virtuale indica al server di database SQL di accettare le comunicazioni da ogni nodo che si trova nella subnet.
 
 
-## <a name="ip-vs-virtual-network-firewall-rules"></a>Regole del firewall di rete virtuale e IP
+## <a name="ip-vs-virtual-network-firewall-rules"></a>Regole del firewall tra indirizzi IP e reti virtuali
 
-Il firewall SQL Server di Azure consente di specificare gli intervalli di indirizzi IP da cui le comunicazioni vengono accettate nel database SQL. Questo approccio è ideale per gli indirizzi IP stabili esterni alla rete privata di Azure, Tuttavia, le macchine virtuali (VM) nella rete privata di Azure sono configurate con indirizzi IP *dinamici* . Gli indirizzi IP dinamici possono cambiare quando la macchina virtuale viene riavviata e, a sua volta, invalida la regola del firewall basata su IP. Sarebbe inutile specificare un indirizzo IP dinamico in una regola del firewall, in un ambiente di produzione.
+Il firewall di SQL Server di Azure consente di specificare intervalli di indirizzi IP da cui le comunicazioni vengono accettate nel database SQL. Questo approccio è ideale per gli indirizzi IP stabili esterni alla rete privata di Azure, Tuttavia, le macchine virtuali (VM) all'interno della rete privata di Azure sono configurate con indirizzi IP *dinamici.* Gli indirizzi IP dinamici possono cambiare quando la macchina virtuale viene riavviata e a sua volta invalidare la regola del firewall basato su IP. Sarebbe inutile specificare un indirizzo IP dinamico in una regola del firewall, in un ambiente di produzione.
 
-Per ovviare a questa limitazione, è possibile ottenere un indirizzo IP *statico* per la macchina virtuale. Per informazioni dettagliate, vedere [configurare indirizzi IP privati per una macchina virtuale usando il portale di Azure](../virtual-network/virtual-networks-static-private-ip-arm-pportal.md). Tuttavia, l'approccio IP statico può diventare difficile da gestire ed è dispendioso a livello di scalabilità. 
+È possibile aggirare questa limitazione ottenendo un indirizzo IP *statico* per la macchina virtuale. Per i dettagli, vedere [Configurare indirizzi IP privati per una VM mediante il portale di Azure](../virtual-network/virtual-networks-static-private-ip-arm-pportal.md). Tuttavia, l'approccio IP statico può diventare difficile da gestire ed è dispendioso a livello di scalabilità. 
 
-Le regole della rete virtuale sono un'alternativa più semplice per definire e gestire l'accesso da una subnet specifica che contiene le macchine virtuali.
+Le regole di rete virtuale sono un'alternativa più semplice per stabilire e gestire l'accesso da una subnet specifica che contiene le macchine virtuali.
 
 > [!NOTE]
 > Il database SQL non è ancora disponibile in una subnet. Se il server di database SQL di Azure è un nodo in una subnet nella rete virtuale, tutti i nodi all'interno della rete virtuale possono comunicare con il database SQL. In questo caso, le macchine virtuali possono comunicare con il database SQL senza aver bisogno di regole di rete virtuale o IP.
 
 ## <a name="private-link"></a>Collegamento privato 
-Collegamento privato consente di connettersi ad Azure SQL Server tramite un **endpoint privato**. Un endpoint privato è un indirizzo IP privato all'interno di una [rete virtuale](../virtual-network/virtual-networks-overview.md) e una subnet specifiche.
+Private Link consente di connettersi ad Azure SQL Server tramite un **endpoint privato.** Un endpoint privato è un indirizzo IP privato all'interno di una [rete virtuale](../virtual-network/virtual-networks-overview.md) e di una subnet specifiche.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per una guida introduttiva alla creazione di una regola del firewall IP a livello di server, vedere [creare un database SQL di Azure](sql-database-single-database-get-started.md).
+- Per una guida introduttiva alla creazione di una regola del firewall IP a livello di server, vedere Creare un database SQL di [Azure.](sql-database-single-database-get-started.md)
 
-- Per una guida introduttiva sulla creazione di una regola del firewall VNET a livello di server, vedere [endpoint del servizio di rete virtuale e regole per il database SQL di Azure](sql-database-vnet-service-endpoint-rule-overview.md).
+- Per una guida introduttiva alla creazione di una regola del firewall Vnet a livello di server, vedere Endpoint e regole del servizio di rete virtuale per il database SQL di Azure.For a quickstart on creating a server-level Vnet firewall rule, see [Virtual Network service endpoints and rules for Azure SQL Database.](sql-database-vnet-service-endpoint-rule-overview.md)
 
-- Per informazioni sulla connessione a un database SQL di Azure da applicazioni open source o di terze parti, vedere [esempi di codice di avvio rapido del client per il database SQL](https://msdn.microsoft.com/library/azure/ee336282.aspx).
+- Per informazioni sulla connessione a un database SQL di Azure da applicazioni open source o di terze parti, vedere Esempi di codice delle guide rapide client [in Database SQL.](https://msdn.microsoft.com/library/azure/ee336282.aspx)
 
 - Per informazioni sulle porte aggiuntive che si possono dover aprire vedere la sezione **Esterno rispetto all'interno** di [Porte successive alla 1433 per ADO.NET 4.5](sql-database-develop-direct-route-ports-adonet-v12.md).
 
-- Per una panoramica della connettività del database SQL di Azure, vedere [architettura di connettività SQL di Azure](sql-database-connectivity-architecture.md)
+- Per una panoramica della connettività del database SQL di Azure, vedere Architettura della [connettività SQL](sql-database-connectivity-architecture.md) di AzureFor an overview of Azure SQL Database Connectivity, see Azure SQL Connectivity Architecture
 
 - Per una panoramica della sicurezza del Database SQL di Azure vedere [Protezione del Database SQL](sql-database-security-overview.md)
 

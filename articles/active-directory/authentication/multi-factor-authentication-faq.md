@@ -1,5 +1,5 @@
 ---
-title: Domande frequenti su Azure Multi-Factor Authentication-Azure Active Directory
+title: Azure Multi-Factor Authentication FAQ - Azure Active Directory
 description: Domande frequenti e risposte su Azure Multi-Factor Authentication.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -12,26 +12,26 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2a622245a7431058582131d9ba224ddfb676d8aa
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75425144"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Domande frequenti su Azure Multi-Factor Authentication
 
 Queste domande frequenti offrono risposte su Azure Multi-Factor Authentication e sull'uso del servizio Multi-Factor Authentication. Le domande sono suddivise fra servizio in generale, modelli di fatturazione, esperienze utente e risoluzione dei problemi.
 
-## <a name="general"></a>Informazioni di carattere generale
+## <a name="general"></a>Generale
 
 > [!IMPORTANT]
-> A partire dal 1 ° luglio 2019, Microsoft non offrirà più il server multi-factor authentication per le nuove distribuzioni. I nuovi clienti che desiderano richiedere l'autenticazione a più fattori dagli utenti devono usare Azure Multi-Factor Authentication basato sul cloud. I clienti esistenti che hanno attivato il server di autenticazione a più fattori prima del 1 ° luglio potranno scaricare la versione più recente, gli aggiornamenti futuri e generare le credenziali di attivazione come di consueto.
+> A partire dal 1 luglio 2019, Microsoft non offrirà più MFA Server per le nuove distribuzioni. I nuovi clienti che desiderano richiedere l'autenticazione a più fattori dai propri utenti devono usare L'autenticazione a più fattori di Azure basata su cloud. I clienti esistenti che hanno attivato MFA Server prima del 1 luglio potranno scaricare la versione più recente, gli aggiornamenti futuri e generare le credenziali di attivazione come di consueto.
 > 
-> Le licenze basate sul consumo non sono più disponibili per i nuovi clienti a partire dal 1 ° settembre 2018.
-> A partire dal 1 ° settembre 2018 non è più possibile creare nuovi provider di autenticazione. I provider di autenticazione esistenti potranno continuare a essere usati e aggiornato. L'autenticazione a più fattori continuerà a essere una funzionalità disponibile nelle licenze di Azure AD Premium.
+> Le licenze basate sul consumo non sono più disponibili per i nuovi clienti a partire dal 1 settembre 2018.
+> A partire dal 1 settembre 2018 non è più possibile creare nuovi provider di autenticazione. I provider di autenticazione esistenti potranno continuare a essere usati e aggiornato. L'autenticazione a più fattori continuerà a essere una funzionalità disponibile nelle licenze di Azure AD Premium.
 
 > [!NOTE]
-> Le informazioni riportate di seguito relative all'server Multi-Factor Authentication di Azure sono valide solo per gli utenti che hanno già eseguito il server di autenticazione a più fattori.
+> Le informazioni condivise di seguito relative al server Azure Multi-Factor Authentication sono applicabili solo agli utenti che hanno già il server MFA in esecuzione.
 
 **D: In che modo il server Azure Multi-Factor Authentication gestisce i dati utente?**
 
@@ -40,8 +40,8 @@ Con il server Multi-Factor Authentication, i dati utente vengono archiviati solo
 Quando le richieste di autenticazione vengono inviate al servizio cloud, vengono raccolti dati per i report di autenticazione e uso. Di seguito sono riportati i campi di dati inclusi nei log di verifica in due passaggi:
 
 * **ID univoco:** nome utente o ID del server Multi-Factor Authentication locale
-* **Nome e cognome:** facoltativo
-* **Indirizzo di posta elettronica:** facoltativo
+* **Nome e Cognome** (facoltativo)
+* **Indirizzo e-mail** (opzionale)
 * **Numero di telefono:** quando si esegue una chiamata vocale o l'autenticazione tramite SMS
 * **Token del dispositivo:** quando si esegue l'autenticazione con l'app per dispositivi mobili
 * **Modalità di autenticazione**
@@ -68,7 +68,7 @@ In Canada Microsoft usa i seguenti codici brevi SMS:
    * 759731 
    * 673801
 
-Microsoft non garantisce l'invio coerente di prompt Multi-Factor Authentication via SMS o vocali allo stesso numero. Nell'interesse degli utenti, Microsoft può aggiungere o rimuovere codici brevi in qualsiasi momento per eseguire modifiche di route per migliorare il recapito degli SMS. Microsoft non supporta i codici brevi per i paesi/aree geografiche oltre al Stati Uniti e al Canada.
+Microsoft non garantisce l'invio coerente di prompt Multi-Factor Authentication via SMS o vocali allo stesso numero. Nell'interesse degli utenti, Microsoft può aggiungere o rimuovere codici brevi in qualsiasi momento per eseguire modifiche di route per migliorare il recapito degli SMS. Microsoft non supporta i codici brevi per i paesi oltre gli Stati Uniti e il Canada.
 
 ## <a name="billing"></a>Fatturazione
 
@@ -96,7 +96,7 @@ Per altre informazioni sulle opzioni, vedere [Come ottenere Azure Multi-Factor A
 
 In alcuni casi, sì.
 
-Multi-Factor Authentication per gli amministratori di Azure offre un subset di funzionalità di autenticazione a più fattori di Azure senza costi aggiuntivi per l'accesso a Microsoft Servizi online, tra cui l'interfaccia di amministrazione di [portale di Azure](https://portal.azure.com) e [Microsoft 365](https://admin.microsoft.com). Questa offerta è valida solo per gli amministratori globali nelle istanze di Azure Active Directory che non dispongono della versione completa di Azure MFA tramite una licenza MFA, un bundle o un provider autonomo in base al consumo. Se gli amministratori usano la versione gratuita e quindi si acquista una versione completa di Azure MFA, tutti gli amministratori globali vengono passati automaticamente alla versione a pagamento.
+Multi-Factor Authentication for Azure Administrators offre un sottoinsieme di funzionalità di Azure MFA senza alcun costo per l'accesso ai servizi online Microsoft, tra cui il portale di [Azure](https://portal.azure.com) e l'interfaccia di amministrazione di [Microsoft 365.](https://admin.microsoft.com) Questa offerta è valida solo per gli amministratori globali nelle istanze di Azure Active Directory che non dispongono della versione completa di Azure MFA tramite una licenza MFA, un bundle o un provider autonomo in base al consumo. Se gli amministratori usano la versione gratuita e quindi si acquista una versione completa di Azure MFA, tutti gli amministratori globali vengono passati automaticamente alla versione a pagamento.
 
 Multi-Factor Authentication per utenti di Office 365 offre un sottoinsieme delle funzionalità di Azure MFA senza costi aggiuntivi per l'accesso ai servizi Office 365, inclusi Exchange Online e SharePoint Online. Questa offerta è valida per gli utenti con una licenza Office 365 assegnata quando l'istanza corrispondente di Azure Active Directory non dispone della versione completa di Azure MFA tramite una licenza MFA, un bundle o un provider autonomo in base al consumo.
 
@@ -104,7 +104,7 @@ Multi-Factor Authentication per utenti di Office 365 offre un sottoinsieme delle
 
 Se l'organizzazione acquista MFA come servizio autonomo con fatturazione in base al consumo, il modello di fatturazione viene scelto quando si crea un provider di MFA. Dopo la creazione del provider di MFA non è più possibile cambiare il modello di fatturazione. 
 
-Se invece il provider di MFA *non* è collegato a un tenant di Azure AD o si collega il nuovo provider di MFA a un diverso tenant di Azure AD, le impostazioni utente e le opzioni di configurazione non vengono trasferite. Inoltre, i server Azure MFA esistenti devono essere riattivati usando le credenziali di attivazione generate tramite il nuovo provider di MFA. La riattivazione dei server MFA per collegarli al nuovo provider di MFA non inciderà sull'autenticazione con chiamata telefonica e SMS, ma le notifiche dell'app mobile smetteranno di funzionare per tutti gli utenti fino a quando riattiveranno l'app mobile.
+Se il provider di autenticazione a più fattori *non* è collegato a un tenant di Azure AD o si collega il nuovo provider di autenticazione a più fattori a un tenant di Azure AD diverso, le impostazioni utente e le opzioni di configurazione non vengono trasferite. Inoltre, i server Azure MFA esistenti devono essere riattivati usando le credenziali di attivazione generate tramite il nuovo provider di MFA. La riattivazione dei server MFA per collegarli al nuovo provider di MFA non inciderà sull'autenticazione con chiamata telefonica e SMS, ma le notifiche dell'app mobile smetteranno di funzionare per tutti gli utenti fino a quando riattiveranno l'app mobile.
 
 Per altre informazioni sui provider di MFA, vedere [Introduzione all'uso di un provider di Azure Multi-Factor Authentication](concept-mfa-authprovider.md).
 
@@ -124,7 +124,7 @@ Quando si usa il modello di licenza, è necessario usare Azure Active Directory 
 
 ## <a name="manage-and-support-user-accounts"></a>Gestire e supportare gli account utente
 
-**D: cosa si può fare se gli utenti non ricevono una risposta sul telefono?**
+**D: Cosa devo dire agli utenti di fare se non ricevono una risposta sul proprio telefono?**
 
 Chiedere agli utenti di provare fino a 5 volte in 5 minuti per ottenere una telefonata o un SMS per l'autenticazione. Microsoft usa più provider per la distribuzione di chiamate e messaggi SMS. Se il problema persiste, aprire un caso di supporto con Microsoft per altre informazioni sulla risoluzione dei problemi.
 
@@ -149,11 +149,11 @@ Se l'organizzazione non ha client legacy, non è consigliabile consentire agli u
 > [!NOTE]
 > Autenticazione moderna per i client di Office 2013
 >
-> Le password di app sono necessarie solo per le app che non supportano l'autenticazione moderna. I client Office 2013 supportano i protocolli dell'autenticazione moderna, ma devono essere configurati. L'autenticazione moderna è ora disponibile per tutti i clienti che eseguono l'aggiornamento di marzo 2015 o versione successiva per Office 2013. Per altre informazioni, vedere il post di Blog [aggiornato sull'autenticazione moderna di Office 365](https://www.microsoft.com/microsoft-365/blog/2015/11/19/updated-office-365-modern-authentication-public-preview/).
+> Le password di app sono necessarie solo per le app che non supportano l'autenticazione moderna. I client Office 2013 supportano i protocolli dell'autenticazione moderna, ma devono essere configurati. Ora l'autenticazione moderna è disponibile per qualsiasi cliente che esegue l'aggiornamento di marzo 2015 o versione successiva per Office 2013. Per ulteriori informazioni, vedere il post di blog [Aggiornato Office 365 autenticazione moderna](https://www.microsoft.com/microsoft-365/blog/2015/11/19/updated-office-365-modern-authentication-public-preview/).
 
-**D: gli utenti dicono che talvolta non ricevono il messaggio di testo o il timeout della verifica.**
+**D: Gli utenti dicono che a volte non ricevono il messaggio di testo o il timeout della verifica.**
 
-Il recapito di messaggi SMS non è garantito perché sono presenti fattori non controllabili che possono influire sull'affidabilità del servizio. Questi fattori includono il paese di destinazione, il gestore di telefonia mobile e il livello di attendibilità del segnale.
+Il recapito dei messaggi SMS non è garantito perché esistono fattori incontrollabili che potrebbero influire sull'affidabilità del servizio. Questi fattori includono il paese/regione di destinazione, l'operatore di telefonia mobile e la potenza del segnale.
 
 Se agli utenti capita spesso di non ricevere in modo affidabile gli SMS, suggerire loro di usare il metodo dell'app per dispositivi mobili o della chiamata telefonica. L'app per dispositivi mobili può ricevere notifiche sia su rete cellulare che Wi-Fi. L'app per dispositivi mobili può generare codici di verifica anche in caso di totale assenza di segnale. L'app Microsoft Authenticator è disponibile per [Android](https://go.microsoft.com/fwlink/?Linkid=825072), [IOS](https://go.microsoft.com/fwlink/?Linkid=825073) e [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6).
 

@@ -1,5 +1,5 @@
 ---
-title: Crittografare i dischi per i set di scalabilità di Azure con la CLI
+title: Crittografare i dischi per i set di scalabilità di Azure con l'interfaccia della riga di comando di AzureEncrypt disks for Azure scale sets with Azure
 description: Informazioni su come usare Azure PowerShell per crittografare istanze di macchine virtuali e i dischi collegati in set di scalabilità di macchine virtuali di Windows
 author: msmbaldwin
 manager: rkarlin
@@ -9,23 +9,23 @@ ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 557d5c023acbc7987d58c9e78bfe11e25f314879
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76279084"
 ---
-# <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli"></a>Crittografare il sistema operativo e i dischi dati collegati in un set di scalabilità di macchine virtuali con l'interfaccia della riga
+# <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli"></a>Crittografare il sistema operativo e i dischi dati collegati in un set di scalabilità di macchine virtuali con l'interfaccia della riga di comando di AzureEncrypt OS and attached data disks in a virtual machine scale set with the Azure CLI
 
-L'interfaccia della riga di comando di Azure viene usata per creare e gestire le risorse di Azure dalla riga di comando o negli script. Questa Guida introduttiva illustra come usare l'interfaccia della riga di comando di Azure per creare e crittografare un set di scalabilità di macchine virtuali. Per altre informazioni sull'applicazione di crittografia dischi di Azure a un set di scalabilità di macchine virtuali, vedere [crittografia dischi di Azure per i set di scalabilità di macchine virtuali](disk-encryption-overview.md).
+L'interfaccia della riga di comando di Azure viene usata per creare e gestire le risorse di Azure dalla riga di comando o negli script. Questa guida introduttiva illustra come usare l'interfaccia della riga di comando di Azure per creare e crittografare un set di scalabilità di macchine virtuali. Per altre informazioni sull'applicazione della crittografia del disco di Azure a un set di scalabilità di macchine virtuali, vedere Crittografia del disco di Azure per set di [scalabilità di macchine virtuali.](disk-encryption-overview.md)
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.31 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli).
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.31 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure.If]( /cli/azure/install-azure-cli)you need to install or upgrade, see Install Azure CLI.
 
 ## <a name="create-a-scale-set"></a>Creare un set di scalabilità
 
-Per poter creare un set di scalabilità, è prima necessario creare un gruppo di risorse con il comando [az group create](/cli/azure/group). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella posizione *eastus*:
+Per poter creare un set di scalabilità, è prima necessario creare un gruppo di risorse con il comando [az group create](/cli/azure/group). L'esempio seguente crea un gruppo di risorse denominato myResourceGroup nella posizione *eastus:The* following example creates a resource group named *myResourceGroup* in the eastus location:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -104,9 +104,9 @@ Il completamento del processo di crittografia potrebbe richiedere un minuto o du
 
 Poiché il criterio di aggiornamento per il set di scalabilità creato in un passaggio precedente è impostato come *automatico*, le istanze di macchine virtuali avviano automaticamente il processo di crittografia. Nei set di scalabilità in cui il criterio di aggiornamento è manuale, avviare il criterio di crittografia nelle istanze di macchine virtuali con [az vmss update-instances](/cli/azure/vmss#az-vmss-update-instances).
 
-### <a name="enable-encryption-using-kek-to-wrap-the-key"></a>Abilitare la crittografia con KEK per eseguire il wrapping della chiave
+### <a name="enable-encryption-using-kek-to-wrap-the-key"></a>Abilitare la crittografia tramite KEK per eseguire il wrapping della chiaveEnable encryption using KEK to wrap the key
 
-È anche possibile usare una chiave di crittografia della chiave per la sicurezza aggiuntiva durante la crittografia del set di scalabilità di macchine virtuali.
+È anche possibile usare una chiave di crittografia della chiave per aggiungere sicurezza durante la crittografia del set di scalabilità della macchina virtuale.
 
 ```azurecli-interactive
 # Get the resource ID of the Key Vault
@@ -123,10 +123,10 @@ az vmss encryption enable \
 ```
 
 > [!NOTE]
->  La sintassi per il valore del parametro Disk-Encryption-Vault è la stringa dell'identificatore completo:</br>
-/Subscriptions/[Subscription-ID-GUID]/resourceGroups/[Resource-Group-Name]/providers/Microsoft.KeyVault/vaults/[nome-insieme-credenziali]</br></br>
-> La sintassi per il valore del parametro Key-Encryption-Key è l'URI completo di KEK come in:</br>
-https:///[nome-insieme-credenziali]. Vault. Azure. NET/Keys/[kekname]/[KEK-Unique-ID]
+>  La sintassi per il valore del parametro disk-encryption-keyvault è la stringa dell'identificatore completo:</br>
+/subscriptions/[subscription-id-guid]/resourceGroups/[nome-gruppo-risorse]/providers/Microsoft.KeyVault/vaults/[nome-chiavevault]</br></br>
+> La sintassi per il valore del parametro key-encryption-key è l'URI completo della chiave KEK come in:</br>
+https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id]
 
 ## <a name="check-encryption-progress"></a>Verificare lo stato della crittografia
 
@@ -173,6 +173,6 @@ az vmss encryption disable --resource-group myResourceGroup --name myScaleSet
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- In questo articolo è stato crittografato un set di scalabilità di macchine virtuali con l'interfaccia della riga di comando di Azure. È anche possibile usare [Azure PowerShell](disk-encryption-powershell.md) o [modelli Azure Resource Manager](disk-encryption-azure-resource-manager.md).
-- Se si vuole che crittografia dischi di Azure venga applicato dopo il provisioning di un'altra estensione, è possibile usare la [sequenziazione delle estensioni](virtual-machine-scale-sets-extension-sequencing.md). 
+- In questo articolo è stato crittografato un set di scalabilità di macchine virtuali con l'interfaccia della riga di comando di Azure. È anche possibile usare i modelli di [Azure PowerShell](disk-encryption-powershell.md) o [Azure Resource Manager.](disk-encryption-azure-resource-manager.md)
+- Se si vuole applicare Crittografia disco di Azure dopo il provisioning di un'altra estensione, è possibile usare la [sequenza delle estensioni.](virtual-machine-scale-sets-extension-sequencing.md) 
 - Un esempio di file batch end-to-end per la crittografia del disco dati del set di scalabilità di Linux è disponibile [qui](https://gist.githubusercontent.com/ejarvi/7766dad1475d5f7078544ffbb449f29b/raw/03e5d990b798f62cf188706221ba6c0c7c2efb3f/enable-linux-vmss.bat). In questo esempio vengono creati un gruppo di risorse e il set di scalabilità di Linux, viene montato un disco dati di 5 GB e viene crittografato il set di scalabilità di macchine virtuali.

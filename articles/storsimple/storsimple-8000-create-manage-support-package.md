@@ -1,5 +1,5 @@
 ---
-title: Creare un pacchetto per il supporto di StorSimple serie 8000
+title: Creare un pacchetto di supporto della serie StorSimple 8000Create a StorSimple 8000 series support package
 description: Informazioni su come creare, decrittografare e modificare un pacchetto per il supporto del dispositivo StorSimple serie 8000.
 author: alkohli
 ms.service: storsimple
@@ -7,15 +7,15 @@ ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 9ca033f6f786c0142261dafa31b93b71a8b3336a
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76277065"
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>Creare e gestire un pacchetto di supporto StorSimple serie 8000
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 
 Un pacchetto per il supporto StorSimple è un meccanismo semplice da usare che raccoglie tutti i log pertinenti per aiutare il supporto tecnico Microsoft a risolvere i problemi relativi ai dispositivi StorSimple. I log raccolti vengono crittografati e compressi.
 
@@ -40,7 +40,7 @@ In alcuni casi, è necessario creare manualmente il pacchetto per il supporto tr
    1. Al prompt dei comandi immettere:
      
        `$MS = New-PSSession -ComputerName <IP address for DATA 0> -Credential SSAdmin -ConfigurationName "SSAdminConsole"`
-   2. Nella finestra di dialogo visualizzata immettere la password dell'amministratore del dispositivo. La password predefinita è _Password1_.
+   2. Nella finestra di dialogo visualizzata immettere la password dell'amministratore del dispositivo. Il valore predefinito è _Password1_.
      
       ![Finestra di dialogo Credenziali PowerShell](./media/storsimple-8000-create-manage-support-package/IC740962.png)
    3. Selezionare **OK**.
@@ -64,14 +64,14 @@ In alcuni casi, è necessario creare manualmente il pacchetto per il supporto tr
 
 Con il cmdlet Export-HcsSupportPackage è possibile usare i parametri seguenti.
 
-| Parametro | Obbligatorio/Facoltativo | Description |
+| Parametro | Obbligatorio/Facoltativo | Descrizione |
 | --- | --- | --- |
-| `-Path` |Obbligatorio |Consente di specificare il percorso della cartella di rete condivisa in cui verrà inserito il pacchetto per il supporto. |
-| `-EncryptionPassphrase` |Obbligatorio |Consente di fornire una passphrase per crittografare il pacchetto per il supporto. |
+| `-Path` |Obbligatoria |Consente di specificare il percorso della cartella di rete condivisa in cui verrà inserito il pacchetto per il supporto. |
+| `-EncryptionPassphrase` |Obbligatoria |Consente di fornire una passphrase per crittografare il pacchetto per il supporto. |
 | `-Credential` |Facoltativo |Consente di specificare le credenziali di accesso per la cartella di rete condivisa. |
 | `-Force` |Facoltativo |Consente di ignorare il passaggio di conferma della passphrase di crittografia. |
 | `-PackageTag` |Facoltativo |Consente di specificare una directory in cui inserire il pacchetto per il supporto in *Percorso* . Il valore predefinito è [nome dispositivo]-[data e ora correnti:aaaa-MM-gg-HH-mm-ss]. |
-| `-Scope` |Facoltativo |Specificare come **Cluster** (impostazione predefinita) per creare un pacchetto per il supporto per entrambi i controller. Per creare un pacchetto solo per il controller corrente, specificare **Controller**. |
+| `-Scope` |Facoltativo |specificare **Cluster** (predefinito) per creare un pacchetto per il supporto per entrambi i controller. Se si vuole creare un pacchetto per il supporto per il controller corrente, specificare **Controller**. |
 
 ## <a name="edit-a-support-package"></a>Modificare un pacchetto per il supporto
 

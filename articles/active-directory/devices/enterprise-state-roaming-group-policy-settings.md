@@ -1,5 +1,5 @@
 ---
-title: Impostazioni Criteri di gruppo e MDM per ESR-Azure Active Directory
+title: Impostazioni MDM e Criteri di gruppo per ESR - Azure Active Directory
 description: Impostazioni di gestione per Enterprise State Roaming
 services: active-directory
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bdffbc3a140bd13dcd6d352db8c192803d39b03e
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78672359"
 ---
 # <a name="group-policy-and-mdm-settings"></a>Impostazioni di Criteri di gruppo e di gestione di dispositivi mobili
@@ -26,11 +26,11 @@ Le aziende che vogliono gestire il roaming per dispositivi personali (non gestit
 Le tabelle seguenti illustrano le impostazioni disponibili per i criteri.
 
 > [!NOTE]
-> Questo articolo si applica al browser Microsoft Edge legacy basato su HTML avviato con Windows 10 nel 2015 luglio. L'articolo non si applica al nuovo browser Microsoft Edge basato su cromo rilasciato il 15 gennaio 2020. Per altre informazioni sul comportamento di sincronizzazione per il nuovo Microsoft Edge, vedere l'articolo [Microsoft Edge Sync](/deployedge/microsoft-edge-enterprise-sync).
+> Questo articolo si applica al browser basato su HTML di Microsoft Edge Legacy lanciato con Windows 10 nel luglio 2015. L'articolo non si applica al nuovo browser basato su Microsoft Edge Chromium rilasciato il 15 gennaio 2020. Per ulteriori informazioni sul comportamento di sincronizzazione per il nuovo Microsoft Edge, vedere l'articolo [Microsoft Edge Sync](/deployedge/microsoft-edge-enterprise-sync).
 
 ## <a name="mdm-settings"></a>Impostazioni di gestione di dispositivi mobili
 
-Le impostazioni dei criteri di gestione di dispositivi mobili sono applicabili a Windows 10 e Windows 10 Mobile.  Il supporto per Windows 10 Mobile esiste solo per il roaming basato su account Microsoft tramite l’account OneDrive dell’utente. Per informazioni dettagliate sui dispositivi supportati per la sincronizzazione basata su Azure AD, vedere [dispositivi ed endpoint](enterprise-state-roaming-windows-settings-reference.md) .
+Le impostazioni dei criteri di gestione di dispositivi mobili sono applicabili a Windows 10 e Windows 10 Mobile.  Il supporto per Windows 10 Mobile esiste solo per il roaming basato su account Microsoft tramite l’account OneDrive dell’utente. Fare riferimento a [Dispositivi ed endpoint](enterprise-state-roaming-windows-settings-reference.md) per informazioni dettagliate sui dispositivi supportati per la sincronizzazione basata su Azure AD.
 
 | Nome | Descrizione |
 | --- | --- |
@@ -59,4 +59,4 @@ Queste impostazioni si trovano nel percorso `Computer Configuration > Administra
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni generali, vedere [Panoramica di Enterprise State Roaming](enterprise-state-roaming-overview.md).
+Per una panoramica, vedere [Panoramica](enterprise-state-roaming-overview.md)del roaming dello stato aziendale .

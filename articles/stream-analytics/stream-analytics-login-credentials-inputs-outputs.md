@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 06/21/2019
 ms.custom: seodec18
 ms.openlocfilehash: 3ae639dd7c5a42fc6880240988f0fb2817b09f43
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75425966"
 ---
 # <a name="rotate-login-credentials-for-inputs-and-outputs-of-a-stream-analytics-job"></a>Ruotare le credenziali di accesso per input e output in un processo di Analisi di flusso
@@ -31,7 +31,7 @@ Questa sezione illustra la procedura da seguire per rigenerare le credenziali pe
 4. Dal portale di Azure passare al processo di Analisi di flusso, selezionare **Arresta** e attendere l'arresto del processo.    
 5. Individuare l'input o l'output di Archiviazione BLOB o tabelle per cui aggiornare le credenziali.    
 6. Individuare il campo **Chiave dell'account di archiviazione**, incollarvi la chiave appena generata e quindi fare clic su **Salva**.    
-7. Quando si salvano le modifiche, verrà automaticamente avviato un test di connessione. è possibile visualizzarlo nella scheda notifiche. Ci sono due notifiche: una corrisponde al salvataggio dell'aggiornamento e altre corrisponde al test della connessione:  
+7. Un test di connessione verrà avviato automaticamente quando si salvano le modifiche, è possibile visualizzarlo dalla scheda delle notifiche. Ci sono due notifiche- uno corrisponde al salvataggio dell'aggiornamento e l'altro corrisponde al test della connessione:  
    ![Notifiche dopo la modifica della chiave](media/stream-analytics-login-credentials-inputs-outputs/edited-key-notifications.png)
 8. Passare alla sezione [Avviare il processo dall'ultimo arresto](#start-your-job-from-the-last-stopped-time).
 
@@ -82,7 +82,7 @@ Se è necessario connettersi al database SQL per aggiornare le credenziali di ac
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
-* [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-real-time-fraud-detection.md)
+* [Introduzione all'uso di Analisi di flusso di AzureGet started using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
-* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Guida di riferimento al linguaggio di query di Analisi di flusso di AzureAzure Stream Analytics Query Language Reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)

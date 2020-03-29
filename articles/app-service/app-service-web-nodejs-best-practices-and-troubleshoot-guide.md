@@ -1,6 +1,6 @@
 ---
-title: Procedure consigliate e risoluzione dei problemi di node. js
-description: Informazioni sulle procedure consigliate e i passaggi per la risoluzione dei problemi per le applicazioni node. js in esecuzione nel servizio app Azure.
+title: Procedure consigliate e risoluzione dei problemi relativi a Node.js
+description: Informazioni sulle procedure consigliate e sulla procedura di risoluzione dei problemi per le applicazioni Node.js in esecuzione nel servizio app di Azure.Learn the best practices and troubleshooting steps for Node.js applications running in Azure App Service.
 author: msangapu-msft
 ms.assetid: 387ea217-7910-4468-8987-9a1022a99bef
 ms.devlang: nodejs
@@ -9,10 +9,10 @@ ms.date: 11/09/2017
 ms.author: msangapu
 ms.custom: seodec18
 ms.openlocfilehash: 682884d11b298a97e27056af3c10802dfd410e4c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75430572"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Procedure consigliate e risoluzione dei problemi per le applicazioni Node nel Servizio app di Azure per Windows
@@ -123,7 +123,7 @@ Il funzionamento normale di molte applicazioni prevede l'esecuzione di connessio
 
 Il modulo agentkeepalive assicura il riutilizzo dei socket nella macchina virtuale in App Web di Azure. La creazione di un nuovo socket a ogni richiesta in uscita comporta un ulteriore sovraccarico per l'applicazione. Facendo in modo che l'applicazione riutilizzi i socket per le richieste in uscita, è possibile evitare che l'applicazione superi il valore di maxSockets allocato per ogni macchina virtuale. In Servizio app di Azure è consigliabile impostare il valore di maxSockets per agentKeepAlive su un totale di 160 socket per macchina virtuale (4 istanze di node.exe \* 40 maxSockets/istanza).
 
-Configurazione di esempio per [agentKeepALive](https://www.npmjs.com/package/agentkeepalive):
+Esempio di configurazione [agentKeepALive:Example agentKeepALive](https://www.npmjs.com/package/agentkeepalive) configuration:
 
 ```nodejs
 let keepaliveAgent = new Agent({
@@ -205,7 +205,7 @@ Il codice precedente eseguirà la profilatura della funzione WriteConsoleLog e q
 
 ![](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/scm_profile.cpuprofile.png)
 
-Scaricare questo file e aprirlo con gli strumenti F12 di Chrome. Premere F12 in Chrome, quindi scegliere la scheda **profili** . scegliere il pulsante **carica** . Selezionare il file profile.cpuprofile scaricato. Fare clic sul profilo appena caricato.
+Scaricare questo file e aprirlo con gli strumenti F12 di Chrome. Premi F12 su Chrome, quindi scegli **Load** la scheda **Profili.** Selezionare il file profile.cpuprofile scaricato. Fare clic sul profilo appena caricato.
 
 ![](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/chrome_tools_view.png)
 
@@ -251,7 +251,7 @@ Ecco alcune soluzione per velocizzare questo processo:
 
 ## <a name="iisnode-http-status-and-substatus"></a>Stato e stato secondario HTTP di IISNODE
 
-Il [file di origine](https://github.com/Azure/iisnode/blob/master/src/iisnode/cnodeconstants.h) `cnodeconstants` elenca tutte le combinazioni possibili di stato/stato secondario che iisnode può restituire a causa di un errore.
+Il  [file di origine](https://github.com/Azure/iisnode/blob/master/src/iisnode/cnodeconstants.h)`cnodeconstants` elenca tutte le possibili combinazioni di stato/stato secondario che possono essere restituite da iisnode a causa di un errore.
 
 Abilitare FREB per l'applicazione per visualizzare il codice errore win32. Assicurarsi di abilitare FREB solo in siti non di produzione, per motivi di prestazioni.
 
@@ -273,7 +273,7 @@ NODE.exe include un'impostazione denominata `NODE_PENDING_PIPE_INSTANCES`. In Se
 
 Per altre informazioni sulle applicazioni node.js nel servizio app di Azure, selezionare questi collegamenti.
 
-* [Introduzione alle app Web Node.js nel servizio app di Azure](app-service-web-get-started-nodejs.md)
+* [Introduzione alle app Web Node.js nel servizio app di AzureGet started with Node.js web apps in Azure App Service](app-service-web-get-started-nodejs.md)
 * [Come eseguire il debug di un'app Web Node.js nel servizio app di Azure](https://blogs.msdn.microsoft.com/azureossds/2018/08/03/debugging-node-js-apps-on-azure-app-services/)
 * [Utilizzo di moduli Node.js con le applicazioni Azure](../nodejs-use-node-modules-azure-apps.md)
 * [Blog sulle app Web del servizio app di Azure: Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)

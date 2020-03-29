@@ -1,16 +1,16 @@
 ---
 title: Origini dati supportate in Azure Data Catalog
-description: In questo articolo vengono elencate le specifiche delle origini dati attualmente supportate per Azure Data Catalog.
+description: Questo articolo elenca le specifiche delle origini dati attualmente supportate per Azure Data Catalog.This article lists specifications of the currently supported data sources for Azure Data Catalog.
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.openlocfilehash: ec716924d3cebf8e78b0505b95837b91c568813a
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78898156"
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Origini dati supportate in Azure Data Catalog
@@ -25,11 +25,11 @@ ms.locfileid: "78898156"
        <td><b>API</b></td>
        <td><b>Immissione manuale</b></td>
        <td><b>Strumento di registrazione</b></td>
-       <td><b>Strumenti di apertura</b></td>
+       <td><b>Strumenti aperti</b></td>
        <td><b>Note</b></td>
     </tr>
     <tr>
-      <td>Azure Data Lake Store directory (solo generazione 1)</td>
+      <td>Directory di Azure Data Lake Store (solo generazione 1)Azure Data Lake Store directory (Only Gen 1)</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -37,7 +37,7 @@ ms.locfileid: "78898156"
       <td></td>
     </tr>
     <tr>
-      <td>File Azure Data Lake Store (solo generazione 1)</td>
+      <td>File di Azure Data Lake Store (solo generazione 1)Azure Data Lake Store file (Only Gen 1)</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -45,7 +45,7 @@ ms.locfileid: "78898156"
       <td></td>
     </tr>
     <tr>
-      <td>Archivio BLOB di Azure</td>
+      <td>Archiviazione BLOB di Azure</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -151,7 +151,7 @@ ms.locfileid: "78898156"
       <td></td>
     </tr>
     <tr>
-      <td>Visualizzazione Azure SQL Data Warehouse</td>
+      <td>Visualizzazione del data warehouse SQL di AzureAzure SQL Data Warehouse view</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -191,12 +191,12 @@ ms.locfileid: "78898156"
       <td>SQL Server 2008 e versioni successive.</td>
     </tr>
     <tr>
-      <td>Report SQL Server Reporting Services</td>
+      <td>Report di SQL Server Reporting Services</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td>Browser.</td>
-      <td>Solo server in modalità nativa. Modalità SharePoint non supportata. Solo SQL Server 2008 e versioni successive</td>
+      <td>Browser</td>
+      <td>Solo server in modalità nativa. Modalità SharePoint non supportata. SOLO SQL Server 2008 e versioni successive</td>
     </tr>
     <tr>
       <td>Tabella di SQL Server</td>
@@ -236,7 +236,7 @@ ms.locfileid: "78898156"
       <td>✓</td>
       <td>✓</td>
       <td></td>
-      <td>Funziona solo in lingua inglese. Misure non supportate.</td>
+      <td>Funziona solo in inglese. Le misure non sono supportate.</td>
     </tr>
     <tr>
       <td>Vista di SAP HANA</td>
@@ -451,7 +451,7 @@ Se si è interessati al supporto di un'origine dati specifica, scrivere un sugge
     <tr>
        <td><b>Tipo di origine</b></td>
        <td><b>Tipo di asset</b></td>
-       <td><b>Tipi di oggetti</b></td>
+       <td><b>Tipi di oggetto</b></td>
        <td><b>Struttura DSL<b></td>
     </tr>
     <tr>

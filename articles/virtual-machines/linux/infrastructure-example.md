@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 12/15/2017
 ms.author: cynthn
 ms.openlocfilehash: 6040bf8862131f5a8a5564cd2f5d845fa0490a95
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78944895"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-linux-vms"></a>Procedura dettagliata per un'infrastruttura di esempio di Azure per macchine virtuali Linux
@@ -46,8 +46,8 @@ Tutti gli elementi devono rispettare le convenzioni di denominazione seguenti:
 * Adventure Works Cycles usa come prefisso **[carico di lavoro IT]-[località]-[risorsa di Azure]**
   * In questo esempio, "**azos**" (Azure online Store) è il nome del carico di lavoro IT e "**use**" (Stati Uniti orientali 2) è la località
 * Le reti virtuali usano AZOS-USE-VN<strong>[numero]</strong>
-* I set di disponibilità usano azos-use-as- **[ruolo]**
-* I nomi delle macchine virtuali usano azos-use-vm- **[nomevm]**
+* I set di disponibilità usano azos-use-as-**[ruolo]**
+* I nomi delle macchine virtuali usano azos-use-vm-**[nomevm]**
 
 ## <a name="azure-subscriptions-and-accounts"></a>Sottoscrizioni e account di Azure
 Adventure Works Cycles usa la propria sottoscrizione aziendale, denominata Adventure Works Enterprise Subscription, per fornire la fatturazione per questo carico di lavoro IT.

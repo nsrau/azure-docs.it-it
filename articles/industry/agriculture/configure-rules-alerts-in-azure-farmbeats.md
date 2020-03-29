@@ -1,117 +1,117 @@
 ---
 title: Configurare regole e gestire avvisi
-description: Viene descritto come configurare le regole e gestire gli avvisi in FarmBeats
+description: Descrive come configurare le regole e gestire gli avvisi in FarmBeats
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: 02373da114b6dc4663cd3ffc9a0780ac6a7a9e23
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75482985"
 ---
 # <a name="configure-rules-and-manage-alerts"></a>Configurare regole e gestire avvisi
 
-Azure FarmBeats consente di creare regole basate sulla logica di business, oltre ai dati dei sensori che passano dai sensori e dai dispositivi distribuiti nella farm. Le regole attivano gli avvisi nel sistema ogni volta che i valori dei sensori superano un valore soglia. Visualizzando e analizzando gli avvisi creati dopo i valori di soglia, è possibile agire rapidamente su eventuali problemi e ottenere le soluzioni necessarie.
+Azure FarmBeats consente di creare regole basate sulla logica di business, oltre ai dati dei sensori che scorrono dai sensori e dai dispositivi distribuiti nella farm. Le regole attivano avvisi nel sistema ogni volta che i valori del sensore superano un valore soglia. Visualizzando e analizzando gli avvisi creati dopo i valori di soglia, è possibile agire rapidamente su qualsiasi problema e ottenere le soluzioni necessarie.
 
 ## <a name="create-rule"></a>Creare una regola
 
-1. Nella home page passare a **Rules (regole**).
-2. Selezionare **nuova regola**. Verrà visualizzata la finestra nuova regola.
+1. Nella home page, vai a **Regole**.
+2. Selezionare **Nuova regola**. Viene visualizzata la finestra Nuova regola.
 
-    ![Beat Farm progetto](./media/configure-rules-and-alerts-in-azure-farmbeats/new-rule-1.png)
+    ![Progetto FarmBeats](./media/configure-rules-and-alerts-in-azure-farmbeats/new-rule-1.png)
 
-3. Immettere il **nome della regola** e la **Descrizione della regola** , quindi selezionare una farm dal menu a discesa **Seleziona Farm** .
-4. Digitare il nome della farm per selezionare la sezione Farm e **condizioni** visualizzata nella stessa finestra.  
+3. Immettere il nome della **regola** e **la descrizione della regola,** quindi selezionare una farm dal menu a discesa **Seleziona farm.**
+4. Digitare il nome della farm per selezionare la sezione della farm e la sezione **Condizioni** viene visualizzata nella stessa finestra.  
 
-    ![Beat Farm progetto](./media/configure-rules-and-alerts-in-azure-farmbeats/new-rule-condition-1.png)
+    ![Progetto FarmBeats](./media/configure-rules-and-alerts-in-azure-farmbeats/new-rule-condition-1.png)
 
-5. In **condizioni**, immettere i valori per **misura**, **operatore** e **valore**.
-6. Digitare il nome della misura nel menu a discesa **misura** .
-7. Selezionare **+ Aggiungi condizione** per aggiungere altre condizioni alla regola.
+5. In **Condizioni**immettere i valori per **Misura**, **Operatore** e **Valore**.
+6. Digitare il nome della misura nel menu a discesa **Misura.**
+7. Per aggiungere altre condizioni alla regola, **selezionare Aggiungi condizione.**
 8. Selezionare il **livello di gravità**.
-9. In **azione**, attivare l'interruttore **abilitata** per la posta elettronica per abilitare gli avvisi di posta elettronica.
+9. In **Azione**, attivare il pulsante di **attivazione/disattivazione Email abilitato** per abilitare gli avvisi tramite posta elettronica.
 
-    ![Beat Farm progetto](./media/configure-rules-and-alerts-in-azure-farmbeats/new-rule-email-1.png)
+    ![Progetto FarmBeats](./media/configure-rules-and-alerts-in-azure-farmbeats/new-rule-email-1.png)
 
-10. Immettere gli **indirizzi** di posta elettronica a cui si desidera inviare l'avviso di posta elettronica, insieme all' **oggetto del messaggio** di posta elettronica e alle **Note aggiuntive**.  
-11. Per abilitare o disabilitare la regola, nello **stato della regola**attivare l'interruttore **attivato** .
+10. Immettere **gli indirizzi e-mail** a cui si desidera inviare l'avviso e-mail, insieme all'oggetto **e-mail** e **alle note aggiuntive**.  
+11. In **Stato regola**, attivare il pulsante di attivazione/disattivazione per abilitare o disabilitare la regola. **Enabled**
     È possibile visualizzare il numero di dispositivi che saranno interessati dalla regola.
-12. Selezionare **applica** per creare la regola.
+12. Selezionare **Applica** per creare la regola.
 
-## <a name="view-rule"></a>Visualizza regola
+## <a name="view-rule"></a>Regola di visualizzazione
 
-Nella pagina della **Farm** viene visualizzato l'elenco delle regole disponibili. Selezionare un **nome di regola**. In una finestra vengono visualizzati i dettagli seguenti applicabili per la regola selezionata:
+Nella pagina **Farm** viene visualizzato l'elenco delle regole disponibili. Selezionare un **Nome regola**. In una finestra vengono visualizzati i seguenti dettagli applicabili per la regola selezionata:
  - Nome regola
  - Collegamento alla farm a cui è associata la regola
  - Data creazione
  - Data ultimo aggiornamento
  - Livello di gravità
- - Stato regola
- - Elenco di condizioni  
+ - Stato della regola
+ - Elenco delle condizioni  
  - Numero di dispositivi interessati dalla regola
 
-    ![Beat Farm progetto](./media/configure-rules-and-alerts-in-azure-farmbeats/view-rule-1.png)
+    ![Progetto FarmBeats](./media/configure-rules-and-alerts-in-azure-farmbeats/view-rule-1.png)
 
 ## <a name="edit-rule"></a>Modificare una regola
 
 Per modificare una regola, attenersi alla seguente procedura:
 
-1. Nella home page selezionare **regole** dal menu di spostamento a sinistra.
-   Viene visualizzata la finestra regole.
+1. Nella home page selezionare **Regole** nel menu di spostamento a sinistra.
+   Viene visualizzata la finestra delle regole.
 2. Selezionare la regola per la quale si desidera modificare.
 
-    ![Beat Farm progetto](./media/configure-rules-and-alerts-in-azure-farmbeats/edit-rule-action-bar-1.png)
+    ![Progetto FarmBeats](./media/configure-rules-and-alerts-in-azure-farmbeats/edit-rule-action-bar-1.png)
 
-3. Selezionare **modifica** dalla barra delle azioni. verrà visualizzata la finestra **Modifica regola** .
+3. Selezionare **Modifica** dalla barra delle azioni, viene visualizzata la finestra **Modifica regola.**
 
-    ![Beat Farm progetto](./media/configure-rules-and-alerts-in-azure-farmbeats/edit-rule-one-1.png)
+    ![Progetto FarmBeats](./media/configure-rules-and-alerts-in-azure-farmbeats/edit-rule-one-1.png)
 
-4. Modificare il **nome della regola**e la **Descrizione della regola** , quindi selezionare una farm dal menu a discesa **Seleziona Farm** .
-5. Digitare il nome della farm per selezionare la farm e le **condizioni** vengono visualizzate nella stessa finestra.  
-6. In **condizioni**modificare **misura**, **operatore** e **valore**.
-7. Digitare il nome della misura nel menu a discesa **misura** .
-8. Selezionare **+ Aggiungi condizione** per aggiungere/modificare le condizioni alle regole.
+4. Modificare il nome della **regola**e **la descrizione della regola,** quindi selezionare una farm dal menu a discesa **Seleziona farm** .
+5. Digitare il nome della farm per selezionare la farm e **Condizioni** viene visualizzato nella stessa finestra.  
+6. In **Condizioni**modificare **Misura**, **Operatore** e **Valore**.
+7. Digitare il nome della misura nel menu a discesa **Misura.**
+8. Per aggiungere/modificare le condizioni alle regole, selezionare **Aggiungi condizione.**
 
-    ![Beat Farm progetto](./media/configure-rules-and-alerts-in-azure-farmbeats/edit-rule-two-1.png)
+    ![Progetto FarmBeats](./media/configure-rules-and-alerts-in-azure-farmbeats/edit-rule-two-1.png)
 
 9.  Selezionare il **livello di gravità**.  
-10. In **azione**, attivare l'interruttore **abilitata** per la posta elettronica per abilitare gli avvisi di posta elettronica.
-11. Modificare gli **indirizzi di posta** elettronica a cui si vuole inviare l'avviso di posta elettronica, insieme all' **oggetto del messaggio** di posta elettronica e alle **Note aggiuntive**.  
-12. Per abilitare o disabilitare la regola, nello **stato della regola**attivare l'interruttore **attivato** .
-È possibile visualizzare il numero di dispositivi che saranno interessati da questa regola.
-13. Selezionare **applica** per modificare la regola.
+10. In **Azione**, attivare il pulsante di **attivazione/disattivazione Email abilitato** per abilitare gli avvisi tramite posta elettronica.
+11. Modificare gli **indirizzi di posta elettronica** a cui si desidera inviare l'avviso e-mail, insieme all'oggetto **e-mail** e **alle note aggiuntive**.  
+12. In **Stato regola**, attivare il pulsante di attivazione/disattivazione per abilitare o disabilitare la regola. **Enabled**
+È possibile visualizzare il numero di dispositivi interessati da questa regola.
+13. Selezionare **Applica** per modificare la regola.
 
 ## <a name="change-rule-status"></a>Modificare lo stato della regola
 
 Per modificare lo stato di una regola, attenersi alla seguente procedura:
 
-1. Nella home page selezionare **regole** dal menu di spostamento a sinistra. Viene visualizzata la finestra regole.
-2. Selezionare la regola per cui si desidera modificare lo stato.
+1. Nella home page selezionare **Regole** nel menu di spostamento a sinistra. Viene visualizzata la finestra delle regole.
+2. Selezionare la regola per la quale si desidera modificare lo stato.
 
-    ![Beat Farm progetto](./media/configure-rules-and-alerts-in-azure-farmbeats/change-status-rule-action-bar-1.png)
+    ![Progetto FarmBeats](./media/configure-rules-and-alerts-in-azure-farmbeats/change-status-rule-action-bar-1.png)
 
-3. Selezionare **modifica stato** dalla barra delle azioni. Viene visualizzata la finestra **modifica stato** .
+3. Selezionare **Cambia stato** dalla barra delle azioni. Viene visualizzata la finestra **Modifica stato.**
 
-    ![Beat Farm progetto](./media/configure-rules-and-alerts-in-azure-farmbeats/rule-change-status-1.png)
+    ![Progetto FarmBeats](./media/configure-rules-and-alerts-in-azure-farmbeats/rule-change-status-1.png)
 
-3. Modificare lo stato della regola utilizzando il pulsante **Cambia stato** .
+3. Modificare lo stato della regola utilizzando il pulsante di attivazione/disattivazione **dello stato.**
    È possibile visualizzare il numero di dispositivi che saranno interessati dalla regola.
-4. Selezionare **applica** per modificare lo stato della regola.
+4. Selezionare **Applica** per modificare lo stato della regola.
 
 ## <a name="delete-rule"></a>Eliminare una regola
 
 Per eliminare una regola, attenersi alla seguente procedura:
 
-1. Nella home page selezionare **regole** dal menu di spostamento a sinistra. Viene visualizzata la finestra regole.
+1. Nella home page selezionare **Regole** nel menu di spostamento a sinistra. Viene visualizzata la finestra delle regole.
 2. Selezionare la regola per la quale si desidera eliminare.
 
-    ![Beat Farm progetto](./media/configure-rules-and-alerts-in-azure-farmbeats/delete-rule-action-bar-1.png)
+    ![Progetto FarmBeats](./media/configure-rules-and-alerts-in-azure-farmbeats/delete-rule-action-bar-1.png)
 
 3. Selezionare **Elimina** dalla barra delle azioni.
 
-    ![Beat Farm progetto](./media/configure-rules-and-alerts-in-azure-farmbeats/delete-rule-1.png)
+    ![Progetto FarmBeats](./media/configure-rules-and-alerts-in-azure-farmbeats/delete-rule-1.png)
 
-4. Verrà visualizzata la finestra di dialogo **Elimina regola** . Selezionare **Elimina**.
+4. Viene visualizzata la finestra di dialogo **Elimina regola.** Selezionare **Elimina**.

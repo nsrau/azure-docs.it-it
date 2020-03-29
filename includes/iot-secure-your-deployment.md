@@ -9,10 +9,10 @@ ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 08cca67455df4b2d28bba0a7410fccc11446fcdc
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "76748970"
 ---
 L'articolo fornisce una serie di informazioni avanzate per proteggere l'infrastruttura Azure IoT e fornisce i collegamenti ai dettagli a livello di implementazione per configurare e distribuire ciascun componente. Offre anche una serie di confronti e scelte tra i vari metodi concorrenti.
@@ -33,7 +33,7 @@ Gli acceleratori della soluzione IoT proteggono i dispositivi IoT con i due meto
 
 * Fornendo una chiave di identità univoca (token di sicurezza) per ogni dispositivo, che può essere utilizzata dal dispositivo per comunicare con l'hub IoT.
 
-* Usando un [certificato X.509](https://www.itu.int/rec/T-REC-X.509-201210-S) su dispositivo e una chiave privata come mezzo per autenticare il dispositivo nell'hub IoT. Questo metodo di autenticazione assicura che la chiave privata sul dispositivo non sia mai nota all'esterno del dispositivo, garantendo un livello di sicurezza più elevato.
+* Usando un [certificato X.509 ](https://www.itu.int/rec/T-REC-X.509-201210-S) su dispositivo e la chiave privata come mezzo per autenticare il dispositivo nell'hub IoT. Questo metodo di autenticazione assicura che la chiave privata sul dispositivo non sia mai nota all'esterno del dispositivo, garantendo un livello di sicurezza più elevato.
 
 Il metodo basato sul token di sicurezza fornisce l'autenticazione per ogni chiamata effettuata dal dispositivo all'hub IoT associando la chiave simmetrica a ciascuna chiamata. L'autenticazione basata sul certificato x.509 consente di autenticare un dispositivo IoT a livello fisico come parte del processo di creazione della connessione TLS. Il metodo basato sul token di sicurezza può essere usato senza l'autenticazione tramite certificato X.509, che rappresenta un modello meno sicuro. La scelta tra i due metodi dipende principalmente dal livello di protezione richiesto dall'autenticazione del dispositivo e dalla disponibilità di spazio di archiviazione sicura sul dispositivo (per archiviare la chiave privata in modo sicuro).
 
@@ -61,7 +61,7 @@ Il registro di identità dell'hub IoT può essere usato per configurare il contr
 
 ### <a name="x509-certificate-based-device-authentication"></a>Autenticazione del dispositivo basata sul certificato x.509
 
-L'uso di un [certificato X.509 basato su dispositivo](../articles/iot-hub/iot-hub-devguide-security.md) e della coppia di chiavi pubblica e privata associata consente un'autenticazione aggiuntiva a livello fisico. La chiave privata viene archiviata in modo sicuro nel dispositivo e non può essere individuata all'esterno del dispositivo. Il certificato x.509 contiene informazioni sul dispositivo (ad esempio l'ID dispositivo) e altri dettagli dell'organizzazione. Una firma del certificato viene generata utilizzando la chiave privata.
+L'uso di un [certificato x.509 basato su dispositivo](../articles/iot-hub/iot-hub-devguide-security.md) e la coppia di chiavi pubblica e privata associata consente un'autenticazione aggiuntiva a livello fisico. La chiave privata viene archiviata in modo sicuro nel dispositivo e non può essere individuata all'esterno del dispositivo. Il certificato x.509 contiene informazioni sul dispositivo (ad esempio l'ID dispositivo) e altri dettagli dell'organizzazione. Una firma del certificato viene generata utilizzando la chiave privata.
 
 Flusso di provisioning di dispositivi di alto livello:
 
@@ -77,15 +77,15 @@ Durante il tentativo di stabilire una connessione TLS sicura con l'hub IoT, il d
 
 ## <a name="securing-the-connection"></a>Proteggere la connessione
 
-La connessione Internet tra il dispositivo IoT e l'hub IoT è protetta mediante lo standard TLS (Transport Layer Security). IoT di Azure supporta gli standard[TLS 1.2](https://tools.ietf.org/html/rfc5246), TLS 1.1 e TLS 1.0, in questo ordine. Il supporto per lo standard TLS 1.0 viene fornito soltanto per la compatibilità con le versioni precedenti. Controllare il [supporto TLS nell'hub](../articles/iot-hub/iot-hub-tls-support.md) Internet per informazioni su come configurare l'hub per l'uso di TLS 1,2, poiché fornisce la maggiore sicurezza.
+La connessione Internet tra il dispositivo IoT e l'hub IoT è protetta mediante lo standard TLS (Transport Layer Security). Azure IoT supporta [TLS 1.2](https://tools.ietf.org/html/rfc5246), TLS 1.1 e TLS 1.0, in questo ordine. Il supporto per lo standard TLS 1.0 viene fornito soltanto per la compatibilità con le versioni precedenti. Controllare il [supporto TLS nell'hub IoT](../articles/iot-hub/iot-hub-tls-support.md) per vedere come configurare l'hub per l'utilizzo di TLS 1.2, in quanto fornisce la massima sicurezza.
 
 ## <a name="securing-the-cloud"></a>Proteggere il cloud
 
-L'hub IoT di Azure consente la definizione dei [criteri di controllo di accesso](../articles/iot-hub/iot-hub-devguide-security.md) per ogni chiave di sicurezza usando il set di autorizzazioni seguente per concedere l'accesso agli endpoint dell'hub IoT. Le autorizzazioni limitano l'accesso a un hub IoT in base alla funzionalità.
+L'hub IoT di Azure consente la definizione dei [criteri di controllo di accesso](../articles/iot-hub/iot-hub-devguide-security.md) per ogni chiave di sicurezza, usando il set di autorizzazioni seguente per concedere l'accesso agli endpoint dell'hub IoT. Le autorizzazioni limitano l'accesso a un hub IoT in base alla funzionalità.
 
-* **RegistryRead**. Concede l'accesso di sola lettura al registro di identità. Per altre informazioni, vedere [Registro delle identità](../articles/iot-hub/iot-hub-devguide-identity-registry.md).
+* **RegistryRead**. Concede l'accesso di sola lettura al registro di identità. Per altre informazioni, vedere [Registro di identità](../articles/iot-hub/iot-hub-devguide-identity-registry.md).
 
-* **RegistryReadWrite**. Concede l'accesso di lettura e scrittura al registro di identità. Per altre informazioni, vedere [Registro delle identità](../articles/iot-hub/iot-hub-devguide-identity-registry.md).
+* **RegistryReadWrite**. Concede l'accesso di lettura e scrittura al registro di identità. Per altre informazioni, vedere [Registro di identità](../articles/iot-hub/iot-hub-devguide-identity-registry.md).
 
 * **ServiceConnect**. Concede l'accesso alle comunicazioni per il servizio cloud e al monitoraggio degli endpoint. Ad esempio, concede ai servizi cloud back-end l'autorizzazione per la ricezione di messaggi da dispositivo a cloud, l'invio di messaggi da cloud a dispositivo e il recupero degli acknowledgment di recapito corrispondenti.
 
@@ -103,12 +103,12 @@ I dati inseriti dall'Hub IoT di Azure possono essere usati da una serie di servi
 
 * [Analisi di flusso di Azure](https://azure.microsoft.com/services/stream-analytics/): elaborazione del flusso in tempo reale nel cloud per sviluppare e distribuire rapidamente una soluzione di analisi a basso costo che consenta di rilevare informazioni approfondite in tempo reale da dispositivi, sensori, infrastruttura e applicazioni. I dati di questo servizio completamente gestito possono raggiungere qualsiasi volume anche in condizioni di velocità effettiva elevata, bassa latenza e resilienza.
 
-* [Servizi app di Azure](https://azure.microsoft.com/services/app-service/): piattaforma cloud per creare efficaci app Web e per dispositivi mobili che si connettono ai dati ovunque si trovino, nel cloud o in locale. Creare app per dispositivi mobili coinvolgenti per iOS, Android e Windows. Eseguire l'integrazione con applicazioni Software as a Service (SaaS) e aziendali, grazie a connettività integrata a dozzine di applicazioni aziendali e servizi basati sul cloud. Scrivere codice usando IDE e il linguaggio preferito, .NET, Node.js, PHP, Python o Java, per creare app Web e API più rapidamente che mai.
+* [Servizi app di Azure](https://azure.microsoft.com/services/app-service/): piattaforma cloud per compilare efficaci app mobili e Web che si connettono ai dati ovunque si trovino: nel cloud o localmente. Creare app per dispositivi mobili coinvolgenti per iOS, Android e Windows. Eseguire l'integrazione con applicazioni Software as a Service (SaaS) e aziendali, grazie a connettività integrata a dozzine di applicazioni aziendali e servizi basati sul cloud. Scrivere codice usando IDE e il linguaggio preferito, .NET, Node.js, PHP, Python o Java, per creare app Web e API più rapidamente che mai.
 
 * [App per la logica](https://azure.microsoft.com/services/app-service/logic/): la funzionalità App per la logica del servizio app di Azure consente di integrare la soluzione IoT con i sistemi line-of-business esistenti e automatizzare i processi del flusso di lavoro. App per la logica consente agli sviluppatori di progettare flussi di lavoro che vengono avviati da un trigger e quindi di eseguire una serie di passaggi, regole e azioni che usano potenti connettori per l'integrazione con i processi aziendali. App per la logica offre connettività integrata per un vasto ecosistema di applicazioni SaaS, basate sul cloud e locali.
 
-* [Archiviazione BLOB di Azure](https://azure.microsoft.com/services/storage/): archiviazione cloud affidabile ed economica per i dati che i dispositivi inviano al cloud.
+* Archiviazione BLOB di [Azure:](https://azure.microsoft.com/services/storage/)archiviazione cloud affidabile ed economica per i dati inviati dai dispositivi al cloud.
 
-## <a name="conclusion"></a>Conclusione
+## <a name="conclusion"></a>Conclusioni
 
 Questo articolo fornisce una panoramica a livello di implementazione per progettare e distribuire un'infrastruttura mediante Azure IoT. Per una protezione complessiva dell'infrastruttura IoT è fondamentale configurare la sicurezza di ciascun componente. Le scelte di progettazione disponibili in Azure IoT forniscono un certo livello di flessibilità e scelta; tuttavia, ogni scelta può avere determinate implicazioni di sicurezza. Si consiglia di vagliare entrambe le opzioni secondo il criterio di una valutazione dei costi e del rischio.

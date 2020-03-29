@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/07/2019
 ms.custom: seodec18
 ms.openlocfilehash: e978771eaafafe4120f9eec802525c293fb9c7c9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75426373"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Partizionamento dell'output dei BLOB personalizzato in Analisi di flusso di Azure
@@ -25,7 +25,7 @@ Gli attributi o i campi personalizzati migliorano i flussi di lavoro di elaboraz
 
 ### <a name="partition-key-options"></a>Opzioni per la chiave di partizione
 
-La chiave di partizione, o nome di colonna, usata per partizionare i dati di input può contenere caratteri alfanumerici con spazi, caratteri di sottolineatura e trattini. Non è possibile usare campi annidati come chiave di partizione, se non in combinazione con alias. La chiave di partizione deve essere di tipo NVARCHAR (MAX).
+La chiave di partizione, o nome di colonna, usata per partizionare i dati di input può contenere caratteri alfanumerici con spazi, caratteri di sottolineatura e trattini. Non è possibile usare campi annidati come chiave di partizione, se non in combinazione con alias. La chiave di partizione deve essere NVARCHAR(MAX).
 
 ### <a name="example"></a>Esempio
 
@@ -71,7 +71,7 @@ I modelli di percorso di data/ora personalizzati consentono di specificare un fo
 
 I token di identificatore del formato seguenti possono essere usati da soli o in combinazione per ottenere formati di data/ora personalizzati:
 
-|Identificatore di formato   |Description   |Risultati per l'ora di esempio 2018-01-02T10:06:08|
+|Identificatore di formato   |Descrizione   |Risultati per l'ora di esempio 2018-01-02T10:06:08|
 |----------|-----------|------------|
 |{datetime:yyyy}|Anno come numero di quattro cifre|2018|
 |{datetime:MM}|Mese da 01 a 12|01|

@@ -1,15 +1,15 @@
 ---
-title: Azure Service Fabric CLI-telemetria delle impostazioni sfctl
-description: Informazioni su sfctl, l'interfaccia della riga di comando di Azure Service Fabric. Include un elenco di comandi per la configurazione della telemetria di sfctl.
+title: Telemetria delle impostazioni sfctl di Azure Service Fabric- sfctl
+description: Informazioni su sfctl, l'interfaccia della riga di comando di Azure Service Fabric.Learn about sfctl, the Azure Service Fabric command line interface. Include un elenco di comandi per la configurazione della telemetria sfctl.
 author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 6af5fa944ef399756f9e890ddd77a7f5f32e2bfb
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76903022"
 ---
 # <a name="sfctl-settings-telemetry"></a>sfctl settings telemetry
@@ -19,7 +19,7 @@ La telemetria sfctl raccoglie il nome del comando senza i parametri forniti o i 
 
 ## <a name="commands"></a>Comandi:
 
-|Comando|Description|
+|Comando|Descrizione|
 | --- | --- |
 | set-telemetry | Attiva o disattiva la telemetria. |
 
@@ -28,14 +28,14 @@ Attiva o disattiva la telemetria.
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --off | Disattiva la telemetria. |
 | --on | Attiva la telemetria. Si tratta del valore predefinito. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |

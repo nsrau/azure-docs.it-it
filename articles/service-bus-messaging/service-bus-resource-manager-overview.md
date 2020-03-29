@@ -1,5 +1,5 @@
 ---
-title: Creare risorse del bus di servizio di Azure usando i modelli
+title: Creare risorse del bus di servizio di Azure usando i modelliCreate Azure Service Bus resources using templates
 description: Usare i modelli di Azure Resource Manager per automatizzare la creazione di risorse del bus di servizio
 services: service-bus-messaging
 documentationcenter: .net
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/11/2018
 ms.author: spelluru
 ms.openlocfilehash: 9bc784ee57b9bde393408cbefa9a197aebc59b08
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76264459"
 ---
 # <a name="create-service-bus-resources-using-azure-resource-manager-templates"></a>Creare risorse del bus di servizio usando i modelli di Azure Resource Manager
@@ -28,7 +28,7 @@ Questo articolo descrive come creare e distribuire risorse del bus di servizio u
 I modelli di Azure Resource Manager aiutano a definire le risorse da distribuire per una soluzione e a specificare i parametri e le variabili che consentono di immettere i valori per diversi ambienti. Il modello, scritto in JSON, è costituito da espressioni che è possibile usare per creare valori per la distribuzione. Per informazioni dettagliate sulla creazione di modelli di Azure Resource Manager e per una descrizione del formato dei modelli, vedere [Comprendere la struttura e la sintassi dei modelli di Azure Resource Manger](../azure-resource-manager/templates/template-syntax.md).
 
 > [!NOTE]
-> Gli esempi inclusi in questo articolo spiegano come usare Azure Resource Manager per creare uno spazio dei nomi del bus di servizio e una entità di messaggistica, ovvero una coda. Per altri esempi di modelli, visitare la [raccolta di modelli di avvio rapido di Azure][Azure Quickstart Templates gallery] e cercare il bus di **servizio**.
+> Gli esempi inclusi in questo articolo spiegano come usare Azure Resource Manager per creare uno spazio dei nomi del bus di servizio e una entità di messaggistica, ovvero una coda. Per altri esempi di modelli, visitare la [raccolta dei modelli di avvio rapido di Azure][Azure Quickstart Templates gallery] e cercare **bus di servizio**.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -36,7 +36,7 @@ I modelli di Azure Resource Manager aiutano a definire le risorse da distribuire
 
 I modelli di Azure Resource Manager del bus di servizio sono disponibili per il download e la distribuzione. Fare clic sui collegamenti seguenti per informazioni dettagliate su ognuno di essi, con collegamenti ai modelli su GitHub:
 
-* [Creare uno spazio dei nomi del bus di servizio](service-bus-resource-manager-namespace.md)
+* [Creare uno spazio dei nomi del bus di servizioCreate a Service Bus namespace](service-bus-resource-manager-namespace.md)
 * [Creare uno spazio dei nomi del bus di servizio con coda](service-bus-resource-manager-namespace-queue.md)
 * [Creare uno spazio dei nomi del bus di servizio con argomento e sottoscrizione](service-bus-resource-manager-namespace-topic.md)
 * [Creare uno spazio dei nomi del bus di servizio con coda e regola di autorizzazione](service-bus-resource-manager-namespace-auth-rule.md)
@@ -181,7 +181,7 @@ Set-AzContext -SubscriptionID <YourSubscriptionId>
 
 ### <a name="set-the-resource-group"></a>Impostare il gruppo di risorse
 
-Se non si dispone di un gruppo di risorse esistente, creare un nuovo gruppo di risorse con il comando **New-AzResourceGroup** . Specificare il nome del gruppo di risorse e la posizione che si vuole usare, Ad esempio:
+Se non si dispone di un gruppo di risorse esistente, creare un nuovo gruppo di risorse con il comando **New-AzResourceGroup.If** you do not have an existing resource group, create a new resource group with the New-AzResourceGroup command. Specificare il nome del gruppo di risorse e la posizione che si vuole usare, Ad esempio:
 
 ```powershell
 New-AzResourceGroup -Name MyDemoRG -Location "West US"
@@ -207,7 +207,7 @@ Test-AzResourceGroupDeployment -ResourceGroupName MyDemoRG -TemplateFile <path t
 
 ### <a name="create-the-deployment"></a>Creare la distribuzione
 
-Per creare la nuova distribuzione, eseguire il cmdlet `New-AzResourceGroupDeployment` e specificare i parametri necessari quando viene richiesto. I parametri includono il nome della distribuzione, il nome del gruppo di risorse e il percorso o l'URL del file di modello. Se il parametro **Mode** non è specificato, viene usato il valore predefinito **Incremental**. Per altre informazioni, vedere [Distribuzioni incrementali e complete](../azure-resource-manager/templates/deployment-modes.md).
+Per creare la nuova distribuzione, eseguire il cmdlet `New-AzResourceGroupDeployment` e specificare i parametri necessari quando viene richiesto. I parametri includono il nome della distribuzione, il nome del gruppo di risorse e il percorso o l'URL del file di modello. Se il parametro **Mode** non è specificato, viene utilizzato il valore predefinito **Incremental.** Per altre informazioni, vedere [Distribuzioni incrementali e complete](../azure-resource-manager/templates/deployment-modes.md).
 
 Il comando seguente richiede tre parametri nella finestra di PowerShell:
 
@@ -255,9 +255,9 @@ Parameters        :
 ## <a name="next-steps"></a>Passaggi successivi
 Finora sono stati illustrati il flusso di lavoro di base e i comandi per la distribuzione di un modello di Azure Resource Manager. Per informazioni più dettagliate, visitare i collegamenti seguenti:
 
-* [Panoramica di Azure Resource Manager][Azure Resource Manager overview]
+* [Panoramica di Azure Resource ManagerAzure Resource Manager overview][Azure Resource Manager overview]
 * [Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell][Deploy resources with Azure Resource Manager templates]
-* [Creazione di modelli di Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md)
+* [Creazione di modelli di Gestione risorse di Azure](../azure-resource-manager/templates/template-syntax.md)
 * [Tipi di risorsa Microsoft.ServiceBus](/azure/templates/microsoft.servicebus/allversions)
 
 [Azure Resource Manager overview]: ../azure-resource-manager/management/overview.md

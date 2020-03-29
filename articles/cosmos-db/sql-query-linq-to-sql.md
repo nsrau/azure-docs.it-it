@@ -1,29 +1,29 @@
 ---
-title: LINQ to SQL traduzione in Azure Cosmos DB
-description: Informazioni sugli operatori LINQ supportati e sul modo in cui le query LINQ vengono mappate alle query SQL in Azure Cosmos DB.
+title: Conversione LINQ to SQL in Azure Cosmos DB
+description: Informazioni gli operatori LINQ supportati e il modo in cui le query LINQ vengono mappate alle query SQL in Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: tisande
 ms.openlocfilehash: d43f95b91df7d0c9c442339de51936200f4688e2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75441262"
 ---
 # <a name="linq-to-sql-translation"></a>Traduzione LINQ in SQL
 
-Il provider di query di Azure Cosmos DB esegue un mapping ottimale da una query LINQ in una query di Cosmos DB SQL. La descrizione seguente presuppone una conoscenza di base di LINQ.
+Il provider di query Cosmos DB di Azure esegue il mapping del lavoro migliore da una query LINQ in una query SQL Cosmos DB. La descrizione seguente presuppone una familiarità di base con LINQ.
 
-Il sistema di tipi del provider di query supporta solo i tipi primitivi JSON: numeric, Boolean, String e null.
+Il sistema di tipi del provider di query supporta solo i tipi primitivi JSON: numerico, booleano, stringa e null.
 
-Il provider di query supporta le seguenti espressioni scalari:
+Il provider di query supporta le espressioni scalari seguenti:The query provider supports the following scalar expressions:
 
-- Valori costanti, inclusi i valori costanti dei tipi di dati primitivi al momento della valutazione della query.
+- Valori costanti, inclusi i valori costanti dei tipi di dati primitivi in fase di valutazione delle query.
   
-- Espressioni di indice di proprietà/matrici che fanno riferimento alla proprietà di un oggetto o di un elemento di matrice. Ad esempio:
+- Espressioni di indice di proprietà/matrice che fanno riferimento alla proprietà di un oggetto o di un elemento della matrice. Ad esempio:
   
   ```
     family.Id;
@@ -32,21 +32,21 @@ Il provider di query supporta le seguenti espressioni scalari:
     family.children[n].grade; //n is an int variable
   ```
   
-- Espressioni aritmetiche, incluse le espressioni aritmetiche comuni sui valori numerici e booleani. Per l'elenco completo, vedere la [specifica Azure Cosmos DB SQL](https://go.microsoft.com/fwlink/p/?LinkID=510612).
+- Espressioni aritmetiche, incluse espressioni aritmetiche comuni su valori numerici e booleani. Per l'elenco completo, vedere la specifica SQL del [database Cosmos di Azure](https://go.microsoft.com/fwlink/p/?LinkID=510612).
   
   ```
     2 * family.children[0].grade;
     x + y;
   ```
   
-- Espressioni di confronto tra stringhe, che includono il confronto di un valore di stringa con un valore stringa costante.  
+- Espressioni di confronto tra stringhe, che includono il confronto di un valore stringa con un valore stringa costante.  
   
   ```
     mother.familyName == "Wakefield";
     child.givenName == s; //s is a string variable
   ```
   
-- Espressioni di creazione di oggetti/matrici, che restituiscono un oggetto di tipo di valore composto o di tipo anonimo o una matrice di tali oggetti. È possibile annidare questi valori.
+- Espressioni di creazione oggetto/matrice, che restituiscono un oggetto di tipo valore composto o anonimo, o una matrice di tali oggetti. È possibile nidificare questi valori.
   
   ```
     new Parent { familyName = "Wakefield", givenName = "Robin" };
@@ -54,33 +54,33 @@ Il provider di query supporta le seguenti espressioni scalari:
     new int[] { 3, child.grade, 5 };
   ```
 
-## <a id="SupportedLinqOperators"></a>Operatori LINQ supportati
+## <a name="supported-linq-operators"></a><a id="SupportedLinqOperators"></a>Operatori LINQ supportati
 
 Il provider LINQ incluso in SQL .NET SDK supporta gli operatori seguenti:
 
-- **Select**: le proiezioni vengono convertite in SQL SELECT, inclusa la costruzione di oggetti.
-- **Dove**: i filtri vengono convertiti in SQL dove e supportano la conversione tra `&&`, `||`e `!` agli operatori SQL
-- **SelectMany**: consente la rimozione di matrici nella clausola SQL JOIN. Usare per concatenare o annidare espressioni per filtrare gli elementi della matrice.
-- **OrderBy** e **OrderByDescending**: translate in order by con ASC o DESC.
+- **Selezionare**: le proiezioni vengono convertite in SQL SELECT, inclusa la costruzione di oggetti.
+- **Where**: I filtri vengono convertiti `&&` `||`in `!` SQL WHERE e supportano la conversione tra , e negli operatori SQL
+- **SelectMany**: consente la rimozione di matrici nella clausola SQL JOIN. Utilizzare per concatenare o annidare le espressioni per filtrare gli elementi della matrice.
+- **OrderBy** e **OrderByDescending**: Traduci in ORDER BY con ASC o DESC.
 - Operatori di aggregazione **Count**, **Sum**, **Min**, **Max** e **Average** e relativi equivalenti asincroni **CountAsync**, **SumAsync**, **MinAsync**, **MaxAsync** e **AverageAsync**.
-- **CompareTo**: converte in confronti di intervallo. Utilizzato comunemente per le stringhe, poiché non sono confrontabili in .NET.
-- **Skip** and **Take**: converte in offset SQL e limite per limitare i risultati di una query e per eseguire l'impaginazione.
-- **Funzioni matematiche**: supporta la conversione da .NET `Abs`, `Acos`, `Asin`, `Atan`, `Ceiling`, `Cos`, `Exp`, `Floor`, `Log`, `Log10`, `Pow`, `Round`, `Sign`, `Sin`, `Sqrt`, `Tan`e `Truncate` alle funzioni predefinite SQL equivalenti.
-- **String Functions**: supporta la conversione da .NET `Concat`, `Contains`, `Count`, `EndsWith`,`IndexOf`, `Replace`, `Reverse`, `StartsWith`, `SubString`, `ToLower`, `ToUpper`, `TrimEnd`e `TrimStart` alle funzioni predefinite di SQL equivalenti.
-- **Funzioni di matrice**: supporta la conversione da .NET `Concat`, `Contains`e `Count` alle funzioni predefinite di SQL equivalenti.
-- **Funzioni di estensione geospaziale**: supporta la conversione da metodi stub `Distance`, `IsValid`, `IsValidDetailed`e `Within` alle funzioni predefinite di SQL equivalenti.
-- **Funzione di estensione della funzione definita dall'utente**: supporta la conversione dal metodo stub `UserDefinedFunctionProvider.Invoke` alla funzione corrispondente definita dall'utente.
-- **Varie**: supporta la conversione di operatori `Coalesce` e condizionali. Può tradurre `Contains` IN una stringa contenente, ARRAY_CONTAINS o SQL IN, a seconda del contesto.
+- **CompareTo**: converte in confronti di intervallo. Comunemente utilizzati per le stringhe, dal momento che non sono confrontabili in .NET.
+- **Skip** and **Take**: converte in SQL OFFSET e LIMIT per limitare i risultati di una query ed eseguire l'impaginazione.
+- **Funzioni matematiche**: supporta `Abs`la `Acos` `Asin`conversione da .NET , `Round` `Sign`, `Sin` `Sqrt`, `Tan`, `Truncate` `Atan` `Ceiling` `Cos` `Exp` `Floor`, `Log`, , `Log10`, `Pow`, , , , , e alle funzioni predefinite SQL equivalenti.
+- **Funzioni stringa**: Supporta la `Concat` `Contains`conversione da .NET `ToLower`, `ToUpper` `TrimEnd`, `Count` `TrimStart` , , `EndsWith``IndexOf`, `Replace` `Reverse`, `StartsWith` `SubString`, , , , e alle funzioni predefinite SQL equivalenti.
+- **Funzioni di**matrice : Supporta `Concat` `Contains`la `Count` conversione da .NET , e alle funzioni predefinite SQL equivalenti.
+- **Funzioni di estensione geospaziale**: supporta `Distance` `IsValid`la `IsValidDetailed`conversione dai metodi stub , , e `Within` alle funzioni predefinite SQL equivalenti.
+- **Funzione di estensione**della funzione definita dall'utente `UserDefinedFunctionProvider.Invoke` : supporta la conversione dal metodo stub alla funzione definita dall'utente corrispondente.
+- **Varie**: Supporta la conversione `Coalesce` e gli operatori condizionali. Può `Contains` tradursi in stringa CONTAINS, ARRAY_CONTAINS o SQL IN, a seconda del contesto.
 
 ## <a name="examples"></a>Esempi
 
-Negli esempi seguenti viene illustrato il modo in cui alcuni degli operatori di query LINQ standard vengono convertiti in Cosmos DB query.
+Negli esempi seguenti viene illustrato come alcuni degli operatori di query LINQ standard vengono convertiti in query Cosmos DB.
 
 ### <a name="select-operator"></a>Seleziona operatore
 
 La sintassi è `input.Select(x => f(x))`, dove `f` è un'espressione scalare.
 
-**Operatore Select, esempio 1:**
+**Selezionare operatore, esempio 1:**
 
 - **Espressione lambda LINQ**
   
@@ -95,7 +95,7 @@ La sintassi è `input.Select(x => f(x))`, dove `f` è un'espressione scalare.
       FROM Families f
     ```
   
-**Operatore Select, esempio 2:** 
+**Selezionare operatore, esempio 2:** 
 
 - **Espressione lambda LINQ**
   
@@ -110,7 +110,7 @@ La sintassi è `input.Select(x => f(x))`, dove `f` è un'espressione scalare.
       FROM Families f
   ```
   
-**Operatore Select, esempio 3:**
+**Selezionare operatore, esempio 3:**
 
 - **Espressione lambda LINQ**
   
@@ -151,7 +151,7 @@ La sintassi è `input.SelectMany(x => f(x))`, dove `f` è un'espressione scalare
 
 La sintassi è `input.Where(x => f(x))`, dove `f` è un'espressione scalare che restituisce un valore booleano.
 
-**Operatore Where, esempio 1:**
+**Dove operatore, esempio 1:**
 
 - **Espressione lambda LINQ**
   
@@ -167,7 +167,7 @@ La sintassi è `input.Where(x => f(x))`, dove `f` è un'espressione scalare che 
       WHERE f.parents[0].familyName = "Wakefield"
   ```
   
-**Operatore Where, esempio 2:**
+**Dove operatore, esempio 2:**
 
 - **Espressione lambda LINQ**
   
@@ -188,11 +188,11 @@ La sintassi è `input.Where(x => f(x))`, dove `f` è un'espressione scalare che 
 
 ## <a name="composite-sql-queries"></a>Query SQL composte
 
-È possibile comporre gli operatori precedenti per formare query più potenti. Poiché Cosmos DB supporta i contenitori annidati, è possibile concatenare o annidare la composizione.
+È possibile comporre gli operatori precedenti per formare query più potenti. Poiché Cosmos DB supporta contenitori nidificati, è possibile concatenare o nidificare la composizione.
 
 ### <a name="concatenation"></a>Concatenazione
 
-La sintassi è `input(.|.SelectMany())(.Select()|.Where())*`. Una query concatenata può iniziare con una query `SelectMany` facoltativa, seguita da più operatori `Select` o `Where`.
+La sintassi è `input(.|.SelectMany())(.Select()|.Where())*`. Una query concatenata può `SelectMany` iniziare con `Select` una `Where` query facoltativa, seguita da più o operatori.
 
 **Concatenazione, esempio 1:**
 
@@ -264,11 +264,11 @@ La sintassi è `input(.|.SelectMany())(.Select()|.Where())*`. Una query concaten
 
 ### <a name="nesting"></a>Annidamento
 
-La sintassi è `input.SelectMany(x=>x.Q())` in cui `Q` è un operatore `Select`, `SelectMany`o `Where`.
+La sintassi `Q` è `Select` `input.SelectMany(x=>x.Q())` `SelectMany`where `Where` è un operatore , o .
 
-Una query nidificata applica la query interna a ogni elemento del contenitore esterno. Una funzionalità importante è che la query interna può fare riferimento ai campi degli elementi nel contenitore esterno, ad esempio un self-join.
+Una query annidata applica la query interna a ogni elemento del contenitore esterno. Una caratteristica importante è che la query interna può fare riferimento ai campi degli elementi nel contenitore esterno, ad esempio un self-join.
 
-**Annidamento, esempio 1:**
+**Nidificazione, esempio 1:**
 
 - **Espressione lambda LINQ**
   
@@ -285,7 +285,7 @@ Una query nidificata applica la query interna a ogni elemento del contenitore es
       JOIN p IN f.parents
   ```
 
-**Annidamento, esempio 2:**
+**Nidificazione, esempio 2:**
 
 - **Espressione lambda LINQ**
   
@@ -303,7 +303,7 @@ Una query nidificata applica la query interna a ogni elemento del contenitore es
       WHERE c.familyName = "Jeff"
   ```
 
-**Annidamento, esempio 3:**
+**Nidificazione, esempio 3:**
 
 - **Espressione lambda LINQ**
   
@@ -325,4 +325,4 @@ Una query nidificata applica la query interna a ogni elemento del contenitore es
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Esempi relativi a Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmos-dotnet-v3)
-- [Dati del documento modello](modeling-data.md)
+- [Modellare i dati del documento](modeling-data.md)

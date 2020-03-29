@@ -1,5 +1,5 @@
 ---
-title: Caricare il file VHD in Azure DevTest Labs usando Storage Explorer
+title: Caricare il file VHD in Azure DevTest Labs usando Storage ExplorerUpload VHD file to Azure DevTest Labs using Storage Explorer
 description: Caricare un file VHD nell'account di archiviazione del lab usando Esplora archivi di Microsoft Azure
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/16/2020
 ms.author: spelluru
 ms.openlocfilehash: defafdd5809b7e537b3b9abb78f8cb63d0033c16
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76170380"
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-microsoft-azure-storage-explorer"></a>Caricare un file VHD nell'account di archiviazione del lab usando Esplora archivi di Microsoft Azure
@@ -35,15 +35,15 @@ La procedura seguente illustra come caricare un file VHD in DevTest Labs usando 
 
 1. Ottenere il nome dell'account di archiviazione del lab tramite il portale di Azure:
 
-    1. Accedere al [portale di Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+    1. Accedere al [portale](https://go.microsoft.com/fwlink/p/?LinkID=525040)di Azure .
     
-    1. Selezionare **Tutti i servizi** e quindi **DevTest Labs** dall'elenco.
+    1. Selezionare **Tutti i servizi**e quindi **DevTest Labs** dall'elenco.
     
     1. Nell'elenco dei lab selezionare il lab desiderato.  
     
     1. Nel pannello del lab selezionare **Configurazione**. 
     
-    1. Nel pannello **Configurazione** del lab selezionare **Immagini personalizzate (dischi rigidi virtuali)** .
+    1. Nel pannello **Configurazione** del lab selezionare **Immagini personalizzate (dischi rigidi virtuali)**.
     
     1. Nel pannello **Immagini personalizzate** selezionare **+Aggiungi**. 
     
@@ -103,7 +103,7 @@ La procedura seguente illustra come caricare un file VHD in DevTest Labs usando 
         
         ![Pulsante Carica][6]
     
-    1. Dal menu a discesa **Carica**, selezionare **Carica file...** .
+    1. Dal menu a discesa **Carica**, selezionare **Carica file...**.
     
     1. Nella finestra di dialogo **Carica file**, selezionare i puntini di sospensione.
         

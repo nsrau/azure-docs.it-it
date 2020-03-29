@@ -1,5 +1,5 @@
 ---
-title: Installazione di driver GPU serie N di Azure per Linux
+title: Azure N-series GPU driver setup for Linux
 description: Informazioni su come installare driver GPU NVIDIA per macchine virtuali serie N che eseguono Linux in Azure
 services: virtual-machines-linux
 author: cynthn
@@ -10,10 +10,10 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: cynthn
 ms.openlocfilehash: b424361f318504f96a57ee67722e725fbafc6561
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78944568"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Installare i driver GPU NVIDIA in VM serie N che eseguono Linux
@@ -163,9 +163,9 @@ Distribuire le VM serie N abilitate per RDMA da una delle immagini in Azure Mark
 
 * **CentOS-based 7.4 HPC**: i driver RDMA e Intel MPI 5.1 vengono installati nella VM.
 
-## <a name="install-grid-drivers-on-nv-or-nvv3-series-vms"></a>Installare i Driver GRID nelle macchine virtuali serie NV o NVv3
+## <a name="install-grid-drivers-on-nv-or-nvv3-series-vms"></a>Installare i driver GRID in macchine virtuali serie NV o Serie NVv3Install GRID drivers on NV or NVv3-series VMs
 
-Per installare i driver NVIDIA GRID nelle macchine virtuali serie NV o NVv3, effettuare una connessione SSH a ogni macchina virtuale e seguire i passaggi per la distribuzione di Linux. 
+Per installare i driver NVIDIA GRID nelle macchine virtuali NV o serie NVv3, creare una connessione SSH a ogni macchina virtuale e seguire i passaggi per la distribuzione Linux. 
 
 ### <a name="ubuntu"></a>Ubuntu 
 
@@ -184,7 +184,7 @@ Per installare i driver NVIDIA GRID nelle macchine virtuali serie NV o NVv3, eff
    
    sudo apt-get install linux-azure -y
    ```
-3. Disabilitare il driver del kernel Nouveau, che è incompatibile con il driver NVIDIA. (Usare solo il driver NVIDIA nelle VM NV o NVv2). A tale scopo, creare un file in `/etc/modprobe.d` denominato `nouveau.conf` con il contenuto seguente:
+3. Disabilitare il driver del kernel Nouveau, che è incompatibile con il driver NVIDIA. (Utilizzare il driver NVIDIA solo su macchine virtuali NV o NVv2.) A tale scopo, creare `/etc/modprobe.d` `nouveau.conf` un file denominato con il seguente contenuto:
 
    ```
    blacklist nouveau
@@ -224,7 +224,7 @@ Per installare i driver NVIDIA GRID nelle macchine virtuali serie NV o NVv3, eff
    EnableUI=FALSE
    ```
    
-9. Rimuovere il codice seguente da `/etc/nvidia/gridd.conf` se presente:
+9. Rimuovere quanto `/etc/nvidia/gridd.conf` segue, se presente:
  
    ```
    FeatureType=0
@@ -248,7 +248,7 @@ Per installare i driver NVIDIA GRID nelle macchine virtuali serie NV o NVv3, eff
    sudo yum install hyperv-daemons
    ```
 
-2. Disabilitare il driver del kernel Nouveau, che è incompatibile con il driver NVIDIA. (Usare solo il driver NVIDIA nelle VM NV o NV2). A tale scopo, creare un file in `/etc/modprobe.d` denominato `nouveau.conf` con il contenuto seguente:
+2. Disabilitare il driver del kernel Nouveau, che è incompatibile con il driver NVIDIA. (Utilizzare il driver NVIDIA solo su macchine virtuali NV o NV2.) A tale scopo, creare `/etc/modprobe.d` `nouveau.conf` un file denominato con il seguente contenuto:
 
    ```
    blacklist nouveau
@@ -296,7 +296,7 @@ Per installare i driver NVIDIA GRID nelle macchine virtuali serie NV o NVv3, eff
    IgnoreSP=FALSE
    EnableUI=FALSE 
    ```
-9. Rimuovere il codice seguente da `/etc/nvidia/gridd.conf` se presente:
+9. Rimuovere quanto `/etc/nvidia/gridd.conf` segue, se presente:
  
    ```
    FeatureType=0
@@ -353,10 +353,10 @@ fi
 
 Creare quindi una voce per lo script di aggiornamento in `/etc/rc.d/rc3.d`, in modo che venga richiamato come radice all'avvio.
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 * È possibile impostare la modalità di persistenza tramite `nvidia-smi`. In questo modo l'output del comando sarà più veloce per l'esecuzione di query sulle schede. Per impostare la modalità di persistenza, eseguire `nvidia-smi -pm 1`. Si noti che se la macchina virtuale viene riavviata, l'impostazione della modalità scompare. È sempre possibile generare script che impostino la modalità affinché venga eseguita all'avvio.
-* Se i driver NVIDIA CUDA sono stati aggiornati alla versione più recente e si trova RDMA connectivcity non funziona più, [reinstallare i driver RDMA](https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup#rdma-network-connectivity) per reistablish tale connettività. 
+* Se i driver NVIDIA CUDA sono stati aggiornati alla versione più recente e si scopre che la connettività RDMA non funziona più, [reinstallare i driver RDMA](https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup#rdma-network-connectivity) per eseguire la reistablish della connettività. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

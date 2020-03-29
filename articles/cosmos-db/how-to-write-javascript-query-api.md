@@ -1,5 +1,5 @@
 ---
-title: Scrivere stored procedure e trigger usando l'API di query JavaScript in Azure Cosmos DB
+title: Scrivere stored procedure e trigger usando l'API di query JavaScript in Azure Cosmos DBWrite stored procedures and triggers using the JavaScript query API in Azure Cosmos DB
 description: Informazioni su come scrivere stored procedure e trigger usando l'API di query di Javascript in Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: mjbrown
 ms.openlocfilehash: 221a3118808a044ef1b1b822b9c95772bf792f34
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75441718"
 ---
 # <a name="how-to-write-stored-procedures-and-triggers-in-azure-cosmos-db-by-using-the-javascript-query-api"></a>Come scrivere stored procedure e trigger in Azure Cosmos DB usando l'API di query di Javascript
 
 Azure Cosmos DB consente di eseguire query ottimizzate usando un'interfaccia JavaScript intuitiva senza alcuna conoscenza di linguaggio SQL, che possa essere usata per scrivere stored procedure o trigger. Per altre informazioni sul supporto delle API di query JavaScript in Azure Cosmos DB, vedere l'articolo [Utilizzo dell'API di query integrata nel linguaggio JavaScript in Azure Cosmos DB](javascript-query-api.md).
 
-## <a id="stored-procedures"></a>Stored procedure usando l'API di query JavaScript
+## <a name="stored-procedure-using-the-javascript-query-api"></a><a id="stored-procedures"></a>Stored procedure usando l'API di query JavaScript
 
 L'esempio di codice seguente illustra come si usa l'API Query JavaScript nel contesto di una stored procedure. La stored procedure inserisce un elemento di Azure Cosmos specificato da un parametro di input e aggiorna un documento di metadati usando il metodo `__.filter()`, con minSize, maxSize e totalSize impostati in base alla proprietà relativa alle dimensioni dell'elemento di input.
 
@@ -90,4 +90,4 @@ Vedere gli articoli seguenti per ottenere informazioni su stored procedure, trig
 
 * [Come registrare e usare funzioni definite dall'utente in Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md#udfs)
 
-* [Synthetic partition keys in Azure Cosmos DB](synthetic-partition-keys.md) (Chiavi di partizione sintetiche in Azure Cosmos DB)
+* [Chiavi di partizione sintetiche in Azure Cosmos DB](synthetic-partition-keys.md)

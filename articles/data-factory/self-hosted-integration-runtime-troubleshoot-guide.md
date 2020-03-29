@@ -1,6 +1,6 @@
 ---
-title: Risolvere i problemi del runtime di integrazione self-hosted in Azure Data Factory
-description: Informazioni su come risolvere i problemi del runtime di integrazione self-hosted in Azure Data Factory.
+title: Risolvere i problemi relativi al runtime di integrazione self-hosted in Azure Data FactoryTroubleshoot self-hosted integration runtime in Azure Data Factory
+description: Informazioni su come risolvere i problemi di runtime di integrazione self-hosted in Azure Data Factory.Learn how to troubleshoot self-hosted integration runtime issues in Azure Data Factory.
 services: data-factory
 author: nabhishek
 ms.service: data-factory
@@ -8,54 +8,54 @@ ms.topic: troubleshooting
 ms.date: 11/07/2019
 ms.author: abnarain
 ms.openlocfilehash: b8492e8934c782451fb77d5a0ff56b96c34c9a00
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75439882"
 ---
-# <a name="troubleshoot-self-hosted-integration-runtime"></a>Risolvere i problemi del runtime di integrazione self-hosted
+# <a name="troubleshoot-self-hosted-integration-runtime"></a>Risolvere i problemi relativi al runtime di integrazione self-hostedTroubleshoot self-hosted integration runtime
 
-Questo articolo illustra i metodi comuni per la risoluzione dei problemi per il runtime di integrazione self-hosted in Azure Data Factory.
+Questo articolo illustra i metodi comuni di risoluzione dei problemi per il runtime di integrazione self-hosted in Azure Data Factory.This article explores common troubleshooting methods for self-hosted integration runtime in Azure Data Factory.
 
-## <a name="common-errors-and-resolutions"></a>Errori e soluzioni comuni
+## <a name="common-errors-and-resolutions"></a>Errori comuni e soluzioni
 
-### <a name="error-message-self-hosted-integration-runtime-cant-connect-to-cloud-service"></a>Messaggio di errore: il runtime di integrazione self-hosted non è in grado di connettersi al servizio cloud
+### <a name="error-message-self-hosted-integration-runtime-cant-connect-to-cloud-service"></a>Messaggio di errore: Il runtime di integrazione self-hosted non è in grado di connettersi al servizio cloud
 
 ![Problema di connessione IR self-hosted](media/self-hosted-integration-runtime-troubleshoot-guide/unable-to-connect-to-cloud-service.png)
 
 #### <a name="cause"></a>Causa 
 
-Il runtime di integrazione self-hosted non è in grado di connettersi al servizio Data Factory (back-end). Questo problema è in genere causato da impostazioni di rete nel firewall.
+Il runtime di integrazione self-hosted non è in grado di connettersi al servizio Data Factory (backend). Questo problema è in genere causato dalle impostazioni di rete nel firewall.
 
 #### <a name="resolution"></a>Risoluzione
 
-1. Controllare se il servizio Integration Runtime è in esecuzione.
+1. Verificare se il servizio runtime di integrazione è in esecuzione.
     
    ![Stato di esecuzione del servizio IR self-hosted](media/self-hosted-integration-runtime-troubleshoot-guide/integration-runtime-service-running-status.png)
     
-1. Se il servizio è in esecuzione, andare al passaggio 3.
+1. Se il servizio è in esecuzione, andare al passaggio 3.If the service is running, go go to step 3.
 
-1. Se non è stato configurato alcun proxy nel runtime di integrazione self-hosted (impostazione predefinita), eseguire il comando PowerShell seguente nel computer in cui è installato il runtime di integrazione self-hosted:
+1. Se non è presente alcun proxy configurato nel runtime di integrazione self-hosted (impostazione predefinita), eseguire il comando di PowerShell seguente nel computer in cui è installato il runtime di integrazione self-hosted:
 
     ```powershell
     (New-Object System.Net.WebClient).DownloadString("https://wu2.frontend.clouddatahub.net/")
     ```
         
    > [!NOTE]     
-   > L'URL del servizio può variare a seconda della posizione Data Factory. È possibile trovare l'URL del servizio nell' **interfaccia utente di ADF** > **connessioni** > **runtime di integrazione** > modificare i **nodi** del > **IR self-hosted** > **visualizzare gli URL del servizio**.
+   > L'URL del servizio può variare a seconda del percorso di Data Factory.The service URL may vary, depending on your Data Factory location. È possibile trovare l'URL del servizio in**Connections** > **Ibitavi** > di integrazione delle connessioni **ADF** > Modifica**URL del servizio**di visualizzazione dei**nodi** > IR > **self-hosted**.
             
     Di seguito è riportata la risposta prevista:
             
-    ![Risposta comando di PowerShell](media/self-hosted-integration-runtime-troubleshoot-guide/powershell-command-response.png)
+    ![Risposta del comando PowerShellPowerShell command response](media/self-hosted-integration-runtime-troubleshoot-guide/powershell-command-response.png)
             
-1. Se non si riceve la risposta prevista, usare uno dei metodi seguenti a seconda della situazione:
+1. Se non si riceve la risposta prevista, utilizzare uno dei seguenti metodi a seconda della situazione:
             
-    * Se viene visualizzato il messaggio "Impossibile risolvere il nome remoto", si verifica un problema di Domain Name System (DNS). Per risolvere il problema, contattare il team di rete.
-    * Se viene visualizzato un messaggio che indica che il certificato SSL/TLS non è attendibile, verificare che il certificato per https://wu2.frontend.clouddatahub.net/ sia attendibile nel computer, quindi installare il certificato pubblico usando Gestione certificati. Questa azione dovrebbe mitigare il problema.
-    * Passare a **Windows** > **Visualizzatore eventi (log)**  > **registri applicazioni e servizi** > **Integration Runtime** e verificare la presenza di eventuali errori causati da DNS, da una regola del firewall o dalle impostazioni della rete aziendale. Se si rileva un errore di questo tipo, chiudere forzatamente la connessione. Poiché ogni azienda ha impostazioni di rete personalizzate, contattare il team di rete per risolvere questi problemi.
+    * Se viene visualizzato il messaggio "Impossibile risolvere il nome remoto", si verifica un problema DNS (Domain Name System). Contattare il team di rete per risolvere il problema.
+    * Se viene visualizzato un messaggio "certificato ssl/tls non attendibile", verificare se il certificato per https://wu2.frontend.clouddatahub.net/ è attendibile nel computer e quindi installare il certificato pubblico utilizzando Gestione certificati. Questa azione dovrebbe attenuare il problema.
+    * Passare a**Visualizzatore eventi (registri)** > **applicazioni di** >  **Windows** > e registri di servizi In fase di**integrazione** e verificare la presenza di eventuali errori causati da DNS, una regola del firewall o le impostazioni di rete aziendale. (Se si rileva un errore di questo tipo, chiudere con la barra di connessione.) Poiché ogni azienda dispone di impostazioni di rete personalizzate, contattare il team di rete per risolvere questi problemi.
 
-1. Se il "proxy" è stato configurato nel runtime di integrazione self-hosted, verificare che il server proxy possa accedere all'endpoint del servizio. Per un comando di esempio, vedere [PowerShell, richieste Web e proxy](https://stackoverflow.com/questions/571429/powershell-web-requests-and-proxies).    
+1. Se "proxy" è stato configurato nel runtime di integrazione self-hosted, verificare che il server proxy possa accedere all'endpoint del servizio. Per un comando di esempio, vedere [PowerShell, richieste Web e proxy](https://stackoverflow.com/questions/571429/powershell-web-requests-and-proxies).    
                 
     ```powershell
     $user = $env:username
@@ -76,29 +76,29 @@ Il runtime di integrazione self-hosted non è in grado di connettersi al servizi
 
 Di seguito è riportata la risposta prevista:
             
-![Risposta comando PowerShell 2](media/self-hosted-integration-runtime-troubleshoot-guide/powershell-command-response.png)
+![Risposta del comando PowerShell 2Powershell command response 2](media/self-hosted-integration-runtime-troubleshoot-guide/powershell-command-response.png)
 
 > [!NOTE] 
 > Considerazioni sul proxy:
-> * Controllare se il server proxy deve essere inserito nell'elenco dei destinatari sicuri. In tal caso, assicurarsi che [questi domini](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations#firewall-requirements-for-on-premisesprivate-network) si trovino nell'elenco dei destinatari sicuri.
-> * Verificare che il certificato TLS/SSL "wu2.frontend.clouddatahub.net/" sia attendibile nel server proxy.
-> * Se si usa Active Directory autenticazione sul proxy, modificare l'account del servizio per l'account utente che può accedere al proxy come "servizio Integration Runtime".
+> * Verificare se il server proxy deve essere inserito nell'elenco Destinatari attendibili. In tal caso, assicurarsi che [questi domini](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations#firewall-requirements-for-on-premisesprivate-network) siano inclusi nell'elenco Destinatari attendibili.
+> * Verificare se il certificato TLS/SSL "wu2.frontend.clouddatahub.net/" è considerato attendibile sul server proxy.
+> * Se si utilizza l'autenticazione di Active Directory nel proxy, modificare l'account del servizio con l'account utente che può accedere al proxy come "Servizio runtime di integrazione".
 
-### <a name="error-message-self-hosted-integration-runtime-node-logical-shir-is-in-inactive-running-limited-state"></a>Messaggio di errore: il nodo del runtime di integrazione self-hosted o il sistema di gestione delle attività logiche è nello stato inattivo/"in esecuzione (limitato)"
+### <a name="error-message-self-hosted-integration-runtime-node-logical-shir-is-in-inactive-running-limited-state"></a>Messaggio di errore: Nodo di runtime di integrazione self-hosted/SHIR logico è in stato inattivo/ "In esecuzione (limitato)"
 
 #### <a name="cause"></a>Causa 
 
-Il nodo runtime integrato self-hosted potrebbe avere uno stato **inattivo** , come illustrato nello screenshot seguente:
+Il nodo di runtime integrato self-hosted potrebbe avere uno stato **Inattivo,** come illustrato nella schermata seguente:The self-hosted integrated runtime node might have an Inactive status, as shown in the following screenshot:
 
-![Nodo IR self-hosted non attivo](media/self-hosted-integration-runtime-troubleshoot-guide/inactive-self-hosted-ir-node.png)
+![Nodo AIR self-hosted inattivo](media/self-hosted-integration-runtime-troubleshoot-guide/inactive-self-hosted-ir-node.png)
 
 Questo comportamento si verifica quando i nodi non possono comunicare tra loro.
 
 #### <a name="resolution"></a>Risoluzione
 
-1. Accedere alla macchina virtuale ospitata da un nodo. In **registri applicazioni e servizi** > **Integration Runtime**aprire Visualizzatore eventi e filtrare tutti i log degli errori.
+1. Accedere alla macchina virtuale ospitata dal nodo. In Runtime**di integrazione** **registri** > applicazioni e servizi aprire Visualizzatore eventi e filtrare tutti i log degli errori.
 
-1. Controllare se un log degli errori contiene l'errore seguente: 
+1. Verificare se un log degli errori contiene il seguente errore: 
     
     ```System.ServiceModel.EndpointNotFoundException: Could not connect to net.tcp://xxxxxxx.bwld.com:8060/ExternalService.svc/WorkerManager. The connection attempt lasted for a time span of 00:00:00.9940994. TCP error code 10061: No connection could be made because the target machine actively refused it 10.2.4.10:8060. 
     System.Net.Sockets.SocketException: No connection could be made because the target machine actively refused it. 

@@ -7,15 +7,15 @@ ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: alkohli
 ms.openlocfilehash: 85be49ad88ac62d90235c3da6b89b0da6a11487c
-ms.sourcegitcommit: e6bce4b30486cb19a6b415e8b8442dd688ad4f92
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78933753"
 ---
 # <a name="manage-the-storsimple-data-manager-service-in-azure-portal"></a>Gestire il servizio StorSimple Data Manager nel portale di Azure
 
-Questo articolo illustra come usare l'interfaccia utente di StorSimple Data Manager per trasformare i dati che risiedono sui dispositivi StorSimple serie 8000. I dati trasformati possono quindi essere usati da altri servizi di Azure, ad esempio servizi multimediali di Azure, Azure HDInsight, Azure Machine Learning e ricerca cognitiva di Azure.
+Questo articolo illustra come usare l'interfaccia utente di StorSimple Data Manager per trasformare i dati che risiedono sui dispositivi StorSimple serie 8000. I dati trasformati possono quindi essere utilizzati da altri servizi di Azure, ad esempio Servizi multimediali di Azure, Azure HDInsight, Azure Machine Learning e Ricerca cognitiva di Azure.The transformed data can then be consumed by other Azure services such as Azure Media Services, Azure HDInsight, Azure Machine Learning, and Azure Cognitive Search.
 
 
 ## <a name="use-storsimple-data-transformation"></a>Usare la trasformazione dati di StorSimple
@@ -62,7 +62,7 @@ Per creare una definizione del processo, seguire questa procedura.
 
 1. Passare al servizio creato. Passare a **Gestione > Definizioni processi**.
 
-2. Fare clic su **+ Definizione processo**.
+2. Fare clic su **Definizione processo .**
 
     ![Fare clic su + Definizione processo](./media/storsimple-data-manager-ui/create-job-definition-1.png)
 
@@ -102,7 +102,7 @@ Per creare una definizione del processo, seguire questa procedura.
 
    3. Nella sottosezione **Filtro** immettere la directory radice contenente i dati di interesse nel formato _\DirectoryRadice\Dati_. Le lettere di unità, ad esempio _\C:\Dati_, non sono supportate. È inoltre possibile aggiungere qualsiasi filtro file qui.
 
-   4. Il servizio di trasformazione dei dati funziona solo con lo snapshot più recente dei dati spostati in Azure.
+   4. Il servizio di trasformazione dei dati funziona solo sullo snapshot più recente dei dati inseriti in Azure.The data transformation service only works on the latest snapshot of the data that is pushed to Azure.
 
    5. Fare clic su **OK**.
 
@@ -139,7 +139,7 @@ Per spostare i dati da StorSimple all'account di archiviazione specificato nella
      
      ![Avviare l'esecuzione del processo 1](./media/storsimple-data-manager-ui/start-job-run1.png)
 
-2. Fare clic su **Esegui**.
+2. Fare clic su **Esegui ora**.
      
      ![Avviare l'esecuzione del processo 2](./media/storsimple-data-manager-ui/start-job-run2.png)
 
@@ -151,10 +151,10 @@ Per spostare i dati da StorSimple all'account di archiviazione specificato nella
 
     ![Avviare l'esecuzione del processo 4](./media/storsimple-data-manager-ui/start-job-run4.png)
 
-### <a name="view-logs-after-job-completion"></a>Visualizzare i log dopo il completamento del processo
+### <a name="view-logs-after-job-completion"></a>Visualizzare i registri dopo il completamento del processoView logs after job completion
 
-Al termine di un processo, è possibile visualizzare lo stato del processo. Lo stato del processo può essere **succeeded**, **parzialmente riuscito** e **non riuscito**. È possibile visualizzare l'elenco dei file copiati correttamente e i file che non sono stati copiati. Questi elenchi sono disponibili in un contenitore denominato **"StorSimple-Data-Manager-Joblogs"** all'interno dell'account di archiviazione di destinazione. All'interno di questo contenitore è possibile cercare una cartella con lo stesso nome della definizione del processo. In questo modo verrà creata una cartella per ogni esecuzione del processo che conterrà gli elenchi. Il nome di questa cartella sarà il GUID del processo, che è possibile ottenere dalla pagina dei dettagli del processo. In alternativa, nella maggior parte dei casi viene visualizzato un collegamento per i log di copia all'interno della pagina processi.
-Sono disponibili 2 set di file CSV che verranno visualizzati in questa cartella. Tutti i file che iniziano con **copiedfilelist...** conterranno l'elenco dei file copiati correttamente. Tutti i file che iniziano con **failedfilelist...** contengono file che non possono essere copiati, insieme a un messaggio di errore.
+Dopo il completamento di un processo, è possibile visualizzare lo stato del processo. Lo stato del processo può essere **Riuscito**, **Parzialmente riuscito** e **Non riuscito**. È possibile visualizzare l'elenco dei file che sono stati copiati correttamente e i file che non è stato possibile copiare. Questi elenchi sono disponibili in un contenitore denominato **"storsimple-data-manager-joblogs"** all'interno dell'account di archiviazione di destinazione. All'interno di questo contenitore, è possibile cercare una cartella con lo stesso nome della definizione del processo. All'interno di questo, verrà creata una cartella per ogni esecuzione di processo che conterrà le liste. Il nome di questa cartella sarà il GUID del processo, che è possibile ottenere dalla pagina dei dettagli del processo. In alternativa, nella maggior parte dei casi verrà visualizzato un collegamento per i log di copia all'interno della pagina dei processi stessa.
+Ci sono 2 set di file csv che vedrai in questa cartella. Tutti i file che iniziano con **copiedfilelist...** conterranno l'elenco dei file copiati correttamente. Tutti i file che iniziano con **failedfilelist...** contengono file che non sono stati in grado di essere copiati, insieme a un messaggio di errore.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

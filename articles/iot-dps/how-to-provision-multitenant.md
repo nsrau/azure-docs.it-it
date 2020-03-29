@@ -1,6 +1,6 @@
 ---
-title: Come eseguire il provisioning dei dispositivi per il multitenant nel servizio Device provisioning in hub Azure
-description: Come eseguire il provisioning dei dispositivi per il multitenant con l'istanza del servizio Device provisioning (DPS)
+title: Come eseguire il provisioning dei dispositivi per la multi-tenancy nel servizio di provisioning dei dispositivi hub IoT di Azure IoTHow to provision devices for multitenancy in Azure IoT Hub Device Provisioning Service
+description: Come eseguire il provisioning dei dispositivi per la multi-tenancy con l'istanza del servizio Device Provisioning Service (DPS)
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/10/2019
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: e0dec0a67ed33186797ccec8066aaad89ceb8dcb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75434747"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Come effettuare il provisioning per la multi-tenancy 
@@ -191,7 +191,7 @@ Per rendere più semplici le operazioni di pulizia, queste macchine virtuali ver
 
 In questa sezione si clonerà Azure IoT C SDK in ogni macchina virtuale. L'SDK contiene un esempio che consentirà di simulare il provisioning di dispositivi del tenant da ogni area.
 
-1. Per ogni macchina virtuale, installare **CMake**, **g + +** , **GCC**e [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) usando i comandi seguenti:
+1. Per ogni macchina virtuale, installare **CMake**, **g,** **gcc**e [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) utilizzando i comandi seguenti:
 
     ```bash
     sudo apt-get update
@@ -300,7 +300,7 @@ In questa sezione si aggiornerà un esempio di provisioning in Azure IoT C SDK p
 
 Il codice di esempio simula una sequenza di avvio di dispositivo che invia la richiesta di provisioning all'istanza del servizio Device Provisioning. La sequenza di avvio riconoscerà il dispositivo e lo assegnerà all'hub IoT più vicino in base alla latenza.
 
-1. Nel portale di Azure selezionare la scheda **Panoramica** per il servizio Device Provisioning e prendere nota del valore di **_Ambito ID_** .
+1. Nel portale di Azure selezionare la scheda **Panoramica** per il servizio Device Provisioning e prendere nota del valore di **_Ambito ID_**.
 
     ![Estrarre le informazioni dell'endpoint del servizio Device Provisioning dal pannello del portale](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 
@@ -420,8 +420,8 @@ Per eliminare il gruppo di risorse per nome:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per ulteriori informazioni sul nuovo provisioning, vedere [concetti relativi al provisioning dei dispositivi dell'hub](concepts-device-reprovision.md) . 
-- Per ulteriori informazioni sul deprovisioning, vedere [come eseguire il deprovisioning di dispositivi precedentemente sottoposti a provisioning automatico](how-to-unprovision-devices.md) 
+- Per altre informazioni su Reprovisioning, vedere Concetti relativi al riprovisioning del nuovo provisioning dei dispositivi hub IoTTo learn more Reprovisioning, see [IoT Hub Device reprovisioning concepts](concepts-device-reprovision.md) 
+- Per altre informazioni sul deprovisioning, vedere Come eseguire il deprovisioning dei dispositivi precedentemente sottoposti a provisioning automaticoTo learn more Deprovisioning, see [How to deprovision devices that were previously auto-provisioned](how-to-unprovision-devices.md) 
 
 
 

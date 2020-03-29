@@ -1,5 +1,5 @@
 ---
-title: Gerarchia di paesi/aree geografiche usata dal routing geografico-gestione traffico di Azure
+title: Gerarchia paese/area geografica usata dal routing geografico - Gestione traffico di AzureCountry/Region hierarchy used by geographic routing - Azure Traffic Manager
 description: In questo articolo viene riportata la gerarchia di paesi/aree geografiche usata nel tipo di routing Geografico di Gestione traffico di Azure
 services: traffic-manager
 documentationcenter: ''
@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: rohink
 ms.openlocfilehash: 19445c06ccf08d2d7916545ad495c56883616c7a
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76938636"
 ---
 # <a name="countryregion-hierarchy-used-by-azure-traffic-manager-for-geographic-traffic-routing-method"></a>Gerarchia di paesi/aree geografiche usata da Gestione traffico di Azure per il metodo di routing del traffico Geografico
 
-In questo articolo sono elencati i paesi e le aree geografiche usati nel metodo di routing del traffico **Geografico** in Gestione traffico di Azure. È possibile ottenere queste informazioni anche a livello di codice effettuando una chiamata all'[API REST di Gestione traffico di Azure](https://docs.microsoft.com/rest/api/trafficmanager/). 
+In questo articolo sono elencati i paesi e le aree geografiche usati nel metodo di routing del traffico **Geografico** in Gestione traffico di Azure. È possibile ottenere queste informazioni anche in modo programmatico effettuando una chiamata all'[API REST di Gestione traffico di Azure](https://docs.microsoft.com/rest/api/trafficmanager/). 
 
 - WORLD (mondo)
 
@@ -99,7 +99,7 @@ In questo articolo sono elencati i paesi e le aree geografiche usati nel metodo 
 
         - ME (Montenegro)
 
-        - MK (Macedonia del Nord)
+        - MK(Macedonia settentrionale)
 
         - MT (Malta)
 
@@ -128,7 +128,7 @@ In questo articolo sono elencati i paesi e le aree geografiche usati nel metodo 
         - SM (San Marino)
 
         - UA (Ucraina)
-            - Regione di Crimea
+            - Regione della Crimea
 
         - VA (Città del Vaticano)
 
@@ -270,7 +270,7 @@ In questo articolo sono elencati i paesi e le aree geografiche usati nel metodo 
 
         - TT (Trinidad e Tobago)
 
-        - UM (Isole statunitensi)
+        - UM (Isole Periferiche U.S.A.S.A.)
 
         - US (Stati Uniti)
 
@@ -380,7 +380,7 @@ In questo articolo sono elencati i paesi e le aree geografiche usati nel metodo 
 
         - VG (Isole Vergini Britanniche)
 
-        - VI (Isole Vergini americane)
+        - VI (Isole Vergini Americane)
 
         - XE (Sint Eustatius)
 
@@ -482,7 +482,7 @@ In questo articolo sono elencati i paesi e le aree geografiche usati nel metodo 
 
         - CF (Repubblica Centrafricana)
 
-        - CI (Côte d’Ivoire)
+        - CI (Costa d'Avorio)
 
         - CM (Camerun)
 

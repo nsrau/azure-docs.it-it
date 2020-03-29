@@ -1,5 +1,5 @@
 ---
-title: Operazioni DELETE in Azure Cosmos DB API Cassandra da Spark
+title: Operazioni di eliminazione sull'API Cassandra DB di Azure da SparkDelete operations on Azure Cosmos DB Cassandra API from Spark
 description: Questo articolo descrive come eliminare i dati nelle tabelle nell'API Cassandra di Azure Cosmos DB da Spark.
 author: kanshiG
 ms.author: govindk
@@ -9,10 +9,10 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: 0317fab158b2ea73b365bedc272721816da22c4e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75442095"
 ---
 # <a name="delete-data-in-azure-cosmos-db-cassandra-api-tables-from-spark"></a>Eliminare dati nelle tabelle nell'API Cassandra di Azure Cosmos DB da Spark

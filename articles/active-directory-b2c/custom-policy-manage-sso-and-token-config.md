@@ -1,5 +1,5 @@
 ---
-title: Gestire la personalizzazione di token e SSO tramite criteri personalizzati
+title: Gestire SSO e la personalizzazione dei token usando i criteri personalizzatiManage SSO and token customization using custom policies
 titleSuffix: Azure AD B2C
 description: Informazioni su come gestire la personalizzazione di token e SSO con criteri personalizzati in Azure Active Directory B2C.
 services: active-directory-b2c
@@ -12,21 +12,21 @@ ms.date: 10/09/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: ff9f57af92c50c0df6f628113bd9490ca83e1310
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78189294"
 ---
 # <a name="manage-sso-and-token-customization-using-custom-policies-in-azure-active-directory-b2c"></a>Gestire la personalizzazione di token e SSO con criteri personalizzati in Azure Active Directory B2C
 
-Questo articolo fornisce informazioni su come è possibile gestire le configurazioni di token, sessione e Single Sign-On (SSO) usando [criteri personalizzati](custom-policy-overview.md) in Azure Active Directory B2C (Azure ad B2C).
+Questo articolo fornisce informazioni su come gestire le configurazioni di token, sessione e Single Sign-On (SSO) usando [criteri personalizzati](custom-policy-overview.md) in Azure Active Directory B2C (Azure AD B2C).
 
 ## <a name="token-lifetimes-and-claims-configuration"></a>Configurazione delle attestazioni e delle durate dei token
 
 Per modificare le impostazioni per le durate dei token, si aggiunge un elemento [ClaimsProviders](claimsproviders.md) nel file di relying party dei criteri su cui si vuole intervenire.  **ClaimsProviders** è un elemento figlio dell'elemento [TrustFrameworkPolicy](trustframeworkpolicy.md).
 
-Inserire l'elemento ClaimsProviders tra l'elemento BasePolicy e l'elemento RelyingParty del file relying party.
+Inserire l'elemento ClaimsProviders tra l'elemento BasePolicy e l'elemento RelyingParty del file della relying party.
 
 Sarà necessario inserirvi le informazioni che influiscono sulle durate dei token. L'XML è simile all'esempio seguente:
 
@@ -56,7 +56,7 @@ Nell'esempio precedente vengono impostati i valori seguenti.
 - **Durata del token ID**: il valore di durata del token ID viene impostato con l'elemento dei metadati **id_token_lifetime_secs**. Il valore predefinito è 3600 secondi (60 minuti).
 - **Durata del token di aggiornamento**: il valore di durata del token di aggiornamento viene impostato con l'elemento dei metadati **refresh_token_lifetime_secs**. Il valore predefinito è 1209600 secondi (14 giorni).
 - **Durata della finestra temporale scorrevole del token di aggiornamento**: per impostare una durata della finestra temporale scorrevole per il token di aggiornamento, impostare il valore dell'elemento dei metadati **rolling_refresh_token_lifetime_secs**. Il valore predefinito è 7776000 giorni (90 giorni). Se non si vuole applicare una durata della finestra temporale scorrevole, sostituire l'elemento con `<Item Key="allow_infinite_rolling_refresh_token">True</Item>`.
-- **Attestazione autorità di certificazione (iss)** : l'attestazione dell'autorità di certificazione (iss) viene impostata con l'elemento dei metadati **IssuanceClaimPattern**. I valori applicabili sono `AuthorityAndTenantGuid` e `AuthorityWithTfp`.
+- **Attestazione autorità di certificazione (iss)**: l'attestazione dell'autorità di certificazione (iss) viene impostata con l'elemento dei metadati **IssuanceClaimPattern**. I valori applicabili sono `AuthorityAndTenantGuid` e `AuthorityWithTfp`.
 - **Impostazione dell'attestazione che rappresenta l'ID criteri**: per impostare questo valore sono disponibili le opzioni `TFP` (criteri del framework attendibilità) e `ACR` (riferimento al contesto di autenticazione). Il valore consigliato è `TFP`. Impostare **AuthenticationContextReferenceClaimPattern** con il valore `None`.
 
     Nell'elemento **ClaimsSchema**, aggiungere l'elemento seguente:
@@ -76,7 +76,7 @@ Nell'esempio precedente vengono impostati i valori seguenti.
 
     Per ACR, rimuovere l'elemento **AuthenticationContextReferenceClaimPattern**.
 
-- **Attestazione soggetto (sub)** : l'impostazione predefinita di questa opzione è ObjectID. Per modificare l'impostazione in `Not Supported`, sostituire questa riga:
+- **Attestazione soggetto (sub)**: l'impostazione predefinita di questa opzione è ObjectID. Per modificare l'impostazione in `Not Supported`, sostituire questa riga:
 
     ```XML
     <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub" />
@@ -102,6 +102,6 @@ Per modificare le configurazioni del comportamento della sessione e dell'accesso
 
 Nell'esempio precedente vengono configurati i valori seguenti.
 
-- **Single Sign-On (SSO)** : l'accesso Single Sign-On viene configurato con **SingleSignOn**. I valori applicabili sono `Tenant`, `Application``Policy` e `Suppressed`.
+- **Single Sign-On (SSO)**: l'accesso Single Sign-On viene configurato con **SingleSignOn**. I valori applicabili sono `Tenant`, `Application``Policy` e `Suppressed`.
 - **Timeout della sessione dell'app Web**: la durata della sessione dell'app Web viene impostata con l'elemento **SessionExpiryType**. I valori applicabili sono `Absolute` e `Rolling`.
-- **Durata della sessione dell'app Web** : la durata della sessione dell'app Web è impostata con l'elemento **SessionExpiryInSeconds** . Il valore predefinito è 86400 secondi (1440 minuti).
+- **Durata della sessione dell'app Web:** la durata della sessione dell'app Web viene impostata con l'elemento **SessionExpiryInSeconds.** Il valore predefinito è 86400 secondi (1440 minuti).

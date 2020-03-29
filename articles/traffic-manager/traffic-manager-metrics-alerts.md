@@ -1,6 +1,6 @@
 ---
 title: Metriche e avvisi in Gestione traffico di Azure
-description: In questo articolo vengono fornite informazioni sulle metriche e sugli avvisi disponibili per Traffic Manager in Azure.
+description: In questo articolo vengono learn le metriche e gli avvisi disponibili per Gestione traffico in Azure.In this article s app sa the metrics and alerts available for Traffic Manager in Azure.
 services: traffic-manager
 author: rohinkoul
 ms.service: traffic-manager
@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 06/11/2018
 ms.author: rohink
 ms.openlocfilehash: 521e6ac605d187c0f95545611a17a86cfda6e1dd
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76938593"
 ---
 # <a name="traffic-manager-metrics-and-alerts"></a>Metriche e avvisi di Gestione traffico
@@ -43,8 +43,8 @@ La Figura 2 mostra le stesse informazioni, suddivise tuttavia per endpoint. È q
 
 ## <a name="endpoint-status-by-endpoint"></a>Stato endpoint per endpoint
 Usare [questa metrica](../azure-monitor/platform/metrics-supported.md#microsoftnetworktrafficmanagerprofiles) per comprendere lo stato di integrità degli endpoint nel profilo. Sono necessari due valori:
- - usare **1**  se l'endpoint è attivo.
- - usare **0**  se l'endpoint è inattivo.
+ - usare **1 ** se l'endpoint è attivo.
+ - usare **0 ** se l'endpoint è inattivo.
 
 Questa metrica può essere visualizzata sia come valore aggregato che rappresenta lo stato di tutte le metriche (Figura 3), sia come suddivisione (vedi Figura 4) per mostrare lo stato di endpoint specifici. Nel primo caso, se il livello di aggregazione selezionato è **Avg**, il valore di questa metrica sarà la media aritmetica dello stato di tutti gli endpoint. Ad esempio, se un profilo ha due endpoint e solo uno è integro, questa metrica avrà un valore di **0,50** come mostrato nella Figura 3. 
 

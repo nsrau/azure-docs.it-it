@@ -1,6 +1,6 @@
 ---
 title: Panoramica degli endpoint di streaming dei Servizi multimediali di Azure | Microsoft Docs
-description: Questo articolo offre una panoramica degli endpoint di streaming di servizi multimediali di Azure.
+description: Questo articolo offre una panoramica degli endpoint di streaming di Servizi multimediali di Azure.This article gives an overview of Azure Media Services streaming endpoints.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,22 +15,22 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 95d8d819aa1b418b4a7ec736cef64cb989f7e37b
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74885637"
 ---
 # <a name="streaming-endpoints-overview"></a>Panoramica degli endpoint di streaming  
 
 > [!NOTE]
-> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [linee guida sulla migrazione da V2 a V3](../latest/migrate-from-v2-to-v3.md)
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Scopri la versione più recente, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche le linee guida per la [migrazione dalla v2 alla v3](../latest/migrate-from-v2-to-v3.md)
 
-In Servizi multimediali di Microsoft Azure (AMS) un **endpoint di streaming** rappresenta un servizio di streaming in grado di distribuire contenuti direttamente a un'applicazione di lettore client o a una rete CDN (rete per la distribuzione di contenuti) per la successiva distribuzione. Servizi multimediali fornisce inoltre un'integrazione completa della rete CDN di Azure. Il flusso in uscita da un servizio StreamingEndpoint può essere costituito da un flusso live, da un "video on demand" o da un download progressivo dell'asset associato a un account di Servizi multimediali. Ogni account di Servizi multimediali di Azure include un servizio StreamingEndpoint predefinito. Nell'account è possibile creare altri servizi StreamingEndpoint. Esistono due versioni di servizi StreamingEndpoint, ovvero 1.0 e 2.0. A partire dal 10 gennaio 2017, ogni nuovo account di AMS include lo StreamingEndpoint **predefinito** della versione 2.0. Anche gli altri endpoint di streaming che verranno aggiunti a questo account avranno la versione 2.0. Questa modifica non influisce sugli account esistenti: gli StreamingEndpoint esistenti presenteranno la versione 1.0 e possono passare alla versione 2.0. Questa modifica influenzerà il comportamento, la fatturazione e le funzionalità (per altre informazioni, vedere la sezione **Tipologie e versioni di streaming** documentata di seguito).
+In Servizi multimediali di Microsoft Azure (AMS) un **endpoint di streaming** rappresenta un servizio di streaming in grado di distribuire contenuti direttamente a un'applicazione di lettore client o a una rete CDN (rete per la distribuzione di contenuti) per la successiva distribuzione. Servizi multimediali fornisce inoltre un'integrazione completa della rete CDN di Azure. Il flusso in uscita da un servizio StreamingEndpoint può essere costituito da un flusso live, da un "video on demand" o da un download progressivo dell'asset associato a un account di Servizi multimediali. Ogni account di Servizi multimediali di Azure include un servizio StreamingEndpoint predefinito. Nell'account è possibile creare altri servizi StreamingEndpoint. Esistono due versioni di servizi StreamingEndpoint, ovvero 1.0 e 2.0. A partire dal 10 gennaio 2017, ogni account di AMS appena creato includerà lo StreamingEndpoint **predefinito** della versione 2.0. Anche gli altri endpoint di streaming che verranno aggiunti a questo account avranno la versione 2.0. Questa modifica non influisce sugli account esistenti. La versione dei servizi StreamingEndpoint è la versione 1.0, che può essere aggiornata alla versione 2.0. Questa modifica influenzerà il comportamento, la fatturazione e le funzionalità (per altre informazioni, vedere la sezione **Tipologie e versioni di streaming** documentata di seguito).
 
-Servizi multimediali di Azure ha aggiunto le proprietà seguenti all'entità endpoint di streaming: **CdnProvider**, **CdnProfile**, **StreamingEndpointVersion**. Per una panoramica dettagliata di queste proprietà, vedere [questo articolo](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint). 
+Servizi multimediali di Azure sono state aggiunte le proprietà seguenti all'entità Endpoint di streaming: **CdnProvider**, **CdnProfile**, **StreamingEndpointVersion**. Per una panoramica dettagliata di queste proprietà, vedere [questo articolo](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint). 
 
-Quando si crea un account dei Servizi multimediali di Azure viene creato un endpoint di streaming standard predefinito nello stato **Arrestato**. Gli endpoint di streaming predefiniti non possono essere eliminati. In base alla disponibilità della rete CDN di Azure nell'area di destinazione, l'endpoint di streaming predefinito appena creato per impostazione predefinita include anche l'integrazione del provider CDN "StandardVerizon". 
+Quando si crea un account dei Servizi multimediali di Azure viene creato un endpoint di streaming standard predefinito nello stato **Interrotto**. Gli endpoint di streaming predefiniti non possono essere eliminati. In base alla disponibilità della rete CDN di Azure nell'area di destinazione, l'endpoint di streaming predefinito appena creato per impostazione predefinita include anche l'integrazione del provider CDN "StandardVerizon". 
                 
 > [!NOTE]
 > L'integrazione della rete CDN di Azure può essere disabilitata prima di avviare l'endpoint di streaming. `hostname` e l'URL di streaming rimangono invariati indipendentemente dal fatto che venga abilitata o meno la rete CDN.
@@ -47,15 +47,15 @@ Per qualsiasi altro endpoint: `{EndpointName}-{AccountName}.streaming.mediaservi
 
 ### <a name="standardpremium-types-version-20"></a>Tipologia standard o Premium (versione 2.0)
 
-A partire dalla versione gennaio 2017 di servizi multimediali, sono disponibili due tipi di streaming: **standard** (anteprima) e **Premium**. Queste tipologie fanno parte della versione dell'endpoint di streaming "2.0".
+A partire dalla versione di gennaio 2017 di Servizi multimediali, sono disponibili due tipi di streaming: **Standard** (anteprima) e **Premium**. Queste tipologie fanno parte della versione dell'endpoint di streaming "2.0".
 
 
-|Type|Description|
+|Type|Descrizione|
 |--------|--------|  
-|**Standard**|L'endpoint di streaming predefinito è un tipo **standard** , può essere modificato nel tipo Premium regolando le unità di streaming.|
-|**Premium** |Questa opzione è adatta ai professionisti che hanno bisogno di una maggiore scalabilità o di maggior controllo. Si passa a un tipo **Premium** modificando le unità di streaming.<br/>Gli endpoint di streaming dedicati si trovano in un ambiente isolato e non competono per le risorse.|
+|**Standard**|L'endpoint di streaming predefinito è un tipo **Standard,** può essere modificato nel tipo Premium regolando le unità di streaming.|
+|**Premium** |Questa opzione è adatta ai professionisti che hanno bisogno di una maggiore scalabilità o di maggior controllo. Si passa a un tipo **Premium** regolando le unità di streaming.<br/>Gli endpoint di streaming dedicati risiedono in un ambiente isolato e non competono per le risorse.|
 
-Per i clienti che desiderano distribuire contenuti a destinatari Internet di grandi dimensioni, è consigliabile abilitare la rete CDN nell'endpoint di streaming.
+Per i clienti che desiderano distribuire contenuti a un vasto pubblico Internet, è consigliabile abilitare la rete CDN nell'endpoint di streaming.
 
 Per ulteriori informazioni, vedere la sezione [Confronto tra le tipologie di streaming](#comparing-streaming-types) seguente.
 
@@ -75,34 +75,34 @@ Se l'endpoint di streaming **versione "1.0"** ha una o più unità di streaming 
 
 ### <a name="versions"></a>Versioni
 
-|Type|StreamingEndpointVersion|ScaleUnits|Rete CDN|Fatturazione|
+|Type|StreamingEndpointVersion|ScaleUnits|RETE CDN|Fatturazione|
 |--------------|----------|-----------------|-----------------|-----------------|
-|Classico|1.0|0|ND|Gratis|
-|Endpoint di streaming standard (anteprima)|2.0|0|SÌ|A pagamento|
-|Unità di streaming Premium|1.0|>0|SÌ|A pagamento|
-|Unità di streaming Premium|2.0|>0|SÌ|A pagamento|
+|Classico|1.0|0|ND|Gratuito|
+|Endpoint di streaming standard (anteprima)Standard Streaming Endpoint (preview)|2.0|0|Sì|A pagamento|
+|Unità di streaming Premium|1.0|>0|Sì|A pagamento|
+|Unità di streaming Premium|2.0|>0|Sì|A pagamento|
 
-### <a name="features"></a>database elastico
+### <a name="features"></a>Funzionalità
 
 Funzionalità|Standard|Premium
 ---|---|---
-Velocità effettiva |Fino a 600 Mbps e possono fornire una velocità effettiva molto più elevata quando si usa una rete CDN.|200 Mbps per unità di streaming (SU). Può fornire una velocità effettiva molto più elevata quando viene usata una rete CDN.
-Rete CDN|Rete CDN di Azure, rete CDN di terze parti o nessuna rete CDN.|Rete CDN di Azure, rete CDN di terze parti o nessuna rete CDN.
-Fatturazione con ripartizione proporzionale| Al giorno|Al giorno
-Crittografia dinamica|SÌ|SÌ
-creazione dinamica dei pacchetti|SÌ|SÌ
-Scalare|Scalabilità automatica fino alla velocità effettiva di destinazione.|Unità di streaming aggiuntive.
-Filtro IP/G20/host personalizzato <sup>1</sup>|SÌ|SÌ
-Download progressivo|SÌ|SÌ
+Velocità effettiva |Fino a 600 Mbps e può fornire una velocità effettiva molto più elevata quando viene usata una rete CDN.|200 Mbps per unità di streaming (SU). Può fornire una velocità effettiva molto più elevata quando viene usata una rete CDN.
+RETE CDN|Rete CDN di Azure, rete CDN di terze parti o nessuna rete CDN.|Rete CDN di Azure, rete CDN di terze parti o nessuna rete CDN.
+Fatturazione con ripartizione proporzionale| Giornaliera|Giornaliera
+Crittografia dinamica|Sì|Sì
+creazione dinamica dei pacchetti|Sì|Sì
+Scalabilità|Scalabilità automatica fino alla velocità effettiva di destinazione.|Unità di streaming aggiuntive.
+Filtro IP/G20/Host personalizzato <sup>1</sup>|Sì|Sì
+Download progressivo|Sì|Sì
 Uso consigliato |Consigliato per la maggior parte dei casi di streaming.|Uso professionale. 
 
-<sup>1</sup> usato direttamente sull'endpoint di streaming quando la rete CDN non è abilitata nell'endpoint.<br/>
+<sup>1</sup> Utilizzato direttamente nell'endpoint di streaming solo quando la rete CDN non è abilitata nell'endpoint.<br/>
 
-Per informazioni sul contratto di contratto, vedere [prezzi e contratto di contratto](https://azure.microsoft.com/pricing/details/media-services/).
+Per informazioni sul servizio di sla, vedere [Prezzi e sLA](https://azure.microsoft.com/pricing/details/media-services/).
 
 ## <a name="migration-between-types"></a>Migrazione tra le tipologie
 
-Da | Per | Azione
+From | A | Azione
 ---|---|---
 Classico|Standard|È necessario fornire il consenso esplicito
 Classico|Premium| Scalabilità (unità di streaming aggiuntive)
@@ -120,6 +120,6 @@ Analizzare i percorsi di apprendimento di Servizi multimediali.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Invia commenti e suggerimenti
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

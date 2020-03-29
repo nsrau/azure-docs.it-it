@@ -1,15 +1,15 @@
 ---
-title: Esempi di manifesto dell'applicazione Service Fabric di Azure
+title: Esempi di manifesto dell'applicazione Azure Service FabricAzure Service Fabric application manifest examples
 description: Informazioni su come configurare le informazioni del manifesto dell'applicazione e del servizio per un'applicazione di Service Fabric.
 author: peterpogorski
 ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: pepogors
 ms.openlocfilehash: 6f44d2ddaac11545a3a3dc52fd20e02263c6ad67
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75451636"
 ---
 # <a name="service-fabric-application-and-service-manifest-examples"></a>Esempi di manifesti dell'applicazione e del servizio di Service Fabric
@@ -17,7 +17,7 @@ Questa sezione contiene esempi di manifesti dell'applicazione e del servizio. Qu
 
 Di seguito è riportato un indice delle funzionalità illustrate e dei manifesti di esempio in cui sono incluse.
 
-|Funzionalità|Manifesto|
+|Funzionalità|manifesto|
 |---|---|
 |[Governance delle risorse](service-fabric-resource-governance.md)|[Manifesto dell'applicazione Reliable Services](service-fabric-manifest-example-reliable-services-app.md#application-manifest), [Manifesto dell'applicazione contenitore](service-fabric-manifest-example-container-app.md#application-manifest)|
 |[Eseguire un servizio come account amministratore locale](service-fabric-application-runas-security.md)|[Manifesto dell'applicazione Reliable Services](service-fabric-manifest-example-reliable-services-app.md#application-manifest)|

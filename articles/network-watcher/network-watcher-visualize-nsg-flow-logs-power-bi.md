@@ -1,5 +1,5 @@
 ---
-title: Visualizzazione dei log dei flussi di Azure NSG-Power BI
+title: Visualizzazione dei log di flusso del gruppo di sicurezza di rete di Azure - Power BI
 titleSuffix: Azure Network Watcher
 description: Questo articolo illustra come visualizzare i log dei flussi dei gruppi di sicurezza di rete con Power BI.
 services: network-watcher
@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 955e13b88037aa42b59707698549b1c980720990
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76840605"
 ---
 # <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>Visualizzare i log dei flussi dei gruppi di sicurezza di rete con Power BI
@@ -50,7 +50,7 @@ Prima di iniziare, è necessario abilitare la registrazione dei flussi dei grupp
 
 ![Diagramma di Visio][1]
 
-### <a name="steps"></a>Procedure
+### <a name="steps"></a>Passaggi
 
 1. Scaricare e aprire il [modello di log dei flussi Power BI di Network Watcher](https://aka.ms/networkwatcherpowerbiflowlogstemplate) nell'applicazione Power BI Desktop.
 1. Immettere i parametri di query obbligatori.
@@ -119,7 +119,7 @@ Questo scenario ha permesso di dimostrare come l'uso dei log dei flussi dei grup
 
 * In presenza di una grande quantità di log, è consigliabile prendere in considerazione una soluzione con un altro archivio dati, come Data Lake o SQL Server.
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
 Per informazioni su come visualizzare i log dei flussi dei gruppi di sicurezza di rete con Elastic Stack, vedere [Visualize Azure Network Watcher NSG flow logs using open source tools](network-watcher-visualize-nsg-flow-logs-open-source-tools.md) (Visualizzare i log dei flussi dei gruppi di sicurezza di rete di Azure Network Watcher tramite gli strumenti open source).
 

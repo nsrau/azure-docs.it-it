@@ -1,5 +1,5 @@
 ---
-title: Creare un runtime di integrazione self-hosted condiviso con PowerShell
+title: Creare un runtime di integrazione self-hosted condiviso con PowerShellCreate a shared self-hosted integration runtime with PowerShell
 description: Informazioni su come creare un runtime di integrazione self-hosted condiviso in Azure Data Factory, in modo che possano accedervi più data factory.
 services: data-factory
 documentationcenter: ''
@@ -12,19 +12,19 @@ manager: anansub
 ms.custom: seo-lt-2019
 ms.date: 10/31/2018
 ms.openlocfilehash: a2f24d8203ac5fb9724370cbdf4309bdc43c166a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75444107"
 ---
-# <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Creare un runtime di integrazione self-hosted condiviso in Azure Data Factory
+# <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Creare un runtime di integrazione self-hosted condiviso in Azure Data FactoryCreate a shared self-hosted integration runtime in Azure Data Factory
 
-Questa guida illustra come creare un runtime di integrazione self-hosted condiviso in Azure Data Factory. È quindi possibile usare il runtime di integrazione self-hosted condiviso in un'altra data factory.
+Questa guida illustra come creare un runtime di integrazione self-hosted condiviso in Azure Data Factory.This guide shows you how to create a shared self-hosted integration runtime in Azure Data Factory. È quindi possibile usare il runtime di integrazione self-hosted condiviso in un'altra data factory.
 
-## <a name="create-a-shared-self-hosted-ir-using-azure-data-factory-ui"></a>Creare un runtime di integrazione self-hosted condiviso usando Azure Data Factory interfaccia utente
+## <a name="create-a-shared-self-hosted-ir-using-azure-data-factory-ui"></a>Creare un provider di riorso indipendente condiviso usando l'interfaccia utente di Azure Data FactoryCreate a shared self-hosted IR using Azure Data Factory UI
 
-Per creare un runtime di integrazione self-hosted condiviso usando Azure Data Factory interfaccia utente, è possibile seguire questa procedura:
+Per creare un metodo di riutilizzo indipendente condiviso usando l'interfaccia utente di Azure Data Factory, è possibile eseguire le operazioni seguenti:To create a shared self-hosted IR using Azure Data Factory UI, you can take following steps:
 
 1. Nel runtime di integrazione self-hosted da condividere concedere l'autorizzazione alla data factory in cui si intende creare il runtime di integrazione collegato.
       
@@ -42,9 +42,9 @@ Per creare un runtime di integrazione self-hosted condiviso usando Azure Data Fa
       
     ![Caselle per nome e ID risorsa](media/create-self-hosted-integration-runtime/6_create-linkedIR_3.png)
 
-## <a name="create-a-shared-self-hosted-ir-using-azure-powershell"></a>Creare un runtime di integrazione self-hosted condiviso usando Azure PowerShell
+## <a name="create-a-shared-self-hosted-ir-using-azure-powershell"></a>Creare un provider di mano condiviso self-hosted usando Azure PowerShellCreate a shared self-hosted IR using Azure PowerShell
 
-Per creare un runtime di integrazione self-hosted condiviso usando Azure PowerShell, è possibile seguire questa procedura: 
+Per creare un provider di mano condiviso con Azure PowerShell, è possibile eseguire le operazioni seguenti:To create a shared self-hosted IR using Azure PowerShell, you can take following steps: 
 1. Creare una data factory. 
 1. Creare un runtime di integrazione self-hosted.
 1. Condividere il runtime di integrazione self-hosted con altre data factory.
@@ -99,7 +99,7 @@ Per creare un runtime di integrazione self-hosted condiviso usando Azure PowerSh
     > [!NOTE]  
     > Questo passaggio è facoltativo. Se è già presente una data factory, ignorare questo passaggio. 
 
-    Creare un [gruppo di risorse di Azure](../azure-resource-manager/management/overview.md) usando il comando [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) . Un gruppo di risorse è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite come gruppo. L'esempio seguente crea un gruppo di risorse denominato `myResourceGroup` nell'area Europa occidentale: 
+    Creare un [Gruppo di risorse di Azure](../azure-resource-manager/management/overview.md) con il comando [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). Un gruppo di risorse è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite come gruppo. L'esempio seguente crea un gruppo di risorse denominato `myResourceGroup` nell'area Europa occidentale: 
 
     ```powershell
     New-AzResourceGroup -Location $DataFactoryLocation -Name $ResourceGroupName

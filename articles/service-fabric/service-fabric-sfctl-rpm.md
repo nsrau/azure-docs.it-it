@@ -1,15 +1,15 @@
 ---
-title: INTERFACCIA della riga di comando di Azure Service Fabric-sfctl rpm
-description: Informazioni su sfctl, l'interfaccia della riga di comando di Azure Service Fabric. Include un elenco di comandi per il servizio di gestione della riparazione.
+title: Interfaccia di comando di Azure Service Fabric - rpm sfctlAzure Service Fabric CLI- sfctl rpm
+description: Informazioni su sfctl, l'interfaccia della riga di comando di Azure Service Fabric.Learn about sfctl, the Azure Service Fabric command line interface. Include un elenco di comandi per il servizio di gestione delle riparazioni.
 author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 1787c0c8a8d5994ce1f1e9e4c55f155bbca6934c
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76904935"
 ---
 # <a name="sfctl-rpm"></a>sfctl rpm
@@ -17,7 +17,7 @@ Consente di eseguire query e inviare comandi al servizio di gestione di ripristi
 
 ## <a name="commands"></a>Comandi:
 
-|Comando|Description|
+|Comando|Descrizione|
 | --- | --- |
 | approve-force | Forza l'approvazione dell'attività di ripristino specificata. |
 | delete | Elimina un'attività di ripristino completata. |
@@ -30,14 +30,14 @@ Questa API supporta la piattaforma Service Fabric. non deve essere utilizzata di
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --task-id [obbligatorio] | ID dell'attività di ripristino. |
 | --version | Il numero di versione corrente dell'attività di ripristino. Se è diverso da zero, la richiesta verrà completata solo se questo valore corrisponde alla versione corrente effettiva dell'attività di ripristino. Se è zero, non viene eseguito alcun controllo di versione. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |
@@ -52,14 +52,14 @@ Questa API supporta la piattaforma Service Fabric. non deve essere utilizzata di
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --task-id [obbligatorio] | L'ID dell'attività di ripristino completata da eliminare. |
 | --version | Il numero di versione corrente dell'attività di ripristino. Se è diverso da zero, la richiesta verrà completata solo se questo valore corrisponde alla versione corrente effettiva dell'attività di ripristino. Se è zero, non viene eseguito alcun controllo di versione. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |
@@ -74,15 +74,15 @@ Questa API supporta la piattaforma Service Fabric. non deve essere utilizzata di
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --executor-filter | Il nome dell'executor di ripristino le cui attività richieste devono essere incluse nell'elenco. |
-| --state-filter | Un operatore OR bit per bit dei valori seguenti, che specifica gli stati delle attività che devono essere inclusi nell'elenco dei risultati. <ul><li>1 - Creato</li><li>2-richiesta</li><li>4-preparazione</li><li>8-approvato</li><li>16-esecuzione</li><li>32-ripristino</li><li>64 - Completato</li></ul>
+| --state-filter | Un operatore OR bit per bit dei valori seguenti, che specifica gli stati delle attività che devono essere inclusi nell'elenco dei risultati. <ul><li>1 - Creato</li><li>2 - Rivendicato</li><li>4 - Preparazione</li><li>8 - Approvato</li><li>16 - Esecuzione</li><li>32 - Ripristino</li><li>64 - Completato</li></ul>
 | --task-id-filter | Il prefisso dell'ID dell'attività di ripristino da ricercare. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |

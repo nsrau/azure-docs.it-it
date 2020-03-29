@@ -8,10 +8,10 @@ ms.date: 07/18/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017, mvc, devcenter
 ms.openlocfilehash: 2e36de9f2a6af3643b6f609339d413968f6a8d6e
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76277652"
 ---
 # <a name="deprecated-deploy-kubernetes-cluster-for-windows-containers"></a>(DEPRECATO) Distribuire il cluster Kubernetes per contenitori Windows
@@ -34,7 +34,7 @@ Se si sceglie di installare e usare l'interfaccia della riga di comando in local
 
 Creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az-group-create). Un gruppo di risorse di Azure è un gruppo logico in cui le risorse di Azure vengono distribuite e gestite. 
 
-L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella località *stati uniti orientali*.
+L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nel percorso *eastus.*
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
@@ -61,7 +61,7 @@ Dopo alcuni minuti, il comando viene completato e mostra le informazioni sulla d
 
 ## <a name="install-kubectl"></a>Installare kubectl
 
-Per connettersi al cluster Kubernetes dal computer client, usare [`kubectl`](https://kubernetes.io/docs/user-guide/kubectl/), il client da riga di comando di Kubernetes. 
+Per connettersi al cluster Kubernetes dal [`kubectl`](https://kubernetes.io/docs/user-guide/kubectl/)computer client, utilizzare il client della riga di comando Kubernetes. 
 
 Se si usa Azure CloudShell, `kubectl` è già installato. Se lo si vuole installare in locale, è possibile usare il comando [az acs kubernetes install-cli](/cli/azure/acs/kubernetes).
 

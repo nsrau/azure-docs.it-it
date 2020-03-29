@@ -1,5 +1,5 @@
 ---
-title: Risolvere i problemi relativi a gateway e connessioni di Azure VNET-CLI di Azure
+title: Risolvere i problemi relativi al gateway e alle connessioni della rete Virtuale di Azure - Interfaccia della riga di comando di AzureTroubleshoot Azure VNET Gateway and Connections - Azure CLI
 titleSuffix: Azure Network Watcher
 description: Questa pagina spiega come usare l'interfaccia della riga di comando di Azure per risolvere i problemi in Network Watcher di Azure
 services: network-watcher
@@ -13,18 +13,18 @@ ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: damendo
 ms.openlocfilehash: dc0aa8e6099a7ec017aead2fe0f16e9712e17936
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76840724"
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-azure-cli"></a>Risolvere i problemi relativi al gateway di rete virtuale e alle connessioni di Azure tramite l'interfaccia della riga di comando di Azure in Network Watcher di Azure
 
 > [!div class="op_single_selector"]
 > - [Portale](diagnose-communication-problem-between-networks.md)
-> - [PowerShell](network-watcher-troubleshoot-manage-powershell.md)
-> - [Interfaccia della riga di comando di Azure](network-watcher-troubleshoot-manage-cli.md)
+> - [Powershell](network-watcher-troubleshoot-manage-powershell.md)
+> - [Interfaccia della riga di comando di AzureAzure](network-watcher-troubleshoot-manage-cli.md)
 > - [REST API](network-watcher-troubleshoot-manage-rest.md)
 
 Network Watcher offre numerose funzionalità che consentono di comprendere le risorse di rete in Azure. Una di queste funzionalità è la risoluzione dei problemi riscontrati con le risorse. La funzionalità può essere chiamata dal portale, da PowerShell, dall'interfaccia della riga di comando o dall'API REST. Quando chiamata, Network Watcher controlla l'integrità di un gateway di rete virtuale o di una connessione e restituisce i risultati.
@@ -37,7 +37,7 @@ Questo scenario presuppone il completamento dei passaggi descritti in [Creare un
 
 Per un elenco dei tipi di gateway supportati, consultare i [tipi di gateway supportati](network-watcher-troubleshoot-overview.md#supported-gateway-types).
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 
 La risoluzione dei problemi delle risorse consente di risolvere i problemi che si verificano con i gateway di rete virtuale e le connessioni. Quando viene inviata una richiesta di risoluzione dei problemi delle risorse, i log vengono sottoposti a query e controllati. Dopo aver completato l'ispezione, vengono restituiti i risultati. Le richieste di risoluzione dei problemi delle risorse sono richieste a esecuzione prolungata, che possono richiedere anche diversi minuti per restituire un risultato. I log risultati vengono archiviati in un contenitore in un account di archiviazione specificato.
 

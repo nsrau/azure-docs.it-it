@@ -1,15 +1,15 @@
 ---
-title: INTERFACCIA della riga di comando di Azure Service Fabric-distribuzione mesh sfctl
-description: Informazioni su sfctl, l'interfaccia della riga di comando di Azure Service Fabric. Include un elenco di comandi per la creazione di Service Fabric risorse mesh.
+title: Interfaccia di comando di Azure Service Fabric - distribuzione mesh sfctlAzure Service Fabric CLI- sfctl mesh deployment
+description: Informazioni su sfctl, l'interfaccia della riga di comando di Azure Service Fabric.Learn about sfctl, the Azure Service Fabric command-line interface. Include un elenco di comandi per la creazione di risorse mesh di Service Fabric.
 author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 108389407221779ed20e81310f084b7b5c23b8c7
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76906034"
 ---
 # <a name="sfctl-mesh-deployment"></a>sfctl mesh deployment
@@ -17,7 +17,7 @@ Consente di creare le risorse mesh Service Fabric.
 
 ## <a name="commands"></a>Comandi:
 
-|Comando|Description|
+|Comando|Descrizione|
 | --- | --- |
 | create | Crea una distribuzione delle risorse di mesh Service Fabric. |
 
@@ -26,14 +26,14 @@ Crea una distribuzione delle risorse di mesh Service Fabric.
 
 ### <a name="arguments"></a>Argomenti
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
-| --input-yaml-files [Obbligatorio] | Percorsi di file relativi o assoluti delimitati da virgole di tutti i file YAML o del percorso relativo o assoluto della directory (ricorsiva) che contengono file YAML. |
-| --parameters | Percorso relativo o assoluto di un file YAML o di un oggetto JSON che contiene i parametri di cui è necessario eseguire l'override. |
+| --input-yaml-files [Obbligatorio] | Percorsi di file relativi o assoluti delimitati da virgole di tutti i file yaml o il percorso relativo o assoluto della directory (ricorsivo) che contengono i file yaml. |
+| --parameters | Percorso relativo o assoluto di un file yaml o di un oggetto json contenente i parametri che devono essere sottoposti a override. |
 
 ### <a name="global-arguments"></a>Argomenti globali
 
-|Argomento|Description|
+|Argomento|Descrizione|
 | --- | --- |
 | --debug | Aumenta il livello di dettaglio della registrazione per mostrare tutti i log di debug. |
 | --help -h | Visualizza questo messaggio della guida ed esce. |
@@ -55,7 +55,7 @@ Consente di consolidare e di distribuire tutte le risorse in una directory nel c
 sfctl mesh deployment create --input-yaml-files ./resources --parameters ./param.yaml
 ```
 
-Consolida e distribuisce tutte le risorse di una directory nel cluster eseguendo l'override dei parametri passati direttamente come oggetto JSON
+Consolida e distribuisce tutte le risorse di una directory per il cluster eseguendo l'override dei parametri passati direttamente come oggetto json
 ``` 
 sfctl mesh deployment create --input-yaml-files ./resources --parameters "{ 'my_param' :    
 {'value' : 'my_value'} }"   

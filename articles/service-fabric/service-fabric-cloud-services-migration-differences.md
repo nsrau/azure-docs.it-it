@@ -1,15 +1,15 @@
 ---
-title: Differenze tra servizi cloud e Service Fabric
+title: Differenze tra Servizi cloud e Service Fabric
 description: Panoramica concettuale per la migrazione di applicazioni da Servizi cloud a Service Fabric.
 author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: 283ad2c63bb59771dab7881522e737f773ab1705
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75463377"
 ---
 # <a name="learn-about-the-differences-between-cloud-services-and-service-fabric-before-migrating-applications"></a>Informazioni sulle differenze tra Servizi cloud e Service Fabric che è opportuno conoscere prima di procedere alla migrazione di applicazioni.
@@ -20,11 +20,11 @@ Questa è una guida introduttiva alla migrazione di applicazioni da Servizi clou
 ## <a name="applications-and-infrastructure"></a>Applicazioni e infrastruttura
 Una differenza fondamentale tra Servizi cloud e Service Fabric è la relazione tra macchine virtuali, carichi di lavoro e applicazioni. Per carico di lavoro in questo caso si intente il codice scritto dall'utente per eseguire un'attività specifica o fornire un servizio.
 
-* **Servizi cloud viene usato per la distribuzione di applicazioni come macchine virtuali.** Il codice scritto dall'utente è strettamente accoppiato a un'istanza di macchina virtuale, ad esempio un ruolo di lavoro o Web. Per distribuire un carico di lavoro in Servizi Cloud, distribuire una o più istanze di VM che eseguono il carico di lavoro. Non essendoci una separazione tra applicazioni e VM, non esiste una definizione formale di applicazione. Un'applicazione può essere considerata come un set di istanze del ruolo di lavoro o Web all'interno di una distribuzione di Servizi cloud o come un'intera distribuzione di Servizi cloud. In questo esempio un'applicazione viene illustrata come un set di istanze del ruolo.
+* **Servizi cloud viene usato per la distribuzione di applicazioni come macchine virtuali.**  Il codice scritto dall'utente è strettamente accoppiato a un'istanza di macchina virtuale, ad esempio un ruolo di lavoro o Web. Per distribuire un carico di lavoro in Servizi Cloud, distribuire una o più istanze di VM che eseguono il carico di lavoro. Non essendoci una separazione tra applicazioni e VM, non esiste una definizione formale di applicazione. Un'applicazione può essere considerata come un set di istanze del ruolo di lavoro o Web all'interno di una distribuzione di Servizi cloud o come un'intera distribuzione di Servizi cloud. In questo esempio un'applicazione viene illustrata come un set di istanze del ruolo.
 
 ![Applicazioni e topologia di Servizi cloud][1]
 
-* **Service Fabric viene usato per la distribuzione di applicazioni in macchine virtuali esistenti o nei computer che eseguono Service Fabric in Windows o Linux.** I servizi scritti dall'utente sono completamente disaccoppiati dall'infrastruttura sottostante, che è astratta dalla piattaforma di applicazioni di Service Fabric, consentendo la distribuzione di un'applicazione in più ambienti. Un carico di lavoro in Service Fabric è detto "servizio" e uno o più servizi sono raggruppati in un'applicazione definita formalmente che viene eseguita sulla piattaforma di applicazioni di Service Fabric. Più applicazioni possono essere distribuite in un singolo cluster di Service Fabric.
+* **Service Fabric viene usato per la distribuzione di applicazioni in macchine virtuali esistenti o nei computer che eseguono Service Fabric in Windows o Linux.**  I servizi scritti dall'utente sono completamente disaccoppiati dall'infrastruttura sottostante, che è astratta dalla piattaforma di applicazioni di Service Fabric, consentendo la distribuzione di un'applicazione in più ambienti. Un carico di lavoro in Service Fabric è detto "servizio" e uno o più servizi sono raggruppati in un'applicazione definita formalmente che viene eseguita sulla piattaforma di applicazioni di Service Fabric. Più applicazioni possono essere distribuite in un singolo cluster di Service Fabric.
 
 ![Applicazioni e topologia di Service Fabric][2]
 
@@ -81,24 +81,24 @@ Lo stesso modello di comunicazione può essere usato in Service Fabric. Può ess
 ![Comunicazione diretta di Service Fabric][8]
 
 ## <a name="parity"></a>Parity
-I [servizi cloud sono simili a Service fabric in grado di controllare rispetto alla semplicità d'uso, ma ora è un servizio legacy e Service Fabric è consigliato per il nuovo sviluppo](https://docs.microsoft.com/azure/app-service/overview-compare); di seguito è riportato un confronto tra API:
+[Servizi cloud è simile a Service Fabric in grado di controllo rispetto alla facilità d'uso, ma ora è un servizio legacy e Service Fabric è consigliato per il nuovo sviluppo.](https://docs.microsoft.com/azure/app-service/overview-compare) di seguito è riportato un confronto API:
 
 
-| **API del servizio cloud** | **API Service Fabric** | **Note** |
+| **API del servizio cloud** | **API dell'infrastruttura di servizioService Fabric API** | **Note** |
 | --- | --- | --- |
-| RoleInstance.GetID | FabricRuntime. GetNodeContext. NodeId o. NodeName | ID è una proprietà di nodeName |
-| RoleInstance.GetFaultDomain | FabricClient.QueryManager.GetNodeList | Filtrare in nodeName e usare la proprietà FD |
-| RoleInstance.GetUpgradeDomain | FabricClient.QueryManager.GetNodeList | Filtrare in nodeName e usare la proprietà upgrade |
-| RoleInstance.GetInstanceEndpoints | FabricRuntime. GetActivationContext o Naming (ResolveService) | CodePackageActivationContext fornito da FabricRuntime. GetActivationContext e all'interno delle repliche tramite ServiceInitializationParameters. CodePackageActivationContext fornito durante. Inizializzare |
-| RoleEnvironment.GetRoles | FabricClient.QueryManager.GetNodeList | Se si vuole eseguire la stessa operazione di filtro in base al tipo, è possibile ottenere l'elenco dei tipi di nodo dal manifesto del cluster tramite FabricClient. ClusterManager. GetClusterManifest e acquisire i tipi di ruolo/nodo da questa posizione. |
+| RoleInstance.GetID | FabricRuntime.GetNodeContext.NodeId o . Nodename | ID è una proprietà di NodeName |
+| RoleInstance.GetFaultDomain | FabricClient.QueryManager.GetNodeList | Filtrare in base a NodeName e utilizzare la proprietà FDFilter on NodeName and use FD Property |
+| RoleInstance.GetUpgradeDomain | FabricClient.QueryManager.GetNodeList | Filtrare in base a NodeName e utilizzare la proprietà Upgrade |
+| RoleInstance.GetInstanceEndpoints | FabricRuntime.GetActivationContext o denominazione (ResolveService) | CodePackageActivationContext fornito sia da FabricRuntime.GetActivationContext che all'interno delle repliche tramite ServiceInitializationParameters.CodePackageActivationContext fornito durante . Inizializzare |
+| RoleEnvironment.GetRoles | FabricClient.QueryManager.GetNodeList | Se si desidera eseguire lo stesso tipo di filtro in base al tipo, è possibile ottenere l'elenco dei tipi di nodo dal manifesto del cluster tramite FabricClient.ClusterManager.GetClusterManifest e acquisire i tipi di ruolo/nodo da lì. |
 | RoleEnvironment.GetIsAvailable | Connect-WindowsFabricCluster o creare un FabricRuntime che punta a un nodo specifico | * |
 | RoleEnvironment.GetLocalResource | CodePackageActivationContext.Log/Temp/Work | * |
 | RoleEnvironment.GetCurrentRoleInstance | CodePackageActivationContext.Log/Temp/Work | * |
 | LocalResource.GetRootPath | CodePackageActivationContext.Log/Temp/Work | * |
-| Role.GetInstances | FabricClient. QueryManager. getnodelist o ResolveService | * |
-| RoleInstanceEndpoint.GetIPEndpoint | FabricRuntime. GetActivationContext o Naming (ResolveService) | * |
+| Role.GetInstances | FabricClient.QueryManager.GetNodeList o ResolveService | * |
+| RoleInstanceEndpoint.GetIPEndpoint | FabricRuntime.GetActivationContext o denominazione (ResolveService) | * |
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 Il percorso di migrazione più semplice da Servizi cloud a Service Fabric consiste nel sostituire solo la distribuzione di Servizi cloud con un'applicazione di Service Fabric, conservando approssimativamente la stessa l'architettura complessiva. L'articolo seguente fornisce una guida per convertire un ruolo di lavoro o Web in un servizio di Service Fabric senza stato.
 
 * [Migrazione semplice: convertire un ruolo di lavoro o Web a un servizio di Service Fabric senza stato](service-fabric-cloud-services-migration-worker-role-stateless-service.md)

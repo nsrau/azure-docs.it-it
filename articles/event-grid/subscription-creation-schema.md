@@ -1,6 +1,6 @@
 ---
 title: Schema di sottoscrizione per Griglia di eventi di Azure
-description: Questo articolo descrive le proprietà per la sottoscrizione di un evento con griglia di eventi di Azure. Schema di sottoscrizione di griglia di eventi.
+description: Questo articolo descrive le proprietà per la sottoscrizione a un evento con Griglia di eventi di Azure.This article describes the properties for subscribing to an event with Azure Event Grid. Schema della sottoscrizione di Griglia di eventi.
 services: event-grid
 author: banisadr
 ms.service: event-grid
@@ -8,15 +8,15 @@ ms.topic: reference
 ms.date: 01/23/2020
 ms.author: babanisa
 ms.openlocfilehash: 4bb04d22b762f31a02515549b698030a5267e4cd
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76720759"
 ---
 # <a name="event-grid-subscription-schema"></a>Schema di sottoscrizione per Griglia di eventi
 
-Per creare una sottoscrizione di Griglia di eventi, si invia una richiesta all'operazione di sottoscrizione Crea evento. nel seguente formato:
+Per creare una sottoscrizione di Griglia di eventi, si invia una richiesta all'operazione di sottoscrizione Crea evento. Utilizzare il seguente formato:
 
 ```HTTP
 PUT /subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/{resource-provider}/{resource-type}/{resource-name}/Microsoft.EventGrid/eventSubscriptions/{event-type-definitions}?api-version=2018-01-01
@@ -34,10 +34,10 @@ Il nome della sottoscrizione eventi deve essere composto da 3 a 64 caratteri e s
 
 | Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
-| destinazione | object | Oggetto che definisce l'endpoint. |
-| Filtro | object | Campo facoltativo per il filtro dei tipi di eventi. |
+| destination | object | Oggetto che definisce l'endpoint. |
+| filter | object | Campo facoltativo per il filtro dei tipi di eventi. |
 
-### <a name="destination-object"></a>destination object
+### <a name="destination-object"></a>oggetto destination
 
 | Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |

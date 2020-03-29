@@ -1,5 +1,5 @@
 ---
-title: Personalizzare il portale per sviluppatori di gestione API usando i modelli
+title: Personalizzare il portale per sviluppatori di Gestione API usando i modelliCustomize the API Management developer portal using templates
 titleSuffix: Azure API Management
 description: Informazioni su come personalizzare il portale per sviluppatori di Gestione API di Azure usando i modelli.
 services: api-management
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 7a8c348340be143f7059ce7e64a1c66b66074a45
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75430780"
 ---
 # <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>Come personalizzare il portale per sviluppatori di Gestione API di Azure con i modelli
@@ -27,7 +27,7 @@ Per personalizzare il portale per sviluppatori in Gestione API di Azure ci sono 
 
 * [Modificare i contenuti di pagine statiche e gli elementi di layout di pagina][modify-content-layout]
 * [Aggiornare gli stili usati per gli elementi della pagina nel portale per sviluppatori][customize-styles]
-* [Modificare i modelli usati per le pagine generate dal portale][portal-templates] (descritte in questa guida)
+* [Modificare i modelli usati per le pagine generate dal portale][portal-templates] (come illustrato in questa guida)
 
 I modelli vengono usati per personalizzare il contenuto delle pagine del portale per sviluppatori generate dal sistema, ad esempio la documentazione delle API, i prodotti, l'autenticazione utente e così via. La sintassi [DotLiquid](http://dotliquidmarkup.org/), insieme a un set fornito di risorse stringa localizzate, icone e controlli di pagina, offre grande flessibilità nella configurazione del contenuto delle pagine nel modo opportuno.
 
@@ -37,7 +37,7 @@ I modelli vengono usati per personalizzare il contenuto delle pagine del portale
 
 ## <a name="developer-portal-templates-overview"></a>Panoramica sui modelli del portale per sviluppatori
 
-La modifica dei modelli viene eseguita dal **portale per sviluppatori** quando vi si accede come amministratore. Per iniziare, aprire il portale di Azure e fare clic su **portale per sviluppatori** dalla barra degli strumenti del servizio dell'istanza di gestione API.
+La modifica dei modelli viene eseguita dal **portale per sviluppatori** quando vi si accede come amministratore. Per aprirci prima di rete, apri il portale di Azure e fai clic su **Portale per sviluppatori** dalla barra degli strumenti del servizio dell'istanza di Gestione API.
 
 Per accedere ai modelli del portale per sviluppatori, fare clic sull'icona di personalizzazione a sinistra per visualizzare il menu di personalizzazione e quindi fare clic su **Templates**.
 
@@ -47,7 +47,7 @@ L'elenco dei modelli include varie categorie di modelli che coprono le diverse p
 
 ![Modelli del portale per sviluppatori][api-management-templates-menu]
 
-Facendo clic su un modello si passa alla pagina del portale per sviluppatori personalizzabile con il modello selezionato. In questo esempio viene visualizzato il modello **Product list** (Elenco prodotti). Il modello **Product list** controlla l'area dello schermo indicata dal rettangolo rosso.
+Facendo clic su un modello si passa alla pagina del portale per sviluppatori personalizzabile con il modello selezionato. In questo esempio viene visualizzato il modello **Elenco prodotti.** Il modello **Product list** controlla l'area dello schermo indicata dal rettangolo rosso.
 
 ![Modello Product list][api-management-developer-portal-templates-overview]
 
@@ -65,7 +65,7 @@ Il riquadro **Template data** fornisce una guida al modello di dati per le entit
 
 ![Modello Template data][api-management-template-data]
 
-Nell'esempio precedente sono disponibili due prodotti visualizzati nel portale per gli sviluppatori che sono stati recuperati dai dati visualizzati nel riquadro **Template data** (Dati modello), come illustrato nell'esempio seguente:
+Nell'esempio precedente, nel portale per sviluppatori sono stati visualizzati due prodotti recuperati dai dati visualizzati nel riquadro **Dati modello,** come illustrato nell'esempio seguente:In the previous example, there are two products displayed in the developer portal that were retrieved from the data displayed in the Template data pane, as shown in the following example:
 
 ```json
 {
@@ -134,7 +134,7 @@ Il markup del modello **Product list** elabora i dati per fornire l'output previ
 ## <a name="to-save-a-template"></a>Per salvare un modello
 Per salvare un modello, fare clic sull'icona di salvataggio nell'editor del modello.
 
-![Salva modello][api-management-save-template]
+![Salvare il modello][api-management-save-template]
 
 Le modifiche salvate non sono attive nel portale per sviluppatori fino a quando non vengono pubblicate.
 
@@ -164,7 +164,7 @@ Per annullare la modifiche alla versione pubblicata precedente di un modello, fa
 
 Fare clic su **Sì** per confermare.
 
-![Conferma][api-management-revert-template-confirm]
+![Confirm][api-management-revert-template-confirm]
 
 Al termine dell'operazione di annullamento, la versione pubblicata precedente del modello sarà disponibile nel portale per sviluppatori.
 
@@ -177,7 +177,7 @@ Per ripristinare la versione predefinita di un singolo modello, fare clic sull'i
 
 Fare clic su **Sì** per confermare.
 
-![Conferma][api-management-reset-template-confirm]
+![Confirm][api-management-reset-template-confirm]
 
 Per ripristinare le versioni predefinite di tutti i modelli, fare clic su **Restore default templates** nell'elenco dei modelli.
 

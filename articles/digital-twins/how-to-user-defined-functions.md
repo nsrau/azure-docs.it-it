@@ -1,5 +1,5 @@
 ---
-title: Come creare funzioni definite dall'utente-in dispositivi gemelli digitali di Azure | Microsoft Docs
+title: Come creare funzioni definite dall'utente - in Azure Digital Twins Documenti Microsoft
 description: Linee guida su come creare funzioni definite dall'utente, matcher e assegnazioni di ruolo con Gemelli digitali di Azure.
 ms.author: alinast
 author: alinamstanciu
@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.custom: seodec18
 ms.openlocfilehash: 232d85789c25e905873286eba6fda32c327a6e25
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76276930"
 ---
 # <a name="how-to-create-user-defined-functions-in-azure-digital-twins"></a>Come creare funzioni definite dall'utente in Gemelli digitali di Azure
@@ -69,7 +69,7 @@ Con corpo JSON:
 }
 ```
 
-| Valore | Sostituire con |
+| valore | Sostituire con |
 | --- | --- |
 | YOUR_SPACE_IDENTIFIER | Area del server in cui è ospitata l'istanza |
 
@@ -109,7 +109,7 @@ function process(telemetry, executionContext) {
 --USER_DEFINED_BOUNDARY--
 ```
 
-| Valore | Sostituire con |
+| valore | Sostituire con |
 | --- | --- |
 | USER_DEFINED_BOUNDARY | Nome di un limite di contenuto multipart |
 | YOUR_SPACE_IDENTIFIER | Identificatore dello spazio  |
@@ -142,7 +142,7 @@ function process(telemetry, executionContext) {
 }
 ```
 
-Il parametro **telemetry** espone gli attributi **SensorId** e **Message**, corrispondenti a un messaggio inviato da un sensore. Il parametro **executionContext** espone i seguenti attributi:
+Il parametro **telemetry** espone gli attributi **SensorId** e **Message,** corrispondenti a un messaggio inviato da un sensore. Il parametro **executionContext** espone i seguenti attributi:
 
 ```csharp
 var executionContext = new UdfExecutionContext
@@ -193,28 +193,28 @@ function process(telemetry, executionContext) {
 }
 ```
 
-Per un esempio di codice di funzione definito dall'utente più complesso, leggere la [Guida introduttiva di uso](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availability.js).
+Per un esempio di codice di funzione definito dall'utente più complesso, leggere la [guida introduttiva Occupazione](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availability.js).
 
 ## <a name="create-a-role-assignment"></a>Creare un'assegnazione di ruolo
 
-Creare un'assegnazione di ruolo per l'esecuzione della funzione definita dall'utente. Se non esiste alcuna assegnazione di ruolo per la funzione definita dall'utente, non si avranno le autorizzazioni appropriate per interagire con l'API Gestione o per eseguire azioni sugli oggetti grafo. Le azioni eseguite dalla funzione definita dall'utente non sono esenti dal controllo degli accessi in base al ruolo delle API di gestione di Gemelli digitali di Azure. Ad esempio, è possibile limitare l'ambito delle funzioni definite dall'utente specificando determinati ruoli o percorsi di controllo di accesso. Per ulteriori informazioni, vedere la documentazione relativa al [controllo degli accessi in base al ruolo](./security-role-based-access-control.md) .
+Creare un'assegnazione di ruolo per l'esecuzione della funzione definita dall'utente. Se non esiste alcuna assegnazione di ruolo per la funzione definita dall'utente, non si avranno le autorizzazioni appropriate per interagire con l'API Gestione o per eseguire azioni sugli oggetti grafo. Le azioni eseguite dalla funzione definita dall'utente non sono esenti dal controllo degli accessi in base al ruolo delle API di gestione di Gemelli digitali di Azure. Ad esempio, è possibile limitare l'ambito delle funzioni definite dall'utente specificando determinati ruoli o percorsi di controllo di accesso. Per altre informazioni, leggere la documentazione relativa al controllo di [accesso basato sui](./security-role-based-access-control.md) ruoli.
 
 1. [Effettuare una query nell'API di sistema](./security-create-manage-role-assignments.md#retrieve-all-roles) per fare in modo che tutti i ruoli ricevano l'ID da assegnare alle funzioni definite dall'utente. Eseguire questa operazione effettuando una richiesta HTTP GET autenticata a:
 
     ```URL
     YOUR_MANAGEMENT_API_URL/system/roles
     ```
-   Mantenere l'ID del ruolo desiderato. Verrà trasmesso come attributo del corpo JSON **roleId** (`YOUR_DESIRED_ROLE_IDENTIFIER`) di seguito.
+   Mantenere l'ID del ruolo desiderato. Verrà passato come attributo **body JSON roleId** (`YOUR_DESIRED_ROLE_IDENTIFIER`) di seguito.
 
-1. **objectId** (`YOUR_USER_DEFINED_FUNCTION_ID`) corrisponderà all'ID della funzione definita dall'utente creato in precedenza.
-1. Trovare il valore di **path** (`YOUR_ACCESS_CONTROL_PATH`) effettuando una query degli spazi con `fullpath`.
+1. **objectId** `YOUR_USER_DEFINED_FUNCTION_ID`( ) sarà l'ID funzione definito dall'utente creato in precedenza.
+1. Trovare il **path** valore`YOUR_ACCESS_CONTROL_PATH`del percorso ( ) `fullpath`eseguendo una query sugli spazi con .
 1. Copiare il valore `spacePaths` restituito. Usare quello indicato di seguito. Effettuare una richiesta HTTP GET autenticata a:
 
     ```URL
     YOUR_MANAGEMENT_API_URL/spaces?name=YOUR_SPACE_NAME&includes=fullpath
     ```
 
-    | Valore | Sostituire con |
+    | valore | Sostituire con |
     | --- | --- |
     | YOUR_SPACE_NAME | Nome dello spazio da usare |
 
@@ -234,11 +234,11 @@ Creare un'assegnazione di ruolo per l'esecuzione della funzione definita dall'ut
     }
     ```
 
-    | Valore | Sostituire con |
+    | valore | Sostituire con |
     | --- | --- |
     | YOUR_DESIRED_ROLE_IDENTIFIER | Identificatore del ruolo desiderato |
     | YOUR_USER_DEFINED_FUNCTION_ID | L'ID per la funzione definita dall'utente da usare |
-    | YOUR_USER_DEFINED_FUNCTION_TYPE_ID | ID che specifica il tipo di funzione definito dall'utente (`UserDefinedFunctionId`) |
+    | YOUR_USER_DEFINED_FUNCTION_TYPE_ID | ID che specifica il tipo di`UserDefinedFunctionId`funzione definita dall'utente ( ) |
     | YOUR_ACCESS_CONTROL_PATH | Percorso di controllo di accesso |
 
 >[!TIP]
@@ -246,7 +246,7 @@ Creare un'assegnazione di ruolo per l'esecuzione della funzione definita dall'ut
 
 ## <a name="send-telemetry-to-be-processed"></a>Inviare i dati di telemetria da elaborare
 
-Il sensore definito nel grafo intelligence spaziale invia dati di telemetria. A loro volta, i dati di telemetria attivano l'esecuzione della funzione definita dall'utente che è stata caricata. L'elaboratore di dati seleziona i dati di telemetria. Viene quindi creato un piano di esecuzione per la chiamata della funzione definita dall'utente.
+Il sensore definito nel grafo intelligence spaziale invia dati di telemetria. A loro volta, i dati di telemetria attivano l'esecuzione della funzione definita dall'utente che è stata caricata. L'elaboratore di dati seleziona i dati di telemetria. Quindi, viene creato un piano di esecuzione per la chiamata della funzione definita dall'utente.
 
 1. Recuperare i matcher per il sensore da cui è stata generata la lettura.
 1. A seconda dei matcher valutati correttamente, recuperare le funzioni definite dall'utente associate.

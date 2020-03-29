@@ -6,10 +6,10 @@ ms.subservice: change-inventory-management
 ms.date: 07/03/2018
 ms.topic: conceptual
 ms.openlocfilehash: 23c4f24e430d58895eb551c3e2cb62b5f0003ac0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75418818"
 ---
 # <a name="view-contents-of-a-file-that-is-being-tracked-with-change-tracking"></a>Visualizza i contenuti di un file verificati con Rilevamento modifiche
@@ -18,7 +18,7 @@ La verifica del contenuto dei file consente di visualizzare i contenuti prima e 
 
 ## <a name="requirements"></a>Requisiti
 
-* Un account di archiviazione standard con il modello di distribuzione di Gestione risorse è necessario per la memorizzazione del contenuto del file. Gli account di archiviazione dei modelli di distribuzione Premium e classico non devono essere utilizzati. Per altre informazioni sugli account di archiviazione, vedere [Informazioni sugli account di archiviazione di Azure](../storage/common/storage-create-storage-account.md)
+* Un account di archiviazione standard con il modello di distribuzione di Gestione risorse è necessario per la memorizzazione del contenuto del file. Gli account di archiviazione dei modelli di distribuzione Premium e classico non devono essere utilizzati. Per altre informazioni sugli account di archiviazione, vedere Informazioni sugli account di archiviazione di [AzureFor more information](../storage/common/storage-create-storage-account.md) on storage accounts, see About Azure storage accounts
 
 * L'account di archiviazione usato può avere solo 1 account di automazione collegato.
 
@@ -71,5 +71,5 @@ Vedere l'esercitazione su Rilevamento modifiche per altre informazioni sull'uso 
 > [!div class="nextstepaction"]
 > [Risolvere i problemi delle modifiche nell'ambiente](automation-tutorial-troubleshoot-changes.md)
 
-* Usare le [ricerche log nei log di monitoraggio di Azure](../log-analytics/log-analytics-log-searches.md) per visualizzare i dati dettagliati del rilevamento delle modifiche.
+* Usare [Ricerche log nei log di Monitoraggio di Azure](../log-analytics/log-analytics-log-searches.md) per visualizzare dati dettagliati sul rilevamento delle modifiche.
 

@@ -1,5 +1,5 @@
 ---
-title: Panoramica del modello di licenza di servizi multimediali di Azure V3 con Widevine
+title: Panoramica del modello di licenza di Servizi multimediali di Azure con WidevineAzure Media Services v3 with Widevine license template overview
 description: Questo argomento offre una panoramica di un modello di licenza Widevine usato per configurare le licenze Widevine.
 author: juliako
 manager: femila
@@ -14,13 +14,13 @@ ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
 ms.openlocfilehash: 94ce5e45a9a43e81020096ddc0a67429b286d9b1
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76705633"
 ---
-# <a name="media-services-v3-with-widevine-license-template-overview"></a>Panoramica del modello di licenza di servizi multimediali V3 con Widevine
+# <a name="media-services-v3-with-widevine-license-template-overview"></a>Panoramica del modello di licenza di Media Services v3 con modello di licenza Widevine
 
 Servizi multimediali di Azure consente di crittografare il contenuto con **Google Widevine**. Servizi multimediali offre inoltre un servizio per la distribuzione delle licenze Widevine. Le API di Servizi multimediali di Azure consentono di configurare licenze Google Widevine. Quando un lettore tenta di riprodurre contenuto protetto da Widevine, viene inviata una richiesta al servizio di distribuzione di licenze per ottenere la licenza. Se il servizio di licenza approva la richiesta, genera la licenza. Viene inviata al client e usata per decrittografare e riprodurre il contenuto specificato.
 
@@ -60,7 +60,7 @@ Una richiesta per la licenza Widevine è formattata come messaggio JSON.
 
 ## <a name="json-message"></a>Messaggio JSON
 
-| Nome | Valore | Description |
+| Nome | valore | Descrizione |
 | --- | --- | --- |
 | payload |Stringa con codifica Base64 |Richiesta di licenza inviata da un client. |
 | content_id |Stringa con codifica Base64 |Identificatore usato per derivare l'ID chiave e la chiave simmetrica per ogni content_key_specs.track_type. |
@@ -74,20 +74,20 @@ Una richiesta per la licenza Widevine è formattata come messaggio JSON.
 | parse_only |Booleano: true o false |La richiesta di licenza viene analizzata, ma la licenza non viene generata. Nella risposta, tuttavia, vengono restituiti i valori componenti la richiesta di licenza. |
 
 ## <a name="content-key-specs"></a>Specifiche della chiave simmetrica
-Se esiste già un criterio preesistente, non è necessario specificare alcun valore nella specifica della chiave simmetrica. Il criterio preesistente associato a questo contenuto viene usato per determinare la protezione dell'output, ad esempio High-bandwidth Digital protezione del contenuto (HDCP) e Copy General Management System (CGMS). Se i criteri pre-esistenti non sono registrati con il server di licenze Widevine, il provider di contenuti può inserire i valori nella richiesta di licenza.   
+Se esiste un criterio preesistente, non è necessario specificare alcun valore nella specifica della chiave simmetrica. I criteri preesistenti associati a questo contenuto vengono utilizzati per determinare la protezione dell'output, ad esempio HDCP (High-bandwidth Digital Content Protection) e CGMS (Copy General Management System). Se i criteri pre-esistenti non sono registrati con il server di licenze Widevine, il provider di contenuti può inserire i valori nella richiesta di licenza.   
 
 Ogni valore content_key_specs deve essere specificato per tutte le singole tracce, indipendentemente dall'opzione use_policy_overrides_exclusively. 
 
-| Nome | Valore | Description |
+| Nome | valore | Descrizione |
 | --- | --- | --- |
 | content_key_specs track_type |string |Nome di un tipo di traccia. Se nella richiesta di licenza è specificato un valore content_key_specs, assicurarsi di specificare esplicitamente tutti i tipi di traccia. In caso contrario, non possono essere riprodotti gli ultimi 10 secondi. |
 | content_key_specs  <br/> security_level |uint32 |Definisce i requisiti di affidabilità client per la riproduzione. <br/> - È richiesta una soluzione di crittografia white box basata su software. <br/> - Sono necessari una soluzione di crittografia software e un decodificatore offuscato. <br/> - Il materiale della chiave e le operazioni di crittografia devono essere eseguiti all'interno di un ambiente di esecuzione affidabile basato su hardware. <br/> - Le operazioni di crittografia e decodifica del contenuto devono essere eseguite all'interno di un ambiente di esecuzione affidabile basato su hardware.  <br/> - Le operazioni di crittografia, decodifica e l'intera gestione dei file multimediali (con e senza compressione) devono essere eseguite all'interno di un ambiente di esecuzione affidabile basato su hardware. |
 | content_key_specs <br/> required_output_protection.hdc |Stringa, uno di HDCP_NONE, HDCP_V1, HDCP_V2 |Indica se è necessario il protocollo HDCP. |
-| content_key_specs <br/>Key |Base64<br/>codifica Base64 |Chiave simmetrica da usare per questa traccia. Se specificato, il track_type o key_id è obbligatorio. Il provider di contenuti può usare questa opzione per inserire la chiave simmetrica della traccia ed evitare quindi che sia il server di licenze Widevine a generare o cercare una chiave. |
+| content_key_specs <br/>Key |Base64<br/>codifica Base64 |Chiave simmetrica da utilizzare per questa traccia. Se specificato, è necessario il track_type o il key_id. Il provider di contenuti può usare questa opzione per inserire la chiave simmetrica della traccia ed evitare quindi che sia il server di licenze Widevine a generare o cercare una chiave. |
 | content_key_specs.key_id |Stringa binaria con codifica Base64, 16 byte |Identificatore univoco della chiave. |
 
 ## <a name="policy-overrides"></a>Override dei criteri
-| Nome | Valore | Description |
+| Nome | valore | Descrizione |
 | --- | --- | --- |
 | policy_overrides&#46;can_play |Booleano: true o false |Indica che è consentita la riproduzione del contenuto. L'impostazione predefinita è false. |
 | policy_overrides&#46;can_persist |Booleano: true o false |Indica che la licenza può essere mantenuta in una memoria non volatile per l'uso offline. L'impostazione predefinita è false. |
@@ -102,7 +102,7 @@ Ogni valore content_key_specs deve essere specificato per tutte le singole tracc
 | policy_overrides&#46;renew_with_usage |Booleano: true o false |Indica che la licenza viene inviata per il rinnovo nel momento in cui si inizia a usarla. Questo campo viene usato solo se can_renew è true. |
 
 ## <a name="session-initialization"></a>Inizializzazione della sessione
-| Nome | Valore | Description |
+| Nome | valore | Descrizione |
 | --- | --- | --- |
 | provider_session_token |Stringa con codifica Base64 |Questo token di sessione viene restituito alla licenza e persiste nei rinnovi successivi, ma non in altre sessioni. |
 | provider_client_token |Stringa con codifica Base64 |Token client da restituire nella risposta di licenza. Se la richiesta di licenza contiene un token client, questo valore viene ignorato. Il token client persiste anche in altre sessioni della licenza. |
@@ -125,7 +125,7 @@ ContentKeyPolicyWidevineConfiguration objContentKeyPolicyWidevineConfiguration =
 };
 ```
 
-### <a id="classes"></a> Definire le classi necessarie e serializzare in JSON
+### <a name="define-needed-classes-and-serialize-to-json"></a><a id="classes"></a> Definire le classi necessarie e serializzare in JSON
 
 #### <a name="define-classes"></a>Definire le classi
 

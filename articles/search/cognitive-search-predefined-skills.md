@@ -1,7 +1,7 @@
 ---
-title: Elaborazione di testo e immagini incorporata durante l'indicizzazione
+title: Elaborazione di testo e immagini integrata durante l'indicizzazione
 titleSuffix: Azure Cognitive Search
-description: L'estrazione dei dati, il linguaggio naturale, le competenze cognitive per l'elaborazione delle immagini aggiungono semantica e struttura al contenuto non elaborato in una pipeline di ricerca cognitiva di Azure
+description: L'estrazione dei dati, il linguaggio naturale e le competenze cognitive per l'elaborazione delle immagini aggiungono semantica e struttura al contenuto non elaborato in una pipeline di Ricerca cognitiva di Azure.Data extraction, natural language, image processing cognitive skills add semantics and structure to raw content in an Azure Cognitive Search pipeline.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
@@ -9,18 +9,18 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 9e1f62dcdb122726fc1c08b7bea4e4c214ce7906
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76933375"
 ---
-# <a name="built-in-cognitive-skills-for-text-and-image-processing-during-indexing-azure-cognitive-search"></a>Competenze cognitive predefinite per l'elaborazione di testo e immagini durante l'indicizzazione (Azure ricerca cognitiva)
+# <a name="built-in-cognitive-skills-for-text-and-image-processing-during-indexing-azure-cognitive-search"></a>Competenze cognitive incorporate per l'elaborazione di testo e immagini durante l'indicizzazione (Ricerca cognitiva di Azure)Built-in cognitive skills for text and image processing during indexing (Azure Cognitive Search)
 
-Questo articolo illustra le competenze cognitive fornite con ricerca cognitiva di Azure che è possibile includere in un insieme di competenze per estrarre contenuto e struttura. Una *competenza cognitiva* è un modulo o un'operazione che trasforma il contenuto in qualche modo. Spesso si tratta di un componente che consente di estrarre dati o dedurre la struttura e pertanto aumenta il riconoscimento dei dati di input. L'output è quasi sempre basato su testo. Un *set di competenze* è una raccolta di competenze che definiscono la pipeline di arricchimento. 
+In questo articolo vengono fornite informazioni sulle competenze cognitive fornite con Ricerca cognitiva di Azure che è possibile includere in un set di competenze per estrarre contenuto e struttura. *Un'abilità cognitiva* è un modulo o un'operazione che trasforma il contenuto in qualche modo. Spesso si tratta di un componente che consente di estrarre dati o dedurre la struttura e pertanto aumenta il riconoscimento dei dati di input. L'output è quasi sempre basato su testo. Un *set di competenze* è una raccolta di competenze che definiscono la pipeline di arricchimento. 
 
 > [!NOTE]
-> Se si espande l'ambito aumentando la frequenza di elaborazione, aggiungendo più documenti oppure aggiungendo altri algoritmi di intelligenza artificiale, sarà necessario [collegare una risorsa fatturabile di Servizi cognitivi](cognitive-search-attach-cognitive-services.md). Gli addebiti si accumulano quando si chiamano le API in Servizi cognitivi e per l'estrazione di immagini come parte della fase di cracking dei documenti in Ricerca cognitiva di Azure. Non sono previsti addebiti per l'estrazione di testo dai documenti.
+> Man mano che si espande l'ambito aumentando la frequenza di elaborazione, aggiungendo più documenti o aggiungendo più algoritmi di ia', sarà necessario [collegare una risorsa servizi cognitivi fatturabile.](cognitive-search-attach-cognitive-services.md) Gli addebiti si accumulano quando si chiamano le API in Servizi cognitivi e per l'estrazione di immagini come parte della fase di cracking dei documenti in Ricerca cognitiva di Azure. Non sono previsti addebiti per l'estrazione di testo dai documenti.
 >
 > L'esecuzione delle competenze predefinite viene addebitata secondo gli attuali [prezzi con pagamento in base al consumo dei Servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services/). I prezzi per l'estrazione di immagini sono descritti nella [pagina dei prezzi di Ricerca cognitiva di Azure](https://go.microsoft.com/fwlink/?linkid=2042400).
 
@@ -29,29 +29,29 @@ Questo articolo illustra le competenze cognitive fornite con ricerca cognitiva d
 
 Diverse competenze sono flessibili in relazione a ciò che usano o producono. In generale, la maggior parte delle competenze sono basate su modelli con training preliminare, ovvero di cui non è possibile eseguire il training usando i propri dati di training. Nella tabella seguente sono enumerate e descritte le competenze fornite da Microsoft. 
 
-| Competenza | Description |
+| Competenza | Descrizione |
 |-------|-------------|
-|[Microsoft. Skills. Text. CustomEntityLookupSkill](cognitive-search-skill-custom-entity-lookup.md)| Cerca il testo da un elenco personalizzato definito dall'utente di parole e frasi.|
+|[Microsoft.Skills.Text.CustomEntityLookupSkill](cognitive-search-skill-custom-entity-lookup.md)| Cerca il testo di un elenco personalizzato e definito dall'utente di parole e frasi.|
 | [Microsoft.Skills.Text.KeyPhraseSkill](cognitive-search-skill-keyphrases.md) | Questa competenza usa un modello con training preliminare per rilevare le frasi importanti in base alla posizione del termine, alle regole linguistiche, alla prossimità ad altri termini e a quanto il termine è inusuale all'interno dei dati di origine. |
 | [Microsoft.Skills.Text.LanguageDetectionSkill](cognitive-search-skill-language-detection.md)  | Questa competenza usa un modello con training preliminare per rilevare la lingua usata (un ID lingua per ogni documento). Quando vengono usate più lingue all'interno dei segmenti dello stesso testo, l'output è l'identificatore LCID della lingua usata prevalentemente.|
 | [Microsoft.Skills.Text.MergeSkill](cognitive-search-skill-textmerger.md) | Consolida il testo da una raccolta di campi in un unico campo.  |
 | [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md) | Questa competenza usa un modello con training preliminare per stabilire le entità per un set fisso di categorie: persone, posizione, organizzazione, posta elettronica, URL, campi datetime. |
-| [Microsoft. Skills. Text. PIIDetectionSkill](cognitive-search-skill-pii-detection.md)  | Questa competenza usa un modello con training per estrarre informazioni personali da un testo specifico. L'abilità offre inoltre diverse opzioni per mascherare le entità PII rilevate nel testo.  |
+| [Microsoft.Skills.Text.PIIDetectionSkill](cognitive-search-skill-pii-detection.md)  | Questa abilità utilizza un modello preformato per estrarre informazioni personali da un determinato testo. L'abilità offre anche varie opzioni per mascherare le entità PII rilevate nel testo.  |
 | [Microsoft.Skills.Text.SentimentSkill](cognitive-search-skill-sentiment.md)  | Questa competenza usa un modello con training preliminare per assegnare un punteggio positivo o negativo della valutazione in base al record. Il valore è compreso tra 0 e 1. Si verificano punteggi neutri per entrambi i casi null quando la valutazione non può essere rilevata e per il testo che viene considerato neutro.  |
 | [Microsoft.Skills.Text.SplitSkill](cognitive-search-skill-textsplit.md) | Suddivide il testo in più pagine in modo che sia possibile arricchire o aumentare il contenuto in modo incrementale. |
-| [Microsoft.Skills.Text.TranslationSkill](cognitive-search-skill-text-translation.md) | Questa competenza usa un modello pretrainato per tradurre il testo di input in un'ampia gamma di linguaggi per i casi d'uso di normalizzazione o localizzazione. |
+| [Microsoft.Skills.Text.TranslationSkill](cognitive-search-skill-text-translation.md) | Questa competenza usa un modello preformato per tradurre il testo di input in una varietà di lingue per i casi d'uso di normalizzazione o localizzazione. |
 | [Microsoft.Skills.Vision.ImageAnalysisSkill](cognitive-search-skill-image-analysis.md) | Questa competenza usa un algoritmo di rilevamento dell'immagine per identificare il contenuto di un'immagine e generare una descrizione di testo. |
 | [Microsoft.Skills.Vision.OcrSkill](cognitive-search-skill-ocr.md) | Riconoscimento ottico dei caratteri. |
 | [Microsoft.Skills.Util.ConditionalSkill](cognitive-search-skill-conditional.md) | Consente di filtrare, assegnare un valore predefinito e unire i dati in base a una condizione.|
 | [Microsoft.Skills.Util.DocumentExtractionSkill](cognitive-search-skill-document-extraction.md) | Estrae il contenuto da un file all'interno della pipeline di arricchimento. |
 | [Microsoft.Skills.Util.ShaperSkill](cognitive-search-skill-shaper.md) | Esegue il mapping di output a un tipo complesso (un tipo di dati multiparte, che può essere usato per un nome completo, un indirizzo su più righe o una combinazione di cognome e ID personale.) |
-| [Microsoft.Skills.Custom.WebApiSkill](cognitive-search-custom-skill-web-api.md) | Consente l'estendibilità di una pipeline di arricchimento di intelligenza artificiale effettuando una chiamata HTTP in un'API Web personalizzata |
+| [Microsoft.Skills.Custom.WebApiSkill](cognitive-search-custom-skill-web-api.md) | Consente l'estensibilità di una pipeline di arricchimento AI effettuando una chiamata HTTP in un'API Web personalizzata |
 
 
-Per istruzioni sulla creazione di un' [abilità personalizzata](cognitive-search-custom-skill-web-api.md), vedere [come definire un'interfaccia personalizzata](cognitive-search-custom-skill-interface.md) ed [esempio: creazione di un'abilità personalizzata per l'arricchimento di intelligenza artificiale](cognitive-search-create-custom-skill-example.md).
+Per istruzioni sulla creazione di una [competenza personalizzata,](cognitive-search-custom-skill-web-api.md)vedere [Come definire un'interfaccia personalizzata](cognitive-search-custom-skill-interface.md) ed [Esempio: creazione di una competenza personalizzata per l'arricchimento dell'iA.](cognitive-search-create-custom-skill-example.md)
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 + [Come definire un set di competenze](cognitive-search-defining-skillset.md)
 + [Definizione dell'interfaccia delle competenze personalizzate](cognitive-search-custom-skill-interface.md)
-+ [Esercitazione: indicizzazione arricchita con intelligenza artificiale](cognitive-search-tutorial-blob.md)
++ [Esercitazione: Indicizzazione avanzata con aiDiTutorial: Enriched indexing with AI](cognitive-search-tutorial-blob.md)

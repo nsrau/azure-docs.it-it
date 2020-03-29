@@ -12,15 +12,15 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: ae8c7c43ecbf9bc625e1e46be3e2c71c8d57b6f7
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76720096"
 ---
 # <a name="explore-data-in-sql-server-virtual-machine-on-azure"></a>Esplorazione dei dati nella macchina virtuale di SQL Server in Azure
 
-Questo articolo illustra come esplorare i dati archiviati in una macchina virtuale SQL Server in Azure. Usare SQL o Python per esaminare i dati.
+Questo articolo illustra come esplorare i dati archiviati in una macchina virtuale SQL Server in Azure. Utilizzare SQL o Python per esaminare i dati.
 
 Questa attività è un passaggio del [processo di data science per i team](overview.md).
 
@@ -29,13 +29,13 @@ Questa attività è un passaggio del [processo di data science per i team](overv
 > 
 > 
 
-## <a name="sql-dataexploration"></a>Esplorare i dati SQL mediante gli script SQL
+## <a name="explore-sql-data-with-sql-scripts"></a><a name="sql-dataexploration"></a>Esplorare i dati SQL mediante gli script SQL
 Di seguito, sono riportati alcuni script SQL di esempio da utilizzare per esplorare gli archivi dati in SQL Server.
 
 1. Visualizzare il numero di osservazioni per giorno
    
     `SELECT CONVERT(date, <date_columnname>) as date, count(*) as c from <tablename> group by CONVERT(date, <date_columnname>)` 
-2. Visualizzare i livelli in una colonna di categoria
+2. Visualizzare i livelli in una colonna di categoria 
    
     `select  distinct <column_name> from <databasename>`
 3. Visualizzare il numero di livelli in una combinazione di due colonne di categoria 
@@ -50,8 +50,8 @@ Di seguito, sono riportati alcuni script SQL di esempio da utilizzare per esplor
 > 
 > 
 
-## <a name="python"></a>Esplorare i dati SQL mediante Python
-L'uso di Python per esplorare i dati e creare funzionalità, se i dati si trovano in SQL Server, funziona in modo analogo all'elaborazione dei dati BLOB di Azure tramite Python, come illustrato in [Process Azure Blob data in your data science environment](data-blob.md) (Elaborare i dati BLOB di Azure in un ambiente di analisi scientifica dei dati). Caricare i dati dal database in un frame di dati Pandas, quindi è possibile elaborarli ulteriormente. In questa sezione, è stato descritto il processo di connessione al database per caricare dati all'interno di un frame di dati.
+## <a name="explore-sql-data-with-python"></a><a name="python"></a>Esplorare i dati SQL mediante Python
+L'uso di Python per esplorare i dati e generare funzionalità quando i dati sono in SQL Server è simile all'elaborazione dei dati nel BLOB di Azure usando Python, come documentato in Elaborare i dati BLOB di [Azure nell'ambiente](data-blob.md)di data science. Caricare i dati dal database in un frame di dati pandas e quindi può essere elaborato ulteriormente. In questa sezione, è stato descritto il processo di connessione al database per caricare dati all'interno di un frame di dati.
 
 Il seguente formato della stringa di connessione può essere usato per connettersi a un database di SQL Server da Pyhton usando pyodbc (sostituire il nome del server, quello del database, il nome utente e la password con i valori personalizzati):
 
@@ -59,7 +59,7 @@ Il seguente formato della stringa di connessione può essere usato per connetter
     import pyodbc    
     conn = pyodbc.connect('DRIVER={SQL Server};SERVER=<servername>;DATABASE=<dbname>;UID=<username>;PWD=<password>')
 
-La [libreria Pandas](https://pandas.pydata.org/) in Python fornisce una vasta gamma di strutture di dati e strumenti di analisi dei dati per la manipolazione dei dati nella programmazione in Python. Il codice seguente consente di leggere i risultati restituiti da un database di SQL Server all'interno di un frame di dati di Pandas:
+La [libreria Pandas](https://pandas.pydata.org/) in Python fornisce un ricco set di strutture di dati e strumenti di analisi dei dati per la manipolazione dei dati per la programmazione Python. Il codice seguente consente di leggere i risultati restituiti da un database di SQL Server all'interno di un frame di dati di Pandas:
 
     # Query database and load the returned results in pandas data frame
     data_frame = pd.read_sql('''select <columnname1>, <columnname2>... from <tablename>''', conn)

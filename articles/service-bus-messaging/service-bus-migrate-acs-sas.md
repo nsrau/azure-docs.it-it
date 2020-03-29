@@ -1,6 +1,6 @@
 ---
-title: "Bus di servizio di Azure: eseguire la migrazione a un'autorizzazione di firma di accesso condiviso"
-description: Informazioni sulla migrazione dal servizio di controllo di accesso Azure Active Directory all'autorizzazione di firma di accesso condiviso.
+title: Bus di servizio di Azure - Eseguire la migrazione all'autorizzazione Firma di accesso condivisoAzure Service Bus - Migrate to Shared Access Signature authorization
+description: Informazioni sulla migrazione dal servizio di controllo di accesso di Azure Active Directory all'autorizzazione Firma di accesso condiviso.
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -13,13 +13,13 @@ ms.topic: article
 ms.date: 01/27/2020
 ms.author: aschhab
 ms.openlocfilehash: 532bbaf0b983b2d4310780686777cbe895afebe4
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76774613"
 ---
-# <a name="service-bus---migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Bus di servizio: eseguire la migrazione dal servizio di controllo di accesso Azure Active Directory all'autorizzazione di firma di accesso condiviso
+# <a name="service-bus---migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Bus di servizio - Eseguire la migrazione dal servizio di controllo di accesso di Azure Active Directory all'autorizzazione firma di accesso condivisoService Bus - Migrate from Azure Active Directory Access Control Service to Shared Access Signature authorization
 
 Per le applicazioni del bus di servizio è sempre stato possibile scegliere tra due diversi modelli di autorizzazione: il modello token con [firma di accesso condiviso (SAS)](service-bus-sas.md) fornito direttamente dal bus di servizio e un modello federato in cui la gestione delle regole di autorizzazione viene eseguita all'interno del Servizio di controllo di accesso di [Azure Active Directory](/azure/active-directory/); i token ottenuti dal Servizio di controllo di accesso vengono passati al bus di servizio per autorizzare l'accesso alle funzionalità desiderate.
 

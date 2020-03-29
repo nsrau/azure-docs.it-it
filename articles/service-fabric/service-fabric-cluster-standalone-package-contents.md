@@ -1,21 +1,21 @@
 ---
-title: Pacchetto autonomo Service Fabric di Azure per Windows Server
+title: Azure Service Fabric Standalone Package for Windows Server
 description: Descrizione e contenuto del pacchetto autonomo di Azure Service Fabric per Windows Server.
 author: maburlik
 ms.topic: conceptual
 ms.date: 8/10/2017
 ms.author: maburlik
 ms.openlocfilehash: 1bb73fa69717f067139067f127a0d50af4878d6c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75451838"
 ---
 # <a name="contents-of-service-fabric-standalone-package-for-windows-server"></a>Contenuto del pacchetto autonomo di Service Fabric per Windows Server
 Nel pacchetto autonomo di Service Fabric [scaricato](https://go.microsoft.com/fwlink/?LinkId=730690) sono disponibili i seguenti file:
 
-| **Nome file** | **Descrizione breve** |
+| **Nome file** | **Breve descrizione** |
 | --- | --- |
 | CreateServiceFabricCluster.ps1 |Script di PowerShell che crea il cluster usando le impostazioni di ClusterConfig.json. |
 | RemoveServiceFabricCluster.ps1 |Script di PowerShell che rimuove un cluster usando le impostazioni di ClusterConfig.json. |
@@ -33,7 +33,7 @@ Nel pacchetto autonomo di Service Fabric [scaricato](https://go.microsoft.com/fw
 
 **Modelli** 
 
-| **Nome file** | **Descrizione breve** |
+| **Nome file** | **Breve descrizione** |
 | --- | --- |
 | ClusterConfig.Unsecure.DevCluster.json |File di configurazione del cluster di esempio contenente le impostazioni per un cluster di sviluppo a tre nodi non protetto con singolo computer (o macchina virtuale), con le informazioni per ogni nodo incluso nel cluster. |
 | ClusterConfig.Unsecure.MultiMachine.json |File di configurazione del cluster di esempio contenente le impostazioni per un cluster non protetto con più computer o macchine virtuali, con le informazioni per ogni computer incluso nel cluster. |
@@ -44,11 +44,11 @@ Nel pacchetto autonomo di Service Fabric [scaricato](https://go.microsoft.com/fw
 | ClusterConfig.gMSA.Windows.MultiMachine.json |File di configurazione del cluster di esempio contenente tutte le impostazioni per un cluster sicuro con più computer o macchine virtuali, con le informazioni per ogni nodo del cluster sicuro. Il cluster è protetto usando gli [account del servizio gestito del gruppo](https://technet.microsoft.com/library/jj128431(v=ws.11).aspx). |
 
 ## <a name="cluster-configuration-samples"></a>Esempi di configurazione del cluster
-Le versioni più recenti dei modelli di configurazione del cluster sono disponibili nella pagina di GitHub: [Standalone Cluster Configuration Samples](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples).
+Le versioni più recenti dei modelli di configurazione del cluster sono disponibili nella pagina GitHub: Esempi di [configurazione cluster autonomi](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples).
 
 ## <a name="independent-runtime-package"></a>Pacchetto di Runtime indipendente
 Il pacchetto di runtime più recente viene scaricato automaticamente durante la distribuzione del cluster da [Collegamento per il download - Runtime di Service Fabric - Windows Server](https://go.microsoft.com/fwlink/?linkid=839354).
 
-## <a name="related"></a>Contenuti correlati
+## <a name="related"></a>Risorse correlate
 * [Creare un cluster autonomo di Azure Service Fabric](service-fabric-cluster-creation-for-windows-server.md)
 * [Scenari di sicurezza di un cluster di Service Fabric](service-fabric-windows-cluster-windows-security.md)

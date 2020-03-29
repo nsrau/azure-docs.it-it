@@ -1,6 +1,6 @@
 ---
 title: Implementare lo streaming del failover con Servizi multimediali di Azure | Microsoft Docs
-description: Questo articolo illustra come implementare uno scenario di streaming di failover con servizi multimediali di Azure.
+description: Questo articolo illustra come implementare uno scenario di streaming di failover con Servizi multimediali di Azure.This article shows how to implement a failover streaming scenario with Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,13 +14,13 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: ae1371a8f025fd5e5722d483323fbe937538eb15
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78939220"
 ---
-# <a name="implement-failover-streaming-with-media-services-v2"></a>Implementare lo streaming del failover con servizi multimediali V2
+# <a name="implement-failover-streaming-with-media-services-v2"></a>Implementare lo streaming di failover con Servizi multimediali v2Implement failover streaming with Media Services v2
 
 Questa procedura dettagliata illustra come copiare il contenuto (BLOB) da un asset all'altro per gestire la ridondanza dello streaming on demand. Questo scenario è utile se si desidera configurare la rete di distribuzione dei contenuti di Azure affinché esegua il failover tra due data center, in caso di interruzione in uno di essi. In questa procedura dettagliata viene usato l'SDK dei Servizi multimediali di Azure, l'API REST di Servizi multimediali di Microsoft Azure e l'SDK di Archiviazione di Azure per dimostrare queste attività:
 
@@ -50,7 +50,7 @@ Si applicano le considerazioni seguenti:
 * Gli asset con crittografia di archiviazione (AssetCreationOptions.StorageEncrypted) non sono supportati per la replica, in quanto la chiave di crittografia è diversa nei due account di Servizi multimediali. 
 * Se si vuole sfruttare i vantaggi della creazione dinamica dei pacchetti, verificare che l'endpoint di streaming da cui trasmettere i contenuti si trovi nello stato **In esecuzione**.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Due account di Servizi multimediali in una sottoscrizione di Azure nuova o esistente. Vedere l'articolo relativo alla [creazione di un account di Servizi multimediali](media-services-portal-create-account.md).
 * Sistemi operativi: Windows 7, Windows 2008 R2 o Windows 8.
@@ -62,9 +62,9 @@ Si applicano le considerazioni seguenti:
 In questa sezione si crea e si configura un progetto di applicazione console in C#.
 
 1. Usare Visual Studio per creare una nuova soluzione contenente il progetto di applicazione console in C#. Immettere **HandleRedundancyForOnDemandStreaming** come nome e quindi fare clic su **OK**.
-2. Creare la cartella **SupportFiles** allo stesso livello del file di progetto **HandleRedundancyForOnDemandStreaming.csproj**. Nella cartella **SupportFiles** creare le cartelle **OutputFiles** e **MP4Files**. Copiare un file con estensione .mp4 nella cartella **MP4Files**. In questo esempio viene usato il file **Ignite. mp4** . 
-3. Usare **NuGet** per aggiungere riferimenti alle DLL correlate a servizi multimediali. Nel **menu principale di Visual Studio**selezionare **strumenti** > **Gestione pacchetti NuGet** > **console di gestione pacchetti**. Nella finestra della console digitare **Install-Package windowsazure.mediaservices** e premere Invio.
-4. Aggiungere altri riferimenti necessari per il progetto: System. Runtime. Serialization e System. Web.
+2. Creare la cartella **SupportFiles** allo stesso livello del file di progetto **HandleRedundancyForOnDemandStreaming.csproj**. Nella cartella **SupportFiles** creare le cartelle **OutputFiles** e **MP4Files**. Copiare un file con estensione .mp4 nella cartella **MP4Files**. In questo esempio viene utilizzato il file **ignite.mp4.** 
+3. Utilizzare **NuGet** per aggiungere riferimenti alle DLL correlate a Servizi multimediali. Nel **menu principale di Visual Studio**selezionare **TOOLS** > **NuGet Package Manager** > Package**Manager Console di gestione pacchetti**. Nella finestra della console digitare **Install-Package windowsazure.mediaservices** e premere Invio.
+4. Aggiungere altri riferimenti necessari per questo progetto: System.Runtime.Serialization e System.Web.
 5. Sostituire le istruzioni **using** aggiunte per impostazione predefinita al file **Programs.cs** con le seguenti:
 
 ```csharp
@@ -205,7 +205,7 @@ In questa sezione, si crea la possibilità di gestire la ridondanza.
         }
     }
     ```
-3. Le definizioni seguenti dei metodi sono chiamati dal metodo Main. Per ulteriori informazioni su ogni metodo, vedere i commenti.
+3. Le definizioni seguenti dei metodi sono chiamati dal metodo Main. Vedere i commenti per ulteriori dettagli su ogni metodo.
 
     >[!NOTE]
     >È previsto un limite di 1.000.000 di criteri per i diversi criteri di Servizi multimediali (ad esempio per i criteri Locator o ContentKeyAuthorizationPolicy). Se si usano sempre gli stessi giorni e le stesse autorizzazioni di accesso, è necessario usare lo stesso ID criterio. Ad esempio, usare lo stesso ID per i criteri dei localizzatori che devono rimanere sul posto per molto tempo (criteri di non-caricamento). Per altre informazioni, vedere [questo argomento](media-services-dotnet-manage-entities.md#limit-access-policies).
@@ -748,13 +748,13 @@ In questa sezione, si crea la possibilità di gestire la ridondanza.
     
 ## <a name="content-protection"></a>Protezione del contenuto
 
-Nell'esempio riportato in questo argomento viene illustrato il Clear streaming. Se si vuole eseguire lo streaming protetto, è necessario eseguire alcune altre operazioni di configurazione, è necessario usare lo stesso **AssetDeliveryPolicy**, lo stesso **CONTENTKEYAUTHORIZATIONPOLICY** o l'URL del server di chiave esterna ed è necessario duplicare le chiavi simmetriche con lo stesso identificatore.
+L'esempio in questo argomento mostra lo streaming chiaro. Se si desidera eseguire lo streaming protetto, è necessario configurare alcuni altri elementi, utilizzare lo stesso **AssetDeliveryPolicy**, lo stesso **ContentKeyAuthorizationPolicy** o l'URL del server della chiave esterna ed è necessario duplicare le chiavi di contenuto con lo stesso identificatore.
 
-Per altre informazioni sulla protezione del contenuto, vedere [usare la crittografia dinamica AES-128 e il servizio di distribuzione delle chiavi](media-services-protect-with-aes128.md).
+Per ulteriori informazioni sulla protezione del contenuto, vedere Utilizzare la [crittografia dinamica AES-128 e il servizio di distribuzione delle chiavi](media-services-protect-with-aes128.md).
 
 ## <a name="see-also"></a>Vedere anche
 
-[Usare i webhook di Azure per monitorare le notifiche dei processi di servizi multimediali](media-services-dotnet-check-job-progress-with-webhooks.md)
+[Usare I Webhook di Azure per monitorare le notifiche dei processi di Servizi multimedialiUse Azure Webhooks to monitor Media Services job notifications](media-services-dotnet-check-job-progress-with-webhooks.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

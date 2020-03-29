@@ -1,6 +1,6 @@
 ---
 title: Ripristino di emergenza per gli account di integrazione
-description: Configurare gli account di integrazione e gli artefatti B2B con il ripristino di emergenza tra più aree in app per la logica di Azure
+description: Configurare gli account di integrazione e gli elementi B2B con il ripristino di emergenza tra aree in App per la logica di AzureSet up your integration accounts and B2B artifacts with cross-region disaster recovery in Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -9,13 +9,13 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/10/2017
 ms.openlocfilehash: 09b77862ad3379efeb8b3063a9d6c60b062ca2d7
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76905134"
 ---
-# <a name="set-up-cross-region-disaster-recovery-for-integration-accounts-in-azure-logic-apps"></a>Configurare il ripristino di emergenza tra aree per gli account di integrazione in app per la logica di Azure
+# <a name="set-up-cross-region-disaster-recovery-for-integration-accounts-in-azure-logic-apps"></a>Configurare il ripristino di emergenza tra aree per gli account di integrazione nelle app per la logica di AzureSet up cross-region disaster recovery for integration accounts in Azure Logic Apps
 
 I carichi di lavoro B2B coinvolgono le transazioni di denaro, come ad esempio gli ordini e le fatture. In caso di un evento di emergenza, per un'azienda è essenziale eseguire rapidamente un ripristino per soddisfare i contratti di servizio a livello di business secondo gli accordi presi con i partner. In questo articolo viene illustrato come creare un piano di continuità aziendale per i carichi di lavoro B2B. 
 
@@ -112,7 +112,7 @@ Per abilitare il ripristino di emergenza per i messaggi in ingresso, selezionare
 
    ![Aggiungi o aggiorna numeri di controllo](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn5.png)
 
-7. Per collegare un'azione a un account di integrazione dell'area secondaria, selezionare **Modifica connessione** > **Aggiungi nuova connessione** per un elenco degli account di integrazione disponibili. Inserire un nome di connessione, selezionare l'*account di integrazione dell'area secondaria* dall'elenco e scegliere **Crea**. 
+7. Per connettere un'azione a un account di integrazione dell'area secondaria, selezionare **Modifica connessione** > **Aggiungi nuova connessione** per un elenco degli account di integrazione disponibili. Inserire un nome di connessione, selezionare l'*account di integrazione dell'area secondaria* dall'elenco e scegliere **Crea**. 
 
    ![Nome dell'account di integrazione dell'area secondaria](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn6.png)
 
@@ -167,7 +167,7 @@ Per abilitare il ripristino di emergenza per i messaggi in ingresso, selezionare
 
    ![Aggiungi o aggiorna numeri di controllo](./media/logic-apps-enterprise-integration-b2b-business-continuity/EdifactChooseAction.png)
 
-8. Per collegare un'azione a un account di integrazione dell'area secondaria, selezionare **Modifica connessione** > **Aggiungi nuova connessione** per un elenco degli account di integrazione disponibili. Inserire un nome di connessione, selezionare l'*account di integrazione dell'area secondaria* dall'elenco e scegliere **Crea**.
+8. Per connettere un'azione a un account di integrazione dell'area secondaria, selezionare **Modifica connessione** > **Aggiungi nuova connessione** per un elenco degli account di integrazione disponibili. Inserire un nome di connessione, selezionare l'*account di integrazione dell'area secondaria* dall'elenco e scegliere **Crea**.
 
    ![Nome dell'account di integrazione dell'area secondaria](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn6.png)
 
@@ -219,7 +219,7 @@ La continuità aziendale per i documenti che usano il protocollo AS2 si basai su
 
    ![Aggiunta o aggiornamento MIC](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid5.png)
 
-7. Per collegare un'azione a un account di integrazione secondario, selezionare **Modifica connessione** > **Aggiungi nuova connessione** per un elenco degli account di integrazione disponibili. Inserire un nome di connessione, selezionare l'*account di integrazione dell'area secondaria* dall'elenco e scegliere **Crea**.
+7. Per connettere un'azione a un account di integrazione secondario, selezionare **Modifica connessione** > **Aggiungi nuova connessione** per un elenco degli account di integrazione disponibili. Inserire un nome di connessione, selezionare l'*account di integrazione dell'area secondaria* dall'elenco e scegliere **Crea**.
 
    ![Nome dell'account di integrazione dell'area secondaria](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid6.png)
 
@@ -240,5 +240,5 @@ In base all'intervallo di tempo, lo stato di runtime incrementale viene replicat
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Monitorare i messaggi B2B con i log di monitoraggio di Azure](../logic-apps/monitor-b2b-messages-log-analytics.md)
+[Monitorare i messaggi B2B con i log di Monitoraggio di Azure](../logic-apps/monitor-b2b-messages-log-analytics.md)
 

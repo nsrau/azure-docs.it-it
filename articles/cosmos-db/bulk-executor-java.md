@@ -1,6 +1,6 @@
 ---
-title: Utilizzare la libreria Java dell'executor bulk in Azure Cosmos DB per eseguire operazioni di importazione e aggiornamento bulk
-description: Eseguire l'importazione e l'aggiornamento bulk di documenti Azure Cosmos DB tramite la libreria Java bulk Executor
+title: Usare la libreria Java dell'executor bulk in Azure Cosmos DB per eseguire operazioni di importazione e aggiornamento in bloccoUse bulk executor Java library in Azure Cosmos DB to perform bulk import and update operations
+description: Importazione e aggiornamento in blocco di documenti di database Cosmos di Azure usando la libreria Java dell'executor bulk
 author: tknandu
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -10,25 +10,25 @@ ms.date: 05/28/2019
 ms.author: ramkris
 ms.reviewer: sngun
 ms.openlocfilehash: bf2a2385b3129ddf24ede7f6d851701186b0e33c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75445702"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Usare la libreria Java dell'executor bulk per eseguire operazioni in blocco sui dati di Azure Cosmos DB
 
-Questa esercitazione fornisce le istruzioni per importare e aggiornare i documenti in Azure Cosmos DB usando la libreria Java BulkExecutor di Azure Cosmos DB. Per informazioni sulla libreria dell'executor bulk e su come consente di sfruttare il livello elevatissimo di velocità effettiva e archiviazione, vedere l'articolo [Panoramica della libreria dell'executor bulk](bulk-executor-overview.md). In questa esercitazione viene compilata un'applicazione Java che genera documenti casuali e viene eseguita l'importazione bulk in un contenitore di Azure Cosmos. Dopo l'importazione alcune proprietà di un documento verranno aggiornate in blocco. 
+Questa esercitazione fornisce le istruzioni per importare e aggiornare i documenti in Azure Cosmos DB usando la libreria Java BulkExecutor di Azure Cosmos DB. Per informazioni sulla libreria dell'executor bulk e su come consente di sfruttare il livello elevatissimo di velocità effettiva e archiviazione, vedere l'articolo [Panoramica della libreria dell'executor bulk](bulk-executor-overview.md). In questa esercitazione si compila un'applicazione Java che genera documenti casuali che vengono importati in blocco in un contenitore Cosmos di Azure.In this tutorial, you build a Java application that generates random documents and they are bulked into an Azure Cosmos container. Dopo l'importazione alcune proprietà di un documento verranno aggiornate in blocco. 
 
-Attualmente, la libreria dell'executor bulk è supportata solo dagli account Azure Cosmos DB API SQL e Gremlin. Questo articolo descrive come usare la libreria Java dell'executor bulk con gli account API SQL. Per informazioni sull'uso della libreria .NET dell'executor bulk con l'API Gremlin, vedere [Eseguire operazioni bulk nell'API Gremlin di Azure Cosmos DB](bulk-executor-graph-dotnet.md).
+Attualmente, la libreria dell'executor bulk è supportata solo dagli account API SQL di Azure Cosmos DB e Gremlin. In questo articolo viene descritto come utilizzare la libreria Java dell'executor bulk con gli account DELL'API SQL. Per informazioni sull'uso della libreria .NET dell'executor bulk con l'API Gremlin, vedere [Eseguire operazioni bulk nell'API Gremlin di Azure Cosmos DB](bulk-executor-graph-dotnet.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare.  
 
-* Puoi [provare Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) gratuitamente senza una sottoscrizione di Azure, gratuitamente e senza impegno. In alternativa è possibile usare l'[emulatore di Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/local-emulator) con l'endpoint `https://localhost:8081`. La chiave primaria viene fornita in [Autenticazione delle richieste](local-emulator.md#authenticating-requests).  
+* È possibile [provare Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) senza una sottoscrizione di Azure, gratuitamente e impegni. In alternativa è possibile usare l'[emulatore di Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/local-emulator) con l'endpoint `https://localhost:8081`. La chiave primaria viene fornita in [Autenticazione delle richieste](local-emulator.md#authenticating-requests).  
 
-* [Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks)  
+* [Kit di sviluppo Java (JDK) 1.7](https://aka.ms/azure-jdks)  
   - In Ubuntu eseguire `apt-get install default-jdk` per installare JDK.  
 
   - Assicurarsi di impostare la variabile di ambiente JAVA_HOME in modo che faccia riferimento alla cartella di installazione di JDK.
@@ -37,7 +37,7 @@ Attualmente, la libreria dell'executor bulk è supportata solo dagli account Azu
   
   - In Ubuntu è possibile eseguire `apt-get install maven` per installare Maven.
 
-* Creare un account dell'API SQL di Azure Cosmos DB usando la procedura descritta nella sezione [creare un account di database](create-sql-api-java.md#create-a-database-account) dell'articolo introduttivo su Java.
+* Creare un account API SQL del database di Azure Cosmos usando la procedura descritta nella sezione Creare l'account del database dell'articolo Guida introduttiva di Java.Create an Azure Cosmos DB SQL API account by using the steps described in the [create database account](create-sql-api-java.md#create-a-database-account) section of the Java quickstart article.
 
 ## <a name="clone-the-sample-application"></a>Clonare l'applicazione di esempio
 
@@ -88,7 +88,7 @@ Il repository clonato contiene due esempi "bulkimport" e "bulkupdate" relativi a
    client.getConnectionPolicy().getRetryOptions().setMaxRetryAttemptsOnThrottledRequests(0);
    ```
 
-4. Chiamare l'API importal che genera documenti casuali per l'importazione bulk in un contenitore di Azure Cosmos. È possibile specificare le configurazioni da riga di comando all'interno del file CmdLineConfiguration.java.
+4. Chiamare l'API importAll che genera documenti casuali da importare in blocco in un contenitore di Azure Cosmos.Call the importAll API that generates random documents to bulk import into an Azure Cosmos container. È possibile specificare le configurazioni da riga di comando all'interno del file CmdLineConfiguration.java.
 
    ```java
    BulkImportResponse bulkImportResponse = bulkExecutor.importAll(documents, false, true, null);
@@ -118,8 +118,8 @@ Il repository clonato contiene due esempi "bulkimport" e "bulkupdate" relativi a
    |int getNumberOfDocumentsImported()  |   Il numero totale di documenti importati correttamente rispetto ai documenti forniti alla chiamata API di importazione in blocco.      |
    |double getTotalRequestUnitsConsumed()   |  Le unità richiesta (UR) totali usate dalla chiamata API di importazione in blocco.       |
    |Duration getTotalTimeTaken()   |    Il tempo totale impiegato dalla chiamata API di importazione in blocco per completare l'esecuzione.     |
-   |Elenco\<eccezione > GetErrors () |  L'elenco di errori se alcuni documenti del batch fornito alla chiamata API di importazione in blocco non vengono inseriti.       |
-   |Elenco\<oggetto > getBadInputDocuments ()  |    L'elenco di documenti con formato non valido che non sono stati importati correttamente nella chiamata API di importazione in blocco. L'utente deve correggere il problema nei documenti restituiti e ripetere l'importazione. I documenti con formato non valido includono i documenti con un valore ID diverso da stringa, ad esempio con un valore null o con qualsiasi altro tipo di dati.     |
+   |Elenca\<eccezione> getErrors() |  L'elenco di errori se alcuni documenti del batch fornito alla chiamata API di importazione in blocco non vengono inseriti.       |
+   |Elenco\<di oggetti> getBadInputDocuments()  |    L'elenco di documenti con formato non valido che non sono stati importati correttamente nella chiamata API di importazione in blocco. L'utente deve correggere il problema nei documenti restituiti e ripetere l'importazione. I documenti con formato non valido includono i documenti con un valore ID diverso da stringa, ad esempio con un valore null o con qualsiasi altro tipo di dati.     |
 
 5. Dopo avere preparato l'applicazione di importazione in blocco, compilare lo strumento da riga di comando dall'origine usando il comando "mvn clean package". Questo comando genera un file jar nella cartella di destinazione:  
 
@@ -155,7 +155,7 @@ Il repository clonato contiene due esempi "bulkimport" e "bulkupdate" relativi a
     }).collect(Collectors.toCollection(() -> updateItems));
    ```
 
-2. Chiamare l'API updateAll che genera documenti casuali per l'importazione bulk in un contenitore di Azure Cosmos. È possibile specificare le configurazioni da riga di comando da passare al file CmdLineConfiguration.java.
+2. Chiamare l'API updateAll che genera documenti casuali da quindi eseguire l'importazione bulk in un contenitore Cosmos di Azure.Call the updateAll API that generates random documents to then bulk imported into an Azure Cosmos container. È possibile specificare le configurazioni da riga di comando da passare al file CmdLineConfiguration.java.
 
    ```java
    BulkUpdateResponse bulkUpdateResponse = bulkExecutor.updateAll(updateItems, null)
@@ -182,7 +182,7 @@ Il repository clonato contiene due esempi "bulkimport" e "bulkupdate" relativi a
    |int getNumberOfDocumentsUpdated()  |   Il numero totale di documenti aggiornati correttamente rispetto ai documenti forniti alla chiamata API di aggiornamento in blocco.      |
    |double getTotalRequestUnitsConsumed() |  Le unità richiesta (UR) totali usate dalla chiamata API di aggiornamento in blocco.       |
    |Duration getTotalTimeTaken()  |   Il tempo totale impiegato dalla chiamata API di aggiornamento in blocco per completare l'esecuzione.      |
-   |Elenco\<eccezione > GetErrors ()   |    L'elenco di errori se alcuni documenti del batch fornito alla chiamata API di aggiornamento in blocco non vengono inseriti.      |
+   |Elenca\<eccezione> getErrors()   |    L'elenco di errori se alcuni documenti del batch fornito alla chiamata API di aggiornamento in blocco non vengono inseriti.      |
 
 3. Dopo avere preparato l'applicazione di aggiornamento in blocco, compilare lo strumento da riga di comando dall'origine usando il comando "mvn clean package". Questo comando genera un file jar nella cartella di destinazione:  
 
@@ -206,7 +206,7 @@ Per ottenere prestazioni migliori, quando si usa la libreria dell'executor bulk 
    * Impostare la dimensione dell'heap della JVM su un numero sufficientemente elevato per evitare problemi di memoria quando si gestisce un numero elevato di documenti. Dimensione heap suggerita: max (3GB, 3 * sizeof (tutti i documenti passati all'API di importazione in blocco in un unico batch)).  
    * Il tempo di pre-elaborazione previsto consente di ottenere una velocità effettiva maggiore quando si eseguono operazioni in blocco con un numero elevato di documenti. Per importare 10.000.000 documenti, è preferibile eseguire l'importazione in blocco 10 volte di 10 blocchi di documenti, ognuno con dimensione pari a 1.000.000, anziché importare in blocco 100 volte 100 blocchi di documenti, ognuno con dimensione pari a 100.000.  
 
-* Si consiglia di creare un'istanza di un singolo oggetto DocumentBulkExecutor per l'intera applicazione all'interno di una singola macchina virtuale che corrisponde a un contenitore Azure Cosmos specifico.  
+* È consigliabile creare un'istanza di un singolo oggetto DocumentBulkExecutor per l'intera applicazione all'interno di una singola macchina virtuale che corrisponde a un contenitore Cosmos di Azure specifico.  
 
 * Dato che l'esecuzione di una singola API con un'operazione in blocco usa un blocco di grandi dimensioni della CPU e dell'I/O di rete del computer client generando internamente più attività, evitare di generare più attività simultanee all'interno del processo dell'applicazione, di cui ognuna esegue chiamate API di operazioni in blocco. Se una singola chiamata API di un'operazione in blocco in esecuzione su una singola macchina virtuale non è in grado di usare la velocità effettiva dell'intero contenitore (se la velocità effettiva del contenitore > 1 milione di UR/s), è preferibile creare macchine virtuali separate per eseguire simultaneamente le chiamate API di operazione in blocco.
 

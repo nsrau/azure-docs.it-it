@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.date: 09/06/2016
 ms.author: robinsh
 ms.openlocfilehash: dfea53e62383409411925f2fe2f18d61a6855ec1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75429372"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>Azure IoT SDK per dispositivi C: altre informazioni sul serializzatore
 
-Il primo articolo di questa serie ha introdotto l' [Introduzione ad Azure Internet per dispositivi SDK per C](iot-hub-device-sdk-c-intro.md). L'articolo successivo fornisce una descrizione più dettagliata dell' [SDK per dispositivi Azure per i dispositivi per C--IoTHubClient](iot-hub-device-sdk-c-iothubclient.md). Questo articolo completa l'illustrazione dell'SDK fornendo una descrizione più dettagliata del componente restante, la libreria **serializer**.
+Il primo articolo di questa serie ha introdotto [l'SDK del dispositivo Introduzione all'IoT di Azure per C](iot-hub-device-sdk-c-intro.md). L'articolo successivo ha fornito una descrizione più dettagliata dell'SDK del [dispositivo Azure IoT per C -- IoTHubClient](iot-hub-device-sdk-c-iothubclient.md). Questo articolo completa l'illustrazione dell'SDK fornendo una descrizione più dettagliata del componente restante, la libreria **serializer**.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
@@ -64,14 +64,14 @@ In questo esempio non vengono illustrati i tipi di dati aggiuntivi supportati da
 
 I tipi di dati seguenti sono supportati nei modelli creati con la libreria **serializer** .
 
-| Tipo | Description |
+| Type | Descrizione |
 | --- | --- |
 | double |Numero a virgola mobile a precisione doppia |
-| int |Intero a 32 bit |
+| INT |Intero a 32 bit |
 | float |Numero a virgola mobile a precisione singola |
 | long |Intero lungo |
-| int8\_t |Integer a 8 bit |
-| int16\_t |intero a 16 bit |
+| int8\_t |Numero intero a 8 bit |
+| int16\_t |Numero intero a 16 bit |
 | int32\_t |Intero a 32 bit |
 | int64\_t |Intero a 64 bit |
 | bool |boolean |
@@ -278,7 +278,7 @@ Quando si esegue il codice precedente per inviare l'evento temperatura, questo f
 {"Temperature":75, "Time":"2015-09-17T18:45:56Z"}
 ```
 
-Si sta inviando una temperatura, che è di tipo **TemperatureEvent**, e tale struct contiene un membro di **temperatura** e di **tempo** . Questa condizione viene riflessa direttamente dei dati serializzati.
+Stiamo inviando una temperatura, che è di tipo **TemperatureEvent**, e tale struttura contiene un membro **Temperature** e **Time.** Questa condizione viene riflessa direttamente dei dati serializzati.
 
 In modo analogo è possibile inviare un evento umidità con questo codice:
 
@@ -315,7 +315,7 @@ WITH_DATA(EDM_DATE_TIME_OFFSET, Time)
 );
 ```
 
-In questo caso, sono state eliminate le macro **DECLARE\_struct** e vengono semplicemente definiti gli elementi di dati del nostro scenario usando tipi semplici dal linguaggio di modellazione.
+In questo caso, abbiamo eliminato le macro **DECLARE\_STRUCT** e stiamo semplicemente definendo gli elementi di dati dal nostro scenario utilizzando tipi semplici dal linguaggio di modellazione.
 
 Per il momento si ignorerà l'evento **Time**. Ecco quindi il codice per l'immissione dell'evento **Temperature**:
 
@@ -398,7 +398,7 @@ WITH_DATA(TemperatureAndHumidityEvent, TemperatureAndHumidity),
 
 Se fosse stato usato questo modello, sarebbe stato più facile capire in che modo **Temperature** e **Humidity** sarebbero inviati nello stesso messaggio serializzato. Potrebbe tuttavia non essere chiaro perché funziona in questo modo quando si passano entrambi gli eventi dati a **SERIALIZE** con il modello n. 2.
 
-Questo comportamento è più facile da comprendere se si conoscono i presupposti della libreria **serializer** . Per comprendere questo concetto, ritorniamo al modello:
+Questo comportamento è più facile da comprendere se si conoscono i presupposti della libreria **serializer** . Per dare un senso a questo, torniamo al nostro modello:
 
 ```C
 DECLARE_MODEL(Thermostat,
@@ -408,7 +408,7 @@ WITH_DATA(EDM_DATE_TIME_OFFSET, Time)
 );
 ```
 
-Pensare al modello in termini di "orientato a oggetti". In questo caso si sta modellando un dispositivo fisico (un termostato) e il dispositivo include attributi come **temperatura** e **umidità**.
+Pensare al modello in termini di "orientato a oggetti". In questo caso, stiamo modellando un dispositivo fisico (un termostato) e tale dispositivo include attributi come **Temperatura** e **Umidità**.
 
 Si può inviare l'intero stato del modello con un codice come il seguente:
 
@@ -431,11 +431,11 @@ A volte è consigliabile inviare solo *alcune* proprietà del modello nel cloud.
 {"Temperature":75, "Time":"2015-09-17T18:45:56Z"}
 ```
 
-Questo genera esattamente lo stesso evento serializzato come se si fosse definito **TemperatureEvent** con un membro **Temperature** e un membro **Time**, come è stato fatto nel modello n. 1. In questo caso, è stato possibile generare esattamente lo stesso evento serializzato usando un modello diverso (modello 2) perché è stato chiamato **Serialize** in modo diverso.
+Questo genera esattamente lo stesso evento serializzato come se si fosse definito **TemperatureEvent** con un membro **Temperature** e un membro **Time**, come è stato fatto nel modello n. 1. In questo caso, siamo stati in grado di generare esattamente lo stesso evento serializzato utilizzando un modello diverso (modello 2) perché abbiamo chiamato **SERIALI** In modo diverso.
 
 Il punto importante è che se si passano più eventi dati a **SERIALIZE** , presuppone che ogni evento sia una proprietà in un singolo oggetto JSON.
 
-L'approccio migliore dipende dall'utente e da come viene considerato il modello. Se si inviano "eventi" nel cloud e ogni evento contiene un set di proprietà definito, è più appropriato il primo approccio. In tal caso, usare **DECLARE\_STRUCT** per definire la struttura di ogni evento e quindi includere gli eventi nel modello usando la macro **WITH\_DATA**. Inviare quindi ogni evento come illustrato sopra nel primo esempio. Con questo approccio, viene passato un solo evento dati al **serializzatore**.
+L'approccio migliore dipende dall'utente e da come viene considerato il modello. Se si inviano "eventi" nel cloud e ogni evento contiene un set di proprietà definito, è più appropriato il primo approccio. In tal caso, usare **DECLARE\_STRUCT** per definire la struttura di ogni evento e quindi includere gli eventi nel modello usando la macro **WITH\_DATA**. Inviare quindi ogni evento come illustrato sopra nel primo esempio. In questo approccio, si passerebbe un solo evento dati a **SERIALIZER**.
 
 Se si considera il modello come se fosse orientato a oggetti, potrebbe essere più appropriato il secondo approccio. In questo caso, gli elementi definiti con **WITH\_DATA** diventano le "proprietà" dell'oggetto. Si passerà il subset di eventi che si preferisce a **SERIALIZE** , a seconda del livello di stato degli "oggetti" che si vuole inviare nel cloud.
 
@@ -443,7 +443,7 @@ Nessun approccio è giusto o sbagliato. Tenere solo presente il funzionamento de
 
 ## <a name="message-handling"></a>Gestione dei messaggi
 
-Fino ad ora si è discusso solo dell'invio di eventi all'hub IoT, ma non è stata considerata la ricezione dei messaggi. Il motivo è che ciò che è necessario sapere sulla ricezione dei messaggi è stato ampiamente trattato nell'articolo [Azure Internet per dispositivi SDK per C](iot-hub-device-sdk-c-intro.md). Ricordare da questo articolo che si elaborano i messaggi registrando una funzione di callback del messaggio:
+Fino ad ora si è discusso solo dell'invio di eventi all'hub IoT, ma non è stata considerata la ricezione dei messaggi. Il motivo è che ciò che è necessario sapere sulla ricezione di messaggi è stato in gran parte trattato nell'articolo [Azure IoT device SDK per C](iot-hub-device-sdk-c-intro.md). Ricordare da tale articolo che si elaborano i messaggi registrando una funzione di callback del messaggio:Recall from that article that you process messages by registering a message callback function:
 
 ```C
 IoTHubClient_SetMessageCallback(iotHubClientHandle, IoTHubMessage, myWeather)
@@ -537,7 +537,7 @@ Questo descrive tutto ciò che è necessario sapere quando si inviano eventi e s
 
 Se si usa la libreria **Serializer** , una parte importante dell'SDK che è opportuno tenere presente si trova nella libreria azure-c-shared-utility.
 
-Se è stato clonato il repository Azure-cose-SDK-c da GitHub ed è stato emesso il comando `git submodule update --init`, questa libreria di utilità condivisa sarà disponibile qui:
+Se è stato clonato il repository Azure-iot-sdk-c da GitHub ed è stato emesso il comando, è possibile trovare questa libreria di utilità condivisa qui:If you have cloned the Azure-iot-sdk-c repository from GitHub and issued the `git submodule update --init` command, then you will find this shared utility library here:
 
 ```C
 .\\c-utility
@@ -557,7 +557,7 @@ Questa cartella contiene una soluzione di Visual Studio chiamata **macro\_utils\
 
 Il programma in questa soluzione genera il file **macro\_utils.h**. L'SDK include un file macro\_utils.h predefinito. Questa soluzione consente tuttavia di modificare alcuni parametri e quindi di ricreare il file di intestazione in base a questi parametri.
 
-I due parametri chiave da considerare sono **nArithmetic** e **nMacroParameters**, definiti in queste due righe disponibili nella macro\_utils.TT:
+I due parametri chiave di cui preoccuparsi sono **nArithmetic** e **nMacroParameters**\_, definiti in queste due righe presenti nelle utils.tt macro:
 
 ```C
 <#int nArithmetic=1024;#>
@@ -663,10 +663,10 @@ Per il resto, tutte le altre funzionalità elencate sopra hanno lo stesso compor
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questo articolo descrive in dettaglio gli aspetti esclusivi della libreria **serializer** contenuti in Azure Internet **per dispositivi SDK per C**. Con le informazioni fornite è necessario avere una conoscenza corretta di come usare i modelli per inviare eventi e ricevere messaggi dall'hub.
+Questo articolo descrive in dettaglio gli aspetti univoci della libreria del **serializzatore** contenuti in **Azure IoT device SDK per C**. Con le informazioni fornite è necessario avere una buona conoscenza di come utilizzare i modelli per inviare eventi e ricevere messaggi dall'hub IoT.With the information provided you should have a good understanding of how to use models to send events and receive messages from IoT Hub.
 
-Si conclude inoltre la serie in tre parti per lo sviluppo di applicazioni con l' **SDK per dispositivi Azure per dispositivi per C**. Queste informazioni dovrebbero essere sufficienti per non solo iniziare ma fornire una conoscenza approfondita del funzionamento delle API. Per altre informazioni, nell'SDK sono disponibili alcuni esempi non illustrati in questo articolo. Anche la documentazione dell'[SDK di Azure IoT](https://github.com/Azure/azure-iot-sdk-c) è una risorsa molto utile per altre informazioni.
+Questo conclude anche la serie in tre parti su come sviluppare applicazioni con **Azure IoT device SDK per C**. Queste dovrebbero essere informazioni sufficienti non solo per iniziare, ma fornire una comprensione approfondita del funzionamento delle API. Per altre informazioni, nell'SDK sono disponibili alcuni esempi non illustrati in questo articolo. Anche la documentazione dell'[SDK di Azure IoT](https://github.com/Azure/azure-iot-sdk-c) è una risorsa molto utile per altre informazioni.
 
-Per altre informazioni sullo sviluppo dell'hub IoT, vedere [Azure IoT SDK](iot-hub-devguide-sdks.md).
+Per altre informazioni sullo sviluppo dell'hub IoT, vedere gli [Azure IoT SDK](iot-hub-devguide-sdks.md).
 
 Per esplorare ulteriormente le funzionalità dell'hub IoT, vedere l'argomento relativo alla [distribuzione di intelligenza artificiale ai dispositivi perimetrali con Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md).

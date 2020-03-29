@@ -1,5 +1,5 @@
 ---
-title: Trading ad alta frequenza con analisi di flusso di Azure
+title: Trading ad alta frequenza con Analisi di flusso di AzureHigh-frequency trading using Azure Stream Analytics
 description: Come eseguire il training e l'assegnazione di punteggi per un modello di regressione lineare nello stesso processo di Analisi di flusso di Azure.
 author: mamccrea
 ms.author: mamccrea
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: 06a4bdb8a8ee5d458347d30b53f740952151799e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75426219"
 ---
 # <a name="high-frequency-trading-simulation-with-stream-analytics"></a>Simulazione di trading ad alta frequenza con Analisi di flusso
@@ -64,7 +64,7 @@ Di seguito sono riportati alcuni eventi di esempio generati:
 >Il timestamp dell'evento è **lastUpdated**, sotto forma di valore epoch.
 
 ### <a name="predictive-model-for-high-frequency-trading"></a>Modello predittivo per il trading ad alta frequenza
-A scopo di dimostrazione verrà usato un modello lineare descritto da Darryl Shen in [questo documento](https://docplayer.net/23038840-Order-imbalance-based-strategy-in-high-frequency-trading.html).
+A scopo dimostrativo, usiamo un modello lineare descritto da Darryl Shen nel [suo articolo](https://docplayer.net/23038840-Order-imbalance-based-strategy-in-high-frequency-trading.html).
 
 Lo squilibrio negli ordini di volumi (VOI, Volume Order Imbalance) è una funzione di prezzo e volume di offerta/richiesta correnti e prezzo e volume di offerta/richiesta dell'ultimo tick. Il documento identifica una correlazione tra VOI e variazione di prezzo futura e definisce un modello lineare tra gli ultimi 5 valori VOI e il cambiamento di prezzo nei 10 tick successivi. Il training del modello viene eseguito usando i dati del giorno precedente con regressione lineare. 
 

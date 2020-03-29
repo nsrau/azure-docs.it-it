@@ -1,5 +1,5 @@
 ---
-title: Modellazione delle relazioni nella progettazione di archiviazione tabelle di Azure | Microsoft Docs
+title: Relazioni di modellazione nella progettazione dell'archiviazione tabelle di Azure - Documenti Microsoft
 description: Informazioni sul processo di modellazione durante la progettazione della soluzione di archiviazione tabelle.
 services: storage
 author: MarkMcGeeAtAquent
@@ -9,10 +9,10 @@ ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
 ms.openlocfilehash: 25082c107fbc0feeb533aa2b4fc56cff960e778d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75457554"
 ---
 # <a name="modeling-relationships"></a>Modellazione di relazioni
@@ -122,7 +122,7 @@ Per altre informazioni sull'uso di più tipi di entità nella stessa tabella nel
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Modelli di progettazione tabella](table-storage-design-patterns.md)
+- [Modelli di progettazione delle tabelle](table-storage-design-patterns.md)
 - [Progettazione per le query](table-storage-design-for-query.md)
 - [Crittografia dei dati delle tabelle](table-storage-design-encrypt-data.md)
 - [Progettazione per la modifica dei dati](table-storage-design-for-modification.md)

@@ -1,13 +1,13 @@
 ---
-title: Risoluzione dei problemi di aggiornamento delle applicazioni
+title: Risoluzione dei problemi relativi agli aggiornamenti delle applicazioniTroubleshooting application upgrades
 description: Questo articolo descrive alcuni problemi comuni relativi all'aggiornamento di un'applicazione di Service Fabric e come risolverli.
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: d462f2c2482e0fbb4d252967754a9675ed362674
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75377923"
 ---
 # <a name="troubleshoot-application-upgrades"></a>Risolvere i problemi relativi agli aggiornamenti delle applicazioni
@@ -212,9 +212,9 @@ Il tempo per il completamento dell'aggiornamento dipende dai controlli di integr
 
 Segue un rapido ripasso sull'interazione dei timeout con i tempi di aggiornamento:
 
-Gli aggiornamenti di un dominio di aggiornamento non possono completarsi in tempi più rapidi della somma dei valori di *HealthCheckWaitDuration* + *HealthCheckStableDuration*.
+Gli aggiornamenti per un dominio di aggiornamento non possono essere completati più velocemente di *HealthCheckWaitDuration* + *HealthCheckStableDuration*.
 
-Un errore di aggiornamento non può verificarsi in tempi più rapidi della somma dei valori di *HealthCheckWaitDuration* + *HealthCheckRetryTimeout*.
+L'errore di aggiornamento non può essere più veloce di *HealthCheckWaitDuration* + *HealthCheckRetryTimeout*.
 
 Il tempo di aggiornamento di un dominio di aggiornamento è limitato da *UpgradeDomainTimeout*.  Se i valori di *HealthCheckRetryTimeout* e *HealthCheckStableDuration* sono entrambi diversi da zero e l'integrità dell'applicazione continua a oscillare, si verifica il timeout dell'aggiornamento in *UpgradeDomainTimeout*. *UpgradeDomainTimeout* inizia il conto alla rovescia dopo l'avvio dell'aggiornamento del dominio di aggiornamento corrente.
 
@@ -222,10 +222,10 @@ Il tempo di aggiornamento di un dominio di aggiornamento è limitato da *Upgrade
 
 [Esercitazione sull'aggiornamento di un'applicazione di Service Fabric tramite Visual Studio](service-fabric-application-upgrade-tutorial.md) descrive la procedura di aggiornamento di un'applicazione con Visual Studio.
 
-[Aggiornamento di un'applicazione di Service Fabric mediante PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) descrive la procedura di aggiornamento di un'applicazione tramite PowerShell.
+[L'aggiornamento dell'applicazione tramite Powershell](service-fabric-application-upgrade-tutorial-powershell.md) illustra l'aggiornamento di un'applicazione tramite PowerShell.Upgrading your Application Using Powershell walks you through an application upgrade using PowerShell.
 
-Controllare l’aggiornamento dell'applicazione tramite [Parametri di aggiornamento](service-fabric-application-upgrade-parameters.md).
+Controllare la modalità di aggiornamento dell'applicazione utilizzando [i parametri](service-fabric-application-upgrade-parameters.md)di aggiornamento .
 
-Rendere compatibili gli aggiornamenti dell'applicazione imparando a usare [Serializzazione dei dati](service-fabric-application-upgrade-data-serialization.md).
+Rendere compatibili gli aggiornamenti dell'applicazione imparando a utilizzare [la serializzazione dei dati](service-fabric-application-upgrade-data-serialization.md).
 
-Informazioni su come usare funzionalità avanzate durante l'aggiornamento dell'applicazione facendo riferimento ad [Argomenti avanzati](service-fabric-application-upgrade-advanced.md).
+Per informazioni su come utilizzare le funzionalità avanzate durante l'aggiornamento dell'applicazione, fare riferimento ad [Argomenti avanzati](service-fabric-application-upgrade-advanced.md).

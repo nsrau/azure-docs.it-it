@@ -14,19 +14,19 @@ ms.workload: infrastructure-services
 ms.date: 03/19/2018
 ms.author: rohink
 ms.openlocfilehash: 0120501aab7f0a63721126bfb5b3d04d9deb42fb
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76936808"
 ---
 # <a name="how-to-manage-dns-zones-using-powershell"></a>Come gestire le zone DNS utilizzando PowerShell
 
 > [!div class="op_single_selector"]
 > * [Portale](dns-operations-dnszones-portal.md)
-> * [PowerShell](dns-operations-dnszones.md)
-> * [Interfaccia della riga di comando classica di Azure](dns-operations-dnszones-cli-nodejs.md)
-> * [Interfaccia della riga di comando di Azure](dns-operations-dnszones-cli.md)
+> * [Powershell](dns-operations-dnszones.md)
+> * [Cli classica di AzureAzure classic CLI](dns-operations-dnszones-cli-nodejs.md)
+> * [Interfaccia della riga di comando di AzureAzure](dns-operations-dnszones-cli.md)
 
 Questo articolo spiega come gestire una zona DNS mediante Azure PowerShell. È anche possibile gestire le zone DNS usando l'[interfaccia della riga di comando di Azure](dns-operations-dnszones-cli.md) multipiattaforma o il portale di Azure.
 
@@ -41,7 +41,7 @@ Questa guida è incentrata in particolare sulle zone DNS pubbliche. Per informaz
 
 Viene creata una zona DNS con il cmdlet `New-AzureRmDnsZone` .
 
-L'esempio seguente crea una zona DNS denominata *contoso.com* nel gruppo di risorse denominato *MyResourceGroup*:
+Nell'esempio seguente viene creata una zona DNS denominata contoso.com nel gruppo di risorse denominato MyResourceGroup:The following example creates a DNS zone called *contoso.com* in the resource group called *MyResourceGroup:*
 
 ```powershell
 New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
