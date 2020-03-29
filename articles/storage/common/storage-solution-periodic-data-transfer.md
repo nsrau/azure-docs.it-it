@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 06/24/2019
 ms.author: alkohli
 ms.openlocfilehash: fb49802adf6242f445b700d06622d7e6aa336b4d
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67357033"
 ---
 # <a name="solutions-for-periodic-data-transfer"></a>Soluzioni per il trasferimento dei dati periodico
@@ -33,7 +33,7 @@ Le opzioni consigliate per il trasferimento dei dati periodico rientrano in due 
 - **Strumenti di inserimento dati continuo**: per l'inserimento dati continuo, è possibile scegliere tra il dispositivo di trasferimento online Data Box e Azure Data Factory. Questi strumenti vengono configurati dai professionisti IT e possono automatizzare in modo trasparente il trasferimento dei dati.
 
     - **Azure Data Factory**: Data Factory deve essere usato per ampliare un'operazione di trasferimento e se sono necessarie funzionalità di orchestrazione e monitoraggio a livello aziendale. Usare Azure Data Factory per configurare una pipeline cloud che trasferisce regolarmente i file tra diversi servizi di Azure, l'ambiente locale o una combinazione dei due. Azure Data Factory consente di orchestrare flussi di lavoro basati sui dati che inseriscono dati provenienti da archivi diversi e automatizzano lo spostamento dati e la trasformazione dei dati.
-    - **Famiglia di prodotti Azure Data Box per i trasferimenti online**: Data Box Edge e Data Box Gateway sono dispositivi di rete online che possono spostare i dati all'interno e all'esterno di Azure. Data Box Edge usa il calcolo Edge abilitato per l'intelligenza artificiale per pre-elaborare i dati prima del caricamento. Data Box Gateway è una versione virtuale del dispositivo con le stesse capacità di trasferimento dati.
+    - **Famiglia di Azure Data Box per trasferimenti online:** Data Box Edge e Gateway data box sono dispositivi di rete online che possono spostare i dati all'interno e all'esterno di Azure.Azure Data Box family for online transfers - Data Box Edge and Data Box Gateway are online network devices that can move data in and out of Azure. Data Box Edge usa il calcolo Edge abilitato per l'intelligenza artificiale per pre-elaborare i dati prima del caricamento. Data Box Gateway è una versione virtuale del dispositivo con le stesse capacità di trasferimento dati.
 
 
 ## <a name="comparison-of-key-capabilities"></a>Confronto delle funzionalità chiave
@@ -55,12 +55,12 @@ La tabella seguente contiene un riepilogo delle differenze principali in termini
 | Funzionalità                                       | Data Box Gateway | Data Box Edge   | Data factory di Azure        |
 |----------------------------------|-----------------------------------------|--------------------------|---------------------------|
 | Fattore di forma                                   | Dispositivo virtuale             | Dispositivo fisico          | Servizio nel portale di Azure, agente in locale                                                            |
-| Hardware                                      | Hypervisor dell'utente            | Fornito da Microsoft    | NA                                                            |
+| Hardware                                      | Hypervisor dell'utente            | Fornito da Microsoft    | ND                                                            |
 | Lavoro richiesto per la configurazione iniziale                          | Basso (<30 min.)            | Moderato (~due ore) | Elevato (alcuni giorni)                                                 |
 | Formato dati                                   | BLOB di Azure, file di Azure   | BLOB di Azure, file di Azure | [Supporta più di 70 connettori dati per archivi e formati dati](https://docs.microsoft.com/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats)|
-| Pre-elaborazione dei dati                           | No                         | Sì, tramite il calcolo Edge    | Yes                                                           |
-| Cache locale<br>(per archiviare i dati locali)    | Yes                        | Sì                      | No                                                            |
-| Trasferimento da altri cloud                    | No                         | No                       | Yes                                                           |
+| Pre-elaborazione dei dati                           | No                         | Sì, tramite il calcolo Edge    | Sì                                                           |
+| Cache locale<br>(per archiviare i dati locali)    | Sì                        | Sì                      | No                                                            |
+| Trasferimento da altri cloud                    | No                         | No                       | Sì                                                           |
 | Prezzi                                       | [Prezzi](https://azure.microsoft.com/pricing/details/storage/databox/gateway/)                    | [Prezzi](https://azure.microsoft.com/pricing/details/storage/databox/edge/)                  | [Prezzi](https://azure.microsoft.com/pricing/details/data-factory/)                                                       |
 
 ## <a name="next-steps"></a>Passaggi successivi

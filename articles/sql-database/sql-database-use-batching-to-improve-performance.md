@@ -1,5 +1,5 @@
 ---
-title: Come usare l'invio in batch per migliorare le prestazioni dell'applicazione
+title: Come utilizzare l'invio in batch per migliorare le prestazioni dell'applicazioneHow to use batching to improve application performance
 description: Questo argomento dimostra che le operazioni di database in batch migliorano significativamente la velocità e la scalabilità delle applicazioni di database SQL di Azure. Anche se le tecniche di invio in batch funzionano con qualsiasi database SQL, questo articolo è incentrato su Azure.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: genemi
 ms.date: 01/25/2019
 ms.openlocfilehash: cacc01151edaf31db938cf8abf3d46e75397758f
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76545025"
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Come usare l'invio in batch per migliorare le prestazioni delle applicazioni di database SQL
@@ -93,9 +93,9 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 
 Le transazioni vengono in effetti usate in entrambi questi esempi. Nel primo ogni singola chiamata rappresenta una transazione implicita. Nel secondo esempio viene eseguito il wrapping di tutte le chiamate in una transazione esplicita. Secondo la documentazione relativa al [log delle transazioni write-ahead](https://docs.microsoft.com/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide?view=sql-server-ver15#WAL), i record del log vengono scaricati su disco al momento del commit della transazione. Si conseguenza, se si includono più chiamate in una transazione, la scrittura nel log delle transazioni può essere ritardata finché non viene eseguito il commit della transazione stessa. In effetti, si abilita l'invio in batch per le operazioni di scrittura nel log delle transazioni del server.
 
-Nella tabella seguente vengono illustrati alcuni risultati di test ad hoc. I test eseguono le medesime operazioni sequenziali di inserimento con e senza transazioni. Per maggiore chiarezza, il primo set di test è stato eseguito in remoto da un portatile al database in Microsoft Azure. Il secondo set di test è stato eseguito da un servizio cloud e un database entrambi residenti nello stesso data center di Microsoft Azure (Stati Uniti occidentali). La tabella seguente mostra la durata in millisecondi delle operazioni di inserimento sequenziali con e senza transazioni.
+Nella tabella seguente vengono illustrati alcuni risultati dei test ad hoc. I test eseguono le medesime operazioni sequenziali di inserimento con e senza transazioni. Per maggiore chiarezza, il primo set di test è stato eseguito in remoto da un portatile al database in Microsoft Azure. Il secondo set di test è stato eseguito da un servizio cloud e un database entrambi residenti nello stesso data center di Microsoft Azure (Stati Uniti occidentali). La tabella seguente mostra la durata in millisecondi delle operazioni di inserimento sequenziali con e senza transazioni.
 
-**Da ambiente locale ad Azure**
+**Da locale ad Azure:**
 
 | Operazioni | Senza transazione (ms) | Con transazione (ms) |
 | --- | --- | --- |
@@ -104,7 +104,7 @@ Nella tabella seguente vengono illustrati alcuni risultati di test ad hoc. I tes
 | 100 |12662 |10395 |
 | 1000 |128852 |102917 |
 
-**Da Azure ad Azure (stesso data center)** :
+**Da Azure ad Azure (stesso data center)**:
 
 | Operazioni | Senza transazione (ms) | Con transazione (ms) |
 | --- | --- | --- |
@@ -118,7 +118,7 @@ Nella tabella seguente vengono illustrati alcuni risultati di test ad hoc. I tes
 
 In base ai risultati di test precedenti, il wrapping di una singola operazione in una transazione riduce in effetti le prestazioni. Tuttavia, maggiore è il numero di operazioni in una singola transazione, più evidente risulta il miglioramento delle prestazioni. La differenza nelle prestazioni è anche più significativa se tutte le operazioni vengono eseguite nello stesso data center di Microsoft Azure. La maggiore latenza dovuta all'uso del database SQL dall'esterno del data center di Microsoft Azure vanifica il vantaggio in termini di prestazioni derivante dall'uso delle transazioni.
 
-Anche se l'uso delle transazioni può migliorare le prestazioni, continuare a [osservare le procedure consigliate per transazioni e connessioni](https://msdn.microsoft.com/library/ms187484.aspx). Usare transazioni più brevi possibile e chiudere la connessione al database al termine delle operazioni. L'istruzione using nell'esempio precedente assicura la chiusura della connessione al termine del blocco di codice successivo.
+Sebbene l'utilizzo delle transazioni possa migliorare le prestazioni, continuare a [osservare le procedure consigliate per transazioni e connessioni](https://msdn.microsoft.com/library/ms187484.aspx). Usare transazioni più brevi possibile e chiudere la connessione al database al termine delle operazioni. L'istruzione using nell'esempio precedente assicura la chiusura della connessione al termine del blocco di codice successivo.
 
 L'esempio precedente illustra che è possibile aggiungere una transazione locale al codice ADO.NET con due righe. Le transazioni rappresentano un modo rapido per migliorare le prestazioni del codice usato per le operazioni sequenziali di inserimento, aggiornamento ed eliminazione. Per prestazioni ottimali, provare tuttavia a modificare ulteriormente il codice per sfruttare l'invio in batch sul lato client, ad esempio i parametri con valori di tabella.
 
@@ -167,7 +167,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-Nell'esempio precedente, l'oggetto **SqlCommand** inserisce righe da un parametro con valori di tabella, **\@TestTvp**. L'oggetto **DataTable** creato in precedenza viene assegnato a questo parametro con il metodo **SqlCommand.Parameters.Add**. L'invio in batch delle operazioni di inserimento in una singola chiamata migliora sensibilmente le prestazioni rispetto alle operazioni di inserimento sequenziali.
+Nell'esempio precedente, l'oggetto **SqlCommand** inserisce righe da un parametro con valori di tabella, ** \@TestTvp**. L'oggetto **DataTable** creato in precedenza viene assegnato a questo parametro con il metodo **SqlCommand.Parameters.Add**. L'invio in batch delle operazioni di inserimento in una singola chiamata migliora sensibilmente le prestazioni rispetto alle operazioni di inserimento sequenziali.
 
 Per migliorare ulteriormente l'esempio precedente, usare una stored procedure anziché un comando basato su testo. Il comando Transact-SQL seguente crea una stored procedure che accetta il parametro con valori di tabella **SimpleTestTableType** .
 
@@ -231,7 +231,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 
 In alcuni casi la copia bulk è preferibile rispetto ai parametri con valori di tabella. Vedere la tabella di confronto dei parametri con valori di tabella rispetto alle operazioni BULK INSERT nell'articolo [Parametri con valori di tabella (motore di database)](https://msdn.microsoft.com/library/bb510489.aspx).
 
-I risultati dei test ad hoc seguenti mostrano le prestazioni dell'invio in batch con **SqlBulkCopy** in millisecondi.
+I seguenti risultati del test ad hoc mostrano le prestazioni dell'invio in batch con **SqlBulkCopy** in millisecondi.
 
 | Operazioni | Da ambiente locale ad Azure (ms) | Azure stesso data center (ms) |
 | --- | --- | --- |
@@ -246,7 +246,7 @@ I risultati dei test ad hoc seguenti mostrano le prestazioni dell'invio in batch
 > 
 > 
 
-Nei batch di dimensioni inferiori l'uso dei parametri con valori di tabella ha prodotto prestazioni migliori rispetto alla classe **SqlBulkCopy** . Tuttavia, l'esecuzione della classe **SqlBulkCopy** risulta del 12-31% più rapida rispetto ai parametri con valori di tabella per i test di 1.000 e 10.000 righe. Come i parametri con valori di tabella, la classe **SqlBulkCopy** è un'opzione valida per le operazioni di inserimento in batch, in particolare rispetto alle prestazioni di operazioni non in batch.
+Nei batch di dimensioni inferiori l'uso dei parametri con valori di tabella ha prodotto prestazioni migliori rispetto alla classe **SqlBulkCopy** . Tuttavia, **SqlBulkCopy** eseguito 12-31% più veloce rispetto ai parametri con valori di tabella per i test di 1.000 e 10.000 righe. Come i parametri con valori di tabella, la classe **SqlBulkCopy** è un'opzione valida per le operazioni di inserimento in batch, in particolare rispetto alle prestazioni di operazioni non in batch.
 
 Per altre informazioni sulla copia bulk in ADO.NET, vedere [Operazioni di copia bulk in SQL Server](https://msdn.microsoft.com/library/7ek5da1a.aspx).
 
@@ -276,7 +276,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 
 Questo esempio è ideato per illustrare il concetto di base. Uno scenario più realistico prevedrebbe l'esecuzione di un ciclo sulle entità richieste per costruire contemporaneamente la stringa di query e i parametri del comando. Esiste un limite massimo di 2100 parametri di query, il che limita il numero totale di righe elaborabili in questo modo.
 
-I risultati dei test ad hoc seguenti mostrano le prestazioni di questo tipo di istruzione INSERT in millisecondi.
+I seguenti risultati del test ad hoc mostrano le prestazioni di questo tipo di istruzione insert in millisecondi.
 
 | Operazioni | Parametri con valori di tabella (ms) | Singola istruzione INSERT (ms) |
 | --- | --- | --- |
@@ -293,11 +293,11 @@ Questo approccio può essere leggermente più veloce per i batch minori di 100 r
 
 ### <a name="dataadapter"></a>DataAdapter
 
-La classe **DataAdapter** consente di modificare un oggetto **DataSet** e di inviare quindi le modifiche come operazioni di tipo INSERT, UPDATE e DELETE. Se si usa **DataAdapter** in questo modo, è importante notare che vengono eseguite chiamate separate per ogni singola operazione. Per migliorare le prestazioni, usare la proprietà **UpdateBatchSize** impostata sul numero di operazioni da eseguire in batch contemporaneamente. Per altre informazioni, vedere [Esecuzione di operazioni batch usando DataAdapters](https://msdn.microsoft.com/library/aadf8fk2.aspx).
+La classe **DataAdapter** consente di modificare un oggetto **DataSet** e di inviare quindi le modifiche come operazioni di tipo INSERT, UPDATE e DELETE. Se si usa **DataAdapter** in questo modo, è importante notare che vengono eseguite chiamate separate per ogni singola operazione. Per migliorare le prestazioni, usare la proprietà **UpdateBatchSize** impostata sul numero di operazioni da eseguire in batch contemporaneamente. Per altre informazioni, vedere [Esecuzione di operazioni batch utilizzando DataAdapter](https://msdn.microsoft.com/library/aadf8fk2.aspx).
 
 ### <a name="entity-framework"></a>Entity Framework
 
-Entity Framework non supporta attualmente l'invio in batch. Diversi sviluppatori della community hanno provato a elaborare soluzioni alternative, ad esempio l'override del metodo **SaveChanges** . Tuttavia, le soluzioni sono in genere complesse e personalizzate a seconda dell'applicazione e del modello di dati. Il progetto codeplex di Entity Framework include attualmente una pagina di discussione sulla richiesta di questa funzionalità. Per accedere alla discussione, vedere la pagina [Design Meeting Notes - 2 agosto 2012](https://entityframework.codeplex.com/wikipage?title=Design%20Meeting%20Notes%20-%20August%202%2c%202012).
+Entity Framework non supporta attualmente l'invio in batch. Diversi sviluppatori della community hanno provato a elaborare soluzioni alternative, ad esempio l'override del metodo **SaveChanges** . Tuttavia, le soluzioni sono in genere complesse e personalizzate a seconda dell'applicazione e del modello di dati. Il progetto codeplex di Entity Framework include attualmente una pagina di discussione sulla richiesta di questa funzionalità. Per visualizzare questa discussione, vedere [Design Meeting Notes - August 2, 2012](https://entityframework.codeplex.com/wikipage?title=Design%20Meeting%20Notes%20-%20August%202%2c%202012).
 
 ### <a name="xml"></a>XML
 

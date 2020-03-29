@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/19/2017
 ms.author: tagore
 ms.openlocfilehash: c531e02656c9f6342670024b2220386e789a2d98
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75386851"
 ---
 # <a name="overview-of-azure-cloud-services"></a>Panoramica di Servizi Cloud di Azure
@@ -38,7 +38,7 @@ Se si usa Servizi cloud di Azure, non è necessario creare macchine virtuali. Si
 
 Un'applicazione di Servizi cloud di Azure viene in genere resa disponibile agli utenti mediante un processo in due fasi. Prima di tutto lo sviluppatore [carica l'applicazione](cloud-services-how-to-create-deploy-portal.md) nell'area di gestione temporanea della piattaforma. Quando lo sviluppatore è pronto per l'attivazione dell'applicazione, usa il portale per il passaggio in produzione. Il [passaggio dalla gestione temporanea alla produzione](cloud-services-how-to-manage-portal.md#swap-deployments-to-promote-a-staged-deployment-to-production) può essere eseguito senza tempi di inattività, consentendo l'aggiornamento di un'applicazione in esecuzione a una nuova versione senza interferire con l'uso da parte degli utenti.
 
-## <a name="monitoring"></a>Monitorare
+## <a name="monitoring"></a>Monitoraggio
 Servizi cloud di Azure offre inoltre funzionalità di monitoraggio. Analogamente a Macchine virtuali, rileva un server fisico in errore e riavvia le VM in esecuzione su tale server in una nuova macchina. Servizi cloud di Azure consente inoltre di rilevare errori di macchine virtuali e applicazioni, non solo errori hardware. A differenza di Macchine virtuali, dispone di un agente in ogni ruolo Web e di lavoro ed è quindi in grado di avviare nuove macchine virtuali e istanze di applicazione in caso di errori.
 
 L'uso della tecnologia PaaS da parte di Servizi cloud di Azure comporta anche altre implicazioni, A tale scopo, è necessario che lo stato di un'applicazione di Servizi cloud non venga salvato nel file system delle rispettive macchine virtuali. A tale scopo, è necessario che lo stato di un'applicazione di Servizi cloud di Azure non venga salvato nel file system delle rispettive macchine virtuali. A differenza delle VM create tramite Macchine virtuali, le operazioni di scrittura effettuate nelle VM di Servizi cloud di Azure non sono persistenti. La persistenza è offerta solo dai dischi dati di Macchine virtuali. È pertanto necessario che tutti gli stati di un'applicazione di Servizi cloud di Azure vengano scritti esplicitamente nel database SQL di Azure, in BLOB, tabelle o altre risorse di archiviazione esterne. Le applicazioni create in questo modo risulteranno più scalabili e più resistenti agli errori, due obiettivi essenziali di Servizi cloud di Azure.

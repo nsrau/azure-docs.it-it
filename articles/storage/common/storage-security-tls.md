@@ -1,7 +1,7 @@
 ---
-title: Abilitare TLS sicuro con .NET
+title: Abilita TLS sicuro con .NET
 titleSuffix: Azure Storage
-description: Informazioni su come abilitare TLS 1,2 usando la libreria client .NET per archiviazione di Azure.
+description: Informazioni su come abilitare TLS 1.2 usando la libreria client .NET per Archiviazione di Azure.Learn how to enable TLS 1.2 by using the .NET client library for Azure Storage.
 services: storage
 author: tamram
 ms.service: storage
@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
 ms.openlocfilehash: 81c9a8fe9513f1f8fc65ad64b34f0fb04383569b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75371803"
 ---
 # <a name="enable-secure-tls-for-azure-storage-client"></a>Abilitare la connessione TLS sicura per il client di Archiviazione di Azure
@@ -77,7 +77,7 @@ La schermata seguente presenta un esempio per la verifica.
 
 ![screenshot di verifica della versione TLS in Fiddler](./media/storage-security-tls/storage-security-tls-verify-in-fiddler.png)
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 * [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0)
 * [Conformità PCI su TLS](https://blog.pcisecuritystandards.org/migrating-from-ssl-and-early-tls)

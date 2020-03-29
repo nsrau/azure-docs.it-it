@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/19/2017
 ms.author: alkohli
 ms.openlocfilehash: 956cf45eb9e246f2e1f917f2bf487ac14deba90e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65204257"
 ---
 # <a name="configure-web-proxy-for-your-storsimple-device"></a>Configurare il proxy web per il dispositivo StorSimple
@@ -62,16 +62,16 @@ Usare l'installazione guidata per semplificare i passaggi per la configurazione 
 1. Nel menu della console seriale scegliere l'opzione 1, **Connessione con accesso completo**, e specificare la **password di amministratore del dispositivo**. Digitare il comando seguente per avviare una sessione dell'installazione guidata:
    
     `Invoke-HcsSetupWizard`
-2. Se questa è la prima volta che viene usata l'installazione guidata per la registrazione del dispositivo, è necessario configurare tutte le impostazioni di rete necessarie fino a raggiungere la configurazione del proxy Web. Se il dispositivo è già registrato, accettare tutte le impostazioni di rete configurate fino a raggiungere la configurazione del proxy Web. Nella configurazione guidata, quando viene richiesto di configurare le impostazioni proxy Web, digitare **Sì**.
+2. Se questa è la prima volta che viene usata l'installazione guidata per la registrazione del dispositivo, è necessario configurare tutte le impostazioni di rete necessarie fino a raggiungere la configurazione del proxy Web. Se il dispositivo è già registrato, accettare tutte le impostazioni di rete configurate fino a raggiungere la configurazione del proxy Web. Nella procedura guidata, quando viene richiesto di configurare le impostazioni del proxy Web, digitare **Sì**.
 3. Per l' **URL proxy Web**specificare l'indirizzo IP o il nome di dominio completo (FQDN) del server proxy Web e il numero di porta TCP che si desidera che il dispositivo utilizzi per comunicare con il cloud. Utilizzare il seguente formato:
    
     `http://<IP address or FQDN of the web proxy server>:<TCP port number>`
    
     Per impostazione predefinita, viene specificato il numero di porta TCP 8080.
-4. Scegliere il tipo di autenticazione: **NTLM**, **Di base** o **Nessuno**. L'autenticazione di base è quella meno sicura per la configurazione del server proxy. NT LAN Manager (NTLM) è un protocollo di autenticazione altamente protetta e complessa che utilizza un sistema di messaggistica a tre vie (a volte quattro, se è necessaria ulteriore integrità) per autenticare un utente. L'autenticazione predefinita è NTLM. Per altre informazioni, vedere l'autenticazione [di base](https://hc.apache.org/httpclient-3.x/authentication.html) e [NTLM](https://hc.apache.org/httpclient-3.x/authentication.html). 
+4. Scegliere il tipo di autenticazione, ovvero **NTLM**, **Basic** o **None**. L'autenticazione di base è quella meno sicura per la configurazione del server proxy. NT LAN Manager (NTLM) è un protocollo di autenticazione altamente protetta e complessa che utilizza un sistema di messaggistica a tre vie (a volte quattro, se è necessaria ulteriore integrità) per autenticare un utente. L'autenticazione predefinita è NTLM. Per altre informazioni, vedere l'autenticazione [di base](https://hc.apache.org/httpclient-3.x/authentication.html) e [NTLM](https://hc.apache.org/httpclient-3.x/authentication.html). 
    
    > [!IMPORTANT]
-   > **Nel servizio Gestione dispositivi StorSimple, i grafici di monitoraggio del dispositivo non funzionano quando l’autenticazione di base o NTLM è abilitata nella configurazione del server proxy per il dispositivo. Per usare i grafici di monitoraggio, è necessario assicurarsi che l'autenticazione sia impostata su NESSUNO.**
+   > **Nel servizio StorSimple Device Manager, i grafici di monitoraggio dei dispositivi non funzionano quando è abilitata l'autenticazione di base o NTLM nella configurazione del server proxy per il dispositivo. Affinché i grafici di monitoraggio funzionino, è necessario assicurarsi che l'autenticazione sia impostata su NONE.**
   
 5. Se l'autenticazione è abilitata, fornire un **nome utente del proxy Web** e la **password del proxy Web**. È necessario anche confermare la password.
    
@@ -86,7 +86,7 @@ Il proxy Web è ora abilitato. È possibile ignorare il passaggio [Abilitare il 
 Un modo alternativo per configurare le impostazioni proxy Web consiste nell'utilizzo dei cmdlet di Windows PowerShell per StorSimple. Eseguire i passaggi seguenti per configurare il proxy Web.
 
 #### <a name="to-configure-web-proxy-via-cmdlets"></a>Per configurare il proxy Web tramite i cmdlet
-1. Nel menu della console seriale, scegliere l'opzione 1, **Accedi con accesso completo**. Quando richiesto, fornire la **password di amministratore del dispositivo**. La password predefinita è `Password1`.
+1. Nel menu della console seriale selezionare l'opzione 1, **Accedi con accesso completo**. Quando richiesto, fornire la **password di amministratore del dispositivo**. La password predefinita è `Password1`.
 2. Al prompt dei comandi digitare:
    
     `Set-HcsWebProxy -Authentication NTLM -ConnectionURI "<http://<IP address or FQDN of web proxy server>:<TCP port number>" -Username "<Username for web proxy server>"`
@@ -102,13 +102,13 @@ Il proxy Web è ora configurato e deve essere abilitato.
 Il proxy Web è disabilitato per impostazione predefinita. Dopo aver configurato le impostazioni proxy Web sul dispositivo StorSimple, usare Windows PowerShell per StorSimple per abilitare le impostazioni proxy Web.
 
 > [!NOTE]
-> **Questo passaggio non è necessario se è stata usata l'installazione guidata per configurare il proxy Web. Il proxy Web viene abilitato automaticamente per impostazione predefinita dopo una sessione dell'installazione guidata.**
+> **Questo passaggio non è necessario se è stata utilizzata l'installazione guidata per configurare il proxy Web. Il proxy Web viene abilitato automaticamente per impostazione predefinita dopo una sessione dell'installazione guidata.**
 
 
 Per abilitare il proxy Web sul dispositivo in Windows PowerShell per StorSimple, procedere come segue:
 
 #### <a name="to-enable-web-proxy"></a>Per abilitare il proxy Web
-1. Nel menu della console seriale, scegliere l'opzione 1, **Accedi con accesso completo**. Quando richiesto, fornire la **password di amministratore del dispositivo**. La password predefinita è `Password1`.
+1. Nel menu della console seriale selezionare l'opzione 1, **Accedi con accesso completo**. Quando richiesto, fornire la **password di amministratore del dispositivo**. La password predefinita è `Password1`.
 2. Al prompt dei comandi digitare:
    
     `Enable-HcsWebProxy`
@@ -132,7 +132,7 @@ Le impostazioni proxy Web sono configurate tramite l'interfaccia di Windows Powe
 
 3. Nel pannello **Proxy Web**, verificare le impostazioni proxy Web configurate sul dispositivo StorSimple.
    
-    ![Visualizzare le impostazioni del proxy web](./media/storsimple-8000-configure-web-proxy/view-web-proxy-3.png)
+    ![ Visualizzare le impostazioni del proxy web](./media/storsimple-8000-configure-web-proxy/view-web-proxy-3.png)
 
 
 ## <a name="errors-during-web-proxy-configuration"></a>Errori durante la configurazione del proxy Web
@@ -153,7 +153,7 @@ Se le impostazioni proxy Web sono configurate in modo errato, verranno visualizz
 > * L'elenco dei messaggi di errore riportato sopra non è esaustivo.
 > * Gli errori correlati alle impostazioni del proxy Web non vengono visualizzati nel portale di Azure del servizio Gestione dispositivi StorSimple. Se si verifica un problema con il proxy Web dopo il completamento della configurazione, lo stato del dispositivo verrà modificato in **Offline** nel portale classico.|
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 * Se si riscontrano problemi durante la distribuzione del dispositivo o la configurazione delle impostazioni proxy Web, fare riferimento a [Risoluzione dei problemi relativi alla distribuzione del dispositivo StorSimple](storsimple-troubleshoot-deployment.md).
 * Per altre informazioni sull'uso del servizio Gestione dispositivi StorSimple, passare a [Uso del servizio Gestione dispositivi StorSimple per gestire il dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
 

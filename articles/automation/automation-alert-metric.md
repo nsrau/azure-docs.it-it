@@ -5,17 +5,17 @@ services: automation
 ms.date: 11/01/2018
 ms.topic: article
 ms.openlocfilehash: 9bd028157b33817898ef69f9e47cb8b5d9b8f381
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75367094"
 ---
 # <a name="monitoring-runbooks-with-metric-alerts"></a>Monitoraggio dei runbook con avvisi di metrica
 
 In questo articolo sono fornite informazioni su come creare gli avvisi sullo stato di completamento dei runbook.
 
-## <a name="sign-in-to-azure"></a>Accedere a Azure
+## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
 Accedere ad Azure all'indirizzo https://portal.azure.com
 
@@ -31,10 +31,10 @@ Nel portale di Azure passare all'account di Automazione. In **Monitoraggio** sel
 
 2. La pagina **Configurare la logica dei segnali** viene usata per definire la logica che attiva l'avviso. Nel grafico della cronologia vengono visualizzate due dimensioni, **Nome del Runbook** e **Stato**. Le dimensioni sono proprietà diverse per una metrica che può essere usata per filtrare i risultati. Per il **Nome del Runbook**, selezionare il runbook che si desidera avvisare o lasciare vuoto per avvisare tutti i runbook. Per lo **Stato**, selezionare uno stato che si desidera monitorare dall'elenco a discesa. I valori del nome e dello stato del runbook che vengono visualizzati nell'elenco a discesa sono solo per i processi che sono stati eseguiti nella settimana precedente.
 
-   Se si vuole attivare un avviso su uno stato o un runbook che non è visualizzato nell'elenco a discesa, fare clic su **\+** accanto alla dimensione. Verrà visualizzata una finestra di dialogo che consente di immettere un valore personalizzato, che non è stato generato di recente per la specifica dimensione. Se si immette un valore che non esiste per una proprietà, l'avviso non verrà attivato.
+   Se si desidera ricevere un avviso su uno stato o un **\+** runbook non visualizzato nell'elenco a discesa, fare clic su accanto alla dimensione. Verrà visualizzata una finestra di dialogo che consente di immettere un valore personalizzato, che non è stato generato di recente per la specifica dimensione. Se si immette un valore che non esiste per una proprietà, l'avviso non verrà attivato.
 
    > [!NOTE]
-   > Se non si applica un nome per la dimensione **RunbookName** , se sono presenti manuali operativi che soddisfano i criteri di stato, che include manuali operativi di sistema nascosti, verrà visualizzato un avviso.
+   > Se non si applica un nome per la dimensione **RunbookName,** se sono presenti runbook che soddisfano i criteri di stato, inclusi i runbook di sistema nascosti, si riceverà un avviso.
 
 3. In **Logica avvisi**, definire la condizione e la soglia per l'avviso. Viene visualizzata un'anteprima della condizione definita sotto.
 
@@ -44,13 +44,13 @@ Nel portale di Azure passare all'account di Automazione. In **Monitoraggio** sel
 
 ### <a name="define-alert-details"></a>Definire i dettagli dell'avviso
 
-1. Inferiore a **2. Definire i dettagli dell'avviso**, assegnare all'avviso un nome descrittivo e una descrizione. Impostare la **Gravità** in base alla condizione di avviso. Esistono cinque livelli di gravità compresi tra 0 e 5. Gli avvisi sono considerati indipendenti in relazione alla gravità, è possibile abbinare il livello di gravità per abbinare la logica di business.
+1. Meno di **2 anni. Definire i dettagli dell'avviso,** assegnare all'avviso un nome descrittivo e una descrizione. Impostare la **Gravità** in base alla condizione di avviso. Esistono cinque livelli di gravità compresi tra 0 e 5. Gli avvisi sono considerati indipendenti in relazione alla gravità, è possibile abbinare il livello di gravità per abbinare la logica di business.
 
 1. Nella parte inferiore della sezione è presente un pulsante che consente di abilitare la regola al termine dell'operazione. Per impostazione predefinita le regole sono abilitate al momento della creazione. Se si seleziona No, è possibile creare l'avviso e quest'ultimo viene creato in uno stato **Disabilitato**. Dalla pagina **Regole** in Monitoraggio di Azure è possibile selezionare l'avviso e fare clic su **Abilita** per abilitarlo quando si è pronti.
 
 ### <a name="define-the-action-to-take"></a>Definire l'azione da intraprendere
 
-1. In **3. Definire il gruppo di azioni**, fare clic su **+ nuovo gruppo di azioni**. Un gruppo di azioni è un insieme di azioni che è possibile usare in più avvisi. È ad esempio possibile usare notifiche tramite posta elettronica, runbook, webhook e molto altro ancora. Per informazioni sui gruppi di azioni, vedere [Creare e gestire gruppi di azioni](../azure-monitor/platform/action-groups.md)
+1. Meno **di 3 anni. Definisci gruppo di azioni**, fare clic su **- Nuovo gruppo di azioni**. Un gruppo di azioni è un insieme di azioni che è possibile usare in più avvisi. È ad esempio possibile usare notifiche tramite posta elettronica, runbook, webhook e molto altro ancora. Per informazioni sui gruppi di azioni, vedere [Creare e gestire gruppi di azioni](../azure-monitor/platform/action-groups.md)
 
 1. Nella casella **Nome gruppo di azione** assegnare un nome descrittivo e un nome breve. Il nome breve viene usato al posto del nome completo di un gruppo di azione quando le notifiche vengono inviate usando questo gruppo.
 
@@ -67,7 +67,7 @@ Nel portale di Azure passare all'account di Automazione. In **Monitoraggio** sel
 > [!NOTE]
 > Quando si aggiunge un indirizzo di posta elettronica a un gruppo di azioni, viene inviato un messaggio di posta elettronica di notifica che indica che l'indirizzo è stato aggiunto a un gruppo di azioni.
 
-## <a name="notification"></a>Notifica
+## <a name="notification"></a>Notification
 
 Quando vengono soddisfatti i criteri di avviso, il gruppo di azioni esegue l'azione definita. Nell'esempio di questo articolo, viene inviato un messaggio di posta elettronica. Nell'immagine seguente è riportato un esempio di un messaggio di posta elettronica che viene ricevuto dopo l'attivazione dell'avviso:
 

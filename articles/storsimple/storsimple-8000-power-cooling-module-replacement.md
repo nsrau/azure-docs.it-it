@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
 ms.openlocfilehash: 42561570e24aec5edd33248ef1738e53175e480e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60632462"
 ---
 # <a name="replace-a-power-and-cooling-module-on-your-storsimple-device"></a>Sostituzione di un modulo di alimentazione e raffreddamento nel dispositivo StorSimple
@@ -55,7 +55,7 @@ Per rimuovere un modulo di alimentazione e raffreddamento (PCM, Power and Coolin
    * Se un alimentatore in PCM 0 è guasto, lo stato di **Alimentatore in PCM 0** sarà rosso.
    * Se un alimentatore in PCM 1 è guasto, lo stato di **Alimentatore in PCM 1** sarà rosso.
    * Se la ventola in PCM 1 è guasta, lo stato di **Raffreddamento 0 per PCM 0** o **Raffreddamento 1 per PCM 0** sarà rosso.
-2. Individuare il PCM guasto nella parte posteriore dello chassis principale. Se si esegue un modello 8600, identificare lo chassis principale controllando il numero di identificazione unità di sistema mostrato sul display LED del pannello anteriore. L'ID unità predefinito visualizzato sullo chassis principale è **00**, mentre l'ID unità predefinito visualizzato sullo chassis EBOD è **01**. Nel diagramma e nella tabella seguenti viene illustrato il pannello anteriore del display LED.
+2. Individuare il PCM guasto nella parte posteriore dello chassis principale. Se si esegue un modello 8600, identificare lo chassis principale controllando il numero di identificazione unità di sistema mostrato sul display LED del pannello anteriore. L'ID unità predefinito visualizzato sull'enclosure principale è **00**, mentre quello visualizzato sull'enclosure EBOD è **01**. Nel diagramma e nella tabella seguenti viene illustrato il pannello anteriore del display LED.
    
     ![ID del sistema sul pannello anteriore delle operazioni](./media/storsimple-power-cooling-module-replacement/IC740991.png)
    
@@ -68,7 +68,7 @@ Per rimuovere un modulo di alimentazione e raffreddamento (PCM, Power and Coolin
    | 3 |Errore del modulo |
    | 4 |Errore logico |
    | 5 |Display ID unità |
-3. I LED degli indicatori di monitoraggio nella parte posteriore dello chassis principale possono inoltre essere utilizzati per identificare il PCM guasto. Vedere il diagramma e la tabella seguenti per comprendere come utilizzare i LED per individuare il PCM guasto. Ad esempio, se il LED corrispondente a **Guasto ventola** è attivo, la ventola è guasta. Allo stesso modo, se il LED corrispondente a **Guasto CA** è attivo, l'alimentatore è guasto. 
+3. I LED degli indicatori di monitoraggio nella parte posteriore dello chassis principale possono inoltre essere utilizzati per identificare il PCM guasto. Vedere il diagramma e la tabella seguenti per comprendere come utilizzare i LED per individuare il PCM guasto. Se, ad esempio, il LED relativo a **Guasto ventola** è acceso, significa che la ventola non funziona correttamente. Analogamente, se il LED relativo a **Guasto CA** è acceso, significa che l'alimentatore non funziona correttamente. 
    
     ![Backplane degli indicatori LED di monitoraggio del PCM del dispositivo](./media/storsimple-power-cooling-module-replacement/IC740992.png)
    

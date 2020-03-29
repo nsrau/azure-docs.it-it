@@ -1,6 +1,6 @@
 ---
-title: Usare il pacchetto NuGet CI/CD di analisi di flusso di Azure
-description: Questo articolo descrive come usare il pacchetto NuGet CI/CD di analisi di flusso di Azure per configurare un processo di integrazione e distribuzione continua.
+title: Usare il pacchetto CI/CD NuGet di Azure Stream AnalyticsUse the Azure Stream Analytics CI/CD NuGet package
+description: Questo articolo descrive come usare il pacchetto CI/CD NuGet di Azure Stream Analytics per configurare un processo di integrazione e distribuzione continuo.
 author: su-jie
 ms.author: sujie
 ms.reviewer: mamccrea
@@ -8,18 +8,18 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.openlocfilehash: 11e68aaa7c70d4f888c0009bc28d9bb90f431f3b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75354453"
 ---
-# <a name="use-the-azure-stream-analytics-cicd-nuget-package-for-integration-and-development"></a>Usare il pacchetto NuGet CI/CD di analisi di flusso di Azure per l'integrazione e lo sviluppo 
-Questo articolo descrive come usare il pacchetto NuGet CI/CD di analisi di flusso di Azure per configurare un processo di integrazione e distribuzione continua.
+# <a name="use-the-azure-stream-analytics-cicd-nuget-package-for-integration-and-development"></a>Usare il pacchetto CI/CD NuGet di Azure Stream Analytics per l'integrazione e lo sviluppoUse the Azure Stream Analytics CI/CD NuGet package for integration and development 
+Questo articolo descrive come usare il pacchetto CI/CD NuGet di Azure Stream Analytics per configurare un processo di integrazione e distribuzione continuo.
 
 Usare la versione 2.3.0000.0 o una versione successiva degli [strumenti di Analisi di flusso di Azure per Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio) per ottenere il supporto di MSBuild.
 
-È disponibile un pacchetto NuGet: [Microsoft.Azure.Stream Analytics.CICD](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/). Fornisce gli strumenti MSBuild, di esecuzione locale e di distribuzione che supportano il processo di integrazione e distribuzione continua dei [progetti di analisi di flusso di Visual Studio](stream-analytics-vs-tools.md). 
+È disponibile un pacchetto NuGet: [Microsoft.Azure.Stream Analytics.CICD](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/). Fornisce gli strumenti MSBuild, run locale e distribuzione che supportano il processo di integrazione e distribuzione continuo dei progetti di Stream Analytics di [Visual Studio.](stream-analytics-vs-tools.md) 
 > [!NOTE]
 > Il pacchetto NuGet può essere usato solo con la versione 2.3.0000.0 o successiva di strumenti di Analisi di flusso di Azure per Visual Studio. Se i progetti sono stati creati con le versioni precedenti degli strumenti di Visual Studio, aprirli con la versione 2.3.0000.0 o successiva e salvare. Le nuove funzionalità vengono quindi abilitate. 
 
@@ -92,6 +92,6 @@ Esempio:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Guida introduttiva: creare un processo cloud di analisi di flusso di Azure in Visual Studio](stream-analytics-quick-create-vs.md)
+* [Guida introduttiva: Creare un processo cloud di Azure Stream Analytics in Visual StudioQuickstart: Create an Azure Stream Analytics cloud job in Visual Studio](stream-analytics-quick-create-vs.md)
 * [Eseguire test locali delle query di Analisi di flusso con Visual Studio](stream-analytics-vs-tools-local-run.md)
-* [Esplorare i processi di analisi di flusso di Azure con Visual Studio](stream-analytics-vs-tools.md)
+* [Esplorare i processi di Analisi di flusso di Azure con Visual StudioExplore Azure Stream Analytics jobs with Visual Studio](stream-analytics-vs-tools.md)

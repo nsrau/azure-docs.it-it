@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: alkohli
 ms.openlocfilehash: bb1a56d204a46f89213f20e317494120f0ea565e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60580599"
 ---
 # <a name="deactivate-and-delete-a-storsimple-virtual-array"></a>Disattivare ed eliminare un array virtuale StorSimple
@@ -36,9 +36,9 @@ Le informazioni in questo articolo si applicano solo agli array virtuali StorSim
 
 La disattivazione è un'operazione permanente e non può essere annullata. Un dispositivo disattivato non può essere registrato di nuovo con il servizio Gestione dispositivi StorSimple. Negli scenari seguenti potrebbe essere necessario disattivare ed eliminare un array virtuale StorSimple:
 
-* **Failover pianificato** : Il dispositivo è online e si prevede di eseguire il failover del dispositivo. Può essere necessario eseguire questa operazione se si prevede l'aggiornamento a un dispositivo di dimensioni superiori. Dopo il trasferimento della proprietà dei dati e il completamento del failover, il dispositivo di origine viene eliminato automaticamente.
-* **Failover non pianificato** : Il dispositivo è offline e si desidera eseguire il failover del dispositivo. Questo scenario può verificarsi durante un'emergenza dovuta a un'interruzione nel datacenter e quando il dispositivo primario è inattivo. Si pianifica di eseguire il failover del dispositivo su un dispositivo secondario. Dopo il trasferimento della proprietà dei dati e il completamento del failover, il dispositivo di origine viene eliminato automaticamente.
-* **Rimuovere le autorizzazioni** : Si desidera rimuovere il dispositivo. Ciò richiede prima di tutto la disattivazione del dispositivo, quindi la sua eliminazione. Quando si disattiva un dispositivo, tutti i dati archiviati localmente non saranno più accessibili. È possibile solo accedere e recuperare i dati archiviati nel cloud. Se si pianifica cdi mantenere il dispositivo dopo la disattivazione, prima di effettuare tale operazione è necessario eseguire uno snapshot di tutti i dati nel cloud. In questo modo sarà possibile recuperare tutti i dati in una fase successiva.
+* **Failover pianificato**: il dispositivo è in linea e si prevede di eseguirne il failover. Può essere necessario eseguire questa operazione se si prevede l'aggiornamento a un dispositivo di dimensioni superiori. Dopo il trasferimento della proprietà dei dati e il completamento del failover, il dispositivo di origine viene eliminato automaticamente.
+* **Failover non pianificato**: il dispositivo è offline ed è necessario eseguirne il failover. Questo scenario può verificarsi durante un'emergenza dovuta a un'interruzione nel datacenter e quando il dispositivo primario è inattivo. Si pianifica di eseguire il failover del dispositivo su un dispositivo secondario. Dopo il trasferimento della proprietà dei dati e il completamento del failover, il dispositivo di origine viene eliminato automaticamente.
+* **Rimozioni delle autorizzazioni**: si desidera rimuovere le autorizzazioni del dispositivo. Ciò richiede prima di tutto la disattivazione del dispositivo, quindi la sua eliminazione. Quando si disattiva un dispositivo, tutti i dati archiviati localmente non saranno più accessibili. È possibile solo accedere e recuperare i dati archiviati nel cloud. Se si pianifica cdi mantenere il dispositivo dopo la disattivazione, prima di effettuare tale operazione è necessario eseguire uno snapshot di tutti i dati nel cloud. In questo modo sarà possibile recuperare tutti i dati in una fase successiva.
 
 ## <a name="deactivate-a-device"></a>Disattivare un dispositivo
 

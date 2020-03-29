@@ -1,6 +1,6 @@
 ---
 title: Gestire Azure Data Lake Analytics tramite .NET SDK di Azure
-description: Questo articolo descrive come usare Azure .NET SDK per scrivere App che gestiscono processi Data Lake Analitica, origini dati e gli utenti.
+description: Questo articolo descrive come usare Azure .NET SDK per scrivere app che gestiscono processi, origini dati e utenti di Data Lake Analytics.This article describes how to use the Azure .NET SDK to write apps that manage Data Lake Analytics jobs, data sources, & users.
 services: data-lake-analytics
 author: saveenr
 ms.author: saveenr
@@ -10,10 +10,10 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 06/18/2017
 ms.openlocfilehash: 0a10af73d754596e9b5bb34b2974d7f1647d06f8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60617708"
 ---
 # <a name="manage-azure-data-lake-analytics-a-net-app"></a>Gestire Azure Data Lake Analytics con un'app .NET
@@ -30,7 +30,7 @@ Questo articolo descrive come gestire account, origini dati, processi e utenti d
 
 ### <a name="install-nuget-packages"></a>Installare i pacchetti NuGet
 
-|Pacchetto|Version|
+|Pacchetto|Versione|
 |-------|-------|
 |[Microsoft.Rest.ClientRuntime.Azure.Authentication](https://www.nuget.org/packages/Microsoft.Rest.ClientRuntime.Azure.Authentication)| 2.3.1|
 |[Microsoft.Azure.Management.DataLake.Analytics](https://www.nuget.org/packages/Microsoft.Azure.Management.DataLake.Analytics)|3.0.0|
@@ -217,10 +217,10 @@ if (adlaClient.Account.Exists(rg, adla))
 
 ## <a name="manage-data-sources"></a>Gestire le origini dati
 
-Analisi Data Lake supporta attualmente le seguenti origini dati:
+Data Lake Analytics attualmente supporta le seguenti origini dati:
 
-* [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)
-* [Account di archiviazione di Azure](../storage/common/storage-introduction.md)
+* [Archivio di Azure Data Lake](../data-lake-store/data-lake-store-overview.md)
+* [Account di archiviazione di AzureAzure Storage Account](../storage/common/storage-introduction.md)
 
 ### <a name="link-to-an-azure-storage-account"></a>Collegare un account di archiviazione di Azure
 
@@ -443,6 +443,6 @@ adlaAccountClient.ComputePolicies.CreateOrUpdate(rg, adla, "GaryMcDaniel", newPo
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Panoramica di Analisi Microsoft Azure Data Lake](data-lake-analytics-overview.md)
-* [Gestire Azure Data Lake Analytics tramite il portale di Azure](data-lake-analytics-manage-use-portal.md)
-* [Monitorare e risolvere i problemi dei processi di Azure Data Lake Analytics tramite il portale di Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+* [Panoramica di Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
+* [Gestire Azure Data Lake Analytics tramite il portale di AzureManage Azure Data Lake Analytics using Azure portal](data-lake-analytics-manage-use-portal.md)
+* [Monitorare e risolvere i problemi relativi ai processi di Azure Data Lake Analytics tramite il portale di AzureMonitor and troubleshoot Azure Data Lake Analytics jobs using Azure portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)

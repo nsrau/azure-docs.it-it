@@ -1,15 +1,15 @@
 ---
-title: Usare Key Vault quando si distribuisce l'app gestita
+title: Usare l'insieme di credenziali delle chiavi durante la distribuzione dell'app gestitaUse Key Vault when deploying managed app
 description: Illustra come usare i segreti di accesso in Azure Key Vault durante la distribuzione delle applicazioni gestite
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: tomfitz
 ms.openlocfilehash: f434ad6e19c89f248fec948c0a049fabb0f7c476
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79248437"
 ---
 # <a name="access-key-vault-secret-when-deploying-azure-managed-applications"></a>Segreto di accesso di Key Vault quando si distribuiscono le Applicazioni gestite di Azure
@@ -36,7 +36,7 @@ Questo articolo descrive come configurare Key Vault per lavorare con le applicaz
 
 ## <a name="add-service-as-contributor"></a>Aggiungere il servizio come collaboratore
 
-1. Selezionare **Controllo di accesso (IAM)** .
+1. Selezionare **Controllo di accesso (IAM)**.
 
    ![Selezionare il controllo di accesso](./media/key-vault-access/access-control.png)
 
@@ -52,7 +52,7 @@ Questo articolo descrive come configurare Key Vault per lavorare con le applicaz
 
 ## <a name="reference-key-vault-secret"></a>Fare riferimento al segreto di Key Vault
 
-Per passare un segreto da un Key Vault a un modello nell'applicazione gestita, è necessario usare un [modello collegato o annidato](../templates/linked-templates.md) e fare riferimento al Key Vault nei parametri per il modello collegato o annidato. Fornire l'ID risorsa di Key Vault e il nome del segreto.
+Per passare un segreto da un insieme di credenziali delle chiavi a un modello nell'applicazione gestita, è necessario utilizzare un [modello collegato o nidificato](../templates/linked-templates.md) e fare riferimento all'insieme di credenziali delle chiavi nei parametri del modello collegato o nidificato. Fornire l'ID risorsa di Key Vault e il nome del segreto.
 
 ```json
 {

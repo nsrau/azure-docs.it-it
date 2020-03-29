@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/15/2017
 ms.author: matd
 ms.openlocfilehash: 957fff73f2406e0e057a7c978dd76a6bd9c156b7
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67876216"
 ---
 # <a name="storsimple-as-a-backup-target-with-netbackup"></a>StorSimple come destinazione di backup con NetBackup
@@ -55,8 +55,8 @@ Come con qualsiasi soluzione di archiviazione, per ottenere un esito positivo è
 
 StorSimple è progettato per garantire l'archiviazione per le applicazioni che usano un working set di dati ben definito (dati attivi). In questo modello, il working set di dati viene archiviato nei livelli locali e il rimanente set di dati non in funzione, poco attivi o archiviati viene suddiviso in livelli nel cloud. Questo modello è illustrato nella figura seguente. La linea verde quasi piatta rappresenta i dati archiviati nei livelli locali del dispositivo StorSimple. La linea rossa rappresenta la quantità totale di dati archiviati nella soluzione StorSimple in tutti i livelli. Lo spazio tra la linea verde piatta e la curva esponenziale rossa rappresenta la quantità totale di dati archiviati nel cloud.
 
-**Suddivisione in livelli di StorSimple**
-![Diagramma della suddivisione in livelli di StorSimple](./media/storsimple-configure-backup-target-using-netbackup/image1.jpg)
+**StorSimple tiering**
+![Diagramma di tiering StorSimple](./media/storsimple-configure-backup-target-using-netbackup/image1.jpg)
 
 Tenendo presente questa architettura, si noterà che StorSimple è particolarmente adatto a essere usato come destinazione di backup. È possibile usare StorSimple per:
 -   Eseguire le operazioni di ripristino più frequenti dal working set di dati locale.
@@ -73,13 +73,13 @@ StorSimple offre i vantaggi seguenti:
 -   Algoritmi di deduplicazione e compressione univoci che usano il cloud per ottenere livelli avanzati di deduplicazione
 -   Disponibilità elevata
 -   Replica geografica usando la replica geografica di Azure
--   Integrazione di Azure
+-   Integrazione con Azure
 -   Crittografia dei dati nel cloud
 -   Miglioramento del ripristino di emergenza e della conformità
 
 Sebbene StorSimple presenti due scenari di distribuzione principali (destinazione di backup primaria e secondaria), fondamentalmente si tratta di un normale dispositivo di archiviazione a blocchi. StorSimple esegue tutta la compressione e la deduplicazione necessarie. Invia e recupera senza problemi i dati tra il cloud e l'applicazione e il file system.
 
-Per altre informazioni su StorSimple, consultare [StorSimple 8000 series: Hybrid cloud storage solution](storsimple-overview.md) (Serie StorSimple 8000: una soluzione di archiviazione cloud ibrida). È possibile vedere anche le [specifiche tecniche di StorSimple serie 8000](storsimple-technical-specifications-and-compliance.md).
+Per altre informazioni su StorSimple, vedere [Serie 8000 StorSimple: una soluzione di archiviazione cloud ibrida](storsimple-overview.md). È possibile vedere anche le [specifiche tecniche di StorSimple serie 8000](storsimple-technical-specifications-and-compliance.md).
 
 > [!IMPORTANT]
 > L'uso di un dispositivo StorSimple come destinazione di backup è supportato solo per StorSimple 8000 Update 3 e versioni successive.
@@ -253,7 +253,7 @@ In base ai presupposti precedenti creare un volume a più livelli StorSimple a 2
 | Conservazione per tipo di backup | Dimensioni (TiB) | Moltiplicatore GFS\* | Capacità totale (TiB)  |
 |---|---|---|---|
 | Completo settimanale | 1 | 4  | 4 |
-| Incrementale giornaliero | 0,5 | 20 (il numero dei cicli è uguale al numero di settimane al mese) | 12 (2 per quota aggiuntiva) |
+| Incrementale giornaliero | 0.5 | 20 (il numero dei cicli è uguale al numero di settimane al mese) | 12 (2 per quota aggiuntiva) |
 | Completo mensile | 1 | 12 | 12 |
 | Completo annuale | 1  | 10 | 10 |
 | Requisito GFS |   | 38 |   |
@@ -265,7 +265,7 @@ In base ai presupposti precedenti creare un volume a più livelli StorSimple a 2
 
 ### <a name="to-set-up-netbackup-storage"></a>Per configurare l'archiviazione di NetBackup
 
-1.  Nella console di amministrazione di NetBackup selezionare **Media and Device Management** (Gestione dei supporti e dei dispositivi) > **Devices** (Dispositivi) > **Disk Pools** (Pool di dischi). Nella Configurazione guidata pool di dischi selezionare il tipo di server di archiviazione **AdvancedDisk** e poi fare clic su **Avanti**.
+1.  Nella console di amministrazione NetBackup selezionare Pool di**dischi**dei**dispositivi** >  **multimediali e di gestione** > dei dispositivi . Nella Configurazione guidata pool di dischi selezionare il tipo di server di archiviazione **AdvancedDisk** e poi fare clic su **Avanti**.
 
     ![Console di amministrazione di NetBackup, Configurazione guidata pool di dischi](./media/storsimple-configure-backup-target-using-netbackup/nbimage1.png)
 
@@ -277,7 +277,7 @@ In base ai presupposti precedenti creare un volume a più livelli StorSimple a 2
 
     ![Console di amministrazione di NetBackup, selezionare il volume StorSimple](./media/storsimple-configure-backup-target-using-netbackup/nbimage3.png)
 
-4.  Immettere un nome per la destinazione di backup e quindi selezionare **Avanti** > **Avanti** per completare la procedura guidata.
+4.  Immettere un nome per la destinazione di backup e quindi selezionare **Avanti** > **successivo** per completare la procedura guidata.
 
 5.  Rivedere le impostazioni e selezionare **Finish** (Fine).
 
@@ -300,7 +300,7 @@ La figura seguente illustra il mapping di un volume tipico a un processo di back
 
 Di seguito è riportato un esempio di una pianificazione a rotazione GFS per quattro settimane, mensile e annuale:
 
-| Frequenza/Tipo di backup | Completa | Incrementale (giorni 1-5)  |   
+| Frequenza/Tipo di backup | Full | Incrementale (giorni 1-5)  |   
 |---|---|---|
 | Settimanale (settimane 1-4) | Sabato | Lunedì-venerdì |
 | Mensile  | Sabato  |   |
@@ -328,7 +328,7 @@ Nella sequenza seguente si presuppone che NetBackup e l'host di destinazione sia
 
    ![Console di amministrazione di NetBackup, selezionare il tipo di criterio](./media/storsimple-configure-backup-target-using-netbackup/nbimage9.png)
 
-5. Selezionare l'host, attivare la casella di controllo **Detect client operating system** (Rileva sistema operativo del client) e selezionare **Add** (Aggiungi). Selezionare **Avanti**.
+5. Selezionare l'host, attivare la casella di controllo **Detect client operating system** (Rileva sistema operativo del client) e selezionare **Add** (Aggiungi). Fare clic su **Avanti**.
 
    ![Console di amministrazione di NetBackup, elencare i client in un nuovo criterio](./media/storsimple-configure-backup-target-using-netbackup/nbimage10.png)
 
@@ -340,7 +340,7 @@ Nella sequenza seguente si presuppone che NetBackup e l'host di destinazione sia
 
    ![Console di amministrazione di NetBackup, frequenza e rotazione dei backup per un nuovo criterio](./media/storsimple-configure-backup-target-using-netbackup/nbimage12.png)
 
-8. Selezionare **Next** (Avanti) > **Next** (Avanti) > **Finish** (Fine).  La pianificazione può essere modificata dopo la creazione dei criteri.
+8. Selezionare**Fine****successiva** >  **successiva** > .  La pianificazione può essere modificata dopo la creazione dei criteri.
 
 9. Selezionare il criterio creato per espanderlo e selezionare **Pianificazioni**.
 
@@ -406,9 +406,9 @@ La tabella seguente indica come configurare il backup per l'esecuzione su dischi
 \* La capacità totale include 17 TiB dei dischi StorSimple e 1 TiB del volume RAID locale.
 
 
-### <a name="gfs-example-schedule-gfs-rotation-weekly-monthly-and-yearly-schedule"></a>Pianificazione di esempio GFS: Pianificazione della rotazione GFS settimanale, mensile e annuale
+### <a name="gfs-example-schedule-gfs-rotation-weekly-monthly-and-yearly-schedule"></a>Pianificazione di esempio GFS: rotazione GFS settimanale, mensile e annuale
 
-| Settimana | Completa | Incrementale Giorno 1 | Incrementale Giorno 2 | Incrementale Giorno 3 | Incrementale Giorno 4 | Incrementale Giorno 5 |
+| Week | Full | Incrementale Giorno 1 | Incrementale Giorno 2 | Incrementale Giorno 3 | Incrementale Giorno 4 | Incrementale Giorno 5 |
 |---|---|---|---|---|---|---|
 | Settimana 1 | Volume RAID locale  | Volume RAID locale | Volume RAID locale | Volume RAID locale | Volume RAID locale | Volume RAID locale |
 | Settimana 2 | StorSimple settimane 2-4 |   |   |   |   |   |
@@ -430,7 +430,7 @@ Dopo aver definito i pool di dischi iniziali, è necessario definire altri tre c
 
 ### <a name="to-assign-storsimple-volumes-to-a-netbackup-archive-and-duplication-job"></a>Per assegnare volumi StorSimple a un processo di archiviazione e duplicazione di NetBackup
 
-1. Nella console di amministrazione di NetBackup selezionare **Archiviazione** > **Criteri del ciclo di vita di archiviazione** > **Nuovi criteri del ciclo di vita di archiviazione**.
+1. Nella console di amministrazione NetBackup selezionare Criteri del ciclo > di vita > **dell'archiviazione****Nuovi criteri relativi al ciclo di vita dell'archiviazione**. **Storage**
 
    ![Console di amministrazione di NetBackup, nuovi criteri del ciclo di vita di archiviazione](./media/storsimple-configure-backup-target-using-netbackup/nbimage20.png)
 
@@ -472,7 +472,7 @@ Dopo aver definito i pool di dischi iniziali, è necessario definire altri tre c
 | Conservazione per tipo di backup | Dimensioni (TiB) | Moltiplicatore GFS\* | Capacità totale (TiB)  |
 |---|---|---|---|
 | Completo settimanale |  1  |  4 | 4  |
-| Incrementale giornaliero  | 0,5  | 20 (il numero dei cicli è uguale al numero di settimane al mese) | 12 (2 per quota aggiuntiva) |
+| Incrementale giornaliero  | 0.5  | 20 (il numero dei cicli è uguale al numero di settimane al mese) | 12 (2 per quota aggiuntiva) |
 | Completo mensile  | 1 | 12 | 12 |
 | Completo annuale | 1  | 10 | 10 |
 | Requisito GFS  |     |     | 38 |
@@ -540,7 +540,7 @@ Una situazione di emergenza può essere causata da numerosi fattori. La tabella 
 Questo articolo fa riferimento ai documenti seguenti:
 
 - [Configurazione di Multipath I/O per StorSimple](storsimple-configure-mpio-windows-server.md)
-- [Storage scenarios: Thin provisioning](https://msdn.microsoft.com/library/windows/hardware/dn265487.aspx) (Scenari di archiviazione: Thin provisioning)
+- [Scenari di archiviazione: thin provisioning](https://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
 - [Uso di unità GPT](https://msdn.microsoft.com/windows/hardware/gg463524.aspx#EHD)
 - [Configurare le copie shadow di cartelle condivise](https://technet.microsoft.com/library/cc771893.aspx)
 

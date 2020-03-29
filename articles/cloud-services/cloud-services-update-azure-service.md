@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/19/2017
 ms.author: tagore
 ms.openlocfilehash: 731f4e8cc8a93f33d6887f44fc8d09585e92a75a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75360345"
 ---
 # <a name="how-to-update-a-cloud-service"></a>Come aggiornare un servizio cloud
@@ -21,7 +21,7 @@ L'aggiornamento di un servizio cloud, inclusi i ruoli e il sistema operativo gue
 ## <a name="update-an-azure-service"></a>Aggiornare un servizio di Azure
 Azure organizza le istanze del ruolo in raggruppamenti logici chiamati domini di aggiornamento. I domini di aggiornamento sono set logici di istanze del ruolo aggiornate come gruppo.  Azure aggiorna un servizio cloud un dominio di aggiornamento alla volta, per consentire alle istanze negli altri domini di aggiornamento di continuare a gestire il traffico.
 
-Il numero predefinito di domini di aggiornamento è 5. È possibile specificare un numero diverso di domini di aggiornamento includendo l'attributo upgradeDomainCount nel file di definizione del servizio (.csdef). Per altre informazioni sull'attributo upgradeDomainCount, vedere [schema di definizione dei servizi cloud di Azure (file con estensione csdef)](https://docs.microsoft.com/azure/cloud-services/schema-csdef-file).
+Il numero predefinito di domini di aggiornamento è 5. È possibile specificare un numero diverso di domini di aggiornamento includendo l'attributo upgradeDomainCount nel file di definizione del servizio (.csdef). Per altre informazioni sull'attributo upgradeDomainCount, vedere Schema di definizione dei servizi cloud di [Azure (file con estensione csdef)](https://docs.microsoft.com/azure/cloud-services/schema-csdef-file).
 
 Quando si esegue un aggiornamento sul posto di uno o più ruoli nel servizio, Azure aggiorna i set di istanze del ruolo in base al dominio di aggiornamento a cui appartengono. Azure aggiorna tutte le istanze in un determinato dominio di aggiornamento (arrestandole, aggiornandole, riportandole online), quindi passa al dominio successivo. Arrestando solo le istanze in esecuzione nel dominio di aggiornamento corrente, Azure fa in modo che un aggiornamento venga eseguito con il minor impatto possibile sul servizio in esecuzione. Per altre informazioni, vedere [Come avviene un aggiornamento](#howanupgradeproceeds) .
 
@@ -84,11 +84,11 @@ Se intende eseguire altri aggiornamenti alla definizione del servizio, ad esempi
 
 Il diagramma seguente illustra come avviene l'aggiornamento se si aggiornano tutti i ruoli nel servizio:
 
-![Servizio di aggiornamento](media/cloud-services-update-azure-service/IC345879.png "Aggiornare il servizio")
+![Aggiornare il servizio](media/cloud-services-update-azure-service/IC345879.png "Aggiornare il servizio")
 
 Il diagramma successivo illustra come avviene l'aggiornamento se si aggiorna un solo ruolo:
 
-![Aggiorna ruolo](media/cloud-services-update-azure-service/IC345880.png "Aggiornare il ruolo")  
+![Aggiornare il ruolo](media/cloud-services-update-azure-service/IC345880.png "Aggiornare il ruolo")  
 
 Durante un aggiornamento automatico, il controller di infrastruttura di Azure valuta periodicamente l'integrità del servizio cloud per determinare quando è sicuro passare al dominio di aggiornamento successivo. Questa valutazione dell'integrità viene eseguita per ogni singolo ruolo e considera solo le istanze nella versione più recente (ad esempio, le istanze dei domini di aggiornamento già analizzati). Verifica che un numero minimo di istanze del ruolo, per ogni ruolo, abbia raggiunto uno stato finale soddisfacente.
 
@@ -107,17 +107,17 @@ Quando si aggiorna un servizio da una sola istanza a più istanze, il servizio s
 |Aggiornamento sul posto|Mantenuta|Mantenuta|Eliminata|
 |Migrazione di un nodo|Eliminata|Eliminata|Eliminata|
 
-Si noti che nell'elenco precedente l'unità E: rappresenta l'unità radice del ruolo e non dovrebbe essere hardcoded. Per rappresentare l'unità, usare invece la variabile di ambiente **%RoleRoot%** .
+Si noti che nell'elenco precedente l'unità E: rappresenta l'unità radice del ruolo e non dovrebbe essere hardcoded. Per rappresentare l'unità, usare invece la variabile di ambiente **%RoleRoot%**.
 
 Per ridurre al minimo il tempo di inattività durante l'aggiornamento di un servizio a istanza singola, distribuire un nuovo servizio a più istanze nel server di staging ed eseguire uno scambio di indirizzi VIP.
 
 <a name="RollbackofanUpdate"></a>
 
 ## <a name="rollback-of-an-update"></a>Ripristino dello stato precedente di un aggiornamento
-Azure offre flessibilità nella gestione dei servizi durante un aggiornamento perché consente di avviare altre operazioni su un servizio, dopo che la richiesta di aggiornamento iniziale è stata accettata dal controller di infrastruttura di Azure. Un ripristino dello stato precedente può essere eseguito solo quando una modifica della configurazione o un aggiornamento è nello stato **in corso** durante la distribuzione. Un aggiornamento viene considerato in corso finché almeno un'istanza del servizio non è ancora stata aggiornata alla nuova versione. Per verificare se un ripristino dello stato precedente è consentito, controllare che il valore del flag RollbackAllowed, restituito dalle operazioni [Get Deployment](/previous-versions/azure/reference/ee460804(v=azure.100)) e [Get Cloud Service Properties](/previous-versions/azure/reference/ee460806(v=azure.100)), sia impostato su true.
+Azure offre flessibilità nella gestione dei servizi durante un aggiornamento perché consente di avviare altre operazioni su un servizio, dopo che la richiesta di aggiornamento iniziale è stata accettata dal controller di infrastruttura di Azure. Un rollback può essere eseguito solo quando un aggiornamento (modifica alla configurazione o altro tipo di aggiornamento) è nello stato **in corso** nella distribuzione. Un aggiornamento viene considerato in corso finché almeno un'istanza del servizio non è ancora stata aggiornata alla nuova versione. Per verificare se un ripristino dello stato precedente è consentito, controllare che il valore del flag RollbackAllowed, restituito dalle operazioni [Get Deployment](/previous-versions/azure/reference/ee460804(v=azure.100)) e [Get Cloud Service Properties](/previous-versions/azure/reference/ee460806(v=azure.100)), sia impostato su true.
 
 > [!NOTE]
-> Chiamare ripristino dello stato precedente è utile solo per un aggiornamento **sul posto** perché gli aggiornamenti con scambio di indirizzo VIP comportano la sostituzione di un'intera istanza in esecuzione del servizio con un'altra.
+> La chiamata del rollback in un aggiornamento **sul posto** risulta utile unicamente perché gli aggiornamenti di scambio VIP comportano la sostituzione di un'intera istanza in esecuzione del servizio con un'altra.
 >
 >
 
@@ -149,7 +149,7 @@ Durante la distribuzione dell'aggiornamento chiamare [Upgrade Deployment](/previ
 <a name="multiplemutatingoperations"></a>
 
 ## <a name="initiating-multiple-mutating-operations-on-an-ongoing-deployment"></a>Avvio di più operazioni di mutazione durante una distribuzione
-In alcuni casi potrebbe essere necessario avviare più operazioni di mutazione simultanee in una distribuzione in corso. Ad esempio, eseguendo l'aggiornamento di un servizio, mentre l'aggiornamento viene distribuito nel servizio, potrebbe essere necessario apportare alcune modifiche, come il ripristino dello stato precedente dell'aggiornamento, l'applicazione di un aggiornamento diverso o anche l'eliminazione della distribuzione. Questa necessità, ad esempio, potrebbe presentarsi se l'aggiornamento di un servizio contiene un codice con errori che fa arrestare più volte in modo anomalo un'istanza del ruolo aggiornata. In questo caso, il controller di infrastruttura di Azure non potrà far proseguire l'applicazione di tale aggiornamento perché il numero di istanze integre nel dominio aggiornato non è sufficiente. Questa condizione viene chiamata *distribuzione bloccata*. Per sbloccare la distribuzione, ripristinare lo stato precedente dell'aggiornamento o applicare un nuovo aggiornamento sopra quello non riuscito.
+In alcuni casi potrebbe essere necessario avviare più operazioni di mutazione simultanee in una distribuzione in corso. Ad esempio, eseguendo l'aggiornamento di un servizio, mentre l'aggiornamento viene distribuito nel servizio, potrebbe essere necessario apportare alcune modifiche, come il ripristino dello stato precedente dell'aggiornamento, l'applicazione di un aggiornamento diverso o anche l'eliminazione della distribuzione. Questa necessità, ad esempio, potrebbe presentarsi se l'aggiornamento di un servizio contiene un codice con errori che fa arrestare più volte in modo anomalo un'istanza del ruolo aggiornata. In questo caso, il controller di infrastruttura di Azure non potrà far proseguire l'applicazione di tale aggiornamento perché il numero di istanze integre nel dominio aggiornato non è sufficiente. Questo stato viene definito *distribuzione bloccata*. Per sbloccare la distribuzione, ripristinare lo stato precedente dell'aggiornamento o applicare un nuovo aggiornamento sopra quello non riuscito.
 
 Dopo che il controller di infrastruttura di Azure ha ricevuto la richiesta iniziale di aggiornare il servizio, è possibile avviare le operazioni di mutazione successive, vale a dire che non è necessario attendere il completamento dell'operazione iniziale prima di poter avviare un'altra operazione di mutazione.
 
@@ -172,7 +172,7 @@ I domini di aggiornamento vengono identificati con un indice in base zero: il pr
 
 Il diagramma seguente illustra come vengono distribuiti due ruoli contenuti in un servizio quando il servizio definisce due domini di aggiornamento. Il servizio esegue otto istanze del ruolo Web e nove istanze del ruolo di lavoro.
 
-![Distribuzione dei domini di aggiornamento](media/cloud-services-update-azure-service/IC345533.png "Distribuzione di domini di aggiornamento")
+![Distribuzione di domini di aggiornamento](media/cloud-services-update-azure-service/IC345533.png "Distribuzione di domini di aggiornamento")
 
 > [!NOTE]
 > Si noti che Azure controlla come le istanze vengono allocate nei domini di aggiornamento. Non è possibile specificare quali istanze vengono allocate in ogni dominio.

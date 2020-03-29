@@ -1,6 +1,6 @@
 ---
-title: Inserimento di BLOB end-to-end in Azure Esplora dati tramiteC#
-description: Questo articolo illustra come inserire i BLOB in Esplora dati di Azure con un esempio end-to-end che usa C#.
+title: 'End-to-end blob ingestion into Azure Data Explorer through C #'
+description: In questo articolo viene illustrato come inserire BLOB in Esplora dati di Azure con un esempio end-to-end in cui viene usato il linguaggio C.
 author: lucygoldbergmicrosoft
 ms.author: lugoldbe
 ms.reviewer: orspodek
@@ -8,34 +8,34 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.openlocfilehash: 0711484c4fff24c5dcd3c18effce596a92bc30c3
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76964516"
 ---
-# <a name="end-to-end-blob-ingestion-into-azure-data-explorer-through-c"></a>Inserimento di BLOB end-to-end in Azure Esplora dati tramiteC#
+# <a name="end-to-end-blob-ingestion-into-azure-data-explorer-through-c"></a>End-to-end blob ingestion into Azure Data Explorer through C #
 
 > [!div class="op_single_selector"]
-> * [C#](end-to-end-csharp.md)
+> * [C #](end-to-end-csharp.md)
 > * [Python](end-to-end-python.md)
 >
 
-Esplora dati di Azure è un servizio di esplorazione dati rapido e scalabile per dati di log e di telemetria. Questo articolo fornisce un esempio end-to-end per l'inserimento dei dati dall'archivio BLOB di Azure in Azure Esplora dati. 
+Esplora dati di Azure è un servizio di esplorazione dati rapido e scalabile per dati di log e di telemetria. Questo articolo offre un esempio end-to-end su come inserire dati dall'archiviazione BLOB di Azure in Azure Data Explorer.This article gives you an end-to-end example of how to ingest data from Azure Blob storage into Azure Data Explorer. 
 
-Si apprenderà come creare a livello di codice un gruppo di risorse, un account di archiviazione e un contenitore, un hub eventi e un cluster e un database di Azure Esplora dati. Si apprenderà anche come configurare a livello di codice Esplora dati di Azure per inserire dati dal nuovo account di archiviazione.
+Si apprenderà come creare a livello di codice un gruppo di risorse, un account di archiviazione e un contenitore, un hub eventi e un cluster e un database di Azure Data Explorer.You'll learn how to programmatically create a resource group, a storage account and container, an event hub, and an Azure Data Explorer cluster and database. Si apprenderà inoltre come configurare Azure Data Explorer a livello di codice per l'inserimento di dati dal nuovo account di archiviazione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="install-c-nuget"></a>Installare C# NuGet
+## <a name="install-c-nuget"></a>Installare NuGet in C
 
-* Installare [Microsoft. Azure. Management. kusto](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/).
-* Installare [Microsoft. Azure. Management. ResourceManager](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager).
-* Installare [Microsoft. Azure. Management. EventGrid](https://www.nuget.org/packages/Microsoft.Azure.Management.EventGrid/).
-* Installare [Microsoft. Azure. storage. blob](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/).
-* Installare [Microsoft. Rest. ClientRuntime. Azure. Authentication](https://www.nuget.org/packages/Microsoft.Rest.ClientRuntime.Azure.Authentication) per l'autenticazione.
+* Installare [Microsoft.Azure.Management.kusto](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/).
+* Installare [Microsoft.Azure.Management.ResourceManager](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager).
+* Installare [Microsoft.Azure.Management.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.Management.EventGrid/).
+* Installare [Microsoft.Azure.Storage.Blob](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/).
+* Installare [Microsoft.Rest.ClientRuntime.Azure.Authentication](https://www.nuget.org/packages/Microsoft.Rest.ClientRuntime.Azure.Authentication) per l'autenticazione.
 
 [!INCLUDE [data-explorer-authentication](../../includes/data-explorer-authentication.md)]
 
@@ -43,9 +43,9 @@ Se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](htt
 
 ## <a name="code-example"></a>Esempio di codice 
 
-L'esempio di codice seguente fornisce un processo dettagliato che comporta l'inserimento dei dati in Esplora dati di Azure. 
+L'esempio di codice seguente offre un processo passo-passo che determina l'inserimento di dati in Azure Data Explorer.The following code example gives you a step-by-step process that results in data ingestion into Azure Data Explorer. 
 
-Creare innanzitutto un gruppo di risorse. È anche possibile creare risorse di Azure, ad esempio un contenitore e un account di archiviazione, un hub eventi e un cluster e un database di Azure Esplora dati e aggiungere entità. Si crea quindi una sottoscrizione di griglia di eventi di Azure, insieme a un mapping di tabella e colonna, nel database di Esplora dati di Azure. Infine, si crea la connessione dati per configurare Esplora dati di Azure per inserire i dati dal nuovo account di archiviazione. 
+È innanzitutto necessario creare un gruppo di risorse. È inoltre possibile creare risorse di Azure, ad esempio un account e un contenitore di archiviazione, un hub eventi e un cluster e un database di Azure Data Explorer, nonché aggiungere entità. È quindi possibile creare una sottoscrizione di Griglia di eventi di Azure, insieme a un mapping di tabelle e colonne, nel database di Azure Data Explorer.You then create an Azure Event Grid subscription, along with a table and column mapping, in the Azure Data Explorer database. Infine, si crea la connessione dati per configurare Azure Data Explorer per l'inserimento dei dati dal nuovo account di archiviazione. 
 
 ```csharp
 var tenantId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Directory (tenant) ID
@@ -177,11 +177,11 @@ await kustoManagementClient.DataConnections.CreateOrUpdateAsync(resourceGroupNam
 | **Impostazione** | **Descrizione campo** |
 |---|---|---|
 | TenantId | ID tenant. È anche noto come ID di directory.|
-| subscriptionId | ID sottoscrizione usato per la creazione di risorse.|
+| subscriptionId | ID sottoscrizione utilizzato per la creazione delle risorse.|
 | clientId | ID client dell'applicazione che può accedere alle risorse nel tenant.|
-| clientSecret | Il segreto client dell'applicazione che può accedere alle risorse nel tenant. |
+| clientSecret | Segreto client dell'applicazione che può accedere alle risorse nel tenant. |
 
-## <a name="test-the-code-example"></a>Testare l'esempio di codice
+## <a name="test-the-code-example"></a>Testare l'esempio di codiceTest the code example
 
 1. Caricare un file nell'account di archiviazione.
 
@@ -197,9 +197,9 @@ await kustoManagementClient.DataConnections.CreateOrUpdateAsync(resourceGroupNam
     ```
     |**Impostazione** | **Descrizione campo**|
     |---|---|---|
-    | storageConnectionString | Stringa di connessione dell'account di archiviazione creato a livello di codice.|
+    | storageConnectionString (stringa di archiviazione) | Stringa di connessione dell'account di archiviazione creato a livello di codice.|
 
-2. Eseguire una query di test in Azure Esplora dati.
+2. Eseguire una query di test in Azure Data Explorer.Run a test query in Azure Data Explorer.
 
     ```csharp
     var kustoUri = $"https://{kustoClusterName}.{locationSmallCase}.kusto.windows.net";
@@ -226,7 +226,7 @@ await kustoManagementClient.DataConnections.CreateOrUpdateAsync(resourceGroupNam
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Per eliminare il gruppo di risorse e pulire le risorse, usare il comando seguente:
+Per eliminare il gruppo di risorse e pulire le risorse, usare il comando seguente:To delete the resource group and clean up resources, use the following command:
 
 ```csharp
 await resourceManagementClient.ResourceGroups.DeleteAsync(resourceGroupName);
@@ -234,7 +234,7 @@ await resourceManagementClient.ResourceGroups.DeleteAsync(resourceGroupName);
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-*  Per informazioni su altri modi per creare un cluster e un database, vedere [creare un cluster e un database di Azure Esplora dati](create-cluster-database-csharp.md).
-* Per altre informazioni sui metodi di inserimento, vedere [Azure Esplora dati inserimento dati](ingest-data-overview.md).
-* Per informazioni sull'applicazione Web, vedere [Guida introduttiva: eseguire query sui dati nell'interfaccia utente Web di Azure Esplora dati](web-query-data.md).
+*  Per altre informazioni su altri modi per creare un cluster e un database, vedere Creare un cluster e un database di [Azure Data Explorer.](create-cluster-database-csharp.md)
+* Per altre informazioni sui metodi di inserimento, vedere Inserimento dati di Azure Data Explorer.To learn more about ingestion methods, see [Azure Data Explorer data ingestion](ingest-data-overview.md).
+* Per altre informazioni sull'applicazione Web, vedere [Guida introduttiva: Eseguire query sui dati nell'interfaccia utente Web](web-query-data.md)di Azure Data Explorer.
 * [Scrivere query](write-queries.md) con il linguaggio di query Kusto.

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 4b8cbc27757cf6c321ea4b3c27720a129aa27c1b
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67593474"
 ---
 # <a name="real-time-alerts-in-microsoft-azure-cdn"></a>Avvisi in tempo reale nella rete CDN di Microsoft Azure
@@ -30,7 +30,7 @@ Questo documento illustra gli avvisi in tempo reale nella rete CDN di Microsoft 
 * Larghezza di banda
 * Codici di stato
 * Stati della cache
-* connessioni
+* Connessioni
 
 ## <a name="creating-a-real-time-alert"></a>Creazione di un avviso in tempo reale
 1. Nel [portale di Azure](https://portal.azure.com) passare al profilo CDN.
@@ -41,7 +41,7 @@ Questo documento illustra gli avvisi in tempo reale nella rete CDN di Microsoft 
     ![Pulsante di gestione del profilo della rete CDN](./media/cdn-real-time-alerts/cdn-manage-btn.png)
    
     Si aprirà il portale di gestione della rete CDN.
-3. Passare il puntatore sulla scheda **Analytics** (Analisi) e quindi sul riquadro a comparsa **Real-Time Stats** (Statistiche in tempo reale).  Fare clic su **Real-Time Alerts**(Avvisi in tempo reale).
+3. Passare il puntatore sulla scheda **Analisi**, quindi sul riquadro a comparsa **Statistiche in tempo reale**.  Fare clic su **Real-Time Alerts**(Avvisi in tempo reale).
    
     ![Portale di gestione della rete CDN](./media/cdn-real-time-alerts/cdn-premium-portal.png)
    
@@ -107,8 +107,8 @@ Questo documento illustra gli avvisi in tempo reale nella rete CDN di Microsoft 
     > 
 13. Fare clic sul pulsante **Save** (Salva) per salvare la configurazione degli avvisi.  Se al passaggio 5 è stata selezionata l'opzione **Alert Enabled** (Avviso abilitato), ora l'avviso è attivo.
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 * Vedere [Statistiche in tempo reale nella rete CDN di Microsoft Azure](cdn-real-time-stats.md)
 * Per un'analisi più approfondita, vedere [Report HTTP avanzati nella rete CDN di Microsoft Azure](cdn-advanced-http-reports.md)
-* Vedere [Analizzare i modelli di utilizzo della rete CDN di Azure](cdn-analyze-usage-patterns.md)
+* Analizzare [i modelli di utilizzoAnalyze usage patterns](cdn-analyze-usage-patterns.md)
 

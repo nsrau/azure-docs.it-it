@@ -1,6 +1,6 @@
 ---
 title: Visualizzare i processi di Analisi di flusso di Azure in Visual Studio
-description: Informazioni su come visualizzare, avviare e arrestare, testare le connessioni, controllare i risultati ed esportare i processi di analisi di flusso di Azure con Visual Studio.
+description: Informazioni su come visualizzare, avviare e arrestare, testare le connessioni, controllare i risultati ed esportare i processi di Analisi di flusso di Azure usando Visual Studio.Learn how to view, start and stop, test connections, check results, and export your Azure Stream Analytics jobs using Visual Studio.
 author: su-jie
 ms.author: sujie
 ms.reviewer: mamccrea
@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 07/10/2018
 ms.openlocfilehash: ad35ed342dfd40b98d61919749479ec5612cdd4f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75369627"
 ---
 # <a name="use-visual-studio-to-view-azure-stream-analytics-jobs"></a>Usare Visual Studio per visualizzare i processi di Analisi di flusso di Azure

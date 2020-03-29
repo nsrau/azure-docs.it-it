@@ -1,6 +1,6 @@
 ---
-title: Sottoclip di un video durante la codifica con REST di servizi multimediali di Azure
-description: Questo argomento descrive come eseguire il clip di un video quando si esegue la codifica con servizi multimediali di Azure con REST
+title: Clip secondario di un video durante la codifica con REST di Servizi multimediali di AzureSubclip a video when encoding with Azure Media Services REST
+description: Questo argomento descrive come ritagliare un video durante la codifica con Servizi multimediali di Azure usando RESTThis topic describes how to subclip a video when encoding with Azure Media Services using REST
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,40 +14,40 @@ ms.topic: article
 ms.date: 06/10/2019
 ms.author: juliako
 ms.openlocfilehash: c39aded55fe36cb130459a4f6f119f872b1adbc4
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76514324"
 ---
-# <a name="subclip-a-video-when-encoding-with-media-services---rest"></a>Sottoclip di un video durante la codifica con servizi multimediali-REST
+# <a name="subclip-a-video-when-encoding-with-media-services---rest"></a>Clip secondario di un video durante la codifica con Servizi multimediali - REST
 
-È possibile tagliare o sottotagliare un video quando lo si codifica usando un [processo](https://docs.microsoft.com/rest/api/media/jobs). Questa funzionalità può essere utilizzata con qualsiasi [trasformazione](https://docs.microsoft.com/rest/api/media/transforms) compilata mediante i set di impostazioni [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) o [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) . 
+Potete tagliare o ritagliare un video durante la codifica utilizzando un [lavoro.](https://docs.microsoft.com/rest/api/media/jobs) Questa funzionalità funziona con qualsiasi [trasformazione](https://docs.microsoft.com/rest/api/media/transforms) compilata utilizzando i predefiniti [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) o [StandardEncoderPreset.](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) 
 
-Nell'esempio REST in questo argomento viene creato un processo che consente di tagliare un video quando invia un processo di codifica. 
+L'esempio REST in questo argomento crea un processo che taglia un video durante l'invio di un processo di codifica. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per completare i passaggi descritti in questo argomento, è necessario:
 
-- [Creare un account di servizi multimediali di Azure](create-account-cli-how-to.md).
+- [Creare un account di Servizi multimediali di Azure.](create-account-cli-how-to.md)
 - [Configurare Postman per le chiamate API REST Servizi multimediali di Azure](media-rest-apis-with-postman.md).
     
     Assicurarsi di seguire l'ultimo passaggio nell'argomento [Ottenere Token in Azure AD](media-rest-apis-with-postman.md#get-azure-ad-token). 
-- Creare una trasformazione e un asset di output. È possibile vedere come creare una trasformazione e un asset di output nell'esercitazione [codificare un file remoto basato sull'URL e trasmettere il video-Rest](stream-files-tutorial-with-rest.md) .
-- Esaminare l'argomento relativo al [concetto di codifica](encoding-concept.md) .
+- Creare una trasformazione e un asset di output. È possibile vedere come creare una trasformazione e un asset di output nella [codifica di un file remoto in base all'URL e](stream-files-tutorial-with-rest.md) lo streaming del video - REST esercitazione.
+- Esaminare l'argomento [Concetto di codifica.](encoding-concept.md)
 
-## <a name="create-a-subclipping-job"></a>Creazione di un processo di ritaglio
+## <a name="create-a-subclipping-job"></a>Creare un processo di sottoclip
 
-1. Nella raccolta dei messaggi scaricati selezionare **trasformazioni e processi** -> **Crea processo con il ritaglio secondario**.
+1. Nella raccolta Postman scaricata selezionare **Trasformazioni e processi** -> **Crea processo con Ritaglio secondario**.
     
-    La richiesta **put** ha un aspetto simile al seguente:
+    La richiesta PUT è simile alla seguente:The **PUT** request looks like this:
     
     ```
     https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName/jobs/:jobName?api-version={{api-version}}
     ```
-1. Aggiornare il valore della variabile di ambiente "transformname" con il nome della trasformazione. 
-1. Selezionare la scheda **Body (corpo** ) e aggiornare "myOutputAsset" con il nome dell'asset di output.
+1. Aggiornare il valore della variabile di ambiente "transformName" con il nome della trasformazione. 
+1. Selezionare la scheda **Corpo** e aggiornare "myOutputAsset" con il nome dell'asset di output.
 
     ```
     {
@@ -82,8 +82,8 @@ Per completare i passaggi descritti in questo argomento, è necessario:
     ```
 1. Fare clic su **Invia**.
 
-    Viene visualizzata la **risposta** con le informazioni sul processo che è stato creato e inviato e lo stato del processo. 
+    Viene visualizzata la **risposta** con le informazioni sul processo creato e inviato e lo stato del processo. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Come codificare con una trasformazione personalizzata](custom-preset-rest-howto.md) 
+[Come codificare con una trasformazione personalizzataHow to encode with a custom transform](custom-preset-rest-howto.md) 

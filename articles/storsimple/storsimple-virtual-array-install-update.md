@@ -16,10 +16,10 @@ ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 7bf064ff01693f7a65c756a99c435d7f1a39840e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61409416"
 ---
 # <a name="install-updates-on-your-storsimple-virtual-array---azure-portal"></a>Installare aggiornamenti nell'array virtuale StorSimple - Portale di Azure
@@ -49,7 +49,7 @@ Eseguire i passaggi seguenti per scaricare l'aggiornamento del software da Micro
 
 #### <a name="to-download-the-update-or-the-hotfix"></a>Per scaricare l'aggiornamento o l'hotfix
 
-1. Avviare Internet Explorer e passare a [https://catalog.update.microsoft.com](https://catalog.update.microsoft.com).
+1. Avviare Internet Explorer [https://catalog.update.microsoft.com](https://catalog.update.microsoft.com)e passare a .
 
 2. Se si usa Microsoft Update Catalog nel computer per la prima volta, fare clic su **Installa** quando viene richiesto di installare il componente aggiuntivo Microsoft Update Catalog.
 
@@ -63,7 +63,7 @@ Eseguire i passaggi seguenti per scaricare l'aggiornamento del software da Micro
 
 5. Fare clic su **Visualizza carrello**.
 
-6. Fare clic su **Download**. Specificare o **selezionare** il percorso locale in cui salvare i file scaricati. Gli aggiornamenti vengono scaricati nel percorso specificato e inseriti in una sottocartella con lo stesso nome dell'aggiornamento. Inoltre, la cartella può essere copiata in una condivisione di rete raggiungibile dal dispositivo.
+6. Fare clic su **Download** Specificare o **sfogliare** il percorso locale in cui si desidera salvare il file scaricato. Gli aggiornamenti vengono scaricati nel percorso specificato e inseriti in una sottocartella con lo stesso nome dell'aggiornamento. Inoltre, la cartella può essere copiata in una condivisione di rete raggiungibile dal dispositivo.
 
 7. Aprire la cartella copiata e si dovrebbe vedere un file di pacchetto autonomo Microsoft Update `WindowsTH-KB3011067-x64`. Si usa questo file per installare l'hotfix o aggiornamento.
 
@@ -75,11 +75,11 @@ Usare questo metodo per installare gli aggiornamenti in un dispositivo che esegu
 
 #### <a name="to-install-the-update-or-the-hotfix"></a>Per installare l'aggiornamento o l'hotfix
 
-1. Nell'interfaccia utente Web locale, accedere a **Manutenzione** > **Aggiornamento software**.
+1. Nell'interfaccia utente Web locale, passare a**Aggiornamento software**di **manutenzione** > .
    
     ![aggiornamento dispositivo](./media/storsimple-virtual-array-install-update/update1m.png)
 
-2. In **Percorso del file di aggiornamento**, immettere il nome del file dell'aggiornamento o dell'hotfix. È possibile anche cercare il file di installazione dell'aggiornamento o dell'hotfix, se posizionato in una condivisione di rete. Fare clic su **Apply**.
+2. In **Percorso del file di aggiornamento**, immettere il nome del file dell'aggiornamento o dell'hotfix. È possibile anche cercare il file di installazione dell'aggiornamento o dell'hotfix, se posizionato in una condivisione di rete. Fare clic su **Applica**.
    
     ![aggiornamento dispositivo](./media/storsimple-virtual-array-install-update/update2m.png)
 
@@ -91,7 +91,7 @@ Usare questo metodo per installare gli aggiornamenti in un dispositivo che esegu
    
     ![aggiornamento dispositivo](./media/storsimple-virtual-array-install-update/update5m.png)
 
-5. Al termine del riavvio si viene indirizzati alla pagina **di accesso** . Per verificare che il software del dispositivo è stato aggiornato, nell'interfaccia utente Web locale passare a **Manutenzione** > **Aggiornamento software**. Dovrebbe essere visualizzata la versione del software **10.0.0.0.0.10288.0** per l'aggiornamento 0.3.
+5. Al termine del riavvio si viene indirizzati alla pagina **di accesso** . Per verificare che il software del dispositivo sia stato aggiornato, nell'interfaccia utente Web locale passare a**Aggiornamento software**di **manutenzione** > . Dovrebbe essere visualizzata la versione del software **10.0.0.0.0.10288.0** per l'aggiornamento 0.3.
    
    > [!NOTE]
    > Le versioni del software vengono riportate in modo leggermente diverso nell'interfaccia utente Web locale e nel portale di Azure. Ad esempio, l'interfaccia utente Web locale riporta **10.0.0.0.0.10288**, mentre il portale di Azure riporta **10.0.10288.0** per la stessa versione.
@@ -104,7 +104,7 @@ Se si esegue l'aggiornamento 0.2, si consiglia di installare gli aggiornamenti t
 
 [!INCLUDE [storsimple-virtual-array-install-update-via-portal](../../includes/storsimple-virtual-array-install-update-via-portal.md)]
 
-Al termine dell'installazione, quando lo stato del processo è 100%, passare al servizio Gestione dispositivi StorSimple. Selezionare **Dispositivi** e quindi selezionare e fare clic sul dispositivo che si vuole aggiornare nell'elenco di dispositivi connessi al servizio. Nel pannello **Impostazioni** andare alla sezione **Gestisci** e selezionare **Aggiornamenti del dispositivo**. La versione del software visualizzata dovrebbe essere **10.0.10288.0**.
+Al termine dell'installazione, quando lo stato del processo è 100%, passare al servizio Gestione dispositivi StorSimple. Selezionare **Dispositivi** e quindi selezionare e fare clic sul dispositivo che si vuole aggiornare nell'elenco di dispositivi connessi al servizio. Nel pannello **Impostazioni** andare alla sezione **Gestisci** e selezionare **Aggiornamenti del dispositivo**. La versione del software visualizzata deve essere **10.0.10288.0**.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

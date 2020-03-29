@@ -1,6 +1,6 @@
 ---
 title: Panoramica delle API .NET Standard di Inoltro di Azure | Microsoft Docs
-description: Questo articolo riepiloga alcuni dei principali Cenni preliminari sull'inoltro di Azure Connessioni ibride .NET Standard API.
+description: Questo articolo riepiloga alcune delle chiavi di una panoramica dell'API standard .NET delle connessioni ibride di inoltro di Azure.This article summarizes some of the key an overview of Azure Relay Hybrid Connections .NET Standard API.
 services: service-bus-relay
 documentationcenter: na
 author: spelluru
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/23/2018
 ms.author: spelluru
 ms.openlocfilehash: 18eaf2d2daae817107be6cdb0da9359bb5f9b4e9
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76514536"
 ---
 # <a name="azure-relay-hybrid-connections-net-standard-api-overview"></a>Panoramica dell'API .NET Standard per Connessioni ibride di Inoltro di Azure
@@ -27,7 +27,7 @@ In questo articolo vengono riepilogate alcune delle principali [API client](/dot
   
 ## <a name="relay-connection-string-builder-class"></a>Classe RelayConnectionStringBuilder
 
-La classe [RelayConnectionStringBuilder][RelayConnectionStringBuilder] formatta le stringhe di connessione specifiche per l'inoltro connessioni ibride. È possibile usarla per verificare il formato di una stringa di connessione o per generarne una da zero. Per un esempio, vedere il codice seguente.
+La classe [RelayConnectionStringBuilder][RelayConnectionStringBuilder] genera stringhe in un formato specifico per Connessioni ibride di inoltro di Azure. È possibile usarla per verificare il formato di una stringa di connessione o per generarne una da zero. Per un esempio, vedere il codice seguente.
 
 ```csharp
 var endpoint = "[Relay namespace]";
@@ -63,13 +63,13 @@ catch (ArgumentException ae)
 
 ## <a name="hybrid-connection-stream"></a>Flusso di connessione ibrida
 
-La classe [HybridConnectionStream][HCStream] è l'oggetto primario usato per inviare e ricevere dati da un endpoint di inoltro di Azure, indipendentemente dal fatto che si stia lavorando a un [HybridConnectionClient][HCClient]o a un [HybridConnectionListener][HCListener].
+La classe [HybridConnectionStream][HCStream] è l'oggetto principale usato per inviare e ricevere dati da un endpoint di Inoltro di Azure, sia che si lavori con un [HybridConnectionClient][HCClient] o un [HybridConnectionListener][HCListener].
 
 ### <a name="getting-a-hybrid-connection-stream"></a>Ottenere un flusso di connessione ibrida
 
 #### <a name="listener"></a>Listener
 
-Utilizzando un oggetto [HybridConnectionListener][HCListener] , è possibile ottenere un oggetto `HybridConnectionStream` come segue:
+Tramite un oggetto [HybridConnectionListener][HCListener] è possibile ottenere un oggetto `HybridConnectionStream` nel modo seguente:
 
 ```csharp
 // Use the RelayConnectionStringBuilder to get a valid connection string
@@ -82,7 +82,7 @@ var hybridConnectionStream = await listener.AcceptConnectionAsync();
 
 #### <a name="client"></a>Client
 
-Utilizzando un oggetto [HybridConnectionClient][HCClient] , è possibile ottenere un oggetto `HybridConnectionStream` come segue:
+Tramite un oggetto [HybridConnectionClient][HCClient] è possibile ottenere un oggetto `HybridConnectionStream` nel modo seguente:
 
 ```csharp
 // Use the RelayConnectionStringBuilder to get a valid connection string

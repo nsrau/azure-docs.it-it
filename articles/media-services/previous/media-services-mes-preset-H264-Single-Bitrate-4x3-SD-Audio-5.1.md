@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: b3d31116ec30415a741b6175e7a50ed0169f6073
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61463549"
 ---
 # <a name="h264-single-bitrate-4x3-sd-audio-51"></a>Codec video H.264 a bitrate singolo con risoluzione 4x3 SD e audio 5.1

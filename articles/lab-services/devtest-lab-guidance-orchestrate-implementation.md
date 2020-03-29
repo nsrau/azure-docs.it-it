@@ -14,10 +14,10 @@ ms.date: 02/11/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: e0ac09a68bda539fe7abd05fce1739d1a58a3c99
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "62127345"
 ---
 # <a name="orchestrate-the-implementation-of-azure-devtest-labs"></a>Orchestrare l'implementazione di Azure DevTest Labs
@@ -30,7 +30,7 @@ Questo articolo presuppone la presenza degli elementi seguenti prima di implemen
 
 - **Sottoscrizione di Azure**: il team del progetto pilota ha accesso alla distribuzione delle risorse in una sottoscrizione di Azure. Se i carichi di lavoro sono solo per sviluppo e test, è consigliabile selezionare l'offerta Sviluppo/test Enterprise, che include immagini disponibili aggiuntive e tariffe ridotte per macchine virtuali Windows.
 - **Accesso in locale**: se necessario, l'accesso in locale è già stato configurato. Per l'accesso in locale è possibile configurare una connessione VPN da sito a sito o una connessione ExpressRoute. L'installazione di una connettività tramite ExpressRoute richiede in genere molte settimane, è pertanto consigliato installarla prima di iniziare il progetto.
-- **Team del progetto pilota**: I team del progetto di sviluppo iniziale che usano DevTest Labs sono stati identificati insieme alle attività di sviluppo e test applicabili e sono stati stabiliti i requisiti, gli scopi e gli obiettivi per questi team.
+- **Team del progetto pilota**: il team del progetto di sviluppo iniziale che usa DevTest Labs è stato identificato insieme alle attività di sviluppo e test e sono stati stabiliti i requisiti, gli scopi e gli obiettivi di tale team.
 
 ## <a name="milestone-1-establish-initial-network-topology-and-design"></a>Attività cardine 1: stabilire il progetto e la topologia di rete iniziali
 La prima area su cui concentrarsi quando si distribuisce una soluzione Azure DevTest Labs riguarda l'installazione della connettività pianificata per le macchine virtuali. I passaggi seguenti delineano le procedure necessarie:

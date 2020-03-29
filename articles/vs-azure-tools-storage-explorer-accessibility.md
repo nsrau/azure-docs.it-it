@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/20/2018
 ms.author: marayerm
 ms.openlocfilehash: aa42d6b898a3cc474575f6c8dae65ff420fc8e30
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60457267"
 ---
 # <a name="storage-explorer-accessibility"></a>Accessibilità di Storage Explorer
@@ -27,11 +27,11 @@ ms.locfileid: "60457267"
 
 Storage Explorer supporta l'uso dell'utilità per la lettura dello schermo su Windows e Mac. Le utilità per la lettura dello schermo seguenti sono consigliate per ogni piattaforma:
 
-Piattaforma | Lettura dello schermo
+Piattaforma | Lettore schermo
 ---------|--------------
-Windows  | NVDA
+WINDOWS  | Nvda
 Mac      | Voice Over
-Linux    | (i lettori dello schermo non sono supportati in Linux)
+Linux    | (le utilità per la lettura dello schermo non sono supportate su Linux)
 
 Se si verifica un problema di accessibilità durante l'uso di Storage Explorer, [aprire un problema in GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
@@ -45,7 +45,7 @@ L'impostazione dello zoom aumenta la dimensione della maggior parte degli elemen
 
 ## <a name="high-contrast-themes"></a>Temi a contrasto elevato
 
-Storage Explorer dispone di due temi a contrasto elevato, **Chiaro a contrasto elevato** e **Scuro a contrasto elevato**. È possibile modificare il tema selezionando della Guida > dal menu di temi.
+Storage Explorer dispone di due temi a contrasto elevato, **Chiaro a contrasto elevato** e **Scuro a contrasto elevato**. È possibile modificare il tema selezionandolo dal menu Guida > temi.
 
 ![Sottomenu Temi][1]
 
@@ -80,22 +80,22 @@ Editor precedente        | **CTRL+PGSU**
 
 Comando  | Tasto di scelta rapida
 ---------|------------------
-Zoom avanti  | **CTRL+=**
-Zoom indietro | **CTRL +-**
+Zoom avanti  | **CONTROLLO**
+Zoom indietro | **Comando-**
 
 ### <a name="blob-and-file-share-editor-commands"></a>Comandi dell'editor per BLOB e condivisione file
 
 Comando | Tasto di scelta rapida
 --------|--------------------
-Indietro    | **ALT+freccia SINISTRA**
-Avanti | **ALT+freccia DESTRA**
+Indietro    | **Alt : Freccia SINISTRA**
+Avanti | **Alt : Freccia DESTRA**
 Su      | **ALT+freccia SU**
 
 ### <a name="editor-commands"></a>Comandi dell'editor
 
 Comando | Tasto di scelta rapida
 --------|------------------
-Copia    | **CTRL+C**
+Copiare    | **CTRL+C**
 Taglia     | **CTRL+X**
 Incolla   | **CTRL+V**
 Aggiorna  | **CTRL+R**
@@ -105,7 +105,7 @@ Aggiorna  | **CTRL+R**
 Comando                | Tasto di scelta rapida
 -----------------------|------------------
 Attiva/Disattiva strumenti di sviluppo | **F12**
-Ricarica                 | **CTRL + ALT + R**
+Ricarica                 | **ALT , CTRL e R**
 
 [0]: ./media/vs-azure-tools-storage-explorer-accessibility/Zoom.png
 [1]: ./media/vs-azure-tools-storage-explorer-accessibility/HighContrast.png

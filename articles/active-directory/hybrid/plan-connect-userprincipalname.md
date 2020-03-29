@@ -11,10 +11,10 @@ ms.service: active-directory
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c198b329f07c5c7459f25165b2dc0a3bfa032276
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60382131"
 ---
 # <a name="azure-ad-userprincipalname-population"></a>Popolamento di UserPrincipalName di Azure AD
@@ -25,7 +25,7 @@ Il valore dell'attributo UserPrincipalName è il nome utente di Azure AD per gli
 ## <a name="upn-terminology"></a>Terminologia UPN
 In questo articolo viene usata la terminologia seguente:
 
-|Nome|Descrizione|
+|Termine|Descrizione|
 |-----|-----|
 |Dominio iniziale|Il dominio predefinito (onmicrosoft.com) nel tenant di Azure AD. Ad esempio, contoso.onmicrosoft.com.|
 |MOERA (Microsoft Online Email Routing Address, indirizzo di routing della posta elettronica Microsoft Online)|Azure AD calcola l'indirizzo MOERA dall'attributo MailNickName di Azure AD e il dominio iniziale di Azure AD, ad esempio &lt;MailNickName&gt;&#64;&lt;dominio iniziale&gt;.|
@@ -52,7 +52,7 @@ In alcuni ambienti è possibile che gli utenti finali conoscano solo l'indirizzo
 
 L’ID di accesso alternativo consente di configurare un'esperienza di accesso in cui gli utenti possono accedere con un attributo diverso dal nome dell’entità utente, ad esempio la posta elettronica.
 
-Per abilitare l'ID di accesso alternativo con Azure AD, non sono necessari passaggi di configurazione aggiuntivi quando si usa Azure AD Connect. È possibile configurare l'ID alternativo direttamente dalla procedura guidata. Vedere la configurazione di accesso di Azure AD per gli utenti nella sezione Sincronizzazione. Nell'elenco a discesa **Nome dell'entità utente** selezionare l'attributo per l'ID di accesso alternativo.
+Per abilitare l'ID di accesso alternativo con Azure AD, non sono necessari passaggi di configurazione aggiuntivi quando si usa Azure AD Connect. È possibile configurare l'ID alternativo direttamente dalla procedura guidata. Vedere Configurazione dell'accesso ad Azure AD per gli utenti nella sezione Sincronizzazione.See Azure AD sign-in configuration for your users under the section Sync. Nell'elenco a discesa **Nome entità utente** selezionare l'attributo per ID di accesso alternativo.
 
 ![Domini non verificati](./media/plan-connect-userprincipalname/altloginid.png)  
 
@@ -177,6 +177,6 @@ Oggetto utente del tenant di Azure AD:
 - MailNickName: us4     
 - UserPrincipalName: us5@verified.contoso.com
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 - [Integrare le directory locali con Azure Active Directory](whatis-hybrid-identity.md)
 - [Installazione personalizzata di Azure AD Connect](how-to-connect-install-custom.md)

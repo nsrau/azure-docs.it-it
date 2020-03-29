@@ -1,6 +1,6 @@
 ---
 title: Informazioni sulla gestione del tempo in Analisi di flusso di Azure
-description: Informazioni su come funziona la gestione del tempo in analisi di flusso di Azure, come scegliere l'ora di inizio migliore, come gestire gli eventi in ritardo e in anticipo e le metriche di gestione del tempo.
+description: Scopri come funziona la gestione del tempo in Analisi di flusso di Azure, ad esempio come scegliere l'ora di inizio migliore, come gestire gli eventi in ritardo e iniziali e le metriche di gestione del tempo.
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.openlocfilehash: 367b7c2e1ce1c8b3c0dbc02003218b76096b409d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75354640"
 ---
 # <a name="understand-time-handling-in-azure-stream-analytics"></a>Informazioni sulla gestione del tempo in Analisi di flusso di Azure
@@ -22,11 +22,11 @@ Questo articolo illustra come prendere decisioni di progettazione per risolvere 
 
 Per strutturare meglio la discussione, è opportuno definire alcuni concetti di base:
 
-- **Ora dell'evento**: ora in cui si è verificato l'evento originale. Ad esempio, quando un'automobile in corsa su un'autostrada si avvicina a un casello.
+- **Ora evento**: L'ora in cui si è verificato l'evento originale. Ad esempio, quando un'automobile in corsa su un'autostrada si avvicina a un casello.
 
-- **Tempo di elaborazione**: ora in cui l'evento raggiunge il sistema di elaborazione e si osserva. Ad esempio, quando il sensore di un casello avvista l'automobile e il sistema impiega alcuni istanti ad elaborare i dati.
+- **Tempo di elaborazione**: Il momento in cui l'evento raggiunge il sistema di elaborazione e viene osservato. Ad esempio, quando il sensore di un casello avvista l'automobile e il sistema impiega alcuni istanti ad elaborare i dati.
 
-- **Watermark**: indicatore dell'ora dell'evento che indica fino a quali eventi punto sono stati inseriti nel processore di streaming. I limiti consentono al sistema di indicare chiaramente lo stato di inserimento degli eventi. Per la natura stessa dei flussi, i dati degli eventi in ingresso non si arrestano mai, quindi i limiti indicano l'avanzamento fino a un determinato punto del flusso.
+- **Filigrana**: Un indicatore del tempo dell'evento che indica fino a quale punto gli eventi sono stati in ingresso nel processore di streaming. I limiti consentono al sistema di indicare chiaramente lo stato di inserimento degli eventi. Per la natura stessa dei flussi, i dati degli eventi in ingresso non si arrestano mai, quindi i limiti indicano l'avanzamento fino a un determinato punto del flusso.
 
    Il concetto di limite è importante. I limiti consentono ad Analisi di flusso di Azure di determinare quando il sistema è in grado di produrre risultati completi, corretti e ripetibili che non è necessario ritirare. L'elaborazione può essere eseguita in un modo che garantisce prevedibilità e ripetibilità. Ad esempio, se è necessario ripetere un conteggio per una qualche condizione di gestione degli errori, i limiti sono punti di inizio e fine sicuri.
 
@@ -44,7 +44,7 @@ Analisi di flusso di Azure offre due opzioni di selezione dell'ora dell'evento:
 
 2. **Tempo applicazione** (o Ora dell'evento)
 
-   Il tempo applicazione viene assegnato quando l'evento viene generato e fa parte del payload dell'evento. Per elaborare gli eventi in base al tempo applicazione, usare la clausola **Timestamp by** nella query di selezione. Se la clausola **Timestamp by** è assente, gli eventi vengono elaborati in base all'ora di arrivo.
+   Il tempo applicazione viene assegnato quando l'evento viene generato e fa parte del payload dell'evento. Per elaborare gli eventi in base all'ora dell'applicazione, utilizzare la clausola **Timestamp by** nella query di selezione. Se la clausola **Timestamp by** è assente, gli eventi vengono elaborati in base all'ora di arrivo.
 
    Quando è coinvolta la logica temporale, è importante usare un timestamp nel payload. In questo modo è possibile tenere in considerazione gli eventuali ritardi nel sistema di origine o nella rete.
 
@@ -128,7 +128,7 @@ I processi di Analisi di flusso offrono diverse opzioni di **Ordinamento eventi*
 
 È possibile osservare diversi effetti delle tolleranze di ordinamento temporale degli eventi tramite le [metriche dei processi di Analisi di flusso](stream-analytics-monitoring.md). Le metriche seguenti sono rilevanti:
 
-|Metrica  | Description  |
+|Metrica  | Descrizione  |
 |---------|---------|
 | **Eventi non in ordine** | Indica il numero di eventi ricevuti non in ordine, che sono stati eliminati o a cui è stato assegnato un timestamp modificato. Questa metrica è interessata direttamente dalla configurazione dell'impostazione **Eventi non in ordine** nella pagina **Ordinamento eventi** del processo nel portale di Azure. |
 | **Ultimi eventi di input** | Indica il numero di eventi arrivati in ritardo dall'origine. Questa metrica include gli eventi che sono stati eliminati o di cui è stato modificato il timestamp. È interessata direttamente dalla configurazione dell'impostazione **Eventi pervenuti in ritardo** nella pagina **Ordinamento eventi** del processo nel portale di Azure. |
@@ -163,7 +163,7 @@ Analisi di flusso di Azure usa lo stato del limite come unico trigger per produr
 
 Quando si usano [funzioni di aggregazione finestra](stream-analytics-window-functions.md), il servizio produce output solo alla fine delle finestre. In alcuni casi gli utenti potrebbero avere l'esigenza di visualizzare le funzioni di aggregazione parziali generate dalle finestre. Le funzioni di aggregazione parziali non sono tuttavia attualmente supportate in Analisi di flusso di Azure.
 
-In altre soluzioni di streaming gli eventi di output potrebbero materializzarsi in corrispondenza di vari punti di trigger, a seconda delle circostanze esterne. In alcune soluzioni è possibile che gli eventi di output per un determinato intervallo di tempo vengano generati più volte. Man mano che i valori di input vengono ridefiniti, i risultati aggregati diventano più precisi. Gli eventi potrebbero essere soggetti a un'iniziale previsione e quindi essere rivisti nel tempo. Ad esempio, quando un determinato dispositivo è offline, un sistema potrebbe usare un valore stimato. Quando, successivamente, il dispositivo torna online, i dati dell'evento effettivi potrebbero essere inclusi nel flusso di input. I risultati di output dell'elaborazione di tale intervallo di tempo producono un output più preciso.
+In altre soluzioni di streaming gli eventi di output potrebbero materializzarsi in corrispondenza di vari punti di trigger, a seconda delle circostanze esterne. In alcune soluzioni è possibile che gli eventi di output per un determinato intervallo di tempo possano essere generati più volte. Man mano che i valori di input vengono ridefiniti, i risultati aggregati diventano più precisi. Gli eventi potrebbero essere soggetti a un'iniziale previsione e quindi essere rivisti nel tempo. Ad esempio, quando un determinato dispositivo è offline, un sistema potrebbe usare un valore stimato. Quando, successivamente, il dispositivo torna online, i dati dell'evento effettivi potrebbero essere inclusi nel flusso di input. I risultati di output dell'elaborazione di tale intervallo di tempo producono un output più preciso.
 
 ## <a name="illustrated-example-of-watermarks"></a>Esempio illustrato di limiti
 
@@ -208,7 +208,7 @@ In questa illustrazione vengono usate le tolleranze seguenti:
 
    4. Quando viene elaborato il sesto evento (device3), l'ora di arrivo (12:17) e l'ora dell'evento (12:12) sono sotto il livello limite. L'ora dell'evento viene regolata sul livello limite (12:17).
 
-   5. Quando viene elaborato il dodicesimo evento (3), l'ora di arrivo (12:27) è 6 minuti prima dell'ora dell'evento (12:21). Viene applicato il criterio di arrivo in ritardo. L'ora dell'evento viene modificata (12:22) e, poiché il nuovo valore è sopra il limite (12:21), non vengono applicate ulteriori modifiche.
+   5. Quando viene elaborato il dicidimo evento (device3), l'ora di arrivo (12:27) è 6 minuti prima dell'ora dell'evento (12:21). Viene applicato il criterio di arrivo in ritardo. L'ora dell'evento viene modificata (12:22) e, poiché il nuovo valore è sopra il limite (12:21), non vengono applicate ulteriori modifiche.
 
 2. Seconda illustrazione dell'avanzamento del limite senza un criterio di arrivo in anticipo:
 

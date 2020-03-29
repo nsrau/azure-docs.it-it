@@ -1,7 +1,7 @@
 ---
-title: Metriche di servizi multimediali e log di diagnostica con monitoraggio di Azure
+title: Metriche di Servizi multimediali e log di diagnostica con Monitoraggio di AzureMedia Services metrics and diagnostic logs with Azure Monitor
 titleSuffix: Azure Media Services
-description: Informazioni su come monitorare le metriche e i log di diagnostica di servizi multimediali di Azure tramite monitoraggio di Azure.
+description: Informazioni su come monitorare le metriche di Servizi multimediali di Azure tramite Monitoraggio di Azure.Learn how to monitor Azure Media Services metrics and diagnostic logs via Azure Monitor.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,103 +15,103 @@ ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
 ms.openlocfilehash: f075362f976e6abb26c9781c4b0cdeb7912c0862
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76514035"
 ---
-# <a name="monitor-media-services-metrics-and-diagnostic-logs-via-azure-monitor"></a>Monitorare le metriche di servizi multimediali e i log di diagnostica tramite monitoraggio di Azure
+# <a name="monitor-media-services-metrics-and-diagnostic-logs-via-azure-monitor"></a>Monitor Media Services metrics and diagnostic logs via Azure Monitor
 
-[Monitoraggio di Azure](../../azure-monitor/overview.md) consente di monitorare le metriche e i log di diagnostica che consentono di comprendere le prestazioni delle app. Tutti i dati raccolti da monitoraggio di Azure si integrano in uno dei due tipi fondamentali: metriche e log. È possibile monitorare i log di diagnostica di servizi multimediali e creare avvisi e notifiche per le metriche e i log raccolti. È possibile visualizzare e analizzare i dati di metrica usando [Esplora metriche](../../azure-monitor/platform/metrics-getting-started.md). È possibile inviare log ad [archiviazione di Azure](https://azure.microsoft.com/services/storage/), trasmetterli a [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/), esportarli in [log Analytics](https://azure.microsoft.com/services/log-analytics/)o usare servizi di terze parti.
+[Monitoraggio di Azure](../../azure-monitor/overview.md) consente di monitorare le metriche e i log di diagnostica che consentono di comprendere le prestazioni delle app. Tutti i dati raccolti da Monitoraggio di Azure si adattano a uno dei due tipi fondamentali: metriche e log. È possibile monitorare i log di diagnostica di Servizi multimediali e creare avvisi e notifiche per le metriche e i log raccolti. È possibile visualizzare e analizzare i dati delle metriche utilizzando [Esplora metriche.](../../azure-monitor/platform/metrics-getting-started.md) È possibile inviare log ad [Archiviazione di Azure,](https://azure.microsoft.com/services/storage/)trasmetterli in streaming agli hub eventi di [Azure,](https://azure.microsoft.com/services/event-hubs/)esportarli in [Log Analytics](https://azure.microsoft.com/services/log-analytics/)o usare servizi di terze parti.
 
-Per una panoramica dettagliata, vedere [metriche di monitoraggio di Azure](../../azure-monitor/platform/data-platform.md) e [log di diagnostica di monitoraggio di Azure](../../azure-monitor/platform/platform-logs-overview.md).
+Per una panoramica dettagliata, vedere [Metriche di monitoraggio](../../azure-monitor/platform/data-platform.md) di Azure e Log di [diagnostica di Monitoraggio di Azure.For](../../azure-monitor/platform/platform-logs-overview.md)a detailed overview, see Azure Monitor Metrics and Azure Monitor Diagnostic logs .
 
-In questo argomento vengono illustrate le [metriche](#media-services-metrics) e i [log di diagnostica](#media-services-diagnostic-logs)di servizi multimediali supportati.
+In questo argomento vengono illustrati i log di diagnostica [di Media Services Metrics](#media-services-metrics) and Media [Services](#media-services-diagnostic-logs)supportate.
 
-## <a name="media-services-metrics"></a>Metriche di servizi multimediali
+## <a name="media-services-metrics"></a>Metriche di Servizi multimediali
 
-Le metriche vengono raccolte a intervalli regolari indipendentemente dal fatto che il valore venga modificato. Sono utili per la generazione di avvisi perché possono essere campionate di frequente e perché un avviso può essere generato rapidamente con una logica relativamente semplice. Per informazioni su come creare avvisi delle metriche, vedere [creare, visualizzare e gestire gli avvisi delle metriche con monitoraggio di Azure](../../azure-monitor/platform/alerts-metric.md).
+Le metriche vengono raccolte a intervalli regolari indipendentemente dal fatto che il valore venga modificato. Sono utili per la generazione di avvisi perché possono essere campionate di frequente e perché un avviso può essere generato rapidamente con una logica relativamente semplice. Per informazioni su come creare avvisi di metrica, vedere [Creare, visualizzare e gestire avvisi di metrica tramite Monitoraggio di Azure.](../../azure-monitor/platform/alerts-metric.md)
 
-Servizi multimediali supporta le metriche di monitoraggio per le risorse seguenti:
+Servizi multimediali supporta il monitoraggio delle metriche per le risorse seguenti:Media Services supports monitoring metrics for the following resources:
 
 * Account
 * Endpoint di streaming
 
 ### <a name="account"></a>Account
 
-È possibile monitorare le metriche dell'account seguenti.
+È possibile monitorare le seguenti metriche dell'account.
 
-|Nome metrica|Nome visualizzato|Description|
+|Nome metrica|Nome visualizzato|Descrizione|
 |---|---|---|
-|AssetCount|Conteggio asset|Asset nell'account.|
-|AssetQuota|Quota asset|Quota di asset nell'account.|
-|AssetQuotaUsedPercentage|Percentuale di utilizzo della quota di asset|Percentuale della quota di asset già in uso.|
-|ContentKeyPolicyCount|Conteggio dei criteri della chiave simmetrica|Criteri chiave simmetrica nell'account.|
-|ContentKeyPolicyQuota|Quota dei criteri della chiave simmetrica|Quota dei criteri chiave simmetrica nell'account.|
-|ContentKeyPolicyQuotaUsedPercentage|Percentuale di utilizzo della quota dei criteri della chiave simmetrica|Percentuale della quota dei criteri della chiave simmetrica già utilizzata.|
-|StreamingPolicyCount|Conteggio dei criteri di flusso|Criteri di streaming nell'account.|
-|StreamingPolicyQuota|Quota dei criteri di streaming|Quota dei criteri di streaming nell'account.|
-|StreamingPolicyQuotaUsedPercentage|Percentuale di utilizzo della quota dei criteri di flusso|Percentuale della quota dei criteri di flusso già utilizzata.|
+|AssetCount (conteggio degli elementi)|Conteggio risorse|Risorse nel tuo account.|
+|AssetQuota|Quota di attività|Quota di asset nel tuo account.|
+|AssetQuotaUsedPercentual|Quota di attività utilizzata percentuale|Percentuale della quota di Asset già utilizzata.|
+|ContentKeyPolicyCount|Conteggio criteri chiave simmetrica|Norme sulla chiave dei contenuti nel tuo account.|
+|ContentKeyPolicyQuota|Quota dei criteri della chiave simmetrica|Quota Dei criteri chiave del contenuto nel tuo account.|
+|ContentKeyPolicyQuotaUsedPercentage|Percentuale di quota utilizzata per la chiave di contenuto|Percentuale della quota dei criteri chiave simmetrica già utilizzata.|
+|StreamingPolicyCount|Conteggio criteri di streaming|Criteri di streaming nel tuo account.|
+|StreamingPolicyQuota|Quota di politica di streaming|Quota criteri di streaming nel tuo account.|
+|StreamingPolicyQuotaUsedPercentage|Percentuale di quota utilizzata per i criteri di streaming|Percentuale della quota dei criteri di streaming già utilizzata.|
 
-È inoltre consigliabile esaminare [le quote e le limitazioni dell'account](limits-quotas-constraints.md).
+È inoltre necessario esaminare [le quote e le limitazioni dell'account](limits-quotas-constraints.md).
 
 ### <a name="streaming-endpoint"></a>Endpoint di streaming
 
-Sono supportate le metriche seguenti per gli [endpoint di streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints) di servizi multimediali:
+Sono supportate le metriche seguenti per gli endpoint di streaming di Servizi multimediali:The following Media Services [Streaming Endpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints) metrics are supported:
 
-|Nome metrica|Nome visualizzato|Description|
+|Nome metrica|Nome visualizzato|Descrizione|
 |---|---|---|
-|Richieste|Richieste|Specifica il numero totale di richieste HTTP gestite dall'endpoint di streaming.|
-|Egress|Egress|Numero totale di byte in uscita. Ad esempio, byte trasmessi dall'endpoint di streaming.|
-|SuccessE2ELatency|Latenza end-to-end riuscita|Durata del periodo di tempo durante il quale l'endpoint di streaming ha ricevuto la richiesta al momento dell'invio dell'ultimo byte della risposta.|
+|Requests|Requests|Fornisce il numero totale di richieste HTTP servite dall'endpoint di streaming.|
+|Egress|Egress|Numero totale di byte in uscita. Ad esempio, i byte trasmessi dall'endpoint di streaming.|
+|SuccessE2ELatency|Latenza end-to-end riuscita|Durata del tempo che deve passare dal momento in cui l'endpoint di streaming ha ricevuto la richiesta fino all'ultimo byte della risposta inviata.|
 
-### <a name="why-would-i-want-to-use-metrics"></a>Perché si vuole usare la metrica?
+### <a name="why-would-i-want-to-use-metrics"></a>Perché dovrei voler usare le metriche?
 
-Di seguito sono riportati alcuni esempi di come le metriche di monitoraggio di servizi multimediali possano aiutarti a comprendere le prestazioni delle tue app. Di seguito sono riportate alcune domande che possono essere risolte con le metriche di servizi multimediali:
+Ecco alcuni esempi di come il monitoraggio delle metriche di Servizi multimediali può aiutarti a comprendere le prestazioni delle tue app. Alcune domande che possono essere affrontate con le metriche di Servizi multimediali sono:Some questions that can be addressed with Media Services metrics are:
 
-* Ricerca per categorie monitorare l'endpoint di streaming standard per capire quando sono stati superati i limiti?
-* Ricerca per categorie sa se si dispone di un numero sufficiente di unità di scala di endpoint di streaming Premium?
-* Come è possibile impostare un avviso per stabilire quando aumentare la scalabilità verticale degli endpoint di streaming?
-* Ricerca per categorie impostare un avviso per stabilire quando è stato raggiunto il numero massimo di uscite configurato per l'account?
-* Come è possibile visualizzare la suddivisione delle richieste in errore e la causa dell'errore?
-* Come è possibile vedere il numero di richieste HLS o DASH da estrarre dal pacchetto?
-* Ricerca per categorie impostare un avviso per stabilire quando è stato raggiunto il valore soglia di numero di richieste non riuscite?
+* Come faccio a monitorare il mio endpoint di streaming standard per sapere quando ho superato i limiti?
+* Come faccio a sapere se ho un numero sufficiente di unità di scala degli endpoint Premium Streaming?
+* Come è possibile impostare un avviso per sapere quando aumentare la scalabilità degli endpoint di streaming?
+* Come si imposta un avviso per sapere quando è stata raggiunta l'uscita massima configurata per l'account?
+* Come è possibile visualizzare l'errore di suddivisione delle richieste e che causa l'errore?
+* Come posso vedere quante richieste HLS o DASH vengono estratte dal packager?
+* Come si imposta un avviso per sapere quando è stato raggiunto il valore di soglia di - di richieste non riuscite?
 
 ### <a name="example"></a>Esempio
 
-Vedere [come monitorare le metriche di servizi multimediali](media-services-metrics-howto.md).
+Vedere [Come monitorare](media-services-metrics-howto.md)le metriche di Servizi multimediali .
 
-## <a name="media-services-diagnostic-logs"></a>Log di diagnostica di servizi multimediali
+## <a name="media-services-diagnostic-logs"></a>Registri diagnostici di Servizi multimediali
 
-I log di diagnostica forniscono dati avanzati e frequenti sul funzionamento di una risorsa di Azure. Per ulteriori informazioni, vedere [come raccogliere e utilizzare i dati di log dalle risorse di Azure](../../azure-monitor/platform/platform-logs-overview.md).
+I log di diagnostica forniscono dati dettagliati e frequenti sul funzionamento di una risorsa di Azure.Diagnostic logs provide rich and frequent data about the operation of an Azure resource. Per altre informazioni, vedere Come raccogliere e usare i dati di log dalle risorse di Azure.For more information, see [How to collect and consume log data from your Azure resources.](../../azure-monitor/platform/platform-logs-overview.md)
 
-Servizi multimediali supporta i log di diagnostica seguenti:
+Servizi multimediali supporta i registri di diagnostica seguenti:Media Services supports the following diagnostic logs:
 
-* Distribuzione delle chiavi
+* Consegna delle chiavi
 
-### <a name="key-delivery"></a>Distribuzione delle chiavi
+### <a name="key-delivery"></a>Consegna delle chiavi
 
-|Nome|Description|
+|Nome|Descrizione|
 |---|---|
-|Richiesta del servizio di distribuzione delle chiavi|Log che mostrano le informazioni della richiesta del servizio di distribuzione delle chiavi. Per ulteriori informazioni, vedere [schemi](media-services-diagnostic-logs-schema.md).|
+|Richiesta del servizio di consegna delle chiavi|Registri che mostrano le informazioni sulla richiesta del servizio di distribuzione delle chiavi. Per ulteriori informazioni, vedere [schemi](media-services-diagnostic-logs-schema.md).|
 
-### <a name="why-would-i-want-to-use-diagnostics-logs"></a>Perché si vogliono usare I log di diagnostica?
+### <a name="why-would-i-want-to-use-diagnostics-logs"></a>Perché dovrei usare i log di diagnostica?
 
-Di seguito sono riportate alcune informazioni che è possibile esaminare con i log di diagnostica per il recapito
+Alcuni aspetti che è possibile esaminare con i log di diagnostica di recapito delle chiavi sono:Some things that you can examine with key delivery diagnostic logs are:
 
-* Vedere il numero di licenze recapitate dal tipo di DRM.
-* Vedere il numero di licenze recapitate dai criteri.
-* Vedere errori per DRM o tipo di criteri.
-* Vedere il numero di richieste di licenza non autorizzate dai client.
+* Vedere il numero di licenze fornite dal tipo DRM.
+* Vedere il numero di licenze fornite dai criteri.
+* Visualizzare gli errori per DRM o tipo di criterio.
+* Visualizzare il numero di richieste di licenza non autorizzate dai client.
 
 ### <a name="example"></a>Esempio
 
-Vedere [come monitorare i log di diagnostica del servizio multimediale](media-services-diagnostic-logs-howto.md).
+Vedere [Come monitorare i log di diagnostica del servizio multimediale](media-services-diagnostic-logs-howto.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Come raccogliere e utilizzare i dati di log dalle risorse di Azure](../../azure-monitor/platform/platform-logs-overview.md)
-* [Creare, visualizzare e gestire gli avvisi delle metriche con Monitoraggio di Azure](../../azure-monitor/platform/alerts-metric.md)
-* [Come monitorare le metriche di servizi multimediali](media-services-metrics-howto.md)
-* [Come monitorare i log di diagnostica del servizio multimediale](media-services-diagnostic-logs-howto.md)
+* [Come raccogliere e usare i dati di log dalle risorse di AzureHow to collect and consume log data from your Azure resources](../../azure-monitor/platform/platform-logs-overview.md)
+* [Creare, visualizzare e gestire gli avvisi delle metriche tramite Monitoraggio di AzureCreate, view, and manage metric alerts using Azure Monitor](../../azure-monitor/platform/alerts-metric.md)
+* [Come monitorare le metriche di Servizi multimediali](media-services-metrics-howto.md)
+* [Come monitorare i log di diagnostica del servizio multimedialeHow to monitor Media Service diagnostic logs](media-services-diagnostic-logs-howto.md)

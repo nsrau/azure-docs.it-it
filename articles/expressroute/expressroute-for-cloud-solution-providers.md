@@ -9,10 +9,10 @@ ms.date: 10/10/2016
 ms.author: ricarlse
 ms.custom: seodec18
 ms.openlocfilehash: a3bd48f32dfcee1a666ff842cfcab2384a5459ec
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67849257"
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>ExpressRoute per Cloud Solution Provider (CSP)
@@ -31,7 +31,7 @@ Microsoft Azure fornisce un numero crescente di servizi che è possibile offrire
 Microsoft fornisce ai CSP le API per gestire le sottoscrizioni dei clienti di Azure consentendo l'integrazione programmatica con i sistemi di gestione dei servizi. Le funzionalità di gestione supportate sono disponibili [qui](https://msdn.microsoft.com/library/partnercenter/dn974944.aspx).
 
 ## <a name="microsoft-azure-resource-management"></a>Gestione di risorse di Microsoft Azure
-La modalità di gestione della sottoscrizione dipende dal contratto stipulato con il cliente. Il CSP può gestire direttamente la creazione e la manutenzione delle risorse oppure il cliente può mantenere il controllo della sottoscrizione di Microsoft Azure e creare le risorse di Azure necessarie. Se il cliente gestisce la creazione delle risorse nella propria sottoscrizione di Microsoft Azure, potrà scegliere tra i modelli di *connessione indiretta* e *connessione diretta*. Questi modelli vengono descritti in dettaglio nelle sezioni seguenti.  
+La modalità di gestione della sottoscrizione dipende dal contratto stipulato con il cliente. Il CSP può gestire direttamente la creazione e la manutenzione delle risorse oppure il cliente può mantenere il controllo della sottoscrizione di Microsoft Azure e creare le risorse di Azure necessarie. Se il cliente gestisce la creazione di risorse nella sottoscrizione di Microsoft Azure, utilizzerà uno dei due modelli: il modello "*Connect-Through*" o "*Direct-To*". Questi modelli vengono descritti in dettaglio nelle sezioni seguenti.  
 
 ### <a name="connect-through-model"></a>Modello di connessione indiretta
 ![testo alternativo](./media/expressroute-for-cloud-solution-providers/connect-through.png)  
@@ -62,7 +62,7 @@ La scelta tra queste due opzioni si basa sulle esigenze del cliente e sulla prop
 
 * **Controllo degli accessi in base al ruolo** : il controllo degli accessi in base al ruolo si basa su Azure Active Directory.  Per altre informazioni sul controllo degli accessi in base al ruolo di Azure, vedere [qui](../role-based-access-control/role-assignments-portal.md).
 * **Rete** : include diversi argomenti sulla rete in Microsoft Azure.
-* **Azure Active Directory (Azure AD)** : Azure AD consente la gestione delle identità per Microsoft Azure e applicazioni SaaS di terze parti. Per altre informazioni su Azure AD, vedere [qui](https://azure.microsoft.com/documentation/services/active-directory/).  
+* **Azure Active Directory (Azure AD)**: Azure AD consente la gestione delle identità per Microsoft Azure e applicazioni SaaS di terze parti. Per altre informazioni su Azure AD, vedere [qui](https://azure.microsoft.com/documentation/services/active-directory/).  
 
 ## <a name="network-speeds"></a>Velocità di rete
 ExpressRoute supporta le velocità di rete comprese tra 50 MB/s e 10 GB/s. Ciò consente ai clienti di acquistare la quantità di larghezza di banda di rete necessaria per un ambiente univoco.
@@ -88,14 +88,14 @@ In una configurazione di connessione diretta il cliente ha già una connessione 
 ## <a name="expressroute-routing-domains"></a>Domini di routing ExpressRoute
 ExpressRoute offre tre domini di routing: peer pubblico, privato e Microsoft. Ogni dominio di routing è configurato con router identici in una configurazione di tipo attivo-attivo per offrire una disponibilità elevata. Per altri dettagli sui domini di routing ExpressRoute, vedere [qui](expressroute-circuit-peerings.md).
 
-È possibile definire filtri di route personalizzati per consentire solo le route desiderate o necessarie. Per altre informazioni o per informazioni su come apportare queste modifiche vedere l'articolo: [Creare e modificare il routing per un circuito ExpressRoute con PowerShell](expressroute-howto-routing-classic.md) per altri dettagli sui filtri di routing.
+È possibile definire filtri di route personalizzati per consentire solo le route desiderate o necessarie. Per altre informazioni o per scoprire come apportare queste modifiche, vedere l'articolo [Creare e modificare il routing per un circuito ExpressRoute usando PowerShell](expressroute-howto-routing-classic.md) per altri dettagli sui filtri di routing.
 
 > [!NOTE]
-> Per il peer Microsoft e pubblico, la connettività deve essere stabilita con un indirizzo IP pubblico di proprietà del cliente o del CSP e deve seguire tutte le regole definite. Per altre informazioni, vedere la pagina [Prerequisiti per ExpressRoute](expressroute-prerequisites.md) .  
+> Per il peer Microsoft e pubblico, la connettività deve essere stabilita con un indirizzo IP pubblico di proprietà del cliente o del CSP e deve seguire tutte le regole definite. Per altre informazioni, vedere la pagina [Prerequisiti ExpressRoute.For](expressroute-prerequisites.md) more information, see the ExpressRoute Prerequisites page.  
 > 
 > 
 
-## <a name="routing"></a>Routing
+## <a name="routing"></a>Routing.
 ExpressRoute si connette alle reti di Azure tramite il gateway di rete virtuale di Azure. I gateway di rete forniscono il routing per le reti virtuali di Azure.
 
 Con la creazione delle reti virtuali di Azure viene creata anche una tabella di routing predefinita che consente alla rete virtuale di indirizzare il traffico alle/dalle subnet della rete virtuale. Se la tabella di route predefinita non è sufficiente per la soluzione, possono essere create route personalizzate per instradare il traffico in uscita ad appliance personalizzate o per bloccare le route a reti esterne o subnet specifiche.
@@ -120,7 +120,7 @@ A seconda del modello in uso, connessione diretta o connessione indiretta, il cl
 1. **Isolamento del cliente** : la piattaforma Azure fornisce l'isolamento del cliente archiviando l'ID cliente e le informazioni sulla rete virtuale in un database sicuro, che viene usato per incapsulare il traffico di ogni cliente in un tunnel GRE.
 2. **Gruppo di sicurezza di rete (NSG)** : sono disponibili regole per definire il traffico consentito in entrata e in uscita dalle subnet all'interno delle reti virtuali in Azure. Per impostazione predefinita, il gruppo NSG contiene regole di blocco per bloccare il traffico da Internet alla rete virtuale e regole di consenso per il traffico all'interno di una rete virtuale. Per altre informazioni sui gruppi di sicurezza di rete, vedere [qui](https://azure.microsoft.com/blog/network-security-groups/).
 3. **Imponi tunneling** : opzione per reindirizzare tramite la connessione ExpressRoute il traffico associato a Internet che ha origine in Azure al data center locale. Per altre informazioni su Imponi tunneling, vedere [qui](expressroute-routing.md#advertising-default-routes).  
-4. **Crittografia**: anche se i circuiti ExpressRoute sono dedicati a un cliente specifico, esiste la possibilità che il provider di rete possa essere violato, consentendo a un intruso di esaminare il traffico dei pacchetti. Per risolvere il problema, un cliente o un CSP può crittografare il traffico sulla connessione definendo criteri della modalità tunnel IPSec per tutto il traffico che scorre tra le risorse locali e le risorse di Azure. Vedere la modalità tunnel IPSec facoltativa per il cliente 1 sopra nella figura 5: Sicurezza di ExpressRoute. La seconda opzione consiste nell'usare un'appliance firewall in ogni endpoint del circuito ExpressRoute. A questo scopo è necessario installare VM/appliance firewall di terze parti aggiuntive in entrambe le estremità per crittografare il traffico sul circuito ExpressRoute.
+4. **Crittografia**: anche se i circuiti ExpressRoute sono dedicati a un cliente specifico, esiste la possibilità che il provider di rete possa essere violato, consentendo a un intruso di esaminare il traffico dei pacchetti. Per risolvere il problema, un cliente o un CSP può crittografare il traffico sulla connessione definendo criteri della modalità tunnel IPSec per tutto il traffico che scorre tra le risorse locali e le risorse di Azure. Vedere la modalità tunnel IPSec facoltativa per il cliente 1 sopra nella Figura 5: Sicurezza di ExpressRoute. La seconda opzione consiste nell'usare un'appliance firewall in ogni endpoint del circuito ExpressRoute. A questo scopo è necessario installare VM/appliance firewall di terze parti aggiuntive in entrambe le estremità per crittografare il traffico sul circuito ExpressRoute.
 
 ![testo alternativo](./media/expressroute-for-cloud-solution-providers/expressroute-security.png)  
 

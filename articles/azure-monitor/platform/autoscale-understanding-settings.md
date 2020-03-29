@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 12/18/2017
 ms.subservice: autoscale
 ms.openlocfilehash: 9a2b94208de7ce490a0e7acfbb71175b4a7c846e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75364306"
 ---
 # <a name="understand-autoscale-settings"></a>Informazioni sulle impostazioni di scalabilità automatica
@@ -85,7 +85,7 @@ Per illustrare lo schema delle impostazioni di scalabilità automatica, viene us
 }
 ```
 
-| Sezione | Nome dell'elemento | Description |
+| Sezione | Nome dell'elemento | Descrizione |
 | --- | --- | --- |
 | Impostazione | ID | ID risorsa dell'impostazione di scalabilità automatica. Le impostazioni di scalabilità automatica sono una risorsa di Azure Resource Manager. |
 | Impostazione | name | Nome dell'impostazione di scalabilità automatica. |
@@ -106,8 +106,8 @@ Per illustrare lo schema delle impostazioni di scalabilità automatica, viene us
 | metricTrigger | timeAggregation | Metodo di aggregazione usato per aggregare le metriche campionate. Ad esempio, **TimeAggregation = "Average"** deve aggregare le metriche campionate in base alla media. Nel caso precedente considerare i dieci esempi da 1 minuto e calcolarne la media. |
 | regola | scaleAction | Azione da intraprendere quando viene attivato l'elemento metricTrigger della regola. |
 | scaleAction | direction | "Increase" per aumentare, "Decrease" per ridurre.|
-| scaleAction | Valore | Indica di quanto aumentare o ridurre la capacità della risorsa. |
-| scaleAction | cooldown | Tempo di attesa necessario dopo un'operazione di ridimensionamento prima di avviarne un'altra. Se, ad esempio, **cooldown = "PT10M"** , la funzionalità di ridimensionamento automatico non tenta un nuovo ridimensionamento per altri dieci minuti. Il raffreddamento consente alle metriche di stabilizzarsi dopo l'aggiunta o la rimozione di istanze. |
+| scaleAction | value | Indica di quanto aumentare o ridurre la capacità della risorsa. |
+| scaleAction | cooldown | Tempo di attesa necessario dopo un'operazione di ridimensionamento prima di avviarne un'altra. Se, ad esempio, **cooldown = "PT10M"**, la funzionalità di ridimensionamento automatico non tenta un nuovo ridimensionamento per altri dieci minuti. Il raffreddamento consente alle metriche di stabilizzarsi dopo l'aggiunta o la rimozione di istanze. |
 
 ## <a name="autoscale-profiles"></a>Profili di scalabilità automatica
 
@@ -286,13 +286,13 @@ La funzionalità di scalabilità automatica usa la sequenza seguente per selezio
 
 ### <a name="how-does-autoscale-evaluate-multiple-rules"></a>Valutazione di più regole con la scalabilità automatica
 
-Dopo che la funzionalità di scalabilità automatica ha determinato il profilo da eseguire, avvia la valutazione di tutte le regole di aumento della capacità nel profilo. Si tratta delle regole con **direction = "Increase"** .
+Dopo che la funzionalità di scalabilità automatica ha determinato il profilo da eseguire, avvia la valutazione di tutte le regole di aumento della capacità nel profilo. Si tratta delle regole con **direction = "Increase"**.
 
 Se vengono attivate una o più regole di aumento, la funzionalità di scalabilità automatica calcola la nuova capacità in base all'elemento **scaleAction** di ogni regola. La funzionalità aumenta quindi la capacità al valore massimo, per garantire la disponibilità del servizio.
 
 Ad esempio, si supponga che vi sia un set di scalabilità di macchine virtuali con capacità corrente pari a 10. Esistono due regole di aumento: una che aumenta la capacità del 10% e una che la aumenta di 3 conteggi. la prima regola restituirà una nuova capacità pari a 11 e la seconda regola restituirà una capacità pari a 13. Per garantire la disponibilità del servizio, la funzionalità di scalabilità automatica sceglie l'azione che restituisce la capacità massima, ovvero la seconda regola.
 
-Se non viene attivata alcuna regola di aumento, la funzionalità di scalabilità automatica valuta tutte le regole di riduzione, ovvero le regole con **direction = "Decrease"** . La funzionalità di scalabilità automatica esegue un'azione di scale-in se tutte le regole di scale-in vengono attivate.
+Se non viene attivata alcuna regola di aumento, la funzionalità di scalabilità automatica valuta tutte le regole di riduzione, ovvero le regole con **direction = "Decrease"**. La funzionalità di scalabilità automatica esegue un'azione di scale-in se tutte le regole di scale-in vengono attivate.
 
 La funzionalità di scalabilità automatica calcola la nuova capacità in base all'elemento **scaleAction** di ogni regola, quindi sceglie l'azione di ridimensionamento che restituisce il massimo di tali capacità per garantire la disponibilità del servizio.
 

@@ -7,19 +7,19 @@ author: bwren
 ms.author: bwren
 ms.date: 08/21/2018
 ms.openlocfilehash: c76ab145fd2fdd077075b345ecac9c6a473f2369
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75365190"
 ---
 # <a name="sql-to-azure-monitor-log-query-cheat-sheet"></a>Confronto tra query SQL e query di log in Monitoraggio di Azure: scheda di riferimento rapido 
 
-La tabella seguente consente agli utenti che hanno familiarità con SQL di apprendere il linguaggio di query Kusto per scrivere query di log in Monitoraggio di Azure. Esaminare il comando T-SQL per la risoluzione di scenari comuni e l'equivalente in una query di log di monitoraggio di Azure.
+La tabella seguente consente agli utenti che hanno familiarità con SQL di apprendere il linguaggio di query Kusto per scrivere query di log in Monitoraggio di Azure. Esaminare il comando T-SQL per risolvere scenari comuni e l'equivalente in una query di log di Monitoraggio di Azure.Do a look at the T-SQL command for solving common scenarios and the equivalent in an Azure Monitor log query.
 
 ## <a name="sql-to-azure-monitor"></a>Confronto tra SQL e Monitoraggio di Azure
 
-Description                             |Query SQL                                                                                          |Query di log in Monitoraggio di Azure
+Descrizione                             |Query SQL                                                                                          |Query di log in Monitoraggio di Azure
 ----------------------------------------|---------------------------------------------------------------------------------------------------|----------------------------------------
 Selezionare tutti i dati da una tabella            |`SELECT * FROM dependencies`                                                                       |<code>dependencies</code>
 Selezionare colonne specifiche da una tabella    |`SELECT name, resultCode FROM dependencies`                                                        |<code>dependencies <br>&#124; project name, resultCode</code>
@@ -43,4 +43,4 @@ Join                                    |`SELECT * FROM dependencies JOIN except
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Esaminare le lezioni sulla [scrittura di query di log in monitoraggio di Azure](get-started-queries.md).
+- Passare alle lezioni sulla scrittura di query di [log in Monitoraggio di Azure](get-started-queries.md).

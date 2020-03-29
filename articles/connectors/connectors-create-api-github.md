@@ -1,6 +1,6 @@
 ---
-title: Accedi, monitora e Gestisci il repository GitHub
-description: Monitorare gli eventi di GitHub e gestire il repository GitHub creando flussi di lavoro automatizzati con app per la logica di Azure
+title: Accedi, monitora e gestisci il tuo repository GitHub
+description: Monitora gli eventi GitHub e gestisci il repository GitHub creando flussi di lavoro automatizzati con le app per la logica di AzureMonitor GitHub events and manage your GitHub repo by creating automated workflows with Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 03/02/2018
 tags: connectors
 ms.openlocfilehash: b67d2e860e8c69f6f2f43441144ef2f60ed3a104
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75378450"
 ---
-# <a name="monitor-and-manage-your-github-repo-by-using-azure-logic-apps"></a>Monitorare e gestire il repository GitHub usando app per la logica di Azure
+# <a name="monitor-and-manage-your-github-repo-by-using-azure-logic-apps"></a>Monitorare e gestire il repository GitHub usando le app per la logica di AzureMonitor and manage your GitHub repo by using Azure Logic Apps
 
 GitHub è un servizio di hosting di repository Git basato sul Web. Offre tutte le funzionalità di controllo delle revisioni distribuito e di gestione del codice sorgente (SCM) di Git, con l'aggiunta di altre funzionalità.
 
@@ -24,7 +24,7 @@ Per iniziare a usare il connettore GitHub, [creare per prima cosa un'app per la 
 
 Per usare il connettore GitHub in un'app per la logica è necessario creare innanzitutto una *connessione* e quindi specificare i dettagli per queste proprietà: 
 
-| Proprietà | Obbligatorio | Description | 
+| Proprietà | Obbligatoria | Descrizione | 
 | -------- | -------- | ----------- | 
 | token | Sì | Fornisce le credenziali di GitHub. |
 
@@ -35,7 +35,7 @@ Dopo aver creato la connessione, è possibile eseguire le azioni e restare in as
 
 ## <a name="connector-reference"></a>Informazioni di riferimento sui connettori
 
-Per informazioni tecniche su trigger, azioni e limiti, descritti dalla descrizione del connettore OpenAPI (in precedenza spavalderia), vedere la [pagina di riferimento del connettore](/connectors/github/).
+Per informazioni tecniche sui trigger, le azioni e i limiti descritti dalla descrizione OpenAPI (in precedenza Swagger) del connettore, consultare la pagina di [riferimento del connettore.](/connectors/github/)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

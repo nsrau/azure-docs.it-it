@@ -8,17 +8,17 @@ ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
 ms.openlocfilehash: d4423b22c4c8afea5afa9c7040e081665b17ba87
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60774030"
 ---
 # <a name="rendering-using-azure"></a>Rendering tramite Azure
 
 Il rendering è il processo di conversione di modelli 3D in immagini 2D. I file delle scene 3D vengono creati in applicazioni come Autodesk 3ds Max, Autodesk Maya e Blender.  Le applicazioni di rendering come Autodesk Maya, Autodesk Arnold, Chaos Group V-Ray e Blender Cycles producono immagini 2D.  A volte dai file delle scene vengono create singole immagini. Tuttavia, è prassi comune eseguire la modellazione e il rendering di più immagini e quindi combinarle in un'animazione.
 
-Il carico di lavoro di rendering viene usato in modo intensivo per gli effetti speciali (VFX) nel settore dei media e dell'intrattenimento. Per il rendering viene usato anche in molti altri settori, ad esempio la pubblicità, delle vendite al dettaglio, petrolio e gas e produzione.
+Il carico di lavoro di rendering viene usato in modo intensivo per gli effetti speciali (VFX) nel settore dei media e dell'intrattenimento. Il rendering viene usato anche in molti altri settori, tra cui quelli pubblicitario, manifatturiero, petrolchimico e della vendita al dettaglio.
 
 Il processo di rendering usa risorse di calcolo in modo intensivo, in quanto possono essere presenti molti fotogrammi/immagini da produrre e il rendering di ogni immagine può richiedere molte ore.  Di conseguenza, il rendering è un carico di lavoro di elaborazione batch perfetto, che può sfruttare Azure e Azure Batch per eseguire molte attività di rendering in parallelo.
 
@@ -79,7 +79,7 @@ Azure Batch viene usato per molti carichi di lavoro, ma sono disponibili le funz
 È possibile usare Azure Batch in diversi modi, tutti validi anche per il rendering di Azure Batch.
 
 * API:
-  * Scrivere codice tramite API [REST](https://docs.microsoft.com/rest/api/batchservice), [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/batch), [Python](https://docs.microsoft.com/python/api/overview/azure/batch), [Java](https://docs.microsoft.com/java/api/overview/azure/batch) o altre API supportate.  Gli sviluppatori possono integrare funzionalità di Azure Batch nelle applicazioni o nel flusso di lavoro esistenti, nel cloud o in locale.  Ad esempio, il [plug-in Autodesk Maya](https://github.com/Azure/azure-batch-maya) utilizza l'API Phyton per Batch per richiamare Batch, creare e gestire pool, inviare processi e attività e monitorare lo stato.
+  * Scrivere codice tramite API [REST](https://docs.microsoft.com/rest/api/batchservice), [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/batch), [Python](https://docs.microsoft.com/python/api/overview/azure/batch), [Java](https://docs.microsoft.com/java/api/overview/azure/batch) o altre API supportate.  Gli sviluppatori possono integrare le funzionalità di Azure Batch nelle applicazioni esistenti o nel flusso di lavoro, su un'istanza locale o nel cloud.  Ad esempio, il [plug-in Autodesk Maya](https://github.com/Azure/azure-batch-maya) utilizza l'API Phyton per Batch per richiamare Batch, creare e gestire pool, inviare processi e attività e monitorare lo stato.
 * Strumenti da riga di comando:
   * Per scrivere script per l'uso di Batch, è possibile usare la [riga di comando di Azure](https://docs.microsoft.com/cli/azure/) o [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
   * In particolare, il supporto dei modelli dell'interfaccia della riga di comando di Batch semplifica notevolmente la creazione di pool e l'invio di processi.

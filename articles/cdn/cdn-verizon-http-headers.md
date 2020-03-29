@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/16/2018
 ms.author: magattus
 ms.openlocfilehash: a5881bea578f2791f8dc0d6e760fd15c6f47e435
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67593255"
 ---
 # <a name="verizon-specific-http-headers-for-azure-cdn-rules-engine"></a>Intestazioni HTTP specifiche di Verizon per il motore regole della rete CDN di Azure
@@ -27,7 +27,7 @@ Pe i prodotti **Azure CDN Premium di Verizon**, quando una richiesta HTTP viene 
 
 Se si vuole impedire l'aggiunta di una di queste intestazioni riservate nella richiesta POP della rete CDN (rete per la distribuzione di contenuti) di Azure al server di origine, è necessario creare una regola con la [funzionalità Intestazioni speciali proxy](cdn-verizon-premium-rules-engine-reference-features.md#proxy-special-headers) nel motore regole. In questa regola, escludere l'intestazione che si vuole rimuovere dall'elenco predefinito di intestazioni nel campo delle intestazioni. Se si è abilitata la [funzionalità Intestazioni di risposta di debug per la cache](cdn-verizon-premium-rules-engine-reference-features.md#debug-cache-response-headers), assicurarsi di aggiungere le intestazioni `X-EC-Debug` necessarie. 
 
-Ad esempio, per rimuovere il `Via` intestazione, il campo intestazioni della regola deve includere l'elenco di intestazioni seguente: *X-Forwarded-For, X-Forwarded-Proto, X-Host, X-Midgress, X-Gateway-List, X-EC-Name, Host*. 
+Ad esempio, per rimuovere l'intestazione `Via`, il campo intestazioni della regola deve includere l'elenco di intestazioni seguente: *X-Forwarded-For, X-Forwarded-Proto, X-Host, X-Midgress, X-Gateway-List, X-EC-Name, Host*. 
 
 ![Regola Intestazioni speciali proxy](./media/cdn-http-headers/cdn-proxy-special-header-rule.png)
 
@@ -41,8 +41,8 @@ X-Forwarded-Proto | Indica il protocollo della richiesta. | http
 X-Host | Indica il nome host della richiesta. | cdn.mydomain.com
 X-Midgress | Indica se la richiesta è stata trasmessa tramite proxy da un server CDN aggiuntivo. Ad esempio, da un server POP a un server shield di origine o da un server POP a un server gateway ADN. <br />Questa intestazione viene aggiunta alla richiesta solo in caso di traffico midgress. In questo caso l'intestazione viene impostata su 1 per indicare che la richiesta è stata trasmessa tramite proxy da un server CDN aggiuntivo.| 1
 [Host](#host-request-header) | Identifica l'host e la porta in cui trovare il contenuto richiesto. | marketing.mydomain.com:80
-[X-Gateway-List](#x-gateway-list-request-header) | ADN: Identifica l'elenco di failover dei server Gateway ADN assegnati a un'origine cliente. <br />Shield origine: Indica il set di server shield di origine assegnato a un'origine cliente. | `icn1,hhp1,hnd1`
-X-EC- _&lt;nome&gt;_ | Le intestazioni di richiesta che iniziano con *X-EC* (ad esempio X-EC-Tag, [X-EC-Debug](cdn-http-debug-headers.md)) sono riservate per l'uso da parte della rete CDN.| waf-production
+[X-Gateway-List](#x-gateway-list-request-header) | ADN: identifica l'elenco di failover dei server gateway ADN assegnati a un'origine cliente. <br />Shield origine: indica il set di server shield di origine assegnati a un'origine cliente. | `icn1,hhp1,hnd1`
+Nome X-CE_&lt;&gt;_ | Le intestazioni di richiesta che iniziano con *X-EC* (ad esempio X-EC-Tag, [X-EC-Debug](cdn-http-debug-headers.md)) sono riservate per l'uso da parte della rete CDN.| waf-production
 
 ## <a name="via-request-header"></a>Intestazione di richiesta Via
 Il formato tramite il quale l'intestazione di richiesta `Via` identifica un server POP è specificato dalla sintassi seguente:
@@ -50,9 +50,9 @@ Il formato tramite il quale l'intestazione di richiesta `Via` identifica un serv
 `Via: Protocol from Platform (POP/ID)` 
 
 I termini usati nella sintassi sono definiti nel modo seguente:
-- Protocollo: Indica che la versione del protocollo (ad esempio HTTP/1.1) usato per proxy la richiesta. 
+- Protocol: indica la versione del protocollo (ad esempio HTTP/1.1) usato per trasmettere la richiesta tramite proxy. 
 
-- Piattaforma: Indica la piattaforma su cui è stato richiesto il contenuto. I codici seguenti sono validi per questo campo: 
+- Platform: indica la piattaforma su cui è stato richiesto il contenuto. I codici seguenti sono validi per questo campo: 
 
     Codice | Piattaforma
     -----|---------
@@ -60,9 +60,9 @@ I termini usati nella sintassi sono definiti nel modo seguente:
     ECS   | HTTP Small
     ECD   | Application Delivery Network (ADN)
 
-- POP: Indica la [POP](cdn-pop-abbreviations.md) che ha gestito la richiesta. 
+- POP: indica il server [POP](cdn-pop-abbreviations.md) che ha gestito la richiesta. 
 
-- ID: Solo per uso interno.
+- ID: solo per uso interno.
 
 ### <a name="example-via-request-header"></a>Esempio di intestazione di richiesta Via
 

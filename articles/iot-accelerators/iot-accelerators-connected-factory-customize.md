@@ -10,15 +10,15 @@ ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: dobett
 ms.openlocfilehash: 6062f8b3992732e0e0f9bbdae9549e69c393f4ff
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67080492"
 ---
 # <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>Personalizzare la modalità di visualizzazione dei dati dai server OPC UA da parte della soluzione Connected Factory
 
-La soluzione Connected Factory aggrega e visualizza dati dai server OPC UA connessi alla soluzione. È possibile individuare e inviare comandi ai server OPC UA nella soluzione. Per altre informazioni su OPC UA, vedere le [domande frequenti su Connected Factory](iot-accelerators-faq-cf.md).
+La soluzione Connected Factory aggrega e visualizza dati dai server OPC UA connessi alla soluzione. È possibile individuare e inviare comandi ai server OPC UA nella soluzione. Per ulteriori informazioni su OPC UA, vedere le domande frequenti sulla [factory connessa](iot-accelerators-faq-cf.md).
 
 Gli esempi di dati aggregati nella soluzione includono i valori OEE (Overall Equipment Efficiency) e gli indicatori KPI visualizzabili nel dashboard a livello di fabbrica, linea e stazione. Lo screenshot seguente mostra i valori OEE e gli indicatori KPI per la stazione **Assemblaggio** nella **Linea di produzione 1** di uno stabilimento a **Monaco**:
 
@@ -39,7 +39,7 @@ L'articolo illustra:
 
 ## <a name="data-sources"></a>Origini dati
 
-La soluzione Connected Factory visualizza dati dai server OPC UA connessi alla soluzione. L'installazione predefinita include diversi server OPC UA che eseguono una simulazione di fabbrica. È possibile aggiungere i propri server OPC UA che [argomento connect tramite un gateway] [lnk-connect-cf] alla soluzione.
+La soluzione Connected Factory visualizza dati dai server OPC UA connessi alla soluzione. L'installazione predefinita include diversi server OPC UA che eseguono una simulazione di fabbrica. È possibile aggiungere i propri server OPC UA che [si connettono tramite un gateway][lnk-connect-cf] alla soluzione.
 
 È possibile anche esplorare gli elementi dei dati che un server OPC UA connesso può inviare alla soluzione nel dashboard:
 
@@ -56,7 +56,7 @@ La soluzione Connected Factory visualizza dati dai server OPC UA connessi alla s
 
     ![Elementi pubblicati][img-published]
 
-1. Gli *amministratori* della soluzione possono scegliere di pubblicare un elemento di dati per renderlo disponibile nella soluzione Connected Factory. L'amministratore può anche modificare il valore degli elementi di dati e chiamare i metodi nel server OPC UA.
+1. Se si è un *amministratore* nella soluzione, è possibile scegliere di pubblicare un elemento di dati per renderlo disponibile nella soluzione Connected Factory. L'amministratore può anche modificare il valore degli elementi di dati e chiamare i metodi nel server OPC UA.
 
 ## <a name="map-the-data"></a>Eseguire il mapping di dati
 
@@ -71,17 +71,17 @@ Per altre informazioni sul mapping e sull'aggregazione dei dati per soddisfare r
 
 ## <a name="deploy-the-changes"></a>Distribuire le modifiche
 
-Dopo avere apportato le modifiche al file **ContosoTopologyDescription.json**, è necessario ridistribuire la soluzione Connected Factory al proprio account Azure.
+Dopo aver apportato le modifiche al file **ContosoTopologyDescription.json,** è necessario ridistribuire la soluzione Connected Factory nell'account Azure.When you have finished making changes to the ContosoTopologyDescription.json file, you must redeploy the Connected Factory solution to your Azure account.
 
 Il repository **azure-iot-connected-factory** include uno script PowerShell **build.ps1** che è possibile usare per ricompilare e distribuire la soluzione.
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
 Altre informazioni sull'acceleratore di soluzioni di connected factory sono disponibili negli articoli seguenti:
 
 * [Autorizzazioni per il sito azureiotsolutions.com][lnk-permissions]
 * [Domande frequenti su Connected Factory](iot-accelerators-faq-cf.md)
-* [Domande frequenti][lnk-faq]
+* [DOMANDE FREQUENTI][lnk-faq]
 
 
 [img-oee-kpi]: ./media/iot-accelerators-connected-factory-customize/oeenadkpi.png

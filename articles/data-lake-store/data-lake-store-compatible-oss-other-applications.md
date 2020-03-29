@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
 ms.openlocfilehash: 37bf26db5f7ae08734410d36a892aaeb2380bd9f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60878886"
 ---
 # <a name="open-source-big-data-applications-that-work-with-azure-data-lake-storage-gen1"></a>Applicazioni Big Data open source compatibili con Data Lake Storage Gen1
@@ -26,7 +26,7 @@ Questo articolo elenca le applicazioni Big Data di origine che funzionano con Az
 | Software Open Source | Distribuzione |
 | --- | --- |
 | [Apache Sqoop](https://sqoop.apache.org/) |HDInsight 3.2, 3.4, 3.5 e 3.6 |
-| [MapReduce](https://hadoop.apache.org/docs/r1.0.4/mapred_tutorial.html) |HDInsight 3.2, 3.4, 3.5 e 3.6 |
+| [Mapreduce](https://hadoop.apache.org/docs/r1.0.4/mapred_tutorial.html) |HDInsight 3.2, 3.4, 3.5 e 3.6 |
 | [Apache Storm](https://storm.apache.org/) |HDInsight 3.2, 3.4, 3.5 e 3.6 |
 | [Apache Hive](https://hive.apache.org/) |HDInsight 3.2, 3.4, 3.5 e 3.6 |
 | [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog) |HDInsight 3.2, 3.4, 3.5 e 3.6 |

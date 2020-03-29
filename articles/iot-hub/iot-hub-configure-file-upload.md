@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 07/03/2017
 ms.author: robinsh
 ms.openlocfilehash: bd7cc37b8fc81fc9d4109826743f2243913d0604
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60735060"
 ---
 # <a name="configure-iot-hub-file-uploads-using-the-azure-portal"></a>Configurare i caricamenti dei file nell'hub IoT con il portale di Azure
@@ -25,17 +25,17 @@ Per usare la [funzionalità di caricamento di file nell'hub IoT](iot-hub-devguid
 
 ![Visualizzare le impostazioni di caricamento di file dell'hub IoT nel portale](./media/iot-hub-configure-file-upload/file-upload-settings.png)
 
-* **Contenitore di archiviazione**: Usare il portale di Azure per selezionare un contenitore blob in un account di archiviazione di Azure nella sottoscrizione corrente da associare all'IoT Hub. Se necessario, è possibile creare un account di archiviazione di Azure nel pannello **Account di archiviazione** e un nuovo contenitore BLOB nel pannello **Contenitori**. L'hub IoT genera automaticamente URI di firma di accesso condiviso con autorizzazioni di scrittura per questo contenitore BLOB che possono essere usati dai dispositivi durante il caricamento di file.
+* **Contenitore di archiviazione**: usare il portale di Azure per selezionare il contenitore BLOB in un account di archiviazione di Azure nella sottoscrizione corrente da associare all'hub IoT. Se necessario, è possibile creare un account di archiviazione di Azure nel pannello **Account di archiviazione** e un nuovo contenitore BLOB nel pannello **Contenitori**. L'hub IoT genera automaticamente URI di firma di accesso condiviso con autorizzazioni di scrittura per questo contenitore BLOB che possono essere usati dai dispositivi durante il caricamento di file.
 
    ![Visualizzare i contenitori di archiviazione per il caricamento di file nel portale](./media/iot-hub-configure-file-upload/file-upload-container-selection.png)
 
-* **Ricevi notifiche per i file caricati**: Abilitare o disabilitare le notifiche di caricamento di file tramite l'elemento toggle.
+* **Receive notifications for uploaded files**(Ricezione di notifiche per i file caricati): abilitare o disabilitare le notifiche di caricamento del file mediante l'apposita opzione.
 
-* **Durata TTL della firma di accesso condiviso**: questa impostazione indica la durata (TTL) degli URI di firma di accesso condiviso restituiti al dispositivo dall'hub IoT. Per impostazione predefinita è impostato su un'ora, ma può essere personalizzato con altri valori tramite il dispositivo di scorrimento.
+* **SAS TTL**(TTL di firma di accesso condiviso): questa impostazione indica la durata degli URI di firma di accesso condiviso restituiti dal dispositivo tramite l’hub IoT. Per impostazione predefinita è impostato su un'ora, ma può essere personalizzato con altri valori tramite il dispositivo di scorrimento.
 
-* **File notification settings default TTL**(TTL predefinito per le impostazioni di notifica dei file): durata (TTL) di una notifica di caricamento dei file prima della scadenza. Per impostazione predefinita è impostato su un giorno, ma può essere personalizzato con altri valori tramite il dispositivo di scorrimento.
+* **File notification settings default TTL**(TTL predefinito per le impostazioni di notifica dei file): durata di una notifica di caricamento del file. Per impostazione predefinita è impostato su un giorno, ma può essere personalizzato con altri valori tramite il dispositivo di scorrimento.
 
-* **File notification maximum delivery count** (Numero massimo di recapiti per le notifiche dei file): numero di volte in cui l'hub IoT prova a recapitare una notifica di caricamento dei file. Per impostazione predefinita è impostato su 10, ma può essere personalizzato con altri valori tramite il dispositivo di scorrimento.
+* **File notification maximum delivery count**(Numero massimo di recapiti per le notifiche dei file): numero di tentativi che verranno eseguiti dall'hub IoT per distribuire una notifica di caricamento del file. Per impostazione predefinita è impostato su 10, ma può essere personalizzato con altri valori tramite il dispositivo di scorrimento.
 
    ![Configurare il caricamento di file dell'hub IoT nel portale](./media/iot-hub-configure-file-upload/file-upload-selected-container.png)
 
@@ -46,11 +46,11 @@ Per altre informazioni sulle funzionalità di caricamento dei file dell'hub IoT,
 Per ulteriori informazioni sulla gestione dell'hub IoT di Azure, consultare questi collegamenti:
 
 * [Gestire in blocco i dispositivi IoT](iot-hub-bulk-identity-mgmt.md)
-* [Metriche di hub IoT](iot-hub-metrics.md)
+* [Metriche di Hub IoT](iot-hub-metrics.md)
 * [Monitoraggio delle operazioni](iot-hub-operations-monitoring.md)
 
 Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
-* [Guida per sviluppatori dell'hub IoT](iot-hub-devguide.md)
+* [Guida per gli sviluppatori dell'hub IoT](iot-hub-devguide.md)
 * [Distribuzione dell'intelligenza artificiale in dispositivi perimetrali con Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
 * [Proteggere la soluzione IoT sin dall'inizio](../iot-fundamentals/iot-security-ground-up.md)

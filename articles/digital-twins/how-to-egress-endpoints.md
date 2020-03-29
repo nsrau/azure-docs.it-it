@@ -1,6 +1,6 @@
 ---
-title: Uscita ed endpoint-dispositivi gemelli digitali di Azure | Microsoft Docs
-description: Informazioni su come creare ed estrarre gli endpoint evento nei dispositivi gemelli digitali di Azure.
+title: Uscita ed endpoint - Azure Digital Twins Documenti Microsoft
+description: Informazioni su come creare e uscire da endpoint di eventi in Azure Digital Twins.Learn how to create and egress event endpoints in Azure Digital Twins.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -9,13 +9,13 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.openlocfilehash: 3803802a3d81655091d8be543ae9cb17221a98d8
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76511570"
 ---
-# <a name="egress-and-endpoints-in-azure-digital-twins"></a>Uscita ed endpoint nei dispositivi gemelli digitali di Azure
+# <a name="egress-and-endpoints-in-azure-digital-twins"></a>Uscita ed endpoint in Azure Digital Twins
 
 Gli *endpoint* di Gemelli digitali di Azure rappresentano un broker messaggi o eventi nella sottoscrizione di Azure dell'utente. Messaggi ed eventi possono essere inviati ad argomenti di Hub eventi di Azure, Griglia di eventi di Azure e Bus di servizio di Azure.
 
@@ -23,7 +23,7 @@ Gli eventi vengono indirizzati agli endpoint in base alle preferenze di routing 
 
 Per altre informazioni su eventi, routing e tipi di eventi, vedere [Routing di eventi e messaggi](./concepts-events-routing.md).
 
-## <a name="events"></a>Eventi
+## <a name="events"></a>Events
 
 Gli eventi vengono inviati da oggetti IoT, come dispositivi e sensori, per essere elaborati dai broker messaggi ed eventi di Azure. Gli eventi sono definiti dallo [schema di eventi di Griglia di eventi di Azure](../event-grid/event-schema.md) seguente.
 
@@ -47,7 +47,7 @@ Gli eventi vengono inviati da oggetti IoT, come dispositivi e sensori, per esser
 }
 ```
 
-| Attributo | Tipo | Description |
+| Attributo | Type | Descrizione |
 | --- | --- | --- |
 | id | string | Identificatore univoco dell'evento. |
 | subject | string | Percorso dell'oggetto dell'evento definito dall'autore. |
@@ -85,17 +85,17 @@ I formati di evento per ogni tipo di evento sono descritti in maggiore dettaglio
 - ExtendedPropertyKey
 - ExtendedType
 - KeyStore
-- Documentazione
+- Report
 - RoleDefinition
 - Sensore
 - SensorBlobMetadata
 - SensorExtendedProperty
-- Agenzie spaziali
+- Space
 - SpaceBlobMetadata
 - SpaceExtendedProperty
 - SpaceResource
 - SpaceRoleAssignment
-- Sistema
+- System
 - Utente
 - UserBlobMetadata
 - UserExtendedProperty
@@ -122,7 +122,7 @@ I formati di evento per ogni tipo di evento sono descritti in maggiore dettaglio
 }
 ```
 
-| Valore | Sostituire con |
+| valore | Sostituire con |
 | --- | --- |
 | YOUR_TOPIC_NAME | Nome dell'argomento personalizzato |
 
@@ -153,7 +153,7 @@ I formati di evento per ogni tipo di evento sono descritti in maggiore dettaglio
 }
 ```
 
-| Valore | Sostituire con |
+| valore | Sostituire con |
 | --- | --- |
 | YOUR_TOPIC_NAME | Nome dell'argomento personalizzato |
 
@@ -188,7 +188,7 @@ I formati di evento per ogni tipo di evento sono descritti in maggiore dettaglio
 }
 ```
 
-| Valore | Sostituire con |
+| valore | Sostituire con |
 | --- | --- |
 | YOUR_TOPIC_NAME | Nome dell'argomento personalizzato |
 
@@ -223,7 +223,7 @@ I formati di evento per ogni tipo di evento sono descritti in maggiore dettaglio
 }
 ```
 
-| Valore | Sostituire con |
+| valore | Sostituire con |
 | --- | --- |
 | YOUR_TOPIC_NAME | Nome dell'argomento personalizzato |
 
@@ -246,7 +246,7 @@ Gli esempi seguenti illustrano come configurare gli endpoint supportati.
 >[!IMPORTANT]
 > Prestare particolare attenzione all'attributo **eventTypes**. Definisce infatti i tipi di eventi gestiti dall'endpoint e ne determina quindi il routing.
 
-Richiesta HTTP POST autenticata rispetto a:
+Una richiesta HTTP POST autenticata su:
 
 ```URL
 YOUR_MANAGEMENT_API_URL/endpoints
@@ -268,7 +268,7 @@ YOUR_MANAGEMENT_API_URL/endpoints
   }
   ```
 
-    | Valore | Sostituire con |
+    | valore | Sostituire con |
     | --- | --- |
     | YOUR_NAMESPACE | Spazio dei nomi dell'endpoint |
     | YOUR_PRIMARY_KEY | Stringa di connessione primaria usata per l'autenticazione |
@@ -291,7 +291,7 @@ YOUR_MANAGEMENT_API_URL/endpoints
   }
   ```
 
-    | Valore | Sostituire con |
+    | valore | Sostituire con |
     | --- | --- |
     | YOUR_PRIMARY_KEY | Stringa di connessione primaria usata per l'autenticazione|
     | YOUR_SECONDARY_KEY | Stringa di connessione secondaria usata per l'autenticazione |
@@ -313,14 +313,14 @@ YOUR_MANAGEMENT_API_URL/endpoints
   }
   ```
 
-    | Valore | Sostituire con |
+    | valore | Sostituire con |
     | --- | --- |
     | YOUR_NAMESPACE | Spazio dei nomi dell'endpoint |
     | YOUR_PRIMARY_KEY | Stringa di connessione primaria usata per l'autenticazione |
     | YOUR_SECONDARY_KEY | Stringa di connessione secondaria usata per l'autenticazione |
     | YOUR_EVENT_HUB_NAME | Nome dell'hub eventi |
 
-- Instrada a Hub eventi il tipo di evento **DeviceMessage**. È obbligatorio includere `EntityPath` in **connectionString**:
+- Instrada a Hub eventi il tipo di evento **DeviceMessage**. L'inclusione di `EntityPath` nel **connectionString** è obbligatoria:
 
   ```JSON
   {
@@ -334,7 +334,7 @@ YOUR_MANAGEMENT_API_URL/endpoints
   }
   ```
 
-    | Valore | Sostituire con |
+    | valore | Sostituire con |
     | --- | --- |
     | YOUR_NAMESPACE | Spazio dei nomi dell'endpoint |
     | YOUR_PRIMARY_KEY | Stringa di connessione primaria usata per l'autenticazione |

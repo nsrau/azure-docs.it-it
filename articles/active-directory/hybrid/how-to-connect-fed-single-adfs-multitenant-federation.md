@@ -1,5 +1,5 @@
 ---
-title: La federazione di più Azure AD con ADFS single - Azure
+title: Federazione di più Azure AD con ADFS singola - AzureFederating multiple Azure AD with single AD FS - Azure
 description: Questo documento illustra come eseguire la federazione di più istanze di Azure AD con una singola istanza di AD FS.
 keywords: eseguire la federazione, ADFS, AD FS, più tenant, singola istanza di AD FS, unica istanza di AD FS, federazione multi-tenant, ad fs con più foreste, aad connect, federazione, federazione tra tenant
 services: active-directory
@@ -18,10 +18,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9122e3a7af2230dc0f68e72b28891d488b01a80a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65137823"
 ---
 # <a name="federate-multiple-instances-of-azure-ad-with-single-instance-of-ad-fs"></a>Eseguire la federazione di più istanze di Azure AD con una singola istanza di AD FS
@@ -56,7 +56,7 @@ L'autorità di certificazione nell'impostazione di federazione del dominio verr�
  
 ## <a name="step-3-federate-fabrikamcom-with-ad-fs"></a>Passaggio 3: Eseguire la federazione di fabrikam.com con AD FS
  
-Nella sessione di Azure AD PowerShell eseguire questa procedura: connettersi all'istanza di Azure Active Directory contenente il dominio fabrikam.com
+Nella sessione di Azure AD PowerShell seguire questa procedura: connettersi all'istanza di Azure Active Directory contenente il dominio fabrikam.com
 
     Connect-MsolService
 Convertire il dominio gestito fabrikam.com in federato:
@@ -66,4 +66,4 @@ Convertire il dominio gestito fabrikam.com in federato:
 L'operazione riportata sopra eseguirà la federazione del dominio fabrikam.com con la stessa istanza di AD FS. È possibile verificare le impostazioni di dominio usando Get-MsolDomainFederationSettings per entrambi i domini.
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Connettere Active Directory ad Azure Active Directory](whatis-hybrid-identity.md)
+[Connettere Active Directory con Azure Active Directory](whatis-hybrid-identity.md)

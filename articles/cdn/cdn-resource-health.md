@@ -15,10 +15,10 @@ ms.workload: integration
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 6710f5e5b873f751ad21068acdc15d38574f8378
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67593451"
 ---
 # <a name="monitor-the-health-of-azure-cdn-resources"></a>Monitorare l'integrità delle risorse della rete CDN di Azure
@@ -43,15 +43,15 @@ L'integrità delle risorse della rete CDN di Azure costituisce un sottoinsieme d
     ![Integrità delle risorse della rete CDN](./media/cdn-resource-health/cdn-resource-health3.png)
 
 >[!TIP] 
->Le risorse della rete CDN sono elencate anche nel riquadro *Integrità risorsa* del pannello *Guida e supporto*.  È possibile accedere rapidamente a *Guida e supporto* facendo clic sul punto interrogativo ( **?** ) cerchiato nell'angolo superiore destro del portale.
+>Le risorse della rete CDN sono elencate anche nel riquadro *Integrità risorsa* del pannello *Guida e supporto*.  È possibile accedere rapidamente a *Guida e supporto* facendo clic sul punto interrogativo (**?**) cerchiato nell'angolo superiore destro del portale.
 >
-> ![Guida e supporto](./media/cdn-resource-health/cdn-help-support.png)
+> ![Guida e supporto tecnico](./media/cdn-resource-health/cdn-help-support.png)
 
 ## <a name="azure-cdn-specific-messages"></a>Messaggi specifici della rete CDN di Azure
 
 Di seguito sono riportati gli stati correlati all'integrità delle risorse della rete CDN di Azure.
 
-|Messaggio | Azione consigliata |
+|Message | Azione consigliata |
 |---|---|
 |Uno o più endpoint di rete CDN potrebbero essere stati arrestati, rimossi o configurati in modo non corretto | Uno o più endpoint di rete CDN potrebbero essere stati arrestati, rimossi o configurati in modo non corretto.|
 |Il servizio di gestione della rete CDN non è attualmente disponibile | Visualizzare di nuovo questa pagina per eventuali aggiornamenti dello stato. Se il problema persiste anche dopo l'ora di risoluzione prevista, contattare il supporto tecnico.|

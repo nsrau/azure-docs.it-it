@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory Domain Services: Contattare Microsoft | Microsoft Docs'
+title: Servizi di dominio Azure AD - Contatto | Documentazione Microsoft
 description: Contattare il team di prodotto di Servizi di dominio Azure AD
 services: active-directory-ds
 documentationcenter: ''
@@ -16,29 +16,29 @@ ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: iainfou
 ms.openlocfilehash: 83d1011d28eb13ed2e45587df8d385ebf19abbd1
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67483354"
 ---
 # <a name="azure-ad-domain-services---contact-us"></a>Servizi di dominio Azure AD - Contatto
 
 ## <a name="feedback"></a>Commenti e suggerimenti
-Se hai commenti e suggerimenti per il servizio o domande non tecniche, è possibile condividere la richiesta con il gruppo di prodotti di Azure AD Domain Services all'indirizzo e-mail all'indirizzo: [Feedback di Azure AD Domain Services](mailto:aaddsfb@microsoft.com). Messaggi di posta elettronica a questo indirizzo vengono rivisti. I membri del gruppo di prodotto **potrebbe** rispondere alla richiesta di ulteriori informazioni. Non sarà possibile rispondere a richieste per il supporto tecnico per questo indirizzo di posta elettronica.
+Se si hanno commenti e suggerimenti per il servizio o per domande non tecniche, è possibile condividere la richiesta con il gruppo di prodotti Servizio di dominio Azure AD inviandoci un messaggio di posta elettronica all'indirizzo: Feedback di [Servizi di dominio Azure AD](mailto:aaddsfb@microsoft.com). Le e-mail a questo indirizzo vengono esaminate. I membri del gruppo di prodotti **possono** rispondere per richiedere ulteriori informazioni. Le richieste di supporto tecnico a questo indirizzo e-mail non riceveranno risposta.
 
 ## <a name="technical-assistance"></a>Assistenza tecnica
-In caso di problemi con il dominio gestito, verificare se è possibile risolvere il problema seguendo la procedura descritta nella [Guida alla risoluzione dei problemi](troubleshoot.md) . Se si verificano ancora problemi, accedere al portale di Azure. Aprire il **Azure AD Domain Services** home page e selezionare **nuova richiesta di supporto** dal riquadro delle azioni sotto **supporto + risoluzione dei problemi**.
+In caso di problemi con il dominio gestito, verificare se è possibile risolvere il problema seguendo la procedura descritta nella [Guida alla risoluzione dei problemi](troubleshoot.md) . Se il problema persiste, accedere al portale di Azure.If you're still trouble, sign in to the Azure portal. Aprire la home page **di Servizi di dominio Azure AD** e selezionare Nuova richiesta di **supporto** dal riquadro azioni in Supporto **e risoluzione dei problemi**.
 
 ![Nuova richiesta di supporto](./media/contact-us/supportRequest.png) 
 
-Compilare ogni sezione della richiesta di supporto nel modo più accurato possibile. Quando si sceglie un servizio, assicurarsi di selezionare **Azure Active Directory Domain Services (VM - Domain controller)** per instradare la richiesta per i professionisti di supporto appropriato.
+Compilare ogni sezione della richiesta di supporto nel modo più accurato possibile. Quando si sceglie un servizio, assicurarsi di selezionare Servizi di **dominio Azure Active Directory (VM - Controller di dominio)** per instradare la richiesta al professionista del supporto appropriato.
 
 > [!IMPORTANT]
-> Selezionare **directory di Azure Active Directory, domini e oggetti** dagli elenchi di servizi per assistenza con la convalida del dominio con Azure Active Directory.
+> Selezionare Directory di Azure Active Directory, Domini e oggetti dagli elenchi dei servizi per ottenere assistenza con la convalida del dominio con Azure Active Directory.Select **Azure Active Directory Directories, Domains,** and Objects from the services lists for help with domain validation with Azure Active Directory.
 >
 > 
 
 ## <a name="feature-requests"></a>Richieste di funzionalità
-Hai un'idea su come possiamo migliorare Azure Active Directory Domain Services? Vorremmo segnalarlo. Vai ai forum di commenti e suggerimenti di Azure, passare al [servizi di dominio](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=160593) categoria e Condividi la tua idea. I membri del gruppo di prodotto esaminare queste richieste.
+Hai un'idea su come possiamo migliorare Servizi di dominio Azure Active Directory? Vorremmo sentirne parlare. Passare ai forum di commenti e suggerimenti di Azure, passare alla categoria Servizi di [dominio](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=160593) e condividere l'idea. I membri del gruppo di prodotti esaminano queste richieste.
 

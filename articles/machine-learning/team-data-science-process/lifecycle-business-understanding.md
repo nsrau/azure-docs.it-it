@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: a7aaed519f8f97a9be77a263568aeed5257c16d6
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76710344"
 ---
 # <a name="the-business-understanding-stage-of-the-team-data-science-process-lifecycle"></a>Fase di comprensione delle strategie aziendali nel ciclo di vita del processo di data science per i team
@@ -63,7 +63,7 @@ Questa fase comprende due attività principali:
    * **S**pecific: specifiche 
    * **M**easurable: misurabili
    * **A**chievable: conseguibili 
-   * **R**elevant: rilevanti 
+   * **R**elevant 
    * **T**ime-bound: con associazione temporale 
 
 ### <a name="identify-data-sources"></a>Identificare le origini dati
@@ -74,10 +74,10 @@ Identificare le origini dati che contengono esempi noti di risposte a domande pr
 
 Si può ad esempio scoprire che i sistemi esistenti devono raccogliere e registrare tipi di dati aggiuntivi per risolvere il problema e raggiungere gli obiettivi del progetto. In questo caso si possono cercare origini dati esterne o aggiornare i sistemi per raccogliere nuovi dati.
 
-## <a name="artifacts"></a>Artefatti
+## <a name="artifacts"></a>Elementi
 Ecco i risultati finali di questa fase:
 
-   * [Documento di dichiarazione di intenti](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Charter.md): nella definizione della struttura del progetto TDSP è incluso un modello standard. Il documento di dichiarazione di intenti è sempre in evoluzione. Il modello viene aggiornato nel corso del progetto man mano che si ottengono nuove informazioni e cambiano i requisiti aziendali. È importante eseguire l'iterazione di questo documento, aggiungendo dettagli durante l'avanzamento del processo di scoperta. Coinvolgere il cliente e le altre parti interessate nelle modifiche e comunicare chiaramente l'importanza di tali modifiche.  
+   * [Documento charter](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Charter.md): Nella definizione della struttura del progetto TDSP viene fornito un modello standard. Il documento di dichiarazione di intenti è sempre in evoluzione. Il modello viene aggiornato nel corso del progetto man mano che si ottengono nuove informazioni e cambiano i requisiti aziendali. È importante eseguire l'iterazione di questo documento, aggiungendo dettagli durante l'avanzamento del processo di scoperta. Coinvolgere il cliente e le altre parti interessate nelle modifiche e comunicare chiaramente l'importanza di tali modifiche.  
    * [Origini dati](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md#raw-data-sources): la sezione **Origini dati non elaborati** del report **Definizioni dei dati** disponibile nella cartella **Report dei dati** del progetto TDSP che contiene le origini dati. Questa sezione specifica le posizioni di origine e di destinazione dei dati non elaborati. Nelle fasi successive vengono inseriti dettagli aggiuntivi, ad esempio script per spostare i dati nell'ambiente di analisi.  
    * [Dizionari di dati](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Data_Dictionaries): questo documento contiene le descrizioni dei dati specificati dal client. Queste descrizioni includono informazioni sullo schema (tipi di dati e informazioni sulle regole di convalida, se presenti) e diagrammi sulle relazioni di entità, se disponibili.
 

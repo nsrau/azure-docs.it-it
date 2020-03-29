@@ -10,10 +10,10 @@ ms.custom: mvc
 ms.date: 03/18/2019
 ms.author: troyhop
 ms.openlocfilehash: 4401d4b93a27e76554368ce72d256b38de61df4c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61449020"
 ---
 # <a name="create-an-advanced-device-model"></a>Creare un modello di dispositivo avanzato
@@ -161,11 +161,11 @@ I campi elencati nello schema possono essere dei tipi seguenti:
 
 * Oggetto: serializzato con JSON
 * Binario: serializzato con base64
-* Text
+* Testo
 * Boolean
 * Integer
 * Double
-* DateTime
+* Datetime
 
 ### <a name="supported-methods"></a>Metodi supportati
 
@@ -255,8 +255,8 @@ I file JavaScript devono avere una funzione **main**, che accetta due parametri:
 
 * Un oggetto **context** che contiene tre proprietà:
     * **currentTime**, una stringa in formato **aaaa-MM-gg'T'HH:mm:sszzz**.
-    * **deviceId**, ad esempio **Simulated.Elevator.123**.
-    * **deviceModel**, ad esempio **Elevator**.
+    * **deviceId**. ad esempio **Simulated.Elevator.123**.
+    * **deviceModel**. ad esempio **Elevator**.
 * Un oggetto **state** corrispondente al valore restituito dalla funzione nella chiamata precedente. Questo stato del dispositivo viene gestito dal servizio di simulazione e usato per generare messaggi di telemetria.
 
 La funzione **main** restituisce il nuovo stato del dispositivo. Ad esempio:
@@ -504,7 +504,7 @@ Fare clic su **+ Add Device Models** (+ Aggiungi modelli di dispositivo) nell'an
 
 Fare clic su **Advanced** (Avanzate) per aprire la scheda del modello di dispositivo avanzato:
 
-![Scheda Advanced (Avanzate)](media/iot-accelerators-device-simulation-advanced-device/advancedtab.png)
+![Avanzate - scheda](media/iot-accelerators-device-simulation-advanced-device/advancedtab.png)
 
 Fare clic su **Browse** (Sfoglia) e selezionare i file JSON e JavaScript creati. Assicurarsi di selezionare tutti e tre i file. Se uno qualsiasi dei file manca, la convalida ha esito negativo:
 
@@ -512,7 +512,7 @@ Fare clic su **Browse** (Sfoglia) e selezionare i file JSON e JavaScript creati.
 
 Se i file superano la convalida, fare clic su **Salva** per poter usare il modello del dispositivo in una simulazione. In caso contrario, correggere eventuali errori e ricaricare i file:
 
-![Salva](media/iot-accelerators-device-simulation-advanced-device/validated.png)
+![Salvare](media/iot-accelerators-device-simulation-advanced-device/validated.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

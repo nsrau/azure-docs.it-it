@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 02/22/2016
 ms.subservice: autoscale
 ms.openlocfilehash: e22806ff94ce2eb830bb6918bfc7f80e5ad3ba0a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75364221"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Configurazione di scalabilità automatica avanzata con modelli di Resource Manager per set di scalabilità di macchine virtuali di Microsoft Azure
@@ -27,11 +27,11 @@ In questa procedura dettagliata viene usato [Esplora risorse di Azure](https://r
 
     ![Azure Explorer](media/autoscale-virtual-machine-scale-sets/azure_explorer_navigate.png)
 
-    L'esecuzione del modello ha creato un'impostazione predefinita di ridimensionamento automatico con il nome **"autoscalewad"** . Sul lato destro è possibile visualizzare la definizione completa di questa impostazione di ridimensionamento automatico. In questo caso, l'impostazione di ridimensionamento automatico predefinita è inclusa in una regola di aumento e riduzione del numero di istanze basata sulla percentuale di CPU.  
+    L'esecuzione del modello ha creato un'impostazione predefinita di ridimensionamento automatico con il nome **"autoscalewad"**. Sul lato destro è possibile visualizzare la definizione completa di questa impostazione di ridimensionamento automatico. In questo caso, l'impostazione di ridimensionamento automatico predefinita è inclusa in una regola di aumento e riduzione del numero di istanze basata sulla percentuale di CPU.  
 
 3. Ora è possibile aggiungere altri profili e regole basati sulla pianificazione o su specifici requisiti. Viene creata un'impostazione di ridimensionamento automatico con tre profili. Per conoscere i profili e le regole nel ridimensionamento automatico, vedere [Procedure consigliate per il ridimensionamento automatico](autoscale-best-practices.md).  
 
-    | Profili e regole | Description |
+    | Profili e regole | Descrizione |
     |--- | --- |
     | **Profilo** |**Basato su prestazioni/metrica** |
     | Regola |Numero di messaggi della coda del bus di servizio > x |
@@ -43,11 +43,11 @@ In questa procedura dettagliata viene usato [Esplora risorse di Azure](https://r
 
 4. Di seguito viene descritto uno senario ipotetico scenario di ridimensionamento per la procedura dettagliata.
 
-   * **Basato sul carico** - Si vuole aumentare o ridurre il numero di istanze in base al carico sull'applicazione ospitata nel set di scalabilità.*
-   * **Dimensioni della coda di messaggi** - Si usa una coda del bus di servizio per i messaggi in arrivo nell'applicazione. Si utilizzano il numero di messaggi della coda e la percentuale di CPU e si configura un profilo predefinito per attivare un'azione di scalabilità se il numero di messaggi o la CPU raggiunge la soglia.\*
-   * **Ora della settimana e del giorno** - Si vuole un profilo basato su un'ora del giorno con ricorrenza settimanale denominato "Ore della mattina dei giorni feriali". In base ai dati cronologici, so che è preferibile avere un certo numero di istanze di VM per gestire il carico dell'applicazione durante questo periodo di tempo.\*
-   * **Date speciali** - È stato aggiunto un profilo "Giorni di lancio del prodotto". Ho pianificato per date specifiche in modo che l'applicazione sia pronta a gestire il carico dovuto a annunci di marketing e quando si inserisce un nuovo prodotto nell'applicazione.\*
-   * *Gli ultimi due profili possono avere anche altre regole basate sulla metrica delle prestazioni. In questo caso, ho deciso di non disporre di uno e invece di basarsi sulle regole predefinite basate sulle metriche delle prestazioni. Le regole sono facoltative per i profili ricorrenti e basati sulla data.*
+   * **Basato** sul carico: vorrei scalare orizzontalmente o in base al carico sull'applicazione ospitata nel set di scalabilità.
+   * **Dimensioni della coda di messaggi**: si usa una coda del bus di servizio per i messaggi in arrivo nell'applicazione. Si usa il numero di messaggi della coda e la percentuale di CPU e si configura un profilo predefinito per attivare un'azione di scalabilità se il conteggio dei messaggi o la CPU raggiunge la soglia.\*
+   * **Ora della settimana e del giorno** - Si vuole un profilo basato su un'ora del giorno con ricorrenza settimanale denominato "Ore della mattina dei giorni feriali". In base ai dati cronologici, si è stabilito che è meglio avere un certo numero di istanze di VM per gestire il carico dell'applicazione durante questo orario.\*
+   * **Date speciali**: si è aggiunto un profilo "Giorno di lancio del prodotto". Si pianificano in anticipo date specifiche in modo che l'applicazione sia pronta a gestire il carico derivante da annunci di marketing e dall'inserimento di un nuovo prodotto nell'applicazione.\*
+   * *Gli ultimi due profili possono anche avere altre regole basate sulla metrica delle prestazioni al loro interno. In questo caso, ho deciso di non averne uno e invece di basarsi sulle regole predefinite basate sulla metrica delle prestazioni. Le regole sono facoltative per i profili ricorrenti e basati sulla data.*
 
      La classificazione in ordine di priorità dei profili e delle regole con il motore di ridimensionamento automatico è illustrata anche nell'articolo [Procedure consigliate per il ridimensionamento automatico](autoscale-best-practices.md).
      Per un elenco di metriche comuni per la scalabilità automatica, vedere [Metriche comuni per la scalabilità automatica](autoscale-common-metrics.md).
@@ -229,12 +229,12 @@ In questa procedura dettagliata viene usato [Esplora risorse di Azure](https://r
 
 È stata aggiornata un'impostazione di ridimensionamento automatico in un set di scalabilità di macchine virtuali per includere più profili di scalabilità e notifiche di scalabilità.
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulla scalabilità automatica, usare questi collegamenti.
 
 [Risolvere i problemi di scalabilità automatica con set di scalabilità di macchine virtuali](../../virtual-machine-scale-sets/virtual-machine-scale-sets-troubleshoot.md)
 
-[Metriche comuni per il ridimensionamento automatico](autoscale-common-metrics.md)
+[Metriche comuni per la scalabilità automaticaCommon Metrics for Autoscale](autoscale-common-metrics.md)
 
 [Procedure consigliate per il ridimensionamento automatico di Azure](autoscale-best-practices.md)
 

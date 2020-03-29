@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.openlocfilehash: 1ff7d430edd3f638ad5efcc5a89604e4ed732211
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60400151"
 ---
 # <a name="azure-iot-hub-developer-guide"></a>Guida per gli sviluppatori dell'hub IoT di Azure
@@ -41,13 +41,13 @@ Questa Guida per gli sviluppatori dell'hub IoT include gli articoli seguenti:
 
   * [Inviare messaggi da dispositivo a cloud all'hub IoT](iot-hub-devguide-messages-d2c.md).
 
-  * [Leggere messaggi da dispositivo a cloud dall'endpoint predefinito](iot-hub-devguide-messages-read-builtin.md).
+  * [Leggere i messaggi da dispositivo a cloud dall'endpoint predefinito.](iot-hub-devguide-messages-read-builtin.md)
 
-  * [Usare endpoint personalizzati e regole di routing per i messaggi da dispositivo a cloud](iot-hub-devguide-messages-read-custom.md).
+  * [Utilizzare endpoint personalizzati e regole](iot-hub-devguide-messages-read-custom.md)di routing per i messaggi da dispositivo a cloud .
 
   * [Inviare messaggi da cloud a dispositivo dall'hub IoT](iot-hub-devguide-messages-c2d.md).
 
-  * [Creare e leggere messaggi dell'hub IoT](iot-hub-devguide-messages-construct.md).
+  * [Creare e leggere i messaggi dell'hub IoT](iot-hub-devguide-messages-construct.md).
 
 * [Upload files from a device](iot-hub-devguide-file-upload.md) (Caricare file da un dispositivo), che descrive come caricare file da un dispositivo. Questo articolo contiene anche informazioni sul modo in cui le notifiche possono essere inviate dal processo di aggiornamento.
 
@@ -55,7 +55,7 @@ Questa Guida per gli sviluppatori dell'hub IoT include gli articoli seguenti:
 
 * [Controllare l'accesso all'hub IoT](iot-hub-devguide-security.md), che descrive il modello di sicurezza usato per concedere l'accesso alla funzionalità hub IoT per i dispositivi e i componenti cloud. In questo articolo sono incluse informazioni sull'uso di token e certificati X.509, oltre ai dettagli delle autorizzazioni che è possibile concedere.
 
-* [Usare dispositivi gemelli per sincronizzare lo stato e le configurazioni](iot-hub-devguide-device-twins.md) descrive il concetto di *dispositivi gemelli*. L'articolo descrive anche il dispositivo di funzionalità espongono dispositivi gemelli, ad esempio la sincronizzazione di un dispositivo con il dispositivo gemello. In questo articolo sono incluse informazioni sui dati archiviati in un dispositivo gemello.
+* [Usare dispositivi gemelli per sincronizzare lo stato e le configurazioni](iot-hub-devguide-device-twins.md) descrive il concetto di *dispositivi gemelli*. L'articolo descrive anche la funzionalità esposta dai dispositivi gemelli, ad esempio la sincronizzazione di un dispositivo con il dispositivo gemello. In questo articolo sono incluse informazioni sui dati archiviati in un dispositivo gemello.
 
 * [Richiamare un metodo diretto in un dispositivo](iot-hub-devguide-direct-methods.md) descrive il ciclo di vita di un metodo diretto. L'articolo descrive come richiamare metodi in un dispositivo dall'app back-end e come gestire il metodo diretto nel dispositivo.
 

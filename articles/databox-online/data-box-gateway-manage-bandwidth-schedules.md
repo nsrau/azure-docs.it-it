@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 63f3572dcb5affb9fcf89d86a665bef9414cb011
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60755349"
 ---
 # <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-data-box-gateway"></a>Usare il portale di Azure per gestire le pianificazioni della larghezza di banda in Azure Data Box Gateway  
@@ -21,7 +21,7 @@ Questo articolo descrive come gestire gli utenti in Azure Data Box Gateway. Le p
 
 È possibile aggiungere, modificare o eliminare le pianificazioni della larghezza di banda per il Data Box Gateway dal portale di Azure.
 
-In questo articolo viene spiegato come:
+In questo articolo vengono illustrate le operazioni seguenti:
 
 > [!div class="checklist"]
 > * Aggiungere una pianificazione
@@ -72,7 +72,7 @@ Eseguire la procedura seguente per modificare una pianificazione della larghezza
 
 Usare la procedura seguente per eliminare una pianificazione della larghezza di banda associata al dispositivo Data Box Gateway.
 
-1. Nel portale di Azure, selezionare la risorsa Data Box Gateway e quindi passare a **Larghezza di banda**.  
+1. Nel portale di Azure passare alla risorsa Gateway casella dati e quindi passare a **Larghezza di banda**.  
 
 2. Nell'elenco delle pianificazioni della larghezza di banda, selezionare una pianificazione da eliminare. Fare clic con il pulsante destro del mouse per visualizzare il menu di scelta rapida e quindi fare clic su **Elimina**. 
 

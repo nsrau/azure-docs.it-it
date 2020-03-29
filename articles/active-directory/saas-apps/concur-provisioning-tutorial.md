@@ -16,10 +16,10 @@ ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 441aa9805f2a453e22f207238315125d2a281838
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60280447"
 ---
 # <a name="tutorial-configure-concur-for-automatic-user-provisioning"></a>Esercitazione: Configurare Concur per il provisioning utenti automatico
@@ -67,7 +67,7 @@ Quando si crea il profilo da usare per abilitare l'app, immettere il nome dell'a
 
 Per i seguenti motivi è consigliabile non eseguire questa operazione con il profilo usato per la normale amministrazione T&E.
 
-* Il client deve essere quello che fa clic su "*Sì*" nella finestra di dialogo visualizzata dopo l'abilitazione di un'app. Tale operazione conferma che il client consente all'applicazione del partner di accedere ai dati, di conseguenza non può essere l'utente o il partner a fare clic sul pulsante Yes.
+* Il client deve essere quello che fa clic su "*Yes*" nella finestra di dialogo visualizzata dopo l'abilitazione di un'app. Tale operazione conferma che il client consente all'applicazione del partner di accedere ai dati, di conseguenza non può essere l'utente o il partner a fare clic sul pulsante Yes.
 
 * Se un amministratore client che ha abilitato un'app con il profilo di amministratore T&E lascia la società e il relativo profilo viene disattivato, tutte le app abilitate tramite tale profilo non funzioneranno finché l'app non viene abilitata con un altro profilo di amministratore di servizi Web attivo. È per questo motivo che è richiesta la creazione di profili distinti per l'amministratore di servizi Web.
 
@@ -77,21 +77,21 @@ Per i seguenti motivi è consigliabile non eseguire questa operazione con il pro
 
 1. Accedere al tenant di **Concur**.
 
-2. Nel menu **Administration** (Amministrazione) selezionare **Web Services** (Servizi Web).
+2. Nel menu **Amministrazione** selezionare **Servizi Web**.
    
-    ![Tenant Concur](./media/concur-provisioning-tutorial/IC721729.png "Tenant Concur")
+    ![Tenant di Concur](./media/concur-provisioning-tutorial/IC721729.png "Tenant di Concur")
 
-3. Sul lato sinistro nel riquadro **Web Services** (Servizi Web) selezionare **Enable Partner Application** (Abilita applicazione partner).
+3. Sul lato sinistro nel riquadro **Servizi Web** selezionare **Abilita applicazione partner**.
    
-    ![Enable Partner Application](./media/concur-provisioning-tutorial/ic721730.png "Enable Partner Application")
+    ![Abilita applicazione partner](./media/concur-provisioning-tutorial/ic721730.png "Abilita applicazione partner")
 
-4. Dall'elenco **Enable Application** (Abilita applicazione) selezionare **Azure Active Directory**, quindi fare clic su **Enable** (Abilita).
+4. Dall'elenco **Abilita applicazione** selezionare **Azure Active Directory**, quindi fare clic su **Abilita**.
    
     ![Microsoft Azure Active Directory](./media/concur-provisioning-tutorial/ic721731.png "Microsoft Azure Active Directory")
 
-5. Fare clic su **Yes** (Sì) per chiudere la finestra di dialogo **Confirm Action** (Conferma operazione).
+5. Fare clic su **Sì** per chiudere la finestra di dialogo **Conferma dell'operazione**.
    
-    ![Confirm Action](./media/concur-provisioning-tutorial/ic721732.png "Confirm Action")
+    ![Conferma dell'operazione](./media/concur-provisioning-tutorial/ic721732.png "Conferma dell'operazione")
 
 6. Nel [portale di Azure](https://portal.azure.com) passare alla sezione **Azure Active Directory > App aziendali > Tutte le applicazioni**.
 
@@ -99,7 +99,7 @@ Per i seguenti motivi è consigliabile non eseguire questa operazione con il pro
 
 8. Selezionare l'istanza di Concur e quindi la scheda **Provisioning**.
 
-9. Impostare **Modalità di provisioning** su **Automatico**. 
+9. Impostare la **modalità di provisioning** su **Automatico**. 
  
     ![provisioning](./media/concur-provisioning-tutorial/provisioning.png)
 
@@ -109,7 +109,7 @@ Per i seguenti motivi è consigliabile non eseguire questa operazione con il pro
 
 12. Immettere l'indirizzo e-mail di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning nel campo **Messaggio di posta elettronica di notifica** e selezionare la casella di controllo.
 
-13. Fare clic su **Salva**.
+13. Fare clic su **Salva.**
 
 14. Nella sezione Mapping selezionare **Synchronize Azure Active Directory Users to Concur** (Sincronizza utenti di Azure Active Directory in Concur).
 
@@ -117,13 +117,13 @@ Per i seguenti motivi è consigliabile non eseguire questa operazione con il pro
 
 16. Per abilitare il servizio di provisioning di Azure AD per Concur, impostare lo **Stato del provisioning** su **Sì** nella sezione **Impostazioni**
 
-17. Fare clic su **Salva**.
+17. Fare clic su **Salva.**
 
 È ora possibile creare un account di test. Attendere 20 minuti per verificare che l'account sia stato sincronizzato con Concur.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Gestione del provisioning degli account utente per app aziendali](tutorial-list.md)
-* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
-* [Configurare l'accesso Single Sign-On](concur-tutorial.md)
+* [Gestione del provisioning degli account utente per le app aziendali](tutorial-list.md)
+* [Che cos'è l'accesso alle applicazioni e l'accesso Single Sign-On con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Configurare Single Sign-On](concur-tutorial.md)
 

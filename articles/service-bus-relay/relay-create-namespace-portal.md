@@ -1,6 +1,6 @@
 ---
 title: Creare uno spazio dei nomi di inoltro usando il portale di Azure | Documentazione Microsoft
-description: Questo articolo fornisce una procedura dettagliata che illustra come creare uno spazio dei nomi di inoltro usando il portale di Azure.
+description: Questo articolo offre una procedura dettagliata che illustra come creare uno spazio dei nomi di inoltro usando il portale di Azure.This article provides a walkthrough that shows you how to create a Relay namespace using the Azure portal.
 services: service-bus-relay
 documentationcenter: .net
 author: spelluru
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/21/2020
 ms.author: spelluru
 ms.openlocfilehash: b9811ef92aba4891627c20e0269be136582a3304
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76514664"
 ---
 # <a name="create-a-relay-namespace-using-the-azure-portal"></a>Creare uno spazio dei nomi di inoltro usando il portale di Azure
@@ -26,7 +26,7 @@ ms.locfileid: "76514664"
 Uno spazio dei nomi è un contenitore di ambito per tutti i componenti di inoltro di Azure. Più inoltri possono risiedere in un unico spazio dei nomi e gli spazi dei nomi vengono spesso usati come contenitori di applicazioni. Esistono attualmente due diversi modi per creare uno spazio dei nomi di inoltro:
 
 1. Portale di Azure (in questo articolo).
-2. [Modelli di Azure Resource Manager](../azure-resource-manager/management/overview.md).
+2. Modelli di [Azure Resource Manager.Azure Resource Manager](../azure-resource-manager/management/overview.md) templates.
 
 ## <a name="create-a-namespace-in-the-azure-portal"></a>Creare uno spazio dei nomi nel portale di Azure
 
@@ -36,7 +36,7 @@ Congratulazioni! È stato creato uno spazio dei nomi di inoltro.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Domande frequenti sull'inoltro](relay-faq.md)
+* [Domande frequenti sul servizio di inoltro](relay-faq.md)
 * [Introduzione a .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Introduzione a Node](relay-hybrid-connections-node-get-started.md)
 

@@ -1,5 +1,5 @@
 ---
-title: Operazioni dell'IoT Hub di Azure monitoring (deprecato) | Microsoft Docs
+title: Monitoraggio delle operazioni dell'hub IoT di Azure (deprecato) Documenti Microsoft
 description: Come usare il monitoraggio delle operazioni dell'hub IoT di Azure per monitorare lo stato delle operazioni nell'hub IoT in tempo reale.
 author: nberdy
 manager: briz
@@ -9,25 +9,25 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: nberdy
 ms.openlocfilehash: 84f28a1cb411e7df156fc08fa683efe7f83eda64
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60345721"
 ---
-# <a name="iot-hub-operations-monitoring-deprecated"></a>Operazioni dell'IoT Hub di monitoraggio (deprecata)
+# <a name="iot-hub-operations-monitoring-deprecated"></a>Monitoraggio delle operazioni dell'hub IoT (deprecato)IoT Hub operations monitoring (deprecato)
 
 Il monitoraggio delle operazioni dell'hub IoT consente di monitorare lo stato delle operazioni nel proprio hub IoT in tempo reale. L'hub IoT tiene traccia degli eventi nelle diverse categorie di operazioni. È possibile scegliere di impostare l'invio di eventi da una o più categorie a un endpoint del proprio hub IoT per l'elaborazione. È possibile monitorare i dati per individuare gli errori o configurare un'elaborazione più complessa in base ai modelli di dati.
 
 >[!NOTE]
->L'IoT Hub **operazioni di monitoraggio è deprecate ed è stata rimossa dall'IoT Hub il 10 marzo 2019**. Per monitorare le operazioni e l'integrità dell'IoT Hub, vedere [monitorare l'integrità dell'IoT Hub di Azure e diagnosticare rapidamente i problemi](iot-hub-monitor-resource-health.md). Per altre informazioni sulla sequenza temporale relativa alla funzionalità deprecata, vedere [Monitorare le soluzioni IoT di Azure con Monitoraggio di Azure e Integrità risorse di Azure](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health).
+>Il monitoraggio delle operazioni dell'hub IoT **è deprecato ed è stato rimosso dall'hub IoT il 10 marzo 2019.** Per monitorare le operazioni e l'integrità dell'hub IoT, vedere [Monitor the health of Azure IoT Hub and diagnose problems quickly](iot-hub-monitor-resource-health.md) (Monitorare lo stato dell'hub IoT di Azure e diagnosticare i problemi rapidamente) Per altre informazioni sulla sequenza temporale relativa alla funzionalità deprecata, vedere [Monitorare le soluzioni IoT di Azure con Monitoraggio di Azure e Integrità risorse di Azure](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health).
 
 L'hub IoT monitora sei categorie di eventi:
 
 * Operazioni relative alle identità dei dispositivi
 * Telemetria dei dispositivi
 * Messaggi da cloud a dispositivo
-* connessioni
+* Connessioni
 * Caricamenti di file
 * Routing dei messaggi
 
@@ -36,7 +36,7 @@ L'hub IoT monitora sei categorie di eventi:
 
 ## <a name="how-to-enable-operations-monitoring"></a>Come abilitare il monitoraggio delle operazioni
 
-1. Creare un hub IoT. È possibile trovare istruzioni su come creare un hub IoT nel [iniziare a usare](quickstart-send-telemetry-dotnet.md) Guida.
+1. Creare un hub IoT. Le istruzioni sulla creazione di un hub IoT sono disponibili nella [Guida introduttiva](quickstart-send-telemetry-dotnet.md).
 
 2. Aprire il pannello dell'hub IoT. Da qui, fare clic su **Monitoraggio operazioni**.
 
@@ -120,7 +120,7 @@ La categoria di comandi da cloud a dispositivo tiene traccia degli errori che si
 }
 ```
 
-### <a name="connections"></a>connessioni
+### <a name="connections"></a>Connessioni
 
 La categoria Connessioni tiene traccia degli errori che si verificano quando i dispositivi si connettono o disconnettono da un hub IoT. Il rilevamento di questa categoria è utile per identificare i tentativi di connessione non autorizzati e per rilevare quando una connessione viene persa dai dispositivi in aree di scarsa connettività.
 
@@ -268,6 +268,6 @@ class Program
 
 Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
-* [Guida per sviluppatori dell'hub IoT](iot-hub-devguide.md)
+* [Guida per gli sviluppatori dell'hub IoT](iot-hub-devguide.md)
 
 * [Distribuzione dell'intelligenza artificiale in dispositivi perimetrali con Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)

@@ -1,5 +1,5 @@
 ---
-title: Gestire i log di flusso NSG con Grafana
+title: Gestire i registri di flusso del gruppo di sicurezza di rete tramite GrafanaManage NSG Flow Logs using Grafana
 titleSuffix: Azure Network Watcher
 description: Gestire e analizzare i log di flusso dei gruppi di sicurezza di rete in Azure con Network Watcher e Grafana.
 services: network-watcher
@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: damendo
 ms.openlocfilehash: c48d5a02cdb8ef63904642c6c2c76cb5d61e1f9d
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76840911"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-using-network-watcher-and-grafana"></a>Gestire e analizzare i log di flusso dei gruppi di sicurezza di rete con Network Watcher e Grafana
@@ -40,7 +40,7 @@ I log di flusso dei gruppi di sicurezza di rete sono abilitati tramite Network W
 
 ### <a name="enable-network-security-group-flow-logging"></a>Abilitare la registrazione dei flussi dei gruppi di sicurezza di rete
 
-Per questo scenario, è necessario abilitare la registrazione dei flussi dei gruppi di sicurezza di rete in almeno un gruppo di sicurezza di rete nel proprio account. Per istruzioni in proposito, vedere [Introduzione alla registrazione dei flussi per i gruppi di sicurezza di rete](network-watcher-nsg-flow-logging-overview.md).
+Per questo scenario, è necessario abilitare la registrazione dei flussi dei gruppi di sicurezza di rete in almeno un gruppo di sicurezza di rete nel proprio account. Per istruzioni sull'abilitazione dei registri del flusso di sicurezza di rete, vedere il seguente articolo [Introduzione alla registrazione del flusso per](network-watcher-nsg-flow-logging-overview.md)i gruppi di sicurezza di rete .
 
 ### <a name="setup-considerations"></a>Considerazioni sull'installazione
 

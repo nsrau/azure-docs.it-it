@@ -1,6 +1,6 @@
 ---
-title: Guida per l'installazione e la C# distribuzione dell'agente Linux del Centro sicurezza di Azure Microsoft Docs
-description: Informazioni su come installare il Centro sicurezza di Azure per l'agente Internet in Linux a 32 bit e a 64 bit.
+title: Guida all'installazione e alla distribuzione dell'agente Linux in C Documenti Microsoft
+description: Informazioni su come installare il Centro sicurezza di Azure per l'agente IoT sia in Linux a 32 bit che a 64 bit.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -16,27 +16,27 @@ ms.workload: na
 ms.date: 07/27/2019
 ms.author: mlottner
 ms.openlocfilehash: b675198756ff7bc0791d49fee3649717e3e4da7f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75367417"
 ---
 # <a name="deploy-azure-security-center-for-iot-c-based-security-agent-for-linux"></a>Distribuire un agente di sicurezza per Linux basato su C# del Centro sicurezza di Azure per IoT
 
 
-Questa guida illustra come installare e distribuire il Centro sicurezza di Azure per l' C#agente di sicurezza basato su Internet delle cose in Linux.
+Questa guida illustra come installare e distribuire il Centro sicurezza di Azure per l'agente di sicurezza basato su IoT C, in Linux.This guide explains how to install and deploy the Azure Security Center for IoT C's-based security agent on Linux.
 
 Questa guida illustra come eseguire queste operazioni: 
 > [!div class="checklist"]
-> * Installazione
+> * Installazione di
 > * Verificare la distribuzione
 > * Disinstallare l'agente
 > * Risolvere i problemi 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per altre piattaforme e versioni degli agenti, vedere [scegliere l'agente di sicurezza appropriato](how-to-deploy-agent.md).
+Per altre piattaforme e ruoli di agente, vedere [Scegliere l'agente](how-to-deploy-agent.md)di sicurezza corretto.
 
 1. Per distribuire l'agente di sicurezza, sono necessari i diritti di amministratore locale nel computer di installazione. 
 
@@ -44,21 +44,21 @@ Per altre piattaforme e versioni degli agenti, vedere [scegliere l'agente di sic
 
 ## <a name="installation"></a>Installazione 
 
-Per distribuire l'agente sicurezza, attenersi alla procedura seguente:
+Per distribuire l'agente di sicurezza, attenersi alla seguente procedura:
 
 1. Scaricare la versione più recente nel computer da [GitHub](https://aka.ms/iot-security-github-cs).
 
-1. Estrarre il contenuto del pacchetto e passare alla cartella _/Install_.
+1. Estrarre il contenuto del pacchetto e passare alla cartella _/Install._
 
 1. Aggiungere le autorizzazioni di esecuzione dello script **InstallSecurityAgent** eseguendo `chmod +x InstallSecurityAgent.sh` 
 
-1. Eseguire quindi il comando seguente con **privilegi radice**: 
+1. Successivamente, eseguire il comando seguente con **privilegi di root:** 
 
    ```
    ./InstallSecurityAgent.sh -i -aui <authentication identity>  -aum <authentication method> -f <file path> -hn <host name>  -di <device id> -cl <certificate location kind>
    ```
    
-   Per ulteriori informazioni sui parametri di autenticazione, vedere [How to Configure Authentication](concept-security-agent-authentication-methods.md).
+   Per ulteriori informazioni sui parametri di autenticazione, vedere [Come configurare l'autenticazione](concept-security-agent-authentication-methods.md).
 
 Lo script esegue le azioni seguenti:
 
@@ -66,9 +66,9 @@ Lo script esegue le azioni seguenti:
 
 - Aggiunge un utente del servizio (con accesso interattivo disabilitato).
 
-- Installa l'agente come **daemon** : presuppone che il dispositivo usi **systemd** per il modello di distribuzione classica.
+- Installa l'agente come **daemon:** presuppone che il dispositivo utilizzi **systemd** per il modello di distribuzione classica.
 
-- Configura **sudoers** per consentire all'agente di eseguire determinate attività come radice.
+- Configura i **sudoer** per consentire all'agente di eseguire determinate attività come root.
 
 - Configurazione dell'agente con i parametri di autenticazione forniti.
 
@@ -122,8 +122,8 @@ Per disinstallare l'agente, eseguire lo script con il parametro –u: `./Install
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Leggi il Centro sicurezza di Azure per [informazioni generali](overview.md) sul servizio Internet
-- Scopri di più sul centro sicurezza di Azure per l' [architettura dell'it](architecture.md)
+- Leggi la [panoramica](overview.md) del Centro sicurezza di Azure per il servizio IoT
+- Altre informazioni sul Centro sicurezza di Azure per l'architettura IoTLearn more about Azure Security Center for IoT [Architecture](architecture.md)
 - Abilitare il [servizio](quickstart-onboard-iot-hub.md)
 - Leggere le [Domande frequenti](resources-frequently-asked-questions.md)
 - Informazioni sugli [avvisi](concept-security-alerts.md)

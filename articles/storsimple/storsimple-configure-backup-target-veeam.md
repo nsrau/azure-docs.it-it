@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/06/2016
 ms.author: matd
 ms.openlocfilehash: 3ebf464fed1480e7452f246f04f3906faf0dd219
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67875312"
 ---
 # <a name="storsimple-as-a-backup-target-with-veeam"></a>StorSimple come destinazione di backup con Veeam
@@ -56,8 +56,8 @@ Come con qualsiasi soluzione di archiviazione, per ottenere un esito positivo è
 
 StorSimple è progettato per garantire l'archiviazione per le applicazioni che usano un working set di dati ben definito (dati attivi). In questo modello, il working set di dati viene archiviato nei livelli locali e il rimanente set di dati non in funzione, poco attivi o archiviati viene suddiviso in livelli nel cloud. Questo modello è illustrato nella figura seguente. La linea verde quasi piatta rappresenta i dati archiviati nei livelli locali del dispositivo StorSimple. La linea rossa rappresenta la quantità totale di dati archiviati nella soluzione StorSimple in tutti i livelli. Lo spazio tra la linea verde piatta e la curva esponenziale rossa rappresenta la quantità totale di dati archiviati nel cloud.
 
-**Suddivisione in livelli di StorSimple**
-![Diagramma della suddivisione in livelli di StorSimple](./media/storsimple-configure-backup-target-using-veeam/image1.jpg)
+**StorSimple tiering**
+![Diagramma di tiering StorSimple](./media/storsimple-configure-backup-target-using-veeam/image1.jpg)
 
 Tenendo presente questa architettura, si noterà che StorSimple è particolarmente adatto a essere usato come destinazione di backup. È possibile usare StorSimple per:
 
@@ -75,13 +75,13 @@ StorSimple offre i vantaggi seguenti:
 -   Algoritmi di deduplicazione e compressione univoci che usano il cloud per ottenere livelli avanzati di deduplicazione
 -   Disponibilità elevata
 -   Replica geografica usando la replica geografica di Azure
--   Integrazione di Azure
+-   Integrazione con Azure
 -   Crittografia dei dati nel cloud
 -   Miglioramento del ripristino di emergenza e della conformità
 
 Sebbene StorSimple presenti due scenari di distribuzione principali (destinazione di backup primaria e secondaria), fondamentalmente si tratta di un normale dispositivo di archiviazione a blocchi. StorSimple esegue tutta la compressione e la deduplicazione necessarie. Invia e recupera senza problemi i dati tra il cloud e l'applicazione e il file system.
 
-Per altre informazioni su StorSimple, consultare [StorSimple 8000 series: Hybrid cloud storage solution](storsimple-overview.md) (Serie StorSimple 8000: una soluzione di archiviazione cloud ibrida). È possibile vedere anche le [specifiche tecniche di StorSimple serie 8000](storsimple-technical-specifications-and-compliance.md).
+Per altre informazioni su StorSimple, vedere [Serie 8000 StorSimple: una soluzione di archiviazione cloud ibrida](storsimple-overview.md). È possibile vedere anche le [specifiche tecniche di StorSimple serie 8000](storsimple-technical-specifications-and-compliance.md).
 
 > [!IMPORTANT]
 > L'uso di un dispositivo StorSimple come destinazione di backup è supportato solo per StorSimple 8000 Update 3 e versioni successive.
@@ -200,7 +200,7 @@ Configurare l'archiviazione del server di backup host in base alle seguenti line
 - Non usare i volumi con spanning, creati tramite il servizio di gestione dischi di Windows. I volumi con spanning non sono supportati.
 - Formattare i volumi tramite NTFS con una dimensione dell'unità di allocazione di 64 KB.
 - Mappare i volumi StorSimple direttamente al server Veeam.
-    - Usare iSCSI per server fisici.
+    - Usare iSCSI per i server fisici.
 
 
 ## <a name="best-practices-for-storsimple-and-veeam"></a>Procedure consigliate per StorSimple e Veeam
@@ -260,7 +260,7 @@ In base ai presupposti precedenti creare un volume a più livelli StorSimple a 2
 | Conservazione per tipo di backup | Dimensioni (TiB) | Moltiplicatore GFS\* | Capacità totale (TiB)  |
 |---|---|---|---|
 | Completo settimanale | 1 | 4  | 4 |
-| Incrementale giornaliero | 0,5 | 20 (il numero dei cicli è uguale al numero di settimane al mese) | 12 (2 per quota aggiuntiva) |
+| Incrementale giornaliero | 0.5 | 20 (il numero dei cicli è uguale al numero di settimane al mese) | 12 (2 per quota aggiuntiva) |
 | Completo mensile | 1 | 12 | 12 |
 | Completo annuale | 1  | 10 | 10 |
 | Requisito GFS |   | 38 |   |
@@ -276,11 +276,11 @@ In base ai presupposti precedenti creare un volume a più livelli StorSimple a 2
 
     ![Console di gestione di Veeam, pagina dell'archivio di backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage1.png)
 
-2.  Nella finestra di dialogo **New Backup Repository** (Nuovo archivio di backup) immettere un nome e una descrizione per l'archivio. Selezionare **Avanti**.
+2.  Nella finestra di dialogo **New Backup Repository** (Nuovo archivio di backup) immettere un nome e una descrizione per l'archivio. Fare clic su **Avanti**.
 
     ![Console di gestione di Veeam, pagina di nome e descrizione](./media/storsimple-configure-backup-target-using-veeam/veeamimage2.png)
 
-3.  Come tipo selezionare **Microsoft Windows server** (Serve Microsoft Windows). Selezionare il server Veeam. Selezionare **Avanti**.
+3.  Come tipo selezionare **Microsoft Windows server** (Serve Microsoft Windows). Selezionare il server Veeam. Fare clic su **Avanti**.
 
     ![Console di gestione Veeam, selezionare il tipo di repository di backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage3.png)
 
@@ -293,7 +293,7 @@ In base ai presupposti precedenti creare un volume a più livelli StorSimple a 2
 
     ![Console di gestione Veeam, impostazioni di compatibilità di archiviazione](./media/storsimple-configure-backup-target-using-veeam/veeamimage5.png)
 
-6.  Nella finestra di dialogo **New Backup Repository** (Nuovo archivio di backup) selezionare la casella di controllo **Enable vPower NFS service on the mount server (recommended)** (Abilita servizio NFS vPower nel server di montaggio (scelta consigliata)). Selezionare **Avanti**.
+6.  Nella finestra di dialogo **New Backup Repository** (Nuovo archivio di backup) selezionare la casella di controllo **Enable vPower NFS service on the mount server (recommended)** (Abilita servizio NFS vPower nel server di montaggio (scelta consigliata)). Fare clic su **Avanti**.
 
     ![Console di gestione di Veeam, pagina dell'archivio di backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage6.png)
 
@@ -316,7 +316,7 @@ La figura seguente illustra il mapping di un volume tipico a un processo di back
 
 Di seguito è riportato un esempio di una pianificazione a rotazione GFS per quattro settimane, mensile e annuale:
 
-| Frequenza/Tipo di backup | Completa | Incrementale (giorni 1-5)  |   
+| Frequenza/Tipo di backup | Full | Incrementale (giorni 1-5)  |   
 |---|---|---|
 | Settimanale (settimane 1-4) | Sabato | Lunedì-venerdì |
 | Mensile  | Sabato  |   |
@@ -341,7 +341,7 @@ Per lo scenario di destinazione del backup primario, creare un processo giornali
 
     ![Console di gestione di Veeam, pagina del nuovo processo di backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage10.png)
 
-4.  Selezionare i valori desiderati per **Backup proxy** (Proxy di backup) e **Backup repository** (Repository di backup). Selezionare un valore per **Restore points to keep on disk** (Punti di ripristino da mantenere su disco) in base alle definizioni RPO e RTO dell'ambiente per l'archivio collegato locale. Selezionare **Advanced** (Avanzate).
+4.  Selezionare i valori desiderati per **Backup proxy** (Proxy di backup) e **Backup repository** (Repository di backup). Selezionare un valore per **Restore points to keep on disk** (Punti di ripristino da mantenere su disco) in base alle definizioni RPO e RTO dell'ambiente per l'archivio collegato locale. Fare clic su **Avanzate**.
 
     ![Console di gestione di Veeam, pagina del nuovo processo di backup](./media/storsimple-configure-backup-target-using-veeam/veeamimage11.png)
 
@@ -393,7 +393,7 @@ La tabella seguente indica come configurare il backup per l'esecuzione su dischi
 
 Pianificazione della rotazione GFS settimanale, mensile e annuale
 
-| Settimana | Completa | Incrementale Giorno 1 | Incrementale Giorno 2 | Incrementale Giorno 3 | Incrementale Giorno 4 | Incrementale Giorno 5 |
+| Week | Full | Incrementale Giorno 1 | Incrementale Giorno 2 | Incrementale Giorno 3 | Incrementale Giorno 4 | Incrementale Giorno 5 |
 |---|---|---|---|---|---|---|
 | Settimana 1 | Volume RAID locale  | Volume RAID locale | Volume RAID locale | Volume RAID locale | Volume RAID locale | Volume RAID locale |
 | Settimana 2 | StorSimple settimane 2-4 |   |   |   |   |   |
@@ -512,7 +512,7 @@ Una situazione di emergenza può essere causata da numerosi fattori. La tabella 
 Questo articolo fa riferimento ai documenti seguenti:
 
 - [Configurazione di Multipath I/O per StorSimple](storsimple-configure-mpio-windows-server.md)
-- [Storage scenarios: Thin provisioning](https://msdn.microsoft.com/library/windows/hardware/dn265487.aspx) (Scenari di archiviazione: Thin provisioning)
+- [Scenari di archiviazione: thin provisioning](https://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
 - [Uso di unità GPT](https://msdn.microsoft.com/windows/hardware/gg463524.aspx#EHD)
 - [Configurare le copie shadow di cartelle condivise](https://technet.microsoft.com/library/cc771893.aspx)
 

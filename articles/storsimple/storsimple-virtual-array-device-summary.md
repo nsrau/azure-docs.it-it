@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/29/2016
 ms.author: manuaery
 ms.openlocfilehash: 9edc0b552f5c2f38e646bc4b44dd8df5c16b0457
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61408507"
 ---
 # <a name="use-the-device-summary-blade-for-storsimple-device-manager-connected-to-storsimple-virtual-array"></a>Usare il pannello di riepilogo dispositivo per il servizio Gestione dispositivi StorSimple connesso all'array virtuale StorSimple
@@ -52,7 +52,7 @@ L'area relativa alle informazioni di base riporta alcune proprietà importanti, 
 * Il riquadro **Condivisioni** o **Volumi** fornisce un riepilogo del numero di condivisioni o volumi nel dispositivo raggruppati per stato. Fare clic sul riquadro per aprire il pannello di elenco **Condivisioni** o **Volumi** e quindi fare clic su una singola condivisione o un singolo volume per visualizzare o modificare le relative proprietà. Per altre informazioni, vedere l'articolo su come [gestire le condivisioni](storsimple-virtual-array-manage-shares.md) o [gestire i volumi](storsimple-virtual-array-manage-volumes.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
-È possibile passare agli argomenti seguenti:
+Viene illustrato come:
 - [Gestire condivisioni su un array virtuale StorSimple](storsimple-virtual-array-manage-shares.md)
     
 - [Gestire volumi su un array virtuale StorSimple](storsimple-virtual-array-manage-volumes.md)

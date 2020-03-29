@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: tagore
 ms.openlocfilehash: fa48953e5e86ffa758fe556b7fb1072be9d74647
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75360311"
 ---
 # <a name="how-to-configure-and-run-startup-tasks-for-a-cloud-service"></a>Come configurare ed eseguire attività di avvio per un servizio cloud
@@ -23,7 +23,7 @@ ms.locfileid: "75360311"
 > 
 
 ## <a name="how-startup-tasks-work"></a>Funzionamento delle attività di avvio
-Le attività di avvio sono azioni effettuate prima dell'inizio dei ruoli e vengono definite nel file [ServiceDefinition.csdef] usando l'elemento [Attività] all'interno dell'elemento [Startup]. Spesso le attività di avvio sono file batch, ma possono essere anche applicazioni console o file batch tramite i quali si avviano script di PowerShell.
+Le attività di avvio sono azioni effettuate prima dell'inizio dei ruoli e vengono definite nel file [ServiceDefinition.csdef] usando l'elemento [Task] all'interno dell'elemento [Startup]. Spesso le attività di avvio sono file batch, ma possono essere anche applicazioni console o file batch tramite i quali si avviano script di PowerShell.
 
 Le variabili di ambiente passano informazioni all'interno di un'attività di avvio e le risorse di archiviazione locale possono essere usate per il passaggio all'esterno di un'attività di avvio. In una variabile di ambiente può essere ad esempio specificato il percorso di un programma che si desidera installare e i file possono essere scritti nelle risorse di archiviazione locale e letti successivamente dai ruoli.
 
@@ -40,7 +40,7 @@ Di seguito è riportata la procedura di avvio di un ruolo in Azure:
 2. Tutte le attività di avvio vengono eseguite in base al relativo attributo **taskType** .
    
    * Le attività di tipo **simple** vengono eseguite in modo sincrono, una alla volta.
-   * Le attività di tipo **background** e **foreground** vengono avviate in modo asincrono, in parallelo all'attività di avvio.  
+   * Le attività di tipo **background** e **foreground** vengono avviate in modo asincrono e parallelo all'attività di avvio.  
      
      > [!WARNING]
      > È possibile che IIS non sia stato configurato completamente nella fase delle attività di avvio del processo di avvio, pertanto potrebbero non essere disponibili dati specifici per il ruolo. Per le attività di avvio che richiedono dati specifici per il ruolo è necessario usare [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.OnStart](/previous-versions/azure/reference/ee772851(v=azure.100)).
@@ -104,7 +104,7 @@ Di seguito vengono descritti gli attributi dell'elemento **Task** nel file [Serv
 
 **taskType** : specifica la modalità di esecuzione di un'attività di avvio.
 
-* **simple**  
+* **Semplice**  
   vengono eseguite in modo sincrono, una alla volta, nell'ordine specificato nel file [ServiceDefinition.csdef] . Quando un'attività di avvio **simple** termina con un valore **errorlevel** uguale a zero, viene eseguita l'attività di avvio **simple** successiva. Se non sono presenti altre attività di avvio **simple** da eseguire, viene avviato il ruolo.   
   
   > [!NOTE]
@@ -114,20 +114,20 @@ Di seguito vengono descritti gli attributi dell'elemento **Task** nel file [Serv
   
     Per assicurarsi che il file batch termini con un valore **errorlevel** uguale a zero, eseguire il comando `EXIT /B 0` al termine del processo del file batch.
 * **background**  
-  vengono eseguite in modo asincrono, in parallelo con l'avvio del ruolo.
+   vengono eseguite in modo asincrono, in parallelo con l'avvio del ruolo.
 * **foreground**  
-  vengono eseguite in modo asincrono, in parallelo con l'avvio del ruolo. La differenza principale tra un'attività **foreground** e un'attività **background** è che l'attività **foreground** impedisce il riciclo o l'arresto del ruolo fino al termine dell'attività. Le attività **background** non prevedono questa restrizione.
+   vengono eseguite in modo asincrono, in parallelo con l'avvio del ruolo. La differenza principale tra un'attività **foreground** e un'attività **background** è che l'attività **foreground** impedisce il riciclo o l'arresto del ruolo fino al termine dell'attività. Le attività **background** non prevedono questa restrizione.
 
 ## <a name="environment-variables"></a>Variabili di ambiente
 Le variabili di ambiente costituiscono un modo per passare le informazioni a un'attività di avvio. È ad esempio possibile inserire il percorso di un BLOB contenente un programma da installare, i numeri di porta che verranno usati dal ruolo o impostazioni per controllare le funzionalità dell'attività di avvio.
 
-Esistono due tipi di variabili di ambiente per le attività di avvio: le variabili di ambiente statiche e le variabili di ambiente basate sui membri della classe [RoleEnvironment] . Entrambi si trovano nella sezione [Environment] del file [ServiceDefinition.csdef] e per entrambi vengono usati l'elemento [Variabile] e l'attributo **name**.
+Esistono due tipi di variabili di ambiente per le attività di avvio: le variabili di ambiente statiche e le variabili di ambiente basate sui membri della classe [RoleEnvironment] . Entrambi si trovano nella sezione [Environment] del file [ServiceDefinition.csdef] e per entrambi vengono usati l'elemento [Variable] e l'attributo **name**.
 
-Per le variabili di ambiente statiche viene usato l'attributo **value** dell'elemento [Variabile] . Nell'esempio precedente viene creata la variabile di ambiente **MyVersionNumber** con un valore statico di "**1.0.0.0**". Un altro esempio potrebbe essere la creazione di una variabile di ambiente **StagingOrProduction** impostabile manualmente sui valori "**staging**" o "**production**" per eseguire azioni di avvio diverse in base al valore della variabile di ambiente **StagingOrProduction**.
+Per le variabili di ambiente statiche viene usato l'attributo **value** dell'elemento [Variable] . Nell'esempio precedente viene creata la variabile di ambiente **MyVersionNumber** con un valore statico di "**1.0.0.0**". Un altro esempio potrebbe essere la creazione di una variabile di ambiente **StagingOrProduction** impostabile manualmente sui valori "**staging**" o "**production**" per eseguire azioni di avvio diverse in base al valore della variabile di ambiente **StagingOrProduction**.
 
-Per le variabili di ambiente basate sui membri della classe RoleEnvironment non viene usato l'attributo **value** dell'elemento [Variabile] . Viene invece usato l'elemento figlio [RoleInstanceValue], con il valore appropriato dell'attributo **XPath**, per creare una variabile di ambiente basata su un membro specifico della classe [RoleEnvironment]. I valori dell'attributo **XPath** per accedere ai diversi valori di [RoleEnvironment] sono disponibili [qui](cloud-services-role-config-xpath.md).
+Per le variabili di ambiente basate sui membri della classe RoleEnvironment non viene usato l'attributo **value** dell'elemento [Variable] . Viene invece usato l'elemento figlio [RoleInstanceValue], con il valore appropriato dell'attributo **XPath**, per creare una variabile di ambiente basata su un membro specifico della classe [RoleEnvironment]. I valori dell'attributo **XPath** per accedere ai diversi valori di [RoleEnvironment] sono disponibili [qui](cloud-services-role-config-xpath.md).
 
-Per creare una variabile di ambiente che sia "**true**" se l'istanza è in esecuzione nell'emulatore di calcolo e "**false**" se è in esecuzione nel cloud, ad esempio, usare gli elementi [Variabile] e [RoleInstanceValue] seguenti:
+Per creare una variabile di ambiente che sia "**true**" se l'istanza è in esecuzione nell'emulatore di calcolo e "**false**" se è in esecuzione nel cloud, ad esempio, usare gli elementi [Variable] e [RoleInstanceValue] seguenti:
 
 ```xml
 <Startup>
@@ -157,9 +157,9 @@ Informazioni su come eseguire alcune [attività di avvio comuni](cloud-services-
 [Attività]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Task
 [Startup]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup
 [Runtime]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
-[Environment]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment
+[Ambiente]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment
 [Variabile]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
-[RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
+[Valore di RoleInstance]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
 
 

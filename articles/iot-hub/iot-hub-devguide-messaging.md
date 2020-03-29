@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.openlocfilehash: f56332fa7f53c729ffaa28ea375f043d1b4a3678
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60626248"
 ---
 # <a name="send-device-to-cloud-and-cloud-to-device-messages-with-iot-hub"></a>Inviare messaggi da dispositivo a cloud e da cloud a dispositivo con l'hub IoT
@@ -45,4 +45,4 @@ Usare i messaggi da dispositivo a cloud per inviare la telemetria relativa alle 
 
 * Informazioni sul [routing dei messaggi](iot-hub-devguide-messages-d2c.md) relativo all'hub IoT.
 
-* Informazioni sulla [messaggistica da cloud a dispositivo](iot-hub-devguide-messages-c2d.md) relativa all'hub IoT.
+* Informazioni sulla [messaggistica da cloud a dispositivo](iot-hub-devguide-messages-c2d.md) dell'hub IoT.

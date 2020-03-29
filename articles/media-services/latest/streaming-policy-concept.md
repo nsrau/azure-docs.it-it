@@ -12,25 +12,25 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: juliako
 ms.openlocfilehash: a813c77e81e51bfe13e75ed6c8d0e24b4d0fa645
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "66392917"
 ---
 # <a name="streaming-policies"></a>Criteri di streaming
 
-In Servizi multimediali di Azure v3, i [criteri di streaming](https://docs.microsoft.com/rest/api/media/streamingpolicies) consentono di definire i protocolli di streaming e le opzioni di crittografia per [StreamingLocators](streaming-locators-concept.md). Servizi multimediali v3 offre che alcuni predefiniti i criteri di Streaming in modo che è possibile usarli direttamente per la versione di valutazione o di produzione. 
+In Servizi multimediali di Azure v3, i [criteri di streaming](https://docs.microsoft.com/rest/api/media/streamingpolicies) consentono di definire i protocolli di streaming e le opzioni di crittografia per [StreamingLocators](streaming-locators-concept.md). Servizi multimediali v3 fornisce alcuni criteri di streaming predefiniti che consentono di utilizzarli direttamente per la versione di valutazione o la produzione. 
 
-Attualmente disponibili Streaming criteri predefiniti:<br/>
-* 'Predefined_DownloadOnly'
-* 'Predefined_ClearStreamingOnly'
-* 'Predefined_DownloadAndClearStreaming'
-* 'Predefined_ClearKey'
-* 'Predefined_MultiDrmCencStreaming' 
-* 'Predefined_MultiDrmStreaming'
+Criteri di streaming predefiniti attualmente disponibili:<br/>
+* "Predefined_DownloadOnly"
+* "Predefined_ClearStreamingOnly"
+* "Predefined_DownloadAndClearStreaming"
+* "Predefined_ClearKey"
+* "Predefined_MultiDrmCencStreaming" 
+* "Predefined_MultiDrmStreaming"
 
-Il seguente albero"Decision" consente di scegliere un criterio per lo scenario di Streaming predefinito.
+L'"albero delle decisioni" seguente consente di scegliere criteri di streaming predefiniti per lo scenario.
 
 > [!IMPORTANT]
 > * Le proprietà dei **criteri di streaming** di tipo Datetime sono sempre in formato UTC.
@@ -42,13 +42,13 @@ Fare clic sull'immagine per visualizzarla a schermo intero.
 
 <a href="./media/streaming-policy/large.png" target="_blank"><img src="./media/streaming-policy/large.png"></a> 
 
-Se crittografare i contenuti, è necessario creare un [Content Key Policy](content-key-policy-concept.md), il **Content Key Policy** non è necessaria per streaming o il download non crittografato. 
+Se si crittografa il contenuto, è necessario creare un [criterio chiave simmetrica](content-key-policy-concept.md), **la** criteri chiave simmetrica non è necessaria per cancellare lo streaming o il download. 
 
-Se si hanno requisiti speciali (ad esempio, se si desidera specificare protocolli diversi, è necessario utilizzare un servizio di distribuzione delle chiavi personalizzato o necessario usare una traccia audio), è possibile [creare](https://docs.microsoft.com/rest/api/media/streamingpolicies/create) un criterio personalizzato di Streaming. 
+Se si dispone di requisiti speciali (ad esempio, se si desidera specificare protocolli diversi, è necessario utilizzare un servizio di distribuzione delle chiavi personalizzato o utilizzare una traccia audio chiara), è possibile [creare](https://docs.microsoft.com/rest/api/media/streamingpolicies/create) un criterio di streaming personalizzato. 
 
-## <a name="get-a-streaming-policy-definition"></a>Ottenere una definizione di criteri di Streaming  
+## <a name="get-a-streaming-policy-definition"></a>Ottenere una definizione di criteri di streamingGet a Streaming Policy definition  
 
-Se si desidera visualizzare la definizione di un criterio di Streaming, usare [ottenere](https://docs.microsoft.com/rest/api/media/streamingpolicies/get) e specificare il nome del criterio. Ad esempio:
+Se si desidera visualizzare la definizione di un criterio di streaming, utilizzare [Get](https://docs.microsoft.com/rest/api/media/streamingpolicies/get) e specificare il nome del criterio. Ad esempio:
 
 ### <a name="rest"></a>REST
 
@@ -87,4 +87,4 @@ Vedere [Applicazione di filtri, ordinamento e restituzione di più pagine delle 
 
 * [Eseguire lo streaming di un file](stream-files-dotnet-quickstart.md)
 * [Usare la crittografia dinamica AES-128 e il servizio di distribuzione delle chiavi](protect-with-aes128.md)
-* [Usare il servizio di crittografia dinamica e di distribuzione di licenze DRM](protect-with-drm.md)
+* [Utilizzare la crittografia dinamica DRM e il servizio di distribuzione delle licenze](protect-with-drm.md)

@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Selezionare il tipo di installazione | Microsoft Docs'
+title: 'Azure AD Connect: Selezionare il tipo di installazione | Documentazione Microsoft'
 description: Questo argomento descrive come selezionare il tipo di installazione da usare per Azure AD Connect
 services: active-directory
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 90a624a6b3b4696899af0d8606f653df260cc201
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60348281"
 ---
 # <a name="select-which-installation-type-to-use-for-azure-ad-connect"></a>Selezionare il tipo di installazione da usare per Azure AD Connect

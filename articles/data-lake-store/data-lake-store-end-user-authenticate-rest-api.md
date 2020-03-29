@@ -1,5 +1,5 @@
 ---
-title: "Autenticazione dell'utente finale: API REST con Gen1 di archiviazione di Azure Data Lake tramite Azure Active Directory | Microsoft Docs"
+title: "Autenticazione dell'utente finale: API REST con Azure Data Lake Storage Gen1 usando Azure Active Directory | Microsoft Docs"
 description: Informazioni su come ottenere l'autenticazione dell'utente finale con Azure Data Lake Storage Gen1 tramite Azure Active Directory usando l'API REST
 services: data-lake-store
 documentationcenter: ''
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 0ef65c23ee1bf4f064695779b71c8616427da204
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60877823"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-rest-api"></a>Autenticazione dell'utente finale con Azure Data Lake Storage Gen1 tramite API REST
@@ -31,11 +31,11 @@ Questo articolo illustra come usare l'API REST per eseguire l'autenticazione del
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Una sottoscrizione di Azure.** Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 * **Creare un'applicazione "nativa" di Azure Active Directory**. È necessario avere completato i passaggi descritti in [Autenticazione dell'utente finale con Data Lake Storage Gen1 usando Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
 
-* **[cURL](https://curl.haxx.se/)** . In questo articolo viene usato cURL per illustrare come effettuare chiamate API REST con un account Data Lake Storage Gen1.
+* **[cURL](https://curl.haxx.se/)**. In questo articolo viene usato cURL per illustrare come effettuare chiamate API REST con un account Data Lake Storage Gen1.
 
 ## <a name="end-user-authentication"></a>Autenticazione dell'utente finale
 L'autenticazione dell'utente finale è l'approccio consigliato se si vuole che un utente finale acceda all'applicazione tramite Azure AD. L'applicazione può quindi accedere alle risorse di Azure con lo stesso livello di accesso dell'utente che ha effettuato l'accesso. L'utente deve fornire le sue credenziali periodicamente affinché l'applicazione possa mantenere attivo l'accesso.
@@ -49,7 +49,7 @@ In questo scenario, l'applicazione richiede all'utente di accedere e tutte le op
         https://login.microsoftonline.com/<TENANT-ID>/oauth2/authorize?client_id=<APPLICATION-ID>&response_type=code&redirect_uri=<REDIRECT-URI>
 
    > [!NOTE]
-   > \<REDIRECT-URI&gt; deve essere codificato per essere usato in un URL. Pertanto, per https://localhost , usare `https%3A%2F%2Flocalhost` )
+   > \<REDIRECT-URI&gt; deve essere codificato per essere usato in un URL. Pertanto, per https://localhost, usare `https%3A%2F%2Flocalhost`)
 
     Per questa esercitazione, è possibile sostituire i valori segnaposto nell'URL precedente e incollare quest'ultimo nella barra degli indirizzi di un web browser. Si verrà reindirizzati per l'autenticazione tramite l'accesso ad Azure. Dopo aver eseguito correttamente l'accesso, la risposta verrà visualizzata nella barra degli indirizzi del browser. La risposta sarà nel formato seguente:
 
@@ -86,6 +86,6 @@ Per altre informazioni sull'autenticazione utente interattiva, vedere [Flusso di
 ## <a name="next-steps"></a>Passaggi successivi
 In questo articolo è stato descritto come usare l'autenticazione da servizio a servizio per eseguire l'autenticazione con Azure Data Lake Storage Gen1 usando l'API REST. È ora possibile leggere gli articoli seguenti per informazioni su come usare l'API REST in Azure Data Lake Storage Gen1.
 
-* [Operazioni di gestione di account in Data Lake Storage Gen1 con API REST](data-lake-store-get-started-rest-api.md)
+* [Operazioni di gestione degli account su Data Lake Storage Gen1 con l'API REST](data-lake-store-get-started-rest-api.md)
 * [Operazioni dati in Data Lake Storage Gen1 con API REST](data-lake-store-data-operations-rest-api.md)
 

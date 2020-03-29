@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 05/15/2018
 ms.topic: conceptual
 ms.openlocfilehash: b07e21131d9560a49d99644525835ac5ee3bac9e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61442240"
 ---
 # <a name="integrate-sim-data-in-the-remote-monitoring-solution"></a>Integrare i dati di una scheda SIM nella soluzione di monitoraggio remoto
@@ -21,7 +21,7 @@ I dispositivi IoT si connettono spesso al cloud tramite una scheda SIM che conse
 
 Il monitoraggio remoto offre un'integrazione predefinita con la connettività IoT di Telefónica, consentendo ai clienti che usano la piattaforma di connettività IoT di sincronizzare i dati di connettività SIM del dispositivo con le proprie soluzioni. Questa soluzione può essere estesa per supportare altri provider di connettività IoT mediante il [repository](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet) GitHub.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 * Integrare i dati di una scheda SIM di Telefónica nella soluzione di monitoraggio remoto
 * Visualizzare i dati di telemetria in tempo reale
@@ -61,7 +61,7 @@ I parametri di connettività seguenti vengono pubblicati:
 * Posizione basata su rete
 * Utilizzo del traffico dati
 
-![dashboard](./media/iot-accelerators-remote-monitoring-telefonica-sim/dashboard.png)
+![Dashboard](./media/iot-accelerators-remote-monitoring-telefonica-sim/dashboard.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,5 +1,5 @@
 ---
-title: Aggiungere app multi-tenant a Azure AD raccolta di applicazioni | Microsoft Docs
+title: Aggiunta di un'app multi-tenant alla raccolta di applicazioni di Azure AD. Documenti Microsoft
 description: Viene illustrato come inserire l'applicazione multi-tenant sviluppata personalizzata nella raccolta di applicazioni di AD Azure.
 services: active-directory
 documentationCenter: na
@@ -17,10 +17,10 @@ ms.date: 09/11/2018
 ms.author: ryanwi
 ms.reviewer: jeedes
 ms.openlocfilehash: be660ad42c1336d479f1793b20d2994682db1225
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76702760"
 ---
 # <a name="add-a-multitenant-application-to-the-azure-ad-application-gallery"></a>Aggiungere un'applicazione multi-tenant alla raccolta di applicazioni di Azure AD

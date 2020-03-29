@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
 ms.openlocfilehash: 42e58125fcbc3ab411c0d7503c42c14c28178428
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "62113936"
 ---
 # <a name="run-u-sql-scripts-on-your-local-machine"></a>Eseguire script U-SQL nel computer locale
@@ -51,13 +51,13 @@ Quando si esegue uno script U-SQL, è necessaria una cartella directory di lavor
 
 ## <a name="local-runs-in-microsoft-visual-studio"></a>Esecuzioni locali in Microsoft Visual Studio
 
-Strumenti Azure Data Lake per Visual Studio include un motore di esecuzione locale predefinito. Gli strumenti trattano il motore come account di calcolo locale. Per eseguire uno script U-SQL in locale, selezionare l'account **Local-machine** o **Local-project** nell'elenco a discesa a margine dell'editor di script. Selezionare quindi **Invia**.
+Strumenti Azure Data Lake per Visual Studio include un motore di esecuzione locale predefinito. Gli strumenti trattano il motore come account di calcolo locale. Per eseguire uno script U-SQL in locale, selezionare l'account **Local-machine** o **Local-project** nell'elenco a discesa a margine dell'editor di script. Selezionare **Invia**.
 
 ![Inviare uno script U-SQL a un account locale](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-submit-script-to-local-account.png) 
  
 ## <a name="local-runs-with-a-local-machine-account"></a>Esecuzioni locali con un account Local-machine
 
-Un account **Local-machine** è un account di calcolo locale condiviso con una singola cartella radice dei dati locale come account di archiviazione locale. Per impostazione predefinita, la cartella radice dei dati si trova in **C:\Utenti\<nome utente>\AppData\Local\USQLDataRoot**. È possibile eseguire la configurazione tramite **Strumenti** > **Data Lake** > **Opzioni e impostazioni**.
+Un account **Local-machine** è un account di calcolo locale condiviso con una singola cartella radice dei dati locale come account di archiviazione locale. Per impostazione predefinita, la cartella radice dei dati si trova in **C:\Utenti\<nome utente>\AppData\Local\USQLDataRoot**. È anche configurabile tramite **Strumenti** > **Opzioni e Impostazioni**Data**Lake** > .
 
 ![Configurare una cartella radice dei dati locale](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-configure-local-data-root.png)
   
@@ -75,7 +75,7 @@ Un progetto U-SQL gestisce l'ambiente di esecuzione locale isolato mediante una 
 
 Un progetto U-SQL crea una cartella radice dei dati locale e configura i dati per un account **Local-project**. Una cartella radice dei dati temporanea viene pulita e ricreata nella directory di lavoro del progetto U-SQL a ogni nuova compilazione ed esecuzione locale. Tutte le origini dati configurate dal progetto U-SQL vengono copiate in questa cartella radice dei dati locale temporanea prima delle esecuzioni dei processi locali. 
 
-È possibile configurare la cartella radice delle origini dati. Fare clic con il pulsante destro del mouse su **Progetto U-SQL** > **Proprietà** > **Verifica origine dati**. Quando si esegue uno script U-SQL in un account **Local-project**, tutti i file e le sottocartelle nella cartella **Verifica origine dati** vengono copiati nella cartella radice dei dati locale temporanea. Sono inclusi i file nelle sottocartelle. Al termine delle esecuzioni dei processi locali, i risultati di output sono disponibili anche nella cartella radice dei dati locale temporanea nella directory di lavoro del progetto. Tutto l'output viene eliminato e pulito a ogni nuova compilazione e pulizia del progetto. 
+È possibile configurare la cartella radice delle origini dati. Fare clic con il pulsante destro del mouse su Origine**dati test****proprietà** > progetto >  **U-SQL**. Quando si esegue uno script U-SQL in un account **Local-project**, tutti i file e le sottocartelle nella cartella **Verifica origine dati** vengono copiati nella cartella radice dei dati locale temporanea. Sono inclusi i file nelle sottocartelle. Al termine delle esecuzioni dei processi locali, i risultati di output sono disponibili anche nella cartella radice dei dati locale temporanea nella directory di lavoro del progetto. Tutto l'output viene eliminato e pulito a ogni nuova compilazione e pulizia del progetto. 
 
 ![Configurare l'origine dati di test di un progetto](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-configure-project-test-data-source.png)
 
@@ -95,8 +95,8 @@ Altre differenze tra gli account **Local-machine** e **Local-project** sono illu
 |Tipo di differenza|Local-machine|Local-project|
 |----------------|---------------|---------------|
 |Accesso locale|È accessibile da tutti i progetti.|Solo il progetto corrispondente può accedere a questo account.|
-|Cartella radice dei dati locale|Cartella locale permanente. Configurata tramite **Strumenti** > **Data Lake** > **Opzioni e impostazioni**.|Una cartella temporanea creata per ogni esecuzione locale nella directory di lavoro del progetto U-SQL. La cartella viene pulita a ogni nuova compilazione o esecuzione.|
-|Dati di input per uno script U-SQL|Percorso relativo nella cartella radice dei dati locale permanente.|Eseguire l'impostazione tramite **Proprietà del progetto U-SQL** > **Verifica origine dati**. Tutti i file e le sottocartelle vengono copiati nella cartella radice dei dati temporanea prima di un'esecuzione locale.|
+|Cartella radice dei dati locale|Cartella locale permanente. Configurato tramite **Opzioni** > **e impostazioni**Data**Lake** > strumenti .|Una cartella temporanea creata per ogni esecuzione locale nella directory di lavoro del progetto U-SQL. La cartella viene pulita a ogni nuova compilazione o esecuzione.|
+|Dati di input per uno script U-SQL|Percorso relativo nella cartella radice dei dati locale permanente.|Impostare tramite la proprietà > del progetto **U-SQL**Test Data**Source**. Tutti i file e le sottocartelle vengono copiati nella cartella radice dei dati temporanea prima di un'esecuzione locale.|
 |Dati di output per uno script U-SQL|Percorso relativo nella cartella radice dei dati locale permanente.|Inviati alla cartella radice dei dati temporanea. I risultati vengono puliti a ogni nuova compilazione o esecuzione.|
 |Distribuzione del database di riferimento|I database di riferimento non vengono distribuiti automaticamente quando l'esecuzione avviene in un account **Local-machine**. Equivale all'invio a un account di Azure Data Lake Analytics.|I database di riferimento vengono distribuiti automaticamente nell'account **Local-project** prima di un'esecuzione locale. Tutti gli ambienti di database vengono puliti e ridistribuiti a ogni nuova compilazione o esecuzione.|
 

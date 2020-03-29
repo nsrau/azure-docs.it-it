@@ -10,10 +10,10 @@ ms.date: 08/26/2016
 ms.author: saudas
 ms.custom: mvc
 ms.openlocfilehash: 3e4ba15fa1925ca40ad7760acbd14331fbdd1343
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61457326"
 ---
 # <a name="deprecated-enable-public-access-to-an-azure-container-service-application"></a>(DEPRECATO) Abilitare l'accesso pubblico a un'applicazione del servizio Azure Container
@@ -37,9 +37,9 @@ Prima di tutto è necessario aprire la porta desiderata.
    
    | Campo | Descrizione |
    | --- | --- |
-   | Name |Nome descrittivo del probe. |
-   | Port |Porta del contenitore da testare. |
-   | `Path` |(In modalità HTTP) Percorso relativo del sito Web su cui eseguire probe. HTTPS non è supportato. |
+   | Nome |Nome descrittivo del probe. |
+   | Porta |Porta del contenitore da testare. |
+   | Path |(In modalità HTTP) Percorso relativo del sito Web su cui eseguire probe. HTTPS non è supportato. |
    | Interval |Intervallo di tempo tra i tentativi del probe, in secondi. |
    | Soglia non integra |Numero di tentativi consecutivi del probe prima che il contenitore sia considerato non integro. |
 6. Tornare alle proprietà del servizio di bilanciamento del carico dell'agente, fare clic su **Regole di bilanciamento del carico** e quindi su **Aggiungi**.
@@ -49,8 +49,8 @@ Prima di tutto è necessario aprire la porta desiderata.
    
    | Campo | Descrizione |
    | --- | --- |
-   | Name |Nome descrittivo del servizio di bilanciamento del carico. |
-   | Port |Porta pubblica in ingresso. |
+   | Nome |Nome descrittivo del servizio di bilanciamento del carico. |
+   | Porta |Porta pubblica in ingresso. |
    | Porta back-end |Porta pubblica interna del contenitore a cui instradare il traffico. |
    | Pool back-end |I contenitori in questo pool saranno la destinazione per questo servizio di bilanciamento del carico. |
    | Probe |Probe usato per determinare se una destinazione nel **Pool back-end** è integra. |
@@ -72,11 +72,11 @@ Successivamente, è necessario aggiungere una regola di sicurezza che instradi i
    
    | Campo | Descrizione |
    | --- | --- |
-   | Name |Nome descrittivo della regola del firewall. |
+   | Nome |Nome descrittivo della regola del firewall. |
    | Priorità |Classificazione di priorità per la regola. Più è basso il numero, maggiore sarà la priorità. |
-   | `Source` |Consente di limitare l'intervallo di indirizzi IP in ingresso che la regola dovrà consentire o negare. Usare **Qualsiasi** per non specificare una restrizione. |
+   | Source (Sorgente) |Consente di limitare l'intervallo di indirizzi IP in ingresso che la regola dovrà consentire o negare. Usare **Qualsiasi** per non specificare una restrizione. |
    | Service |Selezionare un set di servizi predefiniti a cui è destinata questa regola di sicurezza. In caso contrario, usare **Personalizzato** per crearne di personalizzati. |
-   | Protocol |Consente di limitare il traffico in base a **TCP** o **UDP**. Usare **Qualsiasi** per non specificare una restrizione. |
+   | Protocollo |Consente di limitare il traffico in base a **TCP** o **UDP**. Usare **Qualsiasi** per non specificare una restrizione. |
    | Intervallo di porte |Quando **Servizio** è **Personalizzato**, specifica l'intervallo di porte interessato da questa regola. È possibile usare una singola porta, ad esempio **80**, o un intervallo come **1024-1500**. |
    | Azione |Consentire o negare il traffico che soddisfa i criteri. |
 

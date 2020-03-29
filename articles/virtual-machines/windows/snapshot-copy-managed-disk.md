@@ -1,5 +1,5 @@
 ---
-title: Creare uno snapshot di un disco rigido virtuale in Azure
+title: Creare uno snapshot di un disco rigido virtuale in AzureCreate a snapshot of a virtual hard drive in Azure
 description: Informazioni su come creare una copia di una macchina virtuale di Azure da usare come backup o per la risoluzione dei problemi.
 documentationcenter: ''
 author: roygara
@@ -15,10 +15,10 @@ ms.date: 10/08/2018
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: bc74a3eea1f99de6080788d6f3fddcac823092dc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75370902"
 ---
 # <a name="create-a-snapshot"></a>Creare uno snapshot
@@ -29,20 +29,20 @@ Se si prevede di usare lo snapshot per creare una nuova macchina virtuale, è co
 
 ## <a name="use-the-azure-portal"></a>Usare il portale di Azure 
 
-Per creare uno snapshot, completare i passaggi seguenti: 
-1.  Nella [portale di Azure](https://portal.azure.com)selezionare **Crea una risorsa**.
-2. Cercare e selezionare **snapshot**.
+La procedura seguente illustra come creare uno snapshot: 
+1.  Nel [portale di Azure](https://portal.azure.com)selezionare **Crea una risorsa**.
+2. Cercare e selezionare **Snapshot**.
 3. Nella finestra **Snapshot** selezionare **Crea**. Viene visualizzata la finestra **Crea snapshot**.
 4. Immettere un **Nome** per lo snapshot.
 5. Selezionare un [Gruppo di risorse](../../azure-resource-manager/management/overview.md#resource-groups) esistente o specificare il nome di un nuovo gruppo. 
 6. Selezionare una **località** per il data center di Azure.  
 7. Per **Disco di origine**, selezionare il disco gestito di cui creare lo snapshot.
 8. Selezionare il **tipo di account** da usare per archiviare lo snapshot. Selezionare **Standard_HDD** a meno che non sia necessario archiviare lo snapshot su un disco a prestazioni elevate.
-9. Selezionare **Create** (Crea).
+9. Selezionare **Crea**.
 
 ## <a name="use-powershell"></a>Usare PowerShell
 
-Nei passaggi seguenti viene illustrato come copiare il disco rigido virtuale e creare la configurazione dello snapshot. È quindi possibile eseguire uno snapshot del disco usando il cmdlet [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot) . 
+I passaggi seguenti illustrano come copiare il disco VHD e creare la configurazione dello snapshot. È quindi possibile creare uno snapshot del disco utilizzando il cmdlet [New-AzSnapshot.](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot) 
 
  
 

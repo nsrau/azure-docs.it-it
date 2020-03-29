@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: magattus
 ms.openlocfilehash: 08e705d3c3623d4d02ccaea609eb0555aa1c8e33
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67593915"
 ---
 # <a name="dynamic-site-acceleration-via-azure-cdn"></a>Accelerazione sito dinamico tramite la rete CDN di Azure
@@ -27,7 +27,7 @@ A causa dell'elevata diffusione di social media, e-commerce e Web iper-personali
 
 Le funzionalità standard della rete per la distribuzione di contenuti (CDN) includono la possibilità di memorizzare nella cache file in posizioni più vicine agli utenti finali per accelerare la distribuzione di file statici. Tuttavia, con le applicazioni Web dinamiche la memorizzazione nella cache di tali contenuti in posizioni periferiche non è possibile, in quanto il server genera il contenuto in risposta al comportamento degli utenti. È più difficile accelerare la distribuzione di tali contenuti rispetto alla memorizzazione nella cache perimetrale tradizionale e a questo scopo è necessaria una soluzione end-to-end in grado di ottimizzare ogni elemento insieme all'intero percorso dei dati, dalle fasi iniziali alla distribuzione. L'ottimizzazione Accelerazione sito dinamico della rete CDN di Azure migliora in modo misurabile le prestazioni delle pagine Web con contenuto dinamico.
 
-La **rete CDN di Azure di Akamai** e la **rete CDN di Azure di Verizon** offrono entrambe l'ottimizzazione basata su Accelerazione sito dinamico tramite il menu **Ottimizzato per** durante la creazione degli endpoint. Accelerazione sito dinamico da Microsoft è disponibile tramite [servizio di ingresso principale di Azure](https://docs.microsoft.com/azure/frontdoor/front-door-overview).
+La **rete CDN di Azure di Akamai** e la **rete CDN di Azure di Verizon** offrono entrambe l'ottimizzazione basata su Accelerazione sito dinamico tramite il menu **Ottimizzato per** durante la creazione degli endpoint. L'accelerazione dinamica del sito da Microsoft viene offerta tramite [Azure Front Door Service](https://docs.microsoft.com/azure/frontdoor/front-door-overview).
 
 > [!Important]
 > Per i profili di **rete CDN di Azure con tecnologia Akamai**, è possibile modificare l'ottimizzazione di un endpoint di rete CDN dopo che è stato creato.
@@ -76,8 +76,8 @@ Per configurare un endpoint di rete CDN in modo da ottimizzare la distribuzione 
 
 La funzionalità Accelerazione sito dinamico nella rete CDN di Azure accelera la distribuzione di asset dinamici tramite le tecniche seguenti:
 
--   [Ottimizzazione delle route](#route-optimization)
--   [Ottimizzazioni del protocollo TCP](#tcp-optimizations)
+-   [Ottimizzazione del percorso](#route-optimization)
+-   [Ottimizzazioni TCP](#tcp-optimizations)
 -   [Prelettura degli oggetti (solo rete CDN di Azure con tecnologia Akamai)](#object-prefetch-azure-cdn-from-akamai-only)
 -   [Compressione di immagini adattiva (solo rete CDN di Azure con tecnologia Akamai)](#adaptive-image-compression-azure-cdn-from-akamai-only)
 
@@ -169,7 +169,7 @@ Per i profili di **rete CDN Premium di Azure con tecnologia Verizon** è possibi
 
 Per accedere al motore regole:
     
-1. Nella pagina **Profilo rete CDN** selezionare **Gestisci**.  
+1. Nella pagina del **profilo della rete CDN** selezionare **Gestisci.**  
     
     ![Pulsante di gestione del profilo della rete CDN](./media/cdn-dynamic-site-acceleration/cdn-manage-btn.png)
 
@@ -183,7 +183,7 @@ Per accedere al motore regole:
 
 In alternativa, e possibile usare due endpoint di rete CDN, uno ottimizzato con Accelerazione sito dinamico per distribuire asset dinamici e un altro con un'ottimizzazione di tipo statico, ad esempio la distribuzione Web generica, per distribuire asset memorizzabili nella cache. Modificare gli URL delle pagine Web per il collegamento diretto all'asset nell'endpoint di rete CDN che si prevede di usare. 
 
-Ad esempio: `mydynamic.azureedge.net/index.html` è una pagina dinamica e viene caricata dall'endpoint con Accelerazione sito dinamico.  La pagina HTML fa riferimento a più asset statici, tra cui librerie JavaScript o immagini caricate dall'endpoint di rete CDN statico, come `mystatic.azureedge.net/banner.jpg` e `mystatic.azureedge.net/scripts.js`. 
+Ad esempio: `mydynamic.azureedge.net/index.html` è una pagina dinamica e viene caricata dall'endpoint con Accelerazione sito dinamico.La pagina HTML fa riferimento a più asset statici, tra cui librerie JavaScript o immagini caricate dall'endpoint di rete CDN statico, come `mystatic.azureedge.net/banner.jpg` e `mystatic.azureedge.net/scripts.js`. 
 
 
 

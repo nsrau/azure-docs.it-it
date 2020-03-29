@@ -1,5 +1,5 @@
 ---
-title: Connessioni ibride di inoltro di Azure-richieste HTTP in .NET
+title: Connessioni ibride di inoltro di Azure - Richieste HTTP in .NETAzure Relay Hybrid Connections - HTTP requests in .NET
 description: Scrivere un'applicazione console C# per le richieste HTTP per Connessioni ibride di Inoltro di Azure in .NET.
 services: service-bus-relay
 documentationcenter: .net
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/01/2018
 ms.author: spelluru
 ms.openlocfilehash: 7c984876c4338b4f6802ba55752c8f612c390e94
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75355156"
 ---
 # <a name="get-started-with-relay-hybrid-connections-http-requests-in-net"></a>Introduzione alle richieste HTTP per Connessioni ibride di Inoltro di Azure in .NET
@@ -39,7 +39,7 @@ In questa guida introduttiva vengono completati i passaggi seguenti:
 Per completare questa esercitazione è necessario soddisfare i prerequisiti seguenti:
 
 * [Visual Studio 2015 o versione successiva](https://www.visualstudio.com). Negli esempi di questa esercitazione viene usato Visual Studio 2017.
-* Una sottoscrizione di Azure. Se non se ne ha una, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+* Una sottoscrizione di Azure. Se non ne hai uno, [crea un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 ## <a name="create-a-namespace"></a>Creare uno spazio dei nomi
 [!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]
@@ -67,7 +67,7 @@ In Visual Studio scrivere un'applicazione console in C# per inviare messaggi all
 1. Eseguire l'applicazione client. Viene visualizzato `hello!` nella finestra client. Il client ha inviato una richiesta HTTP al server e il server ha risposto con `hello!`. 
 3. A questo punto, per chiudere le finestre della console, premere **INVIO** in entrambe le finestre della console. 
 
-Congratulazioni, è stata creata un'applicazione Connessioni ibride completa.
+Congratulazioni, hai creato un'applicazione completa per le connessioni ibride!
 
 ## <a name="next-steps"></a>Passaggi successivi
 

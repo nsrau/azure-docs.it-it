@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: b36a3faab49ee8d51c25aa18879e6f5d1db8c2fb
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76716771"
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Analisi scientifica dei dati tramite Scala e Spark in Azure
@@ -123,7 +123,7 @@ Importare la libreria Spark, MLlib e altre librerie necessarie tramite il codice
     val sqlContext = new SQLContext(sc)
 
 
-## <a name="data-ingestion"></a>Inserimento dati
+## <a name="data-ingestion"></a>Inserimento di dati
 Il primo passaggio nel processo di analisi scientifica dei dati è inserire i dati da analizzare. Spostare i dati dalle origini o dai sistemi in cui si trovano nell'ambiente di esplorazione e modellazione dei dati. In questo articolo, i dati inseriti rappresentano un campione unito in join pari allo 0,1% del file con estensione tsv relativo alle corse e alle tariffe dei taxi. L'ambiente di modellazione ed esplorazione dei dati è Spark. Questa sezione contiene il codice per completare la serie di attività seguenti:
 
 1. Impostare i percorsi di directory per l'archiviazione di dati e modelli.
@@ -249,18 +249,18 @@ Successivamente, eseguire query sulla tabella per i dati relativi alle tariffe, 
 
 | fare_amount | passenger_count | tip_amount | tipped |
 | --- | --- | --- | --- |
-|        13.5 |1.0 |2,9 |1.0 |
+|        13,5 |1.0 |2,9 |1.0 |
 |        16,0 |2.0 |3.4 |1.0 |
 |        10.5 |2.0 |1.0 |1.0 |
 
 ## <a name="data-exploration-and-visualization"></a>Visualizzazione ed esplorazione dei dati
-Dopo aver inserito i dati in Spark, il passaggio successivo del processo di analisi scientifica dei dati consiste nell'esplorazione e nella visualizzazione dei dati per approfondirne la conoscenza. In questa sezione verranno esaminati i dati dei taxi tramite query SQL. Importare quindi i risultati in un frame di dati per tracciare le variabili di destinazione e le funzionalità potenziali per l'ispezione visiva usando la funzionalità di visualizzazione automatica Jupyter.
+Dopo aver inserito i dati in Spark, il passaggio successivo del processo di analisi scientifica dei dati consiste nell'esplorazione e nella visualizzazione dei dati per approfondirne la conoscenza. In questa sezione verranno esaminati i dati dei taxi tramite query SQL. Quindi, importare i risultati in un frame di dati per tracciare le variabili di destinazione e le caratteristiche potenziali per l'ispezione visiva utilizzando la funzionalità Jupyter di visualizzazione automatica.
 
 ### <a name="use-local-and-sql-magic-to-plot-data"></a>Usare magic local e SQL per tracciare i dati
 Per impostazione predefinita, l'output di ogni frammento di codice eseguito da un'istanza di Jupyter Notebook è disponibile all'interno del contesto della sessione persistente nei nodi del ruolo di lavoro. Se si vuole salvare una corsa nei nodi del ruolo di lavoro per ogni calcolo e se tutti i dati necessari per il calcolo sono disponibili localmente nel nodo server Jupyter, ovvero il nodo head, è possibile usare il magic `%%local` per eseguire il frammento di codice nel server Jupyter.
 
-* **Magic SQL** (`%%sql`). Il kernel HDInsight Spark supporta l'esecuzione di query HiveQL inline semplici su SQLContext. L'argomento (`-o VARIABLE_NAME`) rende persistente l'output della query SQL come un frame di dati Pandas nel server Jupyter. Questa impostazione indica che l'output sarà disponibile in modalità locale.
-* `%%local` **Magic**. Il magic `%%local` esegue il codice in locale nel server Jupyter, che costituisce il nodo head del cluster HDInsight. In genere si usa il magic `%%local` in combinazione con il magic `%%sql` con il parametro `-o`. Il parametro `-o` rende persistente l'output della query SQL a livello locale e quindi il magic `%%local` attiva il successivo set di frammenti di codice che viene eseguito localmente a fronte dell'output della query SQL persistente a livello locale.
+* **Magia** SQL`%%sql`( ). Il kernel HDInsight Spark supporta l'esecuzione di query HiveQL inline semplici su SQLContext. L'argomento (`-o VARIABLE_NAME`) rende persistente l'output della query SQL come un frame di dati Pandas nel server Jupyter. Questa impostazione indica che l'output sarà disponibile in modalità locale.
+* `%%local` **magic**. Il magic `%%local` esegue il codice in locale nel server Jupyter, che costituisce il nodo head del cluster HDInsight. In genere si usa il magic `%%local` in combinazione con il magic `%%sql` con il parametro `-o`. Il parametro `-o` rende persistente l'output della query SQL a livello locale e quindi il magic `%%local` attiva il successivo set di frammenti di codice che viene eseguito localmente a fronte dell'output della query SQL persistente a livello locale.
 
 ### <a name="query-the-data-by-using-sql"></a>Eseguire query sui dati tramite SQL
 Questa query recupera le corse dei taxi per importo della tariffa, numero di passeggeri e importo della mancia.
@@ -290,10 +290,10 @@ Nel codice seguente, il magic `%%local` crea un frame di dati locali, sqlResults
  Il kernel Spark visualizza automaticamente l'output delle query SQL (HiveQL) dopo aver eseguito il codice. È possibile scegliere tra diversi tipi di visualizzazioni:
 
 * Tabella
-* Torta
-* Riga
+* Grafico a torta
+* Grafico a linee
 * Area
-* Barre
+* Grafico a barre
 
 Di seguito è indicato il codice per tracciare i dati:
 
@@ -853,7 +853,7 @@ Creare tracciati usando matplotlib di Python.
 ### <a name="create-a-gbt-regression-model"></a>Creare un modello di regressione con boosting a gradienti
 Creare un modello di regressione GBT con la funzione `GBTRegressor()` di Spark ML e valutare il modello sui dati di test.
 
-Gli [alberi con boosting a gradienti](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBT) sono insiemi di alberi delle decisioni. GBT addestra gli alberi delle decisioni in modo iterativo per ridurre al minimo una funzione di perdita. È possibile usare GBT per la regressione e la classificazione. Gli alberi GBT possono gestire funzionalità categoriche, non richiedono il ridimensionamento delle funzionalità e possono rilevare non linearità e interazioni di funzionalità. Possono anche essere usati in un'impostazione di classificazione multiclasse.
+[Gli alberi con incrementi](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) di gradiente (GBTS) sono insiemi di alberi decisionali. GBTS addestra gli alberi delle decisioni in modo iterativo per ridurre al minimo una funzione di perdita. È possibile utilizzare GBTS per la regressione e la classificazione. Gli alberi GBT possono gestire funzionalità categoriche, non richiedono il ridimensionamento delle funzionalità e possono rilevare non linearità e interazioni di funzionalità. Possono anche essere usati in un'impostazione di classificazione multiclasse.
 
     # RECORD THE START TIME
     val starttime = Calendar.getInstance().getTime()

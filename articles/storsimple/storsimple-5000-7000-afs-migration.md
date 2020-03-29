@@ -14,16 +14,16 @@ ms.workload: NA
 ms.date: 04/19/2019
 ms.author: alkohli
 ms.openlocfilehash: b46e9ee8fc3e14981a01cc2425a8ce55d06c5a9a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65150744"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-azure-file-sync"></a>Eseguire la migrazione dei dati da StorSimple serie 5000/7000 a Sincronizzazione file di Azure
 
 > [!IMPORTANT]
-> 9 luglio 2019 della serie StorSimple 5000/7000 terminerà lo stato di supporto (May). È consigliabile che i clienti della serie StorSimple 5000/7000 eseguano la migrazione a una delle alternative descritte nel documento.
+> Il 9 luglio 2019 la serie StorSimple 5000/7000 raggiungerà lo stato di fine supporto (EOS). È consigliabile che i clienti della serie StorSimple 5000/7000 eseguano la migrazione a una delle alternative descritte nel documento.
 
 La migrazione dei dati è il processo di trasferimento dei dati da una posizione di archiviazione a un'altra. Questo comporta la creazione di una copia esatta dei dati attuali di un'organizzazione da un dispositivo a un altro, preferibilmente senza interrompere o disabilitare le applicazioni attive, reindirizzando quindi l'attività di tutti gli input/output (I/O) al nuovo dispositivo. 
 
@@ -47,7 +47,7 @@ Quando si passa a AFS, è necessario considerare gli aspetti seguenti:
 
 ## <a name="migration-prerequisites"></a>Prerequisiti per la migrazione
 
-Di seguito sono elencati i prerequisiti per la migrazione di un dispositivo legacy serie 5000 o 7000 a Sincronizzazione file di Azure. Prima di iniziare, assicurarsi di disporre di:
+Qui troverai i prerequisiti di migrazione per il tuo dispositivo legacy 5000 o 7000 serie per Sincronizzazione file di Azure.Here you will find the migration prerequisites for your legacy 5000 or 7000 series device to Azure File Sync. Prima di iniziare, assicurati di avere:
 
 - Accesso a StorSimple serie 5000-7000 con software di versione 2.1.1.518 o successiva. Le versioni precedenti non sono supportate. L'angolo superiore destro dell'interfaccia utente Web del dispositivo StorSimple deve visualizzare la versione del software che è in esecuzione.  
     Se il dispositivo attivo non esegue la versione 2.1.1.518, aggiornare il sistema alla versione minima richiesta. Per istruzioni dettagliate, vedere [Upgrade your system to v2.1.1.518](http://onlinehelp.storsimple.com/111_Appliance/6_System_Upgrade_Guides/Current_(v2.1.1)/000_Software_Patch_Upgrade_Guide_v2.1.1.518) (Aggiornare il sistema alla versione 2.1.1.518).
@@ -55,8 +55,8 @@ Di seguito sono elencati i prerequisiti per la migrazione di un dispositivo lega
 - Accesso a un host Windows Server connesso a dispositivo StorSimple serie 5000-7000. L'host deve avere in esecuzione una versione supportata di Windows Server come descritto in [Interoperabilità di Sincronizzazione file di Azure](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning).
 - I volumi StorSimple vengono montati nell'host e contengono condivisioni file.
 - L'host dispone di spazio di archiviazione locale sufficiente per contenere i dati memorizzati nella cache locale.
-- Livello di accesso come proprietario della sottoscrizione di Azure che si userà per distribuire Sincronizzazione file di Azure. Si potrebbero riscontrare problemi durante la creazione di un endpoint cloud per il gruppo di sincronizzazione se non si dispone di autorizzazioni a livello di amministratore o proprietario.
-- Accesso a un [account di archiviazione per utilizzo generico v2](https://docs.microsoft.com/azure/storage/common/storage-account-overview) con una condivisione di File di Azure di cui si vuole eseguire la sincronizzazione. Per altre informazioni, vedere [creare un account di archiviazione](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
+- Accesso a livello di proprietario alla sottoscrizione di Azure che verrà usata per distribuire Sincronizzazione file di Azure.Owner level access to the Azure subscription that you will use to deploy Azure File Sync. Potrebbero verificarsi problemi durante la creazione di un endpoint cloud per il gruppo di sincronizzazione se non si dispone di autorizzazioni a livello di proprietario o di amministratore.
+- Accesso a un [account di archiviazione per utilizzo generico v2](https://docs.microsoft.com/azure/storage/common/storage-account-overview) con una condivisione di File di Azure di cui si vuole eseguire la sincronizzazione. Per altre informazioni, vedere [Creare un account di archiviazione](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
   - Come [Creare una condivisione file di Azure](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
 
 ## <a name="migration-process"></a>Processo di migrazione
@@ -69,8 +69,8 @@ La migrazione dei dati da StorSimple 5000-7000 a AFS è un processo che si compo
 
 Eseguire la procedura seguente per effettuare la migrazione di condivisione file di Windows configurata nei volumi StorSimple a una condivisione di Sincronizzazione file di Azure. 
 1.  Eseguire questi passaggi nello stesso host di Windows Server in cui i volumi StorSimple vengono montati o usano un sistema diverso. 
-    - [Preparare Windows Server per l'uso con Sincronizzazione file di Azure](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#prepare-windows-server-to-use-with-azure-file-sync).
-    - [Installare l'agente Sincronizzazione file di Azure](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#install-the-azure-file-sync-agent).
+    - [Preparare Windows Server da utilizzare con Sincronizzazione file](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#prepare-windows-server-to-use-with-azure-file-sync)di Azure.
+    - [Installare l'agente di Sincronizzazione file](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#install-the-azure-file-sync-agent)di Azure .
     - [Distribuire il servizio di sincronizzazione archiviazione](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#deploy-the-storage-sync-service). 
     - [Registrare Windows Server con il servizio di sincronizzazione archiviazione](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#register-windows-server-with-storage-sync-service). 
     - [Creare un gruppo di sincronizzazione e un endpoint cloud](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#create-a-sync-group-and-a-cloud-endpoint). La sincronizzazione dei gruppi è necessaria per ogni file di condivisione Windows di cui bisogna eseguire la migrazione dall'host.
@@ -80,7 +80,7 @@ Eseguire la procedura seguente per effettuare la migrazione di condivisione file
     - Lo stato sia verde per il caricamento e per il download.
     - L'**attività di sincronizzazione** visualizzi un numero molto ridotto di file o nessun file rimanente da sincronizzare.
     - Il numero di **file non sincronizzati** sia 0 sia per il caricamento che per il download.
-    Per altre informazioni su quando è stata completata la sincronizzazione del server, consultare [Risolvere i problemi di Sincronizzazione file di Azure](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#how-do-i-know-if-my-servers-are-in-sync-with-each-other). La sincronizzazione potrebbe richiedere da diverse ore a giorni, a seconda delle dimensioni dei dati e della larghezza della banda. Una volta completata la sincronizzazione, tutti i dati sono al sicuro nella condivisione File di Azure. 
+    Per altre informazioni su quando la sincronizzazione del server è stata completata, vedere Risolvere i problemi relativi a [Sincronizzazione file](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#how-do-i-know-if-my-servers-are-in-sync-with-each-other)di Azure .For more information on when the server sync is complete, go to Troubleshoot Azure File Sync . La sincronizzazione può richiedere da diverse ore a giorni, a seconda delle dimensioni dei dati e della larghezza di banda. Una volta completata la sincronizzazione, tutti i dati sono al sicuro nella condivisione File di Azure. 
 3.  Passare alle condivisioni sui volumi StorSimple. Fare clic con il pulsante destro del mouse su una condivisione e scegliere **Proprietà**. Tenere presente le autorizzazioni della condivisione sotto **Sicurezza**. Queste autorizzazioni dovranno essere applicate manualmente alla nuova condivisione nel passaggio successivo.
 4.  A seconda che si usi lo stesso host di Windows Server o un altro, i passaggi successivi saranno diversi.
 

@@ -1,5 +1,5 @@
 ---
-title: Aprire le porte per una VM usando il portale di Azure
+title: Aprire le porte a una macchina virtuale usando il portale di AzureOpen ports to a VM using the Azure portal
 description: Informazioni su come aprire una porta o creare un endpoint alla VM Windows tramite il modello di distribuzione di Resource Manager nel portale di Azure
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,24 +14,24 @@ ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: cynthn
 ms.openlocfilehash: 130d3315b5a9a6f175bd3d67ed33a034ab5f8dda
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75371412"
 ---
 # <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>Come aprire le porte in una macchina virtuale con il portale di Azure
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
 
 
-## <a name="sign-in-to-azure"></a>Accedere a Azure
+## <a name="sign-in-to-azure"></a>Accedere ad Azure
 Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 ## <a name="create-a-network-security-group"></a>Creare un gruppo di sicurezza di rete
 
 1. Cercare e selezionare un gruppo di risorse per la macchina virtuale, scegliere **Aggiungi**, quindi cercare e selezionare **Gruppo di sicurezza di rete**.
 
-2. Selezionare **Create** (Crea).
+2. Selezionare **Crea**.
 
     Viene visualizzata la finestra **Crea gruppo di sicurezza di rete**.
 
@@ -85,5 +85,5 @@ Per le applicazioni Web a disponibilità elevata, è consigliabile posizionare l
 In questo articolo è stato creato un gruppo di sicurezza di rete, è stata definita una regola in ingresso che consente il traffico HTTP sulla porta 80 ed è stata associata tale regola a una subnet. 
 
 È possibile trovare informazioni sulla creazione di ambienti più dettagliati negli articoli seguenti:
-- [Panoramica di Azure Resource Manager](../../azure-resource-manager/management/overview.md)
+- [Panoramica di Azure Resource ManagerAzure Resource Manager overview](../../azure-resource-manager/management/overview.md)
 - [Gruppi di sicurezza](../../virtual-network/security-overview.md)

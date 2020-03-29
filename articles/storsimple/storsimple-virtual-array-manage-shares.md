@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
 ms.openlocfilehash: 82a6cdb6c9a39a0d196049a7ba662681ea06b36a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "62116867"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-shares-on-the-storsimple-virtual-array"></a>Usare il servizio Gestione dispositivi StorSimple per visualizzare le condivisioni sull'array virtuale StorSimple
@@ -33,8 +33,8 @@ Il servizio Gestione dispositivi StorSimple è un'estensione del portale di Azur
 
 Le condivisioni StorSimple possono essere:
 
-* **Aggiunto in locale**: I dati in queste condivisioni rimangono sempre nell'array e non vengono distribuiti nel cloud.
-* **A livelli**: I dati in queste condivisioni possono essere distribuiti nel cloud. Quando si crea una condivisione a livelli, viene eseguito il provisioning di circa il 10% dello spazio a livello locale e del 90% dello spazio nel cloud. Ad esempio, se si esegue il provisioning di una condivisione da 1 TB, 100 GB si trovano nello spazio locale e 900 GB vengono usati nel cloud quando i dati sono disposti a livelli. Questo implica che, se si esaurisce tutto lo spazio locale nel dispositivo, non è possibile eseguire il provisioning di una condivisione a livelli perché il 10% necessario a livello locale non è disponibile.
+* **Aggiunto in locale**: i dati in queste condivisioni rimangono sempre nell'array e non vengono distribuiti nel cloud.
+* **A livelli**: i dati in queste condivisioni possono essere distribuiti nel cloud. Quando si crea una condivisione a livelli, viene eseguito il provisioning di circa il 10% dello spazio a livello locale e del 90% dello spazio nel cloud. Ad esempio, se si esegue il provisioning di una condivisione da 1 TB, 100 GB si trovano nello spazio locale e 900 GB vengono usati nel cloud quando i dati sono disposti a livelli. Questo implica che, se si esaurisce tutto lo spazio locale nel dispositivo, non è possibile eseguire il provisioning di una condivisione a livelli perché il 10% necessario a livello locale non è disponibile.
 
 ### <a name="provisioned-capacity"></a>Capacità con provisioning
 
@@ -56,7 +56,7 @@ Il menu **Condivisioni** nel pannello di riepilogo servizio StorSimple visualizz
 Una condivisione è costituita da una serie di attributi:
 
 * **Nome condivisione**: un nome descrittivo che deve essere univoco e identifica la condivisione.
-* **Stato** : online oppure offline. Se una condivisione è offline, gli utenti della condivisione non saranno in grado di accedervi.
+* **Stato**: online oppure offline. Se una condivisione è offline, gli utenti della condivisione non saranno in grado di accedervi.
 * **Tipo**: indica se la condivisione è **A livelli** (impostazione predefinita) o **Aggiunto in locale**.
 * **Capacità**: specifica la quantità di dati usati rispetto alle quantità totale di dati che possono essere archiviati nella condivisione.
 * **Descrizione**: impostazione facoltativa che consente di descrivere la condivisione.
@@ -88,7 +88,7 @@ Usare le istruzioni di questa esercitazione per eseguire le attività seguenti:
 
    4. Nel campo **Capacità** specificare le dimensioni della condivisione. Una condivisione a livelli deve essere compresa tra 500 GB e 20 TB e una condivisione aggiunta in locale deve essere compresa tra 50 GB e 2 TB.
 
-   5. Nel campo **Set default full permissions to** (Imposta le autorizzazioni complete predefinite su) assegnare le autorizzazioni all'utente o al gruppo che avrà accesso a questa condivisione. Specificare il nome dell'utente o del gruppo di utenti nel formato _john@contoso.com_ . Si consiglia di usare un gruppo di utenti (anziché un singolo utente) per consentire ai privilegi amministratore di accedere a queste condivisioni. Dopo aver assegnato le autorizzazioni in questa fase, è possibile modificarle con Esplora file.
+   5. Nel campo **Set default full permissions to** (Imposta le autorizzazioni complete predefinite su) assegnare le autorizzazioni all'utente o al gruppo che avrà accesso a questa condivisione. Specificare il nome dell'utente _john@contoso.com_ o del gruppo di utenti nel formato. Si consiglia di usare un gruppo di utenti (anziché un singolo utente) per consentire ai privilegi amministratore di accedere a queste condivisioni. Dopo aver assegnato le autorizzazioni in questa fase, è possibile modificarle con Esplora file.
 3. Al termine della configurazione della condivisione fare clic su **Crea**. Verrà creata una condivisione con le impostazioni specificate e verrà visualizzata una notifica. Per impostazione predefinita, il backup verrà abilitato per la condivisione.
 4. Per verificare che la condivisione sia stata creata, passare al pannello **Condivisioni**. La condivisione viene visualizzata nell'elenco.
    

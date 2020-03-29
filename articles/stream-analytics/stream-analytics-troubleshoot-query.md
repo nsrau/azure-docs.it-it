@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: bf0740bbdd4754aeba43e64f1076a1bea33cffc6
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76844421"
 ---
 # <a name="troubleshoot-azure-stream-analytics-queries"></a>Risolvere i problemi delle query di Analisi di flusso di Azure
@@ -21,11 +21,11 @@ Questo articolo descrive problemi comuni di sviluppo delle query di Analisi di f
 
 ## <a name="query-is-not-producing-expected-output"></a>La query non genera l'output previsto
 1.  Esaminare gli errori eseguendo un test locale:
-    - Nella scheda **query** di portale di Azure selezionare **test**. [Testare la query](stream-analytics-test-query.md) usando i dati di esempio scaricati. Esaminare eventuali errori e provare a risolverli.   
-    - È anche possibile [testare la query localmente](stream-analytics-live-data-local-testing.md) usando gli strumenti di analisi di flusso di Azure per Visual Studio o [Visual Studio Code](visual-studio-code-local-run-live-input.md). 
+    - Nella scheda **Query** del portale di Azure selezionare **Test**. [Testare la query](stream-analytics-test-query.md) usando i dati di esempio scaricati. Esaminare eventuali errori e provare a risolverli.   
+    - È anche possibile [testare la query in locale](stream-analytics-live-data-local-testing.md) usando gli strumenti di Analisi di flusso di Azure per Visual Studio o Visual Studio [Code.](visual-studio-code-local-run-live-input.md) 
 
-2.  [Eseguire il debug delle query in locale usando il diagramma dei processi](debug-locally-using-job-diagram.md) negli strumenti di analisi di flusso di Azure per Visual Studio. Il diagramma dei processi Mostra come il flusso di dati dalle origini di input (hub eventi, hub Internet e così via) attraverso più passaggi di query e infine l'output ai sink. Ogni passaggio della query viene mappato a un set di risultati temporaneo definito nello script con l'istruzione WITH. Per individuare l'origine del problema, è possibile visualizzare i dati e le metriche in ogni passaggio della query in ogni set di risultati intermedi.
-    ![risultato anteprima Diagramma processi](./media/debug-locally-using-job-diagram/preview-result.png)
+2.  [Eseguire il debug delle query passo dopo passo in locale usando](debug-locally-using-job-diagram.md) il diagramma dei processi negli strumenti di Analisi di flusso di Azure per Visual Studio.Debug queries step by step locally using job diagram in Azure Stream Analytics tools for Visual Studio. Il diagramma dei processi consiste nel mostrare il flusso dei dati dalle origini di input (Hub eventi, hub IoT e così via) tramite più passaggi di query e infine l'output in sink. Ogni passaggio di query viene mappato a un set di risultati temporaneo definito nello script utilizzando l'istruzione WITH. È possibile visualizzare i dati e le metriche in ogni passaggio della query in ogni set di risultati intermedio per trovare l'origine del problema.
+    ![Risultato dell'anteprima del diagramma di processo](./media/debug-locally-using-job-diagram/preview-result.png)
 
 3.  Se si usa [**Timestamp By**](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics), assicurarsi che i timestamp degli eventi siano successivi all'[ora di inizio del processo](stream-analytics-out-of-order-and-late-events.md).
 
@@ -69,10 +69,10 @@ In questo esempio sono stati aggiunti due nuovi "output temporanei". Può tratta
 Ora avviare nuovamente il processo e lasciarlo in esecuzione per alcuni minuti. Quindi eseguire una query su temp1 e temp2 con Visual Studio Cloud Explorer per generare le tabelle seguenti:
 
 **tabella temp1**
-![query di analisi di flusso della tabella temp1 SELECT INTO](./media/stream-analytics-select-into/stream-analytics-select-into-temp-table-1.png)
+SELECT INTO temp1 tabella Query di analisi di![flusso](./media/stream-analytics-select-into/stream-analytics-select-into-temp-table-1.png)
 
 **tabella temp2**
-![query di analisi di flusso della tabella temp2 SELECT INTO](./media/stream-analytics-select-into/stream-analytics-select-into-temp-table-2.png)
+SELECT INTO temp2 tabella Query di analisi di![flusso](./media/stream-analytics-select-into/stream-analytics-select-into-temp-table-2.png)
 
 Come si può vedere, temp1 e temp2 hanno entrambe dati e la colonna del nome viene popolata in modo corretto in temp2. Tuttavia, poiché non sono ancora presenti dati nell'output, c'è qualcosa di sbagliato:
 
@@ -92,14 +92,14 @@ Questa volta i dati nell'output vengono formattati e popolati come previsto.
 
 ![Query di analisi di flusso della tabella finale SELECT INTO](./media/stream-analytics-select-into/stream-analytics-select-into-final-table.png)
 
-## <a name="get-help"></a>Ottenere supporto
+## <a name="get-help"></a>Ottenere aiuto
 
-Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+Per ulteriore assistenza, prova il forum di Analisi di Flusso di [Azure.](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
-* [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-real-time-fraud-detection.md)
+* [Introduzione all'uso di Analisi di flusso di AzureGet started using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
-* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Guida di riferimento al linguaggio di query di Analisi di flusso di AzureAzure Stream Analytics Query Language Reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)

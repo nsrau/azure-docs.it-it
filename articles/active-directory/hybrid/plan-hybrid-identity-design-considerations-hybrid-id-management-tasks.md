@@ -1,6 +1,6 @@
 ---
 title: 'Progettazione di una soluzione ibrida di gestione delle identità: attività di gestione in Azure | Microsoft Docs'
-description: Con il controllo di accesso condizionale, Azure Active Directory controlla le condizioni specifiche definite durante l'autenticazione dell'utente e prima di consentire l'accesso all'applicazione. Se tali condizioni vengono soddisfatte, l'utente viene autenticato e gli viene consentito l'accesso all'applicazione.
+description: Con il controllo di accesso condizionale, Azure Active Directory controlla le condizioni specifiche selezionate durante l'autenticazione dell'utente e prima di consentire l'accesso all'applicazione. Se tali condizioni vengono soddisfatte, l'utente viene autenticato e gli viene consentito l'accesso all'applicazione.
 documentationcenter: ''
 services: active-directory
 author: billmath
@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8a829d39ff21a1abeafd3b4362747894d196d9d4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67109374"
 ---
 # <a name="plan-for-hybrid-identity-lifecycle"></a>Pianificare il ciclo di vita dell’identità ibrida
@@ -32,7 +32,7 @@ L'identità rappresenta uno degli elementi fondamentali della strategia di mobil
 ## <a name="determine-hybrid-identity-management-tasks"></a>Determinare le attività di gestione di un'identità ibrida
 La distribuzione di attività amministrative all'interno di un'azienda consente un'amministrazione più accurata ed efficiente e permette di bilanciare meglio il carico di lavoro aziendale. Di seguito sono illustrati gli elementi principali che definiscono un sistema di gestione delle identità affidabile.
 
- ![Considerazioni sulla gestione di identità](./media/plan-hybrid-identity-design-considerations/Identity_management_considerations.png)
+ ![considerazioni sulla gestione delle identità](./media/plan-hybrid-identity-design-considerations/Identity_management_considerations.png)
 
 Per definire le attività di gestione di un'identità ibrida, è necessario identificare alcune caratteristiche essenziali dell'azienda che adotterà l'identità ibrida. È importante anche valutare gli archivi attualmente usati per le origini di identità. Conoscendo questi elementi di base, si potranno definire i requisiti fondamentali sulla base dei quali formulare domande più precise che consentano una decisione più consapevole della soluzione di identità da adottare.  
 
@@ -61,9 +61,9 @@ Per definire correttamente tali requisiti, assicurarsi che venga fornita una ris
 ## <a name="synchronization-management"></a>Gestione della sincronizzazione
 Uno dei principali obiettivi della gestione delle identità è quello di raccogliere tutti i provider di identità e mantenerli sincronizzati. Per la sincronizzazione dei dati viene usato un provider di identità autorevole. In uno scenario di identità ibrido, con un modello di gestione sincronizzato, si gestiscono tutte le identità utente e dispositivo in un server locale e, in seguito, si sincronizzano nel cloud gli account ed eventualmente le password. L'utente immette in locale la stessa password usata per il cloud e, al momento dell'accesso, la password viene verificata dalla soluzione di identità. Questo modello usa uno strumento di sincronizzazione di directory.
 
-![sincronizzazione della directory](./media/plan-hybrid-identity-design-considerations/Directory_synchronization.png) per progettare correttamente la sincronizzazione della propria soluzione di identità ibrida, assicurarsi che le seguenti domande:
-*    Quali sono le soluzioni di sincronizzazione disponibili per la soluzione con identità ibrida?
-*    Quali sono il single sign-on le funzionalità disponibili?
+![sincronizzazione](./media/plan-hybrid-identity-design-considerations/Directory_synchronization.png) della directory Per progettare correttamente la sincronizzazione della soluzione di identità ibrida, verificare che vengano risolte le domande seguenti:
+*    Quali sono le soluzioni di sincronizzazione disponibili per la soluzione di identità ibrida?
+*    Quali sono le funzionalità Single Sign-On disponibili?
 *    Quali sono le opzioni per la federazione delle identità tra B2B e B2C?
 
 ## <a name="next-steps"></a>Passaggi successivi

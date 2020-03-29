@@ -1,6 +1,6 @@
 ---
-title: Sicurezza per il pesante carico casella dei dati di Azure | Microsoft Docs
-description: Descrive considerazioni, linee guida e convenzioni di sicurezza e viene spiegato come installazione sicura e funzionamento di casella pesante Azure dei dati.
+title: Sicurezza per il tuo Azure Data Box Heavy Documenti Microsoft
+description: Descrive le convenzioni, le linee guida e le considerazioni sulla sicurezza e spiega come installare e gestire in modo sicuro azure Data Box Heavy.Describes safety conventions, guidelines, and considerations, and explains how to safely install and operate your Azure Data Box Heavy.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,77 +9,77 @@ ms.topic: article
 ms.date: 07/08/2019
 ms.author: alkohli
 ms.openlocfilehash: b7562ab6c7ec9c6234ed3fbb867361307b80a638
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67673119"
 ---
-# <a name="safely-install-and-operate-your-azure-data-box-heavy"></a>Installazione sicura e funzionamento di casella pesante Azure dei dati
+# <a name="safely-install-and-operate-your-azure-data-box-heavy"></a>Installare e utilizzare in modo sicuro Azure Data Box Heavy
 
-Questo articolo contiene le informazioni di sicurezza per la finestra pesante Azure dei dati.
+Questo articolo contiene le informazioni sulla sicurezza per Azure Data Box Heavy.This article contains the safety information for your Azure Data Box Heavy.
 
-![Icona di avviso](./media/data-box-heavy-safety/warning-icon.png)
-![icona di avviso di sicurezza lettura](./media/data-box-heavy-safety/read-safety-and-health-information-icon.png) **leggere prima tutte le istruzioni**
+![Icona di](./media/data-box-heavy-safety/warning-icon.png)
+![avviso Icona](./media/data-box-heavy-safety/read-safety-and-health-information-icon.png) Leggi avviso di sicurezza **Leggi prima tutte le istruzioni**
 
-Leggere tutte le informazioni di sicurezza in questo articolo prima di usare la finestra pesante Azure dei dati. La mancata osservanza delle istruzioni potrebbe causare incendi, scosse elettriche o altre lesioni o danni alle proprietà.
+Leggere tutte le informazioni sulla sicurezza in questo articolo prima di usare Azure Data Box Heavy.Read all the safety information in this article before you use your Azure Data Box Heavy. La mancata osservanza delle istruzioni potrebbe causare incendi, scosse elettriche o altre lesioni o danni alle proprietà.
 
 ## <a name="safety-icon-conventions"></a>Convenzioni di sicurezza
 Ecco le icone che vengono visualizzate quando si esaminano le precauzioni di sicurezza cui attenersi durante l'installazione e l'utilizzo di Data Box.
 
 | Icona | Descrizione |
 |:--- |:--- |
-| ![Icona di pericolo](./media/data-box-heavy-safety/warning-icon.png) **pericolo!** |Indica una situazione di pericolo che, se non viene evitato, comporterà morte o gravi ferite. Questa parola deve essere limitata a situazioni più estreme. |
-| ![Icona di avviso](./media/data-box-heavy-safety/warning-icon.png) **avviso!** |Indica una situazione di pericolo che, se non viene evitata, può comportare morte o gravi ferite. |
-| ![Icona di avviso](./media/data-box-heavy-safety/warning-icon.png) **attenzione!** |Indica una situazione di pericolo che, se non viene evitato, comporterà ferite lievi o limitate. |
-| ![Icona di avviso](./media/data-box-heavy-safety/notice-icon.png) **si noti che:** |Indica le informazioni considerate importanti, ma non correlate al rischio. |
-| ![Icona di scossa elettrica](./media/data-box-heavy-safety/electrical-shock-hazard-icon.png) **pericolo di scosse elettriche** |Alta tensione. |
-| ![Icona peso elevato](./media/data-box-heavy-safety/heavy-weight-hazard-icon.png) **pesante** | |
-| ![Nessuna icona di parti riparabili dall'utente](./media/data-box-heavy-safety/no-user-serviceable-parts-icon.png) **nessuna parte riparabile dall'utente** |Non accedere a meno che non si sia stati adeguatamente formati. |
-| ![Icona di avviso di sicurezza di lettura](./media/data-box-heavy-safety/read-safety-and-health-information-icon.png) **leggere prima tutte le istruzioni** | |
-| ![Suggerimento di pericolo icona](./media/data-box-heavy-safety/tip-hazard-icon.png) **pericolo di suggerimento** | |
-| ![Eseguire l'overload di pericolo icona suggerimento](./media/data-box-heavy-safety/overload-tip-hazard-icon.png) **pericolo di suggerimento di Overload** | |
-| ![Icona di origini di alimentazione più](./media/data-box-heavy-safety/multiple-power-sources-icon.png) **più fonti di alimentazione** | |
+| ![](./media/data-box-heavy-safety/warning-icon.png) Icona di pericolo **DANGER!** |Indica una situazione di pericolo che, se non viene evitato, comporterà morte o gravi ferite. Questa parola deve essere limitata a situazioni più estreme. |
+| ![](./media/data-box-heavy-safety/warning-icon.png) Icona di avviso **AVVISO!** |Indica una situazione di pericolo che, se non viene evitata, può comportare morte o gravi ferite. |
+| ![](./media/data-box-heavy-safety/warning-icon.png) Icona di avviso **CAUTION!** |Indica una situazione di pericolo che, se non viene evitato, comporterà ferite lievi o limitate. |
+| ![Avviso](./media/data-box-heavy-safety/notice-icon.png) **icona AVVISO:** |Indica le informazioni considerate importanti, ma non correlate al rischio. |
+| ![Icona](./media/data-box-heavy-safety/electrical-shock-hazard-icon.png) d'urto elettrico **Pericolo d'urto elettrico** |Alta tensione. |
+| ![Icona pesante](./media/data-box-heavy-safety/heavy-weight-hazard-icon.png) **Peso pesante Peso pesante** | |
+| ![Icona Nessuna parte](./media/data-box-heavy-safety/no-user-serviceable-parts-icon.png) utile per l'utente **Nessuna parte utilizzabile dall'utente** |Non accedere a meno che non si sia stati adeguatamente formati. |
+| ![Icona Leggi avviso](./media/data-box-heavy-safety/read-safety-and-health-information-icon.png) di sicurezza **Leggi prima tutte le istruzioni** | |
+| ![Icona Punta](./media/data-box-heavy-safety/tip-hazard-icon.png) pericolo **Pericolo** | |
+| ![Icona Pericolo di](./media/data-box-heavy-safety/overload-tip-hazard-icon.png) sovraccarico **Pericolo pericolo di punta Pericolo di punta** | |
+| ![Icona di più](./media/data-box-heavy-safety/multiple-power-sources-icon.png) fonti di **alimentazione Più fonti di alimentazione** | |
 
 ## <a name="handling-precautions"></a>Precauzioni relative alla gestione
 
-![Icona di avviso](./media/data-box-heavy-safety/warning-icon.png)**AVVISO!**
+![Icona](./media/data-box-heavy-safety/warning-icon.png) di avviso **AVVISO!**
 
-* Apparecchiature appropriata (ad esempio, jack gruppo) e individuale (ad esempio, guanti) devono essere utilizzati durante lo spostamento e la gestione della cassa.
-* Ramp deve essere protetto per la cassa con BOLT specificato prima di rimuovere il dispositivo per evitare danni di proprietà.
+* Per spostare e maneggiare la cassa è necessario utilizzare attrezzature adeguate (ad esempio, pallet jack) e attrezzature protettive personali (ad esempio, guanti).
+* Rampa deve essere fissato alla cassa con bulloni forniti prima di rimuovere il dispositivo per evitare lesioni o danni alle proprietà.
 
-![Icona di avviso](./media/data-box-heavy-safety/warning-icon.png) ![suggerimento di pericolo icona](./media/data-box-heavy-safety/tip-hazard-icon.png) **pericolo di suggerimento**
+![Pericolo di](./media/data-box-heavy-safety/warning-icon.png) ![](./media/data-box-heavy-safety/tip-hazard-icon.png) **punta** dell'icona di avviso
 
-* Inserire le apparecchiature su una superficie piatta, disco rigida e stabile per evitare un potenziale rischio per la Mancia o Don.
-* Verificare che il casters sono bloccate prima di esaminare, attivare e utilizzo dell'apparecchiatura.
+* Posizionare l'apparecchiatura su una superficie piana, dura e stabile per evitare un potenziale rischio di punta o frantumazione.
+* Verificare che le ruote siano bloccate prima di ispezionare, accendere e azionare l'apparecchiatura.
 
-![Icona di avviso](./media/data-box-heavy-safety/warning-icon.png) ![icona di scossa elettrica](./media/data-box-heavy-safety/electrical-shock-hazard-icon.png)![nessuna icona di parti riparabili dall'utente](./media/data-box-heavy-safety/no-user-serviceable-parts-icon.png) **attenzione!** 
+![Icona di](./media/data-box-heavy-safety/warning-icon.png) ![avviso Icona](./media/data-box-heavy-safety/electrical-shock-hazard-icon.png)![shock elettrico Icona](./media/data-box-heavy-safety/no-user-serviceable-parts-icon.png) Nessuna parte utilizzabile dall'utente icona **CAUTION!** 
 
-* Esaminare il dispositivo *come è stato ricevuto* per individuare eventuali danni. Se l'enclosure del dispositivo è danneggiato, contattare [supporto tecnico Microsoft](data-box-disk-contact-microsoft-support.md) per ottenere una sostituzione. Non tentare di utilizzare il dispositivo. 
-* Il dispositivo è dotato di viti a prova di manomissione. Se si ritiene che il dispositivo funziona correttamente, [supporto tecnico Microsoft](data-box-disk-contact-microsoft-support.md) per ottenere una sostituzione. Non tentare di riparare il dispositivo. 
+* Esaminare il dispositivo *come è stato ricevuto* per individuare eventuali danni. Se l'alloggiamento del dispositivo è danneggiato, contattare il [supporto tecnico Microsoft](data-box-disk-contact-microsoft-support.md) per ottenere una sostituzione. Non tentare di utilizzare il dispositivo. 
+* Il dispositivo è dotato di viti a prova di manomissione. Se si sospetta che il dispositivo non funzioni correttamente, [supporto tecnico Microsoft](data-box-disk-contact-microsoft-support.md) per ottenere una sostituzione. Non tentare di riparare il dispositivo. 
 * Il dispositivo non contiene parti riparabili dall'utente. All'interno sono presenti livelli pericolosi di tensione, corrente ed energia. Non aprire il dispositivo. Restituire il dispositivo a Microsoft per la manutenzione.
 
-![Icona di avviso](./media/data-box-heavy-safety/warning-icon.png) ![icona peso elevato](./media/data-box-heavy-safety/heavy-weight-hazard-icon.png) **avviso!** 
+![](./media/data-box-heavy-safety/warning-icon.png) ![Icona di avviso Icona](./media/data-box-heavy-safety/heavy-weight-hazard-icon.png) del peso **pesante AVVISO!** 
 
-* Un'enclosure completamente configurata può pesare fino a 326 kg (719 libbre); non tentare di sollevarla da soli.
-* Non tentare di accuratezza le attrezzature senza aid meccanico appropriata. Tenere presente che qualsiasi tentativo di sollevare questo peso può causare gravi ferite.
-* Conforme ai professionali dell'integrità e sicurezza requisiti locali durante lo spostamento e sollevare questo dispositivo.
-* Usare meccanico assistenza o altro genere adatto quando lo spostamento e lift delle apparecchiature.
+* Un alloggiamento completamente configurato può pesare fino a 326 kg (719 lbs); non cercare di sollevarlo da solo.
+* Non tentare di sollevare l'apparecchiatura senza un adeguato ausilio meccanico. Essere consapevoli del fatto che qualsiasi tentativo di sollevare questo peso può causare gravi lesioni.
+* Conforme ai requisiti locali di salute e sicurezza sul lavoro durante lo spostamento e la sollevamento di queste attrezzature.
+* Utilizzare l'assistenza meccanica o altra assistenza adatta durante il movimento e il sollevamento di attrezzature.
 
 
-![Icona di avviso](./media/data-box-heavy-safety/warning-icon.png) ![pericolo icona suggerimento di Overload](./media/data-box-heavy-safety/overload-tip-hazard-icon.png) ![pericolo icona suggerimento](./media/data-box-heavy-safety/tip-hazard-icon.png)![icona peso elevato](./media/data-box-heavy-safety/heavy-weight-hazard-icon.png) **avviso!**
-* Pesante finestra di dati non è può essere utilizzato come una tabella o dell'area di lavoro. Aggiunta di qualsiasi tipo di carico, è possibile creare un rischio potenziale che potrebbe causare danni di proprietà.
-* Le apparecchiature montate su rack non devono essere utilizzate come scaffali o aree di lavoro. Non inserire il pesante dati casella nella parte superiore delle apparecchiature montate su rack. L'aggiunta di qualsiasi tipo di carico a un'unità montata su rack protesa può causare potenziali rischi di cadute con conseguente pericolo di lesioni, morte o danni al prodotto.
+![](./media/data-box-heavy-safety/warning-icon.png) ![Icona di avviso Icona](./media/data-box-heavy-safety/overload-tip-hazard-icon.png) ![pericolo di](./media/data-box-heavy-safety/tip-hazard-icon.png)![sovraccarico icona](./media/data-box-heavy-safety/heavy-weight-hazard-icon.png) di pericolo Icona di pericolo Icona del peso pesante **AVVISO!**
+* Data Box Heavy non deve essere utilizzato come tabella o area di lavoro. L'aggiunta di qualsiasi tipo di carico può creare un potenziale pericolo che potrebbe causare lesioni o danni alla proprietà.
+* Le apparecchiature montate su rack non devono essere utilizzate come scaffali o aree di lavoro. Non posizionare il Data Box Heavy sopra le apparecchiature montate su rack. L'aggiunta di qualsiasi tipo di carico a un'unità montata su rack protesa può causare potenziali rischi di cadute con conseguente pericolo di lesioni, morte o danni al prodotto.
 
-![Icona di avviso](./media/data-box-heavy-safety/warning-icon.png) **avviso!**
+![](./media/data-box-heavy-safety/warning-icon.png) Icona di avviso **AVVISO!**
 
-* Il sistema è progettato per operare in un ambiente tipico di office. Scegliere un sito:
+* Il sistema è progettato per funzionare in un tipico ambiente di ufficio. Scegliere un sito che è:
 
-    - Ben ventilate e non al computer provenienti da origini di calore inclusi radiatori e luce diretta.
-    - Lontano da origini di vibrazione o scosse fisica.
-    - Isolata dalla forti campi elettromagnetiche prodotti dai dispositivi elettrici.
-    - Fornito con prese di terra correttamente.
-    - Fornito con spazio sufficiente per accedere il supply power o più cavi, perché vengono usati come disconnect di alimentazione principale del prodotto.
+    - Ben ventilato e lontano da fonti di calore tra cui luce solare diretta e radiatori.
+    - Lontano da fonti di vibrazione o shock fisico.
+    - Isolato da forti campi elettromagnetici prodotti da dispositivi elettrici.
+    - Dotato di prese a muro correttamente radicate.
+    - Dotato di spazio sufficiente per accedere ai cavi di alimentazione, perché fungono da scollegamento di alimentazione principale del prodotto.
 
 * Sistemare il dispositivo in un'area di lavoro con adeguata circolazione dell'aria intorno al dispositivo.
 * Installare il dispositivo in un locale a temperatura controllata, priva di contaminanti conduttivi e con un'adeguata circolazione dell'aria intorno al dispositivo.
@@ -88,7 +88,7 @@ Ecco le icone che vengono visualizzate quando si esaminano le precauzioni di sic
 
 ## <a name="electrical-precautions"></a>Precauzioni elettriche
 
-![Icona di avviso](./media/data-box-heavy-safety/warning-icon.png) ![icona di scossa elettrica](./media/data-box-heavy-safety/electrical-shock-hazard-icon.png) **avviso!**
+![Icona](./media/data-box-heavy-safety/warning-icon.png) ![di avviso Icona](./media/data-box-heavy-safety/electrical-shock-hazard-icon.png) shock elettrico **AVVISO!**
 
 * Fornire una connessione di terra elettrica sicura per i cavi di alimentazione. Il cavo CA ha una spina a tre fili con messa a terra (spina con pin di messa a terra). Questa spina può essere inserita solo in una presa CA con messa a terra. Non annullare lo scopo del pin di messa a terra.
 * Dato che la spina del cavo di alimentazione è il principale dispositivo di disconnessione, accertarsi che si trovino prese vicine al dispositivo e che siano facilmente accessibili.
@@ -102,24 +102,24 @@ Ecco le icone che vengono visualizzate quando si esaminano le precauzioni di sic
 * Scollegare definitivamente l'unità prima di spostare o se si ritiene che sia stata danneggiata in alcun modo.
 * Fornire una fonte di alimentazione adatta con protezione da sovraccarichi elettrici per soddisfare le specifiche tecniche seguenti:
 
-    - Tensione: 100 V CA a CA 240 V
-    - Corrente: Massimo 6 A a 10 A al cavo di alimentazione. Vengono forniti quattro cavi di alimentazione.
-    - Frequenza: 50 Hz fino a 60 Hz
-* Non tentare di modificare o usare uno o più cavi power AC diversi da quelli forniti con le apparecchiature. Uno o più cavi di alimentazione devono soddisfare i criteri seguenti:
-    - Il cavo di alimentazione deve avere un valore di classificazione elettrica è superiore a quella della classificazione corrente elettrica contrassegnata sul prodotto.
-    - Il cavo di alimentazione deve avere pin di sicurezza zero o un contatto adatto per la presa di corrente elettrica.
+    - Tensione: da 100 V CA a 240 V CA
+    - Corrente: da 6 A a 10 A, massimo per cavo di alimentazione. Sono disponibili quattro cavi di alimentazione.
+    - Frequenza: da 50 Hz a 60 Hz
+* Non tentare di modificare o utilizzare cavi di alimentazione AC diversi da quelli forniti con l'apparecchiatura. I cavi di alimentazione devono soddisfare i seguenti criteri:
+    - Il cavo di alimentazione deve avere una valutazione elettrica superiore a quella della corrente elettrica contrassegnata sul prodotto.
+    - Il cavo di alimentazione deve avere un perno o un contatto di sicurezza adatto alla presa elettrica.
 
-![Icona di avviso](./media/data-box-heavy-safety/warning-icon.png)![icona di scossa elettrica](./media/data-box-heavy-safety/electrical-shock-hazard-icon.png) ![icona origini di alimentazione più](./media/data-box-heavy-safety/multiple-power-sources-icon.png) **avviso!**
+![](./media/data-box-heavy-safety/warning-icon.png)![Icona di avviso Icona](./media/data-box-heavy-safety/electrical-shock-hazard-icon.png) ![shock elettrico](./media/data-box-heavy-safety/multiple-power-sources-icon.png) Icona più fonti di **alimentazione AVVISO!**  
 
-* Scollegare tutte le CA power uno o più cavi per rimuovere completamente l'alimentazione da apparecchiature.
+* Scollegare tutti i cavi di alimentazione AC per rimuovere completamente l'alimentazione CA dall'apparecchiatura.
 
-![Icona di avviso](./media/data-box-heavy-safety/warning-icon.png) **attenzione!**
+![](./media/data-box-heavy-safety/warning-icon.png) Icona di avviso **CAUTION!**
 
 * Questo dispositivo contiene batterie a bottone. Non tentare di riparare il dispositivo. Le batterie di questo dispositivo non sono riparabili dall'utente. 
-* **Per il personale di assistenza solo**: Rischio di esplosione della batteria viene sostituita da un tipo non corretto. Smaltire le batterie esauste in base alle istruzioni.
-* Laser periferiche o i dispositivi sono presenti. Per evitare rischi o esposizione e/o lesioni personali, è possibile aprire l'enclosure di qualsiasi periferica laser o dispositivo. Laser periferiche o i dispositivi non sono utilizzabile dai servizi. Utilizzare solo certified e classe Laser I livello di gravità per prodotto ricetrasmettitore ottici.
+* **Solo per**il personale di assistenza : Rischio di esplosione se la batteria viene sostituita da un tipo errato. Smaltire le batterie esauste in base alle istruzioni.
+* Sono presenti periferiche o dispositivi laser. Per evitare rischi o lesioni da radiazioni e/o lesioni personali, non aprire l'alloggiamento di qualsiasi periferica o dispositivo laser. Le periferiche o i dispositivi laser non sono utilizzabili. Utilizzare solo la classe Laser I certificata e votata per il prodotto ricetrasmettitore ottico.
 
-![Icona di avviso](./media/data-box-heavy-safety/notice-icon.png) **si noti che:**
+![Avviso](./media/data-box-heavy-safety/notice-icon.png) **icona AVVISO:**
 
 Per il corretto funzionamento dell'apparecchiatura e per evitare danni al dispositivo:
 
@@ -127,34 +127,34 @@ Per il corretto funzionamento dell'apparecchiatura e per evitare danni al dispos
 
 ## <a name="regulatory-information"></a>Informazioni sulle normative
 
-In questa sezione contiene informazioni sulle normative per Azure Data finestra pesante, il numero di modello normativi DB020.
+Questa sezione contiene informazioni normative per Azure Data Box Heavy, numero di modello normativo DB020.This section contains regulatory information for Azure Data Box Heavy, regulatory model number DB020.
 
 Questo dispositivo è:
 
 - Valutato come apparecchiatura IT (Information Technology Equipment, ITE), progettata per l'uso in un tipico ambiente di data room. L'idoneità di questo prodotto in altri ambienti può richiedere un'ulteriore valutazione.
 - Progettato per l'uso con apparecchiature IT riconosciute NRTL (UL, CSA, ETL e così via) e compatibili con IEC/EN 60950-1 o IEC/EN 62368-1 (contrassegno CE).
 - Progettato per funzionare nell'ambiente seguente. 
-    - Temperatura operativa: 41° a 95°f (5° a 35° C)
-    - Temperatura di archiviazione: da-40 ° a 149 ° F (da-40 ° a 65 ° C)
-    - Umidità relativa: da 20 a 85% (senza condensa) 
-    - Altitudine in: Testare fino a 6,560 metri (fino a 2000)
+    - Temperatura d'esercizio: da 41 a 95 gradi (da 5 a 35o C)
+    - Temperatura di conservazione: da -40 a 149 gradi (da -40 a 65o C)
+    - Umidità relativa: dal 20% all'85% (non condensa) 
+    - Altitudine di esercizio: Testata fino a 6.560 piedi (fino a 2000 metri)
 
 Per il valore nominale, fare riferimento all'etichetta del dispositivo fornita con l'unità. 
 
-![Icona di avviso](./media/data-box-heavy-safety/notice-icon.png) **si noti che:** 
+![Avviso](./media/data-box-heavy-safety/notice-icon.png) **icona AVVISO:** 
 
 Qualsiasi modifica apportata al dispositivo non espressamente approvata da Microsoft può invalidare l'autorità dell'utente all'uso del dispositivo.
 
-**In Canada e Stati Uniti:**
+**Canada e Stati Uniti:**
 
-![Icona di avviso](./media/data-box-heavy-safety/notice-icon.png) **si noti che:** 
+![Avviso](./media/data-box-heavy-safety/notice-icon.png) **icona AVVISO:** 
 
-Questo dispositivo è stato testato e valutato come conforme ai limiti di un dispositivo digitale di Classe A, ai sensi della parte 15 delle normative FCC. Questi limiti intendono fornire una protezione ragionevole da interferenze dannose quando l'attrezzatura si utilizzata in un ambiente commerciale. Questo dispositivo genera, usa e può irradiare energia a radiofrequenza e, se non installato e utilizzato in conformità con il manuale di istruzioni, potrebbe causare interferenze dannose alle comunicazioni radio. Uso del dispositivo in una zona residenziale è può causare l'interferenza dannoso nel quale caso l'utente verrà richiesto di risolvere tali interferenze i propri spese.
+Questo dispositivo è stato testato e valutato come conforme ai limiti di un dispositivo digitale di Classe A, ai sensi della parte 15 delle normative FCC. Questi limiti intendono fornire una protezione ragionevole da interferenze dannose quando l'attrezzatura si utilizzata in un ambiente commerciale. Questo dispositivo genera, usa e può irradiare energia a radiofrequenza e, se non installato e utilizzato in conformità con il manuale di istruzioni, potrebbe causare interferenze dannose alle comunicazioni radio. Il funzionamento di questa apparecchiatura in una zona residenziale rischia di causare interferenze dannose, nel qual caso l'utente sarà tenuto a correggere l'interferenza a proprie spese.
 
-Questo dispositivo è conforme alla parte 15 delle normative regole FCC e agli standard RSS esenti da licenza Industry Canada. L'uso è soggetto alle seguenti condizioni: 
+Questo dispositivo è conforme alla parte 15 delle normative regole FCC e agli standard RSS esenti da licenza Industry Canada. L'operazione è soggetta alle seguenti due condizioni: 
 
-- Il dispositivo non deve causare interferenze dannose.
-- Il dispositivo deve accettare eventuali interferenze ricevuta, comprese quelle che può provocare un funzionamento del dispositivo.
+- Questo dispositivo potrebbe non causare interferenze dannose.
+- Questo dispositivo deve accettare qualsiasi interferenza ricevuta, inclusa l'interferenza che possa causare il funzionamento indesiderato del dispositivo.
 
 ![Canada](./media/data-box-heavy-safety/canada.png)
 
@@ -163,9 +163,9 @@ Stati Uniti: (800) 426-9400 Canada: (800) 933-4750
 
 **Unione europea:**
 
-[Richiedere](mailto:CSI_Compliance@microsoft.com) una copia della dichiarazione di conformità dell'Unione europea.
+[Richiedere](mailto:CSI_Compliance@microsoft.com) una copia della dichiarazione di conformità dell'UE.
 
-![Icona di avviso](./media/data-box-heavy-safety/warning-icon.png) **avviso!** 
+![](./media/data-box-heavy-safety/warning-icon.png) Icona di avviso **AVVISO!** 
 
 Si tratta di un prodotto di Classe A. In un ambiente domestico, questo prodotto può causare interferenze radio nel qual caso l'utente può essere tenuto ad adottare misure adeguate.
 
@@ -173,11 +173,11 @@ Si tratta di un prodotto di Classe A. In un ambiente domestico, questo prodotto 
 
 ![Icona di smaltimento della batteria](./media/data-box-heavy-safety/battery-disposal-icon.png)
 
-Questo simbolo sul prodotto, sulle relative batterie o sull'imballaggio indica che il prodotto ed eventuali batterie incluse non devono essere smaltiti con i rifiuti domestici. È responsabilità dell'utente smaltire il prodotto in un punto di raccolta appositamente adibito al riciclaggio di batterie e apparecchiature elettriche ed elettroniche. La raccolta differenziata e il riciclaggio consentono di tutelare le risorse naturali ed evitare potenziali conseguenze negative per la salute e l'ambiente dovute alla possibile presenza di sostanze pericolose nelle batterie e nelle apparecchiature elettriche ed elettroniche che potrebbero essere rilasciate dallo smaltimento inappropriato. Per ulteriori informazioni su come smaltire le batterie e le apparecchiature elettriche ed elettroniche, contattare l'ufficio preposto del proprio comune, il servizio responsabile della raccolta dei rifiuti domestici o il negozio presso cui è stato acquistato il prodotto. Contattare *erecycle\@microsoft.com* per altre informazioni su manuale.
+Questo simbolo sul prodotto, sulle relative batterie o sull'imballaggio indica che il prodotto ed eventuali batterie incluse non devono essere smaltiti con i rifiuti domestici. È responsabilità dell'utente smaltire il prodotto in un punto di raccolta appositamente adibito al riciclaggio di batterie e apparecchiature elettriche ed elettroniche. La raccolta differenziata e il riciclaggio consentono di tutelare le risorse naturali ed evitare potenziali conseguenze negative per la salute e l'ambiente dovute alla possibile presenza di sostanze pericolose nelle batterie e nelle apparecchiature elettriche ed elettroniche che potrebbero essere rilasciate dallo smaltimento inappropriato. Per ulteriori informazioni su come smaltire le batterie e le apparecchiature elettriche ed elettroniche, contattare l'ufficio preposto del proprio comune, il servizio responsabile della raccolta dei rifiuti domestici o il negozio presso cui è stato acquistato il prodotto. *Contattare\@erecycle microsoft.com* per ulteriori informazioni su WEEE.
 
 Questo prodotto contiene batterie a bottone.
 
-Numero di Microsoft Ireland Sandyford Ind Est Dublino D18 KX32 IRL telefono: + 353 1 295 3826 numero Fax: + 353 1 706 4110 
+Microsoft Ireland Sandyford Ind Est Dublino D18 KX32 IRL Numero di telefono: 353 1 295 3826 Numero di fax: 353 1 706 4110 
 
 <!--**Japan**
 
@@ -193,6 +193,6 @@ Dopo aver esaminato questi avvisi sulla sicurezza, è possibile installare e col
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Cavo e connettere pesante finestra di dati](data-box-heavy-deploy-set-up.md)
+* [Cavo e collegare il vostro Data Box Heavy](data-box-heavy-deploy-set-up.md)
 
 

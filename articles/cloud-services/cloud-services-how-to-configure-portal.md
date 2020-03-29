@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 12/07/2016
 ms.author: tagore
 ms.openlocfilehash: 554d3e465b42ca889ba03565e87193f80e89ed1d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75361008"
 ---
 # <a name="how-to-configure-cloud-services"></a>Come configurare i servizi cloud
 
-È possibile configurare le impostazioni più comuni di un servizio cloud nel portale di Azure. In alternativa, se si desidera aggiornare i file di configurazione direttamente, è possibile scaricare un file di configurazione da aggiornare del servizio, quindi caricare il file aggiornato e aggiornare il servizio cloud con le modifiche apportate alla configurazione. In entrambi i casi, gli aggiornamenti alla configurazione vengono applicati a tutte le istanze del ruolo.
+È possibile configurare le impostazioni più comuni di un servizio cloud nel portale di Azure. In alternativa, se si preferisce aggiornare direttamente i file di configurazione, scaricare un file di configurazione del servizio da aggiornare, quindi caricare il file aggiornato e aggiornare il servizio cloud con le modifiche apportate alla configurazione. In ogni caso, per gli aggiornamenti della configurazione viene effettuato il push in tutte le istanze del ruolo.
 
 È anche possibile gestire le istanze dei ruoli del servizio cloud o creare una connessione Desktop remoto per tali servizi.
 
@@ -44,9 +44,9 @@ Se è necessario fare riferimento a una versione specifica del sistema operativo
 >[!IMPORTANT]
 > La scelta di una versione specifica del sistema operativo comporta la disabilitazione degli aggiornamenti automatici del sistema operativo e rende l'applicazione di patch a carico dell'utente. È necessario assicurarsi che le istanze del ruolo ricevano gli aggiornamenti. In caso contrario, si rischia l'esposizione dell'applicazione a vulnerabilità della sicurezza.
 
-## <a name="monitoring"></a>Monitorare
+## <a name="monitoring"></a>Monitoraggio
 
-È possibile aggiungere avvisi al servizio cloud. Fare clic su **Impostazioni** > **Regole di avviso** > **Aggiungi avviso**.
+È possibile aggiungere avvisi al servizio cloud. Fare clic su **Impostazioni** > **regole** > di avviso**Aggiungi avviso**.
 
 ![](./media/cloud-services-how-to-configure-portal/cs-alerts.png)
 
@@ -62,7 +62,7 @@ Da qui è possibile configurare un avviso. La casella di riepilogo a discesa **M
 
 ### <a name="configure-monitoring-from-a-metric-tile"></a>Configurazione del monitoraggio da un riquadro della metrica
 
-Invece di usare **Impostazioni** > **Regole di avviso** è possibile fare clic su uno dei riquadri metrici nella sezione **Monitoraggio** del servizio cloud.
+Anziché utilizzare**le regole**di avviso delle **impostazioni** > , è possibile fare clic su uno dei riquadri delle metriche nella sezione **Monitoraggio** del servizio cloud.
 
 ![Monitoraggio del servizio cloud](./media/cloud-services-how-to-configure-portal/cs-monitoring.png)
 

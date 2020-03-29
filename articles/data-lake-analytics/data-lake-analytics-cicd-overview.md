@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 09/14/2018
 ms.openlocfilehash: b035be727df2dfecb613da79681affd740c69bec
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60333861"
 ---
 # <a name="how-to-set-up-a-cicd-pipeline-for-azure-data-lake-analytics"></a>Come configurare una pipeline di CI/CD per Azure Data Lake Analytics  
@@ -66,7 +66,7 @@ Gli script U-SQL in un progetto U-SQL potrebbero includere istruzioni di query p
 Leggere altre informazioni sul [progetto di database U-SQL](data-lake-analytics-data-lake-tools-develop-usql-database.md).
 
 >[!NOTE]
->Istruzione DROP può causare il problema di eliminazione accidentale. Per abilitare l'istruzione DROP, è necessario specificare in modo esplicito gli argomenti di MSBuild. **AllowDropStatement** abiliterà dati non correlati operazione DROP, ad esempio drop assembly e drop funzione con valori di tabella. **AllowDataDropStatement** abiliterà dati correlati operazione DROP, ad esempio drop table e drop schema. È necessario abilitare AllowDropStatement prima di usare AllowDataDropStatement.
+>Istruzione DROP può causare un problema di eliminazione degli incidenti. Per abilitare l'istruzione DROP, è necessario specificare in modo esplicito gli argomenti MSBuild. **AllowDropStatement** abiliterà l'operazione DROP non correlata ai dati, ad esempio l'assembly di rilascio e la funzione con valori di tabella di rilascio. **AllowDataDropStatement** abiliterà l'operazione DROP correlata ai dati, ad esempio la tabella di rilascio e lo schema di rilascio. È necessario abilitare AllowDropStatement prima di utilizzare AllowDataDropStatement.You have to enable AllowDropStatement before using AllowDataDropStatement.
 >
 
 ### <a name="build-a-u-sql-project-with-the-msbuild-command-line"></a>Compilare il progetto U-SQL con la riga di comando di MSBuild
@@ -79,11 +79,11 @@ msbuild USQLBuild.usqlproj /p:USQLSDKPath=packages\Microsoft.Azure.DataLake.USQL
 
 La definizione e i valori degli argomenti sono i seguenti:
 
-* **USQLSDKPath =\<pacchetto Nuget di U-SQL > \build\runtime**. Questo parametro fa riferimento al percorso di installazione del pacchetto NuGet per il servizio di linguaggio U-SQL.
+* **USQLSDKPath:\<pacchetto U-SQL Nuget>.** Questo parametro fa riferimento al percorso di installazione del pacchetto NuGet per il servizio di linguaggio U-SQL.
 * **USQLTargetType=Merge o SyntaxCheck**:
-    * **Merge**. La modalità Merge compila i file code-behind. Ad esempio, i file **.cs**, **.py** e **.r**. La libreria di codice definita dall'utente risultante viene inserita nello script U-SQL. Ad esempio, codice DLL binario, Python o R.
+    * **Unisci**. La modalità Merge compila i file code-behind. Ad esempio, i file **.cs**, **.py** e **.r**. La libreria di codice definita dall'utente risultante viene inserita nello script U-SQL. Ad esempio, codice DLL binario, Python o R.
     * **SyntaxCheck**. La modalità SyntaxCheck prima unisce i file code-behind nello script U-SQL. Compila quindi lo script U-SQL per convalidare il codice.
-* **DataRoot =\<percorso di DataRoot >** . DataRoot è necessario solo per la modalità SyntaxCheck. Durante la compilazione dello script con la modalità SyntaxCheck, MSBuild controlla i riferimenti agli oggetti di database nello script. Prima della compilazione, assicurarsi di configurare un ambiente locale corrispondente che contiene gli oggetti di riferimento del database U-SQL nella cartella DataRoot del computer di compilazione. È anche possibile gestire le dipendenze del database [facendo riferimento a un progetto di database U-SQL](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project). MSBuild controlla solo i riferimenti agli oggetti di database, non i file.
+* **DataRoot:\<percorso DataRoot>**. DataRoot è necessario solo per la modalità SyntaxCheck. Durante la compilazione dello script con la modalità SyntaxCheck, MSBuild controlla i riferimenti agli oggetti di database nello script. Prima della compilazione, assicurarsi di configurare un ambiente locale corrispondente che contiene gli oggetti di riferimento del database U-SQL nella cartella DataRoot del computer di compilazione. È anche possibile gestire le dipendenze del database [facendo riferimento a un progetto di database U-SQL](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project). MSBuild controlla solo i riferimenti agli oggetti di database, non i file.
 * **EnableDeployment=true** o **false**. EnableDeployment indica se è consentita la distribuzione dei database U-SQL di riferimento durante il processo di compilazione. Se si fa riferimento a un progetto di database U-SQL e si utilizzano gli oggetti di database nello script U-SQL, impostare questo parametro su **true**.
 
 ### <a name="continuous-integration-through-azure-pipelines"></a>Integrazione continua con Azure Pipelines
@@ -92,7 +92,7 @@ Oltre alla riga di comando, è anche possibile usare un'attività di MSBuild o V
 
 ![Attività di MSBuild per un progetto U-SQL](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-task.png) 
 
-1.  Aggiungere un'attività di ripristino di NuGet per ottenere il pacchetto NuGet a cui fa riferimento la soluzione che include `Azure.DataLake.USQL.SDK`, in modo che MSBuild sia in grado di trovare le destinazioni del linguaggio U-SQL. Impostare **Avanzate** > **Directory di destinazione** su `$(Build.SourcesDirectory)/packages`, se si vuole usare gli argomenti di esempio di MSBuild direttamente nel passaggio 2.
+1.  Aggiungere un'attività di ripristino di NuGet per ottenere il pacchetto NuGet a cui fa riferimento la soluzione che include `Azure.DataLake.USQL.SDK`, in modo che MSBuild sia in grado di trovare le destinazioni del linguaggio U-SQL. Impostare la `$(Build.SourcesDirectory)/packages` directory di**destinazione** **avanzata** > su se si desidera utilizzare l'esempio di argomenti MSBuild direttamente nel passaggio 2.
 
     ![Attività di ripristino di NuGet per un progetto U-SQL](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-nuget-task.png)
 
@@ -328,7 +328,7 @@ Oltre alla riga di comando, è possibile usare un'attività di MSBuild o Visual 
    ![Attività di CI/CD di MSBuild per un progetto U-SQL](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-task.png) 
 
 
-1. Aggiungere un'attività di ripristino di NuGet per ottenere il pacchetto NuGet a cui fa riferimento la soluzione, che include `Azure.DataLake.USQL.SDK`, in modo che MSBuild sia in grado di trovare le destinazioni del linguaggio U-SQL. Impostare **Avanzate** > **Directory di destinazione** su `$(Build.SourcesDirectory)/packages`, se si vuole usare gli argomenti di esempio di MSBuild direttamente nel passaggio 2.
+1. Aggiungere un'attività di ripristino di NuGet per ottenere il pacchetto NuGet a cui fa riferimento la soluzione, che include `Azure.DataLake.USQL.SDK`, in modo che MSBuild sia in grado di trovare le destinazioni del linguaggio U-SQL. Impostare la `$(Build.SourcesDirectory)/packages` directory di**destinazione** **avanzata** > su se si desidera utilizzare l'esempio di argomenti MSBuild direttamente nel passaggio 2.
 
    ![Attività di CI/CD di NuGet per un progetto U-SQL](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-nuget-task.png)
 
@@ -454,7 +454,7 @@ Per configurare un'attività di distribuzione di database in Azure Pipelines, se
 
 #### <a name="common-parameters"></a>Parametri comuni
 
-| Parametro | DESCRIZIONE | Default Value | Obbligatoria |
+| Parametro | Descrizione | Default Value | Obbligatoria |
 |---------|-----------|-------------|--------|
 |Pacchetto|Percorso del pacchetto di distribuzione del database U-SQL da distribuire.|Null|true|
 |Database|Nome del database da distribuire o creare.|master|false|
@@ -463,13 +463,13 @@ Per configurare un'attività di distribuzione di database in Azure Pipelines, se
 
 #### <a name="parameter-for-local-deployment"></a>Parametro per la distribuzione locale
 
-|Parametro|DESCRIZIONE|Default Value|Obbligatoria|
+|Parametro|Descrizione|Default Value|Obbligatoria|
 |---------|-----------|-------------|--------|
 |DataRoot|Percorso della cartella radice dei dati locale.|Null|true|
 
 #### <a name="parameters-for-azure-data-lake-analytics-deployment"></a>Parametri per la distribuzione di Azure Data Lake Analytics
 
-|Parametro|DESCRIZIONE|Default Value|Obbligatoria|
+|Parametro|Descrizione|Default Value|Obbligatoria|
 |---------|-----------|-------------|--------|
 |Account|Specifica l'account di Azure Data Lake Analytics in cui eseguire la distribuzione, in base al nome account.|Null|true|
 |ResourceGroup|Nome del gruppo di risorse di Azure per l'account di Azure Data Lake Analytics.|Null|true|
@@ -486,5 +486,5 @@ Per configurare un'attività di distribuzione di database in Azure Pipelines, se
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Testare il codice Azure Data Lake Analytics](data-lake-analytics-cicd-test.md).
-- [Eseguire script U-SQL nel computer locale](data-lake-analytics-data-lake-tools-local-run.md).
+- [Eseguire lo script U-SQL nel computer locale.](data-lake-analytics-data-lake-tools-local-run.md)
 - [Usare un progetto di database U-SQL per sviluppare un database U-SQL](data-lake-analytics-data-lake-tools-develop-usql-database.md).

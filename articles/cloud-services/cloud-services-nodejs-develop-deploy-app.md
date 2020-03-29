@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 08/17/2017
 ms.author: tagore
 ms.openlocfilehash: 23fbb0b4c506b2f72000add9704618337b8b24cf
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75386188"
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>Creazione e distribuzione di un'applicazione Node.js a un servizio cloud di Azure
@@ -35,7 +35,7 @@ L'applicazione è una semplice applicazione "hello world":
 > [!NOTE]
 > Questa esercitazione usa Azure PowerShell, che richiede Windows.
 
-* Installare e configurare [Azure PowerShell].
+* Installare e configurare [Azure Powershell.]
 * Scaricare e installare [Azure SDK per .NET 2.7]. Nel programma di installazione, selezionare:
   * MicrosoftAzureAuthoringTools
   * MicrosoftAzureComputeEmulator
@@ -155,13 +155,13 @@ Dopo aver distribuito l'applicazione, è possibile disabilitarla per evitare cos
    > L'eliminazione del servizio non comporta l'eliminazione dell'account di archiviazione creato quando il servizio è stato pubblicato e lo spazio di archiviazione usato continuerà a essere addebitato. Se nient'altro sta usando lo spazio di archiviazione, è possibile eliminarlo.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per ulteriori informazioni, vedere il [Centro per sviluppatori di Node. js].
+Per ulteriori informazioni, vedere il [Centro per sviluppatori di Node.js].
 
 <!-- URL List -->
 
 [Confronto tra siti Web, servizi cloud e macchine virtuali]: /azure/architecture/guide/technology-choices/compute-decision-tree
 [usare un'app Web leggera]: ../app-service/app-service-web-get-started-nodejs.md
-[Azure PowerShell]: /powershell/azureps-cmdlets-docs
+[Powershell di AzureAzure Powershell]: /powershell/azureps-cmdlets-docs
 [Azure SDK per .NET 2.7]: https://www.microsoft.com/en-us/download/details.aspx?id=48178
 [Connettere PowerShell]: /powershell/azureps-cmdlets-docs
 [nodejs.org]: https://nodejs.org/

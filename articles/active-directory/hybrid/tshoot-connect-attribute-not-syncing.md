@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a639b14c9313179816f6376aa0c5642a645ea344
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60455968"
 ---
 # <a name="troubleshoot-an-attribute-not-synchronizing-in-azure-ad-connect"></a>Risolvere i problemi relativi a un attributo che non si sincronizza in Azure AD Connect
@@ -32,22 +32,22 @@ Prima di esaminare i problemi di sincronizzazione di un attributo, è importante
 
 ### <a name="terminology"></a>**Terminologia**
 
-* **CS:** spazio connettore, una tabella nel database.
-* **MV:** metaverse, una tabella nel database.
+* **CS:** Spazio connettore, una tabella nel database.
+* **MV:** Metaverse, una tabella nel database.
 * **AD:** Active Directory
 * **AAD:** Azure Active Directory
 
 ### <a name="synchronization-steps"></a>**Passaggi di sincronizzazione**
 
-* Importazione da Active Directory: gli oggetti Active Directory vengono importati nello spazio connettore di Active Directory.
+* Importazione da Active Directory: gli oggetti di Active Directory vengono inseriti in Servizi certificati Active Directory.
 
-* Importazione da Azure Active Directory: gli oggetti Azure Active Directory vengono importati nello spazio connettore di Azure Active Directory.
+* Importazione da AAD: gli oggetti di Azure Active Directory vengono inseriti in Controllo di controllo di sistema Di Ad AdAd.
 
-* Sincronizzazione: vengono eseguite le **regole di sincronizzazione in ingresso** e le regole di sincronizzazione in uscita nell'ordine di numero di precedenza dal più basso al più alto. Per visualizzare le regole di sincronizzazione, è possibile passare all'**editor delle regole di sincronizzazione** dalle applicazioni desktop. Le **regole di sincronizzazione in ingresso** importano dati dallo spazio connettore nel metaverse. Le **regole di sincronizzazione in uscita** spostano i dati dal metaverse allo spazio connettore.
+* Sincronizzazione: le regole di **sincronizzazione in ingresso** e le regole di **sincronizzazione in uscita** vengono eseguite nell'ordine di numero di precedenza da inferiore a superiore. Per visualizzare le regole di sincronizzazione, è possibile passare all'**editor delle regole di sincronizzazione** dalle applicazioni desktop. Le **regole di sincronizzazione in ingresso** importano dati dallo spazio connettore nel metaverse. Le **regole di sincronizzazione in uscita** spostano i dati dal metaverse allo spazio connettore.
 
-* Esportazione in Active Directory: dopo aver eseguito la sincronizzazione, gli oggetti vengono esportati dallo spazio connettore di Active Directory in **Active Directory**.
+* Esporta in Active Directory: dopo aver eseguito la sincronizzazione, gli oggetti vengono esportati da Servizi certificati Active Directory in **Active Directory**.
 
-* Esportazione in Azure Active Directory: dopo aver eseguito la sincronizzazione, gli oggetti vengono esportati dallo spazio connettore di Azure Active Directory in **Azure Active Directory**.
+* Esporta in AAD: dopo aver eseguito la sincronizzazione, gli oggetti vengono esportati da Servizi certificati Active Directory in **Azure Active Directory.**
 
 ### <a name="step-by-step-investigation"></a>**Analisi dettagliata**
 
@@ -77,18 +77,18 @@ Prima di esaminare i problemi di sincronizzazione di un attributo, è importante
 
   ![Attributi dello spazio connettore](media/tshoot-connect-attribute-not-syncing/tshoot-connect-attribute-not-syncing/mvtocsattributeflow.png)
 
-* Analogamente, è possibile visualizzare l'oggetto **spazio connettore Azure Active Directory**  e generare l'**anteprima** per visualizzare il flusso di attributi dal **metaverse** allo **spazio connettore** e viceversa. In questo modo è possibile analizzare perché un attributo non si sincronizza.
+* Analogamente, è possibile visualizzare l'oggetto **spazio connettore Azure Active Directory ** e generare l'**anteprima** per visualizzare il flusso di attributi dal **metaverse** allo **spazio connettore** e viceversa. In questo modo è possibile analizzare perché un attributo non si sincronizza.
 
 ## <a name="recommended-documents"></a>**Documenti consigliati**
-* [Servizio di sincronizzazione Azure AD Connect: concetti tecnici](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-technical-concepts)
+* [Servizio di sincronizzazione Azure AD Connect: Concetti tecnici](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-technical-concepts)
 * [Servizio di sincronizzazione Azure AD Connect: informazioni sull'architettura](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-architecture)
 * [Servizio di sincronizzazione Azure AD Connect: Informazioni sul provisioning dichiarativo](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-declarative-provisioning)
-* [Servizio di sincronizzazione Azure AD Connect: informazioni sulle espressioni di provisioning dichiarativo](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-declarative-provisioning-expressions)
-* [Servizio di sincronizzazione Azure AD Connect: informazioni sulla configurazione predefinita](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-default-configuration)
-* [Servizio di sincronizzazione Azure AD Connect: informazioni su utenti, gruppi e contatti](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-user-and-contacts)
-* [Servizio di sincronizzazione Azure AD Connect: attributi shadow](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-syncservice-shadow-attributes)
+* [Azure AD Connect sync: Understanding Declarative Provisioning Expressions](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-declarative-provisioning-expressions)
+* [Servizio di sincronizzazione Azure AD Connect: Informazioni sulla configurazione predefinita](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-default-configuration)
+* [Servizio di sincronizzazione Azure AD Connect: Informazioni su utenti, gruppi e contatti](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-user-and-contacts)
+* [Sincronizzazione di Azure AD Connect: Attributi shadowAzure AD Connect sync: Shadow attributes](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-syncservice-shadow-attributes)
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
-- [Servizio di sincronizzazione Azure AD Connect](how-to-connect-sync-whatis.md).
+- [Sincronizzazione di Azure AD Connect](how-to-connect-sync-whatis.md).
 - [Informazioni sull'identità ibrida](whatis-hybrid-identity.md).

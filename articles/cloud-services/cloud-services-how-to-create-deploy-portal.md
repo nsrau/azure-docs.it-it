@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/18/2017
 ms.author: tagore
 ms.openlocfilehash: 53f53976b20359afc45abe1b25ca60325b5d6a2b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75386171"
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>Come creare e distribuire un servizio Cloud
@@ -21,7 +21,7 @@ Nel portale di Azure sono disponibili due modi per creare e distribuire un servi
 In questo argomento viene descritto come usare il metodo di creazione rapida di un nuovo servizio cloud e come caricare e distribuire un pacchetto del servizio cloud in Azure tramite l'opzione **Carica** . Quando si usa questo metodo, il portale di Azure rende disponibili comodi collegamenti per completare tutti i requisiti man mano che si procede. Se si è pronti per distribuire il servizio cloud durante la creazione, è possibile effettuare contemporaneamente entrambe le operazioni usando Creazione personalizzata.
 
 > [!NOTE]
-> Se si prevede di pubblicare il servizio cloud da Azure DevOps, usare Creazione rapida e quindi impostare la pubblicazione di Azure DevOps dall'avvio rapido di Azure o dal dashboard. Per altre informazioni, vedere [recapito continuo in Azure tramite Azure DevOps][TFSTutorialForCloudService]o vedere la guida per la pagina **avvio rapido** .
+> Se si prevede di pubblicare il servizio cloud da Azure DevOps, usare Creazione rapida e quindi impostare la pubblicazione di Azure DevOps dall'avvio rapido di Azure o dal dashboard. Per altre informazioni, consultare [Recapito continuo in Azure usando Azure DevOps][TFSTutorialForCloudService] o la pagina **Avvio rapido**.
 >
 >
 
@@ -32,8 +32,8 @@ Per distribuire un'applicazione come servizio cloud in Azure, sono necessari tre
   Il file di definizione del servizio cloud (con estensione csdef) definisce il modello di servizio, compreso il numero di ruoli.
 * **Configurazione del servizio**  
   l file di configurazione del servizio cloud (con estensione cscfg) specifica le impostazioni di configurazione per il servizio cloud e i singoli ruoli, incluso il numero di istanze del ruolo.
-* **Pacchetto del servizio**  
-  Il pacchetto del servizio (con estensione cspkg) contiene il codice dell'applicazione, le configurazioni e il file di definizione del servizio.
+* **Pacchetto di servizi**  
+   Il pacchetto del servizio (con estensione cspkg) contiene il codice dell'applicazione, le configurazioni e il file di definizione del servizio.
 
 Per altre informazioni in proposito e su come creare un pacchetto, fare clic [qui](cloud-services-model-and-package.md).
 
@@ -44,7 +44,7 @@ Per poter esportare un pacchetto di servizio, è necessario configurare tre funz
 
 * Se si vuole distribuire un servizio cloud che usa SSL (Secure Sockets Layer) per la crittografia dei dati, [configurare l'applicazione](cloud-services-configure-ssl-certificate-portal.md#modify) per SSL.
 * Se si vogliono configurare connessioni Desktop remoto a istanze del ruolo, [configurare i ruoli](cloud-services-role-enable-remote-desktop-new-portal.md) per Desktop remoto.
-* Se si desidera configurare il monitoraggio dettagliato per il servizio cloud, abilitare la Diagnostica Azure per il servizio cloud. *Monitoraggio minimo* (livello di monitoraggio predefinito) ricorre a contatori delle prestazioni raccolti dai sistemi operativi host per istanze del ruolo (macchine virtuali). *Il* monitoraggio dettagliato raccoglie metriche supplementari in base ai dati delle prestazioni all'interno delle istanze del ruolo per consentire un'analisi più accurata dei problemi che si verificano durante l'elaborazione dell'applicazione. Per scoprire come abilitare la Diagnostica Azure, vedere [Abilitazione della diagnostica in Azure](cloud-services-dotnet-diagnostics.md).
+* Se si desidera configurare il monitoraggio dettagliato per il servizio cloud, abilitare la Diagnostica Azure per il servizio cloud. *Monitoraggio minimo* (livello di monitoraggio predefinito) ricorre a contatori delle prestazioni raccolti dai sistemi operativi host per istanze del ruolo (macchine virtuali). *Il monitoraggio dettagliato* raccoglie metriche aggiuntive in base ai dati sulle prestazioni all'interno delle istanze del ruolo per consentire un'analisi più approfondita dei problemi che si verificano durante l'elaborazione dell'applicazione. Per informazioni su come abilitare Diagnostica di Azure, vedere [Abilitazione della diagnostica in Azure.To](cloud-services-dotnet-diagnostics.md)find out how to enable Azure Diagnostics, see Enabling diagnostics in Azure.
 
 Per creare un servizio cloud con le distribuzioni dei ruoli Web o dei ruoli di lavoro, è necessario [creare il pacchetto del servizio](cloud-services-model-and-package.md#servicepackagecspkg).
 
@@ -53,13 +53,13 @@ Per creare un servizio cloud con le distribuzioni dei ruoli Web o dei ruoli di l
 * Se un'istanza del ruolo lo richiede, creare i certificati. I servizi cloud richiedono un file con estensione pfx con una chiave privata. È possibile caricare i certificati in Azure nel corso della creazione e della distribuzione del servizio cloud.
 
 ## <a name="create-and-deploy"></a>Creazione e distribuzione
-1. Accedere al [Portale di Azure](https://portal.azure.com/).
+1. Accedere al [portale](https://portal.azure.com/)di Azure .
 2. Fare clic su **Crea una risorsa > Calcolo**, quindi scorrere verso il basso e fare clic su **Servizio cloud**.
 
     ![Pubblicare il servizio cloud](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
 3. Nel nuovo riquadro **Servizio cloud** immettere un valore per il **nome DNS**.
-4. Creare un nuovo **Gruppo di risorse** o selezionarne uno esistente.
-5. Selezionare un **percorso**.
+4. Creare un nuovo **gruppo di risorse** o selezionarne uno esistente.
+5. Selezionare una **posizione**.
 6. Fare clic su **Pacchetto**. Verrà visualizzato il riquadro **Carica un pacchetto**. Compilare i campi obbligatori. Se sono presenti ruoli contenenti una singola istanza, assicurarsi che l'opzione **Distribuisci anche se uno o più ruoli contengono una singola istanza** sia selezionata.
 7. Assicurarsi che l'opzione **Avvia distribuzione** sia selezionata.
 8. Fare clic su **OK** per chiudere il riquadro **Carica un pacchetto**.

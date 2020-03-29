@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Abilitazione del writeback dei dispositivi | Microsoft Docs'
+title: 'Azure AD Connect: Abilitazione del writeback dei dispositivi | Documentazione Microsoft'
 description: Questo documento descrive come abilitare il writeback dei dispositivi usando Azure AD Connect
 services: active-directory
 documentationcenter: ''
@@ -17,13 +17,13 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 632f6f80184c6ba3409bd30ae070cbaefc77f036
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67109508"
 ---
-# <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: Abilitazione del writeback dei dispositivi
+# <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: abilitazione del writeback dei dispositivi
 > [!NOTE]
 > Una sottoscrizione di Azure AD Premium è necessaria per il writeback dei dispositivi.
 > 
@@ -31,10 +31,10 @@ ms.locfileid: "67109508"
 
 Il documento seguente illustra come abilitare la funzionalità di writeback dei dispositivi in Azure AD Connect. Il writeback dei dispositivi viene usato negli scenari seguenti:
 
-* Abilitare [Windows Hello for Business Usa una distribuzione ibrida certificato attendibile](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust-prereqs#device-registration)
-* Abilitare l'accesso condizionale in base ai dispositivi di ADFS (2012 R2 o versione successiva) delle applicazioni (trust della relying party) protetti.
+* Abilitare Windows Hello for Business usando la distribuzione ibrida di [attendibilità dei certificatiEnable Windows Hello for Business using hybrid certificate trust deployment](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust-prereqs#device-registration)
+* Abilitare l'accesso condizionale in base ai dispositivi alle applicazioni protette ADFS (2012 R2 o versione successiva) (attendibilità della relying party).
 
-Questo offre maggiore sicurezza e garantisce che l'accesso alle applicazioni venga concesso solo ai dispositivi attendibili. Per altre informazioni sull'accesso condizionale, vedere [gestire i rischi con l'accesso condizionale](../active-directory-conditional-access-azure-portal.md) e [configurazione dell'accesso condizionale locale usando Azure Active Directory Device Registration](../../active-directory/active-directory-device-registration-on-premises-setup.md).
+Questo offre maggiore sicurezza e garantisce che l'accesso alle applicazioni venga concesso solo ai dispositivi attendibili. Per altre informazioni sull'accesso condizionale, vedere [Gestione dei rischi con accesso condizionale](../active-directory-conditional-access-azure-portal.md) e Configurazione [dell'accesso condizionale locale tramite la registrazione dei dispositivi](../../active-directory/active-directory-device-registration-on-premises-setup.md)di Azure Active Directory .
 
 > [!IMPORTANT]
 > <li>I dispositivi devono trovarsi nella stessa foresta degli utenti. Data la necessità di eseguire il writeback dei dispositivi in una singola foresta, attualmente questa funzionalità non supporta una distribuzione con più foreste utente.</li>
@@ -59,9 +59,9 @@ Installare Azure AD Connect usando le impostazioni personalizzate o rapide È co
 
 4. La pagina **Contenitore di dispositivi** consente di preparare la active directory tramite una delle due opzioni disponibili:
 
-    a. **Fornire le credenziali di amministratore aziendali**: se le credenziali di amministratore aziendali vengono fornite per la foresta in cui i dispositivi devono essere riscritti, Azure AD Connect preparerà la foresta automaticamente durante la configurazione del writeback dei dispositivi.
+    a. **Fornire le credenziali di amministratore di enterprise**: se le credenziali di amministratore di enterprise vengono fornite per la foresta in cui i dispositivi devono essere riscritti, Azure AD Connect preparerà foresta automaticamente durante la configurazione di writeback dispositivi.
 
-    b. **Scaricare lo script di PowerShell**: Azure AD Connect genera automaticamente uno script di PowerShell che può preparare Active Directory per il writeback dei dispositivi. Nel caso in cui non sia possibile fornire le credenziali di amministratore di enterprise in Azure AD Connect, si consiglia di scaricare lo script di PowerShell. Fornire lo script di PowerShell scaricato **CreateDeviceContainer.psq** all'amministratore dell'enterprise della foresta in cui verrà eseguito il writeback dei dispositivi.
+    b. **Scarica lo script di PowerShell**: Azure AD Connect genera automaticamente uno script di PowerShell che può preparare la active directory per il writeback dispositivi. Nel caso in cui non sia possibile fornire le credenziali di amministratore di enterprise in Azure AD Connect, si consiglia di scaricare lo script di PowerShell. Fornire lo script di PowerShell scaricato **CreateDeviceContainer.psq** all'amministratore dell'enterprise della foresta in cui verrà eseguito il writeback dei dispositivi.
     ![Preparare la foresta di Active Directory](./media/how-to-connect-device-writeback/devicecontainercreds.png)
     
     Per preparare la foresta active directory vengono eseguite le operazioni seguenti:
@@ -82,10 +82,10 @@ Il writeback dei dispositivi dovrebbe funzionare correttamente. Tenere presente 
 
    ![Interfaccia di amministrazione di Active Directory - Elenco dei dispositivi registrati](./media/how-to-connect-device-writeback/devicewriteback6.png)
 
-## <a name="enable-conditional-access"></a>Abilitare l'accesso condizionale
+## <a name="enable-conditional-access"></a>Abilitare l'accesso condizionaleEnable Conditional Access
 Per informazioni dettagliate su come abilitare questo scenario, vedere [Configurazione dell'accesso condizionale locale usando il servizio Registrazione dispositivo di Azure Active Directory](../../active-directory/active-directory-device-registration-on-premises-setup.md).
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 ### <a name="the-writeback-checkbox-is-still-disabled"></a>La casella di controllo del writeback è ancora disabilitata
 Se la casella di controllo per il writeback dei dispositivi non è ancora abilitata anche se sono stati seguiti i passaggi precedenti, la procedura seguente consentirà di verificare le caratteristiche dell'installazione guidata prima dell'abilitazione della casella.
 

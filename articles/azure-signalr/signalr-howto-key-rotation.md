@@ -1,5 +1,5 @@
 ---
-title: Come ruotare la chiave di accesso per il servizio Azure SignalR
+title: Come ruotare la chiave di accesso per il Servizio Azure SignalR
 description: Panoramica dei motivi per i quali il cliente deve ruotare regolarmente le chiavi di accesso e informazioni su come eseguire questa operazione con l'interfaccia utente grafica del portale di Azure e l'interfaccia della riga di comando di Azure.
 author: sffamily
 ms.service: signalr
@@ -7,13 +7,13 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: zhshang
 ms.openlocfilehash: 133edc64ac2f858a397a4a184c24497dae8af333
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67565737"
 ---
-# <a name="how-to-rotate-access-key-for-azure-signalr-service"></a>Come ruotare la chiave di accesso per il servizio Azure SignalR
+# <a name="how-to-rotate-access-key-for-azure-signalr-service"></a>Come ruotare la chiave di accesso per il Servizio Azure SignalR
 
 Per ogni istanza del Servizio Azure SignalR è disponibile una coppia di chiavi di accesso, chiamate Chiave primaria e Chiavi secondarie. Tali chiavi vengono usate per l'autenticazione dei client SignalR quando vengono effettuate richieste al servizio. Le chiavi sono associate all'URL dell'endpoint di istanza. Proteggere le chiavi e ruotarle regolarmente. Vengono fornite due chiavi di accesso. È quindi possibile mantenere attive le connessioni usando una chiave durante la rigenerazione dell'altra.
 
@@ -56,7 +56,7 @@ Ruotare periodicamente le chiavi di accesso come buona prassi di sicurezza.
 In questa guida si è appreso come rigenerare le chiavi di accesso. Passare alle esercitazioni successive sull'autenticazione con OAuth o con Funzioni di Azure.
 
 > [!div class="nextstepaction"]
-> [Eseguire l'integrazione con un'identità ASP.NET Core](./signalr-concept-authenticate-oauth.md)
+> [Integrazione con ASP.NETidentità principale](./signalr-concept-authenticate-oauth.md)
 
 > [!div class="nextstepaction"]
-> [Creare un'app in tempo reale serverless con l'autenticazione](./signalr-tutorial-authenticate-azure-functions.md)
+> [Crea un'app in tempo reale senza server con l'autenticazione](./signalr-tutorial-authenticate-azure-functions.md)

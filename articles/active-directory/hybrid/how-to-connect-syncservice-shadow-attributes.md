@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 10a4078f49abbdf431f42c6cde7cf882112e5848
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60384707"
 ---
 # <a name="azure-ad-connect-sync-service-shadow-attributes"></a>Attributi shadow del servizio di sincronizzazione Azure AD Connect
@@ -38,7 +38,7 @@ Includono più suffissi UPN nel servizio Active Directory locale, ma ne è stato
 ### <a name="userprincipalname"></a>userPrincipalName
 Un utente ha i seguenti valori di attributo in un dominio non verificato:
 
-| Attributo | Value |
+| Attributo | valore |
 | --- | --- |
 | userPrincipalName locale | lee.sperry@fabrikam.com |
 | shadowUserPrincipalName in Azure AD | lee.sperry@fabrikam.com |
@@ -53,12 +53,12 @@ Lo stesso processo per includere solo domini verificati si verifica anche per pr
 
 Per un utente della cassetta postale, in locale o in Exchange Online, vengono visualizzati solo i valori per i domini verificati. L'aspetto è simile al seguente:
 
-| Attributo | Value |
+| Attributo | valore |
 | --- | --- |
 | proxyAddresses locale | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie.spencer@fabrikam.com</br>smtp:abbie@fabrikamonline.com |
 | proxyAddresses in Exchange Online | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie@fabrikamonline.com</br>SIP:abbie.spencer@fabrikamonline.com |
 
-In questo caso **smtp:abbie.spencer\@fabrikam.com** è stato rimosso poiché tale dominio non è stato verificato. Ma Exchange ha aggiunto anche **SIP:abbie.spencer\@fabrikamonline.com**. Fabrikam non ha usato Lync/Skype in locale, ma Azure AD ed Exchange Online sono in fase di preparazione.
+In questo caso **smtp:abbie.spencer\@fabrikam.com** è stato rimosso poiché tale dominio non è stato verificato. Ma Exchange ha anche aggiunto **SIP:abbie.spencer\@fabrikamonline.com**. Fabrikam non ha usato Lync/Skype in locale, ma Azure AD ed Exchange Online sono in fase di preparazione.
 
 Questa logica per proxyAddresses è detta **ProxyCalc**. ProxyCalc viene richiamato con ogni modifica a un utente quando:
 
@@ -75,5 +75,5 @@ ProxyCalc potrebbe richiedere del tempo per elaborare una modifica apportata a u
 Gli attributi shadow vengono usati anche quando sono presenti valori di attributo duplicati. Per altre informazioni, vedere [Resilienza degli attributi duplicati](how-to-connect-syncservice-duplicate-attribute-resiliency.md).
 
 ## <a name="see-also"></a>Vedere anche
-* [Servizio di sincronizzazione Azure AD Connect](how-to-connect-sync-whatis.md)
-* [Integrazione delle identità locali con Azure Active Directory](whatis-hybrid-identity.md).
+* [Sincronizzazione di Azure AD ConnectAzure AD Connect sync](how-to-connect-sync-whatis.md)
+* [Integrazione delle identità locali con Azure Active Directory.](whatis-hybrid-identity.md)

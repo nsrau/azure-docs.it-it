@@ -1,5 +1,5 @@
 ---
-title: Aggiungere un servizio per la soluzione di monitoraggio remoto dell'interfaccia utente - Azure | Microsoft Docs
+title: Aggiungere un servizio all'interfaccia utente della soluzione Monitoraggio remoto - Azure | Microsoft Docs
 description: Questo articolo illustra come aggiungere un nuovo servizio all'interfaccia utente Web dell'acceleratore di soluzione Monitoraggio remoto.
 author: dominicbetts
 manager: timlt
@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 10/02/2018
 ms.topic: conceptual
 ms.openlocfilehash: e44aa8ade512a6005959e795cb1d4ad861da1338
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61447047"
 ---
 # <a name="add-a-custom-service-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Aggiungere un servizio personalizzato all'interfaccia utente Web dell'acceleratore di soluzione Monitoraggio remoto

@@ -16,19 +16,19 @@ ms.date: 10/30/2014
 ms.author: erikre
 ms.reviewer: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com
 ms.openlocfilehash: b3a9fee09d1eac6fb4d716af83c348cb2c21f7a9
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67870918"
 ---
 # <a name="how-to-use-the-sendgrid-email-service-from-php"></a>Come usare il servizio di posta elettronica SendGrid da PHP
 
 Questa guida illustra come eseguire attività di programmazione comuni con il servizio di posta elettronica SendGrid in Azure. Gli esempi sono scritti in PHP.
-Gli scenari presentati includono la **creazione dei messaggi di posta elettronica**, l'**invio di messaggi di posta elettronica**, e l'**aggiunta di allegati**. Per altre informazioni su SendGrid e sull'invio della posta elettronica, vedere la sezione [Passaggi successivi](#next-steps) .
+Gli scenari presentati includono la **creazione dei messaggi di posta elettronica**, l'**invio di messaggi di posta elettronica**, e l'**aggiunta di allegati**. Per altre informazioni su SendGrid e sull'invio di posta elettronica, vedere la sezione [Passaggi successivi.](#next-steps)
 
 ## <a name="what-is-the-sendgrid-email-service"></a>Informazioni sul servizio di posta elettronica SendGrid
-SendGrid è un [servizio di posta elettronica basato sul cloud] che offre [recapito affidabile di messaggi di posta elettronica transazionali], scalabilità e analisi in tempo reale, oltre ad API flessibili che agevolano l'integrazione personalizzata. Gli scenari di utilizzo comuni di SendGrid includono:
+SendGrid è un servizio di [posta elettronica basato su cloud] che fornisce la distribuzione [transazionale]affidabile della posta elettronica, la scalabilità e l'analisi in tempo reale insieme a API flessibili che semplificano l'integrazione personalizzata. Gli scenari di utilizzo comuni di SendGrid includono:
 
 * Invio automatico di ricevute ai clienti
 * Amministrazione di liste di distribuzione per l'invio mensile ai clienti di volantini elettronici e offerte speciali
@@ -37,7 +37,7 @@ SendGrid è un [servizio di posta elettronica basato sul cloud] che offre [recap
 * Inoltro di richieste dei clienti
 * Notifiche di posta elettronica dall'applicazione
 
-Per altre informazioni, vedere [https://sendgrid.com][https://sendgrid.com].
+Per ulteriori informazioni, vedere [https://sendgrid.com][https://sendgrid.com].
 
 ## <a name="create-a-sendgrid-account"></a>Creazione di un account SendGrid
 
@@ -299,7 +299,7 @@ L'invio di un allegato tramite l'API Web è molto simile all'invio di un messagg
 
 ## <a name="how-to-use-filters-to-enable-footers-tracking-and-analytics"></a>Procedura: Usare filtri per abilitare piè di pagina, monitoraggio e analisi
 
-SendGrid fornisce funzionalità di posta elettronica aggiuntive attraverso l'utilizzo di *filtri*. Si tratta di impostazioni che è possibile aggiungere a un messaggio di posta elettronica per abilitare funzionalità specifiche, ad esempio il monitoraggio del clic, Google Analytics, il monitoraggio delle sottoscrizioni e così via.
+SendGrid fornisce funzionalità di posta elettronica aggiuntive tramite l'utilizzo di *filtri*. Si tratta di impostazioni che è possibile aggiungere a un messaggio di posta elettronica per abilitare funzionalità specifiche, ad esempio il monitoraggio del clic, Google Analytics, il monitoraggio delle sottoscrizioni e così via.
 
 È possibile applicare filtri a un messaggio usando la proprietà filters. Ogni filtro è specificato da un hash che contiene impostazioni specifiche del filtro. Nell'esempio seguente viene abilitato il filtro piè di pagina e viene specificato un messaggio di testo che verrà aggiunto nella parte inferiore del messaggio di posta elettronica: Per questo esempio si userà la [libreria sendgrid-php].
 
@@ -406,7 +406,7 @@ php composer.phar require sendgrid/sendgrid 2.1.1
  print_r($response);
  ```
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
 A questo punto, dopo aver appreso le nozioni di base del servizio di posta elettronica SendGrid, usare i collegamenti seguenti per altre informazioni.
 
@@ -424,5 +424,5 @@ Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di PHP](htt
 [curl function]: https://php.net/curl
 [servizio di posta elettronica basato sul cloud]: https://sendgrid.com/email-solutions
 [recapito affidabile di messaggi di posta elettronica transazionali]: https://sendgrid.com/transactional-email
-[libreria sendgrid-php]: https://github.com/sendgrid/sendgrid-php/tree/v2.1.1
+[sendgrid-php library]: https://github.com/sendgrid/sendgrid-php/tree/v2.1.1
 [Composer]: https://getcomposer.org/download/

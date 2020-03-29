@@ -9,29 +9,29 @@ ms.topic: article
 ms.date: 05/20/2019
 ms.author: alkohli
 ms.openlocfilehash: a9daf1d59b03d283be999aaab559c6d60f6405dd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65953132"
 ---
 # <a name="manage-compute-on-your-azure-data-box-edge"></a>Gestione del calcolo in Azure Data Box Edge
 
 Questo articolo descrive come gestire il calcolo in Azure Data Box Edge. È possibile gestire il calcolo tramite il portale di Azure o l'interfaccia utente Web locale. Usare il portale di Azure per gestire moduli, trigger e la configurazione di calcolo, e l'interfaccia utente Web locale per gestire le impostazioni di calcolo.
 
-In questo articolo viene spiegato come:
+In questo articolo vengono illustrate le operazioni seguenti:
 
 > [!div class="checklist"]
 > * Gestire i trigger
-> * Configurare la gestione del calcolo
+> * Configurazione della gestione del calcolo
 
 
 ## <a name="manage-triggers"></a>Gestire i trigger
 
 Gli eventi sono fenomeni che possono verificarsi all'interno dell'ambiente cloud o sul dispositivo su cui si desidera intervenire. Ad esempio, un evento è quando si crea un file in una condivisione. I trigger generano gli eventi. In Azure Data Box Edge, i trigger possono essere in risposta a eventi del file o a una schedule (pianificazione).
 
-- **File**: Questi trigger vengono inviati in risposta agli eventi del file, ad esempio la creazione di un file, la modifica di un file.
-- **Scheduled**: Questi trigger vengono inviati in risposta a una pianificazione che è possibile definire con una data di inizio, ora di inizio e l'intervallo di ripetizione.
+- **File**: Questi trigger sono in risposta a eventi di file come la creazione di un file, la modifica di un file.
+- **Pianificato:** questi trigger sono in risposta a una pianificazione che è possibile definire con una data di inizio, un'ora di inizio e l'intervallo di ripetizione.
 
 
 ### <a name="add-a-trigger"></a>Aggiungere un trigger
@@ -74,7 +74,7 @@ Eseguire i passaggi seguenti nel portale di Azure per eliminare un trigger.
 
     ![Selezionare Elimina](media/data-box-edge-manage-compute/add-trigger-1.png)
 
-3. Alla richiesta di conferma fare clic su **Sì**.
+3. Quando viene richiesta la conferma, fare clic su **Sì**.
 
     ![Conferma dell'eliminazione](media/data-box-edge-manage-compute/add-trigger-1.png)
 
@@ -131,4 +131,4 @@ Eseguire i passaggi seguenti nel portale di Azure per sincronizzare le chiavi di
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su come [rete tramite il portale di Azure di gestire Edge calcolo](data-box-edge-extend-compute-access-modules.md).
+- Informazioni su come gestire la [rete di elaborazione Edge tramite il portale](data-box-edge-extend-compute-access-modules.md)di Azure.

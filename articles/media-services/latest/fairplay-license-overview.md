@@ -1,6 +1,6 @@
 ---
 title: Supporto delle licenze di Servizi multimediali di Azure e Apple FairPlay | Microsoft Docs
-description: Questo argomento offre una panoramica di una licenza FairPlay di Apple requisiti e la configurazione.
+description: Questo argomento fornisce una panoramica dei requisiti di licenza e della configurazione di Apple FairPlay.
 author: juliako
 manager: femila
 editor: ''
@@ -15,10 +15,10 @@ ms.date: 12/08/2018
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 6d4b7ba842d08723b90a4f2491d9e79e68dd932e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60733573"
 ---
 # <a name="apple-fairplay-license-requirements-and-configuration"></a>Configurazione e requisiti della licenza Apple FairPlay 
@@ -35,7 +35,7 @@ Se si usa Servizi multimediali per crittografare il contenuto HLS crittografato 
 * Apple richiede che il proprietario del contenuto ottenga il [pacchetto di distribuzione](https://developer.apple.com/contact/fps/). Indicare che è già stato implementato il modulo KSM (Key Security Module) con Servizi multimediali e che si sta richiedendo il pacchetto FPS finale. Il pacchetto FPS finale contiene istruzioni per generare la certificazione e ottenere la chiave privata dell'applicazione, che verrà usata per configurare FairPlay.
 * È necessario impostare quanto segue in aggiunta alla distribuzione delle chiavi/licenze di Servizi multimediali:
 
-    * **App Cert (AC)** : file con estensione pfx contenente la chiave privata. Creare il file e crittografarlo con una password. Il file con estensione pfx deve avere il formato Base64.
+    * **App Cert (AC)**: file con estensione pfx contenente la chiave privata. Creare il file e crittografarlo con una password. Il file con estensione pfx deve avere il formato Base64.
 
         La procedura seguente descrive come generare un file di certificato pfx per FairPlay:
 
@@ -49,12 +49,12 @@ Se si usa Servizi multimediali per crittografare il contenuto HLS crittografato 
 
             "C:\OpenSSL-Win32\bin\openssl.exe" pkcs12 -export -out FairPlay-out.pfx -inkey privatekey.pem -in FairPlay-out.pem -passin file:privatekey-pem-pass.txt
             
-    * **Password di App Cert**: password per creare il file con estensione pfx.
+    * **App Cert password**: password del cliente per creare il file con estensione pfx.
     * **ASK**: chiave ricevuta quando si genera la certificazione usando il portale Apple Developer. Ogni team di sviluppo riceve una chiave ASK univoca. Salvare una copia della chiave ASK e archiviarla in un luogo sicuro. È necessario configurare la chiave ASK come FairPlayAsk in Servizi multimediali.
     
 * Sul lato client FPS è necessario impostare quanto segue:
 
-  * **App Cert (AC)** : file con estensione cer/der contenente la chiave pubblica usata dal sistema operativo per crittografare alcuni payload. È necessario che Servizi multimediali lo riconosca perché è richiesto dal lettore. Il servizio di distribuzione delle chiavi lo decrittografa usando la chiave privata corrispondente.
+  * **App Cert (AC)**: file con estensione cer/der contenente la chiave pubblica usata dal sistema operativo per crittografare alcuni payload. È necessario che Servizi multimediali lo riconosca perché è richiesto dal lettore. Il servizio di distribuzione delle chiavi lo decrittografa usando la chiave privata corrispondente.
 
 * Per riprodurre un flusso crittografato FairPlay, ottenere prima una chiave privata dell'applicazione reale, quindi generare un certificato reale. Questo processo crea tutte le 3 parti:
 

@@ -1,5 +1,5 @@
 ---
-title: Informazioni sul monitoraggio di rete in Monitoraggio di Azure registra | Microsoft Docs
+title: Informazioni sul monitoraggio della rete nei log di Monitoraggio di Azure . Documenti Microsoft
 description: Panoramica sulle soluzioni di monitoraggio della rete, incluso Monitoraggio prestazioni rete, per la gestione di rete in ambienti cloud, locali e ibridi.
 services: monitoring-and-diagnostics
 documentationcenter: na
@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: agummadi
 ms.openlocfilehash: 2912488286745bf8d2e567d09e445b0a44dc7c39
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67672173"
 ---
 # <a name="network-monitoring-solutions"></a>Soluzioni di monitoraggio della rete 
@@ -51,7 +51,7 @@ Performance Monitor è un componente di Monitoraggio prestazioni rete ed è una 
 
 Per altre informazioni, vedere gli articoli seguenti:
 
-* [Configurare una soluzione di monitoraggio prestazioni rete in log di monitoraggio di Azure](../azure-monitor/insights/network-performance-monitor.md) 
+* [Configurare una soluzione Monitoraggio prestazioni rete nei log di Monitoraggio di AzureConfigure a Network Performance Monitor Solution in Azure Monitor logs](../azure-monitor/insights/network-performance-monitor.md) 
 * [Casi d'uso](https://blogs.technet.microsoft.com/msoms/2016/08/30/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor/)
 * Aggiornamenti del prodotto:
   * [Febbraio 2017](https://blogs.technet.microsoft.com/msoms/2017/02/27/oms-network-performance-monitor-is-now-generally-available/)
@@ -122,6 +122,6 @@ Sviluppata per amministratori DNS, questa soluzione raccoglie, analizza e mette 
 Collegamenti correlati:
 * [Post di blog](https://blogs.technet.microsoft.com/msoms/2017/04/19/introducing-oms-dns-analytics/), [documentazione](https://docs.microsoft.com/azure/log-analytics/log-analytics-dns)
 
-## <a name="miscellaneous"></a>Miscellaneous
+## <a name="miscellaneous"></a>Varie
 
 * [Nuovo piano tariffario](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor-pricing-faq)

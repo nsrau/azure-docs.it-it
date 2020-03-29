@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: d56007e5a196a0857f3b69ac51f5e3b5a88c4f6e
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67593498"
 ---
 # <a name="real-time-stats-in-microsoft-azure-cdn"></a>Statistiche in tempo reale nella rete CDN di Microsoft Azure
@@ -29,13 +29,13 @@ Questo documento illustra le statistiche in tempo reale nella rete CDN di Micros
 
 Sono disponibili i grafici seguenti:
 
-* [Larghezza di banda](#bandwidth)
+* [Banda](#bandwidth)
 * [Codici di stato](#status-codes)
 * [Stati della cache](#cache-statuses)
 * [Connessioni](#connections)
 
 ## <a name="accessing-real-time-stats"></a>Accesso alle statistiche in tempo reale
-1. Nel [portale di Azure](https://portal.azure.com)passare al profilo della rete CDN.
+1. Nel [portale](https://portal.azure.com)di Azure passare al profilo della rete CDN.
    
     ![Pannello del profilo di rete CDN](./media/cdn-real-time-stats/cdn-profile-blade.png)
 2. Nel pannello relativo al profilo della rete CDN fare clic sul pulsante **Gestisci** .
@@ -84,13 +84,13 @@ Direttamente sopra al grafico viene visualizzato un elenco di codici di stato de
 
 È possibile nascondere temporaneamente i dati registrati per un codice di stato specifico.  Nella legenda direttamente sotto il grafico selezionare il codice di stato che si vuole nascondere. Il codice di stato verrà nascosto immediatamente nel grafico. Se si seleziona di nuovo il codice di stato, l'opzione verrà visualizzata nuovamente.
 
-## <a name="connections"></a>connessioni
+## <a name="connections"></a>Connessioni
 ![Grafico Connessioni](./media/cdn-real-time-stats/cdn-connections.png)
 
 Questo grafico indica il numero di connessioni stabilite con i server perimetrali. Ogni richiesta per un asset che passa attraverso la rete CDN costituisce una connessione.
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 * Per impostare la ricezione di notifiche, vedere [Avvisi in tempo reale nella rete CDN di Microsoft Azure](cdn-real-time-alerts.md)
 * Per un'analisi più approfondita, vedere [Report HTTP avanzati nella rete CDN di Microsoft Azure](cdn-advanced-http-reports.md)
-* Vedere [Analizzare i modelli di utilizzo della rete CDN di Azure](cdn-analyze-usage-patterns.md)
+* Analizzare [i modelli di utilizzoAnalyze usage patterns](cdn-analyze-usage-patterns.md)
 

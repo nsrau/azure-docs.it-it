@@ -1,6 +1,6 @@
 ---
 title: Usare Azure DevTest Labs per sviluppatori | Microsoft Docs
-description: Informazioni sulle funzionalità di Azure DevTest Labs che possono essere usate per soddisfare i requisiti degli sviluppatori e i passaggi dettagliati che è possibile seguire per configurare un Lab.
+description: Informazioni sulle funzionalità di Azure DevTest Labs che possono essere usate per soddisfare i requisiti degli sviluppatori e sui passaggi dettagliati che è possibile seguire per configurare un lab.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: spelluru
 ms.openlocfilehash: ae44696f62a085bf1e798f0915e2bd1e27c3a78f
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76760148"
 ---
 # <a name="use-azure-devtest-labs-for-developers"></a>Usare Azure DevTest Labs per sviluppatori
@@ -54,7 +54,7 @@ Questo articolo illustra le diverse funzionalità di Azure DevTest Labs che poss
    
    | Attività | Contenuto dell'esercitazione |
    | --- | --- |
-   | [Configurare le impostazioni dell'immagine di Azure Marketplace in un lab](devtest-lab-configure-marketplace-images.md) |Informazioni su come aggiungere all'elenco elementi consentiti le immagini di Azure Marketplace, rendendo disponibili per la selezione solo quelle che si vuole usare per gli sviluppatori.|
+   | [Configurare le immagini di Azure Marketplace](devtest-lab-configure-marketplace-images.md) |Informazioni su come aggiungere all'elenco elementi consentiti le immagini di Azure Marketplace, rendendo disponibili per la selezione solo quelle che si vuole usare per gli sviluppatori.|
    | [Creare un'immagine personalizzata](devtest-lab-create-template.md) |Creare un'immagine personalizzata preinstallando il software necessario in modo che gli sviluppatori possano creare rapidamente una VM usando l'immagine personalizzata.|
    | [Learn about image factory](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/) (Informazioni sulla factory di immagini) |Guardare un video che descrive come configurare e usare una factory di immagini.|
 
@@ -74,7 +74,7 @@ Questo articolo illustra le diverse funzionalità di Azure DevTest Labs che poss
 
    - Strumenti che si vuole installare nella VM, come agenti, Fiddler, Visual Studio.
    - Azioni che si desidera eseguire sulla macchina virtuale, ad esempio la clonazione di un archivio.
-   - Applicazioni che vuoi testare.
+   - Applicazioni che si vuole testare.
 
    Molti elementi sono già immediatamente disponibili. È possibile creare elementi personalizzati per le proprie esigenze specifiche.
 

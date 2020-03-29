@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/20/2017
 ms.author: spelluru
 ms.openlocfilehash: fe8f057443b978e70e7cdd2591affd455fefdca8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60749037"
 ---
 # <a name="azure-relay-exceptions"></a>Eccezioni del servizio di inoltro di Azure
@@ -29,18 +29,18 @@ Questo articolo elenca alcune eccezioni generate dalle API di inoltro di Azure. 
 
 Le eccezioni generate dalle API di inoltro rientrano nelle categorie seguenti. Vengono consigliate anche le azioni per la risoluzione delle eccezioni.
 
-*   **Errore di codifica utente**: System.ArgumentException, [System.InvalidOperationException](https://msdn.microsoft.com/library/system.argumentexception.aspx), [System.OperationCanceledException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx), [System.Runtime.Serialization.SerializationException](https://msdn.microsoft.com/library/system.runtime.serialization.serializationexception.aspx). 
+*   **Errore nella codifica dell'utente**: [System.ArgumentException](https://msdn.microsoft.com/library/system.argumentexception.aspx), [System.InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx), [System.OperationCanceledException](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx), [System.Runtime.Serialization.SerializationException](https://msdn.microsoft.com/library/system.runtime.serialization.serializationexception.aspx). 
 
-    **Azione generale**: Provare a correggere il codice prima di procedere.
-*   **Errore di configurazione/installazione**: [System.UnauthorizedAccessException](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx). 
+    **Azione generale**: provare a correggere il codice prima di continuare.
+*   **Errore di installazione/configurazione**: [System.UnauthorizedAccessException](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx). 
 
-    **Azione generale**: Rivedere la configurazione. Se necessario, modificare la configurazione.
-*   **Eccezioni temporanee**: [Microsoft.ServiceBus.Messaging.MessagingException](/dotnet/api/microsoft.servicebus.messaging.messagingexception), [Microsoft.ServiceBus.Messaging.ServerBusyException](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception), [Microsoft.ServiceBus.Messaging.MessagingCommunicationException](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception). 
+    **Azione generale**: controllare la configurazione. Se necessario, modificare la configurazione.
+*   **Eccezioni temporanee:** [Microsoft.ServiceBus.Messaging.MessagingException](/dotnet/api/microsoft.servicebus.messaging.messagingexception), [Microsoft.ServiceBus.Messaging.ServerBusyException](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception), [Microsoft.ServiceBus.Messaging.MessagingCommunicationException](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception). 
 
-    **Azione generale**: Ripetere l'operazione o inviare notifiche agli utenti.
+    **Azione generale**: ripetere l'operazione o inviare una notifica agli utenti.
 *   **Altre eccezioni**: [System.Transactions.TransactionException](https://msdn.microsoft.com/library/system.transactions.transactionexception.aspx), [System.TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx). 
 
-    **Azione generale**: Specifico per il tipo di eccezione. Vedere la tabella nella sezione seguente. 
+    **Azione generale**: specifica del tipo di eccezione. Vedere la tabella nella sezione seguente. 
 
 ## <a name="exception-types"></a>Tipi di eccezioni
 

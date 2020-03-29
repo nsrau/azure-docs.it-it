@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 12/19/2016
 ms.author: stewu
 ms.openlocfilehash: dc92e7d2fcc911aeb6d92b91dd2d430af3c502ad
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61436512"
 ---
 # <a name="performance-tuning-guidance-for-spark-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Materiale sussidiario per l'ottimizzazione delle prestazioni di Spark in HDInsight e Azure Data Lake Storage Gen1
@@ -25,11 +25,11 @@ Per l'ottimizzazione delle prestazioni in Spark, è necessario considerare il nu
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Un account Azure Data Lake Storage Gen1**. Per istruzioni su come crearne uno, vedere [Iniziare a usare Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
+* **Una sottoscrizione di Azure.** Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Un account Azure Data Lake Storage Gen1**. Per istruzioni su come crearne uno, vedere Introduzione a [Azure Data Lake Storage Gen1For](data-lake-store-get-started-portal.md) instructions on how to create one, see Get started with Azure Data Lake Storage Gen1
 * **Cluster HDInsight di Azure** con accesso a un account Data Lake Storage Gen1. Vedere [Creare un cluster HDInsight con Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md). Assicurarsi di abilitare il Desktop remoto per il cluster.
 * **Esecuzione di cluster Spark in Data Lake Storage Gen1**.  Per altre informazioni, vedere [Usare il cluster Spark di HDInsight per analizzare i dati in Data Lake Storage Gen1](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-use-with-data-lake-store)
-* **Linee guida per l'ottimizzazione delle prestazioni in Data Lake Storage Gen1**.  Per informazioni sui concetti generali relativi alle prestazioni, vedere [Linee guida per l'ottimizzazione delle prestazioni in Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance) 
+* **Linee guida per l'ottimizzazione delle prestazioni in Data Lake Storage Gen1**.  Per informazioni generali sulle prestazioni, vedere Indicazioni per l'ottimizzazione delle prestazioni di Data Lake Storage Gen1ForFor general performance concepts, see [Data Lake Storage Gen1 Performance Tuning Guidance](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance) 
 
 ## <a name="parameters"></a>Parametri
 
@@ -55,20 +55,20 @@ Durante l'esecuzione di carichi di lavoro analitici di Spark per l'elaborazione 
 
 Esistono alcuni modi generali per aumentare la concorrenza per i processi con I/O intensivo.
 
-**Passaggio 1: determinare il numero di app in esecuzione nel cluster**. È necessario conoscere il numero di applicazioni in esecuzione nel cluster, inclusa quella corrente.  I valori predefiniti per ogni impostazione Spark presumono che siano presenti 4 applicazioni in esecuzione contemporanea.  Pertanto, si disporrà solo del 25% del cluster per ogni applicazione.  Per ottenere prestazioni migliori, è possibile sostituire le impostazioni predefinite modificando il numero di executor.  
+**Passaggio 1: Determinare il numero di app in esecuzione nel cluster**. È necessario conoscere il numero di applicazioni in esecuzione nel cluster, inclusa quella corrente.  I valori predefiniti per ogni impostazione Spark presumono che siano presenti 4 applicazioni in esecuzione contemporanea.  Pertanto, si disporrà solo del 25% del cluster per ogni applicazione.  Per ottenere prestazioni migliori, è possibile sostituire le impostazioni predefinite modificando il numero di executor.  
 
-**Passaggio 2: impostare executor-memory**. Il primo valore da impostare è la memoria dell'executor.  La memoria dipende dal processo da eseguire.  È possibile aumentare la concorrenza allocando una quantità inferiore di memoria per ogni executor.  Se vengono visualizzate eccezioni di memoria insufficiente quando si esegue il processo, è necessario aumentare il valore di questo parametro.  In alternativa è possibile ottenere una maggiore quantità di memoria usando un cluster con maggiore memoria oppure aumentando le dimensioni del cluster.  Una maggiore quantità di memoria consentirà di usare più executor, ottenendo così più concorrenza.
+**Passaggio 2: Impostare executor-memory**. La prima cosa da impostare è la memoria dell'executor.  La memoria dipende dal processo da eseguire.  È possibile aumentare la concorrenza allocando una quantità inferiore di memoria per ogni executor.  Se vengono visualizzate eccezioni di memoria insufficiente quando si esegue il processo, è necessario aumentare il valore di questo parametro.  In alternativa è possibile ottenere una maggiore quantità di memoria usando un cluster con maggiore memoria oppure aumentando le dimensioni del cluster.  Una maggiore quantità di memoria consentirà di usare più executor, ottenendo così più concorrenza.
 
-**Passaggio 3: impostare executor-cores**. Per carichi di lavoro I/O intensivi che non prevedono operazioni complesse, è consigliabile iniziare con un numero elevato di core per ogni executor al fine di aumentare il numero di attività parallele per ognuno di essi.  Per iniziare, è consigliabile impostare executor-cores su 4.   
+**Passaggio 3: Impostare executor-cores**. Per carichi di lavoro I/O intensivi che non prevedono operazioni complesse, è consigliabile iniziare con un numero elevato di core per ogni executor al fine di aumentare il numero di attività parallele per ognuno di essi.  Per iniziare, è consigliabile impostare executor-cores su 4.   
 
     executor-cores = 4
 L'aumento del numero di core dell'executor offrirà maggior parallelismo in modo che sia possibile sperimentare diversi core dell'executor.  Per i processi che includono operazioni più complesse, è necessario ridurre il numero di core per ogni executor.  Se executor-cores viene impostato su un valore superiore a 4, la Garbage Collection può diventare inefficiente e incidere negativamente sulle prestazioni.
 
-**Passaggio 4: determinare la quantità di memoria YARN nel cluster**. Queste informazioni sono disponibili in Ambari.  Passare a YARN e visualizzare la scheda Configs (Configurazioni).  La memoria YARN è visualizzata in questa finestra.  
+**Passaggio 4: Determinare la quantità di memoria YARN nel cluster**. Queste informazioni sono disponibili in Ambari.  Passare a YARN e visualizzare la scheda Configs (Configurazioni).  In questa finestra viene visualizzata la memoria YARN.  
 Si noti che nella finestra è possibile visualizzare anche le dimensioni predefinite del contenitore YARN.  Le dimensioni del contenitore YARN sono uguali alle dimensioni della memoria per ogni parametro executor.
 
     Total YARN memory = nodes * YARN memory per node
-**Passaggio 5: calcolare num-executors**
+**Passaggio 5: Calcolare num-executors**
 
 **Calcolare il vincolo della memoria**. Il parametro num-executors è vincolato dalla memoria o dalla CPU.  Il vincolo di memoria è determinato dalla quantità di memoria YARN disponibile per l'applicazione.  Prendere il valore della memoria totale di YARN e dividerlo per il valore executor-memory.  Il vincolo deve essere diviso per il numero di applicazioni.
 
@@ -86,19 +86,19 @@ Impostare un numero maggiore di num-executors non si traduce necessariamente in 
 
 Si supponga di disporre di un cluster costituito da 8 nodi D4v2 che eseguono 2 applicazioni, inclusa quella che si è in procinto di eseguire.  
 
-**Passaggio 1: determinare il numero di app in esecuzione nel cluster**. L'utente sa di avere 2 app nel cluster, inclusa quella corrente.  
+**Passaggio 1: Determinare il numero di app in esecuzione nel cluster**. L'utente sa di avere 2 app nel cluster, inclusa quella corrente.  
 
-**Passaggio 2: impostare executor-memory**. Per questo esempio, si stabilisce che 6 GB di memoria per executor saranno sufficienti per il processo I/O intensivo.  
+**Passaggio 2: Impostare executor-memory**. Per questo esempio, si stabilisce che 6 GB di memoria per executor saranno sufficienti per il processo I/O intensivo.  
 
     executor-memory = 6GB
-**Passaggio 3: impostare executor-cores**. Poiché si tratta di un processo I/O intensivo, è possibile impostare su 4 il numero di core per ogni executor.  L'impostazione di un numero di core per executor superiore a 4 può causare problemi alla Garbage Collection.  
+**Passaggio 3: Impostare executor-cores**. Poiché si tratta di un processo I/O intensivo, è possibile impostare su 4 il numero di core per ogni executor.  L'impostazione di un numero di core per executor superiore a 4 può causare problemi alla Garbage Collection.  
 
     executor-cores = 4
-**Passaggio 4: determinare la quantità di memoria YARN nel cluster**. Aprendo Ambari, si scopre che ogni D4v2 ha 25 GB di memoria YARN.  Poiché sono presenti 8 nodi, la memoria di YARN disponibile viene moltiplicata per 8.
+**Passaggio 4: Determinare la quantità di memoria YARN nel cluster**. Aprendo Ambari, si scopre che ogni D4v2 dispone di 25 GB di memoria YARN.  Poiché sono presenti 8 nodi, la memoria di YARN disponibile viene moltiplicata per 8.
 
     Total YARN memory = nodes * YARN memory* per node
     Total YARN memory = 8 nodes * 25GB = 200GB
-**Passaggio 5: impostare num-executors**. Il parametro num-executors viene determinato dal valore minimo del vincolo della memoria e del vincolo della CPU, divisi per il numero di app in esecuzione in Spark.    
+**Passaggio 5: Impostare num-executors**. Il parametro num-executors viene determinato dal valore minimo del vincolo della memoria e del vincolo della CPU, divisi per il numero di app in esecuzione su Spark.    
 
 **Calcolare il vincolo della memoria**. Il vincolo della memoria viene calcolato come la memoria totale di YARN divisa per la memoria di ogni executor.
 

@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 12/19/2016
 ms.author: stewu
 ms.openlocfilehash: 433c6b7d70cea9406b67d65e23cc357939cb5aa0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61437277"
 ---
 # <a name="performance-tuning-guidance-for-hive-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Materiale sussidiario per l'ottimizzazione delle prestazioni di Hive in HDInsight e Azure Data Lake Storage Gen1
@@ -25,11 +25,11 @@ Le impostazioni predefinite sono state impostate per fornire buone prestazioni p
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Un account Data Lake Storage Gen1**. Per istruzioni su come crearne uno, vedere [Iniziare a usare Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
+* **Una sottoscrizione di Azure.** Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Un account Data Lake Storage Gen1**. Per istruzioni su come crearne uno, vedere Introduzione a [Azure Data Lake Storage Gen1For](data-lake-store-get-started-portal.md) instructions on how to create one, see Get started with Azure Data Lake Storage Gen1
 * **Cluster HDInsight di Azure** con accesso a un account Data Lake Storage Gen1. Vedere [Creare un cluster HDInsight con Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md). Assicurarsi di abilitare il Desktop remoto per il cluster.
 * **Esecuzione di Hive in HDInsight**.  Per informazioni sull'esecuzione di processi Hive in HDInsight, vedere [Usare Hive in HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-hive)
-* **Linee guida per l'ottimizzazione delle prestazioni in Data Lake Storage Gen1**.  Per informazioni sui concetti generali relativi alle prestazioni, vedere [Linee guida per l'ottimizzazione delle prestazioni in Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance)
+* **Linee guida per l'ottimizzazione delle prestazioni in Data Lake Storage Gen1**.  Per informazioni generali sulle prestazioni, vedere Indicazioni per l'ottimizzazione delle prestazioni di Data Lake Storage Gen1ForFor general performance concepts, see [Data Lake Storage Gen1 Performance Tuning Guidance](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance)
 
 ## <a name="parameters"></a>Parametri
 
@@ -59,7 +59,7 @@ Di seguito sono elencate le impostazioni più importanti da ottimizzare per otte
 
 I carichi di lavoro con numerose operazioni di I/O possono trarre vantaggi da un maggiore parallelismo riducendo la dimensione del contenitore Tez. In questo modo l'utente dispone di più contenitori e, quindi, di più concorrenza.  Tuttavia, alcune query di Hive richiedono una notevole quantità di memoria (ad esempio MapJoin).  Se l'attività non dispone di sufficiente memoria, si otterrà un'eccezione di memoria insufficiente durante la fase di runtime.  Se si ricevono eccezioni di memoria insufficiente, è necessario aumentare la memoria.   
 
-Il numero di attività simultanee in esecuzione o il parallelismo verrà ristretto dalla memoria totale di YARN.  Il numero di contenitori YARN determinerà il numero di attività che è possibile eseguire contemporaneamente.  Per trovare la memoria YARN per ogni nodo è possibile passare ad Ambari.  Passare a YARN e visualizzare la scheda Configs (Configurazioni).  La memoria YARN è visualizzata in questa finestra.  
+Il numero di attività simultanee in esecuzione o il parallelismo verrà ristretto dalla memoria totale di YARN.  Il numero di contenitori YARN determinerà il numero di attività che è possibile eseguire contemporaneamente.  Per trovare la memoria YARN per ogni nodo è possibile passare ad Ambari.  Passare a YARN e visualizzare la scheda Configs (Configurazioni).  In questa finestra viene visualizzata la memoria YARN.  
 
         Total YARN memory = nodes * YARN memory per node
         # of YARN containers = Total YARN memory / Tez container size
@@ -81,7 +81,7 @@ Se si raggiungono i limiti di larghezza di banda di Data Lake Storage Gen1, è p
 
 Per verificare la presenza di limitazioni, è necessario abilitare la registrazione di debug sul lato client. Ecco come fare:
 
-1. Inserire la seguente proprietà nelle proprietà log4j nella configurazione di Hive. Questa operazione può essere eseguita dalla vista Ambari: log4j.logger.com.microsoft.azure.datalake.store=DEBUG Riavviare tutti i nodi/service per rendere effettiva la nuova configurazione.
+1. Inserire la proprietà seguente nelle proprietà log4j in Hive config. Questa operazione può essere eseguita dalla visualizzazione Ambari: log4j.logger.com.microsoft.azure.datalake.store-DEBUG Riavviare tutti i nodi/servizio affinché la configurazione abbia effetto.
 
 2. In caso di limitazioni, verrà visualizzato il codice di errore HTTP 429 nel file di log di Hive. Il file di log di Hive si trova nel percorso /tmp/&lt;user&gt;/hive.log
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 6bc29c098bcf7ef1d1a2e2532a00c95f0ec7e927
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61244230"
 ---
 # <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Come generare anteprime utilizzando Media Encoder Standard con .NET 
@@ -281,7 +281,7 @@ Si noti l'uso della macro {Resolution} in FileName, che indica al codificatore d
 
 Mentre tutti gli esempi precedenti hanno descritto come inviare un'attività di codifica che produce solo immagini, è anche possibile combinare la codifica audio/video con la generazione di anteprime. Il set di impostazioni JSON e XML seguenti indica a **Media Encoder Standard** di generare un'anteprima durante la codifica.
 
-### <a id="json"></a>Set di impostazioni JSON
+### <a name="json-preset"></a><a id="json"></a>Predefinito JSON
 Per informazioni sullo schema, vedere [questo](https://msdn.microsoft.com/library/mt269962.aspx) articolo.
 
 ```json
@@ -346,7 +346,7 @@ Per informazioni sullo schema, vedere [questo](https://msdn.microsoft.com/librar
     }
 ```
 
-### <a id="xml"></a>Set di impostazioni XML
+### <a name="xml-preset"></a><a id="xml"></a>Predefinito XML
 Per informazioni sullo schema, vedere [questo](https://msdn.microsoft.com/library/mt269962.aspx) articolo.
 
 ```csharp
@@ -401,9 +401,9 @@ Per informazioni sullo schema, vedere [questo](https://msdn.microsoft.com/librar
     </Preset>   
 ```
 
-## <a id="code_sample"></a>Codificare il video e generare l'anteprima con .NET
+## <a name="encode-video-and-generate-thumbnail-with-net"></a><a id="code_sample"></a>Codificare il video e generare l'anteprima con .NET
 
-Il seguente codice usa l'SDK .NET di Servizi multimediali per eseguire le seguenti attività:
+Il seguente codice usa l'SDK .NET di Servizi multimediali per eseguire le seguenti attività: 
 
 * Creare un processo di codifica.
 * Ottenere un riferimento al codificatore Media Encoder Standard.
@@ -551,14 +551,14 @@ Si applicano le considerazioni seguenti:
 * L'utilizzo di timestamp espliciti per Inizio/Passaggio/Intervallo presuppone che l'origine dell'input duri almeno 1 minuto.
 * Gli elementi Jpg/Png/BmpImage hanno gli attributi inizio, passaggio e intervallo della stringa, che possono essere interpretati come:
   
-  * Numero di frame se sono numeri interi non negativi, ad esempio "Start": "120",
+  * Se sono numeri interi non negativi, numero di frame, ad esempio "Start": "120",
   * Relativi alla durata di origine se espressi con il suffisso %, ad esempio "Start": "15%", OR
-  * Timestamp se espresso come HH:MM:SS (formato). Ad esempio "Start": "00:01:00"
+  * Timestamp se espresso come HH:MM:SS (formato). Ad esempio "Start" : "00:01:00"
     
     È possibile combinare e associare le notazioni a piacimento.
     
-    Start inoltre supporta anche una macro speciale, ovvero {Best}, che tenta di determinare il primo frame "interessante" del contenuto. NOTA: Step e Range vengono ignorati quando Start è impostato su {Best}
-  * Valori predefiniti: Start:{Best}
+    Inoltre, Inizio supporta anche una Macro speciale: {Best}, che tenta di determinare il primo fotogramma "interessante" della NOTA contenuto: (Passaggio e Intervallo vengono ignorati quando Inizio è impostato su {Best})
+  * Impostazioni predefinite: Start: {Best}
 * Il formato di output deve essere specificato in modo esplicito per ogni formato immagine: Jpg/Png/BmpFormat. Quando è presente, MES collega JpgVideo a JpgFormat e così via. OutputFormat presenta una nuova Macro specifica di codec di immagine : {Index}, che deve essere presente (una volta e una sola volta) per i formati immagine.
 
 ## <a name="next-steps"></a>Passaggi successivi

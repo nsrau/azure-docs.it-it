@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 10/11/2017
 ms.author: apimpm
 ms.openlocfilehash: b99ca444532799d21850058eae0e3f40ed871135
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61074055"
 ---
 # <a name="terminology"></a>Terminologia
@@ -25,7 +25,7 @@ Questo articolo contiene le definizioni dei termini specifici di Gestione API.
 ## <a name="term-definitions"></a>Definizioni dei termini
 
 * **API back-end**: servizio HTTP che implementa l'API e le operazioni. 
-* **API front-end**/**API di Gestione API**: un'API di Gestione API non ospita le API, ma crea le facciate per le API per personalizzare la facciata in base alle esigenze senza modificare l'API back-end. Per altre informazioni, vedere [Importare e pubblicare un'API](import-and-publish.md).
+* **Frontend API**/API API front-end**API:** un'API APIM non ospita le API, ma crea facciate per le API per personalizzare la facciata in base alle proprie esigenze senza toccare l'API back-end. Per altre informazioni, vedere [Importare e pubblicare un'API](import-and-publish.md).
 * **Prodotto Gestione API**: un prodotto contiene una o più API, oltre a una quota di utilizzo e le condizioni per l'utilizzo. È possibile includere diverse API e proporle agli sviluppatori tramite il portale per sviluppatori. Per altre informazioni, vedere [Creare e pubblicare un prodotto](api-management-howto-add-products.md).
 * **Operazione API di Gestione API**: ogni API di Gestione API rappresenta un set di operazioni a disposizione degli sviluppatori. Ogni API di Gestione API contiene un riferimento al servizio back-end che implementa l'API e delle relative operazioni viene eseguito il mapping alle operazioni implementate dal servizio back-end. Per altre informazioni, vedere [Simulare le risposte di un'API](mock-api-responses.md).
 * **Versione**: a volte si vogliono pubblicare funzionalità dell'API nuove o diverse destinate ad alcuni utenti, mentre altri preferiscono continuare a usare l'API in uso e funzionante. Per altre informazioni, vedere [Pubblicare più versioni dell'API](api-management-get-started-publish-versions.md).

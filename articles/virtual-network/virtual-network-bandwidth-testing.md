@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 07/21/2017
 ms.author: steveesp
 ms.openlocfilehash: 80e8a5e5de1da2098d895e09b36fb209050743a0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60743079"
 ---
 # <a name="bandwidththroughput-testing-ntttcp"></a>Test della larghezza di banda/velocità effettiva (NTTTCP)
@@ -54,7 +54,7 @@ Parametri mittente: ntttcp -s10.27.33.7 -t 10 -n 1 -P 1
 
 Scaricare la versione più recente: <https://gallery.technet.microsoft.com/NTttcp-Version-528-Now-f8b12769>
 
-Se il file è stato spostato, eseguire una ricerca: da <https://www.bing.com/search?q=ntttcp+download> \< dovrebbe essere il primo risultato restituito
+Se il file è stato spostato, eseguire una ricerca: da <https://www.bing.com/search?q=ntttcp+download>\< dovrebbe essere il primo risultato restituito
 
 È consigliabile inserire NTTTCP in una cartella separata, ad esempio, ad esempio c:\\strumenti
 
@@ -132,13 +132,13 @@ In questi scenari si dovrebbe attivare la modalità no-sync per consentire l'ese
 
 #### <a name="from-linux-to-windows"></a>Da Linux a Windows:
 
-Ricevitore \<Windows >:
+Ricevitore \<di Windows>:
 
 ``` bash
 ntttcp -r -m <2 x nr cores>,*,<Windows server IP>
 ```
 
-Mittente \<Linux >:
+Mittente \<Linux> :
 
 ``` bash
 ntttcp -s -m <2 x nr cores>,*,<Windows server IP> -N -t 300
@@ -146,13 +146,13 @@ ntttcp -s -m <2 x nr cores>,*,<Windows server IP> -N -t 300
 
 #### <a name="from-windows-to-linux"></a>Da Windows a Linux:
 
-Ricevitore \<Linux >:
+Ricevitore \<Linux>:
 
 ``` bash
 ntttcp -r -m <2 x nr cores>,*,<Linux server IP>
 ```
 
-Sender \<Windows>:
+Mittente \<Windows>:
 
 ``` bash
 ntttcp -s -m <2 x nr cores>,*,<Linux  server IP> -ns -t 300

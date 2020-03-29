@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 48c09a6100586c0c99f3d54f9708c770488c681f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61463849"
 ---
 #  <a name="create-an-encoding-task-that-generates-fmp4-chunks"></a>Creare un'attività di codifica che genera blocchi fMP4
@@ -32,20 +32,20 @@ Questo articolo illustra come creare un'attività di codifica che genera blocchi
             formatOption: AssetFormatOption.AdaptiveStreaming);
 ```
 
-## <a id="encoding_with_dotnet"></a>Codifica con l’SDK .NET dei servizi multimediali
+## <a name="encoding-with-media-services-net-sdk"></a><a id="encoding_with_dotnet"></a>Codifica con l’SDK .NET dei servizi multimediali
 
-Il seguente codice usa l'SDK .NET di Servizi multimediali per eseguire le seguenti attività:
+Il seguente codice usa l'SDK .NET di Servizi multimediali per eseguire le seguenti attività: 
 
 - Creare un processo di codifica.
 - Ottenere un riferimento al codificatore **Media Encoder Standard**.
-- Aggiungere un'attività di codifica al processo e specificare l'uso del set di impostazioni per **streaming adattivo**. 
+- Aggiungere un'attività di codifica al processo e specificare l'uso del set di impostazioni **Flusso adattivo**. 
 - Creare un asset di output che contiene blocchi fMP4 e un file con estensione ISM.
 - Aggiungere un gestore eventi per controllare l'avanzamento del processo.
 - Inviare il processo.
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Creare e configurare un progetto di Visual Studio
 
-Configurare l'ambiente di sviluppo e popolare il file app.config con le informazioni di connessione, come descritto in [Sviluppo di applicazioni di Servizi multimediali con .NET](media-services-dotnet-how-to-use.md). 
+Configurare l'ambiente di sviluppo e popolare il file app.config con le informazioni di connessione, come descritto in Sviluppo di [Servizi multimediali con .NET](media-services-dotnet-how-to-use.md). 
 
 #### <a name="example"></a>Esempio
 

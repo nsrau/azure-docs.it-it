@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 11/21/2016
 ms.author: alkohli
 ms.openlocfilehash: feffbb634af62d70a840febcf2a04afb7bdeeddd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60580855"
 ---
 # <a name="clone-from-a-backup-of-your-storsimple-virtual-array"></a>Clonare da un backup dell'array virtuale StorSimple
@@ -107,7 +107,7 @@ Per clonare da un backup, nel portale di Azure, è necessario seguire una proced
    ![Clonare un backup](./media/storsimple-virtual-array-clone/clonevolume8.png)
 7. Quando viene visualizzato nell'elenco dei volumi online, il volume è disponibile per l'uso. Aggiornare l'elenco delle destinazioni nella finestra Proprietà iniziatore iSCSI nell'host dell'iniziatore iSCSI. Una nuova destinazione contenente il nome del volume clonato verrà visualizzata come "inattiva" nella colonna dello stato.
 8. Selezionare la destinazione e fare clic su **Connetti**. Dopo avere connesso il dispositivo, lo stato deve essere modificato in **Connesso**.
-9. Nella finestra **Gestione disco** i volumi montati sono visualizzati come indicato nella figura seguente. Fare clic con il pulsante destro del mouse sul volume individuato (fare clic sul nome del disco) e fare clic su **Online**.
+9. Nella finestra **Gestione disco** i volumi montati sono visualizzati come indicato nella figura seguente. Fare clic con il pulsante destro del mouse sul volume individuato (fare clic sul nome del disco), quindi scegliere **Online**.
 
 > [!IMPORTANT]
 > Quando si tenta di clonare un volume o una condivisione da un set di backup, anche se il processo di clonazione non viene completato correttamente, è comunque possibile creare un volume o una condivisione di destinazione nel portale. È importante eliminare questo volume o questa condivisione di destinazione nel portale per ridurre al minimo eventuali problemi futuri causati da questo elemento.

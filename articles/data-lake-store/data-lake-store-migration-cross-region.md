@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 01/27/2017
 ms.author: stewu
 ms.openlocfilehash: 0bf0843314f38c0de28820c82e95b7921297bf40
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60518451"
 ---
 # <a name="migrate-azure-data-lake-storage-gen1-across-regions"></a>Eseguire la migrazione di Azure Data Lake Storage Gen1 tra aree
@@ -25,7 +25,7 @@ Man mano che Azure Data Lake Storage Gen1 viene reso disponibile in nuove aree, 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* **Una sottoscrizione di Azure**. Per altre informazioni, vedere [Crea subito il tuo account Azure gratuito](https://azure.microsoft.com/pricing/free-trial/).
+* **Una sottoscrizione di Azure.** Per altre informazioni, vedere [Crea subito il tuo account Azure gratuito](https://azure.microsoft.com/pricing/free-trial/).
 * **Un account Data Lake Storage Gen1 in due aree diverse**. Per altre informazioni, vedere [Iniziare a usare Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md).
 * **Azure Data Factory**. Per altre informazioni, vedere l'[introduzione ad Azure Data Factory](../data-factory/introduction.md).
 
@@ -38,9 +38,9 @@ Per ridurre il tempo di inattività, è possibile iniziare immediatamente a inse
 
 Ecco altri dettagli importanti da considerare durante la pianificazione della migrazione:
 
-* **Volume dei dati**. Il volume dei dati (gigabyte, numero di file e cartelle e così via) influisce sul tempo e sulle risorse necessari per la migrazione.
+* **Volume di dati**. Il volume dei dati (gigabyte, numero di file e cartelle e così via) influisce sul tempo e sulle risorse necessari per la migrazione.
 
-* **Nome dell'account Data Lake Storage Gen1**. Il nome del nuovo account nella nuova area deve essere univoco a livello globale. Ad esempio, il nome dell'account Data Lake Storage Gen1 precedente in East US 2 potrebbe essere contosoeastus2.azuredatalakestore.net. Si potrebbe assegnare al nuovo account Data Lake Storage Gen1 in North EU il nome contosonortheu.azuredatalakestore.net.
+* **Nome dell'account Data Lake Storage Gen1**. Il nome del nuovo account nella nuova area deve essere univoco a livello globale. Ad esempio, il nome dell'account Data Lake Storage Gen1 precedente in Stati Uniti orientali 2 potrebbe essere contosoeastus2.azuredatalakestore.net. Si potrebbe assegnare al nuovo account Data Lake Storage Gen1 in North EU il nome contosonortheu.azuredatalakestore.net.
 
 * **Strumenti**. Per copiare i file di Data Lake Storage Gen1 è consigliabile usare l'[attività di copia di Azure Data Factory](../data-factory/connector-azure-data-lake-store.md). Data Factory supporta lo spostamento dei dati con prestazioni e affidabilità elevate. Tenere presente che Data Factory copia solo la gerarchia di cartelle e il contenuto dei file. Eventuali elenchi di controllo di accesso usati nell'account precedente devono essere applicati manualmente al nuovo account. Per altre informazioni, inclusi gli obiettivi di prestazioni per gli scenari ottimali, vedere la [Guida alle prestazioni dell'attività di copia e all'ottimizzazione](../data-factory/copy-activity-performance.md). Se si vuole che i dati vengano copiati più rapidamente, potrebbe essere necessario usare altre unità di spostamento dei dati nel cloud. Altri strumenti, come AdlCopy, non supportano la copia di dati tra aree.  
 

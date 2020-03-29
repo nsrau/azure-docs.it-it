@@ -1,5 +1,5 @@
 ---
-title: 'API REST: Operazioni di gestione in Azure Data Lake archiviazione Gen1 account | Microsoft Docs'
+title: 'API REST: Operazioni di gestione di account in Azure Data Lake Storage Gen1 | Microsoft Docs'
 description: Usare Azure Data Lake Storage Gen1 e l'API REST WebHDFS per eseguire operazioni di gestione di account nell'account Data Lake Storage Gen1
 services: data-lake-store
 documentationcenter: ''
@@ -13,26 +13,26 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 97fe33309f36cd7545f8c9d6c2d34671641caa1f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60877106"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-rest-api"></a>Operazioni di gestione di account in Azure Data Lake Storage Gen1 con API REST
 > [!div class="op_single_selector"]
 > * [.NET SDK](data-lake-store-get-started-net-sdk.md)
-> * [API REST](data-lake-store-get-started-rest-api.md)
+> * [REST API](data-lake-store-get-started-rest-api.md)
 > * [Python](data-lake-store-get-started-python.md)
 >
 >
 
-Questo articolo descrive come eseguire operazioni di gestione di account in Azure Data Lake Storage Gen1 con l'API REST. Le operazioni di gestione di account includono la creazione di un account Data Lake Storage Gen1, l'eliminazione di un account Data Lake Storage Gen1 e così via. Per istruzioni su come eseguire le operazioni del file system in Data Lake Storage Gen1 con l'API REST, vedere [Operazioni del file system in Data Lake Storage Gen1 con l'API REST](data-lake-store-data-operations-rest-api.md).
+Questo articolo descrive come eseguire operazioni di gestione di account in Azure Data Lake Storage Gen1 con l'API REST. Le operazioni di gestione degli account includono la creazione di un account Data Lake Storage Gen1, l'eliminazione di un account Data Lake Storage Gen1 e così via. Per istruzioni su come eseguire operazioni del file system su Data Lake Storage Gen1 usando l'API REST, vedere [Operazioni del file system su Data Lake Storage Gen1 con l'API REST.](data-lake-store-data-operations-rest-api.md)
 
 ## <a name="prerequisites"></a>Prerequisiti
-* **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Una sottoscrizione di Azure.** Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* **[cURL](https://curl.haxx.se/)** . In questo articolo viene usato cURL per illustrare come effettuare chiamate API REST con un account Data Lake Storage Gen1.
+* **[cURL](https://curl.haxx.se/)**. In questo articolo viene usato cURL per illustrare come effettuare chiamate API REST con un account Data Lake Storage Gen1.
 
 ## <a name="how-do-i-authenticate-using-azure-active-directory"></a>Come si esegue l'autenticazione tramite Azure Active Directory?
 È possibile adottare due approcci per l'autenticazione tramite Azure Active Directory.
@@ -44,7 +44,7 @@ Questo articolo descrive come eseguire operazioni di gestione di account in Azur
 ## <a name="create-a-data-lake-storage-gen1-account"></a>Creare un account Data Lake Storage Gen1
 Questa operazione si basa sulla chiamata API REST definita [qui](https://docs.microsoft.com/rest/api/datalakestore/accounts/create).
 
-Usare il comando cURL seguente. Sostituire **\<nomestoragegen1>** con il nome Data Lake Storage Gen1.
+Usare il comando cURL seguente. Sostituire ** \<il>storagegen1name** con il nome Data Lake Storage Gen1.
 
     curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -H "Content-Type: application/json" https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.DataLakeStore/accounts/<yourstoragegen1name>?api-version=2015-10-01-preview -d@"C:\temp\input.json"
 
@@ -61,7 +61,7 @@ Nel comando sopra sostituire \<`REDACTED`\> con il token di autorizzazione recup
 ## <a name="delete-a-data-lake-storage-gen1-account"></a>Eliminare un account Data Lake Storage Gen1
 Questa operazione si basa sulla chiamata API REST definita [qui](https://docs.microsoft.com/rest/api/datalakestore/accounts/delete).
 
-Usare il comando cURL seguente per eliminare un account Data Lake Storage Gen1. Sostituire **\<nomestoragegen1>** con il nome dell'account Data Lake Storage Gen1.
+Usare il comando cURL seguente per eliminare un account Data Lake Storage Gen1. Sostituire ** \<il>storagegen1name** con il nome dell'account Data Lake Storage Gen1.
 
     curl -i -X DELETE -H "Authorization: Bearer <REDACTED>" https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.DataLakeStore/accounts/<yourstoragegen1name>?api-version=2015-10-01-preview
 

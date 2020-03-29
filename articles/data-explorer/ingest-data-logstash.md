@@ -1,6 +1,6 @@
 ---
 title: Inserire dati da Logstash in Esplora dati di Azure
-description: In questo articolo descrive come inserire (caricare) i dati in Esplora dati di Azure da Logstash
+description: In questo articolo imparerai a inserire (caricare) dati in Azure Data Explorer da Logstash
 author: tamirkamara
 ms.author: takamara
 ms.reviewer: orspodek
@@ -8,15 +8,15 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.openlocfilehash: 86f6732cbf2409d3c79a3d7709100e8af24988a0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "66494532"
 ---
 # <a name="ingest-data-from-logstash-to-azure-data-explorer"></a>Inserire dati da Logstash in Esplora dati di Azure
 
-[Logstash](https://www.elastic.co/products/logstash) è una pipeline di elaborazione dati lato server e open source che inserisce i dati da più origini contemporaneamente, li trasforma e quindi li invia all'accantonamento preferito. In questo articolo, si saranno inviare i dati a Esplora dati di Azure, che è un servizio di esplorazione dei dati rapido e a scalabilità elevata per dati di log e dati di telemetria. Inizialmente si creerà una tabella e il mapping dei dati in un cluster di test, quindi si istruirà Logstash a inviare i dati nella tabella e convalidare i risultati.
+[Logstash](https://www.elastic.co/products/logstash) è una pipeline di elaborazione dati lato server e open source che inserisce i dati da più origini contemporaneamente, li trasforma e quindi li invia all'accantonamento preferito. In questo articolo si invieranno i dati ad Azure Data Explorer, un servizio di esplorazione dati veloce e altamente scalabile per i dati di log e di telemetria. Inizialmente si creerà una tabella e il mapping dei dati in un cluster di test, quindi si istruirà Logstash a inviare i dati nella tabella e convalidare i risultati.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -108,12 +108,12 @@ output {
 
 | Nome parametro | Descrizione |
 | --- | --- |
-| **path** | Il plug-in Logstash scrive gli eventi in file temporanei prima di inviarli a Esplora dati di Azure. Questo parametro include un percorso in cui devono essere scritti i file e un'espressione di data per la rotazione dei file per attivare un'operazione di caricamento nel servizio Esplora dati di Azure.|
+| **Percorso** | Il plug-in Logstash scrive gli eventi in file temporanei prima di inviarli a Esplora dati di Azure. Questo parametro include un percorso in cui devono essere scritti i file e un'espressione di data per la rotazione dei file per attivare un'operazione di caricamento nel servizio Esplora dati di Azure.|
 | **ingest_url** | Endpoint Kusto per le comunicazioni relative l'inserimento.|
 | **app_id**,  **app_key** e **app_tenant**| Credenziali necessarie per connettersi a Esplora dati di Azure. Assicurarsi di usare un'applicazione con privilegi di inserimento. |
-| **database**| Nome del database per inserire gli eventi. |
-| **tabella** | Nome tabella di destinazione per posizionare gli eventi. |
-| **mapping** | Il mapping viene usato per eseguire il mapping di una stringa json di eventi in ingresso nel formato di riga corretto (definisce quale proprietà inserire in quale colonna). |
+| **Database**| Nome del database per inserire gli eventi. |
+| **tavolo** | Nome tabella di destinazione per posizionare gli eventi. |
+| **Mapping** | Il mapping viene usato per eseguire il mapping di una stringa json di eventi in ingresso nel formato di riga corretto (definisce quale proprietà inserire in quale colonna). |
 
 ## <a name="run-logstash"></a>Eseguire Logstash
 

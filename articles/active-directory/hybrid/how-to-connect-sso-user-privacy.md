@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9311c1060b953e87f163cb482db14cdd43f50d3d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60242099"
 ---
 # <a name="user-privacy-and-azure-ad-seamless-single-sign-on"></a>Privacy dell'utente e accesso Single Sign-On facile di Azure AD
@@ -69,5 +69,5 @@ Se è abilitata la registrazione di controllo, questo prodotto può generare log
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Consultare l'Informativa sulla privacy Microsoft nel Trust Center](https://www.microsoft.com/trustcenter)
-  - [**Risoluzione dei problemi**](tshoot-connect-sso.md): informazioni su come risolvere i problemi comuni relativi a questa funzionalità.
+  - [**Risoluzione dei problemi:**](tshoot-connect-sso.md) informazioni su come risolvere i problemi comuni relativi alla funzionalità.
   - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): per l'invio di richieste di nuove funzionalità.

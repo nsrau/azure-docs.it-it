@@ -1,6 +1,6 @@
 ---
-title: Condizioni di corrispondenza del motore regole di rete CDN di Azure di Verizon Premium | Microsoft Docs
-description: Documentazione di riferimento per la rete per la distribuzione di contenuti di Azure da Verizon Premium Rules Engine Conditions.
+title: Le condizioni del motore regole di Azure della rete CDN di Azure Premium Documenti Microsoft
+description: La documentazione di riferimento per la rete per la distribuzione di contenuti di Azure dal motore regole Verizon Premium soddisfa le condizioni.
 services: cdn
 author: mdgattuso
 ms.service: azure-cdn
@@ -8,29 +8,29 @@ ms.topic: article
 ms.date: 05/31/2019
 ms.author: magattus
 ms.openlocfilehash: 1660dca34b2f128ef5889145fcdeed0d2523b9bb
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67593210"
 ---
-# <a name="azure-cdn-from-verizon-premium-rules-engine-match-conditions"></a>Condizioni di corrispondenza del motore regole di rete CDN di Azure di Verizon Premium
+# <a name="azure-cdn-from-verizon-premium-rules-engine-match-conditions"></a>Le condizioni del motore regole di Azure della rete CDN di Azure PremiumAzure CDN from Verizon Premium rules engine match conditions
 
-Questo articolo elenca le descrizioni dettagliate delle condizioni di corrispondenza disponibili per la rete per la distribuzione di contenuti (CDN) di Azure dal [motore delle regole](cdn-verizon-premium-rules-engine.md)Premium di Verizon.
+Questo articolo elenca le descrizioni dettagliate delle condizioni di corrispondenza disponibili per la rete per la distribuzione di contenuti (CDN) di Azure dal [motore regole](cdn-verizon-premium-rules-engine.md)di Verizon Premium .
 
 La seconda parte di una regola è la condizione di corrispondenza. Una condizione di corrispondenza identifica specifici tipi di richieste per cui verrà eseguito un set di funzionalità.
 
 Ad esempio, è possibile usare una condizione di corrispondenza per:
 
 - Filtrare le richieste per il contenuto in base a una posizione specifica.
-- Filtrare le richieste generate da un particolare indirizzo IP o paese/area geografica.
+- Filtrare le richieste generate da un determinato indirizzo IP o paese.
 - Filtrare le richieste in base alle informazioni dell'intestazione.
 
 ## <a name="always-match-condition"></a>Condizione di corrispondenza Sempre
 
 La condizione di corrispondenza Sempre applica un set predefinito di funzionalità a tutte le richieste.
 
-Name | Scopo
+Nome | Scopo
 -----|--------
 [Sempre](#always) | Applica un set predefinito di funzionalità a tutte le richieste.
 
@@ -38,7 +38,7 @@ Name | Scopo
 
 La condizione di corrispondenza Dispositivo identifica le richieste effettuate da un dispositivo mobile in base alle relative proprietà.  
 
-NOME | Scopo
+Nome | Scopo
 -----|--------
 [Dispositivo](#device) | Identifica le richieste effettuate da un dispositivo mobile in base alle relative proprietà.
 
@@ -46,16 +46,16 @@ NOME | Scopo
 
 Le condizioni di corrispondenza Posizione identificano le richieste in base alla posizione del richiedente.
 
-Name | Scopo
+Nome | Scopo
 -----|--------
 [Numero AS](#as-number) | Identifica le richieste che hanno origine da una determinata rete.
-[Paese](#country) | Identifica le richieste che hanno origine dai paesi specificati.
+[Paese](#country) | Identifica le richieste provenienti dai paesi specificati.
 
 ## <a name="origin-match-conditions"></a>Condizioni di corrispondenza Origine
 
 Le condizioni di corrispondenza Origine identificano le richieste che puntano all'archivio della rete CDN o a un server di origine del cliente.
 
-Name | Scopo
+Nome | Scopo
 -----|--------
 [Origine rete CDN](#cdn-origin) | Identifica le richieste per il contenuto archiviato nell'archivio della rete CDN.
 [Origine cliente](#customer-origin) | Identifica le richieste di contenuto in uno specifico server di origine del cliente.
@@ -64,7 +64,7 @@ Name | Scopo
 
 Le condizioni di corrispondenza Richiesta identificano le richieste in base alle relative proprietà.
 
-Name | Scopo
+Nome | Scopo
 -----|--------
 [Indirizzo IP client](#client-ip-address) | Identifica le richieste che hanno origine da un determinato indirizzo IP.
 [Parametro cookie](#cookie-parameter) | Controlla il valore specificato nei cookie associati a ogni richiesta.
@@ -81,7 +81,7 @@ Name | Scopo
 
 Le condizioni di corrispondenza URL identificano le richieste in base ai relativi URL.
 
-NOME | Scopo
+Nome | Scopo
 -----|--------
 [URL Path Directory](#url-path-directory) (Directory percorso URL) | Identifica le richieste in base al percorso relativo.
 [URL Path Extension](#url-path-extension) (Estensione percorso URL) | Identifica le richieste in base all'estensione del nome file.
@@ -112,7 +112,7 @@ La condizione di corrispondenza Sempre applica un set predefinito di funzionalit
 
 La rete Numero AS è definita dal relativo numero di sistema autonomo (ASN). 
 
-L'opzione **Matches** (Corrisponde)/**Does Not Match** (Non corrisponde) determina le condizioni in base alle quali verrà soddisfatta questa condizione di corrispondenza:
+L'opzione **Corrisponde a**/**non corrisponde** determina le condizioni in cui viene soddisfatta la condizione di corrispondenza Numero AS:
 
 - **Matches** (Corrisponde): richiede che l'ASN della rete client corrisponda a uno degli ASN specificati. 
 - **Does Not Match** (Non corrisponde): richiede che l'ASN della rete client non corrisponda ad alcuno degli ASN specificati.
@@ -157,7 +157,7 @@ Informazioni chiave:
 
 ### <a name="client-ip-address"></a>Indirizzo IP client
 
-L'opzione **Matches** (Corrisponde)/ **Does Not Match** (Non corrisponde) determina le condizioni in base alle quali verrà soddisfatta questa condizione di corrispondenza:
+L'opzione **Corrisponde**/**a non corrisponde** determina le condizioni in cui viene soddisfatta la condizione di corrispondenza Indirizzo IP client:
 
 - **Matches** (Corrisponde): richiede che l'indirizzo IP del client corrisponda a uno degli indirizzi IP specificati. 
 - **Does Not Match** (Non corrisponde): richiede che l'indirizzo IP del client non corrisponda a uno degli indirizzi IP specificati. 
@@ -186,9 +186,9 @@ Informazioni chiave:
 
 ### <a name="cookie-parameter"></a>Parametro cookie
 
-L'opzione **Matches** (Corrisponde)/**Does Not Matches** (Non corrisponde) determina le condizioni in base alle quali verrà soddisfatta questa condizione di corrispondenza.
+L'opzione **Corrisponde a**/**non corrisponde** determina le condizioni in cui viene soddisfatta la condizione di corrispondenza Parametro cookie.
 
-- **Matches** (Corrisponde): prevede che una richiesta contenga il cookie specificato con un valore che corrisponda ad almeno uno dei valori definiti nella condizione di corrispondenza.
+- **Corrisponde**: prevede che una richiesta contenga il cookie specificato con un valore che corrisponda ad almeno uno dei valori definiti nella condizione di corrispondenza.
 - **Does Not Match** (Non corrisponde): specifica che la richiesta soddisfi uno dei criteri seguenti:
   - Non contiene il cookie specificato.
   - Contiene il cookie specificato, ma il relativo valore non corrisponde ad alcun valore definito nella condizione di corrispondenza.
@@ -220,9 +220,9 @@ Informazioni chiave:
 
 La condizione di corrispondenza Espressione regolare parametro cookie definisce un nome e un valore del cookie. Per definire il valore di cookie desiderato, è possibile usare [espressioni regolari](cdn-verizon-premium-rules-engine-reference.md#regular-expressions).
 
-L'opzione **Matches** (Corrisponde)/**Does Not Matches** (Non corrisponde) determina le condizioni in base alle quali verrà soddisfatta questa condizione di corrispondenza.
+L'opzione **Corrisponde a**/**non corrisponde** determina le condizioni in cui viene soddisfatta la condizione di corrispondenza del parametro del cookie Regex.
 
-- **Matches** (Corrisponde): prevede che la richiesta contenga il cookie specificato con un valore che corrisponde all'espressione regolare specificata.
+- **Corrisponde**: prevede che la richiesta contenga il cookie specificato con un valore che corrisponde all'espressione regolare specificata.
 - **Does Not Match** (Non corrisponde): specifica che la richiesta soddisfi uno dei criteri seguenti:
   - Non contiene il cookie specificato.
   - Contiene il cookie specificato, ma il relativo valore non corrisponde all'espressione regolare specificata.
@@ -253,7 +253,7 @@ Informazioni chiave:
 
 È possibile specificare un paese tramite il codice paese corrispondente. 
 
-L'opzione **Matches** (Corrisponde)/**Does Not Match** (Non corrisponde) determina le condizioni in base alle quali verrà soddisfatta questa condizione di corrispondenza:
+L'opzione **Corrisponde**/**a non corrisponde** determina le condizioni in cui viene soddisfatta la condizione corrispondenza paese:
 
 - **Matches** (Corrisponde): specifica che la richiesta contenga i valori del codice di paese specificati. 
 - **Does Not Match** (Non corrisponde): specifica che la richiesta non contenga i valori del codice di paese specificati.
@@ -311,7 +311,7 @@ Informazioni chiave:
 
 La condizione di corrispondenza Dispositivo identifica le richieste effettuate da un dispositivo mobile in base alle relative proprietà. Il rilevamento del dispositivo mobile viene eseguito tramite [WURFL](http://wurfl.sourceforge.net/). 
 
-L'opzione **Matches** (Corrisponde)/**Does Not Match** (Non corrisponde) determina le condizioni in base alle quali verrà soddisfatta questa condizione di corrispondenza:
+L'opzione **Corrisponde a**/**non corrisponde** determina le condizioni in cui viene soddisfatta la condizione di corrispondenza dispositivo:
 
 - **Matches** (Corrisponde): specifica che il dispositivo del richiedente corrisponda al valore specificato. 
 - **Does Not Match** (Non corrisponde): specifica che il dispositivo del richiedente non corrisponda al valore specificato.
@@ -332,7 +332,7 @@ Una funzionalità WURFL accetta in genere qualsiasi combinazione di numeri, lett
 
 Type     | Descrizione
 ---------|------------
-Valore letterale  | Selezionare questa opzione per impedire alla maggior parte dei caratteri di assumere un significato speciale usando il rispettivo [valore letterale](cdn-verizon-premium-rules-engine-reference.md#literal-values).
+Literal (Valore letterale)  | Selezionare questa opzione per impedire alla maggior parte dei caratteri di assumere un significato speciale usando il rispettivo [valore letterale](cdn-verizon-premium-rules-engine-reference.md#literal-values).
 Wildcard (Carattere jolly) | Selezionare questa opzione per trarre vantaggio da tutti i [caratteri jolly]([caratteri jolly](cdn-verizon-premium-rules-engine-reference.md#wildcard-values).
 Regex (Espressione regolare)    | Selezionare questa opzione per usare [espressioni regolari](cdn-verizon-premium-rules-engine-reference.md#regular-expressions). Le espressioni regolari sono utili per definire un modello di caratteri.
 
@@ -345,9 +345,9 @@ La tabella seguente elenca le funzionalità WURFL e le rispettive variabili per 
 > [!NOTE]
 > Le variabili seguenti sono supportate nelle funzionalità **Modify Client Request Header** (Modifica intestazione richiesta client) e **Modify Client Response Header** (Modifica intestazione risposta client).
 
-Capacità | Variabile | DESCRIZIONE | Valori di esempio
+Funzionalità | Variabile | Descrizione | Valori di esempio
 -----------|----------|-------------|----------------
-Nome marchio | %{wurfl_cap_brand_name} | Stringa che indica il nome del marchio del dispositivo. | Samsung
+Brand Name (Nome marchio) | %{wurfl_cap_brand_name} | Stringa che indica il nome del marchio del dispositivo. | Samsung
 Device OS (Sistema operativo dispositivo) | %{wurfl_cap_device_os} | Stringa che indica il sistema operativo installato nel dispositivo. | IOS
 Device OS Version (Versione sistema operativo dispositivo) | %{wurfl_cap_device_os_version} | Stringa che indica il numero di versione del sistema operativo installato nel dispositivo. | 1.0.1
 Dual Orientation (Orientamento doppio) | %{wurfl_cap_dual_orientation} | Valore booleano che indica se il dispositivo supporta l'orientamento doppio. | true
@@ -398,7 +398,7 @@ Informazioni chiave:
 
 Il nome host associato al referrer tramite cui il contenuto è stato richiesto determina se viene soddisfatta o meno la condizione Dominio di riferimento.
 
-L'opzione **Matches** (Corrisponde)/**Does Not Match** (Non corrisponde) determina le condizioni in base alle quali verrà soddisfatta questa condizione di corrispondenza:
+L'opzione **Corrisponde a**/**non corrisponde** determina le condizioni in cui viene soddisfatta la condizione di corrispondenza del dominio di riferimento:
 
 - **Matches** (Corrisponde): richiede che il nome host corrisponda al valore specificato. 
 - **Does Not Match** (Non corrisponde): richiede che il nome host non corrisponda al valore specificato.
@@ -424,9 +424,9 @@ Informazioni chiave:
 
 ### <a name="request-header-literal"></a>Valore letterale intestazione richiesta
 
-L'opzione **Matches** (Corrisponde)/**Does Not Match** (Non corrisponde) determina le condizioni in base alle quali verrà soddisfatta questa condizione di corrispondenza.
+L'opzione **Corrisponde**/**a non corrisponde** determina le condizioni in base alle quali viene soddisfatta la condizione di corrispondenza Letterale intestazione richiesta.
 
-- **Matches** (Corrisponde): prevede che la richiesta contenga l'intestazione specificata. Il relativo valore deve corrispondere al valore definito in questa condizione di corrispondenza.
+- **Corrisponde**: prevede che la richiesta contenga l'intestazione specificata. Il relativo valore deve corrispondere al valore definito in questa condizione di corrispondenza.
 - **Does Not Match** (Non corrisponde): specifica che la richiesta soddisfi uno dei criteri seguenti:
   - Non contiene l'intestazione specificata.
   - Contiene l'intestazione specificata, ma il relativo valore non corrisponde al valore definito in questa condizione di corrispondenza.
@@ -449,9 +449,9 @@ Informazioni chiave:
 
 ### <a name="request-header-regex"></a>Espressione regolare intestazione richiesta
 
-L'opzione **Matches** (Corrisponde)/**Does Not Match** (Non corrisponde) determina le condizioni in base alle quali verrà soddisfatta questa condizione di corrispondenza.
+L'opzione **Corrisponde a**/**non corrisponde** determina le condizioni in base alle quali viene soddisfatta la condizione di corrispondenza Regex dell'intestazione della richiesta.
 
-- **Matches** (Corrisponde): prevede che la richiesta contenga l'intestazione specificata. Il valore deve corrispondere al modello definito nell'[espressione regolare](cdn-verizon-premium-rules-engine-reference.md#regular-expressions) specificata.
+- **Corrisponde**: prevede che la richiesta contenga l'intestazione specificata. Il valore deve corrispondere al modello definito nell'[espressione regolare](cdn-verizon-premium-rules-engine-reference.md#regular-expressions) specificata.
 - **Does Not Match** (Non corrisponde): specifica che la richiesta soddisfi uno dei criteri seguenti:
   - Non contiene l'intestazione specificata.
   - Contiene l'intestazione specificata, ma il relativo valore non corrisponde all'espressione regolare specificata.
@@ -480,9 +480,9 @@ Informazioni chiave:
 
 ### <a name="request-header-wildcard"></a>Carattere jolly intestazione richiesta
 
-L'opzione **Matches** (Corrisponde)/**Does Not Match** (Non corrisponde) determina le condizioni in base alle quali verrà soddisfatta questa condizione di corrispondenza.
+L'opzione **Corrisponde a**/**non corrisponde** determina le condizioni in base alle quali viene soddisfatta la condizione di corrispondenza Carattere jolly intestazione richiesta.
 
-- **Matches** (Corrisponde): prevede che la richiesta contenga l'intestazione specificata. Il relativo valore deve corrispondere ad almeno uno dei valori definiti in questa condizione di corrispondenza.
+- **Corrisponde**: prevede che la richiesta contenga l'intestazione specificata. Il relativo valore deve corrispondere ad almeno uno dei valori definiti in questa condizione di corrispondenza.
 - **Does Not Match** (Non corrisponde): specifica che la richiesta soddisfi uno dei criteri seguenti:
   - Non contiene l'intestazione specificata.
   - Contiene l'intestazione specificata, ma il relativo valore non corrisponde ad alcun valore specificato.
@@ -516,10 +516,10 @@ La condizione Metodo di richiesta verrà soddisfatta solo quando gli asset vengo
 
 - GET
 - HEAD
-- INSERISCI
+- POST
 - OPTIONS
 - PUT
-- DELETE
+- Elimina
 - TRACE
 - CONNECT
 
@@ -565,7 +565,7 @@ Informazioni chiave:
 
 Identifica una richiesta tramite il percorso relativo, che esclude il nome file dell'asset richiesto.
 
-L'opzione **Matches** (Corrisponde)/**Does Not Match** (Non corrisponde) determina le condizioni in base alle quali verrà soddisfatta questa condizione di corrispondenza.
+L'opzione **Corrisponde a**/**non corrisponde** determina le condizioni in base alle quali viene soddisfatta la condizione di corrispondenza della directory del percorso URL.
 
 - **Matches** (Corrisponde): specifica che la richiesta deve contenere un percorso URL relativo, escluso il nome file, che corrisponda al modello di URL specificato.
 - **Does Not Match** (Non corrisponde): specifica che la richiesta deve contenere un percorso URL relativo, escluso il nome file, che non corrisponda al modello di URL specificato.
@@ -583,7 +583,7 @@ Informazioni chiave:
 
   Ad esempio: https:\//&lt;endpoint&gt;.azureedge.net/**cartella**/index.htm 
 
-  Questo URL punta a questo nome host della rete CDN Verizon: http:\//wpc.0001.&lt;dominio&gt;/800001/myorigin/**cartella**/index.htm
+  Questo URL punta al seguente nome host della\/rete CDN Verizon: http: /wpc.0001. &lt;dominio&gt;/800001/mioorigine/**cartella**/indice.htm
 
 - Un URL CNAME perimetrale viene riscritto in un URL della rete CDN prima del confronto degli URL.
 
@@ -592,7 +592,7 @@ Informazioni chiave:
     
   - URL CNAME perimetrale: http:\//&lt;endpoint&gt;.azureedge.net/path/asset.htm
     
-    Informazioni aggiuntive:
+    Ulteriori informazioni:
   - Dominio personalizzato: https:\//my.domain.com/path/asset.htm
     
     - Percorso URL (relativo alla radice): /800001/CustomerOrigin/path/
@@ -623,7 +623,7 @@ Informazioni chiave:
 
 Identifica le richieste in base all'estensione di file dell'asset richiesto.
 
-L'opzione **Matches** (Corrisponde)/**Does Not Match** (Non corrisponde) determina le condizioni in base alle quali verrà soddisfatta questa condizione di corrispondenza.
+L'opzione **Corrisponde a**/**non corrisponde** determina le condizioni in base alle quali viene soddisfatta la condizione di corrispondenza Estensione percorso URL.
 
 - **Matches** (Corrisponde): specifica che l'URL della richiesta deve contenere un'estensione di file che corrisponda esattamente al modello specificato.
 
@@ -647,7 +647,7 @@ Informazioni chiave:
 
 La configurazione di esempio seguente presuppone che questa condizione di corrispondenza venga soddisfatta quando una richiesta corrisponde a una delle estensioni specificate.
 
-Specifica del valore: ASP aspx php html
+Specifica del valore: asp aspx php html
 
 Questa condizione di corrispondenza verrà soddisfatta quando vengono trovati URL che terminano con le estensioni seguenti:
 
@@ -666,7 +666,7 @@ Questa condizione di corrispondenza verrà soddisfatta quando vengono trovati UR
 
 Identifica le richieste in base al nome file dell'asset richiesto. Ai fini di questa condizione di corrispondenza, un nome file è costituito dal nome dell'asset richiesto, da un punto e dall'estensione del file, ad esempio index.html.
 
-L'opzione **Matches** (Corrisponde)/**Does Not Match** (Non corrisponde) determina le condizioni in base alle quali verrà soddisfatta questa condizione di corrispondenza.
+L'opzione **Corrisponde a**/**Non corrisponde** determina le condizioni in base alle quali viene soddisfatta la condizione di corrispondenza nome file percorso URL.
 
 - **Matches** (Corrisponde): specifica che la richiesta deve contenere un nome file nel rispettivo percorso URL che corrisponda al modello specificato.
 - **Does Not Match** (Non corrisponde): specifica che la richiesta deve contenere un nome file nel rispettivo percorso URL che non corrisponda al modello specificato.
@@ -697,7 +697,7 @@ Informazioni chiave:
 
 Confronta il percorso URL di una richiesta, incluso il nome file, con il valore specificato.
 
-L'opzione **Matches** (Corrisponde)/**Does Not Match** (Non corrisponde) determina le condizioni in base alle quali verrà soddisfatta questa condizione di corrispondenza.
+L'opzione **Corrisponde a**/**non corrisponde** determina le condizioni in base alle quali viene soddisfatta la condizione di corrispondenza Del valore letterale del percorso URL.
 
 - **Matches** (Corrisponde): specifica che la richiesta deve contenere un percorso URL che corrisponda al modello specificato.
 - **Does Not Match** (Non corrisponde): specifica che la richiesta deve contenere un percorso URL che non corrisponda al modello specificato.
@@ -709,13 +709,13 @@ Informazioni chiave:
     Per l'opzione **Relative to** (Relativo a) sono disponibili i valori seguenti:
   - **Radice**: indica che il punto di confronto degli URL deve iniziare dopo il nome host della rete CDN.
 
-    Ad esempio: http:\//wpc.0001.&lt;dominio&gt;/**800001/myorigin/cartella/index.htm**
+    Ad esempio:\/http: /wpc.0001. &lt;&gt;/**800001/myorigin/myfolder/index.htm di** dominio
 
   - **Origine**: indica che il punto di confronto degli URL deve iniziare dopo il punto di accesso al contenuto, ad esempio /000001 o /800001/myorigin. Poiché per impostazione predefinita l'URL CNAME \*.azureedge.net viene creato relativamente alla directory di origine nel nome host della rete CDN Verizon, gli utenti della rete CDN di Azure devono usare il valore **Origine**. 
 
-    Ad esempio: https:\//&lt;endpoint&gt;.azureedge.net/**cartella/index.htm**
+    Ad esempio:\//&lt;https: endpoint&gt;.azureedge.net/**myfolder/index.htm**
 
-  Questo URL punta a questo nome host della rete CDN Verizon: http:\//wpc.0001.&lt;dominio&gt;/800001/myorigin/**cartella/index.htm**
+  Questo URL punta al seguente nome host della\/rete CDN Verizon: http: /wpc.0001. &lt;dominio&gt;/800001/origineorigine/**myfolder/index.htm**
 
 - Un URL CNAME perimetrale viene riscritto in un URL della rete CDN prima del confronto degli URL.
 
@@ -724,7 +724,7 @@ Ad esempio, entrambi gli URL seguenti puntano allo stesso asset e di conseguenza
 - URL della rete CDN: http:\//wpc.0001.&lt;dominio&gt;/800001/CustomerOrigin/path/asset.htm
 - URL CNAME perimetrale: http:\//&lt;endpoint&gt;.azureedge.net/path/asset.htm
 
-    Informazioni aggiuntive:
+    Ulteriori informazioni:
     
     - Percorso URL (relativo alla radice): /800001/CustomerOrigin/path/asset.htm
    
@@ -746,7 +746,7 @@ Ad esempio, entrambi gli URL seguenti puntano allo stesso asset e di conseguenza
 
 Confronta il percorso URL di una richiesta con l'[espressione regolare](cdn-verizon-premium-rules-engine-reference.md#regular-expressions) specificata.
 
-L'opzione **Matches** (Corrisponde)/**Does Not Match** (Non corrisponde) determina le condizioni in base alle quali verrà soddisfatta questa condizione di corrispondenza.
+L'opzione **Corrisponde a**/**non corrisponde** determina le condizioni in base alle quali viene soddisfatta la condizione di corrispondenza Regex percorso URL.
 
 - **Matches** (Corrisponde): specifica che la richiesta deve contenere un percorso URL che corrisponda all'espressione regolare specificata.
 - **Does Not Match** (Non corrisponde): specifica che la richiesta deve contenere un percorso URL che non corrisponda all'espressione regolare specificata.
@@ -761,7 +761,7 @@ Informazioni chiave:
 
      - URL CNAME perimetrale: http:\//my.domain.com/path/asset.htm
 
-    Informazioni aggiuntive:
+    Ulteriori informazioni:
     
      - Percorso URL: /800001/CustomerOrigin/path/asset.htm
 
@@ -781,7 +781,7 @@ Informazioni chiave:
 
 Confronta il percorso URL relativo di una richiesta con il modello con caratteri jolly specificato.
 
-L'opzione **Matches** (Corrisponde)/**Does Not Match** (Non corrisponde) determina le condizioni in base alle quali verrà soddisfatta questa condizione di corrispondenza.
+L'opzione **Corrisponde a**/**Non corrisponde** determina le condizioni in base alle quali viene soddisfatta la condizione di corrispondenza del percorso URL.
 
 - **Matches** (Corrisponde): specifica che la richiesta deve contenere un percorso URL che corrisponda al modello con caratteri jolly specificato.
 - **Does Not Match** (Non corrisponde): specifica che la richiesta deve contenere un percorso URL che non corrisponda al modello con caratteri jolly specificato.
@@ -793,21 +793,21 @@ Informazioni chiave:
    L'opzione può avere i valori seguenti:
      - **Radice**: indica che il punto di confronto degli URL deve iniziare dopo il nome host della rete CDN.
 
-       Ad esempio: http:\//wpc.0001.&lt;dominio&gt;/**800001/myorigin/cartella/index.htm**
+       Ad esempio:\/http: /wpc.0001. &lt;&gt;/**800001/myorigin/myfolder/index.htm di** dominio
 
      - **Origine**: indica che il punto di confronto degli URL deve iniziare dopo il punto di accesso al contenuto, ad esempio /000001 o /800001/myorigin. Poiché per impostazione predefinita l'URL CNAME \*.azureedge.net viene creato relativamente alla directory di origine nel nome host della rete CDN Verizon, gli utenti della rete CDN di Azure devono usare il valore **Origine**. 
 
-       Ad esempio: https:\//&lt;endpoint&gt;.azureedge.net/**cartella/index.htm**
+       Ad esempio:\//&lt;https: endpoint&gt;.azureedge.net/**myfolder/index.htm**
 
-     Questo URL punta a questo nome host della rete CDN Verizon: http:\//wpc.0001.&lt;dominio&gt;/800001/myorigin/**cartella/index.htm**
+     Questo URL punta al seguente nome host della\/rete CDN Verizon: http: /wpc.0001. &lt;dominio&gt;/800001/origineorigine/**myfolder/index.htm**
 
 - Un URL CNAME perimetrale viene riscritto in un URL della rete CDN prima del confronto degli URL.
 
     Ad esempio, entrambi gli URL seguenti puntano allo stesso asset e di conseguenza hanno lo stesso percorso URL:
-     - URL della rete CDN: http://wpc.0001.&lt ;domain&gt; /800001/CustomerOrigin/path/asset.htm
+     - URL della rete CDN: http://wpc.0001.&lt;domain&gt;/800001/CustomerOrigin/path/asset.htm
      - URL CNAME perimetrale: http:\//&lt;endpoint&gt;.azureedge.net/path/asset.htm
     
-    Informazioni aggiuntive:
+    Ulteriori informazioni:
     
      - Percorso URL (relativo alla radice): /800001/CustomerOrigin/path/asset.htm
     
@@ -829,7 +829,7 @@ Informazioni chiave:
 
 Le configurazioni di esempio nella tabella seguente presuppongono che questa condizione di corrispondenza venga soddisfatta quando una richiesta corrisponde al modello URL specificato:
 
-Value                   | Relative to (Relativo a)    | Risultato 
+valore                   | Relative to (Relativo a)    | Risultato 
 ------------------------|----------------|-------
 \*/test.html \*/test.php  | Radice o Origine | Le richieste di asset denominati "test.html" o "test.php" in qualsiasi cartella soddisfano la corrispondenza a questo modello.
 /80ABCD/origin/text/*   | Radice           | L'asset richiesto corrisponde a questo modello quando soddisfa i criteri seguenti: <br />- Si trova in un'origine cliente denominata "origin". <br />- Il percorso relativo inizia con una cartella denominata "text". Questo significa che l'asset richiesto può trovarsi nella cartella "text" o in una delle sottocartelle ricorsive.
@@ -847,7 +847,7 @@ Value                   | Relative to (Relativo a)    | Risultato
 
 Confronta la stringa di query di una richiesta con il valore specificato.
 
-L'opzione **Matches** (Corrisponde)/**Does Not Match** (Non corrisponde) determina le condizioni in base alle quali verrà soddisfatta questa condizione di corrispondenza.
+L'opzione **Corrisponde a**/**non corrisponde** determina le condizioni in base alle quali viene soddisfatta la condizione di corrispondenza del valore letterale di query dell'URL.
 
 - **Matches** (Corrisponde): specifica che la richiesta deve contenere una stringa di query URL che corrisponda alla stringa di query specificata.
 - **Does Not Match** (Non corrisponde): specifica che la richiesta deve contenere una stringa di query URL che non corrisponda alla stringa di query specificata.
@@ -862,9 +862,9 @@ Informazioni chiave:
     
 - Determinati caratteri richiedono la codifica URL. Usare il simbolo di percentuale per applicare la codifica URL ai caratteri seguenti:
 
-   Character | Codifica URL
+   Carattere | Codifica URL
    ----------|---------
-   Spazio     | %20
+   Space     | %20
    &         | %25
 
 - In base al modo in cui vengono monitorate le impostazioni della cache, è possibile che questa condizione di corrispondenza sia incompatibile con le funzionalità seguenti:
@@ -884,7 +884,7 @@ Informazioni chiave:
 
 Identifica le richieste che contengono il parametro della stringa di query specificato. Questo parametro è impostato su un valore che corrisponde a un modello specificato. I parametri della stringa di query, ad esempio parametro=valore, nell'URL della richiesta determinano se questa condizione viene soddisfatta. Questa condizione di corrispondenza identifica un parametro della stringa di query in base al nome e accetta uno o più valori per il valore del parametro. 
 
-L'opzione **Matches** (Corrisponde)/**Does Not Match** (Non corrisponde) determina le condizioni in base alle quali verrà soddisfatta questa condizione di corrispondenza.
+L'opzione **Corrisponde a**/**non corrisponde** determina le condizioni in base alle quali viene soddisfatta la condizione di corrispondenza del parametro di query dell'URL.
 
 - **Matches** (Corrisponde): specifica che una richiesta deve contenere il parametro specificato con un valore che corrisponda ad almeno uno dei valori definiti nella condizione di corrispondenza.
 - **Does Not Match** (Non corrisponde): specifica che la richiesta soddisfi uno dei criteri seguenti:
@@ -902,9 +902,9 @@ Informazioni chiave:
    - Ogni modello di valore di parametro può contenere uno o più asterischi (*), in cui ogni asterisco può corrispondere a una sequenza di uno o più caratteri.
    - Determinati caratteri richiedono la codifica URL. Usare il simbolo di percentuale per applicare la codifica URL ai caratteri seguenti:
 
-       Character | Codifica URL
+       Carattere | Codifica URL
        ----------|---------
-       Spazio     | %20
+       Space     | %20
        &         | %25
 
 - Specificare più valori di parametro della stringa di query delimitandoli con uno spazio singolo. Questa condizione di corrispondenza verrà soddisfatta quando una richiesta contiene una delle combinazioni di nome/valore specificate.
@@ -921,7 +921,7 @@ Informazioni chiave:
     
        Parametro1=ValoreB
 
-   - Esempio 2
+   - Esempio 2:
 
      - Configurazione: 
 
@@ -953,7 +953,7 @@ Informazioni chiave:
 
 L'esempio seguente mostra il funzionamento di questa opzione in situazioni specifiche:
 
-Name  | Valore |  Risultato
+Nome  | valore |  Risultato
 ------|-------|--------
 Utente  | Joe   | La corrispondenza a questo modello viene soddisfatta quando la stringa di query per un URL richiesto è "?user=joe".
 Utente  | *     | La corrispondenza a questo modello viene soddisfatta quando la stringa di query per un URL richiesto contiene un parametro User.
@@ -969,7 +969,7 @@ Email | Joe\* | La corrispondenza a questo modello viene soddisfatta quando la s
 
 Identifica le richieste che contengono il parametro della stringa di query specificato. Questo parametro è impostato su un valore che corrisponde a un'[espressione regolare](cdn-verizon-premium-rules-engine-reference.md#regular-expressions) specificata.
 
-L'opzione **Matches** (Corrisponde)/**Does Not Match** (Non corrisponde) determina le condizioni in base alle quali verrà soddisfatta questa condizione di corrispondenza.
+L'opzione **Corrisponde a**/**non corrisponde** determina le condizioni in base alle quali viene soddisfatta la condizione di corrispondenza Regex della query sull'URL.
 
 - **Matches** (Corrisponde): specifica che la richiesta deve contenere una stringa di query URL che corrisponda all'espressione regolare specificata.
 - **Does Not Match** (Non corrisponde): specifica che la richiesta deve contenere una stringa di query URL che non corrisponda all'espressione regolare specificata.
@@ -984,9 +984,9 @@ Informazioni chiave:
     
 - Determinati caratteri richiedono la codifica URL. Usare il simbolo di percentuale per applicare la codifica URL ai caratteri seguenti:
 
-   Character | Codifica URL | Valore
+   Carattere | Codifica URL | valore
    ----------|--------------|------
-   Spazio     | %20          | \%20
+   Space     | %20          | \%20
    &         | %25          | \%25
 
    I simboli di percentuale devono essere preceduti da un carattere di escape.
@@ -995,7 +995,7 @@ Informazioni chiave:
 
    Ad esempio:
 
-   Value | Interpretato come 
+   valore | Interpretato come 
    ------|---------------
    \\+    | +
    \\\\+   | \\+
@@ -1017,7 +1017,7 @@ Informazioni chiave:
 
 Confronta uno o più valori specificati con la stringa di query della richiesta.
 
-L'opzione **Matches** (Corrisponde)/**Does Not Match** (Non corrisponde) determina le condizioni in base alle quali verrà soddisfatta questa condizione di corrispondenza.
+L'opzione **Corrisponde a**/**non corrisponde** determina le condizioni in base alle quali viene soddisfatta la condizione di corrispondenza con caratteri jolly della query URL.
 
 - **Matches** (Corrisponde): specifica che la richiesta deve contenere una stringa di query URL che corrisponda al carattere jolly specificato.
 - **Does Not Match** (Non corrisponde): specifica che la richiesta deve contenere una stringa di query URL che non corrisponda al carattere jolly specificato.
@@ -1025,18 +1025,18 @@ L'opzione **Matches** (Corrisponde)/**Does Not Match** (Non corrisponde) determi
 Informazioni chiave:
 
 - Ai fini di questa opzione, una stringa di query inizia con il primo carattere dopo il delimitatore punto interrogativo (?) per la stringa di query.
-- I valori di parametro possono includere [caratteri jolly](cdn-verizon-premium-rules-engine-reference.md#wildcard-values):
+- I valori dei parametri possono includere [valori con caratteri jolly:](cdn-verizon-premium-rules-engine-reference.md#wildcard-values)
    - Ogni modello di valore di parametro può contenere uno o più asterischi (*), in cui ogni asterisco può corrispondere a una sequenza di uno o più caratteri.
    - Determinati caratteri richiedono la codifica URL. Usare il simbolo di percentuale per applicare la codifica URL ai caratteri seguenti:
 
-     Character | Codifica URL
+     Carattere | Codifica URL
      ----------|---------
-     Spazio     | %20
+     Space     | %20
      &         | %25
 
 - È possibile specificare più valori delimitandoli con uno spazio singolo.
 
-   Ad esempio:  *Parametro1=ValoreA* *ValoreB* *Parametro1=ValoreC&Parametro2=ValoreD*
+   Ad esempio: *Parametro1=ValoreA* *ValoreB* *Parametro1=ValoreC&Parametro2=ValoreD*
 
 - Questa condizione verrà soddisfatta solo da corrispondenze esatte ad almeno uno dei modelli di stringa di query specificati.
     
@@ -1053,10 +1053,10 @@ Informazioni chiave:
 
 L'esempio seguente mostra il funzionamento di questa opzione in situazioni specifiche:
 
- Name                 | Descrizione
+ Nome                 | Descrizione
  ---------------------|------------
 user=joe              | La corrispondenza a questo modello viene soddisfatta quando la stringa di query per un URL richiesto è "?user=joe".
-\*user=\* \*optout=\* | La corrispondenza a questo modello viene soddisfatta quando la query URL della rete CDN contiene il parametro user o optout.
+\*utente\* \*- optout\* | La corrispondenza a questo modello viene soddisfatta quando la query URL della rete CDN contiene il parametro user o optout.
 
 [Torna all'inizio](#reference-for-rules-engine-match-conditions)
 
