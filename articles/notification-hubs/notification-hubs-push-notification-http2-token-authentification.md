@@ -1,6 +1,6 @@
 ---
-title: Autenticazione basata su token (HTTP/2) per APNS in hub di notifica di Azure | Microsoft Docs
-description: Informazioni su come usare la nuova autenticazione basata su token per APNS.
+title: Autenticazione basata su token (HTTP/2) per APNS in Azure Notification Hubs Documenti Microsoft
+description: Informazioni su come usare la nuova autenticazione token per APNS.
 services: notification-hubs
 documentationcenter: .net
 author: sethmanheim
@@ -16,42 +16,42 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 02/13/2019
 ms.openlocfilehash: 448b5c38371024c2eae900f4f87b343ee0a3b36a
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76263813"
 ---
-# <a name="token-based-http2-authentication-for-apns"></a>Autenticazione basata su token (HTTP/2) per APNS
+# <a name="token-based-http2-authentication-for-apns"></a>Autenticazione basata su token (HTTP/2) per APNSToken-based (HTTP/2) authentication for APNS
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 
-Questo articolo illustra come usare il nuovo protocollo HTTP/2 APNS con l'autenticazione basata su token.
+In questo articolo viene illustrato come utilizzare il nuovo protocollo APNS HTTP/2 con l'autenticazione basata su token.
 
 Ecco i vantaggi principali dell'uso del nuovo protocollo:
 
-* La generazione di token è relativamente semplice (rispetto ai certificati)
+* La generazione di token è relativamente semplice (rispetto ai certificati)Token generation is relatively simple (compared to certificates)
 * Non sono previste scadenze: l'utente ha il controllo completo dei token di autenticazione e della rispettiva revoca.
 * Sono consentiti payload fino a 4 KB.
 * Commenti e suggerimenti sincroni
-* Si usa il protocollo più recente di Apple: i certificati usano ancora il protocollo binario, contrassegnato per la deprecazione
+* Sei sull'ultimo protocollo di Apple: i certificati usano ancora il protocollo binario, contrassegnato per la deprecazione
 
-L'uso di questo nuovo meccanismo può essere eseguito in due passaggi:
+L'utilizzo di questo nuovo meccanismo può essere eseguito in due fasi:Using this new mechanism can be performed in two steps:
 
-* Ottenere le informazioni necessarie dal portale per gli account per sviluppatori Apple.
+* Ottieni le informazioni necessarie dal portale degli account apple Developer.
 * Configurare l'hub di notifica con le nuove informazioni.
 
-Hub di notifica è ora impostato per usare il nuovo sistema di autenticazione con APNS.
+Hub di notifica è ora impostato per utilizzare il nuovo sistema di autenticazione con APNS.
 
-Si noti che se è stata eseguita la migrazione dall'uso delle credenziali del certificato per APNS, le proprietà del token sovrascrivono il certificato nel sistema, ma l'applicazione continua a ricevere le notifiche senza interruzioni.
+Si noti che se è stata eseguita la migrazione dall'utilizzo delle credenziali del certificato per APNS, le proprietà del token sovrascrivono il certificato nel sistema, ma l'applicazione continua a ricevere notifiche senza problemi.
 
 ## <a name="obtaining-authentication-information-from-apple"></a>Recupero delle informazioni di autenticazione da Apple
 
-Per abilitare l'autenticazione basata su token, sono necessarie le proprietà seguenti dell'account sviluppatore Apple:
+Per abilitare l'autenticazione basata su token, hai bisogno delle seguenti proprietà dal tuo account Apple Developer:
 
-### <a name="key-identifier"></a>Identificatore di chiave
+### <a name="key-identifier"></a>Identificatore della chiave
 
-L'identificatore di chiave può essere ottenuto dalla pagina **chiavi** in **certificati, identificatori & profili**nell'account per sviluppatore Apple:
+L'identificatore chiave può essere ottenuto dalla pagina **Chiavi** in **Certificati, Identificatori & Profili**, nel tuo account Apple Developer:
 
 ![](./media/notification-hubs-push-notification-http2-token-authentification/keys.png)
 
@@ -59,29 +59,29 @@ L'identificatore di chiave può essere ottenuto dalla pagina **chiavi** in **cer
 
 ### <a name="application-identifier-and-application-name"></a>Identificatore dell'applicazione e nome dell'applicazione
 
-Il nome e l'identificatore dell'applicazione sono disponibili anche nella pagina **certificati, identificatori & profili** nell'account sviluppatore:
+Il nome e l'identificatore dell'applicazione sono disponibili anche nella pagina **Certificati, identificatori & profili** nell'account sviluppatore:
 
 ![](./media/notification-hubs-push-notification-http2-token-authentification/app-name.png)
 
-### <a name="configure-via-the-net-sdk-or-the-azure-portal"></a>Configurare tramite .NET SDK o il portale di Azure
+### <a name="configure-via-the-net-sdk-or-the-azure-portal"></a>Configurare tramite .NET SDK o il portale di AzureConfigure via the .NET SDK or the Azure portal
 
-È possibile configurare l'hub per l'uso dell'autenticazione basata su token con l' [SDK client più recente](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs)o nel portale di Azure. Per abilitare l'autenticazione basata su token nel portale, accedere al portale di Azure e passare al pannello impostazioni dell'hub di notifica **> Apple (APNS)** . Selezionare **token** dalla proprietà **modalità di autenticazione** per aggiornare l'hub con tutte le proprietà del token pertinenti.
+È possibile configurare l'hub per l'utilizzo dell'autenticazione basata su token tramite [l'SDK client più recente](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs)o nel portale di Azure.You can configure your hub to use token-based authentication using our latest client SDK , or in the Azure portal. Per abilitare l'autenticazione basata su token nel portale, accedere al portale di Azure e passare al riquadro **Impostazioni > Apple (APNS)** dell'hub di notifica. Selezionare **Token** dalla proprietà **Modalità di autenticazione** per aggiornare l'hub con tutte le proprietà del token rilevanti.
 
-![Configura token](./media/notification-hubs-push-notification-http2-token-authentification/azure-portal-apns-settings.png)
+![Configurare il token](./media/notification-hubs-push-notification-http2-token-authentification/azure-portal-apns-settings.png)
 
-* Immettere le proprietà recuperate dall'account per sviluppatori Apple.
-* Scegliere la modalità di applicazione (**produzione** o **sandbox**).
-* Fare clic sul pulsante **Salva** per aggiornare le credenziali di APNs.
+* Inserisci le proprietà recuperate dal tuo account Apple Developer.
+* Scegliere la modalità applicazione (**Produzione** o **Sandbox**).
+* Fare clic sul pulsante **Salva** per aggiornare le credenziali APNS.
 
-Le credenziali basate su token sono costituite dai campi seguenti:
+Le credenziali basate su token sono costituite dai seguenti campi:
 
-* **ID chiave**: identificatore della chiave privata generata nel portale Apple Developer; ad esempio, `2USFGKSKLT`.
-* **Team ID**: chiamato anche "prefix" o "prefisso app". Questo è l'identificatore dell'organizzazione nel portale per sviluppatori Apple. ad esempio, `S4V3D7CHJR`.
-* **ID bundle**: denominato anche "ID app". Identificatore del bundle per l'applicazione. ad esempio, `com.microsoft.nhubsample2019`. Si noti che è possibile usare una chiave per molte app. Questo valore esegue il mapping all'intestazione HTTP `apns-topic` quando si invia una notifica e viene utilizzata per la destinazione dell'applicazione specifica.
-* **Token**: detto anche "chiave" o "chiave privata". Questa operazione è ottenuta dal file con estensione P8 generato nel portale Apple Developer. Per la chiave deve essere abilitato APNS, che è selezionato nel portale Apple Developer durante la generazione della chiave. Il valore deve avere l'intestazione o il piè di pagina PEM rimosso quando lo si fornisce al portale/API di NH.
-* **Endpoint**: si tratta di un interruttore nel pannello del portale di hub di notifica e di un campo stringa nell'API. I valori validi sono `https://api.push.apple.com` o `https://api.sandbox.push.apple.com`. Hub di notifica usa questo valore per l'ambiente di produzione o sandbox, per l'invio di notifiche. Deve corrispondere al diritto `aps-environment` nell'app, in caso contrario i token del dispositivo APNS generati non corrispondono all'ambiente e le notifiche non vengono inviate.
+* **ID chiave**: Identificatore della chiave privata generata nel portale per sviluppatori Apple; ad esempio, `2USFGKSKLT`.
+* **ID team**: chiamato anche "Prefisso" o "Prefisso app". Questo è l'identificatore per l'organizzazione nel portale per sviluppatori Apple; ad esempio, `S4V3D7CHJR`.
+* **ID pacchetto**: chiamato anche "ID app". Questo è l'identificatore del bundle per l'applicazione; ad esempio, `com.microsoft.nhubsample2019`. Tieni presente che puoi usare una chiave per molte app. Questo valore esegue `apns-topic` il mapping all'intestazione HTTP quando si invia una notifica e viene utilizzato per l'applicazione specifica.
+* **Token**: chiamato anche "Chiave" o "Chiave privata". Questo viene ottenuto dal file .p8 generato sul portale per sviluppatori Apple. La chiave deve avere APNS abilitato (selezionato nel portale per sviluppatori Apple durante la generazione della chiave). Il valore deve avere l'intestazione/piè di pagina PEM rimosso da esso quando viene fornito al portale NH/API.
+* **Endpoint:** si tratta di un interruttore nel pannello del portale Hub di notifica e di un campo stringa nell'API. I valori validi sono `https://api.push.apple.com` o `https://api.sandbox.push.apple.com`. Hub di notifica utilizza questo valore per l'ambiente di produzione o sandbox, per l'invio di notifiche. Deve corrispondere `aps-environment` al diritto nell'app, altrimenti i token del dispositivo APNS generati non corrispondono all'ambiente e le notifiche non vengono inviate.
 
-Ecco un esempio di codice che illustra l'utilizzo corretto:
+Ecco un esempio di codice che illustra l'utilizzo corretto:Here's a code sample illustrating the correct usage:
 
 ```csharp
 NamespaceManager nm = NamespaceManager.CreateFromConnectionString(_endpoint);
@@ -98,4 +98,4 @@ nm.UpdateNotificationHubAsync(desc);
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Creare un hub di notifica di Azure nel portale di Azure](create-notification-hub-portal.md)
-* [Configurare un hub di notifica nel portale di Azure](create-notification-hub-portal.md)
+* [Configurare un hub di notifica nel portale di AzureConfigure a notification hub in the Azure portal](create-notification-hub-portal.md)

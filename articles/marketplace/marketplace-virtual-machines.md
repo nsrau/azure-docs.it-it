@@ -2,18 +2,18 @@
 title: Guida alla pubblicazione di offerte di macchine virtuali per Azure Marketplace
 description: Questo articolo descrive i requisiti per pubblicare una macchina virtuale e una versione di prova gratuita del software da distribuire dal Marketplace.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: ellacroi
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/09/2018
-ms.author: ellacroi
-ms.openlocfilehash: 0f2047501b6c57b2bb98ff7e3c56498417644324
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 34de5f59e96a37282063741a1664f512697c167b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818984"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288717"
 ---
 # <a name="virtual-machine-offer-publishing-guide"></a>Guida alla pubblicazione di offerte di macchine virtuali
 
@@ -23,14 +23,7 @@ Sono offerte di transazioni che vengono distribuite e fatturate attraverso il Ma
 
 ## <a name="free-trial"></a>Versione di valutazione gratuita 
 
-È possibile fare in modo che gli utenti possano testare la propria offerta accedendo a licenze software per un periodo limitato quando usano il modello di fatturazione Bring Your Own License (BYOL). Di seguito sono riportati i requisiti per implementare questa offerta. 
-
-|Requisiti  |Dettagli  |
-|---------|---------|
-|Periodo di prova gratuita ed esperienza della versione di valutazione     |   I clienti possono provare l'app gratuitamente per un periodo di tempo limitato. I clienti non devono pagare costi di licenza o di sottoscrizione per l'offerta. I clienti non devono pagare il prodotto o il servizio proprietario di Microsoft sottostante. Tutte le opzioni di valutazione sono distribuite nella sottoscrizione di Azure. L'utente ha il controllo esclusivo dell'ottimizzazione dei costi e della gestione. È possibile scegliere una versione di valutazione gratuita o una demo interattiva. Indipendentemente dall'opzione selezionata, per la prova gratuita è necessario concedere ai clienti un periodo prestabilito di tempo per provare l'offerta senza costi aggiuntivi.|
-|Soluzione pronta all'uso e facilmente configurabile    |  L'app deve essere semplice e rapida da configurare e installare.       |
-|Disponibilità/Tempo di attività    |    L'app o la piattaforma SaaS deve avere un tempo di attività pari ad almeno il 99,9%.     |
-|Azure Active Directory     |    L'offerta deve consentire l'accesso Single Sign-On (SSO) federato di Azure Active Directory (accesso SSO federato di Azure AD) con il consenso abilitato.     |
+È possibile fare in modo che gli utenti possano testare la propria offerta accedendo a licenze software per un periodo limitato quando usano il modello di fatturazione Bring Your Own License (BYOL). 
 
 ## <a name="test-drive"></a>Test drive
 
@@ -63,15 +56,15 @@ Usare il tipo di offerta per le macchine virtuali quando si distribuisce un'appl
 | Disco rigido virtuale (VHD) compatibile con Azure | Le macchine virtuali devono essere compilate in Windows o Linux. <ul> <li>Per altre informazioni sulla creazione di un disco rigido virtuale Linux, vedere [Distribuzioni di Linux approvate in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).</li> <li>Per altre informazioni sulla creazione di un disco rigido virtuale Windows, [vedere Creare un disco rigido virtuale compatibile con Azure](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md).</li> </ul> |  
 
 >[!Note]
->Il consenso esplicito del canale partner Cloud Solution Provider (CSP) è ora disponibile.  Per ulteriori informazioni sul marketing dell'offerta tramite i canali del partner Microsoft CSP, vedere [provider di soluzioni cloud](./cloud-solution-providers.md) .
+>L'opt-in del canale per i partner Cloud Solution Provider (CSP) è ora disponibile.  Per ulteriori informazioni sul marketing dell'offerta tramite i canali partner Microsoft CSP, consulta [Cloud Solution Provider.](./cloud-solution-providers.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Se non è già stato fatto, 
 
-- [Registrarsi](https://azuremarketplace.microsoft.com/sell) in Marketplace.
+- [Registrati](https://azuremarketplace.microsoft.com/sell) nel marketplace.
 
 Se la registrazione è già stata effettuata e si sta creando una nuova offerta o lavorando su una esistente,
 
-- [Accedere al portale Cloud Partner](https://cloudpartner.azure.com) per creare o completare l'offerta.
+- [Accedi al portale Cloud Partner](https://cloudpartner.azure.com) per creare o completare la tua offerta.
 - Per altre informazioni, vedere [Offerta di una macchina virtuale](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer).

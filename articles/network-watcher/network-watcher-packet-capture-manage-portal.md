@@ -1,5 +1,5 @@
 ---
-title: Gestire le acquisizioni di pacchetti-portale di Azure
+title: Gestire le acquisizioni di pacchetti - Portale di AzureManage packet captures - Azure portal
 titleSuffix: Azure Network Watcher
 description: Altre informazioni su come gestire la funzionalità di acquisizione di pacchetti di Network Watcher usando il portale di Azure.
 services: network-watcher
@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: damendo
 ms.openlocfilehash: 6fc4a25e39fb8f27151b2e3bec1959d74a619233
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76840828"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Gestire le acquisizioni di pacchetti con Azure Network Watcher usando il portale
@@ -32,7 +32,7 @@ L'acquisizione di pacchetti richiede la connettività seguente:
 * Connettività in ingresso e in uscita a 169.254.169.254
 * Connettività in ingresso e in uscita a 168.63.129.16
 
-Se un gruppo di sicurezza di rete è associato all'interfaccia di rete o alla subnet in cui si trova l'interfaccia di rete, garantire l’esistenza di regole che autorizzino le porte precedenti. Analogamente, l'aggiunta di route di traffico definite dall'utente alla rete può impedire la connettività agli indirizzi IP e alle porte indicati in precedenza. Assicurati che siano raggiungibili. 
+Se un gruppo di sicurezza di rete è associato all'interfaccia di rete o alla subnet in cui si trova l'interfaccia di rete, garantire l’esistenza di regole che autorizzino le porte precedenti. Analogamente, l'aggiunta di route di traffico definite dall'utente alla rete può impedire la connettività agli indirizzi IP e alle porte sopra menzionati. Si prega di assicurarsi che siano raggiungibili. 
 
 ## <a name="start-a-packet-capture"></a>Avviare un'acquisizione di pacchetti
 
@@ -44,7 +44,7 @@ Se un gruppo di sicurezza di rete è associato all'interfaccia di rete o alla su
    - **Macchina virtuale di destinazione**: La macchina virtuale che si desidera creare per l'acquisizione di pacchetti.
    - **Nome acquisizione pacchetti**: Un nome per l'acquisizione di pacchetti.
    - **Account di archiviazione o un file**: Selezionare **Account di archiviazione**, **File**, o entrambi. Se si seleziona **File**, l'acquisizione viene scritta in un percorso all'interno della macchina virtuale.
-   - **Percorso file locale**: Percorso locale nella macchina virtuale in cui viene salvata l'acquisizione di pacchetti (valido solo quando è selezionato *[File]* ). Il percorso deve essere valido. Se si usa una macchina virtuale Linux, il percorso deve iniziare con *var/captures*.
+   - **Percorso file locale**: Percorso locale nella macchina virtuale in cui viene salvata l'acquisizione di pacchetti (valido solo quando è selezionato *[File]*). Il percorso deve essere valido. Se si usa una macchina virtuale Linux, il percorso deve iniziare con *var/captures*.
    - **Gli account di archiviazione**: Selezionare un account di archiviazione esistente, se è stato selezionato *Account di archiviazione*. Questa opzione è disponibile solo se è stato selezionato **Archiviazione**.
    
      > [!NOTE]
@@ -52,7 +52,7 @@ Se un gruppo di sicurezza di rete è associato all'interfaccia di rete o alla su
 
    - **Numero massimo di byte per pacchetto**: Il numero di byte che sono stati acquisiti da ogni pacchetto. Se lasciato vuoto, vengono acquisiti tutti i byte.
    - **Numero massimo di byte per sessione**: Il numero totale di byte acquisiti. Una volta raggiunto il valore, l'acquisizione pacchetti si arresta.
-   - **Limite di tempo (secondi)** : Il limite di tempo viene arrestato prima dell'acquisizione di pacchetti. Il valore predefinito è 18.000 secondi.
+   - **Limite di tempo (secondi)**: Il limite di tempo viene arrestato prima dell'acquisizione di pacchetti. Il valore predefinito è 18.000 secondi.
    - Filtro (facoltativo). Selezionare **+ Aggiungere filtro**
      - **Protocollo**: Protocollo per filtrare l'acquisizione di pacchetti. I valori disponibili sono TCP, UDP e Qualsiasi.
      - **Indirizzo IP locale**: Filtrare l'acquisizione di pacchetti per i pacchetti in cui l'indirizzo IP locale corrisponde a questo valore.
@@ -70,7 +70,7 @@ Una volta scaduto il limite di tempo impostato per l'acquisizione di pacchetti, 
 > [!NOTE]
 > Il portale automaticamente:
 >  * Creare un'istanza di network watcher nella stessa area dell'area in cui è presente la macchina virtuale selezionata, se l'area non dispone ancora di un network watcher.
->  * Aggiunge l'estensione della macchina virtuale *AzureNetworkWatcherExtension* [Linux](../virtual-machines/linux/extensions-nwa.md) o [Windows](../virtual-machines/windows/extensions-nwa.md) alla macchina virtuale, se non è già installata.
+>  * Aggiungere l'estensione della macchina virtuale*AzureNetworkWatcherExtension* [Linux](../virtual-machines/linux/extensions-nwa.md) oppure [Windows](../virtual-machines/windows/extensions-nwa.md) alla macchina virtuale, se non ancora installata.
 
 ## <a name="delete-a-packet-capture"></a>Eliminare un'acquisizione di pacchetti
 

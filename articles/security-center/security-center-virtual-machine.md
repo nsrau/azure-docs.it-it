@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 02/24/2017
 ms.author: yurid
 ms.openlocfilehash: 69062e42a5d572cf7b73bec3932613d39be9b92f
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77921505"
 ---
 # <a name="azure-security-center-and-azure-virtual-machines"></a>Centro sicurezza di Azure e macchine virtuali di Azure
@@ -42,12 +42,12 @@ Oltre a proteggere le macchine virtuali di Azure, il Centro sicurezza offre funz
 > 
 > 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 Per iniziare a usare il Centro sicurezza di Azure, è necessario conoscere e tenere in considerazione quanto segue:
 
 * È necessaria una sottoscrizione a Microsoft Azure. Per altre informazioni sui livelli gratuito e standard del Centro sicurezza, vedere [Centro sicurezza Prezzi](https://azure.microsoft.com/pricing/details/security-center/).
 * Pianificare l'adozione del Centro sicurezza. Per informazioni sulle considerazioni relative alla pianificazione e alle operazioni, vedere [Guida alla pianificazione e alla gestione del Centro sicurezza di Azure](security-center-planning-and-operations-guide.md).
-* Per informazioni sui sistemi operativi supportati, vedere [domande frequenti sul centro sicurezza di Azure](faq-vms.md). 
+* Per informazioni sui sistemi operativi supportati, vedere Domande frequenti sul Centro sicurezza di [Azure.](faq-vms.md) 
 
 ## <a name="set-security-policy"></a>Impostare i criteri di sicurezza
 È necessario abilitare la funzionalità di raccolta dati per consentire al Centro sicurezza di Azure di raccogliere le informazioni di cui ha bisogno per fornire indicazioni e avvisi generati sulla base dei criteri di sicurezza configurati. Nella figura seguente è possibile osservare che la funzionalità **Raccolta dati** è stato impostata su **On**.
@@ -66,7 +66,7 @@ Una volta impostato un criterio di sicurezza, il Centro sicurezza analizza lo st
 
 | Recommendation | Descrizione |
 | --- | --- |
-| Abilita raccolta dati per sottoscrizioni |Consiglia di attivare la raccolta dati nei criteri di sicurezza per ogni sottoscrizione e per tutte le macchine virtuali nelle sottoscrizioni. |
+| Abilita la raccolta di dati per le sottoscrizioni |Consiglia di attivare la raccolta dati nei criteri di sicurezza per ogni sottoscrizione e per tutte le macchine virtuali nelle sottoscrizioni. |
 | Remediate OS vulnerabilities (Risolvi vulnerabilità del sistema operativo) |Consiglia di allineare le configurazioni dei sistemi operativi alle regole di configurazione raccomandate, ad esempio non consentire il salvataggio delle password. |
 | Applicare gli aggiornamenti di sistema |Consiglia di distribuire gli aggiornamenti critici e della sicurezza di sistema mancanti nelle macchine virtuali. |
 | Riavviare dopo gli aggiornamenti del sistema |Consiglia di riavviare una macchina virtuale per completare il processo di applicazione degli aggiornamenti del sistema. |
@@ -96,6 +96,6 @@ Selezionare un avviso di sicurezza per altre informazioni sugli eventi che hanno
 ## <a name="see-also"></a>Vedere anche
 Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 
-* [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](tutorial-security-policy.md) : informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
-* [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md) : informazioni su come gestire e rispondere agli avvisi di sicurezza.
-* Domande [frequenti-macchine virtuali](faq-vms.md) --domande frequenti sull'uso del servizio.
+* [Setting security policies in Azure Security Center:](tutorial-security-policy.md) informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.Setting security policies in Azure Security Center -- Learn how to configure security policies for your Azure subscriptions and resource groups.
+* [Gestione e risposta agli avvisi](security-center-managing-and-responding-alerts.md) di sicurezza nel Centro sicurezza di Azure: informazioni su come gestire e rispondere agli avvisi di sicurezza.
+* [Domande frequenti - Macchine virtuali:](faq-vms.md) trovare le domande frequenti sull'utilizzo del servizio.

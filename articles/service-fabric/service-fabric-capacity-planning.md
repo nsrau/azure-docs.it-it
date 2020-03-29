@@ -1,13 +1,13 @@
 ---
-title: Pianificazione della capacità per le app Service Fabric
+title: Pianificazione della capacità per le app di Service Fabric
 description: Descrive come identificare il numero di nodi di calcolo necessari per un'applicazione dell'infrastruttura di servizi
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: cd5a5c55ff873e4891ac63361d0c4a0b56d70109
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75377209"
 ---
 # <a name="capacity-planning-for-service-fabric-applications"></a>Pianificazione della capacità per le applicazioni Service Fabric
@@ -49,7 +49,7 @@ A questo punto, in base a tali informazioni, il foglio di calcolo mostra che è 
 ![Foglio di calcolo per il calcolo dei costi][Image1]
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sul partizionamento del servizio, vedere [partizionamento Service Fabric Servizi][10] .
+Per altre informazioni sul partizionamento del servizio, consultare [Partizionamento dei servizi di Service Fabric][10].
 
 <!--Image references-->
 [Image1]: ./media/SF-Cost.png

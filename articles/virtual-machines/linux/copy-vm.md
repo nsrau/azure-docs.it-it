@@ -1,5 +1,5 @@
 ---
-title: Copiare una VM Linux usando l'interfaccia della riga di comando
+title: Copiare una macchina virtuale Linux usando l'interfaccia della riga di comando di AzureCopy a Linux VM using Azure CLI
 description: Informazioni su come creare una copia della macchina virtuale Linux di Azure usando l'interfaccia della riga di comando di Azure e i dischi gestiti.
 author: cynthn
 ms.service: virtual-machines-linux
@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 10/17/2018
 ms.author: cynthn
 ms.openlocfilehash: ed8574133eafe751699e90ea8cae832ee649fb00
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78969591"
 ---
 # <a name="create-a-copy-of-a-linux-vm-by-using-azure-cli-and-managed-disks"></a>Creare una copia di una macchina virtuale Linux di Azure usando l'interfaccia della riga di comando di Azure e i dischi gestiti
@@ -19,9 +19,9 @@ Questo articolo descrive come creare una copia di una macchina virtuale di Azure
 
 È anche possibile [caricare e creare una VM da un disco rigido virtuale](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
--   Installare l'[interfaccia della riga di comando di Azure](/cli/azure/install-az-cli2).
+-   Installare [l'interfaccia della riga di comando](/cli/azure/install-az-cli2)di Azure.
 
 -   Accedere a un account di Azure con [az login](/cli/azure/reference-index#az-login).
 
@@ -125,4 +125,4 @@ az vm create --resource-group myResourceGroup \
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni su come usare una [raccolta di immagini condivise](shared-images.md) per gestire le immagini di macchina virtuale.
+Per informazioni su come usare una raccolta di [immagini condivise](shared-images.md) per gestire le immagini delle macchine virtuali.

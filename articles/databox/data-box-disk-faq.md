@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: alkohli
 ms.openlocfilehash: 7ba6ea8606fc354527ff4114bc45a0904941ba93
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77918938"
 ---
-# <a name="azure-data-box-disk-frequently-asked-questions"></a>Azure Data Box Disk: domande frequenti
+# <a name="azure-data-box-disk-frequently-asked-questions"></a>Disco casella dati di Azure: domande frequentiAzure Data Box Disk: Frequently Asked Questions
 
 La soluzione cloud Microsoft Azure Data Box Disk consente di inviare terabyte di dati ad Azure in modo veloce, conveniente e affidabile. Queste domande frequenti includono domande che possono sorgere durante l'uso dei dischi di Data Box nel portale di Azure e relative risposte. 
 
@@ -145,16 +145,16 @@ R.  No. Con i dischi di Data Box è attualmente supportato un solo account di ar
 
 ### <a name="q-what-is-the-toolset-available-for-my-data-with-data-box-disks"></a>Q. Qual è il set di strumenti disponibile per i dati con i Data Box Disk?
 R. Il set di strumenti disponibile con il Data Box Disk contiene tre strumenti:
- - **Strumento di sblocco data box disk**: usare questo strumento per sbloccare i dischi crittografati forniti da Microsoft. Quando si sbloccano i dischi che usano lo strumento, è necessario fornire una passkey disponibile nell'ordine Data Box Disk nel portale di Azure. 
- - **Strumento di convalida data box disk**: usare questo strumento per convalidare i nomi di dimensioni, formato e BLOB in base alle convenzioni di denominazione di Azure. Genera anche i checksum per i dati copiati che vengono quindi usati per verificare i dati caricati in Azure.
- - **Data Box Disk strumento copia divisa**: usare questo strumento quando si usano più dischi e si dispone di un set di dati di grandi dimensioni che deve essere suddiviso e copiato in tutti i dischi. Questo strumento è attualmente disponibile per Windows. Questo strumento non è supportato con dischi gestiti. Lo strumento inoltre esegue la convalida durante la copia dei dati, di conseguenza è possibile ignorare il passaggio di convalida quando lo si usa.
+ - **Strumento di sblocco disco casella dati**: Utilizzare questo strumento per sbloccare i dischi crittografati forniti da Microsoft. Quando si sbloccano i dischi che usano lo strumento, è necessario fornire una passkey disponibile nell'ordine Data Box Disk nel portale di Azure. 
+ - **Strumento di convalida del disco della casella dati:** usare questo strumento per convalidare le dimensioni, il formato e i nomi dei BLOB in base alle convenzioni di denominazione di Azure.Data Box Disk Validation tool : Use this tool to validate the size, format, and blob names as by the Azure naming conventions. Genera anche i checksum per i dati copiati che vengono quindi usati per verificare i dati caricati in Azure.
+ - **Strumento Copia suddivisa su disco data**Box : utilizzare questo strumento quando si utilizzano più dischi e si dispone di un set di dati di grandi dimensioni che deve essere suddiviso e copiato su tutti i dischi. Questo strumento è attualmente disponibile per Windows. Questo strumento non è supportato con dischi gestiti. Lo strumento inoltre esegue la convalida durante la copia dei dati, di conseguenza è possibile ignorare il passaggio di convalida quando lo si usa.
 
 Il set di strumenti è disponibile per Windows e Linux. È possibile scaricare il set di strumenti qui:
 - [Scaricare il set di strumenti di Data Box Disk per Windows](https://aka.ms/databoxdisktoolswin) 
 - [Scaricare il set di strumenti di Data Box Disk per Linux](https://aka.ms/databoxdisktoolslinux)
  
 ### <a name="q-can-i-use-data-box-disk-to-transfer-data-to-azure-files-and-then-use-the-data-with-azure-file-sync"></a>Q. È possibile usare Data Box Disk per trasferire i dati in File di Azure e quindi usare i dati con Sincronizzazione file di Azure? 
-R. File di Azure sono supportati con Data Box Disk ma non funzioneranno correttamente con Sincronizzazione file di Azure. I metadati non vengono conservati se i dati del file vengono utilizzati con Sincronizzazione file di Azure.
+R. Azure Files are supported with Data Box Disk but will not work well with Azure File Sync. I metadati non vengono mantenuti se i dati del file vengono usati con Sincronizzazione file di Azure.Metadata is not retained if the file data is used with Azure File Sync.
 
 
 ## <a name="verify-and-upload"></a>Verifica e caricamento
@@ -185,9 +185,9 @@ R. È possibile clonare l'ordine precedente. La clonazione consente di creare un
 
 ### <a name="q-i-copied-data-to-manageddisk-folder-i-dont-see-any-managed-disks-with-the-resource-group-specified-for-managed-disks-was-my-data-uploaded-to-azure-and-how-can-i-locate-it"></a>Q. Sono stati copiati i dati nella cartella ManagedDisk. Non è presente nessun disco gestito con il gruppo di risorse specificato per i dischi gestiti. I dati sono stati caricati in Azure e come è possibile individuarli?
 R. Sì. I dati sono stati caricati in Azure, ma se non viene visualizzato nessun disco gestito con i gruppi di risorse specificati è probabile che i dati non siano validi. Se i BLOB di pagine, i BLOB in blocchi, i file di Azure e i dischi gestiti non fossero validi, verrebbero inviati nelle cartelle seguenti:
- - I BLOB di pagine verrebbero inviati in un contenitore blob in blocchi che inizia con *databoxdisk-invalid-pb-* .
- - I file di Azure verrebbero inviati in un contenitore blob in blocchi che inizia con *databoxdisk-invalid-af-* .
- - I dischi gestiti verrebbero inviati in un contenitore blob in blocchi che inizia con *databoxdisk-invalid-md-* .
+ - I BLOB di pagine verrebbero inviati in un contenitore blob in blocchi che inizia con *databoxdisk-invalid-pb-*.
+ - I file di Azure verrebbero inviati in un contenitore blob in blocchi che inizia con *databoxdisk-invalid-af-*.
+ - I dischi gestiti verrebbero inviati in un contenitore blob in blocchi che inizia con *databoxdisk-invalid-md-*.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

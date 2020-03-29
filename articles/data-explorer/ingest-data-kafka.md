@@ -1,6 +1,6 @@
 ---
 title: Inserire dati da Kafka in Esplora dati di Azure
-description: In questo articolo descrive come inserire (caricare) i dati in Esplora dati di Azure da Kafka.
+description: In this article, you learn how to ingest (load) data into Azure Data Explorer from Kafka.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.openlocfilehash: 03b46ff50683149a22c71ccb155480a0f08455bd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "66497273"
 ---
 # <a name="ingest-data-from-kafka-into-azure-data-explorer"></a>Inserire dati da Kafka in Esplora dati di Azure
@@ -22,9 +22,9 @@ Esplora dati di Azure √® un servizio di esplorazione dati rapido e a scalabilit√
  
 * Se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare. 
  
-* [Un cluster e un database di test](create-cluster-database-portal.md).
+* [Un cluster di test e](create-cluster-database-portal.md)un database .
  
-* [Un'app di esempio](https://github.com/Azure/azure-kusto-samples-dotnet/tree/master/kafka) che genera i dati e li invia a Kafka.
+* [Un'app di esempio](https://github.com/Azure/azure-kusto-samples-dotnet/tree/master/kafka) che genera dati e li invia a Kafka.
 
 * [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) per eseguire l'app di esempio.
  
@@ -121,7 +121,7 @@ git clone git://github.com:Azure/azure-kusto-samples-dotnet.git
 cd ./azure-kusto-samples-dotnet/kafka/
 ```
 
-### <a name="run-the-app"></a>Esecuzione dell'app
+### <a name="run-the-app"></a>Eseguire l'app
 
 1. Aprire la soluzione dell'app di esempio in Visual Studio.
 
@@ -162,4 +162,4 @@ cd ./azure-kusto-samples-dotnet/kafka/
  
 ## <a name="next-steps"></a>Passaggi successivi
  
-* [Eseguire query sui dati in Esplora dati di Azure](web-query-data.md)
+* [Query data in Azure Data Explorer](web-query-data.md)

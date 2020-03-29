@@ -1,6 +1,6 @@
 ---
-title: Modelli di hub di notifica di Azure
-description: Informazioni sull'uso dei modelli per hub di notifica di Azure.
+title: Modelli di Azure Notification HubsAzure Notification Hubs templates
+description: Informazioni sull'uso dei modelli per gli hub di notifica di Azure.Learn about using templates for Azure Notification Hubs.
 services: notification-hubs
 documentationcenter: .net
 author: sethmanheim
@@ -17,10 +17,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 7d88f57fe92b9da62cc9f90d64bdec4c27642fb0
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76263745"
 ---
 # <a name="templates"></a>Modelli
@@ -133,7 +133,7 @@ I modelli sono limitati ai formati di documento XML o JSON. Inoltre, è possibil
 
 Nella tabella seguente viene descritto il linguaggio consentito nei modelli:
 
-| Expression       | Description |
+| Expression       | Descrizione |
 | ---------------- | --- |
 | $(prop)          | Riferimento a una proprietà di evento con il nome specificato. I nomi delle proprietà non distinguono tra maiuscole e minuscole. Questa espressione viene risolta nel valore di testo della proprietà o in una stringa vuota se la proprietà non è presente. |
 | $(prop, n)       | Come in precedenza, ma il testo viene esplicitamente troncato dopo n caratteri, ad esempio $(title, 20) tronca il contenuto della proprietà del riquadro dopo 20 caratteri. |
@@ -173,4 +173,4 @@ Come spiegato in precedenza, quando si usa la concatenazione, le espressioni dev
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Informazioni su Hub di notifica di Azure](notification-hubs-push-notification-overview.md)
+[Informazioni sugli hub di notifica di AzureLearn about Azure Notification Hubs](notification-hubs-push-notification-overview.md)

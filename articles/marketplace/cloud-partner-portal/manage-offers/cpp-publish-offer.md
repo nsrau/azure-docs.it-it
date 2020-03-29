@@ -1,19 +1,18 @@
 ---
-title: Pubblicare le offerte del Marketplace | Azure Marketplace
+title: Pubblicare le offerte di Marketplace Azure Marketplace
 description: Pubblicare offerte in Azure Marketplace e nel marketplace di AppSource usando il portale Cloud Partner
-services: Azure, AppSource, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/12/2019
-ms.author: pabutler
-ms.openlocfilehash: e77f0994f604f3a7365f1ed1ddb9191a2510883a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: ab75afd2278433dc36c3d1280b41edfa1e34ddce
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826730"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80286405"
 ---
 # <a name="publish-azure-marketplace-and-appsource-offers"></a>Pubblicare offerte di Azure Marketplace e AppSource
 

@@ -1,19 +1,18 @@
 ---
-title: Scheda test drive della macchina virtuale nel portale Cloud Partner per Azure Marketplace
+title: Scheda Test Drive della macchina virtuale nel portale Cloud Partner per Azure MarketplaceVirtual machine Test Drive tab in the Cloud Partner Portal for the Azure Marketplace
 description: Descrive la scheda Test Drive usata nella creazione di un'offerta di macchina virtuale in Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal, virtual machine
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/25/2019
-ms.author: pabutler
-ms.openlocfilehash: 94ebbcca50916f1675ab990a4b45f3b90e069104
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: d4fc8762e25825b21637b16b751d57a0dcbf369e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73808865"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288802"
 ---
 # <a name="virtual-machine-test-drive-tab"></a>Scheda Test Drive di macchina virtuale
 
@@ -33,18 +32,18 @@ La tabella seguente descrive lo scopo e il contenuto di questi campi.  I campi o
 |  ---------                |     ---------------                                                          |
 |  *Dettagli*   |  |
 | **Descrizione\***           | Offrire una panoramica dello scenario di test drive. Questo testo verrà mostrato all'utente durante il provisioning del test drive. Supporta il linguaggio HTML di base qualora si volesse offrire contenuto formattato.  |
-| **\* manuale dell'utente**           | Caricare un manuale dell'utente dettagliato (file con estensione pdf) che consente agli utenti del test drive di capire come usare la soluzione presentata.  |
+| **Manuale\***           | Caricare un manuale dell'utente dettagliato (file con estensione pdf) che consente agli utenti del test drive di capire come usare la soluzione presentata.  |
 | **Video demo del test drive** | Caricare un video che illustra la soluzione.  Se si sceglie questa opzione, è necessario specificare un nome, l'URL del video (su YouTube o Vimeo) e un'immagine di anteprima (533 x 324 pixel) del video. |
 | *Configurazione tecnica* |  |
 | **Istanze\***             | Specificare la disponibilità di aree e la disponibilità relativa dell'istanza di macchina virtuale (fare clic sull'icona delle informazioni per altri dettagli).  <br/>È consigliabile che le sessioni di test drive potenzialmente simultanee non superino il limite di quota per la sottoscrizione.  La prima viene calcolata nel modo seguente: [Numero di aree selezionate] x [Istanze ad accesso frequente] + [Numero di aree selezionate] x [Istanze ad accesso medio] + [Numero di aree selezionate] x [Istanze ad accesso sporadico] |
-| **Durata\* test drive**   | Durata massima della sessione in ore La sessione del test drive termina automaticamente dopo il superamento di questo periodo di tempo.  |
-|**Modello ARM di test drive\***| Caricare il modello di Azure Resource Manager associato a questo test drive. Per altre informazioni, vedere [Transforming Virtual Machine Deployment Template for Test Drive](https://github.com/Azure/AzureTestDrive/wiki/Transforming-Virtual-Machine-Deployment-Template-for-Test-Drive) (Trasformazione del modello di distribuzione di macchine virtuali per il test drive). |
-| **\* informazioni di accesso**    | Informazioni di accesso ad Azure Resource Manager e alla versione di valutazione, scritte in testo normale o in HTML semplice. |
-| *Dettagli della sottoscrizione della distribuzione del test drive* |  |
-| **ID sottoscrizione di Azure\*** | È reperibile accedendo al [portale di Microsoft Azure](https://ms.portal.azure.com) e facendo clic su **Sottoscrizioni** nella barra dei menu a sinistra. (Esempio: "a83645ac-1234-5AB6-6789-1h234g764ghty")    Questo identificatore deve essere un GUID del form `a83645ac-1234-5ab6-6789-1h234g764ghty`.|
-| **ID tenant Azure AD\***    | ID del tenant di Azure Active Directory.  È reperibile accedendo al [portale di Microsoft Azure](https://ms.portal.azure.com) e facendo clic su **Azure Active Directory** nella barra dei menu a sinistra, quindi facendo clic su **Proprietà** nella barra dei menu centrale e quindi copiando l'**ID directory** dal modulo.  Anche questo identificatore deve essere un GUID.  Se questo campo è vuoto, è necessario creare un ID tenant per l'organizzazione. |
-| **ID App Azure AD\***       | Identificatore per la soluzione di macchina virtuale di Azure registrata  |
-| **Chiave di App Azure AD\***      | Chiave di autenticazione per la soluzione registrata |
+| **Durata del test Drive\***   | Durata massima della sessione in ore La sessione del test drive termina automaticamente dopo il superamento di questo periodo di tempo.  |
+|**Modello ARM Test Drive\***| Caricare il modello di Azure Resource Manager associato a questo test drive. Per altre informazioni, vedere [Transforming Virtual Machine Deployment Template for Test Drive](https://github.com/Azure/AzureTestDrive/wiki/Transforming-Virtual-Machine-Deployment-Template-for-Test-Drive) (Trasformazione del modello di distribuzione di macchine virtuali per il test drive). |
+| **Informazioni di accesso\***    | Informazioni di accesso ad Azure Resource Manager e alla versione di valutazione, scritte in testo normale o in HTML semplice. |
+| *Dettagli sottoscrizione sottoscrizione distribuzione test drive* |  |
+| **ID sottoscrizione di AzureAzure Subscription Id\*** | È reperibile accedendo al [portale di Microsoft Azure](https://ms.portal.azure.com) e facendo clic su **Sottoscrizioni** nella barra dei menu a sinistra. (Esempio: "a83645ac-1234-5ab6-6789-1h234g764ghty")    Questo identificatore deve essere `a83645ac-1234-5ab6-6789-1h234g764ghty`un GUID nel formato .|
+| **Azure AD Tenant Id\***    | ID del tenant di Azure Active Directory.  È reperibile accedendo al [portale di Microsoft Azure](https://ms.portal.azure.com) e facendo clic su **Azure Active Directory** nella barra dei menu a sinistra, quindi facendo clic su **Proprietà** nella barra dei menu centrale e quindi copiando l'**ID directory** dal modulo.  Anche questo identificatore deve essere un GUID.  Se questo campo è vuoto, è necessario creare un ID tenant per l'organizzazione. |
+| **Azure AD App Id\***       | Identificatore per la soluzione di macchina virtuale di Azure registrata  |
+| **Azure AD App Key\***      | Chiave di autenticazione per la soluzione registrata |
 |   |   |
 
 

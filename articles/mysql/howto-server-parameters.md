@@ -1,17 +1,17 @@
 ---
-title: Configurare i parametri del server-portale di Azure-database di Azure per MySQL
+title: Configurare i parametri del server - Portale di Azure - Database di Azure per MySQLConfigure server parameters - Azure portal - Azure Database for MySQL
 description: Questo articolo illustra come configurare i parametri di server MySQL in Database di Azure per MySQL usando il portale di Azure.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/05/2019
-ms.openlocfilehash: 8ec6f32d7db0161cef00330aa38601ba9bdb309d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.date: 3/18/2020
+ms.openlocfilehash: fc2b1bbe0a3249014e663d43ee4db87cab5eedcf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79245720"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80063253"
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mysql-by-using-the-azure-portal"></a>Come configurare i parametri di server in Database di Azure per MySQL usando il portale di Azure
 
@@ -35,9 +35,9 @@ L'elenco di parametri del server supportati è in continua crescita. Usare la sc
 
 ## <a name="non-configurable-server-parameters"></a>Elenco di parametri del server non configurabili
 
-Le dimensioni del pool di buffer InnoDB non possono essere configurate e associate al piano [tariffario](concepts-service-tiers.md).
+La dimensione del pool di buffer InnoDB non è configurabile e legata al [piano tariffario.](concepts-service-tiers.md)
 
-|**Piano tariffario**|**vCore**|**Dimensioni del pool di buffer InnoDB in MB <br>(server che supportano fino a 4 TB di archiviazione)**| **Dimensioni del pool di buffer InnoDB in MB <br>(server che supportano fino a 16 TB di archiviazione)**|
+|**Livello di determinazione dei prezzi**|**vCore**|**Dimensioni del pool di <br>buffer InnoDB in MB (server che supportano fino a 4 TB di spazio di archiviazione)**| **Dimensioni del pool di <br>buffer InnoDB in MB (server che supportano fino a 16 TB di spazio di archiviazione)**|
 |:---|---:|---:|---:|
 |Basic| 1| 832| |
 |Basic| 2| 2560| |
@@ -78,7 +78,7 @@ CALL mysql.az_load_timezone();
 ```
 
 > [!IMPORTANT]
-> È necessario riavviare il server per assicurarsi che le tabelle del fuso orario siano popolate correttamente. Per riavviare il server, usare il [portale di Azure](howto-restart-server-portal.md) o l' [interfaccia](howto-restart-server-cli.md)della riga di comando.
+> È necessario riavviare il server per assicurarsi che le tabelle del fuso orario siano popolate correttamente. Per riavviare il server, usare il [portale di Azure](howto-restart-server-portal.md) o l'interfaccia della riga di [comando.](howto-restart-server-cli.md)
 
 Per visualizzare i valori di fuso orario disponibili, eseguire questo comando:
 

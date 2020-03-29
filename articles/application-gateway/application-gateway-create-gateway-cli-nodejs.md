@@ -1,5 +1,5 @@
 ---
-title: Creare un Gateway applicazione di Azure - della riga di comando di Azure classico
+title: Creare un gateway applicazione di Azure - interfaccia della riga di comando classica di AzureCreate an Azure Application Gateway - Azure classic CLI
 description: Informazioni su come creare un gateway applicazione usando l'interfaccia della riga di comando classica di Azure in Resource Manager
 services: application-gateway
 author: vhorne
@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 4/15/2019
 ms.author: victorh
 ms.openlocfilehash: 7107f45253c4f13b3378489726bf5034e104fa30
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "62095983"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-cli"></a>Creare un gateway applicazione con l'interfaccia della riga di comando di Azure
 
-Il gateway applicazione di Azure è un dispositivo di bilanciamento del carico di livello 7. Fornisce richieste HTTP con routing delle prestazioni e failover tra server diversi, sia nel cloud che in locale. Gateway applicazione offre le funzionalità di recapito di applicazioni seguenti: Bilanciamento del carico HTTP, affinità di sessione basata su cookie e offload Secure Sockets Layer (SSL), probe di integrità personalizzati e supporto per più siti.
+Il gateway applicazione di Azure è un dispositivo di bilanciamento del carico di livello 7. Fornisce richieste HTTP con routing delle prestazioni e failover tra server diversi, sia nel cloud che in locale. Il gateway applicazione offre le seguenti funzionalità di distribuzione delle applicazioni: bilanciamento del carico HTTP, affinità di sessione basata sui cookie, offload SSL (Secure Sockets Layer), probe di integrità personalizzati e supporto per più siti.
 
-## <a name="prerequisite-install-the-azure-cli"></a>Prerequisiti: Installare l'interfaccia della riga di comando di Azure
+## <a name="prerequisite-install-the-azure-cli"></a>Prerequisito: installare l'interfaccia della riga di comando di Azure
 
-Per eseguire i passaggi descritti in questo articolo, è necessario [installare Azure CLI](../xplat-cli-install.md) ed è necessario [Accedi Azure](/cli/azure/authenticate-azure-cli). 
+Per eseguire i passaggi descritti in questo articolo, è necessario [installare l'interfaccia della riga di comando](../xplat-cli-install.md) di Azure ed è necessario accedere ad [Azure.](/cli/azure/authenticate-azure-cli) 
 
 > [!NOTE]
 > Se non si dispone di un account Azure, è necessario procurarsene uno. Usare la [versione di valutazione gratuita](../active-directory/fundamentals/sign-up-organization.md).
@@ -42,15 +42,15 @@ Questo scenario illustrerà come:
 
 Il gateway applicazione di Azure richiede una propria subnet. Quando si crea una rete virtuale, assicurarsi di lasciare uno spazio indirizzi sufficiente per più subnet. Dopo che un gateway applicazione è stato distribuito in una subnet, alla subnet possono essere aggiunti solo altri gateway applicazione.
 
-## <a name="sign-in-to-azure"></a>Accedi ad Azure
+## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
-Aprire il **prompt dei comandi di Microsoft Azure**ed eseguire l'accesso.
+Aprire il **prompt dei comandi di Microsoft Azure**e accedere.
 
 ```azurecli-interactive
 az login
 ```
 
-Dopo avere digitato l'esempio precedente, viene fornito un codice. Passare a https://aka.ms/devicelogin in un browser per continuare l'accesso sul processo.
+Dopo avere digitato l'esempio precedente, viene fornito un codice. Passare https://aka.ms/devicelogin a in un browser per continuare il processo di accesso.
 
 ![Comando che illustra l'accesso al dispositivo][1]
 
@@ -104,7 +104,7 @@ azure network vnet subnet create \
 
 ## <a name="create-the-application-gateway"></a>Creare il gateway applicazione
 
-Dopo aver creato la rete virtuale e la subnet, i prerequisiti per il gateway applicazione sono soddisfatti. Inoltre un certificato PFX esportato prima e la password per il certificato sono necessari per il passaggio seguente: Gli indirizzi IP usati per il back-end sono gli indirizzi IP per il server back-end. Questi valori possono essere indirizzi IP privati nella rete virtuale, indirizzi IP pubblici o nomi di dominio completi per i server back-end.
+Dopo aver creato la rete virtuale e la subnet, i prerequisiti per il gateway applicazione sono soddisfatti. Per il passaggio seguente sono necessari anche un certificato PFX esportato prima e la password del certificato. Gli indirizzi IP usati per il back-end sono gli indirizzi IP per il server back-end. Questi valori possono essere indirizzi IP privati nella rete virtuale, indirizzi IP pubblici o nomi di dominio completi per i server back-end.
 
 ```azurecli-interactive
 azure network application-gateway create \

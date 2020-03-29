@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1e56d4d94e38e5095ef2223d0cc2875cbf1dcd46
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "64919128"
 ---
 # <a name="troubleshoot-object-synchronization-with-azure-ad-connect-sync"></a>Risolvere i problemi di sincronizzazione degli oggetti con la sincronizzazione di Azure AD Connect
@@ -37,13 +37,13 @@ Per eseguire l'attività di risoluzione dei problemi nella procedura guidata, se
 4.  Passare alla pagina Attività aggiuntive, selezionare Risoluzione dei problemi e fare clic su Avanti.
 5.  Nella pagina Risoluzione dei problemi fare clic su Avvia per avviare il menu per la risoluzione dei problemi in PowerShell.
 6.  Dal menu principale scegliere l'opzione per la risoluzione dei problemi della sincronizzazione degli oggetti.
-![Risolvere i problemi di sincronizzazione degli oggetti](media/tshoot-connect-objectsync/objsynch11.png)
+![Risolvere i problemi di sincronizzazione degli oggettiTroubleshoot object synchronization](media/tshoot-connect-objectsync/objsynch11.png)
 
 ### <a name="troubleshooting-input-parameters"></a>Parametri di input per la risoluzione dei problemi
 I parametri di input seguenti sono necessari per l'attività di risoluzione dei problemi:
 1.  **Nome distinto oggetto**: si tratta del nome distinto dell'oggetto che necessita di risoluzione dei problemi.
 2.  **Nome connettore di Active Directory**: si tratta del nome della foresta di AD in cui si trova l'oggetto indicato in precedenza.
-3.  Credenziali di amministratore globale di Azure AD tenant ![credenziali di amministratore globale](media/tshoot-connect-objectsync/objsynch1.png)
+3.  Credenziali di amministratore ![globale del tenant di Azure AD](media/tshoot-connect-objectsync/objsynch1.png)
 
 ### <a name="understand-the-results-of-the-troubleshooting-task"></a>Informazioni sui risultati dell'attività di risoluzione dei problemi
 L'attività di risoluzione dei problemi effettua i controlli seguenti:
@@ -60,7 +60,7 @@ La parte restante di questa sezione descrive i risultati specifici restituiti da
 ### <a name="upn-suffix-is-not-verified-with-azure-ad-tenant"></a>Il suffisso del nome dell'entità utente NON viene verificato nel tenant di Azure AD
 Se il nome dell'entità utente o l'ID di accesso alternativo non viene verificato nel tenant di Azure AD, Azure Active Directory sostituisce i suffissi del nome dell'entità utente con il nome di dominio predefinito "onmicrosoft.com".
 
-![Azure AD evita di UPN](media/tshoot-connect-objectsync/objsynch2.png)
+![Azure AD replaces UPN](media/tshoot-connect-objectsync/objsynch2.png)
 
 ### <a name="changing-upn-suffix-from-one-federated-domain-to-another-federated-domain"></a>Modifica del suffisso dl nome dell'entità utente da un dominio federato a un altro dominio federato
 Azure Active Directory non consente la sincronizzazione del suffisso del nome dell'entità utente o dell'ID di accesso alternativo da un dominio federato a un altro dominio federato. Questo approccio si applica ai domini verificati nel tenant di Azure AD e con tipo di autenticazione impostato su Federato.

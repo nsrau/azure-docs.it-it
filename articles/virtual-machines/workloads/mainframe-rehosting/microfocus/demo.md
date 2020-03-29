@@ -1,276 +1,276 @@
 ---
-title: Impostare i Micro messa a fuoco CICS BankDemo per Micro messa a fuoco Enterprise Developer 4.0 in macchine virtuali di Azure
-description: Eseguire l'applicazione di Micro messa a fuoco BankDemo in macchine virtuali (VM) per informazioni su come usare Micro Focus Enterprise Server e Enterprise Developer.
+title: Configurare Micro Focus CICS BankDemo per Micro Focus Enterprise Developer 4.0 in Macchine virtuali di Azure
+description: Eseguire l'applicazione Micro Focus BankDemo in Macchine virtuali di Azure per imparare a usare Micro Focus Enterprise Server e Enterprise Developer.
 author: sread
 ms.author: sread
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
 ms.openlocfilehash: 4491fc137c2c85e2be605f5e58fde6fd422efbbe
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67621344"
 ---
-# <a name="set-up-micro-focus-cics-bankdemo-for-micro-focus-enterprise-developer-40-on-azure"></a>Impostare i Micro messa a fuoco CICS BankDemo per Micro messa a fuoco Enterprise Developer 4.0 in Azure
+# <a name="set-up-micro-focus-cics-bankdemo-for-micro-focus-enterprise-developer-40-on-azure"></a>Configurare Micro Focus CICS BankDemo per Micro Focus Enterprise Developer 4.0 in AzureSet up Micro Focus CICS BankDemo for Micro Focus Enterprise Developer 4.0 on Azure
 
-Quando si configura Micro messa a fuoco Enterprise Server 4.0 e 4.0 per gli sviluppatori Enterprise in Azure, è possibile testare le distribuzioni dei carichi di lavoro di IBM z/OS. Questo articolo illustra come configurare BankDemo CICS, un'applicazione di esempio fornito con gli sviluppatori aziendali.
+Quando si configura Micro Focus Enterprise Server 4.0 e Enterprise Developer 4.0 in Azure, è possibile testare le distribuzioni dei carichi di lavoro IBM z/OS. In questo articolo viene illustrato come configurare CICS BankDemo, un'applicazione di esempio fornita con Enterprise Developer.
 
-CICs è l'acronimo di sistema di controllo di informazioni dei clienti, la piattaforma di transazione utilizzata da molte delle applicazioni mainframe in linea. L'applicazione BankDemo è molto utile per apprendere il funzionamento Enterprise Server e gli sviluppatori aziendali e su come gestire e distribuire un'applicazione reale comprensivi di terminali schermo verde.
+CICs è l'acronimo di Customer Information Control System, la piattaforma di transazione utilizzata da molte delle applicazioni mainframe online. L'applicazione BankDemo è ideale per imparare come operano Enterprise Server ed Enterprise Developer e come gestire e distribuire un'applicazione effettiva completa di terminali a schermo verde.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Una macchina virtuale con [sviluppatore aziendale](set-up-micro-focus-azure.md). Tenere presente che gli sviluppatori aziendali dispone di un'istanza completa del Server Enterprise su di esso per scopi di sviluppo e test. Questa istanza è l'istanza del Server dell'organizzazione usato per la demo.
+- Una macchina virtuale con [Enterprise Developer](set-up-micro-focus-azure.md). Tenere presente che Enterprise Developer dispone di un'istanza completa di Enterprise Server su di esso a scopo di sviluppo e test. Questa istanza è l'istanza di Enterprise Server utilizzata per la demo.
 
-- [Edizione di SQL Server 2017 Express](https://www.microsoft.com/sql-server/sql-server-editions-express). Scaricarlo e installarlo nella macchina virtuale per gli sviluppatori dell'organizzazione. Server Enterprise richiede un database per la gestione delle aree CICS e l'applicazione BankDemo Usa anche un database di SQL Server denominato BANKDEMO. In questa demo presuppone il che uso di SQL Server Express per entrambi i database. Durante l'installazione, selezionare l'installazione di base.
+- [SQL Server 2017 Express Edition](https://www.microsoft.com/sql-server/sql-server-editions-express). Scaricarlo e installarlo nella macchina virtuale Enterprise Developer. Enterprise Server richiede un database per la gestione delle aree CICS e l'applicazione BankDemo utilizza anche un database di SQL Server denominato BANKDEMO. In questa demo si presuppone l'utilizzo di SQL Server Express per entrambi i database. Durante l'installazione, selezionare l'installazione di base.
 
-- [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) (SSMS). SQL Server Management Studio viene utilizzato per la gestione dei database ed eseguendo uno script T-SQL. Scaricarlo e installarlo nella macchina virtuale per gli sviluppatori dell'organizzazione.
+- [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) (SSMS). SSMS viene utilizzato per la gestione dei database e l'esecuzione di uno script T-SQL. Scaricarlo e installarlo nella macchina virtuale Enterprise Developer.
 
-- [Visual Studio 2019](https://azure.microsoft.com/downloads/) con il service pack più recente oppure [Visual Studio Community](https://visualstudio.microsoft.com/vs/community/), che è possibile scaricare gratuitamente.
+- [Visual Studio 2019](https://azure.microsoft.com/downloads/) con il service pack più recente o [Visual Studio Community](https://visualstudio.microsoft.com/vs/community/), che è possibile scaricare gratuitamente.
 
-- Rumba Desktop o in un altro emulatore 3270.
+- Rumba Desktop o un altro emulatore 3270.
 
-## <a name="configure-the-windows-environment"></a>Configurare l'ambiente di Windows
+## <a name="configure-the-windows-environment"></a>Configurare l'ambiente Windows
 
-Dopo l'installazione di Enterprise Developer 4.0 nella macchina virtuale, è necessario configurare l'istanza del Server Enterprise fornita con il prodotto. A tale scopo, è necessario installare alcune funzionalità aggiuntive di Windows come indicato di seguito.
+Dopo aver installato Enterprise Developer 4.0 nella macchina virtuale, è necessario configurare l'istanza di Enterprise Server fornita con essa. Per farlo, è necessario installare alcune funzionalità aggiuntive di Windows come segue.
 
-1. Usare RDP per accedere al Server 4.0 Enterprise VM creata.
+1. Utilizzare RDP per accedere alla macchina virtuale Enterprise Server 4.0 creata.
 
-2. Fare clic sui **ricerca** icona accanto al **avviare** pulsante e il tipo **funzionalità Windows**. Verrà aperto Server Manager Aggiunta guidata ruoli e funzionalità.
+2. Fare clic sull'icona **Cerca** accanto al pulsante **Start** e digitare **Funzionalità di Windows**. Verrà visualizzata l'Aggiunta guidata ruoli e funzionalità di Server Manager.
 
-3. Selezionare **ruolo Server Web (IIS)** e quindi selezionare le opzioni seguenti:
+3. Selezionare **Ruolo server Web (IIS)**, quindi selezionare le opzioni seguenti:
 
     - Strumenti di gestione Web
-    - Compatibilità Gestione IIS 6 (selezionare tutte le funzionalità disponibili)
+    - Compatibilità di gestione con IIS 6 (selezionare tutte le funzionalità disponibili)
     - Console di gestione IIS
     - Strumenti e script di gestione IIS
     - Servizio di gestione IIS
 
-4. Selezionare **servizi World Wide Web**e selezionare le opzioni seguenti:
+4. Selezionare **Servizi sul World Wide Web**e selezionare le opzioni seguenti:
 
-     Funzionalità per lo sviluppo dell'applicazione:
+     Funzionalità di sviluppo delle applicazioni:Application Development Features:
     - Estendibilità .NET
     - ASP.NET
-    - Funzionalità HTTP comuni: Aggiungere tutte le funzionalità disponibili
-    - Integrità e diagnostica: Aggiungere tutte le funzionalità disponibili
+    - Funzionalità HTTP comuni: aggiungere tutte le funzionalità disponibiliCommon HTTP Features: Add all available features
+    - Integrità e diagnostica: aggiungere tutte le funzionalità disponibili
     - Sicurezza:
         - Autenticazione di base
         - Autenticazione di Windows
 
-5. Selezionare **servizio Attivazione processo Windows** e tutti i relativi elementi figlio.
+5. Selezionare **Servizio Attivazione processo Windows** e tutti i relativi elementi figlio.
 
-6. Per la **caratteristiche**, controllare **Microsoft .NET framework 3.5.1**e selezionare le opzioni seguenti:
+6. Per **Caratteristiche**, controllare **Microsoft .NET Framework 3.5.1**e selezionare le opzioni seguenti:
 
-    - Attivazione di Windows Communication Foundation HTTP
-    - Windows Communication Foundation Non-HTTP Activation
+    - Attivazione HTTP di Windows Communication Foundation
+    - Attivazione non HTTP di Windows Communication Foundation
 
-7. Per la **caratteristiche**, controllare **Microsoft .NET framework 4.6**e selezionare le opzioni seguenti:
+7. Per **Funzionalità**, selezionare **Microsoft .NET Framework 4.6**e selezionare le opzioni seguenti:
 
-   - Attivazione Named Pipe
+   - Attivazione named pipe
    - Attivazione TCP
-   - Condivisione delle porte TCP
+   - Condivisione porta TCP
 
      ![Aggiunta guidata ruoli e funzionalità: Servizi ruolo](media/01-demo-roles.png)
 
-8. Dopo aver selezionato tutte le opzioni, fare clic su **successivo** per l'installazione.
+8. Dopo aver selezionato tutte le opzioni, fare clic su **Avanti** per eseguire l'installazione.
 
-9. Dopo le funzionalità di Windows, passare a **Pannello di controllo \> sistema e sicurezza \> strumenti di amministrazione**e selezionare **Services**. Scorrere verso il basso e assicurarsi che i servizi seguenti sono in esecuzione e impostano su **automatica**:
+9. Dopo le funzionalità di Windows, passare a Strumenti di amministrazione di **sistema e protezione \> \> **del Pannello di controllo e selezionare **Servizi**. Scorrere verso il basso e assicurarsi che i seguenti servizi siano in esecuzione e impostati su **Automatico:**
 
     - **NetTcpPortSharing**
-    - **Adattatore Listener NET. pipe**
-    - **Net.tcp Listener Adapter**
+    - **Adattatore listener Net.Pipe**
+    - **Adattatore listener Net.tcp**
 
-10. Per configurare il supporto IIS e WAS, dal menu di scelta individuare **Micro messa a fuoco Enterprise prompt dei comandi sviluppatore (64 bit)** ed eseguiti come **amministratore**.
+10. Per configurare il supporto di IIS e WAS, dal menu individuare **Micro Focus Enterprise Developer Command Prompt (64 bit)** ed eseguito come **amministratore**.
 
-11. Tipo di **wassetup – i** , quindi premere **invio**.
+11. Digitare **wassetup –i** e premere **Invio**.
 
 12. Dopo l'esecuzione dello script, è possibile chiudere la finestra.
 
-## <a name="configure-the-local-system-account-for-sql-server"></a>Configurare l'account sistema locale per SQL Server
+## <a name="configure-the-local-system-account-for-sql-server"></a>Configurare l'account di sistema locale per SQL ServerConfigure the local system account for SQL Server
 
-Alcuni processi Enterprise Server devono essere in grado di accedere in SQL Server e creare database e altri oggetti. Questi processi utilizzano l'account sistema locale, pertanto è necessario specificare autorità sysadmin a tale account.
+Alcuni processi di Enterprise Server devono essere in grado di accedere a SQL Server e creare database e altri oggetti. Questi processi utilizzano l'account di sistema locale, pertanto è necessario assegnare l'autorizzazione sysadmin a tale account.
 
-1. Avviare il **SSMS** e fare clic su **Connect** per connettersi al Server SQLEXPRESS locale utilizzando l'autenticazione di Windows. Dovrebbe essere disponibile nel **nome Server** elenco.
+1. Avviare **SSMS** e fare clic su **Connetti** per connettersi al server SQLEXPRESS locale utilizzando l'autenticazione di Windows. Dovrebbe essere disponibile nell'elenco **Nome server.**
 
-2. A sinistra, espandere la **sicurezza** cartella e selezionare **accessi**.
+2. A sinistra, espandere la cartella **Protezione** e selezionare **Account di accesso**.
 
-3. Selezionare **NT AUTHORITY\\SYSTEM** e selezionare **proprietà**.
+3. Selezionare **NT AUTHORITY SYSTEM (SISTEMA NT AUTHORITY)\\** e scegliere Properties **(Proprietà).**
 
-4. Selezionare **ruoli predefiniti del Server** e controllare **sysadmin**.
+4. Selezionare **Ruoli del server** e controllare **sysadmin**.
 
-     ![Finestra di Esplora oggetti di SSMS: Proprietà account di accesso](media/02-demo-explorer.png)
+     ![Finestra Esplora oggetti SSMS: Proprietà di accesso](media/02-demo-explorer.png)
 
 ## <a name="create-the-bankdemo-database-and-all-its-objects"></a>Creare il database BankDemo e tutti i relativi oggetti
 
-1. Aprire **Windows Explorer** e passare alla **c:\\utenti\\pubblica\\documenti\\Micro Focus\\Enterprise Developer\\ Campioni\\Mainframe\\CICS\\DotNet\\BankDemo\\SQL**.
+1. Aprire **Esplora risorse** e passare a **C:\\\\Documenti\\\\\\\\pubblici\\per gli\\utenti\\\\Micro\\Focus Enterprise Developer Samples Mainframe CICS DotNet BankDemo SQL**.
 
-2. Copiare il contenuto della **BankDemoCreateAll.SQL** file negli Appunti.
+2. Copiare il contenuto del file **BankDemoCreateAll.SQL** negli Appunti.
 
-3. Aprire **SSMS**. A destra, fare clic su **Server** e selezionare **nuova Query**.
+3. Aprire **SSMS**. A destra, fare clic su **Server** e selezionare **Nuova query**.
 
-4. Incollare il contenuto degli Appunti nel **nuova Query** casella.
+4. Incollare il contenuto degli Appunti nella casella **Nuova query.**
 
-5. Eseguire il codice SQL facendo **Execute** dalle **comando** scheda sopra la query.
+5. Eseguire il codice SQL facendo clic su **Esegui** dalla scheda **Comando** sopra la query.
 
-La query dovrebbe eseguita senza errori. Al termine, si dispone di database di esempio per l'applicazione BankDemo.
+La query deve essere eseguita senza errori. Al termine, si dispone del database di esempio per l'applicazione BankDemo.
 
-![SQLQuery1.sql output](media/03-demo-query.png)
+![Output di SQLQuery1.sql](media/03-demo-query.png)
 
-## <a name="verify-that-the-database-tables-and-objects-have-been-created"></a>Verificare che siano stati creati gli oggetti e tabelle di database
+## <a name="verify-that-the-database-tables-and-objects-have-been-created"></a>Verificare che le tabelle e gli oggetti di database siano stati creati
 
-1. Fare doppio clic il **BANKDEMO** del database e selezionare **aggiornare**.
+1. Fare clic con il pulsante destro del mouse sul database **BANKDEMO** e scegliere **Aggiorna**.
 
-2. Espandere la **Database** e selezionare **tabelle**. Dovrebbe essere simile al seguente.
+2. Espandere il **Database** e selezionare **Tabelle**. Si dovrebbe vedere qualcosa di simile al seguente.
 
      ![Tabella BANKDEMO espansa in Esplora oggetti](media/04-demo-explorer.png)
 
-## <a name="build-the-application-in-enterprise-developer"></a>Compilare l'applicazione in Enterprise Developer
+## <a name="build-the-application-in-enterprise-developer"></a>Creare l'applicazione in Enterprise Developer
 
 1. Aprire Visual Studio e accedere.
 
-2. Sotto il **File** opzione di menu, selezionare **Apri progetto/soluzione**, passare a **c:\\utenti\\pubbliche\\documenti\\Micro Messa a fuoco\\Developer Enterprise\\campioni\\Mainframe\\CICS\\DotNet\\BankDemo**e selezionare il **sln**file.
+2. Nell'opzione di menu **File** selezionare **Apri progetto/soluzione**, passare a **C:\\\\Documenti pubblici\\\\Micro\\Focus Enterprise Developer\\Samples\\Mainframe\\CICS\\DotNet\\BankDemo**e selezionare il file **sln.**
 
-3. Richiedere del tempo per esaminare gli oggetti. Programmi COBOL vengono visualizzati in Esplora soluzioni con l'estensione CBL insieme copybook (CPY) e JCL.
+3. Prenditi un po' di tempo per esaminare gli oggetti. I programmi COBOL sono mostrati in Esplora soluzioni con l'estensione CBL insieme a CopyBooks (CPY) e JCL.
 
-4. Fare doppio clic il **BankDemo2** progetto e selezionare **imposta come progetto di avvio**.
-
-    > [!NOTE]
-    > Il progetto BankDemo viene utilizzato HCOSS (opzione di compatibilità Host per SQL Server,) che non viene usato per questa demo.
-
-5. Nella **Esplora soluzioni**, fare doppio clic il **BankDemo2** progetto e selezionare **compilare**.
+4. Fare clic con il pulsante destro del mouse sul progetto **BankDemo2** e scegliere Imposta come progetto di **avvio**.
 
     > [!NOTE]
-    > Compilazione a livello di soluzione comporta errori, come HCOSS non è stato configurato.
+    > Il progetto BankDemo utilizza HCOSS (Host Compatibility Option for SQL Server), che non viene utilizzato per questa demo.
 
-6. Quando viene compilato il progetto, esaminare i **Output** finestra. Dovrebbe essere simile all'immagine seguente.
+5. In **Esplora soluzioni**fare clic con il pulsante destro del mouse sul progetto **BankDemo2** e **scegliere Compila**.
 
-     ![Finestra di output con completamento della compilazione](media/05-demo-output.png)
+    > [!NOTE]
+    > La compilazione a livello di soluzione genera errori, poiché HCOSS non è stato configurato.
 
-## <a name="deploy-the-bankdemo-application-into-the-region-database"></a>Distribuire l'applicazione BankDemo nel database di area
+6. Quando il progetto viene compilato, esaminare il **Output** finestra. L'aspetto dovrebbe essere simile a quanto riportato di seguito.
+
+     ![Finestra di output che mostra la compilazione riuscitaOutput window showing successful build](media/05-demo-output.png)
+
+## <a name="deploy-the-bankdemo-application-into-the-region-database"></a>Distribuire l'applicazione BankDemo nel database dell'area
 
 1. Aprire un prompt dei comandi di Enterprise Developer (64 bit) come amministratore.
 
-2. Passare al **pubblica %\\documenti\\Micro Focus\\Enterprise Developer\\samples\\Mainframe\\CICS\\DotNet\\ BankDemo**.
+2. Passare **all'esempio\\\\\\\\%PUBLIC%\\Documents Micro\\Focus Enterprise Developer samples Mainframe CICS\\\\DotNet BankDemo**.
 
-3. Al prompt dei comandi, eseguire **bankdemodbdeploy** e includere il parametro per il database da distribuire, ad esempio:
+3. Al prompt dei comandi, eseguire **bankdemodbdeploy** e includere il parametro per il database in cui eseguire la distribuzione, ad esempio:
 
     ```
     bankdemodbdeploy (local)/sqlexpress
     ```
 
 > [!NOTE]
-> Assicurarsi di usare una barra (/) non una barra rovesciata (\\). Questo script viene eseguito per un periodo di tempo.
+> Assicurarsi di utilizzare una barra (/)\\non una barra rovesciata( ). Questo script viene eseguito per un po'.
 
-![Amministrazione: Finestra del prompt dei comandi di Enterprise Developer](media/06-demo-cmd.png)
+![Amministrazione: finestra del prompt dei comandi di Enterprise Developer](media/06-demo-cmd.png)
 
-## <a name="create-the-bankdemo-region-in-enterprise-administrator-for-net"></a>Creazione dell'area BankDemo in amministratore dell'organizzazione per .NET
+## <a name="create-the-bankdemo-region-in-enterprise-administrator-for-net"></a>Creare l'area BankDemo in Enterprise Administrator per .NET
 
-1. Aprire il **Enterprise Server per l'amministrazione .NET** dell'interfaccia utente.
+1. Aprire l'interfaccia utente di amministrazione di **Enterprise Server per .NET.**
 
-2. Per avviare lo snap-in MMC, dalla finestra di Windows **avviare** menu, scegliere **Micro messa a fuoco Enterprise Developer \> Configuration \> Enterprise Server per l'amministrazione .NET**. (Per Windows Server, scegliere **Micro messa a fuoco Enterprise Developer \> Enterprise Server per l'amministrazione .NET**).
+2. Per avviare lo snap-in MMC, scegliere **Micro Focus \> \> Enterprise Developer Configuration Enterprise Server per .NET Admin**dal menu **Start** di Windows. Per Windows Server, scegliere **Micro \> Focus Enterprise Developer Enterprise Server per .NET Admin**.
 
-3. Espandere la **aree** contenitore nel riquadro a sinistra e quindi scelta **CICS**.
+3. Espandere il contenitore **Regioni** nel riquadro sinistro, quindi fare clic con il pulsante destro del mouse su **CICS**.
 
-4. Selezionare **regione definiscono** per creare una nuova area CICS chiamato **BANKDEMO**, ospitato nel database (locale).
+4. Selezionare **Definisci area** per creare una nuova area CICS denominata **BANKDEMO**, ospitata nel database (locale).
 
-5. Specificare l'istanza del server di database, fare clic su **successivo**, quindi immettere il nome dell'area **BANKDEMO**.
+5. Specificare l'istanza del server di database, fare clic su **Avanti**, quindi immettere il nome dell'area **BANKDEMO**.
 
-     ![Definire una finestra di dialogo di area](media/07-demo-cics.png)
+     ![Finestra di dialogo Definisci regione](media/07-demo-cics.png)
 
-6. Per selezionare il file di definizione di area per il database tra più aree, individuare **regione\_bankdemo\_db.config** nel **c:\\utenti\\pubblico\\ I documenti\\Micro Focus\\Enterprise Developer\\esempi\\Mainframe\\CICS\\DotNet\\BankDemo**.
+6. Per selezionare il file di definizione delle regioni per il database tra aree, individuare **l'area\_\_bankdemo db.config** in **C:\\Users\\Public\\Documents\\Micro Focus\\Enterprise Developer\\Samples\\Mainframe\\CICS\\DotNet\\BankDemo**.
 
-     ![Definire l'area: nome dell'area: BANKDEMO](media/08-demo-cics.png)
+     ![Definisci regione - Nome regione: BANKDEMO](media/08-demo-cics.png)
 
-7. Scegliere **Fine**.
+7. Fare clic su **Fine**.
 
-## <a name="create-xa-resource-definitions"></a>Creare le definizioni delle risorse XA
+## <a name="create-xa-resource-definitions"></a>Creare definizioni di risorse XACreate XA Resource Definitions
 
-1. Nel riquadro sinistro della finestra di **Enterprise Server per l'amministrazione di .NET** dell'interfaccia utente, espandere **System**e quindi **le definizioni delle risorse XA**. Questa impostazione definisce il modo in cui l'area interagisce con Enterprise Server e i database dell'applicazione.
+1. Nel riquadro sinistro dell'interfaccia utente **Amministrazione di Enterprise Server for .NET** espandere **System**e quindi **XA Resource Definitions**. Questa impostazione definisce il modo in cui l'area interagisce con Enterprise Server e i database dell'applicazione.
 
-2. Fare clic su **definizioni delle risorse XA** e selezionare **istanza del Server di aggiungere**.
+2. Fare clic con il pulsante destro del mouse su **Definizioni risorse XA** e selezionare **Aggiungi istanza server**.
 
-3. Nella casella di riepilogo a discesa, selezionare **istanza del servizio Database**. Il computer locale SQL Express sarà.
+3. Nella casella di riepilogo a discesa selezionare **Istanza servizio database**. Sarà il computer locale SQLEXPRESS.
 
-4. Selezionare l'istanza sotto il **definizioni delle risorse XA (machinename\\sqlexpress)** contenitore e fare clic su **Add**.
+4. Selezionare l'istanza dal contenitore **Definizioni risorse\\XA (nomecomputer sqlexpress)** e fare clic su **Aggiungi**.
 
-5. Selezionare **definizione di risorsa di Database XA** e quindi digitare **BANKDEMO** per il **Name** e **area**.
+5. Selezionare **Database XA Resource Definition (Definizione risorsa XA del database),** quindi digitare **BANKDEMO** **(Nome** e **Regione).**
 
-     ![Nuova schermata di definizione di risorsa XA Database](media/09-demo-xa.png)
+     ![Schermata Nuova definizione risorsa XA del database](media/09-demo-xa.png)
 
-6. Fare clic sui puntini di sospensione ( **...** ) per visualizzare la procedura guidata di stringa di connessione. Per la **nome Server**, digitare **(locale)\\SQLEXPRESS**. Per la **Logon**, selezionare **l'autenticazione di Windows**. Per nome del database, digitare **BANKDEMO**
+6. Fare clic sui puntini di sospensione (**...**) per visualizzare la procedura guidata Stringa di connessione. Per **Nome server**, digitare **\\(locale) SQLEXPRESS**. Per **Accesso**, selezionare **Autenticazione di Windows**. Per il nome del database, digitare **BANKDEMO**
 
-     ![Schermata di stringa di connessione di modifica](media/10-demo-string.png)
+     ![Schermata Modifica stringa di connessione](media/10-demo-string.png)
 
-7. Testare la connessione.
+7. Verificare la connessione.
 
-## <a name="start-the-bankdemo-region"></a>Avviare l'area BANKDEMO
+## <a name="start-the-bankdemo-region"></a>Avviare la regione BANKDEMO
 
 > [!NOTE]
-> Il primo passaggio è importante: È necessario impostare l'area da usare la definizione di risorsa XA appena creato.
+> Il primo passaggio è importante: è necessario impostare l'area per l'utilizzo della definizione di risorsa XA appena creata.
 
-1. Passare al **BANDEMO CICS area** sotto il **contenitore aree**e quindi selezionare **modifica File di avvio di area** dal **azioni** riquadro. Scorrere verso il basso le proprietà di SQL e immettere **bankdemo** per il **il nome di risorsa XA**, oppure usare i puntini di sospensione per selezionarlo.
+1. Passare **all'area BANDEMO CICS** in **Contenitore regioni**, quindi selezionare Modifica file di **avvio area** dal riquadro **Azioni** . Scorrere verso il basso fino ché le proprietà SQL e immettere **bankdemo** come nome di **risorsa XA**oppure utilizzare i lipsia per selezionarla.
 
-2. Scegliere il **salvare** icona per salvare le modifiche.
+2. Fare clic sull'icona **Salva** per salvare le modifiche.
 
-3. Fare doppio clic su **BANKDEMO CICS regione** nel **Console** riquadro e selezionare **area avvio/arresto**.
+3. Fare clic con il pulsante destro del mouse su **Area CICS BANKDEMO** nel riquadro **della console** e **scegliere Avvia/Arresta area**.
 
-4. Nella parte inferiore della **area di avvio/arresto** casella visualizzata nel riquadro centrale, seleziona **avviare**. Dopo alcuni secondi, viene avviata l'area.
+4. Nella parte inferiore della casella **Area di avvio/arresto** visualizzata nel riquadro centrale selezionare **Inizio**. Dopo alcuni secondi, la regione inizia.
 
-     ![Finestra di avvio/arresto di SQL](media/11-demo-sql.png)
+     ![Casella Avvio/Arresto SQL](media/11-demo-sql.png)
 
-     ![Area CICS BANKDEMO - schermata introduttiva](media/12-demo-cics.png)
+     ![CICS Region BANKDEMO - Schermata iniziale](media/12-demo-cics.png)
 
-## <a name="create-a-listener"></a>Creare un listener
+## <a name="create-a-listener"></a>Creare un listenerCreate a listener
 
-Creare un listener per le sessioni che accedono all'applicazione BankDemo TN3270.
+Creare un listener per le sessioni TN3270 che accedono all'applicazione BankDemo.
 
-1. Nel riquadro sinistro, espandere **editor di configurazione** e selezionare **Listener**.
+1. Nel riquadro sinistro espandere **Editor di configurazione** e selezionare **Listener**.
 
-2. Fare clic sui **Apri File** icona e selezionare il **seelistener.exe.config** file. Questo file verrà modificato e viene caricato ogni volta che viene avviato Server dell'organizzazione.
+2. Fare clic sull'icona **Apri file** e selezionare il file **seelistener.exe.config.** Questo file verrà modificato e caricato a ogni avvio di Enterprise Server.
 
-3. Si noti che le due aree definite in precedenza (ESDEMO e JCLDEMO).
+3. Si notino le due regioni definite in precedenza (ESDEMO e JCLDEMO).
 
-4. Per creare una nuova area per BANKDEMO, fare doppio clic su **aree**e selezionare **Aggiungi area**.
+4. Per creare una nuova regione per BANKDEMO, fare clic con il pulsante destro del mouse su **Regioni**e selezionare **Aggiungi regione**.
 
-5. Selezionare **BANKDEMO area**.
+5. Selezionare **Regione BANKDEMO**.
 
-6. Aggiungere un canale TN3270 facendo **regione BANKDEMO** e selezionando **Add Channel**.
+6. Aggiungere un canale TN3270 facendo clic con il pulsante destro del mouse su **Area BANKDEMO** e selezionando **Aggiungi canale**.
 
-7. Per la **Name**, immettere **TN3270**. Per la **porta**, immettere **9024**. L'applicazione ESDEMO Usa porta 9230, pertanto è necessario usare una porta diversa.
+7. In **Nome**, immettere **TN3270**. In **Porta**immettere **9024**. L'applicazione ESDEMO utilizza la porta 9230, pertanto è necessario utilizzare una porta diversa.
 
-8. Per salvare il file, scegliere il **salvare** icona oppure scegliere **File** \> **Salva**.
+8. Per salvare il file, fate clic sull'icona **Salva** o scegliete **Salva** **file** \> .
 
-9. Per avviare il listener, fare clic sui **avviare Listener** icona oppure scegliere **opzioni** \> **Listener avviare**.
+9. Per avviare il listener, fate clic sull'icona **Avvia listener** o scegliete **Opzioni avvia** \> **listener**.
 
-     ![Finestre dell'Editor di configurazione del listener](media/13-demo-listener.png)
+     ![Finestre dell'editor di configurazione del listener](media/13-demo-listener.png)
 
 
 ## <a name="configure-rumba-to-access-the-bankdemo-application"></a>Configurare Rumba per accedere all'applicazione BankDemo
 
-L'ultimo aspetto da eseguire viene configurata in una sessione di 3270 tramite Rumba, un emulatore 3270. Questo passaggio consente di accedere all'applicazione BankDemo tramite il listener che è stato creato.
+L'ultima cosa che devi fare è configurare una sessione 3270 usando Rumba, un emulatore 3270. Questo passaggio consente di accedere all'applicazione BankDemo tramite il listener creato.
 
-1. Dalla finestra di Windows **avviare** menu, avviare Rumba Desktop.
+1. Dal menu **Start** di Windows, avviare Rumba Desktop.
 
-2. Sotto il **connessioni** voce di menu, selezionare **TN3270**.
+2. Nella voce di menu **Connessioni** selezionare **TN3270**.
 
-3. Fare clic su **inserire** e digitare **127.0.0.1** per l'indirizzo IP e **9024** per la porta definita dall'utente.
+3. Fare clic su **Inserisci** e digitare **127.0.0.1** per l'indirizzo IP e **9024** per la porta definita dall'utente.
 
-4. Nella parte inferiore della finestra di dialogo, fare clic su **Connect**. Viene visualizzata una schermata nera CICS.
+4. Nella parte inferiore della finestra di dialogo fare clic su **Connetti**. Viene visualizzata una schermata CICS nera.
 
-5. Tipo di **bank** per visualizzare la schermata iniziale 3270 di applicazione BankDemo.
+5. Digitare **bank** per visualizzare la schermata 3270 iniziale per l'applicazione BankDemo.
 
-6. Per l'ID utente, digitare **B0001** e la password, digitare un testo qualsiasi. Verrà visualizzata la prima schermata BANK20.
+6. Per ID utente, digitare **B0001** e per la password, digitare qualsiasi cosa. Si apre la prima schermata BANK20.
 
-![Schermata di visualizzazione iniziale mainframe](media/14-demo.png)
-![schermata visualizzazione Mainframe - Rumba - sottosistema dimostrazione](media/15-demo.png)
+![Visualizzazione mainframe](media/14-demo.png)
+![Schermata di benvenuto Visualizzazione mainframe Display - Rumba - Schermata dimostrazione sottosistema](media/15-demo.png)
 
-Congratulazioni! Ora eseguono un'applicazione CICS in Azure usando Micro Focus Enterprise Server.
+Congratulazioni! A questo punto si esegue un'applicazione CICS in Azure usando Micro Focus Enterprise Server.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Eseguire Server Enterprise in contenitori Docker in Azure](run-enterprise-server-container.md)
-- [Migrazione del mainframe - portale](https://blogs.msdn.microsoft.com/azurecat/2018/11/16/mainframe-migration-to-azure-portal/)
+- [Eseguire Enterprise Server nei contenitori Docker in AzureRun Enterprise Server in Docker containers on Azure](run-enterprise-server-container.md)
+- [Migrazione mainframe - Portale](https://blogs.msdn.microsoft.com/azurecat/2018/11/16/mainframe-migration-to-azure-portal/)
 - [Macchine virtuali](https://docs.microsoft.com/azure/virtual-machines/linux/overview)
 - [Risoluzione dei problemi](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/)
-- [Demistificazione di mainframe alla migrazione ad Azure](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/en-us/)
+- [Demistificazione della migrazione da mainframe ad AzureDemistifying mainframe to Azure migration](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/en-us/)

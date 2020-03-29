@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 08/31/2018
 ms.author: genli
 ms.openlocfilehash: 86938c582745cb0759eda9cd0693f407471a0529
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77921488"
 ---
 # <a name="windows-shows-checking-file-system-when-booting-an-azure-vm"></a>All'avvio di una macchina virtuale di Azure viene indicato il controllo in corso del file system
@@ -39,7 +39,7 @@ Se viene rilevato un errore NTFS nel file system, la coerenza del disco viene co
 
 Windows si avvia normalmente dopo il completamento del processo di controllo del disco. Se la macchina virtuale si blocca nel processo di controllo del disco, provare a eseguire il controllo nella macchina virtuale offline:
 1.  Creare uno snapshot del disco del sistema operativo della macchina virtuale interessata come backup. Per altre informazioni, vedere [Snapshot di un disco](../windows/snapshot-copy-managed-disk.md).
-2.  [Collegare il disco del sistema operativo alla macchina virtuale di ripristino](troubleshoot-recovery-disks-portal-windows.md).  
+2.  [Collegare il disco del sistema operativo a una macchina virtuale](troubleshoot-recovery-disks-portal-windows.md)di ripristino.  
 3.  Nella macchina virtuale di ripristino eseguire il controllo del disco sul disco del sistema operativo collegato. Nell'esempio seguente la lettera di unità del disco del sistema operativo collegato è E: 
         
         chkdsk E: /f

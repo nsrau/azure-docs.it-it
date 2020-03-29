@@ -1,5 +1,5 @@
 ---
-title: Come usare hub di notifica di Azure con Java
+title: Come usare gli hub di notifica di Azure con JavaHow to use Azure Notification Hubs with Java
 description: Informazioni su come usare Hub di notifica di Azure da un back-end Java.
 services: notification-hubs
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: d48973cc7c5ed1fc7ae3f96128d488f3f1df3a05
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76263864"
 ---
 # <a name="how-to-use-notification-hubs-from-java"></a>Come usare Hub di notifica da Java
@@ -71,7 +71,7 @@ Per creare:
     hub = namespaceManager.createNotificationHub(hub);
     ```
 
- OPPURE
+ o
 
     ```java
     hub = new NotificationHub("connection string", "hubname");
@@ -132,7 +132,7 @@ Analogamente è possibile creare registrazioni per Android (FCM), Windows Phone 
     hub.createRegistration(reg);
     ```
 
-**Creare registrazioni usando il modello create registration ID + upsert:**
+**Creare registrazioni utilizzando l'ID di registrazione create e il modello upsert:Create registrations using create registration ID - upsert pattern:**
 
 Rimuove i duplicati causati dalle risposte perse se gli ID di registrazione sono stati archiviati nel dispositivo:
 
@@ -142,7 +142,7 @@ Rimuove i duplicati causati dalle risposte perse se gli ID di registrazione sono
     hub.upsertRegistration(reg);
     ```
 
-**Aggiornare registrazioni:**
+**Aggiorna registrazioni:**
 
     ```java
     hub.updateRegistration(reg);
@@ -372,7 +372,7 @@ L'oggetto notifica è semplicemente un corpo con intestazioni ed esistono alcuni
 
 Quando si esegue il codice Java, dovrebbe essere visualizzata una notifica sul dispositivo di destinazione.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a><a name="next-steps"></a>Passaggi successivi
 
 In questo argomento è stato illustrato come creare un semplice client REST Java per Hub di notifica. Da qui è possibile:
 
@@ -384,7 +384,7 @@ In questo argomento è stato illustrato come creare un semplice client REST Java
   * [Inviare notifiche agli utenti autenticati]
   * [Inviare notifiche multipiattaforma agli utenti autenticati]
 
-[SDK per Java]: https://github.com/Azure/azure-notificationhubs-java-backend
+[Java SDK]: https://github.com/Azure/azure-notificationhubs-java-backend
 [Get started tutorial]: notification-hubs-ios-apple-push-notification-apns-get-started.md
 [Introduzione ad Hub di notifica]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
 [Inviare le ultime notizie]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md

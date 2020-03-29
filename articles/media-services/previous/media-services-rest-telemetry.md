@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 4cf2bc919ecb8b39a23b23df95a6f37396f50603
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76774873"
 ---
 # <a name="configuring-azure-media-services-telemetry-with-rest"></a>Configurare la telemetria di Servizi multimediali di Azure con REST
@@ -34,7 +34,7 @@ Questo argomento descrive come:
 - Acquisire gli endpoint di notifica
 - Creare un endpoint di notifica per il monitoraggio. 
 
-    Per creare un endpoint di notifica, impostare EndPointType su AzureTable (2) e EndpointAddress sulla impostato sulla tabella di archiviazione (ad esempio, https:\//telemetryvalidationstore.table.core.windows.net/).
+    Per creare un endpoint di notifica, impostare EndPointType su AzureTable (2) e endPontAddress impostati sulla tabella di archiviazione (ad esempio, https:\//telemetryvalidationstore.table.core.windows.net/).
   
 - Ottenere le configurazioni di monitoraggio
 
@@ -126,7 +126,7 @@ Questo argomento descrive come:
     }
 
 > [!NOTE]
-> Non dimenticare di modificare il valore "https:\//telemetryvalidationstore.table.core.windows.net" per l'account di archiviazione.
+> Non dimenticare di modificare il\/valore "https: /telemetryvalidationstore.table.core.windows.net" per l'account di archiviazione.
 
 ### <a name="response"></a>Risposta
 
@@ -241,6 +241,6 @@ Per informazioni sull'uso dei dati di telemetria, vedere [questo](media-services
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Invia commenti e suggerimenti
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

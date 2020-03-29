@@ -1,5 +1,5 @@
 ---
-title: Pianificazione della migrazione dal modello classico al Azure Resource Manager
+title: Pianificazione della migrazione dalla versione classica a Azure Resource ManagerPlanning for migration from classic to Azure Resource Manager
 description: Pianificazione della migrazione delle risorse IaaS dal modello di distribuzione classica ad Azure Resource Manager
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 02/06/2020
 ms.author: tagore
 ms.openlocfilehash: 62cc33b9cfe1a0dc96f0a6a771b753ff48bfb9f4
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77919550"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Pianificazione della migrazione delle risorse IaaS dal modello di distribuzione classica ad Azure Resource Manager
 
 > [!IMPORTANT]
-> Attualmente, circa il 90% delle VM IaaS USA [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). A partire dal 28 febbraio 2020, le macchine virtuali classiche sono state deprecate e saranno completamente ritirate il 1 ° marzo 2023. [Scopri di più]( https://aka.ms/classicvmretirement) su questa deprecazione e sul [modo in cui influiscono sull'utente](https://docs.microsoft.com/azure/virtual-machines/classic-vm-deprecation#how-does-this-affect-me).
+> Oggi, circa il 90% delle macchine virtuali IaaS usa [Azure Resource Manager.](https://azure.microsoft.com/features/resource-manager/) A partire dal 28 febbraio 2020, le macchine virtuali classiche sono state deprecate e verranno completamente ritirate il 1 marzo 2023. [Scopri]( https://aka.ms/classicvmretirement) di più su questa deprecazione e [su come influisce su di te](https://docs.microsoft.com/azure/virtual-machines/classic-vm-deprecation#how-does-this-affect-me).
 
 Anche se Azure Resource Manager offre molte funzionalità straordinarie, è fondamentale pianificare la migrazione in modo che avvenga senza problemi. Dedicare tempo alla pianificazione garantisce che non si verifichino problemi durante l'esecuzione delle attività di migrazione.
 
@@ -56,7 +56,7 @@ I clienti di successo hanno piani dettagliati in cui le domande precedenti sono 
 
 * [Panoramica sulla migrazione di risorse IaaS supportata dalla piattaforma dal modello di distribuzione classica al modello Azure Resource Manager](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Approfondimento tecnico sulla migrazione supportata dalla piattaforma dal modello di distribuzione classica ad Azure Resource Manager](migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Planning for migration of IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-plan.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Pianificazione della migrazione delle risorse IaaS dal modello di distribuzione classica al modello di distribuzione Azure Resource Manager)
+* [Pianificazione della migrazione delle risorse IaaS dal modello di distribuzione classica ad Azure Resource Manager](migration-classic-resource-manager-plan.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Usare PowerShell per eseguire la migrazione di risorse IaaS dal modello di distribuzione classica ad Azure Resource Manager](migration-classic-resource-manager-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Usare l'interfaccia della riga di comando per eseguire la migrazione di risorse IaaS dal modello di distribuzione classica ad Azure Resource Manager](../linux/migration-classic-resource-manager-cli.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Community tools for assisting with migration of IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Strumenti della community per assistenza alla migrazione delle risorse IaaS dal modello di distribuzione classica ad Azure Resource Manager)
@@ -114,7 +114,7 @@ Di seguito sono elencati i problemi rilevati in molte migrazioni di grandi dimen
 
 - **Set di disponibilità**. Per una rete virtuale (vNet) da migrare ad Azure Resource Manager, è necessario che le macchine virtuali contenute nel modello di distribuzione classica, ossia il servizio cloud, siano tutte in un set di disponibilità oppure che nessuna di esse sia in un set di disponibilità. Il servizio cloud con più di un set di disponibilità non è compatibile con Azure Resource Manager e interromperà la migrazione.  Non ci possono essere inoltre alcune macchine virtuali in un set di disponibilità e alcune macchine virtuali non in un set di disponibilità. Per risolvere questo problema, è necessario correggere o ridisporre il servizio cloud.  Pianificare di conseguenza, in quanto questa operazione potrebbe richiedere molto tempo.
 
-- **Distribuzioni del ruolo Web/di lavoro**. I servizi Cloud che contengono ruoli Web e di lavoro non possono migrare ad Azure Resource Manager. Per eseguire la migrazione del contenuto dei ruoli Web e di lavoro, sarà necessario eseguire la migrazione del codice stesso ai servizi app PaaS più recenti. questa discussione esula dall'ambito di questo documento. Se si desidera lasciare i ruoli Web/di lavoro così come sono, ma migrare le macchine virtuali classiche al modello di distribuzione di Gestione risorse, è necessario innanzitutto rimuovere i ruoli Web/di lavoro dalla rete virtuale prima di poter avviare la migrazione.  Una soluzione tipica è semplicemente spostare le istanze del ruolo Web/di lavoro in una rete virtuale classica separata collegata anche a un circuito ExpressRoute. Nel caso di ridistribuzione precedente, creare una nuova rete virtuale classica, spostare/ridistribuire i ruoli Web/di lavoro nella nuova rete virtuale, quindi eliminare le distribuzioni dalla rete virtuale spostata. Non è necessaria alcuna modifica nel codice. La nuova funzionalità [Peering reti virtuali](../../virtual-network/virtual-network-peering-overview.md) può essere usata per eseguire il peering della rete virtuale classica contenente i ruoli Web/di lavoro e di altre reti virtuali nella stessa area di Azure, ad esempio la rete virtuale che si sta migrando, **dopo il completamento della migrazione della rete virtuale poiché le reti virtuali sottoposte a peering non possono essere migrate**, garantendo le stesse funzionalità senza perdita di prestazioni e senza problemi di larghezza di banda/latenza. Con l'aggiunta del [Peering reti virtuali](../../virtual-network/virtual-network-peering-overview.md) le distribuzioni del ruolo Web/di lavoro ora possono essere facilmente ridotte e non bloccano la migrazione ad Azure Resource Manager.
+- **Distribuzioni del ruolo Web/di lavoro**. I servizi Cloud che contengono ruoli Web e di lavoro non possono migrare ad Azure Resource Manager. Per eseguire la migrazione del contenuto dei ruoli Web e di lavoro, è necessario eseguire la migrazione del codice stesso a servizi app PaaS più recenti (questa discussione esula dall'ambito di questo documento). Se si desidera lasciare i ruoli Web/worker così come sono, ma eseguire la migrazione delle macchine virtuali classiche al modello di distribuzione di Resource Manager, i ruoli Web/lavoratori devono prima essere rimossi dalla rete virtuale prima di poter avviare la migrazione.  Una soluzione tipica consiste nello spostare semplicemente le istanze del ruolo Web/lavoratore in una rete virtuale classica separata collegata anche a un circuito ExpressRoute.A typical solution is just move web/worker role instances to a separate Classic virtual network that is also linked to an ExpressRoute circuit. Nel caso precedente di ridistribuzione, creare una nuova rete virtuale classica, spostare/ridistribuire i ruoli Web/di lavoro nella nuova rete virtuale e quindi eliminare le distribuzioni dalla rete virtuale da spostare. Non è necessaria alcuna modifica nel codice. La nuova funzionalità [Peering reti virtuali](../../virtual-network/virtual-network-peering-overview.md) può essere usata per eseguire il peering della rete virtuale classica contenente i ruoli Web/di lavoro e di altre reti virtuali nella stessa area di Azure, ad esempio la rete virtuale che si sta migrando, **dopo il completamento della migrazione della rete virtuale poiché le reti virtuali sottoposte a peering non possono essere migrate**, garantendo le stesse funzionalità senza perdita di prestazioni e senza problemi di larghezza di banda/latenza. Con l'aggiunta del [Peering reti virtuali](../../virtual-network/virtual-network-peering-overview.md) le distribuzioni del ruolo Web/di lavoro ora possono essere facilmente ridotte e non bloccano la migrazione ad Azure Resource Manager.
 
 - **Le quote di Azure Resource Manager** - Le aree di Azure hanno di quote/limiti separati per il modello di distribuzione classica e per Azure Resource Manager. Anche se in uno scenario di migrazione non è usato nuovo hardware in quanto *si stanno scambiando macchine virtuali esistenti dalla distribuzione classica ad Azure Resource Manager*, le quote di Azure Resource Manager devono comunque avere una capacità sufficiente prima di avviare la migrazione. Di seguito sono elencati i principali limiti che causano problemi.  Aprire un ticket di supporto di quota per aumentare i limiti.
 
@@ -134,19 +134,19 @@ Di seguito sono elencati i problemi rilevati in molte migrazioni di grandi dimen
 
 
 
-    **Calcolo** *(core, set di disponibilità)*
+    **Calcolo** *(memoria centrale, set di disponibilità)*
 
     ```powershell
     Get-AzVMUsage -Location <azure-region>
     ```
 
-    **Rete** *(reti virtuali, indirizzi IP pubblici statici, indirizzi IP pubblici, gruppi di sicurezza di rete, interfacce di rete, bilanciamenti del carico, tabelle di route)*
+    **Rete** *(reti virtuali, indirizzi IP statici, indirizzi IP pubblici, gruppi di sicurezza di rete, interfacce di rete, bilanciamenti del carico, tabelle route)*
 
     ```powershell
     Get-AzUsage /subscriptions/<subscription-id>/providers/Microsoft.Network/locations/<azure-region> -ApiVersion 2016-03-30 | Format-Table
     ```
 
-    **Archiviazione** *(account di archiviazione)*
+    **Risorsa di archiviazione** *(account di archiviazione)*
 
     ```powershell
     Get-AzStorageUsage
@@ -176,7 +176,7 @@ Per le migrazioni reali, considerare quanto segue:
 
 1. Pianificare la rete virtuale, la più piccola unità di migrazione, con priorità crescente.  Iniziare con le reti virtuali semplici e proseguire con le reti virtuali più complesse.
 2. La maggior parte dei clienti avrà ambienti non di produzione e di produzione.  Pianificare per ultimo l'ambiente di produzione.
-3. **(FACOLTATIVO)**  Pianificare un tempo di inattività di manutenzione con molto buffer nel caso in cui si verifichino problemi imprevisti.
+3. **(FACOLTATIVO) ** Pianificare un tempo di inattività di manutenzione con molto buffer nel caso in cui si verifichino problemi imprevisti.
 4. Comunicare e allinearsi con i team di supporto nel caso in cui si verifichino problemi.
 
 ### <a name="patterns-of-success"></a>Modelli di successo

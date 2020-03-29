@@ -1,6 +1,6 @@
 ---
-title: Diagnosticare gli errori degli elementi in una macchina virtuale Azure DevTest Labs
-description: DevTest Labs forniscono informazioni che è possibile usare per diagnosticare un errore dell'artefatto. Questo articolo illustra come risolvere gli errori degli artefatti.
+title: Diagnosticare gli errori degli elementi in una macchina virtuale Azure DevTest LabsDiagnose artifact failures in an Azure DevTest Labs virtual machine
+description: DevTest Labs fornisce informazioni che è possibile utilizzare per diagnosticare un errore di artefatto. In questo articolo viene illustrato come risolvere i problemi relativi agli errori degli elementi.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: spelluru
 ms.openlocfilehash: 7229f1ee4061eb38b7c6da09df21102ab302ab42
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76760318"
 ---
 # <a name="diagnose-artifact-failures-in-the-lab"></a>Diagnosticare errori di elementi nel lab 
@@ -52,7 +52,7 @@ Dopo aver creato un elemento, è possibile verificare se l'operazione ha avuto e
 
 3. Aprire il file di **stato**.
 
-Per istruzioni su come trovare i file di log in una macchina virtuale **Linux** , vedere l'articolo relativo all' [uso dell'estensione di script personalizzati di Azure versione 2 con macchine virtuali Linux](../virtual-machines/extensions/custom-script-linux.md#troubleshooting) .
+Per istruzioni su come trovare i file di log in una macchina virtuale **Linux,** vedere l'articolo seguente: [Usare l'estensione di script personalizzato](../virtual-machines/extensions/custom-script-linux.md#troubleshooting) di Azure versione 2 con macchine virtuali LinuxFor instructions on finding the log files on a Linux VM, see the following article: Use the Azure Custom Script Extension Version 2 with Linux virtual machines
 
 
 ## <a name="related-blog-posts"></a>Post di blog correlati

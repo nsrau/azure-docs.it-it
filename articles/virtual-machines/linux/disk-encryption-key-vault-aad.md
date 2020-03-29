@@ -1,5 +1,5 @@
 ---
-title: Creazione e configurazione di un insieme di credenziali delle chiavi per crittografia dischi di Azure con Azure AD (versione precedente)
+title: Creazione e configurazione di un insieme di credenziali delle chiavi per Crittografia disco di Azure con Azure AD (versione precedente)Creating and configuring a key vault for Azure Disk Encryption with Azure AD (previous release)
 description: Questo articolo illustra i prerequisiti per l'uso di Crittografia dischi di Azure per le macchine virtuali IaaS.
 author: msmbaldwin
 ms.service: virtual-machines-linux
@@ -9,31 +9,31 @@ ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
 ms.openlocfilehash: 1fa9f4e790b49e83ed4c46e92242ff182d9a47b5
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78970653"
 ---
-# <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption-with-azure-ad-previous-release"></a>Creazione e configurazione di un insieme di credenziali delle chiavi per crittografia dischi di Azure con Azure AD (versione precedente)
+# <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption-with-azure-ad-previous-release"></a>Creazione e configurazione di un insieme di credenziali delle chiavi per Crittografia disco di Azure con Azure AD (versione precedente)Creating and configuring a key vault for Azure Disk Encryption with Azure AD (previous release)
 
-**La nuova versione di crittografia dischi di Azure Elimina la necessità di fornire un Azure AD parametro dell'applicazione per abilitare la crittografia del disco della macchina virtuale. Con la nuova versione non è più necessario fornire le credenziali di Azure AD durante il passaggio abilitare la crittografia. Tutte le nuove macchine virtuali devono essere crittografate senza i parametri dell'applicazione Azure AD usando la nuova versione. Per visualizzare le istruzioni per abilitare la crittografia del disco della macchina virtuale con la nuova versione, vedere [crittografia dischi di Azure](disk-encryption-overview.md). Le macchine virtuali già crittografate con Azure AD parametri dell'applicazione sono ancora supportate e continueranno a essere gestite con la sintassi di AAD.**
+**La nuova versione di Crittografia disco di Azure elimina il requisito di fornire un parametro dell'applicazione Azure AD per abilitare la crittografia del disco della macchina virtuale. Con la nuova versione, non è più necessario fornire le credenziali di Azure AD durante il passaggio di abilitazione della crittografia. Tutte le nuove macchine virtuali devono essere crittografate senza i parametri dell'applicazione Azure AD usando la nuova versione. Per visualizzare le istruzioni per abilitare la crittografia del disco della macchina virtuale usando la nuova versione, vedere Crittografia disco di Azure.To view instructions to enable VM disk encryption using the new release, see [Azure Disk Encryption](disk-encryption-overview.md). Le macchine virtuali che sono già state crittografate con i parametri dell'applicazione Azure AD sono ancora supportate e devono continuare a essere mantenute con la sintassi AAD.**
 
-Crittografia dischi di Azure usa Azure Key Vault per controllare e gestire le chiavi e i segreti di crittografia del disco.  Per altre informazioni sugli insiemi di credenziali delle chiavi, vedere [Introduzione all'insieme di credenziali delle chiavi di Azure](../../key-vault/key-vault-get-started.md) e [Proteggere l'insieme di credenziali delle chiavi](../../key-vault/key-vault-secure-your-key-vault.md). 
+Crittografia disco di Azure usa Archiviazione chiavi di Azure per controllare e gestire le chiavi e i segreti di crittografia del disco.  Per altre informazioni sugli insiemi di credenziali delle chiavi, vedere [Introduzione all'insieme di credenziali delle chiavi di Azure](../../key-vault/key-vault-get-started.md) e [Proteggere l'insieme di credenziali delle chiavi](../../key-vault/key-vault-secure-your-key-vault.md). 
 
-La creazione e la configurazione di un insieme di credenziali delle chiavi per l'uso con crittografia dischi di Azure con Azure AD (versione precedente) prevede tre passaggi:
+La creazione e la configurazione di un insieme di credenziali delle chiavi da usare con Crittografia disco di Azure con Azure AD (versione precedente) prevede tre passaggi:Creating and configuring a key vault for use with Azure Disk Encryption with Azure AD (previous release) involves three steps:
 
 1. Creare un insieme di credenziali delle chiavi. 
 2. Configurare un'applicazione Azure AD e un'entità servizio.
 3. Configurare i criteri di accesso per l'insieme di credenziali delle chiavi per l'app Azure AD.
 4. Impostare i criteri di accesso avanzati per l'insieme di credenziali delle chiavi.
  
-È anche possibile generare o importare una chiave di crittografia della chiave (KEK).
+È inoltre possibile, se lo si desidera, generare o importare una chiave di crittografia a chiave (KEK).
 
-Per informazioni su come [installare gli strumenti e connettersi ad Azure](disk-encryption-key-vault.md#install-tools-and-connect-to-azure), vedere l'articolo principale sulla [creazione e configurazione di un insieme di credenziali delle chiavi per crittografia dischi di Azure](disk-encryption-key-vault.md) .
+Per informazioni su come [installare strumenti e connettersi ad Azure,](disk-encryption-key-vault.md#install-tools-and-connect-to-azure)vedere l'articolo principale Creazione e configurazione di un insieme di credenziali delle chiavi per Crittografia disco di Azure.See the main [Creating and configuring](disk-encryption-key-vault.md) a key vault for Azure Disk Encryption article.
 
 > [!Note]
-> I passaggi descritti in questo articolo sono automatizzati nello script dell'interfaccia della riga di comando dei [prerequisiti di crittografia dischi di Azure](https://github.com/ejarvi/ade-cli-getting-started) e nello script di PowerShell per i [prerequisiti di crittografia dischi di Azure](https://github.com/Azure/azure-powershell/tree/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts).
+> I passaggi descritti in questo articolo sono automatizzati nello [script dell'interfaccia](https://github.com/ejarvi/ade-cli-getting-started) della riga di comando dei prerequisiti di Crittografia disco di Azure e nello [script di PowerShell dei prerequisiti di Crittografia disco](https://github.com/Azure/azure-powershell/tree/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts)di Azure.The steps in this article are automated in the Azure Disk Encryption prerequisites CLI script and Azure Disk Encryption prerequisites PowerShell script .
 
 
 ## <a name="create-a-key-vault"></a>Creare un insieme di credenziali delle chiavi 
@@ -44,18 +44,18 @@ La soluzione Crittografia dischi di Azure è integrata con [Azure Key Vault](htt
 >Per assicurarsi che i segreti di crittografia non superino i confini a livello di area, Crittografia dischi di Azure richiede che l'insieme di credenziali delle chiavi e le macchine virtuali si trovino nella stessa area. Creare e usare un insieme di credenziali delle chiavi nella stessa area della macchina virtuale da crittografare. 
 
 
-### <a name="bkmk_KVPSH"></a> Creare un insieme di credenziali delle chiavi con PowerShell
+### <a name="create-a-key-vault-with-powershell"></a><a name="bkmk_KVPSH"></a> Creare un insieme di credenziali delle chiavi con PowerShell
 
-È possibile creare un insieme di credenziali delle chiavi con Azure PowerShell usando il cmdlet [New-AzKeyVault](/powershell/module/az.keyvault/New-azKeyVault) . Per ulteriori cmdlet per Key Vault, vedere [AZ.](/powershell/module/az.keyvault/)insieme di credenziali. 
+È possibile creare un insieme di credenziali delle chiavi con Azure PowerShell usando il cmdlet [New-AzKeyVault.You](/powershell/module/az.keyvault/New-azKeyVault) can create a key vault with Azure PowerShell using the New-AzKeyVault cmdlet. Per ulteriori cmdlet per Key Vault, vedere [Az.KeyVault](/powershell/module/az.keyvault/). 
 
-1. Creare un nuovo gruppo di risorse, se necessario, con [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup).  Per elencare data center percorsi, usare [Get-AzLocation](/powershell/module/az.resources/get-azlocation). 
+1. Creare un nuovo gruppo di risorse, se necessario, con [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup).  Per elencare le posizioni dei data center, utilizzare [Get-AzLocation](/powershell/module/az.resources/get-azlocation). 
      
      ```azurepowershell-interactive
      # Get-AzLocation 
      New-AzResourceGroup –Name 'MyKeyVaultResourceGroup' –Location 'East US'
      ```
 
-1. Creare un nuovo insieme di credenziali delle chiavi con [New-AzKeyVault](/powershell/module/az.keyvault/New-azKeyVault)
+1. Creare un nuovo insieme di credenziali delle chiavi usando [New-AzKeyVaultCreate](/powershell/module/az.keyvault/New-azKeyVault) a new key vault using New-AzKeyVault
     
       ```azurepowershell-interactive
      New-AzKeyVault -VaultName 'MySecureVault' -ResourceGroupName 'MyKeyVaultResourceGroup' -Location 'East US'
@@ -64,7 +64,7 @@ La soluzione Crittografia dischi di Azure è integrata con [Azure Key Vault](htt
 4. Prendere nota dei valori restituiti per **Nome dell'insieme di credenziali**, **Nome del gruppo di risorse**, **ID risorsa**, **URI dell'insieme di credenziali**e **ID oggetto** per l'uso successivo, quando si crittograferanno i dischi. 
 
 
-### <a name="bkmk_KVCLI"></a> Creare un insieme di credenziali delle chiavi con l'interfaccia della riga di comando di Azure
+### <a name="create-a-key-vault-with-azure-cli"></a><a name="bkmk_KVCLI"></a> Creare un insieme di credenziali delle chiavi con l'interfaccia della riga di comando di Azure
 È possibile gestire l'insieme di credenziali delle chiavi tramite l'interfaccia della riga di comando di Azure usando i comandi [az keyvault](/cli/azure/keyvault#commands). Per creare un insieme di credenziali delle chiavi, usare [az keyvault create](/cli/azure/keyvault#az-keyvault-create).
 
 1. Se necessario, creare un nuovo gruppo di risorse usando [az group create](/cli/azure/group#az-group-create). Per un elenco delle posizioni, usare [az account list-locations](/cli/azure/account#az-account-list) 
@@ -82,7 +82,7 @@ La soluzione Crittografia dischi di Azure è integrata con [Azure Key Vault](htt
 
 4. Prendere nota dei valori restituiti per **Nome dell'insieme di credenziali** (nome), **Nome del gruppo di risorse**, **ID risorsa**, (ID), **URI dell'insieme di credenziali** e **ID oggetto** per l'uso successivo. 
 
-### <a name="bkmk_KVRM"></a> Creare un insieme di credenziali delle chiavi con un modello di Resource Manager
+### <a name="create-a-key-vault-with-a-resource-manager-template"></a><a name="bkmk_KVRM"></a> Creare un insieme di credenziali delle chiavi con un modello di Resource Manager
 
 È possibile creare un insieme di credenziali delle chiavi usando il [modello di Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create).
 
@@ -90,14 +90,14 @@ La soluzione Crittografia dischi di Azure è integrata con [Azure Key Vault](htt
 2. Selezionare la sottoscrizione, il gruppo di risorse, la posizione del gruppo di risorse, il nome dell'insieme di credenziali delle chiavi, l'ID oggetto, le note legali e il contratto, quindi fare clic su **Acquista**. 
 
 
-## <a name="bkmk_ADapp"></a> Configurare un'app Azure AD e un'entità servizio 
+## <a name="set-up-an-azure-ad-app-and-service-principal"></a><a name="bkmk_ADapp"></a> Configurare un'app Azure AD e un'entità servizio 
 Quando è necessario abilitare la crittografia in una macchina virtuale in esecuzione in Azure, Crittografia dischi di Azure genera e scrive le chiavi di crittografia nell'insieme di credenziali delle chiavi. La gestione delle chiavi di crittografia nell'insieme di credenziali delle chiavi richiede l'autenticazione di Azure AD. Creare un'applicazione Azure AD per questo scopo. Ai fini dell'autenticazione, è possibile usare l'autenticazione basata sul segreto client o l'[autenticazione di Azure AD basata sul certificato client](../../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md).
 
 
-### <a name="bkmk_ADappPSH"></a> Configurare un'app Azure AD e un'entità servizio con Azure PowerShell 
+### <a name="set-up-an-azure-ad-app-and-service-principal-with-azure-powershell"></a><a name="bkmk_ADappPSH"></a> Configurare un'app Azure AD e un'entità servizio con Azure PowerShell 
 Per eseguire i comandi seguenti, recuperare e usare il [modulo di Azure AD per PowerShell](/powershell/azure/active-directory/install-adv2). 
 
-1. Usare il cmdlet di PowerShell [New-AzADApplication](/powershell/module/az.resources/new-azadapplication) per creare un'applicazione Azure ad. MyApplicationHomePage e MyApplicationUri possono essere qualsiasi valore desiderato.
+1. Utilizzare il cmdlet [PowerShell New-AzADApplication](/powershell/module/az.resources/new-azadapplication) per creare un'applicazione Azure AD. MyApplicationHomePage e MyApplicationUri possono essere qualsiasi valore desiderato.
 
      ```azurepowershell
      $aadClientSecret = "My AAD client secret"
@@ -109,9 +109,9 @@ Per eseguire i comandi seguenti, recuperare e usare il [modulo di Azure AD per P
 3. $azureAdApplication.ApplicationId è l'ID client di Azure AD e $aadClientSecret è il segreto client da usare in seguito per abilitare Crittografia dischi di Azure. Proteggere correttamente il segreto client di Azure AD. Eseguendo `$azureAdApplication.ApplicationId` verrà visualizzato l'ID applicazione.
 
 
-### <a name="bkmk_ADappCLI"></a> Configurare un'app Azure AD e un'entità servizio con l'interfaccia della riga di comando di Azure
+### <a name="set-up-an-azure-ad-app-and-service-principal-with-azure-cli"></a><a name="bkmk_ADappCLI"></a> Configurare un'app Azure AD e un'entità servizio con l'interfaccia della riga di comando di Azure
 
-È possibile gestire le entità servizio con l'interfaccia della riga di comando di Azure usando i comandi [az ad sp](/cli/azure/ad/sp). Per altre informazioni, vedere [creare un'entità servizio di Azure](/cli/azure/create-an-azure-service-principal-azure-cli).
+È possibile gestire le entità servizio con l'interfaccia della riga di comando di Azure usando i comandi [az ad sp](/cli/azure/ad/sp). Per altre informazioni, vedere [Creare un'entità servizio](/cli/azure/create-an-azure-service-principal-azure-cli)di Azure.For more information, see Create an Azure service principal .
 
 1. Creare una nuova entità servizio.
      
@@ -120,25 +120,25 @@ Per eseguire i comandi seguenti, recuperare e usare il [modulo di Azure AD per P
      ```
 3.  Il valore appId restituito è l'ID client di Azure AD usato in altri comandi. È anche il nome SPN che verrà usato per az keyvault set-policy. La password è il segreto client da usare in seguito per abilitare Crittografia dischi di Azure. Proteggere correttamente il segreto client di Azure AD.
  
-### <a name="bkmk_ADappRM"></a> Configurare un'app Azure AD e un'entità servizio tramite il portale di Azure
+### <a name="set-up-an-azure-ad-app-and-service-principal-though-the-azure-portal"></a><a name="bkmk_ADappRM"></a> Configurare un'app Azure AD e un'entità servizio tramite il portale di Azure
 Seguire i passaggi illustrati nell'articolo [Usare il portale per creare un'applicazione Azure Active Directory e un'entità servizio che possano accedere alle risorse](../../active-directory/develop/howto-create-service-principal-portal.md) per creare un'applicazione Azure AD. Ognuno dei passaggi elencati di seguito conduce direttamente alla sezione dell'articolo da completare. 
 
 1. [Verificare le autorizzazioni necessarie](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)
-2. [Creare un'applicazione Azure Active Directory](../../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) 
+2. [Creare un'applicazione Azure Active DirectoryCreate an Azure Active Directory application](../../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) 
      - Quando si crea l'applicazione è possibile usare qualsiasi nome e URL di accesso desiderato.
 3. [Ottenere l'ID applicazione e la chiave di autenticazione](../../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in). 
-     - La chiave di autenticazione è il segreto client e viene usato come AadClientSecret per set-AzVMDiskEncryptionExtension. 
+     - The authentication key is the client secret and is used as the AadClientSecret for Set-AzVMDiskEncryptionExtension. 
         - La chiave di autenticazione viene usata dall'applicazione come credenziale per accedere ad Azure AD. Nel portale di Azure il segreto è denominato chiave, ma non ha alcuna relazione con gli insiemi di credenziali delle chiavi. Proteggere il segreto in modo appropriato. 
-     - L'ID applicazione verrà usato in un secondo momento come AadClientId per set-AzVMDiskEncryptionExtension e come ServicePrincipalName per set-AzKeyVaultAccessPolicy. 
+     - L'ID applicazione verrà utilizzato in seguito come AadClientId per Set-AzVMDiskEncryptionExtension e come ServicePrincipalName per Set-AzKeyVaultAccessPolicy. 
 
-## <a name="bkmk_KVAP"></a> Configurare i criteri di accesso per l'insieme di credenziali delle chiavi per l'app Azure AD
+## <a name="set-the-key-vault-access-policy-for-the-azure-ad-app"></a><a name="bkmk_KVAP"></a> Configurare i criteri di accesso per l'insieme di credenziali delle chiavi per l'app Azure AD
 Per scrivere segreti di crittografia in un insieme di credenziali delle chiavi specificato, Crittografia dischi di Azure deve avere l'ID client e il Segreto client dell'applicazione Azure Active Directory che dispone delle autorizzazioni per scrivere segreti nell'insieme di credenziali delle chiavi. 
 
 > [!NOTE]
 > Crittografia dischi di Azure richiede la configurazione di criteri di accesso all'applicazione client di Azure AD, ovvero le autorizzazioni _WrapKey_ e _Set_.
 
-### <a name="bkmk_KVAPPSH"></a> Configurare i criteri di accesso per l'insieme di credenziali delle chiavi per l'app Azure AD con Azure PowerShell
-L'applicazione Azure AD deve avere i diritti di accesso alle chiavi o ai segreti nell'insieme di credenziali. Usare il cmdlet [set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) per concedere le autorizzazioni all'applicazione, usando l'ID client, generato al momento della registrazione dell'applicazione, come valore del parametro _– servicePrincipalName_ . Per altre informazioni, vedere il post di blog [Azure Key Vault - Step by Step](https://blogs.technet.com/b/kv/archive/2015/06/02/azure-key-vault-step-by-step.aspx) (Procedura dettagliata per Azure Key Vault). 
+### <a name="set-the-key-vault-access-policy-for-the-azure-ad-app-with-azure-powershell"></a><a name="bkmk_KVAPPSH"></a> Configurare i criteri di accesso per l'insieme di credenziali delle chiavi per l'app Azure AD con Azure PowerShell
+L'applicazione Azure AD deve avere i diritti di accesso alle chiavi o ai segreti nell'insieme di credenziali. Utilizzare il cmdlet [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) per concedere autorizzazioni all'applicazione, utilizzando l'ID client (generato al momento della registrazione dell'applicazione) come valore del parametro _–ServicePrincipalName._ Per altre informazioni, vedere il post di blog [Azure Key Vault - Step by Step](https://blogs.technet.com/b/kv/archive/2015/06/02/azure-key-vault-step-by-step.aspx) (Procedura dettagliata per Azure Key Vault). 
 
 1. Configurare i criteri di accesso dell'insieme di credenziali delle chiavi per l'applicazione AD con PowerShell.
 
@@ -149,7 +149,7 @@ L'applicazione Azure AD deve avere i diritti di accesso alle chiavi o ai segreti
      Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -ServicePrincipalName $aadClientID -PermissionsToKeys 'WrapKey' -PermissionsToSecrets 'Set' -ResourceGroupName $KVRGname
      ```
 
-### <a name="bkmk_KVAPCLI"></a> Configurare i criteri di accesso dell'insieme di credenziali delle chiavi per l'app Azure AD con l'interfaccia della riga di comando di Azure
+### <a name="set-the-key-vault-access-policy-for-the-azure-ad-app-with-azure-cli"></a><a name="bkmk_KVAPCLI"></a> Configurare i criteri di accesso dell'insieme di credenziali delle chiavi per l'app Azure AD con l'interfaccia della riga di comando di Azure
 Usare [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy) per impostare i criteri di accesso. Per altre informazioni, vedere [Gestire Key Vault tramite l'interfaccia della riga di comando 2.0](../../key-vault/key-vault-manage-with-cli2.md#authorizing-an-application-to-use-a-key-or-secret).
 
 Assegnare all'entità servizio creata tramite l'interfaccia della riga di comando di Azure l'accesso per ottenere i segreti ed eseguire il wrapping delle chiavi con il comando seguente:
@@ -158,7 +158,7 @@ Assegnare all'entità servizio creata tramite l'interfaccia della riga di comand
      az keyvault set-policy --name "MySecureVault" --spn "<spn created with CLI/the Azure AD ClientID>" --key-permissions wrapKey --secret-permissions set
      ```
 
-### <a name="bkmk_KVAPRM"></a> Configurare i criteri di accesso dell'insieme di credenziali delle chiavi per l'app Azure AD con il portale
+### <a name="set-the-key-vault-access-policy-for-the-azure-ad-app-with-the-portal"></a><a name="bkmk_KVAPRM"></a> Configurare i criteri di accesso dell'insieme di credenziali delle chiavi per l'app Azure AD con il portale
 
 1. Aprire il gruppo di risorse con l'insieme di credenziali delle chiavi.
 2. Selezionare l'insieme di credenziali delle chiavi, passare a **Criteri di accesso**, quindi fare clic su **Aggiungi nuovo**.
@@ -171,11 +171,11 @@ Assegnare all'entità servizio creata tramite l'interfaccia della riga di comand
 
 ![Autorizzazioni segrete di Azure Key Vault - Imposta](./media/disk-encryption/keyvault-portal-fig3b.png)
 
-## <a name="bkmk_KVper"></a> Impostare i criteri di accesso avanzati per l'insieme di credenziali delle chiavi
+## <a name="set-key-vault-advanced-access-policies"></a><a name="bkmk_KVper"></a>Impostare i criteri di accesso avanzato dell'insieme di credenziali delle chiaviSet key vault advanced access
 La piattaforma Azure deve avere accesso alle chiavi di crittografia o i segreti nell'insieme di credenziali delle chiavi per renderli disponibili alla macchina virtuale per l'avvio e la decrittografia dei volumi. Abilitare la crittografia del disco nell'insieme di credenziali delle chiavi o le distribuzioni avranno esito negativo.  
 
-### <a name="bkmk_KVperPSH"></a> Impostare i criteri di accesso avanzati per l'insieme di credenziali delle chiavi con Azure PowerShell
- Usare il cmdlet PowerShell di Key Vault [set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) per abilitare la crittografia del disco per l'insieme di credenziali delle chiavi.
+### <a name="set-key-vault-advanced-access-policies-with-azure-powershell"></a><a name="bkmk_KVperPSH"></a> Impostare i criteri di accesso avanzati per l'insieme di credenziali delle chiavi con Azure PowerShell
+ Utilizzare il cmdlet di PowerShell [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) dell'insieme di credenziali delle chiavi per abilitare la crittografia del disco per l'insieme di credenziali delle chiavi.
 
   - **Abilitare l'insieme di credenziali delle chiavi per la crittografia del disco:** EnabledForDiskEncryption è obbligatorio per Crittografia dischi di Azure.
       
@@ -195,7 +195,7 @@ La piattaforma Azure deve avere accesso alle chiavi di crittografia o i segreti 
      Set-AzKeyVaultAccessPolicy -VaultName 'MySecureVault' -ResourceGroupName 'MyKeyVaultResourceGroup' -EnabledForTemplateDeployment
      ```
 
-### <a name="bkmk_KVperCLI"></a> Impostare i criteri di accesso avanzati per l'insieme di credenziali delle chiavi con l'interfaccia della riga di comando di Azure
+### <a name="set-key-vault-advanced-access-policies-using-the-azure-cli"></a><a name="bkmk_KVperCLI"></a> Impostare i criteri di accesso avanzati per l'insieme di credenziali delle chiavi con l'interfaccia della riga di comando di Azure
 Usare [az keyvault update](/cli/azure/keyvault#az-keyvault-update) per abilitare la crittografia del disco per l'insieme di credenziali delle chiavi. 
 
  - **Abilitare l'insieme di credenziali delle chiavi per la crittografia del disco:** Enabled-for-disk-encryption è obbligatorio. 
@@ -215,7 +215,7 @@ Usare [az keyvault update](/cli/azure/keyvault#az-keyvault-update) per abilitare
      ```
 
 
-### <a name="bkmk_KVperrm"></a> Impostare i criteri di accesso avanzati per l'insieme di credenziali delle chiavi tramite il portale di Azure
+### <a name="set-key-vault-advanced-access-policies-through-the-azure-portal"></a><a name="bkmk_KVperrm"></a> Impostare i criteri di accesso avanzati per l'insieme di credenziali delle chiavi tramite il portale di Azure
 
 1. Selezionare l'insieme di credenziali delle chiavi, passare a **Criteri di accesso** e **Fare clic per visualizzare i criteri di accesso avanzati**.
 2. Selezionare la casella **Abilita l'accesso a Crittografia dischi di Azure per la crittografia dei volumi**.
@@ -225,22 +225,22 @@ Usare [az keyvault update](/cli/azure/keyvault#az-keyvault-update) per abilitare
 ![Criteri di accesso avanzati per l'insieme di credenziali delle chiavi di Azure](./media/disk-encryption/keyvault-portal-fig4.png)
 
 
-## <a name="bkmk_KEK"></a> Configurare una chiave di crittografia della chiave (facoltativo)
-Se si vuole usare una chiave di crittografia della chiave (KEK) per un livello aggiuntivo di sicurezza per le chiavi di crittografia, aggiungere una KEK all'insieme di credenziali delle chiavi. Usare il cmdlet [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) per creare una chiave di crittografia della chiave nell'insieme di credenziali delle chiavi. È anche possibile importare una chiave di crittografia della chiave dal modulo di protezione hardware di gestione delle chiavi locale. Per altre informazioni, vedere la [documentazione di Key Vault](../../key-vault/key-vault-hsm-protected-keys.md). Quando viene specificata una chiave di crittografia della chiave, Crittografia dischi di Azure la usa per eseguire il wrapping dei segreti di crittografia prima di scrivere nell'insieme di credenziali delle chiavi. 
+## <a name="set-up-a-key-encryption-key-optional"></a><a name="bkmk_KEK"></a>Configurare una chiave di crittografia della chiave (facoltativo)Set up a key encryption key (optional)
+Se si vuole usare una chiave di crittografia della chiave (KEK) per un livello aggiuntivo di sicurezza per le chiavi di crittografia, aggiungere una KEK all'insieme di credenziali delle chiavi. Utilizzare il cmdlet [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) per creare una chiave di crittografia della chiave nell'insieme di credenziali delle chiavi. È anche possibile importare una chiave di crittografia della chiave dal modulo di protezione hardware di gestione delle chiavi locale. Per altre informazioni, vedere la [documentazione di Key Vault](../../key-vault/key-vault-hsm-protected-keys.md). Quando viene specificata una chiave di crittografia della chiave, Crittografia dischi di Azure la usa per eseguire il wrapping dei segreti di crittografia prima di scrivere nell'insieme di credenziali delle chiavi. 
 
-* Quando si generano chiavi, usare un tipo di chiave RSA. Crittografia dischi di Azure non supporta ancora l'uso di chiavi a curva ellittica.
+* Quando si generano chiavi, utilizzare un tipo di chiave RSA. Crittografia disco di Azure non supporta ancora l'utilizzo delle chiavi Curve ellittiche.
 
 * È necessario applicare il controllo delle versioni agli URL del segreto dell'insieme di credenziali delle chiavi e della chiave di crittografia della chiave. Azure applica questa restrizione relativa al controllo delle versioni. Per informazioni sugli URL del segreto e della chiave di crittografia della chiave validi, vedere gli esempi seguenti:
 
-  * Esempio di URL del segreto valido:  *https://contosovault.vault.azure.net/secrets/EncryptionSecretWithKek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
-  * Esempio di URL della chiave di crittografia della chiave valido:  *https://contosovault.vault.azure.net/keys/diskencryptionkek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+  * Esempio di URL segreto valido:*https://contosovault.vault.azure.net/secrets/EncryptionSecretWithKek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+  * Esempio di URL KEK valido:*https://contosovault.vault.azure.net/keys/diskencryptionkek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 * Crittografia dischi di Azure non supporta la possibilità di specificare i numeri di porta come parte dei segreti dell'insieme di credenziali delle chiavi e degli URL della chiave di crittografia della chiave. Ecco alcuni esempi di URL di insiemi di credenziali delle chiavi non supportati e supportati:
 
-  * URL dell'insieme di credenziali delle chiavi non accettabile:  *https://contosovault.vault.azure.net:443/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
-  * URL dell'insieme di credenziali delle chiavi accettabile:  *https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+  * URL dell'insieme di credenziali delle chiavi non accettabile*https://contosovault.vault.azure.net:443/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+  * URL dell'insieme di credenziali delle chiavi accettabile:*https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
-### <a name="bkmk_KEKPSH"></a> Configurare una chiave di crittografia della chiave con Azure PowerShell 
+### <a name="set-up-a-key-encryption-key-with-azure-powershell"></a><a name="bkmk_KEKPSH"></a> Configurare una chiave di crittografia della chiave con Azure PowerShell 
 Prima di usare lo script di PowerShell, è necessario conoscere i prerequisiti di Crittografia dischi di Azure per comprendere i passaggi nello script. Lo script di esempio potrebbe richiedere modifiche per l'ambiente in uso. Questo script crea tutti i prerequisiti di Crittografia dischi di Azure e crittografa una macchina virtuale IaaS esistente, eseguendo il wrapping della chiave di crittografia del disco tramite una chiave di crittografia della chiave. 
 
  ```powershell
@@ -288,7 +288,7 @@ Prima di usare lo script di PowerShell, è necessario conoscere i prerequisiti d
      Set-AzVMDiskEncryptionExtension -ResourceGroupName $VMRGName -VMName $vmName -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -KeyEncryptionKeyUrl $keyEncryptionKeyUrl -KeyEncryptionKeyVaultId $KeyVaultResourceId;
 ```
 
-## <a name="bkmk_Cert"></a> Autenticazione basata su certificati (facoltativo)
+## <a name="certificate-based-authentication-optional"></a><a name="bkmk_Cert"></a> Autenticazione basata su certificati (facoltativo)
 Se si vuole usare l'autenticazione basata su certificati, è possibile caricarne uno nell'insieme di credenziali delle chiavi e distribuirlo al client. Prima di usare lo script di PowerShell, è necessario conoscere i prerequisiti di Crittografia dischi di Azure per comprendere i passaggi nello script. Lo script di esempio potrebbe richiedere modifiche per l'ambiente in uso.
 
      
@@ -367,7 +367,7 @@ Se si vuole usare l'autenticazione basata su certificati, è possibile caricarne
    Set-AzVMDiskEncryptionExtension -ResourceGroupName $VMRGName -VMName $VMName -AadClientID $AADClientID -AadClientCertThumbprint $AADClientCertThumbprint -DiskEncryptionKeyVaultUrl $DiskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId
  ```
 
-## <a name="bkmk_CertKEK"></a> Autenticazione basata su certificati e KEK (facoltativo)
+## <a name="certificate-based-authentication-and-a-kek-optional"></a><a name="bkmk_CertKEK"></a> Autenticazione basata su certificati e KEK (facoltativo)
 
 Se si vuole usare l'autenticazione basata su certificati ed eseguire il wrapping della chiave di crittografia con una KEK, si può usare lo script seguente come esempio. Prima di usare lo script di PowerShell, è necessario conoscere tutti i prerequisiti di Crittografia dischi di Azure precedenti per comprendere i passaggi nello script. Lo script di esempio potrebbe richiedere modifiche per l'ambiente in uso.
 
@@ -462,4 +462,4 @@ Se si vuole usare l'autenticazione basata su certificati ed eseguire il wrapping
  
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Abilitare crittografia dischi di Azure con Azure AD nelle macchine virtuali Linux (versione precedente)](disk-encryption-linux-aad.md)
+[Abilitare Crittografia disco di Azure con Azure AD in macchine virtuali Linux (versione precedente)Enable Azure Disk Encryption with Azure AD on Linux VMs (previous release)](disk-encryption-linux-aad.md)

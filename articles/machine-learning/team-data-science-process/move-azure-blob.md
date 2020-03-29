@@ -1,6 +1,6 @@
 ---
 title: Spostare i dati da e verso una risorsa di archiviazione BLOB di Azure - Processo di data science per i team
-description: Spostare i dati da e verso l'archiviazione BLOB di Azure usando Azure Storage Explorer, AzCopy, Python e SSIS.
+description: Spostare i dati da e verso l'archiviazione BLOB di Azure usando Esplora archivi di Azure, AzCopy, Python e SSIS.
 services: machine-learning
 author: marktab
 manager: marktab
@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: fc58651bcb3b266b981fb953fd7341427d47fb2c
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76717583"
 ---
 # <a name="move-data-to-and-from-azure-blob-storage"></a>Spostare i dati da e verso l'archivio BLOB di Azure
@@ -27,9 +27,9 @@ Il Processo di analisi scientifica dei dati per i team richiede l'inserimento o 
 Gli articoli seguenti descrivono come spostare i dati da e verso l'archivio BLOB di Azure usando tecnologie diverse.
 
 * [Azure Storage Explorer](move-data-to-azure-blob-using-azure-storage-explorer.md)
-* [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10)
+* [Copia Azzurra](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10)
 * [Python](move-data-to-azure-blob-using-python.md)
-* [SSIS](move-data-to-azure-blob-using-ssis.md)
+* [Ssis](move-data-to-azure-blob-using-ssis.md)
 
 Quale sia il metodo adatto dipenderà dallo scenario. L'articolo [Scenari per l'analisi avanzata in Azure Machine Learning](plan-sample-scenarios.md) consente di determinare le risorse necessarie per un'ampia gamma di flussi di lavoro di analisi scientifica dei dati usati nel processo di analisi avanzata.
 
@@ -50,8 +50,8 @@ In alternativa, è possibile utilizzare [Data factory di Azure](https://azure.mi
 Per altre informazioni, vedere [Creare pipeline predittive tramite Data factory di Azure e Azure Machine Learning](../../data-factory/transform-data-using-machine-learning.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
-In questo articolo si presuppone che l'utente abbia una sottoscrizione di Azure, un account di archiviazione e chiavi di archiviazione corrispondenti per l'account. Prima di caricare o scaricare i dati, è necessario conoscerne il nome e la chiave dell'account di archiviazione di Azure.
+In questo articolo si presuppone che l'utente abbia una sottoscrizione di Azure, un account di archiviazione e chiavi di archiviazione corrispondenti per l'account. Prima di caricare/scaricare i dati, è necessario conoscere il nome e la chiave dell'account di Archiviazione di Azure.Before uploading/downloading data, you must know your Azure Storage account name and account key.
 
-* Per configurare una sottoscrizione di Azure, vedere [Versione di prova gratuita di un mese](https://azure.microsoft.com/pricing/free-trial/).
-* Per istruzioni sulla creazione di un account di archiviazione e per ottenere informazioni sull'account e sulla chiave, vedere [informazioni sugli account di archiviazione di Azure](../../storage/common/storage-create-storage-account.md).
+* Per configurare una sottoscrizione di Azure, vedere Versione di valutazione gratuita di [un mese.](https://azure.microsoft.com/pricing/free-trial/)
+* Per istruzioni sulla creazione di un account di archiviazione e per ottenere informazioni sull'account e sulla chiave, vedere Informazioni sugli account di archiviazione di [Azure.](../../storage/common/storage-create-storage-account.md)
 

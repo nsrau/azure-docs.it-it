@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 04/19/2019
 ms.author: alkohli
 ms.openlocfilehash: 71e0ebf7d7851ae65a6fba67a1695d755fd98bb1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61436495"
 ---
 # <a name="azure-data-box-blob-storage-requirements"></a>Requisiti di archiviazione BLOB di Azure Data Box
 
-Questo articolo elenca le versioni dell'API di Azure, le librerie client di Azure e strumenti supportati con l'archiviazione Blob di dati finestra. L'archiviazione BLOB di Azure Data Box fornisce funzionalità di gestione BLOB dotata di semantica coerente con Azure. Inoltre questo articolo riepiloga le differenze note di archiviazione BLOB di Azure Data Box rispetto ai servizi di Archiviazione di Azure.
+Questo articolo elenca le versioni delle API di Azure, delle librerie client di Azure e degli strumenti supportati con l'archiviazione BLOB del riquadro di dati. L'archiviazione BLOB di Azure Data Box fornisce funzionalità di gestione BLOB dotata di semantica coerente con Azure. Inoltre questo articolo riepiloga le differenze note di archiviazione BLOB di Azure Data Box rispetto ai servizi di Archiviazione di Azure.
 
 È consigliabile esaminare attentamente queste informazioni prima di connettersi all'archivio BLOB di Azure Data Box e farvi riferimento ogni volta che sia necessario.
 
@@ -29,7 +29,7 @@ Questo articolo elenca le versioni dell'API di Azure, le librerie client di Azur
 |    Archiviazione file di Azure                                   |    Condivisioni di file SMB basate sul cloud supportate              |    Non supportate      |
 |    Crittografia del servizio per dati inattivi                  |    Crittografia AES a 256 bit                             |    Crittografia AES a 256 bit |
 |    Tipo di account di archiviazione                                 |    Account di archiviazione BLOB di Azure e per uso generico    |    Solo uso generico v1|
-|    Nome del BLOB                                            |    1\.024 caratteri (2.048 byte)                     |    880 caratteri (1.760 byte)|
+|    Nome del BLOB                                            |    1.024 caratteri (2.048 byte)                     |    880 caratteri (1.760 byte)|
 |    Dimensioni massime di BLOB in blocchi                              |    4,75 TB (100 MB x 50.000 blocchi)                   |    4,75 TB (100 MB x 50.000 blocchi) per Azure Data Box v 1.8 e successive.|
 |    Dimensioni massime di BLOB di pagine                               |    8 TB                                               |    1 TB                   |
 |    Dimensioni pagina del BLOB di pagine                                  |    512 byte                                          |    4 KB                   |
@@ -46,7 +46,7 @@ Azure Data Box 1.8 e versioni successive
 - [2016-05-31](/rest/api/storageservices/version-2016-05-31)
 - [2015-12-11](/rest/api/storageservices/version-2015-12-11)
 - [2015-07-08](/rest/api/storageservices/version-2015-07-08)
-- [2015-04-05](/rest/api/storageservices/version-2015-04-05) |
+- [2015-04-05](/rest/api/storageservices/version-2015-04-05)|
 ## <a name="supported-azure-client-libraries"></a>Librerie client di Azure supportate
 
 Per l'archiviazione BLOB di Azure Data Box sono disponibili librerie client specifiche e requisiti specifici per il suffisso dell'endpoint. Gli endpoint di archiviazione BLOB di Data Box non sono del tutto equivalenti alla versione più recente dell'API REST di Archiviazione BLOB di Azure, vedere le [versioni supportate per Azure Data Box 1.8 e successive](#supported-api-versions). Per le librerie client di archiviazione è necessario essere a conoscenza della versione compatibile con l'API REST.
@@ -57,7 +57,7 @@ Per l'archiviazione BLOB di Azure Data Box sono disponibili librerie client spec
 |--------------------|--------------------------------------------|--------|---------------------------------|
 |    .NET                |    9.2.0                                           |    Pacchetto NuGet:   https://www.nuget.org/packages/WindowsAzure.Storage/9.2.0    <br>Versione di GitHub:   https://github.com/Azure/azure-storage-net/releases/tag/v9.2.0                                                                                                                                                                                               |    file app.config                 |
 |    Java                |    7.0.0                                           |    Pacchetto Maven:   https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/6.1.0   <br>Versione di GitHub:   https://github.com/Azure/azure-storage-java/releases/tag/v7.0.0                                                                                                                                                                              |    Configurazione della stringa di connessione         |
-|    Node.js             |    2.8.3                                           |    Collegamento NPM:   https://www.npmjs.com/package/azure-storage   (Eseguire: `npm install azure-storage@2.7.0` )   <br>Versione di GitHub:   https://github.com/Azure/azure-storage-node/releases/tag/v2.8.3                                                                                                                                                                        |    Dichiarazione istanza del servizio    |
+|    Node.js             |    2.8.3                                           |    Collegamento NPM: https://www.npmjs.com/package/azure-storage (Esegui: `npm install azure-storage@2.7.0`)   <br>Versione di GitHub:   https://github.com/Azure/azure-storage-node/releases/tag/v2.8.3                                                                                                                                                                        |    Dichiarazione istanza del servizio    |
 |    C++                 |    5.2.0                                           |    Pacchetto NuGet:   https://www.nuget.org/packages/wastorage.v140/5.2.0   <br>Versione di GitHub:   https://github.com/Azure/azure-storage-cpp/releases/tag/v5.2.0                                                                                                                                                                                                     |    Configurazione della stringa di connessione         |
 |    PHP                 |    1.2.0                                           |    Versione di GitHub:<br>Comuni: https://github.com/Azure/azure-storage-php/releases/tag/v1.2.0-common   <br>BLOB: https://github.com/Azure/azure-storage-php/releases/tag/v1.2.0-blob      <br>Installazione tramite Composer (per altre informazioni, vedere i dettagli sotto).                                                                                                             |    Configurazione della stringa di connessione         |
 |    Python              |    1.1.0                                           |    Versione di GitHub:<br>Comuni:   https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-common <br>BLOB:   https://github.com/Azure/azure-storage-python/releases/tag/v1.1.0-blob                                                                                                                                                                          |    Dichiarazione istanza del servizio    |
@@ -83,7 +83,7 @@ Per l'installazione tramite Composer: (prendere BLOB come esempio).
 
 ### <a name="endpoint-declaration"></a>Dichiarazione dell'endpoint
 
-Un endpoint di archiviazione BLOB di Azure Data Box include due parti: il nome di un'area e il dominio di Data Box. Nell'archivio Blob di dati finestra SDK, l'endpoint predefinito è `\<serial no. of the device>.microsoftdatabox.com`.  Per altre informazioni sull'endpoint di servizio BLOB, consultare [Connect via Data Box Blob storage](data-box-deploy-copy-data-via-rest.md) (Connettersi tramite l'archiviazione BLOB di Azure Data Box).
+Un endpoint di archiviazione BLOB di Azure Data Box include due parti: il nome di un'area e il dominio di Data Box. Nell'SDK di archiviazione BLOB di `\<serial no. of the device>.microsoftdatabox.com`Data Box, l'endpoint predefinito è .  Per altre informazioni sull'endpoint di servizio BLOB, consultare [Connect via Data Box Blob storage](data-box-deploy-copy-data-via-rest.md) (Connettersi tramite l'archiviazione BLOB di Azure Data Box).
  
 ## <a name="examples"></a>Esempi
 

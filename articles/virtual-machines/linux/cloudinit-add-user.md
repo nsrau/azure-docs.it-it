@@ -1,5 +1,5 @@
 ---
-title: Usare cloud-init per aggiungere un utente a una VM Linux in Azure
+title: Usare cloud-init per aggiungere un utente a una macchina virtuale Linux in AzureUse cloud-init to add a user to a Linux VM on Azure
 description: Come usare il cloud-init per aggiungere un utente a una VM Linux durante la creazione con l'interfaccia della riga di comando di Azure
 author: rickstercdn
 ms.service: virtual-machines-linux
@@ -7,19 +7,19 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
 ms.openlocfilehash: f1782bfe0c14e3b44703f89ec7f78590c1bb74c5
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78969231"
 ---
 # <a name="use-cloud-init-to-add-a-user-to-a-linux-vm-in-azure"></a>Usare cloud-init per aggiungere un utente a una VM Linux in Azure
-Questo articolo illustra come usare [cloud-init](https://cloudinit.readthedocs.io) per aggiungere un utente in una macchina virtuale (VM) o un set di scalabilità di macchine virtuali in fase di provisioning in Azure. Questo script cloud-init viene eseguito al primo avvio dopo il provisioning delle risorse da parte di Azure. Per altre informazioni sul funzionamento di cloud-init in modo nativo in Azure e sulle distribuzioni Linux supportate, vedere la [panoramica di cloud-init](using-cloud-init.md).
+Questo articolo illustra come usare [cloud-init](https://cloudinit.readthedocs.io) per aggiungere un utente in una macchina virtuale (VM) o un set di scalabilità di macchine virtuali in fase di provisioning in Azure. Questo script cloud-init viene eseguito al primo avvio dopo il provisioning delle risorse da parte di Azure. Per altre informazioni sul funzionamento nativo di cloud-init in Azure e sulle distribuzioni Linux supportate, vedere Panoramica di [cloud-init.](using-cloud-init.md)
 
 ## <a name="add-a-user-to-a-vm-with-cloud-init"></a>Aggiungere un utente a una macchina virtuale con cloud init
 Una delle prime attività eseguite in qualsiasi nuova VM Linux è l'aggiunta di un altro utente per evitare di usare *root*. Le chiavi SSH sono la procedura consigliata per la sicurezza e l'usabilità. Le chiavi vengono aggiunte al file *~/.ssh/authorized_keys* con questo script cloud-init.
 
-Per aggiungere un utente a una VM Linux, creare un file denominato *cloud_init_add_user.txt* nella shell corrente e incollare la configurazione seguente. Per questo esempio, creare il file in Cloud Shell anziché nel computer locale. È possibile usare qualsiasi editor. Immettere `sensible-editor cloud_init_add_user.txt` per creare il file e visualizzare un elenco degli editor disponibili. Scegliere #1 per usare l'editor **nano**. Assicurarsi che l'intero file cloud-init venga copiato correttamente, in particolare la prima riga.  Come valore di *è necessario specificare la propria chiave pubblica (ad esempio il contenuto di*~/.ssh/id_rsa.pub`ssh-authorized-keys:`). Qui è stato abbreviato per semplificare l'esempio.
+Per aggiungere un utente a una VM Linux, creare un file denominato *cloud_init_add_user.txt* nella shell corrente e incollare la configurazione seguente. Per questo esempio, creare il file in Cloud Shell anziché nel computer locale. È possibile usare qualsiasi editor. Immettere `sensible-editor cloud_init_add_user.txt` per creare il file e visualizzare un elenco degli editor disponibili. Scegliere #1 per usare l'editor **nano**. Assicurarsi che l'intero file cloud-init venga copiato correttamente, in particolare la prima riga.  Come valore di `ssh-authorized-keys:` è necessario specificare la propria chiave pubblica (ad esempio il contenuto di *~/.ssh/id_rsa.pub*). Qui è stato abbreviato per semplificare l'esempio.
 
 ```yaml
 #cloud-config
@@ -35,7 +35,7 @@ users:
 > [!NOTE] 
 > Il file #cloud-config include il parametro `- default`. In questo modo, l'utente verrà aggiunto all'utente amministratore esistente creato durante il provisioning. Se si crea un utente senza il parametro `- default`, l'utente amministratore generato automaticamente dalla piattaforma Azure verrà sovrascritto. 
 
-Prima di distribuire l'immagine, è necessario creare un gruppo di risorse con il comando [az group create](/cli/azure/group). Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella località *stati uniti orientali*.
+Prima di distribuire l'immagine, è necessario creare un gruppo di risorse con il comando [az group create](/cli/azure/group). Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nel percorso *eastus.*
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus

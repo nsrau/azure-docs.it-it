@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 12/20/2018
 ms.author: genli
 ms.openlocfilehash: 90034a56fcf5211059d37270e12391249f7a16b5
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77920162"
 ---
 # <a name="windows-activation-fails-in-forced-tunneling-scenario"></a>L'attivazione di Windows ha esito negativo in uno scenario di tunneling forzato
@@ -26,7 +26,7 @@ Questo articolo descrive come risolvere il problema di attivazione del server di
 
 ## <a name="symptom"></a>Sintomo
 
-Viene abilitato il [tunneling forzato](../../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) nelle subnet della rete virtuale di Azure per indirizzare alla rete locale tutto il traffico associato a Internet. In questo scenario, le macchine virtuali (VM) di Azure che eseguono Windows non riescono ad attivare Windows.
+Viene abilitato il [tunneling forzato](../../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) nelle subnet della rete virtuale di Azure per indirizzare alla rete locale tutto il traffico associato a Internet. In this scenario, the Azure virtual machines (VMs) that run Windows fail to activate Windows.
 
 ## <a name="cause"></a>Causa
 
@@ -53,7 +53,7 @@ Per aggiungere la route personalizzata, seguire questa procedura:
  
 
 > [!NOTE] 
-> L'attivazione usa indirizzi IP pubblici e sarà interessata da uno SKU standard Load Balancer la configurazione. Per informazioni sui requisiti, vedere attentamente le [connessioni in uscita in Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) .
+> L'attivazione usa indirizzi IP pubblici e sarà influenzata da una configurazione di Bilanciamento del carico SKU Standard.Activation uses public IP addresses and will be affected by a Standard SKU Load Balancer configuration. Esaminare attentamente le [connessioni in uscita in Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) per informazioni sui requisiti.
 
 1. Aprire Azure PowerShell e [accedere alla propria sottoscrizione di Azure](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
 2. Eseguire i comandi seguenti:

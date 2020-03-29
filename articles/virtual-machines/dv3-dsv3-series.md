@@ -1,6 +1,6 @@
 ---
-title: Serie dv3 e Dsv3-macchine virtuali di Azure
-description: Specifiche per le macchine virtuali serie dv3 e Dsv3.
+title: Serie Dv3 e Dsv3 - Macchine virtuali di Azure
+description: Specifiche per le macchine virtuali serie Dv3 e Dsv3.
 services: virtual-machines
 author: joelpelley
 ms.service: virtual-machines
@@ -8,37 +8,37 @@ ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
 ms.openlocfilehash: 9ea5811fa20ea4866655de74d79ff3905ba03f16
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78164407"
 ---
 # <a name="dv3-and-dsv3-series"></a>Serie Dv3 e Dsv3
 
-La serie dv3 viene eseguita su Intel® Xeon® 8171M 2.1 GHz (Skylake), Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) o i processori Intel® Xeon® E5-2673 V3 2,4 GHz (Haswell) in una configurazione con hyperthreading, offrendo una proposta di valore migliore per la maggior parte delle informazioni generali carichi di lavoro scopo. La memoria è stata estesa (da ~3,5 GiB/vCPU a 4 GiB/vCPU) mentre i limiti di rete e dei dischi sono stati modificati in base al core per consentire l'allineamento con il passaggio all'hyperthreading. La serie dv3 non ha più le dimensioni delle macchine virtuali a memoria elevata della serie D/dv2, che sono state spostate nella [serie EV3 e Esv3](ev3-esv3-series.md)con ottimizzazione per la memoria.
+La serie Dv3 viene eseguita sui processori Intel® Xeon® 8171M 2.1 GHz (Skylake), Intel® Xeon® E5-2673 v4 da 2,3 GHz (Broadwell) o Intel® Xeon® E5-2673 v3 da 2,4 GHz (Haswell) in una configurazione con hyperthreading, fornendo una migliore proposizione di valore per la maggior parte generale carichi di lavoro scopo. La memoria è stata estesa (da ~3,5 GiB/vCPU a 4 GiB/vCPU) mentre i limiti di rete e dei dischi sono stati modificati in base al core per consentire l'allineamento con il passaggio all'hyperthreading. La serie Dv3 non ha più le dimensioni di VM ad alta memoria della serie D/Dv2, queste sono state spostate nella [serie Ev3 ed Esv3](ev3-esv3-series.md)ottimizzata per la memoria.
 
-Esempi di casi d'uso di serie D sono le applicazioni di livello aziendale, i database relazionali, la memorizzazione nella cache in memoria e l'analisi.
+Esempi di casi d'uso della serie D includono applicazioni di livello enterprise, database relazionali, memorizzazione nella cache in memoria e analisi.
 
 ## <a name="dv3-series"></a>Serie Dv3
 
-Le dimensioni della serie dv3 vengono eseguite su Intel® Xeon® 8171M 2.1 GHz (Skylake), Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) o i processori Intel® Xeon® E5-2673 V3 2,4 GHz (Haswell) con la tecnologia Intel Turbo Boost 2,0. Le dimensioni della serie Dv3 offrono una potente combinazione di vCPU, memoria e spazio di archiviazione temporaneo ideale per la maggior parte delle applicazioni di produzione.
+Le dimensioni della serie Dv3 vengono eseguite sui processori Intel® Xeon® 8171M 2.1 GHz (Skylake), Intel® Xeon® E5-2673 v4 da 2,3 GHz (Broadwell) o Intel® Xeon® E5-2673 v3 da 2,4 GHz (Haswell) con Intel Turbo Boost Technology 2.0. Le dimensioni della serie Dv3 offrono una potente combinazione di vCPU, memoria e spazio di archiviazione temporaneo ideale per la maggior parte delle applicazioni di produzione.
 
 L'archiviazione su disco dati viene fatturata separatamente dalle macchine virtuali. Per usare dischi di archiviazione Premium, usare le dimensioni Dsv3. I prezzi e i contatori di fatturazione per le dimensioni Dsv3 sono uguali a quelli della serie Dv3.
 
-Le macchine virtuali serie dv3 includono tecnologia Intel® Hyper-Threading.
+Le macchine virtuali serie Dv3 dispongono di Intel® tecnologia Hyper-Threading.
 
 Unità di calcolo di Azure: 160-190
 
 Archiviazione Premium: non supportata
 
-Caching archiviazione Premium: non supportato
+Memorizzazione nella cache di archiviazione Premium: non supportata
 
 Live Migration: supportato
 
-Aggiornamenti con mantenimento della memoria: supportati
+Aggiornamenti di conservazione della memoria: supportati
 
-| Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Numero massimo di dischi dati | Velocità effettiva massima di archiviazione temporanea: IOPS/MBps di lettura/Mbps di scrittura | NIC Max/larghezza di banda di rete |
+| Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Numero massimo di dischi dati | Velocità effettiva di archiviazione temporanea massima: IOPS/Read MBps/Write MBpsMax temp storage throughput: IOPS/Read MBps/Write MBps | Numero massimo di schede di interfaccia di rete/larghezza di banda di reteMax NICs/Network bandwidth |
 |---|---|---|---|---|---|---|
 | Standard_D2_v3  | 2  | 8   | 50   | 4  | 3000/46/23     | 2/1000  |
 | Standard_D4_v3  | 4  | 16  | 100  | 8  | 6000/93/46     | 2/2000  |
@@ -50,21 +50,21 @@ Aggiornamenti con mantenimento della memoria: supportati
 
 ## <a name="dsv3-series"></a>Serie Dsv3
 
-Le dimensioni della serie Dsv3 vengono eseguite su Intel® Xeon® 8171M 2.1 GHz (Skylake), Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) o i processori Intel® Xeon® E5-2673 V3 2,4 GHz (Haswell) con la tecnologia Intel Turbo Boost 2,0 e usano archiviazione Premium. Le dimensioni della serie Dsv3 offrono una potente combinazione di vCPU, memoria e spazio di archiviazione temporaneo ideale per la maggior parte delle applicazioni di produzione.
+Le dimensioni della serie Dsv3 vengono eseguite sui processori Intel® Xeon® 8171M 2.1 GHz (Skylake), Intel® Xeon® E5-2673 v4 da 2,3 GHz (Broadwell) o Intel® Xeon® e5-2673 v3 da 2,4 GHz (Haswell) con Intel Turbo Boost Technology 2.0 e utilizzano lo storage Premium. Le dimensioni della serie Dsv3 offrono una potente combinazione di vCPU, memoria e spazio di archiviazione temporaneo ideale per la maggior parte delle applicazioni di produzione.
 
-Le macchine virtuali serie Dsv3 includono tecnologia Intel® Hyper-Threading.
+Le macchine virtuali serie Dsv3 dispongono di Intel® tecnologia Hyper-Threading.
 
 Unità di calcolo di Azure: 160-190
 
 Archiviazione Premium: supportata
 
-Caching archiviazione Premium: supportato
+Memorizzazione nella cache di archiviazione Premium: supportata
 
 Live Migration: supportato
 
-Aggiornamenti con mantenimento della memoria: supportati
+Aggiornamenti di conservazione della memoria: supportati
 
-| Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Numero massimo di dischi dati | Velocità effettiva massima memorizzata nella cache e archiviazione temporanea: IOPS/MBps (dimensioni della cache in GiB) | Numero massimo di velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | NIC massimo/larghezza di banda di rete prevista (Mbps) |
+| Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Numero massimo di dischi dati | Velocità effettiva di archiviazione massima memorizzata nella cache e temporanea: IOPS/MBps (dimensione della cache in GiB)Max cached and temp storage throughput: IOPS/MBps (cache size in GiB) | Velocità effettiva massima disco non memorizzato nella cache: IOPS/MBpsMax uncached disk throughput: IOPS/MBps | NiCs max/Larghezza di banda di rete prevista (Mbps) |
 |---|---|---|---|---|---|---|---|
 | Standard_D2s_v3  | 2  | 8   | 16  | 4  | 4000/32 (50)       | 3200/48    | 2/1000  |
 | Standard_D4s_v3  | 4  | 16  | 32  | 8  | 8000/64 (100)      | 6400/96    | 2/2000  |
@@ -78,7 +78,7 @@ Aggiornamenti con mantenimento della memoria: supportati
 
 ## <a name="other-sizes"></a>Altre dimensioni
 
-- [Utilizzo generico](sizes-general.md)
+- [Finalità generale](sizes-general.md)
 - [Ottimizzate per la memoria](sizes-memory.md)
 - [Ottimizzate per l'archiviazione](sizes-storage.md)
 - [Ottimizzate per la GPU](sizes-gpu.md)

@@ -5,24 +5,24 @@ ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
 ms.openlocfilehash: d4d599063f727510cbf504ea3d121bdabfe001c9
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76261518"
 ---
 # <a name="sub-orchestrations-in-durable-functions-azure-functions"></a>Orchestrazioni secondarie in Funzioni permanenti (Funzioni di Azure)
 
-Oltre a chiamare le funzioni di attività, le funzioni dell'agente di orchestrazione possono chiamare altre funzioni dell'agente di orchestrazione. Ad esempio, è possibile creare un'orchestrazione più ampia da una libreria di funzioni di orchestrazione più piccole. Oppure è possibile eseguire più istanze di una funzione dell'agente di orchestrazione in parallelo.
+Oltre a chiamare le funzioni di attività, le funzioni dell'agente di orchestrazione possono chiamare altre funzioni dell'agente di orchestrazione. Ad esempio, è possibile compilare un'orchestrazione più grande da una libreria di funzioni dell'agente di orchestrazione più piccole. Oppure è possibile eseguire più istanze di una funzione dell'agente di orchestrazione in parallelo.
 
-Una funzione dell'agente di orchestrazione può chiamare un'altra funzione dell'agente di orchestrazione usando il `CallSubOrchestratorAsync` o i metodi di `CallSubOrchestratorWithRetryAsync` in .NET oppure i metodi di `callSubOrchestrator` o `callSubOrchestratorWithRetry` in JavaScript. L'articolo [Error Handling & Compensation](durable-functions-error-handling.md#automatic-retry-on-failure) (Gestione e compensazione degli errori) contiene informazioni sulla ripetizione automatica.
+Una funzione dell'agente di orchestrazione può `CallSubOrchestratorAsync` chiamare `CallSubOrchestratorWithRetryAsync` un'altra funzione `callSubOrchestrator` dell'agente di orchestrazione usando i metodi o in .NET o i metodi o `callSubOrchestratorWithRetry` in JavaScript. L'articolo [Error Handling & Compensation](durable-functions-error-handling.md#automatic-retry-on-failure) (Gestione e compensazione degli errori) contiene informazioni sulla ripetizione automatica.
 
 Le funzioni secondarie dell'agente di orchestrazione si comportano come le funzioni di attività dal punto di vista del chiamante. Possono restituire un valore, generare un'eccezione e possono essere attese dalla funzione dell'agente di orchestrazione padre. 
 ## <a name="example"></a>Esempio
 
-L'esempio seguente illustra uno scenario di IoT ("Internet delle cose") in cui sono presenti più dispositivi di cui è necessario eseguire il provisioning. La funzione seguente rappresenta il flusso di lavoro di provisioning che deve essere eseguito per ogni dispositivo:
+L'esempio seguente illustra uno scenario di IoT ("Internet delle cose") in cui sono presenti più dispositivi di cui è necessario eseguire il provisioning. La funzione seguente rappresenta il flusso di lavoro di provisioning che deve essere eseguito per ogni dispositivo:The following function represents the provisioning workflow that needs to be executed for each device:
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 ```csharp
 public static async Task DeviceProvisioningOrchestration(
@@ -43,7 +43,7 @@ public static async Task DeviceProvisioningOrchestration(
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[Javascript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -66,11 +66,11 @@ module.exports = df.orchestrator(function*(context) {
 
 ---
 
-Questa funzione dell'agente di orchestrazione può essere usata così com'è per il provisioning occasionale di dispositivi o può essere parte di un'orchestrazione di dimensioni maggiori. Nel secondo caso, la funzione dell'agente di orchestrazione padre può pianificare le istanze di `DeviceProvisioningOrchestration` usando l'API `CallSubOrchestratorAsync` (.NET) o `callSubOrchestrator` (JavaScript).
+Questa funzione dell'agente di orchestrazione può essere usata così com'è per il provisioning occasionale di dispositivi o può essere parte di un'orchestrazione di dimensioni maggiori. In quest'ultimo caso, la funzione dell'agente `CallSubOrchestratorAsync` di orchestrazione `callSubOrchestrator` padre può pianificare le istanze dell'utilizzo dell'API `DeviceProvisioningOrchestration` (.NET) o (JavaScript).
 
 Di seguito è riportato un esempio che illustra come eseguire più funzioni dell'agente di orchestrazione in parallelo.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 ```csharp
 [FunctionName("ProvisionNewDevices")]
@@ -94,9 +94,9 @@ public static async Task ProvisionNewDevices(
 ```
 
 > [!NOTE]
-> Gli esempi C# precedenti sono per Durable Functions 2. x. Per Durable Functions 1. x, è necessario utilizzare `DurableOrchestrationContext` invece di `IDurableOrchestrationContext`. Per ulteriori informazioni sulle differenze tra le versioni, vedere l'articolo relativo alle [versioni di Durable Functions](durable-functions-versions.md) .
+> Gli esempi precedenti in C, sono per Funzioni durevoli 2.x. Per funzioni durevoli 1.x, è necessario utilizzare `DurableOrchestrationContext` al posto di `IDurableOrchestrationContext`. Per altre informazioni sulle differenze tra le versioni, vedere l'articolo Versioni di [Funzioni permanenti.](durable-functions-versions.md)
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[Javascript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -123,9 +123,9 @@ module.exports = df.orchestrator(function*(context) {
 ---
 
 > [!NOTE]
-> Le orchestrazioni secondarie devono essere definite nella stessa app per le funzioni dell'orchestrazione padre. Se è necessario chiamare e attendere le orchestrazioni in un'altra app per le funzioni, provare a usare il supporto incorporato per le API HTTP e il modello di consumer di polling HTTP 202. Per ulteriori informazioni, vedere l'argomento [funzionalità http](durable-functions-http-features.md) .
+> Le sottoorchestrazioni devono essere definite nella stessa app per le funzioni dell'orchestrazione padre. Se è necessario chiamare e attendere le orchestrazioni in un'altra app per le funzioni, è consigliabile usare il supporto incorporato per le API HTTP e il modello consumer di polling HTTP 202. Per altre informazioni, vedere l'argomento [Funzionalità HTTP.](durable-functions-http-features.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Informazioni su come impostare lo stato di un'orchestrazione personalizzata](durable-functions-custom-orchestration-status.md)
+> [Informazioni su come impostare uno stato di orchestrazione personalizzatoLearn how to set a custom orchestration status](durable-functions-custom-orchestration-status.md)

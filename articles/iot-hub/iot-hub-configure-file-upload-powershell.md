@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: robinsh
 ms.openlocfilehash: c8fc0393e0961b46fbb8031d735f27e9ad785031
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60318461"
 ---
 # <a name="configure-iot-hub-file-uploads-using-powershell"></a>Configurare i caricamenti dei file nell'hub IoT con PowerShell
@@ -25,11 +25,11 @@ Per usare la [funzionalità di caricamento di file nell'hub IoT](iot-hub-devguid
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
-* Un account Azure attivo. Se non si ha un account, è possibile creare un [account gratuito](https://azure.microsoft.com/pricing/free-trial/) in pochi minuti.
+* Un account Azure attivo. Se non hai un account, puoi creare un [account gratuito](https://azure.microsoft.com/pricing/free-trial/) in pochi minuti.
 
 * [cmdlet di Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 
-* Un hub IoT di Azure. Se non si dispone di un hub IoT, è possibile usare la [cmdlet New-AzIoTHub](https://docs.microsoft.com/powershell/module/az.iothub/new-aziothub) per crearne uno o usare il portale per [creare un hub IoT](iot-hub-create-through-portal.md).
+* Un hub IoT di Azure. Se non si dispone di un hub IoT, è possibile usare il [cmdlet New-AzIoTHub](https://docs.microsoft.com/powershell/module/az.iothub/new-aziothub) per crearne uno o usare il portale per [creare un hub IoT](iot-hub-create-through-portal.md).
 
 * Un account di archiviazione di Azure. Se non si dispone di un account di archiviazione di Azure, è possibile usare i [cmdlet PowerShell di Archiviazione di Azure](https://docs.microsoft.com/powershell/module/az.storage/) per crearne uno o usare il portale per [creare un account di archiviazione](../storage/common/storage-create-storage-account.md)
 
@@ -37,7 +37,7 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 Accedere al proprio account Azure e selezionare la sottoscrizione.
 
-1. Al prompt di PowerShell, eseguire la **Connect-AzAccount** cmdlet:
+1. Al prompt di PowerShell, eseguire il cmdlet **Connect-AzAccount:**
 
     ```powershell
     Connect-AzAccount
@@ -99,15 +99,15 @@ Per i caricamenti dei file, è possibile usare un contenitore BLOB esistente opp
 
 La configurazione richiede i valori seguenti:
 
-* **Contenitore di archiviazione**: contenitore BLOB di un account di archiviazione di Azure nella sottoscrizione di Azure corrente da associare all'hub IoT. Le informazioni necessarie sull'account di archiviazione sono state recuperate nella sezione precedente. L'hub IoT genera automaticamente URI di firma di accesso condiviso con autorizzazioni di scrittura per questo contenitore BLOB che possono essere usati dai dispositivi durante il caricamento di file.
+* **Contenitore di archiviazione**: un contenitore BLOB in un account di archiviazione di Azure nella sottoscrizione corrente da associare all'hub IoT. Le informazioni necessarie sull'account di archiviazione sono state recuperate nella sezione precedente. L'hub IoT genera automaticamente URI di firma di accesso condiviso con autorizzazioni di scrittura per questo contenitore BLOB che possono essere usati dai dispositivi durante il caricamento di file.
 
-* **Ricevi notifiche per i file caricati**: consente di abilitare o disabilitare le notifiche di caricamento dei file.
+* **Receive notifications for uploaded files** (Ricezione di notifiche per i file caricati): abilitare o disabilitare le notifiche di caricamento del file.
 
-* **Durata TTL della firma di accesso condiviso**: questa impostazione indica la durata (TTL) degli URI di firma di accesso condiviso restituiti al dispositivo dall'hub IoT. Il valore è un'ora per impostazione predefinita.
+* **SAS TTL**(TTL di firma di accesso condiviso): questa impostazione indica la durata degli URI di firma di accesso condiviso restituiti dal dispositivo tramite l’hub IoT. Il valore è un'ora per impostazione predefinita.
 
-* **File notification settings default TTL**(TTL predefinito per le impostazioni di notifica dei file): durata (TTL) di una notifica di caricamento dei file prima della scadenza. Il valore è un giorno per impostazione predefinita.
+* **File notification settings default TTL**(TTL predefinito per le impostazioni di notifica dei file): durata di una notifica di caricamento del file. Il valore è un giorno per impostazione predefinita.
 
-* **File notification maximum delivery count** (Numero massimo di recapiti per le notifiche dei file): numero di volte in cui l'hub IoT prova a recapitare una notifica di caricamento dei file. Il valore è 10 per impostazione predefinita.
+* **File notification maximum delivery count**(Numero massimo di recapiti per le notifiche dei file): numero di tentativi che verranno eseguiti dall'hub IoT per distribuire una notifica di caricamento del file. Il valore è 10 per impostazione predefinita.
 
 Usare il cmdlet PowerShell seguente per configurare le impostazioni di caricamento dei file nell'hub IoT:
 
@@ -130,11 +130,11 @@ Per altre informazioni sulle funzionalità di caricamento dei file dell'hub IoT,
 Per ulteriori informazioni sulla gestione dell'hub IoT di Azure, consultare questi collegamenti:
 
 * [Gestire in blocco i dispositivi IoT](iot-hub-bulk-identity-mgmt.md)
-* [Metriche di hub IoT](iot-hub-metrics.md)
+* [Metriche di Hub IoT](iot-hub-metrics.md)
 * [Monitoraggio delle operazioni](iot-hub-operations-monitoring.md)
 
 Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
-* [Guida per sviluppatori dell'hub IoT](iot-hub-devguide.md)
+* [Guida per gli sviluppatori dell'hub IoT](iot-hub-devguide.md)
 * [Distribuzione dell'intelligenza artificiale in dispositivi perimetrali con Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
 * [Proteggere la soluzione IoT sin dall'inizio](../iot-fundamentals/iot-security-ground-up.md)

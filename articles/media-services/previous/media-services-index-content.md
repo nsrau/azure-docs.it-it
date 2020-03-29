@@ -16,16 +16,16 @@ ms.date: 09/22/2019
 ms.author: juliako
 ms.reviewer: johndeu
 ms.openlocfilehash: 7ccc2d5956b44a8cd85f19e0905539c32f58bc5e
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78163999"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer"></a>Indicizzazione di file multimediali con Azure Media Indexer
 
 > [!NOTE]
-> Il processore di contenuti multimediali **Azure Media Indexer** verrà ritirato. Per le date di ritiro, vedere l'argomento relativo ai [componenti legacy](legacy-components.md) . [Servizi multimediali di Azure video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) sostituisce questo processore di contenuti multimediali legacy. Per altre informazioni, vedere [eseguire la migrazione da Azure Media Indexer e Azure Media Indexer 2 a servizi multimediali di Azure video Indexer](migrate-indexer-v1-v2.md).
+> Il processore **multimediale dell'indicizzatore multimediale multimediale multimediale di Azure Media** verrà ritirato. Per le date di pensionamento, vedere questo argomento relativo ai [componenti legacy.](legacy-components.md) [L'indicizzatore video di Servizi multimediali di Azure](https://docs.microsoft.com/azure/media-services/video-indexer/) sostituisce questo processore multimediale legacy. Per altre informazioni, vedere [Eseguire la migrazione dall'indicizzatore multimediale di Azure e l'indicizzatore multimediale di Azure 2 all'indicizzatore video di Servizi multimediali](migrate-indexer-v1-v2.md)di Azure.For more information, see Migrate from Azure Media Indexer and Azure Media Indexer 2 to Azure Media Services Video Indexer.
 
 Azure Media Indexer consente di rendere disponibile per la ricerca il contenuto dei file multimediali e di generare una trascrizione full-text per i sottotitoli codificati e le parole chiave. È possibile elaborare un file multimediale o più file multimediali in un batch.  
 
@@ -33,7 +33,7 @@ Durante l'indicizzazione dei contenuti, assicurarsi di usare file multimediali c
 
 Un processo di indicizzazione può generare i seguenti output:
 
-* File didascalia chiusi nei formati seguenti: **TTML**e **WEBVTT**.
+* File di sottotitoli codificati nei seguenti formati: **TTML**e **WebVTT**.
   
     I file di sottotitoli codificati includono un tag denominato Recognizability, che assegna un punteggio a un processo di indicizzazione in base alla riconoscibilità del contenuto vocale nel video di origine.  È possibile usare il valore di Recognizability per esaminare i file di output ai fini dell'usabilità. Un punteggio basso indica che i risultati dell'indicizzazione sono scarsi a causa della qualità dell'audio.
 * File di parole chiave (XML).
@@ -142,14 +142,14 @@ Qualora non venga specificato un file di configurazione, il file multimediale ve
 ```
 
 <!-- __ -->
-### <a id="output_files"></a>File di output
+### <a name="output-files"></a><a id="output_files"></a>File di output
 Per impostazione definita, il processo di indicizzazione genera i seguenti file di output. I file verranno archiviati nel primo asset di output.
 
-Quando è presente più di un file multimediale di input, Indetex genera un file manifesto per gli output del processo, denominato ‘JobResult.txt’. Per ogni file multimediale di input, i file TTML, WebVTT e keyword risultanti sono numerati in modo sequenziale e vengono denominati usando l'"alias".
+Quando è presente più di un file multimediale di input, Indetex genera un file manifesto per gli output del processo, denominato ‘JobResult.txt’. Per ogni file multimediale di input, i file TTML, WebVTT e parole chiave risultanti vengono numerati in sequenza e denominati utilizzando "Alias".
 
 | Nome file | Descrizione |
 | --- | --- |
-| **InputFileName.ttml**<br/>**InputFileName.vtt** |File didascalia (CC) chiusi nei formati TTML e WebVTT.<br/><br/>Possono essere utili per rendere i file audio e video accessibili alle persone con problemi uditivi.<br/><br/>I file di sottotitoli codificati includono un tag denominato <b>Recognizability</b>, che assegna un punteggio a un processo di indicizzazione in base alla riconoscibilità del contenuto vocale nel video di origine.  È possibile usare il valore di <b>Recognizability</b> per esaminare i file di output ai fini dell'usabilità. Un punteggio basso indica che i risultati dell'indicizzazione sono scarsi a causa della qualità dell'audio. |
+| **InputFileName.ttml**<br/>**InputFileName.vtt** |Closed Caption (CC) nei formati TTML e WebVTT.<br/><br/>Possono essere utili per rendere i file audio e video accessibili alle persone con problemi uditivi.<br/><br/>I file di sottotitoli codificati includono un tag denominato <b>Recognizability</b>, che assegna un punteggio a un processo di indicizzazione in base alla riconoscibilità del contenuto vocale nel video di origine.  È possibile usare il valore di <b>Recognizability</b> per esaminare i file di output ai fini dell'usabilità. Un punteggio basso indica che i risultati dell'indicizzazione sono scarsi a causa della qualità dell'audio. |
 | **InputFileName.kw.xml<br/>InputFileName.info** |Parola chiave e file di informazioni. <br/><br/>Un file di parole chiave è un file XML che contiene parole chiave estratte da contenuti vocali, con informazioni sulla frequenza e sull'offset. <br/><br/>Il file di informazioni è un file di testo che contiene informazioni granulari su ogni termine riconosciuto. La prima riga è speciale e contiene il punteggio Recognizability. Ogni riga successiva è un elenco separato da tabulazioni dei dati seguenti: ora di inizio, ora di fine, parola/frase, sicurezza. I tempi sono espressi in secondi e la sicurezza è indicata come un numero da 0 a 1 <br/><br/>Riga di esempio: "1.20    1.45    word    0.67" <br/><br/>È possibile usare questi file per vari scopi, ad esempio per eseguire analisi vocali o esporli ai motori di ricerca come Bing, Google o Microsoft SharePoint per rendere i file multimediali più individuabili o persino usarli per produrre annunci pubblicitari più pertinenti. |
 | **JobResult.txt** |Manifesto di output, presente solo quando si indicizzano più file, contenente le informazioni seguenti:<br/><br/><table border="1"><tr><th>InputFile</th><th>Alias</th><th>MediaLength</th><th>Errore</th></tr><tr><td>a.mp4</td><td>Media_1</td><td>300</td><td>0</td></tr><tr><td>b.mp4</td><td>Media_2</td><td>0</td><td>3000</td></tr><tr><td>c.mp4</td><td>Media_3</td><td>600</td><td>0</td></tr></table><br/> |
 
@@ -238,18 +238,18 @@ Viene creato un file manifesto con estensione LST, che viene caricato nell'asset
 ### <a name="partially-succeeded-job"></a>Processo parzialmente completato
 Se non tutti i file multimediali di input vengono indicizzati correttamente, il processo di indicizzazione ha esito negativo con codice errore 4000. Per altre informazioni, vedere [Codici di errore](#error_codes).
 
-Vengono generati gli stessi output dei processi completati. È possibile fare riferimento al file manifesto di output per scoprire quali file di input hanno avuto esito negativo in base ai valori presenti nella colonna Error. Per i file di input non riusciti, i file TTML, WebVTT e keyword risultanti non verranno generati.
+Vengono generati gli stessi output dei processi completati. È possibile fare riferimento al file manifesto di output per scoprire quali file di input hanno avuto esito negativo in base ai valori presenti nella colonna Error. Per i file di input non riusciti, i file TTML, WebVTT e parole chiave risultanti NON verranno generati.
 
-### <a id="preset"></a> Set di impostazioni di attività per Azure Media Indexer
+### <a name="task-preset-for-azure-media-indexer"></a><a id="preset"></a> Set di impostazioni di attività per Azure Media Indexer
 L'elaborazione in Azure Media Indexer può essere personalizzata fornendo un set di impostazioni facoltativo insieme all'attività.  La tabella seguente descrive il formato di questo file xml di configurazione.
 
 | Nome | Valore richiesto | Descrizione |
 | --- | --- | --- |
-| **input** |false |File di asset che si desidera indicizzare.</p><p>Azure Media Indexer supporta i seguenti formati di file multimediali: MP4, WMV, MP3, M4A, WMA, AAC, WAV.</p><p>È possibile specificare il nome di file nell'attributo **name** o **list** dell'elemento **input** (come illustrato di seguito). Se non si specifica il file di asset da indicizzare, viene selezionato il file primario. Se non è impostato alcun file di asset primario, viene indicizzato il primo file dell'asset di input.</p><p>Per specificare in modo esplicito il nome del file di asset, eseguire:<br/>`<input name="TestFile.wmv">`<br/><br/>È anche possibile indicizzare più file di asset contemporaneamente (fino a 10). A tale scopo, effettuare l'operazione seguente:<br/><br/><ol class="ordered"><li><p>Creare un file di testo (file manifesto) con estensione .lst. </p></li><li><p>Aggiungere un elenco di tutti i nomi file di asset nell'asset di input a questo file manifesto. </p></li><li><p>Aggiungere (caricare) il file manifesto nella risorsa.  </p></li><li><p>Specificare il nome del file manifesto nell'attributo dell'elenco di input.<br/>`<input list="input.lst">`</li></ol><br/><br/>Nota: se si aggiungono più di 10 file al file manifesto, il processo di indicizzazione avrà esito negativo con codice di errore 2006. |
-| **metadata** |false |Metadati per uno o più file di asset specificati usati per l'adattamento al vocabolario.  Utili per preparare l'indicizzatore per riconoscere le parole di vocabolario non standard, ad esempio i nomi propri.<br/>`<metadata key="..." value="..."/>` <br/><br/>È possibile assegnare i **valori** delle **chiavi** predefinite. Attualmente sono supportate le chiavi seguenti:<br/><br/>"title" e "description", usate per l'adattamento al vocabolario per perfezionare il modello linguistico del processo e migliorare la precisione del riconoscimento vocale.  I valori alimentano le ricerche per trovare documenti di testo pertinenti a livello di contesto, usando i contenuti per ampliare il dizionario interno per tutta la durata dell'attività di indicizzazione.<br/>`<metadata key="title" value="[Title of the media file]" />`<br/>`<metadata key="description" value="[Description of the media file] />"` |
-| **Funzionalità** <br/><br/> Aggiunto nella versione 1.2. Attualmente la sola funzionalità supportata è il riconoscimento vocale ("ASR"). |false |La funzionalità di riconoscimento vocale ha le chiavi di impostazioni seguenti:<table><tr><th><p>Chiave</p></th>        <th><p>Descrizione</p></th><th><p>Valore di esempio</p></th></tr><tr><td><p>Linguaggio</p></td><td><p>Linguaggio naturale da riconoscere nel file multimediale,</p></td><td><p>Inglese, spagnolo</p></td></tr><tr><td><p>CaptionFormats</p></td><td><p>Un elenco separato da punto e virgola dei formati desiderati per l'output dell'eventuale sottotitolo.</p></td><td><p>TTML; WEBVTT</p></td></tr><tr><td><p></p></td><td><p> </p></td><td><p>True; False</p></td></tr><tr><td><p>GenerateKeywords</p></td><td><p>Flag booleano che specifica se sia o meno necessario un file XML di parole chiave.</p></td><td><p>True; False. </p></td></tr><tr><td><p>ForceFullCaption</p></td><td><p>Flag booleano che specifica se forzare o meno i sottotitoli completi (indipendentemente dal livello di probabilità).  </p><p>Il valore predefinito è false e in questo caso le parole e le frasi con un livello di probabilità inferiore al 50% vengono omesse dagli output finali dei sottotitoli e sostituite da puntini di sospensione ("...").  I puntini di sospensione sono utili per il controllo della qualità dei sottotitoli.</p></td><td><p>True; False. </p></td></tr></table> |
+| **Input** |false |File di asset che si desidera indicizzare.</p><p>Azure Media Indexer supporta i seguenti formati di file multimediali: MP4, WMV, MP3, M4A, WMA, AAC, WAV.</p><p>È possibile specificare il nome di file nell'attributo **name** o **list** dell'elemento **input** (come illustrato di seguito). Se non si specifica il file di asset da indicizzare, viene selezionato il file primario. Se non è impostato alcun file di asset primario, viene indicizzato il primo file dell'asset di input.</p><p>Per specificare in modo esplicito il nome del file di asset, eseguire:<br/>`<input name="TestFile.wmv">`<br/><br/>È anche possibile indicizzare più file di asset contemporaneamente (fino a 10). A tale scopo, effettuare l'operazione seguente:<br/><br/><ol class="ordered"><li><p>Creare un file di testo (file manifesto) con estensione .lst. </p></li><li><p>Aggiungere un elenco di tutti i nomi file di asset nell'asset di input a questo file manifesto. </p></li><li><p>Aggiungere (caricare) il file manifesto nella risorsa.  </p></li><li><p>Specificare il nome del file manifesto nell'attributo dell'elenco di input.<br/>`<input list="input.lst">`</li></ol><br/><br/>Nota: se si aggiungono più di 10 file al file manifesto, il processo di indicizzazione avrà esito negativo con codice di errore 2006. |
+| **Metadati** |false |Metadati per uno o più file di asset specificati usati per l'adattamento al vocabolario.  Utili per preparare l'indicizzatore per riconoscere le parole di vocabolario non standard, ad esempio i nomi propri.<br/>`<metadata key="..." value="..."/>` <br/><br/>È possibile assegnare i **valori** delle **chiavi** predefinite. Attualmente sono supportate le chiavi seguenti:<br/><br/>"title" e "description", usate per l'adattamento al vocabolario per perfezionare il modello linguistico del processo e migliorare la precisione del riconoscimento vocale.  I valori alimentano le ricerche per trovare documenti di testo pertinenti a livello di contesto, usando i contenuti per ampliare il dizionario interno per tutta la durata dell'attività di indicizzazione.<br/>`<metadata key="title" value="[Title of the media file]" />`<br/>`<metadata key="description" value="[Description of the media file] />"` |
+| **Caratteristiche** <br/><br/>  Aggiunto nella versione 1.2. Attualmente la sola funzionalità supportata è il riconoscimento vocale ("ASR"). |false |La funzionalità di riconoscimento vocale ha le chiavi di impostazioni seguenti:<table><tr><th><p>Chiave</p></th>        <th><p>Descrizione</p></th><th><p>Valore di esempio</p></th></tr><tr><td><p>Linguaggio</p></td><td><p>Linguaggio naturale da riconoscere nel file multimediale,</p></td><td><p>Inglese, spagnolo</p></td></tr><tr><td><p>CaptionFormats</p></td><td><p>Un elenco separato da punto e virgola dei formati desiderati per l'output dell'eventuale sottotitolo.</p></td><td><p>ttml;webvtt</p></td></tr><tr><td><p></p></td><td><p> </p></td><td><p>True; False</p></td></tr><tr><td><p>GenerateKeywords</p></td><td><p>Flag booleano che specifica se sia o meno necessario un file XML di parole chiave.</p></td><td><p>True; False. </p></td></tr><tr><td><p>ForceFullCaption</p></td><td><p>Flag booleano che specifica se forzare o meno i sottotitoli completi (indipendentemente dal livello di probabilità).  </p><p>Il valore predefinito è false e in questo caso le parole e le frasi con un livello di probabilità inferiore al 50% vengono omesse dagli output finali dei sottotitoli e sostituite da puntini di sospensione ("...").  I puntini di sospensione sono utili per il controllo della qualità dei sottotitoli.</p></td><td><p>True; False. </p></td></tr></table> |
 
-### <a id="error_codes"></a>Codici di errore
+### <a name="error-codes"></a><a id="error_codes"></a>Codici di errore
 In caso di errore, Azure Media Indexer dovrebbe segnalare uno dei codici di errore seguente:
 
 | Codice | Nome | Possibili cause |
@@ -261,11 +261,11 @@ In caso di errore, Azure Media Indexer dovrebbe segnalare uno dei codici di erro
 | 2004 |Protocollo non supportato |Il protocollo dell'URL multimediale non è supportato. |
 | 2005 |Tipo di file non supportato |Il tipo di file multimediale di input non è supportato. |
 | 2006 |Troppi file di input |Sono presenti oltre 10 file nel manifesto di input. |
-| 3000 |Impossibile decodificare il file multimediale |Codec multimediale non supportato <br/>o<br/> File multimediale danneggiato <br/>o<br/> Nessun flusso audio nei file multimediali di input. |
+| 3000 |Impossibile decodificare il file multimediale |Codec multimediale non supportato  <br/>o<br/> File multimediale danneggiato <br/>o<br/> Nessun flusso audio nei file multimediali di input. |
 | 4000 |Indicizzazione batch parzialmente completata |Non è stato possibile indicizzare alcuni file multimediali di input. Per altre informazioni, vedere <a href="#output_files">File di output</a>. |
 | Altre |Errori interni |Contattare il team di supporto. indexer@microsoft.com |
 
-## <a id="supported_languages"></a>Lingue supportate
+## <a name="supported-languages"></a><a id="supported_languages"></a>Lingue supportate
 Attualmente, sono supportate le lingue inglese e spagnolo.  
 
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali

@@ -8,15 +8,15 @@ ms.topic: reference
 ms.date: 01/12/2019
 ms.author: spelluru
 ms.openlocfilehash: 4994063dfc3bce88489f70969c06bf36b591f907
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60561677"
 ---
 # <a name="azure-event-grid-event-schema-for-subscriptions"></a>Schema di eventi di Griglia di eventi di Azure per le sottoscrizioni
 
-Questo articolo illustra le proprietà e lo schema per gli eventi della sottoscrizione di Azure. Per un'introduzione agli schemi di eventi, vedere [Schema di eventi di Griglia di eventi di Azure](event-schema.md).
+Questo articolo illustra le proprietà e lo schema per gli eventi della sottoscrizione di Azure.Per un'introduzione agli schemi di eventi, vedere [Schema di eventi di Griglia di eventi di Azure](event-schema.md).
 
 I gruppi di risorse e le sottoscrizioni di Azure generano gli stessi tipi di evento. I tipi di evento sono correlati ad azioni o modifiche nelle risorse. La differenza principale è che i gruppi di risorse generano eventi per le risorse all'interno del gruppo di risorse, mentre le sottoscrizioni di Azure generano eventi per le risorse all'interno della sottoscrizione.
 
@@ -34,7 +34,7 @@ Per un elenco di esercitazioni e script di esempio, vedere [Origine evento di so
 
 Le sottoscrizioni di Azure generano eventi di gestione da Azure Resource Manager, ad esempio quando viene creata una macchina virtuale o viene eliminato un account di archiviazione.
 
-| Tipo evento | DESCRIZIONE |
+| Tipo di evento | Descrizione |
 | ---------- | ----------- |
 | Microsoft.Resources.ResourceActionCancel | Generato quando l'azione sulla risorsa viene annullata. |
 | Microsoft.Resources.ResourceActionFailure | Generato quando l'azione sulla risorsa ha esito negativo. |
@@ -234,9 +234,9 @@ L'esempio seguente illustra lo schema di un evento **ResourceActionSuccess**. Lo
 
 Un evento presenta i seguenti dati di primo livello:
 
-| Proprietà | Type | DESCRIZIONE |
+| Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
-| topic | string | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
+| argomento | string | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
 | subject | string | Percorso dell'oggetto dell'evento definito dall'autore. |
 | eventType | string | Uno dei tipi di evento registrati per l'origine evento. |
 | eventTime | string | Ora di generazione dell'evento in base all'ora UTC del provider. |
@@ -247,7 +247,7 @@ Un evento presenta i seguenti dati di primo livello:
 
 Di seguito sono elencate le proprietà dell'oggetto dati:
 
-| Proprietà | Type | DESCRIZIONE |
+| Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
 | authorization | object | L'autorizzazione richiesta per l'operazione. |
 | claims | object | Le proprietà delle attestazioni. Per altre informazioni, vedere [specifiche dei token JWT](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
@@ -258,9 +258,9 @@ Di seguito sono elencate le proprietà dell'oggetto dati:
 | operationName | string | Operazione eseguita. |
 | status | string | Lo stato dell'operazione. |
 | subscriptionId | string | L'ID sottoscrizione della risorsa. |
-| tenantId | string | L'ID tenant della risorsa. |
+| TenantId | string | L'ID tenant della risorsa. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per un'introduzione a Griglia di eventi di Azure, vedere [Informazioni su Griglia di eventi](overview.md).
+* Per un'introduzione a Griglia di eventi di Azure, vedere [Che cos'è Griglia di eventi?](overview.md).
 * Per altre informazioni sulla creazione di una sottoscrizione di Griglia di eventi di Azure, vedere [Schema di sottoscrizione per Griglia di eventi](subscription-creation-schema.md).

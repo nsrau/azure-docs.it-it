@@ -1,6 +1,6 @@
 ---
 title: Guida alla risoluzione dei problemi del Centro sicurezza di Azure | Documentazione Microsoft
-description: Questa guida è destinata ai professionisti IT, agli analisti della sicurezza e agli amministratori del cloud che devono risolvere i problemi relativi al centro sicurezza di Azure.
+description: Questa guida è destinata ai professionisti IT, agli analisti della sicurezza e agli amministratori cloud che devono risolvere i problemi correlati al Centro sicurezza di Azure.This guide is for IT professionals, security analysts, and cloud admins who need to troubleshoot Azure Security Center related issues.
 services: security-center
 author: v-miegge
 manager: dcscontentpm
@@ -8,18 +8,18 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 55a4aa066739203f8697fb4c9083869f5a05ef4f
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 1c751fc31ba9066cf49eabbb86d37eda230c9c98
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79282666"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80062895"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Guida alla risoluzione dei problemi del Centro sicurezza di Azure
 
 Questa guida è destinata a professionisti IT, analisti della sicurezza delle informazioni e amministratori cloud le cui organizzazioni usano il Centro sicurezza di Azure e devono risolvere i problemi correlati.
 
-Il Centro sicurezza usa il Microsoft Monitoring Agent per raccogliere e archiviare i dati. Per altre informazioni, vedere [Migrazione della piattaforma del Centro sicurezza di Azure](security-center-platform-migration.md). Le informazioni contenute in questo articolo si riferiscono alle funzionalità del Centro sicurezza dopo la transizione a Microsoft Monitoring Agent.
+Il Centro sicurezza usa Microsoft Monitoring Agent per raccogliere e archiviare i dati. Per altre informazioni, vedere [Migrazione della piattaforma del Centro sicurezza di Azure](security-center-platform-migration.md). Le informazioni contenute in questo articolo si riferiscono alle funzionalità del Centro sicurezza dopo la transizione a Microsoft Monitoring Agent.
 
 ## <a name="troubleshooting-guide"></a>Guida per la risoluzione dei problemi
 
@@ -36,11 +36,9 @@ A seconda dei tipi di avvisi, i clienti possono raccogliere le informazioni nece
 
 * Log di sicurezza del visualizzatore eventi della macchina virtuale in Windows
 * AuditD in Linux
-* I log attività di Azure e i log di diagnostica abilitati sulla risorsa di attacco.
+* I log attività di Azure e i log di diagnostica nella risorsa interessata.
 
-Per alcuni avvisi è presente anche un punteggio di confidenza. Il punteggio di attendibilità nel **Centro sicurezza** consente la valutazione dei team e l'assegnazione di priorità degli avvisi. Il **Centro sicurezza** applica automaticamente le procedure consigliate del settore, gli algoritmi intelligenti e i processi usati dagli analisti per determinare se una minaccia è legittima e fornisce informazioni significative sotto forma di un punteggio di confidenza.
-
-I clienti possono condividere feedback per la descrizione e la pertinenza dell'avviso. Passare all'avviso, selezionare il pulsante **Le informazioni sono state utili?** , selezionare il motivo e quindi immettere un commento per spiegare i commenti e i suggerimenti. Questo canale di feedback viene monitorato costantemente allo scopo di migliorare gli avvisi forniti.
+I clienti possono condividere feedback per la descrizione e la pertinenza dell'avviso. Passare all'avviso, selezionare il pulsante **Le informazioni sono state utili?**, selezionare il motivo e quindi immettere un commento per spiegare i commenti e i suggerimenti. Questo canale di feedback viene monitorato costantemente allo scopo di migliorare gli avvisi forniti.
 
 ## <a name="audit-log"></a>Log di controllo
 
@@ -56,7 +54,7 @@ Il log di controllo contiene tutte le operazioni di scrittura (PUT, POST, DELETE
 
 ## <a name="microsoft-monitoring-agent"></a>Microsoft Monitoring Agent
 
-Il Centro sicurezza usa il Microsoft Monitoring Agent, ovvero lo stesso agente usato dal servizio monitoraggio di Azure, per raccogliere i dati di sicurezza dalle macchine virtuali di Azure. Dopo avere abilitato la raccolta dei dati e installato correttamente l'agente nel computer di destinazione, sarà in esecuzione il processo seguente:
+Il Centro sicurezza usa Microsoft Monitoring Agent, ovvero lo stesso agente usato dal servizio Monitoraggio di Azure, per raccogliere dati di sicurezza dalle macchine virtuali di Azure.Security Center uses the Microsoft Monitoring Agent – that is the same agent used by the Azure Monitor service , to collect security data from your Azure virtual machines. Dopo avere abilitato la raccolta dei dati e installato correttamente l'agente nel computer di destinazione, sarà in esecuzione il processo seguente:
 
 * HealthService.exe
 
@@ -74,12 +72,12 @@ Esistono due scenari di installazione che possono produrre risultati diversi qua
 
 * **Agente installato automaticamente tramite il Centro sicurezza**: in questo scenario sarà possibile visualizzare gli avvisi sia con il Centro sicurezza che tramite la ricerca log. Si riceveranno notifiche tramite posta elettronica all'indirizzo di posta elettronica configurato nei criteri di sicurezza per la sottoscrizione a cui appartiene la risorsa.
 
-* **Agent installato manualmente in una macchina virtuale in Azure**: in questo scenario, se si usano gli agenti scaricati e installati manualmente prima del 2017 febbraio, è possibile visualizzare gli avvisi nel portale del Centro sicurezza solo se si filtra in base alla sottoscrizione a cui appartiene l'area di lavoro. Se si applica un filtro alla sottoscrizione a cui appartiene la risorsa, non verranno visualizzati avvisi. Si riceveranno notifiche tramite posta elettronica all'indirizzo di posta elettronica configurato nei criteri di sicurezza per la sottoscrizione a cui appartiene l'area di lavoro.
+* **Agente installato manualmente in una macchina virtuale situata in Azure: in**questo scenario si usano agenti scaricati e installati manualmente prima di febbraio 2017, è possibile visualizzare gli avvisi nel portale del Centro sicurezza solo se si applica il filtro in base alla sottoscrizione a cui appartiene l'area di lavoro. Se si applica un filtro in base alla sottoscrizione a cui appartiene la risorsa, non verrà visualizzato alcun avviso. Si riceveranno notifiche tramite posta elettronica all'indirizzo di posta elettronica configurato nei criteri di sicurezza per la sottoscrizione a cui appartiene l'area di lavoro.
 
 > [!NOTE]
 > Per evitare il comportamento descritto nel secondo scenario, assicurarsi di scaricare la versione più recente dell'agente.
 
-## Problemi di integrità dell'agente di monitoraggio <a name="mon-agent"></a>
+## <a name="monitoring-agent-health-issues"></a>Monitoraggio dei problemi di integrità degli agentiMonitoring agent health issues<a name="mon-agent"></a>
 
 **Stato di monitoraggio** definisce il motivo per cui il Centro sicurezza non riesce a monitorare correttamente le VM e i computer inizializzati per il provisioning automatico. La tabella seguente mostra i valori, le descrizioni e le procedure di risoluzione di **Stato di monitoraggio**.
 
@@ -92,11 +90,11 @@ Esistono due scenari di installazione che possono produrre risultati diversi qua
 |L'installazione non è riuscita - Errore generale | Microsoft Monitoring Agent è stato installato ma l'operazione non è riuscita a causa di un errore. | [Installare manualmente l'estensione](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension) o disinstallare l'estensione in modo che il Centro sicurezza possa provare a reinstallarla. |
 | L'installazione non è riuscita - L'agente locale è già installato | Non è stato possibile installare Microsoft Monitoring Agent. Il Centro sicurezza ha identificato un agente locale (Log Analytics o System Center Operations Manager) già installato nella macchina virtuale. Per evitare una configurazione multihosting, in cui la VM invia report a due aree di lavoro separate, l'installazione di Microsoft Monitoring Agent è stata arrestata. | È possibile risolvere il problema in due modi: [installare manualmente l'estensione](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension) e connetterla all'area di lavoro specifica. In alternativa, configurare l'area di lavoro da usare come area di lavoro predefinita e abilitare il provisioning automatico dell'agente.  Vedere [Abilitare il provisioning automatico](security-center-enable-data-collection.md). |
 | L'agente non riesce a connettersi all'area di lavoro | Microsoft Monitoring Agent è stato installato ma l'operazione non è riuscita a causa di un errore di connettività di rete.  Verificare che sia disponibile l'accesso a Internet o che un proxy HTTP corretto sia stato configurato per l'agente. | Vedere Requisiti di rete di Monitoring Agent. |
-| L'agente è connesso a un'area di lavoro mancante o sconosciuta | Il Centro sicurezza ha rilevato che l'istanza di Microsoft Monitoring Agent installata nella macchina virtuale è connessa a un'area di lavoro a cui non riesce ad accedere. | Questo problema può dipendere da due cause. L'area di lavoro è stata eliminata e non esiste più. Reinstallare l'agente con l'area di lavoro corretta o disinstallare l'agente e consentire al Centro sicurezza di completare l'installazione del provisioning automatico. In alternativa è possibile che l'area di lavoro sia parte di una sottoscrizione a cui il Centro sicurezza non è autorizzato ad accedere. Il Centro sicurezza necessita che le sottoscrizioni consentano l'accesso al provider di risorse per la sicurezza Microsoft. Per abilitare l'accesso, registrare la sottoscrizione nel provider di risorse per la sicurezza Microsoft. È possibile eseguire questa operazione tramite API, PowerShell, portale o semplicemente filtrando la sottoscrizione nel dashboard **Panoramica** del Centro sicurezza. Per altre informazioni, vedere [Provider e tipi di risorse](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal). |
-| L'agente non risponde o l'ID è mancante | Il Centro sicurezza non riesce a recuperare i dati di sicurezza analizzati dalla macchina virtuale, anche se l'agente è installato. | L'agente non segnala alcun dato, incluso l'heartbeat. È possibile che l'agente sia danneggiato o che il traffico sia bloccato. È anche possibile che l'agente segnali i dati ma sia privo di un ID risorsa di Azure, quindi non è possibile associare i dati alla macchina virtuale di Azure. Per risolvere i problemi relativi a Linux, vedere [Troubleshooting Guide for Log Analytics Agent for Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md#im-not-seeing-any-linux-data-in-the-oms-portal) (Guida alla risoluzione dei problemi per l'agente di Log Analytics per Linux). Per risolvere i problemi relativi a Windows, vedere[Troubleshooting Windows Virtual Machines](https://github.com/MicrosoftDocs/azure-docs/blob/8c53ac4371d482eda3d85819a4fb8dac09996a89/articles/log-analytics/log-analytics-azure-vm-extension.md#troubleshooting-windows-virtual-machines) (Risoluzione dei problemi delle macchine virtuali Windows). |
+| L'agente è connesso a un'area di lavoro mancante o sconosciuta | Il Centro sicurezza ha identificato che l'agente di monitoraggio Microsoft installato nella macchina virtuale è connesso a un'area di lavoro a cui non ha accesso. | Questo problema può dipendere da due cause. L'area di lavoro è stata eliminata e non esiste più. Reinstallare l'agente con l'area di lavoro corretta o disinstallare l'agente e consentire al Centro sicurezza di completare l'installazione del provisioning automatico. In alternativa è possibile che l'area di lavoro sia parte di una sottoscrizione a cui il Centro sicurezza non è autorizzato ad accedere. Il Centro sicurezza necessita che le sottoscrizioni consentano l'accesso al provider di risorse per la sicurezza Microsoft. Per abilitare l'accesso, registrare la sottoscrizione nel provider di risorse per la sicurezza Microsoft. È possibile eseguire questa operazione tramite API, PowerShell, portale o semplicemente filtrando la sottoscrizione nel dashboard **Panoramica** del Centro sicurezza. Per altre informazioni, vedere [Provider e tipi di risorse](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal). |
+| L'agente non risponde o l'ID è mancante | Il Centro sicurezza non riesce a recuperare i dati di sicurezza analizzati dalla macchina virtuale, anche se l'agente è installato. | L'agente non segnala alcun dato, incluso l'heartbeat. È possibile che l'agente sia danneggiato o che il traffico sia bloccato. In alternativa, l'agente segnala i dati ma manca un ID risorsa di Azure, pertanto è impossibile associare i dati alla macchina virtuale di Azure.Or, the agent is reporting data but is missing an Azure resource ID so it's impossible to match the data to the Azure VM. Per risolvere i problemi relativi a Linux, vedere [Troubleshooting Guide for Log Analytics Agent for Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md#im-not-seeing-any-linux-data-in-the-oms-portal) (Guida alla risoluzione dei problemi per l'agente di Log Analytics per Linux). Per risolvere i problemi relativi a Windows, vedere[Troubleshooting Windows Virtual Machines](https://github.com/MicrosoftDocs/azure-docs/blob/8c53ac4371d482eda3d85819a4fb8dac09996a89/articles/log-analytics/log-analytics-azure-vm-extension.md#troubleshooting-windows-virtual-machines) (Risoluzione dei problemi delle macchine virtuali Windows). |
 | Agente non installato | La raccolta di dati è disabilitata. | Attivare la raccolta di dati nel criterio di sicurezza o installare manualmente Microsoft Monitoring Agent. |
 
-## Risoluzione dei problemi relativi ai requisiti di rete dell'agente di monitoraggio <a name="mon-network-req"></a>
+## <a name="troubleshooting-monitoring-agent-network-requirements"></a>Risoluzione dei problemi relativi ai requisiti di rete degli agenti di monitoraggioTroubleshooting monitoring agent<a name="mon-network-req"></a>
 
 Per far sì che gli agenti si connettano e si registrino con il Centro sicurezza, devono avere accesso alle risorse di rete, compresi gli URL di dominio e i numeri di porta.
 
@@ -134,7 +132,7 @@ In caso di problemi di caricamento del dashboard del Centro sicurezza, assicurar
 
 ## <a name="contacting-microsoft-support"></a>Contattare il supporto tecnico Microsoft
 
-Alcuni problemi possono essere identificati usando le linee guida contenute in questo articolo, altri sono documentati nel [forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSecurityCenter)pubblico del Centro sicurezza. Tuttavia, se è necessario un altro tipo di risoluzione dei problemi, è possibile aprire una nuova richiesta di supporto tramite il **portale di Azure**, come illustrato di seguito:
+Alcuni problemi possono essere identificati usando le linee guida contenute in questo articolo, altri sono documentati nel [forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSecurityCenter)pubblico del Centro sicurezza. Tuttavia, se è necessaria un'ulteriore risoluzione dei problemi, è possibile aprire una nuova richiesta di supporto usando il portale di Azure come illustrato di seguito:However if you need further troubleshooting, you can open a new support request using **Azure portal** as shown below:
 
 ![Supporto tecnico Microsoft](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig2.png)
 
@@ -143,16 +141,15 @@ Alcuni problemi possono essere identificati usando le linee guida contenute in q
 In questo documento è stato descritto come configurare i criteri di sicurezza nel Centro sicurezza di Azure. Per ulteriori informazioni sul Centro sicurezza di Azure, vedere gli argomenti seguenti:
 
 * [Guida alla pianificazione e alla gestione del Centro sicurezza di Azure](security-center-planning-and-operations-guide.md) : informazioni sulla pianificazione e considerazioni di progettazione per l'adozione del Centro sicurezza di Azure.
-* [Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md) : informazioni su come monitorare l'integrità delle risorse di Azure
-* [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md) : informazioni su come gestire e rispondere agli avvisi di sicurezza.
-* [Informazioni sugli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-alerts-type.md)
+* [Monitoraggio dell'integrità](security-center-monitoring.md) della sicurezza nel Centro sicurezza di Azure: informazioni su come monitorare l'integrità delle risorse di AzureSecurity health monitoring in Azure Security Center - Learn how to monitor the health of your Azure resources
+* [Gestione e risposta agli avvisi](security-center-managing-and-responding-alerts.md) di sicurezza nel Centro sicurezza di Azure: informazioni su come gestire e rispondere agli avvisi di sicurezzaManaging and responding to security alerts in Azure Security Center - Learn how to manage and respond to security alerts
+* [Informazioni sugli avvisi di sicurezza nel Centro sicurezza di AzureUnderstanding security alerts in Azure Security Center](security-center-alerts-type.md)
 * [Tutorial: Respond to security incidents](tutorial-security-incident.md) (Esercitazione: Rispondere agli eventi imprevisti della sicurezza)
 * [Convalida degli avvisi nel Centro sicurezza di Azure](security-center-alert-validation.md)
 * [Notifiche tramite messaggio di posta elettronica nel Centro sicurezza di Azure](security-center-provide-security-contact-details.md)
 * [Gestione degli eventi imprevisti della sicurezza nel Centro sicurezza di Azure](security-center-incident.md)
-* [Punteggio di attendibilità degli avvisi](security-center-secure-score.md)
 * [Analizzare gli eventi imprevisti e gli avvisi nel Centro sicurezza di Azure](security-center-investigation.md)
 * [Funzionalità di rilevamento del Centro sicurezza di Azure](security-center-detection-capabilities.md)
-* [Monitoraggio delle soluzioni dei partner con il Centro sicurezza di Azure](security-center-partner-solutions.md) : informazioni su come monitorare l'integrità delle soluzioni dei partner.
-* [Domande frequenti sul Centro sicurezza di Azure](faq-general.md) : domande frequenti sull'uso del servizio
-* [Blog sulla sicurezza di Azure](https://blogs.msdn.com/b/azuresecurity/) : post di blog sulla sicurezza e sulla conformità di Azure
+* [Monitoraggio delle soluzioni dei partner con](security-center-partner-solutions.md) il Centro sicurezza di Azure: informazioni su come monitorare lo stato di integrità delle soluzioni partner.
+* Domande frequenti sul [Centro sicurezza di Azure:](faq-general.md) domande frequenti sull'uso del servizioAzure Security Center FAQ - Find frequently asked questions about using the service
+* Blog sulla [sicurezza di Azure:](https://blogs.msdn.com/b/azuresecurity/) trova post di blog su sicurezza e conformità di AzureAzure Security Blog - Find blog posts about Azure security and compliance

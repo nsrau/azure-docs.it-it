@@ -1,6 +1,6 @@
 ---
-title: Connettersi privatamente a un'app Web usando un endpoint privato di Azure
-description: Connettersi privatamente a un'app Web usando un endpoint privato di Azure
+title: Connettersi privatamente a un'app Web usando l'endpoint privato di AzureConnect privately to a Web App using Azure Private Endpoint
+description: Connettersi privatamente a un'app Web usando l'endpoint privato di AzureConnect privately to a Web App using Azure Private Endpoint
 author: ericgre
 ms.assetid: b8c5c7f8-5e90-440e-bc50-38c990ca9f14
 ms.topic: article
@@ -8,17 +8,22 @@ ms.date: 03/12/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: bb78536326885e043279de1ff77e6e8efcd95193
-ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
+ms.openlocfilehash: 2f10c7378ae7681b14df6e96b6a6f1adac832d1b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79037144"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80287816"
 ---
-# <a name="connect-privately-to-a-web-app-using-azure-private-endpoint-preview"></a>Connettersi privatamente a un'app Web usando l'endpoint privato di Azure (anteprima)
+# <a name="connect-privately-to-a-web-app-using-azure-private-endpoint-preview"></a>Connettersi privatamente a un'app Web usando l'endpoint privato di Azure (anteprima)Connect privately to a Web App using Azure Private Endpoint (Preview)
 
-Endpoint privato di Azure è il blocco predefinito fondamentale per il collegamento privato in Azure. Consente di connettersi privatamente all'app Web.
-In questa Guida introduttiva si apprenderà come distribuire un'app Web con endpoint privato e connettersi a questa app Web da una macchina virtuale.
+Azure Private Endpoint is the fundamental building block for Private Link in Azure. Consente di connettersi privatamente all'app Web.
+In questa Guida introduttiva verrà illustrato come distribuire un'app Web con endpoint privato e connettersi a questa app Web da una macchina virtuale.
+
+Per altre informazioni, vedere [Uso di endpoint privati per l'app Web][privatenedpointwebapp]di Azure.For more information, see Using Private Endpoints for Azure Web App .
+
+> [!Note]
+>L'anteprima è disponibile nelle regioni Stati Uniti orientali e occidentali 2 per tutte le app Web PremiumV2 e Linux. 
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
@@ -26,165 +31,184 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 ## <a name="virtual-network-and-virtual-machine"></a>Rete virtuale e macchina virtuale
 
-In questa sezione si creeranno la rete virtuale e la subnet per ospitare la macchina virtuale usata per accedere all'app Web tramite l'endpoint privato.
+In questa sezione verranno create la rete virtuale e la subnet per ospitare la macchina virtuale usata per accedere all'app Web tramite l'endpoint privato.
 
 ### <a name="create-the-virtual-network"></a>Creare la rete virtuale
 
-Questa sezione illustra come creare una rete virtuale e una subnet.
+In questa sezione verranno create una rete virtuale e una subnet.
 
-1. Sul lato superiore sinistro della schermata selezionare **Crea una risorsa** ** > rete** > **rete virtuale** o cercare **rete virtuale** nella casella di ricerca.
+1. Nella parte superiore sinistra dello schermo selezionare Crea una**Networking** > **rete virtuale** di **rete di risorse** > o cercare **Rete virtuale** nella casella di ricerca.
 
-1. In **Crea rete virtuale**immettere o selezionare queste informazioni nella scheda nozioni di base:
+1. In **Crea rete virtuale**immettere o selezionare queste informazioni nella scheda Nozioni di base:
 
- ![Creare una rete virtuale][1]
+   > [!div class="mx-imgBorder"]
+   > ![Crea rete virtuale][1]
 
 1. Fare clic su **"Avanti: indirizzi IP >"** e immettere o selezionare queste informazioni:
 
-![Configurare gli indirizzi IP][2]
+   > [!div class="mx-imgBorder"]
+   >![Configurare gli indirizzi IP][2]
 
-1. Nella sezione subnet fare clic su **"+ Aggiungi subnet"** e immettere le informazioni seguenti e fare clic su **"Aggiungi"** .
+1. Nella sezione della subnet, fare clic su **"Aggiungi subnet"** e immettere le seguenti informazioni e fare clic su **"Aggiungi"**
 
-![Aggiungi subnet][3]
+   > [!div class="mx-imgBorder"]
+   >![Aggiungi subnet][3]
 
-1. Fare clic su **"verifica + crea"**
+1. Fare clic su **"Revisione e creazione"**
 
-1. Una volta superata la convalida, fare clic su **"Crea"**
+1. Dopo aver superato la convalida, fare clic su **"Crea"**
 
-### <a name="create-virtual-machine"></a>Crea macchina virtuale
+### <a name="create-virtual-machine"></a>Creare macchina virtuale
 
-1. Sul lato superiore sinistro della schermata nella portale di Azure selezionare **Crea una risorsa** > **calcolo** > **macchina virtuale**
+1. Nella parte superiore sinistra dello schermo nel portale di Azure selezionare Crea una**macchina virtuale** di**calcolo** >  **delle risorse** > 
 
-1. In creare una macchina virtuale-nozioni di base immettere o selezionare queste informazioni:
+1. In Creare una macchina virtuale - Informazioni di base, immettere o selezionare queste informazioni:
 
-![Macchina virtuale di base ][4]
+   > [!div class="mx-imgBorder"]
+   >![Macchina virtuale di base][4]
 
-1. Selezionare **"Next: Disks"**
+1. Selezionare **"Avanti: Dischi"**
 
-Mantieni le impostazioni predefinite.
+   Mantenere le impostazioni predefinite.
 
-1. Selezionare **"Avanti: rete"** e selezionare queste informazioni:
+1. Selezionare **"Avanti: Rete"**, selezionare queste informazioni:
 
-![Rete ][5]
+   > [!div class="mx-imgBorder"]
+   >![Rete ][5]
 
-1. Fare clic su **"verifica + crea"**
+1. Fare clic su **"Revisione e creazione"**
 
-1. Quando viene superato il messaggio di convalida, fare clic su **"Crea"**
+1. Quando viene superata la convalida del messaggio, fare clic su **"Crea"**
 
-## <a name="create-your-web-app-and-private-endpoint"></a>Creare l'app Web e l'endpoint privato
+## <a name="create-your-web-app-and-private-endpoint"></a>Creare l'app Web e l'endpoint privatoCreate your Web App and Private Endpoint
 
-In questa sezione si creerà un'app Web privata con un endpoint privato.
+In questa sezione verrà creata un'app Web privata utilizzando un endpoint privato.
 
 > [!Note]
->La funzionalità endpoint privato è disponibile solo per la versione Premium v2 e isolata con SKU External ASE
+>La funzionalità Endpoint privato è disponibile solo per lo SKU Premium V2.
 
 ### <a name="web-app"></a>App Web
 
-1. Sul lato superiore sinistro della schermata nella portale di Azure selezionare **Crea una risorsa** > **Web** > **app Web**
+1. Nella parte superiore sinistra dello schermo nel portale di Azure selezionare **Crea un'app** > **Web** > **Web App** di risorse
 
-1. In Crea app Web-Nozioni di base immettere o selezionare queste informazioni:
+1. In Crea app Web - Nozioni di base immettere o selezionare le informazioni seguente:
 
-![App Web di base ][6]
+   > [!div class="mx-imgBorder"]
+   >![App Web di base][6]
 
-1. Selezionare **"verifica + crea"**
+1. Selezionare **"Revisione e creazione"**
 
-1. Quando viene superato il messaggio di convalida, fare clic su **"Crea"**
+1. Quando viene superata la convalida del messaggio, fare clic su **"Crea"**
 
-### <a name="create-the-private-endpoint"></a>Creare l'endpoint privato
+### <a name="create-the-private-endpoint"></a>Creare l'endpoint privatoCreate the Private endpoint
 
-1. Nelle proprietà dell'app Web selezionare **impostazioni** > **rete** e fare clic su **"Configura connessioni endpoint privato"** .
+1. Nelle proprietà dell'app Web selezionare **Impostazioni** > **di rete** e fare clic su **"Configura connessioni endpoint privati"**
 
-![Rete di app Web][7]
+   > [!div class="mx-imgBorder"]
+   >![Rete di app Web][7]
 
-1. Nella procedura guidata fare clic su **"+ Aggiungi"**
+1. Nella procedura guidata, fare clic su **"aggiungi"**
 
-![Endpoint privato dell'app Web][8]
+   > [!div class="mx-imgBorder"]
+   >![Endpoint privato dell'app Web][8]
 
-1. Inserire le informazioni sulla sottoscrizione, VNET e sulla subnet e fare clic su **"OK"**
+1. Compilare le informazioni relative alla sottoscrizione, alla rete virtuale e alla subnet e fare clic su **"OK"**
 
-![Rete di app Web][9]
+   > [!div class="mx-imgBorder"]
+   >![Rete di app Web][9]
 
-1. Esaminare la creazione dell'endpoint privato
+1. Esaminare la creazione dell'endpoint privatoReview the creation of the private endpoint
 
-![rivedere][10]
-![visualizzazione finale dell'endpoint privato][11]
+   > [!div class="mx-imgBorder"]
+   >![Esaminare][10]
+   >![la visualizzazione finale dell'endpoint privatoReview Final view of the Private endpoint][11]
 
 ## <a name="connect-to-a-vm-from-the-internet"></a>Connettersi a una VM da Internet
 
-1. Nella barra di ricerca del portale immettere **myVm**
-1. Selezionare il **pulsante Connetti**. Dopo aver selezionato il pulsante Connetti, Connetti a macchina virtuale Apri, seleziona **RDP**
+1. Nella barra di ricerca del portale, immettere **myVm**
+1. Selezionare il **pulsante Connetti**. Dopo aver selezionato il pulsante Connetti, si apre Connetti a macchina virtuale, selezionare **RDP**
 
-![Pulsante RDP][12]
+   > [!div class="mx-imgBorder"]
+   >![Pulsante RDP][12]
 
-1. Azure crea un file di Remote Desktop Protocol (con estensione RDP) e lo scarica nel computer dopo aver fatto clic su **Scarica file RDP** .
+1. Azure crea un file Remote Desktop Protocol (con estensione rdp) e lo scarica nel computer dopo aver fatto clic su **Scarica file RDP**
 
-![Scarica file RDP][13]
+   > [!div class="mx-imgBorder"]
+   >![Scarica il file RDP][13]
 
-1. Aprire il file con estensione RDP scaricato.
+1. Aprire il file downloaded.rdp.
 
-- Se richiesto, selezionare Connetti.
+- Quando richiesto, selezionare Connetti.
 - Immettere il nome utente e la password specificati al momento della creazione della macchina virtuale.
 
 > [!Note]
-> Potrebbe essere necessario selezionare altre opzioni > usare un account diverso per specificare le credenziali immesse durante la creazione della macchina virtuale.
+> Potrebbe essere necessario selezionare Altre opzioni > Usare un account diverso per specificare le credenziali immesse al momento della creazione della macchina virtuale.
 
 - Selezionare OK.
 
-1. Durante il processo di accesso potrebbe essere visualizzato un avviso relativo al certificato. Se viene visualizzato un avviso di certificato, selezionare Sì o continua.
+1. Durante il processo di accesso potrebbe essere visualizzato un avviso relativo al certificato. Se si riceve un avviso relativo al certificato, selezionare Sì oppure Continua.
 
 1. Quando viene visualizzato il desktop della macchina virtuale, ridurlo a icona per tornare al desktop locale.
 
-## <a name="access-web-app-privately-from-the-vm"></a>Accedi privatamente all'app Web dalla macchina virtuale
+## <a name="access-web-app-privately-from-the-vm"></a>Accedere all'app Web privatamente dalla macchina virtualeAccess Web App privately from the VM
 
-In questa sezione si effettuerà la connessione privata all'app Web usando l'endpoint privato.
+In questa sezione si connetterà privatamente all'app Web utilizzando l'endpoint privato.
 
-1. Ottenere l'indirizzo IP privato dell'endpoint privato, nella barra di ricerca digitare **collegamento privato**e selezionare collegamento privato
+1. Ottenere l'IP privato dell'endpoint privato, nella barra di ricerca digitare **Private Link**, quindi selezionare Private Link
 
-![Collegamento privato][14]
+   > [!div class="mx-imgBorder"]
+   >![Collegamento privato][14]
 
-1. Nel centro collegamenti privati selezionare **endpoint privati** per elencare tutti gli endpoint privati
+1. Nel Centro collegamenti privati, selezionare **Endpoint privati** per elencare tutti gli endpoint privati
 
-![Centro collegamenti privati][15]
+   > [!div class="mx-imgBorder"]
+   >![Centro collegamenti privati][15]
 
-1. Selezionare il collegamento all'endpoint privato per l'app Web e la subnet
+1. Selezionare il collegamento Endpoint privato all'app Web e alla subnet
 
-![Proprietà endpoint privato][16]
+   > [!div class="mx-imgBorder"]
+   >![Proprietà dell'endpoint privatoPrivate endpoint properties][16]
 
-1. Copiare l'indirizzo IP privato dell'endpoint privato e il nome di dominio completo dell'app Web, in questo caso webappdemope.azurewebsites.net 10.10.2.4
+1. Copiare l'IP privato dell'endpoint privato e il nome di dominio completo dell'app Web, nel caso in cui webappdemope.azurewebsites.net 10.10.2.4
 
-1. In myVM verificare che l'app Web non sia accessibile tramite l'indirizzo IP pubblico. Aprire un browser e copiare il nome dell'app Web, è necessario disporre di una pagina di errore 403-accesso negato
+1. Nella myVM verificare che l'app Web non sia accessibile tramite l'IP pubblico. Aprire un browser e incollare il nome dell'app Web, è necessario disporre di una pagina di errore 403 non consentita
 
-![Accesso negato][17]
+   > [!div class="mx-imgBorder"]
+   >![Proibito][17]
 
-> [!Note]
+> [!Important]
 > Poiché questa funzionalità è in anteprima, è necessario gestire manualmente la voce DNS.
 
 1. Creare la voce host, aprire Esplora file e individuare il file hosts
 
-![File hosts][18]
+   > [!div class="mx-imgBorder"]
+   >![File Hosts][18]
 
-1. Aggiungere una voce con l'indirizzo IP privato e il nome pubblico dell'app Web modificando il file degli host con il blocco note
+1. Aggiungere una voce con l'indirizzo IP privato e il nome pubblico dell'app Web modificando il file hosts con blocco note
 
-![Contenuto host][19]
+   > [!div class="mx-imgBorder"]
+   >![Ospita contenuti][19]
 
 1. Salvare il file.
 
 1. Aprire un browser e digitare l'URL dell'app Web
 
-![Sito Web con PE][20]
+   > [!div class="mx-imgBorder"]
+   >![Sito Web con PE][20]
 
 1. Si accede all'app Web tramite l'endpoint privato
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Al termine dell'uso dell'endpoint privato, dell'app Web e della macchina virtuale, eliminare il gruppo di risorse e tutte le risorse in esso contenute:
+Al termine dell'utilizzo dell'endpoint privato, dell'app Web e della macchina virtuale, eliminare il gruppo di risorse e tutte le risorse in esso contenute:
 
-1. Immettere Ready-RG nella casella di ricerca nella parte superiore del portale e selezionare Ready-RG nei risultati della ricerca.
+1. Immettere ready-rg nella casella di ricerca nella parte superiore del portale e selezionare ready-rg dai risultati della ricerca.
 1. Selezionare Elimina gruppo di risorse.
-1. Immettere Ready-RG per digitare il nome del gruppo di risorse e selezionare Elimina.
+1. Immettere ready-rg per TYPE THE RESOURCE GROUP NAME e selezionare Delete .Enter.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa Guida introduttiva è stata creata una VM in una rete virtuale, un'app Web e un endpoint privato. È stata effettuata la connessione a una VM da Internet e la comunicazione in modo sicuro con l'app Web usando un collegamento privato. Per altre informazioni sull'endpoint privato, vedere [che cos'è endpoint privato di Azure][privateendpoint].
+In questa Guida introduttiva è stata creata una macchina virtuale in una rete virtuale, un'app Web e un endpoint privato. Si è connessi a una macchina virtuale da Internet e si è comunicati in modo sicuro all'app Web tramite Private Link. Per altre informazioni sull'endpoint privato, vedere [Che cos'è l'endpoint privato][privateendpoint]di Azure.To learn more about Private Endpoint, see What is Azure Private Endpoint.
 
 <!--Image references-->
 [1]: ./media/create-private-endpoint-webapp-portal/createnetwork.png
@@ -209,4 +233,5 @@ In questa Guida introduttiva è stata creata una VM in una rete virtuale, un'app
 [20]: ./media/create-private-endpoint-webapp-portal/webappwithpe.png
 
 <!--Links-->
+[privatenedpointwebapp]: https://docs.microsoft.com/azure/app-service/networking/private-endpoint
 [privateendpoint]: https://docs.microsoft.com/azure/private-link/private-endpoint-overview

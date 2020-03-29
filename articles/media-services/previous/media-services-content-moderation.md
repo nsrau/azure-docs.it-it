@@ -1,6 +1,6 @@
 ---
 title: Usare Azure Media Content Moderator per rilevare possibili contenuti pornografici e per adulti | Microsoft Docs
-description: Il processore di contenuti multimediali di Azure Media Content Moderator aiuta a rilevare contenuti potenziali per adulti e di video.
+description: L'elaboratore multimediale di Azure Media Content Moderator consente di rilevare potenziali contenuti per adulti e per adulti nei video.
 services: media-services
 documentationcenter: ''
 author: sanjeev3
@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: sajagtap
 ms.openlocfilehash: 83fe7867a3128ac82597c028452863a1ad681ace
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77914331"
 ---
 # <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>Usare Azure Media Content Moderator per rilevare eventuali contenuti pornografici e per adulti 
 
 > [!NOTE]
-> Il processore di contenuti multimediali di **Azure media content moderator** verrà ritirato. Per la data di ritiro, vedere l'argomento [componenti legacy](legacy-components.md) .
+> Il processore **multimediale** di Azure Media Content Moderator verrà ritirato. Per la data di pensionamento, vedere l'argomento relativo ai [componenti legacy.](legacy-components.md)
 
 ## <a name="overview"></a>Panoramica
-Il processore di contenuti multimediali **Azure Content Moderator** consente di usare funzionalità di moderazione automatica per i video. Ad esempio, è possibile rilevare nei video contenuti pornografici e per adulti ed eseguire la revisione dei contenuti contrassegnati in modalità manuale.
+Il processore multimediale (MP) di **Azure Media Content Moderator** consente di usare la moderazione assistita dal computer per i video. Ad esempio, è possibile rilevare nei video contenuti pornografici e per adulti ed eseguire la revisione dei contenuti contrassegnati in modalità manuale.
 
 Il processore di contenuti multimediali **Azure Media Content Moderator** è attualmente disponibile in anteprima.
 
@@ -56,7 +56,7 @@ L'output JSON include gli elementi seguenti:
 | width |Larghezza del fotogramma video di output, espressa in pixel.|
 | height |Altezza del fotogramma video di output, espressa in pixel.|
 | totalDuration |Durata del video di input, espressa in "tick". |
-| [fragments](#fragments-json-elements) |I metadati sono suddivisi in segmenti diversi, detti frammenti. Ogni frammento è uno scatto rilevato automaticamente con un inizio, una durata, un numero di intervallo e uno o più eventi. |
+| [Frammenti](#fragments-json-elements) |I metadati sono suddivisi in segmenti diversi, detti frammenti. Ogni frammento è uno scatto rilevato automaticamente con un inizio, una durata, un numero di intervallo e uno o più eventi. |
 
 ### <a name="fragments-json-elements"></a>Elementi JSON dei frammenti
 
@@ -65,7 +65,7 @@ L'output JSON include gli elementi seguenti:
 | start |Ora di inizio del primo evento in "tick". |
 | duration |Lunghezza del frammento in "tick". |
 | interval |Intervallo di ogni voce di evento all'interno del frammento in "tick". |
-| [eventi](#events-json-elements) |Ogni evento rappresenta una clip e ogni clip contiene fotogrammi chiave rilevati e monitorati nel periodo di tempo specificato. È una matrice di eventi. La matrice esterna rappresenta un intervallo di tempo. La matrice interna è costituita da 0 o più eventi che si sono verificati in un determinato momento.|
+| [Eventi](#events-json-elements) |Ogni evento rappresenta una clip e ogni clip contiene fotogrammi chiave rilevati e monitorati nel periodo di tempo specificato. È una matrice di eventi. La matrice esterna rappresenta un intervallo di tempo. La matrice interna è costituita da 0 o più eventi che si sono verificati in un determinato momento.|
 
 ### <a name="events-json-elements"></a>Elementi JSON degli eventi
 
@@ -75,7 +75,7 @@ L'output JSON include gli elementi seguenti:
 | adultScore | Punteggio di attendibilità per eventuali contenuti per adulti, su una scala compresa tra 0,00 e 0,99. |
 | racyScore | Punteggio di attendibilità per eventuali contenuti pornografici, su una scala compresa tra 0,00 e 0,99. |
 | indice | Indice del fotogramma su una scala dal primo all'ultimo indice di fotogramma. |
-| timestamp | Percorso del fotogramma in "tick". |
+|  timestamp | Percorso del fotogramma in "tick". |
 | shotIndex | Indice dello scatto padre. |
 
 

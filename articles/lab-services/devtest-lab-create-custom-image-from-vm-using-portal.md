@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
 ms.openlocfilehash: 07f3b60b9218f74bb3a778daa27f31687c4538b2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60868509"
 ---
 # <a name="create-a-custom-image-from-a-vm"></a>Creare un'immagine personalizzata da una macchina virtuale
@@ -29,9 +29,9 @@ ms.locfileid: "60868509"
 
 È possibile creare un'immagine personalizzata da una macchina virtuale predisposta e successivamente utilizzare tale immagine per creare macchine virtuali identiche. I passaggi seguenti illustrano come creare un'immagine personalizzata da una macchina virtuale:
 
-1. Accedere al [portale di Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Accedere al [portale](https://go.microsoft.com/fwlink/p/?LinkID=525040)di Azure .
 
-1. Selezionare **Tutti i servizi** e quindi **DevTest Labs** dall'elenco.
+1. Selezionare **Tutti i servizi**e quindi **DevTest Labs** dall'elenco.
 
 1. Nell'elenco dei lab selezionare il lab desiderato.  
 
@@ -39,7 +39,7 @@ ms.locfileid: "60868509"
  
 1. Nel riquadro **Macchine virtuali personali** selezionare la macchina virtuale da cui creare l'immagine personalizzata.
 
-1. Nel riquadro di gestione della macchina virtuale selezionare **Crea immagine personalizzata (disco rigido virtuale)** .
+1. Nel riquadro di gestione della macchina virtuale selezionare **Crea immagine personalizzata (disco rigido virtuale)**.
 
     ![Voce di menu Crea immagine personalizzata](./media/devtest-lab-create-template/create-custom-image.png)
 
@@ -65,4 +65,4 @@ Dopo alcuni minuti, l'immagine personalizzata viene creata e archiviata nell'acc
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Aggiungere una macchina virtuale all'ambiente lab](devtest-lab-add-vm.md)
+- [Aggiungere una macchina virtuale al lab](devtest-lab-add-vm.md)

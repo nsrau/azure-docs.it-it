@@ -16,10 +16,10 @@ ms.date: 06/02/2017
 ms.author: alkohli
 ms.custom: ''
 ms.openlocfilehash: e05a37122647d4979089f0ba00b1fc15f9b84b0f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60321834"
 ---
 # <a name="replace-a-hardware-component-on-your-storsimple-8000-series-device"></a>Sostituire un componente hardware sul dispositivo StorSimple serie 8000
@@ -34,11 +34,11 @@ Le esercitazioni di sostituzione dei componenti hardware descrivono i componenti
 ### <a name="safety-icon-conventions"></a>Convenzioni di sicurezza
 Nella tabella seguente vengono descritte le icone di sicurezza utilizzate in queste esercitazioni. Prestare particolare attenzione a queste icone di sicurezza quando si eseguono i passaggi per rimuovere e sostituire i componenti del dispositivo.
 
-| Icona | Text | Informazioni aggiuntive |
+| Icona | Testo | Informazioni aggiuntive |
 |:--- |:--- |:--- |
-| ![Icona di avviso](./media/storsimple-hardware-component-replacement/Warning.png) |**PERICOLO!** |Indica una situazione di pericolo che, se non viene evitato, comporterà morte o gravi ferite. Questa parola deve essere limitata a situazioni più estreme. |
-| ![Icona di avviso](./media/storsimple-hardware-component-replacement/Warning.png) |**AVVISO!** |Indica una situazione di pericolo che, se non viene evitata, può comportare morte o gravi ferite. |
-| ![Icona di attenzione](./media/storsimple-hardware-component-replacement/Caution.png) |**ATTENZIONE!** |Indica una situazione di pericolo che, se non viene evitato, comporterà ferite lievi o limitate. |
+| ![Icona avviso](./media/storsimple-hardware-component-replacement/Warning.png) |**PERICOLO!** |Indica una situazione di pericolo che, se non viene evitato, comporterà morte o gravi ferite. Questa parola deve essere limitata a situazioni più estreme. |
+| ![Icona avviso](./media/storsimple-hardware-component-replacement/Warning.png) |**Avviso!** |Indica una situazione di pericolo che, se non viene evitata, può comportare morte o gravi ferite. |
+| ![Icona di attenzione](./media/storsimple-hardware-component-replacement/Caution.png) |**Attenzione!** |Indica una situazione di pericolo che, se non viene evitato, comporterà ferite lievi o limitate. |
 | ![Icona di notifica](./media/storsimple-hardware-component-replacement/NoticeIcon.png) |**NOTIFICA:** |Indica le informazioni considerate importanti, ma non correlate al rischio. |
 | ![Icona di scossa elettrica](./media/storsimple-hardware-component-replacement/Electric.png) |**Pericolo di scosse elettriche** |Indica alta tensione. |
 | ![Icona peso elevato](./media/storsimple-hardware-component-replacement/Weight.png) |**Pesante** | |
@@ -51,12 +51,12 @@ Acquisire familiarità con le informazioni di sicurezza relative al dispositivo 
 
 Prima di tentare di sostituire un componente, considerare le seguenti informazioni.
 
-![Warning Icon](./media/storsimple-hardware-component-replacement/Warning.png)![Electrical Shock Icon](./media/storsimple-hardware-component-replacement/Electric.png)**AVVISO!**
+![Warning Icon](./media/storsimple-hardware-component-replacement/Warning.png) ![Electrical Shock Icon](./media/storsimple-hardware-component-replacement/Electric.png) **AVVISO!**
 
 * Collegarsi a terra correttamente usando un elettrostatica o passepartout antistatiche durante la gestione di moduli e i componenti del dispositivo StorSimple.
 * Non toccare nessun circuito. Utilizzare maniglie e guide specificate durante la gestione di componenti che possono avere circuiti esposti.
 
-![Warning Icon](./media/storsimple-hardware-component-replacement/Warning.png)![Notice Icon](./media/storsimple-hardware-component-replacement/NoticeIcon.png)**NOTIFICA:**
+![Warning Icon](./media/storsimple-hardware-component-replacement/Warning.png) ![Notice Icon](./media/storsimple-hardware-component-replacement/NoticeIcon.png) **NOTIFICA:**
 
 Quando si sostituisce un modulo, **non lasciare MAI un alloggiamento vuoto nella sporgenza dell’enclosure**. Procurarsi un ricambio o un modulo vuoto prima di rimuovere la parte del problema.
 
@@ -68,10 +68,10 @@ Nelle tabelle seguenti vengono riepilogati i componenti hardware principali nel 
 | Componenti | # Presente | Modulo plug-in? | Procedura di sostituzione |
 |:--- |:--- |:--- |:--- |
 | Chassis |1 |No |[Sostituire lo chassis sul dispositivo StorSimple](storsimple-8000-chassis-replacement.md) |
-| Controller primari |2 |Yes |[Sostituire un modulo controller nel dispositivo StorSimple](storsimple-8000-controller-replacement.md) |
-| Power and Cooling Modules (PCM) da 764W |2 |Yes |[Sostituire un PCM sul dispositivo StorSimple](storsimple-8000-power-cooling-module-replacement.md) |
-| Batteria di backup |2 |Yes |[Sostituire il modulo batteria di backup nel dispositivo StorSimple](storsimple-8000-battery-replacement.md) |
-| Unità disco |12 |Yes |[Sostituire un'unità disco del dispositivo StorSimple](storsimple-8000-disk-drive-replacement.md) |
+| Controller primari |2 |Sì |[Sostituire un modulo controller nel dispositivo StorSimple](storsimple-8000-controller-replacement.md) |
+| Power and Cooling Modules (PCM) da 764W |2 |Sì |[Sostituire un PCM sul dispositivo StorSimple](storsimple-8000-power-cooling-module-replacement.md) |
+| Batteria di backup |2 |Sì |[Sostituzione del modulo della batteria di backup nel dispositivo StorSimple](storsimple-8000-battery-replacement.md) |
+| Unità disco |12 |Sì |[Sostituire un'unità disco del dispositivo StorSimple](storsimple-8000-disk-drive-replacement.md) |
 
 **Tabella 1** Componenti Hardware nel chassis principale
 
@@ -80,9 +80,9 @@ Lo chassis principale e lo chassis EBOD sono diversi nei moduli I/O. Inoltre, i 
 | Componenti | # Presente | Modulo plug-in? | Procedura di sostituzione |
 |:--- |:--- |:--- |:--- |
 | Chassis |1 |No |[Sostituire lo chassis sul dispositivo StorSimple](storsimple-8000-chassis-replacement.md) |
-| Controller EBOD |2 |Yes |[Sostituire un controller EBOD sul dispositivo StorSimple](storsimple-8000-ebod-controller-replacement.md) |
-| Power and Cooling Modules (PCM) da 580W |2 |Yes |[Sostituire un PCM sul dispositivo StorSimple](storsimple-8000-power-cooling-module-replacement.md) |
-| Unità disco |12 |Yes |[Sostituire un'unità disco del dispositivo StorSimple](storsimple-8000-disk-drive-replacement.md) |
+| Controller EBOD |2 |Sì |[Sostituire un controller EBOD sul dispositivo StorSimple](storsimple-8000-ebod-controller-replacement.md) |
+| Power and Cooling Modules (PCM) da 580W |2 |Sì |[Sostituire un PCM sul dispositivo StorSimple](storsimple-8000-power-cooling-module-replacement.md) |
+| Unità disco |12 |Sì |[Sostituire un'unità disco del dispositivo StorSimple](storsimple-8000-disk-drive-replacement.md) |
 
 **Tabella 2** componenti Hardware nell'enclosure EBOD
 
@@ -120,7 +120,7 @@ Sia lo chassis principale sia quello EBOD hanno moduli unità carrier. Lo chassi
 | 3 |Controller 0 EBOD |
 | 4 |Controller 1 EBOD |
 
-## <a name="field-replaceable-units"></a>Unità sostituibile sul campo
+## <a name="field-replaceable-units"></a>Unità sostituibile sul campo 
 Le seguenti unità sostituibili sul campo (FRU) sono disponibili per il dispositivo StorSimple:
 
 * Chassis (incluso il pannello operativo integrato)
@@ -132,7 +132,7 @@ Le seguenti unità sostituibili sul campo (FRU) sono disponibili per il disposit
 * Modulo batteria di backup
 * Kit per il montaggio su rack
 
-[Contattare il supporto Microsoft](storsimple-8000-contact-microsoft-support.md) per ordinare una di queste unità sostitutive.
+Per ordinare una di queste unità sostitutive, [contattare il supporto Microsoft](storsimple-8000-contact-microsoft-support.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Rivedere tutte le [informazioni sulla sicurezza](storsimple-safety.md) prima di tentare di sostituire un componente hardware StorSimple.

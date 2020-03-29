@@ -5,13 +5,13 @@ author: roygara
 ms.author: rogarana
 ms.date: 11/15/2017
 ms.topic: conceptual
-ms.service: virtual-machines
+ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: 22df303882e9035fef5041606b6b4b809c1570a3
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: 7298b54d94effaa5bd7e600ec2d8d1045aa263ec
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78970438"
 ---
 # <a name="scalability-and-performance-targets-for-vm-disks-on-linux"></a>Obiettivi di scalabilità e prestazioni per i dischi delle VM in Linux
@@ -33,4 +33,4 @@ Le dimensioni indicate con un asterisco sono attualmente in anteprima. Vedere la
 
 ## <a name="see-also"></a>Vedere anche
 
-[Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits)
+[Limiti, quote e vincoli di sottoscrizione e servizio di AzureAzure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits)

@@ -14,17 +14,17 @@ ms.workload: na
 ms.date: 11/28/2018
 ms.author: memildin
 ms.openlocfilehash: f8b4063d87fa9a89dccd42eddea644609bd6ff27
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77921250"
 ---
 # <a name="azure-security-center-threat-intelligence-report"></a>Report di intelligence per le minacce generato dal Centro sicurezza di Azure
 Questo documento spiega come i report di intelligence per le minacce del Centro sicurezza di Azure possono essere utili per raccogliere informazioni più dettagliate su una minaccia che ha generato un avviso di sicurezza.
 
 ## <a name="what-is-a-threat-intelligence-report"></a>Informazioni sui report di intelligence per le minacce
-Il Centro sicurezza per la protezione dalle minacce funziona monitorando le informazioni di sicurezza dalle risorse di Azure, dalla rete e dalle soluzioni dei partner connesse. Per identificare le minacce, analizza queste informazioni, correlando spesso quelle raccolte da più origini. Per altre informazioni, vedere [come il Centro sicurezza di Azure rileva e risponde alle minacce](security-center-alerts-overview.md#detect-threats).
+La protezione dalle minacce del Centro sicurezza funziona monitorando le informazioni di sicurezza dalle risorse di Azure, dalla rete e dalle soluzioni dei partner connessi. Per identificare le minacce, analizza queste informazioni, correlando spesso quelle raccolte da più origini. Per altre informazioni, vedere [Come il Centro sicurezza di Azure rileva e risponde alle minacce.](security-center-alerts-overview.md#detect-threats)
 
 Quando il Centro sicurezza identifica una minaccia, attiva un [avviso di sicurezza](security-center-managing-and-responding-alerts.md) contenente informazioni dettagliate su un evento specifico, inclusi i suggerimenti per la correzione. Per fornire assistenza ai team che gestiscono la risposta agli eventi imprevisti, analizzare e correggere le minacce, il Centro sicurezza include un report di intelligence per le minacce contenente informazioni sulla minaccia rilevata, come:
 
@@ -43,11 +43,11 @@ Quando il Centro sicurezza identifica una minaccia, attiva un [avviso di sicurez
 
 Il Centro sicurezza rende disponibili tre tipi di report sulle minacce, che possono variare a seconda dell'attacco. I report disponibili sono:
 
-* **Report sui gruppi di attività**: fornisce approfondimenti sugli utenti malintenzionati e relativi obiettivi e strategie.
-* **Report sulle campagne**: si concentra sui dettagli di specifiche campagne di attacco.
+* **Activity Group Report**: fornisce approfondimenti in attaccanti, i loro obiettivi e tattiche.
+* **Rapporto campagna**: si concentra sui dettagli di specifiche campagne di attacco.
 * **Report di riepilogo delle minacce**: tratta tutti gli elementi presenti nei due report precedenti.
 
-Questo tipo di informazioni è utile durante il processo di risposta agli eventi imprevisti, in cui è in corso un'indagine per comprendere l'origine dell'attacco, le motivazioni dell'utente malintenzionato e le operazioni da eseguire per attenuare il problema in futuro.
+Questo tipo di informazioni è utile nel corso del processo di risposta agli eventi imprevisti, in cui è in corso un'analisi per identificare l'origine dell'attacco, le motivazioni dell'utente malintenzionato e le azioni da eseguire per attenuare il problema in futuro.
 
 ## <a name="how-to-access-the-threat-intelligence-report"></a>Come accedere alle informazioni sui report di intelligence per le minacce
 È possibile esaminare gli avvisi correnti visualizzando il riquadro **Avvisi di sicurezza** . Aprire il portale di Azure e seguire questa procedura per visualizzare altri dettagli su ogni avviso:
@@ -69,5 +69,5 @@ Da qui è possibile scaricare il file PDF per questo report e ottenere altre inf
 In questo documento è stata evidenziata l'importanza dei report di intelligence per le minacce generati dal Centro sicurezza di Azure nel corso di un'analisi degli avvisi di sicurezza. Per ulteriori informazioni sul Centro sicurezza di Azure, vedere gli argomenti seguenti:
 
 * [Guida alla pianificazione e alla gestione del Centro sicurezza di Azure](security-center-planning-and-operations-guide.md). Informazioni sulla pianificazione e considerazioni di progettazione per l'adozione del Centro sicurezza di Azure.
-* [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md). Informazioni su come gestire e rispondere agli avvisi di sicurezza.
+* [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza](security-center-managing-and-responding-alerts.md)di Azure. Informazioni su come gestire e rispondere agli avvisi di sicurezza.
 * [Gestione degli eventi imprevisti della sicurezza nel Centro sicurezza di Azure](security-center-incident.md)

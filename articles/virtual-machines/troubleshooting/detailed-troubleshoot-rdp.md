@@ -16,10 +16,10 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: ea448b87f9e6954abecead2934bfb7f4ed04a9c5
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77920145"
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Procedura dettagliata per la risoluzione dei problemi di connessione di Desktop remoto con le macchine virtuali Windows in Azure
@@ -31,7 +31,7 @@ Questo articolo contiene una procedura dettagliata sulla risoluzione dei problem
 È possibile che vanga visualizzato un messaggio di errore di Desktop remoto che non corrisponde a uno dei messaggi di errore specifici descritti nella [guida alla risoluzione dei problemi di base di Desktop remoto](troubleshoot-rdp-connection.md). Seguire questa procedura per capire il motivo per cui il client Desktop remoto (o RDP) non riesce a connettersi al servizio RDP nella VM di Azure.
 
 
-Se in qualsiasi punto dell'articolo sono necessarie altre informazioni, è possibile contattare gli esperti di Azure nei [forum MSDN e overflow dello stack relativi ad Azure](https://azure.microsoft.com/support/forums/). In alternativa, è anche possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al [sito del Supporto tecnico di Azure](https://azure.microsoft.com/support/options/) e fare clic su **Ottenere supporto**. Per informazioni sull'uso del Supporto tecnico di Azure, leggere le [Domande frequenti sul supporto tecnico di Azure](https://azure.microsoft.com/support/faq/).
+Se in qualsiasi punto dell'articolo sono necessarie altre informazioni, è possibile contattare gli esperti di Azure nei [forum MSDN e overflow dello stack relativi ad Azure](https://azure.microsoft.com/support/forums/). In alternativa, è anche possibile archiviare un evento imprevisto di supporto tecnico di Azure. Passare al [sito del supporto](https://azure.microsoft.com/support/options/) di Azure e fare clic su Ottieni **supporto**. Per informazioni sull'uso del supporto di Azure, leggere le [domande frequenti sul supporto di Microsoft Azure](https://azure.microsoft.com/support/faq/).
 
 ## <a name="components-of-a-remote-desktop-connection"></a>Componenti di una connessione Desktop remoto
 Di seguito sono riportati i componenti di una connessione RDP:
@@ -47,7 +47,7 @@ Prima di procedere, può essere utile riflettere su cosa è stato modificato dal
 Prima di procedere alla risoluzione dei problemi dettagliata
 
 * Controllare lo stato della macchina virtuale nel portale di Azure per verificare l'eventuale presenza di errori evidenti.
-* Seguire i [passaggi di correzione rapida per gli errori RDP comuni riportati nella guida alla risoluzione dei problemi di base](troubleshoot-rdp-connection.md#quick-troubleshooting-steps).
+* Seguire i passaggi rapidi per gli [errori RDP comuni nella guida](troubleshoot-rdp-connection.md#quick-troubleshooting-steps)alla risoluzione dei problemi di base .
 * Per le immagini personalizzate, assicurarsi che il disco rigido virtuale sia preparato correttamente prima di caricarlo. Per altre informazioni, vedere [Preparare un disco rigido virtuale Windows o VHDX prima del caricamento in Azure](../windows/prepare-for-upload-vhd-image.md).
 
 
@@ -107,19 +107,19 @@ Se non si dispone di un'altra macchina virtuale nello stesso servizio cloud o re
 Se è possibile connettersi tramite Desktop remoto a una macchina virtuale nello stesso servizio cloud o rete virtuale, verificare le impostazioni seguenti:
 
 * La configurazione dell'endpoint per il traffico di Desktop remoto nella VM di destinazione: la porta TCP privata dell'endpoint deve corrispondere alla porta TCP in cui è in ascolto il servizio Desktop remoto della macchina virtuale (l'impostazione predefinita è 3389).
-* L'ACL per l'endpoint del traffico di Desktop remoto sulla VM di destinazione: gli ACL consentono di specificare il traffico in ingresso da Internet consentito o negato in base al relativo indirizzo IP di origine. ACL configurati in modo errato possono impedire il traffico di Desktop remoto in ingresso all'endpoint. Verificare gli ACL per assicurarsi che il traffico in ingresso dagli indirizzi IP pubblici del proxy o da altri server periferici sia consentito. Per altre informazioni, vedere [Che cos'è un elenco di controllo di accesso di rete (ACL)?](../../virtual-network/virtual-networks-acl.md)
+* L'ACL per l'endpoint del traffico di Desktop remoto sulla VM di destinazione: gli ACL consentono di specificare il traffico in ingresso da Internet consentito o negato in base al relativo indirizzo IP di origine. ACL configurati in modo errato possono impedire il traffico di Desktop remoto in ingresso all'endpoint. Verificare gli ACL per assicurarsi che il traffico in ingresso dagli indirizzi IP pubblici del proxy o da altri server periferici sia consentito. Per ulteriori informazioni, vedere Che cos'è un elenco di controllo di [accesso di rete (ACL)?](../../virtual-network/virtual-networks-acl.md)
 
-Per controllare se l'endpoint è l'origine del problema, rimuovere l'endpoint corrente e creare un nuovo endpoint, scegliendo una porta casuale nell'intervallo tra 49152 e 65535 per il numero di porta esterna. Per altre informazioni, vedere [Come configurare gli endpoint in una macchina virtuale](../windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Per controllare se l'endpoint è l'origine del problema, rimuovere l'endpoint corrente e creare un nuovo endpoint, scegliendo una porta casuale nell'intervallo tra 49152 e 65535 per il numero di porta esterna. Per altre informazioni, vedere [Come configurare gli endpoint in una macchina virtuale.](../windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 ## <a name="source-4-network-security-groups"></a>Origine 4: gruppi di sicurezza di rete
 I gruppi di sicurezza di rete consentono un controllo più granulare del traffico in entrata e in uscita consentito. È possibile creare regole che si estendono alle subnet e ai servizi cloud in una rete virtuale di Azure.
 
-Usare la [verifica del flusso IP](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) per verificare che una regola in un gruppo di sicurezza di rete blocchi il traffico verso o da una macchina virtuale. È anche possibile esaminare le regole del gruppo di sicurezza effettive per verificare che la regola NSG di consenso in ingresso esista e abbia la priorità per la porta RDP, ovvero la porta 3389 predefinita. Per altre informazioni, vedere [Uso di regole di sicurezza effettive per risolvere i problemi di flusso del traffico delle VM](../../virtual-network/diagnose-network-traffic-filter-problem.md).
+Usare la [verifica del flusso IP](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) per verificare se una regola in un gruppo di sicurezza di rete blocca il traffico da o verso una macchina virtuale. È anche possibile esaminare le regole del gruppo di sicurezza effettive per verificare che la regola NSG di consenso in ingresso esista e abbia la priorità per la porta RDP, ovvero la porta 3389 predefinita. Per altre informazioni, vedere Uso di regole di [sicurezza valide per risolvere i problemi relativi al flusso](../../virtual-network/diagnose-network-traffic-filter-problem.md)di traffico delle macchine virtuali.
 
 ## <a name="source-5-windows-based-azure-vm"></a>Origine 5: Macchina virtuale di Azure basata su Windows
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_5.png)
 
-Seguire le istruzioni disponibili in [questo articolo](../windows/reset-rdp.md). per reimpostare il servizio Desktop remoto nella macchina virtuale:
+Seguire le istruzioni riportate in [questo articolo.](../windows/reset-rdp.md) per reimpostare il servizio Desktop remoto nella macchina virtuale:
 
 * Verrà abilitata la regola predefinita "Desktop remoto" di Windows Firewall (porta TCP 3389).
 * Verranno abilitate le connessioni Desktop remoto impostando il valore del Registro di sistema HKLM\System\CurrentControlSet\Control\Terminal Server\fDenyTSConnections su 0.
@@ -198,7 +198,7 @@ Verificare che anche l'endpoint Desktop remoto per la VM di Azure usi la porta T
 
 [Come installare e configurare Azure PowerShell](/powershell/azure/overview)
 
-[Risolvere i problemi relativi alle connessioni Secure Shell (SSH) a una macchina virtuale di Azure basata su Linux](../linux/troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Risolvere i problemi relativi alle connessioni di Secure Shell (SSH) a una macchina virtuale di Azure basata su LinuxTroubleshoot Secure Shell (SSH) connections to a Linux-based Azure virtual machine](../linux/troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-[Risoluzione dei problemi di accesso a un'applicazione in esecuzione su una macchina virtuale di Azure](../linux/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Risolvere i problemi di accesso a un'applicazione in esecuzione in una macchina virtuale di AzureTroubleshoot access to an application running on an Azure virtual machine](../linux/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

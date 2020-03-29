@@ -11,13 +11,13 @@ ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d6b90ff82601acca1249c7d8c353944e39e89f95
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "66473795"
 ---
-# <a name="azure-ad-connect--adconnectivitytools-powershell-reference"></a>Azure AD Connect:  Informazioni di riferimento per PowerShell ADConnectivityTools
+# <a name="azure-ad-connect--adconnectivitytools-powershell-reference"></a>Azure AD Connect: Informazioni di riferimento per PowerShell ADConnectivityTools
 
 La documentazione seguente fornisce informazioni di riferimento per il modulo di PowerShell ADConnectivityTools.psm1 incluso in Azure AD Connect.
 
@@ -27,7 +27,7 @@ La documentazione seguente fornisce informazioni di riferimento per il modulo di
 
 Rileva i problemi di DNS locali.
 
-### <a name="syntax"></a>SINTASSI
+### <a name="syntax"></a>SYNTAX
 
 ```
 Confirm-DnsConnectivity [-Forest] <String> [-DCs] <Array> [-ReturnResultAsPSObject] [<CommonParameters>]
@@ -36,7 +36,7 @@ Confirm-DnsConnectivity [-Forest] <String> [-DCs] <Array> [-ReturnResultAsPSObje
 ### <a name="description"></a>DESCRIZIONE
 
 Esegue test di connettività DNS locali.
-Per configurare il connettore di Active Directory, utente deve avere entrambe resolutionthe nome per la foresta che sta provando a connettersi a anche come controller di dominio associato a questa foresta.
+Per configurare il connettore di Active Directory, l'utente deve disporre sia della risoluzione dei nomi la risoluzione dei nomi per la foresta a cui sta tentando di connettersi, sia nei controller di dominio associati a questa foresta.
 
 ### <a name="examples"></a>ESEMPI
 
@@ -52,7 +52,7 @@ Confirm-DnsConnectivity -Forest "TEST.CONTOSO.COM" -DCs "MYDC1.CONTOSO.COM","MYD
 Confirm-DnsConnectivity -Forest "TEST.CONTOSO.COM"
 ```
 
-### <a name="parameters"></a>PARAMETRI
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-forest"></a>-Forest
 
@@ -114,7 +114,7 @@ Per altre informazioni, vedere about_CommonParameters (https://go.microsoft.com/
 
 Determina se la foresta specificata esiste.
 
-### <a name="syntax"></a>SINTASSI
+### <a name="syntax"></a>SYNTAX
 
 ```
 Confirm-ForestExists [-Forest] <String> [<CommonParameters>]
@@ -132,7 +132,7 @@ Esegue una query in un server DNS per gli indirizzi IP associati a una foresta.
 Confirm-TargetsAreReachable -Forest "TEST.CONTOSO.COM"
 ```
 
-### <a name="parameters"></a>PARAMETRI
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-forest"></a>-Forest
 
@@ -161,7 +161,7 @@ Per altre informazioni, vedere about_CommonParameters (https://go.microsoft.com/
 
 Verifica il livello funzionale della foresta AD.
 
-### <a name="syntax"></a>SINTASSI
+### <a name="syntax"></a>SYNTAX
 
 #### <a name="samaccount"></a>SamAccount
 
@@ -200,7 +200,7 @@ Confirm-FunctionalLevel -Forest "test.contoso.com" -RunWithCurrentlyLoggedInUser
 Confirm-FunctionalLevel -ForestFQDN $ForestFQDN -RunWithCurrentlyLoggedInUserCredentials -Verbose
 ```
 
-### <a name="parameters"></a>PARAMETRI
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-forest"></a>-Forest
 
@@ -262,7 +262,7 @@ Per altre informazioni, vedere about_CommonParameters (https://go.microsoft.com/
 
 Rileva i problemi di connettività di rete locale.
 
-### <a name="syntax"></a>SINTASSI
+### <a name="syntax"></a>SYNTAX
 
 ```
 Confirm-NetworkConnectivity [-DCs] <Array> [-SkipDnsPort] [-ReturnResultAsPSObject] [<CommonParameters>]
@@ -289,7 +289,7 @@ Confirm-NetworkConnectivity -SkipDnsPort -DCs "MYDC1.CONTOSO.COM","MYDC2.CONTOSO
 Confirm-NetworkConnectivity -DCs "MYDC1.CONTOSO.COM","MYDC2.CONTOSO.COM" -Verbose
 ```
 
-### <a name="parameters"></a>PARAMETRI
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-dcs"></a>-DCs
 
@@ -309,7 +309,7 @@ Accept wildcard characters: False
 
 #### <a name="-skipdnsport"></a>-SkipDnsPort
 
-Se l'utente non usa i servizi DNS forniti dal sito di Active Directory / controller di dominio di accesso e quindi si desideri ignorare controllo della porta 53.
+Se l'utente non utilizza i servizi DNS forniti dal dominio di accesso/sito di Active Directory, è possibile ignorare il controllo della porta 53.
 L'utente deve comunque essere in grado di risolvere _.ldap._tcp. \<forestfqdn\> affinché la configurazione di Active Directory Connector abbia esito positivo.
 
 ```yml
@@ -352,7 +352,7 @@ Per altre informazioni, vedere about_CommonParameters (https://go.microsoft.com/
 
 Determina se una foresta specificata e i controller di dominio associati sono raggiungibili.
 
-### <a name="syntax"></a>SINTASSI
+### <a name="syntax"></a>SYNTAX
 
 ```
 Confirm-TargetsAreReachable [-Forest] <String> [-DCs] <Array> [<CommonParameters>]
@@ -376,7 +376,7 @@ Confirm-TargetsAreReachable -Forest "TEST.CONTOSO.COM" -DCs "MYDC1.CONTOSO.COM",
 Confirm-TargetsAreReachable -Forest "TEST.CONTOSO.COM"
 ```
 
-### <a name="parameters"></a>PARAMETRI
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-forest"></a>-Forest
 
@@ -421,7 +421,7 @@ Per altre informazioni, vedere about_CommonParameters (https://go.microsoft.com/
 
 Verifica che i domini nel nome di dominio completo della foresta ottenuto siano raggiungibili
 
-### <a name="syntax"></a>SINTASSI
+### <a name="syntax"></a>SYNTAX
 
 #### <a name="samaccount"></a>SamAccount
 
@@ -460,7 +460,7 @@ Confirm-ValidDomains -Forest "test.contoso.com" -RunWithCurrentlyLoggedInUserCre
 Confirm-ValidDomains -ForestFQDN $ForestFQDN -RunWithCurrentlyLoggedInUserCredentials -Verbose
 ```
 
-### <a name="parameters"></a>PARAMETRI
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-forest"></a>-Forest
 
@@ -521,7 +521,7 @@ Per altre informazioni, vedere about_CommonParameters (https://go.microsoft.com/
 
 Verifica se un utente ha le credenziali di amministratore aziendale.
 
-### <a name="syntax"></a>SINTASSI
+### <a name="syntax"></a>SYNTAX
 
 ```
 Confirm-ValidEnterpriseAdminCredentials [-RunWithCurrentlyLoggedInUserCredentials] [<CommonParameters>]
@@ -546,7 +546,7 @@ Confirm-ValidEnterpriseAdminCredentials -DomainName test.contoso.com -Verbose
 Confirm-ValidEnterpriseAdminCredentials -RunWithCurrentlyLoggedInUserCredentials -Verbose
 ```
 
-### <a name="parameters"></a>PARAMETRI
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-runwithcurrentlyloggedinusercredentials"></a>-RunWithCurrentlyLoggedInUserCredentials
 
@@ -575,7 +575,7 @@ Per altre informazioni, vedere about_CommonParameters (https://go.microsoft.com/
 
 Recupera un DomainFQDN da una combinazione di account e password.
 
-### <a name="syntax"></a>SINTASSI
+### <a name="syntax"></a>SYNTAX
 
 ```
 Get-DomainFQDNData [[-DomainFQDNDataType] <String>] [-RunWithCurrentlyLoggedInUserCredentials]
@@ -602,7 +602,7 @@ Get-DomainFQDNData -DomainFQDNDataType DomainFQDNName -Verbose
 Get-DomainFQDNData -DomainFQDNDataType RootDomainName -RunWithCurrentlyLoggedInUserCredentials
 ```
 
-### <a name="parameters"></a>PARAMETRI
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-domainfqdndatatype"></a>-DomainFQDNDataType
 
@@ -664,7 +664,7 @@ Per altre informazioni, vedere about_CommonParameters (https://go.microsoft.com/
 
 Recupera un ForestFQDN da una combinazione di account e password.
 
-### <a name="syntax"></a>SINTASSI
+### <a name="syntax"></a>SYNTAX
 
 ```
 Get-ForestFQDN [-Forest] <String> [-RunWithCurrentlyLoggedInUserCredentials] [<CommonParameters>]
@@ -689,7 +689,7 @@ Get-ForestFQDN -Forest CONTOSO.MICROSOFT.COM -Verbose
 Get-ForestFQDN -Forest CONTOSO.MICROSOFT.COM -RunWithCurrentlyLoggedInUserCredentials -Verbose
 ```
 
-### <a name="parameters"></a>PARAMETRI
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-forest"></a>-Forest
 
@@ -734,7 +734,7 @@ Per altre informazioni, vedere about_CommonParameters (https://go.microsoft.com/
 
 Funzione principale.
 
-### <a name="syntax"></a>SINTASSI
+### <a name="syntax"></a>SYNTAX
 
 ```
 Start-ConnectivityValidation [-Forest] <String> [-AutoCreateConnectorAccount] <Boolean> [[-UserName] <String>]
@@ -753,7 +753,7 @@ Esegue tutti i meccanismi disponibili che verificano la validità delle credenzi
 Start-ConnectivityValidation -Forest "test.contoso.com" -AutoCreateConnectorAccount $True -Verbose
 ```
 
-### <a name="parameters"></a>PARAMETRI
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-forest"></a>-Forest
 
@@ -775,7 +775,7 @@ Accept wildcard characters: False
 
 Per le installazioni personalizzate: flag che è $True se l'utente sceglie "Crea un nuovo account AD" nella finestra Account della foresta AD della procedura guidata di AAD Connect.
 $False se l'utente sceglie "Usare l'account AD esistente".
-Per le installazioni rapide: il valore di questa variabile deve essere $True.
+Per installazioni rapide: il valore di questa variabile deve essere $True per le installazioni rapide.
 
 ```yml
 Type: Boolean
@@ -816,7 +816,7 @@ Per altre informazioni, vedere about_CommonParameters (https://go.microsoft.com/
 
 Funzione principale per i test di connettività di rete.
 
-### <a name="syntax"></a>SINTASSI
+### <a name="syntax"></a>SYNTAX
 
 ```
 Start-NetworkConnectivityDiagnosisTools [[-Forest] <String>] [-Credentials] <PSCredential>
@@ -842,7 +842,7 @@ Start-NetworkConnectivityDiagnosisTools -Forest "TEST.CONTOSO.COM"
 Start-NetworkConnectivityDiagnosisTools -Forest "TEST.CONTOSO.COM" -DCs "DC1.TEST.CONTOSO.COM", "DC2.TEST.CONTOSO.COM"
 ```
 
-### <a name="parameters"></a>PARAMETRI
+### <a name="parameters"></a>PARAMETERS
 
 #### <a name="-forest"></a>-Forest
 

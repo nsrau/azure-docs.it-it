@@ -1,13 +1,13 @@
 ---
-title: Distribuire un eseguibile esistente in Azure Service Fabric
+title: Distribuire un eseguibile esistente in Azure Service FabricDeploy an existing executable to Azure Service Fabric
 description: Informazioni su come creare il pacchetto di un'applicazione esistente come eseguibile guest, in modo da consentirne la distribuzione in un cluster di Service Fabric.
 ms.topic: conceptual
 ms.date: 07/02/2017
 ms.openlocfilehash: cdbc965d0e8ec4a8f42fbe438b8ac6ddfe05a1b3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75377107"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>Creare il pacchetto e distribuire un eseguibile esistente in Service Fabric
@@ -20,9 +20,9 @@ Quando si crea il pacchetto di un eseguibile esistente come [eseguibile guest](s
 ## <a name="use-visual-studio-to-package-and-deploy-an-existing-executable"></a>Usare Visual Studio per creare il pacchetto e distribuire un eseguibile esistente
 Visual Studio include un modello di servizio di Service Fabric che consente di distribuire un eseguibile guest in un cluster di Service Fabric.
 
-1. Scegliere **File** > **Nuovo progetto** e creare un'applicazione di Service Fabric.
+1. Scegliere **File** > **nuovo progetto**e creare un'applicazione Di Fabric.
 2. Scegliere **Eseguibile guest** come modello di servizio.
-3. Fare clic su **Sfoglia** per selezionare la cartella contenente l'eseguibile e immettere i restanti parametri per creare il servizio.
+3. Fare clic su **Sfoglia** per selezionare la cartella con il file eseguibile e compilare gli altri parametri per creare il servizio.
    * *Comportamento del pacchetto di codice*. È possibile impostare questa opzione per copiare tutto il contenuto della cartella nel progetto di Visual Studio. Questa scelta si rivela utile se il file eseguibile non viene modificato. Se si prevede che il file eseguibile venga modificato e si vuole avere la possibilità di selezionare nuove build in modo dinamico, si può scegliere invece di collegarsi alla cartella. Se si crea il progetto di applicazione in Visual Studio è possibile usare cartelle collegate. In questo modo si stabilisce il collegamento al percorso di origine dall'interno del progetto, rendendo possibile l'aggiornamento dell'eseguibile guest nella destinazione di origine. Gli aggiornamenti diventano parte del pacchetto dell'applicazione in fase di compilazione.
    * *Programma*: specifica l'eseguibile da eseguire per avviare il servizio.
    * *Argomenti*: specifica gli argomenti da passare all'eseguibile. Può essere un elenco di parametri con argomenti.
@@ -31,7 +31,7 @@ Visual Studio include un modello di servizio di Service Fabric che consente di d
      * `CodePackage` specifica che la directory di lavoro verrà impostata sulla radice del pacchetto dell'applicazione (`GuestService1Pkg` nella struttura di file precedente).
      * `Work` specifica che i file vengono inseriti in una sottodirectory denominata work.
 4. Assegnare un nome al servizio e fare clic su **OK**.
-5. Se il servizio richiede un endpoint per la comunicazione, è ora possibile aggiungere il protocollo, la porta e il tipo al file ServiceManifest.xml. Ad esempio: `<Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" UriScheme="http" PathSuffix="myapp/" Type="Input" />`.
+5. Se il servizio richiede un endpoint per la comunicazione, è ora possibile aggiungere il protocollo, la porta e il tipo al file ServiceManifest.xml. Ad esempio `<Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" UriScheme="http" PathSuffix="myapp/" Type="Input" />`.
 6. È ora possibile usare l'azione di creazione del pacchetto e di pubblicazione sul cluster locale eseguendo il debug della soluzione in Visual Studio. Quando si è pronti, pubblicare l'applicazione in un cluster remoto o archiviare la soluzione nel controllo del codice sorgente.
 7. Per informazioni su come visualizzare il servizio dell'eseguibile guest in esecuzione in Service Fabric Explorer, leggere [Verificare l'applicazione in esecuzione](#check-your-running-application).
 
@@ -62,7 +62,7 @@ Il processo per la creazione manuale del pacchetto di un eseguibile guest si bas
 -->
 
 ### <a name="create-the-package-directory-structure"></a>Creare la struttura di directory del pacchetto
-È possibile iniziare creando la struttura di directory, come descritto in creare [un pacchetto di un'App Service fabric di Azure](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps).
+È possibile iniziare creando la struttura di directory, come descritto in [Creare un pacchetto di un'app](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps)di Azure Service Fabric.
 
 ### <a name="add-the-applications-code-and-configuration-files"></a>Aggiungere i file di codice e di configurazione dell'applicazione
 Dopo aver creato la struttura di directory, è possibile aggiungere i file di configurazione e di codice dell'applicazione nelle directory del codice e di configurazione. È inoltre possibile creare directory aggiuntive o sottodirectory nelle directory del codice e di configurazione.
@@ -260,7 +260,7 @@ New-ServiceFabricService -ApplicationName 'fabric:/nodeapp' -ServiceName 'fabric
 ```
 
 >[!TIP]
-> [Comprimere il pacchetto](service-fabric-package-apps.md#compress-a-package) prima di copiarlo nell'archivio immagini se il pacchetto è grande o contiene molti file. Per altre informazioni, leggere [qui](service-fabric-deploy-remove-applications.md#upload-the-application-package).
+> [Comprimere il pacchetto](service-fabric-package-apps.md#compress-a-package) prima di copiarlo nell'archivio immagini se il pacchetto è grande o contiene molti file. Altre informazioni sono disponibili [qui](service-fabric-deploy-remove-applications.md#upload-the-application-package).
 >
 
 Un servizio Service Fabric può essere distribuito in varie "configurazioni", ad esempio può essere distribuito come istanza singola o come istanze multiple o può essere distribuito in modo tale che sia presente un'istanza del servizio in ogni nodo del cluster di Service Fabric.

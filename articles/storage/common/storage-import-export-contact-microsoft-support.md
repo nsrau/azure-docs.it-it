@@ -9,10 +9,10 @@ ms.date: 03/29/2018
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 8361c32860d48b78c778ea5106ba04715fcc5f3c
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67621045"
 ---
 # <a name="open-a-support-ticket-for-an-importexport-job"></a>Aprire un ticket di supporto per un processo di Importazione/Esportazione
@@ -33,7 +33,7 @@ Per creare una richiesta di supporto, attenersi alla procedura seguente.
 2. In **Nuova richiesta di supporto** selezionare **Informazioni di base**. In **Informazioni di base** seguire questa procedura:
     
     1. Nell'elenco a discesa **Tipo di problema** selezionare **Tecnico**.
-    2. Scegliere la propria **sottoscrizione**.
+    2. Scegli il tuo **Abbonamento**.
     3. In **Servizio** selezionare **Servizi personali**. Nell'elenco a discesa selezionare una di queste opzioni: **Storage Account Management** (Gestione degli account di archiviazione), **BLOB** o **File**. 
         - Se si sceglie **Storage Account Management**(Gestione degli account di archiviazione), selezionare **Risorse** e **Piano di supporto**.
             ![Scegliere Gestione degli account di archiviazione](./media/storage-import-export-contact-microsoft-support/import-export-support3.png)
@@ -58,8 +58,8 @@ Per creare una richiesta di supporto, attenersi alla procedura seguente.
 4. In **Nuova richiesta di supporto** fare clic su **Passaggio 3 - Informazioni contatto**. In **Informazioni contatto** seguire la procedura seguente:
 
    1. In **Opzioni contatti**, fornire il metodo di contatto preferito (telefono o posta elettronica) e la lingua. Il tempo di risposta viene selezionato automaticamente in base al piano di sottoscrizione.
-   2. Le informazioni di contatto, specificare il nome, indirizzo di posta elettronica, contatto facoltativo, paese/area geografica. Selezionare la casella di controllo **Salvare le modifiche apportate al contatto per le richieste di supporto future**.
-   3. Fare clic su **Create**(Crea).
+   2. Nelle informazioni di contatto, fornire il nome, l'indirizzo di posta elettronica, il contatto facoltativo, il paese/area geografica. Selezionare la casella di controllo **Salvare le modifiche apportate al contatto per le richieste di supporto future**.
+   3. Fare clic su **Crea**.
    
        ![Informazioni contatto](./media/storage-import-export-contact-microsoft-support/import-export-support7.png)   
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: spelluru
 ms.openlocfilehash: 0afad249f71a36bf7552da499e985b68d48ee7a9
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76721558"
 ---
 # <a name="post-to-custom-topic-for-azure-event-grid"></a>Pubblicare in un argomento personalizzato per la Griglia di eventi di Azure
@@ -76,10 +76,10 @@ Per gli argomenti personalizzati, i dati di livello principale contengono gli st
 ]
 ```
 
-Per una descrizione di ogni proprietà, vedere [Schema di eventi di Griglia di eventi di Azure](event-schema.md). Durante la pubblicazione degli eventi in un argomento della griglia di eventi, le dimensioni totali della matrice possono raggiungere 1 MB. Ogni evento nella matrice è limitato a 64 KB (disponibilità generale) o 1 MB (anteprima).
+Per una descrizione di ogni proprietà, vedere [Schema di eventi di Griglia di eventi di Azure](event-schema.md). Durante la pubblicazione degli eventi in un argomento della griglia di eventi, le dimensioni totali della matrice possono raggiungere 1 MB. Ogni evento nell'array è limitato a 64 KB (disponibilità generale) o 1 MB (anteprima).
 
 > [!NOTE]
-> Un evento di dimensioni fino a 64 KB è coperto da disponibilità generale (GA) Contratto di servizio (SLA). Il supporto per un evento di dimensioni fino a 1 MB è attualmente in fase di anteprima. Gli eventi oltre 64 KB vengono addebitati in incrementi di 64 KB. 
+> Un evento di dimensioni fino a 64 KB è coperto dal contratto di servizio (SLA) di disponibilità generale (GA). Il supporto per un evento di dimensioni fino a 1 MB è attualmente in anteprima. Gli eventi superiori a 64 KB vengono addebitati in incrementi di 64 KB. 
 
 Ad esempio, uno schema di dati evento valido è:
 
@@ -103,9 +103,9 @@ Dopo la pubblicazione nell'endpoint dell'argomento, si riceve una risposta. La r
 
 |Risultato  |Risposta  |
 |---------|---------|
-|Success  | 200 OK  |
+|Operazione completata  | 200 - OK  |
 |I dati di evento hanno un formato non corretto | 400 - Richiesta non valida |
-|Chiave di accesso non valida | 401 Operazione non autorizzata |
+|Chiave di accesso non valida | 401 - Non autorizzato |
 |Endpoint non corretto | 404 - Non trovato |
 |Una matrice o un evento supera i limiti delle dimensioni | 413 Payload Too Large (413 Payload troppo grande) |
 

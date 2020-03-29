@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/23/2019
 ms.author: alkohli
 ms.openlocfilehash: 21b05631f1c225c9c4b1f7c65d18588900850b8e
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77911728"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Sicurezza e protezione dei dati di Azure Data Box
@@ -28,7 +28,7 @@ La soluzione Microsoft Azure Data Box è costituita da quattro componenti princi
 - **Servizio Azure Data Box ospitato in Azure**: il servizio di gestione usato per creare l'ordine del dispositivo, configurare il dispositivo e quindi monitorare l'ordine fino al completamento.
 - **Dispositivo di Data Box**: il dispositivo di trasferimento spedito all'utente per l'importazione dei dati locali Azure. 
 - **Client/host connessi al dispositivo**: i client nell'infrastruttura che si connettono al dispositivo Data Box tramite USB e che contengono i dati da proteggere.
-- **Archiviazione cloud** – Posizione nel cloud di Azure in cui vengono archiviati i dati. In genere si tratta dell'account di archiviazione collegato alla risorsa di Azure Data Box creata.
+- **Archiviazione cloud** Posizione nel cloud Azure in cui vengono archiviati i dati. In genere si tratta dell'account di archiviazione collegato alla risorsa di Azure Data Box creata.
 
 Il diagramma seguente indica il flusso dei dati attraverso la soluzione Azure Data Box, dall'ambiente locale ad Azure.
 

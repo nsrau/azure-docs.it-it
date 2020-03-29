@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: a29381bded4bb2562227bd5f23ccb59bb5add028
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67059216"
 ---
 # <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>Usare i webhook di Azure per monitorare le notifiche dei processi di Servizi multimediali con .NET 
 
 > [!NOTE]
-> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [materiale sussidiario di migrazione dalla v2 alla v3](../latest/migrate-from-v2-to-v3.md)
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Scopri la versione più recente, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche le linee guida per la [migrazione dalla v2 alla v3](../latest/migrate-from-v2-to-v3.md)
 
 Quando si esegue un processo, spesso è necessario monitorarne l'avanzamento. È possibile monitorare le notifiche dei processi di Servizi multimediali tramite webhook di Azure o [archiviazione code di Azure](media-services-dotnet-check-job-progress-with-queues.md). Questo articolo illustra come usare i webhook.
 
@@ -46,8 +46,8 @@ Questo articolo illustra i passaggi da eseguire
 
 Per completare l'esercitazione è necessario quanto segue:
 
-* Un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
-* Account di Servizi multimediali. Per creare un account Servizi multimediali, vedere [Creare un account Servizi multimediali di Azure con il portale di Azure](media-services-portal-create-account.md).
+* Un account Azure. Per informazioni dettagliate, vedere Versione di valutazione gratuita di Azure .For [details,](https://azure.microsoft.com/pricing/free-trial/)see Azure Free Trial .
+* Account di Servizi multimediali. Per creare un account di Servizi multimediali, vedere [Creazione di un account di Servizi multimediali](media-services-portal-create-account.md).
 * Informazioni su [come usare Funzioni di Azure](../../azure-functions/functions-overview.md). Leggere anche [Associazioni HTTP e webhook in Funzioni di Azure](../../azure-functions/functions-bindings-http-webhook.md).
 
 ## <a name="create-a-function-app"></a>Creare un'app per le funzioni
@@ -61,10 +61,10 @@ Quando si sviluppano le funzioni di Servizi multimediali, è utile aggiungere va
 
 La sezione relativa alle [impostazioni dell'applicazione](media-services-dotnet-how-to-use-azure-functions.md#configure-function-app-settings) indica i parametri usati nel webhook definito in questo articolo. Aggiungere anche i parametri seguenti alle impostazioni dell'app. 
 
-|Name|Definizione|Esempio| 
+|Nome|Definizione|Esempio| 
 |---|---|---|
 |SigningKey |Chiave di firma.| j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt|
-|WebHookEndpoint | Indirizzo di un endpoint di webhook. Dopo avere creato la funzione del webhook, è anche possibile copiare l'URL dal collegamento **Recupera URL della funzione**. | https:\//juliakofuncapp.azurewebsites.net/api/Notification_Webhook_Function?code=iN2phdrTnCxmvaKExFWOTulfnm4C71mMLIy8tzLr7Zvf6Z22HHIK5g==.|
+|WebHookEndpoint | Indirizzo di un endpoint di webhook. Dopo avere creato la funzione del webhook, è anche possibile copiare l'URL dal collegamento **Recupera URL della funzione**. | all'indirizzo https:\//juliakofuncapp.azurewebsites.net/api/Notification_Webhook_Function?code=iN2phdrTnCxmvaKExFWOTulfnm4C71mMLIy8tzLr7Zvf6Z22HHIK5g.|
 
 ## <a name="create-a-function"></a>Creare una funzione
 
@@ -379,7 +379,7 @@ Dopo aver attivato il webhook, l'esempio precedente produce l'output seguente (i
 Questa sezione mostra il codice che aggiunge una notifica di webhook a un'attività. È inoltre possibile aggiungere una notifica di livello di processo, che dovrebbe essere più utile per un processo con attività concatenate.  
 
 1. Creare una nuova applicazione console C# in Visual Studio. Immettere un valore nei campi Nome, Percorso e Nome soluzione, quindi fare clic su OK.
-2. Usare [NuGet](https://www.nuget.org/packages/windowsazure.mediaservices) per installare Servizi multimediali di Azure.
+2. Usare NuGet per installare Servizi multimediali di Azure.Use [NuGet](https://www.nuget.org/packages/windowsazure.mediaservices) to install Azure Media Services.
 3. Aggiornare il file App.config con valori appropriati: 
     
    * Informazioni sulla connessione a Servizi multimediali di Azure, 

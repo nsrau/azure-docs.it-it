@@ -1,28 +1,28 @@
 ---
-title: Gestire le repliche di lettura-interfaccia della riga di comando di Azure, API REST-database di Azure per MySQL
+title: Gestire le repliche di lettura - interfaccia della riga di comando di Azure, API REST - Database di Azure per MySQLManage read replicas - Azure CLI, REST API - Azure Database for MySQL
 description: Informazioni su come configurare e gestire le repliche di lettura nel database di Azure per MySQL usando l'interfaccia della riga di comando di Azure o l'API REST.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 56ba530c4f684bf89db9c5b87306592fbfeee7fa
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: ed57003c7a9a5a1a9d87aa2e8934af8c48b1d819
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74774095"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80063322"
 ---
-# <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-cli-and-rest-api"></a>Come creare e gestire le repliche di lettura nel database di Azure per MySQL usando l'interfaccia della riga di comando di Azure e l'API REST
+# <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-cli-and-rest-api"></a>Come creare e gestire le repliche di lettura nel database di Azure per MySQL usando l'interfaccia della riga di comando di Azure e l'API RESTHow to create and manage read replicas in Azure Database for MySQL using the Azure CLI and REST API
 
-In questo articolo si apprenderà come creare e gestire le repliche di lettura nel database di Azure per il servizio MySQL usando l'interfaccia della riga di comando di Azure e l'API REST. Per altre informazioni sulle repliche in lettura, vedere la [panoramica](concepts-read-replicas.md).
+In questo articolo verrà illustrato come creare e gestire le repliche di lettura nel servizio Database di Azure per MySQL usando l'interfaccia della riga di comando di Azure e l'API REST. Per altre informazioni sulle repliche in lettura, vedere la [panoramica](concepts-read-replicas.md).
 
 ## <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
-È possibile creare e gestire le repliche di lettura usando l'interfaccia della riga di comando di Azure.
+È possibile creare e gestire repliche di lettura usando l'interfaccia della riga di comando di Azure.You can create and manage read replicas using the Azure CLI.
 
 ### <a name="prerequisites"></a>Prerequisiti
 
-- [Installare l'interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [Installare l'interfaccia della riga di comando di Azure 2.0Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 - Istanza di [Database di Azure per MySQL](quickstart-create-mysql-server-database-using-azure-portal.md) che verrà usata come server master. 
 
 > [!IMPORTANT]
@@ -38,20 +38,20 @@ az mysql server replica create --name mydemoreplicaserver --source-server mydemo
 
 Il comando `az mysql server replica create` richiede i parametri seguenti:
 
-| Impostazione | Valore di esempio | Description  |
+| Impostazione | Valore di esempio | Descrizione  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  Gruppo di risorse in cui verrà creato il server di replica.  |
 | name | mydemoreplicaserver | Nome del nuovo server di replica creato. |
 | source-server | mydemoserver | Nome o ID del server master esistente in base al quale eseguire la replica. |
 
-Per creare una replica di lettura tra aree, usare il parametro `--location`. L'esempio dell'interfaccia della riga di comando seguente crea la replica negli Stati Uniti occidentali.
+Per creare una replica di `--location` lettura tra aree, utilizzare il parametro . L'esempio CLI seguente crea la replica negli Stati Uniti occidentali.
 
 ```azurecli-interactive
 az mysql server replica create --name mydemoreplicaserver --source-server mydemoserver --resource-group myresourcegroup --location westus
 ```
 
 > [!NOTE]
-> Per altre informazioni sulle aree in cui è possibile creare una replica, vedere l' [articolo leggere i concetti relativi alla replica](concepts-read-replicas.md). 
+> Per altre informazioni sulle aree in cui è possibile creare una replica, vedere l'articolo sui concetti relativi alla replica di [lettura.](concepts-read-replicas.md) 
 
 > [!NOTE]
 > Le repliche in lettura vengono create con la stessa configurazione server del master. La configurazione del server di replica può essere modificata dopo la creazione. È consigliabile mantenere nella configurazione del server di replica valori maggiori o uguali a quelli del master affinché la replica possa restare al passo con il master.
@@ -67,7 +67,7 @@ az mysql server replica list --server-name mydemoserver --resource-group myresou
 
 Il comando `az mysql server replica list` richiede i parametri seguenti:
 
-| Impostazione | Valore di esempio | Description  |
+| Impostazione | Valore di esempio | Descrizione  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  Gruppo di risorse in cui verrà creato il server di replica.  |
 | server-name | mydemoserver | Nome o ID del server master. |
@@ -75,7 +75,7 @@ Il comando `az mysql server replica list` richiede i parametri seguenti:
 ### <a name="stop-replication-to-a-replica-server"></a>Arrestare la replica in un server di replica
 
 > [!IMPORTANT]
-> L'arresto della replica in un server è irreversibile. Dopo che la replica tra un master e una replica è stata arrestata, non è possibile annullare l'operazione. Il server di replica diventa quindi un server autonomo che supporta sia la lettura che la scrittura. Questo server non può più essere trasformato in una replica.
+> L'arresto della replica in un server è irreversibile. Dopo che la replica tra un master e una replica è stata arrestata, non è possibile annullare l'operazione. Il server di replica diventa quindi un server autonomo che supporta sia la lettura che la scrittura. Questo server non può essere di nuovo impostato come replica.
 
 È possibile interrompere la replica su un server di replica in lettura usando il comando seguente:
 
@@ -85,14 +85,14 @@ az mysql server replica stop --name mydemoreplicaserver --resource-group myresou
 
 Il comando `az mysql server replica stop` richiede i parametri seguenti:
 
-| Impostazione | Valore di esempio | Description  |
+| Impostazione | Valore di esempio | Descrizione  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  Gruppo di risorse in cui si trova il server di replica.  |
 | name | mydemoreplicaserver | Nome del server di replica su cui si vuole arrestare la replica. |
 
 ### <a name="delete-a-replica-server"></a>Eliminare un server di replica
 
-L'eliminazione di un server di replica in lettura può essere effettuata eseguendo il comando **[az mysql server delete](/cli/azure/mysql/server)** .
+L'eliminazione di un server di replica in lettura può essere effettuata eseguendo il comando **[az mysql server delete](/cli/azure/mysql/server)**.
 
 ```azurecli-interactive
 az mysql server delete --resource-group myresourcegroup --name mydemoreplicaserver
@@ -103,7 +103,7 @@ az mysql server delete --resource-group myresourcegroup --name mydemoreplicaserv
 > [!IMPORTANT]
 > Eliminando un server master si arresta la replica in tutti i server di replica, oltre a eliminare il server master stesso. I server di replica diventano server autonomi che supportano sia la lettura che la scrittura.
 
-Per eliminare un server master, è possibile eseguire il comando **[az mysql server delete](/cli/azure/mysql/server)** .
+Per eliminare un server master, è possibile eseguire il comando **[az mysql server delete](/cli/azure/mysql/server)**.
 
 ```azurecli-interactive
 az mysql server delete --resource-group myresourcegroup --name mydemoserver
@@ -111,10 +111,10 @@ az mysql server delete --resource-group myresourcegroup --name mydemoserver
 
 
 ## <a name="rest-api"></a>API REST
-È possibile creare e gestire le repliche di lettura usando l' [API REST di Azure](/rest/api/azure/).
+È possibile creare e gestire repliche di lettura usando l'API REST di Azure.You can create and manage read replicas using the [Azure REST API](/rest/api/azure/).
 
 ### <a name="create-a-read-replica"></a>Creare una replica in lettura
-È possibile creare una replica di lettura tramite l' [API di creazione](/rest/api/mysql/servers/create):
+È possibile creare una replica di lettura utilizzando [l'API di creazione:](/rest/api/mysql/servers/create)
 
 ```http
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{replicaName}?api-version=2017-12-01
@@ -131,25 +131,25 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 ```
 
 > [!NOTE]
-> Per altre informazioni sulle aree in cui è possibile creare una replica, vedere l' [articolo leggere i concetti relativi alla replica](concepts-read-replicas.md). 
+> Per altre informazioni sulle aree in cui è possibile creare una replica, vedere l'articolo sui concetti relativi alla replica di [lettura.](concepts-read-replicas.md) 
 
-Se il parametro `azure.replication_support` non è stato impostato su **replica** in un per utilizzo generico o in un server master con ottimizzazione per la memoria e il server è stato riavviato, viene visualizzato un errore. Completare questi due passaggi prima di creare una replica.
+Se il `azure.replication_support` parametro non è stato impostato su **REPLICA** su un server master Master Master master di master utilizzo software generico o Ottimizzato per la memoria e il server è stato riavviato, viene visualizzato un errore. Completare questi due passaggi prima di creare una replica.
 
-Una replica viene creata usando le stesse impostazioni di calcolo e di archiviazione del database master. Dopo aver creato una replica, è possibile modificare diverse impostazioni in modo indipendente dal server master: la generazione di calcolo, i vCore, l'archiviazione e il periodo di conservazione dei backup. È anche possibile modificare in modo indipendente il piano tariffario, tranne da o verso il livello Basic.
+Una replica viene creata utilizzando le stesse impostazioni di calcolo e archiviazione del master. Dopo aver creato una replica, è possibile modificare diverse impostazioni in modo indipendente dal server master: la generazione di calcolo, i vCore, l'archiviazione e il periodo di conservazione dei backup. È anche possibile modificare in modo indipendente il piano tariffario, tranne da o verso il livello Basic.
 
 
 > [!IMPORTANT]
-> Prima che un'impostazione del server master venga aggiornata a un nuovo valore, aggiornare l'impostazione della replica a un valore uguale o maggiore. Questa azione consente alla replica di rimanere al passo con le modifiche apportate al database master.
+> Prima che un'impostazione del server master venga aggiornata a un nuovo valore, aggiornare l'impostazione della replica su un valore uguale o maggiore. Questa azione consente alla replica di tenere il passo con le modifiche apportate al master.
 
-### <a name="list-replicas"></a>Elencare le repliche
-È possibile visualizzare l'elenco delle repliche di un server master usando l' [API dell'elenco di repliche](/rest/api/mysql/replicas/listbyserver):
+### <a name="list-replicas"></a>Replica di elenchi
+È possibile visualizzare l'elenco delle repliche di un server master utilizzando [l'API dell'elenco di replica:](/rest/api/mysql/replicas/listbyserver)
 
 ```http
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{masterServerName}/Replicas?api-version=2017-12-01
 ```
 
 ### <a name="stop-replication-to-a-replica-server"></a>Arrestare la replica in un server di replica
-È possibile arrestare la replica tra un server master e una replica di lettura usando l' [API di aggiornamento](/rest/api/mysql/servers/update).
+È possibile interrompere la replica tra un server master e una replica di lettura utilizzando l'API di [aggiornamento.](/rest/api/mysql/servers/update)
 
 L'arresto della replica in un server master e una replica in lettura è irreversibile. La replica in lettura diventa un server autonomo che supporta sia la lettura che la scrittura. Il server autonomo non può essere di nuovo impostato come replica.
 
@@ -165,8 +165,8 @@ PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups
 }
 ```
 
-### <a name="delete-a-master-or-replica-server"></a>Eliminare un server master o di replica
-Per eliminare un server master o di replica, usare l' [API Delete](/rest/api/mysql/servers/delete):
+### <a name="delete-a-master-or-replica-server"></a>Eliminare un server master o di replicaDelete a master or replica server
+Per eliminare un server master o di replica, utilizzare [l'API di eliminazione:](/rest/api/mysql/servers/delete)
 
 Quando viene eliminato un server master, la replica viene arrestata per tutte le repliche in lettura. Le repliche in lettura diventano server autonomi che supportano sia la lettura che la scrittura.
 

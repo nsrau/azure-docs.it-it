@@ -13,41 +13,41 @@ ms.date: 07/26/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 7ddef1e78b4f8f62145e10b4cabc4537e28aba2f
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74969905"
 ---
 # <a name="content-key-policies"></a>Criteri di chiave simmetrica
 
 Con Servizi multimediali è possibile distribuire contenuti live e on demand crittografati dinamicamente con AES-128 (Advanced Encryption Standard) o con uno dei principali sistemi DRM (Digital Rights Management): Microsoft PlayReady, Google Widevine e Apple FairPlay. Servizi multimediali offre anche un servizio per la distribuzione di chiavi AES e licenze DRM (PlayReady, Widevine e FairPlay) ai client autorizzati. 
 
-Per specificare le opzioni di crittografia nel flusso, è necessario creare un [criterio di flusso](streaming-policy-concept.md) e associarlo al [localizzatore di streaming](streaming-locators-concept.md). I criteri della [chiave](https://docs.microsoft.com/rest/api/media/contentkeypolicies) simmetrica vengono creati per configurare il modo in cui la chiave simmetrica (che fornisce l'accesso sicuro agli [Asset](assets-concept.md)) viene fornita ai client finali. È necessario impostare i requisiti (restrizioni) per i criteri della chiave simmetrica che devono essere soddisfatti per poter recapitare le chiavi con la configurazione specificata ai client. I criteri della chiave simmetrica non sono necessari per cancellare lo streaming o il download. 
+Per specificare le opzioni di crittografia nel flusso, è necessario creare un criterio di [streaming](streaming-policy-concept.md) e associarlo a [Streaming Locator](streaming-locators-concept.md). È possibile creare i [criteri chiave](https://docs.microsoft.com/rest/api/media/contentkeypolicies) di contenuto per configurare la modalità di recapito della chiave simmetrica (che fornisce l'accesso sicuro alle [risorse)](assets-concept.md)ai client finali. È necessario impostare i requisiti (restrizioni) sui criteri chiave del contenuto che devono essere soddisfatti affinché le chiavi con la configurazione specificata vengano recapitate ai client. I criteri della chiave simmetrica non sono necessari per lo streaming o il download non crittografato. 
 
-In genere, i criteri della chiave simmetrica vengono associati al [localizzatore di streaming](streaming-locators-concept.md). In alternativa, è possibile specificare i criteri della chiave simmetrica in un [criterio di flusso](streaming-policy-concept.md) , quando si creano criteri di flusso personalizzati per gli scenari avanzati. 
+In genere, i criteri della chiave simmetrica vengono associati a [Streaming Locator](streaming-locators-concept.md). In alternativa, è possibile specificare i criteri della chiave di contenuto all'interno di un criterio di [streaming](streaming-policy-concept.md) (quando si creano criteri di streaming personalizzati per scenari avanzati). 
 
 ## <a name="best-practices-and-considerations"></a>Procedure consigliate e considerazioni
 
 > [!IMPORTANT]
-> Esaminare i consigli seguenti.
+> Si prega di rivedere le seguenti raccomandazioni.
 
 * È consigliabile progettare un set limitato di criteri per l'account del servizio multimediale e riutilizzarli per i localizzatori di streaming ogni volta che sono necessarie le stesse opzioni. Per altre informazioni, vedere [Quote e limitazioni](limits-quotas-constraints.md).
-* I criteri chiave simmetrica sono aggiornabili. Possono essere necessari fino a 15 minuti per aggiornare le cache di distribuzione delle chiavi e selezionare i criteri aggiornati. 
+* I criteri delle chiavi del contenuto sono aggiornabili. L'aggiornamento e la ripresa dei criteri aggiornati per le cache di recapito delle chiavi possono richiedere fino a 15 minuti. 
 
-   Se si aggiornano i criteri, si sta sovrascrivendo la cache della rete CDN esistente, che potrebbe causare un problema di riproduzione per i clienti che usano contenuto memorizzato nella cache.  
-* Si consiglia di non creare nuovi criteri della chiave simmetrica per ogni asset. I principali vantaggi della condivisione degli stessi criteri della chiave simmetrica tra gli asset che richiedono le stesse opzioni dei criteri sono:
+   Aggiornando i criteri, si sovrascrive la cache della rete CDN esistente che potrebbe causare problemi di riproduzione per i clienti che utilizzano contenuto memorizzato nella cache.  
+* È consigliabile non creare un nuovo criterio chiave simmetrica per ogni risorsa. I vantaggi principali della condivisione della stessa politica della chiave di contenuto tra le risorse che richiedono le stesse opzioni dei criteri sono:
    
-   * È più semplice gestire un numero ridotto di criteri.
-   * Se è necessario aggiornare i criteri della chiave simmetrica, le modifiche vengono applicate immediatamente a tutte le nuove richieste di licenze.
+   * È più facile gestire un numero limitato di criteri.
+   * Se è necessario apportare aggiornamenti ai criteri della chiave simmetrica, le modifiche diventano effettive su tutte le nuove richieste di licenza quasi immediatamente.
 * Se è necessario creare un nuovo criterio, è necessario creare un nuovo localizzatore di streaming per l'asset.
-* È consigliabile consentire a servizi multimediali di generare automaticamente la chiave simmetrica. 
+* Si consiglia di consentire a Servizi multimediali di generare automaticamente la chiave simmetrica. 
 
-   In genere, si usa una chiave di lunga durata e si verifica l'esistenza dei criteri della chiave simmetrica con [Get](https://docs.microsoft.com/rest/api/media/contentkeypolicies/get). Per recuperare la chiave, è necessario chiamare un metodo di azione separato per ottenere i segreti o le credenziali. Vedere l'esempio riportato di seguito.
+   In genere, si utilizza una chiave di lunga durata e si verifica l'esistenza dei criteri della chiave simmetrica con [Get](https://docs.microsoft.com/rest/api/media/contentkeypolicies/get). Per recuperare la chiave, è necessario chiamare un metodo di azione separato per ottenere i segreti o le credenziali. Vedere l'esempio riportato di seguito.
 
 ## <a name="example"></a>Esempio
 
-Per ottenere la chiave, usare `GetPolicyPropertiesWithSecretsAsync`, come illustrato nell'esempio [ottenere una chiave di firma dal criterio esistente](get-content-key-policy-dotnet-howto.md#get-contentkeypolicy-with-secrets) .
+Per accedere alla chiave, utilizzare `GetPolicyPropertiesWithSecretsAsync`, come illustrato nell'esempio Get a signing from the existing [policy.](get-content-key-policy-dotnet-howto.md#get-contentkeypolicy-with-secrets)
 
 ## <a name="filtering-ordering-paging"></a>Filtro, ordinamento, paging
 
@@ -55,11 +55,11 @@ Vedere [Applicazione di filtri, ordinamento e restituzione di più pagine delle 
 
 ## <a name="additional-notes"></a>Note aggiuntive
 
-* Le proprietà dei criteri della chiave simmetrica di `Datetime` tipo sono sempre in formato UTC.
-* Widevine è un servizio fornito da Google Inc. e soggetto alle condizioni per l'utilizzo e all'informativa sulla privacy di Google, Inc.
+* Le proprietà dei criteri chiave `Datetime` di contenuto di tipo sono sempre in formato UTC.
+* Widevine è un servizio fornito da Google Inc. e soggetto alle condizioni per l'utilizzo e all'informativa sulla privacy di Google Inc.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Usare la crittografia dinamica AES-128 e il servizio di distribuzione delle chiavi](protect-with-aes128.md)
-* [Usare il servizio di crittografia dinamica e di distribuzione di licenze DRM](protect-with-drm.md)
+* [Utilizzare la crittografia dinamica DRM e il servizio di distribuzione delle licenze](protect-with-drm.md)
 * [EncodeHTTPAndPublishAESEncrypted](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/EncodeHTTPAndPublishAESEncrypted)

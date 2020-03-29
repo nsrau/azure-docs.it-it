@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/28/2018
 ms.author: magattus
 ms.openlocfilehash: 9f185f58e1d33a3985777cb22bc7578f9f2c4541
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67593793"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Migliorare le prestazioni con la compressione dei file nella rete CDN di Azure
@@ -27,7 +27,7 @@ La compressione dei file è un metodo semplice ed efficace per aumentare la velo
 Esistono due modi per abilitare la compressione dei file:
 
 - Abilitare la compressione nel server di origine. In questo caso, la rete CDN di Azure trasmette i file compressi e li distribuisce ai client che li richiedono.
-- Abilitare la compressione direttamente nei server POP della rete CDN (*compressione in tempo reale*). In questo caso, la rete CDN comprime i file e li trasmette agli utenti finali anche se non erano stati compressi dal server di origine.
+- Abilitare la compressione direttamente sui server POP della rete CDN *(compressione in tempo reale).* In questo caso, la rete CDN comprime i file e li trasmette agli utenti finali anche se non erano stati compressi dal server di origine.
 
 > [!IMPORTANT]
 > La propagazione delle modifiche alla configurazione della rete CDN di Azure può richiedere tempo: 
@@ -101,9 +101,9 @@ I livelli della rete CDN Standard e Premium forniscono la stessa funzionalità d
 ### <a name="azure-cdn-standard-from-microsoft-profiles"></a>Profili di rete CDN Standard di Azure con tecnologia Microsoft
 
 Per i profili della **rete CDN Standard di Azure con tecnologia Microsoft** vengono compressi solo i file idonei. Per essere idoneo per la compressione, un file deve essere:
-- Essere un tipo MIME che è rimasto [configurato per la compressione](#enabling-compression).
-- Essere superiori a 1 KB
-- Essere inferiori a 8 MB
+- Essere di un tipo MIME configurato per la [compressione.](#enabling-compression)
+- Essere più grande di 1 KB
+- Essere inferiore a 8 MB
 
 Questi profili supportano le codifiche di compressione seguenti:
 - gzip (GNU Zip)
@@ -139,7 +139,7 @@ Questi profili supportano solo codifiche di compressione gzip. Quando un endpoin
 Le tabelle seguenti descrivono il comportamento della compressione della rete CDN di Azure per ogni scenario:
 
 ### <a name="compression-is-disabled-or-file-is-ineligible-for-compression"></a>Compressione disabilitata o file non idoneo per la compressione
-| Formato richiesto del client tramite l'intestazione Accept-Encoding | Formato del file memorizzato nella cache non valido | Risposta della rete CDN al client | Note&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+| Formato richiesto del client tramite l'intestazione Accept-Encoding | Formato del file memorizzato nella cache non valido | Risposta della rete CDN al client | &nbsp; &nbsp; Note&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
 | --- | --- | --- | --- |
 | Compresso |Compresso |Compresso | |
 | Compresso |Non compresso |Non compresso | |

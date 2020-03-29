@@ -16,10 +16,10 @@ ms.date: 09/11/2018
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 38a9ef04389318d3588649117c930ff6efa3fe4e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65784485"
 ---
 # <a name="problem-adding-a-non-gallery-application"></a>Errore durante l'aggiunta di un'applicazione non inclusa nella raccolta
@@ -28,7 +28,7 @@ Questo articolo consente di comprendere i problemi frequenti che si riscontrano 
 
 ## <a name="i-clicked-the-add-button-and-my-application-took-a-long-time-to-appear"></a>Quando si fa clic sul pulsante "Aggiungi" trascorre molto tempo prima che l'applicazione venga visualizzata
 
-In alcuni casi, potrebbero trascorrere uno o due minuti e a volte di più prima che l'applicazione venga visualizzata dopo essere stata aggiunta alla directory. Sebbene non si tratti delle normali prestazioni previste, è possibile visualizzare l'aggiunta dell'applicazione in corso facendo clic sull'icona **Notifiche** (la campanella) nella parte superiore destra del [portale di Azure](https://portal.azure.com/) e cercando una notifica con stato **In corso** o **Completato** con l'etichetta **Crea applicazione**.
+In alcuni casi, potrebbero trascorrere uno o due minuti e a volte di più prima che l'applicazione venga visualizzata dopo essere stata aggiunta alla directory. Anche se non si tratta della normale prestazione prevista, è possibile visualizzare l'aggiunta dell'applicazione in corso facendo clic sull'icona **Notifiche** (la campana) in alto a destra nel [portale](https://portal.azure.com/) di Azure e cercando una notifica **In corso** o **Completata** con l'etichetta **Crea applicazione**.
 
 Se l'applicazione non viene mai aggiunta o si verifica un errore quando si fa clic sul pulsante **Aggiungi**, viene visualizzata una **Notifica** con stato **Errore**. Se si desidera visualizzare altri dettagli sull'errore per saperne di più o per effettuarne la condivisione con un tecnico del supporto, è possibile visualizzare altre informazioni sull'errore seguendo i passaggi illustrati nella sezione [Come visualizzare i dettagli di una notifica del portale](#how-to-see-the-details-of-a-portal-notification).
 
@@ -72,7 +72,7 @@ Vedere le descrizioni seguenti per altri dettagli sulle notifiche.
 ### <a name="essential-notification-items"></a>Elementi essenziali della notifica
 
 - **Titolo**: il titolo descrittivo della notifica
-  *  Esempio: **Impostazioni proxy di applicazione**
+  *  Esempio: **impostazioni proxy dell'applicazione**
 
 - **Descrizione**: la descrizione di ciò che si è verificato a seguito dell'operazione
 
@@ -86,7 +86,7 @@ Vedere le descrizioni seguenti per altri dettagli sulle notifiche.
 
   *  Esempio: **302fd775-3329-4670-a9f3-bea37004f0bc**
 
-- **Timestamp (UTC)** : il timestamp in cui si è verificata la notifica, basato sul sistema UTC
+- **Timestamp (UTC)**: il timestamp in cui si è verificata la notifica, basato sul sistema UTC
 
   *  Esempio: **2017-03-23T19:50:43.7583681Z**
 
@@ -94,7 +94,7 @@ Vedere le descrizioni seguenti per altri dettagli sulle notifiche.
 
   *  Esempio: **71a2f329-ca29-402f-aa72-bc00a7aca603**
 
-- **UPN** : l'utente che ha eseguito l'operazione
+- **UPN **: l'utente che ha eseguito l'operazione
 
   *  Esempio – **tperkins\@f128.info**
 
@@ -110,11 +110,11 @@ Vedere le descrizioni seguenti per altri dettagli sulle notifiche.
 
 - **Nome visualizzato**: **(può essere vuoto)** un nome visualizzato più dettagliato per l'errore
 
-  *  Esempio: **Impostazioni proxy di applicazione**
+  *  Esempio: **impostazioni proxy dell'applicazione**
 
 - **Stato**: lo stato specifico della notifica
 
-  *  Esempio: **Operazione non riuscita**
+  *  Esempio – **Non riuscitoExample** – Failed
 
 - **ID oggetto**: **(può essere vuoto)** ID dell'oggetto su cui è stata eseguita l'operazione
 
@@ -122,7 +122,7 @@ Vedere le descrizioni seguenti per altri dettagli sulle notifiche.
 
 - **Dettagli**: la descrizione dettagliata di ciò che si è verificato come conseguenza dell'operazione
 
-  *  Esempio – **url interno `https://bing.com/` non è valido perché è già in uso**
+  *  Esempio: **l'URL `https://bing.com/` interno non è valido perché è già in uso**
 
 - **Copia errore**: fare clic sull'**icona Copia** a destra della casella di testo **Copia errore** per copiare tutti i dettagli della notifica da condividere con un tecnico del supporto o del gruppo di 
 - engineer

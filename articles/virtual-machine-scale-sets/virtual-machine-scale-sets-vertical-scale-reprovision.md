@@ -1,5 +1,5 @@
 ---
-title: Scalabilità verticale di set di scalabilità di macchine virtuali di Azure
+title: Ridimensionare verticalmente i set di scalabilità di macchine virtuali di AzureVertically scale machine scale sets
 description: Come eseguire la scalabilità verticale di una macchina virtuale in risposta agli avvisi di monitoraggio tramite Automazione di Azure
 author: mayanknayar
 tags: azure-resource-manager
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: manayar
 ms.openlocfilehash: fa1dda2907e8400491c8d18897bb41fb9cff49fd
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76274442"
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Scalabilità verticale automatica con set di scalabilità di macchine virtuali
@@ -38,7 +38,7 @@ Il ridimensionamento verticale, ovvero l'aumento o la riduzione delle prestazion
 4. Aggiungere un avviso al set di scalabilità di macchine virtuali con una notifica di webhook.
 
 > [!NOTE]
-> A causa delle dimensioni della prima macchina virtuale, le dimensioni a cui la macchina può essere ridimensionata possono essere limitate a seconda della disponibilità di altre dimensioni nel cluster in cui viene distribuita la macchina virtuale corrente. Nei runbook di automazione pubblicati usati in questo articolo viene considerato questo caso e la scalabilità viene applicata solo all'interno delle coppie di dimensioni delle macchine virtuali seguenti. Pertanto, una macchina virtuale Standard_D1v2 non verrà improvvisamente ridimensionata verso l'alto a una Standard_G5 o verso il basso a una Basic_A0. Inoltre, le dimensioni della macchina virtuale vincolata non sono supportate. È possibile scegliere di applicare il ridimensionamento tra le seguenti coppie di dimensioni:
+> A causa delle dimensioni della prima macchina virtuale, le dimensioni a cui la macchina può essere ridimensionata possono essere limitate a seconda della disponibilità di altre dimensioni nel cluster in cui viene distribuita la macchina virtuale corrente. Nei runbook di automazione pubblicati usati in questo articolo viene considerato questo caso e la scalabilità viene applicata solo all'interno delle coppie di dimensioni delle macchine virtuali seguenti. Pertanto, una macchina virtuale Standard_D1v2 non verrà improvvisamente ridimensionata verso l'alto a una Standard_G5 o verso il basso a una Basic_A0. Inoltre, le dimensioni ridotte delle macchine virtuali vincolate non sono supportate. È possibile scegliere di applicare il ridimensionamento tra le seguenti coppie di dimensioni:
 > 
 > | coppie di ridimensionamento di dimensioni delle macchine virtuali |  |
 > | --- | --- |
@@ -88,7 +88,7 @@ Il ridimensionamento verticale, ovvero l'aumento o la riduzione delle prestazion
 > 
 
 ## <a name="create-an-azure-automation-account-with-run-as-capability"></a>Creare un account di Automazione di Azure con funzionalità RunAs
-La prima operazione da eseguire è creare un account di Automazione di Azure che ospiterà i runbook usati per ridimensionare le istanze del set di scalabilità di macchine virtuali. [Automazione di Azure](https://azure.microsoft.com/services/automation/) ha introdotto di recente la funzionalità "Account RunAs", che consente di configurare l'entità servizio per l'esecuzione automatica di runbook per conto dell'utente. Per scoprire di più, vedi:
+La prima operazione da eseguire è creare un account di Automazione di Azure che ospiterà i runbook usati per ridimensionare le istanze del set di scalabilità di macchine virtuali. [Automazione di Azure](https://azure.microsoft.com/services/automation/) ha introdotto di recente la funzionalità "Account RunAs", che consente di configurare l'entità servizio per l'esecuzione automatica di runbook per conto dell'utente. Per altre informazioni, vedere:
 
 * [Autenticare runbook con account RunAs di Azure](../automation/automation-sec-configure-azure-runas-account.md)
 

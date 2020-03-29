@@ -1,5 +1,5 @@
 ---
-title: Controllo - Azure di accesso ai dati di monitoraggio remoti | Microsoft Docs
+title: Controllo di accesso ai dati di monitoraggio remoto - Azure | Microsoft Docs
 description: Questo articolo illustra come configurare i controlli di accesso ai dati di telemetria di Time Series Insights Explorer nell'acceleratore di soluzioni di monitoraggio remoto
 author: dominicbetts
 manager: timlt
@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 08/06/2018
 ms.topic: conceptual
 ms.openlocfilehash: 9d5d572c3e32e3645e65ba8d6fc28b567b3c1e9a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65827266"
 ---
 # <a name="configure-access-controls-for-the-time-series-insights-telemetry-explorer"></a>Configurare i controlli di accesso per i dati di telemetria di Time Series Insights Explorer
@@ -25,7 +25,7 @@ I criteri di accesso ai dati concedono le autorizzazioni per eseguire query sui 
 
 Eseguire la procedura seguente per concedere l'accesso ai dati per un'entità utente:
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Accedere al [portale](https://portal.azure.com)di Azure .
 
 2. Individuare l'ambiente Time Series Insights. Digitare **Time Series** nella casella di **ricerca**. Selezionare **ambiente Time Series** nei risultati della ricerca. 
 
@@ -39,8 +39,8 @@ Eseguire la procedura seguente per concedere l'accesso ai dati per un'entità ut
     ![Gestire l'origine Time Series Insights: aggiunta](media/iot-accelerators-remote-monitoring-rbac-tsi/getstarted-grant-data-access2.png)
 
 6. Selezionare **Selezionare un ruolo**. Scegliere il ruolo di accesso appropriato per l'utente:
-   - Selezionare **Collaboratore** se si vuole consentire all'utente di modificare i dati di riferimento e condividere le prospettive e le query salvate con altri utenti dell'ambiente. 
-   - In alternativa, selezionare **Lettore** per consentire all'utente di eseguire query sui dati e salvare query personali (non condivise) nell'ambiente.
+   - Selezionare **Collaboratore** se si desidera consentire all'utente di modificare i dati di riferimento e condividere le query e le prospettive salvate con altri utenti dell'ambiente. 
+   - In caso contrario, selezionare **Lettore** per consentire all'utente di eseguire query sui dati nell'ambiente e salvare query personali (non condivise) nell'ambiente.
 
      Selezionare **OK** per confermare la scelta del ruolo.
 
@@ -58,7 +58,7 @@ Eseguire la procedura seguente per concedere l'accesso ai dati per un'entità ut
 
 In questo articolo è stato illustrato come vengono concessi i controlli di accesso per Time Series Insights Explorer nell'acceleratore di soluzioni di monitoraggio remoto.
 
-Per altre informazioni concettuali sull'acceleratore di soluzioni di monitoraggio remoto, vedere [Architettura della soluzione di monitoraggio remoto](iot-accelerators-remote-monitoring-sample-walkthrough.md)
+Per altre informazioni concettuali sull'acceleratore di soluzioni di monitoraggio remoto, vedere Architettura di [monitoraggio remotoFor](iot-accelerators-remote-monitoring-sample-walkthrough.md) more conceptual information about the Remote Monitoring solution accelerator, see Remote Monitoring architecture
 
 Per altre informazioni sulla personalizzazione della soluzione di monitoraggio remoto, vedere [Customize and redeploy a microservice](iot-accelerators-microservices-example.md) (Personalizzare e ridistribuire un microservizio)
 <!-- Next tutorials in the sequence -->

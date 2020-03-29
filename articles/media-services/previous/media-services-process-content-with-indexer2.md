@@ -15,16 +15,16 @@ ms.date: 09/22/2019
 ms.author: juliako
 ms.reviewer: adsolank
 ms.openlocfilehash: c24218dc116803ca0e0a1f166b7b54b24fc4d5ef
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78163795"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer-2-preview"></a>Indicizzazione dei file multimediali con Azure Media Indexer 2 Preview
 
 > [!NOTE]
-> Il processore di contenuti multimediali **Azure Media Indexer 2** verrà ritirato. Per le date di ritiro, vedere l'argomento relativo ai [componenti legacy](legacy-components.md) . [Servizi multimediali di Azure video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) sostituisce questo processore di contenuti multimediali legacy. Per altre informazioni, vedere [eseguire la migrazione da Azure Media Indexer e Azure Media Indexer 2 a servizi multimediali di Azure video Indexer](migrate-indexer-v1-v2.md).
+> Il processore multimediale **azure Media Indexer 2** verrà ritirato. Per le date di pensionamento, vedere questo argomento relativo ai [componenti legacy.](legacy-components.md) [L'indicizzatore video di Servizi multimediali di Azure](https://docs.microsoft.com/azure/media-services/video-indexer/) sostituisce questo processore multimediale legacy. Per altre informazioni, vedere [Eseguire la migrazione dall'indicizzatore multimediale di Azure e l'indicizzatore multimediale di Azure 2 all'indicizzatore video di Servizi multimediali](migrate-indexer-v1-v2.md)di Azure.For more information, see Migrate from Azure Media Indexer and Azure Media Indexer 2 to Azure Media Services Video Indexer.
 
 Il processore di contenuti multimediali **Azure Media Indexer 2 Preview** consente di rendere disponibili per la ricerca file e contenuti multimediali, oltre a generare tracce e parole chiave per i sottotitoli codificati. Rispetto alla versione precedente di [Azure Media Indexer](media-services-index-content.md), **Azure Media Indexer 2 Preview** offre prestazioni di indicizzazione superiori e un supporto più ampio per le lingue. Le lingue supportate sono l'italiano, l'inglese, il francese, il tedesco, lo spagnolo, il portoghese, il giapponese, il cinese (mandarino semplificato), l'arabo e il russo.
 
@@ -36,7 +36,7 @@ Questo articolo illustra come creare processi di indicizzazione con **Azure Medi
 
 Si applicano le considerazioni seguenti:
  
-* Indexer 2 non è supportato in Azure China 21Vianet e in Azure per enti pubblici.
+* L'indicizzatore 2 non è supportato in Azure China 21Vianet e Azure per enti pubblici.
 * Durante l'indicizzazione dei contenuti, assicurarsi di usare file multimediali con contenuto vocale molto chiaro (senza musica, rumore, effetti o fruscio del microfono). Alcuni esempi di contenuto appropriato includono riunioni registrate, lezioni o presentazioni. Il seguente contenuto potrebbe non essere adatto per l'indicizzazione: film, programmi televisivi, contenuto con una combinazione di audio ed effetti sonori e contenuto registrato di scarsa qualità che presenta rumori di fondo (fruscio).
  
 ## <a name="input-and-output-files"></a>File di input e output
@@ -119,7 +119,7 @@ Il programma seguente illustra come:
    
 #### <a name="create-and-configure-a-visual-studio-project"></a>Creare e configurare un progetto di Visual Studio
 
-Configurare l'ambiente di sviluppo e popolare il file app.config con le informazioni di connessione, come descritto in [Sviluppo di applicazioni di Servizi multimediali con .NET](media-services-dotnet-how-to-use.md). 
+Configurare l'ambiente di sviluppo e popolare il file app.config con le informazioni di connessione, come descritto in Sviluppo di [Servizi multimediali con .NET](media-services-dotnet-how-to-use.md). 
 
 #### <a name="example"></a>Esempio
 

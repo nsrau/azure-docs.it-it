@@ -4,10 +4,10 @@ description: Usare Visual Studio per creare un progetto Gruppo di risorse di Azu
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.openlocfilehash: 5127732ac0c33d4b27f70bd616fb23aaec5c871f
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76152732"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Creazione e distribuzione di gruppi di risorse di Azure tramite Visual Studio
@@ -20,7 +20,7 @@ Questo articolo illustra come usare [Visual Studio 2019 o versione successiva co
 
 In questa sezione verrà creato un progetto Gruppo di risorse di Azure con un modello **App Web**.
 
-1. In Visual Studio scegliere **File**>**Nuovo**>**Progetto**.
+1. In Visual Studio scegliere **File**>**nuovo**>**progetto**.
 1. Selezionare il modello di progetto **Gruppo di risorse di Azure** e **Avanti**.
 
     ![Crea progetto](./media/create-visual-studio-deployment-project/create-project.png)
@@ -41,7 +41,7 @@ In questa sezione verrà creato un progetto Gruppo di risorse di Azure con un mo
 
     Poiché è stato scelto il modello di app Web, vengono visualizzati i file seguenti:
 
-   | Nome file | Description |
+   | Nome file | Descrizione |
    | --- | --- |
    | Deploy-AzureResourceGroup.ps1 |Script di PowerShell che esegue i comandi di PowerShell per la distribuzione in Azure Resource Manager. Visual Studio usa questo script di PowerShell per distribuire il modello. |
    | WebSite.json |Modello di Resource Manager che definisce l'infrastruttura da distribuire in Azure e parametri che si possono specificare durante la distribuzione. Definisce anche le dipendenze tra le risorse, per consentire a Resource Manager di distribuire le risorse nell'ordine corretto. |
@@ -69,7 +69,7 @@ In questa sezione verrà creato un progetto Gruppo di risorse di Azure con un mo
 
 1. Selezionare **Account di archiviazione** e specificare un nome. Specificare un nome contenente non più di 11 caratteri costituiti solo da numeri e lettere minuscole.
 
-   ![Aggiungi le risorse di archiviazione](./media/create-visual-studio-deployment-project/add-storage.png)
+   ![Aggiungere le risorse di archiviazione](./media/create-visual-studio-deployment-project/add-storage.png)
 
 1. Si noti che non è stata aggiunta solo la risorsa, ma anche un parametro per il tipo di account di archiviazione e una variabile per il nome dell'account di archiviazione.
 
@@ -139,11 +139,11 @@ Per lo script del modulo Az aprire una console di PowerShell ed eseguire:
 
 Per lo script del modulo AzureRM usare Visual Studio:
 
-1. Dal menu di scelta rapida del nodo del progetto di distribuzione scegliere **Distribuisci** > **Nuovo**.
+1. Scegliere **Distribuisci** > **nuovo**dal menu di scelta rapida del nodo del progetto di distribuzione.
 
     ![Voce di menu per una nuova distribuzione](./media/create-visual-studio-deployment-project/deploy.png)
 
-1. Verrà visualizzata la finestra di dialogo **Distribuisci in gruppo di risorse** . Nella casella di riepilogo a discesa **Gruppo di risorse** scegliere un gruppo di risorse esistente o crearne uno nuovo. Selezionare **Distribuisci**.
+1. Verrà visualizzata la finestra di dialogo **Distribuisci in gruppo di risorse**. Nella casella a discesa **Gruppo di risorse** scegliere un gruppo di risorse esistente o crearne uno nuovo. Selezionare **Distribuisci**.
 
     ![Finestra di dialogo Distribuisci in gruppo di risorse](./media/create-visual-studio-deployment-project/show-deployment.png)
 
@@ -167,7 +167,7 @@ A questo punto è possibile esaminare i risultati.
 
 A questo punto è stata distribuita l'infrastruttura per l'app, ma non è stato ancora distribuito il codice effettivo con il progetto.
 
-1. Aggiungere un progetto alla soluzione Visual Studio. Fare clic con il pulsante destro del mouse sulla soluzione e scegliere **Aggiungi** > **Nuovo progetto**.
+1. Aggiungere un progetto alla soluzione Visual Studio. Fare clic con il pulsante destro del mouse sulla soluzione e scegliere **Aggiungi** > **nuovo progetto**.
 
     ![Aggiunta del progetto](./media/create-visual-studio-deployment-project/add-project.png)
 
@@ -245,7 +245,7 @@ Il risultato dovrebbe essere simile al seguente:
 "packageUri": "[concat(parameters('_artifactsLocation'), parameters('ExampleAppPackageFolder'), '/', parameters('ExampleAppPackageFileName'), parameters('_artifactsLocationSasToken'))]",
 ```
 
-Si noti che nell'esempio precedente non è presente alcuna `'/',` fra **parameters('_artifactsLocation')** e **parameters('ExampleAppPackageFolder')** .
+Si noti che nell'esempio precedente non è presente alcuna `'/',` fra **parameters('_artifactsLocation')** e **parameters('ExampleAppPackageFolder')**.
 
 Ricompilare il progetto. Con la compilazione del progetto ci si assicura che i file che è necessario distribuire vengano aggiunti alla cartella di gestione temporanea.
 
@@ -384,7 +384,7 @@ Quando non sono più necessarie, eseguire la pulizia delle risorse di Azure dist
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo si è appreso come creare e distribuire modelli usando Visual Studio. Per altre informazioni sullo sviluppo dei modelli, vedere la nuova serie di esercitazioni per principianti:
+In this article, you learned how to create and deploy templates using Visual Studio. Per altre informazioni sullo sviluppo dei modelli, vedere la nuova serie di esercitazioni per principianti:
 
 > [!div class="nextstepaction"]
 > [Esercitazioni per principianti](./template-tutorial-create-first-template.md)

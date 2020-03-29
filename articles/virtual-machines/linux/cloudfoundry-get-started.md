@@ -1,5 +1,5 @@
 ---
-title: Introduzione con Cloud Foundry su Microsoft Azure
+title: Introduzione a Cloud Foundry in Microsoft Azure
 description: Eseguire OSS o Pivotal Cloud Foundry in Microsoft Azure
 author: seanmck
 ms.service: virtual-machines-linux
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 01/19/2017
 ms.author: seanmck
 ms.openlocfilehash: ba0b4a636d8f785f1c169e4066c9cf6d25ba81db
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78970059"
 ---
 # <a name="cloud-foundry-on-azure"></a>Cloud Foundry in Azure

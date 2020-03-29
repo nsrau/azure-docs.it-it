@@ -9,21 +9,21 @@ ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
 ms.openlocfilehash: e64bf253a73df3a2f8170109dc1dfb9a59613733
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "64685315"
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Pubblicare un'applicazione HDInsight in Azure Marketplace
 È possibile installare un'applicazione Azure HDInsight in un cluster HDInsight basato su Linux. Questo articolo fornisce informazioni su come pubblicare un'applicazione HDInsight in Azure Marketplace. Per informazioni generali sulla pubblicazione in Azure Marketplace, vedere [Pubblicare un'offerta in Azure Marketplace](../marketplace/marketplace-publishers-guide.md).
 
-Le applicazioni HDInsight usano il modello *Bring Your Own License (BYOL)* . In uno scenario BYOL il provider di un'applicazione è responsabile della concessione in licenza dell'applicazione agli utenti dell'app. Gli utenti dell'app pagano solo le risorse di Azure che creano, come il cluster HDInsight e i nodi e le macchine virtuali del cluster. Attualmente, la fatturazione per l'applicazione non avviene in Azure.
+Le applicazioni HDInsight usano il modello *Bring Your Own License (BYOL)*. In uno scenario BYOL il provider di un'applicazione è responsabile della concessione in licenza dell'applicazione agli utenti dell'app. Gli utenti dell'app pagano solo le risorse di Azure che creano, come il cluster HDInsight e i nodi e le macchine virtuali del cluster. Attualmente, la fatturazione per l'applicazione non avviene in Azure.
 
 Per altre informazioni, vedere questi articoli correlati alle applicazioni HDInsight:
 
-* [Installare applicazioni HDInsight](hdinsight-apps-install-applications.md). Informazioni su come installare un'applicazione HDInsight nei cluster.
-* [Installare applicazioni HDInsight personalizzate](hdinsight-apps-install-custom-applications.md). Informazioni su come installare e testare applicazioni HDInsight personalizzate.
+* [Installare le applicazioni HDInsight](hdinsight-apps-install-applications.md). Informazioni su come installare un'applicazione HDInsight nei cluster.
+* [Installare applicazioni HDInsight personalizzate.](hdinsight-apps-install-custom-applications.md) Informazioni su come installare e testare applicazioni HDInsight personalizzate.
 
 ## <a name="prerequisites"></a>Prerequisiti
 Prima dell'invio al Marketplace, è necessario [creare e testare l'applicazione personalizzata](hdinsight-apps-install-custom-applications.md).
@@ -91,8 +91,8 @@ Per pubblicare un'applicazione HDInsight:
 3. Immettere un titolo e quindi selezionare **Create a new solution template** (Crea un nuovo modello di soluzione).
 4. Se l'organizzazione non è ancora stata registrata, selezionare **Create Dev Center account and join the Azure program** (Creare un account Dev Center e partecipare al programma di Azure).  Per altre informazioni, vedere [Creare un account di Microsoft Developer](../marketplace/marketplace-publishers-guide.md).
 5. Selezionare **Define some Topologies to get Started** (Definire alcune topologie per iniziare). Un modello di soluzione è un elemento padre per tutte le relative topologie. È possibile definire più topologie in un singolo modello di soluzione o offerta. Quando un'offerta passa alla fase di gestione temporanea, passano a tale fase anche tutte le relative topologie. 
-6. Immettere il nome di una topologia e quindi selezionare **+** .
-7. Immettere una nuova versione e quindi selezionare **+** .
+6. Immettere un nome di **+** topologia e quindi selezionare .
+7. Immettere una nuova versione, quindi selezionare **+**.
 8. Caricare il file ZIP creato quando al momento della creazione del pacchetto dell'applicazione.  
 9. Selezionare **Request Certification** (Richiedi certificazione). Il team di certificazione Microsoft esamina i file e certifica la topologia.
 

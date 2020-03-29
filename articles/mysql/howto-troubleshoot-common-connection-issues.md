@@ -1,18 +1,18 @@
 ---
-title: Risolvere i problemi di connessione-database di Azure per MySQL
-description: Informazioni su come risolvere i problemi di connessione a database di Azure per MySQL, inclusi errori temporanei che richiedono tentativi, problemi del firewall e interruzioni.
+title: Risolvere i problemi di connessione - Database di Azure per MySQLTroubleshoot connection issues - Azure Database for MySQL
+description: Informazioni su come risolvere i problemi di connessione al database di Azure per MySQL, inclusi errori temporanei che richiedono tentativi, problemi del firewall e interruzioni.
 keywords: connessione mysql,stringa di connessione,problemi di connettività,errore temporaneo,errore di connessione
 author: jan-eng
 ms.author: janeng
 ms.service: mysql
 ms.topic: troubleshooting
-ms.date: 12/02/2019
-ms.openlocfilehash: 8c1c521488270ff0bfe3b306470345bc2cd885ce
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: a68f351276c47f623728a279ad551744c61b6d14
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74773531"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80063219"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-mysql"></a>Risolvere i problemi di connessione a Database di Azure per MySQL
 
@@ -46,16 +46,16 @@ Gli errori temporanei si verificano quando si esegue la manutenzione, quando il 
 
 Se l'applicazione continua a non riuscire a connettersi a Database di Azure per MySQL, il problema è in genere uno dei seguenti:
 
-* Configurazione del firewall del server: assicurarsi che il firewall del server di database di Azure per MySQL sia configurato per consentire le connessioni dal client, inclusi i server proxy e i gateway.
+* Configurazione del firewall del server: assicurarsi che il firewall del server Azure Database for MySQL sia configurato per consentire le connessioni dal client, inclusi i server proxy e i gateway.
 * Configurazione del firewall client: il firewall del client deve consentire le connessioni al server di database. È necessario consentire gli indirizzi IP e le porte del server, nonché i nomi di applicazioni, ad esempio MySQL, in alcuni firewall.
-* Errore dell'utente: è possibile che i parametri di connessione, ad esempio il nome del server nella stringa di connessione o un suffisso di *\@ServerName* mancante nel nome utente, non siano stati digitati.
+* Errore utente: è possibile che nel nome utente siano presenti parametri di connessione digitati in modo errato, ad esempio il nome del server nella stringa di connessione o un suffisso di * \@nome server* mancante.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Passaggi per risolvere problemi di connettività permanenti
 
-1. Impostare le [regole del firewall](howto-manage-firewall-using-portal.md) per consentire l'indirizzo IP del client. Ai soli fini di test temporanei, impostare una regola del firewall usando 0.0.0.0 come indirizzo IP iniziale e 255.255.255.255 come indirizzo IP finale. Il server verrà così aperto a tutti gli indirizzi IP. Se questo risolve il problema di connettività, rimuovere la regola e creare una regola del firewall per un indirizzo o un intervallo di indirizzi IP adeguatamente limitato.
+1. Impostare [le regole del firewall](howto-manage-firewall-using-portal.md) per consentire l'indirizzo IP del client. Ai soli fini di test temporanei, impostare una regola del firewall usando 0.0.0.0 come indirizzo IP iniziale e 255.255.255.255 come indirizzo IP finale. Il server verrà così aperto a tutti gli indirizzi IP. Se questo risolve il problema di connettività, rimuovere la regola e creare una regola del firewall per un indirizzo o un intervallo di indirizzi IP adeguatamente limitato.
 2. Verificare che la porta 3306 sia aperta per le connessioni in uscita in tutti i firewall tra il client e Internet.
 3. Verificare la stringa di connessione e le altre impostazioni di connessione. Vedere [Come connettere le applicazioni a Database di Azure per MySQL](howto-connection-string.md).
-4. Controllare l'integrità del servizio nel dashboard. Se si ritiene che vi sia un'interruzione a livello di area vedere [Panoramica della continuità aziendale con Database di Azure per MySQL](concepts-business-continuity.md) per la procedura di ripristino in una nuova area.
+4. Controllare l'integrità del servizio nel dashboard. Se si ritiene che si sia verificato un'interruzione a livello di area, vedere [Panoramica della continuità aziendale con il database di Azure per MySQL](concepts-business-continuity.md) per i passaggi per il ripristino in una nuova area.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,5 +1,5 @@
 ---
-title: Sicurezza avanzata del livello standard-Centro sicurezza di Azure
+title: Standard tier's enhanced security - Azure Security Center
 description: " Informazioni su come caricare il livello Standard del Centro sicurezza di Azure per la sicurezza avanzata. "
 services: security-center
 documentationcenter: na
@@ -14,25 +14,25 @@ ms.workload: na
 ms.date: 02/19/2019
 ms.author: memildin
 ms.openlocfilehash: be26a9d4c66412518079de303ac0764d979c3e7c
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77912053"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Caricamento del livello Standard di Centro sicurezza di Azure per la sicurezza avanzata
-Eseguire l'aggiornamento al livello Standard di Centro sicurezza di Azure per la sicurezza avanzata per sfruttare i vantaggi della gestione della sicurezza avanzata e la protezione dalle minacce per i carichi di lavoro cloud ibridi. È possibile provare gratuitamente il livello Standard. Per altre informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/) del Centro sicurezza.
+Eseguire l'aggiornamento al livello Standard di Centro sicurezza di Azure per la sicurezza avanzata per sfruttare i vantaggi della gestione della sicurezza avanzata e la protezione dalle minacce per i carichi di lavoro cloud ibridi. È possibile provare gratuitamente il livello Standard. Per altre informazioni, vedere la [pagina dei prezzi del](https://azure.microsoft.com/pricing/details/security-center/) Centro sicurezza.
 
-Il livello standard del Centro sicurezza include:
+Il livello standard del Centro sicurezza include:Security Center standard tier includes:
 
 - **Sicurezza ibrida**: per ottenere una visualizzazione unificata della sicurezza in tutti i carichi di lavoro locali e cloud; applicare i criteri di sicurezza e la valutazione continua della sicurezza dei carichi di lavoro cloud ibridi per garantire la conformità con gli standard di sicurezza; raccogliere, eseguire ricerche e analizzare i dati di sicurezza da diverse origini, inclusi firewall e altre soluzioni partner.
-- **Avvisi di sicurezza** : usare l'analisi avanzata e il Microsoft Intelligent Security Graph per ottenere un limite rispetto agli attacchi informatici in continua evoluzione. Sfrutta i vantaggi delle analisi comportamentali predefinite e di apprendimento automatico per identificare gli attacchi e gli exploit zero-day. Monitora le reti, i computer e i servizi cloud per rilevare attacchi imminenti e attività post violazione. Semplifica l'investigazione con strumenti interattivi e intelligence per le minacce contestuale.
+- Avvisi di **sicurezza:** utilizza l'analisi avanzata e Microsoft Intelligent Security Graph per ottenere un vantaggio sull'evoluzione degli attacchi informatici. Sfrutta i vantaggi delle analisi comportamentali predefinite e di apprendimento automatico per identificare gli attacchi e gli exploit zero-day. Monitora le reti, i computer e i servizi cloud per rilevare attacchi imminenti e attività post violazione. Semplifica l'investigazione con strumenti interattivi e intelligence per le minacce contestuale.
 - **Controlli di accesso e dell'applicazione**, che blocca malware e altre applicazioni indesiderate applicando i consigli per l'inserimento nell'elenco elementi consentiti adattati ai carichi di lavoro specifici e basati su tecnologia per l'apprendimento automatico. Riduce la superficie di attacco alla rete con l'accesso JIT (Just-In-Time) controllato alle porte di gestione nelle macchine virtuali di Azure per ridurre drasticamente l'esposizione ad attacchi di forza bruta e ad altri attacchi di rete.
 
 ## <a name="detecting-unprotected-resources"></a>Rilevamento delle risorse non protette
 Il Centro sicurezza rileva automaticamente le sottoscrizioni o le aree di lavoro di Azure non abilitate per il livello Standard del Centro sicurezza di Azure. Sono incluse le sottoscrizioni Azure che usano il livello Gratuito del Centro di sicurezza e le aree di lavoro che non dispongono della soluzione di sicurezza abilitata.
 
-È possibile aggiornare un'intera sottoscrizione di Azure al livello standard, che viene ereditato da tutte le risorse supportate nella sottoscrizione. Applicare il livello standard a un'area di lavoro si applica a tutte le risorse che inviano report all'area di lavoro.
+È possibile aggiornare un'intera sottoscrizione di Azure al livello Standard, ereditata da tutte le risorse supportate all'interno della sottoscrizione. L'applicazione del livello Standard a un'area di lavoro si applica a tutte le risorse che fanno report nell'area di lavoro.
 
 > [!NOTE]
 > Si consiglia di gestire i costi e limitare la quantità di dati raccolti per una soluzione limitandola a un determinato set di agenti. Il [targeting della soluzione](../operations-management-suite/operations-management-suite-solution-targeting.md) consente di applicare un ambito alla soluzione e avere come target un sottoinsieme di computer nell'area di lavoro. Se si usa una soluzione di targeting, il Centro sicurezza di Azure elenca l'area di lavoro come priva di una soluzione.
@@ -40,7 +40,7 @@ Il Centro sicurezza rileva automaticamente le sottoscrizioni o le aree di lavoro
 >
 
 ## <a name="upgrade-an-azure-subscription-or-workspace"></a>Aggiornare una sottoscrizione o area di lavoro di Azure
-Per aggiornare una sottoscrizione o un'area di lavoro a standard:
+Per aggiornare una sottoscrizione o un'area di lavoro allo standard:
 1. Scegliere **Introduzione** dal menu principale del Centro sicurezza.
   ![Introduzione](./media/security-center-onboarding/get-started.png)
 2. In **Aggiorna**, il Centro sicurezza di Azure elenca tutte le sottoscrizioni e i carichi di lavoro idonei per il caricamento. 
@@ -52,7 +52,7 @@ Per aggiornare una sottoscrizione o un'area di lavoro a standard:
 
 
    > [!NOTE]
-   > Le funzionalità gratuite del Centro sicurezza vengono applicate solo alle macchine virtuali di Azure e VMSS. Non vengono applicate ai computer non Azure. Se si seleziona standard, le funzionalità standard vengono applicate a tutte le macchine virtuali di Azure, ai set di scalabilità di VM e ai computer non Azure che inviano report all'area di lavoro. Si consiglia di applicare il piano Standard per fornire la sicurezza avanzata per le risorse Azure e non Azure.
+   > Le funzionalità gratuite del Centro sicurezza vengono applicate solo alle macchine virtuali di Azure e a VMSS. Non vengono applicate ai computer non Azure. Se si seleziona Standard, le funzionalità Standard vengono applicate a tutte le macchine virtuali di Azure, ai set di scalabilità delle macchine virtuali e ai computer non Azure che segnalano i report nell'area di lavoro. Si consiglia di applicare il piano Standard per fornire la sicurezza avanzata per le risorse Azure e non Azure.
    >
 
 ## <a name="onboard-non-azure-computers"></a>Eseguire il caricamento di computer non Azure
@@ -79,7 +79,7 @@ Se sono disponibili, le aree di lavoro esistenti vengono elencate sotto **Add ne
 
    ![Aggiungere una nuova area di lavoro][4]
 
-2. In **Sicurezza e controllo** selezionare **Area di lavoro OMS** per creare una nuova area di lavoro.
+2. In **Sicurezza e controllo**selezionare Area di lavoro **OMS** per creare una nuova area di lavoro.
    > [!NOTE]
    > Le aree di lavoro OMS sono ora denominate aree di lavoro di Log Analytics.
 3. In **Area di lavoro OMS** immettere le informazioni per l'area di lavoro.
@@ -108,7 +108,7 @@ Se sono disponibili, le aree di lavoro esistenti vengono elencate sotto **Add ne
 ## <a name="next-steps"></a>Passaggi successivi
 Questo articolo illustra come caricare risorse Azure e non Azure per trarre vantaggio dalla sicurezza avanzata del Centro sicurezza di Azure. Per eseguire altre operazioni con le risorse caricate, vedere
 
-- [Abilitare la raccolta di dati](security-center-enable-data-collection.md)
+- [Abilitare la raccolta datiEnable data collection](security-center-enable-data-collection.md)
 - [Report di intelligence sulle minacce](security-center-threat-report.md)
 - [Accesso JIT alle macchine virtuali](security-center-just-in-time.md)
 

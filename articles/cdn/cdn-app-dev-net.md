@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 7e3ad3a5928b36c221bb83b1c4012c3c9e14f35d
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67594171"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Introduzione allo sviluppo della rete CDN di Azure
 > [!div class="op_single_selector"]
-> * [Node.JS](cdn-app-dev-node.md)
+> * [Node.js](cdn-app-dev-node.md)
 > * [.NET](cdn-app-dev-net.md)
 > 
 > 
@@ -51,7 +51,7 @@ Il progetto userà alcune librerie di Azure contenute nei pacchetti Nuget.  Ora 
 1. Scegliere **Gestione pacchetti NuGet** dal menu **Strumenti** e fare clic su **Console di Gestione pacchetti**.
    
     ![Gestisci pacchetti NuGet](./media/cdn-app-dev-net/cdn-manage-nuget.png)
-2. Nella Console di Gestione pacchetti eseguire il comando seguente per installare **Active Directory Authentication Library (ADAL)** :
+2. Nella Console di Gestione pacchetti eseguire il comando seguente per installare **Active Directory Authentication Library (ADAL)**:
    
     `Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory`
 3. Eseguire il codice seguente per installare **Azure CDN Management Library**:
@@ -73,7 +73,7 @@ Ora si scriverà la struttura di base del programma.
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     using Microsoft.Rest;
     ```
-2. È necessario definire alcune costanti che i metodi useranno.  Nella classe `Program`, ma prima del metodo `Main`, aggiungere il codice seguente.  Sostituire i segnaposto, incluse le **&lt;parentesi acute&gt;** , con i valori necessari.
+2. È necessario definire alcune costanti che i metodi useranno.  Nella classe `Program`, ma prima del metodo `Main`, aggiungere il codice seguente.  Assicurarsi di sostituire i segnaposto, incluse ** &lt;le parentesi&gt;angolari**, con i propri valori in base alle esigenze.
    
     ```csharp
     //Tenant app constants
@@ -329,13 +329,13 @@ private static void PromptDeleteCdnProfile(CdnManagementClient cdn)
 
 Quando il programma raggiunge la richiesta precedente, sarà possibile ritornare al gruppo di risorse nel portale di Azure e verificare che il profilo sia stato creato.
 
-![Operazione completata](./media/cdn-app-dev-net/cdn-success.png)
+![Operazione riuscita.](./media/cdn-app-dev-net/cdn-success.png)
 
 È quindi possibile confermare le richieste per eseguire il resto del programma.
 
 ![Il completamento del programma](./media/cdn-app-dev-net/cdn-program-running-2.png)
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 Per vedere il progetto completato di questa procedura dettagliata, [scaricare l'esempio](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c).
 
 Per altra documentazione su Azure CDN Management Library per .NET, vedere i [riferimenti su MSDN](/dotnet/api/overview/azure/cdn).

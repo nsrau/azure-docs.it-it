@@ -16,10 +16,10 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b818fe1d8b6bbc9d2d8c5b460b4d71dccdd39366
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "65825981"
 ---
 # <a name="how-to-assign-users-to-applications"></a>Come assegnare gli utenti alle applicazioni
@@ -44,9 +44,9 @@ Un utente deve prima essere assegnato a un'applicazione per potervi accedere. L'
 
     * Il gruppo [Tutti gli utenti](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-dedicated-groups)
 
-3.  Un amministratore abilita l'[Accesso all'applicazione self-service](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) per consentire all'utente di aggiungere un'applicazione usando la funzionalità **Aggiungi app** del [Pannello di accesso dell'applicazione](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) **senza l'approvazione aziendale**
+3.  Un amministratore consente [l'accesso alle applicazioni in modalità self-service](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) per consentire a un utente di aggiungere un'applicazione utilizzando la funzionalità **Aggiungi app** del pannello di accesso [all'applicazione](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) **senza approvazione aziendale**
 
-4.  Un amministratore abilita l'[Accesso all'applicazione self-service](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) per consentire all'utente di aggiungere un'applicazione usando la funzionalità **Aggiungi app** del [Pannello di accesso dell'applicazione](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction), ma solo **con l'approvazione previa di una serie di responsabili approvazione aziendali selezionati**
+4.  Un amministratore consente [l'accesso alle applicazioni in modalità self-service](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) per consentire a un utente di aggiungere un'applicazione utilizzando la funzionalità **Aggiungi applicazione** del pannello di accesso [all'applicazione,](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) ma solo**l'approvazione preliminare da parte** di un set selezionato di approvatori aziendali
 
 5.  Un amministratore abilita la [Gestione gruppi self-service](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-self-service-group-management) per consentire a un utente di partecipare a un gruppo assegnato a un'applicazione **senza l'approvazione aziendale**
 
