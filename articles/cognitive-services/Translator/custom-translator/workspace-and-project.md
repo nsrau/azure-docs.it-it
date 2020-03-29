@@ -1,7 +1,7 @@
 ---
 title: Che cosa sono i progetti e le aree di lavoro? - Custom Translator
 titleSuffix: Azure Cognitive Services
-description: In questo articolo vengono illustrate le differenze tra un'area di lavoro e un progetto, nonché le categorie e le etichette di progetto per il servizio di conversione personalizzato.
+description: In questo articolo verranno illustrate le differenze tra un'area di lavoro e un progetto, nonché le categorie e le etichette di progetto per il servizio di conversione personalizzata.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -11,10 +11,10 @@ ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
 ms.openlocfilehash: d2f7903fa85c645357e46a753d1cb043e0893254
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79219434"
 ---
 # <a name="what-is-a-custom-translator-workspace"></a>Che cos'è un'area di lavoro di Custom Translator?

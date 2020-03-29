@@ -1,7 +1,7 @@
 ---
-title: Domande frequenti sui contenitori di servizi cognitivi
+title: Domande frequenti sui contenitori di Servizi cognitivi
 titleSuffix: Azure Cognitive Services
-description: Domande e risposte frequenti.
+description: Domande frequenti e risposte.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -10,107 +10,107 @@ ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: dapine
 ms.openlocfilehash: 33b99d50db4384c7de818a7dd0bb8492c86bef97
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73961884"
 ---
-# <a name="azure-cognitive-services-containers-frequently-asked-questions-faq"></a>Domande frequenti sui contenitori di servizi cognitivi di Azure
+# <a name="azure-cognitive-services-containers-frequently-asked-questions-faq"></a>Domande frequenti sui contenitori di Servizi cognitivi di AzureAzure Cognitive Services containers frequently asked questions (FAQ)
 
 ## <a name="general-questions"></a>Domande generali
 
-**D: che cos'è disponibile?**
+**D: Cosa è disponibile?**
 
-**R:** il [supporto dei contenitori nei servizi cognitivi di Azure](../cognitive-services-container-support.md) consente agli sviluppatori di usare le stesse API intelligenti disponibili in Azure, ma con i [vantaggi](../cognitive-services-container-support.md#features-and-benefits) della contenitori. Il supporto dei contenitori è attualmente disponibile in anteprima per un sottoinsieme di servizi cognitivi di Azure, incluse le parti di:
+**R:** [Il supporto dei contenitori in Servizi cognitivi](../cognitive-services-container-support.md) di Azure consente agli sviluppatori di usare le stesse API intelligenti disponibili in Azure, ma con i [vantaggi](../cognitive-services-container-support.md#features-and-benefits) della containerizzazione. Il supporto dei contenitori è attualmente disponibile in anteprima per un sottoinsieme di Servizi cognitivi di Azure, incluse parti di:Container support is currently available in preview for a subset of Azure Cognitive Services, including parts of:
 
 > [!div class="checklist"]
 > * [Rilevamento anomalie][ad-containers]
 > * [Visione artificiale][cv-containers]
 > * [Viso][fa-containers]
-> * [Riconoscimento moduli][fr-containers]
+> * [Riconoscimento modulo][fr-containers]
 > * [Language Understanding (LUIS)][lu-containers]
 > * [API servizio Voce][sp-containers]
 > * [Analisi del testo][ta-containers]
 
-**D: esiste una differenza tra il cloud di servizi cognitivi e i contenitori?**
+**D: Esiste una differenza tra il cloud di Servizi cognitivi e i contenitori?**
 
-**R:** I contenitori di servizi cognitivi rappresentano un'alternativa al cloud di servizi cognitivi. I contenitori offrono le stesse funzionalità dei servizi cloud corrispondenti. I clienti possono distribuire i contenitori in locale o in Azure. La tecnologia di intelligenza artificiale principale, i piani tariffari, le chiavi API e la firma API sono gli stessi tra il contenitore e i servizi cloud corrispondenti. Ecco le [funzionalità e i vantaggi](../cognitive-services-container-support.md#features-and-benefits) per la scelta dei contenitori rispetto al servizio cloud equivalente.
+**A:** I contenitori di Servizi cognitivi sono un'alternativa al cloud di Servizi cognitivi. I contenitori offrono le stesse funzionalità dei servizi cloud corrispondenti. I clienti possono distribuire i contenitori in locale o in Azure.Customers can deploy the containers on-premises or in Azure. La tecnologia di iaaa-aria di base, i piani tariffari, le chiavi API e la firma DELL'API sono gli stessi tra il contenitore e i servizi cloud corrispondenti. Ecco le [funzionalità e i vantaggi](../cognitive-services-container-support.md#features-and-benefits) per la scelta dei contenitori rispetto all'equivalente del servizio cloud.
 
-**D: i contenitori saranno disponibili per tutti i servizi cognitivi e qual è il prossimo set di contenitori che ci si aspetta?**
+**D: I contenitori saranno disponibili per tutti i servizi cognitivi e quali sono il set di contenitori successivo da aspettarsi?**
 
-**R:** Si vuole rendere disponibili più servizi cognitivi come offerte di contenitori. Contattare il gestore di account Microsoft locale per ottenere gli aggiornamenti su nuovi rilasci del contenitore e altri annunci di servizi cognitivi.
+**A:** Vorremmo rendere disponibili più Servizi cognitivi come offerte di contenitori. Contattare il proprio account manager Microsoft locale per ottenere aggiornamenti sulle nuove versioni dei contenitori e altri annunci di Servizi cognitivi.
 
-**D: quale sarà il contratto di servizio (SLA) per i contenitori di servizi cognitivi?**
+**D: Quale sarà il contratto di servizio (SLA) per i contenitori di Servizi cognitivi?**
 
-**R:** I contenitori di servizi cognitivi non dispongono di un contratto di servizio.
+**A:** I contenitori di Servizi cognitivi non dispongono di un servizio di controllo di emergenza.
 
-Le configurazioni dei contenitori di servizi cognitivi delle risorse sono controllate dai clienti, pertanto Microsoft non offrirà un contratto di servizio per la disponibilità generale. I clienti possono distribuire i contenitori in locale, quindi definiscono gli ambienti host.
+Le configurazioni dei contenitori dei servizi cognitivi delle risorse sono controllate dai clienti, pertanto Microsoft non offrirà un servizio di controllo di accesso sLA per la disponibilità generale. I clienti sono liberi di distribuire contenitori in locale, quindi definiscono gli ambienti host.
 
 > [!IMPORTANT]
-> Per ulteriori informazioni sui contratti di servizio di servizi cognitivi, [visitare la pagina del contratto](https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1/)di servizio.
+> Per ulteriori informazioni sui contratti di servizio di Servizi cognitivi, [visitare la pagina Del](https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1/)servizio Clienti .
 
-**D: questi contenitori sono disponibili nei cloud sovrani?**
+**D: Questi contenitori sono disponibili nelle nuvole sovrane?**
 
-**R:** Non tutti hanno familiarità con il termine "cloud sovrano", quindi iniziamo con la definizione:
+**A:** Non tutti hanno familiarità con il termine "nuvola sovrana", quindi cominciamo con la definizione:
 
-> Il "cloud sovrano" è costituito dai cloud 21Vianet di Azure per [enti pubblici](../../azure-government/documentation-government-welcome.md), [Azure Germania](../../germany/germany-welcome.md)e [Azure Cina](https://docs.microsoft.com/azure/china/overview-operations) .
+> Il "cloud sovrano" è costituito dai cloud [di Azure per enti pubblici](../../azure-government/documentation-government-welcome.md), Azure [Germania](../../germany/germany-welcome.md)e Azure [China 21Vianet.](https://docs.microsoft.com/azure/china/overview-operations)
 
-Sfortunatamente, i contenitori di servizi cognitivi *non* sono supportati in modo nativo nei cloud sovrani. I contenitori possono essere eseguiti in questi cloud, ma verranno estratti dal cloud pubblico ed è necessario inviare i dati di utilizzo all'endpoint pubblico.
+Sfortunatamente, i contenitori di Servizi cognitivi *non* sono supportati in modo nativo nei cloud sovrani. I contenitori possono essere eseguiti in questi cloud, ma verranno estratti dal cloud pubblico e dovranno inviare i dati di utilizzo all'endpoint pubblico.
 
 ### <a name="versioning"></a>Controllo delle versioni
 
-**D: in che modo i contenitori vengono aggiornati alla versione più recente?**
+**D: In che modo i contenitori vengono aggiornati alla versione più recente?**
 
-**R:** I clienti possono scegliere quando aggiornare i contenitori che hanno distribuito. I contenitori verranno contrassegnati con i [tag Docker](https://docs.docker.com/engine/reference/commandline/tag/) standard, ad esempio `latest` per indicare la versione più recente. Invitiamo i clienti a eseguire il pull della versione più recente dei contenitori non appena vengono rilasciati, per informazioni dettagliate su come ricevere una notifica quando viene aggiornata un'immagine, vedere i [webhook di Azure container Registry](../../container-registry/container-registry-webhook.md) .
+**A:** I clienti possono scegliere quando aggiornare i contenitori distribuiti. I contenitori verranno contrassegnati `latest` con [tag Docker](https://docs.docker.com/engine/reference/commandline/tag/) standard, ad esempio per indicare la versione più recente. Incoraggiamo i clienti a estrarre la versione più recente dei contenitori quando vengono [rilasciati, estrarre i webhook del Registro](../../container-registry/container-registry-webhook.md) di sistema del contenitore di Azure per informazioni dettagliate su come ricevere una notifica quando un'immagine viene aggiornata.
  
-**D: quali versioni saranno supportate?**
+**D: Quali versioni saranno supportate?**
 
-**R:** Verranno supportate la versione corrente e l'ultima versione principale del contenitore. Tuttavia, invitiamo i clienti a rimanere aggiornati per ottenere la tecnologia più recente.
+**A:** Verranno supportate la versione corrente e l'ultima versione principale del contenitore. Tuttavia, incoraggiamo i clienti a rimanere aggiornati per ottenere la tecnologia più recente.
  
-**D: in che modo vengono aggiornate le versioni degli aggiornamenti?**
+**D: Come vengono sottoposti a controllo delle versioni degli aggiornamenti?**
 
-**R:** Le modifiche alla versione principale indicano che è presente una modifica di rilievo alla firma dell'API. Si prevede che questa operazione in genere coincide con le modifiche alla versione principale dell'offerta del cloud di servizi cognitivi corrispondente. Le modifiche della versione secondaria indicano correzioni di bug, aggiornamenti del modello o nuove funzionalità che non apportano una modifica sostanziale alla firma dell'API.
+**A:** Le modifiche principali apportate alla versione indicano che la firma dell'API è stata apportata in modo non necessario. Prevediamo che questo coinciderà generalmente con le modifiche principali della versione per l'offerta cloud del servizio cognitivo corrispondente. Modifiche minori alla versione indicano correzioni di bug, aggiornamenti del modello o nuove funzionalità che non apportano una modifica sostanziale alla firma dell'API.
 
 ## <a name="technical-questions"></a>Domande tecniche
 
-**D: come è possibile eseguire i contenitori di servizi cognitivi nei dispositivi Internet?**
+**D: Come è necessario eseguire i contenitori di Servizi cognitivi nei dispositivi IoT?**
 
-Se non si dispone di una connessione Internet affidabile o se si vuole risparmiare sul costo della larghezza di banda. In alternativa, se si hanno requisiti di bassa latenza o si gestiscono dati sensibili che devono essere analizzati in sede, [Azure IOT Edge con i contenitori di servizi cognitivi](https://azure.microsoft.com/blog/running-cognitive-services-on-iot-edge/) garantisce la coerenza con il cloud.
+Se non si dispone di una connessione internet affidabile, o si desidera risparmiare sui costi di larghezza di banda. In alternativa, se hanno requisiti a bassa latenza o si gestiscono dati sensibili che devono essere analizzati in loco, [Azure IoT Edge con i contenitori di Servizi cognitivi](https://azure.microsoft.com/blog/running-cognitive-services-on-iot-edge/) offre coerenza con il cloud.
 
-**D: Ricerca per categorie fornire suggerimenti sul prodotto e suggerimenti sulle funzionalità?**
+**D: Come posso fornire feedback sui prodotti e consigli sulle funzionalità?**
 
-**R:** I clienti sono invitati a esprimere pubblicamente le [proprie preoccupazioni](https://cognitive.uservoice.com/) e a votare altri che hanno fatto lo stesso in cui si sovrappongono i potenziali problemi. È possibile utilizzare lo strumento voce utente per il feedback del prodotto e per le raccomandazioni sulle funzionalità.
+**A:** I clienti sono incoraggiati a esprimere pubblicamente [le loro preoccupazioni](https://cognitive.uservoice.com/) e ad up-vote altri che hanno fatto lo stesso dove potenziali problemi si sovrappongono. Lo strumento vocale dell'utente può essere utilizzato sia per il feedback del prodotto che per i consigli sulle funzionalità.
 
-**D: chi posso contattare per ottenere supporto?**
+**D: Chi posso contattare per ottenere assistenza?**
 
-**R:** I canali di supporto clienti sono gli stessi dell'offerta di cloud di servizi cognitivi. Tutti i contenitori di servizi cognitivi includono funzionalità di registrazione che ci aiuteranno a Microsoft e ai clienti del supporto della community. Per ulteriore supporto, vedere le opzioni seguenti.
+**A:** I canali di supporto clienti sono gli stessi offerti dall'offerta cloud di Servizi cognitivi. Tutti i contenitori di Servizi cognitivi includono funzionalità di registrazione che aiuteranno noi e la community a supportare i clienti. Per ulteriore supporto, vedere le opzioni seguenti.
 
 ### <a name="customer-support-plan"></a>Piano di assistenza clienti
 
-I clienti devono fare riferimento al [piano di supporto di Azure](https://azure.microsoft.com/support/plans/) per vedere chi contattare per assistenza.
+I clienti devono fare riferimento al piano di supporto di [Azure](https://azure.microsoft.com/support/plans/) per vedere chi contattare per il supporto.
 
-### <a name="azure-knowledge-center"></a>Centro informazioni di Azure
+### <a name="azure-knowledge-center"></a>Centro benrete di AzureAzure knowledge center
 
-Il cliente è libero di esplorare il [centro informazioni di Azure](https://azure.microsoft.com/resources/knowledge-center/) per rispondere alle domande e ai problemi di supporto.
+I clienti sono liberi di esplorare il [centro informazioni](https://azure.microsoft.com/resources/knowledge-center/) di Azure per rispondere a domande e problemi di supporto.
 
-### <a name="stack-overflow"></a>Stack Overflow
+### <a name="stack-overflow"></a>Overflow dello stack
 
-> [Stack overflow](https://en.wikipedia.org/wiki/Stack_Overflow) è un sito di domande e risposte per i programmatori professionisti e appassionati.
+> [Stack Overflow](https://en.wikipedia.org/wiki/Stack_Overflow) è un sito di domande e risposte per programmatori professionisti e appassionati.
 
-Esaminare i seguenti tag per individuare le domande e le risposte che si allineano alle esigenze.
+Esplora i tag seguenti per potenziali domande e risposte in linea con le tue esigenze.
 
 * [Servizi cognitivi di Azure](https://stackoverflow.com/questions/tagged/azure-cognitive-services)
-* [Microsoft cognitive](https://stackoverflow.com/questions/tagged/microsoft-cognitive)
+* [Microsoft cognitivo](https://stackoverflow.com/questions/tagged/microsoft-cognitive)
 
-**D: come funziona la fatturazione?**
+**D: Come funziona la fatturazione?**
 
-**R:** I clienti vengono addebitati in base al consumo, in modo analogo al cloud di servizi cognitivi. I contenitori devono essere configurati per l'invio di dati di controllo ad Azure e le transazioni verranno fatturate di conseguenza. Le risorse usate nei servizi ospitati e locali si aggiungono a una singola quota con prezzi a livelli, considerando entrambi gli utilizzi. Per informazioni dettagliate, fare riferimento alla pagina dei prezzi dell'offerta corrispondente.
+**A:** I clienti vengono addebitati in base al consumo, in modo simile al cloud di Servizi cognitivi. I contenitori devono essere configurati per inviare dati di misurazione ad Azure e le transazioni verranno fatturate di conseguenza. Le risorse utilizzate nei servizi ospitati e locali verranno aggiunte a una singola quota con prezzi a più livelli, contando su entrambi gli utilizzi. Per maggiori dettagli, consulta la pagina dei prezzi dell'offerta corrispondente.
 
 * [Rilevamento anomalie][ad-containers-billing]
 * [Visione artificiale][cv-containers-billing]
 * [Viso][fa-containers-billing]
-* [Riconoscimento moduli][fr-containers-billing]
+* [Riconoscimento modulo][fr-containers-billing]
 * [Language Understanding (LUIS)][lu-containers-billing]
 * [API servizio Voce][sp-containers-billing]
 * [Analisi del testo][ta-containers-billing]
@@ -118,49 +118,49 @@ Esaminare i seguenti tag per individuare le domande e le risposte che si allinea
 > [!IMPORTANT]
 > I contenitori di Servizi cognitivi non sono concessi in licenza per l'esecuzione senza essere connessi ad Azure per la misurazione. I clienti devono consentire ai contenitori di comunicare sempre le informazioni di fatturazione al servizio di misurazione. I contenitori di Servizi cognitivi non inviano dati dei clienti a Microsoft.
  
-**D: qual è la garanzia del supporto corrente per i contenitori?**
+**D: Qual è la garanzia di supporto corrente per i contenitori?**
 
-**R:** Non è prevista alcuna garanzia per le anteprime. La garanzia standard Microsoft per il software aziendale verrà applicata quando i contenitori vengono annunciati formalmente come disponibilità generale (GA).
+**A:** Non esiste una garanzia per le anteprime. La garanzia standard di Microsoft per il software aziendale si applicherà quando i contenitori vengono formalmente annunciati come disponibilità generale (GA).
  
-**D: cosa accade ai contenitori di servizi cognitivi quando la connettività Internet viene persa?**
+**D: Cosa accade ai contenitori di Servizi cognitivi quando la connettività Internet viene persa?**
 
-**R:** I contenitori di servizi cognitivi *non sono concessi in licenza* per l'esecuzione senza essere connessi ad Azure per la misurazione. I clienti devono consentire ai contenitori di comunicare sempre con il servizio di misurazione.
+**A:** I contenitori di Servizi cognitivi non sono *concessi in licenza* per l'esecuzione senza essere connessi ad Azure per la misurazione. I clienti devono abilitare sempre i contenitori per comunicare con il servizio di misurazione.
 
-**D: quanto tempo può funzionare il contenitore senza essere connesso ad Azure?**
+**D: Per quanto tempo può funzionare il contenitore senza essere connesso ad Azure?**
 
-**R:** I contenitori di servizi cognitivi *non sono concessi in licenza* per l'esecuzione senza essere connessi ad Azure per la misurazione. I clienti devono consentire ai contenitori di comunicare sempre con il servizio di misurazione.
+**A:** I contenitori di Servizi cognitivi non sono *concessi in licenza* per l'esecuzione senza essere connessi ad Azure per la misurazione. I clienti devono abilitare sempre i contenitori per comunicare con il servizio di misurazione.
  
-**D: qual è l'hardware corrente necessario per eseguire questi contenitori?**
+**D: Che cos'è l'hardware corrente necessario per eseguire questi contenitori?**
 
-**R:** I contenitori di servizi cognitivi sono contenitori basati su x64 che consentono di eseguire qualsiasi dispositivo Linux, VM e perimetrale compatibile che supporta i contenitori Docker Linux x64. Tutti richiedono processori CPU. Le configurazioni minime e consigliate per ogni offerta del contenitore sono disponibili di seguito:
+**A:** I contenitori di Servizi cognitivi sono contenitori basati su x64 che possono eseguire qualsiasi nodo Linux compatibile, VM e dispositivo perimetrale che supporta contenitori X64 Linux Docker.Cognitive Services containers are x64 based containers that can run any compatible Linux node, VM, and edge device that supports x64 Linux Docker Containers. Tutti richiedono processori CPU. Le configurazioni minime e consigliate per ogni offerta di contenitori sono disponibili di seguito:
 
 * [Rilevamento anomalie][ad-containers-recommendations]
 * [Visione artificiale][cv-containers-recommendations]
 * [Viso][fa-containers-recommendations]
-* [Riconoscimento moduli][fr-containers-recommendations]
+* [Riconoscimento modulo][fr-containers-recommendations]
 * [Language Understanding (LUIS)][lu-containers-recommendations]
 * [API servizio Voce][sp-containers-recommendations]
 * [Analisi del testo][ta-containers-recommendations]
  
-**D: questi contenitori sono attualmente supportati in Windows?**
+**D: Questi contenitori sono attualmente supportati in Windows?**
 
-**R:** I contenitori di servizi cognitivi sono contenitori Linux, tuttavia è disponibile un supporto per i contenitori Linux in Windows. Per altre informazioni sui contenitori Linux in Windows, vedere la [documentazione di Docker](https://blog.docker.com/2017/09/preview-linux-containers-on-windows/).
+**A:** I contenitori di Servizi cognitivi sono contenitori Linux, tuttavia è disponibile un certo supporto per i contenitori Linux in Windows.The Cognitive Services containers are Linux containers, however there is some support for Linux containers on Windows. Per ulteriori informazioni sui contenitori Linux in Windows, vedere la documentazione di [Docker](https://blog.docker.com/2017/09/preview-linux-containers-on-windows/).
  
-**D: Ricerca per categorie individuare i contenitori?**
+**D: Come si individuano i contenitori?**
 
-**R:** I contenitori di servizi cognitivi sono disponibili in varie posizioni, ad esempio portale di Azure, Hub Docker e registri contenitori di Azure. Per le posizioni dei contenitori più recenti, fare riferimento a [repository e immagini del contenitore](../cognitive-services-container-support.md#container-repositories-and-images).
+**A:** I contenitori di Servizi cognitivi sono disponibili in varie posizioni, ad esempio il portale di Azure, l'hub Docker e i registri dei contenitori di Azure.Cognitive Services containers are available in various locations, such as the Azure portal, Docker hub, and Azure container registries. Per le posizioni dei contenitori più recenti, fare riferimento ai repository e alle immagini dei [contenitori.](../cognitive-services-container-support.md#container-repositories-and-images)
 
-**D: come vengono confrontati i contenitori di servizi cognitivi con le offerte AWS e Google?**
+**D: In che modo i contenitori dei servizi cognitivi sono confrontati con le offerte AWS e Google?**
 
-**R:** Microsoft è il primo provider di servizi cloud per spostare i modelli di intelligenza artificiale pre-sottoposti a training nei contenitori con una fatturazione semplice per transazione, come se i clienti usano un servizio cloud. Microsoft ritiene che un cloud ibrido fornisca ai clienti maggiore scelta.
+**A:** Microsoft è il primo provider di cloud a spostare i modelli di ia-AI pre-addestrati in contenitori con fatturazione semplice per transazione, come se i clienti stesseno usando un servizio cloud. Microsoft ritiene che un cloud ibrido offra ai clienti più scelta.
 
-**D: quali sono le certificazioni di conformità dei contenitori?**
+**D: Quali certificazioni di conformità hanno i contenitori?**
 
-**R:** I contenitori di servizi cognitivi non dispongono di certificazioni di conformità
+**A:** I contenitori dei servizi cognitivi non hanno certificazioni di conformità
 
-**D: in quali aree sono disponibili i contenitori di servizi cognitivi?**
+**D: In quali aree sono disponibili i contenitori di Servizi cognitivi?**
 
-**R:** I contenitori possono essere eseguiti in qualsiasi area, ma richiedono una chiave e richiamano Azure per la misurazione. Tutte le aree supportate per il servizio cloud sono supportate per la chiamata di misurazione dei contenitori.
+**A:** I contenitori possono essere eseguiti in qualsiasi punto in qualsiasi area, tuttavia hanno bisogno di una chiave e di richiamare ad Azure per la misurazione. Tutte le aree supportate per il servizio cloud sono supportate per la chiamata di misurazione dei contenitori.
 
 [!INCLUDE [Containers next steps](includes/containers-next-steps.md)]
 

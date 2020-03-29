@@ -1,7 +1,7 @@
 ---
-title: Disponibilità dello scenario-servizio riconoscimento vocale
+title: Disponibilità dello scenario - Servizio di riconoscimento vocaleScenario Availability - Speech service
 titleSuffix: Azure Cognitive Services
-description: Speech SDK presenta molti scenari in un'ampia gamma di linguaggi e ambienti di programmazione. Non tutti gli scenari sono ancora disponibili in tutti i linguaggi di programmazione o in tutti gli ambienti. Di seguito è riportata la disponibilità di ogni scenario.
+description: Speech SDK offre molti scenari in un'ampia gamma di linguaggi e ambienti di programmazione. Non tutti gli scenari sono ancora disponibili in tutti i linguaggi di programmazione o in tutti gli ambienti. Di seguito è elencata la disponibilità di ogni scenario.
 services: cognitive-services
 author: chrisbasoglu
 manager: xdh
@@ -11,46 +11,46 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: cbasoglu
 ms.openlocfilehash: 6f8f892e7ca81881b0cc00e1708e3f05052c573c
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "76264204"
 ---
-# <a name="scenario-availability"></a>Disponibilità dello scenario
+# <a name="scenario-availability"></a>Disponibilità dello scenarioScenario Availability
 
-Speech SDK presenta molti scenari in un'ampia gamma di linguaggi e ambienti di programmazione. Non tutti gli scenari sono ancora disponibili in tutti i linguaggi di programmazione o in tutti gli ambienti. Di seguito è riportata la disponibilità di ogni scenario.
+Speech SDK offre molti scenari in un'ampia gamma di linguaggi e ambienti di programmazione. Non tutti gli scenari sono ancora disponibili in tutti i linguaggi di programmazione o in tutti gli ambienti. Di seguito è elencata la disponibilità di ogni scenario.
 
-- **Riconoscimento vocale (SR), elenco di frasi, finalità, traduzione e contenitori locali**
-  - Tutti i linguaggi di programmazione/ambienti in cui è presente un collegamento a freccia <img src="media/index/link.jpg" height="15" width="15"></img> nella tabella di avvio rapido [qui](https://aka.ms/csspeech).
+- **Contenitori Speech-Recognition (SR), Phrase List, Intent, Translation e On-premises**
+  - Tutti i linguaggi/ambienti di programmazione in cui è presente un collegamento a freccia <img src="media/index/link.jpg" height="15" width="15"></img> nella tabella delle guide rapide [qui](https://aka.ms/csspeech).
 - **Sintesi vocale (TTS)**
-  - C++/Windows & Linux
-  - C#/Windows & UWP & Unity
-  - Java (JRE e Android)
+  - Linux di & di Windows
+  - Unità di & & & di C/Windows/Windows
+  - Java (Jre e Android)
   - Python
   - Swift
   - Objective-C
-  - L'API REST TTS può essere usata in qualsiasi altra situazione.
-- **Individuazione di parole chiave (KWS)**
-  - C++/Windows & Linux
-  - C#/Windows & Linux
+  - L'API REST di TTS può essere usata in ogni altra situazione.
+- **Individuamento delle parole chiave (KWS)**
+  - Linux di & di Windows
+  - Linux di C/Windows &
   - Python/Windows & Linux
-  - Java/Windows & Linux & Android (Speech Devices SDK)
-  - La funzionalità di individuazione delle parole chiave (KWS) può funzionare con qualsiasi tipo di microfono, il supporto ufficiale di KWS, tuttavia, è attualmente limitato agli array di microfoni presenti nell'hardware Kinect DK di Azure o all'SDK per dispositivi vocali
+  - Java/Windows & Linux & Android (SDK dispositivi vocali)
+  - La funzionalità di avvistamento delle parole chiave (KWS) potrebbe funzionare con qualsiasi tipo di microfono, il supporto ufficiale KWS, tuttavia, è attualmente limitato agli array di microfoni presenti nell'hardware Azure Kinect DK o nell'SDK dei dispositivi di riconoscimento vocale
 - **Assistenti vocali**
-  - C++/Windows & Linux & macOS
+  - Linux & di C/Windows & macOS
   - C#/Windows
-  - Java/Windows & Linux & macOS & Android (Speech Devices SDK)
+  - Java/Windows & Linux & macOS & Android (SDK per dispositivi vocali)
 - **Trascrizione conversazione**
-  - C++/Windows & Linux
-  - C#(Framework & .NET Core)/Windows & UWP & Linux
-  - Java/Windows & Linux & Android (Speech Devices SDK)
-- **Conversazione per più dispositivi**
-  - C++/Windows
-  - C#(Framework & .NET Core)/Windows
+  - Linux di & di Windows
+  - C'è (Framework & .NET Core)/Windows & UWP & Linux
+  - Java/Windows & Linux & Android (SDK dispositivi vocali)
+- **Conversazione multi-dispositivo**
+  - Windows/Windows
+  - C'è (Framework & .NET Core)/Windows
 - **Trascrizione del Call Center**
-  - API REST e può essere usata in qualsiasi situazione
-- **Input audio compresso codec**
-  - C++/Linux
-  - C#/Linux
+  - API REST e può essere utilizzato in qualsiasi situazione
+- **Ingresso audio compresso Codec**
+  - /Linux
+  - C'è/Linux
   - Java/Linux, Android e iOS

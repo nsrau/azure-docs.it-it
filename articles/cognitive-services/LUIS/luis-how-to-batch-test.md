@@ -1,5 +1,5 @@
 ---
-title: Come eseguire un test batch-LUIS
+title: Come eseguire un test batch - LUIS
 titleSuffix: Azure Cognitive Services
 description: Eseguire il test in batch dell'app Language Understanding (LUIS) per trovare le espressioni con finalità ed entità errate.
 services: cognitive-services
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: diberry
 ms.openlocfilehash: bfef7eae7158a05b09a3534e8fb44335333d8cf1
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73904347"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>Test in batch con un set di espressioni di esempio
@@ -38,11 +38,11 @@ ms.locfileid: "73904347"
 
 3. Nel campo **Dataset Name** (Nome set di dati) immettere un nome per il file di set di dati. Il file del set di dati include una **matrice di espressioni**, incluse la *finalità etichettata* e le *entità*. Rivedere la sintassi del [file batch di esempio](luis-concept-batch-test.md#batch-file-format). 
 
-4. Selezionare **Done**(Fine). Il file di set di dati viene aggiunto.
+4. Selezionare **Fatto**. Il file di set di dati viene aggiunto.
 
 ## <a name="run-rename-export-or-delete-dataset"></a>Eseguire, rinominare, esportare o eliminare il set di dati
 
-Per eseguire, rinominare, esportare o eliminare il set di dati, usare il pulsante dei puntini di sospensione (***...*** ) alla fine della riga del set di dati.
+Per eseguire, rinominare, esportare o eliminare il set di dati, usare il pulsante dei puntini di sospensione (***... ***) alla fine della riga del set di dati.
 
 ![Azioni del set di dati](./media/luis-how-to-batch-test/batch-testing-options.png)
 
@@ -54,7 +54,7 @@ Per eseguire il test, selezionare il nome del set di dati. Al termine del test, 
 
 Il set di dati scaricabile è lo stesso file caricato per il test in batch.
 
-|Stato|Significato|
+|State|Significato|
 |--|--|
 |![Icona cerchio verde test completato](./media/luis-how-to-batch-test/batch-test-result-green.png)|Tutte le espressioni sono corrette.|
 |![Icona x rossa test non riuscito](./media/luis-how-to-batch-test/batch-test-result-red.png)|Almeno una finalità di un'espressione non corrisponde alla stima.|
@@ -104,7 +104,7 @@ Le due sezioni del grafico in verde corrispondevano alla stima prevista.
 
 Se il test indica che l'app LUIS non riconosce le finalità e le entità corrette, è possibile migliorare le prestazioni dell'app LUIS etichettando più espressioni o aggiungendo funzionalità. 
 
-* [Etichettare espressioni suggerite con LUIS](luis-how-to-review-endpoint-utterances.md) 
+* [Etichettare le espressioni suggerite con LUIS](luis-how-to-review-endpoint-utterances.md) 
 * [Usare le funzionalità per migliorare le prestazioni dell'app LUIS](luis-how-to-add-features.md) 
 * [Comprendere il test in batch con questa esercitazione](luis-tutorial-batch-testing.md)
 * [Informazioni sui concetti del test in batch](luis-concept-batch-test.md).

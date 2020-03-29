@@ -1,7 +1,7 @@
 ---
-title: "Guida introduttiva: connettersi a un'app comandi personalizzata con riconoscimento vocale-servizio vocale"
+title: "Guida introduttiva: Connettersi a un'app Comandi personalizzati con Speech SDK - Servizio di riconoscimento vocale"
 titleSuffix: Azure Cognitive Services
-description: In questo articolo verrà creata un'applicazione client per l'SDK di riconoscimento vocale con comandi personalizzati.
+description: In questo articolo verrà creata un'applicazione client Speech SDK con comandi personalizzati.
 services: cognitive-services
 author: don-d-kim
 manager: yetian
@@ -11,59 +11,59 @@ ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: donkim
 ms.openlocfilehash: 9e324af0b90f595b5b7af2a417a562efb193d854
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "76156778"
 ---
-# <a name="quickstart-connect-to-a-custom-commands-application-with-the-speech-sdk-preview"></a>Guida introduttiva: connettersi a un'applicazione di comandi personalizzati con Speech SDK (anteprima)
+# <a name="quickstart-connect-to-a-custom-commands-application-with-the-speech-sdk-preview"></a>Guida introduttiva: Connettersi a un'applicazione di comandi personalizzati con Speech SDK (anteprima)Quickstart: Connect to a Custom Commands application with the Speech SDK (Preview)
 
-Dopo aver creato un'applicazione di comandi personalizzati ospitati, è possibile iniziare a comunicare con esso da un dispositivo client.
+Dopo aver creato un'applicazione di comandi personalizzati ospitata, è possibile iniziare a comunicare da un dispositivo client.
 
-In questo articolo verranno illustrate le operazioni seguenti:
+In questo articolo:
 
-- Pubblicare un'applicazione di comandi personalizzati e ottenere un identificatore dell'applicazione (ID app)
-- Creare un'app client con l'SDK di riconoscimento vocale per consentire la comunicazione con l'applicazione dei comandi personalizzati
+- Pubblicare un'applicazione comandi personalizzati e ottenere un identificatore dell'applicazione (ID app)Publish a Custom Commands application and get an application identifier (App ID)
+- Creare un'app client usando l'SDK di riconoscimento vocale per consentire di comunicare con l'applicazione Comandi personalizzatiCreate a client app using the Speech SDK to allow you to talk to your Custom Commands application
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per completare questo articolo, è necessaria un'applicazione comandi personalizzata. Se non è ancora stata creata un'applicazione Commands personalizzata, è possibile farlo nelle guide introduttive precedenti:
+Per completare questo articolo è necessaria un'applicazione Comandi personalizzati. Se non è ancora stata creata un'applicazione Comandi personalizzati, è possibile farlo in queste guide introduttive precedenti:If you haven't created a Custom Commands application yet, you can do so in these previous quickstarts:
 
-- [Guida introduttiva: creare un comando personalizzato (anteprima)](./quickstart-custom-speech-commands-create-new.md)
-- [Guida introduttiva: creare un comando personalizzato con parametri (anteprima)](./quickstart-custom-speech-commands-create-parameters.md)
+- [Guida introduttiva: Creare un comando personalizzato (anteprima)Quickstart: Create a Custom Command (Preview)](./quickstart-custom-speech-commands-create-new.md)
+- [Guida introduttiva: Creare un comando personalizzato con parametri (anteprima)Quickstart: Create a Custom Command with Parameters (Preview)](./quickstart-custom-speech-commands-create-parameters.md)
 
-Altri requisiti:
+Avrai anche bisogno di:
 
 - [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
-- Una chiave di sottoscrizione di Azure per i servizi Voce. [Ottenerne uno](get-started.md) gratuitamente o crearlo nel [portale di Azure](https://portal.azure.com)
+- Una chiave di sottoscrizione di Azure per i servizi Voce. [Ottienine uno gratuitamente](get-started.md) o crealo nel portale di [Azure](https://portal.azure.com)
 
-## <a name="optional-get-started-fast"></a>Facoltativo: iniziare rapidamente
+## <a name="optional-get-started-fast"></a>Facoltativo: iniziare velocemente
 
-Questa Guida introduttiva descrive in modo dettagliato come creare un'applicazione client per la connessione all'app comandi personalizzata. Se si preferisce iniziare subito, il codice sorgente completo e pronto per la compilazione usato in questa guida di avvio rapido è disponibile nella cartella `quickstart` negli [esempi di SDK Speech](https://aka.ms/csspeech/samples).
+Questa guida introduttiva descrive, passo dopo passo, come creare un'applicazione client per connettersi all'app Comandi personalizzati. Se si preferisce iniziare subito, il codice sorgente completo e pronto per la compilazione usato in questa guida di avvio rapido è disponibile nella cartella `quickstart` negli [esempi di SDK Speech](https://aka.ms/csspeech/samples).
 
-## <a name="step-1-publish-custom-commands-application"></a>Passaggio 1: pubblicare l'applicazione comandi personalizzati
+## <a name="step-1-publish-custom-commands-application"></a>Passaggio 1: Pubblicare l'applicazione Comandi personalizzatiStep 1: Publish Custom Commands application
 
-1. Aprire l' [applicazione comandi personalizzati creati in precedenza](./quickstart-custom-speech-commands-create-new.md) e selezionare **pubblica**
+1. Aprire [l'applicazione Comandi personalizzati creata in precedenza](./quickstart-custom-speech-commands-create-new.md) e selezionare **Pubblica**
 
    > [!div class="mx-imgBorder"]
-   > ![pubblicare un'applicazione](media/custom-speech-commands/fulfill-sdk-publish-application.png)
+   > ![Pubblicare l'applicazione](media/custom-speech-commands/fulfill-sdk-publish-application.png)
 
-1. Copiare l'ID app dalla notifica di pubblicazione per un uso successivo
+1. Copiare l'ID app dalla notifica di pubblicazione per un utilizzo successivo
 
-## <a name="step-2-create-a-visual-studio-project"></a>Passaggio 2: creare un progetto di Visual Studio
+## <a name="step-2-create-a-visual-studio-project"></a>Passaggio 2: Creare un progetto di Visual StudioStep 2: Create a Visual Studio project
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-quickstart-uwp-create-proj.md)]
 
-## <a name="step-3-add-sample-code"></a>Passaggio 3: aggiungere il codice di esempio
+## <a name="step-3-add-sample-code"></a>Passaggio 3: Aggiungere codice di esempioStep 3: Add sample code
 
-In questo passaggio viene aggiunto il codice XAML che definisce l'interfaccia utente dell'applicazione e si aggiunge l' C# implementazione code-behind.
+In questo passaggio aggiungiamo il codice XAML che definisce l'interfaccia utente dell'applicazione e aggiungiamo l'implementazione code-behind di C.
 
 ### <a name="xaml-code"></a>Codice XAML
 
 Creare l'interfaccia utente dell'applicazione aggiungendo il codice XAML.
 
-1. In **Esplora soluzioni**aprire `MainPage.xaml`
+1. In **Esplora soluzioni**, aprire`MainPage.xaml`
 
 1. Nella visualizzazione XAML della finestra di progettazione sostituire l'intero contenuto con il frammento di codice seguente:
 
@@ -118,16 +118,16 @@ La visualizzazione Progettazione viene aggiornata per mostrare l'interfaccia ute
 
 Aggiungere l'origine code-behind in modo che l'applicazione funzioni come previsto. Il file di origine code-behind include quanto segue:
 
-- Istruzioni `using` obbligatorie per gli spazi dei nomi `Speech` e `Speech.Dialog`
+- Istruzioni `using` obbligatorie `Speech` per `Speech.Dialog` gli spazi dei nomi e
 - Un'implementazione semplice per garantire l'accesso al microfono, collegato a un gestore del pulsante
 - Helper di base dell'interfaccia utente per presentare i messaggi e gli errori nell'applicazione
 - Un punto di destinazione per il percorso del codice di inizializzazione che verrà popolato più avanti
 - Un helper per riprodurre la sintesi vocale (senza supporto per lo streaming)
 - Un gestore del pulsante vuoto per iniziare ad ascoltare che verrà popolato più avanti
 
-Aggiungere l'origine code-behind come indicato di seguito:
+Aggiungere l'origine code-behind come segue:Add the code-behind source as follows:
 
-1. In **Esplora soluzioni**aprire il file di origine code-behind `MainPage.xaml.cs` (raggruppato in `MainPage.xaml`)
+1. In **Esplora soluzioni**aprire il `MainPage.xaml.cs` file di `MainPage.xaml`origine code-behind (raggruppato in )
 
 1. Sostituire il contenuto del file con il codice seguente:
 
@@ -299,7 +299,7 @@ Aggiungere l'origine code-behind come indicato di seguito:
    }
    ```
 
-1. Aggiungere il codice seguente al corpo del metodo di `InitializeDialogServiceConnector`
+1. Aggiungere il codice seguente al corpo del metodo di`InitializeDialogServiceConnector`
 
    ```csharp
    // This code creates the `DialogServiceConnector` with your subscription information.
@@ -314,9 +314,9 @@ Aggiungere l'origine code-behind come indicato di seguito:
    connector = new DialogServiceConnector(speechCommandsConfig);
    ```
 
-1. Sostituire le stringhe `YourApplicationId`, `YourSpeechSubscriptionKey`e `YourServiceRegion` con valori personalizzati per l'app, la sottoscrizione vocale e l' [area](regions.md)
+1. Sostituire le `YourApplicationId` `YourSpeechSubscriptionKey`stringhe `YourServiceRegion` , e con i propri valori per l'app, la sottoscrizione vocale e l'area [geografica](regions.md)
 
-1. Aggiungere il frammento di codice seguente alla fine del corpo del metodo di `InitializeDialogServiceConnector`
+1. Aggiungere il frammento di codice seguente alla fine del corpo del metodo`InitializeDialogServiceConnector`
 
    ```csharp
    //
@@ -374,7 +374,7 @@ Aggiungere l'origine code-behind come indicato di seguito:
    };
    ```
 
-1. Aggiungere il frammento di codice seguente al corpo del metodo `ListenButton_ButtonClicked` nella classe `MainPage`
+1. Aggiungere il frammento di codice `ListenButton_ButtonClicked` seguente `MainPage` al corpo del metodo nella classeAdd the following code snippet to the body of the method in the class
 
    ```csharp
    // This code sets up `DialogServiceConnector` to listen, since you already established the configuration and
@@ -398,13 +398,13 @@ Aggiungere l'origine code-behind come indicato di seguito:
    }
    ```
 
-1. Dalla barra dei menu scegliere **File** > **Salva tutto** per salvare le modifiche
+1. Dalla barra dei menu, scegliere **Salva** > **tutto** per salvare le modifiche
 
 ## <a name="build-and-run-the-application"></a>Compilare ed eseguire l'applicazione
 
-1. Dalla barra dei menu scegliere **Compila** > **Compila soluzione** per compilare l'applicazione. Il codice dovrebbe risultare compilato senza errori.
+1. Dalla barra dei menu scegliere **Compila** > **soluzione** per compilare l'applicazione. Il codice dovrebbe risultare compilato senza errori.
 
-1. Scegliere **Debug** > **Avvia debug** o premere **F5** per avviare l'applicazione. Verrà visualizzata la finestra **helloworld**.
+1. Scegliere **Debug** > **Start Debugging** (o premere **F5**) per avviare l'applicazione. Verrà visualizzata la finestra **helloworld**.
 
    ![Applicazione Assistente virtuale UWP di esempio in C# - Avvio rapido](media/sdk/qs-voice-assistant-uwp-helloworld-window.png)
 
@@ -412,10 +412,10 @@ Aggiungere l'origine code-behind come indicato di seguito:
 
    ![Richiesta di autorizzazione di accesso al microfono](media/sdk/qs-csharp-uwp-10-access-prompt.png)
 
-1. Selezionare **Talk**e pronunciare una frase o una frase in inglese nel microfono del dispositivo. Il contenuto vocale viene trasmesso al canale Direct Line Speech e trascritto come testo che viene visualizzato nella finestra.
+1. Selezionare **Parla**e inserire una frase o una frase in inglese nel microfono del dispositivo. Il contenuto vocale viene trasmesso al canale Direct Line Speech e trascritto come testo che viene visualizzato nella finestra.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Procedura: eseguire l'evasione dei comandi sul client con l'SDK di riconoscimento vocale (anteprima)](./how-to-custom-speech-commands-fulfill-sdk.md)
-> [procedura: aggiungere convalide ai parametri di comando personalizzati (anteprima)](./how-to-custom-speech-commands-validations.md)
+> [Procedura: eseguire come adempiere ai comandi nel client con Speech SDK (anteprima)](./how-to-custom-speech-commands-fulfill-sdk.md)
+> [Procedura: Aggiungere convalide ai parametri di comando personalizzato (anteprima)How](./how-to-custom-speech-commands-validations.md) to: Fulfill commands on the client with the Speech SDK (preview) How To: Add validations to Custom Command parameters (Preview)

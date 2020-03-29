@@ -1,5 +1,5 @@
 ---
-title: Supporto per le lingue
+title: Lingue supportate
 titleSuffix: Azure Cognitive Services
 description: Servizi cognitivi di Azure consente di creare applicazioni che vedono, ascoltano, comprendono e parlano con gli utenti. Tra questi servizi sono supportate più di trenta lingue, consentendo agli utenti di comunicare con l'applicazione in modi naturali.
 services: cognitive-services
@@ -11,19 +11,19 @@ ms.date: 03/03/2020
 ms.author: erhopf
 ms.custom: seodec18
 ms.openlocfilehash: 48cb1ca1427ece0ee30a124b20d3918f1ace47eb
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78274146"
 ---
 # <a name="natural-language-support-for-azure-cognitive-services"></a>Supporto per le lingue naturali per i servizi cognitivi di Azure
 
-I servizi cognitivi di Azure consentono di creare applicazioni in grado di vedere, ascoltare, parlare e comprendere gli utenti. Tra questi servizi sono supportate più di trenta lingue, consentendo agli utenti di comunicare con l'applicazione in modi naturali. Usare i collegamenti seguenti per visualizzare la disponibilità della lingua in base al servizio.
+Servizi cognitivi di Azure consentono di creare applicazioni che visualizzano, ascoltano, parlano con e comprendono gli utenti. Tra questi servizi sono supportate più di trenta lingue, consentendo agli utenti di comunicare con l'applicazione in modi naturali. Utilizzare i collegamenti seguenti per visualizzare la disponibilità della lingua in base al servizio.
 
-Questi servizi cognitivi sono indipendenti dal linguaggio e non hanno limitazioni basate sul linguaggio.
+Questi servizi cognitivi sono indipendenti dalla lingua e non hanno limitazioni basate sulla lingua.
 
-* [Personalizza esperienze](https://docs.microsoft.com/azure/cognitive-services/personalizer/)
+* [Personalizer](https://docs.microsoft.com/azure/cognitive-services/personalizer/)
 * [Rilevamento anomalie (anteprima)](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/overview)
 
 ## <a name="vision"></a>Visione
@@ -42,8 +42,8 @@ Questi servizi cognitivi sono indipendenti dal linguaggio e non hanno limitazion
 
 * [Controllo ortografico Bing](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/bing-spell-check-supported-languages)
 * [Language Understanding (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/luis-supported-languages)
-* [QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/languages-supported)
-* [Traduzione testuale](https://docs.microsoft.com/azure/cognitive-services/translator/languages)
+* [Creatore QnA](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/languages-supported)
+* [Testo traduttore](https://docs.microsoft.com/azure/cognitive-services/translator/languages)
 * [Analisi del testo](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)
 
 ## <a name="search"></a>Ricerca
@@ -57,7 +57,7 @@ Questi servizi cognitivi sono indipendenti dal linguaggio e non hanno limitazion
 
 ## <a name="decision"></a>Decisione
 
-* [Content Moderator](https://docs.microsoft.com/azure/cognitive-services/content-moderator/text-moderation-api-languages)
+* [Moderatore dei contenuti](https://docs.microsoft.com/azure/cognitive-services/content-moderator/text-moderation-api-languages)
 
 ## <a name="see-also"></a>Vedere anche
 

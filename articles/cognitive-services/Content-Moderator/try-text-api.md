@@ -11,19 +11,19 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 05/29/2019
 ms.openlocfilehash: e0930558f31b27a77fa2cd6b44fcea2fe9091086
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74538816"
 ---
 # <a name="moderate-text-from-the-api-console"></a>Moderare il testo dalla console dell'API
 
-Usare l' [API di moderazione del testo](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f) in Azure Content Moderator per analizzare il contenuto di testo in modo volgare e confrontarlo con elenchi personalizzati e condivisi.
+Usare l'API di [moderazione](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f) del testo in Azure Content Moderator per eseguire la scansione del contenuto di testo alla ricerca di volgarità e confrontarlo con elenchi personalizzati e condivisi.
 
 ## <a name="get-your-api-key"></a>Ottenere la chiave dell'API
 
-Prima di poter eseguire il test drive dell'API nella console online, è necessario avere la chiave di sottoscrizione. Questa si trova nella casella **Ocp-Apim-Subscription-Key** della scheda **Settings** (Impostazioni). Per altre informazioni, vedere la [panoramica](overview.md).
+Prima di poter eseguire il test drive dell'API nella console online è necessario disporre della chiave di sottoscrizione. Questa si trova nella casella **Ocp-Apim-Subscription-Key** della scheda **Settings** (Impostazioni). Per altre informazioni, vedere la [panoramica](overview.md).
 
 ## <a name="navigate-to-the-api-reference"></a>Passare al riferimento sulle API
 
@@ -41,7 +41,7 @@ Per **Open API testing console** (Apri console di test dell'API) selezionare l'a
 
 ## <a name="select-the-inputs"></a>Selezionare gli input
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Parametri
 
 Selezionare i parametri di query che si intende usare nella schermata di testo. Per questo esempio usare il valore predefinito per **language**. È possibile anche lasciarlo vuoto, perché l'operazione rileverà automaticamente la lingua nel corso della sua esecuzione.
 
@@ -68,7 +68,7 @@ Is this a grabage or crap email abcdef@abcd.com, phone: 4255550111, IP: 255.255.
 
 ## <a name="analyze-the-response"></a>Analizzare la risposta
 
-La risposta seguente mostra le varie informazioni provenienti dall'API. Contiene potenziali volgarità, dati personali, classificazione (anteprima) e la versione con correzione automatica.
+La risposta seguente mostra le varie informazioni provenienti dall'API. Contiene potenziali volgarità, dati personali, classificazione (anteprima) e la versione corretta automaticamente.
 
 > [!NOTE]
 > La funzionalità "Classification" (Classificazione) automatica è disponibile in anteprima e supporta solo la lingua inglese.
@@ -167,8 +167,8 @@ La risposta seguente mostra le varie informazioni provenienti dall'API. Contiene
 }
 ```
 
-Per una spiegazione dettagliata di tutte le sezioni della risposta JSON, vedere la Guida concettuale relativa alla [moderazione del testo](text-moderation-api.md) .
+Per una spiegazione dettagliata di tutte le sezioni nella risposta JSON, fare riferimento alla guida concettuale sulla [moderazione](text-moderation-api.md) del testo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Usare l'API REST nel codice o seguire la [Guida introduttiva di .NET SDK](dotnet-sdk-quickstart.md) per l'integrazione con l'applicazione.
+Usare l'API REST nel codice o seguire la guida introduttiva di [.NET SDK](dotnet-sdk-quickstart.md) per l'integrazione con l'applicazione.

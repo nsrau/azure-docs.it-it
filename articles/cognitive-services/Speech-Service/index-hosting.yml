@@ -1,41 +1,40 @@
 ### YamlMime:Landing
-title: Documentazione dell'hosting
-summary: I contenitori di servizi vocali sono disponibili per gli scenari di sintesi vocale e sintesi vocale, che comprendono modelli standard o personalizzati.
+title: Documentazione di hosting
+summary: I contenitori del servizio di riconoscimento vocale sono disponibili per gli scenari di sintesi vocale e sintesi vocale, che comprendono modelli standard o personalizzati.
 metadata:
-  title: Documentazione di hosting-esercitazioni e informazioni di riferimento sulle API-servizi cognitivi di Azure | Microsoft Docs
+  title: Documentazione di hosting - Esercitazioni, riferimenti alle API - Servizi cognitivi di Azure Documenti Microsoft
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
   author: IEvangelist
   manager: nitinme
-  layout: LandingPage
   ms.service: speech-service
   ms.topic: landing-page
   ms.date: 03/10/2020
   ms.author: dapine
-  ms.openlocfilehash: ff12c357ba273c6965b11db4eabc1890925439be
-  ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+  ms.openlocfilehash: 8298a2e37520e7920f18b7ffd5b49074098e0243
+  ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
   ms.translationtype: MT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 03/14/2020
-  ms.locfileid: "79366701"
+  ms.lasthandoff: 03/28/2020
+  ms.locfileid: "79415897"
 landingContent:
 - title: Informazioni sull'hosting
   linkLists:
   - linkListType: concept
     links:
-    - text: Installare ed eseguire i contenitori di sintesi vocale
+    - text: Installare ed eseguire contenitori di riconoscimento vocale
       url: speech-container-howto.md
-    - text: Contenitori di sintesi vocale con Kubernetes e Helm
+    - text: Contenitori di parole con Kubernetes e Helm
       url: speech-container-howto-on-premises.md
-    - text: Contenitori di sintesi vocale in istanze di contenitore di Azure
+    - text: Contenitori di riconoscimento vocale nelle istanze dei contenitori di AzureSpeech containers on Azure container instances
       url: deploy-speech-on-container-instances.md
-- title: Creazione e configurazione
+- title: Creare e configurare
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Creare una risorsa sintesi vocale di Azure
+    - text: Creare una risorsa Voce di Azure
       url: get-started.md#new-resource
-    - text: Configurare i contenitori di sintesi vocale
+    - text: Configurare i contenitori vocali
       url: speech-container-configuration.md
 - title: Riferimento
   linkLists:
@@ -43,5 +42,5 @@ landingContent:
     links:
     - text: Aree supportate
       url: regions.md
-    - text: Cloud sovrani
+    - text: Nubi sovrane
       url: sovereign-clouds.md

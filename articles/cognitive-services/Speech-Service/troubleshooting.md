@@ -1,5 +1,5 @@
 ---
-title: Risolvere i problemi relativi all'SDK vocale-servizio vocale
+title: Risolvere i problemi relativi a Speech SDK - Speech service
 titleSuffix: Azure Cognitive Services
 description: Questo articolo fornisce informazioni che consentono di risolvere i problemi riscontrati quando si usa Speech SDK.
 services: cognitive-services
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: jhakulin
 ms.openlocfilehash: 421b9adf4ae5d2c641484e646bea096716d46cca
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74815419"
 ---
 # <a name="troubleshoot-the-speech-sdk"></a>Risolvere i problemi di Speech SDK
@@ -25,7 +25,7 @@ Questo articolo fornisce informazioni che consentono di risolvere i problemi ris
 
 È possibile che l'endpoint non sia quello corretto per l'area o il servizio. Controllare l'URI per verificare che sia corretto.
 
-Inoltre potrebbe essere presente un problema con la chiave di sottoscrizione o il token di autorizzazione. Per altre informazioni, vedere la sezione seguente.
+Inoltre potrebbe essere presente un problema con la chiave di sottoscrizione o il token di autorizzazione. Per ulteriori informazioni, vedere la sezione successiva.
 
 ## <a name="error-http-403-forbidden-or-http-401-unauthorized"></a>Errore: HTTP 403 operazione non consentita o HTTP 401 utente non autorizzato
 

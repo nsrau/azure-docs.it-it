@@ -1,7 +1,7 @@
 ---
 title: Suggerire termini di ricerca con l'API Suggerimenti automatici Bing
 titleSuffix: Azure Cognitive Services
-description: In questo articolo viene illustrato il concetto di suggerire i termini di query usando il API Suggerimenti automatici Bing e l'effetto della lunghezza della query sulla pertinenza.
+description: Questo articolo illustra il concetto di suggerire termini di query usando l'API Suggerimenti automatici Bing e l'impatto della lunghezza della query sulla pertinenza.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: aahi
 ms.openlocfilehash: 060dbd29ee4ddb78e8ae9b2ed4e7814da3c4eebf
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74072882"
 ---
 # <a name="suggesting-query-terms"></a>Termini della query suggeriti

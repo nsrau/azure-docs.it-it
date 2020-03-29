@@ -1,25 +1,24 @@
 ### YamlMime:Landing
-title: Documentazione della sintesi vocale
-summary: Sintesi vocale dal servizio di riconoscimento vocale consente a applicazioni, strumenti o dispositivi di convertire testo in sintesi vocale.
+title: Documentazione di sintesi vocale
+summary: La sintesi vocale del servizio di riconoscimento vocale consente alle applicazioni, agli strumenti o ai dispositivi di convertire il testo in sintesi di tipo umano.
 metadata:
-  title: Documentazione di sintesi vocale-esercitazioni e informazioni di riferimento sulle API-servizi cognitivi di Azure | Microsoft Docs
+  title: Documentazione di sintesi vocale - Esercitazioni, Riferimenti alle API - Servizi cognitivi di Azure Documenti Microsoft
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
   author: IEvangelist
   manager: nitinme
-  layout: LandingPage
   ms.service: speech-service
   ms.topic: landing-page
   ms.date: 03/10/2020
   ms.author: dapine
-  ms.openlocfilehash: 82499c16b6ad8cd8c1adfe27eeb7a0c842e37d1e
-  ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+  ms.openlocfilehash: 4aa2cb134bc47841da2964f4f83898875098e6c4
+  ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
   ms.translationtype: MT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 03/14/2020
-  ms.locfileid: "79370407"
+  ms.lasthandoff: 03/28/2020
+  ms.locfileid: "80052813"
 landingContent:
-- title: Informazioni su sintesi vocale
+- title: Informazioni sulla sintesi vocale
   linkLists:
   - linkListType: overview
     links:
@@ -31,16 +30,14 @@ landingContent:
       url: quickstarts/text-to-speech.md
     - text: Sintetizzare la voce in un file audio
       url: quickstarts/text-to-speech-audio-file.md
-    - text: Sintetizzare la voce da audio in formato lungo
+    - text: Sintetizzare il parlato con l'audio in formato lungo
       url: quickstarts/text-to-speech/async-synthesis-long-form-audio.md
-- title: Sviluppare con sintesi vocale
+- title: Sviluppare con la sintesi vocale
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Migliorare la sintesi con SSML
       url: speech-synthesis-markup.md
-    - text: Migliorare la sintesi con Riconoscimento vocale personalizzato
-      url: how-to-custom-voice.md
     - text: Ottenere un elenco di voci con REST (Python)
       url: quickstart-python-get-text-to-speech-voices.md
     - text: Eseguire la sintesi vocale con REST (Python)
@@ -59,9 +56,9 @@ landingContent:
     links:
     - text: Supporto vocale standard
       url: language-support.md#standard-voices
-    - text: Supporto per la voce neurale
+    - text: Supporto vocale neurale
       url: language-support.md#neural-voices
     - text: Set fonetici SSML
       url: speech-ssml-phonetic-sets.md
-    - text: Prezzi per sintesi vocale
+    - text: Prezzi della sintesi vocale
       url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services

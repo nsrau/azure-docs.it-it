@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
 ms.openlocfilehash: 71858755fe31823d4d7ef8623b915db851530116
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "72755228"
 ---
 # <a name="analyze-video-content-for-objectionable-material-in-c"></a>Analizzare contenuto video per individuare materiale inappropriato in C#
@@ -40,7 +40,7 @@ Passare alla nuova sottoscrizione AMS di AZURE nel portale di Azure e selezionar
 
 Nella sezione **App Azure AD** selezionare **Crea nuovo** e assegnare un nome alla nuova registrazione dell'applicazione di Azure AD, ad esempio "VideoModADApp". Fare clic su **Salva** e attendere qualche minuto mentre l'applicazione viene configurata. Quindi si dovrebbe vedere la nuova registrazione dell'app nella sezione **App di Azure AD** della pagina.
 
-Selezionare la registrazione dell'app e fare clic sul pulsante **Gestisci applicazione** sottostante. Annotare il valore nel campo **ID applicazione** che sarà necessario in seguito. Selezionare **Impostazioni** > **Chiavi** e immettere una descrizione per una nuova chiave, ad esempio "VideoModKey". Fare clic su **Salva** e quindi annotare il nuovo valore della chiave. Copiare questa stringa e conservarla in un luogo sicuro.
+Selezionare la registrazione dell'app e fare clic sul pulsante **Gestisci applicazione** sottostante. Annotare il valore nel campo **ID applicazione** che sarà necessario in seguito. Selezionare **Impostazioni** > **chiavi**e immettere una descrizione per una nuova chiave (ad esempio "VideoModKey"). Fare clic su **Salva** e quindi annotare il nuovo valore della chiave. Copiare questa stringa e conservarla in un luogo sicuro.
 
 Per una procedura dettagliata più completa del processo precedente, vedere [Introduzione all'autenticazione di Azure AD](https://docs.microsoft.com/azure/media-services/media-services-portal-get-started-with-aad).
 
@@ -83,7 +83,7 @@ using System.Collections.Generic;
 
 ### <a name="set-up-resource-references"></a>Impostare riferimenti alle risorse
 
-Aggiungere i campi statici seguenti alla classe **Program** in _Program.cs_. Questi campi contengono le informazioni necessarie per la connessione alla sottoscrizione AMS. Riempirli con i valori ottenuti nei passaggi precedenti. Si noti che `CLIENT_ID` è il valore **ID applicazione** dell'app Azure AD e `CLIENT_SECRET` è il valore della "VideoModKey" creata per l'app.
+Aggiungere i seguenti campi statici alla classe **Program** in _Program.cs_. Questi campi contengono le informazioni necessarie per la connessione alla sottoscrizione AMS. Riempirli con i valori ottenuti nei passaggi precedenti. Si noti che `CLIENT_ID` è il valore **ID applicazione** dell'app Azure AD e `CLIENT_SECRET` è il valore della "VideoModKey" creata per l'app.
 
 ```csharp
 // declare constants and globals
@@ -120,7 +120,7 @@ private static readonly string CONTENT_MODERATOR_PRESET_FILE = "preset.json";
 
 Se si desidera usare un file video locale, il caso più semplice, aggiungerlo al progetto e immettere il percorso come valore `INPUT_FILE`; i percorsi relativi sono relativi alla directory di esecuzione.
 
-È necessario anche creare il file _preset.json_ nella directory corrente e usarlo per specificare un numero di versione. ad esempio:
+È necessario anche creare il file _preset.json_ nella directory corrente e usarlo per specificare un numero di versione. Ad esempio:
 
 ```JSON
 {
@@ -158,7 +158,7 @@ RunContentModeratorJob(asset);
 
 ### <a name="create-an-azure-media-context"></a>Creare un contesto di Servizi multimediali di Azure
 
-Aggiungere il metodo seguente alla classe **Program**. Usa le credenziali AMS per consentire la comunicazione con AMS.
+Aggiungere il metodo seguente alla classe **Program.** Usa le credenziali AMS per consentire la comunicazione con AMS.
 
 ```csharp
 // Creates a media context from azure credentials
@@ -179,7 +179,7 @@ static void CreateMediaContext()
 
 ### <a name="add-the-code-to-create-an-azure-storage-context"></a>Aggiungere il codice per creare un contesto di Archiviazione di Azure
 
-Aggiungere il metodo seguente alla classe **Program**. Per accedere all'archivio BLOB si usa il contesto di Archiviazione creato con le credenziali di Archiviazione di Azure.
+Aggiungere il metodo seguente alla classe **Program.** Per accedere all'archivio BLOB si usa il contesto di Archiviazione creato con le credenziali di Archiviazione di Azure.
 
 ```csharp
 // Creates a storage context from the AMS associated storage name and key

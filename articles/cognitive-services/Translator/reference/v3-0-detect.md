@@ -1,7 +1,7 @@
 ---
 title: Metodo Detect dell'API Traduzione testuale
 titleSuffix: Azure Cognitive Services
-description: Identificare la lingua di una parte di testo con i servizi cognitivi di Azure API Traduzione testuale metodo di rilevamento.
+description: Identificare la lingua di una parte di testo con il metodo Azure Cognitive Services Translator Text API Detect.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
 ms.openlocfilehash: 370f3b14c12fc05f181d6497b7069bbf1cf3c9cc
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73837290"
 ---
 # <a name="translator-text-api-30-detect"></a>API Traduzione testuale 3.0: Detect
@@ -48,16 +48,16 @@ Le intestazioni della richiesta includono:
   <th width="20%">Headers</th>
   <th>Descrizione</th>
   <tr>
-    <td>Intestazione/e di autenticazione</td>
-    <td><em>Intestazione della richiesta obbligatoria</em>.<br/>Vedere le <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">opzioni disponibili per l'autenticazione</a>.</td>
+    <td>Intestazione autenticazione</td>
+    <td><em>Intestazione richiesta obbligatoria</em>.<br/>Vedere le <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">opzioni disponibili per l'autenticazione</a>.</td>
   </tr>
   <tr>
     <td>Content-Type</td>
-    <td>*Intestazione della richiesta obbligatoria*.<br/>Specifica il tipo di contenuto del payload. I valori possibili sono:`application/json`.</td>
+    <td>*Intestazione richiesta obbligatoria*.<br/>Specifica il tipo di contenuto del payload. I valori possibili sono:`application/json`.</td>
   </tr>
   <tr>
     <td>Content-Length</td>
-    <td>*Intestazione della richiesta obbligatoria*.<br/>Lunghezza del corpo della richiesta.</td>
+    <td>*Intestazione richiesta obbligatoria*.<br/>Lunghezza del corpo della richiesta.</td>
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
@@ -79,7 +79,7 @@ Si applicano le limitazioni seguenti:
 
 * La matrice deve essere composta al massimo da 100 elementi.
 * Il valore di testo di un elemento della matrice non può superare 10.000 caratteri spazi inclusi.
-* L'intero testo incluso nella richiesta non può superare 50.000 caratteri inclusi gli spazi.
+* L'intero testo incluso nella richiesta non può superare 50.000 caratteri spazi inclusi.
 
 ## <a name="response-body"></a>Corpo della risposta
 
@@ -142,11 +142,11 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
   <th>Descrizione</th>
   <tr>
     <td>200</td>
-    <td>Completamento della procedura.</td>
+    <td>Esito positivo.</td>
   </tr>
   <tr>
     <td>400</td>
-    <td>Uno dei parametri di query è mancante o non valido. Prima di riprovare, correggere i parametri della richiesta.</td>
+    <td>Uno dei parametri di query manca o non è valido. Prima di riprovare, correggere i parametri della richiesta.</td>
   </tr>
   <tr>
     <td>401</td>
@@ -162,11 +162,11 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
   </tr>
   <tr>
     <td>500</td>
-    <td>Si è verificato un errore imprevisto. Se l'errore permane, segnalarlo con: data e ora dell'errore, identificativo della richiesta dall'intestazione di risposta `X-RequestId` e l'identificativo del client dall'intestazione di risposta `X-ClientTraceId`.</td>
+    <td>Si è verificato un errore imprevisto. Se l'errore persiste, segnalarlo specificando data e ora dell'errore, identificatore della richiesta dall'intestazione della riposta `X-RequestId` e identificatore del client dall'intestazione della richiesta `X-ClientTraceId`.</td>
   </tr>
   <tr>
     <td>503</td>
-    <td>Il server è temporaneamente non disponibile. ripetere la richiesta. Se l'errore permane, segnalarlo con: data e ora dell'errore, identificativo della richiesta dall'intestazione di risposta `X-RequestId` e l'identificativo del client dall'intestazione di risposta `X-ClientTraceId`.</td>
+    <td>Il server è temporaneamente non disponibile. ripetere la richiesta. Se l'errore persiste, segnalarlo specificando data e ora dell'errore, identificatore della richiesta dall'intestazione della riposta `X-RequestId` e identificatore del client dall'intestazione della richiesta `X-ClientTraceId`.</td>
   </tr>
 </table> 
 

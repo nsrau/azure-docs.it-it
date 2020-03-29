@@ -1,7 +1,7 @@
 ---
 title: Endpoint di Ricerca personalizzata Bing
 titleSuffix: Azure Cognitive Services
-description: Creazione di esperienze di ricerca personalizzate per gli argomenti a cui si è interessati. Gli utenti visualizzano i risultati della ricerca personalizzati per il contenuto di cui si occupano.
+description: Crea esperienze di ricerca personalizzate per gli argomenti che ti interessano. Gli utenti visualizzano i risultati di ricerca personalizzati in base ai contenuti che interessano.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
 ms.openlocfilehash: 03ec22caedd4e317b9e1fe781dc3d983febc7a6d
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74072794"
 ---
 # <a name="custom-search"></a>Ricerca personalizzata
@@ -58,7 +58,7 @@ https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/images/search
 Per informazioni sulla configurazione di un'istanza di Ricerca personalizzato, vedere [Configurare un'esperienza di ricerca personalizzata](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/define-your-custom-view).
 
 ## <a name="next-steps"></a>Passaggi successivi
-Le API **Bing** supportano azioni di ricerca che restituiscono risultati in base al loro tipo. Tutti gli endpoint di ricerca restituiscono i risultati come oggetti risposta JSON.  Tutti gli endpoint supportano le query che restituiscono una lingua e/o una posizione specifica per longitudine, latitudine e raggio di ricerca.
+Le API **Bing** supportano azioni di ricerca che restituiscono risultati in base al tipo.Tutti gli endpoint di ricerca restituiscono risultati come oggetti della risposta JSON. Tutti gli endpoint supportano query che restituiscono una posizione e/o una lingua specifica in base a longitudine, latitudine e raggio di ricerca.
 
 Per informazioni complete sui parametri supportati da ogni endpoint, vedere le pagine di riferimento per ogni tipo.
 Per esempi di richieste di base eseguite con l'API Ricerca personalizzata, vedere le [guide introduttive per Ricerca personalizzata](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/)

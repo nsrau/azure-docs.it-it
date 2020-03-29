@@ -1,5 +1,5 @@
 ---
-title: Informazioni sul servizio riconoscimento vocale (Speech SDK)
+title: Informazioni su Speech SDK - Servizio di riconoscimento vocale
 titleSuffix: Azure Cognitive Services
 description: Speech Software Development Kit (SDK) fornisce alle applicazioni l'accesso nativo alle funzioni del servizio Voce, rendendo più semplice lo sviluppo di software. Questo articolo fornisce dettagli aggiuntivi sull'SDK per Windows, Linux e Android.
 services: cognitive-services
@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: dapine
 ms.openlocfilehash: 984d2dfe07faa22756b4be167aa86a69806b1a84
-ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78331094"
 ---
 # <a name="about-the-speech-sdk"></a>Informazioni su Speech SDK
 
-Speech Software Development Kit (SDK) fornisce alle applicazioni l'accesso alle funzioni del servizio Voce, rendendo più semplice lo sviluppo di software con funzionalità vocali. Attualmente, gli SDK forniscono l'accesso a riconoscimento **vocale** **, sintesi vocale,** **traduzione vocale**, **riconoscimento preventivo**e **canale vocale diretto di bot Framework**.
+Speech Software Development Kit (SDK) fornisce alle applicazioni l'accesso alle funzioni del servizio Voce, rendendo più semplice lo sviluppo di software con funzionalità vocali. Attualmente, gli SDK forniscono l'accesso alla sintesi **vocale, alla** **sintesi vocale,** alla **traduzione vocale,** al **riconoscimento delle finalità**e al canale Direct Line Speech di **Bot Framework.**
 
-È possibile acquisire facilmente audio da un microfono, leggere da un flusso o accedere a file audio dalla risorsa di archiviazione con l'SDK di riconoscimento vocale. L'SDK di riconoscimento vocale supporta l'audio a canale singolo WAV/PCM a 16 bit, 16 kHz/8 kHz, per il riconoscimento vocale. Sono supportati formati audio aggiuntivi usando l' [endpoint REST di riconoscimento vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) o il servizio di [trascrizione batch](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription#supported-formats).
+Puoi facilmente acquisire l'audio da un microfono, leggere da un flusso o accedere ai file audio dall'archiviazione con Speech SDK. Speech SDK supporta l'audio a canale singolo WAV/PCM a 16 bit, 16 kHz/8 kHz per il riconoscimento vocale. Ulteriori formati audio sono supportati utilizzando [l'endpoint REST di sintesi vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) o il servizio di [trascrizione batch.](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription#supported-formats)
 
-Una panoramica generale sulle funzionalità e sulle piattaforme supportate è disponibile nella [pagina voce](https://aka.ms/csspeech)della documentazione.
+Una panoramica generale sulle funzionalità e le piattaforme supportate è disponibile nella pagina di [immissione](https://aka.ms/csspeech)della documentazione.
 
 [!INCLUDE [Speech SDK Platforms](../../../includes/cognitive-services-speech-service-speech-sdk-platforms.md)]
 
@@ -34,23 +34,23 @@ Una panoramica generale sulle funzionalità e sulle piattaforme supportate è di
 # <a name="windows"></a>[Windows](#tab/windows)
 
 > [!WARNING]
-> Speech SDK supporta Windows 10 o versioni successive. Le versioni precedenti di Windows **non sono supportate**.
+> Speech SDK supporta Windows 10 o versioni successive. Le versioni precedenti di Windows non sono **supportate.**
 
 Per Windows sono supportati le lingue seguenti:
 
-* C#, (piattaforma UWP e .NET), C++: è possibile fare riferimento e usare la versione più recente del pacchetto riconoscimento vocale SDK NuGet. Il pacchetto include librerie client a 32 e 64 bit e librerie gestite (.NET). L'SDK può essere installato in Visual Studio tramite NuGet, [Microsoft. CognitiveServices. Speech](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech).
+* C#, (piattaforma UWP e .NET), C++: è possibile fare riferimento e usare la versione più recente del pacchetto riconoscimento vocale SDK NuGet. Il pacchetto include librerie client a 32 e 64 bit e librerie gestite (.NET). L'SDK può essere installato in Visual Studio utilizzando NuGet, [Microsoft.CognitiveServices.Speech](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech).
 
 * Java: è possibile fare riferimento e usare la versione più recente del pacchetto Maven di Speech SDK, che supporta solo Windows x64. Nel progetto Maven aggiungere `https://csspeechstorage.blob.core.windows.net/maven/` come repository aggiuntivo e fare riferimento a `com.microsoft.cognitiveservices.speech:client-sdk:1.8.0` come dipendenza.
 
 # <a name="linux"></a>[Linux](#tab/linux)
 
 > [!NOTE]
-> Attualmente, sono supportati solo Ubuntu 16,04, Ubuntu 18,04, Debian 9, Red Hat Enterprise Linux (RHEL) 8 e CentOS 8 nelle architetture di destinazione seguenti:
-> - x86 (Debian/Ubuntu), x64, ARM32 (Debian/Ubuntu) e ARM64 (Debian/Ubuntu) per C++ lo sviluppo
+> Attualmente, supportiamo solo Ubuntu 16.04, Ubuntu 18.04, Debian 9, Red Hat Enterprise Linux (RHEL) 8 e CentOS 8 sulle seguenti architetture di destinazione:
+> - x86 (Debian/Ubuntu), x64, ARM32 (Debian/Ubuntu) e ARM64 (Debian/Ubuntu) per lo sviluppo in C
 > - x64, ARM32 (Debian/Ubuntu) e ARM64 (Debian/Ubuntu) per Java
 > - x64 per .NET Core e Python
 
-Verificare che siano installate le librerie necessarie eseguendo i comandi della shell seguenti:
+Assicurarsi di avere installato le librerie necessarie eseguendo i seguenti comandi della shell:
 
 In Ubuntu:
 
@@ -66,7 +66,7 @@ sudo apt-get update
 sudo apt-get install libssl1.0.2 libasound2
 ```
 
-In RHEL/CentOS 8:
+Su RHEL/CentOS 8:
 
 ```sh
 sudo yum update
@@ -74,7 +74,7 @@ sudo yum install alsa-lib openssl
 ```
 
 > [!NOTE]
-> In RHEL/CentOS 8 seguire le istruzioni su [come configurare OpenSSL per Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
+> Su RHEL/CentOS 8, seguire le istruzioni su [come configurare OpenSSL per Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
 
 * C#: è possibile fare riferimento e usare la versione più recente del pacchetto riconoscimento vocale SDK NuGet. Per fare riferimento all'SDK, aggiungere al progetto il riferimento al pacchetto seguente:
 
@@ -86,7 +86,7 @@ sudo yum install alsa-lib openssl
 
 * C++: scaricare l'SDK come [pacchetto con estensione tar](https://aka.ms/csspeech/linuxbinary) e decomprimere i file nella directory desiderata. La tabella seguente illustra la struttura di cartelle dell'SDK:
 
-  |Percorso|Descrizione|
+  |Path|Descrizione|
   |-|-|
   |`license.md`|Licenza|
   |`ThirdPartyNotices.md`|Comunicazioni di terze parti|

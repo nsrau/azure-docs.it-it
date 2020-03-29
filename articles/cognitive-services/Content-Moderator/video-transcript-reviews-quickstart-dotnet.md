@@ -1,7 +1,7 @@
 ---
 title: Creare revisioni di trascrizioni di video usando .NET - Content Moderator
 titleSuffix: Azure Cognitive Services
-description: Informazioni su come creare recensioni di trascrizioni video usando i servizi cognitivi di Azure Content Moderator SDK per .NET.
+description: Informazioni su come creare revisioni delle trascrizioni video usando L'SDK del moderatore del contenuto di Servizi cognitivi di Azure per .NET.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,28 +11,28 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
 ms.openlocfilehash: b2d763454b86570b57a16fb9ae2107a2a2bcd23d
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73744384"
 ---
 # <a name="create-video-transcript-reviews-using-net"></a>Creare revisioni di trascrizioni di video usando .NET
 
 Questo articolo contiene informazioni ed esempi di codice per iniziare rapidamente a usare [Content Moderator SDK con C#](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) allo scopo di:
 
-- Creare una revisione di un video per moderatori umani
+- Creare la revisione di un video per moderatori umani
 - Aggiungere una trascrizione moderata alla revisione
 - Pubblicare la revisione
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Accedere o creare un account nel sito [dello strumento di revisione](https://contentmoderator.cognitive.microsoft.com/) content moderator se non è già stato fatto.
+- Accedere o creare un account nel sito dello strumento Content Moderator [Review,](https://contentmoderator.cognitive.microsoft.com/) se non è già stato fatto.
 - Questo articolo presuppone che il video sia stato [moderato](video-moderation-api.md) e sia stata [creata la relativa revisione](video-reviews-quickstart-dotnet.md) nello strumento di revisione per il processo decisione delle persone. Si vuole a questo punto aggiungere trascrizioni del video moderate nello strumento di revisione.
 
 ## <a name="ensure-your-api-key-can-call-the-review-api-job-creation"></a>Verificare che la chiave API possa chiamare l'API di revisione (Creazione del processo)
 
-Dopo aver completato i passaggi precedenti, potrebbero esserci due chiavi Content Moderator se la procedura è stata avviata dal portale di Azure.
+Dopo aver completato i passaggi precedenti, si potrebbero avere due chiavi di Content Moderator se la procedura è stata avviata dal portale di Azure.
 
 Se si prevede di usare la chiave API fornita da Azure nell'esempio di SDK, seguire i passaggi indicati nella sezione [Usare la chiave di Azure con l'API di revisione](./review-tool-user-guide/configure.md#use-your-azure-account-with-the-review-apis) per consentire all'applicazione di chiamare l'API di revisione e creare revisioni.
 
@@ -42,7 +42,7 @@ Se si usa la chiave di prova gratuita generata dallo strumento di revisione, l'a
 
 Aggiungere la trascrizione alla revisione di un video. Il video deve essere pubblicato online. È necessario conoscere il relativo endpoint di streaming. L'endpoint di streaming consente al lettore video dello strumento di revisione di riprodurre il video.
 
-![Anteprima del video dimostrativo](images/ams-video-demo-view.PNG)
+![Anteprima dimostrativa del video](images/ams-video-demo-view.PNG)
 
 - Copiare l'**URL** in questa pagina della [demo di Servizi multimediali di Microsoft Azure](https://aka.ms/azuremediaplayer?url=https%3A%2F%2Famssamples.streaming.mediaservices.windows.net%2F91492735-c523-432b-ba01-faba6c2206a2%2FAzureMediaServicesPromo.ism%2Fmanifest) per l'URL del manifesto.
 
@@ -80,7 +80,7 @@ using Newtonsoft.Json;
 
 ### <a name="add-private-properties"></a>Aggiungere proprietà private
 
-Aggiungere le proprietà private seguenti allo spazio dei nomi **VideoTranscriptReviews**, Class **Program**. Aggiornare i campi `AzureEndpoint` e `CMSubscriptionKey` con i valori dell'URL dell'endpoint e della chiave di sottoscrizione. È possibile trovarli nella scheda **avvio rapido** della risorsa nel portale di Azure.
+Aggiungere le seguenti proprietà private allo spazio dei nomi **VideoTranscriptReviews**, classe **Program**. Aggiornare `AzureEndpoint` `CMSubscriptionKey` i campi e con i valori dell'URL dell'endpoint e della chiave di sottoscrizione. È possibile trovarli nella scheda **Avvio rapido** della risorsa nel portale di Azure.You can find these in the Quick start tab of your resource in the Azure portal.
 
 ```csharp
 namespace VideoReviews
@@ -144,17 +144,17 @@ Creare la revisione di un video con **ContentModeratorClient.Reviews.CreateVideo
 L'oggetto **CreateVideoReviews** ha i parametri obbligatori seguenti:
 1. Stringa contenente un tipo MIME, che deve essere "application/json". 
 1. Nome del team di Content Moderator.
-1. **IList\<oggetto > CreateVideoReviewsBodyItem** . Ogni oggetto **CreateVideoReviewsBodyItem** rappresenta la revisione di un video. Questo Avvio rapido crea una revisione alla volta.
+1. Oggetto **>\<IList CreateVideoReviewsBodyItem.** Ogni oggetto **CreateVideoReviewsBodyItem** rappresenta la revisione di un video. Questo Avvio rapido crea una revisione alla volta.
 
 L'oggetto **CreateVideoReviewsBodyItem** include diverse proprietà. Impostare almeno le proprietà seguenti:
-- **Content**. URL del video da rivedere.
+- **Contenuto**. URL del video da rivedere.
 - **ContentId**. ID da assegnare alla revisione del video.
-- **Status**. Impostare il valore su "Unpublished". Se non si imposta questa proprietà, il valore predefinito è "Pending", vale a dire che la revisione del video è pubblicata e la revisione umana è in sospeso. Dopo la pubblicazione della revisione di un video, non è più possibile aggiungervi fotogrammi video, una trascrizione o il risultato della moderazione di una trascrizione.
+- **Stato**. Impostare il valore su "Unpublished". Se non si imposta questa proprietà, il valore predefinito è "Pending", vale a dire che la revisione del video è pubblicata e la revisione umana è in sospeso. Dopo la pubblicazione della revisione di un video, non è più possibile aggiungervi fotogrammi video, una trascrizione o il risultato della moderazione di una trascrizione.
 
 > [!NOTE]
-> **CreateVideoReviews** restituisce un IList\<stringa >. Ognuna di queste stringhe contiene un ID per la revisione di un video. Questi ID sono GUID e non sono uguali al valore della proprietà **ContentId**.
+> **CreateVideoReviews** restituisce\<una stringa IList>. Ognuna di queste stringhe contiene un ID per la revisione di un video. Questi ID sono GUID e non sono uguali al valore della proprietà **ContentId**.
 
-Aggiungere la definizione del metodo seguente allo spazio dei nomi VideoReviews, classe Program.
+Aggiungere la definizione del metodo seguente nello spazio dei nomi VideoReviews, classe Program.
 
 ```csharp
 /// <summary>
@@ -234,15 +234,15 @@ L'oggetto **AddVideoTranscriptModerationResult** ha i parametri obbligatori segu
 1. Stringa contenente un tipo MIME, che deve essere "application/json". 
 1. Nome del team di Content Moderator.
 1. ID della revisione del video restituito da **CreateVideoReviews**.
-1. IList\<TranscriptModerationBodyItem >. Un oggetto **TranscriptModerationBodyItem** include le proprietà seguenti:
-1. **Terms**. IList\<TranscriptModerationBodyItemTermsItem >. Un oggetto **TranscriptModerationBodyItemTermsItem** include le proprietà seguenti:
-1. **Index**. Indice in base zero del termine.
-1. **Term**. Stringa contenente il termine.
+1. Un>\<IList TranscriptModerationBodyItem. Un oggetto **TranscriptModerationBodyItem** include le proprietà seguenti:
+1. **Termini**. Un>\<IList TranscriptModerationBodyItemTermsItem. Un oggetto **TranscriptModerationBodyItemTermsItem** include le proprietà seguenti:
+1. **Indice**. Indice in base zero del termine.
+1. **Termine**. Stringa contenente il termine.
 1. **Timestamp**. Stringa che contiene il tempo, in secondi, nella trascrizione in corrispondenza del quale vengono trovati i termini.
 
 La trascrizione deve essere nel formato WebVTT. Per altre informazioni, vedere [WebVTT: formato Web Video Text Tracks](https://www.w3.org/TR/webvtt1/).
 
-Aggiungere la definizione del metodo seguente nello spazio dei nomi VideoTranscriptReviews, classe Program. Questo metodo invia una trascrizione al metodo **ContentModeratorClient.TextModeration.ScreenText**. Converte inoltre il risultato in un IList\<TranscriptModerationBodyItem > e invia a **AddVideoTranscriptModerationResult**.
+Aggiungere la definizione del metodo seguente nello spazio dei nomi VideoTranscriptReviews, classe Program. Questo metodo invia una trascrizione al metodo **ContentModeratorClient.TextModeration.ScreenText**. Inoltre, converte il risultato\<in un oggetto IList TranscriptModerationBodyItem> e viene inviato a **AddVideoTranscriptModerationResult**.
 
 ```csharp
 /// <summary>
@@ -295,7 +295,7 @@ static void AddTranscriptModerationResult(ContentModeratorClient client, string 
 1. Nome del team di Content Moderator.
 1. ID della revisione del video restituito da **CreateVideoReviews**.
 
-Aggiungere la definizione del metodo seguente allo spazio dei nomi VideoReviews, classe Program.
+Aggiungere la definizione del metodo seguente nello spazio dei nomi VideoReviews, classe Program.
 
 ```csharp
 /// <summary>
@@ -366,7 +366,7 @@ Press any key to close the application.
 
 ## <a name="navigate-to-your-video-transcript-review"></a>Passare alla revisione della trascrizione del video
 
-Passare alla revisione della trascrizione del video nello strumento di revisione Content Moderator in **Revisione**>**Video**>**Trascrizione**.
+Vai alla revisione della trascrizione video nello strumento di revisione di Content Moderator nella schermata **Rivedi**>**trascrizione** **video.**>
 
 Vengono visualizzate le caratteristiche seguenti:
 - Le due righe di trascrizione aggiunte

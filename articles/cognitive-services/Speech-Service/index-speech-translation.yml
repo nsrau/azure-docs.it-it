@@ -1,23 +1,22 @@
 ### YamlMime:Landing
-title: Documentazione della traduzione vocale
-summary: Traduzione vocale da parte del servizio riconoscimento vocale consente la traduzione vocale e vocale in tempo reale di più linguaggi e la conversione da testo a testo dei flussi audio
+title: Documentazione sulla traduzione vocale
+summary: La traduzione vocale dal servizio di riconoscimento vocale consente la traduzione vocale e di sintesi vocale in tempo reale e multilingue dei flussi audio
 metadata:
-  title: Documentazione per la traduzione vocale-esercitazioni e informazioni di riferimento sulle API-servizi cognitivi di Azure | Microsoft Docs
+  title: Documentazione sulla traduzione vocale - Esercitazioni, riferimenti alle API - Servizi cognitivi di Azure Documenti Microsoft
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
   author: IEvangelist
   manager: nitinme
-  layout: LandingPage
   ms.service: speech-service
   ms.topic: landing-page
   ms.date: 03/10/2020
   ms.author: dapine
-  ms.openlocfilehash: 742b9710fc7ab396aa906c956d6809df9440c78e
-  ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+  ms.openlocfilehash: 75f620d5210f5ba0dc61ac1c5be2f30aa23dea9c
+  ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
   ms.translationtype: MT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 03/14/2020
-  ms.locfileid: "79367976"
+  ms.lasthandoff: 03/28/2020
+  ms.locfileid: "79415326"
 landingContent:
 - title: Informazioni sulla traduzione vocale
   linkLists:
@@ -29,15 +28,15 @@ landingContent:
     links:
     - text: Tradurre la voce in testo
       url: quickstarts/translate-speech-to-text.md
-    - text: Tradurre la voce in più lingue di destinazione
+    - text: Tradurre il riconoscimento vocale in più lingue di destinazione
       url: quickstarts/translate-speech-to-text-multiple-languages.md
     - text: Tradurre la voce in voce
       url: quickstarts/translate-speech-to-speech.md
-- title: Sviluppare con traduzione vocale
+- title: Sviluppare con la traduzione vocale
   linkLists:
   - linkListType: learn
     links:
-    - text: Traduzione vocale in tempo reale
+    - text: Traduci il parlato in tempo reale
       url: https://docs.microsoft.com/learn/modules/convert-speech-to-text
   - linkListType: tutorial
     links:
@@ -47,9 +46,9 @@ landingContent:
   linkLists:
   - linkListType: reference
     links:
-    - text: Supporto delle lingue
+    - text: Lingue supportate
       url: language-support.md#speech-translation
     - text: Domande frequenti sulla traduzione vocale
       url: https://www.microsoft.com/translator/business/faq/
-    - text: Prezzi per traduzione vocale
+    - text: Prezzi di traduzione vocale
       url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/

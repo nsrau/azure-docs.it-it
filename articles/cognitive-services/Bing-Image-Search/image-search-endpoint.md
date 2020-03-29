@@ -1,7 +1,7 @@
 ---
 title: Endpoint per l'API Ricerca immagini Bing
 titleSuffix: Azure Cognitive Services
-description: L'API Ricerca immagini include tre endpoint. L'endpoint 1 restituisce le immagini dal Web. L'endpoint 2 restituisce ImageInsights. L'endpoint 3 restituisce immagini di tendenza.
+description: L'API Ricerca immagini include tre endpoint. L'endpoint 1 restituisce immagini dal Web. L'endpoint 2 restituisce ImageInsights. L'endpoint 3 restituisce immagini di tendenza.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
 ms.openlocfilehash: 38416f6a580d270aefc287de0c198bd418a44db9
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74072637"
 ---
 # <a name="endpoints-for-the-bing-image-search-api"></a>Endpoint per l'API Ricerca immagini Bing
 
 L'**API Ricerca immagini** include tre endpoint.  L'endpoint 1 restituisce immagini dal Web in base a una query. L'endpoint 2 restituisce [ImageInsights](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imageinsightsresponse).  L'endpoint 3 restituisce immagini di tendenza.
 
-## <a name="endpoints"></a>Endpoints
+## <a name="endpoints"></a>Endpoint
 
 Per ottenere risultati immagini tramite l'API Bing, inviare una richiesta a uno degli endpoint seguenti. Usare le intestazioni e i parametri URL per definire altre specifiche.
 
@@ -51,7 +51,7 @@ Per maggiori dettagli su intestazioni, parametri, codici di mercato, oggetti di 
 La risposta a una richiesta di ricerca di immagini include i risultati come oggetti JSON. Per esempi di analisi dei risultati, vedere l'[esercitazione](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app) e il [codice sorgente](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app-source).
 
 ## <a name="next-steps"></a>Passaggi successivi
-Le API **Bing** supportano azioni di ricerca che restituiscono risultati in base al loro tipo. Tutti gli endpoint di ricerca restituiscono i risultati come oggetti risposta JSON.  Tutti gli endpoint supportano le query che restituiscono una lingua e/o una posizione specifica per longitudine, latitudine e raggio di ricerca.
+Le API **Bing** supportano azioni di ricerca che restituiscono risultati in base al tipo.Tutti gli endpoint di ricerca restituiscono risultati come oggetti della risposta JSON. Tutti gli endpoint supportano query che restituiscono una posizione e/o una lingua specifica in base a longitudine, latitudine e raggio di ricerca.
 
 Per informazioni complete sui parametri supportati da ogni endpoint, vedere le pagine di riferimento per ogni tipo.
 Per esempi di richieste di base eseguite con l'API Ricerca immagini, vedere le [guide introduttive per Ricerca immagini](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/search-the-web).

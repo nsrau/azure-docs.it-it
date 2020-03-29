@@ -1,5 +1,5 @@
 ---
-title: Analytics su Knowledge base-QnA Maker
+title: Analisi sulla knowledge base - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: QnA Maker archivia tutti i log di chat e altri dati di telemetria se è stato attivato Application Insights durante la creazione del servizio QnA Maker. Eseguire le query di esempio per ottenere i log di chat da Application Insights.
 services: cognitive-services
@@ -12,21 +12,21 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: diberry
 ms.openlocfilehash: e769bde39bc796b5b598109328b468b15385f38a
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77650402"
 ---
 # <a name="get-analytics-on-your-knowledge-base"></a>Ottenere analisi sulla Knowledge Base
 
-QnA Maker archivia tutti i log di chat e altri dati di telemetria se è stato attivato Application Insights durante la [creazione del servizio QnA Maker](./set-up-qnamaker-service-azure.md). Eseguire le query di esempio per ottenere i log di chat da Application Insights.
+QnA Maker archivia tutti i log di chat e altri dati di telemetria, se sono stati abilitati App Insights durante la [creazione del servizio QnA Maker](./set-up-qnamaker-service-azure.md). Eseguire le query di esempio per ottenere i log di chat da Application Insights.
 
 1. Passare alla risorsa Application Insights.
 
     ![Selezionare la risorsa Application Insights](../media/qnamaker-how-to-analytics-kb/resources-created.png)
 
-2. Selezionare **Log Analytics**. Si aprirà una nuova finestra in cui è possibile eseguire query sui dati di telemetria di QnA Maker.
+2. Selezionare **Log (Analytics)**. Si aprirà una nuova finestra in cui è possibile eseguire query sui dati di telemetria di QnA Maker.
 
 3. Incollare la seguente query ed eseguirla.
 
@@ -46,7 +46,7 @@ QnA Maker archivia tutti i log di chat e altri dati di telemetria se è stato at
 
     Selezionare **Esegui** per eseguire la query.
 
-    [![eseguire query per determinare domande, risposte e Punteggio dagli utenti](../media/qnamaker-how-to-analytics-kb/run-query.png)](../media/qnamaker-how-to-analytics-kb/run-query.png#lightbox)
+    [![Eseguire una query per determinare domande, risposte e punteggio dagli utenti](../media/qnamaker-how-to-analytics-kb/run-query.png)](../media/qnamaker-how-to-analytics-kb/run-query.png#lightbox)
 
 ## <a name="run-queries-for-other-analytics-on-your-qna-maker-knowledge-base"></a>Eseguire query per ottenere altre analisi sulla Knowledge Base di QnA Maker
 
@@ -99,7 +99,7 @@ requests
 | summarize count() by performanceBucket, KbId
 ```
 
-### <a name="unanswered-questions"></a>Domande senza risposta
+### <a name="unanswered-questions"></a>Domande
 
 ```kusto
 // Unanswered questions
@@ -121,4 +121,4 @@ traces | extend id = operation_ParentId
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Scegliere capactiy](./improve-knowledge-base.md)
+> [Scegli capactiy](./improve-knowledge-base.md)

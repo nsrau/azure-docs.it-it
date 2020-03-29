@@ -1,5 +1,5 @@
 ---
-title: 'Funzionalità: azione e contesto-personalizzatore'
+title: 'Caratteristiche: Azione e contesto - Personalizer'
 titleSuffix: Azure Cognitive Services
 description: Personalizza esperienze usa caratteristiche, ossia informazioni su azioni e contesto, per fornire suggerimenti più accurati per la classificazione. Possono essere molto generiche o specifiche di un elemento.
 services: cognitive-services
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: diberry
 ms.openlocfilehash: 408501232891a7971d03c89acc647d9ed19609b3
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77026150"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Le caratteristiche sono informazioni su azioni e contesto
@@ -25,27 +25,27 @@ Personalizza esperienze usa le **caratteristiche**, ossia informazioni sul **con
 
 Ad esempio, una **caratteristica** potrebbe riguardare:
 
-* _Persona utente_ , ad esempio un `Sports_Shopper`. Questo non deve essere un ID utente singolo. 
+* Persona _dell'utente,_ ad esempio un `Sports_Shopper`file . Non deve trattarsi di un singolo ID utente. 
 * Il _contenuto_, ad esempio se un video è di tipo `Documentary`, `Movie` o `TV Series` oppure se un articolo è o meno disponibile per la vendita nel negozio.
 * Il periodo di tempo _corrente_, ad esempio il giorno della settimana.
 
-Il Personalizzatore non prescrive, limita o corregge le funzionalità che è possibile inviare per le azioni e il contesto:
+Personalizer non prescrive, limita o corregge le funzionalità che è possibile inviare per le azioni e il contesto:
 
 * È possibile inviare alcune caratteristiche per alcune azioni e non per altre, se non sono disponibili. Ad esempio, una serie TV potrebbe avere attributi non presenti nei film.
 * Alcune caratteristiche potrebbero essere disponibili solo alcune volte. Ad esempio, un'applicazione per dispositivi mobili potrebbe fornire più informazioni rispetto a una pagina Web. 
 * Nel corso del tempo, è possibile aggiungere e rimuovere caratteristiche su contesto e azioni. Personalizza esperienze continua ad apprendere dalle informazioni disponibili.
 * Il contesto deve includere almeno una caratteristica. Personalizza esperienze non supporta un contesto vuoto. Se ogni volta si invia solo un contesto fisso, Personalizza esperienze sceglierà l'azione solo per le classificazioni riguardanti le caratteristiche incluse nelle azioni.
-* Per le funzionalità categoriche, non è necessario definire i valori possibili e non è necessario pre-definire gli intervalli per i valori numerici.
+* Per le entità geografiche categoriche, non è necessario definire i valori possibili e non è necessario predefinire intervalli per i valori numerici.
 
 ## <a name="supported-feature-types"></a>Tipi di caratteristiche supportate
 
 Personalizza esperienze supporta caratteristiche di tipo stringa, numerico e booleano.
 
-### <a name="how-choice-of-feature-type-affects-machine-learning-in-personalizer"></a>Effetti della scelta del tipo di funzionalità sui Machine Learning in personalizzatore
+### <a name="how-choice-of-feature-type-affects-machine-learning-in-personalizer"></a>Influenza della scelta del tipo di funzionalità su Machine Learning in Personalizer
 
-* **Stringhe**: per i tipi di stringa, ogni combinazione di chiave e valore crea nuovi pesi nel modello di apprendimento automatico di personalizzazione. 
-* **Numeric**: è consigliabile usare valori numerici quando il numero deve influenzare proporzionalmente il risultato della personalizzazione. Si tratta di uno scenario molto dipendente. In un esempio semplificato, ad esempio, quando si Personalizza un'esperienza di vendita al dettaglio, NumberOfPetsOwned potrebbe essere una funzionalità che è numerica perché si vuole che gli utenti con 2 o 3 animali possano influenzare il risultato della personalizzazione due volte o tre volte più che avere 1 animale. Le funzionalità basate su unità numeriche ma in cui il significato non è lineare, ad esempio età, temperatura o altezza della persona, sono codificate in modo ottimale come stringhe e la qualità della funzionalità può in genere essere migliorata usando gli intervalli. Ad esempio, Age può essere codificato come "Age": "0-5", "Age": "6-10" e così via.
-* I valori **booleani** inviati con il valore "false" agiscono come se non fossero stati inviati.
+* **Stringhe**: per i tipi di stringa, ogni combinazione di chiave e valore crea nuovi pesi nel modello di apprendimento automatico Personalizer.Strings : For string types, every combination of key and value creates new weights in the Personalizer machine learning model. 
+* **Numerico**: È necessario utilizzare valori numerici quando il numero deve influire proporzionalmente sul risultato della personalizzazione. Questo è molto dipendente dallo scenario. In un esempio semplificato, ad esempio quando si personalizza un'esperienza di vendita al dettaglio, NumberOfPetsOwned potrebbe essere una funzionalità numerica, in quanto si desidera che le persone con 2 o 3 animali domestici influenzino il risultato della personalizzazione due o tre volte rispetto a 1 animale domestico. Le funzionalità basate su unità numeriche, ma in cui il significato non è lineare, ad esempio Età, Temperatura o Altezza persona, sono meglio codificate come stringhe e la qualità della funzionalità può in genere essere migliorata utilizzando intervalli. Ad esempio, Age potrebbe essere codificato come "Age":"0-5", "Age":"6-10" e così via.
+* I valori **booleani** inviati con valore "false" agiscono come se non fossero stati inviati affatto.
 
 Le caratteristiche non presenti dovranno essere omesse dalla richiesta. Evitare di inviare caratteristiche con un valore Null, perché verrà elaborato come esistente e con un valore "null" quando si esegue il training del modello.
 
@@ -56,25 +56,25 @@ Personalizza esperienze accetta caratteristiche organizzate in spazi dei nomi. �
 Di seguito sono riportati esempi di spazi dei nomi di caratteristiche usati dalle applicazioni:
 
 * User_Profile_from_CRM
-* Durata
+* Tempo
 * Mobile_Device_Info
 * http_user_agent
 * VideoResolution
 * UserDeviceInfo
-* Clima
+* Weather
 * Product_Recommendation_Ratings
 * current_time
 * NewsArticle_TextAnalytics
 
-È possibile assegnare nomi agli spazi dei nomi di caratteristiche in base alle proprie convenzioni, purché siano chiavi JSON valide. Gli spazi dei nomi vengono usati per organizzare le funzionalità in Set distinti e per distinguere le funzionalità con nomi simili. È possibile considerare gli spazi dei nomi come un'prefisso ' aggiunto ai nomi delle funzionalità. Gli spazi dei nomi non possono essere annidati.
+È possibile assegnare nomi agli spazi dei nomi di caratteristiche in base alle proprie convenzioni, purché siano chiavi JSON valide. Gli spazi dei nomi vengono utilizzati per organizzare le funzionalità in set distinti e per evitare ambiguità tra feature con nomi simili. È possibile considerare gli spazi dei nomi come un 'prefisso' che viene aggiunto ai nomi delle funzionalità. Gli spazi dei nomi non possono essere annidati.
 
 
 Nel codice JSON seguente `user`, `state` e `device` sono spazi dei nomi di caratteristiche. 
 
 > [!Note]
-> Attualmente è consigliabile usare nomi per gli spazi dei nomi delle funzionalità che sono basati su UTF-8 e iniziano con lettere diverse. Ad esempio, `user`, `state`e `device` iniziano con `u`, `s`e `d`. Attualmente gli spazi dei nomi con gli stessi caratteri iniziali potrebbero causare collisioni negli indici usati per Machine Learning.
+> Attualmente è consigliabile usare nomi per gli spazi dei nomi delle funzionalità basati su UTF-8 e che iniziano con lettere diverse. `user`Ad esempio, `state`, `device` e `u` `s`iniziare `d`con , , e . Attualmente avere spazi dei nomi con gli stessi primi caratteri potrebbe causare conflitti negli indici usati per l'apprendimento automatico.
 
-Gli oggetti JSON possono includere oggetti JSON annidati e valori/proprietà semplici. Una matrice può essere inclusa solo se gli elementi della matrice sono numeri. 
+Gli oggetti JSON possono includere oggetti JSON annidati e proprietà/valori semplici. Una matrice può essere inclusa solo se gli elementi della matrice sono numeri. 
 
 ```JSON
 {
@@ -101,13 +101,13 @@ Gli oggetti JSON possono includere oggetti JSON annidati e valori/proprietà sem
 }
 ```
 
-### <a name="restrictions-in-character-sets-for-namespaces"></a>Restrizioni nei set di caratteri per gli spazi dei nomi
+### <a name="restrictions-in-character-sets-for-namespaces"></a>Restrizioni nei set di caratteri per gli spazi dei nomiRestrictions in character sets for namespaces
 
-La stringa utilizzata per la denominazione dello spazio dei nomi deve seguire alcune restrizioni: 
-* Non può essere Unicode.
-* È possibile utilizzare alcuni dei simboli stampabili con i codici < 256 per i nomi degli spazi dei nomi. 
-* Non è possibile usare i simboli con i codici < 32 (non stampabile), 32 (spazio), 58 (due punti), 124 (pipe) e 126-140.
-* Non deve iniziare con un carattere di sottolineatura "_" o la funzionalità verrà ignorata.
+La stringa utilizzata per denominare lo spazio dei nomi deve seguire alcune restrizioni:The string you use for naming the namespace must follow some restrictions: 
+* Non può essere unicode.
+* È possibile utilizzare alcuni dei simboli stampabili con codici < 256 per i nomi dello spazio dei nomi. 
+* Non è possibile utilizzare simboli con codici < 32 (non stampabile), 32 (spazio), 58 (due punti), 124 (pipe) e 126–140.
+* Non deve iniziare con un trattino di sottolineatura "_" o la feature verrà ignorata.
 
 ## <a name="how-to-make-feature-sets-more-effective-for-personalizer"></a>Come rendere più efficaci i set di caratteristiche per Personalizza esperienze
 
@@ -133,12 +133,12 @@ Le sezioni seguenti descrivono le procedure comuni per migliorare i set di carat
 
 Ad esempio, un timestamp misurato in secondi è una caratteristica molto diradata. Per renderla più densa, e quindi efficace, è possibile classificare il tempo suddividendolo in "mattina", "mezzogiorno", "pomeriggio" e così via.
 
-Anche le informazioni sulla posizione sono in genere utili per la creazione di classificazioni più ampie. Ad esempio, una coordinata di longitudine latitudine, ad esempio Lat: 47,67402 ° N, Long: 122,12154 ° W è troppo precisa e impone al modello di apprendere la latitudine e la longitudine come dimensioni distinte. Quando si prova a personalizzare in base alle informazioni sulla posizione, è possibile raggruppare le informazioni sulla posizione in settori più grandi. Un modo semplice per eseguire questa operazione consiste nel scegliere una precisione di arrotondamento appropriata per i numeri con lunghezza Lat e combinare Latitudine e Longitudine in "aree" inserendoli in una sola stringa. Ad esempio, un modo efficace per rappresentare 47,67402 ° N, Long: 122,12154 ° W in Regions circa pochi chilometri di larghezza sarebbe "location": "34.3, 12,1".
+Le informazioni sulla posizione in genere traggono vantaggio dalla creazione di classificazioni più ampie. Ad esempio, una coordinata Latitudine-Longitudine come Lat: Lat: 47.67402 N, Long: 122.12154W è troppo precisa e costringe il modello ad apprendere la latitudine e la longitudine come quote distinte. Quando si tenta di personalizzare in base alle informazioni sulla posizione, è utile raggruppare le informazioni sulla posizione in settori più grandi. Un modo semplice per farlo è quello di scegliere una precisione di arrotondamento appropriata per i numeri Lat-Long e combinare latitudine e longitudine in "aree" trasformandoli in una stringa. Ad esempio, un buon modo per rappresentare 47.67402 N, Long: 122.12154W nelle regioni di circa pochi chilometri di larghezza sarebbe "location":"34.3 , 12.1".
 
 
 #### <a name="expand-feature-sets-with-extrapolated-information"></a>Espandere i set di caratteristiche con le informazioni estrapolate
 
-Per aumentare il numero di caratteristiche è anche possibile valutare gli attributi inesplorati derivabili dalle informazioni già disponibili. Ad esempio, in una personalizzazione di un elenco di film fittizio, è possibile che un week-end e un giorno feriale provochino comportamenti diversi dagli utenti? La caratteristica temporale potrebbe essere espansa per includere un attributo "weekend" o "giorno feriale". Le festività nazionali di tipo culturale attirano l'attenzione verso determinati tipi di film? Ad esempio, l'attributo "Halloween" è utile nelle località in cui è pertinente. È possibile che per molte persone la pioggia abbia un impatto significativo sulla scelta del film da guardare? Con una data e un luogo, un servizio meteo potrebbe fornire questa informazione ed è possibile includerla come caratteristica aggiuntiva. 
+Per aumentare il numero di caratteristiche è anche possibile valutare gli attributi inesplorati derivabili dalle informazioni già disponibili. Ad esempio, in una personalizzazione fittizia dell'elenco di film, è possibile che un fine settimana o un fine settimana comrivano un comportamento diverso da parte degli utenti? La caratteristica temporale potrebbe essere espansa per includere un attributo "weekend" o "giorno feriale". Le festività nazionali di tipo culturale attirano l'attenzione verso determinati tipi di film? Ad esempio, l'attributo "Halloween" è utile nelle località in cui è pertinente. È possibile che per molte persone la pioggia abbia un impatto significativo sulla scelta del film da guardare? Con una data e un luogo, un servizio meteo potrebbe fornire questa informazione ed è possibile includerla come caratteristica aggiuntiva. 
 
 #### <a name="expand-feature-sets-with-artificial-intelligence-and-cognitive-services"></a>Espandere i set di caratteristiche con l'intelligenza artificiale e i servizi cognitivi
 
@@ -154,7 +154,7 @@ Ad esempio:
 
 È possibile usare diversi altri [Servizi cognitivi di Azure](https://www.microsoft.com/cognitive-services), come
 
-* [Collegamento delle entità](../entitylinking/home.md)
+* [Collegamento di entità](../entitylinking/home.md)
 * [Analisi del testo](../text-analytics/overview.md)
 * [Emozioni](../emotion/home.md)
 * [Visione artificiale](../computer-vision/home.md)
@@ -163,7 +163,7 @@ Ad esempio:
 
 Ogni azione:
 
-* Ha un ID _evento_ . Se si dispone già di un ID evento, è necessario inviarlo. Se non si dispone di un ID evento, non inviarne uno, il Personalizzatore ne crea uno e lo restituisce nella risposta della richiesta di rango. L'ID è associato all'evento Rank, non all'utente. Se si crea un ID, il GUID funziona in modo ottimale. 
+* Ha un ID _evento._ Se hai già un ID evento, devi inviarlo. Se non si dispone di un ID evento, non inviarne uno, Personalizer ne crea uno automaticamente e lo restituisce nella risposta della richiesta Rank. L'ID è associato all'evento Rank, non all'utente. Se si crea un ID, un GUID funziona meglio. 
 * Include un elenco di caratteristiche.
 * L'elenco di caratteristiche può essere lungo (centinaia di voci) ma è consigliabile valutarne l'efficacia per rimuovere quelle che non contribuiscono a ottenere ricompense. 
 * Le caratteristiche per le **azioni** possono avere o meno una correlazione con le caratteristiche per il **contesto** usate da Personalizza esperienze.
@@ -181,7 +181,7 @@ Le azioni da inviare all'API Classifica cambiano in base a quello che si prova a
 
 Di seguito sono riportati alcuni esempi:
 
-|Finalità|Azione|
+|Scopo|Azione|
 |--|--|
 |Personalizzare l'articolo da evidenziare in un sito Web di notizie.|Ogni azione è un potenziale articolo di notizie.|
 |Ottimizzare il posizionamento degli annunci in un sito Web.|Ogni azione sarà costituita da un layout o da regole per creare un layout per gli annunci (ad esempio in alto, a destra, immagini piccole, immagini grandi).|
@@ -213,7 +213,7 @@ In alcuni casi, è possibile determinare solo in seguito nella logica di busines
 
 Quando si effettua una chiamata all'API Classifica, si inviano più azioni tra cui scegliere:
 
-Gli oggetti JSON possono includere oggetti JSON annidati e valori/proprietà semplici. Una matrice può essere inclusa solo se gli elementi della matrice sono numeri. 
+Gli oggetti JSON possono includere oggetti JSON annidati e proprietà/valori semplici. Una matrice può essere inclusa solo se gli elementi della matrice sono numeri. 
 
 ```json
 {
@@ -294,7 +294,7 @@ L'applicazione è responsabile del caricamento delle informazioni sul contesto d
 
 Il contesto viene espresso come oggetto JSON inviato all'API Classifica:
 
-Gli oggetti JSON possono includere oggetti JSON annidati e valori/proprietà semplici. Una matrice può essere inclusa solo se gli elementi della matrice sono numeri. 
+Gli oggetti JSON possono includere oggetti JSON annidati e proprietà/valori semplici. Una matrice può essere inclusa solo se gli elementi della matrice sono numeri. 
 
 ```JSON
 {

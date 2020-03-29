@@ -4,10 +4,10 @@ description: Il punteggio di ricompensa indica quanto ha funzionato la scelta di
 ms.date: 02/20/2020
 ms.topic: conceptual
 ms.openlocfilehash: 734e4d0fdcec25884f8535ec61ccd10569fa8890
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79219368"
 ---
 # <a name="reward-scores-indicate-success-of-personalization"></a>I punteggi di ricompensa indicano il grado di successo della personalizzazione
@@ -16,11 +16,11 @@ Il punteggio di ricompensa indica l'efficacia della scelta di personalizzazione,
 
 Personalizza esperienze esegue il training dei modelli di Machine Learning valutando le ricompense.
 
-Informazioni [su come](how-to-settings.md#configure-rewards-for-the-feedback-loop) configurare il Punteggio di ricompensa predefinito nel portale di Azure per la risorsa di personalizzazione.
+Informazioni su [come configurare](how-to-settings.md#configure-rewards-for-the-feedback-loop) il punteggio premio predefinito nel portale di Azure per la risorsa Personalizer.Learn how to configure the default reward score in the Azure portal for your Personalizer resource.
 
 ## <a name="use-reward-api-to-send-reward-score-to-personalizer"></a>Usare l'API Ricompensa per inviare il punteggio di ricompensa a Personalizza esperienze
 
-Le ricompense vengono inviate a Personalizza esperienze dall'[API Ricompensa](https://docs.microsoft.com/rest/api/cognitiveservices/personalizer/events/reward). In genere, una ricompensa è un numero compreso tra 0 e 1. Un premio negativo, con valore pari a-1, è possibile in determinati scenari e deve essere usato solo se si ha esperienza con l'apprendimento di rinforzo (RL). Personalizza esperienze esegue il training del modello per ottenere la somma più alta possibile di ricompense nel tempo.
+Le ricompense vengono inviate a Personalizza esperienze dall'[API Ricompensa](https://docs.microsoft.com/rest/api/cognitiveservices/personalizer/events/reward). In genere, una ricompensa è un numero compreso tra 0 e 1. Una ricompensa negativa, con il valore di -1, è possibile in alcuni scenari e deve essere utilizzata solo se si ha esperienza con l'apprendimento di rinforzo (RL). Personalizza esperienze esegue il training del modello per ottenere la somma più alta possibile di ricompense nel tempo.
 
 Le ricompense vengono inviate dopo che si è verificato il comportamento degli utenti, che può avvenire alcuni giorni più tardi. Il tempo massimo di attesa prima che Personalizza esperienze consideri un evento come evento senza ricompensa, o con una ricompensa predefinita, viene configurato con [Tempo di attesa per la ricompensa](#reward-wait-time) nel portale di Azure.
 
@@ -51,7 +51,7 @@ Se non viene ricevuta alcuna ricompensa nel tempo indicato per [Tempo di attesa 
 
 ## <a name="building-up-rewards-with-multiple-factors"></a>Creazione di ricompense con più fattori
 
-Per una personalizzazione efficace, è possibile creare il Punteggio di ricompensa in base a più fattori.
+Per una personalizzazione efficace, è possibile aumentare il punteggio premio in base a più fattori.
 
 È ad esempio possibile applicare queste regole per la personalizzazione di un elenco di contenuti video:
 
@@ -66,28 +66,28 @@ Per una personalizzazione efficace, è possibile creare il Punteggio di ricompen
 
 ## <a name="calling-the-reward-api-multiple-times"></a>Chiamata all'API Ricompensa ripetuta più volte
 
-È anche possibile chiamare l'API Ricompensa con lo stesso ID evento inviando punteggi di ricompensa diversi. Quando il Personalizzatore ottiene tali ricompense, determina la ricompensa finale per l'evento aggregando tali ricompense come specificato nella configurazione di personalizzazione.
+È anche possibile chiamare l'API Ricompensa con lo stesso ID evento inviando punteggi di ricompensa diversi. Quando Personalizer ottiene tali premi, determina il premio finale per l'evento aggregandoli come specificato nella configurazione Del personalizzatore.
 
 Valori di aggregazione:
 
-*  **First**: accetta il primo punteggio di ricompensa ricevuto per l'evento e ignora il resto.
-* **Sum**: accetta tutti i punteggi Reward raccolti per gli EventID e li aggiunge insieme.
+*  **Primo**: prende il primo punteggio premio ricevuto per l'evento e scarta il resto.
+* **Sum**: Prende tutti i punteggi premio raccolti per l'eventId e li somma.
 
 Tutte le ricompense di un evento che vengono ricevute dopo il tempo specificato per **Tempo di attesa per la ricompensa** vengono ignorate e non hanno effetto sul training dei modelli.
 
-Con l'aggiunta di punteggi Reward, il premio finale potrebbe non essere compreso nell'intervallo previsto per i punteggi. Questo risultato non comporta l'esito negativo del servizio.
+Sommando i punteggi premio, la tua ricompensa finale potrebbe non essere compresa nell'intervallo di punteggio previsto. Questo risultato non comporta l'esito negativo del servizio.
 
 ## <a name="best-practices-for-calculating-reward-score"></a>Procedure consigliate per il calcolo del punteggio di ricompensa
 
-* **Prendere in considerazione i veri indicatori di personalizzazione**: è facile pensare in termini di clic, ma una buona ricompensa si basa su ciò che si vuole che gli utenti *ottengano* invece di ciò che si vuole *fare*.  Il calcolo delle ricompense in base ai clic, ad esempio, può determinare la selezione di contenuto soggetto a clickbait.
+* **Considerare i veri indicatori di personalizzazione di successo**: E 'facile pensare in termini di clic, ma una buona ricompensa si basa su ciò che si desidera che gli utenti a *raggiungere* invece di quello che si desidera che le persone a *fare*.  Il calcolo delle ricompense in base ai clic, ad esempio, può determinare la selezione di contenuto soggetto a clickbait.
 
-* **Usare un punteggio di ricompensa per il corretto funzionamento della personalizzazione**: la personalizzazione di un suggerimento cinematografico può comportare l'osservazione del film da parte dell'utente e l'assegnazione di un rating elevato. Poiché la valutazione del film dipende probabilmente da molti fattori (la qualità della recitazione, lo stato d'animo dell'utente), non è un segnale di ricompensa appropriato per il funzionamento della *personalizzazione*. Il fatto che l'utente guardi i primi minuti del film, tuttavia, può essere un segnale migliore dell'efficacia della personalizzazione e l'invio di una ricompensa pari a 1 dopo cinque minuti sarà un segnale migliore.
+* **Utilizzare un punteggio di ricompensa per quanto bene la personalizzazione ha funzionato**: Personalizzazione di un suggerimento di film si spera si tradurrà in l'utente a guardare il film e dandogli una valutazione elevata. Poiché la valutazione del film dipende probabilmente da molti fattori (la qualità della recitazione, lo stato d'animo dell'utente), non è un segnale di ricompensa appropriato per il funzionamento della *personalizzazione*. Il fatto che l'utente guardi i primi minuti del film, tuttavia, può essere un segnale migliore dell'efficacia della personalizzazione e l'invio di una ricompensa pari a 1 dopo cinque minuti sarà un segnale migliore.
 
-* I **vantaggi si applicano solo a RewardActionID**: il Personalizzatore applica i premi per comprendere l'efficacia dell'azione specificata in RewardActionID. Se si sceglie di visualizzare altre azioni e l'utente fa clic su di esse, la ricompensa deve essere pari a zero.
+* **Le ricompense si applicano solo a RewardActionID:** il programma di visualizzazione applica i premi per comprendere l'efficacia dell'azione specificata in RewardActionID. Se si sceglie di visualizzare altre azioni e l'utente fa clic su di esse, la ricompensa deve essere pari a zero.
 
-* **Prendere in considerazione le conseguenze impreviste**: creare funzioni Reward che consentano di ottenere risultati responsabili con l' [etica e l'uso responsabile](ethics-responsible-use.md).
+* **Considerare le conseguenze indesiderate**: Creare funzioni di ricompensa che portano a risultati responsabili con [etica e uso responsabile](ethics-responsible-use.md).
 
-* **Usare i vantaggi incrementali**: l'aggiunta di premi parziali per i comportamenti degli utenti più piccoli aiuta la personalizzazione a ottenere migliori vantaggi. La ricompensa incrementale consente all'algoritmo di capire che si sta avvicinando all'obiettivo di indurre nell'utente il comportamento desiderato finale.
+* **Utilizzare ricompense incrementali**: L'aggiunta di ricompense parziali per comportamenti degli utenti più piccoli aiuta il Personalizer a ottenere ricompense migliori. La ricompensa incrementale consente all'algoritmo di capire che si sta avvicinando all'obiettivo di indurre nell'utente il comportamento desiderato finale.
     * Se si mostra un elenco di film e l'utente passa il puntatore del mouse sul primo per un periodo di tempo e visualizza altre informazioni, è possibile determinare che si è verificato un engagement dell'utente. Al comportamento può essere assegnato un punteggio di ricompensa pari a 0,1.
     * Se l'utente ha aperto la pagina per poi uscire, il punteggio di ricompensa può essere di 0,2.
 

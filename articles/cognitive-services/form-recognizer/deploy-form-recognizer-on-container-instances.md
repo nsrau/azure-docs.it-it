@@ -1,7 +1,7 @@
 ---
-title: Esegui il contenitore del riconoscitore del modulo nelle istanze di contenitore di Azure
+title: Eseguire il contenitore del sistema di riconoscimento dei moduli nelle istanze del contenitore di AzureRun Form Recognizer container in Azure Container Instances
 titleSuffix: Azure Cognitive Services
-description: Distribuire il contenitore Recognizer form in un'istanza di contenitore di Azure e testarlo in un Web browser.
+description: Distribuire il contenitore Del sistema di riconoscimento dei moduli in un'istanza del contenitore di Azure e testarlo in un Web browser.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: dapine
 ms.openlocfilehash: 9a3456eb4d30aa8d163488f558b571dd97c73bf4
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77605109"
 ---
-# <a name="deploy-the-form-recognizer-container-to-azure-container-instances"></a>Distribuire il contenitore dei form Recognizer in istanze di contenitore di Azure
+# <a name="deploy-the-form-recognizer-container-to-azure-container-instances"></a>Distribuire il contenitore del sistema di riconoscimento dei moduli nelle istanze del contenitore di AzureDeploy the Form Recognizer container to Azure Container Instances
 
-Informazioni su come distribuire il contenitore del sistema di [riconoscimento dei moduli](form-recognizer-container-howto.md) di servizi cognitivi in [istanze di contenitore](https://docs.microsoft.com/azure/container-instances/)di Azure. Questa procedura illustra la creazione di una risorsa di riconoscimento di un modulo di Azure. Viene quindi illustrato il pull dell'immagine del contenitore associata. Infine, viene evidenziata la possibilità di eseguire l'orchestrazione dei due da un browser. L'uso dei contenitori può spostare l'attenzione degli sviluppatori fuori dalla gestione dell'infrastruttura per concentrarsi invece sullo sviluppo di applicazioni.
+Informazioni su come distribuire il contenitore [Riconoscitore moduli](form-recognizer-container-howto.md) di Servizi cognitivi in [Istanze del contenitore](https://docs.microsoft.com/azure/container-instances/)di Azure. Questa procedura illustra la creazione di una risorsa Riconoscitore moduli di Azure.This procedure demonstrates the creation of an Azure Form Recognizer resource. Quindi viene illustrato il pull dell'immagine contenitore associata. Infine, evidenziamo la possibilità di esercitare l'orchestrazione dei due da un browser. L'utilizzo dei contenitori può spostare l'attenzione degli sviluppatori dalla gestione dell'infrastruttura al contrario concentrandosi sullo sviluppo di applicazioni.
 
 > [!IMPORTANT]
-> I contenitori di riconoscimento form utilizzano attualmente la versione 1,0 dell'API di riconoscimento form. È possibile accedere alla versione più recente dell'API usando invece il servizio gestito.
+> I contenitori del sistema di riconoscimento dei moduli utilizzano attualmente la versione 1.0 dell'API del riconoscimento dei moduli. È possibile accedere alla versione più recente dell'API usando invece il servizio gestito.
 
 [!INCLUDE [Prerequisites](../containers/includes/container-preview-prerequisites.md)]
 

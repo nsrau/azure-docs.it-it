@@ -11,16 +11,16 @@ ms.subservice: language-understanding
 ms.topic: include
 ms.author: diberry
 ms.openlocfilehash: 8fd7f23235dbd94ee8d20aa693ec5b659cb6d64d
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77279643"
 ---
-La gestione dei contributi dai collaboratori dipende dallo stato corrente dell'app.
+La gestione dei contributi dei collaboratori dipende dallo stato corrente dell'app.
 
-**Per la creazione di app [migrate delle risorse](../luis-migration-authoring.md)** : i _collaboratori_ vengono gestiti nel portale di Azure per la risorsa di creazione, usando la pagina **controllo di accesso (IAM)** . Aggiungere un utente, usando l'indirizzo di posta elettronica del collaboratore e il ruolo _collaboratore_ .
+**Per le app [migrate](../luis-migration-authoring.md) **delle risorse di creazione: _i collaboratori_ vengono gestiti nel portale di Azure per la risorsa di creazione, usando la pagina Controllo di **accesso (IAM).** Aggiungere un utente utilizzando l'indirizzo di posta elettronica del collaboratore e il ruolo _di collaboratore._
 
-**Per le app di cui non è ancora stata eseguita la migrazione**: tutti i _collaboratori_ vengono gestiti nel portale Luis dalla pagina dei **collaboratori di gestione >** di ogni app. In questa pagina [aggiungere l'indirizzo di posta elettronica di un utente](../luis-how-to-collaborate.md). Questa operazione consente di creare solo l'accesso a questa app.
+**Per le app di cui non è ancora stata eseguita la migrazione:** tutti i collaboratori vengono _gestiti_ nel portale LUIS dalla pagina **Gestisci-> Collaboratori di** ogni app. In questa pagina [aggiungere l'indirizzo di posta elettronica di un utente.](../luis-how-to-collaborate.md) In questo modo si accede solo a questa app.
 
 

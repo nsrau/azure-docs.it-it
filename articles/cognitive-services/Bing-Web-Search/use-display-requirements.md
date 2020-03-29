@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: aahi
 ms.openlocfilehash: 5575668f164b97142e7c4b2ddb2608c3173426a6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "60499886"
 ---
 # <a name="bing-search-api-use-and-display-requirements"></a>Requisiti per l'uso e la visualizzazione delle API di ricerca Bing
@@ -34,7 +34,7 @@ Questi requisiti per l'uso e la visualizzazione si applicano a qualsiasi impleme
 ## <a name="definitions"></a>Definizioni
 
 
-|Nome  |Descrizione  |
+|Termine  |Descrizione  |
 |---------|---------|
 |Risposta     | Una categoria di risultati restituiti in una risposta. Una risposta dell'API Ricerca Web Bing può ad esempio includere riscontri delle categorie pagine Web, immagini, video e notizie. |
 |Risposta     | Tutti i riscontri e i dati associati ricevuti in risposta a una singola chiamata a un'API di ricerca. |
@@ -99,7 +99,7 @@ Non:
 ### <a name="notices-and-branding"></a>Informative e marchio 
 Eseguire queste operazioni:
 
-- Includere in posizione prominente un collegamento ipertestuale funzionante all'[informativa sulla privacy Microsoft](https://go.microsoft.com/fwlink/?LinkId=521839), nelle vicinanze di qualsiasi punto nell'esperienza utente che offre all'utente la possibilità di immettere una query di ricerca. Assegnare l'etichetta **Informativa sulla privacy Microsoft** al collegamento ipertestuale.
+- Includere in posizione prominente un collegamento ipertestuale funzionante all'[informativa sulla privacy Microsoft](https://go.microsoft.com/fwlink/?LinkId=521839), nelle vicinanze di qualsiasi punto nell'esperienza utente che offre all'utente la possibilità di immettere una query di ricerca. Etichettare il collegamento ipertestuale **Informativa sulla privacy microsoft**.
 
 - Visualizzare in posizione prominente il marchio Bing, coerentemente con le [linee guida per l'utilizzo del marchio Bing](https://go.microsoft.com/fwlink/?linkid=833278), nelle vicinanze di qualsiasi punto nell'esperienza utente che offre all'utente la possibilità di immettere una query di ricerca. Le informazioni di marchio devono indicare chiaramente all'utente che l'esperienza di ricerca Internet è offerta e gestita da Microsoft.
 

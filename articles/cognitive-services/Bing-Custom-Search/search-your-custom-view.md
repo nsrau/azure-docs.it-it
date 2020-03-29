@@ -11,38 +11,38 @@ ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: aahi
 ms.openlocfilehash: f00ffee47e3eb6366d632d8b6ee9beb01f048442
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "76983113"
 ---
 # <a name="call-your-bing-custom-search-instance-from-the-portal"></a>Chiamare l'istanza di Ricerca personalizzata Bing dal portale
 
 Dopo aver configurato l'esperienza di ricerca personalizzata, è possibile testarla dall'interno del [portale](https://customsearch.ai) di Ricerca personalizzata Bing. 
 
-![screenshot del portale di ricerca personalizzata Bing](media/portal-search-screen.png)
+![schermata del portale di ricerca personalizzato bing](media/portal-search-screen.png)
 ## <a name="create-a-search-query"></a>Creare una query di ricerca 
 
-Dopo aver effettuato l'accesso al [portale](https://customsearch.ai)di ricerca personalizzata Bing, selezionare l'istanza di ricerca e fare clic sulla scheda **produzione** . In **endpoint**selezionare un endpoint API, ad esempio API Web. La sottoscrizione determina quali endpoint vengono visualizzati.
+Dopo aver eseguito l'accesso al [portale](https://customsearch.ai)di ricerca personalizzata Bing , selezionare l'istanza di ricerca e fare clic sulla scheda **Produzione.** In **Endpoint**selezionare un endpoint API, ad esempio API Web. La sottoscrizione determina quali endpoint vengono visualizzati.
 
-Per creare una query di ricerca, immettere i valori dei parametri per l'endpoint. Si noti che i parametri visualizzati nel portale possono cambiare a seconda dell'endpoint scelto. Per ulteriori informazioni, vedere il [riferimento API ricerca personalizzata](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters) . Per modificare la sottoscrizione utilizzata dall'istanza di ricerca, aggiungere la chiave di sottoscrizione appropriata e aggiornare i parametri di mercato e/o lingua appropriati.
+Per creare una query di ricerca, immettere i valori dei parametri per l'endpoint. Si noti che i parametri visualizzati nel portale possono cambiare a seconda dell'endpoint scelto. Per altre informazioni, vedere le informazioni di [riferimento sull'API di ricerca personalizzata.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters) Per modificare la sottoscrizione utilizzata dall'istanza di ricerca, aggiungere la chiave di sottoscrizione appropriata e aggiornare i parametri di mercato e/o della lingua appropriati.
 
 Alcuni parametri importanti sono i seguenti:
 
 
-|Parametro  |Description  |
+|Parametro  |Descrizione  |
 |---------|---------|
 |Query     | Il termine da cercare. Disponibile solo per gli endpoint Web, Image e Autosuggest |
 |ID di configurazione personalizzato | L'ID di configurazione dell'istanza di Ricerca personalizzata selezionata. Questo campo è di sola lettura. |
-|Commercializzazione     | Il mercato da cui deriveranno i risultati. Disponibile solo per gli endpoint Web, Image, Video e Hosted UI.        |
+|Market     | Il mercato da cui deriveranno i risultati. Disponibile solo per gli endpoint Web, Image, Video e Hosted UI.        |
 |Chiave di sottoscrizione | La chiave di sottoscrizione con cui eseguire il test. È possibile selezionare una chiave nell'elenco a discesa o immetterla manualmente.          |
 
 Facendo clic su **Parametri aggiuntivi** vengono visualizzati i parametri seguenti:  
 
-|Parametro  |Description  |
+|Parametro  |Descrizione  |
 |---------|---------|
-|Ricerca sicura     | Un filtro utilizzato per filtrare le pagine Web per il contenuto per adulti. Disponibile solo per gli endpoint Web, Image, Video e Hosted UI. Si noti che Bing Custom Ricerca video supporta solo due valori: `moderate` e `strict`.        |
+|Ricerca sicura     | Un filtro utilizzato per filtrare le pagine Web per il contenuto per adulti. Disponibile solo per gli endpoint Web, Image, Video e Hosted UI. Si noti che Ricerca video personalizzata Bing supporta solo due valori: `moderate` e `strict`.        |
 |Lingua dell'interfaccia utente    | La lingua utilizzata per le stringhe dell'interfaccia utente. Ad esempio, se si abilitano immagini e video nell'Hosted UI, le schede**Image** e **Video** usano la lingua specificata.        |
 |Conteggio     | Il numero di risultati della ricerca da restituire nella risposta. Disponibile solo per gli endpoint Web, Image e Video.         |
 |Offset    | Il numero di risultati della ricerca da ignorare prima di restituire i risultati. Disponibile solo per gli endpoint Web, Image e Video.        |
@@ -51,7 +51,7 @@ Dopo aver specificato tutte le opzioni necessarie, fare clic su **Call** per vis
 
 ## <a name="change-your-bing-custom-search-subscription"></a>Modificare la sottoscrizione di Ricerca personalizzata Bing
 
-È possibile modificare la sottoscrizione associata all'istanza di Ricerca personalizzata Bing senza creare una nuova istanza. Per fare in modo che le chiamate API vengano inviate e addebitate a una nuova sottoscrizione, creare una nuova risorsa Ricerca personalizzata Bing nel portale di Azure. Usare la nuova chiave di sottoscrizione nelle richieste API, insieme all'ID configurazione personalizzata dell'istanza.
+È possibile modificare la sottoscrizione associata all'istanza di Ricerca personalizzata Bing senza creare una nuova istanza. Per fare in modo che le chiamate API vengano inviate e addebitate a una nuova sottoscrizione, creare una nuova risorsa Ricerca personalizzata Bing nel portale di Azure.To have API calls sent and charged to a new subscription, create a new Bing Custom Search resource in the Azure portal. Usare la nuova chiave di sottoscrizione nelle richieste API, insieme all'ID di configurazione personalizzato dell'istanza.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

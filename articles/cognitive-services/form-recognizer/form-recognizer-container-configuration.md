@@ -1,5 +1,5 @@
 ---
-title: Come configurare un contenitore per il riconoscimento del modulo
+title: Come configurare un contenitore per Il sistema di riconoscimento dei moduliHow to configure a container for Form Recognizer
 titleSuffix: Azure Cognitive Services
 description: Informazioni su come configurare il contenitore Riconoscimento modulo per analizzare i dati di moduli e tabelle.
 author: IEvangelist
@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 11/07/2019
 ms.author: dapine
 ms.openlocfilehash: 5439ec0c0aab5b8c127b651147e4b25d27c58390
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75379624"
 ---
 # <a name="configure-form-recognizer-containers"></a>Configurare i contenitori di Riconoscimento modulo
@@ -23,14 +23,14 @@ I contenitori di Riconoscimento modulo di Azure consentono di creare un'architet
 Per configurare l'ambiente di runtime dei contenitori di Riconoscimento modulo, si usano gli argomenti del comando `docker run`. Questo contenitore prevede diverse impostazioni obbligatorie e alcune facoltative. Per alcuni esempi, vedere la sezione ["Comandi docker run di esempio"](#example-docker-run-commands). Le impostazioni specifiche del contenitore sono le impostazioni di fatturazione.
 
 > [!IMPORTANT]
-> I contenitori di riconoscimento form utilizzano attualmente la versione 1,0 dell'API di riconoscimento form. È possibile accedere alla versione più recente dell'API usando invece il servizio gestito.
+> I contenitori del sistema di riconoscimento dei moduli utilizzano attualmente la versione 1.0 dell'API del riconoscimento dei moduli. È possibile accedere alla versione più recente dell'API usando invece il servizio gestito.
 
 ## <a name="configuration-settings"></a>Impostazioni di configurazione
 
 [!INCLUDE [Container shared configuration settings table](../../../includes/cognitive-services-containers-configuration-shared-settings-table.md)]
 
 > [!IMPORTANT]
-> Le impostazioni [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting) e [`Eula`](#eula-setting) vengono usate insieme. È necessario specificare valori validi per tutte e tre, altrimenti il contenitore non verrà avviato. Per altre informazioni sull'uso di queste impostazioni di configurazione per creare un'istanza di un contenitore, vedere [Billing](form-recognizer-container-howto.md#billing) (Fatturazione).
+> Le [`ApiKey`](#apikey-configuration-setting) [`Billing`](#billing-configuration-setting)impostazioni [`Eula`](#eula-setting) , e vengono utilizzate insieme. È necessario specificare valori validi per tutte e tre, altrimenti il contenitore non verrà avviato. Per altre informazioni sull'uso di queste impostazioni di configurazione per creare un'istanza di un contenitore, vedere [Billing](form-recognizer-container-howto.md#billing) (Fatturazione).
 
 ## <a name="apikey-configuration-setting"></a>Impostazione di configurazione ApiKey
 
@@ -48,9 +48,9 @@ L'impostazione `Billing` specifica l'URI dell'endpoint della risorsa di _Riconos
 
 Questa impostazione si trova nel portale di Azure, nella sezione **Endpoint** di **Form Recognizer Overview** (Panoramica di Riconoscimento modulo).
 
-|Obbligatorio| Nome | Tipo di dati | Description |
+|Obbligatoria| Nome | Tipo di dati | Descrizione |
 |--|------|-----------|-------------|
-|Sì| `Billing` | string | URI dell'endpoint di fatturazione. Per ulteriori informazioni su come ottenere l'URI di fatturazione, vedere [raccolta dei parametri obbligatori](form-recognizer-container-howto.md#gathering-required-parameters). Per altre informazioni e per un elenco completo degli endpoint a livello di area, vedere [Nomi di sottodomini personalizzati per Servizi cognitivi](../cognitive-services-custom-subdomains.md). |
+|Sì| `Billing` | string | URI dell'endpoint di fatturazione. Per ulteriori informazioni su come ottenere l'URI di fatturazione, vedere [Raccolta dei parametri obbligatori](form-recognizer-container-howto.md#gathering-required-parameters). Per altre informazioni e per un elenco completo degli endpoint a livello di area, vedere [Nomi di sottodomini personalizzati per Servizi cognitivi](../cognitive-services-custom-subdomains.md). |
 
 ## <a name="eula-setting"></a>Impostazione Eula
 
@@ -71,34 +71,34 @@ Questa impostazione si trova nel portale di Azure, nella sezione **Endpoint** di
 
 ## <a name="mount-settings"></a>Impostazioni di montaggio
 
-Usare montaggi di associazione per leggere e scrivere dati da e verso il contenitore. È possibile specificare un montaggio di input o di output specificando l'opzione `--mount` nel comando [`docker run`](https://docs.docker.com/engine/reference/commandline/run/).
+Usare montaggi di associazione per leggere e scrivere dati da e verso il contenitore. È possibile specificare un montaggio di `--mount` input o un montaggio di output specificando l'opzione nel [ `docker run` comando](https://docs.docker.com/engine/reference/commandline/run/).
 
 Per il contenitore di Riconoscimento modulo è necessario un montaggio di input e un montaggio di output. Il montaggio di input può essere di sola lettura ed è necessario per accedere ai dati usati per il training e l'assegnazione del punteggio. Il montaggio di output deve essere accessibile in scrittura e viene usato per archiviare i modelli e i dati temporanei.
 
 La sintassi esatta della posizione di montaggio host varia a seconda del sistema operativo host. Inoltre, il percorso di montaggio del [computer host](form-recognizer-container-howto.md#the-host-computer) potrebbe non essere accessibile a causa di un conflitto tra le autorizzazioni dell'account del servizio Docker e le autorizzazioni del percorso di montaggio dell'host.
 
-|Facoltativo| Nome | Tipo di dati | Description |
+|Facoltativo| Nome | Tipo di dati | Descrizione |
 |-------|------|-----------|-------------|
-|Obbligatorio| `Input` | string | Destinazione del montaggio di input. Il valore predefinito è `/input`.    <br><br>Esempio:<br>`--mount type=bind,src=c:\input,target=/input`|
-|Obbligatorio| `Output` | string | Destinazione del montaggio di output. Il valore predefinito è `/output`.  <br><br>Esempio:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Obbligatoria| `Input` | string | Destinazione del montaggio di input. Il valore predefinito è `/input`.    <br><br>Esempio:<br>`--mount type=bind,src=c:\input,target=/input`|
+|Obbligatoria| `Output` | string | Destinazione del montaggio di output. Il valore predefinito è `/output`.  <br><br>Esempio:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Comandi docker run di esempio
 
 Gli esempi seguenti usano le impostazioni di configurazione per illustrare come scrivere e usare i comandi `docker run`. Una volta avviata, l'esecuzione del contenitore continua finché non la si [arresta](form-recognizer-container-howto.md#stop-the-container).
 
-* **Carattere di continuazione di riga**: i comandi di Docker nelle sezioni seguenti usano una barra rovesciata (\\) come carattere di continuazione di riga. Sostituire o rimuovere questo carattere in base ai requisiti del sistema operativo host.
-* **Ordine**degli argomenti: non modificare l'ordine degli argomenti a meno che non si abbia familiarità con i contenitori docker.
+* **Carattere di continuazione di**riga: i comandi Docker nelle sezioni seguenti utilizzano una barra rovesciata (\\) come carattere di continuazione di riga. Sostituire o rimuovere questo carattere in base ai requisiti del sistema operativo host.
+* **Ordine degli argomenti**: Non modificare l'ordine degli argomenti a meno che non si abbia familiarità con i contenitori Docker.
 
 Sostituire {_argument_name_} nella tabella seguente con i propri valori:
 
-| Segnaposto | Valore |
+| Segnaposto | valore |
 |-------------|-------|
-| **{FORM_RECOGNIZER_API_KEY}** | La chiave usata per avviare il contenitore. È disponibile nella pagina Form Recognizer Keys (Chiavi di Riconoscimento modulo) del portale di Azure. |
-| **{FORM_RECOGNIZER_ENDPOINT_URI}** | Il valore dell'URI dell'endpoint di fatturazione è disponibile nella pagina Form Recognizer Overview (Panoramica di Riconoscimento modulo) del portale di Azure.|
+| **FORM_RECOGNIZER_API_KEY di lavoro.** | La chiave usata per avviare il contenitore. È disponibile nella pagina Form Recognizer Keys (Chiavi di Riconoscimento modulo) del portale di Azure. |
+| **FORM_RECOGNIZER_ENDPOINT_URI'** | Il valore dell'URI dell'endpoint di fatturazione è disponibile nella pagina Form Recognizer Overview (Panoramica di Riconoscimento modulo) del portale di Azure.|
 | **{COMPUTER_VISION_API_KEY}** | La chiave è disponibile nella pagina Computer Vision API Keys (Chiavi dell'API Visione artificiale) del portale di Azure.|
-| **{COMPUTER_VISION_ENDPOINT_URI}** | L'endpoint di fatturazione. Se si usa una risorsa di Visione artificiale basata sul cloud, il valore dell'URI è disponibile nella pagina Computer Vision API Overview (Panoramica dell'API Visione artificiale) del portale di Azure. Se si usa un contenitore *cognitive-Services-Recognize-text* , usare l'URL dell'endpoint di fatturazione passato al contenitore nel comando `docker run`. |
+| **{COMPUTER_VISION_ENDPOINT_URI}** | L'endpoint di fatturazione. Se si usa una risorsa di Visione artificiale basata sul cloud, il valore dell'URI è disponibile nella pagina Computer Vision API Overview (Panoramica dell'API Visione artificiale) del portale di Azure. Se si usa un contenitore di *testo cognitivo-servizi-riconoscimento,* usare l'URL `docker run` dell'endpoint di fatturazione passato al contenitore nel comando. |
 
-Per informazioni dettagliate su come ottenere questi valori, vedere [raccolta dei parametri obbligatori](form-recognizer-container-howto.md#gathering-required-parameters) .
+Vedere [la raccolta dei parametri obbligatori](form-recognizer-container-howto.md#gathering-required-parameters) per informazioni dettagliate su come ottenere questi valori.
 
 [!INCLUDE [cognitive-services-custom-subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 

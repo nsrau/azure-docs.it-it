@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: diberry
 ms.openlocfilehash: 4b6d954d06f09bef5240bddc4860ddbc83513d69
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79220853"
 ---
 # <a name="language-and-region-support-for-luis"></a>Supporto di lingua e area geografica per LUIS
@@ -30,10 +30,10 @@ Se occorre un'applicazione client LUIS multilingue come una chatbot, sono dispon
 
 LUIS riconosce espressioni nelle lingue seguenti:
 
-| Lingua: |Impostazioni locali  |  Dominio predefinito | Entità predefinita | Raccomandazioni elenco frasi | \**[Analisi del testo](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Valutazione e<br>parole chiave)|
+| Linguaggio |Impostazioni locali  |  Dominio predefinito | Entità predefinita | Consigli per l'elenco delle frasi | **[Analisi del testo](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Valutazione e<br>parole chiave)|
 |--|--|:--:|:--:|:--:|:--:|
 | Inglese americano |`en-US` | ✔ | ✔  |✔|✔|
-| Arabo (anteprima-arabo standard moderno) |`ar-AR`|-|-|-|-|
+| Arabo (anteprima - moderno arabo standard) |`ar-AR`|-|-|-|-|
 | *[Cinese](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
 | Olandese |`nl-NL` |✔|  -   |-|✔|
 | Francese (Francia) |`fr-FR` |✔| ✔ |✔ |✔|
@@ -77,7 +77,7 @@ Le lingue ibride combinano parole di due culture come l'inglese e il cinese. Que
 ## <a name="tokenization"></a>Tokenizzazione
 Per eseguire l'apprendimento automatico, LUIS suddivide un’espressione in [token](luis-glossary.md#token) basati sulla cultura.
 
-|Lingua:|  ogni spazio o carattere speciale | livello di caratteri|parole composte|[entità in formato token restituita](luis-concept-data-extraction.md#tokenized-entity-returned)
+|Linguaggio|  ogni spazio o carattere speciale | livello di caratteri|parole composte|[entità in token restituita](luis-concept-data-extraction.md#tokenized-entity-returned)
 |--|:--:|:--:|:--:|:--:|
 |Arabo|||||
 |Cinese||✔||✔|
@@ -94,16 +94,16 @@ Per eseguire l'apprendimento automatico, LUIS suddivide un’espressione in [tok
 |Spagnolo (es-ES)|✔||||
 |Spagnolo (es-MX)|✔||||
 
-### <a name="custom-tokenizer-versions"></a>Versioni personalizzate di Tokenizer
+### <a name="custom-tokenizer-versions"></a>Versioni di tokenizer personalizzate
 
-Le impostazioni cultura seguenti includono versioni Tokenizer personalizzate:
+Le impostazioni cultura seguenti hanno versioni di tokenizer personalizzate:The following cultures have custom tokenizer versions:
 
 |Impostazioni cultura|Versione|Scopo|
 |--|--|--|
-|Tedesco<br>`de-de`|1.0.0|Suddivide in token le parole suddividendo le parole usando un tokenizer basato su Machine Learning che tenta di suddividere le parole composite nei singoli componenti.<br>Se un utente immette `Ich fahre einen krankenwagen` come espressione, viene convertito in `Ich fahre einen kranken wagen`. Consente di contrassegnare `kranken` e `wagen` in modo indipendente come entità diverse.|
-|Tedesco<br>`de-de`|1.0.2|Suddivide in token le parole suddividendo gli spazi in spazi.<br> Se un utente immette `Ich fahre einen krankenwagen` come espressione, rimane un singolo token. Pertanto `krankenwagen` è contrassegnato come una singola entità. |
+|Tedesco<br>`de-de`|1.0.0|Tokenizza le parole suddividendole usando un tokenizer basato sull'apprendimento automatico che tenta di suddividere le parole composite nei singoli componenti.<br>Se un utente `Ich fahre einen krankenwagen` immette come espressione, questa `Ich fahre einen kranken wagen`viene trasformata in . Consentire la `kranken` marcatura di e `wagen` in modo indipendente come entità diverse.|
+|Tedesco<br>`de-de`|1.0.2|Tonizza le parole suddividendole negli spazi.<br> se un utente `Ich fahre einen krankenwagen` immette come espressione, rimane un singolo token. Pertanto, `krankenwagen` viene contrassegnata come una singola entità. |
 
-### <a name="migrating-between-tokenizer-versions"></a>Migrazione tra versioni di Tokenizer
+### <a name="migrating-between-tokenizer-versions"></a>Migrazione tra versioni di tokenizerMigrating between tokenizer versions
 <!--
 Your first choice is to change the tokenizer version in the app file, then import the version. This action changes how the utterances are tokenized but allows you to keep the same app ID.
 
@@ -206,6 +206,6 @@ Tokenizer JSON for version 1.0.1. Notice the property value for  `tokenizerVersi
 ```
 -->
 
-La suddivisione in token viene eseguita a livello di app. Non è disponibile alcun supporto per la suddivisione in token a livello di versione.
+La tokenizzazione avviene a livello di app. Non è disponibile alcun supporto per la tokenizzazione a livello di versione.
 
-[Importare il file come una nuova app](luis-how-to-start-new-app.md), anziché una versione. Questa azione indica che la nuova app ha un ID app diverso, ma usa la versione di Tokenizer specificata nel file.
+[Importa il file come nuova app,](luis-how-to-start-new-app.md)anziché come versione. Questa azione indica che la nuova app ha un ID app diverso, ma usa la versione del tokenizer specificata nel file.

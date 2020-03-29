@@ -1,7 +1,7 @@
 ---
-title: Linee guida per la denominazione delle parole chiave-servizio vocale
+title: Linee guida per la denominazione delle parole chiave - Servizio di riconoscimento vocale
 titleSuffix: Azure Cognitive Services
-description: La creazione di una parola chiave efficace è essenziale per garantire che il dispositivo risponda in modo coerente e accurato.
+description: Creare una parola chiave efficace è fondamentale per garantire che il dispositivo risponda in modo coerente e accurato.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -11,33 +11,33 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: dapine
 ms.openlocfilehash: 1d363f9f6f9cb5b1ea28e6ae15a9cef857304cab
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79370679"
 ---
 # <a name="guidelines-for-creating-an-effective-keyword"></a>Linee guida per la creazione di una parola chiave efficace
 
-La creazione di una parola chiave efficace è essenziale per garantire che il dispositivo risponda in modo coerente e accurato. Personalizzare la parola chiave è un modo efficace per distinguere il dispositivo e rafforzare la personalizzazione. In questo articolo vengono illustrati alcuni principi guida per la creazione di una parola chiave efficace.
+Creare una parola chiave efficace è fondamentale per garantire che il dispositivo risponda in modo coerente e accurato. Personalizzare la parola chiave è un modo efficace per differenziare il tuo dispositivo e rafforzare il tuo branding. In questo articolo vengono apprendi alcuni principi guida per la creazione di una parola chiave efficace.
 
-## <a name="choose-an-effective-keyword"></a>Scegliere una parola chiave valida
+## <a name="choose-an-effective-keyword"></a>Scegli una parola chiave efficace
 
-Quando si sceglie una parola chiave, tenere presenti le linee guida seguenti:
+Quando scegli una parola chiave, segui le linee guida seguenti:
 
 > [!div class="checklist"]
 > * La parola chiave deve essere una parola o una frase in inglese.
 > * Per pronunciarla, non devono servire più di due secondi.
-> * Le parole composte da 4-7 sillabe sono ottimali. Ad esempio, "Hey, computer" è una parola chiave corretta. "Ehi" è una parola inappropriata.
-> * Le parole chiave devono seguire le regole comuni di pronuncia della lingua inglese.
-> * Una parola particolare o addirittura inventata che segue le normali regole di pronuncia italiana potrebbe ridurre i falsi positivi. Ad esempio, "computerama" potrebbe essere una parola chiave corretta.
+> * Le parole composte da 4-7 sillabe sono ottimali. Ad esempio, "Ehi, Computer" è una buona parola chiave. "Ehi" è una parola inappropriata.
+> * Le parole chiave devono seguire le regole comuni di pronuncia inglese.
+> * Una parola particolare o addirittura inventata che segue le normali regole di pronuncia italiana potrebbe ridurre i falsi positivi. Ad esempio, "computerama" potrebbe essere una buona parola chiave.
 > * Non scegliere una parola comune. Ad esempio, "mangiare" e "andare" sono parole che le persone ripetono spesso parlando normalmente e potrebbero essere falsi trigger per il dispositivo.
-> * Evitare di usare una parola chiave che potrebbe avere pronunce alternative. Gli utenti dovranno conoscere la pronuncia "corretta" per fare in modo che il dispositivo risponda. Ad esempio, "509" può essere pronunciato "cinquecentonove", "cinque zero nove" o "cinquecento nove". "U.F.O." può essere pronunciato "U-F-O" oppure "ufo". "Ancora" può essere pronunciata "àncora" o "ancóra".
-> * Non usare caratteri speciali, simboli o cifre. Ad esempio, "go #" e "20 + Cats" potrebbero essere parole chiave problematiche. mentre "vai euro" o "venti più gatti" possono andare bene. È comunque possibile usare i simboli nella personalizzazione e usare il marketing e la documentazione per ribadire la pronuncia corretta.
+> * Evitare di usare una parola chiave che potrebbe avere pronunciazioni alternative. Gli utenti dovranno conoscere la pronuncia "corretta" per fare in modo che il dispositivo risponda. Ad esempio, "509" può essere pronunciato "cinquecentonove", "cinque zero nove" o "cinquecento nove". "U.F.O." può essere pronunciato "U-F-O" oppure "ufo". "Ancora" può essere pronunciata "àncora" o "ancóra".
+> * Non usare caratteri speciali, simboli o cifre. Ad esempio, "Vai" e "20 gatti" potrebbero essere parole chiave problematiche. mentre "vai euro" o "venti più gatti" possono andare bene. È comunque possibile usare i simboli nella personalizzazione e usare il marketing e la documentazione per ribadire la pronuncia corretta.
 
 > [!NOTE]
-> Se si sceglie una parola con marchio come parola chiave, assicurarsi di essere proprietari del marchio o di avere l'autorizzazione del proprietario del marchio a usare la parola. Microsoft non è responsabile di eventuali problemi legali che potrebbero derivare dalla scelta della parola chiave.
+> Se scegli una parola con marchio come parola chiave, assicurati di essere il proprietario di tale marchio o di disporre dell'autorizzazione del proprietario del marchio di utilizzare la parola. Microsoft non è responsabile per eventuali problemi legali che potrebbero derivare dalla scelta della parola chiave.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni su come [creare una parola chiave personalizzata usando speech studio](speech-devices-sdk-create-kws.md).
+Informazioni su come [creare una parola chiave personalizzata utilizzando Speech Studio](speech-devices-sdk-create-kws.md).

@@ -12,10 +12,10 @@ ms.date: 09/26/2019
 ms.author: diberry
 ms.custom: seodec18
 ms.openlocfilehash: 7e1ea234bde96ce84259841bbc592bf6373bc639
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "71802800"
 ---
 # <a name="use-bot-with-qna-maker-and-luis-to-distribute-your-knowledge-base"></a>Usare bot con QnA Maker e LUIS per distribuire la knowledge base
@@ -25,25 +25,25 @@ Sebbene sia molto semplice creare più Knowledge Base in QnA Maker, sarà necess
 
 Questo articolo usa Bot Framework v3 SDK. Vedere questo [articolo su Bot Framework](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&tabs=csharp) per informazioni su Bot Framework v4 SDK.
 
-## <a name="architecture"></a>Architettura
+## <a name="architecture"></a>Architecture
 
-![QnA Maker con l'architettura Language Understanding](../media/qnamaker-tutorials-qna-luis/qnamaker-luis-architecture.PNG)
+![Architettura QnA Maker con architettura di conoscenza del linguaggio](../media/qnamaker-tutorials-qna-luis/qnamaker-luis-architecture.PNG)
 
 Nello scenario precedente, QnA Maker innanzitutto ottiene la finalità della domanda in ingresso da un modello LUIS e quindi la usa per instradare la domanda alla Knowledge Base corretta di QnA Maker.
 
 ## <a name="create-a-luis-app"></a>Creare un'app LUIS
 
-1. Accedere al portale [LUIS](https://www.luis.ai/).
+1. Accedere al portale [LUIS.](https://www.luis.ai/)
 1. [Creare un'app](https://docs.microsoft.com/azure/cognitive-services/luis/create-new-app).
 1. [Aggiungere una finalità](https://docs.microsoft.com/azure/cognitive-services/luis/add-intents) per ogni knowledge base di QnA Maker. Le espressioni di esempio devono corrispondere a domande delle knowledge base di QnA Maker.
 1. [Eseguire il training dell'app LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-train) e [pubblicare l'app LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/publishapp).
-1. Nella sezione **Gestisci** prendere nota dell'ID dell'app Luis, della chiave dell'endpoint Luis e del [nome di dominio personalizzato](../../cognitive-services-custom-subdomains.md). Questi valori saranno necessari più avanti. 
+1. Nella sezione **Gestisci** prendere nota dell'ID app LUIS, della chiave dell'endpoint LUIS e del nome di [dominio personalizzato.](../../cognitive-services-custom-subdomains.md) Questi valori saranno necessari più avanti. 
 
 ## <a name="create-qna-maker-knowledge-bases"></a>Creare knowledge base di QnA Maker
 
 1. Accedere a [QnA Maker](https://qnamaker.ai).
 1. [Creare](https://www.qnamaker.ai/Create) knowledge base per ogni finalità nell'app LUIS.
-1. Testare e pubblicare le Knowledge Base. Quando si pubblica ogni KB, prendere nota dell'ID della KB, del nome della risorsa (sottodominio personalizzato prima di _. azurewebsites.NET/qnamaker_) e della chiave dell'endpoint di autorizzazione. Questi valori saranno necessari più avanti. 
+1. Testare e pubblicare le Knowledge Base. Quando si pubblica ogni KB, prendere nota dell'ID KB, del nome della risorsa (sottodominio personalizzato prima _di .azurewebsites.net/qnamaker_) e della chiave dell'endpoint di autorizzazione. Questi valori saranno necessari più avanti. 
 
     Questo articolo presuppone che tutte le knowledge base siano create nella stessa sottoscrizione QnA Maker di Azure.
 
@@ -51,7 +51,7 @@ Nello scenario precedente, QnA Maker innanzitutto ottiene la finalità della dom
 
 ## <a name="web-app-bot"></a>Bot dell'app Web
 
-1. [Creare un bot per app Web di base](https://docs.microsoft.com/azure/bot-service/bot-service-quickstart?view=azure-bot-service-4.0) che includa automaticamente un'app Luis. Selezionare C# linguaggio di programmazione.
+1. [Creare un bot di app Web "Basic"](https://docs.microsoft.com/azure/bot-service/bot-service-quickstart?view=azure-bot-service-4.0) che includa automaticamente un'app LUIS. Selezionare il linguaggio di programmazione C.
 
 1. Dopo aver creato il bot per app Web, selezionarlo nel portale di Azure.
 1. Selezionare **Impostazione applicazione** nel menu di spostamento del servizio bot per app Web, quindi scorrere verso il basso fino alla sezione **Impostazioni applicazione** per accedere alle impostazioni disponibili.

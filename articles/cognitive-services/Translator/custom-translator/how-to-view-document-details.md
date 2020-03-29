@@ -10,10 +10,10 @@ ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
 ms.openlocfilehash: cf0d96414c40784210723e315da5d885d61198c5
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68595587"
 ---
 # <a name="view-document-details"></a>Visualizzare i dettagli del documento
@@ -27,7 +27,7 @@ Fare clic su un documento specifico per visualizzare la pagina dei relativi dett
 
 ![dettagli del documento](media/how-to/how-to-view-document-details.png)
 
-## <a name="delete-a-document"></a>Elimina un documento
+## <a name="delete-a-document"></a>Eliminare un documento
 
 L'utente deve essere il proprietario dell'area di lavoro per poter eliminare un documento. Inoltre, se il documento è usato da un modello che si trova in un punto qualsiasi del processo di training o del processo di distribuzione, tale documento non potrà essere eliminato.
 

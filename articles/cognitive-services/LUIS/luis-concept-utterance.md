@@ -1,5 +1,5 @@
 ---
-title: Espressioni di esempio valide-LUIS
+title: Espressioni di esempio valido - LUISGood example utterances - LUIS
 titleSuffix: Azure Cognitive Services
 description: Le espressioni sono gli input dell'utente che l'app ha bisogno di interpretare. Raccogliere le frasi che si ritiene verranno immesse dagli utenti. Includere espressioni con lo stesso significato ma con una costruzione diversa in termini di lunghezza e posizione delle parole.
 services: cognitive-services
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: diberry
 ms.openlocfilehash: 7412677773b60a1894a6ece7251e797bfddee091
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79219918"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Comprendere quali sono le espressioni ottimali per l'app LUIS
@@ -60,11 +60,11 @@ Considerare queste espressioni di esempio:
 |Voglio ottenere un computer, come posso fare?|
 |Quando posso ottenere un computer?| 
 
-Il termine principale qui, "computer", non è vario. Usare alternative quali computer desktop, portatile, workstation o anche solo macchina. LUIS può dedurre in modo intelligente i sinonimi dal contesto, ma quando crei espressioni per il training, è sempre meglio variare.
+Il termine principale qui, "computer", non è vario. Usare alternative quali computer desktop, portatile, workstation o anche solo macchina. LUIS può dedurre in modo intelligente i sinonimi dal contesto, ma quando si creano espressioni per il training, è sempre preferibile variarle.
 
 ## <a name="example-utterances-in-each-intent"></a>Espressioni di esempio in ogni finalità
 
-Ogni finalità deve avere almeno 15 espressioni di esempio. Se la finalità non prevede espressioni di esempio, non sarà possibile formare LUIS. Se si ha uno scopo con una o pochissime espressioni di esempio, LUIS potrebbe non prevedere accuratamente l'intento. 
+Ogni finalità deve avere almeno 15 espressioni di esempio. Se la finalità non prevede espressioni di esempio, non sarà possibile formare LUIS. Se si dispone di una finalità con una o poche espressioni di esempio, LUIS potrebbe non prevedere con precisione la finalità. 
 
 ## <a name="add-small-groups-of-15-utterances-for-each-authoring-iteration"></a>Aggiungere piccoli gruppi di 15 espressioni per ogni iterazione di creazione
 
@@ -76,21 +76,21 @@ LUIS compila modelli efficaci con espressioni selezionate con attenzione dall'au
 
 ## <a name="utterance-normalization"></a>Normalizzazione dell'espressione
 
-La normalizzazione delle espressioni è il processo di ignorare gli effetti della punteggiatura e dei segni diacritici durante il training e la stima.
+La normalizzazione dell'espressione è il processo di ignorare gli effetti della punteggiatura e dei segni diacritici durante il training e la previsione.
 
 ## <a name="utterance-normalization-for-diacritics-and-punctuation"></a>Normalizzazione dell'espressione per segni diacritici e punteggiatura
 
-La normalizzazione dell'espressione viene definita quando si crea o si importa l'app perché si tratta di un'impostazione nel file JSON dell'app. Per impostazione predefinita, le impostazioni di normalizzazione dell'espressione sono disattivate. 
+La normalizzazione dell'espressione viene definita quando crei o importi l'app perché è un'impostazione nel file JSON dell'app. Le impostazioni di normalizzazione delle espressioni sono disattivate per impostazione predefinita. 
 
-I segni diacritici sono contrassegni o segni all'interno del testo, ad esempio: 
+I segni diacritici sono segni o segni all'interno del testo, ad esempio: 
 
 ```
 İ ı Ş Ğ ş ğ ö ü
 ```
 
-Se l'app attiva la normalizzazione, i punteggi nel riquadro di **test** , i test batch e le query di endpoint cambiano per tutte le espressioni che usano segni diacritici o segni di punteggiatura.
+Se l'app attiva la normalizzazione, i punteggi nel riquadro **Test,** i test batch e le query endpoint cambieranno per tutte le espressioni usando segni diacritici o punteggiatura.
 
-Attivare la normalizzazione dell'espressione per i segni diacritici o la punteggiatura del file dell'app LUIS JSON nel parametro `settings`.
+Attivare la normalizzazione delle espressioni per i segni diacritici o la `settings` punteggiatura al file dell'app JSON LUIS nel parametro.
 
 ```JSON
 "settings": [
@@ -99,26 +99,26 @@ Attivare la normalizzazione dell'espressione per i segni diacritici o la puntegg
 ] 
 ```
 
-Normalizzare la **punteggiatura** significa che prima che i modelli vengano sottoposti a training e prima che le query dell'endpoint vengano stimate, la punteggiatura verrà rimossa dalle espressioni. 
+La normalizzazione della **punteggiatura** significa che prima che i modelli vengano sottoposti a training e prima che le query dell'endpoint vengano stimate, la punteggiatura verrà rimossa dalle espressioni. 
 
-La normalizzazione dei **segni diacritici** sostituisce i caratteri con segni diacritici in espressioni con caratteri regolari. Ad esempio: `Je parle français` diventa `Je parle francais`. 
+La normalizzazione dei **segni diacritici** sostituisce i caratteri con segni diacritici nelle espressioni con caratteri normali. Ad `Je parle français` esempio: `Je parle francais`diventa . 
 
-La normalizzazione non significa che la punteggiatura e i segni diacritici non verranno visualizzati nelle espressioni di esempio o nelle risposte di stima, semplicemente che verranno ignorate durante il training e la stima.
+La normalizzazione non significa che non vedrai punteggiatura e segni diacritici nelle espressioni di esempio o risposte di stima, semplicemente che verranno ignorati durante il training e la stima.
 
 
 ### <a name="punctuation-marks"></a>Segni di punteggiatura
 
-Punteggiatura è un token separato in LUIS. Un enunciato contenente un punto alla fine rispetto a un enunciato che non contiene un punto alla fine è costituito da due espressioni separate e può ottenere due stime diverse. 
+Punteggiatura è un token separato in LUIS. Un'espressione che contiene un periodo alla fine rispetto a un'espressione che non contiene un periodo alla fine sono due espressioni separate e possono ottenere due stime diverse. 
 
-Se la punteggiatura non viene normalizzata, LUIS non ignora i segni di punteggiatura, per impostazione predefinita, perché alcune applicazioni client possono avere importanza su questi contrassegni. Assicurarsi che le espressioni di esempio usino sia lo stile con punteggiatura sia quello senza punteggiatura, in modo che entrambi gli stili restituiscano gli stessi punteggi relativi. 
+Se la punteggiatura non è normalizzata, LUIS non ignora i segni di punteggiatura, per impostazione predefinita, perché alcune applicazioni client possono inserire significato su questi segni. Assicurarsi che le espressioni di esempio usino sia lo stile con punteggiatura sia quello senza punteggiatura, in modo che entrambi gli stili restituiscano gli stessi punteggi relativi. 
 
-Verificare che il modello gestisca la punteggiatura negli enunciati di esempio (con e senza punteggiatura) o nei [modelli](luis-concept-patterns.md) in cui è più facile ignorare la punteggiatura con la sintassi speciale: `I am applying for the {Job} position[.]`
+Verificare che il modello gestisca la punteggiatura nelle espressioni di esempio (con e senza punteggiatura) o nei [modelli](luis-concept-patterns.md) dove risulta più semplice ignorare la punteggiatura con la sintassi speciale: `I am applying for the {Job} position[.]`
 
-Se la punteggiatura non ha un significato specifico nell'applicazione client, considerare la possibilità di [ignorare la punteggiatura](#utterance-normalization) normalizzando la punteggiatura. 
+Se la punteggiatura non ha un significato specifico nell'applicazione client, è consigliabile ignorare la [punteggiatura](#utterance-normalization) normalizzando la punteggiatura. 
 
 ### <a name="ignoring-words-and-punctuation"></a>Ignorare parole e punteggiatura
 
-Se si desidera ignorare parole specifiche o segni di punteggiatura nei modelli, utilizzare un [modello](luis-concept-patterns.md#pattern-syntax) con la sintassi _Ignore_ delle parentesi quadre, `[]`. 
+Se si desidera ignorare parole o punteggiatura specifici [pattern](luis-concept-patterns.md#pattern-syntax) nei modelli, utilizzare un modello `[]`con la sintassi _ignore_ delle parentesi quadre, . 
 
 ## <a name="training-utterances"></a>Eseguire il training sulle espressioni
 

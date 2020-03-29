@@ -1,7 +1,7 @@
 ---
 title: Supporto per la lingua - API Traduzione testuale
 titleSuffix: Azure Cognitive Services
-description: Il API Traduzione testuale supporta le seguenti lingue per la traduzione da testo a testo tramite Neural Machine Translation (NMT).
+description: L'API Translator Text supporta le seguenti lingue per la traduzione da testo a testo tramite Neural Machine Translation (NMT).
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 02/10/2020
 ms.author: swmachan
 ms.openlocfilehash: a4f9833e8dd14dc7c8ec5849cb809bf2089a5dae
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77206124"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Supporto lingua e area geografica per l'API Traduzione testuale
@@ -23,32 +23,32 @@ L'API Traduzione testuale supporta le lingue seguenti per la traduzione da testo
 
 [Altre informazioni sull'uso della traduzione automatica](https://www.microsoft.com/translator/mt.aspx)
 
-## <a name="translation"></a>Conversione
+## <a name="translation"></a>Traduzione
 
 **API Traduzione V2**
 
 > [!NOTE]
-> V2 è stato deprecato il 30 aprile 2018. Eseguire la migrazione delle applicazioni a V3 per sfruttare i vantaggi delle nuove funzionalità disponibili esclusivamente in V3.
+> V2 è stato deprecato il 30 aprile 2018. Eseguire la migrazione delle applicazioni a V3 per sfruttare le nuove funzionalità disponibili esclusivamente in V3.
 
-* Solo statistica: non è disponibile alcun sistema neurale per questa lingua.
-* Neural available: è disponibile un sistema neurale. Usare il parametro `category=generalnn` per accedere al sistema neurale.
-* Impostazione predefinita neurale: neurale è il sistema di conversione predefinito. Usare il parametro `category=smt` per accedere al sistema statistico per l'uso con l'Hub di Microsoft Translator.
+* Solo statistiche: nessun sistema neurale è disponibile per questa lingua.
+* Neurale disponibile: È disponibile un sistema neurale. Usare il parametro `category=generalnn` per accedere al sistema neurale.
+* Impostazione predefinita neurale: Neural è il sistema di traduzione predefinito. Usare il parametro `category=smt` per accedere al sistema statistico per l'uso con l'Hub di Microsoft Translator.
 * Solo neurale: è disponibile solo la traduzione neurale.
 
 **API Traduzione V3** l'API Traduzione V3 è neurale per impostazione predefinita e i sistemi statistici sono disponibili solo quando non è presente alcun sistema neurale.
 
 > [!NOTE]
-> Attualmente, un sottoinsieme di linguaggi neurali è disponibile nel convertitore personalizzato e l'aggiunta di altri. [Visualizza le lingue attualmente disponibili nel convertitore personalizzato](#customization).
+> Attualmente, un sottoinsieme delle lingue neurali sono disponibili in Custom Translator e ne aggiungiamo gradualmente altre. [Visualizza le lingue attualmente disponibili in Custom Translator](#customization).
 
-|Lingua:|  Codice lingua|  API V3|
+|Linguaggio|  Codice lingua|  API V3|
 |:-----|:-----:|:-----|
 |Afrikaans| `af`|   Neurale|
 |Arabo|    `ar`    |   Neurale|
 |Bengalese|    `bn`    |   Neurale|
 |Bosniaco (latino)|   `bs`    |   Neurale|
 |Bulgaro| `bg`    |   Neurale|
-|Cantonese (tradizionale)|   `yue`|  Statistiche|
-|Catalano|   `ca`    |   Statistiche|
+|Cantonese (tradizionale)|   `yue`|  Statistica|
+|Catalano|   `ca`    |   Statistica|
 |Cinese semplificato|    `zh-Hans`|Neurale|
 |Cinese tradizionale|   `zh-Hant`       |Neurale|
 |Croato|  `hr`    |Neurale|
@@ -57,33 +57,33 @@ L'API Traduzione testuale supporta le lingue seguenti per la traduzione da testo
 |Olandese| `nl`|   Neurale|
 |Inglese|   `en`    |   Neurale|
 |Estone|  `et`    |   Neurale|
-|Figiano|    `fj`    |   Statistiche|
-|Filippino|  `fil`   |   Statistiche|
+|Figiano|    `fj`    |   Statistica|
+|Filippino|  `fil`   |   Statistica|
 |Finlandese|   `fi`    |   Neurale|
 |Francese|    `fr`    |   Neurale|
 |Tedesco|    `de`    |   Neurale|
 |Greco| `el`    |   Neurale|
-|Creolo haitiano|    `ht`        |Statistiche|
+|Creolo haitiano|    `ht`        |Statistica|
 |Ebraico |`he`   |Neurale
 |Hindi| `hi`    |   Neurale|
-|Hmong Daw| `mww`   |   Statistiche|
+|Hmong Daw| `mww`   |   Statistica|
 |Ungherese| `hu`    |   Neurale|
 |Islandese| `is`    |   Neurale|
-|Indonesiano|    `id`    |   Statistiche|
+|Indonesiano|    `id`    |   Statistica|
 |Irlandese | `ga`| Neurale
 |Italiano|   `it`    |   Neurale|
 |Giapponese|  `ja`    |   Neurale|
 |Kannada|`kn`| Neurale
-|Kiswahili| `sw`    |   Statistiche|
-|Klingon|   `tlh`   |   Statistiche|
-|Klingon (plqaD)|   `tlh-Qaak`  |   Statistiche|
+|Kiswahili| `sw`    |   Statistica|
+|Klingon|   `tlh`   |   Statistica|
+|Klingon (plqaD)|   `tlh-Qaak`  |   Statistica|
 |Coreano |`ko`   |   Neurale|
 |Lettone|   `lv`    |   Neurale|
 |Lituano|    `lt`    |   Neurale|
-|Malgascio|  `mg`    |   Statistiche|
-|Malese| `ms`        |Statistiche|
+|Malgascio|  `mg`    |   Statistica|
+|Malese| `ms`        |Statistica|
 |Malayalam| `ml` | Neurale
-|Maltese|   `mt`    |   Statistiche|
+|Maltese|   `mt`    |   Statistica|
 |Maori| `mi`  | Neurale|
 |Norvegese| `nb`    |   Neurale|
 |Persiano|   `fa`    |   Neurale|
@@ -91,36 +91,36 @@ L'API Traduzione testuale supporta le lingue seguenti per la traduzione da testo
 |Portoghese (Brasile)|   `pt-br` |   Neurale|
 |Portoghese (Portogallo)| `pt-pt` | Neurale
 |Punjabi|`pa`|Neurale
-|Querétaro Otomi|   `otq`   |   Statistiche|
+|Querétaro Otomi|   `otq`   |   Statistica|
 |Rumeno|  `ro`    |   Neurale|
 |Russo|   `ru`    |   Neurale|
-|Samoano|    `sm`    |   Statistiche|
-|Serbo (alfabeto cirillico)|    `sr-Cyrl`|  Statistiche|
-|Serbo (alfabeto latino)|   `sr-Latn`       |Statistiche|
+|Samoano|    `sm`    |   Statistica|
+|Serbo (alfabeto cirillico)|    `sr-Cyrl`|  Statistica|
+|Serbo (alfabeto latino)|   `sr-Latn`       |Statistica|
 |Slovacco|    `sk`    |   Neurale|
 |Sloveno| `sl`    |   Neurale|
 |Spagnolo|   `es`    |   Neurale|
 |Svedese|   `sv`    |Neurale|
-|Tahitiano|  `ty`    |Statistiche|
+|Tahitiano|  `ty`    |Statistica|
 |Tamil| `ta`    |   Neurale|
 |Telugu|    `te`    |   Neurale|
 |Thai|  `th`    |   Neurale|
-|Tongano|    `to`    |   Statistiche|
+|Tongano|    `to`    |   Statistica|
 |Turco|   `tr`        |Neurale|
 |Ucraino| `uk`    |   Neurale|
-|Urdu|  `ur`    |   Statistiche|
+|Urdu|  `ur`    |   Statistica|
 |Vietnamita|    `vi`    |   Neurale|
 |Gallese| `cy`    |   Neurale|
-|Yucatec Maya|  `yua`   |   Statistiche|
+|Yucatec Maya|  `yua`   |   Statistica|
 
 > [!NOTE]
-> Il codice lingua `pt` per impostazione predefinita `pt-br`, portoghese (Brasile).
+> Il `pt` codice della `pt-br`lingua è il valore predefinito per , Portoghese (Brasile).
 
 ## <a name="transliteration"></a>Traslitterazione
 
 Il metodo Transliterate supporta le lingue seguenti. Nella colonna "Verso/Da" il simbolo "<-->" indica che la lingua può essere traslitterata da o verso entrambi gli alfabeti elencati. Il simbolo "-->" indica che la lingua può essere traslitterata solo da un alfabeto all'altro.
 
-| Lingua:    | Codice lingua | Script | Verso/Da | Script|
+| Linguaggio    | Codice lingua | Script | Verso/Da | Script|
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
 | Arabo | `ar` | Arabo `Arab` | <--> | Latino `Latn` |
 |Bengalese  | `bn` | Bengalese `Beng` | <--> | Latino `Latn` |
@@ -147,7 +147,7 @@ Il metodo Transliterate supporta le lingue seguenti. Nella colonna "Verso/Da" il
 
 Il dizionario supporta le lingue seguenti verso o dalla lingua inglese tramite i metodi Lookup ed Examples.
 
-| Lingua:    | Codice lingua |
+| Linguaggio    | Codice lingua |
 |:----------- |:-------------:|
 | Afrikaans      | `af`          |
 | Arabo       | `ar`          |
@@ -200,9 +200,9 @@ Il dizionario supporta le lingue seguenti verso o dalla lingua inglese tramite i
 | Vietnamita      | `vi`          |
 | Gallese      | `cy`          |
 
-## <a name="detect"></a>Rileva
+## <a name="detect"></a>Detect
 
-API Traduzione testuale rileva tutte le lingue disponibili per la conversione e la traslitterazione.
+L'API Translator Text rileva tutte le lingue disponibili per la traduzione e la traslitterazione.
 
 
 ## <a name="access-the-translator-text-api-language-list-programmatically"></a>Accedere all'elenco di lingue dell'API Traduzione testuale a livello di codice
@@ -213,9 +213,9 @@ API Traduzione testuale rileva tutte le lingue disponibili per la conversione e 
 
 ## <a name="customization"></a>Personalizzazione
 
-Le lingue seguenti sono disponibili per la personalizzazione da o verso l'inglese utilizzando il [convertitore personalizzato](https://aka.ms/CustomTranslator).
+Le seguenti lingue sono disponibili per la personalizzazione da o verso l'inglese utilizzando [Custom Translator](https://aka.ms/CustomTranslator).
 
-| Lingua:    | Codice lingua |
+| Linguaggio    | Codice lingua |
 |:----------- |:-------------:|
 | Arabo       | `ar`          |
 | Bengalese      | `bn`          |

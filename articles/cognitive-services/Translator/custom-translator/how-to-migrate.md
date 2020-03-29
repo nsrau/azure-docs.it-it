@@ -1,7 +1,7 @@
 ---
 title: Eseguire la migrazione dell'area di lavoro e dei progetti di Microsoft Translator Hub - Custom Translator
 titleSuffix: Azure Cognitive Services
-description: Questo articolo illustra come eseguire la migrazione dell'area di lavoro e dei progetti dell'hub al convertitore personalizzato di servizi cognitivi di Azure.
+description: Questo articolo illustra come eseguire la migrazione dell'area di lavoro e dei progetti dell'hub in Azure Cognitive Services Custom Translator.This article explains how to migrate your Hub workspace and projects to Azure Cognitive Services Custom Translator.
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
@@ -10,10 +10,10 @@ ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
 ms.openlocfilehash: 2fa90a8099778bf37ce8534e968a2b1b4345c2d8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75446772"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Eseguire la migrazione dell'area di lavoro e dei progetti di Hub in Custom Translator
@@ -27,7 +27,7 @@ Durante la migrazione vengono eseguite queste operazioni:
 * In qualsiasi momento, il punteggio BLEU migrato dal training dell'hub è disponibile nella pagina TrainingDetails del modello sotto l'intestazione "Bleu score in MT Hub".
 
 > [!Note] 
-> Per la riuscita della formazione, il traduttore personalizzato richiede almeno 10.000 frasi estratte univoche. Il convertitore personalizzato non può condurre un training con meno del [minimo suggerito](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/sentence-alignment#suggested-minimum-number-of-sentences).
+> Affinché una formazione abbia successo, Custom Translator richiede un minimo di 10.000 frasi estratte univoche. Custom Translator non può condurre una formazione con meno del [minimo suggerito](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/sentence-alignment#suggested-minimum-number-of-sentences).
 
 ## <a name="find-custom-translator-workspace-id"></a>Trovare l'ID dell'area di lavoro del traduttore personalizzato
 
@@ -119,10 +119,10 @@ Nella pagina Migration History (Cronologia migrazione) vengono visualizzate le i
 Se si vuole un report di migrazione più dettagliato su progetti, training e documenti, è possibile esportare i dettagli come file con estensione csv.
 
 ## <a name="implementation-notes"></a>Note sull'implementazione
-* I sistemi con coppie di lingue non ancora disponibili nel convertitore personalizzato saranno disponibili solo per accedere ai dati o annullare la distribuzione tramite il convertitore personalizzato. Questi progetti verranno contrassegnati come "non disponibili" nella pagina dei progetti. Quando si abilitano nuove coppie di lingue con il convertitore personalizzato, i progetti diventeranno attivi per eseguire il training e la distribuzione. 
+* I sistemi con coppie di lingue NON ancora disponibili in Custom Translator saranno disponibili solo per accedere ai dati o annullare la distribuzione tramite Custom Translator. Questi progetti verranno contrassegnati come "Non disponibile" nella pagina Progetti. Man mano che abilitiamo nuove coppie di lingue con Custom Translator, i progetti diventeranno attivi per la formazione e la distribuzione. 
 * La migrazione di un progetto dall'hub al traduttore personalizzato non ha alcun impatto sui training o sui progetti dell'hub. I progetti o i documenti non vengono eliminati dall'hub durante una migrazione e la distribuzione dei modelli non viene annullata.
 * È possibile eseguire la migrazione una sola volta per ogni progetto. Se è necessario ripetere la migrazione di un progetto, è necessario contattare Microsoft.
-* Il convertitore personalizzato supporta le coppie di lingue NMT da e verso l'inglese. [Visualizzare l'elenco completo delle lingue supportate](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization). L'hub non richiede modelli di base e quindi supporta diverse migliaia di lingue. È possibile eseguire la migrazione di una coppia di lingue non supportata, tuttavia verrà eseguita la migrazione solo dei documenti e delle definizioni dei progetti. Non sarà possibile eseguire il training del nuovo modello. Inoltre, questi documenti e progetti verranno visualizzati come non attivi per indicare che al momento non possono essere usati. Se viene aggiunto il supporto per questi progetti e/o documenti, essi diventano attivi e possono essere sottoposti a training.
+* Custom Translator supporta coppie di lingue NMT da e verso l'inglese. [Visualizza l'elenco completo delle lingue supportate](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization). L'hub non richiede modelli di base e quindi supporta diverse migliaia di lingue. È possibile eseguire la migrazione di una coppia di lingue non supportata, tuttavia verrà eseguita la migrazione solo dei documenti e delle definizioni dei progetti. Non sarà possibile eseguire il training del nuovo modello. Inoltre, questi documenti e progetti verranno visualizzati come non attivi per indicare che al momento non possono essere usati. Se viene aggiunto il supporto per questi progetti e/o documenti, essi diventano attivi e possono essere sottoposti a training.
 * Il traduttore personalizzato attualmente non supporta i dati di training in una sola lingua. Analogamente alle coppie di lingue non supportate, è possibile eseguire la migrazione di documenti in una sola lingua, che tuttavia vengono indicati come non attivi fino a quando non verrà introdotto il supporto per i dati in una sola lingua.
 * Il traduttore personalizzato richiede 10.000 frasi parallele per eseguire il training. Microsoft Hub permette di eseguire il training su un set di dati più piccolo. Se viene eseguita la migrazione di un training che non soddisfa questo requisito, il training non verrà eseguito.
 
@@ -141,7 +141,7 @@ Questa tabella mette a confronto le funzionalità di Microsoft Translator Hub co
 
 ## <a name="new-languages"></a>Nuove lingue
 
-Se si è una community o un'organizzazione che lavora per la creazione di un nuovo sistema di linguaggio per Microsoft Translator, contattare [custommt@microsoft.com](mailto:custommt@microsoft.com) per altre informazioni.
+Se sei una comunità o un'organizzazione che lavora alla [custommt@microsoft.com](mailto:custommt@microsoft.com) creazione di un nuovo sistema linguistico per Microsoft Translator, contattaci per ulteriori informazioni.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

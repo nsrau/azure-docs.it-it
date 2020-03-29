@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
 ms.openlocfilehash: ca3821b6088e45730334d1b0971e270b1d86dfce
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68881913"
 ---
 # <a name="language-and-region-support-for-the-bing-image-search-api"></a>Lingua e regioni supportate dall'API Ricerca immagini Bing
@@ -32,9 +32,9 @@ In alternativa è possibile specificare il paese/l'area usando il parametro di q
 > - en-AU (inglese, Australia)
 > - zh-CN (cinese, Cina)
 
-## <a name="countriesregions"></a>Paesi/aree geografiche
+## <a name="countriesregions"></a>Paesi/regioni
 
-|Paese/area geografica|Codice|
+|Paese/Area geografica|Codice|
 |-------|----|
 |Argentina|AR|
 |Australia|AU|
@@ -49,7 +49,7 @@ In alternativa è possibile specificare il paese/l'area usando il parametro di q
 |Germania|DE|
 |RAS di Hong Kong|HK|
 |India|IN|
-|Indonesia|id|
+|Indonesia|ID|
 |Italia|IT|
 |Giappone|JP|
 |Corea del Sud|KR|
@@ -64,7 +64,7 @@ In alternativa è possibile specificare il paese/l'area usando il parametro di q
 |Filippine|PH|
 |Russia|RU|
 |Arabia Saudita|SA|
-|Sudafrica|ZA|
+|Sud Africa|ZA|
 |Spagna|ES|
 |Svezia|SE|
 |Svizzera|CH|
@@ -76,7 +76,7 @@ In alternativa è possibile specificare il paese/l'area usando il parametro di q
 
 ## <a name="markets"></a>Mercati
 
-|Paese/area geografica|Linguaggio|Codice di mercato|
+|Paese/Area geografica|Linguaggio|Codice di mercato|
 |-------|--------|-----------|
 |Argentina|Spagnolo|es-AR|
 |Australia|Inglese|en-AU|
@@ -107,7 +107,7 @@ In alternativa è possibile specificare il paese/l'area usando il parametro di q
 |Filippine|Inglese|en-PH|
 |Russia|Russo|ru-RU|
 |Arabia Saudita|Arabo|ar-SA|
-|Sudafrica|Inglese|en-ZA|
+|Sud Africa|Inglese|en-ZA|
 |Spagna|Spagnolo|es-ES|
 |Svezia|Svedese|sv-SE|
 |Svizzera|Francese|fr-CH|
@@ -115,7 +115,7 @@ In alternativa è possibile specificare il paese/l'area usando il parametro di q
 |Taiwan|Cinese tradizionale|zh-TW|
 |Turchia|Turco|tr-TR|
 |Regno Unito|Inglese|en-GB|
-|Stati Uniti|Inglese|en-US|
+|Stati Uniti|Inglese|it-IT|
 |Stati Uniti|Spagnolo|es-US|
 
 ## <a name="next-steps"></a>Passaggi successivi

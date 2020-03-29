@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 4/26/2019
 ms.author: scottwhi
 ms.openlocfilehash: 251197c456ece4fe2dbbe264219d52f3502b7492
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67341717"
 ---
-# <a name="use-an-insights-token-to-get-insights-for-an-image"></a>Usare un token di insights per ottenere informazioni dettagliate per un'immagine
+# <a name="use-an-insights-token-to-get-insights-for-an-image"></a>Usare un token di informazioni dettagliate per ottenere informazioni dettagliate per un'immagineUse an insights token to get insights for an image
 
-L'API Ricerca visiva Bing restituisce informazioni su un'immagine fornita. È possibile fornire l'immagine usando l'URL dell'immagine, un token di informazioni dettagliate, oppure caricando l'immagine. Per informazioni su queste opzioni, vedere [Informazioni sull'API Ricerca visiva Bing](overview.md). Questo articolo illustra l'uso di un token di informazioni dettagliate. Per esempi che illustrano come caricare un'immagine per ottenere informazioni dettagliate, vedere le guide introduttive ([C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [Node. js](quickstarts/nodejs.md)  |  [Python](quickstarts/python.md)).
+L'API Ricerca visiva Bing restituisce informazioni su un'immagine fornita. È possibile fornire l'immagine usando l'URL dell'immagine o un token di informazioni dettagliate oppure caricando l'immagine. Per informazioni su queste opzioni, vedere [Informazioni sull'API Ricerca visiva Bing](overview.md). Questo articolo illustra l'uso di un token di informazioni dettagliate. Per esempi che illustrano come caricare un'immagine per ottenere informazioni dettagliate, vedere le guide rapide[(](quickstarts/csharp.md) | [Python](quickstarts/python.md)di[Python](quickstarts/java.md) | [di Java Node.js).](quickstarts/nodejs.md) | 
 
-Se si invia ricerca visiva Bing un URL o il token di immagine, di seguito mostra i dati del modulo che è necessario includere nel corpo del POST. I dati del modulo devono includere il `Content-Disposition` intestazione ed è necessario impostare relativo `name` parametro "knowledgeRequest". Per informazioni dettagliate di `imageInfo` oggetti, vedere la richiesta:
+Se si invia Bing Visual Search un token di immagine o un URL, di seguito vengono illustrati i dati del modulo che è necessario includere nel corpo del POST. I dati del `Content-Disposition` modulo devono includere l'intestazione ed è necessario impostarne il `name` parametro su "knowledgeRequest". Per informazioni `imageInfo` dettagliate sull'oggetto, vedere la richiesta:
 
 ```json
 {
@@ -43,7 +43,7 @@ Se si invia ricerca visiva Bing un URL o il token di immagine, di seguito mostra
 }
 ```
 
-Gli esempi in questo articolo illustrano come usare il token di informazioni dettagliate. Ottenere il token di insights da un' `Image` dell'oggetto in un /images/risposta dell'API di ricerca. Per informazioni su come ottenere il token di insights, vedere [qual è l'API ricerca immagini Bing?](../Bing-Image-Search/overview.md).
+Gli esempi in questo articolo illustrano come usare il token di informazioni dettagliate. Il token di informazioni `Image` dettagliate viene ottenuto da un oggetto in una risposta dell'API /images/search. Per informazioni su come ottenere il token di informazioni dettagliate, vedere [Che cos'è l'API Ricerca immagini Bing?](../Bing-Image-Search/overview.md).
 
 ```
 --boundary_1234-abcd
@@ -58,21 +58,21 @@ Content-Disposition: form-data; name="knowledgeRequest"
 --boundary_1234-abcd--
 ```
 
-Per esempi che usano il token di informazioni dettagliate, vedere [C#](#use-with-c) | [Java](#use-with-java) | [Node.js](#use-with-nodejs) | [Python](#use-with-python).
+Per esempi in cui viene utilizzato il token di informazioni dettagliate, vedere Python di Python di[Java](#use-with-java) | [Node.js](#use-with-nodejs) | [in](#use-with-python) [C.](#use-with-c) | 
 
-## <a name="use-with-c"></a>Usare conC#
+## <a name="use-with-c"></a>Uso con C #
 
-### <a name="c-prerequisites"></a>C#prerequisiti
+### <a name="c-prerequisites"></a>Prerequisiti per il linguaggio C
 
-- Qualsiasi versione di [Visual Studio 2019](https://www.visualstudio.com/downloads/) per ottenere questo codice in esecuzione su Windows.
-- Una sottoscrizione di Azure. Per questa Guida introduttiva, è possibile usare una [versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) chiave di sottoscrizione o una chiave di sottoscrizione a pagamento.
+- Qualsiasi versione di [Visual Studio 2019](https://www.visualstudio.com/downloads/) per eseguire questo codice in Windows.
+- Una sottoscrizione di Azure. Per questa guida introduttiva, è possibile usare una chiave di sottoscrizione di [valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) o una chiave di sottoscrizione a pagamento.
 
 ## <a name="run-the-application"></a>Eseguire l'applicazione
 
 Per eseguire l'applicazione, seguire questa procedura:
 
-1. Creare una soluzione di console in Visual Studio.
-2. Sostituire il contenuto di Program.cs con il codice riportato in questa Guida introduttiva.
+1. Creare una soluzione console in Visual Studio.Create a console solution in Visual Studio.
+2. Sostituire il contenuto di Program.cs con il codice illustrato in questa guida introduttiva.
 3. Sostituire il valore di `accessKey` con la chiave di sottoscrizione.
 4. Sostituire il valore `insightsToken` con un token di informazioni dettagliate da una risposta /images/search.
 5. Eseguire il programma.
@@ -233,19 +233,19 @@ namespace VisualSearchInsightsToken
 }
 ```
 
-## <a name="use-with-java"></a>Uso con Java
+## <a name="use-with-java"></a>Utilizzo con Java
 
-### <a name="java-prerequisites"></a>Prerequisiti di Java
+### <a name="java-prerequisites"></a>Prerequisiti Java
 
-- È necessario utilizzare [JDK 7 o 8](https://aka.ms/azure-jdks) per compilare ed eseguire questo codice. È possibile usare un IDE di Java se si dispone di un preferito, ma è sufficiente un editor di testo.
-- Per questa Guida introduttiva, è possibile usare una [versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) chiave di sottoscrizione o una chiave di sottoscrizione a pagamento.
+- È necessario utilizzare [JDK 7 o 8](https://aka.ms/azure-jdks) per compilare ed eseguire questo codice. È possibile utilizzare un IDE Java se si dispone di un preferito, ma è sufficiente un editor di testo.
+- Per questa guida introduttiva, è possibile usare una chiave di sottoscrizione di [valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) o una chiave di sottoscrizione a pagamento.
 
 ## <a name="run-the-java-application"></a>Eseguire l'applicazione Java
 
 Per eseguire l'applicazione, seguire questa procedura:
 
-1. Scaricare o installare il [libreria Gson Java](https://github.com/google/gson). È anche possibile ottenere Gson tramite Maven.
-2. Creare un nuovo progetto Java nell'ambiente di sviluppo integrato o nell'editor preferito.
+1. Scaricare o installare la [libreria Gson Java](https://github.com/google/gson). È inoltre possibile ottenere Gson via Maven.
+2. Creare un nuovo progetto Java nell'IDE o nell'editor preferito.
 3. Aggiungere il codice fornito in un file denominato `VisualSearch.java`.
 4. Sostituire il valore di `subscriptionKey` con la chiave di sottoscrizione.
 5. Eseguire il programma.
@@ -347,12 +347,12 @@ public class InsightsToken {
 }
 ```
 
-## <a name="use-with-nodejs"></a>Uso con Node. js
+## <a name="use-with-nodejs"></a>Utilizzo con Node.js
 
-### <a name="nodejs-prerequisites"></a>Prerequisiti di Node. js
+### <a name="nodejs-prerequisites"></a>Prerequisiti di Node.jsNode.js prerequisites
 
-- È necessario disporre [Node. js 6](https://nodejs.org/en/download/) per eseguire questo codice.
-- Per questa Guida introduttiva, è possibile usare una [versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) chiave di sottoscrizione o una chiave di sottoscrizione a pagamento.
+- Per eseguire questo codice, è necessario disporre di [Node.js 6.](https://nodejs.org/en/download/)
+- Per questa guida introduttiva, è possibile usare una chiave di sottoscrizione di [valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) o una chiave di sottoscrizione a pagamento.
 
 ## <a name="run-the-javascript-application"></a>Eseguire l'applicazione JavaScript
 
@@ -411,11 +411,11 @@ function requestCallback(err, res, body) {
 }
 ```
 
-## <a name="use-with-python"></a>Uso di Python
+## <a name="use-with-python"></a>Utilizzare con Python
 
 ### <a name="python-prerequisites"></a>Prerequisiti di Python
 
-- È necessario disporre [Python 3](https://www.python.org/) per eseguire questo codice.
+- Per eseguire questo codice è necessario disporre di [Python 3.](https://www.python.org/)
 - Per questa guida introduttiva, è possibile usare una chiave di sottoscrizione [di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) o una chiave di sottoscrizione a pagamento.
 
 ## <a name="run-the-python-application"></a>Eseguire l'applicazione Python
@@ -477,7 +477,7 @@ if __name__ == '__main__':
 ## <a name="next-steps"></a>Passaggi successivi
 
 [Creare un'app Web a pagina singola con Ricerca visiva](tutorial-bing-visual-search-single-page-app.md)  
-[Che cos'è l'API ricerca visiva Bing?](overview.md)  
-[Prova servizi cognitivi](https://aka.ms/bingvisualsearchtryforfree)  
+[Informazioni sull'API Ricerca visiva Bing](overview.md)  
+[Prova Servizi cognitivi](https://aka.ms/bingvisualsearchtryforfree)  
 [Ottenere una chiave di accesso per la versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
-[Immagini - ricerca visiva](https://aka.ms/bingvisualsearchreferencedoc)
+[Immagini - Ricerca visiva](https://aka.ms/bingvisualsearchreferencedoc)

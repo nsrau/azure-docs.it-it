@@ -1,5 +1,5 @@
 ---
-title: Numero di entità predefinite-LUIS
+title: Numero Entità precostruita - LUISNumber Prebuilt entity - LUIS
 titleSuffix: Azure Cognitive Services
 description: Questo articolo contiene informazioni sull'entità predefinita numero in Language Understanding, ovvero LUIS.
 services: cognitive-services
@@ -12,17 +12,17 @@ ms.topic: reference
 ms.date: 09/27/2019
 ms.author: diberry
 ms.openlocfilehash: 85e3589d7467691e2b9a11879510ab980bbd875a
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78273454"
 ---
 # <a name="number-prebuilt-entity-for-a-luis-app"></a>Entità predefinita numero per un'app LUIS
 I modi in cui i valori numerici vengono usati per quantificare, esprimere e descrivere i tipi di informazioni sono diversi. Questo articolo illustra solo alcuni degli esempi possibili. LUIS interpreta le variazioni nelle espressioni utente e restituisce valori numerici coerenti. Poiché è già stato eseguito il training per questa entità, non è necessario aggiungere espressioni di esempio contenenti il numero per le finalità dell'applicazione.
 
 ## <a name="types-of-number"></a>Tipi di numero
-Il numero viene gestito dal repository GitHub [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml)
+Il numero viene gestito dal repository GitHub di [tipo Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml)
 
 ## <a name="examples-of-number-resolution"></a>Esempi di risoluzione dei numeri
 
@@ -38,17 +38,17 @@ Il numero viene gestito dal repository GitHub [Recognizers-text](https://github.
 | ```buy two dozen eggs```    | ```"two dozen"``` | ```"24"``` |
 
 
-LUIS include il valore riconosciuto di un'entità **`builtin.number`** nel campo `resolution` della risposta JSON restituita.
+LUIS include il valore **`builtin.number`** riconosciuto `resolution` di un'entità nel campo della risposta JSON restituita.
 
 ## <a name="resolution-for-prebuilt-number"></a>Risoluzione per il numero predefinito
 
-Per la query vengono restituiti gli oggetti entità seguenti:
+Per la query vengono restituiti i seguenti oggetti entità:
 
 `order two dozen eggs`
 
 #### <a name="v3-response"></a>[Risposta V3](#tab/V3)
 
-Il codice JSON seguente è con il parametro `verbose` impostato su `false`:
+Il codice JSON `verbose` seguente è `false`impostato con il parametro :
 
 ```json
 "entities": {
@@ -59,7 +59,7 @@ Il codice JSON seguente è con il parametro `verbose` impostato su `false`:
 ```
 #### <a name="v3-verbose-response"></a>[Risposta dettagliata V3](#tab/V3-verbose)
 
-Il codice JSON seguente è con il parametro `verbose` impostato su `true`:
+Il codice JSON `verbose` seguente è `true`impostato con il parametro :
 
 ```json
 "entities": {

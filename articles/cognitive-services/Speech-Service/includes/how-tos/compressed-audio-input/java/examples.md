@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 03/09/2020
 ms.author: dapine
 ms.openlocfilehash: cc1fc56f70c2867225903904c7e9706f876f07e2
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78943751"
 ---
-Per trasmettere in streaming un formato audio compresso al servizio riconoscimento vocale, creare un `PullAudioInputStream` o `PushAudioInputStream`. Quindi, creare un `AudioConfig` da un'istanza della classe Stream, specificando il formato di compressione del flusso.
+Per trasmettere in un formato audio compresso `PullAudioInputStream` `PushAudioInputStream`al servizio di riconoscimento vocale, creare un o . Quindi, creare `AudioConfig` un da un'istanza della classe di flusso, specificando il formato di compressione del flusso.
 
-Si supponga di disporre di una classe di flusso di input denominata `pullStream` e che usi OPUS/OGG. Il codice potrebbe essere simile al seguente:
+Si supponga di disporre di una `pullStream` classe di flusso di input denominata e si utilizza OPUS/OGG. Il codice potrebbe essere simile al seguente:Your code may look like this:
 
 ```java
 import com.microsoft.cognitiveservices.speech.audio.AudioConfig;

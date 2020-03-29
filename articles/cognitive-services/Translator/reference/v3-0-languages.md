@@ -1,7 +1,7 @@
 ---
 title: Metodo Languages dell'API Traduzione testuale
 titleSuffix: Azure Cognitive Services
-description: Il metodo Languages ottiene il set di lingue attualmente supportate da altre operazioni del API Traduzione testuale.
+description: Il Metodo Languages ottiene il set di lingue attualmente supportate da altre operazioni dell'API Translator Text.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
 ms.openlocfilehash: 37f70399e8125db559098869cdfffdf4533498d7
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73835840"
 ---
 # <a name="translator-text-api-30-languages"></a>API Traduzione testuale 3.0: Languages
@@ -52,7 +52,7 @@ Le intestazioni della richiesta sono le seguenti:
   <th>Descrizione</th>
   <tr>
     <td>Accept-Language</td>
-    <td>*Intestazione di richiesta facoltativa*.<br/>Lingua da usare per le stringhe dell'interfaccia utente. Alcuni campi nella risposta sono nomi di lingue o di aree. Usare questo parametro per definire la lingua in cui verranno restituiti tali nomi. La lingua viene specificata tramite un tag di lingua BCP 47 ben formato. Ad esempio, usare il valore `fr` per richiedere i nomi in francese oppure `zh-Hant` per richiedere i nomi in cinese tradizionale.<br/>Quando non è specificata una lingua di destinazione o non è disponibile la localizzazione, i nomi vengono forniti in lingua inglese.
+    <td>*Intestazione di richiesta facoltativa*.<br/>Lingua da usare per le stringhe dell'interfaccia utente. Alcuni campi nella risposta sono nomi di lingue o di aree. Usare questo parametro per definire la lingua in cui verranno restituiti tali nomi. La lingua viene specificata fornendo un tag di lingua BCP 47 in formato corretto. Usare ad esempio il valore `fr` per richiedere i nomi in francese oppure `zh-Hant` per richiedere i nomi in cinese tradizionale.<br/>Quando non è specificata una lingua di destinazione o non è disponibile la localizzazione, i nomi vengono forniti in lingua inglese.
     </td>
   </tr>
   <tr>
@@ -251,7 +251,7 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
   <th>Descrizione</th>
   <tr>
     <td>200</td>
-    <td>Completamento della procedura.</td>
+    <td>Esito positivo.</td>
   </tr>
   <tr>
     <td>304</td>
@@ -259,7 +259,7 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
   </tr>
   <tr>
     <td>400</td>
-    <td>Uno dei parametri di query è mancante o non valido. Prima di riprovare, correggere i parametri della richiesta.</td>
+    <td>Uno dei parametri di query manca o non è valido. Prima di riprovare, correggere i parametri della richiesta.</td>
   </tr>
   <tr>
     <td>429</td>
@@ -267,11 +267,11 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
   </tr>
   <tr>
     <td>500</td>
-    <td>Si è verificato un errore imprevisto. Se l'errore permane, segnalarlo con: data e ora dell'errore, identificativo della richiesta dall'intestazione di risposta `X-RequestId` e l'identificativo del client dall'intestazione di risposta `X-ClientTraceId`.</td>
+    <td>Si è verificato un errore imprevisto. Se l'errore persiste, segnalarlo specificando data e ora dell'errore, identificatore della richiesta dall'intestazione della riposta `X-RequestId` e identificatore del client dall'intestazione della richiesta `X-ClientTraceId`.</td>
   </tr>
   <tr>
     <td>503</td>
-    <td>Il server è temporaneamente non disponibile. ripetere la richiesta. Se l'errore permane, segnalarlo con: data e ora dell'errore, identificativo della richiesta dall'intestazione di risposta `X-RequestId` e l'identificativo del client dall'intestazione di risposta `X-ClientTraceId`.</td>
+    <td>Il server è temporaneamente non disponibile. ripetere la richiesta. Se l'errore persiste, segnalarlo specificando data e ora dell'errore, identificatore della richiesta dall'intestazione della riposta `X-RequestId` e identificatore del client dall'intestazione della richiesta `X-ClientTraceId`.</td>
   </tr>
 </table> 
 

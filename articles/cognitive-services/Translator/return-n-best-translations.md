@@ -1,7 +1,7 @@
 ---
-title: Restituisci N-Best Translations-Traduzione testuale
+title: Restituzione di N-Migliori Traduzioni - Traduttore Testo
 titleSuffix: Azure Cognitive Services
-description: Restituisce N-Best translations utilizzando il API Traduzione testuale.
+description: Restituisci le traduzioni N-Best utilizzando l'API Translator Text.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -12,16 +12,16 @@ ms.date: 12/14/2017
 ms.author: swmachan
 ROBOTS: NOINDEX
 ms.openlocfilehash: eff25877165ac365e0af77651147fcdd1eebe294
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73837249"
 ---
 # <a name="how-to-return-n-best-translations"></a>Procedura per restituire le N migliori traduzioni
 
 > [!NOTE]
-> Metodo deprecato. Non è disponibile nella V3.0 dell'API Traduzione testuale.
+> Questo metodo è deprecato. Non è disponibile nella versione 3.0 dell'API Traduzione testuale.
 
 I metodi GetTranslations() e GetTranslationsArray() dell'API di Microsoft Translator includono un flag booleano facoltativo "IncludeMultipleMTAlternatives".
 Il metodo restituirà fino a maxTranslations alternative se il delta viene fornito dall'elenco N migliori del motore di traduzione.
@@ -34,16 +34,16 @@ La firma è:
 |:---|
 | GetTranslationsResponse Microsoft.Translator.GetTranslations(appId, text, from, to, maxTranslations, options); |
 
-**Parameters** (Parametri)
+**Parametri**
 
 | Parametro | Descrizione |
 |:---|:---|
 | appId | **Obbligatorio** Se si usa l'intestazione dell'autorizzazione, lasciare vuoto il campo appid. In caso contrario specificare una stringa contenente il token di accesso "Bearer" + " " +.|
 | text | **Obbligatorio** Una stringa che rappresenta il testo da tradurre. Le dimensioni del testo non devono superare 10.000 caratteri.|
-| Da | **Obbligatorio** Una stringa che rappresenta il codice di lingua del testo da tradurre. |
+| da | **Obbligatorio** Una stringa che rappresenta il codice di lingua del testo da tradurre. |
 | to | **Obbligatorio** Una stringa che rappresenta il codice di lingua in cui tradurre il testo. |
 | maxTranslations | **Obbligatorio** Int che rappresenta il numero massimo di traduzioni da restituire. |
-| options | **Facoltativo** Un oggetto TranslateOptions che contiene i valori elencati di seguito. Sono tutti facoltativi e con le impostazioni predefinite più comuni.
+| opzioni | **Facoltativo** Un oggetto TranslateOptions che contiene i valori elencati di seguito. Sono tutti facoltativi e con le impostazioni predefinite più comuni.
 
 * Category: L'unica opzione supportata e impostazione predefinita è "general".
 * ContentType: L'unica opzione supportata e impostazione predefinita è "text/plain".

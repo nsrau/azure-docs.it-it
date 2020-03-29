@@ -1,5 +1,5 @@
 ---
-title: Come eseguire la valutazione offline-personalizzatore
+title: Come eseguire la valutazione offline - Personalizer
 titleSuffix: Azure Cognitive Services
 description: Questo articolo illustra come usare la valutazione offline per misurare l'efficacia dell'app e analizzare il ciclo di apprendimento.
 services: cognitive-services
@@ -11,54 +11,54 @@ ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: diberry
 ms.openlocfilehash: ce85c2d264b2b4849a4a36ed757150292fdf39f0
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77622796"
 ---
-# <a name="analyze-your-learning-loop-with-an-offline-evaluation"></a>Analizzare il ciclo di apprendimento con una valutazione offline
+# <a name="analyze-your-learning-loop-with-an-offline-evaluation"></a>Analizza il tuo ciclo di apprendimento con una valutazione offline
 
 Informazioni su come completare una valutazione offline e comprendere i risultati.
 
-Le valutazioni offline consentono di misurare il modo in cui il Personalizzatore effettivo viene confrontato con il comportamento predefinito dell'applicazione, scoprire quali funzionalità contribuiscono maggiormente alla personalizzazione e individuare automaticamente nuovi valori di machine learning.
+Le valutazioni offline consentono di misurare l'efficacia del programma Personalizer rispetto al comportamento predefinito dell'applicazione, di apprendere le funzionalità che contribuiscono maggiormente alla personalizzazione e di individuare automaticamente i nuovi valori di apprendimento automatico.
 
 Altre informazioni sulle [valutazioni offline](concepts-offline-evaluation.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un ciclo di personalizzazione configurato
-* Il ciclo di personalizzazione deve avere una quantità rappresentativa di dati, come Ballpark, per ottenere risultati di valutazione significativi è consigliabile usare almeno 50.000 eventi nei log. Facoltativamente, è anche possibile confrontare e testare i file dei _criteri di valutazione_ esportati in precedenza.
+* Un ciclo Personalizer configurato
+* Il ciclo Personalizer deve avere una quantità rappresentativa di dati - come un campo da baseball consigliamo almeno 50.000 eventi nei suoi registri per risultati di valutazione significativi. Facoltativamente, è anche possibile confrontare e testare i file dei _criteri di valutazione_ esportati in precedenza.
 
 ## <a name="run-an-offline-evaluation"></a>Eseguire una valutazione offline
 
-1. Nella [portale di Azure](https://azure.microsoft.com/free/)individuare la risorsa di personalizzazione.
-1. Nella portale di Azure passare alla sezione **valutazioni** e selezionare **Crea valutazione**.
-    ![nella portale di Azure, passare alla sezione * * valutazioni * * e selezionare * * Crea valutazione * *.](./media/offline-evaluation/create-new-offline-evaluation.png)
+1. Nel [portale](https://azure.microsoft.com/free/)di Azure individuare la risorsa Personalizer.In the Azure portal , locate your Personalizer resource.
+1. Nel portale di Azure passare alla sezione **Valutazioni** e selezionare **Crea valutazione**.
+    ![Nel portale di Azure passare alla sezione relativa alle valutazioni e selezionare crea la valutazione.](./media/offline-evaluation/create-new-offline-evaluation.png)
 1. Configurare i valori seguenti:
 
-    * Nome della valutazione.
-    * Data di inizio e di fine: date che specificano l'intervallo di dati da usare nella valutazione. Questi dati devono essere presenti nei log, come specificato nel valore di [conservazione dei dati](how-to-settings.md) .
-    * L'individuazione dell'ottimizzazione è impostata su **Sì**.
+    * Un nome di valutazione.
+    * Data di inizio e di fine: si tratta di date che specificano l'intervallo di dati da utilizzare nella valutazione. Questi dati devono essere presenti nei registri, come specificato nel valore [conservazione dei dati.](how-to-settings.md)
+    * Ottimizzazione individuazione impostata su **yes**.
 
     > [!div class="mx-imgBorder"]
-    > ![scegliere impostazioni di valutazione offline](./media/offline-evaluation/create-an-evaluation-form.png)
+    > ![Scegliere le impostazioni di valutazione offline](./media/offline-evaluation/create-an-evaluation-form.png)
 
-1. Avviare la valutazione selezionando **OK**.
+1. Avviare la valutazione selezionando **Ok**.
 
 ## <a name="review-the-evaluation-results"></a>Esaminare i risultati della valutazione
 
 L'esecuzione delle valutazioni può richiedere molto tempo, a seconda della quantità di dati da elaborare, il numero di criteri di apprendimento da confrontare e dall'eventualità in cui sia stata richiesta l'ottimizzazione.
 
-Al termine, è possibile selezionare la valutazione dall'elenco di valutazioni, quindi selezionare **Confronta il punteggio dell'applicazione con altre impostazioni di apprendimento potenziali**. Selezionare questa funzionalità quando si desidera visualizzare le prestazioni dei criteri di apprendimento correnti rispetto a un nuovo criterio.
+Al termine, è possibile selezionare la valutazione dall'elenco delle valutazioni, quindi selezionare **Confronta il punteggio dell'applicazione con altre potenziali impostazioni**di apprendimento . Selezionare questa funzionalità quando si desidera visualizzare le prestazioni dei criteri di apprendimento correnti rispetto a un nuovo criterio.
 
-1. Esaminare le prestazioni dei [criteri di formazione](concepts-offline-evaluation.md#discovering-the-optimized-learning-policy).
+1. Esaminare le prestazioni delle [politiche](concepts-offline-evaluation.md#discovering-the-optimized-learning-policy)di apprendimento .
 
     > [!div class="mx-imgBorder"]
-    > [![esaminare i risultati della valutazione](./media/offline-evaluation/evaluation-results.png)](./media/offline-evaluation/evaluation-results.png#lightbox)
+    > [![Esaminare i risultati della valutazioneReview evaluation results](./media/offline-evaluation/evaluation-results.png)](./media/offline-evaluation/evaluation-results.png#lightbox)
 
-1. Selezionare **applica** per applicare il criterio che migliora il modello più adatto ai dati.
+1. Selezionare **Applica** per applicare il criterio che migliora il modello più adatto ai dati.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Altre informazioni sul [funzionamento delle valutazioni offline](concepts-offline-evaluation.md).
+* Ulteriori informazioni sul [funzionamento delle valutazioni offline](concepts-offline-evaluation.md).

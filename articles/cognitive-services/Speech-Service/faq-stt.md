@@ -1,7 +1,7 @@
 ---
 title: Domande frequenti sul Servizio di riconoscimento vocale
 titleSuffix: Azure Cognitive Services
-description: Risposte alle domande frequenti sul servizio di sintesi vocale.
+description: Risposte alle domande frequenti sul servizio Di sintesi vocale.
 services: cognitive-services
 author: PanosPeriorellis
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/4/2019
 ms.author: panosper
 ms.openlocfilehash: a279aebdd19ebd3a41ddad0c1c279937e00838c2
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77168454"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Domande frequenti sul Servizio di riconoscimento vocale
@@ -33,7 +33,7 @@ Se in questo documento non sono presenti risposte alle domande di proprio intere
 
 **: È sempre necessario compilare un modello conversione voce/testo personalizzato?**
 
-**R**: No. Se l'applicazione usa un linguaggio quotidiano generico, non è necessario personalizzare un modello. Se l'applicazione viene usata in un ambiente in cui il rumore di fondo è scarso o addirittura assente, non è necessario personalizzare un modello.
+**R:** No. Se l'applicazione usa un linguaggio quotidiano generico, non è necessario personalizzare un modello. Se l'applicazione viene usata in un ambiente in cui il rumore di fondo è scarso o addirittura assente, non è necessario personalizzare un modello.
 
 È possibile distribuire modelli di base e personalizzati nel portale e quindi sottoporli a test di accuratezza. Questa funzionalità può essere usata per misurare l'accuratezza di un modello di base rispetto a un modello personalizzato.
 
@@ -45,7 +45,7 @@ Se in questo documento non sono presenti risposte alle domande di proprio intere
 
 **R**: Non sono previsti limiti al numero di modelli che si può avere nella propria raccolta.
 
-**D: ho realizzato un errore. Ricerca per categorie annullare l'importazione dei dati o la creazione del modello in corso?**
+**D: Mi sono reso conto di aver commesso un errore. Come si annulla l'importazione dei dati o la creazione del modello in corso?**
 
 **R**: Al momento non è possibile eseguire il rollback di un processo di adattamento di un modello acustico o linguistico. I modelli e i dati importati possono essere eliminati quando sono in uno stato terminale.
 
@@ -59,11 +59,11 @@ Se in questo documento non sono presenti risposte alle domande di proprio intere
 
 I set di dati precedente e nuovo devono essere combinati in un unico file ZIP (per dati acustici) o in un file con estensione txt (per dati linguistici). Dopo aver terminato l'adattamento, per ottenere un nuovo endpoint è necessario ridistribuire il nuovo modello aggiornato
 
-**D: quando è disponibile una nuova versione di una linea di base, la distribuzione viene aggiornata automaticamente?**
+**D: Quando è disponibile una nuova versione di una linea di base, la distribuzione viene aggiornata automaticamente?**
 
 **R**: Le distribuzioni NON vengono aggiornate automaticamente.
 
-Se è stato adattato e distribuito un modello con baseline V1.0, tale distribuzione rimarrà invariata. I clienti possono rimuovere le autorizzazioni del modello distribuito, riadattarlo utilizzando la versione più recente della linea di base e ridistribuirlo.
+Se è stato adattato e distribuito un modello con baseline V1.0, tale distribuzione rimarrà invariata. I clienti possono rimuovere le autorizzazioni del modello distribuito, riadattarlo utilizzando la versione più recente della linea di base e ridistribuire.
 
 **D: È possibile scaricare il modello ed eseguirlo in locale?**
 
@@ -77,9 +77,9 @@ Se è stato adattato e distribuito un modello con baseline V1.0, tale distribuzi
 
 **R**: l'API REST limita le richieste a 25 ogni 5 secondi. Informazioni dettagliate sono disponibili nelle pagine relative al [Riconoscimento vocale](speech-to-text.md).
 
-**D: come viene addebitato l'audio a doppio canale?**
+**D: Come vengono addebitati i messaggi audio a doppio canale?**
 
-**R**: se si invia ogni canale separatamente (ogni canale nel relativo file), verrà addebitato il costo per la durata di ogni file. Se si invia un singolo file con ogni canale multiplexato insieme, verrà addebitato il costo della durata del singolo file. Per informazioni dettagliate sui prezzi, vedere la [pagina dei prezzi dei servizi cognitivi di Azure](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+**R:** Se invii ogni canale separatamente (ogni canale nel proprio file), ti verrà addebitato per la durata di ogni file. Se invii un singolo file con ogni canale multiplexed together, ti verrà addebitato per la durata del singolo file. Per informazioni dettagliate sui prezzi, fare riferimento alla pagina dei prezzi di [Servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)di Azure.
 
 > [!IMPORTANT]
 > In caso di altri problemi di privacy che impediscono l'uso del Servizio di riconoscimento vocale personalizzato, contattare uno dei canali di supporto.
@@ -90,34 +90,34 @@ Se è stato adattato e distribuito un modello con baseline V1.0, tale distribuzi
 
 **R**: È possibile aumentare le prestazioni del modello in incrementi di 20 richieste simultanee.
 
-Con le informazioni necessarie, creare una richiesta di supporto nel [portale di supporto di Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). Non pubblicare le informazioni in alcun canale pubblico (GitHub, StackOverflow,...) indicato nella [pagina del supporto tecnico](support.md).
+Con le informazioni necessarie, creare una richiesta di supporto nel portale di supporto di Azure.With the required information, create a support request in the [Azure support portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). Non pubblicare le informazioni su nessuno dei canali pubblici (GitHub, Stackoverflow, ...) menzionati nella pagina di [supporto](support.md).
 
-Per aumentare la concorrenza per un ***modello personalizzato***, sono necessarie le informazioni seguenti:
+Per aumentare la concorrenza per un ***modello personalizzato,*** sono necessarie le informazioni seguenti:To increase concurrency for a custom model , we need the following information:
 
-- Area in cui viene distribuito il modello.
-- ID dell'endpoint del modello distribuito:
-  - Si è arrivati al [portale di riconoscimento vocale personalizzato](https://aka.ms/customspeech),
-  - Accedi (se necessario),
-  - Selezionare il progetto e la distribuzione,
-  - Selezionare l'endpoint per cui è necessario l'incremento della concorrenza,
-  - Copiare il `Endpoint ID`.
+- L'area in cui viene distribuito il modello,
+- l'ID dell'endpoint del modello distribuito:
+  - Arrivato al [portale di riconoscimento vocale personalizzato](https://aka.ms/customspeech),
+  - accedere (se necessario),
+  - selezionare il progetto e la distribuzione,
+  - selezionare l'endpoint per il cui è necessario l'aumento della concorrenza,
+  - copiare `Endpoint ID`il file .
 
-Per aumentare la concorrenza per un ***modello di base***, sono necessarie le informazioni seguenti:
+Per aumentare la concorrenza per un modello di ***base,*** sono necessarie le informazioni seguenti:To increase concurrency for a base model , we need the following information:
 
-- Area del servizio
+- La regione del vostro servizio,
 
-e uno
+e sia
 
-- un token di accesso per la sottoscrizione (vedere [qui](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-speech-to-text#how-to-get-an-access-token)),
+- un token di accesso per la sottoscrizione (vedere [qui),](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-speech-to-text#how-to-get-an-access-token)
 
 o
 
-- ID risorsa per la sottoscrizione:
-  - Passare alla [portale di Azure](https://portal.azure.com),
-  - Selezionare `Cognitive Services` nella casella di ricerca.
+- l'ID risorsa per la sottoscrizione:
+  - Vai al portale di [Azure,](https://portal.azure.com)
+  - selezionare `Cognitive Services` nella casella di ricerca,
   - dai servizi visualizzati selezionare il servizio di riconoscimento vocale per il quale si desidera aumentare la concorrenza,
-  - Visualizza la `Properties` per il servizio,
-  - Copiare il `Resource ID`completo.
+  - visualizzare `Properties` il per questo servizio,
+  - copiare `Resource ID`il file complete .
 
 ## <a name="importing-data"></a>Importazione di dati
 
@@ -127,9 +127,9 @@ o
 
 **D**: È possibile comprimere i file di testo per poter caricare file più grandi?
 
-**R**: No. Attualmente sono ammessi solo file di testo non compressi.
+**R:** No. Attualmente sono ammessi solo file di testo non compressi.
 
-**D: il rapporto dati indica che sono presenti espressioni non riuscite. Qual è il problema?**
+**D: Il rapporto dati indica che sono state superate le espressioni. Qual è il problema?**
 
 **R**: Se non viene caricato il 100% delle espressioni di un file, non è un problema. Se la grande maggioranza, ad esempio più del 95%, delle espressioni in un set di dati acustico o linguistico viene importata correttamente, il set di dati può essere utilizzabile. È tuttavia consigliabile cercare di comprendere il motivo dell'esito negativo delle espressioni e risolvere i problemi. I problemi più comuni, ad esempio gli errori di formattazione, sono facili da risolvere.
 
@@ -149,7 +149,7 @@ o
 
 **D: È necessario trascrivere personalmente i dati di adattamento?**
 
-**R:** Sì. È possibile farlo personalmente o usando un servizio di trascrizione professionale. Alcuni utenti preferiscono usare sistemi di trascrizione professionali, mentre altri usano il crowdsourcing o eseguono le trascrizioni autonomamente.
+**R:** Sì! È possibile farlo personalmente o usando un servizio di trascrizione professionale. Alcuni utenti preferiscono usare sistemi di trascrizione professionali, mentre altri usano il crowdsourcing o eseguono le trascrizioni autonomamente.
 
 ## <a name="accuracy-testing"></a>Test di accuratezza
 
@@ -183,17 +183,17 @@ o
 
 **R**: Il caricamento di un elenco di parole consente di aggiungere le parole nel vocabolario ma non di insegnare al sistema come le parole stesse vengono generalmente usate. Se si specificano espressioni complete o parziali, ovvero frasi o espressioni di probabile uso da parte degli utenti, il modello linguistico può apprendere le nuove parole e come vengono usate. Il modello linguistico personalizzato è utile non solo per aggiungere nuove parole nel sistema ma anche per modificare la probabilità di parole note per l'applicazione. L'indicazione di espressioni complete favorisce l'apprendimento da parte del sistema.
 
-## <a name="tenant-model-custom-speech-with-office-365-data"></a>Modello tenant (Riconoscimento vocale personalizzato con i dati di Office 365)
+## <a name="tenant-model-custom-speech-with-office-365-data"></a>Modello di tenant (riconoscimento vocale personalizzato con dati di Office 365)
 
-**D: quali informazioni sono incluse nel modello tenant e come viene creata?**
+**D: Quali informazioni sono incluse nel modello tenant e come vengono create?**
 
-**R:** Un modello tenant viene compilato tramite messaggi di posta elettronica e documenti di [gruppo pubblici](https://support.office.com/article/learn-about-office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2) che possono essere visualizzati da chiunque nell'organizzazione.
+**A:** Un modello di tenant viene creato utilizzando messaggi di posta elettronica e documenti di [gruppo pubblico](https://support.office.com/article/learn-about-office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2) che possono essere visualizzati da chiunque nell'organizzazione.
 
-**D: quali esperienze vocali sono migliorate con il modello tenant?**
+**D: Quali esperienze vocali vengono migliorate dal modello Tenant?**
 
-**R:** Quando il modello tenant è abilitato, creato e pubblicato, viene utilizzato per migliorare il riconoscimento per tutte le applicazioni aziendali compilate mediante il servizio di riconoscimento vocale. che passano anche un token AAD utente che indica l'appartenenza all'azienda.
+**A:** Quando il modello tenant viene abilitato, creato e pubblicato, viene utilizzato per migliorare il riconoscimento per tutte le applicazioni aziendali create utilizzando il servizio di riconoscimento vocale. che passano anche un token AAD utente che indica l'appartenenza all'azienda.
 
-Le esperienze di sintesi vocale integrate in Office 365, ad esempio la dettatura e la didascalia di PowerPoint, non vengono modificate quando si crea un modello tenant per le applicazioni di servizio vocale.
+Le esperienze vocali incorporate in Office 365, ad esempio Dettatura e Sottotitoli di PowerPoint, non vengono modificate quando si crea un modello tenant per le applicazioni del servizio di riconoscimento vocale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

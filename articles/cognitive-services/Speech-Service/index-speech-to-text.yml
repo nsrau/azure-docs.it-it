@@ -1,30 +1,33 @@
 ### YamlMime:Landing
-title: Documentazione del riconoscimento vocale
-summary: Il riconoscimento vocale del servizio riconoscimento vocale, noto anche come riconoscimento vocale, consente la trascrizione in tempo reale dei flussi audio in testo.
+title: Documentazione vocale
+summary: La sintesi vocale del servizio di riconoscimento vocale, nota anche come riconoscimento vocale, consente la trascrizione in tempo reale e in batch dei flussi audio nel testo.
 metadata:
-  title: Documentazione di sintesi vocale-esercitazioni e informazioni di riferimento sulle API-servizi cognitivi di Azure | Microsoft Docs
+  title: Documentazione vocale- testo - Esercitazioni, Riferimenti alle API - Servizi cognitivi di Azure Documenti Microsoft
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
   author: IEvangelist
   manager: nitinme
-  layout: LandingPage
   ms.service: speech-service
   ms.topic: landing-page
-  ms.date: 03/10/2020
+  ms.date: 03/19/2020
   ms.author: dapine
-  ms.openlocfilehash: 7f3486e9944cf7f01c2a53ca101c5cc26530e086
-  ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+  ms.openlocfilehash: b6f2fed7b5d6722b07b7f996c46e48ea0d86f755
+  ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
   ms.translationtype: MT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 03/14/2020
-  ms.locfileid: "79370356"
+  ms.lasthandoff: 03/28/2020
+  ms.locfileid: "80052848"
 landingContent:
-- title: Informazioni sul riconoscimento vocale
+- title: Informazioni sulla sintesi vocale
   linkLists:
   - linkListType: overview
     links:
-    - text: Che cos'è il riconoscimento vocale?
+    - text: Che cos'è la sintesi vocale in tempo reale?
       url: speech-to-text.md
+    - text: Che cos'è la sintesi vocale batch?
+      url: batch-transcription.md
+    - text: Nozioni di base sul riconoscimento vocale?
+      url: speech-to-text-basics.md
   - linkListType: quickstart
     links:
     - text: Riconoscimento vocale con input del microfono
@@ -33,7 +36,7 @@ landingContent:
       url: quickstarts/speech-to-text-from-file.md
     - text: Riconoscimento della voce archiviata in archivio BLOB
       url: quickstarts/from-blob.md
-- title: Sviluppare con sintesi vocale
+- title: Sviluppare con la sintesi vocale
   linkLists:
   - linkListType: how-to-guide
     links:
@@ -45,9 +48,13 @@ landingContent:
       url: how-to-custom-speech.md
     - text: Usare formati di input audio compressi
       url: how-to-use-codec-compressed-audio-input-streams.md
+  - linkListType: tutorial
+    links:
+    - text: Migliorare l'accuratezza con i modelli di tenant
+      url: tutorial-tenant-model.md
   - linkListType: concept
     links:
-    - text: Preparare i dati per Riconoscimento vocale personalizzato
+    - text: Preparare i dati per il riconoscimento vocale personalizzatoPrepare data for Custom Speech
       url: how-to-custom-speech-test-data.md
     - text: Eseguire il training di un modello per Riconoscimento vocale personalizzato
       url: how-to-custom-speech-train-model.md
@@ -57,9 +64,9 @@ landingContent:
   linkLists:
   - linkListType: reference
     links:
-    - text: Supporto delle lingue
+    - text: Lingue supportate
       url: language-support.md#speech-to-text
     - text: Domande frequenti sul riconoscimento vocale
       url: faq-stt.md
-    - text: Prezzi per sintesi vocale
+    - text: Prezzi da voce a testo
       url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services

@@ -1,45 +1,44 @@
 ### YamlMime:Landing
-title: Documentazione dei dispositivi vocali
+title: Documentazione sui dispositivi vocali
 summary: Speech Devices SDK è una libreria pre-ottimizzata abbinata a kit dedicati per lo sviluppo di matrici di microfoni.
 metadata:
-  title: Documentazione per i dispositivi vocali-esercitazioni e informazioni di riferimento sulle API-servizi cognitivi di Azure | Microsoft Docs
+  title: Documentazione relativa ai dispositivi di riconoscimento vocale - Esercitazioni, riferimenti alle API - Servizi cognitivi di Azure Documenti Microsoft
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
   author: IEvangelist
   manager: nitinme
-  layout: LandingPage
   ms.service: speech-service
   ms.topic: landing-page
   ms.date: 03/10/2020
   ms.author: dapine
-  ms.openlocfilehash: cbdbcce25d357530775140bc8b5fdf82808c64ad
-  ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+  ms.openlocfilehash: 5fc9e045162c03585f20e0b06a01524480070050
+  ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
   ms.translationtype: MT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 03/14/2020
-  ms.locfileid: "79369251"
+  ms.lasthandoff: 03/28/2020
+  ms.locfileid: "79415360"
 landingContent:
-- title: Informazioni sull'SDK dei dispositivi vocali
+- title: Informazioni sull'SDK dei dispositivi di riconoscimento vocale
   linkLists:
   - linkListType: overview
     links:
-    - text: Che cos'è l'SDK per i dispositivi vocali?
+    - text: Che cos'è l'SDK dei dispositivi di riconoscimento vocale?
       url: speech-devices-sdk.md
   - linkListType: quickstart
     links:
-    - text: Usare i dispositivi vocali SDK (Windows)
+    - text: Usare l'SDK dei dispositivi di riconoscimento vocale (Windows)Use Speech devices SDK (Windows)
       url: speech-devices-sdk-quickstart.md?pivots=platform-windows
-    - text: Usare i dispositivi vocali SDK (Linux)
+    - text: Usare l'SDK dei dispositivi di riconoscimento vocale (Linux)Use Speech devices SDK (Linux)
       url: speech-devices-sdk-quickstart.md?pivots=platform-linux
-    - text: Usare i dispositivi vocali SDK (Android)
+    - text: Usare l'SDK dei dispositivi di riconoscimento vocale (Android)Use Speech devices SDK (Android)
       url: speech-devices-sdk-quickstart.md?pivots=platform-android
-- title: Sviluppare con i dispositivi vocali SDK
+- title: Sviluppa con l'SDK dei dispositivi di riconoscimento vocaleDevelop with Speech devices SDK
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Progettare un array di microfoni
       url: speech-devices-sdk-microphone.md
-    - text: Configurare il kit Roobo V1
+    - text: Configurare il kit Roobo v1
       url: speech-devices-sdk-roobo-v1.md
 - title: Riferimento
   linkLists:
@@ -49,5 +48,5 @@ landingContent:
       url: devices-sdk-release-notes.md
   - linkListType: reference
     links:
-    - text: Risoluzione dei problemi
+    - text: Risolvere i problemi
       url: speech-devices-sdk-troubleshooting.md

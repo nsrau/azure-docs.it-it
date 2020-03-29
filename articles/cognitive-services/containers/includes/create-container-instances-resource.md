@@ -1,7 +1,7 @@
 ---
 title: Supporto dei contenitori
 titleSuffix: Azure Cognitive Services
-description: Informazioni su come creare una risorsa dell'istanza di contenitore di Azure.
+description: Informazioni su come creare una risorsa istanza del contenitore di Azure.Learn how to create an Azure container instance resource.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -10,43 +10,43 @@ ms.topic: include
 ms.date: 11/21/2019
 ms.author: dapine
 ms.openlocfilehash: 18f4edf5cc63a448779423cc1b302130b4b80724
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75692586"
 ---
-## <a name="create-an-azure-container-instance-resource"></a>Creare una risorsa dell'istanza di contenitore di Azure
+## <a name="create-an-azure-container-instance-resource"></a>Creare una risorsa istanza contenitore di AzureCreate an Azure Container Instance resource
 
-1. Passare alla pagina [Crea](https://ms.portal.azure.com/#create/Microsoft.ContainerInstances) per le istanze di contenitore.
+1. Passare alla pagina [Crea](https://ms.portal.azure.com/#create/Microsoft.ContainerInstances) per le istanze del contenitore.
 
-2. Nella scheda informazioni di **base** immettere i dettagli seguenti:
+2. Nella scheda **Nozioni di base** immettere i dettagli seguenti:
 
-    |Impostazione|Valore|
+    |Impostazione|valore|
     |--|--|
-    |Sottoscrizione|Selezionare la propria sottoscrizione.|
-    |Gruppo di risorse|Selezionare il gruppo di risorse disponibile o crearne uno nuovo, ad esempio `cognitive-services`.|
-    |Nome contenitore|Immettere un nome, ad esempio `cognitive-container-instance`. Il nome deve essere in maiuscolo.|
-    |Percorso|Selezionare un'area per la distribuzione.|
-    |Tipo di immagine|Se l'immagine del contenitore è archiviata in un registro contenitori che non richiede credenziali, scegliere `Public`. Se l'accesso all'immagine del contenitore richiede credenziali, scegliere `Private`. Per informazioni dettagliate su come specificare se l'immagine del contenitore è `Public` o `Private` ("anteprima pubblica"), vedere [repository e immagini del contenitore](../../cognitive-services-container-support.md#container-repositories-and-images) . |
-    |Nome dell'immagine|Immettere il percorso del contenitore di servizi cognitivi. Il percorso è quello usato come argomento del comando `docker pull`. Vedere i [repository del contenitore e le immagini](../../cognitive-services-container-support.md#container-repositories-and-images) per i nomi delle immagini disponibili e il repository corrispondente.<br><br>Il nome dell'immagine deve essere completo specificando tre parti. Innanzitutto, il registro contenitori, quindi il repository, infine il nome dell'immagine: `<container-registry>/<repository>/<image-name>`.<br><br>Di seguito è riportato un esempio, `mcr.microsoft.com/azure-cognitive-services/keyphrase` rappresenta l'immagine Estrazione frasi chiave nel Container Registry Microsoft nel repository dei servizi cognitivi di Azure. Un altro esempio è costituito da `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text` che rappresenterebbe il riconoscimento vocale per l'immagine di testo nel repository Microsoft del registro contenitori di anteprima del contenitore. |
+    |Subscription|Selezionare la propria sottoscrizione.|
+    |Resource group|Selezionare il gruppo di risorse disponibile `cognitive-services`o crearne uno nuovo, ad esempio .|
+    |Nome contenitore|Immettere un `cognitive-container-instance`nome, ad esempio . Il nome deve essere in maiuscoletto inferiore.|
+    |Location|Selezionare un'area per la distribuzione.|
+    |Tipo di immagine|Se l'immagine del contenitore viene archiviata in un `Public`registro contenitori che non richiede credenziali, scegliere . Se l'accesso all'immagine del `Private`contenitore richiede credenziali, scegliere . Fare riferimento [ai repository contenitore e](../../cognitive-services-container-support.md#container-repositories-and-images) alle immagini per `Public` `Private` informazioni dettagliate sull'o meno sull'immagine del contenitore o ("Anteprima pubblica"). |
+    |Nome dell'immagine|Immettere il percorso del contenitore Servizi cognitivi. Il percorso è quello che viene `docker pull` utilizzato come argomento del comando. Fare riferimento [ai repository contenitore e](../../cognitive-services-container-support.md#container-repositories-and-images) alle immagini per i nomi di immagine disponibili e il repository corrispondente.<br><br>Il nome dell'immagine deve essere completo specificando tre parti. In primo luogo, il registro contenitori, `<container-registry>/<repository>/<image-name>`quindi il repository, infine il nome dell'immagine: .<br><br>Ecco un esempio, rappresenterebbe l'immagine di estrazione di frasi chiave nel Registro di sistema del contenitore Microsoft nel repository di Servizi cognitivi di Azure.Here is an example, `mcr.microsoft.com/azure-cognitive-services/keyphrase` would represent the Key Phrase Extraction image in the Microsoft Container Registry under the Azure Cognitive Services repository. Un altro `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text` esempio è, che rappresenterebbe l'immagine di sintesi vocale nel repository Microsoft del registro contenitori Container Preview. |
     |Tipo di sistema operativo|`Linux`|
-    |Dimensioni|Modificare le dimensioni in base alle raccomandazioni suggerite per il contenitore di servizi cognitivi specifico:<br>2 core CPU<br>4 GB
+    |Dimensione|Modificare le dimensioni con i consigli suggeriti per il contenitore del servizio cognitivo specifico:Change size to the suggested recommendations for your specific Cognitive Service container:<br>2 core CPU<br>4 GB
 
-3. Nella scheda **rete** immettere i dettagli seguenti:
+3. Nella scheda **Rete** immettere i dettagli seguenti:
 
-    |Impostazione|Valore|
+    |Impostazione|valore|
     |--|--|
-    |Porte|Impostare la porta TCP su `5000`. Espone il contenitore sulla porta 5000.|
+    |Porte|Impostare la `5000`porta TCP su . Espone il contenitore sulla porta 5000.|
 
-4. Nella scheda **Avanzate** immettere le **variabili di ambiente** necessarie per le impostazioni di fatturazione del contenitore della risorsa istanza di contenitore di Azure:
+4. Nella scheda **Avanzate** immettere le **variabili di ambiente** necessarie per le impostazioni di fatturazione del contenitore della risorsa Istanza contenitore di Azure:
 
-    | Chiave | Valore |
+    | Chiave | valore |
     |--|--|
-    |`apikey`|Copiato dalla pagina **chiavi** della risorsa. Si tratta di una stringa di caratteri alfanumerici 32 senza spazi o trattini, `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|
+    |`apikey`|Copiato dalla pagina **Chiavi** della risorsa. Si tratta di una stringa di 32 caratteri alfanumerici senza spazi o trattini, `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|
     |`billing`|Copiato dalla pagina **Panoramica** della risorsa.|
     |`eula`|`accept`|
 
-5. Fare clic su **Verifica e crea**
+5. Fare clic su **Revisione e creazione**
 6. Al termine della convalida, fare clic su **Crea** per completare il processo di creazione
 7. Quando la risorsa viene distribuita correttamente, è pronta

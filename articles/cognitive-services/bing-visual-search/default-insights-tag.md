@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: scottwhi
 ms.openlocfilehash: b6bc323f4e8deaf975c292f92d862b1fbe0e2714
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "60510123"
 ---
 # <a name="default-insights-tag"></a>Tag informazioni dettagliate predefinite
@@ -100,7 +100,7 @@ Il tag delle informazioni dettagliate predefinite è quello con il campo `displa
 
 ## <a name="pagesincluding-insight"></a>Informazioni dettagliate PagesIncluding
 
-Le informazioni dettagliate di tipo PagesIncluding forniscono un elenco delle pagine Web che includono questa immagine. È effettivamente un elenco delle `Image` oggetti e il `hostPageUrl` campo contiene l'URL alla pagina Web che include l'immagine. Per esempi di utilizzo, vedere [esempio insight PagesIncluding](./bing-insights-usage.md#pagesincluding-insight-example).
+Le informazioni dettagliate di tipo PagesIncluding forniscono un elenco delle pagine Web che includono questa immagine. In realtà è un `Image` elenco di `hostPageUrl` oggetti e il campo contiene l'URL della pagina Web che include l'immagine. Per un esempio di utilizzo, vedere [PagesIncluding insight example (Esempio di informazioni dettagliate).](./bing-insights-usage.md#pagesincluding-insight-example)
 
 ```json
       {
@@ -139,7 +139,7 @@ Le informazioni dettagliate di tipo PagesIncluding forniscono un elenco delle pa
 
 ## <a name="shoppingsources-insight"></a>Informazioni dettagliate ShoppingSources
 
-Le informazioni dettagliate di tipo ShoppingSources forniscono un elenco di siti Web in cui l'utente può acquistare l'elemento mostrato nell'immagine. L'elenco di offerte include l'URL della pagina Web in cui l'utente può acquistare l'elemento, il prezzo dell'elemento e i dettagli di valutazione o una recensione. Per esempi di utilizzo, vedere l'[esempio di ShoppingSources](./bing-insights-usage.md#shoppingsources-insight-example).
+Le informazioni dettagliate di tipo ShoppingSources forniscono un elenco di siti Web in cui l'utente può acquistare l'elemento mostrato nell'immagine. L'elenco delle offerte include l'URL della pagina Web in cui l'utente può acquistare l'elemento, il prezzo dell'elemento e i dettagli della valutazione o della revisione. Per esempi di utilizzo, vedere l'[esempio di ShoppingSources](./bing-insights-usage.md#shoppingsources-insight-example).
 
 ```json
       {
@@ -168,7 +168,7 @@ Le informazioni dettagliate di tipo ShoppingSources forniscono un elenco di siti
 
 ## <a name="moresizes-insight"></a>Informazioni dettagliate MoreSizes
 
-L'informazione MoreSizes identifica il numero di dimensioni (superiori o inferiori) dell'immagine Bing disponibili su Internet (vedere il `availableSizesCount` campo):
+Le informazioni MoreSizes identificano il numero di dimensioni (più grandi o più `availableSizesCount` piccole) dell'immagine rilevata da Bing su Internet (vedere il campo):
 
 ```json
       {
@@ -203,7 +203,7 @@ L'informazione MoreSizes identifica il numero di dimensioni (superiori o inferio
 
 ## <a name="visualsearch-insight"></a>Informazioni dettagliate VisualSearch
 
-Le informazioni dettagliate di tipo VisualSearch forniscono un elenco di immagini visivamente simili a quella originale (con contenuto simile a quello presente nell'immagine originale). Per esempi di utilizzo, vedere [esempio insight VisualSearch](./bing-insights-usage.md#visualsearch-insight-example).
+Le informazioni dettagliate di tipo VisualSearch forniscono un elenco di immagini visivamente simili a quella originale (con contenuto simile a quello presente nell'immagine originale). Per esempio l'utilizzo, vedere [Esempio di informazioni dettagliate](./bing-insights-usage.md#visualsearch-insight-example)su VisualSearch .
 
 ```json
       {
@@ -243,7 +243,7 @@ Le informazioni dettagliate di tipo VisualSearch forniscono un elenco di immagin
 
 ## <a name="recipes-insight"></a>Informazioni dettagliate Recipes
 
-Le informazioni dettagliate di tipo Recipes forniscono un elenco di pagine Web che includono una ricetta per cucinare il piatto mostrato nell'immagine. Per esempi di utilizzo, vedere [esempio di analisi recipe](./bing-insights-usage.md#recipes-insight-example).
+Le informazioni dettagliate di tipo Recipes forniscono un elenco di pagine Web che includono una ricetta per cucinare il piatto mostrato nell'immagine. Per un esempio di utilizzo, vedere [Esempio di informazioni dettagliate sulle ricette.](./bing-insights-usage.md#recipes-insight-example)
 
 ```json
       {
@@ -278,7 +278,7 @@ Le informazioni dettagliate di tipo Recipes forniscono un elenco di pagine Web c
 
 ## <a name="imagebyid-insight"></a>Informazioni dettagliate ImageById
 
-Fornisce le informazioni dettagliate ImageById un `Image` oggetto dell'immagine richiesta insights per:
+Il ImageById insight `Image` fornisce un oggetto dell'immagine per cui sono stati richiesti informazioni dettagliate:The ImageById insight provides an object of the image that you requested insights for:
 
 ```json
       {
@@ -377,7 +377,7 @@ Le informazioni dettagliate di tipo ProductVisualSearch forniscono un elenco di 
 
 ## <a name="relatedsearches-insight"></a>Informazioni dettagliate RelatedSearches
 
-Le informazioni dettagliate di tipo RelatedSearches forniscono un elenco di ricerche correlate eseguite da altri utenti (in base ai termini di ricerca usati dagli altri utenti). Per esempi di utilizzo, vedere [esempio insight RelatedSearches](./bing-insights-usage.md#relatedsearches-insight-example).
+Le informazioni dettagliate di tipo RelatedSearches forniscono un elenco di ricerche correlate eseguite da altri utenti (in base ai termini di ricerca usati dagli altri utenti). Per un esempio di utilizzo, vedere [Esempio di informazioni dettagliate](./bing-insights-usage.md#relatedsearches-insight-example)su RelatedSearches .
 
 ```json
       {
@@ -400,7 +400,7 @@ Le informazioni dettagliate di tipo RelatedSearches forniscono un elenco di rice
 
 ## <a name="documentlevelsuggestions-insight"></a>Informazioni dettagliate DocumentLevelSuggestions
 
-L'informazione DocumentLevelSuggestions fornisce un elenco di termini di ricerca suggeriti in base al contenuto dell'immagine:
+L'analisi DocumentLevelSuggestions fornisce un elenco di termini di ricerca suggeriti in base al contenuto dell'immagine:
 
 ```json
       {
@@ -423,6 +423,6 @@ L'informazione DocumentLevelSuggestions fornisce un elenco di termini di ricerca
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Consulta [utilizzo di esempi di Bing insights](bing-insights-usage.md) per vedere come Bing potrebbe visualizzare le informazioni dettagliate di visual.
+Per informazioni su come Bing potrebbe visualizzare le informazioni visive, vedere [Esempi di utilizzo delle informazioni dettagliate di Bing.Check](bing-insights-usage.md) out Examples of Bing insights usage to see how Bing might display the visual insights.
 
-Per iniziare rapidamente con la prima richiesta, vedere le guide introduttive: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md).
+Per iniziare rapidamente con la prima richiesta, vedere le guide introduttive:[Python](quickstarts/java.md) | di Java[Python](quickstarts/python.md) [c'è.](quickstarts/csharp.md) | [node.js](quickstarts/nodejs.md) | 

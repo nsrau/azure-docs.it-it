@@ -1,7 +1,7 @@
 ---
 title: Configurare l'esperienza di API Ricerca personalizzata Bing | Microsoft Docs
 titleSuffix: Azure Cognitive Services
-description: Il portale consente di creare un'istanza di ricerca che specifica le sezioni del Web; domini, sottopagine e pagine Web.
+description: Il portale consente di creare un'istanza di ricerca che specifica le sezioni del Web. domini, sottopagine e pagine Web.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
 ms.openlocfilehash: c14376cc80373371ec5fcb8f22a00584a6b2f714
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79220215"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Configurare un'esperienza API Ricerca personalizzata Bing
@@ -27,7 +27,7 @@ Quando si definiscono le sezioni Web, usare il comando seguente:
 
 | Nome della sezione | Descrizione                                                                                                                                                                                                                                                                                                |
 |------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Dominio     | La sezione di un dominio include tutto il contenuto presente all'interno di un dominio Internet. Ad esempio: `www.microsoft.com`. Se si omette `www.`, Bing eseguirà la ricerca anche all'interno dei sottodomini del dominio. Se ad esempio si specifica `microsoft.com`, Bing restituisce anche i risultati da `support.microsoft.com` o `technet.microsoft.com`. |
+| Dominio     | La sezione di un dominio include tutto il contenuto presente all'interno di un dominio Internet. Ad esempio: `www.microsoft.com`. Se si omette `www.`, Bing eseguirà la ricerca anche all'interno dei sottodomini del dominio. Ad esempio, se `microsoft.com`si specifica , `support.microsoft.com` `technet.microsoft.com`Bing restituisce anche i risultati da o . |
 | Pagina secondaria    | La sezione di una pagina secondaria include tutto il contenuto disponibile nella pagina secondaria e i relativi percorsi. È possibile specificare un massimo di due pagine secondarie nel percorso. Ad esempio, usare `www.microsoft.com/en-us/windows/`                                                                                                                       |
 | Pagina Web    | La sezione di una pagina Web può includere solo la pagina Web in una ricerca personalizzata. Facoltativamente, è possibile specificare se includere pagine secondarie.                                                                                                                                                                                  |
 
@@ -70,7 +70,7 @@ Per caricare un file, creare un file di testo e specificare un solo dominio, una
 
 ### <a name="get-website-suggestions-for-your-search-experience"></a>Ottieni suggerimenti di siti Web per l'esperienza di ricerca
 
-Dopo l'aggiunta di Web Slice all'elenco **attivo** , il portale ricerca personalizzata Bing genererà suggerimenti per siti Web e sottopagine nella parte inferiore della scheda. Si tratta di sezioni che Ricerca personalizzata Bing ritiene che sia necessario includere. Fare clic su **Aggiorna** per ottenere suggerimenti dopo l'aggiornamento delle impostazioni dell'istanza di ricerca personalizzata. Questa sezione è visibile solo se i suggerimenti sono disponibili.
+Dopo aver aggiunto le sezioni Web all'elenco **Attivo,** il portale di ricerca personalizzata di Bing genererà suggerimenti per siti Web e pagine secondarie nella parte inferiore della scheda. Si tratta di sezioni che Ricerca personalizzata bing ritiene che si desideri includere. Fare clic su **Aggiorna** per ottenere suggerimenti dopo l'aggiornamento delle impostazioni dell'istanza di ricerca personalizzata. Questa sezione è visibile solo se i suggerimenti sono disponibili.
 
 ## <a name="search-for-images-and-videos"></a>Eseguire la ricerca di immagini e video
 
@@ -114,13 +114,13 @@ Le operazioni di assegnazione della posizione più alta, di aumento della priori
 
 ## <a name="pin-slices-to-the-top-of-search-results"></a>Aggiungere le sezioni in cima ai risultati di ricerca
 
-Il portale consente inoltre di aggiungere URL alla parte superiore dei risultati della ricerca per termini di ricerca specifici, usando la scheda **bloccata** . Immettere un URL e una query per specificare la pagina Web che verrà visualizzata come risultato principale. Nota: è possibile aggiungere al massimo una pagina Web per ogni query di ricerca e solo le pagine Web indicizzate saranno visualizzate nelle ricerche. L'aggiunta di risultati non è disponibile per le ricerche di immagini o video.
+Il portale consente inoltre di aggiungere gli URL all'inizio dei risultati di ricerca per termini di ricerca specifici, utilizzando la scheda **Bloccato.** Nota: è possibile aggiungere al massimo una pagina Web per ogni query di ricerca e solo le pagine Web indicizzate saranno visualizzate nelle ricerche. L'aggiunta di risultati non è disponibile per le ricerche di immagini o video.
 
 È possibile aggiungere una pagina Web in cima in due modi:
 
-* Nella scheda **bloccata** immettere l'URL della pagina Web da aggiungere alla parte superiore e la query corrispondente.
+* Nella scheda **Bloccato** immettere l'URL della pagina Web da aggiungere all'inizio e la query corrispondente.
 
-* Nel riquadro **Preview** (Anteprima) immettere un termine di query e fare clic sull'opzione di ricerca. Trovare la pagina Web che si vuole aggiungere per la query e fare clic su **Aggiungi alla parte superiore**. La pagina Web e la query verranno aggiunte all'elenco **Pinned** (Elementi aggiunti in alto).
+* Nel riquadro **Preview** (Anteprima) immettere un termine di query e fare clic sull'opzione di ricerca. Individuare la pagina Web che si desidera aggiungere per la query e fare clic su **Aggiungi all'inizio**. La pagina Web e la query verranno aggiunte all'elenco **Pinned** (Elementi aggiunti in alto).
 
 ### <a name="specify-the-pins-match-condition"></a>Indicare la condizione di corrispondenza dell'elemento aggiunto in alto
 
@@ -160,4 +160,4 @@ Se si è sottoscritto il livello appropriato di Ricerca personalizzata (vedere l
 - [Chiamare la ricerca personalizzata](./search-your-custom-view.md)
 - [Configurare l'esperienza dell'interfaccia utente ospitata](./hosted-ui.md)
 - [Usare indicatori di effetto per evidenziare il testo](../bing-web-search/hit-highlighting.md)
-- [Sfogliare pagine Web](./page-webpages.md)
+- [Sfogliare le pagine Web](./page-webpages.md)

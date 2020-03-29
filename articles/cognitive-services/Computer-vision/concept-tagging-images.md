@@ -1,5 +1,5 @@
 ---
-title: Tag di contenuto-Visione artificiale
+title: Tag dei contenuti - Visione artificiale
 titleSuffix: Azure Cognitive Services
 description: Informazioni sui concetti relativi alla funzione di applicazione di tag alle immagini dell'API Visione artificiale.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: ad01751f7f7c573352c8fd15cc0f8cc2ebbbe700
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 887f6d9163f800ecbe8a5ab9a0715fd171f1d3d9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945116"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80244512"
 ---
 # <a name="applying-content-tags-to-images"></a>Applicazione di tag di contenuto alle immagini
 
@@ -83,6 +83,13 @@ La risposta JSON seguente illustra le informazioni restituite da Visione artific
 }
 ```
 
+## <a name="use-the-api"></a>Usare l'API
+
+La funzionalità di tagging fa parte dell'API [Analizza immagine.](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) È possibile chiamare questa API tramite un SDK nativo o con chiamate REST. Includere `Tags` nel parametro di query **visualFeatures.** Quindi, quando si ottiene la risposta JSON completa, è `"tags"` sufficiente analizzare la stringa per il contenuto della sezione.
+
+* [Guida introduttiva: Computer Vision .NET SDK](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
+* [Guida introduttiva: Analizzare un'immagine (API REST)Quickstart: Analyze an image (REST API)](./quickstarts/csharp-analyze.md)
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-Concetti relativi alla [classificazione delle immagini](concept-categorizing-images.md) e alla [descrizione delle immagini](concept-describing-images.md).
+Scopri i concetti correlati di [categorizzazione](concept-categorizing-images.md) delle immagini e [descrizione delle immagini.](concept-describing-images.md)

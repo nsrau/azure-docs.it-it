@@ -1,5 +1,5 @@
 ---
-title: Test batch-LUIS
+title: Test batch - LUIS
 titleSuffix: Azure Cognitive Services
 description: Usare test in batch per lavorare continuamente all'applicazione allo scopo di perfezionarla e di migliorarne la comprensione del linguaggio.
 services: cognitive-services
@@ -12,23 +12,23 @@ ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: diberry
 ms.openlocfilehash: e9ad7c52af20762633c710b39a64fbebf0cf6213
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79220050"
 ---
 # <a name="batch-testing-with-1000-utterances-in-luis-portal"></a>Test in batch con 1000 espressioni nel portale di LUIS
 
-Il test batch convalida la versione con Training attivo per misurare l'accuratezza della stima. Un test batch consente di visualizzare l'accuratezza di ogni finalità ed entità nella versione attiva, visualizzando i risultati con un grafico. Esaminare i risultati dei test di batch per eseguire le azioni appropriate per migliorare l'accuratezza, ad esempio l'aggiunta di altre espressioni di esempio a uno scopo se l'app non riesce a identificare la finalità corretta o a etichettare entità all'interno dell'espressione.
+I test in batch convalidano la versione con training attiva per misurarne l'accuratezza della stima. Un test batch consente di visualizzare l'accuratezza di ogni finalità ed entità nella versione attiva, visualizzando i risultati con un grafico. Esaminare i risultati del test batch per intraprendere l'azione appropriata per migliorare l'accuratezza, ad esempio aggiungendo altre espressioni di esempio a una finalità se l'app spesso non riesce a identificare la finalità corretta o etichettare le entità all'interno dell'espressione.
 
 ## <a name="group-data-for-batch-test"></a>Raggruppare i dati per il test in batch
 
-È importante che le espressioni usate per i test in batch siano nuove per Language Understanding. Se si dispone di un set di dati di espressioni, dividere le espressioni in tre set: espressioni di esempio aggiunte a un Intent, espressioni ricevute dall'endpoint pubblicato e espressioni usate per eseguire il test di batch LUIS dopo che è stato eseguito il training. 
+È importante che le espressioni usate per i test in batch siano nuove per Language Understanding. Se si dispone di un set di dati di espressioni, dividere le espressioni in tre set: espressioni di esempio aggiunte a una finalità, espressioni ricevute dall'endpoint pubblicato e espressioni usate per eseguire il test in batch di LUIS dopo il training. 
 
-## <a name="a-data-set-of-utterances"></a>Set di dati di espressioni
+## <a name="a-data-set-of-utterances"></a>Un set di dati di espressioni
 
-Inviare un file batch di espressioni, noto come set di *dati*, per i test batch. Il set di dati è un file in formato JSON contenente un massimo di 1.000 espressioni **non duplicate** con etichetta. È possibile testare fino a 10 set di dati in un'app. Se è necessario testare più, eliminare un set di dati e quindi aggiungerne uno nuovo.
+Inviare un file batch di espressioni, noto come set di *dati,* per il test in batch. Il set di dati è un file in formato JSON contenente un massimo di 1.000 espressioni non **duplicate** con etichetta. Puoi testare fino a 10 set di dati in un'app. Se è necessario testarne altri, eliminare un set di dati e quindi aggiungerne uno nuovo.
 
 |**Regole**|
 |--|
@@ -106,7 +106,7 @@ Di seguito sono riportati gli errori più comuni.
 
 ## <a name="batch-test-state"></a>Stato del test in batch
 
-LUIS tiene traccia dello stato dell'ultimo test del set di dati. con le dimensioni (numero di espressioni nel batch), la data dell'ultima esecuzione e l'ultimo risultato (numero di espressioni previste correttamente).
+LUIS tiene traccia dello stato dell'ultimo test di ogni set di dati. con le dimensioni (numero di espressioni nel batch), la data dell'ultima esecuzione e l'ultimo risultato (numero di espressioni previste correttamente).
 
 <a name="sections-of-the-results-chart"></a>
 
@@ -114,7 +114,7 @@ LUIS tiene traccia dello stato dell'ultimo test del set di dati. con le dimensio
 
 Il risultato del test in batch è un grafico a dispersione, noto come matrice di errore. Questo grafico è un confronto a quattro delle espressioni nel file batch e della finalità e delle entità previste dal modello corrente. 
 
-I punti dati nelle sezioni **False Positive** (Falso positivo) e **False Negative** (Falso negativo) indicano errori che devono essere esaminati. Se tutti i punti dati si trovano nelle sezioni **true positive** e **true negative** , l'accuratezza dell'app è perfetta in questo set di dati.
+I punti dati nelle sezioni **False Positive** (Falso positivo) e **False Negative** (Falso negativo) indicano errori che devono essere esaminati. Se tutti i punti dati si trovano nelle sezioni **True Positive** e **True Negative,** la precisione dell'app è perfetta in questo set di dati.
 
 ![Quattro sezioni del grafico](./media/luis-concept-batch-test/chart-sections.png)
 

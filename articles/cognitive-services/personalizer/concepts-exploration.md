@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: diberry
 ms.openlocfilehash: 0b69c1fb070431ad61858322dce461f6496c35d7
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73490825"
 ---
 # <a name="exploration-and-exploitation"></a>Esplorazione e sfruttamento
@@ -29,7 +29,7 @@ Personalizza esperienze usa attualmente un algoritmo denominato *epsilon greedy*
 
 ## <a name="choosing-an-exploration-setting"></a>Scelta di un'impostazione di esplorazione
 
-Configurare la percentuale di traffico da usare per l'esplorazione nella pagina di **configurazione** del portale di Azure per la personalizzazione. Questa impostazione determina la percentuale di chiamate a Classifica che eseguono l'esplorazione. 
+Configurare la percentuale di traffico da utilizzare per l'esplorazione nella pagina Configurazione del portale di Azure per Personalizer.You configure the percentage of traffic to use for exploration in the Azure portal's **Configuration** page for Personalizer. Questa impostazione determina la percentuale di chiamate a Classifica che eseguono l'esplorazione. 
 
 Personalizza esperienze determina se eseguire l'esplorazione o lo sfruttamento usando questa probabilità per ogni chiamata a Classifica. Questo comportamento è diverso rispetto a quanto accade in un framework A/B che blocca una gestione su ID utente specifici.
 

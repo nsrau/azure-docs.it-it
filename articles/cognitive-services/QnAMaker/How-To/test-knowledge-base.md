@@ -4,17 +4,17 @@ description: Testare la Knowledge Base di QnA Maker è una parte importante di u
 ms.topic: conceptual
 ms.date: 03/05/2020
 ms.openlocfilehash: da4988ced0b077952ce64e6227d16e58d40ae329
-ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78927266"
 ---
-# <a name="test-your-knowledge-base-in-qna-maker"></a>Testare la Knowledge base in QnA Maker
+# <a name="test-your-knowledge-base-in-qna-maker"></a>Testare la Knowledge Base in QnA Maker
 
 Testare la Knowledge Base di QnA Maker è una parte importante di un processo iterativo per migliorare l'accuratezza delle risposte restituite. È possibile testare la Knowledge Base attraverso un'interfaccia di chat avanzata che consente anche di apportare modifiche.
 
-## <a name="interactively-test-in-qna-maker-portal"></a>Eseguire test in modo interattivo nel portale QnA Maker
+## <a name="interactively-test-in-qna-maker-portal"></a>Test interattivo nel portale QnA Maker
 
 1. Accedere alla Knowledge Base selezionandone il nome nella pagina **My knowledge bases** (Knowledge Base personali).
 1. Per accedere al pannello a scorrimento Test, selezionare **Test** nel pannello superiore dell'applicazione.
@@ -55,34 +55,34 @@ Se la risposta con il punteggio più alto non è corretta, selezionare la rispos
 
 È possibile aggiungere una nuova risposta se una delle risposte esistenti individuate non è corretta o se la risposta non esiste nella Knowledge Base (non è stata trovata una buona corrispondenza nella Knowledge Base).
 
-Nella parte inferiore dell'elenco risposte utilizzare la casella di testo per immettere una nuova risposta e premere INVIO per aggiungerla.
+Nella parte inferiore dell'elenco delle risposte, utilizzare la casella di testo per immettere una nuova risposta e premere INVIO per aggiungerla.
 
 Selezionare **Save and train** (Salva ed esegui training) per salvare questa risposta in modo permanente. Una nuova coppia di domanda/risposta è stata così aggiunta alla Knowledge Base.
 
 > [!NOTE]
-> Tutte le modifiche alla Knowledge Base vengono salvate solo quando si fa clic sul pulsante  **Save and train** (Salva ed esegui training).
+> Tutte le modifiche alla Knowledge Base vengono salvate solo quando si fa clic sul pulsante ** Save and train** (Salva ed esegui training).
 
-### <a name="test-the-published-knowledge-base"></a>Testare la Knowledge base pubblicata
+### <a name="test-the-published-knowledge-base"></a>Testare la Knowledge Base pubblicata
 
-È possibile testare la versione pubblicata della Knowledge base nel riquadro test. Dopo aver pubblicato la Knowledge base, selezionare la casella **KB pubblicati** e inviare una query per ottenere risultati dalla KB pubblicata.
+È possibile testare la versione pubblicata della Knowledge Base nel riquadro dei test. Dopo aver pubblicato la KB, selezionare la casella **PUBLISHED KB** e inviare una query per ottenere i risultati dalla KB pubblicata.
 
-![Eseguire test su una KB pubblicata](../media/qnamaker-how-to-test-kb/test-against-published-kb.png)
+![Test against a published KB](../media/qnamaker-how-to-test-kb/test-against-published-kb.png)
 
 ## <a name="batch-test-with-tool"></a>Test batch con strumento
 
 Utilizzare lo strumento di test batch quando si desidera:
 
-* determinare la risposta e il Punteggio principali per un set di domande
-* convalidare la risposta prevista per il set di domande
+* determinare la risposta superiore e il punteggio per una serie di domande
+* convalidare la risposta prevista per una serie di domande
 
-Per istruzioni dettagliate, vedere l' [esercitazione](../Quickstarts/batch-testing.md) relativa ai test di batch.
+Leggere [l'esercitazione](../Quickstarts/batch-testing.md) sui test batch per istruzioni dettagliate.
 
-I test batch sono forniti con lo strumento di test batch. Questo strumento è disponibile come [file eseguibile compresso](https://aka.ms/qnamakerbatchtestingtool) per il download o come [ C# codice sorgente](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/batchtesting).
+Il test batch viene fornito con lo strumento di test batch. Questo strumento è disponibile come [file eseguibile compresso](https://aka.ms/qnamakerbatchtestingtool) per il download o come [codice sorgente di C.](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/batchtesting)
 
-[La documentazione di riferimento sullo strumento](../reference-tsv-format-batch-testing.md) include:
+[La documentazione di riferimento relativa allo strumento](../reference-tsv-format-batch-testing.md) include:
 
-* esempio di riga di comando dello strumento
-* formato per i file di input e di file con estensione TSV
+* l'esempio della riga di comando dello strumento
+* il formato per i file di input e file outfile TSV
 
 ## <a name="next-steps"></a>Passaggi successivi
 

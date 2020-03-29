@@ -11,25 +11,25 @@ ms.topic: article
 ms.date: 02/06/2020
 ms.author: aahi
 ms.openlocfilehash: 164e803a6af8a7d1ccdc9c70cc3e42b787857b3a
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77086902"
 ---
-# <a name="supported-types-for-named-entity-recognition-version-3-preview"></a>Tipi supportati per il riconoscimento delle entità denominato versione 3 (anteprima)
+# <a name="supported-types-for-named-entity-recognition-version-3-preview"></a>Tipi supportati per il riconoscimento delle entità denominate versione 3 (anteprima)Supported Types for Named Entity Recognition Version 3 (Preview)
 
-Il API Analisi del testo fornisce la possibilità di identificare e risolvere le ambiguità delle entità trovate nel testo. Il [riconoscimento delle entità denominate](how-tos/text-analytics-how-to-entity-linking.md) (ner) è la possibilità di identificare entità diverse nel testo e di classificarle in classi predefinite.
+L'API Analisi del testo consente di identificare e disambiguare le entità presenti nel testo. [Il riconoscimento delle entità denominate](how-tos/text-analytics-how-to-entity-linking.md) (NER) è la possibilità di identificare entità diverse nel testo e categorizzarle in classi predefinite.
 
 ## <a name="entity-types"></a>Tipi di entità
 
-I tipi di entità e i sottotipi supportati (se applicabile) sono elencati di seguito:
+I tipi di entità e i sottotipi supportati (se applicabile) sono elencati di seguito:The supported entity types and sub-types (where applicable) are listed below:
 
-#### <a name="generaltabgeneral"></a>[Generale](#tab/general)
+#### <a name="general"></a>[Generale](#tab/general)
 
 [!INCLUDE [supported entity types - general](./includes/entity-types/general-entities.md)]
 
-#### <a name="personal-informationtabpersonal"></a>[Informazioni personali](#tab/personal)
+#### <a name="personal-information"></a>[Informazioni personali](#tab/personal)
 
 [!INCLUDE [supported entity types - personally identifying information](./includes/entity-types/personal-information-entities.md)]
 
@@ -37,4 +37,4 @@ I tipi di entità e i sottotipi supportati (se applicabile) sono elencati di seg
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Come usare il riconoscimento delle entità denominate in Analisi del testo](how-tos/text-analytics-how-to-entity-linking.md)
+* [Come utilizzare il riconoscimento delle entità denominate nell'analisi del testo](how-tos/text-analytics-how-to-entity-linking.md)

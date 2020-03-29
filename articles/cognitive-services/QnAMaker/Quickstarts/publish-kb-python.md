@@ -1,15 +1,15 @@
 ---
-title: 'Guida introduttiva: pubblicare la Knowledge base, REST, Python-QnA Maker'
+title: 'Guida introduttiva: Pubblicazione della Knowledge Base, REST, Python - QnA Maker'
 description: In questa guida di avvio rapido basata su REST per Python viene pubblicata una knowledge base e creato un endpoint che può essere chiamato nell'applicazione o nel chatbot.
 ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27
 ms.topic: conceptual
 ms.openlocfilehash: 6f053ecbd58d3c2527c1b904437dcc4715c76af1
-ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78851652"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-python"></a>Guida introduttiva: Pubblicare una knowledge base in QnA Maker con Python
@@ -21,7 +21,7 @@ In questa guida di avvio rapido vengono chiamate le API QnA Maker seguenti:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* [Python 3.7](https://www.python.org/downloads/)
+* [Pitone 3.7](https://www.python.org/downloads/)
 * È necessario disporre di un [servizio QnA Maker](../How-To/set-up-qnamaker-service-azure.md). Per recuperare la chiave e l'endpoint (che include il nome della risorsa), selezionare **Avvio rapido** per la risorsa nel portale di Azure.
 * ID della knowledge base (KB) di QnA Maker trovato nell'URL nel parametro della stringa di query `kbid` come mostrato di seguito.
 
@@ -30,7 +30,7 @@ In questa guida di avvio rapido vengono chiamate le API QnA Maker seguenti:
     Se non si ha ancora una knowledge base, è possibile crearne una di esempio da usare per questa guida introduttiva: [Creare una nuova knowledge base](../how-to/create-knowledge-base.md).
 
 > [!NOTE]
-> I file di soluzione completi sono disponibili nel [**repository GitHub**  Azure-Samples/cognitive-services-qnamaker-python](https://github.com/Azure-Samples/cognitive-services-qnamaker-python/tree/master/documentation-samples/quickstarts/publish-knowledge-base).
+> I file di soluzione completi sono disponibili nel [**repository GitHub ** Azure-Samples/cognitive-services-qnamaker-python](https://github.com/Azure-Samples/cognitive-services-qnamaker-python/tree/master/documentation-samples/quickstarts/publish-knowledge-base).
 
 ## <a name="create-a-knowledge-base-python-file"></a>Creare un file Python per la knowledge base
 

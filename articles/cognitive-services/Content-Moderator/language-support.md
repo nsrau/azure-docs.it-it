@@ -1,7 +1,7 @@
 ---
 title: Supporto per le lingue - API Content Moderator
 titleSuffix: Azure Cognitive Services
-description: Questo è un elenco di linguaggi naturali supportati dall'API di servizi cognitivi di Azure Content Moderator.
+description: Questo è un elenco di linguaggi naturali supportati dall'API di moderatore del contenuto di Servizi cognitivi di Azure.This is a list of natural languages that the Azure Cognitive Services Content Moderator API supports.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
 ms.openlocfilehash: 9574af31c881589668c462099cae46d9e83b454b
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73744373"
 ---
 # <a name="language-support-for-content-moderator-api"></a>Supporto per le lingue dell'API Content Moderator
@@ -46,7 +46,7 @@ ms.locfileid: "73744373"
 | Tedesco | Curdo sorani | Polacco        | Turco |
 | Greco | Cherokee | Portoghese | |
 | Haitiano | Cinese (semplificato) | Rumeno | |
-| Ebraico | Cinese (tradizionale) - Hong Kong RAS | Russo | |
+| Ebraico | Cinese (tradizionale) - Hong Kong | Russo | |
 | Hindi | Cinese (tradizionale) - Taiwan | Serbo (alfabeto cirillico) | |
 | Hmong | Croato | Serbo (alfabeto latino) | |
 | Ungherese | Ceco | Slovacco | |
@@ -108,7 +108,7 @@ ms.locfileid: "73744373"
 | | Pulaar | | |
 | | Punjabi | | |
 | | Punjabi (Pakistan) | | |
-| | Quechua (Peru) | | |
+| | Quechua (Perù) | | |
 | | Rumeno | | |
 | | Russo | | |
 | | Scozzese Gaelico | | |

@@ -1,57 +1,57 @@
 ---
-title: Configurazione del servizio-QnA Maker
-description: Informazioni su come e dove configurare le risorse.
+title: Configurazione del servizio - QnA MakerService configuration - QnA Maker
+description: Comprendere come e dove configurare le risorse.
 ms.topic: reference
 ms.date: 02/21/2020
 ms.openlocfilehash: 8ef6fecbfeb119d0c68ec5bc3bbc90ec449dbb7d
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77651861"
 ---
 # <a name="service-configuration"></a>Configurazione del servizio
 
-QnA Maker usa diverse risorse (servizi) di Azure, tra cui ricerca cognitiva, servizio app, piano di servizio app e Application Insights.
+QnA Maker uses several Azure resources (services) including Cognitive Search, App Service, App Service Plan, and Application Insights.
 
-Di seguito sono elencate tutte le personalizzazioni apportate a queste impostazioni supportate da QnA Maker.
+Tutte le personalizzazioni di queste impostazioni supportate da QnA Maker sono elencate di seguito.
 
 ## <a name="app-service"></a>Servizio app
 
-QnA Maker usa il servizio app per fornire il runtime di query usato dall' [API generateAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer).
+QnA Maker utilizza il servizio app per fornire il runtime di query utilizzato [dall'API generateAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer).
 
 
-Queste impostazioni sono disponibili nella portale di Azure per il servizio app. Le impostazioni sono disponibili selezionando **Impostazioni**, quindi **configurazione**.
+Queste impostazioni sono disponibili nel portale di Azure per il servizio app. Le impostazioni sono disponibili selezionando **Impostazioni**, quindi **Configurazione**.
 
-È possibile impostare una singola impostazione tramite l'elenco delle impostazioni dell'applicazione o modificare diverse impostazioni selezionando **modifica avanzata**.
+È possibile impostare una singola impostazione tramite l'elenco Impostazioni applicazione o modificare diverse impostazioni selezionando **Modifica avanzata**.
 
 |Risorsa|Impostazione|
 |--|--|
-|AzureSearchAdminKey|Ricerca cognitiva: usato per l'archiviazione e il Ranker di QnA set #1|
-|AzureSearchName|Ricerca cognitiva: usato per l'archiviazione e il Ranker di QnA set #1|
-|DefaultAnswer|Testo di risposta quando non viene trovata alcuna corrispondenza|
+|Chiave AzureSearchAdmin|Ricerca cognitiva - utilizzata per l'archiviazione dei set QnA e il #1 Ranker|
+|NomeAzureSearchName|Ricerca cognitiva - utilizzata per l'archiviazione dei set QnA e il #1 Ranker|
+|Risposta predefinita|Testo della risposta quando non viene trovata alcuna corrispondenza|
 |UserAppInsightsAppId|Log di chat e telemetria|
-|UserAppInsightsKey|Log di chat e telemetria|
+|UserAppInsightsKey (Chiave UserAppInsightsKey)|Log di chat e telemetria|
 |UserAppInsightsName|Log di chat e telemetria|
 
-Informazioni [su come aggiungere la modifica del servizio ricerca cognitiva](./how-to/set-up-qnamaker-service-azure.md#configure-qna-maker-to-use-different-cognitive-search-resource) al servizio.
+Informazioni su come aggiungere la modifica del [servizio di Ricerca cognitiva](./how-to/set-up-qnamaker-service-azure.md#configure-qna-maker-to-use-different-cognitive-search-resource) al servizio.
 
-Dopo aver apportato le modifiche, è necessario **riavviare** il servizio dalla pagina **Panoramica** del portale di Azure.
+Una volta che si sono apportate modifiche, è necessario **riavviare** il servizio dalla pagina **Panoramica** del portale di Azure.
 
 ## <a name="qna-maker-service"></a>Servizio QnA Maker
 
-Il servizio QnA Maker fornisce la configurazione per consentire agli utenti seguenti di collaborare in un singolo servizio QnA Maker e in tutte le Knowledge base.
+Il servizio QnA Maker fornisce la configurazione per gli utenti seguenti per collaborare su un singolo servizio QnA Maker e su tutte le relative knowledge base.
 
-Informazioni [su come aggiungere collaboratori](./how-to/collaborate-knowledge-base.md) al servizio.
+[Scopri come aggiungere collaboratori](./how-to/collaborate-knowledge-base.md) al tuo servizio.
 
 ## <a name="application-insights"></a>Application Insights
 
-Application Insights non dispone di impostazioni di configurazione specifiche per l'QnA Maker.
+Application Insights has no configuration settings specific to QnA Maker.
 
 ## <a name="app-service-plan"></a>Piano di servizio app
 
-Il piano di servizio app non contiene impostazioni di configurazione specifiche per QnA Maker.
+App Service Plan has no configuration settings specific to QnA Maker.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ulteriori informazioni sui [formati](reference-document-format-guidelines.md) per i documenti e gli URL che si desidera importare in una Knowledge base.
+Ulteriori informazioni sui [formati](reference-document-format-guidelines.md) per i documenti e gli URL che si desidera importare in una Knowledge Base.

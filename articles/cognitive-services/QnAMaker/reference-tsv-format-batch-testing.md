@@ -1,7 +1,7 @@
 ---
-title: Formato TSV test batch-QnA Maker
+title: Formato TSV di test in batch - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: Informazioni sul formato TSV per i test batch
+description: Comprendere il formato TSV per il test in batch
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,15 +11,15 @@ ms.topic: reference
 ms.date: 10/24/2019
 ms.author: diberry
 ms.openlocfilehash: dccf034b6497651db70b6cc09fff3f1b1d645a1b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73507825"
 ---
-# <a name="batch-testing-tsv-format"></a>Formato TSV test batch
+# <a name="batch-testing-tsv-format"></a>Formato TSV di test in batch
 
-I test batch sono disponibili dal [codice sorgente](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/batchtesting) o come [file eseguibile scaricabile compresso](https://aka.ms/qna_btzip). Il formato del comando per eseguire il test batch è il seguente:
+Il test batch è disponibile dal [codice sorgente](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/batchtesting) o come [eseguibile scaricabile.](https://aka.ms/qna_btzip) Il formato del comando per eseguire il test batch è:
 
 ```console
 batchtesting.exe input.tsv https://YOUR-HOST.azurewebsites.net ENDPOINT-KEY out.tsv
@@ -27,34 +27,34 @@ batchtesting.exe input.tsv https://YOUR-HOST.azurewebsites.net ENDPOINT-KEY out.
 
 |Param|Valore previsto|
 |--|--|
-|1|nome del file TSV formattato con [campi di input TSV](#tsv-input-fields)|
-|2|URI per endpoint con l'HOST della pagina di pubblicazione del portale di QnA Maker.|
-|3|CHIAVE ENDPOINT, disponibile nella pagina pubblica del portale di QnA Maker.|
-|4|nome del file TSV creato da test batch per i risultati.|
+|1|nome del file tsv formattato con campi di [input TSV](#tsv-input-fields)|
+|2|URI per endpoint, con YOUR-HOST dalla pagina Pubblica del portale QnA Maker.|
+|3|ENDPOINT-KEY, disponibile nella pagina Pubblica del portale QnA Maker.|
+|4|nome del file tsv creato dal test batch per i risultati.|
 
-Usare le informazioni seguenti per comprendere e implementare il formato TSV per i test batch. 
+Utilizzare le informazioni seguenti per comprendere e implementare il formato TSV per il test in batch. 
 
-## <a name="tsv-input-fields"></a>Campi di input TSV
+## <a name="tsv-input-fields"></a>Campi di immissione TSV
 
 |Campi del file di input TSV|Note|
 |--|--|
-|KBID|ID KB trovato nella pagina di pubblicazione.|
-|Domanda|La domanda che un utente immette.|
-|Tag dei metadati|Facoltativa|
-|Parametro Top|Facoltativa| 
-|ID risposta previsto|Facoltativa|
+|KBID|L'ID KB disponibile nella pagina Pubblica.|
+|Domanda|La domanda che un utente inserirebilmente.|
+|Tag dei metadati|facoltativo|
+|Parametro Top|facoltativo| 
+|ID della risposta prevista|facoltativo|
 
-![Formato di input per il file TSV per i test batch.](media/batch-test/input-tsv-format-batch-test.png)
+![Formato di input per il file TSV per il test in batch.](media/batch-test/input-tsv-format-batch-test.png)
 
 ## <a name="tsv-output-fields"></a>Campi di output TSV 
 
 |Parametri del file di output TSV|Note|
 |--|--|
-|KBID|ID KB trovato nella pagina di pubblicazione.|
-|Domanda|Domanda immessa dal file di input.|
-|Risposta|Risposta principale dalla Knowledge base.|
+|KBID|L'ID KB disponibile nella pagina Pubblica.|
+|Domanda|La domanda immessa dal file di input.|
+|Risposta|Top risposta dalla vostra base di conoscenze.|
 |ID risposta|ID risposta|
-|Score|Punteggio di stima per la risposta. |
-|Tag dei metadati|associato alla risposta restituita|
-|ID risposta previsto|facoltativo (solo quando è specificato l'ID risposta previsto)|
-|Etichetta di valutazione|facoltativo, i valori potrebbero essere: corretti o non corretti (solo quando viene fornita la risposta prevista)|
+|Punteggio|Punteggio di stima per la risposta. |
+|Tag dei metadati|associato con risposta restituita|
+|ID della risposta prevista|facoltativo (solo quando viene fornito l'ID di risposta previsto)|
+|Etichetta di giudizio|opzionale, i valori potrebbero essere: corretti o non corretti (solo quando viene data la risposta prevista)|

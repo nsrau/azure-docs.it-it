@@ -1,5 +1,5 @@
 ---
-title: Passaggi successivi dei contenitori
+title: Passaggi successivi contenitoriContainers Next Steps
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -8,15 +8,15 @@ ms.topic: include
 ms.date: 7/5/2019
 ms.author: dapine
 ms.openlocfilehash: a28dfc93fd007a5a0d83274af741a6a56fc747f5
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73523142"
 ---
 ## <a name="next-steps"></a>Passaggi successivi 
 
-Continuiamo a usare i contenitori di servizi cognitivi di Azure.
+Continuare a usare i contenitori di Servizi cognitivi di Azure.Let's continue working with Azure Cognitive Services containers.
 
 > [!div class="nextstepaction"]
-> [Usare più contenitori di servizi cognitivi](../../cognitive-services-container-support.md)
+> [Usare più contenitori di Servizi cognitiviUse more Cognitive Services Containers](../../cognitive-services-container-support.md)

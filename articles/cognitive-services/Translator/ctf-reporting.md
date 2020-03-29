@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: swmachan
 ms.openlocfilehash: 6a197095d97e67f7548e60375148cff57e47b797
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68595929"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>Come usare i report di Collaborative Translation Framework (CTF)
@@ -34,7 +34,7 @@ L'endpoint dell'API di creazione report di CTF è https://api.microsofttranslato
 
 
 ## <a name="methods"></a>Metodi
-| Name |    DESCRIZIONE|
+| Nome |    Descrizione|
 |:---|:---|
 | Metodo GetUserTranslationCounts | Ottiene i conteggi delle traduzioni create dall'utente. |
 | Metodo GetUserTranslations | Recupera le traduzioni create dall'utente. |
@@ -70,21 +70,21 @@ Questo metodo recupera il conteggio delle traduzioni create dall'utente. Fornisc
 >            int? take);
 > ```
 
-**Parameters**
+**Parametri**
 
 | Parametro | Descrizione |
 |:---|:---|
 | appId | **Obbligatorio** Se si usa l'intestazione dell'autorizzazione, lasciare vuoto il campo appid. In caso contrario specificare una stringa contenente il token di accesso "Bearer" + " " +.|
 | uriPrefix | **Facoltativo** Stringa contenente il prefisso dell'URI della traduzione.|
-| from | **Facoltativo** Stringa che rappresenta il codice della lingua del testo della traduzione. |
-| in | **Facoltativo** Stringa che rappresenta il codice della lingua in cui tradurre il testo.|
+| da | **Facoltativo** Stringa che rappresenta il codice della lingua del testo della traduzione. |
+| to | **Facoltativo** Stringa che rappresenta il codice della lingua in cui tradurre il testo.|
 | minRating| **Facoltativo** Valore intero che rappresenta la classificazione di qualità minima per il testo tradotto. Il valore valido è compreso tra -10 e 10. Il valore predefinito è 1.|
 | maxRating| **Facoltativo** Valore intero che rappresenta la classificazione di qualità massima per il testo tradotto. Il valore valido è compreso tra -10 e 10. Il valore predefinito è 1.|
-| user | **Facoltativo** Stringa usata per filtrare i risultati in base all'iniziatore dell'invio. |
+| utente | **Facoltativo** Stringa usata per filtrare i risultati in base all'iniziatore dell'invio. |
 | category| **Facoltativo** Stringa che contiene la categoria o il dominio della traduzione. Questo parametro supporta solo l'opzione predefinita general.|
 | minDateUtc| **Facoltativo** Data da cui si vogliono recuperare le traduzioni. La data deve essere nel formato UTC. |
 | maxDateUtc| **Facoltativo** Data fino a cui si vogliono recuperare le traduzioni. La data deve essere nel formato UTC. |
-| ignora| **Facoltativo** Numero di risultati da ignorare in una pagina. Ad esempio, se si vogliono ignorare le prime 20 righe di risultati e visualizzare a partire dal record dei risultati 21, specificare 20 per questo parametro. Il valore predefinito per questo parametro è 0.|
+| skip| **Facoltativo** Numero di risultati da ignorare in una pagina. Ad esempio, se si vogliono ignorare le prime 20 righe di risultati e visualizzare a partire dal record dei risultati 21, specificare 20 per questo parametro. Il valore predefinito per questo parametro è 0.|
 | take | **Facoltativo** Numero di risultati da recuperare. Il numero massimo di ogni richiesta è 100. Il valore predefinito è 100.|
 
 > [!NOTE]
@@ -97,15 +97,15 @@ Il set di risultati contiene una matrice di **UserTranslationCount**. Ogni UserT
 | Campo | Descrizione |
 |:---|:---|
 | Conteggio| Numero di risultati recuperati|
-| Da | Lingua di origine|
-| Classificazione| Classificazione applicata dall'autore dell'invio nella chiamata al metodo AddTranslation()|
+| From | Lingua di origine|
+| Rating| Classificazione applicata dall'autore dell'invio nella chiamata al metodo AddTranslation()|
 | A| Lingua di destinazione|
-| URI| URI applicato nella chiamata al metodo AddTranslation()|
+| Uri| URI applicato nella chiamata al metodo AddTranslation()|
 | Utente| Nome dell'utente|
 
 **Eccezioni**
 
-| Eccezione | Messaggio | Condizioni |
+| Eccezione | Message | Condizioni |
 |:---|:---|:---|
 | ArgumentOutOfRangeException | The parameter '**maxDateUtc**' must be greater than or equal to '**minDateUtc**' (Il parametro 'maxDateUtc' deve essere maggiore di o uguale a 'minDateUtc').| Il valore del parametro **maxDateUtc** è minore del valore del parametro **minDateUtc**.|
 | TranslateApiException | IP is over the quota (IP oltre la quota).| <ul><li>È stato raggiunto il limite per il numero di richieste al minuto.</li><li>Le dimensioni delle richieste restano limitate a 10.000 caratteri.</li><li>Il numero di caratteri accettati dall'API Microsoft Translator è limitato da una quota giornaliera e da una quota oraria.</li></ul>|
@@ -115,8 +115,8 @@ Il set di risultati contiene una matrice di **UserTranslationCount**. Ogni UserT
 > La quota verrà regolata per garantire l'equità tra tutti gli utenti del servizio.
 
 **Visualizzare esempi di codice in GitHub**
-* [C#](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslationcounts-example-csharp.md)
-* [PHP](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslationcounts-example-php.md)
+* [C #](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslationcounts-example-csharp.md)
+* [Php](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslationcounts-example-php.md)
 
 ## <a name="getusertranslations-method"></a>Metodo GetUserTranslations
 
@@ -141,21 +141,21 @@ Questo metodo recupera le traduzioni create dall'utente. Fornisce le traduzioni 
 >             int? take);
 > ```
 
-**Parameters**
+**Parametri**
 
 | Parametro | Descrizione |
 |:---|:---|
 | appId | **Obbligatorio** Se si usa l'intestazione dell'autorizzazione, lasciare vuoto il campo appid. In caso contrario specificare una stringa contenente il token di accesso "Bearer" + " " +.|
 | uriPrefix| **Facoltativo** Stringa contenente il prefisso dell'URI della traduzione.|
-| from| **Facoltativo** Stringa che rappresenta il codice della lingua del testo della traduzione.|
-| in| **Facoltativo** Stringa che rappresenta il codice della lingua in cui tradurre il testo.|
+| da| **Facoltativo** Stringa che rappresenta il codice della lingua del testo della traduzione.|
+| to| **Facoltativo** Stringa che rappresenta il codice della lingua in cui tradurre il testo.|
 | minRating| **Facoltativo** Valore intero che rappresenta la classificazione di qualità minima per il testo tradotto. Il valore valido è compreso tra -10 e 10. Il valore predefinito è 1.|
 | maxRating| **Facoltativo** Valore intero che rappresenta la classificazione di qualità massima per il testo tradotto. Il valore valido è compreso tra -10 e 10. Il valore predefinito è 1.|
-| user| **Facoltativo. Stringa usata per filtrare i risultati in base all'iniziatore dell'invio**|
+| utente| **Opzionale. Stringa utilizzata per filtrare il risultato in base all'iniziatore dell'invio**|
 | category| **Facoltativo** Stringa che contiene la categoria o il dominio della traduzione. Questo parametro supporta solo l'opzione predefinita general.|
 | minDateUtc| **Facoltativo** Data da cui si vogliono recuperare le traduzioni. La data deve essere nel formato UTC.|
 | maxDateUtc| **Facoltativo** Data fino a cui si vogliono recuperare le traduzioni. La data deve essere nel formato UTC.|
-| ignora| **Facoltativo** Numero di risultati da ignorare in una pagina. Ad esempio, se si vogliono ignorare le prime 20 righe di risultati e visualizzare a partire dal record dei risultati 21, specificare 20 per questo parametro. Il valore predefinito per questo parametro è 0.|
+| skip| **Facoltativo** Numero di risultati da ignorare in una pagina. Ad esempio, se si vogliono ignorare le prime 20 righe di risultati e visualizzare a partire dal record dei risultati 21, specificare 20 per questo parametro. Il valore predefinito per questo parametro è 0.|
 | take| **Facoltativo** Numero di risultati da recuperare. Il numero massimo di ogni richiesta è 100. Il valore predefinito è 50.|
 
 > [!NOTE]
@@ -165,20 +165,20 @@ Questo metodo recupera le traduzioni create dall'utente. Fornisce le traduzioni 
 
 Il set di risultati contiene una matrice di **UserTranslation**. Ogni UserTranslation presenta gli elementi seguenti:
 
-| Campo | DESCRIZIONE |
+| Campo | Descrizione |
 |:---|:---|
 | CreatedDateUtc| Data di creazione della voce mediante AddTranslation()|
-| Da| Lingua di origine|
+| From| Lingua di origine|
 | OriginalText| Testo nella lingua di origine usato durante l'invio della richiesta|
-|Classificazione |Classificazione applicata dall'autore dell'invio nella chiamata al metodo AddTranslation()|
+|Rating |Classificazione applicata dall'autore dell'invio nella chiamata al metodo AddTranslation()|
 |A|    Lingua di destinazione|
 |TranslatedText|    Traduzione così come inviata nella chiamata al metodo AddTranslation()|
-|URI|   URI applicato nella chiamata al metodo AddTranslation()|
+|Uri|   URI applicato nella chiamata al metodo AddTranslation()|
 |Utente   |Nome dell'utente|
 
 **Eccezioni**
 
-| Eccezione | Messaggio | Condizioni |
+| Eccezione | Message | Condizioni |
 |:---|:---|:---|
 | ArgumentOutOfRangeException | The parameter '**maxDateUtc**' must be greater than or equal to '**minDateUtc**' (Il parametro 'maxDateUtc' deve essere maggiore di o uguale a 'minDateUtc').| Il valore del parametro **maxDateUtc** è minore del valore del parametro **minDateUtc**.|
 | TranslateApiException | IP is over the quota (IP oltre la quota).| <ul><li>È stato raggiunto il limite per il numero di richieste al minuto.</li><li>Le dimensioni delle richieste restano limitate a 10.000 caratteri.</li><li>Il numero di caratteri accettati dall'API Microsoft Translator è limitato da una quota giornaliera e da una quota oraria.</li></ul>|
@@ -188,5 +188,5 @@ Il set di risultati contiene una matrice di **UserTranslation**. Ogni UserTransl
 > La quota verrà regolata per garantire l'equità tra tutti gli utenti del servizio.
 
 **Visualizzare esempi di codice in GitHub**
-* [C#](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslations-example-csharp.md)
-* [PHP](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslations-example-php.md)
+* [C #](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslations-example-csharp.md)
+* [Php](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslations-example-php.md)

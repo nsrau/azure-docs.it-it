@@ -1,7 +1,7 @@
 ---
 title: Metodo Dictionary Examples dell'API Traduzione testuale
 titleSuffix: Azure Cognitive Services
-description: Il metodo API Traduzione testuale Dictionary examples fornisce esempi che illustrano il modo in cui i termini nel dizionario vengono usati nel contesto.
+description: Il metodo Translator Text API Dictionary Examples fornisce esempi che illustrano come i termini nel dizionario vengono usati nel contesto.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 01/21/2020
 ms.author: swmachan
 ms.openlocfilehash: b3551a8df19e47178c7bacd9218cfa60b66d81f9
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "76548068"
 ---
 # <a name="translator-text-api-30-dictionary-examples"></a>API Traduzione testuale 3.0: Dictionary Examples
@@ -33,7 +33,7 @@ https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.
 
 I parametri della richiesta inviati a una stringa di query sono:
 
-| Parametro della query | Description |
+| Parametro della query | Descrizione |
 | --------- | ----------- |
 | api-version <img width=200/> | **Parametro obbligatorio**.<br/>Versione dell'API richiesta dal client. Il valore deve essere `3.0`. |
 | da | **Parametro obbligatorio**.<br/>Specifica la lingua del testo di input. La lingua di origine deve essere una delle [lingue supportate](./v3-0-languages.md) incluse nell'ambito `dictionary`. |
@@ -41,11 +41,11 @@ I parametri della richiesta inviati a una stringa di query sono:
 
 Le intestazioni della richiesta includono:
 
-| Headers  | Description |
+| Headers  | Descrizione |
 | ------ | ----------- |
-| Intestazione/e di autenticazione <img width=200/>  | **Intestazione della richiesta obbligatoria**.<br/>Vedere le <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">opzioni disponibili per l'autenticazione</a>. |
-| Content-Type | **Intestazione della richiesta obbligatoria**.<br/>Specifica il tipo di contenuto del payload. I valori possibili sono:`application/json`. |
-| Content-Length   | **Intestazione della richiesta obbligatoria**.<br/>Lunghezza del corpo della richiesta. |
+| Intestazione autenticazione <img width=200/>  | **Intestazione richiesta obbligatoria**.<br/>Vedere le <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">opzioni disponibili per l'autenticazione</a>. |
+| Content-Type | **Intestazione richiesta obbligatoria**.<br/>Specifica il tipo di contenuto del payload. I valori possibili sono:`application/json`. |
+| Content-Length   | **Intestazione richiesta obbligatoria**.<br/>Lunghezza del corpo della richiesta. |
 | X-ClientTraceId   | **Facoltativo**.<br/>GUID generato dal client che identifica in modo univoco la richiesta. È possibile omettere questa intestazione se nella stringa della query si include l'ID traccia usando un parametro di query denominato `ClientTraceId`. |
 
 ## <a name="request-body"></a>Corpo della richiesta

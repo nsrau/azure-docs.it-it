@@ -1,7 +1,7 @@
 ---
-title: Tipo di entità composita-LUIS
+title: Tipo di entità composito - LUISComposite entity type - LUIS
 titleSuffix: Azure Cognitive Services
-description: Un'entità composita è costituita da altre entità, ad esempio entità predefinite, semplici, espressioni regolari ed elenchi. Le entità separate formano un'entità intera.
+description: Un'entità composita è costituita da altre entità, ad esempio entità predefinite, espressioni semplici, espressioni regolari ed entità di elenco. Le entità separate formano un'entità intera.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,17 +11,17 @@ ms.topic: reference
 ms.date: 09/29/2019
 ms.author: diberry
 ms.openlocfilehash: a5a1ad467074ee0aa55d14d50ae153ac68304e6f
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "71695159"
 ---
 # <a name="composite-entity"></a>Entità composita 
 
-Un'entità composita è costituita da altre entità, ad esempio entità predefinite, semplici, espressioni regolari ed elenchi. Le entità separate formano un'entità intera. 
+Un'entità composita è costituita da altre entità, ad esempio entità predefinite, espressioni semplici, espressioni regolari ed entità di elenco. Le entità separate formano un'entità intera. 
 
-**Questa entità è una scelta ottimale quando i dati:**
+**Questa entità è idonea quando i dati:**
 
 * Sono correlati tra loro. 
 * Sono correlati tra loro nel contesto dell'espressione.
@@ -33,7 +33,7 @@ Un'entità composita è costituita da altre entità, ad esempio entità predefin
 
 ## <a name="example-json"></a>JSON di esempio
 
-Si consideri un'entità composita di `number` e `Location::ToLocation` precompilata con l'espressione seguente:
+Si consideri un'entità composita con un'espressione predefinita e con l'espressione seguente:Consider a composite entity of prebuilt `number` and `Location::ToLocation` with the following utterance:
 
 `book 2 tickets to cairo`
 
@@ -41,7 +41,7 @@ Si noti che tra `2`, il numero, `cairo` e ToLocation sono presenti delle parole 
 
 ![Entità composita](./media/luis-concept-data-extraction/composite-entity.png)
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 risposta endpoint di stima](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Risposta dell'endpoint di previsione V2](#tab/V2)
 
 Le entità composite vengono restituite in una matrice `compositeEntities` e tutte le entità nell'entità composita vengono restituite nella matrice `entities`:
 
@@ -89,9 +89,9 @@ Le entità composite vengono restituite in una matrice `compositeEntities` e tut
   ]
 ```    
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Risposta dell'endpoint di stima V3](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[Risposta dell'endpoint di previsione V3](#tab/V3)
 
-Si tratta del codice JSON se `verbose=false` è impostato nella stringa di query:
+Questo è il `verbose=false` codice JSON se è impostato nella stringa di query:This is the JSON if is set in the query string:
 
 ```json
 "entities": {
@@ -108,7 +108,7 @@ Si tratta del codice JSON se `verbose=false` è impostato nella stringa di query
 }
 ```
 
-Si tratta del codice JSON se `verbose=true` è impostato nella stringa di query:
+Questo è il `verbose=true` codice JSON se è impostato nella stringa di query:This is the JSON if is set in the query string:
 
 ```json
 "entities": {
@@ -172,11 +172,11 @@ Si tratta del codice JSON se `verbose=true` è impostato nella stringa di query:
 * * * 
 
 
-|Oggetto dati|Nome dell'entità|Value|
+|Oggetto dati|Nome dell'entità|valore|
 |--|--|--|
 |Entità predefinita - numero|"builtin.number"|"2"|
-|Entità predefinita-GeographyV2|"Location::ToLocation"|Cairo|
+|Entità predefinita - GeographyV2|"Location::ToLocation"|"Cairo"|
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa [esercitazione](luis-tutorial-composite-entity.md), aggiungere un' **entità composita** per raggruppare i dati estratti di vari tipi in un'unica entità contenitore. Aggregando i dati, l'applicazione client può estrarre facilmente i dati correlati in diversi tipi di dati.
+In questa [esercitazione](luis-tutorial-composite-entity.md)aggiungere **un'entità composita** per raggruppare i dati estratti di vari tipi in una singola entità contenitore. Aggregando i dati, l'applicazione client può estrarre facilmente i dati correlati in diversi tipi di dati.

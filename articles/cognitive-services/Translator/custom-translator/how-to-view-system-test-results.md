@@ -10,10 +10,10 @@ ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
 ms.openlocfilehash: f5e1a21f24fdd2458d4803d6ed1675455fa5037d
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68595608"
 ---
 # <a name="view-system-test-results"></a>Visualizzare i risultati dei test di sistema
@@ -26,13 +26,13 @@ Selezionare un progetto, quindi selezionare la scheda Models (Modelli) di quel p
 
 La scheda Test mostra quanto segue:
 
-1.  **Risultati test di sistema:** Risultato del processo di test nei training. Il processo di test produce il punteggio BLEU.
+1.  **Risultati del test di sistema:** Risultato del processo di test nei corsi di formazione. Il processo di test produce il punteggio BLEU.
 
-    **Sentence Count** (Numero di frasi): il numero di frasi parallele utilizzate nel set di test.
+    **Sentence Count** (Numero di frasi): numero di frasi parallele usate nel set di test.
 
-     **BLEU Score** (Punteggio BLEU): il punteggio generato per un modello dopo il completamento del training.
+     **BLEU Score** (Punteggio BLEU): punteggio generato per un modello dopo il completamento del training.
 
-    **Stato:** indica se il processo di test è stato completato o è in corso.
+    **Status** (Stato): indica se il processo di test è stato completato o è in corso.
 
     ![Risultati test di sistema](media/how-to/how-to-system-test-results.png)
 
@@ -54,11 +54,11 @@ Fare clic sul collegamento Download Translations (Scarica traduzioni) per scaric
 
 Questo archivio ZIP scaricato contiene tre file.
 
-1.  **custom.mt.txt:** questo file contiene le traduzioni automatiche delle frasi nella lingua di origine nella lingua di destinazione eseguita dal modello sottoposto a training con i dati dell'utente.
+1.  **custom.mt.txt:** Questo file contiene traduzioni automatiche delle frasi della lingua di origine nella lingua di destinazione eseguite dal modello sottoposto a training con i dati dell'utente.
 
-2.  **ref.txt:** questo file contiene le traduzioni fornite dall'utente delle frasi nella lingua di origine nella lingua di destinazione.
+2.  **ref.txt:** Questo file contiene traduzioni fornite dall'utente delle frasi della lingua di origine nella lingua di destinazione.
 
-3.  **source.txt:** questo file contiene le frasi nella lingua di origine.
+3.  **origine.txt:** Questo file contiene frasi nella lingua di origine.
 
     ![Risultati dei test di sistema scaricati](media/how-to/how-to-download-system-test.png)
 
@@ -70,17 +70,17 @@ Per richiedere una distribuzione:
 
 2. Per un modello correttamente sottoposto a training è disponibile il pulsante "Deploy" (Distribuisci), se non è ancora stato distribuito.
 
-    ![Distribuzione del modello](media/how-to/how-to-deploy-model.png)
+    ![Distribuire il modello](media/how-to/how-to-deploy-model.png)
 
 3.  Fare clic su Deploy (Distribuisci).
 4.  Selezionare **Deployed** (Distribuito) per le aree in cui si vuole distribuire il modello e fare clic su Salva. È possibile selezionare **Deployed** (Distribuito) per più aree.
 
-    ![Distribuzione del modello](media/how-to/how-to-deploy-model-regions.png)
+    ![Distribuire il modello](media/how-to/how-to-deploy-model-regions.png)
 
 5.  È possibile visualizzare lo stato del modello nella colonna "Status" (Stato).
 
 >[!Note]
->Il convertitore personalizzato supporta 10 modelli distribuiti in un'area di lavoro in qualsiasi momento.
+>Custom Translator supporta 10 modelli distribuiti all'interno di un'area di lavoro in qualsiasi momento.
 
 ## <a name="update-deployment-settings"></a>Aggiornare le impostazioni di distribuzione
 
@@ -90,12 +90,12 @@ Per aggiornare le impostazioni di distribuzione:
 
 2. Per un modello distribuito correttamente, è mostrato il pulsante **Update** (Aggiorna).
 
-    ![Distribuzione del modello](media/how-to/how-to-update-undeploy-model.png)
+    ![Distribuire il modello](media/how-to/how-to-update-undeploy-model.png)
 
 3.  Selezionare **Aggiorna**.
 4.  Selezionare **Deployed** (Distribuito) o **Undeployed** (Non distribuito) per le aree in cui si vuole che il modello sia distribuito o non distribuito e fare clic su **Salva**.
 
-    ![Distribuzione del modello](media/how-to/how-to-undeploy-model.png)
+    ![Distribuire il modello](media/how-to/how-to-undeploy-model.png)
 
 >[!Note]
 >Se si seleziona **Undeployed** (Non distribuito) per tutte le aree, la distribuzione del modello viene annullata in tutte le aree e il modello viene messo nello stato non distribuito. Ora è disponibile per l'utilizzo.

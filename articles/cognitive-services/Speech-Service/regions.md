@@ -1,7 +1,7 @@
 ---
-title: Aree-servizio riconoscimento vocale
+title: Regioni - Servizio di riconoscimento vocale
 titleSuffix: Azure Cognitive Services
-description: Elenco delle aree e degli endpoint disponibili per il servizio riconoscimento vocale, tra cui sintesi vocale, sintesi vocale e traduzione vocale.
+description: Elenco delle aree e degli endpoint disponibili per il servizio di riconoscimento vocale, incluse la sintesi vocale, la sintesi vocale e la traduzione vocale.
 services: cognitive-services
 author: mahilleb-msft
 manager: nitinme
@@ -12,33 +12,33 @@ ms.date: 11/05/2019
 ms.author: panosper
 ms.custom: seodec18
 ms.openlocfilehash: 560575ca7f51218e472abecb4319f4a3db69b1ff
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79220468"
 ---
-# <a name="speech-service-supported-regions"></a>Aree supportate del servizio riconoscimento vocale
+# <a name="speech-service-supported-regions"></a>Aree supportate dal servizio vocale
 
 Il servizio Voce consente alle applicazioni di eseguire operazioni di riconoscimento e sintesi vocale, ovvero conversione di audio in testo e viceversa, e anche di traduzione vocale. Il servizio è disponibile in più aree con endpoint univoci per Speech SDK e le API REST.
 
-Il portale vocale per eseguire configurazioni personalizzate nell'esperienza vocale per tutte le aree è disponibile qui: https://speech.microsoft.com
+Il portale di riconoscimento vocale per eseguire configurazioni personalizzate per l'esperienza vocale per tutte le aree è disponibile qui:https://speech.microsoft.com
 
-Per le chiamate del servizio di riconoscimento vocale, assicurarsi che la chiamata corrisponda all'area per la sottoscrizione.
+Per le chiamate del servizio di riconoscimento vocale, assicurarsi che la chiamata corrisponda all'area della sottoscrizione.
 
 ## <a name="speech-sdk"></a>Speech SDK
 
 In [Speech SDK](speech-sdk.md) le aree vengono specificate sotto forma di stringa (ad esempio, come parametro `SpeechConfig.FromSubscription` in Speech SDK per C#).
 
-### <a name="speech-to-text-text-to-speech-and-translation"></a>Sintesi vocale, sintesi vocale, traduzione vocale
+### <a name="speech-to-text-text-to-speech-and-translation"></a>Sintesi vocale, sintesi vocale e traduzione
 
-Il portale di personalizzazione vocale è disponibile qui: https://speech.microsoft.com
+Il portale di personalizzazione vocale è disponibile qui:https://speech.microsoft.com
 
-Il servizio riconoscimento vocale è disponibile nelle aree geografiche per **riconoscimento vocale**, **sintesi**vocale e **traduzione**:
+Il servizio di riconoscimento vocale è disponibile in queste aree per il **riconoscimento vocale,** la **sintesi vocale**e la **traduzione:**
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-region-identifier.md)]
 
-Se si usa l' [SDK per la sintesi vocale](speech-sdk.md), le aree vengono specificate dall' **identificatore di area** (ad esempio, come parametro per `SpeechConfig.FromSubscription`). Assicurarsi che l'area corrisponda all'area della sottoscrizione.
+Se si utilizza [Speech SDK](speech-sdk.md), le aree vengono specificate `SpeechConfig.FromSubscription`dall'identificatore **Region** (ad esempio, come parametro per ). Assicurarsi che l'area corrisponda all'area della sottoscrizione.
 
 ### <a name="intent-recognition"></a>Riconoscimento finalità
 
@@ -63,7 +63,7 @@ Questo è un sottoinsieme delle aree di pubblicazione supportate per il [servizi
 
 ### <a name="voice-assistants"></a>Assistenti vocali
 
-[Speech SDK](speech-sdk.md) supporta le funzionalità di **Assistente vocale** in queste aree:
+Speech SDK supporta le funzionalità **dell'assistente vocale** nelle aree seguenti:The [Speech SDK](speech-sdk.md) supports voice assistant capabilities in these regions:
 
 | Region         | Identificatore area |
 | -------------- | -------------------- |
@@ -81,9 +81,9 @@ Il servizio Voce espone anche endpoint REST per le richieste di riconoscimento v
 
 ### <a name="speech-to-text"></a>Riconoscimento vocale
 
-Per la documentazione di riferimento per la sintesi vocale, vedere [API REST di riconoscimento](rest-speech-to-text.md)vocale.
+Per la documentazione di riferimento vocale, vedere [API REST di sintesi vocale](rest-speech-to-text.md).
 
-Il formato dell'endpoint per l'API REST è il seguente:
+L'endpoint per l'API REST ha questo formato:The endpoint for the REST API has this format:
 
 ```
 https://<REGION_IDENTIFIER>.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1
@@ -98,6 +98,6 @@ Sostituire `<REGION_IDENTIFIER>` con l'identificatore corrispondente all'area de
 
 ### <a name="text-to-speech"></a>Sintesi vocale
 
-Per la documentazione di riferimento da sintesi vocale, vedere [API REST di sintesi vocale](rest-text-to-speech.md).
+Per la documentazione di riferimento di sintesi vocale, vedere [API REST di sintesi vocale](rest-text-to-speech.md).
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]

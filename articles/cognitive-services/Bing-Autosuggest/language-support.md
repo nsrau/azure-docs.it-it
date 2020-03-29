@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: scottwhi
 ms.openlocfilehash: 6fe2e78501024983544b399762fb936d86e5c9d5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "60547337"
 ---
 # <a name="language-and-region-support-for-the-bing-autosuggest-api"></a>Lingua e regioni supportate dall'API Suggerimenti automatici Bing
@@ -25,7 +25,7 @@ Di seguito sono elencate le lingue supportate dall'API Suggerimenti automatici B
 |:----------- |:-------------:|
 | Arabo      | `ar`          |
 | Cinese (Repubblica popolare cinese)     | `zh-CN`          |
-| Cinese (RAS di Hong Kong)    | `zh-HK`          |
+| Cinese (Hong Kong - R.A.S.)    | `zh-HK`          |
 | Cinese (Taiwan)     | `zh-TW`          |
 | Danese      | `da`          |
 | Olandese (Belgio)       | `nl-BE`          |
@@ -34,10 +34,10 @@ Di seguito sono elencate le lingue supportate dall'API Suggerimenti automatici B
 | Inglese (Canada)     | `en-CA`          |
 | Inglese (India)    | `en-IN`          |
 | Inglese (Indonesia)     | `en-ID`          |
-| Inglese (Malaysia)     | `en-MY`          |
+| Inglese (Malesia)     | `en-MY`          |
 | Inglese (Nuova Zelanda)    | `en-NZ`          |
 | Inglese (Filippine)     | `en-PH`          |
-| Inglese (Sudafrica)    | `en-ZA`          |
+| Inglese (Sud Africa)    | `en-ZA`          |
 | Inglese (Regno Unito)    | `en-GB`          |
 | Inglese (Stati Uniti)    | `en-US`          |
 | Finlandese     | `fi`          |

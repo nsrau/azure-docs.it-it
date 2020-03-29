@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: scottwhi
 ms.openlocfilehash: b17341bc234ff3dfecc2c6dcd84ef77116a95d61
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68883555"
 ---
 # <a name="language-and-region-support-for-the-bing-visual-search-api"></a>Lingua e regioni supportate dall'API Ricerca visiva Bing
 
-L'API Ricerca visiva Bing supporta numerosi paesi/aree, molti dei quali con più di una lingua. Per ogni richiesta è consigliabile includere paese/l'area e lingua dell'utente, poiché la conoscenza del mercato dell'utente consente a Bing di restituire risultati appropriati. Se l'utente non specifica il paese/l'area e la lingua, Bing fa del proprio meglio per determinarli. Poiché i risultati possono contenere collegamenti a Bing, se l'utente specifica il paese/l'area e la lingua e quindi fa clic sui collegamenti Bing, Bing è in grado di offrire un'esperienza utente localizzata nel modo più appropriato.
+L'API Ricerca visiva Bing supporta numerosi paesi/le aree, molti dei quali con più di una lingua. Per ogni richiesta è consigliabile includere paese/l'area e lingua dell'utente, poiché la conoscenza del mercato dell'utente consente a Bing di restituire risultati appropriati. Se l'utente non specifica il paese/l'area e la lingua, Bing fa del proprio meglio per determinarli. Poiché i risultati possono contenere collegamenti a Bing, se l'utente specifica il paese/l'area e la lingua e quindi fa clic sui collegamenti Bing, Bing è in grado di offrire un'esperienza utente localizzata nel modo più appropriato.
 
 Per specificare la lingua e il paese/l'area, impostare il parametro di query `mkt` (mercato) su uno dei codici della tabella **Mercati** riportata di seguito. Il mercato specifica sia un paese/un'area che una lingua. Se l'utente preferisce vedere il testo visualizzato in una lingua diversa, impostare il parametro di query `setLang` sul codice lingua appropriato.
 
@@ -34,9 +34,9 @@ In alternativa è possibile specificare il paese/l'area usando il parametro di q
 > - Ricette, acquisti e approfondimenti con pagine sono disponibili solo per il mercato en-US.
 
 
-## <a name="countriesregions"></a>Paesi/aree geografiche
+## <a name="countriesregions"></a>Paesi/regioni
 
-|Paese/area geografica|Codice|
+|Paese/Area geografica|Codice|
 |-------|----|
 |Argentina|AR|
 |Australia|AU|
@@ -51,7 +51,7 @@ In alternativa è possibile specificare il paese/l'area usando il parametro di q
 |Germania|DE|
 |RAS di Hong Kong|HK|
 |India|IN|
-|Indonesia|id|
+|Indonesia|ID|
 |Italia|IT|
 |Giappone|JP|
 |Corea del Sud|KR|
@@ -66,7 +66,7 @@ In alternativa è possibile specificare il paese/l'area usando il parametro di q
 |Filippine|PH|
 |Russia|RU|
 |Arabia Saudita|SA|
-|Sudafrica|ZA|
+|Sud Africa|ZA|
 |Spagna|ES|
 |Svezia|SE|
 |Svizzera|CH|
@@ -78,7 +78,7 @@ In alternativa è possibile specificare il paese/l'area usando il parametro di q
 
 ## <a name="markets"></a>Mercati
 
-|Paese/area geografica|Linguaggio|Codice di mercato|
+|Paese/Area geografica|Linguaggio|Codice di mercato|
 |-------|--------|-----------|
 |Argentina|Spagnolo|es-AR|
 |Australia|Inglese|en-AU|
@@ -109,7 +109,7 @@ In alternativa è possibile specificare il paese/l'area usando il parametro di q
 |Filippine|Inglese|en-PH|
 |Russia|Russo|ru-RU|
 |Arabia Saudita|Arabo|ar-SA|
-|Sudafrica|Inglese|en-ZA|
+|Sud Africa|Inglese|en-ZA|
 |Spagna|Spagnolo|es-ES|
 |Svezia|Svedese|sv-SE|
 |Svizzera|Francese|fr-CH|
@@ -117,5 +117,5 @@ In alternativa è possibile specificare il paese/l'area usando il parametro di q
 |Taiwan|Cinese tradizionale|zh-TW|
 |Turchia|Turco|tr-TR|
 |Regno Unito|Inglese|en-GB|
-|Stati Uniti|Inglese|en-US|
+|Stati Uniti|Inglese|it-IT|
 |Stati Uniti|Spagnolo|es-US|

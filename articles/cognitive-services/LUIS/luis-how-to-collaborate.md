@@ -1,7 +1,7 @@
 ---
-title: Collaborare con altri-LUIS
+title: Collaborare con altri utenti - LUIS
 titleSuffix: Azure Cognitive Services
-description: Un proprietario dell'app può aggiungere collaboratori alla risorsa di creazione. Questi collaboratori possono modificare il modello, eseguire il training e pubblicare l'app.
+description: Il proprietario di un'app può aggiungere collaboratori alla risorsa di creazione. Questi collaboratori possono modificare il modello, eseguire il training e pubblicare l'app.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,43 +11,43 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: diberry
-ms.openlocfilehash: 96aa7517a3418ab30b0b6a1736eea950ecf4a731
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 913a2b26f67773d9fafbc0a8430d121fbabb97cd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79219885"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80053449"
 ---
 # <a name="add-contributors-to-your-app"></a>Aggiungere collaboratori all'app
 
-Un proprietario dell'app può aggiungere collaboratori alle app. I collaboratori possono modificare il modello, eseguire il training e pubblicare l'app. 
+Il proprietario di un'app può aggiungere collaboratori alle app. I collaboratori possono modificare il modello, eseguire il training e pubblicare l'app. 
 
 [!INCLUDE [Manage collaborators and contributors based on migrated or not-migrated apps](./includes/manage-contributor-collaborator-migration.md)]
 
-## <a name="add-contributor-to-azure-authoring-resource"></a>Aggiungere un collaboratore alla risorsa di creazione di Azure
+## <a name="add-contributor-to-azure-authoring-resource"></a>Aggiungere un collaboratore alla risorsa di creazione e modifica di AzureAdd contributor to Azure authoring resource
 
-La procedura seguente è relativa a tutti gli utenti di cui è stata **eseguita la migrazione** per usare la risorsa di creazione di Azure.
+La procedura seguente è per tutti gli utenti di cui è **stata eseguita la migrazione** per l'uso della risorsa di creazione e modifica di Azure.The following procedure is for all users that have migrated to use the Azure authoring resource.
 
-È stata eseguita la migrazione se l'esperienza di creazione LUIS è associata a una risorsa di creazione nella pagina **> Gestisci le risorse di Azure** nel portale Luis.
+È stata eseguita la migrazione se l'esperienza di creazione LUIS è legata a una risorsa di creazione nella pagina **Gestisci -> risorse** di Azure nel portale LUIS.
 
-1. Nella portale di Azure trovare la risorsa di creazione di Language Understanding (LUIS). Il tipo è `LUIS.Authoring`.
-1. Nella pagina controllo di **accesso (IAM)** della risorsa selezionare **+ Aggiungi** e quindi selezionare **Aggiungi assegnazione ruolo**.
+1. Nel portale di Azure individuare la risorsa di creazione e modifica per informazioni sulla lingua (LUIS). Ha il `LUIS.Authoring`tipo .
+1. Nella pagina Controllo di accesso **(IAM)** di questa risorsa, selezionare **Aggiungi,** quindi **Aggiungi assegnazione ruolo**.
 
-    ![In portale di Azure aggiungere assegnazione di ruolo alla risorsa di creazione.](./media/luis-how-to-collaborate/authoring-resource-access-control-add-role.png)
+    ![Nel portale di Azure aggiungere l'assegnazione di ruolo alla risorsa di creazione.](./media/luis-how-to-collaborate/authoring-resource-access-control-add-role.png)
 
-1. Nella finestra **Aggiungi assegnazione ruolo** selezionare il **ruolo** di collaboratore. Nell'opzione **assegna accesso a** selezionare **Azure ad utente, gruppo o entità servizio**. Nell'opzione **Seleziona** immettere l'indirizzo di posta elettronica dell'utente. Se l'utente è conosciuto da più di un indirizzo di posta elettronica per lo stesso dominio, assicurarsi di immettere l'account di posta elettronica _primario_ .
+1. Nella finestra **Aggiungi assegnazione ruolo** selezionare il **ruolo** di collaboratore. Nell'opzione **Assegna accesso a** selezionare Utente, gruppo o entità servizio di Azure **AD.** Nell'opzione **Seleziona** immettere l'indirizzo di posta elettronica dell'utente. Se l'utente è noto con più di un indirizzo di posta elettronica per lo stesso dominio, assicurarsi che immettere l'account di posta elettronica _principale._
 
-    ![Aggiungere la posta elettronica dell'utente al ruolo Collaboratore per Azure AD](./media/luis-how-to-collaborate/add-role-assignment-for-contributor.png)
+    ![Aggiungere la posta elettronica dell'utente al ruolo di collaboratore per Azure ADAdd user's email to the contributor role for Azure AD](./media/luis-how-to-collaborate/add-role-assignment-for-contributor.png)
 
-    Quando viene trovato l'indirizzo di posta elettronica dell'utente, selezionare l'account e selezionare **Salva**. 
+    Quando viene trovato il messaggio di posta elettronica dell'utente, selezionare l'account e scegliere **Salva**. 
 
-    In caso di problemi con questa assegnazione di ruolo, esaminare le [assegnazioni di ruolo di Azure](../../role-based-access-control/role-assignments-portal.md) e la [risoluzione dei problemi di controllo di accesso di Azure](../../role-based-access-control/troubleshooting.md#problems-with-rbac-role-assignments).
+    In caso di problemi con questa assegnazione di ruolo, vedere [Assegnazioni di ruolo](../../role-based-access-control/role-assignments-portal.md) di Azure e Risoluzione dei problemi relativi al controllo di [accesso di Azure.](../../role-based-access-control/troubleshooting.md#problems-with-azure-role-assignments)
 
-## <a name="add-collaborator-to-luis-app"></a>Aggiungi collaboratore all'app LUIS
+## <a name="add-collaborator-to-luis-app"></a>Aggiungere un collaboratore all'app LUIS
 
-La procedura seguente è relativa a tutti gli utenti che non hanno eseguito la **migrazione** per usare la risorsa di creazione di Azure.
+La procedura seguente è per tutti gli utenti di cui non è **stata eseguita la migrazione** per usare la risorsa di creazione e modifica di Azure.The following procedure is for all users that have not migrated to use the Azure authoring resource.
 
-Non è stata eseguita la migrazione se l'esperienza di creazione di LUIS non è associata a una risorsa di creazione nella pagina **delle risorse di gestione > di Azure** nel portale Luis.
+Non è stata eseguita la migrazione se l'esperienza di creazione LUIS non è legata a una risorsa di creazione nella pagina **Gestisci-> risorse** di Azure nel portale LUIS.
 
 Un'app ha un unico autore, il proprietario, ma può avere molti collaboratori. Per consentire ai collaboratori di modificare l'app LUIS, alll'elenco di collaboratori è necessario aggiungere l'indirizzo di posta elettronica che useranno per accedere al portale di LUIS. Una volta aggiunta, l'app appare nel loro portale di LUIS.
 
@@ -60,9 +60,9 @@ Un'app ha un unico autore, il proprietario, ma può avere molti collaboratori. P
     ![Aggiungere l'indirizzo di posta elettronica del collaboratore](./media/luis-how-to-collaborate/add-collaborator-pop-up.png)
 
 
-### <a name="users-with-multiple-emails"></a>Utenti con più messaggi di posta elettronica 
+### <a name="users-with-multiple-emails"></a>Utenti con più e-mail 
 
-Se si aggiungono collaboratori/collaboratori a un'app LUIS, viene specificato l'indirizzo di posta elettronica esatto. Mentre Azure Active Directory (Azure AD) consente a un singolo utente di avere più di un account di posta elettronica usato in modo intercambiabile, LUIS richiede all'utente di accedere con l'indirizzo di posta elettronica specificato durante l'aggiunta del collaboratore/collaboratore.
+Se si aggiungono collaboratori/collaboratori a un'app LUIS, si specifica l'indirizzo di posta elettronica esatto. Mentre Azure Active Directory (Azure AD) consente a un singolo utente di avere più di un account di posta elettronica utilizzato in modo intercambiabile, LUIS richiede all'utente di accedere con l'indirizzo di posta elettronica specificato quando si aggiunge il collaboratore/collaboratore.
 
 <a name="owner-and-collaborators"></a>
 
@@ -89,14 +89,14 @@ L'amministratore del tenant collabora direttamente con l'utente che necessita de
 
 Se l'amministratore del tenant vuole che solo determinati utenti usino LUIS, sono due le soluzioni possibili:
 * Dare il "consenso amministratore" (consenso a tutti gli utenti di Azure AD), ma successivamente impostare su "Sì" l'opzione "Assegnazione utenti obbligatoria" nelle proprietà dell'applicazione aziendale e infine assegnare/aggiungere all'applicazione solo gli utenti desiderati. In questo modo l'amministratore dà comunque il "consenso amministratore" per l'applicazione, ma è possibile controllare gli utenti che possono accedervi.
-* Una seconda soluzione consiste nell'usare l' [API di gestione delle identità e degli accessi Azure ad in Microsoft Graph](https://docs.microsoft.com/graph/azuread-identity-access-management-concept-overview) per fornire il consenso a ogni utente specifico. 
+* Una seconda soluzione consiste nell'usare l'API di gestione di [identità e accessi](https://docs.microsoft.com/graph/azuread-identity-access-management-concept-overview) di Azure AD in Microsoft Graph per fornire il consenso a ogni utente specifico. 
 
 Altre informazioni sugli utenti di Azure Active Directory e sul consenso: 
 * [Limitare l'app](../../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) a un set di utenti
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Informazioni [su come usare le versioni](luis-how-to-manage-versions.md) per controllare il ciclo di vita dell'app.
-* Comprendere i concetti che includono la [risorsa di creazione](luis-concept-keys.md#authoring-key) e i [collaboratori](luis-concept-keys.md#contributions-from-other-authors) di tale risorsa.
-* Informazioni [su come creare risorse di](luis-how-to-azure-subscription.md) creazione e di runtime
+* [Scopri come usare le versioni](luis-how-to-manage-versions.md) per controllare il ciclo di vita dell'app.
+* Comprendere i concetti, inclusi la [risorsa di creazione](luis-concept-keys.md#authoring-key) e i [collaboratori](luis-concept-keys.md#contributions-from-other-authors) per tale risorsa.
+* Informazioni su [come creare](luis-how-to-azure-subscription.md) risorse di creazione e esecuzione
 * Eseguire la migrazione alla nuova [risorsa di creazione](luis-migration-authoring.md) 

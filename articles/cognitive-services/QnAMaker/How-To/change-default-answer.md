@@ -1,18 +1,18 @@
 ---
-title: Ottenere la risposta predefinita QnA Maker
-description: Quando non esiste alcuna corrispondenza con la domanda, viene restituita la risposta predefinita. Potrebbe essere necessario modificare la risposta predefinita dalla risposta predefinita standard.
+title: Ottenere la risposta predefinita - QnA MakerGet default answer - QnA Maker
+description: La risposta predefinita viene restituita quando non vi è alcuna corrispondenza alla domanda. È possibile modificare la risposta predefinita rispetto alla risposta predefinita standard.
 ms.topic: conceptual
 ms.date: 01/10/2020
 ms.openlocfilehash: fae5c38fd64435a3fae56862bad04e000916e88b
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "76843277"
 ---
-# <a name="set-default-answer-for-a-knowledge-base"></a>Impostazione della risposta predefinita per una Knowledge base
+# <a name="set-default-answer-for-a-knowledge-base"></a>Impostare la risposta predefinita per una Knowledge Base
 
-Quando non esiste alcuna corrispondenza con la domanda, viene restituita la risposta predefinita. Potrebbe essere necessario modificare la risposta predefinita dalla risposta predefinita standard.
+La risposta predefinita viene restituita quando non vi è alcuna corrispondenza alla domanda. È possibile modificare la risposta predefinita rispetto alla risposta predefinita standard.
 
 ## <a name="change-default-answer"></a>Modificare la risposta predefinita
 
@@ -32,4 +32,4 @@ Quando non esiste alcuna corrispondenza con la domanda, viene restituita la risp
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Creare un bot con QnA Maker e LUIS](../tutorials/integrate-qnamaker-luis.md)
+* [Creare un bot con QnA Maker e LUISCreate a bot with QnA Maker and LUIS](../tutorials/integrate-qnamaker-luis.md)

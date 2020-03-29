@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
 ms.openlocfilehash: 0ad961495d44f13522a3c02224a5612aaedaf076
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79221106"
 ---
 # <a name="send-ink-data-to-the-ink-recognizer-api"></a>Inviare dati input penna all'API di Riconoscimento input penna 
 
 Con input penna digitale ci si riferisce alle tecnologie che abilitano le rappresentazioni digitali di input quali la scrittura manuale e i disegni. A tale scopo, si usa in genere un digitalizzatore che acquisisce i movimenti dei dispositivi di input, ad esempio uno stilo. Mentre i dispositivi continuano a permettere esperienze di input penna digitale avanzate, l'intelligenza artificiale e l'apprendimento automatico consentono il riconoscimento delle forme e del testo scritto in qualsiasi contesto. L'API Riconoscimento input penna consente di inviare tratti input penna e di ottenere informazioni dettagliate su di essi. 
 
-## <a name="the-ink-recognizer-api-vs-ocr-services"></a>API riconoscimento input penna rispetto ai servizi OCR
+## <a name="the-ink-recognizer-api-vs-ocr-services"></a>L'API di riconoscimento dell'input penna e i servizi OCR
 
 L'API Riconoscimento input penna non usa il riconoscimento ottico dei caratteri (OCR). I servizi OCR elaborano i dati di pixel dalle immagini per fornire il riconoscimento della scrittura manuale e del testo, talvolta definito riconoscimento offline. L'API Riconoscimento input penna, invece, richiede i dati del tratto input penna digitale acquisiti durante l'uso del dispositivo di input. Una tale elaborazione dei dati input penna può produrre risultati di riconoscimento più accurati rispetto ai servizi OCR. 
 
@@ -82,14 +82,14 @@ Ottenendo i risultati di riconoscimento in anticipo si hanno informazioni sulle 
 
 ## <a name="integrate-the-ink-recognizer-api-with-windows-ink"></a>Integrare l'API Riconoscimento input penna con Windows Ink
 
-[Windows Ink](https://docs.microsoft.com/windows/uwp/design/input/pen-and-stylus-interactions) fornisce strumenti e tecnologie per abilitare esperienze di input penna digitale su una vasta gamma di dispositivi. È possibile combinare la piattaforma Windows Ink con l'API riconoscimento input penna per creare applicazioni che visualizzano e interpretano tratti di input penna digitali.
+[Windows Ink](https://docs.microsoft.com/windows/uwp/design/input/pen-and-stylus-interactions) fornisce strumenti e tecnologie per abilitare esperienze di input penna digitale su una vasta gamma di dispositivi. È possibile combinare la piattaforma Windows Ink con l'API Ink Recognizer per creare applicazioni che visualizzano e interpretano i tratti di input penna digitali.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Informazioni sull'API Riconoscimento input penna](../overview.md)
+* [Informazioni sull'API di Riconoscimento input penna](../overview.md)
 * [Informazioni di riferimento sull'API Riconoscimento input penna](https://go.microsoft.com/fwlink/?linkid=2089907)
 
 * Iniziare a inviare dati del tratto input penna digitale usando:
-    * [C#](../quickstarts/csharp.md)
+    * [C #](../quickstarts/csharp.md)
     * [Java](../quickstarts/java.md)
-    * [JavaScript](../quickstarts/javascript.md)
+    * [Javascript](../quickstarts/javascript.md)

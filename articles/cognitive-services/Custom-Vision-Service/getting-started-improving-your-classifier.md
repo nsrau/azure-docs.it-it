@@ -1,7 +1,7 @@
 ---
 title: Miglioramento del classificatore - Servizio visione artificiale personalizzato
 titleSuffix: Azure Cognitive Services
-description: In questo articolo si apprenderà come la quantità, la qualità e la varietà di dati possono migliorare la qualità del classificatore nel servizio Visione personalizzata.
+description: In questo articolo imparerai come la quantità, la qualità e la varietà dei dati possono migliorare la qualità del classificatore nel servizio Di visione personalizzata.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: pafarley
 ms.openlocfilehash: c2858d5f9bca662cbbcd48b2345a7dc2c7ae48b2
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73718538"
 ---
 # <a name="how-to-improve-your-classifier"></a>Come migliorare il classificatore
@@ -29,7 +29,7 @@ Il modello generale riportato di seguito è utile per la compilazione di un clas
 1. Usare nuove immagini per testare la stima
 1. Modificare i dati di training esistenti in base ai risultati della stima
 
-## <a name="prevent-overfitting"></a>Impedisci overfitting
+## <a name="prevent-overfitting"></a>Prevenire l'overfitting
 
 In alcuni casi, a un classificatore verrà illustrato come eseguire stime in base alle caratteristiche arbitrarie che le immagini hanno in comune. Ad esempio, se si sta creando un classificatore per mele e agrumi e si sono usate immagini di mele in mano e di agrumi su piatti bianchi, il classificatore potrebbe dare importanza non dovuta a mani e piatti bianchi anziché a mele e agrumi.
 
@@ -39,7 +39,7 @@ Per risolvere il problema, usare il materiale sussidiario seguente sul training 
 
 ## <a name="data-quantity"></a>Quantità di dati
 
-Il numero di immagini di training è il fattore più importante. È consigliabile usare almeno 50 immagini per etichetta come punto di partenza. Con un numero inferiore di immagini, c'è un rischio maggiore di overfitting e, sebbene i numeri di prestazione possano suggerire una buona qualità, il modello potrebbe avere difficoltà con i dati del mondo reale. 
+Il numero di immagini di training è il fattore più importante. Si consiglia di utilizzare almeno 50 immagini per etichetta come punto di partenza. Con un numero inferiore di immagini, c'è un rischio maggiore di overfitting e, sebbene i numeri di prestazione possano suggerire una buona qualità, il modello potrebbe avere difficoltà con i dati del mondo reale. 
 
 ## <a name="data-balance"></a>Bilanciamento dei dati
 
@@ -53,15 +53,15 @@ Assicurarsi di usare immagini rappresentative di ciò che verrà inviato al clas
 
 Per risolvere questo problema, includere un'ampia gamma di immagini per garantire che il classificatore possa generalizzare al meglio. Di seguito sono illustrati alcuni modi in cui è possibile diversificare il set di training:
 
-* __Sfondo:__ Fornire immagini dell'oggetto davanti a diversi sfondi. Le foto in contesti naturali sono migliori delle foto con sfondi neutri in quanto forniscono informazioni aggiuntive al classificatore.
+* __Informazioni di base:__ Fornisci immagini del tuo oggetto davanti a sfondi diversi. Le foto in contesti naturali sono migliori delle foto con sfondi neutri in quanto forniscono informazioni aggiuntive al classificatore.
 
     ![Immagine di esempi di sfondo](./media/getting-started-improving-your-classifier/background.png)
 
-* __Illuminazione:__ Fornire immagini con illuminazione variegata (ovvero, con Flash, esposizione elevata e così via), soprattutto se le immagini utilizzate per la stima hanno un'illuminazione diversa. È inoltre utile usare immagini con saturazione, tonalità e luminosità variabili.
+* __Illuminazione:__ Fornire immagini con illuminazione varia (ovvero, scattate con flash, esposizione elevata e così via), soprattutto se le immagini utilizzate per la previsione hanno illuminazione diversa. È inoltre utile usare immagini con saturazione, tonalità e luminosità variabili.
 
     ![Immagine di esempi di illuminazione](./media/getting-started-improving-your-classifier/lighting.png)
 
-* __Dimensioni oggetto:__ Fornire le immagini in cui gli oggetti variano a seconda delle dimensioni e del numero (ad esempio, una foto di grappoli di banane e un primo piano di una singola Banana). Le diverse dimensioni consentono una migliore generalizzazione da parte del classificatore.
+* __Dimensione oggetto:__ Fornire immagini in cui gli oggetti variano in dimensioni e numero (ad esempio, una foto di mazzi di banane e un primo piano di una singola banana). Le diverse dimensioni consentono una migliore generalizzazione da parte del classificatore.
 
     ![Immagine di esempi di dimensioni](./media/getting-started-improving-your-classifier/size.png)
 
@@ -86,7 +86,7 @@ A un certo punto del progetto, potrebbe essere necessario aggiungere _esempi neg
 
 Quando si usa o si testa il classificatore di immagini tramite l'invio di immagini per l'endpoint di stima, il servizio Visione personalizzata archivia le immagini. È quindi possibile usarle per migliorare il modello.
 
-1. Per visualizzare le immagini inviate al classificatore, aprire la [pagina web visione personalizzata](https://customvision.ai), passare al progetto e selezionare la scheda __stime__ . La visualizzazione predefinita mostra le immagini dell'iterazione corrente. È possibile usare il menu a discesa __Iteration__ (Iterazione) per visualizzare le immagini inviate durante le iterazioni precedenti.
+1. Per visualizzare le immagini inviate al classificatore, aprire la [pagina Web Visione personalizzata](https://customvision.ai), passare al progetto e selezionare la scheda __Previsioni.__ La visualizzazione predefinita mostra le immagini dell'iterazione corrente. È possibile usare il menu a discesa __Iteration__ (Iterazione) per visualizzare le immagini inviate durante le iterazioni precedenti.
 
     ![Screenshot della scheda delle stime con immagini in vista](./media/getting-started-improving-your-classifier/predictions.png)
 
@@ -111,4 +111,4 @@ A volte un'ispezione visiva può identificare modelli che è possibile corregger
 In questa guida, si sono apprese varie tecniche per rendere più preciso il modello di classificazione di immagini personalizzate. Successivamente, altre informazioni su come eseguire il test delle immagini a livello di codice inviandole all'API delle stime.
 
 > [!div class="nextstepaction"]
-> [Usare l'API delle stime](use-prediction-api.md)
+> [Usare l'API Prediction](use-prediction-api.md)

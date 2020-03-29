@@ -1,7 +1,7 @@
 ---
-title: Come riconoscere gli Intent dalla voce vocale usando l'SDK di riconoscimento vocaleC#
+title: 'Come riconoscere le finalità del riconoscimento vocale usando Speech SDK C #'
 titleSuffix: Azure Cognitive Services
-description: In questa guida si apprenderà come riconoscere gli Intent dal riconoscimento vocale usando l'SDK di C#riconoscimento vocale per.
+description: In questa guida, imparerai a riconoscere le finalità del riconoscimento vocale usando l'SDK di riconoscimento vocale per C.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -11,20 +11,20 @@ ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: dapine
 ms.openlocfilehash: 5d3c77c307739f9014010a592aa496a1cc83b333
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77120034"
 ---
-# <a name="how-to-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Come riconoscere gli Intent dalla voce vocale usando l'SDK di riconoscimento vocale perC#
+# <a name="how-to-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Come riconoscere le finalità del riconoscimento vocale usando Speech SDK per C #
 
 I servizi cognitivi [Speech SDK](speech-sdk.md) si integrano con il servizio [Language Understanding Intelligent Service (LUIS)](https://www.luis.ai/home) per fornire il **riconoscimento finalità**. Una finalità è qualcosa che l'utente desidera fare: prenotare un volo, controllare il meteo o effettuare una chiamata. L'utente può usare qualunque termine suoni naturale. Con l'uso di machine learning, LUIS esegue il mapping delle richieste degli utenti per le finalità che sono state definite.
 
 > [!NOTE]
 > Un'applicazione LUIS definisce le finalità e le entità che si desidera riconoscere. È separata dall'applicazione C# che usa il servizio di riconoscimento vocale. In questo articolo, "app" sta per app LUIS, mentre "applicazione" sta per codice C#.
 
-In questa guida si userà l'SDK per la sintesi vocale per C# sviluppare un'applicazione console che deriva da espressioni utente tramite il microfono del dispositivo. Si apprenderà come:
+In questa guida si usa l'SDK di riconoscimento vocale per sviluppare un'applicazione console C' che deriva finalità dalle espressioni utente tramite il microfono del dispositivo. Si apprenderà come:
 
 > [!div class="checklist"]
 >
@@ -37,7 +37,7 @@ In questa guida si userà l'SDK per la sintesi vocale per C# sviluppare un'appli
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di iniziare questa guida, assicurarsi di disporre degli elementi seguenti:
+Prima di iniziare questa guida, assicurarsi di disporre dei seguenti elementi:
 
 - Account LUIS. È possibile ottenerne uno gratuitamente tramite il [portale di LUIS](https://www.luis.ai/home).
 - [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) (qualsiasi edizione).
@@ -50,13 +50,13 @@ LUIS usa tre tipi di chiave:
 
 | Tipo di chiave  | Scopo                                               |
 | --------- | ----------------------------------------------------- |
-| Creazione e modifica | Consente di creare e modificare a livello di codice app LUIS |
+| Creazione | Consente di creare e modificare a livello di codice app LUIS |
 | Starter   | Testa l'applicazione LUIS usando solo testo   |
 | Endpoint  | Autorizza l'accesso a una particolare app LUIS            |
 
-Per questa guida, è necessario il tipo di chiave dell'endpoint. Questa guida usa l'app di esempio Home Automation LUIS, che è possibile creare seguendo la Guida introduttiva [usare l'app di automazione domestica predefinita](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app) . Se è stata creata un'app LUIS personalizzata, è possibile invece usare quest'ultima.
+Per questa guida è necessario il tipo di chiave dell'endpoint. Questa guida usa l'app LUIS di automazione familiare di esempio, che è possibile creare seguendo la guida introduttiva [Usa l'app di automazione domestica predefinita.](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app) Se è stata creata un'app LUIS personalizzata, è possibile invece usare quest'ultima.
 
-Quando si crea un'app LUIS, viene generata automaticamente una chiave di avvio in modo da testare l'app usando le query di testo. Questa chiave non Abilita l'integrazione del servizio vocale e non funzionerà con questa guida. Creare una risorsa LUIS nel dashboard di Azure e assegnarla all'app LUIS. È possibile usare il livello di abbonamento gratuito per questa guida.
+Quando si crea un'app LUIS, viene generata automaticamente una chiave di avvio in modo da testare l'app usando le query di testo. Questa chiave non abilita l'integrazione del servizio di riconoscimento vocale e non funziona con questa guida. Creare una risorsa LUIS nel dashboard di Azure e assegnarla all'app LUIS. È possibile usare il livello di sottoscrizione gratuito per questa guida.
 
 Dopo aver creato la risorsa LUIS nel dashboard di Azure, accedere al [portale LUIS](https://www.luis.ai/home), scegliere l'applicazione nella pagina **App personali**, quindi passare alla pagina **Gestione** dell'app. Infine, selezionare **Chiavi ed endpoint** nella barra laterale.
 
@@ -91,7 +91,7 @@ Aggiungere il codice al progetto.
 
    [!code-csharp[Top-level declarations](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/intent_recognition_samples.cs#toplevel)]
 
-1. Sostituire il metodo `Main()` specificato, con l'equivalente asincrono seguente:
+1. Sostituire il `Main()` metodo fornito con l'equivalente asincrono seguente:
 
    ```csharp
    public static async Task Main()
@@ -116,13 +116,13 @@ Aggiungere il codice al progetto.
 
 1. Sostituire i segnaposto in questo metodo con la chiave di sottoscrizione LUIS, l'area e l'ID dell'app come indicato di seguito.
 
-   | Segnaposto | Sostituisci con |
+   | Segnaposto | Sostituire con |
    | ----------- | ------------ |
    | `YourLanguageUnderstandingSubscriptionKey` | La propria chiave di endpoint LUIS. Anche in questo caso, è necessario ottenere questo elemento dal dashboard di Azure, non da una "chiave di avvio". È possibile trovarla nella pagina **Chiavi ed endpoint** dell'app (in **Gestione**) nel [portale LUIS](https://www.luis.ai/home). |
    | `YourLanguageUnderstandingServiceRegion` | L'identificatore breve indica la propria area di sottoscrizione LUIS, ad esempio `westus` per Stati Uniti occidentali. Vedere [Tutte le aree](regions.md). |
    | `YourLanguageUnderstandingAppId` | L'ID dell'app LUIS. È possibile trovarlo nella pagina **Impostazioni** dell'app nel [portale LUIS](https://www.luis.ai/home). |
 
-Dopo aver apportato queste modifiche, è possibile compilare (**CTRL + MAIUSC + B**) ed eseguire (**F5**) l'applicazione. Quando richiesto, provare a dire "Spegni le luci" nel microfono del PC. L'applicazione visualizza il risultato nella finestra della console.
+Una volta apportate queste modifiche, è possibile compilare (**Control , Maiusc , B**) ed eseguire (**F5**) l'applicazione. Quando richiesto, provare a dire "Spegni le luci" nel microfono del PC. L'applicazione visualizza il risultato nella finestra della console.
 
 Le sezioni seguenti includono una discussione del codice.
 
@@ -131,7 +131,7 @@ Le sezioni seguenti includono una discussione del codice.
 In primo luogo, è necessario creare una configurazione per il riconoscimento vocale dalla chiave e dall'area dell'endpoint LUIS. È possibile usare le configurazioni del riconoscimento vocale per creare sistemi di riconoscimento per le diverse funzionalità di Speech SDK. La configurazione di riconoscimento vocale specifica in diversi modi la sottoscrizione da usare. In questo caso, usare `FromSubscription`, che accetta la chiave e l'area della sottoscrizione.
 
 > [!NOTE]
-> Usare la chiave e l'area della sottoscrizione LUIS, non una sottoscrizione del servizio vocale.
+> Usare la chiave e l'area della sottoscrizione LUIS, non una sottoscrizione al servizio di riconoscimento vocale.
 
 Creare un sistema di riconoscimento delle finalità tramite `new IntentRecognizer(config)`. La configurazione conosce già quale sottoscrizione usare, non serve specificare nuovamente la chiave di sottoscrizione e l'endpoint quando si crea un sistema di riconoscimento.
 
@@ -162,9 +162,9 @@ Con il riconoscimento creato e le finalità aggiunte, è possibile iniziare il r
 | Modalità di riconoscimento | Metodi di chiamata | Risultato |
 | ---------------- | --------------- | ------ |
 | Singolo | `RecognizeOnceAsync()` | Restituisce la finalità riconosciuta, se presente, dopo una singola espressione. |
-| Continui | `StartContinuousRecognitionAsync()`<br>`StopContinuousRecognitionAsync()` | Riconosce più espressioni; genera eventi (ad esempio, `IntermediateResultReceived`) quando i risultati sono disponibili. |
+| Continuo | `StartContinuousRecognitionAsync()`<br>`StopContinuousRecognitionAsync()` | Riconosce più espressioni; genera eventi (ad esempio, `IntermediateResultReceived`) quando i risultati sono disponibili. |
 
-L'applicazione usa la modalità a singolo colpo, quindi chiama `RecognizeOnceAsync()` per iniziare il riconoscimento. Il risultato è un oggetto `IntentRecognitionResult` contenente le informazioni sulla finalità riconosciuta. La risposta LUIS JSON viene estratta mediante l'espressione seguente:
+L'applicazione utilizza la modalità `RecognizeOnceAsync()` single-shot e quindi le chiamate per iniziare il riconoscimento. Il risultato è un oggetto `IntentRecognitionResult` contenente le informazioni sulla finalità riconosciuta. La risposta LUIS JSON viene estratta mediante l'espressione seguente:
 
 ```csharp
 result.Properties.GetProperty(PropertyId.LanguageUnderstandingServiceResponse_JsonResult)
@@ -176,7 +176,7 @@ L'applicazione non analizza il risultato JSON. Viene visualizzato solo il testo 
 
 ## <a name="specify-recognition-language"></a>Specificare lingua di riconoscimento
 
-Per impostazione predefinita, LUIS riconosce le finalità in inglese Americano (`en-us`). Tramite l'assegnazione di un codice impostazioni locali alla proprietà `SpeechRecognitionLanguage` della configurazione del riconoscimento vocale, questa è in grado di riconoscere le finalità in altre lingue. Ad esempio, aggiungere `config.SpeechRecognitionLanguage = "de-de";` nell'applicazione prima di creare il riconoscimento per riconoscere gli Intent in tedesco. Per ulteriori informazioni, vedere [supporto per le lingue Luis](../LUIS/luis-language-support.md#languages-supported).
+Per impostazione predefinita, LUIS riconosce le finalità in inglese Americano (`en-us`). Tramite l'assegnazione di un codice impostazioni locali alla proprietà `SpeechRecognitionLanguage` della configurazione del riconoscimento vocale, questa è in grado di riconoscere le finalità in altre lingue. Ad esempio, `config.SpeechRecognitionLanguage = "de-de";` aggiungere l'applicazione prima di creare il sistema di riconoscimento per riconoscere le finalità in tedesco. Per ulteriori informazioni, vedere [Supporto della lingua LUIS](../LUIS/luis-language-support.md#languages-supported).
 
 ## <a name="continuous-recognition-from-a-file"></a>Riconoscimento vocale continuo da un file
 
@@ -200,4 +200,4 @@ Cercare il codice usato in questo articolo nella cartella **samples/csharp/share
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Guida introduttiva: riconoscere il riconoscimento vocale da un microfono](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnetcore)
+> [Guida introduttiva: Riconoscere il riconoscimento vocale da un microfono](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnetcore)

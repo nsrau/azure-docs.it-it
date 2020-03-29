@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
 ms.openlocfilehash: be9c06d45da4d83c26f82343c9cb7b19ba19b4ae
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "71257616"
 ---
 # <a name="customize-your-text-translations"></a>Personalizzare le traduzioni di testo
@@ -29,7 +29,7 @@ Con Custom Translator è possibile creare sistemi di traduzione neurali che comp
 
 ### <a name="how-does-it-work"></a>Come funziona?
 
-USA i documenti tradotti in precedenza (volantini, pagine Web, documentazione e così via) per creare un sistema di traduzione che rispecchi la terminologia e lo stile specifici del dominio, meglio di un sistema di conversione standard. Gli utenti possono caricare documenti TMX, XLIFF, TXT, DOCX e XLSX.  
+Utilizza i tuoi documenti tradotti in precedenza (opuscoli, pagine web, documentazione, ecc.) per costruire un sistema di traduzione che rifletta la terminologia e lo stile specifici del tuo dominio, meglio di un sistema di traduzione standard. Gli utenti possono caricare documenti TMX, XLIFF, TXT, DOCX e XLSX.  
 
 Il sistema accetta anche i dati paralleli a livello di documento, ma non ancora allineati a livello di frase. Se gli utenti hanno accesso alle versioni dello stesso contenuto in più lingue, ma in documenti separati, Custom Translator sarà in grado di associare automaticamente frasi tra documenti.  Il sistema può anche usare dati monolingue in una o entrambe le lingue per integrare i dati di training paralleli per migliorare le traduzioni.
 
@@ -43,18 +43,18 @@ Altre informazioni sui vari livelli di personalizzazione in base ai dati disponi
 ## <a name="microsoft-translator-hub"></a>Hub di Microsoft Translator
 
 > [!NOTE]
-> L'Hub Microsoft Translator legacy verrà ritirato il 17 maggio 2019. [Visualizzare le informazioni e le date importanti per la migrazione](https://www.microsoft.com/translator/business/hub/).  
+> Microsoft Translator Hub legacy verrà ritirato il 17 maggio 2019. [Visualizzare informazioni e date importanti sulla migrazione](https://www.microsoft.com/translator/business/hub/).  
 
 ## <a name="custom-translator-versus-hub"></a>Custom Translator e Hub
 
-|   | **Hub** | **Custom Translator**|
+|   | **Hub** | **Traduttore personalizzato**|
 |:-----|:----:|:----:|
 |Stato delle funzionalità di personalizzazione   | Disponibilità generale  | Disponibilità generale |
 | Versione API per testo  | Solo V2   | Solo V3 |
-| Personalizzazione SMT | Yes   | No |
-| Personalizzazione NMT | No    | Yes |
-| Personalizzazione dei nuovi servizi voce unificati | No    | Yes |
-| [Nessuna traccia](https://www.aka.ms/notrace) | Yes  | Yes |
+| Personalizzazione SMT | Sì   | No |
+| Personalizzazione NMT | No    | Sì |
+| Personalizzazione dei nuovi servizi voce unificati | No    | Sì |
+| [Nessuna traccia](https://www.aka.ms/notrace) | Sì  | Sì |
 
 ## <a name="collaborative-translations-framework"></a>Framework di Collaborative Translations
 

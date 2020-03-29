@@ -1,5 +1,5 @@
 ---
-title: Pubblica app-LUIS
+title: Pubblica app - LUIS
 titleSuffix: Azure Cognitive Services
 description: Dopo aver compilato ed eseguito il test dell'app LUIS attiva, renderla disponibile per l'applicazione client effettuandone la pubblicazione sull'endpoint.
 services: cognitive-services
@@ -11,16 +11,16 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: diberry
-ms.openlocfilehash: 676c6d15c4f439543a3ed74627001725632fecfa
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: c91a3ca73d70dd5fd2848bed0f43f14a817087d7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79220886"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80053430"
 ---
 # <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>Pubblicare l'app attiva di cui si è eseguito il training in un endpoint di staging o di produzione
 
-Quando si completa la compilazione, il training e il test dell'app LUIS attiva, renderla disponibile all'applicazione client pubblicando l'app nell'endpoint. 
+Al termine della compilazione, del training e del test dell'app LUIS attiva, renderla disponibile per l'applicazione client pubblicandola nell'endpoint. 
 
 [!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
@@ -28,29 +28,29 @@ Quando si completa la compilazione, il training e il test dell'app LUIS attiva, 
 
 1. Per pubblicare l'endpoint, selezionare **Pubblica** nel pannello superiore a destra. 
 
-    ![Pulsante pubblica nella parte superiore, barra nav destra](./media/luis-how-to-publish-app/publish-top-nav-bar.png)
+    ![Pulsante Pubblica nella barra di spostamento in alto a destra](./media/luis-how-to-publish-app/publish-top-nav-bar.png)
 
-1. Selezionare le impostazioni per l'endpoint di stima pubblicato, quindi selezionare **pubblica**.
+1. Selezionare le impostazioni per l'endpoint di stima pubblicato, quindi selezionare **Pubblica**.
 
-    ![Selezionare pubblica impostazioni e quindi fare clic sul pulsante pubblica](./media/luis-how-to-publish-app/publish-pop-up.png)
+    ![Selezionare le impostazioni di pubblicazione, quindi selezionare il pulsante Pubblica](./media/luis-how-to-publish-app/publish-pop-up.png)
 
-### <a name="publishing-slots"></a>Pubblicazione di slot
+### <a name="publishing-slots"></a>Slot di pubblicazione
 
-Quando viene visualizzata la finestra popup, selezionare lo slot corretto: 
+Selezionare lo slot corretto quando viene visualizzata la finestra pop-up: 
 
 * Staging
 * Produzione 
 
-Con entrambi gli slot di pubblicazione è possibile disporre di due diverse versioni dell'app disponibili negli endpoint pubblicati o nella stessa versione in due endpoint diversi. 
+Usando entrambi gli slot di pubblicazione, è possibile avere due versioni diverse dell'app disponibili negli endpoint pubblicati o la stessa versione in due endpoint diversi. 
 
 ### <a name="publishing-regions"></a>Regioni di pubblicazione
 
-L'app viene pubblicata in tutte le aree associate alle risorse dell'endpoint di stima LUIS aggiunto nel portale LUIS dalla pagina **gestisci** ->  **[risorse di Azure](luis-how-to-azure-subscription.md#assign-a-resource-to-an-app)** . 
+L'app viene pubblicata in tutte le aree associate alle risorse dell'endpoint di stima LUIS aggiunte nel portale LUIS dalla pagina Gestisci**[risorse di Azure.The](luis-how-to-azure-subscription.md#assign-a-resource-to-an-app)** app is published to all regions associated with the LUIS prediction endpoint resources added in the LUIS portal from the **Manage** -> Azure Resources page. 
 
-Per un'app creata in [www.Luis.ai](https://www.luis.ai), ad esempio, se si crea una risorsa Luis in due aree, **westus** e **eastus**e si aggiungono tali risorse all'app come risorse, l'app viene pubblicata in entrambe le aree. Per altre informazioni sulle aree del servizio LUIS, vedere [Aree](luis-reference-regions.md).
+Ad esempio, per un'app creata in [www.luis.ai](https://www.luis.ai), se crei una risorsa LUIS in due aree, **westus** e **eastus**, e le aggiungi all'app come risorse, l'app viene pubblicata in entrambe le aree. Per altre informazioni sulle aree del servizio LUIS, vedere [Aree](luis-reference-regions.md).
 
 > [!TIP]
-> Sono disponibili 3 aree di creazione. È necessario creare nell'area in cui si intende eseguire la pubblicazione. Se è necessario pubblicare in tutte le aree, è necessario gestire il processo di creazione e il modello sottoposto a training risultante in tutte e tre le aree di creazione. 
+> Ci sono 3 regioni di authoring. È necessario creare nella regione in cui si intende eseguire la pubblicazione. Se è necessario pubblicare in tutte le aree geografiche, è necessario gestire il processo di creazione e il modello di training risultante in tutte e 3 le aree di creazione e modifica. 
 
 
 ## <a name="configuring-publish-settings"></a>Configurazione delle impostazioni di pubblicazione
@@ -58,16 +58,16 @@ Per un'app creata in [www.Luis.ai](https://www.luis.ai), ad esempio, se si crea 
 Dopo aver selezionato lo slot, configurare le impostazioni di pubblicazione per:
 
 * Analisi del sentiment
-* Correzione ortografica-solo endpoint di stima V2
+* Correzione ortografica - Solo endpoint di stima v2
 * Priming del riconoscimento vocale 
 
-Dopo la pubblicazione, queste impostazioni sono disponibili per la revisione nella pagina impostazioni di **pubblicazione** della sezione **Gestisci** . È possibile modificare le impostazioni con ogni pubblicazione. Se si annulla una pubblicazione, verranno annullate anche tutte le modifiche apportate durante la pubblicazione. 
+Dopo la pubblicazione, queste impostazioni sono disponibili per la revisione nella pagina Impostazioni di **pubblicazione** della sezione **Gestisci.** È possibile modificare le impostazioni ad ogni pubblicazione. Se si annulla una pubblicazione, tutte le modifiche apportate durante la pubblicazione vengono annullate. 
 
 ### <a name="when-your-app-is-published"></a>Quando l'app viene pubblicata
 
 Quando l'app viene pubblicata correttamente, viene visualizzata una notifica di esito positivo nella parte superiore del browser. La notifica include anche un collegamento agli endpoint. 
 
-Se è necessario l'URL dell'endpoint, selezionare il collegamento. Per ottenere gli URL degli endpoint, è anche possibile scegliere **Gestisci** dal menu in alto e quindi selezionare **risorse di Azure** nel menu a sinistra. 
+Se è necessario l'URL dell'endpoint, selezionare il collegamento. È anche possibile accedere agli URL degli endpoint selezionando **Gestisci** nel menu in alto, quindi selezionare **Risorse di Azure** nel menu a sinistra. 
 
 ## <a name="sentiment-analysis"></a>Analisi del sentiment
 
@@ -81,15 +81,15 @@ I dati sentiment sono un punteggio compreso tra 1 e 0 che indica il sentiment po
 
 Per altre informazioni sulla risposta dell'endpoint JSON con l'analisi del sentiment, vedere [Analisi del sentiment](luis-concept-data-extraction.md#sentiment-analysis)
 
-## <a name="spelling-correction"></a>Correzione ortografica
+## <a name="spelling-correction"></a>Correzione di errori di ortografia
 
 [!INCLUDE [Not supported in V3 API prediction endpoint](./includes/v2-support-only.md)]
 
-Le correzioni all'ortografia vengono effettuate prima della stima dell'espressione utente LUIS. Nella risposta è possibile visualizzare tutte le modifiche apportate all'espressione originale, inclusa l'ortografia.
+Le correzioni all'ortografia vengono apportate prima della stima dell'espressione utente LUIS. Nella risposta è possibile visualizzare le modifiche apportate all'espressione originale, inclusa l'ortografia.
 
 ## <a name="speech-priming"></a>Priming del riconoscimento vocale
 
-L'innesco vocale è il processo di utilizzo dell'invio del modello LUIS ai servizi vocali prima della conversione del testo in sintesi vocale. Ciò consente al servizio di riconoscimento vocale di fornire la conversione vocale in modo più accurato per il modello. In questo modo, le richieste e le risposte di bot e le richieste LUIS vengono effettuate in una sola chiamata eseguendo una chiamata vocale e ottenendo una risposta LUIS. Fornisce una minore latenza complessiva.
+Il priming vocale è il processo di utilizzo dell'invio del modello LUIS ai servizi di riconoscimento vocale prima della conversione di testo in voce. Ciò consente al servizio vocale di fornire la conversione vocale in modo più accurato per il modello. In questo modo il riconoscimento vocale e LUIS richieste e risposte in una chiamata effettuando una chiamata vocale e ottenendo una risposta LUIS. Fornisce una latenza minore in generale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -4,15 +4,15 @@ description: Usare il servizio LUIS (Language Understanding) per lavorare contin
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.openlocfilehash: ba7e23a72cd308dd4393bf9a581571e2bc9f5fa0
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79219819"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>Testare l'app LUIS nel portale LUIS
 
-Il [test](luis-concept-test.md) di un'app è un processo iterativo. Dopo aver eseguito il training dell'app LUIS, testarla con espressioni di esempio per verificare se le finalità e le entità vengono riconosciute correttamente. Se così non fosse, aggiornare l'app LUIS ed eseguire nuovamente il training e il test.
+[Il test](luis-concept-test.md) di un'app costituisce un processo iterativo. Dopo aver eseguito il training dell'app LUIS, testarla con espressioni di esempio per verificare se le finalità e le entità vengono riconosciute correttamente. Se così non fosse, aggiornare l'app LUIS ed eseguire nuovamente il training e il test.
 
 [!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
@@ -22,20 +22,20 @@ Il [test](luis-concept-test.md) di un'app è un processo iterativo. Dopo aver es
 <a name="access-the-test-page"></a>
 <a name="luis-interactive-testing"></a>
 
-## <a name="train-before-testing"></a>Esegui il training prima del test
+## <a name="train-before-testing"></a>Allenati prima del test
 
-Per eseguire il test con la versione più recente dell'app attiva, selezionare **Train** dal menu in alto, prima del test.
+Per eseguire il test sulla versione più recente dell'app attiva, seleziona **Train** dal menu in alto, prima di eseguire il test.
 
 ## <a name="test-an-utterance"></a>Eseguire il test di un'espressione
 
-L'espressione di test non deve essere esattamente identica a qualsiasi espressione di esempio nell'app. L'espressione di test deve includere la scelta di parole, la lunghezza delle frasi e l'utilizzo dell'entità previsti per un utente.
+L'espressione di test non deve essere esattamente uguale a qualsiasi espressione di esempio nell'app. L'espressione di test deve includere la scelta delle parole, la lunghezza della frase e l'utilizzo dell'entità prevista per un utente.
 
 1. Accedere all'app selezionando il relativo nome nella pagina **My Apps** (App personali).
 
-1. Per accedere al pannello a scorrimento **Test**, selezionare **Test** nel pannello superiore dell'applicazione.
+1. Per accedere al pannello scorrevole **Test,** selezionare **Test** nel pannello superiore dell'applicazione.
 
     > [!div class="mx-imgBorder"]
-    > ](./media/luis-how-to-interactive-test/test.png) pagina dell'app ![Train & test
+    > ![Pagina Formazione & test dell'app di test](./media/luis-how-to-interactive-test/test.png)
 
 1. Immettere un'espressione nella casella di testo e premere Invio. È possibile digitare il numero desiderato di espressioni in **Test**, ma solo un'espressione alla volta.
 
@@ -45,13 +45,13 @@ L'espressione di test non deve essere esattamente identica a qualsiasi espressio
 
 ## <a name="inspect-score"></a>Ispezionare il punteggio
 
-È possibile ispezionare i dettagli dei risultati del test nel pannello **Inspect** (Ispeziona).
+I dettagli del risultato del test vengono esaminati nel pannello **Ispezione.**
 
 1. Con il pannello a scorrimento **Test** aperto, selezionare **Inspect** (Ispeziona) per un'espressione da confrontare.
 
     ![Selezionare il pulsante Ispeziona per visualizzare altri dettagli sui risultati del test](./media/luis-how-to-interactive-test/inspect.png)
 
-1. Viene visualizzato il pannello **Inspection** (Ispezione). Il pannello include la finalità con il punteggio più alto ed eventuali entità identificate. Il pannello mostra il risultato dell'espressione selezionata.
+1. Viene visualizzato il pannello **Ispezione.** Il pannello include la finalità con il punteggio più alto ed eventuali entità identificate. Il pannello mostra il risultato dell'espressione selezionata.
 
     ![Il pannello include la finalità con il punteggio più alto ed eventuali entità identificate. Il pannello mostra il risultato dell'espressione selezionata.](./media/luis-how-to-interactive-test/inspect-panel.png)
 
@@ -91,7 +91,7 @@ Se si usano [criteri](luis-concept-patterns.md) e l'espressione corrisponde a un
 Se si dispone di diversi endpoint LUIS, usare il collegamento **Additional Settings** (Impostazioni aggiuntive) nel riquadro Test's Published (Pubblicato test) per modificare l'endpoint usato per il test. Se non si sa quale endpoint usare, selezionare quello predefinito **Starter_Key** (Chiave di avvio).
 
 > [!div class="mx-imgBorder"]
-> ![pannello di test con collegamento a impostazioni aggiuntive evidenziato](media/luis-how-to-interactive-test/additional-settings-v3-settings.png)
+> ![Pannello test con il collegamento Additional Settings (Impostazioni avanzate) evidenziato](media/luis-how-to-interactive-test/additional-settings-v3-settings.png)
 
 
 ## <a name="batch-testing"></a>Test in batch

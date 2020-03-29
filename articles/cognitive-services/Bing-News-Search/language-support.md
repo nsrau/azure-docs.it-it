@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 1/10/2019
 ms.author: aahi
 ms.openlocfilehash: d15058126f43fff328acfc563ffd081164a69a90
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79220193"
 ---
 # <a name="language-and-region-support-for-the-bing-news-search-api"></a>Lingua e regioni supportate dall'API Ricerca notizie Bing
@@ -31,12 +31,12 @@ Per l'endpoint `/news/search`, la tabella seguente elenca i valori dei codici di
 
 Per un elenco di codici di paese/area che è possibile specificare nel parametro di query `cc`, vedere [Codici paese](#countrycodes).  
 
-|Paese/area geografica|Lingua:|Codice di mercato|  
+|Paese/Area geografica|Linguaggio|Codice di mercato|  
 |---------------------|--------------|-----------------|
 |Danimarca|Danese|da-DK|
 |Austria|Tedesco|de-AT|
 |Svizzera|Tedesco|de-CH|
-|Germany|Tedesco|de-DE|
+|Germania|Tedesco|de-DE|
 |Australia|Inglese|en-AU|
 |Canada|Inglese|en-CA|
 |Regno Unito|Inglese|en-GB|
@@ -48,26 +48,26 @@ Per un elenco di codici di paese/area che è possibile specificare nel parametro
 |Filippine|Inglese|en-PH|
 |Singapore|Inglese|en-SG|
 |Stati Uniti|Inglese|it-IT|
-|Inglese|generali|en-WW|
-|Inglese|generali|en-XA|
-|Sudafrica|Inglese|en-ZA|
+|Inglese|generale|en-WW|
+|Inglese|generale|en-XA|
+|Sud Africa|Inglese|en-ZA|
 |Argentina|Spagnolo|es-AR|
 |Cile|Spagnolo|es-CL|
 |Spagna|Spagnolo|es-ES|
 |Messico|Spagnolo|es-MX|
 |Stati Uniti|Spagnolo|es-US|
-|Spagnolo|generali|es-XL|
+|Spagnolo|generale|es-XL|
 |Finlandia|Finlandese|fi-FI|  
-|France|Francese|fr-BE|
+|Francia|Francese|fr-BE|
 |Canada|Francese|fr-CA|
 |Belgio|Olandese|nl-BE|
 |Svizzera|Francese|fr-CH|
-|France|Francese|fr-FR|  
+|Francia|Francese|fr-FR|  
 |Italia|Italiano|it-IT|
-|Hong Kong - R.A.S.|Cinese tradizionale|zh-HK|  
+|RAS di Hong Kong|Cinese tradizionale|zh-HK|  
 |Taiwan|Cinese tradizionale|zh-TW|
-|Japan|Giapponese|ja-JP|  
-|Korea|Coreano|ko-KR|  
+|Giappone|Giapponese|ja-JP|  
+|Corea del Sud|Coreano|ko-KR|  
 |Paesi Bassi|Olandese|nl-NL|  
 |Repubblica Popolare Cinese|Cinese|zh-CN|  
 |Brasile|Portoghese|pt-BR|
@@ -80,20 +80,20 @@ Per l'endpoint `/news`, la tabella seguente elenca i valori dei codici di mercat
 
 Per un elenco di codici di paese/area che è possibile specificare nel parametro di query `cc`, vedere [Codici paese](#countrycodes).  
 
-|Paese/area geografica|Lingua:|Codice di mercato|  
+|Paese/Area geografica|Linguaggio|Codice di mercato|  
 |---------------------|--------------|-----------------|
 |Danimarca|Danese|da-DK|
-|Germany|Tedesco|de-DE|
+|Germania|Tedesco|de-DE|
 |Australia|Inglese|en-AU|
 |Regno Unito|Inglese|en-GB|
 |Stati Uniti|Inglese|it-IT|
-|Inglese|generali|en-WW|
+|Inglese|generale|en-WW|
 |Cile|Spagnolo|es-CL|
 |Messico|Spagnolo|es-MX|
 |Stati Uniti|Spagnolo|es-US|
 |Finlandia|Finlandese|fi-FI|  
 |Canada|Francese|fr-CA|
-|France|Francese|fr-FR|  
+|Francia|Francese|fr-FR|  
 |Italia|Italiano|it-IT|
 |Brasile|Portoghese|pt-BR|
 |Repubblica Popolare Cinese|Cinese|zh-CN|
@@ -103,15 +103,15 @@ Per l'endpoint `/news/trendingtopics`, la tabella seguente elenca i valori dei c
 
 Per un elenco di codici di paese/area che è possibile specificare nel parametro di query `cc`, vedere [Codici paese](#countrycodes).  
 
-|Paese/area geografica|Lingua:|Codice di mercato|  
+|Paese/Area geografica|Linguaggio|Codice di mercato|  
 |---------------------|--------------|-----------------|
-|Germany|Tedesco|de-DE|
+|Germania|Tedesco|de-DE|
 |Australia|Inglese|en-AU|
 |Regno Unito|Inglese|en-GB|
 |Stati Uniti|Inglese|it-IT|
 |Canada|Inglese|en-CA|
 |India|Inglese|en-IN|
-|France|Francese|fr-FR|
+|Francia|Francese|fr-FR|
 |Canada|Francese|fr-CA|
 |Brasile|Portoghese|pt-BR|
 |Repubblica Popolare Cinese|Cinese|zh-CN|
@@ -122,7 +122,7 @@ Per un elenco di codici di paese/area che è possibile specificare nel parametro
 
 I seguenti sono i codici di paese/area che è possibile specificare nel parametro di query `cc`. L'elenco è soggetto a variazioni.  
 
-|Paese/area geografica|Codice paese|  
+|Paese/Area geografica|Codice paese|  
 |---------------------|------------------|  
 |Argentina|AR|  
 |Australia|AU|  
@@ -133,14 +133,14 @@ I seguenti sono i codici di paese/area che è possibile specificare nel parametr
 |Cile|CL|  
 |Danimarca|DK|  
 |Finlandia|FI|  
-|France|FR|  
-|Germany|DE|  
-|Hong Kong - R.A.S.|HK|  
+|Francia|VF|  
+|Germania|DE|  
+|RAS di Hong Kong|HK|  
 |India|IN|  
 |Indonesia|ID|  
 |Italia|IT|  
-|Japan|JP|  
-|Korea|KR|  
+|Giappone|JP|  
+|Corea del Sud|KR|  
 |Malaysia|MY|  
 |Messico|MX|  
 |Paesi Bassi|NL|  
@@ -152,14 +152,14 @@ I seguenti sono i codici di paese/area che è possibile specificare nel parametr
 |Filippine|PH|  
 |Russia|RU|  
 |Arabia Saudita|SA|  
-|Sudafrica|ZA|  
+|Sud Africa|ZA|  
 |Spagna|ES|  
 |Svezia|SE|  
 |Svizzera|CH|  
 |Taiwan|TW|  
 |Turchia|TR|  
 |Regno Unito|GB|  
-|Stati Uniti|US|
+|Stati Uniti|Stati Uniti|
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sugli endpoint dell'API Ricerca notizie Bing, vedere [News Search API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference) (Informazioni di riferimento sull'API Ricerca notizie v7).

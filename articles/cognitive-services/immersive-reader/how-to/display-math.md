@@ -1,7 +1,7 @@
 ---
-title: Visualizzare i calcoli matematici nel lettore immersivo
+title: Visualizza la matematica nel Lettore Immersivo
 titleSuffix: Azure Cognitive Services
-description: In questo articolo viene illustrato come visualizzare i calcoli matematici nel lettore immersivo.
+description: Questo articolo ti mostrerà come visualizzare la matematica in Immersive Reader.
 author: pasta
 manager: guillasi
 ms.service: cognitive-services
@@ -10,21 +10,21 @@ ms.topic: conceptual
 ms.date: 01/14/2020
 ms.author: pasta
 ms.openlocfilehash: e01cc9e8cedb6c38da0b56e04419c706d5d0566e
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75946122"
 ---
-# <a name="how-to-display-math-in-the-immersive-reader"></a>Come visualizzare i calcoli matematici nel lettore immersivo
+# <a name="how-to-display-math-in-the-immersive-reader"></a>Come visualizzare la matematica in Immersive Reader
 
-Il lettore immersivo può visualizzare i calcoli matematici quando viene fornito sotto forma di linguaggio di markup matematico ([MathML](https://developer.mozilla.org/docs/Web/MathML)).
-Il tipo MIME può essere impostato tramite il [blocco](../reference.md#chunk)Reader immersivo. Per ulteriori informazioni, vedere [tipi MIME supportati](../reference.md#supported-mime-types) .
+Il lettore immersivo può visualizzare la matematica quando viene fornito sotto forma di Mathematical Markup Language ([MathML](https://developer.mozilla.org/docs/Web/MathML)).
+Il tipo MIME può essere impostato tramite il [blocco](../reference.md#chunk)Lettore immersivo. Per ulteriori informazioni, vedere [Tipi MIME supportati.](../reference.md#supported-mime-types)
 
 ## <a name="send-math-to-the-immersive-reader"></a>Invia matematica al lettore immersivo
-Per inviare i calcoli matematici al lettore immersivo, fornire un blocco contenente MathML e impostare il tipo MIME su ```application/mathml+xml```;
+Per inviare operazioni matematiche al lettore Immersive, fornire un blocco contenente ```application/mathml+xml```MathML e impostare il tipo MIME su ;
 
-Ad esempio, se il contenuto è il seguente:
+Ad esempio, se i contenuti sono i seguenti:
 
 ```html
 <div id='ir-content'>
@@ -53,7 +53,7 @@ Ad esempio, se il contenuto è il seguente:
 </div>
 ```
 
-Sarà quindi possibile visualizzare il contenuto usando il codice JavaScript seguente.
+Quindi è possibile visualizzare il contenuto utilizzando il seguente JavaScript.
 
 ```javascript
 const data = {
@@ -67,9 +67,9 @@ const data = {
 ImmersiveReader.launchAsync(YOUR_TOKEN, YOUR_SUBDOMAIN, data, YOUR_OPTIONS);
 ```
 
-Quando si avvia il lettore immersivo, dovrebbe essere visualizzato quanto segue:
+Quando avvii il Lettore Immersivo, dovresti vedere:
 
-![Matematica nel lettore immersivo](../media/how-tos/1-math.png)
+![Matematica in Lettore Immersivo](../media/how-tos/1-math.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

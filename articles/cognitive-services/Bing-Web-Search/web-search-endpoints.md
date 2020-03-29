@@ -1,7 +1,7 @@
 ---
 title: Endpoint di Ricerca Web
 titleSuffix: Azure Cognitive Services
-description: Per ottenere i risultati della ricerca Web, inviare una richiesta di `GET` al seguente endpoint. Le intestazioni e i parametri URL definiscono ulteriori specifiche.
+description: Per ottenere i risultati `GET` della ricerca Web, inviare una richiesta all'endpoint seguente. Le intestazioni e i parametri URL definiscono ulteriori specifiche.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: aahi
 ms.openlocfilehash: 2edc6a4cf4d4fb174c1b2067d8b3fb3b6f31859f
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74111346"
 ---
 # <a name="web-search-endpoint"></a>Endpoint di Ricerca Web
@@ -39,7 +39,7 @@ I risultati inclusi nella risposta a una richiesta di ricerca Web sono tutti cos
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Le API **Bing** supportano azioni di ricerca che restituiscono risultati in base al loro tipo. Tutti gli endpoint di ricerca restituiscono i risultati come oggetti risposta JSON.  Tutti gli endpoint supportano le query che restituiscono una lingua e una posizione specifiche per longitudine, latitudine e raggio di ricerca.
+Le API **Bing** supportano azioni di ricerca che restituiscono risultati in base al tipo.Tutti gli endpoint di ricerca restituiscono risultati come oggetti della risposta JSON. Tutti gli endpoint supportano query che restituiscono una lingua e una posizione specifiche in base a longitudine, latitudine e raggio di ricerca.
 
 Per informazioni complete sui parametri supportati da ogni endpoint, vedere le pagine di riferimento per ogni tipo.
 Per esempi di richieste di base eseguite con l'API Ricerca Web, vedere le [guide introduttive per la ricerca Web](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/search-the-web).

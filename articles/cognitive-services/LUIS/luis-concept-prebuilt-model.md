@@ -1,5 +1,5 @@
 ---
-title: Modelli predefiniti-LUIS
+title: Modelli predefiniti - LUIS
 titleSuffix: Azure Cognitive Services
 description: I modelli predefiniti includono domini, finalità, espressioni ed entità. È possibile avviare l'app con un dominio predefinito o aggiungere all'app un dominio pertinente in un secondo momento.
 services: cognitive-services
@@ -12,31 +12,31 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: diberry
 ms.openlocfilehash: e0b5b95a7524b60a7c3367035a15a7158fa7908a
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74280846"
 ---
 # <a name="prebuilt-models"></a>Modelli predefiniti
 
-I modelli predefiniti includono domini, finalità, espressioni ed entità. È possibile avviare l'app con un modello predefinito o aggiungere un modello pertinente all'app in un secondo momento. 
+I modelli predefiniti includono domini, finalità, espressioni ed entità. Puoi avviare l'app con un modello predefinito o aggiungere un modello pertinente all'app in un secondo momento. 
 
 ## <a name="types-of-prebuilt-models"></a>Tipi di modelli predefiniti
 
 LUIS fornisce tre tipi di modelli predefiniti. Ogni modello può essere aggiunto all'app in qualsiasi momento. 
 
-|Tipo di modello|Include|
+|Tipo di modello|Includes|
 |--|--|
 |[Dominio](luis-reference-prebuilt-domains.md)|Finalità, espressioni, entità|
 |Finalità|Finalità, espressioni|
-|[Entità](luis-reference-prebuilt-entities.md)|Solo entità| 
+|[Entities](luis-reference-prebuilt-entities.md)|Solo entità| 
 
 ## <a name="prebuilt-domains"></a>Domini predefiniti
 
-Language Understanding (LUIS) fornisce *domini*predefiniti, ovvero modelli pre-sottoposti a training di [Intent](luis-how-to-add-intents.md) ed [entità](luis-concept-entity-types.md) che interagiscono per domini o categorie comuni di applicazioni client. 
+Language Understanding (LUIS) fornisce *domini predefiniti,* che sono modelli pre-addestrati di [finalità](luis-how-to-add-intents.md) ed [entità](luis-concept-entity-types.md) che lavorano insieme per domini o categorie comuni di applicazioni client. 
 
-I domini predefiniti sono stati sottoposti a training e possono essere aggiunti all'app LUIS. Gli Intent e le entità di un dominio predefinito sono completamente personalizzabili dopo essere stati aggiunti all'app. 
+I domini predefiniti sono stati sottoposti a training e possono essere aggiunti all'app LUIS. Le finalità e le entità di un dominio predefinito sono completamente personalizzabili dopo averli aggiunti all'app. 
 
 > [!TIP]
 > Le finalità e le entità in un dominio predefinito hanno una maggiore efficacia quando operano in modo collaborativo. È consigliabile combinare le finalità e le entità provenienti dallo stesso dominio, quando possibile.
@@ -44,13 +44,13 @@ I domini predefiniti sono stati sottoposti a training e possono essere aggiunti 
 
 ### <a name="changing-the-behavior-of-a-prebuilt-domain-intent"></a>Modifica del comportamento delle finalità di dominio predefinito
 
-È possibile che un dominio predefinito contenga una finalità simile a un'altra di cui vuoi disporre nell'app LUIS, ma che vuoi operi in modo diverso. Il dominio predefinito, ad esempio, fornisce un `MakeReservation` finalità per la prenotazione di un ristorante, ma si vuole **che l'app** usi tale scopo per effettuare le prenotazioni degli alberghi. In tal caso, è possibile modificare il comportamento di tale finalità aggiungendo espressioni di esempio allo scopo di effettuare prenotazioni di Alberghi e quindi ripetere il training dell'app. 
+È possibile che un dominio predefinito contenga una finalità simile a un'altra di cui vuoi disporre nell'app LUIS, ma che vuoi operi in modo diverso. Ad esempio, **Places** il dominio predefinito `MakeReservation` Luoghi fornisce l'intento di effettuare una prenotazione di un ristorante, ma vuoi che l'app usi tale intento per effettuare prenotazioni alberghiere. In tal caso, è possibile modificare il comportamento di tale finalità aggiungendo espressioni di esempio allo scopo di effettuare prenotazioni alberghiere e quindi riqualificare l'app. 
 
 È possibile consultare l'elenco completo dei domini predefiniti nei [riferimenti dei domini predefiniti](./luis-reference-prebuilt-domains.md).
 
 ## <a name="prebuilt-intents"></a>Finalità predefinite
 
-LUIS fornisce Intent predefiniti e le relative espressioni per ognuno dei domini predefiniti. È possibile aggiungere le finalità senza aggiungere l'intero dominio. L'aggiunta di un preventivo è il processo di aggiunta di una finalità e delle relative espressioni all'app. È possibile modificare sia il nome della finalità e che l'elenco delle espressioni.  
+LUIS fornisce finalità predefinite e le relative espressioni per ognuno dei relativi domini predefiniti. È possibile aggiungere le finalità senza aggiungere l'intero dominio. L'aggiunta di una finalità è il processo di aggiunta di una finalità e delle relative espressioni all'app. È possibile modificare sia il nome della finalità e che l'elenco delle espressioni.  
 
 ## <a name="prebuilt-entities"></a>Entità predefinite
 

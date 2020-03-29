@@ -1,5 +1,5 @@
 ---
-title: Entità precompilata temperature-LUIS
+title: Entità Con protezione temperatura - LUIS
 titleSuffix: Azure Cognitive Services
 description: Questo articolo contiene informazioni sull'entità predefinita temperatura in Language Understanding, ovvero LUIS.
 services: cognitive-services
@@ -12,28 +12,28 @@ ms.topic: reference
 ms.date: 10/14/2019
 ms.author: diberry
 ms.openlocfilehash: 7e2b48c6353f56ab2269a8718146cb765797adba
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78270376"
 ---
 # <a name="temperature-prebuilt-entity-for-a-luis-app"></a>Entità predefinita temperatura per un'app LUIS
 L'entità temperatura consente di estrarre una vasta gamma di tipi di temperatura. Poiché è già stato eseguito il training per questa entità, non è necessario aggiungere all'applicazione espressioni di esempio contenenti la temperatura. L'entità temperatura è supportata in [molte impostazioni cultura](luis-reference-prebuilt-entities.md).
 
 ## <a name="types-of-temperature"></a>Tipi di temperatura
-La temperatura viene gestita nel repository GitHub [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L819)
+La temperatura viene gestita dal repository GitHub di [testo dei recognizer](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L819)
 
 ## <a name="resolution-for-prebuilt-temperature-entity"></a>Risoluzione per l'entità temperatura predefinita
 
-Per la query vengono restituiti gli oggetti entità seguenti:
+Per la query vengono restituiti i seguenti oggetti entità:
 
 `set the temperature to 30 degrees`
 
 
 #### <a name="v3-response"></a>[Risposta V3](#tab/V3)
 
-Il codice JSON seguente è con il parametro `verbose` impostato su `false`:
+Il codice JSON `verbose` seguente è `false`impostato con il parametro :
 
 ```json
 "entities": {
@@ -46,7 +46,7 @@ Il codice JSON seguente è con il parametro `verbose` impostato su `false`:
 }
 ```
 #### <a name="v3-verbose-response"></a>[Risposta dettagliata V3](#tab/V3-verbose)
-Il codice JSON seguente è con il parametro `verbose` impostato su `true`:
+Il codice JSON `verbose` seguente è `true`impostato con il parametro :
 
 ```json
 "entities": {

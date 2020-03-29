@@ -12,10 +12,10 @@ ms.date: 04/17/2019
 ms.author: kefre
 ms.custom: seodec18
 ms.openlocfilehash: e8ab205a43e5cb1e8e2b96dbd9600e1fceb29403
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68564599"
 ---
 # <a name="computer-vision-api-frequently-asked-questions"></a>Domande frequenti sull'API Visione artificiale
@@ -25,50 +25,50 @@ ms.locfileid: "68564599"
 
 ---
 
-**Domanda:** *È possibile eseguire il training dell'API Visione artificiale per l'uso di tag personalizzati?  Ad esempio, se si vogliono aggiungere immagini di razze di gatti per eseguire il training dell'intelligenza artificiale e quindi ottenere il valore della razza per una richiesta di intelligenza artificiale.*
+**Domanda**: *Posso addestrare l'API Visione artificiale per utilizzare i tag personalizzati?  Ad esempio, vorrei nutrirmi in immagini di razze di gatti per "addestrare" l'IA, quindi ricevere il valore della razza su una richiesta di ia.*
 
-**Risposta:** Questa funzione attualmente non è disponibile. Tuttavia, i tecnici Microsoft stanno lavorando per introdurre questa funzionalità in Visione artificiale.
-
----
-
-**Domanda:** *È possibile usare Visione artificiale localmente senza una connessione a Internet?*
-
-**Risposta:** Attualmente non è disponibile un'opzione locale.
+**Risposta**: questa funzione non è attualmente disponibile. Tuttavia, i tecnici Microsoft stanno lavorando per introdurre questa funzionalità in Visione artificiale.
 
 ---
 
-**Domanda:** *È possibile usare Visione artificiale per leggere targhe?*
+**Domanda**: *è possibile usare Visione artificiale in locale senza una connessione a Internet?*
 
-**Risposta:** L'API Visione artificiale offre un buon livello di rilevamento del testo con OCR, ma non è attualmente ottimizzata per le targhe. Microsoft si impegna a migliorare costantemente i servizi e il riconoscimento OCR delle targhe automobilistiche è stato aggiunto all'elenco delle richieste di funzionalità.
-
----
-
-**Domanda:** *Quali superfici di scrittura sono supportate per il riconoscimento della grafia?*
-
-**Risposta:** La tecnologia supporta diversi tipi di superfici, inclusi lavagne, carta bianca e foglietti adesivi gialli.
+**Risposta**: attualmente non è disponibile una soluzione locale.
 
 ---
 
-**Domanda:** *Quanto tempo richiede l'operazione di riconoscimento della grafia?*
+**Domanda**: *è possibile usare Visione artificiale per leggere targhe?*
 
-**Risposta:** La quantità di tempo richiesta dipende dalla lunghezza del testo. Per i testi più lunghi, possono essere necessari vari secondi. Pertanto, al termine dell'operazione Recognize Handwritten Text (Riconosci testo scritto a mano) potrebbe essere necessario attendere prima di poter recuperare i risultati tramite l'operazione Get Handwritten Text Operation Result (Ottieni risultato operazione riconoscimento testo scritto a mano).
-
----
-
-**Domanda:** *In quale modo la tecnologia di riconoscimento della grafia gestisce il testo inserito tramite un punto di inserimento all'interno di una riga?*
-
-**Risposta:** Il testo di questo tipo viene restituito come riga separata dall'operazione di riconoscimento della grafia.
+**Risposta**: l'API Visione artificiale offre un buon livello di rilevamento del testo con OCR, ma non è attualmente ottimizzata per le targhe. Microsoft si impegna a migliorare costantemente i servizi e il riconoscimento OCR delle targhe automobilistiche è stato aggiunto all'elenco delle richieste di funzionalità.
 
 ---
 
-**Domanda:** *In quale modo la tecnologia di riconoscimento della grafia gestisce le parole o le righe barrate?*
+**Domanda**: *quali superfici di scrittura sono supportate per il riconoscimento della grafia?*
 
-**Risposta:** Se le parole sono barrate con più righe per renderle irriconoscibili, l'operazione di riconoscimento della grafia non le preleva. Tuttavia, se le parole sono barrate con una sola riga, la barratura viene considerata un elemento di disturbo e le parole vengono prelevate dall'operazione di riconoscimento della grafia.
+**Risposta**: la tecnologia supporta diversi tipi di superfici, inclusi lavagne, carta bianca e foglietti adesivi gialli.
 
 ---
 
-**Domanda:** *Quali orientamenti del testo sono supportati per la tecnologia di riconoscimento della grafia?*
+**Domanda**: *quanto tempo richiede l'operazione di riconoscimento della grafia?*
 
-**Risposta:** L'operazione di riconoscimento della grafia può prelevare testo con angolazioni fino a 30-40 gradi.
+**Risposta**: la quantità di tempo richiesta dipende dalla lunghezza del testo. Per i testi più lunghi, possono essere necessari vari secondi. Pertanto, al termine dell'operazione Recognize Handwritten Text (Riconosci testo scritto a mano) potrebbe essere necessario attendere prima di poter recuperare i risultati tramite l'operazione Get Handwritten Text Operation Result (Ottieni risultato operazione riconoscimento testo scritto a mano).
+
+---
+
+**Domanda**: *in quale modo la tecnologia di riconoscimento della grafia gestisce il testo inserito tramite un punto di inserimento all'interno di una riga?*
+
+**Risposta**: il testo di questo tipo viene restituito come riga separata dall'operazione di riconoscimento della grafia.
+
+---
+
+**Domanda**: *in quale modo la tecnologia di riconoscimento della grafia gestisce le parole o le righe barrate?*
+
+**Risposta**: se le parole sono barrate con più righe per renderle irriconoscibili, l'operazione di riconoscimento della grafia non le preleva. Tuttavia, se le parole sono barrate con una sola riga, la barratura viene considerata un elemento di disturbo e le parole vengono prelevate dall'operazione di riconoscimento della grafia.
+
+---
+
+**Domanda**: *quali orientamenti del testo sono supportati per la tecnologia di riconoscimento della grafia?*
+
+**Risposta**: l'operazione di riconoscimento della grafia può prelevare testo con angolazioni fino a 30-40 gradi.
 
 ---

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
 ms.openlocfilehash: 2cc89bf57167db75404c044f58d18ab48edfaf38
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68854075"
 ---
 # <a name="configure-your-hosted-ui-experience"></a>Configurare l'esperienza dell'interfaccia utente ospitata
@@ -104,7 +104,7 @@ Per altre informazioni, tra cui l'ID di configurazione personalizzato, vedere **
 |Image caption (Didascalia immagine)   | Determina se visualizzare le immagini con i risultati della ricerca.|
 
 
-Se si fa clic su **Show advanced configurations** (Mostra configurazioni avanzate), vengono visualizzate le configurazioni seguenti:
+Se si fa clic su **Mostra configurazioni avanzate,** vengono visualizzate le seguenti configurazioni:
 
 
 |  | |
@@ -143,7 +143,7 @@ Se si fa clic su **Show advanced configurations** (Mostra configurazioni avanzat
 
 | |  |
 |---------|---------|
-|Titolo pagina   | Testo visualizzato nell'area del titolo della pagina dei risultati della ricerca; non disponibile per il layout con risultati sovrapposti.        |
+|Page title (Titolo della pagina)   | Testo visualizzato nell'area del titolo della pagina dei risultati della ricerca; non disponibile per il layout con risultati sovrapposti.        |
 |Toolbar theme (Tema della barra degli strumenti)    | Determina il colore di sfondo dell'area del titolo della pagina dei risultati della ricerca. |
 
 Se si fa clic su **Show advanced configurations** (Mostra configurazioni avanzate), vengono visualizzate le configurazioni seguenti.  
@@ -166,4 +166,4 @@ Le configurazioni seguenti si applicano solo se si usa l'interfaccia utente ospi
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Usare indicatori di effetto per evidenziare il testo](../bing-web-search/hit-highlighting.md)
-- [Sfogliare pagine Web](./page-webpages.md)
+- [Sfogliare le pagine Web](./page-webpages.md)

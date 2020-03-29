@@ -12,15 +12,15 @@ ms.date: 04/24/2018
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: ad33b5a28728a8e7f9c0a70ff81ea5a9e65624bd
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74072649"
 ---
 # <a name="search-for-gif-images"></a>Cercare immagini GIF 
 
-L'API Ricerca immagini Bing consente anche di cercare nell'intero Web le immagini più rilevanti con estensione gif.  Gli sviluppatori possono integrare le gif accattivanti in diversi scenari di conversazione. 
+L'API Ricerca immagini Bing consente anche di cercare nell'intero Web le immagini più rilevanti con estensione gif.Gli sviluppatori possono integrare coinvolgenti immagini con estensione gif in vari scenari di conversazione. 
 
 L'URL seguente è una query per cercare immagini animate con estensione gif.
 ```

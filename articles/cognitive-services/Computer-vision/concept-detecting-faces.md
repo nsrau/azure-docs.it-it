@@ -1,7 +1,7 @@
 ---
-title: Rilevamento viso-Visione artificiale
+title: Rilevamento facciale - Visione artificiale
 titleSuffix: Azure Cognitive Services
-description: Informazioni sui concetti relativi alla funzionalità di rilevamento viso del API Visione artificiale.
+description: Scopri i concetti relativi alla funzionalità di rilevamento volti dell'API Visione artificiale.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 3675acf59c6889dd00c8f26089f509bbcd3c724e
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: d10e4c98d3e2f00e7139063c8263e65ffd015d7c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945237"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80244702"
 ---
 # <a name="face-detection-with-computer-vision"></a>Rilevamento volto con Visione artificiale
 
@@ -111,6 +111,9 @@ L'esempio successivo mostra la risposta JSON restituita per un'immagine che cont
 }
 ```
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="use-the-api"></a>Usare l'API
 
-Per altre informazioni su come usare la funzionalità di rilevamento volto, vedere la documentazione di riferimento di [Analyze Image](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa).
+La funzionalità di rilevamento volti fa parte dell'API [Analizza immagine.](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) È possibile chiamare questa API tramite un SDK nativo o con chiamate REST. Includere `Faces` nel parametro di query **visualFeatures.** Quindi, quando si ottiene la risposta JSON completa, è `"faces"` sufficiente analizzare la stringa per il contenuto della sezione.
+
+* [Guida introduttiva: Computer Vision .NET SDK](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
+* [Guida introduttiva: Analizzare un'immagine (API REST)Quickstart: Analyze an image (REST API)](./quickstarts/csharp-analyze.md)

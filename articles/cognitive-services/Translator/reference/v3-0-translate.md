@@ -1,21 +1,21 @@
 ---
 title: Metodo Translate dell'API Traduzione testuale
 titleSuffix: Azure Cognitive Services
-description: Informazioni sui parametri, le intestazioni e i messaggi del corpo per i servizi cognitivi di Azure API Traduzione testuale metodo Translate per tradurre il testo.
+description: Comprendere i parametri, le intestazioni e i messaggi del corpo per il metodo API Translate del testo del traduttore di Azure con i servizi cognitivi per tradurre il testo.
 services: cognitive-services
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 11/12/2019
+ms.date: 03/20/2020
 ms.author: swmachan
-ms.openlocfilehash: d58383b20e4311f8ab9490dc241722eee2e44ad6
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 1821623fbe2a22234af649934ac06e72897a19cf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184797"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80052404"
 ---
 # <a name="translator-text-api-30-translate"></a>API Traduzione testuale 3.0: Translate
 
@@ -37,13 +37,13 @@ I parametri della richiesta inviati a una stringa di query sono:
 
 <table width="100%">
   <th width="20%">Query parameter (Parametro di query)</th>
-  <th>DESCRIZIONE</th>
+  <th>Descrizione</th>
   <tr>
     <td>api-version</td>
     <td><em>Parametro obbligatorio</em>.<br/>Versione dell'API richiesta dal client. Il valore deve essere <code>3.0</code>.</td>
   </tr>
   <tr>
-    <td>To</td>
+    <td>to</td>
     <td><em>Parametro obbligatorio</em>.<br/>Specifica la lingua del testo di output. La lingua di destinazione deve essere una delle <a href="./v3-0-languages.md">lingue supportate</a> incluse nell'ambito <code>translation</code>. Ad esempio, usare <code>to=de</code> per la traduzione in tedesco.<br/>È possibile tradurre in più lingue contemporaneamente ripetendo il parametro nella stringa di query. Ad esempio, usare <code>to=de&to=it</code> per la traduzione in tedesco e in italiano.</td>
   </tr>
 </table>
@@ -52,10 +52,10 @@ I parametri della richiesta inviati a una stringa di query sono:
 
 <table width="100%">
   <th width="20%">Query parameter (Parametro di query)</th>
-  <th>DESCRIZIONE</th>
+  <th>Descrizione</th>
   <tr>
-    <td>Da</td>
-    <td><em>Parametro facoltativo</em>.<br/>Specifica la lingua del testo di input. Trovare quali lingue sono disponibili per la traduzione eseguendo una ricerca tra le <a href="./v3-0-languages.md">lingue supportate</a> con l'ambito <code>translation</code>. Se non si specifica il parametro <code>from</code>, viene applicato il rilevamento automatico della lingua per determinare la lingua di origine. <br/><br/>Quando si usa la funzionalità del <a href="https://docs.microsoft.com/azure/cognitive-services/translator/dynamic-dictionary">dizionario dinamico</a> , è necessario usare il parametro <code>from</code> anziché il rilevamento automatico.</td>
+    <td>da</td>
+    <td><em>Parametro facoltativo</em>.<br/>Specifica la lingua del testo di input. Trovare quali lingue sono disponibili per la traduzione eseguendo una ricerca tra le <a href="./v3-0-languages.md">lingue supportate</a> con l'ambito <code>translation</code>. Se non si specifica il parametro <code>from</code>, viene applicato il rilevamento automatico della lingua per determinare la lingua di origine. <br/><br/>È necessario <code>from</code> utilizzare il parametro anziché il rilevamento automatico quando si utilizza la funzionalità di <a href="https://docs.microsoft.com/azure/cognitive-services/translator/dynamic-dictionary">dizionario dinamico.</a></td>
   </tr>  
   <tr>
     <td>textType</td>
@@ -63,7 +63,7 @@ I parametri della richiesta inviati a una stringa di query sono:
   </tr>
   <tr>
     <td>category</td>
-    <td><em>Parametro facoltativo</em>.<br/>Stringa che specifica la categoria (dominio) della traduzione. Questo parametro viene usato per ottenere le traduzioni da un sistema personalizzato compilato con <a href="../customization.md">Custom Translator</a>. Aggiungere l'ID categoria dei <a href="https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/how-to-create-project#view-project-details">Dettagli del progetto</a> di conversione personalizzati a questo parametro per usare il sistema personalizzato distribuito. Il valore predefinito è: <code>general</code>.</td>
+    <td><em>Parametro facoltativo</em>.<br/>Stringa che specifica la categoria (dominio) della traduzione. Questo parametro viene usato per ottenere le traduzioni da un sistema personalizzato compilato con <a href="../customization.md">Custom Translator</a>. Aggiungere l'ID categoria dai dettagli del <a href="https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/how-to-create-project#view-project-details">progetto</a> Custom Translator a questo parametro per usare il sistema personalizzato distribuito. Il valore predefinito è: <code>general</code>.</td>
   </tr>
   <tr>
     <td>profanityAction</td>
@@ -104,18 +104,18 @@ Le intestazioni della richiesta includono:
 
 <table width="100%">
   <th width="20%">Headers</th>
-  <th>DESCRIZIONE</th>
+  <th>Descrizione</th>
   <tr>
-    <td>Intestazione/e di autenticazione</td>
-    <td><em>Intestazione della richiesta obbligatoria</em>.<br/>Vedere le <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">opzioni disponibili per l'autenticazione</a>.</td>
+    <td>Intestazione autenticazione</td>
+    <td><em>Intestazione richiesta obbligatoria</em>.<br/>Vedere le <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">opzioni disponibili per l'autenticazione</a>.</td>
   </tr>
   <tr>
     <td>Content-Type</td>
-    <td><em>Intestazione della richiesta obbligatoria</em>.<br/>Specifica il tipo di contenuto del payload.<br/> Il valore accettato è <code>application/json; charset=UTF-8</code>.</td>
+    <td><em>Intestazione richiesta obbligatoria</em>.<br/>Specifica il tipo di contenuto del payload.<br/> Il valore <code>application/json; charset=UTF-8</code>accettato è .</td>
   </tr>
   <tr>
     <td>Content-Length</td>
-    <td><em>Intestazione della richiesta obbligatoria</em>.<br/>Lunghezza del corpo della richiesta.</td>
+    <td><em>Intestazione richiesta obbligatoria</em>.<br/>Lunghezza del corpo della richiesta.</td>
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
@@ -182,7 +182,7 @@ Nella sezione [Esempi](#examples) è disponibile un esempio di risposte JSON.
 
 <table width="100%">
   <th width="20%">Headers</th>
-  <th>DESCRIZIONE</th>
+  <th>Descrizione</th>
     <tr>
     <td>X-RequestId</td>
     <td>Valore generato dal servizio per identificare la richiesta. Viene usato per la risoluzione dei problemi.</td>
@@ -199,14 +199,14 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
 
 <table width="100%">
   <th width="20%">Codice di stato</th>
-  <th>DESCRIZIONE</th>
+  <th>Descrizione</th>
   <tr>
     <td>200</td>
-    <td>Completamento della procedura.</td>
+    <td>Esito positivo.</td>
   </tr>
   <tr>
     <td>400</td>
-    <td>Uno dei parametri di query è mancante o non valido. Prima di riprovare, correggere i parametri della richiesta.</td>
+    <td>Uno dei parametri di query manca o non è valido. Prima di riprovare, correggere i parametri della richiesta.</td>
   </tr>
   <tr>
     <td>401</td>
@@ -226,17 +226,17 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
   </tr>
   <tr>
     <td>500</td>
-    <td>Si è verificato un errore imprevisto. Se l'errore permane, segnalarlo con: data e ora dell'errore, identificativo della richiesta dall'intestazione di risposta <code>X-RequestId</code> e l'identificativo del client dall'intestazione di risposta <code>X-ClientTraceId</code>.</td>
+    <td>Si è verificato un errore imprevisto. Se l'errore persiste, segnalarlo specificando data e ora dell'errore, identificatore della richiesta dall'intestazione della riposta <code>X-RequestId</code> e identificatore del client dall'intestazione della richiesta <code>X-ClientTraceId</code>.</td>
   </tr>
   <tr>
     <td>503</td>
-    <td>Il server è temporaneamente non disponibile. ripetere la richiesta. Se l'errore permane, segnalarlo con: data e ora dell'errore, identificativo della richiesta dall'intestazione di risposta <code>X-RequestId</code> e l'identificativo del client dall'intestazione di risposta <code>X-ClientTraceId</code>.</td>
+    <td>Il server è temporaneamente non disponibile. ripetere la richiesta. Se l'errore persiste, segnalarlo specificando data e ora dell'errore, identificatore della richiesta dall'intestazione della riposta <code>X-RequestId</code> e identificatore del client dall'intestazione della richiesta <code>X-ClientTraceId</code>.</td>
   </tr>
 </table> 
 
 Se si verifica un errore, la richiesta restituirà anche una risposta di errore JSON. Il codice errore è un numero a 6 cifre che combina il codice di stato HTTP a 3 cifre seguito da un numero a 3 cifre per classificare ulteriormente l'errore. I codici di errore più comuni sono reperibili nella [pagina di riferimento API Traduzione testuale V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
 
-## <a name="examples"></a>esempi
+## <a name="examples"></a>Esempi
 
 ### <a name="translate-a-single-input"></a>Tradurre un singolo input
 
@@ -383,7 +383,7 @@ Se si vuole evitare la presenza di contenuto volgare nella traduzione, indipende
     <td>Le parole volgari vengono sostituite da un indicatore nell'output. L'indicatore dipende dal parametro <code>ProfanityMarker</code>.<br/><br/>
 Per <code>ProfanityMarker=Asterisk</code>, le parole volgari vengono sostituite con <code>***</code>:<br/>
     <strong>Origine di esempio (giapponese)</strong>: 彼はジャッカスです。<br/>
-    <strong>Traduzione di esempio (italiano)</strong>: è un \*\*\*.<br/><br/>
+    <strong>Esempio di traduzione (inglese):</strong>È un \* \* \*file .<br/><br/>
 Per <code>ProfanityMarker=Tag</code>, le parole volgari sono racchiuse tra i tag XML &lt;profanity&gt; e &lt;/profanity&gt;:<br/>
     <strong>Origine di esempio (giapponese)</strong>: 彼はジャッカスです。<br/>
     <strong>Traduzione di esempio (italiano)</strong>: è un &lt;profanity&gt;cretino&lt;/profanity&gt;.
@@ -479,14 +479,15 @@ La risposta è:
 Le informazioni sull'allineamento iniziano con `0:2-0:1`, vale a dire che i primi tre caratteri nel testo di origine (`The`) sono associati ai primi due caratteri nel testo tradotto (`La`).
 
 #### <a name="limitations"></a>Limitazioni
-Prendere nota delle restrizioni seguenti:
+Ottenere informazioni di allineamento è una funzionalità sperimentale che abbiamo abilitato per la ricerca di prototipazione ed esperienze con potenziali mappature di frasi. Potremmo scegliere di smettere di sostenerlo in futuro. Ecco alcune delle restrizioni notevoli in cui gli allineamenti non sono supportati:
 
-* L'allineamento non è disponibile per il testo in formato HTML, ad esempio textType = HTML
+* L'allineamento non è disponibile per il testo in formato HTML, ad esempio textType
 * L'allineamento viene restituito solo per un subset delle coppie di lingue:
   - dall'inglese verso qualsiasi altra lingua;
   - da qualsiasi altra lingua verso l'inglese, ad eccezione di cinese semplificato, cinese tradizionale e lettone verso l'inglese;
   - da giapponese e coreano o da coreano a giapponese.
 * Non si riceveranno informazioni sull'allineamento se la frase è una traduzione predefinita. Un esempio di traduzione predefinita è "Questo è un test", "Ti amo" e altre frasi usate frequentemente.
+* L'allineamento non è disponibile quando si applica uno degli approcci per impedire la traduzione come descritto [di seguito](../prevent-translation.md)
 
 ### <a name="obtain-sentence-boundaries"></a>Ottenere delimitatori di frase
 

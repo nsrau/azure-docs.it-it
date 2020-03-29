@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
 ms.openlocfilehash: 6d419135a1da68d23689f66d3134a638d71a3eab
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73044109"
 ---
 # <a name="learn-image-moderation-concepts"></a>Informazioni sui concetti di moderazione delle immagini
@@ -66,7 +66,7 @@ Esempio di estratto:
 
 ## <a name="detecting-faces"></a>Rilevamento dei visi
 
-Il rilevamento dei visi consente di rilevare i dati personali, ad esempio i visi nelle immagini. Vengono rilevati i potenziali visi e il numero dei possibili visi presenti in ogni immagine.
+Il rilevamento dei volti consente di rilevare i dati personali, ad esempio i volti nelle immagini. Vengono rilevati i potenziali visi e il numero dei possibili visi presenti in ogni immagine.
 
 Una risposta contiene queste informazioni:
 
@@ -147,4 +147,4 @@ Per i casi più complessi, usare lo [strumento di revisione](Review-Tool-User-Gu
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Eseguire il test drive della [Console dell'API Moderazione immagini](try-image-api.md) e usare gli esempi di codice API REST. Se si ha familiarità con Visual Studio e, C#vedere anche la sezione relativa alla moderazione delle immagini della [Guida introduttiva a .NET SDK](dotnet-sdk-quickstart.md) .
+Eseguire il test drive della [Console dell'API Moderazione immagini](try-image-api.md) e usare gli esempi di codice API REST. Estrarre anche la sezione moderazione dell'immagine della Guida introduttiva di [.NET SDK](dotnet-sdk-quickstart.md) se si ha familiarità con Visual Studio e C.

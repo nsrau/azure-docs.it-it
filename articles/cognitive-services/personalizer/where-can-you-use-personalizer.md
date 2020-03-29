@@ -1,54 +1,54 @@
 ---
-title: Dove e come usare-Customizzator
+title: Dove e come usare - Personalizer
 description: Personalizza esperienze può essere applicato in qualsiasi situazione in cui l'applicazione può selezionare l'elemento, l'azione o il prodotto giusto da visualizzare, per migliorare l'esperienza, ottenere risultati aziendali migliori o migliorare la produttività.
 ms.topic: conceptual
 ms.date: 02/18/2020
 ms.openlocfilehash: 63e66315898242beb5da59927e8d506e6f2cff78
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79219324"
 ---
-# <a name="where-and-how-to-use-personalizer"></a>Dove e come usare il Personalizzatore
+# <a name="where-and-how-to-use-personalizer"></a>Dove e come usare Personalizer
 
-Usare la funzionalità di personalizzazione in ogni situazione in cui l'applicazione deve selezionare l'azione corretta (contenuto) da visualizzare, in modo da migliorare l'esperienza, ottenere risultati aziendali migliori o migliorare la produttività.
+Utilizzare Personalizer in qualsiasi situazione in cui l'applicazione deve selezionare l'azione corretta (contenuto) da visualizzare - al fine di rendere l'esperienza migliore, ottenere risultati aziendali migliori o migliorare la produttività.
 
-Il Personalizzatore USA Machine Learning per selezionare l'azione (contenuto) per visualizzare l'utente. La selezione può variare notevolmente a seconda della quantità, della qualità e della distribuzione dei dati inviati al servizio.
+Il personalista usa l'apprendimento automatico per selezionare l'azione (contenuto) da visualizzare all'utente. La selezione può variare notevolmente a seconda della quantità, della qualità e della distribuzione dei dati inviati al servizio.
 
 ## <a name="example-use-cases-for-personalizer"></a>Casi d'uso di esempio per Personalizza esperienze
 
-* **Chiarimento preventivo & risoluzione dell'ambiguità**: aiutare gli utenti ad avere un'esperienza migliore quando il loro scopo non è chiaro offrendo un'opzione personalizzata.
-* **Suggerimenti predefiniti** per i menu & opzioni: il bot suggerisce l'elemento più probabile in modo personalizzato come primo passaggio, anziché presentare un menu impersonale o un elenco di alternative.
-* **Tratti di bot & tono**: per i bot che possono variare il tono, il livello di dettaglio e lo stile di scrittura, provare a variare questi tratti.
-* **Notifica & contenuto dell'avviso**: decidere quale testo utilizzare per gli avvisi per coinvolgere altri utenti.
-* **Notifica & intervallo di avvisi**: l'apprendimento personalizzato di quando inviare notifiche agli utenti per inserirli più.
+* **Intento chiarire & disambiguazione**: aiutare gli utenti hanno una migliore esperienza quando il loro intento non è chiaro, fornendo un'opzione personalizzata.
+* **Suggerimenti predefiniti** per i menu & opzioni: chiedi al bot di suggerire l'elemento più probabile in modo personalizzato come primo passaggio, invece di presentare un menu impersonale o un elenco di alternative.
+* **Tratti bot & tono**: per i bot che possono variare tono, verbosità, e lo stile di scrittura, prendere in considerazione variare questi tratti.
+* **Contenuto di avvisi &:** decidere il testo da utilizzare per gli avvisi per coinvolgere maggiormente gli utenti.
+* **Notifica & tempi**di avviso : avere apprendimento personalizzato di quando inviare notifiche agli utenti per coinvolgerli di più.
 
 
-## <a name="expectations-required-to-use-personalizer"></a>Aspettative richieste per l'uso del personalizzatore
+## <a name="expectations-required-to-use-personalizer"></a>Aspettative necessarie per utilizzare Personalizer
 
-È possibile applicare la personalizzazione nei casi in cui si soddisfino o si possa implementare le linee guida seguenti.
+È possibile applicare Personalizer in situazioni in cui ci si incontra o è possibile implementare le linee guida seguenti.
 
 |Linee guida|Spiegazione|
 |--|--|
 |Obiettivo aziendale|Si ha un obiettivo aziendale o di usabilità per l'applicazione.|
 |Contenuto|Decidere contestualmente cosa mostrare agli utenti in un determinato punto dell'applicazione migliora tale obiettivo.|
-|Quantità di contenuto|Sono presenti meno di 50 azioni di rango per chiamata.|
-|Dati aggregati|La scelta migliore può e deve essere appresa in base al comportamento collettivo degli utenti e al punteggio totale.|
+|Quantità di contenuto|Hai meno di 50 azioni da classificare per chiamata.|
+|Aggregare i dati|La scelta migliore può e deve essere appresa in base al comportamento collettivo degli utenti e al punteggio totale.|
 |Uso etico|L'uso dell'apprendimento automatico per la personalizzazione segue le [linee guida per l'uso responsabile](ethics-responsible-use.md) e le scelte personali.
-|Opzione singola migliore|La decisione contestuale può essere espressa classificando la migliore opzione (azione) in un set di scelte limitato.|
-|Risultato con Punteggio|Il modo in cui la scelta di classificazione è stata elaborata per l'applicazione può essere determinata dalla misurazione di un aspetto del comportamento dell'utente e dall'espressa in un _[Punteggio di ricompensa](concept-rewards.md)_ .|
-|Temporizzazione pertinente|Il punteggio non introduce troppi fattori esterni o di confusione. La durata dell'esperimento è abbastanza ridotta da poter calcolare il punteggio finché è ancora pertinente.|
-|Funzionalità di contesto sufficienti|È possibile esprimere il contesto per l'ordine di priorità come un elenco di almeno 5 [funzioni](concepts-features.md) che si ritiene possano essere utili per la scelta corretta e che non includa informazioni identificabili specifiche dell'utente.|
+|Migliore opzione singola|La decisione contestuale può essere espressa classificando la migliore opzione (azione) in un set di scelte limitato.|
+|Risultato punteggiato|Quanto bene la scelta classificata ha funzionato per l'applicazione può essere determinata misurando alcuni aspetti del comportamento dell'utente ed esprimendolo in un _[punteggio di ricompensa](concept-rewards.md)_.|
+|Tempistica rilevante|Il punteggio non introduce troppi fattori esterni o di confusione. La durata dell'esperimento è abbastanza ridotta da poter calcolare il punteggio finché è ancora pertinente.|
+|Caratteristiche di contesto sufficienti|È possibile esprimere il contesto per la classificazione come un elenco di almeno 5 [funzionalità](concepts-features.md) che si ritiene possano aiutare a fare la scelta giusta, e che non include informazioni identificabili specifiche dell'utente.|
 |Funzionalità di azione sufficienti|Sono disponibili informazioni su ciascuna scelta di contenuto, _azione_, come elenco di almeno 5 [funzioni](concepts-features.md) che si ritiene aiutino Personalizza esperienze a operare la scelta giusta.|
 |Dati giornalieri|Ci sono eventi sufficienti a tenere sotto controllo la personalizzazione ottimale se il problema devia nel corso del tempo (ad esempio, le preferenze nel campo delle notizie o della moda). Personalizza esperienze si adatta ai cambiamenti continui del mondo reale, ma i risultati non saranno ottimali se non ci sono eventi e dati sufficienti da cui apprendere per individuare e stabilire nuovi criteri. È consigliabile scegliere un caso d'uso che accada abbastanza frequentemente. Prendere in considerazione la ricerca di casi d'uso che si verifichino almeno 500 volte al giorno.|
-|Dati cronologici|L'applicazione può conservare dati per il tempo sufficiente ad accumulare una cronologia di almeno 100.000 interazioni. In questo modo, il personale potrà raccogliere dati sufficienti per eseguire valutazioni offline e l'ottimizzazione dei criteri.|
+|Dati cronologici|L'applicazione può conservare dati per il tempo sufficiente ad accumulare una cronologia di almeno 100.000 interazioni. Ciò consente al programma di ricerca per raccogliere dati sufficienti per eseguire valutazioni offline e l'ottimizzazione dei criteri.|
 
-**Non usare il Personalizzatore** in cui il comportamento personalizzato non è un elemento che può essere individuato in tutti gli utenti. Può ad esempio essere utile usare Personalizza esperienze per suggerire la pizza da ordinare tra un elenco di 20 possibili tipi, ma la scelta del contatto da chiamare quando si ha bisogno di aiuto per i bambini (come "Nonna") non è un'opzione personalizzabile per un'intera base di utenti.
+**Non usare Personalizer** in cui il comportamento personalizzato non è qualcosa che può essere individuato in tutti gli utenti. Può ad esempio essere utile usare Personalizza esperienze per suggerire la pizza da ordinare tra un elenco di 20 possibili tipi, ma la scelta del contatto da chiamare quando si ha bisogno di aiuto per i bambini (come "Nonna") non è un'opzione personalizzabile per un'intera base di utenti.
 
 ## <a name="how-to-use-personalizer-in-a-web-application"></a>Come usare Personalizza esperienze in un'applicazione Web
 
-L'aggiunta di un ciclo di apprendimento a un'applicazione Web include:
+L'aggiunta di un ciclo di apprendimento a un'applicazione Web include:Adding a learning loop to a web application includes:
 
 * Determinare l'esperienza da personalizzare, le azioni e le funzionalità disponibili, le caratteristiche del contesto da usare e la ricompensa da impostare.
 * Aggiungere nell'applicazione un riferimento all'SDK per la personalizzazione.
@@ -73,13 +73,13 @@ In questo esempio si vedrà come usare Personalizza esperienze in modo da inviar
 
 * Eseguire chiamate all'API per la classificazione di Personalizza esperienze ogni volta che è necessaria una disambiguazione, invece di memorizzare nella cache i risultati per ogni utente. Il risultato della disambiguazione della finalità può cambiare nel tempo per una stessa persona. Consentendo all'API per la classificazione di esplorare le varianze si accelererà l'apprendimento complessivo.
 * Scegliere un'interazione comune a molti utenti in modo da avere dati sufficienti per la personalizzazione. Ad esempio, le domande introduttive possono essere più appropriate rispetto ai piccoli chiarimenti introdotti più avanti nella conversazione, che potrebbero essere visualizzati solo da alcuni utenti.
-* Usare chiamate all'API per la classificazione per abilitare conversazioni di tipo "il primo suggerimento è quello giusto", in cui all'utente viene chiesto "Vuoi X?" o "Intendi dire X?" e l'utente può solo confermare, anziché avere la possibilità di scegliere più opzioni da un menu. Ad esempio, User: "Mi piacerebbe ordinare un caffè" bot: "si vuole un doppio espresso?". In questo modo, anche il segnale di ricompensa è forte poiché fa direttamente riferimento all'unico suggerimento fornito.
+* Usare chiamate all'API per la classificazione per abilitare conversazioni di tipo "il primo suggerimento è quello giusto", in cui all'utente viene chiesto "Vuoi X?" o "Intendi dire X?" e l'utente può solo confermare, anziché avere la possibilità di scegliere più opzioni da un menu. Ad esempio, Utente:"Vorrei ordinare un caffè" Bot: "Vuoi un doppio espresso?". In questo modo, anche il segnale di ricompensa è forte poiché fa direttamente riferimento all'unico suggerimento fornito.
 
 ## <a name="how-to-use-personalizer-with-a-recommendation-solution"></a>Come usare Personalizza esperienze con una soluzione di raccomandazione
 
 Molte aziende usano motori di raccomandazione, strumenti di marketing e conduzione di campagne, segmentazione e clustering del pubblico, filtri collaborativi e altri mezzi per consigliare prodotti da un ampio catalogo ai clienti.
 
-Il [repository GitHub Microsoft Recommenders](https://github.com/Microsoft/Recommenders) fornisce esempi e procedure consigliate per compilare sistemi di raccomandazioni sotto forma di notebook Jupyter. Fornisce esempi funzionanti per preparare dati, compilare modelli, valutare, ottimizzare e rendere operativi i motori di raccomandazione, per molti approcci comuni, tra cui xDeepFM, SAR, ALS, RBM e DKN.
+Il [repository Microsoft Recommenders GitHub](https://github.com/Microsoft/Recommenders) fornisce esempi e procedure consigliate per la creazione di sistemi di raccomandazione, forniti come notebook Jupyter. Fornisce esempi funzionanti per preparare dati, compilare modelli, valutare, ottimizzare e rendere operativi i motori di raccomandazione, per molti approcci comuni, tra cui xDeepFM, SAR, ALS, RBM e DKN.
 
 Personalizza esperienze può funzionare con un motore di raccomandazione, se presente.
 
@@ -97,7 +97,7 @@ Se l'applicazione consente la visualizzazione di ampie varianze di contenuto e p
     * Classificare solo le azioni attuabili.
     * Mostrare all'utente l'azione con la priorità più alta.
 
-In alcune architetture la sequenza precedente può risultare difficile da implementare. In tal caso, esiste un approccio alternativo all'implementazione di misure di sicurezza dopo la classificazione, ma è necessario eseguire un provisioning, in modo che le azioni che esulano dalla protezione non vengano utilizzate per eseguire il training del modello di personalizzazione.
+In alcune architetture la sequenza precedente può risultare difficile da implementare. In tal caso, esiste un approccio alternativo all'implementazione delle misure di sicurezza dopo la classificazione, ma è necessario effettuare una disposizione in modo che le azioni che non rientrino nella protezione non vengano usate per eseguire il training del modello Personalizer.
 
 * Ottenere l'elenco delle azioni da classificare, con apprendimento disattivato.
 * Classificare le azioni in ordine di priorità.

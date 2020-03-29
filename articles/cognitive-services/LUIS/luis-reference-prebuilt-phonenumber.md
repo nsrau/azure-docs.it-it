@@ -1,5 +1,5 @@
 ---
-title: Numero di telefono entità predefinite-LUIS
+title: Numero di telefono Entità precostruite - LUIS
 titleSuffix: Azure Cognitive Services
 description: Questo articolo contiene informazioni sull'entità predefinita numero di telefono in Language Understanding, ovvero LUIS.
 services: cognitive-services
@@ -12,27 +12,27 @@ ms.topic: reference
 ms.date: 09/27/2019
 ms.author: diberry
 ms.openlocfilehash: 4e2c8e27c6d4195252c6a5b423fa98b2a4247182
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78270462"
 ---
-# <a name="phone-number-prebuilt-entity-for-a-luis-app"></a>Entità predefinita del numero di telefono per un'app LUIS
+# <a name="phone-number-prebuilt-entity-for-a-luis-app"></a>Entità predefinita con numero di telefono per un'app LUIS
 L'entità`phonenumber` consente di estrarre una serie di numeri di telefono che includono il codice nazionale. Poiché è già stato eseguito il training per questa entità, non è necessario aggiungere espressioni di esempio all'applicazione. L'entità `phonenumber` è supportata solo nelle impostazioni cultura `en-us`.
 
 ## <a name="types-of-a-phone-number"></a>Tipi di un numero di telefono
-il `Phonenumber` è gestito dal repository GitHub del [testo dei riconoscitori](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/Base-PhoneNumbers.yaml)
+`Phonenumber`è gestito dal repository GitHub di [tipo Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/Base-PhoneNumbers.yaml)
 
 ## <a name="resolution-for-this-prebuilt-entity"></a>Risoluzione per questa entità predefinita
 
-Per la query vengono restituiti gli oggetti entità seguenti:
+Per la query vengono restituiti i seguenti oggetti entità:
 
 `my mobile is 1 (800) 642-7676`
 
 #### <a name="v3-response"></a>[Risposta V3](#tab/V3)
 
-Il codice JSON seguente è con il parametro `verbose` impostato su `false`:
+Il codice JSON `verbose` seguente è `false`impostato con il parametro :
 
 ```json
 "entities": {
@@ -42,7 +42,7 @@ Il codice JSON seguente è con il parametro `verbose` impostato su `false`:
 }
 ```
 #### <a name="v3-verbose-response"></a>[Risposta dettagliata V3](#tab/V3-verbose)
-Il codice JSON seguente è con il parametro `verbose` impostato su `true`:
+Il codice JSON `verbose` seguente è `true`impostato con il parametro :
 
 ```json
 "entities": {

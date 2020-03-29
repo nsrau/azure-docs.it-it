@@ -1,7 +1,7 @@
 ---
 title: Moderazione testo - Content Moderator
 titleSuffix: Azure Cognitive Services
-description: Usare la moderazione del testo per il testo indesiderato, i dati personali e gli elenchi di termini personalizzati.
+description: Utilizzare la moderazione del testo per il testo indesiderato, i dati personali e gli elenchi personalizzati dei termini.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
 ms.openlocfilehash: 5a07f0749b59efc96b67df3ad5ed2fbf353be614
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74538835"
 ---
 # <a name="learn-text-moderation-concepts"></a>Informazioni sui concetti di moderazione del testo
@@ -78,9 +78,9 @@ L'estratto seguente nell'estratto JSON mostra un esempio dell'output:
 
 ## <a name="personal-data"></a>Dati personali
 
-La funzionalità dati personali rileva la potenziale presenza di queste informazioni:
+La funzione dati personali rileva la potenziale presenza di queste informazioni:
 
-- Indirizzo e-mail
+- Indirizzo di posta elettronica
 - Indirizzo postale degli Stati Uniti
 - Indirizzo IP
 - Numero di telefono degli Stati Uniti
@@ -167,7 +167,7 @@ Se si richiede la correzione automatica, la risposta conterrà la versione corre
 Sebbene l'elenco globale dei termini predefinito funzioni alla perfezione nella maggior parte dei casi, è consigliabile confrontarlo con termini specifici per i propri requisiti aziendali. Ad esempio, si consiglia di filtrare qualsiasi marchio della concorrenza dai messaggi degli utenti.
 
 > [!NOTE]
-> È previsto un limite massimo di **cinque elenchi di termini** e ogni elenco **non può includere più di 10.000 immagini**.
+> È previsto un limite massimo di **cinque elenchi di termini** e ogni elenco **non può includere più di 10.000 termini**.
 >
 
 L'esempio illustra l'ID elenco corrispondente:
@@ -184,4 +184,4 @@ Content Moderator fornisce un'[API per elenchi di termini](https://westus.dev.co
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Eseguire il test drive della [Console dell'API Moderazione testo](try-text-api.md) e usare gli esempi di codice API REST. Se si ha familiarità con Visual Studio e C#, vedere anche la sezione relativa alla moderazione del testo della [Guida introduttiva a .NET SDK](dotnet-sdk-quickstart.md) .
+Eseguire il test drive della [Console dell'API Moderazione testo](try-text-api.md) e usare gli esempi di codice API REST. Estrarre anche la sezione moderazione del testo della guida introduttiva di [.NET SDK](dotnet-sdk-quickstart.md) se si ha familiarità con Visual Studio e C.

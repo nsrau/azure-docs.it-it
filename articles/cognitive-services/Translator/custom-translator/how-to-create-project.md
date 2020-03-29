@@ -1,7 +1,7 @@
 ---
-title: Come creare un convertitore personalizzato per il progetto
+title: Come creare un progetto - Traduttore personalizzato
 titleSuffix: Azure Cognitive Services
-description: Questo articolo illustra come creare e gestire un progetto nel traduttore personalizzato di servizi cognitivi di Azure.
+description: Questo articolo illustra come creare e gestire un progetto in Azure Cognitive Services Custom Translator.This article explains how to create and manage a project in the Azure Cognitive Services Custom Translator.
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
@@ -10,10 +10,10 @@ ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
 ms.openlocfilehash: 5b3a6f2e903d8178554b7a076ae1277633569353
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73836571"
 ---
 # <a name="create-a-project"></a>Creare un progetto

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: aahi
 ms.openlocfilehash: 85326ae9166f7ea15ec2f45c01755b8f9ef03aff
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "66388570"
 ---
 # <a name="language-and-region-support-for-the-bing-custom-search-api"></a>Lingua e regioni supportate dall'API Ricerca personalizzata Bing
@@ -23,11 +23,11 @@ L'API Ricerca personalizzata Bing supporta più di una quarantina di paesi/aree,
 
 Nonostante sia facoltativo, la richiesta dovrebbe specificare il parametro di query [mkt](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#mkt), che identifica il mercato da cui devono provenire i risultati. Per un elenco di parametri di query facoltativi, vedere [Query Parameters](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters) (Parametri di query)
 
-È possibile specificare un paese/un'area usando il parametro di query `cc`. Se si specifica un paese/un'area, è necessario specificare anche uno o più codici di lingua usando l'intestazione `Accept-Language`. Le lingue supportate variano in base al paese/all'area e sono indicate per ogni paese nella tabella **Mercati**.
+È possibile specificare un paese/un'area usando il parametro di query `cc`. Se si specifica un paese/un'area, è necessario specificare anche uno o più codici di lingua usando l'intestazione `Accept-Language`. Le lingue supportate variano in base al paese/area geografica; sono indicati per ogni paese/regione nella tabella **Mercati.**
 
 L'intestazione`Accept-Language` e il parametro di query `setLang` si escludono a vicenda, quindi non specificarli entrambi. Per informazioni dettagliate, vedere [Accept-Language](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#acceptlanguage).
 
-## <a name="countriesregions"></a>Paesi/aree geografiche
+## <a name="countriesregions"></a>Paesi/regioni
 
 |Paese/Area geografica|Codice|
 |-------|----|
@@ -111,5 +111,5 @@ L'intestazione`Accept-Language` e il parametro di query `setLang` si escludono a
 |Taiwan|Cinese tradizionale|zh-TW|
 |Turchia|Turco|tr-TR|
 |Regno Unito|Inglese|en-GB|
-|Stati Uniti|Inglese|en-US|
+|Stati Uniti|Inglese|it-IT|
 |Stati Uniti|Spagnolo|es-US|

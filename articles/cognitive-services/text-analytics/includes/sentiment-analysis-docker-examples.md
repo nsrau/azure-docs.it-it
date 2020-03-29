@@ -1,7 +1,7 @@
 ---
-title: Esempi di Docker di Analisi del sentiment container
+title: Esempi di docker del contenitore Analisi del sentiment
 titleSuffix: Azure Cognitive Services
-description: Esempi di Docker di Analisi del sentiment container
+description: Esempi di docker del contenitore Analisi del sentiment
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -10,15 +10,15 @@ ms.topic: include
 ms.date: 09/19/2019
 ms.author: dapine
 ms.openlocfilehash: c384d9d8af932db343aad106b6e89ea87821d900
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "71148432"
 ---
-### <a name="sentiment-analysis-container-docker-examples"></a>Esempi di Docker di Analisi del sentiment container
+### <a name="sentiment-analysis-container-docker-examples"></a>Esempi di docker del contenitore Analisi del sentiment
 
-Gli esempi di Docker seguenti sono per il contenitore Analisi del sentiment.
+Gli esempi di docker seguenti riguardano il contenitore Analisi del sentiment.
 
 #### <a name="basic-example"></a>Esempio di base 
 
