@@ -1,6 +1,6 @@
 ---
 title: Ripristinare un database da un backup
-description: Informazioni sul ripristino temporizzato, che consente di eseguire il rollback di un database SQL di Azure per un massimo di 35 giorni.
+description: Informazioni sul ripristino temporizzato, che consente di eseguire il rollback di un database SQL di Azure fino a 35 giorni.
 services: sql-database
 ms.service: sql-database
 ms.subservice: backup-restore
@@ -12,42 +12,42 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 ms.date: 09/26/2019
 ms.openlocfilehash: b98331a9cdb359aeefac5db1546f3a15b54010ba
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79268743"
 ---
-# <a name="recover-an-azure-sql-database-by-using-automated-database-backups"></a>Ripristinare un database SQL di Azure usando i backup automatici del database
+# <a name="recover-an-azure-sql-database-by-using-automated-database-backups"></a>Ripristinare un database SQL di Azure usando backup automatici del databaseRecover an Azure SQL database by using automated database backups
 
-Per impostazione predefinita, i backup del database SQL di Azure vengono archiviati in un archivio BLOB con replica geografica (tipo di archiviazione RA-GRS). Le opzioni seguenti sono disponibili per il ripristino del database usando i [backup automatici del database](sql-database-automated-backups.md). È possibile:
+Per impostazione predefinita, i backup del database SQL di Azure vengono archiviati nell'archiviazione BLOB con replica geografica (tipo di archiviazione RA-GRS). Le opzioni seguenti sono disponibili per il ripristino del database utilizzando [backup automatici del database](sql-database-automated-backups.md). È possibile:
 
-- Consente di creare un nuovo database nello stesso server di database SQL, ripristinato fino a un punto nel tempo specificato entro il periodo di memorizzazione.
-- Creare un database nello stesso server di database SQL, ripristinato fino all'ora di eliminazione per un database eliminato.
-- Creare un nuovo database in qualsiasi server di database SQL nella stessa area, ripristinato fino al punto dei backup più recenti.
-- Creare un nuovo database in qualsiasi server di database SQL in un'altra area, ripristinato fino al punto dei backup replicati più recenti.
+- Creare un nuovo database nello stesso server di database SQL, ripristinato a un punto nel tempo specificato all'interno del periodo di conservazione.
+- Creare un database nello stesso server di database SQL, ripristinato all'ora di eliminazione per un database eliminato.
+- Creare un nuovo database in qualsiasi server di database SQL nella stessa area, ripristinato al punto dei backup più recenti.
+- Creare un nuovo database in qualsiasi server di database SQL in qualsiasi altra area, ripristinato al punto dei backup replicati più recenti.
 
-Se è stata configurata la [conservazione a lungo termine del backup](sql-database-long-term-retention.md), è anche possibile creare un nuovo database da qualsiasi backup di conservazione a lungo termine in qualsiasi server di database SQL.
+Se è stato configurato il [backup di conservazione a lungo termine](sql-database-long-term-retention.md), è anche possibile creare un nuovo database da qualsiasi backup di conservazione a lungo termine in qualsiasi server di database SQL.
 
 > [!IMPORTANT]
 > Non è possibile sovrascrivere un database esistente durante il ripristino.
 
-Quando si usano i livelli di servizio standard o Premium, il ripristino del database potrebbe comportare un costo di archiviazione aggiuntivo. Il costo aggiuntivo si verifica quando le dimensioni massime del database ripristinato sono maggiori della quantità di spazio di archiviazione inclusa con il livello di servizio e il livello di prestazioni del database di destinazione. Per i dettagli dei prezzi delle risorse di archiviazione aggiuntive, vedere la [pagina dei prezzi del database SQL](https://azure.microsoft.com/pricing/details/sql-database/). Se la quantità effettiva di spazio usato è inferiore alla quantità di spazio di archiviazione inclusa, è possibile evitare questo costo aggiuntivo impostando le dimensioni massime del database sulla quantità inclusa.
+Quando si usano i livelli di servizio Standard o Premium, il ripristino del database potrebbe comportare un costo di archiviazione aggiuntivo. Il costo aggiuntivo viene sostenuto quando la dimensione massima del database ripristinato è maggiore della quantità di spazio di archiviazione inclusa nel livello di servizio e nel livello di prestazioni del database di destinazione. Per i dettagli dei prezzi delle risorse di archiviazione aggiuntive, vedere la [pagina dei prezzi del database SQL](https://azure.microsoft.com/pricing/details/sql-database/). Se la quantità effettiva di spazio utilizzato è inferiore alla quantità di spazio di archiviazione incluso, è possibile evitare questo costo aggiuntivo impostando la dimensione massima del database sulla quantità inclusa.
 
 ## <a name="recovery-time"></a>Tempo di ripristino
 
-Il tempo di recupero per il ripristino di un database tramite i backup automatici del database è influenzato da diversi fattori:
+Il tempo di ripristino per il ripristino di un database utilizzando backup automatici del database è influenzato da diversi fattori:
 
 - Dimensioni del database.
 - Dimensioni di calcolo del database.
-- Numero di log delle transazioni necessari.
-- Quantità di attività che deve essere rieseguita per ripristinare il punto di ripristino.
-- Larghezza di banda della rete se il ripristino si trova in un'area diversa.
+- Numero di registri delle transazioni coinvolti.
+- Quantità di attività che deve essere riprodotta per il ripristino nel punto di ripristino.
+- Larghezza di banda di rete se il ripristino si trova in un'area diversa.
 - Il numero di richieste simultanee di ripristino in corso di elaborazione nell'area di destinazione.
 
-Per un database di grandi dimensioni o molto attive, il ripristino potrebbe richiedere diverse ore. Se si verifica un'interruzione prolungata in un'area, è possibile che venga avviato un numero elevato di richieste di ripristino geografico per il ripristino di emergenza. Quando sono presenti molte richieste, il tempo di ripristino per i singoli database può aumentare. Per la maggior parte dei database, il ripristino richiede meno di 12 ore.
+Per un database di grandi dimensioni o molto attivo, il ripristino potrebbe richiedere diverse ore. Se si verifica un'interruzione prolungata in un'area, è possibile che venga avviato un numero elevato di richieste di ripristino geografico per il ripristino di emergenza. Quando sono presenti molte richieste, il tempo di ripristino per i singoli database può aumentare. Per la maggior parte dei database, il ripristino richiede meno di 12 ore.
 
-Per una singola sottoscrizione, esistono alcune limitazioni al numero di richieste di ripristino simultanee. Queste limitazioni si applicano a qualsiasi combinazione di ripristini temporizzati, ripristini geografici e ripristini dal backup con conservazione a lungo termine.
+Per una singola sottoscrizione, esistono limitazioni sul numero di richieste di ripristino simultanee. Queste limitazioni si applicano a qualsiasi combinazione di ripristini, ripristini e ripristini geografici dal backup di conservazione a lungo termine.
 
 | | **Numero massimo di richieste simultanee elaborate** | **Numero massimo di richieste simultanee inviate** |
 | :--- | --: | --: |
@@ -55,138 +55,138 @@ Per una singola sottoscrizione, esistono alcune limitazioni al numero di richies
 |Pool elastico (per pool)|4|200|
 ||||
 
-Non esiste un metodo incorporato per ripristinare l'intero server. Per un esempio di come eseguire questa attività, vedere [database SQL di Azure: ripristino completo del server](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666).
+Non esiste un metodo incorporato per ripristinare l'intero server. Per un esempio di come eseguire questa attività, vedere Database SQL di [Azure: ripristino completo del server](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666).
 
 > [!IMPORTANT]
-> Per eseguire il ripristino tramite backup automatici, è necessario essere un membro del ruolo Collaboratore SQL Server nella sottoscrizione o essere il proprietario della sottoscrizione. Per ulteriori informazioni, vedere [RBAC: ruoli predefiniti](../role-based-access-control/built-in-roles.md). È possibile eseguire il ripristino usando il portale di Azure, PowerShell o l'API REST. Non è possibile usare Transact-SQL.
+> Per eseguire il ripristino tramite backup automatici, è necessario essere membri del ruolo di collaboratore di SQL Server nella sottoscrizione o essere il proprietario della sottoscrizione. Per ulteriori informazioni, vedere [RBAC: ruoli predefiniti](../role-based-access-control/built-in-roles.md). È possibile eseguire il ripristino usando il portale di Azure, PowerShell o l'API REST. Non è possibile utilizzare Transact-SQLTransact-SQL .You can't use Transact-SQLTransact-SQL.
 
 ## <a name="point-in-time-restore"></a>Ripristino temporizzato
 
-È possibile ripristinare un database autonomo, in pool o di istanza a un punto precedente nel tempo usando il portale di Azure, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase)o l' [API REST](https://docs.microsoft.com/rest/api/sql/databases). La richiesta può specificare qualsiasi livello di servizio o dimensione di calcolo per il database ripristinato. Assicurarsi di disporre di risorse sufficienti sul server in cui si sta ripristinando il database. Al termine, il ripristino crea un nuovo database nello stesso server del database originale. Il database ripristinato viene addebitato in base alle tariffe normali, in base al livello di servizio e alle dimensioni di calcolo. Non vengono addebitati costi fino al completamento del ripristino del database.
+È possibile ripristinare un database autonomo, in pool o dell'istanza in un momento precedente usando il portale di Azure, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase)o [l'API REST.](https://docs.microsoft.com/rest/api/sql/databases) La richiesta può specificare qualsiasi livello di servizio o dimensione di calcolo per il database ripristinato. Assicurarsi di disporre di risorse sufficienti nel server in cui si sta ripristinando il database. Al termine, il ripristino crea un nuovo database nello stesso server del database originale. Il database ripristinato viene addebitato a tariffe normali, in base al livello di servizio e alle dimensioni di calcolo. Non si incorre in addebiti fino al completamento del ripristino del database.
 
-In genere si ripristina un database a un punto precedente per scopi di ripristino. È possibile considerare il database ripristinato come una sostituzione per il database originale o usarlo come origine dati per aggiornare il database originale.
+In genere si ripristina un database a un punto precedente per scopi di ripristino. È possibile considerare il database ripristinato come una sostituzione per il database originale o utilizzarlo come origine dati per aggiornare il database originale.
 
 - **Sostituzione del database**
 
-  Se si desidera che il database ripristinato sia una sostituzione per il database originale, è necessario specificare le dimensioni di calcolo e il livello di servizio del database originale. È quindi possibile rinominare il database originale e assegnare al database ripristinato il nome originale usando il comando [ALTER database](/sql/t-sql/statements/alter-database-azure-sql-database) in T-SQL.
+  Se si desidera che il database ripristinato sostituisca il database originale, è necessario specificare le dimensioni di calcolo e il livello di servizio del database originale. È quindi possibile rinominare il database originale e assegnare al database ripristinato il nome originale utilizzando il comando [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database) in T-SQL.
 
-- **Ripristino dei dati**
+- **Recupero dei dati**
 
-  Se si prevede di recuperare dati dal database ripristinato in caso di errore di un utente o di un'applicazione, è necessario scrivere ed eseguire uno script di ripristino dei dati che estrae i dati dal database ripristinato e si applica al database originale. Anche se il completamento dell'operazione di ripristino può richiedere molto tempo, il database in fase di ripristino è visibile nell'elenco dei database per tutto il processo. Se si elimina il database durante il ripristino, l'operazione di ripristino verrà annullata e non verrà addebitato alcun addebito per il database che non ha completato il ripristino.
+  Se si prevede di recuperare i dati dal database ripristinato per il ripristino da un errore dell'utente o dell'applicazione, è necessario scrivere ed eseguire uno script di recupero dati che estrae i dati dal database ripristinato e si applica al database originale. Anche se il completamento dell'operazione di ripristino può richiedere molto tempo, il database in fase di ripristino è visibile nell'elenco dei database per tutto il processo. Se si elimina il database durante il ripristino, l'operazione di ripristino verrà annullata e non verrà addebitato alcun importo per il database che non ha completato il ripristino.
   
-### <a name="point-in-time-restore-by-using-azure-portal"></a>Ripristino temporizzato tramite portale di Azure
+### <a name="point-in-time-restore-by-using-azure-portal"></a>Ripristino temporizzato tramite il portale di AzurePoint-in-time restore by using Azure portal
 
-È possibile ripristinare un singolo database SQL o istanza a un punto nel tempo dal pannello panoramica del database che si desidera ripristinare nel portale di Azure.
+È possibile ripristinare un singolo database SQL o un database dell'istanza a un punto nel tempo dal pannello Panoramica del database che si vuole ripristinare nel portale di Azure.You can recover a single SQL database or instance database to point in time from the overview blade of the database you want to restore in the Azure portal.
 
 #### <a name="single-azure-sql-database"></a>Singolo database SQL di Azure
 
-Per ripristinare un database singolo o in pool a un punto nel tempo usando il portale di Azure, aprire la pagina Panoramica database e selezionare **Ripristina** sulla barra degli strumenti. Scegliere l'origine di backup e selezionare il punto di backup temporizzato da cui verrà creato un nuovo database. 
+Per ripristinare un database singolo o in pool a un punto nel tempo tramite il portale di Azure, aprire la pagina di panoramica del database e selezionare **Ripristina** sulla barra degli strumenti. Scegliere l'origine di backup e selezionare il punto di backup temportemporale da cui verrà creato un nuovo database. 
 
   ![Screenshot delle opzioni di ripristino del database](./media/sql-database-recovery-using-backups/pitr-backup-sql-database-annotated.png)
 
-#### <a name="managed-instance-database"></a>Database istanza gestita
+#### <a name="managed-instance-database"></a>Database dell'istanza gestita
 
-Per ripristinare un database di istanza gestita a un punto nel tempo tramite il portale di Azure, aprire la pagina Panoramica database e selezionare **Ripristina** sulla barra degli strumenti. Scegliere il punto di backup temporizzato da cui verrà creato un nuovo database. 
+Per ripristinare un database dell'istanza gestita a un punto nel tempo tramite il portale di Azure, aprire la pagina di panoramica del database e selezionare **Ripristina** sulla barra degli strumenti. Scegliere il punto di backup temportemporale da cui verrà creato un nuovo database. 
 
   ![Screenshot delle opzioni di ripristino del database](./media/sql-database-recovery-using-backups/pitr-backup-managed-instance-annotated.png)
 
 > [!TIP]
-> Per ripristinare a livello di codice un database da un backup, vedere esecuzione di un [ripristino a livello di codice tramite backup automatici](sql-database-recovery-using-backups.md).
+> Per ripristinare un database da un backup a livello di codice, vedere Esecuzione del ripristino a [livello di codice mediante backup automatici](sql-database-recovery-using-backups.md).
 
 ## <a name="deleted-database-restore"></a>Ripristino di un database eliminato
 
-È possibile ripristinare un database eliminato al momento dell'eliminazione o a un punto precedente nel tempo, nello stesso server di database SQL o nella stessa istanza gestita. A tale scopo, è possibile usare il portale di Azure, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase)o [Rest (createMode = Restore)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate). Per ripristinare un database eliminato, creare un nuovo database dal backup.
+È possibile ripristinare un database eliminato nell'ora di eliminazione o in un momento precedente nello stesso server di database SQL o nella stessa istanza gestita. A tale scopo, è possibile eseguire questa operazione tramite il portale di Azure, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase)o [REST (createMode-Restore)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate). Per ripristinare un database eliminato, creare un nuovo database dal backup.
 
 > [!IMPORTANT]
-> Se si elimina un server di database SQL di Azure o un'istanza gestita, verranno eliminati anche tutti i relativi database e non sarà possibile recuperarli. Non è possibile ripristinare un server o un'istanza gestita eliminata.
+> Se si elimina un server di database SQL di Azure o un'istanza gestita, vengono eliminati anche tutti i relativi database e non possono essere recuperati. Non è possibile ripristinare un server eliminato o un'istanza gestita.
 
-### <a name="deleted-database-restore-by-using-the-azure-portal"></a>Ripristino del database eliminato tramite il portale di Azure
+### <a name="deleted-database-restore-by-using-the-azure-portal"></a>Eliminazione del ripristino del database tramite il portale di AzureDeleted database restore by using the Azure portal
 
-È possibile ripristinare i database eliminati dal portale di Azure dalla risorsa server e istanza.
-
-#### <a name="single-azure-sql-database"></a>Singolo database SQL di Azure
-
-Per ripristinare un database eliminato singolo o in pool all'ora di eliminazione utilizzando il portale di Azure, aprire la pagina Panoramica Server e selezionare **database eliminati**. Selezionare un database eliminato che si desidera ripristinare e digitare il nome del nuovo database che verrà creato con i dati ripristinati dal backup.
-
-  ![Screenshot del ripristino eliminato del database SQL di Azure](./media/sql-database-recovery-using-backups/restore-deleted-sql-database-annotated.png)
-
-#### <a name="managed-instance-database"></a>Database istanza gestita
-
-Per ripristinare un database gestito utilizzando il portale di Azure, aprire la pagina Panoramica istanza gestita e selezionare **database eliminati**. Selezionare un database eliminato che si desidera ripristinare e digitare il nome del nuovo database che verrà creato con i dati ripristinati dal backup.
-
-  ![Schermata del ripristino del database dell'istanza SQL di Azure](./media/sql-database-recovery-using-backups/restore-deleted-sql-managed-instance-annotated.png)
-
-### <a name="deleted-database-restore-by-using-powershell"></a>Ripristino del database eliminato tramite PowerShell
-
-Usare gli script di esempio seguenti per ripristinare un database eliminato per il database SQL di Azure e un'istanza gestita usando PowerShell.
+I database eliminati vengono ripristinati dal portale di Azure dal server e dalla risorsa istanza.
 
 #### <a name="single-azure-sql-database"></a>Singolo database SQL di Azure
 
-Per uno script di PowerShell di esempio che illustra come ripristinare un database SQL di Azure eliminato, vedere [ripristinare un database SQL tramite PowerShell](scripts/sql-database-restore-database-powershell.md).
+Per ripristinare un database eliminato singolo o in pool all'ora di eliminazione tramite il portale di Azure, aprire la pagina di panoramica del server e selezionare **Database eliminati**. Selezionare un database eliminato che si desidera ripristinare e digitare il nome del nuovo database che verrà creato con i dati ripristinati dal backup.
 
-#### <a name="managed-instance-database"></a>Database istanza gestita
+  ![Screenshot del ripristino del database SQL di Azure eliminato](./media/sql-database-recovery-using-backups/restore-deleted-sql-database-annotated.png)
 
-Per uno script di PowerShell di esempio che illustra come ripristinare un database di istanza eliminato, vedere [ripristinare un database eliminato in un'istanza gestita tramite PowerShell](sql-database-managed-instance-point-in-time-restore.md#restore-a-deleted-database)
+#### <a name="managed-instance-database"></a>Database dell'istanza gestita
+
+Per ripristinare un database gestito tramite il portale di Azure, aprire la pagina Panoramica dell'istanza gestita e selezionare **Database eliminati.** Selezionare un database eliminato che si desidera ripristinare e digitare il nome del nuovo database che verrà creato con i dati ripristinati dal backup.
+
+  ![Screenshot del ripristino del database dell'istanza SQL di Azure eliminato](./media/sql-database-recovery-using-backups/restore-deleted-sql-managed-instance-annotated.png)
+
+### <a name="deleted-database-restore-by-using-powershell"></a>Eliminato il ripristino del database tramite PowerShellDeleted database restore by using PowerShell
+
+Usare gli script di esempio seguenti per ripristinare un database eliminato per il database SQL di Azure e un'istanza gestita tramite PowerShell.Use the following sample scripts to restore a deleted database for Azure SQL Database and a managed instance by using PowerShell.
+
+#### <a name="single-azure-sql-database"></a>Singolo database SQL di Azure
+
+Per uno script di PowerShell di esempio che illustra come ripristinare un database SQL di Azure eliminato, vedere [Ripristinare un database SQL tramite PowerShell.For](scripts/sql-database-restore-database-powershell.md)a sample PowerShell script showing how to restore a deleted Azure SQL database, see Restore a SQL database using PowerShell.
+
+#### <a name="managed-instance-database"></a>Database dell'istanza gestita
+
+Per uno script di PowerShell di esempio che mostra come ripristinare un database dell'istanza eliminata, vedere Ripristinare il [database eliminato nell'istanza gestita tramite PowerShellFor](sql-database-managed-instance-point-in-time-restore.md#restore-a-deleted-database) a sample PowerShell script showing how to restore a deleted instance database, see Restore deleted database on managed instance using PowerShell
 
 > [!TIP]
-> Per ripristinare a livello di codice un database eliminato, vedere esecuzione di un [ripristino a livello di codice tramite backup automatici](sql-database-recovery-using-backups.md).
+> Per ripristinare a livello di codice un database eliminato, vedere Esecuzione del ripristino a [livello di codice mediante backup automatici](sql-database-recovery-using-backups.md).
 
 ## <a name="geo-restore"></a>Ripristino geografico
 
-Il ripristino geografico consente di ripristinare un database SQL presente su un server in qualsiasi area di Azure usando gli ultimi backup con replica geografica. Il ripristino geografico USA come origine un backup con replica geografica. È possibile richiedere il ripristino geografico anche se il database o il Data Center è inaccessibile a causa di un'interruzione del servizio.
+Il ripristino geografico consente di ripristinare un database SQL presente su un server in qualsiasi area di Azure usando gli ultimi backup con replica geografica. Il ripristino geografico utilizza un backup con replica geografica come origine. È possibile richiedere il ripristino geografico anche se il database o il data center non è accessibile a causa di un'interruzione.
 
-Il ripristino geografico è l'opzione di ripristino predefinita quando il database non è disponibile a causa di un evento imprevisto nell'area di hosting. È possibile ripristinare il database in un server in qualsiasi altra area. Esiste un ritardo tra il momento in cui un backup viene creato e quando ne viene eseguita la replica geografica in un BLOB di Azure in un'area diversa. Di conseguenza, il database ripristinato può essere fino a un'ora dopo il database originale. Nella figura seguente viene illustrato un ripristino del database dall'ultimo backup disponibile in un'altra area.
+Il ripristino geografico è l'opzione di ripristino predefinita quando il database non è disponibile a causa di un evento imprevisto nell'area di hosting. È possibile ripristinare il database in un server in qualsiasi altra area. Esiste un ritardo tra il momento in cui un backup viene creato e quando ne viene eseguita la replica geografica in un BLOB di Azure in un'area diversa. Di conseguenza, il database ripristinato può trovarsi fino a un'ora dopo il database originale. Nella figura seguente viene illustrato un ripristino del database dall'ultimo backup disponibile in un'altra area.
 
-![Rappresentazione grafica del ripristino geografico](./media/sql-database-geo-restore/geo-restore-2.png)
+![Grafica del geo-ripristino](./media/sql-database-geo-restore/geo-restore-2.png)
 
-### <a name="geo-restore-by-using-the-azure-portal"></a>Ripristino geografico tramite il portale di Azure
+### <a name="geo-restore-by-using-the-azure-portal"></a>Ripristino geografico tramite il portale di AzureGeo-restore by using the Azure portal
 
-Dal portale di Azure si crea un nuovo database istanza singola o gestita e si seleziona un backup disponibile per il ripristino geografico. Il database appena creato contiene i dati di backup con ripristino geografico.
-
-#### <a name="single-azure-sql-database"></a>Singolo database SQL di Azure
-
-Per eseguire il ripristino geografico di un database SQL singolo dal portale di Azure nell'area e nel server di propria scelta, seguire questa procedura:
-
-1. Dal **Dashboard**selezionare **Aggiungi** > **Crea database SQL**. Nella scheda informazioni di **base** immettere le informazioni necessarie.
-2. Selezionare **Impostazioni aggiuntive**.
-3. Per **Usa dati esistenti**, selezionare **backup**.
-4. Per il **backup**, selezionare un backup dall'elenco dei backup disponibili per il ripristino geografico.
-
-    ![Screenshot delle opzioni create database SQL](./media/sql-database-recovery-using-backups/geo-restore-azure-sql-database-list-annotated.png)
-
-Completare il processo di creazione di un nuovo database dal backup. Quando si crea il singolo database SQL di Azure, esso contiene il backup del ripristino geografico ripristinato.
-
-#### <a name="managed-instance-database"></a>Database istanza gestita
-
-Per ripristinare il ripristino geografico di un database di istanza gestita dal portale di Azure a un'istanza gestita esistente in un'area di propria scelta, selezionare un'istanza gestita in cui si desidera ripristinare un database. A tale scopo, seguire questa procedura:
-
-1. Selezionare **nuovo database**.
-2. Digitare un nome di database desiderato.
-3. In **Usa dati esistenti**selezionare **backup**.
-4. Selezionare un backup dall'elenco dei backup disponibili per il ripristino geografico.
-
-    ![Screenshot delle nuove opzioni di database](./media/sql-database-recovery-using-backups/geo-restore-sql-managed-instance-list-annotated.png)
-
-Completare il processo di creazione di un nuovo database. Quando si crea il database dell'istanza, esso contiene il backup del ripristino geografico ripristinato.
-
-### <a name="geo-restore-by-using-powershell"></a>Ripristino geografico tramite PowerShell
+Dal portale di Azure si crea un nuovo database di istanze singole o gestite e si seleziona un backup di ripristino geografico disponibile. Il database appena creato contiene i dati di backup ripristinati geograficamente.
 
 #### <a name="single-azure-sql-database"></a>Singolo database SQL di Azure
 
-Per uno script di PowerShell che illustra come eseguire il ripristino geografico per un singolo database SQL, vedere [usare PowerShell per ripristinare un database singolo di Azure SQL a un momento precedente](scripts/sql-database-restore-database-powershell.md).
+Per eseguire il ripristino geografico di un singolo database SQL dal portale di Azure nell'area e nel server di propria scelta, attenersi alla seguente procedura:
 
-#### <a name="managed-instance-database"></a>Database istanza gestita
+1. In **Dashboard**selezionare **Aggiungi** > **database SQL**. Nella scheda **Nozioni di base** immettere le informazioni richieste.
+2. Seleziona **Impostazioni aggiuntive**.
+3. Per **Usa dati esistenti**, selezionare **Backup**.
+4. In **Backup**, selezionare un backup dall'elenco dei backup di ripristino geografico disponibili.
 
-Per uno script di PowerShell che illustra come eseguire il ripristino geografico per un database di istanza gestita, vedere [usare PowerShell per ripristinare un database di istanza gestita in un'altra area geografica](scripts/sql-managed-instance-restore-geo-backup.md).
+    ![Screenshot delle opzioni Crea database SQL](./media/sql-database-recovery-using-backups/geo-restore-azure-sql-database-list-annotated.png)
+
+Completare il processo di creazione di un nuovo database dal backup. Quando si crea il singolo database SQL di Azure, questo contiene il backup di ripristino geografico ripristinato.
+
+#### <a name="managed-instance-database"></a>Database dell'istanza gestita
+
+Per ripristinare geograficamente un database di istanze gestite dal portale di Azure a un'istanza gestita esistente in un'area di propria scelta, selezionare un'istanza gestita in cui si vuole ripristinare un database. A tale scopo, seguire questa procedura:
+
+1. Selezionare **Nuovo database**.
+2. Digitare il nome di database desiderato.
+3. In **Usa dati esistenti**selezionare **Backup**.
+4. Selezionare un backup dall'elenco dei backup di ripristino geografico disponibili.
+
+    ![Schermata delle opzioni Nuovo database](./media/sql-database-recovery-using-backups/geo-restore-sql-managed-instance-list-annotated.png)
+
+Completare il processo di creazione di un nuovo database. Quando si crea il database dell'istanza, esso contiene il backup di ripristino geografico ripristinato.
+
+### <a name="geo-restore-by-using-powershell"></a>Ripristino geografico tramite PowerShellGeo-restore by using PowerShell
+
+#### <a name="single-azure-sql-database"></a>Singolo database SQL di Azure
+
+Per uno script di PowerShell che illustra come eseguire il ripristino geografico per un singolo database SQL, vedere [Usare PowerShell per ripristinare un singolo database SQL](scripts/sql-database-restore-database-powershell.md)di Azure in un momento precedente.
+
+#### <a name="managed-instance-database"></a>Database dell'istanza gestita
+
+Per uno script di PowerShell che illustra come eseguire il ripristino geografico per un database dell'istanza gestita, vedere [Usare PowerShell per ripristinare un database dell'istanza gestita in un'altra area geografica.](scripts/sql-managed-instance-restore-geo-backup.md)
 
 ### <a name="geo-restore-considerations"></a>Considerazioni sul ripristino geografico
 
-Non è possibile eseguire un ripristino temporizzato in un database di replica geografica secondaria. Questa operazione può essere eseguita solo su un database primario. Per informazioni dettagliate sull'uso del ripristino geografico in caso di un'interruzione del servizio, vedere [Ripristinare un database SQL di Azure o eseguire il failover in un database secondario](sql-database-disaster-recovery.md).
+Non è possibile eseguire un ripristino temporizzato in un database secondario geografico. È possibile eseguire questa operazione solo in un database primario. Per informazioni dettagliate sull'utilizzo del geo-ripristino per il ripristino da un'interruzione, vedere [Ripristino da un'interruzione](sql-database-disaster-recovery.md).
 
 > [!IMPORTANT]
-> Il ripristino geografico è la soluzione di ripristino di emergenza più semplice disponibile nel database SQL. Si basa sui backup con replica geografica creati automaticamente con l'obiettivo del punto di ripristino (RPO) uguale a 1 ora e il tempo di recupero stimato di un massimo di 12 ore. Non garantisce che l'area di destinazione abbia la capacità di ripristinare i database dopo un'interruzione a livello di area, perché è probabile che si verifichi un forte aumento della domanda. Se l'applicazione usa database relativamente piccoli e non è cruciale per l'azienda, il ripristino geografico è una soluzione di ripristino di emergenza appropriata. Per le applicazioni critiche per l'azienda che richiedono database di grandi dimensioni e che devono garantire la continuità aziendale, usare i [gruppi di failover automatico](sql-database-auto-failover-group.md). Offre un obiettivo molto più basso per RPO e tempo di ripristino e la capacità è sempre garantita. Per altre informazioni sulle opzioni di continuità aziendale, vedere [Panoramica sulla continuità aziendale](sql-database-business-continuity.md).
+> Il ripristino geografico è la soluzione di ripristino di emergenza più semplice disponibile nel database SQL. Si basa su backup con replica geografica creati automaticamente con obiettivo del punto di ripristino (RPO) pari a 1 ora e il tempo di ripristino stimato fino a 12 ore. Non garantisce che l'area di destinazione avrà la capacità di ripristinare i database dopo un'interruzione a livello di area, perché è probabile un forte aumento della domanda. Se l'applicazione utilizza database relativamente piccoli e non è fondamentale per l'azienda, il ripristino geografico è una soluzione di ripristino di emergenza appropriata. Per le applicazioni business-critical che richiedono database di grandi dimensioni e devono garantire la continuità aziendale, utilizzare i gruppi di [failover automatico.](sql-database-auto-failover-group.md) Offre un RPO e un obiettivo di tempo di recupero molto più bassi e la capacità è sempre garantita. Per altre informazioni sulle opzioni di continuità aziendale, vedere [Panoramica sulla continuità aziendale](sql-database-business-continuity.md).
 
-## <a name="programmatically-performing-recovery-by-using-automated-backups"></a>Esecuzione del ripristino a livello di codice tramite backup automatici
+## <a name="programmatically-performing-recovery-by-using-automated-backups"></a>Esecuzione di ripristino a livello di codice tramite backup automaticiProgrammatically performing recovery by using automated backups
 
 È anche possibile usare Azure PowerShell o l'API REST per il ripristino. Le tabelle seguenti descrivono il set di comandi disponibili.
 
@@ -194,7 +194,7 @@ Non è possibile eseguire un ripristino temporizzato in un database di replica g
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Il modulo Azure Resource Manager di PowerShell è ancora supportato dal database SQL di Azure, ma tutte le attività di sviluppo future sono per il modulo AZ. SQL. Per questi cmdlet, vedere [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo AZ e nei moduli AzureRm sono molto simili.
+> Il modulo di PowerShell Azure Resource Manager è ancora supportato dal database SQL di Azure, ma tutto lo sviluppo futuro è per il modulo Az.Sql.The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. Per questi cmdlet, vedere [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo Az e nei moduli di AzureRm sono in larga misura identici.
 
 #### <a name="single-azure-sql-database"></a>Singolo database SQL di Azure
 
@@ -208,11 +208,11 @@ Per ripristinare un database autonomo o in pool, vedere [Restore-AzSqlDatabase](
   | [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase) |Ripristina un database SQL. |
 
   > [!TIP]
-  > Per uno script di PowerShell di esempio che illustra come eseguire un ripristino temporizzato di un database, vedere [ripristinare un database SQL tramite PowerShell](scripts/sql-database-restore-database-powershell.md).
+  > Per uno script di PowerShell di esempio che illustra come eseguire un ripristino temporizzato di un database, vedere [Ripristinare un database SQL tramite PowerShell.For](scripts/sql-database-restore-database-powershell.md)a sample PowerShell script that shows how to perform a point-in-time restore of a database, see Restore a SQL database using PowerShell .
 
-#### <a name="managed-instance-database"></a>Database istanza gestita
+#### <a name="managed-instance-database"></a>Database dell'istanza gestita
 
-Per ripristinare un database di istanza gestita, vedere [Restore-AzSqlInstanceDatabase](/powershell/module/az.sql/restore-azsqlinstancedatabase).
+Per ripristinare un database dell'istanza gestita, vedere [Restore-AzSqlInstanceDatabase](/powershell/module/az.sql/restore-azsqlinstancedatabase).
 
   | Cmdlet | Descrizione |
   | --- | --- |
@@ -222,7 +222,7 @@ Per ripristinare un database di istanza gestita, vedere [Restore-AzSqlInstanceDa
 
 ### <a name="rest-api"></a>API REST
 
-Per ripristinare un database singolo o in pool usando l'API REST:
+Per ripristinare un database singolo o in pool tramite l'API REST:To restore a single or pooled database by using the REST API:
 
 | API | Descrizione |
 | --- | --- |
@@ -233,13 +233,13 @@ Per ripristinare un database singolo o in pool usando l'API REST:
 
 #### <a name="single-azure-sql-database"></a>Singolo database SQL di Azure
 
-Per ripristinare un database singolo o in pool usando l'interfaccia della riga di comando di Azure, vedere [AZ SQL DB Restore](/cli/azure/sql/db#az-sql-db-restore).
+Per ripristinare un database singolo o in pool tramite l'interfaccia della riga di comando di Azure, vedere [az sql db restore](/cli/azure/sql/db#az-sql-db-restore).
 
-#### <a name="managed-instance-database"></a>Database istanza gestita
+#### <a name="managed-instance-database"></a>Database dell'istanza gestita
 
-Per ripristinare un database di istanza gestita usando l'interfaccia della riga di comando di Azure, vedere [AZ SQL MidB Restore](/cli/azure/sql/midb#az-sql-midb-restore).
+Per ripristinare un database dell'istanza gestita tramite l'interfaccia della riga di comando di Azure, vedere [az sql midb restore](/cli/azure/sql/midb#az-sql-midb-restore).
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 I backup automatici proteggono i database da errori dell'utente e delle applicazioni, dall'eliminazione accidentale e da interruzioni prolungate. Questa funzionalità incorporata è disponibile per tutti i livelli di servizio e le dimensioni di calcolo.
 

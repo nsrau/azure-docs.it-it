@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/13/2019
 ms.openlocfilehash: a04ca3768ade6058c59393591c252bc4347a3663
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79275204"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Soluzioni di monitoraggio in Monitoraggio di Azure
@@ -21,17 +21,17 @@ Le soluzioni di monitoraggio sfruttano i servizi in Azure per offrire informazio
 
 Le soluzioni di monitoraggio raccolgono in genere log di dati e offrono query e visualizzazioni per l'analisi dei dati raccolti. Possono anche sfruttare altri servizi, come Automazione di Azure, per eseguire azioni relative all'applicazione o al servizio.
 
-È possibile aggiungere soluzioni di monitoraggio a Monitoraggio di Azure per qualsiasi applicazione e servizio usati. Sono in genere disponibili senza costi aggiuntivi, ma raccolgono dati che potrebbero richiamare costi di utilizzo. Oltre alle soluzioni fornite da Microsoft, i partner e i clienti possono [creare soluzioni di gestione](solutions-creating.md) da usare nel proprio ambiente o da rendere disponibili per i propri clienti attraverso la community.
+È possibile aggiungere soluzioni di monitoraggio a Monitoraggio di Azure per qualsiasi applicazione e servizio usati. Sono in genere disponibili gratuitamente, ma raccolgono dati che potrebbero richiamare i costi di utilizzo. Oltre alle soluzioni fornite da Microsoft, i partner e i clienti possono [creare soluzioni di gestione](solutions-creating.md) da usare nel proprio ambiente o da rendere disponibili per i propri clienti attraverso la community.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="use-monitoring-solutions"></a>Usare le soluzioni di monitoraggio
 Aprire la pagina **Panoramica** in Monitoraggio di Azure per visualizzare un riquadro per ogni soluzione installata nell'area di lavoro. 
 
-1. Accedere al [portale di Azure](https://ms.portal.azure.com). Cercare e selezionare **monitoraggio**.
+1. Passare al [portale di Azure](https://ms.portal.azure.com). Cercare e selezionare **Monitor**.
 1. Nel menu **Informazioni dettagliate** selezionare **Altri**.
 1. Usare le caselle a discesa nella parte superiore della schermata per modificare l'area di lavoro o l'intervallo di tempo usato per i riquadri.
-1. Fare clic sul riquadro per una soluzione per aprirne la visualizzazione, che include un'analisi più dettagliata dei dati raccolti.
+1. Fare clic sul riquadro di una soluzione per aprire la visualizzazione che include un'analisi più dettagliata dei dati raccolti.
 
 ![Panoramica](media/solutions/overview.png)
 
@@ -40,7 +40,7 @@ Le soluzioni di monitoraggio possono contenere più tipi di risorse di Azure ed 
 ## <a name="list-installed-monitoring-solutions"></a>Elencare le soluzioni di monitoraggio installate 
 Usare la procedura seguente per elencare le soluzioni di monitoraggio installate nella sottoscrizione.
 
-1. Accedere al [portale di Azure](https://ms.portal.azure.com). Cercare e selezionare le **soluzioni**.
+1. Passare al [portale di Azure](https://ms.portal.azure.com). Cercare e selezionare **Soluzioni**.
 1. Vengono elencate le soluzioni installate in tutte le aree di lavoro. Il nome della soluzione è seguito dal nome dell'area di lavoro in cui è installata.
 1. Usare le caselle a discesa nella parte superiore della schermata per filtrare in base alla sottoscrizione o al gruppo di risorse.
 
@@ -57,10 +57,10 @@ Fare clic sul nome di una soluzione per aprire la relativa pagina di riepilogo. 
 Le soluzioni di monitoraggio di Microsoft e dei partner sono disponibili in [Azure Marketplace](https://azuremarketplace.microsoft.com). È possibile cercare e installare le soluzioni disponibili usando la procedura seguente. Quando si installa una soluzione, è necessario selezionare un'[area di lavoro Log Analytics](../platform/manage-access.md) in cui la soluzione verrà installata e in cui verranno raccolti i dati.
 
 1. Nell'[elenco delle soluzioni per la sottoscrizione ](#list-installed-monitoring-solutions) fare clic su **Aggiungi**.
-1. Sfogliare o cercare una soluzione. È anche possibile esplorare le soluzioni da [questo collegamento di ricerca](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/management-tools?page=1&subcategories=management-solutions).
+1. Sfoglia o cerca una soluzione. È inoltre possibile sfogliare le soluzioni da [questo collegamento di ricerca](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/management-tools?page=1&subcategories=management-solutions).
 1. Individuare la soluzione di monitoraggio desiderata e leggere la relativa descrizione.
 1. Fare clic su **Crea** per avviare il processo di installazione.
-1. Quando viene avviato il processo di installazione, viene richiesto di specificare l'area di lavoro Log Analytics e fornire la configurazione necessaria per la soluzione.
+1. All'avvio del processo di installazione, viene richiesto di specificare l'area di lavoro di Log Analytics e di fornire la configurazione necessaria per la soluzione.
 
 ![Installare una soluzione](media/solutions/install-solution.png)
 
@@ -71,7 +71,7 @@ I membri della community possono inviare le soluzioni di gestione come modelli d
 2. Passare a [Modelli di avvio rapido di Azure](https://azure.microsoft.com/documentation/templates/). 
 3. Cercare una soluzione adatta alle proprie esigenze.
 4. Selezionare la soluzione nei risultati per visualizzarne i dettagli.
-5. Fare clic sul pulsante **Distribuisci in Azure**.
+5. Fare clic sul pulsante **Distribuisci in Azure.Click** the Deploy to Azure button.
 6. Viene richiesto di fornire informazioni come il gruppo di risorse e la posizione, oltre ai valori per i parametri nella soluzione.
 7. Fare clic su **Acquista** per installare la soluzione.
 

@@ -1,6 +1,6 @@
 ---
-title: Creare un volume SMB per Azure NetApp Files | Microsoft Docs
-description: Viene descritto come creare un volume SMB per Azure NetApp Files.
+title: Creazione di un volume SMB per i file NetApp di Azure Documenti Microsoft
+description: Viene descritto come creare un volume SMB per i file NetApp di Azure.Describes how to create an SMB volume for Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,33 +12,33 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/05/2020
+ms.date: 03/13/2020
 ms.author: b-juche
-ms.openlocfilehash: 7affd408ce2471f34a8362ba32101b639aafc514
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: b2000c3fd3d64793f797e997d8f3c10eaed5d7aa
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77586607"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79409592"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Creare un volume SMB per Azure NetApp Files
 
-Azure NetApp Files supporta i volumi NFS e SMBv3. L'utilizzo della capacità di un volume concorre al calcolo della capacità di cui è stato effettuato il provisioning del pool. Questo articolo illustra come creare un volume SMBv3. Se si vuole creare un volume NFS, vedere [creare un volume NFS per Azure NetApp files](azure-netapp-files-create-volumes.md). 
+File NetApp di Azure supporta i volumi NFS e SMBv3. L'utilizzo della capacità di un volume concorre al calcolo della capacità di cui è stato effettuato il provisioning del pool. In questo articolo viene illustrato come creare un volume SMBv3. Se si vuole creare un volume NFS, vedere [Creare un volume NFS per i file NetApp](azure-netapp-files-create-volumes.md)di Azure. 
 
 ## <a name="before-you-begin"></a>Prima di iniziare 
 È necessario avere già configurato un pool di capacità.   
-[Configurare un pool di capacità](azure-netapp-files-set-up-capacity-pool.md)   
+[Impostare un pool di capacità](azure-netapp-files-set-up-capacity-pool.md)   
 È necessario delegare una subnet ad Azure NetApp Files.  
 [Delegare una subnet ad Azure NetApp Files](azure-netapp-files-delegate-subnet.md)
 
-## <a name="requirements-for-active-directory-connections"></a>Requisiti per le connessioni Active Directory
+## <a name="requirements-for-active-directory-connections"></a>Requisiti per le connessioni active Directory
 
- È necessario creare connessioni di Active Directory prima di creare un volume SMB. I requisiti per le connessioni Active Directory sono i seguenti: 
+ È necessario creare connessioni active Directory prima di creare un volume SMB. I requisiti per le connessioni di Active Directory sono i seguenti: 
 
-* L'account amministratore usato deve essere in grado di creare account computer nel percorso unità organizzativa (OU) che verrà specificato.  
+* L'account amministratore utilizzato deve disporre della possibilità di creare account computer nel percorso dell'unità organizzativa da specificare.  
 
-* Le porte appropriate devono essere aperte nel server di Windows Active Directory (AD) applicabile.  
-    Le porte necessarie sono le seguenti: 
+* Le porte corrette devono essere aperte sul server Windows Active Directory (AD) applicabile.  
+    Le porte richieste sono le seguenti: 
 
     |     Service           |     Porta     |     Protocollo     |
     |-----------------------|--------------|------------------|
@@ -58,81 +58,124 @@ Azure NetApp Files supporta i volumi NFS e SMBv3. L'utilizzo della capacità di 
     |    SAM/LSA            |    445       |    UDP           |
     |    w32time            |    123       |    UDP           |
 
-* La topologia del sito per il Active Directory Domain Services di destinazione deve rispettare le procedure consigliate, in particolare la VNet di Azure in cui viene distribuito Azure NetApp Files.  
+* La topologia del sito per Servizi di dominio Active Directory di destinazione deve rispettare le procedure consigliate, in particolare la rete virtuale di Azure in cui vengono distribuiti i file netApp di Azure.The site topology for the targeted Active Directory Domain Services must adhere to best practices, in particular the Azure VNet where Azure NetApp Files is deployed.  
 
-    Lo spazio degli indirizzi per la rete virtuale in cui è distribuito Azure NetApp Files deve essere aggiunto a un sito di Active Directory nuovo o esistente (in cui si trova un controller di dominio raggiungibile da Azure NetApp Files). 
+    Lo spazio degli indirizzi per la rete virtuale in cui viene distribuito File NetApp di Azure deve essere aggiunto a un sito di Active Directory nuovo o esistente (dove è un controller di dominio raggiungibile da File di Rete di Azure). 
 
-* I server DNS specificati devono essere raggiungibili dalla [subnet delegata](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-delegate-subnet) di Azure NetApp files.  
+* I server DNS specificati devono essere raggiungibili dalla subnet delegata dei file NetApp di Azure.The specified DNS servers must be reachable from the [delegated subnet](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-delegate-subnet) of Azure NetApp Files.  
 
-    Vedere [linee guida per la pianificazione della rete Azure NetApp files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-network-topologies) per le topologie di rete supportate.
+    Vedere Linee guida per la pianificazione della rete di file di Rete di [Azure NetApp](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-network-topologies) per le topologie di rete supportate.
 
-    I gruppi di sicurezza di rete (gruppi) e i firewall devono disporre di regole configurate in modo appropriato per consentire le richieste di traffico Active Directory e DNS. 
+    I gruppi di sicurezza di rete e i firewall devono disporre di regole configurate in modo appropriato per consentire le richieste di traffico Active Directory e DNS. 
 
-* Il Azure NetApp Files subnet delegata deve essere in grado di raggiungere tutti i Active Directory Domain Services (aggiunge) controller di dominio nel dominio, inclusi tutti i controller di dominio locali e remoti. In caso contrario, può verificarsi un'interruzione del servizio.  
+* La subnet delegata file Di Azure NetApp deve essere in grado di raggiungere tutti i controller di dominio di servizi di dominio Active Directory (ADDS) nel dominio, inclusi tutti i controller di dominio locali e remoti. In caso contrario, può verificarsi un'interruzione del servizio.  
 
-    Se si dispone di controller di dominio irraggiungibili tramite la Azure NetApp Files subnet delegata, è possibile specificare un sito di Active Directory durante la creazione della connessione Active Directory.  Azure NetApp Files necessario comunicare solo con i controller di dominio nel sito in cui risiede lo spazio degli indirizzi della subnet delegata Azure NetApp Files.
+    Se si dispone di controller di dominio che non sono raggiungibili dalla subnet delegata File NetApp di Azure, è possibile specificare un sito di Active Directory durante la creazione della connessione di Active Directory.  File Di Rete di Azure deve comunicare solo con i controller di dominio nel sito in cui si trova lo spazio di indirizzi della subnet delegata File netApp di Azure.Azure NetApp Files needs to communicate only with domain controllers in the site where the Azure NetApp Files delegated subnet address space.
 
-    Vedere [progettazione della topologia del sito](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology) sui siti e servizi di Active Directory. 
+    Vedere [Progettazione della topologia del sito](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology) relativa a siti e servizi di Active Directory. 
     
-Vedere Azure NetApp Files [domande frequenti su SMB](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-faqs#smb-faqs) sulle informazioni aggiuntive su Active Directory. 
+Vedere Domande frequenti su Azure NetApp Files SMB su informazioni aggiuntive di Active Directory.See Azure NetApp Files [SMB FAQs](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-faqs#smb-faqs) about additional AD information. 
 
-## <a name="create-an-active-directory-connection"></a>Creare una connessione Active Directory
+## <a name="decide-which-domain-services-to-use"></a>Decidere quali servizi di dominio utilizzare 
 
-1. Dall'account NetApp fare clic su **connessioni Active Directory**, quindi fare clic su **Aggiungi**.  
+File NetApp di Azure supporta sia Servizi di dominio Active Directory (ADDS) che Servizi di dominio Azure Active Directory (AADDS) per le connessioni di Active Directory.Azure NetApp Files supports both [Active Directory Domain Services](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/understanding-active-directory-site-topology) (ADDS) and Azure Active Directory Domain Services (AADDS) for AD connections.  Prima di creare una connessione AD, è necessario decidere se utilizzare ADDS o AADDS.  
+
+Per altre informazioni, vedere Confronto di servizi di [dominio Active Directory autogestito, Azure Active Directory e Servizi](https://docs.microsoft.com/azure/active-directory-domain-services/compare-identity-solutions)di dominio Azure Active Directory gestiti. 
+
+### <a name="active-directory-domain-services"></a>Active Directory Domain Services
+
+È possibile usare l'ambito siti e servizi di Active Directory preferito per i file NetApp di Azure.You can use your preferred [Active Directory Sites and Services](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/understanding-active-directory-site-topology) scope for Azure NetApp Files. Questa opzione abilita le operazioni di lettura e scrittura nei controller di dominio di Servizi di dominio Active Directory accessibili dai file netApp di [Azure.](azure-netapp-files-network-topologies.md) Impedisce inoltre al servizio di comunicare con i controller di dominio che non si trovano nel sito Siti e servizi di Active Directory specificato. 
+
+Per trovare il nome del sito quando si utilizza ADDS, è possibile contattare il gruppo amministrativo dell'organizzazione responsabile di Servizi di dominio Active Directory. L'esempio seguente mostra il plug-in Siti e servizi di Active Directory in cui viene visualizzato il nome del sito: 
+
+![Siti e servizi di Active Directory](../media/azure-netapp-files/azure-netapp-files-active-directory-sites-and-services.png)
+
+Quando si configura una connessione AD per i file NetApp di Azure, si specifica il nome del sito nell'ambito per il campo **Nome sito Active Directory.**
+
+### <a name="azure-active-directory-domain-services"></a>Servizi di dominio Azure Active Directory 
+
+Per istruzioni e la configurazione di Servizi di dominio Azure Active Directory (AADDS), vedere la documentazione di Servizi di [dominio Azure AD.](https://docs.microsoft.com/azure/active-directory-domain-services/)
+
+Ulteriori considerazioni Su AADDS si applicano ai file NetApp di Azure:Additional AADDS considerations apply for Azure NetApp Files: 
+
+* Verificare che la rete virtuale o la subnet in cui è distribuito AADDS si trova nella stessa area di Azure della distribuzione file di Azure NetApp.Ensure the VNet or subnet where AADDS is deployed is in the same Azure region as the Azure NetApp Files deployment.
+* Se si usa un'altra rete virtuale nell'area in cui vengono distribuiti i file NetApp di Azure, è necessario creare un peering tra le due reti virtuali.
+* I tipi e `user` i `resource forest` file NetApp di Azure.Azure NetApp Files supports and types.
+* Per il tipo di `All` `Scoped`sincronizzazione, è possibile selezionare o .   
+    Se si `Scoped`seleziona , verificare che sia selezionato il gruppo di Azure AD corretto per l'accesso alle condivisioni SMB.  Se non si è certi, `All` è possibile utilizzare il tipo di sincronizzazione.
+* È necessario utilizzare lo SKU Enterprise o Premium. Lo SKU Standard non è supportato.
+
+Quando si crea una connessione Active Directory, tenere presenti le seguenti specifiche per AADDS:
+
+* È possibile trovare informazioni su **DNS primario,** **DNS secondario**e **nome di dominio DNS di Active Directory** nel menu AADDS.  
+Per i server DNS, per la configurazione della connessione di Active Directory verranno utilizzati due indirizzi IP. 
+* Il **percorso dell'unità organizzativa** è `OU=AADDC Computers`.  
+Questa impostazione è configurata in **Connessioni di Active Directory** in Account **NetApp**:
+
+  ![Percorso unità organizzativa](../media/azure-netapp-files/azure-netapp-files-org-unit-path.png)
+
+* **Le** credenziali del nome utente possono essere qualsiasi utente membro del gruppo di Azure AD **Amministratori controller di dominio Azure AD**.
+
+
+## <a name="create-an-active-directory-connection"></a>Creare una connessione ad Active Directory
+
+1. Dall'account NetApp, fare clic su **Connessioni di Active Directory**, quindi su **Partecipa**.  
 
     ![Connessioni di Active Directory](../media/azure-netapp-files/azure-netapp-files-active-directory-connections.png)
 
-2. Nella finestra join Active Directory specificare le informazioni seguenti:
+2. Nella finestra Aggiungi ad Active Directory, fornire le seguenti informazioni, in base ai servizi di dominio che si desidera utilizzare:  
+
+    Per informazioni specifiche sui Servizi di dominio in uso, vedere [Decidere quali servizi di dominio utilizzare.](#decide-which-domain-services-to-use) 
 
     * **DNS primario**  
-        Questo è il DNS necessario per le operazioni di aggiunta a un dominio Active Directory e di autenticazione SMB. 
-    *   **DNS secondario**  
-        Si tratta del server DNS secondario per garantire i servizi dei nomi ridondanti. 
-    * **Nome di dominio DNS AD**  
-        Si tratta del nome di dominio del Active Directory Domain Services che si desidera aggiungere.
-    * **Nome sito Active Directory**  
+        Si tratta del DNS necessario per l'aggiunta al dominio di Active Directory e le operazioni di autenticazione SMB. 
+    * **DNS secondario**   
+        Si tratta del server DNS secondario per garantire servizi con nomi ridondanti. 
+    * **Nome dominio DNS di Active Directory**  
+        Si tratta del nome di dominio di Servizi di dominio Active Directory a cui si desidera partecipare.
+    * **Nome sito Ad**  
         Questo è il nome del sito a cui sarà limitata l'individuazione del controller di dominio.
     * **Prefisso server SMB (account computer)**  
-        Questo è il prefisso di denominazione per l'account del computer in Active Directory che Azure NetApp Files utilizzerà per la creazione di nuovi account.
+        Questo è il prefisso di denominazione per l'account del computer in Active Directory che i file NetApp di Azure utilizzeranno per la creazione di nuovi account.
 
-        Se, ad esempio, lo standard di denominazione usato dall'organizzazione per i file server è NAS-01, NAS-02..., NAS-045, immettere "NAS" per il prefisso. 
+        Ad esempio, se lo standard di denominazione utilizzato dall'organizzazione per i file server è NAS-01, NAS-02..., NAS-045, immettere "NAS" come prefisso. 
 
         Il servizio creerà account computer aggiuntivi in Active Directory in base alle esigenze.
 
     * **Percorso unità organizzativa**  
-        Si tratta del percorso LDAP per l'unità organizzativa (OU) in cui verranno creati gli account del computer server SMB. Ovvero OU = Second Level, OU = First level. 
+        Si tratta del percorso LDAP dell'unità organizzativa (OU) in cui verranno creati gli account computer server SMB. Ovvero, unità Organizzativa, secondo livello, unità Organizzativa, primo livello. 
 
-        Se si usa Azure NetApp Files con Azure Active Directory Domain Services, il percorso dell'unità organizzativa viene `OU=AADDC Computers` quando si configura Active Directory per l'account NetApp.
+        Se si usano file NetApp di Azure con Servizi di `OU=AADDC Computers` dominio Azure Active Directory, il percorso dell'unità organizzativa si verifica quando si configura Active Directory per l'account NetApp.
         
     * Credenziali, inclusi **nome utente** e **password**
 
-    ![Unisci Active Directory](../media/azure-netapp-files/azure-netapp-files-join-active-directory.png)
+    ![Entra in Active Directory](../media/azure-netapp-files/azure-netapp-files-join-active-directory.png)
 
 3. Fare clic su **Accedi**.  
 
-    Viene visualizzata la connessione Active Directory creata.
+    Viene visualizzata la connessione ad Active Directory creata.
 
     ![Connessioni di Active Directory](../media/azure-netapp-files/azure-netapp-files-active-directory-connections-created.png)
 
 > [!NOTE] 
-> È possibile modificare i campi nome utente e password dopo avere salvato la connessione Active Directory. Non è possibile modificare altri valori dopo aver salvato la connessione. Se è necessario modificare altri valori, è necessario innanzitutto eliminare tutti i volumi SMB distribuiti, quindi eliminare e ricreare la connessione Active Directory.
+> È possibile modificare i campi del nome utente e della password dopo aver salvato la connessione ad Active Directory. Nessun altro valore può essere modificato dopo aver salvato la connessione. Se è necessario modificare altri valori, è innanzitutto necessario eliminare tutti i volumi SMB distribuiti, quindi eliminare e ricreare la connessione ad Active Directory.
 
 ## <a name="add-an-smb-volume"></a>Aggiungere un volume SMB
 
-1. Fare clic sul pannello **volumi** nel pannello pool di capacità. 
+1. Fare clic sul pannello **Volumi** nel pannello Pool di capacità. 
 
-    ![Passa a volumi](../media/azure-netapp-files/azure-netapp-files-navigate-to-volumes.png)
+    ![Passare a Volumi](../media/azure-netapp-files/azure-netapp-files-navigate-to-volumes.png)
 
 2. Fare clic su **+ Aggiungi volume** per creare un volume.  
     Viene visualizzata la finestra Crea un volume.
 
-3. Nella finestra Crea un volume fare clic su **Crea** e fornire informazioni per i campi seguenti:   
-    * **Nome Volume**      
+3. Nella finestra Crea un volume, fare clic su **Crea** e fornire le informazioni per i seguenti campi:   
+    * **Nome volume**      
         Specificare il nome per il volume che si sta creando.   
 
         Un nome di volume deve essere univoco all'interno di ogni pool di capacità. Deve essere composto da almeno tre caratteri. È possibile utilizzare qualsiasi carattere alfanumerico.   
 
-        Non è possibile usare `default` come nome del volume.
+        Non è possibile `default` utilizzare come nome del volume.
 
     * **Pool di capacità**  
         Specificare il pool di capacità in cui si desidera creare il volume.
@@ -143,30 +186,30 @@ Vedere Azure NetApp Files [domande frequenti su SMB](https://docs.microsoft.com/
         Il campo **Quota disponibile** mostra la quantità di spazio inutilizzato nel pool di capacità scelto che è possibile usare per la creazione di un nuovo volume. Le dimensioni del nuovo volume non devono superare la quota disponibile.  
 
     * **Rete virtuale**  
-        Specificare la rete virtuale di Azure (VNet) da cui si desidera accedere al volume.  
+        Specificare la rete virtuale di Azure da cui si vuole accedere al volume.  
 
-        Il VNet specificato deve avere una subnet delegata a Azure NetApp Files. È possibile accedere al servizio Azure NetApp Files solo dallo stesso VNet o da un VNet che si trova nella stessa area del volume tramite il peering VNet. È anche possibile accedere al volume dalla rete locale tramite Express route.   
+        La rete virtuale specificata deve avere una subnet delegata aFile di Azure NetApp.The VNet you specify must have a subnet delegated to Azure NetApp Files. È possibile accedere al servizio File NetApp di Azure solo dalla stessa rete virtuale o da una rete virtuale che si trova nella stessa area del volume tramite il peering della rete virtuale. È inoltre possibile accedere al volume dalla rete locale tramite Express Route.   
 
     * **Subnet**  
         Specificare la subnet desiderata per il volume.  
         La subnet specificata deve essere delegata ad Azure NetApp Files. 
         
-        Se non è stata delegata una subnet, fare clic su **Crea nuovo** nella pagina di creazione di un volume. Nella pagina di creazione della subnet, specificare le informazioni relative alla stessa e selezionare **Microsoft.NetApp/volumi** per delegarla ad Azure NetApp Files. In ogni VNet è possibile delegare una sola subnet a Azure NetApp Files.   
+        Se non è stata delegata una subnet, è possibile fare clic su **Crea nuova** nella pagina Crea un volume. Nella pagina di creazione della subnet, specificare le informazioni relative alla stessa e selezionare **Microsoft.NetApp/volumi** per delegarla ad Azure NetApp Files. In each VNet, only one subnet can be delegated to Azure NetApp Files.   
  
         ![Creare un volume](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
     
         ![Creare una subnet](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
 
-4. Fare clic su **protocollo** e completare le seguenti informazioni:  
+4. Fare clic su **Protocollo** e completare le seguenti informazioni:  
     * Selezionare **SMB** come tipo di protocollo per il volume. 
-    * Selezionare la connessione **Active Directory** dall'elenco a discesa.
-    * Specificare il nome del volume condiviso in **nome condivisione**.
+    * Selezionare la connessione **ad Active Directory** dall'elenco a discesa.
+    * Specificare il nome del volume condiviso in **Nome condivisione**.
 
     ![Specificare il protocollo SMB](../media/azure-netapp-files/azure-netapp-files-protocol-smb.png)
 
-5. Fare clic su **Verifica + crea** per esaminare i dettagli del volume.  Fare quindi clic su **Crea** per creare il volume SMB.
+5. Fare clic su **Revisione e creazione** per esaminare i dettagli del volume.  Quindi fare clic su **Crea** per creare il volume SMB.
 
-    Il volume creato verrà visualizzato nella pagina volumi. 
+    Il volume creato viene visualizzato nella pagina Volumi. 
  
     Un volume eredita sottoscrizione, gruppo di risorse e attributi di posizione dal relativo pool di capacità. Per monitorare lo stato di distribuzione del volume, è possibile usare la scheda Notifiche.
 
@@ -175,5 +218,5 @@ Vedere Azure NetApp Files [domande frequenti su SMB](https://docs.microsoft.com/
 * [Montare o smontare un volume per macchine virtuali Windows o Linux](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Limiti delle risorse per Azure NetApp Files](azure-netapp-files-resource-limits.md)
 * [Domande frequenti su SMB](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-faqs#smb-faqs)
-* [Informazioni sull'integrazione delle reti virtuali per i servizi di Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services)
-* [Installare una nuova foresta Active Directory usando l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/windows-server/identity/ad-ds/deploy/virtual-dc/adds-on-azure-vm)
+* [Informazioni sull'integrazione della rete virtuale per i servizi di AzureLearn about virtual network integration for Azure services](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services)
+* [Installare una nuova foresta di Active Directory usando l'interfaccia della riga di comando di AzureInstall a new Active Directory forest using Azure CLI](https://docs.microsoft.com/windows-server/identity/ad-ds/deploy/virtual-dc/adds-on-azure-vm)

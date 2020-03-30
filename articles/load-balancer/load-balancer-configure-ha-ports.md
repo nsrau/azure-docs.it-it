@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2018
 ms.author: allensu
-ms.openlocfilehash: c2e787a1f81d9f3d31b981c31a0249dd362b7bb9
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: c6b8ecb443408f23ae604bd9c8139cb0a2afcd12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225400"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477783"
 ---
 # <a name="configure-high-availability-ports-for-an-internal-load-balancer"></a>Configurare le porte a disponibilità elevata per un servizio di bilanciamento del carico interno
 
@@ -98,9 +98,9 @@ lbrule = New-AzLoadBalancerRuleConfig -Name "HAPortsRule" -FrontendIpConfigurati
 Nel passaggio 4 di [Creare un servizio di bilanciamento del carico interno tramite l'interfaccia della riga di comando di Azure](load-balancer-get-started-ilb-arm-cli.md) usare il comando seguente per creare la regola del servizio di bilanciamento del carico per le porte a disponibilità elevata:
 
 ```azurecli
-azure network lb rule create --resource-group contoso-rg --lb-name contoso-ilb --name haportsrule --protocol all --frontend-port 0 --backend-port 0 --frontend-ip-name feilb --backend-address-pool-name beilb
+az network lb rule create --resource-group contoso-rg --lb-name contoso-ilb --name haportsrule --protocol all --frontend-port 0 --backend-port 0 --frontend-ip-name feilb --backend-address-pool-name beilb
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Leggere altre informazioni sulle [porte a disponibilità elevata](load-balancer-ha-ports-overview.md).
+Ulteriori informazioni sulle [porte a disponibilità elevata](load-balancer-ha-ports-overview.md).

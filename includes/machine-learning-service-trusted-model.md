@@ -2,14 +2,14 @@
 author: Blackmist
 ms.service: machine-learning
 ms.topic: include
-ms.date: 11/06/2019
+ms.date: 03/16/2020
 ms.author: larryfr
-ms.openlocfilehash: 4fb30abc2b8be6b81414631addce41c819eb8df6
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 202b3dc5df75af4c9075b3962fcf6e86833ecdfa
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926943"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477290"
 ---
 > [!IMPORTANT]
-> È consigliabile utilizzare solo i modelli creati o ottenuti da un'origine attendibile. È consigliabile considerare i modelli serializzati come codice, perché le vulnerabilità di sicurezza sono state individuate in diversi formati diffusi. Inoltre, è possibile che i modelli siano stati intenzionalmente sottoposti a training con finalità dannose per fornire output distorto o non accurato.
+> È consigliabile utilizzare solo i modelli creati o ottenuti da una fonte attendibile. È necessario considerare i modelli serializzati come codice, perché le vulnerabilità di sicurezza sono state individuate in una serie di formati popolari. Inoltre, i modelli potrebbero essere sottoposti a training intenzionale con intento dannoso per fornire un output parziale o impreciso.

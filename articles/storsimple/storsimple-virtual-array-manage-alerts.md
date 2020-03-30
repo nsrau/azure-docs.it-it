@@ -1,5 +1,5 @@
 ---
-title: Visualizzare e gestire gli avvisi per l'array virtuale StorSimple
+title: Visualizzare e gestire gli avvisi per StorSimple Virtual Array
 description: Vengono descritte le condizioni di avviso dell'array virtuale StorSimple e la loro gravità. Viene inoltre illustrato come usare il servizio StorSimple Manager per gestire gli avvisi.
 services: storsimple
 documentationcenter: NA
@@ -16,10 +16,10 @@ ms.date: 01/12/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a7c469be4a1d8aba23857b1ba52ee829c126a431
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79267430"
 ---
 # <a name="use-storsimple-device-manager-to-manage-alerts-for-the-storsimple-virtual-array"></a>Usare Gestione dispositivi StorSimple per gestire gli avvisi per l'array virtuale StorSimple
@@ -39,7 +39,7 @@ Questa esercitazione descrive come configurare le notifiche di avviso, le condiz
 > [!NOTE]
 > È possibile immettere un massimo di 20 indirizzi di posta elettronica per ogni array virtuale.
 
-Dopo aver attivato la notifica di posta elettronica per un array virtuale, i membri dell'elenco delle notifiche riceveranno un messaggio di posta elettronica ogni volta che si verifica un avviso critico. I messaggi verranno inviati da *StorSimple-Alerts-noreply\@mail.WindowsAzure.com* e descrivono la condizione di avviso. I destinatari possono fare clic su **Annulla sottoscrizione** per essere rimossi dall'elenco delle notifiche e-mail.
+Dopo aver attivato la notifica di posta elettronica per un array virtuale, i membri dell'elenco delle notifiche riceveranno un messaggio di posta elettronica ogni volta che si verifica un avviso critico. I messaggi verranno inviati da *storsimple-alerts-noreply\@mail.windowsazure.com* e descriveranno la condizione di avviso. I destinatari possono fare clic su **Annulla sottoscrizione** per rimuovere il proprio indirizzo dall'elenco di notifica tramite posta elettronica.
 
 #### <a name="to-enable-email-notification-for-alerts"></a>Per abilitare la notifica di posta elettronica degli avvisi
 
@@ -53,7 +53,7 @@ Dopo aver attivato la notifica di posta elettronica per un array virtuale, i mem
    
    1. Nel campo **Abilita notifica e-mail** selezionare **SÌ**.
    2. Nel campo **Invia messaggio di posta elettronica agli amministratori del servizio** selezionare **SÌ** se si vuole che l'amministratore del servizio e tutti i co-amministratori ricevano le notifiche di avviso.
-   3. Nel campo **Altri destinatari di posta elettronica** immettere gli indirizzi di posta elettronica di tutti gli altri destinatari che devono ricevere le notifiche di avviso. Immettere i nomi nel formato *qualcuno\@Somewhere.com*. Utilizzare il punto e virgola per separare gli indirizzi di posta elettronica. È possibile configurare un massimo di 20 indirizzi di posta elettronica per ogni dispositivo virtuale.
+   3. Nel campo **Altri destinatari di posta elettronica** immettere gli indirizzi di posta elettronica di tutti gli altri destinatari che devono ricevere le notifiche di avviso. Immettere i nomi nel formato *qualcuno\@somewhere.com*. Utilizzare il punto e virgola per separare gli indirizzi di posta elettronica. È possibile configurare un massimo di 20 indirizzi di posta elettronica per ogni dispositivo virtuale.
       
        ![configurazione delle notifiche degli avvisi](./media/storsimple-virtual-array-manage-alerts/alerts6.png)
    4. Per inviare una notifica di posta elettronica di prova, fare clic su **Invia messaggio di posta elettronica di prova**. Il servizio Gestione dispositivi StorSimple visualizza i messaggi di stato e inoltra la notifica di prova.
@@ -64,7 +64,7 @@ Dopo aver attivato la notifica di posta elettronica per un array virtuale, i mem
       > Se non è possibile inviare il messaggio di notifica test, il servizio Gestione dispositivi StorSimple visualizza un messaggio appropriato. Fare clic su **OK**, attendere alcuni minuti e provare a inviare nuovamente il messaggio di notifica di prova.
       >
       >
-   5. Fare clic su **Salva** nella parte inferiore della pagina per salvare la configurazione. Alla richiesta di conferma fare clic su **Sì**.
+   5. Fare clic su **Salva** nella parte inferiore della pagina per salvare la configurazione. Quando viene richiesta la conferma, fare clic su **Sì**.
       
       ![Messaggio di posta elettronica di prova della notifica di avviso inviato](./media/storsimple-virtual-array-manage-alerts/alerts10.png)
 
@@ -73,7 +73,7 @@ Dopo aver attivato la notifica di posta elettronica per un array virtuale, i mem
 L'array virtuale StorSimple genera avvisi in risposta a una varietà di condizioni. Di seguito sono indicati i tipi più comuni delle condizioni di avviso:
 
 * **Problemi di connettività** : questi avvisi vengono generati in caso di difficoltà di trasferimento dei dati. Possono verificarsi problemi di comunicazione durante il trasferimento dei dati da un account di archiviazione di Azure e viceversa oppure a causa della mancanza di connettività tra i dispositivi virtuali e il servizio Gestione dispositivi StorSimple. I problemi di comunicazione sono tra i più difficili da risolvere poiché sono presenti numerosi punti di errore. Verificare sempre che la connettività di rete e l'accesso a Internet siano disponibili prima di proseguire con la risoluzione dei problemi più avanzati. Per altre informazioni sulle impostazioni delle porte e del firewall, vedere [Requisiti di sistema dell'array virtuale StorSimple (anteprima)](storsimple-ova-system-requirements.md). Per informazioni sulla risoluzione dei problemi, vedere [Risoluzione dei problemi con il cmdlet Test-Connection](storsimple-troubleshoot-deployment.md).
-* **Problemi di prestazioni** : questi avvisi vengono generati quando le prestazioni del sistema non sono ottimali, ad esempio in presenza di un forte carico.
+* **Problemi di prestazioni**: tali avvisi vengono generati quando le prestazioni del sistema non sono ottimali, ad esempio quando il carico di lavoro è pesante.
 
 Inoltre, possono essere generati avvisi relativi a sicurezza, aggiornamenti o errori di processi.
 
@@ -81,9 +81,9 @@ Inoltre, possono essere generati avvisi relativi a sicurezza, aggiornamenti o er
 
 Gli avvisi possono avere diversi livelli di gravità, in base all'impatto determinato dalla situazione di avviso e alla necessità di una risposta all'avviso. I livelli di gravità sono:
 
-* **Critico** : questo avviso viene generato in risposta a una condizione che influenza negativamente le prestazioni del sistema. È richiesta un'azione per garantire che il servizio StorSimple non venga interrotto.
-* **Avviso** : questa condizione potrebbe diventare critica se non viene risolta. È necessario analizzare la situazione ed eseguire qualsiasi azione necessaria per eliminare il problema.
-* **Informazioni** : questo avviso contiene informazioni che possono essere utili per la verifica e la gestione del sistema.
+* **Critico**: avviso in risposta a una condizione che influenza le prestazioni del sistema. È richiesta un'azione per garantire che il servizio StorSimple non venga interrotto.
+* **Avviso**: questa condizione potrebbe diventare critica se non viene risolta. È necessario analizzare la situazione ed eseguire qualsiasi azione necessaria per eliminare il problema.
+* **Informazione**: questo avviso contiene informazioni che possono essere utili per monitorare e gestire il sistema.
 
 ## <a name="view-and-track-alerts"></a>Visualizzare e tenere traccia degli avvisi
 
@@ -101,7 +101,7 @@ Fare clic su un avviso nell'elenco per ottenere altri dettagli sull'avviso, incl
 
 Se è necessario inviare le informazioni al supporto tecnico Microsoft, è possibile copiare i dettagli dell'avviso in un file di testo. Dopo avere seguito i suggerimenti e risolto la condizione di avviso in locale, è necessario cancellare l'avviso dall'elenco. Selezionare l'avviso nell'elenco e fare clic su **Cancella**. Per cancellare più avvisi, fare clic su qualsiasi colonna tranne **Avviso**, selezionare tutti gli avvisi da cancellare e fare clic su **Cancella**.
 
-Quando si fa clic su **Cancella**si ha la possibilità di fornire commenti sull'avviso e i passaggi eseguiti per risolvere il problema.
+Quando si fa clic su **Cancella**, è possibile fornire commenti sull'avviso e sui passaggi eseguiti per risolvere l'avviso.
 
 ![commenti degli avvisi](./media/storsimple-virtual-array-manage-alerts/alerts17.png)
 
@@ -111,10 +111,10 @@ Alcuni eventi verranno cancellati dal sistema se un altro evento viene attivato 
 
 Nel pannello **Avvisi** può essere visualizzato un massimo di 250 avvisi. Se è stato superato il numero di avvisi, non tutti gli avvisi verranno inclusi nella visualizzazione predefinita. È possibile combinare i campi seguenti per personalizzare quali avvisi vengono visualizzati:
 
-* **Stato**: è possibile visualizzare gli avvisi di tipo **Attivo** o **Cancellato**. Gli avvisi attivi vengono ancora attivati nel sistema, mentre gli avvisi deselezionati sono stati cancellati manualmente da un amministratore o a livello di programmazione, in quanto la condizione di avviso è stata aggiornata dal sistema con nuove informazioni.
-* **Gravità** : è possibile visualizzare gli avvisi di tutti i livelli di gravità (critico, avviso, informazioni) o solo di una determinata gravità, ad esempio solo gli avvisi critici.
+* **Stato**: è possibile visualizzare gli avvisi attivi o cancellati.******** Gli avvisi attivi vengono ancora attivati nel sistema, mentre gli avvisi deselezionati sono stati cancellati manualmente da un amministratore o a livello di programmazione, in quanto la condizione di avviso è stata aggiornata dal sistema con nuove informazioni.
+* **Gravità**: è possibile visualizzare avvisi di tutti i livelli di gravità (critico, avviso, informazione) o solo di un livello di gravità specifico, ad esempio solo avvisi critici.
 * **Origine**: è possibile visualizzare gli avvisi generati da tutte le origini. In alternativa, è possibile visualizzare soltanto quelli che provengono dal servizio oppure da uno o tutti i dispositivi virtuali.
-* **Intervallo di tempo**: specificando le date e i timestamp in **Da** e **A**, è possibile esaminare gli avvisi generati durante il periodo di tempo specificato.
+* **Intervallo di tempo**: se si specificano le date di inizio e di fine******** e i timestamp, è possibile cercare gli avvisi durante il periodo di tempo desiderato.
 
 ## <a name="alerts-quick-reference"></a>Riferimento rapido degli avvisi
 
@@ -137,14 +137,14 @@ Nelle tabelle seguenti sono elencati alcuni avvisi di StorSimple che potrebbero 
 | Testo dell'avviso | Event | Ulteriori informazioni/Azioni consigliate |
 |:--- |:--- |:--- |
 | Configurazione del servizio virtuale locale non supportata. |Rallentamento delle prestazioni. |La configurazione corrente può influire negativamente sulle prestazioni. Assicurarsi che il server soddisfi i requisiti minimi di configurazione. Per altre informazioni, vedere [Requisiti di sistema dell'array virtuale StorSimple](storsimple-ova-system-requirements.md). |
-| Lo spazio su disco di cui è stato eseguito il provisioning in <*nome dispositivo*\> è quasi esaurito. |Avviso relativo allo spazio su disco. |Sta per esaurirsi lo spazio su disco con provisioning. Per liberare spazio, provare a spostare i carichi di lavoro su un altro volume oppure a condividere o eliminare dei dati. |
+| Si sta esaurendo lo spazio su disco di cui è stato eseguito il provisioning sul *nome*\><dispositivo . |Avviso relativo allo spazio su disco. |Sta per esaurirsi lo spazio su disco con provisioning. Per liberare spazio, provare a spostare i carichi di lavoro su un altro volume oppure a condividere o eliminare dei dati. |
 
 ### <a name="job-failure-alerts"></a>Avvisi di errore di processo
 
 | Testo dell'avviso | Event | Ulteriori informazioni/Azioni consigliate |
 |:--- |:--- |:--- |
-| Non è stato possibile completare il backup di <*nome dispositivo*\>. |Il processo di backup non è riuscito. |Non è stato possibile creare un backup. Considerare uno degli aspetti seguenti:<ul><li>Alcuni problemi di connettività potrebbero impedire il corretto completamento dell'operazione di backup. Assicurarsi che non siano presenti problemi di connettività. Per altre informazioni sulle risoluzione dei problemi di connettività, vedere l'[interfaccia utente Web locale](storsimple-ova-web-ui-admin.md) del dispositivo virtuale.</li><li>È stato raggiunto il limite di archiviazione disponibile. Provare a eliminare i backup che non sono più necessari per liberare spazio.</li></ul> Risolvere i problemi, cancellare l'avviso e ripetere l'operazione. |
-| Non è stato possibile completare la creazione del clone di <*nome dispositivo*\>. |Il processo di clonazione non è riuscito. |Impossibile creare un clone. Considerare uno degli aspetti seguenti:<ul><li>L'elenco di backup potrebbe non essere valido. Aggiornare l'elenco per verificare che sia ancora valido.</li><li>I problemi di connettività potrebbero impedire il completamento dell'operazione di clonazione. Assicurarsi che non siano presenti problemi di connettività.</li><li>È stato raggiunto il limite di archiviazione disponibile. Provare a eliminare i backup che non sono più necessari per liberare spazio.</li></ul>Risolvere i problemi, cancellare l'avviso e ripetere l'operazione. |
+| Impossibile completare <il backup del nome\> del *dispositivo.* |Il processo di backup non è riuscito. |Non è stato possibile creare un backup. Considerare uno degli aspetti seguenti:<ul><li>Alcuni problemi di connettività potrebbero impedire il corretto completamento dell'operazione di backup. Assicurarsi che non siano presenti problemi di connettività. Per altre informazioni sulle risoluzione dei problemi di connettività, vedere l'[interfaccia utente Web locale](storsimple-ova-web-ui-admin.md) del dispositivo virtuale.</li><li>È stato raggiunto il limite di archiviazione disponibile. Provare a eliminare i backup che non sono più necessari per liberare spazio.</li></ul>  Risolvere i problemi, cancellare l'avviso e ripetere l'operazione. |
+| Impossibile completare <clone del nome\> del *dispositivo.* |Il processo di clonazione non è riuscito. |Impossibile creare un clone. Considerare uno degli aspetti seguenti:<ul><li>L'elenco di backup potrebbe non essere valido. Aggiornare l'elenco per verificare che sia ancora valido.</li><li>I problemi di connettività potrebbero impedire il completamento dell'operazione di clonazione. Assicurarsi che non siano presenti problemi di connettività.</li><li>È stato raggiunto il limite di archiviazione disponibile. Provare a eliminare i backup che non sono più necessari per liberare spazio.</li></ul> Risolvere i problemi, cancellare l'avviso e ripetere l'operazione. |
 
 ### <a name="networking-alerts"></a>Avvisi di rete
 
@@ -157,13 +157,13 @@ Nelle tabelle seguenti sono elencati alcuni avvisi di StorSimple che potrebbero 
 | Testo dell'avviso | Event | Ulteriori informazioni/Azioni consigliate |
 |:--- |:--- |:--- |
 | Si stanno verificando ritardi imprevisti nel trasferimento dei dati. |Trasferimento dati lento. |Gli errori di limitazione si verificano quando si superano gli obiettivi di scalabilità di un servizio di archiviazione. In questo modo il servizio di archiviazione assicura che nessun client o tenant possa utilizzare il servizio a spese di altri. Per altre informazioni sulla risoluzione dei problemi relativi all'account di archiviazione di Azure, vedere [Monitorare, diagnosticare e risolvere i problemi dell'Archiviazione di Microsoft Azure](../storage/common/storage-monitoring-diagnosing-troubleshooting.md). |
-| Lo spazio su disco riservato in locale in <*nome dispositivo*\> è quasi esaurito. |Tempo di risposta lento. |Il 10% delle dimensioni totali di cui è stato eseguito il provisioning per <*nome dispositivo*\> è riservato nel dispositivo locale e al momento lo spazio riservato è quasi esaurito. Il carico di lavoro in <*nome dispositivo*\> sta generando un'elevata varianza o è possibile che di recente sia stata eseguita la migrazione di una grande quantità di dati causando una riduzione delle prestazioni. Questo può comportare una riduzione delle prestazioni. Per risolvere questo problema, provare a eseguire una delle azioni seguenti:<ul><li>Aumentare la larghezza di banda cloud sul dispositivo.</li><li>Ridurre o spostare i carichi di lavoro in un altro volume o condivisione.</li></ul> |
+| Si sta esaurendo lo spazio su disco di prenotazione locale sul *<nome*\>del dispositivo . |Tempo di risposta lento. |Il 10% delle dimensioni totali di cui è stato eseguito il provisioning per <*nome* \> del dispositivo è riservato nel dispositivo locale e lo spazio riservato si sta esaurendo. Il carico di lavoro in <*nome* \> del dispositivo genera una frequenza di varianza più elevata o è possibile che sia stata eseguita di recente la migrazione di una grande quantità di dati. Questo può comportare una riduzione delle prestazioni. Per risolvere questo problema, provare a eseguire una delle azioni seguenti:<ul><li>Aumentare la larghezza di banda cloud sul dispositivo.</li><li>Ridurre o spostare i carichi di lavoro in un altro volume o condivisione.</li></ul> |
 
 ### <a name="security-alerts"></a>Avvisi di sicurezza
 
 | Testo dell'avviso | Event | Ulteriori informazioni/Azioni consigliate |
 |:--- |:--- |:--- |
-| La password per <*nome dispositivo*\> scadrà tra <*numero*\> giorni. |Avviso relativo alla password. |La password scadrà tra <*numero*\> giorni. Provare a modificare la password. Per altre informazioni, vedere [Modificare la password amministratore del dispositivo array virtuale StorSimple](storsimple-virtual-array-change-device-admin-password.md). |
+| La password per <*nome* \> del dispositivo scadrà tra <*numero* \> di giorni. |Avviso relativo alla password. |La password scadrà tra <*numero di* \> giorni. Provare a modificare la password. Per altre informazioni, vedere [Modificare la password amministratore del dispositivo array virtuale StorSimple](storsimple-virtual-array-change-device-admin-password.md). |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

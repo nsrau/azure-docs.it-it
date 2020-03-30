@@ -1,6 +1,6 @@
 ---
-title: Servizio Frontdoor di Azure - Monitoraggio dell'integrità dei back-end | Microsoft Docs
-description: Questo articolo aiuta a comprendere come il servizio Frontdoor di Azure monitora l'integrità dei back-end
+title: Porta frontale di Azure - monitoraggio dell'integrità del back-end Documenti Microsoft
+description: Questo articolo illustra in che modo Azure Front Door monitora l'integrità dei back-end
 services: frontdoor
 documentationcenter: ''
 author: sharad4u
@@ -11,33 +11,44 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 289b05a2c50a2b4af50eb2114515a49bb653cf1a
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: e2e656c395f1a31c1f5ebbd46d5a18a046f854f7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742398"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79471575"
 ---
-# <a name="health-probes"></a>Probe integrità
+# <a name="health-probes"></a>Probe di integrità
 
-Per determinare l'integrità di ogni back-end, ogni ambiente Frontdoor invia periodicamente una richiesta HTTP/HTTPS sintetica a ciascuno dei back-end configurati. Frontdoor usa quindi le risposte ricevute da questi probe per determinare i "migliori" back-end a cui indirizzare le richieste client reali. Si noti che poiché la porta anteriore presenta molti ambienti perimetrali a livello globale, il volume delle richieste di probe di integrità per i backend può essere più alto di una richiesta al secondo dipende dalla frequenza del probe di integrità configurata. 
+Per determinare l'integrità e la prossimità di ogni back-end da un determinato ambiente Front Door, ogni ambiente Front Door invia periodicamente una richiesta HTTP/HTTPS sintetica a ciascuno dei back-end configurati. Frontdoor usa quindi le risposte ricevute da questi probe per determinare i "migliori" back-end a cui indirizzare le richieste client reali. 
 
-
+> [!WARNING]
+> Poiché Front Door dispone di molti ambienti perimetrali a livello globale, il volume delle richieste di probe di integrità per i back-end può essere piuttosto elevato, da 25 richieste al minuto fino a 1200 richieste al minuto, a seconda della frequenza del probe di integrità configurata. Con una frequenza probe predefinita di 30 secondi, il volume del probe sul back-end deve essere di circa 200 richieste al minuto.
 
 ## <a name="supported-protocols"></a>Protocolli supportati
 
 Frontdoor supporta l'invio di probe tramite i protocolli HTTP o HTTPS. Questi probe vengono inviati tramite le stesse porte TCP configurate per il routing delle richieste client e non è possibile eseguirne l'override.
 
+## <a name="supported-http-methods-for-health-probes"></a>Metodi HTTP supportati per i probe di integritàSupported HTTP methods for health probes
+
+Front Door supporta i seguenti metodi HTTP per l'invio dei probe di integrità:
+
+1. **OTTENERE:** Il metodo GET significa recuperare tutte le informazioni (sotto forma di entità) identificate dall'URI della richiesta.
+2. **TESTA DI CAPO:** Il metodo HEAD è identico a GET, ad eccezione del fatto che il server NON DEVE restituire un corpo del messaggio nella risposta. Per i nuovi profili Front Door, per impostazione predefinita, il metodo di sonda è impostato su HEAD.
+
+> [!NOTE]
+> Per ridurre il carico e i costi sui back-end, Front Door consiglia di utilizzare le richieste HEAD per le sonde di integrità.
+
 ## <a name="health-probe-responses"></a>Risposte del probe di integrità
 
-| Responses  | Descrizione | 
+| Risposte  | Descrizione | 
 | ------------- | ------------- |
 | Determinazione dell'integrità  |  Il codice di stato 200 OK indica che il back-end è integro. Tutti gli altri codici vengono considerati errori. Se per qualsiasi motivo, compreso un errore di rete, non viene ricevuta una risposta HTTP valida per un probe, il probe viene conteggiato come errore.|
 | Misurazione della latenza  | La latenza è il tempo misurato dal momento immediatamente prima dell'invio della richiesta del probe al momento in cui viene ricevuto l'ultimo byte della risposta. Viene usata una nuova connessione TCP per ogni richiesta, in modo tale che questa misurazione non venga influenzata dai back-end con connessioni esistenti a caldo.  |
 
 ## <a name="how-front-door-determines-backend-health"></a>Come Frontdoor determina l'integrità dei back-end
 
-Per determinare l'integrità, il servizio Frontdoor di Azure usa lo stesso processo in tre passaggi riportato di seguito per tutti gli algoritmi.
+La porta frontale di Azure usa lo stesso processo in tre passaggi riportato di seguito in tutti gli algoritmi per determinare l'integrità.
 
 1. Escludere i back-end disabilitati.
 
@@ -55,7 +66,11 @@ Per determinare l'integrità, il servizio Frontdoor di Azure usa lo stesso proce
 
 Se i probe di integrità hanno esito negativo per ogni back-end in un pool di back-end, Frontdoor considererà tutti i back-end non integri e instraderà il traffico in una distribuzione round robin per tutti i back-end.
 
-Una volta che tutti i back-end tornano a uno stato integro, Frontdoor riprenderà il normale algoritmo di bilanciamento del carico.
+Una volta che un back-end torna a uno stato integro, Front Door riprenderà il normale algoritmo di bilanciamento del carico.
+
+## <a name="disabling-health-probes"></a>Disabilitazione dei probe di integritàDisabling health probes
+
+Se nel pool back-end è presente un singolo back-end, è possibile scegliere di disabilitare i probe di integrità riducendo il carico sul back-end dell'applicazione. Anche se nel pool back-end sono presenti più back-end, ma solo uno di essi è abilitato, è possibile disabilitare i probe di integrità.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

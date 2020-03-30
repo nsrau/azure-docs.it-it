@@ -1,17 +1,17 @@
 ---
-title: Disponibilità elevata-database di Azure per MySQL
+title: Disponibilità elevata - Database di Azure per MySQLHigh availability - Azure Database for MySQL
 description: In questo argomento vengono offerte informazioni relative alla disponibilità elevata quando si usa Database di Azure per MySQL
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 532cb62c371718a59adf2877517fcdb8f7047bcf
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: a793de35ffff84009d362f005e599b4419f0763f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770969"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79532774"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mysql"></a>Concetti relativi alla disponibilità elevata in Database di Azure per MySQL
 Il servizio Database di Azure per MySQL offre un livello di disponibilità elevata garantito. Il contratto di servizio con copertura finanziaria è del 99,99% in concomitanza con la disponibilità a livello generale. I tempi di inattività dell'applicazione sono praticamente nulli quando si usa questo servizio.

@@ -4,10 +4,10 @@ description: Informazioni su come sviluppare Funzioni di Azure in C#.
 ms.topic: reference
 ms.date: 09/12/2018
 ms.openlocfilehash: cfa53fe2defca768196af595c1d088d41bc60f71
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79277063"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Guida di riferimento per gli sviluppatori C# di Funzioni di Azure
@@ -21,28 +21,28 @@ Funzioni di Azure supporta i linguaggi di programmazione C# e script C#. Per mat
 Questo articolo presuppone che l'utente abbia già letto gli articoli seguenti:
 
 * [Manuale dello sviluppatore di Funzioni di Azure](functions-reference.md)
-* [Strumenti di Visual Studio 2019 per funzioni di Azure](functions-develop-vs.md)
+* [Azure Functions Visual Studio 2019 Tools](functions-develop-vs.md)
 
 ## <a name="supported-versions"></a>Versioni supportate
 
-Le versioni del runtime di funzioni funzionano con versioni specifiche di .NET. La tabella seguente mostra il livello più elevato di .NET Core e .NET Framework e .NET Core che possono essere usati con una versione specifica di funzioni nel progetto. 
+Le versioni del runtime di Funzioni funzionano con versioni specifiche di .NET. Nella tabella seguente viene illustrato il livello più alto di .NET Core e .NET Framework e .NET Core che può essere utilizzato con una versione specifica di Funzioni nel progetto. 
 
-| Versione del runtime di funzioni | Versione massima di .NET |
+| Versione runtime di Funzioni | Versione max .NET |
 | ---- | ---- |
-| Funzioni 3. x | .NET Core 3,1 |
+| Funzioni 3.x | .NET Core 3.1 |
 | Funzioni 2.x | .NET Core 2.2 |
 | Funzioni 1.x | .NET Framework 4.6 |
 
-Per altre informazioni, vedere [Panoramica delle versioni del runtime di funzioni di Azure](functions-versions.md)
+Per altre informazioni, vedere Panoramica delle versioni di runtime di Funzioni di [AzureTo](functions-versions.md) learn more, see Azure Functions runtime versions overview
 
 ## <a name="functions-class-library-project"></a>Progetto di libreria di classi per Funzioni
 
 In Visual Studio il modello di progetto **Funzioni di Azure** crea un progetto di libreria di classi C# contenente i file seguenti:
 
 * [host.json](functions-host-json.md): archivia le impostazioni di configurazione che interessano tutte le funzioni del progetto quando vengono eseguite nell'ambiente locale o in Azure.
-* [local.settings.json](functions-run-local.md#local-settings-file): archivia le impostazioni dell'app e le stringhe di connessione usate per l'esecuzione nell'ambiente locale. Questo file contiene segreti e non viene pubblicato nell'app per le funzioni in Azure. Aggiungere invece [le impostazioni dell'app all'app per le funzioni](functions-develop-vs.md#function-app-settings).
+* [local.settings.json](functions-run-local.md#local-settings-file): archivia le impostazioni dell'app e le stringhe di connessione usate per l'esecuzione nell'ambiente locale. Questo file contiene segreti e non viene pubblicato nell'app per le funzioni in Azure. Aggiungere invece [le impostazioni dell'app all'app](functions-develop-vs.md#function-app-settings)per le funzioni.
 
-Quando si compila il progetto, nella directory di output di compilazione viene generata una struttura di cartelle simile all'esempio seguente:
+Quando si compila il progetto, viene generata una struttura di cartelle simile all'esempio seguente nella directory di output di compilazione:When you build the project, a folder structure that looks like the following example is generated in the build output directory:
 
 ```
 <framework.version>
@@ -77,7 +77,7 @@ public static class SimpleExample
 } 
 ```
 
-L'attributo `FunctionName` indica il metodo come punto di ingresso della funzione. Il nome deve essere univoco all'interno di un progetto, iniziare con una lettera e contenere solo lettere, numeri, `_`e `-`, con una lunghezza di 127 caratteri. I modelli di progetto spesso creano un metodo denominato `Run`, ma il nome del metodo può essere qualsiasi nome di metodo c# valido.
+L'attributo `FunctionName` indica il metodo come punto di ingresso della funzione. Il nome deve essere univoco all'interno di un progetto, `_`iniziare `-`con una lettera e contenere solo lettere, numeri, e , fino a 127 caratteri di lunghezza. I modelli di progetto spesso creano un metodo denominato `Run`, ma il nome del metodo può essere qualsiasi nome di metodo c# valido.
 
 L'attributo trigger specifica il tipo di trigger e associa i dati di input a un parametro del metodo. La funzione di esempio viene attivata da un messaggio della coda e il messaggio della coda viene passato al metodo nel parametro `myQueueItem`.
 
@@ -136,7 +136,7 @@ public static class BindingExpressionsExample
 
 Il processo di compilazione crea un file *function.json* in una cartella della funzione nella cartella di compilazione. Come affermato in precedenza, questo file non viene modificato direttamente. Non è possibile modificare la configurazione di associazione o disabilitare la funzione modificando il file. 
 
-Lo scopo di questo file è fornire informazioni al controller di scalabilità da usare per le [decisioni di scalabilità nel piano a consumo](functions-scale.md#how-the-consumption-and-premium-plans-work). Per questo motivo il file contiene solo informazioni di trigger, non associazioni di input o output.
+Lo scopo di questo file è fornire informazioni al controller di scalabilità da utilizzare per le decisioni sulla [scalabilità nel piano di consumo](functions-scale.md#how-the-consumption-and-premium-plans-work). Per questo motivo il file contiene solo informazioni di trigger, non associazioni di input o output.
 
 Il file *function.json* generato include una proprietà `configurationSource` che indica al runtime di usare gli attributi .NET per le associazioni invece della configurazione *function.json*. Ad esempio:
 
@@ -186,7 +186,7 @@ Per le versioni 1.x e 2.x del runtime di Funzioni viene usato lo stesso pacchett
 </ItemGroup>
 ```
 
-Tra le dipendenze del pacchetto `Sdk` sono inclusi i trigger e le associazioni. Un progetto 1. x fa riferimento a trigger e binding 1. x perché i trigger e le associazioni sono destinati alla .NET Framework, mentre i trigger e le associazioni 2. x hanno come destinazione .NET Core.
+Tra le dipendenze del pacchetto `Sdk` sono inclusi i trigger e le associazioni. Un progetto 1.x fa riferimento a i trigger e le associazioni 1.x perché tali trigger e associazioni sono destinati a .NET Framework, mentre i trigger e le associazioni 2.x sono destinati a .NET Core.
 
 Il pacchetto `Sdk` dipende inoltre da [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json) e indirettamente da [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage). Queste dipendenze consentono di assicurarsi che il progetto usi le versioni dei pacchetti compatibili con la versione del runtime di Funzioni definita come destinazione del progetto. Se ad esempio è disponibile `Newtonsoft.Json` versione 11 per .NET Framework 4.6.1, ma il runtime di Funzioni che ha come destinazione .NET Framework 4.6.1 è compatibile solo con `Newtonsoft.Json` 9.0.1, anche il codice delle funzioni nel progetto deve usare `Newtonsoft.Json` 9.0.1.
 
@@ -216,7 +216,7 @@ Usare il valore restituito solo se la corretta esecuzione di una funzione restit
 
 ## <a name="writing-multiple-output-values"></a>Scrittura di più valori di output
 
-Per scrivere più valori in un'associazione di output o se una chiamata corretta alla funzione potrebbe non restituire alcun valore da passare all'associazione di output, usare i tipi [`ICollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) o [`IAsyncCollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs). Questi tipi sono raccolte di sola scrittura che vengono scritte nell'associazione di output durante il completamento del metodo.
+Per scrivere più valori in un'associazione di output o se una chiamata di funzione [`ICollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) [`IAsyncCollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) riuscita potrebbe non comportare il passaggio all'associazione di output, usare i tipi o . Questi tipi sono raccolte di sola scrittura che vengono scritte nell'associazione di output durante il completamento del metodo.
 
 Questo esempio scrive più messaggi in coda nella stessa coda usando `ICollector`:
 
@@ -339,7 +339,7 @@ In C# e altri linguaggi .NET, è possibile usare un modello di associazione [imp
 Definire un'associazione imperativa, come segue:
 
 - **Non** includere un attributo nella firma della funzione per le associazioni imperative.
-- Passare un parametro di input [`Binder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/Bindings/Runtime/Binder.cs) o [`IBinder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IBinder.cs).
+- Passare un parametro [`IBinder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IBinder.cs)di input o un file [`Binder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/Bindings/Runtime/Binder.cs) .
 - Usare il seguente modello C# per eseguire l'associazione dati.
 
   ```cs
@@ -349,7 +349,7 @@ Definire un'associazione imperativa, come segue:
   }
   ```
 
-  `BindingTypeAttribute` è l'attributo .NET che definisce l'associazione e `T` è un tipo di input o output supportato da quel tipo di associazione. `T` non può essere un tipo di parametro `out`, ad esempio `out JObject`. Ad esempio, l'associazione di output della tabella app per dispositivi mobili supporta [sei tipi di output](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), ma è possibile usare solo [ICollector\<t >](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) o [IAsyncCollector\<t >](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) con binding imperativo.
+  `BindingTypeAttribute` è l'attributo .NET che definisce l'associazione e `T` è un tipo di input o output supportato da quel tipo di associazione. `T` non può essere un tipo di parametro `out`, ad esempio `out JObject`. Ad esempio, l'associazione di output della tabella App per dispositivi mobili supporta [sei tipi](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22)di output , ma è possibile utilizzare solo [ICollector\<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) o [\<IAsyncCollector T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) con associazione imperativa.
 
 ### <a name="single-attribute-example"></a>Esempio con un solo attributo
 

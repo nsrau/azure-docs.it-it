@@ -1,15 +1,15 @@
 ---
-title: Ripristinare i dati in Azure in un server Windows
-description: Questo articolo illustra come ripristinare i dati archiviati in Azure in un computer Windows Server o Windows con l'agente di Servizi di ripristino di Microsoft Azure (MARS).
+title: Ripristinare i dati in Azure in un server WindowsRestore data in Azure to a Windows server
+description: In questo articolo viene illustrato come ripristinare i dati archiviati in Azure in un server Windows o in un computer Windows con l'agente di Microsoft Azure Recovery Services (MARS).
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.openlocfilehash: e12596b496483b872f76ccd610fd70710327b586
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 25ca8eecaeb615f071340188a23fae7978ddb75c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79248047"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79409814"
 ---
 # <a name="restore-files-to-windows-by-using-the-azure-resource-manager-deployment-model"></a>Ripristinare i file in Windows usando il modello di distribuzione Azure Resource Manager
 
@@ -40,18 +40,18 @@ Se un file è stato eliminato accidentalmente e lo si vuole ripristinare nello s
 
     ![Schermata di Backup di Azure, con ripristino dei dati evidenziato](./media/backup-azure-restore-windows-server/recover.png)
 
-3. Nella pagina **Guida introduttiva** selezionare l'opzione **This server (Questo server) (`<server name>`)**  > **Avanti** per ripristinare i dati nello stesso server o computer.
+3. Nella pagina **Guida introduttiva** selezionare Il seguente server **`<server name>`( )** > **Avanti**per ripristinare i dati nello stesso server o nello stesso computer .
 
     ![Schermata della pagina introduttiva del Ripristino guidato dei dati](./media/backup-azure-restore-windows-server/samemachine_gettingstarted_instantrestore.png)
 
-4. Nella pagina **Seleziona modalità di ripristino** scegliere **file e cartelle singoli** > **Avanti**.
+4. Nella pagina **Seleziona modalità di ripristino** scegliere **Individual files and folders** > **Next** (Singoli file e cartelle > Avanti).
 
     ![Schermata della pagina Seleziona modalità di ripristino del Ripristino guidato dei dati](./media/backup-azure-restore-windows-server/samemachine_selectrecoverymode_instantrestore.png)
    > [!IMPORTANT]
    > L'opzione per ripristinare singoli file e cartelle richiede .NET Framework versione 4.5.2 o successiva. Se l'opzione **Individual files and folders** (Singoli file e cartelle) non viene visualizzata, è necessario eseguire l'aggiornamento di .NET Framework alla versione 4.5.2 o successiva e riprovare.
  
    > [!TIP]
-   > L'opzione **Individual files and folders** (Singoli file e cartelle) consente l'accesso rapido ai dati del punto di ripristino. Tale opzione è adatta per il ripristino di singoli file, con dimensioni massime di 80 GB e offre velocità di trasferimento o copia offerte fino a 6 MBps durante il ripristino. L'opzione **Volume** consente di ripristinare tutti i dati di cui è stato eseguito il backup in un volume specificato. Questa opzione offre maggiore velocità di trasferimento (fino a 60 MBps), ideale per il ripristino di dati di grandi dimensioni o di interi volumi.
+   > L'opzione **Singoli file e cartelle** consente di accedere rapidamente ai dati del punto di ripristino. Tale opzione è adatta per il ripristino di singoli file, con dimensioni massime di 80 GB e offre velocità di trasferimento o copia offerte fino a 6 MBps durante il ripristino. L'opzione **Volume** consente di ripristinare tutti i dati di cui è stato eseguito il backup in un volume specificato. Questa opzione offre maggiore velocità di trasferimento (fino a 60 MBps), ideale per il ripristino di dati di grandi dimensioni o di interi volumi.
 
 5. Nella pagina **Seleziona volume e data** selezionare il volume che contiene i file e le cartelle da ripristinare.
 
@@ -63,7 +63,7 @@ Se un file è stato eliminato accidentalmente e lo si vuole ripristinare nello s
 
     Backup di Azure monta il punto di ripristino locale e lo usa come volume di ripristino.
 
-7. Nella pagina **Cerca e Ripristina file** selezionare **Sfoglia** per aprire Esplora risorse e individuare i file e le cartelle desiderati.
+7. Nella pagina **Sfoglia e ripristina file** selezionare **Sfoglia** per aprire Esplora risorse e individuare i file e le cartelle desiderati.
 
     ![Schermata della pagina di ricerca e ripristino dei file del Ripristino guidato dei dati](./media/backup-azure-restore-windows-server/samemachine_browserecover_instantrestore.png)
 
@@ -85,16 +85,16 @@ Se l'intero server viene perso, è comunque possibile recuperare dati da Backup 
 
 Tali passaggi usano la terminologia seguente:
 
-* *Computer di origine*: il computer di origine da cui è stato eseguito il backup e che non è attualmente disponibile.
+* *Computer di origine:* il computer originale da cui è stato eseguito il backup e che non è attualmente disponibile.
 * *Computer di destinazione* : il computer in cui i dati vengono ripristinati.
-* *Insieme di credenziali di esempio*: l'insieme di credenziali dei servizi di ripristino in cui il computer di origine e il computer di destinazione sono registrati.
+* *Esempio di vault:* l'insieme di credenziali dei servizi di ripristino in cui sono registrati il computer di origine e il computer di destinazione.
 
 > [!NOTE]
-> Non è possibile ripristinare i backup in un computer di destinazione che esegue una versione precedente del sistema operativo. Ad esempio, è possibile ripristinare un backup effettuato da un computer Windows 7 in un computer Windows 7 (o versione successiva). Un backup eseguito su un computer con Windows 8 non può essere ripristinato in un computer con Windows 7.
+> Non è possibile ripristinare i backup in un computer di destinazione che esegue una versione precedente del sistema operativo. Ad esempio, un backup eseguito da un computer Windows 7 può essere ripristinato in un computer Windows 7 (o versione successiva). Un backup eseguito su un computer con Windows 8 non può essere ripristinato in un computer con Windows 7.
 >
 >
 
-1. Aprire lo snap-in di **Backup di Microsoft Azure** nel computer di destinazione.
+1. Aprire lo snap-in **Backup di Microsoft Azure** nel computer di destinazione.
 
 2. Assicurarsi che il computer di destinazione e il computer di origine siano registrati nello stesso insieme di credenziali dei servizi di ripristino.
 
@@ -110,7 +110,7 @@ Tali passaggi usano la terminologia seguente:
 
     Se il file dell'insieme di credenziali non è valido (o è scaduto), è necessario scaricarne uno nuovo dall'insieme di credenziali di esempio nel portale di Azure. Dopo aver specificato un insieme di credenziali valido, viene visualizzato il nome dell'insieme di credenziali di backup corrispondente.
 
-6. Nel riquadro **Seleziona server di backup** selezionare il computer di origine nell'elenco dei computer visualizzati e specificare la passphrase. Fare quindi clic su **Avanti**.
+6. Nel riquadro **Seleziona server di backup** selezionare il computer di origine nell'elenco dei computer visualizzati e specificare la passphrase. Quindi selezionare **Avanti**.
 
     ![Schermata della pagina Seleziona server di backup del Ripristino guidato dei dati](./media/backup-azure-restore-windows-server/alternatemachine_selectmachine_instantrestore.png)
 
@@ -126,7 +126,7 @@ Tali passaggi usano la terminologia seguente:
 
 9. Fare clic su **Mount** (Mount) per montare localmente il punto di ripristino come volume di ripristino sul computer di destinazione.
 
-10. Nella pagina **Cerca e Ripristina file** selezionare **Sfoglia** per aprire Esplora risorse e individuare i file e le cartelle desiderati.
+10. Nella pagina **Sfoglia e ripristina file** selezionare **Sfoglia** per aprire Esplora risorse e individuare i file e le cartelle desiderati.
 
     ![Schermata della pagina di ricerca e ripristino dei file del Ripristino guidato dei dati](./media/backup-azure-restore-windows-server/alternatemachine_browserecover_instantrestore.png)
 
@@ -144,4 +144,6 @@ Tali passaggi usano la terminologia seguente:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver ripristinato i file e le cartelle, è possibile [gestire i backup](backup-azure-manage-windows-server.md).
+* Dopo aver ripristinato i file e le cartelle, è possibile [gestire i backup](backup-azure-manage-windows-server.md).
+
+* Trovare [domande comuni sul backup di file e cartelle](backup-azure-file-folder-backup-faq.md).

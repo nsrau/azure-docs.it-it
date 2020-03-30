@@ -1,5 +1,5 @@
 ---
-title: Deployment Planner per il ripristino di emergenza di Hyper-V con Azure Site Recovery
+title: Pianificazione della distribuzione per il ripristino di emergenza Hyper-V con Azure Site Recovery
 description: Informazioni su Azure Site Recovery Deployment Planner per il ripristino di emergenza da Hyper-V ad Azure.
 author: mayurigupta13
 manager: rochakm
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: mayg
 ms.openlocfilehash: 07c1f7f258dbea7bcf7a6e7ea51fdcfdfaa006aa
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79368724"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Informazioni su Azure Site Recovery Deployment Planner per il ripristino di emergenza da Hyper-V ad Azure
@@ -51,7 +51,7 @@ Lo strumento indica i dettagli seguenti:
 * Spazio di archiviazione libero necessario in ogni volume di archiviazione di Hyper-V per la replica iniziale e la replica delta corrette per assicurare che la replica delle VM non provochi tempi di inattività non desiderati per le applicazioni di produzione
 * Frequenza di copia massima da impostare per la replica Hyper-V
 
-**Linee guida sull'invio in batch della replica iniziale** 
+**Indicazioni per l'invio in batch della replica iniziale** 
 * Numero di batch di VM da usare per la protezione
 * Elenco delle VM in ogni batch
 * Ordine in cui ogni batch deve essere protetto
@@ -73,7 +73,7 @@ Lo strumento indica i dettagli seguenti:
 | | **Da VMware ad Azure** |**Da Hyper-V ad Azure**|**Da Azure ad Azure**|**Da Hyper-V al sito secondario**|**Da VMware al sito secondario**
 --|--|--|--|--|--
 Scenari supportati |Sì|Sì|No|Sì*|No
-Versione supportata | vCenter 6,7, 6,5, 6,0 o 5,5| Windows Server 2016, Windows Server 2012 R2 | ND |Windows Server 2016, Windows Server 2012 R2|ND
+Versione supportata | vCenter 6.7, 6.5, 6.0 o 5.5| Windows Server 2016, Windows Server 2012 R2 | ND |Windows Server 2016, Windows Server 2012 R2|ND
 Configurazione supportata|vCenter, ESXi| Cluster Hyper-V, host Hyper-V|ND|Cluster Hyper-V, host Hyper-V|ND|
 Numero di server che è possibile profilare per ogni istanza in esecuzione di Azure Site Recovery Deployment Planner |Singolo (è possibile profilare le VM appartenenti a un solo server vCenter o a un solo server ESXi alla volta)|Multipli (è possibile profilare contemporaneamente le VM in più host o cluster di host)| ND |Multipli (è possibile profilare contemporaneamente le VM in più host o cluster di host)| ND
 
@@ -84,7 +84,7 @@ Lo strumento ha tre fasi principali per Hyper-V: ottenere l'elenco di VM, profil
 
 | Requisito server | Descrizione |
 |---|---|
-|Ottenere l'elenco di VM, profilatura e misurazione della velocità effettiva |<ul><li>Sistema operativo: Microsoft Windows Server 2016 o Microsoft Windows Server 2012 R2 </li><li>Configurazione del computer: 8 vCPU, 16 GB di RAM, disco rigido da 300 GB</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Microsoft Visual C++ Redistributable per Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Accesso Internet ad Azure (*. blob.core.windows.net) da questo server, porta 443<br>[Questa operazione è facoltativa. È possibile scegliere di fornire la larghezza di banda disponibile durante la generazione del report manualmente.]</li><li>Account di archiviazione di Azure</li><li>Accesso di amministratore al server</li><li>Almeno 100 GB di spazio libero su disco (presumendo 1000 VM con una media di tre dischi ognuna, profilate per 30 giorni)</li><li>La VM da cui si esegue lo strumento Azure Site Recovery Deployment Planner deve essere aggiunta all'elenco TrustedHosts di tutti i server Hyper-V.</li><li>Tutti i server Hyper-V da profilare devono essere aggiunti all'elenco TrustedHosts della VM client da cui lo strumento viene eseguito. [Altre informazioni per aggiungere i server nell'elenco TrustedHosts](#steps-to-add-servers-into-trustedhosts-list). </li><li> Lo strumento deve essere eseguito con privilegi amministrativi da PowerShell o dalla console della riga di comando</ul></ul>|
+|Ottenere l'elenco di VM, profilatura e misurazione della velocità effettiva |<ul><li>Sistema operativo: Microsoft Windows Server 2016 o Microsoft Windows Server 2012 R2 </li><li>Configurazione del computer: 8 vCPU, 16 GB di RAM, disco rigido da 300 GB</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Microsoft Visual C++ Redistributable per Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Accesso a Internet ad Azure (con estensione blob.core.windows.net) da questo server, porta 443<br>[Facoltativo. È possibile scegliere di fornire manualmente la larghezza di banda disponibile durante la generazione del report.]</li><li>Account di archiviazione di Azure</li><li>Accesso di amministratore al server</li><li>Almeno 100 GB di spazio libero su disco (presumendo 1000 VM con una media di tre dischi ognuna, profilate per 30 giorni)</li><li>La VM da cui si esegue lo strumento Azure Site Recovery Deployment Planner deve essere aggiunta all'elenco TrustedHosts di tutti i server Hyper-V.</li><li>Tutti i server Hyper-V da profilare devono essere aggiunti all'elenco TrustedHosts della VM client da cui lo strumento viene eseguito. [Altre informazioni per aggiungere i server nell'elenco TrustedHosts](#steps-to-add-servers-into-trustedhosts-list). </li><li> Lo strumento deve essere eseguito con privilegi amministrativi da PowerShell o dalla console della riga di comando</ul></ul>|
 | Generazione di report | Un PC o server Windows con Microsoft Excel 2013 o versione successiva |
 | Autorizzazioni utente | Account amministratore per accedere al cluster Hyper-V/host Hyper-V durante le operazioni di acquisizione dell'elenco di VM e di profilatura.<br>Tutti gli host da profilare devono avere un account amministratore di dominio con le stesse credenziali, ovvero nome utente e password
  |
@@ -121,7 +121,7 @@ E:\ASR Deployment Planner_v2.3\ASRDeploymentPlanner.exe
 
 ### <a name="updating-to-the-latest-version-of-deployment-planner"></a>Aggiornamento alla versione più recente di Deployment Planner
 
-Gli ultimi aggiornamenti sono riepilogati nella cronologia delle [versioni](site-recovery-deployment-planner-history.md)Deployment Planner.
+Gli aggiornamenti più recenti sono riepilogati nella cronologia delle [versioni](site-recovery-deployment-planner-history.md)di Deployment Planner.
 
 Se si ha una versione precedente di Deployment Planner, eseguire una di queste operazioni:
  * Se la versione più recente non contiene una correzione della profilatura e la profilatura è già in corso nella versione corrente dell'utilità di pianificazione, continuare la profilatura.
@@ -135,9 +135,9 @@ Se si ha una versione precedente di Deployment Planner, eseguire una di queste o
   >Ogni nuova utilità di pianificazione delle distribuzioni è un aggiornamento cumulativo del file ZIP. Non è necessario copiare i file più recenti nella cartella precedente. È possibile creare e usare una nuova cartella.
 
 ## <a name="version-history"></a>Cronologia delle versioni
-La versione più recente dello strumento Azure Site Recovery Deployment Planner è 2,5.
-Per le correzioni aggiunte in ogni aggiornamento, vedere la pagina relativa alla [cronologia delle versioni Azure Site Recovery Deployment Planner](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) .
+La versione più recente dello strumento Azure Site Recovery Deployment Planner è 2.5.The latest Azure Site Recovery Deployment Planner tool version is 2.5.
+Fare riferimento alla pagina Cronologia delle versioni di [Azure Site Recovery Deployment Planner](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) per le correzioni aggiunte in ogni aggiornamento.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Eseguire Deployment Planner](site-recovery-hyper-v-deployment-planner-run.md).
+* [Eseguire la pianificazione della distribuzione](site-recovery-hyper-v-deployment-planner-run.md).

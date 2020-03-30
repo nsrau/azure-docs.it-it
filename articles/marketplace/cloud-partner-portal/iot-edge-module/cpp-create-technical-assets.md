@@ -1,19 +1,18 @@
 ---
-title: Creare asset tecnici del modulo Azure IoT Edge | Azure Marketplace
+title: Creazione di asset tecnici del modulo Azure IoT Edge Azure Marketplace
 description: Creare gli asset tecnici per un modulo IoT Edge.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/18/2018
-ms.author: pabutler
-ms.openlocfilehash: 57bc2f789836a7d3453004cdacc59029c4b24129
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 304ea31f2a6f9820226a6ad0db8bfc803e6fdb94
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827629"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80285215"
 ---
 # <a name="prepare-your-iot-edge-module-technical-assets"></a>Preparare gli asset tecnici del modulo IoT Edge
 
@@ -30,7 +29,7 @@ Un modulo IoT Edge è un contenitore compatibile con Docker che viene eseguito i
 
 Per la certificazione del modulo IoT Edge e la pubblicazione in Azure Marketplace, è necessario soddisfare i requisiti tecnici seguenti.
 
-### <a name="platform-support"></a>Supporto delle piattaforme
+### <a name="platform-support"></a>Piattaforme supportate
 
 Il modulo IoT Edge deve supportare una delle opzioni di piattaforma seguenti.
 
@@ -68,9 +67,9 @@ Include anche le impostazioni di configurazione predefinite per rendere la distr
 I moduli IoT Edge devono iniziare con le impostazioni predefinite indicate nella [scheda SKU del portale Cloud Partner](./cpp-skus-tab.md). Sono disponibili le impostazioni predefinite seguenti:
 
 - Default **routes** (Route predefinite)
-- Default **twin desired properties** (Proprietà desiderate del dispositivo gemello predefinite)
-- Default **environment variables** (Variabili di ambiente predefinite)
-- Default **createOptions** (createOptions predefinito)
+- Proprietà **predefinite doppie desiderate**
+- Variabili **di ambiente** predefinite
+- CreazionePredefinita **predefinita**
 
 In uno scenario in cui un parametro obbligatorio per un valore predefinito non ha senso (ad esempio, l'indirizzo IP del server di un cliente), aggiungere un parametro come valore predefinito. Questo valore è racchiuso tra parentesi quadre e indicato in caratteri maiuscoli. Per questo esempio viene configurata la variabile di ambiente predefinita seguente:
 
@@ -80,11 +79,11 @@ In uno scenario in cui un parametro obbligatorio per un valore predefinito non h
 
 #### <a name="configuration-documentation"></a>Documentazione della configurazione
 
-Tutte le impostazioni di configurazione di un modulo di IoT Edge devono essere chiaramente documentate (come usare le route, le proprietà desiderate del dispositivo gemello, le variabili di ambiente, createOptions e così via). Fornire un collegamento alla documentazione o la documentazione deve far parte della descrizione dell'offerta o dello SKU.
+Tutte le impostazioni di configurazione di un modulo IoT Edge devono essere chiaramente documentate (come usare le route, le proprietà desiderate gemelle, le variabili di ambiente, createOptions e così via). Fornire un collegamento alla documentazione o la documentazione deve far parte della descrizione dell'offerta/sku.
 
 ### <a name="tags-and-versioning"></a>Tag e controllo delle versioni
 
-I clienti devono essere in grado di distribuire facilmente un modulo e ottenere automaticamente gli aggiornamenti dal Marketplace (in uno scenario di sviluppo). Devono inoltre essere in grado di utilizzare e bloccare una versione esatta testata (in uno scenario di produzione).
+I clienti devono essere in grado di distribuire facilmente un modulo e ottenere automaticamente gli aggiornamenti dal marketplace (in uno scenario per sviluppatori). Devono inoltre essere in grado di utilizzare e bloccare una versione esatta che hanno testato (in uno scenario di produzione).
 
 Per soddisfare queste aspettative del cliente ed essere pubblicati nel marketplace, i moduli IoT Edge devono soddisfare i requisiti seguenti:
 
@@ -109,7 +108,7 @@ I moduli che usano l'SDK dei moduli IoT devono impostare l'identificatore di mod
 
 Per i moduli che non usano l'SDK dei moduli IoT sono disponibili informazioni dettagliate meno precise nel portale Cloud Partner, ad esempio il numero di download.
 
-### <a name="security"></a>Sicurezza
+### <a name="security"></a>Security
 
 I moduli IoT Edge devono richiedere l'accesso con meno privilegi possibile all'host. È consigliabile evitare [moduli con privilegi](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities).
 
@@ -123,7 +122,7 @@ L'SDK dei moduli IoT è necessario per ottenere dati di telemetria sul numero di
 ## <a name="recertification-process"></a>Processo di ricertificazione
 
 <!-- Add legal time windows-->
-I partner riceveranno una notifica ogni volta che viene apportata una modifica sostanziale che interessa i moduli, ad esempio:
+ I partner ricevono una notifica ogni volta che viene apportata una modifica che causa un'interruzione nei moduli, ad esempio:
 
 - Matrice di supporto dei sistemi operativi o dell'architettura di livello 1 supportata da IoT Edge
 - SDK dei moduli IoT

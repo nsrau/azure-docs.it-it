@@ -18,10 +18,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bb41e14a7ecf41a2698a063c3067a98d8acf8f07
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79253884"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: Concetti relativi alla progettazione
@@ -140,7 +140,7 @@ Per passare da objectGUID a ConsistencyGuid come attributo dell'ancoraggio di or
 
 3. Immettere le credenziali di amministratore di Azure AD e fare clic su **Avanti**.
 
-4. La procedura guidata di Azure AD Connect analizza lo stato dell'attributo ms-DS-ConsistencyGuid in Active Directory locale. Se l'attributo non è configurato in uno qualsiasi degli oggetti della directory, Azure AD Connect conclude che nessun'altra applicazione sta usando l'attributo e che quindi sia possibile usarlo come attributo dell'ancoraggio di origine. Fare clic su **Avanti** per continuare.
+4. La procedura guidata di Azure AD Connect analizza lo stato dell'attributo ms-DS-ConsistencyGuid in Active Directory locale. Se l'attributo non è configurato in uno qualsiasi degli oggetti della directory, Azure AD Connect conclude che nessun'altra applicazione sta usando l'attributo e che quindi sia possibile usarlo come attributo dell'ancoraggio di origine. Scegliere **Avanti** per continuare.
 
    ![Abilitare ConsistencyGuid per una distribuzione esistente: passaggio 4](./media/plan-connect-design-concepts/consistencyguidexistingdeployment02.png)
 
@@ -156,7 +156,7 @@ Durante l'analisi, al passaggio 4, se l'attributo è configurato su uno o più o
 
 ![Abilitare ConsistencyGuid per una distribuzione esistente: errore](./media/plan-connect-design-concepts/consistencyguidexistingdeploymenterror.png)
 
- Se si è certi che l'attributo non sia usato da altre applicazioni esistenti, è possibile eliminarlo riavviando la procedura guidata di Azure AD Connect con l'opzione **/SkipLdapSearch** specificata. A tale scopo, al prompt dei comandi eseguire questo comando:
+ Se si è certi che l'attributo non viene utilizzato da altre applicazioni esistenti, è possibile eliminare l'errore riavviando la procedura guidata di Azure AD Connect con l'opzione **/SkipLdapSearch** specificata. A tale scopo, al prompt dei comandi eseguire questo comando:
 
 ```
 "c:\Program Files\Microsoft Azure Active Directory Connect\AzureADConnect.exe" /SkipLdapSearch
@@ -170,7 +170,7 @@ Se si gestisce AD FS dall'esterno di Azure AD Connect o se per l'autenticazione 
 ![Configurazione della federazione di terze parti](./media/plan-connect-design-concepts/consistencyGuid-03.png)
 
 ### <a name="adding-new-directories-to-existing-deployment"></a>Aggiunta di nuove directory alla distribuzione esistente
-Si supponga di aver distribuito Azure AD Connect con la funzionalità ConsistencyGuid abilitata e di voler aggiungere un'altra directory alla distribuzione. Quando si tenta di aggiungere la directory, la procedura guidata di Azure AD Connect controlla lo stato dell'attributo ms-DS-ConsistencyGuid nella directory. Se l'attributo è configurato su uno o più oggetti nella directory, la procedura conclude che l'attributo è usato da altre applicazioni e restituisce un errore, come mostrato di seguito. Se si è certi che l'attributo non venga utilizzato dalle applicazioni esistenti, è possibile eliminarlo riavviando la procedura guidata di Azure AD Connect con l'opzione **/SkipLdapSearch** specificata come descritto in precedenza oppure è necessario contattare il supporto tecnico per ulteriori informazioni.
+Si supponga di aver distribuito Azure AD Connect con la funzionalità ConsistencyGuid abilitata e di voler aggiungere un'altra directory alla distribuzione. Quando si tenta di aggiungere la directory, la procedura guidata di Azure AD Connect controlla lo stato dell'attributo ms-DS-ConsistencyGuid nella directory. Se l'attributo è configurato su uno o più oggetti nella directory, la procedura conclude che l'attributo è usato da altre applicazioni e restituisce un errore, come mostrato di seguito. Se si è certi che l'attributo non viene utilizzato dalle applicazioni esistenti, è possibile eliminare l'errore riavviando la procedura guidata di Azure AD Connect con l'opzione **/SkipLdapSearch** specificata come descritto in precedenza oppure è necessario contattare il supporto tecnico per ulteriori informazioni.
 
 ![Aggiunta di nuove directory alla distribuzione esistente](./media/plan-connect-design-concepts/consistencyGuid-04.png)
 

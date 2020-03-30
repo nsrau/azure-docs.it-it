@@ -1,28 +1,28 @@
 ---
-title: Esempi di trasformazione di attestazioni booleane per criteri personalizzati
+title: Esempi di trasformazione delle attestazioni booleane per i criteri personalizzati
 titleSuffix: Azure AD B2C
-description: Esempi di trasformazione di attestazioni booleane per lo schema Framework dell'esperienza (Identity Experience Framework) del Azure Active Directory B2C.
+description: Esempi di trasformazione delle attestazioni booleane per lo schema IEF (Identity Experience Framework) di Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/03/2020
+ms.date: 03/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e470ea65085bf71f0052567d5bf367661852d1cb
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: ea3b273070702144d5296d07cb8712da044819a8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78268029"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79471966"
 ---
 # <a name="boolean-claims-transformations"></a>Trasformazioni delle attestazioni booleane
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Questo articolo fornisce esempi per l'uso delle trasformazioni di attestazioni booleane dello schema del Framework dell'esperienza di identità in Azure Active Directory B2C (Azure AD B2C). Per altre informazioni, vedere [ClaimsTransformations](claimstransformations.md).
+Questo articolo fornisce esempi per l'uso delle trasformazioni delle attestazioni booleane dello schema Identity Experience Framework in Azure Active Directory B2C (Azure AD B2C). Per altre informazioni, vedere [ClaimsTransformations](claimstransformations.md).
 
 ## <a name="andclaims"></a>AndClaims
 
@@ -66,7 +66,7 @@ Verifica che i valori booleani di due attestazioni siano uguali e genera un'ecce
 | inputClaim | inputClaim | boolean | Il ClaimType da confermare. |
 | InputParameter |valueToCompareTo | boolean | Il valore da confrontare (true o false). |
 
-La trasformazione delle attestazioni **AssertBooleanClaimIsEqualToValue** viene sempre eseguita da un [profilo tecnico di convalida](validation-technical-profile.md) che viene chiamato da un [profilo tecnico autocertificato](self-asserted-technical-profile.md). I metadati del profilo tecnico autocertificato **UserMessageIfClaimsTransformationBooleanValueIsNotEqual** controllano il messaggio di errore che il profilo tecnico presenta all'utente.
+La trasformazione delle attestazioni **AssertBooleanClaimIsEqualToValue** viene sempre eseguita da un [profilo tecnico di convalida](validation-technical-profile.md) che viene chiamato da un [profilo tecnico autocertificato](self-asserted-technical-profile.md). I metadati del profilo tecnico autocertificato **UserMessageIfClaimsTransformationBooleanValueIsNotEqual** controllano il messaggio di errore che il profilo tecnico presenta all'utente. I messaggi di errore possono essere [localizzati.](localization-string-ids.md#claims-transformations-error-messages)
 
 ![Esecuzione di AssertStringClaimsAreEqual](./media/boolean-transformations/assert-execution.png)
 
@@ -116,7 +116,7 @@ Il profilo tecnico autocertificato chiama il profilo tecnico **login-NonInteract
 
 ## <a name="comparebooleanclaimtovalue"></a>CompareBooleanClaimToValue
 
-Verifica che il valore booleano di un'attestazione sia uguale a `true` o `false`e restituisce il risultato della compressione.
+Verifica che il valore booleano `true` `false`di un'attestazione sia uguale a o e restituisce il risultato della compressione.
 
 | Elemento | TransformationClaimType  | Tipo di dati  | Note |
 | ---- | ------------------------ | ---------- | ----- |
@@ -125,7 +125,7 @@ Verifica che il valore booleano di un'attestazione sia uguale a `true` o `false`
 | OutputClaim | compareResult | boolean | ClaimType generato dopo che è stata chiamata questa ClaimsTransformation. |
 
 
-La trasformazione delle attestazioni seguente mostra come controllare il valore di un ClaimType booleano con un valore `true`. Se il valore della `IsAgeOver21Years` ClaimType è uguale `true`, la trasformazione delle attestazioni restituisce `true`, in caso contrario `false`.
+La trasformazione delle attestazioni seguente mostra come controllare il valore di un ClaimType booleano con un valore `true`. Se il valore `IsAgeOver21Years` di ClaimType `true`è uguale `true`a `false`, la trasformazione delle attestazioni restituisce , in caso contrario.
 
 ```XML
 <ClaimsTransformation Id="AssertAccountEnabled" TransformationMethod="CompareBooleanClaimToValue">
@@ -148,7 +148,7 @@ La trasformazione delle attestazioni seguente mostra come controllare il valore 
 - Parametri di input:
     - **valueToCompareTo**: true
 - Attestazioni di output:
-    - **CompareResult**: false
+    - **compareResult**: false
 
 
 

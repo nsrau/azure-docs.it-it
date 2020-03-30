@@ -16,10 +16,10 @@ ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 9d3f4f4ab6cc1c928761fce740d39f3f73426e62
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79267534"
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-hyper-v"></a>Distribuire StorSimple Virtual Array: eseguire il provisioning in Hyper-V
@@ -88,7 +88,7 @@ Eseguire i passaggi seguenti per il provisioning di un dispositivo in hypervisor
 
 #### <a name="to-provision-a-virtual-array"></a>Per eseguire il provisioning di un array virtuale
 1. Nell'host di Windows Server copiare l'immagine dell'array virtuale in un'unità locale. Si tratta dell'immagine (VHD o VHDX) scaricata tramite il portale di Azure. Prendere nota della posizione in cui è stata copiata l'immagine da usare più avanti nella procedura.
-2. Aprire **Gestione server**. Nell'angolo in alto a destra fare clic su **Strumenti** e scegliere **Console di gestione di Hyper-V**.
+2. Aprire **Server Manager**. Nell'angolo in alto a destra fare clic su **Strumenti** e scegliere **Console di gestione di Hyper-V**.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image1.png)  
 
@@ -100,7 +100,7 @@ Eseguire i passaggi seguenti per il provisioning di un dispositivo in hypervisor
 5. Nella pagina **Specificare nome e percorso** indicare un **Nome** da assegnare all'array virtuale. Fare clic su **Avanti**.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image4.png)
-6. Nella pagina **Impostazione generazione** scegliere il tipo di immagine del dispositivo e fare clic su **Avanti**. Se si usa Windows Server 2008 R2, questa pagina non verrà visualizzata.
+6. Nella pagina **Specifica generazione** scegliere il tipo di immagine del dispositivo e quindi fare clic su **Avanti**. Se si usa Windows Server 2008 R2, questa pagina non verrà visualizzata.
 
    * Se è stata scaricata un'immagine VHDX per Windows Server 2012 o versione successiva, scegliere **Generazione 2** .
    * Se è stata scaricata un'immagine VHD per Windows Server 2008 R2 o versione successiva, scegliere **Generazione 1** .
@@ -121,7 +121,7 @@ Eseguire i passaggi seguenti per il provisioning di un dispositivo in hypervisor
 11. Per soddisfare i requisiti minimi, sono necessarie 4 memorie centrali. Per aggiungere 4 processori virtuali, selezionare il sistema host nella finestra **Console di gestione di Hyper-V**. Nel riquadro di destra sotto l'elenco di **macchine virtuali** individuare la macchina virtuale appena creata. Selezionare e fare clic con il pulsante destro del mouse sul nome della macchina, quindi selezionare **Impostazioni**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image10.png)
-12. Nella pagina **Impostazioni**, nel riquadro di sinistra, fare clic su **Processore**. Nel riquadro di destra, impostare **Numero di processori virtuali** su 4 (o oltre). Fare clic su **Apply**.
+12. Nella pagina **Impostazioni**, nel riquadro di sinistra, fare clic su **Processore**. Nel riquadro di destra, impostare **Numero di processori virtuali** su 4 (o oltre). Fare clic su **Applica**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image11.png)
 13. Per soddisfare i requisiti minimi, è necessario anche aggiungere un disco dati virtuale da 500 GB. Nella pagina **Impostazioni** :
@@ -143,7 +143,7 @@ Eseguire i passaggi seguenti per il provisioning di un dispositivo in hypervisor
 18. Nella pagina **Impostazione nome e percorso** fornire un **nome** e un **percorso** (anche accedendovi) da assegnare al disco dati. Fare clic su **Avanti**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image17.png)
-19. Nella pagina **Configurazione disco** selezionare l'opzione **Crea un nuovo disco rigido virtuale vuoto** e specificare la dimensione di **500 GB** (o superiore). 500 GB è il requisito minimo, ma è sempre possibile eseguire il provisioning di un disco più grande. Si noti che, una volta eseguito il provisioning del disco, non è possibile espanderlo o ridurlo. Per altre informazioni sulle dimensioni del disco di cui eseguire il provisioning, vedere la sezione sul ridimensionamento nel documento sulle [procedure consigliate](storsimple-ova-best-practices.md). Fare clic su **Avanti**.
+19. Nella pagina **Configurazione disco** selezionare l'opzione **Crea un nuovo disco rigido virtuale vuoto** e specificare la dimensione di **500 GB** (o superiore). 500 GB è il requisito minimo, ma è sempre possibile eseguire il provisioning di un disco più grande. Si noti che, una volta eseguito il provisioning del disco, non è possibile espanderlo o ridurlo. Per ulteriori informazioni sulle dimensioni del disco di cui eseguire il provisioning, consultare la sezione relativa al ridimensionamento nel [documento sulle procedure consigliate.](storsimple-ova-best-practices.md) Fare clic su **Avanti**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image18.png)
 20. Nella pagina **Riepilogo** esaminare i dettagli del disco dati virtuale e, se conformi alle proprie esigenze, fare clic su **Fine** per creare il disco. La procedura guidata viene chiusa e un disco rigido virtuale viene aggiunto al computer.
@@ -208,7 +208,7 @@ Eseguire la procedura seguente per avviare l'array virtuale a cui connettersi.
        >
        >
 
-Se il dispositivo non soddisfa i requisiti minimi di configurazione, viene visualizzato un errore nel testo intestazione (riportato sotto). Modificare la configurazione del dispositivo per garantire la presenza di risorse adeguate a soddisfare i requisiti minimi della macchina. È quindi possibile riavviare il dispositivo a cui connettersi. Vedere i requisiti minimi di configurazione in passaggio 1: verificare che il sistema host soddisfi i requisiti minimi dell'array virtuale.
+Se il dispositivo non soddisfa i requisiti minimi di configurazione, viene visualizzato un errore nel testo intestazione (riportato sotto). Modificare la configurazione del dispositivo per garantire la presenza di risorse adeguate a soddisfare i requisiti minimi della macchina. È quindi possibile riavviare il dispositivo a cui connettersi. Vedere i requisiti minimi di configurazione in Passaggio 1: Verificare che il sistema host soddisfi i requisiti minimi dell'array virtuale.
 
 ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image32.png)
 

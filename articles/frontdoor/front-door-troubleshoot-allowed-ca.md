@@ -1,5 +1,5 @@
 ---
-title: CA consentita per l'abilitazione di HTTPS personalizzato nel servizio front door di Azure
+title: CA consentita per abilitare HTTPS personalizzato nella porta anteriore di AzureAllowed CA for enabling custom HTTPS on Azure Front Door
 description: Se si usa un certificato proprio per abilitare HTTPS in un dominio personalizzato, è necessario usare un'autorità di certificazione (CA) consentita per crearlo.
 services: frontdoor
 documentationcenter: ''
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2018
 ms.author: sharadag
-ms.openlocfilehash: 62420889d9a4cb1e9d1c570a0845c704fca56cb3
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: cac6bc9895f2b8778f2b27cc6b1dff4d4b898ae7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184573"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79471524"
 ---
-# <a name="allowed-certificate-authorities-for-enabling-custom-https-on-azure-front-door-service"></a>Autorità di certificazione consentite per abilitare la funzionalità HTTPS personalizzata nel servizio Frontdoor di Azure
+# <a name="allowed-certificate-authorities-for-enabling-custom-https-on-azure-front-door"></a>Autorità di certificazione consentite per abilitare HTTPS personalizzato in Azure Front DoorAllowed certificate authorities for enabling custom HTTPS on Azure Front Door
 
-Per un dominio personalizzato del servizio Frontdoor di Azure, quando si [abilita la funzionalità HTTPS usando un certificato personale](front-door-custom-domain-https.md?tabs=option-2-enable-https-with-your-own-certificate), è necessario usare un'autorità di certificazione (CA) consentita per creare il certificato SSL. In caso contrario, se si usa una CA non consentita o un certificato autofirmato, la richiesta verrà rifiutata.
+Per un dominio personalizzato di Azure Front Door, quando si [abilita la funzionalità HTTPS usando il proprio certificato,](front-door-custom-domain-https.md?tabs=option-2-enable-https-with-your-own-certificate)è necessario usare un'autorità di certificazione (CA) consentita per creare il certificato SSL. In caso contrario, se si usa una CA non consentita o un certificato autofirmato, la richiesta verrà rifiutata.
 
 [!INCLUDE [cdn-front-door-allowed-ca](../../includes/cdn-front-door-allowed-ca.md)]

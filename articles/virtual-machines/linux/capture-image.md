@@ -1,5 +1,5 @@
 ---
-title: Acquisire un'immagine di una VM Linux usando l'interfaccia della riga di comando di Azure
+title: Acquisire un'immagine di una macchina virtuale Linux usando l'interfaccia della riga di comando di AzureCapture an image of a Linux VM using Azure CLI
 description: Acquisire un'immagine di una macchina virtuale di Azure da usare per le distribuzioni di massa tramite l'interfaccia della riga di comando di Azure.
 author: cynthn
 ms.service: virtual-machines-linux
@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 10/08/2018
 ms.author: cynthn
 ms.openlocfilehash: 77f6244651551763f5460432655d66267775a256
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79250400"
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>Come creare un'immagine di una macchina virtuale o un disco rigido virtuale
@@ -19,7 +19,7 @@ Per creare più copie di una macchina virtuale da usare in Azure, acquisire un'i
 
 Per creare una copia della macchina virtuale Linux esistente per il backup o il debug o per caricare un disco rigido virtuale Linux specializzato da una macchina virtuale locale, vedere [Caricare e creare una VM Linux da un'immagine disco personalizzata](upload-vhd.md).  
 
-È possibile usare il servizio **Generatore di immagini VM di Azure (anteprima pubblica)** per creare un'immagine personalizzata, non è necessario apprendere alcun strumento o configurare pipeline di compilazione, fornire semplicemente una configurazione di immagine e il generatore di immagini creerà l'immagine. Per altre informazioni, vedere [Introduzione con generatore di immagini di VM di Azure](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-overview).
+È possibile usare il servizio **Azure VM Image Builder (Public Preview)** per compilare l'immagine personalizzata, non è necessario apprendere alcuno strumento o configurare pipeline di compilazione, semplicemente fornendo una configurazione di immagine e Image Builder creerà l'immagine. Per altre informazioni, vedere Introduzione a Generatore immagini VM di Azure.For more [information,](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-overview)see Getting Started with Azure VM Image Builder .
 
 Prima di poter creare un'immagine, è necessario:
 
@@ -27,13 +27,13 @@ Prima di poter creare un'immagine, è necessario:
 
 * Aver installato l'[interfaccia della riga di comando di Azure](/cli/azure/install-az-cli2) e aver eseguito l'accesso a un account Azure tramite il comando [az login](/cli/azure/reference-index#az-login).
 
-## <a name="prefer-a-tutorial-instead"></a>Preferisci invece un'esercitazione?
+## <a name="prefer-a-tutorial-instead"></a>Preferisci invece un tutorial?
 
-Per una versione semplificata di questo articolo e per informazioni sulle procedure di testing e valutazione o sulle macchine virtuali in Azure, vedere [Creare un'immagine personalizzata di una macchina virtuale di Azure tramite l'interfaccia della riga di comando](tutorial-custom-images.md).  In caso contrario, continua a leggere qui per ottenere l'immagine completa.
+Per una versione semplificata di questo articolo e per informazioni sulle procedure di testing e valutazione o sulle macchine virtuali in Azure, vedere [Creare un'immagine personalizzata di una macchina virtuale di Azure tramite l'interfaccia della riga di comando](tutorial-custom-images.md).  In caso contrario, continuare a leggere qui per ottenere il quadro completo.
 
 
 ## <a name="step-1-deprovision-the-vm"></a>Passaggio 1: Eseguire il deprovisioning della macchina virtuale
-Per prima cosa, eseguire il deprovisioning della macchina virtuale usando l'agente della macchina virtuale di Azure per eliminare file e dati specifici della macchina. Usare il comando `waagent` con il parametro `-deprovision+user` nella macchina virtuale Linux di origine. Per altre informazioni, vedere [Guida dell'utente dell'agente Linux di Azure](../extensions/agent-linux.md).
+Per prima cosa, eseguire il deprovisioning della macchina virtuale usando l'agente della macchina virtuale di Azure per eliminare file e dati specifici della macchina. Usare il comando `waagent` con il parametro `-deprovision+user` nella macchina virtuale Linux di origine. Per altre informazioni, vedere il [Manuale dell'utente](../extensions/agent-linux.md)di Azure Linux Agent.
 
 1. Connettersi alla macchina virtuale Linux con un client SSH.
 2. Nella finestra SSH digitare il comando seguente:
@@ -45,7 +45,7 @@ Per prima cosa, eseguire il deprovisioning della macchina virtuale usando l'agen
    > Eseguire questo comando solo su una macchina virtuale che si intende acquisire come immagine. Questo comando non garantisce che dall'immagine vengano cancellate tutte le informazioni sensibili o che l'immagine sia adatta per la ridistribuzione. Il parametro `+user` rimuove anche l'ultimo account utente di cui è stato effettuato il provisioning. Per mantenere le credenziali dell'account utente nella macchina virtuale, usare solo `-deprovision`.
  
 3. Immettere **y** per continuare. È possibile aggiungere il parametro `-force` per evitare questo passaggio di conferma.
-4. Dopo aver eseguito il comando, digitare **exit** per chiudere il client SSH.  A questo punto la macchina virtuale verrà ancora eseguita.
+4. Dopo aver eseguito il comando, digitare **exit** per chiudere il client SSH.  La macchina virtuale sarà ancora in esecuzione a questo punto.
 
 ## <a name="step-2-create-vm-image"></a>Passaggio 2: Creare l'immagine della macchina virtuale
 Usare l'interfaccia della riga di comando di Azure per contrassegnare la macchina virtuale come generalizzata e acquisire l'immagine. Nell'esempio seguente sostituire i nomi dei parametri di esempio con i valori desiderati. I nomi dei parametri di esempio includono *myResourceGroup*, *myVnet* e *myVM*.
@@ -58,7 +58,7 @@ Usare l'interfaccia della riga di comando di Azure per contrassegnare la macchin
       --name myVM
     ```
     
-    Attendere che la macchina virtuale venga completamente deallocata prima di procedere. Questa operazione richiederà qualche minuto.  La macchina virtuale viene arrestata durante la deallocazione.
+    Attendere che la macchina virtuale venga deallocata completamente prima di procedere. Questa operazione richiederà qualche minuto.  La macchina virtuale viene arrestata durante la deallocazione.
 
 2. Contrassegnare la macchina virtuale come generalizzata con il comando [az vm generalize](/cli/azure/vm). Nell'esempio seguente la macchina virtuale denominata *myVM* viene contrassegnata come generalizzata nel gruppo di risorse *myResourceGroup*.
    
@@ -68,7 +68,7 @@ Usare l'interfaccia della riga di comando di Azure per contrassegnare la macchin
       --name myVM
     ```
 
-    Non è più possibile riavviare una macchina virtuale che è stata generalizzata.
+    Una macchina virtuale che è stata generalizzata non può più essere riavviata.
 
 3. Creare un'immagine della risorsa macchina virtuale con [az image create](/cli/azure/image#az-image-create). Nell'esempio seguente viene creata un'immagine denominata *myImage* nel gruppo di risorse denominato *myResourceGroup* usando la risorsa macchina virtuale denominata *myVM*.
    
@@ -83,7 +83,7 @@ Usare l'interfaccia della riga di comando di Azure per contrassegnare la macchin
    >
    > Se si vuole archiviare l'immagine in una risorsa di archiviazione servizio di archiviazione resiliente nella zona, è necessario crearla in un'area che supporta le [zone di disponibilità](../../availability-zones/az-overview.md) e includere il parametro `--zone-resilient true`.
    
-Questo comando restituisce JSON che descrive l'immagine della macchina virtuale. Salvare questo output per riferimento successivo.
+Questo comando restituisce JSON che descrive l'immagine della macchina virtuale. Salvare questo output per riferimento futuro.
 
 ## <a name="step-3-create-a-vm-from-the-captured-image"></a>Passaggio 3: Distribuire una VM dall'immagine acquisita
 Creare una macchina virtuale usando l'immagine creata con [az vm create](/cli/azure/vm). Nell'esempio seguente viene creata una macchina virtuale denominata *myVMDeployed* dall'immagine denominata *myImage*.

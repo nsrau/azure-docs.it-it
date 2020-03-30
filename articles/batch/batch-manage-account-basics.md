@@ -1,6 +1,6 @@
 ---
-title: Gestire l'account Azure Batch | Microsoft Docs
-description: Informazioni su ciò che comprende un account Azure Batch
+title: Gestire l'account - Batch di Azure Documenti Microsoft
+description: Informazioni su cosa comprende un account Azure BatchLearn what comprises an Azure Batch account
 services: batch
 documentationcenter: ''
 author: LauraBrenner
@@ -14,14 +14,14 @@ ms.topic: conceptual
 ms.date: 03/05/2020
 ms.author: labrenne
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 72630a2003b63e60ba79882e1861283173840425
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.openlocfilehash: a4df2ec0439e659fd8dc1448c6209c9718114791
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "79375187"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79479791"
 ---
-# <a name="manage-your-batch-account"></a>Gestire l'account batch
+# <a name="manage-your-batch-account"></a>Gestire l'account Batch
 
 Un account Batch è un'entità identificata in modo univoco all'interno del servizio Batch. Tutte le operazioni di elaborazione sono associata a un account Batch.
 
@@ -29,27 +29,27 @@ Un account Batch è un'entità identificata in modo univoco all'interno del serv
 
 È possibile eseguire più carichi di lavoro Batch in un solo account Batch o distribuire i carichi di lavoro tra gli account Batch nella stessa sottoscrizione, ma in aree di Azure diverse.
 
-## <a name="components-of-the-batch-account"></a>Componenti dell'account batch
+## <a name="components-of-the-batch-account"></a>Componenti dell'account Batch
 
-L'account batch consente di eseguire in modo efficiente processi batch paralleli e HPC (High Performance Computing) su larga scala in Azure. All'interno dell'account gestito:
+L'account Batch consente di eseguire processi batch di calcolo paralleli e ad alte prestazioni (HPC) su larga scala in modo efficiente in Azure.The Batch account enables you to run large-scale parallel and high-performance computing (HPC) batch jobs efficiently in Azure. All'interno dell'account che gestisci:
 
 - applicazioni in esecuzione
 
-- allocazione di pool e nodi all'interno di pool
+- l'allocazione di pool e nodi all'interno di pool
 
-- numero e tipi di attività 
+- il numero e i tipi di attività 
 
-- input e output dei dati. Non è necessario installare software aggiuntivo per gestire le attività.
+- l'input e l'output dei dati. Non è necessario installare software aggiuntivo per gestire le attività.
 
-- Quando si crea l'account batch, viene richiesto di assegnarvi un nome. Questo nome è l'ID e, una volta assegnato, non può essere modificato.
+- Quando si crea l'account Batch, viene chiesto di assegnargli un nome. Questo nome è il suo ID e una volta assegnato non può essere modificato.
 
-- Per modificare il nome di un account, è necessario eliminarlo e creare un nuovo account batch.
+- Per modificare il nome di un account, è necessario eliminarlo e creare un nuovo account Batch.
 
-- L'account viene creato nella sottoscrizione che si vuole usare.
+- L'account viene creato all'interno della sottoscrizione che si desidera utilizzare.
 
-- Usare l'account per identificare e recuperare le chiavi degli account primarie e secondarie da qualsiasi account batch all'interno della sottoscrizione.
+- Utilizzare l'account per identificare e recuperare le chiavi dell'account primario e secondario da qualsiasi account Batch all'interno della sottoscrizione.
 
-- L'account mantiene le informazioni sull'allocazione del pool e le quote principali.  
+- L'account gestisce le informazioni sull'allocazione del pool e sulle quote principali.  
 
 - L'account contiene informazioni sulla posizione.
 
@@ -57,7 +57,8 @@ L'account batch consente di eseguire in modo efficiente processi batch paralleli
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Creare un account batch usando il [portale di Azure](batch-account-create-portal.md).
-- Creare un account batch a livello di codice, ad esempio con la [libreria batch Management .NET](batch-management-dotnet.md).
-- [Configurare o disabilitare l'accesso remoto ai nodi di calcolo in un pool di Azure batch](pool-endpoint-configuration.md).
-- [Eseguire attività di preparazione e rilascio del processo nei nodi di calcolo batch](batch-job-prep-release.md)
+- Creare un account Batch usando il portale di Azure.Create a Batch account using the [Azure portal](batch-account-create-portal.md).
+- Creare un account Batch a livello di programmazione, ad esempio con la [libreria .NET di gestione Batch](batch-management-dotnet.md).
+- [Configurare o disabilitare l'accesso remoto per calcolare i nodi in un pool Batch](pool-endpoint-configuration.md)di Azure.
+- [Eseguire attività di preparazione e rilascio del processo in nodi di calcolo di Batch](batch-job-prep-release.md)
+

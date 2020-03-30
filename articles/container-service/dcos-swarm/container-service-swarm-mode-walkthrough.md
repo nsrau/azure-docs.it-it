@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: iainfou
 ms.custom: ''
-ms.openlocfilehash: 5f492dd2bd270d3f067c05c1dc2235d54e481847
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: d4bbd5560681aa73709019e87c6c22470a64ad78
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76274868"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79481739"
 ---
 # <a name="deprecated-deploy-docker-ce-cluster"></a>(DEPRECATO) Distribuire cluster Docker CE
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
-In questa guida introduttiva viene distribuito un cluster Docker CE usando l'interfaccia della riga di comando di Azure. Un'applicazione multicontenitore costituita dal front-end Web e da un'istanza di Redis viene quindi distribuita ed eseguita nel cluster. Al termine, l'applicazione è accessibile tramite Internet.
+In this quickstart, a Docker CE cluster is deployed using the Azure CLI. Un'applicazione multicontenitore costituita dal front-end Web e da un'istanza di Redis viene quindi distribuita ed eseguita nel cluster. Al termine, l'applicazione è accessibile tramite Internet.
 
 Docker CE nel servizio Azure Container è in anteprima e **non deve essere usato per carichi di lavoro di produzione**.
 
@@ -53,7 +53,7 @@ Output:
 
 ## <a name="create-docker-swarm-cluster"></a>Creare un cluster Docker Swarm
 
-Creare un cluster Docker CE nel servizio Azure Container con il comando [az acs create](/cli/azure/acs#az-acs-create). Per informazioni sulla disponibilità di area per Docker CE, vedere [aree del servizio contenitore di Azure per Docker CE](https://github.com/Azure/ACS/blob/master/announcements/2017-08-04_additional_regions.md)
+Creare un cluster Docker CE nel servizio Azure Container con il comando [az acs create](/cli/azure/acs#az-acs-create). Per informazioni sulla disponibilità di aree di Docker CE, vedere [Aree ACS per Docker CE](https://github.com/Azure/ACS/blob/master/announcements/2017-08-04_additional_regions.md)
 
 L'esempio seguente crea un cluster denominato *mySwarmCluster* con un nodo master Linux e tre nodi agente Linux.
 
@@ -67,16 +67,15 @@ Dopo alcuni minuti, il comando viene completato e restituisce le informazioni in
 
 ## <a name="connect-to-the-cluster"></a>Stabilire la connessione al cluster
 
-Nel corso di questa guida introduttiva è necessario il nome di dominio completo sia del master Docker Swarm che del pool di agenti Docker. Eseguire questo comando per ottenere entrambi i nomi di dominio completi.
+In questa guida introduttiva è necessario il nome di dominio completo del master Swarm Docker e del pool di agenti Docker. Eseguire questo comando per ottenere entrambi i nomi di dominio completi.
 
-
-```bash
+```azurecli
 az acs list --resource-group myResourceGroup --query '[*].{Master:masterProfile.fqdn,Agent:agentPoolProfiles[0].fqdn}' -o table
 ```
 
 Output:
 
-```bash
+```output
 Master                                                               Agent
 -------------------------------------------------------------------  --------------------------------------------------------------------
 myswarmcluster-myresourcegroup-d5b9d4mgmt.ukwest.cloudapp.azure.com  myswarmcluster-myresourcegroup-d5b9d4agent.ukwest.cloudapp.azure.com
@@ -125,7 +124,7 @@ docker stack deploy azure-vote --compose-file azure-vote.yaml
 
 Output:
 
-```bash
+```output
 Creating network azure-vote_default
 Creating service azure-vote_azure-vote-back
 Creating service azure-vote_azure-vote-front
@@ -139,7 +138,7 @@ docker stack ps azure-vote
 
 Quando il valore `CURRENT STATE` di ogni servizio è `Running`, l'applicazione è pronta.
 
-```bash
+```output
 ID                  NAME                            IMAGE                                 NODE                               DESIRED STATE       CURRENT STATE                ERROR               PORTS
 tnklkv3ogu3i        azure-vote_azure-vote-front.1   microsoft/azure-vote-front:v1   swarmm-agentpool0-66066781000004   Running             Running 5 seconds ago                            
 lg99i4hy68r9        azure-vote_azure-vote-back.1    redis:latest                          swarmm-agentpool0-66066781000002   Running             Running about a minute ago
@@ -158,15 +157,15 @@ Quando il cluster non è più necessario, è possibile usare il comando [az grou
 az group delete --name myResourceGroup --yes --no-wait
 ```
 
-## <a name="get-the-code"></a>Ottieni il codice
+## <a name="get-the-code"></a>Ottenere il codice
 
-In questa guida introduttiva sono state usate immagini del contenitore già create per creare un servizio Docker. Il codice dell'applicazione correlato, Dockerfile, e il file Compose sono disponibili in GitHub.
+In questa guida introduttiva sono state usate immagini contenitore create in precedena per creare un servizio Docker.In this quickstart, pre-created container images have been used to create a Docker service. Il codice dell'applicazione correlato, Dockerfile, e il file Compose sono disponibili in GitHub.
 
 [https://github.com/Azure-Samples/azure-voting-app-redis](https://github.com/Azure-Samples/azure-voting-app-redis.git)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva è stato distribuito un cluster Docker Swarm in cui è stata quindi distribuita un'applicazione multicontenitore.
+In questa guida introduttiva è stato distribuito un cluster Docker Swarm e vi è stata distribuita un'applicazione multicontenitore.
 
 Per informazioni sull'integrazione di Docker Swarm con Azure DevOps, vedere l'articolo relativo a CI/CD con Docker Swarm e Azure DevOps.
 

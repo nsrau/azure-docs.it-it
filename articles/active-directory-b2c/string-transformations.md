@@ -1,28 +1,28 @@
 ---
-title: Esempi di trasformazione di attestazioni di stringa per criteri personalizzati
+title: Esempi di trasformazione delle attestazioni stringa per i criteri personalizzatiString claims transformation examples for custom policies
 titleSuffix: Azure AD B2C
-description: Esempi di trasformazione delle attestazioni di stringa per lo schema Framework dell'esperienza (Identity Experience Framework) del Azure Active Directory B2C.
+description: Esempi di trasformazione delle attestazioni stringa per lo schema IEF (Identity Experience Framework) di Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/24/2020
+ms.date: 03/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4a5d0908842c20e15fdf7b336b9e244c4bafb345
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: acacba591c9b895f1bd6abfbab5d3d4a4c858d12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79264297"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79472776"
 ---
 # <a name="string-claims-transformations"></a>Trasformazioni di attestazioni di stringa
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Questo articolo fornisce esempi per l'uso delle trasformazioni di attestazioni di stringa dello schema del Framework dell'esperienza di identità in Azure Active Directory B2C (Azure AD B2C). Per altre informazioni, vedere [ClaimsTransformations](claimstransformations.md).
+Questo articolo fornisce esempi per l'uso delle trasformazioni delle attestazioni di stringa dello schema Identity Experience Framework in Azure Active Directory B2C (Azure AD B2C). Per altre informazioni, vedere [ClaimsTransformations](claimstransformations.md).
 
 ## <a name="assertstringclaimsareequal"></a>AssertStringClaimsAreEqual
 
@@ -34,7 +34,7 @@ Confronta due attestazioni e genera un'eccezione se non sono uguali in base agli
 | InputClaim | inputClaim2 | string | Tipo della seconda attestazione di cui eseguire il confronto. |
 | InputParameter | stringComparison | string | Confronto tra le stringhe con valori Ordinal e OrdinalIgnoreCase. |
 
-La trasformazione delle attestazioni **AssertStringClaimsAreEqual** viene sempre eseguita da un [profilo tecnico di convalida](validation-technical-profile.md) chiamato da un [profilo tecnico autocertificato](self-asserted-technical-profile.md)o da un [DisplayConrtol](display-controls.md). I metadati `UserMessageIfClaimsTransformationStringsAreNotEqual` di un profilo tecnico autocertificato controllano il messaggio di errore visualizzato all'utente.
+La trasformazione **delle attestazioni AssertStringClaimsAreEqual** viene sempre eseguita da un [profilo tecnico](validation-technical-profile.md) di convalida chiamato da un profilo [tecnico auto-asserito](self-asserted-technical-profile.md)o da un [oggetto DisplayConrtol](display-controls.md). I `UserMessageIfClaimsTransformationStringsAreNotEqual` metadati di un profilo tecnico auto-asserito controllano il messaggio di errore che viene presentato all'utente. I messaggi di errore possono essere [localizzati.](localization-string-ids.md#claims-transformations-error-messages)
 
 
 ![Esecuzione di AssertStringClaimsAreEqual](./media/string-transformations/assert-execution.png)
@@ -80,8 +80,8 @@ Il profilo tecnico autocertificato chiama il profilo tecnico **login-NonInteract
 ### <a name="example"></a>Esempio
 
 - Attestazioni di input:
-  - **inputClaim1**: someone@contoso.com
-  - **inputClaim2**: someone@outlook.com
+  - **inputClaim1**:someone@contoso.com
+  - **inputClaim2**:someone@outlook.com
 - Parametri di input:
   - **stringComparison**:  ordinalIgnoreCase
 - Risultato: errore generato
@@ -92,7 +92,7 @@ Modifica le maiuscole/minuscole dell'attestazione specificata a seconda dell'ope
 
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim1 | string | ClaimType da modificare. |
+| InputClaim | inputClaim1 | string | Oggetto ClaimType da modificare. |
 | InputParameter | toCase | string | Uno dei valori seguenti: `LOWER` o `UPPER`. |
 | OutputClaim | outputClaim | string | Elemento ClaimType generato dopo che è stata richiamata questa trasformazione di attestazioni. |
 
@@ -115,19 +115,19 @@ Usare questa trasformazione per cambiare le maiuscole/minuscole di qualsiasi str
 ### <a name="example"></a>Esempio
 
 - Attestazioni di input:
-  - **email**: SomeOne@contoso.com
+  - **e-mail**:SomeOne@contoso.com
 - Parametri di input:
     - **toCase**: LOWER
 - Attestazioni di output:
-  - **email**: someone@contoso.com
+  - **e-mail**:someone@contoso.com
 
 ## <a name="createstringclaim"></a>CreateStringClaim
 
-Crea un'attestazione stringa dal parametro di input specificato nella trasformazione.
+Crea un'attestazione stringa dal parametro di input fornito nella trasformazione.
 
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 |----- | ----------------------- | --------- | ----- |
-| InputParameter | Valore | string | Stringa da impostare. Questo parametro di input supporta le [espressioni di trasformazione delle attestazioni di stringa](string-transformations.md#string-claim-transformations-expressions). |
+| InputParameter | value | string | Stringa da impostare. Questo parametro di input supporta le espressioni di [trasformazione delle attestazioni stringa.](string-transformations.md#string-claim-transformations-expressions) |
 | OutputClaim | createdClaim | string | Tipo attestazione generato dopo che questa trasformazione di attestazioni è stato richiamato con il valore specificato nel parametro di input. |
 
 Usare questa trasformazione di attestazioni per impostare un valore ClaimType di stringa.
@@ -183,8 +183,8 @@ Usare questa trasformazione di attestazioni per verificare se un'attestazione è
 ### <a name="example"></a>Esempio
 
 - Attestazioni di input:
-  - **inputClaim1**: someone@contoso.com
-  - **inputClaim2**: someone@outlook.com
+  - **inputClaim1**:someone@contoso.com
+  - **inputClaim2**:someone@outlook.com
 - Parametri di input:
     - **operator**:  NOT EQUAL
     - **ignoreCase**: true
@@ -297,7 +297,7 @@ Formatta un'attestazione in base alla stringa formato specificata. Questa trasfo
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim |string |Elemento ClaimType che funge come parametro {0} del formato della stringa. |
-| InputParameter | stringFormat | string | Formato della stringa, ad esempio il parametro {0}. Questo parametro di input supporta le [espressioni di trasformazione delle attestazioni di stringa](string-transformations.md#string-claim-transformations-expressions).  |
+| InputParameter | stringFormat | string | Formato della stringa, ad esempio il parametro {0}. Questo parametro di input supporta le espressioni di [trasformazione delle attestazioni stringa.](string-transformations.md#string-claim-transformations-expressions)  |
 | OutputClaim | outputClaim | string | Elemento ClaimType generato dopo che è stata richiamata questa trasformazione di attestazioni. |
 
 Usare questa trasformazione di attestazioni per formattare qualsiasi stringa con un parametro {0}. L'esempio seguente crea un elemento **userPrincipalName**. Tutti i profili tecnici di provider di identità social, ad esempio `Facebook-OAUTH`, chiamano **CreateUserPrincipalName** per generare un elemento **userPrincipalName**.
@@ -323,7 +323,7 @@ Usare questa trasformazione di attestazioni per formattare qualsiasi stringa con
 - Parametri di input:
     - **stringFormat**:  cpim_{0}@{RelyingPartyTenantId}
 - Attestazioni di output:
-  - **outputClaim**: cpim_5164db16-3eee-4629-bfda-dcc3326790e9@b2cdemo.onmicrosoft.com
+  - **outputClaim**:cpim_5164db16-3eee-4629-bfda-dcc3326790e9@b2cdemo.onmicrosoft.com
 
 ## <a name="formatstringmultipleclaims"></a>FormatStringMultipleClaims
 
@@ -333,7 +333,7 @@ Formatta due attestazioni in base alla stringa di formato specificata. Questa tr
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim |string | Elemento ClaimType che funge come parametro {0} del formato della stringa. |
 | InputClaim | inputClaim | string | Elemento ClaimType che funge come parametro {1} del formato della stringa. |
-| InputParameter | stringFormat | string | Formato della stringa, ad esempio i parametri {0} e {1}. Questo parametro di input supporta le [espressioni di trasformazione delle attestazioni di stringa](string-transformations.md#string-claim-transformations-expressions).   |
+| InputParameter | stringFormat | string | Formato della stringa, ad esempio i parametri {0} e {1}. Questo parametro di input supporta le espressioni di [trasformazione delle attestazioni stringa.](string-transformations.md#string-claim-transformations-expressions)   |
 | OutputClaim | outputClaim | string | Elemento ClaimType generato dopo che è stata richiamata questa trasformazione di attestazioni. |
 
 Usare questa trasformazione di attestazioni per formattare qualsiasi stringa con due parametri, {0} e {1}. L'esempio seguente crea un elemento **displayName** con il formato specificato:
@@ -359,31 +359,31 @@ Usare questa trasformazione di attestazioni per formattare qualsiasi stringa con
     - **inputClaim1**: Joe
     - **inputClaim2**: Fernando
 - Parametri di input:
-    - **StringFormat**: {0} {1}
+    - **stringFormat** {0} :{1}
 - Attestazioni di output:
     - **outputClaim**: Joe Fernando
 
 ## <a name="getlocalizedstringstransformation"></a>GetLocalizedStringsTransformation
 
-Copia le stringhe localizzate in attestazioni.
+Copia le stringhe localizzate nelle attestazioni.
 
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
-| OutputClaim | Nome della stringa localizzata. | string | Elenco dei tipi di attestazione generati dopo la chiamata di questa trasformazione delle attestazioni. |
+| OutputClaim | Nome della stringa localizzata | string | Elenco di tipi di attestazione generati dopo che è stata richiamata questa trasformazione delle attestazioni. |
 
-Per usare la trasformazione delle attestazioni GetLocalizedStringsTransformation:
+Per usare la trasformazione delle attestazioni GetLocalizedStringsTransformation:To use the GetLocalizedStringsTransformation claims transformation:
 
-1. Definire una [stringa di localizzazione](localization.md) e associarla a un [profilo tecnico autocertificato](self-asserted-technical-profile.md).
-1. Il `ElementType` dell'elemento `LocalizedString` deve essere impostato su `GetLocalizedStringsTransformationClaimType`.
-1. Il `StringId` è un identificatore univoco che viene definito e utilizzato in un secondo momento nella trasformazione delle attestazioni.
-1. Nella trasformazione attestazioni specificare l'elenco di attestazioni da impostare con la stringa localizzata. Il `ClaimTypeReferenceId` è un riferimento a un ClaimType già definito nella sezione ClaimsSchema del criterio. Il `TransformationClaimType` è il nome della stringa localizzata come definito nella `StringId` dell'elemento `LocalizedString`.
-1. In un [profilo tecnico autocertificato](self-asserted-technical-profile.md)o una trasformazione di input o output del [controllo di visualizzazione](display-controls.md) , creare un riferimento alla trasformazione delle attestazioni.
+1. Definire una stringa di [localizzazione](localization.md) e associarla a un [profilo tecnico auto-asserito](self-asserted-technical-profile.md).
+1. `ElementType` L'elemento `LocalizedString` deve essere `GetLocalizedStringsTransformationClaimType`impostato su .
+1. Si `StringId` tratta di un identificatore univoco definito e utilizzato in un secondo momento nella trasformazione delle attestazioni.
+1. Nella trasformazione delle attestazioni specificare l'elenco di attestazioni da impostare con la stringa localizzata. Il `ClaimTypeReferenceId` è un riferimento a un ClaimType già definito nella sezione ClaimsSchema nei criteri. Il `TransformationClaimType` è il nome della stringa `StringId` localizzata `LocalizedString` come definito nell'elemento.
+1. In un [profilo tecnico auto-asserito](self-asserted-technical-profile.md)o in una trasformazione delle attestazioni di input o output del controllo di [visualizzazione,](display-controls.md) creare un riferimento alla trasformazione delle attestazioni.
 
 ![GetLocalizedStringsTransformation](./media/string-transformations/get-localized-strings-transformation.png)
 
-Nell'esempio seguente vengono cercati l'oggetto, il corpo, il messaggio del codice e la firma del messaggio di posta elettronica dalle stringhe localizzate. Queste attestazioni vengono usate in seguito dal modello di verifica della posta elettronica personalizzato.
+L'esempio seguente cerca l'oggetto del messaggio di posta elettronica, il corpo, il messaggio di codice e la firma del messaggio di posta elettronica dalle stringhe localizzate. Queste attestazioni successivamente utilizzate dal modello di verifica della posta elettronica personalizzato.
 
-Definire le stringhe localizzate per la lingua inglese (impostazione predefinita) e per lo spagnolo.
+Definire stringhe localizzate per inglese (impostazione predefinita) e spagnolo.
 
 ```XML
 <Localization Enabled="true">
@@ -411,7 +411,7 @@ Definire le stringhe localizzate per la lingua inglese (impostazione predefinita
 </Localization>
 ```
 
-La trasformazione delle attestazioni imposta il valore dell' *oggetto* del tipo di attestazione con il valore della *email_subject*`StringId`.
+La trasformazione delle attestazioni imposta il valore `StringId` del tipo di attestazione *soggetto* con il valore del *email_subject*.
 
 ```XML
 <ClaimsTransformation Id="GetLocalizedStringsForEmail" TransformationMethod="GetLocalizedStringsTransformation">
@@ -427,10 +427,10 @@ La trasformazione delle attestazioni imposta il valore dell' *oggetto* del tipo 
 ### <a name="example"></a>Esempio
 
 - Attestazioni di output:
-  - **oggetto**: codice di verifica della posta elettronica dell'account contoso
-  - **messaggio**: Grazie per aver verificato l'account.
-  - **codeintro**: il codice è
-  - **firma**: cordiali saluti
+  - **oggetto**: Codice di verifica dell'e-mail dell'account Contoso
+  - **messaggio**: Grazie per aver verificato il tuo account!
+  - **codeIntro**: Il codice è
+  - **firma**: Sinceramente
 
 
 ## <a name="getmappedvaluefromlocalizedcollection"></a>GetMappedValueFromLocalizedCollection
@@ -474,7 +474,7 @@ La trasformazione di attestazioni esegue la ricerca del testo dell'elemento e ne
 - Attestazioni di input:
     - **mapFromClaim**: B2C_V1_90001
 - Attestazioni di output:
-    - **restrictionValueClaim**: non è possibile accedere perché si è minorenni.
+    - **restrictionValueClaim**: Non è possibile accedere perché si è minorenni.
 
 ## <a name="lookupvalue"></a>LookupValue
 
@@ -485,7 +485,7 @@ Esegue la ricerca di un valore di attestazione da un elenco di valori in base al
 | InputClaim | inputParameterId | string | Attestazione che contiene il valore di ricerca |
 | InputParameter | |string | Raccolta di elementi inputParameters. |
 | InputParameter | errorOnFailedLookup | boolean | Controlla se viene restituito un errore quando non esiste alcuna ricerca corrispondente. |
-| OutputClaim | inputParameterId | string | Elemento ClaimType generato dopo che è stata richiamata questa trasformazione di attestazioni. Valore della `Id`corrispondente. |
+| OutputClaim | inputParameterId | string | Elemento ClaimType generato dopo che è stata richiamata questa trasformazione di attestazioni. Valore dell'oggetto `Id`corrispondente. |
 
 L'esempio seguente cerca il nome di dominio in una delle raccolte inpuParameters. La trasformazione delle attestazioni esegue la ricerca del nome di dominio nell'identificatore e ne restituisce il valore (ID applicazione).
 
@@ -518,11 +518,11 @@ L'esempio seguente cerca il nome di dominio in una delle raccolte inpuParameters
 - Attestazioni di output:
     - **outputClaim**:  c7026f88-4299-4cdb-965d-3f166464b8a9
 
-Quando `errorOnFailedLookup` parametro di input è impostato su `true`, la trasformazione delle attestazioni **LookupValue** viene sempre eseguita da un [profilo tecnico di convalida](validation-technical-profile.md) chiamato da un [profilo tecnico autocertificato](self-asserted-technical-profile.md)o da un [DisplayConrtol](display-controls.md). I metadati `LookupNotFound` di un profilo tecnico autocertificato controllano il messaggio di errore visualizzato all'utente.
+Quando `errorOnFailedLookup` il parametro `true`di input è impostato su , la trasformazione delle attestazioni **LookupValue** viene sempre eseguita da un [profilo tecnico](validation-technical-profile.md) di convalida chiamato da un profilo [tecnico auto-asserito](self-asserted-technical-profile.md)o da un oggetto [DisplayConrtol](display-controls.md). I `LookupNotFound` metadati di un profilo tecnico auto-asserito controllano il messaggio di errore che viene presentato all'utente.
 
 ![Esecuzione di AssertStringClaimsAreEqual](./media/string-transformations/assert-execution.png)
 
-L'esempio seguente cerca il nome di dominio in una delle raccolte inpuParameters. La trasformazione delle attestazioni Cerca il nome di dominio nell'identificatore e ne restituisce il valore (ID applicazione) o genera un messaggio di errore.
+L'esempio seguente cerca il nome di dominio in una delle raccolte inpuParameters. La trasformazione delle attestazioni cerca il nome di dominio nell'identificatore e ne restituisce il valore (un ID applicazione) o genera un messaggio di errore.
 
 ```XML
  <ClaimsTransformation Id="DomainToClientId" TransformationMethod="LookupValue">
@@ -544,14 +544,14 @@ L'esempio seguente cerca il nome di dominio in una delle raccolte inpuParameters
 ### <a name="example"></a>Esempio
 
 - Attestazioni di input:
-    - **inputParameterId**: Live.com
+    - **inputParameterId**: live.com
 - Parametri di input:
     - **contoso.com**: 13c15f79-8fb1-4e29-a6c9-be0d36ff19f1
     - **microsoft.com**: 0213308f-17cb-4398-b97e-01da7bd4804e
     - **test.com**: c7026f88-4299-4cdb-965d-3f166464b8a9
     - **errorOnFailedLookup**: true
 - Errore:
-    - Non sono state trovate corrispondenze per il valore dell'attestazione di input nell'elenco di ID parametro di input e errorOnFailedLookup è true.
+    - Nessuna corrispondenza per il valore dell'attestazione di input nell'elenco di ID di parametro di input e errorOnFailedLookup è true.
 
 
 ## <a name="nullclaim"></a>NullClaim
@@ -562,7 +562,7 @@ Pulisce il valore di una determinata attestazione.
 | ---- | ----------------------- | --------- | ----- |
 | OutputClaim | claim_to_null | string | Il valore dell'attestazione è impostato su NULL. |
 
-Usare questa trasformazione attestazione per rimuovere i dati non necessari dal contenitore delle proprietà delle attestazioni, in modo che il cookie di sessione risulteranno inferiori. L'esempio seguente rimuove il valore del tipo di attestazione `TermsOfService`.
+Utilizzare questa trasformazione attestazione per rimuovere i dati non necessari dal contenitore delle proprietà delle attestazioni in modo che il cookie di sessione sarà più piccolo. L'esempio seguente rimuove il valore del tipo di attestazione `TermsOfService`.
 
 ```XML
 <ClaimsTransformation Id="SetTOSToNull" TransformationMethod="NullClaim">
@@ -602,21 +602,21 @@ Usare questa trasformazione di attestazioni per analizzare il nome di dominio do
 ### <a name="example"></a>Esempio
 
 - Attestazioni di input:
-  - **emailAddress**: joe@outlook.com
+  - **emailAddress**:joe@outlook.com
 - Attestazioni di output:
     - **domain**: outlook.com
 
-## <a name="setclaimsifregexmatch"></a>SetClaimsIfRegexMatch
+## <a name="setclaimsifregexmatch"></a>SetClaimsIfRegexMatchSetClaimsIfRegexMatch
 
-Verifica che un'attestazione di stringa `claimToMatch` e `matchTo` parametro di input siano uguali e imposta le attestazioni di output con il valore presente nel parametro `outputClaimIfMatched` input, insieme all'attestazione di output dei risultati di confronto, che deve essere impostata come `true` o `false` in base al risultato del confronto.
+Verifica `claimToMatch` che un'attestazione di stringa e `matchTo` un parametro di `outputClaimIfMatched` input siano uguali e imposta le attestazioni `true` di `false` output con il valore presente nel parametro di input, insieme all'attestazione dell'output dei risultati di confronto, che deve essere impostata come o in base al risultato del confronto.
 
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
 | inputClaim | claimToMatch | string | Tipo dell'attestazione di cui eseguire il confronto. |
-| InputParameter | matchTo | string | Espressione regolare di cui trovare una corrispondenza. |
+| InputParameter | matchTo | string | L'espressione regolare per cui cercare una corrispondenza. |
 | InputParameter | outputClaimIfMatched | string | Valore da impostare se le stringhe sono uguali. |
-| OutputClaim | outputClaim | string | Se l'espressione regolare corrisponde, l'attestazione di output contiene il valore del parametro di input `outputClaimIfMatched`. O null, se non è presente alcuna corrispondenza. |
-| OutputClaim | regexCompareResultClaim | boolean | Il tipo di attestazione di output del risultato della corrispondenza di espressione regolare, che deve essere impostato come `true` o `false` in base al risultato della corrispondenza. |
+| OutputClaim | outputClaim | string | Se l'espressione regolare corrisponde, questa `outputClaimIfMatched` attestazione di output contiene il valore del parametro di input. O null, se nessuna corrispondenza. |
+| OutputClaim | regexCompareResultClaim | boolean | Tipo di attestazione di output del risultato `true` `false` della corrispondenza dell'espressione regolare, che deve essere impostato come o in base al risultato della corrispondenza. |
 
 Ad esempio, controlla se il numero di telefono fornito è valido, in base al modello di espressione regolare del numero di telefono.
 
@@ -641,10 +641,10 @@ Ad esempio, controlla se il numero di telefono fornito è valido, in base al mod
 - Attestazioni di input:
     - **claimToMatch**: "64854114520"
 - Parametri di input:
-    - **matchTo**: "^ [0-9]{4,16}$"
-    - **outputClaimIfMatched**: "citofono"
+    - **matchTo**: "[0-9]{4,16}
+    - **outputClaimIfMatched**: "isPhone"
 - Attestazioni di output:
-    - **outputClaim**: "citofono"
+    - **outputClaim**: "isPhone"
     - **regexCompareResultClaim**: true
 
 ## <a name="setclaimsifstringsareequal"></a>SetClaimsIfStringsAreEqual
@@ -743,16 +743,16 @@ La trasformazione di attestazioni seguente, ad esempio, controlla se il valore d
 
 ## <a name="stringcontains"></a>StringContains
 
-Determinare se una sottostringa specificata si trova all'interno dell'attestazione di input. Il risultato è un nuovo elemento ClaimType booleano con il valore `true` o `false`. `true` se il parametro del valore si trova all'interno di questa stringa; in caso contrario, `false`.
+Determinare se una sottostringa specificata si trova all'interno dell'attestazione di input. Il risultato è un nuovo elemento ClaimType booleano con il valore `true` o `false`. `true`se il parametro value si `false`trova all'interno di questa stringa, in caso contrario, .
 
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim | string | Tipo di attestazione in cui eseguire la ricerca. |
+| InputClaim | inputClaim | string | Tipo di attestazione, che deve essere cercato. |
 |InputParameter|contains|string|Valore da cercare.|
-|InputParameter|ignoreCase|string|Specifica se il confronto deve ignorare la distinzione tra maiuscole e minuscole della stringa confrontata.|
-| OutputClaim | outputClaim | string | ClaimType generato dopo che è stata chiamata questa ClaimsTransformation. Indicatore Boolean se la sottostringa si trova all'interno dell'attestazione di input. |
+|InputParameter|ignoreCase|string|Specifica se questo confronto deve ignorare la distinzione tra maiuscole e minuscole della stringa confrontata.|
+| OutputClaim | outputClaim | string | ClaimType generato dopo che è stata chiamata questa ClaimsTransformation. Un indicatore booleano se la sottostringa si verifica all'interno dell'attestazione di input. |
 
-Usare questa trasformazione delle attestazioni per verificare se un tipo di attestazione stringa contiene una sottostringa. Nell'esempio seguente viene verificato se il tipo di attestazione stringa `roles` contiene il valore **admin**.
+Usare questa trasformazione delle attestazioni per verificare se un tipo di attestazione stringa contiene una sottostringa. Nell'esempio riportato `roles` di seguito viene verificato se il tipo di attestazione stringa contiene il valore di **admin**.
 
 ```XML
 <ClaimsTransformation Id="CheckIsAdmin" TransformationMethod="StringContains">
@@ -772,23 +772,23 @@ Usare questa trasformazione delle attestazioni per verificare se un tipo di atte
 ### <a name="example"></a>Esempio
 
 - Attestazioni di input:
-    - **attestazione**: "amministrazione, responsabile approvazione, editor"
+    - **inputClaim**: "Amministratore, responsabile approvazione, editor"
 - Parametri di input:
-    - **contiene**: "admin"
+    - **contiene**: "admin",
     - **ignoreCase**: true
 - Attestazioni di output:
     - **outputClaim**: true
 
-## <a name="stringsubstring"></a>Substring
+## <a name="stringsubstring"></a>Sottostringa String
 
-Estrae parti di un tipo di attestazione stringa, a partire dal carattere in corrispondenza della posizione specificata, e restituisce il numero di caratteri specificato.
+Estrae parti di un tipo di attestazione stringa, a partire dal carattere nella posizione specificata e restituisce il numero di caratteri specificato.
 
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | string | Tipo di attestazione, che contiene la stringa. |
 | InputParameter | startIndex | INT | Posizione iniziale in base zero del carattere di una sottostringa in questa istanza. |
 | InputParameter | length | INT | Numero di caratteri nella sottostringa. |
-| OutputClaim | outputClaim | boolean | Stringa equivalente alla sottostringa di lunghezza che inizia in corrispondenza di startIndex in questa istanza oppure Empty se startIndex è uguale alla lunghezza di questa istanza e la lunghezza è zero. |
+| OutputClaim | outputClaim | boolean | Stringa equivalente alla sottostringa di lunghezza che inizia in startIndex in questa istanza oppure Empty se startIndex è uguale alla lunghezza di questa istanza e length è zero. |
 
 Ad esempio, ottenere il prefisso del paese del numero di telefono.
 
@@ -810,25 +810,25 @@ Ad esempio, ottenere il prefisso del paese del numero di telefono.
 ### <a name="example"></a>Esempio
 
 - Attestazioni di input:
-    - **attestazione**: "+ 1644114520"
+    - **inputClaim**: "1644114520"
 - Parametri di input:
     - **startIndex**: 0
     - **lunghezza**: 2
 - Attestazioni di output:
-    - **outputClaim**: "+ 1"
+    - **outputClaim**: "1"
 
-## <a name="stringreplace"></a>StringReplace
+## <a name="stringreplace"></a>Sostituzione di stringheStringReplace
 
-Cerca un valore specificato in una stringa di tipo di attestazione e restituisce una nuova stringa del tipo di attestazione in cui tutte le occorrenze di una stringa specificata nella stringa corrente vengono sostituite con un'altra stringa specificata.
+Cerca un valore specificato in una stringa di tipo di attestazione e restituisce una nuova stringa di tipo di attestazione in cui tutte le occorrenze di una stringa specificata nella stringa corrente vengono sostituite con un'altra stringa specificata.
 
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | string | Tipo di attestazione, che contiene la stringa. |
-| InputParameter | oldValue | string | Stringa in cui eseguire la ricerca. |
-| InputParameter | newValue | string | Stringa per sostituire tutte le occorrenze di `oldValue` |
+| InputParameter | oldValue | string | Stringa da cercare. |
+| InputParameter | newValue | string | La stringa per sostituire tutte le occorrenze di`oldValue` |
 | OutputClaim | outputClaim | boolean | Stringa equivalente alla stringa corrente, ad eccezione del fatto che tutte le istanze di oldValue vengono sostituite con newValue. Se oldValue non viene trovato nell'istanza corrente, il metodo restituisce l'istanza corrente invariata. |
 
-Ad esempio, normalizzare un numero di telefono rimuovendo i caratteri `-`
+Ad esempio, normalizzare un numero di `-` telefono, rimuovendo i caratteri
 
 
 ```XML
@@ -848,24 +848,24 @@ Ad esempio, normalizzare un numero di telefono rimuovendo i caratteri `-`
 ### <a name="example"></a>Esempio
 
 - Attestazioni di input:
-    - **attestazione**: "+ 164-411-452-054"
+    - **inputClaim**: "164-411-452-054"
 - Parametri di input:
-    - **OldValue**: "-"
+    - **oldValue**: "-"
     - **lunghezza**: ""
 - Attestazioni di output:
-    - **outputClaim**: "+ 164411452054"
+    - **outputClaim**: "164411452054"
 
-## <a name="stringjoin"></a>StringJoin
+## <a name="stringjoin"></a>StringJoin (Connessione stringhe)
 
-Concatena gli elementi di un tipo di attestazione della raccolta di stringhe specificato, usando il separatore specificato tra ogni elemento o membro.
+Concatena gli elementi di un tipo di attestazione di raccolta di stringhe specificato, utilizzando il separatore specificato tra ogni elemento o membro.
 
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | stringCollection | Raccolta che contiene le stringhe da concatenare. |
-| InputParameter | delimiter | string | Stringa da utilizzare come separatore, ad esempio `,`virgola. |
-| OutputClaim | outputClaim | string | Stringa costituita dai membri della raccolta di stringhe `inputClaim`, delimitata dal parametro di input di `delimiter`. |
+| InputParameter | delimiter | string | Stringa da utilizzare come separatore, `,`ad esempio virgola . |
+| OutputClaim | outputClaim | string | Stringa costituita dai membri `inputClaim` della raccolta di stringhe, delimitati dal `delimiter` parametro di input. |
 
-L'esempio seguente accetta una raccolta di stringhe di ruoli utente e la converte in una stringa delimitatore virgola. È possibile utilizzare questo metodo per archiviare una raccolta di stringhe in Azure AD account utente. In seguito, quando l'account viene letto dalla directory, utilizzare il `StringSplit` per convertire la stringa delimitatore della virgola nella raccolta di stringhe.
+Nell'esempio seguente viene eseguita una raccolta di stringhe di ruoli utente e viene convertita in una stringa delimitatore virgola. È possibile usare questo metodo per archiviare una raccolta di stringhe nell'account utente di Azure AD. Successivamente, quando si legge l'account `StringSplit` dalla directory, utilizzare il per convertire la stringa delimitatore virgola di nuovo in raccolta di stringhe.
 
 ```XML
 <ClaimsTransformation Id="ConvertRolesStringCollectionToCommaDelimiterString" TransformationMethod="StringJoin">
@@ -884,24 +884,24 @@ L'esempio seguente accetta una raccolta di stringhe di ruoli utente e la convert
 ### <a name="example"></a>Esempio
 
 - Attestazioni di input:
-  - **attestazione**: ["admin", "Author", "Reader"]
+  - **inputClaim**: [ "Admin", "Author", "Reader" ]
 - Parametri di input:
   - **delimitatore**: ","
 - Attestazioni di output:
-  - **outputClaim**: "admin, Author, Reader"
+  - **outputClaim**: "Admin,Author,Reader"
 
 
-## <a name="stringsplit"></a>Split
+## <a name="stringsplit"></a>Stringa Divisa
 
 Restituisce una matrice di stringhe che contiene le sottostringhe in questa istanza delimitate da elementi di una stringa specificata.
 
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | string | Tipo di attestazione stringa che contiene le sottostringhe da dividere. |
-| InputParameter | delimiter | string | Stringa da utilizzare come separatore, ad esempio `,`virgola. |
-| OutputClaim | outputClaim | stringCollection | Raccolta di stringhe i cui elementi contengono le sottostringhe in questa stringa delimitate dal parametro di input `delimiter`. |
+| InputParameter | delimiter | string | Stringa da utilizzare come separatore, `,`ad esempio virgola . |
+| OutputClaim | outputClaim | stringCollection | Raccolta di stringhe i cui elementi contengono le sottostringhe in questa stringa delimitate dal `delimiter` parametro di input. |
 
-Nell'esempio seguente viene accettata una stringa delimitatore virgola di ruoli utente e viene convertita in una raccolta di stringhe.
+Nell'esempio seguente viene eseguito un delimitatore di virgola di ruoli utente e viene convertita in una raccolta di stringhe.
 
 ```XML
 <ClaimsTransformation Id="ConvertRolesToStringCollection" TransformationMethod="StringSplit">
@@ -920,17 +920,17 @@ Nell'esempio seguente viene accettata una stringa delimitatore virgola di ruoli 
 ### <a name="example"></a>Esempio
 
 - Attestazioni di input:
-  - **attestazione**: "admin, Author, Reader"
+  - **inputClaim**: "Admin,Author,Reader"
 - Parametri di input:
   - **delimitatore**: ","
 - Attestazioni di output:
-  - **outputClaim**: ["admin", "Author", "Reader"]
+  - **outputClaim**: [ "Admin", "Author", "Reader" ]
 
-## <a name="string-claim-transformations-expressions"></a>Espressioni di trasformazioni di attestazione stringa
-Le espressioni di trasformazioni delle attestazioni in Azure AD B2C criteri personalizzati forniscono informazioni di contesto sull'ID tenant e sull'ID profilo tecnico.
+## <a name="string-claim-transformations-expressions"></a>Espressioni di trasformazione attestazione stringaString claim transformations expressions
+Le espressioni di trasformazione delle attestazioni nei criteri personalizzati di Azure AD B2C forniscono informazioni sul contesto relative all'ID tenant e all'ID profilo tecnico.
 
   | Expression | Descrizione | Esempio |
  | ----- | ----------- | --------|
- | `{TechnicalProfileId}` | Nome profileId tecnico. | Facebook-OAUTH |
+ | `{TechnicalProfileId}` | Nome technical profileId. | Facebook-OAUTH |
  | `{RelyingPartyTenantId}` | ID del tenant dei criteri della relying party. | your-tenant.onmicrosoft.com |
  | `{TrustFrameworkTenantId}` | ID del tenant del framework attendibilità. | your-tenant.onmicrosoft.com |

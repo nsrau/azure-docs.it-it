@@ -1,17 +1,17 @@
 ---
-title: Sviluppo di applicazioni-database di Azure per MySQL
+title: Sviluppo di applicazioni - Database di Azure per MySQLApplication development - Azure Database for MySQL
 description: Introduce aspetti di progettazione che lo sviluppatore deve considerare quando scrive il codice dell'applicazione per la connessione al database di Azure per MySQL
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 74abf680223d562522a11ecb8999fedb37de9907
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: 02ce6b00b6555f849d162b9f3b381c0ab358d712
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770272"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79532842"
 ---
 # <a name="application-development-overview-for-azure-database-for-mysql"></a>Panoramica dello sviluppo di applicazioni per il database di Azure per MySQL 
 Questo articolo tratta alcuni aspetti di progettazione che lo sviluppatore deve considerare quando scrive il codice dell'applicazione per la connessione a Database di Azure per MySQL. 
@@ -30,7 +30,7 @@ Database di Azure per MySQL gestisce le risorse disponibili per un server usando
 - Governance delle risorse.
 - Imposizione di limiti.
 
-## <a name="security"></a>Sicurezza
+## <a name="security"></a>Security
 Database di Azure per MySQL fornisce risorse per limitare l'accesso, proteggere i dati, configurare gli utenti e i ruoli e monitorare le attività in un database MySQL.
 
 ## <a name="authentication"></a>Authentication

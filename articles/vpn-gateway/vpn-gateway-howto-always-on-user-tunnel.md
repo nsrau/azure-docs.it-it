@@ -1,19 +1,19 @@
 ---
-title: Configurare un tunnel utente VPN always on
+title: Configurare un tunnel utente VPN Always-On
 titleSuffix: Azure VPN Gateway
-description: Questo articolo descrive come configurare un tunnel utente VPN Always On per il gateway VPN
+description: In questo articolo viene descritto come configurare un tunnel utente VPN Always On per il gateway VPN
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.author: cherylmc
-ms.openlocfilehash: bf9dbd0cef19ad54ba6c3b58f2b9b3071b98bd93
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.openlocfilehash: 56934dd13661d8f623e673e2817e87618675c7ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "79370986"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79502268"
 ---
 # <a name="configure-an-always-on-vpn-user-tunnel"></a>Configurare un tunnel utente VPN Always On
 
@@ -21,13 +21,15 @@ ms.locfileid: "79370986"
 
 ## <a name="configure-the-gateway"></a>Configurare il gateway
 
- Usare le istruzioni riportate nell'articolo [configurare una connessione VPN da punto a sito](vpn-gateway-howto-point-to-site-resource-manager-portal.md) per configurare il gateway VPN per l'uso di IKEv2 e l'autenticazione basata sui certificati.
+ Utilizzare le istruzioni nell'articolo [Configurare una connessione VPN](vpn-gateway-howto-point-to-site-resource-manager-portal.md) da punto a sito per configurare il gateway VPN per l'utilizzo di IKEv2 e dell'autenticazione basata su certificati.
+
+## <a name="configure-a-user-tunnel"></a>Configurare un tunnel utente
 
 [!INCLUDE [user configuration](../../includes/vpn-gateway-vwan-always-on-user.md)]
 
 ## <a name="to-remove-a-profile"></a>Per rimuovere un profilo
 
-Per rimuovere un profilo, attenersi alla procedura seguente:
+Per rimuovere un profilo, attenersi alla seguente procedura:
 
 1. Eseguire il comando seguente:
 
@@ -35,10 +37,10 @@ Per rimuovere un profilo, attenersi alla procedura seguente:
    C:\> Remove-VpnConnection UserTest  
    ```
 
-1. Disconnettere la connessione e deselezionare la casella di controllo **Connetti automaticamente** .
+1. Scollegare la connessione e deselezionare la casella di controllo **Connetti automaticamente.**
 
    ![Pulizia](./media/vpn-gateway-howto-always-on-user-tunnel/disconnect.jpg)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per risolvere i problemi di connessione che possono verificarsi, vedere [problemi di connessione da punto a sito di Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).
+Per risolvere eventuali problemi di connessione che potrebbero verificarsi, vedere Problemi di connessione da punto ad sito di [Azure.](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)

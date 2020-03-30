@@ -1,18 +1,18 @@
 ---
-title: Usare portale di Azure per distribuire l'app del catalogo di servizi
+title: Usare il portale di Azure per distribuire l'app del catalogo dei serviziUse Azure portal to deploy service catalog app
 description: Viene mostrato ai consumer di applicazioni gestite come distribuire un'app del catalogo di servizi tramite il portale di Azure.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3fa9709e096e908907772c940fc5e2f2895b7eb3
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 9a69296ddfc93fd7e8a6650df91876829631f5d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75650786"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79473065"
 ---
-# <a name="deploy-service-catalog-app-through-azure-portal"></a>Distribuire un'app del catalogo di servizi tramite il portale di Azure
+# <a name="quickstart-deploy-service-catalog-app-through-azure-portal"></a>Guida introduttiva: Distribuire l'app del catalogo dei servizi tramite il portale di AzureQuickstart: Deploy service catalog app through Azure portal
 
 Nella [precedente guida introduttiva](publish-managed-app-definition-quickstart.md), è stata pubblicata una definizione di applicazione gestita. In questa guida introduttiva viene creata un'app del catalogo di servizi a partire dalla stessa definizione.
 
@@ -28,15 +28,15 @@ Nel portale di Azure, attenersi alla procedura seguente:
 
    ![Cercare un'applicazione del catalogo di servizi](./media/deploy-service-catalog-quickstart/select-service-catalog.png)
 
-1. Viene visualizzata una descrizione del servizio di applicazione gestita. Selezionare **Create** (Crea).
+1. Viene visualizzata una descrizione del servizio di applicazione gestita. Selezionare **Crea**.
 
    ![Selezionare Crea](./media/deploy-service-catalog-quickstart/create-service-catalog.png)
 
-1. Il portale mostra le definizioni di applicazione gestita che è possibile usare. Tra le definizioni disponibili, selezionare quella che si desidera distribuire. In questa Guida introduttiva, usare la definizione di **account di archiviazione gestito** creata nella guida introduttiva precedente. Selezionare **Create** (Crea).
+1. Il portale mostra le definizioni di applicazione gestita che è possibile usare. Tra le definizioni disponibili, selezionare quella che si desidera distribuire. In questa Guida introduttiva, usare la definizione di **account di archiviazione gestito** creata nella guida introduttiva precedente. Selezionare **Crea**.
 
    ![Selezionare la definizione da distribuire](./media/deploy-service-catalog-quickstart/select-definition.png)
 
-1. Specificare i valori per la scheda **nozioni di base** . Selezionare la sottoscrizione di Azure in cui distribuire l'applicazione del catalogo di servizi. Creare un nuovo gruppo di risorse denominato **applicationGroup**. Selezionare una posizione per l'app. Al termine selezionare **OK**.
+1. Specificare i valori per la scheda **Nozioni di base.** Selezionare la sottoscrizione di Azure in cui distribuire l'app del catalogo dei servizi. Creare un nuovo gruppo di risorse denominato **applicationGroup**. Selezionare una posizione per l'app. Al termine selezionare **OK**.
 
    ![Specificare i valori di base](./media/deploy-service-catalog-quickstart/provide-basics.png)
 
@@ -54,7 +54,7 @@ A seguito della distribuzione dell'app del catalogo di servizi, si dispone di du
 
 1. Visualizzare il gruppo di risorse denominato **applicationGroup** per visualizzare l'app del catalogo di servizi.
 
-   ![Visualizza l'applicazione](./media/deploy-service-catalog-quickstart/view-managed-application.png)
+   ![Visualizza applicazione](./media/deploy-service-catalog-quickstart/view-managed-application.png)
 
 1. Visualizzare il gruppo di risorse denominato **applicationGroup{hash-characters}** per vedere le risorse per l'app del catalogo di servizi.
 

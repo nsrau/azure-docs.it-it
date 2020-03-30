@@ -1,19 +1,18 @@
 ---
-title: Impostazioni di supporto per un'immagine di contenitori di Azure | Azure Marketplace
+title: Impostazioni di supporto per un'immagine di Azure Containers Azure Marketplace
 description: Configurare le impostazioni di assistenza per un contenitore di Azure.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.author: pabutler
-ms.openlocfilehash: 144512683e6afa643639ba12b071e2a3ed7e01bd
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 8124828c565f344387ae946a1fa6e61a84675b81
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823097"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80279964"
 ---
 # <a name="container-support-tab"></a>Scheda dell'assistenza sul contenitore
 
@@ -29,18 +28,18 @@ Fornire le informazioni necessarie per i campi Engineering Contact (Contatto tec
 
 Si tratta del contatto tecnico tra l'organizzazione e Microsoft. I campi obbligatori sono indicati da un asterisco (*).
 
-- **Nome\*** : nome della persona o del gruppo che funge da supporto tecnico/tecnico.
-- Indirizzo di posta elettronica **\*** di questo contatto tecnico.
-- **Telefono\*** -numero di telefono per il supporto tecnico.
+- **Nome:\* ** nome della persona o del gruppo che funge da supporto tecnico/ingegneristico.
+- **Email\* ** - Indirizzo e-mail di questo contatto tecnico.
+- **Telefono\* ** - Numero di telefono per il supporto tecnico.
 
 
 ### <a name="customer-support"></a>Customer support (Assistenza clienti)
 
 Il contatto per l'assistenza ai clienti riceve i ticket di supporto aperti dai clienti all'interno di Azure.  I campi obbligatori sono indicati da un asterisco (*).
 
-- **Nome\*** : nome della persona o del gruppo che funge da supporto tecnico.
-- **Email\*** : indirizzo di posta elettronica del contatto del supporto tecnico.
-- **Telefono\*** -numero di telefono per il supporto tecnico.
+- **Nome:\* ** nome della persona o del gruppo che funge da supporto clienti.
+- **E-mail\* ** - Indirizzo e-mail di questo contatto di supporto.
+- **Telefono\* ** - Numero di telefono per l'assistenza clienti.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

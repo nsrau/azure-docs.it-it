@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/07/2019
 ms.openlocfilehash: 1d684957939c5cb83aae05962c1694f7a8d8da23
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79272396"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>Gestire i cluster HDInsight mediante l'API REST Apache Ambari
@@ -21,37 +21,37 @@ ms.locfileid: "79272396"
 
 Informazioni sull'uso dell'API REST Apache Ambari per gestire e monitorare i cluster Apache Hadoop in Azure HDInsight.
 
-## <a id="whatis"></a>Che cos'è Apache Ambari?
+## <a name="what-is-apache-ambari"></a><a id="whatis"></a>Cos'è Apache Ambari
 
-[Apache Ambari](https://ambari.apache.org) semplifica la gestione e il monitoraggio dei cluster Hadoop fornendo un'interfaccia utente Web semplice da usare supportata dalle [API REST](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).  Ambari viene fornito per impostazione predefinita con i cluster HDInsight basati su Linux.
+[Apache Ambari](https://ambari.apache.org) semplifica la gestione e il monitoraggio dei cluster Hadoop fornendo un'interfaccia utente Web di facile utilizzo supportata dalle [API REST.](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)  Ambari viene fornito per impostazione predefinita con i cluster HDInsight basati su Linux.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
-* **Un cluster Hadoop in HDInsight**. Vedere [Guida introduttiva: Introduzione ad Apache Hadoop e Apache Hive in Azure HDInsight usando il modello di Resource Manager](hadoop/apache-hadoop-linux-tutorial-get-started.md).
+* **Un cluster Hadoop in HDInsight**. Vedere [Introduzione a HDInsight su Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
-* **Bash in Ubuntu in Windows 10**.  Negli esempi di questo articolo si usa la shell Bash in Windows 10. Per la procedura di installazione, vedere [Guida all'installazione del sottosistema Windows per Linux per Windows 10](https://docs.microsoft.com/windows/wsl/install-win10).  Funzionano anche altre [shell Unix](https://www.gnu.org/software/bash/).  Gli esempi, con alcune piccole modifiche, possono funzionare in un prompt dei comandi di Windows.  In alternativa, è possibile usare Windows PowerShell.
+* **Bash su Ubuntu su Windows 10**.  Negli esempi di questo articolo si usa la shell Bash in Windows 10. Per la procedura di installazione, vedere [Guida all'installazione del sottosistema Windows per Linux per Windows 10](https://docs.microsoft.com/windows/wsl/install-win10).  Funzionano anche altre [shell Unix](https://www.gnu.org/software/bash/).  Gli esempi, con alcune lievi modifiche, possono funzionare su un prompt dei comandi di Windows.The examples, with some slight modifications, can work on a Windows Command prompt.  In alternativa, è possibile utilizzare Windows PowerShell.Alternatively, you can use Windows PowerShell.
 
-* **JQ**, un processore JSON da riga di comando.  Vedere [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/).
+* **jq**, un processore JSON della riga di comando.  Vedere [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/).
 
-* **Windows PowerShell**.  In alternativa, è possibile usare [bash](https://www.gnu.org/software/bash/).
+* **Windows PowerShell**.  In alternativa, è possibile utilizzare [Bash](https://www.gnu.org/software/bash/).
 
 ## <a name="base-uri-for-ambari-rest-api"></a>URI di base per l'API REST Ambari
 
- Il Uniform Resource Identifier di base (URI) per l'API REST Ambari in HDInsight è `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME`, dove `CLUSTERNAME` è il nome del cluster.  I nomi dei cluster negli URI fanno **distinzione tra maiuscole e**minuscole.  Mentre il nome del cluster nella parte relativa al nome di dominio completo (FQDN) dell'URI (`CLUSTERNAME.azurehdinsight.net`) non fa distinzione tra maiuscole e minuscole, altre occorrenze nell'URI fanno distinzione tra maiuscole e minuscole.
+ L'URI (Uniform Resource Identifier) di base per l'API REST Ambari in HDInsight è `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME`, dove `CLUSTERNAME` è il nome del cluster.  Per i nomi dei cluster negli URI viene fatta **distinzione tra maiuscole e minuscole.**  Mentre il nome del cluster nella parte del nome di`CLUSTERNAME.azurehdinsight.net`dominio completo (FQDN) dell'URI ( ) non fa distinzione tra maiuscole e minuscole, tra le altre occorrenze nell'URI viene fatta distinzione tra maiuscole e minuscole.
 
 ## <a name="authentication"></a>Authentication
 
 La connessione ad Ambari su HDInsight richiede HTTPS. Usare il nome dell'account amministratore (il valore predefinito è **admin**) e la password forniti durante la creazione del cluster.
 
-Per i cluster Enterprise Security Package, anziché `admin`, usare un nome utente completo, ad esempio `username@domain.onmicrosoft.com`.
+Per i cluster Enterprise Security `admin`Package, anziché `username@domain.onmicrosoft.com`, utilizzare un nome utente completo come .
 
 ## <a name="examples"></a>Esempi
 
-### <a name="setup-preserve-credentials"></a>Impostazione (Mantieni credenziali)
-Mantenere le credenziali per evitare di immetterle nuovamente per ciascun esempio.  Il nome del cluster verrà mantenuto in un passaggio separato.
+### <a name="setup-preserve-credentials"></a>Installazione (Mantieni credenziali)
+Conservare le credenziali per evitare di reimmetterle per ogni esempio.  Il nome del cluster verrà mantenuto in un passaggio separato.
 
-**A. bash**  
-Modificare lo script seguente sostituendo `PASSWORD` con la password effettiva.  Immettere quindi il comando.
+**A. Bash**  
+Modificare lo script riportato di seguito sostituendolo `PASSWORD` con la password effettiva.  Quindi immettere il comando.
 
 ```bash
 export password='PASSWORD'
@@ -63,10 +63,10 @@ export password='PASSWORD'
 $creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
 ```
 
-### <a name="identify-correctly-cased-cluster-name"></a>Identificare il nome corretto del cluster con maiuscole/minuscole
-L'uso effettivo di maiuscole e minuscole nel nome del cluster può differire dal previsto, a seconda della modalità di creazione del cluster.  I passaggi qui illustrano la combinazione di maiuscole e minuscole e quindi lo archiviano in una variabile per tutti gli esempi successivi.
+### <a name="identify-correctly-cased-cluster-name"></a>Identificare il nome del cluster con maiuscole e minuscole correttoIdentify correctly cased cluster name
+L'uso effettivo di maiuscole e minuscole nel nome del cluster può differire dal previsto, a seconda della modalità di creazione del cluster.  I passaggi qui mostreranno la combinazione di maiuscole e minuscole effettiva e quindi lo memorizzeranno in una variabile per tutti gli esempi successivi.
 
-Modificare gli script riportati di seguito per sostituire `CLUSTERNAME` con il nome del cluster. Immettere quindi il comando. (Il nome del cluster per il nome di dominio completo non fa distinzione tra maiuscole e minuscole).
+Modificare gli script `CLUSTERNAME` seguenti per sostituirli con il nome del cluster. Quindi immettere il comando. Il nome del cluster per il nome di dominio completo non fa distinzione tra maiuscole e minuscole.
 
 ```bash
 export clusterName=$(curl -u admin:$password -sS -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
@@ -85,7 +85,7 @@ $clusterName
 
 ### <a name="parsing-json-data"></a>Analisi dei dati JSON
 
-Nell'esempio seguente viene usato [JQ](https://stedolan.github.io/jq/) o [ConvertFrom-JSON](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/convertfrom-json) per analizzare il documento di risposta JSON e visualizzare solo le informazioni `health_report` dai risultati.
+L'esempio seguente usa [jq](https://stedolan.github.io/jq/) o [ConvertFrom-Json](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/convertfrom-json) per analizzare il documento di risposta JSON e visualizzare solo le `health_report` informazioni dei risultati.
 
 ```bash
 curl -u admin:$password -sS -G "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName" \
@@ -99,7 +99,7 @@ $respObj = ConvertFrom-Json $resp.Content
 $respObj.Clusters.health_report
 ```
 
-### <a name="example-get-the-fqdn-of-cluster-nodes"></a>Ottenere il nome di dominio completo dei nodi del cluster
+### <a name="get-the-fqdn-of-cluster-nodes"></a><a name="example-get-the-fqdn-of-cluster-nodes"></a>Ottenere il nome di dominio completo dei nodi del clusterGet the FQDN of cluster nodes
 
 Quando si usa HDInsight, potrebbe essere necessario conoscere il nome di dominio completo di un nodo del cluster. È possibile recuperare con facilità l'FQDN per i diversi nodi del cluster usando gli esempi seguenti:
 
@@ -117,7 +117,7 @@ $respObj = ConvertFrom-Json $resp.Content
 $respObj.items.Hosts.host_name
 ```
 
-**Nodi head**  
+**Nodi testa**  
 
 ```bash
 curl -u admin:$password -sS -G "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/HDFS/components/NAMENODE" \
@@ -145,7 +145,7 @@ $respObj = ConvertFrom-Json $resp.Content
 $respObj.host_components.HostRoles.host_name
 ```
 
-**Nodi Zookeeper**
+**Nodi zookeeper**
 
 ```bash
 curl -u admin:$password -sS -G "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" \
@@ -159,11 +159,11 @@ $respObj = ConvertFrom-Json $resp.Content
 $respObj.host_components.HostRoles.host_name
 ```
 
-### <a name="example-get-the-internal-ip-address-of-cluster-nodes"></a>Ottenere l'indirizzo IP interno dei nodi del cluster
+### <a name="get-the-internal-ip-address-of-cluster-nodes"></a><a name="example-get-the-internal-ip-address-of-cluster-nodes"></a>Ottenere l'indirizzo IP interno dei nodi del clusterGet the internal IP address of cluster nodes
 
 Gli indirizzi IP restituiti dagli esempi in questa sezione non sono direttamente accessibili tramite Internet. Sono accessibili solo all'interno della rete virtuale di Azure che contiene il cluster HDInsight.
 
-Per altre informazioni sull'uso di HDInsight e delle reti virtuali, vedere [pianificare una rete virtuale per HDInsight](hdinsight-plan-virtual-network-deployment.md).
+Per altre informazioni sull'uso di HDInsight e delle reti virtuali, vedere [Pianificare una rete virtuale per HDInsight.For](hdinsight-plan-virtual-network-deployment.md)more information on working with HDInsight and virtual networks, see Plan a virtual network for HDInsight .
 
 Per trovare l'indirizzo IP, è necessario conoscere il nome di dominio completo (FQDN) interno dei nodi del cluster. Quando è stato ottenuto l'FQDN è possibile ottenere l'indirizzo IP dell'host. Negli esempi seguenti per prima cosa viene effettuata una query in Ambari per ottenere l'FQDN di tutti i nodi host, poi viene effettuata un'altra query in Ambari per ottenere l'indirizzo IP di ogni host.
 
@@ -253,7 +253,7 @@ Il valore restituito è simile a uno degli esempi seguenti:
 > [!NOTE]  
 > Il cmdlet [Get-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightcluster) fornito da [Azure PowerShell](/powershell/azure/overview) restituisce anche le informazioni di archiviazione per il cluster.
 
-### <a name="get-all-configurations"></a>Ottenere tutte le configurazioni
+### <a name="get-all-configurations"></a><a name="get-all-configurations"></a>Ottieni tutte le configurazioni
 
 Consente di ottenere le configurazioni disponibili per il cluster.
 
@@ -284,7 +284,7 @@ L'esempio restituisce un documento JSON contenente la configurazione corrente, i
 },
 ```
 
-### <a name="get-configuration-for-specific-component"></a>Ottenere la configurazione per un componente specifico
+### <a name="get-configuration-for-specific-component"></a>Ottenere la configurazione per un componente specificoGet configuration for specific component
 
 Consente di ottenere la configurazione del componente a cui si è interessati. Nell'esempio seguente, sostituire `INITIAL` con il valore del tag restituito dalla richiesta precedente.
 
@@ -303,19 +303,19 @@ Questo esempio restituisce un documento JSON che contiene la configurazione corr
 ### <a name="update-configuration"></a>Aggiornare la configurazione
 
 1. Creare `newconfig.json`.  
-   Modificare, quindi immettere i comandi seguenti:
+   Modifica, quindi immettere i comandi seguenti:
 
    * Sostituire `livy2-conf` con il componente desiderato.
-   * Sostituire `INITIAL` con il valore effettivo recuperato per `tag` da [Get All Configurations](#get-all-configurations).
+   * Sostituire `INITIAL` con il `tag` valore effettivo recuperato per da [Recupera tutte le configurazioni](#get-all-configurations).
 
-     **A. bash**  
+     **A. Bash**  
      ```bash
      curl -u admin:$password -sS -G "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/configurations?type=livy2-conf&tag=INITIAL" \
      | jq --arg newtag $(echo version$(date +%s%N)) '.items[] | del(.href, .version, .Config) | .tag |= $newtag | {"Clusters": {"desired_config": .}}' > newconfig.json
      ```
 
      **B. PowerShell**  
-     Lo script di PowerShell usa [JQ](https://stedolan.github.io/jq/).  Modificare `C:\HD\jq\jq-win64` di seguito per riflettere il percorso e la versione effettivi di [JQ](https://stedolan.github.io/jq/).
+     Lo script di PowerShell utilizza [jq](https://stedolan.github.io/jq/).  Modifica `C:\HD\jq\jq-win64` di seguito per riflettere il percorso effettivo e la versione di [jq](https://stedolan.github.io/jq/).
 
      ```powershell
      $epoch = Get-Date -Year 1970 -Month 1 -Day 1 -Hour 0 -Minute 0 -Second 0
@@ -388,7 +388,7 @@ Questo esempio restituisce un documento JSON che contiene la configurazione corr
 
 A questo punto, se si osserva l'interfaccia utente di Ambari Web, il servizio Spark indicherà che è necessario il riavvio per rendere effettiva la nuova configurazione. Usare la procedura seguente per riavviare il servizio.
 
-1. Usare il comando seguente per abilitare la modalità di manutenzione per il servizio Spark2:
+1. Utilizzare quanto segue per abilitare la modalità di manutenzione per il servizio Spark2:
 
     ```bash
     curl -u admin:$password -sS -H "X-Requested-By: ambari" \
@@ -423,7 +423,7 @@ A questo punto, se si osserva l'interfaccia utente di Ambari Web, il servizio Sp
 
     Viene restituito il valore `ON`.
 
-3. Usare quindi il comando seguente per disattivare il servizio Spark2:
+3. Successivamente, utilizzare quanto segue per disattivare il servizio Spark2:Next, use the following to turn off the Spark2 service:
 
     ```bash
     curl -u admin:$password -sS -H "X-Requested-By: ambari" \
@@ -453,10 +453,10 @@ A questo punto, se si osserva l'interfaccia utente di Ambari Web, il servizio Sp
     ```
 
     > [!IMPORTANT]  
-    > Il valore `href` restituito dall'URI usa l'indirizzo IP interno del nodo del cluster. Per usarlo dall'esterno del cluster, sostituire il `10.0.0.18:8080` parte con il nome di dominio completo del cluster.  
+    > Il valore `href` restituito dall'URI usa l'indirizzo IP interno del nodo del cluster. Per utilizzarlo dall'esterno del `10.0.0.18:8080` cluster, sostituire la parte con il nome di dominio completo del cluster.  
 
 4. Verificare la richiesta.  
-    Modificare il comando seguente sostituendo `29` con il valore effettivo per `id` restituito dal passaggio precedente.  Il comando seguente recupera lo stato della richiesta:
+    Modificare il comando seguente `29` sostituendo con `id` il valore effettivo restituito dal passaggio precedente.  Il comando seguente recupera lo stato della richiesta:
 
     ```bash
     curl -u admin:$password -sS -H "X-Requested-By: ambari" \
@@ -473,7 +473,7 @@ A questo punto, se si osserva l'interfaccia utente di Ambari Web, il servizio Sp
 
     La risposta `COMPLETED` indica che la richiesta è stata completata.
 
-5. Una volta completata la richiesta precedente, usare il comando seguente per avviare il servizio Spark2.
+5. Al termine della richiesta precedente, utilizzare quanto segue per avviare il servizio Spark2.
 
     ```bash
     curl -u admin:$password -sS -H "X-Requested-By: ambari" \
@@ -510,4 +510,4 @@ A questo punto, se si osserva l'interfaccia utente di Ambari Web, il servizio Sp
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni tecniche complete sull'API REST, vedere la pagina relativa alle [informazioni di riferimento per l'API Apache Ambari V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).  Vedere anche [autorizzare gli utenti per le viste di Apache Ambari](./hdinsight-authorize-users-to-ambari.md)
+Per informazioni tecniche complete sull'API REST, vedere la pagina relativa alle [informazioni di riferimento per l'API Apache Ambari V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).  Vedi anche [Autorizzare gli utenti per le viste Apache Ambari](./hdinsight-authorize-users-to-ambari.md)

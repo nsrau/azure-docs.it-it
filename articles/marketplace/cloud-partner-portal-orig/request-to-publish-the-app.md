@@ -1,20 +1,18 @@
 ---
 title: Richiesta di pubblicazione dell'applicazione
-description: .
-services: Azure, Marketplace, Cloud Partner Portal,
-author: pbutlerm
-manager: Ricardo.Villalobos
+description: Informazioni sulla pubblicazione di app nel marketplace del Centro per i partner.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: 9558e7684fa8ab742319890940800da85daa1706
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: bbe829314358b42b52db51d65b3e76d438eb1f87
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73814745"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80285419"
 ---
 # <a name="request-to-publish-the-app"></a>Richiedere di pubblicare l'app
 

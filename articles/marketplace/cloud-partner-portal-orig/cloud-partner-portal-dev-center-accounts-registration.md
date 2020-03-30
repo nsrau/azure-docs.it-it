@@ -1,19 +1,18 @@
 ---
-title: Creare un account per sviluppatore Microsoft | Azure Marketplace
+title: Creazione di un account per sviluppatori Microsoft Azure Marketplace
 description: Requisiti e procedure per la creazione di un account di Microsoft Developer.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: 522caa53123ad5ccb8076839d2dfa7dc1236b022
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 161abde1ef0dfd86842fb56afe699fa632e0d9ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818416"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280372"
 ---
 <a name="create-a-microsoft-developer-account"></a>Creare un account di Microsoft Developer
 ====================================
@@ -22,7 +21,7 @@ Questo articolo descrive come diventare uno sviluppatore Microsoft approvato per
 
 ## <a name="create-a-microsoft-account"></a>Creare un account Microsoft
 
-Per avviare il processo di pubblicazione, è necessario completare il processo di registrazione nel **Microsoft Developer Center**. Per iniziare il processo di pubblicazione, si userà lo stesso account registrato nel **[portale Cloud Partner](https://cloudpartner.azure.com/)** .
+Per avviare il processo di pubblicazione, è necessario completare il processo di registrazione nel **Microsoft Developer Center**. Per iniziare il processo di pubblicazione, si userà lo stesso account registrato nel **[portale Cloud Partner](https://cloudpartner.azure.com/)**.
 
 ### <a name="general-account-guidelines"></a>Linee guida per gli account generici
 
@@ -100,7 +99,7 @@ Microsoft Developer Center viene usato per registrare le informazioni della soci
    ![Selezionare un paese o un'area geografica](./media/cloud-partner-portal-create-dev-center-registration/imgRegisterCo_04.png)
 
     >[!WARNING]
-    >Paesi/aree di vendita: per vendere i servizi in Azure Marketplace, è necessario che l'entità registrata si trovi in uno dei paesi o delle aree di vendita approvate visualizzate nell'elenco a discesa. Questa limitazione viene applicata per motivi legati ai proventi e alla tassazione. Per altre informazioni, vedere i criteri di partecipazione a Microsoft Azure Marketplace.
+    >Paesi/aree geografiche "Origine vendita": per vendere i servizi in Azure Marketplace, l'entità registrata deve provenire da uno dei paesi/aree di origine della vendita approvati visualizzati nell'elenco a discesa. Questa limitazione viene applicata per motivi legati ai proventi e alla tassazione. Per altre informazioni, vedere i criteri di partecipazione a Microsoft Azure Marketplace.
 
 5. Selezionare **Società** come "Tipo di account" e quindi selezionare **Avanti**.
 
@@ -163,7 +162,7 @@ Per poter pubblicare offerte commerciali per l'acquisto, è necessario aggiunger
     >
     >La modifica dell'account per il pagamento può ritardare i pagamenti per un massimo di un ciclo di pagamento. Questo ritardo si verifica perché è necessario verificare la modifica dell'account, come è stato fatto per la configurazione iniziale dell'account di pagamento. Dopo aver verificato l'account, verrà comunque pagato per l'intero importo. Ii pagamenti in scadenza per il ciclo pagamento corrente saranno aggiunti a quello successivo.
 
-4.  Selezionare **Avanti**.
+4.  Fare clic su **Avanti**.
 
 **Per aggiungere le informazioni fiscali**
 
@@ -172,7 +171,7 @@ Per poter pubblicare offerte commerciali per l'acquisto, è necessario aggiunger
 3.  Nella pagina **Configura modulo per la tassazione**:
     - Selezionare il paese o la regione in cui si ha la residenza permanente.
     - Selezionare il paese o regione di cui si ha la cittadinanza principale.
-    - Selezionare **Avanti**.
+    - Fare clic su **Avanti**.
 4.  Immettere i dettagli fiscali e quindi selezionare **Avanti**.
 
 >[!WARNING]
@@ -182,7 +181,7 @@ Per poter pubblicare offerte commerciali per l'acquisto, è necessario aggiunger
 
 In caso di problemi con la registrazione in Developer Center, inoltrare una richiesta di assistenza.
 
-1.  Andare al [Supporto per gli sviluppatori](https://developer.microsoft.com/windows/support).
+1.  Accedere al collegamento di [supporto](https://developer.microsoft.com/windows/support).
 2.  In **Contattaci** selezionare il pulsante **Invia una richiesta di assistenza**.
     ![Aprire una richiesta](./media/cloud-partner-portal-create-dev-center-registration/imgAddTax_02.png)
 3.  Selezionare "Help with Dev Center" (Problema con Dev Center) come **Tipo di problema** e selezionare "Publish and manage apps" (Gestione e pubblicazione applicazioni) come **Categoria**. Selezionare **Avvia una richiesta di assistenza**.

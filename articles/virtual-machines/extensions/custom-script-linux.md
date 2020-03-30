@@ -1,5 +1,5 @@
 ---
-title: Eseguire script personalizzati nelle macchine virtuali Linux in Azure
+title: Eseguire script personalizzati nelle macchine virtuali Linux in AzureRun custom scripts on Linux VMs in Azure
 description: Automatizzare le attività di configurazione delle macchine virtuali Linux usando l'estensione per script personalizzati v2
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: mimckitt
-ms.openlocfilehash: 9a53cae61e48a8d0aa19b138d4084ca257ea705b
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.openlocfilehash: b75b232c048a1ea49256b12ce1b65c4bd87a1cf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79299244"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79535443"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Usare l'estensione per script personalizzati di Azure versione 2 con macchine virtuali Linux
 L'estensione per script personalizzati versione 2 scarica ed esegue script nelle macchine virtuali di Azure. Questa estensione è utile per la configurazione post-distribuzione, l'installazione di software o altre attività di configurazione o gestione. È possibile scaricare gli script da Archiviazione di Azure, o da un altro percorso Internet accessibile, oppure è possibile fornirli al runtime dell'estensione. 
@@ -38,7 +38,7 @@ Modificare le distribuzioni nuove ed esistenti per usare la nuova versione 2. La
 
 ### <a name="operating-system"></a>Sistema operativo
 
-L'estensione per script personalizzati di Linux verrà eseguita sui sistemi operativi supportati dall'estensione. Per altre informazioni, vedere questo [articolo](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
+L'estensione Script personalizzato per Linux verrà eseguito sull'estensione supportata OS, per ulteriori informazioni, vedere questo [articolo](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
 
 ### <a name="script-location"></a>Percorso dello script
 
@@ -49,19 +49,19 @@ Se è necessario scaricare uno script esternamente, ad esempio da GitHub o Archi
 
 Se lo script è in un server locale, può essere necessario aprire porte aggiuntive per il firewall o il gruppo di sicurezza di rete.
 
-### <a name="tips-and-tricks"></a>Suggerimenti
+### <a name="tips-and-tricks"></a>Suggerimenti e consigli
 * La percentuale di errori più elevata per questa estensione è dovuta a errori di sintassi nello script. Verificare che lo script venga eseguito senza errori e inserire nello script altre opzioni di registrazione, per trovare più facilmente i punti che causano errori.
 * Scrivere script idempotenti in modo che, se per errore vengono eseguiti più di una volta, non siano apportate modifiche al sistema.
 * Verificare che gli script non richiedano l'input dell'utente durante l'esecuzione.
 * Il tempo massimo consentito per l'esecuzione dello script è pari a 90 minuti. Tempi superiori comportano un errore di provisioning dell'estensione.
 * Non inserire riavvii all'interno dello script, altrimenti si verificheranno problemi con le altre estensioni in fase di installazione e, dopo il riavvio, l'estensione non riprenderà a funzionare. 
-* Se si dispone di uno script che determinerà un riavvio, installare le applicazioni ed eseguire gli script e così via. È necessario pianificare il riavvio usando un processo cron o usando strumenti come DSC o chef, estensioni Puppet.
-* L'estensione eseguirà lo script una sola volta. Se si vuole eseguire uno script a ogni avvio, è necessario usare un'[immagine abilitata per cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init) e un modulo [Scripts Per Boot](https://cloudinit.readthedocs.io/en/latest/topics/modules.html#scripts-per-boot). In alternativa, è possibile usare lo script per creare un'unità di servizio systemd.
+* Se si dispone di uno script che causerà un riavvio, quindi installare le applicazioni ed eseguire gli script, ecc. È consigliabile pianificare il riavvio utilizzando un processo Cron o utilizzando strumenti quali DSC o le estensioni Chef.
+* L'estensione eseguirà lo script una sola volta. Se si vuole eseguire uno script a ogni avvio, è necessario usare un'[immagine abilitata per cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init) e un modulo [Scripts Per Boot](https://cloudinit.readthedocs.io/en/latest/topics/modules.html#scripts-per-boot). In alternativa, è possibile utilizzare lo script per creare un'unità di servizio SystemD.
 * Se si vuole pianificare il momento di esecuzione di uno script, usare l'estensione per creare un processo Cron. 
 * Durante l'esecuzione dello script, l'unica indicazione presente nell'interfaccia della riga di comando o nel portale di Azure sarà lo stato dell'estensione "Transizione in corso". Se si vogliono aggiornamenti più frequenti sullo stato di uno script in esecuzione, è necessario creare una soluzione personalizzata.
-* L'estensione per script personalizzati non supporta in modo nativo i server proxy, ma è possibile usare uno strumento di trasferimento file che supporti i server proxy all'interno dello script, ad esempio *Curl*. 
+* L'estensione Script personalizzato non supporta in modo nativo i server proxy, tuttavia è possibile utilizzare uno strumento di trasferimento file che supporta i server proxy all'interno dello script, ad esempio *Curl*. 
 * Tenere presenti gli eventuali percorsi di directory non predefiniti usati dagli script o dai comandi e includere la logica necessaria per gestirli.
-*  Quando si distribuisce uno script personalizzato nelle istanze di VMSS di produzione, è consigliabile eseguire la distribuzione tramite il modello JSON e archiviare l'account di archiviazione di script in cui si ha il controllo sul token SAS. 
+*  Quando si distribuisce uno script personalizzato nelle istanze VMSS di produzione, è consigliabile distribuirlo tramite modello json e archiviare l'account di archiviazione dello script in cui si ha il controllo sul token di firma di accesso condiviso. 
 
 
 ## <a name="extension-schema"></a>Schema dell'estensione
@@ -106,37 +106,37 @@ Questi elementi devono essere trattati come dati sensibili ed essere specificati
 ```
 
 >[!NOTE]
-> non è **necessario** usare la proprietà managedIdentity insieme alle proprietà StorageAccountName o storageAccountKey
+> la proprietà managedIdentity **non deve** essere utilizzata insieme alle proprietà storageAccountName o storageAccountKey
 
 ### <a name="property-values"></a>Valori delle proprietà
 
-| Name | Valore/Esempio | Tipo di dati | 
+| Nome | Valore/Esempio | Tipo di dati | 
 | ---- | ---- | ---- |
-| apiVersion | 2019-03-01 | date |
+| apiVersion | 2019-03-01 | Data |
 | publisher | Microsoft.Compute.Extensions | string |
 | type | CustomScript | string |
-| typeHandlerVersion | 2.1 | int |
+| typeHandlerVersion | 2.1 | INT |
 | fileUris (es.) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
-| commandToExecute (es.) | MyPythonScript.py Python \<> param1 | string |
+| commandToExecute (es.) | python \<MyPythonScript.py my-param1> | string |
 | script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | string |
 | skipDos2Unix  (esempio) | false | boolean |
 | timestamp  (esempio) | 123456789 | Intero a 32 bit |
 | storageAccountName (es.) | examplestorageacct | string |
 | storageAccountKey (es.) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
-| managedIdentity (ad esempio) | {} o {"ClientID": "31b403aa-C364-4240-a7ff-d85fb6cd7232"} o {"objectId": "12dd289c-0583-46e5-B9B4-115d5c19ef4b"} | JSON (oggetto) |
+| managedIdentity (ad es. | "idclient": "31b403aa-c364-4240-a7ff-d85fb6cd7232" o "idoggetto": "12dd289c-0583-46e5-b9b4-115d5c19ef4b" | json oggetto |
 
 ### <a name="property-value-details"></a>Dettagli sui valori delle proprietà
-* `apiVersion`: la apiVersion più aggiornata è reperibile con [Esplora inventario risorse](https://resources.azure.com/) o dall'interfaccia della riga di comando di Azure usando il comando seguente `az provider list -o json`
+* `apiVersion`: l'apiVersion più aggiornato può essere trovato usando [Esplora risorse](https://resources.azure.com/) o dall'interfaccia della riga di comando di Azure usando il comando seguente`az provider list -o json`
 * `skipDos2Unix`: (facoltativo, booleano) ignorare la conversione dos2unix dello script o degli URL di file basati su script.
 * `timestamp` (facoltativo, valore integer a 32 bit) usare questo campo solo per attivare una nuova esecuzione dello script modificando il valore del campo.  Qualsiasi valore intero è accettabile, purché sia diverso dal valore precedente.
-  * `commandToExecute`: (**obbligatorio** se lo script non è impostato, stringa) script del punto di ingresso da eseguire. Usare in alternativa questo campo se il comando contiene segreti, ad esempio password.
+* `commandToExecute`: (**obbligatorio** se lo script non è impostato, stringa) script del punto di ingresso da eseguire. Usare in alternativa questo campo se il comando contiene segreti, ad esempio password.
 * `script`: (**obbligatorio** se commandToExecute non è impostato, stringa), script con codifica Base64 (e facoltativamente compresso con GZip) eseguito da /bin/sh.
 * `fileUris`: (facoltativo, matrice di stringhe) URL relativi ai file da scaricare.
 * `storageAccountName`: (facoltativo, stringa) nome dell'account di archiviazione. Se si specificano credenziali di archiviazione, tutti i valori di `fileUris` devono essere URL relativi a BLOB di Azure.
 * `storageAccountKey`: (facoltativo, stringa) chiave di accesso dell'account di archiviazione
-* `managedIdentity`: (facoltativo, oggetto JSON) [identità gestita](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) per il download di file
-  * `clientId`: (facoltativo, stringa) ID client dell'identità gestita
-  * `objectId`: (facoltativo, stringa) ID oggetto dell'identità gestita
+* `managedIdentity`: (oggetto json facoltativo) [l'identità gestita](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) per il download di file
+  * `clientId`: (facoltativo, stringa) l'ID client dell'identità gestita
+  * `objectId`: (facoltativo, stringa) l'ID oggetto dell'identità gestita
 
 
 I valori seguenti possono essere configurati in impostazioni pubbliche o protette. L'estensione rifiuterà qualsiasi configurazione in cui i valori riportati di seguito sono specificati sia nelle impostazioni pubbliche che in quelle protette.
@@ -210,11 +210,11 @@ CustomScript usa l'agoritmo seguente per eseguire uno script.
 
 ####  <a name="property-managedidentity"></a>Proprietà: managedIdentity
 
-CustomScript (versione 2,1 in poi) supporta l' [identità gestita](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) per il download di file da URL forniti nell'impostazione "fileURI". Consente a CustomScript di accedere a BLOB o contenitori privati di archiviazione di Azure senza che l'utente debba passare segreti come i token SAS o le chiavi dell'account di archiviazione.
+CustomScript (versione 2.1 e versioni successive) supporta [l'identità gestita](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) per il download di file da URL forniti nell'impostazione "fileUris". Consente a CustomScript di accedere ai BLOB o ai contenitori privati di Archiviazione di Azure senza che l'utente debba passare segreti come token di firma di accesso condiviso o chiavi dell'account di archiviazione.
 
-Per usare questa funzionalità, l'utente deve aggiungere un'identità [assegnata dal sistema](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity) o [assegnata dall'utente](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-user-assigned-identity) alla macchina virtuale o vmss in cui è prevista l'esecuzione di CustomScript e [concedere all'identità gestita l'accesso al contenitore o al BLOB di archiviazione di Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage#grant-access).
+Per usare questa funzionalità, l'utente deve aggiungere un'identità [assegnata dal sistema](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity) o [dall'utente](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-user-assigned-identity) alla macchina virtuale o a VMSS in cui è prevista l'esecuzione di CustomScript e [concedere all'identità gestita l'accesso al contenitore o](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage#grant-access)al BLOB di Archiviazione di Azure.
 
-Per usare l'identità assegnata dal sistema nella macchina virtuale di destinazione/VMSS, impostare il campo "managedidentity" su un oggetto JSON vuoto. 
+Per usare l'identità assegnata dal sistema nella macchina virtuale/VMSS di destinazione, impostare il campo "managedidentity" su un oggetto json vuoto. 
 
 > Esempio:
 >
@@ -246,7 +246,7 @@ Per usare l'identità assegnata dall'utente nella macchina virtuale/VMSS di dest
 > ```
 
 > [!NOTE]
-> non è **necessario** usare la proprietà managedIdentity insieme alle proprietà StorageAccountName o storageAccountKey
+> la proprietà managedIdentity **non deve** essere utilizzata insieme alle proprietà storageAccountName o storageAccountKey
 
 ## <a name="template-deployment"></a>Distribuzione del modello
 Le estensioni macchina virtuale di Azure possono essere distribuite con i modelli di Azure Resource Manager. Lo schema JSON indicato nella sezione precedente può essere usato in un modello di Azure Resource Manager per eseguire l'estensione di script personalizzata durante la distribuzione di un modello di Azure Resource Manager. Un modello di esempio che include l'estensione script personalizzata è disponibile su [GitHub](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux).
@@ -390,7 +390,8 @@ Per risolvere questo problema, controllare innanzitutto il log agente Linux, ass
 ```
 
 Cercare l'esecuzione dell'estensione, che dovrebbe avere l'aspetto seguente:
-```text
+
+```output
 2018/04/26 17:47:22.110231 INFO [Microsoft.Azure.Extensions.customScript-2.0.6] [Enable] current handler state is: notinstalled
 2018/04/26 17:47:22.306407 INFO Event: name=Microsoft.Azure.Extensions.customScript, op=Download, message=Download succeeded, duration=167
 2018/04/26 17:47:22.339958 INFO [Microsoft.Azure.Extensions.customScript-2.0.6] Initialize extension directory
@@ -400,6 +401,7 @@ Cercare l'esecuzione dell'estensione, che dovrebbe avere l'aspetto seguente:
 2018/04/26 17:47:23.476151 INFO [Microsoft.Azure.Extensions.customScript-2.0.6] Enable extension [bin/custom-script-shim enable]
 2018/04/26 17:47:24.516444 INFO Event: name=Microsoft.Azure.Extensions.customScript, op=Enable, message=Launch command succeeded: bin/custom-sc
 ```
+
 Alcuni punti da notare:
 1. Enable indica il momento in cui il comando inizia l'esecuzione.
 2. Download è relativo al download del pacchetto di estensioni CustomScript da Azure e non ai file di script specificati in fileUris.
@@ -411,8 +413,9 @@ L'estensione per script di Azure genera un log che è possibile trovare in quest
 /var/log/azure/custom-script/handler.log
 ```
 
-È necessario cercare la singola esecuzione, che avrà un aspetto simile al seguente:
-```text
+Si dovrebbe cercare l'esecuzione individuale, sarà qualcosa di simile:
+
+```output
 time=2018-04-26T17:47:23Z version=v2.0.6/git@1008306-clean operation=enable seq=0 event=start
 time=2018-04-26T17:47:23Z version=v2.0.6/git@1008306-clean operation=enable seq=0 event=pre-check
 time=2018-04-26T17:47:23Z version=v2.0.6/git@1008306-clean operation=enable seq=0 event="comparing seqnum" path=mrseq
@@ -436,6 +439,7 @@ time=2018-04-26T17:47:23Z version=v2.0.6/git@1008306-clean operation=enable seq=
 time=2018-04-26T17:47:23Z version=v2.0.6/git@1008306-clean operation=enable seq=0 event=enabled
 time=2018-04-26T17:47:23Z version=v2.0.6/git@1008306-clean operation=enable seq=0 event=end
 ```
+
 È possibile visualizzare:
 * Il comando Enable che inizia nel log
 * Le impostazioni passate all'estensione
@@ -450,7 +454,7 @@ az vm extension list -g myResourceGroup --vm-name myVM
 
 L'output ha un aspetto simile al testo seguente:
 
-```azurecli
+```output
 info:    Executing command vm extension get
 + Looking up the VM "scripttst001"
 data:    Publisher                   Name                                      Version  State

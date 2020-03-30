@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 05/01/2019
 ms.author: juliako
 ms.custom: include file
-ms.openlocfilehash: 58e9156091702718dccd75eb4a57e5b6d8c1f073
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
-ms.translationtype: HT
+ms.openlocfilehash: 9d8de8826fc3dfcc2360eb3b6c82b3ff8d65d845
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76896320"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79461232"
 ---
-## <a name="access-the-media-services-api"></a>Accedere all'API di Servizi multimediali
+### <a name="access-the-media-services-api"></a>Accedere all'API di Servizi multimediali
 
 Per connettersi alle API di Servizi multimediali di Azure, si usa l'autenticazione dell'entità servizio di Azure AD. Il comando seguente consente di creare un'applicazione Azure AD e di collegare un'entità servizio all'account. È consigliabile usare i valori restituiti per configurare l'applicazione.
 

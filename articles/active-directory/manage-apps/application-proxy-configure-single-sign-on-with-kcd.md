@@ -17,10 +17,10 @@ ms.reviewer: japere
 ms.custom: H1Hack27Feb2017, it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5948fba67d3f071d77192f9ad89bc696fdc0c3cc
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79253455"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Delega vincolata Kerberos per l'accesso Single Sign-On alle app con il proxy di applicazione
@@ -30,15 +30,15 @@ ms.locfileid: "79253455"
 È possibile abilitare l'accesso Single Sign-On alle applicazioni tramite l'autenticazione integrata di Windows (IWA) concedendo ai connettori proxy dell'applicazione l'autorizzazione per rappresentare gli utenti in Active Directory. I connettori usano questa autorizzazione per inviare e ricevere token per loro conto.
 
 ## <a name="how-single-sign-on-with-kcd-works"></a>Funzionamento di Single Sign-On con KCD
-Questo diagramma illustra il flusso quando un utente tenta di accedere a un'applicazione locale che usa l'autenticazione integrata.
+Questo diagramma illustra il flusso quando un utente tenta di accedere a un'applicazione locale che utilizza IWA.
 
 ![Diagramma del flusso di autenticazione di Microsoft AAD](./media/application-proxy-configure-single-sign-on-with-kcd/AuthDiagram.png)
 
 1. L'utente immette l'URL per accedere all'applicazione locale tramite il proxy di applicazione.
 2. Il proxy di applicazione reindirizza la richiesta ai servizi di autenticazione di Azure AD per la preautenticazione. A questo punto, Azure AD applica gli eventuali criteri di autenticazione e autorizzazione appropriati, ad esempio l'autenticazione a più fattori. Se l'utente viene convalidato, Azure AD crea un token e lo invia all'utente.
 3. L'utente passa il token al proxy di applicazione.
-4. Il proxy di applicazione convalida il token e recupera il nome dell'entità utente (UPN) da esso, quindi il connettore estrae l'UPN e il nome dell'entità servizio (SPN) tramite un canale sicuro con autenticazione doppia.
-5. Il connettore esegue la negoziazione della delega vincolata Kerberos (delega vincolata Kerberos) con l'istanza locale di AD, rappresentando l'utente per ottenere un token Kerberos per l'applicazione.
+4. Il proxy di applicazione convalida il token e recupera il nome dell'entità utente (UPN), quindi il connettore estrae l'UPN e il nome dell'entità servizio (SPN) tramite un canale protetto dualmente autenticato.
+5. Il connettore esegue la negoziazione di delega vincolata Kerberos (KCD) con l'AD locale, rappresentando l'utente per ottenere un token Kerberos per l'applicazione.
 6. Active Directory invia il token Kerberos per l'applicazione al connettore.
 7. Il connettore invia la richiesta originale al server dell'applicazione, usando il token Kerberos ricevuto da Active Directory.
 8. L'applicazione invia la risposta al connettore, che viene quindi restituita al servizio proxy di applicazione e infine all'utente.
@@ -47,7 +47,7 @@ Questo diagramma illustra il flusso quando un utente tenta di accedere a un'appl
 Prima di iniziare a usare SSO per le applicazioni IWA, verificare che l'ambiente sia pronto con le impostazioni e configurazioni seguenti:
 
 * Le app, ad esempio le app Web SharePoint, devono essere impostate per usare l'autenticazione integrata di Windows. Per altre informazioni, vedere [Attivare il supporto per l'autenticazione Kerberos](https://technet.microsoft.com/library/dd759186.aspx). Per SharePoint, vedere [Pianificare l'autenticazione Kerberos in SharePoint 2013](https://technet.microsoft.com/library/ee806870.aspx).
-* Tutte le app devono avere [nomi delle entità servizio](https://social.technet.microsoft.com/wiki/contents/articles/717.service-principal-names-spns-setspn-syntax-setspn-exe.aspx).
+* Tutte le app hanno [nomi dell'entità servizio](https://social.technet.microsoft.com/wiki/contents/articles/717.service-principal-names-spns-setspn-syntax-setspn-exe.aspx).
 * Il server che esegue il connettore e il server che esegue l'app devono essere aggiunti a un dominio e appartenere allo stesso dominio o a domini trusting. Per altre informazioni sull'aggiunta a un dominio, vedere [Aggiungere un computer a un dominio](https://technet.microsoft.com/library/dd807102.aspx).
 * Il server che esegue il connettore deve avere accesso in lettura all'attributo TokenGroupsGlobalAndUniversal per gli utenti. Questa impostazione predefinita potrebbe essere interessata dalla protezione avanzata dell'ambiente.
 
@@ -57,18 +57,18 @@ La configurazione di Active Directory varia a seconda del fatto che il connettor
 #### <a name="connector-and-application-server-in-the-same-domain"></a>Connettore e server applicazione nello stesso dominio
 1. In Active Directory passare a **Strumenti** > **Utenti e computer**.
 2. Selezionare il server che esegue il connettore.
-3. Fare clic con il pulsante destro del mouse su **Proprietà** > **Delega**.
+3. Fare clic con il pulsante destro del mouse e scegliere**Delega** **proprietà** > .
 4. Selezionare **Computer attendibile per la delega solo ai servizi specificati**. 
-5. Selezionare **Usa un qualsiasi protocollo di autenticazione**.
+5. Selezionare Usa qualsiasi protocollo di **autenticazione**.
 6. In **Servizi ai quali l'account può presentare credenziali delegate** aggiungere il valore per l'identità SPN del server applicazioni. In questo modo il connettore proxy di applicazione può rappresentare gli utenti in AD nei confronti delle applicazioni definite nell'elenco.
 
    ![Schermata della finestra delle proprietà per Connector-SVR](./media/application-proxy-configure-single-sign-on-with-kcd/Properties.jpg)
 
 #### <a name="connector-and-application-server-in-different-domains"></a>Connettore e server applicazione in domini differenti
 1. Per un elenco dei prerequisiti necessari per usare la delega vincolata Kerberos tra domini, vedere [Delega vincolata Kerberos tra domini](https://technet.microsoft.com/library/hh831477.aspx).
-2. Utilizzare la proprietà `principalsallowedtodelegateto` dell'account di servizio (computer o account utente di dominio dedicato) dell'applicazione Web per abilitare la delega di autenticazione Kerberos dal proxy di applicazione (connettore). Il server applicazioni viene eseguito nel contesto di `webserviceaccount` e il server di delega è `connectorcomputeraccount`. Eseguire i comandi seguenti in un controller di dominio (che esegue Windows Server 2012 R2 o versione successiva) nel dominio di `webserviceaccount`. Usare nomi flat (non UPN) per entrambi gli account.
+2. Utilizzare `principalsallowedtodelegateto` la proprietà dell'account del servizio (computer o account utente di dominio dedicato) dell'applicazione Web per abilitare la delega dell'autenticazione Kerberos dal proxy di applicazione (connettore). Il server applicazioni è in `webserviceaccount` esecuzione nel contesto di e il server di delega è `connectorcomputeraccount`. Eseguire i comandi seguenti in un controller di dominio (che esegue Windows `webserviceaccount`Server 2012 R2 o versione successiva) nel dominio di . Utilizzare nomi piatti (non UPN) per entrambi gli account.
 
-   Se il `webserviceaccount` è un account computer, usare i comandi seguenti:
+   Se `webserviceaccount` si tratta di un account computer, utilizzare questi comandi:
 
    ```powershell
    $connector= Get-ADComputer -Identity connectorcomputeraccount -server dc.connectordomain.com
@@ -78,7 +78,7 @@ La configurazione di Active Directory varia a seconda del fatto che il connettor
    Get-ADComputer webserviceaccount -Properties PrincipalsAllowedToDelegateToAccount
    ```
 
-   Se il `webserviceaccount` è un account utente, usare i comandi seguenti:
+   Se `webserviceaccount` è un account utente, utilizzare questi comandi:
 
    ```powershell
    $connector= Get-ADComputer -Identity connectorcomputeraccount -server dc.connectordomain.com
@@ -88,7 +88,7 @@ La configurazione di Active Directory varia a seconda del fatto che il connettor
    Get-ADUser webserviceaccount -Properties PrincipalsAllowedToDelegateToAccount
    ```
 
-## <a name="configure-single-sign-on"></a>Configurazione di Single Sign-On 
+## <a name="configure-single-sign-on"></a>Configura accesso Single Sign-On 
 1. Pubblicare l'applicazione seguendo le istruzioni contenute in [Pubblicare le applicazioni con il proxy di applicazione](application-proxy-add-on-premises-application.md). Assicurarsi di selezionare **Azure Active Directory** come **Metodo di preautenticazione**.
 2. Quando l'applicazione viene visualizzata nell'elenco delle applicazioni aziendali, selezionarla e fare clic su **Single Sign-On**.
 3. Impostare la modalità Single Sign-On su **Autenticazione integrata di Windows**.  
@@ -122,7 +122,7 @@ Per altre informazioni su Kerberos, vedere [All you want to know about Kerberos 
 Le app non Windows usano generalmente nomi utente o nomi account SAM invece di indirizzi e-mail di dominio. Se questa situazione si applica alle applicazioni, è necessario configurare il campo dell'identità di accesso delegata in modo che connetta le identità del cloud alle identità delle applicazioni. 
 
 ## <a name="working-with-different-on-premises-and-cloud-identities"></a>Utilizzo dell'accesso Single Sign-On quando le identità cloud e locali non sono identiche
-Il proxy di applicazione presuppone che gli utenti dispongano della stessa identità nel cloud e in locale. In alcuni ambienti, tuttavia, a causa di criteri aziendali o dipendenze dell'applicazione, è possibile che le organizzazioni debbano usare ID alternativi per l'accesso. In questi casi, è comunque possibile usare delega vincolata Kerberos per Single Sign-On. Configurare un'**identità di accesso delegata** per ogni applicazione in modo da specificare le identità da usare durante l'esecuzione del Single Sign-On.  
+Il proxy di applicazione presuppone che gli utenti dispongano della stessa identità nel cloud e in locale. In alcuni ambienti, tuttavia, a causa dei criteri aziendali o delle dipendenze delle applicazioni, le organizzazioni potrebbero dover usare ID alternativi per l'accesso. In questi casi, è comunque possibile utilizzare KCD per l'accesso Single Sign-On. Configurare un'**identità di accesso delegata** per ogni applicazione in modo da specificare le identità da usare durante l'esecuzione del Single Sign-On.  
 
 Questa funzionalità consente a molte organizzazioni con diverse identità locali e cloud di disporre dell'accesso Single Sign-On dal cloud ad applicazioni locali senza richiedere agli utenti di immettere nomi utente e password diversi. Sono incluse organizzazioni che:
 
@@ -149,12 +149,12 @@ Se si usa l'identità di accesso delegata, il valore potrebbe non essere univoco
    * Nome account SAM locale: in base alla configurazione del controller di dominio locale
 
 ### <a name="troubleshooting-sso-for-different-identities"></a>Risoluzione dei problemi di accesso Single Sign-On per diverse identità
-Se si verifica un errore nel processo di accesso Single Sign-On, l'errore viene visualizzato nel log eventi del computer connettore, come illustrato in [Risoluzione dei problemi](application-proxy-back-end-kerberos-constrained-delegation-how-to.md).
+Se si verifica un errore nel processo SSO, questo viene visualizzato nel registro eventi del computer connettore come illustrato in [Risoluzione dei problemi](application-proxy-back-end-kerberos-constrained-delegation-how-to.md).
 In alcuni casi, tuttavia, la richiesta viene inviata correttamente all'applicazione back-end mentre l'applicazione risponde in numerose altre risposte HTTP. Per la risoluzione di problemi di questo tipo, è consigliabile iniziare esaminando il numero di eventi 24029 sul computer connettore nel registro eventi di sessione del proxy di applicazione. L'identità utente usata per la delega viene visualizzata nel campo "utente" dei dettagli dell'evento. Per attivare il log della sessione, scegliere **Visualizza registri analitici e di debug** dal menu di visualizzazione del Visualizzatore eventi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Come configurare un'applicazione proxy di applicazione per l'uso della delega vincolata Kerberos](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
+* [Come configurare un'applicazione proxy dell'applicazione per l'uso della delega vincolata Kerberos](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
 * [Risolvere i problemi che si verificano con il proxy di applicazione](application-proxy-troubleshoot.md)
 
 

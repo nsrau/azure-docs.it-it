@@ -1,5 +1,5 @@
 ---
-title: Guida alla scalabilità e alle prestazioni dell'attività di copia
+title: Guida alle prestazioni e alla scalabilità dell'attività di copia
 description: Informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati in Azure Data Factory quando si usa l'attività di copia.
 services: data-factory
 documentationcenter: ''
@@ -13,113 +13,113 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/11/2020
 ms.openlocfilehash: 231b0d77dc441e70dc0ec8de313291bb6b4f9292
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79261398"
 ---
-# <a name="copy-activity-performance-and-scalability-guide"></a>Guida alla scalabilità e alle prestazioni dell'attività di copia
+# <a name="copy-activity-performance-and-scalability-guide"></a>Guida alle prestazioni e alla scalabilità dell'attività di copia
 
-> [!div class="op_single_selector" title1="Selezionare la versione di Azure Data Factory che si sta usando:"]
+> [!div class="op_single_selector" title1="Selezionare la versione di Azure Data Factory in uso:Select the version of Azure Data Factory that you're using:"]
 > * [Versione 1](v1/data-factory-copy-activity-performance.md)
 > * [Versione corrente](copy-activity-performance.md)
 
-Se si vuole eseguire una migrazione dei dati su larga scala da data Lake o Enterprise data warehouse (EDW) ad Azure o si vuole inserire dati su larga scala da origini diverse in Azure per Big Data analisi, è fondamentale ottenere prestazioni ottimali e scalabilità.  Azure Data Factory fornisce un meccanismo efficiente, resiliente ed economicamente conveniente per inserire i dati su larga scala, rendendolo ideale per gli ingegneri di dati che desiderano creare pipeline di inserimento dati altamente performanti e scalabili.
+Sia che si desideri eseguire una migrazione dei dati su larga scala da data lake o enterprise data warehouse (EDW) ad Azure o che si desideri inserire dati su larga scala da origini diverse in Azure per l'analisi dei Big Data, è fondamentale ottenere prestazioni ottimali e Scalabilità.  Azure Data Factory offre un meccanismo performante, resiliente ed economico per l'inserimento dei dati su larga scala, il che lo rende ideale per gli ingegneri di dati che desiderano creare pipeline di inserimento dati altamente performanti e scalabili.
 
 Dopo la lettura di questo articolo, si potrà rispondere alle domande seguenti:
 
-- Quale livello di prestazioni e scalabilità è possibile ottenere utilizzando l'attività di copia ADF per la migrazione dei dati e gli scenari di inserimento dei dati?
+- Quale livello di prestazioni e scalabilità è possibile ottenere utilizzando l'attività di copia ADF per la migrazione dei dati e gli scenari di inserimento dati?
 
-- Quali operazioni è necessario eseguire per ottimizzare le prestazioni dell'attività di copia ADF?
-- Quali manopole di ottimizzazione delle prestazioni di ADF è possibile utilizzare per ottimizzare le prestazioni per una singola esecuzione dell'attività di copia?
-- Quali altri fattori all'esterno di ADF considerare durante l'ottimizzazione delle prestazioni di copia?
+- Quali passaggi è necessario eseguire per ottimizzare le prestazioni dell'attività di copia ADF?
+- Quali manopole di ottimizzazione ADF perf è possibile utilizzare per ottimizzare le prestazioni per una singola esecuzione dell'attività di copia?
+- Quali altri fattori al di fuori di ADF considerare quando si ottimizzano le prestazioni di copia?
 
 > [!NOTE]
-> Se non si ha familiarità con l'attività di copia in generale, vedere la [Panoramica dell'attività di copia](copy-activity-overview.md) prima di leggere questo articolo.
+> Se non si ha familiarità con l'attività di copia in generale, vedere la [panoramica dell'attività](copy-activity-overview.md) di copia prima di leggere questo articolo.
 
-## <a name="copy-performance-and-scalability-achievable-using-adf"></a>Prestazioni di copia e scalabilità ottenibili con ADF
+## <a name="copy-performance-and-scalability-achievable-using-adf"></a>Prestazioni di copia e scalabilità ottene con ADF
 
-ADF offre un'architettura senza server che consente il parallelismo a livelli diversi, consentendo agli sviluppatori di compilare pipeline per sfruttare al meglio la larghezza di banda di rete, oltre a IOPS e larghezza di banda di archiviazione per ottimizzare la velocità effettiva di spostamento dei dati per l'ambiente.  Ciò significa che la velocità effettiva che è possibile ottenere può essere stimata misurando la velocità effettiva minima offerta dall'archivio dati di origine, l'archivio dati di destinazione e la larghezza di banda di rete tra l'origine e la destinazione.  La tabella seguente calcola la durata della copia in base alle dimensioni dei dati e al limite di larghezza di banda per l'ambiente. 
+ADF offre un'architettura senza server che consente il parallelismo a diversi livelli, che consente agli sviluppatori di creare pipeline per utilizzare completamente la larghezza di banda di rete, nonché le operazioni di I/O al secondo e la larghezza di banda di archiviazione per ottimizzare la velocità effettiva di spostamento dei dati per l'ambiente.  Ciò significa che la velocità effettiva che è possibile ottenere può essere stimata misurando la velocità effettiva minima offerta dall'archivio dati di origine, dall'archivio dati di destinazione e dalla larghezza di banda di rete tra l'origine e la destinazione.  La tabella seguente calcola la durata della copia in base alle dimensioni dei dati e al limite di larghezza di banda per l'ambiente. 
 
-| Dimensioni dati/ <br/> bandwidth | 50 Mbps    | 100 Mbps  | 500 Mbps  | 1 Gbps   | 5 Gbps   | 10 Gbps  | 50 Gbps   |
+| Dimensioni dei dati / <br/> bandwidth | 50 Mbps    | 100 Mbps  | 500 Mbps  | 1 Gbps   | 5 Gbps   | 10 Gbps  | 50 Gbps   |
 | --------------------------- | ---------- | --------- | --------- | -------- | -------- | -------- | --------- |
 | **1 GB**                    | 2,7 min    | 1,4 min   | 0,3 min   | 0,1 min  | 0,03 min | 0,01 min | 0,0 min   |
 | **10 GB**                   | 27,3 min   | 13,7 min  | 2,7 min   | 1,3 min  | 0,3 min  | 0,1 min  | 0,03 min  |
-| **100 GB**                  | 4,6 ore    | 2,3 ore   | 0,5 ore   | 0,2 ore  | 0,05 ore | 0,02 ore | 0,0 ore   |
-| **1 TB**                    | 46,6 ore   | 23,3 ore  | 4,7 ore   | 2,3 ore  | 0,5 ore  | 0,2 ore  | 0,05 ore  |
+| **100 GB**                  | Ore 4,6    | 2.3 ore   | 0,5 ore   | 0,2 ore  | 0,05 ore | 0,02 ore | 0,0 ore   |
+| **1 TB**                    | 46,6 ore   | Ore 23.3  | 4,7 ore   | 2.3 ore  | 0,5 ore  | 0,2 ore  | 0,05 ore  |
 | **10 TB**                   | 19,4 giorni  | 9,7 giorni  | 1,9 giorni  | 0,9 giorni | 0,2 giorni | 0,1 giorni | 0,02 giorni |
 | **100 TB**                  | 194,2 giorni | 97,1 giorni | 19,4 giorni | 9,7 giorni | 1,9 giorni | 1 giorno    | 0,2 giorni  |
-| **1 PB**                    | 64,7 mo    | 32,4 Mo   | 6,5 Mo    | 3,2 Mo   | 0,6 Mo   | 0,3 Mo   | 0,06 mo   |
-| **10 PB**                   | 647,3 Mo   | 323,6 Mo  | 64,7 mo   | 31,6 Mo  | 6,5 Mo   | 3,2 Mo   | 0,6 Mo    |
+| **1 PB**                    | 64,7 mo    | 32.4 mo   | 6.5 mo    | 3.2 mo   | 0,6 mo   | 0,3 mo   | 0,06 mo   |
+| **10 PB**                   | 647.3 mo   | 323,6 mo  | 64,7 mo   | 31,6 mo  | 6.5 mo   | 3.2 mo   | 0,6 mo    |
 
-La copia di ADF è scalabile a livelli diversi:
+La copia DI ADF è scalabile a diversi livelli:ADF copy is scalable at different levels:
 
-![scalabilità delle copie di ADF](media/copy-activity-performance/adf-copy-scalability.png)
+![come scala la copia ADF](media/copy-activity-performance/adf-copy-scalability.png)
 
-- Il flusso di controllo ADF può avviare più attività di copia in parallelo, ad esempio utilizzando [per ogni ciclo](control-flow-for-each-activity.md).
-- Una singola attività di copia può sfruttare le risorse di calcolo scalabili: quando si usa Azure Integration Runtime, è possibile specificare [fino a 256 DIUs](#data-integration-units) per ogni attività di copia in modo senza server. Quando si usa Integration Runtime indipendenti, è possibile scalare manualmente il computer o scalare orizzontalmente in più computer ([fino a 4 nodi](create-self-hosted-integration-runtime.md#high-availability-and-scalability)) e una singola attività di copia partiziona il set di file in tutti i nodi.
-- Una singola attività di copia legge e scrive nell'archivio dati usando più thread [in parallelo](#parallel-copy).
+- Il flusso di controllo ADF può avviare più attività di copia in parallelo, ad esempio usando [Il ciclo For Each](control-flow-for-each-activity.md).
+- Una singola attività di copia può sfruttare le risorse di calcolo scalabili: quando si usa Azure Integration Runtime, è possibile specificare [fino a 256 DIUff](#data-integration-units) per ogni attività di copia in modo senza server. Quando si utilizza il runtime di integrazione self-hosted, è possibile aumentare manualmente il computer o la scalabilità orizzontale su più computer[(fino a 4 nodi)](create-self-hosted-integration-runtime.md#high-availability-and-scalability)e una singola attività di copia partiziona il file impostato su tutti i nodi.
+- Una singola attività di copia legge e scrive nell'archivio dati utilizzando più thread [in parallelo.](#parallel-copy)
 
 ## <a name="performance-tuning-steps"></a>Procedura di ottimizzazione delle prestazioni
 
-Eseguire questi passaggi per ottimizzare le prestazioni del servizio Azure Data Factory con l'attività di copia.
+Eseguire la procedura seguente per ottimizzare le prestazioni del servizio Azure Data Factory con l'attività di copia.
 
-1. **Selezionare un set di dati di test e stabilire una linea di base.** Durante la fase di sviluppo, testare la pipeline usando l'attività di copia su un campione di dati rappresentativi. Il set di dati scelto deve rappresentare i modelli di dati tipici (struttura di cartelle, modello di file, schema di dati e così via) ed è sufficientemente grande per valutare le prestazioni di copia, ad esempio per completare l'attività di copia è necessario 10 minuti o oltre. Raccogliere i dettagli di esecuzione e le caratteristiche delle prestazioni dopo il [monitoraggio dell'attività di copia](copy-activity-monitoring.md).
+1. **Raccogliere un set di dati di test e stabilire una linea di base.** Durante la fase di sviluppo, testare la pipeline usando l'attività di copia su un campione di dati rappresentativo. Il set di dati scelto deve rappresentare i modelli di dati tipici (struttura di cartelle, modello di file, schema di dati e così via) ed è sufficientemente grande da valutare le prestazioni della copia, ad esempio sono necessari 10 minuti o oltre per il completamento dell'attività di copia. Raccogliere i dettagli di esecuzione e le caratteristiche delle prestazioni dopo [il monitoraggio dell'attività](copy-activity-monitoring.md)di copia.
 
 2. **Come ottimizzare le prestazioni di una singola attività di copia**:
 
-   Per iniziare, è consigliabile innanzitutto ottimizzare le prestazioni usando una singola attività di copia.
+   Per iniziare, è consigliabile ottimizzare le prestazioni utilizzando una singola attività di copia.
 
-   - **Se l'attività di copia viene eseguita in un Azure Integration Runtime:** iniziare con i valori predefiniti per le [unità di integrazione dati (DIU)](#data-integration-units) e le impostazioni di [copia parallela](#parallel-copy) . 
+   - **Se l'attività** di copia viene eseguita in un runtime di integrazione di Azure: iniziare con i valori predefiniti per le unità [DIU (Data Integration Units)](#data-integration-units) e le impostazioni di [copia parallela.](#parallel-copy) 
 
-   - **Se l'attività di copia viene eseguita in un Integration Runtime self-hosted:** si consiglia di usare un computer dedicato separato dal server che ospita l'archivio dati per ospitare Integration Runtime. Iniziare con i valori predefiniti per l'impostazione di [copia parallela](#parallel-copy) e usare un singolo nodo per il runtime di integrazione self-hosted.  
+   - Se l'attività di copia viene eseguita in un runtime di **integrazione self-hosted:** è consigliabile usare un computer dedicato separato dal server che ospita l'archivio dati per ospitare il runtime di integrazione. Iniziare con i valori predefiniti per l'impostazione della [copia parallela](#parallel-copy) e usare un singolo nodo per il metodo di creazione di raggi-ir self-hosted.  
 
-   Eseguire un'esecuzione dei test delle prestazioni e prendere nota delle prestazioni, oltre ai valori effettivi usati come DIUs e copie parallele. Per informazioni su come raccogliere i risultati e le impostazioni delle prestazioni usati, vedere [monitoraggio dell'attività di copia](copy-activity-monitoring.md) e informazioni su come risolvere i [problemi relativi alle prestazioni dell'attività di copia](copy-activity-performance-troubleshooting.md) per identificare e risolvere il collo di bottiglia. 
+   Eseguire un'esecuzione dei test delle prestazioni e prendere nota delle prestazioni ottenute e dei valori effettivi utilizzati, ad esempio DIU e copie parallele. Fare riferimento al [monitoraggio dell'attività](copy-activity-monitoring.md) di copia su come raccogliere i risultati di esecuzione e le impostazioni delle prestazioni utilizzate e informazioni su come [risolvere le prestazioni dell'attività](copy-activity-performance-troubleshooting.md) di copia per identificare e risolvere il collo di bottiglia. 
 
-   Eseguire l'iterazione per eseguire esecuzioni di test aggiuntive seguendo le indicazioni per la risoluzione dei problemi e l'ottimizzazione. Una volta che l'esecuzione dell'attività di copia singola non può ottenere una velocità effettiva migliore, provare a massimizzare la velocità effettiva aggregata eseguendo più copie simultaneamente facendo riferimento al passaggio 3.
+   Eseguire l'iterazione per eseguire ulteriori esecuzioni di test delle prestazioni in seguito alle indicazioni per la risoluzione dei problemi e l'ottimizzazione. Quando l'esecuzione di una singola attività di copia non è in grado di ottenere una velocità effettiva migliore, è consigliabile ottimizzare la velocità effettiva aggregata eseguendo più copie contemporaneamente facendo riferimento al passaggio 3.Once single copy activity run cannot achieve better throughput, consider to maximize aggregate throughput by running multiple copies concurrently referring to step 3.
 
 
-3. **Come ottimizzare la velocità effettiva aggregata eseguendo più copie simultaneamente:**
+3. **Come ottimizzare la velocità effettiva aggregata eseguendo più copie contemporaneamente:How to maximize aggregate throughput by running multiple copies concurrently:**
 
-   Ora che sono state ingrandite le prestazioni di una singola attività di copia, se non sono ancora stati superati i limiti massimi di velocità effettiva dell'ambiente, ovvero la rete, l'archivio dati di origine e l'archivio dati di destinazione, è possibile eseguire più attività di copia in parallelo usando i costrutti del flusso di controllo di ADF, ad esempio [per ciascun ciclo](control-flow-for-each-activity.md). Vedere [copiare i file da più contenitori](solution-template-copy-files-multiple-containers.md), [migrare i dati da Amazon S3 a ADLS Gen2 o eseguire](solution-template-migration-s3-azure.md) [una copia bulk con](solution-template-bulk-copy-with-control-table.md) i modelli di soluzione della tabella di controllo come esempio generale.
+   Dopo aver ingrandito le prestazioni di una singola attività di copia, se non sono ancora stati raggiunti i limiti massimi della velocità effettiva dell'ambiente, ovvero rete, archivio dati di origine e archivio dati di destinazione, è possibile eseguire più attività di copia in parallelo utilizzando costrutti del flusso di controllo ADF, ad esempio [Ciclo For Each](control-flow-for-each-activity.md). Fare riferimento a [Copia file da più contenitori](solution-template-copy-files-multiple-containers.md), Eseguire la migrazione dei dati da Amazon [S3 ad ADLS Gen2](solution-template-migration-s3-azure.md)o [Copia in blocco con modelli](solution-template-bulk-copy-with-control-table.md) di soluzione tabella di controllo come esempio generale.
 
-5. **Espandere la configurazione per l'intero set di dati.** Quando si è soddisfatti dei risultati e delle prestazioni di esecuzione, è possibile espandere la definizione e la pipeline per coprire l'intero set di dati.
+5. **Espandere la configurazione per l'intero set di dati.** Quando si è soddisfatti dei risultati e delle prestazioni dell'esecuzione, è possibile espandere la definizione e la pipeline per coprire l'intero set di dati.
 
-## <a name="troubleshoot-copy-activity-performance"></a>Risolvere i problemi delle prestazioni dell'attività di copia
+## <a name="troubleshoot-copy-activity-performance"></a>Risolvere i problemi relativi alle prestazioni dell'attività di copiaTroubleshoot copy activity
 
-Seguire i [passaggi di ottimizzazione delle prestazioni](#performance-tuning-steps) per pianificare ed eseguire il test delle prestazioni per lo scenario. Per informazioni su come risolvere i problemi relativi alle prestazioni dell'esecuzione dell'attività di copia in Azure Data Factory, vedere [risolvere i problemi relativi alle prestazioni dell'attività di copia](copy-activity-performance-troubleshooting.md)
+Seguire i passaggi di [ottimizzazione delle prestazioni](#performance-tuning-steps) per pianificare ed eseguire test delle prestazioni per lo scenario. Informazioni su come risolvere il problema di prestazioni di ogni esecuzione dell'attività di copia in Azure Data Factory da Risolvere le prestazioni dell'attività di [copia.](copy-activity-performance-troubleshooting.md)
 
 ## <a name="copy-performance-optimization-features"></a>Funzionalità di ottimizzazione delle prestazioni di copia
 
-Azure Data Factory offre le seguenti funzionalità di ottimizzazione delle prestazioni:
+Azure Data Factory offre le funzionalità di ottimizzazione delle prestazioni seguenti:Azure Data Factory provides the following performance optimization features:
 
 - [Unità di integrazione dati](#data-integration-units)
 - [Scalabilità del runtime di integrazione self-hosted](#self-hosted-integration-runtime-scalability)
 - [Copia parallela](#parallel-copy)
-- [Copia di staging](#staged-copy)
+- [copia di staging](#staged-copy)
 
 ### <a name="data-integration-units"></a>Unità di integrazione dati
 
-Un'unità di integrazione dati è una misura che rappresenta la potenza, ovvero una combinazione di CPU, memoria e allocazione di risorse di rete, di una singola unità in Azure Data Factory. L'unità di integrazione dati si applica solo al [runtime di integrazione di Azure](concepts-integration-runtime.md#azure-integration-runtime), ma non al runtime di [integrazione self-hosted](concepts-integration-runtime.md#self-hosted-integration-runtime). [Altre informazioni](copy-activity-performance-features.md#data-integration-units).
+A Data Integration Unit is a measure that represents the power (a combination of CPU, memory, and network resource allocation) of a single unit in Azure Data Factory. L'unità di [integrazione](concepts-integration-runtime.md#azure-integration-runtime)dei dati si applica solo al runtime di integrazione di Azure, ma non al runtime di [integrazione self-hosted.](concepts-integration-runtime.md#self-hosted-integration-runtime) [Scopri di più](copy-activity-performance-features.md#data-integration-units).
 
 ### <a name="self-hosted-integration-runtime-scalability"></a>Scalabilità del runtime di integrazione self-hosted
 
-Per ospitare un aumento del carico di lavoro simultaneo o per ottenere prestazioni più elevate, è possibile aumentare o ridurre il numero di dimensioni del Integration Runtime self-hosted. [Altre informazioni](copy-activity-performance-features.md#self-hosted-integration-runtime-scalability).
+Per ospitare l'aumento del carico di lavoro simultaneo o per ottenere prestazioni più elevate, è possibile aumentare o ridurre il runtime di integrazione self-hosted. [Scopri di più](copy-activity-performance-features.md#self-hosted-integration-runtime-scalability).
 
 ### <a name="parallel-copy"></a>Copia parallela
 
-È possibile impostare la copia parallela per indicare il parallelismo che si desidera venga utilizzato dall'attività di copia. È possibile considerare questa proprietà come il numero massimo di thread all'interno dell'attività di copia che leggono dall'origine o scrivono negli archivi dati sink in parallelo. [Altre informazioni](copy-activity-performance-features.md#parallel-copy).
+È possibile impostare una copia parallela per indicare il parallelismo che si desidera venga utilizzato dall'attività di copia. È possibile considerare questa proprietà come il numero massimo di thread all'interno dell'attività di copia che leggono dall'origine o scrivere negli archivi dati sink in parallelo. [Scopri di più](copy-activity-performance-features.md#parallel-copy).
 
 ### <a name="staged-copy"></a>copia di staging
 
-Quando si copiano dati da un archivio dati di origine a un archivio dati sink, è possibile scegliere di usare un archivio BLOB come archivio di staging provvisorio. [Altre informazioni](copy-activity-performance-features.md#staged-copy).
+Quando si copiano dati da un archivio dati di origine a un archivio dati sink, è possibile scegliere di usare un archivio BLOB come archivio di staging provvisorio. [Scopri di più](copy-activity-performance-features.md#staged-copy).
 
 ## <a name="next-steps"></a>Passaggi successivi
-Vedere gli altri articoli sull'attività di copia:
+Vedere gli altri articoli sull'attività di copia:See the other copy activity articles:
 
 - [Panoramica dell'attività di copia](copy-activity-overview.md)
-- [Risolvere i problemi delle prestazioni dell'attività di copia](copy-activity-performance-troubleshooting.md)
+- [Risolvere i problemi relativi alle prestazioni dell'attività di copiaTroubleshoot copy activity](copy-activity-performance-troubleshooting.md)
 - [Funzionalità di ottimizzazione delle prestazioni dell'attività di copia](copy-activity-performance-features.md)
-- [Usare Azure Data Factory per migrare i dati dal data Lake o da data warehouse ad Azure](data-migration-guidance-overview.md)
-- [Migrare i dati da Amazon S3 ad archiviazione di Azure](data-migration-guidance-s3-azure-storage.md)
+- [Usare Azure Data Factory per eseguire la migrazione dei dati dal data lake o dal data warehouse ad AzureUse Azure Data Factory to migrate data from your data lake or data warehouse to Azure](data-migration-guidance-overview.md)
+- [Eseguire la migrazione dei dati da un archivio dati Amazon S3 ad Archiviazione di Azure](data-migration-guidance-s3-azure-storage.md)

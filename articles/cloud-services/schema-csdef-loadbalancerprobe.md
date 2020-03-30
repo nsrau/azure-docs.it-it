@@ -1,5 +1,6 @@
 ---
-title: Schema def. LoadBalancerProbe di servizi cloud di Azure | Microsoft Docs
+title: Studio di Servizi Cloud di Azure Def. Documenti Microsoft
+description: Il customer defined LoadBalancerProbe è un probe di integrità degli endpoint nelle istanze del ruolo. Viene combinato con i ruoli Web o di lavoro in un file di definizione del servizio.
 ms.custom: ''
 ms.date: 04/14/2015
 services: cloud-services
@@ -8,12 +9,12 @@ ms.topic: reference
 caps.latest.revision: 14
 author: georgewallace
 ms.author: tagore
-ms.openlocfilehash: bc2c0f5137ce78392a8df7c6c2fdd402ded5355a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6d0e84b6724d9df4162d4be3e06a9952087a53a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75449064"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79537347"
 ---
 # <a name="azure-cloud-services-definition-loadbalancerprobe-schema"></a>Schema LoadBalancerProbe di definizione di Servizi cloud di Azure
 Il probe di bilanciamento del carico è un probe di integrità definito dal cliente per gli endpoint UDP e gli endpoint nelle istanze del ruolo. `LoadBalancerProbe` non è un elemento autonomo. Viene combinato con il ruolo Web o il ruolo di lavoro in un file di definizione del servizio. `LoadBalancerProbe` può essere usato da più di un ruolo.
@@ -46,15 +47,15 @@ L'elemento `LoadBalancerProbes` del file di definizione del servizio include gli
 - [Elemento LoadBalancerProbes](#LoadBalancerProbes)
 - [Elemento LoadBalancerProbe](#LoadBalancerProbe)
 
-##  <a name="LoadBalancerProbes"></a> Elemento LoadBalancerProbes
+##  <a name="loadbalancerprobes-element"></a><a name="LoadBalancerProbes"></a>Elemento LoadBalancerProbes
 L'elemento `LoadBalancerProbes` descrive la raccolta di probe di bilanciamento del carico. Questo è l'elemento padre dell'[elemento LoadBalancerProbe](#LoadBalancerProbe). 
 
-##  <a name="LoadBalancerProbe"></a> Elemento LoadBalancerProbe
+##  <a name="loadbalancerprobe-element"></a><a name="LoadBalancerProbe"></a>Elemento LoadBalancerProbe
 L'elemento `LoadBalancerProbe` definisce il probe di integrità per un modello. È possibile definire più probe di bilanciamento del carico. 
 
 La tabella seguente descrive gli attributi dell'elemento `LoadBalancerProbe`:
 
-|Attributo|Tipo|Description|
+|Attributo|Type|Descrizione|
 | ------------------- | -------- | -----------------|
 | `name`              | `string` | Obbligatorio. Nome del probe di bilanciamento del carico. Il nome deve essere univoco.|
 | `protocol`          | `string` | Obbligatorio. Specifica il protocollo dell'endpoint. I possibili valori sono `http` o `tcp`. Se viene specificato `tcp`, è necessario ricevere una risposta ACK per completare il probe. Se viene specificato `http`, è necessario ricevere una risposta 200 OK dall'URI specificato per completare il probe.|

@@ -1,6 +1,6 @@
 ---
-title: Servizio Frontdoor di Azure - Monitoraggio della corrispondenza delle regole di routing | Microsoft Docs
-description: Questo articolo fornisce informazioni sul modo in cui il servizio Frontdoor di Azure determina la regola di routing da usare per una richiesta in ingresso
+title: Azure Front Door - Monitoraggio della corrispondenza delle regole di routing Documenti Microsoft
+description: Questo articolo illustra in che modo la porta frontale di Azure corrisponde alla regola di routing da usare per una richiesta in arrivo
 services: front-door
 documentationcenter: ''
 author: sharad4u
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: eec99bde0ea73a99a9dc1345f938b821a95a7c05
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 605974e76c3ca878784129f7c9827a78d0642da6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60736285"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79471592"
 ---
 # <a name="how-front-door-matches-requests-to-a-routing-rule"></a>Individuazione della corrispondenza tra le richieste e una regola di routing in Frontdoor
 
@@ -29,7 +29,7 @@ Una configurazione di una regola di routing di Frontdoor è costituita da due pa
 Le seguenti proprietà determinano se la richiesta in ingresso corrisponde alla regola di routing (o lato sinistro):
 
 * **Protocolli HTTP** (HTTP/HTTPS)
-* **Gli host** (ad esempio, www\.foo.com, \*. bar.com)
+* **Host** (ad esempio,\. \*www foo.com, .bar.com)
 * **Percorsi** (ad esempio, /\*, /users/\*, /file.gif)
 
 Queste proprietà vengono espanse internamente, pertanto ogni combinazione di protocollo/host/percorso è un set di corrispondenze possibili.
@@ -48,9 +48,9 @@ Per la corrispondenza degli host front-end, viene usata la logica seguente:
 
 Per spiegare ulteriormente questo processo, esaminiamo una configurazione di esempio delle route di Frontdoor (solo lato sinistro):
 
-| Regola di routing | Host front-end | `Path` |
+| Regola di routing | Host front-end | Path |
 |-------|--------------------|-------|
-| Una | foo.contoso.com | /\* |
+| Una  | foo.contoso.com | /\* |
 | b | foo.contoso.com | /users/\* |
 | C | www\.fabrikam.com, foo.adventure-works.com  | /\*, /images/\* |
 
@@ -60,27 +60,27 @@ Se venissero inviate a Frontdoor, le richieste in ingresso seguenti corrisponder
 |---------------------|---------------|
 | foo.contoso.com | A, B |
 | www\.fabrikam.com | C |
-| images.fabrikam.com | Errore 400: Bad Request |
+| images.fabrikam.com | Errore 400 - Richiesta non valida |
 | foo.adventure-works.com | C |
-| contoso.com | Errore 400: Bad Request |
-| www\.adventure-works.com | Errore 400: Bad Request |
-| www\.northwindtraders.com | Errore 400: Bad Request |
+| contoso.com | Errore 400 - Richiesta non valida |
+| www\.adventure-works.com | Errore 400 - Richiesta non valida |
+| www\.northwindtraders.com | Errore 400 - Richiesta non valida |
 
 ### <a name="path-matching"></a>Corrispondenza del percorso
 Dopo aver determinato lo specifico host front-end e filtrato le possibili regole di routing solo alle route con tale host front-end, Frontdoor filtra le regole di routing in base al percorso della richiesta. Usiamo una logica simile a quella per gli host front-end:
 
 1. Cercare eventuali regole di routing con una corrispondenza esatta per il percorso
 2. Se nessun percorso corrisponde in modo esatto, cercare le regole di routing con un percorso con caratteri jolly corrispondente
-3. Se nessuna regola di routing viene rilevata con un percorso corrisponda, quindi rifiutare la richiesta e restituire un messaggio 400: Errore di richiesta risposta HTTP non valido.
+3. Se non viene trovata alcuna regola di routing con un percorso corrispondente, rifiutare la richiesta e restituire una risposta HTTP di errore 400 - Richiesta non valida.
 
 >[!NOTE]
 > Eventuali percorsi senza caratteri jolly vengono considerati percorsi di corrispondenza esatta. Anche se il percorso termina con una barra, viene comunque considerato una corrispondenza esatta.
 
 Per chiarire ulteriormente il processo, esaminiamo un altro set di esempi:
 
-| Regola di routing | Host front-end    | `Path`     |
+| Regola di routing | Host front-end    | Path     |
 |-------|---------|----------|
-| Una     | www\.contoso.com | /        |
+| Una      | www\.contoso.com | /        |
 | b     | www\.contoso.com | /\*      |
 | C     | www\.contoso.com | /ab      |
 | D     | www\.contoso.com | /abc     |
@@ -93,7 +93,7 @@ Tale configurazione produrrà la tabella corrispondente di esempio seguente :
 
 | Richiesta in ingresso    | Route corrispondente |
 |---------------------|---------------|
-| www\.contoso.com/            | Una             |
+| www\.contoso.com/            | Una              |
 | www\.contoso.com/a           | b             |
 | www\.contoso.com/ab          | C             |
 | www\.contoso.com/abc         | D             |
@@ -112,15 +112,15 @@ Tale configurazione produrrà la tabella corrispondente di esempio seguente :
 >
 > Configurazione di esempio:
 >
-> | Route | Host             | `Path`    |
+> | Route | Host             | Path    |
 > |-------|------------------|---------|
-> | Una     | profile.contoso.com | /api/\* |
+> | Una      | profile.contoso.com | /api/\* |
 >
 > Tabella corrispondente:
 >
 > | Richiesta in ingresso       | Route corrispondente |
 > |------------------------|---------------|
-> | profile.domain.com/other | No. Errore 400: Bad Request |
+> | profile.domain.com/other | No. Errore 400 - Richiesta non valida |
 
 ### <a name="routing-decision"></a>Decisione di routing
 Dopo aver individuato la corrispondenza con una singola regola di routing di Frontdoor, è necessario scegliere la modalità di elaborazione della richiesta. Se per la regola di routing corrispondente Frontdoor dispone di una risposta memorizzata nella cache, questa viene restituita al client. In caso contrario, l'elemento successivo che viene valutato è se è stata configurata o meno la [riscrittura URL (percorso di inoltro personalizzato)](front-door-url-rewrite.md) per la regola di routing corrispondente. Se non è definito un percorso di inoltro personalizzato, la richiesta viene inoltrata così com'è al back-end appropriato nel pool back-end configurato. In caso contrario, il percorso della richiesta viene aggiornato in base al [percorso di inoltro personalizzato](front-door-url-rewrite.md) definito e quindi inoltrata al back-end.

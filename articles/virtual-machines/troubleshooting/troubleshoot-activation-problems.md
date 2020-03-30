@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 11/15/2018
 ms.author: genli
-ms.openlocfilehash: a1c2049d7355ab946dbf426ec71f7f6178b8f153
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 5c84588290ce769b556002469b6a11c6950bb878
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74819096"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79476553"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Risolvere i problemi di attivazione della macchina virtuale Windows di Azure
 
@@ -26,7 +26,7 @@ Se si verificano problemi durante l'attivazione della macchina virtuale (VM) Win
 
 ## <a name="understanding-azure-kms-endpoints-for-windows-product-activation-of-azure-virtual-machines"></a>Informazioni sugli endpoint del servizio di gestione delle chiavi di Azure per l'attivazione del prodotto Windows di macchine virtuali di Azure
 
-Azure Usa endpoint diversi per l'attivazione del servizio di gestione delle chiavi (Key Management Services) in base all'area cloud in cui risiede la macchina virtuale. Quando si usa questa guida alla risoluzione dei problemi, usare l'endpoint del servizio di gestione delle chiavi appropriato applicabile alla propria area.
+Azure usa endpoint diversi per l'attivazione del Servizio di gestione delle chiavi (Key Management Services) a seconda dell'area cloud in cui risiede la macchina virtuale. Quando si usa questa guida alla risoluzione dei problemi, usare l'endpoint del servizio di gestione delle chiavi appropriato applicabile alla propria area.
 
 * Aree del cloud pubblico di Azure: kms.core.windows.net:1688
 * Aree del cloud nazionale cinese 21Vianet di Azure: kms.core.chinacloudapi.cn:1688
@@ -37,7 +37,7 @@ Azure Usa endpoint diversi per l'attivazione del servizio di gestione delle chia
 
 Quando si cerca di attivare una VM Windows di Azure, si riceve un messaggio di errore simile all'esempio seguente:
 
-**Errore: 0xC004F074 software LicensingService ha segnalato che non è stato possibile attivare il computer. Impossibile contattare ManagementService chiave (KMS). Per ulteriori informazioni, consultare il registro eventi dell'applicazione.**
+**Errore: 0xC004F074 Software LicensingService ha segnalato che non è stato possibile attivare il computer. Impossibile contattare il servizio di gestione delle chiavi (KMS). Per ulteriori informazioni, consultare il registro eventi dell'applicazione.**
 
 ## <a name="cause"></a>Causa
 
@@ -46,13 +46,13 @@ In genere si verificano problemi di attivazione della macchina virtuale di Azure
 ## <a name="solution"></a>Soluzione
 
 >[!NOTE]
->Se si usano una VPN da sito a sito e il tunneling forzato, vedere [Use Azure custom routes to enable KMS activation with forced tunneling](https://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx) (Usare le route personalizzate di Azure per abilitare l'attivazione del Server di gestione delle chiavi con il tunneling forzato). 
+>Se si usa una VPN da sito a sito e tunneling forzato, vedere Usare route personalizzate di [Azure per abilitare l'attivazione tramite il Servizio di](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-forced-tunneling)gestione delle chiavi con il tunneling forzato . 
 >
->Se si usa ExpressRoute ed è stata pubblicata una route predefinita, vedere [Azure VM may fail to activate over ExpressRoute](https://blogs.msdn.com/b/mast/archive/2015/12/01/azure-vm-may-fail-to-activate-over-expressroute.aspx) (Potrebbe non essere possibile attivare la VM di Azure tramite ExpressRoute).
+>Se si usa ExpressRoute e si ha pubblicato una route predefinita, vedere È possibile bloccare la [connettività Internet alle reti virtuali connesse ai circuiti ExpressRoute?](https://docs.microsoft.com/azure/expressroute/expressroute-faqs).
 
-### <a name="step-1-configure-the-appropriate-kms-client-setup-key"></a>Passaggio 1 configurare la chiave di configurazione del client del servizio di gestione delle chiavi appropriata
+### <a name="step-1-configure-the-appropriate-kms-client-setup-key"></a>Passaggio 1 Configurare la chiave di configurazione del client kmS appropriata
 
-Per la macchina virtuale creata da un'immagine personalizzata, è necessario configurare la chiave di configurazione del client del servizio di gestione delle chiavi appropriata per la macchina virtuale.
+Per la macchina virtuale creata da un'immagine personalizzata, è necessario configurare la chiave di configurazione del client KMS appropriata per la macchina virtuale.
 
 1. Eseguire **slmgr.vbs /dlv** in un prompt dei comandi con privilegi elevati. Controllare il valore Description nell'output e quindi determinare se è stato creato da un supporto per licenze al dettaglio (canale RETAIL) o per contratti multilicenza (VOLUME_KMSCLIENT):
   
@@ -77,7 +77,7 @@ Per la macchina virtuale creata da un'immagine personalizzata, è necessario con
 
 ### <a name="step-2-verify-the-connectivity-between-the-vm-and-azure-kms-service"></a>Passaggio 2 Verificare la connettività tra la VM e il Servizio di gestione delle chiavi di Azure
 
-1. Scaricare ed estrarre lo strumento [Psping](http:/technet.microsoft.com/sysinternals/jj729731.aspx) in una cartella locale nella VM che non viene attivata. 
+1. Scaricare ed estrarre lo strumento [PSping](http:/technet.microsoft.com/sysinternals/jj729731.aspx) in una cartella locale nella macchina virtuale che non viene attivata. 
 
 2. Andare a Start, cercare Windows PowerShell, fare clic con il pulsante destro del mouse su Windows PowerShell e scegliere Esegui come amministratore.
 
@@ -100,9 +100,11 @@ Per la macchina virtuale creata da un'immagine personalizzata, è necessario con
 
    Tenere presente che, se si rimuovono tutti i server DNS da una rete virtuale, le VM usano il servizio DNS interno di Azure. Questo servizio può risolvere kms.core.windows.net.
   
-    Assicurarsi inoltre che il traffico di rete in uscita verso l'endpoint KMS con la porta 1688 non sia bloccato dal firewall nella macchina virtuale.
+    Assicurarsi inoltre che il traffico di rete in uscita verso l'endpoint KMS con porta 1688 non sia bloccato dal firewall nella macchina virtuale.
 
-5. Dopo avere verificato la corretta connettività a kms.core.windows.net, usare il comando seguente in tale prompt di Windows PowerShell con privilegi elevati. Questo comando tenta l'attivazione più volte.
+5. Verificare utilizzando [Network Watcher Next Hop](https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview) che il tipo di hop successivo dalla macchina virtuale in questione all'IP di destinazione 23.102.135.246 (per kms.core.windows.net) o l'indirizzo IP dell'endpoint KMS appropriato applicabile all'area geografica sia **Internet**.  Se il risultato è VirtualAppliance o VirtualNetworkGateway, è probabile che esista una route predefinita.  Contattare l'amministratore di rete e contattarli per determinare la procedura di azione corretta.  Può trattarsi di una [route personalizzata](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/custom-routes-enable-kms-activation) se tale soluzione è coerente con i criteri dell'organizzazione.
+
+6. Dopo avere verificato la corretta connettività a kms.core.windows.net, usare il comando seguente in tale prompt di Windows PowerShell con privilegi elevati. Questo comando tenta l'attivazione più volte.
 
     ```powershell
     1..12 | ForEach-Object { Invoke-Expression "$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /ato" ; start-sleep 5 }
@@ -110,9 +112,9 @@ Per la macchina virtuale creata da un'immagine personalizzata, è necessario con
 
     Un'attivazione corretta restituisce informazioni simili alle seguenti:
     
-    **Attivazione di Windows (R), ServerDatacenter Edition (12345678-1234-1234-1234-12345678)...  Il prodotto è stato attivato correttamente.**
+    **Attivazione di Windows(R), ServerDatacenter edition (12345678-1234-1234-1234-12345678) ...  Prodotto attivato correttamente.**
 
-## <a name="faq"></a>FAQ 
+## <a name="faq"></a>Domande frequenti 
 
 ### <a name="i-created-the-windows-server-2016-from-azure-marketplace-do-i-need-to-configure-kms-key-for-activating-the-windows-server-2016"></a>Windows Server 2016 è stato creato da Azure Marketplace. È necessario configurare una chiave del servizio di gestione delle chiavi per attivare Windows Server 2016? 
 
@@ -130,6 +132,6 @@ Sì.
  
 Se il periodo di prova è scaduto e Windows non è ancora attivato, Windows Server 2008 R2 e le versioni successive di Windows visualizzeranno altre notifiche sull'attivazione. Lo sfondo del desktop rimane nero e Windows Update installerà solo gli aggiornamenti della sicurezza e quelli critici, ma non quelli facoltativi. Vedere la sezione Notifications (Notifiche) alla fine della pagina [Licensing Conditions](https://technet.microsoft.com/library/ff793403.aspx) (Condizioni di licenza).   
 
-## <a name="need-help-contact-support"></a>Opzioni per Contattare il supporto tecnico.
+## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico.
 
 Se si necessita ancora di assistenza, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.

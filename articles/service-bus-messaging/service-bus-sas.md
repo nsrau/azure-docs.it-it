@@ -1,5 +1,5 @@
 ---
-title: Controllo di accesso del bus di servizio di Azure con firme di accesso condiviso
+title: Azure Service Bus access control with Shared Access Signatures
 description: Panoramica del controllo degli accessi del bus di servizio con firme di accesso condiviso, dettagli dell'autorizzazione con firme di accesso condiviso con il bus di servizio di Azure.
 services: service-bus-messaging
 documentationcenter: na
@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 12/20/2019
 ms.author: aschhab
 ms.openlocfilehash: c381d9413c4003bc2ab9a9357ff2769e84d14c3e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79259474"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Controllo degli accessi del bus di servizio con firme di accesso condiviso
@@ -27,11 +27,11 @@ Le *firme di accesso condiviso* sono il meccanismo di sicurezza principale per l
 La firma di accesso condiviso consente inoltre l'accesso al bus di servizio in base alle regole di autorizzazione configurate in uno spazio dei nomi o in un'entità di messaggistica (inoltro, coda o argomento). Una regola di autorizzazione ha un nome, è associata a diritti specifici e include una coppia di chiavi di crittografia. Usare il nome e la chiave della regola tramite l'SDK del bus di servizio o nel proprio codice per generare un token di firma di accesso condiviso. Un client può quindi passare il token al bus di servizio per dimostrare l'autorizzazione per l'operazione richiesta.
 
 > [!NOTE]
-> Il bus di servizio di Azure supporta l'autorizzazione dell'accesso a uno spazio dei nomi del bus di servizio e alle relative entità usando Azure Active Directory (Azure AD). L'autorizzazione di utenti o applicazioni che usano il token OAuth 2,0 restituito da Azure AD offre sicurezza e facilità d'uso superiori rispetto alle firme di accesso condiviso (SAS). Con Azure AD, non è necessario archiviare i token nel codice e rischiare potenziali vulnerabilità della sicurezza.
+> Il bus di servizio di Azure supporta l'autorizzazione dell'accesso a uno spazio dei nomi del bus di servizio e alle relative entità tramite Azure Active Directory (Azure AD). L'autorizzazione di utenti o applicazioni con token OAuth 2.0 restituito da Azure AD offre una sicurezza e un utilizzo superiori rispetto alle firme di accesso condiviso. Con Azure AD non è necessario archiviare i token nel codice e rischiare potenziali vulnerabilità della sicurezza.
 >
-> Microsoft consiglia di usare Azure AD con le applicazioni del bus di servizio di Azure, quando possibile. Per altre informazioni, vedere gli articoli seguenti:
-> - [Autenticare e autorizzare un'applicazione con Azure Active Directory per accedere alle entità del bus di servizio di Azure](authenticate-application.md).
-> - [Autenticare un'identità gestita con Azure Active Directory per accedere alle risorse del bus di servizio di Azure](service-bus-managed-service-identity.md)
+> Microsoft consiglia di usare Azure AD con le applicazioni del bus di servizio di Azure quando possibile. Per altre informazioni, vedere gli articoli seguenti:
+> - [Autenticare e autorizzare un'applicazione con Azure Active Directory per accedere alle entità del bus](authenticate-application.md)di servizio di Azure.
+> - [Autenticare un'identità gestita con Azure Active Directory per accedere alle risorse del bus di servizio di AzureAuthenticate a managed identity with Azure Active Directory to access Azure Service Bus resources](service-bus-managed-service-identity.md)
 
 ## <a name="overview-of-sas"></a>Panoramica di SAS
 
@@ -57,7 +57,7 @@ Il diritto "Manage" include i diritti "Send" e "Receive".
 
 Un criterio di entità o dello spazio dei nomi può contenere fino a 12 regole di autorizzazione di accesso condiviso, rendendo disponibile spazio per tre set di regole, ognuno dei quali copre i diritti di base e la combinazione di Send e Listen. Questo limite sottolinea che l'archivio dei criteri di firma di accesso condiviso non deve essere un utente o un archivio di account del servizio. Se l'applicazione deve concedere l'accesso al bus di servizio in base alle identità utente o del servizio, deve implementare un servizio token di sicurezza che rilascia token di firma di accesso condiviso dopo un controllo di autenticazione e accesso.
 
-A una regola di autorizzazione vengono assegnate una *chiave primaria* e una *chiave secondaria*. Si tratta di chiavi di crittografia complesse. Non perderli o perderli: saranno sempre disponibili nella [portale di Azure][Azure portal]. È possibile utilizzare una delle chiavi generate ed è possibile rigenerarle in qualsiasi momento. Se si rigenera o si modifica una chiave nel criterio, tutti i token emessi in precedenza in base a tale chiave diventano immediatamente non validi. Le connessioni in corso create in base a tali token continueranno invece a funzionare fino alla scadenza del token.
+A una regola di autorizzazione vengono assegnate una *chiave primaria* e una *chiave secondaria*. Si tratta di chiavi di crittografia complesse. Queste chiavi non possono essere perse perché sono sempre disponibili nel [portale di Azure][Azure portal]. È possibile utilizzare una delle chiavi generate ed è possibile rigenerarle in qualsiasi momento. Se si rigenera o si modifica una chiave nel criterio, tutti i token emessi in precedenza in base a tale chiave diventano immediatamente non validi. Le connessioni in corso create in base a tali token continueranno invece a funzionare fino alla scadenza del token.
 
 Quando si crea uno spazio dei nomi del bus di servizio, viene creato automaticamente un criterio denominato **RootManageSharedAccessKey**. Questo criterio dispone delle autorizzazioni Manage per l'intero spazio dei nomi. È consigliabile considerare questa regola come un account **radice** amministratore e non usarla nell'applicazione. È possibile creare regole aggiuntive dei criteri nella scheda **Configura** per lo spazio dei nomi nel portale mediante Powershell o l'interfaccia della riga di comando di Azure.
 
@@ -77,12 +77,12 @@ Qualsiasi client che abbia accesso al nome di una regola di autorizzazione e a u
 SharedAccessSignature sig=<signature-string>&se=<expiry>&skn=<keyName>&sr=<URL-encoded-resourceURI>
 ```
 
-* **`se`** : istante di scadenza del token. Valore intero che riflette i secondi trascorsi dalle `00:00:00 UTC` del 1 ° gennaio 1970 (epoca UNIX) quando il token scade.
-* **`skn`** : nome della regola di autorizzazione.
-* **`sr`** : URI della risorsa a cui si ha accesso.
-* **`sig`** : firma.
+* **`se`**- Istantaneo di scadenza del token. Valore intero che riflette i secondi trascorsi dalle `00:00:00 UTC` del 1 ° gennaio 1970 (epoca UNIX) quando il token scade.
+* **`skn`**- Nome della regola di autorizzazione.
+* **`sr`**- URI della risorsa a cui si accede.
+* **`sig`**- Firma.
 
-Il `signature-string` è l'hash SHA-256 calcolato sull'URI della risorsa (**ambito** come descritto nella sezione precedente) e la rappresentazione di stringa dell'istante di scadenza del token, separate da LF.
+Il `signature-string` è l'hash SHA-256 calcolato sull'URI della risorsa **(ambito** come descritto nella sezione precedente) e la rappresentazione di stringa dell'istante di scadenza del token, separato da LF.
 
 Il calcolo del codice hash è simile allo pseudo codice seguente e restituisce un valore hash a 256 bit o 32 byte.
 
@@ -94,7 +94,7 @@ Il token contiene i valori non hash in modo che il destinatario possa ricalcolar
 
 L'URI di risorsa è l'URI completo della risorsa del bus di servizio a cui si richiede l'accesso. Ad esempio `http://<namespace>.servicebus.windows.net/<entityPath>` o `sb://<namespace>.servicebus.windows.net/<entityPath>`, ovvero `http://contoso.servicebus.windows.net/contosoTopics/T1/Subscriptions/S3`. 
 
-**L'URI deve essere [codificato in percentuale](https://msdn.microsoft.com/library/4fkewx0t.aspx).**
+**L'URI deve essere [codificato in percentuale.](https://msdn.microsoft.com/library/4fkewx0t.aspx)**
 
 La regola di autorizzazione di accesso condiviso usata per la firma deve essere configurata nell'entità specificata da questo URI o in un elemento padre nella gerarchia. Ad esempio `http://contoso.servicebus.windows.net/contosoTopics/T1` o `http://contoso.servicebus.windows.net` nell'esempio precedente.
 
@@ -189,9 +189,9 @@ Se un token SAS viene assegnato a un mittente o ad un client, questi ultimi non 
 
 Nella sezione precedente, è stato illustrato come utilizzare il token SAS con una richiesta HTTP POST per l'invio di dati per il Bus di servizio. Com'è noto, è possibile accedere al bus di servizio usando il protocollo AMQP (Advanced Message Queuing Protocol), ovvero il protocollo preferito da usare per motivi di prestazioni in molti scenari. L'uso del token SAS con AMQP viene descritto nel documento dedicato ad [AMQP Claim-Based Security versione 1.0](https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc) , in fase di bozza dal 2013 ma attualmente supportato da Azure.
 
-Prima di iniziare a inviare i dati al bus di servizio, il server di pubblicazione deve inviare il token di firma di accesso condiviso all'interno di un messaggio AMQP a un nodo AMQP ben definito denominato **"$cbs"** . Può essere visualizzato come una coda "speciale" usata dal servizio per acquisire e convalidare tutti i token di firma di accesso condiviso. Il server di pubblicazione deve specificare il campo **ReplyTo** all'interno del messaggio AMQP. Si tratta del nodo in cui il servizio invia una risposta al server di pubblicazione con il risultato della convalida del token. È un modello di richiesta/risposta semplice tra il server di pubblicazione e il servizio. Questo nodo risposta viene creato al momento in quanto "creazione dinamica di nodo remoto" come descritto nella specifica di AMQP 1.0. Dopo avere verificato che il token di firma di accesso condiviso è valido, il server di pubblicazione può andare avanti e iniziare a inviare dati al servizio.
+Prima di iniziare a inviare i dati al bus di servizio, il server di pubblicazione deve inviare il token di firma di accesso condiviso all'interno di un messaggio AMQP a un nodo AMQP ben definito denominato **"$cbs"**. Può essere visualizzato come una coda "speciale" usata dal servizio per acquisire e convalidare tutti i token di firma di accesso condiviso. Il server di pubblicazione deve specificare il campo **ReplyTo** all'interno del messaggio AMQP. Si tratta del nodo in cui il servizio invia una risposta al server di pubblicazione con il risultato della convalida del token. È un modello di richiesta/risposta semplice tra il server di pubblicazione e il servizio. Questo nodo risposta viene creato al momento in quanto "creazione dinamica di nodo remoto" come descritto nella specifica di AMQP 1.0. Dopo avere verificato che il token di firma di accesso condiviso è valido, il server di pubblicazione può andare avanti e iniziare a inviare dati al servizio.
 
-I passaggi seguenti illustrano come inviare il token SAS con il protocollo AMQP usando la libreria [AMQP.NET Lite](https://github.com/Azure/amqpnetlite) . Questa operazione è utile se non è possibile usare l'SDK ufficiale del bus di servizio (ad esempio in WinRT, .NET Compact Framework, .NET Micro Framework e mono) che si sviluppa in C\#. Naturalmente, questa libreria è utile per comprendere il funzionamento della sicurezza basata sulle attestazioni a livello AMQP, dopo aver visto il funzionamento a livello HTTP (con una richiesta HTTP POST e il token SAS inviati all'interno dell'intestazione "Authorization"). Se non sono necessarie informazioni approfondite su AMQP, è possibile usare l'SDK ufficiale del bus di servizio con .NET Framework applicazioni, che lo eseguirà per l'utente.
+I passaggi seguenti illustrano come inviare il token di firma di accesso condiviso con il protocollo AMQP usando la libreria [Lite AMQP.NET.](https://github.com/Azure/amqpnetlite) Ciò è utile se non è possibile utilizzare l'SDK del bus di servizio ufficiale (ad esempio\#in WinRT, .NET Compact Framework, .NET Micro Framework e Mono) in fase di sviluppo in C . Naturalmente, questa libreria è utile per comprendere il funzionamento della sicurezza basata sulle attestazioni a livello AMQP, dopo aver visto il funzionamento a livello HTTP (con una richiesta HTTP POST e il token SAS inviati all'interno dell'intestazione "Authorization"). Se non hai bisogno di una conoscenza così approfondita di AMQP, puoi usare l'SDK ufficiale del bus di servizio con le applicazioni .NET Framework, che lo farà per te.
 
 ### <a name="c35"></a>C&#35;
 
@@ -253,7 +253,7 @@ Il metodo `PutCbsToken()` riceve la *connessione*, vale a dire l'istanza della c
 
 Successivamente, il server di pubblicazione crea due collegamenti AMQP per inviare il token SAS e ricevere la risposta (il risultato di convalida del token) dal servizio.
 
-Il messaggio AMQP contiene un insieme di proprietà e altre informazioni rispetto a un semplice messaggio. Il token SAS rappresenta il corpo del messaggio (tramite il relativo costruttore). La proprietà **"ReplyTo"** è impostata sul nome del nodo per la ricezione del risultato di convalida sul collegamento ricevitore (se si desidera modificare il nome, è possibile farlo e verrà creato in modo dinamico dal servizio). Le ultime tre proprietà personalizzate/relative all'applicazione vengono usate dal servizio per indicare quale tipologia di operazione è necessario eseguire. Come descritto nella bozza di specifica CBS, devono essere il **nome dell'operazione** ("put-token"), il **tipo di token** (in questo caso, `servicebus.windows.net:sastoken`) e il  **"nome" del gruppo di destinatari** a cui viene applicato il token (l'intera entità).
+Il messaggio AMQP contiene un insieme di proprietà e altre informazioni rispetto a un semplice messaggio. Il token SAS rappresenta il corpo del messaggio (tramite il relativo costruttore). La proprietà **"ReplyTo"** è impostata sul nome del nodo per la ricezione del risultato di convalida sul collegamento ricevitore (se si desidera modificare il nome, è possibile farlo e verrà creato in modo dinamico dal servizio). Le ultime tre proprietà personalizzate/relative all'applicazione vengono usate dal servizio per indicare quale tipologia di operazione è necessario eseguire. Come descritto nella bozza di specifica CBS, devono essere il **nome dell'operazione** ("put-token"), il **tipo di token** (in questo caso, `servicebus.windows.net:sastoken`) e il ** "nome" del gruppo di destinatari** a cui viene applicato il token (l'intera entità).
 
 Dopo aver inviato il token SAS sul collegamento mittente, il server di pubblicazione deve leggere la risposta sul collegamento ricevitore. La risposta è un semplice messaggio AMQP con una proprietà dell'applicazione denominata **"status-code"** che può contenere gli stessi valori di un codice di stato HTTP.
 
@@ -263,9 +263,9 @@ La tabella seguente illustra i diritti di accesso necessari per l'esecuzione di 
 
 | Operazione | Attestazione necessaria | Ambito attestazione |
 | --- | --- | --- |
-| **Spazio dei nomi** | | |
+| **Namespace** | | |
 | Configurare le regole di autorizzazione relative a uno spazio dei nomi |Gestione |Qualsiasi indirizzo dello spazio dei nomi |
-| **Registro di sistema del servizio** | | |
+| **Service Registry** | | |
 | Enumerare i criteri privati |Gestione |Qualsiasi indirizzo dello spazio dei nomi |
 | Iniziare l'attesa su uno spazio dei nomi del servizio |Attesa |Qualsiasi indirizzo dello spazio dei nomi |
 | Inviare messaggi a un listener in uno spazio dei nomi |Send |Qualsiasi indirizzo dello spazio dei nomi |

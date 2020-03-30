@@ -1,6 +1,6 @@
 ---
-title: Trasmettere log Azure Active Directory ai log di monitoraggio di Azure | Microsoft Docs
-description: Informazioni su come integrare i log di Azure Active Directory con i log di monitoraggio di Azure
+title: Trasmettere i log di Azure Active Directory ai log di Monitoraggio di Azure Documenti Microsoft
+description: Informazioni su come integrare i log di Azure Active Directory con i log di Monitoraggio di AzureLearn how to integrate Azure Active Directory logs with Azure Monitor logs
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -18,13 +18,13 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 213fb6e73ae2fc4314320d0e3e593632d8eb7f85
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79266442"
 ---
-# <a name="integrate-azure-ad-logs-with-azure-monitor-logs"></a>Integrare log di Azure AD con i log di monitoraggio di Azure
+# <a name="integrate-azure-ad-logs-with-azure-monitor-logs"></a>Integrare i log di Azure AD con i log di Monitoraggio di AzureIntegrate Azure AD logs with Azure Monitor logs
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -44,27 +44,27 @@ Questo articolo illustra come integrare i log di Azure Active Directory (Azure A
 
 È possibile indirizzare i log attività di controllo e i log attività di accesso ai log di Monitoraggio di Azure per ulteriori analisi. 
 
-* **Log di controllo**: il [report sull'attività relativo ai log di controllo](concept-audit-logs.md) consente di accedere alla cronologia di ogni attività eseguita nel tenant.
-* **Log di accesso**: il [report sull'attività di accesso](concept-sign-ins.md) consente di determinare chi ha eseguito le attività segnalate nei log di controllo.
+* **Registri di** [controllo:](concept-audit-logs.md) il report attività dei log di controllo consente di accedere alla cronologia di ogni attività eseguita nel tenant.
+* **Log di accesso:** con il [report attività di accesso](concept-sign-ins.md), è possibile determinare chi ha eseguito le attività segnalate nei registri di controllo.
 
 > [!NOTE]
 > I log attività di controllo e di accesso correlati a B2C non sono al momento supportati.
 >
 
-## <a name="prerequisites"></a>Prerequisites 
+## <a name="prerequisites"></a>Prerequisiti 
 
 Per usare questa funzionalità, sono necessari:
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, è possibile [iscriversi per ottenere una versione di valutazione gratuita](https://azure.microsoft.com/free/).
 * Un tenant di Azure AD.
 * Un utente con il ruolo di *amministratore globale* o *amministratore della sicurezza* per il tenant di Azure AD.
-* Un'area di lavoro Log Analytics nella sottoscrizione di Azure. Informazioni su [come creare un'area di lavoro Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
+* Un'area di lavoro Log Analytics nella sottoscrizione di Azure. Informazioni su come [creare un'area](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace)di lavoro di Log Analytics.
 
-## <a name="send-logs-to-azure-monitor"></a>Inviare i log a monitoraggio di Azure
+## <a name="send-logs-to-azure-monitor"></a>Inviare log a Monitoraggio di AzureSend logs to Azure Monitor
 
-1. Accedere al [portale di Azure](https://portal.azure.com). 
+1. Accedere al [portale](https://portal.azure.com)di Azure . 
 
-2. Selezionare **Azure Active Directory** > **Impostazioni di diagnostica** -> **Aggiungi impostazioni di diagnostica**. È anche possibile selezionare **Esporta impostazioni** dalla pagina **Log di controllo** o **Accessi** per visualizzare la pagina di configurazione delle impostazioni di diagnostica.  
+2. Selezionare**Impostazioni** -> di diagnostica **di Azure Active Directory** > **Aggiungi impostazione diagnostica**. È anche possibile selezionare **Esporta impostazioni** dalla pagina **Log di controllo** o **Accessi** per visualizzare la pagina di configurazione delle impostazioni di diagnostica.  
     
 3. Nel menu **Impostazioni di diagnostica** selezionare la casella di controllo **Send to Log Analytics workspace** (Invia ad area di lavoro Log Analytics) e quindi selezionare **Configura**.
 
@@ -83,4 +83,4 @@ Per usare questa funzionalità, sono necessari:
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Analizzare i log attività di Azure AD con i log di Monitoraggio di Azure](howto-analyze-activity-logs-log-analytics.md)
-* [Installare e usare le viste di analisi dei log per Azure Active Directory](howto-install-use-log-analytics-views.md)
+* [Installare e usare le visualizzazioni di analisi dei log per Azure Active DirectoryInstall and use the log analytics views for Azure Active Directory](howto-install-use-log-analytics-views.md)

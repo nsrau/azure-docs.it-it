@@ -1,20 +1,20 @@
 ---
-title: Monitorare un nuovo cluster Azure Kubernetes Service (AKS) | Microsoft Docs
-description: Informazioni su come abilitare il monitoraggio per un nuovo cluster Azure Kubernetes Service (AKS) con monitoraggio di Azure per la sottoscrizione di contenitori.
+title: Monitorare un nuovo cluster di servizi Azure Kubernetes (AKS) Documenti Microsoft
+description: Informazioni su come abilitare il monitoraggio per un nuovo cluster del servizio Azure Kubernetes (AKS) con la sottoscrizione di Monitoraggio di Azure per i contenitori.
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.openlocfilehash: c731826f2780c45358730f9ce20d6a6151f6f259
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79275438"
 ---
-# <a name="enable-monitoring-of-a-new-azure-kubernetes-service-aks-cluster"></a>Abilitare il monitoraggio di un nuovo cluster Azure Kubernetes Service (AKS)
+# <a name="enable-monitoring-of-a-new-azure-kubernetes-service-aks-cluster"></a>Abilitare il monitoraggio di un nuovo cluster di servizio Kubernetes di AzureEnable monitoring of a new Azure Kubernetes Service (AKS) cluster
 
-Questo articolo descrive come configurare monitoraggio di Azure per i contenitori per monitorare il cluster Kubernetes gestito ospitato nel [servizio Kubernetes di Azure](https://docs.microsoft.com/azure/aks/) che si sta preparando per la distribuzione nella sottoscrizione.
+Questo articolo descrive come configurare Monitoraggio di Azure per i contenitori per monitorare il cluster Kubernetes gestito ospitato nel [servizio Azure Kubernetes](https://docs.microsoft.com/azure/aks/) che si sta preparando per la distribuzione nella sottoscrizione.
 
-È possibile abilitare il monitoraggio di un cluster AKS usando uno dei metodi supportati:
+È possibile abilitare il monitoraggio di un cluster AKS utilizzando uno dei metodi supportati:You can enable monitoring of an AKS cluster using one of the supported methods:
 
 * Interfaccia della riga di comando di Azure
 * Terraform
@@ -24,7 +24,7 @@ Questo articolo descrive come configurare monitoraggio di Azure per i contenitor
 Per abilitare il monitoraggio di un nuovo cluster servizio Azure Kubernetes creato con l'interfaccia della riga di comando di Azure, seguire la procedura nell'articolo introduttivo nella sezione [Creare il cluster servizio Azure Kubernetes](../../aks/kubernetes-walkthrough.md#create-aks-cluster).  
 
 >[!NOTE]
->Se si sceglie di usare l'interfaccia della riga di comando di Azure, è prima necessario installarla ed eseguirla in locale. È necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.74 o successiva. Per identificare la versione in uso, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). Se è stata installata l'estensione dell'interfaccia della riga di comando AKS-Preview versione 0.4.12 o successiva, rimuovere tutte le modifiche apportate per abilitare un'estensione di anteprima perché può sostituire il comportamento predefinito dell'interfaccia della riga di comando di Azure perché le funzionalità di anteprima di AKS non sono disponibili nel cloud DOD di Azure
+>Se si sceglie di usare l'interfaccia della riga di comando di Azure, è prima necessario installarla ed eseguirla in locale. È necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.74 o successiva. Per identificare la versione in uso, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). Se è stata installata l'estensione dell'interfaccia di comando aks-preview versione 0.4.12 o successiva, rimuovere tutte le modifiche apportate per abilitare un'estensione di anteprima in quanto può eseguire l'override del comportamento predefinito dell'interfaccia della riga di comando di Azure poiché le funzionalità di aKS Preview non sono disponibili nel cloud Governmnet di Azure USA.
 
 ## <a name="enable-using-terraform"></a>Abilitare con Terraform
 
@@ -116,4 +116,4 @@ Dopo alcuni minuti, il comando viene completato e vengono restituite informazion
 
 * Se si verificano problemi durante il tentativo di onboarding della soluzione, esaminare la [guida risoluzione dei problemi](container-insights-troubleshoot.md).
 
-* Con il monitoraggio abilitato per raccogliere lo stato e l'utilizzo delle risorse del cluster AKS e dei carichi di lavoro in esecuzione su di essi, informazioni su [come usare](container-insights-analyze.md) monitoraggio di Azure per i contenitori.
+* Con il monitoraggio abilitato per raccogliere l'integrità e l'utilizzo delle risorse del cluster AKS e dei carichi di lavoro in esecuzione su di essi, scopri [come usare](container-insights-analyze.md) Monitoraggio di Azure per i contenitori.

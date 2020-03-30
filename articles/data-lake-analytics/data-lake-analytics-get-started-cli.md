@@ -1,5 +1,5 @@
 ---
-title: Creare & query Azure Data Lake Analytics-interfaccia della riga di comando di Azure
+title: Creare & query analisi di Azure Data Lake - interfaccia della riga di comando di AzureCreate to query Azure Data Lake Analytics - Azure CLI
 description: Informazioni su come usare l'interfaccia della riga di comando di Azure per creare un account Azure Data Lake Analytics e inviare un processo U-SQL.
 ms.service: data-lake-analytics
 author: saveenr
@@ -7,12 +7,12 @@ ms.author: saveenr
 ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 06/18/2017
-ms.openlocfilehash: c9781165affb1755e73919931d8d158ae9b535ac
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d9fc9bee98391f7272a417324b9c3a540b6adbe6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75438774"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79474510"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-cli"></a>Introduzione ad Azure Data Lake Analytics con l'interfaccia della riga di comando di Azure
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -22,17 +22,16 @@ Questo articolo descrive come usare l'interfaccia della riga di comando di Azure
 ## <a name="prerequisites"></a>Prerequisiti
 Prima di iniziare, è necessario disporre di quanto segue:
 
-* **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
-* Questo articolo richiede che sia in esecuzione l'interfaccia della riga di comando di Azure versione 2.0 o successive. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli). 
+* **Una sottoscrizione di Azure.** Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+* Questo articolo richiede che sia in esecuzione l'interfaccia della riga di comando di Azure versione 2.0 o successive. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure.If]( /cli/azure/install-azure-cli)you need to install or upgrade, see Install Azure CLI. 
 
 
 
-## <a name="log-in-to-azure"></a>Accedere ad Azure
+## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
-Per accedere alla sottoscrizione di Azure:
+Per accedere alla sottoscrizione di Azure:To sign in to your Azure subscription:
 
-```
-azurecli
+```azurecli
 az login
 ```
 
@@ -42,34 +41,34 @@ Dopo aver eseguito l'accesso, il comando di accesso elenca le sottoscrizioni.
 
 Per usare una sottoscrizione specifica:
 
-```
+```azurecli
 az account set --subscription <subscription id>
 ```
 
 ## <a name="create-data-lake-analytics-account"></a>Creare un account di Analisi Data Lake
 Per poter eseguire un processo è necessario un account Data Lake Analytics. Per creare un account Data Lake Analytics, specificare quanto segue:
 
-* **Gruppo di risorse di Azure**. L'account Data Lake Analytics deve essere creato all'interno di un gruppo di risorse di Azure. [Azure Resource Manager](../azure-resource-manager/management/overview.md) consente di lavorare con le risorse dell'applicazione come gruppo. È possibile distribuire, aggiornare o eliminare tutte le risorse per l'applicazione mediante un'unica operazione coordinata.  
+* **Gruppo di risorse di Azure**. L'account Data Lake Analytics deve essere creato all'interno di un gruppo di risorse di Azure. [Azure Resource Manager](../azure-resource-manager/management/overview.md) consente di usare le risorse nell'applicazione come gruppo. È possibile distribuire, aggiornare o eliminare tutte le risorse per l'applicazione mediante un'unica operazione coordinata.  
 
 Per elencare i gruppi di risorse esistenti nella sottoscrizione:
 
-```
+```azurecli
 az group list
 ```
 
 Per creare un nuovo gruppo di risorse:
 
-```
+```azurecli
 az group create --name "<Resource Group Name>" --location "<Azure Location>"
 ```
 
 * **Nome dell'account Data Lake Analytics**. Ogni account Data Lake Analytics ha un nome.
-* **Località**. Usare uno dei data center di Azure che supporta Data Lake Analytics.
-* **Account Data Lake Store predefinito**: ogni account Data Lake Analytics ha un account Data Lake Store predefinito.
+* **Posizione**. Usare uno dei data center di Azure che supporta Data Lake Analytics.
+* **Account Data Lake Store predefinito:** ogni account Data Lake Analytics dispone di un account Data Lake Store predefinito.
 
 Per elencare l'account Data Lake Store esistente:
 
-```
+```azurecli
 az dls account list
 ```
 
@@ -81,13 +80,13 @@ az dls account create --account "<Data Lake Store Account Name>" --resource-grou
 
 Per creare un account Data Lake Analytics, usare la sintassi seguente:
 
-```
+```azurecli
 az dla account create --account "<Data Lake Analytics Account Name>" --resource-group "<Resource Group Name>" --location "<Azure location>" --default-data-lake-store "<Default Data Lake Store Account Name>"
 ```
 
 Dopo aver creato un account, è possibile usare i comandi seguenti per elencare gli account e visualizzarne i dettagli:
 
-```
+```azurecli
 az dla account list
 az dla account show --account "<Data Lake Analytics Account Name>"            
 ```
@@ -99,7 +98,7 @@ Il portale di Azure offre un’interfaccia utente per copiare alcuni file di dat
 
 Per caricare i file con l'interfaccia della riga di comando di Azure, usare i comandi seguenti:
 
-```
+```azurecli
 az dls fs upload --account "<Data Lake Store Account Name>" --source-path "<Source File Path>" --destination-path "<Destination File Path>"
 az dls fs list --account "<Data Lake Store Account Name>" --path "<Path>"
 ```
@@ -126,7 +125,7 @@ OUTPUT @a
     USING Outputters.Csv();
 ```
 
-Questo script U-SQL legge il file di dati di origine con **Extractors.Tsv()** e quindi crea un file CSV con **Outputters.Csv()** .
+Questo script U-SQL legge il file di dati di origine con **Extractors.Tsv()** e quindi crea un file CSV con **Outputters.Csv()**.
 
 Non modificare i due percorsi, a meno che il file di origine non sia stato copiato in una posizione diversa.  Data Lake Analytics creerà la cartella di output, se non esiste già.
 
@@ -147,31 +146,30 @@ wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Da
 > Il contenitore BLOB di Azure con contenitori pubblici non è supportato.      
 >
 
-**Per inviare processi**
+**Per inviare lavori**
 
 Per inviare un processo, usare la sintassi seguente:
 
-```
+```azurecli
 az dla job submit --account "<Data Lake Analytics Account Name>" --job-name "<Job Name>" --script "<Script Path and Name>"
 ```
 
 Ad esempio:
 
-```
+```azurecli
 az dla job submit --account "myadlaaccount" --job-name "myadlajob" --script @"C:\DLA\myscript.txt"
 ```
 
 **Per elencare i processi e visualizzarne i dettagli**
 
-```
-azurecli
+```azurecli
 az dla job list --account "<Data Lake Analytics Account Name>"
 az dla job show --account "<Data Lake Analytics Account Name>" --job-identity "<Job Id>"
 ```
 
 **Per annullare processi**
 
-```
+```azurecli
 az dla job cancel --account "<Data Lake Analytics Account Name>" --job-identity "<Job Id>"
 ```
 
@@ -179,7 +177,7 @@ az dla job cancel --account "<Data Lake Analytics Account Name>" --job-identity 
 
 Al termine di un processo, è possibile usare i comandi seguenti per elencare i file di output e scaricare i file:
 
-```
+```azurecli
 az dls fs list --account "<Data Lake Store Account Name>" --source-path "/Output" --destination-path "<Destination>"
 az dls fs preview --account "<Data Lake Store Account Name>" --path "/Output/SearchLog-from-Data-Lake.csv"
 az dls fs preview --account "<Data Lake Store Account Name>" --path "/Output/SearchLog-from-Data-Lake.csv" --length 128 --offset 0
@@ -188,7 +186,7 @@ az dls fs download --account "<Data Lake Store Account Name>" --source-path "/Ou
 
 Ad esempio:
 
-```
+```azurecli
 az dls fs download --account "myadlsaccount" --source-path "/Output/SearchLog-from-Data-Lake.csv" --destination-path "C:\DLA\myfile.csv"
 ```
 

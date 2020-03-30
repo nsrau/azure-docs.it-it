@@ -1,20 +1,18 @@
 ---
-title: Gestisci il profilo di pubblicazione di Azure Marketplace e AppSource
-description: Gestione del profilo di pubblicazione di Azure Marketplace e AppSource
-services: Azure, Marketplace, Cloud Partner Portal,
+title: Gestire il profilo dell'autore di Azure Marketplace e AppSourceManage Azure Marketplace and AppSource publisher profile
+description: Gestione del profilo dell'autore di Azure Marketplace e AppSourceManaging Azure Marketplace and AppSource publisher profile
 author: qianw211
-manager: pbutlerm
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/15/2018
-ms.author: pabutler
-ms.openlocfilehash: c9e8e73d18ec0c2a7334fbb5521e89ead4334cc7
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 9b89ff803e08d0ca929eea913be9a1c87664b124
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826359"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280236"
 ---
 # <a name="manage-azure-marketplace-and-appsource-publisher-profile"></a>Gestire il profilo di pubblicazione di "Azure Marketplace" e "AppSource"
 

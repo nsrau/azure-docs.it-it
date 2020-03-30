@@ -10,23 +10,23 @@ ms.service: lab-services
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: how-to
 ms.custom: mvc
-ms.date: 09/19/2019
+ms.date: 03/17/2020
 ms.author: spelluru
-ms.openlocfilehash: 2ac9e8b8d0635eceb7d4f85ad867b102f7d064f5
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
-ms.translationtype: HT
+ms.openlocfilehash: db1e60ccd7e05cb8b6923d6b2ec008cdfb76eaa1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73585111"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79501924"
 ---
 # <a name="how-to-access-a-classroom-lab-in-azure-lab-services"></a>Come accedere a un lab per le classi in Azure Lab Services
 Questo articolo descrive come registrarsi a un lab per la classe, visualizzare tutti i lab a cui è possibile accedere, avviare e arrestare una macchina virtuale nel lab e connettersi alla macchina virtuale. 
 
 ## <a name="register-to-the-lab"></a>Registrarsi al lab
 
-1. Passare all'**URL di registrazione** ricevuto dal docente. Non è necessario usare l'URL di registrazione dopo aver completato la registrazione. Usare invece l'URL [https://labs.azure.com](https://labs.azure.com). Internet Explorer 11 non è ancora supportato. 
+1. Passare all'**URL di registrazione** ricevuto dal docente. Non è necessario usare l'URL di registrazione dopo aver completato la registrazione. Utilizzare invece l'URL: [https://labs.azure.com](https://labs.azure.com). Internet Explorer 11 non è ancora supportato. 
 1. Accedere al servizio usando l'account dell'istituto di istruzione per completare la registrazione. 
 
     > [!NOTE]
@@ -60,29 +60,6 @@ Questo articolo descrive come registrarsi a un lab per la classe, visualizzare t
     3. Per connettersi alle macchine virtuali **Linux**, è possibile usare **SSH** o **RDP** (se è abilitato). Per altre informazioni, vedere [Abilitare una connessione Desktop remoto per i computer Linux](how-to-enable-remote-desktop-linux.md). 
     1. Se si usa un **Mac** per connettersi alla macchina virtuale lab, seguire le istruzioni riportate nella sezione successiva. 
 
-## <a name="connect-to-a-vm-using-rdp-on-a-mac"></a>Connettersi a una macchina virtuale usando RDP in un Mac
-Questa sezione illustra come uno studente può connettersi a una macchina virtuale da un Mac usando RDP.
-
-### <a name="step-1-install-microsoft-remote-desktop-on-a-mac"></a>Passaggio 1: Installare Desktop remoto Microsoft in un Mac
-1. Aprire l'App Store nel Mac e cercare **Desktop remoto Microsoft.**
-
-    ![Desktop remoto Microsoft](../media/how-to-use-classroom-lab/install-ms-remote-desktop.png)
-1. Installare la versione più recente di Desktop remoto Microsoft. 
-
-### <a name="step-2-access-the-vm-from-your-mac-using-rdp"></a>Passaggio 2: Accedere alla macchina virtuale dal Mac usando RDP
-1. Aprire il file **RDP** scaricato nel computer in cui è installato **Desktop remoto Microsoft**. Dovrebbe iniziare a connettersi alla macchina virtuale. 
-
-    ![Connettersi alla macchina virtuale](../media/how-to-use-classroom-lab/connect-linux-vm.png)
-1. Selezionare **Continua** se viene visualizzato il seguente avviso. 
-
-    ![Avviso del certificato](../media/how-to-use-classroom-lab/certificate-error.png)
-1. Verrà visualizzata la macchina virtuale. 
-
-    > [!NOTE]
-    > L'esempio seguente è relativo a una VM Linux CentOS. 
-
-    ![VM](../media/how-to-use-classroom-lab/vm-ui.png)
-
 ## <a name="progress-bar"></a>Indicatore di stato 
 L'indicatore di stato nel riquadro indica il numero di ore usate rispetto al numero di [ore della quota](how-to-configure-student-usage.md#set-quotas-for-users) assegnate all'utente. Questo intervallo di tempo è il tempo aggiuntivo assegnato all'utente oltre al tempo pianificato per il lab. Il colore dell'indicatore di stato e il testo sotto di esso variano in base agli scenari seguenti:
 
@@ -103,7 +80,7 @@ L'indicatore di stato nel riquadro indica il numero di ore usate rispetto al num
 ## <a name="view-all-the-classroom-labs"></a>Visualizzare tutti i lab della classe
 Dopo la registrazione ai lab, è possibile visualizzare tutti i lab per le classi attenendosi alla procedura seguente: 
 
-1. Passare a [https://labs.azure.com](https://labs.azure.com). Internet Explorer 11 non è ancora supportato. 
+1. Passare [https://labs.azure.com](https://labs.azure.com)a . Internet Explorer 11 non è ancora supportato. 
 2. Accedere al servizio con l'account utente usato per la registrazione al lab. 
 3. Verificare che siano visualizzati tutti i lab a cui si ha accesso. 
 
