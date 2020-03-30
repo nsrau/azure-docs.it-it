@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: willzhan; johndeu
-ms.openlocfilehash: fc6766943747c066581fe3820481cfe4a35d5296
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: a693eb374365670da3fe8c4b2bb8ce664a024217
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76774968"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80295433"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-media-services-api-with-rest"></a>Usare l'autenticazione di Azure AD per accedere all'API Servizi multimediali con REST
 
 > [!NOTE]
-> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [linee guida sulla migrazione da V2 a V3](../latest/migrate-from-v2-to-v3.md)
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Scopri la versione più recente, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche le linee guida per la [migrazione dalla v2 alla v3](../latest/migrate-from-v2-to-v3.md)
 
 Quando si usa l'autenticazione di Azure AD con Servizi multimediali di Azure, è possibile eseguire l'autenticazione in uno di due modi:
 
@@ -54,15 +54,15 @@ In questa esercitazione verranno illustrate le procedure per:
 - Rivedere l'articolo [Panoramica dell'accesso all'API di Servizi multimediali di Azure con l'autenticazione di Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
 - Installare il client REST di [Postman](https://www.getpostman.com/) per eseguire le API REST mostrate in questo articolo. 
 
-    In questa esercitazione si sta usando **Postman** ma si può usare qualsiasi strumento REST. Tra le alternative vi sono: **Visual Studio Code** con il plug-in REST o **Telerik Fiddler**. 
+    In questa esercitazione si sta usando **Postman** ma si può usare qualsiasi strumento REST. Altre alternative sono: **Visual Studio Code** con il plug-in REST o **Telerik Fiddler**. 
 
 ## <a name="get-the-authentication-information-from-the-azure-portal"></a>Ottenere le informazioni di autenticazione dal portale di Azure
 
-### <a name="overview"></a>Overview
+### <a name="overview"></a>Panoramica
 
 Per accedere alle API di Servizi multimediali, è necessario raccogliere i punti dati seguenti.
 
-|Impostazione|Esempio|Description|
+|Impostazione|Esempio|Descrizione|
 |---|-------|-----|
 |Dominio del tenant di Azure Active Directory|microsoft.onmicrosoft.com|Azure AD come servizio token di sicurezza viene creato usando il formato seguente: <https://login.microsoftonline.com/{your-ad-tenant-name.onmicrosoft.com}/oauth2/token>. Azure AD emette un token JWT per accedere alle risorse (token di accesso).|
 |Endpoint API REST|<https://amshelloworld.restv2.westus.media.azure.net/api/>|Si tratta dell'endpoint verso il quale vengono eseguite tutte le chiamate all'API REST di Servizi multimediali nell'applicazione,|
@@ -73,9 +73,9 @@ Per accedere alle API di Servizi multimediali, è necessario raccogliere i punti
 
 Per ottenere le informazioni, seguire questa procedura:
 
-1. Accedere al [Portale di Azure](https://portal.azure.com).
+1. Accedere al [portale](https://portal.azure.com)di Azure .
 2. Passare all'istanza di Servizi multimediali di Azure.
-3. Selezionare **Accesso all'API**.
+3. Selezionare **Accesso API**.
 4. Fare clic su **Connettersi all'API Servizi multimediali di Azure con l'entità servizio**.
 
     ![Accesso all'API](./media/connect-with-rest/connect-with-rest01.png)
@@ -83,7 +83,7 @@ Per ottenere le informazioni, seguire questa procedura:
 5. Selezionare un'**applicazione Azure AD** esistente o crearne una nuova come indicato di seguito.
 
     > [!NOTE]
-    > Perché la richiesta REST di Servizi multimediali di Azure abbia esito positivo, l'utente chiamante deve avere il ruolo di **Collaboratore** o **Proprietario** per l'account di Servizi multimediali al quale sta tentando di accedere. Se si verifica un'eccezione che indica "Errore del server remoto: (401) Non autorizzato", vedere il [controllo di accesso](media-services-use-aad-auth-to-access-ams-api.md#access-control).
+    > Affinché la richiesta REST di Azure Media abbia esito positivo, l'utente chiamante deve disporre di un ruolo **Collaboratore** o **Proprietario** per l'account di Servizi multimediali a cui sta tentando di accedere. Se si verifica un'eccezione che indica "Errore del server remoto: (401) Non autorizzato", vedere il [controllo di accesso](media-services-use-aad-auth-to-access-ams-api.md#access-control).
 
     Se è necessario creare una nuova app AD, seguire questa procedura:
     
@@ -128,7 +128,7 @@ Questa sezione mostra come usare **Postman** per eseguire un'API REST che restit
 2. Selezionare **POST**.
 3. Immettere l'URL che include il nome di tenant usando il formato seguente: il nome del tenant deve terminare con **.onmicrosoft.com** e l'URL con **oauth2/token**: 
 
-    https://login.microsoftonline.com/{your-aad-tenant-name.onmicrosoft.com}/oauth2/token
+    `https://login.microsoftonline.com/{your-aad-tenant-name.onmicrosoft.com}/oauth2/token`
 
 4. Selezionare la scheda **Intestazioni**.
 5. Immettere le informazioni di **Intestazioni** usando la griglia dati "Chiave/Valore". 

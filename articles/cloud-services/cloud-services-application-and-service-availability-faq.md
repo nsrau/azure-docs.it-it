@@ -1,5 +1,5 @@
 ---
-title: Domande frequenti sui problemi di disponibilità di applicazioni e servizi
+title: Domande frequenti sui problemi di disponibilità di applicazioni e serviziApplication and service availability issues FAQ
 titleSuffix: Azure Cloud Services
 description: Questo articolo elenca le domande frequenti relative alla disponibilità di applicazioni e servizi per Servizi cloud di Microsoft Azure.
 services: cloud-services
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: c294d4583ba2690e1f4952441ffb43bff1459059
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75386919"
 ---
 # <a name="application-and-service-availability-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemi di disponibilità di applicazioni e servizi per Servizi cloud di Azure: domande frequenti
@@ -29,7 +29,7 @@ Questo articolo include le domande frequenti relative ai problemi di disponibili
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## <a name="my-role-got-recycled-was-there-any-update-rolled-out-for-my-cloud-service"></a>Il ruolo è stato riciclato. È stato implementato un aggiornamento per il servizio cloud?
-Circa una volta al mese, Microsoft rilascia una nuova versione del sistema operativo guest per VM PaaS di Microsoft Azure. Il sistema operativo guest è solo uno di tali aggiornamenti nella pipeline. Una versione può essere influenzata da molti altri fattori. Inoltre, Azure è in esecuzione su centinaia di migliaia di computer. Ciò significa che è impossibile prevedere una data e un'ora esatte per il riavvio dei ruoli. Il feed RSS di aggiornamento del sistema operativo guest viene aggiornato con le informazioni più recenti disponibili, ma è necessario tenere presente che gli orari segnalati sono approssimativi. Microsoft è consapevole del fatto che questo rappresenti un problema per i clienti e sta lavorando a un piano per limitare i riavvii o impostare una tempistica precisa.
+Circa una volta al mese, Microsoft rilascia una nuova versione del sistema operativo guest per VM PaaS di Microsoft Azure.Il sistema operativo guest rappresenta solo uno di tali aggiornamenti nella pipeline. Una versione può essere influenzata da molti altri fattori. Inoltre, Azure è in esecuzione su centinaia di migliaia di computer. Ciò significa che è impossibile prevedere una data e un'ora esatte per il riavvio dei ruoli. Il feed RSS di aggiornamento del sistema operativo guest viene aggiornato con le informazioni più recenti disponibili, ma è necessario tenere presente che gli orari segnalati sono approssimativi. Microsoft è consapevole del fatto che questo rappresenti un problema per i clienti e sta lavorando a un piano per limitare i riavvii o impostare una tempistica precisa.
 
 Per informazioni complete sugli aggiornamenti recenti del sistema operativo guest vedere [Rilasci del sistema operativo guest Azure e matrice di compatibilità dell'SDK](cloud-services-guestos-update-matrix.md).
 
@@ -46,4 +46,4 @@ I documenti seguenti sono utili per comprendere e attenuare questo problema:
 
 Se si vuole modificare il comportamento predefinito di IIS, è necessario usare le attività di avvio, poiché se si applicano manualmente le modifiche alle istanze del ruolo Web, queste potrebbero andare perse.
 
-Per altre informazioni, vedere [Come configurare ed eseguire attività di avvio per un servizio cloud](cloud-services-startup-tasks.md).
+Per altre informazioni, vedere Come configurare ed eseguire attività di [avvio per un servizio cloud.](cloud-services-startup-tasks.md)

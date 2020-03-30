@@ -1,18 +1,18 @@
 ---
 title: Abilitare la condivisione di clienti potenziali nel Marketplace di Azure | Azure
 description: Informazioni su come abilitare la condivisione di clienti potenziali per il Marketplace di Azure e AppSource per gli editori di app e servizi.
-author: jm-aditi-ms
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/05/2018
 ms.author: dsindona
-ms.openlocfilehash: 09282f3a54eeded52c63fab6bfe13528eaace48a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b41a29fb3548937e9071cfb9f065dd46f63df83e
+ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286303"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80387608"
 ---
 # <a name="enable-lead-sharing"></a>Abilitare la condivisione di clienti potenziali
 Assicurarsi che la gestione dei clienti potenziali sia abilitata per l'inserzione nel [Marketplace di Azure](https://azuremarketplace.microsoft.com) o in [Microsoft AppSource](https://appsource.microsoft.com) in modo da ricevere più facilmente le informazioni di contatto per i seguenti destinatari:

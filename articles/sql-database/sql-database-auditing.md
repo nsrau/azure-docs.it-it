@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 03/27/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: 8b50cb95e51ef36ed4436a6eb9c9143c9c613cc7
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 682735e1189333c2455863b8fde8e57d815111ba
+ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80346433"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80387700"
 ---
 # <a name="azure-sql-auditing"></a>Controllo SQL di AzureAzure SQL Auditing
 
@@ -30,7 +30,7 @@ Inoltre, il servizio di controllo:
 > [!NOTE] 
 > Questo argomento si applica sia al database SQL di Azure che ai database di Azure Synapse Analytics.This topic applies to both Azure SQL Database, and Azure Synapse Analytics databases. Per semplicità, il database SQL viene usato quando si fa riferimento sia al database SQL di Azure che all'analisi di Azure Synapse.For simplicity, SQL Database is used when referring to both Azure SQL Database and Azure Synapse Analytics.
 
-## <a name="overview"></a><a id="subheading-1"></a>Panoramica
+## <a name="overview"></a><a id="overview"></a>Panoramica
 
 È possibile usare il servizio di controllo del database SQL per eseguire le operazioni seguenti:
 
@@ -40,8 +40,14 @@ Inoltre, il servizio di controllo:
 
 > [!IMPORTANT]
 > - Il controllo del database SQL di Azure è ottimizzato per la disponibilità & le prestazioni. Durante l'attività molto elevata, il database SQL di Azure consente alle operazioni di procedere e potrebbe non registrare alcuni eventi controllati.
-   
-## <a name="define-server-level-vs-database-level-auditing-policy"></a><a id="subheading-8"></a>Definire criteri di controllo a livello di server o a livello di database
+
+#### <a name="auditing-limitations"></a>Limitazioni del controllo
+
+- **Archiviazione Premium** attualmente **non è supportata**.
+- **Lo spazio dei nomi gerarchico per l'account** di **archiviazione Gen2** di Archiviazione dati di Azure non è attualmente **supportato.**
+- L'abilitazione del controllo in un **data warehouse SQL** di Azure in pausa non è supportata. Per abilitare il controllo, riprendere il data warehouse.
+
+## <a name="define-server-level-vs-database-level-auditing-policy"></a><a id="server-vs-database-level"></a>Definire criteri di controllo a livello di server o a livello di database
 
 I criteri di controllo possono essere definiti per un database specifico o come criteri server predefiniti:
 
@@ -58,8 +64,17 @@ I criteri di controllo possono essere definiti per un database specifico o come 
    >
    > Negli altri casi, è consigliabile abilitare solo il controllo BLOB a livello di server e lasciare disabilitato il controllo a livello di database per tutti i database.
 
-## <a name="set-up-auditing-for-your-server"></a><a id="subheading-2"></a>Configurare il controllo per il server
+## <a name="set-up-auditing-for-your-server"></a><a id="setup-auditing"></a>Configurare il controllo per il server
 
+I criteri di controllo predefinito includono tutte le azioni e il set di gruppi di azioni seguente, che controllerà tutte le query e le stored procedure eseguite sul database, nonché gli accessi riusciti e non riusciti:
+  
+  - BATCH_COMPLETED_GROUP
+  - SUCCESSFUL_DATABASE_AUTHENTICATION_GROUP
+  - FAILED_DATABASE_AUTHENTICATION_GROUP
+  
+È possibile configurare il controllo per diversi tipi di azioni e gruppi di azioni tramite PowerShell, come descritto nella sezione [Gestire il controllo del database SQL usando Azure PowerShell](#manage-auditing).
+
+Il servizio di controllo del database SQL di Azure archivia 4000 caratteri di dati per i campi di tipo carattere in un record di controllo. Quando i valori **statement** o **data_sensitivity_information** restituiti da un'azione controllabile contengono più di 4000 caratteri, i dati oltre i primi 4000 caratteri verranno **troncati e non controllati**.
 Nella sezione seguente è descritta la configurazione del controllo mediante il portale di Azure.
 
 1. Passare al [portale di Azure](https://portal.azure.com).
@@ -78,35 +93,20 @@ Nella sezione seguente è descritta la configurazione del controllo mediante il 
 
 Per configurare la scrittura dei log per un account di archiviazione, selezionare **memorizzazione** e aprire **dettagli archiviazione**. Selezionare l'account di archiviazione di Azure in cui verranno salvati i log e quindi selezionare il periodo di conservazione. Fare quindi clic su **OK**. I registri precedenti al periodo di conservazione vengono eliminati.
 
+- Il valore predefinito per il periodo di conservazione è 0 (conservazione illimitata). È possibile modificare questo valore spostando il dispositivo di scorrimento **Conservazione (giorni)** nelle **impostazioni di archiviazione** durante la configurazione dell'account di archiviazione per il controllo.
+  - Se si modifica il periodo di conservazione da 0 (conservazione illimitata) a qualsiasi altro valore, si noti che la conservazione verrà applicata solo ai registri scritti dopo la modifica del valore di conservazione (i registri scritti durante il periodo in cui la conservazione è stata impostata su illimitata vengono mantenuti, anche dopo conservazione è abilitata).
+
   ![archiviazione di Azure](./media/sql-database-auditing-get-started/auditing_select_storage.png)
-
-#### <a name="log-audits-to-storage-account-behind-vnet-or-firewall"></a>Registrare i controlli nell'account di archiviazione dietro la rete virtuale o il firewallLog audits to storage account behind VNet or firewall
-
-È possibile scrivere log di controllo in un account di Archiviazione di Azure dietro una rete virtuale o un firewall. Per istruzioni specifiche, vedere Scrivere il controllo in [un account di archiviazione dietro VNet e firewall](create-auditing-storage-account-vnet-firewall.md).
 
 #### <a name="remarks"></a>Osservazioni
 
-- Sono supportati tutti i tipi di archiviazione (v1, v2, BLOB).
-- Sono supportate tutte le configurazioni di replica di archiviazione.
-- L'archiviazione dietro una rete virtuale e firewall è supportata.
-- **Archiviazione Premium** attualmente **non è supportata**.
-- **Lo spazio dei nomi gerarchico per l'account** di **archiviazione Gen2** di Archiviazione dati di Azure non è attualmente **supportato.**
-- L'abilitazione del controllo in un **data warehouse SQL** di Azure in pausa non è supportata. Per abilitare il controllo, riprendere il data warehouse.
-- Il valore predefinito per il periodo di conservazione è 0 (conservazione illimitata). È possibile modificare questo valore spostando il dispositivo di scorrimento **Conservazione (giorni)** nelle **impostazioni di archiviazione** durante la configurazione dell'account di archiviazione per il controllo.
-  - Se si modifica il periodo di conservazione da 0 (conservazione illimitata) a qualsiasi altro valore, si noti che la conservazione verrà applicata solo ai registri scritti dopo la modifica del valore di conservazione (i registri scritti durante il periodo in cui la conservazione è stata impostata su illimitata vengono mantenuti, anche dopo conservazione è abilitata).
-- Il cliente che desidera configurare un archivio log non modificabile per gli eventi di controllo a livello di server o di database deve seguire le [istruzioni fornite da Archiviazione](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage#enabling-allow-protected-append-blobs-writes) di Azure (assicurarsi di aver selezionato Consenti **aggiunte aggiuntive** quando si configura l'archiviazione BLOB non modificabile).
+- I log di controllo vengono scritti in Aggiungi BLOB in un'archiviazione BLOB di Azure nella sottoscrizione di AzureAudit logs are written to **Append Blobs** in an Azure Blob storage on your Azure subscription
+- Per configurare un archivio log non modificabile per gli eventi di controllo a livello di server o di database, seguire le [istruzioni fornite da Archiviazione](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage#enabling-allow-protected-append-blobs-writes) di Azure (assicurarsi di aver selezionato Consenti **aggiunte aggiuntive** quando si configura l'archiviazione BLOB non modificabile).
+- È possibile scrivere log di controllo in un account di Archiviazione di Azure dietro una rete virtuale o un firewall. Per istruzioni specifiche, vedere Scrivere il controllo in [un account di archiviazione dietro VNet e firewall](create-auditing-storage-account-vnet-firewall.md).
 - Dopo aver configurato le impostazioni di controllo, è possibile attivare la nuova funzionalità di rilevamento delle minacce e configurare gli indirizzi di posta elettronica per ricevere gli avvisi di sicurezza. Quando si usa il rilevamento delle minacce, si ricevono avvisi proattivi sulle attività di database anomale che possono indicare potenziali minacce per la sicurezza. Per altre informazioni, vedere [Introduzione al rilevamento delle minacce](sql-database-threat-detection-get-started.md).
 - Per dettagli sul formato dei log, sulla gerarchia della cartella di archiviazione e sulle convenzioni di denominazione, vedere le [informazioni di riferimento sul formato dei log del controllo BLOB](https://go.microsoft.com/fwlink/?linkid=829599).
-- Il servizio di controllo del database SQL di Azure archivia 4000 caratteri di dati per i campi di tipo carattere in un record di controllo. Quando i valori **statement** o **data_sensitivity_information** restituiti da un'azione controllabile contengono più di 4000 caratteri, i dati oltre i primi 4000 caratteri verranno **troncati e non controllati**.
-- I log di controllo vengono scritti in Aggiungi BLOB in un'archiviazione BLOB di Azure nella sottoscrizione di AzureAudit logs are written to **Append Blobs** in an Azure Blob storage on your Azure subscription
-- I criteri di controllo predefinito includono tutte le azioni e il set di gruppi di azioni seguente, che controllerà tutte le query e le stored procedure eseguite sul database, nonché gli accessi riusciti e non riusciti:
-  
-  - BATCH_COMPLETED_GROUP
-  - SUCCESSFUL_DATABASE_AUTHENTICATION_GROUP
-  - FAILED_DATABASE_AUTHENTICATION_GROUP
-  
-- È possibile configurare il controllo per diversi tipi di azioni e gruppi di azioni tramite PowerShell, come descritto nella sezione [Gestire il controllo del database SQL usando Azure PowerShell](#subheading-7).
 - Quando si usa l'autenticazione di AAD, i record degli accessi non riusciti *non* vengono visualizzati nel log di controllo di SQL. Per visualizzare i record di controllo degli accessi non riusciti, è necessario visitare il [portale di Azure Active Directory]( ../active-directory/reports-monitoring/reference-sign-ins-error-codes.md), che registra i dettagli di questi eventi.
+- Il controllo nelle [repliche di sola lettura](sql-database-read-scale-out.md) viene abilitato automaticamente. Per ulteriori informazioni sulla gerarchia delle cartelle di archiviazione, sulle convenzioni di denominazione e sul formato del log, vedere Il formato del log di controllo del [database SQL](sql-database-audit-log-format.md). 
 
 ### <a name=""></a><a id="audit-log-analytics-destination">Controllare la destinazione di Log Analytics</a>
   
@@ -160,9 +160,6 @@ Se si sceglie di scrivere i log di controllo su Hub eventi:
 
 Se si sceglie di scrivere i log di controllo in un account di archiviazione di Azure, esistono diversi metodi che è possibile usare per visualizzare i log:
 
-> [!NOTE] 
-> Il controllo nelle [repliche di sola lettura](sql-database-read-scale-out.md) viene abilitato automaticamente. Per ulteriori informazioni sulla gerarchia delle cartelle di archiviazione, sulle convenzioni di denominazione e sul formato del log, vedere Il formato del log di controllo del [database SQL](sql-database-audit-log-format.md). 
-
 - I log di controllo vengono aggregati nell'account selezionato durante la configurazione. È possibile esplorare i log di controllo usando uno strumento come [Azure Storage Explorer.You](https://storageexplorer.com/)can explore audit logs by using a tool such as Azure Storage Explorer . Nell'archiviazione di Azure, i log del controllo vengono salvati come raccolta di file BLOB in un contenitore denominato **sqldbauditlogs**. Per ulteriori informazioni sulla gerarchia delle cartelle di archiviazione, sulle convenzioni di denominazione e sul formato del log, vedere Il formato del log di controllo del [database SQL](https://go.microsoft.com/fwlink/?linkid=829599).
 
 - Usare il [portale di Azure](https://portal.azure.com).  Aprire il database corrispondente. Nella parte superiore della pagina **Controllo** del database fare clic su **Visualizza log di controllo**.
@@ -201,11 +198,11 @@ Se si sceglie di scrivere i log di controllo in un account di archiviazione di A
 
     - [Eseguire query sui file di eventi estesi](https://sqlscope.wordpress.com/20../../reading-extended-event-files-using-client-side-tools-only/) con PowerShell.
 
-## <a name="production-practices"></a><a id="subheading-5"></a>Procedure nell'ambiente di produzione
+## <a name="production-practices"></a><a id="production-practices"></a>Procedure nell'ambiente di produzione
 
 <!--The description in this section refers to preceding screen captures.-->
 
-### <a name=""></a><a id="subheading-6">Controllo dei database con replica geografica</a>
+#### <a name="auditing-geo-replicated-databases"></a>Controllo dei database con replica geografica
 
 Con i database con replica geografica, quando si abilita il controllo nel database primario il database secondario disporrà di un criterio di controllo identico. È anche possibile impostare il controllo nel database secondario abilitando il controllo nel **server secondario**, in modo indipendente dal database primario.
 
@@ -217,7 +214,7 @@ Con i database con replica geografica, quando si abilita il controllo nel databa
     >[!IMPORTANT]
     >In caso di controllo a livello di database, le impostazioni di archiviazione per il database secondario sono identiche a quelle del database primario, e causano traffico tra le aree. È consigliabile abilitare solo il controllo a livello di server e lasciare disabilitato il controllo a livello di database per tutti i database.
 
-### <a name=""></a><a id="subheading-6">Rigenerazione delle chiavi di storage</a>
+#### <a name="storage-key-regeneration"></a>Rigenerazione delle chiavi di archiviazione
 
 Durante la produzione è probabile che periodicamente vengano aggiornate le chiavi di archiviazione. Quando si scrivono i log di controllo nell'archiviazione di Azure, è necessario salvare nuovamente i criteri di controllo quando si aggiornano le chiavi. Il processo è il seguente:
 
@@ -230,7 +227,9 @@ Durante la produzione è probabile che periodicamente vengano aggiornate le chia
 3. Tornare alla pagina di configurazione del controllo, modificare la chiave di accesso alle risorse di archiviazione da secondaria a primaria e quindi fare clic su **OK**. Fare quindi clic su **Salva** nella parte superiore della pagina di configurazione del controllo.
 4. Tornare alla pagina di configurazione dell'archiviazione e rigenerare la chiave di accesso secondaria (in preparazione al successivo ciclo di aggiornamento della chiave).
 
-## <a name="manage-azure-sql-server-and-database-auditing-using-azure-powershell"></a><a id="subheading-7"></a>Gestire Azure SQL Server e il controllo del database tramite Azure PowerShellManage Azure SQL Server and Database auditing using Azure PowerShell
+## <a name="manage-azure-sql-server-and-database-auditing"></a><a id="manage-auditing"></a>Gestire il controllo di SQL Server e database di AzureManage Azure SQL Server and Database auditing
+
+#### <a name="using-azure-powershell"></a>Uso di Azure PowerShell
 
 **Cmdlet PowerShell (incluso il supporto della clausola WHERE per altri filtri)**:
 
@@ -243,7 +242,7 @@ Durante la produzione è probabile che periodicamente vengano aggiornate le chia
 
 Per un esempio di script, vedere [Configurare il controllo del database SQL e il rilevamento delle minacce usando PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
 
-## <a name="manage-azure-sql-server-and-database-auditing-using-rest-api"></a><a id="subheading-8"></a>Gestire il controllo di SQL Server e database di Azure tramite l'API RESTManage Azure SQL Server and Database auditing using REST API
+#### <a name="using-rest-api"></a>Uso dell'API REST
 
 **API REST**:
 
@@ -259,7 +258,7 @@ Criteri estesi con il supporto della clausola WHERE per altri filtri:
 - [Ottenere i criteri di controllo *estesi del* databaseGet Database Extended Auditing Policy](/rest/api/sql/database%20extended%20auditing%20settings/get)
 - [Ottenere i criteri di controllo estesi del serverGet Server *Extended* Auditing Policy](/rest/api/sql/server%20auditing%20settings/get)
 
-## <a name="manage-azure-sql-server-and-database-auditing-using-azure-resource-manager-templates"></a><a id="subheading-9"></a>Gestire il controllo di Azure SQL Server e del database usando i modelli di Azure Resource ManagerManage Azure SQL Server and Database auditing using Azure Resource Manager templates
+#### <a name="using-azure-resource-manager-templates"></a>Uso dei modelli di Gestione risorse di Azure
 
 È possibile gestire il controllo del database SQL di Azure usando i modelli di [Azure Resource Manager](../azure-resource-manager/management/overview.md), come illustrato negli esempi seguenti:
 
@@ -269,16 +268,6 @@ Criteri estesi con il supporto della clausola WHERE per altri filtri:
 
 > [!NOTE]
 > Gli esempi collegati si trovano in un archivio pubblico esterno e vengono forniti "così com'è", senza garanzia e non sono supportati in alcun programma/servizio di supporto Microsoft.
-
-<!--Anchors-->
-[Azure SQL Database Auditing overview]: #subheading-1
-[Set up auditing for your database]: #subheading-2
-[Analyze audit logs and reports]: #subheading-3
-[Practices for usage in production]: #subheading-5
-[Storage Key Regeneration]: #subheading-6
-[Manage Azure SQL Server and Database auditing using Azure PowerShell]: #subheading-7
-[Manage SQL database auditing using REST API]: #subheading-8
-[Manage Azure SQL Server and Database auditing using ARM templates]: #subheading-9
 
 <!--Image references-->
 [1]: ./media/sql-database-auditing-get-started/1_auditing_get_started_settings.png

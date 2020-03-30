@@ -1,35 +1,35 @@
 ---
-title: Crea app in tempo reale-funzioni di Azure & servizio Azure SignalR
-description: Informazioni su come sviluppare un'applicazione Web senza server in tempo reale con il servizio Azure SignalR nell'esempio riportato di seguito.
+title: Creare app in tempo reale - Funzioni di Azure & servizio SignalR di AzureBuild Real-time app - Azure Functions & Azure SignalR Service
+description: Per informazioni su come sviluppare un'applicazione Web senza server in tempo reale con il servizio SignalR di Azure, vedere l'esempio seguente.
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
 ms.openlocfilehash: cbb1fcf320a78f11045bf9627ffcc438af3e388a
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74157614"
 ---
-# <a name="build-real-time-apps-with-azure-functions-and-azure-signalr-service"></a>Crea app in tempo reale con funzioni di Azure e il servizio Azure SignalR
+# <a name="build-real-time-apps-with-azure-functions-and-azure-signalr-service"></a>Crea app in tempo reale con Funzioni di Azure e il servizio SignalR di AzureBuild real-time Apps with Azure Functions and Azure SignalR Service
 
-Il servizio Azure SignalR e Funzioni di Azure sono entrambi servizi completamente gestiti e a scalabilità elevata che consentono di concentrarsi sulla compilazione di applicazioni anziché sulla gestione dell'infrastruttura. Accade quindi spesso di usare i due servizi insieme per garantire comunicazioni in tempo reale in un ambiente [serverless](https://azure.microsoft.com/solutions/serverless/).
+Poiché il servizio SignalR di Azure e le funzioni di Azure sono entrambi servizi completamente gestiti e altamente scalabili che consentono di concentrarsi sulla creazione di applicazioni anziché sulla gestione dell'infrastruttura, è comune usare i due servizi insieme per fornire comunicazioni in tempo reale in un ambiente [senza server.](https://azure.microsoft.com/solutions/serverless/)
 
 > [!NOTE]
-> Informazioni su come usare SignalR e funzioni di Azure insieme nell'esercitazione interattiva [abilitare gli aggiornamenti automatici in un'applicazione Web usando funzioni di Azure e il servizio SignalR](https://docs.microsoft.com/learn/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr).
+> Informazioni su come usare SignalR e Funzioni di Azure insieme nell'esercitazione interattiva [Abilitare gli aggiornamenti automatici in un'applicazione Web usando Funzioni di Azure e il servizio SignalR.](https://docs.microsoft.com/learn/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr)
 
 ## <a name="integrate-real-time-communications-with-azure-services"></a>Integrare le comunicazioni in tempo reale con i servizi di Azure
 
-Funzioni di Azure consente di scrivere codice in [diversi linguaggi](../azure-functions/supported-languages.md), tra cui JavaScript, Python C#, e Java, che si attiva ogni volta che gli eventi si verificano nel cloud. Esempi di questi eventi:
+Funzioni di Azure consentono di scrivere codice in [diversi linguaggi,](../azure-functions/supported-languages.md)tra cui JavaScript, Python, C, e Java, che viene attivato ogni volta che si verificano eventi nel cloud. Esempi di questi eventi:
 
 * Richieste dei webhook e HTTP
 * Timer periodici
 * Eventi dei servizi di Azure, ad esempio:
     - Griglia di eventi
     - Hub eventi
-    - BUS DI SERVIZIO
+    - Bus di servizio
     - Feed di modifiche di Cosmos DB
     - Archiviazione: BLOB e code
     - Connettori di App per la logica, ad esempio Salesforce e SQL Server
@@ -66,10 +66,10 @@ Il servizio SignalR consente di trasmettere messaggi a tutti i client o solo a u
 
 In questo articolo viene fornita una panoramica su come usare Funzioni di Azure con il servizio SignalR per abilitare una vasta gamma di scenari di messaggistica serverless in tempo reale.
 
-Per informazioni dettagliate su come usare funzioni di Azure e il servizio SignalR insieme, vedere le risorse seguenti:
+Per informazioni dettagliate su come usare Azure Functions e SignalR Service insieme, visitare le risorse seguenti:For full details on how to use Azure Functions and SignalR Service together visit the following resources:
 
-* [Sviluppo e configurazione di funzioni di Azure con il servizio SignalR](signalr-concept-serverless-development-config.md)
-* [Abilitare gli aggiornamenti automatici in un'applicazione Web usando funzioni di Azure e il servizio SignalR](https://docs.microsoft.com/learn/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr)
+* [Azure Functions development and configuration with SignalR Service](signalr-concept-serverless-development-config.md)
+* [Abilitare gli aggiornamenti automatici in un'applicazione Web con Funzioni di Azure e il Servizio SignalR](https://docs.microsoft.com/learn/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr)
 
 Per altre informazioni, seguire una di queste guide introduttive.
 

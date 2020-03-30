@@ -1,16 +1,16 @@
 ---
 title: Definire chiavi univoche per un contenitore di Azure Cosmos
-description: Informazioni su come definire chiavi univoche per un contenitore di Azure Cosmos usando portale di Azure, PowerShell, .NET, Java e diversi altri SDK.
+description: Informazioni su come definire chiavi univoche per un contenitore Cosmos di Azure usando il portale di Azure, PowerShell, .Net, Java e vari altri SDK.
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: thweiss
 ms.openlocfilehash: fa62495a7b51c9a06a91102299378c15e811eae0
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74872112"
 ---
 # <a name="define-unique-keys-for-an-azure-cosmos-container"></a>Definire chiavi univoche per un contenitore di Azure Cosmos
@@ -19,7 +19,7 @@ Questo articolo presenta i diversi modi per definire [chiavi univoche](unique-ke
 
 ## <a name="use-the-azure-portal"></a>Usare il portale di Azure
 
-1. Accedere al [portale di Azure](https://portal.azure.com/).
+1. Accedere al [portale](https://portal.azure.com/)di Azure .
 
 1. [Creare un nuovo account Azure Cosmos](create-sql-api-dotnet.md#create-account) o selezionarne uno esistente.
 
@@ -37,7 +37,7 @@ Questo articolo presenta i diversi modi per definire [chiavi univoche](unique-ke
 
 ## <a name="use-powershell"></a>Usare PowerShell
 
-Per creare un contenitore con chiavi univoche, vedere [creare un contenitore di Azure Cosmos con chiave univoca e TTL](manage-with-powershell.md#create-container-unique-key-ttl)
+Per creare un contenitore con chiavi univoche, vedere [Create an Azure Cosmos container with unique key and TTL](manage-with-powershell.md#create-container-unique-key-ttl)
 
 ## <a name="use-the-net-sdk-v2"></a>Usare .NET SDK v2
 
@@ -59,9 +59,9 @@ client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("database"), n
 });
 ```
 
-## <a name="use-the-net-sdk-v3"></a>Usare .NET SDK V3
+## <a name="use-the-net-sdk-v3"></a>Utilizzare .NET SDK V3
 
-Quando si crea un nuovo contenitore con [.NET SDK V3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/), usare l'API Fluent dell'SDK per dichiarare chiavi univoche in modo conciso e leggibile.
+Quando si crea un nuovo contenitore utilizzando [.NET SDK v3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/), utilizzare l'API fluent dell'SDK per dichiarare chiavi univoche in modo conciso e leggibile.
 
 ```csharp
 await client.GetDatabase("database").DefineContainer(name: "container", partitionKeyPath: "/myPartitionKey")
@@ -147,5 +147,5 @@ client.CreateContainer('dbs/' + config['DATABASE'], {
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni sul [partizionamento](partition-data.md)
+- Ulteriori informazioni sul [partizionamento](partition-data.md)
 - Informazioni sul [funzionamento dell'indicizzazione](index-overview.md)

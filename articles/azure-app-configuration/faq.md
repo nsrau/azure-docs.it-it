@@ -1,110 +1,131 @@
 ---
-title: Domande frequenti sulla configurazione di app Azure
-description: Domande frequenti sulla configurazione di app Azure
+title: Domande frequenti sulla configurazione delle app di AzureAzure App Configuration FAQ
+description: Domande frequenti sulla configurazione delle app di Azure
 services: azure-app-configuration
 author: lisaguthrie
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: lcozzens
-ms.openlocfilehash: 60ba0a7723861d6e642a23418dda6a1daa57f14e
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 25187fd055f40e8b32d840ead2a9c54882446b88
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77523493"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80348778"
 ---
-# <a name="azure-app-configuration-faq"></a>Domande frequenti sulla configurazione di app Azure
+# <a name="azure-app-configuration-faq"></a>Domande frequenti sulla configurazione delle app di AzureAzure App Configuration FAQ
 
-Questo articolo fornisce le risposte alle domande frequenti sulla configurazione app Azure.
+Questo articolo risponde alle domande frequenti sulla configurazione delle app di Azure.This article answers frequently asked questions about Azure App Configuration.
 
-## <a name="how-is-app-configuration-different-from-azure-key-vault"></a>In che modo la configurazione delle app è diversa da Azure Key Vault?
+## <a name="how-is-app-configuration-different-from-azure-key-vault"></a>In che modo la configurazione delle app è diversa dall'insieme di credenziali delle chiavi di Azure?
 
-La configurazione delle app consente agli sviluppatori di gestire le impostazioni dell'applicazione e controllare la disponibilità delle funzionalità Mira a semplificare molte delle attività di utilizzo di dati di configurazione complessi.
+Configurazione app consente agli sviluppatori di gestire le impostazioni dell'applicazione e controllare la disponibilità delle funzionalità. Ha lo scopo di semplificare molte delle attività di utilizzo di dati di configurazione complessi.
 
 La configurazione dell'app supporta:
 
 - Spazi dei nomi gerarchici
-- etichette
+- Etichettatura
 - Query estese
 - Recupero in batch
 - Operazioni di gestione specializzate
-- Interfaccia utente di gestione delle funzionalità
+- Un'interfaccia utente di gestione delle funzionalità
 
-La configurazione dell'app è complementare a Key Vault e le due devono essere usate side-by-side nella maggior parte delle distribuzioni dell'applicazione.
+Configurazione app integra Key Vault e i due devono essere utilizzati fianco a fianco nella maggior parte delle distribuzioni di applicazioni.
 
-## <a name="should-i-store-secrets-in-app-configuration"></a>È consigliabile archiviare I segreti nella configurazione dell'app?
+## <a name="should-i-store-secrets-in-app-configuration"></a>È necessario archiviare segreti in Configurazione app?
 
-Sebbene la configurazione dell'app fornisca sicurezza avanzata, Key Vault rappresenta comunque il posto migliore per l'archiviazione dei segreti delle applicazioni. Key Vault fornisce la crittografia a livello di hardware, i criteri di accesso granulari e le operazioni di gestione, ad esempio la rotazione del certificato.
+Sebbene la configurazione delle app fornisca una protezione con protezione continua, l'insieme di credenziali delle chiavi è ancora il posto migliore per archiviare i segreti dell'applicazione. L'insieme di credenziali delle chiavi fornisce la crittografia a livello hardware, criteri di accesso granulare e operazioni di gestione, ad esempio la rotazione dei certificati.
 
-È possibile creare valori di configurazione dell'app che fanno riferimento a segreti archiviati in Key Vault. Per altre informazioni, vedere [usare Key Vault riferimenti in un'app ASP.NET Core](./use-key-vault-references-dotnet-core.md).
+È possibile creare valori di configurazione dell'app che fanno riferimento a segreti archiviati in Key Vault.You can create App Configuration values that reference secrets stored in Key Vault. Per ulteriori informazioni, consultate Usare i riferimenti dell'insieme di credenziali delle [chiavi in un'app ASP.NET Core.](./use-key-vault-references-dotnet-core.md)
 
-## <a name="does-app-configuration-encrypt-my-data"></a>La configurazione dell'app crittografa i dati?
+## <a name="does-app-configuration-encrypt-my-data"></a>App Configuration crittografa i miei dati?
 
-Sì. La configurazione dell'app crittografa tutti i valori di chiave che possiede e crittografa le comunicazioni di rete. I nomi delle chiavi e le etichette vengono usati come indici per il recupero dei dati di configurazione e non vengono crittografati.
+Sì. Configurazione app crittografa tutti i valori chiave che contiene e la comunicazione di rete. I nomi e le etichette delle chiavi vengono utilizzati come indici per il recupero dei dati di configurazione e non sono crittografati.
 
-## <a name="how-is-app-configuration-different-from-azure-app-service-settings"></a>In che modo la configurazione delle app è diversa dalle impostazioni del servizio app Azure?
+## <a name="how-is-app-configuration-different-from-azure-app-service-settings"></a>In che modo la configurazione delle app è diversa dalle impostazioni del servizio app di Azure?
 
-App Azure servizio consente di definire le impostazioni dell'app per ogni istanza del servizio app. Queste impostazioni vengono passate come variabili di ambiente al codice dell'applicazione. Se lo si desidera, è possibile associare un'impostazione a uno slot di distribuzione specifico. Per altre informazioni, vedere [configurare le impostazioni dell'app](/azure/app-service/configure-common#configure-app-settings).
+Il servizio app di Azure consente di definire le impostazioni dell'app per ogni istanza del servizio app. Queste impostazioni vengono passate come variabili di ambiente al codice dell'applicazione. Se lo si desidera, è possibile associare un'impostazione a uno slot di distribuzione specifico. Per ulteriori informazioni, consultate [Configurare le impostazioni dell'app.](/azure/app-service/configure-common#configure-app-settings)
 
-Al contrario, la configurazione di app Azure consente di definire le impostazioni che possono essere condivise tra più app. Sono incluse le app in esecuzione nel servizio app e altre piattaforme. Il codice dell'applicazione accede a queste impostazioni tramite i provider di configurazione per .NET e Java, tramite Azure SDK o direttamente tramite le API REST.
+Al contrario, Configurazione app di Azure consente di definire impostazioni che possono essere condivise tra più app. Sono incluse le app in esecuzione nel servizio app e altre piattaforme. Il codice dell'applicazione accede a queste impostazioni tramite i provider di configurazione per .NET e Java, tramite Azure SDK o direttamente tramite API REST.
 
-È anche possibile importare ed esportare le impostazioni tra il servizio app e la configurazione dell'app. Questa funzionalità consente di configurare rapidamente un nuovo archivio di configurazione dell'app in base alle impostazioni del servizio app esistenti. È anche possibile condividere la configurazione con un'app esistente che si basa sulle impostazioni del servizio app.
+È inoltre possibile importare ed esportare le impostazioni tra il servizio app e la configurazione dell'app. Questa funzionalità consente di configurare rapidamente un nuovo archivio di configurazione app in base alle impostazioni del servizio app esistenti. È anche possibile condividere la configurazione con un'app esistente che si basa sulle impostazioni del servizio app.
 
-## <a name="are-there-any-size-limitations-on-keys-and-values-stored-in-app-configuration"></a>Esistono limitazioni alle dimensioni delle chiavi e dei valori archiviati nella configurazione dell'app?
+## <a name="are-there-any-size-limitations-on-keys-and-values-stored-in-app-configuration"></a>Esistono limitazioni di dimensioni relative a chiavi e valori archiviati in Configurazione app?
 
-È previsto un limite di 10 KB per un singolo elemento chiave-valore.
+Esiste un limite di 10 KB per un singolo elemento chiave-valore.
 
-## <a name="how-should-i-store-configurations-for-multiple-environments-test-staging-production-and-so-on"></a>Come è possibile archiviare le configurazioni per più ambienti (test, gestione temporanea, produzione e così via)?
+## <a name="how-should-i-store-configurations-for-multiple-environments-test-staging-production-and-so-on"></a>Come è necessario archiviare le configurazioni per più ambienti (test, gestione temporanea, produzione e così via)?
 
-Si controllano gli utenti che possono accedere alla configurazione dell'app a un livello per archivio. Usare un archivio separato per ogni ambiente che richiede autorizzazioni diverse. Questo approccio fornisce l'isolamento di sicurezza migliore.
+È possibile controllare chi può accedere a Configurazione app a livello di archivio. Usare un archivio separato per ogni ambiente che richiede autorizzazioni diverse. Questo approccio offre il miglior isolamento di sicurezza.
 
-## <a name="what-are-the-recommended-ways-to-use-app-configuration"></a>Quali sono le modalità consigliate per usare la configurazione delle app?
+Se non è necessario l'isolamento della sicurezza tra gli ambienti, è possibile utilizzare le etichette per distinguere i valori di configurazione. [Utilizzare le etichette per abilitare configurazioni diverse per ambienti diversi](./howto-labels-aspnet-core.md) fornisce un esempio completo.
 
-Vedere [procedure consigliate](./howto-best-practices.md).
+## <a name="what-are-the-recommended-ways-to-use-app-configuration"></a>Quali sono i modi consigliati per usare La configurazione delle app?
 
-## <a name="how-much-does-app-configuration-cost"></a>Quanto costa la configurazione dell'app?
+Vedere [le procedure consigliate](./howto-best-practices.md).
 
-Sono disponibili due piani tariffari: 
+## <a name="how-much-does-app-configuration-cost"></a>Quanto costa la configurazione delle app?
+
+Sono disponibili due piani tariffari:There are two pricing tiers:
 
 - Livello gratuito
 - Livello standard.
 
-Se è stato creato un archivio prima dell'introduzione del livello standard, questo viene spostato automaticamente al livello gratuito al momento della disponibilità generale. È possibile scegliere di eseguire l'aggiornamento al livello standard o rimanere nel livello gratuito.
+Se è stato creato un archivio prima dell'introduzione del livello Standard, viene automaticamente spostato nel livello Gratuito in base alla disponibilità generale. È possibile scegliere di eseguire l'aggiornamento al livello Standard o di rimanere nel livello Gratuito.You can choose to the Standard tier or remain on the Free tier.
 
-Non è possibile effettuare il downgrade di un archivio dal livello standard al livello gratuito. È possibile creare un nuovo archivio nel livello gratuito e quindi importare i dati di configurazione in tale archivio.
+Non è possibile eseguire il downgrade di un negozio dal livello Standard al livello Gratuito.You can't downgrade a store from the Standard tier to the Free tier. È possibile creare un nuovo archivio nel livello Gratuito e quindi importare i dati di configurazione in tale archivio.
 
-## <a name="which-app-configuration-tier-should-i-use"></a>Quale livello di configurazione dell'app è consigliabile usare?
+## <a name="which-app-configuration-tier-should-i-use"></a>Quale livello di configurazione app devo usare?
 
-Entrambi i livelli di configurazione delle app offrono funzionalità principali, incluse le impostazioni di configurazione, i flag delle funzionalità, i riferimenti Key Vault, le operazioni di gestione di base, le metriche e i log.
+Entrambi i livelli di configurazione delle app offrono funzionalità di base, tra cui impostazioni di configurazione, flag di funzionalità, riferimenti dell'insieme di credenziali delle chiavi, operazioni di gestione di base, metriche e log.
 
 Di seguito sono riportate alcune considerazioni per la scelta di un livello.
 
-- **Risorse per sottoscrizione**: una risorsa è costituita da un singolo archivio di configurazione. Ogni sottoscrizione è limitata a un archivio di configurazione nel livello gratuito. Le sottoscrizioni possono avere un numero illimitato di archivi di configurazione nel livello standard.
-- **Archiviazione per risorsa**: nel livello gratuito ogni archivio di configurazione è limitato a 10 MB di spazio di archiviazione. Nel livello standard, ogni archivio di configurazione può usare fino a 1 GB di spazio di archiviazione.
-- **Cronologia delle chiavi**: la configurazione dell'app archivia una cronologia di tutte le modifiche apportate alle chiavi. Nel livello gratuito la cronologia viene archiviata per sette giorni. Nel livello standard la cronologia viene archiviata per 30 giorni.
-- **Richieste al giorno**: gli archivi di livello gratuito sono limitati a 1.000 richieste al giorno. Quando un negozio raggiunge 1.000 richieste, restituirà il codice di stato HTTP 429 per tutte le richieste fino alla mezzanotte UTC.
+- **Risorse per sottoscrizione:** una risorsa è costituita da un singolo archivio di configurazione. Ogni sottoscrizione è limitata a un archivio di configurazione nel livello gratuito. Le sottoscrizioni possono avere un numero illimitato di archivi di configurazione nel livello standard.
+- **Archiviazione per risorsa:** nel livello gratuito ogni archivio di configurazione è limitato a 10 MB di spazio di archiviazione. Nel livello standard, ogni archivio di configurazione può usare fino a 1 GB di spazio di archiviazione.
+- **Cronologia delle**chiavi : App Configuration memorizza una cronologia di tutte le modifiche apportate alle chiavi. Nel livello gratuito, questa cronologia viene archiviata per sette giorni. Nel livello standard, questa cronologia viene archiviata per 30 giorni.
+- **Richieste al giorno**: Gli archivi di livello gratuito sono limitati a 1.000 richieste al giorno. Quando un archivio raggiunge 1.000 richieste, restituirà il codice di stato HTTP 429 per tutte le richieste fino alla mezzanotte UTC.
 
-    Per gli archivi di livello standard, le prime 200.000 richieste ogni giorno sono incluse nell'addebito giornaliero. Le richieste aggiuntive vengono fatturate come eccedenze.
+    Per gli archivi di livello standard, le prime 200.000 richieste al giorno sono incluse nella tariffa giornaliera. Le richieste aggiuntive vengono fatturate come overage.
 
-- **Contratto di servizio**: il livello standard dispone di un contratto di servizio con disponibilità del 99,9%. Il livello gratuito non ha un contratto di licenza.
-- **Funzionalità di sicurezza**: entrambi i livelli includono funzionalità di sicurezza di base, tra cui la crittografia con chiavi gestite da Microsoft, l'autenticazione tramite HMAC o Azure Active Directory, il supporto RBAC e l'identità gestita. Il livello standard offre funzionalità di sicurezza più avanzate, tra cui il supporto dei collegamenti privati e la crittografia con chiavi gestite dal cliente.
-- **Costo**: gli archivi di livello standard hanno un costo di utilizzo giornaliero. È anche previsto un addebito per le richieste oltre l'allocazione giornaliera. Non è previsto alcun costo per l'uso di un archivio di livello gratuito.
+- **Contratto**di servizio: il livello standard ha un contratto di servizio pari al 99,9%. Il livello gratuito non dispone di un servizio di archiviazione.
+- Funzionalità di **sicurezza:** entrambi i livelli includono funzionalità di sicurezza di base, tra cui la crittografia con chiavi gestite da Microsoft, l'autenticazione tramite HMAC o Azure Active Directory, il supporto RBAC e l'identità gestita. Il livello Standard offre funzionalità di sicurezza più avanzate, tra cui il supporto Private Link e la crittografia con chiavi gestite dal cliente.
+- **Costo:** i negozi di livello standard hanno un costo di utilizzo giornaliero. C'è anche un costo di overage per le richieste oltre l'allocazione giornaliera. L'uso di un archivio di livello gratuito non è previsto alcun costo.
 
-## <a name="can-i-upgrade-a-store-from-the-free-tier-to-the-standard-tier-can-i-downgrade-a-store-from-the-standard-tier-to-the-free-tier"></a>È possibile aggiornare un archivio dal livello gratuito al livello standard? È possibile effettuare il downgrade di un negozio dal livello standard al livello gratuito?
+## <a name="can-i-upgrade-a-store-from-the-free-tier-to-the-standard-tier-can-i-downgrade-a-store-from-the-standard-tier-to-the-free-tier"></a>È possibile aggiornare un negozio dal livello Gratuito al livello Standard? È possibile effettuare il downgrade di un negozio dal livello Standard al livello Gratuito?
 
-È possibile eseguire l'aggiornamento dal livello gratuito al livello standard in qualsiasi momento.
+È possibile eseguire l'aggiornamento dal livello Gratuito al livello Standard in qualsiasi momento.
 
-Non è possibile effettuare il downgrade di un archivio dal livello standard al livello gratuito. È possibile creare un nuovo archivio nel livello gratuito e quindi [importare i dati di configurazione in tale archivio](howto-import-export-data.md).
+Non è possibile eseguire il downgrade di un negozio dal livello Standard al livello Gratuito.You can't downgrade a store from the Standard tier to the Free tier. È possibile creare un nuovo archivio nel livello Gratuito e quindi importare i [dati di configurazione in tale archivio.](howto-import-export-data.md)
 
-## <a name="how-can-i-receive-announcements-on-new-releases-and-other-information-related-to-app-configuration"></a>Come è possibile ricevere annunci sulle nuove versioni e altre informazioni relative alla configurazione dell'app?
+## <a name="are-there-any-limits-on-the-number-of-requests-made-to-app-configuration"></a>Esistono limiti al numero di richieste effettuate a App Configuration?
 
-Sottoscrivere il [repository di annunci GitHub](https://github.com/Azure/AppConfiguration-Announcements).
+Gli archivi di configurazione nel livello Gratuito sono limitati a 1.000 richieste al giorno. Gli archivi di configurazione nel livello Standard potrebbero verificarsi limitazioni temporanee quando la frequenza delle richieste supera le 20.000 richieste all'ora.
 
-## <a name="how-can-i-report-an-issue-or-give-a-suggestion"></a>Come è possibile segnalare un problema o inviare un suggerimento?
+Quando un archivio raggiunge il limite, restituirà il codice di stato HTTP 429 per tutte le richieste effettuate fino alla scadenza del periodo di tempo. L'intestazione `retry-after-ms` nella risposta fornisce un tempo di attesa consigliato (in millisecondi) prima di ritentare la richiesta.
+
+Se l'applicazione riscontra regolarmente il codice di stato HTTP 429 risposte, è consigliabile riprogettarla per ridurre il numero di richieste effettuate. Per altre informazioni, vedere [Ridurre le richieste effettuate alla configurazione dell'appFor](./howto-best-practices.md#reduce-requests-made-to-app-configuration) more information, see Reduce requests made to App Configuration
+
+## <a name="my-application-receives-http-status-code-429-responses-why"></a>L'applicazione riceve il codice di stato HTTP 429 risposte. Perché?
+
+Riceverai una risposta al codice di stato HTTP 429 in queste circostanze:
+
+* Superamento del limite di richieste giornaliere per un archivio nel livello Gratuito.
+* Limitazione temporanea a causa di una frequenza di richieste elevata per un archivio nel livello Standard.Temporary throttling due to a high request rate for a store in the Standard tier.
+* Utilizzo eccessivo della larghezza di banda.
+* Tentativo di creare o modificare una chiave quando viene superata l'offerta di archiviazione.
+
+Controllare il corpo della risposta 429 per il motivo specifico per cui la richiesta non è riuscita.
+
+## <a name="how-can-i-receive-announcements-on-new-releases-and-other-information-related-to-app-configuration"></a>Come posso ricevere annunci sulle nuove versioni e altre informazioni relative a Configurazione app?
+
+Iscriviti al nostro [repository di annunci GitHub](https://github.com/Azure/AppConfiguration-Announcements).
+
+## <a name="how-can-i-report-an-issue-or-give-a-suggestion"></a>Come posso segnalare un problema o dare un suggerimento?
 
 Puoi contattarci direttamente su [GitHub](https://github.com/Azure/AppConfiguration/issues).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Informazioni sulla configurazione di app Azure](./overview.md)
+* [Informazioni su Configurazione app di Azure](./overview.md)
