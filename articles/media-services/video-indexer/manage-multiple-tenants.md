@@ -14,10 +14,10 @@ ms.custom: ''
 ms.date: 05/15/2019
 ms.author: ikbarmen
 ms.openlocfilehash: 18f2cf3daa281400151ba223e1735e7138d97e8e
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76990505"
 ---
 # <a name="manage-multiple-tenants"></a>Gestire più tenant
@@ -68,7 +68,7 @@ Durante il [caricamento dei video](https://api-portal.videoindexer.ai/docs/servi
 
 ## <a name="azure-subscription-per-tenant"></a>Sottoscrizione di Azure per tenant 
 
-Quando si usa questa architettura, ogni tenant avrà la propria sottoscrizione di Azure. Per ciascun utente, si creerà un nuovo account Video Indexer nella sottoscrizione del tenant.
+Quando si usa questa architettura, ogni tenant avrà la propria sottoscrizione di Azure.When using this architecture, each tenant will have their own Azure subscription. Per ciascun utente, si creerà un nuovo account Video Indexer nella sottoscrizione del tenant.
 
 ![Sottoscrizione di Azure per tenant](./media/manage-multiple-tenants/azure-subscription-per-tenant.png)
 
@@ -79,4 +79,4 @@ Quando si usa questa architettura, ogni tenant avrà la propria sottoscrizione d
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Overview](video-indexer-overview.md)
+[Panoramica](video-indexer-overview.md)

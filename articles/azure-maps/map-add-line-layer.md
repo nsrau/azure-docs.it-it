@@ -1,6 +1,6 @@
 ---
-title: Aggiungere un livello linea a una mappa | Mappe Microsoft Azure
-description: In questo articolo si apprenderà come aggiungere un livello linea a una mappa usando il Microsoft Azure Maps Web SDK.
+title: Aggiunta di un layer linea a una mappa Mappe di Microsoft Azure
+description: In questo articolo verrà illustrato come aggiungere un livello linea a una mappa usando Microsoft Azure Maps Web SDK.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 08/08/2019
@@ -10,20 +10,20 @@ services: azure-maps
 manager: ''
 ms.custom: codepen
 ms.openlocfilehash: 8503b12be628fe7d5651221c9d0379bee3e292bd
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76933475"
 ---
 # <a name="add-a-line-layer-to-the-map"></a>Aggiungere un livello linea alla mappa
 
-Un livello linea può essere utilizzato per eseguire il rendering di `LineString` e `MultiLineString` funzionalità come percorsi o route sulla mappa. Un livello linea può essere utilizzato anche per eseguire il rendering del contorno delle funzionalità `Polygon` e `MultiPolygon`. Un'origine dati è connessa a un livello linea per fornire i dati di cui eseguire il rendering. 
+Un layer linea può `LineString` essere `MultiLineString` utilizzato per eseguire il rendering e le feature come percorsi o percorsi sulla mappa. Un livello linea può essere utilizzato `Polygon` anche `MultiPolygon` per eseguire il rendering del contorno e delle feature. Un'origine dati è connessa a un livello linea per fornire i dati di cui eseguire il rendering. 
 
 > [!TIP]
-> Per impostazione predefinita, i livelli linea eseguono il rendering delle coordinate dei poligoni e delle linee in un'origine dati. Per limitare il livello in modo che esegua il rendering solo delle funzionalità LineString, impostare la proprietà `filter` del livello su `['==', ['geometry-type'], 'LineString']` o `['any', ['==', ['geometry-type'], 'LineString'], ['==', ['geometry-type'], 'MultiLineString']]` se si desidera includere anche le funzionalità MultiLineString.
+> Per impostazione predefinita, i livelli di linea eseguiranno il rendering delle coordinate dei poligoni e delle linee in un'origine dati. Per limitare il layer in modo che `filter` eseda `['==', ['geometry-type'], 'LineString']` solo `['any', ['==', ['geometry-type'], 'LineString'], ['==', ['geometry-type'], 'MultiLineString']]` le feature LineString, impostare la proprietà del layer su o se si desidera includere anche le funzionalità MultiLineString.
 
-Nel codice seguente viene illustrato come creare una riga. Aggiungere la riga a un'origine dati, quindi eseguirne il rendering con un livello linea utilizzando la classe [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest) .
+Nel codice seguente viene illustrato come creare una riga. Aggiungete la linea a un'origine dati, quindi eseguitela con un livello linea utilizzando la classe [LineLayer.](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest)
 
 ```javascript
 //Create a data source and add it to the map.
@@ -40,43 +40,43 @@ map.layers.add(new atlas.layer.LineLayer(dataSource, null, {
 }));
 ```
 
-Di seguito è riportato l'esempio di codice completo per l'esecuzione delle funzionalità sopra riportate.
+Di seguito è riportato l'esempio di codice in esecuzione completo della funzionalità precedente.
 
 <br/>
 
 <iframe height='500' scrolling='no' title='Aggiungere una linea a una mappa' src='//codepen.io/azuremaps/embed/qomaKv/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Vedere l'elemento Pen <a href='https://codepen.io/azuremaps/pen/qomaKv/'>Aggiungere una linea a una mappa</a> con Mappe di Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) in <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-È possibile applicare uno stile ai livelli linea utilizzando [LineLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest) e [utilizzare espressioni di stile basate sui dati](data-driven-style-expressions-web-sdk.md).
+È possibile applicare uno stile ai livelli linea utilizzando [LineLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest) e Utilizzare espressioni di [stile basate sui dati.](data-driven-style-expressions-web-sdk.md)
 
-## <a name="add-symbols-along-a-line"></a>Aggiungi simboli lungo una riga
+## <a name="add-symbols-along-a-line"></a>Aggiungere simboli lungo una linea
 
-In questo esempio viene illustrato come aggiungere icone a freccia lungo una riga sulla mappa. Quando si usa un livello di simboli, impostare l'opzione "posizionamento" su "riga". Questa opzione consente di eseguire il rendering dei simboli lungo la linea e di ruotare le icone (0 gradi = a destra).
+In questo esempio viene illustrato come aggiungere icone a freccia lungo una linea sulla mappa. Quando si utilizza un layer di simboli, impostare l'opzione "posizionamento" su "linea". Questa opzione eseguirà il rendering dei simboli lungo la linea e ruoterà le icone (0 gradi e destra).
 
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Mostra freccia lungo la linea" src="//codepen.io/azuremaps/embed/drBJwX/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Per le mappe di Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) in <a href='https://codepen.io'>CodePen</a>, vedere la <a href='https://codepen.io/azuremaps/pen/drBJwX/'>freccia di visualizzazione</a> della penna.
+Vedere la <a href='https://codepen.io/azuremaps/pen/drBJwX/'>freccia Mostra</a> penna lungo<a href='https://codepen.io/azuremaps'>@azuremaps</a>la linea di Azure Maps ( ) in <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 > [!TIP]
-> Azure Maps Web SDK offre diversi modelli di immagine personalizzabili che è possibile usare con il livello dei simboli. Per altre informazioni, vedere il documento [come usare i modelli di immagine](how-to-use-image-templates-web-sdk.md) .
+> Il Web SDK di Azure Maps offre diversi modelli di immagine personalizzabili che è possibile usare con il layer di simboli. Per ulteriori informazioni, vedere il documento Come utilizzare i modelli di [immagine.](how-to-use-image-templates-web-sdk.md)
 
 <a name="line-stroke-gradient"></a>
 
-## <a name="add-a-stroke-gradient-to-a-line"></a>Aggiungere una sfumatura del tratto a una riga
+## <a name="add-a-stroke-gradient-to-a-line"></a>Aggiungere una sfumatura di traccia a una linea
 
-È possibile applicare un colore a tratto singolo a una riga. È anche possibile riempire una linea con una sfumatura di colori per visualizzare la transizione da un segmento di linea al segmento di riga successivo. Ad esempio, è possibile usare le sfumature di linea per rappresentare le modifiche nel tempo e nella distanza oppure con temperature diverse in una linea di oggetti connessa. Per applicare questa funzionalità a una riga, è necessario che l'opzione `lineMetrics` dell'origine dati sia impostata su true, quindi un'espressione di sfumatura di colore possa essere passata all'opzione `strokeColor` della riga. L'espressione di sfumatura del tratto deve fare riferimento all'espressione di dati `['line-progress']` che espone le metriche della linea calcolata all'espressione.
+Potete applicare un singolo colore di traccia a una linea. È inoltre possibile riempire una linea con una sfumatura di colori per mostrare la transizione da un segmento di linea al segmento di linea successivo. Ad esempio, i gradienti di linea possono essere utilizzati per rappresentare le variazioni nel tempo e nella distanza o temperature diverse su una linea di oggetti collegata. Per applicare questa funzionalità a una linea, l'origine dati deve avere l'opzione `lineMetrics` impostata `strokeColor` su true e quindi un'espressione di sfumatura di colore può essere passata all'opzione della linea. L'espressione con sfumatura `['line-progress']` del tratto deve fare riferimento all'espressione dati che espone le metriche della linea calcolata all'espressione.
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Riga con sfumatura tratto" src="//codepen.io/azuremaps/embed/wZwWJZ/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Vedere la linea della penna <a href='https://codepen.io/azuremaps/pen/wZwWJZ/'>con sfumatura tratto</a> di Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) in <a href='https://codepen.io'>CodePen</a>.
+<iframe height="500" style="width: 100%;" scrolling="no" title="Linea con sfumatura tratto" src="//codepen.io/azuremaps/embed/wZwWJZ/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+Vedere la linea della penna con<a href='https://codepen.io/azuremaps'>@azuremaps</a> <a href='https://codepen.io/azuremaps/pen/wZwWJZ/'>gradiente tratto</a> di Azure Maps ( ) su <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="customize-a-line-layer"></a>Personalizzare un livello linea
 
-Il livello linea presenta diverse opzioni di stile. Lo strumento seguente consente di provarle.
+Il livello Linea ha diverse opzioni di stile. Lo strumento seguente consente di provarle.
 
 <br/>
 
@@ -88,15 +88,15 @@ Il livello linea presenta diverse opzioni di stile. Lo strumento seguente consen
 Per altre informazioni sulle classi e sui metodi usati in questo articolo, vedere:
 
 > [!div class="nextstepaction"]
-> [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest) 
+> [Livello linea](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest) 
 
 > [!div class="nextstepaction"]
-> [LineLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest)
+> [LineLayerOptions (Opzioni LineLayer)](/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest)
 
 Per altri esempi di codice da aggiungere alle mappe, vedere gli articoli seguenti:
 
 > [!div class="nextstepaction"]
-> [Creare un'origine dati](create-data-source-web-sdk.md)
+> [Creare un'origine datiCreate a data source](create-data-source-web-sdk.md)
 
 > [!div class="nextstepaction"]
 > [Aggiungere un popup](map-add-popup.md)
@@ -108,4 +108,4 @@ Per altri esempi di codice da aggiungere alle mappe, vedere gli articoli seguent
 > [Come usare i modelli di immagine](how-to-use-image-templates-web-sdk.md)
 
 > [!div class="nextstepaction"]
-> [Aggiungere un livello poligono](map-add-shape.md)
+> [Aggiungere un livello per i poligoni](map-add-shape.md)

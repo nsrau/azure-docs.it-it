@@ -1,15 +1,15 @@
 ---
-title: Panoramica del servizio di analisi degli errori
+title: Panoramica di Fault Analysis Service
 description: Questo articolo descrive il servizio di analisi degli errori di Service Fabric per provocare errori ed eseguire scenari di test sui servizi dell'utente.
 author: anmolah
 ms.topic: conceptual
 ms.date: 06/15/2017
 ms.author: anmola
 ms.openlocfilehash: d5c770a4d823ebe9b2700b081c407c54dd1d18a3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75465580"
 ---
 # <a name="introduction-to-the-fault-analysis-service"></a>Introduzione al servizio di analisi degli errori
@@ -79,11 +79,11 @@ In Service Fabric il servizio di analisi degli errori consente di capovolgere tu
 Con Service Fabric, sebbene la scala degli errori sarà diversa in ambienti differenti, il meccanismo effettivo sarà identico. Ciò consente l'uso di un codice molto più rapido per la pipeline di distribuzione e la possibilità di testare i servizi con carichi di lavoro reali.
 
 ## <a name="using-the-fault-analysis-service"></a>Uso del servizio di analisi degli errori
-**C#**
+**C #**
 
 Le funzionalità del servizio di analisi degli errori si trovano nello spazio dei nomi System.Fabric nel pacchetto NuGet Microsoft.ServiceFabric. Per usare le funzionalità del servizio di analisi degli errori, includere il pacchetto NuGet come riferimento nel progetto.
 
-**PowerShell**
+**Powershell**
 
 Per usare PowerShell, è necessario installare Service Fabric SDK. Dopo avere installato l'SDK, viene caricato automaticamente il modulo ServiceFabric di PowerShell.
 

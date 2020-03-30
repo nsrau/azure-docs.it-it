@@ -5,17 +5,17 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 10/10/2019
+ms.date: 03/19/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 1e18223736964b0327a4c8f6ddb73ddb4f58889a
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: e85dc8c079205484db9b7b7c43a0086f69feb3be
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78304967"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80059965"
 ---
-## <a name="rootcert"></a>Creare un certificato radice autofirmato
+## <a name="create-a-self-signed-root-certificate"></a><a name="rootcert"></a>Creare un certificato radice autofirmato
 
 Usare il cmdlet New-SelfSignedCertificate per creare un certificato radice autofirmato. Per altre informazioni sui parametri, vedere [New-SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
 
@@ -28,9 +28,9 @@ Usare il cmdlet New-SelfSignedCertificate per creare un certificato radice autof
    -HashAlgorithm sha256 -KeyLength 2048 `
    -CertStoreLocation "Cert:\CurrentUser\My" -KeyUsageProperty Sign -KeyUsage CertSign
    ```
- 3. Lasciare aperta la console di PowerShell se si desidera creare un certificato client subito dopo la creazione del certificato radice.
+ 3. Lasciare aperta la console di PowerShell se si vuole creare un certificato client subito dopo aver creato questo certificato radice.
 
-## <a name="clientcert"></a>Generazione di un certificato client
+## <a name="generate-a-client-certificate"></a><a name="clientcert"></a>Generazione di un certificato client
 
 Ogni computer client che si connette a una rete virtuale usando la soluzione Da punto a sito deve avere un certificato client installato. È possibile generare un certificato client da un certificato radice autofirmato, quindi esportare e installare il certificato client. Se il certificato client non è installato, l'autenticazione ha esito negativo. 
 
@@ -38,9 +38,9 @@ I passaggi seguenti illustrano come generare un certificato client da un certifi
 
 Gli esempi usano il cmdlet New-SelfSignedCertificate per generare un certificato client con scadenza in un anno. Per informazioni aggiuntive sui parametri, ad esempio l'impostazione di un valore di scadenza diverso per i certificati client, vedere [New SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
 
-### <a name="example-1---powershell-console-session-still-open"></a>Esempio 1: sessione della console di PowerShell ancora aperta
+### <a name="example-1---powershell-console-session-still-open"></a>Esempio 1 - Sessione della console di PowerShell ancora apertaExample 1 - PowerShell console session still open
 
-Usare questo esempio se dopo aver creato il certificato radice autofirmato non si è chiusa la console di PowerShell. Questo esempio continua dalla sezione precedente e usa la variabile dichiarata "$cert". Se è stata chiusa la console di PowerShell dopo aver creato il certificato radice autofirmato o si stanno creando i certificati client aggiuntivi in una nuova sessione della console di PowerShell, attenersi alla procedura nell'[esempio 2](#ex2).
+Usare questo esempio se dopo aver creato il certificato radice autofirmato non si è chiusa la console di PowerShell. Questo esempio continua dalla sezione precedente e usa la variabile dichiarata "$cert". Se la console di PowerShell è stata chiusa dopo aver creato il certificato radice autofirmato o si creano certificati client aggiuntivi in una nuova sessione della console di PowerShell, eseguire la procedura descritta [nell'esempio 2.](#ex2)
 
 Modificare ed eseguire l'esempio per generare un certificato client. Se si esegue l'esempio seguente senza modificarlo, il risultato è un certificato client denominato "P2SChildCert".  Se si desidera assegnare un nome diverso al certificato figlio, modificare il valore CN. Non modificare il TextExtension quando si esegue questo esempio. Il certificato client generato viene installato automaticamente in "Certificati-Utente corrente\Personale\Certificati" nel computer in uso.
 
@@ -52,7 +52,7 @@ New-SelfSignedCertificate -Type Custom -DnsName P2SChildCert -KeySpec Signature 
 -Signer $cert -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.2")
 ```
 
-### <a name="ex2"></a>Esempio 2: nuova sessione della console di PowerShell
+### <a name="example-2---new-powershell-console-session"></a><a name="ex2"></a>Esempio 2 - Nuova sessione della console di PowerShellExample 2 - New PowerShell console session
 
 Se si creano certificati client aggiuntivi o non si usa la stessa sessione di PowerShell utilizzata per creare il certificato radice autofirmato, usare la procedura seguente:
 
@@ -90,7 +90,7 @@ Se si creano certificati client aggiuntivi o non si usa la stessa sessione di Po
    -Signer $cert -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.2")
    ```
 
-## <a name="cer"></a>Esportare la chiave pubblica del certificato radice (. cer)
+## <a name="export-the-root-certificate-public-key-cer"></a><a name="cer"></a>Esportare la chiave pubblica del certificato radice (con estensione cer)
 
 [!INCLUDE [Export public key](vpn-gateway-certificates-export-public-key-include.md)]
 
@@ -98,6 +98,6 @@ Se si creano certificati client aggiuntivi o non si usa la stessa sessione di Po
 
 Si consiglia di esportare il certificato radice autofirmato e archiviarlo in un percorso sicuro per avere una copia di backup. Se necessario, in seguito è possibile installarlo su un altro computer e generare altri certificati client. Per esportare il certificato radice autofirmato come file .pfx, selezionare il certificato radice ed eseguire la stessa procedura descritta in [Esportazione di un certificato client](#clientexport).
 
-## <a name="clientexport"></a>Esportare il certificato client
+## <a name="export-the-client-certificate"></a><a name="clientexport"></a>Esportare il certificato client
 
 [!INCLUDE [Export client certificate](vpn-gateway-certificates-export-client-cert-include.md)]

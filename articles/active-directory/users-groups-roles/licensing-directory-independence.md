@@ -1,5 +1,5 @@
 ---
-title: Caratteristiche dell'interazione con più tenant-Azure AD | Microsoft Docs
+title: Caratteristiche dell'interazione con più tenant - Azure AD Documenti Microsoft
 description: Gestire i tenant di Azure Active Directory considerando i tenant come risorse completamente indipendenti
 services: active-tenant
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.custom: it-pro
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f4eb09ab7fa31af5edf14b113a6a88e08df2d115
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77562259"
 ---
 # <a name="understand-how-multiple-azure-active-directory-tenants-interact"></a>Informazioni sull'interazione di più tenant di Azure Active Directory
@@ -46,7 +46,7 @@ Se un utente non amministratore del tenant "Contoso" crea un tenant di test deno
 Per aggiungere un tenant di Azure AD nel portale di Azure, accedere al [portale di Azure](https://portal.azure.com) con un account amministratore globale per Azure AD e selezionare **Nuovo** a sinistra.
 
 > [!NOTE]
-> A differenza di altre risorse di Azure, i tenant non sono risorse figlio di una sottoscrizione di Azure. Se la sottoscrizione di Azure è stata annullata o scaduta, è comunque possibile accedere ai dati del tenant usando Azure PowerShell, l'API Microsoft Graph o l'interfaccia di amministrazione di Microsoft 365. È anche possibile [associare un'altra sottoscrizione al tenant](../fundamentals/active-directory-how-subscriptions-associated-directory.md).
+> A differenza di altre risorse di Azure, i tenant non sono risorse figlio di una sottoscrizione di Azure. Se la sottoscrizione di Azure viene annullata o scaduta, è comunque possibile accedere ai dati del tenant usando Azure PowerShell, l'API Microsoft Graph o l'interfaccia di amministrazione di Microsoft 365.If your Azure subscription is canceled or expired, you can still access your tenant data using Azure PowerShell, the Microsoft Graph API, or the Microsoft 365 admin center. È anche possibile [associare un'altra sottoscrizione al tenant](../fundamentals/active-directory-how-subscriptions-associated-directory.md).
 >
 
 ## <a name="next-steps"></a>Passaggi successivi

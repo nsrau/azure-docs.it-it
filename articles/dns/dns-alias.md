@@ -1,18 +1,18 @@
 ---
-title: Cenni preliminari sui record alias-DNS di Azure
-description: In questo articolo vengono fornite informazioni sul supporto per i record alias in Microsoft Azure DNS.
+title: Alias records overview - Azure DNS
+description: In this article, learn about support for alias records in Microsoft Azure DNS.
 services: dns
 author: rohinkoul
 ms.service: dns
 ms.topic: article
 ms.date: 08/09/2019
 ms.author: rohink
-ms.openlocfilehash: 085e5fc20a6b5356e012eb2f674fafc00cef828f
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 271770935cf4cb83d4abc6e82a4f4b13ffe865b3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76937330"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80295498"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Panoramica dei record di alias DNS di Azure
 
@@ -20,21 +20,21 @@ I record di alias DNS di Azure sono qualifiche su un set di record DNS. Possono 
 
 Un set di record alias è supportato per i tipi di record seguenti in una zona DNS di Azure: 
 
-- A
+- Una 
 - AAAA
 - CNAME
 
 > [!NOTE]
-> Se si prevede di usare un record alias per i tipi di record A o AAAA per puntare a un [profilo di Gestione traffico di Azure](../traffic-manager/quickstart-create-traffic-manager-profile.md) è necessario assicurarsi che il profilo di Gestione traffico disponga solo di [endpoint esterni](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints). È necessario specificare gli indirizzi IPv4 o IPv6 per gli endpoint esterni in Gestione traffico. Non è possibile usare nomi di dominio completi (FQDN) negli endpoint. Idealmente, usare indirizzi IP statici.
+> Se si prevede di usare un record alias per i tipi di record A o AAAA per puntare a un [profilo di Gestione traffico di Azure](../traffic-manager/quickstart-create-traffic-manager-profile.md) è necessario assicurarsi che il profilo di Gestione traffico disponga solo di [endpoint esterni](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints). È necessario specificare gli indirizzi IPv4 o IPv6 per gli endpoint esterni in Gestione traffico. Non è possibile utilizzare nomi di dominio completi (FQDN) negli endpoint. Idealmente, usare indirizzi IP statici.
 
-## <a name="capabilities"></a>Funzionalità
+## <a name="capabilities"></a>Capabilities
 
-- **Puntare a una risorsa IP pubblica da un set di record DNS A/AAAA**. È possibile creare un set di record A/AAAA e renderlo un set di record alias in modo che punti a una risorsa IP pubblica (standard o Basic). Il set di record DNS cambia automaticamente se l'indirizzo IP pubblico cambia o viene eliminato. Vengono evitati i record DNS inesatti che puntano a indirizzi IP non corretti.
+- **Puntare a una risorsa IP pubblica da un set di record DNS A/AAAA**. È possibile creare un set di record A/AAAA e renderlo un set di record alias in modo che punti a una risorsa IP pubblica (standard o di base). Il set di record DNS cambia automaticamente se l'indirizzo IP pubblico cambia o viene eliminato. Vengono evitati i record DNS inesatti che puntano a indirizzi IP non corretti.
 
-   È previsto un limite corrente di 20 set di record alias per ogni risorsa.
+   Esiste un limite corrente di 20 set di record alias per risorsa.
 
-- **Puntare a un profilo di Gestione traffico da un set di record DNS A/AAAA/CNAME**. È possibile creare un set di record A/AAAA o CNAME e usare i record alias per associarlo a un profilo di Gestione traffico. È particolarmente utile quando è necessario instradare il traffico a un vertice della zona, perché i record CNAME tradizionali non sono supportati per un vertice della zona. Ad esempio, il profilo di Gestione traffico è myprofile.trafficmanager.net e la zona DNS aziendale è contoso.com. È possibile creare un set di record alias del tipo A/AAAA per contoso.com (vertice di zona) e scegliere myprofile.trafficmanager.net.
-- **Puntare a un endpoint della rete per la distribuzione di contenuti (CDN) di Azure**. Questa operazione è utile quando si creano siti web statici usando archiviazione di Azure e la rete CDN di Azure.
+- **Puntare a un profilo di Gestione traffico da un set di record DNS A/AAAA/CNAME**. È possibile creare un set di record A/AAAA o CNAME e usare i record alias per associarlo a un profilo di Gestione traffico. È particolarmente utile quando è necessario instradare il traffico in corrispondenza di un apice di zona, poiché i record CNAME tradizionali non sono supportati per un apice di zona. Ad esempio, il profilo di Gestione traffico è myprofile.trafficmanager.net e la zona DNS aziendale è contoso.com. È possibile creare un set di record alias del tipo A/AAAA per contoso.com (vertice di zona) e scegliere myprofile.trafficmanager.net.
+- **Puntare a un endpoint della rete per la distribuzione di contenuti (CDN)** di Azure. Ciò è utile quando si creano siti Web statici usando Archiviazione di Azure e la rete CDN di Azure.This is useful when you create static websites using Azure storage and Azure CDN.
 - **Puntare a un altro set di record DNS all'interno della stessa zona**. I record alias possono fare riferimento ad altri set di record dello stesso tipo. Un set di record CNAME DNS ad esempio può essere un alias per un altro set di record CNAME. Questo approccio è utile se si vuole che solo alcuni set di record siano alias.
 
 ## <a name="scenarios"></a>Scenari
@@ -45,9 +45,9 @@ Esistono alcuni scenari comuni per i record di alias.
 
 Un problema comune che si verifica con i record DNS tradizionali è la presenza di record inesatti. Ad esempio, i record DNS che non sono stati aggiornati per riflettere le modifiche apportate agli indirizzi IP. Questi problemi si verificano soprattutto con i tipi di record A/AAAA o CNAME.
 
-Con un record di zona DNS tradizionale, se l'IP o il CNAME di destinazione non esiste più, il record DNS associato deve essere aggiornato manualmente. In alcune organizzazioni, un aggiornamento manuale potrebbe non avvenire in tempo a causa di problemi di processo o la separazione dei ruoli e dei livelli di autorizzazione associati. Un ruolo può ad esempio disporre dell'autorizzazione per eliminare un CNAME o un indirizzo IP appartenente a un'applicazione, ma può non possedere le autorizzazioni sufficienti per aggiornare il record DNS che punta a tali destinazioni. Un ritardo nell'aggiornamento del record DNS potenzialmente può causare un'interruzione del servizio per gli utenti.
+Con un record di zona DNS tradizionale, se l'IP o il CNAME di destinazione non esiste più, il record DNS associato deve essere aggiornato manualmente. In alcune organizzazioni, un aggiornamento manuale potrebbe non verificarsi in tempo a causa di problemi di processo o la separazione dei ruoli e dei livelli di autorizzazione associati. Un ruolo può ad esempio disporre dell'autorizzazione per eliminare un CNAME o un indirizzo IP appartenente a un'applicazione, ma può non possedere le autorizzazioni sufficienti per aggiornare il record DNS che punta a tali destinazioni. Un ritardo nell'aggiornamento del record DNS potenzialmente può causare un'interruzione del servizio per gli utenti.
 
-I record alias prevengono i riferimenti inesatti accoppiando il ciclo di vita di un record DNS a una risorsa di Azure. Si consideri, ad esempio, un record DNS che è qualificato come record alias per puntare a un indirizzo IP pubblico o a un profilo di Gestione traffico. Se si eliminano le risorse sottostanti, il record dell'alias DNS diventa un set di record vuoto. Non fa più riferimento alla risorsa eliminata.
+I record alias prevengono i riferimenti inesatti accoppiando il ciclo di vita di un record DNS a una risorsa di Azure. Si consideri, ad esempio, un record DNS che è qualificato come record alias per puntare a un indirizzo IP pubblico o a un profilo di Gestione traffico. Se si eliminano tali risorse sottostanti, il record alias DNS diventa un set di record vuoto. Non fa più riferimento alla risorsa eliminata.
 
 ### <a name="update-dns-record-set-automatically-when-application-ip-addresses-change"></a>Aggiornare automaticamente il set di record DNS quando cambiano gli indirizzi IP dell'applicazione
 
@@ -55,28 +55,28 @@ Questo scenario è simile a quello precedente. Un'applicazione viene forse spost
 
 ### <a name="host-load-balanced-applications-at-the-zone-apex"></a>Ospitare applicazioni con carico bilanciato nel dominio radice
 
-Il protocollo DNS impedisce l'assegnazione di record CNAME al dominio radice. Se ad esempio il dominio è contoso.com; è possibile creare record CNAME per somelabel.contoso.com; Tuttavia, non è possibile creare CNAME per contoso.com.
-Questa restrizione presenta un problema per i proprietari delle applicazioni che dispongono di applicazioni con carico bilanciato dietro [Gestione traffico di Azure](../traffic-manager/traffic-manager-overview.md). Poiché l'uso di un profilo di gestione traffico richiede la creazione di un record CNAME, non è possibile puntare al profilo di Traffic Manager dal vertice della zona.
+Il protocollo DNS impedisce l'assegnazione di record CNAME al dominio radice. Ad esempio, se il dominio è contoso.com; è possibile creare record CNAME per somelabel.contoso.com; ma non è possibile creare CNAME per contoso.com stesso.
+Questa restrizione presenta un problema per i proprietari delle applicazioni che dispongono di applicazioni con carico bilanciato dietro [Gestione traffico di Azure](../traffic-manager/traffic-manager-overview.md). Poiché l'utilizzo di un profilo di Gestione traffico richiede la creazione di un record CNAME, non è possibile puntare al profilo di Gestione traffico dall'apice della zona.
 
-Questo problema viene risolto utilizzando i record alias. A differenza dei record CNAME, i record di alias vengono creati nel vertice della zona e i proprietari dell'applicazione possono usarli per puntare il record Apex della zona a un profilo di gestione traffico con endpoint esterni. I proprietari dell'applicazione puntano allo stesso profilo di gestione traffico usato per qualsiasi altro dominio nella zona DNS.
+Questo problema viene risolto utilizzando i record alias. A differenza dei record CNAME, i record alias vengono creati nell'apice della zona e i proprietari dell'applicazione possono utilizzarlo per indirizzare il record di apice della zona a un profilo di Gestione traffico con endpoint esterni. I proprietari delle applicazioni puntano allo stesso profilo di Gestione traffico utilizzato per qualsiasi altro dominio all'interno della zona DNS.
 
-Ad esempio, contoso.com e www\.contoso.com possono puntare allo stesso profilo di gestione traffico. Per altre informazioni sull'uso di record alias con i profili di Gestione traffico di Azure, vedere la sezione Passaggi successivi.
+Ad esempio, contoso.com\.e www contoso.com possono puntare allo stesso profilo di Gestione traffico. Per altre informazioni sull'uso di record alias con i profili di Gestione traffico di Azure, vedere la sezione Passaggi successivi.
 
-### <a name="point-zone-apex-to-azure-cdn-endpoints"></a>Apice della zona punto per gli endpoint della rete CDN di Azure
+### <a name="point-zone-apex-to-azure-cdn-endpoints"></a>Apice della zona punto agli endpoint della rete CDN di AzurePoint zone apex to Azure CDN endpoints
 
-Analogamente a un profilo di gestione traffico, è anche possibile usare record alias per puntare il vertice della zona DNS agli endpoint della rete CDN di Azure. Questa operazione è utile quando si creano siti web statici usando archiviazione di Azure e la rete CDN di Azure. È quindi possibile accedere al sito Web senza anteporre "www" al nome DNS.
+Analogamente a un profilo di Gestione traffico, è anche possibile usare i record alias per indirizzare l'apice della zona DNS agli endpoint della rete CDN di Azure.Like a Traffic Manager profile, you can also use alias records to point your DNS zone apex to Azure CDN endpoints. Ciò è utile quando si creano siti Web statici usando Archiviazione di Azure e la rete CDN di Azure.This is useful when you create static websites using Azure storage and Azure CDN. È quindi possibile accedere al sito Web senza anteporre "www" al proprio nome DNS.
 
-Ad esempio, se il sito Web statico è denominato www.contoso.com, gli utenti possono accedere al sito usando contoso.com senza che sia necessario anteporre www al nome DNS.
+Ad esempio, se il `www.contoso.com, your users can access your site using contoso.com` sito Web statico è denominato senza la necessità di anteporre www al nome DNS.
 
-Come descritto in precedenza, i record CNAME non sono supportati nel vertice della zona. Non è quindi possibile usare un record CNAME per puntare contoso.com all'endpoint della rete CDN. In alternativa, è possibile usare un record alias per puntare direttamente il vertice della zona a un endpoint della rete CDN.
+Come descritto in precedenza, i record CNAME non sono supportati nell'apice della zona. Pertanto, non è possibile usare un record CNAME per puntare contoso.com all'endpoint della rete CDN. È invece possibile usare un record alias per indirizzare direttamente l'apice della zona a un endpoint della rete CDN.
 
 > [!NOTE]
-> Il puntamento di un vertice della zona agli endpoint della rete CDN per la rete CDN di Azure da Akamai non è attualmente supportato.
+> L'inserimento di un apice di zona agli endpoint della rete CDN per la rete CDN di Azure da Akamai non è attualmente supportato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni sui record alias, vedere gli articoli seguenti:
 
-- [Esercitazione: Configurare un record alias per fare riferimento a un indirizzo IP pubblico di Azure](tutorial-alias-pip.md)
-- [Esercitazione: Configurare un record alias per supportare nomi di dominio vertice con Gestione traffico](tutorial-alias-tm.md)
-- [Domande frequenti sui DNS](https://docs.microsoft.com/azure/dns/dns-faq#alias-records)
+- [Esercitazione: Configurare un record alias in modo che faccia riferimento a un indirizzo IP pubblico di AzureTutorial: Configure an alias record to refer to an Azure public IP address](tutorial-alias-pip.md)
+- [Esercitazione: Configurare un record alias per supportare nomi della radice del dominio con Gestione traffico](tutorial-alias-tm.md)
+- [Domande frequenti su DNS](https://docs.microsoft.com/azure/dns/dns-faq#alias-records)

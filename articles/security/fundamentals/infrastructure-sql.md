@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 03/09/2020
 ms.author: terrylan
 ms.openlocfilehash: ad6d3992f03802174eb03aa30b57b8d3dac1d6c4
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78942962"
 ---
 # <a name="azure-sql-database-security-features"></a>Funzionalità di sicurezza del database SQL di Azure    
@@ -75,7 +75,7 @@ L'isolamento del sistema operativo radice dalle VM guest e delle VM guest l'una 
 ### <a name="types-of-rules-on-firewalls"></a>Tipi di regole nei firewall
 Una regola viene definita come mostrato di seguito.
 
-{Src IP, porta src, IP di destinazione, porta di destinazione, protocollo di destinazione, in/out, con stato/senza stato, timeout del flusso con stato}.
+IP Src, Porta Src, IP di destinazione, Porta di destinazione, Protocollo di destinazione, In/Out, Con stato/Senza stato, Timeout flusso con stato.
 
 I pacchetti SYN (Synchronous idle character) sono consentiti in entrata e in uscita solo se autorizzati da una regola. Per TCP, Azure usa regole senza stato il cui principio è che sono consentiti solo i pacchetti non SYN in entrata e in uscita dalla VM. Il presupposto di sicurezza è che qualsiasi stack host evita di ignorare un pacchetto non SYN se non ne ha mai visto uno in precedenza. Il protocollo TCP stesso è con stato e, in combinazione con la regola basata su SYN senza stato, adotta il comportamento generale di un'implementazione con stato.
 
@@ -95,12 +95,12 @@ In modo analogo, le modifiche apportate ad hardware e rete includono passaggi di
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulle operazioni eseguite da Microsoft per proteggere l'infrastruttura di Azure, vedere:
 
-- [Azure facilities, premises, and physical security](physical-security.md) (Sicurezza fisica, presupposti e strutture di Azure)
+- [Azure facilities, premises, and physical security (Sicurezza fisica, presupposti e strutture di Azure)](physical-security.md)
 - [Disponibilità dell'infrastruttura di Azure](infrastructure-availability.md)
-- [Azure information system components and boundaries](infrastructure-components.md) (Componenti e limiti del sistema informativo di Azure)
+- [Componenti e limiti del sistema informativo di Azure](infrastructure-components.md)
 - [Architettura di rete di Azure](infrastructure-network.md)
 - [Rete di produzione di Azure](production-network.md)
-- [Azure production operations and management](infrastructure-operations.md) (Operazioni e gestione della produzione di Azure)
+- [Gestione e funzionamento dell'ambiente di produzione di Azure](infrastructure-operations.md)
 - [Monitoraggio dell'infrastruttura di Azure](infrastructure-monitoring.md)
 - [Integrità dell'infrastruttura di Azure](infrastructure-integrity.md)
 - [Protezione dei dati dei clienti di Azure](protection-customer-data.md)

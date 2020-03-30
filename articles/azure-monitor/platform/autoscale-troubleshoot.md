@@ -1,161 +1,161 @@
 ---
-title: Risoluzione dei problemi di scalabilità automatica di Azure
-description: Rilevamento di problemi con la scalabilità automatica di Azure usata in Service Fabric, macchine virtuali, app Web e servizi cloud.
+title: Risoluzione dei problemi di scalabilità automatica di AzureTroubleshooting Azure autoscale
+description: Tenere traccia dei problemi relativi alla scalabilità automatica di Azure usati in Service Fabric, Macchine virtuali, app Web e servizi cloud.
 ms.topic: conceptual
 ms.date: 11/4/2019
 ms.subservice: autoscale
 ms.openlocfilehash: 9780cf88070110c4efc13c477d65307aa3985fe5
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75751344"
 ---
-# <a name="troubleshooting-azure-autoscale"></a>Risoluzione dei problemi di scalabilità automatica di Azure
+# <a name="troubleshooting-azure-autoscale"></a>Risoluzione dei problemi di scalabilità automatica di AzureTroubleshooting Azure autoscale
  
-La scalabilità automatica di monitoraggio di Azure consente di ottenere la quantità corretta di risorse in esecuzione per gestire il carico dell'applicazione. Consente di aggiungere risorse per gestire gli incrementi di carico e di risparmiare denaro rimuovendo le risorse inattive. È possibile applicare la scalabilità in base a una pianificazione, a una data/ora fissa o a una metrica della risorsa scelta. Per altre informazioni, vedere [Panoramica della scalabilità](autoscale-overview.md)automatica.
+La scalabilità automatica di Monitoraggio di Azure consente di disporre della quantità di risorse in esecuzione corretta per gestire il carico sull'applicazione. Consente di aggiungere risorse per gestire gli aumenti di carico e anche risparmiare denaro rimuovendo le risorse che sono inattive. È possibile eseguire la scalabilità in base a una pianificazione, data e ora fissa o metrica della risorsa scelta. Per ulteriori informazioni, vedere [Cenni preliminari sulla scalabilità automatica](autoscale-overview.md).
 
-Il servizio di scalabilità automatica fornisce le metriche e i log per comprendere quali azioni di ridimensionamento si sono verificate e la valutazione delle condizioni che hanno portato a tali azioni. È possibile trovare risposte a domande come:
+Il servizio di scalabilità automatica fornisce metriche e log per comprendere quali azioni di scalabilità si sono verificate e la valutazione delle condizioni che hanno portato a tali azioni. Puoi trovare le risposte a domande come:
 
-- Perché il servizio è stato scalato in orizzontale o in?
-- Perché il servizio non è stato ridimensionato?
-- Perché un'azione di scalabilità automatica ha esito negativo?
+- Perché il mio servizio è scalato orizzontalmente o in
+- Perché il mio servizio non è scalato?
+- Perché un'azione di scalabilità automatica ha avuto esito negativo?
 - Perché un'azione di scalabilità automatica richiede tempo per la scalabilità?
   
 ## <a name="autoscale-metrics"></a>Metriche di scalabilità automatica
 
 La scalabilità automatica fornisce [quattro metriche](metrics-supported.md#microsoftinsightsautoscalesettings) per comprenderne il funzionamento. 
 
-- **Valore della metrica osservato** : valore della metrica su cui si è scelto di eseguire l'azione di ridimensionamento, come visualizzato o calcolato dal motore di scalabilità automatica. Poiché una singola impostazione di scalabilità automatica può avere più regole e quindi più origini metriche, è possibile filtrare usando "metrica origine" come dimensione.
-- **Soglia metrica** : soglia impostata per eseguire l'azione di ridimensionamento. Poiché una singola impostazione di scalabilità automatica può avere più regole e quindi più origini metriche, è possibile filtrare usando la "regola metrica" come dimensione.
-- **Capacità osservata** : numero attivo di istanze della risorsa di destinazione come visualizzato dal motore di scalabilità automatica.
-- **Azioni di ridimensionamento avviate** : numero di azioni di scalabilità orizzontale e di riduzione delle prestazioni avviate dal motore di scalabilità automatica. È possibile filtrare in base alle azioni di scalabilità orizzontale e orizzontale.
+- **Valore metrico osservato:** valore della metrica su cui si è scelto di eseguire l'azione di scalabilità, come visto o calcolato dal motore di scalabilità automatica. Poiché una singola impostazione di scalabilità automatica può avere più regole e quindi più origini metriche, è possibile filtrare usando "origine metrica" come dimensione.
+- **Soglia metrica:** la soglia impostata per eseguire l'azione di scalabilità. Poiché una singola impostazione di scalabilità automatica può avere più regole e quindi più origini metriche, è possibile filtrare utilizzando "regola metrica" come dimensione.
+- **Capacità osservata:** numero attivo di istanze della risorsa di destinazione visualizzate dal motore di scalabilità automatica.
+- **Azioni di scalabilità avviate** - Il numero di azioni di aumento e riduzione delle istanze avviate dal motore di scalabilità automatica. È possibile filtrare in base alla scalabilità orizzontale rispetto alla scalabilità verticale nelle azioni.
 
-È possibile usare il [Esplora metriche](metrics-getting-started.md) per eseguire il grafico delle metriche sopra elencate in un'unica posizione. Il grafico dovrebbe mostrare:
+È possibile utilizzare [Esplora metriche](metrics-getting-started.md) per tracciare le metriche di cui sopra in un'unica posizione. Il grafico dovrebbe mostrare:
 
-  - metrica effettiva
-  - metrica come visualizzato/calcolato dal motore di scalabilità automatica
-  - soglia per un'azione di ridimensionamento
-  - modifica della capacità 
+  - la metrica effettiva
+  - la metrica vista/calcolata dal motore di scalabilità automatica
+  - la soglia per un'azione di scala
+  - il cambiamento di capacità 
 
-## <a name="example-1---analyzing-a-simple-autoscale-rule"></a>Esempio 1: analisi di una regola di scalabilità automatica semplice 
+## <a name="example-1---analyzing-a-simple-autoscale-rule"></a>Esempio 1 - Analisi di una regola di scalabilità automatica sempliceExample 1 - Analyzing a simple autoscale rule 
 
-È presente una semplice impostazione di scalabilità automatica per un set di scalabilità di macchine virtuali che:
+Abbiamo una semplice impostazione di scalabilità automatica per un set di scalabilità di macchine virtuali che:We have a simple autoscale setting for a virtual machine scale set that:
 
 - scalabilità orizzontale quando la percentuale media di CPU di un set è superiore al 70% per 10 minuti 
-- viene ridimensionato quando la percentuale di CPU del set è inferiore al 5% per più di 10 minuti. 
+- quando la percentuale di CPU del set è inferiore al 5% per più di 10 minuti. 
 
 Esaminiamo le metriche dal servizio di scalabilità automatica.
  
-![Esempio di CPU percentuale del set di scalabilità di macchine virtuali](media/autoscale-troubleshoot/autoscale-vmss-CPU-ex-full-1.png)
+![Esempio di percentuale di percentuale di percentuale di set di scalabilità delle macchine virtuali](media/autoscale-troubleshoot/autoscale-vmss-CPU-ex-full-1.png)
 
-![Esempio di CPU percentuale del set di scalabilità di macchine virtuali](media/autoscale-troubleshoot/autoscale-vmss-CPU-ex-full-2.png)
+![Esempio di percentuale di percentuale di percentuale di set di scalabilità delle macchine virtuali](media/autoscale-troubleshoot/autoscale-vmss-CPU-ex-full-2.png)
 
-***Figura 1a-percentuale di metrica della CPU per il set di scalabilità di macchine virtuali e la metrica del valore metrica osservato per l'impostazione di scalabilità automatica***
+***Figura 1a - Metrica percentuale della CPU per il set di scalabilità di macchine virtuali e la metrica Valore metrico osservato per la scalabilità automatica***
 
 ![Soglia metrica e capacità osservata](media/autoscale-troubleshoot/autoscale-metric-threshold-capacity-ex-full.png)
 
-***Figura 1B-soglia metrica e capacità osservata***
+***Figura 1b - Soglia metrica e capacità osservata***
 
-Nella figura 1b la **soglia della metrica** (linea blu chiaro) per la regola di scalabilità orizzontale è 70.  La **capacità osservata** (linea blu scuro) Mostra il numero di istanze attive, che è attualmente 3. 
+Nella figura 1b, la **soglia metrica** (linea blu chiaro) per la regola di scalabilità orizzontale è 70.  La **Capacità Osservata** (linea blu scuro) mostra il numero di istanze attive, che attualmente è 3. 
 
 > [!NOTE]
-> Per visualizzare la soglia di scalabilità orizzontale e la regola di scalabilità orizzontale (riduzione), è necessario filtrare la **soglia della metrica** per la regola del trigger della dimensione scale out (aumento). 
+> È necessario filtrare la **soglia metrica** in base alla regola di scalabilità orizzontale (aumento) della regola di attivazione metrica per visualizzare la soglia di scalabilità orizzontale e in base alla regola di scalabilità verticale (diminuzione). 
 
-## <a name="example-2---advanced-autoscaling-for-a-virtual-machine-scale-set"></a>Esempio 2: scalabilità automatica avanzata per un set di scalabilità di macchine virtuali
+## <a name="example-2---advanced-autoscaling-for-a-virtual-machine-scale-set"></a>Esempio 2 - Scalabilità automatica avanzata per un set di scalabilità di macchine virtualiExample 2 - Advanced autoscaling for a virtual machine scale set
 
-È presente un'impostazione di scalabilità automatica che consente la scalabilità orizzontale di una risorsa del set di scalabilità di macchine virtuali in base ai **flussi in uscita**della metrica. Si noti che l'opzione **divide metrica per numero di istanze** per la soglia della metrica è selezionata. 
+Abbiamo un'impostazione di scalabilità automatica che consente a una risorsa del set di scalabilità di macchine virtuali di scalare orizzontalmente in base alla propria metrica **Flussi in uscita**. Si noti che viene selezionata l'opzione **di divisione della metrica per numero di istanze** per la soglia della metrica. 
 
-La regola dell'azione di ridimensionamento è: 
+La regola dell'azione di scalabilità è:The scale action rule is: 
 
-Se il valore del **flusso in uscita per istanza** è maggiore di 10, il servizio di scalabilità automatica deve scalare in orizzontale di un'istanza. 
+Se il valore di **Flusso in uscita per istanza** è maggiore di 10, il servizio di scalabilità automatica deve aumentare di 1 istanza. 
 
-In questo caso, il valore della metrica osservato del motore di scalabilità automatica viene calcolato come valore effettivo della metrica diviso per il numero di istanze. Se il valore della metrica osservato è inferiore alla soglia, non viene avviata alcuna azione di scalabilità orizzontale. 
+In questo caso, il valore della metrica osservata dal motore di scalabilità automatica viene calcolato come valore della metrica effettiva diviso per il numero di istanze. Se il valore della metrica osservata è inferiore alla soglia, non viene avviata alcuna azione di scalabilità orizzontale. 
  
-![Esempio di grafici di metriche di scalabilità automatica del set di scalabilità di macchine virtuali](media/autoscale-troubleshoot/autoscale-vmss-metric-chart-ex-1.png)
+![Esempio di grafici delle metriche di scalabilità automatica del set di scalabilità automatica delle macchine virtualiVirtual machine scale set autoscale metrics charts example](media/autoscale-troubleshoot/autoscale-vmss-metric-chart-ex-1.png)
 
-![Esempio di grafici di metriche di scalabilità automatica del set di scalabilità di macchine virtuali](media/autoscale-troubleshoot/autoscale-vmss-metric-chart-ex-2.png)
+![Esempio di grafici delle metriche di scalabilità automatica del set di scalabilità automatica delle macchine virtualiVirtual machine scale set autoscale metrics charts example](media/autoscale-troubleshoot/autoscale-vmss-metric-chart-ex-2.png)
 
-***Figura 2: esempio di grafici delle metriche di scalabilità automatica del set di scalabilità di macchine virtuali***
+***Figura 2 - Esempio di grafici di metriche di scalabilità automatica del set di scalabilità automatica delle macchine virtualiFigure 2 - Virtual machine scale set autoscale metrics charts example***
 
-Nella figura 2 è possibile visualizzare due grafici di metrica. 
+Nella figura 2 è possibile visualizzare due grafici metrici. 
 
-Il grafico in alto mostra il valore effettivo della metrica dei **flussi in uscita** . Il valore effettivo è 6. 
+Il grafico nella parte superiore mostra il valore effettivo della metrica **Flussi in uscita.** Il valore effettivo è 6. 
 
-Il grafico nella parte inferiore mostra alcuni valori. 
- - Il **valore della metrica osservata** (blu chiaro) è 3 perché sono presenti 2 istanze attive e 6 divise per 2 è 3. 
- - La **capacità osservata** (viola) Mostra il numero di istanze visualizzato dal motore di scalabilità automatica. 
- - La **soglia della metrica** (verde chiaro) è impostata su 10. 
+Il grafico in basso mostra alcuni valori. 
+ - Il **valore Metrica osservata** (azzurro) è 3 perché sono presenti 2 istanze attive e 6 divise per 2. 
+ - La **capacità osservata** (viola) mostra il numero di istanze visualizzato dal motore di scalabilità automatica. 
+ - La **soglia metrica** (verde chiaro) è impostata su 10.The Metric Threshold (light green) is set to 10. 
 
-Se sono presenti più regole di azione di ridimensionamento, è possibile usare la suddivisione o l'opzione **Aggiungi filtro** nel grafico di Esplora metriche per esaminare la metrica in base a un'origine o una regola specifica. Per ulteriori informazioni sulla suddivisione di un grafico delle metriche, vedere [Advanced Features of Metric Charts-spliting](metrics-charts.md#apply-splitting-to-a-chart)
+Se sono presenti più regole di azione di scalabilità, è possibile usare la divisione o l'opzione **Aggiungi filtro** nel grafico Esplora metriche per esaminare la metrica in base a un'origine o a una regola specifica. Per ulteriori informazioni sulla suddivisione di un grafico metrico, vedere [Funzionalità avanzate dei grafici metrici - divisioneFor](metrics-charts.md#apply-splitting-to-a-chart) more information on splitting a metric chart, see Advanced features of metric charts - splitting
 
-## <a name="example-3---understanding-autoscale-events"></a>Esempio 3: informazioni sugli eventi di scalabilità automatica
+## <a name="example-3---understanding-autoscale-events"></a>Esempio 3 - Informazioni sugli eventi di scalabilità automaticaExample 3 - Understanding autoscale events
 
-Nella schermata delle impostazioni di scalabilità automatica passare alla scheda **cronologia di esecuzione** per visualizzare le azioni di scala più recenti. La scheda Mostra anche la modifica della **capacità osservata** nel tempo. Per altre informazioni su tutte le azioni di scalabilità automatica, incluse le operazioni di aggiornamento/eliminazione delle impostazioni di scalabilità automatica, visualizzare il log attività e filtrare in base alle operazioni di scalabilità automatica.
+Nella schermata delle impostazioni di scalabilità automatica passare alla scheda **Cronologia di** esecuzione per visualizzare le azioni di scalabilità più recenti. La scheda mostra anche la modifica in **Capacità osservata** nel tempo. Per ulteriori informazioni su tutte le azioni di scalabilità automatica, incluse operazioni quali le impostazioni di scalabilità automatica/aggiornamento, visualizzare il log attività e filtrare in base alle operazioni di scalabilità automatica.
 
-![Cronologia di esecuzione delle impostazioni di scalabilità automatica](media/autoscale-troubleshoot/autoscale-setting-run-history-smaller.png)
+![Cronologia di esecuzione delle impostazioni di scalabilità automaticaAutoscale settings run history](media/autoscale-troubleshoot/autoscale-setting-run-history-smaller.png)
 
-## <a name="autoscale-resource-logs"></a>Ridimensionare automaticamente i log delle risorse
+## <a name="autoscale-resource-logs"></a>Scalabilità automatica dei registri risorseAutoscale Resource Logs
 
-Come per qualsiasi altra risorsa di Azure, il servizio di scalabilità automatica fornisce i [log delle risorse](platform-logs-overview.md). Esistono due categorie di log.
+Come qualsiasi altra risorsa di Azure, il servizio di scalabilità automatica fornisce [log delle risorse.](platform-logs-overview.md) Esistono due categorie di registri.
 
-- **Valutazioni di scalabilità** automatica: il motore di scalabilità automatica registra le voci di log per ogni singola valutazione di condizione ogni volta che esegue un controllo.  La voce include i dettagli sui valori osservati delle metriche, le regole valutate e se la valutazione ha generato o meno un'azione di scalabilità.
+- **Valutazioni di scalabilità** automatica: il motore di scalabilità automatica registra le voci di log per ogni singola valutazione della condizione ogni volta che esegue un controllo.  La voce include dettagli sui valori osservati delle metriche, le regole valutate e se la valutazione ha generato un'azione di ridimensionamento o meno.
 
-- **Azioni** di scalabilità automatica: il motore registra gli eventi di azione di ridimensionamento avviati dal servizio di scalabilità automatica e i risultati delle operazioni di ridimensionamento (esito positivo, esito negativo e percentuale di ridimensionamento che si sono verificati nel servizio di scalabilità automatica).
+- **Azioni di scalabilità automatica:** il motore registra gli eventi azione di scalabilità implementata dal servizio di scalabilità automatica e i risultati di tali azioni di scalabilità (esito positivo, errore e quantità di scalabilità osservata dal servizio di scalabilità automatica).
 
-Come per qualsiasi servizio supportato da monitoraggio di Azure, è possibile usare [le impostazioni di diagnostica](diagnostic-settings.md) per indirizzare questi log:
+Come con qualsiasi servizio supportato da Monitoraggio di Azure, è possibile usare le impostazioni di diagnostica per instradare questi log:As with any Azure Monitor supported service, you can use [Diagnostic Settings](diagnostic-settings.md) to route these logs:
 
-- per l'analisi dettagliata dell'area di lavoro Log Analytics
-- a hub eventi e quindi a strumenti non di Azure
-- nell'account di archiviazione di Azure per l'archiviazione  
+- nell'area di lavoro di Log Analytics per informazioni dettagliate su analisi
+- Hub eventi e quindi a strumenti non Azure
+- all'account di archiviazione di Azure per l'archiviazione  
 
-![Impostazioni di diagnostica di ridimensionamento automatico](media/autoscale-troubleshoot/diagnostic-settings.png)
+![Impostazioni di diagnostica con scalabilità automaticaAutoscale Diagnostic Settings](media/autoscale-troubleshoot/diagnostic-settings.png)
 
-L'immagine precedente mostra le impostazioni di diagnostica di ridimensionamento automatico portale di Azure. Qui è possibile selezionare la scheda log di diagnostica/risorse e abilitare la raccolta e il routing dei log. È anche possibile eseguire la stessa azione usando l'API REST, l'interfaccia della riga di comando, PowerShell, i modelli Gestione risorse per le impostazioni di diagnostica scegliendo il tipo di risorsa *Microsoft. Insights/AutoscaleSettings*. 
+L'immagine precedente mostra le impostazioni di diagnostica di scalabilità automatica del portale di Azure.The previous picture shows the Azure portal autoscale diagnostic settings. È possibile selezionare la scheda Registri diagnostica/risorse e abilitare la raccolta e il routing dei log. È anche possibile eseguire la stessa azione usando l'API REST, l'interfaccia della riga di comando, PowerShell, i modelli di Resource Manager per impostazioni di diagnostica scegliendo il tipo di risorsa come *Microsoft.Insights/AutoscaleSettings*. 
 
-## <a name="troubleshooting-using-autoscale-logs"></a>Risoluzione dei problemi usando i log di scalabilità automatica 
+## <a name="troubleshooting-using-autoscale-logs"></a>Risoluzione dei problemi tramite la scalabilità automatica 
 
-Per una migliore esperienza di risoluzione dei problemi, è consigliabile instradare i log ai log di monitoraggio di Azure (Log Analytics) tramite un'area di lavoro quando si crea l'impostazione di scalabilità automatica. Questo processo è illustrato nell'immagine della sezione precedente. È possibile convalidare le valutazioni e le azioni di scalabilità migliori utilizzando Log Analytics.
+Per un'esperienza di risoluzione dei problemi ottimale, è consigliabile instradare i log ai log di Monitoraggio di Azure (Log Analytics) tramite un'area di lavoro quando si crea l'impostazione di scalabilità automatica. Questo processo è mostrato nell'immagine nella sezione precedente. È possibile convalidare le valutazioni e ridimensionare meglio le azioni usando Log Analytics.You can validate the evaluations and scale actions better using Log Analytics.
 
-Dopo aver configurato i log di scalabilità automatica da inviare all'area di lavoro Log Analytics, è possibile eseguire le query seguenti per controllare i log. 
+Dopo aver configurato i log di scalabilità automatica da inviare all'area di lavoro di Log Analytics, è possibile eseguire le query seguenti per controllare i log. 
 
-Per iniziare, provare questa query per visualizzare i log di valutazione di scalabilità automatica più recenti:
+Per iniziare, provare questa query per visualizzare i log di valutazione della scalabilità automatica più recenti:To get started, try this query to view the most recent autoscale evaluation logs:
 
 ```Kusto
 AutoscaleEvaluationsLog
 | limit 50
 ```
 
-In alternativa, provare a eseguire la query seguente per visualizzare i log delle azioni di scala più recenti:
+In alternativa, provare la query seguente per visualizzare i log delle azioni di scalabilità più recenti:
 
 ```Kusto
 AutoscaleScaleActionsLog
 | limit 50
 ```
 
-Per queste domande, usare le sezioni seguenti. 
+Utilizzare le sezioni seguenti per queste domande. 
 
-## <a name="a-scale-action-occurred-that-i-didnt-expect"></a>Si è verificata un'azione di ridimensionamento non prevista
+## <a name="a-scale-action-occurred-that-i-didnt-expect"></a>Si è verificata un'azione di scala che non mi aspettavo
 
-Eseguire prima di tutto la query per l'azione di ridimensionamento per trovare l'azione di ridimensionamento a cui si è interessati. Se si tratta dell'azione di ridimensionamento più recente, utilizzare la query seguente:
+Eseguire innanzitutto la query per l'azione di scalabilità per trovare l'azione di scalabilità a cui si è interessati. Se si tratta dell'azione di scalabilità più recente, utilizzare la query seguente:If it is the latest scale action, use the following query:
 
 ```Kusto
 AutoscaleScaleActionsLog
 | take 1
 ```
 
-Selezionare il campo CorrelationId nel log delle azioni di scalabilità. Usare CorrelationId per trovare il log di valutazione appropriato. Eseguendo la query seguente vengono visualizzate tutte le regole e le condizioni valutate che portano a tale azione di ridimensionamento.
+Selezionare il campo CorrelationId dal log delle azioni di scalabilità. Usare il CorrelationId per trovare il log di valutazione corretto. Eseguendo la query seguente verranno visualizzate tutte le regole e le condizioni valutate che portano a tale azione di scalabilità.
 
 ```Kusto
 AutoscaleEvaluationsLog
 | where CorrelationId = "<correliationId>"
 ```
 
-## <a name="what-profile-caused-a-scale-action"></a>Quale profilo ha causato un'azione di ridimensionamento?
+## <a name="what-profile-caused-a-scale-action"></a>Quale profilo ha causato un'azione di scalabilità?
 
-Si è verificata un'azione ridimensionata, ma sono presenti regole e profili sovrapposti ed è necessario tenere traccia dell'azione che ha causato l'azione. 
+Si è verificata un'azione in scala, ma sono presenti regole e profili sovrapposti ed è necessario tenere traccia dei quali hanno causato l'azione. 
 
-Trovare l'ID correlazione dell'azione di ridimensionamento, come illustrato nell'esempio 1, e quindi eseguire la query sui log di valutazione per ulteriori informazioni sul profilo.
+Trovare il correlationId dell'azione di scalabilità (come spiegato nell'esempio 1) e quindi eseguire la query nei log di valutazione per ulteriori informazioni sul profilo.
 
 ```Kusto
 AutoscaleEvaluationsLog
@@ -164,7 +164,7 @@ AutoscaleEvaluationsLog
 | project ProfileEvaluationTime, Profile, ProfileSelected, EvaluationResult
 ```
 
-L'intera valutazione del profilo può essere riconosciuta anche meglio utilizzando la query seguente
+L'intera valutazione del profilo può anche essere compresa meglio utilizzando la seguente query
 
 ```Kusto
 AutoscaleEvaluationsLog
@@ -173,13 +173,13 @@ AutoscaleEvaluationsLog
 | project OperationName, Profile, ProfileEvaluationTime, ProfileSelected, EvaluationResult
 ```
 
-## <a name="a-scale-action-did-not-occur"></a>Non è stata eseguita un'azione di ridimensionamento
+## <a name="a-scale-action-did-not-occur"></a>Non si è verificata un'azione di scala
 
-È prevista un'azione di ridimensionamento che non si è verificata. Potrebbe non essere presente alcun evento di azione di ridimensionamento o log.
+Mi aspettavo un'azione di scala e non si è verificato. Potrebbero non essere presenti eventi di azione di scalabilità o registri.
 
-Verificare la metrica di scalabilità automatica se si usa una regola di scalabilità basata sulla metrica. È possibile che il **valore della metrica osservato** o la **capacità osservata** non siano quelli previsti e pertanto la regola di ridimensionamento non è stata attivata. Verranno comunque visualizzate le valutazioni, ma non una regola di scalabilità orizzontale. È anche possibile che il tempo di raffreddamento mantenga un'azione di ridimensionamento. 
+Esaminare le metriche di scalabilità automatica se si usa una regola di scalabilità basata su metriche. È possibile che il **valore della metrica Osservata** o Capacità osservata non siano quelli previsti e pertanto la regola di scala non è stata **attivata.** Le valutazioni continueranno a essere visualizzate, ma non una regola di scalabilità orizzontale. È anche possibile che il tempo di recupero abbia impedito l'esecuzione di un'azione di scala. 
 
- Esaminare i log di valutazione di scalabilità automatica durante il periodo di tempo in cui si prevede che l'azione di ridimensionamento venga eseguita. Esaminare tutte le valutazioni effettuate e il motivo per cui si è deciso di non attivare un'azione di ridimensionamento.
+ Esaminare i log di valutazione della scalabilità automatica durante il periodo di tempo previsto per l'esecuzione dell'azione di scalabilità. Esaminare tutte le valutazioni effettuate e il motivo per cui ha deciso di non attivare un'azione su larga scala.
 
 
 ```Kusto
@@ -189,9 +189,9 @@ AutoscaleEvaluationsLog
 | project OperationName, MetricData, ObservedValue, Threshold, EstimateScaleResult
 ```
 
-## <a name="scale-action-failed"></a>Azione di ridimensionamento non riuscita
+## <a name="scale-action-failed"></a>Azione di scalabilità non riuscita
 
-Potrebbe verificarsi un caso in cui il servizio di scalabilità automatica ha eseguito l'azione di ridimensionamento, ma il sistema ha deciso di non ridimensionare o di completare l'azione di ridimensionamento. Utilizzare questa query per individuare le azioni di ridimensionamento non riuscite.
+Potrebbe esserci un caso in cui il servizio di scalabilità automatica ha eseguito l'azione di scalabilità, ma il sistema ha deciso di non ridimensionare o non è riuscito a completare l'azione di scalabilità. Utilizzare questa query per trovare le azioni di scalabilità non riuscite.
 
 ```Kusto
 AutoscaleScaleActionsLog
@@ -199,11 +199,11 @@ AutoscaleScaleActionsLog
 | project ResultDescription
 ```
 
-Creare regole di avviso per ricevere notifiche sulle azioni di scalabilità automatica o sugli errori. È anche possibile creare regole di avviso per ricevere notifiche sugli eventi di scalabilità automatica.
+Creare regole di avviso per ricevere notifiche su azioni o errori di scalabilità automatica. È inoltre possibile creare regole di avviso per ricevere una notifica sugli eventi di scalabilità automatica.
 
-## <a name="schema-of-autoscale-resource-logs"></a>Schema dei log delle risorse di scalabilità automatica
+## <a name="schema-of-autoscale-resource-logs"></a>Schema dei log delle risorse di scalabilità automaticaSchema of autoscale resource logs
 
-Per altre informazioni, vedere [ridimensionamento automatico dei log delle risorse](autoscale-resource-log-schema.md)
+Per altre informazioni, vedere Log [delle risorse di scalabilità automaticaFor](autoscale-resource-log-schema.md) more information, see autoscale resource logs
 
 ## <a name="next-steps"></a>Passaggi successivi
-Leggere le informazioni sulle [procedure consigliate per la scalabilità](autoscale-best-practices.md)automatica. 
+Leggere le informazioni sulle [procedure consigliate per la scalabilità automatica](autoscale-best-practices.md). 

@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
 ms.openlocfilehash: 4b314fbdb9cbc0c0b797cbee8e92ee4702bbea81
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77919465"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>Servizi Desktop remoto non si avvia in una macchina virtuale di Azure
@@ -34,14 +34,14 @@ Quando si prova a connettersi a una macchina virtuale, si verificano gli scenari
 
 - Si visualizzano in modalità remota i log eventi nella macchina virtuale usando il Visualizzatore eventi. Si nota che Servizi Desktop remoto, o TermService, non si avvia o restituisce un errore di avvio. Di seguito è riportato un log di esempio:
 
-    **Nome log**:      System </br>
-    **Origine**:        Service Control Manager </br>
+    **Nome registro**: Sistema </br>
+    **Origine**: Gestione controllo servizi </br>
     **Data**:          12/16/2017 11:19:36 AM</br>
-    **ID evento**:      7022</br>
+    **ID evento**: 7022</br>
     **Categoria attività**: Nessuna</br>
-    **Livello**:         Errore</br>
-    **Parole chiave**:      Classic</br>
-    **Utente**:          N/A</br>
+    **Livello**: Errore</br>
+    **Parole chiave**: Classico</br>
+    **Utente**: N/D</br>
     **Computer**:      vm.contoso.com</br>
     **Descrizione**: Servizi Desktop remoto non si avvia. 
 
@@ -54,7 +54,7 @@ Quando si prova a connettersi a una macchina virtuale, si verificano gli scenari
 Questo problema si verifica perché Servizi Desktop remoto non è in esecuzione sulla macchina virtuale. La causa dipende dagli scenari seguenti: 
 
 - Il servizio TermService è **disabilitato**. 
-- Il servizio TermService si è arrestato in modo anomalo o non risponde. 
+- Il servizio TermService si arresta in modo anomalo o non risponde. 
 - Il TermService non viene avviato a causa di una configurazione non corretta.
 
 ## <a name="solution"></a>Soluzione
@@ -99,14 +99,14 @@ Per risolvere questo problema, usare la console seriale oppure [riparare la macc
     |5- ACCESS DENIED |Vedere [Il servizio TermService viene arrestato a causa di un errore di accesso negato](#termservice-service-is-stopped-because-of-an-access-denied-problem). |
     |1053 - ERROR_SERVICE_REQUEST_TIMEOUT  |Vedere [Il servizio TermService è disabilitato](#termservice-service-is-disabled).  |  
     |1058 - ERROR_SERVICE_DISABLED  |Vedere [Il servizio TermService si arresta in modo anomalo o si interrompe](#termservice-service-crashes-or-hangs).  |
-    |1059 - ERROR_CIRCULAR_DEPENDENCY |[Contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.|
+    |1059 - ERROR_CIRCULAR_DEPENDENCY |[Contattare](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) il supporto tecnico per risolvere rapidamente il problema.|
     |1067 - ERROR_PROCESS_ABORTED  |Vedere [Il servizio TermService si arresta in modo anomalo o si interrompe](#termservice-service-crashes-or-hangs).  |
-    |1068 - ERROR_SERVICE_DEPENDENCY_FAIL|[Contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.|
+    |1068 - ERROR_SERVICE_DEPENDENCY_FAIL|[Contattare](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) il supporto tecnico per risolvere rapidamente il problema.|
     |1069 - ERROR_SERVICE_LOGON_FAILED  |Vedere [Il servizio TermService non funziona a causa di un errore di accesso](#termservice-service-fails-because-of-logon-failure) |
     |1070 - ERROR_SERVICE_START_HANG   | Vedere [Il servizio TermService si arresta in modo anomalo o si interrompe](#termservice-service-crashes-or-hangs). |
     |1077 - ERROR_SERVICE_NEVER_STARTED   | Vedere [Il servizio TermService è disabilitato](#termservice-service-is-disabled).  |
-    |1079 - ERROR_DIFERENCE_SERVICE_ACCOUNT   |[Contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema. |
-    |1753   |[Contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.   |
+    |1079 - ERROR_DIFERENCE_SERVICE_ACCOUNT   |[Contattare](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) il supporto tecnico per risolvere rapidamente il problema. |
+    |1753   |[Contattare](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) il supporto tecnico per risolvere rapidamente il problema.   |
     
 #### <a name="termservice-service-is-stopped-because-of-an-access-denied-problem"></a>Il servizio TermService viene arrestato a causa di un problema di accesso negato
 
@@ -121,7 +121,7 @@ Per risolvere questo problema, usare la console seriale oppure [riparare la macc
    $wc.DownloadFile($source,$destination) 
    ```
 
-3. Avviare una traccia **procmon**:
+3. Ora avviare una traccia **procmon:**
 
    ```
    procmon /Quiet /Minimized /BackingFile c:\temp\ProcMonTrace.PML 
@@ -139,16 +139,16 @@ Per risolvere questo problema, usare la console seriale oppure [riparare la macc
    procmon /Terminate 
    ```
 
-5. Raccogliere il file **c:\temp\ProcMonTrace.PML**:
+5. Raccogliere il file **c:.**
 
     1. [Collegare un disco dati alla macchina virtuale](../windows/attach-managed-disk-portal.md
 ).
     2. Con la console seriale è possibile copiare il file nella nuova unità. Ad esempio: `copy C:\temp\ProcMonTrace.PML F:\`. In questo comando F è la lettera di unità del disco dati collegato.
     3. Scollegare l'unità dati e collegarla a una macchina virtuale funzionante in cui è installato lo strumento di monitoraggio del processo.
 
-6. Aprire **ProcMonTrace.PML** usando lo strumento di monitoraggio del processo nella macchina virtuale funzionante. Il filtro in base al **risultato è accesso negato**, come illustrato nello screenshot seguente:
+6. Aprire **ProcMonTrace.PML** usando lo strumento di monitoraggio del processo nella macchina virtuale funzionante. Quindi filtrare per **risultato è ACCESS DENIED**, come mostrato nella seguente schermata:
 
-    ![Filtra per risultato in monitoraggio processo](./media/troubleshoot-remote-desktop-services-issues/process-monitor-access-denined.png)
+    ![Filtra per risultato in Monitor di processo](./media/troubleshoot-remote-desktop-services-issues/process-monitor-access-denined.png)
 
  
 6. Correggere le chiavi del Registro di sistema, le cartelle o i file che sono riportati nell'output. In genere, questo problema è dovuto al fatto che l'account di accesso usato per il servizio non ha l'autorizzazione ACL per accedere a questi oggetti. Per conoscere l'autorizzazione ACL corretta per l'account di accesso, è possibile controllarla in una macchina virtuale integra. 
@@ -201,7 +201,7 @@ Per risolvere questo problema, usare la console seriale oppure [riparare la macc
 
 #### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Collegare il disco del sistema operativo alla macchina virtuale di ripristino
 
-1. [Collegare il disco del sistema operativo alla macchina virtuale di ripristino](../windows/troubleshoot-recovery-disks-portal.md).
+1. [Collegare il disco del sistema operativo a una macchina virtuale](../windows/troubleshoot-recovery-disks-portal.md)di ripristino.
 2. Avviare una connessione Desktop remoto alla macchina virtuale di ripristino. Verificare che il disco collegato sia contrassegnato come **Online** nella console di Gestione disco. Prendere nota della lettera di unità assegnata al disco del sistema operativo collegato.
 3. Aprire un'istanza del prompt dei comandi con privilegi elevati (**Esegui come amministratore**). Eseguire quindi lo script seguente. Si presuppone che la lettera di unità assegnata al disco del sistema operativo collegato sia **F**. Sostituirlo con il valore appropriato nella macchina virtuale. 
 

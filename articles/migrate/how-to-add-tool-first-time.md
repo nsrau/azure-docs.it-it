@@ -1,28 +1,28 @@
 ---
-title: Aggiungere uno strumento di valutazione/migrazione in Azure Migrate
-description: Viene descritto come creare un progetto Azure Migrate e aggiungere uno strumento di valutazione/migrazione.
+title: Aggiungere uno strumento di valutazione/migrazione in Azure MigrateAdd an assessment/migration tool in Azure Migrate
+description: Descrive come creare un progetto di Azure Migrate e aggiungere uno strumento di valutazione/migrazione.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: raynew
 ms.openlocfilehash: 319d97d96bd054aed90079777e2ff83d0e308e5e
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74185944"
 ---
 # <a name="add-an-assessmentmigration-tool-for-the-first-time"></a>Aggiungere uno strumento di valutazione/migrazione per la prima volta
 
-Questo articolo descrive come aggiungere uno strumento di valutazione o migrazione a un progetto di [Azure migrate](migrate-overview.md) per la prima volta.  
-Azure Migrate offre un hub centrale per tenere traccia dell'individuazione, della valutazione e della migrazione delle app e dei carichi di lavoro locali e delle macchine virtuali del cloud privato/pubblico in Azure. L'hub fornisce strumenti di Azure Migrate per la valutazione e la migrazione, nonché altri strumenti e [offerte](migrate-services-overview.md#isv-integration) di fornitori di software indipendenti (ISV). 
+Questo articolo descrive come aggiungere uno strumento di valutazione o migrazione a un progetto [di Azure Migrate](migrate-overview.md) per la prima volta.  
+Azure Migrate provides a central hub to track discovery, assessment and migration of your on-premises apps and workloads, and private/public cloud VMs, to Azure. L'hub fornisce strumenti di Azure Migrate per la valutazione e la migrazione, nonché altri strumenti e offerte di [fornitori](migrate-services-overview.md#isv-integration) di software indipendenti (ISV). 
 
 ## <a name="create-a-project-and-add-a-tool"></a>Creare un progetto e aggiungere uno strumento
 
 Configurare un nuovo progetto di Azure Migrate in una sottoscrizione di Azure e aggiungere uno strumento.
 
-- Un progetto Azure Migrate viene usato per archiviare i metadati di individuazione, valutazione e migrazione raccolti dall'ambiente che si sta valutando o migrando. 
+- Un progetto Azure Migrate viene usato per archiviare i metadati di individuazione, valutazione e migrazione raccolti dall'ambiente che si sta valutando o eseguendo la migrazione. 
 - In un progetto è possibile tenere traccia delle risorse individuate e orchestrare la valutazione e la migrazione.
 
 1. Nel portale di Azure selezionare **Tutti i servizi** e cercare **Azure Migrate**.
@@ -30,8 +30,8 @@ Configurare un nuovo progetto di Azure Migrate in una sottoscrizione di Azure e 
 
     ![Configurare Azure Migrate](./media/how-to-add-tool-first-time/azure-migrate-search.png)
 
-3. In **Panoramica** fare clic su **Valutare ed eseguire la migrazione dei server** .
-4. In **Individuare, valutare ed eseguire la migrazione dei server** fare clic su **Valutare ed eseguire la migrazione dei server** .
+3. In **Panoramica** fare clic su **Valutare ed eseguire la migrazione dei server **.
+4. In **Individuare, valutare ed eseguire la migrazione dei server** fare clic su **Valutare ed eseguire la migrazione dei server **.
 
     ![Individuare e valutare i server](./media/how-to-add-tool-first-time/assess-migrate.png)
 
@@ -43,20 +43,20 @@ Configurare un nuovo progetto di Azure Migrate in una sottoscrizione di Azure e 
 
     È possibile creare un progetto di Azure Migrate in una delle aree geografiche seguenti.
 
-   **Area geografica** | **Area località di archiviazione**
+   **Geografia** | **Area della posizione di archiviazione**
     --- | ---
     Asia   | Asia sud-orientale o Asia orientale
     Europa | Europa settentrionale o Europa occidentale
-    Giappone  | Giappone orientale o Giappone occidentale
+    Giappone  | Giappone Est o Giappone Ovest
     Regno Unito | Regno Unito meridionale o Regno Unito occidentale
     Stati Uniti | Stati Uniti centrali o Stati Uniti occidentali 2
     Canada | Canada centrale
-    India  | India centrale o India meridionale
-    Australia | Australia sudorientale
+    India  | India Centrale o India Sud
+    Australia | Australia Sud-est
 
     L'area geografica specificata per il progetto viene usato solo per archiviare i metadati raccolti da macchine virtuali locali. Per la migrazione effettiva è possibile selezionare qualsiasi area di destinazione.
 
-    Se si vuole specificare un'area specifica in una geografia per la distribuzione del progetto di migrazione e delle risorse associate (le restrizioni dei criteri nella sottoscrizione possono consentire la distribuzione di risorse di Azure solo in un'area specifica di Azure), è possibile usare l'API seguente per creare un progetto di migrazione. Specificare l'ID sottoscrizione, il nome del gruppo di risorse, eseguire la migrazione del nome del progetto insieme a location (tutte le aree di Azure indicate nella tabella in cui viene distribuito Azure Migrate).
+    Se si vuole specificare un'area specifica all'interno di un'area geografica per la distribuzione del progetto di migrazione e delle risorse associate (le restrizioni dei criteri nella sottoscrizione possono consentire la distribuzione di risorse di Azure solo in un'area di Azure specifica), è possibile usare l'API seguente per creare un progetto di migrazione. Specificare l'ID sottoscrizione, il nome del gruppo di risorse, Eseguire la migrazione del nome del progetto insieme alla posizione (una delle aree di Azure indicate nella tabella in cui viene distribuita Azure Migrate).
 
     `PUT /subscriptions/<subid>/resourceGroups/<rg>/providers/Microsoft.Migrate/MigrateProjects/<mymigrateprojectname>?api-version=2018-09-01-preview "{location: 'centralus', properties: {}}"`   
 
@@ -64,23 +64,23 @@ Configurare un nuovo progetto di Azure Migrate in una sottoscrizione di Azure e 
 4. Fare clic su **Avanti**e aggiungere uno strumento di valutazione o migrazione.
 
     > [!NOTE]
-    > Quando si crea un progetto, è necessario aggiungere almeno uno strumento di valutazione o migrazione.
+    > Quando si crea un progetto è necessario aggiungere almeno uno strumento di valutazione o migrazione.
 
-5. In **Seleziona strumento di valutazione**aggiungere uno strumento di valutazione. Se non è necessario uno strumento di valutazione, selezionare **Ignora l'aggiunta di uno strumento di valutazione per ora** > **Avanti**. 
-2. In **selezione strumento di migrazione**aggiungere uno strumento di migrazione come richiesto. Se al momento non è necessario uno strumento di migrazione, selezionare **Ignora l'aggiunta di uno strumento di migrazione per ora** > **Avanti**.
-3. In **Verifica + Aggiungi strumenti**, rivedere le impostazioni e fare clic su **Aggiungi strumenti**.
+5. In **Seleziona strumento di valutazione,** aggiungere uno strumento di valutazione. Se non è necessario uno strumento di valutazione, selezionare **Ignora l'aggiunta** > di uno strumento di valutazione per ora**Avanti**. 
+2. In **Seleziona strumento di migrazione**aggiungere uno strumento di migrazione in base alle esigenze. Se al momento non è necessario uno strumento di migrazione, selezionare **Ignora l'aggiunta** > di uno strumento di migrazione per ora**Avanti**.
+3. In **Revisione e aggiunta di strumenti**rivedere le impostazioni e fare clic su Aggiungi **strumenti**.
 
-Dopo aver creato il progetto, è possibile selezionare strumenti aggiuntivi per la valutazione e la migrazione di server e carichi di lavoro, database e app Web.
+Dopo aver creato il progetto è possibile selezionare strumenti aggiuntivi per la valutazione e la migrazione di server e carichi di lavoro, database e app Web.
 
-## <a name="create-additional-projects"></a>Creazione di progetti aggiuntivi
+## <a name="create-additional-projects"></a>Creare progetti aggiuntivi
 
-In alcuni casi, potrebbe essere necessario creare progetti di Azure Migrate aggiuntivi. Se, ad esempio, si dispone di data center in aree geografiche diverse o se è necessario archiviare i metadati in un'area geografica diversa. Creare un progetto aggiuntivo come segue:
+In alcune circostanze, potrebbe essere necessario creare altri progetti di Azure Migrate.In some circumstances, you might need to create additional Azure Migrate projects. Ad esempio, se si dispone di data center in aree geografiche diverse o è necessario archiviare i metadati in un'area geografica diversa. Creare un progetto aggiuntivo come segue:
 
-1. Nel progetto Azure Migrate corrente fare clic su **Server** o **database**.
-2. Nell'angolo superiore destro fare clic su **modifica** accanto al nome del progetto corrente.
-3. In **Impostazioni**selezionare **fare clic qui per creare un nuovo progetto**.
+1. Nel progetto di Azure Migrate corrente fare clic su **Server** o **Database**.
+2. Nell'angolo in alto a destra, fai clic su **Cambia** accanto al nome del progetto corrente.
+3. In **Impostazioni**selezionare **Fare clic qui per creare un nuovo progetto.**
 4. Creare un nuovo progetto e aggiungere un nuovo strumento come descritto nella procedura precedente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni su come aggiungere altri strumenti di [valutazione](how-to-assess.md) e [migrazione](how-to-migrate.md) . 
+Informazioni su come aggiungere ulteriori strumenti di [valutazione](how-to-assess.md) e [migrazione.](how-to-migrate.md) 

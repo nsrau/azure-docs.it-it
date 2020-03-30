@@ -1,5 +1,5 @@
 ---
-title: Continuità aziendale cloud-ripristino del database
+title: Continuità aziendale cloud - ripristino del database
 description: Informazioni su come il database SQL di Azure supporta la continuità aziendale cloud e il ripristino del database e consente di mantenere le applicazioni cloud cruciali in esecuzione.
 keywords: continuità aziendale, continuità aziendale cloud, ripristino di emergenza del database, ripristino del database
 services: sql-database
@@ -13,15 +13,15 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 06/25/2019
 ms.openlocfilehash: 4f30bf112175742566c2957d78154e5a7abd1733
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79096857"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Panoramica della continuità aziendale del database SQL di Azure
 
-**La continuità aziendale** nel database SQL di Azure fa riferimento a meccanismi, criteri e procedure che consentono all'azienda di continuare a funzionare in caso di interruzione, in particolare per quanto riguarda la propria infrastruttura di calcolo. Nella maggior parte dei casi, il database SQL di Azure gestirà gli eventi di arresto improvviso che potrebbero verificarsi nell'ambiente cloud e manterrà le applicazioni e i processi aziendali in esecuzione. Tuttavia, esistono alcuni eventi di disturbo che non possono essere gestiti dal database SQL automaticamente, ad esempio:
+**La continuità aziendale** nel database SQL di Azure fa riferimento a meccanismi, criteri e procedure che consentono all'azienda di continuare a funzionare in caso di interruzione, in particolare per quanto riguarda la propria infrastruttura di calcolo. Nella maggior parte dei casi, il database SQL di Azure gestirà gli eventi di arresto improvviso che potrebbero verificarsi nell'ambiente cloud e manterrà le applicazioni e i processi aziendali in esecuzione. Tuttavia, esistono alcuni eventi di disturbo che non possono essere gestiti automaticamente dal database SQL, ad esempio:However, there are some disruptive events that cannot be handled by SQL Database automatically such as:
 
 - Un utente elimina o aggiorna accidentalmente una riga in una tabella.
 - Un utente malintenzionato riesce a eliminare dati o database.
@@ -36,39 +36,39 @@ Dalla prospettiva del database, sono presenti quattro scenari principali di pote
 - Errori hardware o software locali che interessano il nodo del database, ad esempio un errore del disco rigido.
 - Il danneggiamento o l'eliminazione di dati causati in genere da un bug dell'applicazione o da un errore umano. Tali errori sono specifici dell'applicazione e in genere non possono essere rilevati dal servizio di database.
 - Interruzione del Data Center, probabilmente causata da una calamità naturale. Questo scenario richiede un certo livello di ridondanza geografica con il failover delle applicazioni in un Data Center alternativo.
-- Errori di aggiornamento o manutenzione, problemi imprevisti che si verificano durante la manutenzione o gli aggiornamenti dell'infrastruttura pianificata possono richiedere un rollback rapido a uno stato precedente del database.
+- Errori di aggiornamento o manutenzione, problemi imprevisti che si verificano durante la manutenzione pianificata dell'infrastruttura o gli aggiornamenti possono richiedere un rapido rollback a uno stato precedente del database.
 
-Per attenuare gli errori hardware e software locali, il database SQL include un' [architettura a disponibilità elevata](sql-database-high-availability.md)che garantisce il ripristino automatico da questi errori con un contratto di contratto di disponibilità fino al 99,995%.  
+Per ridurre gli errori hardware e software locali, il database SQL include [un'architettura](sql-database-high-availability.md)a disponibilità elevata, che garantisce il ripristino automatico da questi errori con un contratto di servizio di disponibilità fino al 99,995%.  
 
-Per proteggere l'azienda dalla perdita di dati, il database SQL crea automaticamente backup completi del database ogni settimana, backup differenziali del database ogni 12 ore e backup del log delle transazioni ogni 5-10 minuti. I backup vengono archiviati nell'archiviazione RA-GRS per almeno 7 giorni per tutti i livelli di servizio. Tutti i livelli di servizio ad eccezione supporto Basic periodo di conservazione dei backup configurabile per il ripristino temporizzato, fino a 35 giorni. 
+Per proteggere l'azienda dalla perdita di dati, il database SQL crea automaticamente backup completi del database settimanali, backup differenziali del database ogni 12 ore e backup del log delle transazioni ogni 5 - 10 minuti . I backup vengono archiviati nell'archivio RA-GRS per almeno 7 giorni per tutti i livelli di servizio. Tutti i livelli di servizio, ad eccezione del supporto Basic, supportano il periodo di conservazione dei backup configurabili per il ripristino temporizzato, fino a 35 giorni. 
 
-Il database SQL offre inoltre diverse funzionalità di continuità aziendale, che è possibile utilizzare per attenuare diversi scenari non pianificati. 
+Il database SQL offre inoltre diverse funzionalità di continuità aziendale, che è possibile utilizzare per ridurre vari scenari non pianificati. 
 
 - [Le tabelle temporali](sql-database-temporal-tables.md) consentono di ripristinare le versioni delle righe da qualsiasi punto nel tempo.
-- I [backup automatici predefiniti](sql-database-automated-backups.md) e il [ripristino temporizzato](sql-database-recovery-using-backups.md#point-in-time-restore) consentono di ripristinare il database completo fino a un determinato punto nel tempo entro il periodo di conservazione configurato fino a 35 giorni.
+- [I backup automatici integrati](sql-database-automated-backups.md) e il [ripristino temporizzato](sql-database-recovery-using-backups.md#point-in-time-restore) consentono di ripristinare il database completo fino a un certo punto nel tempo entro il periodo di conservazione configurato fino a 35 giorni.
 - È possibile [ripristinare il database eliminato](sql-database-recovery-using-backups.md#deleted-database-restore) al punto in cui è stato eliminato se **il server di database SQL non è stato eliminato**.
 - [La conservazione backup a lungo termine](sql-database-long-term-retention.md) consente di conservare i backup fino a 10 anni.
-- La [replica geografica attiva](sql-database-active-geo-replication.md) consente di creare repliche leggibili e di eseguire il failover manuale a qualsiasi replica in caso di interruzione del data center o di aggiornamento dell'applicazione.
+- [La replica geografica attiva](sql-database-active-geo-replication.md) consente di creare repliche leggibili e di eseguire manualmente il failover a qualsiasi replica in caso di interruzione del data center o di aggiornamento dell'applicazione.
 - Il [gruppo di failover automatico](sql-database-auto-failover-group.md#auto-failover-group-terminology-and-capabilities) consente all'applicazione di eseguire un ripristino automatico in caso di interruzione del data center.
 
-## <a name="recover-a-database-within-the-same-azure-region"></a>Ripristinare un database nella stessa area di Azure
+## <a name="recover-a-database-within-the-same-azure-region"></a>Ripristinare un database all'interno della stessa area di AzureRecover a database within the same Azure region
 
-È possibile utilizzare i backup automatici del database per ripristinare un database a un punto nel tempo precedente. In questo modo è possibile eseguire il ripristino dai danneggiamenti dei dati causati da errori umani. Il ripristino temporizzato consente di creare un nuovo database nello stesso server che rappresenta lo stato dei dati prima dell'evento danneggiato. Per la maggior parte dei database, le operazioni di ripristino richiedono meno di 12 ore. Il ripristino di un database molto grande o molto attivo potrebbe richiedere più tempo. Per altre informazioni sui tempi di ripristino, vedere il [tempo di ripristino dei database](sql-database-recovery-using-backups.md#recovery-time). 
+È possibile utilizzare i backup automatici del database per ripristinare un database a un punto nel tempo nel passato. In questo modo è possibile recuperare da danneggiamenti dei dati causati da errori umani. Il ripristino temporizzato consente di creare un nuovo database nello stesso server che rappresenta lo stato dei dati prima dell'evento di danneggiamento. Per la maggior parte dei database le operazioni di ripristino richiede meno di 12 ore. Il ripristino di un database molto grande o molto attivo potrebbe richiedere più tempo. Per altre informazioni sui tempi di ripristino, vedere il [tempo di ripristino dei database](sql-database-recovery-using-backups.md#recovery-time). 
 
-Se il periodo di conservazione dei backup massimo supportato per il ripristino temporizzato (ripristino temporizzato) non è sufficiente per l'applicazione, è possibile estenderlo configurando un criterio di conservazione a lungo termine per i database. Per altre informazioni, vedere [Conservazione dei backup a lungo termine](sql-database-long-term-retention.md).
+Se il periodo massimo di conservazione dei backup supportato per il ripristino temporizzato (PITR) non è sufficiente per l'applicazione, è possibile estenderlo configurando un criterio di conservazione a lungo termine (LTR) per i database. Per altre informazioni, vedere [Conservazione dei backup a lungo termine](sql-database-long-term-retention.md).
 
 ## <a name="compare-geo-replication-with-failover-groups"></a>Confrontare la replica geografica con i gruppi di failover
 
-I [gruppi di failover automatico](sql-database-auto-failover-group.md#auto-failover-group-terminology-and-capabilities) semplificano la distribuzione e l'uso della [replica geografica](sql-database-active-geo-replication.md) e aggiungono le funzionalità aggiuntive, come descritto nella tabella seguente:
+[I gruppi](sql-database-auto-failover-group.md#auto-failover-group-terminology-and-capabilities) di failover automatico semplificano la distribuzione e l'utilizzo della [replica geografica](sql-database-active-geo-replication.md) e aggiungono le funzionalità aggiuntive come descritto nella tabella seguente:
 
 |                                              | Replica geografica | Gruppi di failover  |
 |:---------------------------------------------| :-------------- | :----------------|
 | Failover automatico                           |     No          |      Sì         |
-| Eseguire contemporaneamente il failover di più database  |     No          |      Sì         |
-| L'utente deve aggiornare la stringa di connessione dopo il failover      |     Sì         |      No          |
+| Eseguire il failover di più database contemporaneamente  |     No          |      Sì         |
+| L'utente deve aggiornare la stringa di connessione dopo il failoverUser must update connection string after failover      |     Sì         |      No          |
 | Istanza gestita supportata                   |     No          |      Sì         |
-| Può trovarsi nella stessa area del database primario             |     Sì         |      No          |
-| Più repliche                            |     Sì         |      No          |
+| Può trovarsi nella stessa regione del server primario             |     Sì         |      No          |
+| Repliche multiple                            |     Sì         |      No          |
 | Supporta la scalabilità in lettura                          |     Sì         |      Sì         |
 | &nbsp; | &nbsp; | &nbsp; |
 
@@ -79,11 +79,11 @@ Anche se raramente, un data center di Azure può subire un'interruzione del serv
 
 - Una delle opzioni è attendere che il database torni online al termine dell'interruzione del data center. Questa opzione funziona per le applicazioni che possono rimanere con il database offline. Ad esempio, un progetto di sviluppo o una versione di valutazione gratuita su cui non è necessario lavorare costantemente. Quando un data center registra un'interruzione del servizio, non si sa quanto tempo essa durerà. Pertanto, questa opzione funziona solo se è possibile rinunciare al database per un periodo di tempo.
 - Un'altra opzione consiste nel ripristinare un database su qualunque server in qualsiasi area di Azure usando [i backup dei database con ridondanza geografica](sql-database-recovery-using-backups.md#geo-restore) (ripristino geografico). Il ripristino geografico usa un backup con ridondanza geografica come origine e può essere usato per ripristinare un database anche se il database o il data center è inaccessibile a causa di un'interruzione del servizio.
-- Infine, è possibile eseguire rapidamente il ripristino a seguito di un'interruzione se è stata configurata la replica geografica secondaria usando la [replica geografica attiva](sql-database-active-geo-replication.md) o un [gruppo di failover automatico](sql-database-auto-failover-group.md) per il database o i database. A seconda della tecnologia scelta, è possibile usare il failover manuale o automatico. Il failover richiede solo alcuni secondi, ma il servizio impiegherà almeno un'ora per attivare il processo. Questo passaggio è necessario per assicurarsi che il failover sia giustificato dalla portata dell'interruzione. Inoltre, il failover può comportare una lieve perdita di dati a causa della natura della replica asincrona. 
+- Infine, è possibile eseguire rapidamente il ripristino da un'interruzione se è stato configurato il database geografico secondario utilizzando la [replica geografica attiva](sql-database-active-geo-replication.md) o un gruppo di failover [automatico](sql-database-auto-failover-group.md) per il database o i database. A seconda della tecnologia scelta, è possibile usare il failover manuale o automatico. Il failover richiede solo alcuni secondi, ma il servizio impiegherà almeno un'ora per attivare il processo. Questo passaggio è necessario per assicurarsi che il failover sia giustificato dalla portata dell'interruzione. Inoltre, il failover può comportare una lieve perdita di dati a causa della natura della replica asincrona. 
 
-Quando si sviluppa il piano di continuità aziendale, è necessario conoscere il tempo massimo accettabile prima che l'applicazione venga ripristinata completamente dopo l'evento di arresto improvviso. Il tempo necessario per l'applicazione per il ripristino completo è noto come obiettivo del tempo di ripristino (RTO). È anche necessario comprendere il periodo massimo di aggiornamenti dei dati recenti (intervallo di tempo) che l'applicazione può tollerare durante il ripristino da un evento di disturbo non pianificato. La perdita di dati potenziale è nota come obiettivo del punto di ripristino (RPO).
+Quando si sviluppa il piano di continuità aziendale, è necessario conoscere il tempo massimo accettabile prima che l'applicazione venga ripristinata completamente dopo l'evento di arresto improvviso. Il tempo necessario per il ripristino completo dell'applicazione è noto come obiettivo tempo di ripristino (RTO). È inoltre necessario comprendere il periodo massimo di aggiornamenti dei dati recenti (intervallo di tempo) che l'applicazione può tollerare la perdita durante il ripristino da un evento di interruzione non pianificato. La potenziale perdita di dati è nota come obiettivo del punto di ripristino (RPO).
 
-Metodi di ripristino diversi offrono livelli diversi di RPO e RTO. È possibile scegliere un metodo di ripristino specifico oppure utilizzare una combinazione di metodi per ottenere il ripristino completo dell'applicazione. Nella tabella seguente vengono confrontati RPO e RTO di ogni opzione di ripristino. I gruppi di failover automatico semplificano la distribuzione e l'uso della replica geografica e aggiungono le funzionalità aggiuntive, come descritto nella tabella seguente.
+Diversi metodi di recupero offrono diversi livelli di RPO e RTO. È possibile scegliere un metodo di ripristino specifico o utilizzare una combinazione di metodi per ottenere il ripristino completo dell'applicazione. Nella tabella seguente vengono confrontati RPO e RTO di ogni opzione di ripristino. I gruppi di failover automatico semplificano la distribuzione e l'utilizzo della replica geografica e aggiungono le funzionalità aggiuntive come descritto nella tabella seguente.
 
 | Metodo di ripristino | RTO | RPO |
 | --- | --- | --- | 
@@ -92,7 +92,7 @@ Metodi di ripristino diversi offrono livelli diversi di RPO e RTO. È possibile 
 | Failover manuale del database | 30 s | 5 s |
 
 > [!NOTE]
-> Il *failover manuale del database* si riferisce al failover di un singolo database con la replica geografica secondaria usando la [modalità non pianificata](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities).
+> *Per failover manuale* del database si intende il failover di un singolo database nel relativo database secondario replicato geograficamente mediante la [modalità non pianificata.](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities)
 Per informazioni dettagliate su RTO e RPO del failover automatico, vedere la tabella riportata in precedenza in questo articolo.
 
 
@@ -107,9 +107,9 @@ Usare i gruppi di failover automatico se l'applicazione soddisfa uno qualsiasi d
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
 >
 
-È possibile scegliere di usare una combinazione di backup di database e la replica geografica attiva a seconda dei requisiti dell'applicazione. Per informazioni sulle considerazioni di progettazione per i database autonomi e per i pool elastici che usano queste funzionalità di continuità aziendale, vedere [progettare un'applicazione per il ripristino di emergenza cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md) e [strategie di ripristino di emergenza del pool elastico](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+È possibile scegliere di utilizzare una combinazione di backup di database e replica geografica attiva a seconda dei requisiti dell'applicazione. Per una descrizione delle considerazioni di progettazione per i database autonomi e per i pool elastici che utilizzano queste funzionalità di continuità aziendale, vedere [Progettare un'applicazione per](sql-database-designing-cloud-solutions-for-disaster-recovery.md) il ripristino di emergenza cloud e le strategie di ripristino di emergenza del [pool elastico.](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md)
 
-Le sezioni seguenti forniscono una panoramica della procedura per eseguire il ripristino tramite backup del database o replica geografica attiva. Per la procedura dettagliata, inclusa la pianificazione dei requisiti, i passaggi successivi al ripristino e informazioni su come simulare un'interruzione del servizio per eseguire un'analisi del ripristino di emergenza, vedere [Ripristinare un database SQL di Azure o eseguire il failover in un database secondario](sql-database-disaster-recovery.md).
+Le sezioni seguenti forniscono una panoramica della procedura per eseguire il ripristino tramite backup del database o replica geografica attiva. Per la procedura dettagliata, inclusi i requisiti di pianificazione, i passaggi successivi al ripristino e le informazioni su come simulare un'interruzione per eseguire un'esercitazione sul ripristino di emergenza, vedere [Ripristinare un database SQL da un'interruzione.](sql-database-disaster-recovery.md)
 
 ### <a name="prepare-for-an-outage"></a>Prepararsi a un'interruzione del servizio
 
@@ -123,7 +123,7 @@ Se non ci si prepara adeguatamente al ripristino, riportare online le applicazio
 
 ### <a name="fail-over-to-a-geo-replicated-secondary-database"></a>Failover a un database secondario con replica geografica
 
-Se si usa la replica geografica attiva o i gruppi di failover automatico come meccanismo di ripristino, è possibile configurare un criterio di failover automatico o usare il [failover manuale non pianificato](sql-database-active-geo-replication-portal.md#initiate-a-failover). Una volta avviato, il failover fa sì che il database secondario venga alzato di livello come nuovo database primario e sia pronto per registrare nuove transazioni e rispondere a tutte le query, con una perdita di dati minima per i dati non ancora replicati. Per informazioni su come progettare il processo di failover, vedere [Progettare un'applicazione per il ripristino di emergenza cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
+Se si utilizzano gruppi di replica geografica o di failover automatico attivi come meccanismo di ripristino, è possibile configurare un criterio di failover automatico o utilizzare il [failover non pianificato manuale.](sql-database-active-geo-replication-portal.md#initiate-a-failover) Una volta avviato, il failover fa sì che il database secondario venga alzato di livello come nuovo database primario e sia pronto per registrare nuove transazioni e rispondere a tutte le query, con una perdita di dati minima per i dati non ancora replicati. Per informazioni su come progettare il processo di failover, vedere [Progettare un'applicazione per il ripristino di emergenza cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
 
 > [!NOTE]
 > Quando il data center ritorna in linea, i database primari precedenti si ricollegano automaticamente al nuovo database primario e diventano database secondari. Se si desidera spostare di nuovo il database primario nell'area originale è possibile avviare manualmente un failover pianificato (failback).
@@ -154,4 +154,4 @@ A volte un'applicazione deve essere portata offline per ragioni di manutenzione 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per una descrizione delle considerazioni sulla progettazione di applicazioni per database autonomi e pool elastici, vedere [Progettare un'applicazione per il ripristino di emergenza cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md) e [Strategie di ripristino di emergenza per applicazioni che usano il pool elastico del database SQL](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+Per una descrizione delle considerazioni sulla progettazione dell'applicazione per i database autonomi e per i pool elastici, vedere [Progettare un'applicazione per](sql-database-designing-cloud-solutions-for-disaster-recovery.md) il ripristino di emergenza cloud e le strategie di ripristino di emergenza del [pool elastico.](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md)

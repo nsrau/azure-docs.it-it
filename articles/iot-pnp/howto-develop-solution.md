@@ -4,17 +4,17 @@ description: Uno sviluppatore di dispositivi può apprendere come usare l'SDK de
 author: Philmea
 ms.author: philmea
 ms.date: 12/26/2019
-ms.topic: tutorial
+ms.topic: how-to
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 485b17ff236de32eab5388629c1bb6044ba19197
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
-ms.translationtype: HT
+ms.openlocfilehash: e349aadfd629202b1c8cdb5c53a88e0a6c2e06de
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75531344"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80159218"
 ---
 # <a name="connect-to-and-interact-with-an-iot-plug-and-play-preview-device"></a>Connettersi e interagire con un dispositivo di anteprima Plug and Play IoT
 

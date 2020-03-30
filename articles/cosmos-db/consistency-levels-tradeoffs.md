@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB coerenza, disponibilità e compromessi delle prestazioni
+title: Coerenza, disponibilità e comprosta di azure Cosmos DB
 description: Compromessi nella disponibilità e nelle prestazioni per vari livelli di coerenza in Azure Cosmos DB.
 author: markjbrown
 ms.author: mjbrown
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.reviewer: sngun
 ms.openlocfilehash: a16acfc8f9be820e9cc9b3bd59d6675b7f75d2ef
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75445559"
 ---
 # <a name="consistency-availability-and-performance-tradeoffs"></a>Compromessi tra coerenza, disponibilità e prestazioni 
@@ -20,23 +20,23 @@ I database distribuiti che si basano sulla replica per la disponibilità elevata
 
 Azure Cosmos DB affronta la coerenza dei dati offrendo uno spettro di scelte. Questo approccio include più opzioni rispetto ai due estremi della coerenza assoluta ed eventuale. È possibile scegliere tra cinque modelli ben definiti nella gamma della coerenza. Dal più forte al più debole, i modelli sono:
 
-- *Assoluto*
-- *Obsolescenza associata*
+- *Forte*
+- *Stantio delimitato*
 - *Sessione*
-- *Coerenza del prefisso*
-- *Finale*
+- *Prefisso coerente*
+- *Eventuale*
 
-Ogni modello fornisce compromessi a livello di disponibilità e prestazioni ed è supportato da contratti di contratto completi.
+Ogni modello prevede compromessi di disponibilità e prestazioni  ed è supportato da un contratto di servizio completo.
 
 ## <a name="consistency-levels-and-latency"></a>Livelli di coerenza e latenza
 
 La latenza di lettura per tutti i livelli di coerenza è sempre minore ai 10 millisecondi al 99° percentile. Questa latenza di lettura è supportata dal contratto di servizio. La latenza di lettura media, al 50° percentile, è in genere uguale o inferiore ai 2 millisecondi. Gli account di Azure Cosmos che si estendono su più aree e sono configurati con coerenza assoluta costituiscono un'eccezione a questa garanzia.
 
-La latenza di scrittura per tutti i livelli di coerenza è sempre inferiore a 10 millisecondi al 99 ° percentile. Questa latenza di scrittura è supportata dal contratto di servizio. La latenza di scrittura media, al 50° percentile, è in genere uguale o inferiore ai 5 millisecondi.
+La latenza di scrittura per tutti i livelli di coerenza è sempre garantita per essere inferiore a 10 millisecondi al 99esimo percentile. Questa latenza di scrittura è supportata dal contratto di servizio. La latenza di scrittura media, al 50° percentile, è in genere uguale o inferiore ai 5 millisecondi.
 
-Per gli account Azure Cosmos configurati con coerenza assoluta con più di un'area, la latenza di scrittura è sicuramente inferiore al doppio del tempo di round trip (RTT) tra le due aree più lontane, più 10 millisecondi al 99 ° percentile.
+Per gli account Cosmos di Azure configurati con una forte coerenza con più di un'area, la latenza di scrittura è garantita per essere inferiore a due volte il tempo di andata e ritorno (RTT) tra una delle due aree più lontane, più 10 millisecondi al 99esimo percentile.
 
-La latenza RTT esatta è una funzione della velocità della luce e la topologia di rete di Azure. La rete di Azure non fornisce nessun contratto di servizio di latenza per il tempo RTT tra due aree di Azure. Per l'account Azure Cosmos, le latenze di replica vengono visualizzate nel portale di Azure. È possibile usare il portale di Azure (passare al pannello metriche) per monitorare le latenze di replica tra le varie aree associate all'account Azure Cosmos.
+La latenza RTT esatta è una funzione della velocità della luce e la topologia di rete di Azure. La rete di Azure non fornisce nessun contratto di servizio di latenza per il tempo RTT tra due aree di Azure. Per l'account Azure Cosmos, le latenze di replica vengono visualizzate nel portale di Azure. È possibile usare il portale di Azure (passare al pannello Metriche) per monitorare le latenze di replica tra le varie aree associate all'account Cosmos di Azure.You can use the Azure portal (go to the Metrics blade) to monitor the replication latencies between various regions that are associated with your Azure Cosmos account.
 
 ## <a name="consistency-levels-and-throughput"></a>Livelli di coerenza e velocità effettiva
 
@@ -44,33 +44,33 @@ La latenza RTT esatta è una funzione della velocità della luce e la topologia 
 
 - Per un determinato tipo di operazione di scrittura (come inserimento, sostituzione, upsert ed eliminazione), la velocità effettiva di scrittura per le unità di richieste è identica per tutti i livelli di coerenza.
 
-## <a id="rto"></a>Livelli di coerenza e durabilità dei dati
+## <a name="consistency-levels-and-data-durability"></a><a id="rto"></a>Livelli di coerenza e durabilità dei dati
 
-All'interno di un ambiente di database distribuito a livello globale sussiste una relazione diretta tra il livello di coerenza e la durabilità dei dati in presenza di un'interruzione a livello di area. Quando si sviluppa il piano di continuità aziendale, è necessario conoscere il tempo massimo accettabile prima che l'applicazione venga ripristinata completamente dopo un evento di arresto improvviso. Il tempo necessario per il ripristino completo di un'applicazione è noto come **obiettivo del tempo di ripristino** (**RTO**). È anche necessario conoscere la perdita massima di aggiornamenti di dati recenti che l'applicazione è in grado di tollerare durante il ripristino dopo un evento di arresto improvviso. Il periodo di tempo degli aggiornamenti che è possibile perdere è noto come **obiettivo del punto di ripristino** (**RPO**).
+All'interno di un ambiente di database distribuito a livello globale sussiste una relazione diretta tra il livello di coerenza e la durabilità dei dati in presenza di un'interruzione a livello di area. Quando si sviluppa il piano di continuità aziendale, è necessario conoscere il tempo massimo accettabile prima che l'applicazione venga ripristinata completamente dopo un evento di arresto improvviso. Il tempo necessario per il ripristino completo di un'applicazione è noto come **obiettivo** del tempo di ripristino (**RTO**). È anche necessario conoscere la perdita massima di aggiornamenti di dati recenti che l'applicazione è in grado di tollerare durante il ripristino dopo un evento di arresto improvviso. Il periodo di tempo degli aggiornamenti che si potrebbe permettere di perdere è noto come **obiettivo del punto** di ripristino (**RPO**).
 
-La tabella seguente definisce la relazione tra il modello di coerenza e la durabilità dei dati in presenza di un'interruzione a livello di area. È importante notare che in un sistema distribuito, anche con coerenza assoluta, non è possibile avere un database distribuito con un RPO e RTO zero a causa del teorema CAP. Per altre informazioni sui motivi, vedere [livelli di coerenza in Azure Cosmos DB](consistency-levels.md).
+La tabella seguente definisce la relazione tra il modello di coerenza e la durata dei dati in presenza di un'interruzione a livello di area. È importante notare che in un sistema distribuito, anche con una forte coerenza, è impossibile avere un database distribuito con un RPO e un RTO pari a zero a causa del teorema CAP. Per altre informazioni sui motivi, vedere Livelli di [coerenza in Azure Cosmos DB](consistency-levels.md).
 
-|**Area/e**|**Modalità di replica**|**Livello di coerenza**|**RPO**|**RTO**|
+|**Regione/e**|**Modalità di replica**|**Livello di coerenza**|**RPO**|**RTO**|
 |---------|---------|---------|---------|---------|
 |1|Master singolo o multimaster|Qualsiasi livello di coerenza|< 240 minuti|<1 settimana|
 |>1|Master singolo|Sessione, Prefisso coerente, Finale|< 15 minuti|< 15 minuti|
 |>1|Master singolo|Decadimento ristretto|*K* & *T*|< 15 minuti|
-|>1|Master singolo|Strong|0|< 15 minuti|
+|>1|Master singolo|Assoluta|0|< 15 minuti|
 |>1|Multimaster|Sessione, Prefisso coerente, Finale|< 15 minuti|0|
 |>1|Multimaster|Decadimento ristretto|*K* & *T*|0|
 
-*K* = numero di versioni *"k"* , ovvero aggiornamenti, di un elemento.
+*K* - Il numero di versioni *"K"* (cioè aggiornamenti) di un elemento.
 
-*T* = intervallo di tempo *"t"* dall'ultimo aggiornamento.
+*T* - L'intervallo di tempo *"T"* dall'ultimo aggiornamento.
 
-## <a name="strong-consistency-and-multi-master"></a>Coerenza assoluta e multimaster
+## <a name="strong-consistency-and-multi-master"></a>Forte coerenza e multi-master
 
-Gli account Cosmos configurati per il multimaster non possono essere configurati per la coerenza assoluta, perché non è possibile che un sistema distribuito fornisca un RPO di zero e un RTO pari a zero. Inoltre, non ci sono vantaggi della latenza di scrittura per l'uso della coerenza assoluta con il multimaster perché qualsiasi scrittura in qualsiasi area deve essere replicata e impegnata in tutte le aree configurate all'interno dell'account. In questo modo si ottiene la stessa latenza di scrittura di un singolo account master.
+Gli account Cosmo configurati per più master non possono essere configurati per una coerenza forte in quanto non è possibile per un sistema distribuito fornire un RPO pari a zero e un RTO pari a zero. Inoltre, non esistono vantaggi di latenza di scrittura per l'utilizzo di coerenza forte con più master in quanto qualsiasi scrittura in qualsiasi area deve essere replicata e impegnata in tutte le aree configurate all'interno dell'account. Ciò comporta la stessa latenza di scrittura di un singolo account master.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Sono disponibili altre informazioni relative ai compromessi tra coerenza generale e distribuzione globale nei sistemi distribuiti. Vedere gli articoli seguenti:
 
-- [Compromessi sulla coerenza nella progettazione di sistemi di database distribuiti moderni](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k)
+- [Compromessi di coerenza nella progettazione di moderni sistemi di database distribuiti](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k)
 - [Disponibilità elevata](high-availability.md)
 - [Contratto di servizio Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

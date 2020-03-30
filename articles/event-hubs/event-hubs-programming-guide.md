@@ -1,5 +1,5 @@
 ---
-title: Guida per programmatori .NET-Hub eventi di Azure (legacy) | Microsoft Docs
+title: Guida alla programmazione .NET - Hub di eventi di Azure (legacy) Documenti Microsoft
 description: Questo articolo fornisce informazioni su come scrivere codice per Hub eventi di Azure tramite Azure .NET SDK.
 services: event-hubs
 documentationcenter: na
@@ -10,24 +10,24 @@ ms.topic: article
 ms.date: 01/15/2020
 ms.author: shvija
 ms.openlocfilehash: d958c2d32c16874676f46bb216067fe2d7bbe784
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79280976"
 ---
-# <a name="net-programming-guide-for-azure-event-hubs-legacy-microsoftazureeventhubs-package"></a>Guida per programmatori .NET per hub eventi di Azure (pacchetto Microsoft. Azure. EventHubs legacy)
+# <a name="net-programming-guide-for-azure-event-hubs-legacy-microsoftazureeventhubs-package"></a>Guida alla programmazione .NET per gli hub eventi di Azure (pacchetto Microsoft.Azure.EventHubs legacy).NET Programming guide for Azure Event Hubs (legacy Microsoft.Azure.EventHubs package)
 Questo articolo prende in esame alcuni scenari comuni nella scrittura di codice tramite Hub eventi di Azure. Si presuppone una conoscenza preliminare di Hub eventi. Per una panoramica sui concetti relativi a Hub eventi, vedere [Panoramica di Hub eventi](event-hubs-what-is-event-hubs.md).
 
 > [!WARNING]
-> Questa guida è destinata al vecchio pacchetto **Microsoft. Azure. EventHubs** . Si consiglia di [eseguire la migrazione](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md) del codice per usare il pacchetto [Azure. Messaging. EventHubs](get-started-dotnet-standard-send-v2.md) più recente.  
+> Questa guida è per il pacchetto **Microsoft.Azure.EventHubs** precedente. È consigliabile [eseguire la migrazione](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md) del codice per usare il pacchetto [Azure.Messaging.EventHubs](get-started-dotnet-standard-send-v2.md) più recente.  
 
 
 ## <a name="event-publishers"></a>Autori di eventi
 
 L'invio di eventi a un hub eventi viene eseguito tramite una connessione AMQP 1.0 o HTTP POST. La scelta del protocollo da usare e di quando usarlo dipende dallo scenario specifico. Le connessioni AMQP 1.0 sono misurate come connessioni negoziate nel bus di servizio e sono più appropriate in scenari in cui sono frequenti volumi di messaggi più elevati e con requisiti di latenza inferiori, perché offrono un canale di messaggistica persistente.
 
-Quando si usano le API gestite da .NET, i costrutti primari per la pubblicazione dei dati in Hub eventi sono le classi [EventHubClient][] e [EventData][]. [EventHubClient][] offre il canale di comunicazione AMQP tramite il quale gli eventi vengono inviati all'hub eventi. La classe [EventData][] rappresenta un evento e viene usata per pubblicare i messaggi in un hub eventi. Questa classe include il corpo, alcuni metadati (proprietà) e le informazioni di intestazione (SystemProperties) sull'evento. Altre proprietà vengono aggiunte all'oggetto [EventData][] quando passa attraverso un hub eventi.
+Quando si usano le API gestite da .NET, i costrutti primari per la pubblicazione dei dati in Hub eventi sono le classi [EventHubClient][] e [EventData][]. [EventHubClient][] fornisce il canale di comunicazione AMQP su cui gli eventi vengono inviati all'hub eventi. La classe [EventData][] rappresenta un evento e viene usata per pubblicare i messaggi in un hub eventi. Questa classe include il corpo, alcuni metadati(Proprietà) e le informazioni di intestazione(SystemProperties) sull'evento. Altre proprietà vengono aggiunte all'oggetto [EventData][] quando passa attraverso un hub eventi.
 
 ## <a name="get-started"></a>Introduzione
 Le classi .NET che supportano Hub eventi vengono fornite con il pacchetto NuGet [Microsoft.Azure.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/). È possibile eseguire l'installazione tramite Esplora soluzioni di Visual Studio o la [Console di gestione pacchetti](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) in Visual Studio. A tale scopo, eseguire il comando seguente nella finestra della [Console di gestione pacchetti](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) :
@@ -114,10 +114,10 @@ Per usare la classe [EventProcessorHost][], è possibile implementare [IEventPro
 * [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync)
 * [ProcessErrorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processerrorasync)
 
-Per avviare l'elaborazione di eventi, creare un'istanza [EventProcessorHost][]fornendo i parametri appropriati per l'hub eventi. Ad esempio:
+Per avviare l'elaborazione degli eventi, creare un'istanza [di EventProcessorHost][], specificando i parametri appropriati per l'hub eventi. Ad esempio:
 
 > [!NOTE]
-> EventProcessorHost e le classi correlate sono disponibili nel pacchetto **Microsoft. Azure. EventHubs. Processor** . Aggiungere il pacchetto al progetto di Visual Studio seguendo le istruzioni riportate in [questo articolo](event-hubs-dotnet-framework-getstarted-send.md#add-the-event-hubs-nuget-package) oppure eseguendo il comando seguente nella finestra [console di gestione pacchetti](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) :`Install-Package Microsoft.Azure.EventHubs.Processor`.
+> EventProcessorHost e le classi correlate sono disponibili nel pacchetto Microsoft.Azure.EventHubs.Processor.EventProcessorHost and its related classes are provided in the **Microsoft.Azure.EventHubs.Processor** package. Aggiungere il pacchetto al progetto di Visual Studio seguendo le istruzioni in [questo articolo](event-hubs-dotnet-framework-getstarted-send.md#add-the-event-hubs-nuget-package) o eseguendo il comando seguente nella finestra della console di [Gestione pacchetti:](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) `Install-Package Microsoft.Azure.EventHubs.Processor`.
 
 ```csharp
 var eventProcessorHost = new EventProcessorHost(
@@ -128,7 +128,7 @@ var eventProcessorHost = new EventProcessorHost(
         StorageContainerName);
 ```
 
-Chiamare quindi [RegisterEventProcessorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.registereventprocessorasync) per registrare l'implementazione di [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) con il runtime:
+Chiamare [quindi RegisterEventProcessorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.registereventprocessorasync) per registrare l'implementazione di IEventProcessor con il runtime:Then, call RegisterEventProcessorAsync to register your [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) implementation with the runtime:
 
 ```csharp
 await eventProcessorHost.RegisterEventProcessorAsync<SimpleEventProcessor>();
@@ -144,10 +144,10 @@ La classe [EventProcessorHost][] implementa inoltre un meccanismo di impostazion
 
 ## <a name="publisher-revocation"></a>Revoca di publisher
 
-Oltre alle funzionalità avanzate della fase di esecuzione dell'host processore di eventi, il servizio Hub eventi consente la [revoca del server di pubblicazione](/rest/api/eventhub/revoke-publisher) per impedire a autori specifici di inviare eventi a un hub eventi. Queste funzionalità sono utili in situazioni in cui il token di un autore è stato compromesso o un aggiornamento software sta causando un comportamento non appropriato. In queste situazioni, l'identità dell'autore, che fa parte del relativo token di firma di accesso condiviso, può essere bloccata impedendo la pubblicazione di eventi.
+Oltre alle funzionalità avanzate di runtime di Event Processor Host, il servizio Hub eventi consente la [revoca dell'editore](/rest/api/eventhub/revoke-publisher) per impedire a autori specifici di inviare eventi a un hub eventi. Queste funzionalità sono utili in situazioni in cui il token di un autore è stato compromesso o un aggiornamento software sta causando un comportamento non appropriato. In queste situazioni, l'identità dell'autore, che fa parte del relativo token di firma di accesso condiviso, può essere bloccata impedendo la pubblicazione di eventi.
 
 > [!NOTE]
-> Attualmente, solo l'API REST supporta questa funzionalità ([revoca del server di pubblicazione](/rest/api/eventhub/revoke-publisher)).
+> Attualmente, solo l'API REST supporta questa funzionalità ([revoca dell'editore](/rest/api/eventhub/revoke-publisher)).
 
 Per altre informazioni sulla revoca di publisher e su come eseguire l'invio a Hub eventi come publisher, vedere l'esempio relativo alla [pubblicazione sicura su larga scala in Hub eventi](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-99ce67ab).
 
@@ -155,14 +155,14 @@ Per altre informazioni sulla revoca di publisher e su come eseguire l'invio a Hu
 
 Per altre informazioni sugli scenari di Hub eventi, visitare i collegamenti seguenti:
 
-* [Panoramica dell'API di Hub eventi](event-hubs-api-overview.md)
-* [Che cos'è Hub eventi?](event-hubs-what-is-event-hubs.md)
+* [Panoramica dell'API Hub eventi](event-hubs-api-overview.md)
+* [Che cos'è Hub eventi](event-hubs-what-is-event-hubs.md)
 * [Disponibilità e coerenza nell'Hub eventi](event-hubs-availability-and-consistency.md)
-* [Riferimento all'API dell'host processore di eventi](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)
+* [Informazioni di riferimento sull'API host del processore di eventiEvent processor host API reference](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)
 
 [NamespaceManager]: /dotnet/api/microsoft.servicebus.namespacemanager
 [EventHubClient]: /dotnet/api/microsoft.azure.eventhubs.eventhubclient
-[EventData]: /dotnet/api/microsoft.azure.eventhubs.eventdata
+[Dati evento]: /dotnet/api/microsoft.azure.eventhubs.eventdata
 [CreateEventHubIfNotExists]: /dotnet/api/microsoft.servicebus.namespacemanager.createeventhubifnotexists
 [PartitionKey]: /dotnet/api/microsoft.servicebus.messaging.eventdata#Microsoft_ServiceBus_Messaging_EventData_PartitionKey
 [EventProcessorHost]: /dotnet/api/microsoft.azure.eventhubs.processor

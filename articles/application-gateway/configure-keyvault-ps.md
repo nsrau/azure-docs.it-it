@@ -1,33 +1,33 @@
 ---
-title: Configurare la terminazione SSL con Key Vault certificati-PowerShell
+title: Configurare la terminazione SSL con i certificati dell'insieme di credenziali delle chiavi - PowerShellConfigure SSL termination with Key Vault certificates - PowerShell
 titleSuffix: Azure Application Gateway
-description: Informazioni su come integrare applicazione Azure gateway con Key Vault per i certificati del server collegati ai listener abilitati per HTTPS.
+description: Informazioni su come integrare il gateway applicazione di Azure con l'insieme delle chiavi per i certificati server collegati ai listener abilitati per HTTPS.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.date: 02/27/2020
 ms.author: victorh
-ms.openlocfilehash: 2f7eafc6fc1533bd837fae60dd3b9673f6f97aa8
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 15e10d34120ab5475f241235bbebeb0c7689ca14
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77913022"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80371218"
 ---
-# <a name="configure-ssl-termination-with-key-vault-certificates-by-using-azure-powershell"></a>Configurare la terminazione SSL con Key Vault certificati utilizzando Azure PowerShell
+# <a name="configure-ssl-termination-with-key-vault-certificates-by-using-azure-powershell"></a>Configurare la terminazione SSL con i certificati dell'insieme di chiavi tramite Azure PowerShellConfigure SSL termination with Key Vault certificates by using Azure PowerShell
 
-[Azure Key Vault](../key-vault/key-vault-overview.md) è un archivio segreto gestito dalla piattaforma che è possibile usare per proteggere i segreti, le chiavi e i certificati SSL. Applicazione Azure gateway supporta l'integrazione con Key Vault per i certificati del server collegati ai listener abilitati per HTTPS. Questo supporto è limitato allo SKU del gateway applicazione V2.
+[L'insieme](../key-vault/key-vault-overview.md) di credenziali delle chiavi di Azure è un archivio segreto gestito dalla piattaforma che è possibile usare per proteggere segreti, chiavi e certificati SSL. Il gateway applicazione di Azure supporta l'integrazione con Key Vault per i certificati server collegati a listener abilitati per HTTPS. Questo supporto è limitato allo SKU del gateway applicazione v2.
 
-Per ulteriori informazioni, vedere [terminazione SSL con Key Vault Certificates](key-vault-certs.md).
+Per ulteriori informazioni, vedere [Terminazione SSL con i certificati dell'insieme](key-vault-certs.md)di credenziali delle chiavi .
 
 Questo articolo illustra come usare uno script di Azure PowerShell per integrare l'insieme di credenziali delle chiavi con il gateway applicazione per i certificati di terminazione SSL.
 
-Questo articolo richiede Azure PowerShell modulo 1.0.0 o versione successiva. Per trovare la versione, eseguire `Get-Module -ListAvailable Az`. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Per eseguire i comandi in questo articolo, è anche necessario creare una connessione con Azure eseguendo `Connect-AzAccount`.
+Questo articolo richiede la versione 1.0.0 o successiva del modulo di Azure PowerShell.This article requires Azure PowerShell module version 1.0.0 or later. Per trovare la versione, eseguire `Get-Module -ListAvailable Az`. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Per eseguire i comandi in questo articolo, è inoltre `Connect-AzAccount`necessario creare una connessione con Azure eseguendo .
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare, è necessario che sia installato il modulo ManagedServiceIdentity:
 
@@ -39,7 +39,7 @@ Select-AzSubscription -Subscription <your subscription>
 
 ## <a name="example-script"></a>Script di esempio
 
-### <a name="set-up-variables"></a>Configurare le variabili
+### <a name="set-up-variables"></a>Impostare le variabili
 
 ```azurepowershell
 $rgname = "KeyVaultTest"
@@ -48,7 +48,7 @@ $kv = "TestKeyVaultAppGw"
 $appgwName = "AppGwKVIntegration"
 ```
 
-### <a name="create-a-resource-group-and-a-user-managed-identity"></a>Creare un gruppo di risorse e un'identità gestita dall'utente
+### <a name="create-a-resource-group-and-a-user-managed-identity"></a>Creare un gruppo di risorse e un'identità gestita dall'utenteCreate a resource group and a user-managed identity
 
 ```azurepowershell
 $resourceGroup = New-AzResourceGroup -Name $rgname -Location $location
@@ -56,7 +56,7 @@ $identity = New-AzUserAssignedIdentity -Name "appgwKeyVaultIdentity" `
   -Location $location -ResourceGroupName $rgname
 ```
 
-### <a name="create-a-key-vault-policy-and-certificate-to-be-used-by-the-application-gateway"></a>Creare un insieme di credenziali delle chiavi, un criterio e un certificato da usare con il gateway applicazione
+### <a name="create-a-key-vault-policy-and-certificate-to-be-used-by-the-application-gateway"></a>Creare un insieme di credenziali delle chiavi, criteri e certificati da utilizzare dal gateway applicazioneCreate a key vault, policy, and certificate to be used by the application gateway
 
 ```azurepowershell
 $keyVault = New-AzKeyVault -Name $kv -ResourceGroupName $rgname -Location $location -EnableSoftDelete 
@@ -71,7 +71,7 @@ $certificate = Get-AzKeyVaultCertificate -VaultName $kv -Name "cert1"
 $secretId = $certificate.SecretId.Replace($certificate.Version, "")
 ```
 > [!NOTE]
-> Per il corretto funzionamento della terminazione SSL, è necessario usare il flag-EnableSoftDelete.
+> Il flag -EnableSoftDelete deve essere utilizzato per il corretto funzionamento della terminazione SSL. Se si sta configurando l'eliminazione temporanea dell'insieme di credenziali delle chiavi [tramite il portale](../key-vault/key-vault-ovw-soft-delete.md#soft-delete-behavior), il periodo di conservazione deve essere mantenuto a 90 giorni, il valore predefinito. Il gateway applicazione non supporta ancora un periodo di conservazione diverso. 
 
 ### <a name="create-a-virtual-network"></a>Crea rete virtuale
 
@@ -82,14 +82,14 @@ $vnet = New-AzvirtualNetwork -Name "Vnet1" -ResourceGroupName $rgname -Location 
   -AddressPrefix "10.0.0.0/16" -Subnet @($sub1, $sub2)
 ```
 
-### <a name="create-a-static-public-virtual-ip-vip-address"></a>Creare un indirizzo IP virtuale pubblico (VIP) statico
+### <a name="create-a-static-public-virtual-ip-vip-address"></a>Creare un indirizzo IP virtuale (VIP) pubblico staticoCreate a static public virtual IP (VIP) address
 
 ```azurepowershell
 $publicip = New-AzPublicIpAddress -ResourceGroupName $rgname -name "AppGwIP" `
   -location $location -AllocationMethod Static -Sku Standard
 ```
 
-### <a name="create-pool-and-front-end-ports"></a>Creare porte del pool e front-end
+### <a name="create-pool-and-front-end-ports"></a>Creare porte di pool e front-end
 
 ```azurepowershell
 $gwSubnet = Get-AzVirtualNetworkSubnetConfig -Name "appgwSubnet" -VirtualNetwork $vnet
@@ -108,7 +108,7 @@ $fp02 = New-AzApplicationGatewayFrontendPort -Name "port2" -Port 80
 $sslCert01 = New-AzApplicationGatewaySslCertificate -Name "SSLCert1" -KeyVaultSecretId $secretId
 ```
 
-### <a name="create-listeners-rules-and-autoscale"></a>Creare listener, regole e scalabilità automatica
+### <a name="create-listeners-rules-and-autoscale"></a>Creare listener, regole e scalabilità automaticaCreate listeners, rules, and autoscale
 
 ```azurepowershell
 $listener01 = New-AzApplicationGatewayHttpListener -Name "listener1" -Protocol Https `
@@ -125,7 +125,7 @@ $autoscaleConfig = New-AzApplicationGatewayAutoscaleConfiguration -MinCapacity 3
 $sku = New-AzApplicationGatewaySku -Name Standard_v2 -Tier Standard_v2
 ```
 
-### <a name="assign-the-user-managed-identity-to-the-application-gateway"></a>Assegnare l'identità gestita dall'utente al gateway applicazione
+### <a name="assign-the-user-managed-identity-to-the-application-gateway"></a>Assegnare l'identità gestita dall'utente al gateway applicazioneAssign the user-managed identity to the application gateway
 
 ```azurepowershell
 $appgwIdentity = New-AzApplicationGatewayIdentity -UserAssignedIdentityId $identity.Id
@@ -144,4 +144,4 @@ $appgw = New-AzApplicationGateway -Name $appgwName -Identity $appgwIdentity -Res
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Altre informazioni sulla terminazione SSL](ssl-overview.md)
+[Ulteriori informazioni sulla terminazione SSL](ssl-overview.md)

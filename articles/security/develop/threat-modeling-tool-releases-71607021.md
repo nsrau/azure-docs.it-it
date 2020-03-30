@@ -9,32 +9,32 @@ ms.subservice: security-develop
 ms.topic: article
 ms.date: 07/02/2019
 ms.openlocfilehash: d4a97a10b8055af4401dbe163723b1fb38a5d12f
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78269679"
 ---
-# <a name="threat-modeling-tool-update-release-71607021---722019"></a>Versione di aggiornamento Threat Modeling Tool 7.1.60702.1-7/2/2019
+# <a name="threat-modeling-tool-update-release-71607021---722019"></a>Aggiornamento di Threat Modeling Tool versione 7.1.60702.1 - 7/2/2019
 
-La versione 7.1.60702.1 del Microsoft Threat Modeling Tool (TMT) è stata rilasciata il 2 2019 luglio e contiene le modifiche seguenti:
+La versione 7.1.60702.1 di Microsoft Threat Modeling Tool (TMT) è stata rilasciata il 2 luglio 2019 e contiene le seguenti modifiche:
 
-- Miglioramenti per l'accessibilità
+- Miglioramenti all'accessibilità
 - Correzioni di bug
-- Inclusione di un set di stencil fornito dalla community open source
+- Inclusione di una comunità open source a cui è stato fornito uno stencil set
 
 ## <a name="feature-changes"></a>Modifiche apportate alle funzionalità
 
-### <a name="a-new-medical-devices-stencil-set-provided-by-the-open-source-community-is-available"></a>È disponibile un nuovo set di stencil di dispositivi medicali fornito dalla community open source
+### <a name="a-new-medical-devices-stencil-set-provided-by-the-open-source-community-is-available"></a>È disponibile un nuovo set di stencil per dispositivi medici fornito dalla comunità open source
 
-Un set di stencil per la modellazione di dispositivi medici è stato fornito dalla community open source. Dopo l'aggiornamento, il nuovo set di stencil verrà visualizzato nel menu a discesa Selezione modello. Per informazioni sul contributo degli stencil o del contenuto ai modelli, vedere le informazioni nella [pagina di GitHub](https://github.com/Microsoft/threat-modeling-templates)del progetto.
+Un set di stencil per la modellazione di dispositivi medicali è stato contribuito dalla comunità open-source. Dopo l'aggiornamento, il nuovo gruppo di stencil verrà visualizzato nel menu a discesa di selezione del modello. Per informazioni sul contributo di stencil o contenuto ai modelli, esaminare le informazioni nella [pagina GitHub](https://github.com/Microsoft/threat-modeling-templates)del progetto.
 
 ![Opzione di convalida del modello](./media/threat-modeling-tool-releases-71607021/tmt-template-selection.png)
 
 ## <a name="system-requirements"></a>Requisiti di sistema
 
 - Sistemi operativi supportati
-  - [Microsoft Windows 10 Anniversary Update](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#HTkoK5Zdv0g2F2Zq.97) o versione successiva
+  - [Aggiornamento dell'anniversario di Microsoft Windows 10](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#HTkoK5Zdv0g2F2Zq.97) o versione successiva
 - Versione .NET richiesta
   - [.Net 4.7.1](https://go.microsoft.com/fwlink/?LinkId=863262) o versione successiva
 - Requisiti aggiuntivi

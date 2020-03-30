@@ -1,5 +1,5 @@
 ---
-title: Diagnosticare un problema di routing di rete VM-interfaccia della riga di comando di Azure
+title: Diagnosticare un problema di routing di rete VM - Interfaccia della riga di comando di AzureDiagnose a VM network routing problem - Azure CLI
 titleSuffix: Azure Network Watcher
 description: In questo articolo si apprenderà come diagnosticare un problema di routing di rete di una macchina virtuale usando la funzionalità Hop successivo di Azure Network Watcher.
 services: network-watcher
@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: damendo
 ms.custom: ''
-ms.openlocfilehash: bf4c5e364b7f18b363f9915f54e43c7ea54c33c4
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: ae139ea7aca7c3896fcd7b0acf2bf6673490a2f4
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76834675"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80382903"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-cli"></a>Diagnosticare un problema di routing di rete di una macchina virtuale - Interfaccia della riga di comando di Azure
 
@@ -32,17 +32,17 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, questo articolo richiede la versione 2.0.28 o successiva dell'interfaccia della riga di comando di Azure. Per trovare la versione installata, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). Dopo avere verificato la versione dell'interfaccia della riga di comando, eseguire `az login` per creare una connessione con Azure. I comandi dell'interfaccia della riga di comando in questo articolo sono formattati per essere eseguiti in una shell Bash.
+Se si sceglie di installare e usare l'interfaccia della riga di comando di Azure in locale, questo articolo richiede l'esecuzione dell'interfaccia della riga di comando di Azure versione 2.0.28 o successiva. Per trovare la versione installata, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). Dopo aver verificato la versione `az login` dell'interfaccia della riga di comando di Azure, eseguire questa per creare una connessione con Azure.After you verify the Azure CLI version, run to create a connection with Azure. I comandi dell'interfaccia della riga di comando di Azure in questo articolo sono formattati per l'esecuzione in una shell Bash.The Azure CLI commands in this article are formatted to run in a Bash shell.
 
-## <a name="create-a-vm"></a>Creare una VM
+## <a name="create-a-vm"></a>Creare una macchina virtuale
 
-Prima di poter creare una macchina virtuale, è necessario creare un gruppo di risorse per contenerla. Come prima cosa creare un gruppo di risorse con [az group create](/cli/azure/group#az-group-create). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella posizione *eastus*:
+Prima di poter creare una macchina virtuale, è necessario creare un gruppo di risorse per contenerla. Come prima cosa creare un gruppo di risorse con [az group create](/cli/azure/group#az-group-create). L'esempio seguente crea un gruppo di risorse denominato myResourceGroup nella posizione *eastus:The* following example creates a resource group named *myResourceGroup* in the eastus location:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Creare una VM con il comando [az vm create](/cli/azure/vm#az-vm-create). Il comando crea le chiavi SSH, se non esistono già in una posizione predefinita. Per usare un set specifico di chiavi, utilizzare l'opzione `--ssh-key-value`. L'esempio seguente crea una macchina virtuale denominata *myVM*:
+Creare una macchina virtuale con [az vm create](/cli/azure/vm#az-vm-create). Il comando crea le chiavi SSH, se non esistono già in una posizione predefinita. Per usare un set specifico di chiavi, utilizzare l'opzione `--ssh-key-value`. L'esempio seguente crea una macchina virtuale denominata myVm:The following example creates a VM named *myVm:*
 
 ```azurecli-interactive
 az vm create \
@@ -52,7 +52,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-La creazione della VM richiede alcuni minuti. Non continuare con i passaggi rimanenti fino a quando non viene creata la macchina virtuale e l'interfaccia della riga di comando non restituisce l'output.
+La creazione della VM richiede alcuni minuti. Non continuare con i passaggi rimanenti finché non viene creata la macchina virtuale e l'interfaccia della riga di comando di Azure restituisce l'output.
 
 ## <a name="test-network-communication"></a>Testare la comunicazione di rete
 
@@ -85,7 +85,7 @@ az network watcher show-next-hop \
   --out table
 ```
 
-Dopo alcuni secondi, l'output indica che **nextHopType** è **Internet** e che **routeTableId** è **System Route**. Questo risultato informa l'utente che è presente una route valida per la destinazione.
+Dopo alcuni secondi, l'output informa che **nextHopType** è **Internet**e che **routeTableId** è Route di **sistema**. Questo risultato informa l'utente che è presente una route valida per la destinazione.
 
 Testare le comunicazioni in uscita dalla macchina virtuale verso 172.31.0.100:
 
@@ -99,7 +99,7 @@ az network watcher show-next-hop \
   --out table
 ```
 
-L'output indica che **Nessuno** è **nextHopType** e che **routeTableId** è **System Route**. Questo risultato informa che, nonostante sia presente una route di sistema valida per la destinazione, non vi è alcun hop successivo per indirizzare il traffico alla destinazione.
+L'output restituito informa che **None** è **nextHopType**e che **routeTableId** è anche **Route di sistema**. Questo risultato informa che, nonostante sia presente una route di sistema valida per la destinazione, non vi è alcun hop successivo per indirizzare il traffico alla destinazione.
 
 ## <a name="view-details-of-a-route"></a>Visualizzare i dettagli di una route
 
@@ -113,7 +113,7 @@ az network nic show-effective-route-table \
 
 Nell'output restituito è incluso il testo seguente:
 
-```azurecli
+```
 {
   "additionalProperties": {
     "disableBgpRoutePropagation": false
@@ -133,7 +133,7 @@ Quando è stato usato il comando `az network watcher show-next-hop` per testare 
 
 Quando è stato usato il comando `az network watcher show-next-hop` per testare le comunicazioni in uscita verso 172.31.0.100, tuttavia, il risultato ha indicato che non è presente alcun hop successivo. Nell'output restituito è visualizzato anche il testo seguente:
 
-```azurecli
+```
 {
   "additionalProperties": {
     "disableBgpRoutePropagation": false

@@ -1,14 +1,14 @@
 ---
-title: Creare un cluster Linux Service Fabric in Azure
+title: Creare un cluster Linux Service Fabric in AzureCreate a Linux Service Fabric cluster in Azure
 description: Informazioni su come distribuire un cluster Linux di Service Fabric in una rete virtuale di Azure esistente tramite l'interfaccia della riga di comando di Azure.
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: mvc
 ms.openlocfilehash: f5788f07dd4a4f03a95efaea4b741cd64c930ac5
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78251776"
 ---
 # <a name="deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Distribuire un cluster Linux di Service Fabric in una rete virtuale di Azure
@@ -19,22 +19,22 @@ In questo articolo si apprenderà come distribuire un cluster Linux di Service F
 
 Prima di iniziare:
 
-* Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* Installare l'[interfaccia della riga di comando di Service Fabric](service-fabric-cli.md)
-* Installare l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli)
+* Se non si dispone di una sottoscrizione di Azure, creare un [account gratuitoIf](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) you don't have an Azure subscription, create a free account
+* Installare l'interfaccia della riga di comando di [Service FabricInstall the Service Fabric CLI](service-fabric-cli.md)
+* Installare [l'interfaccia della riga di comando](/cli/azure/install-azure-cli) di AzureInstall the Azure CLI
 * Per informazioni sui concetti chiave dei cluster, vedere [Panoramica dei cluster di Azure](service-fabric-azure-clusters-overview.md)
 * [Pianificare e preparare](service-fabric-cluster-azure-deployment-preparation.md) la distribuzione di un cluster di produzione.
 
-Le procedure seguenti creano un cluster di Service Fabric a sette nodi. Per calcolare i costi sostenuti per l'esecuzione di un cluster di Service Fabric in Azure, usare il [calcolatore dei prezzi di Azure](https://azure.microsoft.com/pricing/calculator/).
+Le procedure seguenti creano un cluster di Service Fabric a sette nodi. Per calcolare i costi sostenuti dall'esecuzione di un cluster di Service Fabric in Azure usare il [calcolatore dei prezzi di Azure](https://azure.microsoft.com/pricing/calculator/).
 
 ## <a name="download-and-explore-the-template"></a>Scaricare ed esplorare il modello
 
 Scaricare i file del modello di Resource Manager seguenti:
 
-* [File azuredeploy. JSON][template]
-* [File azuredeploy. Parameters. JSON][parameters]
+* [AzureDeploy.json][template]
+* [AzureDeploy.Parameters.json][parameters]
 
-Questo modello distribuisce un cluster sicuro di sette macchine virtuali e tre tipi di nodo in una rete virtuale.  Altri modelli di esempio sono disponibili su [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). [File azuredeploy. JSON][template] distribuisce un numero di risorse, incluse le seguenti.
+Questo modello distribuisce un cluster sicuro di sette macchine virtuali e tre tipi di nodo in una rete virtuale.  Altri modelli di esempio sono disponibili su [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). Il file [AzureDeploy.json][template] distribuisce un numero di risorse, incluse le risorse seguenti.
 
 ### <a name="service-fabric-cluster"></a>Cluster di Service Fabric
 
@@ -70,7 +70,7 @@ Se sono necessarie altre porte dell'applicazione, si dovrà modificare la risors
 
 ## <a name="set-template-parameters"></a>Impostare i parametri del modello
 
-Il file dei parametri [file azuredeploy. Parameters][parameters] dichiara molti valori usati per distribuire il cluster e le risorse associate. Di seguito sono riportati alcuni dei parametri che potrebbe essere necessario modificare per la propria distribuzione:
+Nel file dei parametri [AzureDeploy.Parameters][parameters] vengono dichiarati molti valori usati per distribuire il cluster e le risorse associate. Di seguito sono riportati alcuni dei parametri che potrebbe essere necessario modificare per la propria distribuzione:
 
 |Parametro|Valore di esempio|Note|
 |---|---||
@@ -86,7 +86,7 @@ Il file dei parametri [file azuredeploy. Parameters][parameters] dichiara molti 
 
 ## <a name="deploy-the-virtual-network-and-cluster"></a>Distribuire la rete virtuale e il cluster
 
-Configurare quindi la topologia di rete e distribuire il cluster di Service Fabric. Il modello di Gestione risorse [file azuredeploy. JSON][template] crea una rete virtuale (VNET) e una subnet per Service Fabric. Il modello distribuisce anche un cluster in cui è abilitata la sicurezza basata su certificati.  Come certificato per i cluster di produzione usare un certificato di un'entità di certificazione (CA). Per proteggere i cluster di test è possibile usare un certificato autofirmato.
+Configurare quindi la topologia di rete e distribuire il cluster di Service Fabric. Il modello di Resource Manager [AzureDeploy.json][template] crea una rete virtuale e una subnet per Service Fabric. Il modello distribuisce anche un cluster in cui è abilitata la sicurezza basata su certificati.  Come certificato per i cluster di produzione usare un certificato di un'entità di certificazione (CA). Per proteggere i cluster di test è possibile usare un certificato autofirmato.
 
 Il modello in questo articolo distribuisce un cluster che usa l'identificazione personale del certificato per identificare il certificato del cluster.  Nessun certificato può avere la stessa identificazione personale di un altro, il che rende più difficile gestire i certificati. Commutare un cluster distribuito dall'uso di identificazioni personali del certificato all'uso di nomi comuni del certificato rende molto più semplice la gestione dei certificati.  Per informazioni su come aggiornare il cluster per l'uso dei nomi comuni del certificato per la gestione dei certificati, vedere [Passare dall'uso di identificazioni personali del certificato all'uso di nomi comuni del certificato in un cluster](service-fabric-cluster-change-cert-thumbprint-to-cn.md).
 
