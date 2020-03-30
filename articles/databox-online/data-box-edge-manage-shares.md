@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: alkohli
 ms.openlocfilehash: b25409c63806e203bd841b0373543b7cc2b96d9d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79212930"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-edge"></a>Usare il portale di Azure per gestire le condivisioni in Azure Data Box Edge
@@ -23,8 +23,8 @@ Questo articolo descrive come gestire le condivisioni in Azure Data Box Edge. È
 
 Per trasferire i dati in Azure, è necessario creare le condivisioni in Azure Data Box Edge. Le condivisioni che si aggiungono nel dispositivo Data Box Edge possono essere condivisioni locali o condivisioni che eseguono il push dei dati nel cloud.
 
- - **Condivisioni locali**: usare queste condivisioni quando si desidera che i dati vengano elaborati localmente nel dispositivo.
- - **Condivisioni**: usare queste condivisioni quando si desidera che i dati del dispositivo vengano inseriti automaticamente nell'account di archiviazione nel cloud. Tutte le funzioni del cloud, come **Aggiorna** e **Sincronizza chiavi di archiviazione**, si applicano a queste condivisioni.
+ - **Condivisioni locali**: utilizzare queste condivisioni quando si desidera che i dati vengano elaborati localmente nel dispositivo.
+ - **Condivisioni:** usare queste condivisioni quando si vuole che i dati del dispositivo vengano inviati automaticamente all'account di archiviazione nel cloud. Tutte le funzioni del cloud, come **Aggiorna** e **Sincronizza chiavi di archiviazione**, si applicano a queste condivisioni.
 
 In questo articolo vengono illustrate le operazioni seguenti:
 
@@ -54,7 +54,7 @@ Eseguire i passaggi seguenti nel portale di Azure per creare una condivisione.
 5. Dall'elenco a discesa **Servizio di archiviazione** selezionare BLOB in blocchi, BLOB di pagine o File. Il tipo di servizio scelto dipende dal formato che si vuole applicare ai dati che risiederanno in Azure. In questo esempio si vuole che i dati vengano trasferiti in Azure come **BLOB in blocchi**, quindi è questa l'opzione da selezionare. Se si sceglie **BLOB di pagine**, è necessario verificare che i dati siano allineati su 512 byte. Usare **Blob di pagine** per dischi VHD o VHDX, che sono sempre allineati su 512 byte.
 
    > [!IMPORTANT]
-   > Verificare che l'account di archiviazione di Azure in uso non abbia criteri di immutabilità impostati su di esso se lo si usa con un dispositivo Azure Stack Edge o Data Box Gateway. Per altre informazioni, vedere [impostare e gestire i criteri di immutabilità per l'archiviazione BLOB](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
+   > Assicurarsi che l'account di Archiviazione di Azure usato non disponga di criteri di immutabilità impostati se viene usato con un dispositivo Azure Stack Edge o Data Box Gateway.Make sure that the Azure Storage account that you use does not have immutability policies set on it if you are using it with a Azure Stack Edge or Data Box Gateway device. Per altre informazioni, vedere Impostare e gestire i criteri di [immutabilità per l'archiviazione BLOB.](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage)
 
 6. Questo passaggio varia a seconda che si stia creando una condivisione SMB o NFS.
     - **Se si crea una condivisione SMB**: nel campo **Utente locale con tutti i privilegi** selezionare **Crea nuovo** o **Usa esistente**. Se si crea un nuovo utente locale, compilare i campi **Nome utente**, **Password** e Conferma password. Vengono così assegnate le autorizzazioni all'utente locale. Dopo aver assegnato le autorizzazioni in questa fase, è possibile modificarle con Esplora file.
@@ -153,7 +153,7 @@ Eseguire i passaggi seguenti nel portale di Azure per eliminare una condivisione
 
     ![Selezionare condivisione](media/data-box-edge-manage-shares/delete-share-1.png)
 
-2. Scegliere **Elimina**.
+2. Fare clic su **Elimina**.
 
     ![Clic su Elimina](media/data-box-edge-manage-shares/delete-share-2.png)
 

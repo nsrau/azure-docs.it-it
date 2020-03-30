@@ -1,122 +1,31 @@
 ---
-title: Aggiungere un livello dati semplice | Mappe Microsoft Azure
-description: Informazioni su come aggiungere un livello dati semplice usando il modulo IO spaziale, fornito da Azure Maps Web SDK.
-author: farah-alyasari
-ms.author: v-faalya
+title: Aggiunta di un livello dati semplice Mappe di Microsoft Azure
+description: Informazioni su come aggiungere un livello dati semplice usando il modulo I/O spaziale, fornito da Azure Maps Web SDK.
+author: philmea
+ms.author: philmea
 ms.date: 02/29/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 3fa54e3227496c11fcafc2f42e980daa5c716365
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 7671d07a468a9f67a4851ec828fe18896d7a6c66
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78370986"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80334270"
 ---
 # <a name="add-a-simple-data-layer"></a>Aggiungere un livello dati semplice
 
-Il modulo IO spaziale fornisce una classe `SimpleDataLayer`. Questa classe rende più semplice il rendering di funzionalità con stile sulla mappa. Può persino eseguire il rendering di set di dati con proprietà di stile e set di dati che contengono tipi geometry misti. Il livello dati semplice raggiunge questa funzionalità eseguendo il wrapping di più livelli di rendering e usando espressioni di stile. Le espressioni di stile cercano le proprietà di stile comuni delle funzionalità all'interno di tali livelli. La funzione `atlas.io.read` e la funzione `atlas.io.write` usano queste proprietà per leggere e scrivere stili in un formato di file supportato. Dopo aver aggiunto le proprietà a un formato di file supportato, il file può essere usato per vari scopi. Ad esempio, il file può essere usato per visualizzare le funzionalità con stile sulla mappa.
+Il modulo IO `SimpleDataLayer` spaziale fornisce una classe. Questa classe semplifica il rendering delle feature con stile sulla mappa. Può anche eseguire il rendering di set di dati con proprietà di stile e set di dati che contengono tipi di geometria misti. Il livello dati semplice consente di ottenere questa funzionalità eseguendo il wrapping di più livelli di rendering e utilizzando espressioni di stile. Le espressioni di stile cercano le proprietà di stile comuni delle feature all'interno di questi layer con ritorno a capo. La `atlas.io.read` funzione `atlas.io.write` e la funzione utilizzano queste proprietà per leggere e scrivere gli stili in un formato di file supportato. Dopo aver aggiunto le proprietà a un formato di file supportato, il file può essere utilizzato per vari scopi. Ad esempio, il file può essere utilizzato per visualizzare le feature con stili sulla mappa.
 
-Oltre alle funzionalità di applicazione di stili, il `SimpleDataLayer` fornisce una funzionalità popup incorporata con un modello popup. Quando si fa clic su una funzionalità, viene visualizzata la finestra popup. Se lo si desidera, è possibile disabilitare la funzionalità popup predefinita. Questo livello supporta inoltre i dati del cluster. Quando si fa clic su un cluster, la mappa ingrandisce il cluster ed espanderla in singoli punti e sottocluster.
+Oltre alle funzionalità di `SimpleDataLayer` stile, fornisce una funzionalità popup incorporata con un modello popup. Il popup viene visualizzato quando si fa clic su una funzione. La funzione popup predefinita può essere disabilitata, se lo si desidera. Questo livello supporta anche i dati cluster. Quando si fa clic su un cluster, la mappa ingrandirà il cluster e lo espanderà in singoli punti e sottocluster.
 
-La classe `SimpleDataLayer` è progettata per essere utilizzata su set di dati di grandi dimensioni con molti tipi geometry e molti stili applicati alle funzionalità. Se utilizzata, questa classe aggiunge un overhead di sei livelli contenenti espressioni di stile. Ci sono quindi casi in cui è più efficiente usare i livelli di rendering di base. Usare, ad esempio, un livello di base per eseguire il rendering di un paio di tipi geometry e alcuni stili in una funzionalità
-
-## <a name="default-supported-style-properties"></a>Proprietà di stile supportate predefinite
-
-Come indicato in precedenza, il livello dati semplice esegue il wrapping di diversi livelli di rendering principali: bolla, simbolo, linea, poligono e poligono estruso. USA quindi le espressioni per cercare le proprietà di stile valide sulle singole funzionalità.
-
-Mappe di Azure e le proprietà di stile GitHub sono i due set principali di nomi di proprietà supportati. La maggior parte dei nomi delle proprietà delle diverse opzioni del livello mappe di Azure è supportata come proprietà di stile delle funzionalità nel livello dati semplice. Le espressioni sono state aggiunte ad alcune opzioni del livello per supportare i nomi di proprietà di stile usati comunemente da GitHub. Questi nomi di proprietà sono definiti dal [supporto della mappa GeoJSON di GitHub](https://help.github.com/en/github/managing-files-in-a-repository/mapping-geojson-files-on-github)e vengono usati per applicare uno stile ai file GeoJSON archiviati e sottoposti a rendering all'interno della piattaforma. Tutte le proprietà di stile di GitHub sono supportate nel livello dati semplice, ad eccezione delle proprietà di stile `marker-symbol`.
-
-Se il lettore rileva una proprietà di stile meno comune, la convertirà nella proprietà dello stile Maps di Azure più vicina. Inoltre, è possibile eseguire l'override delle espressioni di stile predefinite utilizzando la funzione `getLayers` del livello dati semplice e aggiornando le opzioni in uno qualsiasi dei livelli.
-
-Nella sezione successiva vengono fornite informazioni dettagliate sulle proprietà di stile predefinite supportate dal livello dati semplice. L'ordine del nome di proprietà supportato è anche la priorità della proprietà. Se per la stessa opzione del livello sono definite due proprietà di stile, il primo nell'elenco avrà una precedenza maggiore.
-
-## <a name="simple-data-layer-options"></a>Opzioni del livello dati semplice
-
-### <a name="bubble-layer-style-properties"></a>Proprietà stile livello bolla
-
-Se una funzionalità è un `Point` o un `MultiPoint`e la funzionalità non dispone di una proprietà `image` che verrebbe utilizzata come icona personalizzata per eseguire il rendering del punto come simbolo, verrà eseguito il rendering della funzionalità con un `BubbleLayer`.
-
-| Opzione layer | Nomi di proprietà supportati | Valore predefinito |
-|--------------|----------------------------|---------------|
-| `color` | `color`, `marker-color` | `'#1A73AA'` |
-| `radius` | `size`<sup>1</sup>, `marker-size`<sup>2</sup>, `scale`<sup>1</sup> | `8` |
-| `strokeColor` | `strokeColor`, `stroke` | `'#FFFFFF'` |
-
-\[1\] i valori di `size` e `scale` sono considerati valori scalari e verranno moltiplicati per `8`
-
-\[2\] se si specifica l'opzione GitHub `marker-size`, per il raggio verranno usati i valori seguenti.
-
-| Dimensioni marcatore | Radius |
-|-------------|--------|
-| `small`     | `6`    |
-| `medium`    | `8`    |
-| `large`     | `12`   |
-
-Viene anche eseguito il rendering dei cluster usando il livello Bubble. Per impostazione predefinita, il raggio di un cluster è impostato su `16`. Il colore del cluster varia a seconda del numero di punti del cluster, come definito di seguito:
-
-| numero di punti | Colore    |
-|-------------|----------|
-| &gt;= 100   | `red`    |
-| &gt;= 10    | `yellow` |
-| &lt; 10     | `green`  |
-
-### <a name="symbol-style-properties"></a>Proprietà stile simbolo
-
-Se una funzionalità è un `Point` o un `MultiPoint`e la funzionalità e ha una proprietà `image` che verrebbe usata come icona personalizzata per eseguire il rendering del punto come simbolo, verrà eseguito il rendering della funzionalità con un `SymbolLayer`.
-
-| Opzione layer | Nomi di proprietà supportati | Valore predefinito |
-|--------------|----------------------------|---------------|
-| `image` | `image` | ``none`` |
-| `size` | `size`, `marker-size`<sup>1</sup> | `1` |
-| `rotation` | `rotation` | `0` |
-| `offset` | `offset` | `[0, 0]` |
-| `anchor` | `anchor` | `'bottom'` |
-
-\[1\] se è specificata l'opzione GitHub `marker-size`, verranno usati i valori seguenti per l'opzione delle dimensioni dell'icona.
-
-| Dimensioni marcatore | Dimensioni simboli |
-|-------------|-------------|
-| `small`     | `0.5`       |
-| `medium`    | `1`         |
-| `large`     | `2`         |
-
-Se la funzionalità punto è un cluster, verrà eseguito il rendering della proprietà `point_count_abbreviated` come etichetta di testo. Non verrà eseguito il rendering di un'immagine.
-
-### <a name="line-style-properties"></a>Proprietà stile linea
-
-Se la funzionalità è un `LineString`, `MultiLineString`, `Polygon`o `MultiPolygon`, verrà eseguito il rendering della funzionalità con un `LineLayer`.
-
-| Opzione layer | Nomi di proprietà supportati | Valore predefinito |
-|--------------|----------------------------|---------------|
-| `strokeColor` | `strokeColor`, `stroke` | `'#1E90FF'` |
-| `strokeWidth` | `strokeWidth`, `stroke-width`, `stroke-thickness` | `3` |
-| `strokeOpacity` | `strokeOpacity`, `stroke-opacity` | `1` |
-
-### <a name="polygon-style-properties"></a>Proprietà stile poligono
-
-Se la funzionalità è un `Polygon` o un `MultiPolygon`e la funzionalità non dispone di una proprietà `height` o se la proprietà `height` è zero, verrà eseguito il rendering della funzionalità con un `PolygonLayer`.
-
-| Opzione layer | Nomi di proprietà supportati | Valore predefinito |
-|--------------|----------------------------|---------------|
-| `fillColor` | `fillColor`, `fill` | `'#1E90FF'` |
-| `fillOpacity` | `fillOpacity`,'`fill-opacity` | `0.5` |
-
-### <a name="extruded-polygon-style-properties"></a>Proprietà stile poligono estruso
-
-Se la funzionalità è un `Polygon` o un `MultiPolygon`e ha una proprietà `height` con un valore maggiore di 0, verrà eseguito il rendering della funzionalità con un `PolygonExtrusionLayer`.
-
-| Opzione layer | Nomi di proprietà supportati | Valore predefinito |
-|--------------|----------------------------|---------------|
-| `base` | `base` | `0` |
-| `fillColor` | `fillColor`, `fill` | `'#1E90FF'` |
-| `height` | `height` | `0` |
+La `SimpleDataLayer` classe deve essere utilizzata su set di dati di grandi dimensioni con molti tipi di geometria e molti stili applicati alle entità geografiche. Se utilizzata, questa classe aggiunge un overhead di sei livelli contenenti espressioni di stile. Quindi, ci sono casi in cui è più efficiente utilizzare i livelli di rendering di base. Ad esempio, utilizzare un layer principale per eseguire il rendering di un paio di tipi di geometria e alcuni stili su una feature
 
 ## <a name="use-a-simple-data-layer"></a>Usare un livello dati semplice
 
-La classe `SimpleDataLayer` viene utilizzata come gli altri livelli di rendering utilizzati. Il codice seguente illustra come usare un livello dati semplice in una mappa:
+La `SimpleDataLayer` classe viene utilizzata come gli altri livelli di rendering. Il codice seguente mostra come usare un livello dati semplice in una mappa:The code below shows how to use a simple data layer in a map:
 
 ```javascript
 //Create a data source and add it to the map.
@@ -128,7 +37,7 @@ var layer = new atlas.layer.SimpleDataLayer(datasource);
 map.layers.add(layer);
 ```
 
-Aggiungere funzionalità all'origine dati. Quindi, il livello dati semplice rileverà il modo migliore per eseguire il rendering delle funzionalità. Gli stili per le singole funzionalità possono essere impostati come proprietà della funzionalità. Il codice seguente illustra una funzionalità di punto GeoJSON con una proprietà `color` impostata su `red`. 
+Aggiungere funzionalità all'origine dati. Quindi, il semplice livello dati capirà il modo migliore per eseguire il rendering delle feature. Gli stili per le singole entità geografiche possono essere impostati come proprietà della feature. Nel codice seguente viene illustrata `color` una feature `red`punto GeoJSON con una proprietà impostata su . 
 
 ```json
 {
@@ -143,26 +52,123 @@ Aggiungere funzionalità all'origine dati. Quindi, il livello dati semplice rile
 }
 ```
 
-Il codice seguente esegue il rendering della funzionalità del punto precedente usando il livello dati semplice. 
+Il codice seguente esegue il rendering della feature del punto precedente usando il livello dati semplice. 
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Usare il livello dati semplice" src="//codepen.io/azuremaps/embed/zYGzpQV/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true"> Vedere la penna <a href='https://codepen.io/azuremaps/pen/zYGzpQV/'>usare il livello dati semplice</a> di Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) in <a href='https://codepen.io'>CodePen</a>.
+<iframe height="500" style="width: 100%;" scrolling="no" title="Usare il livello dati semplice" src="//codepen.io/azuremaps/embed/zYGzpQV/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true"> Vedere La penna Usare il livello<a href='https://codepen.io/azuremaps'>@azuremaps</a>dati <a href='https://codepen.io/azuremaps/pen/zYGzpQV/'>semplice</a> di Azure Maps ( ) in <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-La vera potenza del livello dati semplice si presenta nei casi seguenti:
+La vera potenza del semplice livello dati viene quando:
 
-- Sono disponibili diversi tipi di funzionalità in un'origine dati. o
-- Le funzionalità del set di dati hanno diverse proprietà di stile impostate singolarmente; o
-- Non si è certi del contenuto del set di dati.
+- Esistono diversi tipi di funzionalità in un'origine dati; O
+- Le entità geografiche nel set di dati hanno diverse proprietà di stile impostate singolarmente su di esse; O
+- Non sei sicuro di cosa contenga esattamente il set di dati.
 
-Quando si analizzano i feed di dati XML, ad esempio, è possibile che non si conoscano gli stili e i tipi di geometria esatti delle funzionalità. Nell'esempio seguente viene illustrata la potenza del livello dati semplice eseguendo il rendering delle funzionalità di un file KML. Vengono inoltre illustrate varie opzioni offerte dalla classe Simple Data Layer.
+Ad esempio, durante l'analisi dei feed di dati XML, è possibile che non si conoscano gli stili e i tipi di geometria esatti delle feature. L'esempio seguente mostra la potenza del livello dati semplice eseguendo il rendering delle funzionalità di un file KML. Vengono inoltre illustrate varie opzioni fornite dalla classe del livello dati semplice.
 
 <br/>
 
-<iframe height="700" style="width: 100%;" scrolling="no" title="Opzioni del livello dati semplice" src="//codepen.io/azuremaps/embed/gOpRXgy/?height=700&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true"> Per le mappe di Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) in <a href='https://codepen.io'>CodePen</a>, vedere le <a href='https://codepen.io/azuremaps/pen/gOpRXgy/'>Opzioni relative a Simple Data Layer</a> di Pen.
+<iframe height="700" style="width: 100%;" scrolling="no" title="Opzioni semplici per il livello dati" src="//codepen.io/azuremaps/embed/gOpRXgy/?height=700&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true"> Vedere le opzioni del livello dati<a href='https://codepen.io/azuremaps'>@azuremaps</a>Pen <a href='https://codepen.io/azuremaps/pen/gOpRXgy/'>Simple</a> di Azure Maps ( ) in <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
+
+> [!NOTE]
+> Questo semplice livello dati utilizza la classe [modello popup](map-add-popup.md#add-popup-templates-to-the-map) per visualizzare le bollature KML o le proprietà delle entità geografiche come tabella. Per impostazione predefinita, tutto il contenuto di cui è stato eseguito il rendering nel popup verrà in modalità sandbox all'interno di un iframe come funzionalità di sicurezza. Tuttavia, esistono limitazioni:However, there are limitations:
+>
+> - Tutti gli script, i moduli, il blocco del puntatore e la funzionalità di navigazione superiore sono disabilitati. Quando si fa clic su si fa clic, è possibile che i collegamenti si aprano in una nuova scheda. 
+> - I browser meno recenti che `srcdoc` non supportano il parametro negli iframe saranno limitati al rendering di una piccola quantità di contenuto.
+> 
+> Se si considerano attendibili i dati caricati nei popup e potenzialmente si desidera che questi script caricati `sandboxContent` in popup siano in grado di accedere all'applicazione, è possibile disabilitarlo impostando l'opzione dei modelli popup su false. 
+
+## <a name="default-supported-style-properties"></a>Proprietà di stile supportate predefinite
+
+Come accennato in precedenza, il livello dati semplice esegue il wrapping di diversi livelli di rendering principali: bolla, simbolo, linea, poligono e poligono estruso. Vengono quindi utilizzate le espressioni per cercare proprietà di stile valide nelle singole entità geografiche.
+
+Le proprietà di stile Mappe di Azure e GitHub sono i due set principali di nomi di proprietà supportati. La maggior parte dei nomi delle proprietà delle diverse opzioni del layer delle mappe di Azure è supportata come proprietà di stile delle feature nel livello dati semplice. Sono state aggiunte espressioni ad alcune opzioni layer per supportare i nomi delle proprietà di stile comunemente utilizzati da GitHub.Expressions are been added to some layer options to support style property names that are commonly used by GitHub. Questi nomi di proprietà sono definiti dal supporto della [mappa GeoJSON](https://help.github.com/en/github/managing-files-in-a-repository/mapping-geojson-files-on-github)di GitHub e vengono utilizzati per applicare uno stile ai file GeoJSON archiviati e sottoposti a rendering all'interno della piattaforma. Tutte le proprietà di stile di GitHub sono supportate nel livello dati semplice, ad eccezione delle `marker-symbol` proprietà di stile.
+
+Se il lettore incontra una proprietà di stile meno comune, la convertirà nella proprietà di stile di Azure Maps più vicina. Inoltre, le espressioni di stile predefinite possono `getLayers` essere sostituite utilizzando la funzione del livello dati semplice e aggiornando le opzioni su uno qualsiasi dei layer.
+
+Nelle sezioni seguenti vengono fornite informazioni dettagliate sulle proprietà di stile predefinite supportate dal livello dati semplice. L'ordine del nome della proprietà supportata è anche la priorità della proprietà. Se per la stessa opzione layer sono definite due proprietà di stile, la prima nell'elenco ha una precedenza maggiore.
+
+### <a name="bubble-layer-style-properties"></a>Proprietà dello stile di livello bolla
+
+Se una feature `Point` è `MultiPoint`una o un oggetto `image` , e non dispone di una proprietà che verrebbe utilizzata come icona personalizzata per eseguire il rendering del punto come simbolo, verrà eseguito il rendering della feature con un `BubbleLayer`oggetto .
+
+| Opzione Livello | Nome/i di proprietà supportati | Valore predefinito |
+|--------------|----------------------------|---------------|
+| `color` | `color`, `marker-color` | `'#1A73AA'` |
+| `radius` | `size`<sup>1</sup> `marker-size` <sup>2</sup>, `scale`2 , <sup>1</sup> | `8` |
+| `strokeColor` | `strokeColor`, `stroke` | `'#FFFFFF'` |
+
+\[1\] `size` I `scale` valori e sono considerati valori scalari e verranno moltiplicati per`8`
+
+\[2\] Se viene `marker-size` specificata l'opzione GitHub, per il raggio verranno utilizzati i seguenti valori.
+
+| Dimensioni marcatore | Radius |
+|-------------|--------|
+| `small`     | `6`    |
+| `medium`    | `8`    |
+| `large`     | `12`   |
+
+Il rendering dei cluster viene eseguito anche utilizzando il livello a bolle. Per impostazione predefinita, il raggio `16`di un cluster è impostato su . Il colore del cluster varia a seconda del numero di punti nel cluster, come definito di seguito:
+
+| N. di punti | Colore    |
+|-------------|----------|
+| &gt;100 USD   | `red`    |
+| &gt;10 USD    | `yellow` |
+| &lt;10     | `green`  |
+
+### <a name="symbol-style-properties"></a>Proprietà dello stile dei simboli
+
+Se una feature `Point` è `MultiPoint`una o un `image` oggetto , e la feature e dispone di una proprietà che verrebbe utilizzata `SymbolLayer`come icona personalizzata per eseguire il rendering del punto come simbolo, verrà eseguito il rendering della feature con un oggetto .
+
+| Opzione Livello | Nome/i di proprietà supportati | Valore predefinito |
+|--------------|----------------------------|---------------|
+| `image` | `image` | ``none`` |
+| `size` | `size``marker-size` <sup>, 1</sup> | `1` |
+| `rotation` | `rotation` | `0` |
+| `offset` | `offset` | `[0, 0]` |
+| `anchor` | `anchor` | `'bottom'` |
+
+\[1\] Se viene `marker-size` specificata l'opzione GitHub, per l'opzione delle dimensioni delle icone verranno utilizzati i seguenti valori.
+
+| Dimensioni marcatore | Dimensioni simbolo |
+|-------------|-------------|
+| `small`     | `0.5`       |
+| `medium`    | `1`         |
+| `large`     | `2`         |
+
+Se la feature punto è `point_count_abbreviated` un cluster, il rendering della proprietà verrà eseguito come etichetta di testo. Non verrà eseguito il rendering di alcuna immagine.
+
+### <a name="line-style-properties"></a>Proprietà dello stile di linea
+
+Se la funzione `LineString` `MultiLineString`è `Polygon`, `MultiPolygon`, o , verrà `LineLayer`eseguito il rendering della funzione con un file .
+
+| Opzione Livello | Nome/i di proprietà supportati | Valore predefinito |
+|--------------|----------------------------|---------------|
+| `strokeColor` | `strokeColor`, `stroke` | `'#1E90FF'` |
+| `strokeWidth` | `strokeWidth`, `stroke-width`, `stroke-thickness` | `3` |
+| `strokeOpacity` | `strokeOpacity`, `stroke-opacity` | `1` |
+
+### <a name="polygon-style-properties"></a>Proprietà dello stile poligono
+
+Se la funzionalità `Polygon` è `MultiPolygon`a o un , e `height` la `height` funzionalità non dispone di una proprietà `PolygonLayer`o la proprietà è zero, il rendering della funzionalità verrà eseguito con un oggetto .
+
+| Opzione Livello | Nome/i di proprietà supportati | Valore predefinito |
+|--------------|----------------------------|---------------|
+| `fillColor` | `fillColor`, `fill` | `'#1E90FF'` |
+| `fillOpacity` | `fillOpacity`, '`fill-opacity` | `0.5` |
+
+### <a name="extruded-polygon-style-properties"></a>Proprietà di stile poligono estrusi
+
+Se la funzionalità `Polygon` è `MultiPolygon`un oggetto `height` o un oggetto , e dispone di `PolygonExtrusionLayer`una proprietà con un valore maggiore di 0, verrà eseguito il rendering della funzionalità con un oggetto .
+
+| Opzione Livello | Nome/i di proprietà supportati | Valore predefinito |
+|--------------|----------------------------|---------------|
+| `base` | `base` | `0` |
+| `fillColor` | `fillColor`, `fill` | `'#1E90FF'` |
+| `height` | `height` | `0` |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -177,7 +183,7 @@ Per altre informazioni sulle classi e sui metodi usati in questo articolo, veder
 Per altri esempi di codice da aggiungere alle mappe, vedere gli articoli seguenti:
 
 > [!div class="nextstepaction"]
-> [Lettura e scrittura dei dati spaziali](spatial-io-read-write-spatial-data.md)
+> [Lettura e scrittura di dati spaziali](spatial-io-read-write-spatial-data.md)
 
 > [!div class="nextstepaction"]
 > [Aggiungere un livello mappa OGC](spatial-io-add-ogc-map-layer.md)
@@ -186,7 +192,7 @@ Per altri esempi di codice da aggiungere alle mappe, vedere gli articoli seguent
 > [Connettersi a un servizio WFS](spatial-io-connect-wfs-service.md)
 
 > [!div class="nextstepaction"]
-> [Sfruttare le operazioni principali](spatial-io-core-operations.md)
+> [Sfruttare le operazioni di base](spatial-io-core-operations.md)
 
 > [!div class="nextstepaction"]
-> [Dettagli del formato dati supportati](spatial-io-supported-data-format-details.md)
+> [Dettagli sul formato dati supportati](spatial-io-supported-data-format-details.md)

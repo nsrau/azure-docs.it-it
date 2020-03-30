@@ -1,6 +1,6 @@
 ---
-title: Selezionare e distribuire il Centro sicurezza di Azure per l'agente Internet Microsoft Docs
-description: Informazioni su come selezionare e distribuire il Centro sicurezza di Azure per gli agenti di sicurezza di Internet delle cose.
+title: Selezionare e distribuire il Centro sicurezza di Azure per l'agente IoT Documenti Microsoft
+description: Informazioni su come selezionare e distribuire gli agenti di sicurezza di Azure Security Center per IoT nei dispositivi IoT.Learn about how select and deploy Azure Security Center for IoT security agents on IoT devices.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -16,79 +16,79 @@ ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
 ms.openlocfilehash: d70f2f3ec87c8673013bcf7b6f70ebcbb8d06f08
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75770017"
 ---
-# <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>Selezionare e distribuire un agente di sicurezza nel dispositivo Internet delle cose
+# <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>Selezionare e distribuire un agente di sicurezza sul dispositivo IoT
 
-Il Centro sicurezza di Azure per l'it fornisce architetture di riferimento per gli agenti di sicurezza che monitorano e raccolgono i dati dai dispositivi.
-Per altre informazioni, vedere [l'articolo relativo all'architettura di riferimento degli agenti di sicurezza](security-agent-architecture.md).
+Il Centro sicurezza di Azure per IoT offre architetture di riferimento per gli agenti di sicurezza che monitorano e raccolgono dati dai dispositivi IoT.Azure Security Center for IoT provides reference architectures for security agents that monitor and collect data from IoT devices.
+Per altre informazioni, vedere Architettura di riferimento degli [agenti di sicurezza](security-agent-architecture.md).
 
-Gli agenti vengono sviluppati come progetti open source e sono disponibili in due versioni: <br> [C](https://aka.ms/iot-security-github-c)e [C#](https://aka.ms/iot-security-github-cs).
+Gli agenti sono sviluppati come progetti open source e sono disponibili in due gusti: <br> [In C](https://aka.ms/iot-security-github-c), e [in C.](https://aka.ms/iot-security-github-cs)
 
 In questo articolo vengono illustrate le operazioni seguenti: 
 > [!div class="checklist"]
-> * Confrontare le versioni degli agenti di sicurezza
-> * Individuare le piattaforme agente supportate
-> * Scegliere la versione corretta dell'agente per la soluzione
+> * Confrontare i sapori degli agenti di sicurezza
+> * Individuazione delle piattaforme di agenti supportate
+> * Scegli il sapore dell'agente giusto per la tua soluzione
 
-## <a name="understand-security-agent-options"></a>Informazioni sulle opzioni dell'agente di sicurezza
+## <a name="understand-security-agent-options"></a>Comprendere le opzioni degli agenti di sicurezza
 
-Ogni Centro sicurezza di Azure per la versione dell'agente sicurezza di Internet offre lo stesso set di funzionalità e supporta opzioni di configurazione analoghe. 
+Ogni configurazione dell'agente di sicurezza IoT di Azure offre lo stesso set di funzionalità e supporta opzioni di configurazione simili. 
 
 L'agente di sicurezza basato su C ha un footprint di memoria inferiore ed è la scelta ideale per i dispositivi con meno risorse disponibili. 
 
-|     | Agente sicurezza basato su C | C#agente di sicurezza basato su |
+|     | Agente di sicurezza basato su C | Agente di sicurezza basato su C |
 | --- | ----------- | --------- |
-| Open Source | Disponibile con [licenza mit](https://en.wikipedia.org/wiki/MIT_License) in [GitHub](https://aka.ms/iot-security-github-cs) | Disponibile con [licenza mit](https://en.wikipedia.org/wiki/MIT_License) in [GitHub](https://aka.ms/iot-security-github-c) |
+| Open-source | Disponibile con [licenza MIT](https://en.wikipedia.org/wiki/MIT_License) in [GitHub](https://aka.ms/iot-security-github-cs) | Disponibile con [licenza MIT](https://en.wikipedia.org/wiki/MIT_License) in [GitHub](https://aka.ms/iot-security-github-c) |
 | Linguaggio di sviluppo    | C | C# |
 | Piattaforme Windows supportate? | No | Sì |
-| Prerequisiti di Windows | --- | [WMI](https://docs.microsoft.com/windows/desktop/wmisdk/) |
+| Prerequisiti di Windows | --- | [Wmi](https://docs.microsoft.com/windows/desktop/wmisdk/) |
 | Piattaforme Linux supportate? | Sì, x64 e x86 | Sì, solo x64 |
-| Prerequisiti di Linux | libunwind8, libcurl3, UUID-Runtime, auditd, audispd-plugins | libunwind8, libcurl3, UUID-Runtime, auditd, audispd-plugins, sudo, netstat, iptables |
-| Impronta disco | 10,5 MB | 90 MB |
+| Prerequisiti di Linux | libunwind8, libcurl3, uuid-runtime, auditd, audispd-plugins | libunwind8, libcurl3, uuid-runtime, auditd, audispd-plugins, sudo, netstat, iptables |
+| Ingombro del disco | 10,5 MB | 90 MB |
 | Footprint di memoria (in media) | 5,5 MB | 33 MB |
-| [Autenticazione](concept-security-agent-authentication-methods.md) nell'hub Internet | Sì | Sì |
-| [Raccolta](how-to-agent-configuration.md#supported-security-events) dati di sicurezza | Sì | Sì |
+| [Autenticazione](concept-security-agent-authentication-methods.md) all'hub IoT | Sì | Sì |
+| Raccolta dati [di sicurezza](how-to-agent-configuration.md#supported-security-events) | Sì | Sì |
 | Aggregazione di eventi | Sì | Sì |
-| Configurazione remota tramite il [modulo di sicurezza gemello](concept-security-module.md) | Sì | Sì |
+| Configurazione remota tramite [modulo di sicurezza gemello](concept-security-module.md) | Sì | Sì |
 |
 
-## <a name="security-agent-installation-guidelines"></a>Linee guida per l'installazione degli agenti di sicurezza
+## <a name="security-agent-installation-guidelines"></a>Linee guida per l'installazione dell'agente di sicurezza
 
-Per **Windows**: lo script Install SecurityAgent. ps1 deve essere eseguito da una finestra di PowerShell amministratore. 
+Per **Windows:** lo script Install SecurityAgent.ps1 deve essere eseguito da una finestra di PowerShell per amministratori. 
 
-Per **Linux**: InstallSecurityAgent.sh deve essere eseguito come superuser. È consigliabile predisporre il comando di installazione con "sudo".
+Per **Linux**: Il InstallSecurityAgent.sh deve essere eseguito come utente con privilegi avanzati. Si consiglia di anteporre "sudo" al comando di installazione.
 
 
-## <a name="choose-an-agent-flavor"></a>Scegliere una versione dell'agente 
+## <a name="choose-an-agent-flavor"></a>Scegli un sapore agente 
 
-Rispondere alle domande seguenti sui dispositivi Internet per selezionare l'agente corretto:
+Rispondere alle domande seguenti sui dispositivi IoT per selezionare l'agente corretto:
 
-- Si sta usando _Windows Server_ o _Windows Internet Core_? 
+- Stai utilizzando _Windows Server_ o Windows _IoT Core_? 
 
-    [Distribuire un C#agente di sicurezza basato su per Windows](how-to-deploy-windows-cs.md).
+    [Distribuire un agente di sicurezza basato su C, per Windows](how-to-deploy-windows-cs.md).
 
-- Si usa una distribuzione Linux con l'architettura x86? 
+- Stai usando una distribuzione Linux con architettura x86? 
 
-    [Distribuire un agente di sicurezza basato su C per Linux](how-to-deploy-linux-c.md).
+    [Distribuire un security agent basato su C per Linux.](how-to-deploy-linux-c.md)
 
-- Si usa una distribuzione Linux con l'architettura x64?
+- Stai usando una distribuzione Linux con l'architettura x64?
 
-    È possibile utilizzare entrambe le versioni di Agent. <br>
-    [Distribuire un agente di sicurezza basato su C per Linux](how-to-deploy-linux-c.md) e/o [distribuire C#un agente di sicurezza basato su per Linux](how-to-deploy-linux-cs.md).
+    Entrambi i sapori dell'agente possono essere utilizzati. <br>
+    Distribuire un agente di [sicurezza basato su C per Linux](how-to-deploy-linux-c.md) e/o Distribuire un agente di sicurezza [basato su C, per Linux.](how-to-deploy-linux-cs.md)
 
-Entrambe le versioni degli agenti offrono lo stesso set di funzionalità e supportano opzioni di configurazione simili.
-Per altre informazioni, vedere [confronto degli agenti di sicurezza](how-to-deploy-agent.md#understand-security-agent-options) .
+Entrambe le tà degli agenti offrono lo stesso set di funzionalità e supportano opzioni di configurazione simili.
+Per altre informazioni, vedere [Confronto tra agenti di sicurezza.](how-to-deploy-agent.md#understand-security-agent-options)
 
 ## <a name="supported-platforms"></a>Piattaforme supportate
 
-Nell'elenco seguente sono incluse tutte le piattaforme attualmente supportate.
+L'elenco seguente include tutte le piattaforme attualmente supportate.
 
-|Centro sicurezza di Azure per l'agente Internet |Sistema operativo |Architettura |
+|Centro sicurezza di Azure per l'agente IoTAzure Security Center for IoT agent |Sistema operativo |Architecture |
 |--------------|------------|--------------|
 |C|Ubuntu 16.04 |   x64|
 |C|Ubuntu 18.04 |   x64, ARMv7|
@@ -97,11 +97,11 @@ Nell'elenco seguente sono incluse tutte le piattaforme attualmente supportate.
 |C#|Ubuntu 18.04    |x64, ARMv7|
 |C#|Debian 9    |x64|
 |C#|Windows Server 2016|    X64|
-|C#|Windows 10 Internet core, Build 17763    |x64|
+|C#|Windows 10 IoT Core, build 17763    |x64|
 |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per ulteriori informazioni sulle opzioni di configurazione, passare alla Guida alle procedure per la configurazione degli agenti. 
+Per altre informazioni sulle opzioni di configurazione, vedere la guida alle procedure per la configurazione dell'agente. 
 > [!div class="nextstepaction"]
-> [Guida alla configurazione dell'agente](./how-to-agent-configuration.md)
+> [Configurazione dell'agente come guidare](./how-to-agent-configuration.md)

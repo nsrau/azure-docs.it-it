@@ -1,5 +1,5 @@
 ---
-title: Integrare Key Vault con una macchina virtuale di Azure SQL Server classica
+title: Integrare l'insieme di credenziali delle chiavi con una macchina virtuale di SQL Server classicaIntegrate Key Vault with a classic Azure SQL Server VM
 description: Informazioni su come automatizzare la configurazione della crittografia di SQL Server per l'uso con Azure Key Vault. Questo argomento illustra come usare l'integrazione di Azure Key Vault con le macchine virtuali di SQL Server nel modello di distribuzione classico.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
 ms.openlocfilehash: f878c6f7a59328e2f68ffbaee066bba4a5b6c898
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75978136"
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-classic"></a>Configurare l'integrazione di Azure Key Vault per SQL Server in macchine virtuali di Azure (distribuzione classica)
@@ -30,13 +30,13 @@ ms.locfileid: "75978136"
 > 
 > 
 
-## <a name="overview"></a>Overview
-Esistono più funzionalità di crittografia di SQL Server, ad esempio [Transparent Data Encryption (TDE)](https://msdn.microsoft.com/library/bb934049.aspx), [crittografia a livello di colonna (CLE)](https://msdn.microsoft.com/library/ms173744.aspx) e [crittografia di backup](https://msdn.microsoft.com/library/dn449489.aspx). Queste modalità di crittografia richiedono la gestione e l'archiviazione delle chiavi usate per la crittografia. Il servizio dell'insieme di credenziali delle chiavi di Azure (AKV) è progettato per migliorare la sicurezza e la gestione di queste chiavi in una posizione sicura e a elevata disponibilità. Il [connettore di SQL Server](https://www.microsoft.com/download/details.aspx?id=45344) consente a SQL Server di usare queste chiavi dall'insieme di credenziali delle chiavi di Azure.
+## <a name="overview"></a>Panoramica
+Esistono più funzionalità di crittografia di SQL Server, ad esempio [Transparent Data Encryption (TDE)](https://msdn.microsoft.com/library/bb934049.aspx), [crittografia a livello di colonna (CLE)](https://msdn.microsoft.com/library/ms173744.aspx) e [crittografia di backup](https://msdn.microsoft.com/library/dn449489.aspx). Queste modalità di crittografia richiedono la gestione e l'archiviazione delle chiavi usate per la crittografia. Il servizio dell'insieme di credenziali delle chiavi di Azure (AKV) è progettato per migliorare la sicurezza e la gestione di queste chiavi in una posizione sicura e a elevata disponibilità. Il [connettore SQL Server](https://www.microsoft.com/download/details.aspx?id=45344) consente a SQL Server di usare queste chiavi dall'insieme di credenziali delle chiavi di Azure.The SQL Server Connector enables SQL Server to use these keys from Azure Key Vault.
 
 > [!IMPORTANT] 
-> Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../../../azure-resource-manager/management/deployment-models.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti.
+> Azure include due diversi modelli di distribuzione per la creazione e l'utilizzo delle risorse: [Resource Manager e Classic](../../../azure-resource-manager/management/deployment-models.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti.
 
-Se si esegue SQL Server con computer locali, sono disponibili [passaggi per accedere a Azure Key Vault dal computer locale con SQL Server](https://msdn.microsoft.com/library/dn198405.aspx). Se si esegue SQL Server in macchine virtuali di Azure, è possibile risparmiare tempo usando la funzionalità di *Integrazione dell'insieme di credenziali delle chiavi di Azure* . Con alcuni cmdlet di Azure PowerShell che abilitano questa funzionalità, è possibile automatizzare la configurazione necessaria per l'accesso all'insieme di credenziali delle chiavi di una macchina virtuale di SQL.
+Se si esegue SQL Server con computer locali, è possibile eseguire alcune operazioni per accedere all'insieme di credenziali delle chiavi di Azure dal computer [SQL Server locale.](https://msdn.microsoft.com/library/dn198405.aspx) Ma per SQL Server nelle macchine virtuali di Azure, è possibile risparmiare tempo usando la funzionalità *di integrazione dell'insieme* di credenziali delle chiavi di Azure.But for SQL Server in Azure VMs, you can save time by using the Azure Key Vault Integration feature. Con alcuni cmdlet di Azure PowerShell che abilitano questa funzionalità, è possibile automatizzare la configurazione necessaria per l'accesso all'insieme di credenziali delle chiavi di una macchina virtuale di SQL.
 
 Quando questa funzionalità è abilitata, installa automaticamente il connettore di SQL Server, configura il provider EKM per accedere all'insieme di credenziali delle chiavi di Azure e crea le credenziali per consentire l'accesso all'insieme di credenziali. Se sono stati esaminati i passaggi nella documentazione locale menzionati in precedenza, si noterà che questa funzionalità consente di automatizzare i passaggi 2 e 3. L'unica attività che è comunque necessario eseguire manualmente è la creazione delle chiavi e dell'insieme di credenziali delle chiavi. Una volta completata questa operazione, l'intera installazione della macchina virtuale di SQL è automatizzata. Quando la funzionalità ha completato l'installazione, è possibile eseguire istruzioni T-SQL per iniziare la crittografia dei database o del backup regolarmente.
 
@@ -51,10 +51,10 @@ Come prima operazione, [installare l'estensione di SQL Server IaaS](../classic/s
 ### <a name="understand-the-input-parameters"></a>Comprendere i parametri di input
 La tabella seguente elenca i parametri necessari per eseguire lo script di PowerShell nella sezione successiva.
 
-| Parametro | Description | Esempio |
+| Parametro | Descrizione | Esempio |
 | --- | --- | --- |
 | **$akvURL** |**URL dell'insieme di credenziali delle chiavi** |"https:\//contosokeyvault.vault.azure.net/" |
-| **$spName** |**Nome entità servizio** |"fde2b411-33d5-4e11-af04eb07b669ccf2" |
+| **$spName** |**Nome dell'entità servizio** |"fde2b411-33d5-4e11-af04eb07b669ccf2" |
 | **$spSecret** |**Segreto entità servizio** |"9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM=" |
 | **$credName** |**Nome della credenziale**: l'integrazione di AKV crea una credenziale all'interno di SQL Server, consentendo alla macchina virtuale di avere accesso all'insieme di credenziali delle chiavi. Scegliere un nome per la credenziale. |"mycred1" |
 | **$vmName** |**Nome macchina virtuale**: il nome di una macchina virtuale di SQL creato in precedenza. |"myvmname" |

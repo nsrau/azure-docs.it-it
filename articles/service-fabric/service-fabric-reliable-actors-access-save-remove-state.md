@@ -1,19 +1,19 @@
 ---
-title: Gestire lo stato di Service Fabric di Azure
-description: Informazioni su come accedere, salvare e rimuovere lo stato di un Reliable Actor di Azure Service Fabric e considerazioni sulla progettazione di un'applicazione.
+title: Gestire lo stato di Azure Service FabricManage Azure Service Fabric state
+description: Informazioni sull'accesso, il salvataggio e la rimozione dello stato per un attore affidabile di Azure Service Fabric e considerazioni sulla progettazione di un'applicazione.
 author: vturecek
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: vturecek
 ms.openlocfilehash: 788c337a37ec66c5aa1521c5cd9f2816ed7a8bf9
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75645634"
 ---
 # <a name="access-save-and-remove-reliable-actors-state"></a>Accedere, salvare e rimuovere lo stato di Reliable Actors
-I [Reliable Actors](service-fabric-reliable-actors-introduction.md) sono oggetti a thread singolo che possono incapsulare sia la logica che lo stato e mantenere lo stato in modo affidabile. Ogni istanza dell'attore ha un proprio [gestore di stato](service-fabric-reliable-actors-state-management.md): una struttura di dati simile a un dizionario che archivia in modo affidabile le coppie chiave-valore. Il gestore di stato è un wrapper per il provider di stato. Può essere usato per archiviare i dati indipendentemente dall'[impostazione di persistenza](service-fabric-reliable-actors-state-management.md#state-persistence-and-replication) usata.
+I [Reliable Actors](service-fabric-reliable-actors-introduction.md) sono oggetti a thread singolo che possono incapsulare sia la logica che lo stato e mantenere lo stato in modo affidabile. Ogni istanza attore ha un proprio gestore di [stato:](service-fabric-reliable-actors-state-management.md)una struttura di dati simile a un dizionario che archivia in modo affidabile coppie chiave/valore. Il gestore di stato è un wrapper per il provider di stato. È possibile utilizzarlo per archiviare i dati indipendentemente [dall'impostazione](service-fabric-reliable-actors-state-management.md#state-persistence-and-replication) di persistenza utilizzata.
 
 Le chiavi di gestione dello stato devono essere stringhe. I valori sono di tipo generico e possono essere di qualsiasi tipo, inclusi i tipi personalizzati. I valori archiviati nel gestore di stato devono essere serializzabili in base al contratto dati perché possono essere trasmessi in rete ad altri nodi durante la replica e possono essere scritti su disco, a seconda dell'impostazione di persistenza dello stato di un attore.
 
@@ -239,7 +239,7 @@ interface MyActor {
 ```
 
 ## <a name="remove-state"></a>Rimuovere lo stato
-Lo stato può essere rimosso in modo permanente dal gestore di statodi un attore chiamando il metodo *Remove*. Questo metodo genera l'eccezione `KeyNotFoundException` (C#) o `NoSuchElementException`(Java) se si tenta di rimuovere una chiave che non esiste.
+Lo stato può essere rimosso in modo permanente dal gestore di statodi un attore chiamando il metodo Remove. Questo metodo genera l'eccezione `KeyNotFoundException` (C#) o `NoSuchElementException`(Java) se si tenta di rimuovere una chiave che non esiste.
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]

@@ -1,22 +1,22 @@
 ---
 title: "Guida introduttiva: configurare l'isolamento del carico di lavoro - T-SQL"
 description: Usare T-SQL per configurare l'isolamento del carico di lavoro.
-services: sql-data-warehouse
+services: synapse-analytics
 author: ronortloff
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: quickstart
-ms.subservice: workload-management
+ms.subservice: ''
 ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 29f380c468eef27fa7bc00930b5005c8d0b0bf16
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 555d437fb0ee898473b37febb1774924b55bfa1d
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80124454"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80350839"
 ---
 # <a name="quickstart-configure-workload-isolation-using-t-sql"></a>Guida introduttiva: configurare l'isolamento del carico di lavoro tramite T-SQL
 

@@ -1,5 +1,5 @@
 ---
-title: Nascondere un'applicazione dall'esperienza dell'utente in Azure AD
+title: Nascondere un'applicazione dall'esperienza dell'utente in Azure ADHide an application from user's experience in Azure AD
 description: Nascondere un'applicazione dall'esperienza utente nei pannelli di accesso di Azure Active Directory o nelle schermate di avvio di Office 365.
 services: active-directory
 author: msmimart
@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/26/2019
+ms.date: 03/25/2020
 ms.author: mimart
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be29f51771e24c67a8cd99a81e6a69be830dacb8
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 5718adf4fd76e2fbd0ff793dd2fa33ee08f7c0fe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74970636"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80295042"
 ---
 # <a name="hide-applications-from-end-users-in-azure-active-directory"></a>Nascondere le applicazioni per gli utenti finali in Azure Active Directory
 
@@ -40,11 +40,11 @@ Seguire questa procedura per nascondere un'applicazione nel pannello App persona
 5.  Cercare l'applicazione che si desidera nascondere e fare clic su di essa.  Viene visualizzata la panoramica dell'applicazione.
 6.  Fare clic su **Proprietà**. 
 7.  Nel campo **Visibile agli utenti?** fare clic su **No**.
-8.  Fare clic su **Salva**
+8.  Fare clic su **Salva**.
 
-## <a name="use-azure-ad-powershell-to-hide-an-application"></a>Usare Azure AD PowerShell per nascondere un'applicazione
+## <a name="use-azure-ad-powershell-to-hide-an-application"></a>Usare Azure AD PowerShell per nascondere un'applicazioneUse Azure AD PowerShell to hide an application
 
-Per nascondere un'applicazione dal pannello app, è possibile aggiungere manualmente il tag HideApp all'entità servizio per l'applicazione. Eseguire i seguenti comandi di [PowerShell per AzureAD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#service_principals) per impostare la proprietà Visible dell'applicazione **per gli utenti?** su **No**. 
+Per nascondere un'applicazione dal pannello MyApps, è possibile aggiungere manualmente il tag HideApp all'entità servizio per l'applicazione. Eseguire i comandi [di AzureAD PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#service_principals) seguenti per impostare la proprietà **Visibile a Utenti dell'applicazione su** **No**. 
 
 ```PowerShell
 Connect-AzureAD
@@ -52,7 +52,7 @@ Connect-AzureAD
 $objectId = "<objectId>"
 $servicePrincipal = Get-AzureADServicePrincipal -ObjectId $objectId
 $tags = $servicePrincipal.tags
-$tags.Add("HideApp")
+$tags += "HideApp"
 Set-AzureADServicePrincipal -ObjectId $objectId -Tags $tags
 ```
 
@@ -65,7 +65,7 @@ Seguire questa procedura per nascondere tutte le applicazioni di Office 365 dal 
 3.  Selezionare **Impostazioni utente**.
 4.  In **Applicazioni aziendali** fare clic su **Gestire il modo in cui gli utenti finali avviano e visualizzano le applicazioni**.
 5.  In **Gli utenti possono visualizzare le app di Office 365 solo nel portale di Office 365** fare clic su **Sì**.
-6.  Fare clic su **Salva**
+6.  Fare clic su **Salva**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Visualizzare tutti i gruppi personali](../fundamentals/active-directory-groups-view-azure-portal.md)

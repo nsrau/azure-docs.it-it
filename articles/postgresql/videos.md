@@ -7,15 +7,15 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/28/2018
 ms.openlocfilehash: de4194671f09bde65bee0a1d0d86ffacdcedfbf3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61091608"
 ---
 # <a name="azure-database-for-postgresql-videos"></a>Video su Database di Azure per PostgreSQL
 
-[Panoramica: Azure Database for PostgreSQL and MySQL](https://channel9.msdn.com/Events/Connect/2017/T147) (Panoramica: Database di Azure per PostgreSQL e MySQL)
+[Overview: Azure Database for PostgreSQL and MySQL](https://channel9.msdn.com/Events/Connect/2017/T147) (Panoramica: Database di Azure per PostgreSQL e Database di Azure per MySQL)
 
 >[!VIDEO https://channel9.msdn.com/Events/Connect/2017/T147/player]
 

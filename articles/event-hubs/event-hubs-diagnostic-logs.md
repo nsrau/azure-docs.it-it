@@ -17,18 +17,18 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: 68aa62ad34f8db531d439a581ef024862da0f90c
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77162311"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Configurare i log di diagnostica per un hub eventi di Azure
 
 È possibile visualizzare due tipi di log per Hub eventi di Azure:
 
-* **[Log attività](../azure-monitor/platform/platform-logs-overview.md)** : questi log contengono informazioni sulle operazioni eseguite in un processo. I log sono sempre attivati.
-* **[Log di diagnostica](../azure-monitor/platform/platform-logs-overview.md)** : è possibile configurare i log di diagnostica per una visualizzazione più completa di tutto ciò che accade in un processo. I log di diagnostica coprono le attività che si verificano dal momento della creazione del processo fino alla sua eliminazione, inclusi gli aggiornamenti e le attività che si verificano durante l'esecuzione del processo.
+* **[Log attività](../azure-monitor/platform/platform-logs-overview.md)**: questi log contengono informazioni sulle operazioni eseguite in un processo. I log sono sempre attivati.
+* **[Log di diagnostica](../azure-monitor/platform/platform-logs-overview.md)**: è possibile configurare i log di diagnostica per una visualizzazione più completa di tutto ciò che accade in un processo. I log di diagnostica coprono le attività che si verificano dal momento della creazione del processo fino alla sua eliminazione, inclusi gli aggiornamenti e le attività che si verificano durante l'esecuzione del processo.
 
 ## <a name="enable-diagnostic-logs"></a>Abilitare i log di diagnostica
 
@@ -48,7 +48,7 @@ I log di diagnostica sono disabilitati per impostazione predefinita. Per abilita
 
     ![Modifica dello lo stato dei log di diagnostica](./media/event-hubs-diagnostic-logs/image3.png)
 
-5.  Impostare la destinazione dell'archivio desiderata; ad esempio, un account di archiviazione, un hub eventi o i log di monitoraggio di Azure.
+5.  Impostare la destinazione di archiviazione desiderata; ad esempio, un account di archiviazione, un hub eventi o log di Monitoraggio di Azure.for example, a storage account, an event hub, or Azure Monitor logs.
 
 6.  Salvare le nuove impostazioni di diagnostica.
 
@@ -140,9 +140,9 @@ Example:
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Introduzione a Hub eventi](event-hubs-what-is-event-hubs.md)
-- [Panoramica dell'API di Hub eventi](event-hubs-api-overview.md)
+- [Panoramica dell'API Hub eventi](event-hubs-api-overview.md)
 - Introduzione all'Hub eventi
     - [.NET Core](get-started-dotnet-standard-send-v2.md)
     - [Java](get-started-java-send-v2.md)
     - [Python](get-started-python-send-v2.md)
-    - [JavaScript](get-started-java-send-v2.md)
+    - [Javascript](get-started-java-send-v2.md)

@@ -3,12 +3,12 @@ title: Matrice di supporto per il backup di macchine virtuali di Azure
 description: Informazioni riepilogative su impostazioni e limitazioni del supporto durante il backup di macchine virtuali di Azure con il servizio Backup di Azure.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: c30a1d1b30fcc7a12449b44d35704b3b43daa385
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d86ce94c62ec9f25b364e9fdc963e3043b274722
+ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79247904"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80389291"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matrice di supporto per il backup di macchine virtuali di Azure
 
@@ -115,7 +115,6 @@ Punti di ripristino su disco DPM/MABS | 64 per i file server e 448 per i server 
 **Ripristina** | **Supportato**
 --- | ---
 Ripristino dei file nei sistemi operativi | È possibile ripristinare i file in qualsiasi computer che abbia un sistema operativo uguale (o compatibile) a quello della macchina virtuale sottoposta a backup. Vedere la [tabella Sistema operativo compatibile](backup-azure-restore-files-from-vm.md#system-requirements).
-Ripristino dei file nelle macchine virtuali classiche | Non supportato.
 Ripristino dei file da macchine virtuali crittografate | Non supportato.
 Ripristino dei file da account di archiviazione con limitazioni di rete | Non supportato.
 Ripristino dei file nelle macchine virtuali con spazi di archiviazione di Windows | Il ripristino nella stessa macchina virtuale non è supportato.<br/><br/> Ripristinare invece i file in una macchina virtuale compatibile.

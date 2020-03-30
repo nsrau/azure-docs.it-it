@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/11/2016
 ms.author: alkohli
 ms.openlocfilehash: dbab2aaab2c12bef07748f54e5864d042f1c982a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60302500"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-jobs-for-the-storsimple-virtual-array"></a>Usare il servizio Gestione dispositivi StorSimple per visualizzare i processi per l'array virtuale StorSimple
@@ -51,7 +51,7 @@ Eseguire la procedura seguente per visualizzare i dettagli di qualsiasi processo
 2. Selezionare un processo nell'elenco tabulare dei processi.
    
     ![Pannello Processi](./media/storsimple-virtual-array-manage-jobs/ova-jobs-blade.png)
-3. Nella parte inferiore della pagina, fare clic su **Dettagli**.
+3. Nella parte inferiore della pagina fare clic su **Dettagli**.
 4. Nella finestra di dialogo **Dettagli** è possibile visualizzare statistiche temporali, sullo stato e sui dettagli. La figura seguente mostra un esempio della finestra di dialogo relativa ai **dettagli del processo di backup** :
    
     ![Dettagli del processo](./media/storsimple-virtual-array-manage-jobs/ova-jobs-details.png)
@@ -59,10 +59,10 @@ Eseguire la procedura seguente per visualizzare i dettagli di qualsiasi processo
 #### <a name="job-failures-when-the-virtual-machine-is-paused-in-the-hypervisor"></a>Errori di processo quando la macchina virtuale viene sospesa nell'hypervisor
 Se nell'array virtuale StorSimple è in corso un processo e il dispositivo (macchina virtuale con provisioning in hypervisor) viene sospeso per più di 15 minuti, il processo ha esito negativo. Ciò è dovuto al fatto che l'ora dell'array virtuale StorSimple non è più sincronizzata con l'ora di Microsoft Azure. 
 
-Verrà visualizzato l'errore seguente: "L'ora del dispositivo è sincronizzato con l'ora di Microsoft Azure da più di 15 minuti. Verificare che l'hypervisor e l'ora dei dispositivi siano sincronizzati con un server NTP. Assicurarsi che non vi siano problemi di connettività. Per risolvere i problemi di connettività, eseguire i test diagnostici dall'interfaccia utente Web locale del dispositivo virtuale.
+Verrà visualizzato un errore indicante che l'ora del dispositivo non è sincronizzata con l'ora di Microsoft Azure per un valore superiore a 15 minuti. Verificare che l'hypervisor e l'ora dei dispositivi siano sincronizzati con un server NTP. Assicurarsi che non vi siano problemi di connettività. Per risolvere i problemi di connettività, eseguire i test diagnostici dall'interfaccia utente Web locale del dispositivo virtuale.
 
 Questi errori possono verificarsi con processi di backup, ripristino, aggiornamento e failover. Se il provisioning della macchina virtuale viene eseguito in Hyper-V, l'ora della macchina virtuale alla fine si sincronizza con l'hypervisor. Quando ciò accade, è possibile riavviare il processo.
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Informazioni su come usare l'interfaccia utente Web locale per amministrare l'array virtuale StorSimple](storsimple-ova-web-ui-admin.md).
+[Informazioni su come utilizzare l'interfaccia utente Web locale per amministrare StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 

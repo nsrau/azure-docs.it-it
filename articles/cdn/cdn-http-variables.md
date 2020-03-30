@@ -15,30 +15,30 @@ ms.topic: article
 ms.date: 05/09/2018
 ms.author: magattus
 ms.openlocfilehash: 53ad0c516547e17801bd57c2fd6b0d1704383797
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67593824"
 ---
 # <a name="http-variables-for-azure-cdn-rules-engine"></a>Variabili HTTP per il motore regole della rete CDN di Azure
 Le variabili HTTP forniscono gli strumenti per recuperare i metadati di richiesta e di risposta HTTP. Questi metadati possono essere quindi usati per modificare in modo dinamico una richiesta o una risposta. L'uso di variabili HTTP è limitato alle funzionalità del motore regole seguenti:
 
-- [Cache-Key Rewrite](cdn-verizon-premium-rules-engine-reference-features.md#cache-key-rewrite) (Riscrittura chiave cache)
-- [Modify Client Request Header](cdn-verizon-premium-rules-engine-reference-features.md#modify-client-request-header) (Modifica intestazione richiesta client)
-- [Modify Client Response Header](cdn-verizon-premium-rules-engine-reference-features.md#modify-client-response-header) (Modifica intestazione risposta client)
-- [URL Redirect](cdn-verizon-premium-rules-engine-reference-features.md#url-redirect) (Reindirizzamento URL)
-- [URL Rewrite](cdn-verizon-premium-rules-engine-reference-features.md#url-rewrite) (Riscrittura URL)
+- [Riscrittura chiave cache](cdn-verizon-premium-rules-engine-reference-features.md#cache-key-rewrite)
+- [Modifica intestazione richiesta client](cdn-verizon-premium-rules-engine-reference-features.md#modify-client-request-header)
+- [Modificare intestazione risposta client](cdn-verizon-premium-rules-engine-reference-features.md#modify-client-response-header)
+- [Reindirizzamento URL](cdn-verizon-premium-rules-engine-reference-features.md#url-redirect)
+- [Riscrittura URL](cdn-verizon-premium-rules-engine-reference-features.md#url-rewrite)
 
 ## <a name="definitions"></a>Definizioni
 La tabella seguente descrive le variabili HTTP supportate. Quando i metadati di tipo GEO (ad esempio, il codice postale) non sono disponibili per una particolare richiesta, viene restituito un valore vuoto.
 
 
-| Name | Variabile | Descrizione | Valore di esempio |
+| Nome | Variabile | Descrizione | Valore di esempio |
 | ---- | -------- | ----------- | ------------ |
 | ASN (Requester) (ASN (richiedente)) | %{geo_asnum} | Indica il numero AS del richiedente. <br /><br />**Deprecata:** %{virt_dst_asnum}. <br />Questa variabile è stata deprecata a favore di %{geo_asnum}. Anche se una regola che usa questa variabile deprecata continuerà a funzionare, è necessario aggiornarla in modo da usare la nuova variabile. | AS15133 |
 | City (Requester) (Città (richiedente)) | %{geo_city} | Indica la città del richiedente. | Los Angeles |
-| Continent (Requester) (Continente (richiedente)) | %{geo_continent} | Indica il continente del richiedente tramite la relativa abbreviazione. <br />I valori validi sono: <br />AF Africa<br />AS: Asia<br />UE Europa<br />NA America del Nord<br />OC Oceania<br />SA America del Sud<br /><br />**Deprecata:** %{virt_dst_continent}. <br />Questa variabile è stata deprecata a favore di% {geo_continent}. <br />Anche se una regola che usa questa variabile deprecata continuerà a funzionare, è necessario aggiornarla in modo da usare la nuova variabile.| N/D |
+| Continent (Requester) (Continente (richiedente)) | %{geo_continent} | Indica il continente del richiedente tramite la relativa abbreviazione. <br />I valori validi sono: <br />AF: Africa<br />AS: Asia<br />EU: Europa<br />NA: America del Nord<br />OC: Oceania<br />SA: America del Sud<br /><br />**Deprecata:** %{virt_dst_continent}. <br />Questa variabile è stata deprecata a favore di %{geo_continent}. <br />Anche se una regola che usa questa variabile deprecata continuerà a funzionare, è necessario aggiornarla in modo da usare la nuova variabile.| N/D |
 | Cookie Value (Valore cookie) | %{cookie_Cookie} | Restituisce il valore corrispondente alla chiave del cookie identificata dal termine Cookie. | Esempio di utilizzo: <br />%{cookie__utma}<br /><br />Valore di esempio:<br />111662281.2.10.1222100123 |
 | Country (Requester) (Paese (richiedente)) | %{geo_country} | Indica il paese di origine del richiedente tramite il relativo codice paese. <br />**Deprecata:** %{virt_dst_country}. <br /><br />Questa variabile è stata deprecata a favore di %{geo_country}. Anche se una regola che usa questa variabile deprecata continuerà a funzionare, è necessario aggiornarla in modo da usare la nuova variabile. | Stati Uniti |
 | Designated Market Area (Requester) (Area di mercato designata (richiedente)) | %{geo_dma_code} |Indica il mercato del richiedente tramite il relativo codice area geografica. <br /><br />Questo campo è applicabile solo alle richieste provenienti dagli Stati Uniti.| 745 |
@@ -50,22 +50,22 @@ La tabella seguente descrive le variabili HTTP supportate. Quando i metadati di 
 | Metropolitan Statistical Area (Requester) (Area statistica metropolitana (richiedente)) | %{geo_metro_code} | Indica l'area metropolitana del richiedente. <br /><br />Questo campo è applicabile solo alle richieste provenienti dagli Stati Uniti.<br />| 745 |
 | Port (Requester) (Porta (richiedente)) | %{virt_dst_port} | Indica la porta temporanea del richiedente. | 55885 |
 | Postal Code (Requester) (Codice postale (richiedente)) | %{geo_postal_code} | Indica il codice postale del richiedente. | 90210 |
-| Query String Found (Stringa di query trovata) | %{is_args} | Il valore per questa variabile varia a seconda se la richiesta contiene una stringa di query.<br /><br />- Stringa di query trovata: ?<br />-Nessuna stringa di query: NULL | ? |
-| Query String Parameter Found (Parametro di stringa di query trovato) | %{is_amp} | Il valore per questa variabile varia a seconda se la richiesta contiene almeno un parametro di stringa di query.<br /><br />- Parametro trovato: &<br />-Nessun parametro: NULL | & |
+| Query String Found (Stringa di query trovata) | %{is_args} | Il valore per questa variabile varia a seconda se la richiesta contiene una stringa di query.<br /><br />- Stringa di query trovata: ?<br />- Nessuna stringa di query: NULL | ? |
+| Query String Parameter Found (Parametro di stringa di query trovato) | %{is_amp} | Il valore per questa variabile varia a seconda se la richiesta contiene almeno un parametro di stringa di query.<br /><br />- Parametro trovato: &<br />- Nessun parametro: NULL | & |
 | Query String Parameter Value (Valore del parametro di stringa di query) | %{arg_&lt;parametro&gt;} | Restituisce il valore corrispondente al parametro di stringa di query identificato dal termine &lt;parametro&gt;. | Esempio di utilizzo: <br />%{arg_language}<br /><br />Parametro di stringa della query di esempio: <br />?language=en<br /><br />Valore di esempio: en |
 | Query String Value (Valore di stringa di query) | %{query_string} | Indica il valore di stringa dell'intera query definito nell'URL della richiesta. |key1=val1&key2=val2&key3=val3 |
-| Referrer Domain (Dominio referrer) | %{referring_domain} | Indica il dominio definito nell'intestazione della richiesta del referrer. | <www.google.com> |
+| Referrer Domain (Dominio referrer) | %{referring_domain} | Indica il dominio definito nell'intestazione della richiesta Referrer. | <www.google.com <> < |
 | Region (Requester) (Regione (richiedente)) | %{geo_region} | Indica la regione del richiedente (ad esempio, stato o provincia) tramite la relativa abbreviazione alfanumerica. | CA |
 | Request Header Value (Valore intestazione della richiesta) | %{http_RequestHeader} | Restituisce il valore corrispondente all'intestazione della richiesta identificata dal termine RequestHeader. <br /><br />Se il nome dell'intestazione della richiesta contiene un trattino (ad esempio, User-Agent), sostituirlo con un carattere di sottolineatura (ad esempio, User_Agent).| Esempio di utilizzo: %{http_Connection}<br /><br />Valore di esempio: Keep-Alive | 
-| Request Host (Host richiesta) | %{host} | Indica l'host definito nell'URL della richiesta. | <www.mydomain.com> |
+| Request Host (Host richiesta) | %{host} | Indica l'host definito nell'URL della richiesta. | > <www.mydomain.com |
 | Request Protocol (Protocollo richiesta) | %{request_protocol} | Indica il protocollo della richiesta. | HTTP/1.1 |
 | Schema richiesta | %{scheme} | Indica lo schema della richiesta. |http |
 | Request URI (Relative) (URI della richiesta (relativo)) | %{request_uri} | Indica il percorso relativo, compresa la stringa di query, definito nell'URI della richiesta. | /marketing/foo.js?loggedin=true |
-| Request URI (Relative without query string) (URI della richiesta (relativo senza stringa di query)) | %{uri} | Indica il percorso relativo del contenuto richiesto. <br /><br/>Informazioni chiave:<br />- Questo percorso relativo esclude la stringa di query.<br />- Questo percorso relativo riflette le riscritture URL. Un URL verrà riscritto nelle condizioni seguenti:<br />  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-Funzionalità di riscrittura URL: Questa funzionalità consente di riscrivere il percorso relativo definito nell'URI della richiesta.<br />    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-URL CNAME perimetrale: Questo tipo di richiesta viene riscritto nell'URL della rete CDN corrispondente. |/800001/corigin/rewrittendir/foo.js |
-| URI della richiesta | %{request} | Descrive la richiesta. <br />Sintassi: &lt;Protocollo http&gt; del percorso&gt; &lt; relativodelmetodo&lt;http&gt; | GET /marketing/foo.js?loggedin=true HTTP/1.1 |
+| Request URI (Relative without query string) (URI della richiesta (relativo senza stringa di query)) | %{uri} | Indica il percorso relativo del contenuto richiesto. <br /><br/>Informazioni chiave:<br />- Questo percorso relativo esclude la stringa di query.<br />- Questo percorso relativo riflette le riscritture URL. Un URL verrà riscritto nelle condizioni seguenti:<br />  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Funzionalità di riscrittura URL: questa funzionalità riscrive il percorso relativo definito nell'URI della richiesta.<br />    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- URL CNAME perimetrale: questo tipo di richiesta viene riscritto nell'URL della rete CDN corrispondente. |/800001/corigin/rewrittendir/foo.js |
+| URI della richiesta | %{request} | Descrive la richiesta. <br />Sintassi: &lt;&gt; &lt;percorso&gt; &lt;relativo del metodo HTTP&gt; | GET /marketing/foo.js?loggedin=true HTTP/1.1 |
 | Response Header Value (Valore dell'intestazione di risposta) | %{resp_&lt;ResponseHeader&gt;} | Restituisce il valore corrispondente all'intestazione della risposta identificata dal termine &lt;ResponseHeader&gt;. <br /><br />Se il nome dell'intestazione della risposta contiene un trattino (ad esempio, User-Agent), sostituirlo con un carattere di sottolineatura (ad esempio, User_Agent). | Esempio di utilizzo: %{resp_Content_Length}<br /><br />Valore di esempio: 100 |
 
-## <a name="usage"></a>Utilizzo
+## <a name="usage"></a>Uso
 La tabella seguente descrive la sintassi corretta per specificare una variabile HTTP.
 
 
@@ -82,17 +82,17 @@ I nomi delle variabili HTTP supportano solo caratteri alfabetici e caratteri di 
 
 - Trasformare il valore associato alla variabile.
 
-     Esempio: Convertire l'intero valore in caratteri minuscoli.
+     Esempio: convertire l'intero valore in caratteri minuscoli.
 
 - Eliminare il valore associato alla variabile.
 
 - Modificare il valore associato alla variabile.
 
-     Esempio: Usare espressioni regolari per modificare il valore associato alla variabile HTTP.
+     Esempio: usare espressioni regolari per modificare il valore associato alla variabile HTTP.
 
 I delimitatori sono descritti nella tabella seguente.
 
-| Delimitatore | DESCRIZIONE |
+| Delimitatore | Descrizione |
 | --------- | ----------- |
 | := | Indica che un valore predefinito verrà assegnato alla variabile quando è: <br />- mancante <br />- impostata su NULL. |
 | :+ | Indica che un valore predefinito verrà assegnato alla variabile quando a quest'ultima è stato assegnato un valore. |
@@ -113,8 +113,8 @@ La tabella seguente descrive le circostanze in cui il testo specificato non è c
 | Condizione | Descrizione | Esempio |
 | --------- | ----------- | --------|
 | Simbolo % con escape | Il simbolo di percentuale può essere preceduto da un carattere di escape usando una barra rovesciata. <br />Il valore di esempio a destra verrà considerato un valore letterale e non una variabile HTTP.| \%{host} |
-| Variabili sconosciute | Per le variabili sconosciute viene sempre restituita una stringa vuota. | %{unknown_variable} |
-| Caratteri o sintassi non valida | Le variabili che contengono caratteri o sintassi non valida vengono trattate come valori letterali. <br /><br />#1 di esempio: Il valore specificato contiene un carattere non valido (ad esempio,-). <br /><br />#2 di esempio: Il valore specificato contiene un doppio set di parentesi graffe. <br /><br />#3 di esempio: Nel valore specificato manca una parentesi graffa chiusa.<br /> | Esempio 1: %{resp_user-agent} <br /><br />Esempio 2: %{{host}} <br /><br />Esempio 3: %{host |
+| Variabili sconosciute | Per le variabili sconosciute viene sempre restituita una stringa vuota. | % : unknown_variable) |
+| Caratteri o sintassi non valida | Le variabili che contengono caratteri o sintassi non valida vengono trattate come valori letterali. <br /><br />Esempio 1: il valore specificato contiene un carattere non valido (ad esempio -). <br /><br />Esempio 2: il valore specificato contiene un doppio set di parentesi graffe. <br /><br />Esempio 3: nel valore specificato manca una parentesi graffa di chiusura.<br /> | Esempio 1: %{resp_user-agent} <br /><br />Esempio 2: %{{host}} <br /><br />Esempio 3: %{host |
 | Nome variabile mancante | Quando una variabile non è specificata, viene sempre restituito un valore NULL. | %{} |
 | Caratteri finali | I caratteri di chiusura di una variabile vengono considerati valori letterali. <br />Il valore di esempio a destra contiene una parentesi graffa di chiusura che verrà considerata un valore letterale. | %{host}} |
 
@@ -125,11 +125,11 @@ Un valore predefinito può essere assegnato a un'intestazione quando risponde a 
 
 La tabella seguente descrive come definire un valore predefinito.
 
-| Condizione | Sintassi | Esempio | DESCRIZIONE |
+| Condizione | Sintassi | Esempio | Descrizione |
 | --------- | ------ | --------| ----------- |
-| Impostare un'intestazione su un valore predefinito quando risponde a una delle condizioni seguenti: <br /><br />- Intestazione mancante <br /><br />- Valore dell'intestazione impostato su NULL.| %{Variable:=Value} | %{http_referrer:=unspecified} | L'intestazione del referrer verrà impostata su Unspecified solo se manca o è impostata su null. Non verrà eseguita alcuna azione se è stata impostata. |
-| Impostare un'intestazione su un valore predefinito quando è mancante. | %{Variable=Value} | %{http_referrer=unspecified} | L'intestazione del referrer verrà impostata su Unspecified solo se è mancante. Non verrà eseguita alcuna azione se è stata impostata. |
-| Impostare l'intestazione su un valore predefinito quando non risponde a una delle condizioni seguenti: <br /><br />- mancante<br /><br /> - impostata su NULL. | %{Variable:+Value} | %{http_referrer:+unspecified} | L'intestazione del referrer verrà impostata su Unspecified solo quando è stato assegnato un valore. Non verrà eseguita alcuna azione se è mancante o impostata su NULL. |
+| Impostare un'intestazione su un valore predefinito quando risponde a una delle condizioni seguenti: <br /><br />- Intestazione mancante <br /><br />- Valore dell'intestazione impostato su NULL.| %{Variable:=Value} | %http_referrer: non specificato | L'intestazione Referrer verrà impostata su *non specificato* solo quando manca o è impostata su NULL. Non verrà eseguita alcuna azione se è stata impostata. |
+| Impostare un'intestazione su un valore predefinito quando è mancante. | %{Variable=Value} | %&http_referrer'non specificato | L'intestazione Referrer verrà impostata su *non specificato* solo quando manca. Non verrà eseguita alcuna azione se è stata impostata. |
+| Impostare l'intestazione su un valore predefinito quando non risponde a una delle condizioni seguenti: <br /><br />- mancante<br /><br /> - impostata su NULL. | %{Variable:+Value} | %http_referrer: non specificato. | L'intestazione Referrer verrà impostata su *non specificato* solo quando è stato assegnato un valore. Non verrà eseguita alcuna azione se è mancante o impostata su NULL. |
 
 ## <a name="manipulating-variables"></a>Modifica delle variabili
 Le variabili possono essere modificate nei modi seguenti:
@@ -146,15 +146,15 @@ Informazioni chiave:
 
 - Il valore assegnato al termine Offset determina il carattere iniziale della sottostringa:
 
-     - Positivo Il carattere iniziale della sottostringa viene calcolato a partire dal primo carattere della stringa.
-     - Zero Il carattere iniziale della sottostringa è il primo carattere della stringa.
-     - Negativo: Il carattere iniziale della sottostringa viene calcolato a partire dall'ultimo carattere nella stringa.
+     - Positivo: il carattere iniziale della sottostringa viene calcolato dal primo carattere nella stringa.
+     - Zero: il carattere iniziale della sottostringa è il primo carattere nella stringa.
+     - Negativo: il carattere iniziale della sottostringa viene calcolato dall'ultimo carattere nella stringa.
 
 - La lunghezza della sottostringa è determinata dal termine *Length*:
 
-     - Omesso Se si omette il termine length, la sottostringa può includere tutti i caratteri tra il carattere iniziale e la fine della stringa.
-     - Positivo Determina la lunghezza della sottostringa dal carattere iniziale a destra.
-     - Negativo: Determina la lunghezza della sottostringa dal carattere iniziale a sinistra.
+     - Omesso: l'omissione del termine Length consente alla sottostringa di includere tutti i caratteri tra il carattere iniziale e la fine della stringa.
+     - Positivo: determina la lunghezza della sottostringa dal carattere iniziale verso destra.
+     - Negativo: determina la lunghezza della sottostringa dal carattere iniziale verso sinistra.
 
 #### <a name="example"></a>Esempio:
 
@@ -227,13 +227,13 @@ Informazioni chiave:
     Nell'esempio precedente il nome host viene riscritto in `cdn.$2.$3:80` (ad esempio, cdn.mydomain.com:80).
 
 - L'opzione maiuscole/minuscole del segnaposto di un criterio (ad esempio, $1) può essere modificata tramite i flag seguenti:
-     - U In maiuscolo il valore espanso.
+     - U: scrivere in lettere maiuscole il valore espanso.
 
          Sintassi di esempio:
 
          `%{host/=^www\.([^\.]+)\.([^\.:]+)/cdn.$U2.$3:80}`
 
-     - L: Minuscolo il valore espanso.
+     - L: scrivere in lettere minuscole il valore espanso.
 
          Sintassi di esempio:
 
@@ -241,9 +241,9 @@ Informazioni chiave:
 
 - È necessario specificare un operatore prima del criterio. L'operatore specificato determina il comportamento di acquisizione del criterio:
 
-     - `=`: Indica che tutte le occorrenze del modello specificato devono essere acquisite e riscritte.
-     - `^`: Indica che verrà acquisito solo il testo che inizia con il criterio specificato.
-     - `$`: Indica che verrà acquisito solo il testo che termina con il criterio specificato.
+     - `=`: indica che tutte le occorrenze del criterio specificato devono essere acquisite e riscritte.
+     - `^`: indica che verrà acquisito solo il testo che inizia con il criterio specificato.
+     - `$`: indica che verrà acquisito solo il testo che termina con il criterio specificato.
  
 - Se si omette il valore */Rewrite*, il testo corrispondente al criterio viene eliminato.
 

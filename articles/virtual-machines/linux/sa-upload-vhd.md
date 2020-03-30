@@ -1,5 +1,5 @@
 ---
-title: Caricare un disco Linux personalizzato con l'interfaccia della riga di comando di Azure
+title: Caricare un disco Linux personalizzato con l'interfaccia della riga di comando di AzureUpload a custom Linux disk with Azure CLI
 description: Creare e caricare un disco rigido virtuale in Azure usando il modello di distribuzione di Resource Manager e l'interfaccia della riga di comando di Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
-ms.openlocfilehash: 378b802602576c4cf50862149f5d31d16d721be0
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: bc90a409dd2695ce16f8c7d5909f8e2d7867673c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77115848"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80060249"
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli"></a>Caricare e creare una VM Linux da un disco personalizzato usando l'interfaccia della riga di comando di Azure
 
@@ -79,7 +79,7 @@ az vm create --resource-group myResourceGroup --location westus \
     --use-unmanaged-disk
 ```
 
-L'account di archiviazione di destinazione deve essere lo stesso in cui è stato caricato il disco virtuale. È anche necessario specificare tutti i parametri aggiuntivi richiesti dal comando **az vm create**, ad esempio rete virtuale, indirizzo IP pubblico, nome utente e chiavi SSH, oppure rispondere ai messaggi inerenti. Altre informazioni sui parametri di Gestione risorse dell'interfaccia della riga di comando [classici disponibili sono disponibili](../azure-cli-arm-commands.md#virtual-machines).
+L'account di archiviazione di destinazione deve essere lo stesso in cui è stato caricato il disco virtuale. È anche necessario specificare tutti i parametri aggiuntivi richiesti dal comando **az vm create**, ad esempio rete virtuale, indirizzo IP pubblico, nome utente e chiavi SSH, oppure rispondere ai messaggi inerenti. Ulteriori informazioni sui [parametri classici](../azure-cli-arm-commands.md#virtual-machines)di Gestione risorse CLI disponibili sono disponibili.
 
 ## <a name="requirements"></a>Requisiti
 Per completare la procedura seguente, è necessario:
@@ -89,7 +89,7 @@ Per completare la procedura seguente, è necessario:
   * È anche possibile usare Hyper-V [in Windows 10](https://msdn.microsoft.com/virtualization/hyperv_on_windows/quick_start/walkthrough_install) o [in Windows Server 2012/2012 R2](https://technet.microsoft.com/library/hh846766.aspx).
 
 > [!NOTE]
-> Il formato VHDX più recente non è supportato in Azure. Quando si crea una VM, specificare VHD come formato. Se necessario, è possibile convertire i dischi VHDX nel formato VHD usando [`qemu-img convert`](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) o il cmdlet [`Convert-VHD`](https://technet.microsoft.com/library/hh848454.aspx) di PowerShell. Inoltre, Azure non supporta il caricamento di VHD dinamici, pertanto è necessario convertire tali dischi in VHD statici prima del caricamento. Per convertire dischi dinamici durante il processo di caricamento in Azure, sono disponibili strumenti come [Azure VHD Utilities for GO](https://github.com/Microsoft/azure-vhd-utils-for-go) .
+> Il formato VHDX più recente non è supportato in Azure. Quando si crea una VM, specificare VHD come formato. Se necessario, è possibile convertire i dischi [`qemu-img convert`](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) VHDX in disco rigido virtuale usando o il cmdlet PowerShell.If needed, you can convert VHDX disks to VHD using or the [`Convert-VHD`](https://technet.microsoft.com/library/hh848454.aspx) PowerShell cmdlet. Inoltre, Azure non supporta il caricamento di VHD dinamici, pertanto è necessario convertire tali dischi in VHD statici prima del caricamento. Per convertire dischi dinamici durante il processo di caricamento in Azure, sono disponibili strumenti come [Azure VHD Utilities for GO](https://github.com/Microsoft/azure-vhd-utils-for-go) .
 > 
 > 
 
@@ -110,14 +110,14 @@ Azure supporta svariate distribuzioni di Linux (vedere la sezione [Distribuzioni
 * **[Debian Linux](debian-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[Oracle Linux](oracle-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[Red Hat Enterprise Linux](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
-* **[SLES e openSUSE](suse-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
+* **[SLES & openSUSE](suse-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[Ubuntu](create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[Altro - Distribuzioni non approvate](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 
 Vedere anche le **[Note generali sull'installazione di Linux](create-upload-generic.md#general-linux-installation-notes)** per suggerimenti più generali sulla preparazione di immagini Linux per Azure.
 
 > [!NOTE]
-> Il [Contratto di Servizio per la piattaforma Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) è applicabile alle VM che eseguono Linux solo quando una distribuzione approvata viene usata con i dettagli di configurazione specificati nella sezione "Versioni e distribuzioni supportate" in [Distribuzioni di Linux supportate da Azure](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> Il contratti di servizio [della piattaforma Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) si applica alle macchine virtuali che eseguono Linux solo quando una delle distribuzioni approvate viene usata con i dettagli di configurazione specificati in "Versioni supportate" in Linux nelle [distribuzioni approvate da Azure.](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 > 
 > 
 
@@ -142,7 +142,7 @@ az storage account create --resource-group myResourceGroup --location westus \
 ```
 
 ## <a name="list-storage-account-keys"></a>Ottenere chiavi degli account di archiviazione
-Azure genera due chiavi di accesso a 512 bit per ogni account di archiviazione. Queste chiavi di accesso vengono utilizzate per autenticarsi nell'account di archiviazione, ad esempio per eseguire operazioni di scrittura. Per altre informazioni sulle chiavi di accesso dell'account di archiviazione, vedere [gestire le chiavi di accesso all'account di archiviazione](../../storage/common/storage-account-keys-manage.md). Visualizzare le chiavi di accesso con [az storage account keys list](/cli/azure/storage/account/keys).
+Azure genera due chiavi di accesso a 512 bit per ogni account di archiviazione. Queste chiavi di accesso vengono utilizzate per autenticarsi nell'account di archiviazione, ad esempio per eseguire operazioni di scrittura. Per altre informazioni sulle chiavi di accesso dell'account di archiviazione, vedere Gestire le chiavi di [accesso dell'account di archiviazione.](../../storage/common/storage-account-keys-manage.md) Visualizzare le chiavi di accesso con [az storage account keys list](/cli/azure/storage/account/keys).
 
 Visualizzare le chiavi di accesso per l'account di archiviazione creato:
 
@@ -152,7 +152,7 @@ az storage account keys list --resource-group myResourceGroup --account-name mys
 
 L'output è simile a:
 
-```azurecli
+```output
 info:    Executing command storage account keys list
 + Getting storage account keys
 data:    Name  Key                                                                                       Permissions
@@ -161,6 +161,7 @@ data:    key1  d4XAvZzlGAgWdvhlWfkZ9q4k9bYZkXkuPCJ15NTsQOeDeowCDAdB80r9zA/tUINAp
 data:    key2  Ww0T7g4UyYLaBnLYcxIOTVziGAAHvU+wpwuPvK4ZG0CDFwu/mAxS/YYvAQGHocq1w7/3HcalbnfxtFdqoXOw8g==  Full
 info:    storage account keys list command OK
 ```
+
 Prendere nota dell'elemento `key1` perché verrà utilizzato per interagire con l'account di archiviazione nei passaggi successivi.
 
 ## <a name="create-a-storage-container"></a>Creare un contenitore di archiviazione
@@ -185,7 +186,7 @@ az storage blob upload --account-name mystorageaccount \
     --file /path/to/disk/mydisk.vhd --name myDisk.vhd
 ```
 
-## <a name="create-the-vm"></a>Creazione della VM
+## <a name="create-the-vm"></a>Creare la VM
 Per creare una macchina virtuale con dischi non gestiti, specificare l'URI del disco (`--image`) con [az vm create](/cli/azure/vm). L'esempio seguente crea una VM denominata `myVM` usando il disco virtuale caricato in precedenza:
 
 Specificare il parametro `--image` con il comando [az vm create](/cli/azure/vm) in modo da puntare al disco personalizzato. Assicurarsi che `--storage-account` corrisponda all'account di archiviazione in cui è archiviato il disco personalizzato. Non è necessario utilizzare lo stesso contenitore come disco personalizzato per archiviare le VM. Assicurarsi di creare qualsiasi contenitore aggiuntivo seguendo la stessa procedura utilizzata in precedenza prima di caricare il disco personalizzato.

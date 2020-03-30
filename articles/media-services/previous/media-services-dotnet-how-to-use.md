@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 51fffbd170daecfec6fcea95caa0526e6d881407
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "64724111"
 ---
 # <a name="media-services-development-with-net"></a>Sviluppo di applicazioni di Servizi multimediali con .NET 
 
 > [!NOTE]
-> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [materiale sussidiario di migrazione dalla v2 alla v3](../latest/migrate-from-v2-to-v3.md)
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Scopri la versione più recente, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche le linee guida per la [migrazione dalla v2 alla v3](../latest/migrate-from-v2-to-v3.md)
 
 Questo articolo illustra come iniziare a sviluppare applicazioni di Servizi multimediali con .NET.
 
@@ -43,13 +43,13 @@ Questa sezione illustra come usare **NuGet** per aggiungere Media Services .NET 
 
 In alternativa, è possibile ottenere i bit più recenti di Media Services .NET SDK da GitHub ([github.com/Azure/azure-sdk-for-media-services](https://github.com/Azure/azure-sdk-for-media-services) o [github.com/Azure/azure-sdk-for-media-services-extensions](https://github.com/Azure/azure-sdk-for-media-services-extensions)), compilare la soluzione e quindi aggiungere i riferimenti al progetto client. Tutte le dipendenze necessarie vengono scaricate ed estratte automaticamente.
 
-1. Creare una nuova applicazione console C# in Visual Studio. Immettere un valore nei campi **Nome**, **Percorso** e **Nome soluzione**, quindi fare clic su OK.
+1. Creare una nuova applicazione console C# in Visual Studio. Immettere il **nome**, **percorso**e **nome soluzione**, quindi fare clic su OK.
 2. Compilare la soluzione.
-3. Usare il pacchetto **NuGet** per installare e aggiungere **Azure Media Services .NET SDK Extensions** (**windowsazure.mediaservices.extensions**). Insieme al pacchetto viene installato anche **Media Services .NET SDK** e vengono aggiunte tutte le altre dipendenze necessarie.
+3. Usare il pacchetto **NuGet** per installare e aggiungere **Azure Media Services .NET SDK Extensions** (**windowsazure.mediaservices.extensions**). L'installazione di questo pacchetto, installa anche **.NET SDK** di Servizi multimediali e aggiunge tutte le altre dipendenze necessarie.
    
     Verificare di aver installato la versione più aggiornata di NuGet. Per altre informazioni e per istruzioni di installazione, vedere [NuGet](https://nuget.codeplex.com/).
 
-    1. In Esplora soluzioni fare clic con il pulsante destro del mouse sul nome del progetto e scegliere **Gestisci pacchetti NuGet**.
+    1. In Esplora soluzioni fare clic con il pulsante destro del mouse sul nome del progetto e **scegliere Gestisci pacchetti NuGet**.
 
     2. Viene visualizzata la finestra di dialogo Gestione pacchetti NuGet.
 
@@ -57,7 +57,7 @@ In alternativa, è possibile ottenere i bit più recenti di Media Services .NET 
    
     4. Il progetto viene modificato e vengono aggiunti riferimenti a Media Services .NET SDK, alle relative estensioni e ad altri assembly dipendenti.
 4. Per ottenere un ambiente di sviluppo più lineare, prendere in considerazione l'abilitazione di NuGet Package Restore. Per altre informazioni vedere l'articolo relativo al [ripristino del pacchetto NuGet](https://docs.nuget.org/consume/package-restore).
-5. Aggiungere un riferimento all'assembly **System.Configuration** . che contiene la classe**System.Configuration.ConfigurationManager** usata per accedere ai file di configurazione, ad esempio App.config.
+5. Aggiungere un riferimento all'assembly **System.Configuration** . Questo assembly contiene il file System.Configuration. **Classe ConfigurationManager** utilizzata per accedere ai file di configurazione, ad esempio App.config.
    
     1. Per aggiungere riferimenti usando la finestra di dialogo Gestione riferimenti, fare clic sul nome del progetto in Esplora soluzioni. Fare clic su **Aggiungi** e quindi su **Riferimento**.
    

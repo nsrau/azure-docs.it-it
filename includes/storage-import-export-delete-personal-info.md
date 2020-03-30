@@ -9,10 +9,10 @@ ms.date: 05/18/2018
 ms.author: cshoe
 ms.custom: include file
 ms.openlocfilehash: e6a0ded137162328fd446b65ddb4a15fa6f1db88
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67180360"
 ---
 ## <a name="deleting-personal-information"></a>Eliminazione delle informazioni personali
@@ -27,7 +27,7 @@ Le informazioni personali sono rilevanti per il servizio di importazione/esporta
 - Indirizzo
 - city
 - CAP
-- Stato
+- State
 - Paese/provincia/area geografica
 - ID unità
 - Numero di account del vettore
@@ -40,9 +40,9 @@ Le informazioni di contatto personali potrebbero essere eliminate nei modi segue
 - I dati salvati con il processo vengono eliminati con il processo. Gli utenti possono eliminare manualmente i processi e i processi completati vengono eliminati automaticamente dopo 90 giorni. È possibile eliminare manualmente i processi tramite l'API REST o il portale di Azure. Per eliminare il processo nel portale di Azure, andare al processo di importazione/esportazione e fare clic su *Elimina* dalla barra dei comandi. Per informazioni dettagliate su come eliminare un processo di importazione/esportazione tramite l'API REST, vedere [Eliminare un processo di importazione/esportazione](../articles/storage/common/storage-import-export-cancelling-and-deleting-jobs.md).
 
 - Le informazioni di contatto salvate nelle impostazioni del portale potrebbero essere rimosse in seguito all'eliminazione delle impostazioni del portale. È possibile eliminare le impostazioni del portale seguendo questa procedura:
-  - Accedere al [portale di Azure](https://portal.azure.com).
-  - Fare clic sull'icona *Impostazioni* ![icona delle impostazioni di Azure](media/storage-import-export-delete-personal-info/azure-settings-icon.png)
+  - Accedere al [portale](https://portal.azure.com)di Azure .
+  - Fare clic sull'icona *Impostazioni*![icona delle impostazioni di Azure](media/storage-import-export-delete-personal-info/azure-settings-icon.png)
   - Fare clic su *Esporta tutte le impostazioni* (per salvare le impostazioni correnti in un file `.json`).
   - Fare clic su *Elimina tutte le impostazioni e i dashboard privati* per eliminare tutte le impostazioni, incluse le informazioni di contatto salvate.
 
-Per altre informazioni, consultare l'Informativa sulla privacy Microsoft nel [Centro protezione](https://www.microsoft.com/trustcenter).
+Per altre informazioni, vedere l'informativa sulla privacy di Microsoft nel [Centro protezione](https://www.microsoft.com/trustcenter)

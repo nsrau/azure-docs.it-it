@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: robinsh
 ms.openlocfilehash: 96c3a7b2cfda23f173f4caeff4fb7a92b1ddc438
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61440234"
 ---
 # <a name="how-to-upgrade-your-iot-hub"></a>Come aggiornare l'hub IoT
@@ -23,15 +23,15 @@ Quando si dispone di più dispositivi e si necessita di altre funzionalità, esi
 
 * Aggiungere unità nell'hub IoT. Ad esempio, ogni unità aggiuntiva in un hub IoT B1 offre 400.000 messaggi aggiuntivi al giorno.
 
-* Modificare le dimensioni dell'hub IoT. Ad esempio, eseguire la migrazione dal livello B1 al livello B2 per aumentare il numero di messaggi in grado di supportare ogni unità al giorno.
+* Modificare le dimensioni dell'hub IoT. Ad esempio, eseguire la migrazione dal livello B1 al livello B2 per aumentare il numero di messaggi che ogni unità può supportare al giorno.
 
 * Eseguire l'aggiornamento a un livello superiore. Ad esempio, eseguire l'aggiornamento dal livello B1 al livello S1 per l'accesso a funzionalità avanzate con la stessa capacità di messaggistica.
 
 Queste modifiche possono essere apportate senza interrompere le operazioni esistenti.
 
-Se si vuole effettuare il downgrade dell'hub IoT, è possibile rimuovere le unità e ridurre le dimensioni dell'hub IoT, ma è possibile effettuare il downgrade a un livello inferiore. Ad esempio, è possibile passare dal livello S2 al livello S1, ma non dal livello S2 al livello B1. Un solo tipo di [edizione dell'Iot Hub](https://azure.microsoft.com/pricing/details/iot-hub/) all'interno di un livello può essere scelto per ogni IoT Hub. Ad esempio, è possibile creare un hub IoT con più unità di S1, ma non con una combinazione di unità appartenenti a edizioni diverse, ad esempio, S1, B3 o S1 e S2.
+Se si desidera eseguire il downgrade dell'hub IoT, è possibile rimuovere le unità e ridurre le dimensioni dell'hub IoT, ma non è possibile eseguire il downgrade a un livello inferiore. Ad esempio, è possibile passare dal livello S2 al livello S1, ma non dal livello S2 al livello B1. È possibile scegliere un solo tipo di edizione Iot Hub all'interno di un livello per ogni hub IoT.Only one type of [Iot Hub edition](https://azure.microsoft.com/pricing/details/iot-hub/) within a tier can be chosen per IoT Hub. Ad esempio, è possibile creare un hub IoT con più unità di S1, ma non con una combinazione di unità appartenenti a edizioni diverse, ad esempio, S1, B3 o S1 e S2.
 
-Questi esempi consentono di comprendere come regolare l'hub IoT in base ai cambiamenti della soluzione. Per informazioni specifiche sulle funzionalità di ogni livello, è consigliabile vedere sempre [prezzi dell'IoT Hub di Azure](https://azure.microsoft.com/pricing/details/iot-hub/).
+Questi esempi consentono di comprendere come regolare l'hub IoT in base ai cambiamenti della soluzione. Per informazioni specifiche sulle funzionalità di ogni livello, è sempre necessario fare riferimento ai [prezzi dell'hub IoT](https://azure.microsoft.com/pricing/details/iot-hub/)di Azure.
 
 ## <a name="upgrade-your-existing-iot-hub"></a>Aggiornare l'hub IoT esistente
 
@@ -47,11 +47,11 @@ Questi esempi consentono di comprendere come regolare l'hub IoT in base ai cambi
 
 4. Per modificare il numero di unità nell'hub, immettere un nuovo valore in **Unità di hub IoT**.
 
-5. Fare clic su **Salva** per salvare le modifiche.
+5. Selezionare **Salva** per salvare le modifiche.
 
 L'hub IoT viene ora regolato e le configurazioni rimangono invariate.
 
-Il limite massimo di partizioni per IoT Hub di livello basic e livello standard dell'IoT Hub è 32. La maggior parte degli hub IoT richiede solo 4 partizioni. Il limite partizioni mette viene scelto quando l'hub IoT viene creato e associa i messaggi da dispositivo a cloud al numero di lettori simultanei di tali messaggi. Questo valore rimarrà invariato con la migrazione dal livello di base al livello standard.
+Il limite massimo di partizioni per l'hub IoT di livello base e l'hub IoT di livello standard è 32.The maximum partition limit for basic tier IoT Hub and standard tier IoT Hub is 32. La maggior parte degli hub IoT richiede solo 4 partizioni. Il limite partizioni mette viene scelto quando l'hub IoT viene creato e associa i messaggi da dispositivo a cloud al numero di lettori simultanei di tali messaggi. Questo valore rimarrà invariato con la migrazione dal livello di base al livello standard.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

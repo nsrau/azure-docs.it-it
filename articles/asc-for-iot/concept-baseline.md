@@ -1,6 +1,6 @@
 ---
-title: Informazioni sul centro sicurezza di Azure per la linea di base di Internet delle cose | Microsoft Docs
-description: Informazioni sul concetto di Centro sicurezza di Azure per la linea di base di Internet delle cose.
+title: Informazioni sul Centro sicurezza di Azure per la linea di base IoT Documenti Microsoft
+description: Informazioni sul concetto di Centro sicurezza di Azure per la linea di base IoT.Learn about the concept of Azure Security Center for IoT baseline.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -16,33 +16,33 @@ ms.workload: na
 ms.date: 10/07/2019
 ms.author: mlottner
 ms.openlocfilehash: ce5a0625a16c5a02d03ee74f894c585820414fa4
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72176607"
 ---
-# <a name="azure-security-center-for-iot-baseline-and-custom-checks"></a>Centro sicurezza di Azure per la baseline e i controlli personalizzati
+# <a name="azure-security-center-for-iot-baseline-and-custom-checks"></a>Centro sicurezza di Azure per la linea di base IoT e controlli personalizzatiAzure Security Center for IoT baseline and custom checks
 
-Questo articolo illustra il Centro sicurezza di Azure per la baseline e riepiloga tutte le proprietà associate dei controlli personalizzati di base.
+Questo articolo illustra il Centro sicurezza di Azure per la linea di base IoT e riepiloga tutte le proprietà associate dei controlli personalizzati di base.
 
 ## <a name="baseline"></a>Di base
 
-Una linea di base stabilisce un comportamento standard per ogni dispositivo e rende più semplice stabilire un comportamento insolito o una deviazione dalle norme previste.  
+Una linea di base stabilisce un comportamento standard per ogni dispositivo e semplifica la definizione di comportamenti insoliti o deviazioni dalle norme previste.  
 
-## <a name="baseline-custom-checks"></a>Controlli personalizzati di base
+## <a name="baseline-custom-checks"></a>Controlli personalizzati della previsione
 
-I controlli personalizzati di base stabiliscono un elenco personalizzato di controlli per ogni linea di base del dispositivo usando il **modulo identità gemello** del dispositivo. 
+I controlli personalizzati della previsione stabiliscono un elenco personalizzato di controlli per ogni linea di base del dispositivo usando **l'identità del modulo gemello** del dispositivo. 
 
 ## <a name="setting-baseline-properties"></a>Impostazione delle proprietà della linea di base
 
-1. Nell'hub Internet delle cose individuare e selezionare il dispositivo che si vuole modificare.
-1. Fare clic sul dispositivo e quindi fare clic sul modulo **azureiotsecurity** .
-1. Fare clic su **Module Identity gemelle**.
-1. Caricare il file di **controllo personalizzato di base** nel dispositivo.
-1. Aggiungere le proprietà baseline al modulo Security e fare clic su **Save**.
+1. Nel tuo hub IoT, individua e seleziona il dispositivo che desideri modificare.
+1. Fare clic sul dispositivo e quindi sul modulo **azureiotsecurity.**
+1. Fare clic su **Identità modulo Twin**.
+1. Caricare il file **dei controlli personalizzati di base** nel dispositivo.
+1. Aggiungere le proprietà della linea di base al modulo di protezione e fare clic su **Salva**.
 
-### <a name="baseline-custom-check-file-example"></a>Esempio di file di controllo personalizzato Baseline
+### <a name="baseline-custom-check-file-example"></a>Esempio di file di controllo personalizzato della previsione
 
 Per configurare i controlli personalizzati della linea di base:
 
@@ -62,19 +62,19 @@ Per configurare i controlli personalizzati della linea di base:
     },
    ```
 
-## <a name="baseline-custom-check-properties"></a>Proprietà controllo personalizzato Baseline
+## <a name="baseline-custom-check-properties"></a>Proprietà assegno personalizzate della previsione
 
-| NOME| Stato | Valori validi| Valori predefiniti| Descrizione |
+| Nome| Stato | Valori validi| Valori predefiniti| Descrizione |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
-|baselineCustomChecksEnabled|Obbligatorio: true |Valori validi:  **Boolean** |Valore predefinito: **false** |Intervallo di tempo massimo prima dell'invio dei messaggi con priorità alta.|
-|baselineCustomChecksFilePath |Obbligatorio: true|Valori validi:  **Stringa**, **null** |Valore predefinito: **null** |Percorso completo della configurazione XML di base|
-|baselineCustomChecksFileHash |Obbligatorio: true|Valori validi:  **Stringa**, **null** |Valore predefinito: **null** |`sha256sum` del file di configurazione XML. Per ulteriori informazioni, utilizzare il [riferimento sha256sum](https://linux.die.net/man/1/sha256sum) . |
+|baselineCustomChecksEnabled|Obbligatorio: true |Valori validi: **Boolean** |Valore predefinito: **falseDefault** value: false |Intervallo di tempo massimo prima dell'invio di messaggi con priorità alta.|
+|baselineCustomChecksFilePath (percorso di riferimento |Obbligatorio: true|Valori validi: **String**, **null** |Valore predefinito: **nullDefault** value: null |Percorso completo della configurazione xml di base|
+|baselineCustomChecksFileHash (informazioni in base al file di lavoro) |Obbligatorio: true|Valori validi: **String**, **null** |Valore predefinito: **nullDefault** value: null |`sha256sum`del file di configurazione xml. Utilizzare il [riferimento sha256sum](https://linux.die.net/man/1/sha256sum) per ulteriori informazioni. |
 
-Per esaminare esempi di base aggiuntivi, vedere [esempio di Baseline personalizzato-1](https://ascforiot.blob.core.windows.net/public/custom_baseline_example_hyperv_ubuntu1804.xml) e [esempio di Baseline personalizzato-2](https://ascforiot.blob.core.windows.net/public/oms_audits.xml).
+Per esaminare altri esempi di base, vedere [Esempio di base personalizzato -1](https://ascforiot.blob.core.windows.net/public/custom_baseline_example_hyperv_ubuntu1804.xml) e Esempio di base personalizzato [-2](https://ascforiot.blob.core.windows.net/public/oms_audits.xml).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Accedere ai [dati di sicurezza non elaborati](how-to-security-data-access.md)
-- [Esaminare un dispositivo](how-to-investigate-device.md)
-- Comprendere ed esplorare le [raccomandazioni sulla sicurezza](concept-recommendations.md)
-- Comprendere ed esplorare gli [avvisi di sicurezza](concept-security-alerts.md)
+- Accedi ai tuoi [dati di sicurezza grezzi](how-to-security-data-access.md)
+- [Analizzare un dispositivo](how-to-investigate-device.md)
+- Comprendere ed esplorare [le raccomandazioni sulla sicurezza](concept-recommendations.md)
+- Comprendere ed esplorare [gli avvisi di sicurezza](concept-security-alerts.md)

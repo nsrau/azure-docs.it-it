@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 11/19/2018
 ms.author: genli
 ms.openlocfilehash: 4c10a2dcd55c1605cfafe6c67cfefd9d8a3c5f9d
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71057994"
 ---
 # <a name="cannot-connect-remotely-to-a-windows-10-or-windows-server-2016-vm-in-azure-because-of-netvscsys"></a>Non è possibile stabilire una connessione remota a una macchina virtuale Windows 10 o Windows Server 2016 in Azure a causa di netvsc.sys
@@ -25,7 +25,7 @@ Questo articolo illustra come risolvere un problema dovuto all'assenza di connes
 
 ## <a name="symptoms"></a>Sintomi
 
-Non è possibile connettersi a una macchina virtuale Windows 10 o Windows Server 2016 di Azure usando Remote Desktop Protocol (RDP). In [Diagnostica di avvio](boot-diagnostics.md) viene visualizzata una croce rossa sulla scheda di interfaccia di rete (NIC). Ciò indica che la macchina virtuale non dispone di connettività dopo che il sistema operativo è completamente caricato.
+Non è possibile connettersi a una macchina virtuale di Azure Windows 10 o Windows Server 2016 utilizzando Remote Desktop Protocol (RDP). In [Diagnostica di avvio](boot-diagnostics.md) viene visualizzata una croce rossa sulla scheda di interfaccia di rete (NIC). Ciò indica che la macchina virtuale non dispone di connettività dopo che il sistema operativo è completamente caricato.
 
 Questo problema si verifica nelle build [14393](https://support.microsoft.com/help/4093120/) e [15063](https://support.microsoft.com/help/4015583/) di Windows. Se si usa una versione successiva del sistema operativo, questo articolo non si applica allo specifico scenario. Per controllare la versione del sistema, aprire una sessione CMD nella [console seriale di accesso](serial-console-windows.md) e quindi eseguire **Ver**.
 
@@ -36,7 +36,7 @@ Questo problema può verificarsi se la versione del file system netvsc.sys insta
 
 ## <a name="solution"></a>Soluzione
 
-Prima di seguire questa procedura, [creare uno snapshot del disco di sistema](../windows/snapshot-copy-managed-disk.md) della macchina virtuale interessata come backup. Per risolvere questo problema, usare la console seriale o [riparare la macchina virtuale in modalità offline](#repair-the-vm-offline) collegando il disco di sistema della macchina virtuale a una macchina virtuale di ripristino.
+Prima di eseguire questa procedura, [eseguire uno snapshot del disco di sistema](../windows/snapshot-copy-managed-disk.md) della macchina virtuale interessata come backup. Per risolvere questo problema, usare la console seriale o [riparare la macchina virtuale in modalità offline](#repair-the-vm-offline) collegando il disco di sistema della macchina virtuale a una macchina virtuale di ripristino.
 
 
 ### <a name="use-the-serial-console"></a>Usare la console seriale
@@ -73,13 +73,13 @@ Connettersi alla [console seriale, aprire un'istanza di PowerShell](serial-conso
 
 2. Avviare una connessione Desktop remoto alla macchina virtuale di ripristino.
 
-3. Verificare che il disco sia contrassegnato come **Online** nella console di Gestione disco. Prendere nota della lettera di unità assegnata al disco di sistema collegato.
+3. Assicurarsi che il disco sia contrassegnato come **in linea** nella console Gestione disco. Prendere nota della lettera di unità assegnata al disco di sistema collegato.
 
 4. Creare una copia della cartella **\Windows\System32\config** nel caso in cui sia necessario un ripristino dello stato precedente.
 
 5. Nella macchina virtuale di ripristino avviare l'editor del Registro di sistema (regedit.exe).
 
-6. Selezionare la chiave **HKEY_LOCAL_MACHINE** e quindi scegliere **File** > **Carica hive** dal menu.
+6. Selezionare la chiave **HKEY_LOCAL_MACHINE,** quindi scegliere **File** > **Load Hive** dal menu.
 
 7. Individuare il file SYSTEM nella cartella **\Windows\System32\config**.
 

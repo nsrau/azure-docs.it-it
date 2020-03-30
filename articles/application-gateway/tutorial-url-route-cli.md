@@ -9,10 +9,10 @@ ms.date: 08/01/2019
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: b6bc0b00579bdef0a358f756b8cf2b6034aca017
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68688186"
 ---
 # <a name="route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Instradare il traffico Web in base all'URL tramite l'interfaccia della riga di comando di Azure
@@ -21,7 +21,7 @@ Come amministratore IT che gestisce il traffico Web, si vuole aiutare i clienti 
 
 ![Esempio di routing basato su URL](./media/tutorial-url-route-cli/scenario.png)
 
-In questo articolo viene spiegato come:
+In questo articolo vengono illustrate le operazioni seguenti:
 
 > [!div class="checklist"]
 > * Creare un gruppo di risorse per le risorse di rete necessarie
@@ -37,7 +37,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo articolo è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.4 o successive. Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo articolo è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.4 o successive. Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure.If](/cli/azure/install-azure-cli)you need to install or upgrade, see Install Azure CLI.
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
@@ -98,7 +98,7 @@ az network application-gateway create \
  La creazione del gateway applicazione può richiedere diversi minuti. Dopo aver creato il gateway applicazione, saranno disponibili le nuove funzionalità seguenti:
 
 
-|Funzionalità  |DESCRIZIONE  |
+|Funzionalità  |Descrizione  |
 |---------|---------|
 |appGatewayBackendPool     |Un gateway applicazione deve avere almeno un pool di indirizzi back-end.|
 |appGatewayBackendHttpSettings     |Specifica che per le comunicazioni vengono usati la porta 80 e il protocollo HTTP.|
@@ -167,7 +167,7 @@ az network application-gateway url-path-map rule create \
   --address-pool videoBackendPool
 ```
 
-### <a name="add-a-routing-rule"></a>Aggiungi una regola di routing
+### <a name="add-a-routing-rule"></a>Aggiungere una regola di routing
 
 La regola di routing associa le mappe URL al listener creato. Aggiungere una regola denominata *rule2* usando il comando `az network application-gateway rule create`.
 
@@ -248,11 +248,11 @@ az network public-ip show \
 
 ![Testare l'URL di base nel gateway applicazione](./media/tutorial-url-route-cli/application-gateway-nginx.png)
 
-Modificare l'URL in http://&lt;IP-address&gt;: 8080/images/test.html, sostituendo l'indirizzo IP &lt;per IP-&gt;Address e dovrebbe essere visualizzato un esempio simile al seguente:
+Modificare l'URL in http://&lt;indirizzo-ip&gt;:8080/video/test.htm, sostituendo &lt;indirizzo-ip&gt; con l'indirizzo IP desiderato per ottenere qualcosa di simile all'esempio seguente:
 
 ![Testare l'URL delle immagini nel gateway applicazione](./media/tutorial-url-route-cli/application-gateway-nginx-images.png)
 
-Modificare l'URL in http://&lt;IP-address&gt;: 8080/video/test.html, sostituendo l'indirizzo IP &lt;per IP-&gt;Address e dovrebbe essere visualizzato un esempio simile al seguente.
+Modificare l'URL&lt;in&gt;http:// indirizzo IP :8080/video/test.html, &lt;sostituendo&gt;l'indirizzo IP per IP-address , e si dovrebbe vedere qualcosa di simile all'esempio seguente.
 
 ![Testare l'URL video nel gateway applicazione](./media/tutorial-url-route-cli/application-gateway-nginx-video.png)
 

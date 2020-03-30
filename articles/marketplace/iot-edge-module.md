@@ -1,20 +1,18 @@
 ---
 title: Moduli di Azure IoT Edge
 description: L'offerta Moduli di Azure IoT Edge in Azure Marketplace per gli editori di app e servizi.
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, IoT Edge module offer
 author: qianw211
-manager: pabutler
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/22/2018
-ms.author: pabutler
-ms.openlocfilehash: db501c34a4418bc7b08b19105a9b28585288f877
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: aadbf33914f919e393a5ec88cf6fc0a6103911b0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823058"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80286150"
 ---
 # <a name="iot-edge-modules"></a>Moduli di IoT Edge
 
@@ -46,7 +44,7 @@ I moduli Azure IoT Edge vengono pubblicati solo in Azure Marketplace, AppSource 
  
 **Opzioni di fatturazione**
 
-Per i moduli Azure IoT Edge il marketplace supporta attualmente le opzioni di fatturazione **Gratuito** e **BYOL (Bring Your Own License)** .
+Per i moduli Azure IoT Edge il marketplace supporta attualmente le opzioni di fatturazione **Gratuito** e **BYOL (Bring Your Own License)**.
  
 **Opzioni di pubblicazione**
 
@@ -77,13 +75,13 @@ I requisiti tecnici principali di un modulo Azure IoT Edge, affinché possa esse
 
 ## <a name="documentation-and-resources"></a>Documentazione e risorse
 
-[Creare un'offerta di modulo IOT Edge](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-create-offer) : i passaggi per la pubblicazione di una nuova offerta del modulo IOT Edge con il portale di pubblicazione nel cloud.
+[Creare un'offerta del modulo IoT Edge:](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-create-offer) passaggi per la pubblicazione di una nuova offerta di moduli IoT Edge con il portale di pubblicazione cloud.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Se non è già stato fatto,
 
-- [Registrarsi](https://azuremarketplace.microsoft.com/sell) in Marketplace.
+- [Registrati](https://azuremarketplace.microsoft.com/sell) nel marketplace.
 
 Se la registrazione è già stata effettuata e si sta creando una nuova offerta o lavorando su una esistente,
 

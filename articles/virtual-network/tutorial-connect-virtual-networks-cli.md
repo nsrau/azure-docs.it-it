@@ -1,5 +1,5 @@
 ---
-title: Connettere reti virtuali con il peering VNet-interfaccia della riga di comando di Azure
+title: Connettere reti virtuali con il peering della rete virtuale - Interfaccia della riga di comando di AzureConnect virtual networks with VNet peering - Azure CLI
 description: In questo articolo viene illustrato come connettere reti virtuali con il peering di rete virtuale usando l'interfaccia della riga di comando di Azure.
 services: virtual-network
 documentationcenter: virtual-network
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 4ba37ea99ddc0903e1febd53f8d8fbd84b417b87
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: aa2d75173b14e768a207336b54b3dc10a8c3ea5c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201408"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80235158"
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-the-azure-cli"></a>Connettere reti virtuali con il peering di rete virtuale usando l'interfaccia della riga di comando di Azure
 
@@ -35,11 +35,11 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, questo articolo richiede la versione 2.0.28 o successiva dell'interfaccia della riga di comando di Azure. Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). 
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, questo articolo richiede la versione 2.0.28 o successiva dell'interfaccia della riga di comando di Azure. Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure.If](/cli/azure/install-azure-cli)you need to install or upgrade, see Install Azure CLI. 
 
 ## <a name="create-virtual-networks"></a>Creare reti virtuali
 
-Prima di creare una rete virtuale, è necessario creare un gruppo di risorse per la rete virtuale e tutte le altre risorse create in questo articolo. Come prima cosa creare un gruppo di risorse con [az group create](/cli/azure/group). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella località *stati uniti orientali*.
+Prima di creare una rete virtuale, è necessario creare un gruppo di risorse per la rete virtuale e tutte le altre risorse create in questo articolo. Come prima cosa creare un gruppo di risorse con [az group create](/cli/azure/group). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nel percorso *eastus.*
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
@@ -97,7 +97,7 @@ az network vnet peering create \
   --allow-vnet-access
 ```
 
-Come si può vedere nell'output restituito dopo l'esecuzione del comando precedente, lo stato **peeringState** è *Initiated*. Il peering rimane nello stato *Initiated* finché non si crea il peering da *myVirtualNetwork2* a *myVirtualNetwork1*. Creare un peering da *myVirtualNetwork2* a *myVirtualNetwork1*. 
+Nell'output restituito dopo l'esecuzione del comando precedente, si noterà che **il peeringState** è *Initiated*. Il peering rimane nello stato *Initiated* finché non si crea il peering da *myVirtualNetwork2* a *myVirtualNetwork1*. Creare un peering da *myVirtualNetwork2* a *myVirtualNetwork1*. 
 
 ```azurecli-interactive
 az network vnet peering create \
@@ -108,7 +108,7 @@ az network vnet peering create \
   --allow-vnet-access
 ```
 
-Come si può vedere nell'output restituito dopo l'esecuzione del comando precedente, lo stato **peeringState** è ora *Connected*. Azure avrà modificato anche lo stato del peering *myVirtualNetwork1-myVirtualNetwork2* in *Connected*. Verificare che lo stato del peering di *myVirtualNetwork1-myVirtualNetwork2* sia cambiato in *Connected* con [az network vnet peering show](/cli/azure/network/vnet/peering).
+Nell'output restituito dopo l'esecuzione del comando precedente, si noterà che **peeringState** è *Connected*. Azure avrà modificato anche lo stato del peering *myVirtualNetwork1-myVirtualNetwork2* in *Connected*. Verificare che lo stato del peering di *myVirtualNetwork1-myVirtualNetwork2* sia cambiato in *Connected* con [az network vnet peering show](/cli/azure/network/vnet/peering).
 
 ```azurecli-interactive
 az network vnet peering show \
@@ -118,7 +118,7 @@ az network vnet peering show \
   --query peeringState
 ```
 
-Le risorse in una rete virtuale non possono comunicare con le risorse nell'altra rete virtuale finché il parametro **peeringState** relativo ai peering in entrambe le reti virtuali non cambia in *Connected*. 
+Le risorse in una rete virtuale non possono comunicare con le risorse nell'altra rete virtuale finché non è *connesso*lo stato di **peering** per i peering in entrambe le reti virtuali . 
 
 ## <a name="create-virtual-machines"></a>Creare macchine virtuali
 
@@ -126,7 +126,7 @@ Creare una macchina virtuale in ogni rete virtuale per poter stabilire la comuni
 
 ### <a name="create-the-first-vm"></a>Creare la prima VM
 
-Creare una VM con il comando [az vm create](/cli/azure/vm). L'esempio seguente crea una macchina virtuale denominata *myVm1* nella rete virtuale *myVirtualNetwork1*. Il comando crea le chiavi SSH, se non esistono già in una posizione predefinita. Per usare un set specifico di chiavi, utilizzare l'opzione `--ssh-key-value`. L'opzione `--no-wait` crea la macchina virtuale in background, pertanto è possibile continuare con il passaggio successivo.
+Creare una macchina virtuale con [az vm create](/cli/azure/vm). L'esempio seguente crea una macchina virtuale denominata *myVm1* nella rete virtuale *myVirtualNetwork1*. Il comando crea le chiavi SSH, se non esistono già in una posizione predefinita. Per usare un set specifico di chiavi, utilizzare l'opzione `--ssh-key-value`. L'opzione `--no-wait` crea la macchina virtuale in background, pertanto è possibile continuare con il passaggio successivo.
 
 ```azurecli-interactive
 az vm create \
@@ -143,7 +143,7 @@ az vm create \
 
 Creare una macchina virtuale nella rete virtuale *myVirtualNetwork2*.
 
-```azurecli-interactive 
+```azurecli-interactive
 az vm create \
   --resource-group myResourceGroup \
   --name myVm2 \
@@ -155,7 +155,7 @@ az vm create \
 
 La creazione della VM richiede alcuni minuti. Dopo aver creato la macchina virtuale, l'interfaccia della riga di comando di Azure mostra informazioni simili all'esempio seguente: 
 
-```azurecli 
+```output
 {
   "fqdns": "",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVm2",
@@ -174,13 +174,13 @@ Prendere nota di **publicIpAddress**. Questo indirizzo viene usato per accedere 
 
 Usare il comando seguente per creare una sessione SSH con la VM *myVm2*. Sostituire `<publicIpAddress>` con l'indirizzo IP pubblico della macchina virtuale. Nell'esempio precedente l'indirizzo IP pubblico è *13.90.242.231*.
 
-```bash 
+```bash
 ssh <publicIpAddress>
 ```
 
 Effettuare il ping della macchina virtuale in *myVirtualNetwork1*.
 
-```bash 
+```bash
 ping 10.0.0.4 -c 4
 ```
 
@@ -192,7 +192,7 @@ Chiudere la sessione SSH alla macchina virtuale *myVm2*.
 
 Quando il gruppo di risorse e tutte le risorse in esso contenute non sono più necessari, usare [az group delete](/cli/azure/group) per rimuoverli.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group delete --name myResourceGroup --yes
 ```
 

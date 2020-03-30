@@ -4,10 +4,10 @@ description: Questo articolo contiene informazioni per la risoluzione dei proble
 ms.date: 08/20/2019
 ms.topic: troubleshooting
 ms.openlocfilehash: 050df5b96c265e468346535ff011e1baf7d86ad5
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79252389"
 ---
 # <a name="troubleshoot-problems-backing-up-azure-file-shares"></a>Risolvere i problemi del backup di condivisioni file di Azure
@@ -21,7 +21,7 @@ Il backup per le condivisioni file di Azure è disponibile in anteprima. Le cond
 - Per la protezione di File di Azure con Backup di Azure non è disponibile l'interfaccia della riga di comando.
 - Il numero massimo di backup pianificati al giorno è uno.
 - Il numero massimo di backup su richiesta al giorno è quattro.
-- Usare i [blocchi delle risorse](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) nell'account di archiviazione per impedire l'eliminazione accidentale dei backup nell'insieme di credenziali di Servizi di ripristino.
+- Usare [i blocchi delle risorse](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) nell'account di archiviazione per impedire l'eliminazione accidentale dei backup nell'insieme di credenziali di Servizi di ripristino.
 - Non eliminare gli snapshot creati da Backup di Azure. L'eliminazione degli snapshot può comportare la perdita di punti di ripristino e/o errori di ripristino.
 - Non eliminare le condivisioni file protette mediante Backup di Azure. La soluzione corrente elimina tutti gli snapshot creati da Backup di Azure dopo l'eliminazione della condivisione file, causando la perdita di tutti i punti di ripristino
 
@@ -31,18 +31,18 @@ Il backup per le condivisioni file di Azure negli account di archiviazione con r
 
 La configurazione del backup è illustrata nella tabella seguente:
 
-| Messaggi di errore | Possibili risoluzioni o soluzioni alternative |
+| messaggi di errore | Possibili risoluzioni o soluzioni alternative |
 | ------------------ | ----------------------------- |
 | Impossibile trovare l'account di archiviazione per configurare il backup per la condivisione file di Azure | <ul><li>Attendere che termini l'individuazione. <li>Verificare se sono presenti condivisioni file dell'account di archiviazione già protette con un altro insieme di credenziali di Servizi di ripristino. **Nota**: le condivisioni file di un account di archiviazione possono essere protette solo con un unico insieme di credenziali di Servizi di ripristino. <li>Assicurarsi che la condivisione file non si trovi in account di archiviazione non supportati.<li> Assicurarsi che nell'account di archiviazione sia selezionata la casella di controllo **Consenti ai servizi Microsoft attendibili di accedere a questo account di archiviazione**. [Altre informazioni.](../storage/common/storage-network-security.md)|
 | Un errore visualizzato nel portale indica che non è possibile individuare gli account di archiviazione. | Se la sottoscrizione è partner (abilitata per CSP), ignorare l'errore. Se la sottoscrizione non è abilitata per CSP e non è possibile individuare gli account di archiviazione, contattare il supporto tecnico.|
 | La convalida o la registrazione dell'account di archiviazione selezionato non è riuscita.| Ripetere l'operazione. Se il problema persiste, contattare il supporto tecnico.|
 | Impossibile elencare o trovare condivisioni file nell'account di archiviazione selezionato. | <ul><li> Verificare che l'account di archiviazione sia presente nel gruppo di risorse e che non sia stato eliminato o spostato dopo l'ultima convalida/registrazione nell'insieme di credenziali.<li>Verificare che la condivisione file da proteggere non sia stata eliminata. <li>Accertarsi che l'account di archiviazione sia supportato per il backup di condivisioni file.<li>Verificare se la condivisione file è già protetta nello stesso insieme di credenziali di Servizi di ripristino.|
 | La configurazione del backup della condivisione file (o la configurazione dei criteri di protezione) mostra errori. | <ul><li>Ripetere l'operazione per verificare se il problema persiste. <li> Verificare che la condivisione file da proteggere non sia stata eliminata. <li> Se si sta provando a proteggere più condivisioni file contemporaneamente e alcune condivisioni file mostrano errori, configurare di nuovo il backup per le condivisioni file con errori. |
-| Impossibile eliminare l'insieme di credenziali di Servizi di ripristino dopo aver rimosso la protezione di una condivisione file. | Nel portale di Azure aprire l'insieme di credenziali > **Infrastruttura di backup** > **Account di archiviazione** e fare clic su **Annulla registrazione** per rimuovere l'account di archiviazione dall'insieme di credenziali di Servizi di ripristino.|
+| Impossibile eliminare l'insieme di credenziali di Servizi di ripristino dopo aver rimosso la protezione di una condivisione file. | Nel portale di Azure aprire gli account di Vault > **Backup Infrastructure** > **Storage** e fare clic su Annulla **registrazione** per rimuovere l'account di archiviazione dall'insieme di credenziali di Servizi di ripristino.|
 
 ## <a name="error-messages-for-backup-or-restore-job-failures"></a>Messaggi di errore dei processi di backup o ripristino
 
-| Messaggi di errore | Possibili risoluzioni o soluzioni alternative |
+| messaggi di errore | Possibili risoluzioni o soluzioni alternative |
 | -------------- | ----------------------------- |
 | L'operazione non è riuscita perché non è stata trovata la condivisione file. | Verificare che la condivisione file da proteggere non sia stata eliminata.|
 | Account di archiviazione non trovato o non supportato. | <ul><li>Verificare che l'account di archiviazione sia presente nel gruppo di risorse e che non sia stato eliminato o rimosso dal gruppo di risorse dopo l'ultima convalida. <li> Accertarsi che l'account di archiviazione sia supportato per il backup di condivisioni file.|
@@ -60,7 +60,7 @@ La configurazione del backup è illustrata nella tabella seguente:
 
 ## <a name="modify-policy"></a>Modifica dei criteri
 
-| Messaggi di errore | Possibili risoluzioni o soluzioni alternative |
+| messaggi di errore | Possibili risoluzioni o soluzioni alternative |
 | ------------------ | ----------------------------- |
 | È in corso un'altra operazione di configurazione della protezione per questo elemento. | Attendere il completamento dell'operazione di modifica criterio precedente e riprovare dopo qualche minuto.|
 | Nell'elemento selezionato è già in corso un'altra operazione. | Attendere il completamento dell'altra operazione in corso e riprovare dopo qualche minuto. |

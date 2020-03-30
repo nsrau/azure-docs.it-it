@@ -3,19 +3,19 @@ title: Supporto per la valutazione fisica del server in Azure MigrateSupport for
 description: Informazioni sul supporto per la valutazione fisica del server con Azure Migrate Server Assessment
 ms.topic: conceptual
 ms.date: 03/23/2020
-ms.openlocfilehash: f6c70ac2517a29497f4f11073e4b16067bab9576
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4bf7af74be35a521cdaa02e9209a7d7c0b91184f
+ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80336886"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80389461"
 ---
 # <a name="support-matrix-for-physical-server-assessment"></a>Matrice di supporto per la valutazione fisica del server 
 
-Questo articolo riepiloga i prerequisiti e i requisiti di supporto per la valutazione dei server fisici in preparazione per la migrazione ad Azure.This article summarizes prerequisites and support requirements for assessing physical servers in preparation for migration to Azure. Se si desidera eseguire la migrazione dei server fisici in Azure, esaminare la matrice di [supporto della migrazione.](migrate-support-matrix-physical-migration.md)
+Questo articolo riepiloga i prerequisiti e i requisiti di supporto quando si valutano i server fisici per la migrazione ad Azure usando lo strumento [Azure Migrate:Server Assessment.This](migrate-services-overview.md#azure-migrate-server-assessment-tool) article summarizes prerequisites and support requirements when you assess physical servers for migration to Azure, using the Azure Migrate:Server Assessment tool. Se si desidera eseguire la migrazione dei server fisici in Azure, esaminare la matrice di [supporto della migrazione.](migrate-support-matrix-physical-migration.md)
 
 
-Valutare i server fisici con lo strumento [Azure Migrate:Server Assessment.](migrate-services-overview.md#azure-migrate-server-assessment-tool) Creare un progetto di Azure Migrate e quindi aggiungere lo strumento al progetto. Dopo aver aggiunto lo strumento, si distribuisce [l'appliance di Azure Migrate.](migrate-appliance.md) L'appliance individua continuamente i computer locali e invia i metadati e i dati sulle prestazioni del computer ad Azure.The appliance continuously discovers on-premises machines, and sends machine metadata and performance data to Azure. Dopo l'individuazione del computer, si raccolgono i computer individuati in gruppi ed si esegue una valutazione per un gruppo.
+Per valutare i server fisici, creare un progetto Di Azure Migrate e aggiungere lo strumento di valutazione del server al progetto. Dopo aver aggiunto lo strumento, si distribuisce [l'appliance di Azure Migrate.](migrate-appliance.md) L'appliance individua continuamente i computer locali e invia i metadati e i dati sulle prestazioni del computer ad Azure.The appliance continuously discovers on-premises machines, and sends machine metadata and performance data to Azure. Al termine dell'individuazione, si raccolgono i computer individuati in gruppi ed si esegue una valutazione per un gruppo.
 
 
 ## <a name="limitations"></a>Limitazioni
@@ -35,12 +35,12 @@ Valutare i server fisici con lo strumento [Azure Migrate:Server Assessment.](mig
 | :-------------------       | :------------------- |
 | **Distribuzione del server fisico**       | Il server fisico può essere autonomo o distribuito in un cluster. |
 | **Autorizzazioni**           | **Le finestre Windows:** È necessario un account utente locale o di dominio in tutti i server Windows che si desidera individuare. L'account utente deve essere aggiunto a questi gruppi: Utenti desktop remoto, Utenti di Performance Monitor e Utenti registro prestazioni. <br/><br/> **Linux:** È necessario un account root sui server Linux che si desidera individuare. |
-| **Sistema operativo** | Tutti i sistemi operativi [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) e [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) sono supportati, ad eccezione di Windows Server 2003 e SUSE Linux.|
+| **Sistema operativo** | Tutti i sistemi operativi [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) e [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) supportati da Azure, ad eccezione di Windows Server 2003 e SUSE Linux.|
 
 
 ## <a name="azure-migrate-appliance-requirements"></a>Requisiti dell'appliance di Azure Migrate
 
-Azure Migrate usa [l'appliance di Azure Migrate](migrate-appliance.md) per l'individuazione e la valutazione. L'appliance per i server fisici può essere eseguita in una macchina virtuale o in una macchina fisica. Configurarlo usando uno script di PowerShell scaricato dal portale di Azure.You set it up using a PowerShell script that you download from the Azure portal.
+Azure Migrate usa [l'appliance di Azure Migrate](migrate-appliance.md) per l'individuazione e la valutazione. L'appliance per i server fisici può essere eseguita in una macchina virtuale o in una macchina fisica. Configurare l'appliance utilizzando uno script di PowerShell scaricato dal portale di Azure.You set the appliance up using a PowerShell script that you download from the Azure portal.
 
 - Informazioni sui [requisiti dell'appliance](migrate-appliance.md#appliance---physical) per i server fisici.
 - Informazioni sugli [URL](migrate-appliance.md#url-access) a cui l'appliance deve accedere.
@@ -54,30 +54,13 @@ Nella tabella seguente sono riepilogati i requisiti delle porte per la valutazio
 **Apparecchio** | Connessioni in ingresso sulla porta TCP 3389, per consentire le connessioni desktop remoto all'appliance.<br/><br/> Connessioni in ingresso sulla porta 44368, per accedere in remoto all'app di gestione dell'appliance utilizzando l'URL:``` https://<appliance-ip-or-name>:44368 ```<br/><br/> Connessioni in uscita sulle porte 443 (HTTPS) per inviare metadati di individuazione e prestazioni ad Azure Migrate.Outbound connections on ports 443 (HTTPS), to send discovery and performance metadata to Azure Migrate.
 **Server fisici** | **Le finestre Windows:** Connessioni in ingresso sulle porte Di Gestione remota Windows 5985 (HTTP) e 5986 (HTTPS), per estrarre i metadati di configurazione e prestazioni dai server Windows. <br/><br/> **Linux:**  Connessioni in ingresso sulla porta 22 (UDP) per estrarre i metadati di configurazione e prestazioni dai server Linux.Inbound connections on port 22 (UDP), to pull configuration and performance metadata from Linux servers. |
 
-## <a name="agentless-dependency-analysis-requirements"></a>Requisiti di analisi delle dipendenze senza agente
-
-[L'analisi delle dipendenze](concepts-dependency-visualization.md) consente di identificare le dipendenze tra i computer locali che si desidera valutare ed eseguire la migrazione in Azure.Dependency analysis helps you to identify dependencies between on-premises machines that you want to assess and migrate to Azure. Nella tabella sono riepilogati i requisiti per l'impostazione dell'analisi delle dipendenze senza agente. 
-
-
-**Requisito** | **Dettagli** 
---- | --- 
-**Prima della distribuzione** | È necessario disporre di un progetto di Azure Migrate, con lo strumento Azure Migrate: Server Assessment aggiunto al progetto.<br/><br/>  La visualizzazione delle dipendenze viene distribuita dopo aver impostato un'appliance Di azure Migrate per individuare i computer VMWare locali.<br/><br/> [Scopri come](create-manage-projects.md) creare un progetto per la prima volta.<br/> [Informazioni su come](how-to-assess.md) aggiungere uno strumento di valutazione a un progetto esistente.<br/> [Informazioni su come](how-to-set-up-appliance-vmware.md) configurare l'appliance Azure Migrate per la valutazione delle macchine virtuali VMware.Learn how to set up the Azure Migrate appliance for assessment of VMware VMs.
-**Supporto VM** | Attualmente supportato solo per le macchine virtuali VMware.
-**Macchine virtuali di Windows** | Windows Server 2016<br/> Windows Server 2012 R2<br/> Windows Server 2012<br/> Windows Server 2008 R2 (64 bit).
-**Account di Windows** |  Per l'analisi delle dipendenze, l'appliance di Azure Migrate richiede un account di amministratore locale o di dominio per accedere alle macchine virtuali Windows.For dependency analysis, the Azure Migrate appliance needs a local or a domain Administrator account to access Windows VMs.
-**Macchine virtuali di Linux** | Red Hat Enterprise Linux 7, 6, 5<br/> Ubuntu Linux 14.04, 16.04<br/> Debian 7, 8<br/> Oracle Linux 6, 7<br/> CentOS 5, 6, 7.
-**Account Linux** | Per l'analisi delle dipendenze, nei computer Linux l'appliance di Azure Migrate richiede un account utente con privilegi root.<br/><br/> In alternativa, l'account utente necessita di queste autorizzazioni per i file /bin/netstat e /bin/ls: CAP_DAC_READ_SEARCH e CAP_SYS_PTRACE.
-**Agenti richiesti** | Nessun agente richiesto nei computer che si desidera analizzare.
-**Strumenti VMware** |  VMware Tools (successivo alla 10.2) deve essere installato e in esecuzione in ogni macchina virtuale che si vuole analizzare.
-**VCenter Server** |  La visualizzazione delle dipendenze richiede un account vCenter Server con accesso in sola lettura e privilegi abilitati per le macchine virtuali > le operazioni Guest. **Host ESXi:** negli host ESXi che eseguono macchine virtuali che si desidera analizzare, l'appliance di Azure Migrate deve essere in grado di connettersi alla porta TCP 443.
-
 ## <a name="agent-based-dependency-analysis-requirements"></a>Requisiti di analisi delle dipendenze basati su agente
 
-[L'analisi delle dipendenze](concepts-dependency-visualization.md) consente di identificare le dipendenze tra i computer locali che si desidera valutare ed eseguire la migrazione in Azure.Dependency analysis helps you to identify dependencies between on-premises machines that you want to assess and migrate to Azure. Nella tabella sono riepilogati i requisiti per l'impostazione dell'analisi delle dipendenze basata su agente. 
+[L'analisi delle dipendenze](concepts-dependency-visualization.md) consente di identificare le dipendenze tra i computer locali che si desidera valutare ed eseguire la migrazione in Azure.Dependency analysis helps you to identify dependencies between on-premises machines that you want to assess and migrate to Azure. Nella tabella sono riepilogati i requisiti per l'impostazione dell'analisi delle dipendenze basata su agente. Attualmente solo l'analisi delle dipendenze basata su agente è supportata per i server fisici.
 
 **Requisito** | **Dettagli** 
 --- | --- 
-**Prima della distribuzione** | È necessario disporre di un progetto di Azure Migrate, con lo strumento Azure Migrate: Server Assessment aggiunto al progetto.<br/><br/>  Distribuire la visualizzazione delle dipendenze dopo aver impostato un'appliance di Azure Migrate per individuare i computer locali<br/><br/> [Scopri come](create-manage-projects.md) creare un progetto per la prima volta.<br/> [Informazioni su come](how-to-assess.md) aggiungere uno strumento di valutazione a un progetto esistente.<br/> Informazioni su come configurare l'appliance Azure Migrate per la valutazione di [Hyper-V,](how-to-set-up-appliance-hyper-v.md) [VMware](how-to-set-up-appliance-vmware.md)o server fisici.
+**Prima della distribuzione** | È necessario disporre di un progetto di Azure Migrate sul posto, con lo strumento di valutazione del server aggiunto al progetto.<br/><br/>  Distribuire la visualizzazione delle dipendenze dopo aver impostato un'appliance di Azure Migrate per individuare i computer locali<br/><br/> [Scopri come](create-manage-projects.md) creare un progetto per la prima volta.<br/> [Informazioni su come](how-to-assess.md) aggiungere uno strumento di valutazione a un progetto esistente.<br/> Informazioni su come configurare l'appliance Azure Migrate per la valutazione di [Hyper-V,](how-to-set-up-appliance-hyper-v.md) [VMware](how-to-set-up-appliance-vmware.md)o server fisici.
 **Azure Government** | La visualizzazione delle dipendenze non è disponibile in Azure per enti pubblici.
 **Analisi dei log** | Azure Migrate usa la soluzione [Mappa dei servizi](../operations-management-suite/operations-management-suite-service-map.md) nei log di Monitoraggio di Azure per [la](../log-analytics/log-analytics-overview.md) visualizzazione delle dipendenze.<br/><br/> Associare un'area di lavoro di Log Analytics nuova o esistente a un progetto di Azure Migrate.You associate a new or existing Log Analytics workspace with an Azure Migrate project. L'area di lavoro per un progetto di Azure Migrate non può essere modificata dopo l'aggiunta. <br/><br/> L'area di lavoro deve trovarsi nella stessa sottoscrizione del progetto Azure Migrate.The workspace must be in the same subscription as the Azure Migrate project.<br/><br/> L'area di lavoro deve risiedere nelle aree degli Stati Uniti orientali, del sud-est asiatico o dell'Europa occidentale. Le aree di lavoro in altre aree non possono essere associate a un progetto.<br/><br/> L'area di lavoro deve trovarsi in un'area in cui la mappa del servizio [è supportata.](../azure-monitor/insights/vminsights-enable-overview.md#prerequisites)<br/><br/> In Log Analytics, l'area di lavoro associata ad Azure Migrate è contrassegnata con la chiave del progetto di migrazione e il nome del progetto.
 **Agenti richiesti** | In ogni computer che si desidera analizzare, installare i seguenti agenti:<br/><br/> [L'agente di monitoraggio Microsoft (MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows).<br/> [L'agente di dipendenza](../azure-monitor/platform/agents-overview.md#dependency-agent).<br/><br/> Se i computer locali non sono connessi a Internet, è necessario scaricare e installare il gateway di Log Analytics su di essi.<br/><br/> Ulteriori informazioni sull'installazione [dell'agente di dipendenza](how-to-create-group-machine-dependencies.md#install-the-dependency-agent) e di [MMA](how-to-create-group-machine-dependencies.md#install-the-mma).

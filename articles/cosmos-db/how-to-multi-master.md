@@ -1,16 +1,16 @@
 ---
 title: Come configurare funzionalità multimaster in Azure Cosmos DB
-description: Informazioni su come configurare la funzionalità multimaster per le applicazioni usando SDK diversi in Azure Cosmos DB.
+description: Informazioni su come configurare più master per le applicazioni usando SDK diversi in Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: mjbrown
 ms.openlocfilehash: 654baed649093add2aa62f4ba81bf6ce7c3e0df5
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74873642"
 ---
 # <a name="configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>Configurare funzionalità multimaster nelle applicazioni che usano Azure Cosmos DB
@@ -20,7 +20,7 @@ Dopo aver creato un account con più aree di scrittura abilitate, è necessario 
 > [!Note]
 > Gli account Cosmos inizialmente configurati con una sola area per le operazioni di scrittura possono essere configurati con più aree per le operazioni di scrittura (multimaster) senza tempi di inattività. Per altre informazioni, consultare [Configurare più aree di scrittura](how-to-manage-database-account.md#configure-multiple-write-regions)
 
-## <a id="netv2"></a>.NET SDK v2
+## <a name="net-sdk-v2"></a><a id="netv2"></a>.NET SDK v2
 
 Per abilitare le funzionalità multimaster nell'applicazione, impostare `UseMultipleWriteLocations` su `true`. Inoltre, impostare `SetCurrentLocation` sull'area in cui viene distribuita l'applicazione e in cui viene replicato Azure Cosmos DB:
 
@@ -34,7 +34,7 @@ ConnectionPolicy policy = new ConnectionPolicy
 policy.SetCurrentLocation("West US 2");
 ```
 
-## <a id="netv3"></a>.NET SDK v3
+## <a name="net-sdk-v3"></a><a id="netv3"></a>.NET SDK v3
 
 Per abilitare le funzionalità multimaster nelle applicazioni, impostare `ApplicationRegion` sull'area in cui viene distribuita l'applicazione e in cui viene replicato Cosmos DB:
 
@@ -55,7 +55,7 @@ CosmosClientBuilder cosmosClientBuilder = new CosmosClientBuilder("<connection-s
 CosmosClient client = cosmosClientBuilder.Build();
 ```
 
-## <a id="java"></a>Java Async SDK
+## <a name="java-async-sdk"></a><a id="java"></a>Java Async SDK
 
 Per abilitare le funzionalità multimaster nelle applicazioni, impostare `policy.setUsingMultipleWriteLocations(true)` e `policy.setPreferredLocations` sull'area in cui viene distribuita l'applicazione e in cui viene replicato Cosmos DB:
 
@@ -72,7 +72,7 @@ AsyncDocumentClient client =
         .withConnectionPolicy(policy).build();
 ```
 
-## <a id="javascript"></a>Node.js, JavaScript e TypeScript SDK
+## <a name="nodejs-javascript-and-typescript-sdks"></a><a id="javascript"></a>Node.js, JavaScript e TypeScript SDK
 
 Per abilitare le funzionalità multimaster nell'applicazione, impostare `connectionPolicy.UseMultipleWriteLocations` su `true`. Inoltre, impostare `connectionPolicy.PreferredLocations` sull'area in cui viene distribuita l'applicazione e in cui viene replicato Cosmos DB:
 
@@ -89,7 +89,7 @@ const client = new CosmosClient({
 });
 ```
 
-## <a id="python"></a>Python SDK
+## <a name="python-sdk"></a><a id="python"></a>Python SDK
 
 Per abilitare le funzionalità multimaster nell'applicazione, impostare `connection_policy.UseMultipleWriteLocations` su `true`. Inoltre, impostare `connection_policy.PreferredLocations` sull'area in cui viene distribuita l'applicazione e in cui viene replicato Cosmos DB.
 
@@ -108,10 +108,10 @@ Leggere gli articoli seguenti:
 
 * [Usare token di sessione per gestire la coerenza in Azure Cosmos DB](how-to-manage-consistency.md#utilize-session-tokens)
 * [Tipi di conflitto e criteri di risoluzione in Azure Cosmos DB](conflict-resolution-policies.md)
-* [Disponibilità elevata in Azure Cosmos DB](high-availability.md)
+* [Disponibilità elevata in Azure Cosmos DBHigh availability in Azure Cosmos DB](high-availability.md)
 * [Livelli di coerenza in Azure Cosmos DB](consistency-levels.md)
 * [Scegliere il livello di coerenza ottimale in Azure Cosmos DB](consistency-levels-choosing.md)
-* [Compromessi tra coerenza, disponibilità e prestazioni in Azure Cosmos DB](consistency-levels-tradeoffs.md)
-* [Availability and performance tradeoffs for various consistency levels](consistency-levels-tradeoffs.md) (Compromessi nella disponibilità e nelle prestazioni per vari livelli di coerenza)
+* [Compromessi di coerenza, disponibilità e prestazioni in Azure Cosmos DB](consistency-levels-tradeoffs.md)
+* [Compromessi nella disponibilità e nelle prestazioni per vari livelli di coerenza](consistency-levels-tradeoffs.md)
 * [Ridimensionamento a livello globale della velocità effettiva sottoposta a provisioning](scaling-throughput.md)
-* [Distribuzione globale: dietro le quinte](global-dist-under-the-hood.md)
+* [Distribuzione globale: sotto il cofano](global-dist-under-the-hood.md)

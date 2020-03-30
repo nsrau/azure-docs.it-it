@@ -1,13 +1,13 @@
 ---
-title: Ripristinare & chiave privata per le macchine virtuali crittografate Key Vault
+title: Ripristinare la chiave dell'insieme di credenziali delle chiavi & segreto per la macchina virtuale crittografataRestore Key Vault key & secret for encrypted VM
 description: Informazioni su come ripristinare la chiave dell'insieme di credenziali delle chiavi e il segreto in Backup di Azure usando PowerShell
 ms.topic: conceptual
 ms.date: 08/28/2017
 ms.openlocfilehash: 35bcb919cadd46c603b1f2ad49742c5435f873d2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75450063"
 ---
 # <a name="restore-key-vault-key-and-secret-for-encrypted-vms-using-azure-backup"></a>Ripristinare la chiave dell'insieme di credenziali delle chiavi e il segreto per le macchine virtuali crittografate con Backup di Azure
@@ -18,7 +18,7 @@ Questo articolo illustra l'uso di Backup di Azure per eseguire il ripristino del
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* **Backup delle macchine virtuali crittografate**: il backup delle macchine virtuali crittografate di Azure deve essere eseguito tramite Backup di Azure. Per informazioni dettagliate su come eseguire il backup di macchine virtuali di Azure crittografate, vedere l'articolo [gestire il backup e il ripristino di macchine virtuali di Azure con PowerShell](backup-azure-vms-automation.md) .
+* **Backup delle macchine virtuali crittografate**: il backup delle macchine virtuali crittografate di Azure deve essere eseguito tramite Backup di Azure. Per informazioni dettagliate su come eseguire il backup delle macchine virtuali di Azure crittografate, vedere l'articolo Gestire il backup e il ripristino delle macchine virtuali di Azure usando PowerShell.Refer the article [Manage backup and restore of Azure VMs using PowerShell](backup-azure-vms-automation.md) for details about how to back up encrypted Azure VMs.
 * **Configurazione dell'insieme di credenziali delle chiavi di Azure**: assicurarsi che l'insieme di credenziali delle chiavi in cui eseguire il ripristino di chiavi e segreti sia presente. Per informazioni dettagliate sulla gestione dell'insieme di credenziali delle chiavi, vedere l'articolo [Introduzione all'insieme di credenziali delle chiavi di Azure](../key-vault/key-vault-get-started.md).
 * **Ripristino del disco**: assicurarsi di aver attivato il processo di ripristino per ripristinare i dischi delle macchine virtuali crittografate usando le [procedure di PowerShell](backup-azure-vms-automation.md#restore-an-azure-vm). Questo processo, infatti, genera un file JSON nell'account di archiviazione contenente le chiavi e i segreti della macchina virtuale crittografata da ripristinare.
 
@@ -60,7 +60,7 @@ Restore-AzureKeyVaultKey -VaultName '<target_key_vault_name>' -InputFile $keyDes
 
 ## <a name="restore-secret"></a>Ripristinare il segreto
 
-Usare il file JSON generato in precedenza per ottenere il valore e il nome del segreto e compilarlo in modo da impostare il cmdlet del segreto per reinserire il segreto (BEK) nell'insieme di credenziali delle chiavi. Usare questi cmdlet se la **macchina virtuale è crittografata con**le seguenti.
+Usare il file JSON generato in precedenza per ottenere il valore e il nome del segreto e compilarlo in modo da impostare il cmdlet del segreto per reinserire il segreto (BEK) nell'insieme di credenziali delle chiavi.Utilizzare questi cmdlet se la **macchina virtuale è crittografata con BEK e KEK**.
 
 **Usare questi cmdlet se la macchina virtuale Windows è crittografata con BEK e KEK.**
 
@@ -82,7 +82,7 @@ $Tags = @{'DiskEncryptionKeyEncryptionAlgorithm' = 'RSA-OAEP';'DiskEncryptionKey
 Set-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secretname -SecretValue $Secret -ContentType  'Wrapped BEK' -Tags $Tags
 ```
 
-Usare il file JSON generato in precedenza per ottenere il valore e il nome del segreto e compilarlo in modo da impostare il cmdlet del segreto per reinserire il segreto (BEK) nell'insieme di credenziali delle chiavi. Usare questi cmdlet se la **macchina virtuale è crittografata solo con l'uso** di solo l'ambiente.
+Usare il file JSON generato in precedenza per ottenere il valore e il nome del segreto e compilarlo in modo da impostare il cmdlet del segreto per reinserire il segreto (BEK) nell'insieme di credenziali delle chiavi.Usare questi cmdlet se la **macchina virtuale è crittografata solo con BEK**.
 
 ```powershell
 $secretDestination = 'C:\secret.blob'
@@ -92,8 +92,8 @@ Restore-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -InputFile $sec
 
 > [!NOTE]
 >
-> * Il valore per $secretname può essere ottenuto facendo riferimento all'output di $encryptionObject. OsDiskKeyAndSecretDetails. SecretUrl e usando il testo dopo i segreti, ad esempio l'URL del segreto di output è https://keyvaultname.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/xx000000xx0849999f3xx30000003163 e il nome del segreto è B3284AAA-DAAA-4AAA-B393-60CAA848AAAA
-> * Il valore del tag DiskEncryptionKeyFileName è uguale al nome del segreto.
+> * Il valore per $secretname può essere ottenuto facendo riferimento all'output di $encryptionObject.OsDiskKeyAndSecretDetails.SecretUrl e https://keyvaultname.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/xx000000xx0849999f3xx30000003163 utilizzando il testo dopo i segreti/ad esempio l'URL segreto di output è e il nome segreto è B3284AAA-DAAA-4AAA-B393-60CAA848AAAAA
+> * Il valore del tag DiskEncryptionKeyFileName corrisponde al nome del segreto.
 >
 >
 
@@ -136,4 +136,4 @@ Set-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secretname -
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver ripristinato la chiave e il segreto nell'insieme di credenziali delle chiavi, vedere l'articolo [gestire il backup e il ripristino di VM di Azure con PowerShell](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) per creare macchine virtuali crittografate dal disco, dalla chiave e dal segreto ripristinati.
+Dopo aver ripristinato chiave e segreto nell'insieme di credenziali delle chiavi, fare riferimento all'articolo Gestire il backup e il [ripristino delle macchine virtuali di Azure usando PowerShell](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) per creare macchine virtuali crittografate da disco, chiave e segreto ripristinati.

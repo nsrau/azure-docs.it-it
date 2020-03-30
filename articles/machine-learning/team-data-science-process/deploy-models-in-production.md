@@ -11,10 +11,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: e3e2ef3340ca836f56176c21cf3d221f0bf172b9
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76722238"
 ---
 # <a name="deploy-models-to-production-to-play-an-active-role-in-making-business-decisions"></a>Distribuire modelli nell'ambiente di produzione a supporto del processo decisionale dell'azienda
@@ -39,7 +39,7 @@ Ci sono diversi approcci e piattaforme per usare un modello in ambiente di produ
 
 ## <a name="ab-testing"></a>Test A/B
 
-Quando più modelli sono in produzione, è possibile usare [un test a/B](https://en.wikipedia.org/wiki/A/B_testing) per confrontare le prestazioni del modello. 
+Quando più modelli sono in produzione, il [test A/B](https://en.wikipedia.org/wiki/A/B_testing) può essere utilizzato per confrontare le prestazioni del modello. 
  
 ## <a name="next-steps"></a>Passaggi successivi
 

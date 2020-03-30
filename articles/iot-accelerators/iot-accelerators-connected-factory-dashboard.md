@@ -1,6 +1,6 @@
 ---
 title: Usare il dashboard di connected factory - Azure | Microsoft Docs
-description: Questo articolo descrive come usare le funzionalità del dashboard di Connected Factory per monitorare e gestire i dispositivi industriali.
+description: In questo articolo viene descritto come utilizzare le funzionalità del dashboard Connected Factory per monitorare e gestire i dispositivi IoT industriali.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 07/10/2018
 ms.author: dobett
 ms.openlocfilehash: b53177d578768428665891704269e63bd8edb09e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73820167"
 ---
 # <a name="use-features-in-the-connected-factory-solution-accelerator-dashboard"></a>Usare le funzionalità nel dashboard dell'acceleratore di soluzioni di connected factory
@@ -33,7 +33,7 @@ L'avvio rapido [Deploy a cloud-based solution to manage my industrial IoT device
 
 1. Il filtro verrà quindi applicato. L'icona del grafico a imbuto extra indica che è applicato un filtro:
 
-    [![Filtro dell'acceleratore di soluzioni di connected factory applicato](./media/iot-accelerators-connected-factory-dashboard/filterapplied-inline.png)](./media/iot-accelerators-connected-factory-dashboard/filterapplied-expanded.png#lightbox)
+    [![Filtro acceleratore soluzione Connected Factory applicato](./media/iot-accelerators-connected-factory-dashboard/filterapplied-inline.png)](./media/iot-accelerators-connected-factory-dashboard/filterapplied-expanded.png#lightbox)
 
     > [!NOTE]
     > Un filtro attivo non ha effetto sui valori di OEE e KPI visualizzati, filtra solo il contenuto dell'elenco.
@@ -46,17 +46,17 @@ Quando si distribuisce l'acceleratore di soluzioni, viene effettuato automaticam
 
 1. Fare clic sull'**icona del browser** nella barra di spostamento del dashboard:
 
-    [![Browser del server dell'acceleratore di soluzioni di connected factory](./media/iot-accelerators-connected-factory-dashboard/browser-inline.png)](./media/iot-accelerators-connected-factory-dashboard/browser-expanded.png#lightbox)
+    [![Browser del server acceleratore di soluzioni Connected Factory](./media/iot-accelerators-connected-factory-dashboard/browser-inline.png)](./media/iot-accelerators-connected-factory-dashboard/browser-expanded.png#lightbox)
 
 1. Nell'elenco che mostra i server distribuiti dall'acceleratore di soluzioni scegliere uno dei server:
 
-    [![Elenco dei server dell'acceleratore di soluzioni di connected factory](./media/iot-accelerators-connected-factory-dashboard/serverlist-inline.png)](./media/iot-accelerators-connected-factory-dashboard/serverlist-expanded.png#lightbox)
+    [![Elenco di server dell'acceleratore di soluzioni Connected Factory](./media/iot-accelerators-connected-factory-dashboard/serverlist-inline.png)](./media/iot-accelerators-connected-factory-dashboard/serverlist-expanded.png#lightbox)
 
 1. Fare clic su **Connect** (Connetti). Verrà visualizzata una finestra di dialogo di sicurezza. Per la simulazione è possibile fare clic su **Proceed** (Continua).
 
 1. Per espandere uno dei nodi dell'albero dei server, fare clic su di esso. I nodi che pubblicano i dati di telemetria hanno un segno di spunta accanto:
 
-    [![Albero dei server dell'acceleratore di soluzioni di connected factory](./media/iot-accelerators-connected-factory-dashboard/servertree-inline.png)](./media/iot-accelerators-connected-factory-dashboard/servertree-expanded.png#lightbox)
+    [![Albero del server acceleratore di soluzioni Connected Factory](./media/iot-accelerators-connected-factory-dashboard/servertree-inline.png)](./media/iot-accelerators-connected-factory-dashboard/servertree-expanded.png#lightbox)
 
 1. Fare clic con il pulsante destro del mouse su un elemento per leggere, scrivere, pubblicare o chiamare il nodo. Le azioni disponibili variano a seconda delle autorizzazioni e degli attributi del nodo. L'opzione di lettura visualizza un pannello contestuale con il valore del nodo specifico. L'opzione di scrittura visualizza un pannello contestuale in cui è possibile immettere un nuovo valore. L'opzione di chiamata visualizza un nodo in cui è possibile immettere i parametri per la chiamata.
 
@@ -68,11 +68,11 @@ Quando si esplora un *server OPC UA simulato* è anche possibile scegliere di pu
 
 1. Fare clic con il pulsante destro del mouse sul nodo. Fare clic su **Pubblica**:
 
-    [![Nodo di pubblicazione acceleratore di soluzioni di connected factory](./media/iot-accelerators-connected-factory-dashboard/publishnode-inline.png)](./media/iot-accelerators-connected-factory-dashboard/publishnode-expanded.png#lightbox)
+    [![Nodo di pubblicazione acceleratore di soluzioni Connected Factory](./media/iot-accelerators-connected-factory-dashboard/publishnode-inline.png)](./media/iot-accelerators-connected-factory-dashboard/publishnode-expanded.png#lightbox)
 
 1. Verrà visualizzato un pannello contestuale che indica che la pubblicazione ha avuto esito positivo. Il nodo viene visualizzato al livello delle postazioni con un segno di spunta accanto:
 
-    [![Pubblicazione acceleratore di soluzioni di connected factory riuscita](./media/iot-accelerators-connected-factory-dashboard/publishsuccess-inline.png)](./media/iot-accelerators-connected-factory-dashboard/publishsuccess-expanded.png#lightbox)
+    [![L'acceleratore di soluzioni Connected Factory pubblica il successo](./media/iot-accelerators-connected-factory-dashboard/publishsuccess-inline.png)](./media/iot-accelerators-connected-factory-dashboard/publishsuccess-expanded.png#lightbox)
 
 ## <a name="command-and-control"></a>Comando e controllo
 
@@ -82,11 +82,11 @@ La soluzione Connected Factory consente di comandare e controllare i dispositivi
 
 1. Scegliere il comando che si vuole usare. Fare doppio clic sul nodo **OpenPressureReleaseValve**. Fare clic su **Call** (Chiama):
 
-    [![Comando di chiamata dell'acceleratore di soluzioni di connected factory](./media/iot-accelerators-connected-factory-dashboard/callcommand-inline.png)](./media/iot-accelerators-connected-factory-dashboard/callcommand-expanded.png#lightbox)
+    [![Comando di chiamata dell'acceleratore della soluzione Connected Factory](./media/iot-accelerators-connected-factory-dashboard/callcommand-inline.png)](./media/iot-accelerators-connected-factory-dashboard/callcommand-expanded.png#lightbox)
 
 1. Viene visualizzato un pannello contestuale che indica il metodo che si sta per chiamare e i dettagli dei parametri. Fare clic su **Call** (Chiama):
 
-    [![Parametri di chiamata dell'acceleratore di soluzioni di connected factory](./media/iot-accelerators-connected-factory-dashboard/callpanel-inline.png)](./media/iot-accelerators-connected-factory-dashboard/callpanel-expanded.png#lightbox)
+    [![Parametri di chiamata dell'acceleratore della soluzione Connected Factory](./media/iot-accelerators-connected-factory-dashboard/callpanel-inline.png)](./media/iot-accelerators-connected-factory-dashboard/callpanel-expanded.png#lightbox)
 
 1. Il pannello contestuale viene aggiornato per indicare che la chiamata al metodo ha avuto esito positivo. È possibile verificare che la chiamata abbia avuto esito positivo leggendo il valore del nodo della pressione aggiornato in seguito alla chiamata.
 
@@ -96,7 +96,7 @@ La soluzione Connected Factory consente di comandare e controllare i dispositivi
 
 Quando si distribuisce un acceleratore di soluzioni, il processo di distribuzione crea più risorse nella sottoscrizione di Azure selezionata. È possibile visualizzare queste risorse nel [portale](https://portal.azure.com) di Azure. Il processo di distribuzione crea un **gruppo di risorse** con un nome basato sul nome scelto per l'acceleratore di soluzioni:
 
-[![Gruppo di risorse dell'acceleratore di soluzioni di connected factory](./media/iot-accelerators-connected-factory-dashboard/resourcegroup-inline.png)](./media/iot-accelerators-connected-factory-dashboard/resourcegroup-expanded.png#lightbox)
+[![Gruppo di risorse acceleratore di soluzione Connected Factory](./media/iot-accelerators-connected-factory-dashboard/resourcegroup-inline.png)](./media/iot-accelerators-connected-factory-dashboard/resourcegroup-expanded.png#lightbox)
 
 È possibile visualizzare le impostazioni di ogni risorsa selezionandola nell'elenco di risorse nel gruppo di risorse.
 
@@ -111,5 +111,5 @@ Al termine, è possibile eliminare l'acceleratore di soluzioni dalla sottoscrizi
 
 Dopo aver distribuito un acceleratore di soluzioni funzionante è possibile proseguire con l'introduzione agli acceleratori di soluzioni IoT leggendo gli articoli seguenti:
 
-* [Configurare l'acceleratore della soluzione di Connected Factory](iot-accelerators-connected-factory-configure.md)
+* [Configurare l'acceleratore di soluzioni Fabbrica connessa](iot-accelerators-connected-factory-configure.md)
 * [Autorizzazioni per il sito azureiotsolutions.com](iot-accelerators-permissions.md)

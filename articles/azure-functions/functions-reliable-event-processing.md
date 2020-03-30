@@ -1,134 +1,134 @@
 ---
-title: Elaborazione di eventi affidabili di funzioni di Azure
-description: Evitare i messaggi dell'hub eventi mancanti in funzioni di Azure
+title: Elaborazione affidabile degli eventi di Funzioni di AzureAzure Functions reliable event processing
+description: Evitare messaggi mancanti dell'Hub eventi in Funzioni di AzureAvoid missing Event Hub messages in Azure Functions
 author: craigshoemaker
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: cshoe
 ms.openlocfilehash: e4f35495d8a01146068cffb9159c29c46c3c0d29
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75561868"
 ---
-# <a name="azure-functions-reliable-event-processing"></a>Elaborazione di eventi affidabili di funzioni di Azure
+# <a name="azure-functions-reliable-event-processing"></a>Elaborazione affidabile degli eventi di Funzioni di AzureAzure Functions reliable event processing
 
-L'elaborazione degli eventi è uno degli scenari più comuni associati all'architettura senza server. Questo articolo descrive come creare un elaboratore di messaggi affidabile con funzioni di Azure per evitare la perdita di messaggi.
+L'elaborazione degli eventi è uno degli scenari più comuni associati all'architettura senza server. Questo articolo descrive come creare un elaboratore di messaggi affidabile con Funzioni di Azure per evitare la perdita di messaggi.
 
-## <a name="challenges-of-event-streams-in-distributed-systems"></a>Problemi relativi ai flussi di eventi nei sistemi distribuiti
+## <a name="challenges-of-event-streams-in-distributed-systems"></a>Sfide dei flussi di eventi nei sistemi distribuiti
 
-Si consideri un sistema che invia eventi a una frequenza costante di 100 eventi al secondo. A questa velocità, in pochi minuti più istanze di funzioni parallele possono utilizzare gli eventi 100 in ingresso ogni secondo.
+Si consideri un sistema che invia eventi a una velocità costante di 100 eventi al secondo. A questa velocità, in pochi minuti più istanze parallele di Functions possono utilizzare i 100 eventi in ingresso ogni secondo.
 
-Tuttavia, è possibile che siano soddisfatte le condizioni meno ottimali seguenti:
+Tuttavia, una delle seguenti condizioni meno ottimali sono possibili:
 
-- Cosa accade se l'autore di eventi Invia un evento danneggiato?
-- Cosa accade se l'istanza di funzioni rileva eccezioni non gestite?
-- Che cosa succede se un sistema downstream passa alla modalità offline?
+- Cosa succede se l'editore di eventi invia un evento danneggiato?
+- Cosa succede se l'istanza di Functions rileva eccezioni non gestite?
+- Cosa succede se un sistema downstream passa offline?
 
-In che modo è possibile gestire queste situazioni conservando la velocità effettiva dell'applicazione?
+Come gestire queste situazioni mantenendo la velocità effettiva dell'applicazione?
 
-Con le code, la messaggistica affidabile è naturalmente. Una volta abbinato a un trigger di funzioni, la funzione crea un blocco sul messaggio della coda. Se l'elaborazione non riesce, il blocco viene rilasciato per consentire a un'altra istanza di ritentare l'elaborazione. L'elaborazione continua fino a quando il messaggio non viene valutato correttamente o viene aggiunto a una coda non elaborabile.
+Con le code, la messaggistica affidabile viene naturale. Quando viene associata a un trigger di funzioni, la funzione crea un blocco sul messaggio della coda. Se l'elaborazione non riesce, il blocco viene rilasciato per consentire a un'altra istanza di ritentare l'elaborazione. L'elaborazione continua fino a quando il messaggio non viene valutato correttamente o viene aggiunto a una coda non elaborabile.
 
-Anche se un singolo messaggio della coda può rimanere in un ciclo di ripetizione, altre esecuzioni parallele continuano a rimuovere la coda dei messaggi rimanenti. Il risultato è che la velocità effettiva complessiva rimane sostanzialmente inalterata da un messaggio non valido. Tuttavia, le code di archiviazione non garantiscono l'ordine e non sono ottimizzate per le richieste di velocità effettiva elevata richieste dagli hub eventi.
+Anche se un singolo messaggio della coda può rimanere in un ciclo di tentativi, altre esecuzioni parallele continuano a mantenere l'eliminazione dei messaggi rimanenti. Il risultato è che la velocità effettiva complessiva rimane in gran parte inalterata da un messaggio non valido. Tuttavia, le code di archiviazione non garantiscono l'ordinamento e non sono ottimizzate per le richieste di velocità effettiva elevata richieste dagli hub eventi.
 
-Al contrario, Hub eventi di Azure non include un concetto di blocco. Per consentire funzionalità come la velocità effettiva elevata, più gruppi di consumer e la capacità di riproduzione, gli eventi di hub eventi si comportano in modo più simile a un lettore video. Gli eventi vengono letti da un singolo punto nel flusso per partizione. Dal puntatore è possibile leggere avanti o indietro da tale posizione, ma è necessario scegliere di spostare il puntatore per gli eventi da elaborare.
+Al contrario, gli hub eventi di Azure non includono un concetto di blocco. Per consentire funzionalità come la velocità elevata, più gruppi di consumer e la capacità di riproduzione, gli eventi degli hub di eventi si comportano più come un lettore video. Gli eventi vengono letti da un singolo punto nel flusso per partizione. Dal puntatore è possibile leggere in avanti o all'indietro da tale posizione, ma è necessario scegliere di spostare il puntatore per gli eventi da elaborare.
 
-Quando si verificano errori in un flusso, se si decide di mantenendo il puntatore nello stesso punto, l'elaborazione degli eventi viene bloccata fino a quando il puntatore non è avanzato. In altre parole, se il puntatore viene interrotto per risolvere i problemi di elaborazione di un singolo evento, gli eventi non elaborati iniziano ad accumularsi.
+Quando si verificano errori in un flusso, se si decide di mantenere il puntatore nello stesso punto, l'elaborazione degli eventi viene bloccata fino a quando il puntatore non viene avanzato. In altre parole, se il puntatore viene arrestato per gestire i problemi di elaborazione di un singolo evento, gli eventi non elaborati iniziano ad accumularsi.
 
-Funzioni di Azure evita deadlock avanzando il puntatore del flusso indipendentemente dall'esito positivo o negativo. Poiché il puntatore continua a avanzare, le funzioni devono gestire gli errori in modo appropriato.
+Funzioni di Azure evita i deadlock facendo avanzare il puntatore del flusso indipendentemente dall'esito positivo o negativo. Poiché il puntatore continua ad avanzare, le funzioni devono gestire gli errori in modo appropriato.
 
-## <a name="how-azure-functions-consumes-event-hubs-events"></a>Modalità di utilizzo degli eventi di hub eventi in funzioni di Azure
+## <a name="how-azure-functions-consumes-event-hubs-events"></a>Come Funzioni di Azure utilizza gli eventi di Hub eventiHow Azure Functions consumes Event Hubs events
 
-Funzioni di Azure usa eventi dell'hub eventi durante il ciclo nei passaggi seguenti:
+Funzioni di Azure utilizza gli eventi dell'Hub eventi durante il ciclo dei passaggi seguenti:Azure Functions consumes Event Hub events while cycling through the following steps:
 
-1. Un puntatore viene creato e reso permanente in archiviazione di Azure per ogni partizione dell'hub eventi.
+1. Un puntatore viene creato e reso persistente in Archiviazione di Azure per ogni partizione dell'hub eventi.
 2. Quando vengono ricevuti nuovi messaggi (in un batch per impostazione predefinita), l'host tenta di attivare la funzione con il batch di messaggi.
-3. Se la funzione completa l'esecuzione (con o senza eccezione), il puntatore avanza e un checkpoint viene salvato nell'account di archiviazione.
-4. Se le condizioni impediscono il completamento dell'esecuzione della funzione, l'host non è in grado di avanzare il puntatore. Se il puntatore non è avanzato, i controlli successivi terminano l'elaborazione degli stessi messaggi.
+3. Se la funzione completa l'esecuzione (con o senza eccezioni), il puntatore avanza e un checkpoint viene salvato nell'account di archiviazione.
+4. Se le condizioni impediscono il completamento dell'esecuzione della funzione, l'host non riesce a far avanzare il puntatore. Se il puntatore non è avanzato, i controlli successivi finiscono per elaborare gli stessi messaggi.
 5. Ripetere i passaggi da 2 a 4
 
-Questo comportamento rivela alcuni aspetti importanti:
+Questo comportamento rivela alcuni punti importanti:This behavior reveals a few important points:
 
-- *Le eccezioni non gestite possono causare la perdita di messaggi.* Le esecuzioni che generano un'eccezione continueranno a avanzare il puntatore.
-- *Funzioni garantisce il recapito at-least-once.* Il codice e i sistemi dipendenti potrebbero dover [tenere conto del fatto che lo stesso messaggio potrebbe essere ricevuto due volte](./functions-idempotent.md).
+- *Eccezioni non gestite possono causare la perdita di messaggi.* Le esecuzioni che generano un'eccezione continueranno a generare un avanzamento del puntatore.
+- *Funzioni garantisce la consegna almeno una volta.* Potrebbe essere necessario tenere [conto del fatto che lo stesso messaggio potrebbe essere ricevuto due volte.](./functions-idempotent.md)
 
 ## <a name="handling-exceptions"></a>Gestione delle eccezioni
 
-Come regola generale, ogni funzione deve includere un [blocco try/catch](./functions-bindings-error-pages.md) al massimo livello di codice. In particolare, tutte le funzioni che utilizzano eventi di hub eventi devono avere un blocco `catch`. In questo modo, quando viene generata un'eccezione, il blocco catch gestisce l'errore prima che il puntatore avanza.
+Come regola generale, ogni funzione deve includere un [blocco try/catch](./functions-bindings-error-pages.md) al livello di codice più alto. In particolare, tutte le funzioni che `catch` utilizzano gli eventi di Hub eventi devono avere un blocco. In questo modo, quando viene generata un'eccezione, il blocco catch gestisce l'errore prima dell'avanzamento del puntatore.
 
-### <a name="retry-mechanisms-and-policies"></a>Meccanismi di ripetizione dei tentativi e criteri
+### <a name="retry-mechanisms-and-policies"></a>Meccanismi e criteri di ripetizione dei tentativiRetry mechanisms and policies
 
-Alcune eccezioni sono di natura temporanea e non vengono visualizzate nuovamente quando un'operazione viene ritentata in un secondo momento. Questo è il motivo per cui il primo passaggio consiste sempre nell'eseguire di nuovo l'operazione. È possibile scrivere le regole di elaborazione dei tentativi manualmente, ma sono così comuni che sono disponibili diversi strumenti. L'uso di queste librerie consente di definire criteri affidabili per i tentativi, che consentono anche di mantenere l'ordine di elaborazione.
+Alcune eccezioni sono di natura transitoria e non riapparire quando un'operazione viene tentata di nuovo pochi istanti dopo. Questo è il motivo per cui il primo passaggio consiste sempre nel ritentare l'operazione. È possibile scrivere le regole di elaborazione dei tentativi manualmente, ma sono così comuni che sono disponibili numerosi strumenti. L'utilizzo di queste librerie consente di definire criteri di ripetizione dei tentativi affidabili, che consentono anche di mantenere l'ordine di elaborazione.
 
-L'introduzione delle librerie di gestione degli errori alle funzioni consente di definire criteri di ripetizione dei tentativi di base e avanzati. Ad esempio, è possibile implementare un criterio che segue un flusso di lavoro illustrato dalle regole seguenti:
+L'introduzione di librerie di gestione degli errori alle funzioni consente di definire criteri di ripetizione dei tentativi di base e avanzati. Ad esempio, è possibile implementare un criterio che segue un flusso di lavoro illustrato dalle regole seguenti:For example, you could implement a policy that follows a workflow illustrated by the following rules:
 
 - Provare a inserire un messaggio tre volte (potenzialmente con un ritardo tra i tentativi).
 - Se il risultato finale di tutti i tentativi è un errore, aggiungere un messaggio a una coda in modo che l'elaborazione possa continuare nel flusso.
 - I messaggi danneggiati o non elaborati vengono quindi gestiti in un secondo momento.
 
 > [!NOTE]
-> [Polly](https://github.com/App-vNext/Polly) è un esempio di una raccolta di resilienza e di gestione degli errori temporanei per C# le applicazioni.
+> [Polly](https://github.com/App-vNext/Polly) è un esempio di una libreria di resilienza e di gestione degli errori transitori per le applicazioni C.
 
-Quando si utilizzano librerie di C# classi precompilate, i [filtri eccezioni](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/try-catch) consentono di eseguire codice ogni volta che si verifica un'eccezione non gestita.
+Quando si utilizzano librerie di classi C , i [filtri eccezioni](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/try-catch) consentono di eseguire il codice ogni volta che si verifica un'eccezione non gestita.
 
-Gli esempi che illustrano come usare i filtri eccezioni sono disponibili nel repository di [Azure Webjobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki) .
+Esempi che illustrano come usare i filtri eccezioni sono disponibili nel repository [azure WebJobs SDK.](https://github.com/Azure/azure-webjobs-sdk/wiki)
 
-## <a name="non-exception-errors"></a>Errori non eccezioni
+## <a name="non-exception-errors"></a>Errori di non eccezione
 
-Si verificano alcuni problemi anche quando non è presente un errore. Si consideri, ad esempio, un errore che si verifica durante un'esecuzione. In questo caso, se una funzione non completa l'esecuzione, il puntatore di offset non viene mai progredito. Se il puntatore non avanza, qualsiasi istanza che viene eseguita dopo un'esecuzione non riuscita continua a leggere gli stessi messaggi. Questa situazione fornisce una garanzia "at-least-once".
+Alcuni problemi si verificano anche quando non è presente un errore. Si consideri, ad esempio, un errore che si verifica durante un'esecuzione. In questo caso, se una funzione non completa l'esecuzione, il puntatore di offset non viene mai progredito. Se il puntatore non avanza, qualsiasi istanza eseguita dopo un'esecuzione non riuscita continua a leggere gli stessi messaggi. Questa situazione fornisce una garanzia "almeno una volta".
 
-La garanzia che ogni messaggio venga elaborato almeno una volta implica che alcuni messaggi possono essere elaborati più di una volta. È necessario che le app per le funzioni siano consapevoli di questa possibilità e siano basate sui [principi di idempotenza](./functions-idempotent.md).
+La garanzia che ogni messaggio viene elaborato almeno una volta implica che alcuni messaggi possono essere elaborati più di una volta. Le app per le funzioni devono essere consapevoli di questa possibilità e devono essere compilate intorno ai [principi di idempotency](./functions-idempotent.md).
 
-## <a name="stop-and-restart-execution"></a>Arrestare e riavviare l'esecuzione
+## <a name="stop-and-restart-execution"></a>Interrompere e riavviare l'esecuzione
 
-Sebbene alcuni errori possano essere accettabili, cosa accade se l'app riscontra errori significativi? Potrebbe essere necessario arrestare l'attivazione di eventi fino a quando il sistema non raggiunge uno stato integro. La possibilità di sospendere l'elaborazione viene spesso realizzata con un modello di interruttore. Il modello di interruttore consente all'app di "interrompere il circuito" del processo dell'evento e riprenderla in un secondo momento.
+Anche se alcuni errori possono essere accettabili, cosa succede se l'app si verificano errori significativi? È possibile interrompere l'attivazione degli eventi finché il sistema non raggiunge uno stato integro. Avere la possibilità di sospendere l'elaborazione si ottiene spesso con un modello di interruttore. Il modello di interruttore consente all'app di "interrompere il circuito" del processo di evento e di riprendere in un secondo momento.
 
-Per implementare un interruttore in un processo di evento sono necessari due elementi:
+Esistono due parti necessarie per implementare un interruttore in un processo di evento:There are two pieces required to implement a circuit breaker in an event process:
 
-- Stato condiviso tra tutte le istanze per tenere traccia e monitorare l'integrità del circuito
-- Processo master che può gestire lo stato del circuito (aperto o chiuso)
+- Stato condiviso in tutte le istanze per tenere traccia e monitorare l'integrità del circuito
+- Processo principale in grado di gestire lo stato del circuito (aperto o chiuso)
 
-I dettagli di implementazione possono variare, ma per condividere lo stato tra le istanze è necessario un meccanismo di archiviazione. È possibile scegliere di archiviare lo stato in archiviazione di Azure, in una cache Redis o in qualsiasi altro account accessibile da una raccolta di funzioni.
+I dettagli di implementazione possono variare, ma per condividere lo stato tra istanze è necessario un meccanismo di archiviazione. È possibile scegliere di archiviare lo stato in Archiviazione di Azure, in una cache Redis o in qualsiasi altro account accessibile da una raccolta di funzioni.
 
-[App](../logic-apps/logic-apps-overview.md) per la logica di Azure o [entità durevoli](./durable/durable-functions-overview.md) sono una soluzione naturale per gestire il flusso di lavoro e lo stato del circuito. Anche altri servizi possono funzionare, ma per questo esempio vengono usate le app per la logica. Usando le app per la logica, è possibile sospendere e riavviare l'esecuzione di una funzione che fornisce il controllo necessario per implementare il modello di interruttore.
+[Le app per](../logic-apps/logic-apps-overview.md) la logica di Azure o [le entità durevoli](./durable/durable-functions-overview.md) sono adatte in modo naturale per gestire il flusso di lavoro e lo stato del circuito. Altri servizi possono funzionare altrettanto bene, ma le app per la logica vengono usate per questo esempio. Usando le app per la logica, è possibile sospendere e riavviare l'esecuzione di una funzione, fornendo il controllo necessario per implementare il modello di interruttore.
 
-### <a name="define-a-failure-threshold-across-instances"></a>Definire una soglia di errore tra le istanze
+### <a name="define-a-failure-threshold-across-instances"></a>Definire una soglia di errore tra le istanzeDefine a failure threshold across instances
 
-Per tenere conto di più istanze che elaborano simultaneamente gli eventi, è necessario rendere permanente lo stato esterno condiviso per monitorare l'integrità del circuito.
+Per tenere conto di più istanze che elaborano gli eventi contemporaneamente, è necessario rendere persistente lo stato esterno condiviso per monitorare l'integrità del circuito.
 
-Una regola che è possibile scegliere di implementare potrebbe applicare quanto segue:
+Una regola che è possibile scegliere di implementare potrebbe imporre che:A rule you may choose to implement might enforce that:
 
-- Se sono presenti più di 100 errori finali entro 30 secondi per tutte le istanze, interrompere il circuito e arrestare l'attivazione dei nuovi messaggi.
+- Se sono presenti più di 100 errori entro 30 secondi in tutte le istanze, interrompere il circuito e interrompere l'attivazione dei nuovi messaggi.
 
-I dettagli di implementazione variano in base alle esigenze, ma in generale è possibile creare un sistema che:
+I dettagli di implementazione variano in base alle proprie esigenze, ma in generale è possibile creare un sistema che:The implementation details will vary given your needs, but in general you can create a system that:
 
-1. Registrare gli errori in un account di archiviazione (archiviazione di Azure, Redis e così via)
-1. Quando viene registrato un nuovo errore, controllare il numero di sequenza per verificare se la soglia viene soddisfatta (ad esempio, più di 100 negli ultimi 30 secondi).
-1. Se la soglia viene soddisfatta, creare un evento in griglia di eventi di Azure che informa il sistema di interrompere il circuito.
+1. Registrare gli errori in un account di archiviazione (Archiviazione di Azure, Redis e così via)
+1. Quando viene registrato un nuovo errore, controllare il conteggio in sequenza per verificare se la soglia è soddisfatta (ad esempio, più di 100 negli ultimi 30 secondi).
+1. Se viene raggiunta la soglia, generare un evento in Griglia di eventi di Azure indicando al sistema di interrompere il circuito.
 
-### <a name="managing-circuit-state-with-azure-logic-apps"></a>Gestione dello stato del circuito con app per la logica di Azure
+### <a name="managing-circuit-state-with-azure-logic-apps"></a>Gestione dello stato del circuito con le app per la logica di AzureManaging circuit state with Azure Logic Apps
 
-La descrizione seguente evidenzia un modo in cui è possibile creare un'app per la logica di Azure per arrestare l'elaborazione di un'app per le funzioni.
+La descrizione seguente evidenzia un modo per creare un'app per la logica di Azure per arrestare un'app Funzioni dall'elaborazione.
 
-App per la logica di Azure include connettori incorporati per diversi servizi, funzionalità orchestrazioni con stato ed è una scelta naturale per gestire lo stato del circuito. Dopo aver rilevato che è necessario interrompere il circuito, è possibile compilare un'app per la logica per implementare il flusso di lavoro seguente:
+App per la logica di Azure include connettori incorporati a diversi servizi, orchestrazioni con stato delle funzionalità ed è una scelta naturale per gestire lo stato del circuito. Dopo aver rilevato la necessità di interruzione del circuito, è possibile creare un'app per la logica per implementare il flusso di lavoro seguente:After detecting the circuit needs to break, you can build a logic app to implement the following workflow:
 
-1. Attivare un flusso di lavoro di griglia di eventi e arrestare la funzione di Azure (con il connettore di risorse di Azure)
-1. Invia un messaggio di posta elettronica di notifica che include un'opzione per riavviare il flusso di lavoro
+1. Attivare un flusso di lavoro Griglia di eventi e arrestare la funzione di Azure (con il connettore di risorse di Azure)Trigger an Event Grid workflow and stop the Azure Function (with the Azure Resource connector)
+1. Inviare un messaggio di posta elettronica di notifica che include un'opzione per riavviare il flusso di lavoroSend a notification email that includes an option to restart the workflow
 
-Il destinatario di posta elettronica può esaminare l'integrità del circuito e, quando necessario, riavviare il circuito tramite un collegamento nel messaggio di posta elettronica di notifica. Quando il flusso di lavoro riavvia la funzione, i messaggi vengono elaborati dall'ultimo checkpoint dell'hub eventi.
+Il destinatario dell'e-mail può esaminare l'integrità del circuito e, se necessario, riavviare il circuito tramite un collegamento nell'e-mail di notifica. Quando il flusso di lavoro riavvia la funzione, i messaggi vengono elaborati dall'ultimo checkpoint dell'Hub eventi.
 
-Con questo approccio, nessun messaggio viene perso, tutti i messaggi vengono elaborati in ordine ed è possibile interrompere il circuito se necessario.
+Utilizzando questo approccio, nessun messaggio viene perso, tutti i messaggi vengono elaborati in ordine ed è possibile interrompere il circuito per tutto il tempo necessario.
 
 ## <a name="resources"></a>Risorse
 
 - [Esempi di elaborazione di eventi affidabili](https://github.com/jeffhollan/functions-csharp-eventhub-ordered-processing)
-- [Interruttore di Azure Durable Functions](https://github.com/jeffhollan/functions-durable-actor-circuitbreaker)
+- [Interruttore di circuito per le funzioni durevoli di AzureAzure Durable Functions Circuit Breaker](https://github.com/jeffhollan/functions-durable-actor-circuitbreaker)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni, vedere le seguenti risorse:
 
 - [Gestione degli errori di Funzioni di Azure](./functions-bindings-error-pages.md)
-- [Automatizzare il ridimensionamento delle immagini caricate con la griglia di eventi](../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2Fazure%2Fazure-functions%2Ftoc.json&tabs=dotnet)
+- [Automatizzare il ridimensionamento delle immagini caricate utilizzando Griglia di eventi](../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2Fazure%2Fazure-functions%2Ftoc.json&tabs=dotnet)
 - [Creare una funzione che si integra con le app per la logica di Azure](./functions-twitter-email.md)

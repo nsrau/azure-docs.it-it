@@ -15,21 +15,21 @@ ms.topic: article
 ms.date: 02/15/2018
 ms.author: magattus
 ms.openlocfilehash: a701c332659181081184906a73826b7137d8c49c
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67593707"
 ---
 # <a name="manage-expiration-of-web-content-in-azure-cdn"></a>Gestire la scadenza del contenuto Web nella rete CDN di Azure
 > [!div class="op_single_selector"]
 > * [Contenuto Web di Azure](cdn-manage-expiration-of-cloud-service-content.md)
-> * [Archivio BLOB di Azure](cdn-manage-expiration-of-blob-content.md)
+> * [Archiviazione BLOB di Azure](cdn-manage-expiration-of-blob-content.md)
 > 
 
 I file provenienti da server Web di origine accessibili pubblicamente possono essere memorizzati nella cache della rete per la distribuzione di contenuti (CDN) di Azure fino allo scadere della relativa durata (TTL). La durata (TTL) è determinata dall'intestazione `Cache-Control` nella risposta HTTP del server di origine. Questo articolo descrive come impostare le intestazioni `Cache-Control` per la funzionalità App Web di Servizio app di Microsoft Azure, Servizi cloud di Azure, applicazioni ASP.NET e siti Internet Information Services (IIS), che hanno tutti una configurazione simile. È possibile impostare l'intestazione `Cache-Control` usando i file di configurazione o a livello di codice. 
 
-È inoltre possibile controllare le impostazioni della cache dal portale di Azure mediante l'impostazione delle [regole di memorizzazione nella cache della rete CDN](cdn-caching-rules.md). Se si creano una o più regole di memorizzazione nella cache e si imposta il relativo comportamento su **Ignora** o **Ignora cache**, le impostazioni di memorizzazione nella cache fornite in origine e descritte in questo articolo vengono ignorate. Per informazioni sui concetti generali sulla memorizzazione nella cache, vedere [Come funziona la memorizzazione nella cache](cdn-how-caching-works.md).
+È anche possibile controllare le impostazioni della cache dal portale di Azure impostando le regole di [memorizzazione nella cache](cdn-caching-rules.md)della rete CDN. Se si creano una o più regole di memorizzazione nella cache e si imposta il relativo comportamento su **Ignora** o **Ignora cache**, le impostazioni di memorizzazione nella cache fornite in origine e descritte in questo articolo vengono ignorate. Per informazioni sui concetti generali sulla memorizzazione nella cache, vedere [Come funziona la memorizzazione nella cache](cdn-how-caching-works.md).
 
 > [!TIP]
 > È possibile scegliere di non impostare alcuna durata (TTL) per un file. In questo caso, la rete CDN di Azure applica automaticamente una durata (TTL) predefinita di sette giorni, a meno che non siano state configurate le regole di memorizzazione nella cache nel portale di Azure. Questa impostazione predefinita di durata (TTL) si applica solo alle ottimizzazioni di distribuzione web generali. Per le ottimizzazioni di file di grandi dimensioni, il valore TTL predefinito è un giorno e per le ottimizzazioni dei flussi dei file multimediali, il valore TTL predefinito è un anno.
@@ -106,7 +106,7 @@ L'esempio di file di configurazione XML seguente mostra come impostare l'element
 </configuration>
 ```
 
-Per usare l'attributo **cacheControlMaxAge**, è necessario impostare il valore dell'attributo **cacheControlMode** su `UseMaxAge`. Questa impostazione ha fatto sì che l'intestazione HTTP e la direttiva, `Cache-Control: max-age=<nnn>`, fossero aggiunte alla risposta. Il formato del valore dell'intervallo di tempo per l'attributo **cacheControlMaxAge** è `<days>.<hours>:<min>:<sec>`. Il valore viene convertito in secondi e viene usato come il valore della direttiva `Cache-Control` `max-age`. Per altre informazioni sul `<clientCache>` elemento, vedere [Cache del Client \<clientCache >](https://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache).  
+Per usare l'attributo **cacheControlMaxAge**, è necessario impostare il valore dell'attributo **cacheControlMode** su `UseMaxAge`. Questa impostazione ha fatto sì che l'intestazione HTTP e la direttiva, `Cache-Control: max-age=<nnn>`, fossero aggiunte alla risposta. Il formato del valore dell'intervallo di tempo per l'attributo **cacheControlMaxAge** è `<days>.<hours>:<min>:<sec>`. Il valore viene convertito in secondi e `Cache-Control` `max-age` viene utilizzato come valore della direttiva. Per ulteriori informazioni `<clientCache>` sull'elemento , vedere [Client Cache \<clientCache>](https://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache).  
 
 ## <a name="setting-cache-control-headers-programmatically"></a>Impostazione delle intestazioni Cache-Control a livello di programmazione
 Per le applicazioni ASP.NET, gestire a livello di codice il comportamento di memorizzazione nella cache della rete CDN impostando la proprietà **HttpResponse.Cache** dell'API.NET. Per informazioni sulla proprietà **HttpResponse.Cache**, vedere [Proprietà HttpResponse.Cache](/dotnet/api/system.web.httpresponse.cache#System_Web_HttpResponse_Cache) e [Classe HttpCachePolicy](/dotnet/api/system.web.httpcachepolicy).  
@@ -128,9 +128,9 @@ Response.Cache.SetLastModified(DateTime.Now);
 ```
 
 ## <a name="testing-the-cache-control-header"></a>Test dell'intestazione Cache-Control
-È possibile verificare facilmente le impostazioni di durata (TTL) del contenuto web. Con gli [strumenti di sviluppo](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/) del browser verificare che il contenuto web includa l'intestazione della risposta `Cache-Control`. È anche possibile usare uno strumento come **wget**, [Postman](https://www.getpostman.com/) o [Fiddler](https://www.telerik.com/fiddler) per esaminare le intestazioni della risposta.
+È possibile verificare facilmente le impostazioni di durata (TTL) del contenuto web. Con gli [strumenti di sviluppo](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/) del browser verificare che il contenuto web includa l'intestazione della risposta `Cache-Control`. È inoltre possibile utilizzare uno strumento come **wget**, [Postman](https://www.getpostman.com/)o [Fiddler](https://www.telerik.com/fiddler) per esaminare le intestazioni di risposta.
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 * [Vedere informazioni dettagliate sull'elemento **clientCache**](https://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)
 * [Vedere la documentazione sulla proprietà **HttpResponse.Cache**](/dotnet/api/system.web.httpresponse.cache#System_Web_HttpResponse_Cache) 
 * [Vedere la documentazione sulla classe **HttpCachePolicy**](/dotnet/api/system.web.httpcachepolicy)  

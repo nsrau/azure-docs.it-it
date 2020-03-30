@@ -1,5 +1,5 @@
 ---
-title: Configurare gli endpoint | Microsoft Docs
+title: Configurare gli endpoint. Documenti Microsoft
 description: Come trovare gli endpoint di autenticazione per un'applicazione personalizzata che si sta sviluppando o registrando con Azure AD.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: ryanwi
 ms.openlocfilehash: 5dbe9d6eed6c546af0ed2cb35a0a62e9943503a9
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76702794"
 ---
 # <a name="how-to-configure-endpoints"></a>Come configurare gli endpoint
@@ -37,4 +37,4 @@ ms.locfileid: "76702794"
 -   Per creare la richiesta di autenticazione specifica per l'applicazione, usare l'endpoint specifico del protocollo di autenticazione in uso, in combinazione con l'ID applicazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Guida per gli sviluppatori di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)
+[Guida per gli sviluppatori di Azure Active DirectoryAzure Active Directory developer's guide](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)

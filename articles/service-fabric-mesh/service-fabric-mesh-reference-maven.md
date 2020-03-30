@@ -1,22 +1,22 @@
 ---
-title: Informazioni di riferimento su Azure Service Fabric mesh Maven
+title: Informazioni di riferimento su Azure Service Fabric Mesh MavenAzure Service Fabric Mesh Maven reference
 description: Contiene informazioni di riferimento per l'uso del plug-in Maven per Service Fabric Mesh
 author: suhuruli
 ms.author: suhuruli
 ms.date: 11/26/2018
 ms.topic: reference
 ms.openlocfilehash: bcc3fb7c6c3adce0997d0960c4d98227089b048b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75459013"
 ---
 # <a name="maven-plugin-for-service-fabric-mesh"></a>Plug-in Maven per Service Fabric Mesh
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Java SDK
+- SDK per Java
 - Maven
 - Interfaccia della riga di comando di Azure con estensione Mesh
 - Interfaccia della riga di comando di Service Fabric
@@ -36,7 +36,7 @@ ms.locfileid: "75459013"
 - Genera un file YAML `gateway` con il nome di gateway specificato nella cartella `appresources` 
 
 #### `azure-sfmesh:addvolume`
-- Genera un `volume` YAML con il nome del volume fornito nella cartella `appresources`.
+- Genera `volume` un file YAML con `appresources` il nome del volume fornito nella cartella.
 
 ### `azure-sfmesh:addsecret`
 - Genera un file YAML `secret` con il nome del segreto specificato nella cartella `appresources` 
@@ -78,7 +78,7 @@ Per usare il plug-in Maven nell'app Java Maven, aggiungere il frammento di codic
 
 Il plug-in Maven attualmente non supporta le configurazioni comuni dei plug-in Maven per Azure.
 
-## <a name="how-to"></a>Procedura
+## <a name="how-to"></a>Procedure
 
 ### <a name="initialize-maven-project-for-azure-service-fabric-mesh"></a>Inizializzare il progetto Maven per Azure Service Fabric Mesh
 Eseguire il comando seguente per creare il file YAML delle risorse dell'applicazione.

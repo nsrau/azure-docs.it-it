@@ -1,5 +1,5 @@
 ---
-title: Visualizzare e assegnare autorizzazioni per i ruoli di amministratore-Azure AD | Microsoft Docs
+title: Visualizzare e assegnare le autorizzazioni per i ruoli di amministratore - Azure AD Documenti Microsoft
 description: È ora possibile visualizzare e gestire i membri di un ruolo di amministratore di Azure AD nel portale. Per gli utenti che gestiscono spesso le assegnazioni di ruolo.
 services: active-directory
 author: curtand
@@ -14,10 +14,10 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b2815b496545ca5f920c00df7b2b5b7efe15c12a
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74900921"
 ---
 # <a name="view-and-assign-administrator-roles-in-azure-active-directory"></a>Visualizzare e assegnare i ruoli di amministratore in Azure Active Directory
@@ -26,7 +26,7 @@ ms.locfileid: "74900921"
 
 ## <a name="view-all-roles"></a>Visualizzare tutti i ruoli
 
-Cercare e selezionare **Azure Active Directory**. Selezionare **ruoli e amministratori** per visualizzare l'elenco di tutti i ruoli disponibili.
+Cercare e selezionare **Azure Active Directory**. Selezionare **Ruoli e amministratori** per visualizzare l'elenco di tutti i ruoli disponibili.
 
 Fare clic sui puntini di sospensione a destra di ogni riga per aprire la descrizione dettagliata del ruolo.
 

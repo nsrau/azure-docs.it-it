@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: introduzione alle impostazioni rapide | Microsoft Docs'
+title: 'Azure AD Connect: introduzione alle impostazioni rapide | Documentazione Microsoft'
 description: Informazioni su come scaricare, installare e configurare la procedura guidata per Azure AD Connect.
 services: active-directory
 author: billmath
@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 24143f8c94a294da90be84bacfe633db0cd24f85
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60244562"
 ---
 # <a name="getting-started-with-azure-ad-connect-using-express-settings"></a>Introduzione alle impostazioni rapide per Azure AD Connect
@@ -63,17 +63,17 @@ Per un video sull'uso dell'installazione rapida, vedere:
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo aver installato Azure AD Connect è possibile [verificare l'installazione e assegnare le licenze](how-to-connect-post-installation.md).
 
-Altre informazioni su queste funzionalità che sono state abilitate con l'installazione: [Aggiornamento automatico](how-to-connect-install-automatic-upgrade.md), [Prevenzione delle eliminazioni accidentali](how-to-connect-sync-feature-prevent-accidental-deletes.md) e [Azure AD Connect Health](how-to-connect-health-sync.md).
+Altre informazioni su queste funzionalità che sono state abilitate con l'installazione: [Aggiornamento automatico](how-to-connect-install-automatic-upgrade.md), [Impedire eliminazioni accidentali](how-to-connect-sync-feature-prevent-accidental-deletes.md) e [Azure AD Connect Health](how-to-connect-health-sync.md).
 
 Altre informazioni su questi argomenti comuni: [utilità di pianificazione e come attivare la sincronizzazione](how-to-connect-sync-feature-scheduler.md).
 
-Ulteriori informazioni su [Integrazione delle identità locali con Azure Active Directory](whatis-hybrid-identity.md).
+Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](whatis-hybrid-identity.md).
 
-## <a name="related-documentation"></a>documentazione correlata
+## <a name="related-documentation"></a>Documentazione correlata
 
 | Argomento | Collegamento |
 | --- | --- |
 | Panoramica di Azure AD Connect | [Integrare le directory locali con Azure Active Directory](whatis-hybrid-identity.md)
 | Eseguire l'installazione con le impostazioni personalizzate | [Installazione personalizzata di Azure AD Connect](how-to-connect-install-custom.md) |
 | Aggiornamento da DirSync | [Aggiornamento dallo strumento di sincronizzazione di Azure AD (DirSync)](how-to-dirsync-upgrade-get-started.md)|
-| Account usati per l'installazione | [Altre informazioni sulle credenziali e le autorizzazioni di Azure AD Connect](reference-connect-accounts-permissions.md) |
+| Account usati per l'installazione | [Ulteriori informazioni sulle credenziale e le autorizzazioni di Azure AD Connect](reference-connect-accounts-permissions.md) |

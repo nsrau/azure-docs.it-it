@@ -1,6 +1,6 @@
 ---
 title: Eseguire programmi MapReduce personalizzati - Azure HDInsight
-description: Quando e come eseguire programmi Apache MapReduce personalizzati nei cluster HDInsight di Azure.
+description: Quando e come eseguire programmi Apache MapReduce personalizzati nei cluster HDInsight di Azure.When and how to run custom Apache MapReduce programs on Azure HDInsight clusters.
 author: ashishthaps
 ms.author: ashishth
 ms.reviewer: jasonh
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/01/2020
 ms.openlocfilehash: 78623f738285e781cb561a3844db8fbf37226929
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75645022"
 ---
 # <a name="run-custom-mapreduce-programs"></a>Eseguire programmi MapReduce personalizzati
@@ -21,9 +21,9 @@ I sistemi Big Data basati su Apache Hadoop, come HDInsight, consentono di elabor
 
 | Meccanismo di query | Vantaggi | Considerazioni |
 | --- | --- | --- |
-| **Apache Hive tramite HiveQL** | <ul><li>Soluzione eccellente per l'elaborazione batch e l'analisi di grandi quantità di dati non modificabili, per il riepilogo dei dati e per l'esecuzione di query su richiesta. Usa una sintassi familiare simile a quella di SQL.</li><li>Può essere usato per produrre tabelle permanenti di dati facilmente partizionabili e indicizzabili.</li><li>È possibile creare più viste e tabelle esterne sugli stessi dati.</li><li>Supporta un'implementazione semplice di data warehouse che offre massicce funzionalità di scalabilità orizzontale e tolleranza di errore per l'elaborazione e l'archiviazione dei dati.</li></ul> | <ul><li>Richiede che i dati di origine abbiano almeno una qualche struttura identificabile.</li><li>Non è adatto per le query in tempo reale e gli aggiornamenti a livello di riga. Si tratta di una soluzione ottimale per i processi batch su set di dati di grandi dimensioni.</li><li>Potrebbe non riuscire a eseguire alcuni tipi di attività di elaborazione complesse.</li></ul> |
-| **Apache Pig tramite Pig Latin** | <ul><li>Soluzione eccellente per modificare i dati in set, unire e filtrare set di dati, applicare funzioni a record o gruppi di record e per ristrutturare i dati tramite la definizione di colonne, il raggruppamento di valori o la conversione di colonne in righe.</li><li>Può usare un approccio basato sul flusso di lavoro sotto forma di sequenza di operazioni sui dati.</li></ul> | <ul><li>Gli utenti di SQL potrebbero trovare Pig Latin meno familiare e più difficile da usare rispetto a HiveQL.</li><li>L'output predefinito è in genere un file di testo e quindi può essere più difficile da usare con strumenti di visualizzazione quali Excel. In genere si esegue il layer di una tabella hive sull'output.</li></ul> |
-| **Componenti Map/Reduce personalizzati** | <ul><li>Fornisce il controllo completo sulle fasi di mapping e riduzione e sull'esecuzione.</li><li>Consente di ottimizzare le query in modo da ottenere prestazioni ottimali dal cluster oppure per ridurre al minimo il carico sul server e sulla rete.</li><li>I componenti possono essere scritti in una vasta gamma di linguaggi noti.</li></ul> | <ul><li>È più difficile che usare Pig o hive perché è necessario creare i propri componenti map e reduce.</li><li>I processi che richiedono il join di set di dati sono più difficilmente implementabili.</li><li>Anche se sono disponibili framework di test, il debug del codice è più complesso rispetto a una normale applicazione perché il codice viene eseguito come processo batch sotto il controllo del pianificatore di processi di Hadoop.</li></ul> |
+| **Apache Hive tramite HiveQL** | <ul><li>Soluzione eccellente per l'elaborazione batch e l'analisi di grandi quantità di dati non modificabili, per il riepilogo dei dati e per l'esecuzione di query su richiesta. Usa una sintassi familiare simile a quella di SQL.</li><li>Può essere usato per produrre tabelle permanenti di dati facilmente partizionabili e indicizzabili.</li><li>È possibile creare più viste e tabelle esterne sugli stessi dati.</li><li>Supporta un'implementazione semplice di data warehouse che offre massicce funzionalità di scalabilità orizzontale e tolleranza di errore per l'elaborazione e l'archiviazione dei dati.</li></ul> | <ul><li>Richiede che i dati di origine abbiano almeno una qualche struttura identificabile.</li><li>Non è adatto per le query in tempo reale e gli aggiornamenti a livello di riga. È ideale per i processi batch su set di dati di grandi dimensioni.</li><li>Potrebbe non riuscire a eseguire alcuni tipi di attività di elaborazione complesse.</li></ul> |
+| **Apache Pig tramite Pig Latin** | <ul><li>Soluzione eccellente per modificare i dati in set, unire e filtrare set di dati, applicare funzioni a record o gruppi di record e per ristrutturare i dati tramite la definizione di colonne, il raggruppamento di valori o la conversione di colonne in righe.</li><li>Può usare un approccio basato sul flusso di lavoro sotto forma di sequenza di operazioni sui dati.</li></ul> | <ul><li>Gli utenti di SQL potrebbero trovare Pig Latin meno familiare e più difficile da usare rispetto a HiveQL.</li><li>L'output predefinito è in genere un file di testo e quindi può essere più difficile da usare con strumenti di visualizzazione quali Excel. In genere si sovrapponge una tabella Hive sull'output.</li></ul> |
+| **Componenti Map/Reduce personalizzati** | <ul><li>Fornisce il controllo completo sulla mappa e riduce le fasi e l'esecuzione.</li><li>Consente di ottimizzare le query in modo da ottenere prestazioni ottimali dal cluster oppure per ridurre al minimo il carico sul server e sulla rete.</li><li>I componenti possono essere scritti in una vasta gamma di linguaggi noti.</li></ul> | <ul><li>È più difficile che usare Pig o Hive perché è necessario creare la propria mappa e ridurre i componenti.</li><li>I processi che richiedono il join di set di dati sono più difficilmente implementabili.</li><li>Anche se sono disponibili framework di test, il debug del codice è più complesso rispetto a una normale applicazione perché il codice viene eseguito come processo batch sotto il controllo del pianificatore di processi di Hadoop.</li></ul> |
 | **Apache HCatalog** | <ul><li>Estrae dal percorso i dettagli relativi all'archiviazione. In tal modo l'amministrazione risulta più agevole e gli utenti non devono più sapere dove sono archiviati i dati.</li><li>Abilita la notifica degli eventi, ad esempio relativi alla disponibilità dei dati, consentendo ad altri strumenti, come Oozie, di rilevare quando si sono verificate le operazioni.</li><li>Espone una visualizzazione relazionale dei dati, incluso il partizionamento per chiave, facilitando l'accesso ai dati.</li></ul> | <ul><li>Supporta i formati di file RCFile, testo CSV, testo JSON, SequenceFile e ORC per impostazione predefinita, ma potrebbe essere necessario scrivere un SerDe personalizzato per altri formati.</li><li>HCatalog non è thread-safe.</li><li>Quando si usa il caricatore HCatalog in script Pig, sono previste alcune limitazioni relative ai tipi di dati per le colonne. Per altre informazioni, vedere [HCatLoader Data Types](https://cwiki.apache.org/confluence/display/Hive/HCatalog%20LoadStore#HCatalogLoadStore-HCatLoaderDataTypes) (Tipi di dati HCatLoader) nella documentazione di Apache HCatalog.</li></ul> |
 
 In genere, si usa l'approccio più semplice tra quelli descritti in grado di fornire i risultati richiesti. Ad esempio, si potrebbe riuscire a ottenere questi risultati usando solo Hive, ma per scenari più complessi potrebbe essere necessario usare Pig o anche scrivere i propri componenti Map e Reduce. È anche possibile decidere, dopo aver sperimentato Hive o Pig, che sono i componenti Map e Reduce personalizzati a offrire le prestazioni migliori, in quanto consentono di regolare e ottimizzare l'elaborazione.
@@ -32,7 +32,7 @@ In genere, si usa l'approccio più semplice tra quelli descritti in grado di for
 
 Il codice Map/Reduce è costituito da due funzioni separate implementate come componenti **map** e **reduce**. Il componente **map** viene eseguito in parallelo in più nodi del cluster. Ogni nodo applica il mapping al proprio subset di dati. Il componente **reduce** collaziona e riepiloga i risultati di tutte le funzioni di mapping. Per altre informazioni su questi due componenti, vedere [Usare MapReduce in Hadoop su HDInsight](hdinsight-use-mapreduce.md).
 
-Nella maggior parte degli scenari di elaborazione HDInsight, è più semplice ed efficiente usare un'astrazione di livello superiore, ad esempio Pig o hive. È anche possibile creare componenti Map e Reduce personalizzati da usare in script Hive per eseguire operazioni di elaborazione più sofisticate.
+Nella maggior parte degli scenari di elaborazione HDInsight, è più semplice ed efficiente usare un'astrazione di livello superiore, ad esempio Pig o Hive.In most HDInsight processing scenarios, it's simpler and more efficient to use a higher-level abstraction such as Pig or Hive. È anche possibile creare componenti Map e Reduce personalizzati da usare in script Hive per eseguire operazioni di elaborazione più sofisticate.
 
 I componenti Map/Reduce personalizzati sono in genere scritti in Java. Hadoop offre un'interfaccia di streaming che consente anche di usare componenti sviluppati in altri linguaggi come C#, F #, Visual Basic, Python e JavaScript.
 
@@ -48,15 +48,15 @@ Provare a creare i componenti Map e Reduce personalizzati per le condizioni segu
 
 I programmi MapReduce più comuni sono scritti in Java e compilati in un file JAR.
 
-1. Dopo aver sviluppato, compilato e testato il programma MapReduce, usare il comando `scp` per caricare il file jar in nodo head.
+1. Dopo aver sviluppato, compilato e testato il programma MapReduce, utilizzare il `scp` comando per caricare il file jar nel nodo head.
 
     ```cmd
     scp mycustomprogram.jar sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-    Sostituire CLUSTERname con il nome del cluster. Se è stata usata una password per proteggere l'account SSH, viene richiesto di immettere la password. Se è stata usato un certificato, può essere necessario usare il parametro `-i` per specificare il file della chiave privata.
+    Sostituire CLUSTERNAME con il nome del cluster. Se è stata utilizzata una password per proteggere l'account SSH, viene richiesto di immettere la password. Se è stata usato un certificato, può essere necessario usare il parametro `-i` per specificare il file della chiave privata.
 
-1. Usare il [comando ssh](../hdinsight-hadoop-linux-use-ssh-unix.md) per connettersi al cluster. Modificare il comando seguente sostituendo CLUSTERname con il nome del cluster e quindi immettere il comando:
+1. Usare [il comando ssh](../hdinsight-hadoop-linux-use-ssh-unix.md) per connettersi al cluster. Modificare il comando seguente sostituendo CLUSTERNAME con il nome del cluster, quindi immettere il comando:
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net

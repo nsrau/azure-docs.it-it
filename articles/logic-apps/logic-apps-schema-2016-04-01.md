@@ -1,5 +1,5 @@
 ---
-title: Aggiornamenti dello schema giugno-1-2016
+title: Aggiornamenti dello schema da giugno a 1-2016
 description: Versione aggiornata dello schema del 1° giugno 2016 per le definizioni di App per la logica di Azure
 services: logic-apps
 ms.suite: integration
@@ -9,10 +9,10 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 07/25/2016
 ms.openlocfilehash: e2f65f1c52dc7dfb2e4e4bf66f5c7e82f4b802b8
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74792886"
 ---
 # <a name="schema-updates-for-azure-logic-apps---june-1-2016"></a>Aggiornamenti dello schema per App per la logica di Azure: 1° giugno 2016
@@ -153,7 +153,7 @@ I cicli `foreach` e `until` sono limitati a una singola azione.
 
 ### <a name="new-trackedproperties-for-actions"></a>Nuova proprietà "trackedProperties" per le azioni
 
-Le azioni possono ora includere una proprietà aggiuntiva denominata `trackedProperties`, di pari livello rispetto alle proprietà `runAfter` e `type`. Questo oggetto specifica determinati input o output delle azioni da includere nei dati di telemetria di Diagnostica di Azure generati come parte di un flusso di lavoro, ad esempio:
+Le azioni possono ora includere una proprietà aggiuntiva denominata `trackedProperties`, di pari livello rispetto alle proprietà `runAfter` e `type`. Questo oggetto specifica determinati input o output delle azioni da includere nei dati di telemetria di Diagnostica di Azure generati come parte di un flusso di lavoro, Ad esempio:
 
 ``` json
 {
@@ -175,7 +175,7 @@ Le azioni possono ora includere una proprietà aggiuntiva denominata `trackedPro
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Creare definizioni dei flussi di lavoro per le app per la logica](../logic-apps/logic-apps-author-definitions.md)
-* [Automatizzare la distribuzione delle app per la logica](logic-apps-azure-resource-manager-templates-overview.md)
+* [Automatizzare la distribuzione di app per la logica](logic-apps-azure-resource-manager-templates-overview.md)
 
 <!-- Image references -->
 [1]: ./media/logic-apps-schema-2016-04-01/upgradeButton.png

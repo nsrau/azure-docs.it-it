@@ -1,5 +1,5 @@
 ---
-title: Individuazione endpoint di gestione istanza gestita
+title: Individuare l'endpoint di gestione delle istanze gestiteDiscover managed instance management endpoint
 description: Informazioni su come ottenere l'indirizzo IP pubblico dell'endpoint di gestione di Istanza gestita di database SQL di Azure e verificare la protezione del firewall predefinito
 services: sql-database
 ms.service: sql-database
@@ -12,19 +12,19 @@ ms.author: srbozovi
 ms.reviewer: sstein, carlrab
 ms.date: 12/04/2018
 ms.openlocfilehash: 03cd89084c2bae3339311f2f684a0d5e7bac1f68
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73825725"
 ---
 # <a name="determine-the-management-endpoint-ip-address"></a>Determinare l'indirizzo IP dell'endpoint di gestione
 
 Il cluster virtuale di Istanza gestita di database SQL di Azure contiene un endpoint di gestione usato da Microsoft per le operazioni di gestione. L'endpoint di gestione è protetto con un firewall predefinito a livello di rete e con la verifica reciproca dei certificati a livello di applicazione. È possibile determinare l'indirizzo IP dell'endpoint di gestione, ma non è possibile accedere a questo endpoint.
 
-Per determinare l'indirizzo IP di gestione, eseguire una ricerca DNS sull'FQDN dell'istanza gestita: `mi-name.zone_id.database.windows.net`. Verrà restituita una voce DNS simile `trx.region-a.worker.vnet.database.windows.net`. È quindi possibile eseguire una ricerca DNS su questo FQDN con ". vnet" rimosso. Verrà restituito l'indirizzo IP di gestione. 
+Per determinare l'indirizzo IP di gestione, eseguire una `mi-name.zone_id.database.windows.net`ricerca DNS nel nome di dominio completo dell'istanza gestita: . Verrà restituita una voce DNS `trx.region-a.worker.vnet.database.windows.net`simile a . È quindi possibile eseguire una ricerca DNS su questo nome di dominio completo con ".vnet" rimosso. Verrà restituito l'indirizzo IP di gestione. 
 
-Questa operazione verrà eseguita da PowerShell se si sostituisce \<MI FQDN\> con la voce DNS dell'istanza gestita: `mi-name.zone_id.database.windows.net`:
+Questo PowerShell eseguirà tutto per \<te se\> sostituisci l'FQDN `mi-name.zone_id.database.windows.net`MI con la voce DNS dell'istanza gestita: :
   
 ``` powershell
   $MIFQDN = "<MI FQDN>"

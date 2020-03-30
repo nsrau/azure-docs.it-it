@@ -1,19 +1,18 @@
 ---
-title: Prezzi per le offerte della macchina virtuale | Azure Marketplace
+title: Prezzi per le offerte di macchine virtuali Azure Marketplace
 description: Illustra i tre metodi disponibili per specificare i prezzi delle offerte delle macchine virtuali.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: c7ea5afeb46c30837c2ae53e871bb64f5d8cf292
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: b96dcfa6a140d5c16208fd8183003a7462b1aa56
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827329"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280440"
 ---
 <a name="pricing-for-virtual-machine-offers"></a>Prezzi per le offerte di macchine virtuali
 ==================================
@@ -24,7 +23,7 @@ Esistono tre modi per specificare i prezzi per le offerte di macchine virtuali: 
 <a name="customized-core-pricing"></a>Prezzi core personalizzati
 -----------------------
 
-I prezzi sono specifici per ogni combinazione di area e di core. Ogni area nell'elenco di vendita deve essere specificata nella sezione della definizione **virtualMachinePricing**/**regionPrices**.  Nella richiesta, usare i codici di valuta corretti per ogni [area](#regions).  L'esempio seguente illustra questi requisiti:
+I prezzi sono specifici per ogni combinazione di area e di core. Ogni area nell'elenco di vendita deve essere specificata nella sezione **virtualMachinePricing**/**Prices** della definizione.  Nella richiesta, usare i codici di valuta corretti per ogni [area](#regions).  L'esempio seguente illustra questi requisiti:
 
 ``` json
     "virtualMachinePricing": 
@@ -101,10 +100,10 @@ L'editore può anche caricare il foglio di calcolo dei prezzi in un percorso di 
      }
 ```
 
-<a name="new-core-sizes-added-on-722019"></a>Nuove dimensioni core aggiunte il 7/2/2019
+<a name="new-core-sizes-added-on-722019"></a>Nuove dimensioni del nucleo aggiunte il 2/07/2019
 ---------------------------
 
-Gli editori di VM hanno ricevuto una notifica il 2 luglio 2019 dell'aggiunta di nuovi prezzi per le nuove dimensioni di macchine virtuali di Azure (in base al numero di core).  I nuovi prezzi sono per le dimensioni di base 10, 44, 48, 60, 120, 208 e 416.  Per le macchine virtuali esistenti, i nuovi prezzi per queste dimensioni di core sono stati calcolati automaticamente in base ai prezzi correnti.  Gli editori hanno fino al 1 ° agosto 2019 per esaminare i prezzi aggiuntivi e apportare le modifiche desiderate.  Dopo questa data, se non è già stata ripubblicata dal server di pubblicazione, i prezzi calcolati automaticamente per queste nuove dimensioni di core diverranno effettivi.
+Gli editori di macchine virtuali sono stati notificati il 2 luglio 2019 dell'aggiunta di nuovi prezzi per le nuove dimensioni delle macchine virtuali di Azure (in base al numero di core).  I nuovi prezzi sono per le taglie core 10, 44, 48, 60, 120, 208 e 416.  Per le VM esistenti offre nuovi prezzi per queste dimensioni di core sono stati calcolati automaticamente in base ai prezzi correnti.  Gli editori hanno tempo fino al 1 agosto 2019 per rivedere i prezzi aggiuntivi e apportare le modifiche desiderate.  Dopo questa data, se non è già stata ripubblicata dall'editore, i prezzi calcolati automaticamente per queste nuove dimensioni di base avranno effetto.
 
 
 <a name="regions"></a>Regioni
@@ -112,7 +111,7 @@ Gli editori di VM hanno ricevuto una notifica il 2 luglio 2019 dell'aggiunta di 
 
 La tabella seguente illustra le diverse aree che è possibile specificare per i prezzi core personalizzati e i codici di valuta corrispondenti.
 
-| **Area** | **Nome**             | **Codice valuta** |
+| **Regione** | **Nome**             | **Codice valuta** |
 |------------|----------------------|-------------------|
 | DZ         | Algeria              | DZD               |
 | AR         | Argentina            | ARS               |

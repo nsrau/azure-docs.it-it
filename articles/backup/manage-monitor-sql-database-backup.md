@@ -1,36 +1,36 @@
 ---
-title: Gestire e monitorare SQL Server database in una macchina virtuale di Azure
-description: Questo articolo descrive come gestire e monitorare SQL Server database in esecuzione in una macchina virtuale di Azure.
+title: Gestire e monitorare i database di SQL Server in una macchina virtuale di AzureManage and monitor SQL Server DBs on an Azure VM
+description: Questo articolo descrive come gestire e monitorare i database di SQL Server in esecuzione in una macchina virtuale di Azure.This article describes how to manage and monitor SQL Server databases that are running on an Azure VM.
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.openlocfilehash: 4daf068e97a08d1a611ef64cb64569cacd5d7420
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74172148"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Gestire e monitorare i database SQL Server di cui è stato eseguito il backup
 
-Questo articolo descrive le attività comuni per la gestione e il monitoraggio di database SQL Server in esecuzione in una macchina virtuale (VM) di Azure e di cui viene eseguito il backup in un insieme di credenziali di servizi di ripristino di backup di Azure da parte del servizio [backup di Azure](backup-overview.md) . Si apprenderà come monitorare i processi e gli avvisi, arrestare e riprendere la protezione dei database, eseguire i processi di backup e annullare la registrazione di una macchina virtuale dai backup.
+Questo articolo descrive le attività comuni per la gestione e il monitoraggio dei database di SQL Server in esecuzione in una macchina virtuale di Azure e di cui viene eseguito il backup in un insieme di credenziali di Azure Backup Recovery Services da parte del servizio Backup di Azure.This article describes common tasks for managing and monitoring SQL Server databases that are running on an Azure virtual machine (VM) and that are backed up to an Azure Backup Recovery Services vault by the [Azure Backup](backup-overview.md) service. Verrà illustrato come monitorare processi e avvisi, arrestare e riprendere la protezione del database, eseguire processi di backup e annullare la registrazione di una macchina virtuale dai backup.
 
-Se non sono ancora stati configurati backup per i database di SQL Server, vedere [eseguire il backup di SQL Server database in macchine virtuali di Azure](backup-azure-sql-database.md)
+Se non sono ancora stati configurati i backup per i database di SQL Server, vedere Eseguire il backup dei database di SQL Server nelle macchine virtuali di AzureIf you haven't yet configured backups for your SQL Server databases, see [Back up SQL Server databases on Azure VMs](backup-azure-sql-database.md)
 
-## <a name="monitor-manual-backup-jobs-in-the-portal"></a>Monitorare i processi di backup manuali nel portale
+## <a name="monitor-manual-backup-jobs-in-the-portal"></a>Monitorare i processi di backup manuale nel portaleMonitor manual backup jobs in the portal
 
-Backup di Azure Mostra tutti i processi attivati manualmente nel portale dei **processi di backup** . I processi visualizzati in questo portale includono l'individuazione e la registrazione del database, nonché le operazioni di backup e ripristino.
+Backup di Azure mostra tutti i processi attivati manualmente nel portale Processi di **backup.** I processi visualizzati in questo portale includono l'individuazione e la registrazione dei database e le operazioni di backup e ripristino.
 
-![Portale dei processi di backup](./media/backup-azure-sql-database/jobs-list.png)
+![Portale Processi di backup](./media/backup-azure-sql-database/jobs-list.png)
 
 > [!NOTE]
-> Il portale dei **processi di backup** non Mostra i processi di backup pianificati. Usare SQL Server Management Studio per monitorare i processi di backup pianificati, come descritto nella sezione successiva.
+> Nel portale **Processi di** backup non vengono visualizzati i processi di backup pianificati. Usare SQL Server Management Studio per monitorare i processi di backup pianificati, come descritto nella sezione successiva.
 >
 
-Per informazioni dettagliate sugli scenari di monitoraggio, vedere [monitoraggio nella portale di Azure](backup-azure-monitoring-built-in-monitor.md) e [monitoraggio tramite](backup-azure-monitoring-use-azuremonitor.md)monitoraggio di Azure.  
+Per informazioni dettagliate sugli scenari di monitoraggio, vedere [Monitoraggio nel portale](backup-azure-monitoring-built-in-monitor.md) di Azure e Monitoraggio [tramite Monitoraggio di Azure.](backup-azure-monitoring-use-azuremonitor.md)  
 
 ## <a name="view-backup-alerts"></a>Visualizzare gli avvisi di backup
 
-Con i backup del log eseguiti ogni 15 minuti, monitorare i processi di backup può essere faticoso. Backup di Azure semplifica il monitoraggio inviando avvisi di posta elettronica. Gli avvisi di posta elettronica sono:
+Con i backup del log eseguiti ogni 15 minuti, monitorare i processi di backup può essere faticoso. Backup di Azure semplifica il monitoraggio inviando avvisi tramite posta elettronica. Gli avvisi e-mail sono:
 
 - Attivato per tutti gli errori di backup.
 - Consolidato a livello di database in base al codice di errore.
@@ -38,7 +38,7 @@ Con i backup del log eseguiti ogni 15 minuti, monitorare i processi di backup pu
 
 Per monitorare gli avvisi di backup del database:
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Accedere al [portale](https://portal.azure.com)di Azure .
 
 2. Nel dashboard dell'insieme di credenziali, selezionare **Avvisi ed eventi**.
 
@@ -55,17 +55,17 @@ Per monitorare gli avvisi di backup del database:
 - Interrompere tutti i processi di backup futuri ed eliminare tutti i punti di recupero.
 - Arrestare tutti i processi di backup futuri e lasciare intatti i punti di ripristino.
 
-Se si sceglie di lasciare i punti di ripristino, tenere presente quanto segue:
+Se si sceglie di lasciare invariati i punti di ripristino, tenere presente quanto segue:
 
-- Tutti i punti di ripristino rimarranno intatti per sempre, tutte le eliminazioni verranno interrotte in caso di arresto della protezione con Mantieni dati.
-- Verranno addebitati l'istanza protetta e l'archiviazione utilizzata. Per altre informazioni, vedere [prezzi di backup di Azure](https://azure.microsoft.com/pricing/details/backup/).
+- Tutti i punti di ripristino rimarranno invariati per sempre, tutte le eliminazioni verranno arrestate in caso di arresto della protezione con conservazione dei dati.
+- Verranno addebitati i addebiti per l'istanza protetta e l'archiviazione utilizzata. Per altre informazioni, vedere Prezzi di Backup di [Azure.For more information,](https://azure.microsoft.com/pricing/details/backup/)see Azure Backup pricing .
 - Se si elimina un'origine dati senza arrestare i backup, i nuovi backup avranno esito negativo.
 
 Per interrompere la protezione per un database:
 
-1. Nel dashboard dell'insieme di credenziali selezionare **elementi di backup**.
+1. Nel dashboard dell'insieme di credenziali, selezionare **Elementi di backup.**
 
-2. In **tipo di gestione di backup**selezionare **SQL in macchina virtuale di Azure**.
+2. In **Tipo di gestione backup**selezionare SQL in VM di **Azure.**
 
     ![Selezionare SQL nella macchina virtuale di Azure](./media/backup-azure-sql-database/sql-restore-backup-items.png)
 
@@ -77,24 +77,24 @@ Per interrompere la protezione per un database:
 
     ![Selezionare Interrompi backup](./media/backup-azure-sql-database/stop-db-button.png)
 
-5. Scegliere se mantenere o eliminare i dati dal menu **Interrompi backup** . Se lo si desidera, specificare un motivo e un commento.
+5. Nel menu **Interrompi backup,** scegliere se conservare o eliminare i dati. Se lo si desidera, fornire un motivo e un commento.
 
-    ![Mantenere o eliminare dati dal menu Interrompi backup](./media/backup-azure-sql-database/stop-backup-button.png)
+    ![Conservare o eliminare i dati nel menu Interrompi backup](./media/backup-azure-sql-database/stop-backup-button.png)
 
-6. Selezionare **Arresta backup**.
+6. Selezionare **Interrompi backup**.
 
 > [!NOTE]
 >
->Per ulteriori informazioni sull'opzione Elimina dati, vedere le domande frequenti seguenti:
+>Per ulteriori informazioni sull'opzione di eliminazione dei dati, vedere le domande frequenti riportate di seguito:For more information about the delete data option, see the FAQ below:
 >
->- [Se si elimina un database da un'istanza protetta in modo automatico, cosa accade ai backup?](faq-backup-sql-server.md#if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups)
->- [Se si interrompe l'operazione di backup di un database autoprotetto, quale sarà il comportamento?](faq-backup-sql-server.md#if-i-change-the-name-of-the-database-after-it-has-been-protected-what-will-be-the-behavior)
+>- [Se si elimina un database da un'istanza protetta automatica, cosa accadrà ai backup?](faq-backup-sql-server.md#if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups)
+>- [Se si interrompe il funzionamento di backup di un database autoprotected quale sarà il suo comportamento?](faq-backup-sql-server.md#if-i-change-the-name-of-the-database-after-it-has-been-protected-what-will-be-the-behavior)
 >
 >
 
-## <a name="resume-protection-for-a-sql-database"></a>Ripresa della protezione per un database SQL
+## <a name="resume-protection-for-a-sql-database"></a>Riprendere la protezione per un database SQL
 
-Quando si arresta la protezione per il database SQL, se si seleziona l'opzione **Mantieni dati di backup** , sarà possibile riprendere la protezione in un secondo momento. Se non si conservano i dati di backup, non è possibile riprendere la protezione.
+Quando si interrompe la protezione per il database SQL, se si seleziona l'opzione Mantieni dati di **backup,** è possibile riprendere la protezione in un secondo momento. Se non si mantengono i dati di backup, non è possibile riprendere la protezione.
 
 Per riprendere la protezione per un database SQL:
 
@@ -113,15 +113,15 @@ Per riprendere la protezione per un database SQL:
 - Backup differenziale
 - Backup dei log
 
-Anche se è necessario specificare la durata di conservazione per il backup completo di sola copia, il periodo di mantenimento dati per il backup completo su richiesta verrà impostato automaticamente su 45 giorni dall'ora corrente.
+Sebbene sia necessario specificare la durata di conservazione per il backup completo di sola copia, l'intervallo di conservazione per il backup completo su richiesta verrà impostato automaticamente su 45 giorni dall'ora corrente.
 
-Per ulteriori informazioni, vedere [SQL Server tipi di backup](backup-architecture.md#sql-server-backup-types).
+Per altre informazioni, vedere [Tipi di backup di SQL Server](backup-architecture.md#sql-server-backup-types).
 
 ## <a name="unregister-a-sql-server-instance"></a>Annullare un’istanza SQL &Server
 
 Annullare la registrazione di un'istanza di SQL Server dopo aver disabilitato la protezione ma prima di eliminare l'insieme di credenziali:
 
-1. Nel dashboard dell'insieme di credenziali, in **Gestisci**, selezionare **infrastruttura di backup**.  
+1. Nel dashboard dell'insieme di credenziali, in **Gestisci,** selezionare **Infrastruttura di backup**.  
 
    ![Selezionare Infrastruttura di backup](./media/backup-azure-sql-database/backup-infrastructure-button.png)
 
@@ -131,41 +131,41 @@ Annullare la registrazione di un'istanza di SQL Server dopo aver disabilitato la
 
 3. In **Server protetti** selezionare il server di cui si vuole annullare la registrazione. Per eliminare l'insieme di credenziali, è necessario annullare la registrazione di tutti i server.
 
-4. Fare clic con il pulsante destro del mouse sul server protetto e selezionare **Annulla registrazione**.
+4. Fare clic con il pulsante destro del mouse sul server protetto e scegliere **Annulla registrazione**.
 
    ![Selezionare Elimina](./media/backup-azure-sql-database/delete-protected-server.jpg)
 
-## <a name="modify-policy"></a>Modificare i criteri
+## <a name="modify-policy"></a>Modifica dei criteri
 
-Modificare i criteri per modificare la frequenza di backup o il periodo di mantenimento dati.
+Modificare i criteri per modificare la frequenza di backup o l'intervallo di conservazione.
 
 > [!NOTE]
-> Eventuali modifiche apportate al periodo di conservazione verranno applicate in modo retrospettivo a tutti i punti di ripristino meno recenti oltre a quelli nuovi.
+> Qualsiasi cambiamento nel periodo di conservazione verrà applicato retroattivamente a tutti i vecchi punti di ripristino oltre a quelli nuovi.
 
-Nel dashboard dell'insieme di credenziali passare a **gestisci** > **criteri di backup** e scegliere il criterio che si vuole modificare.
+Nel dashboard dell'insieme di credenziali passare a **Gestisci** > criteri di**backup** e scegliere il criterio da modificare.
 
   ![Gestire i criteri di backup](./media/backup-azure-sql-database/modify-backup-policy.png)
 
   ![Modificare i criteri di backup](./media/backup-azure-sql-database/modify-backup-policy-impact.png)
 
-La modifica dei criteri avrà un effetto su tutti gli elementi di backup associati e sul trigger corrispondenti processi di **configurazione della protezione** .
+La modifica dei criteri influirà su tutti gli elementi di backup associati e attiverà i processi di protezione di **configurazione** corrispondenti.
 
-### <a name="inconsistent-policy"></a>Criteri non coerenti
+### <a name="inconsistent-policy"></a>Politica incoerente
 
-In alcuni casi, un'operazione di modifica dei criteri può causare una versione non **coerente** dei criteri per alcuni elementi di backup. Ciò si verifica quando il processo di **configurazione della protezione** corrispondente non riesce per l'elemento di backup dopo l'attivazione di un'operazione di modifica dei criteri. Viene visualizzato come segue nella visualizzazione dell'elemento di backup:
+In alcuni modi, un'operazione di modifica dei criteri può portare a una versione dei criteri **incoerente** per alcuni elementi di backup. Ciò si verifica quando il processo di **protezione di configurazione** corrispondente ha esito negativo per l'elemento di backup dopo l'attivazione di un'operazione di modifica dei criteri. Viene visualizzato come segue nella visualizzazione degli elementi di backup:
 
-  ![Criteri non coerenti](./media/backup-azure-sql-database/inconsistent-policy.png)
+  ![Politica incoerente](./media/backup-azure-sql-database/inconsistent-policy.png)
 
-È possibile correggere la versione dei criteri per tutti gli elementi interessati con un solo clic:
+È possibile correggere la versione dei criteri per tutti gli elementi interessati in un solo clic:You can fix the policy version for all impacted items in one click:
 
-  ![Correggi criteri non coerenti](./media/backup-azure-sql-database/fix-inconsistent-policy.png)
+  ![Correggere i criteri incoerenti](./media/backup-azure-sql-database/fix-inconsistent-policy.png)
 
-## <a name="re-register-extension-on-the-sql-server-vm"></a>Ripetere la registrazione dell'estensione nella macchina virtuale SQL Server
+## <a name="re-register-extension-on-the-sql-server-vm"></a>Registrare nuovamente l'estensione nella macchina virtuale di SQL ServerRe-register extension on the SQL Server VM
 
-In alcuni casi, l'estensione del carico di lavoro nella macchina virtuale può essere interessata per un motivo o l'altro. In questi casi, tutte le operazioni attivate nella macchina virtuale inizieranno ad avere esito negativo. Potrebbe quindi essere necessario registrare nuovamente l'estensione nella macchina virtuale. L'operazione di **ripetizione della registrazione** reinstalla l'estensione di backup del carico di lavoro nella macchina virtuale affinché le operazioni continuino.
+In alcuni stati, l'estensione del carico di lavoro nella macchina virtuale può influire su un motivo o per l'altro. In questi casi, tutte le operazioni attivate nella macchina virtuale inizieranno a non riuscire. Potrebbe quindi essere necessario registrare nuovamente l'estensione nella macchina virtuale. **L'operazione** di nuovo registrazione reinstalla l'estensione di backup del carico di lavoro nella macchina virtuale per continuare le operazioni.
 
-Usare questa opzione con cautela. Quando viene attivato in una macchina virtuale con un'estensione già integra, questa operazione causerà il riavvio dell'estensione. Ciò può comportare l'esito negativo di tutti i processi in corso. Assicurarsi di verificare la presenza di uno o più [sintomi](backup-sql-server-azure-troubleshoot.md#re-registration-failures) prima di attivare l'operazione di ripetizione della registrazione.
+Utilizzare questa opzione con cautela; Quando viene attivata in una macchina virtuale con un'estensione già integra, questa operazione causerà il riavvio dell'estensione. Ciò può comportare l'esito negativo di tutti i processi in corso. Si deseleziona la presenza di uno o più [sintomi](backup-sql-server-azure-troubleshoot.md#re-registration-failures) prima di attivare l'operazione di reregistrazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per ulteriori informazioni, vedere la pagina relativa alla [risoluzione dei problemi di backup in un database SQL Server](backup-sql-server-azure-troubleshoot.md).
+Per ulteriori informazioni, vedere [Risolvere i problemi relativi ai backup in un database](backup-sql-server-azure-troubleshoot.md)di SQL Server.

@@ -1,5 +1,5 @@
 ---
-title: Creare API Web & API REST per app per la logica di Azure
+title: Creare API Web & API REST per app per la logica di AzureCreate web APIs & REST APIs for Azure Logic Apps
 description: Creare API Web e API REST per chiamare le API, i servizi o i sistemi per integrazioni di sistema in App per la logica di Azure
 services: logic-apps
 ms.suite: integration
@@ -7,21 +7,21 @@ ms.reviewer: klam, jehollan, logicappspm
 ms.topic: article
 ms.date: 05/26/2017
 ms.openlocfilehash: bb6c99ea12e5b53631d42a04b36b7bfef2337e42
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79270537"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Creare API personalizzate che è possibile chiamare da App per la logica di Azure
 
-Sebbene app per la logica [di Azure offra centinaia di connettori](../connectors/apis-list.md) che è possibile usare nei flussi di lavoro delle app per la logica, potrebbe essere necessario chiamare API, sistemi e servizi che non sono disponibili come connettori. È possibile creare API personalizzate che specificano le azioni e i trigger da usare in app per la logica. Di seguito vengono indicati altri motivi per cui è utile creare API personalizzate da chiamare da flussi di lavoro di app per la logica:
+Anche se le app per la logica di Azure offrono [centinaia di connettori](../connectors/apis-list.md) che è possibile usare nei flussi di lavoro delle app per la logica, è possibile chiamare API, sistemi e servizi non disponibili come connettori. È possibile creare API personalizzate che specificano le azioni e i trigger da usare in app per la logica. Di seguito vengono indicati altri motivi per cui è utile creare API personalizzate da chiamare da flussi di lavoro di app per la logica:
 
 * Estendere gli attuali flussi di lavoro di integrazione del sistema e integrazione dei dati.
 * Aiutare i clienti a usare il servizio per gestire attività professionali o personali.
 * Espandere la copertura, l'individuabilità e l'uso del servizio.
 
-In pratica, i connettori sono API Web che usano REST per le interfacce collegabili, il [formato dei metadati Swagger](https://swagger.io/specification/) per la documentazione e JSON come formato di scambio di dati. Poiché i connettori sono API REST che comunicano tramite endpoint HTTP, è possibile usare qualsiasi linguaggio, ad esempio .NET, Java, Python o node. js, per la creazione di connettori. È anche possibile ospitare le API nel [servizio app di Azure](../app-service/overview.md), una soluzione PaaS (platform-as-a-service) che offre uno dei modi più efficaci, semplici e scalabili per ospitare le API. 
+In pratica, i connettori sono API Web che usano REST per le interfacce collegabili, il [formato dei metadati Swagger](https://swagger.io/specification/) per la documentazione e JSON come formato di scambio di dati. Poiché i connettori sono API REST che comunicano tramite endpoint HTTP, è possibile usare qualsiasi linguaggio, ad esempio .NET, Java, Python o Node.js, per la creazione di connettori. È anche possibile ospitare le API nel [servizio app di Azure](../app-service/overview.md), una soluzione PaaS (platform-as-a-service) che offre uno dei modi più efficaci, semplici e scalabili per ospitare le API. 
 
 Per consentire alle API personalizzate di funzionare con le app per la logica, l'API può rendere disponibili [*azioni*](./logic-apps-overview.md#logic-app-concepts) che eseguono attività specifiche nei flussi di lavoro delle app per la logica. L'API può anche agire come un [*trigger*](./logic-apps-overview.md#logic-app-concepts) che avvia un flusso di lavoro di app per la logica quando nuovi dati o un evento soddisfano una condizione specificata. Questo argomento descrive i modelli comuni che è possibile seguire per la creazione di azioni e trigger nell'API, in base al comportamento previsto per l'API.
 
@@ -33,7 +33,7 @@ Per consentire alle API personalizzate di funzionare con le app per la logica, l
 > * [ASP.NET](../app-service/app-service-web-get-started-dotnet.md). 
 > * [Java](../app-service/app-service-web-get-started-java.md)
 > * [Node.js](../app-service/app-service-web-get-started-nodejs.md)
-> * [PHP](../app-service/app-service-web-get-started-php.md)
+> * [Php](../app-service/app-service-web-get-started-php.md)
 > * [Python](../app-service/containers/quickstart-python.md)
 > * [Ruby](../app-service/containers/quickstart-ruby.md)
 >
@@ -41,7 +41,7 @@ Per consentire alle API personalizzate di funzionare con le app per la logica, l
 
 ## <a name="how-do-custom-apis-differ-from-custom-connectors"></a>Differenza tra le API e i connettori personalizzati
 
-Le API personalizzate e i [connettori personalizzati](../logic-apps/custom-connector-overview.md) sono API Web che usano REST per le interfacce modulari, il [formato dei metadati Swagger](https://swagger.io/specification/) per la documentazione e JSON come formato di scambio di dati. Poiché le API e i connettori sono API REST che comunicano tramite endpoint HTTP, è possibile usare qualsiasi linguaggio, ad esempio .NET, Java, Python o node. js, per la creazione di API e connettori personalizzati.
+Le API personalizzate e i [connettori personalizzati](../logic-apps/custom-connector-overview.md) sono API Web che usano REST per le interfacce modulari, il [formato dei metadati Swagger](https://swagger.io/specification/) per la documentazione e JSON come formato di scambio di dati. E poiché queste API e connettori sono API REST che comunicano tramite endpoint HTTP, è possibile usare qualsiasi linguaggio, ad esempio .NET, Java, Python o Node.js, per la creazione di API e connettori personalizzati.
 
 Le API personalizzate consentono di chiamare API che non sono connettori e forniscono gli endpoint che è possibile chiamare con HTTP + Swagger, Gestione API di Azure o Servizi app. I connettori personalizzati funzionano come le API personalizzate, ma hanno anche questi attributi:
 
@@ -49,7 +49,7 @@ Le API personalizzate consentono di chiamare API che non sono connettori e forni
 * Vengono visualizzati con icone insieme ai connettori gestiti da Microsoft in Progettazione app per la logica.
 * Sono disponibili solo per gli autori dei connettori e degli utenti di app per la logica che hanno lo stesso tenant di Azure Active Directory e la stessa sottoscrizione di Azure nell'area in cui vengono distribuite le app per la logica.
 
-È anche possibile designare connettori registrati per la certificazione Microsoft. Questo processo verifica che i connettori registrati soddisfino i criteri per l'uso pubblico e li renda disponibili per gli utenti in Power Automate e Microsoft Power Apps.
+È anche possibile designare connettori registrati per la certificazione Microsoft. Questo processo verifica che i connettori registrati soddisfino i criteri per l'utilizzo pubblico e rende tali connettori disponibili per gli utenti in Power Automate e Microsoft Power Apps.
 
 Per altre informazioni sui connettori personalizzati, vedere 
 
@@ -206,9 +206,9 @@ I trigger webhook funzionano in modo molto simile alle [azioni webhook](#webhook
 > [!TIP]
 > Per un esempio di modello webhook, esaminare questo [esempio di controller di trigger webhook in GitHub](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs).
 
-## <a name="improve-security-for-calls-to-your-apis-from-logic-apps"></a>Migliorare la sicurezza per le chiamate alle API da app per la logica
+## <a name="improve-security-for-calls-to-your-apis-from-logic-apps"></a>Migliorare la sicurezza per le chiamate alle API dalle app per la logica
 
-Dopo aver creato le API personalizzate, configurare l'autenticazione per le API in modo che possano essere chiamate in modo sicuro da app per la logica. Informazioni [su come migliorare la sicurezza per le chiamate alle API personalizzate da app per la logica](../logic-apps/logic-apps-custom-api-authentication.md).
+Dopo aver creato le API personalizzate, configurare l'autenticazione per le API in modo che possano essere chiamate in modo sicuro da app per la logica. Informazioni su [come migliorare la sicurezza per le chiamate alle API personalizzate dalle app per la logica.](../logic-apps/logic-apps-custom-api-authentication.md)
 
 ## <a name="deploy-and-call-your-apis"></a>Distribuire e chiamare le API
 
@@ -218,11 +218,11 @@ Dopo aver configurato l'autenticazione, configurare la distribuzione per le API.
 
 Per rendere disponibili le API personalizzate per altri utenti di App per la logica in Azure, è necessario incrementare la sicurezza e registrarle come connettori di App per la logica. Per altre informazioni, vedere [Panoramica dei connettori personalizzati](../logic-apps/custom-connector-overview.md). 
 
-Per rendere disponibili le API personalizzate a tutti gli utenti di app per la logica, Power automatizzate e Microsoft Power Apps è necessario aggiungere sicurezza, registrare le API come connettori di app per la logica e designare i connettori per il [programma Microsoft Azure Certified](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/). 
+Per rendere le API personalizzate disponibili a tutti gli utenti in App per la logica, Power Automate e Microsoft Power Apps, è necessario aggiungere sicurezza, registrare le API come connettori App per la logica e nominare i connettori per il [programma Microsoft Azure Certified](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/). 
 
 ## <a name="get-support"></a>Supporto
 
-* Per assistenza specifica per le API personalizzate, contattare [customapishelp@microsoft.com](mailto:customapishelp@microsoft.com).
+* Per informazioni specifiche con le [customapishelp@microsoft.com](mailto:customapishelp@microsoft.com)API personalizzate, contattare .
 
 * In caso di domande, visitare il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 

@@ -1,7 +1,7 @@
 ---
 title: TCP Reset di Load Balancer per inattività in Azure
 titleSuffix: Azure Load Balancer
-description: In questo articolo vengono fornite informazioni sulle Azure Load Balancer con i pacchetti RST TCP bidirezionali in timeout di inattività.
+description: Con questo articolo, informazioni su Azure Load Balancer con pacchetti TCP RST bidirezionali in caso di timeout di inattività.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2019
 ms.author: allensu
-ms.openlocfilehash: eac7dc3b7188131685ef630c0dc01d248e1d6a6a
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: d3d836ddea8d07a25ad09e6f19d9f17a680decd6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77134793"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294398"
 ---
-# <a name="load-balancer-with-tcp-reset-on-idle"></a>Load Balancer con reset TCP attivo
+# <a name="load-balancer-with-tcp-reset-on-idle"></a>Load Balancer con tcp Reset on Idle
 
 È possibile usare [Load Balancer Standard](load-balancer-standard-overview.md) per creare un comportamento delle applicazioni più prevedibile per gli scenari abilitando TCP Reset per timeout di inattività per una determinata regola. Il comportamento predefinito di Load Balancer prevede l'eliminazione trasparente dei flussi quando viene raggiunto il timeout di inattività di un flusso.  Se si abilita questa funzionalità, Load Balancer invierà TCP Reset bidirezionali (pacchetto RST TCP) in caso di timeout per inattività.  In questo modo gli endpoint dell'applicazione verranno informati che si è verificato il timeout della connessione e quest'ultima non è più utilizzabile.  Gli endpoint possono stabilire immediatamente una nuova connessione, se necessario.
 
@@ -64,15 +64,16 @@ Con l'API versione 2018-07-01, è possibile abilitare l'invio di TCP Reset bidir
       ]
 ```
 
-## <a name="regions"></a> Disponibilità in base all'area geografica
+## <a name="region-availability"></a><a name="regions"></a>Disponibilità dell'area
 
-Disponibilità in tutte le aree.
+Disponibile in tutte le aree.
 
 ## <a name="limitations"></a>Limitazioni
 
-- Il protocollo RST TCP viene inviato solo durante la connessione TCP nello stato stabilito.
+- TCP RST inviato solo durante la connessione TCP nello stato ESTABLISHED.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Altre informazioni su [Azure Load Balancer Standard](load-balancer-standard-overview.md).
 - Altre informazioni sulle [regole in uscita](load-balancer-outbound-rules-overview.md).
+- [Configurare TCP RST in base al timeout di inattivitàConfigure TCP RST on Idle Timeout](load-balancer-tcp-idle-timeout.md)

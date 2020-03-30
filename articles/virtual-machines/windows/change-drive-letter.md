@@ -1,5 +1,5 @@
 ---
-title: "Trasformare l'unità D: di una macchina virtuale in un disco dati "
+title: "Impostare l'unità D: di una macchina virtuale un disco datiMake the D: drive of a VM a data disk "
 description: "Descrive come modificare le lettere di unità per una VM Windows, in modo da poter usare l'unità D: come unità dati."
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/02/2018
 ms.author: cynthn
 ms.openlocfilehash: 491e7b7be084017cc370fe431c3175ac5b2673f9
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74033658"
 ---
 # <a name="use-the-d-drive-as-a-data-drive-on-a-windows-vm"></a>Usare l'unità D come unità dati in una macchina virtuale Windows
@@ -52,16 +52,16 @@ Per prima cosa è necessario collegare il disco dati alla macchina virtuale. Per
 6. In Lettera unità selezionare l'unità **D** e quindi fare clic su **OK**. 
 
 ## <a name="move-pagefilesys-back-to-the-temporary-storage-drive"></a>Spostare nuovamente pagefile.sys nell'unità di archiviazione temporanea
-1. Fare clic con il pulsante destro del mouse sul menu **Start** e selezionare **Sistema**.
+1. Fare clic con il pulsante destro del mouse sul menu **Start** e selezionare **Sistema**
 2. Nel menu a sinistra selezionare **Impostazioni di sistema avanzate**.
 3. Nella sezione **Prestazioni** selezionare **Impostazioni**.
 4. Selezionare la scheda **Avanzate** .
 5. Nella sezione **Memoria virtuale** selezionare **Modifica**.
 6. Selezionare l'unità del sistema operativo **C** e quindi fare clic su **Nessun file di paging** e su **Imposta**.
 7. Selezionare l'unità di archiviazione temporanea **T** e quindi fare clic su **Dimensioni gestite dal sistema** e su **Imposta**.
-8. Fare clic su **Apply**. Verrà visualizzato un avviso che informa che è necessario riavviare il computer per rendere effettive le modifiche.
+8. Fare clic su **Applica**. Verrà visualizzato un avviso che informa che è necessario riavviare il computer per rendere effettive le modifiche.
 9. Riavviare la macchina virtuale.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per aumentare lo spazio di archiviazione disponibile per la macchina virtuale, è possibile [aggiungere un disco dati aggiuntivo](attach-managed-disk-portal.md).
+* È possibile aumentare lo spazio di archiviazione disponibile per la macchina virtuale [collegando un disco dati aggiuntivo.](attach-managed-disk-portal.md)
 

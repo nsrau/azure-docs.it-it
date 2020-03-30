@@ -1,5 +1,5 @@
 ---
-title: 'Azure ExpressRoute: configurare il peering: PowerShell'
+title: 'Azure ExpressRoute: Configure peering: PowerShell'
 description: Questo articolo descrive come creare ed eseguire il provisioning di un circuito ExpressRoute per il peering privato, il peering pubblico e il peering Microsoft. Questo articolo mostra anche come controllare lo stato e aggiornare o eliminare i peering per un circuito.
 services: expressroute
 author: jaredr80
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: jaredro
 ms.openlocfilehash: 2c28df35eec862afb5b0078ca7693898e9b58533
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79264843"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-using-powershell"></a>Creare e modificare il peering per un circuito ExpressRoute usando PowerShell
@@ -19,13 +19,13 @@ ms.locfileid: "79264843"
 Questo articolo consente di creare e gestire la configurazione di routing per un circuito ExpressRoute nel modello di distribuzione Resource Manager tramite PowerShell. La procedura seguente mostra anche come controllare lo stato e aggiornare, eliminare o effettuare il deprovisioning dei peering per un circuito ExpressRoute. Se si vuole usare un metodo diverso per eseguire operazioni nel circuito, selezionare l'articolo appropriato nell'elenco seguente:
 
 > [!div class="op_single_selector"]
-> * [Azure portal](expressroute-howto-routing-portal-resource-manager.md)
-> * [PowerShell](expressroute-howto-routing-arm.md)
-> * [Interfaccia della riga di comando di Azure](howto-routing-cli.md)
+> * [Portale di Azure](expressroute-howto-routing-portal-resource-manager.md)
+> * [Powershell](expressroute-howto-routing-arm.md)
+> * [Interfaccia della riga di comando di AzureAzure](howto-routing-cli.md)
 > * [Peering pubblico](about-public-peering.md)
 > * [Video - Peering privato](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
 > * [Video - Peering Microsoft](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
-> * [PowerShell (classic)](expressroute-howto-routing-classic.md) (PowerShell (classico))
+> * [PowerShell (versione classica)](expressroute-howto-routing-classic.md)
 > 
 
 
@@ -36,12 +36,12 @@ Queste istruzioni si applicano solo ai circuiti creati con provider di servizi c
 > 
 > 
 
-È possibile configurare il peering privato e il peering Microsoft per un circuito ExpressRoute (il peering pubblico di Azure è deprecato per i nuovi circuiti). I peering possono essere configurati in qualsiasi ordine. assicurandosi, tuttavia, di completare la configurazione di un peering per volta. Per altre informazioni sul routing dei domini e il peering , vedere [Domini di routing ExpressRoute](expressroute-circuit-peerings.md). Per informazioni sul peering pubblico, vedere il [peering pubblico ExpressRoute](about-public-peering.md).
+È possibile configurare il peering privato e il peering Microsoft per un circuito ExpressRoute (il peering pubblico di Azure è deprecato per i nuovi circuiti). I peering possono essere configurati in qualsiasi ordine tu scelga. assicurandosi, tuttavia, di completare la configurazione di un peering per volta. Per altre informazioni sul routing dei domini e il peering , vedere [Domini di routing ExpressRoute](expressroute-circuit-peerings.md). Per informazioni sul peering pubblico, vedere Peering pubblico ExpressRoute.For information about [public peering, see ExpressRoute public peering](about-public-peering.md).
 
 ## <a name="configuration-prerequisites"></a>Prerequisiti di configurazione
 
 * Prima di iniziare la configurazione, assicurarsi di aver letto le pagine relative ai [prerequisiti](expressroute-prerequisites.md), ai [requisiti per il routing](expressroute-routing.md) e ai [flussi di lavoro](expressroute-workflows.md).
-* È necessario avere un circuito ExpressRoute attivo. Seguire le istruzioni per [creare un circuito ExpressRoute](expressroute-howto-circuit-arm.md) e fare in modo che venga abilitato dal provider di connettività prima di procedere. Per poter eseguire i cmdlet descritti in questo articolo deve essere stato effettuato il provisioning del circuito ExpressRoute e lo stato del circuito deve essere abilitato.
+* È necessario avere un circuito ExpressRoute attivo. Seguire le istruzioni per [creare un circuito ExpressRoute](expressroute-howto-circuit-arm.md) e fare in modo che il circuito venga abilitato dal provider di connettività prima di procedere. Per poter eseguire i cmdlet descritti in questo articolo deve essere stato effettuato il provisioning del circuito ExpressRoute e lo stato del circuito deve essere abilitato.
 
 ### <a name="working-with-azure-powershell"></a>Uso di Azure PowerShell
 
@@ -49,7 +49,7 @@ Queste istruzioni si applicano solo ai circuiti creati con provider di servizi c
 
 [!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
-## <a name="msft"></a>Peering Microsoft
+## <a name="microsoft-peering"></a><a name="msft"></a>Peering Microsoft
 
 Questa sezione consente di creare, ottenere, aggiornare ed eliminare la configurazione del peering Microsoft per un circuito ExpressRoute.
 
@@ -121,9 +121,9 @@ Questa sezione consente di creare, ottenere, aggiornare ed eliminare la configur
      * Un hash MD5, se si sceglie di usarne uno.
 
 > [!IMPORTANT]
-> Microsoft verifica se i ' prefissi pubblici annunciati ' è peer ASN ' (o ' Customer ASN ') specificati sono assegnati all'utente nel registro di sistema di routing Internet. Se si ricevono i prefissi pubblici da un'altra entità e se l'assegnazione non viene registrata con il registro di routing, la convalida automatica non verrà completata e richiederà la convalida manuale. Se la convalida automatica ha esito negativo, verrà visualizzato ' AdvertisedPublicPrefixesState ' come ' Validation needed ' nell'output di "Get-AzExpressRouteCircuitPeeringConfig" (vedere il comando "per ottenere i dettagli del peering Microsoft"). 
+> Microsoft verifica se gli 'Prefissi pubblici annunciati' e 'ASN peer' specificati (o 'ASN del cliente') sono assegnati all'utente nel Registro di sistema per il routing di Internet. Se si ottengono i prefissi pubblici da un'altra entità e se l'assegnazione non viene registrata con il Registro di lavoro di routing, la convalida automatica non verrà completata e richiederà la convalida manuale. Se la convalida automatica non riesce, verrà visualizzato 'AdvertisedPublicPrefixesState' come 'Convalida necessaria' nell'output del comando "Get-AzExpressRouteCircuitPeeringConfig" (vedere "Per ottenere i dettagli del peering Microsoft" di seguito). 
 > 
-> Se viene visualizzato il messaggio "convalida richiesta", raccogliere i documenti che mostrano i prefissi pubblici assegnati all'organizzazione dall'entità elencata come proprietario dei prefissi nel registro di sistema di routing e inviare questi documenti per la convalida manuale da apertura di un ticket di supporto, come illustrato di seguito. 
+> Se viene visualizzato il messaggio "Convalida necessaria", raccogliere i documenti che mostrano i prefissi pubblici assegnati all'organizzazione dall'entità elencata come proprietario dei prefissi nel Registro di sistema di routing e inviare questi documenti per la convalida manuale l'apertura di un ticket di supporto come illustrato di seguito. 
 > 
 >
 
@@ -137,7 +137,7 @@ Questa sezione consente di creare, ottenere, aggiornare ed eliminare la configur
    Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
    ```
 
-### <a name="getmsft"></a>Per ottenere i dettagli del peering Microsoft
+### <a name="to-get-microsoft-peering-details"></a><a name="getmsft"></a>Ottenere i dettagli del peering Microsoft
 
 Per ottenere i dettagli di configurazione, usare l'esempio seguente:
 
@@ -147,7 +147,7 @@ $ckt = Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupNa
 Get-AzExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
 ```
 
-### <a name="updatemsft"></a>Per aggiornare la configurazione del peering Microsoft
+### <a name="to-update-microsoft-peering-configuration"></a><a name="updatemsft"></a>Per aggiornare la configurazione del peering Microsoft
 
 Per aggiornare qualsiasi parte della configurazione, applicare l'esempio seguente:
 
@@ -159,7 +159,7 @@ Set-AzExpressRouteCircuitPeeringConfig  -Name "MicrosoftPeering" -ExpressRouteCi
 Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-### <a name="deletemsft"></a>Per eliminare il peering Microsoft
+### <a name="to-delete-microsoft-peering"></a><a name="deletemsft"></a>Per eliminare il peering Microsoft
 
 Per rimuovere la configurazione di peering, eseguire il cmdlet seguente:
 
@@ -169,7 +169,7 @@ Remove-AzExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRoute
 Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-## <a name="private"></a>Peering privato di Azure
+## <a name="azure-private-peering"></a><a name="private"></a>Peering privato di AzureAzure private peering
 
 Questa sezione fornisce le istruzioni per creare, ottenere, aggiornare ed eliminare la configurazione del peering privato di Azure per un circuito ExpressRoute.
 
@@ -183,7 +183,7 @@ Questa sezione fornisce le istruzioni per creare, ottenere, aggiornare ed elimin
    Install-Module Az
    ```
 
-   Importare tutti i moduli AZ.\* all'interno dell'intervallo di versioni semantiche note.
+   Importare tutti i\* moduli Az. all'interno dell'intervallo di versioni semantiche noto.
 
    ```azurepowershell-interactive
    Import-Module Az
@@ -269,7 +269,7 @@ Questa sezione fornisce le istruzioni per creare, ottenere, aggiornare ed elimin
    > 
    >
 
-### <a name="getprivate"></a>Per visualizzare i dettagli relativi al peering privato di Azure
+### <a name="to-get-azure-private-peering-details"></a><a name="getprivate"></a>Per visualizzare i dettagli relativi al peering privato di Azure
 
 Per ottenere i dettagli di configurazione, usare l'esempio seguente:
 
@@ -279,7 +279,7 @@ $ckt = Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupNa
 Get-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt
 ```
 
-### <a name="updateprivate"></a>Per aggiornare la configurazione del peering privato di Azure
+### <a name="to-update-azure-private-peering-configuration"></a><a name="updateprivate"></a>Per aggiornare la configurazione del peering privato di Azure
 
 Per aggiornare qualsiasi parte della configurazione, usare l'esempio seguente. In questo esempio il valore dell'ID VLAN del circuito viene aggiornato da 100 a 500.
 
@@ -289,7 +289,7 @@ Set-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRoute
 Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-### <a name="deleteprivate"></a>Per eliminare un peering privato di Azure
+### <a name="to-delete-azure-private-peering"></a><a name="deleteprivate"></a>Per eliminare un peering privato di Azure
 
 Per rimuovere la configurazione di peering, eseguire l'esempio seguente:
 

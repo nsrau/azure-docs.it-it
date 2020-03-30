@@ -1,22 +1,22 @@
 ---
 title: Ridimensionare le risorse di calcolo per il pool SQL di Synapse (portale di Azure)
 description: È possibile ridimensionare le risorse di calcolo per il pool SQL di Synapse (data warehouse) usando il portale di Azure.
-services: sql-data-warehouse
+services: synapse-analytics
 author: Antvgski
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: quickstart
-ms.subservice: implement
+ms.subservice: ''
 ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: e7e16615df464358fa22e3d03488866022b87d9a
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: f92152658b9db83740ffc2de2dc6956003849e06
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79539437"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80350829"
 ---
 # <a name="quickstart-scale-compute-for-synapse-sql-pool-with-the-azure-portal"></a>Guida introduttiva: Ridimensionare le risorse di calcolo per il pool SQL di Synapse con il portale di Azure
 

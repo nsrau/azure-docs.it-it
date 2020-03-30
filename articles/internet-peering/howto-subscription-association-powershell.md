@@ -1,7 +1,7 @@
 ---
-title: Associare l'ASN peer alla sottoscrizione di Azure tramite PowerShell
+title: Associare il numero ASN peer alla sottoscrizione di Azure tramite PowerShellAssociate peer ASN to Azure subscription using PowerShell
 titleSuffix: Azure
-description: Associare l'ASN peer alla sottoscrizione di Azure tramite PowerShell
+description: Associare il numero ASN peer alla sottoscrizione di Azure tramite PowerShellAssociate peer ASN to Azure subscription using PowerShell
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
@@ -9,44 +9,44 @@ ms.topic: article
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 77cc4732e017d95cbae19578cf26b1111b08fdde
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75908993"
 ---
-# <a name="associate-peer-asn-to-azure-subscription-using-powershell"></a>Associare l'ASN peer alla sottoscrizione di Azure tramite PowerShell
+# <a name="associate-peer-asn-to-azure-subscription-using-powershell"></a>Associare il numero ASN peer alla sottoscrizione di Azure tramite PowerShellAssociate peer ASN to Azure subscription using PowerShell
 
-Prima di inviare una richiesta di peering, è necessario associare l'ASN alla sottoscrizione di Azure seguendo questa procedura.
+Prima di inviare una richiesta di peering, è necessario associare la sottoscrizione ASN ad Azure usando la procedura seguente.
 
-Se si preferisce, è possibile completare questa guida usando il [portale](howto-subscription-association-portal.md).
+Se si preferisce, è possibile completare questa guida utilizzando il [portale](howto-subscription-association-portal.md).
 
 ### <a name="working-with-azure-powershell"></a>Uso di Azure PowerShell
 [!INCLUDE [CloudShell](./includes/cloudshell-powershell-about.md)]
 
-## <a name="create-peerasn-to-associate-your-asn-with-azure-subscription"></a>Creare Peerasn sugli per associare l'ASN alla sottoscrizione di Azure
+## <a name="create-peerasn-to-associate-your-asn-with-azure-subscription"></a>Creare PeerASN per associare l'ASN alla sottoscrizione di AzureCreate PeerASN to associate your ASN with Azure Subscription
 
 ### <a name="sign-in-to-your-azure-account-and-select-your-subscription"></a>Accedere al proprio account Azure e selezionare la sottoscrizione
 [!INCLUDE [Account](./includes/account-powershell.md)]
 
-### <a name="register-for-peering-resource-provider"></a>Registra per provider di risorse di peering
+### <a name="register-for-peering-resource-provider"></a>Eseguire la registrazione per il provider di risorse di peeringRegister for peering resource provider
 Eseguire la registrazione per il provider di risorse di peering nella sottoscrizione usando il comando seguente. Se non si esegue questa operazione, le risorse di Azure necessarie per configurare il peering non sono accessibili.
 
 ```powershell
 Register-AzResourceProvider -ProviderNamespace Microsoft.Peering
 ```
 
-È possibile controllare lo stato della registrazione usando i comandi seguenti:
+È possibile controllare lo stato di registrazione utilizzando i comandi seguenti:
 ```powershell
 Get-AzResourceProvider -ProviderNamespace Microsoft.Peering
 ```
 
 > [!IMPORTANT]
-> Attendere che *RegistrationState* diventi "registrato" prima di procedere. Dopo l'esecuzione del comando potrebbero essere necessari da 5 a 30 minuti.
+> Attendere *che RegistrationState* trasformi "Registrato" prima di procedere. Potrebbero essere decollati da 5 a 30 minuti dopo l'esecuzione del comando.
 
-### <a name="update-the-peer-information-associated-with-this-subscription"></a>Aggiornare le informazioni del peer associate a questa sottoscrizione
+### <a name="update-the-peer-information-associated-with-this-subscription"></a>Aggiornare le informazioni peer associate a questa sottoscrizioneUpdate the peer information associated with this subscription
 
-Di seguito è riportato un esempio per aggiornare le informazioni del peer.
+Di seguito è riportato un esempio per aggiornare le informazioni sul peer.
 
 ```powershell
 New-AzPeerAsn `
@@ -58,23 +58,23 @@ New-AzPeerAsn `
 ```
 
 > [!NOTE]
-> -Name corrisponde al nome della risorsa e può essere qualsiasi elemento selezionato. Tuttavia,-peerName corrisponde al nome della società e deve essere il più vicino possibile al profilo PeeringDB. Si noti che il valore per-peerName supporta solo i caratteri a-z, A-Z e lo spazio.
+> -Nome corrisponde al nome della risorsa e può essere qualsiasi cosa tu scelga. Tuttavia, -peerName corrisponde al nome della società e deve essere il più vicino possibile al profilo PeeringDB. Si noti che il valore per -peerName supporta solo i caratteri a-z, A-z e lo spazio.
 
-Una sottoscrizione può avere più ASN. Aggiornare le informazioni di peering per ogni ASN. Verificare che "Name" sia univoco per ogni ASN.
+Una sottoscrizione può avere più ASN. Aggiornare le informazioni di peering per ogni numero ASN. Assicurarsi che "name" sia univoco per ogni numero ASN.
 
-I peer dovrebbero avere un profilo completo e aggiornato in [PeeringDB](https://www.peeringdb.com). Queste informazioni vengono utilizzate durante la registrazione per convalidare i dettagli del peer, ad esempio le informazioni relative ai NOC, le informazioni di contatto tecnico e la loro presenza presso le strutture di peering e così via.
+I peer devono avere un profilo completo e aggiornato in [PeeringDB](https://www.peeringdb.com). Utilizziamo queste informazioni durante la registrazione per convalidare i dettagli del peer, come le informazioni NOC, le informazioni di contatto tecniche e la loro presenza presso le strutture di peering, ecc.
 
-Si noti che al posto di **{SubscriptionId}** nell'output precedente verrà visualizzato l'ID sottoscrizione effettivo.
+Si noti che al posto di **"subscriptionId"** nell'output precedente, verrà visualizzato l'ID sottoscrizione effettivo.
 
-## <a name="view-status-of-a-peerasn"></a>Visualizzare lo stato di un Peerasn sugli
+## <a name="view-status-of-a-peerasn"></a>Visualizzare lo stato di un PeerASN
 
-Verificare lo stato di convalida ASN usando il comando seguente:
+Verificare lo stato di convalida ASN utilizzando il comando seguente:
 
 ```powershell
 Get-AzPeerAsn
 ```
 
-Di seguito è riportato un esempio di risposta:
+Di seguito è riportata una risposta di esempio:Below is an example response:
 ```powershell
 PeerContactInfo : Microsoft.Azure.PowerShell.Cmdlets.Peering.Models.PSContactInfo
 PeerName        : Contoso
@@ -86,10 +86,10 @@ Type            : Microsoft.Peering/peerAsns
 ```
 
 > [!IMPORTANT]
-> Attendere che il ValidationState "Approved" prima di inviare una richiesta di peering. L'approvazione può richiedere fino a 12 ore.
+> Attendi che ValidationState trasformi "Approved" prima di inviare una richiesta di peering. La approvazione potrebbe richiedere fino a 12 ore.
 
-## <a name="modify-peerasn"></a>Modificare Peerasn sugli
-È possibile modificare le informazioni di contatto del NOC in qualsiasi momento.
+## <a name="modify-peerasn"></a>Modifica PeerAsn
+È possibile modificare le informazioni di contatto NOC in qualsiasi momento.
 
 Di seguito è riportato un esempio:
 
@@ -97,8 +97,8 @@ Di seguito è riportato un esempio:
 Set-PeerAsn -Name Contoso_1234 -Email "newemail@test.com" -Phone "1800-000-0000"
 ```
 
-## <a name="delete-peerasn"></a>Elimina Peerasn sugli
-L'eliminazione di un Peerasn sugli non è attualmente supportata. Se è necessario eliminare Peerasn sugli, contattare il [peering Microsoft](mailto:peering@microsoft.com).
+## <a name="delete-peerasn"></a>Elimina PeerAsn
+L'eliminazione di un PeerASN non è attualmente supportata. Se è necessario eliminare PeerASN, contattare [Microsoft peering](mailto:peering@microsoft.com).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -109,4 +109,4 @@ L'eliminazione di un Peerasn sugli non è attualmente supportata. Se è necessar
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-Per altre informazioni, vedere [domande frequenti sul peering Internet](faqs.md)
+Per ulteriori informazioni, visita Le domande frequenti sul [peering Internet](faqs.md)

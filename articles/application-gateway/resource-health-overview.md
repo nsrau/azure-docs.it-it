@@ -1,6 +1,6 @@
 ---
-title: Panoramica su integrità risorse di Gateway applicazione Azure
-description: Questo articolo viene fornita una panoramica della funzionalità integrità risorse per il Gateway applicazione di Azure
+title: Panoramica di Azure Application Gateway Resource HealthAzure Application Gateway Resource Health overview
+description: Questo articolo è una panoramica della funzionalità di integrità delle risorse per il gateway applicazione di AzureThis article is an overview of the resource health feature for Azure Application Gateway
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
@@ -8,32 +8,32 @@ ms.topic: article
 ms.date: 7/9/2019
 ms.author: victorh
 ms.openlocfilehash: db29551a8150b70e797d45fe659482470c8aca2a
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67659502"
 ---
-# <a name="azure-application-gateway-resource-health-overview"></a>Panoramica su integrità risorse di Gateway applicazione Azure
+# <a name="azure-application-gateway-resource-health-overview"></a>Panoramica di Azure Application Gateway Resource HealthAzure Application Gateway Resource Health overview
 
-[Integrità risorse di Azure](../service-health/resource-health-overview.md) aiuta a diagnosticare e ottenere supporto quando un problema del servizio di Azure interessa le risorse. Informa sull'integrità corrente e passata delle risorse e offre il supporto tecnico necessario per attenuare i problemi.
+[Integrità risorse di Azure](../service-health/resource-health-overview.md) aiuta a diagnosticare gli eventuali problemi dei servizi di Azure con effetti negativi sulle risorse e a ottenere il supporto necessario. Informa sull'integrità corrente e passata delle risorse e offre il supporto tecnico necessario per attenuare i problemi.
 
-Per il Gateway applicazione, integrità risorse si basa su segnali emessi dal gateway per valutare se è integra o meno. Se il gateway non è integro, integrità risorse analizza informazioni aggiuntive per determinare la causa del problema. Vengono inoltre identificati azioni intraprese da Microsoft o ciò che è possibile eseguire per risolvere il problema.
+Per il gateway applicazione, Integrità risorse si basa sui segnali generati dal gateway per valutare se è integro o meno. Se il gateway non è integro, Integrità risorse analizza informazioni aggiuntive per determinare l'origine del problema. Identifica inoltre le azioni che Microsoft sta intraprendendo o cosa puoi fare per risolvere il problema.
 
 Per altri dettagli sulla modalità di valutazione dell'integrità, esaminare l'elenco completo dei tipi di risorse e dei controlli di integrità in [Integrità risorse di Azure](../service-health/resource-health-checks-resource-types.md#microsoftnetworkapplicationgateways).
 
 
-Lo stato di integrità per il Gateway applicazione viene visualizzato come uno degli stati seguenti:
+Lo stato di integrità del gateway applicazione viene visualizzato come uno dei seguenti stati:
 
 ## <a name="available"></a>Disponibile
 
-Un' **Available** lo stato indica che il servizio non ha rilevato eventi che interessano l'integrità della risorsa. Verrà visualizzato il **risolto recentemente** notifica nei casi in cui il gateway è stato ripristinato dopo il tempo di inattività non pianificato nelle ultime 24 ore.
+Lo stato **Disponibile** indica che il servizio non ha rilevato eventi che influiscono sull'integrità della risorsa. Verrà visualizzata la notifica **Risolto di** recente nei casi in cui il gateway è stato ripristinato da tempi di inattività non pianificati nelle ultime 24 ore.
 
 ![Stato di integrità disponibile](media/resource-health-overview/available-full.png)
 
 ## <a name="unavailable"></a>Non disponibile
 
-Un' **disponibile** lo stato indica che il servizio ha rilevato un evento non piattaforma che influisce sull'integrità del gateway o in corso.
+Uno stato **Non disponibile** indica che il servizio ha rilevato un evento piattaforma o non piattaforma in corso che influisce sull'integrità del gateway.
 
 ### <a name="platform-events"></a>Eventi piattaforma
 
@@ -43,22 +43,22 @@ Integrità risorse fornisce dettagli aggiuntivi sull'evento e sul processo di ri
 
 ![Stato non disponibile](media/resource-health-overview/unavailable.png)
 
-## <a name="unknown"></a>Sconosciuto
+## <a name="unknown"></a>Unknown
 
-Il **sconosciuto** lo stato di integrità indica l'integrità delle risorse non ha ricevuto informazioni sul gateway per più di 10 minuti. Questo stato non sia un'indicazione definitiva dello stato del gateway. Ma è un punto dati importante nel processo di risoluzione dei problemi.
+Lo stato di integrità **Sconosciuto** indica che Integrità risorse non ha ricevuto informazioni sul gateway per più di 10 minuti. Questo stato non è un'indicazione definitiva dello stato del gateway. Ma è un punto dati importante nel processo di risoluzione dei problemi.
 
-Se il gateway siano operativi come previsto, lo stato diventa **Available** dopo alcuni minuti.
+Se il gateway è in esecuzione come previsto, lo stato diventa **Disponibile** dopo alcuni minuti.
 
-Se sono stati riscontrati problemi, il **sconosciuto** lo stato di integrità potrebbe suggerire che un evento nella piattaforma influenzano il gateway.
+Se si verificano problemi, lo stato di integrità **Sconosciuto** potrebbe suggerire che un evento nella piattaforma influisca sul gateway.
 
 ![Stato sconosciuto](media/resource-health-overview/unknown.png)
 
 ## <a name="degraded"></a>Degraded
 
-Il **Degraded** lo stato di integrità indica il gateway ha rilevato una riduzione delle prestazioni, sebbene sia ancora disponibile per l'utilizzo.
+Lo stato di integrità **Degraded** indica che il gateway ha rilevato una perdita di prestazioni, anche se è ancora disponibile per l'utilizzo.
 
-![Stato degrated](media/resource-health-overview/degraded.png)
+![Stato rivalutato](media/resource-health-overview/degraded.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sulla risoluzione dei problemi di Web Application Firewall (WAF) del Gateway applicazione, vedere [risolvere i problemi di Web Application Firewall (WAF) per il Gateway applicazione di Azure](web-application-firewall-troubleshoot.md).
+Per informazioni sulla risoluzione dei problemi relativi a Application Gateway Web Application Firewall (WAF), vedere Risolvere i problemi relativi a [Web Application Firewall (WAF) per il gateway applicazione di Azure.](web-application-firewall-troubleshoot.md)

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.author: keli19
 author: likebupt
 ms.date: 02/24/2020
-ms.openlocfilehash: 264b169eefde18880f50feae2554aa3ca7037b1f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c8791e933882832dc7b0037c860a4c4e1e9a54c7
+ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79368163"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80389036"
 ---
 # <a name="retrain-models-with-azure-machine-learning-designer-preview"></a>Eseguire nuovamente il training di modelli con la finestra di progettazione di Azure Machine Learning (anteprima)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -54,14 +54,14 @@ Per rieseguire il training di un modello, è necessario un modello iniziale. In 
    Per questo esempio, i dati vengono archiviati in un datastore di Azure.For this example, the data is stored in an [Azure datastore](how-to-access-data.md). Se non si dispone già di un archivio dati, è possibile crearne uno ora selezionando **Nuovo archivio dati**.
 
 1. Specificare il percorso dei dati. È anche possibile selezionare **Sfoglia percorso** per passare all'archivio dati. 
-1. Selezionare **Esegui** nella parte superiore dell'area di disegno.
+1. Seleziona **Invia** nella parte superiore dell'area di disegno.
     
    > [!NOTE]
    > Se è già stato impostato un calcolo predefinito per questa bozza della pipeline, la pipeline verrà eseguita automaticamente. In caso contrario, è possibile seguire le istruzioni nel riquadro delle impostazioni per impostarne uno ora.
 
 ### <a name="find-your-trained-model"></a>Trova il tuo modello addestrato
 
-La finestra di progettazione salva tutti gli output della pipeline, inclusi i modelli sottoposti a training, nell'account di archiviazione predefinito. È inoltre possibile accedere al modello sottoposto a training direttamente nella finestra di progettazione:You can also access the trained model directly in the designer:
+La finestra di progettazione salva tutti gli output della pipeline, inclusi i modelli sottoposti a training, nell'account di archiviazione predefinito. Tuttavia, è anche possibile accedere ai modelli sottoposti a training direttamente nella finestra di progettazione:However, you can also access trained models directly in the designer:
 
 1. Attendere il completamento dell'esecuzione della pipeline.
 1. Selezionare il modulo **Train Model**.

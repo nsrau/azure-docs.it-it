@@ -1,6 +1,6 @@
 ---
-title: Configurare il numero di telefono come metodo di verifica Azure AD
-description: Come configurare la pagina delle informazioni di sicurezza (anteprima) per verificare la propria identità usando il numero di telefono e il dispositivo mobile come metodo di verifica.
+title: Configurare il numero di telefono come metodo di verifica - Azure ADSet up your phone number as your verification method - Azure AD
+description: Come configurare la pagina Informazioni di sicurezza (anteprima) per verificare la tua identità utilizzando il numero di telefono e il dispositivo mobile come metodo di verifica.
 services: active-directory
 author: curtand
 manager: daveba
@@ -12,13 +12,13 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: curtand
 ms.openlocfilehash: e85be9140aabe5b66e63d3ccdd4a3ea907a1d6fc
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77062405"
 ---
-# <a name="set-up-a-phone-number-as-your-verification-method"></a>Configurare un numero di telefono come metodo di verifica
+# <a name="set-up-a-phone-number-as-your-verification-method"></a>Impostare un numero di telefono come metodo di verifica
 
 È possibile seguire questi passaggi per aggiungere i metodi di verifica a due fattori e di reimpostazione della password. Dopo averle configurate per la prima volta, è possibile tornare alla pagina **Informazioni di sicurezza** per aggiungere, aggiornare o eliminare le informazioni di sicurezza.
 
@@ -29,7 +29,7 @@ Se viene chiesto di configurarle subito dopo aver effettuato l'accesso all'accou
 > [!Note]
 > Le informazioni di sicurezza non supportano l'uso dei numeri di interno. Anche se si aggiunge il formato corretto, + 1 4255551234X12345, i numeri di interno vengono rimossi prima della chiamata.
 >
-> Se non viene visualizzata un'opzione per il telefono, è possibile che l'organizzazione non consenta di usare questa opzione per la verifica. In questo caso, è necessario scegliere un altro metodo o contattare l'help desk dell'organizzazione per ottenere assistenza.
+> Se non vedi un'opzione del telefono, è possibile che la tua organizzazione non ti consenta di utilizzare questa opzione per la verifica. In questo caso, è necessario scegliere un altro metodo o contattare l'help desk dell'organizzazione per ulteriore assistenza.
 
 ## <a name="security-verification-versus-password-reset-authentication"></a>Confronto tra verifica di sicurezza e autenticazione per la reimpostazione della password
 
@@ -102,11 +102,11 @@ Per impostare le chiamate telefoniche come metodo predefinito da usare quando si
 
     ![Modificare il collegamento per il metodo di accesso predefinito](media/security-info/securityinfo-myprofile-phonetext-defaultchange.png)
 
-2. Selezionare **Telefono - chiamata ( *_numero_telefono_utente_* )** dall'elenco a discesa di metodi disponibili, quindi selezionare **Conferma**.
+2. Selezionare **Telefono - chiamata (*_numero_telefono_utente_*)** dall'elenco a discesa di metodi disponibili, quindi selezionare **Conferma**.
 
     ![Scegliere il metodo di accesso predefinito](media/security-info/securityinfo-myprofile-phonecall-changeddefault.png)
 
-    Il metodo predefinito usato per l'accesso passa a **Telefono - chiamata ( *_numero_telefono_utente_* )** .
+    Il metodo predefinito usato per l'accesso passa a **Telefono - chiamata (*_numero_telefono_utente_*)**.
 
 ## <a name="additional-security-info-methods"></a>Opzioni aggiuntive per le informazioni di sicurezza
 
@@ -116,9 +116,9 @@ In base all'operazione da eseguire, sono disponibili opzioni aggiuntive relative
 
 - **Mobile device text.** (SMS su dispositivo mobile) Immettere il numero del dispositivo mobile per ricevere via SMS un codice da usare per la verifica in due passaggi o la reimpostazione della password. Per istruzioni dettagliate su come verificare l'identità con un SMS, vedere [Configurare le informazioni di sicurezza per l'invio di SMS](security-info-setup-text-msg.md).
 
-- **Chiave di sicurezza.** Registrare la chiave di sicurezza compatibile con Microsoft e usarla insieme a un PIN per la verifica in due passaggi o la reimpostazione della password. Per istruzioni dettagliate su come verificare l'identità con una chiave di sicurezza, vedere [configurare le informazioni di sicurezza per l'uso di una chiave di sicurezza](security-info-setup-security-key.md).
+- **Chiave di sicurezza.** Registra la chiave di sicurezza compatibile con Microsoft e usala insieme a un PIN per la verifica in due passaggi o la reimpostazione della password. Per istruzioni dettagliate su come verificare l'identità con una chiave di sicurezza, vedere Configurare le informazioni di [sicurezza per l'utilizzo](security-info-setup-security-key.md)di una chiave di sicurezza.
 
-- **Indirizzo di posta elettronica.** Immettere l'indirizzo di posta elettronica aziendale o dell'istituto di istruzione per ricevere un messaggio di posta elettronica per la reimpostazione della password. Questa opzione non è disponibile per la verifica in due passaggi. Per istruzioni dettagliate su come configurare l'indirizzo di posta elettronica, vedere [Configurare le informazioni di sicurezza per l'uso della posta elettronica](security-info-setup-email.md).
+- **indirizzo email.** Immettere l'indirizzo di posta elettronica aziendale o dell'istituto di istruzione per ricevere un messaggio di posta elettronica per la reimpostazione della password. Questa opzione non è disponibile per la verifica in due passaggi. Per istruzioni dettagliate su come configurare l'indirizzo di posta elettronica, vedere [Configurare le informazioni di sicurezza per l'uso della posta elettronica](security-info-setup-email.md).
 
 - **Domande di sicurezza.** Rispondere ad alcune domande di sicurezza create dall'amministratore per l'organizzazione. Questa opzione è disponibile solo per la reimpostazione della password e non per la verifica in due passaggi. Per istruzioni dettagliate su come configurare le domande di sicurezza, vedere l'articolo [Configurare le informazioni di sicurezza per l'uso di domande di sicurezza](security-info-setup-questions.md).
 

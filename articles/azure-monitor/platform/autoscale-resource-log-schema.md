@@ -1,26 +1,26 @@
 ---
-title: Schema degli eventi del log di scalabilità automatica di Azure
-description: Formato dei log per il monitoraggio e la risoluzione dei problemi delle azioni di scalabilità automatica
+title: Schema degli eventi del log di scalabilità automatica di AzureAzure autoscale log events schema
+description: Formato dei log per il monitoraggio e la risoluzione dei problemi relativi alle azioni di scalabilità automatica
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.subservice: autoscale
 ms.openlocfilehash: 3c32f15208a8e692054ee6c1f7effc6b7c89de3d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75395939"
 ---
-# <a name="azure-monitor-autoscale-actions-resource-log-schema"></a>Schema del log delle risorse azioni di scalabilità automatica di monitoraggio di Azure
+# <a name="azure-monitor-autoscale-actions-resource-log-schema"></a>Schema del log delle risorse delle azioni di scalabilità automatica di Azure MonitorAzure Monitor autoscale resource log schema
 
-Di seguito sono riportati i formati generali per i log delle risorse di scalabilità automatica con dati di esempio inclusi. Non tutti gli esempi riportati di seguito sono JSON in formato corretto perché possono includere più valori che potrebbero essere validi per un determinato campo. 
+Di seguito sono riportati i formati generali per la scalabilità automatica dei log delle risorse con dati di esempio inclusi. Non tutti gli esempi riportati di seguito sono formati correttamente in formato JSON perché possono includere più valori che potrebbero essere validi per un determinato campo. 
 
-Usare eventi di questo tipo per risolvere i problemi che potrebbero verificarsi con la scalabilità automatica. Per ulteriori informazioni, vedere [risoluzione dei problemi di scalabilità](autoscale-troubleshoot.md)automatica.
+Utilizzare eventi di questo tipo per risolvere i problemi che potrebbero verificarsi con la scalabilità automatica. Per ulteriori informazioni, vedere [Risoluzione dei problemi](autoscale-troubleshoot.md)di scalabilità automatica .
 
 
 ## <a name="profile-evaluation"></a>Valutazione del profilo
 
-Registrato quando il ridimensionamento automatico esamina prima di tutto un profilo di scalabilità automatica
+Registrato quando la scalabilità automatica esamina per la prima volta un profilo di scalabilità automatica
 
 ```json
 {
@@ -37,7 +37,7 @@ Registrato quando il ridimensionamento automatico esamina prima di tutto un prof
 }
 ```
 
-## <a name="profile-cooldown-evaluation"></a>Valutazione del cooldown del profilo
+## <a name="profile-cooldown-evaluation"></a>Valutazione del tempo di recupero del profilo
 
 Registrato quando la scalabilità automatica valuta se non deve eseguire una scala a causa di un periodo di raffreddamento. 
 
@@ -60,9 +60,9 @@ Registrato quando la scalabilità automatica valuta se non deve eseguire una sca
 }
 ```
 
-## <a name="rule-evaluation"></a>Valutazione della regola
+## <a name="rule-evaluation"></a>Valutazione delle regole
 
-Registrato quando la scalabilità automatica inizia a valutare una determinata regola di scalabilità. 
+Registrato quando la scalabilità automatica inizia a valutare una determinata regola di scala. 
 
 ```json
 {
@@ -89,7 +89,7 @@ Registrato quando la scalabilità automatica inizia a valutare una determinata r
 
 ## <a name="metric-evaluation"></a>Valutazione metrica
 
-Registrato quando il ridimensionamento automatico valuta la metrica usata per attivare un'azione di ridimensionamento. 
+Registrato quando la scalabilità automatica ha valutato la metrica utilizzata per attivare un'azione di scalabilità. 
 
 ```json
 {
@@ -111,9 +111,9 @@ Registrato quando il ridimensionamento automatico valuta la metrica usata per at
 }
 ```
 
-## <a name="instance-count-evaluation"></a>Valutazione del conteggio delle istanze
+## <a name="instance-count-evaluation"></a>Valutazione del numero di istanze
 
-Registrato quando il ridimensionamento automatico valuta il numero di istanze già in esecuzione in preparazione per decidere se deve iniziare più, arrestare alcune o non eseguire alcuna operazione. 
+Registrato quando la scalabilità automatica valuta il numero di istanze già in esecuzione in preparazione per decidere se deve avviare di più, arrestarne o non eseguire alcuna operazione. 
 
 ```json
 {
@@ -132,9 +132,9 @@ Registrato quando il ridimensionamento automatico valuta il numero di istanze gi
 }
 ```
 
-## <a name="scale-action-evaluation"></a>Valutazione dell'azione di ridimensionamento
+## <a name="scale-action-evaluation"></a>Valutazione delle azioni su scala
 
-Registrato quando la scalabilità automatica avvia la valutazione se deve essere eseguita un'azione di ridimensionamento. 
+Registrato quando la scalabilità automatica avvia la valutazione se deve essere eseguita un'azione di scalabilità. 
 
 ```json
 {
@@ -154,7 +154,7 @@ Registrato quando la scalabilità automatica avvia la valutazione se deve essere
 
 ## <a name="instance-update-evaluation"></a>Valutazione dell'aggiornamento dell'istanza
 
-Registrato quando il ridimensionamento automatico aggiorna il numero di istanze di calcolo in esecuzione, sia verso l'alto che verso il basso.
+Registrato quando la scalabilità automatica aggiorna il numero di istanze di calcolo in esecuzione, verso l'alto o verso il basso.
 
 ```json
 {
@@ -173,9 +173,9 @@ Registrato quando il ridimensionamento automatico aggiorna il numero di istanze 
 }
 ```
 
-## <a name="scale-action"></a>Azione di ridimensionamento
+## <a name="scale-action"></a>Azione di scala
 
-Registrato quando la scalabilità automatica avvia un'azione di ridimensionamento, sia verso l'alto o verso il basso. 
+Registrato quando la scalabilità automatica avvia un'azione di scalabilità, verso l'alto o verso il basso. 
 ```json
 {
   "time": "2018-09-10 18:12:00.6132593",
@@ -196,7 +196,7 @@ Registrato quando la scalabilità automatica avvia un'azione di ridimensionament
 }
 ```
 
-## <a name="scale-action-tracking"></a>Ridimensionamento del rilevamento delle azioni
+## <a name="scale-action-tracking"></a>Monitoraggio delle azioni in scala
 
 Registrato a intervalli diversi di un'azione di ridimensionamento dell'istanza.
 
@@ -217,4 +217,4 @@ Registrato a intervalli diversi di un'azione di ridimensionamento dell'istanza.
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Informazioni sulla [scalabilità](autoscale-overview.md) automatica
+Informazioni sulla [scalabilità automatica](autoscale-overview.md)

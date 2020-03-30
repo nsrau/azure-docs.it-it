@@ -9,10 +9,10 @@ ms.date: 01/15/2017
 ms.author: twooley
 ms.subservice: common
 ms.openlocfilehash: 833b8c79fba57b7129092e084381c0671c396496
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74978867"
 ---
 # <a name="using-the-azure-importexport-service-rest-api"></a>Uso dell'API REST del servizio Importazione/Esportazione di Azure
@@ -37,17 +37,17 @@ Le richieste al servizio Importazione/Esportazione devono specificare il paramet
 
 [Creazione di un processo di importazione](../storage-import-export-creating-an-import-job.md)
 
-[Creating an export job](../storage-import-export-creating-an-export-job.md) (Creazione di un processo di esportazione)
+[Creazione di un processo di esportazione](../storage-import-export-creating-an-export-job.md)
 
-[Retrieving state information for a job](storage-import-export-retrieving-state-info-for-a-job.md) (Recupero delle informazioni sullo stato per un processo)
+[Recupero delle informazioni sullo stato per un processo](storage-import-export-retrieving-state-info-for-a-job.md)
 
-[Enumerating jobs](../storage-import-export-enumerating-jobs.md) (Enumerazione dei processi)
+[Enumerazione dei processi](../storage-import-export-enumerating-jobs.md)
 
-[Cancelling and deleting jobs](storage-import-export-cancelling-and-deleting-jobs.md) (Annullamento ed eliminazione dei processi)
+[Annullamento ed eliminazione dei processi](storage-import-export-cancelling-and-deleting-jobs.md)
 
 [Backup dei manifesti delle unità](../storage-import-export-backing-up-drive-manifests.md)
 
-[Diagnostica e ripristino dagli errori per i processi di Importazione/Esportazione](../storage-import-export-diagnostics-and-error-recovery.md)
+[Diagnostica e ripristino degli errori per i processi di importazione/esportazioneDiagnostics and error recovery for Import/Export jobs](../storage-import-export-diagnostics-and-error-recovery.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

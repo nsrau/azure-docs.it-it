@@ -1,23 +1,23 @@
 ---
 title: Creare e caricare un disco rigido virtuale Linux
 description: Come creare e caricare un disco rigido virtuale Azure (VHD) che contiene un sistema operativo Linux.
-author: mimckitt
+author: gbowerman
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 10/08/2018
-ms.author: mimckitt
-ms.openlocfilehash: 9a0332da060c4a094090c4ea1f5033a889496596
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.author: guybo
+ms.openlocfilehash: f700dec6486bad9e7024d7c908a70dd0ff2b342c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79250270"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80066772"
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Informazioni per le distribuzioni non approvate
 
 Il contratto di servizio della piattaforma Azure si applica alle macchine virtuali che eseguono il sistema operativo Linux solo quando viene usata una delle [distribuzioni approvate](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Per queste distribuzioni approvate, in Azure Marketplace vengono fornite immagini Linux preconfigurate.
 
-* [Linux in Azure - Distribuzioni supportate](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Linux in Azure - Distribuzioni approvate](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Supporto delle immagini Linux in Microsoft Azure](https://support.microsoft.com/kb/2941892)
 
 Tutte le distribuzioni in esecuzione in Azure devono soddisfare alcuni prerequisiti. Questo articolo non può essere esaustivo, perché ogni distribuzione è diversa. Pur soddisfacendo i criteri seguenti, potrebbe essere necessario modificare in modo significativo il sistema Linux perché funzioni correttamente.
@@ -28,14 +28,14 @@ Tutte le distribuzioni in esecuzione in Azure devono soddisfare alcuni prerequis
 * **[Debian Linux](debian-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[Oracle Linux](oracle-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[Red Hat Enterprise Linux](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
-* **[SLES e openSUSE](suse-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
+* **[SLES & openSUSE](suse-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[Ubuntu](create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 
 Questo articolo è incentrato sulle linee guida generali per l'esecuzione della distribuzione Linux in Azure.
 
 ## <a name="general-linux-installation-notes"></a>Note generali sull'installazione di Linux
-* Il formato di disco rigido virtuale di Hyper-V (VHDX) non è supportato in Azure, ma sono supportati solo *dischi rigidi virtuali fissi*.  È possibile convertire il disco in formato VHD tramite la console di gestione di Hyper-V o il cmdlet [Convert-VHD](https://docs.microsoft.com/powershell/module/hyper-v/convert-vhd). Se si usa VirtualBox, selezionare **dimensioni fisse** anziché il valore predefinito allocato in modo dinamico durante la creazione del disco.
-* Azure supporta le macchine virtuali Gen1 (BIOS boot) & Gen2 (UEFI Boot).
+* Il formato di disco rigido virtuale di Hyper-V (VHDX) non è supportato in Azure, ma sono supportati solo *dischi rigidi virtuali fissi*.  È possibile convertire il disco in formato VHD utilizzando la console di gestione di Hyper-V o il cmdlet [Convert-VHD.](https://docs.microsoft.com/powershell/module/hyper-v/convert-vhd) Se si usa VirtualBox, selezionare **dimensioni fisse** anziché il valore predefinito allocato in modo dinamico durante la creazione del disco.
+* Azure supporta le macchine virtuali Gen1 (avvio BIOS) & Gen2 (avvio UEFI).
 * La dimensione massima consentita per il disco rigido virtuale è 1023 GB.
 * Quando si installa il sistema operativo Linux, è consigliabile usare partizioni standard anziché LVM (Logical Volume Manager), che è spesso l'impostazione predefinita per numerose installazioni. In questo modo, sarà possibile evitare conflitti di nome LVM con le macchine virtuali clonate, in particolare se sarà mai necessario collegare un disco del sistema operativo a un'altra macchina virtuale identica per la risoluzione dei problemi. È possibile usare [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) o [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) su dischi di dati.
 * Per il montaggio di file system UDF, è necessario il supporto del kernel. Al primo avvio in Azure la configurazione del provisioning viene passata alla macchina virtuale Linux tramite supporti di memorizzazione formattati con UDF, collegati al guest. È necessario che l'agente Linux di Azure possa montare il file system UDF per leggerne la configurazione ed effettuare il provisioning della macchina virtuale.
@@ -44,7 +44,7 @@ Questo articolo è incentrato sulle linee guida generali per l'esecuzione della 
 * Le dimensioni di tutti i dischi rigidi virtuali in Azure devono essere allineate a 1 MB. Quando si converte un disco non formattato in disco rigido virtuale, prima della conversione è necessario assicurarsi che le dimensioni del disco non formattato siano un multiplo di 1 MB, come descritto nei passaggi seguenti.
 
 ### <a name="installing-kernel-modules-without-hyper-v"></a>Installazione dei moduli kernel senza Hyper-V
-Poiché Azure viene eseguito nell'hypervisor Hyper-V, Linux richiede l'esecuzione di alcuni moduli kernel in Azure. Se una macchina virtuale è stata creata esternamente ad Hyper-V, i programmi di installazione di Linux potrebbero non includere i driver per Hyper-V nel disco RAM iniziale (initrd o initramfs), a meno che la macchina virtuale non riconosca di essere in esecuzione in un ambiente Hyper-V. Quando si usa un sistema di virtualizzazione diverso (ad esempio VirtualBox, KVM e così via) per preparare l'immagine Linux, potrebbe essere necessario ricompilare l'initrd in modo da rendere disponibili almeno i moduli kernel hv_vmbus e hv_storvsc sul ramdisk iniziale.  Questo è un problema noto per i sistemi basati sulla distribuzione upstream di Red Hat e può esserlo anche per altri sistemi.
+Poiché Azure viene eseguito nell'hypervisor Hyper-V, Linux richiede l'esecuzione di alcuni moduli kernel in Azure. Se una macchina virtuale è stata creata esternamente ad Hyper-V, i programmi di installazione di Linux potrebbero non includere i driver per Hyper-V nel disco RAM iniziale (initrd o initramfs), a meno che la macchina virtuale non riconosca di essere in esecuzione in un ambiente Hyper-V. Quando si utilizza un sistema di virtualizzazione diverso (ad esempio VirtualBox, KVM e così via) per preparare l'immagine Linux, potrebbe essere necessario ricostruire l'initrd in modo che almeno i moduli del kernel hv_vmbus e hv_storvsc siano disponibili nel ramdisk iniziale.  Questo è un problema noto per i sistemi basati sulla distribuzione upstream di Red Hat e può esserlo anche per altri sistemi.
 
 Il meccanismo per ricreare l'immagine initrd o initramfs può variare a seconda della distribuzione. Per la procedura appropriata, consultare la documentazione della distribuzione o il supporto.  Ecco un esempio di come ricompilare l'immagine initrd tramite l'utilità `mkinitrd`:
 
@@ -64,7 +64,7 @@ Il meccanismo per ricreare l'immagine initrd o initramfs può variare a seconda 
 ### <a name="resizing-vhds"></a>Ridimensionamento dei dischi rigidi virtuali
 Le dimensioni virtuali delle immagini VHD su Azure devono essere allineate a 1 MB.  In genere i dischi rigidi virtuali creati tramite Hyper-V sono già allineati correttamente.  Se il disco rigido virtuale non è allineato correttamente, è possibile che venga visualizzato un messaggio di errore simile al seguente quando si tenta di creare un'immagine dal disco rigido virtuale.
 
-* Il disco rigido virtuale http:\//\<mystorageaccount >. blob. Core. Windows. NET/VHD/MyLinuxVM. vhd ha una dimensione virtuale non supportata di 21475270656 byte. La dimensione deve essere un numero intero (in MB).
+* Il disco rigido\//\<virtuale http: mystorageaccount>.blob.core.windows.net/vhds/MyLinuxVM.vhd ha una dimensione virtuale non supportata di 21475270656 byte. La dimensione deve essere un numero intero (in MB).
 
 In questo caso, ridimensionare la macchina virtuale usando la console di gestione di Hyper-V o il cmdlet [Resize-VHD](https://technet.microsoft.com/library/hh848535.aspx) di PowerShell.  Se l'ambiente di esecuzione non è Windows, è consigliabile usare `qemu-img` per convertire (se necessario) e ridimensionare il disco rigido virtuale.
 
@@ -142,12 +142,12 @@ Le patch seguenti devono essere incluse nel kernel. Questo elenco non può esser
 * [scsi_sysfs: protect against double execution of __scsi_remove_device](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/scsi_sysfs.c?id=be821fd8e62765de43cc4f0e2db363d0e30a7e9b)
 
 ## <a name="the-azure-linux-agent"></a>Agente Linux di Azure
-L' [agente Linux di azure](../extensions/agent-linux.md) `waagent` effettua il provisioning di una macchina virtuale Linux in Azure. È possibile ottenere la versione più recente, inviare problemi o inviare richieste pull al [repository GitHub dell'agente Linux](https://github.com/Azure/WALinuxAgent).
+L'[agente Linux di Azure](../extensions/agent-linux.md) `waagent` effettua il provisioning di una macchina virtuale Linux in Azure. È possibile ottenere la versione più recente, inviare problemi o inviare richieste pull al [repository GitHub dell'agente Linux](https://github.com/Azure/WALinuxAgent).
 
-* L'agente Linux viene rilasciato con la licenza Apache 2.0. Molte distribuzioni forniscono già pacchetti RPM o deb per l'agente e possono essere installati e aggiornati con facilità.
+* L'agente Linux viene rilasciato con la licenza Apache 2.0. Molte distribuzioni forniscono già pacchetti RPM o .deb per l'agente e questi pacchetti possono essere facilmente installati e aggiornati.
 * L'agente Linux di Azure richiede Python 2.6 o versioni successive.
 * Inoltre, l'agente richiede il modulo python-pyasn1, La maggior parte delle distribuzioni fornisce questo modulo come pacchetto separato per l'installazione.
-* In alcuni casi l'agente Linux di Azure può non essere compatibile con NetworkManager. Molti dei pacchetti RPM/DEB forniti dalle distribuzioni configurano NetworkManager come conflitto con il pacchetto waagent. In questi casi, disinstalleranno NetworkManager quando si installa il pacchetto dell'agente Linux.
+* In alcuni casi l'agente Linux di Azure può non essere compatibile con NetworkManager. Molti dei pacchetti RPM/deb forniti dalle distribuzioni configurano NetworkManager come conflitto con il pacchetto waagent. In questi casi, disinstalleranno NetworkManager quando si installa il pacchetto dell'agente Linux.
 * La versione dell'agente Linux di Azure deve essere successiva alla [versione minima supportata](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
 
 ## <a name="general-linux-system-requirements"></a>Requisiti generali di sistema relativi a Linux
@@ -164,7 +164,7 @@ L' [agente Linux di azure](../extensions/agent-linux.md) `waagent` effettua il p
 
 1. Installare l'agente Linux di Azure.
   
-    L'agente Linux di Azure è necessario per eseguire il provisioning di un'immagine Linux su Azure.  Molte distribuzioni forniscono l'agente come pacchetto RPM o deb (il pacchetto viene in genere chiamato WALinuxAgent o WALinuxAgent).  È inoltre possibile installare l'agente manualmente seguendo la procedura indicata nella [Guida all'agente Linux](../extensions/agent-linux.md).
+    L'agente Linux di Azure è necessario per eseguire il provisioning di un'immagine Linux su Azure.  Molte distribuzioni forniscono l'agente come pacchetto RPM o .deb (il pacchetto è in genere chiamato WALinuxAgent o walinuxagent).  È inoltre possibile installare l'agente manualmente seguendo la procedura indicata nella [Guida all'agente Linux](../extensions/agent-linux.md).
 
 1. Verificare che il server SSH sia installato e configurato per l'esecuzione all'avvio.  Questa configurazione è in genere quella predefinita.
 

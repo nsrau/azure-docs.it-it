@@ -1,17 +1,17 @@
 ---
-title: Backup e ripristino-database di Azure per MySQL
+title: Backup e ripristino - Database di Azure per MySQL
 description: Informazioni su backup automatici e ripristino del server Database di Azure per MySQL.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 47fa4083c26f18149b0b69b05f2cfd0b227de868
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.date: 3/27/2020
+ms.openlocfilehash: 3a6162bb381f4e54114e3cabbf138f5b1c6aaae0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77619582"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80373023"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Eseguire il backup e il ripristino in Database di Azure per MySQL
 
@@ -19,13 +19,13 @@ Database di Azure per MySQL crea automaticamente backup del server e li archivia
 
 ## <a name="backups"></a>Backup
 
-Database di Azure per MySQL esegue i backup dei file di dati e del log delle transazioni. A seconda delle dimensioni massime di archiviazione supportate, si accettano backup completi e differenziali (4 TB Max Storage Servers) o backup di snapshot (fino a 16 TB Max Storage Servers). Questi backup consentono di ripristinare un server a qualsiasi momento specifico all'interno del periodo di conservazione dei backup configurato. Il periodo di conservazione dei backup predefinito è di sette giorni. [Facoltativamente, è possibile configurarlo](howto-restore-server-portal.md#set-backup-configuration) fino a 35 giorni. Tutti i backup vengono crittografati con crittografia AES a 256 bit.
+Il database di Azure per MySQL esegue il backup dei file di dati e del log delle transazioni. A seconda delle dimensioni massime di archiviazione supportate, vengono eseguiti backup completi e differenziali (server di archiviazione max 4 TB) o backup snapshot (fino a 16 TB di server di archiviazione max). Questi backup consentono di ripristinare un server a qualsiasi momento specifico all'interno del periodo di conservazione dei backup configurato. Il periodo di conservazione dei backup predefinito è di sette giorni. [Facoltativamente,](howto-restore-server-portal.md#set-backup-configuration) è possibile configurarlo fino a 35 giorni. Tutti i backup vengono crittografati con crittografia AES a 256 bit.
 
-Non è possibile esportare i file di backup. I backup possono essere usati solo per le operazioni di ripristino nel database di Azure per MySQL. Per copiare un database, è possibile usare [mysqldump](concepts-migrate-dump-restore.md) .
+Questi file di backup non sono esposti all'utente e non possono essere esportati. Questi backup possono essere usati solo per le operazioni di ripristino nel database di Azure per MySQL.These backups can only be used for restore operations in Azure Database for MySQL. È possibile utilizzare [mysqldump](concepts-migrate-dump-restore.md) per copiare un database.
 
 ### <a name="backup-frequency"></a>Frequenza di backup
 
-In genere, i backup completi vengono eseguiti settimanalmente, i backup differenziali si verificano due volte al giorno per i server con un massimo di spazio di archiviazione supportato di 4 TB. I backup di snapshot vengono eseguiti almeno una volta al giorno per i server che supportano fino a 16 TB di spazio di archiviazione. I backup del log delle transazioni si verificano in entrambi i casi ogni cinque minuti. Il primo snapshot del backup completo viene pianificato subito dopo la creazione di un server. Il backup completo iniziale può richiedere più tempo in un server ripristinato di grandi dimensioni. Il momento meno recente a cui può essere ripristinato un nuovo server è quello del completamento del backup completo iniziale. Poiché gli snapshot sono instantanious, i server con supporto fino a 16 TB di spazio di archiviazione possono essere ripristinati fino al momento della creazione.
+In genere, i backup completi vengono eseguiti settimanalmente, i backup differenziali vengono eseguiti due volte al giorno per i server con uno spazio di archiviazione supportato al massimo di 4 TB. I backup di snapshot vengono eseguiti almeno una volta al giorno per i server che supportano fino a 16 TB di spazio di archiviazione. I backup del log delle transazioni si verificano in entrambi i casi ogni cinque minuti. Il primo snapshot del backup completo viene pianificato immediatamente dopo la creazione di un server. Il backup completo iniziale può richiedere più tempo su un server ripristinato di grandi dimensioni. Il momento meno recente a cui può essere ripristinato un nuovo server è quello del completamento del backup completo iniziale. Poiché le istantanee sono istantanee, i server con supporto fino a 16 TB di storage possono essere ripristinati fino al tempo di creazione.
 
 ### <a name="backup-redundancy-options"></a>Opzioni di ridondanza per il backup
 
@@ -42,12 +42,12 @@ Se è stato effettuato il provisioning di un server con 250 GB, ad esempio, sono
 
 ## <a name="restore"></a>Restore
 
-In Database di Azure per MySQL, l'esecuzione di un ripristino crea un nuovo server dai backup del server originale.
+In Database di Azure per MySQL, l'esecuzione di un ripristino crea un nuovo server dai backup del server originale e ripristina tutti i database contenuti nel server.
 
 Sono disponibili due tipi di ripristino:
 
-- Il **ripristino temporizzato** è disponibile con entrambe le opzioni di ridondanza per il backup e crea un nuovo server nella stessa area del server originale.
-- Il **ripristino geografico** è disponibile solo se il server è stato configurato per l'archiviazione con ridondanza geografica e consente di ripristinare il server in un'area diversa.
+- **Il ripristino temporizzato** è disponibile con l'opzione di ridondanza del backup e crea un nuovo server nella stessa area del server originale utilizzando la combinazione di backup completi e del log delle transazioni.
+- **Il ripristino geografico** è disponibile solo se il server è stato configurato per l'archiviazione con ridondanza geografica e consente di ripristinare il server in un'area diversa utilizzando il backup più recente eseguito.
 
 Il tempo stimato per il ripristino dipende da diversi fattori, tra cui le dimensioni dei database, le dimensioni dei log delle transazioni, la larghezza di banda di rete e il numero totale di database ripristinati contemporaneamente nella stessa area. Il tempo di recupero di solito è inferiore a 12 ore.
 
@@ -64,9 +64,9 @@ Per poter eseguire il ripristino a un momento specifico negli ultimi cinque minu
 
 ### <a name="geo-restore"></a>Ripristino geografico
 
-Se il server è stato configurato per backup con ridondanza geografica, è possibile ripristinare un server in un'altra area di Azure in cui il servizio è disponibile. I server che supportano fino a 4 TB di spazio di archiviazione possono essere ripristinati nell'area geografica abbinata o in qualsiasi area che supporta fino a 16 TB di spazio di archiviazione. Per i server che supportano fino a 16 TB di spazio di archiviazione, è possibile ripristinare i backup geografici in qualsiasi area che supporti i server a 16 TB. Esaminare i [piani tariffari di database di Azure per MySQL](concepts-pricing-tiers.md) per l'elenco delle aree supportate.
+Se il server è stato configurato per backup con ridondanza geografica, è possibile ripristinare un server in un'altra area di Azure in cui il servizio è disponibile. I server che supportano fino a 4 TB di spazio di archiviazione possono essere ripristinati nell'area con associazione geografica o in qualsiasi area che supporta fino a 16 TB di spazio di archiviazione. Per i server che supportano fino a 16 TB di spazio di archiviazione, i backup geografici possono essere ripristinati anche in qualsiasi area che supporti server da 16 TB. Esaminare [Database di Azure per i livelli dei prezzi MySQL](concepts-pricing-tiers.md) per l'elenco delle aree supportate.
 
-Il ripristino geografico è l'opzione di ripristino predefinita quando il server non è disponibile a causa di un evento imprevisto nell'area in cui è ospitato. Se un evento imprevisto su larga scala determina la mancata disponibilità dell'applicazione di database, è possibile ripristinare un server dai backup con ridondanza geografica in un server in un'altra area. Esiste un ritardo tra il momento in cui un backup viene creato e quando ne viene eseguita la replica in un'area diversa. Questo ritardo può essere al massimo di un'ora, quindi, in caso di emergenza, può verificarsi una perdita massima di un'ora di dati.
+Il ripristino geografico è l'opzione di ripristino predefinita quando il server non è disponibile a causa di un evento imprevisto nell'area in cui è ospitato. Se un evento imprevisto su larga scala determina la mancata disponibilità dell'applicazione di database, è possibile ripristinare un server dai backup con ridondanza geografica in un server in un'altra area. Il ripristino geografico utilizza il backup più recente del server. Esiste un ritardo tra il momento in cui un backup viene creato e quando ne viene eseguita la replica in un'area diversa. Questo ritardo può essere al massimo di un'ora, quindi, in caso di emergenza, può verificarsi una perdita massima di un'ora di dati.
 
 Durante il ripristino geografico è possibile modificare le seguenti opzioni relative alle configurazioni del server: generazione delle risorse di calcolo, vCore, periodo di conservazione dei backup e ridondanza per il backup. La modifica del piano tariffario (Basic, Utilizzo generico o Con ottimizzazione per la memoria) o delle dimensioni della risorsa di archiviazione non è supportata durante il ripristino geografico.
 
@@ -75,12 +75,12 @@ Durante il ripristino geografico è possibile modificare le seguenti opzioni rel
 Dopo il ripristino con uno dei due meccanismi, per rendere nuovamente operativi gli utenti e le applicazioni è consigliabile eseguire queste attività:
 
 - Se il nuovo server è destinato a sostituire il server originale, reindirizzare i client e le applicazioni client al nuovo server
-- Verificare che siano presenti le regole del firewall a livello di server appropriate per la connessione degli utenti
+- Assicurarsi che siano disponibili regole di rete virtuale appropriate per la connessione degli utenti. Queste regole non vengono copiate dal server originale.
 - Verificare che siano presenti gli account di accesso e le autorizzazioni a livello di database appropriati
 - Configurare gli avvisi in base alle proprie esigenze.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per altre informazioni sulla continuità aziendale, vedere la relativa  [panoramica](concepts-business-continuity.md).
-- Per eseguire il ripristino temporizzato con il portale di Azure, vedere l'articolo su come  [ripristinare un database a un momento specifico con il portale di Azure](howto-restore-server-portal.md).
-- Per eseguire il ripristino temporizzato con l'interfaccia della riga di comando di Azure, vedere l'articolo su come  [ripristinare un database a un momento specifico con l'interfaccia della riga di comando](howto-restore-server-cli.md).
+- Per eseguire il ripristino in un momento base tramite il portale di Azure, vedere Ripristinare il server in un momento base [tramite il portale](howto-restore-server-portal.md)di Azure.
+- Per eseguire il ripristino a un punto nel tempo usando l'interfaccia della riga di comando di Azure, vedere Ripristinare il server in un momento [nel tempo usando l'interfaccia della riga di comando.](howto-restore-server-cli.md)

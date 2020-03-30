@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 03/26/2020
 ms.author: juliako
-ms.openlocfilehash: 4d92bd3709c5f56db0095ca1be2caa0e9c78b42f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e475c1bc1878c6b5a0efbbe41f2a3a0fe86bcff2
+ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80336826"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80389376"
 ---
 # <a name="embed-video-indexer-widgets-in-your-apps"></a>Incorporare widget Dell'indicizzatore video nelle app
 
@@ -48,7 +48,7 @@ Un widget Cognitive Insights include tutte le informazioni dettagliate visive es
 |`showCaptions` | Valore booleano | Carica il lettore con i sottotitoli già abilitati.<br/> Esempio: `showCaptions=true`. |
 |`type`| | Attiva lo skin di un lettore audio (la parte video viene rimossa).<br/> Esempio: `type=audio`. |
 |`autoplay` | Valore booleano | Indica se il lettore deve avviare la riproduzione del video al caricamento. Il valore predefinito è `true`.<br/> Esempio: `autoplay=false`. |
-|`language` | Un codice lingua | Controlla la lingua del lettore. Il valore predefinito è `en-US`.<br/>Esempio: `language=de-DE`.|
+|`language`/`locale` | Un codice lingua | Controlla la lingua del lettore. Il valore predefinito è `en-US`.<br/>Esempio: `language=de-DE`.|
 
 ### <a name="editor-widget"></a>Widget Editor
 
@@ -233,14 +233,14 @@ Se si incorporano informazioni dettagliate sull'indicizzatore `GetVttUrl` video 
 
 È possibile scegliere i tipi di informazioni dettagliate desiderate. A tale scopo, specificarli come valore per il seguente parametro URL aggiunto al codice di incorporamento `&widgets=<list of wanted widgets>`che si ottiene (dall'API o dall'app Web): .
 
-I valori possibili sono: **persone**, **parole chiave**, **sentimenti**, **trascrizione**e **ricerca**.
+I valori possibili `people` `animatedCharacters` sono: , `emotions` `topics`, `keyframes` `keywords` `labels`, `ocr` `speakers`, `scenes` `sentiments`, `namedEntities`, , `transcript`, , , e .
 
-Ad esempio, se si desidera incorporare un widget che contiene solo persone e informazioni dettagliate sulla ricerca, l'URL di incorporamento iframe sarà simile al seguente:
+Ad esempio, se si desidera incorporare un widget che contiene solo informazioni dettagliate su persone e parole chiave, l'URL di incorporamento iframe sarà simile al seguente:
 
-`https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search`
+`https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,keywords`
 
-Si può anche personalizzare il titolo della finestra dell'iframe, fornendo il valore `&title=<YourTitle>` all'URL dell'iframe. (Personalizza il titolo \<HTML> valore).
-
+Si può anche personalizzare il titolo della finestra dell'iframe, fornendo il valore `&title=<YourTitle>` all'URL dell'iframe. (Personalizza il valore <title> HTML).
+   
 Ad esempio, se si vuole dare alla finestra dell'iframe il titolo "MyInsights", l'URL avrà un aspetto simile al seguente:
 
 `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?title=MyInsights`
@@ -257,15 +257,14 @@ Ad esempio:
 
 Per impostazione predefinita, il lettore di indicizzatori video ha generato automaticamente i sottotitoli che si basano sulla trascrizione del video. La trascrizione viene estratta dal video con la lingua di origine selezionata al momento del caricamento del video.
 
-Se si desidera eseguire l'incorporamento `&captions=< Language | "all" | "false" >` con una lingua diversa, è possibile aggiungerla all'URL del lettore di incorporamento. Se si desidera che i sottotitoli in `all`tutte le lingue disponibili, utilizzare il valore . Se si vuole che i sottotitoli siano visualizzati per impostazione predefinita, è possibile passare `&showCaptions=true`.
+Se si desidera eseguire l'incorporamento con una lingua diversa, è possibile aggiungere &didascalie< codice lingua > all'URL del lettore di incorporamento. Se si desidera che le didascalie vengano visualizzate per impostazione predefinita, è possibile passare &showCaptions-true.
 
 L'URL di incorporamento sarà simile al seguente:
 
-`https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/?captions=italian`
-
-Se si desidera disabilitare le didascalie, è possibile passare il valore del `captions` parametro come `false`.
+`https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/?captions=en-us`
 
 #### <a name="autoplay"></a>Riproduzione automatica
+
 Per impostazione predefinita, il lettore inizierà a riprodurre il video. è possibile scegliere di `&autoplay=false` non passare all'URL di incorporamento precedente.
 
 ## <a name="code-samples"></a>Esempi di codice

@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: failover della replica geografica & nel portale'
+title: 'Esercitazione: Replica geografica & failover nel portaleTutorial: Geo-replication & failover in portal'
 description: Configurare la replica geografica per un database singolo o in pool nel database SQL di Azure usando il portale di Azure e avviare il failover.
 services: sql-database
 ms.service: sql-database
@@ -12,17 +12,17 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 02/13/2019
 ms.openlocfilehash: 601c537a51e29ae1f107127e1b83c07448eee9ab
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79256432"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Configurare la replica geografica attiva per il database SQL di Azure nel portale di Azure e avviare il failover
 
 Questo articolo mostra come configurare la [replica geografica attiva per database singoli e in pool](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities) nel database SQL di Azure usando il [portale di Azure](https://portal.azure.com) e avviare il failover.
 
-Per informazioni sui gruppi di failover automatico con database singoli e in pool, vedere [Procedure consigliate per l'uso di gruppi di failover con database singoli e in pool](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools). Per informazioni sui gruppi di failover automatico con istanze gestite, vedere [procedure consigliate per l'uso di gruppi di failover con istanze gestite](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-managed-instances).
+Per informazioni sui gruppi di failover automatico con database singoli e in pool, vedere [Procedure consigliate per l'uso di gruppi di failover con database singoli e in pool](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools). Per informazioni sui gruppi di failover automatico con istanze gestite, vedere [Procedure consigliate per l'utilizzo di gruppi di failover con istanze gestite](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-managed-instances).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -66,13 +66,13 @@ Dopo aver creato ed eseguito il seeding del database secondario, inizia la repli
 Il database secondario può diventare il database primario.  
 
 1. Nel [portale di Azure](https://portal.azure.com) passare al database primario nella relazione di replica geografica.
-2. Nel pannello del database SQL selezionare **Tutte le impostazioni** > **Replica geografica**.
+2. Nel pannello Database SQL selezionare Replica**geografica** **tutte le impostazioni.** > 
 3. Nell'elenco **SECONDARI** selezionare il database che si vuole usare come nuovo database primario e fare clic su **Failover**.
 
     ![failover](./media/sql-database-geo-replication-failover-portal/secondaries.png)
 4. Fare clic su **Sì** per avviare il failover.
 
-Il comando passa immediatamente il database secondario al ruolo di database primario. Questo processo normalmente dovrebbe essere completato entro 30 secondi o meno.
+Il comando passa immediatamente il database secondario al ruolo di database primario. Questo processo normalmente dovrebbe essere completato entro 30 sec o meno.
 
 Per un breve periodo, da 0 a 25 secondi, entrambi i database non sono disponibili mentre vengono scambiati i ruoli. Se il database primario ha più database secondari, il comando riconfigura automaticamente gli altri database secondari per la connessione al nuovo database primario. Il completamento dell'intera operazione dovrebbe richiedere meno di un minuto in circostanze normali.
 
@@ -84,7 +84,7 @@ Per un breve periodo, da 0 a 25 secondi, entrambi i database non sono disponibil
 Questa operazione interrompe in modo permanente la replica al database secondario e modifica il ruolo del database secondario in un database di lettura/scrittura normale. Se la connettività al database secondario viene interrotta il comando ha esito positivo ma il database secondario non diventa un database di lettura-scrittura fino a quando la connettività non verrà ripristinata.  
 
 1. Nel [portale di Azure](https://portal.azure.com) passare al database primario nella relazione di replica geografica.
-2. Nella pagina del database SQL selezionare **Replica geografica**.
+2. Nella pagina Database SQL selezionare **Replica geografica**.
 3. Nell'elenco **SECONDARI** passare al database da rimuovere dalla relazione di replica geografica.
 4. Fare clic su **Arresta replica**.
 
@@ -93,6 +93,6 @@ Questa operazione interrompe in modo permanente la replica al database secondari
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per altre informazioni sulla replica geografica attiva, vedere [Replica geografica attiva](sql-database-active-geo-replication.md).
+* Per ulteriori informazioni sulla replica geografica attiva, vedere [replica geografica attiva](sql-database-active-geo-replication.md).
 * Per informazioni sui gruppi di failover automatico, vedere [Gruppi di failover automatico](sql-database-auto-failover-group.md)
-* Per la panoramica e gli scenari della continuità aziendale, vedere [Continuità aziendale del database SQL di Azure](sql-database-business-continuity.md).
+* Per una panoramica e scenari di continuità aziendale, vedere [Panoramica della continuità aziendale](sql-database-business-continuity.md).

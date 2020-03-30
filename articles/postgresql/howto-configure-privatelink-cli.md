@@ -1,24 +1,24 @@
 ---
-title: Collegamento privato-interfaccia della riga di comando di Azure-database di Azure per PostgreSQL-server singolo
-description: Informazioni su come configurare un collegamento privato per database di Azure per PostgreSQL-server singolo dall'interfaccia della riga di comando di Azure
+title: Collegamento privato - interfaccia della riga di comando di Azure - Database di Azure per PostgreSQL - Singolo serverPrivate Link - Azure CLI - Azure Database for PostgreSQL - Single server
+description: Informazioni su come configurare il collegamento privato per il database di Azure per PostgreSQL- Singolo server dall'interfaccia della riga di comando di AzureLearn how to configure private link for Azure Database for PostgreSQL- Single server from Azure CLI
 author: kummanish
 ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.openlocfilehash: d4288b901a0e6e132e32f8391d108e79861fc331
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79371036"
 ---
-# <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-cli"></a>Creare e gestire un collegamento privato per database di Azure per PostgreSQL-server singolo con l'interfaccia della riga di comando
+# <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-cli"></a>Creare e gestire Private Link for Azure Database for PostgreSQL - Singolo server tramite l'interfaccia della riga di comandoCreate and manage Private Link for Azure Database for PostgreSQL - Single server using CLI
 
-Un endpoint privato è il blocco predefinito fondamentale per il collegamento privato in Azure. Consente alle risorse di Azure, come le macchine virtuali (VM), di comunicare privatamente con risorse Collegamento privato. In questo articolo si apprenderà come usare l'interfaccia della riga di comando di Azure per creare una VM in una rete virtuale di Azure e un singolo server di database di Azure per PostgreSQL con un endpoint privato di Azure.
+Un endpoint privato è il blocco predefinito fondamentale per il collegamento privato in Azure. Consente alle risorse di Azure, come le macchine virtuali (VM), di comunicare privatamente con risorse Collegamento privato. In questo articolo si apprenderà come usare l'interfaccia della riga di comando di Azure per creare una macchina virtuale in una rete virtuale di Azure e un database di Azure per PostgreSQL singolo server con un endpoint privato di Azure.In this article, you will learn how to use the Azure CLI to create a VM in an Azure Virtual Network and an Azure Database for PostgreSQL Single server with an Azure private endpoint.
 
 > [!NOTE]
-> Questa funzionalità è disponibile in tutte le aree di Azure in cui database di Azure per PostgreSQL-server singolo supporta i piani tariffari per utilizzo generico e con ottimizzazione per la memoria.
+> Questa funzionalità è disponibile in tutte le aree di Azure in cui Database di Azure per PostgreSQL: singolo server supporta i livelli dei prezzi Scopo generale e Ottimizzato per la memoria.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -32,13 +32,13 @@ Se si decide di installare e usare l'interfaccia della riga di comando di Azure 
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Per poter creare le risorse, è prima necessario creare un gruppo di risorse in cui ospitare la rete virtuale. Come prima cosa creare un gruppo di risorse con [az group create](/cli/azure/group). Questo esempio crea un gruppo di risorse denominato *myResourceGroup* nella località *westeurope* :
+Per poter creare le risorse, è prima necessario creare un gruppo di risorse in cui ospitare la rete virtuale. Come prima cosa creare un gruppo di risorse con [az group create](/cli/azure/group). In questo esempio viene creato un gruppo di risorse denominato myResourceGroup nella posizione *westeurope:This* example creates a resource group named *myResourceGroup* in the westeurope location:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westeurope
 ```
 
-## <a name="create-a-virtual-network"></a>Creazione di una rete virtuale
+## <a name="create-a-virtual-network"></a>Creare una rete virtuale
 Creare una rete virtuale con il comando [az network vnet create](/cli/azure/network/vnet). Questo esempio crea una rete virtuale predefinita denominata *myVirtualNetwork* con una subnet denominata *mySubnet*:
 
 ```azurecli-interactive
@@ -58,7 +58,7 @@ az network vnet subnet update \
  --vnet-name myVirtualNetwork \
  --disable-private-endpoint-network-policies true
 ```
-## <a name="create-the-vm"></a>Creazione della VM 
+## <a name="create-the-vm"></a>Creare la VM 
 Creare una macchina virtuale con il comando az vm create. Quando richiesto, specificare la password da usare come credenziali di accesso per la macchina virtuale. Questo esempio crea una macchina virtuale denominata *myVM*: 
 ```azurecli-interactive
 az vm create \
@@ -68,8 +68,8 @@ az vm create \
 ```
  Prendere nota dell'indirizzo IP pubblico della macchina virtuale. Questo indirizzo verrà usato per connettersi alla VM da Internet nel passaggio successivo.
 
-## <a name="create-an-azure-database-for-postgresql---single-server"></a>Creare un database di Azure per PostgreSQL-server singolo 
-Creare un database di Azure per PostgreSQL con il comando AZ Postgres server create. Tenere presente che il nome del server PostgreSQL deve essere univoco in Azure, quindi sostituire il valore del segnaposto tra parentesi quadre con il proprio valore univoco: 
+## <a name="create-an-azure-database-for-postgresql---single-server"></a>Creare un database di Azure per PostgreSQL - Server singoloCreate an Azure Database for PostgreSQL - Single server 
+Creare un database di Azure per PostgreSQL con il comando az postgres server create. Tenere presente che il nome di PostgreSQL Server deve essere univoco in Azure, quindi sostituire il valore segnaposto tra parentesi con il proprio valore univoco: 
 
 ```azurecli-interactive
 # Create a logical server in the resource group 
@@ -82,10 +82,10 @@ az postgres server create \
 --sku-name GP_Gen5_2
 ```
 
-Si noti che l'ID del server PostgreSQL è simile a ```/subscriptions/subscriptionId/resourceGroups/myResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/servername.``` l'ID del server PostgreSQL verrà usato nel passaggio successivo. 
+Si noti che l'ID ```/subscriptions/subscriptionId/resourceGroups/myResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/servername.``` PostgreSQL Server è simile a Si utilizzerà l'ID PostgreSQL Server nel passaggio successivo. 
 
 ## <a name="create-the-private-endpoint"></a>Creare l'endpoint privato 
-Creare un endpoint privato per il server PostgreSQL nella rete virtuale: 
+Creare un endpoint privato per il server PostgreSQL nella rete virtuale:Create a private endpoint for the PostgreSQL server in your Virtual Network: 
 ```azurecli-interactive
 az network private-endpoint create \  
     --name myPrivateEndpoint \  
@@ -98,7 +98,7 @@ az network private-endpoint create \
  ```
 
 ## <a name="configure-the-private-dns-zone"></a>Configurare la zona DNS privato 
-Creare una zona DNS privato per il dominio del server PostgreSQL e creare un collegamento di associazione con la rete virtuale. 
+Creare una zona DNS privata per il dominio server PostgreSQL e creare un collegamento di associazione con la rete virtuale. 
 ```azurecli-interactive
 az network private-dns zone create --resource-group myResourceGroup \ 
    --name  "privatelink.postgres.database.azure.com" 
@@ -122,7 +122,7 @@ az network private-dns record-set a add-record --record-set-name myserver --zone
 ```
 
 > [!NOTE] 
-> Il nome di dominio completo nell'impostazione DNS del cliente non viene risolto nell'indirizzo IP privato configurato. Sarà necessario configurare una zona DNS per il nome di dominio completo configurato come illustrato di [seguito](../dns/dns-operations-recordsets-portal.md).
+> Il nome di dominio completo nell'impostazione DNS del cliente non viene risolto nell'IP privato configurato. È necessario configurare una zona DNS per il nome di dominio completo configurato, come illustrato [di seguito.](../dns/dns-operations-recordsets-portal.md)
 
 ## <a name="connect-to-a-vm-from-the-internet"></a>Connettersi a una VM da Internet
 
@@ -141,15 +141,15 @@ Connettersi alla macchina virtuale *myVm* da Internet come indicato di seguito:
     1. Immettere il nome utente e la password specificati al momento della creazione della macchina virtuale.
 
         > [!NOTE]
-        > Potrebbe essere necessario selezionare **Altre opzioni** > **Usa un altro account** per specificare le credenziali immesse al momento della creazione della macchina virtuale.
+        > Potrebbe essere necessario selezionare **Altre opzioni** > **Usa un account diverso**per specificare le credenziali immesse al momento della creazione della macchina virtuale.
 
-1. Scegliere **OK**.
+1. Selezionare **OK**.
 
 1. Durante il processo di accesso potrebbe essere visualizzato un avviso relativo al certificato. Se si riceve un avviso relativo al certificato, selezionare **Sì** oppure **Continua**.
 
 1. Quando viene visualizzato il desktop della macchina virtuale, ridurlo a icona per tornare al desktop locale.  
 
-## <a name="access-the-postgresql-server-privately-from-the-vm"></a>Accedere al server PostgreSQL privatamente dalla macchina virtuale
+## <a name="access-the-postgresql-server-privately-from-the-vm"></a>Accedere al server PostgreSQL privatamente dalla macchina virtualeAccess the PostgreSQL server privately from the VM
 
 1. Nel desktop remoto di  *myVM* aprire PowerShell.
 
@@ -164,26 +164,26 @@ Connettersi alla macchina virtuale *myVm* da Internet come indicato di seguito:
     Address:  10.1.3.4
     ```
 
-3. Testare la connessione del collegamento privato per il server PostgreSQL usando un client disponibile. Nell'esempio seguente è stato usato [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download?view=sql-server-ver15) per eseguire l'operazione.
+3. Testare la connessione di collegamento privato per il server PostgreSQL utilizzando qualsiasi client disponibile. Nell'esempio seguente ho usato [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download?view=sql-server-ver15) per eseguire l'operazione.
 
-4. In **nuova connessione**immettere o selezionare queste informazioni:
+4. In **Nuova connessione**immettere o selezionare le informazioni seguente:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | ------- | ----- |
     | Tipo di server| Selezionare **PostgreSQL**.|
-    | Nome server| Seleziona *mydemopostgresserver.privatelink.postgres.database.Azure.com* |
-    | Nome utente | Immettere username come username@servername fornito durante la creazione del server PostgreSQL. |
-    |Password |Immettere una password specificata durante la creazione del server PostgreSQL. |
-    |SSL|Selezionare **required**.|
+    | Nome server| Selezionare *mydemopostgresserver.privatelink.postgres.database.azure.com* |
+    | Nome utente | Immettere username@servername username come fornito durante la creazione del server PostgreSQL. |
+    |Password |Immettere una password fornita durante la creazione del server PostgreSQL. |
+    |SSL|Selezionare **Obbligatorio**.|
     ||
 
 5. Selezionare Connetti.
 
 6. Esplorare i database dal menu a sinistra.
 
-7. Facoltativamente Creare o eseguire query sulle informazioni dal server postgreSQL.
+7. (Opzionalmente) Creare o eseguire query sulle informazioni dal server postgreSQL.
 
-8. Chiudere la connessione Desktop remoto a myVm.
+8. Chiudere la connessione desktop remoto a myVm.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse 
 Quando non sono più necessari, è possibile usare il comando az group delete per rimuovere il gruppo di risorse e tutte le risorse in esso contenute: 
@@ -193,4 +193,4 @@ az group delete --name myResourceGroup --yes
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Altre informazioni sull' [endpoint privato di Azure](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)
+- Altre informazioni [sull'endpoint privato](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) di AzureLearn more about What is Azure private endpoint

@@ -1,7 +1,7 @@
 ---
 title: Cronologia delle versioni
 titleSuffix: Microsoft Genomics
-description: La cronologia delle versioni degli aggiornamenti al client Python di genomica di Microsoft per le correzioni e le nuove funzionalità.
+description: La cronologia di rilascio degli aggiornamenti al client Microsoft Genomics Python per correzioni e nuove funzionalità.
 services: genomics
 author: grhuynh
 manager: cgronlun
@@ -10,24 +10,24 @@ ms.service: genomics
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.openlocfilehash: 20475e2cde1b42790740889cf341b3a0a0afccc0
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76991083"
 ---
 # <a name="version-release-history"></a>Cronologia delle versioni
 Il team Genomica di Microsoft aggiorna regolarmente il client Microsoft Genomics Python per apportare correzioni e nuove funzionalità. 
 
 ## <a name="latest-release"></a>Versione più recente
-Il client Python corrente è la versione 0.9.0. È stato rilasciato il 6 2019 febbraio e supporta l'esecuzione di flussi di lavoro con GATK 3,5 e GATK4. Supporta l'output gVCF e può accettare un argomento facoltativo per la compressione di output.
+Il client Python corrente è la versione 0.9.0.The current Python client is version 0.9.0. È stato rilasciato il 6 febbraio 2019 e supporta l'esecuzione di flussi di lavoro con GATK 3.5 e GATK4. Supporta l'output gVCF e può accettare un argomento facoltativo per la compressione dell'output.
 
 
 ## <a name="release-history"></a>Cronologia delle versioni 
-Le nuove versioni del client Python di genomica di Microsoft vengono rilasciate una volta all'anno. Quando viene rilasciata una nuova versione del client Python di Genomica di Microsoft, viene qui aggiornato un elenco di funzionalità e correzioni. Quando vengono rilasciate delle nuove versioni, le versioni precedenti continueranno a essere supportate per almeno 90 giorni. Quando le versioni precedenti non sono più supportate, verrà indicato in questa pagina. 
+Le nuove versioni del client Genomics Python vengono rilasciate circa una volta all'anno. Quando viene rilasciata una nuova versione del client Python di Genomica di Microsoft, viene qui aggiornato un elenco di funzionalità e correzioni. Quando vengono rilasciate delle nuove versioni, le versioni precedenti continueranno a essere supportate per almeno 90 giorni. Quando le versioni precedenti non sono più supportate, verrà indicato in questa pagina. 
 
-### <a name="version-090"></a>Versione 0.9.0
-La versione 0.9.0 include il supporto per la compressione di output. Equivale a eseguire `-bgzip` seguito da `-tabix` nell'output di VCF o gvcf. Per ulteriori informazioni, vedere [domande frequenti](frequently-asked-questions-genomics.md). 
+### <a name="version-090"></a>Versione 0.9.0Version 0.9.0
+La versione 0.9.0 include il supporto per la compressione dell'output. Ciò equivale `-bgzip` all'esecuzione seguita dall'output `-tabix` vcf o gvcf. Per ulteriori informazioni, consultate [Domande frequenti.](frequently-asked-questions-genomics.md) 
 
 ### <a name="version-081"></a>Versione 0.8.1
 La versione 0.8.1 include piccole correzioni di bug.  

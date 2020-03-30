@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 28aab15dc67e051190e8d4e35e92240a56fe54a6
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67180095"
 ---
 Se i server nel cluster stanno eseguendo Windows Server 2008 R2 o Windows Server 2012, è necessario quindi verificare che l'hotfix [KB2854082](https://support.microsoft.com/kb/2854082) sia installato su ognuno dei server locali o sulle VM di Azure che fanno parte del cluster. Qualsiasi server o macchina virtuale che si trova nel cluster, ma non nel gruppo di disponibilità, deve avere installato tale hotfix.

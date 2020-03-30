@@ -2,25 +2,25 @@
 title: VMware assessment support in Azure Migrate
 description: Informazioni sul supporto per la valutazione delle macchine virtuali VMware con Azure Migrate Server Assessment.Learn about support for VMware VM assessment with Azure Migrate Server Assessment.
 ms.topic: conceptual
-ms.date: 03/23/2020
-ms.openlocfilehash: 03d07adb6f19346901286bdae148f95e68290e4e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 03/29/2020
+ms.openlocfilehash: e0172656d06075f89a7c3a06e8d4e9be94e6f5d0
+ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80336867"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80389308"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Matrice di supporto per la valutazione VMware 
 
-Questo articolo riepiloga i prerequisiti e i requisiti di supporto per la valutazione delle macchine virtuali VMware in preparazione per la migrazione ad Azure.This article summarizes prerequisites and support requirements for assessing VMware VMs in preparation for migration to Azure. Se si desidera eseguire la migrazione delle macchine virtuali VMware in Azure, esaminare la matrice di supporto per la [migrazione.](migrate-support-matrix-vmware-migration.md)
+Questo articolo riepiloga i prerequisiti e i requisiti di supporto quando si valutano le macchine virtuali VMware per la migrazione ad Azure, usando lo strumento Azure Migrate:Server Assessment](migrate-services-overview.md-azure-migrate-server-assessment-tool). Se si desidera eseguire la migrazione delle macchine virtuali VMware in Azure, esaminare la matrice di supporto per la [migrazione.](migrate-support-matrix-vmware-migration.md)
 
-Valutare i server fisici con lo strumento [Azure Migrate:Server Assessment.](migrate-services-overview.md#azure-migrate-server-assessment-tool) Creare un progetto di Azure Migrate e quindi aggiungere lo strumento al progetto. Dopo aver aggiunto lo strumento, si distribuisce [l'appliance di Azure Migrate.](migrate-appliance.md) L'appliance individua continuamente i computer locali e invia i metadati e i dati sulle prestazioni del computer ad Azure.The appliance continuously discovers on-premises machines, and sends machine metadata and performance data to Azure. Dopo l'individuazione del computer, si raccolgono i computer individuati in gruppi ed si esegue una valutazione per un gruppo.
+Per valutare le macchine virtuali VMware, creare un progetto Azure Migrate e quindi aggiungere lo strumento di valutazione del server al progetto. Dopo aver aggiunto lo strumento, si distribuisce [l'appliance di Azure Migrate.](migrate-appliance.md) L'appliance individua continuamente i computer locali e invia i metadati e i dati sulle prestazioni del computer ad Azure.The appliance continuously discovers on-premises machines, and sends machine metadata and performance data to Azure. Al termine dell'individuazione, si raccolgono i computer individuati in gruppi ed si esegue una valutazione per un gruppo.
 
 ## <a name="limitations"></a>Limitazioni
 
 **Supporto** | **Dettagli**
 --- | ---
-**Limiti del progetto** | È possibile creare più progetti in una sottoscrizione di Azure.You can create multiple projects in an Azure subscription.<br/><br/> È possibile individuare e valutare fino a 35.000 macchine virtuali VMware in un singolo [progetto.](migrate-support-matrix.md#azure-migrate-projects) Un progetto può includere macchine virtuali VMware, server fisici e macchine virtuali Hyper-V, fino ai limiti di valutazione per ognuno di essi.
+**Limiti del progetto** | È possibile creare più progetti in una sottoscrizione di Azure.You can create multiple projects in an Azure subscription.<br/><br/> È possibile individuare e valutare fino a 35.000 macchine virtuali VMware in un singolo [progetto.](migrate-support-matrix.md#azure-migrate-projects) Un progetto può includere anche server fisici e macchine virtuali Hyper-V, fino ai limiti di valutazione per ognuno di essi.
 **Scoperta** | L'appliance Azure Migrate può individuare fino a 10.000 macchine virtuali VMware in un server vCenter.
 **Valutazione** | È possibile aggiungere fino a 35.000 macchine in un singolo gruppo.<br/><br/> È possibile valutare fino a 35.000 macchine virtuali in un'unica valutazione.
 
@@ -29,11 +29,11 @@ Valutare i server fisici con lo strumento [Azure Migrate:Server Assessment.](mig
 
 ## <a name="application-discovery"></a>Individuazione delle applicazioni
 
-Oltre a individuare i computer, Azure Migrate: Server Assessment può individuare app, ruoli e funzionalità in esecuzione nei computer. L'individuazione dell'inventario delle app consente di identificare e pianificare un percorso di migrazione personalizzato per i carichi di lavoro locali. 
+Oltre a individuare i computer, la valutazione del server può individuare app, ruoli e funzionalità in esecuzione nei computer. L'individuazione dell'inventario delle app consente di identificare e pianificare un percorso di migrazione personalizzato per i carichi di lavoro locali. 
 
 **Supporto** | **Dettagli**
 --- | ---
-**Macchine supportate** | L'individuazione delle app è attualmente supportata solo per le macchine virtuali VMware locali.
+**Macchine supportate** | L'individuazione delle app è attualmente supportata solo per le macchine virtuali VMware.App discovery is currently supported for VMware VMs only.
 **Scoperta** | L'individuazione delle app è senza agente. Utilizza le credenziali guest del computer e accede in remoto ai computer utilizzando le chiamate WMI e SSH.
 **Supporto VM** | L'individuazione delle app è supportata per tutte le versioni di Windows e Linux.App-discovery is supported for all Windows and Linux versions.
 **Credenziali vCenter** | L'individuazione delle app richiede un account vCenter Server con accesso in sola lettura e privilegi abilitati per le macchine virtuali > le operazioni Guest.
@@ -58,7 +58,7 @@ Oltre a individuare i computer, Azure Migrate: Server Assessment può individuar
 
 ## <a name="azure-migrate-appliance-requirements"></a>Requisiti dell'appliance di Azure Migrate
 
-Azure Migrate usa [l'appliance di Azure Migrate](migrate-appliance.md) per l'individuazione e la valutazione. L'appliance per VMware viene distribuita utilizzando un modello OVA, importato in vCenter Server. 
+Azure Migrate usa [l'appliance di Azure Migrate](migrate-appliance.md) per l'individuazione e la valutazione. È possibile distribuire l'appliance come VMWare VMWare usando un modello OVA, importato in vCenter Server o uno script di [PowerShell.](deploy-appliance-script.md)
 
 - Informazioni sui [requisiti dell'appliance](migrate-appliance.md#appliance---vmware) per VMware.
 - Informazioni sugli [URL](migrate-appliance.md#url-access) a cui l'appliance deve accedere.
@@ -77,7 +77,7 @@ Host ESXi (individuazione app/analisi delle dipendenze senza agente) | Se si des
 
 **Requisito** | **Dettagli**
 --- | --- 
-**Prima della distribuzione** | È necessario disporre di un progetto di Azure Migrate, con lo strumento Azure Migrate: Server Assessment aggiunto al progetto.<br/><br/>  La visualizzazione delle dipendenze viene distribuita dopo aver impostato un'appliance Di azure Migrate per individuare i computer VMWare locali.<br/><br/> [Scopri come](create-manage-projects.md) creare un progetto per la prima volta.<br/> [Informazioni su come](how-to-assess.md) aggiungere uno strumento di valutazione a un progetto esistente.<br/> [Informazioni su come](how-to-set-up-appliance-vmware.md) configurare l'appliance Azure Migrate per la valutazione delle macchine virtuali VMware.Learn how to set up the Azure Migrate appliance for assessment of VMware VMs.
+**Prima della distribuzione** | È necessario disporre di un progetto di Azure Migrate sul posto, con lo strumento di valutazione del server aggiunto al progetto.<br/><br/>  La visualizzazione delle dipendenze viene distribuita dopo aver impostato un'appliance Di azure Migrate per individuare i computer VMWare locali.<br/><br/> [Scopri come](create-manage-projects.md) creare un progetto per la prima volta.<br/> [Informazioni su come](how-to-assess.md) aggiungere uno strumento di valutazione a un progetto esistente.<br/> [Informazioni su come](how-to-set-up-appliance-vmware.md) configurare l'appliance Azure Migrate per la valutazione delle macchine virtuali VMware.Learn how to set up the Azure Migrate appliance for assessment of VMware VMs.
 **Supporto VM** | Attualmente supportato solo per le macchine virtuali VMware.
 **Macchine virtuali di Windows** | Windows Server 2016<br/> Windows Server 2012 R2<br/> Windows Server 2012<br/> Windows Server 2008 R2 (64 bit).
 **Account di Windows** |  Per l'analisi delle dipendenze, l'appliance di Azure Migrate richiede un account di amministratore locale o di dominio per accedere alle macchine virtuali Windows.For dependency analysis, the Azure Migrate appliance needs a local or a domain Administrator account to access Windows VMs.

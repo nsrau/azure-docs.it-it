@@ -1,5 +1,5 @@
 ---
-title: Servizi di Azure che supportano identità gestite-Azure AD
+title: Azure Services that support managed identities - Azure AD
 description: Elenco di servizi che supportano le identità gestite per le risorse di Azure e l'autenticazione di Azure AD
 services: active-directory
 author: MarkusVi
@@ -10,12 +10,12 @@ ms.service: active-directory
 ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e3493734ea7d0ed7b0703a7adef0d1051e64fc6
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.openlocfilehash: b9e01f1f5abfc0f76926ce503fae058c196c6e64
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "79365995"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80282104"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Servizi che supportano le identità gestite per le risorse di Azure
 
@@ -32,14 +32,14 @@ I servizi di Azure seguenti supportano le identità gestite per le risorse di Az
 
 | Tipo di identità gestita | Disponibile a livello generale<br>Aree globali di Azure | Azure Government | Azure Germania | 21Vianet per Azure Cina |
 | --- | :-: | :-: | :-: | :-: |
-| Assegnata dal sistema | ![Disponibile][check] | Anteprima | Anteprima | Anteprima | 
-| Assegnata dall'utente | ![Disponibile][check] | Anteprima | Anteprima | Anteprima |
+| Assegnata dal sistema | ![Disponibile][check] | ![Disponibile][check] | Anteprima | Anteprima | 
+| Assegnata dall'utente | ![Disponibile][check] | ![Disponibile][check] | Anteprima | Anteprima |
 
 Vedere l'elenco seguente per configurare l'identità gestita per le macchine virtuali di Azure (nelle aree in cui è disponibile):
 
-- [Azure portal](qs-configure-portal-windows-vm.md)
-- [PowerShell](qs-configure-powershell-windows-vm.md)
-- [Interfaccia della riga di comando di Azure](qs-configure-cli-windows-vm.md)
+- [Portale di Azure](qs-configure-portal-windows-vm.md)
+- [Powershell](qs-configure-powershell-windows-vm.md)
+- [Interfaccia della riga di comando di AzureAzure](qs-configure-cli-windows-vm.md)
 - [Modelli di Gestione risorse di Azure](qs-configure-template-windows-vm.md)
 - [REST](qs-configure-rest-vm.md)
 
@@ -52,9 +52,9 @@ Vedere l'elenco seguente per configurare l'identità gestita per le macchine vir
 
 Vedere l'elenco seguente per configurare l'identità gestita per il set di scalabilità di macchine virtuali di Azure (nelle aree in cui è disponibile):
 
-- [Azure portal](qs-configure-portal-windows-vm.md)
-- [PowerShell](qs-configure-powershell-windows-vm.md)
-- [Interfaccia della riga di comando di Azure](qs-configure-cli-windows-vm.md)
+- [Portale di Azure](qs-configure-portal-windows-vm.md)
+- [Powershell](qs-configure-powershell-windows-vm.md)
+- [Interfaccia della riga di comando di AzureAzure](qs-configure-cli-windows-vm.md)
 - [Modelli di Gestione risorse di Azure](qs-configure-template-windows-vm.md)
 - [REST](qs-configure-rest-vm.md)
 
@@ -63,14 +63,14 @@ Vedere l'elenco seguente per configurare l'identità gestita per il set di scala
 | Tipo di identità gestita | Disponibile a livello generale<br>Aree globali di Azure | Azure Government | Azure Germania | 21Vianet per Azure Cina |
 | --- | :-: | :-: | :-: | :-: |
 | Assegnata dal sistema | ![Disponibile][check] | ![Disponibile][check] | ![Disponibile][check] | ![Disponibile][check] |
-| Assegnata dall'utente | ![Disponibile][check] | Non disponibile | Non disponibile | Non disponibile |
+| Assegnata dall'utente | ![Disponibile][check] | ![Disponibile][check]  | ![Disponibile][check]  | ![Disponibile][check] |
 
 Vedere l'elenco seguente per configurare l'identità gestita per il Servizio app di Azure (nelle aree in cui è disponibile):
 
-- [Azure portal](/azure/app-service/overview-managed-identity#using-the-azure-portal)
-- [Interfaccia della riga di comando di Azure](/azure/app-service/overview-managed-identity#using-the-azure-cli)
+- [Portale di Azure](/azure/app-service/overview-managed-identity#using-the-azure-portal)
+- [Interfaccia della riga di comando di AzureAzure](/azure/app-service/overview-managed-identity#using-the-azure-cli)
 - [Azure PowerShell](/azure/app-service/overview-managed-identity#using-azure-powershell)
-- [Modello di Azure Resource Manager](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
+- [Modello di Azure Resource ManagerAzure Resource Manager template](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
 
 ### <a name="azure-blueprints"></a>Azure Blueprint
 
@@ -79,24 +79,24 @@ Vedere l'elenco seguente per configurare l'identità gestita per il Servizio app
 | Assegnata dal sistema | ![Disponibile][check] | ![Disponibile][check] | Non disponibile | Non disponibile |
 | Assegnata dall'utente | ![Disponibile][check] | ![Disponibile][check] | Non disponibile | Non disponibile |
 
-Vedere l'elenco seguente per usare un'identità gestita con i [progetti di Azure](../../governance/blueprints/overview.md):
+Fare riferimento all'elenco seguente per usare un'identità gestita con [Azure Blueprints:](../../governance/blueprints/overview.md)
 
-- [Assegnazione portale di Azure-Blueprint](../../governance/blueprints/create-blueprint-portal.md#assign-a-blueprint)
-- [API REST-assegnazione progetto](../../governance/blueprints/create-blueprint-rest-api.md#assign-a-blueprint)
+- [Portale di Azure - assegnazione del blueprint](../../governance/blueprints/create-blueprint-portal.md#assign-a-blueprint)
+- [API REST - assegnazione del blueprint](../../governance/blueprints/create-blueprint-rest-api.md#assign-a-blueprint)
 
 ### <a name="azure-functions"></a>Funzioni di Azure
 
 Tipo di identità gestita |Disponibile a livello generale<br>Aree globali di Azure | Azure Government | Azure Germania | 21Vianet per Azure Cina |
 | --- | :-: | :-: | :-: | :-: |
 | Assegnata dal sistema | ![Disponibile][check] | ![Disponibile][check] | ![Disponibile][check] | ![Disponibile][check] |
-| Assegnata dall'utente | ![Disponibile][check] | Non disponibile | Non disponibile | Non disponibile |
+| Assegnata dall'utente | ![Disponibile][check] | ![Disponibile][check]  | ![Disponibile][check]  | ![Disponibile][check]  |
 
 Vedere l'elenco seguente per configurare l'identità gestita per Funzioni di Azure (nelle aree in cui è disponibile):
 
-- [Azure portal](/azure/app-service/overview-managed-identity#using-the-azure-portal)
-- [Interfaccia della riga di comando di Azure](/azure/app-service/overview-managed-identity#using-the-azure-cli)
+- [Portale di Azure](/azure/app-service/overview-managed-identity#using-the-azure-portal)
+- [Interfaccia della riga di comando di AzureAzure](/azure/app-service/overview-managed-identity#using-the-azure-cli)
 - [Azure PowerShell](/azure/app-service/overview-managed-identity#using-azure-powershell)
-- [Modello di Azure Resource Manager](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
+- [Modello di Azure Resource ManagerAzure Resource Manager template](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
 
 ### <a name="azure-logic-apps"></a>App per la logica di Azure
 
@@ -108,8 +108,8 @@ Tipo di identità gestita | Disponibile a livello generale<br>Aree globali di Az
 
 Vedere l'elenco seguente per configurare l'identità gestita per le App per la logica di Azure (nelle aree in cui è disponibile):
 
-- [Azure portal](/azure/logic-apps/create-managed-service-identity#enable-system-assigned-identity-in-azure-portal)
-- [Modello di Azure Resource Manager](/azure/app-service/overview-managed-identity)
+- [Portale di Azure](/azure/logic-apps/create-managed-service-identity#enable-system-assigned-identity-in-azure-portal)
+- [Modello di Azure Resource ManagerAzure Resource Manager template](/azure/app-service/overview-managed-identity)
 
 ### <a name="azure-data-factory-v2"></a>Azure Data Factory V2
 
@@ -120,8 +120,8 @@ Tipo di identità gestita | Disponibile a livello generale<br>Aree globali di Az
 
 Vedere l'elenco seguente per configurare l'identità gestita per Azure Data Factory V2 (nelle aree in cui è disponibile):
 
-- [Azure portal](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity)
-- [PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-powershell)
+- [Portale di Azure](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity)
+- [Powershell](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-powershell)
 - [REST](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-rest-api)
 - [SDK](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-sdk)
 
@@ -134,7 +134,7 @@ Tipo di identità gestita | Disponibile a livello generale<br>Aree globali di Az
 
 Vedere l'elenco seguente per configurare l'identità gestita per Gestione API di Azure (nelle aree in cui è disponibile):
 
-- [Modello di Azure Resource Manager](/azure/api-management/api-management-howto-use-managed-service-identity)
+- [Modello di Azure Resource ManagerAzure Resource Manager template](/azure/api-management/api-management-howto-use-managed-service-identity)
 
 ### <a name="azure-container-instances"></a>Istanze di Azure Container
 
@@ -145,8 +145,8 @@ Tipo di identità gestita | Disponibile a livello generale<br>Aree globali di Az
 
 Vedere l'elenco seguente per configurare l'identità gestita per Istanze di Azure Container (nelle aree in cui è disponibile):
 
-- [Interfaccia della riga di comando di Azure](~/articles/container-instances/container-instances-managed-identity.md)
-- [Modello di Azure Resource Manager](~/articles/container-instances/container-instances-managed-identity.md#enable-managed-identity-using-resource-manager-template)
+- [Interfaccia della riga di comando di AzureAzure](~/articles/container-instances/container-instances-managed-identity.md)
+- [Modello di Azure Resource ManagerAzure Resource Manager template](~/articles/container-instances/container-instances-managed-identity.md#enable-managed-identity-using-resource-manager-template)
 - [YAML](~/articles/container-instances/container-instances-managed-identity.md#enable-managed-identity-using-yaml-file)
 
 ### <a name="azure-container-registry-tasks"></a>Attività di Registro Azure Container
@@ -156,20 +156,20 @@ Tipo di identità gestita | Disponibile a livello generale<br>Aree globali di Az
 | Assegnata dal sistema | ![Disponibile][check] | Non disponibile | Non disponibile | Non disponibile |
 | Assegnata dall'utente | Anteprima | Non disponibile | Non disponibile | Non disponibile |
 
-Vedere l'elenco seguente per configurare l'identità gestita per le attività di Container Registry di Azure (nelle aree in cui sono disponibili):
+Fare riferimento all'elenco seguente per configurare l'identità gestita per le attività del Registro di sistema del contenitore di Azure (nelle aree in cui è disponibile):Refer to the following list to configure managed identity for Azure Container Registry Tasks (in regions where available):
 
-- [Interfaccia della riga di comando di Azure](~/articles/container-registry/container-registry-tasks-authentication-managed-identity.md)
+- [Interfaccia della riga di comando di AzureAzure](~/articles/container-registry/container-registry-tasks-authentication-managed-identity.md)
 
 ### <a name="azure-service-fabric"></a>Azure Service Fabric
-L' [identità gestita per le applicazioni Service Fabric](https://docs.microsoft.com/azure/service-fabric/concepts-managed-identity) è in anteprima e disponibile in tutte le aree geografiche.
+[L'identità gestita per](https://docs.microsoft.com/azure/service-fabric/concepts-managed-identity) le applicazioni Service Fabric è in anteprima e disponibile in tutte le aree.
 
 Tipo di identità gestita | Disponibile a livello generale<br>Aree globali di Azure | Azure Government | Azure Germania | 21Vianet per Azure Cina |
 | --- | :-: | :-: | :-: | :-: |
 | Assegnata dal sistema | ![Disponibile][check] | Non disponibile | Non disponibile | non disponibile |
 | Assegnata dall'utente | ![Disponibile][check] | Non disponibile | Non disponibile |Non disponibile |
 
-Vedere l'elenco seguente per configurare l'identità gestita per le applicazioni Service Fabric di Azure in tutte le aree:
-- [Modello di Azure Resource Manager](https://github.com/Azure-Samples/service-fabric-managed-identity/tree/anmenard-docs)
+Fare riferimento all'elenco seguente per configurare l'identità gestita per le applicazioni di Azure Service Fabric in tutte le aree:Refer to the following list to configure managed identity for Azure Service Fabric applications in all regions:
+- [Modello di Azure Resource ManagerAzure Resource Manager template](https://github.com/Azure-Samples/service-fabric-managed-identity/tree/anmenard-docs)
 
 ## <a name="azure-services-that-support-azure-ad-authentication"></a>Servizi di Azure che supportano l'autenticazione di Azure AD
 
@@ -177,12 +177,12 @@ I servizi seguenti supportano l'autenticazione di Azure AD e sono stati testati 
 
 ### <a name="azure-resource-manager"></a>Azure Resource Manager
 
-Per configurare l'accesso ai Azure Resource Manager, vedere l'elenco seguente:
+Fare riferimento all'elenco seguente per configurare l'accesso a Azure Resource Manager:Refer to the following list to configure access to Azure Resource Manager:
 
-- [Assegnare l'accesso tramite portale di Azure](howto-assign-access-portal.md)
-- [Assegnare l'accesso tramite PowerShell](howto-assign-access-powershell.md)
-- [Assegnare l'accesso tramite l'interfaccia della riga di comando Azure](howto-assign-access-CLI.md)
-- [Assegnare l'accesso tramite Azure Resource Manager modello](../../role-based-access-control/role-assignments-template.md)
+- [Assegnare l'accesso tramite il portale di AzureAssign access via Azure portal](howto-assign-access-portal.md)
+- [Assegnare l'accesso tramite PowerShellAssign access via PowerShell](howto-assign-access-powershell.md)
+- [Assegnare l'accesso tramite l'interfaccia della riga di comando di AzureAssign](howto-assign-access-CLI.md)
+- [Assegnare l'accesso tramite il modello di Azure Resource ManagerAssign access via Azure Resource Manager template](../../role-based-access-control/role-assignments-template.md)
 
 | Cloud | ID risorsa | Stato |
 |--------|------------|:-:|
@@ -209,7 +209,7 @@ Per configurare l'accesso ai Azure Resource Manager, vedere l'elenco seguente:
 | Azure Germania |   | Non disponibile |
 | 21Vianet per Azure Cina |  | Non disponibile |
 
-### <a name="azure-sql"></a>Azure SQL 
+### <a name="azure-sql"></a>SQL di Azure 
 
 | Cloud | ID risorsa | Stato |
 |--------|------------|:-:|
@@ -244,7 +244,7 @@ Per configurare l'accesso ai Azure Resource Manager, vedere l'elenco seguente:
 
 
 
-### <a name="azure-storage-blobs-and-queues"></a>BLOB e code di archiviazione di Azure
+### <a name="azure-storage-blobs-and-queues"></a>BLOB e code di Archiviazione di AzureAzure Storage blobs and queues
 
 | Cloud | ID risorsa | Stato |
 |--------|------------|:-:|

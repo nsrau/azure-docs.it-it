@@ -5,23 +5,21 @@ services: active-directory
 documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: azuread-dev
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ryanwi
-ms.reviewer: saeeda, jmprieur, andret
+ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 93e487063944801129090d6b9952143b8df887da
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ROBOTS: NOINDEX
+ms.openlocfilehash: 9cf5a9c81ca1d7a42a5a8e342dee55f335656c3e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77163915"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154424"
 ---
 # <a name="web-api"></a>API Web
 
@@ -43,26 +41,26 @@ Nel flusso che segue sono illustrati i tipi di identità applicazione e identit�
 ### <a name="application-identity-with-oauth-20-client-credentials-grant"></a>Identità applicazione con concessione delle credenziali client OAuth 2.0
 
 1. Un utente esegue l'accesso ad Azure AD nell'applicazione Web (vedere la sezione **App Web** per altre informazioni).
-1. L'applicazione Web deve acquisire un token di accesso per l'autenticazione nell'API Web e il recupero della risorsa desiderata. Effettua una richiesta all'endpoint di token di Azure AD, fornendo le credenziali, l'ID applicazione e l'URI ID applicazione dell'API Web.
+1. L'applicazione Web deve acquisire un token di accesso per l'autenticazione nell'API Web e il recupero della risorsa desiderata. Effettua una richiesta all'endpoint token di Azure AD, fornendo le credenziali, l'ID applicazione e l'URI dell'ID applicazione dell'API Web.It makes a request to Azure AD's token endpoint, providing the credential, application ID, and web API's application ID URI.
 1. Azure AD autentica l'applicazione e restituisce un token di accesso JWT usato per chiamare l'API Web.
-1. Su HTTPS l'applicazione Web usa il token di accesso JWT restituito per aggiungere la stringa JWT con una designazione "Bearer" nell'intestazione dell'autorizzazione della richiesta all'API Web. L'API Web convalida quindi il token JWT e, se la convalida riesce, restituisce la risorsa desiderata.
+1. Tramite HTTPS, l'applicazione Web utilizza il token di accesso JWT restituito per aggiungere la stringa JWT con una designazione "Bearer" nell'intestazione Authorization della richiesta all'API Web. L'API Web convalida quindi il token JWT e, se la convalida riesce, restituisce la risorsa desiderata.
 
 ### <a name="delegated-user-identity-with-openid-connect"></a>Identità utente delegato con OpenID Connect
 
 1. Un utente esegue l'accesso all'applicazione Web usando Azure AD (consultare la sezione precedente Da Web browser ad applicazione Web). Se l'utente dell'applicazione Web non ha ancora concesso il consenso perché l'applicazione Web chiami l'API Web per suo conto, dovrà acconsentire. L'applicazione visualizzerà le autorizzazioni richieste e, se si tratta di autorizzazione a livello amministratore, un utente normale della directory non potrà concedere il consenso. Questo processo di consenso è valido solo per le applicazioni multi-tenant, non per le applicazioni con un singolo tenant, perché l'applicazione avrà già le autorizzazioni necessarie. Quando l'utente ha eseguito l'accesso, l'applicazione Web ha ricevuto un token ID con le informazioni relative all'utente, nonché un codice di autorizzazione.
-1. Con il codice di autorizzazione rilasciato da Azure AD, l'applicazione Web invia una richiesta all'endpoint token di Azure AD che include il codice di autorizzazione, dettagli sull'applicazione client (ID applicazione e URI di reindirizzamento) e la risorsa desiderata (URI ID applicazione per l'API Web).
+1. Usando il codice di autorizzazione rilasciato da Azure AD, l'applicazione Web invia una richiesta all'endpoint token di Azure AD che include il codice di autorizzazione, i dettagli sull'applicazione client (ID applicazione e URI di reindirizzamento) e la risorsa desiderata (ID applicazione) URI per l'API Web).
 1. Il codice di autorizzazione e le informazioni sull'applicazione Web e l'API Web vengono convalidati da Azure AD. Se la convalida riesce, Azure AD restituisce tue token: un token di accesso JWT e un token di aggiornamento JWT.
-1. Su HTTPS l'applicazione Web usa il token di accesso JWT restituito per aggiungere la stringa JWT con una designazione "Bearer" nell'intestazione dell'autorizzazione della richiesta all'API Web. L'API Web convalida quindi il token JWT e, se la convalida riesce, restituisce la risorsa desiderata.
+1. Tramite HTTPS, l'applicazione Web utilizza il token di accesso JWT restituito per aggiungere la stringa JWT con una designazione "Bearer" nell'intestazione Authorization della richiesta all'API Web. L'API Web convalida quindi il token JWT e, se la convalida riesce, restituisce la risorsa desiderata.
 
 ### <a name="delegated-user-identity-with-oauth-20-authorization-code-grant"></a>Identità utente delegato con concessione del codice di autorizzazione OAuth 2.0
 
 1. Un utente ha già eseguito l'accesso all'applicazione Web, il cui meccanismo di autenticazione è indipendente da Azure AD.
-1. L'applicazione Web richiede un codice di autorizzazione per acquisire un token di accesso, quindi invia una richiesta tramite il browser all'endpoint di autorizzazione di Azure AD, fornendo l'ID applicazione e l'URI di reindirizzamento per l'applicazione Web al termine dell'autenticazione. L'utente accede ad Azure AD.
-1. Se l'utente dell'applicazione Web non ha ancora concesso il consenso perché l'applicazione Web chiami l'API Web per suo conto, dovrà acconsentire. L'applicazione visualizzerà le autorizzazioni richieste e, se si tratta di autorizzazione a livello amministratore, un utente normale della directory non potrà concedere il consenso. Il consenso si applica sia all'applicazione a tenant singolo che multi-tenant. In un'applicazione a tenant singolo l'amministratore può eseguire il consenso dell'amministratore per acconsentire per conto degli utenti. A questo scopo, è possibile usare il pulsante `Grant Permissions` nel [portale di Azure](https://portal.azure.com). 
+1. L'applicazione Web richiede un codice di autorizzazione per acquisire un token di accesso, pertanto invia una richiesta tramite il browser all'endpoint di autorizzazione di Azure AD, specificando l'ID applicazione e l'URI di reindirizzamento per l'applicazione Web dopo l'autenticazione riuscita. L'utente accede ad Azure AD.
+1. Se l'utente dell'applicazione Web non ha ancora concesso il consenso perché l'applicazione Web chiami l'API Web per suo conto, dovrà acconsentire. L'applicazione visualizzerà le autorizzazioni richieste e, se si tratta di autorizzazione a livello amministratore, un utente normale della directory non potrà concedere il consenso. Il consenso si applica sia all'applicazione a tenant singolo che multi-tenant. In un'applicazione a tenant singolo l'amministratore può eseguire il consenso dell'amministratore per acconsentire per conto degli utenti. Questa operazione può `Grant Permissions` essere eseguita usando il pulsante nel portale di Azure.This can be done using the button in the [Azure portal](https://portal.azure.com). 
 1. Quando l'utente concede il consenso, l'applicazione Web riceve il codice di autorizzazione necessario per acquisire un token di accesso.
-1. Con il codice di autorizzazione rilasciato da Azure AD, l'applicazione Web invia una richiesta all'endpoint token di Azure AD che include il codice di autorizzazione, dettagli sull'applicazione client (ID applicazione e URI di reindirizzamento) e la risorsa desiderata (URI ID applicazione per l'API Web).
+1. Usando il codice di autorizzazione rilasciato da Azure AD, l'applicazione Web invia una richiesta all'endpoint token di Azure AD che include il codice di autorizzazione, i dettagli sull'applicazione client (ID applicazione e URI di reindirizzamento) e la risorsa desiderata (ID applicazione) URI per l'API Web).
 1. Il codice di autorizzazione e le informazioni sull'applicazione Web e l'API Web vengono convalidati da Azure AD. Se la convalida riesce, Azure AD restituisce tue token: un token di accesso JWT e un token di aggiornamento JWT.
-1. Su HTTPS l'applicazione Web usa il token di accesso JWT restituito per aggiungere la stringa JWT con una designazione "Bearer" nell'intestazione dell'autorizzazione della richiesta all'API Web. L'API Web convalida quindi il token JWT e, se la convalida riesce, restituisce la risorsa desiderata.
+1. Tramite HTTPS, l'applicazione Web utilizza il token di accesso JWT restituito per aggiungere la stringa JWT con una designazione "Bearer" nell'intestazione Authorization della richiesta all'API Web. L'API Web convalida quindi il token JWT e, se la convalida riesce, restituisce la risorsa desiderata.
 
 ## <a name="code-samples"></a>Esempi di codice
 
@@ -70,9 +68,9 @@ Vedere gli esempi di codice per gli scenari Da applicazione Web ad API Web. Cons
 
 ## <a name="app-registration"></a>Registrazione delle app
 
-Per registrare un'applicazione con l'endpoint Azure AD v 1.0, vedere [registrare un'app](../develop/quickstart-register-app.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
+Per registrare un'applicazione con l'endpoint di Azure AD v1.0, vedere [Registrare un'app.](../develop/quickstart-register-app.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)
 
-* Tenant singolo: in entrambi i casi (identità applicazione e identità utente delegato), l'applicazione Web e l'API Web devono essere registrate nella stessa directory in Azure AD. L'API Web può essere configurata per esporre un set di autorizzazioni, che vengono usate per limitare l'accesso dell'applicazione Web alle relative risorse. Se viene usato il tipo di identità utente delegato, l'applicazione Web deve selezionare le autorizzazioni desiderate dal menu a discesa **Autorizzazioni per altre applicazioni** nel portale di Azure. Questo passaggio non è necessario se viene usato il tipo di identità applicazione.
+* Tenant singolo: in entrambi i casi (identità applicazione e identità utente delegato), l'applicazione Web e l'API Web devono essere registrate nella stessa directory in Azure AD. L'API Web può essere configurata per esporre un set di autorizzazioni, che vengono utilizzate per limitare l'accesso dell'applicazione web alle relative risorse. Se viene utilizzato un tipo di identità utente delegato, l'applicazione Web deve selezionare le autorizzazioni desiderate dal menu a discesa Autorizzazioni ad altre applicazioni nel portale di Azure.If a delegated user identity type is being used, the web application needs to select the desired permissions from the **Permissions to other applications** drop-down menu in the Azure portal. Questo passaggio non è necessario se viene usato il tipo di identità applicazione.
 * Multi-tenant: per prima cosa, l'applicazione Web viene configurata per indicare le autorizzazioni necessarie per il funzionamento. Questo elenco di autorizzazioni richieste viene visualizzato in una finestra di dialogo quando un utente o amministratore nella directory di destinazione concede il consenso all'applicazione, rendendola disponibile per la propria organizzazione. Alcune applicazioni richiedono solo autorizzazioni a livello utente, che possono essere concesse da qualsiasi utente dell'organizzazione. Altre applicazioni richiedono autorizzazioni a livello amministratore, che non possono essere concesse dagli utenti dell'organizzazione. Solo un amministratore di directory può concedere il consenso alle applicazioni che richiedono questo livello di autorizzazione. Quando l'utente o l'amministratore acconsente, l'applicazione Web e l'API Web vengono registrate nella directory.
 
 ## <a name="token-expiration"></a>Scadenza del token
@@ -82,4 +80,4 @@ Quando l'applicazione Web usa il proprio codice di autorizzazione per ottenere u
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Altre informazioni su altri [tipi di applicazione e scenari](app-types.md)
-- [Nozioni di base sull'autenticazione](v1-authentication-scenarios.md) in Azure AD
+- Informazioni sulle nozioni di [base sull'autenticazione](v1-authentication-scenarios.md) di Azure ADLearn about the Azure AD authentication basics

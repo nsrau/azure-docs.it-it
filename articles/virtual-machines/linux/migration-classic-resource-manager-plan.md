@@ -1,5 +1,5 @@
 ---
-title: Pianificazione della migrazione dal modello classico al Azure Resource Manager
+title: Pianificazione della migrazione dalla versione classica a Azure Resource ManagerPlanning for migration from classic to Azure Resource Manager
 description: Pianificazione della migrazione delle risorse IaaS dal modello di distribuzione classica ad Azure Resource Manager
 services: virtual-machines-linux
 author: tanmaygore
@@ -9,17 +9,17 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 0b9c5b17b993afdd64cd2cbd8a15cbd6dd53f5ca
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: ff829e9ffbd6d6ae0766998e62634ac873afc748
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78944659"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80066667"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Pianificazione della migrazione delle risorse IaaS dal modello di distribuzione classica ad Azure Resource Manager
 
 > [!IMPORTANT]
-> Attualmente, circa il 90% delle VM IaaS USA [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). A partire dal 28 febbraio 2020, le macchine virtuali classiche sono state deprecate e saranno completamente ritirate il 1 ° marzo 2023. [Scopri di più]( https://aka.ms/classicvmretirement) su questa deprecazione e sul [modo in cui influiscono sull'utente](https://docs.microsoft.com/azure/virtual-machines/classic-vm-deprecation#how-does-this-affect-me).
+> Oggi, circa il 90% delle macchine virtuali IaaS usa [Azure Resource Manager.](https://azure.microsoft.com/features/resource-manager/) A partire dal 28 febbraio 2020, le macchine virtuali classiche sono state deprecate e verranno completamente ritirate il 1 marzo 2023. [Scopri]( https://aka.ms/classicvmretirement) di più su questa deprecazione e [su come influisce su di te](https://docs.microsoft.com/azure/virtual-machines/classic-vm-deprecation#how-does-this-affect-me).
 
 Anche se Azure Resource Manager offre molte funzionalità straordinarie, è fondamentale pianificare la migrazione in modo che avvenga senza problemi. Dedicare tempo alla pianificazione garantisce che non si verifichino problemi durante l'esecuzione delle attività di migrazione.
 
@@ -54,7 +54,7 @@ I clienti di successo hanno piani dettagliati in cui le domande precedenti sono 
 
 * [Panoramica sulla migrazione di risorse IaaS supportata dalla piattaforma dal modello di distribuzione classica al modello Azure Resource Manager](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Approfondimento tecnico sulla migrazione supportata dalla piattaforma dal modello di distribuzione classica ad Azure Resource Manager](migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Planning for migration of IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-plan.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Pianificazione della migrazione delle risorse IaaS dal modello di distribuzione classica al modello di distribuzione Azure Resource Manager)
+* [Pianificazione della migrazione delle risorse IaaS dal modello di distribuzione classica ad Azure Resource Manager](migration-classic-resource-manager-plan.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Usare PowerShell per eseguire la migrazione di risorse IaaS dal modello di distribuzione classica ad Azure Resource Manager](../windows/migration-classic-resource-manager-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Usare l'interfaccia della riga di comando per eseguire la migrazione di risorse IaaS dal modello di distribuzione classica ad Azure Resource Manager](migration-classic-resource-manager-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Community tools for assisting with migration of IaaS resources from classic to Azure Resource Manager](../windows/migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Strumenti della community per assistenza alla migrazione delle risorse IaaS dal modello di distribuzione classica ad Azure Resource Manager)
@@ -122,21 +122,21 @@ Di seguito sono elencati i problemi rilevati in molte migrazioni di grandi dimen
 
     È possibile controllare le quote correnti Azure Resource Manager usando i seguenti comandi con la versione più recente dell'interfaccia della riga di comando di Azure.
 
-    **Calcolo** *(core, set di disponibilità)*
+    **Calcolo** *(memoria centrale, set di disponibilità)*
 
-    ```bash
+    ```azurecli
     az vm list-usage -l <azure-region> -o jsonc
     ```
 
-    **Rete** *(reti virtuali, indirizzi IP pubblici statici, indirizzi IP pubblici, gruppi di sicurezza di rete, interfacce di rete, bilanciamenti del carico, tabelle di route)*
+    **Rete** *(reti virtuali, indirizzi IP statici, indirizzi IP pubblici, gruppi di sicurezza di rete, interfacce di rete, bilanciamenti del carico, tabelle route)*
 
-    ```bash
+    ```azurecli
     az network list-usages -l <azure-region> -o jsonc
     ```
 
-    **Archiviazione** *(account di archiviazione)*
+    **Risorsa di archiviazione** *(account di archiviazione)*
 
-    ```bash
+    ```azurecli
     az storage account show-usage
     ```
 
@@ -163,7 +163,7 @@ Per le migrazioni reali, considerare quanto segue:
 
 1. Pianificare la rete virtuale, la più piccola unità di migrazione, con priorità crescente.  Iniziare con le reti virtuali semplici e proseguire con le reti virtuali più complesse.
 2. La maggior parte dei clienti avrà ambienti non di produzione e di produzione.  Pianificare per ultimo l'ambiente di produzione.
-3. **(FACOLTATIVO)**  Pianificare un tempo di inattività di manutenzione con molto buffer nel caso in cui si verifichino problemi imprevisti.
+3. **(FACOLTATIVO) ** Pianificare un tempo di inattività di manutenzione con molto buffer nel caso in cui si verifichino problemi imprevisti.
 4. Comunicare e allinearsi con i team di supporto nel caso in cui si verifichino problemi.
 
 ### <a name="patterns-of-success"></a>Modelli di successo
@@ -205,7 +205,7 @@ Tenere a mente il motivo per cui è stata eseguita la migrazione dalla distribuz
 
 * [Panoramica sulla migrazione di risorse IaaS supportata dalla piattaforma dal modello di distribuzione classica al modello Azure Resource Manager](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Approfondimento tecnico sulla migrazione supportata dalla piattaforma dal modello di distribuzione classica ad Azure Resource Manager](migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Planning for migration of IaaS resources from classic to Azure Resource Manager](migration-classic-resource-manager-plan.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Pianificazione della migrazione delle risorse IaaS dal modello di distribuzione classica al modello di distribuzione Azure Resource Manager)
+* [Pianificazione della migrazione delle risorse IaaS dal modello di distribuzione classica ad Azure Resource Manager](migration-classic-resource-manager-plan.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Usare PowerShell per eseguire la migrazione di risorse IaaS dal modello di distribuzione classica ad Azure Resource Manager](../windows/migration-classic-resource-manager-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Community tools for assisting with migration of IaaS resources from classic to Azure Resource Manager](../windows/migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Strumenti della community per assistenza alla migrazione delle risorse IaaS dal modello di distribuzione classica ad Azure Resource Manager)
 * [Rivedere gli errori di migrazione più comuni](migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

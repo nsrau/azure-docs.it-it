@@ -1,7 +1,7 @@
 ---
-title: Aggiungere un livello poligono a una mappa | Mappe Microsoft Azure
-description: In questo articolo si apprenderà come eseguire il rendering di un poligono e di più poligoni su una mappa in Microsoft Azure Maps Web SDK.
-author: jingjing-z
+title: Aggiunta di un layer poligono a una mappa Mappe di Microsoft Azure
+description: In questo articolo verrà illustrato come eseguire il rendering di un poligono e di più poligoni su una mappa in Microsoft Azure Maps Web SDK.
+author: jinzh-azureiot
 ms.author: jinzh
 ms.date: 07/29/2019
 ms.topic: conceptual
@@ -9,20 +9,20 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: bae47e2f5cd473893d97678977030643cc9949fe
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 9191f054ca3c7374bcbc7bec46573289a512612c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988618"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79535053"
 ---
-# <a name="add-a-polygon-layer-to-the-map"></a>Aggiungere un livello poligono alla mappa
+# <a name="add-a-polygon-layer-to-the-map"></a>Aggiungere un layer poligono alla mappa
 
-Questo articolo illustra come eseguire il rendering delle aree di `Polygon` e `MultiPolygon` geometrie delle funzionalità sulla mappa usando un livello poligono. Azure Maps Web SDK supporta anche la creazione di geometrie Circle come definito nello [schema GeoJSON esteso](extend-geojson.md#circle). Questi cerchi vengono trasformati in poligoni quando vengono sottoposti a rendering sulla mappa. Tutte le geometrie della funzionalità possono essere facilmente aggiornate quando viene eseguito il wrapped con l' [Atlante. Classe Shape](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) .
+In questo articolo viene illustrato `Polygon` come `MultiPolygon` eseguire il rendering delle geometrie e delle geometrie sulla mappa utilizzando un layer poligono. Il Web SDK di Azure Maps supporta inoltre la creazione di geometrie Circle definite nello [schema GeoJSON esteso.](extend-geojson.md#circle) Questi cerchi vengono trasformati in poligoni quando vengono visualizzati sulla mappa. Tutte le geometrie di entità geografiche possono essere facilmente aggiornate quando avvolte con [l'atlante. Classe Shape.](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest)
 
-## <a name="use-a-polygon-layer"></a>Usare un livello poligono 
+## <a name="use-a-polygon-layer"></a>Usare un layer poligono 
 
-Quando un livello poligono è connesso a un'origine dati e caricato sulla mappa, viene eseguito il rendering dell'area con le funzionalità di `Polygon` e `MultiPolygon`. Per creare un poligono, aggiungerlo a un'origine dati ed eseguirne il rendering con un livello poligono usando la classe [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest) .
+Quando un layer poligono è connesso a un'origine dati `Polygon` e `MultiPolygon` caricato sulla mappa, esegue il rendering dell'area con e delle feature. Per creare un poligono, aggiungerlo a un'origine dati ed eseguirne il rendering con un layer poligono utilizzando la classe [PolygonLayer.](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest)
 
 ```javascript
 //Create a data source and add it to the map.
@@ -40,40 +40,40 @@ dataSource.add(new atlas.data.Feature(
     ]])
 ));
 
-//Create and add a polygon layer to render the polygon to the map.
+//Create and add a polygon layer to render the polygon to the map, below the label layer.
 map.layers.add(new atlas.layer.PolygonLayer(dataSource, null,{
     fillColor: 'red',
-    opacaty: 0.5
-}));
+    fillOpacity: 0.7
+}), 'labels');
 ```
 
-Di seguito è riportato l'esempio completo ed eseguito del codice precedente.
+Di seguito è riportato l'esempio completo e in esecuzione del codice precedente.
 
 <br/>
 
 <iframe height='500' scrolling='no' title='Aggiungere un poligono a una mappa ' src='//codepen.io/azuremaps/embed/yKbOvZ/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Vedere l'elemento Pen <a href='https://codepen.io/azuremaps/pen/yKbOvZ/'>Aggiungere un poligono a una mappa</a> con Mappe di Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) in <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="use-a-polygon-and-line-layer-together"></a>Usare insieme un poligono e un livello linea
+## <a name="use-a-polygon-and-line-layer-together"></a>Utilizzare insieme un livello poligono e un livello di linea
 
-Per eseguire il rendering del contorno dei poligoni viene utilizzato un livello linea. Nell'esempio di codice seguente viene eseguito il rendering di un poligono come l'esempio precedente, ma ora viene aggiunto un livello linea. Questo livello linea è un secondo livello connesso all'origine dati.  
+Un livello linea viene utilizzato per eseguire il rendering del contorno dei poligoni. L'esempio di codice seguente esegue il rendering di un poligono come l'esempio precedente, ma ora aggiunge un livello di linea. Questo livello di linea è un secondo livello connesso all'origine dati.  
 
 <iframe height='500' scrolling='no' title='Livello poligono e linea per aggiungere un poligono' src='//codepen.io/azuremaps/embed/aRyEPy/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Vedere l'elemento Pen <a href='https://codepen.io/azuremaps/pen/aRyEPy/'>Polygon and line layer to add polygon</a> (Livello poligono e linea per aggiungere un poligono) con Mappe di Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) su <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="fill-a-polygon-with-a-pattern"></a>Riempire un poligono con un modello
+## <a name="fill-a-polygon-with-a-pattern"></a>Riempire un poligono con un motivo
 
-Oltre a riempire un poligono con un colore, è possibile usare un modello di immagine per riempire il poligono. Caricare un modello di immagine in Maps image sprite Resources e quindi fare riferimento a questa immagine con la proprietà `fillPattern` del livello Polygon.
+Oltre a riempire un poligono con un colore, è possibile utilizzare un motivo immagine per riempire il poligono. Caricare un modello di immagine nelle risorse sprite dell'immagine delle mappe e quindi fare riferimento a questa immagine con la `fillPattern` proprietà del livello poligono.
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Modello di riempimento poligono" src="//codepen.io/azuremaps/embed/JzQpYX/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Vedere il <a href='https://codepen.io/azuremaps/pen/JzQpYX/'>modello di riempimento del poligono</a> di penna per mappe di Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) in <a href='https://codepen.io'>CodePen</a>.
+<iframe height="500" style="width: 100%;" scrolling="no" title="Motivo di riempimento poligono" src="//codepen.io/azuremaps/embed/JzQpYX/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+Vedere il motivo di <a href='https://codepen.io/azuremaps/pen/JzQpYX/'>riempimento Poligono penna</a> di Mappe di Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) in <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 
 > [!TIP]
-> Azure Maps Web SDK offre diversi modelli di immagine personalizzabili che è possibile usare come modelli di riempimento. Per altre informazioni, vedere il documento [come usare i modelli di immagine](how-to-use-image-templates-web-sdk.md) .
+> Azure Maps Web SDK offre diversi modelli di immagine personalizzabili che è possibile usare come modelli di riempimento. Per ulteriori informazioni, vedere il documento Come utilizzare i modelli di [immagine.](how-to-use-image-templates-web-sdk.md)
 
 ## <a name="customize-a-polygon-layer"></a>Personalizzare un livello poligono
 
@@ -88,7 +88,7 @@ Il livello poligono include solo poche opzioni di stile. Lo strumento seguente c
 
 ## <a name="add-a-circle-to-the-map"></a>Aggiungere un cerchio alla mappa
 
-Azure Maps usa una versione estesa dello schema GeoJSON che fornisce una definizione per i cerchi, come indicato di [seguito](extend-geojson.md#circle). Viene eseguito il rendering di un cerchio sulla mappa creando una funzionalità `Point`. Questa `Point` dispone di una proprietà `subType` con il valore `"Circle"` e una proprietà `radius` con un numero che rappresenta il raggio in metri. 
+Mappe di Azure usa una versione estesa dello schema GeoJSON che fornisce una definizione per i cerchi, come indicato [di seguito.](extend-geojson.md#circle) Viene eseguito il rendering di `Point` un cerchio sulla mappa mediante la creazione di una feature. Ha `Point` una `subType` proprietà con `"Circle"` un `radius` valore di e una proprietà con un numero che rappresenta il raggio in metri. 
 
 ```javascript
 {
@@ -104,16 +104,16 @@ Azure Maps usa una versione estesa dello schema GeoJSON che fornisce una definiz
 }  
 ```
 
-Azure Maps Web SDK converte le funzionalità di `Point` in funzionalità di `Polygon`. Viene quindi eseguito il rendering di queste funzionalità sulla mappa usando i livelli poligono e linea, come illustrato nell'esempio di codice seguente.
+Azure Maps Web SDK `Point` converte `Polygon` queste funzionalità in funzionalità. Quindi, il rendering di queste feature viene eseguito sulla mappa utilizzando i layer poligonali e linea, come illustrato nell'esempio di codice seguente.
 
 <br/>
 
 <iframe height='500' scrolling='no' title='Aggiungere un cerchio a una mappa' src='//codepen.io/azuremaps/embed/PRmzJX/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Vedere l'elemento Pen <a href='https://codepen.io/azuremaps/pen/PRmzJX/'>Aggiungere un cerchio a una mappa</a> con Mappe di Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) in <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="make-a-geometry-easy-to-update"></a>Semplifica l'aggiornamento di una geometria
+## <a name="make-a-geometry-easy-to-update"></a>Semplificare l'aggiornamento di una geometria
 
-Una classe `Shape` esegue il wrapping di una [geometria](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.geometry?view=azure-iot-typescript-latest) o di una [funzionalità](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest) e semplifica l'aggiornamento e la gestione di queste funzionalità. Per creare un'istanza di una variabile Shape, passare una geometria o un set di proprietà al Costruttore Shape.
+Una `Shape` classe esegue il wrapping di un [Geometry](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.geometry?view=azure-iot-typescript-latest) o [Feature](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest) e semplifica l'aggiornamento e la gestione di queste funzionalità. Per creare un'istanza di una variabile di forma, passare una geometria o un set di proprietà al costruttore della forma.
 
 ```javascript
 //Creating a shape by passing in a geometry and a object containing properties.
@@ -123,7 +123,7 @@ var shape1 = new atlas.Shape(new atlas.data.Point[0,0], { myProperty: 1 });
 var shape2 = new atlas.Shape(new atlas.data.Feature(new atlas.data.Point[0,0], { myProperty: 1 });
 ```
 
-Nell'esempio di codice seguente viene illustrato come eseguire il wrapping di un oggetto GeoJSON Circle con una classe Shape. Quando il valore del raggio viene modificato nella forma, il cerchio viene sottoposta a rendering automaticamente sulla mappa.
+Nell'esempio di codice riportato di seguito viene illustrato come eseguire il wrapping di un oggetto GeoJSON cerchio con una classe shape. Quando il valore del raggio cambia nella forma, il cerchio viene eseguito automaticamente sul mapping.
 
 <br/>
 
@@ -141,12 +141,12 @@ Per altre informazioni sulle classi e sui metodi usati in questo articolo, veder
 > [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest)
 
 > [!div class="nextstepaction"]
-> [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest)
+> [PolygonLayerOpzioni](/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest)
 
 Per altri esempi di codice da aggiungere alle mappe, vedere gli articoli seguenti:
 
 > [!div class="nextstepaction"]
-> [Creare un'origine dati](create-data-source-web-sdk.md)
+> [Creare un'origine datiCreate a data source](create-data-source-web-sdk.md)
 
 > [!div class="nextstepaction"]
 > [Aggiungere un popup](map-add-popup.md)
@@ -158,9 +158,9 @@ Per altri esempi di codice da aggiungere alle mappe, vedere gli articoli seguent
 > [Come usare i modelli di immagine](how-to-use-image-templates-web-sdk.md)
 
 > [!div class="nextstepaction"]
-> [Aggiungere un livello linea](map-add-line-layer.md)
+> [Aggiungere un livello per le linee](map-add-line-layer.md)
 
 Risorse aggiuntive:
 
 > [!div class="nextstepaction"]
-> [Estensione della specifica GeoJSON di mappe di Azure](extend-geojson.md#circle)
+> [Estensione della specifica GeoJSON di Azure MapsAzure Maps GeoJSON specification extension](extend-geojson.md#circle)

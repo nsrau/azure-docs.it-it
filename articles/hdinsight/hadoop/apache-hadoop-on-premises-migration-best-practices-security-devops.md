@@ -1,5 +1,5 @@
 ---
-title: 'Sicurezza: eseguire la migrazione di Apache Hadoop locali ad Azure HDInsight'
+title: 'Sicurezza: Eseguire la migrazione di Apache Hadoop locale ad Azure HDInsightSecurity: Migrate on-premises Apache Hadoop to Azure HDInsight'
 description: Informazioni sulle procedure consigliate per DevOps e sicurezza relative alla migrazione di cluster Hadoop locali in Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/19/2019
 ms.openlocfilehash: 4ceefcbbbb53e3ae13f8ced930ae8417fb00965f
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75974414"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---security-and-devops-best-practices"></a>Eseguire la migrazione di cluster Apache Hadoop locali in Azure HDInsight - Procedure consigliate per DevOps e sicurezza
@@ -42,14 +42,14 @@ Usare la procedura seguente per distribuire il cluster HDInsight aggiunto al dom
 
 - Distribuire il cluster ESP HDInsight impostando i parametri seguenti:
 
-    |Parametro |Description |
+    |Parametro |Descrizione |
     |---|---|
     |Nome di dominio|nome di dominio associato ad Azure Active Directory Domain Services.|
-    |Nome utente di dominio|L'account del servizio nel dominio gestito da DC Azure AD DS creato nella sezione precedente, ad esempio: `hdiadmin@contoso.onmicrosoft.com`. Questo utente del dominio diventerà l'amministratore del cluster HDInsight.|
+    |Nome utente di dominio|account del servizio nel dominio gestito dal controller di dominio di Azure Active Directory Domain Services creato nella sezione precedente, ad esempio: `hdiadmin@contoso.onmicrosoft.com`. Questo utente del dominio diventerà l'amministratore del cluster HDInsight.|
     |Password di dominio|password dell'account del servizio.|
-    |Unità organizzativa|Nome distinto dell'unità organizzativa che si vuole usare con il cluster HDInsight, ad esempio: `OU=HDInsightOU,DC=contoso,DC=onmicrosoft,DC=com`. Se questa OU non esiste, il cluster HDInsight tenta di creare l'unità organizzativa usando i privilegi dell'account del servizio.|
-    |URL LDAPS|ad esempio, `ldaps://contoso.onmicrosoft.com:636`.|
-    |Accedi al gruppo utenti|I gruppi di sicurezza di cui si desidera sincronizzare gli utenti con il cluster, ad esempio: `HiveUsers`. Per specificare più gruppi utenti, separarli con punti e virgola (;). Prima di creare il cluster ESP, è necessario che i gruppi siano presenti nella directory.|
+    |Unità organizzativa|nome distinto dell'unità organizzativa (OU) che si desidera usare con il cluster HDInsight, ad esempio: `OU=HDInsightOU,DC=contoso,DC=onmicrosoft,DC=com`. Se questa unità organizzativa non esiste, il cluster HDInsight tenta di creare l'unità organizzativa utilizzando i privilegi dell'account del servizio.|
+    |LDAPS URL|ad esempio, `ldaps://contoso.onmicrosoft.com:636`.|
+    |Accedere al gruppo di utenti|gruppi di sicurezza i cui utenti si vogliono sincronizzare con il cluster, ad esempio: `HiveUsers`. Per specificare più gruppi utenti, separarli con punti e virgola (;). I gruppi devono essere presenti nella directory prima di creare il cluster ESP.|
 
 Per altre informazioni, vedere gli articoli seguenti:
 
@@ -79,7 +79,7 @@ Per altre informazioni, vedere gli articoli seguenti:
 
 **Crittografia**
     - Crittografia lato server trasparente con chiavi gestite da Microsoft o dal cliente.
-    - Nella crittografia di transito con la crittografia lato client, HTTPS e TLS.
+    - In Crittografia di transito con crittografia lato client, https e TLS.
 
 Per altre informazioni, vedere gli articoli seguenti:
 
@@ -104,17 +104,17 @@ Eseguire sempre l'aggiornamento alla versione più recente di HDInsight per usuf
 1. Modificare i processi, le applicazioni o i carichi di lavoro in base alle esigenze.
 1. Eseguire il backup tutti i dati temporanei archiviati localmente sui nodi del cluster,
 1. Eliminare il cluster esistente.
-1. Creare un cluster con la versione più recente di HDInsight nella stessa subnet di rete virtuale, usando gli stessi dati predefiniti e l'archivio meta del cluster precedente.
+1. Creare un cluster dell'ultima versione di HDInsight nella stessa subnet di rete virtuale, usando gli stessi dati e meta store predefiniti del cluster precedente.
 1. Importare i dati temporanei di cui è stata eseguita una copia di backup.
 1. Avviare processi/continuare l'elaborazione con il nuovo cluster.
 
-Per altre informazioni, vedere l'articolo relativo all' [aggiornamento del cluster HDInsight a una nuova versione](../hdinsight-upgrade-cluster.md).
+Per altre informazioni, vedere l'articolo: Aggiornare il [cluster HDInsight a una nuova versione.](../hdinsight-upgrade-cluster.md)
 
 ## <a name="patch-cluster-operating-systems"></a>Applicare patch ai sistemi operativi del cluster
 
 In qualità di servizio Hadoop gestito, HDInsight si occupa dell'applicazione di patch al sistema operativo delle macchine virtuali usate dai cluster HDInsight.
 
-Per ulteriori informazioni, vedere l'articolo relativo all'applicazione [di patch del sistema operativo per HDInsight](../hdinsight-os-patching.md).
+Per ulteriori informazioni, vedere l'articolo: Applicazione di patch al [sistema operativo per HDInsight](../hdinsight-os-patching.md).
 
 ## <a name="post-migration"></a>Dopo la migrazione
 

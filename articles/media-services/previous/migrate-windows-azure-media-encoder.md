@@ -1,6 +1,6 @@
 ---
-title: Eseguire la migrazione da Azure Media Encoder Windows a Media Encoder Standard | Microsoft Docs
-description: In questo argomento viene illustrato come eseguire la migrazione da Azure Media Encoder a Media Encoder Standard processore di contenuti multimediali.
+title: Eseguire la migrazione da Windows Azure Media Encoder a Media Encoder Standard . Documenti Microsoft
+description: Questo argomento illustra come eseguire la migrazione da Azure Media Encoder al processore multimediale Standard del codificatore multimediale.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -14,21 +14,21 @@ ms.topic: article
 ms.date: 10/17/2019
 ms.author: juliako
 ms.openlocfilehash: e75e3f3eecf6c34050aeaa7fe387fffb0de58a74
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76513202"
 ---
-# <a name="migrate-from-windows-azure-media-encoder-to-media-encoder-standard"></a>Eseguire la migrazione da Azure Media Encoder Windows a Media Encoder Standard
+# <a name="migrate-from-windows-azure-media-encoder-to-media-encoder-standard"></a>Eseguire la migrazione da Windows Azure Media Encoder a Media Encoder StandardMigrate from Windows Azure Media Encoder to Media Encoder Standard
 
-Questo articolo illustra i passaggi per eseguire la migrazione dal processore di contenuti multimediali Windows Azure Media Encoder (BIAIGI) Legacy (in fase di ritiro) al processore di contenuti multimediali di Media Encoder Standard. Per le date di ritiro, vedere l'argomento relativo ai [componenti legacy](legacy-components.md) .
+In questo articolo vengono illustrati i passaggi per la migrazione dal processore multimediale legacy Windows Azure Media Encoder (WAME) (che viene ritirato) al processore multimediale Standard media Encoder. Per le date di pensionamento, vedere questo argomento relativo ai [componenti legacy.](legacy-components.md)
 
-Quando si codificano i file con BIAIGI, i clienti utilizzano in genere una stringa del set di impostazioni denominata, ad esempio `H264 Adaptive Bitrate MP4 Set 1080p`. Per eseguire la migrazione, è necessario aggiornare il codice in modo da usare il processore di contenuti multimediali **Media Encoder standard** invece di biaigi e uno dei [set di impostazioni di sistema](media-services-mes-presets-overview.md) equivalenti, ad esempio `H264 Multiple Bitrate 1080p`. 
+Durante la codifica dei file con WAME, `H264 Adaptive Bitrate MP4 Set 1080p`i clienti in genere utilizzavano una stringa preimpostata con nome, ad esempio . Per eseguire la migrazione, il codice deve essere aggiornato per utilizzare il processore multimediale Media Encoder `H264 Multiple Bitrate 1080p` **Standard** anziché WAME e una delle impostazioni predefinite di sistema [equivalenti](media-services-mes-presets-overview.md) come . 
 
 ## <a name="migrating-to-media-encoder-standard"></a>Migrazione a Media Encoder Standard
 
-Ecco un esempio di C# codice tipico che usa il componente legacy. 
+Di seguito è riportato un tipico esempio di codice c'è che usa il componente legacy. 
 
 ```csharp
 // Declare a new job. 
@@ -45,7 +45,7 @@ ITask task = job.Tasks.AddNew("My encoding task",
     TaskOptions.None); 
 ```
 
-Di seguito è illustrata la versione aggiornata che usa Media Encoder Standard.
+Ecco la versione aggiornata che utilizza Media Encoder Standard.
 
 ```csharp
 // Declare a new job. 
@@ -64,17 +64,17 @@ ITask task = job.Tasks.AddNew("My encoding task",
 
 ### <a name="advanced-scenarios"></a>Scenari avanzati 
 
-Se è stato creato un set di impostazioni di codifica personalizzato per BIAIGI usando il relativo schema, esiste uno [schema equivalente per Media Encoder standard](media-services-mes-schema.md).
+Se è stato creato un predefinito di codifica per WAME utilizzando il relativo schema, esiste [uno schema equivalente per Media Encoder Standard](media-services-mes-schema.md).
 
 ## <a name="known-differences"></a>Differenze note 
 
-Media Encoder Standard è più affidabile, affidabile, offre prestazioni migliori e produce un output di qualità migliore rispetto al codificatore BIAIGI legacy. Inoltre: 
+Media Encoder Standard è più robusto, affidabile, ha prestazioni migliori e produce un output di qualità migliore rispetto al codificatore WAME legacy. Inoltre: 
 
-* Media Encoder Standard produce file di output con una convenzione di denominazione diversa rispetto a BIAIGI.
-* Media Encoder Standard produce elementi quali file contenenti i metadati del [file di input](media-services-input-metadata-schema.md) e i [metadati dei file di output](media-services-output-metadata-schema.md).
-* Come descritto nella [pagina dei prezzi](https://azure.microsoft.com/pricing/details/media-services/#encoding) (soprattutto nella sezione delle domande frequenti), quando si codificano i video con Media Encoder standard, viene addebitato in base alla durata dei file prodotti come output. Con BIAIGI, la fatturazione viene effettuata in base alle dimensioni dei file video di input e dei file video di output.
+* Media Encoder Standard produce file di output con una convenzione di denominazione diversa da WAME.
+* Media Encoder Standard produce elementi quali file contenenti i [metadati](media-services-input-metadata-schema.md) del file di input e i metadati dei file di [output.](media-services-output-metadata-schema.md)
+* Come documentato nella pagina dei [prezzi](https://azure.microsoft.com/pricing/details/media-services/#encoding) (specialmente nella sezione FAQ), quando si codificano i video utilizzando Media Encoder Standard, si ottiene fatturato in base alla durata dei file prodotti come output. Con WAME, verrai fatturato in base alle dimensioni dei file video di input e dei file video di output.
 
-## <a name="need-help"></a>Opzioni per
+## <a name="need-help"></a>Richiesta di assistenza
 
 È possibile aprire un ticket di supporto passando a [Nuova richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 

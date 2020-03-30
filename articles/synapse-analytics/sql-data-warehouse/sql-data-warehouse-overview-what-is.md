@@ -1,21 +1,21 @@
 ---
 title: Che cos'è Azure Synapse Analytics (in precedenza SQL Data Warehouse)?
 description: Azure Synapse Analytics (in precedenza SQL Data Warehouse) è un servizio di analisi senza limiti che riunisce funzionalità aziendali di data warehousing e analisi di Big Data.
-services: sql-data-warehouse
+services: synapse-analytics
 author: mlee3gsd
 manager: craigg
-ms.service: sql-data-warehouse
+ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: design
+ms.subservice: ''
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: b6a718b45ee834bbd0b75c56e0a187c197dd7fa0
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: a118d028cc85eb858dd0dc1fa6d5d2268f7db43b
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80148200"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80350397"
 ---
 # <a name="what-is-azure-synapse-analytics-formerly-sql-dw"></a>Che cos'è Azure Synapse Analytics (in precedenza SQL Data Warehouse)?
 

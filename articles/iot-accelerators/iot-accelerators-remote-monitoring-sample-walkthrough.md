@@ -1,6 +1,6 @@
 ---
 title: Panoramica sull'acceleratore di soluzioni di monitoraggio remoto - Azure | Microsoft Docs
-description: Questo articolo fornisce una panoramica di alcuni degli elementi chiave della soluzione di monitoraggio remoto per consentirne la comprensione del funzionamento.
+description: In questo articolo viene fornita una panoramica di alcuni degli elementi chiave della soluzione di monitoraggio remoto per consentire di comprendere il funzionamento.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: dobett
 ms.openlocfilehash: 33005bc286f7dc2c0ebed74bd9df0309e71346f5
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73824826"
 ---
 # <a name="remote-monitoring-solution-accelerator-overview"></a>Panoramica dell'acceleratore di soluzioni di monitoraggio remoto
@@ -32,7 +32,7 @@ Il codice dell'acceleratore di soluzione di monitoraggio remoto è disponibile s
 
 ## <a name="logical-architecture"></a>Architettura logica
 
-Il diagramma seguente illustra i componenti logici dell'acceleratore di soluzioni di monitoraggio remoto sovrapposti all'[architettura IoT](../iot-fundamentals/iot-introduction.md):
+Nel diagramma seguente vengono descritti i componenti logici dell'acceleratore di soluzioni di monitoraggio remoto sovrapposti [all'architettura IoT](../iot-fundamentals/iot-introduction.md):
 
 ![Architettura logica](./media/iot-accelerators-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
 
@@ -41,7 +41,7 @@ Il diagramma seguente illustra i componenti logici dell'acceleratore di soluzion
 Da quando Microsoft ha rilasciato i primi acceleratori di soluzioni, l'architettura cloud si è evoluta. I [microservizi](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/) rappresentano un metodo collaudato per ottenere scalabilità e flessibilità senza compromettere la velocità di sviluppo. Diversi servizi Microsoft usano questo modello di architettura internamente con risultati straordinari in termini di scalabilità e affidabilità. Gli acceleratori di soluzioni aggiornati mettono in pratica quanto appreso con l'esperienza, in modo che tutti possano trarne vantaggio.
 
 > [!TIP]
-> Per altre informazioni sulle architetture di microservizi, vedere [.NET Application Architecture](https://www.microsoft.com/net/learn/architecture) (Architettura delle applicazioni .NET) e [Microservices: An application revolution powered by the cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/) (Microservizi: una rivoluzione delle applicazioni basata sul cloud).
+> Per altre informazioni sulle architetture dei microservizi, vedere [.NET Application Architecture](https://www.microsoft.com/net/learn/architecture) (Architettura delle applicazioni .NET) e [Microservices: An application revolution powered by the cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/) (Microservizi: una rivoluzione delle applicazioni basata sul cloud).
 
 ## <a name="device-connectivity"></a>Connettività dei dispositivi
 
@@ -164,10 +164,10 @@ Il microservizio configurazione consente all'interfaccia utente di archiviare e 
 
 Se si vuole esplorare il codice sorgente e la documentazione per sviluppatori, iniziare con uno dei due repository GitHub:
 
-* [Acceleratore di soluzioni di monitoraggio remoto con Azure IoT (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet).
-* [Acceleratore di soluzioni di monitoraggio remoto con Azure IoT (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java).
+* [Acceleratore di soluzioni per il monitoraggio remoto con Azure IoT (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet).
+* [Acceleratore di soluzioni per il monitoraggio remoto con Azure IoT (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java).
 
 Diagrammi dettagliati delle architetture delle soluzioni:
 * [Acceleratore di soluzioni per l'architettura di monitoraggio remoto](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Architecture).
 
-Per altre informazioni concettuali sull'acceleratore di soluzioni di monitoraggio remoto, vedere [Customize the solution accelerator](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md) (Personalizzare l'acceleratore di soluzioni).
+Per ulteriori informazioni concettuali sull'acceleratore di soluzioni di monitoraggio remoto, vedere [Personalizzare l'acceleratore di soluzioni.](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md)

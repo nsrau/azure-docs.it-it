@@ -15,23 +15,23 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 8942ad8bdc4f9fc37a88d09871c983f63cd8c1b9
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76773704"
 ---
 # <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>Crittografia dinamica: configurare i criteri di autorizzazione di una chiave simmetrica  
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
  È possibile usare Servizi multimediali di Microsoft Azure per distribuire contenuti crittografati dinamicamente con AES (Advanced Encryption Standard), tramite chiavi di crittografia a 128 bit e con PlayReady o Widevine Digital Rights Management (DRM). Servizi multimediali offre anche un servizio per la distribuzione di chiavi e licenze PlayReady/Widevine ai client autorizzati.
 
 Per consentire a Servizi multimediali di crittografare un asset, è necessario associare una chiave di crittografia (CommonEncryption o EnvelopeEncryption) all'asset. Per altre informazioni, vedere [Create content keys with REST](media-services-rest-create-contentkey.md) (Creare chiavi simmetriche con REST). È necessario anche configurare i criteri di autorizzazione per la chiave, come descritto in questo articolo.
 
 Quando un flusso viene richiesto da un lettore, Servizi multimediali usa la chiave specificata per crittografare dinamicamente i contenuti mediante AES o PlayReady. Per decrittografare il flusso, il lettore richiede la chiave dal servizio di distribuzione delle chiavi. Per determinare se l'utente è autorizzato a ottenere la chiave, il servizio valuta i criteri di autorizzazione specificati per la chiave.
 
-Servizi multimediali supporta più modalità di autenticazione degli utenti che eseguono richieste di chiavi. I criteri di autorizzazione della chiave simmetrica possono prevedere una o più restrizioni di autorizzazione, ad esempio aperta o del token. I criteri con restrizione del token richiedono la presenza di un token rilasciato da un servizio token di sicurezza. Servizi multimediali supporta i token nei formati [SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2) (Simple Web Token, token Web semplice) e JWT (JSON Web Token, token JSON Web).
+Servizi multimediali supporta più modalità di autenticazione degli utenti che eseguono richieste di chiavi. I criteri di autorizzazione della chiave simmetrica possono prevedere una o più restrizioni di autorizzazione, ad esempio aperta o del token. I criteri con restrizione del token richiedono la presenza di un token rilasciato da un servizio token di sicurezza. Servizi multimediali supporta i token nei formati token Web semplice ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) e JSON Web Token (JWT).
 
 Servizi multimediali non offre un servizio token di sicurezza. È possibile creare un servizio token di sicurezza personalizzato o usare Azure Active Directory (Azure AD) per il rilascio di token. Il servizio token di sicurezza deve essere configurato in modo da creare un token firmato con la chiave specificata e rilasciare le attestazioni specificate nella configurazione della restrizione Token, come descritto in questo articolo. Se il token è valido e le attestazioni nel token corrispondono a quelle configurate per la chiave simmetrica, il servizio di distribuzione delle chiavi di Servizi multimediali restituisce la chiave di crittografia al client.
 
@@ -53,7 +53,7 @@ Per altre informazioni, vedere gli articoli seguenti:
 > [!NOTE]
 > Quando si usa l'API REST di Servizi multimediali, tenere presenti le considerazioni seguenti:
 > 
-> Quando si accede alle entità in Servizi multimediali, è necessario impostare valori e campi di intestazione specifici nelle richieste HTTP. Per altre informazioni, vedere [Configurazione dello sviluppo dell'API REST di Servizi multimediali](media-services-rest-how-to-use.md).
+> Quando si accede alle entità in Servizi multimediali, è necessario impostare valori e campi di intestazione specifici nelle richieste HTTP. Per altre informazioni, vedere Configurazione per lo sviluppo di API REST di [Servizi multimediali.](media-services-rest-how-to-use.md)
 > 
 > 
 > 
@@ -63,7 +63,7 @@ Se si applica una restrizione open, il sistema distribuisce la chiave a chiunque
 
 Il seguente esempio crea un criterio di autorizzazione Open e lo aggiunge alla chiave simmetrica.
 
-#### <a id="ContentKeyAuthorizationPolicies"></a>Creare ContentKeyAuthorizationPolicies
+#### <a name="create-contentkeyauthorizationpolicies"></a><a id="ContentKeyAuthorizationPolicies"></a>Creare ContentKeyAuthorizationPolicies
 Richiesta:
 
     POST https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeyAuthorizationPolicies HTTP/1.1
@@ -99,7 +99,7 @@ Risposta:
 
     {"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#ContentKeyAuthorizationPolicies/@Element","Id":"nb:ckpid:UUID:db4593da-f4d1-4cc5-a92a-d20eacbabee4","Name":"Open Authorization Policy"}
 
-#### <a id="ContentKeyAuthorizationPolicyOptions"></a>Creare ContentKeyAuthorizationPolicyOptions
+#### <a name="create-contentkeyauthorizationpolicyoptions"></a><a id="ContentKeyAuthorizationPolicyOptions"></a>Creare ContentKeyAuthorizationPolicyOptions
 Richiesta:
 
     POST https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeyAuthorizationPolicyOptions HTTP/1.1
@@ -135,7 +135,7 @@ Risposta:
 
     {"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#ContentKeyAuthorizationPolicyOptions/@Element","Id":"nb:ckpoid:UUID:57829b17-1101-4797-919b-f816f4a007b7","Name":"policy","KeyDeliveryType":2,"KeyDeliveryConfiguration":"","Restrictions":[{"Name":"HLS Open Authorization Policy","KeyRestrictionType":0,"Requirements":null}]}
 
-#### <a id="LinkContentKeyAuthorizationPoliciesWithOptions"></a>Collegare ContentKeyAuthorizationPolicies con opzioni
+#### <a name="link-contentkeyauthorizationpolicies-with-options"></a><a id="LinkContentKeyAuthorizationPoliciesWithOptions"></a>Collegamento di ContentKeyAuthorizationPolicies con opzioni
 Richiesta:
 
     POST https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeyAuthorizationPolicies('nb%3Ackpid%3AUUID%3A0baa438b-8ac2-4c40-a53c-4d4722b78715')/$links/Options HTTP/1.1
@@ -156,7 +156,7 @@ Risposta:
 
     HTTP/1.1 204 No Content
 
-#### <a id="AddAuthorizationPolicyToKey"></a>Aggiungere criteri di autorizzazione alla chiave simmetrica
+#### <a name="add-an-authorization-policy-to-the-content-key"></a><a id="AddAuthorizationPolicyToKey"></a>Aggiungere criteri di autorizzazione alla chiave simmetrica
 Richiesta:
 
     PUT https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeys('nb%3Akid%3AUUID%3A2e6d36a7-a17c-4e9a-830d-eca23ad1a6f9') HTTP/1.1
@@ -183,7 +183,7 @@ Questa sezione descrive come creare un criterio di autorizzazione per una chiave
 Per configurare l'opzione di restrizione del token, è necessario usare un file XML per descrivere i requisiti di autorizzazione del token. Il file XML di configurazione della restrizione Token deve essere conforme allo schema XML seguente:
 
 
-#### <a id="schema"></a>Schema di restrizione Token
+#### <a name="token-restriction-schema"></a><a id="schema"></a>Schema di restrizione Token
     <?xml version="1.0" encoding="utf-8"?>
     <xs:schema xmlns:tns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1" xmlns:xs="https://www.w3.org/2001/XMLSchema">
       <xs:complexType name="TokenClaim">
@@ -283,14 +283,14 @@ Aggiungere AuthorizationPolicy a ContentKey, come illustrato nella sezione "[Agg
 ## <a name="playready-dynamic-encryption"></a>Crittografia dinamica PlayReady
 È possibile usare Servizi multimediali per configurare i diritti e le restrizioni che il runtime di PlayReady DRM deve applicare quando l'utente prova a riprodurre contenuti protetti. 
 
-Quando si protegge il contenuto con PlayReady, è necessario includere nei criteri di autorizzazione una stringa XML che definisce il [modello di licenza PlayReady](media-services-playready-license-template-overview.md). 
+Quando si protegge il contenuto con PlayReady, uno degli elementi che è necessario specificare nei criteri di autorizzazione è una stringa XML che definisce il modello di [licenza PlayReady](media-services-playready-license-template-overview.md). 
 
 ### <a name="open-restriction"></a>Restrizione Open
 Se si applica una restrizione open, il sistema distribuisce la chiave a chiunque ne faccia richiesta. Questa restrizione può essere utile a scopo di test.
 
 Il seguente esempio crea un criterio di autorizzazione Open e lo aggiunge alla chiave simmetrica.
 
-#### <a id="ContentKeyAuthorizationPolicies2"></a>Creare ContentKeyAuthorizationPolicies
+#### <a name="create-contentkeyauthorizationpolicies"></a><a id="ContentKeyAuthorizationPolicies2"></a>Creare ContentKeyAuthorizationPolicies
 Richiesta:
 
     POST https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeyAuthorizationPolicies HTTP/1.1
@@ -417,8 +417,8 @@ Collegare ContentKeyAuthorizationPolicies con Options, come illustrato nella sez
 #### <a name="add-an-authorization-policy-to-the-content-key"></a>Aggiungere criteri di autorizzazione alla chiave simmetrica
 Aggiungere AuthorizationPolicy a ContentKey, come illustrato nella sezione "[Aggiungere criteri di autorizzazione alla chiave simmetrica](#AddAuthorizationPolicyToKey)".
 
-## <a id="types"></a>Tipi usati durante la definizione di ContentKeyAuthorizationPolicy
-### <a id="ContentKeyRestrictionType"></a>ContentKeyRestrictionType
+## <a name="types-used-when-you-define-contentkeyauthorizationpolicy"></a><a id="types"></a>Tipi usati durante la definizione di ContentKeyAuthorizationPolicy
+### <a name="contentkeyrestrictiontype"></a><a id="ContentKeyRestrictionType"></a>ContentKeyRestrictionType
     public enum ContentKeyRestrictionType
     {
         Open = 0,
@@ -431,7 +431,7 @@ Aggiungere AuthorizationPolicy a ContentKey, come illustrato nella sezione "[Agg
 > L'IP di restrizione sui criteri di autorizzazione della chiave simmetrica non è ancora disponibile nel servizio.
 
 
-### <a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
+### <a name="contentkeydeliverytype"></a><a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
     public enum ContentKeyDeliveryType
     {
         None = 0,
@@ -447,7 +447,7 @@ Aggiungere AuthorizationPolicy a ContentKey, come illustrato nella sezione "[Agg
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Invia commenti e suggerimenti
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi

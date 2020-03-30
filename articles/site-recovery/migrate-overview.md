@@ -8,16 +8,20 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: raynew
-ms.openlocfilehash: 8e256aac16bb8c2d2f1eca494981458f71cc2e4d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a7107eae5c798deb78d4d35eccdf4adcf5273335
+ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79257940"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80388900"
 ---
 # <a name="about-migration"></a>Informazioni sulla migrazione
 
 Leggere questo articolo per una rapida panoramica del modo in cui il servizio [Azure Site Recovery](site-recovery-overview.md) consenta di eseguire la migrazione dei computer. 
+
+> [!TIP]
+> È ora consigliabile usare il servizio Azure Migrate per eseguire la migrazione di macchine virtuali e server in Azure anziché nel servizio Azure Site Recovery.You should now use the Azure Migrate service to migrate VMs and servers to Azure, instead of the Azure Site Recovery service. [Scopri di più](../migrate/migrate-services-overview.md).
+
 
 Di seguito sono riportate le operazioni di migrazione che è possibile eseguire con Site Recovery:
 

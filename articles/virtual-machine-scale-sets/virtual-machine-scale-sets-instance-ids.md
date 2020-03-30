@@ -1,6 +1,6 @@
 ---
 title: Comprendere gli ID istanza per le macchine virtuali dei set di scalabilità della macchina virtuale di Azure
-description: Comprendere gli ID istanza per i set di scalabilità di macchine virtuali di Azure e le varie modalità di superficie.
+description: Comprendere gli ID istanza per la scalabilità delle macchine virtuali di Azure set di macchine virtuali e i vari modi in cui vengono visualizzati.
 author: mayanknayar
 tags: azure-resource-manager
 ms.assetid: e229664e-ee4e-4f12-9d2e-a4f456989e5d
@@ -8,12 +8,12 @@ ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: manayar
-ms.openlocfilehash: aa2b0013818f897f01945d394266a57016ecb0bb
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 99ad4249a4134bcc1b1cf5aba92b8a95a034db33
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79250764"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79534423"
 ---
 # <a name="understand-instance-ids-for-azure-vm-scale-set-vms"></a>Comprendere gli ID istanza per le macchine virtuali dei set di scalabilità della macchina virtuale di Azure
 Questo articolo descrive gli ID istanza per i set di scalabilità e le diverse modalità di esplorazione.
@@ -26,7 +26,7 @@ API REST: `POST https://management.azure.com/subscriptions/{subscriptionId}/reso
 
 PowerShell: `Set-AzVmssVM -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -InstanceId {instanceId} -Reimage` (per altre informazioni, vedere la [documentazione di PowerShell](https://docs.microsoft.com/powershell/module/az.compute/set-azvmssvm))
 
-Interfaccia della riga di comando: `az vmss reimage -g {resourceGroupName} -n {vmScaleSetName} --instance-id {instanceId}` (per altre informazioni, vedere la [documentazione dell'interfaccia della riga di comando](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest))
+CLI: `az vmss reimage -g {resourceGroupName} -n {vmScaleSetName} --instance-id {instanceId}` (per ulteriori informazioni, vedere la [documentazione dell'interfaccia della riga di](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest)comando ).
 
 È possibile ottenere l'elenco degli ID istanza elencando tutte le istanze in un set di scalabilità:
 
@@ -34,14 +34,17 @@ API REST: `GET https://management.azure.com/subscriptions/{subscriptionId}/resou
 
 PowerShell: `Get-AzVmssVM -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName}` (per altre informazioni, vedere la [documentazione di PowerShell](https://docs.microsoft.com/powershell/module/az.compute/get-azvmssvm))
 
-Interfaccia della riga di comando: `az vmss list-instances -g {resourceGroupName} -n {vmScaleSetName}` (per altre informazioni, vedere la [documentazione dell'interfaccia della riga di comando](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest))
+CLI: `az vmss list-instances -g {resourceGroupName} -n {vmScaleSetName}` (per ulteriori informazioni, vedere la [documentazione dell'interfaccia della riga di](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest)comando ).
 
 Si può anche usare [resources.azure.com](https://resources.azure.com) o gli [Azure SDK](https://azure.microsoft.com/downloads/) per elencare le macchine virtuali in un set di scalabilità.
 
 La presentazione esatta dell'output dipende dalle opzioni fornite al comando. Questo è un esempio di output dell'interfaccia della riga di comando:
 
+```azurecli
+az vmss show -g {resourceGroupName} -n {vmScaleSetName}
 ```
-$ az vmss show -g {resourceGroupName} -n {vmScaleSetName}
+
+```output
 [
   {
     "instanceId": "85",
@@ -70,7 +73,7 @@ La parte {id-istanza} del nome è lo stesso numero decimale della proprietà "in
 
 Se si esegue una query nei [metadati dell'istanza](../virtual-machines/windows/instance-metadata-service.md) all'interno di una macchina virtuale del set di scalabilità, nell'output verrà visualizzata una voce "name":
 
-```
+```output
 {
   "compute": {
     "location": "westus",
