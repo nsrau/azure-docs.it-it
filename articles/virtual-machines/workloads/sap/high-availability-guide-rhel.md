@@ -1,5 +1,5 @@
 ---
-title: Disponibilità elevata delle macchine virtuali di Azure per SAP NW in RHEL | Microsoft Docs
+title: Disponibilità elevata di macchine virtuali di Azure per SAP NW in RHEL . Documenti Microsoft
 description: Disponibilità elevata delle macchine virtuali di Azure per SAP NetWeaver in Red Hat Enterprise Linux
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/26/2020
+ms.date: 03/26/2020
 ms.author: radeltch
-ms.openlocfilehash: 94dc0b5da348989c60922fdd8c95e3e22d2b4a83
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 73b958149d9d6d907785fe1c2c56b8198bb91f70
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79264453"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80351094"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux"></a>Disponibilità elevata delle macchine virtuali di Azure per SAP NetWeaver in Red Hat Enterprise Linux
 
@@ -27,14 +27,14 @@ ms.locfileid: "79264453"
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
 
-[2002167]: https://launchpad.support.sap.com/#/notes/2002167
-[2009879]: https://launchpad.support.sap.com/#/notes/2009879
-[1928533]: https://launchpad.support.sap.com/#/notes/1928533
-[2015553]: https://launchpad.support.sap.com/#/notes/2015553
-[2178632]: https://launchpad.support.sap.com/#/notes/2178632
-[2191498]: https://launchpad.support.sap.com/#/notes/2191498
-[2243692]: https://launchpad.support.sap.com/#/notes/2243692
-[1999351]: https://launchpad.support.sap.com/#/notes/1999351
+[2002167]:https://launchpad.support.sap.com/#/notes/2002167
+[2009879]:https://launchpad.support.sap.com/#/notes/2009879
+[1928533]:https://launchpad.support.sap.com/#/notes/1928533
+[2015553]:https://launchpad.support.sap.com/#/notes/2015553
+[2178632]:https://launchpad.support.sap.com/#/notes/2178632
+[2191498]:https://launchpad.support.sap.com/#/notes/2191498
+[2243692]:https://launchpad.support.sap.com/#/notes/2243692
+[1999351]:https://launchpad.support.sap.com/#/notes/1999351
 [1410736]:https://launchpad.support.sap.com/#/notes/1410736
 
 [sap-swcenter]:https://support.sap.com/en/my-support/software-downloads.html
@@ -45,7 +45,7 @@ ms.locfileid: "79264453"
 [glusterfs-ha]:high-availability-guide-rhel-glusterfs.md
 
 Questo articolo descrive come distribuire le macchine virtuali, configurare le macchine virtuali, installare il framework del cluster e installare un sistema SAP NetWeaver 7.50 a disponibilità elevata.
-Nelle configurazioni di esempio, i comandi di installazione e così via. Vengono usati il numero di istanza ASC 00, il numero di istanza ERS 02 e l'ID del sistema SAP NW1. I nomi delle risorse (ad esempio macchine virtuali e reti virtuali) nell'esempio presuppongono che sia stato usato il [modello ASC/SCS][template-multisid-xscs] con il prefisso di risorsa NW1 per creare le risorse.
+Nelle configurazioni di esempio, comandi di installazione, ecc. Vengono utilizzati il numero di istanza ASCS 00, il numero di istanza ERS 02 e l'ID di sistema SAP NW1. I nomi delle risorse (ad esempio macchine virtuali e reti virtuali) nell'esempio presuppongono che sia stato usato il [modello ASCS/SCS][template-multisid-xscs] con il prefisso di risorsa NW1 per creare le risorse.
 
 Leggere prima di tutto le note e i documenti seguenti relativi a SAP
 
@@ -63,9 +63,9 @@ Leggere prima di tutto le note e i documenti seguenti relativi a SAP
 * La nota SAP [2243692] contiene informazioni sulle licenze SAP in Linux in Azure.
 * La nota SAP [1999351] contiene informazioni aggiuntive sulla risoluzione dei problemi per l'estensione di monitoraggio avanzato di Azure per SAP.
 * [Community WIKI SAP](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) contiene tutte le note su SAP necessarie per Linux.
-* [Pianificazione e implementazione di macchine virtuali di Azure per SAP in Linux][planning-guide]
-* [Distribuzione di macchine virtuali di Azure per SAP in Linux][deployment-guide]
-* [Distribuzione DBMS di macchine virtuali di Azure per SAP in Linux][dbms-guide]
+* [Pianificazione e implementazione di Macchine virtuali di Azure per SAP in Linux][planning-guide]
+* [Distribuzione di Macchine virtuali di Azure per SAP in Linux][deployment-guide]
+* [Distribuzione DBMS di Macchine virtuali di Azure per SAP in Linux][dbms-guide]
 * [Documentazione del prodotto per Red Hat Gluster Storage](https://access.redhat.com/documentation/red_hat_gluster_storage/)
 * [SAP NetWeaver nel cluster Pacemaker](https://access.redhat.com/articles/3150081)
 * Documentazione generale di RHEL
@@ -73,7 +73,7 @@ Leggere prima di tutto le note e i documenti seguenti relativi a SAP
   * [High Availability Add-On Administration](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index) (Amministrazione dei componenti aggiuntivi a disponibilità elevata)
   * [High Availability Add-On Reference](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index) (Riferimento dei componenti aggiuntivi a disponibilità elevata)
   * [Configurazione di ASCS/ERS per SAP Netweaver con risorse autonome in RHEL 7.5](https://access.redhat.com/articles/3569681)
-  * [Configurare SAP S/4HANA ASC/ERS con il server di Accodamento autonomo 2 (ENSA2) in pacemaker in RHEL](https://access.redhat.com/articles/3974941)
+  * [Configurare SAP S/4HANA ASCS/ERS con Il server Enqueue 2 (ENSA2) autonomo in Pacemaker su RHEL](https://access.redhat.com/articles/3974941)
 * Documentazione di RHEL specifica per Azure:
   * [Support Policies for RHEL High Availability Clusters - Microsoft Azure Virtual Machines as Cluster Members](https://access.redhat.com/articles/3131341) (Criteri di supporto per cluster RHEL a disponibilità elevata - Macchine virtuali di Microsoft Azure come membri del cluster)
   * [Installing and Configuring a Red Hat Enterprise Linux 7.4 (and later) High-Availability Cluster on Microsoft Azure](https://access.redhat.com/articles/3252491) (Installazione e configurazione di un cluster Red Hat Enterprise Linux 7.4 e versioni successive a disponibilità elevata in Microsoft Azure)
@@ -84,23 +84,21 @@ Per ottenere la disponibilità elevata, SAP NetWeaver richiede l'archiviazione c
 
 ![Panoramica della disponibilità elevata di SAP NetWeaver](./media/high-availability-guide-rhel/ha-rhel.png)
 
-SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS e il database SAP HANA usano un nome host virtuale e indirizzi IP virtuali. Per usare un indirizzo IP virtuale in Azure, occorre il bilanciamento del carico. È consigliabile usare [Load Balancer standard](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal). L'elenco seguente mostra la configurazione del bilanciamento del carico di (A)SCS ed ERS.
+SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS e il database SAP HANA usano un nome host virtuale e indirizzi IP virtuali. Per usare un indirizzo IP virtuale in Azure, occorre il bilanciamento del carico. È consigliabile usare il servizio di [bilanciamento del carico Standard.](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal) L'elenco seguente mostra la configurazione del bilanciamento del carico di (A)SCS ed ERS.
 
 ### <a name="ascs"></a>(A)SCS
 
 * Configurazione front-end
   * Indirizzo IP 10.0.0.7
-* Configurazione back-end
-  * Connessione alle interfacce di rete primarie di tutte le macchine virtuali che devono far parte del cluster (A)SCS/ERS
 * Porta probe
   * Porta 620<strong>&lt;nr&gt;</strong>
 * Regole di bilanciamento del carico
-  * Se si usa Load Balancer Standard, selezionare **porte a disponibilità elevata**
-  * Se si usa Load Balancer di base, creare regole di bilanciamento del carico per le porte seguenti
-    * 32<strong>&lt;nr&gt;</strong> TCP
-    * 36<strong>&lt;nr&gt;</strong> TCP
-    * 39<strong>&lt;nr&gt;</strong> TCP
-    * 81<strong>&lt;nr&gt;</strong> TCP
+  * Se si utilizza Load Balancer Standard, selezionare **Porte HA**
+  * Se si usa Load Balancer di base, creare regole di bilanciamento del carico per le porte seguentiIf using Basic Load Balancer, create Load balancing rules for the following ports
+    * 32<strong>&lt;nr&gt; </strong> TCP
+    * 36<strong>&lt;nr&gt; </strong> TCP
+    * 39<strong>&lt;nr&gt; </strong> TCP
+    * 81<strong>&lt;nr&gt; </strong> TCP
     * 5<strong>&lt;nr&gt;</strong>13 TCP
     * 5<strong>&lt;nr&gt;</strong>14 TCP
     * 5<strong>&lt;nr&gt;</strong>16 TCP
@@ -109,22 +107,23 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS e il database SAP HANA 
 
 * Configurazione front-end
   * Indirizzo IP 10.0.0.8
-* Configurazione back-end
-  * Connessione alle interfacce di rete primarie di tutte le macchine virtuali che devono far parte del cluster (A)SCS/ERS
 * Porta probe
   * Porta 621<strong>&lt;nr&gt;</strong>
 * Regole di bilanciamento del carico
-  * Se si usa Load Balancer Standard, selezionare **porte a disponibilità elevata**
-  * Se si usa Load Balancer di base, creare regole di bilanciamento del carico per le porte seguenti
-    * 32<strong>&lt;nr&gt;</strong> TCP
-    * 33<strong>&lt;nr&gt;</strong> TCP
+  * Se si utilizza Load Balancer Standard, selezionare **Porte HA**
+  * Se si usa Load Balancer di base, creare regole di bilanciamento del carico per le porte seguentiIf using Basic Load Balancer, create Load balancing rules for the following ports
+    * 32<strong>&lt;nr&gt; </strong> TCP
+    * 33<strong>&lt;nr&gt; </strong> TCP
     * 5<strong>&lt;nr&gt;</strong>13 TCP
     * 5<strong>&lt;nr&gt;</strong>14 TCP
     * 5<strong>&lt;nr&gt;</strong>16 TCP
 
+* Configurazione back-end
+  * Connessione alle interfacce di rete primarie di tutte le macchine virtuali che devono far parte del cluster (A)SCS/ERS
+
 ## <a name="setting-up-glusterfs"></a>Configurazione di GlusterFS
 
-SAP NetWeaver richiede un'archiviazione condivisa per la directory di trasporto e del profilo. Per informazioni su come configurare GlusterFS per SAP NetWeaver, vedere [GlusterFS in macchine virtuali di Azure in Red Hat Enterprise Linux per SAP NetWeaver][glusterfs-ha] .
+SAP NetWeaver richiede un'archiviazione condivisa per la directory di trasporto e del profilo. Leggere [GlusterFS in VM di Azure in Red Hat Enterprise Linux per SAP NetWeaver][glusterfs-ha] per informazioni sulla configurazione di GlusterFS per SAP NetWeaver.
 
 ## <a name="setting-up-ascs"></a>Configurazione di (A)SCS
 
@@ -132,9 +131,9 @@ SAP NetWeaver richiede un'archiviazione condivisa per la directory di trasporto 
 
 ### <a name="deploy-linux-via-azure-template"></a>Distribuire Linux tramite un modello di Azure
 
-Azure Marketplace contiene un'immagine per Red Hat Enterprise Linux che è possibile usare per distribuire nuove macchine virtuali. È possibile usare uno dei modelli di avvio rapido di GitHub per distribuire tutte le risorse necessarie. Il modello distribuisce le macchine virtuali, il servizio di bilanciamento del carico, il set di disponibilità e così via. Per distribuire il modello, attenersi alla procedura seguente:
+Azure Marketplace contiene un'immagine per Red Hat Enterprise Linux che è possibile usare per distribuire nuove macchine virtuali. È possibile usare uno dei modelli di avvio rapido di GitHub per distribuire tutte le risorse necessarie. Il modello distribuisce le macchine virtuali, il servizio di bilanciamento del carico, il set di disponibilità e così via. Seguire questi passaggi per distribuire il modello:
 
-1. Aprire il [modello ASC/SCS][template-multisid-xscs] nella portale di Azure  
+1. Aprire il [modello ASCS/SCS][template-multisid-xscs] nel portale di Azure  
 1. Immettere i parametri seguenti
    1. Prefisso della risorsa  
       Immettere il prefisso che si vuole usare. Il valore viene usato come prefisso per le risorse distribuite.
@@ -149,13 +148,13 @@ Azure Marketplace contiene un'immagine per Red Hat Enterprise Linux che è possi
    1. Disponibilità del sistema  
       Selezionare la disponibilità elevata.
    1. Nome utente, password amministratore o chiave SSH  
-      Viene creato un nuovo utente che può essere usato per accedere al computer.
+      Viene creato un nuovo utente che può essere utilizzato per accedere al computer.
    1. Subnet ID  
-   Se si vuole distribuire la macchina virtuale in una rete virtuale esistente in cui è stata definita la subnet a cui assegnare la macchina virtuale, specificare l'ID di tale subnet. L'ID in genere è simile al seguente: /subscriptions/ **&lt;ID sottoscrizione&gt;** /resourceGroups/ **&lt;nome gruppo risorse&gt;** /providers/Microsoft.Network/virtualNetworks/ **&lt;nome rete virtuale&gt;** /subnets/ **&lt;nome subnet&gt;**
+   Se si vuole distribuire la macchina virtuale in una rete virtuale esistente in cui è stata definita la subnet a cui assegnare la macchina virtuale, specificare l'ID di tale subnet. L'ID in genere è simile a /subscriptions/**&lt;&gt;ID sottoscrizione**/resourceGroups/**&lt;nome&gt;del gruppo**di risorse /providers/Microsoft.Network/virtualNetworks/nome**&lt;&gt;di rete virtuale**/subnets/**&lt;nome&gt; subnet**
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Distribuire Linux manualmente tramite il portale di Azure
 
-Prima di tutto è necessario creare le macchine virtuali per questo cluster. Successivamente, creare un servizio di bilanciamento del carico e usare le macchine virtuali nei pool back-end.
+Prima di tutto è necessario creare le macchine virtuali per questo cluster. Successivamente, si crea un servizio di bilanciamento del carico e si usano le macchine virtuali nel pool back-end.
 
 1. Creare un gruppo di risorse
 1. Creare una rete virtuale
@@ -169,7 +168,7 @@ Prima di tutto è necessario creare le macchine virtuali per questo cluster. Suc
    Selezionare il set di disponibilità creato in precedenza  
 1. Aggiungere almeno un disco dati a entrambe le macchine virtuali  
    I dischi dati vengono usati per la directory /usr/sap/`<SAPSID`>
-1. Creare un servizio di bilanciamento del carico (interno, standard):  
+1. Creare un servizio di bilanciamento del carico (interno, standard):Create load balancer (internal, standard):  
    1. Creare gli indirizzi IP front-end
       1. Indirizzo IP 10.0.0.7 per ASCS
          1. Aprire il servizio di bilanciamento del carico, selezionare Pool di indirizzi IP front-end e fare clic su Aggiungi
@@ -177,17 +176,14 @@ Prima di tutto è necessario creare le macchine virtuali per questo cluster. Suc
          1. Impostare Assegnazione su Statico e immettere l'indirizzo IP, ad esempio **10.0.0.7**
          1. Fare clic su OK.
       1. Indirizzo IP 10.0.0.8 per ASCS ERS
-         * Ripetere i passaggi precedenti per creare un indirizzo IP per ERS, ad esempio **10.0.0.8** e **nw1-aers-backend**
-   1. Creare i pool back-end
-      1. Creare un pool back-end per ASCS
-         1. Aprire il servizio di bilanciamento del carico, selezionare Pool back-end e fare clic su Aggiungi
-         1. Immettere il nome del nuovo pool back-end, ad esempio **nw1-ascs-backend**
-         1. Fare clic su Aggiungi una macchina virtuale.
-         1. Selezionare macchina virtuale.
-         1. Selezionare le macchine virtuali del cluster (A) SCS e i relativi indirizzi IP.
-         1. Fare clic su Aggiungi.
-      1. Creare un pool back-end per ASCS ERS
-         * Ripetere i passaggi precedenti per creare un pool back-end per ERS, ad esempio **nw1-aers-backend**
+         * Ripetere i passaggi precedenti per creare un indirizzo IP per ERS (ad esempio **10.0.0.8** e **nw1-aers-frontend**)
+   1. Creare il pool back-end
+      1. Aprire il servizio di bilanciamento del carico, selezionare Pool back-end e fare clic su Aggiungi
+      1. Immettere il nome del nuovo pool back-end, ad esempio **nw1-backend**
+      1. Fare clic su Aggiungi una macchina virtuale.
+      1. Selezionare Macchina virtuale.
+      1. Selezionare le macchine virtuali del cluster (A)SCS e i relativi indirizzi IP.
+      1. Fare clic su Aggiungi.
    1. Creare i probe di integrità
       1. Porta 620**00** per ASCS
          1. Aprire il servizio di bilanciamento del carico, selezionare Probe integrità e fare clic su Aggiungi
@@ -197,16 +193,16 @@ Prima di tutto è necessario creare le macchine virtuali per questo cluster. Suc
       1. Porta 621**02** per ASCS ERS
          * Ripetere i passaggi precedenti per creare un probe di integrità per ERS, ad esempio 621**02** e **nw1-aers-hp**
    1. Regole di bilanciamento del carico
-      1. Regole di bilanciamento del carico per ASC
-         1. Aprire il servizio di bilanciamento del carico, selezionare regole di bilanciamento del carico e fare clic su Aggiungi.
-         1. Immettere il nome della nuova regola di bilanciamento del carico, ad esempio **NW1-lb-ASC**
-         1. Selezionare l'indirizzo IP front-end, il pool back-end e il probe di integrità creati in precedenza (ad esempio, **NW1-ASC-frontend**, **NW1-ASC-backend** e **NW1-ASC-HP**)
-         1. Selezionare le **porte a disponibilità elevata**
+      1. Regole di bilanciamento del carico per ASCS
+         1. Aprire il servizio di bilanciamento del carico, selezionare le regole di bilanciamento del carico e fare clic su Aggiungi
+         1. Immettere il nome della nuova regola di bilanciamento del carico,ad esempio **nw1-lb-ascs**.
+         1. Selezionare l'indirizzo IP front-end, il pool back-end e il probe di integrità creati in precedenza, ad esempio **nw1-ascs-frontend**, **nw1-backend** e **nw1-ascs-hp**.
+         1. Selezionare **le porte HA**
          1. Aumentare il timeout di inattività a 30 minuti
-         1. **Assicurarsi di abilitare l'indirizzo IP mobile**
+         1. **Assicurarsi di abilitare l'IP mobile**
          1. Fare clic su OK.
-         * Ripetere i passaggi precedenti per creare regole di bilanciamento del carico per ERS, ad esempio **NW1-lb-ERS**
-1. In alternativa, se lo scenario richiede il servizio di bilanciamento del carico di base (interno), seguire questa procedura:  
+         * Ripetere i passaggi precedenti per creare regole di bilanciamento del carico per ERS (ad esempio **nw1-lb-ers**)
+1. In alternativa, se lo scenario richiede il servizio di bilanciamento del carico di base (interno), attenersi alla seguente procedura:  
    1. Creare gli indirizzi IP front-end
       1. Indirizzo IP 10.0.0.7 per ASCS
          1. Aprire il servizio di bilanciamento del carico, selezionare Pool di indirizzi IP front-end e fare clic su Aggiungi
@@ -214,17 +210,14 @@ Prima di tutto è necessario creare le macchine virtuali per questo cluster. Suc
          1. Impostare Assegnazione su Statico e immettere l'indirizzo IP, ad esempio **10.0.0.7**
          1. Fare clic su OK.
       1. Indirizzo IP 10.0.0.8 per ASCS ERS
-         * Ripetere i passaggi precedenti per creare un indirizzo IP per ERS, ad esempio **10.0.0.8** e **nw1-aers-backend**
-   1. Creare i pool back-end
-      1. Creare un pool back-end per ASCS
-         1. Aprire il servizio di bilanciamento del carico, selezionare Pool back-end e fare clic su Aggiungi
-         1. Immettere il nome del nuovo pool back-end, ad esempio **nw1-ascs-backend**
-         1. Fare clic su Aggiungi una macchina virtuale.
-         1. Selezionare il set di disponibilità creato in precedenza
-         1. Selezionare le macchine virtuali del cluster (A)SCS
-         1. Fare clic su OK.
-      1. Creare un pool back-end per ASCS ERS
-         * Ripetere i passaggi precedenti per creare un pool back-end per ERS, ad esempio **nw1-aers-backend**
+         * Ripetere i passaggi precedenti per creare un indirizzo IP per ERS (ad esempio **10.0.0.8** e **nw1-aers-frontend**)
+   1. Creare il pool back-end
+      1. Aprire il servizio di bilanciamento del carico, selezionare Pool back-end e fare clic su Aggiungi
+      1. Immettere il nome del nuovo pool back-end, ad esempio **nw1-backend**
+      1. Fare clic su Aggiungi una macchina virtuale.
+      1. Selezionare il set di disponibilità creato in precedenza
+      1. Selezionare le macchine virtuali del cluster (A)SCS
+      1. Fare clic su OK.
    1. Creare i probe di integrità
       1. Porta 620**00** per ASCS
          1. Aprire il servizio di bilanciamento del carico, selezionare Probe integrità e fare clic su Aggiungi
@@ -235,12 +228,12 @@ Prima di tutto è necessario creare le macchine virtuali per questo cluster. Suc
          * Ripetere i passaggi precedenti per creare un probe di integrità per ERS, ad esempio 621**02** e **nw1-aers-hp**
    1. Regole di bilanciamento del carico
       1. TCP 32**00** per ASCS
-         1. Aprire il servizio di bilanciamento del carico, selezionare regole di bilanciamento del carico e fare clic su Aggiungi.
+         1. Aprire il servizio di bilanciamento del carico, selezionare le regole di bilanciamento del carico e fare clic su Aggiungi
          1. Immettere il nome della nuova regola di bilanciamento del carico, ad esempio **nw1-lb-3200**
          1. Selezionare l'indirizzo IP front-end, il pool back-end e il probe di integrità creati in precedenza, ad esempio **nw1-ascs-frontend**
          1. Mantenere il protocollo **TCP**, immettere la porta **3200**
          1. Aumentare il timeout di inattività a 30 minuti
-         1. **Assicurarsi di abilitare l'indirizzo IP mobile**
+         1. **Assicurarsi di abilitare l'IP mobile**
          1. Fare clic su OK.
       1. Porte aggiuntive per ASCS
          * Ripetere i passaggi precedenti per le porte 36**00**, 39**00**, 81**00**, 5**00**13, 5**00**14, 5**00**16 e TCP per ASCS
@@ -248,10 +241,10 @@ Prima di tutto è necessario creare le macchine virtuali per questo cluster. Suc
          * Ripetere i passaggi precedenti per le porte 33**02**, 5**02**13, 5**02**14, 5**02**16 e TCP per ASCS ERS
 
 > [!Note]
-> Quando le macchine virtuali senza indirizzi IP pubblici vengono inserite nel pool back-end del servizio di bilanciamento del carico di Azure standard (nessun indirizzo IP pubblico), non vi sarà connettività Internet in uscita, a meno che non venga eseguita una configurazione aggiuntiva per consentire il routing a endpoint pubblici. Per informazioni dettagliate su come ottenere la connettività in uscita, vedere [connettività degli endpoint pubblici per le macchine virtuali con Azure Load Balancer standard negli scenari di disponibilità elevata di SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
+> Quando le macchine virtuali senza indirizzi IP pubblici vengono inserite nel pool back-end del servizio di bilanciamento del carico standard di Azure interno (nessun indirizzo IP pubblico), non sarà disponibile alcuna connettività Internet in uscita, a meno che non venga eseguita una configurazione aggiuntiva per consentire il routing agli endpoint pubblici. Per informazioni dettagliate su come ottenere la connettività in uscita, vedere Connettività degli endpoint pubblici per macchine virtuali che [usano Azure Standard Load Balancer in scenari di disponibilità elevata SAP.](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections)  
 
 > [!IMPORTANT]
-> Non abilitare i timestamp TCP nelle macchine virtuali di Azure che si trovano dietro Azure Load Balancer. Se si abilitano i timestamp TCP, i probe di integrità avranno esito negativo. Impostare il parametro **net. IPv4. tcp_timestamps** su **0**. Per informazioni dettagliate, vedere [Load Balancer Probe di integrità](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
+> Non abilitare timestamp TCP nelle macchine virtuali di Azure posizionati dietro Azure Load Balancer.Do not enable TCP timestamps on Azure VMs placed behind Azure Load Balancer. L'abilitazione dei timestamp TCP causerà l'esito negativo dei probe di integrità. Impostare il parametro **net.ipv4.tcp_timestamps su** **0**. Per informazioni dettagliate, vedere [Sondati di integrità di Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
 
 ### <a name="create-pacemaker-cluster"></a>Creare un cluster Pacemaker
 
@@ -340,7 +333,7 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
    <pre><code>sudo mount -a
    </code></pre>
 
-1. **[A]**  Configurare il file SWAP
+1. **[A] ** Configurare il file SWAP
 
    <pre><code>sudo vi /etc/waagent.conf
    
@@ -365,7 +358,7 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
 
 ### <a name="installing-sap-netweaver-ascsers"></a>Installazione di SAP NetWeaver ASCS/ERS
 
-1. **[1]**  Creare una risorsa IP virtuale e un probe di integrità per l'istanza di ASCS
+1. **[1] ** Creare una risorsa IP virtuale e un probe di integrità per l'istanza di ASCS
 
    <pre><code>sudo pcs node standby <b>nw1-cl-1</b>
    
@@ -472,7 +465,7 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
    sudo chgrp sapsys /usr/sap/<b>NW1</b>/ERS<b>02</b>
    </code></pre>
 
-1. **[1]**  Adattare i profili di istanza ASCS/SCS e ERS
+1. **[1] ** Adattare i profili di istanza ASCS/SCS e ERS
 
    * Profilo ASCS/SCS
 
@@ -499,9 +492,9 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
    </code></pre>
 
 
-1. **[A]**  Configurare keep-alive
+1. **[A] ** Configurare keep-alive
 
-   Le comunicazioni tra il server applicazioni SAP NetWeaver e ASCS/SCS vengono instradate tramite un servizio di bilanciamento del carico software. Il servizio di bilanciamento del carico disconnette le connessioni inattive dopo un timeout configurabile. Per evitare questo problema, è necessario impostare un parametro nel profilo ASC/SCS di SAP NetWeaver e modificare le impostazioni di sistema di Linux. Per ulteriori informazioni, leggere la [Nota SAP 1410736][1410736] .
+   Le comunicazioni tra il server applicazioni SAP NetWeaver e ASCS/SCS vengono instradate tramite un servizio di bilanciamento del carico software. Il servizio di bilanciamento del carico disconnette le connessioni inattive dopo un timeout configurabile. Per evitare questo problema, è necessario impostare un parametro nel profilo SAP NetWeaver ASCS/SCS e modificare le impostazioni di sistema Linux. Per altre informazioni, leggere la [nota SAP 1410736][1410736].
 
    Il parametro del profilo ASCS/SCS enque/encni/set_so_keepalive è già stato aggiunto nell'ultimo passaggio.
 
@@ -525,7 +518,7 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
 
 1. **[1]** Creare le risorse del cluster SAP
 
-  Se si usa l'architettura di Accodamento server 1 (ENSA1), definire le risorse nel modo seguente:
+  Se si utilizza l'architettura del server di accodamento 1 (ENSA1), definire le risorse come segue:
 
    <pre><code>sudo pcs property set maintenance-mode=true
    
@@ -551,8 +544,8 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
    sudo pcs property set maintenance-mode=false
    </code></pre>
 
-   SAP ha introdotto il supporto per l'accodamento del server 2, inclusa la replica, a partire da SAP NW 7,52. A partire dalla piattaforma ABAP 1809, il server di Accodamento 2 viene installato per impostazione predefinita. Vedere la nota SAP [2630416](https://launchpad.support.sap.com/#/notes/2630416) per il supporto del server di Accodamento 2.
-   Se si usa l'architettura di Accodamento server 2 ([ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)), installare l'agente risorse Resource-Agents-SAP-4.1.1 -12. el7. x86_64 o versione successiva e definire le risorse come segue:
+   SAP ha introdotto il supporto per il server di accodamento 2, inclusa la replica, a partire da SAP NW 7.52. A partire dalla piattaforma ABAP 1809, il server di accodamento 2 viene installato per impostazione predefinita. Vedere la nota SAP [2630416](https://launchpad.support.sap.com/#/notes/2630416) per il supporto del server 2 di accodamento.
+   Se si utilizza l'architettura del server di accodamento 2 ([ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)), installare gli agenti di risorse dell'agente di risorse-sap-4.1.1-12.el7.x86_64 o più recente e definire le risorse come segue:
 
 <pre><code>sudo pcs property set maintenance-mode=true
    
@@ -578,10 +571,10 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
    sudo pcs property set maintenance-mode=false
    </code></pre>
 
-   Se si esegue l'aggiornamento da una versione precedente e si passa al server di Accodamento 2, vedere la nota SAP [2641322](https://launchpad.support.sap.com/#/notes/2641322). 
+   Se si esegue l'aggiornamento da una versione precedente e si passa al server di accodamento 2, vedere la nota SAP [2641322](https://launchpad.support.sap.com/#/notes/2641322). 
 
    > [!NOTE]
-   > I timeout nella configurazione precedente sono solo esempi e possono essere adattati alla configurazione specifica di SAP. 
+   > I timeout nella configurazione precedente sono solo esempi e potrebbe essere necessario adattarli alla configurazione SAP specifica. 
 
    Assicurarsi che lo stato del cluster sia corretto e che tutte le risorse siano avviate. Non è importante il nodo su cui sono in esecuzione le risorse.
 
@@ -636,7 +629,7 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
    sudo firewall-cmd --zone=public --add-port=5<b>02</b>16/tcp
    </code></pre>
 
-## <a name="2d6008b0-685d-426c-b59e-6cd281fd45d7"></a>Preparazione del server applicazioni di SAP NetWeaver
+## <a name="sap-netweaver-application-server-preparation"></a><a name="2d6008b0-685d-426c-b59e-6cd281fd45d7"></a>Preparazione del server applicazioni di SAP NetWeaver
 
 Alcuni database richiedono che l'installazione dell'istanza di database venga eseguita in un server applicazioni. Preparare le macchine virtuali del server applicazioni da poter usare in questi casi.
 
@@ -715,7 +708,7 @@ I passaggi seguenti presuppongono che il server applicazioni venga installato in
 
 ## <a name="install-database"></a>Installare il database
 
-In questo esempio, SAP NetWeaver è installato in SAP HANA. Per questa installazione è possibile usare qualsiasi database supportato. Per altre informazioni su come installare SAP HANA in Azure, vedere [disponibilità elevata di SAP Hana in macchine virtuali di Azure in Red Hat Enterprise Linux][sap-hana-ha]. For a list of supported databases, see [SAP Note 1928533][1928533].
+In questo esempio, SAP NetWeaver è installato in SAP HANA. Per questa installazione è possibile usare qualsiasi database supportato. Per altre informazioni su come installare SAP HANA in Azure, vedere [Disponibilità elevata di SAP HANA nelle macchine virtuali][sap-hana-ha]. For a list of supported databases, see [SAP Note 1928533][1928533]di Azure in Red Hat Enterprise Linux.
 
 1. Eseguire l'installazione dell'istanza del database SAP
 
@@ -902,7 +895,7 @@ Per installare il server applicazioni SAP, seguire questi passaggi.
    <pre><code>[root@nw1-cl-0 ~]# pgrep ms.sapNW1 | xargs kill -9
    </code></pre>
 
-   Se si uccide il server di messaggi una sola volta, questo verrà riavviato da `sapstart`. Terminandolo un numero di volte sufficiente, Pacemaker sposterà infine l'istanza ASCS in un altro nodo. Eseguire i comandi seguenti come radice per pulire lo stato della risorsa dell'istanza ASCS ed ERS dopo il test.
+   Se si kill il server dei messaggi solo `sapstart`una volta, verrà riavviato da . Terminandolo un numero di volte sufficiente, Pacemaker sposterà infine l'istanza ASCS in un altro nodo. Eseguire i comandi seguenti come radice per pulire lo stato della risorsa dell'istanza ASCS ed ERS dopo il test.
 
    <pre><code>[root@nw1-cl-0 ~]# pcs resource cleanup rsc_sap_NW1_ASCS00
    [root@nw1-cl-0 ~]# pcs resource cleanup rsc_sap_NW1_ERS02
@@ -988,7 +981,7 @@ Per installare il server applicazioni SAP, seguire questi passaggi.
    <pre><code>[root@nw1-cl-1 ~]# pgrep er.sapNW1 | xargs kill -9
    </code></pre>
 
-   Se il comando viene eseguito solo una volta, `sapstart` riavvierà il processo. Se viene eseguito abbastanza spesso, `sapstart` non riavvierà il processo e lo stato della risorsa sarà interrotto. Eseguire i comandi seguenti come radice per pulire lo stato della risorsa dell'istanza ERS dopo il test.
+   Se si esegue il `sapstart` comando solo una volta, il processo verrà riavviato. Se viene eseguito `sapstart` abbastanza spesso, non riavvierà il processo e la risorsa sarà in stato di arresto. Eseguire i comandi seguenti come radice per pulire lo stato della risorsa dell'istanza ERS dopo il test.
 
    <pre><code>[root@nw1-cl-0 ~]# pcs resource cleanup rsc_sap_NW1_ERS02
    </code></pre>
@@ -1050,9 +1043,9 @@ Per installare il server applicazioni SAP, seguire questi passaggi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Disponibilità elevata per SAP NW in macchine virtuali di Azure in RHEL per applicazioni SAP guida a più SID](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-multi-sid)
-* [Pianificazione e implementazione di macchine virtuali di Azure per SAP][planning-guide]
+* [HA per SAP NW in macchine virtuali di Azure su RHEL per applicazioni SAP multi-SID guida](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-multi-sid)
+* [Pianificazione e implementazione di Macchine virtuali di Azure per SAP][planning-guide]
 * [Distribuzione di macchine virtuali di Azure per SAP][deployment-guide]
-* [Distribuzione DBMS di macchine virtuali di Azure per SAP][dbms-guide]
-* Per informazioni su come stabilire la disponibilità elevata e pianificare il ripristino di emergenza di SAP HANA in Azure (istanze di grandi dimensioni), vedere [Disponibilità elevata e ripristino di emergenza di SAP HANA (istanze di grandi dimensioni) in Azure](hana-overview-high-availability-disaster-recovery.md).
-* Per informazioni su come stabilire la disponibilità elevata e pianificare il ripristino di emergenza di SAP HANA nelle VM di Azure, vedere [disponibilità elevata di SAP Hana in macchine virtuali di Azure (VM)][sap-hana-ha]
+* [Distribuzione DBMS di Macchine virtuali di Azure per SAP][dbms-guide]
+* Per informazioni su come stabilire la disponibilità elevata e pianificare il ripristino di emergenza di SAP HANA in Azure (istanze di grandi dimensioni), vedere Disponibilità elevata SAP HANA (istanze di grandi dimensioni) e ripristino di emergenza in Azure.To learn how to establish high availability and plan for disaster recovery of SAP HANA on Azure (large instances), see [SAP HANA (large instances) high availability and disaster recovery on Azure.](hana-overview-high-availability-disaster-recovery.md)
+* Per informazioni su come ottenere la disponibilità elevata e un piano di ripristino di emergenza di SAP HANA nelle macchine virtuali di Azure, vedere [Disponibilità elevata di SAP HANA nelle macchine virtuali di Azure (VM)][sap-hana-ha].
