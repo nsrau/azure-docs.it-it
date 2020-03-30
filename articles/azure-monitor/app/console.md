@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.reviewer: lmolkova
 ms.openlocfilehash: baaea0f8055eeff0314fcf5fde00729ea8091d12
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77655430"
 ---
 # <a name="application-insights-for-net-console-applications"></a>Application Insights per le applicazioni console .NET
@@ -18,12 +18,12 @@ ms.locfileid: "77655430"
 È necessaria una sottoscrizione a [Microsoft Azure](https://azure.com). È possibile accedere con un account Microsoft, che in genere si ottiene per Windows, XBox Live o altri servizi cloud Microsoft. Se il team ha una sottoscrizione di Azure per l'organizzazione, chiedere al proprietario di aggiungere l'utente alla sottoscrizione usando il rispettivo account Microsoft.
 
 > [!NOTE]
-> È disponibile un nuovo Application Insights SDK denominato [Microsoft. ApplicationInsights. WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) , che può essere usato per abilitare Application Insights per qualsiasi applicazione console. È consigliabile usare questo pacchetto e le istruzioni associate da [qui](../../azure-monitor/app/worker-service.md). Questo pacchetto è destinato [`NetStandard2.0`](https://docs.microsoft.com/dotnet/standard/net-standard), quindi può essere usato in .net core 2,0 o versione successiva e .NET Framework 4.7.2 o versione successiva.
+> È disponibile un nuovo Application Insights SDK denominato [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) che può essere usato per abilitare Application Insights per tutte le applicazioni console. Si consiglia di utilizzare questo pacchetto e le istruzioni associate da [qui](../../azure-monitor/app/worker-service.md). Questo pacchetto [`NetStandard2.0`](https://docs.microsoft.com/dotnet/standard/net-standard)è destinato a , e quindi può essere utilizzato in .NET Core 2.0 o versione successiva e .NET Framework 4.7.2 o versione successiva.
 
 ## <a name="getting-started"></a>Introduzione
 
 * Nel [portale di Azure](https://portal.azure.com)[creare una risorsa di Application Insights](../../azure-monitor/app/create-new-resource.md). Per il tipo di applicazione, scegliere **Generale**.
-* Eseguire una copia della chiave di strumentazione. Trovare la chiave nell'elenco a discesa **Informazioni di base** della nuova risorsa creata.
+* Eseguire una copia della chiave di strumentazione. Individuare la chiave nell'elenco a discesa **Essentials** della nuova risorsa creata.
 * Installare la versione più recente del pacchetto [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights).
 * Impostare la chiave di strumentazione nel codice prima di tenere traccia dei dati di telemetria oppure impostare la variabile di ambiente APPINSIGHTS_INSTRUMENTATIONKEY. A questo punto si dovrebbe essere in grado di tenere traccia dei dati di telemetria manualmente e visualizzarli nel portale di Azure.
 
@@ -36,7 +36,7 @@ telemetryClient.TrackTrace("Hello World!");
 ```
 
 > [!NOTE]
-> I dati di telemetria non vengono inviati immediatamente. Gli elementi di telemetria vengono inviati in batch e inviati da ApplicationInsights SDK. Nelle app console, che termina subito dopo avere chiamato `Track()` metodi, i dati di telemetria potrebbero non essere inviati a meno che non vengano eseguiti `Flush()` e `Sleep` prima della chiusura dell'app, come illustrato nell' [esempio completo](#full-example) più avanti in questo articolo.
+> La telemetria non viene inviata immediatamente. Gli elementi di telemetria vengono raggruppati in batch e inviati da ApplicationInsights SDK. Nelle app console, che esce `Track()` subito dopo la chiamata `Flush()` `Sleep` ai metodi, i dati di telemetria potrebbero non essere inviati a meno che l'app venga eseguita prima della chiusura dell'app, come illustrato nell'esempio [più](#full-example) avanti in questo articolo.
 
 
 * Installare la versione più recente del pacchetto [Microsoft.ApplicationInsights.DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector), che consente di tenere automaticamente traccia delle chiamate HTTP, SQL o di altre chiamate a dipendenze esterne.
@@ -96,7 +96,7 @@ Un esempio completo del file di configurazione potrebbe essere disponibile insta
 
 ### <a name="configuring-telemetry-collection-from-code"></a>Configurazione della raccolta di dati di telemetria dal codice
 > [!NOTE]
-> La lettura del file di configurazione non è supportata in .NET Core. È possibile prendere in considerazione l'uso [di Application Insights SDK per ASP.NET Core](../../azure-monitor/app/asp-net-core.md)
+> La lettura del file di configurazione non è supportata in .NET Core.Reading config file is not supported on .NET Core. È possibile prendere in considerazione [l'utilizzo](../../azure-monitor/app/asp-net-core.md) di Application Insights SDK per ASP.NET CoreYou may consider using Application Insights SDK for ASP.NET Core
 
 * Durante l'avvio dell'applicazione, creare e configurare l'istanza di `DependencyTrackingTelemetryModule`, che deve essere singleton ed essere conservata per la durata dell'applicazione.
 
@@ -125,13 +125,13 @@ module.Initialize(configuration);
 configuration.TelemetryInitializers.Add(new HttpDependenciesParsingTelemetryInitializer());
 ```
 
-Se la configurazione è stata creata con il costruttore Plain `TelemetryConfiguration()`, è necessario abilitare anche il supporto per la correlazione. **Non è necessario** se si legge la configurazione da file, usata `TelemetryConfiguration.CreateDefault()` o `TelemetryConfiguration.Active`.
+Se è stata `TelemetryConfiguration()` creata la configurazione con costruttore normale, è necessario abilitare ulteriormente il supporto di correlazione. **Non è necessario** se si legge `TelemetryConfiguration.CreateDefault()` la `TelemetryConfiguration.Active`configurazione da file, utilizzato o .
 
 ```csharp
 configuration.TelemetryInitializers.Add(new OperationCorrelationTelemetryInitializer());
 ```
 
-* È anche possibile installare e inizializzare il modulo dell'agente di raccolta contatori delle prestazioni, come descritto [qui](https://apmtips.com/blog/2017/02/13/enable-application-insights-live-metrics-from-code/)
+* È anche possibile installare e inizializzare il modulo dell'agente di raccolta dei contatori delle prestazioni come descritto [di seguito](https://apmtips.com/blog/2017/02/13/enable-application-insights-live-metrics-from-code/)
 
 
 #### <a name="full-example"></a>Esempio completo

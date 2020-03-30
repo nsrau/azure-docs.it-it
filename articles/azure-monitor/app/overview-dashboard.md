@@ -4,10 +4,10 @@ description: Monitorare le applicazioni con la funzionalità Dashboard panoramic
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.openlocfilehash: e5188972d9058b85a9765c7d33f6209b37245d7e
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77669897"
 ---
 # <a name="application-insights-overview-dashboard"></a>Dashboard panoramica di Application Insights
@@ -24,7 +24,7 @@ Il nuovo dashboard panoramica ora avvia per impostazione predefinita:
 
 La selezione dell'intervallo di tempo è stata semplificata in una semplice interfaccia con un solo clic.
 
-![Intervallo di tempo](./media/overview-dashboard/app-insights-overview-dashboard-03.png)
+![Intervallo di ore](./media/overview-dashboard/app-insights-overview-dashboard-03.png)
 
 Le prestazioni complessive sono state notevolmente migliorate. È disponibile l'accesso con un clic a funzionalità comuni, ad esempio **Ricerca** e **Analitica**. Ciascun riquadro KPI con aggiornamento dinamico predefinito fornisce informazioni dettagliate sulle funzionalità Application Insights corrispondenti. Per altre informazioni sulle richieste non riuscite, selezionare **Errori** sotto l'intestazione **Analisi**:
 
@@ -36,11 +36,11 @@ Il dashboard delle applicazioni sfrutta la tecnologia del dashboard esistente in
 
 Per accedere al dashboard predefinito selezionare _Dashboard dell'applicazione_ nell'angolo superiore sinistro.
 
-![Vista dashboard](./media/overview-dashboard/app-insights-overview-dashboard-05.png)
+![Visualizzazione dashboard](./media/overview-dashboard/app-insights-overview-dashboard-05.png)
 
 Se è la prima volta che si accede al dashboard, verrà avviata una visualizzazione predefinita:
 
-![Vista dashboard](./media/overview-dashboard/0001-dashboard.png)
+![Visualizzazione dashboard](./media/overview-dashboard/0001-dashboard.png)
 
 Se si desidera, è possibile mantenere la visualizzazione predefinita. Oppure è anche possibile aggiungerla ed eliminare dal dashboard per soddisfare al meglio le esigenze del team.
 
@@ -53,10 +53,10 @@ Per tornare all'esperienza panoramica, selezionare:
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
-Se si seleziona **Configura le impostazioni del riquadro** e si imposta un intervallo di tempo personalizzato superiore a 31 giorni, il dashboard non visualizzerà oltre 31 giorni di dati, anche con la conservazione dei dati predefinita di 90 giorni. Attualmente non esiste alcuna soluzione alternativa per questo comportamento.
+Se si seleziona **Configura impostazioni riquadro** e si imposta un intervallo di tempo personalizzato superiore a 31 giorni, il dashboard non visualizzerà oltre i 31 giorni di dati, anche con la conservazione dei dati predefinita di 90 giorni. Attualmente non è disponibile alcuna soluzione per questo comportamento.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Grafici a imbuto](../../azure-monitor/app/usage-funnels.md)
-- [Conservazione](../../azure-monitor/app/usage-retention.md)
+- [detenzione](../../azure-monitor/app/usage-retention.md)
 - [Flussi degli utenti](../../azure-monitor/app/usage-flows.md)

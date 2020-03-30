@@ -1,22 +1,22 @@
 ---
 title: Uso di stringhe nelle query di log di Monitoraggio di Azure | Microsoft Docs
-description: Questo articolo fornisce un'esercitazione per l'uso di monitoraggio di Azure Log Analytics nel portale di Azure per eseguire query e analizzare i dati di log in monitoraggio di Azure.
+description: Questo articolo illustra un'esercitazione per usare Monitoraggio log di Azure nel portale di Azure per eseguire query e analizzare i dati di log in Monitoraggio di Azure.This article provides a tutorial for using Azure Monitor Log Analytics in the Azure portal to query and analyze log data in Azure Monitor.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
 ms.openlocfilehash: 8be4f318149590ff08b73fda719e99a17220ec2e
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77670152"
 ---
 # <a name="working-with-json-and-data-structures-in-azure-monitor-log-queries"></a>Uso di JSON e strutture dei dati nelle query di log di Monitoraggio di Azure
 
 > [!NOTE]
-> Prima di completare questa lezione, è necessario completare l'introduzione a [monitoraggio di azure log Analytics](get-started-portal.md) e [iniziare a usare le query di log di monitoraggio di Azure](get-started-queries.md) .
+> È necessario completare [Introduzione a Azure Monitor Log Analytics](get-started-portal.md) e Introduzione alle query di log di Monitoraggio di [Azure](get-started-queries.md) prima di completare questa lezione.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -25,7 +25,7 @@ Gli oggetti annidati sono oggetti che contengono altri oggetti in una matrice o 
 ## <a name="working-with-json-strings"></a>Uso delle stringhe JSON
 Usare `extractjson` per accedere a un elemento JSON specifico in un percorso noto. Questa funzione richiede un'espressione di percorso che usa le convenzioni seguenti.
 
-- _$_ per fare riferimento alla cartella radice
+- _$_ per fare riferimento alla cartella principale
 - Usare la notazione tra parentesi quadre o con punto per fare riferimento agli indici e agli elementi, come illustrato negli esempi seguenti.
 
 

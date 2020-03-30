@@ -4,10 +4,10 @@ description: L'analisi di flusso può trasformare, filtrare e instradare continu
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.openlocfilehash: b93bc49d005e3e54f1e5db84e6ff1adc49e25a65
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77664015"
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Usare l'analisi di flusso per elaborare dati esportati da Application Insights
@@ -89,13 +89,13 @@ A questo punto è necessaria la chiave di accesso primaria dell'account di archi
 
 ### <a name="set-path-prefix-pattern"></a>Impostare lo schema prefisso percorso
 
-**Assicurarsi di impostare il formato della data su AAAA-MM-GG (con i trattini).**
+**Assicurarsi di impostare il formato data a AAAA-MM-GG (con trattini).**
 
 Lo schema prefisso percorso specifica dove l'analisi di flusso trova i file di input nell'archivio. È necessario configurarlo in modo che corrisponda alla modalità di archiviazione dei dati dell'esportazione continua. Impostarlo come segue:
 
     webapplication27_12345678123412341234123456789abcdef0/PageViews/{date}/{time}
 
-In questo esempio:
+Esempio:
 
 * `webapplication27` è il nome della risorsa di Application Insights, **tutto minuscolo**.
 * `1234...` è la chiave di strumentazione della risorsa di Application Insights, **senza trattini**. 
@@ -107,7 +107,7 @@ In questo esempio:
 > 
 
 ## <a name="add-new-output"></a>Aggiungere un nuovo output
-Selezionare il processo > **Output** > **Aggiungi**.
+Selezionare ora il lavoro > **Output** > **Aggiungi**.
 
 ![](./media/export-stream-analytics/SA006.png)
 

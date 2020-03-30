@@ -1,6 +1,6 @@
 ---
-title: Inviare metriche dei servizi cloud classici al database di metriche di monitoraggio di Azure
-description: Descrive il processo per l'invio di metriche delle prestazioni del sistema operativo guest per i servizi cloud di Azure classico all'archivio delle metriche di monitoraggio di Azure.
+title: Inviare metriche classiche di Servizi cloud al database delle metriche di Monitoraggio di AzureSend classic Cloud Services metrics to Azure Monitor metrics database
+description: Descrive il processo per l'invio delle metriche delle prestazioni del sistema operativo guest per i servizi cloud classici di Azure all'archivio delle metriche di Monitoraggio di Azure.Describes the process for sending Guest OS performance metrics for Azure classic Cloud Services to the Azure Monitor metric store.
 author: anirudhcavale
 services: azure-monitor
 ms.topic: conceptual
@@ -8,10 +8,10 @@ ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: 3b390ffa20cf3cf79b8fb6311ad05b2978bd5d24
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77655796"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>Inviare le metriche del sistema operativo guest ai Servizi cloud classici dell'archivio delle metriche di Monitoraggio di Azure 
@@ -28,13 +28,13 @@ Il processo illustrato in questo articolo funziona solo per i contatori delle pr
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- È necessario disporre del ruolo di [amministratore del servizio o coamministratore](../../cost-management-billing/manage/add-change-subscription-administrator.md) nella sottoscrizione di Azure. 
+- È necessario essere un amministratore del servizio o un coamministratore nella sottoscrizione di Azure.You must be a service administrator or [co-administrator](../../cost-management-billing/manage/add-change-subscription-administrator.md) on your Azure subscription. 
 
-- La sottoscrizione deve essere registrata con [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
+- L'abbonamento deve essere registrato con [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
 
-- È necessario avere installato [Azure PowerShell](/powershell/azure) o [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
+- È necessario disporre di [Azure PowerShell](/powershell/azure) o [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) installato.
 
-- Il servizio cloud deve trovarsi in un' [area che supporta le metriche personalizzate](metrics-custom-overview.md#supported-regions).
+- Il servizio cloud deve trovarsi in [un'area che supporta metriche personalizzate.](metrics-custom-overview.md#supported-regions)
 
 ## <a name="provision-a-cloud-service-and-storage-account"></a>Eseguire il provisioning del servizio cloud e dell'account di archiviazione 
 
@@ -175,15 +175,15 @@ Set-AzureServiceDiagnosticsExtension -ServiceName <classicCloudServiceName> -Sto
 
    ![Metriche nel portale di Azure](./media/collect-custom-metrics-guestos-vm-cloud-service-classic/navigate-metrics.png)
 
-2. Nel menu a sinistra selezionare **Monitoraggio**.
+2. Nel menu a sinistra, seleziona **Monitor.**
 
-3. Nel pannello **Monitoraggio** fare clic sulla scheda **Metriche (anteprima)** .
+3. Nel pannello **Monitoraggio** fare clic sulla scheda **Metriche (anteprima)**.
 
 4. Nell'elenco a discesa della risorsa selezionare Servizio cloud (versione classica).
 
-5. Nell'elenco a discesa degli spazi dei nomi selezionare **azure.vm.windows.guest**. 
+5. Nel menu a discesa Spazi dei nomi selezionare **azure.vm.windows.guest**. 
 
-6. Nell'elenco a discesa delle metriche selezionare **Memory\Committed Bytes in Use** (Memoria\Byte di cui è stato eseguito il commit). 
+6. Nel menu a discesa delle metriche, selezionare **Memoria - Byte vincolati in uso**. 
 
 È possibile scegliere di visualizzare la memoria totale usata da un ruolo specifico e ogni istanza del ruolo usando le funzionalità di filtro e di suddivisione delle dimensioni. 
 

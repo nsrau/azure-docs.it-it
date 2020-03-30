@@ -1,14 +1,14 @@
 ---
 title: Uso di Archiviazione di Azure con una soluzione di Integrazione continua Jenkins
-description: Questa esercitazione illustra come usare il servizio BLOB di Azure come repository per gli artefatti di compilazione creati da una soluzione di integrazione continuata Jenkins.
-keywords: Jenkins, Azure, DevOps, archiviazione, CICD
+description: Questa esercitazione illustra come usare il servizio BLOB di Azure come repository per gli elementi di compilazione creati da una soluzione di integrazione continua Jenkins.This tutorial shows how to use the Azure blob service as a repository for build artifacts created by a Jenkins continuous integration solution.
+keywords: jenkins, azzurro, devops, stoccaggio, cicd
 ms.topic: article
 ms.date: 08/13/2019
 ms.openlocfilehash: df1d59c40fd09fb055db9d7622d86ff9c82991b8
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77624683"
 ---
 # <a name="using-azure-storage-with-a-jenkins-continuous-integration-solution"></a>Uso di Archiviazione di Azure con una soluzione di Integrazione continua Jenkins
@@ -32,7 +32,7 @@ Di seguito sono indicati i vantaggi dell'utilizzo del servizio BLOB per ospitare
 * Migliori prestazioni durante il download degli elementi di compilazione da parte di clienti e partner.
 * Controllo dei criteri di accesso da parte dell'utente, che prevede la possibilità di scelta tra accesso anonimo, accesso condiviso con scadenza, accesso con firma, accesso privato e così via.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Una soluzione di integrazione continua Jenkins.
   
@@ -65,12 +65,12 @@ Per usare il servizio BLOB con Jenkins, è necessario installare il plug-in di A
 1. Nel dashboard di Jenkins selezionare **Manage Jenkins** (Gestisci Jenkins).
 2. Nella pagina **Manage Jenkins** (Gestisci Jenkins) selezionare **Configure System** (Configura sistema).
 3. Nella sezione **Microsoft Azure Storage Account Configuration** :
-   1. Immettere il nome dell'account di archiviazione, che è possibile ottenere dal [portale di Azure](https://portal.azure.com).
-   2. Immettere la chiave dell'account di archiviazione, anche ottenibile dalla [portale di Azure](https://portal.azure.com).
-   3. Se si usa il servizio Cloud di Azure globale, immettere il valore predefinito in **Blob Service Endpoint URL**. Se si usa un cloud di Azure diverso, usare l'endpoint come specificato nella [portale di Azure](https://portal.azure.com) per l'account di archiviazione. 
+   1. Immettere il nome dell'account di archiviazione, che è possibile ottenere dal portale di [Azure.](https://portal.azure.com)
+   2. Immettere la chiave dell'account di archiviazione, che può essere possibile anche dal portale di [Azure.](https://portal.azure.com)
+   3. Se si usa il servizio Cloud di Azure globale, immettere il valore predefinito in **Blob Service Endpoint URL**. Se si usa un cloud di Azure diverso, usare l'endpoint come specificato nel portale di [Azure](https://portal.azure.com) per l'account di archiviazione. 
    4. Fare clic su **Validate storage credentials** (Convalida credenziali di archiviazione) per convalidare l'account di archiviazione. 
    5. [Facoltativo] Se si dispone di account di archiviazione aggiuntivi che si intende rendere disponibili all'Integrazione continua Jenkins, fare clic su **Add more Storage Accounts** (Aggiungi altri account di archiviazione).
-   6. Per salvare le impostazioni, fare clic su **Save** (Salva).
+   6. Selezionare **Salva** per salvare le impostazioni.
 
 ## <a name="how-to-create-a-post-build-action-that-uploads-your-build-artifacts-to-your-storage-account"></a>Creazione di un'operazione post-compilazione per il caricamento degli elementi di compilazione nell'account di archiviazione
 Ai fini di questa esercitazione, è necessario innanzitutto creare un processo che crei più file e quindi aggiungere l'operazione post-compilazione per caricare i file nell'account di archiviazione.
@@ -90,19 +90,19 @@ Ai fini di questa esercitazione, è necessario innanzitutto creare un processo c
 
 5. Nella sezione **Post-build Actions** (Azioni di post-compilazione) della configurazione del processo fare clic su **Add post-build action** (Aggiungi azione di post-compilazione) e scegliere **Upload artifacts to Azure Blob storage** (Carica artefatti su archiviazione BLOB di Azure).
 6. In **Storage Account Name**scegliere l'account di archiviazione da utilizzare.
-7. In **Container Name**specificare il nome del contenitore. Il contenitore verrà creato se non esiste già quando vengono caricati gli artefatti di compilazione. È possibile usare le variabili di ambiente, quindi per questo esempio immettere `${JOB_NAME}` come nome del contenitore.
+7. In **Nome contenitore**specificare il nome del contenitore. Il contenitore verrà creato se non esiste già quando vengono caricati gli elementi di compilazione. È possibile utilizzare le variabili di `${JOB_NAME}` ambiente, quindi per questo esempio immettere come nome del contenitore.
    
-    **Suggerimento**
+    **mancia**
    
     Sotto la sezione **Command** in cui è stato immesso uno script per **Execute Windows batch command** è presente un collegamento alle variabili di ambiente riconosciute da Jenkins. Fare clic sul collegamento per ottenere dettagli sui nomi e le descrizioni delle variabili di ambiente. Le variabili di ambiente che contengono caratteri speciali, ad esempio la variabile di ambiente **BUILD_URL** non sono ammesse come nome di contenitore o come percorso virtuale comune.
 8. Ai fini di questo esempio, fare clic su **Make new container public by default** (Rendi pubblico questo contenitore per impostazione predefinita). Se si intende usare un contenitore privato, è necessario creare una firma di accesso condiviso per consentire l'accesso, che esula dall'ambito di questo articolo. Per altre informazioni sulle firme di accesso condiviso, vedere [Uso delle firme di accesso condiviso](../storage/common/storage-sas-overview.md).
 9. [Facoltativo] Fare clic su **Clean container before uploading** (Pulisci contenitore prima del caricamento) se si vuole cancellare i contenuti dal contenitore prima di caricare gli artefatti di compilazione (lasciare questa casella deselezionata se non si vuole pulire i contenuti del contenitore).
 10. In **List of Artifacts to upload** (Elenco di artefatti da caricare) immettere `text/*.txt`.
 11. In **Common virtual path for uploaded artifacts** (Percorso virtuale comune per gli artefatti caricati), ai fini di questa esercitazione, immettere `${BUILD\_ID}/${BUILD\_NUMBER}`.
-12. Per salvare le impostazioni, fare clic su **Save** (Salva).
+12. Selezionare **Salva** per salvare le impostazioni.
 13. Nel dashboard di Jenkins fare clic su **Build Now** (Compila ora) per eseguire **MyJob**. Esaminare l'output di console per ottenere informazioni sullo stato. I messaggi di stato per il servizio di archiviazione di Azure verranno inclusi nell'output della console quando l'operazione post-compilazione avvierà il caricamento degli elementi di compilazione.
 14. Dopo avere completato il processo, è possibile esaminare gli elementi di compilazione aprendo il BLOB pubblico.
-    1. Accedere al [portale di Azure](https://portal.azure.com).
+    1. Accedere al [portale](https://portal.azure.com)di Azure .
     2. Selezionare **Archiviazione**.
     3. Fare clic sul nome dell'account di archiviazione usato per Jenkins.
     4. Selezionare **Contenitori**.
@@ -116,7 +116,7 @@ La procedura seguente illustra come configurare un passaggio di compilazione per
 1. Nella sezione **Build** (Compilazione) della configurazione del processo fare clic su **Add build step** (Aggiungi un passaggio di compilazione) e scegliere **Download from Azure Blob storage** (Scarica dallo spazio di archiviazione BLOB di Azure).
 2. In **Storage Account Name**scegliere l'account di archiviazione da utilizzare.
 3. In **Container name**specificare il nome del contenitore in cui si trovano i BLOB da scaricare. A questo scopo, è possibile usare le variabili di ambiente.
-4. In **Blob name**specificare il nome del BLOB. A questo scopo, è possibile usare le variabili di ambiente. È anche possibile usare un asterisco come carattere jolly dopo avere specificato le lettere iniziali del nome del BLOB. Ad esempio, **project\\** * specifica tutti i BLOB i cui nomi iniziano con **Project**.
+4. In **Blob name**specificare il nome del BLOB. A questo scopo, è possibile usare le variabili di ambiente. È anche possibile usare un asterisco come carattere jolly dopo avere specificato le lettere iniziali del nome del BLOB. Ad esempio, **project\\**: consente di specificare tutti i BLOB i cui nomi iniziano con **project**.
 5. [Facoltativo] In **Download path**specificare il percorso nel computer Jenkins in cui si vuole scaricare i file dall'archivio BLOB di Azure. A questo scopo, è anche possibile usare le variabili di ambiente. Se non si specifica un valore per **Download path**, i file dall'archivio BLOB di Azure verranno scaricati nell'area di lavoro del processo.
 
 Per scaricare elementi aggiuntivi dall'archiviazione BLOB di Azure, è possibile creare altri passaggi di compilazione.
@@ -127,15 +127,15 @@ Dopo avere eseguito una build, è possibile verificare l'output della cronologia
 Questa sezione offre una panoramica delle componenti del servizio BLOB.
 
 * **Account di archiviazione:** tutti gli accessi ad Archiviazione di Azure vengono eseguiti tramite un account di archiviazione. Un account di archiviazione è il livello più alto dello spazio dei nomi per accedere ai BLOB. Un account può contenere un numero illimitato di contenitori, purché la dimensione totale di questi sia inferiore a 100 TB.
-* **Contenitore:** un contenitore fornisce un raggruppamento di un set di BLOB. Tutti i BLOB devono essere inclusi in un contenitore. Un account può contenere un numero illimitato di contenitori. In un contenitore è possibile archiviare un numero illimitato di BLOB.
+* **Contenitore**: Un contenitore fornisce un raggruppamento di un set di BLOB. Tutti i BLOB devono essere inclusi in un contenitore. Un account può contenere un numero illimitato di contenitori. In un contenitore è possibile archiviare un numero illimitato di BLOB.
 * **BLOB:** un file di qualsiasi tipo e dimensione. Esistono due tipi di oggetti BLOB che è possibile archiviare in Archiviazione di Azure: BLOB in blocchi e BLOB di pagine. La maggior parte dei file sono BLOB in blocchi. Un singolo BLOB in blocchi può raggiungere fino a 200 GB di dimensione. In questa esercitazione vengono utilizzati BLOB in blocchi. I BLOB di pagine, di altro tipo, possono raggiungere dimensioni fino a 1 TB e risultano più efficienti quando all'interno di un file vi sono intervalli di byte soggetti a modifiche frequenti. Per altre informazioni sui BLOB, vedere [Informazioni sui BLOB in blocchi, sui BLOB di aggiunta e sui BLOB di pagine](https://msdn.microsoft.com/library/azure/ee691964.aspx).
 * **Formato dell'URL:** è possibile fare riferimento ai BLOB usando il formato di URL seguente:
   
     `http://storageaccount.blob.core.windows.net/container_name/blob_name`
   
-    Il formato riportato sopra si riferisce al servizio cloud Azure globale. Se si usa un cloud di Azure diverso, usare l'endpoint all'interno del [portale di Azure](https://portal.azure.com) per determinare l'endpoint dell'URL.
+    Il formato riportato sopra si riferisce al servizio cloud Azure globale. Se si usa un cloud di Azure diverso, usare l'endpoint all'interno del portale di [Azure](https://portal.azure.com) per determinare l'endpoint URL.)
   
-    Nel formato riportato sopra, `storageaccount` rappresenta il nome dell'account di archiviazione, `container_name` rappresenta il nome del contenitore e `blob_name` rappresenta il nome del BLOB. Nel nome contenitore è possibile avere percorsi multipli, separati da una barra **/** . Poiché il nome del contenitore usato come esempio in questa esercitazione è **MyJob** e **${BUILD\_ID}/${BUILD\_NUMBER}** è stato usato per il percorso virtuale comune, l'URL del BLOB ha il formato seguente:
+    Nel formato riportato sopra, `storageaccount` rappresenta il nome dell'account di archiviazione, `container_name` rappresenta il nome del contenitore e `blob_name` rappresenta il nome del BLOB. All'interno del nome del contenitore, è possibile **/** avere più percorsi, separati da una barra, . Poiché il nome del contenitore usato come esempio in questa esercitazione è **MyJob** e **${BUILD\_ID}/${BUILD\_NUMBER}** è stato usato per il percorso virtuale comune, l'URL del BLOB ha il formato seguente:
   
     `http://example.blob.core.windows.net/myjob/2014-04-14_23-57-00/1/hello.txt`
 

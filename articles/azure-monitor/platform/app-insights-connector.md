@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 02/13/2019
 ms.openlocfilehash: c143d8aa24d3479f4619ea2c220d4a0c593f9cb1
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77665154"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Soluzione di gestione Connettore di Application Insights (deprecata)
@@ -44,10 +44,10 @@ A differenza della maggior parte delle altre soluzioni Log Analytics, i dati per
 
 | Origine connessa | Supportato | Descrizione |
 | --- | --- | --- |
-| [Agenti Windows](../../azure-monitor/platform/agent-windows.md) | No | La soluzione non raccoglie le informazioni dagli agenti di Windows. |
+| [Agenti di Windows](../../azure-monitor/platform/agent-windows.md) | No | La soluzione non raccoglie le informazioni dagli agenti di Windows. |
 | [Agenti Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | No | La soluzione non raccoglie le informazioni dagli agenti di Linux. |
 | [Gruppo di gestione SCOM](../../azure-monitor/platform/om-agents.md) | No | La soluzione non raccoglie le informazioni dagli agenti in un gruppo di gestione SCOM connesso. |
-| [Account di archiviazione di Azure](collect-azure-metrics-logs.md) | No | La soluzione non raccoglie le informazioni da Archiviazione di Azure. |
+| [Account di archiviazione di AzureAzure storage account](collect-azure-metrics-logs.md) | No | La soluzione non raccoglie le informazioni da Archiviazione di Azure. |
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -58,9 +58,9 @@ A differenza della maggior parte delle altre soluzioni Log Analytics, i dati per
 ## <a name="configuration"></a>Configurazione
 
 1. Abilitare la soluzione Analisi app Web di Azure da [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AppInsights?tab=Overview) o seguendo la procedura illustrata in [Aggiungere soluzioni di Log Analytics dalla Raccolta soluzioni](../../azure-monitor/insights/solutions.md).
-2. Accedere al [portale di Azure](https://portal.azure.com). Selezionare **Tutti i servizi** per aprire Application Insights. Cercare quindi Application Insights. 
+2. Passare al [portale di Azure](https://portal.azure.com). Selezionare **Tutti i servizi** per aprire Application Insights. Cercare quindi Application Insights. 
 3. In **Sottoscrizioni** selezionare una sottoscrizione che contenga risorse di Application Insights e quindi in **Nome** selezionare una o più applicazioni.
-4. Fare clic su **Save**.
+4. Fare clic su **Salva**.
 
 Dopo circa 30 minuti, i dati diverranno disponibili e il riquadro Application Insights verrà aggiornato con alcuni dati, come nell'immagine seguente:
 
@@ -135,7 +135,7 @@ I componenti della prospettiva vengono aggiornati a seconda della query di ricer
 
 I pannelli di Connettore di Application Insights sono progettati per consentire di passare all'app Application Insights selezionata *quando si usa il portale di Azure*. È possibile usare la soluzione come piattaforma di monitoraggio ad alto livello che contribuisce alla risoluzione dei problemi di un'app. Quando viene riscontrato un potenziale problema in una delle applicazioni connesse, è possibile analizzarlo nella ricerca di Log Analytics oppure passare direttamente all'app di Application Insights.
 
-A tale scopo, fare clic sui puntini di sospensione ( **...** ) visualizzati alla fine di ogni riga e selezionare **Apri in Application Insights**.
+A tale scopo, fare clic sui puntini di sospensione (**...**) visualizzati alla fine di ogni riga e selezionare **Apri in Application Insights**.
 
 >[!NOTE]
 >**Apri in Application Insights** non è disponibile nel portale di Azure.
@@ -162,7 +162,7 @@ La soluzione riceve i tipi seguenti di telemetria di dati dalle app Application 
 
 - Disponibilità
 - Eccezioni
-- Richieste
+- Requests
 - Visualizzazioni di pagine: per l'area di lavoro per la ricezione di visualizzazioni di pagina, è necessario configurare le app per raccogliere tali informazioni. Per altre informazioni, vedere [PageViews](../../azure-monitor/app/api-custom-events-metrics.md#page-views).
 - Eventi personalizzati: per l'area di lavoro per la ricezione di eventi personalizzati, è necessario configurare le app per raccogliere tali informazioni. Per altre informazioni, vedere [TrackEvent](../../azure-monitor/app/api-custom-events-metrics.md#trackevent).
 
@@ -185,10 +185,10 @@ Viene creato un record con un *tipo* di *ApplicationInsights* per ogni tipo di d
 | DeviceType | Dispositivo client |
 | ScreenResolution |   |
 | Continent | Continente in cui ha origine la richiesta |
-| Paese | Paese/area geografica in cui ha avuto origine la richiesta |
+| Country | Paese in cui ha avuto origine la richiesta |
 | Province | Provincia, stato o impostazioni locali in cui ha origine la richiesta |
-| Città | Città o paese in cui ha origine la richiesta |
-| isSynthetic | Indica se la richiesta è stata creata da un utente o dal metodo automatizzato. True = metodo automatico o false = utente generato |
+| city | Città o paese in cui ha origine la richiesta |
+| isSynthetic | Indica se la richiesta è stata creata da un utente o dal metodo automatizzato. True : metodo automatizzato o false , generato dall'utente |
 | SamplingRate | Percentuale di telemetria generata dall'SDK inviato al portale. L'intervallo è 0,0-100,0. |
 | SampledCount | 100/(SamplingRate). Ad esempio, 4 =&gt; 25% |
 | IsAuthenticated | True o false |

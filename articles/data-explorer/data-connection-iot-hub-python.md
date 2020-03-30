@@ -1,6 +1,6 @@
 ---
-title: Creare una connessione dati dell'hub Internet per Azure Esplora dati usando Python
-description: Questo articolo illustra come creare una connessione dati dell'hub Internet per Azure Esplora dati usando Python.
+title: Creare una connessione dati dell'hub IoT per Azure Data Explorer tramite PythonCreate an IoT Hub data connection for Azure Data Explorer by using Python
+description: In this article, you learn how to create an IoT Hub data connection for Azure Data Explorer by using Python.
 author: lucygoldbergmicrosoft
 ms.author: lugoldbe
 ms.reviewer: orspodek
@@ -8,43 +8,43 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.openlocfilehash: 76c8ca24882f465bf2a973dc59736745178fc61f
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77669523"
 ---
-# <a name="create-an-iot-hub-data-connection-for-azure-data-explorer-by-using-python-preview"></a>Creare una connessione dati dell'hub Internet per Azure Esplora dati usando Python (anteprima)
+# <a name="create-an-iot-hub-data-connection-for-azure-data-explorer-by-using-python-preview"></a>Creare una connessione dati dell'hub IoT per Azure Data Explorer usando Python (anteprima)Create an IoT Hub data connection for Azure Data Explorer by using Python (Preview)
 
 > [!div class="op_single_selector"]
 > * [Portale](ingest-data-iot-hub.md)
-> * [C#](data-connection-iot-hub-csharp.md)
+> * [C #](data-connection-iot-hub-csharp.md)
 > * [Python](data-connection-iot-hub-python.md)
-> * [Modello di Azure Resource Manager](data-connection-iot-hub-resource-manager.md)
+> * [Modello di Azure Resource ManagerAzure Resource Manager template](data-connection-iot-hub-resource-manager.md)
 
-Questo articolo illustra come creare una connessione dati dell'hub Internet per Azure Esplora dati usando Python. Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. Azure Esplora dati offre l'inserimento, il caricamento di dati, gli hub eventi, gli hub Internet e i BLOB scritti nei contenitori BLOB.
+In this article, you create an IoT Hub data connection for Azure Data Explorer by using Python. Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. Azure Data Explorer offre l'inserimento o il caricamento dei dati da Hub eventi, hub IoT e BLOB scritti in contenitori BLOB.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un account Azure con una sottoscrizione attiva. [Creare un account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+* Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 * [Python 3.4+](https://www.python.org/downloads/).
 
-* [Un cluster e un database](create-cluster-database-python.md).
+* [Un cluster e](create-cluster-database-python.md)un database .
 
 * [Mapping di tabelle e colonne](net-standard-ingest-data.md#create-a-table-on-your-test-cluster).
 
-* [Criteri di database e tabella](database-table-policies-python.md) (facoltativo).
+* [Criteri di database e tabelle](database-table-policies-python.md) (facoltativo).
 
-* [Un hub cose con criteri di accesso condiviso configurati](ingest-data-iot-hub.md#create-an-iot-hub).
+* [Un hub IoT con un criterio](ingest-data-iot-hub.md#create-an-iot-hub)di accesso condiviso configurato.
 
 [!INCLUDE [data-explorer-data-connection-install-package-python](../../includes/data-explorer-data-connection-install-package-python.md)]
 
 [!INCLUDE [data-explorer-authentication](../../includes/data-explorer-authentication.md)]
 
-## <a name="add-an-iot-hub-data-connection"></a>Aggiungere una connessione dati dell'hub Internet 
+## <a name="add-an-iot-hub-data-connection"></a>Aggiungere una connessione dati all'hub IoTAdd an IoT Hub data connection 
 
-L'esempio seguente illustra come aggiungere una connessione dati dell'hub Internet a livello di codice. Vedere [connettere Azure Esplora dati table all'hub](ingest-data-iot-hub.md#connect-azure-data-explorer-table-to-iot-hub) Internet per l'aggiunta di una connessione dati dell'hub Internet con l'portale di Azure.
+Nell'esempio seguente viene illustrato come aggiungere una connessione dati all'hub IoT a livello di codice. Vedere Connettere la tabella di [Azure Data Explorer all'hub IoT](ingest-data-iot-hub.md#connect-azure-data-explorer-table-to-iot-hub) per aggiungere una connessione dati dell'hub Iot usando il portale di Azure.See connect Azure Data Explorer table to IoT Hub for adding an Iot Hub data connection using the Azure portal.
 
 ```Python
 from azure.mgmt.kusto import KustoManagementClient
@@ -89,19 +89,19 @@ poller = kusto_management_client.data_connections.create_or_update(resource_grou
 |**Impostazione** | **Valore consigliato** | **Descrizione campo**|
 |---|---|---|
 | tenant_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | ID tenant. Noto anche come ID directory.|
-| subscriptionId | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | ID sottoscrizione usato per la creazione di risorse.|
+| subscriptionId | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | ID sottoscrizione utilizzato per la creazione delle risorse.|
 | client_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | ID client dell'applicazione che può accedere alle risorse nel tenant.|
-| client_secret | *xxxxxxxxxxxxxx* | Il segreto client dell'applicazione che può accedere alle risorse nel tenant. |
-| resource_group_name | *testrg* | Nome del gruppo di risorse che contiene il cluster.|
+| client_secret | *xxxxxxxxxxxxxx* | Segreto client dell'applicazione che può accedere alle risorse nel tenant. |
+| resource_group_name | *testrg* | Nome del gruppo di risorse contenente il cluster.|
 | cluster_name | *mykustocluster* | Nome del cluster.|
 | database_name | *mykustodatabase* | Nome del database di destinazione nel cluster.|
-| data_connection_name | *myeventhubconnect* | Nome desiderato della connessione dati.|
-| table_name | *StormEvents* | Nome della tabella di destinazione nel database di destinazione.|
-| mapping_rule_name | *StormEvents_CSV_Mapping* | Nome del mapping di colonne correlato alla tabella di destinazione.|
-| data_format | *CSV* | Formato dati del messaggio.|
-| iot_hub_resource_id | *ID risorsa* | ID risorsa dell'hub Internet che include i dati per l'inserimento.|
-| shared_access_policy_name | *iothubforread* | Nome dei criteri di accesso condiviso che definiscono le autorizzazioni per i dispositivi e i servizi per la connessione all'hub Internet. |
-| consumer_group | *$Default* | Il gruppo di consumer dell'hub eventi.|
+| data_connection_name | *myeventhubconnect* | Il nome desiderato della connessione dati.|
+| table_name | *Eventi Storm* | Nome della tabella di destinazione nel database di destinazione.|
+| mapping_rule_name | *StormEvents_CSV_Mapping* | Nome del mapping di colonna correlato alla tabella di destinazione.|
+| data_format | *Csv* | Formato dati del messaggio.|
+| iot_hub_resource_id | *ID risorsa* | ID risorsa dell'hub IoT che contiene i dati per l'inserimento.|
+| shared_access_policy_name | *iothubforread* | Nome dei criteri di accesso condiviso che definisce le autorizzazioni per la connessione di dispositivi e servizi all'hub IoT. |
+| consumer_group | *$Default* | Gruppo di consumer dell'hub eventi.|
 | posizione | *Stati Uniti centrali* | Percorso della risorsa di connessione dati.|
 
 [!INCLUDE [data-explorer-data-connection-clean-resources-python](../../includes/data-explorer-data-connection-clean-resources-python.md)]

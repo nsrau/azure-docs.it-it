@@ -1,14 +1,14 @@
 ---
-title: Modello di dati per la telemetria delle richieste-applicazione Azure Insights
+title: Modello di dati per la telemetria delle richieste - Azure Application InsightsData model for request telemetry - Azure Application Insights
 description: Modello di dati di Application Insights per la telemetria delle richieste
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.reviewer: sergkanz
 ms.openlocfilehash: d8a28063bf6780c3cace4ead81e289779b95eb9a
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671903"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>Telemetria delle richieste: modello di dati di Application Insights
@@ -17,11 +17,11 @@ In [Application Insights](../../azure-monitor/app/app-insights-overview.md), un 
 
 La telemetria delle richieste supporta il modello di estendibilità standard usando `properties` e `measurements` personalizzate.
 
-## <a name="name"></a>Name
+## <a name="name"></a>Nome
 
 Il nome della richiesta rappresenta il percorso di codice intrapreso per elaborare la richiesta. Un valore di cardinalità basso consente di raggruppare meglio le richieste. Per le richieste HTTP, rappresenta il metodo HTTP e un modello di percorso URL, ad esempio `GET /values/{id}`, senza il valore di `id` effettivo.
 
-Web Application Insights SDK invia il nome della richiesta "così com'è" per quanto riguarda le maiuscole e minuscole. Il raggruppamento nell'interfaccia utente considera la distinzione tra maiuscole e minuscole, pertanto `GET /Home/Index` viene considerato diverso da `GET /home/INDEX`, anche se spesso riguardano l'esecuzione della stessa azione e dello stesso controller. Ciò accade perché gli URL rilevano in genere [la distinzione tra maiuscole e minuscole](https://www.w3.org/TR/WD-html40-970708/htmlweb.html). Si consiglia di verificare se tutti gli errori `404` si sono verificati per gli URL digitati in maiuscolo. Per altre informazioni, vedere la pagina relativa alla raccolta dei nomi delle richieste di ASP.NET Web SDK nel [post di Blog](https://apmtips.com/blog/2015/02/23/request-name-and-url/).
+Web Application Insights SDK invia il nome della richiesta "così com'è" per quanto riguarda le maiuscole e minuscole. Il raggruppamento nell'interfaccia utente considera la distinzione tra maiuscole e minuscole, pertanto `GET /Home/Index` viene considerato diverso da `GET /home/INDEX`, anche se spesso riguardano l'esecuzione della stessa azione e dello stesso controller. Ciò accade perché gli URL rilevano in genere [la distinzione tra maiuscole e minuscole](https://www.w3.org/TR/WD-html40-970708/htmlweb.html). Si consiglia di verificare se tutti gli errori `404` si sono verificati per gli URL digitati in maiuscolo. Ulteriori informazioni sulla raccolta dei nomi delle richieste ASP.NET Web SDK sono presenti nel post di [blog.](https://apmtips.com/blog/2015/02/23/request-name-and-url/)
 
 Lunghezza massima: 1024 caratteri
 
@@ -37,13 +37,13 @@ URL della richiesta con tutti i parametri di stringa di query.
 
 Lunghezza massima: 2048 caratteri
 
-## <a name="source"></a>Origine
+## <a name="source"></a>Source (Sorgente)
 
 Origine della richiesta. Esempi sono la chiave di strumentazione o l'indirizzo IP del chiamante. Per altre informazioni vedere la pagina relativa alla [correlazione](../../azure-monitor/app/correlation.md).
 
 Lunghezza massima: 1024 caratteri
 
-## <a name="duration"></a>Durata
+## <a name="duration"></a>Duration
 
 Durata della richiesta in formato: `DD.HH:MM:SS.MMMMMM`. Deve essere un valore positivo e inferiore a `1000` giorni. Questo campo è obbligatorio in quanto la telemetria delle richieste rappresenta l'operazione con un inizio e una fine.
 
@@ -53,7 +53,7 @@ Risultato dell'esecuzione di una richiesta. Codice di stato HTTP per le richiest
 
 Lunghezza massima: 1024 caratteri
 
-## <a name="success"></a>Success
+## <a name="success"></a>Operazione completata
 
 Indicazione di chiamata con esito positivo o con esito negativo. Questo campo è obbligatorio. Se non è impostata in modo esplicito su `false`, una richiesta viene considerata con esito positivo. Impostare questo valore su `false` se l'operazione è stata interrotta da un'eccezione o un codice di errore restituito.
 

@@ -8,10 +8,10 @@ ms.author: daviste
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 6d97e40bf2bf2298fb53609621db8ff2c6f1038f
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77663539"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Monitorare i gruppi di risorse con Monitoraggio di Azure (anteprima)
@@ -48,7 +48,7 @@ Nella pagina delle informazioni dettagliate sul gruppo di risorse sono disponibi
    | ---------------- |:-----|
    | [**Avvisi**](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)      |  Consente di visualizzare, creare e gestire gli avvisi. |
    | [**Metriche**](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics) | Consente di visualizzare ed esplorare i dati in base alle metriche.    |
-   | [**Log attività**](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) | Indicano gli eventi a livello di sottoscrizione che si sono verificati in Azure.  |
+   | [**Registri attività**](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) | Indicano gli eventi a livello di sottoscrizione che si sono verificati in Azure.  |
    | [**Mappa delle applicazioni**](https://docs.microsoft.com/azure/application-insights/app-insights-app-map) | Consente di esplorare la topologia dell'applicazione distribuita per identificare i colli di bottiglia delle prestazioni o le aree sensibili agli errori. |
 
 ## <a name="failures-and-performance"></a>Errori e prestazioni

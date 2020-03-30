@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/16/2018
 ms.subservice: alerts
 ms.openlocfilehash: b75bda626f887f1224c1b0f18a80887983a2367d
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77665307"
 ---
 # <a name="sms-alert-behavior-in-action-groups"></a>Comportamento degli avvisi SMS nei gruppi di azione
@@ -35,8 +35,8 @@ Un ricevitore di SMS configurato come parte di un gruppo di azioni riceverà un 
 | DISABLE `<Action Group Short name>` | Disabilita gli SMS dal gruppo di azioni |
 | ENABLE `<Action Group Short name>` | Abilita di nuovo gli SMS dal gruppo di azioni |
 | STOP | Disabilita gli SMS da tutti i gruppi di azioni |
-| AVVIO | Abilita di nuovo gli SMS da tutti i gruppi di azioni |
-| ? | Viene inviata una risposta all'utente con un collegamento a questo articolo. |
+| START | Abilita di nuovo gli SMS da tutti i gruppi di azioni |
+| HELP | Viene inviata una risposta all'utente con un collegamento a questo articolo. |
 
 >[!NOTE]
 >Se un utente ha annullato la sottoscrizione agli avvisi SMS e viene in seguito aggiunto a un nuovo gruppo di azioni, l'utente riceve gli avvisi SMS del nuovo gruppo di azioni mantenendo l'annullamento della sottoscrizione a tutti i gruppi di azioni precedenti.
@@ -44,5 +44,5 @@ Un ricevitore di SMS configurato come parte di un gruppo di azioni riceverà un 
 ## <a name="next-steps"></a>Passaggi successivi
 Ottenere una [panoramica degli avvisi del log attività](alerts-overview.md) e informazioni sulla ricezione degli avvisi  
 Altre informazioni sulla [limitazione della frequenza degli SMS](alerts-rate-limiting.md)  
-Altre informazioni sui [gruppi di azioni](../../azure-monitor/platform/action-groups.md)
+Ulteriori informazioni sui [gruppi di azioni](../../azure-monitor/platform/action-groups.md)
 

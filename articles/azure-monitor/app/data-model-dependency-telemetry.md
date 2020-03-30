@@ -1,21 +1,21 @@
 ---
-title: Modello di dati di Application Insights dipendenza di monitoraggio di Azure
+title: Azure Monitor Application Insights Dependency Data Model
 description: Modello di dati di Application Insights per la telemetria delle dipendenze
 ms.topic: conceptual
 ms.date: 04/17/2017
 ms.reviewer: sergkanz
 ms.openlocfilehash: ba0d848904d1ba885dc53e2941953d8dfb4864cf
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671920"
 ---
 # <a name="dependency-telemetry-application-insights-data-model"></a>Telemetria delle dipendenze: modello di dati di Application Insights
 
 In [Application Insights](../../azure-monitor/app/app-insights-overview.md), la telemetria delle dipendenze rappresenta un'interazione del componente monitorato con un componente remoto, ad esempio SQL o un endpoint HTTP.
 
-## <a name="name"></a>Name
+## <a name="name"></a>Nome
 
 Nome del comando avviato con questa chiamata delle dipendenze. Valore di cardinalità basso. Esempi sono il nome della stored procedure e il modello di percorso URL.
 
@@ -23,7 +23,7 @@ Nome del comando avviato con questa chiamata delle dipendenze. Valore di cardina
 
 Identificatore dell'istanza di una chiamata delle dipendenze. Usato per la correlazione con l'elemento di telemetria delle richieste corrispondente a questa chiamata delle dipendenze. Per altre informazioni vedere la pagina relativa alla [correlazione](../../azure-monitor/app/correlation.md).
 
-## <a name="data"></a>Data
+## <a name="data"></a>Dati
 
 Comando avviato con questa chiamata delle dipendenze. Esempi sono l'istruzione SQL e l'URL HTTP con tutti i parametri di query.
 
@@ -35,7 +35,7 @@ Nome del tipo di dipendenza. Valore di cardinalità basso per un raggruppamento 
 
 Sito di destinazione di una chiamata delle dipendenze. Esempi sono nome del server, indirizzo host. Per altre informazioni vedere la pagina relativa alla [correlazione](../../azure-monitor/app/correlation.md).
 
-## <a name="duration"></a>Durata
+## <a name="duration"></a>Duration
 
 Durata della richiesta in formato: `DD.HH:MM:SS.MMMMMM`. Deve essere inferiore a `1000` giorni.
 
@@ -43,7 +43,7 @@ Durata della richiesta in formato: `DD.HH:MM:SS.MMMMMM`. Deve essere inferiore a
 
 Codice risultato di una chiamata delle dipendenze. Esempi sono il codice di errore SQL e il codice di stato HTTP.
 
-## <a name="success"></a>Success
+## <a name="success"></a>Operazione completata
 
 Indicazione di chiamata con esito positivo o con esito negativo.
 

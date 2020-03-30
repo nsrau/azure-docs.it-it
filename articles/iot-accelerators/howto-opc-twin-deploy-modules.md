@@ -1,6 +1,6 @@
 ---
-title: Come distribuire il modulo OPC Twin per Azure da zero | Microsoft Docs
-description: Questo articolo descrive come distribuire un dispositivo OPC Twin da zero usando il pannello IoT Edge del portale di Azure e anche usando AZ CLI.
+title: Come distribuire il modulo OPC Twin per Azure da zero Documenti Microsoft
+description: Questo articolo descrive come distribuire OPC Twin da zero usando il pannello IoT Edge del portale di Azure e anche l'uso dell'interfaccia della riga di comando.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
@@ -8,28 +8,28 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 96a4afff3e58bfa1ebf661909f380aa525fea76e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 6c8ceeaf49d8ebfa15a83118e8b518190f6ff85e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820144"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80241071"
 ---
-# <a name="deploy-opc-twin-module-and-dependencies-from-scratch"></a>Distribuisci il modulo e le dipendenze di OPC Twin da zero
+# <a name="deploy-opc-twin-module-and-dependencies-from-scratch"></a>Distribuire il modulo OPC Twin e le dipendenze da zero
 
-Il modulo OPC gemello viene eseguito su IoT Edge e fornisce diversi servizi perimetrali ai servizi OPC e del registro di sistema del dispositivo OPC. 
+Il modulo OPC Twin viene eseguito su IoT Edge e fornisce diversi servizi edge per il dispositivo OPC gemello e servizi di registro. 
 
-Sono disponibili diverse opzioni per distribuire i moduli nel gateway [Azure IOT Edge](https://azure.microsoft.com/services/iot-edge/) , tra cui
+Sono disponibili diverse opzioni per distribuire i moduli nel gateway [Edge di Azure,](https://azure.microsoft.com/services/iot-edge/) tra cui
 
-- [Distribuzione dal pannello IoT Edge di portale di Azure](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-portal)
-- [Distribuzione tramite AZ CLI](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-monitor-cli)
+- [Distribuzione dal pannello IoT Edge del portale di AzureDeploying from Azure portal's IoT Edge blade](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-portal)
+- [Distribuzione tramite l'interfaccia della riga di comando](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-monitor-cli)
 
 > [!NOTE]
-> Per ulteriori informazioni sui dettagli e le istruzioni per la distribuzione, vedere il [repository](https://github.com/Azure/azure-iiot-components)github.
+> Per ulteriori informazioni sui dettagli e le istruzioni di distribuzione, vedere il [repository](https://github.com/Azure/azure-iiot-components)GitHub .
 
 ## <a name="deployment-manifest"></a>Manifesto della distribuzione
 
-Tutti i moduli vengono distribuiti usando un manifesto della distribuzione.  Di seguito è riportato un manifesto di esempio per distribuire sia il [server di pubblicazione OPC](https://github.com/Azure/iot-edge-opc-publisher) che l' [OPC gemello](https://github.com/Azure/azure-iiot-opc-twin-module) .
+Tutti i moduli vengono distribuiti tramite un manifesto di distribuzione.  Di seguito è riportato un manifesto di esempio per distribuire sia [OPC Publisher](https://github.com/Azure/iot-edge-opc-publisher) che [OPC Twin.](https://github.com/Azure/azure-iiot-opc-twin-module)
 
 ```json
 {
@@ -105,35 +105,35 @@ Tutti i moduli vengono distribuiti usando un manifesto della distribuzione.  Di 
 }
 ```
 
-## <a name="deploying-from-azure-portal"></a>Distribuzione da portale di Azure
+## <a name="deploying-from-azure-portal"></a>Distribuzione dal portale di AzureDeploying from Azure portal
 
-Il modo più semplice per distribuire i moduli in un dispositivo gateway Azure IoT Edge consiste nel portale di Azure.  
+Il modo più semplice per distribuire i moduli in un dispositivo gateway Edge IoT di Azure è tramite il portale di Azure.The easiest way to deploy the modules to an Azure IoT Edge gateway device is through the Azure portal.  
 
 ### <a name="prerequisites"></a>Prerequisiti
 
-1. Distribuire le [dipendenze](howto-opc-twin-deploy-dependencies.md) del dispositivo OPC gemello e ottenere il file `.env` risultante. Si noti la `hub name` distribuita della variabile `PCS_IOTHUBREACT_HUB_NAME` nel file di `.env` risultante.
+1. Distribuire le [dipendenze](howto-opc-twin-deploy-dependencies.md) OPC Twin `.env` e ottenuto il file risultante. Si noti la distribuzione `hub name` della `PCS_IOTHUBREACT_HUB_NAME` variabile nel file risultante. `.env`
 
-2. Registrare e avviare un gateway di IoT Edge [Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) o [Windows](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-windows) e annotarne il `device id`.
+2. Registrare e avviare un gateway [Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) o `device id` [Windows](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-windows) IoT Edge e prendere nota del relativo .
 
-### <a name="deploy-to-an-edge-device"></a>Eseguire la distribuzione in un dispositivo perimetrale
+### <a name="deploy-to-an-edge-device"></a>Eseguire la distribuzione in un dispositivo perimetraleDeploy to an edge device
 
 1. Accedere al [portale di Azure](https://portal.azure.com/) e passare all'hub IoT.
 
-2. Selezionare **IOT Edge** dal menu a sinistra.
+2. Selezionare **Bordo IoT** dal menu a sinistra.
 
 3. Fare clic sull'ID del dispositivo di destinazione nell'elenco dei dispositivi.
 
 4. Selezionare **Set Modules** (Configura i moduli).
 
-5. Nella sezione **moduli di distribuzione** della pagina selezionare **Aggiungi** e **IOT Edge modulo.**
+5. Nella sezione Moduli di **distribuzione** della pagina selezionare **Aggiungi** e modulo **Edge IoT.**
 
-6. Nella finestra di dialogo **IOT Edge modulo personalizzato** usare `opctwin` come nome per il modulo, quindi specificare l' *URI dell'immagine* del contenitore come
+6. Nella finestra **di dialogo Modulo personalizzato IoT Edge** utilizzare `opctwin` come nome per il modulo, quindi specificare l'URI *immagine* del contenitore come
 
    ```bash
    mcr.microsoft.com/iotedge/opc-twin:latest
    ```
 
-   Per le *Opzioni di creazione di contenitori*, usare il codice JSON seguente:
+   Come *opzioni di creazione contenitore*, utilizzare il codice JSON seguente:As Container Create Options , use the following JSON:
 
    ```json
    {"NetworkingConfig": {"EndpointsConfig": {"host": {}}}, "HostConfig": {"NetworkMode": "host" }}
@@ -141,23 +141,23 @@ Il modo più semplice per distribuire i moduli in un dispositivo gateway Azure I
 
    Specificare i campi facoltativi, se necessario. Per altre informazioni sulle opzioni di creazione dei contenitore, i criteri di riavvio e lo stato desiderato, vedere [Proprietà desiderate di EdgeAgent](https://docs.microsoft.com/azure/iot-edge/module-edgeagent-edgehub#edgeagent-desired-properties). Per altre informazioni sul modulo gemello, vedere [Definire o aggiornare le proprietà desiderate](https://docs.microsoft.com/azure/iot-edge/module-composition#define-or-update-desired-properties).
 
-7. Selezionare **Save (Salva** ) e ripetere il passaggio **5**.  
+7. Selezionare **Salva** e ripetere il passaggio **5**.  
 
-8. Nella finestra di dialogo IoT Edge modulo personalizzato usare `opcpublisher` come nome per il modulo e l' *URI dell'immagine* del contenitore come 
+8. Nella finestra di dialogo Modulo `opcpublisher` personalizzato IoT Edge, utilizzare come nome per il modulo e *l'URI dell'immagine* del contenitore come 
 
    ```bash
    mcr.microsoft.com/iotedge/opc-publisher:latest
    ```
 
-   Per le *Opzioni di creazione di contenitori*, usare il codice JSON seguente:
+   Come *opzioni di creazione contenitore*, utilizzare il codice JSON seguente:As Container Create Options , use the following JSON:
 
    ```json
    {"Hostname":"publisher","Cmd":["publisher","--pf=./pn.json","--di=60","--to","--aa","--si=0","--ms=0"],"ExposedPorts":{"62222/tcp":{}},"HostConfig":{"PortBindings":{"62222/tcp":[{"HostPort":"62222"}] }}}
    ```
 
-9. Selezionare **Save (Salva** ) e quindi **Avanti** per passare alla sezione Routes (Route).
+9. Selezionare **Salva** e quindi **Avanti** per passare alla sezione dei percorsi.
 
-10. Nella scheda Route incollare il codice seguente: 
+10. Nella scheda percorsi, incollare le seguenti 
 
     ```json
     {
@@ -170,40 +170,40 @@ Il modo più semplice per distribuire i moduli in un dispositivo gateway Azure I
 
     e selezionare **Avanti**
 
-11. Esaminare le informazioni sulla distribuzione e il manifesto.  Dovrebbe essere simile al manifesto di distribuzione precedente.  Selezionare **Submit** (Invia).
+11. Esaminare le informazioni sulla distribuzione e il manifesto.  Dovrebbe essere simile al manifesto di distribuzione precedente.  Selezionare **Submit**.
 
 12. Dopo aver distribuito i moduli nel dispositivo, è possibile visualizzarli tutti nella pagina **Dettagli dispositivo** del portale. Questa pagina visualizza il nome di ogni modulo distribuito e informazioni utili come lo stato della distribuzione e il codice di uscita.
 
-## <a name="deploying-using-azure-cli"></a>Distribuzione con interfaccia della riga di comando di Azure
+## <a name="deploying-using-azure-cli"></a>Distribuzione con l'interfaccia della riga di comando di AzureDeploying using Azure CLI
 
 ### <a name="prerequisites"></a>Prerequisiti
 
-1. Installare la versione più recente dell' [interfaccia della riga di comando di Azure (AZ)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) da [qui](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+1. Installare la versione più recente [dell'interfaccia](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) della riga di comando di Azure da [qui](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ### <a name="quickstart"></a>Guida introduttiva
 
-1. Salvare il manifesto di distribuzione precedente in un file di `deployment.json`.  
+1. Salvare il manifesto di `deployment.json` distribuzione precedente in un file.  
 
 2. Per applicare la configurazione a un dispositivo IoT Edge usare il comando seguente:
 
-   ```bash
+   ```azurecli
    az iot edge set-modules --device-id [device id] --hub-name [hub name] --content ./deployment.json
    ```
 
-   Il parametro `device id` fa distinzione tra maiuscole e minuscole. Il parametro content punta al file del manifesto della distribuzione salvato. 
-    ![AZ IoT Edge set-Modules output](https://docs.microsoft.com/azure/iot-edge/media/how-to-deploy-cli/set-modules.png)
+   Il `device id` parametro fa distinzione tra maiuscole e minuscole. Il parametro content punta al file del manifesto della distribuzione salvato. 
+    ![az IoT Edge set-modules di uscita](https://docs.microsoft.com/azure/iot-edge/media/how-to-deploy-cli/set-modules.png)
 
 3. Dopo aver distribuito i moduli nel dispositivo, è possibile visualizzarli tutti con il comando seguente:
 
-   ```bash
+   ```azurecli
    az iot hub module-identity list --device-id [device id] --hub-name [hub name]
    ```
 
-   Il parametro ID dispositivo distingue tra maiuscole e minuscole. ![az iot hub module-identity list output](https://docs.microsoft.com/azure/iot-edge/media/how-to-deploy-cli/list-modules.png)
+   Il parametro ID dispositivo fa distinzione tra maiuscole e minuscole. ![az iot hub module-identity list output](https://docs.microsoft.com/azure/iot-edge/media/how-to-deploy-cli/list-modules.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che si è appreso come distribuire OPC Twin da zero, ecco il passaggio successivo suggerito:
+Ora che hai imparato a distribuire OPC Twin da zero, ecco il passaggio successivo suggerito:
 
 > [!div class="nextstepaction"]
-> [Distribuire un dispositivo OPC gemello a un progetto esistente](howto-opc-twin-deploy-existing.md)
+> [Distribuire OPC Twin in un progetto esistenteDeploy OPC Twin to an existing project](howto-opc-twin-deploy-existing.md)

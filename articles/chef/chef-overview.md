@@ -5,10 +5,10 @@ keywords: azure, chef, devops, macchine virtuali, panoramica, automazione
 ms.date: 02/22/2020
 ms.topic: article
 ms.openlocfilehash: c22faa69bf8f42111d328a9c156dc1a2432731b2
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77586343"
 ---
 # <a name="using-chef-with-azure"></a>Uso di Chef con Azure
@@ -17,13 +17,13 @@ ms.locfileid: "77586343"
 Questo articolo descrive i vantaggi dell'uso di Chef nella gestione dell'infrastruttura di Azure.
 
 ## <a name="chef-extension-on-azure"></a>Estensione Chef per Azure
-Effettuare il provisioning di una macchina virtuale con chef client in esecuzione come servizio in background con l' [estensione chef](https://docs.microsoft.com/azure/chef/chef-extension-portal) nella [portale di Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040). Al termine del provisioning, queste macchine virtuali sono pronte per essere gestite da un server Chef.
+Effettuare il provisioning di una macchina virtuale con il client Chef in esecuzione come servizio in background con [l'estensione Chef](https://docs.microsoft.com/azure/chef/chef-extension-portal) nel portale di [Azure.](https://go.microsoft.com/fwlink/p/?LinkID=525040) Al termine del provisioning, queste macchine virtuali sono pronte per essere gestite da un server Chef.
 
 ## <a name="chef-cloud-shell"></a>Chef Cloud Shell
 Usare la workstation di Chef direttamente in Azure Cloud Shell. Eseguire tutte le utilità di Chef e InSpec direttamente da Cloud Shell. È possibile usare i comandi di Chef da:
 
-* [chef](https://docs.chef.io/ctl_chef.html)
-* [kitchen](https://docs.chef.io/ctl_kitchen.html)
+* [Chef](https://docs.chef.io/ctl_chef.html)
+* [cucina](https://docs.chef.io/ctl_kitchen.html)
 * [inspec](https://www.inspec.io/docs/reference/cli/)
 * [knife](https://docs.chef.io/knife.html)
 * [cookstyle](https://docs.chef.io/cookstyle.html)

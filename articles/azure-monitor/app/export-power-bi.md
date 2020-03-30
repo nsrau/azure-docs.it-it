@@ -4,10 +4,10 @@ description: Le query di Analisi possono essere visualizzate in Power BI.
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.openlocfilehash: 0e17ca6e07ec76f0a7a1cb04f7aa13619fb9970c
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77663998"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Feed di Power BI da Application Insights
@@ -15,7 +15,7 @@ ms.locfileid: "77663998"
 
 Esistono tre metodi per esportare i dati di Application Insights in Power BI:
 
-* [**Esportare query di Analisi**](#export-analytics-queries). Questo è il metodo preferito. Scrivere le query desiderate ed esportarle in Power BI. La query può essere inserita in un dashboard, insieme a tutti gli altri dati.
+* [**Esportare query di Analytics**](#export-analytics-queries). Questo è il metodo preferito. Scrivere le query desiderate ed esportarle in Power BI. La query può essere inserita in un dashboard, insieme a tutti gli altri dati.
 * [**Esportazione continua e Analisi di flusso di Azure**](../../azure-monitor/app/export-stream-analytics.md). Questo metodo è utile se i dati devono essere archiviati per lunghi periodi. Se non si dispone di un requisito di conservazione dati esteso, usare il metodo di esportazione query di analisi. Esportazione continua e analisi di flusso comportano una configurazione più impegnativa e un overhead di archiviazione aggiuntivo.
 * **Adattatore Power BI**. Il set di tabelle è predefinito, ma è possibile aggiungere query da qualsiasi altra origine.
 
@@ -33,20 +33,20 @@ Installare [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 ### <a name="export-an-analytics-query"></a>Esportare una query di Analisi
 1. [Aprire Analisi e scrivere la query](../../azure-monitor/log-query/get-started-portal.md).
 2. Testare e affinare la query fino a quando non si è soddisfatti dei risultati. Verificare che la query venga eseguita correttamente in Analisi prima di esportarla.
-3. Nel menu **Esporta** scegliere **Power BI (M)** . Salvare il file di testo.
+3. Nel menu **Esporta** scegliere **Power BI (M)**. Salvare il file di testo.
    
     ![Screenshot di Analisi con il menu Esporta evidenziato](./media/export-power-bi/analytics-export-power-bi.png)
-4. In Power BI Desktop selezionare **Recupera dati** > **Query vuota**. Nella scheda **Visualizza** dell'editor di query selezionare **Editor avanzato**.
+4. In Power BI Desktop selezionare **Ottieni query** > **vuota**dati . Nella scheda **Visualizza** dell'editor di query selezionare **Editor avanzato**.
 
     Nell'Editor avanzato incollare lo script in linguaggio M esportato.
 
     ![Screenshot di Power BI Desktop, con l'Editor avanzato evidenziato](./media/export-power-bi/power-bi-import-analytics-query.png)
 
-5. Per consentire a Power BI di accedere ad Azure può essere necessario specificare le credenziali. Scegliere **Account aziendale** per accedere con l'account Microsoft personale.
+5. Per consentire a Power BI di accedere ad Azure può essere necessario specificare le credenziali. Usa **l'account dell'organizzazione** per accedere con il tuo account Microsoft.
    
     ![Screenshot della finestra di dialogo Impostazioni query di Power BI](./media/export-power-bi/power-bi-import-sign-in.png)
 
-    Se è necessario verificare le credenziali, usare il comando di menu **Impostazioni origine dati** nell'editor di query. Assicurarsi di specificare le credenziali usate per Azure, che potrebbero essere diverse da quelle di Power BI.
+    Se è necessario verificare le credenziali, utilizzare il comando di menu **Impostazioni origine dati** nell'editor di query. Assicurarsi di specificare le credenziali usate per Azure, che potrebbero essere diverse da quelle di Power BI.
 6. Scegliere una visualizzazione per la query e selezionare i campi per le assi X e Y e per le dimensioni di segmentazione.
    
     ![Screenshot delle opzioni di visualizzazione di Power BI Desktop](./media/export-power-bi/power-bi-analytics-visualize.png)
@@ -56,12 +56,12 @@ Installare [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 8. Aggiornare manualmente il report a intervalli oppure impostare un aggiornamento pianificato nella pagina Opzioni.
 
 ### <a name="export-a-funnel"></a>Esportare una visualizzazione Imbuto
-1. [Creare una visualizzazione Imbuto](../../azure-monitor/app/usage-funnels.md).
+1. [Crea la tua imbuto](../../azure-monitor/app/usage-funnels.md).
 2. Selezionare **Power BI**.
 
    ![Screenshot del pulsante Power BI](./media/export-power-bi/button.png)
 
-3. In Power BI Desktop selezionare **Recupera dati** > **Query vuota**. Nella scheda **Visualizza** dell'editor di query selezionare **Editor avanzato**.
+3. In Power BI Desktop selezionare **Ottieni query** > **vuota**dati . Nella scheda **Visualizza** dell'editor di query selezionare **Editor avanzato**.
 
    ![Screenshot di Power BI Desktop, con il pulsante Query vuota evidenziato](./media/export-power-bi/blankquery.png)
 
@@ -84,9 +84,9 @@ Installare [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 ### <a name="unauthorized-401-or-403"></a>Non autorizzato (401 o 403)
 Questo errore può verificarsi se il token di aggiornamento non è stato aggiornato. Provare a eseguire questi passaggi per verificare di avere ancora i diritti di accesso:
 
-1. Accedere al portale di Azure e verificare che sia possibile accedere alla risorsa.
+1. Accedere al portale di Azure e assicurarsi di poter accedere alla risorsa.
 2. Provare ad aggiornare le credenziali per il dashboard.
-3. Provare a cancellare la cache dal desktop di Power bi.
+3. Provare a cancellare la cache dal desktop di PowerBI.
 
 
    Se si ha accesso e non è possibile aggiornare le credenziali, aprire un ticket di supporto.
@@ -98,8 +98,8 @@ Se la riduzione del set di dati risultante dalla query di Analisi non è una sol
 
 1. Creare una [chiave API](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
 2. Aggiornare lo script M di Power BI esportato da Analisi sostituendo l'URL di Azure Resource Manager con l'API di Application Insights.
-   * Sostituisci **https:\//Management.Azure.com/subscriptions/...**
-   * con, **https:\//API.applicationinsights.io/beta/Apps/...**
+   * Sostituisci **https:\//management.azure.com/subscriptions/...**
+   * con, **https:\//api.applicationinsights.io/beta/apps/...**
 3. Aggiornare infine le credenziali in credenziali di base e usare la chiave API.
 
 **Script esistente**
@@ -112,14 +112,14 @@ Se la riduzione del set di dati risultante dalla query di Analisi non è una sol
  ```
 
 ## <a name="about-sampling"></a>Informazioni sul campionamento
-A seconda della quantità di dati inviati dall'applicazione, può essere opportuno usare la funzionalità di campionamento adattivo, che invia solo una percentuale dei dati di telemetria. La stessa considerazione vale se il campionamento è stato impostato manualmente nell'SDK o durante l'inserimento. [Altre informazioni sul campionamento](../../azure-monitor/app/sampling.md).
+A seconda della quantità di dati inviati dall'applicazione, può essere opportuno usare la funzionalità di campionamento adattivo, che invia solo una percentuale dei dati di telemetria. La stessa considerazione vale se il campionamento è stato impostato manualmente nell'SDK o durante l'inserimento. [Ulteriori informazioni sul campionamento](../../azure-monitor/app/sampling.md).
 
 ## <a name="power-bi-adapter-deprecated"></a>Adattatore Power BI (deprecato)
 Con questo metodo si crea un dashboard di dati di telemetria completo per l'utente. Il set di dati iniziale è predefinito, ma è possibile aggiungere altri dati.
 
 ### <a name="get-the-adapter"></a>Scaricare l'adattatore
 1. Accedere a [Power BI](https://app.powerbi.com/).
-2. Aprire **Get Data** ![screenshot of GetData Icon nell'angolo in basso a sinistra](./media/export-power-bi/001.png), **Services**.
+2. Aprire **Recupera dati** ![Screenshot dell'icona Recupera dati nell'angolo inferiore sinistro](./media/export-power-bi/001.png), **Servizi**.
 
     ![Screenshot per il recupero di dati dall'origine dati di Application Insights](./media/export-power-bi/002.png)
 

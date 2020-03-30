@@ -14,10 +14,10 @@ ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 89bf49fb44d8575b251a0b33698bc4ce8425cc2b
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77160968"
 ---
 # <a name="support-and-help-options-for-developers"></a>Opzioni di supporto tecnico e assistenza per gli sviluppatori
@@ -65,22 +65,22 @@ Se non si trova una risposta alla domanda tramite la ricerca, inviare una nuova 
 | Middleware OWIN  | [[azure-active-directory]](https://stackoverflow.com/questions/tagged/azure-active-directory) |
 | [Azure B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)  | [[azure-ad-b2b]](https://stackoverflow.com/questions/tagged/azure-ad-b2b) |
 | [Azure B2C](https://azure.microsoft.com/services/active-directory-b2c/)  | [[azure-ad-b2c]](https://stackoverflow.com/questions/tagged/azure-ad-b2c) |
-| [API Microsoft Graph](https://developer.microsoft.com/graph/) | [[microsoft-graph]](https://stackoverflow.com/questions/tagged/microsoft-graph) |
+| [API Microsoft Graph](https://developer.microsoft.com/graph/) | [[microsoft-grafico]](https://stackoverflow.com/questions/tagged/microsoft-graph) |
 | Qualsiasi altra area correlata ad argomenti relativi all'autenticazione o all'autorizzazione | [[azure-active-directory]](https://stackoverflow.com/questions/tagged/azure-active-directory) |
 
 I post di Stack Overflow seguenti contengono suggerimenti su come porre domande e su come aggiungere codice sorgente. Seguire queste linee guida per aumentare la probabilità che i membri della community valutino le domande e rispondano rapidamente:
 
-* [Come creare una domanda utile](https://stackoverflow.com/help/how-to-ask)
+* [Come faccio a fare una buona domanda](https://stackoverflow.com/help/how-to-ask)
 * [Come creare un esempio minimo, completo e verificabile](https://stackoverflow.com/help/mcve)
 
 ## <a name="create-a-github-issue"></a>Segnalare un problema in GitHub
 
 In caso di bug o di problema relativo alle librerie Microsoft, segnalare il problema nei repository di GitHub. Le librerie sono open source, quindi gli utenti possono anche inviare anche una richiesta pull.
 
-Per un elenco di librerie e dei rispettivi repository GitHub, vedere gli argomenti seguenti:
+Per un elenco delle librerie e dei relativi repository GitHub, vedere quanto segue:
 
-* Librerie di [Azure Active Directory Authentication Library (adal)](../azuread-dev/active-directory-authentication-libraries.md) e repository GitHub
-* Librerie di [Microsoft Authentication Library (MSAL)](reference-v2-libraries.md) e repository GitHub
+* [Librerie di Azure Active Directory Authentication Library (ADAL)](../azuread-dev/active-directory-authentication-libraries.md) e repository GitHubAzure Active Directory Authentication Library (ADAL) and GitHub repositories
+* [Librerie Microsoft Authentication Library (MSAL)](reference-v2-libraries.md) e repository GitHub
 
 ## <a name="open-a-support-request"></a>Aprire una richiesta di supporto
 

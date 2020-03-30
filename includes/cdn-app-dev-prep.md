@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 11/21/2018
 ms.author: mazha
 ms.openlocfilehash: 41f2d4540f665137d34d262546cdc1a2edfbae3a
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77608741"
 ---
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 Prima di scrivere codice per la gestione di una rete CDN, è necessario eseguire alcune operazioni preliminari per consentire al codice di interagire con Azure Resource Manager. A tale scopo è necessario:
 
 * Creare un gruppo di risorse in cui includere il profilo di rete CDN creato in questa esercitazione
@@ -19,7 +19,7 @@ Prima di scrivere codice per la gestione di una rete CDN, è necessario eseguire
 * Applicare le autorizzazioni al gruppo di risorse in modo che solo gli utenti autorizzati del tenant di Azure AD possano interagire con il profilo di rete CDN
 
 ### <a name="creating-the-resource-group"></a>Creazione del gruppo di risorse
-1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Accedere al [portale](https://portal.azure.com)di Azure .
 2. Fare clic su **Crea una risorsa**.
 3. Cercare **Gruppo di risorse** e quindi nel riquadro Gruppo di risorse fare clic su **Crea**.
 
@@ -39,7 +39,7 @@ La creazione di un'entità servizio è costituita da diversi passaggi, compresa 
 > [!IMPORTANT]
 > Assicurarsi di completare tutti i passaggi dell' [esercitazione collegata](../articles/active-directory/develop/howto-create-service-principal-portal.md).  È *importante* completarla esattamente come descritto.  Assicurarsi di annotare l'**ID tenant**, il **nome di dominio del tenant** (in genere un dominio *.onmicrosoft.com*, se non è stato specificato un dominio personalizzato), l'**ID client** e la **chiave di autenticazione client**, perché queste informazioni saranno necessarie più avanti.  Proteggere con attenzione l'**ID client** e la **chiave di autenticazione client**, perché queste credenziali possono essere usate da chiunque per eseguire operazioni come entità servizio.
 >
-> Quando si arriva al passaggio denominato Configurare l'applicazione multi-tenant, selezionare **No**.
+> Quando si arriva al passaggio Configurazione applicazione multi-tenant, selezionare **No**.
 >
 > Quando si arriva al passaggio [Assegnare l'applicazione a un ruolo](../articles/active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application), usare il gruppo di risorse creato in precedenza, *CdnConsoleTutorial*, assegnando però il ruolo **Collaboratore profilo rete CDN** anziché il ruolo **Lettore**.  Dopo aver assegnato all'applicazione il ruolo di **collaboratore profilo di rete CDN** nel gruppo di risorse, tornare a questa esercitazione. 
 >
@@ -62,6 +62,6 @@ Se invece di un'entità servizio si preferisce usare l'autenticazione interattiv
     ![Applicazione nativa](./media/cdn-app-dev-prep/cdn-native-application-include.png)
 2. Nella pagina successiva viene richiesto un **URI di reindirizzamento**.  L'URI non verrà convalidato, ma è necessario ricordare i valori immessi. Sarà necessario in un secondo momento.
 3. Non è necessario creare una **chiave di autenticazione client**.
-4. Invece di assegnare un'entità servizio al ruolo di **collaboratore profilo di rete CDN** , verranno assegnati singoli utenti o gruppi.  In questo esempio si può notare che è stato assegnato l'utente *CDN Demo User* al ruolo **CDN Profile Contributor**.  
+4. Invece di assegnare un'entità servizio al ruolo di **collaboratore profilo di rete CDN** , verranno assegnati singoli utenti o gruppi.  In questo esempio, è possibile vedere che ho assegnato *l'utente demo CDN* al ruolo **Collaboratore profilo CDN.**  
 
     ![Accesso del singolo utente](./media/cdn-app-dev-prep/cdn-aad-user-include.png)

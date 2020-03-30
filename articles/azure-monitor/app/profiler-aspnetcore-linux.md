@@ -7,10 +7,10 @@ ms.author: cweining
 ms.date: 02/23/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 9c98cd5d3d4d76f9455e4c036aa32a4ead20cfff
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671716"
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Profilare app Web ASP.NET Core Linux di Azure con Application Insights Profiler
@@ -47,7 +47,7 @@ Le istruzioni seguenti si applicano a tutti gli ambienti di sviluppo Windows, Li
     dotnet add package Microsoft.ApplicationInsights.Profiler.AspNetCore
     ```
 
-1. Abilitare Application Insights in Program.cs:
+1. Abilitare Application Insights in Program.cs:Enable Application Insights in Program.cs:
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -56,7 +56,7 @@ Le istruzioni seguenti si applicano a tutti gli ambienti di sviluppo Windows, Li
             .UseStartup<Startup>();
     ```
     
-1. Abilitare Profiler in Startup.cs:
+1. Abilita Profiler nel Startup.cs:
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -170,8 +170,8 @@ L'output dovrebbe essere simile all'esempio seguente:
 
 ## <a name="known-issues"></a>Problemi noti
 
-### <a name="profile-now-button-doesnt-work-for-linux-profiler"></a>Il pulsante profilo ora non funziona per il profiler Linux
-La versione Linux del profiler di Application Insights non supporta ancora la profilatura su richiesta tramite il pulsante profile Now.
+### <a name="profile-now-button-doesnt-work-for-linux-profiler"></a>Il pulsante ProfilA ora non funziona per Linux Profiler
+La versione Linux del profiler di App Insights non supporta ancora la profilatura su richiesta utilizzando il pulsante del profilo ora.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

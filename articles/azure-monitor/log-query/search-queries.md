@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/06/2018
 ms.openlocfilehash: e13f4abc37e348759e7d0b8a2f7d890c82fe0d15
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77660241"
 ---
 # <a name="search-queries-in-azure-monitor-logs"></a>Query di ricerca nei log di Monitoraggio di Azure
@@ -43,7 +43,7 @@ search in (Event, SecurityEvent) "error"
 ```
 
 ### <a name="table-and-column-scoping"></a>Impostazione di una tabella e di una colonna come ambito
-Per impostazione predefinita, il comando **search** valuta tutte le colonne nel set di dati. Per eseguire la ricerca solo in una colonna specifica (denominata *source* nell'esempio seguente), usare questa sintassi:
+Per impostazione predefinita, il comando **search** valuta tutte le colonne nel set di dati. Per cercare solo una colonna specifica (denominata Source nell'esempio seguente), utilizzare la sintassi seguente:To search only a specific column (named *Source* in the below example), use this syntax:
 
 ```Kusto
 search in (Event) Source:"error"
@@ -51,7 +51,7 @@ search in (Event) Source:"error"
 ```
 
 > [!TIP]
-> Se si usa `==` invece di `:`, i risultati includeranno i record in cui la colonna *Source* contiene l'esatto valore "error" con l'esatta combinazione di maiuscole e minuscole. L'utilizzo di ':' includerà i record in cui l' *origine* contiene valori quali "codice errore 404" o "errore".
+> Se si usa `==` invece di `:`, i risultati includeranno i record in cui la colonna *Source* contiene l'esatto valore "error" con l'esatta combinazione di maiuscole e minuscole. L'utilizzo di ':' includerà i record in cui *Source* ha valori come "codice di errore 404" o "Errore".
 
 ## <a name="case-sensitivity"></a>Distinzione tra maiuscole e minuscole
 Per impostazione predefinita, la ricerca di termini non fa distinzione tra maiuscole e minuscole, quindi una ricerca di "dns" potrebbe restituire risultati come "DNS", "dns" o "Dns". Per eseguire una ricerca con distinzione tra maiuscole e minuscole, usare l'opzione `kind`:
@@ -94,7 +94,7 @@ search in (Event) "corp*.com"
 > [!TIP]
 > Sebbene sia possibile usare `search *` per ottenere tutte le colonne di ogni tabella, è consigliabile impostare sempre tabelle specifiche come ambito delle query. Le query senza ambito potrebbero richiedere tempo per il completamento e potrebbero restituire un numero eccessivo di risultati.
 
-## <a name="add-and--or-to-search-queries"></a>Aggiungere *e* / *o* per cercare query
+## <a name="add-and--or-to-search-queries"></a>Aggiungere *and* / *or* alle query di ricerca
 Usare **and** per cercare i record che contengono più termini:
 
 ```Kusto

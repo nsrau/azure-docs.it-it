@@ -1,6 +1,6 @@
 ---
-title: Metriche basate su log di applicazione Azure Insights | Microsoft Docs
-description: Questo articolo elenca applicazione Azure metriche di Insights con le aggregazioni e le dimensioni supportate. Le informazioni dettagliate sulle metriche basate su log includono le istruzioni di query kusto sottostanti.
+title: 'Metriche basate su log di Azure Application Insights : Documenti Microsoft'
+description: Questo articolo elenca le metriche di Azure Application Insights con aggregazioni e dimensioni supportate. I dettagli sulle metriche basate su log includono le istruzioni di query Kusto sottostanti.
 author: vgorbenko
 services: azure-monitor
 ms.topic: reference
@@ -8,48 +8,48 @@ ms.date: 07/03/2019
 ms.author: vitalyg
 ms.subservice: application-insights
 ms.openlocfilehash: 12bc51e800ef5ccd4ad3c72d3860fb22bac5b749
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77664916"
 ---
-# <a name="application-insights-log-based-metrics"></a>Metriche basate su log Application Insights
+# <a name="application-insights-log-based-metrics"></a>Metriche basate sui log di Application Insights
 
-Application Insights metriche basate su log consentono di analizzare l'integrità delle app monitorate, creare dashboard potenti e configurare gli avvisi. Esistono due tipi di metriche:
+Le metriche basate sui log di Application Insights consentono di analizzare l'integrità delle app monitorate, creare dashboard potenti e configurare avvisi. Esistono due tipi di metriche:
 
-* Le [metriche basate su log](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#log-based-metrics) dietro la scena vengono convertite in [query kusto](https://docs.microsoft.com/azure/kusto/query/) da eventi archiviati.
-* Le [metriche standard](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics) vengono archiviate come serie temporali pre-aggregate.
+* [Le metriche basate su log dietro](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#log-based-metrics) la scena vengono convertite in query [Kusto](https://docs.microsoft.com/azure/kusto/query/) da eventi memorizzati.
+* [Le metriche standard](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics) vengono archiviate come serie temporali preaggregate.
 
-Poiché le *metriche standard* sono pre-aggregate durante la raccolta, hanno prestazioni migliori in fase di query. Questo li rende una scelta migliore per i dashboard e per gli avvisi in tempo reale. Le *metriche basate su log* hanno più dimensioni, in modo da renderle l'opzione superiore per l'analisi dei dati e la diagnostica ad hoc. Usare il [selettore dello spazio dei nomi](metrics-getting-started.md#create-your-first-metric-chart) per passare tra la metrica basata su log e la metrica standard in [Esplora metriche](metrics-getting-started.md).
+Poiché *le metriche standard* sono preaggregate durante la raccolta, offrono prestazioni migliori in fase di query. Questo li rende una scelta migliore per il dashboarding e in tempo reale di avviso. Le *metriche basate su log* hanno più dimensioni, il che le rende l'opzione superiore per l'analisi dei dati e la diagnostica ad hoc. Utilizzare il [selettore dello spazio dei nomi](metrics-getting-started.md#create-your-first-metric-chart) per passare tra le metriche basate su log e le metriche standard in Esplora [metriche.](metrics-getting-started.md)
 
 ## <a name="interpret-and-use-queries-from-this-article"></a>Interpretare e usare le query di questo articolo
 
-Questo articolo elenca le metriche con le aggregazioni e le dimensioni supportate. Le informazioni dettagliate sulle metriche basate su log includono le istruzioni di query kusto sottostanti. Per praticità, ogni query utilizza le impostazioni predefinite per la granularità temporale, il tipo di grafico e talvolta la suddivisione della dimensione che semplifica l'utilizzo della query in Log Analytics senza alcuna necessità di modifica.
+Questo articolo elenca le metriche con aggregazioni e dimensioni supportate. I dettagli sulle metriche basate su log includono le istruzioni di query Kusto sottostanti. Per comodità, ogni query usa le impostazioni predefinite per la granularità temporale, il tipo di grafico e talvolta la dimensione di divisione che semplifica l'utilizzo della query in Log Analytics senza alcuna necessità di modifica.
 
-Quando si traccia la stessa metrica in [Esplora metriche](metrics-getting-started.md), non sono disponibili valori predefiniti. la query viene modificata in modo dinamico in base alle impostazioni del grafico:
+Quando si traccia la stessa metrica in [Esplora metriche](metrics-getting-started.md), non sono presenti impostazioni predefinite: la query viene regolata dinamicamente in base alle impostazioni del grafico:
 
-- L' **intervallo di tempo** selezionato viene convertito in un'altra clausola *where timestamp...* per selezionare solo gli eventi dall'intervallo di tempo selezionato. Ad esempio, un grafico che mostra i dati per le ultime 24 ore, la query include *| where timestamp > ago (24 h)* .
+- **L'intervallo** di tempo selezionato viene convertito in una clausola *timestamp...* aggiuntiva per selezionare solo gli eventi dall'intervallo di tempo selezionato. Ad esempio, un grafico che mostra i dati per le 24 ore più recenti, la query include *il valore in cui timestamp > fa(24 h)*.
 
-- La **granularità temporale** selezionata viene inserita nel riepilogo finale *... per bin (timestamp, [Time Grain])* .
+- La **granularità temporale** selezionata viene inserita nel riepilogo finale *... per clausola bin(timestamp, [grana temporale]).*
 
-- Tutte le dimensioni di **filtro** selezionate vengono convertite in clausole *where* aggiuntive.
+- Tutte le dimensioni **filtro** selezionate vengono convertite in clausole *where* aggiuntive.
 
-- La dimensione selezionata del **grafico suddiviso** viene convertita in una proprietà riepilogativa aggiuntiva. Se, ad esempio, si suddivide il grafico in base alla *posizione*e si esegue il tracciato utilizzando una granularità di 5 minuti, la clausola *riepilogativa* viene riepilogata *... per bin (timestamp, 5 m), location*.
+- La dimensione **del grafico diviso** selezionata viene convertita in una proprietà di riepilogo aggiuntiva. Ad esempio, se si divide il grafico per *posizione*e si traccia utilizzando una granularità temporale di 5 minuti, la clausola *di riepilogo* viene riepilogata *... per bin(timestamp, 5 m), ubicazione*.
 
 > [!NOTE]
-> Se non si ha familiarità con il linguaggio di query kusto, si inizia copiando e incollando istruzioni kusto nel riquadro Query Log Analytics senza apportare alcuna modifica. Fare clic su **Esegui** per visualizzare il grafico di base. Quando si inizia a comprendere la sintassi del linguaggio di query, è possibile iniziare a apportare piccole modifiche e vedere l'effetto della modifica. L'esplorazione dei propri dati è un ottimo modo per iniziare a realizzare tutta la potenza di [log Analytics](../../azure-monitor/log-query/get-started-portal.md) e [monitoraggio di Azure](../../azure-monitor/overview.md).
+> Se non si ha familiarità con il linguaggio di query Kusto, è possibile iniziare copiando e incollando le istruzioni Kusto nel riquadro della query di Log Analytics senza apportare modifiche. Fare clic su **Esegui** per visualizzare il grafico di base. Quando si inizia a comprendere la sintassi del linguaggio di query, è possibile iniziare ad apportare piccole modifiche e vedere l'impatto delle modifiche. Esplorare i propri dati è un ottimo modo per iniziare a realizzare tutta la potenza di [Log Analytics](../../azure-monitor/log-query/get-started-portal.md) e Monitoraggio [di Azure.](../../azure-monitor/overview.md)
 
 ## <a name="availability-metrics"></a>Metriche di disponibilità
 
-Le metriche nella categoria di disponibilità consentono di visualizzare l'integrità dell'applicazione Web come osservato dai punti di tutto il mondo. [Configurare i test di disponibilità](../../azure-monitor/app/monitor-web-app-availability.md) per iniziare a usare qualsiasi metrica da questa categoria.
+Le metriche nella categoria Disponibilità consentono di visualizzare l'integrità dell'applicazione Web osservata dai punti di tutto il mondo. [Configurare i test](../../azure-monitor/app/monitor-web-app-availability.md) di disponibilità per iniziare a usare qualsiasi metrica di questa categoria.
 
 ### <a name="availability-availabilityresultsavailabilitypercentage"></a>Disponibilità (availabilityResults/availabilityPercentage)
-La metrica di *disponibilità* Mostra la percentuale delle esecuzioni dei test Web che non hanno rilevato alcun problema. Il valore più basso possibile è 0, che indica che tutte le esecuzioni dei test Web non sono riuscite. Il valore 100 indica che tutte le esecuzioni dei test Web hanno superato i criteri di convalida.
+La metrica *Disponibilità* mostra la percentuale di esecuzioni di test Web che non hanno rilevato problemi. Il valore più basso possibile è 0, che indica che tutte le esecuzioni dei test Web non sono riuscite. Il valore 100 indica che tutte le esecuzioni dei test Web hanno superato i criteri di convalida.
 
 |Unità di misura|Aggregazioni supportate|Dimensioni supportate|
 |---|---|---|---|---|---|
-|Percentuale|Media|Percorso di esecuzione, nome del test|
+|Percentuale|Media|Percorso di esecuzione, Nome test|
 
 ```Kusto
 availabilityResults 
@@ -57,13 +57,13 @@ availabilityResults
 | render timechart
 ```
 
-### <a name="availability-test-duration-availabilityresultsduration"></a>Durata del test di disponibilità (availabilityResults/Duration)
+### <a name="availability-test-duration-availabilityresultsduration"></a>Durata del test di disponibilità (availabilityResults/duration)
 
-La metrica *durata test di disponibilità* indica il tempo impiegato per l'esecuzione del test Web. Per i [test Web](../../azure-monitor/app/availability-multistep.md)in più passaggi, la metrica riflette il tempo di esecuzione totale di tutti i passaggi.
+La metrica *Durata test disponibilità* indica il tempo impiegato per l'esecuzione del test Web. Per i [test Web in più passaggi,](../../azure-monitor/app/availability-multistep.md)la metrica riflette il tempo di esecuzione totale di tutti i passaggi.
 
 |Unità di misura|Aggregazioni supportate|Dimensioni supportate|
 |---|---|---|---|---|---|
-|Millisecondi|Media, min, max|Percorso di esecuzione, nome del test, risultato del test
+|Millisecondi|Media, Min, Max|Percorso di esecuzione, Nome test, Risultato del test
 
 ```Kusto
 availabilityResults
@@ -75,11 +75,11 @@ availabilityResults
 
 ### <a name="availability-tests-availabilityresultscount"></a>Test di disponibilità (availabilityResults/count)
 
-La metrica dei *test di disponibilità* riflette il conteggio delle esecuzioni dei test Web da parte di monitoraggio di Azure.
+La metrica *Test di disponibilità* riflette il conteggio dei test Web eseguiti da Monitoraggio di Azure.The Availability tests metric reflects the count of the web tests runs by Azure Monitor.
 
 |Unità di misura|Aggregazioni supportate|Dimensioni supportate|
 |---|---|---|---|---|---|
-|Conteggio|Conteggio|Percorso di esecuzione, nome del test, risultato del test|
+|Conteggio|Conteggio|Percorso di esecuzione, Nome test, Risultato del test|
 
 ```Kusto
 availabilityResults
@@ -89,16 +89,16 @@ availabilityResults
 
 ## <a name="browser-metrics"></a>Metriche del browser
 
-Le metriche del browser vengono raccolte dal Application Insights JavaScript SDK dai browser degli utenti finali reali. Forniscono informazioni eccezionali sull'esperienza degli utenti con l'app Web. Le metriche del browser non vengono in genere campionate, il che significa che forniscono una maggiore precisione dei numeri di utilizzo rispetto alle metriche lato server, che potrebbero essere inclinate in base al campionamento.
+Le metriche del browser vengono raccolte da Application Insights JavaScript SDK da browser utente reali. Forniscono informazioni approfondite sull'esperienza degli utenti con l'app Web. Le metriche del browser in genere non vengono campionate, il che significa che forniscono una maggiore precisione dei numeri di utilizzo rispetto alle metriche lato server che potrebbero essere distorte dal campionamento.
 
 > [!NOTE]
 > Per raccogliere le metriche del browser, l'applicazione deve essere instrumentata con [Application Insights JavaScript SDK](../../azure-monitor/app/javascript.md).
 
-### <a name="browser-page-load-time-browsertimingstotalduration"></a>Tempo di caricamento pagina del browser (browserTimings/totalDuration)
+### <a name="browser-page-load-time-browsertimingstotalduration"></a>Tempo di caricamento della pagina del browser (browserTimings/totalDuration)
 
-|Unità di misura|Aggregazioni supportate|Dimensioni pre-aggregate|
+|Unità di misura|Aggregazioni supportate|Dimensioni preaggregate|
 |---|---|---|
-|Millisecondi|Media, min, max|None|
+|Millisecondi|Media, Min, Max|nessuno|
 
 ```Kusto
 browserTimings
@@ -112,9 +112,9 @@ browserTimings
 
 ### <a name="client-processing-time-browsertimingprocessingduration"></a>Tempo di elaborazione client (browserTiming/processingDuration)
 
-|Unità di misura|Aggregazioni supportate|Dimensioni pre-aggregate|
+|Unità di misura|Aggregazioni supportate|Dimensioni preaggregate|
 |---|---|---|
-|Millisecondi|Media, min, max|None|
+|Millisecondi|Media, Min, Max|nessuno|
 
 ```Kusto
 browserTimings
@@ -126,11 +126,11 @@ browserTimings
 | render timechart
 ```
 
-### <a name="page-load-network-connect-time-browsertimingsnetworkduration"></a>Tempo di connessione alla rete di caricamento della pagina (browserTimings/networkDuration)
+### <a name="page-load-network-connect-time-browsertimingsnetworkduration"></a>Tempo di connessione alla rete del caricamento pagina (browserTimings/networkDuration)
 
-|Unità di misura|Aggregazioni supportate|Dimensioni pre-aggregate|
+|Unità di misura|Aggregazioni supportate|Dimensioni preaggregate|
 |---|---|---|
-|Millisecondi|Media, min, max|None|
+|Millisecondi|Media, Min, Max|nessuno|
 
 ```Kusto
 browserTimings
@@ -144,9 +144,9 @@ browserTimings
 
 ### <a name="receiving-response-time-browsertimingsreceiveduration"></a>Ricezione del tempo di risposta (browserTimings/receiveDuration)
 
-|Unità di misura|Aggregazioni supportate|Dimensioni pre-aggregate|
+|Unità di misura|Aggregazioni supportate|Dimensioni preaggregate|
 |---|---|---|
-|Millisecondi|Media, min, max|None|
+|Millisecondi|Media, Min, Max|nessuno|
 
 ```Kusto
 browserTimings
@@ -158,11 +158,11 @@ browserTimings
 | render timechart
 ```
 
-### <a name="send-request-time-browsertimingssendduration"></a>Tempo di invio richiesta (browserTimings/sendDuration)
+### <a name="send-request-time-browsertimingssendduration"></a>Invia tempo richiesta (browserTimings/sendDuration)
 
-|Unità di misura|Aggregazioni supportate|Dimensioni pre-aggregate|
+|Unità di misura|Aggregazioni supportate|Dimensioni preaggregate|
 |---|---|---|
-|Millisecondi|Media, min, max|None|
+|Millisecondi|Media, Min, Max|nessuno|
 
 ```Kusto
 browserTimings
@@ -174,17 +174,17 @@ browserTimings
 | render timechart
 ```
 
-## <a name="failure-metrics"></a>Metriche errori
+## <a name="failure-metrics"></a>Metriche di errore
 
-Le metriche negli **errori** presentano problemi relativi all'elaborazione delle richieste, alle chiamate alle dipendenze e alle eccezioni generate.
+Le metriche in **Errori** mostrano problemi con l'elaborazione delle richieste, delle chiamate di dipendenza e delle eccezioni generate.
 
 ### <a name="browser-exceptions-exceptionsbrowser"></a>Eccezioni del browser (eccezioni/browser)
 
-Questa metrica riflette il numero di eccezioni generate dal codice dell'applicazione in esecuzione nel browser. Nella metrica vengono incluse solo le eccezioni rilevate con una chiamata ```trackException()``` Application Insights API.
+Questa metrica riflette il numero di eccezioni generate dal codice dell'applicazione in esecuzione nel browser. Solo le eccezioni rilevate ```trackException()``` con una chiamata all'API di Application Insights vengono incluse nella metrica.
 
-|Unità di misura|Aggregazioni supportate|Dimensioni pre-aggregate|Note|
+|Unità di misura|Aggregazioni supportate|Dimensioni preaggregate|Note|
 |---|---|---|---|
-|Conteggio|Conteggio|None|Per la versione basata su log viene utilizzata l'aggregazione **Sum**|
+|Conteggio|Conteggio|nessuno|La versione basata su log utilizza l'aggregazione SumLog-based version uses **Sum** aggregation|
 
 ```Kusto
 exceptions
@@ -193,13 +193,13 @@ exceptions
 | render barchart
 ```
 
-### <a name="dependency-call-failures-dependenciesfailed"></a>Errori delle chiamate di dipendenza (dipendenze/non riuscite)
+### <a name="dependency-call-failures-dependenciesfailed"></a>Errori delle chiamate di dipendenza (dipendenze/non riuscite)Dependency call failures (dependencies/failed)
 
 Numero di chiamate di dipendenza non riuscite.
 
-|Unità di misura|Aggregazioni supportate|Dimensioni pre-aggregate|Note|
+|Unità di misura|Aggregazioni supportate|Dimensioni preaggregate|Note|
 |---|---|---|---|
-|Conteggio|Conteggio|None|Per la versione basata su log viene utilizzata l'aggregazione **Sum**|
+|Conteggio|Conteggio|nessuno|La versione basata su log utilizza l'aggregazione SumLog-based version uses **Sum** aggregation|
 
 ```Kusto
 dependencies
@@ -210,11 +210,11 @@ dependencies
 
 ### <a name="exceptions-exceptionscount"></a>Eccezioni (eccezioni/conteggio)
 
-Ogni volta che si registra un'eccezione a Application Insights, viene [rilevata una chiamata al metodo trackexception ()](../../azure-monitor/app/api-custom-events-metrics.md#trackexception) dell'SDK. La metrica eccezioni Mostra il numero di eccezioni registrate.
+Ogni volta che si registra un'eccezione ad Application Insights, viene chiamata al [metodo trackException()](../../azure-monitor/app/api-custom-events-metrics.md#trackexception) dell'SDK. La metrica Eccezioni mostra il numero di eccezioni registrate.
 
-|Unità di misura|Aggregazioni supportate|Dimensioni pre-aggregate|Note|
+|Unità di misura|Aggregazioni supportate|Dimensioni preaggregate|Note|
 |---|---|---|---|
-|Conteggio|Conteggio|Nome del ruolo Cloud, istanza del ruolo Cloud, tipo di dispositivo|Per la versione basata su log viene utilizzata l'aggregazione **Sum**|
+|Conteggio|Conteggio|Nome del ruolo cloud, Istanza del ruolo Cloud, Tipo di dispositivo|La versione basata su log utilizza l'aggregazione SumLog-based version uses **Sum** aggregation|
 
 ```Kusto
 exceptions
@@ -224,11 +224,11 @@ exceptions
 
 ### <a name="failed-requests-requestsfailed"></a>Richieste non riuscite (richieste/non riuscite)
 
-Conteggio delle richieste del server rilevate contrassegnate come *non riuscite*. Per impostazione predefinita, il Application Insights SDK contrassegna automaticamente ogni richiesta del server che ha restituito il codice di risposta HTTP 5xx o 4xx come richiesta non riuscita. È possibile personalizzare questa logica modificando la proprietà *Success* dell'elemento telemetria della richiesta in un [inizializzatore di telemetria personalizzato](../../azure-monitor/app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer).
+Numero di richieste di server con rilevamento contrassegnate come *non riuscite.* Per impostazione predefinita, Application Insights SDK contrassegna automaticamente ogni richiesta del server che ha restituito il codice di risposta HTTP 5xx o 4xx come richiesta non riuscita. È possibile personalizzare questa logica modificando la proprietà *di esito* positivo dell'elemento di telemetria della richiesta in un [inizializzatore di telemetria personalizzato.](../../azure-monitor/app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer)
 
-|Unità di misura|Aggregazioni supportate|Dimensioni pre-aggregate|Note|
+|Unità di misura|Aggregazioni supportate|Dimensioni preaggregate|Note|
 |---|---|---|---|
-|Conteggio|Conteggio|Istanza del ruolo Cloud, nome del ruolo Cloud, traffico reale o sintetico, prestazioni delle richieste, codice di risposta|Per la versione basata su log viene utilizzata l'aggregazione **Sum**|
+|Conteggio|Conteggio|Istanza del ruolo cloud, nome del ruolo Cloud, Traffico reale o sintetico, Prestazioni richiesta, Codice risposta|La versione basata su log utilizza l'aggregazione SumLog-based version uses **Sum** aggregation|
 
 ```Kusto
 requests
@@ -237,13 +237,13 @@ requests
 | render barchart
 ```
 
-### <a name="server-exceptions-exceptionsserver"></a>Eccezioni del server (eccezioni/server)
+### <a name="server-exceptions-exceptionsserver"></a>Eccezioni server (eccezioni/server)
 
-Questa metrica indica il numero di eccezioni del server.
+Questa metrica mostra il numero di eccezioni del server.
 
-|Unità di misura|Aggregazioni supportate|Dimensioni pre-aggregate|Note|
+|Unità di misura|Aggregazioni supportate|Dimensioni preaggregate|Note|
 |---|---|---|---|
-|Conteggio|Conteggio|Nome del ruolo Cloud, istanza del ruolo Cloud|Per la versione basata su log viene utilizzata l'aggregazione **Sum**|
+|Conteggio|Conteggio|Nome del ruolo cloud, istanza del ruolo Cloud|La versione basata su log utilizza l'aggregazione SumLog-based version uses **Sum** aggregation|
 
 ```Kusto
 exceptions
@@ -254,7 +254,7 @@ exceptions
 
 ## <a name="performance-counters"></a>Contatori delle prestazioni
 
-Usare le metriche nella categoria **contatori delle prestazioni** per accedere ai [contatori delle prestazioni di sistema raccolti da Application Insights](../../azure-monitor/app/performance-counters.md).
+Usare le metriche nella categoria **Contatori delle prestazioni** per accedere [ai contatori delle prestazioni](../../azure-monitor/app/performance-counters.md)del sistema raccolti da Application Insights .
 
 ### <a name="available-memory-performancecountersavailablememory"></a>Memoria disponibile (performanceCounters/availableMemory)
 
@@ -286,7 +286,7 @@ performanceCounters
 | render timechart
 ```
 
-### <a name="http-request-rate-performancecountersrequestspersecond"></a>Frequenza delle richieste HTTP (performanceCounters/requestsPerSecond)
+### <a name="http-request-rate-performancecountersrequestspersecond"></a>Frequenza richieste HTTP (performanceCounters/requestsPerSecond)
 
 ```Kusto
 performanceCounters
@@ -306,13 +306,13 @@ performanceCounters
 | render timechart
 ```
 
-### <a name="process-cpu-performancecountersprocesscpupercentage"></a>CPU processo (performanceCounters/processCpuPercentage)
+### <a name="process-cpu-performancecountersprocesscpupercentage"></a>CPU di processo (performanceCounters/processCpuPercentage)
 
-La metrica Mostra la quantità di capacità totale del processore utilizzata dal processo che ospita l'app monitorata.
+La metrica mostra la quantità di capacità totale del processore utilizzata dal processo che ospita l'app monitorata.
 
 |Unità di misura|Aggregazioni supportate|Dimensioni supportate|
 |---|---|---|
-|Percentuale|Media, min, max|Istanza del ruolo del cloud
+|Percentuale|Media, Min, Max|Istanza del ruolo del cloud
 
 ```Kusto
 performanceCounters
@@ -322,11 +322,11 @@ performanceCounters
 | render timechart
 ```
 
-### <a name="process-io-rate-performancecountersprocessiobytespersecond"></a>Velocità IO processo (performanceCounters/processIOBytesPerSecond)
+### <a name="process-io-rate-performancecountersprocessiobytespersecond"></a>Frequenza di I/O processo (performanceCounters/processIOBytesPerSecond)
 
 |Unità di misura|Aggregazioni supportate|Dimensioni supportate|
 |---|---|---|
-|Byte al secondo|Media, min, max|Istanza del ruolo del cloud
+|Byte al secondo|Media, Min, Max|Istanza del ruolo del cloud
 
 ```Kusto
 performanceCounters
@@ -336,13 +336,13 @@ performanceCounters
 | render timechart
 ```
 
-### <a name="process-private-bytes-performancecountersprocessprivatebytes"></a>Byte privati processo (performanceCounters/processPrivateBytes)
+### <a name="process-private-bytes-performancecountersprocessprivatebytes"></a>Elaborare byte privati (performanceCounters/processPrivateBytes)
 
 Quantità di memoria non condivisa allocata dal processo monitorato per i dati.
 
 |Unità di misura|Aggregazioni supportate|Dimensioni supportate|
 |---|---|---|
-|Byte|Media, min, max|Istanza del ruolo del cloud
+|Byte|Media, Min, Max|Istanza del ruolo del cloud
 
 ```Kusto
 performanceCounters
@@ -354,14 +354,14 @@ performanceCounters
 
 ### <a name="processor-time-performancecountersprocessorcpupercentage"></a>Tempo processore (performanceCounters/processorCpuPercentage)
 
-Utilizzo della CPU da parte di *tutti* i processi in esecuzione nell'istanza del server monitorata.
+Utilizzo della CPU da parte di *tutti i* processi in esecuzione sull'istanza del server monitorato.
 
 |Unità di misura|Aggregazioni supportate|Dimensioni supportate|
 |---|---|---|
-|Percentuale|Media, min, max|Istanza del ruolo del cloud
+|Percentuale|Media, Min, Max|Istanza del ruolo del cloud
 
 >[!NOTE]
-> La metrica del tempo del processore non è disponibile per le applicazioni ospitate nei servizi app Azure. Usare la metrica [Process CPU](#process-cpu-performancecountersprocesscpupercentage) per tenere traccia dell'utilizzo della CPU delle applicazioni Web ospitate nei servizi app.
+> The processor time metric is not available for the applications hosted in Azure App Services. Utilizzare la metrica [Elabora CPU](#process-cpu-performancecountersprocesscpupercentage) per tenere traccia dell'utilizzo della CPU delle applicazioni Web ospitate in Servizi app.
 
 ```Kusto
 performanceCounters
@@ -375,7 +375,7 @@ performanceCounters
 
 ### <a name="dependency-calls-dependenciescount"></a>Chiamate di dipendenza (dipendenze/conteggio)
 
-Questa metrica è correlata al numero di chiamate alle dipendenze.
+Questa metrica è in relazione al numero di chiamate alle dipendenze.
 
 ```Kusto
 dependencies
@@ -383,7 +383,7 @@ dependencies
 | render barchart
 ```
 
-### <a name="dependency-duration-dependenciesduration"></a>Durata delle dipendenze (dipendenze/durata)
+### <a name="dependency-duration-dependenciesduration"></a>Durata dipendenza (dipendenze/durata)
 
 Questa metrica si riferisce alla durata delle chiamate alle dipendenze.
 
@@ -400,7 +400,7 @@ dependencies
 
 ### <a name="server-requests-requestscount"></a>Richieste server (richieste/conteggio)
 
-Questa metrica riflette il numero di richieste server in ingresso ricevute dall'applicazione Web.
+Questa metrica riflette il numero di richieste del server in ingresso ricevute dall'applicazione Web.
 
 ```Kusto
 requests
@@ -425,9 +425,9 @@ requests
 
 ## <a name="usage-metrics"></a>Metriche di utilizzo
 
-### <a name="page-view-load-time-pageviewsduration"></a>Tempo di caricamento della visualizzazione pagina (pagine visualizzate/durata)
+### <a name="page-view-load-time-pageviewsduration"></a>Tempo di caricamento della visualizzazione pagina (pageViews/duration)
 
-Questa metrica si riferisce alla quantità di tempo impiegato per il caricamento degli eventi di visualizzazione pagina.
+Questa metrica fa riferimento alla quantità di tempo impiegato per il caricamento degli eventi PageView.This metric refers to the amount of time took for PageView events to load.
 
 ```Kusto
 pageViews
@@ -440,9 +440,9 @@ pageViews
 | render barchart
 ```
 
-### <a name="page-views-pageviewscount"></a>Visualizzazioni pagina (pagine di visualizzazione/conteggio)
+### <a name="page-views-pageviewscount"></a>Visualizzazioni di pagina (pageViews/count)
 
-Il numero di eventi di visualizzazione della pagina registrati con l'API Application Insights TrackPageView ().
+Numero di eventi PageView registrati con l'API TrackPageView() Application Insights.
 
 ```Kusto
 pageViews
@@ -452,7 +452,7 @@ pageViews
 
 ### <a name="sessions-sessionscount"></a>Sessioni (sessioni/conteggio)
 
-Questa metrica si riferisce al numero di ID di sessione distinti.
+Questa metrica si riferisce al conteggio di ID di sessione distinti.
 
 ```Kusto
 union traces, requests, pageViews, dependencies, customEvents, availabilityResults, exceptions, customMetrics, browserTimings
@@ -463,7 +463,7 @@ union traces, requests, pageViews, dependencies, customEvents, availabilityResul
 
 ### <a name="traces-tracescount"></a>Tracce (tracce/conteggio)
 
-Numero di istruzioni di traccia registrate con la chiamata API TrackTrace () Application Insights.
+Numero di istruzioni di traccia registrate con la chiamata API TrackTrace() Application Insights.
 
 ```Kusto
 traces
@@ -471,9 +471,9 @@ traces
 | render barchart
 ```
 
-### <a name="users-userscount"></a>Utenti (utenti/conteggi)
+### <a name="users-userscount"></a>Utenti (utenti/conteggio)
 
-Numero di utenti distinti che hanno eseguito l'accesso all'applicazione. L'accuratezza della metrica potrebbe avere un notevole effetto sull'uso del campionamento e del filtro di telemetria.
+Numero di utenti distinti che hanno eseguito l'accesso all'applicazione. L'accuratezza di questa metrica può essere significativamente influenzata dall'utilizzo del filtro e del campionamento dei dati di telemetria.
 
 ```Kusto
 union traces, requests, pageViews, dependencies, customEvents, availabilityResults, exceptions, customMetrics, browserTimings

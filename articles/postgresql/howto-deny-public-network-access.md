@@ -1,46 +1,46 @@
 ---
-title: Negare l'accesso alla rete pubblica-portale di Azure-database di Azure per PostgreSQL-server singolo
-description: Informazioni su come configurare l'accesso negato alla rete pubblica usando portale di Azure per il server singolo database di Azure per PostgreSQL
+title: Nega accesso alla rete pubblica - Portale di Azure - Database di Azure per PostgreSQL - Server singolo
+description: Informazioni su come configurare Nega accesso di rete pubblica usando il portale di Azure per il database di Azure per PostgreSQL Singolo server
 author: kummanish
 ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.openlocfilehash: 4dff2321414721dbd415b468e59aea0ab4b3acee
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79375122"
 ---
-# <a name="deny-public-network-access-in-azure-database-for-postgresql-single-server-using-azure-portal"></a>Negare l'accesso alla rete pubblica nel server singolo database di Azure per PostgreSQL usando portale di Azure
+# <a name="deny-public-network-access-in-azure-database-for-postgresql-single-server-using-azure-portal"></a>Nega accesso alla rete pubblica nel database di Azure per PostgreSQL Singolo server tramite il portale di AzureDeny Public Network Access in Azure Database for PostgreSQL Single server using Azure portal
 
-Questo articolo descrive come configurare un singolo server di database di Azure per PostgreSQL per negare tutte le configurazioni pubbliche e consentire solo le connessioni tramite endpoint privati per migliorare ulteriormente la sicurezza della rete.
+In questo articolo viene descritto come configurare un database di Azure per PostgreSQL Singolo server per negare tutte le configurazioni pubbliche e consentire solo le connessioni tramite endpoint privati per migliorare ulteriormente la sicurezza di rete.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa guida, è necessario:
 
-* Un [server singolo database di Azure per PostgreSQL](quickstart-create-PostgreSQL Single server-server-database-using-azure-portal.md)
+* Un [database di Azure per PostgreSQL singolo server](quickstart-create-PostgreSQL Single server-server-database-using-azure-portal.md)
 
 ## <a name="set-deny-public-network-access"></a>Impostare Nega accesso alla rete pubblica
 
-Seguire questa procedura per impostare PostgreSQL Single Server Deny Public Network Access:
+Attenersi alla seguente procedura per impostare PostgreSQL Server singolo Nega accesso alla rete pubblica:
 
-1. Nella [portale di Azure](https://portal.azure.com/)selezionare il server singolo database di Azure per PostgreSQL.
+1. Nel [portale](https://portal.azure.com/)di Azure selezionare il database di Azure esistente per PostgreSQL Singolo server.
 
-1. Nella pagina server singolo PostgreSQL, in **Impostazioni**, fare clic su **sicurezza connessione** per aprire la pagina Configurazione sicurezza connessione.
+1. Nella pagina PostgreSQL Server singolo, in **Impostazioni**, fare clic su **Sicurezza connessione** per aprire la pagina di configurazione della sicurezza della connessione.
 
-1. In **Nega accesso alla rete pubblica**selezionare **Sì** per abilitare Nega accesso pubblico per il server singolo PostgreSQL.
+1. In **Nega accesso alla rete pubblica**selezionare **Sì** per abilitare Nega accesso pubblico per il server PostgreSQL Singolo.
 
-    ![Server singolo database di Azure per PostgreSQL Nega accesso alla rete](./media/howto-deny-public-network-access/deny-public-network-access.PNG)
+    ![Database di Azure per PostgreSQL Singolo server Nega accesso alla reteAzure Database for PostgreSQL Single server Deny network access](./media/howto-deny-public-network-access/deny-public-network-access.PNG)
 
-1. È consigliabile fare clic su **Salva** per salvare le modifiche.
+1. Fare clic su **Salva** per salvare le modifiche.
 
-1. Una notifica conferma che l'impostazione di sicurezza della connessione è stata abilitata correttamente.
+1. Una notifica confermerà che l'impostazione di sicurezza della connessione è stata abilitata correttamente.
 
-    ![Il server singolo database di Azure per PostgreSQL nega l'accesso alla rete riuscito](./media/howto-deny-public-network-access/deny-public-network-access-success.png)
+    ![Database di Azure per PostgreSQL Singolo server Nega accesso alla rete riuscito](./media/howto-deny-public-network-access/deny-public-network-access-success.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni su [come creare avvisi per le metriche](howto-alert-on-metric.md).
+Informazioni su [come creare avvisi sulle metriche.](howto-alert-on-metric.md)

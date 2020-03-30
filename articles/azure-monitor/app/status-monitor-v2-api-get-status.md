@@ -1,35 +1,35 @@
 ---
-title: Informazioni di riferimento sull'API dell'agente applicazione Azure Insights
-description: Informazioni di riferimento sull'API dell'agente Application Insights. Get-ApplicationInsightsMonitoringStatus. Monitora le prestazioni del sito Web senza ridistribuire il sito Web. Questa funzionalità può essere usata con app Web ASP.NET ospitate in locale, in macchine virtuali o in Azure.
+title: Informazioni di riferimento sull'API di Azure Application Insights AgentAzure Application Insights Agent API reference
+description: Informazioni di riferimento sull'API dell'agente di Application Insights.Application Insights Agent API reference. Get-ApplicationInsightsMonitoringStatus. Monitorare le prestazioni del sito Web senza ridistribuire il sito Web. Questa funzionalità può essere usata con app Web ASP.NET ospitate in locale, in macchine virtuali o in Azure.
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
 ms.openlocfilehash: 159dab4a228c822ef62c45c9ccceff638a9bea45
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671257"
 ---
 # <a name="application-insights-agent-api-get-applicationinsightsmonitoringstatus"></a>API dell'agente di Application Insights: Get-ApplicationInsightsMonitoringStatus
 
-Questo articolo descrive un cmdlet che fa parte del modulo di [PowerShell AZ. ApplicationMonitor](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
+In questo articolo viene descritto un cmdlet membro del [modulo PowerShell Az.ApplicationMonitor](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
 ## <a name="description"></a>Descrizione
 
-Questo cmdlet fornisce informazioni sulla risoluzione dei problemi relativi a Status Monitor.
-Usare questo cmdlet per esaminare lo stato del monitoraggio, la versione del modulo di PowerShell e per esaminare il processo in esecuzione.
-Questo cmdlet consente di segnalare le informazioni sulla versione e le informazioni sui file di chiave necessari per il monitoraggio.
+Questo cmdlet fornisce informazioni sulla risoluzione dello stato.
+Utilizzare questo cmdlet per esaminare lo stato di monitoraggio, versione del modulo PowerShell, e per controllare il processo in esecuzione.
+Questo cmdlet segnalerà informazioni sulla versione e informazioni sui file chiave necessari per il monitoraggio.
 
 > [!IMPORTANT] 
 > Questo cmdlet richiede una sessione di PowerShell con autorizzazioni di amministratore.
 
 ## <a name="examples"></a>Esempi
 
-### <a name="example-application-status"></a>Esempio: stato dell'applicazione
+### <a name="example-application-status"></a>Esempio: Stato dell'applicazione
 
-Eseguire il comando `Get-ApplicationInsightsMonitoringStatus` per visualizzare lo stato di monitoraggio dei siti Web.
+Eseguire il `Get-ApplicationInsightsMonitoringStatus` comando per visualizzare lo stato di monitoraggio dei siti Web.
 
 ```
 PS C:\Windows\system32> Get-ApplicationInsightsMonitoringStatus
@@ -65,17 +65,17 @@ ProcessId              : 5184
 AppAlreadyInstrumented : true
 ```
 
-In questo esempio:
-- **Identificatore computer** è un ID anonimo utilizzato per identificare in modo univoco il server. Se si crea una richiesta di supporto, sarà necessario questo ID per trovare i log del server.
-- Il **sito Web predefinito** è stato arrestato in IIS
+In questo esempio;
+- **Identificatore macchina** è un ID anonimo utilizzato per identificare in modo univoco il server. Se crei una richiesta di supporto, avremo bisogno di questo ID per trovare i log per il tuo server.
+- **Il sito Web predefinito** è arrestato in IIS
 - **DemoWebApp111** è stato avviato in IIS, ma non ha ricevuto alcuna richiesta. Questo report mostra che non è presente alcun processo in esecuzione (ProcessId: non trovato).
-- **DemoWebApp222** è in esecuzione e viene monitorato (instrumentato: true). In base alla configurazione dell'utente, la chiave di strumentazione xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx123 è stata trovata per questo sito.
-- **DemoWebApp333** è stato instrumentato manualmente con Application Insights SDK. Status Monitor ha rilevato l'SDK e non monitorerà il sito.
+- **DemoWebApp22** è in esecuzione e viene monitorato (Instrumented: true). In base alla configurazione utente, la chiave di strumentazione xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx123 è stata abbinata per questo sito.
+- **DemoWebApp333** è stato instrumentato manualmente utilizzando Application Insights SDK. Status Monitor ha rilevato l'SDK e non monitora questo sito.
 
 
-### <a name="example-powershell-module-information"></a>Esempio: informazioni sui moduli di PowerShell
+### <a name="example-powershell-module-information"></a>Esempio: informazioni sui moduli di PowerShellExample: PowerShell module information
 
-Eseguire il comando `Get-ApplicationInsightsMonitoringStatus -PowerShellModule` per visualizzare le informazioni sul modulo corrente:
+Eseguire il `Get-ApplicationInsightsMonitoringStatus -PowerShellModule` comando per visualizzare informazioni sul modulo corrente:
 
 ```
 PS C:\> Get-ApplicationInsightsMonitoringStatus -PowerShellModule
@@ -127,11 +127,11 @@ ApplicationInsightsSdkPath (Exists: True)
 C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Runtime\Microsoft.ApplicationInsights.dll
 ```
 
-### <a name="example-runtime-status"></a>Esempio: stato di runtime
+### <a name="example-runtime-status"></a>Esempio: stato di runtimeExample: Runtime status
 
-È possibile esaminare il processo nel computer instrumentato per verificare se tutte le dll sono state caricate. Se il monitoraggio è funzionante, è necessario caricare almeno 12 dll.
+È possibile esaminare il processo sul computer instrumentato per verificare se tutte le DLL sono caricate. Se il monitoraggio funziona, è necessario caricare almeno 12 DLL.
 
-Eseguire il comando `Get-ApplicationInsightsMonitoringStatus -InspectProcess`:
+Eseguire il `Get-ApplicationInsightsMonitoringStatus -InspectProcess`comando :
 
 
 ```
@@ -170,32 +170,32 @@ listdlls64.exe -accepteula w3wp
 ### <a name="no-parameters"></a>(Nessun parametro)
 
 Per impostazione predefinita, questo cmdlet segnalerà lo stato di monitoraggio delle applicazioni Web.
-Usare questa opzione per verificare se l'applicazione è stata instrumentata correttamente.
-È anche possibile esaminare la chiave di strumentazione di cui è stata trovata una corrispondenza per il sito.
+Utilizzare questa opzione per verificare se l'applicazione è stata instrumentata correttamente.
+È inoltre possibile verificare quale chiave di strumentazione è stata abbinata al sito.
 
 
-### <a name="-powershellmodule"></a>-PowerShellModule
-**Facoltativo**. Usare questa opzione per segnalare i numeri di versione e i percorsi delle DLL necessarie per il monitoraggio.
-Usare questa opzione se è necessario identificare la versione di qualsiasi DLL, incluso il Application Insights SDK.
+### <a name="-powershellmodule"></a>-Modulo di PowerShell
+**Facoltativo**. Utilizzare questa opzione per segnalare i numeri di versione e i percorsi delle DLL necessari per il monitoraggio.
+Utilizzare questa opzione se è necessario identificare la versione di qualsiasi DLL, incluso Application Insights SDK.
 
 ### <a name="-inspectprocess"></a>-InspectProcess
 
 **Facoltativo**. Utilizzare questa opzione per segnalare se IIS è in esecuzione.
-Verranno inoltre scaricati gli strumenti esterni per determinare se le DLL necessarie sono state caricate nel runtime IIS.
+Verranno inoltre scaricati gli strumenti esterni per determinare se le DLL necessarie vengono caricate nel runtime di IIS.
 
 
-Se il processo ha esito negativo per qualsiasi motivo, è possibile eseguire questi comandi manualmente:
+Se questo processo non riesce per qualsiasi motivo, è possibile eseguire questi comandi manualmente:If this process fails for any reason, you can run these commands manually:
 - iisreset.exe /status
-- [handle64. exe](https://docs.microsoft.com/sysinternals/downloads/handle) -p w3wp | findstr/I "InstrumentationEngine AI. ApplicationInsights
-- [listdlls64. exe](https://docs.microsoft.com/sysinternals/downloads/listdlls) w3wp | findstr/I "InstrumentationEngine AI ApplicationInsights"
+- [handle64.exe](https://docs.microsoft.com/sysinternals/downloads/handle) -p w3wp findstr /I "InstrumentationEngine AI. ApplicationInsights"
+- [listdlls64.exe](https://docs.microsoft.com/sysinternals/downloads/listdlls) w3wp findstr /I "InstrumentationEngine AI ApplicationInsights"
 
 
 ### <a name="-force"></a>-Force
 
-**Facoltativo**. Utilizzato solo con InspectProcess. Usare questa opzione per ignorare la richiesta dell'utente visualizzata prima del download di altri strumenti.
+**Facoltativo**. Utilizzato solo con InspectProcess. Utilizzare questa opzione per ignorare il prompt dell'utente visualizzato prima del download di altri strumenti.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
- Eseguire altre operazioni con Application Insights Agent:
- - Usare la guida per [risolvere i problemi relativi](status-monitor-v2-troubleshoot.md) a Application Insights Agent.
+ Fai di più con Application Insights Agent:
+ - Usare la guida per [risolvere i problemi relativi](status-monitor-v2-troubleshoot.md) all'agente application Insights.Use our guide to troubleshoot Application Insights Agent.

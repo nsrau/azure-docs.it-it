@@ -1,6 +1,6 @@
 ---
-title: Gestione del consenso alle applicazioni e valutazione delle richieste di consenso-Azure AD
-description: Informazioni su come gestire le richieste di consenso quando il consenso dell'utente è disabilitato o limitato e come valutare una richiesta di consenso dell'amministratore a livello di tenant per un'applicazione.
+title: Gestione del consenso alle applicazioni e valutazione delle richieste di consenso - Azure ADManaging consent to applications and evaluating consent requests - Azure AD
+description: Informazioni su come gestire le richieste di consenso quando il consenso dell'utente è disabilitato o limitato e su come valutare una richiesta di consenso di amministratore a livello di tenant per un'applicazione.
 services: active-directory
 author: psignoret
 manager: CelesteDG
@@ -13,100 +13,100 @@ ms.author: mimart
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0451fe18629a572c9b49f14924bfa50293f42a2b
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77367842"
 ---
-# <a name="managing-consent-to-applications-and-evaluating-consent-requests"></a>Gestione del consenso alle applicazioni e valutazione delle richieste di consenso
+# <a name="managing-consent-to-applications-and-evaluating-consent-requests"></a>Gestione del consenso alle domande e valutazione delle richieste di consenso
 
-Microsoft [consiglia](https://docs.microsoft.com/azure/security/fundamentals/steps-secure-identity#restrict-user-consent-operations) di disabilitare il consenso dell'utente finale per le applicazioni. Il processo decisionale verrà centralizzato con il team di amministratori di sicurezza e identità dell'organizzazione.
+Microsoft [consiglia di](https://docs.microsoft.com/azure/security/fundamentals/steps-secure-identity#restrict-user-consent-operations) disabilitare il consenso dell'utente finale alle applicazioni. Questo centralirà il processo decisionale con il team di amministratori di identità e sicurezza dell'organizzazione.
 
-Quando il consenso dell'utente finale è disabilitato o limitato, è necessario tenere presenti alcune considerazioni importanti per garantire che l'organizzazione rimanga protetta, pur continuando a consentire l'uso di applicazioni aziendali critiche. Questa procedura è fondamentale per ridurre al minimo l'effetto sul team di supporto e sugli amministratori IT dell'organizzazione, evitando l'uso di account non gestiti in applicazioni di terze parti.
+Dopo che il consenso dell'utente finale è stato disabilitato o limitato, esistono diverse considerazioni importanti per garantire che l'organizzazione rimanga sicura, pur consentendo l'utilizzo di applicazioni aziendali critiche. Questi passaggi sono fondamentali per ridurre al minimo l'impatto sul team di supporto dell'organizzazione e sugli amministratori IT, impedendo al contempo l'utilizzo di account non gestiti in applicazioni di terze parti.
 
-## <a name="process-changes-and-education"></a>Elaborazione delle modifiche e della formazione
+## <a name="process-changes-and-education"></a>Cambiamenti di processo e istruzione
 
- 1. Provare ad abilitare il [flusso di lavoro di consenso dell'amministratore (anteprima)](configure-admin-consent-workflow.md) per consentire agli utenti di richiedere l'approvazione dell'amministratore direttamente dalla schermata di consenso.
+ 1. Valutare la possibilità di abilitare il flusso di lavoro di [consenso dell'amministratore (anteprima)](configure-admin-consent-workflow.md) per consentire agli utenti di richiedere l'approvazione dell'amministratore direttamente dalla schermata di consenso.
 
- 2. Assicurarsi che tutti gli amministratori conoscano le [autorizzazioni e il Framework di consenso](../develop/consent-framework.md), il funzionamento della [richiesta di consenso](../develop/application-consent-experience.md) e la [valutazione di una richiesta di consenso dell'amministratore a livello di tenant](#evaluating-a-request-for-tenant-wide-admin-consent).
- 3. Esaminare i processi esistenti dell'organizzazione per consentire agli utenti di richiedere l'approvazione dell'amministratore per un'applicazione e di effettuare gli aggiornamenti, se necessario. Se i processi vengono modificati:
+ 2. Assicurarsi che tutti gli amministratori comprendano il framework delle autorizzazioni e del [consenso,](../develop/consent-framework.md)il funzionamento della richiesta di [consenso](../develop/application-consent-experience.md) e come valutare una richiesta di consenso di amministratore a livello di [tenant.](#evaluating-a-request-for-tenant-wide-admin-consent)
+ 3. Esaminare i processi esistenti dell'organizzazione per consentire agli utenti di richiedere l'approvazione dell'amministratore per un'applicazione e apportare aggiornamenti, se necessario. Se i processi vengono modificati:
     * Aggiornare la documentazione, il monitoraggio, l'automazione e così via pertinenti.
-    * Comunicare le modifiche del processo a tutti gli utenti, gli sviluppatori, i team di supporto e gli amministratori IT interessati.
+    * Comunicare le modifiche dei processi a tutti gli utenti, gli sviluppatori, i team di supporto e gli amministratori IT interessati.
 
 ## <a name="auditing-and-monitoring"></a>Controllo e monitoraggio
 
-1. [Controllare le app e concedere le autorizzazioni](https://docs.microsoft.com/azure/security/fundamentals/steps-secure-identity#audit-apps-and-consented-permissions) nell'organizzazione per assicurarsi che in precedenza non sia stato concesso l'accesso ai dati alle applicazioni non autorizzate o sospette.
+1. [Applicazioni di controllo e autorizzazioni concesse](https://docs.microsoft.com/azure/security/fundamentals/steps-secure-identity#audit-apps-and-consented-permissions) all'organizzazione per garantire che nessuna applicazione ingiustificata o sospetta non abbia ricevuto l'accesso ai dati in precedenza.
 
-2. Esaminare [rilevare e correggere le concessioni di consenso illecito in Office 365](https://docs.microsoft.com/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants) per altre procedure consigliate e misure di sicurezza per le applicazioni sospette che richiedono il consenso OAuth.
+2. Esaminare Rilevare e correggere le concessioni di [consenso illecito in Office 365](https://docs.microsoft.com/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants) per ulteriori procedure consigliate e misure di protezione contro le applicazioni sospette che richiedono il consenso OAuth.
 
-3. Se l'organizzazione ha la licenza appropriata:
+3. Se l'organizzazione dispone della licenza appropriata:
 
-    * Usare le [funzionalità aggiuntive di controllo delle applicazioni OAuth in Microsoft cloud app Security](https://docs.microsoft.com/cloud-app-security/investigate-risky-oauth).
-    * Usare [le cartelle di lavoro di monitoraggio di Azure per monitorare le autorizzazioni e le](../reports-monitoring/howto-use-azure-monitor-workbooks.md) attività correlate al consenso. La cartella di lavoro di *acconsente Insights* offre una visualizzazione delle app in base al numero di richieste di consenso non riuscite. Questa operazione può essere utile per classificare in ordine di priorità le applicazioni per gli amministratori e decidere se concedere loro il consenso dell'amministratore.
+    * Usare funzionalità di controllo delle [applicazioni OAuth](https://docs.microsoft.com/cloud-app-security/investigate-risky-oauth)aggiuntive in Microsoft Cloud App Security .
+    * Usare Le cartelle di lavoro di Monitoraggio di [Azure per monitorare le autorizzazioni e consentire le](../reports-monitoring/howto-use-azure-monitor-workbooks.md) attività correlate. La cartella di lavoro *Consent Insights* fornisce una visualizzazione delle app in base al numero di richieste di consenso non riuscite. Ciò può essere utile per assegnare priorità alle applicazioni per gli amministratori di rivedere e decidere se concedere loro il consenso dell'amministratore.
 
-### <a name="additional-considerations-for-reducing-friction"></a>Considerazioni aggiuntive per la riduzione dell'attrito
+### <a name="additional-considerations-for-reducing-friction"></a>Considerazioni aggiuntive per ridurre l'attrito
 
-Per ridurre al minimo l'effetto sulle applicazioni attendibili e cruciali per l'azienda già in uso, è consigliabile concedere in modo proattivo il consenso dell'amministratore per le applicazioni che dispongono di un numero elevato di concessioni di consenso utente:
+Per ridurre al minimo l'impatto sulle applicazioni attendibili e business-critical già in uso, è consigliabile concedere in modo proattivo il consenso dell'amministratore alle applicazioni con un numero elevato di concessioni di consenso degli utenti:
 
-1. Eseguire un inventario delle app già aggiunte all'organizzazione con utilizzo elevato, in base ai registri di accesso o all'attività di concessione del consenso. Uno [script](https://gist.github.com/psignoret/41793f8c6211d2df5051d77ca3728c09) di PowerShell può essere usato per individuare in modo rapido e semplice le applicazioni con un numero elevato di concessioni di consenso dell'utente.
+1. Eseguire un inventario delle app già aggiunte all'organizzazione con un utilizzo elevato, in base ai log di accesso o all'attività di concessione del consenso. Uno [script](https://gist.github.com/psignoret/41793f8c6211d2df5051d77ca3728c09) di PowerShell può essere utilizzato per individuare rapidamente e facilmente le applicazioni con un numero elevato di concessioni di consenso degli utenti.
 
-2. Valutare le prime applicazioni a cui non è stato ancora concesso il consenso dell'amministratore.
+2. Valutare le applicazioni principali a cui non è stato ancora concesso il consenso dell'amministratore.
 
    > [!IMPORTANT]
-   > Valutare attentamente un'applicazione prima di concedere il consenso dell'amministratore a livello di tenant, anche se molti utenti dell'organizzazione hanno già acconsentito per se stessi.
+   > Valutare attentamente un'applicazione prima di concedere il consenso di amministratore a livello di tenant, anche se molti utenti dell'organizzazione hanno già acconsentito a se stessi.
 
-3. Per ogni applicazione approvata, concedere il consenso dell'amministratore a livello di tenant usando uno dei metodi descritti di seguito.
+3. Per ogni applicazione approvata, concedere il consenso di amministratore a livello di tenant utilizzando uno dei metodi descritti di seguito.
 
-4. Per ogni applicazione approvata, è consigliabile [limitare l'accesso degli utenti](configure-user-consent.md).
+4. Per ogni applicazione approvata, [è consigliabile limitare l'accesso degli utenti.](configure-user-consent.md)
 
-## <a name="evaluating-a-request-for-tenant-wide-admin-consent"></a>Valutazione di una richiesta di consenso dell'amministratore a livello di tenant
+## <a name="evaluating-a-request-for-tenant-wide-admin-consent"></a>Valutazione di una richiesta di consenso di amministratore a livello di tenant
 
-La concessione del consenso dell'amministratore a livello di tenant è un'operazione sensibile.  Le autorizzazioni verranno concesse per conto dell'intera organizzazione e possono includere le autorizzazioni per tentare operazioni con privilegi elevati. Ad esempio, la gestione dei ruoli, l'accesso completo a tutte le cassette postali o tutti i siti e la rappresentazione completa dell'utente.
+La concessione del consenso di amministratore a livello di tenant è un'operazione delicata.  Le autorizzazioni verranno concesse per conto dell'intera organizzazione e possono includere le autorizzazioni per tentare operazioni con privilegi elevati. Ad esempio, la gestione dei ruoli, l'accesso completo a tutte le cassette postali o a tutti i siti e la rappresentazione utente completa.
 
-Prima di concedere il consenso dell'amministratore a livello di tenant, è necessario assicurarsi che l'applicazione e l'autore dell'applicazione siano considerati attendibili per il livello di accesso concesso. Se non si è certi di chi controlla l'applicazione e perché l'applicazione richiede le autorizzazioni, non *concedere il consenso*.
+Prima di concedere il consenso di amministratore a livello di tenant, è necessario assicurarsi di considerare attendibile l'applicazione e l'autore dell'applicazione, per il livello di accesso che si sta concedendo. Se non si è certi di aver compreso chi controlla l'applicazione e perché l'applicazione richiede le autorizzazioni, *non concedere*il consenso .
 
-Nell'elenco seguente vengono fornite alcune raccomandazioni da considerare durante la valutazione di una richiesta di concessione del consenso dell'amministratore.
+Nell'elenco seguente vengono forniti alcuni suggerimenti da considerare quando si valuta una richiesta di concessione del consenso dell'amministratore.
 
-* **Informazioni sul [Framework di consenso e autorizzazioni](../develop/consent-framework.md) nella piattaforma di identità Microsoft.**
+* **Comprendere il framework per [le autorizzazioni e il consenso](../develop/consent-framework.md) nella piattaforma microsoft di identità.**
 
-* **Comprendere la differenza tra le [autorizzazioni delegate e le autorizzazioni dell'applicazione](../develop/v2-permissions-and-consent.md#permission-types).**
+* **Comprendere la differenza tra [le autorizzazioni delegate e le autorizzazioni dell'applicazione.](../develop/v2-permissions-and-consent.md#permission-types)**
 
    Le autorizzazioni dell'applicazione consentono all'applicazione di accedere ai dati per l'intera organizzazione, senza alcuna interazione da parte dell'utente. Le autorizzazioni delegate consentono all'applicazione di agire per conto di un utente che a un certo punto è stato connesso all'applicazione.
 
-* **Informazioni sulle autorizzazioni richieste.**
+* **Comprendere le autorizzazioni richieste.**
 
-   Le autorizzazioni richieste dall'applicazione sono elencate nella richiesta di [consenso](../develop/application-consent-experience.md). Espandendo il titolo dell'autorizzazione, viene visualizzata la descrizione dell'autorizzazione. La descrizione per le autorizzazioni dell'applicazione in genere termina con "senza un utente connesso". La descrizione per le autorizzazioni delegate termina in genere con "per conto dell'utente connesso". Le autorizzazioni per l'API Microsoft Graph sono descritte in [riferimento alle autorizzazioni Microsoft Graph]. per informazioni sulle autorizzazioni esposte, vedere la documentazione relativa ad altre API.
+   Le autorizzazioni richieste dall'applicazione sono elencate nella richiesta di [consenso](../develop/application-consent-experience.md). Espandendo il titolo dell'autorizzazione verrà visualizzata la descrizione dell'autorizzazione. La descrizione delle autorizzazioni dell'applicazione in genere termina con "senza un utente connesso". La descrizione delle autorizzazioni delegate termina in genere con "per conto dell'utente connesso". Le autorizzazioni per l'API Microsoft Graph sono descritte in [Microsoft Graph Permissions Reference]- fare riferimento alla documentazione di altre API per comprendere le autorizzazioni che espongono.
 
-   Se non si comprende un'autorizzazione richiesta, non *concedere il consenso*.
+   Se non si comprende un'autorizzazione richiesta, *non concedere il consenso*.
 
-* **Individuare l'applicazione che richiede le autorizzazioni e l'autore dell'applicazione.**
+* **Comprendere quale applicazione richiede le autorizzazioni e chi ha pubblicato l'applicazione.**
 
-   Tenere presente che le applicazioni dannose tentano di somigliare ad altre applicazioni.
+   Diffidare di applicazioni dannose cercando di apparire come altre applicazioni.
 
-   Se si dubita della legittimità di un'applicazione o del relativo editore, non *concedere il consenso*. Al contrario, cercare una conferma aggiuntiva (ad esempio, direttamente dall'editore di applicazioni).
+   Se avete dubbi sulla legittimità di una domanda o del suo editore, *non concedete il consenso*. Cercare invece una conferma aggiuntiva (ad esempio, direttamente dall'autore dell'applicazione).
 
-* **Verificare che le autorizzazioni richieste siano allineate con le funzionalità attese dall'applicazione.**
+* **Assicurarsi che le autorizzazioni richieste siano allineate con le funzionalità previste dall'applicazione.**
 
-   Ad esempio, un'applicazione che offre la gestione del sito di SharePoint può richiedere l'accesso delegato per leggere tutte le raccolte siti, ma non richiede necessariamente l'accesso completo a tutte le cassette postali o i privilegi di rappresentazione completi nella directory.
+   Ad esempio, un'applicazione che offre la gestione del sito di SharePoint potrebbe richiedere l'accesso delegato per leggere tutte le raccolte siti, ma non richiede necessariamente l'accesso completo a tutte le cassette postali o i privilegi di rappresentazione completa nella directory.
 
-   Se si ritiene che l'applicazione richiede più autorizzazioni di quelle necessarie, non *concedere il consenso*. Per ottenere maggiori dettagli, contattare l'autore dell'applicazione.
+   Se si sospetta che l'applicazione richieda più autorizzazioni di quelle necessarie, *non concedere*il consenso . Contattare l'autore dell'applicazione per ottenere ulteriori dettagli.
 
 ## <a name="granting-consent-as-an-administrator"></a>Concessione del consenso come amministratore
 
-### <a name="granting-tenant-wide-admin-consent"></a>Concessione del consenso dell'amministratore a livello di tenant
+### <a name="granting-tenant-wide-admin-consent"></a>Concessione del consenso di amministratore a livello di tenantGranting tenant-wide admin consent
 
-Per istruzioni dettagliate su come concedere il consenso dell'amministratore a livello di tenant dal portale di Azure, usando Azure AD PowerShell o dalla richiesta di consenso, vedere [concedere il consenso dell'amministratore a livello di tenant a un'applicazione](grant-admin-consent.md) .
+Vedere Concedere il consenso di amministratore a livello di [tenant a un'applicazione](grant-admin-consent.md) per istruzioni dettagliate per concedere il consenso di amministratore a livello di tenant dal portale di Azure, tramite Azure AD PowerShell o dalla richiesta di consenso stessa.
 
 ### <a name="granting-consent-on-behalf-of-a-specific-user"></a>Concessione del consenso per conto di un utente specifico
 
-Anziché concedere il consenso per l'intera organizzazione, un amministratore può utilizzare anche il [API Graph Microsft](https://docs.microsoft.com/graph/use-the-api) per concedere il consenso alle autorizzazioni delegate per conto di un singolo utente. Per altre informazioni, vedere [ottenere l'accesso per conto di un utente](https://docs.microsoft.com/graph/auth-v2-user).
+Anziché concedere il consenso per l'intera organizzazione, un amministratore può anche utilizzare [l'API Microsft Graph](https://docs.microsoft.com/graph/use-the-api) per concedere il consenso alle autorizzazioni delegate per conto di un singolo utente. Per ulteriori informazioni, vedere [Ottenere l'accesso per conto di un utente.](https://docs.microsoft.com/graph/auth-v2-user)
 
 ## <a name="limiting-user-access-to-applications"></a>Limitazione dell'accesso degli utenti alle applicazioni
 
-L'accesso degli utenti alle applicazioni può ancora essere limitato anche quando è stato concesso il consenso dell'amministratore a livello di tenant. Per ulteriori informazioni su come richiedere l'assegnazione di un utente a un'applicazione, vedere [metodi per l'assegnazione di utenti e gruppi](methods-for-assigning-users-and-groups.md).
+L'accesso degli utenti alle applicazioni può comunque essere limitato anche quando è stato concesso il consenso di amministratore a livello di tenant. Per ulteriori informazioni su come richiedere l'assegnazione dell'utente a un'applicazione, vedere [metodi per l'assegnazione di utenti e gruppi](methods-for-assigning-users-and-groups.md).
 
-Per una panoramica più ampia, tra cui come gestire scenari complessi aggiuntivi, vedere [uso di Azure ad per la gestione dell'accesso alle applicazioni](what-is-access-management.md).
+Per una panoramica più ampia, incluso come gestire scenari complessi aggiuntivi, vedere Uso di Azure AD per la [gestione dell'accesso alle applicazioni.](what-is-access-management.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -114,8 +114,8 @@ Per una panoramica più ampia, tra cui come gestire scenari complessi aggiuntivi
 
 [Configurare il flusso di lavoro di consenso dell'amministratore](configure-admin-consent-workflow.md)
 
-[Configurare la modalità con cui gli utenti finali accettano le applicazioni](configure-user-consent.md)
+[Configurare il modo in cui gli utenti finali consentono di concedere il consenso alle applicazioni](configure-user-consent.md)
 
 [Autorizzazioni e consenso nella piattaforma di identità Microsoft](../develop/active-directory-v2-scopes.md)
 
-[Azure AD in StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
+[Azure AD on StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

@@ -10,10 +10,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/28/2020
 ms.openlocfilehash: ea960a92aee1c9447bb12d27cffdc42de9fd907a
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77672124"
 ---
 # <a name="use-apache-pig-with-apache-hadoop-on-hdinsight"></a>Usare Apache Pig con Apache Hadoop in HDInsight
@@ -22,7 +22,7 @@ Informazioni su come usare [Apache Pig](https://pig.apache.org/) con HDInsight.
 
 Apache Pig è una piattaforma che consente la creazione di programmi per Apache Hadoop usando un linguaggio procedurale denominato *Pig Latin*. Pig è un'alternativa a Java per la creazione di soluzioni *MapReduce* ed è incluso in Azure HDInsight. Usare la tabella seguente per individuare i vari modi in cui Pig può essere usato con HDInsight:
 
-## <a id="why"></a>Perché usare Apache Pig
+## <a name="why-use-apache-pig"></a><a id="why"></a>Perché usare Apache Pig
 
 Quando si elaborano dati usando MapReduce in Hadoop, uno dei problemi principali è riuscire a implementare la logica di elaborazione usando solo una mappa e una funzione di riduzione. In caso di esigenze di elaborazione complesse, è spesso necessario interrompere l'elaborazione in più operazioni di MapReduce concatenate insieme per ottenere il risultato desiderato.
 
@@ -30,11 +30,11 @@ Pig consente di definire l'elaborazione come una serie di trasformazioni a cui v
 
 Il linguaggio Pig Latin consente di descrivere il flusso dati dall'input non elaborato fino all'output desiderato, attraverso una o più trasformazioni. I programmi in Pig Latin seguono questo modello generale:
 
-* **Load**: legge i dati da modificare dal file System.
+* **Carica**: Leggere i dati da manipolare dal file system.
 
-* **Transform**: modificare i dati.
+* **Trasforma**: Manipolare i dati.
 
-* **Dump o Store**: consente di visualizzare i dati sullo schermo o di archiviarli per l'elaborazione.
+* **Dump o store**: Output dei dati sullo schermo o archiviazione per l'elaborazione.
 
 ### <a name="user-defined-functions"></a>Funzioni definite dall'utente
 
@@ -42,7 +42,7 @@ Pig Latin supporta anche funzioni definite dall'utente (UDF), che consentono di 
 
 Per altre informazioni su Pig Latin, vedere il [manuale di riferimento di Pig Latin 1](https://archive.cloudera.com/cdh/3/pig/piglatin_ref1.html) e il [manuale di riferimento di Pig Latin 2](https://archive.cloudera.com/cdh/3/pig/piglatin_ref2.html).
 
-## <a id="data"></a>Dati di esempio
+## <a name="example-data"></a><a id="data"></a>Dati di esempio
 
 HDInsight offre diversi set di dati di esempio, archiviati nelle directory `/example/data` e `/HdiSamples`. Queste directory si trovano nella risorsa di archiviazione predefinita per il cluster. L'esempio di Pig in questo documento usa il file *log4j* da `/example/data/sample.log`.
 
@@ -55,7 +55,7 @@ Nell'esempio precedente, il livello log è ERROR.
 > [!NOTE]  
 > È anche possibile generare un file log4j usando lo strumento di registrazione [Apache Log4j](https://en.wikipedia.org/wiki/Log4j) e quindi caricandolo nel BLOB. Per istruzioni, vedere [Caricamento di dati in HDInsight](hdinsight-upload-data.md) . Per altre informazioni sul modo in cui HDInsight usa l'archiviazione BLOB di Azure, vedere [Usare l'archiviazione BLOB di Azure con HDInsight](hdinsight-hadoop-use-blob-storage.md).
 
-## <a id="job"></a>Processo di esempio
+## <a name="example-job"></a><a id="job"></a>Processo di esempio
 
 Il processo Pig Latin seguente carica il file `sample.log` dalla risorsa di archiviazione predefinita per il cluster HDInsight. Esegue quindi una serie di trasformazioni che generano un conteggio delle occorrenze di ciascun livello di log presente nei dati di input. I risultati vengono scritti in STDOUT.
 
@@ -73,7 +73,7 @@ L'immagine seguente illustra un riepilogo degli effetti di ogni trasformazione s
 
 ![Rappresentazione grafica delle trasformazioni][image-hdi-pig-data-transformation]
 
-## <a id="run"></a>Eseguire il processo Pig Latin
+## <a name="run-the-pig-latin-job"></a><a id="run"></a>Eseguire il processo Pig Latin
 
 HDInsight è in grado di eseguire processi Pig Latin in vari modi. Usare la tabella seguente per decidere il metodo più adatto alle proprie esigenze, quindi fare clic sul collegamento per visualizzare una procedura dettagliata.
 
@@ -81,17 +81,17 @@ HDInsight è in grado di eseguire processi Pig Latin in vari modi. Usare la tabe
 
 È possibile usare SQL Server Integration Services (SSIS) per eseguire un processo Pig. Il Feature Pack di Azure per SSIS fornisce i seguenti componenti che funzionano con i processi Pig in HDInsight.
 
-* [Attività Pig di Azure HDInsight][pigtask]
+* [Attività di Pig di Azure HDInsight][pigtask]
 
 * [Gestione connessione della sottoscrizione di Azure][connectionmanager]
 
 Altre informazioni sul Feature Pack di Azure per SSIS sono disponibili [qui][ssispack].
 
-## <a id="nextsteps"></a>Passaggi successivi
+## <a name="next-steps"></a><a id="nextsteps"></a>Passaggi successivi
 
 Dopo avere appreso come usare Pig con HDInsight, vedere i collegamenti seguenti per scoprire altri modi di usare Azure HDInsight.
 
-* [Caricare dati in HDInsight](hdinsight-upload-data.md)
+* [Caricare i dati in HDInsightUpload data to HDInsight](hdinsight-upload-data.md)
 * [Usare Apache Hive con HDInsight](./hadoop/hdinsight-use-hive.md)
 * [Usare Apache Sqoop con HDInsight](hdinsight-use-sqoop.md)
 * [Usare processi MapReduce con HDInsight](./hadoop/hdinsight-use-mapreduce.md)

@@ -1,6 +1,6 @@
 ---
-title: Visualizzare i dati con Azure Esplora dati Connector per Power BI
-description: 'Questo articolo illustra come usare una delle tre opzioni disponibili per la visualizzazione dei dati in Power BI: connettore Power BI per Esplora dati di Azure.'
+title: Visualizzare i dati con il connettore di Azure Data Explorer per Power BI
+description: 'In questo articolo viene illustrato come usare una delle tre opzioni per la visualizzazione dei dati in Power BI: il connettore di Power BI per Azure Data Explorer.'
 author: orspod
 ms.author: orspodek
 ms.reviewer: gabil
@@ -8,17 +8,17 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.openlocfilehash: a95d45481bed17e46429e3a22dff4b8cc62354a9
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77560491"
 ---
 # <a name="visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>Visualizzare i dati con il connettore Esplora dati di Azure per Power BI
 
-Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. Power BI è una soluzione di analisi aziendale che consente di visualizzare i dati e condividere i risultati all'interno dell'organizzazione. Esplora dati di Azure fornisce tre opzioni per la connessione ai dati in Power BI: usare il connettore predefinito, importare una query da Esplora dati di Azure o usare una query SQL. Questo articolo illustra come usare il connettore incorporato per ottenere i dati e visualizzarli in un report Power BI. L'uso di Azure Esplora dati connettore nativo per la creazione di Power BI Dashboard è semplice. Il connettore Power BI supporta le [modalità di connettività di query e importazione diretta](https://docs.microsoft.com/power-bi/desktop-directquery-about). È possibile compilare dashboard usando la modalità **importazione** o **DirectQuery** , a seconda dei requisiti di scenario, scalabilità e prestazioni. 
+Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. Power BI è una soluzione di analisi aziendale che consente di visualizzare i dati e condividere i risultati all'interno dell'organizzazione. Esplora dati di Azure fornisce tre opzioni per la connessione ai dati in Power BI: usare il connettore predefinito, importare una query da Esplora dati di Azure o usare una query SQL. Questo articolo illustra come usare il connettore incorporato per ottenere dati e visualizzarli in un report di Power BI. L'uso del connettore nativo di Azure Data Explorer per la creazione di dashboard di Power BI è semplice. Il connettore Power BI supporta le modalità di [connettività di importazione e query diretta.](https://docs.microsoft.com/power-bi/desktop-directquery-about) È possibile creare dashboard usando la modalità **Import** o **DirectQuery** a seconda dello scenario, della scalabilità e dei requisiti di prestazioni. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questo articolo, è necessario quanto segue:
 
@@ -34,17 +34,17 @@ In primo luogo si effettua la connessione al cluster della guida di Esplora dati
 
     ![Recuperare i dati](media/power-bi-connector/get-data-more.png)
 
-1. Cercare *azure Esplora dati*, selezionare **Azure Esplora dati** quindi **connettersi**.
+1. Cercare *Azure Data Explorer*, selezionare **Azure Data Explorer,** quindi **Connetti**.
 
     ![Cercare e ottenere i dati](media/power-bi-connector/search-get-data.png)
 
-1. Nella schermata **Esplora dati di Azure (kusto)** compilare il modulo con le informazioni seguenti.
+1. Nella schermata **Azure Data Explorer (Kusto)** compilare il modulo con le informazioni seguenti.
 
     ![Opzioni di cluster, database e tabelle](media/power-bi-connector/cluster-database-table.png)
 
     **Impostazione** | **Valore** | **Descrizione campo**
     |---|---|---|
-    | Cluster | *https://help.kusto.windows.net* | L'URL del cluster della guida. Per altri cluster, l'URL è nel formato *https://\<ClusterName\>.\<Area\>.kusto.windows.net*. |
+    | Cluster | *https://help.kusto.windows.net* | L'URL del cluster della guida. Per altri cluster, l'URL è nel formato *https://\<NomeCluster\>.\< Regione\>.kusto.windows.net .* |
     | Database | Lasciare vuoto | Un database ospitato nel cluster con cui si effettua la connessione. Questo verrà selezionato in un passaggio successivo. |
     | Nome tabella | Lasciare vuoto | Una delle tabelle nel database o una query come <code>StormEvents \| take 1000</code>. Questo verrà selezionato in un passaggio successivo. |
     | Advanced Options | Lasciare vuoto | Opzioni per le query, ad esempio dimensioni del set di risultati. |
@@ -52,16 +52,16 @@ In primo luogo si effettua la connessione al cluster della guida di Esplora dati
     | | | |
     
     > [!NOTE]
-    > In modalità di **importazione** i dati vengono spostati in Power bi. Nella modalità **DirectQuery** i dati vengono sottoposti a query direttamente dal cluster di Azure Esplora dati.
+    > In modalità **di importazione** i dati vengono spostati in Power BI. In modalità **DirectQuery,** i dati vengono sottoposti a query direttamente dal cluster Azure Data Explorer.In DirectQuery mode, data is queryed directly from your Azure Data Explorer cluster.
     >
-    > Usare la modalità di **importazione** nei casi seguenti:
-    > * Il set di dati è ridotto.
+    > Utilizzare la modalità **di importazione** quando:
+    > * Il set di dati è piccolo.
     > * Non sono necessari dati quasi in tempo reale. 
-    > * I dati sono già aggregati o si esegue l' [aggregazione in kusto](/azure/kusto/query/summarizeoperator#list-of-aggregation-functions)    
+    > * I dati sono già aggregati o si esegue [l'aggregazione in Kusto](/azure/kusto/query/summarizeoperator#list-of-aggregation-functions)    
     >
-    > Usare la modalità **DirectQuery** nei casi seguenti:
-    > * Il set di dati è di dimensioni molto elevate. 
-    > * Sono necessari dati quasi in tempo reale.   
+    > Usare la modalità DirectQuery quando:Use **DirectQuery** mode when:
+    > * Il set di dati è molto grande. 
+    > * Hai bisogno di dati quasi in tempo reale.   
 
 1. Se non si ha già una connessione al cluster della guida, accedere. Accedere con un account aziendale e quindi selezionare **Connetti**.
 
@@ -91,8 +91,8 @@ In primo luogo si effettua la connessione al cluster della guida di Esplora dati
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Se il report creato per questo articolo non è più necessario, eliminare il file Power BI Desktop (pbix).
+Se il report creato per questo articolo non è più necessario, eliminare il file di Power BI Desktop (con estensione pbix).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Suggerimenti per l'uso di Azure Esplora dati Connector per Power BI per eseguire query sui dati](power-bi-best-practices.md#tips-for-using-the-azure-data-explorer-connector-for-power-bi-to-query-data)
+[Suggerimenti per l'uso del connettore di Azure Data Explorer per Power BI per eseguire query sui datiTips for using the Azure Data Explorer connector for Power BI to query data](power-bi-best-practices.md#tips-for-using-the-azure-data-explorer-connector-for-power-bi-to-query-data)

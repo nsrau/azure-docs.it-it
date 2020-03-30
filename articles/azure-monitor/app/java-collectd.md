@@ -4,10 +4,10 @@ description: Monitoraggio esteso delle prestazioni delle applicazioni del sito W
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.openlocfilehash: 687f97c305bffdfb408feb314ccded4f93ac574a
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77660734"
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights"></a>collectd: metriche delle prestazioni Linux in Application Insights
@@ -15,7 +15,7 @@ ms.locfileid: "77660734"
 
 Per esplorare le metriche delle prestazioni del sistema Linux in [Application Insights](../../azure-monitor/app/app-insights-overview.md), installare [collectd](https://collectd.org/) insieme al rispettivo plug-in di Application Insights. Questa soluzione open source raccoglie diverse che relative al sistema e alla rete.
 
-In genere si utilizzerà collectd se è già stato [instrumentato il servizio Web Java con Application Insights][java]. Fornisce una maggiore quantità di dati che consentono di migliorare le prestazioni dell'app o diagnosticare i problemi. 
+In genere, si usa collectd se è già stato [instrumentato il servizio Web Java con Application Insights][java]. Fornisce una maggiore quantità di dati che consentono di migliorare le prestazioni dell'app o diagnosticare i problemi. 
 
 ## <a name="get-your-instrumentation-key"></a>Ottenere la chiave di strumentazione
 Nel [Portale di Microsoft Azure](https://portal.azure.com) aprire la risorsa [Application Insights](../../azure-monitor/app/app-insights-overview.md) in cui devono essere visualizzati i dati. In alternativa, [creare una nuova risorsa](../../azure-monitor/app/create-new-resource.md ).
@@ -82,7 +82,7 @@ Configurare altri [plug-in collectd](https://collectd.org/wiki/index.php/Table_o
 Riavviare collectd, come indicato nel rispettivo [manuale](https://collectd.org/wiki/index.php/First_steps).
 
 ## <a name="view-the-data-in-application-insights"></a>Visualizzare i dati in Application Insights
-Nella risorsa Application Insights aprire [metriche e aggiungere grafici][metrics], selezionando le metriche da visualizzare nella categoria personalizzata.
+Nella risorsa Application Insights aprire [Metriche e aggiungere grafici][metrics], selezionare le metriche da visualizzare dalla categoria Personalizzato.
 
 Per impostazione predefinita, le metriche vengono aggregate per tutti i computer host da cui vengono raccolte le metriche. Per visualizzare le metriche dei singoli host, nel pannello di dettagli del grafico attivare l'opzione Raggruppamento e quindi scegliere di eseguire il raggruppamento in base a CollectD-Host.
 
@@ -94,7 +94,7 @@ Per escludere dati da plug-in specifici oppure origini dati specifiche:
 * Modificare il file di configurazione. 
 * In `<Plugin ApplicationInsightsWriter>`aggiungere righe di direttive analoghe alle seguenti:
 
-| Directive | Effetto |
+| Direttiva | Effetto |
 | --- | --- |
 | `Exclude disk` |Esclusione di tutti i dati raccolti dal plug-in `disk` . |
 | `Exclude disk:read,write` |Esclusione delle origini denominate `read` e `write` dal plug-in `disk`. |
@@ -104,7 +104,7 @@ Separare le direttive con un valore NewLine.
 ## <a name="problems"></a>Problemi?
 *I dati non vengono visualizzati nel portale*
 
-* Aprire [Cerca][diagnostic] per verificare se sono arrivati gli eventi non elaborati. In alcuni casi necessitano di più tempo per la visualizzazione in Esplora metriche.
+* Aprire [Cerca][diagnostic] per verificare se gli eventi non elaborati sono stati ricevuti. In alcuni casi necessitano di più tempo per la visualizzazione in Esplora metriche.
 * Potrebbe essere necessario [impostare le eccezioni del firewall per i dati in uscita](../../azure-monitor/app/ip-addresses.md)
 * Abilitare la traccia nel plug-in di Application Insights. Aggiungere questa riga in `<Plugin ApplicationInsightsWriter>`:
   * `SDKLogger true`
@@ -115,7 +115,7 @@ Separare le direttive con un valore NewLine.
 
 Il plug-in di scrittura di Application Insights non è compatibile con alcuni plug-in di lettura. Alcuni plug-in a volte inviano un errore "non un numero" quando il plug-in di Application Insights prevede un numero a virgola mobile.
 
-Sintomo: il log collectd Mostra gli errori che includono "AI:... SyntaxError: token imprevisto N ".
+Sintomo: Il registro raccolto mostra gli errori che includono "AI: ... SyntaxError: token imprevisto N".
 
 Soluzione alternativa: escludere i dati raccolti dal plug-in di scrittura che causa il problema. 
 

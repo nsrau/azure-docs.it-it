@@ -8,24 +8,22 @@ ms.topic: include
 ms.date: 03/12/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 7d2248360e499aab79459d0be549da3d8baa79ab
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.openlocfilehash: 17df5dca584b760cc52ddc171e92fb26b418c347
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "79370985"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79500190"
 ---
-## <a name="configure-a-user-tunnel"></a>Configurare un tunnel utente
+1. Installare i certificati client nel client Windows 10, come illustrato in questo articolo del [client VPN da punto a sito.](../articles/vpn-gateway/point-to-site-how-to-vpn-client-install-azure-cert.md) Il certificato deve trovarsi nell'archivio utente corrente.
 
-1. Installare i certificati client nel client Windows 10, come illustrato in questo articolo del [client VPN da punto a sito](../articles/vpn-gateway/point-to-site-how-to-vpn-client-install-azure-cert.md) . Il certificato deve trovarsi nell'archivio utente corrente.
-
-1. Configurare il client VPN Always On tramite PowerShell, Configuration Manager o Intune seguendo le istruzioni riportate in [configurare il client Windows 10 always on le connessioni VPN](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/vpn-deploy-client-vpn-connections).
+1. Configurare il client VPN Always On tramite PowerShell, Configuration Manager o Intune seguendo le istruzioni in Configurare le [connessioni AlwaysOn in client Windows 10.](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/vpn-deploy-client-vpn-connections)
 
 ### <a name="example-configuration-for-the-user-tunnel"></a>Configurazione di esempio per il tunnel utente
 
-Dopo aver configurato il gateway di rete virtuale e installato il certificato client nell'archivio del computer locale nel client Windows 10, configurare un tunnel del dispositivo client usando gli esempi seguenti:
+Dopo aver configurato il gateway di rete virtuale e installato il certificato client nell'archivio del computer locale nel client Windows 10, configurare un tunnel del dispositivo client usando gli esempi seguenti:After you've configured the virtual network gateway and installed the client certificate in the local machine store on the Windows 10 client, configure a client device tunnel by using the following examples:
 
-1. Copiare il testo seguente e salvarlo come *userCert. ps1*:
+1. Copiare il testo seguente e salvarlo come *usercert.ps1*:
 
    ```
    Param(
@@ -77,7 +75,7 @@ Dopo aver configurato il gateway di rete virtuale e installato il certificato cl
    $Message = "Complete."
    Write-Host "$Message"
    ```
-1. Copiare il testo seguente e salvarlo come *la. XML* nella stessa cartella di *userCert. ps1*. Modificare il testo seguente in modo che corrisponda all'ambiente:
+1. Copiare il testo seguente e salvarlo come *VPNProfile.xml* nella stessa cartella di *usercert.ps1*. Modificare il testo seguente in modo che corrisponda all'ambiente:
 
    * `<Servers>azuregateway-1234-56-78dc.cloudapp.net</Servers>  <= Can be found in the VpnSettings.xml in the downloaded profile zip file`
    * `<Address>192.168.3.5</Address>  <= IP of resource in the vnet or the vnet address space`
@@ -123,13 +121,13 @@ Dopo aver configurato il gateway di rete virtuale e installato il certificato cl
    ```
 1. Eseguire PowerShell come amministratore.
 
-1. In PowerShell passare alla cartella in cui si trovano *userCert. ps1* e *la. XML* ed eseguire il comando seguente:
+1. In PowerShell passare alla cartella in cui si trovano *usercert.ps1* e *VPNProfile.xml* ed eseguire il comando seguente:
 
    ```powershell
    C:\> .\usercert.ps1 .\VPNProfile.xml UserTest
    ```
    
-   ![MachineCertTest](./media/vpn-gateway-vwan-always-on-user/p2s2.jpg)
-1. In **Impostazioni VPN**cercare la voce **UserTest** , quindi selezionare **Connetti**.
+   ![MachineCertTest (Verifica computer)](./media/vpn-gateway-vwan-always-on-user/p2s2.jpg)
+1. In **Impostazioni VPN**cercare la voce **UserTest** e quindi selezionare **Connetti**.
 
-1. Se la connessione ha esito positivo, il tunnel utente Always On è stato configurato correttamente.
+1. Se la connessione ha esito positivo, è stato configurato correttamente un tunnel utente Always On.
