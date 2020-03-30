@@ -9,10 +9,10 @@ ms.date: 02/18/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 26e76731f663ac9038bc87182d52c4bd245f1b6e
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77471694"
 ---
 ## <a name="limitations"></a>Limitazioni
@@ -23,14 +23,14 @@ ms.locfileid: "77471694"
 
 [!INCLUDE [virtual-machines-disks-shared-sizes](virtual-machines-disks-shared-sizes.md)]
 
-## <a name="deploy-an-azure-shared-disk"></a>Distribuire un disco condiviso di Azure
+## <a name="deploy-an-azure-shared-disk"></a>Distribuire un disco condiviso di AzureDeploy an Azure shared disk
 
-Per distribuire un disco gestito con la funzionalità disco condiviso abilitata, usare la nuova proprietà `maxShares` e definire un valore `>1`. Questo rende il disco condivisibile tra più macchine virtuali.
+Per distribuire un disco gestito con la funzionalità `maxShares` disco condiviso `>1`abilitata, utilizzare la nuova proprietà e definire un valore . In questo modo il disco condisistibile tra più macchine virtuali.
 
 > [!IMPORTANT]
-> Il valore di `maxShares` può essere impostato o modificato solo quando un disco viene smontato da tutte le macchine virtuali. Vedere le [dimensioni dei dischi](#disk-sizes) per i valori consentiti per `maxShares`.
+> Il valore `maxShares` di può essere impostato o modificato solo quando un disco viene smontato da tutte le macchine virtuali. Vedere [le dimensioni del](#disk-sizes) disco `maxShares`per i valori consentiti per .
 
-Prima di usare il modello seguente, sostituire `[parameters('dataDiskName')]`, `[resourceGroup().location]`, `[parameters('dataDiskSizeGB')]`e `[parameters('maxShares')]` con i propri valori.
+Prima di utilizzare il `[parameters('dataDiskName')]` `[resourceGroup().location]`modello `[parameters('dataDiskSizeGB')]`seguente, sostituire , , e `[parameters('maxShares')]` con valori personalizzati.
 
 ```json
 { 
@@ -71,12 +71,12 @@ Prima di usare il modello seguente, sostituire `[parameters('dataDiskName')]`, `
 }
 ```
 
-### <a name="using-azure-shared-disks-with-your-vms"></a>Uso di dischi condivisi di Azure con le macchine virtuali
+### <a name="using-azure-shared-disks-with-your-vms"></a>Uso di dischi condivisi di Azure con le macchine virtualiUsing Azure shared disks with your VMs
 
-Una volta distribuito un disco condiviso con `maxShares>1`, è possibile montare il disco in una o più macchine virtuali.
+Dopo aver distribuito un `maxShares>1`disco condiviso con , è possibile montare il disco in una o più macchine virtuali.
 
 > [!IMPORTANT]
-> Tutte le macchine virtuali che condividono un disco devono essere distribuite nello stesso [gruppo di posizionamento di prossimità](../articles/virtual-machines/windows/proximity-placement-groups.md).
+> Tutte le macchine virtuali che condividono un disco devono essere distribuite nello stesso gruppo di posizionamento di [prossimità.](../articles/virtual-machines/windows/proximity-placement-groups.md)
 
 ```azurepowershell-interactive
 
@@ -98,11 +98,11 @@ $vm = Add-AzVMDataDisk -VM $vm -Name "mySharedDisk" -CreateOption Attach -Manage
 update-AzVm -VM $vm -ResourceGroupName $resourceGroup
 ```
 
-## <a name="supported-scsi-pr-commands"></a>Comandi della richiesta pull di SCSI supportati
+## <a name="supported-scsi-pr-commands"></a>Comandi SCSI PR supportati
 
-Dopo aver montato il disco condiviso nelle VM del cluster, è possibile stabilire il quorum e leggere/scrivere sul disco usando la richiesta pull SCSI. Quando si usano i dischi condivisi di Azure, sono disponibili i comandi di richiesta pull seguenti:
+Dopo aver montato il disco condiviso nelle macchine virtuali del cluster, è possibile stabilire il quorum e leggere/scrivere sul disco usando SCSI PR. Quando si usano dischi condivisi di Azure, sono disponibili i comandi PR seguenti:The following PR commands are available when using Azure shared disks:
 
-Per interagire con il disco, iniziare con l'elenco permanente-prenotazione-azione:
+Per interagire con il disco, iniziare con l'elenco delle azioni di prenotazione persistente:
 
 ```
 PR_REGISTER_KEY 
@@ -120,7 +120,7 @@ PR_CLEAR_RESERVATION
 PR_RELEASE_RESERVATION 
 ```
 
-Quando si usa PR_RESERVE, PR_PREEMPT_RESERVATION o PR_RELEASE_RESERVATION, fornire uno dei seguenti tipi di prenotazione permanente:
+Quando si utilizza PR_RESERVE, PR_PREEMPT_RESERVATION o PR_RELEASE_RESERVATION, fornire uno dei seguenti tipi di prenotazione persistente:
 
 ```
 PR_NONE 
@@ -138,9 +138,9 @@ PR_WRITE_EXCLUSIVE_ALL_REGISTRANTS
 PR_EXCLUSIVE_ACCESS_ALL_REGISTRANTS 
 ```
 
-È anche necessario specificare una chiave di prenotazione permanente quando si usa PR_RESERVE, PR_REGISTER_AND_IGNORE, PR_REGISTER_KEY, PR_PREEMPT_RESERVATION, PR_CLEAR_RESERVATION o la prenotazione di PR_RELEASE.
+È inoltre necessario fornire una chiave di prenotazione permanente quando si usa PR_RESERVE, PR_REGISTER_AND_IGNORE, PR_REGISTER_KEY, PR_PREEMPT_RESERVATION, PR_CLEAR_RESERVATION o PR_RELEASE-RESERVATION.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se si è interessati a provare i dischi condivisi, [iscriversi per l'anteprima](https://aka.ms/AzureSharedDiskPreviewSignUp).
+Se sei interessato a provare i dischi condivisi, [iscriviti per la nostra anteprima.](https://aka.ms/AzureSharedDiskPreviewSignUp)

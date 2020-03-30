@@ -1,7 +1,7 @@
 ---
 title: Eseguire il debug del modello
 titleSuffix: ML Studio (classic) - Azure
-description: Come eseguire il debug degli errori prodotti dai moduli Train Model e Score Model in Azure Machine Learning Studio (classico).
+description: Come eseguire il debug degli errori generati dai moduli Modello di training e Modello di punteggio in Azure Machine Learning Studio (classico).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -11,13 +11,13 @@ ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/14/2017
 ms.openlocfilehash: 910e788830ec55b610a9234a8c8ac75dda1ea189
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79218094"
 ---
-# <a name="debug-your-model-in-azure-machine-learning-studio-classic"></a>Eseguire il debug del modello in Azure Machine Learning Studio (classico)
+# <a name="debug-your-model-in-azure-machine-learning-studio-classic"></a>Eseguire il debug del modello in Azure Machine Learning Studio (classico)Debug your model in Azure Machine Learning Studio (classic)
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
@@ -31,11 +31,11 @@ Questo articolo spiega le cause potenziali di questi errori.
 
 ## <a name="train-model-module-produces-an-error"></a>Il modulo Train Model genera un errore
 
-![image1](./media/debug-models/train_model-1.png)
+![immagine1](./media/debug-models/train_model-1.png)
 
-Il modulo [Train Model][train-model] prevede due input:
+Il modulo [Training del modello][train-model] prevede i due valori di input seguenti:
 
-1. Tipo di modello di Machine Learning dalla raccolta di modelli forniti da Azure Machine Learning Studio (classico).
+1. Il tipo di modello di apprendimento automatico dalla raccolta di modelli forniti da Azure Machine Learning Studio (classico).
 2. I dati di training con una colonna Etichetta specifica che indica la variabile da stimare (le altre colonne vengono considerate funzionalità).
 
 Questo modulo può generare un errore nei casi seguenti:
@@ -48,26 +48,26 @@ Questo modulo può generare un errore nei casi seguenti:
 
 ## <a name="score-model-module-produces-incorrect-results"></a>Il modulo Classificazione del modello genera risultati non corretti
 
-![image2](./media/debug-models/train_test-2.png)
+![Immagine2](./media/debug-models/train_test-2.png)
 
-In un tipico esperimento di training/testing per l'apprendimento supervisionato, il modulo [Split data][split] divide il set di dati originale in due parti: una parte viene utilizzata per eseguire il training del modello e una parte viene utilizzata per assegnare un punteggio alle prestazioni del modello sottoposto a training. Il modello sottoposto a training viene quindi usato per calcolare il punteggio dei dati di test, dopo il quale vengono valutati i risultati per determinare la precisione del modello.
+In un tipico esperimento di training/testing per l'apprendimento supervisionato, il modulo [Divisione dei dati][split] separa il set di dati originale in due parti: una usata per eseguire il training del modello e l'altra riservata alla classificazione delle prestazioni del modello. Il modello sottoposto a training viene quindi usato per calcolare il punteggio dei dati di test, dopo il quale vengono valutati i risultati per determinare la precisione del modello.
 
 Il modulo [Score Model][score-model] richiede due input:
 
-1. Un output del modello sottoposto a training dal modulo [Train Model][train-model] .
+1. Output del modello sottoposto a training dal modulo [Training modello][train-model].
 2. Un set di dati per la classificazione diverso da quello usato per il training del modello.
 
-È possibile che anche se l'esperimento ha esito positivo, il modulo [Score Model][score-model] genera risultati non corretti. Questo problema può essere dovuto a diversi scenari:
+Può accadere che, nonostante il buon esito dell'esperimento, il modulo [Classificazione modello][score-model] produca risultati non corretti. Questo problema può essere dovuto a diversi scenari:
 
-1. Se l'etichetta specificata è categorica e viene eseguito il training di un modello di regressione sui dati, viene generato un output errato dal modulo [Score Model][score-model] . Questo si verifica perché la regressione richiede una variabile di risposta continua. In questo caso sarebbe più opportuno usare un modello di classificazione. 
+1. Se l'etichetta specificata è categorica e un modello di regressione è sottoposto a training sui dati, può essere prodotto un output errato dal modulo [Score Model][score-model]. Questo si verifica perché la regressione richiede una variabile di risposta continua. In questo caso sarebbe più opportuno usare un modello di classificazione. 
 
 2. Analogamente, se un modello di classificazione è sottoposto a training su un set di dati con numeri a virgola mobile nella colonna Etichetta, tale modello può produrre risultati indesiderati. Questo si verifica perché la classificazione richiede una variabile di risposta discreta che ammette solo valori all'interno di un set di classi finito e di dimensioni ridotte.
 
-3. Se il set di dati di assegnazione dei punteggi non contiene tutte le funzionalità usate per eseguire il training del modello, il [modello di Punteggio][score-model] genera un errore.
+3. Se il set di dati non contiene tutte le caratteristiche usate per eseguire il training del modello, il modulo [Score Model][score-model] genera un errore.
 
-4. Se una riga nel set di dati di assegnazione dei punteggi contiene un valore mancante o un valore infinito per le sue funzionalità, il [modello di Punteggio][score-model] non produce alcun output corrispondente a tale riga.
+4. Il modulo [Score Model][score-model] non genera alcun output corrispondente a una riga nel set di dati di punteggio contenente un valore mancante o infinito per una delle proprie caratteristiche.
 
-5. Il [modello score][score-model] può produrre output identici per tutte le righe nel set di dati di assegnazione dei punteggi. Ciò potrebbe verificarsi, ad esempio, quando si tenta di eseguire una classificazione usando insiemi di decisioni se il numero minimo di esempi per nodo foglia viene scelto per superare il numero di esempi di training disponibili.
+5. Il modulo [Score Model][score-model] può generare output identici per tutte le righe nel set di dati di punteggio. Ciò potrebbe verificarsi, ad esempio, quando si tenta di eseguire una classificazione usando insiemi di decisioni se il numero minimo di esempi per nodo foglia viene scelto per superare il numero di esempi di training disponibili.
 
 <!-- Module References -->
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/

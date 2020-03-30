@@ -1,5 +1,5 @@
 ---
-title: Sincronizzazione dati offline
+title: Sincronizzazione dei dati offline
 description: Riferimento concettuale e panoramica della funzionalità di sincronizzazione di dati offline nelle app per dispositivi mobili di Azure
 author: conceptdev
 ms.assetid: 982fb683-8884-40da-96e6-77eeca2500e3
@@ -7,10 +7,10 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/30/2016
 ms.openlocfilehash: 0cc4309fa57a29997bdd2f650634efd0723e6965
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77458750"
 ---
 # <a name="offline-data-sync-in-azure-mobile-apps"></a>Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure
@@ -46,7 +46,7 @@ Per supportare l'uso offline, l'app deve usare invece le API della *tabella di s
 ## <a name="what-is-a-local-store"></a>Informazioni sull'archivio locale
 Un archivio locale è un livello di persistenza dei dati nel dispositivo client. Gli SDK del client delle app per dispositivi mobili di Azure forniscono un'implementazione predefinita dell'archivio locale. In Windows, Xamarin e Android è basato su SQLite, mentre in iOS è basato su Core Data.
 
-Per usare l'implementazione basata su SQLite in Windows Phone o Microsoft Store, è necessario installare un'estensione SQLite. Per ulteriori informazioni, vedere [Abilitare la sincronizzazione offline per l'app di Windows]. Android e iOS sono forniti con una versione di SQLite nel sistema operativo del dispositivo stesso, quindi non è necessario fare riferimento alla propria versione di SQLite.
+Per usare l'implementazione basata su SQLite in Windows Phone o Microsoft Store, è necessario installare un'estensione SQLite. Per ulteriori informazioni, vedere [Piattaforma Windows universale: abilitare la sincronizzazione offline]. Android e iOS vengono fornite con una versione di SQLite nel sistema operativo del dispositivo stesso, quindi non è necessario fare riferimento alla propria versione di SQLite.
 
 Gli sviluppatori possono anche implementare il proprio archivio locale. Ad esempio, per archiviare dati in un formato crittografato nel client mobile, è possibile definire un archivio locale che usa SQLCipher per la crittografia.
 
@@ -55,13 +55,13 @@ Un *contesto di sincronizzazione* è associato a un oggetto client mobile, ad es
 
 Un archivio locale è associato al contesto di sincronizzazione tramite un metodo di inizializzazione, ad esempio `IMobileServicesSyncContext.InitializeAsync(localstore)` nel [.NET SDK per client].
 
-## <a name="how-sync-works"></a>Funzionamento della sincronizzazione offline
+## <a name="how-offline-synchronization-works"></a><a name="how-sync-works"></a>Funzionamento della sincronizzazione offline
 Quando si usano le tabelle di sincronizzazione, il codice client controlla quando le modifiche locali vengono sincronizzate con un back-end dell'app per dispositivi mobili di Azure. I dati vengono inviati al back-end solo quando viene effettuata una chiamata per il *push* delle modifiche locali. Analogamente, l'archivio locale viene popolato con nuovi dati solo quando viene effettuata una chiamata per il *pull* dei dati.
 
 * **Push**: l'operazione push viene effettuata sul contesto di sincronizzazione e invia tutte le modifiche CUD apportate dopo l'ultimo push. Si noti che non è possibile inviare solo le modifiche di una singola tabella, perché ciò potrebbe alterare l'ordine di invio delle operazioni. L'operazione push esegue una serie di chiamate REST al back-end dell'app per dispositivi mobili di Azure, che a sua volta modifica il database del server.
 * **Pull**: l'operazione pull viene effettuata per ogni singola tabella e può essere personalizzata con una query, in modo da recuperare solo un subset dei dati del server. Gli SDK del client mobile di Azure inseriscono quindi i dati risultanti nell'archivio locale.
 * **Push impliciti**: se un'operazione pull viene eseguita in una tabella con aggiornamenti locali in sospeso, il pull esegue prima un'operazione `push()` sul contesto di sincronizzazione. Questo push consente di ridurre al minimo i conflitti tra le modifiche già in coda e i nuovi dati dal server.
-* **Sincronizzazione incrementale**: il primo parametro dell'operazione pull è un *nome query* usato solo nel client. Se si usa un nome di query non null, Azure Mobile SDK esegue una *sincronizzazione incrementale*. Ogni volta che un'operazione pull restituisce un set di risultati, il timestamp `updatedAt` più recente del set di risultati viene archiviato nelle tabelle di sistema locali dell'SDK. Le operazioni pull successive recuperano solo i record successivi a tale timestamp.
+* **Sincronizzazione incrementale**: il primo parametro dell'operazione pull è un *nome query* usato solo nel client. Se si usa un nome di query non null, Azure Mobile SDK esegue una *sincronizzazione incrementale.* Ogni volta che un'operazione pull restituisce un set di risultati, il timestamp più recente `updatedAt` di tale set di risultati viene archiviato nelle tabelle di sistema locali dell'SDK. Le operazioni pull successive recuperano solo i record successivi a tale timestamp.
 
   Per usare la sincronizzazione incrementale, il server deve restituire valori `updatedAt` significativi e deve anche supportare l'ordinamento in base a questo campo. Poiché tuttavia l'SDK aggiunge il proprio ordinamento al campo updatedAt, non è possibile usare una query pull con una clausola `orderBy` specifica.
 

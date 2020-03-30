@@ -15,22 +15,22 @@ ms.topic: article
 ms.date: 10/23/2018
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dbeb25f1190754b4264cfbab9d8a03a6b65c4dff
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: bcccc64e0c766164a06932e9b65a4459816f9deb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72895973"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79409117"
 ---
 # <a name="how-to-configure-self-service-application-assignment"></a>Come configurare un'assegnazione di applicazioni self-service
 
-Prima che gli utenti possano da soli individuare le applicazioni dal pannello di accesso, è necessario abilitare l'**accesso alle applicazioni self-service** per tutte le applicazioni per cui si vuole consentire l'individuazione e l'accesso da parte degli utenti. Questa funzionalità è disponibile per le applicazioni che sono state aggiunte dalla [raccolta di Azure ad](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app), [Azure ad proxy di applicazione](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) o sono state aggiunte tramite il [consenso dell'utente o dell'amministratore](https://docs.microsoft.com/azure/active-directory/develop/application-consent-experience). 
+Prima che gli utenti possano individuare autonomamente le applicazioni dal pannello di accesso App personali, è necessario abilitare **l'accesso alle applicazioni self-service** a tutte le applicazioni a cui si desidera consentire agli utenti di individuare autonomamente e richiedere l'accesso. Questa funzionalità è disponibile per le applicazioni aggiunte dalla [raccolta Azure AD,](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app)dal [proxy di applicazione di Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) o tramite il consenso dell'utente o dell'amministratore. [user or admin consent](https://docs.microsoft.com/azure/active-directory/develop/application-consent-experience) 
 
 Questa funzionalità è un modo efficace per consentire di risparmiare tempo e denaro al gruppo IT ed è altamente consigliata come parte di una distribuzione moderna di applicazioni con Azure Active Directory.
 
 Questa funzionalità permette di:
 
--   Consentire agli utenti di individuare da soli le applicazioni dal [Pannello di accesso dell'applicazione](https://myapps.microsoft.com/) senza dover contattare il gruppo IT.
+-   Consentire agli utenti di individuare autonomamente le applicazioni dal pannello di [accesso App](https://myapps.microsoft.com/) personali senza disturbare il gruppo IT.
 
 -   Aggiungere gli utenti a un gruppo pre-configurato in modo che sia possibile verificare chi ha richiesto l'accesso, rimuovere l'accesso e gestire i ruoli assegnati.
 
@@ -44,51 +44,39 @@ Questa funzionalità permette di:
 
 ## <a name="enable-self-service-application-access-to-allow-users-to-find-their-own-applications"></a>Abilitare l'accesso alle applicazioni self-service per consentire agli utenti di trovare le proprie applicazioni
 
-L'accesso alle applicazioni self-service è un modo efficace per consentire agli utenti di individuare da soli le applicazioni e, facoltativamente, al gruppo aziendale di approvare l'accesso a tali applicazioni. È possibile consentire al gruppo aziendale di gestire le credenziali assegnate agli utenti per il diritto di accesso alle applicazioni Single Sign-On tramite password dal pannello di accesso.
+L'accesso alle applicazioni self-service è un ottimo modo per consentire agli utenti di individuare autonomamente le applicazioni e, facoltativamente, consentire al gruppo di business di approvare l'accesso a tali applicazioni. Per le applicazioni con accesso singolo password, è anche possibile consentire al gruppo di business di gestire le credenziali assegnate a tali utenti dai propri pannelli di accesso App personali.
 
 Per abilitare l'accesso self-service per un'applicazione, seguire questa procedura:
 
-1.  Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **amministratore globale**.
+1. Accedere al [portale](https://portal.azure.com) di Azure come amministratore globale.
 
-2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
+2. Selezionare **Azure Active Directory**. Nel menu di spostamento a sinistra selezionare **Applicazioni aziendali**.
 
-3.  Digitare **"Azure Active Directory"** nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
+3. Selezionare l'applicazione dall'elenco. Se l'applicazione non viene visualizzata, iniziare a digitarne il nome nella casella di ricerca. In alternativa, utilizzare i controlli filtro per selezionare il tipo di applicazione, lo stato o la visibilità, quindi selezionare **Applica**.
 
-4.  Fare clic su **Applicazioni aziendali** nel menu di navigazione a sinistra di Azure Active Directory.
+4. Nel menu di spostamento a sinistra selezionare **Self-service**.
 
-5.  Fare clic su **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
+5. Per abilitare l'accesso self-service per questa applicazione, impostare l'opzione **Consentire agli utenti di richiedere l'accesso a questa applicazione?** su **Sì**.
 
-    * Se l'applicazione non è inclusa nell'elenco, usare il controllo **Filtro** all'inizio dell'**elenco di tutte le applicazioni** e impostare l'opzione **Mostra** su **Tutte le applicazioni**.
-
-6.  Selezionare l'applicazione per cui si desidera abilitare l'accesso self-service dall'elenco.
-
-7.  Dopo il caricamento dell'applicazione, fare clic su **Self-service** nel menu di navigazione a sinistra dell'applicazione.
-
-8.  Per abilitare l'accesso self-service per questa applicazione, impostare l'opzione **Consentire agli utenti di richiedere l'accesso a questa applicazione?** su **Sì**.
-
-9.  Successivamente, per selezionare il gruppo al quale devono essere aggiunti gli utenti che richiedono l'accesso a questa applicazione, fare clic sul selettore accanto all'etichetta **Gruppo a cui devono essere aggiunti gli utenti assegnati** e selezionare un gruppo.
+6. Accanto **a Quale gruppo devono essere aggiunti gli utenti?**, fare clic su **Seleziona gruppo**. Scegliere un gruppo e quindi fare clic su **Seleziona**. Quando la richiesta di un utente viene approvata, verrà aggiunto a questo gruppo. Quando si visualizza l'appartenenza a questo gruppo, sarà possibile vedere a chi è stato concesso l'accesso all'applicazione tramite l'accesso self-service.
   
     > [!NOTE]
-    > Per il gruppo a cui devono essere aggiunti gli utenti che richiedono l'accesso a questa applicazione non è supportato l'uso di gruppi sincronizzati dall'ambiente locale.
-  
-10. **Facoltativo:** se si desidera richiedere un'approvazione aziendale prima che venga consentito l'accesso agli utenti, impostare l'opzione **Richiedere l'approvazione prima di concedere l'accesso a questa applicazione?** su **Sì**.
+    > Questa impostazione non supporta i gruppi sincronizzati dall'ambiente locale.
 
-11. **Facoltativo: per applicazioni che usano solo l'accesso Single Sign-On tramite password,** se si desidera consentire ai responsabili approvazione aziendali di specificare le password inviate a questa applicazione per gli utenti approvati, impostare l'opzione **Consentire ai responsabili approvazione di impostare le password utente per questa applicazione?** su **Sì**.
+7. **Facoltativo:** Per richiedere l'approvazione aziendale prima che agli utenti sia consentito l'accesso, impostare l'opzione Richiedi approvazione prima di **concedere l'accesso a questa applicazione?** su **Sì**.
 
-12. **Facoltativo:** per specificare i responsabili approvazione aziendali che possono approvare l'accesso a questa applicazione, fare clic sul selettore accanto all'etichetta **Utenti autorizzati ad approvare l'accesso a questa applicazione** per selezionare un massimo di 10 singoli responsabili approvazione aziendali.
+8. **Facoltativo: per** le applicazioni che utilizzano solo l'accesso Single Sign-On con password, per consentire agli approvatori aziendali di specificare **Yes**le password inviate all'applicazione per gli utenti approvati, impostare Consenti agli approvatori di **impostare le password utente per l'applicazione?**
 
-     > [!NOTE]
-     > I gruppi non sono supportati.
-     >
-     >
+9. **Facoltativo:** Per specificare gli approvatori aziendali autorizzati ad approvare l'accesso all'applicazione, accanto a **Chi può approvare l'accesso all'applicazione?**, fare clic su **Seleziona responsabili approvazione**e quindi selezionare fino a 10 singoli approvatori aziendali. Quindi fare clic su **Seleziona**.
 
-13. **Facoltativo:** **per le applicazioni che espongono i ruoli**, se si desidera assegnare un ruolo agli utenti approvati self-service, fare clic sul selettore accanto all'opzione **A quale ruolo è necessario assegnare gli utenti in questa applicazione?** per selezionare il ruolo a cui devono essere assegnati questi utenti.
+    >[!NOTE]
+    >I gruppi non sono supportati. È possibile selezionare fino a 10 singoli approvatori aziendali. Se si specificano più approvatori, qualsiasi singolo approvatore può approvare una richiesta di accesso.
 
-14. Per terminare, fare clic sul pulsante **Salva** nella parte superiore del pannello.
+10. **Facoltativo:** per le **applicazioni che espongono ruoli**, per assegnare utenti approvati self-service a un ruolo, accanto al ruolo A a quale ruolo devono essere **assegnati gli utenti nell'applicazione?**, fare clic su **Seleziona ruolo**e quindi scegliere il ruolo a cui devono essere assegnati questi utenti. Quindi fare clic su **Seleziona**.
 
-Dopo aver completato la configurazione dell'applicazione self-service, gli utenti possono accedere al [Pannello di accesso dell'applicazione](https://myapps.microsoft.com/) e fare clic sul pulsante **+Aggiungi** per trovare le app per cui è stato abilitato l'accesso self-service. Anche i responsabili approvazione aziendali visualizzano una notifica nel loro [Pannello di accesso dell'applicazione](https://myapps.microsoft.com/). È possibile abilitare un messaggio di posta elettronica per informare i responsabili dell'approvazione quando un utente richiede l'accesso a un'applicazione per cui è necessaria l'approvazione. 
+11. Per terminare, fare clic sul pulsante **Salva** nella parte superiore del riquadro.
 
-Tali approvazioni supportano solo flussi di lavoro di approvazione individuali. Se si specificano pertanto più responsabili approvazione, uno qualsiasi di esso potrà approvare l'accesso all'applicazione.
+Una volta completata la configurazione dell'applicazione in modalità self-service, gli utenti possono passare al pannello di [accesso App](https://myapps.microsoft.com/) personali e fare clic sul pulsante Aggiungi **app self-service** per trovare le app abilitate con accesso self-service. Gli approvatori aziendali visualizzano anche una notifica nel pannello di [accesso App personali.](https://myapps.microsoft.com/) È possibile abilitare un messaggio di posta elettronica per informare i responsabili dell'approvazione quando un utente richiede l'accesso a un'applicazione per cui è necessaria l'approvazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Configurazione di Azure Active Directory per la gestione self-service dei gruppi](../users-groups-roles/groups-self-service-management.md)

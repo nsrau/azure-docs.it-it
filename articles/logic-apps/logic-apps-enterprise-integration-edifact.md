@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 07/26/2016
 ms.openlocfilehash: 3ada12a0cde122fb78815a1d3241d8acb9da2580
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77651458"
 ---
 # <a name="exchange-edifact-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Scambiare messaggi EDIFACT per l'integrazione aziendale B2B in App per la logica di Azure con Enterprise Integration Pack
@@ -36,7 +36,7 @@ Dopo aver [creato un account di integrazione](../logic-apps/logic-apps-enterpris
 
 ## <a name="create-an-edifact-agreement"></a>Creare un contratto EDIFACT 
 
-1. Accedere al [portale di Azure](https://portal.azure.com "Portale di Azure"). 
+1. Accedere al [portale](https://portal.azure.com "Portale di Azure")di Azure . 
 
 2. Nel menu principale di Azure selezionare **Tutti i servizi**. Nella casella di ricerca immettere "integrazione" e quindi selezionare **Account di integrazione**.
 
@@ -135,7 +135,7 @@ Dopo aver completato ogni riga di convalida, ne viene aggiunta automaticamente u
 | Convalida estesa |Se il tipo di dati non è EDI, la convalida viene eseguita sul requisito dell'elemento dati e sulla ripetizione consentita, nonché sulle enumerazioni e sulla convalida della lunghezza dell'elemento dati (min/max). |
 | Consenti zeri iniziali e finali |Tutti gli zero iniziali e finali e i caratteri di spazio vengono mantenuti e non vengono rimossi. |
 | Rimuovi zero iniziali e finali |Tutti gli zero iniziali e finali e i caratteri di spazio vengono rimossi. |
-| Criterio separatori finali |Consente di generare separatori finali. <p>Selezionare **Non consentiti** per non consentire delimitatori e separatori finali nell'interscambio ricevuto. Se l'interscambio contiene delimitatori e separatori finali, viene dichiarato non valido. <p>Selezionare **Facoltativi** per accettare interscambi con o senza delimitatori e separatori finali. <p>Selezionare **Obbligatori** se l'interscambio ricevuto deve contenere delimitatori e separatori finali. |
+| Criterio separatori finali |Consente di generare separatori finali. <p>Selezionare **Non consentiti** per non consentire delimitatori e separatori finali nell'interscambio ricevuto. Se l'interscambio contiene delimitatori e separatori finali, viene dichiarato non valido. <p>Selezionare **Facoltativo** per accettare gli interscambi con o senza delimitatori e separatori finali. <p>Selezionare **Obbligatori** se l'interscambio ricevuto deve contenere delimitatori e separatori finali. |
 
 ### <a name="internal-settings"></a>Impostazioni interne
 
@@ -198,7 +198,7 @@ Il contratto è pronto per gestire i messaggi in uscita conformi alle impostazio
 | UNB10 (contratto comunicazioni) |Immettere un valore alfanumerico costituito da almeno un carattere e al massimo 40. |
 | UNB11 (indicatore test) |Selezionare questa casella di controllo per indicare che nell'interscambio vengono generati dati di test. |
 | Applica segmento UNA (avviso stringa servizio) |Selezionare questa casella di controllo per generare un segmento UNA per l'interscambio da inviare. |
-| Applica segmenti UNG (intestazione gruppo funzionale) |Selezionare questa casella di controllo per creare segmenti di raggruppamento nell'intestazione di gruppo funzionale nei messaggi inviati al partner guest. Per creare i segmenti UNG vengono usati i valori seguenti: <p>Per **UNG1**, immettere un valore alfanumerico costituito da almeno un carattere e al massimo sei. <p>Per **UNG2.1**, immettere un valore alfanumerico costituito da almeno un carattere e al massimo 35. <p>Per **UNG2.2** immettere un valore alfanumerico con lunghezza massima di quattro caratteri. <p>Per **UNG3.1**, immettere un valore alfanumerico costituito da almeno un carattere e al massimo 35. <p>Per **UNG3.2** immettere un valore alfanumerico con lunghezza massima di quattro caratteri. <p>Per **UNG6** immettere un valore alfanumerico costituito da almeno un carattere e al massimo tre. <p>Per **UNG7.1** immettere un valore alfanumerico costituito da almeno un carattere e al massimo tre. <p>Per **UNG7.2** immettere un valore alfanumerico costituito da almeno un carattere e al massimo tre. <p>Per **UNG7.3** immettere un valore alfanumerico costituito da almeno 1 carattere e al massimo 6. <p>Per **UNG8**, immettere un valore alfanumerico costituito da almeno un carattere e al massimo 14. |
+| Applica segmenti UNG (intestazione gruppo funzionale) |Selezionare questa casella di controllo per creare segmenti di raggruppamento nell'intestazione di gruppo funzionale nei messaggi inviati al partner guest. Per creare i segmenti UNG vengono usati i valori seguenti: <p>Per **UNG1**, immettere un valore alfanumerico costituito da un minimo di un carattere e da un massimo di sei caratteri. <p>Per **UNG2.1**, immettere un valore alfanumerico costituito da un minimo di un carattere e da un massimo di 35 caratteri. <p>Per **UNG2.2**, immettere un valore alfanumerico costituito da un massimo di quattro caratteri. <p>Per **UNG3.1**, immettere un valore alfanumerico costituito da un minimo di un carattere e da un massimo di 35 caratteri. <p>Per **UNG3.2**, immettere un valore alfanumerico costituito da un massimo di quattro caratteri. <p>Per **UNG6**, immettere un valore alfanumerico costituito da un minimo di un carattere e da un massimo di tre caratteri. <p>Per **UNG7.1**, immettere un valore alfanumerico costituito da un minimo di un carattere e da un massimo di tre caratteri. <p>Per **UNG7.2**, immettere un valore alfanumerico costituito da un minimo di un carattere e da un massimo di tre caratteri. <p>Per **UNG7.3**, immettere un valore alfanumerico costituito da un minimo di un carattere e da un massimo di sei caratteri. <p>Per **UNG8**, immettere un valore alfanumerico costituito da un minimo di un carattere e da un massimo di 14 caratteri. |
 
 ### <a name="character-sets-and-separators"></a>Set di caratteri e separatori
 
@@ -247,10 +247,10 @@ Dopo aver completato ogni riga di convalida, ne viene aggiunta automaticamente u
 
 ## <a name="connector-reference"></a>Informazioni di riferimento sui connettori
 
-Per informazioni più tecniche su questo connettore, ad esempio le azioni e i limiti descritti dal file spavalderia del connettore, vedere la [pagina di riferimento del connettore](https://docs.microsoft.com/connectors/edifact/).
+Per ulteriori dettagli tecnici su questo connettore, ad esempio azioni e limiti, come descritto dal file Swagger del connettore, vedere la [pagina di riferimento del connettore.](https://docs.microsoft.com/connectors/edifact/)
 
 > [!NOTE]
-> Per le app per la logica in un [ambiente Integration Services (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), la versione con etichetta ISE del connettore usa invece i [limiti dei messaggi ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) .
+> Per le app per la logica in un ambiente del servizio di [integrazione (ISE),](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)la versione con etichetta ISE di questo connettore utilizza invece i limiti dei [messaggi ISE.](../logic-apps/logic-apps-limits-and-config.md#message-size-limits)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

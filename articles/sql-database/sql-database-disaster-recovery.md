@@ -12,10 +12,10 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 06/21/2019
 ms.openlocfilehash: d28edd28dcbe31bfe63c2d0a9c3e975967efef04
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79256380"
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Ripristinare un database SQL di Azure o eseguire il failover in un database secondario
@@ -23,7 +23,7 @@ ms.locfileid: "79256380"
 Il database SQL di Azure offre le funzionalità riportate di seguito per il ripristino da un'interruzione del servizio:
 
 - [Replica geografica attiva](sql-database-active-geo-replication.md)
-- [Gruppi di failover automatico](sql-database-auto-failover-group.md)
+- [Gruppi di failover automaticoAuto-failover groups](sql-database-auto-failover-group.md)
 - [Ripristino geografico](sql-database-recovery-using-backups.md#point-in-time-restore)
 - [Database con ridondanza della zona](sql-database-high-availability.md)
 
@@ -33,11 +33,11 @@ Per informazioni sugli scenari di continuità aziendale e sulle funzionalità ch
 > Se si usano database o pool premium o business critical con ridondanza della zona, il processo di ripristino viene automatizzato e la parte restante di questo articolo non è applicabile.
 
 > [!NOTE]
-> I database primari e secondari devono avere lo stesso livello di servizio. Si consiglia inoltre di creare il database secondario con le stesse dimensioni di calcolo (DTU o VCore) del database primario. Per ulteriori informazioni, vedere [aggiornamento o downgrade come database primario](sql-database-active-geo-replication.md#upgrading-or-downgrading-primary-database).
+> I database primari e secondari devono avere lo stesso livello di servizio. È inoltre consigliabile creare il database secondario con le stesse dimensioni di calcolo (DCU o vCore) del database primario. Per ulteriori informazioni, vedere [Aggiornamento o downgrade come database primario](sql-database-active-geo-replication.md#upgrading-or-downgrading-primary-database).
 
 > [!NOTE]
-> Usare uno o più gruppi di failover per gestire il failover di più database.
-> Se si aggiunge una relazione di replica geografica esistente al gruppo di failover, verificare che il database di replica geografica secondario sia configurato con lo stesso livello di servizio e le stesse dimensioni di calcolo del database primario. Per altre informazioni, vedere [usare i gruppi di failover automatico per abilitare il failover trasparente e coordinato di più database](sql-database-auto-failover-group.md).
+> Utilizzare uno o più gruppi di failover per gestire il failover di più database.
+> Se si aggiunge una relazione di replica geografica esistente al gruppo di failover, verificare che il database di replica geografica secondario sia configurato con lo stesso livello di servizio e le stesse dimensioni di calcolo del database primario. Per ulteriori informazioni, vedere Usare i gruppi di failover automatico per abilitare il [failover trasparente e coordinato di più database.](sql-database-auto-failover-group.md)
 
 ## <a name="prepare-for-the-event-of-an-outage"></a>Prepararsi per un evento di interruzione del servizio
 
@@ -49,7 +49,7 @@ Per completare correttamente il ripristino su un'altra area dati tramite i grupp
 - Identificare e, facoltativamente, creare gli account di accesso presenti nel database master nel nuovo server primario e verificare che questi account di accesso dispongano delle autorizzazioni appropriate nel database master, se necessarie. Per altre informazioni, vedere [Come gestire la sicurezza del database SQL di Azure dopo il ripristino di emergenza](sql-database-geo-replication-security-config.md)
 - Identificare le regole di avviso che devono essere aggiornate per il mapping al nuovo database primario.
 - Documentare la configurazione di controllo nel database primario corrente
-- [Esercitazione per il ripristino di emergenza](sql-database-disaster-recovery-drills.md). Per simulare un'interruzione del servizio di ripristino geografico, è possibile eliminare o rinominare il database di origine per provocare un errore di connettività dell'applicazione. Per simulare un'interruzione usando i gruppi di failover, è possibile disabilitare l'applicazione Web o la macchina virtuale connessa al database oppure eseguire un failover del database per causare errori di connettività dell'applicazione.
+- Eseguire [un'esercitazione](sql-database-disaster-recovery-drills.md)sul ripristino di emergenza . Per simulare un'interruzione del servizio di ripristino geografico, è possibile eliminare o rinominare il database di origine per provocare un errore di connettività dell'applicazione. Per simulare un'interruzione usando i gruppi di failover, è possibile disabilitare l'applicazione Web o la macchina virtuale connessa al database oppure eseguire un failover del database per causare errori di connettività dell'applicazione.
 
 ## <a name="when-to-initiate-recovery"></a>Quando avviare il ripristino
 
@@ -79,11 +79,11 @@ Per eseguire il failover in un database secondario con replica geografica, segui
 
 - [Failover in un server secondario con replica geografica tramite il portale di Azure](sql-database-geo-replication-portal.md)
 - [Failover nel server secondario tramite PowerShell](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
-- [Eseguire il failover su un server secondario tramite Transact-SQL (T-SQL)](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#e-failover-to-a-geo-replication-secondary)
+- [Eseguire il failover a un server secondario tramite Transact-SQL (T-SQL)Fail over to a secondary server using Transact-SQL (T-SQL)](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#e-failover-to-a-geo-replication-secondary)
 
 ## <a name="recover-using-geo-restore"></a>Ripristino tramite il ripristino geografico
 
-Se i tempi di inattività dell'applicazione non comportano una responsabilità aziendale è possibile usare il [ripristino geografico](sql-database-recovery-using-backups.md) come metodo per il ripristino dei database dell'applicazione. Questo metodo crea una copia del database dal backup con ridondanza geografica più recente.
+Se il tempo di inattività dell'applicazione non comporta responsabilità aziendali, è possibile usare il [ripristino geografico](sql-database-recovery-using-backups.md) come metodo per ripristinare i database dell'applicazione. Questo metodo crea una copia del database dal backup con ridondanza geografica più recente.
 
 ## <a name="configure-your-database-after-recovery"></a>Configurare il database dopo il ripristino
 
@@ -101,7 +101,7 @@ Verificare che le regole firewall configurate nel server e nel database corrispo
 
 ### <a name="configure-logins-and-database-users"></a>Configurare gli account di accesso e gli utenti del database
 
-Verificare che tutti gli account di accesso usati dall'applicazione siano presenti nel server che ospita il database ripristinato. Per altre informazioni, vedere [Configurazione della sicurezza per la replica geografica](sql-database-geo-replication-security-config.md).
+Verificare che tutti gli account di accesso usati dall'applicazione siano presenti nel server che ospita il database ripristinato. Per ulteriori informazioni, vedere [Configurazione della sicurezza per](sql-database-geo-replication-security-config.md)la replica geografica .
 
 > [!NOTE]
 > È necessario configurare e testare le regole del firewall del server e gli account di accesso (con le relative autorizzazioni) durante un'analisi di ripristino di emergenza. Questi oggetti a livello di server e la relativa configurazione potrebbero non essere disponibili durante l'interruzione del servizio.
@@ -118,6 +118,6 @@ Se è necessario il controllo di accesso al database, occorre attivare il contro
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per informazioni sui backup automatici del database SQL di Azure, vedere [Panoramica: Backup automatici del database SQL](sql-database-automated-backups.md)
+- Per altre informazioni sui backup automatici del database SQL di Azure, vedere [Backup automatici del database SQLTo](sql-database-automated-backups.md) learn about Azure SQL Database automated backups, see SQL Database automated backups
 - Per informazioni sugli scenari di progettazione e ripristino della continuità aziendale, vedere l'articolo relativo agli [scenari di continuità aziendale](sql-database-business-continuity.md)
 - Per altre informazioni sull'uso dei backup automatici per il ripristino, vedere l'articolo relativo al [ripristino di un database dai backup avviati dal servizio](sql-database-recovery-using-backups.md)

@@ -1,5 +1,5 @@
 ---
-title: Gestire i dati Azure AI Gallery
+title: Gestire i dati della raccolta di applicazioni di AzureManage Azure AI Gallery data
 titleSuffix: ML Studio (classic) - Azure
 description: È possibile esportare ed eliminare i dati utente interni al prodotto da Azure AI Gallery usando l'interfaccia o l'API catalogo di AI Gallery. Questo articolo illustra i passaggi da eseguire.
 services: machine-learning
@@ -12,10 +12,10 @@ ms.custom: seodec18
 ms.date: 05/25/2018
 ms.reviewer: jmartens, mldocs
 ms.openlocfilehash: 03341b9e663398f2c42266dead0d2dd01e97c3f3
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79204546"
 ---
 # <a name="view-and-delete-in-product-user-data-from-azure-ai-gallery"></a>Visualizzare ed eliminare i dati utente interni al prodotto da Azure AI Gallery
@@ -61,7 +61,7 @@ Per ottenere un token di accesso, è necessario esaminare l'intestazione `DataLa
 2.    Fare clic sull'immagine del profilo nell'angolo superiore destro e quindi sul nome dell'account per caricare la pagina del profilo.
 3.    Aprire il riquadro Strumenti di sviluppo del browser premendo F12, selezionare la scheda Rete e aggiornare la pagina. 
 4. Filtrare le richieste sulla stringa *catalog* digitando nella casella di testo Filtro.
-5.    In richieste all'URL `https://catalog.cortanaanalytics.com/entities`trovare una richiesta GET e selezionare la scheda *intestazioni* . scorrere verso il basso fino alla sezione *intestazioni richiesta* .
+5.    Nelle richieste all'URL `https://catalog.cortanaanalytics.com/entities`, trovare una richiesta GET e *Request Headers* selezionare la scheda *Intestazioni.*
 6.    Sotto l'intestazione `DataLabAccessToken` c'è il token alfanumerico. Per garantire la sicurezza dei dati, non condividere questo token.
 
 ### <a name="view-user-information"></a>Visualizzare le informazioni utente

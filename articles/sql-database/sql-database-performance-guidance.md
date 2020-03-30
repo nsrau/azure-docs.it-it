@@ -1,6 +1,6 @@
 ---
-title: Linee guida per l'ottimizzazione delle prestazioni per applicazioni e database
-description: Informazioni sull'ottimizzazione di database e applicazioni di database per le prestazioni nel database SQL di Azure.
+title: Linee guida per l'ottimizzazione delle prestazioni per applicazioni e databasePerformance tuning guidance for applications and databases
+description: Informazioni sull'ottimizzazione di database e database per le prestazioni nel database SQL di Azure.Learn about tuning database applications and databases for performance in Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -12,13 +12,13 @@ ms.author: carlrab
 ms.reviewer: carlrab; jrasnick
 ms.date: 03/10/2020
 ms.openlocfilehash: 4f30ebe39d86db7076baa8c29b2a5cf060b07bf5
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79255951"
 ---
-# <a name="tune-applications-and-databases-for-performance-in-azure-sql-database"></a>Ottimizzare le applicazioni e i database per le prestazioni nel database SQL di Azure
+# <a name="tune-applications-and-databases-for-performance-in-azure-sql-database"></a>Ottimizzare le applicazioni e i database per le prestazioni nel database SQL di AzureTune applications and databases for performance in Azure SQL Database
 
 Dopo aver identificato un problema di prestazioni che si verifica con Database SQL, grazie alle informazioni incluse in questo articolo è possibile:
 
@@ -37,9 +37,9 @@ Anche se i livelli di servizio del database SQL di Azure sono progettati per mig
 
 - **Applicazioni con prestazioni ridotte a causa di un comportamento "eccessivamente comunicativo"**
 
-  Le applicazioni con un livello di comunicazioni elevato eseguono un numero eccessivo di operazioni di accesso ai dati, sensibili alla latenza di rete. Potrebbe essere necessario modificare questi tipi di applicazioni, in modo da ridurre il numero di operazioni di accesso ai dati nel database SQL. Ad esempio, è possibile migliorare le prestazioni dell'applicazione utilizzando tecniche come l'invio in batch di query ad hoc o lo spostando le query nelle stored procedure. Per altre informazioni, vedere [Invio di query in batch](#batch-queries).
+  Le applicazioni con un livello di comunicazioni elevato eseguono un numero eccessivo di operazioni di accesso ai dati, sensibili alla latenza di rete. Potrebbe essere necessario modificare questi tipi di applicazioni, in modo da ridurre il numero di operazioni di accesso ai dati nel database SQL. Ad esempio, è possibile migliorare le prestazioni dell'applicazione utilizzando tecniche come l'invio in batch di query ad hoc o lo spostamento delle query in stored procedure. Per altre informazioni, vedere [Invio di query in batch](#batch-queries).
 
-- **Database con un carico di lavoro elevato che non possono essere supportati da una singola macchina virtuale intera**
+- **Database con un carico di lavoro intensivo che non può essere supportato da un'intera macchina**
 
    I database che superano le risorse delle dimensioni di calcolo Premium più elevate potrebbero trarre vantaggio dall'aumento del numero di istanze del carico di lavoro. Per altre informazioni, vedere [Partizionamento orizzontale tra database](#cross-database-sharding) e [Partizionamento funzionale](#functional-partitioning).
 
@@ -232,9 +232,9 @@ Esaminando **sys.resource_stats** è possibile determinare se la risorsa usata p
 
 Se un carico di lavoro include un set di query ripetute, è spesso consigliabile acquisire e confermare la validità delle scelte del piano perché determinerà l'unità di dimensioni minima delle risorse per ospitare il database. Dopo la convalida, esaminare di nuovo occasionalmente i piani per assicurarsi che siano ancora ottimali. Per altre informazioni, vedere [Hint per la query (Transact-SQL)](https://msdn.microsoft.com/library/ms181714.aspx).
 
-### <a name="very-large-database-architectures"></a>Architetture di database di dimensioni molto grandi
+### <a name="very-large-database-architectures"></a>Architetture di database di grandi dimensioni
 
-Prima del rilascio del livello di servizio di [iperscalabilità](sql-database-service-tier-hyperscale.md) per database singoli nel database SQL di Azure, i clienti usavano per raggiungere i limiti di capacità per i singoli database. Questi limiti di capacità sono ancora disponibili per i database in pool in pool elastici e database di istanza in istanze gestite. Nelle due sezioni seguenti vengono illustrate due opzioni per la risoluzione dei problemi con database di grandi dimensioni nel database SQL di Azure quando non è possibile usare il livello di servizio di iperscalabilità.
+Prima del rilascio del livello di servizio [Hyperscale](sql-database-service-tier-hyperscale.md) per singoli database nel database SQL di Azure, i clienti utilizzavano per raggiungere i limiti di capacità per i singoli database. Questi limiti di capacità esistono ancora per i database in pool in pool elastici e i database di istanza nelle istanze gestite. Le due sezioni seguenti illustrano due opzioni per risolvere i problemi con database di grandi dimensioni nel database SQL di Azure quando non è possibile usare il livello di servizio Hyperscale.The following two sections discuss two options for solving problems with very large databases in Azure SQL Database when you cannot use the Hyperscale service tier.
 
 ### <a name="cross-database-sharding"></a>Partizionamento orizzontale tra database
 

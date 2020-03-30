@@ -14,23 +14,23 @@ ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: kumud
 ms.openlocfilehash: 176cd9b0bf72a123bc644ebc27ee0e091aa54e97
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79245187"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Tipi di indirizzi IP e metodi di allocazione in Azure
 
 È possibile assegnare gli indirizzi IP alle risorse di Azure per comunicare con altre risorse di Azure, con la rete locale e con Internet. In Azure è possibile usare due tipi di indirizzi IP:
 
-* **Indirizzi IP pubblici**: usati per la comunicazione con Internet, compresi i servizi pubblici di Azure.
+* **Indirizzi IP pubblici:** usato per la comunicazione con Internet, inclusi i servizi pubblici di Azure.Public IP addresses : Used for communication with the Internet, including Azure public-facing services.
 * **Indirizzi IP privati**: usati per la comunicazione all'interno di una rete virtuale di Azure e della rete locale quando si usa un gateway VPN o un circuito ExpressRoute per estendere la rete ad Azure.
 
 È anche possibile creare un intervallo contiguo di indirizzi IP pubblici statici tramite un prefisso IP pubblico. [Informazioni sui prefissi IP pubblici.](public-ip-address-prefix.md)
 
 > [!NOTE]
-> Azure offre due modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  Questo articolo illustra il modello di distribuzione Resource Manager che Microsoft consiglia di usare per le distribuzioni più recenti in sostituzione del [modello di distribuzione classica](virtual-network-ip-addresses-overview-classic.md).
+> Azure offre due modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  In questo articolo viene illustrato l'utilizzo del modello di distribuzione di Resource Manager, consigliato da Microsoft per la maggior parte delle nuove distribuzioni anziché del modello di [distribuzione classica.](virtual-network-ip-addresses-overview-classic.md)
 > 
 
 Se si ha familiarità con il modello di distribuzione classica, verificare le [differenze tra gli indirizzi IP nella versione classica e in Resource Manager](/previous-versions/azure/virtual-network/virtual-network-ip-addresses-overview-classic#differences-between-resource-manager-and-classic-deployments).
@@ -75,14 +75,14 @@ Gli indirizzi IP pubblici con SKU Standard sono:
 - Assegnati sempre con il metodo di allocazione statica.
 - Caratterizzati da un timeout di inattività per i flussi in ingresso modificabile di 4-30 minuti, con un valore predefinito di 4 minuti, e da un timeout di inattività per i flussi in uscita fisso di 4 minuti.
 - Sono protetti per impostazione predefinita e chiusi al traffico in ingresso. È necessario inserire esplicitamente in un elenco di elementi consentiti il traffico di rete in ingresso con un [gruppo di sicurezza di rete](security-overview.md#network-security-groups).
-- Assegnati a interfacce di rete, bilanciamenti del carico pubblico standard o gateway applicazione. Per altre informazioni su Load Balancer Standard, vedere [Azure Load Balancer Standard](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Assegnato alle interfacce di rete, ai servizi di bilanciamento del carico pubblici standard o ai gateway applicativi. Per altre informazioni su Load Balancer Standard, vedere [Azure Load Balancer Standard](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - Con ridondanza della zona per impostazione predefinita e facoltativamente di zona (può essere creato a livello di zona ed è garantito in una zona di disponibilità specifica). Per altre informazioni sulle zone di disponibilità, vedere [Panoramica delle zone di disponibilità](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Load Balancer Standard e zone di disponibilità](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
  
 > [!NOTE]
 > La comunicazione in ingresso con una risorsa SKU Standard non riesce finché non si crea e si associa un [gruppo di sicurezza di rete](security-overview.md#network-security-groups) e si consente in modo esplicito il traffico in ingresso.
 
 > [!NOTE]
-> Quando si usa il [servizio metadati dell'istanza](../virtual-machines/windows/instance-metadata-service.md), sono disponibili solo indirizzi IP pubblici con SKU di base IMDS. Lo SKU standard non è supportato.
+> Quando si utilizza [IMDS del servizio metadati dell'istanza,](../virtual-machines/windows/instance-metadata-service.md)sono disponibili solo gli indirizzi IP pubblici con SKU di base. Lo SKU standard non è supportato.
 
 ### <a name="allocation-method"></a>Metodo di allocazione
 
@@ -106,14 +106,14 @@ Gli indirizzi IP pubblici statici sono comunemente usati negli scenari seguenti:
 >
 
 ### <a name="dns-hostname-resolution"></a>Risoluzione del nome host DNS
-È possibile specificare un'etichetta del nome di dominio DNS per una risorsa IP pubblica, che crea un mapping per *etichettanomedominio*.*località*.cloudapp.azure.com per l'indirizzo IP pubblico nei server DNS gestiti di Azure. Se si crea una risorsa IP pubblica con **contoso** come *etichettanomedominio* nella **località** di Azure *Stati Uniti occidentali*, ad esempio, il nome di dominio completo (FQDN) **contoso.westus.cloudapp.azure.com** viene risolto nell'indirizzo IP pubblico della risorsa.
+È possibile specificare un'etichetta del nome di dominio DNS per una risorsa IP pubblica, che crea un mapping per *domainnamelabel*. cloudapp.azure.com *all'indirizzo*IP pubblico nei server DNS gestiti da Azure. Se si crea una risorsa IP pubblica con **contoso** come *etichettanomedominio* nella *località* di Azure **Stati Uniti occidentali**, ad esempio, il nome di dominio completo (FQDN) **contoso.westus.cloudapp.azure.com** viene risolto nell'indirizzo IP pubblico della risorsa.
 
 > [!IMPORTANT]
 > Ogni etichetta di nome di dominio creata deve essere univoca nella relativa posizione di Azure.  
 >
 
 ### <a name="dns-best-practices"></a>Procedure consigliate per DNS
-Se è necessario eseguire la migrazione a un'area diversa, non è possibile eseguire la migrazione del nome di dominio completo dell'indirizzo IP pubblico. Come procedura consigliata, è possibile usare il nome di dominio completo per creare un record CNAME di dominio personalizzato che punta all'indirizzo IP pubblico in Azure. Se è necessario passare a un indirizzo IP pubblico diverso, sarà necessario un aggiornamento del record CNAME invece di dover aggiornare manualmente il nome FQDN al nuovo indirizzo. È possibile usare [DNS di Azure](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address) o un provider DNS esterno per il record DNS. 
+Se è necessario eseguire la migrazione in un'area diversa, non è possibile eseguire la migrazione del nome di dominio completo dell'indirizzo IP pubblico. Come procedura consigliata, è possibile usare il nome di dominio completo per creare un record CNAME di dominio personalizzato che punta all'indirizzo IP pubblico in Azure.As a best practice, you can use the FQDN to create a custom domain CNAME record pointing to the public IP address in Azure. Se è necessario passare a un indirizzo IP pubblico diverso, sarà necessario un aggiornamento del record CNAME anziché dover aggiornare manualmente il nome di dominio completo al nuovo indirizzo. È possibile usare DNS di [Azure](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address) o un provider DNS esterno per il record DNS. 
 
 ### <a name="virtual-machines"></a>Macchine virtuali
 
@@ -129,12 +129,12 @@ Un [gateway VPN di Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2
 
 ### <a name="application-gateways"></a>Gateway di applicazione
 
-È possibile associare un indirizzo IP pubblico a un [gateway applicazione](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)di Azure, assegnandolo alla configurazione **front-end** del gateway. Questo indirizzo IP pubblico viene usato come indirizzo VIP con carico bilanciato. È possibile assegnare solo un indirizzo IP pubblico di base *dinamico* a una configurazione front-end del gateway applicazione V1 e solo un indirizzo dello SKU standard *statico* a una configurazione front-end V2.
+È possibile associare un indirizzo IP pubblico a un [gateway applicazione](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)di Azure, assegnandolo alla configurazione **front-end** del gateway. Questo indirizzo IP pubblico viene usato come indirizzo VIP con carico bilanciato. È possibile assegnare solo un indirizzo IP pubblico di base *dinamico* a una configurazione front-end V1 del gateway applicazione e solo un indirizzo SKU standard *statico* a una configurazione front-end V2.
 
 ### <a name="at-a-glance"></a>Riepilogo
 La tabella seguente illustra la proprietà specifica tramite la quale un indirizzo IP pubblico può essere associato a una risorsa di livello superiore e i metodi di allocazione possibili (dinamici o statici) utilizzabili.
 
-| Risorse di livello superiore | Associazione di indirizzi IP | Dynamic | Static |
+| Risorse di livello superiore | Associazione di indirizzi IP | Dinamico | Statico |
 | --- | --- | --- | --- |
 | Macchina virtuale |interfaccia di rete |Sì |Sì |
 | Servizio di bilanciamento del carico con connessione Internet |Configurazione front-end |Sì |Sì |
@@ -178,7 +178,7 @@ Le macchine virtuali configurate con server DNS gestiti di Azure possono risolve
 ### <a name="at-a-glance"></a>Riepilogo
 La tabella seguente illustra la proprietà specifica tramite la quale un indirizzo IP privato può essere associato a una risorsa di livello superiore e i metodi di allocazione possibili (dinamici o statici) utilizzabili.
 
-| Risorse di livello superiore | Associazione di indirizzi IP | Dynamic | Static |
+| Risorse di livello superiore | Associazione di indirizzi IP | Dinamico | Statico |
 | --- | --- | --- | --- |
 | Macchina virtuale |interfaccia di rete |Sì |Sì |
 | Bilanciamento del carico |Configurazione front-end |Sì |Sì |
@@ -187,7 +187,7 @@ La tabella seguente illustra la proprietà specifica tramite la quale un indiriz
 ## <a name="limits"></a>Limiti
 I limiti imposti agli indirizzi IP sono indicati nel set completo di [limiti della rete](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) in Azure. I limiti sono classificati per area e per sottoscrizione. È possibile [contattare il supporto tecnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per aumentare i limiti predefiniti fino ai massimi consentiti in base alle esigenze aziendali.
 
-## <a name="pricing"></a>Pricing
+## <a name="pricing"></a>Prezzi
 Per gli indirizzi IP pubblici può essere previsto un addebito nominale. Per altre informazioni sui prezzi degli indirizzi IP in Azure, vedere la pagina [Prezzi per gli indirizzi IP](https://azure.microsoft.com/pricing/details/ip-addresses).
 
 ## <a name="next-steps"></a>Passaggi successivi

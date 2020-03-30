@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/08/2017
 ms.author: alkohli
 ms.openlocfilehash: f32f8925bca33d90afa48071d0c0944ba63861cd
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79254768"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>Per gestire il volume è possibile usare il servizio Gestione dispositivi StorSimple (aggiornamento 3 o successivo)
@@ -69,7 +69,7 @@ Il pannello **Volumi** consente di gestire i volumi di archiviazione forniti nel
 Un volume è costituito da una serie di attributi:
 
 * **Nome volume** : un nome descrittivo che deve essere univoco e consente di identificare il volume. Questo nome viene utilizzato anche nei rapporti di monitoraggio quando di applica un filtro su un volume specifico. Una volta creato, il volume non può essere rinominato.
-* **Stato** : online oppure offline. Se un volume è offline, non è visibile agli iniziatori (server) che possono accedervi per usarlo.
+* **Stato**: online oppure offline. Se un volume è offline, non è visibile agli iniziatori (server) che possono accedervi per usarlo.
 * **Capacità**: specifica la quantità totale di dati che può essere archiviata dall'iniziatore (server). Dei volumi aggiunti in locale viene effettuato il provisioning completo. Tali volumi sono nel dispositivo StorSimple. Dei volumi a livelli Viene effettuato il thin provisioning e i dati vengono deduplicati. Con i volumi con thin provisioning, il dispositivo non prealloca la capacità di archiviazione fisica internamente o nel cloud in base alle capacità del volume configurato. La capacità del volume viene allocata e utilizzata su richiesta.
 * **Tipo**: indica se il volume è **A livelli** (impostazione predefinita) o **Aggiunto in locale**.
 
@@ -98,7 +98,7 @@ Il [volume è stato creato](storsimple-8000-deployment-walkthrough-u2.md#step-6-
 
     2. Nell'elenco a discesa selezionare il contenitore del volume in cui è necessario aggiungere un volume.
 
-    3.  Digitare un **Nome** per il volume. Non è possibile rinominare un volume dopo che il volume è stato creato.
+    3.  Digitare un nome per il volume.**** Non è possibile rinominare un volume dopo che il volume è stato creato.
 
     4. Nell'elenco a discesa selezionare il **tipo** per il volume. Per carichi di lavoro che richiedono garanzie locali, latenze basse e prestazioni più elevate, selezionare un volume **aggiunto in locale** . Per tutti gli altri dati, selezionare un volume **a livelli** . Se si usa questo volume per dati di archivio, selezionare la casella di controllo **Usare questo volume per i dati di archivio a cui si accede non di frequente**.
       
@@ -106,7 +106,7 @@ Il [volume è stato creato](storsimple-8000-deployment-walkthrough-u2.md#step-6-
        
        Per un volume aggiunto in locale viene eseguito il thick provisioning, per garantire che i dati primari rimangano a livello locale per il dispositivo e non a livello cloud.  Se si crea un volume aggiunto in locale, il dispositivo cercherà lo spazio disponibile nei livelli locali per il provisioning del volume delle dimensioni richieste. L'operazione di creazione di un volume aggiunto in locale potrebbe comportare la distribuzione dei dati esistenti dal dispositivo al cloud e il tempo impiegato per creare il volume potrebbe essere lungo. Il tempo totale dipende dalle dimensioni del volume di cui è stato eseguito il provisioning, dalla larghezza di banda di rete disponibile e dai dati sul dispositivo.
 
-    5. Specificare la **Capacità fornita** per il volume. Prendere nota della capacità disponibile in base al tipo di volume selezionato. Le dimensioni del volume specificato non devono superare lo spazio disponibile.
+    5. Specificare la capacità fornita per il volume.**** Prendere nota della capacità disponibile in base al tipo di volume selezionato. Le dimensioni del volume specificato non devono superare lo spazio disponibile.
       
        È possibile effettuare il provisioning di volumi aggiunti in locale fino a 8,5 TB oppure di volumi a livelli fino a 200 TB nel dispositivo 8100. Nel dispositivo 8600 più grande è possibile effettuare il provisioning di volumi aggiunti in locale fino a 22,5 TB o di volumi a livelli fino a 500 TB. Poiché è necessario spazio locale sul dispositivo per ospitare il working set di volumi a livelli, la creazione di volumi aggiunti in locale influirà sullo spazio disponibile per il provisioning di volumi a livelli. Creando un volume aggiunto in locale, viene quindi ridotto lo spazio disponibile per la creazione di volumi a livelli. Analogamente, creando un volume a livelli verrà ridotto lo spazio disponibile per la creazione di volumi aggiunti in locale.
       
@@ -152,18 +152,18 @@ Modificare un volume quando occorre espanderlo o modificare gli host che vi acce
    
    1. Il **Nome** del volume non può essere modificato.
    2. Convertire il **Tipo** da aggiunto in locale a quello a livelli o viceversa. Per altre informazioni, vedere [Change the volume type](#change-the-volume-type) (Modificare il tipo di volume).
-   3. Aumentare la **Capacità fornita**. La **Capacità fornita** può essere solo aumentata. Non è possibile ridurre un volume dopo averlo creato.
+   3. Aumentare il valore nel campo **Capacità fornita**. Il valore del campo **Capacità fornita** può essere solo incrementato. Non è possibile ridurre un volume dopo averlo creato.
    4. In **Host connessi** è possibile modificare i record di controllo di accesso. Per modificare un record, il volume deve essere offline.
 
        ![Esaminare l'impatto del portare un volume offline](./media/storsimple-8000-manage-volumes-u2/modifyvol11.png)
 
-5. Fare clic su **Salva** per salvare le modifiche. Alla richiesta di conferma fare clic su **Sì**. Il portale di Azure mostrerà un messaggio relativo all'aggiornamento del volume. Quando il volume è stato aggiornato verrà mostrato un messaggio di conferma.
+5. Fare clic su **Salva** per salvare le modifiche. Quando viene richiesta la conferma, fare clic su **Sì**. Il portale di Azure mostrerà un messaggio relativo all'aggiornamento del volume. Quando il volume è stato aggiornato verrà mostrato un messaggio di conferma.
 
     ![Esaminare l'impatto del portare un volume offline](./media/storsimple-8000-manage-volumes-u2/modifyvol5.png)
 
 7. Se si sta espandendo un volume, completare i passaggi seguenti nel computer host Windows:
    
-   1. Accedere a **Gestione Computer** ->**Gestione disco**.
+   1. Passare a**Gestione disco**di **Gestione** ->computer .
    2. Fare clic con il pulsante destro del mouse su **Gestione disco** e selezionare **Rescan Disks** (Ripeti analisi dischi).
    3. Nell'elenco dei dischi, selezionare il volume che è stato aggiornato, fare clic con il pulsante destro del mouse e quindi selezionare **Estendi Volume**. Verrà avviata la procedura guidata Estendi volume. Fare clic su **Avanti**.
    4. Completare la procedura guidata accettando i valori predefiniti. Dopo aver completato la procedura guidata, il volume dovrebbe mostrare l'aumento delle dimensioni.
@@ -229,7 +229,7 @@ Se si desidera convertire più volumi che supportano diversi carichi di lavoro, 
    
      ![Messaggio relativo alla modifica del tipo di volume](./media/storsimple-8000-manage-volumes-u2/changevoltype3.png)
 
-7. È consigliabile fare clic su **Salva** per salvare le modifiche. Quando viene richiesta la conferma, fare clic su **Sì** per avviare la procedura di conversione. 
+7. Fare clic su **Salva** per salvare le modifiche. Quando viene richiesta la conferma, fare clic su **Sì** per avviare la procedura di conversione. 
 
     ![Salvare e confermare](./media/storsimple-8000-manage-volumes-u2/modifyvol11.png)
 
@@ -295,7 +295,7 @@ Completare la procedura seguente per eliminare un volume.
    > [!NOTE]
    > Se si elimina un volume aggiunto in locale, lo spazio disponibile per i nuovi volumi potrebbe non essere immediatamente aggiornato. Il servizio Gestione dispositivi StorSimple aggiorna periodicamente lo spazio locale disponibile. È consigliabile attendere alcuni minuti prima di creare il nuovo volume.
    >
-   > Se si elimina un volume aggiunto in locale e quindi se ne elimina un altro subito dopo, i processi di eliminazione dei volumi vengono eseguiti in sequenza. Il primo processo di eliminazione del volume deve terminare prima che possa iniziare quello successivo.
+   >  Se si elimina un volume aggiunto in locale e quindi se ne elimina un altro subito dopo, i processi di eliminazione dei volumi vengono eseguiti in sequenza. Il primo processo di eliminazione del volume deve terminare prima che possa iniziare quello successivo.
 
 ## <a name="monitor-a-volume"></a>Monitorare a volume
 

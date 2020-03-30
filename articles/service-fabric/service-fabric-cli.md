@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 46c5e1ed0a1d0db100c3415c40f59d46f62b21f9
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79258941"
 ---
 # <a name="azure-service-fabric-cli"></a>Interfaccia della riga di comando di Azure Service Fabric
@@ -18,7 +18,7 @@ L'interfaccia della riga di comando di Azure Service Fabric è un'utilità della
 
 [!INCLUDE [links to azure cli and service fabric cli](../../includes/service-fabric-sfctl.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima dell'installazione, verificare che nell'ambiente siano installati sia Python che pip. Per informazioni, vedere la [documentazione rapida di pip](https://pip.pypa.io/en/latest/quickstart/) e la [documentazione sull'installazione di Python](https://wiki.python.org/moin/BeginnersGuide/Download) ufficiale.
 
@@ -30,7 +30,7 @@ L'interfaccia della riga di comando di Service Fabric è progettata per supporta
 
 | Versione dell'interfaccia della riga di comando   | Versione runtime supportata |
 |---------------|---------------------------|
-| Più recente (~ = 9)  | Più recente (~=7)              |
+| Ultimi (n. 9)  | Più recente (~=7)              |
 | 8.0.0         | 6,5                       |
 | 7.1.0         | 6.4                       |
 | 6.0.0         | 6.3                       |
@@ -39,7 +39,7 @@ L'interfaccia della riga di comando di Service Fabric è progettata per supporta
 | 3.0.0         | 6.0                       |
 | 1.1.0         | 5.6, 5.7                  |
 
-Facoltativamente, è possibile specificare una versione di destinazione dell'interfaccia della riga di comando da installare aggiungendo `pip install` come suffisso al comando `==<version>`. Per la versione 1.1.0, ad esempio, la sintassi sarà la seguente:
+Facoltativamente, è possibile specificare una versione di destinazione dell'interfaccia della riga di comando da installare aggiungendo `==<version>` come suffisso al comando `pip install`. Per la versione 1.1.0, ad esempio, la sintassi sarà la seguente:
 
 ```shell
 pip install -I sfctl==1.1.0
@@ -53,7 +53,7 @@ Per altre informazioni sulle versioni dell'interfaccia della riga di comando di 
 
 È possibile installare pip e Python nella piattaforma in molti modi. Ecco alcune procedure per configurare rapidamente i sistemi operativi principali con Python 3 e pip.
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a>WINDOWS
 
 Per Windows 10, Windows Server 2016 e Windows Server 2012 R2 usare le istruzioni di installazione standard ufficiali. Il programma di installazione di Python installa anche pip per impostazione predefinita.
 

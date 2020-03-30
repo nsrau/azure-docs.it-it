@@ -11,10 +11,10 @@ ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
 ms.openlocfilehash: af0611e121228a587e159bd4e6529c807132d16d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79204444"
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>Analisi scientifica dei dati per principianti, video 1: Le 5 domande a cui risponde l'analisi scientifica dei dati
@@ -31,10 +31,10 @@ Il primo video contiene le tipologie di domande a cui l'analisi scientifica dei 
 *Analisi scientifica dei dati per principianti* è una rapida introduzione all'analisi scientifica dei dati in circa 25 minuti. Estrarre tutti i cinque video:
 
 * Video 1: 5 domande a cui può rispondere l'analisi scientifica dei dati
-* Video 2: [Verifica della preparazione dei dati per l'analisi scientifica dei dati](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min e 56 sec)*
-* Video 3: [porre una domanda a cui è possibile rispondere con i dati](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 sec)*
-* Video 4: [prevedere una risposta con un modello semplice](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 sec)*
-* Video 5: [copiare il lavoro di altre persone per eseguire Data Science](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min 18 sec)*
+* Video 2: [I dati sono pronti per l'analisi scientifica dei dati?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min e 56 sec)*
+* Video 3: [Porre una domanda a cui è possibile rispondere con i dati](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min e 17 sec)*
+* Video 4: [Prevedere una risposta con un modello semplice](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min e 42 sec)*
+* Video 5: [Copiare il lavoro di altre persone per l'analisi scientifica dei dati](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 min e 18 sec)*
 
 ## <a name="transcript-the-5-questions-data-science-answers"></a>Trascrizione: Le 5 domande a cui risponde l'analisi scientifica dei dati
 Salve! Benvenuti alla serie di video *Analisi scientifica dei dati per principianti*.
@@ -66,7 +66,7 @@ Questa famiglia di algoritmi viene detta classificazione a due classi.
 
 È utile per qualsiasi domanda che può avere solo due risposte possibili.
 
-Ad esempio,
+Ad esempio:
 
 * Sarà possibile percorrere le prossime 1.000 miglia con questi pneumatici: Sì o No?
 * Cosa porta più clienti: un coupon da $ 5 o uno sconto del 25%?
@@ -78,12 +78,12 @@ La domanda successiva a cui l'analisi scientifica dei dati può rispondere è: �
 
 ![Algoritmi di rilevamento delle anomalie: È strano?](./media/data-science-for-beginners-the-5-questions-data-science-answers/anomaly-detection-algorithms.png)
 
-Se si dispone di una carta di credito, è già stato effettuato il vantaggio del rilevamento delle anomalie. La società della carta di credito analizza i modelli di acquisto, in modo tale da avvisare gli utenti di possibili episodi di frodi. Addebiti "strani" potrebbero essere acquisti presso un negozio in cui non si effettuano compere abitualmente o acquisti di articoli eccezionalmente costosi.
+Se hai una carta di credito, hai già beneficiato del rilevamento delle anomalie. La società della carta di credito analizza i modelli di acquisto, in modo tale da avvisare gli utenti di possibili episodi di frodi. Addebiti "strani" potrebbero essere acquisti presso un negozio in cui non si effettuano compere abitualmente o acquisti di articoli eccezionalmente costosi.
 
 Questa domanda può essere utile in molti modi. Ad esempio:
 
 * Se si guida un'auto con manometri, ci si potrebbe chiedere: Questo manometro funziona normalmente?
-* Se si sta monitorando Internet, è opportuno essere a conoscenza di questo messaggio da Internet tipico?
+* Se stai monitorando Internet, vorresti sapere: Questo messaggio da internet è tipico?
 
 Il rilevamento delle anomalie segnala eventi o comportamenti imprevisti o insoliti. Fornisce degli indizi su dove cercare per individuare i problemi.
 
@@ -102,7 +102,7 @@ Aiutano a rispondere a qualsiasi domanda che richiede informazioni numeriche.
 ## <a name="question-4-how-is-this-organized-uses-clustering-algorithms"></a>Domanda 4: In che modo sono organizzati i dati? usa gli algoritmi di clustering
 Le ultime due domande sono invece un po' più complesse.
 
-Talvolta si desidera capire la struttura di un set di dati: In che modo sono organizzati i dati? Per questa domanda, non sono disponibili esempi per i quali si conoscono già i risultati.
+Talvolta si desidera capire la struttura di un set di dati: In che modo sono organizzati i dati? Per questa domanda, non hai esempi per i quali conosci già i risultati.
 
 Esistono diversi modi per comprendere la struttura dei dati. Un approccio è il clustering. Separa i dati in "gruppi" naturali per un'interpretazione più semplice. Con il clustering non vi è un'unica risposta corretta.
 
@@ -135,5 +135,5 @@ Gli algoritmi di apprendimento per rinforzo raccolgono i dati durante i processi
 Ecco, queste sono le 5 domande a cui l'analisi scientifica dei dati per principianti può rispondere.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Provare un primo esperimento di data science con Machine Learning Studio (classico)](create-experiment.md)
+* [Provare un primo esperimento di data science con Machine Learning Studio (classico)Try a first data science experiment with Machine Learning Studio (classic)](create-experiment.md)
 * [Leggere l'Introduzione all'apprendimento automatico in Microsoft Azure](/azure/machine-learning/preview/overview-what-is-azure-ml)

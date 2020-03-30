@@ -1,6 +1,6 @@
 ---
 title: Eseguire query sui dati usando la libreria di Esplora dati di Azure per Python
-description: Questo articolo illustra come eseguire query sui dati da Azure Esplora dati usando Python.
+description: In this article, you learn how to query data from Azure Data Explorer using Python.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
@@ -8,23 +8,23 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.openlocfilehash: ebd65f2dcbb0040b764290627bbfd2901aa9a7d3
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77443976"
 ---
 # <a name="query-data-using-the-azure-data-explorer-python-library"></a>Eseguire query sui dati usando la libreria di Esplora dati di Azure per Python
 
-Questo articolo illustra come eseguire query sui dati usando il Esplora dati di Azure. Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria.
+In this article, you query data using the Azure Data Explorer. Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria.
 
-Esplora i dati di Azure mette a disposizione una [libreria client per i dati per Python](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). Questa libreria consente di eseguire query sui dati dal codice. Connettersi a una tabella nel *cluster della Guida* che è stato configurato per facilitare l'apprendimento. È possibile eseguire una query su una tabella del cluster e restituire i risultati.
+Esplora i dati di Azure mette a disposizione una [libreria client per i dati per Python](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). Questa libreria consente di eseguire query sui dati dal codice. Connettersi a una tabella nel cluster di *assistenza* che è stato configurato per facilitare l'apprendimento. È possibile eseguire una query su una tabella in tale cluster e restituire i risultati.
 
-Questo articolo è disponibile anche come [notebook di Azure](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueryKusto.ipynb).
+Questo articolo è disponibile anche come blocco appunti di [Azure.This article](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueryKusto.ipynb)is also available as an Azure Notebook .
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* [Python 3.4 +](https://www.python.org/downloads/)
+* [Pitone 3.4](https://www.python.org/downloads/)
 
 * Un account di posta elettronica dell'organizzazione che sia membro di Azure Active Directory
 
@@ -67,7 +67,7 @@ KUSTO_CLUSTER = "https://help.kusto.windows.net/"
 KUSTO_DATABASE = "Samples"
 ```
 
-Costruire ora la stringa di connessione. Questo esempio usa l'autenticazione del dispositivo per accedere al cluster. È anche possibile usare il [certificato dell'applicazione AAD](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L24), la [chiave dell'applicazione Azure Active Directory](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L20) e l'[utente e password di AAD](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L34).
+Costruire ora la stringa di connessione. Questo esempio usa l'autenticazione del dispositivo per accedere al cluster. È inoltre possibile utilizzare il [certificato dell'applicazione AAD,](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L24)la [chiave dell'applicazione AAD](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L20)e [l'utente e la password di AAD.](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L34)
 
 ```python
 KCSB = KustoConnectionStringBuilder.with_aad_device_authentication(
@@ -100,4 +100,4 @@ I primi dieci risultati visualizzati provengono dalla tabella StormEvents.
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Inserire dati usando la libreria di Esplora dati di Azure per Python](python-ingest-data.md)
+> [Eseguire l'inserimento di dati usando la libreria Python di Azure Data ExplorerIngest data using the Azure Data Explorer Python library](python-ingest-data.md)

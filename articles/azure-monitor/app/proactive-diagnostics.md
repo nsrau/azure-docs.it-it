@@ -4,16 +4,16 @@ description: Application Insights esegue automaticamente un'analisi approfondita
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.openlocfilehash: e232295f9da2a2ae8f3c6fafdd1dc33a42e92e69
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671801"
 ---
 # <a name="smart-detection-in-application-insights"></a>Rilevamento intelligente in Application Insights
- Il rilevamento intelligente segnala automaticamente i potenziali problemi di prestazioni e le anomalie degli errori nell'applicazione Web. Esegue l'analisi proattiva dei dati di telemetria che l'app invia ad [Application Insights](../../azure-monitor/app/app-insights-overview.md). Se si verifica un improvviso aumento della percentuale di errori o in caso di modelli anomali delle prestazioni di client o server, viene generato un avviso. Questa funzionalità non richiede alcuna configurazione. Funziona se l'applicazione invia dati di telemetria sufficienti.
+ Rilevamento intelligente avvisa automaticamente l'utente di potenziali problemi di prestazioni e anomalie di errore nell'applicazione Web. Esegue l'analisi proattiva dei dati di telemetria che l'app invia ad [Application Insights](../../azure-monitor/app/app-insights-overview.md). Se si verifica un improvviso aumento della percentuale di errori o in caso di modelli anomali delle prestazioni di client o server, viene generato un avviso. Questa funzionalità non richiede alcuna configurazione. Funziona se l'applicazione invia dati di telemetria sufficienti.
 
-È possibile accedere ai rilevamenti emessi dal rilevamento intelligente da messaggi di posta elettronica ricevuti e dal pannello rilevamento intelligente.
+È possibile accedere ai rilevamenti emessi da Smart Detection sia dalle e-mail ricevute che dal pannello Rilevamento intelligente.
 
 ## <a name="review-your-smart-detections"></a>Esaminare i rilevamenti intelligenti
 È possibile individuare i rilevamenti in due modi:
@@ -23,24 +23,24 @@ ms.locfileid: "77671801"
     ![Avviso di posta elettronica](./media/proactive-diagnostics/03.png)
   
     Fare clic sul pulsante grande per visualizzare altri dettagli nel portale.
-* Pannello **rilevamento intelligente** in Application Insights. Selezionare **rilevamento intelligente** **dal menu Verifica** per visualizzare un elenco di rilevamenti recenti.
+* **Il pannello Rilevamento intelligente** in Application Insights. Selezionare **Rilevamento intelligente** nel menu **Esamina** per visualizzare un elenco di rilevamenti recenti.
 
 ![Visualizzare rilevamenti recenti](./media/proactive-diagnostics/04.png)
 
 Selezionare un rilevamento per visualizzarne i dettagli.
 
 ## <a name="what-problems-are-detected"></a>Tipi di problemi rilevati
-Il rilevamento intelligente rileva e invia una notifica a diversi problemi, ad esempio:
+Smart Detection rileva e notifica una serie di problemi, ad esempio:
 
 * [Rilevamento intelligente: anomalie negli errori](../../azure-monitor/app/proactive-failure-diagnostics.md). Si usa Machine Learning per impostare la frequenza prevista delle richieste non riuscite per l'app, in correlazione con il carico e altri fattori. Se la percentuale di errori supera la prevista, viene inviato un avviso.
 * [Rilevamento intelligente: anomalie nelle prestazioni](../../azure-monitor/app/proactive-performance-diagnostics.md). Vengono inviate notifiche se il tempo di risposta di un'operazione o la durata delle dipendenze sta rallentando rispetto alla baseline cronologica o se viene identificato un modello anomalo nel tempo di risposta o di caricamento pagina.   
-* Riduzioni generali e problemi, ad esempio [traccia peggioramento](https://docs.microsoft.com/azure/azure-monitor/app/proactive-trace-severity), [perdita di memoria](https://docs.microsoft.com/azure/azure-monitor/app/proactive-potential-memory-leak), [incremento anomalo nel volume delle eccezioni](https://docs.microsoft.com/azure/azure-monitor/app/proactive-exception-volume) e [anti-pattern di sicurezza](https://docs.microsoft.com/azure/azure-monitor/app/proactive-application-security-detection-pack).
+* Le degradazioni generali e i problemi, ad esempio [Trace degredation](https://docs.microsoft.com/azure/azure-monitor/app/proactive-trace-severity), [Perdita di memoria](https://docs.microsoft.com/azure/azure-monitor/app/proactive-potential-memory-leak), Aumento anomalo del volume delle [eccezioni](https://docs.microsoft.com/azure/azure-monitor/app/proactive-exception-volume) e [anti-modelli di sicurezza](https://docs.microsoft.com/azure/azure-monitor/app/proactive-application-security-detection-pack).
 
 I collegamenti della Guida in ogni notifica consentono di vedere gli articoli pertinenti.
 
 ## <a name="smart-detection-email-notifications"></a>Notifiche di posta elettronica di Rilevamento intelligente
 
-Tutte le regole di rilevamento intelligente, ad eccezione delle regole contrassegnate come _Anteprima_, vengono configurate per impostazione predefinita per l'invio di notifiche tramite posta elettronica quando vengono rilevati i
+Tutte le regole di rilevamento intelligente, ad eccezione delle regole contrassegnate come _anteprima,_ sono configurate per impostazione predefinita per l'invio di notifiche e-mail quando vengono rilevati rilevamenti.
 
 È possibile configurare notifiche di posta elettronica per una determinata regola di Rilevamento intelligente aprendo il pannello **Impostazioni** di Rilevamento intelligente e selezionando la regola, che aprirà il pannello **Modifica regola**.
 

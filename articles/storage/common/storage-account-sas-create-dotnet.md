@@ -1,7 +1,7 @@
 ---
-title: Creare una firma di accesso condiviso con .NET
+title: Creare una sAS dell'account con .NETCreate an account SAS with .NET
 titleSuffix: Azure Storage
-description: Informazioni su come creare una firma di accesso condiviso (SAS) dell'account usando la libreria client .NET.
+description: Informazioni su come creare una firma di accesso condiviso dell'account usando la libreria client .NET.
 services: storage
 author: tamram
 ms.service: storage
@@ -11,21 +11,21 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 9da27cef7bafa94715a42db86fc5a5675a049eb1
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79137870"
 ---
-# <a name="create-an-account-sas-with-net"></a>Creare una firma di accesso condiviso con .NET
+# <a name="create-an-account-sas-with-net"></a>Creare una sAS dell'account con .NETCreate an account SAS with .NET
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
-Questo articolo illustra come usare la chiave dell'account di archiviazione per creare una firma di accesso condiviso dell'account con la [libreria client di archiviazione di Azure per .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).
+Questo articolo illustra come usare la chiave dell'account di archiviazione per creare una sAS dell'account con la libreria client di [Archiviazione di Azure per .NET.](/dotnet/api/overview/azure/storage?view=azure-dotnet)
 
-## <a name="create-an-account-sas"></a>Creare una firma di accesso condiviso dell'account
+## <a name="create-an-account-sas"></a>Creare un SAS dell'account
 
-Per creare una firma di accesso condiviso dell'account per un contenitore, chiamare il metodo [CloudStorageAccount. GetSharedAccessSignature](/dotnet/api/microsoft.azure.storage.cloudstorageaccount.getsharedaccesssignature) .
+Per creare una firma di accesso condiviso dell'account per un contenitore, chiamare il metodo [CloudStorageAccount.GetSharedAccessSignature.To](/dotnet/api/microsoft.azure.storage.cloudstorageaccount.getsharedaccesssignature) create an account SAS for a container, call the CloudStorageAccount.GetSharedAccessSignature method.
 
 L'esempio di codice seguente crea una firma di accesso condiviso valida per i servizi BLOB e File e concede al client le autorizzazioni di lettura, scrittura ed elenco per accedere alle API a livello di servizio. Per la firma di accesso condiviso dell'account il protocollo è limitato ad HTTPS, pertanto è necessario creare una richiesta HTTPS. È necessario ricordare di sostituire i valori segnaposto tra parentesi uncinate con i valori personalizzati:
 
@@ -51,9 +51,9 @@ static string GetAccountSASToken()
 }
 ```
 
-## <a name="use-an-account-sas-from-a-client"></a>Usare una firma di accesso condiviso dell'account da un client
+## <a name="use-an-account-sas-from-a-client"></a>Usare una server di accesso sas dell'account da un clientUse an account SAS from a client
 
-Per usare la firma di accesso condiviso dell'account per accedere alle API a livello di servizio per il servizio BLOB, costruire un oggetto client del servizio BLOB usando la firma di accesso condiviso e l'endpoint di archiviazione BLOB per l'account di archiviazione. È necessario ricordare di sostituire i valori segnaposto tra parentesi uncinate con i valori personalizzati:
+Per usare la configurazione di accesso sAS dell'account per accedere alle API a livello di servizio per il servizio BLOB, creare un oggetto client del servizio BLOB usando la configurazione di accesso locale e l'endpoint di archiviazione BLOB per l'account di archiviazione. È necessario ricordare di sostituire i valori segnaposto tra parentesi uncinate con i valori personalizzati:
 
 ```csharp
 static void UseAccountSAS(string sasToken)
@@ -97,5 +97,5 @@ static void UseAccountSAS(string sasToken)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Concedere accesso limitato alle risorse di archiviazione di Azure tramite firme di accesso condiviso (SAS)](storage-sas-overview.md)
+- [Concedere l'accesso limitato alle risorse di Archiviazione di Azure usando le firme di accesso condivisoGrant limited access to Azure Storage resources using shared access signatures (SAS)](storage-sas-overview.md)
 - [Creare un SAS dell'account](/rest/api/storageservices/create-account-sas)

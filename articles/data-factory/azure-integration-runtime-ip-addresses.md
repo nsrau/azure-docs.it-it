@@ -1,6 +1,6 @@
 ---
 title: Indirizzi IP di Azure Integration Runtime
-description: Informazioni sugli indirizzi IP per i quali è necessario consentire il traffico in ingresso, in modo da configurare correttamente i firewall per la protezione dell'accesso alla rete agli archivi dati.
+description: Informazioni su quali indirizzi IP è necessario consentire il traffico in ingresso, per configurare correttamente i firewall per la protezione dell'accesso di rete agli archivi dati.
 services: data-factory
 ms.author: abnarain
 author: nabhishek
@@ -12,24 +12,24 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/06/2020
 ms.openlocfilehash: 598876e12fe04129692d0c9a842f4edb2ec00768
-ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79086799"
 ---
 # <a name="azure-integration-runtime-ip-addresses"></a>Indirizzi IP di Azure Integration Runtime
 
-Gli indirizzi IP usati da Azure Integration Runtime dipendono dall'area in cui si trova il runtime di integrazione di Azure. *Tutto* I runtime di integrazione di Azure che si trovano nella stessa area utilizzano gli stessi intervalli di indirizzi IP.
+Gli indirizzi IP utilizzati da Runtime di integrazione di Azure dipendono dall'area in cui si trova il runtime di integrazione di Azure.The IP addresses that Azure Integration Runtime uses depends on the region where your Azure integration runtime is located. *Tutti i* I runtime di integrazione di Azure che si trovano nella stessa area usano gli stessi intervalli di indirizzi IP.
 
 > [!IMPORTANT]  
-> I flussi di dati non utilizzano attualmente questi indirizzi IP. 
+> I flussi di dati non utilizzano questi indirizzi IP attualmente. 
 >
-> È possibile usare questi intervalli IP per le esecuzioni di spostamento dati, pipeline ed attività esterne. Questi intervalli IP possono essere usati per l'inserimento nell'elenco elementi consentiti in archivi dati/gruppi di sicurezza di rete (NSG)/firewall per l'accesso in ingresso dal runtime di integrazione di Azure. 
+> È possibile utilizzare questi intervalli IP per le esecuzioni di attività di spostamento dati, pipeline ed attività esterne. Questi intervalli IP possono essere usati per l'inserimento nella whitelist negli archivi dati/Gruppo di sicurezza di rete (NSG)/Firewall per l'accesso in ingresso dal runtime di integrazione di Azure.These IP ranges can be used for whitelisting in data stores/ Network Security Group (NSG)/ Firewalls for inbound access from Azure Integration runtime. 
 
-## <a name="azure-integration-runtime-ip-addresses-specific-regions"></a>Indirizzi IP Azure Integration Runtime: aree specifiche
+## <a name="azure-integration-runtime-ip-addresses-specific-regions"></a>Indirizzi IP del runtime di integrazione di Azure: aree specificheAzure Integration Runtime IP addresses: Specific regions
 
-Consentire il traffico dagli indirizzi IP elencati per il runtime di integrazione di Azure nell'area specifica di Azure in cui si trovano le risorse:
+Consentire il traffico dagli indirizzi IP elencati per il runtime di integrazione di Azure nell'area di Azure specifica in cui si trovano le risorse:Allow traffic from the IP addresses listed for the Azure Integration runtime in the specific Azure region where your resources are located:
 
 |                | Region              | Indirizzi IP                                                 |
 | -------------- | ------------------- | ------------------------------------------------------------ |
@@ -59,12 +59,12 @@ Consentire il traffico dagli indirizzi IP elencati per il runtime di integrazion
 |                | Stati Uniti occidentali 2            | 20.42.132.0/23,</br>20.42.129.64/26,</br>13.66.143.128/28    |
 |                | US Gov Virginia     | 52.127.45.96/28,</br>52.127.48.128/25,</br>52.127.49.0/26    |
 
-## <a name="known-issue-with-azure-storage"></a>Problemi noti con archiviazione di Azure
+## <a name="known-issue-with-azure-storage"></a>Problema noto di Archiviazione di AzureKnown issue with Azure Storage
 
-* Quando ci si connette all'account di archiviazione di Azure, le regole di rete IP non hanno effetto sulle richieste provenienti dal runtime di integrazione di Azure nella stessa area dell'account di archiviazione. Per altri dettagli, [fare riferimento a questo articolo](https://docs.microsoft.com/azure/storage/common/storage-network-security#grant-access-from-an-internet-ip-range). 
+* Quando ci si connette all'account di archiviazione di Azure, le regole di rete IP non hanno alcun effetto sulle richieste provenienti dal runtime di integrazione di Azure nella stessa area dell'account di archiviazione. Per maggiori dettagli, si prega di fare riferimento a [questo articolo](https://docs.microsoft.com/azure/storage/common/storage-network-security#grant-access-from-an-internet-ip-range). 
 
-  Si consiglia invece di usare [Servizi attendibili durante la connessione ad archiviazione di Azure](https://techcommunity.microsoft.com/t5/azure-data-factory/data-factory-is-now-a-trusted-service-in-azure-storage-and-azure/ba-p/964993). 
+  Si consiglia invece di usare [servizi attendibili durante la connessione ad Archiviazione di Azure.](https://techcommunity.microsoft.com/t5/azure-data-factory/data-factory-is-now-a-trusted-service-in-azure-storage-and-azure/ba-p/964993) 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Considerazioni sulla sicurezza per lo spostamento dei dati in Azure Data Factory](data-movement-security-considerations.md)
+* [Considerazioni sulla sicurezza dello spostamento dei dati in Azure Data Factory](data-movement-security-considerations.md)

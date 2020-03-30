@@ -16,10 +16,10 @@ ms.date: 10/07/2017
 ms.author: rogarana
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: dbce2969ccb508c2bf3ee33730d0b112caa45c9e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79243159"
 ---
 # <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>Eseguire la migrazione da Amazon Web Services (AWS) e altre piattaforme a Managed Disks in Azure
@@ -31,7 +31,7 @@ ms.locfileid: "79243159"
 - **Disco rigido virtuale specializzato**: gestisce gli account utente, le applicazioni e altri dati di stato dalla macchina virtuale originale. 
 
 > [!IMPORTANT]
-> Prima di caricare dischi rigidi virtuali in Azure, è necessario seguire la procedura in [Preparare un disco rigido virtuale Windows o VHDX prima del caricamento in Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+> Prima di caricare qualsiasi disco rigido virtuale in Azure, è consigliabile seguire Preparare un disco rigido virtuale di [Windows o Un disco rigido virtuale per il caricamento](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) in Azure
 >
 >
 
@@ -89,7 +89,7 @@ Esistono sette tipi di dischi gestiti della versione Standard che possono essere
 
 **Managed Disks Premium**
 
-Per impostazione predefinita, il criterio di memorizzazione nella cache su disco è impostato su *Sola lettura* per tutti i dischi di dati Premium e su *Lettura/scrittura* per il disco del sistema operativo Premium collegato alla macchina virtuale. Queste impostazioni di configurazione sono consigliate per ottenere prestazioni ottimali per le operazioni di I/O dell'applicazione. Per i dischi di dati con un utilizzo elevato della scrittura o di sola scrittura (ad esempio i file di log di SQL Server), disabilitare la memorizzazione nella cache su disco in modo da migliorare le prestazioni delle applicazioni.
+Per impostazione predefinita, i criteri di memorizzazione nella cache del disco sono *Sola lettura* per tutti i dischi dati Premium e *Lettura-Scrittura* per il disco del sistema operativo Premium collegato alla macchina virtuale. Queste impostazioni di configurazione sono consigliate per ottenere prestazioni ottimali per le operazioni di I/O dell'applicazione. Per i dischi di dati con un utilizzo elevato della scrittura o di sola scrittura (ad esempio i file di log di SQL Server), disabilitare la memorizzazione nella cache su disco in modo da migliorare le prestazioni delle applicazioni.
 
 ### <a name="pricing"></a>Prezzi
 
@@ -98,4 +98,4 @@ Esaminare i [prezzi per Managed Disks](https://azure.microsoft.com/pricing/detai
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Prima di caricare dischi rigidi virtuali in Azure, è necessario seguire la procedura in [Preparare un disco rigido virtuale Windows o VHDX prima del caricamento in Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+- Prima di caricare qualsiasi disco rigido virtuale in Azure, è consigliabile seguire Preparare un disco rigido virtuale di [Windows o Un disco rigido virtuale per il caricamento](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) in Azure

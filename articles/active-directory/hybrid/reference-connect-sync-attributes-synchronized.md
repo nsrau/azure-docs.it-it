@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6a82766be01476890bbf18b518ce21febe0d07f1
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79253611"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Servizio di sincronizzazione Azure AD Connect: Attributi sincronizzati con Azure Active Directory
@@ -28,7 +28,7 @@ Questo argomento elenca gli attributi sincronizzati tramite il servizio di sincr
 Gli attributi sono raggruppati in base alle app Azure AD correlate.
 
 ## <a name="attributes-to-synchronize"></a>Attributi da sincronizzare
-Spesso viene chiesto *Qual è l'elenco degli attributi minimi per sincronizzare*. L'approccio predefinito e consigliato consiste nel mantenere gli attributi predefiniti per creare un elenco indirizzi globale completo nel cloud e per ottenere tutte le funzionalità nei carichi di lavoro Office 365. Talvolta l'organizzazione non vuole sincronizzare alcuni attributi con il cloud perché contengono dati sensibili o informazioni personali, come illustrato nell'esempio seguente:  
+Spesso viene chiesto *Qual è l'elenco degli attributi minimi per sincronizzare*. L'approccio predefinito e consigliato consiste nel mantenere gli attributi predefiniti per creare un elenco indirizzi globale completo nel cloud e per ottenere tutte le funzionalità nei carichi di lavoro Office 365. Talvolta l'organizzazione non vuole sincronizzare alcuni attributi con il cloud perché contengono dati sensibili o informazioni personali, come illustrato nell'esempio seguente:   
 ![attributi non validi](./media/reference-connect-sync-attributes-synchronized/badextensionattribute.png)
 
 In questo caso, partire dal seguente elenco di attributi in questo argomento e individuare gli attributi che potrebbero contenere dati sensibili o informazioni personali e che non possono quindi essere sincronizzati. Deselezionare questi attributi durante l'installazione tramite [Filtro attributi e app di Azure AD](how-to-connect-install-custom.md#azure-ad-app-and-attribute-filtering).
@@ -251,12 +251,12 @@ In questo caso, partire dal seguente elenco di attributi in questo argomento e i
 | title |X |X | | |
 | unauthOrig |X |X |X | |
 | url |X |X | | |
-| usageLocation |X | | |Proprietà meccanica. Paese/area geografica dell'utente
+| usageLocation |X | | |Proprietà meccanica. Il paese o l'area geografica dell'utente
 . Usato per l'assegnazione delle licenze. |
 | userPrincipalName |X | | |Il nome dell'entità utente (UPN) costituisce l'ID di accesso per l'utente. In genere corrisponde al valore di [mail]. |
 | wWWHomePage |X |X | | |
 
-## <a name="teams-and-skype-for-business-online"></a>Teams e Skype for business online
+## <a name="teams-and-skype-for-business-online"></a>Team e Skype for Business online
 | Nome attributo | Utente | Contatto | Gruppo | Comment |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Definisce se un account è abilitato. |
@@ -430,7 +430,7 @@ Se si sceglie di abilitare la distribuzione **ibrida di Exchange**, per questi a
 | msExchSafeRecipientsHash| ms-Exch-SafeRecipientsHash  |X | | |Filtro: esegue il writeback del filtro locale e dei dati dei mittenti attendibili e bloccati dai client. |
 | msExchSafeSendersHash| ms-Exch-SafeSendersHash  |X | | |Filtro: esegue il writeback del filtro locale e dei dati dei mittenti attendibili e bloccati dai client. |
 | msExchUCVoiceMailSettings| ms-Exch-UCVoiceMailSettings |X | | |Abilitare la messaggistica unificata - Segreteria telefonica online: usata dall'integrazione di Microsoft Lync Server per indicare a Lync Server locale che tra i servizi online dell'utente è presente la segreteria telefonica. |
-| msExchUserHoldPolicies| ms-Exch-UserHoldPolicies |X | | |Blocco per controversia legale: consente ai servizi cloud di determinare gli utenti per i quali è attivato un blocco per controversia legale. |
+| msExchUserHoldPolicies| Ms-Exch-UserHoldPolicies |X | | |Blocco per controversia legale: consente ai servizi cloud di determinare gli utenti per i quali è attivato un blocco per controversia legale. |
 | proxyAddresses| proxyAddresses |X |X |X |Viene inserito solo l'indirizzo x500 da Exchange Online. |
 | publicDelegates| ms-Exch-Public-Delegates  |X | | |Consente di concedere a una cassetta postale di Exchange Online i diritti SendOnBehalfTo degli utenti con cassette postali di Exchange locali. Richiede la build 1.1.552.0 o successiva di Azure AD Connect. |
 

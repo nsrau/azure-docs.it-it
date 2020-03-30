@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: tagore
 ms.openlocfilehash: 185bb9d03bec042a5c8e9223616b40eba6629e36
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79247527"
 ---
 # <a name="manage-cloud-services-in-the-azure-portal"></a>Gestire Servizi cloud nel portale di Azure
@@ -81,7 +81,7 @@ Esistono due prerequisiti chiave per lo scambio corretto di distribuzioni:
 
 Si noti che anche gli aggiornamenti del sistema operativo guest e le operazioni di correzione del servizio possono ostacolare il corretto scambio delle distribuzioni. Per altre informazioni, vedere [Risolvere eventuali problemi di distribuzione dei servizi cloud](cloud-services-troubleshoot-deployment-problems.md).
 
-**Uno scambio comporta tempi di inattività per l'applicazione? Come è possibile gestirla?**
+**Uno scambio comporta tempi di inattività per l'applicazione? Come devo gestirlo?**
 
 Come descritto nella sezione precedente, lo scambio di distribuzioni è in genere veloce perché è una semplice modifica della configurazione in Azure Load Balancer. In alcuni casi, può richiedere più di 10 secondi e causare errori di connessione temporanei. Per limitare l'impatto sui clienti, si consiglia di implementare la [logica di ripetizione dei tentativi nel client](../best-practices-retry-general.md).
 

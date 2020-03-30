@@ -16,10 +16,10 @@ ms.author: mimart
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2c667409f2abb9f1cf89ae3b34f08e0f9eec067e
-ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79138536"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Provisioning dell'applicazione basato su attributi con filtri per la definizione dell'ambito
@@ -69,7 +69,7 @@ I filtri di ambito sono configurati come parte dei mapping degli attributi per o
 
 2. Selezionare l'applicazione per cui è stato configurato il provisioning automatico, ad esempio "ServiceNow".
 
-3. Selezionare la scheda **Provisioning**.
+3. Selezionare la scheda **Provisioning.**
 
 4. Nella sezione **Mapping** selezionare il mapping per cui si vuole configurare un filtro di ambito, ad esempio "Synchronize Azure Active Directory Users to ServiceNow" (Sincronizzare gli utenti di Azure Active Directory in ServiceNow).
 
@@ -79,9 +79,9 @@ I filtri di ambito sono configurati come parte dei mapping degli attributi per o
 
 7. Definire una clausola selezionando un'origine **Nome attributo**, un **Operatore** e un **Valore dell'attributo** da confrontare. Sono supportati gli operatori seguenti:
 
-   a. **EQUALS** (È UGUALE A). La clausola restituisce "true" se l'attributo valutato corrisponde esattamente al valore della stringa di input (con distinzione tra maiuscole e minuscole).
+   a. **UGUALI**. La clausola restituisce "true" se l'attributo valutato corrisponde esattamente al valore della stringa di input (con distinzione tra maiuscole e minuscole).
 
-   b. **NOT EQUALS** (DIVERSO DA). La clausola restituisce "true" se l'attributo valutato non corrisponde al valore della stringa di input (con distinzione tra maiuscole e minuscole).
+   b. **NON EQUALE**. La clausola restituisce "true" se l'attributo valutato non corrisponde al valore della stringa di input (con distinzione tra maiuscole e minuscole).
 
    c. **IS TRUE** (È VERO). La clausola restituisce "true" se l'attributo valutato contiene un valore booleano true.
 
@@ -95,16 +95,16 @@ I filtri di ambito sono configurati come parte dei mapping degli attributi per o
 
    h. **NOT REGEX MATCH** (NESSUNA CORRISPONDENZA REGEX). La clausola restituisce "true" se l'attributo valutato non corrisponde a un modello di espressione regolare.
    
-   i. **Greater_Than.** La clausola restituisce "true" se l'attributo valutato è maggiore del valore. Il valore specificato nel filtro di ambito deve essere un numero intero e l'attributo dell'utente deve essere un numero intero [0, 1, 2,...]. 
+   i. **Greater_Than.** Clausola restituisce "true" se l'attributo valutato è maggiore del valore. Il valore specificato nel filtro ambito deve essere un numero intero e l'attributo dell'utente deve essere un numero intero [0,1,...]. 
    
-   j. **Greater_Than_OR_EQUALS.** La clausola restituisce "true" se l'attributo valutato è maggiore o uguale al valore. Il valore specificato nel filtro di ambito deve essere un numero intero e l'attributo dell'utente deve essere un numero intero [0, 1, 2,...]. 
+   j. **Greater_Than_OR_EQUALS.** Clausola restituisce "true" se l'attributo valutato è maggiore o uguale al valore. Il valore specificato nel filtro ambito deve essere un numero intero e l'attributo dell'utente deve essere un numero intero [0,1,...]. 
    
-   k. **Include.** La clausola restituisce "true" se l'attributo valutato contiene il valore stringa (con distinzione tra maiuscole e minuscole), come descritto [qui](https://docs.microsoft.com/dotnet/api/system.string.contains?view=netframework-4.8). 
+   k. **Include.** Clausola restituisce "true" se l'attributo valutato contiene il valore stringa (maiuscole/minuscole) come descritto [di seguito](https://docs.microsoft.com/dotnet/api/system.string.contains?view=netframework-4.8). 
 
 
 >[!IMPORTANT] 
 > - Il filtro IsMemberOf non è attualmente supportato.
-> - Gli attributi multivalore non supportano EQUALs e NOT EQUALs
+> - EQUALS e NOT EQUALS non sono supportati per gli attributi multivalore
 
 9. Facoltativamente, ripetere i passaggi 7 e 8 per aggiungere altre clausole di ambito.
 
@@ -117,22 +117,22 @@ I filtri di ambito sono configurati come parte dei mapping degli attributi per o
 13. Selezionare **Salva** nella schermata **Mapping attributi**. 
 
 >[!IMPORTANT] 
-> Il salvataggio di un nuovo filtro di ambito attiva una nuova sincronizzazione completa per l'applicazione, in cui tutti gli utenti del sistema di origine vengono nuovamente valutati rispetto al nuovo filtro di ambito. Se un utente nell'applicazione era precedentemente incluso nell'ambito per il provisioning, ma non rientra più nell'ambito, l'account verrà disabilitato o ne verrà eseguito il deprovisioning nell'applicazione. Per eseguire l'override di questo comportamento predefinito, fare riferimento a [Ignora eliminazione per gli account utente che non rientrano nell'ambito](../app-provisioning/skip-out-of-scope-deletions.md).
+> Il salvataggio di un nuovo filtro di ambito attiva una nuova sincronizzazione completa per l'applicazione, in cui tutti gli utenti del sistema di origine vengono nuovamente valutati rispetto al nuovo filtro di ambito. Se un utente nell'applicazione era precedentemente incluso nell'ambito per il provisioning, ma non rientra più nell'ambito, l'account verrà disabilitato o ne verrà eseguito il deprovisioning nell'applicazione. Per eseguire l'override di questo comportamento predefinito, fare riferimento a [Ignora eliminazione per gli account utente che escono dall'ambito](../app-provisioning/skip-out-of-scope-deletions.md).
 
 
 ## <a name="common-scoping-filters"></a>Filtri di ambito comuni
 | Target Attribute| Operatore | valore | Descrizione|
 |----|----|----|----|
-|userPrincipalName|CORRISPONDENZA REGEX|.\*@domain.com |Tutti gli utenti con userPrincipal che dispone del @domain.com di dominio saranno nell'ambito del provisioning|
-|userPrincipalName|NON CORRISPONDENZA REGEX|.\*@domain.com|Tutti gli utenti con userPrincipal che dispone del dominio @domain.com saranno fuori dall'ambito per il provisioning|
+|userPrincipalName|REGEX MATCH|.\*@domain.com |Tutti gli utenti con userPrincipal che dispone del dominio @domain.com saranno nell'ambito per il provisioning|
+|userPrincipalName|CORRISPONDENZA NON REGEX|.\*@domain.com|Tutti gli utenti con userPrincipal che dispone del dominio @domain.com non saranno nell'ambito per il provisioning|
 |department|EQUALS|sales|Tutti gli utenti del reparto vendite rientrano nell'ambito del provisioning|
-|workerID|CORRISPONDENZA REGEX|(1[0-9][0-9][0-9][0-9][0-9][0-9])| Tutti i dipendenti con workerIDs compreso tra 1 milione e 2 milioni rientrano nell'ambito del provisioning.|
+|workerID|REGEX MATCH|(1[0-9][0-9][0-9][0-9][0-9][0-9])| Tutti i dipendenti con ID lavoratore compreso tra 1000000 e 2000000 sono in portata di provisioning.|
 
 ## <a name="related-articles"></a>Articoli correlati
-* [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS](../app-provisioning/user-provisioning.md)
+* [Automatizzare il provisioning e il deprovisioning degli utenti nelle applicazioni SaaSAutomate user provisioning and deprovisioning to SaaS applications](../app-provisioning/user-provisioning.md)
 * [Personalizzare i mapping degli attributi per il provisioning degli utenti](../app-provisioning/customize-application-attributes.md)
 * [Scrivere espressioni per i mapping degli attributi](functions-for-customizing-application-data.md)
 * [Notifiche relative al provisioning dell'account](../app-provisioning/user-provisioning.md)
 * [Usare SCIM per abilitare il provisioning automatico di utenti e gruppi da Azure Active Directory alle applicazioni](../app-provisioning/use-scim-to-provision-users-and-groups.md)
-* [Elenco di esercitazioni pratiche sulla procedura di integrazione delle applicazioni SaaS](../saas-apps/tutorial-list.md)
+* [Elenco di tutorial su come integrare le app SaaS](../saas-apps/tutorial-list.md)
 

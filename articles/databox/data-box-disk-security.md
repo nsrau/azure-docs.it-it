@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure Data Box Disk funzionalità di sicurezza | Microsoft Docs nei dati
+title: Funzionalità di sicurezza del disco casella dei dati di Microsoft Azure Documenti Microsoft nei dati
 description: Descrive le funzionalità di sicurezza implementate per Azure Data Box Disk, una soluzione cloud che consente di trasferire grandi quantità di dati in Azure
 services: databox
 author: alkohli
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: alkohli
 ms.openlocfilehash: 59cce6d89bc863ad489a8ed37c7f284d3085c775
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79117284"
 ---
 # <a name="azure-data-box-disk-security-and-data-protection"></a>Sicurezza e protezione dei dati per Azure Data Box Disk
@@ -26,7 +26,7 @@ La soluzione Microsoft Azure Data Box è costituita da quattro componenti princi
 - **Servizio Azure Data Box ospitato in Azure** - Il servizio di gestione usato per creare l'ordine dei dischi, configurare i dischi e quindi monitorare l'ordine fino al completamento.
 - **Dischi di Data Box** - I dischi fisici che vengono spediti all'utente per importare i dati locali in Azure. 
 - **Client/host connessi ai dischi** - Client nell'infrastruttura che si connettono al disco Data Box tramite USB e contengono i dati da proteggere.
-- **Archiviazione cloud** – Posizione nel cloud di Azure in cui vengono archiviati i dati. In genere si tratta dell'account di archiviazione collegato alla risorsa di Azure Data Box creata.
+- **Archiviazione cloud** Posizione nel cloud Azure in cui vengono archiviati i dati. In genere si tratta dell'account di archiviazione collegato alla risorsa di Azure Data Box creata.
 
 Il diagramma seguente indica il flusso dei dati attraverso la soluzione Azure Data Box, dall'ambiente locale ad Azure.
 

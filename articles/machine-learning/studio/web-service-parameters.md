@@ -1,5 +1,5 @@
 ---
-title: Parametri del servizio Web-Azure Machine Learning Studio (versione classica) | Microsoft Docs
+title: Parametri del servizio Web - Azure Machine Learning Studio (classico) Documenti Microsoft
 description: Come usare i parametri del servizio Web di Azure Machine Learning per modificare il comportamento del modello quando si accede al servizio Web.
 services: machine-learning
 author: xiaoharper
@@ -13,19 +13,19 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/12/2017
 ms.openlocfilehash: d6ddd9603f22bd3820d18be020b9c620cf06aa42
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79204410"
 ---
-# <a name="use-azure-machine-learning-studio-classic-web-service-parameters"></a>Usare i parametri del servizio Web Azure Machine Learning Studio (classico)
+# <a name="use-azure-machine-learning-studio-classic-web-service-parameters"></a>Usare i parametri del servizio Web di Azure Machine Learning Studio (classico)Use Azure Machine Learning Studio (classic) web service parameters
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Un servizio Web di Azure Machine Learning viene creato mediante la pubblicazione di un esperimento contenente moduli con parametri configurabili. In alcuni casi può essere utile modificare il comportamento del modulo mentre è in esecuzione il servizio Web. I *parametri del servizio Web* consentono di eseguire questa operazione. 
 
-Un esempio comune è la configurazione del modulo [Import Data][reader] in modo che l'utente del servizio Web pubblicato possa specificare un'origine dati diversa quando si accede al servizio Web. O la configurazione del modulo [Export Data][writer] in modo che sia possibile specificare una destinazione differente. Altri esempi includono la modifica del numero di bit per il modulo [feature hashing][feature-hashing] o il numero di funzionalità desiderate per il modulo [Filter-based feature selection][filter-based-feature-selection] . 
+Un esempio comune è la configurazione del modulo [Import Data][reader] per consentire all’utente del servizio Web pubblicato di specificare un'origine dati diversa quando si accede al servizio Web oppure la configurazione del modulo [Export Data][writer] in modo che sia possibile specificare una destinazione differente. Altri esempi includono la modifica del numero di bit per il modulo [Feature Hashing][feature-hashing] o il numero di funzionalità desiderate per il modulo [Filter-Based Feature Selection][filter-based-feature-selection]. 
 
 È possibile impostare i parametri del servizio Web e associarli a uno o più parametri di modulo nell’esperimento, e specificare se sono obbligatori o facoltativi. L'utente del servizio web può quindi fornire valori per questi parametri quando si chiama il servizio web. 
 
@@ -41,27 +41,27 @@ Dopo aver definito un parametro del servizio Web, questo parametro sarà disponi
 La documentazione dell'API per il servizio Web include informazioni per l'utente del servizio Web su come specificare il parametro del servizio Web a livello di codice quando accede al servizio.
 
 > [!NOTE]
-> La documentazione dell'API per un servizio Web classico viene fornita tramite il collegamento alla **pagina della Guida dell'API** nel **Dashboard** del servizio Web in Machine Learning Studio (classico). La documentazione dell'API per un nuovo servizio Web è disponibile tramite il portale dei [servizi Web di Azure Machine Learning](https://services.azureml.net/Quickstart) o nelle pagine **Consume** (Uso) e **Swagger API** (API Swagger) per il servizio Web.
+> La documentazione API per un servizio Web classico viene fornita tramite il collegamento alla pagina di **guida dell'API** nel servizio Web **DASHBOARD** in Machine Learning Studio (classico). La documentazione dell'API per un nuovo servizio Web è disponibile tramite il portale dei [servizi Web di Azure Machine Learning](https://services.azureml.net/Quickstart) o nelle pagine **Consume** (Uso) e **Swagger API** (API Swagger) per il servizio Web.
 > 
 > 
 
 ## <a name="example"></a>Esempio
-Si supponga, ad esempio, di avere un esperimento con un modulo [Export Data][writer] che invia informazioni all'archiviazione BLOB di Azure. Verrà definito un parametro del servizio Web denominato "percorso BLOB" che consente all'utente del servizio Web di modificare il percorso dell'archiviazione BLOB quando si accede al servizio.
+Si supponga ad esempio di disporre di un esperimento con un modulo [Export Data][writer] che invia informazioni all'archiviazione BLOB di Azure. Verrà definito un parametro del servizio Web denominato "percorso BLOB" che consente all'utente del servizio Web di modificare il percorso dell'archiviazione BLOB quando si accede al servizio.
 
-1. In Machine Learning Studio (versione classica) fare clic sul modulo [Export Data (Esporta dati][writer] ) per selezionarlo. Le relative proprietà verranno visualizzate nel riquadro delle proprietà a destra dell'area di disegno dell'esperimento.
+1. In Machine Learning Studio (classico) fare clic sul modulo [Esporta dati][writer] per selezionarlo. Le relative proprietà verranno visualizzate nel riquadro delle proprietà a destra dell'area di disegno dell'esperimento.
 2. Specificare il tipo di archiviazione:
    
    * In **Please specify data destination**(Specificare la destinazione dei dati) selezionare "Azure Blob Storage" (Archivio BLOB di Azure).
    * In **Please specify authentication type**selezionare "Account".
    * Immettere le informazioni dell'account per l'archiviazione BLOB di Azure. 
 
-3. Fare clic sull'icona a destra del **Path to blob beginning with container parameter**. L'aspetto sarà simile al seguente:
+3.  Fare clic sull'icona a destra di **Path to blob beginning with container parameter** (Percorso BLOB che inizia con parametro contenitore). L'aspetto sarà simile al seguente:
    
    ![Icona del parametro del servizio Web](./media/web-service-parameters/icon.png)
    
    Selezionare "Set as web service parameter".
    
-   Verrà aggiunta una voce in **Web Service Parameters** nella parte inferiore del riquadro Proprietà con il nome "Path to blob beginning with container". Questo è il parametro del servizio Web che è ora associato al parametro del modulo [Export Data][writer] .
+   Verrà aggiunta una voce in **Web Service Parameters** nella parte inferiore del riquadro Proprietà con il nome "Path to blob beginning with container". Questo sarà il parametro del servizio Web associato al parametro del modulo [Export Data][writer].
 4. Per rinominare il parametro del servizio Web, fare clic sul nome, digitare "Blob path" e quindi premere **INVIO** . 
 5. Per specificare un valore predefinito per il parametro del servizio Web, fare clic sull'icona a destra del nome, selezionare "Provide default value", immettere un valore (ad esempio, "container1/output1.csv") e quindi premere **INVIO** .
    
@@ -70,9 +70,9 @@ Si supponga, ad esempio, di avere un esperimento con un modulo [Export Data][wri
 7. Fare clic su **Deploy Web Service** (Distribuisci servizio Web) e selezionare **Deploy Web Service [Classic]** (Distribuisci servizio Web [Classico]) o **Deploy Web Service [New]** (Distribuisci servizio Web [Nuovo]) per distribuire il servizio Web.
 
 > [!NOTE] 
-> Per distribuire un nuovo servizio Web è necessario disporre delle autorizzazioni sufficienti nella sottoscrizione a cui si sta distribuendo il servizio Web. Per altre informazioni, vedere [Gestire un servizio Web usando il portale dei servizi Web di Azure Machine Learning](manage-new-webservice.md). 
+> Per distribuire un nuovo servizio Web è necessario disporre delle autorizzazioni sufficienti nella sottoscrizione a cui si sta distribuendo il servizio Web. Per altre informazioni, vedere [Gestire un servizio Web tramite il portale dei servizi Web](manage-new-webservice.md)di Azure Machine Learning. 
 
-L'utente del servizio Web può ora specificare una nuova destinazione per il modulo [Export Data (Esporta dati][writer] ) quando si accede al servizio Web.
+È ora possibile specificare una nuova destinazione per il modulo [Export Data][writer] quando si accede al servizio Web.
 
 ## <a name="more-information"></a>Ulteriori informazioni
 Per un esempio più dettagliato, vedere la voce relativa ai [parametri del servizio Web](https://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx) nel [blog di Machine Learning](https://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx).

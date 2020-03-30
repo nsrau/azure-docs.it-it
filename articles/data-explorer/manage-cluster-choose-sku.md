@@ -1,6 +1,6 @@
 ---
-title: Selezionare lo SKU di VM corretto per il cluster di Azure Esplora dati
-description: Questo articolo descrive come selezionare le dimensioni ottimali dello SKU per il cluster Azure Esplora dati.
+title: Selezionare lo SKU della macchina virtuale corretto per il cluster di Azure Data ExplorerSelect correct VM SKU for your Azure Data Explorer cluster
+description: Questo articolo descrive come selezionare la dimensione ottimale dello SKU per il cluster di Azure Data Explorer.This article describes how to select the optimal SKU size for Azure Data Explorer cluster.
 author: avneraa
 ms.author: avnera
 ms.reviewer: orspodek
@@ -8,86 +8,86 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/14/2019
 ms.openlocfilehash: 2d078f9715a0cfa171f0c88776a4ab78c15215a8
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77561851"
 ---
-# <a name="select-the-correct-vm-sku-for-your-azure-data-explorer-cluster"></a>Selezionare lo SKU di VM corretto per il cluster di Azure Esplora dati 
+# <a name="select-the-correct-vm-sku-for-your-azure-data-explorer-cluster"></a>Selezionare lo SKU della macchina virtuale corretto per il cluster di Azure Data ExplorerSelect the correct VM SKU for your Azure Data Explorer cluster 
 
-Quando si crea un nuovo cluster o si ottimizza un cluster per un carico di lavoro modificabile, Azure Esplora dati offre più SKU di macchine virtuali (VM) tra cui scegliere. Le macchine virtuali sono state scelte con attenzione per offrire il costo ottimale per qualsiasi carico di lavoro. 
+Quando si crea un nuovo cluster o si ottimizza un cluster per un carico di lavoro in evoluzione, Azure Data Explorer offre più SKU di macchine virtuali (VM) tra cui scegliere. Le macchine virtuali sono state scelte con cura per offrire il costo ottimale per qualsiasi carico di lavoro. 
 
-Le dimensioni e lo SKU di VM del cluster di gestione dati sono completamente gestiti dal servizio Esplora dati di Azure. Sono determinati da fattori quali le dimensioni della macchina virtuale del motore e il carico di lavoro di inserimento. 
+Le dimensioni e lo SKU della macchina virtuale del cluster di gestione dei dati sono completamente gestiti dal servizio Azure Data Explorer.The size and VM SKU of the data-management cluster are fully managed by the Azure Data Explorer service. Sono determinati da fattori quali le dimensioni della macchina virtuale del motore e il carico di lavoro di inserimento. 
 
-È possibile modificare lo SKU di VM per il cluster del motore in qualsiasi momento [scalando il cluster](manage-cluster-vertical-scaling.md). È preferibile iniziare con le dimensioni dello SKU più piccole che si adattano allo scenario iniziale. Tenere presente che la scalabilità verticale del cluster comporta un tempo di inattività massimo di 30 minuti mentre il cluster viene ricreato con il nuovo SKU della macchina virtuale.
+È possibile modificare lo SKU della macchina virtuale per il cluster del motore in qualsiasi momento [aumentando il cluster.](manage-cluster-vertical-scaling.md) È consigliabile iniziare con la dimensione SKU più piccola che si adatta allo scenario iniziale. Tenere presente che la scalabilità verticale del cluster comporta tempi di inattività fino a 30 minuti mentre il cluster viene ricreato con il nuovo SKU della macchina virtuale.
 
 > [!TIP]
-> Le [istanze riservate](https://docs.microsoft.com/azure/virtual-machines/windows/prepay-reserved-vm-instances) di calcolo sono applicabili al cluster di Azure Esplora dati.  
+> Compute Reserved Instances (RI) è applicabile al cluster Azure Data Explorer.Compute [Reserved Instances (RI)](https://docs.microsoft.com/azure/virtual-machines/windows/prepay-reserved-vm-instances) is applicable to the Azure Data Explorer cluster.  
 
-Questo articolo descrive le varie opzioni dello SKU di VM e fornisce i dettagli tecnici che consentono di effettuare la scelta migliore.
+Questo articolo descrive varie opzioni di SKU di VM e fornisce i dettagli tecnici che consentono di scegliere al meglio.
 
 ## <a name="select-a-cluster-type"></a>Selezionare un tipo di cluster
 
-Azure Esplora dati offre due tipi di cluster:
+Azure Data Explorer offre due tipi di cluster:Azure Data Explorer offers two types of clusters:
 
-* **Produzione**: i cluster di produzione contengono due nodi per i cluster di gestione dei dati e del motore e vengono gestiti con il [contratto](https://azure.microsoft.com/support/legal/sla/data-explorer/v1_0/)di servizio di Azure Esplora dati.
+* **Produzione:** i cluster di produzione contengono due nodi per i cluster di motore e di gestione dei dati e vengono gestiti con il servizio [di archiviazione di](https://azure.microsoft.com/support/legal/sla/data-explorer/v1_0/)Azure Data Explorer.
 
-* **Sviluppo/test (nessun contratto**di servizio): i cluster di sviluppo/test includono un singolo nodo D11 V2 per il cluster di motore e un singolo nodo D1 per il cluster di gestione dati. Questo tipo di cluster è la configurazione di costo più basso a causa del numero di istanze basso e nessun addebito per il markup del motore. Non esiste alcun contratto di servizio per questa configurazione cluster, perché manca la ridondanza.
+* **Dev/Test (nessun sLA)**: i cluster di sviluppo/test dispongono di un singolo nodo D11 v2 per il cluster del motore e di un singolo nodo D1 per il cluster di gestione dati. Questo tipo di cluster è la configurazione con il costo più basso a causa del numero di istanze basso e dell'addebito del markup del motore. Non esiste alcun sLA per questa configurazione del cluster, perché manca di ridondanza.
 
 ## <a name="sku-types"></a>Tipi di SKU
 
-Quando si crea un cluster di Esplora dati di Azure, selezionare lo SKU di VM *ottimale* per il carico di lavoro pianificato. È possibile scegliere tra le due famiglie di SKU Esplora dati di Azure seguenti:
+Quando si crea un cluster di Azure Data Explorer, selezionare lo SKU di vm *ottimale* per il carico di lavoro pianificato. È possibile scegliere tra le due famiglie di SKU di Azure Data Explorer seguenti:You can choose from the following two Azure Data Explorer SKU families:
 
-* **D V2**: lo SKU d è ottimizzato per il calcolo e presenta due varianti:
-    * Macchina virtuale stessa
-    * VM in bundle con dischi di archiviazione Premium
+* **D v2**: Lo SKU D è ottimizzato per il calcolo ed è disponibile in due gusti:
+    * VM
+    * La macchina virtuale in bundle con dischi di archiviazione Premium
 
-* **Ls**: lo SKU L è ottimizzato per l'archiviazione. Ha una dimensione SSD molto maggiore rispetto allo SKU D con prezzo analogo.
+* **LS**: Lo SKU L è ottimizzato per lo storage. Ha una dimensione SSD molto maggiore rispetto allo SKU D prezzo simile.
 
-Nella tabella seguente sono descritte le differenze principali tra i tipi di SKU disponibili:
+Le differenze principali tra i tipi di SKU disponibili sono descritte nella tabella seguente:The key differences between the available SKU types are described in the following table:
  
-| Attributo | SKU D | SKU L |
+| Attributo | D SKU | L SKU |
 |---|---|---
-|**SKU di piccole dimensioni**|La dimensione minima è D11 con due core|La dimensione minima è L4 con quattro core |
-|**Disponibilità**|Disponibile in tutte le aree (la versione di DS + PS ha una disponibilità più limitata)|Disponibile in alcune aree geografiche |
-|**Costo per cache&nbsp;GB per core**|Alta con lo SKU D, bassa con la versione DS + PS|Più basso con l'opzione con pagamento in base al consumo |
-|**Prezzi delle istanze riservate**|Sconto elevato (oltre 55&nbsp;percentuale per un impegno di tre anni)|Sconto inferiore (20&nbsp;% per un impegno di tre anni) |  
+|**SKU piccoli**|La dimensione minima è D11 con due core|La dimensione minima è L4 con quattro core |
+|**Disponibilità**|Disponibile in tutte le regioni (la versione DS-PS ha una disponibilità più limitata)|Disponibile in alcune regioni |
+|**Costo&nbsp;per cache GB per core**|Alto con lo SKU D, basso con la versione DS-PS|Più basso con l'opzione Pay-As-You-Go |
+|**Prezzi delle istanze riservate (RI)**|Sconto elevato (oltre&nbsp;il 55% per un impegno triennale)|Sconto inferiore (20%&nbsp;per un impegno triennale) |  
 
-## <a name="select-your-cluster-vm"></a>Selezionare la macchina virtuale del cluster 
+## <a name="select-your-cluster-vm"></a>Selezionare la macchina virtuale del clusterSelect your cluster VM 
 
-Per selezionare la macchina virtuale del cluster, [configurare la scalabilità verticale](manage-cluster-vertical-scaling.md#configure-vertical-scaling). 
+Per selezionare la macchina virtuale del cluster, configurare la [scalabilità verticale.](manage-cluster-vertical-scaling.md#configure-vertical-scaling) 
 
-Con varie opzioni di SKU di VM tra cui scegliere, è possibile ottimizzare i costi per i requisiti di prestazioni e della cache a caldo per lo scenario. 
-* Se è necessario ottenere prestazioni ottimali per un volume di query elevato, lo SKU ideale dovrebbe essere ottimizzato per il calcolo. 
-* Se è necessario eseguire query su grandi volumi di dati con un carico di query relativamente inferiore, lo SKU ottimizzato per l'archiviazione può aiutare a ridurre i costi e a garantire prestazioni ottimali.
+Con varie opzioni di SKU di VM tra cui scegliere, è possibile ottimizzare i costi per i requisiti di prestazioni e hot-cache per lo scenario. 
+* Se sono necessarie le prestazioni ottimali per un volume di query elevato, lo SKU ideale deve essere ottimizzato per il calcolo. 
+* Se è necessario eseguire query su grandi volumi di dati con un carico di query relativamente inferiore, lo SKU ottimizzato per l'archiviazione consente di ridurre i costi e fornire comunque prestazioni eccellenti.
 
-Poiché il numero di istanze per cluster per gli SKU di piccole dimensioni è limitato, è preferibile usare macchine virtuali di dimensioni maggiori con RAM maggiore. È necessaria una maggiore quantità di RAM per alcuni tipi di query che inseriscono più richieste sulla risorsa RAM, ad esempio query che usano `joins`. Pertanto, quando si considerano le opzioni di scalabilità, è consigliabile aumentare il numero di istanze, anziché aumentare il numero di istanze.
+Poiché il numero di istanze per cluster per gli SKU di piccole dimensioni è limitato, è preferibile usare macchine virtuali di dimensioni maggiori con RAM maggiore. Sono necessarie più RAM per alcuni tipi di query che richiedono `joins`una maggiore richiesta alla risorsa RAM, ad esempio le query che utilizzano . Pertanto, quando si considerano le opzioni di scalabilità, è consigliabile passare a uno SKU più grande anziché aumentare la scalabilità orizzontale aggiungendo più istanze.
 
 ## <a name="vm-options"></a>Opzioni VM
 
-Nella tabella seguente sono descritte le specifiche tecniche per le macchine virtuali del cluster Esplora dati di Azure:
+Le specifiche tecniche per le macchine virtuali del cluster Azure Data Explorer sono descritte nella tabella seguente:The technical specifications for the Azure Data Explorer cluster VMs are described in the following table:
 
-|**Nome**| **Categoria** | **Dimensioni unità SSD** | **Core** | **RAM** | **Dischi di archiviazione Premium (1&nbsp;TB)**| **Numero minimo di istanze per cluster** | **Numero massimo di istanze per cluster**
+|**Nome**| **Category** | **Dimensioni SSD** | **Core** | **Ram** | **Dischi di archiviazione&nbsp;Premium (1 TB)**| **Numero minimo di istanze per cluster** | **Numero massimo di istanze per clusterMaximum instance count per cluster**
 |---|---|---|---|---|---|---|---
-|D11 V2| ottimizzato per il calcolo | 75&nbsp;GB    | 2 | 14&nbsp;GB | 0 | 1 | 8 (ad eccezione dello SKU sviluppo/test, che è 1)
+|D11 v2| ottimizzato per il calcolo | 75&nbsp;GB    | 2 | 14&nbsp;GB | 0 | 1 | 8 (ad eccezione dello SKU di sviluppo/test, che è 1)
 |D12 v2| ottimizzato per il calcolo | 150&nbsp;GB   | 4 | 28&nbsp;GB | 0 | 2 | 16
-|D13 v2| ottimizzato per il calcolo | 307&nbsp;GB   | 8 | 56&nbsp;GB | 0 | 2 | 1\.000
-|D14 v2| ottimizzato per il calcolo | 614&nbsp;GB   | 16| 112&nbsp;GB | 0 | 2 | 1\.000
-|DS13 v2 + 1&nbsp;TB&nbsp;PS| ottimizzato per l'archiviazione | 1&nbsp;TB | 8 | 56&nbsp;GB | 1 | 2 | 1\.000
-|DS13 v2 + 2&nbsp;TB&nbsp;PS| ottimizzato per l'archiviazione | 2&nbsp;TB | 8 | 56&nbsp;GB | 2 | 2 | 1\.000
-|DS14 V2 + 3&nbsp;TB&nbsp;PS| ottimizzato per l'archiviazione | 3&nbsp;TB | 16 | 112&nbsp;GB | 2 | 2 | 1\.000
-|DS14 V2 + 4&nbsp;TB&nbsp;PS| ottimizzato per l'archiviazione | 4&nbsp;TB | 16 | 112&nbsp;GB | 4 | 2 | 1\.000
-|L4S V1| ottimizzato per l'archiviazione | 650&nbsp;GB | 4 | 32&nbsp;GB | 0 | 2 | 16
-|L8s V1| ottimizzato per l'archiviazione | 1,3&nbsp;TB | 8 | 64&nbsp;GB | 0 | 2 | 1\.000
-|L16s_1| ottimizzato per l'archiviazione | 2,6&nbsp;TB | 16| 128&nbsp;GB | 0 | 2 | 1\.000
+|D13 v2| ottimizzato per il calcolo | 307&nbsp;GB   | 8 | 56&nbsp;GB | 0 | 2 | 1.000
+|D14 v2| ottimizzato per il calcolo | 614&nbsp;GB   | 16| 112&nbsp;GB | 0 | 2 | 1.000
+|DS13 v2&nbsp;-&nbsp;1 TB PS| ottimizzato per lo storage | 1&nbsp;TB | 8 | 56&nbsp;GB | 1 | 2 | 1.000
+|DS13 v2&nbsp;-&nbsp;2 TB PS| ottimizzato per lo storage | 2&nbsp;TB | 8 | 56&nbsp;GB | 2 | 2 | 1.000
+|DS14 v2&nbsp;-&nbsp;3 TB PS| ottimizzato per lo storage | 3&nbsp;TB | 16 | 112&nbsp;GB | 2 | 2 | 1.000
+|DS14 v2&nbsp;-&nbsp;4 TB PS| ottimizzato per lo storage | 4&nbsp;TB | 16 | 112&nbsp;GB | 4 | 2 | 1.000
+|L4s v1| ottimizzato per lo storage | 650&nbsp;GB | 4 | 32&nbsp;GB | 0 | 2 | 16
+|L8 v1| ottimizzato per lo storage | 1,3&nbsp;TB | 8 | 64&nbsp;GB | 0 | 2 | 1.000
+|L16s_1| ottimizzato per lo storage | 2,6&nbsp;TB | 16| 128&nbsp;GB | 0 | 2 | 1.000
 
-* È possibile visualizzare l'elenco di SKU di VM aggiornato per area usando l' [API ListSkus](/dotnet/api/microsoft.azure.management.kusto.clustersoperationsextensions.listskus?view=azure-dotnet)di Azure Esplora dati. 
-* Altre informazioni sui [vari SKU](/azure/virtual-machines/windows/sizes). 
+* È possibile visualizzare l'elenco di SKU vm aggiornato per ogni area usando [l'API ListSkus di](/dotnet/api/microsoft.azure.management.kusto.clustersoperationsextensions.listskus?view=azure-dotnet)Azure Data Explorer. 
+* Ulteriori informazioni sui [vari SKU](/azure/virtual-machines/windows/sizes). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* È possibile [aumentare o ridurre](manage-cluster-vertical-scaling.md) il cluster del motore in qualsiasi momento modificando lo SKU della macchina virtuale, in base alle diverse esigenze. 
+* È possibile [aumentare o ridurre](manage-cluster-vertical-scaling.md) le prestazioni del cluster del motore in qualsiasi momento modificando lo SKU della macchina virtuale, a seconda delle diverse esigenze. 
 
-* È possibile aumentare [o](manage-cluster-horizontal-scaling.md) ridurre le dimensioni del cluster del motore per modificare la capacità, a seconda delle esigenze di modifica.
+* È possibile [aumentare o ridurre](manage-cluster-horizontal-scaling.md) le dimensioni del cluster motore per modificare la capacità, a seconda delle esigenze che cambiano.
 

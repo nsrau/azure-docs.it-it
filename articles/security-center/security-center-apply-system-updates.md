@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: memildin
 ms.openlocfilehash: 3f27753b0775f44cbdf9d4c478a19e423b8e1f19
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77604546"
 ---
 # <a name="apply-system-updates-in-azure-security-center"></a>Applicare gli aggiornamenti del sistema nel Centro sicurezza di Azure
@@ -62,23 +62,23 @@ In questo esempio si userà **Calcolo**.
 
    ![Aggiornamento della sicurezza mancante][3]
 
-4. Selezionare l'icona **Cerca** nella barra multifunzione superiore.  Una query di ricerca dei log di monitoraggio di Azure viene aperta filtrata nei computer in cui manca l'aggiornamento.
+4. Selezionare l'icona **Cerca** nella barra multifunzione superiore.  Verrà visualizzata una query di ricerca dei log di Monitoraggio di Azure filtrata in base ai computer in cui manca l'aggiornamento.
 
-   ![Ricerca nei log di monitoraggio di Azure][4]
+   ![Ricerca dei log di Monitoraggio di AzureAzure Monitor logs search][4]
 
 5. Selezionare un computer dall'elenco per avere maggiori informazioni. Verrà visualizzata un'altra finestra di risultati della ricerca contenente le informazioni filtrate solo per quel computer.
 
-    ![Ricerca nei log di monitoraggio di Azure][5]
+    ![Ricerca dei log di Monitoraggio di AzureAzure Monitor logs search][5]
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 
-* [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](tutorial-security-policy.md) : informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
-* [Gestione delle raccomandazioni di sicurezza nel Centro sicurezza di Azure](security-center-recommendations.md) : informazioni sul modo in cui le raccomandazioni semplificano la protezione delle risorse di Azure.
-* [Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md) : informazioni su come monitorare l'integrità delle risorse di Azure.
-* [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md) : informazioni su come gestire e rispondere agli avvisi di sicurezza.
+* [Setting security policies in Azure Security Center:](tutorial-security-policy.md) informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.Setting security policies in Azure Security Center -- Learn how to configure security policies for your Azure subscriptions and resource groups.
+* [Gestione dei consigli](security-center-recommendations.md) sulla sicurezza nel Centro sicurezza di Azure: informazioni su come i consigli consentono di proteggere le risorse di Azure.Managing security recommendations in Azure Security Center -- Learn how recommendations help you protect your Azure resources.
+* [Monitoraggio dell'integrità](security-center-monitoring.md) della sicurezza nel Centro sicurezza di Azure: informazioni su come monitorare l'integrità delle risorse di Azure.Security health monitoring in Azure Security Center-- Learn how to monitor the health of your Azure resources.
+* [Gestione e risposta agli avvisi](security-center-managing-and-responding-alerts.md) di sicurezza nel Centro sicurezza di Azure: informazioni su come gestire e rispondere agli avvisi di sicurezza.
 * [Monitoraggio delle soluzioni dei partner con il Centro sicurezza di Azure](security-center-partner-solutions.md) : informazioni su come monitorare lo stato integrità delle soluzioni dei partner.
-* [Blog sulla sicurezza di Azure](https://blogs.msdn.com/b/azuresecurity/) : post di blog sulla sicurezza e sulla conformità di Azure.
+* [Blog sulla sicurezza di Azure:](https://blogs.msdn.com/b/azuresecurity/) trova post di blog su sicurezza e conformità di Azure.Azure Security blog -- Find blog posts about Azure security and compliance.
 
 <!--Image references-->
 [1]: ./media/security-center-apply-system-updates/missing-system-updates.png

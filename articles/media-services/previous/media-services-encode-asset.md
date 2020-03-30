@@ -1,6 +1,6 @@
 ---
-title: Panoramica dei codificatori multimediali su richiesta di Azure | Microsoft Docs
-description: Servizi multimediali di Azure offre diverse opzioni per la codifica di servizi multimediali nel cloud. Questo articolo fornisce una panoramica dei codificatori multimediali su richiesta di Azure.
+title: Panoramica dei codificatori multimediali su richiesta di Azure Documenti Microsoft
+description: Servizi multimediali di Azure offre diverse opzioni per la codifica di servizi multimediali nel cloud. Questo articolo offre una panoramica dei codificatori multimediali su richiesta di Azure.This article gives an overview of Azure on-demand media encoders.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 06/25/2019
 ms.author: juliako
 ms.openlocfilehash: d5d5b8a7328ee82e94d494795617832cb0258667
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79251102"
 ---
-# <a name="overview-of-azure-on-demand-media-encoders"></a>Panoramica dei codificatori multimediali su richiesta di Azure 
+# <a name="overview-of-azure-on-demand-media-encoders"></a>Panoramica dei codificatori multimediali su richiesta di AzureOverview of Azure on-demand media encoders 
 
 > [!NOTE]
-> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [linee guida sulla migrazione da V2 a V3](../latest/migrate-from-v2-to-v3.md)
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Scopri la versione più recente, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche le linee guida per la [migrazione dalla v2 alla v3](../latest/migrate-from-v2-to-v3.md)
 
 Servizi multimediali di Azure offre diverse opzioni per la codifica di servizi multimediali nel cloud.
 
@@ -32,7 +32,7 @@ I codec sono costituiti da software che implementa gli algoritmi di compressione
 
 Servizi multimediali include la funzionalità per la creazione dinamica dei pacchetti, che consente di distribuire contenuto con codifica Smooth Streaming o MP4 a bitrate adattivo nei formati supportati da Servizi multimediali, ovvero MPEG-DASH, HLS, Smooth Streaming, senza dover ricreare i pacchetti in questi formati di streaming.
 
-Quando l'account di Servizi multimediali viene creato, un endpoint di streaming **predefinito** viene aggiunto all'account con stato **Arrestato**. Per avviare lo streaming del contenuto e sfruttare i vantaggi della creazione dinamica dei pacchetti e della crittografia dinamica, l'endpoint di streaming da cui si vuole trasmettere il contenuto deve essere nello stato **In esecuzione**. La fatturazione per gli endpoint di streaming si verifica ogni volta che l'endpoint si trova in uno stato di **esecuzione** .
+Quando viene creato l'account di Servizi multimediali, viene aggiunto un endpoint di streaming **predefinito** all'account nello stato **Arrestato.** Per avviare lo streaming del contenuto e sfruttare i vantaggi della creazione dinamica dei pacchetti e della crittografia dinamica, l'endpoint di streaming da cui si vuole trasmettere il contenuto deve essere nello stato **In esecuzione**. La fatturazione per gli endpoint di streaming si verifica ogni volta che l'endpoint si trova nello stato **In esecuzione.**
 
 Servizi multimediali supporta i seguenti codificatori su richiesta descritti in questo articolo:
 

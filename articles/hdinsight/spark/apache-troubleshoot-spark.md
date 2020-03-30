@@ -1,5 +1,5 @@
 ---
-title: Risolvere i problemi di Apache Spark in Azure HDInsight
+title: Risolvere i problemi relativi a Apache Spark in Azure HDInsightTroubleshoot Apache Spark in Azure HDInsight
 description: Risposte alle domande frequenti sull'uso di Apache Spark e Azure HDInsight.
 ms.service: hdinsight
 author: hrasheed-msft
@@ -9,29 +9,29 @@ ms.topic: troubleshooting
 ms.date: 08/22/2019
 ms.custom: seodec18
 ms.openlocfilehash: 80bca2dab1d07d9b99e75e283068bff99335fa18
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79271941"
 ---
 # <a name="troubleshoot-apache-spark-by-using-azure-hdinsight"></a>Risolvere i problemi di Apache Spark tramite Azure HDInsight
 
-Informazioni sui problemi principali e le relative soluzioni quando si lavora con i payload Apache Spark in [Apache Ambari](https://ambari.apache.org/).
+Scopri i problemi principali e le loro risoluzioni quando lavori con i payload Apache Spark in [Apache Ambari](https://ambari.apache.org/).
 
 ## <a name="how-do-i-configure-an-apache-spark-application-by-using-apache-ambari-on-clusters"></a>Come si configura un'applicazione Apache Spark tramite Apache Ambari nei cluster?
 
-I valori di configurazione di Spark possono essere ottimizzati per evitare che un'applicazione Apache Spark `OutofMemoryError` eccezione. I passaggi seguenti illustrano i valori di configurazione di Spark predefiniti in Azure HDInsight:
+I valori di configurazione di Spark possono essere sintonizzati per evitare un'eccezione dell'applicazione `OutofMemoryError` Apache Spark. I passaggi seguenti illustrano i valori di configurazione Spark predefiniti in Azure HDInsight:The following steps show default Spark configuration values in Azure HDInsight:
 
-1. Accedere a Ambari in `https://CLUSTERNAME.azurehdidnsight.net` con le credenziali del cluster. La schermata iniziale Visualizza un dashboard di panoramica. Sono presenti lievi differenze estetiche tra HDInsight 3,6 e 4,0.
+1. Accedere ad Ambari `https://CLUSTERNAME.azurehdidnsight.net` con le credenziali del cluster. Nella schermata iniziale viene visualizzato un dashboard di panoramica. Esistono lievi differenze cosmetiche tra HDInsight 3.6 e 4.0.
 
-1. Passare a **Spark2** > **configs**.
+1. Passare a**Configurazioni** **Spark2** > .
 
     ![Selezionare la scheda Configs (Configurazioni)](./media/apache-troubleshoot-spark/apache-spark-ambari-config2.png)
 
-1. Nell'elenco delle configurazioni selezionare ed espandere **Custom-spark2-defaults**.
+1. Nell'elenco delle configurazioni, selezionare ed espandere **Custom-spark2-defaults**.
 
-1. Ricercare l'impostazione del valore che si desidera modificare, come **spark.executor.memory**. In questo caso, il valore di **9728m** è troppo elevato.
+1. Ricercare l'impostazione del valore che si desidera modificare, come **spark.executor.memory**. In questo caso, il valore di **9728m** è troppo alto.
 
     ![Selezionare custom-spark-defaults](./media/apache-troubleshoot-spark/apache-spark-ambari-config4.png)
 
@@ -105,12 +105,12 @@ spark-submit --master yarn-cluster --class com.microsoft.spark.application --num
 
 Se il problema riscontrato non è presente in questo elenco o se non si riesce a risolverlo, visitare uno dei canali seguenti per ottenere ulteriore assistenza:
 
-* [Panoramica sulla gestione della memoria di Spark](https://spark.apache.org/docs/latest/tuning.html#memory-management-overview).
+* [Panoramica sulla gestione della memoria Spark](https://spark.apache.org/docs/latest/tuning.html#memory-management-overview).
 
-* [Debug di un'applicazione Spark nei cluster HDInsight](https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/).
+* [Debug dell'applicazione Spark nei cluster HDInsight](https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/).
 
-* Ottieni risposte dagli esperti di Azure tramite il [supporto della community di Azure](https://azure.microsoft.com/support/community/).
+* Ottieni risposte dagli esperti di Azure tramite il supporto della community di [Azure.](https://azure.microsoft.com/support/community/)
 
-* Connettersi con [@AzureSupport](https://twitter.com/azuresupport) : l'account ufficiale Microsoft Azure per migliorare l'esperienza del cliente. Connessione della community di Azure alle risorse appropriate: risposte, supporto ed esperti.
+* Connettiti [@AzureSupport](https://twitter.com/azuresupport) con - l'account ufficiale di Microsoft Azure per migliorare l'esperienza del cliente. Connessione della community di Azure alle risorse giuste: risposte, supporto ed esperti.
 
-* Se è necessaria ulteriore assistenza, è possibile inviare una richiesta di supporto dal [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selezionare **supporto** dalla barra dei menu o aprire l'hub **Guida e supporto** . Per informazioni più dettagliate, vedere [come creare una richiesta di supporto di Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). L'accesso alla gestione delle sottoscrizioni e al supporto per la fatturazione è incluso nella sottoscrizione di Microsoft Azure e il supporto tecnico viene fornito tramite uno dei [piani di supporto di Azure](https://azure.microsoft.com/support/plans/).
+* Per altre informazioni, è possibile inviare una richiesta di supporto dal portale di [Azure.](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/) Selezionare **Supporto** dalla barra dei menu o aprire l'hub **Guida e supporto** tecnico. Per informazioni più dettagliate, vedere Come creare una richiesta di supporto di Azure.For more detailed information, review [How to create an Azure support request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). L'accesso al supporto per la gestione e la fatturazione delle sottoscrizioni è incluso nella sottoscrizione di Microsoft Azure e il supporto tecnico viene fornito tramite uno dei piani di supporto di [Azure.](https://azure.microsoft.com/support/plans/)

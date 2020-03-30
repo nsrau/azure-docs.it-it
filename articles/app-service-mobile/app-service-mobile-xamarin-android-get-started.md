@@ -1,16 +1,16 @@
 ---
-title: Introduzione alle app Novell. Android
-description: Seguire questa esercitazione per iniziare a usare le app per dispositivi mobili di Azure per lo sviluppo per Novell Android.
+title: Introduzione alle app Xamarin.Android
+description: Seguire questa esercitazione per iniziare a usare le app per dispositivi mobili di Azure per lo sviluppo di Xamarin Android.Follow this tutorial to get started using Azure Mobile Apps for Xamarin Android development.
 ms.assetid: 81649dd3-544f-40ff-b9b7-60c66d683e60
 ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.openlocfilehash: b42205436c88f9075423bfcaf9e5a9fd931ee4f4
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77461369"
 ---
 # <a name="create-a-xamarinandroid-app"></a>Creare un'app per Xamarin.Android
@@ -28,7 +28,7 @@ Il completamento di questa esercitazione è un prerequisito per tutte le altre e
 ## <a name="prerequisites"></a>Prerequisiti
 Per completare questa esercitazione è necessario soddisfare i prerequisiti seguenti:
 
-* Un account Azure attivo. Se non si ha un account, è possibile iscriversi alla versione di valutazione di Azure e ottenere fino a un massimo di 10 app per dispositivi mobili gratuite. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+* Un account Azure attivo. Se non si ha un account, è possibile iscriversi alla versione di valutazione di Azure e ottenere fino a un massimo di 10 app per dispositivi mobili gratuite. Per informazioni dettagliate, vedere Versione di valutazione gratuita di Azure .For [details,](https://azure.microsoft.com/pricing/free-trial/)see Azure Free Trial .
 * Visual Studio con Xamarin. Per le istruzioni vedere [Configurazione e installazione di Visual Studio e Xamarin](/visualstudio/cross-platform/setup-and-install) .
 
 ## <a name="create-an-azure-mobile-app-backend"></a>Creare un back-end dell'app per dispositivi mobili di Azure
@@ -41,14 +41,14 @@ Seguire questa procedura per creare un back-end dell'app per dispositivi mobili.
 ## <a name="create-a-database-connection-and-configure-the-client-and-server-project"></a>Creare una connessione al database e configurare il progetto client e server
 [!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## <a name="run-the-xamarinandroid-app"></a>Eseguire l'app Novell. Android
-1. Aprire il progetto Novell. Android.
+## <a name="run-the-xamarinandroid-app"></a>Eseguire l'app Xamarin.Android
+1. Aprire il progetto Xamarin.Android.
 
-2. Passare alla [portale di Azure](https://portal.azure.com/) e passare all'app per dispositivi mobili creata. Nel pannello `Overview` cercare l'URL che rappresenta l'endpoint pubblico per l'app per dispositivi mobili. Esempio: il SiteName per il nome dell'app "test123" verrà https://test123.azurewebsites.net.
+2. Passare al portale di [Azure](https://portal.azure.com/) e passare all'app per dispositivi mobili creata. Nel `Overview` pannello cercare l'URL che è l'endpoint pubblico per l'app per dispositivi mobili. Esempio: il nome del sito per il nome https://test123.azurewebsites.netdell'app "test123" sarà .
 
-3. Aprire il file `ToDoActivity.cs` in questa cartella-Novell. Android/ZUMOAPPNAME/ToDoActivity. cs. Il nome dell'applicazione è `ZUMOAPPNAME`.
+3. Aprire il `ToDoActivity.cs` file in questa cartella - xamarin.android/UMMOAPPNAME/ToDoActivity.cs. Il nome `ZUMOAPPNAME`dell'applicazione è .
 
-4. Nella classe `ToDoActivity` sostituire `ZUMOAPPURL` variabile con l'endpoint pubblico riportato sopra.
+4. In `ToDoActivity` classe `ZUMOAPPURL` sostituire la variabile con l'endpoint pubblico precedente.
 
     `const string applicationURL = @"ZUMOAPPURL";`
 

@@ -1,5 +1,5 @@
 ---
-title: 'NET # reti neurali personalizzate'
+title: Reti neurali personalizzate di Net
 titleSuffix: ML Studio (classic) - Azure
 description: Guida alla sintassi per il linguaggio di specifica Net# delle reti neurali. Informazioni su come creare modelli di rete neurale personalizzati in Azure Machine Learning Studio (classico).
 services: machine-learning
@@ -11,13 +11,13 @@ ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
 ms.openlocfilehash: c1912e670a9cf1c178b58cefbd33171f15be2483
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79218256"
 ---
-# <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio-classic"></a>Guida al linguaggio di specifica NET # per la rete neurale per Azure Machine Learning Studio (versione classica)
+# <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio-classic"></a>Guida al linguaggio delle specifiche di rete neurale di Rete per Azure Machine Learning Studio (classico)Guide to Net' neural network specification specification language for Azure Machine Learning Studio (classic)
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
@@ -51,14 +51,14 @@ Net# supporta anche i quattro tipi seguenti di aggregazioni di connessioni avanz
 
 + **Aggregazioni filtrate**. È possibile definire un predicato usando le posizioni del nodo del livello di origine e del nodo del livello di destinazione. I nodi vengono connessi se il predicato è True.
 
-+ **Aggregazioni convoluzionali**. È possibile definire piccoli gruppi di nodi vicini nel livello di origine. Ogni nodo nel livello di destinazione è connesso a un intorno di nodi nel livello di origine.
++ **Fasci convoluzionali**. È possibile definire piccoli gruppi di nodi vicini nel livello di origine. Ogni nodo nel livello di destinazione è connesso a un intorno di nodi nel livello di origine.
 
 + **Aggregazioni di pooling** e **aggregazioni di normalizzazione delle risposte**. Sono simili alle aggregazioni convoluzionali, in quanto l'utente definisce piccoli intorni di nodi nel livello di origine. La differenza è che i pesi dei bordi in questi pacchetti non sono addestrabili. Infatti, una funzione predefinita viene applicata ai valori del nodo di origine per determinare il valore del nodo di destinazione.
 
 
 ## <a name="supported-customizations"></a>Personalizzazioni supportate
 
-L'architettura dei modelli di rete neurale creati in Azure Machine Learning Studio (classico) può essere ampiamente personalizzata usando NET #. È possibile:
+L'architettura dei modelli di rete neurale creati in Azure Machine Learning Studio (classico) può essere ampiamente personalizzata tramite Net. È possibile:
 
 + Creare livelli nascosti e controllare il numero di nodi in ogni livello.
 + Specificare la modalità di connessione reciproca dei livelli.
@@ -253,7 +253,7 @@ hidden P1 [5, 12, 12]
 
 Per altre informazioni sui livelli di pooling, vedere gli articoli seguenti:
 
-+ [https://www.cs.toronto.edu/~hinton/absps/imagenet.pdf](https://www.cs.toronto.edu/~hinton/absps/imagenet.pdf) (Sezione 3.4)
++ [https://www.cs.toronto.edu/~hinton/absps/imagenet.pdf](https://www.cs.toronto.edu/~hinton/absps/imagenet.pdf)(Sezione 3.4)
 + [https://cs.nyu.edu/~koray/publis/lecun-iscas-10.pdf](https://cs.nyu.edu/~koray/publis/lecun-iscas-10.pdf)
 + [https://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf](https://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf)
 
@@ -452,7 +452,7 @@ output Digit [10] from Hid3 all;
 + La parola chiave `convolve` indica che i livelli `Conv1` e `Conv2` sono livelli convoluzionali. Tutte queste dichiarazioni di livelli sono seguite da un elenco di attributi convoluzionali.
 + La rete ha un terzo livello nascosto, `Hid3`, che è completamente connesso al secondo livello nascosto, `Conv2`.
 + Il livello di output, `Digit`, è connesso solo al terzo livello nascosto, `Hid3`. La parola chiave `all` indica che il livello di output è completamente connesso a `Hid3`.
-+ Il grado della convoluzione è tre: la lunghezza delle tuple `InputShape`, `KernelShape`, `Stride`e `Sharing`.
++ L'arità della convoluzione è tre: la `InputShape`lunghezza `KernelShape` `Stride`delle `Sharing`tuple, , , e .
 + Il numero di pesi per kernel è `1 + KernelShape\[0] * KernelShape\[1] * KernelShape\[2] = 1 + 1 * 5 * 5 = 26`. Oppure `26 * 50 = 1300`.
 + È possibile calcolare i nodi in ogni livello nascosto come indicato di seguito:
 

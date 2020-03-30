@@ -16,10 +16,10 @@ ms.date: 02/27/2017
 ms.author: twooley
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: e58e2d929dd1e4db16ce495ad54045e9dc3a6fb1
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79267417"
 ---
 # <a name="an-introduction-to-storsimple-snapshot-manager"></a>Introduzione a StorSimple Snapshot Manager
@@ -47,7 +47,7 @@ Gestione snapshot StorSimple fornisce una console di gestione centrale che conse
 
 Snapshot Manager di StorSimple recupera l'elenco delle applicazioni registrate con il provider VSS nell'host. Per creare backup coerenti con l'applicazione, controlla quindi i volumi usati da un'applicazione e suggerisce i gruppi di volumi da configurare. Gestione snapshot StorSimple utilizza questi gruppi di volumi per generare copie di backup coerenti con l'applicazione. (La coerenza con l'applicazione esiste quando tutti i relativi file e database sono sincronizzati e rappresentano lo stato reale dell'applicazione in un momento specifico). 
 
-I backup di Gestione snapshot StorSimple assumono la forma di snapshot incrementali, che acquisiscono solo le modifiche apportate dall'ultimo backup. Di conseguenza, i backup richiedono meno spazio di archiviazione e possono essere creati e ripristinati rapidamente. Gestione snapshot StorSimple utilizza il servizio Copia Shadow del volume di Windows per garantire che gli snapshot acquisiscano dati coerenti con l'applicazione. Per ulteriori informazioni, vedere la sezione integrazione con Windows Servizio Copia Shadow del volume. Con StorSimple Snapshot Manager è possibile creare pianificazioni di backup o eseguire backup immediati in base alle esigenze. Se è necessario ripristinare i dati da un backup, Gestione snapshot StorSimple consente di effettuare una selezione da un catalogo di snapshot locali o cloud. Azure StorSimple consente di ripristinare solo i dati necessari quando sono necessari, evitando ritardi nella disponibilità dei dati durante le operazioni di ripristino.)
+I backup di Gestione snapshot StorSimple assumono la forma di snapshot incrementali, che acquisiscono solo le modifiche apportate dall'ultimo backup. Di conseguenza, i backup richiedono meno spazio di archiviazione e possono essere creati e ripristinati rapidamente. Gestione snapshot StorSimple utilizza il servizio Copia Shadow del volume di Windows per garantire che gli snapshot acquisiscano dati coerenti con l'applicazione. Per altre informazioni, vai alla sezione Integrazione con il servizio Copia Shadow del volume di Windows. Con StorSimple Snapshot Manager è possibile creare pianificazioni di backup o eseguire backup immediati in base alle esigenze. Se è necessario ripristinare i dati da un backup, Gestione snapshot StorSimple consente di effettuare una selezione da un catalogo di snapshot locali o cloud. Azure StorSimple consente di ripristinare solo i dati necessari quando sono necessari, evitando ritardi nella disponibilità dei dati durante le operazioni di ripristino.)
 
 ![Architettura di Gestione snapshot StorSimple](./media/storsimple-what-is-snapshot-manager/HCS_SSM_Overview.png)
 
@@ -56,11 +56,11 @@ I backup di Gestione snapshot StorSimple assumono la forma di snapshot increment
 ## <a name="support-for-multiple-volume-types"></a>Supporto per più tipi di volume
 È possibile utilizzare Gestione snapshot StorSimple, per configurare ed eseguire il backup dei tipi di volumi seguenti: 
 
-* **Volumi di base** : un volume di base è una singola partizione su un disco di base. 
-* **Volumi semplici** : un volume semplice è un volume dinamico contenente lo spazio su disco da un singolo disco dinamico. Un volume semplice è costituito da una singola area su un disco o da più aree collegate insieme sullo stesso disco. È possibile creare volumi semplici solo sui dischi dinamici. I volumi semplici non sono a tolleranza d'errore.
-* **Volumi dinamici** : un volume dinamico è un volume creato su un disco dinamico. I dischi dinamici utilizzano un database per tenere traccia delle informazioni sui volumi contenuti nei dischi dinamici di un computer. 
-* **Volumi dinamici con mirroring** : i volumi dinamici con mirroring si basano sull'architettura RAID 1. Con RAID 1 i dati identici vengono scritti su due o più dischi, creando un set con mirroring. Una richiesta di lettura può quindi essere gestita da qualsiasi disco contenente i dati richiesti.
-* **Volumi condivisi cluster** : con i volumi condivisi cluster (CSV) più nodi in un cluster di failover possono leggere o scrivere contemporaneamente sullo stesso disco. Il failover da un nodo a un altro nodo può verificarsi rapidamente, senza necessità di modificare la proprietà dell'unità o di montare, smontare e rimuovere un volume. 
+* **Volumi di base** - Un volume di base è una singola partizione su un disco di base. 
+* **Volumi semplici** - Un volume semplice è un volume dinamico contenente lo spazio su disco di un singolo disco dinamico. Un volume semplice è costituito da una singola area su un disco o da più aree collegate insieme sullo stesso disco. È possibile creare volumi semplici solo su dischi dinamici. I volumi semplici non sono a tolleranza d'errore.
+* **Volumi dinamici** - Un volume dinamico è un volume creato su un disco dinamico. I dischi dinamici utilizzano un database per tenere traccia delle informazioni sui volumi contenuti nei dischi dinamici di un computer. 
+* **Volumi dinamici con mirroring** - I volumi dinamici con mirroring si basano sull'architettura RAID 1. Con RAID 1 i dati identici vengono scritti su due o più dischi, creando un set con mirroring. Una richiesta di lettura può quindi essere gestita da qualsiasi disco contenente i dati richiesti.
+* **Volumi condivisi del cluster** - Con i volumi condivisi del cluster, più nodi in un cluster di failover possono leggere o scrivere nello stesso disco contemporaneamente. Il failover da un nodo a un altro nodo può verificarsi rapidamente, senza necessità di modificare la proprietà dell'unità o di montare, smontare e rimuovere un volume. 
 
 > [!IMPORTANT]
 > Non combinare volumi condivisi cluster e volumi non condivisi cluster nello stesso snapshot. La combinazione di volumi condivisi cluster e volumi non condivisi cluster in uno stesso snapshot non è supportata. 
@@ -113,7 +113,7 @@ Con Gestione snapshot StorSimple è possibile eseguire il backup dei dati e arch
 È possibile utilizzare Gestione snapshot StorSimple per creare i tipi di backup seguenti:
 
 * **Snapshot locali** : gli snapshot locali sono copie temporizzate dei dati del volume archiviati sul dispositivo StorSimple. In genere, questo tipo di backup può essere creato e ripristinato rapidamente. È possibile utilizzare uno snapshot locale come copia di backup locale.
-* **Snapshot cloud** : gli snapshot Cloud sono copie temporizzate di dati del volume archiviati nel cloud. Uno snapshot cloud equivale a uno snapshot replicato su un diverso sistema di archiviazione fuori sede. Gli snapshot cloud sono particolarmente utili negli scenari di ripristino di emergenza.
+* **Snapshot cloud** - Gli snapshot cloud sono copie temporizzate dei dati di volume archiviati nel cloud. Uno snapshot cloud equivale a uno snapshot replicato su un diverso sistema di archiviazione fuori sede. Gli snapshot cloud sono particolarmente utili negli scenari di ripristino di emergenza.
 
 ### <a name="on-demand-and-scheduled-backups"></a>Backup su richiesta e pianificati
 Con Gestione snapshot StorSimple è possibile avviare un backup unico da creare immediatamente oppure è possibile utilizzare un criterio di backup per pianificare operazioni di backup ricorrenti.
@@ -124,11 +124,11 @@ Un criterio di backup è un insieme di regole automatizzate che è possibile uti
 
 Per ciascun criterio di backup creato vengono configurate le informazioni seguenti:
 
-* **Nome** : il nome univoco del criterio di backup selezionato.
-* **Tipo** : il tipo di criterio di backup (snapshot locale o cloud).
-* **Gruppo di volumi** : il gruppo di volumi a cui è assegnato il criterio di backup selezionato.
-* **Conservazione**: il numero di copie di backup da conservare. Se si seleziona la casella **Tutti**, tutte le copie di backup vengono conservate fino al raggiungimento del numero massimo di copie per volume. A questo punto il criterio avrà esito negativo e verrà generato un messaggio di errore. In alternativa, è possibile specificare un numero di backup da conservare (compreso tra 1 e 64).
-* **Data** : la data di creazione del criterio di backup.
+* **Nome** - Il nome univoco del criterio di backup selezionato.
+* **Tipo** - Il tipo di criterio di backup: snapshot locale o snapshot cloud.
+* **Gruppo di volumi** - Il gruppo di volumi a cui è assegnato il criterio di backup selezionato.
+* **Conservazione** - Il numero di copie di backup da conservare. Se si seleziona la casella **Tutte**, verranno conservate tutte le copie di backup fino al raggiungimento del numero massimo di copie per volume, dopodiché il criterio non avrà più buon esito e genererà un messaggio di errore. In alternativa, è possibile specificare un numero di backup da conservare (compreso tra 1 e 64).
+* **Data**- La data in cui è stato creato il criterio di backup.
 
 Per informazioni sulla configurazione dei criteri di backup, andare a [Utilizzo di Gestione snapshot StorSimple per creare e gestire i criteri di backup](storsimple-snapshot-manager-manage-backup-policies.md).
 
@@ -139,5 +139,5 @@ Per informazioni sul monitoraggio dei processi di backup, andare a [Utilizzo di 
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Ulteriori informazioni sull’ [utilizzo di StorSimple Snapshot Manager per amministrare la soluzione di StorSimple](storsimple-snapshot-manager-admin.md).
-* Scaricare [Gestione snapshot StorSimple](https://www.microsoft.com/download/details.aspx?id=44220).
+* Scarica [StorSimple Snapshot Manager](https://www.microsoft.com/download/details.aspx?id=44220).
 

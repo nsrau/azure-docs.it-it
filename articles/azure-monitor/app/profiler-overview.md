@@ -1,5 +1,5 @@
 ---
-title: Profilare le app di produzione in Azure con Application Insights Profiler
+title: Profilare le app di produzione in Azure con Application Insights ProfilerProfile production apps in Azure with Application Insights Profiler
 description: Identificare il percorso ricorrente nel codice del server web con un profiler con footprint ridotto.
 ms.topic: conceptual
 author: cweining
@@ -7,10 +7,10 @@ ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: ce952bd248640d03fcff43284707614577df8469
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671648"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Profilare le applicazioni di produzione in Azure con Application Insights
@@ -21,12 +21,12 @@ Azure Application Insights Profiler offre analisi delle prestazioni per le appli
 Profiler funziona con le applicazioni .NET distribuite nei servizi di Azure seguenti. I collegamenti seguenti consentono di passare alle istruzioni specifiche per abilitare Profiler per ogni tipo di servizio.
 
 * [Servizio app di Azure](profiler.md?toc=/azure/azure-monitor/toc.json)
-* [Servizi cloud di Azure](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
+* [Servizi cloud di AzureAzure Cloud Services](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Service Fabric](profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Macchine virtuali di Microsoft Azure e set di scalabilità di macchine virtuali](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
-* [**Anteprima** ASP.NET Core app Web Linux di Azure](profiler-aspnetcore-linux.md?toc=/azure/azure-monitor/toc.json) 
+* [**ANTEPRIMA** ASP.NET principali applicazioni Web Linux di Azure](profiler-aspnetcore-linux.md?toc=/azure/azure-monitor/toc.json) 
 
-Se Profiler è abilitato ma non vengono visualizzate analisi, controllare la [Guida alla risoluzione dei problemi](profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json).
+Se Profiler è abilitato ma non vengono visualizzate analisi, controllare la [Guida alla risoluzione dei problemi.](profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json).
 
 ## <a name="view-profiler-data"></a>Visualizzare i dati di Profiler
 
@@ -53,59 +53,59 @@ Il profiler del servizio Microsoft usa una combinazione della strumentazione e d
 
 Lo stack di chiamate riportato nella visualizzazione della sequenza temporale è il risultato del campionamento e della strumentazione. Poiché ogni esempio acquisisce lo stack di chiamate completo del thread, include codice di Microsoft .NET Framework e di eventuali altri framework a cui si fa riferimento.
 
-### <a id="jitnewobj"></a>Allocazione di oggetti (clr!JIT\_New o clr!JIT\_Newarr1)
+### <a name="object-allocation-clrjit_new-or-clrjit_newarr1"></a><a id="jitnewobj"></a>Allocazione di oggetti (clr!JIT\_New o clr!JIT\_Newarr1)
 
 **clr!JIT\_New** e **clr!JIT\_Newarr1** sono funzioni helper in .NET Framework che allocano memoria da un heap gestito. **clr!JIT\_New** viene richiamato quando si alloca un oggetto. **clr!JIT\_Newarr1** viene richiamato quando si alloca una matrice di oggetti. Queste due funzioni sono in genere veloci e richiedono un intervallo temporale relativamente ridotto. Se **clr!JIT\_New** o **clr!JIT\_Newarr1** impiega molto tempo nella sequenza temporale, è possibile che il codice stia allocando numerosi oggetti e stia utilizzando una notevole quantità di memoria.
 
-### <a id="theprestub"></a>Caricamento di codice (clr!ThePreStub)
+### <a name="loading-code-clrtheprestub"></a><a id="theprestub"></a>Caricamento di codice (clr!ThePreStub)
 
 **clr!ThePreStub** è una funzione helper all'interno di .NET Framework che prepara il codice da eseguire per la prima volta. Questa esecuzione include in genere, ma non esclusivamente, la compilazione JIT. Per ogni metodo C#, la funzione **clr!ThePreStub** deve essere chiamata al massimo una volta nel corso di un processo.
 
 Se l'esecuzione di **clr!ThePreStub** per una richiesta richiede molto tempo, la richiesta è la prima a eseguire quel metodo. Il tempo di caricamento del primo metodo da parte del runtime di .NET Framework è significativo. È possibile valutare un processo di riscaldamento che esegua tale parte del codice prima che gli utenti accedano a esso oppure l'esecuzione del generatore di immagini native (ngen.exe) negli assembly.
 
-### <a id="lockcontention"></a>Conflitto di blocchi (clr!JITutil\_MonContention o clr!JITutil\_MonEnterWorker)
+### <a name="lock-contention-clrjitutil_moncontention-or-clrjitutil_monenterworker"></a><a id="lockcontention"></a>Conflitto di blocchi (clr!JITutil\_MonContention o clr!JITutil\_MonEnterWorker)
 
-**clr!JITutil\_MonContention** o **clr!JITutil\_MonEnterWorker** indica che il thread corrente è in attesa di un blocco da rilasciare. Questo testo viene spesso visualizzato durante l'esecuzione di un'istruzione C# **LOCK** o quando viene chiamato il metodo **Monitor.Enter** o un metodo con l'attributo **MethodImplOptions.Synchronized**. La contesa di blocchi si verifica in genere quando il thread _A_ acquisisce un blocco e il thread _B_ prova ad acquisire lo stesso blocco prima che il thread _A_ lo rilasci.
+**clr!JITutil\_MonContention** o **clr!JITutil\_MonEnterWorker** indica che il thread corrente è in attesa di un blocco da rilasciare. Questo testo viene spesso visualizzato durante l'esecuzione di un'istruzione C# **LOCK** o quando viene chiamato il metodo **Monitor.Enter** o un metodo con l'attributo **MethodImplOptions.Synchronized**. La contesa di blocco si verifica in genere quando il thread _A_ acquisisce un blocco e il thread _B_ tenta di acquisire lo stesso blocco prima che il thread _A_ lo rilasci.
 
-### <a id="ngencold"></a>Caricamento di codice ([COLD])
+### <a name="loading-code-cold"></a><a id="ngencold"></a>Caricamento di codice ([COLD])
 
-Se il nome del metodo contiene **[COLD]** , ad esempio **mscorlib.ni![COLD]System.Reflection.CustomAttribute.IsDefined**, il runtime di .NET Framework esegue per la prima volta codice non ottimizzato dall'[ottimizzazione PGO](/cpp/build/profile-guided-optimizations). Per ogni metodo deve essere visualizzato al massimo una volta nel corso del processo.
+Se il nome del metodo contiene **[COLD]**, ad esempio **mscorlib.ni![COLD]System.Reflection.CustomAttribute.IsDefined**, il runtime di .NET Framework esegue per la prima volta codice non ottimizzato dall'[ottimizzazione PGO](/cpp/build/profile-guided-optimizations). Per ogni metodo deve essere visualizzato al massimo una volta nel corso del processo.
 
 Se il caricamento del codice per una richiesta richiede una quantità di tempo sostanziale, si tratta della prima richiesta che esegue la parte non ottimizzata del metodo. Considerare un processo di riscaldamento che esegua tale parte del codice prima che gli utenti accedano a esso.
 
-### <a id="httpclientsend"></a>Inviare una richiesta HTTP
+### <a name="send-http-request"></a><a id="httpclientsend"></a>Inviare una richiesta HTTP
 
 Metodi come **HttpClient.Send** indicano che il codice è in attesa del completamento di una richiesta HTTP.
 
-### <a id="sqlcommand"></a>Operazione di database
+### <a name="database-operation"></a><a id="sqlcommand"></a>Operazione di database
 
 Metodi come **SqlCommand.Execute** indicano che il codice è in attesa del completamento di un'operazione di database.
 
-### <a id="await"></a>Attesa (AWAIT\_TIME)
+### <a name="waiting-await_time"></a><a id="await"></a>Attesa (AWAIT\_TIME)
 
 **AWAIT\_TIME** indica che il codice è in attesa del completamento di un'altra attività. Questo ritardo si verifica in genere con l'istruzione C# **AWAIT**. Quando il codice esegue C# **AWAIT**, il thread viene rimosso e restituisce il controllo al pool di thread e non esiste un thread bloccato in attesa del completamento di **AWAIT**. Dal punto di vista logico, tuttavia, il thread che ha eseguito **AWAIT** viene "bloccato" in attesa che venga completata l'operazione. L'istruzione **AWAIT\_TIME** indica il tempo di blocco in attesa del completamento dell'attività.
 
-### <a id="block"></a>Tempo di blocco
+### <a name="blocked-time"></a><a id="block"></a>Tempo di blocco
 
 **BLOCKED_TIME** indica che il codice è in attesa di un'altra risorsa disponibile. Ad esempio, potrebbe essere in attesa di un oggetto di sincronizzazione, di un thread o del completamento di una richiesta.
 
-### <a name="unmanaged-async"></a>Asincrono non gestito
+### <a name="unmanaged-async"></a>Asincrono non gestitoUnmanaged Async
 
-.NET Framework genera eventi ETW e passa gli ID attività tra i thread in modo che sia possibile tenere traccia delle chiamate asincrone tra i thread. Nel codice non gestito (codice nativo) e in alcuni stili precedenti del codice asincrono mancano questi eventi e ID attività, quindi il profiler non è in grado di stabilire quale thread e quali funzioni sono in esecuzione sul thread. Questa operazione è denominata "asincrono non gestito" nello stack di chiamate. Se si Scarica il file ETW, è possibile usare [PerfView](https://github.com/Microsoft/perfview/blob/master/documentation/Downloading.md) per ottenere informazioni più approfondite su ciò che accade.
+.NET framework genera eventi ETW e passa gli ID di attività tra i thread in modo che le chiamate asincrone possano essere rilevate tra i thread. Il codice non gestito (codice nativo) e alcuni stili meno recenti di codice asincrono mancano di questi eventi e ID di attività, pertanto il profiler non è in grado di stabilire quale thread e quali funzioni sono in esecuzione nel thread. Viene etichettato come 'Unmanaged Async' nello stack di chiamate. Se si scarica il file ETW, è possibile utilizzare [PerfView](https://github.com/Microsoft/perfview/blob/master/documentation/Downloading.md) per ottenere maggiori informazioni su ciò che sta accadendo.
 
-### <a id="cpu"></a>Tempo di CPU
+### <a name="cpu-time"></a><a id="cpu"></a>Tempo CPU
 
 La CPU è occupata nell'esecuzione di istruzioni.
 
-### <a id="disk"></a>Tempo del disco
+### <a name="disk-time"></a><a id="disk"></a>Tempo del disco
 
 L'applicazione sta eseguendo operazioni su disco.
 
-### <a id="network"></a>Tempo di rete
+### <a name="network-time"></a><a id="network"></a>Tempo di rete
 
 L'applicazione sta eseguendo operazioni sulla rete.
 
-### <a id="when"></a>Colonna Quando
+### <a name="when-column"></a><a id="when"></a>Colonna Quando
 
 La colonna **Quando** è una visualizzazione della variazione nel tempo degli esempi INCLUSIVI raccolti per un nodo nel tempo. L'intervallo totale della richiesta è suddiviso in 32 intervalli di tempo. Gli esempi inclusivi di tale nodo vengono accumulati in questi 32 intervalli. Ogni intervallo è rappresentato come una barra. L'altezza della barra rappresenta un valore ridimensionato. Per i nodi contrassegnati con **CPU_TIME** o **BLOCKED_TIME**, oppure in cui è presente una relazione ovvia con l'utilizzo di una risorsa (ad esempio, CPU, disco o thread), la barra rappresenta l'utilizzo di una delle risorse durante tale intervallo. Se si utilizzano più risorse, per queste metriche è possibile che si ottenga un valore maggiore del 100%. Se ad esempio si usano in media due CPU durante un intervallo, si ottiene il 200%.
 
@@ -122,7 +122,7 @@ Profiler viene eseguito in modo casuale per due minuti ogni ora in ogni macchina
 ## <a name="next-steps"></a>Passaggi successivi
 Abilitare Application Insights Profiler per l'applicazione Azure. Vedere anche:
 * [Servizi app](profiler.md?toc=/azure/azure-monitor/toc.json)
-* [Servizi cloud di Azure](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
+* [Servizi cloud di AzureAzure Cloud Services](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Service Fabric](profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Macchine virtuali di Microsoft Azure e set di scalabilità di macchine virtuali](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 

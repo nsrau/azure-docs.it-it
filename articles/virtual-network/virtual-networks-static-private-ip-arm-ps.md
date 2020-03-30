@@ -1,6 +1,6 @@
 ---
-title: Creare una VM con un indirizzo IP privato statico-Azure PowerShell
-description: Informazioni su come creare una macchina virtuale con un indirizzo IP privato usando PowerShell.
+title: Creare una macchina virtuale con un indirizzo IP privato statico - Azure PowerShellCreate a VM with a static private IP address - Azure PowerShell
+description: Informazioni su come creare una macchina virtuale con un indirizzo IP privato tramite PowerShell.Learn how to create a virtual machine with a private IP address using PowerShell.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -17,17 +17,17 @@ ms.date: 02/07/2019
 ms.author: kumud
 ms.custom: ''
 ms.openlocfilehash: 1745ca176fac18b4903686cb556670531ee40a1a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79244758"
 ---
-# <a name="create-a-virtual-machine-with-a-static-private-ip-address-using-powershell"></a>Creare una macchina virtuale con un indirizzo IP privato statico tramite PowerShell
+# <a name="create-a-virtual-machine-with-a-static-private-ip-address-using-powershell"></a>Creare una macchina virtuale con un indirizzo IP privato statico usando PowerShellCreate a virtual machine with a static private IP address using PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-È possibile creare una macchina virtuale (VM) con un indirizzo IP privato statico. Assegnare un indirizzo IP privato statico, anziché un indirizzo dinamico, se si vuole selezionare l'indirizzo da una subnet assegnato a una macchina virtuale. Altre informazioni sugli [indirizzi IP privati statici](virtual-network-ip-addresses-overview-arm.md#allocation-method). Per modificare un indirizzo IP privato assegnato a una macchina virtuale esistente da dinamico a statico o per usare indirizzi IP pubblici, vedere [aggiungere, modificare o rimuovere indirizzi IP](virtual-network-network-interface-addresses.md).
+È possibile creare una macchina virtuale (VM) con un indirizzo IP privato statico. Assegnare un indirizzo IP privato statico, anziché un indirizzo dinamico, se si vuole selezionare l'indirizzo da una subnet che viene assegnato a una macchina virtuale. Ulteriori informazioni sugli [indirizzi IP privati statici](virtual-network-ip-addresses-overview-arm.md#allocation-method). Per modificare un indirizzo IP privato assegnato a una macchina virtuale esistente da dinamico a statico o per usare indirizzi IP pubblici, vedere [Aggiungere, modificare o rimuovere indirizzi IP.](virtual-network-network-interface-addresses.md)
 
 ## <a name="create-a-virtual-machine"></a>Creare una macchina virtuale
 
@@ -42,7 +42,7 @@ ms.locfileid: "79244758"
    New-AzResourceGroup -Name $RgName -Location $Location
    ```
 
-3. Creare una configurazione di subnet e una rete virtuale con i comandi [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) e [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) :
+3. Creare una configurazione di subnet e una rete virtuale con i comandi New-AzVirtualNetworkSubnetConfig e [New-AzVirtualNetwork:Create](/powershell/module/az.network/new-azvirtualnetwork) a subnet configuration and virtual network with the [New-AzVirtualNetworkSubnet commands:](/powershell/module/az.network/new-azvirtualnetworksubnetconfig)
 
    ```azurepowershell-interactive
    # Create a subnet configuration
@@ -62,7 +62,7 @@ ms.locfileid: "79244758"
    $Subnet = Get-AzVirtualNetworkSubnetConfig -Name $SubnetConfig.Name -VirtualNetwork $VNet
    ```
 
-4. Creare un'interfaccia di rete nella rete virtuale e assegnare un indirizzo IP privato dalla subnet all'interfaccia di rete con i comandi [New-AzNetworkInterfaceIpConfig](/powershell/module/Az.Network/New-AzNetworkInterfaceIpConfig) e [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) :
+4. Creare un'interfaccia di rete nella rete virtuale e assegnare un indirizzo IP privato dalla subnet all'interfaccia di rete con i comandi [New-AzNetworkInterfaceIpConfig](/powershell/module/Az.Network/New-AzNetworkInterfaceIpConfig) e [New-AzNetworkInterface:](/powershell/module/az.network/new-aznetworkinterface)
 
    ```azurepowershell-interactive
    $IpConfigName1 = "IPConfig-1"
@@ -79,7 +79,7 @@ ms.locfileid: "79244758"
      -IpConfiguration $IpConfig1
    ```
 
-5. Creare una configurazione di macchina virtuale con [New-AzVMConfig](/powershell/module/Az.Compute/New-AzVMConfig)e quindi creare la macchina virtuale con [New-AzVM](/powershell/module/az.Compute/New-azVM). Quando richiesto, specificare un nome utente e una password da usare come credenziali di accesso per la macchina virtuale:
+5. Creare una configurazione di macchina virtuale con [New-AzVMConfig](/powershell/module/Az.Compute/New-AzVMConfig), quindi creare la macchina virtuale con [New-AzVM](/powershell/module/az.Compute/New-azVM). Quando richiesto, fornire un nome utente e una password da usare come credenziali di accesso per la macchina virtuale:When prompted, provide a username and password to be used as the sign in credentials for the VM:
 
    ```azurepowershell-interactive
    $VirtualMachine = New-AzVMConfig -VMName MyVM -VMSize "Standard_DS3"
@@ -90,13 +90,13 @@ ms.locfileid: "79244758"
    ```
 
 > [!WARNING]
-> Sebbene sia possibile aggiungere impostazioni di indirizzi IP privati al sistema operativo, è consigliabile non eseguire questa operazione finché non viene letta l' [aggiunta di un indirizzo IP privato a un sistema operativo](virtual-network-network-interface-addresses.md#private).
+> Sebbene sia possibile aggiungere impostazioni di indirizzi IP privati al sistema operativo, si consiglia di non farlo fino a quando non si è [letto Aggiungere un indirizzo IP privato a un sistema operativo](virtual-network-network-interface-addresses.md#private).
 > 
 > 
 > <a name = "change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface"></a>
 > 
 > [!IMPORTANT]
-> Per accedere alla macchina virtuale da Internet, è necessario assegnare un indirizzo IP pubblico alla macchina virtuale. È anche possibile modificare l'assegnazione di un indirizzo IP privato dinamico a un'assegnazione statica. Per informazioni dettagliate, vedere [aggiungere o modificare indirizzi IP](virtual-network-network-interface-addresses.md). Inoltre, è consigliabile limitare il traffico di rete alla macchina virtuale associando un gruppo di sicurezza di rete all'interfaccia di rete, la subnet in cui è stata creata l'interfaccia di rete o entrambe. Per informazioni dettagliate, vedere [gestire i gruppi di sicurezza di rete](manage-network-security-group.md).
+> Per accedere alla macchina virtuale da Internet, è necessario assegnare un indirizzo IP pubblico alla macchina virtuale. È inoltre possibile modificare un'assegnazione dinamica di indirizzo IP privato in un'assegnazione statica. Per informazioni dettagliate, vedere [Aggiungere o modificare indirizzi IP](virtual-network-network-interface-addresses.md). Inoltre, è consigliabile limitare il traffico di rete alla macchina virtuale associando un gruppo di sicurezza di rete all'interfaccia di rete, alla subnet in cui è stata creata l'interfaccia di rete o a entrambi. Per informazioni dettagliate, vedere [Gestire i gruppi](manage-network-security-group.md)di sicurezza di rete .
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -108,5 +108,5 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni sugli [indirizzi IP privati](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) e sull'assegnazione di un [indirizzo IP privato statico](virtual-network-network-interface-addresses.md#add-ip-addresses) a una macchina virtuale di Azure.
-- Altre informazioni sulla creazione di macchine virtuali [Linux](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Windows](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) .
+- Altre informazioni sugli [indirizzi IP privati](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) e sull'assegnazione di un indirizzo IP privato statico a una macchina virtuale di Azure.Learn more about private IP addresses and assigning a static private IP [address](virtual-network-network-interface-addresses.md#add-ip-addresses) to an Azure virtual machine.
+- Altre informazioni sulla creazione di macchine virtuali Linux e [Windows.Learn](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) more about creating [Linux](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and Windows virtual machines.

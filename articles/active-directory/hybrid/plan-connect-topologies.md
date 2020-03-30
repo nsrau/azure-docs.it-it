@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9618e02f54fbb2a3b92771761c5fcf700d126b5c
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79253832"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologie per Azure AD Connect
@@ -42,7 +42,7 @@ Ecco la legenda delle immagini usate nell'articolo:
 
 
 > [!IMPORTANT]
-> Microsoft non supporta la modifica o l'uso del servizio di sincronizzazione Azure AD Connect al di fuori delle configurazioni e delle azioni descritte in modo formale. Una di queste configurazioni o azioni può causare uno stato incoerente o non supportato della sincronizzazione Azure AD Connect. Di conseguenza, Microsoft non è in grado di fornire supporto tecnico per tali distribuzioni.
+> Microsoft non supporta la modifica o l'uso del servizio di sincronizzazione Azure AD Connect al di fuori delle configurazioni e delle azioni descritte in modo formale. Ognuna di queste configurazioni o azioni potrebbe causare uno stato incoerente o non supportato della sincronizzazione di Azure AD Connect.Any of these configurations or actions might result in an inconsistent or unsupported state of Azure AD Connect sync. Di conseguenza, Microsoft non può fornire supporto tecnico per tali distribuzioni.
 
 
 ## <a name="single-forest-single-azure-ad-tenant"></a>Foresta singola, tenant singolo di Azure AD
@@ -64,7 +64,7 @@ Quando sono presenti più foreste, devono essere tutte raggiungibili da un singo
 
 L'installazione guidata di Azure AD Connect offre diverse opzioni per consolidare gli utenti rappresentati in più foreste. L'obiettivo è fare in modo che un utente sia rappresentato una sola volta in Azure AD. Nell'installazione guidata sono disponibili alcune topologie comuni che è possibile configurare nel percorso di installazione personalizzato. Nella pagina **Identificazione univoca per gli utenti** selezionare l'opzione corrispondente che rappresenta la topologia. Il consolidamento viene configurato solo per gli utenti. I gruppi duplicati non vengono consolidati con la configurazione predefinita.
 
-Le topologie comuni sono illustrate nelle sezioni su topologie separate, [a rete completa](#multiple-forests-full-mesh-with-optional-galsync) e [topologie account-risorse](#multiple-forests-account-resource-forest).
+Le topologie comuni sono descritte nelle sezioni relative alle topologie separate, alla [mesh completa](#multiple-forests-full-mesh-with-optional-galsync)e alla [topologia account-risorsa](#multiple-forests-account-resource-forest).
 
 La configurazione predefinita del servizio di sincronizzazione Azure AD Connect presuppone quanto segue:
 
@@ -113,7 +113,7 @@ In questo scenario, gli oggetti relativi all'identità vengono aggiunti tramite 
 
 ![Topologia di foresta di tipo account-risorse per più foreste](./media/plan-connect-topologies/MultiForestAccountResource.png)
 
-In una topologia di foresta account-risorse sono presenti una o più foreste *account* con account utente attivi. Sono anche presenti una o più foreste *risorse* con account disabilitati.
+In una topologia di foresta account-risorsa, si dispone di una o più foreste di *account* con account utente attivi. Sono inoltre disponibili una o più foreste di *risorse* con account disabilitati.
 
 In questo scenario una o più foreste risorse considerano attendibili tutte le foreste account. La foresta risorse presenta in genere uno schema di Active Directory esteso con Exchange e Lync. Tutti i servizi Exchange e Lync, con altri servizi condivisi, si trovano in questa foresta. Gli utenti hanno un account utente disabilitato in questa foresta e la cassetta postale è collegata alla foresta account.
 
@@ -197,4 +197,4 @@ Per informazioni su come installare Azure AD Connect per questi scenari, vedere 
 
 Ulteriori informazioni sulla configurazione della [sincronizzazione di Azure AD Connect](how-to-connect-sync-whatis.md).
 
-Altre informazioni sull'[integrazione delle identità locali con Azure Active Directory](whatis-hybrid-identity.md).
+Altre informazioni [sull'integrazione delle identità locali con Azure Active Directory.](whatis-hybrid-identity.md)

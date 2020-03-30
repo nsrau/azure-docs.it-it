@@ -15,10 +15,10 @@ ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2395aa5984de2a9fe41e4778d16aba69bfef5192
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77559234"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Gestione dei nomi di dominio personalizzati in Azure Active Directory
@@ -33,11 +33,11 @@ Quando viene creata la directory, il nome di dominio iniziale, ad esempio "conto
 2. Selezionare **Azure Active Directory**.
 3. Selezionare **Nomi di dominio personalizzati**.
   
-   ![Apertura della pagina Gestione utenti](./media/domains-manage/add-custom-domain.png)
+   ![Apertura della pagina di gestione degli utenti](./media/domains-manage/add-custom-domain.png)
 4. Selezionare il nome del dominio che si vuole impostare come dominio primario.
 5. Selezionare il comando **Imposta come primario**. Confermare la scelta quando viene richiesto.
   
-   ![Rendere il nome di dominio primario](./media/domains-manage/make-primary-domain.png)
+   ![Impostare un nome di dominio come primario](./media/domains-manage/make-primary-domain.png)
 
 È possibile modificare il nome di dominio primario per la directory impostando qualsiasi dominio personalizzato verificato e non federato. La modifica del dominio primario per la directory non modificherà i nomi utente degli utenti esistenti.
 
@@ -90,10 +90,10 @@ Viene restituito un errore nei casi seguenti:
 **D: Perché l'eliminazione del dominio non riesce e genera un errore che indica la presenza di gruppi gestiti da Exchange per il nome di dominio?** <br>
 **R:** Attualmente, il provisioning di determinati gruppi, come gli elenchi distribuiti e i gruppi di sicurezza abilitati alla posta elettronica, viene effettuato da Exchange ed è necessario eseguirne manualmente la pulizia nell'[interfaccia di amministrazione di Exchange](https://outlook.office365.com/ecp/). Potrebbero essere presenti indirizzi proxy residui che si basano sul nome di dominio personalizzato e che dovranno essere aggiornati manualmente con un altro nome di dominio. 
 
-**D: si è connessi come amministratore\@contoso.com ma non è possibile eliminare il nome di dominio "contoso.com"?**<br>
+**D: Ho effettuato l'accesso come contoso.com amministratore\@ma non è possibile eliminare il nome di dominio "contoso.com"?**<br>
 **R:** Non è possibile eliminare un nome di dominio personalizzato cui viene fatto riferimento nel nome dell'account utente in uso. Assicurarsi che l'account amministratore globale usi il nome di dominio predefinito iniziale ".onmicrosoft.com", ad esempio admin@contoso.onmicrosoft.com. Accedere con un diverso account amministratore globale, ad esempio admin@contoso.onmicrosoft.com, o con un altro nome di dominio personalizzato come "fabrikam.com", per il quale l'account è admin@fabrikam.com.
 
-**D: è stato fatto clic sul pulsante Elimina dominio per visualizzare `In Progress` stato dell'operazione di eliminazione. Quanto tempo è richiesto? Che cosa accade in caso di errore?**<br>
+**D: Ho fatto clic sul `In Progress` pulsante Elimina dominio e ho visualizzato lo stato dell'operazione Elimina. Quanto tempo ci vuole? Cosa succede se fallisce?**<br>
 **R:** L'operazione di eliminazione di un dominio è un attività asincrona in background che rinomina tutti i riferimenti al nome di dominio. Il completamento dovrebbe richiedere un minuto o due. Se l'eliminazione del dominio non riesce, verificare che non sia presente quanto segue:
 
 * App configurate per il nome di dominio con l'URI identificatore dell'app
@@ -102,9 +102,9 @@ Viene restituito un errore nei casi seguenti:
 
 Se si riscontra che una o più condizioni non sono state soddisfatte, eseguire la pulizia dei riferimenti manualmente e provare a eliminare di nuovo il dominio.
 
-## <a name="use-powershell-or-the-microsoft-graph-api-to-manage-domain-names"></a>Usare PowerShell o l'API Microsoft Graph per gestire i nomi di dominio
+## <a name="use-powershell-or-the-microsoft-graph-api-to-manage-domain-names"></a>Usare PowerShell o l'API Microsoft Graph per gestire i nomi di dominioUse PowerShell or the Microsoft Graph API to manage domain names
 
-La maggior parte delle attività di gestione per i nomi di dominio in Azure Active Directory può essere completata anche con Microsoft PowerShell o a livello di codice tramite l'API Microsoft Graph.
+La maggior parte delle attività di gestione per i nomi di dominio in Azure Active Directory può essere completata anche usando Microsoft PowerShell o a livello di codice usando l'API Microsoft Graph.Most management tasks for domain names in Azure Active Directory can also be completed using Microsoft PowerShell, or programmatically using the Microsoft Graph API.
 
 * [Uso di PowerShell per gestire i nomi di dominio in Azure AD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#domains)
 * [Tipo di risorsa di dominio](https://docs.microsoft.com/graph/api/resources/domain?view=graph-rest-1.0)

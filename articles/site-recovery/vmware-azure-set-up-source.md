@@ -9,17 +9,17 @@ ms.topic: article
 ms.date: 04/14/2019
 ms.author: ramamill
 ms.openlocfilehash: ff01aed92669acb193ff149ea9298550134f42a3
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79257056"
 ---
 # <a name="set-up-the-source-environment-for-vmware-to-azure-replication"></a>Configurare l'ambiente di origine per la replica da VMware in Azure
 
-Questo articolo descrive come configurare l'ambiente locale di origine per la replica di macchine virtuali VMware in Azure. L'articolo include i passaggi per selezionare lo scenario di replica, configurare un computer locale come server di configurazione Site Recovery e individuare automaticamente le macchine virtuali locali.
+Questo articolo descrive come configurare l'ambiente locale di origine per la replica di macchine virtuali VMware in Azure. L'articolo include i passaggi per la selezione dello scenario di replica, la configurazione di un computer locale come server di configurazione di Site Recovery e l'individuazione automatica delle macchine virtuali locali.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Nell'articolo si presuppone che le seguenti procedure siano già state eseguite:
 
@@ -31,9 +31,9 @@ Nell'articolo si presuppone che le seguenti procedure siano già state eseguite:
 
 1. In **Insiemi di credenziali dei servizi di ripristino** selezionare il nome dell'insieme di credenziali. In questo scenario viene usato **ContosoVMVault**.
 2. In **Attività iniziali** selezionare su Site Recovery. Selezionare quindi **Preparare l'infrastruttura**.
-3. In **Obiettivo di protezione** > **Dove si trovano le macchine virtuali** selezionare **Locale**.
+3. In **Obiettivo** > di protezione**Dove si trovano i computer**, selezionare **Locale**.
 4. Nella casella **In quale destinazione si vuole eseguire la replica dei computer** selezionare **In Azure**.
-5. In **I computer sono virtuali** selezionare **Sì con VMware vSphere Hypervisor**. Selezionare **OK**.
+5. In **I computer sono virtuali** selezionare **Sì con VMware vSphere Hypervisor**. Quindi selezionare **OK**.
 
 ## <a name="set-up-the-configuration-server"></a>Configurare il server di configurazione
 
@@ -69,7 +69,7 @@ Escludere le cartelle seguenti dal software antivirus per la replica senza probl
   - C:\ProgramData\ASRSetupLogs
   - C:\ProgramData\LogUploadServiceLogs
   - C:\inetpub
-  - Directory di installazione di Site Recovery Server. Ad esempio: E:\Programmi (x86)\Microsoft Azure Site Recovery
+  - directory di installazione del server di Site Recovery. Ad esempio: E:\Programmi (x86)\Microsoft Azure Site Recovery
 
 ### <a name="if-antivirus-software-is-active-on-scale-out-process-servermaster-target"></a>Se il software antivirus è attivo sul server di elaborazione scale-out/database di destinazione master
 
@@ -81,7 +81,7 @@ Escludere le cartelle seguenti dal software antivirus
 4. C:\ProgramData\ASRSetupLogs
 5. C:\ProgramData\LogUploadServiceLogs
 6. C:\ProgramData\Microsoft Azure Site Recovery
-7. Azure Site Recovery directory di installazione del server di elaborazione con bilanciamento del carico, ad esempio: C:\Programmi (x86) \Microsoft Azure Site Recovery
+7. Directory di installazione del server di elaborazione con bilanciamento del carico di Azure Site Recovery, esempio: C:
 
 
 ## <a name="next-steps"></a>Passaggi successivi

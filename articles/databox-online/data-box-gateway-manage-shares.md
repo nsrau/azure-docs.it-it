@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: alkohli
 ms.openlocfilehash: e5463a32e299d9d4d151049ab5afffd4975d5182
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79265441"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-gateway"></a>Usare il portale di Azure per gestire le condivisioni in Azure Data Box Gateway 
@@ -50,7 +50,7 @@ Eseguire i passaggi seguenti nel portale di Azure per creare una condivisione.
 5. In **Servizio di archiviazione** selezionare BLOB in blocchi, BLOB di pagine o File. Il tipo di servizio scelto dipende dal formato che si vuole applicare ai dati che risiederanno in Azure. In questo esempio si vuole che i dati vengano trasferiti in Azure come **BLOB in blocchi**, quindi è questa l'opzione da selezionare. Se si sceglie **BLOB di pagine**, occorre verificare che i dati siano allineati su 512 byte. Ad esempio, VHDX è sempre allineato su 512 byte.
 
    > [!IMPORTANT]
-   > Verificare che l'account di archiviazione di Azure in uso non abbia criteri di immutabilità impostati su di esso se lo si usa con un dispositivo Azure Stack Edge o Data Box Gateway. Per altre informazioni, vedere [impostare e gestire i criteri di immutabilità per l'archiviazione BLOB](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
+   > Assicurarsi che l'account di Archiviazione di Azure usato non disponga di criteri di immutabilità impostati se viene usato con un dispositivo Azure Stack Edge o Data Box Gateway.Make sure that the Azure Storage account that you use does not have immutability policies set on it if you are using it with a Azure Stack Edge or Data Box Gateway device. Per altre informazioni, vedere Impostare e gestire i criteri di [immutabilità per l'archiviazione BLOB.](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage)
 
 6. Questo passaggio varia a seconda che si stia creando una condivisione SMB o NFS.
     - **Se si crea una condivisione SMB**: nel campo **Utente locale con tutti i privilegi** selezionare **Crea nuovo** o **Usa esistente**. Se si crea un nuovo utente locale, compilare i campi **Nome utente**, **Password** e Conferma password. Vengono così assegnate le autorizzazioni all'utente locale. Dopo aver assegnato le autorizzazioni in questa fase, è possibile modificarle con Esplora file.
@@ -76,7 +76,7 @@ Eseguire i passaggi seguenti nel portale di Azure per eliminare una condivisione
 
     ![Clic su Elimina](media/data-box-gateway-manage-shares/delete-2.png)
 
-3. Alla richiesta di conferma fare clic su **Sì**.
+3. Quando viene richiesta la conferma, fare clic su **Sì**.
 
     ![Conferma dell'eliminazione](media/data-box-gateway-manage-shares/delete-3.png)
 
@@ -100,7 +100,7 @@ Eseguire i passaggi seguenti nel portale di Azure per aggiornare una condivision
 
     ![Fare clic su Aggiorna](media/data-box-gateway-manage-shares/refresh-2.png)
  
-3.   Alla richiesta di conferma fare clic su **Sì**. Viene avviato un processo di aggiornamento del contenuto della condivisione locale. 
+3.   Quando viene richiesta la conferma, fare clic su **Sì**. Viene avviato un processo di aggiornamento del contenuto della condivisione locale. 
 
     ![Confermare l'aggiornamento](media/data-box-gateway-manage-shares/refresh-3.png)
  
@@ -122,11 +122,11 @@ Se le chiavi dell'account di archiviazione sono state ruotate, sarà necessario 
 Eseguire i passaggi seguenti nel portale di Azure per sincronizzare la chiave di accesso alle risorse di archiviazione.
 
 1. Passare a **Panoramica** nella risorsa. 
-2. Dall'elenco di condivisioni scegliere e fare clic su una condivisione associata all'account di archiviazione che è necessario sincronizzare. Fare clic su **Sincronizza chiave di archiviazione**. 
+2. Nell'elenco delle condivisioni scegliere e fare clic su una condivisione associata all'account di archiviazione da sincronizzare. Fare clic su **Sincronizza chiave di archiviazione**. 
 
      ![Sincronizzare la chiave di archiviazione 1](media/data-box-gateway-manage-shares/sync-storage-key-1.png)
 
-3. Fare clic sull'opzione **Sì** quando viene richiesta la conferma. Uscire dalla finestra di dialogo dopo aver completato la sincronizzazione.
+3. Fare clic su **Sì** alla richiesta di conferma. Uscire dalla finestra di dialogo dopo aver completato la sincronizzazione.
 
      ![Sincronizzare la chiave di archiviazione 1](media/data-box-gateway-manage-shares/sync-storage-key-2.png)
 

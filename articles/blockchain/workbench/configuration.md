@@ -1,14 +1,14 @@
 ---
-title: Informazioni di riferimento sui metadati di configurazione di Azure blockchain Workbench
-description: Panoramica dei metadati di configurazione dell'applicazione Azure blockchain Workbench Preview.
+title: Informazioni di riferimento sui metadati di configurazione di Azure Blockchain WorkbenchAzure Blockchain Workbench configuration metadata reference
+description: Panoramica dei metadati di configurazione dell'applicazione Azure Blockchain Workbench Preview.Azure Blockchain Workbench Preview application configuration metadata overview.
 ms.date: 12/09/2019
 ms.topic: article
 ms.reviewer: brendal
 ms.openlocfilehash: 661e795f0e85f872b1072a8f641b8938115c5d7a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79252194"
 ---
 # <a name="azure-blockchain-workbench-configuration-reference"></a>Informazioni di riferimento sulla configurazione di Azure Blockchain Workbench
@@ -67,7 +67,7 @@ Tipi di dati supportati.
 
 | Type | Descrizione |
 |-------|-------------|
-| address  | Tipo di indirizzo della blockchain, ad esempio *contratti* o *utenti*. |
+| address  | Tipo di indirizzo Blockchain, ad esempio *contratti* o *utenti*. |
 | array    | Matrice a livello singolo di tipo integer, bool, money o time. Le matrici possono essere statiche o dinamiche. Usare **ElementType** per specificare il tipo di dati degli elementi all'interno della matrice. Vedere una [configurazione di esempio](#example-configuration-of-type-array). |
 | bool     | Tipo di dati booleano. |
 | contract | Indirizzo di tipo contratto. |
@@ -321,7 +321,7 @@ Azioni disponibili per lo stato successivo. Uno o più ruoli utente possono eseg
 | Campo | Descrizione | Obbligatoria |
 |-------|-------------|:--------:|
 | AllowedRoles | Elenco di ruoli applicazione consentiti per avviare la transizione. Tutti gli utenti del ruolo specificato possono essere in grado di eseguire l'azione. | No |
-| AllowedInstanceRoles | Elenco di ruoli utente che fanno parte o che sono specificati nel contratto intelligente cui è consentito avviare la transizione. I ruoli di istanza vengono definiti in **proprietà** all'interno dei flussi di lavoro. AllowedInstanceRoles rappresenta un utente che fa parte di un'istanza di un contratto intelligente. AllowedInstanceRoles consente di limitare l'adozione di un'azione a un ruolo utente in un'istanza del contratto.  Ad esempio, è possibile consentire solo all'utente che ha creato il contratto (InstanceOwner) di terminarlo anziché a tutti gli utenti nel tipo di ruolo (Owner), se il ruolo è stato specificato in AllowedRoles. | No |
+| AllowedInstanceRoles | Elenco di ruoli utente che fanno parte o che sono specificati nel contratto intelligente cui è consentito avviare la transizione. I ruoli di istanza sono definiti in **Proprietà** all'interno dei flussi di lavoro. AllowedInstanceRoles rappresenta un utente che fa parte di un'istanza di un contratto intelligente. AllowedInstanceRoles consente di limitare l'adozione di un'azione a un ruolo utente in un'istanza del contratto.  Ad esempio, è possibile consentire solo all'utente che ha creato il contratto (InstanceOwner) di terminarlo anziché a tutti gli utenti nel tipo di ruolo (Owner), se il ruolo è stato specificato in AllowedRoles. | No |
 | DisplayName | Nome visualizzato descrittivo della transizione. | Sì |
 | Descrizione | Descrizione della transizione. | No |
 | Funzione | Nome della funzione per avviare la transizione. | Sì |
@@ -391,7 +391,7 @@ Gli identificatori rappresentano una raccolta di informazioni usate per descrive
 | Nome | Nome univoco della proprietà o del parametro. Il contratto intelligente corrispondente deve usare lo stesso valore di **Name** per la proprietà o il parametro applicabile. | Sì | 50 |
 | DisplayName | Nome visualizzato descrittivo per la proprietà o il parametro. | Sì | 255 |
 | Descrizione | Descrizione della proprietà o del parametro. | No | 255 |
-| Type | [Tipo di dati](#type)della proprietà. | Sì |
+| Type | Tipo [di dati](#type)della proprietà . | Sì |
 
 ### <a name="identifiers-example"></a>Esempio di identificatori
 

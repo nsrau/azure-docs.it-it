@@ -12,10 +12,10 @@ ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
 ms.openlocfilehash: cb4eb4474ad074a3e69dc146c97b48d54343595b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79213955"
 ---
 # <a name="extended-events-in-sql-database"></a>Eventi estesi nel database SQL
@@ -31,14 +31,14 @@ In questo argomento viene illustrato come l'implementazione di eventi estesi nel
 
 Per altre informazioni sugli eventi estesi, per il database SQL di Azure e Microsoft SQL Server, vedere l'articolo:
 
-- [Quick Start: Extended events in SQL Server](https://msdn.microsoft.com/library/mt733217.aspx)
+- [Guida introduttiva: Eventi estesi in SQL ServerQuick Start: Extended events in SQL Server](https://msdn.microsoft.com/library/mt733217.aspx)
 - [Eventi estesi](https://msdn.microsoft.com/library/bb630282.aspx)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 In questo argomento si presuppone che si dispone già di una conoscenza di:
 
-- [Servizio Database SQL di Azure](https://azure.microsoft.com/services/sql-database/)
+- [Servizio database SQL di Azure](https://azure.microsoft.com/services/sql-database/).
 - [Eventi estesi](https://msdn.microsoft.com/library/bb630282.aspx) in Microsoft SQL Server.
 
 - La maggior parte della nostra documentazione sugli eventi estesi si applica sia a SQL Server che al database SQL.
@@ -89,7 +89,7 @@ La funzionalità degli eventi estesi è supportata da diverse [viste del catalog
 | **sys.database_event_session_targets** |Restituisce una riga per ogni destinazione di evento per una sessione eventi. |
 | **sys.database_event_sessions** |Restituisce una riga per ogni sessione di eventi nel database SQL del database. |
 
-In Microsoft SQL Server le viste del catalogo simili hanno nomi che includono *.server\_* anziché *.database\_* . Il modello del nome è simile a **sys.server_event_%** .
+In Microsoft SQL Server le viste del catalogo simili hanno nomi che includono *.server\_* anziché *.database\_*. Il modello del nome è simile a **sys.server_event_%**.
 
 ## <a name="new-dynamic-management-views-dmvs"></a>[DMV](https://msdn.microsoft.com/library/ms188754.aspx)
 
@@ -103,7 +103,7 @@ Il database SQL di Azure include [viste a gestione dinamica (DMV)](https://msdn.
 | **sys.dm_xe_database_session_targets** |Restituisce informazioni sulle destinazioni della sessione. |
 | **sys.dm_xe_database_sessions** |Restituisce una riga per ogni sessione di eventi con ambito nel database corrente. |
 
-In Microsoft SQL Server le viste del catalogo simili sono denominate senza la parte del nome *\_database*, ad esempio:
+In Microsoft SQL Server, viste del * \_* catalogo simili sono denominate senza la parte di database del nome, ad esempio:
 
 - **sys.dm_xe_sessions**, anziché il nome<br/>**sys.dm_xe_database_sessions**.
 
@@ -190,12 +190,12 @@ La destinazione del **file evento** potrebbe subire una latenza di rete o errori
 
 ## <a name="related-links"></a>Collegamenti correlati
 
-- [Uso di Azure PowerShell con Archiviazione di Azure](../storage/common/storage-powershell-guide-full.md)
+- [Uso di Azure PowerShell con Archiviazione di Azure.](../storage/common/storage-powershell-guide-full.md)
 - [Cmdlet di Archiviazione di Azure](https://docs.microsoft.com/powershell/module/Azure.Storage)
 - [Utilizzo di Azure PowerShell con Archiviazione di Azure](../storage/common/storage-powershell-guide-full.md) : fornisce informazioni complete su PowerShell e il servizio Archiviazione di Azure.
 - [Come usare l'archiviazione BLOB da .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
 - [CREATE CREDENTIAL (Transact-SQL)](https://msdn.microsoft.com/library/ms189522.aspx)
-- [CREARE LA SESSIONE DI EVENTI (Transact-SQL)](https://msdn.microsoft.com/library/bb677289.aspx)
+- [CREATE EVENT SESSION (Transact-SQL)](https://msdn.microsoft.com/library/bb677289.aspx)
 - [Post del blog di Jonathan Kehayias sugli eventi estesi in Microsoft SQL Server](https://www.sqlskills.com/blogs/jonathan/category/extended-events/)
 
 

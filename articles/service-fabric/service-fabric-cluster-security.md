@@ -1,19 +1,19 @@
 ---
-title: Proteggere un cluster di Azure Service Fabric
+title: Proteggere un cluster di Azure Service FabricSecure an Azure Service Fabric cluster
 description: Informazioni sugli scenari di sicurezza per un cluster di Azure Service Fabric e le varie tecnologie che è possibile usare per la relativa implementazione.
 ms.topic: conceptual
 ms.date: 08/14/2018
 ms.custom: sfrev
 ms.openlocfilehash: 92d2c4d03075eaafce039f94b4f03c0791985b40
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79258681"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Scenari di sicurezza di un cluster di Service Fabric
 
-Un cluster di Azure Service Fabric è una risorsa di cui si è proprietari. È responsabilità dell'utente proteggere i cluster per evitare che utenti non autorizzati si connettano a essi. Un cluster sicuro è particolarmente importante quando si eseguono carichi di lavoro nel cluster. È possibile creare un cluster non protetto. Tuttavia, se il cluster espone gli endpoint di gestione alla rete Internet pubblica, gli utenti anonimi possono connettersi a tale cluster. I cluster non protetti non sono supportati per l'esecuzione di carichi di lavoro di produzione. 
+Un cluster di Azure Service Fabric è una risorsa di cui si è proprietari. È responsabilità dell'utente proteggere i cluster per evitare che utenti non autorizzati si connettano a essi. Un cluster sicuro è particolarmente importante quando si eseguono carichi di lavoro nel cluster. È possibile creare un cluster non protetto, tuttavia se il cluster espone gli endpoint di gestione a Internet pubblico, gli utenti anonimi possono connettersi a esso. I cluster non protetti non sono supportati per l'esecuzione di carichi di lavoro di produzione. 
 
 In questo articolo viene fornita una panoramica degli scenari di sicurezza per i cluster di Azure e i cluster autonomi e le varie tecnologie che è possibile usare per la relativa implementazione:
 
@@ -53,7 +53,7 @@ I cluster eseguiti in Azure e i cluster autonomi eseguiti in Windows possono usa
 
 ### <a name="client-to-node-certificate-security"></a>Sicurezza basata su certificati da client a nodo
 
-Impostare la sicurezza basata su certificati da client a nodo durante la creazione del cluster tramite il portale di Azure usando un modello di Resource Manager o un modello JSON autonomo. Per creare il certificato, specificare un certificato client di amministrazione o un certificato client utente. Come procedura consigliata, i certificati client di amministrazione e i certificati client utente specificati devono essere diversi dai certificati primario e secondario specificati per la [sicurezza da nodo a nodo](#node-to-node-security). I certificati del cluster hanno gli stessi diritti dei certificati di amministrazione client. Tuttavia, devono essere usati solo dal cluster e non dagli utenti amministratori come procedura di sicurezza consigliata.
+Impostare la sicurezza basata su certificati da client a nodo durante la creazione del cluster tramite il portale di Azure usando un modello di Resource Manager o un modello JSON autonomo. Per creare il certificato, specificare un certificato client di amministrazione o un certificato client utente. Come procedura consigliata, i certificati client di amministrazione e i certificati client utente specificati devono essere diversi dai certificati primario e secondario specificati per la [sicurezza da nodo a nodo](#node-to-node-security). I certificati del cluster hanno gli stessi diritti dei certificati di amministrazione client. Tuttavia, devono essere utilizzati solo dal cluster e non dagli utenti amministratori come procedura consigliata per la sicurezza.
 
 I client che si connettono al cluster con il certificato amministratore hanno accesso completo alle funzionalità di gestione. I client che si connettono al cluster con il certificato client utente di sola lettura hanno solo l'accesso in lettura alle funzionalità di gestione. Questi certificati vengono usati per il controllo degli accessi in base al ruolo descritto più avanti in questo articolo.
 
@@ -63,9 +63,9 @@ Per informazioni su come impostare la sicurezza basata su certificati in un clus
 
 ### <a name="client-to-node-azure-active-directory-security-on-azure"></a>Sicurezza di Azure Active Directory da client a nodo in Azure
 
-Azure AD consente alle organizzazioni (note come tenant) di gestire l'accesso degli utenti alle applicazioni. Alcune applicazioni sono caratterizzate da un'interfaccia utente di accesso basata sul Web, altre invece da un'esperienza client nativa. Se non è già stato creato un tenant, iniziare leggendo [come ottenere un tenant di Azure Active Directory][active-directory-howto-tenant].
+Azure AD consente alle organizzazioni (note come tenant) di gestire l'accesso degli utenti alle applicazioni. Alcune applicazioni sono caratterizzate da un'interfaccia utente di accesso basata sul Web, altre invece da un'esperienza client nativa. Se il tenant non è ancora stato creato, prima di iniziare consultare [Come ottenere un tenant di Azure Active Directory][active-directory-howto-tenant].
 
-Un cluster di Service Fabric offre diversi punti di accesso alle proprie funzionalità di gestione, tra cui [Service Fabric Explorer][service-fabric-visualizing-your-cluster] e [Visual Studio][service-fabric-manage-application-in-visual-studio] basati sul Web. Verranno quindi create due applicazioni Azure AD per controllare l'accesso al cluster, un'applicazione Web e un'applicazione nativa.
+I cluster di Service Fabric offrono numerosi punti di ingresso alle relative funzionalità di gestione, tra cui [Service Fabric Explorer][service-fabric-visualizing-your-cluster], basato sul Web, e [Visual Studio][service-fabric-manage-application-in-visual-studio]. Verranno quindi create due applicazioni Azure AD per controllare l'accesso al cluster, un'applicazione Web e un'applicazione nativa.
 
 Per i cluster eseguiti in Azure è anche possibile proteggere l'accesso agli endpoint di gestione usando Azure Active Directory (Azure AD). Per informazioni su come creare gli artefatti necessari di Azure AD e su come popolarli durante la creazione del cluster, vedere [Configurare Azure AD per autenticare i client](service-fabric-cluster-creation-setup-aad.md).
 
@@ -113,10 +113,10 @@ Il certificato deve soddisfare i requisiti seguenti:
 
 Altri aspetti da considerare:
 
-* Il campo **Soggetto** può avere più valori. Ogni valore è preceduto da un'inizializzazione per indicare il tipo di valore. In genere, l'inizializzazione è **CN** (per il *nome comune*); ad esempio, **cn = www\.contoso.com**.
+* Il campo **Soggetto** può avere più valori. Ogni valore è preceduto da un'inizializzazione per indicare il tipo di valore. In genere, l'inizializzazione è **CN** (per *il nome comune*); ad esempio, **CN\.- www contoso.com**.
 * Il campo **Soggetto** può essere vuoto.
-* Se il campo facoltativo **Nome alternativo soggetto** è popolato, deve contenere sia il nome comune del certificato sia una voce per ogni nome alternativo del soggetto. Queste voci vengono immesse come valori di **nomi DNS**. Per informazioni su come generare certificati con nomi alternativi del soggetto, vedere [Come aggiungere un nome alternativo del soggetto a un certificato LDAP sicuro](https://support.microsoft.com/kb/931351).
-* Il valore del campo **Scopi designati** del certificato deve includere un valore appropriato, ad esempio **Autenticazione server** o **Autenticazione client**.
+* Se il campo facoltativo **Nome alternativo soggetto** è popolato, deve contenere sia il nome comune del certificato sia una voce per ogni nome alternativo del soggetto. Questi vengono immessi come valori **di nome DNS.** Per informazioni su come generare certificati con nomi alternativi del soggetto, vedere [Come aggiungere un nome alternativo del soggetto a un certificato LDAP sicuro](https://support.microsoft.com/kb/931351).
+* Il valore del campo **Scopi previsti** del certificato deve includere un valore appropriato, ad esempio **Autenticazione server** o **Autenticazione client**.
 
 ### <a name="application-certificates-optional"></a>Certificati delle applicazioni (facoltativo)
 

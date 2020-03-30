@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 11/08/2017
 ms.author: alkohli
 ms.openlocfilehash: 01ce952ea774ba852c83d0d6aa3fe38d5dfd677e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79267989"
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Distribuire e gestire un'appliance cloud StorSimple in Azure (aggiornamento 3 e versioni successive)
@@ -46,13 +46,13 @@ L'appliance cloud StorSimple è disponibile in due modelli, Standard 8010 (in pr
 | --- | --- | --- |
 | **Capacità massima** |30 TB |64 TB |
 | **Macchina virtuale di Azure** |Standard_A3 (4 core, 7 GB di memoria)| Standard_DS3 (4 core, 14 GB di memoria)|
-| **Disponibilità in base all'area geografica** |Tutte le aree di Azure |Le aree di Azure che supportano Archiviazione Premium e VM DS3 di Azure<br></br>Usare [questo elenco](https://azure.microsoft.com/regions/services/) per verificare se nella propria area sono disponibili sia le **macchine virtuali serie DS** che l'**archiviazione su disco**. |
+| **Aree di disponibilità** |Tutte le aree di Azure |Le aree di Azure che supportano Archiviazione Premium e VM DS3 di Azure<br></br>Usare [questo elenco](https://azure.microsoft.com/regions/services/) per verificare se nella propria area sono disponibili sia le **macchine virtuali serie DS** che l'**archiviazione su disco**. |
 | **Tipo di archiviazione** |Usa l'Archiviazione Standard di Azure<br></br> Altre informazioni su come [creare un account di archiviazione Standard](../storage/common/storage-create-storage-account.md) |Usa l'Archiviazione Standard di Azure<sup>2</sup> <br></br> |
 | **Indicazioni relative al carico di lavoro** |Recupero a livello di elemento per i file dai backup |Scenari di sviluppo e test basati su cloud <br></br>Bassa latenza e carichi di lavoro a prestazioni superiori<br></br>Dispositivo secondario per il ripristino di emergenza |
 
-<sup>1</sup> *noto in precedenza come 1100*.
+<sup>1</sup> *precedentemente noto come 1100*.
 
-<sup>2</sup> *8010 e 8020 usano l'archiviazione standard di Azure per il livello cloud. La differenza esiste solo nel livello locale all'interno del dispositivo*.
+<sup>2</sup> *Entrambi i modelli 8010 e 8020 usano l'archiviazione di Azure Standard per il livello cloud. La differenza è solo nel livello locale nel dispositivo*.
 
 ## <a name="how-the-cloud-appliance-differs-from-the-physical-device"></a>Differenze tra appliance cloud e dispositivo fisico
 
@@ -64,7 +64,7 @@ La tabella seguente illustra alcune differenze chiave tra l'appliance cloud Stor
 
 |  | Dispositivo fisico | Appliance cloud |
 | --- | --- | --- |
-| **Posizione** |Si trova nel data center. |Viene eseguito in Azure. |
+| **Percorso** |Si trova nel data center. |Viene eseguito in Azure. |
 | **Interfacce di rete** |Ha sei interfacce di rete: da DATA 0 a DATA 5. |Ha una sola interfaccia di rete: DATA 0. |
 | **Registrazione** |La registrazione viene eseguita durante il passaggio della configurazione iniziale. |La registrazione è un'attività separata. |
 | **Chiave DEK del servizio** |Rigenerare la chiave nel dispositivo fisico e quindi aggiornare l'appliance cloud con la nuova chiave. |Non è possibile rigenerare la chiave dall'appliance cloud. |
@@ -81,7 +81,7 @@ Le sezioni seguenti illustrano i prerequisiti di configurazione per l'appliance 
 Prima di effettuare il provisioning dell'appliance cloud, è necessario eseguire queste operazioni preliminari nell'ambiente Azure:
 
 * Assicurarsi che un dispositivo fisico StorSimple serie 8000 (modello 8100 o 8600) sia stato distribuito e sia in esecuzione nel data center. Registrare questo dispositivo con lo stesso servizio Gestione dispositivi StorSimple per cui si intende creare un'appliance cloud StorSimple.
-* Per l'appliance cloud, [configurare una rete virtuale in Azure](../virtual-network/manage-virtual-network.md#create-a-virtual-network). Se si usa l'archiviazione Premium, sarà necessario creare una rete virtuale in un'area di Azure che supporta l'archiviazione Premium. Le aree con Archiviazione Premium corrispondono alla riga relativa all'archiviazione su disco nell'[elenco dei servizi di Azure in base all'area](https://azure.microsoft.com/regions/services/).
+* Per l'appliance cloud, [configurare una rete virtuale in Azure](../virtual-network/manage-virtual-network.md#create-a-virtual-network). Se si usa l'archiviazione Premium, sarà necessario creare una rete virtuale in un'area di Azure che supporta l'archiviazione Premium. Le aree di archiviazione Premium sono aree che corrispondono alla riga Archiviazione su disco [nell'elenco Servizi di Azure per area](https://azure.microsoft.com/regions/services/).
 * È consigliabile usare il server DNS predefinito fornito da Azure anziché specificare il nome di un proprio server DNS. Se il nome del server DNS non è valido o se il server DNS non riesce a risolvere correttamente l'indirizzo IP, non sarà possibile creare l'appliance cloud.
 * Le opzioni point-to-site e da sito a sito non sono obbligatorie, ma facoltative. Se si desidera, è possibile configurarle per scenari più avanzati.
 * È possibile creare nella rete virtuale [macchine virtuali di Azure](../virtual-machines/virtual-machines-windows-quick-create-portal.md) (server host) che possono usare i volumi esposti dall'appliance cloud. Tali server devono soddisfare i seguenti requisiti:
@@ -267,7 +267,7 @@ Per interrompere tutti gli addebiti, è necessario eliminare l'appliance cloud. 
 ## <a name="troubleshoot-internet-connectivity-errors"></a>Risolvere gli errori di connettività Internet
 Se durante la creazione di un'appliance cloud non è disponibile connettività a Internet, il passaggio della creazione ha esito negativo. Per risolvere gli errori di connettività Internet, seguire questa procedura nel portale di Azure:
 
-1. [Creare una macchina virtuale Windows nel portale di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal). Questa macchina virtuale dovrà usare lo stesso account di archiviazione, la stessa rete virtuale e la stessa subnet usati dall'appliance cloud. Se esiste già un host Windows Server in Azure che usa lo stesso account di archiviazione, la stessa rete virtuale e la stessa subnet, è anche possibile risolvere i problemi di connettività Internet usando tale host.
+1. Creare una macchina virtuale Windows nel portale di [Azure.Create](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)a Windows virtual machine in the Azure portal . Questa macchina virtuale dovrà usare lo stesso account di archiviazione, la stessa rete virtuale e la stessa subnet usati dall'appliance cloud. Se esiste già un host Windows Server in Azure che usa lo stesso account di archiviazione, la stessa rete virtuale e la stessa subnet, è anche possibile risolvere i problemi di connettività Internet usando tale host.
 2. Eseguire l'accesso remoto alla macchina virtuale creata nel passaggio precedente.
 3. Aprire una finestra di comando nella macchina virtuale (premere tasto WINDOWS + R e quindi digitare `cmd`).
 4. Al prompt eseguire questo comando:

@@ -1,6 +1,6 @@
 ---
-title: Elenco di controllo delle prestazioni e della scalabilità per l'archiviazione BLOB-archiviazione di Azure
-description: Elenco di controllo delle procedure comprovate per l'utilizzo con archiviazione BLOB nello sviluppo di applicazioni a prestazioni elevate.
+title: Elenco di controllo per prestazioni e scalabilità per l'archiviazione BLOB - Archiviazione di AzurePerformance and scalability checklist for Blob storage - Azure Storage
+description: Elenco di controllo delle procedure comprovate da usare con l'archiviazione BLOB nello sviluppo di applicazioni ad alte prestazioni.
 services: storage
 author: tamram
 ms.service: storage
@@ -9,35 +9,35 @@ ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: e4103f8360f6fa80470b0f8002a61f8ac903bd8b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79255431"
 ---
-# <a name="performance-and-scalability-checklist-for-blob-storage"></a>Elenco di controllo di prestazioni e scalabilità per l'archiviazione BLOB
+# <a name="performance-and-scalability-checklist-for-blob-storage"></a>Elenco di controllo di prestazioni e scalabilità dell'archiviazione BLOB
 
-Microsoft ha sviluppato numerose procedure comprovate per lo sviluppo di applicazioni a prestazioni elevate con archiviazione BLOB. Questo elenco di controllo identifica le procedure chiave che gli sviluppatori possono seguire per ottimizzare le prestazioni. Tenere presenti queste procedure durante la progettazione dell'applicazione e dell'intero processo.
+Microsoft ha sviluppato una serie di procedure comprovate per lo sviluppo di applicazioni ad alte prestazioni con archiviazione BLOB. Questo elenco di controllo identifica le procedure chiave che gli sviluppatori possono seguire per ottimizzare le prestazioni. Tenere presenti queste procedure durante la progettazione dell'applicazione e dell'intero processo.
 
-Archiviazione di Azure ha degli obiettivi di scalabilità per la capacità, la frequenza di transazioni e la larghezza di banda. Per altre informazioni sugli obiettivi di scalabilità di archiviazione di Azure, vedere [obiettivi di scalabilità e prestazioni per gli account di archiviazione standard](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) e [obiettivi di scalabilità e prestazioni per l'archiviazione BLOB](scalability-targets.md).
+Archiviazione di Azure ha degli obiettivi di scalabilità per la capacità, la frequenza di transazioni e la larghezza di banda. Per altre informazioni sugli obiettivi di scalabilità di Archiviazione di Azure, vedere Obiettivi di [scalabilità e prestazioni per gli account di archiviazione standard](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) e gli obiettivi di scalabilità e prestazioni per l'archiviazione [BLOB.](scalability-targets.md)
 
 ## <a name="checklist"></a>Elenco di controllo
 
-Questo articolo organizza procedure comprovate per le prestazioni in un elenco di controllo che è possibile seguire durante lo sviluppo dell'applicazione di archiviazione BLOB.
+Questo articolo organizza le procedure comprovate per le prestazioni in un elenco di controllo che è possibile seguire durante lo sviluppo dell'applicazione di archiviazione BLOB.
 
 | Operazione completata | Category | Considerazioni sulla progettazione |
 | --- | --- | --- |
 | &nbsp; |Obiettivi di scalabilità |[È possibile progettare l'applicazione in modo da non eccedere il numero massimo di account di archiviazione?](#maximum-number-of-storage-accounts) |
 | &nbsp; |Obiettivi di scalabilità |[Si sta evitando il raggiungimento dei limiti di capacità e transazioni?](#capacity-and-transaction-targets) |
-| &nbsp; |Obiettivi di scalabilità |[Un numero elevato di client che accedono contemporaneamente a un singolo BLOB?](#multiple-clients-accessing-a-single-blob-concurrently) |
+| &nbsp; |Obiettivi di scalabilità |[Un numero elevato di client accede contemporaneamente a un singolo BLOB?](#multiple-clients-accessing-a-single-blob-concurrently) |
 | &nbsp; |Obiettivi di scalabilità |[L'applicazione rimane all'interno degli obiettivi di scalabilità per un singolo BLOB?](#bandwidth-and-operations-per-blob) |
 | &nbsp; |Partizionamento |[La convenzione di denominazione è stata progettata per consentire un miglior bilanciamento del carico?](#partitioning) |
 | &nbsp; |Rete |[I dispositivi sul lato client hanno una larghezza di banda sufficientemente alta e una latenza sufficientemente bassa per raggiungere le prestazioni richieste?](#throughput) |
 | &nbsp; |Rete |[I dispositivi sul lato client hanno un collegamento di qualità elevata?](#link-quality) |
 | &nbsp; |Rete |[L'applicazione client si trova nella stessa area dell'account di archiviazione?](#location) |
-| &nbsp; |Accesso diretto ai client |[Si usano le firme di accesso condiviso e la condivisione di risorse tra le origini per abilitare l'accesso diretto ad Archiviazione di Azure?](#sas-and-cors) |
-| &nbsp; |Memorizzazione nella cache |[L'applicazione memorizza nella cache i dati a cui si accede di frequente e modificati raramente?](#reading-data) |
-| &nbsp; |Memorizzazione nella cache |[L'applicazione invia in batch gli aggiornamenti memorizzando nella cache il client e quindi caricarli in set più grandi?](#uploading-data-in-batches) |
+| &nbsp; |Accesso client diretto |[Si usano le firme di accesso condiviso e la condivisione di risorse tra le origini per abilitare l'accesso diretto ad Archiviazione di Azure?](#sas-and-cors) |
+| &nbsp; |Memorizzazione nella cache |[I dati di memorizzazione nella cache dell'applicazione a cui si accede di frequente e che vengono modificati raramente?](#reading-data) |
+| &nbsp; |Memorizzazione nella cache |[L'applicazione esegue l'invio in batch degli aggiornamenti memorizzandoli nella cache nel client e quindi caricandoli in set più grandi?](#uploading-data-in-batches) |
 | &nbsp; |Configurazione .NET |[Si usa .NET Core 2.1 o versione successiva per ottenere prestazioni ottimali?](#use-net-core) |
 | &nbsp; |Configurazione .NET |[Il client è stato configurato per usare un numero sufficiente di connessioni simultanee?](#increase-default-connection-limit) |
 | &nbsp; |Configurazione .NET |[Per le applicazioni .NET, è stato configurato l'uso di un numero sufficiente di thread?](#increase-minimum-number-of-threads) |
@@ -45,11 +45,11 @@ Questo articolo organizza procedure comprovate per le prestazioni in un elenco d
 | &nbsp; |Strumenti |[Si sta usando l'ultima versione delle librerie e degli strumenti client forniti da Microsoft?](#client-libraries-and-tools) |
 | &nbsp; |Tentativi |[Si sta usando un criterio per l'esecuzione di nuovi tentativi per il backoff esponenziale per gli errori di limitazione e i timeout?](#timeout-and-server-busy-errors) |
 | &nbsp; |Tentativi |[L'applicazione sta evitando nuovi tentativi in caso di errori irreversibili?](#non-retryable-errors) |
-| &nbsp; |Copia di BLOB |[I BLOB vengono copiati nel modo più efficiente?](#blob-copy-apis) |
-| &nbsp; |Copia di BLOB |[Si sta usando la versione più recente di AzCopy per le operazioni di copia bulk?](#use-azcopy) |
-| &nbsp; |Copia di BLOB |[Si sta usando la famiglia di Azure Data Box per l'importazione di volumi elevati di dati?](#use-azure-data-box) |
+| &nbsp; |Copia di BLOB |[Si copiano i BLOB nel modo più efficiente?](#blob-copy-apis) |
+| &nbsp; |Copia di BLOB |[Si usa la versione più recente di AzCopy per le operazioni di copia bulk?](#use-azcopy) |
+| &nbsp; |Copia di BLOB |[Si usa la famiglia Azure Data Box per l'importazione di grandi volumi di dati?](#use-azure-data-box) |
 | &nbsp; |Distribuzione di contenuti |[Viene usata una rete CDN per la distribuzione del contenuto?](#content-distribution) |
-| &nbsp; |Usare i metadati |[Si stanno archiviando i metadati usati di frequente relativi ai BLOB nei rispettivi metadati?](#use-metadata) |
+| &nbsp; |Utilizzare i metadati |[Si stanno archiviando i metadati usati di frequente relativi ai BLOB nei rispettivi metadati?](#use-metadata) |
 | &nbsp; |Caricamento rapido |[Quando si tenta di caricare rapidamente un BLOB, i blocchi vengono caricati in parallelo?](#upload-one-large-blob-quickly) |
 | &nbsp; |Caricamento rapido |[Quando si tenta di caricare rapidamente più BLOB, i BLOB vengono caricati in parallelo?](#upload-many-blobs-quickly) |
 | &nbsp; |Tipo di BLOB |[Si stanno usando BLOB di pagine o in blocchi quando appropriato?](#choose-the-correct-type-of-blob) |
@@ -62,58 +62,58 @@ Per altre informazioni sugli obiettivi di scalabilità per il Servizio di accoda
 
 ### <a name="maximum-number-of-storage-accounts"></a>Numero massimo di account di archiviazione
 
-Se si sta per raggiungere il numero massimo di account di archiviazione consentiti per una determinata combinazione di sottoscrizione/area, valutare lo scenario e determinare se si applica una delle condizioni seguenti:
+Se si sta avvicinando il numero massimo di account di archiviazione consentiti per una particolare combinazione sottoscrizione/area, valutare lo scenario e determinare se si applica una delle condizioni seguenti:
 
-- Si usano gli account di archiviazione per archiviare dischi non gestiti e aggiungere tali dischi alle macchine virtuali (VM)? Per questo scenario, Microsoft consiglia di usare Managed Disks. I dischi gestiti vengono ridimensionati automaticamente e senza la necessità di creare e gestire singoli account di archiviazione. Per altre informazioni, vedere [Introduzione a Managed Disks di Azure](../../virtual-machines/windows/managed-disks-overview.md)
-- Si sta usando un account di archiviazione per cliente per l'isolamento dei dati? Per questo scenario, Microsoft consiglia di usare un contenitore BLOB per ogni cliente, anziché un intero account di archiviazione. Archiviazione di Azure consente ora di assegnare ruoli di controllo degli accessi in base al ruolo (RBAC) per ogni contenitore. Per altre informazioni, vedere [Concedere l'accesso ai dati dei BLOB e delle code di Azure con il controllo degli accessi in base al ruolo nel portale di Azure](../common/storage-auth-aad-rbac-portal.md).
-- Si usano più account di archiviazione per la partizione per aumentare il traffico in ingresso, in uscita, le operazioni di I/O al secondo (IOPS) o la capacità? In questo scenario, se possibile Microsoft consiglia di sfruttare l'innalzamento dei limiti degli account di archiviazione per ridurre il numero di account di archiviazione necessari per il carico di lavoro. Contattare il [supporto di Azure](https://azure.microsoft.com/support/options/) per richiedere l'espansione dei limiti dell'account di archiviazione. Per altre informazioni, vedere [Annuncio di account di archiviazione di dimensioni maggiori a scalabilità più elevata](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/).
+- Si usano account di archiviazione per archiviare dischi non gestiti e aggiungerli alle macchine virtuali (VM)? Per questo scenario, Microsoft consiglia di utilizzare dischi gestiti. I dischi gestiti vengono scalati automaticamente e senza la necessità di creare e gestire singoli account di archiviazione. Per altre informazioni, vedere [Introduzione ai dischi gestiti di AzureFor more information,](../../virtual-machines/windows/managed-disks-overview.md) see Introduction to Azure managed disks
+- Si usa un account di archiviazione per cliente, ai fini dell'isolamento dei dati? Per questo scenario, Microsoft consiglia di usare un contenitore BLOB per ogni cliente, anziché un intero account di archiviazione. Archiviazione di Azure consente ora di assegnare ruoli di controllo degli accessi in base al ruolo in base al contenitore. Per altre informazioni, vedere [Concedere l'accesso ai dati dei BLOB e delle code di Azure con il controllo degli accessi in base al ruolo nel portale di Azure](../common/storage-auth-aad-rbac-portal.md).
+- Si usano più account di archiviazione per partizionare per aumentare l'ingresso, l'uscita, le operazioni di I/O al secondo (IOPS) o la capacità? In questo scenario, se possibile Microsoft consiglia di sfruttare l'innalzamento dei limiti degli account di archiviazione per ridurre il numero di account di archiviazione necessari per il carico di lavoro. Contattare il [supporto di Azure](https://azure.microsoft.com/support/options/) per richiedere l'espansione dei limiti dell'account di archiviazione. Per altre informazioni, vedere [Annuncio di account di archiviazione di dimensioni maggiori a scalabilità più elevata](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/).
 
 ### <a name="capacity-and-transaction-targets"></a>Obiettivi di capacità e transazioni
 
 Se l'applicazione sta raggiungendo gli obiettivi di scalabilità per un singolo account di archiviazione, valutare uno dei seguenti approcci:  
 
-- Se l'applicazione raggiunge la destinazione della transazione, prendere in considerazione l'uso di account di archiviazione BLOB in blocchi, ottimizzati per tassi di transazione elevati e latenza bassa e coerente. Per altre informazioni, vedere [Panoramica dell'account di archiviazione di Azure](../common/storage-account-overview.md).
+- Se l'applicazione raggiunge la destinazione della transazione, è consigliabile usare gli account di archiviazione BLOB a blocchi, ottimizzati per velocità di transazione elevate e latenza elevata e coerente. Per altre informazioni, vedere [Panoramica dell'account di archiviazione di Azure](../common/storage-account-overview.md).
 - Esaminare di nuovo il carico di lavoro che causa il raggiungimento o il superamento dell'obiettivo di scalabilità da parte dell'applicazione. È possibile progettarlo in modo diverso in modo che usi una quantità minore di larghezza di banda o capacità o un minor numero di transazioni?
 - Se l'applicazione deve superare uno degli obiettivi di scalabilità, creare più account di archiviazione e partizionare i dati dell'applicazione tra questi account di archiviazione. Se si usa questo modello, assicurarsi di progettare l'applicazione in modo da aggiungere altri account di archiviazione in futuro per il bilanciamento del carico. Gli stessi account di archiviazione non hanno costi aggiuntivi rispetto a quelli per l'uso, ossia associati ai dati archiviati, alle transazioni effettuate o ai dati trasferiti.
 - Se l'applicazione sta raggiungendo gli obiettivi di larghezza di banda, valutare la compressione dei dati sul lato client per ridurre la larghezza di banda necessaria a inviare i dati ad Archiviazione di Azure.
     La compressione dei dati, pur consentendo di risparmiare larghezza di banda e migliorare le prestazioni di rete, può avere anche degli effettivi negativi sulle prestazioni. Valutare gli effetti sulle prestazioni dei requisiti di elaborazione aggiuntivi per la compressione e la decompressione dei dati sul lato client. Tenere presente che l'archiviazione dei dati compressi può rendere più difficile la risoluzione dei problemi perché ostacola la visualizzazione dei dati usando gli strumenti standard.
 - Se l'applicazione sta raggiungendo gli obiettivi di scalabilità, assicurarsi di usare un backoff esponenziale per i nuovi tentativi. È consigliabile provare a evitare di raggiungere gli obiettivi di scalabilità implementando i consigli descritti in questo articolo. Tuttavia, l'uso di un backoff esponenziale per i tentativi impedisce all'applicazione di ritentare rapidamente, il che potrebbe peggiorare la limitazione delle richieste. Per altre informazioni, vedere la sezione intitolata [Errori di timeout e server occupato](#timeout-and-server-busy-errors).
 
-### <a name="multiple-clients-accessing-a-single-blob-concurrently"></a>Più client che accedono contemporaneamente a un singolo BLOB
+### <a name="multiple-clients-accessing-a-single-blob-concurrently"></a>Più client che accedono a un singolo BLOB contemporaneamenteMultiple clients accessing a single blob concurrently
 
-Se si dispone di un numero elevato di client che accedono contemporaneamente a un singolo BLOB, è necessario prendere in considerazione sia gli obiettivi di scalabilità per ogni BLOB sia per gli account di archiviazione. Il numero esatto di client che possono accedere a un singolo BLOB varia a seconda di fattori quali il numero di client che richiedono contemporaneamente il BLOB, le dimensioni del BLOB e le condizioni della rete.
+Se si dispone di un numero elevato di client che accedono contemporaneamente a un singolo BLOB, è necessario considerare sia per BLOB che per gli obiettivi di scalabilità dell'account di archiviazione. Il numero esatto di client che possono accedere a un singolo BLOB varia a seconda di fattori quali il numero di client che richiedono il BLOB contemporaneamente, le dimensioni del BLOB e le condizioni di rete.
 
-Se il BLOB può essere distribuito tramite una rete CDN, ad esempio immagini o video serviti da un sito Web, è possibile usare una rete CDN. Per ulteriori informazioni, vedere la sezione distribuzione del [contenuto](#content-distribution).
+Se il BLOB può essere distribuito tramite una rete CDN, ad esempio immagini o video serviti da un sito Web, è possibile usare una rete CDN. Per ulteriori informazioni, vedere la sezione relativa alla distribuzione del [contenuto](#content-distribution).
 
-In altri scenari, ad esempio le simulazioni scientifiche in cui i dati sono riservati, sono disponibili due opzioni. Il primo consiste nel scaglionare l'accesso del carico di lavoro in modo che sia possibile accedere al BLOB in un periodo di tempo rispetto al quale si accede simultaneamente. In alternativa, è possibile copiare temporaneamente il BLOB in più account di archiviazione per aumentare il numero totale di IOPS per BLOB e tra gli account di archiviazione. I risultati variano a seconda del comportamento dell'applicazione, pertanto assicurarsi di testare i modelli di concorrenza durante la progettazione.
+In altri scenari, ad esempio simulazioni scientifiche in cui i dati sono riservati, sono disponibili due opzioni. Il primo consiste nello scaglionare l'accesso del carico di lavoro in modo che l'accesso al BLOB avvenga in un determinato periodo di tempo rispetto all'accesso simultaneo. In alternativa, è possibile copiare temporaneamente il BLOB in più account di archiviazione per aumentare le operazioni di I/O al secondo totali per BLOB e tra gli account di archiviazione. I risultati variano a seconda del comportamento dell'applicazione, quindi assicurati di testare i modelli di concorrenza durante la progettazione.
 
 ### <a name="bandwidth-and-operations-per-blob"></a>Larghezza di banda e operazioni per BLOB
 
-Un singolo BLOB supporta fino a 500 richieste al secondo. Se sono presenti più client che devono leggere lo stesso BLOB e si può superare questo limite, provare a usare un account di archiviazione BLOB in blocchi. Un account di archiviazione BLOB in blocchi offre una frequenza di richieste superiore o operazioni di I/O al secondo (IOPS).
+Un singolo BLOB supporta fino a 500 richieste al secondo. Se sono presenti più client che devono leggere lo stesso BLOB e si potrebbe superare questo limite, è consigliabile usare un account di archiviazione BLOB in blocchi. Un account di archiviazione BLOB in blocchi offre una frequenza di richieste più elevata o operazioni di I/O al secondo.
 
-È anche possibile usare una rete per la distribuzione di contenuti (CDN), ad esempio la rete CDN di Azure, per distribuire le operazioni sul BLOB. Per altre informazioni sulla rete CDN di Azure, vedere Panoramica della rete [CDN di Azure](../../cdn/cdn-overview.md).  
+È anche possibile usare una rete per la distribuzione di contenuti (CDN), ad esempio la rete CDN di Azure, per distribuire le operazioni nel BLOB. Per altre informazioni sulla rete CDN di Azure, vedere [Panoramica della rete CDN](../../cdn/cdn-overview.md)di Azure.For more information about Azure CDN, see Azure CDN overview.  
 
 ## <a name="partitioning"></a>Partizionamento
 
-Comprendere il modo in cui archiviazione di Azure partiziona i dati BLOB è utile per migliorare le prestazioni. Archiviazione di Azure è in grado di gestire i dati in una singola partizione più rapidamente rispetto ai dati che si estendono su più partizioni. Assegnando un nome appropriato ai BLOB, è possibile migliorare l'efficienza delle richieste di lettura.
+Comprendere in che modo Archiviazione di Azure partiziona i dati BLOB è utile per migliorare le prestazioni. Archiviazione di Azure può gestire i dati in una singola partizione più rapidamente rispetto ai dati che si estendono su più partizioni. Assegnando un nome ai BLOB in modo appropriato, è possibile migliorare l'efficienza delle richieste di lettura.
 
-L'archiviazione BLOB usa uno schema di partizionamento basato su intervalli per la scalabilità e il bilanciamento del carico. Ogni BLOB ha una chiave di partizione costituita dal nome del BLOB completo (account + contenitore + BLOB). La chiave di partizione viene utilizzata per partizionare i dati BLOB in intervalli. Gli intervalli vengono quindi sottoposte a bilanciamento del carico nell'archivio BLOB.
+L'archiviazione BLOB usa uno schema di partizionamento basato su intervalli per il ridimensionamento e il bilanciamento del carico. Ogni BLOB ha una chiave di partizione costituita dal nome completo del BLOB (account, container e BLOB). La chiave di partizione viene usata per partizionare i dati BLOB in intervalli. Gli intervalli vengono quindi bilanciati tra l'archiviazione BLOB.
 
-Il partizionamento basato su intervalli significa che le convenzioni di denominazione che usano l'ordinamento lessicale (ad esempio, *Payroll*, le *prestazioni*, i *dipendenti*e così via) o i timestamp (*log20160101*, *log20160102*, *log20160102*e così via) hanno più probabilità che le partizioni si trovino nello stesso server di partizione. , fino a quando l'incremento del carico richiede la suddivisione in intervalli più piccoli. La condivisione dei BLOB nello stesso server di partizione migliora le prestazioni, quindi una parte importante del miglioramento delle prestazioni prevede la denominazione dei BLOB in modo da organizzarli in modo più efficace.
+Partizionamento basato su intervalli significa che le convenzioni di denominazione che utilizzano l'ordinamento lessicale (ad esempio, *mypayroll*, *myperformance*, *myemployees*e così via) o timestamp (*log20160101*, *log20160102*, *log20160102*e così via) hanno maggiori probabilità di causare la co-collocazione delle partizioni sullo stesso server di partizione. , fino a quando l'aumento del carico non richiede che siano suddivisi in intervalli più piccoli. La co-localizzazione dei BLOB nello stesso server di partizione migliora le prestazioni, pertanto una parte importante del miglioramento delle prestazioni implica la denominazione dei BLOB in modo da organizzarli in modo più efficace.
 
-Ad esempio, tutti i BLOB in un contenitore possono essere serviti da un singolo server fino a quando il carico di questi BLOB richiede un ulteriore bilanciamento degli intervalli di partizione. Analogamente, un gruppo di account con caricamento leggero con i rispettivi nomi disposti in ordine lessicale può essere servito da un singolo server fino a quando il carico su uno o tutti questi account non richiede la suddivisione in più server di partizione.
+Ad esempio, tutti i BLOB in un contenitore possono essere serviti da un singolo server fino a quando il carico di questi BLOB richiede un ulteriore bilanciamento degli intervalli di partizione. Analogamente, un gruppo di account leggermente caricati con i loro nomi disposti in ordine lessicale può essere servito da un singolo server fino a quando il carico su uno o tutti questi account richiede che vengano suddivisi tra più server di partizione.
 
-Ogni operazione di bilanciamento del carico può incidere negativamente sulla latenza delle chiamate di archiviazione durante l'operazione. La possibilità di gestire un improvviso picco di traffico in una partizione è limitata dalla scalabilità di un singolo server di partizione fino a quando non viene avviata l'operazione di bilanciamento del carico e il ribilanciamento dell'intervallo di chiavi di partizione.
+Ogni operazione di bilanciamento del carico può incidere negativamente sulla latenza delle chiamate di archiviazione durante l'operazione. La capacità del servizio di gestire un'improvvisa interruzione del traffico verso una partizione è limitata dalla scalabilità di un singolo server a partizione fino a quando l'operazione di bilanciamento del carico non viene avviata e ribilancia l'intervallo di chiavi di partizione.
 
 Alcune procedure consigliate consentono di ridurre la frequenza di queste operazioni.  
 
-- Se possibile, usare dimensioni di BLOB o blocchi maggiori di 4 MiB per gli account di archiviazione standard e maggiori di 256 KiB per gli account di archiviazione Premium. Dimensioni BLOB o blocchi più grandi attivano automaticamente i BLOB in blocchi con velocità effettiva elevata. I BLOB in blocchi con velocità effettiva elevata forniscono un inserimento a prestazioni elevate che non è influenzato dalla denominazione della partizione.
-- Esaminare la convenzione di denominazione usata per account, contenitori, BLOB, tabelle e code. Prendere in considerazione il prefisso per i nomi di account, contenitori o BLOB con un hash di tre cifre usando una funzione di hashing più adatta alle proprie esigenze.
-- Se si organizzano i dati usando timestamp o identificatori numerici, assicurarsi che non si stia usando un modello di traffico solo di Accodamento (o solo anteporre). Questi modelli non sono adatti per un sistema di partizionamento basato su intervalli. Questi modelli possono comportare tutto il traffico verso una singola partizione e limitare il bilanciamento del carico del sistema in modo efficace.
+- Se possibile, usare BLOB o blocchi di dimensioni superiori a 4 MiB per gli account di archiviazione standard e superiori a 256 KiB per gli account di archiviazione Premium.If possible, use blob or block sizes greater than 4 MiB for standard storage accounts and greater than 256 KiB for premium storage accounts. Blob o blocchi di dimensioni maggiori attivano automaticamente BLOB a velocità elevata. I BLOB di blocchi ad alta velocità effettiva forniscono inserimenti ad alte prestazioni non interessati dalla denominazione delle partizioni.
+- Esaminare la convenzione di denominazione usata per account, contenitori, BLOB, tabelle e code. Valutare la possibilità di anteporre ai nomi di account, contenitori o BLOB un hash a tre cifre usando una funzione di hashing più adatta alle proprie esigenze.
+- Se si organizzano i dati utilizzando timestamp o identificatori numerici, assicurarsi di non utilizzare un modello di traffico di solo accodamento (o solo anteposizione). Questi modelli non sono adatti per un sistema di partizionamento basato su intervalli. Questi modelli possono portare a tutto il traffico che va a una singola partizione e limitare il sistema dal bilanciamento del carico in modo efficace.
 
-    Se, ad esempio, si dispone di operazioni quotidiane che utilizzano un BLOB con un timestamp quale *AAAAMMGG*, tutto il traffico per tale operazione giornaliera viene indirizzato a un singolo BLOB, che viene servito da un singolo server di partizione. Valutare se i limiti per BLOB e i limiti per partizione soddisfino le proprie esigenze e provare a suddividere l'operazione in più BLOB, se necessario. Analogamente, se si archiviano i dati delle serie temporali nelle tabelle, tutto il traffico può essere indirizzato all'ultima parte dello spazio dei nomi Key. Se si usano ID numerici, anteporre un hash a tre cifre al prefisso dell'ID. Se si usano i timestamp, anteporre al timestamp il valore dei secondi, ad esempio *ssaaaammgg*. Se l'applicazione esegue regolarmente l'elenco e l'esecuzione di query sulle operazioni, scegliere una funzione di hashing che limiterà il numero di query. In alcuni casi, può essere sufficiente un prefisso casuale.
+    Ad esempio, se si dispone di operazioni quotidiane che usano un BLOB con un timestamp, ad esempio *aaaammgg*, tutto il traffico per tale operazione giornaliera viene indirizzato a un singolo BLOB, gestito da un singolo server a partizione. Valutare se i limiti per BLOB e per partizione soddisfano le proprie esigenze e valutare la possibilità di suddividere questa operazione in più BLOB, se necessario. Analogamente, se si archiviano dati di serie temporali nelle tabelle, tutto il traffico potrebbe essere indirizzato all'ultima parte dello spazio dei nomi della chiave. Se si utilizzano ID numerici, anteporre all'ID un hash a tre cifre. Se si utilizzano timestamp, anteporre al timestamp il valore dei secondi, ad esempio *ssyyyymmdd*. Se l'applicazione esegue regolarmente operazioni di elenco e query, scegliere una funzione di hashing che limiterà il numero di query. In alcuni casi, un prefisso casuale può essere sufficiente.
   
-- Per altre informazioni sullo schema di partizionamento usato in archiviazione di Azure, vedere [archiviazione di Azure: un servizio di archiviazione cloud a disponibilità elevata con coerenza](https://sigops.org/sosp/sosp11/current/2011-Cascais/printable/11-calder.pdf)assoluta.
+- Per altre informazioni sullo schema di partizionamento usato in Archiviazione di Azure, vedere Archiviazione di Azure: un servizio di archiviazione cloud a disponibilità elevata con coerenza avanzata.For more information on the partitioning scheme used in Azure Storage, see [Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency](https://sigops.org/sosp/sosp11/current/2011-Cascais/printable/11-calder.pdf).
 
 ## <a name="networking"></a>Rete
 
@@ -137,7 +137,7 @@ In qualsiasi ambiente distribuito, il posizionamento del client accanto al serve
 
 Anche se le applicazioni client hanno accesso ad Archiviazione di Azure ma non sono ospitate in Azure, ad esempio app di dispositivi mobili o servizi aziendali locali, la latenza viene ridotta se si posiziona l'account di archiviazione in un'area vicina a tali client. Se i client sono distribuiti in un'area ampia (ad esempio, alcuni in America del Nord e altri in Europa), è opportuno usare un account di archiviazione per ogni area. Questo approccio è più semplice da implementare se i dati archiviati dall'applicazione sono specifici di singoli utenti e non richiedono la replica tra gli account di archiviazione.
 
-Per una distribuzione estesa del contenuto BLOB, usare una rete per la distribuzione di contenuti, ad esempio la rete CDN di Azure. Per altre informazioni sulla rete CDN di Azure, vedere [rete CDN di Azure](../../cdn/cdn-overview.md).  
+Per un'ampia distribuzione del contenuto BLOB, usare una rete di distribuzione del contenuto, ad esempio la rete CDN di Azure.For broad distribution of blob content, use a content deliver network such as Azure CDN. Per altre informazioni sulla rete CDN di Azure, vedere [rete CDN di Azure](../../cdn/cdn-overview.md).  
 
 ## <a name="sas-and-cors"></a>SAS e CORS
 
@@ -153,23 +153,23 @@ Entrambe le tecnologie SAS e CORS possono aiutare a evitare carichi non necessar
 
 ## <a name="caching"></a>Memorizzazione nella cache
 
-La memorizzazione nella cache svolge un ruolo importante per le prestazioni. Nelle sezioni seguenti vengono descritte le procedure consigliate per la memorizzazione nella cache.
+La memorizzazione nella cache svolge un ruolo importante nelle prestazioni. Nelle sezioni seguenti vengono illustrate le procedure consigliate per la memorizzazione nella cache.
 
-### <a name="reading-data"></a>Lettura di dati
+### <a name="reading-data"></a>Lettura dei dati
 
-In generale, è preferibile leggere i dati una sola volta. Si consideri l'esempio di un'applicazione Web che ha recuperato un BLOB MiB 50 dall'archiviazione di Azure per fungere da contenuto per un utente. Idealmente, l'applicazione memorizza nella cache il BLOB localmente su disco e quindi recupera la versione memorizzata nella cache per le successive richieste utente.
+In generale, la lettura dei dati una volta è preferibile a leggerli due volte. Si consideri l'esempio di un'applicazione Web che ha recuperato un BLOB da 50 MiB da Archiviazione di Azure per fungere da contenuto per un utente. In teoria, l'applicazione memorizza il BLOB nella cache locale su disco e quindi recupera la versione memorizzata nella cache per le richieste utente successive.
 
-Un modo per evitare di recuperare un BLOB se non è stato modificato perché è stato memorizzato nella cache è quello di qualificare l'operazione GET con un'intestazione condizionale per l'ora di modifica. Se l'ora dell'Ultima modifica è successiva al momento in cui il BLOB è stato memorizzato nella cache, il BLOB viene recuperato e memorizzato nuovamente nella cache. In caso contrario, il BLOB memorizzato nella cache viene recuperato per ottenere prestazioni ottimali.
+Un modo per evitare di recuperare un BLOB se non è stato modificato poiché è stato memorizzato nella cache consiste nel qualificare l'operazione GET con un'intestazione condizionale per l'ora di modifica. Se l'ora dell'ultima modifica è successiva al momento in cui il BLOB è stato memorizzato nella cache, il BLOB viene recuperato e nuovamente memorizzato nella cache. In caso contrario, il BLOB memorizzato nella cache viene recuperato per ottenere prestazioni ottimali.
 
-Si può anche decidere di progettare l'applicazione in modo da presupporre che il BLOB rimanga invariato per un breve periodo di tempo dopo il recupero. In questo caso, non è necessario che l'applicazione verifichi se il BLOB è stato modificato durante tale intervallo.
+È anche possibile decidere di progettare l'applicazione in modo da presupporre che il BLOB rimanga invariato per un breve periodo dopo il recupero. In questo caso, non è necessario che l'applicazione controlli se il BLOB è stato modificato durante tale intervallo.
 
-I dati di configurazione, i dati di ricerca e altri dati usati di frequente dall'applicazione sono ottimi candidati per la memorizzazione nella cache.  
+I dati di configurazione, i dati di ricerca e altri dati utilizzati di frequente dall'applicazione sono buoni candidati per la memorizzazione nella cache.  
 
-Per ulteriori informazioni sull'utilizzo delle intestazioni condizionali, vedere [specifica di intestazioni condizionali per le operazioni del servizio BLOB](/rest/api/storageservices/specifying-conditional-headers-for-blob-service-operations).  
+Per altre informazioni sull'uso delle intestazioni condizionali, vedere [Specifica delle intestazioni condizionali per](/rest/api/storageservices/specifying-conditional-headers-for-blob-service-operations)le operazioni del servizio BLOB.  
 
 ### <a name="uploading-data-in-batches"></a>Caricamento dei dati in batch
 
-In alcuni scenari è possibile aggregare i dati in locale e quindi caricarli periodicamente in un batch anziché caricare immediatamente i dati. Si supponga, ad esempio, che un'applicazione Web contenga un file di log di attività. L'applicazione può caricare i dettagli di ogni attività in una tabella (che richiede molte operazioni di archiviazione) o salvare i dettagli dell'attività in un file di log locale e quindi caricare periodicamente tutti i dettagli dell'attività come file delimitato in un BLOB. Se ogni voce di log ha una dimensione di 1 KB, è possibile caricare migliaia di voci in un'unica transazione. Una singola transazione supporta il caricamento di un BLOB di dimensioni fino a 64 MiB. Lo sviluppatore di applicazioni deve progettare per la possibilità di errori di caricamento o del dispositivo client. Se i dati dell'attività devono essere scaricati per un intervallo di tempo anziché per una singola attività, è consigliabile usare l'archiviazione BLOB sull'archiviazione tabelle.
+In alcuni scenari, è possibile aggregare i dati in locale e quindi caricarli periodicamente in un batch anziché caricare immediatamente ogni parte di dati. Si supponga, ad esempio, che un'applicazione Web mantenga un file di log delle attività. L'applicazione può caricare i dettagli di ogni attività come accade a una tabella (che richiede molte operazioni di archiviazione) oppure può salvare i dettagli dell'attività in un file di log locale e quindi caricare periodicamente tutti i dettagli dell'attività come file delimitato in un BLOB. Se ogni voce di registro ha una dimensione di 1 KB, è possibile caricare migliaia di voci in una singola transazione. Una singola transazione supporta il caricamento di un BLOB di dimensioni fino a 64 MiB. Lo sviluppatore dell'applicazione deve progettare la possibilità di errori di caricamento o dispositivo client. Se i dati dell'attività devono essere scaricati per un intervallo di tempo anziché per una singola attività, è consigliabile usare l'archiviazione BLOB nell'archiviazione tabelle.
 
 ## <a name="net-configuration"></a>Configurazione .NET
 
@@ -186,7 +186,7 @@ Per altre informazioni sui miglioramenti delle prestazioni in .NET Core, vedere 
 
 ### <a name="increase-default-connection-limit"></a>Aumento del limite di connessione predefinito
 
-In .NET, il codice seguente aumenta il limite di connessione predefinito, che in genere è due in un ambiente client o dieci in un ambiente server, a 100. Solitamente il valore deve essere impostato basandosi approssimativamente sul numero di thread usato dall'applicazione. Impostare il limite di connessione prima di aprire le connessioni.
+In .NET, il codice seguente aumenta il limite di connessione predefinito (che in genere è due in un ambiente client o dieci in un ambiente server) a 100.In .NET, the following code increases the default connection limit (which is usually two in a client environment or ten in a server environment) to 100. Solitamente il valore deve essere impostato basandosi approssimativamente sul numero di thread usato dall'applicazione. Impostare il limite di connessione prima di aprire le connessioni.
 
 ```csharp
 ServicePointManager.DefaultConnectionLimit = 100; //(Or More)  
@@ -194,7 +194,7 @@ ServicePointManager.DefaultConnectionLimit = 100; //(Or More)
 
 Per altri linguaggi di programmazione, vedere la documentazione per determinare come impostare il limite di connessione.  
 
-Per ulteriori informazioni, vedere il post di Blog relativo ai [servizi Web: connessioni simultanee](https://blogs.msdn.microsoft.com/darrenj/2005/03/07/web-services-concurrent-connections/).  
+Per ulteriori informazioni, vedere il post di blog [Web Services: Concurrent Connections](https://blogs.msdn.microsoft.com/darrenj/2005/03/07/web-services-concurrent-connections/).  
 
 ### <a name="increase-minimum-number-of-threads"></a>Aumentare il numero minimo di thread
 
@@ -230,58 +230,58 @@ Le librerie client gestiscono i tentativi con la consapevolezza degli errori che
 
 Per altre informazioni sui codici di errore di Archiviazione di Azure, vedere [Stato e codici errore](/rest/api/storageservices/status-and-error-codes2).
 
-## <a name="copying-and-moving-blobs"></a>Copia e trasferimento di BLOB
+## <a name="copying-and-moving-blobs"></a>Copia e spostamento di BLOB
 
-Archiviazione di Azure offre una serie di soluzioni per la copia e lo trasferimento di BLOB in un account di archiviazione, tra gli account di archiviazione e tra i sistemi locali e il cloud. In questa sezione vengono descritte alcune di queste opzioni in termini di effetti sulle prestazioni. Per informazioni su come trasferire in modo efficiente i dati da e verso l'archiviazione BLOB, vedere [scegliere una soluzione di Azure per il trasferimento dei dati](../common/storage-choose-data-transfer-solution.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Archiviazione di Azure offre numerose soluzioni per la copia e lo spostamento di BLOB all'interno di un account di archiviazione, tra account di archiviazione e tra sistemi locali e cloud. In questa sezione vengono descritte alcune di queste opzioni in termini di effetti sulle prestazioni. Per informazioni sul trasferimento efficiente dei dati da o verso l'archiviazione BLOB, vedere Scegliere una soluzione Azure per il trasferimento dei [dati.](../common/storage-choose-data-transfer-solution.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
-### <a name="blob-copy-apis"></a>API per la copia di BLOB
+### <a name="blob-copy-apis"></a>API di copia BLOBBlob copy APIs
 
-Per copiare i BLOB tra gli account di archiviazione, usare l'operazione [put block from URL](/rest/api/storageservices/put-block-from-url) . Questa operazione copia i dati in modo sincrono da qualsiasi origine URL in un BLOB in blocchi. L'uso dell'operazione `Put Block from URL` può ridurre significativamente la larghezza di banda necessaria quando si esegue la migrazione dei dati tra gli account di archiviazione. Poiché l'operazione di copia viene eseguita sul lato del servizio, non è necessario scaricare e caricare nuovamente i dati.
+Per copiare BLOB tra account di archiviazione, usare l'operazione [Inserisci blocco da URL.](/rest/api/storageservices/put-block-from-url) Questa operazione copia i dati in modo sincrono da qualsiasi origine URL in un BLOB a blocchi. L'uso dell'operazione può ridurre significativamente la `Put Block from URL` larghezza di banda necessaria durante la migrazione dei dati tra gli account di archiviazione. Poiché l'operazione di copia viene eseguita sul lato servizio, non è necessario scaricare e caricare nuovamente i dati.
 
-Per copiare i dati all'interno dello stesso account di archiviazione, usare l'operazione [Copy Blob](/rest/api/storageservices/Copy-Blob) . La copia dei dati all'interno dello stesso account di archiviazione viene in genere completata rapidamente.  
+Per copiare i dati all'interno dello stesso account di archiviazione, usare l'operazione [Copia BLOB.](/rest/api/storageservices/Copy-Blob) La copia dei dati all'interno dello stesso account di archiviazione viene in genere completata rapidamente.  
 
 ### <a name="use-azcopy"></a>Usare AzCopy
 
-L'utilità da riga di comando AzCopy è un'opzione semplice ed efficiente per il trasferimento bulk di BLOB in, da e tra account di archiviazione. AzCopy è ottimizzato per questo scenario e può ottenere velocità di trasferimento elevate. AzCopy versione 10 usa l'operazione `Put Block From URL` per copiare i dati BLOB tra gli account di archiviazione. Per altre informazioni, vedere [copiare o spostare dati in archiviazione di Azure tramite AzCopy V10](/azure/storage/common/storage-use-azcopy-v10).  
+L'utilità della riga di comando AzCopy è un'opzione semplice ed efficiente per il trasferimento in blocco di BLOB in, da e tra gli account di archiviazione. AzCopy è ottimizzato per questo scenario e può raggiungere velocità di trasferimento elevate. AzCopy versione 10 `Put Block From URL` usa l'operazione per copiare i dati BLOB tra account di archiviazione. Per altre informazioni, vedere [Copiare o spostare dati in Archiviazione di Azure usando AzCopy v10.](/azure/storage/common/storage-use-azcopy-v10)  
 
-### <a name="use-azure-data-box"></a>USA Azure Data Box
+### <a name="use-azure-data-box"></a>Usare Azure Data BoxUse Azure Data Box
 
-Per l'importazione di grandi volumi di dati nell'archiviazione BLOB, è consigliabile usare la famiglia di Azure Data Box per i trasferimenti offline. I dispositivi Data Box forniti da Microsoft sono la scelta ideale per lo spostamento di grandi quantità di dati in Azure quando si è limitati a tempo, disponibilità di rete o costi. Per ulteriori informazioni, vedere la [documentazione di Azure databox](/azure/databox/).
+Per importare grandi volumi di dati nell'archiviazione BLOB, è consigliabile usare la famiglia Azure Data Box per i trasferimenti offline. I dispositivi Data Box forniti da Microsoft sono una buona scelta per spostare grandi quantità di dati in Azure quando si è limitati dal tempo, dalla disponibilità della rete o dai costi. Per altre informazioni, vedere la documentazione di Azure DataBox .For more information, see the [Azure DataBox Documentation](/azure/databox/).
 
 ## <a name="content-distribution"></a>Distribuzione di contenuti
 
-A volte un'applicazione deve servire lo stesso contenuto per molti utenti (ad esempio, un video dimostrativo di un prodotto usato nella home page di un sito Web), che si trova nella stessa area o in più aree. In questo scenario usare una rete per la distribuzione di contenuti (CDN), ad esempio la rete CDN di Azure, per distribuire il contenuto del BLOB geograficamente. A differenza di un account di archiviazione di Azure, presente in un'unica area e che non può fornire contenuti con una bassa latenza in altre aree, la rete CDN di Azure usa diversi server in più data center in tutto il mondo. Inoltre, una rete CDN in genere supporta limiti in uscita molto più elevati rispetto a un singolo account di archiviazione.  
+A volte un'applicazione deve fornire lo stesso contenuto a molti utenti (ad esempio, un video dimostrativo del prodotto utilizzato nella home page di un sito Web), che si trova nella stessa o in più aree geografiche. In questo scenario usare una rete per la distribuzione di contenuti (CDN), ad esempio una rete CDN di Azure, per distribuire il contenuto BLOB geograficamente. A differenza di un account di archiviazione di Azure, presente in un'unica area e che non può fornire contenuti con una bassa latenza in altre aree, la rete CDN di Azure usa diversi server in più data center in tutto il mondo. Inoltre, una rete CDN in genere supporta limiti in uscita molto più elevati rispetto a un singolo account di archiviazione.  
 
 Per altre informazioni sulla rete CDN di Azure, vedere [rete CDN di Azure](../../cdn/cdn-overview.md).
 
-## <a name="use-metadata"></a>Usare i metadati
+## <a name="use-metadata"></a>Utilizzare i metadati
 
-Il servizio BLOB supporta le richieste HEAD, che possono includere proprietà o metadati del BLOB. Se, ad esempio, per l'applicazione sono necessari i dati EXIF (scambioable Image Format) di una foto, è possibile recuperare la foto ed estrarla. Per risparmiare larghezza di banda e migliorare le prestazioni, l'applicazione può archiviare i dati EXIF nei metadati del BLOB quando l'applicazione carica la foto. È quindi possibile recuperare i dati EXIF nei metadati usando solo una richiesta HEAD. Il recupero dei soli metadati e non il contenuto completo del BLOB consente di risparmiare larghezza di banda significativa e di ridurre il tempo di elaborazione necessario per estrarre i dati EXIF. Tenere presente che 8 KiB di metadati possono essere archiviati per BLOB.  
+Il servizio BLOB supporta le richieste HEAD, che possono includere proprietà o metadati BLOB. Ad esempio, se l'applicazione necessita dei dati Exif (formato immagine modificabile) da una foto, può recuperare la foto ed estrarla. Per risparmiare larghezza di banda e migliorare le prestazioni, l'applicazione può archiviare i dati Exif nei metadati del BLOB quando l'applicazione carica la foto. È quindi possibile recuperare i dati Exif nei metadati utilizzando solo una richiesta HEAD. Il recupero solo dei metadati e non del contenuto completo del BLOB consente di risparmiare una larghezza di banda significativa e di ridurre il tempo di elaborazione necessario per estrarre i dati Exif. Tenere presente che 8 KiB di metadati possono essere archiviati per BLOB.  
 
-## <a name="upload-blobs-quickly"></a>Caricare rapidamente i BLOB
+## <a name="upload-blobs-quickly"></a>Caricare rapidamente i BLOBUpload blobs quickly
 
-Per caricare rapidamente i BLOB, determinare prima di tutto se si intende caricare un BLOB o molti. Usare le indicazioni seguenti per determinare il metodo corretto da usare a seconda dello scenario.  
+Per caricare rapidamente i BLOB, determinare innanzitutto se verrà caricato uno o più BLOB. Usare le indicazioni seguenti per determinare il metodo corretto da usare a seconda dello scenario.  
 
-### <a name="upload-one-large-blob-quickly"></a>Caricare rapidamente un BLOB di grandi dimensioni
+### <a name="upload-one-large-blob-quickly"></a>Caricare rapidamente un BLOB di grandi dimensioniUpload one large blob quickly
 
-Per caricare rapidamente un singolo BLOB di grandi dimensioni, un'applicazione client può caricare i blocchi o le pagine in parallelo, considerando gli obiettivi di scalabilità per i singoli BLOB e l'account di archiviazione nel suo complesso. Le librerie client di archiviazione di Azure supportano il caricamento in parallelo. Ad esempio, è possibile usare le proprietà seguenti per specificare il numero di richieste simultanee consentite in .NET o Java. Le librerie client per altre lingue supportate forniscono opzioni simili.
+Per caricare rapidamente un singolo BLOB di grandi dimensioni, un'applicazione client può caricare i blocchi o le pagine in parallelo, tenendo presente gli obiettivi di scalabilità per i singoli BLOB e l'account di archiviazione nel suo complesso. Le librerie client di Archiviazione di Azure supportano il caricamento in parallelo. Ad esempio, è possibile utilizzare le proprietà seguenti per specificare il numero di richieste simultanee consentite in .NET o Java. Le librerie client per altri linguaggi supportati offrono opzioni simili.
 
-- Per .NET, impostare la proprietà [BlobRequestOptions. ParallelOperationThreadCount](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.paralleloperationthreadcount) .
-- Per Java/Android, chiamare il metodo [BlobRequestOptions. setConcurrentRequestCount (Final Integer concurrentRequestCount)](/java/api/com.microsoft.azure.storage.blob._blob_request_options.setconcurrentrequestcount) .
+- Per .NET, impostare la proprietà [BlobRequestOptions.ParallelOperationThreadCount.](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.paralleloperationthreadcount)
+- Per Java/Android, chiamare il [metodo BlobRequestOptions.setConcurrentRequestCount(final Integer concurrentRequestCount).](/java/api/com.microsoft.azure.storage.blob._blob_request_options.setconcurrentrequestcount)
 
-### <a name="upload-many-blobs-quickly"></a>Caricare rapidamente molti BLOB
+### <a name="upload-many-blobs-quickly"></a>Caricare rapidamente molti BLOBUpload many blobs quickly
 
-Per caricare rapidamente più BLOB, caricarli in parallelo. Il caricamento in parallelo è più veloce rispetto al caricamento di singoli BLOB alla volta con caricamenti di blocchi paralleli perché distribuisce il caricamento tra più partizioni del servizio di archiviazione. Per impostazione predefinita, AzCopy esegue i caricamenti in parallelo ed è consigliato per questo scenario. Per altre informazioni, vedere [Introduzione a AzCopy](../common/storage-use-azcopy-v10.md).  
+Per caricare rapidamente più BLOB, caricarli in parallelo. Il caricamento in parallelo è più veloce rispetto al caricamento di singoli BLOB alla volta con caricamenti di blocchi paralleli perché distribuisce il caricamento tra più partizioni del servizio di archiviazione. AzCopy esegue i caricamenti in parallelo per impostazione predefinita ed è consigliato per questo scenario. Per altre informazioni, vedere [Introduzione a AzCopy](../common/storage-use-azcopy-v10.md).  
 
-## <a name="choose-the-correct-type-of-blob"></a>Scegliere il tipo di BLOB corretto
+## <a name="choose-the-correct-type-of-blob"></a>Scegliere il tipo di BLOB correttoChoose the correct type of blob
 
-Archiviazione di Azure supporta BLOB in blocchi, BLOB di Accodamento e BLOB di pagine. Per un determinato scenario di utilizzo, la scelta del tipo di BLOB influisce sulle prestazioni e sulla scalabilità della soluzione.
+Archiviazione di Azure supporta BLOB in blocchi, BLOB di aggiunta e BLOB di pagine. Per un determinato scenario di utilizzo, la scelta del tipo di BLOB influisce sulle prestazioni e sulla scalabilità della soluzione.
 
-I BLOB in blocchi sono appropriati quando si desidera caricare in modo efficiente grandi quantità di dati. Ad esempio, un'applicazione client che carica foto o video nell'archivio BLOB è destinata ai BLOB in blocchi.
+I BLOB in blocchi sono appropriati quando si desidera caricare grandi quantità di dati in modo efficiente. Ad esempio, un'applicazione client che carica foto o video nell'archiviazione BLOB avrebbe come destinazione il blocco dei BLOB.
 
-I BLOB di Accodamento sono simili ai BLOB in blocchi perché sono costituiti da blocchi. Quando si modifica un BLOB di Accodamento, i blocchi vengono aggiunti solo alla fine del BLOB. I BLOB di Accodamento sono utili per scenari come la registrazione, quando un'applicazione deve aggiungere dati a un BLOB esistente.
+I BLOB di accodamento sono simili ai BLOB di blocchi in quanto sono composti da blocchi. Quando si modifica un BLOB di accodamento, i blocchi vengono aggiunti solo alla fine del BLOB. I BLOB di accodamento sono utili per scenari come la registrazione, quando un'applicazione deve aggiungere dati a un BLOB esistente.
 
-I BLOB di pagine sono appropriati se l'applicazione deve eseguire scritture casuali sui dati. I dischi delle macchine virtuali di Azure, ad esempio, vengono archiviati come BLOB di pagine. Per altre informazioni, vedere informazioni sui [BLOB in blocchi, BLOB di Accodamento e BLOB di pagine](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).  
+I BLOB di pagine sono appropriati se l'applicazione deve eseguire scritture casuali sui dati. Ad esempio, i dischi delle macchine virtuali di Azure vengono archiviati come BLOB di pagine. Per altre informazioni, vedere [Informazioni sui BLOB in blocchi, aggiunta](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)di BLOB e BLOB di pagine.  
 
 ## <a name="next-steps"></a>Passaggi successivi
 

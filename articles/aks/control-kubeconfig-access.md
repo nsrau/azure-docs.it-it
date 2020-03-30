@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 01/28/2020
 ms.openlocfilehash: 25c710cce2855d6af985d3f46082f47573bbc101
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79259552"
 ---
 # <a name="use-azure-role-based-access-controls-to-define-access-to-the-kubernetes-configuration-file-in-azure-kubernetes-service-aks"></a>Usare il controllo degli accessi in base al ruolo di Azure per definire l'accesso al file di configurazione di Kubernetes nel servizio Azure Kubernetes
@@ -19,15 +19,15 @@ Questo articolo illustra come assegnare ruoli di controllo degli accessi in base
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Questo articolo presuppone che si disponga di un cluster del servizio Azure Kubernetes esistente. Se è necessario un cluster AKS, vedere la Guida introduttiva di AKS [usando l'interfaccia della][aks-quickstart-cli] riga di comando di Azure o [l'portale di Azure][aks-quickstart-portal].
+Questo articolo presuppone che si disponga di un cluster del servizio Azure Kubernetes esistente. Se è necessario un cluster servizio Azure Kubernetes, vedere la Guida introduttiva su servizio Azure Kubernetes [Uso dell'interfaccia della riga di comando di Azure][aks-quickstart-cli] oppure [Uso del portale di Azure][aks-quickstart-portal].
 
-Questo articolo richiede anche l'esecuzione dell'interfaccia della riga di comando di Azure versione 2.0.65 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli-install].
+Questo articolo richiede anche che si stia eseguendo l'interfaccia della riga di comando di Azure versione 2.0.65 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure.If][azure-cli-install]you need to install or upgrade, see Install Azure CLI.
 
 ## <a name="available-cluster-roles-permissions"></a>Autorizzazioni per i ruoli del cluster disponibili
 
-Quando si interagisce con un cluster del servizio Azure Kubernetes tramite lo strumento `kubectl`, viene usato un file di configurazione che definisce le informazioni di connessione del cluster. Questo file di configurazione viene in genere archiviato in *~/.Kube/config*. È possibile definire più cluster in questo file *kubeconfig* . Si passa tra i cluster usando il comando [kubectl config Use-Context][kubectl-config-use-context] .
+Quando si interagisce con un cluster del servizio Azure Kubernetes tramite lo strumento `kubectl`, viene usato un file di configurazione che definisce le informazioni di connessione del cluster. Questo file di configurazione viene in genere archiviato in *.kube/config*. In questo file *kubeconfig* è possibile definire più cluster. Per passare da un cluster a un altro, si usa il comando [kubectl config use-context][kubectl-config-use-context].
 
-Il comando [AZ AKS Get-credentials][az-aks-get-credentials] consente di ottenere le credenziali di accesso per un cluster AKS e di unirle nel file *kubeconfig* . È possibile usare il controllo degli accessi in base al ruolo di Azure per controllare l'accesso a queste credenziali. Questi ruoli del controllo degli accessi in base al ruolo di Azure consentono di definire chi può recuperare il file *kubeconfig* e le autorizzazioni disponibili all'interno del cluster.
+Il comando [az aks get-credentials][az-aks-get-credentials] consente di ottenere le credenziali di accesso per un cluster del servizio Azure Kubernetes e di unirle nel file *kubeconfig*. È possibile usare il controllo degli accessi in base al ruolo di Azure per controllare l'accesso a queste credenziali. Questi ruoli del controllo degli accessi in base al ruolo di Azure consentono di definire chi può recuperare il file *kubeconfig* e le autorizzazioni disponibili all'interno del cluster.
 
 I due ruoli predefiniti sono:
 
@@ -35,24 +35,24 @@ I due ruoli predefiniti sono:
   * Consente l'accesso alla chiamata API *Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action*. Questa chiamata API [elenca le credenziali di amministratore del cluster][api-cluster-admin].
   * Scarica *kubeconfig* per il ruolo *clusterAdmin*.
 * **Ruolo di utente del cluster del servizio Azure Kubernetes**
-  * Consente l'accesso alla chiamata API *Microsoft.ContainerService/managedClusters/listClusterUserCredential/action*. Questa chiamata API [elenca le credenziali dell'utente del cluster][api-cluster-user].
+  * Consente l'accesso alla chiamata API *Microsoft.ContainerService/managedClusters/listClusterUserCredential/action*. Questa chiamata API [elenca le credenziali di utente del cluster][api-cluster-user].
   * Scarica *kubeconfig* per il ruolo *clusterUser*.
 
-Questi ruoli RBAC possono essere applicati a un utente o a un gruppo di Azure Active Directory (AD).
+Questi ruoli RBAC possono essere applicati a un utente o un gruppo di Azure Active Directory (AD).
 
-> ! Si noti Nei cluster che usano Azure AD, gli utenti con il ruolo *clusterUser* hanno un file *kubeconfig* vuoto che richiede un accesso. Una volta effettuato l'accesso, gli utenti possono accedere in base alle impostazioni Azure AD utente o gruppo. Gli utenti con il ruolo *clusterAdmin* hanno accesso amministrativo.
+> ! [NOTA] Nei cluster che usano Azure AD, gli utenti con il ruolo *clusterUser* dispongono di un file *kubeconfig* vuoto che richiede un accesso. Una volta effettuato l'accesso, gli utenti hanno accesso in base alle impostazioni dell'utente o del gruppo di Azure AD. Gli utenti con il ruolo *clusterAdmin* dispongono dell'accesso di amministratore.
 >
-> I cluster che non utilizzano Azure AD utilizzano solo il ruolo *clusterAdmin* .
+> I cluster che non usano Azure AD usano solo il ruolo *clusterAdmin.*
 
-## <a name="assign-role-permissions-to-a-user-or-group"></a>Assegnare autorizzazioni ruolo a un utente o a un gruppo
+## <a name="assign-role-permissions-to-a-user-or-group"></a>Assegnare autorizzazioni di ruolo a un utente o a un gruppoAssign role permissions to a user or group
 
-Per assegnare uno dei ruoli disponibili, è necessario ottenere l'ID di risorsa del cluster AKS e l'ID del Azure AD account utente o gruppo. I comandi di esempio seguenti:
+Per assegnare uno dei ruoli disponibili, è necessario ottenere l'ID risorsa del cluster AKS e l'ID dell'account utente o del gruppo di Azure AD. I seguenti comandi di esempio:
 
-* Ottenere l'ID risorsa cluster usando il comando [AZ AKS Show][az-aks-show] per il cluster denominato *myAKSCluster* nel gruppo di risorse *myResourceGroup* . Specificare il nome del cluster e del gruppo di risorse in base alle esigenze.
-* Usare i comandi [AZ account Show][az-account-show] e [AZ ad User Show][az-ad-user-show] per ottenere l'ID utente.
-* Infine, assegnare un ruolo usando il comando [AZ Role Assignment create][az-role-assignment-create] .
+* Ottenere l'ID risorsa cluster usando il comando az aks show per il cluster denominato myAKSCluster nel gruppo di risorse myResourceGroup.Get the cluster resource ID using the [az aks show][az-aks-show] command for the cluster named *myAKSCluster* in the *myResourceGroup* resource group. Specificare il nome del cluster e del gruppo di risorse in base alle esigenze.
+* Usa i comandi [az][az-ad-user-show] account [show][az-account-show] e az ad user show per ottenere il tuo ID utente.
+* Infine, assegnare un ruolo utilizzando il comando [az role assignment create.][az-role-assignment-create]
 
-L'esempio seguente assegna il *ruolo di amministratore del cluster di servizi Kubernetes di Azure* a un singolo account utente:
+L'esempio seguente assegna il ruolo di amministratore del cluster di servizi di Azure Kubernetes a un singolo account utente:The following example assigns the *Azure Kubernetes Service Cluster Admin Role* to an individual user account:
 
 ```azurecli-interactive
 # Get the resource ID of your AKS cluster
@@ -70,7 +70,7 @@ az role assignment create \
 ```
 
 > [!TIP]
-> Se si desidera assegnare autorizzazioni a un gruppo di Azure AD, aggiornare il parametro `--assignee` illustrato nell'esempio precedente con l'ID oggetto per il *gruppo* anziché un *utente*. Per ottenere l'ID oggetto per un gruppo, usare il comando [AZ ad Group Show][az-ad-group-show] . Nell'esempio seguente viene ottenuto l'ID oggetto per il gruppo di Azure AD denominato *AppDev*: `az ad group show --group appdev --query objectId -o tsv`
+> Se si desidera assegnare autorizzazioni a un `--assignee` gruppo di Azure AD, aggiornare il parametro illustrato nell'esempio precedente con l'ID oggetto per il *gruppo* anziché con un *utente*. Per ottenere l'ID oggetto per un gruppo, usa il comando [az ad group show.][az-ad-group-show] L'esempio seguente ottiene l'ID oggetto per il gruppo di Azure AD denominato *appdev:*`az ad group show --group appdev --query objectId -o tsv`
 
 È possibile modificare l'assegnazione precedente specificando il *Ruolo utente del cluster* in base alle esigenze.
 
@@ -91,13 +91,13 @@ L'output di esempio seguente mostra che l'assegnazione di ruolo è stata creata 
 
 ## <a name="get-and-verify-the-configuration-information"></a>Ottenere e verificare le informazioni di configurazione
 
-Con i ruoli RBAC assegnati, usare il comando [AZ AKS Get-credentials][az-aks-get-credentials] per ottenere la definizione *kubeconfig* per il cluster AKS. L'esempio seguente ottiene le credenziali *--admin*, che funzionano correttamente se all'utente è stato assegnato il *Ruolo amministratore del cluster*:
+Dopo aver assegnato i ruoli di controllo degli accessi in base al ruolo, usare il comando [az aks get-credentials][az-aks-get-credentials] per ottenere la definizione *kubeconfig* per il cluster del servizio Azure Kubernetes. L'esempio seguente ottiene le credenziali *--admin*, che funzionano correttamente se all'utente è stato assegnato il *Ruolo amministratore del cluster*:
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --admin
 ```
 
-È quindi possibile usare il comando [kubectl config view][kubectl-config-view] per verificare che il *contesto* per il cluster indichi che sono state applicate le informazioni di configurazione dell'amministratore:
+È quindi possibile usare il comando [kubectl config view][kubectl-config-view] per verificare che le informazioni *context* per il cluster indichino che sono state applicate le informazioni di configurazione per l'amministratore:
 
 ```
 $ kubectl config view
@@ -126,7 +126,7 @@ users:
 
 ## <a name="remove-role-permissions"></a>Rimuovere le autorizzazioni per i ruoli
 
-Per rimuovere le assegnazioni di ruolo, utilizzare il comando [AZ Role Assignment Delete][az-role-assignment-delete] . Specificare l'ID account e l'ID risorsa cluster, come ottenuto nei comandi precedenti. Se il ruolo è stato assegnato a un gruppo anziché a un utente, specificare l'ID oggetto gruppo appropriato anziché l'ID oggetto account per il parametro `--assignee`:
+Per rimuovere le assegnazioni di ruolo, usare il comando [az role assignment delete][az-role-assignment-delete]. Specificare l'ID account e l'ID risorsa cluster, come ottenuto nei comandi precedenti. Se il ruolo è stato assegnato a un gruppo anziché a un utente, specificare l'ID oggetto gruppo appropriato anziché l'ID oggetto account per il `--assignee` parametro:
 
 ```azurecli-interactive
 az role assignment delete --assignee $ACCOUNT_ID --scope $AKS_CLUSTER
@@ -134,7 +134,7 @@ az role assignment delete --assignee $ACCOUNT_ID --scope $AKS_CLUSTER
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per una maggiore sicurezza sull'accesso ai cluster AKS, [integrare Azure Active Directory l'autenticazione][aad-integration].
+Per aumentare il livello di sicurezza dell'accesso ai cluster del servizio Azure Kubernetes, [integrare l'autenticazione di Azure Active Directory][aad-integration].
 
 <!-- LINKS - external -->
 [kubectl-config-use-context]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#config

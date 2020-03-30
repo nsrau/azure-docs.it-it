@@ -10,10 +10,10 @@ ms.date: 04/10/2019
 ms.author: labrenne
 ms.custom: seodec18
 ms.openlocfilehash: bbe38a9dc7be749b8e138ff3ca9ec4f06255b389
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79247748"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Creare un pool di Azure Batch in una rete virtuale
@@ -24,7 +24,7 @@ Quando si crea un pool di Azure Batch, è possibile eseguire il provisioning del
 
 Un pool di Azure Batch include impostazioni che consentono ai nodi di calcolo di comunicare tra loro, ad esempio per eseguire attività a istanze multiple. Queste impostazioni non richiedono una rete virtuale separata. Tuttavia, per impostazione predefinita, i nodi non possono comunicare con macchine virtuali che non fanno parte del pool di Azure Batch, ad esempio un server licenze o un file server. Per consentire ai nodi di calcolo del pool di comunicare in modo sicuro con altre macchine virtuali o con una rete locale, è possibile eseguire il provisioning del pool in una subnet di una rete virtuale di Azure. 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * **Autenticazione**. Per usare una rete virtuale di Azure, l'API client di Batch deve usare l'autenticazione di Azure Active Directory (AD). Il supporto di Azure Batch per Azure AD è documentato in [Autenticare le soluzioni del servizio Batch con Active Directory](batch-aad-auth.md). 
 
@@ -56,7 +56,7 @@ Dopo aver creato la rete virtuale e assegnato una subnet, è possibile creare un
 
 Per garantire che i nodi di calcolo dei pool di Azure Batch funzionino correttamente in una rete virtuale con il tunneling forzato abilitato, è necessario aggiungere le [route definite dall'utente](../virtual-network/virtual-networks-udr-overview.md) seguenti per tali subnet:
 
-* Il servizio Batch deve comunicare con nodi di calcolo dei pool per la pianificazione delle attività. Per abilitare questa comunicazione, aggiungere una route definita dall'utente per ogni indirizzo IP usando il servizio Batch nell'area in cui è presente l'account Batch. Per informazioni su come ottenere l'elenco di indirizzi IP del servizio batch, vedere [tag di servizio in locale](../virtual-network/service-tags-overview.md)
+* Il servizio Batch deve comunicare con nodi di calcolo dei pool per la pianificazione delle attività. Per abilitare questa comunicazione, aggiungere una route definita dall'utente per ogni indirizzo IP usando il servizio Batch nell'area in cui è presente l'account Batch. Per informazioni su come ottenere l'elenco degli indirizzi IP del servizio Batch, vedere [Tag del servizio in locale](../virtual-network/service-tags-overview.md)
 
 * Verificare che il traffico in uscita verso il servizio Archiviazione di Azure (in particolare, gli URL con formato `<account>.table.core.windows.net`, `<account>.queue.core.windows.net` e `<account>.blob.core.windows.net`) non sia bloccato tramite un Network Appliance locale.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Azure ExpressRoute: requisiti di routing'
+title: 'Azure ExpressRoute: Requisiti di routingAzure ExpressRoute: Routing requirements'
 description: Questa pagina illustra i requisiti dettagliati per la configurazione e la gestione del routing per i circuiti ExpressRoute.
 services: expressroute
 author: cherylmc
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/19/2019
 ms.author: cherylmc
 ms.openlocfilehash: 3eafb8aff5525f668e6fe0bddb261b1117b5e38b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79273046"
 ---
 # <a name="expressroute-routing-requirements"></a>Requisiti per il routing di ExpressRoute
@@ -83,7 +83,7 @@ Per configurare le sessioni BGP è necessario usare indirizzi IP pubblici di pro
 È possibile scegliere di usare gli indirizzi IPv4 pubblici o privati per il peering privato. Microsoft offre un isolamento end-to-end del traffico, quindi la sovrapposizione degli indirizzi con altri clienti non si verifica in caso di peering privato. Questi indirizzi non vengono annunciati su Internet. 
 
 ### <a name="microsoft-peering"></a>Peering Microsoft
-Il percorso di peering di Microsoft consente di connettersi ai servizi cloud Microsoft. L'elenco dei servizi include i servizi di Office 365, ad esempio Exchange Online, SharePoint Online, Skype for business e Microsoft teams. Microsoft supporta la connettività bidirezionale nel peering Microsoft. Il traffico destinato ai servizi cloud Microsoft nel peering pubblico deve usare indirizzi IPv4 pubblici validi per poter accedere alla rete Microsoft.
+Il percorso di peering di Microsoft consente di connettersi ai servizi cloud Microsoft. L'elenco dei servizi include i servizi di Office 365, ad esempio Exchange Online, SharePoint Online, Skype for Business e Microsoft Teams. Microsoft supporta la connettività bidirezionale nel peering Microsoft. Il traffico destinato ai servizi cloud Microsoft nel peering pubblico deve usare indirizzi IPv4 pubblici validi per poter accedere alla rete Microsoft.
 
 Assicurarsi che l'indirizzo IP e il numero AS siano registrati a nome dell'utente in uno dei registri seguenti:
 
@@ -142,7 +142,7 @@ Le route predefinite sono consentite solo nelle sessioni di peering privato di A
 > 
 > 
 
-## <a name="bgp"></a>Supporto per le community BGP
+## <a name="support-for-bgp-communities"></a><a name="bgp"></a>Supporto per le community BGP
 Questa sezione fornisce una panoramica che illustra come vengono usate le community BGP con ExpressRoute. Microsoft annuncerà le route nei percorsi per il peering pubblico e il peering Microsoft con route contrassegnate con i valori della community appropriati. I motivi per questa operazione e i dettagli sui valori della community sono descritti di seguito. Microsoft, tuttavia, non rispetterà eventuali valori della community contrassegnati in base a route annunciate a Microsoft.
 
 Se si effettua la connessione a Microsoft tramite ExpressRoute presso una qualsiasi località di peering all'interno di un'area geopolitica, sarà possibile accedere a tutti i servizi cloud Microsoft in tutte le aree all'interno dell'area geopolitica. 
@@ -153,7 +153,7 @@ Per un elenco dettagliato delle aree geopolitiche, delle aree di Azure associate
 
 È possibile acquistare più di un circuito ExpressRoute per area geopolitica. Un maggior numero di connessioni offre vantaggi significativi in termini di disponibilità elevata, grazie alla ridondanza geografica. Se si hanno più circuiti ExpressRoute, si riceverà lo stesso set di prefissi annunciati da Microsoft nei percorsi per il peering Microsoft e per il peering pubblico. Questo significa che saranno disponibili più percorsi dalla propria rete a Microsoft. In questo caso, all'interno della rete potrebbero essere prese decisioni di routing non ottimali, che possono a propria volta determinare esperienze di connettività non ottimali per diversi servizi. Per prendere decisioni di routing appropriate e offrire un servizio di [routing ottimale agli utenti](expressroute-optimize-routing.md), è possibile usare i valori della community.
 
-| **Area di Microsoft Azure** | **Community BGP regionale** | **Community BGP di archiviazione** | **Community BGP SQL** | **Cosmos DB community BGP** |
+| **Area di Microsoft Azure** | **Comunità BGP regionale** | **Comunità BGP di storage** | **Comunità BGP SQL** | **Comunità BGP Cosmos DB** |
 | --- | --- | --- | --- | --- |
 | **America del Nord** | |
 | Stati Uniti orientali | 12076:51004 | 12076:52004 | 12076:53004 | 12076:54004 |
@@ -175,12 +175,12 @@ Per un elenco dettagliato delle aree geopolitiche, delle aree di Azure associate
 | Regno Unito occidentale | 12076:51025 | 12076:52025 | 12076:53025 | 12076:54025 |
 | Francia centrale | 12076:51030 | 12076:52030 | 12076:53030 | 12076:54030 |
 | Francia meridionale | 12076:51031 | 12076:52031 | 12076:53031 | 12076:54031 |
-| Svizzera settentrionale | 12076:51038 | 12076:52038 | 12076:53038 | 12076:54038 | 
-| Svizzera occidentale | 12076:51039 | 12076:52039 | 12076:53039 | 12076:54039 | 
-| Germania settentrionale | 12076:51040 | 12076:52040 | 12076:53040 | 12076:54040 | 
-| Germania centro-occidentale | 12076:51041 | 12076:52041 | 12076:53041 | 12076:54041 | 
+| Svizzera Nord | 12076:51038 | 12076:52038 | 12076:53038 | 12076:54038 | 
+| Svizzera Ovest | 12076:51039 | 12076:52039 | 12076:53039 | 12076:54039 | 
+| Germania Nord | 12076:51040 | 12076:52040 | 12076:53040 | 12076:54040 | 
+| Germania Centro Ovest | 12076:51041 | 12076:52041 | 12076:53041 | 12076:54041 | 
 | Norvegia orientale | 12076:51042 | 12076:52042 | 12076:53042 | 12076:54042 | 
-| Norvegia occidentale | 12076:51043 | 12076:52043 | 12076:53043 | 12076:54043 | 
+| Norvegia Ovest | 12076:51043 | 12076:52043 | 12076:53043 | 12076:54043 | 
 | **Asia Pacifico** | |
 | Asia orientale | 12076:51010 | 12076:52010 | 12076:53010 | 12076:54010 |
 | Asia sud-orientale | 12076:51011 | 12076:52011 | 12076:53011 | 12076:54011 |
@@ -197,12 +197,12 @@ Per un elenco dettagliato delle aree geopolitiche, delle aree di Azure associate
 | India meridionale | 12076:51019 | 12076:52019 | 12076:53019 | 12076:54019 |
 | India occidentale | 12076:51018 | 12076:52018 | 12076:53018 | 12076:54018 |
 | India centrale | 12076:51017 | 12076:52017 | 12076:53017 | 12076:54017 |
-| **Corea del Sud** | |
+| **Corea** | |
 | Corea meridionale | 12076:51028 | 12076:52028 | 12076:53028 | 12076:54028 |
 | Corea centrale | 12076:51029 | 12076:52029 | 12076:53029 | 12076:54029 |
 | **Sud Africa**| |
 | Sudafrica settentrionale | 12076:51034 | 12076:52034 | 12076:53034 | 12076:54034 |
-| Sudafrica occidentale | 12076:51035 | 12076:52035 | 12076:53035 | 12076:54035 |
+| Sudafrica Ovest | 12076:51035 | 12076:52035 | 12076:53035 | 12076:54035 |
 | **Emirati Arabi Uniti**| |
 | Emirati Arabi Uniti settentrionali | 12076:51036 | 12076:52036 | 12076:53036 | 12076:54036 |
 | Emirati Arabi Uniti centrali | 12076:51037 | 12076:52037 | 12076:53037 | 12076:54037 |
@@ -215,22 +215,22 @@ Tutte le route annunciate da Microsoft verranno contrassegnate con il valore del
 > 
 > 
 
-### <a name="service-to-bgp-community-value"></a>Valore della community da servizio a BGP
-Microsoft contrassegnerà anche i prefissi in base al servizio di appartenenza. Questo si applica solo al peering Microsoft. La tabella seguente fornisce il mapping del servizio al valore della community BGP. Per un elenco completo dei valori più recenti, è possibile eseguire il cmdlet "Get-AzBgpServiceCommunity".
+### <a name="service-to-bgp-community-value"></a>Servizio al valore della comunità BGP
+Microsoft contrassegnerà anche i prefissi in base al servizio di appartenenza. Questo si applica solo al peering Microsoft. La tabella seguente fornisce il mapping del servizio al valore della community BGP. È possibile eseguire il cmdlet 'Get-AzBgpServiceCommunity' per un elenco completo dei valori più recenti.
 
-| **Service** | **Valore della community BGP** |
+| **Servizio** | **Valore della community BGP** |
 | --- | --- |
-| Exchange Online * * | 12076:5010 |
-| SharePoint Online * * | 12076:5020 |
-| Skype for business online * * | 12076:5030 |
-| CRM Online * * * |12076:5040 |
+| Exchange Online | 12076:5010 |
+| SharePoint Online | 12076:5020 |
+| Skype for Business online | 12076:5030 |
+| CRM Online |12076:5040 |
 | Servizi globali di Azure* | 12076:5050 |
 | Azure Active Directory |12076:5060 |
-| Altri servizi online di Office 365 * * | 12076:5100 |
+| Altri servizi di Office 365 Online | 12076:5100 |
 
-\* I servizi globali di Azure includono al momento solo Azure DevOps. \
-\* * Autorizzazione richiesta da Microsoft, vedere [configurare i filtri di route per il peering Microsoft](how-to-routefilter-portal.md)\
-CRM Online supporta Dynamics v 8.2 e versioni precedenti. Per le versioni successive, selezionare la community regionale per le distribuzioni di Dynamics.
+Al momento, i servizi globali di Azure includono solo DevOps di Azure.
+: autorizzazione richiesta da Microsoft, fare riferimento configurare i [filtri di route per il peering Microsoft](how-to-routefilter-portal.md)\
+CRM Online supporta Dynamics v8.2 e versione successive. Per le versioni successive, selezionare la community regionale per le distribuzioni di Dynamics.
 
 > [!NOTE]
 > Microsoft non riconosce eventuali valori di BGP Community impostati sulle route pubblicate su Microsoft.

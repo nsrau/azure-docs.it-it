@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 07/05/2017
 ms.author: alkohli
 ms.openlocfilehash: 607379f8645226a031646376df9ca18f4d3164bf
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79267794"
 ---
 # <a name="use-the-storsimple-device-manager-service-in-azure-portal-to-manage-backup-policies"></a>Usare il servizio Gestione dispositivi StorSimple nel portale di Azure per gestire i criteri di backup
@@ -38,7 +38,7 @@ Il pannello **Criteri di Backup** del dispositivo StorSimple consente di gestire
 
 L'elenco tabulare dei criteri di backup consente anche di filtrare i criteri di backup esistenti in base a uno o più dei seguenti campi:
 
-* **Nome criterio** : il nome associato al criterio. I diversi tipi di criteri includono:
+* **Nome criteri**: nome associato ai criteri. I diversi tipi di criteri includono:
 
   * Criteri pianificati, vengono creati esplicitamente dall'utente.
   * Criteri importati, che sono stati originariamente creati in Gestione Snapshot StorSimple. Hanno un tag che descrive l'host di gestione Snapshot StorSimple che i criteri sono stati importati da.
@@ -46,13 +46,13 @@ L'elenco tabulare dei criteri di backup consente anche di filtrare i criteri di 
   > [!NOTE]
   > I criteri di backup automatici o predefiniti non sono più abilitati al momento della creazione del volume.
 
-* **Ultimo backup completato** : la data e l'ora dell'ultimo backup riuscito è stato creato con questo criterio.
+* **Ultimo backup completato**: data e ora dell'ultimo backup completato eseguito in base a tali criteri.
 
-* **Backup successivo** : data e ora del successivo backup pianificato verrà avviato da questo criterio.
+* **Backup successivo**: data e ora del backup pianificato successivo che verrà avviato in base a tali criteri.
 
-* **Volumi** – i volumi associati al criterio. Tutti i volumi associati a un criterio di backup vengono raggruppati quando vengono creati i backup.
+* **Volumi**: tutti i volumi associati ai criteri. Tutti i volumi associati a un criterio di backup vengono raggruppati quando vengono creati i backup.
 
-* **Pianificazioni** – il numero di pianificazioni associate al criterio di backup.
+* **Pianificazioni**: numero di pianificazioni associate ai criteri di backup.
 
 Le operazioni più comuni che è possibile eseguire con i criteri di backup sono:
 

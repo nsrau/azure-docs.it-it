@@ -1,5 +1,5 @@
 ---
-title: Elencare i contenitori BLOB con .NET-archiviazione di Azure
+title: Elencare i contenitori BLOB con .NET - Archiviazione di AzureList blob containers with .NET - Azure Storage
 description: Informazioni su come elencare i contenitori BLOB nell'account di archiviazione di Azure usando la libreria client .NET.
 services: storage
 author: tamram
@@ -9,44 +9,44 @@ ms.date: 01/06/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: 155b8f5d50c7b106daff8dab4df17200b844c988
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79135905"
 ---
-# <a name="list-blob-containers-with-net"></a>Elencare i contenitori BLOB con .NET
+# <a name="list-blob-containers-with-net"></a>Elencare i contenitori BLOB con .NETList blob containers with .NET
 
-Quando si elencano i contenitori in un account di archiviazione di Azure dal codice, è possibile specificare diverse opzioni per gestire il modo in cui i risultati vengono restituiti dall'archiviazione di Azure. Questo articolo illustra come elencare i contenitori usando la [libreria client di archiviazione di Azure per .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).  
+Quando si elencano i contenitori in un account di archiviazione di Azure dal codice, è possibile specificare una serie di opzioni per gestire la modalità di restituzione dei risultati da Archiviazione di Azure.When you list the containers in an Azure Storage account from your code, you can specify a number of options to manage how results are returned from Azure Storage. Questo articolo illustra come elencare i contenitori usando la [libreria client di Archiviazione di Azure per .NET.](/dotnet/api/overview/azure/storage?view=azure-dotnet)  
 
-## <a name="understand-container-listing-options"></a>Informazioni sulle opzioni relative all'elenco di contenitori
+## <a name="understand-container-listing-options"></a>Informazioni sulle opzioni di elenco dei contenitori
 
-Per elencare i contenitori nell'account di archiviazione, chiamare uno dei metodi seguenti:
+Per elencare i contenitori nell'account di archiviazione, chiamare uno dei metodi seguenti:To list containers in your storage account, call one of the following methods:
 
 - [ListContainersSegmented](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.listcontainerssegmented)
 - [ListContainersSegmentedAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.listcontainerssegmentedasync)
 
-Gli overload di questi metodi forniscono opzioni aggiuntive per la gestione del modo in cui i contenitori vengono restituiti dall'operazione di elenco. Queste opzioni sono descritte nelle sezioni riportate di seguito.
+Gli overload per questi metodi forniscono opzioni aggiuntive per la gestione della modalità di restituzione dei contenitori dall'operazione di elenco. Queste opzioni sono descritte nelle sezioni seguenti.
 
 ### <a name="manage-how-many-results-are-returned"></a>Gestire il numero di risultati restituiti
 
-Per impostazione predefinita, un'operazione di elenco restituisce fino a 5000 risultati alla volta. Per restituire un set di risultati più piccolo, fornire un valore diverso da zero per il parametro `maxresults` quando si chiama uno dei metodi **ListContainerSegmented** .
+Per impostazione predefinita, un'operazione di elenco restituisce fino a 5000 risultati alla volta. Per restituire un set di risultati più piccolo, fornire un valore diverso da zero per il `maxresults` parametro quando si chiama uno dei **ListContainerSegmented** metodi.
 
-Se l'account di archiviazione contiene più di 5000 contenitori o se è stato specificato un valore per `maxresults` in modo che l'operazione di elenco restituisca un subset di contenitori nell'account di archiviazione, archiviazione di Azure restituisce un *token di continuazione* con l'elenco di contenitori. Un token di continuazione è un valore opaco che è possibile usare per recuperare il set successivo di risultati dall'archiviazione di Azure.
+Se l'account di archiviazione contiene più di 5000 `maxresults` contenitori o se è stato specificato un valore per tale che l'operazione di elenco restituisce un subset di contenitori nell'account di archiviazione, Archiviazione di Azure restituisce un token di *continuazione* con l'elenco dei contenitori. Un token di continuazione è un valore opaco che è possibile usare per recuperare il set di risultati successivo da Archiviazione di Azure.A continuation token is an opaque value that you can use to retrieve the next set of results from Azure Storage.
 
-Nel codice, controllare il valore del token di continuazione per determinare se è null. Quando il token di continuazione è null, il set di risultati è completo. Se il token di continuazione non è null, chiamare di nuovo **ListContainersSegmented** o **ListContainersSegmentedAsync** , passando il token di continuazione per recuperare il set di risultati successivo, fino a quando il token di continuazione non è null.
+Nel codice, controllare il valore del token di continuazione per determinare se è null. Quando il token di continuazione è null, il set di risultati è completo. Se il token di continuazione non è null, chiamare nuovamente **ListContainersSegmented** o **ListContainersSegmentedAsync,** passando il token di continuazione per recuperare il set di risultati successivo, fino a quando il token di continuazione non è null.
 
 ### <a name="filter-results-with-a-prefix"></a>Filtrare i risultati con un prefisso
 
-Per filtrare l'elenco dei contenitori, specificare una stringa per il parametro `prefix`. La stringa di prefisso può includere uno o più caratteri. Archiviazione di Azure restituisce quindi solo i contenitori i cui nomi iniziano con tale prefisso.
+Per filtrare l'elenco di contenitori, specificare una stringa per il `prefix` parametro. La stringa del prefisso può includere uno o più caratteri. Archiviazione di Azure restituisce quindi solo i contenitori i cui nomi iniziano con tale prefisso.
 
-### <a name="return-metadata"></a>Restituisci metadati
+### <a name="return-metadata"></a>Restituire i metadati
 
-Per restituire i metadati del contenitore con i risultati, specificare il valore **dei metadati** per l'enumerazione [ContainerListingDetails](/dotnet/api/microsoft.azure.storage.blob.containerlistingdetails) . Archiviazione di Azure include metadati con ogni contenitore restituito, pertanto non è necessario chiamare anche uno dei metodi **FetchAttributes** per recuperare i metadati del contenitore.
+Per restituire i metadati del contenitore con i risultati, specificare **il** metadata valore per il [ContainerListingDetails](/dotnet/api/microsoft.azure.storage.blob.containerlistingdetails) enumerazione. Archiviazione di Azure include metadati con ogni contenitore restituito, pertanto non è necessario chiamare anche uno dei metodi **FetchAttributes** per recuperare i metadati del contenitore.
 
-## <a name="example-list-containers"></a>Esempio: elencare i contenitori
+## <a name="example-list-containers"></a>Esempio: elencare i contenitoriExample: List containers
 
-Nell'esempio seguente vengono elencati in modo asincrono i contenitori in un account di archiviazione che iniziano con un prefisso specificato. Nell'esempio vengono elencati i contenitori con incrementi di 5 risultati alla volta e viene utilizzato il token di continuazione per ottenere il segmento di risultati successivo. Nell'esempio vengono restituiti anche i metadati del contenitore con i risultati.
+Nell'esempio seguente vengono elencati in modo asincrono i contenitori in un account di archiviazione che iniziano con un prefisso specificato. L'esempio elenca i contenitori con incrementi di 5 risultati alla volta e usa il token di continuazione per ottenere il segmento successivo dei risultati. L'esempio restituisce anche i metadati del contenitore con i risultati.
 
 ```csharp
 private static async Task ListContainersWithPrefixAsync(CloudBlobClient blobClient,
@@ -101,4 +101,4 @@ private static async Task ListContainersWithPrefixAsync(CloudBlobClient blobClie
 ## <a name="see-also"></a>Vedere anche
 
 [Elencare i contenitori](/rest/api/storageservices/list-containers2)
-[enumerare le risorse BLOB](/rest/api/storageservices/enumerating-blob-resources)
+[che enumerano le risorse BLOBList](/rest/api/storageservices/enumerating-blob-resources) Containers Enumerating Blob Resources

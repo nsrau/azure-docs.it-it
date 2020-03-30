@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
 ms.openlocfilehash: b05d1f36d1e74b3d915e216676859654fbcbacf3
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79254885"
 ---
 # <a name="replace-an-ebod-controller-on-your-storsimple-device"></a>Sostituzione di un controller EBOD nel dispositivo StorSimple
@@ -42,7 +42,7 @@ Prima di sostituire il modulo controller EBOD guasto nel dispositivo StorSimple,
 
 #### <a name="to-remove-an-ebod-module"></a>Per rimuovere un modulo EBOD:
 1. Aprire il portale di Azure.
-2. Passare a **Impostazioni** > **Integrità hardware**, quindi verificare che lo stato del LED per il modulo controller EBOD sia verde e che il LED per il modulo controller EBOD guasto sia rosso.
+2. Passare al dispositivo e passare a **Impostazioni** > **Integrità hardware**e verificare che lo stato del LED per il modulo controller EBOD attivo sia verde e che il LED per il modulo del controller EBOD guasto sia rosso.
 3. Individuare il modulo controller EBOD guasto nella parte posteriore del dispositivo.
 4. Rimuovere i cavi che collegano il modulo controller EBOD al controller prima di rimuovere il modulo EBOD dal sistema.
 5. Prendere nota dell'esatta porta SAS del modulo controller EBOD collegata al controller. Dopo la sostituzione del modulo EBOD, sarà necessario ripristinare il sistema a questa configurazione.
@@ -74,12 +74,12 @@ Nella procedura e nella tabella seguenti viene illustrato come installare un mod
    
     ![Installazione del controller EBOD](./media/storsimple-ebod-controller-replacement/IC741050.png)
    
-    **Figura 2** Installazione del modulo controller EBOD
+    **Figura 2**  Installazione del modulo controller EBOD
 3. Chiudere il chiavistello. Quando il chiavistello viene attivato si dovrebbe ascoltare un clic.
    
     ![Rilascio del latch EBOD](./media/storsimple-ebod-controller-replacement/IC741047.png)
    
-    **Figura 3** Chiusura del chiavistello del modulo EBOD
+    **Figura 3**  Chiusura del fermo del modulo EBOD
 4. Riconnettere i cavi. Utilizzare la configurazione esatta presente prima della sostituzione. Vedere il diagramma e la tabella seguenti per informazioni dettagliate su come connettere i cavi.
    
     ![Cablare il dispositivo 4U per l'alimentazione](./media/storsimple-ebod-controller-replacement/IC770723.png)

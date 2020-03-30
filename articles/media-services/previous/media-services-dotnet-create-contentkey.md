@@ -1,6 +1,6 @@
 ---
 title: Creare entità ContentKey mediante .NET
-description: Questo articolo illustra come creare chiavi simmetriche che forniscono l'accesso sicuro agli asset.
+description: In questo articolo viene illustrato come creare chiavi di contenuto che forniscono accesso sicuro alle risorse.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: aebd6dee9314d6e5641988767c024790b6b721f4
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79251154"
 ---
 # <a name="create-contentkeys-with-net"></a>Creare entità ContentKey mediante .NET 
@@ -70,7 +70,7 @@ Uno dei valori che è necessario impostare quando si crea una chiave simmetrica 
     }
 ```
 
-## <a id="envelope_contentkey"></a>Creare un'entità ContentKey di tipo envelope
+## <a name="create-envelope-type-contentkey"></a><a id="envelope_contentkey"></a>Creare un'entità ContentKey di tipo envelope
 Il seguente frammento di codice crea una chiave simmetrica con tipo di crittografia envelope. Associa quindi la chiave all'asset specificato.
 
 ```csharp
@@ -108,7 +108,7 @@ call
 ```
 
 
-## <a id="common_contentkey"></a>Creare un'entità ContentKey di tipo common
+## <a name="create-common-type-contentkey"></a><a id="common_contentkey"></a>Creare un'entità ContentKey di tipo common
 Il seguente frammento di codice crea una chiave simmetrica con tipo di crittografia common. Associa quindi la chiave all'asset specificato.
 
 ```csharp

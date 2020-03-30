@@ -1,7 +1,7 @@
 ---
 title: Definizione dell'interfaccia per le competenze personalizzate
 titleSuffix: Azure Cognitive Search
-description: Interfaccia di estrazione dei dati personalizzata per le competenze personalizzate dell'API Web in una pipeline di arricchimento di intelligenza artificiale in Azure ricerca cognitiva.
+description: Custom data extraction interface for web-api custom skill in an AI enrichment pipeline in Azure Cognitive Search.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
@@ -9,23 +9,23 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.openlocfilehash: 78f5f6eda28bed164668445b5671dad92f8dedd7
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77500259"
 ---
-# <a name="how-to-add-a-custom-skill-to-an-azure-cognitive-search-enrichment-pipeline"></a>Come aggiungere un'abilità personalizzata a una pipeline di arricchimento ricerca cognitiva di Azure
+# <a name="how-to-add-a-custom-skill-to-an-azure-cognitive-search-enrichment-pipeline"></a>Come aggiungere una competenza personalizzata a una pipeline di arricchimento di Ricerca cognitiva di AzureHow to add a custom skill to an Azure Cognitive Search enrichment pipeline
 
-Una [pipeline di arricchimento](cognitive-search-concept-intro.md) in Azure ricerca cognitiva può essere assemblata da [competenze cognitive predefinite](cognitive-search-predefined-skills.md) , oltre che da [competenze personalizzate](cognitive-search-custom-skill-web-api.md) che vengono create e aggiunte personalmente alla pipeline. In questo articolo viene illustrato come creare un'abilità personalizzata che espone un'interfaccia per consentirne l'inclusione in una pipeline di arricchimento dell'intelligenza artificiale. 
+Una pipeline di [arricchimento](cognitive-search-concept-intro.md) in Ricerca cognitiva di Azure può essere assemblata da [competenze cognitive incorporate](cognitive-search-predefined-skills.md) e [competenze personalizzate](cognitive-search-custom-skill-web-api.md) create e aggiunte personalmente alla pipeline. In questo articolo viene illustrato come creare una competenza personalizzata che espone un'interfaccia che ne consente l'archiviazione in una pipeline di arricchimento dell'ialivello. 
 
-Compilare un'esperienza personalizzata permette di inserire trasformazioni esclusive nel proprio contenuto. Una competenza personalizzata viene eseguita in modo indipendente, applicando qualsiasi passaggio di arricchimento desiderato. Ad esempio, è possibile definire entità personalizzate specifiche per campo, compilare modelli di classificazione personalizzati per distinguere i contratti e documenti commerciali da quelli finanziari oppure aggiungere una competenza di riconoscimento vocale per analizzare in modo più approfondito i file audio allo scopo di individuare il contenuto pertinente. Per un esempio dettagliato, vedere [esempio: creazione di un'abilità personalizzata per l'arricchimento di intelligenza artificiale](cognitive-search-create-custom-skill-example.md).
+Compilare un'esperienza personalizzata permette di inserire trasformazioni esclusive nel proprio contenuto. Una competenza personalizzata viene eseguita in modo indipendente, applicando qualsiasi passaggio di arricchimento desiderato. Ad esempio, è possibile definire entità personalizzate specifiche per campo, compilare modelli di classificazione personalizzati per distinguere i contratti e documenti commerciali da quelli finanziari oppure aggiungere una competenza di riconoscimento vocale per analizzare in modo più approfondito i file audio allo scopo di individuare il contenuto pertinente. Per un esempio dettagliato, vedere [Esempio: creazione di una competenza personalizzata per l'arricchimento dell'ia-adiaria](cognitive-search-create-custom-skill-example.md).
 
  Qualunque sia la capacità personalizzata necessaria, è disponibile un'interfaccia semplice e chiara per la connessione di una competenza personalizzata al resto della pipeline di arricchimento. L'unico requisito per l'inclusione in un [set di competenze](cognitive-search-defining-skillset.md) è la capacità di accettare input e generare output in modi che possano essere usati all'interno del set di competenze nel suo complesso. Questo articolo è incentrato sui formati di input e output richiesti dalla pipeline di arricchimento.
 
 ## <a name="web-api-custom-skill-interface"></a>Interfaccia della competenza personalizzata API Web
 
-Sugli endpoint di competenza WebAPI personalizzati viene eseguito il timeout per impostazione predefinita se non restituiscono una risposta all'interno di una finestra di 30 secondi. La pipeline di indicizzazione è sincrona e l'indicizzazione genera un errore di timeout se in tale periodo non viene ricevuta alcuna risposta.  È possibile configurare il timeout per un massimo di 230 secondi, impostando il parametro timeout:
+Sugli endpoint di competenza WebAPI personalizzati viene eseguito il timeout per impostazione predefinita se non restituiscono una risposta all'interno di una finestra di 30 secondi. La pipeline di indicizzazione è sincrona e l'indicizzazione genera un errore di timeout se in tale periodo non viene ricevuta alcuna risposta.  È possibile configurare il timeout fino a 230 secondi, impostando il parametro timeout:
 
 ```json
         "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
@@ -34,11 +34,11 @@ Sugli endpoint di competenza WebAPI personalizzati viene eseguito il timeout per
         "timeout": "PT230S",
 ```
 
-Verificare che l'URI sia protetto (HTTPS).
+Assicurarsi che l'URI sia sicuro (HTTPS).
 
 Attualmente, l'unico meccanismo per interagire con una competenza è tramite un'interfaccia API Web. L'API Web deve soddisfare i requisiti descritti in questa sezione.
 
-### <a name="1--web-api-input-format"></a>1. formato di input dell'API Web
+### <a name="1--web-api-input-format"></a>1. Formato di input API Web
 
 L'API Web deve accettare una matrice di record da elaborare. Ogni record deve contenere un "contenitore delle proprietà", che corrisponde all'input fornito all'API Web. 
 
@@ -83,7 +83,7 @@ Per rendere il discorso più concreto, in base all'esempio precedente l'API Web 
 ```
 In realtà, il servizio può essere chiamato con centinaia o migliaia di record anziché solo con i tre mostrati qui.
 
-### <a name="2-web-api-output-format"></a>2. formato di output dell'API Web
+### <a name="2-web-api-output-format"></a>2. Formato di output API Web
 
 Il formato dell'output è un set di record che contiene un *recordId* e un contenitore delle proprietà 
 
@@ -124,7 +124,7 @@ Come illustrato nell'esempio precedente, si possono restituire messaggi di error
 
 ## <a name="consuming-custom-skills-from-skillset"></a>Uso di competenze personalizzate dal set di competenze
 
-Quando si crea un enricher API Web, è possibile descrivere intestazioni HTTP e parametri come parte della richiesta. Il frammento di codice seguente mostra come i parametri della richiesta e le intestazioni HTTP *facoltative* possono essere descritte come parte della definizione del insieme di competenze. Le intestazioni HTTP non sono un requisito, ma consentono di aggiungere altre funzionalità di configurazione alle proprie competenze e di impostarle dalla definizione del set di competenze.
+Quando si crea un enricher API Web, è possibile descrivere intestazioni HTTP e parametri come parte della richiesta. Il frammento di codice seguente mostra come i parametri di richiesta e le intestazioni HTTP *facoltative* possono essere descritti come parte della definizione del set di competenze. Le intestazioni HTTP non sono un requisito, ma consentono di aggiungere funzionalità di configurazione aggiuntive alle competenze e di impostarle dalla definizione del set di competenze.
 
 ```json
 {
@@ -156,10 +156,10 @@ Quando si crea un enricher API Web, è possibile descrivere intestazioni HTTP e 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questo articolo ha trattato i requisiti di interfaccia necessari per l'integrazione di un'abilità personalizzata in un skillt. Fare clic sui collegamenti seguenti per ulteriori informazioni sulle competenze personalizzate e sulla composizione di competenze.
+Questo articolo illustra i requisiti di interfaccia necessari per l'integrazione di una competenza personalizzata in un set di competenze. Fare clic sui collegamenti seguenti per ulteriori informazioni sulle competenze personalizzate e sulla composizione delle competenze.
 
-+ [Power Skills: un repository di competenze personalizzate](https://github.com/Azure-Samples/azure-search-power-skills)
-+ [Esempio: creazione di un'abilità personalizzata per l'arricchimento di intelligenza artificiale](cognitive-search-create-custom-skill-example.md)
++ [Power Skills: un archivio di competenze personalizzate](https://github.com/Azure-Samples/azure-search-power-skills)
++ [Esempio: creazione di una competenza personalizzata per l'arricchimento dell'iAExample: Creating a custom skill for AI enrichment](cognitive-search-create-custom-skill-example.md)
 + [Come definire un set di competenze](cognitive-search-defining-skillset.md)
 + [Creare un set di competenze (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
 + [Come eseguire il mapping dei campi arricchiti](cognitive-search-output-field-mapping.md)

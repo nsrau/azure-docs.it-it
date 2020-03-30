@@ -1,5 +1,5 @@
 ---
-title: Serializzazione della cache di token (MSAL.NET) | Azure
+title: Serializzazione della cache di token (MSAL.NET) Azure
 titleSuffix: Microsoft identity platform
 description: Informazioni sulla serializzazione e la serializzazione da parte dei clienti della cache dei token tramite Microsoft Authentication Library per .NET (MSAL.NET).
 services: active-directory
@@ -14,10 +14,10 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 1bd348ad27d892d0421b13c16ce81bc4f5dfb021
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79262802"
 ---
 # <a name="token-cache-serialization-in-msalnet"></a>Serializzazione della cache dei token in MSAL.NET
@@ -122,7 +122,7 @@ static class TokenCacheHelper
  }
 ```
 
-Un'anteprima di un serializzatore basato su file della cache dei token per la qualità del prodotto per le applicazioni client pubbliche (per le applicazioni desktop in esecuzione in Windows, Mac e Linux) è disponibile dalla libreria open source [Microsoft.Identity.Client.Extensions.Msal](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Msal). È possibile includerlo nelle applicazioni dal pacchetto NuGet seguente: [Microsoft. Identity. client. Extensions. MSAL](https://www.nuget.org/packages/Microsoft.Identity.Client.Extensions.Msal/).
+Un'anteprima di un serializzatore basato su file della cache dei token per la qualità del prodotto per le applicazioni client pubbliche (per le applicazioni desktop in esecuzione in Windows, Mac e Linux) è disponibile dalla libreria open source [Microsoft.Identity.Client.Extensions.Msal](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Msal). È possibile includerlo nelle applicazioni dal seguente pacchetto nuget: [Microsoft.Identity.Client.Extensions.Msal](https://www.nuget.org/packages/Microsoft.Identity.Client.Extensions.Msal/).
 
 #### <a name="dual-token-cache-serialization-msal-unified-cache-and-adal-v3"></a>Serializzazione doppia della cache dei token (cache unificata MSAL e ADAL v3)
 
@@ -271,9 +271,9 @@ namespace CommonCacheMsalV3
 
 Nelle app Web o nelle API Web la cache può sfruttare la sessione, una cache Redis o un database.
 
-In app Web o API Web tenere una cache di token per ogni account.  Per le app Web, la cache dei token deve essere codificata dall'ID account.  Per le API Web, l'account deve essere codificato dall'hash del token usato per chiamare l'API. MSAL.NET fornisce la serializzazione della cache di token personalizzata nelle sottopiattaforme .NET Framework e .NET Core. Gli eventi vengono generati quando si accede alla cache, le app possono scegliere se serializzare o deserializzare la cache. Nelle applicazioni client riservate che gestiscono gli utenti (app Web che consentono agli utenti di accedere e chiamano API Web e API Web che chiamano API Web downstream), possono essere presenti molti utenti e gli utenti vengono elaborati in parallelo. Per motivi di sicurezza e prestazioni, è consigliabile serializzare una cache per utente. Gli eventi di serializzazione calcolano una chiave di cache in base all'identità dell'utente elaborato e serializzano/deserializzano una cache di token per tale utente.
+Nelle app Web o nelle API Web, mantieni una cache dei token per account.  Per le app Web, la cache dei token deve essere con chiave dall'ID account.  Per le API Web, l'account deve essere con chiave dall'hash del token utilizzato per chiamare l'API. MSAL.NET fornisce la serializzazione della cache dei token personalizzata nelle sottopiattaforme .NET Framework e .NET Core. Gli eventi vengono generati quando si accede alla cache, le app possono scegliere se serializzare o deserializzare la cache. Nelle applicazioni client riservate che gestiscono gli utenti (app Web che accedono agli utenti e chiamano API Web e API Web che chiamano API Web downstream), possono essere presenti molti utenti e gli utenti vengono elaborati in parallelo. Per motivi di sicurezza e prestazioni, è consigliabile serializzare una cache per utente. Gli eventi di serializzazione calcolano una chiave di cache in base all'identità dell'utente elaborato e serializzano/deserializzano una cache di token per tale utente.
 
-Esempi di come usare le cache dei token per le app Web e le API Web sono disponibili in [Esercitazione sull'app Web ASP.NET Core](https://ms-identity-aspnetcore-webapp-tutorial), nella fase [2-2 Cache dei token](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-2-TokenCache). Per le implementazioni, esaminare la cartella [TokenCacheProviders](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/Microsoft.Identity.Web/TokenCacheProviders) nella libreria [Microsoft-Authentication-Extensions-for-DotNet](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet) (nella cartella [Microsoft. Identity. client. Extensions. Web](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Web) . 
+Esempi di come usare le cache dei token per le app Web e le API Web sono disponibili in [Esercitazione sull'app Web ASP.NET Core](https://ms-identity-aspnetcore-webapp-tutorial), nella fase [2-2 Cache dei token](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-2-TokenCache). Per le implementazioni, esaminare la cartella [TokenCacheProviders](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/Microsoft.Identity.Web/TokenCacheProviders) nella libreria [microsoft-authentication-extensions-for-dotnet](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet) (nella cartella [Microsoft.Identity.Client.Extensions.Web).](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Web) 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Gli esempi seguenti illustrano la serializzazione della cache dei token.

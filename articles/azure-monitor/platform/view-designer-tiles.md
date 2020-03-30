@@ -1,20 +1,20 @@
 ---
-title: Guida di riferimento ai riquadri di Progettazione viste in monitoraggio di Azure | Microsoft Docs
-description: Usando Progettazione viste in monitoraggio di Azure, è possibile creare visualizzazioni personalizzate che vengono visualizzate nel portale di Azure e contengono un'ampia gamma di visualizzazioni sui dati nell'area di lavoro Log Analytics. Questo articolo è una guida di riferimento per le impostazioni relative ai riquadri disponibili nelle viste personalizzate.
+title: Guida di riferimento ai riquadri di Progettazione viste in Monitoraggio di Azure. Documenti Microsoft
+description: Usando Progettazione viste in Monitoraggio di Azure, è possibile creare visualizzazioni personalizzate visualizzate nel portale di Azure e contengono un'ampia gamma di visualizzazioni sui dati nell'area di lavoro log Analytics.By using View Designer in Azure Monitor, you can create custom views that are displayed in the Azure portal and contain a variety of visualizations on data in the Log Analytics workspace. Questo articolo è una guida di riferimento per le impostazioni relative ai riquadri disponibili nelle viste personalizzate.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/17/2018
 ms.openlocfilehash: 0320be3a2cfbb96367799577a6e56bcf5da87dcb
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77658507"
 ---
-# <a name="reference-guide-to-view-designer-tiles-in-azure-monitor"></a>Guida di riferimento per visualizzare i riquadri di progettazione in monitoraggio di Azure
-Utilizzando Progettazione viste in monitoraggio di Azure, è possibile creare un'ampia gamma di visualizzazioni personalizzate nell'portale di Azure che consentono di visualizzare i dati nell'area di lavoro di Log Analytics. Questo articolo è una guida di riferimento per le impostazioni relative ai riquadri disponibili nelle viste personalizzate.
+# <a name="reference-guide-to-view-designer-tiles-in-azure-monitor"></a>Guida di riferimento ai riquadri di Progettazione viste in Monitoraggio di AzureReference guide to View Designer tiles in Azure Monitor
+Usando Progettazione viste in Monitoraggio di Azure, è possibile creare un'ampia gamma di visualizzazioni personalizzate nel portale di Azure che consentono di visualizzare i dati nell'area di lavoro di Log Analytics.By using View Designer in Azure Monitor, you can create a variety of custom views in the Azure portal that can help you visualize data in your Log Analytics workspace. Questo articolo è una guida di riferimento per le impostazioni relative ai riquadri disponibili nelle viste personalizzate.
 
 Per altre informazioni su Progettazione visualizzazioni, vedere:
 
@@ -26,7 +26,7 @@ I riquadri di Progettazione viste disponibili sono descritti nella tabella segue
 
 | Riquadro | Descrizione |
 |:--- |:--- |
-| [Number](#number-tile) |Numero di record restituiti da una query. |
+| [Numero](#number-tile) |Numero di record restituiti da una query. |
 | [Due numeri](#two-numbers-tile) |Numero di record restituiti da due diverse query. |
 | [Anello](#donut-tile) | Grafico basato su una query con un valore di riepilogo al centro. |
 | Grafico a linee e callout | Grafico a linee basato su una query e callout con un valore di riepilogo. |
@@ -36,7 +36,7 @@ I riquadri di Progettazione viste disponibili sono descritti nella tabella segue
 Le sezioni successive descrivono nei dettagli i tipi di riquadro e le relative proprietà.
 
 > [!NOTE]
-> I riquadri nelle viste sono basati sulle [query di log](../log-query/log-query-overview.md) nell'area di lavoro log Analytics. Attualmente non supportano [query tra risorse](../log-query/cross-workspace-query.md) per recuperare dati da Application Insights.
+> I riquadri nelle visualizzazioni sono basati sulle query di [log](../log-query/log-query-overview.md) nell'area di lavoro di Log Analytics. Attualmente non supportano [le query tra risorse](../log-query/cross-workspace-query.md) per recuperare dati da Application Insights.They do not currently support cross resource queries to retrieve data from Application Insights.
 
 ## <a name="number-tile"></a>Riquadro Numero
 Il riquadro **Numero** visualizza il numero di record restituiti da una query di log e un'etichetta.
@@ -45,13 +45,13 @@ Il riquadro **Numero** visualizza il numero di record restituiti da una query di
 
 | Impostazione | Descrizione |
 |:--- |:--- |
-| Name |Testo che viene visualizzato nella parte superiore del riquadro. |
+| Nome |Testo che viene visualizzato nella parte superiore del riquadro. |
 | Descrizione |Testo visualizzato sotto il nome del riquadro. |
 | **Riquadro** | |
-| Legend |Testo visualizzato sotto il valore. |
+| Legenda |Testo visualizzato sotto il valore. |
 | Query |Query eseguita. Viene visualizzato il numero di record restituiti dalla query. |
-| **Funzionalità avanzate** |**&gt; Verifica del flusso di dati** |
-| Abilitato |Selezionare questo collegamento se è necessario abilitare la verifica del flusso di dati per il riquadro. Questo approccio fornisce un messaggio alternativo se non sono disponibili dati. Questo approccio viene in genere viene usato per fornire un messaggio durante il periodo temporaneo in cui la vista viene installata e i dati diventano disponibili. |
+| **Avanzate** |**&gt; Verifica del flusso di dati** |
+| Attivato |Selezionare questo collegamento se è necessario abilitare la verifica del flusso di dati per il riquadro. Questo approccio fornisce un messaggio alternativo se non sono disponibili dati. Questo approccio viene in genere viene usato per fornire un messaggio durante il periodo temporaneo in cui la vista viene installata e i dati diventano disponibili. |
 | Query |Query eseguita per determinare se sono disponibili dati per la vista. Se la query non restituisce risultati, viene visualizzato un messaggio al posto del valore dalla query principale. |
 | Message |Messaggio visualizzato se la query di verifica del flusso di dati non restituisce dati. Se non si specifica alcun messaggio, viene visualizzato il messaggio di stato *Esecuzione della valutazione*. |
 
@@ -63,16 +63,16 @@ Il riquadro visualizza il numero di record di due diverse query di log e un'etic
 
 | Impostazione | Descrizione |
 |:--- |:--- |
-| Name |Testo che viene visualizzato nella parte superiore del riquadro. |
+| Nome |Testo che viene visualizzato nella parte superiore del riquadro. |
 | Descrizione |Testo visualizzato sotto il nome del riquadro. |
 | **Primo riquadro** | |
-| Legend |Testo visualizzato sotto il valore. |
+| Legenda |Testo visualizzato sotto il valore. |
 | Query |Query eseguita. Viene visualizzato il numero di record restituiti dalla query. |
 | **Secondo riquadro** | |
-| Legend |Testo visualizzato sotto il valore. |
+| Legenda |Testo visualizzato sotto il valore. |
 | Query |Query eseguita. Viene visualizzato il numero di record restituiti dalla query. |
-| **Funzionalità avanzate** |**&gt; Verifica del flusso di dati** |
-| Abilitato |Selezionare questo collegamento se è necessario abilitare la verifica del flusso di dati per il riquadro. Questo approccio fornisce un messaggio alternativo se non sono disponibili dati. Questo approccio viene in genere viene usato per fornire un messaggio durante il periodo temporaneo in cui la vista viene installata e i dati diventano disponibili. |
+| **Avanzate** |**&gt; Verifica del flusso di dati** |
+| Attivato |Selezionare questo collegamento se è necessario abilitare la verifica del flusso di dati per il riquadro. Questo approccio fornisce un messaggio alternativo se non sono disponibili dati. Questo approccio viene in genere viene usato per fornire un messaggio durante il periodo temporaneo in cui la vista viene installata e i dati diventano disponibili. |
 | Query |Query eseguita per determinare se sono disponibili dati per la vista. Se la query non restituisce risultati, viene visualizzato un messaggio al posto del valore dalla query principale. |
 | Message |Messaggio visualizzato se la query di verifica del flusso di dati non restituisce dati. Se non si specifica alcun messaggio, viene visualizzato il messaggio di stato *Esecuzione della valutazione*. |
 
@@ -84,19 +84,19 @@ Il riquadro **Anello** visualizza un singolo numero che riepiloga una colonna di
 
 | Impostazione | Descrizione |
 |:--- |:--- |
-| Name |Testo che viene visualizzato nella parte superiore del riquadro. |
+| Nome |Testo che viene visualizzato nella parte superiore del riquadro. |
 | Descrizione |Testo visualizzato sotto il nome del riquadro. |
 | **Anello** | |
 | Query |Query eseguita per il grafico ad anello. La prima proprietà è un valore di testo, mentre la seconda è un valore numerico. Questa query usa in genere la parola chiave *measure* per riepilogare i risultati. |
 | **Anello** |**> Centro** |
-| Text |Testo che viene visualizzato sotto il valore all'interno del grafico ad anello. |
+| Testo |Testo che viene visualizzato sotto il valore all'interno del grafico ad anello. |
 | Operazione |Operazione eseguita sulla proprietà value per riepilogarla come valore singolo.<ul><li>Somma: per aggiungere i valori di tutti i record con il valore di proprietà.</li><li>Percentuale: la percentuale dei valori sommati dai record con il valore di proprietà rispetto ai valori sommati di tutti i record.</li></ul> |
 | I valori dei risultati usati nell'operazione centrale |Facoltativamente, fare clic sul segno più (+) per aggiungere uno o più valori. I risultati della query saranno limitati ai record con i valori di proprietà specificati. Se non vengono aggiunti valori, nella query vengono inclusi tutti i record. |
 | **Anello** |**> Opzioni aggiuntive** |
 | Colori |Colore che viene visualizzato per ognuna delle tre proprietà principali. Per specificare colori alternativi per valori di proprietà specifici, usare *Mappa colori avanzata*. |
 | Mappa colori avanzata |Visualizza un colore che rappresenta valori di proprietà specifici. Se il valore specificato è tra i primi tre, viene visualizzato il colore alternativo anziché il colore standard. Se il valore di proprietà non è tra i primi tre, il colore non viene visualizzato. |
-| **Funzionalità avanzate** |**&gt; Verifica del flusso di dati** |
-| Abilitato |Selezionare questo collegamento se è necessario abilitare la verifica del flusso di dati per il riquadro. Questo approccio fornisce un messaggio alternativo se non sono disponibili dati. Questo approccio viene in genere viene usato per fornire un messaggio durante il periodo temporaneo in cui la vista viene installata e i dati diventano disponibili. |
+| **Avanzate** |**&gt; Verifica del flusso di dati** |
+| Attivato |Selezionare questo collegamento se è necessario abilitare la verifica del flusso di dati per il riquadro. Questo approccio fornisce un messaggio alternativo se non sono disponibili dati. Questo approccio viene in genere viene usato per fornire un messaggio durante il periodo temporaneo in cui la vista viene installata e i dati diventano disponibili. |
 | Query |Query eseguita per determinare se sono disponibili dati per la vista. Se la query non restituisce risultati, viene visualizzato un messaggio al posto del valore dalla query principale. |
 | Message |Messaggio visualizzato se la query di verifica del flusso di dati non restituisce dati. Se non si specifica alcun messaggio, viene visualizzato il messaggio di stato *Esecuzione della valutazione*. |
 
@@ -108,16 +108,16 @@ Questo riquadro contiene un grafico a linee con più serie provenienti da una qu
 
 | Impostazione | Descrizione |
 |:--- |:--- |
-| Name |Testo che viene visualizzato nella parte superiore del riquadro. |
+| Nome |Testo che viene visualizzato nella parte superiore del riquadro. |
 | Descrizione |Testo visualizzato sotto il nome del riquadro. |
 | **Grafico a linee** | |
 | Query |Query eseguita per il grafico a linee. La prima proprietà è un valore di testo, mentre la seconda è un valore numerico. Questa query usa in genere la parola chiave *measure* per riepilogare i risultati. Se la query usa la parola chiave *interval*, l'asse X usa questo intervallo di tempo. Se la query non usa la parola chiave *interval*, l'asse X usa intervalli orari. |
 | **Grafico a linee** |**> Asse Y** |
 | Usa scala logaritmica |Selezionare questo collegamento per usare una scala logaritmica per l'asse Y. |
-| Unità |Specifica le unità per i valori restituiti dalla query. Queste informazioni vengono usate per visualizzare le etichette del grafico che indicano i tipi di valore e, facoltativamente, per convertire i valori. **Tipo di unità** specifica la categoria dell'unità e definisce i valori **Tipo di unità corrente** che sono disponibili. Se si seleziona un valore in **Converti in**, i valori numerici vengono convertiti dal tipo **Unità corrente** al tipo **Converti in**. |
+| Unità |Specifica le unità per i valori restituiti dalla query. Queste informazioni vengono usate per visualizzare le etichette del grafico che indicano i tipi di valore e, facoltativamente, per convertire i valori. Il **Tipo di unità** specifica la categoria dell'unità e definisce i valori tipo di unità **corrente** disponibili. Se si seleziona un valore in **Converti** in, i valori numerici vengono convertiti dal tipo **Unità corrente** al tipo **Converti** in. |
 | Etichetta personalizzata |Testo che viene visualizzato per l'asse Y accanto all'etichetta per il tipo *Unità*. Se non viene specificata alcuna etichetta, viene visualizzato solo il tipo *Unità*. |
-| **Funzionalità avanzate** |**&gt; Verifica del flusso di dati** |
-| Abilitato |Selezionare questo collegamento se è necessario abilitare la verifica del flusso di dati per il riquadro. Questo approccio fornisce un messaggio alternativo se non sono disponibili dati. Questo approccio viene in genere viene usato per fornire un messaggio durante il periodo temporaneo in cui la vista viene installata e i dati diventano disponibili. |
+| **Avanzate** |**&gt; Verifica del flusso di dati** |
+| Attivato |Selezionare questo collegamento se è necessario abilitare la verifica del flusso di dati per il riquadro. Questo approccio fornisce un messaggio alternativo se non sono disponibili dati. Questo approccio viene in genere viene usato per fornire un messaggio durante il periodo temporaneo in cui la vista viene installata e i dati diventano disponibili. |
 | Query |Query eseguita per determinare se sono disponibili dati per la vista. Se la query non restituisce risultati, viene visualizzato un messaggio al posto del valore dalla query principale. |
 | Message |Messaggio visualizzato se la query di verifica del flusso di dati non restituisce dati. Se non si specifica alcun messaggio, viene visualizzato il messaggio di stato *Esecuzione della valutazione*. |
 
@@ -129,7 +129,7 @@ Questo riquadro visualizza un grafico a linee con più serie provenienti da una 
 
 | Impostazione | Descrizione |
 |:--- |:--- |
-| Name |Testo che viene visualizzato nella parte superiore del riquadro. |
+| Nome |Testo che viene visualizzato nella parte superiore del riquadro. |
 | Descrizione |Testo visualizzato sotto il nome del riquadro. |
 | **Grafico a linee** | |
 | Query |Query eseguita per il grafico a linee. La prima proprietà è un valore di testo, mentre la seconda è un valore numerico. Questa query usa in genere la parola chiave *measure* per riepilogare i risultati. Se la query usa la parola chiave *interval*, l'asse X usa questo intervallo di tempo. Se la query non usa la parola chiave *interval*, l'asse X usa intervalli orari. |
@@ -141,8 +141,8 @@ Questo riquadro visualizza un grafico a linee con più serie provenienti da una 
 | Usa scala logaritmica |Selezionare questo collegamento per usare una scala logaritmica per l'asse Y. |
 | Unità |Specificare le unità per i valori restituiti dalla query. Queste informazioni vengono usate per visualizzare le etichette del grafico che indicano i tipi di valore e, facoltativamente, per convertire i valori. Il tipo di *Unità* specifica la categoria dell'unità e definisce i valori del tipo *Unità corrente* disponibili. Se si seleziona un valore in *Converti in*, i valori numerici vengono convertiti dal tipo *Unità corrente* al tipo *Converti in*. |
 | Etichetta personalizzata |Testo che viene visualizzato per l'asse Y accanto all'etichetta per il tipo *Unità*. Se non viene specificata alcuna etichetta, viene visualizzato solo il tipo *Unità*. |
-| **Funzionalità avanzate** |**&gt; Verifica del flusso di dati** |
-| Abilitato |Selezionare questo collegamento se è necessario abilitare la verifica del flusso di dati per il riquadro. Questo approccio fornisce un messaggio alternativo se non sono disponibili dati. Questo approccio viene in genere viene usato per fornire un messaggio durante il periodo temporaneo in cui la vista viene installata e i dati diventano disponibili. |
+| **Avanzate** |**&gt; Verifica del flusso di dati** |
+| Attivato |Selezionare questo collegamento se è necessario abilitare la verifica del flusso di dati per il riquadro. Questo approccio fornisce un messaggio alternativo se non sono disponibili dati. Questo approccio viene in genere viene usato per fornire un messaggio durante il periodo temporaneo in cui la vista viene installata e i dati diventano disponibili. |
 | Query |Query eseguita per determinare se sono disponibili dati per la vista. Se la query non restituisce risultati, viene visualizzato un messaggio al posto del valore dalla query principale. |
 | Message |Messaggio visualizzato se la query di verifica del flusso di dati non restituisce dati. Se non si specifica alcun messaggio, viene visualizzato il messaggio di stato *Esecuzione della valutazione*. |
 
@@ -154,24 +154,24 @@ Il riquadro **Due sequenze temporali** visualizza come istogramma i risultati di
 
 | Impostazione | Descrizione |
 |:--- |:--- |
-| Name |Testo che viene visualizzato nella parte superiore del riquadro. |
+| Nome |Testo che viene visualizzato nella parte superiore del riquadro. |
 | Descrizione |Testo visualizzato sotto il nome del riquadro. |
 | Primo grafico | |
-| Legend |Testo che viene visualizzato sotto il callout per la prima serie. |
+| Legenda |Testo che viene visualizzato sotto il callout per la prima serie. |
 | Colore |Colore usato per le colonne della prima serie. |
 | Query grafico |Query eseguita per la prima serie. Il numero di record in ogni intervallo di tempo è rappresentato dalle colonne del grafico. |
 | Operazione |Operazione eseguita sulla proprietà value per riepilogarla come valore singolo per il callout.<ul><li>Media: media dei valori di tutti i record.</li><li>Conteggio: numero di tutti i record restituiti dalla query.</li><li>Ultimo esempio: valore dell'ultimo intervallo incluso nel grafico.</li><li>Max: valore massimo derivante dagli intervalli inclusi nel grafico.</li></ul> |
 | **Secondo grafico** | |
-| Legend |Testo che viene visualizzato sotto il callout per la seconda serie. |
+| Legenda |Testo che viene visualizzato sotto il callout per la seconda serie. |
 | Colore |Colore usato per le colonne della seconda serie. |
 | Query grafico |Query eseguita per la seconda serie. Il numero di record in ogni intervallo di tempo è rappresentato dalle colonne del grafico. |
 | Operazione |Operazione eseguita sulla proprietà value per riepilogarla come valore singolo per il callout.<ul><li>Media: media dei valori di tutti i record.</li><li>Conteggio: numero di tutti i record restituiti dalla query.</li><li>Ultimo esempio: valore dell'ultimo intervallo incluso nel grafico.</li><li>Max: valore massimo derivante dagli intervalli inclusi nel grafico. |
-| **Funzionalità avanzate** |**&gt; Verifica del flusso di dati** |
-| Abilitato |Selezionare questo collegamento se è necessario abilitare la verifica del flusso di dati per il riquadro. Questo approccio fornisce un messaggio alternativo se non sono disponibili dati. Questo approccio viene in genere viene usato per fornire un messaggio durante il periodo temporaneo in cui la vista viene installata e i dati diventano disponibili. |
+| **Avanzate** |**&gt; Verifica del flusso di dati** |
+| Attivato |Selezionare questo collegamento se è necessario abilitare la verifica del flusso di dati per il riquadro. Questo approccio fornisce un messaggio alternativo se non sono disponibili dati. Questo approccio viene in genere viene usato per fornire un messaggio durante il periodo temporaneo in cui la vista viene installata e i dati diventano disponibili. |
 | Query |Query eseguita per determinare se sono disponibili dati per la vista. Se la query non restituisce risultati, viene visualizzato un messaggio al posto del valore dalla query principale. |
 | Message |Messaggio visualizzato se la query di verifica del flusso di dati non restituisce dati. Se non si specifica alcun messaggio, viene visualizzato il messaggio di stato *Esecuzione della valutazione*. |
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Informazioni sulle [query di log](../log-query/log-query-overview.md) per supportare le query nei riquadri.
+* Informazioni sulle query di [log](../log-query/log-query-overview.md) per supportare le query nei riquadri.
 * Aggiungere [parti della visualizzazione](view-designer-parts.md) alla vista personalizzata.

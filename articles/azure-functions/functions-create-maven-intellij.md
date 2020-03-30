@@ -1,5 +1,5 @@
 ---
-title: Creare una funzione di Azure con Java e IntelliJ
+title: Creare una funzione di Azure con Java e IntelliJCreate an Azure function with Java and IntelliJ
 description: Informazioni su come creare e pubblicare in Azure un'app semplice senza server attivata tramite HTTP con Java e IntelliJ.
 author: jeffhollan
 ms.topic: conceptual
@@ -7,13 +7,13 @@ ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 7003dc19a7bfc405809de91534028aba8e0416c5
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79136851"
 ---
-# <a name="create-your-first-azure-function-with-java-and-intellij"></a>Creare la prima funzione di Azure con Java e IntelliJ
+# <a name="create-your-first-azure-function-with-java-and-intellij"></a>Creare la prima funzione di Azure con Java e IntelliJCreate your first Azure function with Java and IntelliJ
 
 Questo articolo illustra:
 - Come creare un progetto di funzione [senza server](https://azure.microsoft.com/overview/serverless-computing/) con IntelliJ IDEA e Apache Maven
@@ -31,7 +31,7 @@ Per sviluppare una funzione con Java e IntelliJ, installare il software seguente
 - [Java Developer Kit](https://www.azul.com/downloads/zulu/) (JDK), versione 8
 - [Apache Maven](https://maven.apache.org), versione 3.0 o successiva
 - [IntelliJ IDEA](https://www.jetbrains.com/idea/download), versione Community o Ultimate con Maven
-- [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure)
+- [Interfaccia della riga di comando di AzureAzure](https://docs.microsoft.com/cli/azure)
 
 > [!IMPORTANT]
 > Per completare la procedura descritta in questo articolo, è necessario impostare la variabile di ambiente JAVA_HOME sul percorso di installazione di JDK.
@@ -46,8 +46,8 @@ Per sviluppare una funzione con Java e IntelliJ, installare il software seguente
 1. Nella finestra **Add Archetype** (Aggiungi archetipo) completare i campi come indicato di seguito:
     - _GroupId_: com.microsoft.azure
     - _ArtifactId_: azure-functions-archetype
-    - _Versione_: controllare e usare la versione più recente dal [repository centrale](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
-    ![creare un progetto Maven da archetipo in IntelliJ IDEA](media/functions-create-first-java-intellij/functions-create-intellij.png)  
+    - _Versione_: Controllare e utilizzare la versione più recente dal [repository](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
+    ![centrale Creare un progetto Maven dall'archetipo in IntelliJ IDEA](media/functions-create-first-java-intellij/functions-create-intellij.png)  
 1. Selezionare **OK**, quindi **Avanti**.
 1. Immettere i dettagli relativi al progetto corrente e selezionare **Finish** (Fine).
 
@@ -59,9 +59,9 @@ Maven crea i file di progetto in una nuova cartella a cui viene assegnato lo ste
 > Per l'esecuzione e il debug delle funzioni in locale, è necessario che sia installato [Azure Functions Core Tools, versione 2](functions-run-local.md#v2).
 
 1. Importare le modifiche manualmente oppure abilitare l'[importazione automatica](https://www.jetbrains.com/help/idea/creating-and-optimizing-imports.html).
-1. Aprire la barra degli strumenti **Maven Projects** (Progetti Maven).
+1. Aprire la barra degli strumenti **Progetti Maven.**
 1. Espandere **Lifecycle** (Ciclo di vita) e quindi aprire **package** (pacchetto). La soluzione viene compilata e inserita in un pacchetto all'interno di una directory di destinazione appena creata.
-1. Espandere **Plugins** (Plugin)  > **azure-functions** e aprire **azure-functions:run** per avviare il runtime locale di Funzioni di Azure.  
+1. Espandere Plugin azure-functions e aprire azure-functions:run per avviare il runtime locale di Funzioni di Azure.Expand **Plugins** > **azure-functions** and open **azure-functions:run** to start the Azure Functions local runtime.  
   ![Barra degli strumenti Maven per Funzioni di Azure](media/functions-create-first-java-intellij/functions-intellij-java-maven-toolbar.png)  
 
 1. Dopo avere testato la funzione, chiudere la finestra di dialogo di esecuzione. Può essere attivo e in esecuzione in locale un solo host di funzioni alla volta.
@@ -85,7 +85,7 @@ Maven crea i file di progetto in una nuova cartella a cui viene assegnato lo ste
 
 ## <a name="deploy-the-function-to-azure"></a>Distribuire la funzione in Azure
 
-1. Prima di poter distribuire la funzione in Azure, è necessario [accedere usando l'interfaccia della riga di comando di Azure](/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
+1. Prima di poter distribuire la funzione in Azure, è necessario [accedere usando l'interfaccia della riga di comando](/cli/azure/authenticate-azure-cli?view=azure-cli-latest)di Azure.
 
    ``` azurecli
    az login

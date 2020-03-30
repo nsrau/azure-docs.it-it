@@ -1,6 +1,6 @@
 ---
 title: Inserimento di annunci sul lato client | Microsoft Docs
-description: Questo articolo illustra come inserire annunci nel supporto sul lato client.
+description: Questo articolo illustra come inserire annunci nei contenuti multimediali sul lato client.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 274ee09ae98dd229b255e58261f462e322be9f89
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77565741"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>Inserimento di annunci sul lato client
@@ -31,7 +31,7 @@ Per informazioni sul supporto di sottotitoli codificati e annunci nei video in s
 > 
 > 
 
-## <a id="insert_ads_into_media"></a>Inserimento di annunci nei file multimediali
+## <a name="inserting-ads-into-your-media"></a><a id="insert_ads_into_media"></a>Inserimento di annunci nei file multimediali
 Servizi multimediali di Azure offre il supporto per l'inserimento di annunci tramite la piattaforma Windows Media Platform, ovvero i player framework. Player Framework con supporto per gli annunci sono disponibili per i dispositivi Windows 8, Silverlight, Windows Phone 8 e iOS. Ciascun Player Framework contiene un codice di esempio che illustra come eseguire l'implementazione di un'applicazione di lettore. Nei file multimediali è possibile inserire tre tipi di annunci.
 
 * **Lineari** : annunci con frequenza massima che interrompono il video principale.
@@ -586,7 +586,7 @@ Questo esempio usa l'elemento VmapSchedulerPlugin per pianificare annunci usando
 ```
 
 ## <a name="implementing-an-ios-video-player-with-ad-support"></a>Implementazione di un lettore video iOS con supporto per gli annunci
-Microsoft Media Platform: Player Framework per iOS contiene una raccolta di applicazioni di esempio che illustrano come implementare un'applicazione per la lettura di video tramite il framework. È possibile scaricare Player Framework e i relativi esempi dalla pagina relativa a [Media Player Framework di Azure](https://github.com/Azure/azure-media-player-framework). La pagina GitHub include un collegamento a un wiki che contiene informazioni aggiuntive su Player Framework e un'introduzione all'esempio di Player: [Azure Media Player wiki](https://github.com/Azure/azure-media-player-framework/wiki/How-to-use-Azure-media-player-framework).
+Microsoft Media Platform: Player Framework per iOS contiene una raccolta di applicazioni di esempio che illustrano come implementare un'applicazione per la lettura di video tramite il framework. È possibile scaricare Player Framework e i relativi esempi dalla pagina relativa a [Media Player Framework di Azure](https://github.com/Azure/azure-media-player-framework). La pagina GitHub contiene un collegamento a un Wiki che contiene informazioni aggiuntive sul framework del lettore e un'introduzione all'esempio del lettore: Wiki di [Azure Media Player](https://github.com/Azure/azure-media-player-framework/wiki/How-to-use-Azure-media-player-framework).
 
 ### <a name="scheduling-ads-with-vmap"></a>Pianificazione di annunci con VMAP
 L'esempio seguente illustra come pianificare gli annunci usando un file VMAP.

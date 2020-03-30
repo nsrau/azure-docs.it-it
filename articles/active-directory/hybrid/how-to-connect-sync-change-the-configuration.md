@@ -1,5 +1,5 @@
 ---
-title: 'Sincronizzazione Azure AD Connect: apportare una modifica alla configurazione nella sincronizzazione Azure AD Connect'
+title: 'Sincronizzazione di Azure AD Connect: apportare una modifica alla configurazione nella sincronizzazione di Azure AD ConnectAzure AD Connect sync: Make a configuration change in Azure AD Connect sync'
 description: Fornisce informazioni dettagliate su come apportare modifiche alla configurazione nel servizio di sincronizzazione Azure AD Connect.
 services: active-directory
 author: billmath
@@ -13,19 +13,19 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d77882817934d5ad98f16965aeb9dc246931c495
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79261164"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Servizio di sincronizzazione Azure AD Connect: apportare modifiche alla configurazione predefinita
-Lo scopo di questo articolo è illustrare come apportare modifiche alla configurazione predefinita in Azure Active Directory (Azure AD) Connect Sync. Vengono illustrati i passaggi per alcuni scenari comuni. Con queste informazioni si potranno apportare semplici modifiche alla propria configurazione in base alle regole di business.
+Lo scopo di questo articolo è illustrare come apportare modifiche alla configurazione predefinita nella sincronizzazione di Azure Active Directory (Azure AD) Connect.The purpose of this article is to walk you through how to make changes to the default configuration in Azure Active Directory (Azure AD) Connect sync. Vengono illustrate le operazioni necessarie per alcuni scenari comuni. Con queste informazioni si potranno apportare semplici modifiche alla propria configurazione in base alle regole di business.
 
 > [!WARNING]
-> Se si apportano modifiche alle regole di sincronizzazione predefinite predefinite, queste modifiche verranno sovrascritte alla successiva aggiornamento Azure AD Connect, causando risultati di sincronizzazione imprevisti e probabilmente indesiderati.
+> Se si apportano modifiche alle regole di sincronizzazione predefinite predefinite, queste modifiche verranno sovrascritte al successivo aggiornamento di Azure AD Connect, con risultati di sincronizzazione imprevisti e probabilmente indesiderati.
 >
-> Le regole di sincronizzazione predefinite predefinite hanno un'identificazione personale. Se si apporta una modifica a queste regole, l'identificazione personale non sarà più corrispondente. È possibile che si verifichino problemi quando in futuro si proverà ad applicare una nuova versione di Azure AD Connect. Apportare modifiche solo nel modo descritto in questo articolo.
+> Le regole di sincronizzazione predefinite hanno un'identificazione personale. Se si apporta una modifica a queste regole, l'identificazione personale non sarà più corrispondente. È possibile che si verifichino problemi quando in futuro si proverà ad applicare una nuova versione di Azure AD Connect. Apportare modifiche solo nel modo descritto in questo articolo.
 
 ## <a name="synchronization-rules-editor"></a>Editor regole di sincronizzazione
 L'editor delle regole di sincronizzazione viene usato per visualizzare e modificare la configurazione predefinita. È disponibile nel menu **Start** nel gruppo **Azure AD Connect**.  
@@ -56,7 +56,7 @@ Per impostazione predefinita, l' [utilità di pianificazione](how-to-connect-syn
 1. Fare clic su **Add new rule**(Aggiungi nuova regola).
 2. Nella pagina **Description** (Descrizione) immettere le informazioni seguenti:  
    ![Filtro delle regole in ingresso](./media/how-to-connect-sync-change-the-configuration/description2.png)  
-   * **Name**: (Nome) assegnare alla regola un nome descrittivo.
+   * **Nome**: Assegnare alla regola un nome descrittivo.
    * **Description**: (Descrizione) visualizza alcuni chiarimenti che permettono a un altro utente di comprendere la funzione della regola.
    * **Connected System**: (Sistema connesso) sistema in cui è possibile trovare l'oggetto. In questo caso è selezionato **Active Directory Connector**.
    * **Connected System/Metaverse Object Type**: (Tipo di oggetto sistema connesso/Tipo di oggetto metaverse) selezionare rispettivamente **User** (Utente) e **Person** (Persona).
@@ -67,10 +67,10 @@ Per impostazione predefinita, l' [utilità di pianificazione](how-to-connect-syn
    ![Filtro dell'ambito per le regole in ingresso](./media/how-to-connect-sync-change-the-configuration/scopingfilter.png)  
    Questa sezione viene usata per definire gli oggetti a cui dovrà essere applicata la regola. Se lasciata vuota, la regola verrà applicata a tutti gli oggetti utente, ma includerà sale riunioni, account del servizio e altri oggetti utente non di persone.
 4. Nella pagina **Join rules** (Regole di unione) lasciare vuoto il campo.
-5. Nella pagina **Transformations** (Trasformazioni) modificare **FlowType** in **Expression** (Espressione). Per **Target Attribute** (Attributo di destinazione) selezionare **givenName**. Per **Source** (Origine) immettere **PCase([givenName])** .
+5. Nella pagina **Transformations** (Trasformazioni) modificare **FlowType** in **Expression** (Espressione). Per **Target Attribute** (Attributo di destinazione) selezionare **givenName**. Per **Source** (Origine) immettere **PCase([givenName])**.
    ![Trasformazioni di regole in ingresso](./media/how-to-connect-sync-change-the-configuration/transformations.png)  
    Il motore di sincronizzazione fa distinzione tra maiuscole e minuscole sia nel nome della funzione che nel nome dell'attributo. Nel caso di un errore di digitazione, viene visualizzato un avviso quando si aggiunge la regola. È possibile salvare e continuare, ma è necessario riaprire e correggere la regola.
-6. Fare clic su **Add** (Aggiungi) per salvare la regola.
+6. Fare clic su **Aggiungi** per salvare la regola.
 
 La nuova regola personalizzata sarà visibile insieme alle altre regole di sincronizzazione nel sistema.
 
@@ -97,7 +97,7 @@ Aprire **Synchronization Service** (Servizio di sincronizzazione) dal menu **Sta
    3. Usare l'**ambito** per trovare un oggetto che si vuole usare per testare la modifica. Selezionare l'oggetto e fare clic su **Preview**(Anteprima). 
    4. Nella nuova schermata selezionare **Commit Preview**(Anteprima commit).  
    ![Commit preview](./media/how-to-connect-sync-change-the-configuration/commitpreview.png)  
-   Viene eseguito il commit della modifica nel metaverse.
+    Viene eseguito il commit della modifica nel metaverse.
 
 **Visualizzare l'oggetto nel metaverse**  
 
@@ -115,23 +115,23 @@ La sezione precedente descrive come apportare modifiche a un flusso dell'attribu
 ### <a name="use-an-attribute-other-than-the-default"></a>Usare un attributo diverso da quello predefinito
 In questo scenario relativo a Fabrikam è disponibile una foresta in cui viene usato l'alfabeto locale per nome, cognome e nome visualizzato. La rappresentazione in caratteri latini di questi attributi è disponibile negli attributi dell'estensione. Per la compilazione dell'elenco indirizzi globale in Azure AD e Office 365, l'organizzazione vuole invece usare questi attributi.
 
-Con una configurazione predefinita, un oggetto della foresta locale avrà un aspetto simile al seguente:  
+Con una configurazione predefinita, un oggetto della foresta locale avrà un aspetto simile al seguente:   
 ![Flusso dell'attributo 1](./media/how-to-connect-sync-change-the-configuration/attributeflowjp1.png)
 
 Per creare una regola con altri flussi di attributi, eseguire queste operazioni:
 
 1. Aprire l'**editor delle regole di sincronizzazione** dal menu **Start**.
 2. Con la voce **Inbound** (In ingresso) ancora selezionata a sinistra fare clic sul pulsante **Add new rule** (Aggiungi nuova regola).
-3. Assegnare alla regola un nome e una descrizione. Selezionare l'istanza della directory Active Directory locale e i tipi di oggetto pertinenti. In **Link Type** (Tipo di collegamento) selezionare **Join** (Unisci). Nel campo **Precedence** (Precedenza) scegliere un numero non usato da un'altra regola. Le regole predefinite iniziano con 100, quindi in questo esempio si può usare il valore 50.
+3. Assegnare alla regola un nome e una descrizione. Selezionare l'istanza della directory Active Directory locale e i tipi di oggetto pertinenti. In **Link Type** (Tipo di collegamento) selezionare **Join** (Unisci). Per **Precedenza**, selezionare un numero non utilizzato da un'altra regola. Le regole predefinite iniziano con 100, quindi in questo esempio si può usare il valore 50.
   ![Flusso dell'attributo 2](./media/how-to-connect-sync-change-the-configuration/attributeflowjp2.png)
 4. Lasciare vuoto il campo **Scoping filter** (Filtro di ambito). L'ambito deve essere applicato a tutti gli oggetti utente della foresta.
 5. Lasciare vuoto il campo **Join rules** (Regole di unione). In questo modo alla regola predefinita viene consentito di gestire tutte le unioni.
 6. In **Transformations** (Trasformazioni) creare i flussi seguenti:  
   ![Flusso dell'attributo 3](./media/how-to-connect-sync-change-the-configuration/attributeflowjp3.png)
-7. Fare clic su **Add** (Aggiungi) per salvare la regola.
+7. Fare clic su **Aggiungi** per salvare la regola.
 8. Passare a **Synchronization Service Manager**. In **Connectors**(Connettori) selezionare il connettore in cui è stata aggiunta la regola. Selezionare **Run** (Esegui) e quindi **Full Synchronization** (Sincronizzazione completa). Una sincronizzazione completa ricalcola tutti gli oggetti usando le regole correnti.
 
-Di seguito è riportato il risultato per lo stesso oggetto con questa regola personalizzata:  
+Di seguito è riportato il risultato per lo stesso oggetto con questa regola personalizzata:   
 ![Flusso dell'attributo 4](./media/how-to-connect-sync-change-the-configuration/attributeflowjp4.png)
 
 ### <a name="length-of-attributes"></a>Lunghezza degli attributi
@@ -200,7 +200,7 @@ Per impostazione predefinita, l'attributo UserType non è abilitato per la sincr
 
 - Azure AD accetta solo due valori per l'attributo UserType: **Membro** e **Guest**.
 - Se l'attributo UserType non è abilitato per la sincronizzazione in Azure AD Connect, gli utenti di Azure AD creati attraverso la sincronizzazione della directory avranno l'attributo UserType impostato su **Membro**.
-- Azure AD non consente ad Azure AD Connect di modificare l'attributo UserType per gli utenti esistenti di Azure AD. Può essere impostato solo durante la creazione del Azure AD utenti e [modificato tramite PowerShell](/powershell/module/azuread/set-azureaduser?view=azureadps-2.0).
+- Azure AD non consente ad Azure AD Connect di modificare l'attributo UserType per gli utenti esistenti di Azure AD. Può essere impostato solo durante la creazione degli utenti di Azure AD e [modificato tramite Powershell](/powershell/module/azuread/set-azureaduser?view=azureadps-2.0).
 
 Per abilitare la sincronizzazione dell'attributo UserType, è prima necessario decidere in che modo tale attributo verrà ricavato da Active Directory locale. Di seguito sono descritti gli approcci più comuni:
 
@@ -208,7 +208,7 @@ Per abilitare la sincronizzazione dell'attributo UserType, è prima necessario d
 
     Se si sceglie questo approccio, prima di abilitare la sincronizzazione dell'attributo UserType è necessario assicurarsi che l'attributo designato sia popolato con il valore corretto per tutti gli oggetti utente esistenti in Active Directory locale che sono sincronizzati con Azure AD.
 
-- In alternativa, è possibile ricavare il valore dell'attributo UserType da altre proprietà. Ad esempio, si vogliono sincronizzare tutti gli utenti come **Guest** se il relativo attributo userPrincipalName di AD locale termina con la parte di dominio <em>@partners.fabrikam123.org</em>. 
+- In alternativa, è possibile ricavare il valore dell'attributo UserType da altre proprietà. Ad esempio, si desidera sincronizzare tutti gli utenti come **Guest** se l'attributo userPrincipalName di Active Directory locale termina con la parte <em>@partners.fabrikam123.org</em>del dominio . 
 
     Come accennato in precedenza, Azure AD non consente ad Azure AD Connect di modificare l'attributo UserType per gli utenti esistenti di Azure AD. Di conseguenza, è necessario assicurarsi che la logica decisa sia coerente con la configurazione dell'attributo UserType già eseguita per tutti gli utenti di Azure AD esistenti nel tenant.
 
@@ -230,7 +230,7 @@ Per evitare l'esportazione di modifiche accidentali in Azure AD, verificare che 
 
  1. Avviare una sessione di PowerShell nel server di Azure AD Connect.
  2. Disabilitare la sincronizzazione pianificata eseguendo il cmdlet `Set-ADSyncScheduler -SyncCycleEnabled $false`.
- 3. Aprire Synchronization Service Manager passando a **Start** > **Synchronization Service** (Servizio di sincronizzazione).
+ 3. Aprire Gestione servizio di sincronizzazione accedendo a **Avvia** > **servizio di sincronizzazione**.
  4. Passare alla scheda **Operazioni** e verificare che per nessuna operazione lo stato sia *In corso*.
 
 ### <a name="step-2-add-the-source-attribute-to-the-on-premises-ad-connector-schema"></a>Passaggio 2: Aggiungere l'attributo di origine allo schema di AD Connector locale
@@ -247,7 +247,7 @@ Non tutti gli attributi di Azure AD vengono importati in locale nello spazio di 
 Per impostazione predefinita, l'attributo UserType non viene importato nello spazio di Azure AD Connect. Per aggiungere l'attributo UserType all'elenco degli attributi importati:
 
  1. Passare alla scheda **Connettori** in Synchronization Service Manager.
- 2. Fare clic con il pulsante destro del mouse su **Azure AD Connector** e selezionare **Proprietà**.
+ 2. Fare clic con il pulsante destro del mouse su **Azure AD Connector** e scegliere **Proprietà**.
  3. Nella finestra di dialogo popup passare alla scheda **Seleziona attributi**.
  4. Assicurarsi che l'attributo UserType sia selezionato nell'elenco degli attributi.
  5. Fare clic su **OK** per salvare.
@@ -257,22 +257,22 @@ Per impostazione predefinita, l'attributo UserType non viene importato nello spa
 ### <a name="step-4-create-an-inbound-synchronization-rule-to-flow-the-attribute-value-from-on-premises-active-directory"></a>Passaggio 4: Creare una regola di sincronizzazione in entrata per trasmettere il valore dell'attributo da Active Directory locale
 La regola di sincronizzazione in ingresso consente la trasmissione del valore dell'attributo dall'attributo di origine di Active Directory locale al metaverse:
 
-1. Aprire l'editor delle regole di sincronizzazione passando a **Start** > **Synchronization Rules Editor** (Editor delle regole di sincronizzazione).
+1. Aprire l'Editor regole di sincronizzazione accedendo a **Avvia** > editor regole di**sincronizzazione**.
 2. Impostare il filtro di ricerca **Direzione** su **In arrivo**.
 3. Fare clic sul pulsante **Aggiungi nuova regola** per creare una nuova regola in ingresso.
-4. Nella scheda **Descrizione** inserire la configurazione seguente:
+4. Nella scheda **Descrizione** specificare la configurazione seguente:
 
     | Attributo | valore | Dettagli |
     | --- | --- | --- |
     | Nome | *Specificare un nome* | Ad esempio, *In from AD - User UserType* |
-    | Descrizione | *Inserire una descrizione* |  |
+    | Descrizione | *Fornire una descrizione* |  |
     | Connected System | *Scegliere il connettore di AD locale* |  |
     | Connected System Object Type | **Utente** |  |
-    | Metaverse Object Type | **Person** |  |
-    | Tipo di collegamento | **Join** |  |
+    | Metaverse Object Type | **Persona** |  |
+    | Tipo di collegamento | **Aggiungi** |  |
     | Precedenza | *Scegliere un numero compreso tra 1 e 99* | I numeri compresi tra 1 e 99 sono riservati alle regole di sincronizzazione personalizzate. Non scegliere un valore usato da un'altra regola di sincronizzazione. |
 
-5. Passare alla scheda **Scoping filter** (Filtro di ambito) e aggiungere un **singolo gruppo di filtri di ambito** con la clausola seguente:
+5. Passare alla scheda **Filtro ambito** e aggiungere un singolo gruppo di filtri di **ambito** con la clausola seguente:
 
     | Attributo | Operatore | valore |
     | --- | --- | --- |
@@ -286,7 +286,7 @@ La regola di sincronizzazione in ingresso consente la trasmissione del valore de
     | --- | --- | --- | --- | --- |
     | Connessione diretta | UserType | extensionAttribute1 | Non selezionato | Aggiornamento |
 
-    In un altro esempio si vuole ricavare il valore dell'attributo UserType da altre proprietà. Si desidera, ad esempio, sincronizzare tutti gli utenti come Guest se il relativo attributo userPrincipalName di AD locale termina con la parte di dominio <em>@partners.fabrikam123.org</em>. È possibile implementare un'espressione simile alla seguente:
+    In un altro esempio si vuole ricavare il valore dell'attributo UserType da altre proprietà. Ad esempio, si desidera sincronizzare tutti gli utenti come Guest se l'attributo userPrincipalName di Active Directory locale termina con la parte <em>@partners.fabrikam123.org</em>del dominio . È possibile implementare un'espressione simile alla seguente:You can implement an expression like this:
 
     | Tipo di flusso | Attributo di destinazione | Source (Sorgente) | Applicare una sola volta | Tipi di unione |
     | --- | --- | --- | --- | --- |
@@ -302,19 +302,19 @@ La regola di sincronizzazione in uscita consente la trasmissione del valore dell
 1. Passare all'editor delle regole di sincronizzazione.
 2. Impostare il filtro di ricerca **Direzione** da **In uscita**.
 3. Fare clic sul pulsante **Aggiungi nuova regola**.
-4. Nella scheda **Descrizione** inserire la configurazione seguente:
+4. Nella scheda **Descrizione** specificare la configurazione seguente:
 
     | Attributo | valore | Dettagli |
     | ----- | ------ | --- |
     | Nome | *Specificare un nome* | Ad esempio, *Out to AAD – User UserType* |
-    | Descrizione | *Inserire una descrizione* ||
+    | Descrizione | *Fornire una descrizione* ||
     | Connected System | *Selezionare il connettore di AAD* ||
     | Connected System Object Type | **Utente** ||
-    | Metaverse Object Type | **Person** ||
-    | Tipo di collegamento | **Join** ||
+    | Metaverse Object Type | **Persona** ||
+    | Tipo di collegamento | **Aggiungi** ||
     | Precedenza | *Scegliere un numero compreso tra 1 e 99* | I numeri compresi tra 1 e 99 sono riservati alle regole di sincronizzazione personalizzate. Non scegliere un valore usato da un'altra regola di sincronizzazione. |
 
-5. Passare alla scheda **Scoping filter** (Filtro di ambito) e aggiungere un singolo **gruppo di filtri di ambito** con le due clausole:
+5. Passare alla scheda **Filtro ambito** e aggiungere un singolo gruppo di filtri di **ambito** con due clausole:
 
     | Attributo | Operatore | valore |
     | --- | --- | --- |
@@ -323,7 +323,7 @@ La regola di sincronizzazione in uscita consente la trasmissione del valore dell
 
     Il filtro di ambito determina a quali oggetti di Azure AD viene applicata la regola di sincronizzazione in uscita. In questo esempio, viene usato lo stesso filtro di ambito della regola di sincronizzazione predefinita *Out to AD – User Identity*. Impedisce l'applicazione della regola di sincronizzazione agli oggetti Utente non sincronizzati da Active Directory locale. Potrebbe essere necessario perfezionare il filtro di ambito in base alla distribuzione di Azure AD Connect.
 
-6. Andare alla scheda **Trasformazione** e implementare la regola di trasformazione seguente:
+6. Passare alla scheda **Trasformazione** e implementare la regola di trasformazione seguente:Go to the Transformation tab and implement the following transformation rule:
 
     | Tipo di flusso | Attributo di destinazione | Source (Sorgente) | Applicare una sola volta | Tipi di unione |
     | --- | --- | --- | --- | --- |

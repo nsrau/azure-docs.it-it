@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/03/2017
 ms.author: alkohli
 ms.openlocfilehash: c1acc084d5abe3385fe311873dfd64c9009e83f2
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79254963"
 ---
 # <a name="failover-and-disaster-recovery-for-your-storsimple-8000-series-device"></a>Failover e ripristino di emergenza per dispositivi StorSimple serie 8000
@@ -84,7 +84,7 @@ Usare la seguente tabella per determinare se è possibile eseguire il failover o
 In caso di emergenza è possibile eseguire il failover del dispositivo StorSimple:
 
 * [In un dispositivo fisico](storsimple-8000-device-failover-physical-device.md).
-* [Nel dispositivo stesso](storsimple-8000-device-failover-same-device.md).
+* [A se stesso](storsimple-8000-device-failover-same-device.md).
 * [In un'appliance cloud](storsimple-8000-device-failover-cloud-appliance.md).
 
 Gli articoli precedenti descrivono in dettaglio i passaggi di ognuno dei casi precedenti di failover.

@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 01/16/2018
 ms.openlocfilehash: a9a1c1718fb95a6ace3700af043134072d582473
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77663046"
 ---
 # <a name="views-in-management-solutions-preview"></a>Viste nelle soluzioni di gestione (anteprima)
@@ -18,7 +18,7 @@ ms.locfileid: "77663046"
 > Questo è un documento preliminare che illustra come creare soluzioni di gestione attualmente disponibili in versione di anteprima. Qualsiasi schema descritto di seguito è soggetto a modifiche.    
 
 
-Le [soluzioni di gestione](solutions.md) includono in genere una o più viste per visualizzare i dati.  Questo articolo descrive come esportare una vista creata da [Progettazione viste](../../azure-monitor/platform/view-designer.md) e includerla in una soluzione di gestione.  
+[Le soluzioni](solutions.md) di gestione includono in genere una o più visualizzazioni per visualizzare i dati.  In questo articolo viene descritto come esportare una visualizzazione creata da [Progettazione viste](../../azure-monitor/platform/view-designer.md) e includerla in una soluzione di gestione.  
 
 > [!NOTE]
 > Gli esempi in questo articolo usano parametri e variabili che sono richiesti o comuni nelle soluzioni di gestione e che sono descritti in [Progettare e creare una soluzione di gestione in Azure](solutions-creating.md)

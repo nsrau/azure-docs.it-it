@@ -1,9 +1,9 @@
 ---
-title: Interpretare lo schema del registro di controllo Azure Active Directory in monitoraggio di Azure | Microsoft Docs
-description: Descrizione dello schema del log di controllo Azure AD per l'uso in monitoraggio di Azure
+title: Interpretare lo schema del log di controllo di Azure Active Directory in Monitoraggio di Azure Documenti Microsoft
+description: Descrivere lo schema del log di controllo di Azure AD da usare in Monitoraggio di AzureDescribe the Azure AD audit log schema for use in Azure Monitor
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 04/18/2019
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f75af14e388626a9ebbb54d43079f30dcfdd98a
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: d9f58b213e50a021651f35112a48d8f74ae59571
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68987948"
 ---
 # <a name="interpret-the-azure-ad-audit-logs-schema-in-azure-monitor-preview"></a>Interpretare lo schema dei log di controllo di Azure AD in Monitoraggio di Azure (anteprima)
@@ -162,22 +162,22 @@ Questo articolo illustra lo schema del log di controllo di Azure Active Director
 | correlationId | GUID facoltativo passato dal client. Questo valore consente di correlare le operazioni lato client con le operazioni lato server ed è utile durante l'analisi dei log relativi a più servizi. |
 | identity | Identità del token presentato al momento dell'esecuzione della richiesta. L'identità può essere un account utente, un account di sistema o un'entità servizio. |
 | level | Tipo di messaggio. Per i log di controllo, il livello è sempre *informativo*. |
-| location | Posizione del datacenter. |
+| posizione | Posizione del datacenter. |
 | properties | Elenco delle proprietà supportate relative a un log di controllo. Per altre informazioni, vedere la tabella seguente. | 
 
 <br>
 
-| Nome proprietà | DESCRIZIONE |
+| Nome proprietà | Descrizione |
 |---------------|-------------|
 | AuditEventCategory | Tipo di evento di controllo. Può essere *Gestione utenti*, *Gestione applicazioni* o un altro tipo.|
 | Tipo di identità | Il tipo può essere *Applicazione* o *Utente*. |
 | Tipo di operazione | Il tipo può essere *Aggiungi*, *Aggiorna*, *Elimina* o *Altro*. |
 | Tipo di risorsa di destinazione | Specifica il tipo di risorsa di destinazione in cui è stata eseguita l'operazione. Il tipo può essere *Applicazione*, *Utente*, *Ruolo* o *Criteri*. | 
 | Nome della risorsa di destinazione | Nome della risorsa di destinazione. Può trattarsi di un nome di applicazione, un nome di ruolo, un nome dell'entità utente o un nome dell'entità servizio. |
-| additionalTargets | Elenca le proprietà aggiuntive per operazioni specifiche. Ad esempio, per un'operazione di aggiornamento, i valori precedenti e i nuovi valori sono elencati nella sezione *targetUpdatedProperties*. | 
+| additionalTargets | Elenca le proprietà aggiuntive per operazioni specifiche. Ad esempio, per un'operazione di aggiornamento, i valori precedenti e i nuovi valori sono elencati in *targetUpdatedProperties*. | 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Interpretare lo schema dei log di accesso in Monitoraggio di Azure](reference-azure-monitor-sign-ins-log-schema.md)
+* [Interpretare lo schema dei log di accesso in Monitoraggio di AzureInterpret sign-in logs schema in Azure Monitor](reference-azure-monitor-sign-ins-log-schema.md)
 * [Log di diagnostica di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
 * [Domande frequenti e problemi noti](concept-activity-logs-azure-monitor.md#frequently-asked-questions)

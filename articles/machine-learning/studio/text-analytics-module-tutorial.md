@@ -1,7 +1,7 @@
 ---
-title: Caso d'uso dell'analisi dei sentimenti
+title: Caso d'uso per l'analisi del sentiment
 titleSuffix: ML Studio (classic) - Azure
-description: Come creare modelli di analisi del testo in Azure Machine Learning Studio (classico) usando moduli per la pre-elaborazione del testo, N-grammi o hashing delle funzionalità
+description: Come creare modelli di analisi del testo in Azure Machine Learning Studio (classico) usando i moduli per la pre-elaborazione del testo, N-grammi o hash delle funzionalitàHow to create text analytics models in Azure Machine Learning Studio (classic) using modules for text preprocessing, N-grams or feature hashing
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -11,17 +11,17 @@ ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/14/2018
 ms.openlocfilehash: 89fc5196977f53e040e1a6553b46ca57f39b18b4
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79217890"
 ---
-# <a name="create-a-sentiment-analysis-model-in-azure-machine-learning-studio-classic"></a>Creare un modello di analisi dei sentimenti in Azure Machine Learning Studio (classico)
+# <a name="create-a-sentiment-analysis-model-in-azure-machine-learning-studio-classic"></a>Creare un modello di analisi del sentiment in Azure Machine Learning Studio (classico)Create a sentiment analysis model in Azure Machine Learning Studio (classic)
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
-È possibile usare Azure Machine Learning Studio (classico) per compilare e rendere operativo i modelli di analisi del testo. Questi modelli consentono di risolvere, ad esempio, problemi di classificazione dei documenti o analisi di valutazione.
+È possibile usare Azure Machine Learning Studio (classico) per creare e rendere operativi i modelli di analisi del testo. Questi modelli consentono di risolvere, ad esempio, problemi di classificazione dei documenti o analisi di valutazione.
 
 In un esperimento di analisi del testo è necessario in genere:
 
@@ -31,7 +31,7 @@ In un esperimento di analisi del testo è necessario in genere:
 4. Assegnare un punteggio e convalidare il modello
 5. Distribuire il modello in produzione
 
-In questa esercitazione vengono illustrati questi passaggi illustrati in dettaglio un modello di analisi dei sentimenti usando il set di dati di Amazon Book revisioni (vedere il documento di ricerca "Biographies, Bollywood, boom-boxs and Blenders: Domain adaptation for sentimento Classification" di John Blitzer, Mark Dredze e Fernando Pereira; Associazione di linguaggi di calcolo (ACL), 2007). Questo set di dati è costituito dai punteggi di revisione (1-2 o 4-5) e da un testo in formato libero. L'obiettivo consiste nella stima del punteggio di recensione: basso (1-2) o alto (4-5).
+In questa esercitazione imparerai questi passaggi mentre attraversiamo un modello di analisi del sentiment usando il set di dati di Amazon Book Reviews (vedi questo documento di ricerca "Biografie, Bollywood, Boom-box e Blenders: Domain Adaptation for Sentiment Classification" di John Blitzer, Mark Dredze, e Fernando Pereira; Associazione di linguistica computazionale (ACL), 2007.) Questo set di dati è costituito da punteggi di revisione (1-2 o 4-5) e da un testo in formato libero. L'obiettivo consiste nella stima del punteggio di recensione: basso (1-2) o alto (4-5).
 
 È possibile trovare gli esperimenti trattati in questa esercitazione nella raccolta Azure AI Gallery:
 
@@ -68,7 +68,7 @@ In alternativa all'uso al modulo Extract N-Gram Features è possibile usare il m
 ## <a name="step-3-train-classification-or-regression-model"></a>Passaggio 3: Addestrare il modello di classificazione o regressione
 Il testo è stato ora trasformato in colonne di caratteristiche numeriche. Il set di dati contiene ancora le colonne di stringhe dalle fasi precedenti, perciò usiamo Select Columns in Dataset per escluderle.
 
-Usiamo poi [Two-Class Logistic Regression](https://msdn.microsoft.com/library/azure/dn905994.aspx) per stimare il target: punteggio di recensione alto o basso. A questo punto il problema di analisi del testo è stato trasformato in un normale problema di classificazione. Per migliorare il modello, è possibile usare gli strumenti disponibili in Azure Machine Learning Studio (classico). Ad esempio è possibile sperimentare diversi classificatori per scoprire l'accuratezza dei loro risultati o usare l'ottimizzazione con iperparametri per migliorare l'accuratezza.
+Usiamo poi [Two-Class Logistic Regression](https://msdn.microsoft.com/library/azure/dn905994.aspx) per stimare il target: punteggio di recensione alto o basso. A questo punto il problema di analisi del testo è stato trasformato in un normale problema di classificazione. È possibile usare gli strumenti disponibili in Azure Machine Learning Studio (classico) per migliorare il modello. Ad esempio è possibile sperimentare diversi classificatori per scoprire l'accuratezza dei loro risultati o usare l'ottimizzazione con iperparametri per migliorare l'accuratezza.
 
 ![Addestramento e assegnazione dei punteggi](./media/text-analytics-module-tutorial/scoring-text.png)
 

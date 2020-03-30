@@ -1,15 +1,15 @@
 ---
-title: Panoramica del ciclo di vita di Azure Service Fabric Actor
+title: Panoramica del ciclo di vita dell'attore di Azure Service FabricOverview the Azure Service Fabric actor lifecycle
 description: Descrive il ciclo di vita di Service Fabric Reliable Actors, la Garbage Collection e l'eliminazione manuale di attori e del relativo stato
 author: amanbha
 ms.topic: conceptual
 ms.date: 10/06/2017
 ms.author: amanbha
 ms.openlocfilehash: b05da78091260297d94062c06cba100d01ce7e2e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79258317"
 ---
 # <a name="actor-lifecycle-automatic-garbage-collection-and-manual-delete"></a>Ciclo di vita degli attori, Garbage Collection automatica ed eliminazione manuale
@@ -85,7 +85,7 @@ public class Program
     }
 }
 ```
-Per ogni attore attivo, il runtime di Actors tiene traccia del periodo di inattività. Il runtime dell'attore controlla ogni attore ogni `ScanIntervalInSeconds` per verificare se può essere sottoposta a Garbage Collection e lo contrassegna se è rimasto inattivo per `IdleTimeoutInSeconds`.
+Per ogni attore attivo, il runtime di Actors tiene traccia del periodo di inattività. Il runtime attore controlla `ScanIntervalInSeconds` ciascuno degli attori ogni per vedere se può essere `IdleTimeoutInSeconds`sottoposto a garbage collection e lo contrassegna se è rimasto inattivo per .
 
 Ogni volta che un attore viene usato, il periodo di inattività viene reimpostato su 0. A questo punto, l'attore può essere sottoposto a Garbage Collection solo se rimane nuovamente inattivo per il numero di secondi definito da `IdleTimeoutInSeconds`. È importante ricordare che l'uso di un attore è determinato in base all'esecuzione di un metodo di interfaccia o di un callback di promemoria dell'attore. L'uso di un attore **non** è determinato in base all'esecuzione del callback dei timer.
 
@@ -109,12 +109,12 @@ L'operazione di Garbage Collection degli attori disattivati pulisce solo l'ogget
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Timer e promemoria degli attori](service-fabric-reliable-actors-timers-reminders.md)
-* [Eventi relativi agli attori](service-fabric-reliable-actors-events.md)
-* [Rientranza di Reliable Actors](service-fabric-reliable-actors-reentrancy.md)
+* [Eventi attori](service-fabric-reliable-actors-events.md)
+* [Rientranza attore](service-fabric-reliable-actors-reentrancy.md)
 * [Diagnostica e monitoraggio delle prestazioni per Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
 * [Documentazione di riferimento delle API di Actors](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [Codice di esempio C#](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Codice di esempio Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)
+* [Codice di esempio di C](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* [Codice di esempio JavaJava Sample code](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-lifecycle/garbage-collection.png

@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 01/23/2018
 ms.author: alkohli
 ms.openlocfilehash: ef95ca7b9f94690b607e37fbf5d9378c2f2bcfda
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79254586"
 ---
 # <a name="storsimple-8000-series-update-4-release-notes"></a>Note sulla versione dell'aggiornamento 4 di StorSimple serie 8000
@@ -66,7 +66,7 @@ L'aggiornamento 4 include gli importanti aggiornamenti e correzioni di bug descr
 
 La seguente tabella fornisce un riepilogo dei problemi risolti nell'aggiornamento 4.    
 
-| No | Caratteristica | Problema | Si applica a un dispositivo fisico | Si applica a un dispositivo virtuale |
+| No | Funzionalità | Problema | Si applica a un dispositivo fisico | Si applica a un dispositivo virtuale |
 | --- | --- | --- | --- | --- |
 | 1 |Failover |Nella versione precedente, dopo il failover nel sito del cliente si verificava un problema legato alla pulizia. Tale problema è stato corretto in questa versione. |Sì |Sì |
 | 2 |Volumi aggiunti in locale |Nella versione precedente, si verificava un problema per la creazione di volumi correlati per i volumi aggiunti localmente che causava errori nella creazione. In questa versione il problema è stato corretto una volta individuata la causa radice. |Sì |No |
