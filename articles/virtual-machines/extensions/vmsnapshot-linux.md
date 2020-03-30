@@ -10,12 +10,12 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.date: 12/17/2018
 ms.author: trinadhk
-ms.openlocfilehash: d2af6b6c981a2fcbce38546196aa84f1e6be4e38
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: d0ad54c19749d670f9ab753e1e6d8eb130475ffc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79250348"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79415109"
 ---
 # <a name="vm-snapshot-linux-extension-for-azure-backup"></a>Estensione VM Snapshot Linux per Backup di Azure
 
@@ -23,7 +23,9 @@ ms.locfileid: "79250348"
 
 Backup di Azure fornisce supporto per il backup dei carichi di lavoro da locale al cloud e il backup delle risorse cloud nell'insieme di credenziali dei servizi di ripristino. Backup di Azure usa l'estensione VM Snapshot per eseguire un backup coerente dell'applicazione della macchina virtuale di Azure senza la necessità di arrestare la macchina virtuale. L'estensione VM Snapshot di Linux è pubblicata e supportata da Microsoft come parte del servizio Backup di Azure. Backup di Azure installerà l'estensione come parte del primo backup pianificato attivato dopo l'abilitazione del backup. Questo documento descrive in dettaglio le piattaforme, le configurazioni e le opzioni di distribuzione supportate per l'estensione VM Snapshot.
 
-## <a name="prerequisites"></a>Prerequisites
+L'estensione VMSnapshot viene visualizzata nel portale di Azure solo per le macchine virtuali non gestite.
+
+## <a name="prerequisites"></a>Prerequisiti
 
 ### <a name="operating-system"></a>Sistema operativo
 Per un elenco dei sistemi operativi supportati, consultare i [sistemi operativi supportati da Backup di Azure](../../backup/backup-azure-arm-vms-prepare.md#before-you-start)
@@ -91,7 +93,7 @@ az backup protection enable-for-vm \
 
 ## <a name="troubleshoot-and-support"></a>Risoluzione dei problemi e supporto
 
-### <a name="troubleshoot"></a>Risolvere problemi
+### <a name="troubleshoot"></a>Risolvere i problemi
 
 I dati sullo stato delle distribuzioni dell'estensione possono essere recuperati nel portale di Azure e tramite l'interfaccia della riga di comando di Azure. Per visualizzare lo stato di distribuzione delle estensioni per una determinata VM, eseguire il comando seguente nell'interfaccia della riga di comando di Azure.
 
@@ -111,4 +113,4 @@ Le informazioni sulla risoluzione dei problemi possono essere consultate nella [
 
 ### <a name="support"></a>Supporto
 
-Per ricevere assistenza in relazione a qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [forum MSDN e Stack Overflow relativi ad Azure](https://azure.microsoft.com/support/forums/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare l'opzione desiderata per ottenere supporto. Per informazioni sull'uso del supporto di Azure, leggere le [Domande frequenti sul supporto di Azure](https://azure.microsoft.com/support/faq/).
+Se è necessaria ulteriore assistenza in qualsiasi momento di questo articolo, è possibile contattare gli esperti di Azure nei [forum MSDN Azure e Stack Overflow](https://azure.microsoft.com/support/forums/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Passare al [sito del supporto](https://azure.microsoft.com/support/options/) di Azure e selezionare Ottieni supporto. Per informazioni sull'uso del supporto di Azure, leggere le [Domande frequenti sul supporto di Azure](https://azure.microsoft.com/support/faq/).

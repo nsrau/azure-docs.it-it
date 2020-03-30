@@ -1,6 +1,6 @@
 ---
-title: Scalabilità-Hub eventi di Azure | Microsoft Docs
-description: Questo articolo fornisce informazioni su come ridimensionare Hub eventi di Azure usando partizioni e unità di velocità effettiva.
+title: Scalabilità - Hub eventi di Azure Documenti Microsoft
+description: Questo articolo fornisce informazioni su come ridimensionare gli hub eventi di Azure usando partizioni e unità di velocità effettiva.
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -15,21 +15,21 @@ ms.custom: seodec18
 ms.date: 06/18/2019
 ms.author: shvija
 ms.openlocfilehash: 2b36faef8c39a8e9b02a056576ae7f5a77b1f6bf
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79280950"
 ---
-# <a name="scaling-with-event-hubs"></a>Ridimensionamento con hub eventi
+# <a name="scaling-with-event-hubs"></a>Scalabilità con hub eventiScaling with Event Hubs
 
-Esistono due fattori che influenzano la scalabilità con hub eventi.
+Esistono due fattori che influenzano il ridimensionamento con hub eventi.
 *   Unità elaborate
 *   Partizioni
 
 ## <a name="throughput-units"></a>Unità elaborate
 
-La capacità di velocità effettiva di Hub eventi è controllata dalle *unità elaborate*. Le unità elaborate sono unità di capacità pre-acquistate. Una singola velocità effettiva consente di:
+La capacità di velocità effettiva degli hub eventi è controllata dalle *unità di velocità effettiva.* Le unità elaborate sono unità di capacità pre-acquistate. Una singola velocità effettiva consente di:A single throughput lets you:
 
 * Dati in ingresso: fino a 1 MB al secondo o 1000 eventi al secondo, qualunque valore venga raggiunto per primo.
 * Dati in uscita: fino a 2 MB al secondo o 4096 eventi al secondo.
@@ -45,7 +45,7 @@ La funzionalità **Aumento automatico** di Hub eventi aumenta automaticamente le
 
 Il servizio Hub eventi aumenta la velocità effettiva quando il carico supera la soglia minima, senza che le richieste abbiano esito negativo con errori ServerBusy. 
 
-Per altre informazioni sulla funzionalità di aumento automatico, vedere [ridimensionare automaticamente le unità di velocità effettiva](event-hubs-auto-inflate.md).
+Per ulteriori informazioni sulla funzionalità di aumento automatico, vedere [Scalabilità automatica delle unità di velocità effettiva](event-hubs-auto-inflate.md).
 
 ## <a name="partitions"></a>Partizioni
 [!INCLUDE [event-hubs-partitions](../../includes/event-hubs-partitions.md)]
@@ -60,5 +60,5 @@ L'autore di eventi è a conoscenza solo della chiave di partizione, non la parti
 ## <a name="next-steps"></a>Passaggi successivi
 Per ulteriori informazioni su Hub eventi visitare i collegamenti seguenti:
 
-- [Ridimensionare automaticamente le unità elaborate](event-hubs-auto-inflate.md)
+- [Ridimensionamento automatico delle unità elaborate](event-hubs-auto-inflate.md)
 - [Panoramica del servizio Hub eventi](event-hubs-what-is-event-hubs.md)
