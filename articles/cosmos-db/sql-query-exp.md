@@ -1,6 +1,6 @@
 ---
-title: EXP nel linguaggio di query Azure Cosmos DB
-description: Informazioni sulla funzione di sistema SQL esponente (EXP) in Azure Cosmos DB per restituire il valore esponenziale dell'espressione numerica specificata
+title: EXP nel linguaggio di query di Azure Cosmos DB
+description: Informazioni sulla funzione del sistema SQL EXP (Exponent) in Azure Cosmos DB per restituire il valore esponenziale dell'espressione numerica specificata
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,10 +8,10 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 76d614264124e1ce4138663b702ff6d899b3aa4e
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74873319"
 ---
 # <a name="exp-azure-cosmos-db"></a>EXP (Azure Cosmos DB)
@@ -34,13 +34,13 @@ EXP (<numeric_expr>)
   
 ## <a name="remarks"></a>Osservazioni
   
-  La costante **e** (2,718281 …) è la base dei logaritmi naturali.  
+  La costante **e** (2.718281…) è la base dei logaritmi naturali.  
   
   L'esponente di un numero è la costante **e** elevata alla potenza del numero. Ad esempio, EXP(1.0) = e^1.0 = 2,71828182845905 e EXP(10) = e^10 = 22026,4657948067.  
   
   Il valore esponenziale del logaritmo naturale di un numero è il numero stesso: EXP (LOG (n)) = n. E il logaritmo naturale dell'esponente di un numero è il numero stesso: LOG (EXP (n)) = n.  
   
-## <a name="examples"></a>esempi
+## <a name="examples"></a>Esempi
   
   Nell'esempio seguente viene dichiarata una variabile e restituito il valore esponenziale della variabile specificata (10).  
   
@@ -70,4 +70,4 @@ SELECT EXP(LOG(20)) AS exp1, LOG(EXP(20)) AS exp2
 
 - [Funzioni matematiche Azure Cosmos DB](sql-query-mathematical-functions.md)
 - [Funzioni di sistema Azure Cosmos DB](sql-query-system-functions.md)
-- [Introduzione a Azure Cosmos DB](introduction.md)
+- [Introduzione ad Azure Cosmos DB](introduction.md)

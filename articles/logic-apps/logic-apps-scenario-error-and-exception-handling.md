@@ -1,6 +1,6 @@
 ---
-title: Scenario di gestione delle eccezioni & la registrazione degli errori
-description: Caso d'uso reale e scenario per la gestione avanzata delle eccezioni e la registrazione degli errori nelle app per la logica di Azure
+title: Gestione delle eccezioni & scenario di registrazione degli errori
+description: Caso d'uso reale e scenario per la gestione avanzata delle eccezioni e la registrazione degli errori nelle app per la logica di AzureReal use case and scenario for advanced exception handling and error logging in Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 author: hedidin
@@ -8,10 +8,10 @@ ms.reviewer: klam, estfan, logicappspm
 ms.topic: article
 ms.date: 07/29/2016
 ms.openlocfilehash: 1bb6e28c9dcae01f3233178706d2a24156fa509a
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76902694"
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Scenario: Gestione delle eccezioni e registrazione degli errori per le app per la logica
@@ -37,9 +37,9 @@ Il progetto prevedeva due requisiti principali:
 
 ## <a name="how-we-solved-the-problem"></a>Come è stato risolto il problema
 
-Abbiamo scelto [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/ "Azure Cosmos DB") come repository per i record di log e di errore (Cosmos DB fa riferimento ai record come documenti). Dato che le app per la logica di Azure includono un modello standard per tutte le risposte, non è stato necessario creare uno schema personalizzato. È stato possibile creare un'app per le API per l'**inserimento** e la **query** per i record di errore e di log. È stato anche possibile definire uno schema per ognuno all'interno dell'app per le API.  
+Abbiamo scelto [Database Cosmos](https://azure.microsoft.com/services/cosmos-db/ "Azure Cosmos DB") di Azure Come repository per i record di log e di errore (Cosmos DB si riferisce ai record come documenti). Dato che le app per la logica di Azure includono un modello standard per tutte le risposte, non è stato necessario creare uno schema personalizzato. È stato possibile creare un'app per le API per l'**inserimento** e la **query** per i record di errore e di log. È stato anche possibile definire uno schema per ognuno all'interno dell'app per le API.  
 
-Un altro requisito era ripulire i record dopo una certa data. Cosmos DB dispone di una proprietà denominata [time to Live](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "Durata (TTL)") (TTL), che ci ha consentito di impostare un valore di **durata** (TTL) per ogni record o raccolta. Questa funzionalità ha evitato di dover eliminare manualmente i record in Cosmos DB.
+Un altro requisito era ripulire i record dopo una certa data. Cosmos DB ha una proprietà chiamata [Time to Live](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "Tempo di vita") (TTL), che ci ha permesso di impostare un valore Time to **Live** per ogni record o raccolta. Questa funzionalità ha evitato di dover eliminare manualmente i record in Cosmos DB.
 
 > [!IMPORTANT]
 > Per completare questa esercitazione, è necessario creare un database Cosmos DB e due raccolte, per la registrazione e gli errori.
@@ -52,7 +52,7 @@ Dato che si prevede di registrare il record proveniente da Dynamics CRM Online, 
 
 ### <a name="logic-app-trigger"></a>Trigger dell'app per la logica
 
-Viene usato un trigger di **richiesta** come illustrato nell'esempio seguente:
+Si usa un trigger **di richiesta,** come illustrato nell'esempio seguente:We are using a Request trigger as shown in the following example:
 
 ``` json
 "triggers": {
@@ -90,7 +90,7 @@ Viene usato un trigger di **richiesta** come illustrato nell'esempio seguente:
 ```
 
 
-## <a name="steps"></a>Procedure
+## <a name="steps"></a>Passaggi
 
 È necessario registrare l'origine (richiesta) del record del paziente dal portale Dynamics CRM Online.
 
@@ -431,7 +431,7 @@ L'app per le API di gestione delle eccezioni delle App per la logica di Azure of
 
 Ogni documento in Azure Cosmos DB deve avere un ID univoco. Viene usato `PatientId` e viene aggiunto un timestamp che sarà convertito in un valore di timestamp Unix (double). Il valore viene troncato per rimuovere il valore frazionario.
 
-È possibile visualizzare il codice sorgente dell'API del controller degli errori [da GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/LogicAppsExceptionManagementApi/Controllers/LogController.cs).
+È possibile visualizzare il codice sorgente dell'API del controller di errore da [GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/LogicAppsExceptionManagementApi/Controllers/LogController.cs).
 
 L'API viene chiamata da un'app per la logica usando la sintassi seguente:
 
@@ -476,10 +476,10 @@ L'espressione nell'esempio di codice precedente verifica la presenza dello stato
 
 ### <a name="source-code"></a>Codice sorgente
 
-Il codice sorgente per l'applicazione API di gestione delle eccezioni delle app per la logica è disponibile in questo [repository GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi "API di gestione delle eccezioni delle app per la logica").
+Il codice sorgente per l'applicazione API di gestione delle eccezioni App per la logica è disponibile in questo [repository GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi "API di gestione delle eccezioni delle app per la logica").
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Visualizzare altri esempi e scenari di app per la logica](../logic-apps/logic-apps-examples-and-scenarios.md)
 * [Monitorare le app per la logica](../logic-apps/monitor-logic-apps.md)
-* [Automatizzare la distribuzione delle app per la logica](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
+* [Automatizzare la distribuzione di app per la logica](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)

@@ -8,10 +8,10 @@ ms.date: 05/22/2017
 ms.author: saudas
 ms.custom: mvc
 ms.openlocfilehash: f1d0ca1ffc2e7a3d645ac5acbaafdf45f85550be
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76271104"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-kubernetes-cluster-with-coscale"></a>(DEPRECATO) Monitorare un cluster Kubernetes del servizio Azure Container con CoScale
@@ -59,7 +59,7 @@ az acs kubernetes install-cli
 ```
 
 ## <a name="installing-the-coscale-agent-with-a-daemonset"></a>Installazione dell'agente CoScale con DaemonSet
-Gli elementi [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) vengono usati da Kubernetes per eseguire una singola istanza di un contenitore in ogni host del cluster.
+[DaemonSets](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) vengono utilizzati da Kubernetes per eseguire una singola istanza di un contenitore in ogni host del cluster.
 Sono ideali per l'esecuzione di agenti di monitoraggio, ad esempio l'agente CoScale.
 
 Dopo l'accesso a CoScale, passare alla [pagina degli agenti](https://app.coscale.com/) per installare gli agenti CoScale nel cluster tramite DaemonSet. L'interfaccia utente di CoScale fornisce una procedura guidata per la configurazione per creare un agente e iniziare a monitorare il cluster Kubernetes completo.

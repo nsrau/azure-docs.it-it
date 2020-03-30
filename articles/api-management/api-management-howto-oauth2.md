@@ -1,5 +1,5 @@
 ---
-title: Autorizzare gli account per sviluppatori usando OAuth 2,0 in gestione API
+title: Autorizzare gli account sviluppatore usando OAuth 2.0 in Gestione APIAuthorize developer accounts using OAuth 2.0 in API Management
 titleSuffix: Azure API Management
 description: Informazioni su come autorizzare gli utenti tramite OAuth 2.0 in Gestione API.
 services: api-management
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 90c890925378c30ce5688d2713990b4b2cdd20c5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75430684"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Come autorizzare gli account per sviluppatori utilizzando OAuth 2.0 in Gestione API di Azure
@@ -25,9 +25,9 @@ ms.locfileid: "75430684"
 Molte API supportano [OAuth 2.0](https://oauth.net/2/) per proteggere l'API e assicurare che solo gli utenti validi siano autorizzati all'accesso e che possano accedere solo alle risorse a cui hanno diritto. Per usare la console per sviluppatori interattiva di Gestione API di Azure con queste API, il servizio permette di configurare l'istanza del servizio per l'uso delle API abilitate per OAuth 2.0.
 
 > [!IMPORTANT]
-> L'autorizzazione OAuth 2,0 non è ancora disponibile nella console interattiva del nuovo portale per sviluppatori.
+> L'autorizzazione OAuth 2.0 non è ancora disponibile nella console interattiva del nuovo portale per sviluppatori.
 
-## <a name="prerequisites"> </a>Prerequisiti
+## <a name="prerequisites"></a><a name="prerequisites"> </a>Prerequisiti
 
 Questa guida illustra come configurare un'istanza del servizio Gestione API per l'uso dell'autorizzazione OAuth 2.0 per gli account per sviluppatori, ma non viene spiegato come configurare un provider OAuth 2.0. La configurazione cambia in base al provider OAuth 2.0, sebbene le procedure siano simili e le informazioni necessarie usate per la configurazione di OAuth 2.0 nell'istanza del servizio Gestione API siano le stesse. Questo argomento mostra degli esempi di utilizzo di Azure Active Directory come provider OAuth 2.0.
 
@@ -36,10 +36,10 @@ Questa guida illustra come configurare un'istanza del servizio Gestione API per 
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="step1"> </a>Configurare un server di autorizzazione OAuth 2,0 in gestione API
+## <a name="configure-an-oauth-20-authorization-server-in-api-management"></a><a name="step1"> </a>Configurare un server autorizzazione OAuth 2.0 in Gestione API
 
 > [!NOTE]
-> Se non è stata ancora creata un'istanza del servizio gestione API, vedere [creare un'istanza del servizio gestione API][Create an API Management service instance].
+> Se non è ancora stata creata un'istanza del servizio Gestione API, vedere [Creare un'istanza di Gestione API][Create an API Management service instance].
 
 1. Fare clic sulla scheda OAuth 2.0 nel menu a sinistra e fare clic su **+ Aggiungi**.
 
@@ -58,7 +58,7 @@ Questa guida illustra come configurare un'istanza del servizio Gestione API per 
 
     Selezionare i tipi desiderati in **Tipi di concessione di autorizzazione**. **Authorization code** è specificato per impostazione predefinita.
 
-    Immettere il valore relativo a **Authorization endpoint URL**. Ad Azure Active Directory, questo URL sarà simile all'URL seguente, in cui `<tenant_id>` viene sostituito con l'ID del tenant di Azure AD.
+    Immettere il valore relativo a **Authorization endpoint URL**. Per Azure Active Directory, questo URL sarà simile `<tenant_id>` all'URL seguente, dove viene sostituito con l'ID del tenant di Azure AD.
 
     `https://login.microsoftonline.com/<tenant_id>/oauth2/authorize`
 
@@ -82,7 +82,7 @@ Questa guida illustra come configurare un'istanza del servizio Gestione API per 
 
     Dopo aver completato il modulo, fare clic su **Crea** per salvare la configurazione del server di autorizzazione OAuth 2.0 di Gestione API. Dopo aver salvato la configurazione del server, è possibile configurare le API in modo che usino questa configurazione, come illustrato nella sezione successiva.
 
-## <a name="step2"> </a>Configurare un'API per l'uso dell'autorizzazione utente OAuth 2,0
+## <a name="configure-an-api-to-use-oauth-20-user-authorization"></a><a name="step2"> </a>Configurare un'API per l'uso di un'autorizzazione utente OAuth 2.0
 
 1. Fare clic su **API** nel menu **Gestione API** a sinistra.
 
@@ -96,11 +96,11 @@ Questa guida illustra come configurare un'istanza del servizio Gestione API per 
 
     ![Impostazioni OAuth 2.0](./media/api-management-howto-oauth2/oauth-07.png)
 
-## <a name="step3"> </a>Portale per sviluppatori Legacy: testare l'autorizzazione utente OAuth 2,0
+## <a name="legacy-developer-portal---test-the-oauth-20-user-authorization"></a><a name="step3"> </a>Portale per sviluppatori legacy: testare l'autorizzazione utente OAuth 2.0
 
 [!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
-Dopo aver configurato il server autorizzazione OAuth 2.0 e l'API per l'uso di tale server, è possibile testarlo andando al portale per sviluppatori e chiamando un'API. Fare clic su **portale per sviluppatori (legacy)** nel menu in alto nella pagina **Panoramica** dell'istanza di gestione API di Azure.
+Dopo aver configurato il server autorizzazione OAuth 2.0 e l'API per l'uso di tale server, è possibile testarlo andando al portale per sviluppatori e chiamando un'API. Fare clic su **Portale per sviluppatori (legacy)** nel menu in alto dalla pagina **Panoramica** dell'istanza di Gestione API di Azure.Click Developer portal (legacy) in the top menu from your Azure API Management instance Overview page.
 
 Fare clic su **API** nel menu superiore e scegliere **API Echo**.
 
@@ -118,7 +118,7 @@ Quando **Authorization code** è selezionato, viene visualizzata una finestra po
 > [!NOTE]
 > Se i popup sono stati disattivati, verrà richiesto di attivarli tramite il browser. Dopo averli attivati, selezionare di nuovo **Authorization code** per visualizzare il modulo di accesso.
 
-![Accedi][api-management-oauth2-signin]
+![Accesso][api-management-oauth2-signin]
 
 Dopo aver effettuato l'accesso, le **intestazioni della richiesta** vengono compilate con un'intestazione `Authorization : Bearer` che autorizza la richiesta.
 

@@ -11,18 +11,18 @@ ms.workload: infrastructure-services
 ms.date: 05/15/2018
 ms.author: rohink
 ms.openlocfilehash: 4e017dc940e1d32888ff279904e44d34db1fd5c3
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76936898"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli"></a>Gestire record e recordset DNS in DNS di Azure con l'interfaccia della riga di comando di Azure
 
 > [!div class="op_single_selector"]
 > * [Portale di Azure](dns-operations-recordsets-portal.md)
-> * [Interfaccia della riga di comando di Azure](dns-operations-recordsets-cli.md)
-> * [PowerShell](dns-operations-recordsets.md)
+> * [Interfaccia della riga di comando di AzureAzure](dns-operations-recordsets-cli.md)
+> * [Powershell](dns-operations-recordsets.md)
 
 Questo articolo descrive come gestire i record DNS per la zona DNS usando l'interfaccia della riga di comando multipiattaforma di Azure, disponibile per Windows, Mac e Linux. È anche possibile gestire i record DNS tramite [Azure PowerShell](dns-operations-recordsets.md) o il [portale di Azure](dns-operations-recordsets-portal.md).
 
@@ -38,7 +38,7 @@ Per altre informazioni sui record DNS nel servizio DNS di Azure, vedere [Zone e 
 
 ## <a name="create-a-dns-record"></a>Creare un record DNS
 
-Per creare un record DNS, usare il comando `az network dns record-set <record-type> add-record` (dove `<record-type>` è il tipo di record, ossia a, SRV, txt e così via) Per informazioni, vedere `az network dns record-set --help`.
+Per creare un record DNS, usare il comando `az network dns record-set <record-type> add-record` (dove `<record-type>` è il tipo di record, ossia a, srv, txt, ecc.) Per assistenza, `az network dns record-set --help`vedere .
 
 Quando si crea un record è necessario specificare il nome del gruppo di risorse, della zona e del set di record, il tipo di record e i dettagli del record da creare. Il nome assegnato al set di record deve essere un nome *relativo*, ovvero deve escludere il nome della zona.
 

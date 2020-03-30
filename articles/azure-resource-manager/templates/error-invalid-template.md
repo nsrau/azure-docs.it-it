@@ -1,13 +1,13 @@
 ---
 title: Errori di modello non validi
-description: Viene descritto come risolvere gli errori del modello non validi durante la distribuzione di Azure Resource Manager modelli.
+description: Viene descritto come risolvere gli errori di modello non validi durante la distribuzione di modelli di Azure Resource Manager.Describes how to resolve invalid template errors when deploying Azure Resource Manager templates.
 ms.topic: troubleshooting
 ms.date: 03/08/2018
 ms.openlocfilehash: 65cd69d67933d117b51f37b587b276aec2bd635a
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76154058"
 ---
 # <a name="resolve-errors-for-invalid-template"></a>Risolvere errori dovuti a modelli non validi

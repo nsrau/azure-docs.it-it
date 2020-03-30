@@ -1,6 +1,6 @@
 ---
-title: Creare un ambiente del servizio app esterno
-description: Informazioni su come creare un ambiente del servizio app con un'app o creare un ambiente del servizio app autonomo (vuoto).
+title: Creare un'archiviazione del database dell'utente esternoCreate an external ASE
+description: Informazioni su come creare un ambiente del servizio app con un'app in esso o creare un ambiente del servizio app autonomo (vuoto).
 author: ccompy
 ms.assetid: 94dd0222-b960-469c-85da-7fcb98654241
 ms.topic: article
@@ -8,10 +8,10 @@ ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 6c4838e3226b91cbb5d6f86b83266a986418c120
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75430521"
 ---
 # <a name="create-an-external-app-service-environment"></a>Creare un ambiente del servizio app esterno
@@ -26,15 +26,15 @@ L'ambiente del servizio app di Azure è una distribuzione di Servizio app di Azu
 - Con un indirizzo VIP su un indirizzo IP esterno, spesso denominato ambiente del servizio app esterno.
 - Con l'indirizzo VIP in un indirizzo IP interno, spesso denominato ambiente del servizio app con bilanciamento del carico interno perché l'endpoint interno è un servizio di bilanciamento del carico interno.
 
-In questo articolo viene illustrato come creare un ambiente del servizio app esterno. Per una panoramica dell'ambiente del servizio app, vedere [Introduzione al ambiente del servizio app][Intro]. Per informazioni su come creare un ambiente del servizio app ILB, vedere [creare e usare un][MakeILBASE]ambiente del servizio app ILB.
+In questo articolo viene illustrato come creare un ambiente del servizio app esterno. Per una panoramica dell'ambiente del servizio app, vedere [Introduzione ad Ambiente del servizio app][Intro]. Per informazioni su come creare un ambiente del servizio app con bilanciamento del carico interno, vedere [Creare e usare un ambiente del servizio app con bilanciamento del carico interno][MakeILBASE].
 
 ## <a name="before-you-create-your-ase"></a>Prima di creare l'ambiente del servizio app
 
 Dopo avere creato l'ambiente del servizio app, non è possibile modificare quanto segue:
 
-- Percorso
-- Sottoscrizione
-- Gruppo di risorse
+- Location
+- Subscription
+- Resource group
 - Rete virtuale usata
 - Subnet usata
 - Dimensioni della subnet
@@ -49,7 +49,7 @@ Esistono tre modi per creare un ambiente del servizio app:
 
 - **Durante la creazione di un piano di servizio app**. Questo metodo crea l'ambiente del servizio app e il piano di servizio app in un solo passaggio.
 - **Come azione autonoma**. Questo metodo crea un ambiente del servizio app autonomo, ovvero un ambiente del servizio app vuoto. Questo metodo è un processo avanzato per creare un ambiente del servizio app. È possibile usarlo per creare un ambiente del servizio app con bilanciamento del carico interno.
-- **Da un modello di Azure Resource Manager**. Questo metodo è per gli utenti avanzati. Per altre informazioni, vedere [creare un ambiente del servizio app da un modello][MakeASEfromTemplate].
+- **Da un modello di Azure Resource Manager**. Questo metodo è per gli utenti avanzati. Per altre informazioni, vedere [Creare un ambiente del servizio app da un modello][MakeASEfromTemplate].
 
 Un ambiente del servizio app esterno ha un indirizzo VIP pubblico, quindi tutto il traffico HTTP/HTTPS verso le app nell'ambiente del servizio app usa un indirizzo IP accessibile da Internet. Un ambiente del servizio app con bilanciamento del carico interno ha un indirizzo IP dalla subnet usata dall'ambiente del servizio app. Le app ospitate in un ambiente del servizio app con bilanciamento del carico interno non sono esposte direttamente a Internet.
 
@@ -65,7 +65,7 @@ Per creare un ambiente del servizio app quando si crea un piano di servizio app:
 
 2. Selezionare la propria sottoscrizione. L'app e l'ambiente del servizio app vengono creati nelle stesse sottoscrizioni.
 
-3. Selezionare o creare un gruppo di risorse. Con i gruppi di risorse è possibile gestire insieme le risorse di Azure correlate. I gruppi di risorse sono utili anche quando si stabiliscono le regole di controllo degli accessi in base al ruolo per le app. Per altre informazioni, vedere [Panoramica di Gestione risorse di Azure][ARMOverview].
+3. Selezionare o creare un gruppo di risorse. Con i gruppi di risorse è possibile gestire insieme le risorse di Azure correlate. I gruppi di risorse sono utili anche quando si stabiliscono le regole di controllo degli accessi in base al ruolo per le app. Per altre informazioni, vedere [Panoramica di Azure Resource Manager][ARMOverview].
 
 4. Selezionare il sistema operativo (Windows, Linux o Docker). 
 
@@ -103,7 +103,7 @@ Per creare un ambiente del servizio app quando si crea un piano di servizio app:
 
 1. Selezionare la propria sottoscrizione. L'app e l'ambiente del servizio app vengono creati nelle stesse sottoscrizioni.
 
-1. Selezionare o creare un gruppo di risorse. Con i gruppi di risorse è possibile gestire insieme le risorse di Azure correlate. I gruppi di risorse sono utili anche quando si stabiliscono le regole di controllo degli accessi in base al ruolo per le app. Per altre informazioni, vedere [Panoramica di Gestione risorse di Azure][ARMOverview].
+1. Selezionare o creare un gruppo di risorse. Con i gruppi di risorse è possibile gestire insieme le risorse di Azure correlate. I gruppi di risorse sono utili anche quando si stabiliscono le regole di controllo degli accessi in base al ruolo per le app. Per altre informazioni, vedere [Panoramica di Azure Resource Manager][ARMOverview].
 
 1. Selezionare il piano di servizio app, quindi selezionare **Crea nuovo**. Le app Web di Linux e di Windows non possono essere presenti nello stesso piano di servizio app, ma possono essere presenti nello stesso ambiente del servizio app. 
 
@@ -149,7 +149,7 @@ Se si crea un ambiente del servizio app autonomo, risulterà vuoto. Un ambiente 
 
 1. Selezionare la propria sottoscrizione. Questa sottoscrizione è anche quella usata da tutte le app nell'ambiente del servizio app. Non è possibile inserire l'ambiente del servizio app in una rete virtuale che si trova in un'altra sottoscrizione.
 
-1. Selezionare o specificare un nuovo gruppo di risorse. Il gruppo di risorse per l'ambiente del servizio app deve essere uguale a quello usato per la rete virtuale. Se si seleziona una rete virtuale esistente, la selezione del gruppo di risorse per l'ambiente del servizio app viene aggiornata per riflettere il valore della rete virtuale. *È possibile creare un ambiente del servizio app con un gruppo di risorse diverso dal gruppo di risorse della rete virtuale se si usa un modello di Resource Manager*. Per creare un ambiente del servizio app da un modello, vedere [creare un ambiente del servizio app da un modello][MakeASEfromTemplate].
+1. Selezionare o specificare un nuovo gruppo di risorse. Il gruppo di risorse per l'ambiente del servizio app deve essere uguale a quello usato per la rete virtuale. Se si seleziona una rete virtuale esistente, la selezione del gruppo di risorse per l'ambiente del servizio app viene aggiornata per riflettere il valore della rete virtuale. *È possibile creare un ambiente del servizio app con un gruppo di risorse diverso dal gruppo di risorse della rete virtuale se si usa un modello di Resource Manager*. Per creare un ambiente del servizio app da un modello, vedere [Creare un ambiente del servizio app da un modello.][MakeASEfromTemplate]
 
     ![Selezione del gruppo di risorse][6]
 
@@ -157,19 +157,19 @@ Se si crea un ambiente del servizio app autonomo, risulterà vuoto. Un ambiente 
 
     * Se si seleziona una nuova rete virtuale, è possibile specificare un nome e una località. 
     
-    * Alla nuova rete virtuale vengono assegnati l'intervallo di indirizzi 192.168.250.0/23 e una subnet denominata predefinita. La subnet è definita come 192.168.250.0/24. È possibile selezionare solo una rete virtuale di Resource Manager. La selezione di **Tipo di indirizzo VIP** indica se è possibile accedere all'ambiente del servizio app direttamente da Internet (Esterno) o se si usa un servizio di bilanciamento del carico interno. Per ulteriori informazioni su queste opzioni, vedere [creare e usare un servizio di bilanciamento del carico interno con un ambiente del servizio app][MakeILBASE]. 
+    * Alla nuova rete virtuale vengono assegnati l'intervallo di indirizzi 192.168.250.0/23 e una subnet denominata predefinita. La subnet è definita come 192.168.250.0/24. È possibile selezionare solo una rete virtuale di Resource Manager. La selezione di **Tipo di indirizzo VIP** indica se è possibile accedere all'ambiente del servizio app direttamente da Internet (Esterno) o se si usa un servizio di bilanciamento del carico interno. Per altre informazioni su queste opzioni, vedere [Creare e usare un bilanciamento del carico interno con un ambiente del servizio app][MakeILBASE]. 
 
       * Se si seleziona **Esterno** come **Tipo di indirizzo VIP**, è possibile selezionare il numero di indirizzi IP esterni con cui viene creato il sistema per finalità di associazione SSL basata su IP. 
     
       * Se si seleziona **Interno** come **Tipo di indirizzo VIP**, è necessario specificare il dominio usato dall'ambiente del servizio app. È possibile distribuire un ambiente del servizio app in una rete virtuale che usa gli intervalli di indirizzi pubblici o privati. Per usare una rete virtuale con un intervallo di indirizzi pubblici, è necessario creare in anticipo la rete virtuale. 
     
-    * Se si seleziona una rete virtuale di esistente, viene creata una nuova subnet contemporaneamente all'ambiente del servizio app. *Non è possibile usare una subnet creata in precedenza nel portale. Se si usa un modello di Gestione risorse, è possibile creare un ambiente del servizio app con una subnet esistente.* Per creare un ambiente del servizio app da un modello, vedere [creare un ambiente del servizio app da un modello][MakeASEfromTemplate].
+    * Se si seleziona una rete virtuale di esistente, viene creata una nuova subnet contemporaneamente all'ambiente del servizio app. *Non è possibile usare una subnet creata in precedena nel portale. È possibile creare un ambiente del servizio app con una subnet esistente se si usa un modello di Resource Manager.You can create an ASE with an existing subnet if you use a Resource Manager template.* Per creare un ambiente del servizio app da un modello, vedere [Creare un ambiente del servizio app da un modello][MakeASEfromTemplate].
 
 ## <a name="app-service-environment-v1"></a>Ambiente del servizio app 1
 
 È tuttavia possibile creare istanze della prima versione dell'ambiente del servizio app. Per avviare tale processo, cercare **App Service Environment v1** (Ambiente del servizio app 1) nel Marketplace. L'ambiente del servizio app viene creato esattamente come si crea l'ambiente del servizio app autonomo. Al termine, l'ambiente del servizio app 1 ha due front-end e due ruoli di lavoro. Con l'ambiente del servizio app 1 è necessario gestire i front-end e i ruoli di lavoro. Questi non vengono aggiunti automaticamente quando si creano i piani di servizio app. Le risorse front-end fungono da endpoint HTTP/HTTPS e inviano il traffico ai ruoli di lavoro. I ruoli di lavoro ospitano le app. Dopo avere creato l'ambiente del servizio app, è possibile modificare la quantità di front-end e ruoli di lavoro. 
 
-Per altre informazioni su ASEv1, vedere [Introduzione alla ambiente del servizio app V1][ASEv1Intro]. Per ulteriori informazioni sul ridimensionamento, la gestione e il monitoraggio di ASEv1, vedere [come configurare un ambiente del servizio app][ConfigureASEv1].
+Per altre informazioni sull'ambiente del servizio app 1, vedere [Introduction to the App Service Environment v1][ASEv1Intro] (Introduzione all'ambiente del servizio app 1). Per altre informazioni sul ridimensionamento, la gestione e il monitoraggio di un ambiente del servizio app 1, vedere [Configurazione di un ambiente del servizio app][ConfigureASEv1].
 
 <!--Image references-->
 [1]: ./media/how_to_create_an_external_app_service_environment/createexternalase-create.png

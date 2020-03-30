@@ -9,23 +9,23 @@ ms.date: 09/07/2018
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: 68260bf8aafbbe5afd46ec7dfb763eb88ee2123e
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78892797"
 ---
-In questa sezione si userà l'interfaccia della riga di comando di Azure per creare un'identità del dispositivo per questo articolo. Gli ID dispositivo fanno distinzione tra maiuscole e minuscole.
+In questa sezione si usa l'interfaccia della riga di comando di Azure per creare un'identità del dispositivo per questo articolo. Gli ID dispositivo fanno distinzione tra maiuscole e minuscole.
 
 1. Aprire [Azure Cloud Shell](https://shell.azure.com/).
 
-1. In Azure Cloud Shell eseguire il comando seguente per installare l'estensione Microsoft Azure Internet Internet per l'interfaccia della riga di comando di Azure:
+1. In Azure Cloud Shell, run the following command to install the Microsoft Azure IoT Extension for Azure CLI:
 
     ```azurecli-interactive
     az extension add --name azure-iot
     ```
 
-2. Creare una nuova identità del dispositivo denominata `myDeviceId` e recuperare la stringa di connessione del dispositivo con i comandi seguenti:
+2. Creare una nuova `myDeviceId` identità del dispositivo denominata e recuperare la stringa di connessione del dispositivo con questi comandi:Create a new device identity called and retrieve the device connection string with these commands:
 
     ```azurecli-interactive
     az iot hub device-identity create --device-id myDeviceId --hub-name {Your IoT Hub name}

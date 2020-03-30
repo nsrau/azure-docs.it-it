@@ -1,15 +1,15 @@
 ---
-title: Ridimensionamento del cluster autonomo Service Fabric Azure
+title: Scalabilità del cluster autonomo di Azure Service FabricAzure Service Fabric standalone cluster scaling
 description: Informazioni sul ridimensionamento orizzontale o verticale dei cluster autonomi di Service Fabric.
 author: dkkapur
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: dekapur
 ms.openlocfilehash: 16ec0eb429ec6e8f6613490226b7cff01dff1b32
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75451919"
 ---
 # <a name="scaling-service-fabric-standalone-clusters"></a>Ridimensionamento dei cluster di Service Fabric

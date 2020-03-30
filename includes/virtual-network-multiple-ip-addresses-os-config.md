@@ -9,21 +9,21 @@ ms.date: 05/10/2019
 ms.author: anavin
 ms.custom: include file
 ms.openlocfilehash: a9473f69d600a86ff71da69c7efe0dea3f2b0a08
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "76159073"
 ---
-## <a name="os-config"></a>Aggiungere indirizzi IP a un sistema operativo VM
+## <a name="add-ip-addresses-to-a-vm-operating-system"></a><a name="os-config"></a>Aggiungere indirizzi IP a un sistema operativo VM
 
 Connettersi e accedere alla VM creata con più indirizzi IP privati. È necessario aggiungere manualmente tutti gli indirizzi IP privati aggiunti alla VM, incluso l'indirizzo primario. Completare i passaggi seguenti per il sistema operativo della macchina virtuale.
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a>WINDOWS
 
-1. Da un prompt dei comandi digitare *ipconfig /all*.  Viene visualizzato solo l'indirizzo IP privato *Primary* , tramite DHCP.
+1. Al prompt dei comandi digitare *ipconfig /all*.  Viene visualizzato solo l'indirizzo IP privato *Primary* , tramite DHCP.
 2. Digitare *ncpa.cpl* nel prompt dei comandi per aprire la finestra **Connessioni di rete**.
-3. Visualizzare le proprietà per la scheda appropriata: **Connessione alla rete locale (LAN)** .
+3. Visualizzare le proprietà per la scheda appropriata: **Connessione alla rete locale (LAN)**.
 4. Fare doppio clic su Protocollo Intenret versione 4 (IPv4).
 5. Selezionare **Utilizza il seguente indirizzo IP** e immettere i valori seguenti:
 
@@ -38,7 +38,7 @@ Connettersi e accedere alla VM creata con più indirizzi IP privati. È necessar
 
     * Fare clic su **OK** per chiudere le impostazioni TCP/IP e quindi di nuovo su **OK** per chiudere le impostazioni della scheda. Viene ristabilita la connessione RDP.
 
-6. Da un prompt dei comandi digitare *ipconfig /all*. Tutti gli indirizzi IP aggiunti vengono visualizzati e DHCP viene disattivato.
+6. Al prompt dei comandi digitare *ipconfig /all*. Tutti gli indirizzi IP aggiunti vengono visualizzati e DHCP viene disattivato.
 7. Configurare Windows per usare l'indirizzo IP privato della configurazione IP primaria in Azure come indirizzo IP primario per Windows. Per i dettagli, vedere [Nessun accesso a Internet da una macchina virtuale Windows Azure che dispone di più indirizzi IP](https://support.microsoft.com/help/4040882/no-internet-access-from-azure-windows-vm-that-has-multiple-ip-addresse). 
 
 ### <a name="validation-windows"></a>Convalida (Windows)
@@ -53,7 +53,7 @@ ping -S 10.0.0.5 hotmail.com
 
 ### <a name="linux-ubuntu-1416"></a>Linux (Ubuntu 14/16)
 
-Si consiglia di esaminare la documentazione più recente per la distribuzione di Linux. 
+Ti consigliamo di esaminare la documentazione più recente per la distribuzione Linux. 
 
 1. Aprire una finestra del terminale.
 2. Assicurarsi di essere l'utente ROOT. In caso contrario, immettere il comando seguente:
@@ -112,9 +112,9 @@ Si consiglia di esaminare la documentazione più recente per la distribuzione di
 
    L'indirizzo IP aggiunto dovrebbe essere incluso nell'elenco.
 
-### <a name="linux-ubuntu-1804"></a>Linux (Ubuntu 18.04 +)
+### <a name="linux-ubuntu-1804"></a>Linux (Ubuntu 18.04)
 
-Ubuntu 18,04 e versioni successive sono state modificate in `netplan` per la gestione della rete del sistema operativo. Si consiglia di esaminare la documentazione più recente per la distribuzione di Linux. 
+Ubuntu 18.04 e versioni `netplan` successive sono cambiate in per la gestione della rete del sistema operativo. Ti consigliamo di esaminare la documentazione più recente per la distribuzione Linux. 
 
 1. Aprire una finestra del terminale.
 2. Assicurarsi di essere l'utente ROOT. In caso contrario, immettere il comando seguente:
@@ -123,13 +123,13 @@ Ubuntu 18,04 e versioni successive sono state modificate in `netplan` per la ges
     sudo -i
     ```
 
-3. Creare un file per la seconda interfaccia e aprirlo in un editor di testo:
+3. Creare un file per la seconda interfaccia e aprirlo in un editor di testo:Create a file for the second interface and open it in a text editor:
 
     ```bash
     vi /etc/netplan/60-static.yaml
     ```
 
-4. Aggiungere le righe seguenti al file, sostituendo `10.0.0.6/24` con l'IP/Netmask:
+4. Aggiungere le seguenti righe al `10.0.0.6/24` file, sostituendo con la maschera di rete/IP:
 
     ```bash
     network:
@@ -146,16 +146,16 @@ Ubuntu 18,04 e versioni successive sono state modificate in `netplan` per la ges
     :wq
     ```
 
-6. Testare le modifiche usando [Netplan provare](http://manpages.ubuntu.com/manpages/cosmic/man8/netplan-try.8.html) a confermare la sintassi:
+6. Testare le modifiche utilizzando [netplan provare](http://manpages.ubuntu.com/manpages/cosmic/man8/netplan-try.8.html) a confermare la sintassi:
 
     ```bash
     netplan try
     ```
 
 > [!NOTE]
-> `netplan try` applicherà temporaneamente le modifiche ed eseguirà il rollback delle modifiche dopo 120 secondi. Se si verifica una perdita di connettività, attendere 120 secondi e quindi riconnettersi. In quel momento, verrà eseguito il rollback delle modifiche.
+> `netplan try`applicherà temporaneamente le modifiche e le riattiveranno dopo 120 secondi. Se si verifica una perdita di connettività, attendere 120 secondi e quindi riconnettersi. A quel punto, le modifiche saranno state annullate.
 
-7. Se non si verificano problemi con `netplan try`, applicare le modifiche di configurazione:
+7. Supponendo che `netplan try`non ci siano problemi con , applicare le modifiche di configurazione:
 
     ```bash
     netplan apply

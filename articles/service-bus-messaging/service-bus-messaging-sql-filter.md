@@ -1,6 +1,6 @@
 ---
 title: Informazioni di riferimento sulla sintassi di SQLFilter nel bus di servizio di Azure | Microsoft Docs
-description: Questo articolo fornisce informazioni dettagliate sulla grammatica di SqlFilter. Un SqlFilter supporta un sottoinsieme dello standard SQL-92.
+description: In questo articolo vengono fornite informazioni dettagliate sulla grammatica SQLFilter. Un SqlFilter supporta un sottoinsieme dello standard SQL-92.
 services: service-bus-messaging
 documentationcenter: na
 author: spelluru
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/05/2018
 ms.author: spelluru
 ms.openlocfilehash: d5a8e165fcee23c5feecd5935983dd77d3ec6c30
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76759664"
 ---
 # <a name="sqlfilter-syntax"></a>Sintassi di SQLFilter
@@ -60,7 +60,7 @@ Un oggetto *SqlFilter* è un'istanza della [classe SqlFilter](/dotnet/api/micros
   
 ## <a name="arguments"></a>Argomenti  
   
--   `<scope>` è una stringa facoltativa che indica l'ambito di `<property_name>`. I valori validi sono `sys` o `user`. Il valore `sys` indica l'ambito del sistema. In questo caso, `<property_name>` sarà il nome di una proprietà pubblica della [classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user` indica l'ambito dell'utente. In questo caso, `<property_name>` sarà una chiave del dizionario della [classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). Se l'argomento `<scope>` non è specificato, l'ambito predefinito è `user`.  
+-   `<scope>` è una stringa facoltativa che indica l'ambito di `<property_name>`. I valori validi sono `sys` o `user`. Il `sys` valore indica l'ambito di sistema in cui `<property_name>` è un nome di proprietà pubblica della classe [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user`indica l'ambito `<property_name>` utente in cui è una chiave del dizionario della [classe BrokeredMessage.](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) Se l'argomento `<scope>` non è specificato, l'ambito predefinito è `user`.  
   
 ## <a name="remarks"></a>Osservazioni
 
@@ -239,11 +239,11 @@ Tenere presente la semantica di [SqlFilter](/dotnet/api/microsoft.servicebus.mes
   
   Valutazione dei valori sconosciuti in `[NOT] LIKE`:  
   
-- Se qualsiasi operando viene valutato come **valore sconosciuto**, il risultato è un **valore sconosciuto**.  
+- Se un operando viene valutato come **sconosciuto**, il risultato è **sconosciuto.**  
   
   Valutazione dei valori sconosciuti in `[NOT] IN`:  
   
-- Se l'operando di sinistra viene valutato come **valore sconosciuto**, il risultato è un **valore sconosciuto**.  
+- Se l'operando sinistro viene valutato come **sconosciuto**, il risultato è **sconosciuto.**  
   
   Valutazione dei valori sconosciuti nell'operatore **AND**:  
   

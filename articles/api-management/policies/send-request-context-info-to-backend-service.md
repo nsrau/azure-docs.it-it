@@ -1,5 +1,5 @@
 ---
-title: Criteri di gestione API di esempio-inviare informazioni sul contesto della richiesta al servizio back-end
+title: Criteri di gestione API di esempio - Inviare informazioni sul contesto della richiesta al servizio back-endSample API management policy - Send request context information to back-end service
 titleSuffix: Azure API Management
 description: Esempio di criteri di Gestione API di Azure - Illustra come inviare informazioni di contesto per la richiesta al servizio back-end.
 services: api-management
@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
 ms.openlocfilehash: 8cef989ca7ce8ee649c4f4aeb579c43bf8a8d6ab
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75442412"
 ---
 # <a name="send-request-context-information-to-the-backend-service"></a>Inviare informazioni di contesto per la richiesta al servizio back-end
 
 Questo articolo descrive un esempio di criteri di Gestione API di Azure che spiega come inviare informazioni di contesto per la richiesta al servizio back-end. Per impostare o modificare il codice dei criteri, seguire la procedura descritta nell'articolo su come [impostare o modificare criteri](../set-edit-policies.md). Per altri esempi, vedere l'articolo relativo agli [esempi di criteri](../policy-samples.md).
 
-## <a name="policy"></a>Criterio
+## <a name="policy"></a>Policy
 
 Incollare il codice nel blocco **inbound**.
 

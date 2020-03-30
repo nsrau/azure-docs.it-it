@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.date: 12/16/2019
 ms.openlocfilehash: f3705170be28f33e5994bd00e363dc7ec7f94642
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75435606"
 ---
 # <a name="analyze-twitter-data-using-apache-hive-and-apache-hadoop-on-hdinsight"></a>Analizzare i dati di Twitter mediante Apache Hive e Apache Hadoop in HDInsight
 
-Informazioni su come usare [Apache Hive](https://hive.apache.org/) per elaborare i dati di Twitter. Il risultato è un elenco di utenti Twitter che hanno inviato il maggior numero di tweet contenenti una determinata parola.
+Scopri come utilizzare [Apache Hive](https://hive.apache.org/) per elaborare i dati di Twitter. Il risultato è un elenco di utenti Twitter che hanno inviato il maggior numero di tweet contenenti una determinata parola.
 
 > [!IMPORTANT]  
 > I passaggi descritti in questo documento sono stati testati in HDInsight 3.6.
@@ -28,27 +28,27 @@ Twitter consente di recuperare i dati relativi ad ogni tweet come documento JSON
 
 ### <a name="create-a-twitter-application"></a>Creare un'applicazione Twitter
 
-1. Da un Web browser accedere a [https://developer.twitter.com/apps/](https://developer.twitter.com/apps/). Selezionare il collegamento **Iscriviti ora** se non si ha un account Twitter.
+1. Da un Web browser [https://developer.twitter.com/apps/](https://developer.twitter.com/apps/)accedere a . Seleziona il link **Iscriviti ora** se non hai un account Twitter.
 
 2. Selezionare **Crea nuova app**.
 
 3. Compilare i campi **Name**, **Description**, **Website**. Per il campo **Website** è possibile creare un URL fittizio. Nella tabella seguente vengono mostrati alcuni valori di esempio da usare:
 
-   | Campo | Valore |
+   | Campo | valore |
    |--- |--- |
    | Nome |MyHDInsightApp |
-   | Description |MyHDInsightApp |
-   | Sito Web |`https://www.myhdinsightapp.com` |
+   | Descrizione |MyHDInsightApp |
+   | Website |`https://www.myhdinsightapp.com` |
 
-4. Selezionare **Sì, accetto**, quindi selezionare **crea l'applicazione Twitter**.
+4. Selezionare **Sì, accetto**, quindi **Crea applicazione Twitter**.
 
-5. Selezionare la scheda **autorizzazioni** . L'autorizzazione predefinita è di sola **lettura**.
+5. Selezionare la scheda **Autorizzazioni.** L'autorizzazione predefinita è **Sola lettura**.
 
 6. Selezionare la scheda **Keys and Access Tokens** .
 
-7. Selezionare **Crea il token di accesso**.
+7. Selezionare **Crea token di accesso**.
 
-8. Selezionare **test OAuth** nell'angolo superiore destro della pagina.
+8. Selezionare **Test OAuth** nell'angolo superiore destro della pagina.
 
 9. Compilare i campi **Consumer key**, **Consumer secret**, **Access token** e **Access token secret**.
 
@@ -59,13 +59,13 @@ Il codice Python seguente consente di scaricare 10.000 tweet da Twitter e salvar
 > [!NOTE]  
 > I passaggi indicati di seguito vengono eseguiti nel cluster HDInsight, poiché Python è già installato.
 
-1. Usare il [comando ssh](./hdinsight-hadoop-linux-use-ssh-unix.md) per connettersi al cluster. Modificare il comando seguente sostituendo CLUSTERname con il nome del cluster e quindi immettere il comando:
+1. Usare [il comando ssh](./hdinsight-hadoop-linux-use-ssh-unix.md) per connettersi al cluster. Modificare il comando seguente sostituendo CLUSTERNAME con il nome del cluster, quindi immettere il comando:
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-1. Usare i comandi seguenti per installare [tweepy](https://www.tweepy.org/), l'indicatore di [stato](https://pypi.python.org/pypi/progressbar/2.2)e gli altri pacchetti necessari:
+1. Utilizzare i seguenti comandi per installare [Tweepy,](https://www.tweepy.org/) [Progress bar](https://pypi.python.org/pypi/progressbar/2.2)e altri pacchetti obbligatori:
 
    ```bash
    sudo apt install python-dev libffi-dev libssl-dev
@@ -84,7 +84,7 @@ Il codice Python seguente consente di scaricare 10.000 tweet da Twitter e salvar
    nano gettweets.py
    ```
 
-1. Modificare il codice seguente sostituendo `Your consumer secret`, `Your consumer key`, `Your access token`e `Your access token secret` con le informazioni rilevanti dell'applicazione Twitter. Incollare quindi il codice modificato come contenuto del file **gettweets.py** .
+1. Modificare il codice riportato `Your access token`di `Your access token secret` seguito sostituendo `Your consumer secret`, `Your consumer key`, e con le informazioni pertinenti dell'applicazione Twitter. Quindi incolla il codice modificato come contenuto del file **gettweets.py.**
 
    ```python
    #!/usr/bin/python
@@ -154,7 +154,7 @@ Il codice Python seguente consente di scaricare 10.000 tweet da Twitter e salvar
     Viene visualizzato un indicatore di stato che mostra un valore fino al 100% mentre vengono scaricati i tweet.
 
    > [!NOTE]  
-   > Se l'indicatore di stato impiega molto tempo per avanzare, è necessario modificare il filtro per monitorare gli argomenti di tendenza. Quando sono presenti molti tweet relativi all'argomento nel filtro, è possibile ottenere rapidamente i Tweet 100 necessari.
+   > Se l'indicatore di stato impiega molto tempo per avanzare, è necessario modificare il filtro per monitorare gli argomenti di tendenza. Quando ci sono molti tweet sull'argomento nel filtro, è possibile ottenere rapidamente i 100 tweet necessari.
 
 ### <a name="upload-the-data"></a>Caricare i dati
 
@@ -169,7 +169,7 @@ Questi comandi archiviano i dati in un percorso accessibile a tutti i nodi del c
 
 ## <a name="run-the-hiveql-job"></a>Eseguire il processo di HiveQL
 
-1. Usare il comando seguente per creare un file contenente istruzioni [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual):
+1. Utilizzare il comando seguente per creare un file contenente istruzioni [HiveQL:Use](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) the following command to create a file containing HiveQL statements:
 
    ```bash
    nano twitter.hql
@@ -310,7 +310,7 @@ Questi comandi archiviano i dati in un percorso accessibile a tutti i nodi del c
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Si è appreso come trasformare un set di dati JSON non strutturato in una tabella [Apache hive](https://hive.apache.org/) strutturata. Per altre informazioni su Hive in HDInsight, vedere i documenti seguenti:
+Si è appreso come trasformare un set di dati JSON non strutturato in una tabella [Apache Hive](https://hive.apache.org/) strutturata. Per altre informazioni su Hive in HDInsight, vedere i documenti seguenti:
 
-* [Introduzione all'uso di HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
+* [Introduzione a HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [Analizzare i dati sui ritardi dei voli con HDInsight](/azure/hdinsight/interactive-query/interactive-query-tutorial-analyze-flight-data)

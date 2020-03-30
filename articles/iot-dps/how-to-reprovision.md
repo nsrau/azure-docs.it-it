@@ -1,6 +1,6 @@
 ---
-title: Eseguire nuovamente il provisioning dei dispositivi nel servizio Device provisioning in hub Azure
-description: Informazioni su come eseguire il provisioning dei dispositivi con l'istanza del servizio Device provisioning (DPS) e i motivi per cui potrebbe essere necessario eseguire questa operazione.
+title: Eseguire nuovamente il provisioning dei dispositivi nel servizio di provisioning dei dispositivi hub IoT di AzureIoTReprovision devices in Azure IoT Hub Device Provisioning Service
+description: Informazioni su come eseguire nuovamente il provisioning dei dispositivi con l'istanza del servizio Device Provisioning (DPS) e perché potrebbe essere necessario eseguire questa operazione.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/04/2019
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: 0ded494debab19daa15a953715b1ab7b0b10ad18
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74974905"
 ---
 # <a name="how-to-reprovision-devices"></a>Come rieffettuare il provisioning dei dispositivi
@@ -26,7 +26,7 @@ Durante il ciclo di vita di una soluzione IoT, è comune spostare i dispositivi 
 
 * **Quarantena**: simile a una modifica della soluzione. Un dispositivo malfunzionante, compromesso o obsoleto può essere riassegnato a un hub IoT in cui tutto ciò che può fare è aggiornare e ripristinare la conformità. Una volta che il dispositivo funziona correttamente, viene quindi migrato nuovamente al suo hub principale.
 
-Per una panoramica più dettagliata del nuovo provisioning, vedere [concetti relativi al nuovo provisioning dei dispositivi dell'hub](concepts-device-reprovision.md).
+Per altre informazioni su una panoramica più dettagliata del reprovisioning, vedere Concetti relativi al [riprovisioning dei dispositivi hub IoT](concepts-device-reprovision.md).
 
 
 ## <a name="configure-the-enrollment-allocation-policy"></a>Configurare i criteri di allocazione di registrazione
@@ -71,7 +71,7 @@ I passaggi seguenti consentono di configurare i criteri di allocazione per la re
 
     * **Rieffettuare il provisioning e migrare i dati**: questi criteri intervengono quando i dispositivi associati alla voce di registrazione presentano una nuova richiesta di provisioning. A seconda della configurazione della voce di registrazione, il dispositivo può essere riassegnato a un altro hub IoT. Se il dispositivo sta cambiando hub IoT, la registrazione del dispositivo con l'hub IoT iniziale verrà rimossa. Tutte le informazioni sullo stato del dispositivo da tale hub IoT iniziale verranno migrate sul nuovo hub IoT. Durante la migrazione, lo stato del dispositivo risulterà come **In fase di assegnazione**
 
-    * **Rieffettuare il provisioning e ripristinare la configurazione iniziale**: questo criterio interviene quando i dispositivi associati alla voce di registrazione presentano una nuova richiesta di provisioning. A seconda della configurazione della voce di registrazione, il dispositivo può essere riassegnato a un altro hub IoT. Se il dispositivo sta cambiando hub IoT, la registrazione del dispositivo con l'hub IoT iniziale verrà rimossa. I dati di configurazione iniziali che l'istanza del servizio di provisioning ha ricevuto durante il provisioning del dispositivo vengono forniti al nuovo hub IoT. Durante la migrazione, lo stato del dispositivo risulterà come **In fase di assegnazione**.
+    * **Rieffettuare il provisioning e ripristinare la configurazione iniziale**: questo criterio interviene quando i dispositivi associati alla voce di registrazione presentano una nuova richiesta di provisioning. A seconda della configurazione della voce di registrazione, il dispositivo può essere riassegnato a un altro hub IoT. Se il dispositivo sta cambiando hub IoT, la registrazione del dispositivo con l'hub IoT iniziale verrà rimossa. I dati di configurazione iniziali che l'istanza del servizio di provisioning ha ricevuto durante il provisioning del dispositivo vengono forniti al nuovo hub IoT. Durante la migrazione, lo stato del dispositivo verrà segnalato come **Assegnazione**.
 
 4. Fare clic su **Salva** per rieffettuare il provisioning del dispositivo in base alle modifiche apportate.
 
@@ -92,8 +92,8 @@ Per un esempio di codice di invio per le richieste di provisioning da un disposi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per ulteriori informazioni sul nuovo provisioning, vedere [concetti relativi al provisioning dei dispositivi dell'hub](concepts-device-reprovision.md) . 
-- Per ulteriori informazioni sul deprovisioning, vedere [come eseguire il deprovisioning di dispositivi precedentemente sottoposti a provisioning automatico](how-to-unprovision-devices.md) 
+- Per altre informazioni su Reprovisioning, vedere Concetti relativi al riprovisioning del nuovo provisioning dei dispositivi hub IoTTo learn more Reprovisioning, see [IoT Hub Device reprovisioning concepts](concepts-device-reprovision.md) 
+- Per altre informazioni sul deprovisioning, vedere Come eseguire il deprovisioning dei dispositivi precedentemente sottoposti a provisioning automaticoTo learn more Deprovisioning, see [How to deprovision devices that were previously auto-provisioned](how-to-unprovision-devices.md) 
 
 
 

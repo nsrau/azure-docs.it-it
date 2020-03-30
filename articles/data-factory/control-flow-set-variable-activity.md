@@ -12,10 +12,10 @@ ms.author: daperlov
 manager: jroth
 ms.reviewer: maghan
 ms.openlocfilehash: 88500ecbc56b34551a0cbd3ca94727ba4bbcda9f
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74930652"
 ---
 # <a name="set-variable-activity-in-azure-data-factory"></a>Attività di impostazione della variabile in Azure Data Factory
@@ -24,16 +24,16 @@ Usare l'attività di impostazione della variabile per impostare il valore di una
 
 ## <a name="type-properties"></a>Proprietà del tipo
 
-Proprietà | Description | Obbligatoria
+Proprietà | Descrizione | Obbligatoria
 -------- | ----------- | --------
-name | Nome dell'attività nella pipeline | SÌ
+name | Nome dell'attività nella pipeline | Sì
 description | Testo che descrive l'attività | no
-type | Il tipo di attività è SetVariable | Sì
-value | Valore letterale stringa o valore di oggetto espressione usato per impostare la variabile specificata | Sì
-variableName | Nome della variabile che verrà impostata da questa attività | Sì
+type | Il tipo di attività è SetVariable | sì
+value | Valore letterale stringa o valore di oggetto espressione usato per impostare la variabile specificata | sì
+variableName | Nome della variabile che verrà impostata da questa attività | sì
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Informazioni su un'attività del flusso di controllo correlato supportata da Data Factory: 
 
-- [Attività di accodamento a variabile](control-flow-append-variable-activity.md)
+- [Aggiungere un'attività variabile](control-flow-append-variable-activity.md)

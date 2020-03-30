@@ -1,5 +1,5 @@
 ---
-title: Distribuire una macchina virtuale C# usando e un modello di gestione risorse
+title: Distribuire una macchina virtuale usando C 'NET', un modello di Resource ManagerDeploy a VM using C'è and a Resource Manager template
 description: Informazioni su come usare C# e un modello di Resource Manager per distribuire una macchina virtuale di Azure.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/14/2017
 ms.author: cynthn
 ms.openlocfilehash: 6d99c5ae91b80b9b6b9af08001b3a7c57bc7ca8f
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78944519"
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>Distribuire una macchina virtuale di Azure con C# e un modello di Azure Resource Manager
@@ -34,14 +34,14 @@ L'esecuzione di questi passaggi richiede circa 10 minuti.
 In questo passaggio, ci si assicura che Visual Studio sia installato e si crea un'applicazione console da usare per distribuire il modello.
 
 1. Se non è già installato, installare [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio). Selezionare **Sviluppo per desktop .NET** nella pagina Carichi di lavoro e quindi fare clic su **Installa**. Nel riepilogo si noti che **Strumenti di sviluppo per .NET Framework 4-4.6** viene selezionato automaticamente. Se Visual Studio è già stato installato, è possibile aggiungere il carico di lavoro .NET usando l'utilità di avvio di Visual Studio.
-2. In Visual Studio fare clic su **File** > **Nuovo** > **Progetto**.
-3. In **Modelli** > **Visual C#** selezionare **App console (.NET Framework)** , immettere *myDotnetProject* come nome del progetto, selezionare il percorso del progetto e quindi fare clic su **OK**.
+2. In Visual Studio fare clic su **File** > **nuovo** > **progetto**.
+3. In **Modelli** > in**Visual C,** selezionare App console **(.NET Framework)**, immettere *myDotnetProject* come nome del progetto, selezionare il percorso del progetto e quindi fare clic su **OK**.
 
 ## <a name="install-the-packages"></a>Installare i pacchetti
 
 I pacchetti NuGet sono il modo più semplice per installare le librerie necessarie per completare questi passaggi. Per ottenere le librerie necessarie in Visual Studio, eseguire questa procedura:
 
-1. Fare clic su **Strumenti** > **Gestione pacchetti NuGet** e quindi su **Console di Gestione pacchetti**.
+1. Fare clic su **Strumenti** > **di Gestione pacchetti Nuget**, quindi su Console di gestione **pacchetti**.
 2. Nella console digitare questi comandi:
 
     ```powershell
@@ -55,7 +55,7 @@ In questo passaggio si crea un file di modello che consente di distribuire le ri
 
 ### <a name="create-the-template-file"></a>Creare il file di modello
 
-1. In Esplora soluzioni fare clic con il pulsante destro del mouse su *myDotnetProject* > **Aggiungi** > **Nuovo elemento** e quindi selezionare **File di testo** in *Elementi di Visual C#* . Assegnare un nome al file *CreateVMTemplate.json* e quindi fare clic su **Aggiungi**.
+1. In Esplora soluzioni fare clic con il pulsante destro del mouse su *myDotnetProject* > **Add** > **New Item**, quindi scegliere File di **testo** in Elementi di *Visual C.* Assegnare un nome al file *CreateVMTemplate.json* e quindi fare clic su **Aggiungi**.
 2. Aggiungere questo codice JSON al file appena creato:
 
     ```json
@@ -165,9 +165,9 @@ In questo passaggio si crea un file di modello che consente di distribuire le ri
 
 ### <a name="create-the-parameters-file"></a>Creare il file dei parametri
 
-Per specificare i valori per i parametri delle risorse nel modello, creare un file dei parametri contenente i valori.
+Per specificare i valori per i parametri della risorsa nel modello, creare un file di parametri che contiene i valori.
 
-1. In Esplora soluzioni fare clic con il pulsante destro del mouse su *myDotnetProject* > **Aggiungi** > **Nuovo elemento** e quindi selezionare **File di testo** in *Elementi di Visual C#* . Assegnare un nome al file *Parameters.json* e quindi fare clic su **Aggiungi**.
+1. In Esplora soluzioni fare clic con il pulsante destro del mouse su *myDotnetProject* > **Add** > **New Item**, quindi scegliere File di **testo** in Elementi di *Visual C.* Assegnare un nome al file *Parameters.json* e quindi fare clic su **Aggiungi**.
 2. Aggiungere questo codice JSON al file appena creato:
 
     ```json
@@ -187,7 +187,7 @@ Per specificare i valori per i parametri delle risorse nel modello, creare un fi
 
 Prima di poter distribuire un modello, è necessario assicurarsi di avere accesso a un'[entità servizio Active Directory](../../active-directory/develop/howto-authenticate-service-principal-powershell.md). Dall'entità servizio si acquisisce un token per autenticare le richieste ad Azure Resource Manager. È necessario anche registrare l'ID dell'applicazione, la chiave di autenticazione e l'ID del tenant necessari nel file di autorizzazione.
 
-1. In Esplora soluzioni fare clic con il pulsante destro del mouse su *myDotnetProject* > **Aggiungi** > **Nuovo elemento** e quindi selezionare **File di testo** in *Elementi di Visual C#* . Assegnare al file il nome *azureauth.properties* e quindi fare clic su **Aggiungi**.
+1. In Esplora soluzioni fare clic con il pulsante destro del mouse su *myDotnetProject* > **Add** > **New Item**, quindi scegliere File di **testo** in Elementi di *Visual C.* Assegnare al file il nome *azureauth.properties* e quindi fare clic su **Aggiungi**.
 2. Aggiungere le proprietà di autorizzazione seguenti:
 
     ```
@@ -201,10 +201,10 @@ Prima di poter distribuire un modello, è necessario assicurarsi di avere access
     graphURL=https://graph.microsoft.com/
     ```
 
-    Sostituire **&lt;subscription-id&gt;** con l'identificatore della sottoscrizione, **&lt;application-id&gt;** con l'identificatore dell'applicazione Active Directory, **&lt;authentication-key&gt;** con la chiave dell'applicazione e **&lt;tenant-id&gt;** con l'identificatore del tenant.
+    ** &lt;Sostituire&gt; subscription-id** con l'identificatore di sottoscrizione, ** &lt;application-id&gt; ** con l'identificatore dell'applicazione Active Directory, ** &lt;authentication-key&gt; ** con la chiave dell'applicazione e ** &lt;tenant-id&gt; ** con l'identificatore tenant.
 
 3. Salvare il file azureauth.properties.
-4. Impostare una variabile di ambiente in Windows denominata AZURE_AUTH_LOCATION con il percorso completo del file di autorizzazione creato, ad esempio, è possibile usare il comando di PowerShell seguente:
+4. Impostare una variabile di ambiente in Windows denominata AZURE_AUTH_LOCATION con il percorso completo del file di autorizzazione creato, ad esempio è possibile usare il comando di PowerShell seguente:Set an environment variable in Windows named AZURE_AUTH_LOCATION with the full path to authorization file that you created, for example you can use the following PowerShell command:
 
     ```powershell
     [Environment]::SetEnvironmentVariable("AZURE_AUTH_LOCATION", "C:\Visual Studio 2019\Projects\myDotnetProject\myDotnetProject\azureauth.properties", "User")
@@ -214,7 +214,7 @@ Prima di poter distribuire un modello, è necessario assicurarsi di avere access
 
 ## <a name="create-the-management-client"></a>Creare il client di gestione
 
-1. Aprire il file Program.cs per il progetto creato. Aggiungere quindi queste istruzioni using alle istruzioni esistenti all'inizio del file:
+1. Aprire il file Program.cs per il progetto creato. Quindi, aggiungere queste istruzioni using alle istruzioni esistenti all'inizio del file:
 
     ```csharp
     using Microsoft.Azure.Management.Compute.Fluent;
@@ -331,5 +331,5 @@ L'esecuzione completa dell'applicazione console dall'inizio alla fine richieder�
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Se si sono verificati problemi con la distribuzione, vedere [Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager](../../resource-manager-common-deployment-errors.md).
+* Se si verificassero problemi con la distribuzione, un passaggio successivo consiste nell'esaminare [Risoluzione dei problemi](../../resource-manager-common-deployment-errors.md)relativi agli errori comuni di distribuzione di Azure con Azure Resource Manager.If there were issues with the deployment, a next step would to look at Troubleshoot common Azure deployment errors with Azure Resource Manager .
 * Informazioni su come distribuire una macchina virtuale e le relative risorse di supporto sono disponibili in [Distribuire una macchina virtuale di Azure con C#](csharp.md).

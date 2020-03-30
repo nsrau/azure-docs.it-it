@@ -1,6 +1,6 @@
 ---
-title: Inserimento di BLOB end-to-end in Azure Esplora dati tramite Python
-description: Questo articolo illustra come inserire i BLOB in Esplora dati di Azure con un esempio end-to-end che usa Python.
+title: End-to-end blob ingestion into Azure Data Explorer through Python
+description: In this article, you learn how to ingest blobs into Azure Data Explorer with an end-to-end example that uses Python.
 author: lucygoldbergmicrosoft
 ms.author: lugoldbe
 ms.reviewer: orspodek
@@ -8,22 +8,22 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.openlocfilehash: 61864c51c2ab99e5266e39f2c9a7344aaf7413c1
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76964302"
 ---
-# <a name="end-to-end-blob-ingestion-into-azure-data-explorer-through-python"></a>Inserimento di BLOB end-to-end in Azure Esplora dati tramite Python
+# <a name="end-to-end-blob-ingestion-into-azure-data-explorer-through-python"></a>End-to-end blob ingestion into Azure Data Explorer through Python
 
 > [!div class="op_single_selector"]
-> * [C#](end-to-end-csharp.md)
+> * [C #](end-to-end-csharp.md)
 > * [Python](end-to-end-python.md)
 >
 
-Esplora dati di Azure è un servizio di esplorazione dati rapido e scalabile per dati di log e di telemetria. Questo articolo fornisce un esempio end-to-end per l'inserimento dei dati dall'archivio BLOB di Azure in Azure Esplora dati. 
+Esplora dati di Azure è un servizio di esplorazione dati rapido e scalabile per dati di log e di telemetria. Questo articolo offre un esempio end-to-end su come inserire dati dall'archiviazione BLOB di Azure in Azure Data Explorer.This article gives you an end-to-end example of how to ingest data from Azure Blob storage into Azure Data Explorer. 
 
-Si apprenderà come creare a livello di codice un gruppo di risorse, un account di archiviazione e un contenitore, un hub eventi e un cluster e un database di Azure Esplora dati. Si apprenderà anche come configurare a livello di codice Esplora dati di Azure per inserire dati dal nuovo account di archiviazione.
+Si apprenderà come creare a livello di codice un gruppo di risorse, un account di archiviazione e un contenitore, un hub eventi e un cluster e un database di Azure Data Explorer.You'll learn how to programmatically create a resource group, a storage account and container, an event hub, and an Azure Data Explorer cluster and database. Si apprenderà inoltre come configurare Azure Data Explorer a livello di codice per l'inserimento di dati dal nuovo account di archiviazione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -47,9 +47,9 @@ pip install azure-storage-blob
 
 ## <a name="code-example"></a>Esempio di codice 
 
-L'esempio di codice seguente fornisce un processo dettagliato che comporta l'inserimento dei dati in Esplora dati di Azure. 
+L'esempio di codice seguente offre un processo passo-passo che determina l'inserimento di dati in Azure Data Explorer.The following code example gives you a step-by-step process that results in data ingestion into Azure Data Explorer. 
 
-Creare innanzitutto un gruppo di risorse. È anche possibile creare risorse di Azure, ad esempio un contenitore e un account di archiviazione, un hub eventi e un cluster e un database di Azure Esplora dati e aggiungere entità. Si crea quindi una sottoscrizione di griglia di eventi di Azure, insieme a un mapping di tabella e colonna, nel database di Esplora dati di Azure. Infine, si crea la connessione dati per configurare Esplora dati di Azure per inserire i dati dal nuovo account di archiviazione.
+È innanzitutto necessario creare un gruppo di risorse. È inoltre possibile creare risorse di Azure, ad esempio un account e un contenitore di archiviazione, un hub eventi e un cluster e un database di Azure Data Explorer, nonché aggiungere entità. È quindi possibile creare una sottoscrizione di Griglia di eventi di Azure, insieme a un mapping di tabelle e colonne, nel database di Azure Data Explorer.You then create an Azure Event Grid subscription, along with a table and column mapping, in the Azure Data Explorer database. Infine, si crea la connessione dati per configurare Azure Data Explorer per l'inserimento dei dati dal nuovo account di archiviazione.
 
 ```python
 from azure.common.credentials import ServicePrincipalCredentials
@@ -193,11 +193,11 @@ poller.wait()
 |**Impostazione** | **Descrizione campo**|
 |---|---|---|
 | tenant_id | ID tenant. È anche noto come ID di directory.|
-| subscription_id | ID sottoscrizione usato per la creazione di risorse.|
+| subscription_id | ID sottoscrizione utilizzato per la creazione delle risorse.|
 | client_id | ID client dell'applicazione che può accedere alle risorse nel tenant.|
-| client_secret | Il segreto client dell'applicazione che può accedere alle risorse nel tenant. |
+| client_secret | Segreto client dell'applicazione che può accedere alle risorse nel tenant. |
 
-## <a name="test-the-code-example"></a>Testare l'esempio di codice
+## <a name="test-the-code-example"></a>Testare l'esempio di codiceTest the code example
 
 1. Caricare un file nell'account di archiviazione.
 
@@ -213,7 +213,7 @@ poller.wait()
     |---|---|---|
     | account_key | Chiave di accesso dell'account di archiviazione creato a livello di codice.|
 
-2. Eseguire una query di test in Azure Esplora dati.
+2. Eseguire una query di test in Azure Data Explorer.Run a test query in Azure Data Explorer.
 
     ```python
     kusto_uri = "https://{}.{}.kusto.windows.net".format(kusto_cluster_name, location_small_case)
@@ -226,7 +226,7 @@ poller.wait()
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Per eliminare il gruppo di risorse e pulire le risorse, usare il comando seguente:
+Per eliminare il gruppo di risorse e pulire le risorse, usare il comando seguente:To delete the resource group and clean up resources, use the following command:
 
 ```python
 #Returns an instance of LROPoller; see https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python
@@ -236,7 +236,7 @@ poller.wait()
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-*  Per informazioni su altri modi per creare un cluster e un database, vedere [creare un cluster e un database di Azure Esplora dati](create-cluster-database-python.md).
-* Per altre informazioni sui metodi di inserimento, vedere [Azure Esplora dati inserimento dati](ingest-data-overview.md).
-* Per informazioni sull'applicazione Web, vedere [Guida introduttiva: eseguire query sui dati nell'interfaccia utente Web di Azure Esplora dati](web-query-data.md).
+*  Per altre informazioni su altri modi per creare un cluster e un database, vedere Creare un cluster e un database di [Azure Data Explorer.](create-cluster-database-python.md)
+* Per altre informazioni sui metodi di inserimento, vedere Inserimento dati di Azure Data Explorer.To learn more about ingestion methods, see [Azure Data Explorer data ingestion](ingest-data-overview.md).
+* Per altre informazioni sull'applicazione Web, vedere [Guida introduttiva: Eseguire query sui dati nell'interfaccia utente Web](web-query-data.md)di Azure Data Explorer.
 * [Scrivere query](write-queries.md) con il linguaggio di query Kusto.

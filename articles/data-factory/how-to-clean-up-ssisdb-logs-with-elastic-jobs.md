@@ -11,10 +11,10 @@ ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
 ms.openlocfilehash: 331a2317f11fbb6f0dd1437a0b41f7ad110a63c7
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74928016"
 ---
 # <a name="clean-up-ssisdb-logs-with-azure-elastic-database-jobs"></a>Pulizia di log SSISDB tramite processi di Database elastico di Azure | Microsoft Docs
@@ -266,4 +266,4 @@ Per le attività di gestione e monitoraggio ad Azure-SSIS Integration Runtime, v
 
 -   [Riconfigurare il runtime di integrazione SSIS di Azure](manage-azure-ssis-integration-runtime.md)
 
--   [Monitorare il runtime di integrazione SSIS di Azure](monitor-integration-runtime.md#azure-ssis-integration-runtime)
+-   [Monitorare il runtime di integrazione Azure-SSIS](monitor-integration-runtime.md#azure-ssis-integration-runtime).

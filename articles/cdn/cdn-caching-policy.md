@@ -1,6 +1,6 @@
 ---
 title: Gestire i criteri di memorizzazione nella cache della rete CDN di Azure in Servizi multimediali di Azure | Documentazione Microsoft
-description: Questo articolo illustra come gestire i criteri di memorizzazione nella cache della rete CDN di Azure in servizi multimediali di Azure.
+description: Questo articolo illustra come gestire i criteri di memorizzazione nella cache della rete CDN di Azure in Servizi multimediali di Azure.This article explains how to manage Azure CDN caching policy in Azure Media Services.
 services: media-services,cdn
 documentationcenter: .NET
 author: juliako
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/04/2017
 ms.author: juliako
 ms.openlocfilehash: dc0482fbcbb1c9d1618ec18e1f48b03f686a6573
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74892581"
 ---
 # <a name="manage-azure-cdn-caching-policy-in-azure-media-services"></a>Gestire i criteri di memorizzazione nella cache della rete CDN di Azure in Servizi multimediali di Azure

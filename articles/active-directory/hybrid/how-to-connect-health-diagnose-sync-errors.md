@@ -16,15 +16,15 @@ ms.date: 05/11/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 48ed9abf3e088e2581a3dd81b7c89e6b99da3ceb
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76897186"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Diagnosticare e correggere gli errori di sincronizzazione di attributi duplicati
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 Con un ulteriore miglioramento per l'evidenziazione degli errori di sincronizzazione, Azure Active Directory (Azure AD) Connect Health introduce una procedura di correzione in modalità self-service. Consente di risolvere gli errori di sincronizzazione degli attributi duplicati e di correggere gli oggetti resi orfani da Azure AD.
 La funzionalità di diagnostica presenta i vantaggi seguenti:
 - Offre una procedura di diagnostica che consente di limitare gli errori di sincronizzazione degli attributi duplicati. E fornisce correzioni specifiche.
@@ -34,7 +34,7 @@ Per altre informazioni su Azure AD, vedere [Sincronizzazione delle identità e r
 
 ## <a name="problems"></a>I problemi
 ### <a name="a-common-scenario"></a>Scenario comune
-Quando si verificano gli errori di sincronizzazione **QuarantinedAttributeValueMustBeUnique** e **AttributeValueMustBeUnique**, è frequente che si sia verificato un conflitto di **UserPrincipalName** o **Proxy Addresses** in Azure AD. È possibile risolvere gli errori di sincronizzazione aggiornando l'oggetto di origine in conflitto dal lato locale. L'errore di sincronizzazione verrà risolto dopo la sincronizzazione successiva. Ad esempio, questa immagine indica che due utenti hanno un conflitto tra i **userPrincipalName**. Entrambi sono **Joe. J\@contoso.com**. Gli oggetti in conflitto vengono messi in quarantena in Azure AD.
+Quando si verificano gli errori di sincronizzazione **QuarantinedAttributeValueMustBeUnique** e **AttributeValueMustBeUnique**, è frequente che si sia verificato un conflitto di **UserPrincipalName** o **Proxy Addresses** in Azure AD. È possibile risolvere gli errori di sincronizzazione aggiornando l'oggetto di origine in conflitto dal lato locale. L'errore di sincronizzazione verrà risolto dopo la sincronizzazione successiva. Ad esempio, questa immagine indica che due utenti hanno un conflitto del proprio **UserPrincipalName**. Entrambi sono **Joe.J\@contoso.com**. Gli oggetti in conflitto vengono messi in quarantena in Azure AD.
 
 ![Diagnosi di uno scenario comune per un errore di sincronizzazione](./media/how-to-connect-health-diagnose-sync-errors/IIdFixCommonCase.png)
 
@@ -58,7 +58,7 @@ La funzionalità di diagnostica supporta oggetti utente con gli attributi duplic
 | OnPremiseSecurityIdentifier |  AttributeValueMustBeUnique |
 
 >[!IMPORTANT]
-> Per accedere a questa funzionalità, è necessaria l'autorizzazione **Amministratore globale**  o **Collaboratore** nelle impostazioni di controllo degli accessi in base al ruolo.
+> Per accedere a questa funzionalità, è necessaria l'autorizzazione **Amministratore globale ** o **Collaboratore** nelle impostazioni di controllo degli accessi in base al ruolo.
 >
 
 Seguire la procedura dal portale di Azure per limitare i dettagli degli errori di sincronizzazione e fornire soluzioni più specifiche:
@@ -129,31 +129,31 @@ In base alle risposte alle domande precedenti, verrà visualizzato il pulsante *
 > La modifica **Applica correzione** si applica solo ai casi con oggetto orfano.
 >
 
-Dopo i passaggi precedenti, l'utente può accedere alla risorsa originale, ovvero un collegamento a un oggetto esistente. Il valore di **stato di diagnosi** nella visualizzazione elenco viene aggiornato alla **sincronizzazione in sospeso**. L'errore di sincronizzazione verrà risolto dopo la sincronizzazione successiva. Connect Health non visualizzerà più l'errore di sincronizzazione risolto nella visualizzazione elenco.
+Dopo i passaggi precedenti, l'utente può accedere alla risorsa originale, ovvero un collegamento a un oggetto esistente. Il valore **di stato Diagnostica** nella visualizzazione elenco viene aggiornato a **Sincronizzazione in sospeso**. L'errore di sincronizzazione verrà risolto dopo la sincronizzazione successiva. Connect Health non mostrerà più l'errore di sincronizzazione risolto nella visualizzazione elenco.
 
 ## <a name="failures-and-error-messages"></a>Errori e messaggi di errore
-**L'utente con attributo in conflitto viene eliminato temporaneamente nell'Azure Active Directory. Assicurarsi che l'utente sia stato eliminato definitivamente prima di riprovare.**  
+**L'utente con attributo in conflitto viene eliminato temporaneamente in Azure Active Directory.User with conflicting attribute is soft deleted in the Azure Active Directory. Assicurarsi che l'utente venga eliminato definitivamente prima di riprovare.**  
 L'utente con attributo in conflitto in Azure AD deve essere rimosso prima di applicare la correzione. Vedere [come eliminare in modo permanente l'utente in Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-restore) prima di riprovare ad applicare la correzione. L'utente verrà anche eliminato automaticamente in modo permanente dopo 30 giorni in cui si trova nello stato di eliminazione temporanea. 
 
 **L'aggiornamento dell'ancoraggio di origine in un utente basato sul cloud nel tenant non è supportato.**  
 L'utente basato su cloud in Azure AD non deve avere l'ancoraggio di origine. In questo caso l'aggiornamento dell'ancoraggio di origine non è supportato. La correzione manuale è necessaria in locale. 
 
-## <a name="faq"></a>FAQ
+## <a name="faq"></a>Domande frequenti
 **D.** Cosa accade se l'esecuzione di **Applica correzione** non riesce?  
-**R.** Se l'esecuzione non riesce, è possibile che in Azure AD Connect si stia verificando un errore di esportazione. Aggiornare la pagina del portale e riprovare dopo la sincronizzazione successiva. Il ciclo di sincronizzazione predefinito è 30 minuti. 
+**A.** Se l'esecuzione non riesce, è possibile che in Azure AD Connect si stia verificando un errore di esportazione. Aggiornare la pagina del portale e riprovare dopo la sincronizzazione successiva. Il ciclo di sincronizzazione predefinito è 30 minuti. 
 
 
 **D.** Cosa accade se l'**oggetto esistente** deve essere l'oggetto da eliminare?  
-**R.** Se l'**oggetto esistente** deve essere eliminato, il processo non comporta la modifica di **Ancoraggio di origine**. In genere, è possibile risolvere questo problema da Active Directory locale. 
+**A.** Se l'**oggetto esistente** deve essere eliminato, il processo non comporta la modifica di **Ancoraggio di origine**. In genere, è possibile risolvere questo problema da Active Directory locale. 
 
 
 **D.** Quale autorizzazione è necessaria per applicare la correzione?  
-**R.** **Amministratore globale** o **Collaboratore** nelle impostazioni di controllo degli accessi in base al ruolo hanno l'autorizzazione per accedere al processo di diagnostica e risoluzione dei problemi.
+**A.** **Amministratore globale** o **Collaboratore** nelle impostazioni di controllo degli accessi in base al ruolo hanno l'autorizzazione per accedere al processo di diagnostica e risoluzione dei problemi.
 
 
 **D.** È necessario configurare Azure AD Connect o aggiornare l'agente di Azure AD Connect Health per questa funzionalità?  
-**R.** No, il processo di diagnosi è completamente basato sul cloud.
+**A.** No, il processo di diagnosi è completamente basato sul cloud.
 
 
 **D.** Se l'oggetto esistente viene eliminato temporaneamente, il processo di diagnosi renderà di nuovo attivo l'oggetto?  
-**R.** No, la correzione non aggiornerà gli attributi dell'oggetto, se non **Ancoraggio di origine**.
+**A.** No, la correzione non aggiornerà gli attributi dell'oggetto, se non **Ancoraggio di origine**.

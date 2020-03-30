@@ -1,16 +1,16 @@
 ---
-title: Come usare Redis-CLI con cache di Azure per Redis
-description: Informazioni su come usare *Redis-cli. exe* come strumento da riga di comando per l'interazione con una cache di Azure per Redis come client.
+title: Come usare redis-cli con la cache di Azure per RedisHow to use redis-cli with Azure Cache for Redis
+description: Informazioni su come usare *redis-cli.exe* come strumento della riga di comando per interagire con una cache di Azure per Redis come client.
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.openlocfilehash: a48e69f19db88c7823365964c2fe9c0629a078bc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75412682"
 ---
 # <a name="how-to-use-the-redis-command-line-tool-with-azure-cache-for-redis"></a>Come usare lo strumento da riga di comando Redis con Cache Redis di Azure
@@ -19,7 +19,7 @@ ms.locfileid: "75412682"
 
 Lo strumento è disponibile per le piattaforme Windows scaricando gli [strumenti da riga di comando Redis per Windows](https://github.com/MSOpenTech/redis/releases/). 
 
-Se si vuole eseguire lo strumento da riga di comando su un'altra piattaforma, scaricare Cache Redis di Azure da [https://redis.io/download](https://redis.io/download).
+Se si desidera eseguire lo strumento da riga di comando in [https://redis.io/download](https://redis.io/download)un'altra piattaforma, scaricare Cache di Azure per Redis da .
 
 ## <a name="gather-cache-access-information"></a>Raccogliere le informazioni di accesso alla cache
 
@@ -40,7 +40,7 @@ In questa sezione si recupereranno le chiavi dal portale di Azure.
 
 Con Cache Redis di Azure, solo la porta SSL (6380) è abilitata per impostazione predefinita. Lo strumento da riga di comando `redis-cli.exe` non supporta il protocollo SSL. Per usarlo sono disponibili due opzioni di configurazione:
 
-1. [Abilitare la porta non SSL (6379)](cache-configure.md#access-ports) - **Questa configurazione non è consigliabile** poiché le chiavi di accesso vengono trasmesse tramite TCP in testo non crittografato. Questa modifica può compromettere l'accesso alla cache. L'unico scenario in cui è possibile tenere in considerazione questa configurazione è quando si accede a una cache di test.
+1. [Abilita la porta non SSL (6379)](cache-configure.md#access-ports) - **Questa configurazione non è consigliata** perché in questa configurazione le chiavi di accesso vengono inviate tramite TCP in testo non crittografato. Questa modifica può compromettere l'accesso alla cache. L'unico scenario in cui è possibile tenere in considerazione questa configurazione è quando si accede a una cache di test.
 
 2. Scaricare e installare [stunnel](https://www.stunnel.org/downloads.html).
 
@@ -48,7 +48,7 @@ Con Cache Redis di Azure, solo la porta SSL (6380) è abilitata per impostazione
 
     Fare clic con il pulsante destro del mouse sull'icona della barra delle applicazioni per il server stunnel e fare clic su **Show Log Window** (Mostra finestra log).
 
-    Nel menu corrispondente fare clic su **Configuration** (Configurazione) > **Edit Configuration** (Modifica configurazione) per aprire il file di configurazione corrente.
+    Nel menu Finestra registro stunnel, fare clic su **Modifica** > **configurazione** configurazione per aprire il file di configurazione corrente.
 
     Aggiungere la voce seguente per *redis-cli.exe* nella sezione **Service definitions** (Definizioni di servizio). Inserire il nome effettivo della cache invece di `yourcachename`. 
 
@@ -61,7 +61,7 @@ Con Cache Redis di Azure, solo la porta SSL (6380) è abilitata per impostazione
 
     Salvare e chiudere il file di configurazione. 
   
-    Nel menu della finestra di log di stunnel fare clic su **Configuration** (Configurazione)  > **Reload Configuration** (Ricarica configurazione).
+    Nel menu Finestra registro stunnel fare clic su**Configurazione ricaricamento** **configurazione** > .
 
 
 ## <a name="connect-using-the-redis-command-line-tool"></a>Connettersi usando lo strumento da riga di comando Redis.

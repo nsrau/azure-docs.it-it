@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
 ms.openlocfilehash: 528b961ca07ec86ad502ee1b589772e354564a3d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75421689"
 ---
 # <a name="migrating-from-orchestrator-to-azure-automation-beta"></a>Migrazione da Orchestrator ad Automazione di Azure (Beta)
@@ -30,7 +30,7 @@ Di seguito è illustrato il processo di base per la conversione di runbook di Or
 ## <a name="service-management-automation"></a>Service Management Automation
 [Service Management Automation](https://technet.microsoft.com/library/dn469260.aspx) (SMA) archivia ed esegue i runbook nel data center locale come Orchestrator e usa gli stessi moduli di integrazione di Automazione di Azure. [Runbook Converter](#runbook-converter) converte i runbook di Orchestrator in runbook grafici, che non sono supportati in SMA.  È comunque possibile installare il [modulo delle attività standard](#standard-activities-module) e i [moduli di integrazione di System Center Orchestrator](#system-center-orchestrator-integration-modules) in SMA, ma in tal caso è necessario [riscrivere i runbook](https://technet.microsoft.com/library/dn469262.aspx) manualmente.
 
-## <a name="hybrid-runbook-worker"></a>Ruolo di lavoro ibrido per runbook
+## <a name="hybrid-runbook-worker"></a>ruolo di lavoro ibrido per runbook
 I runbook in Orchestrator sono archiviati in un server di database e vengono eseguiti in server runbook, tutti contenuti nel data center locale.  I runbook in Automazione di Azure sono archiviati nel cloud Azure e possono essere eseguiti nel data center locale tramite un computer [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md).  Questo è il modo in cui verranno eseguiti in genere i runbook convertiti da Orchestrator poiché sono designati per l'esecuzione in server locali.
 
 ## <a name="integration-pack-converter"></a>Integration Pack Converter
@@ -92,7 +92,7 @@ ConvertFrom-SCORunbook -RunbookPath "c:\runbooks\MyRunbooks.ois_export" -Module 
 ### <a name="log-files"></a>File di log
 Runbook Converter crea i file di log seguenti nello stesso percorso del runbook convertito.  Se i file esistono già, verranno sovrascritti con le informazioni dell'ultima conversione.
 
-| File | Contenuti |
+| File | Sommario |
 |:--- |:--- |
 | Runbook Converter - Progress.log |Passaggi dettagliati della conversione, comprese le informazioni per ogni attività convertita correttamente e gli avvisi per ogni attività non convertita. |
 | Runbook Converter - Summary.log |Riepilogo dell'ultima conversione, compresi eventuali avvisi e attività di follow-up da eseguire, ad esempio la creazione di una variabile necessaria per il runbook convertito. |

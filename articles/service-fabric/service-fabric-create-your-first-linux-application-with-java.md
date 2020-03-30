@@ -1,19 +1,19 @@
 ---
-title: Creare un'applicazione Java di Azure Service Fabric Reliable Actors in Linux
+title: Creare un'applicazione Java di attori affidabili di Azure Service Fabric su LinuxCreate an Azure Service Fabric reliable actors Java application on Linux
 description: Informazioni su come creare e distribuire un'applicazione Java Reliable Actors di Service Fabric in cinque minuti.
 ms.topic: conceptual
 ms.date: 06/18/2018
 ms.openlocfilehash: 82d4446d76254657adfe64ed41386c06a0a873eb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75458169"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Creare la prima applicazione Java Reliable Actors di Service Fabric in Linux
 > [!div class="op_single_selector"]
 > * [Java - Linux](service-fabric-create-your-first-linux-application-with-java.md)
-> * [C# - Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
+> * [C ' - Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
 >
 >
 
@@ -45,7 +45,7 @@ Per iniziare a usare Reliable Actors, è sufficiente comprendere solo alcuni con
 È opportuno citare le regole seguenti relative alle interfacce dell'attore:
 
 * I metodi di interfaccia dell'attore non possono essere sottoposti a overload.
-* I metodi di interfaccia dell'attore non accettano parametri facoltativi, out o ref.
+*  I metodi di interfaccia dell'attore non accettano parametri facoltativi, out o ref.
 * Non sono supportate interfacce generiche.
 
 ## <a name="create-the-application"></a>Creazione dell'applicazione
@@ -232,7 +232,7 @@ Gli attori non eseguono alcuna operazione in modo indipendente, ma richiedono un
     watch -n 1 ./testclient.sh
     ```
 
-2. In Service Fabric Explorer individuare il nodo che ospita la replica primaria del servizio Actor. Nello screenshot seguente si tratta del nodo 3. La replica di servizi primaria gestisce le operazioni di lettura e scrittura.  Le modifiche allo stato del servizio vengono quindi replicate nelle repliche secondarie, in esecuzione sui nodi 0 e 1 nella schermata seguente.
+2. In Service Fabric Explorer individuare il nodo che ospita la replica primaria del servizio Actor. Nello screenshot seguente si tratta del nodo 3. La replica di servizi primaria gestisce le operazioni di lettura e scrittura.  Le modifiche nello stato del servizio vengono quindi replicate nelle repliche secondarie, eseguite nei nodi 0 e 1 nella schermata seguente.
 
     ![Ricerca della replica primaria in Service Fabric Explorer][sfx-primary]
 
@@ -293,7 +293,7 @@ Supporto delle applicazioni Reliable Services di Service Fabric per l'applicazio
   ```
 
 ### <a name="others"></a>Altro
-#### <a name="transport"></a>Trasporti
+#### <a name="transport"></a>Trasporto
 
 Supporto del livello trasporto per l'applicazione Java di Service Fabric. Non è necessario aggiungere esplicitamente questa dipendenza alle applicazioni Reliable Actors o Services, a meno che non si esegua la programmazione al livello trasporto.
 
@@ -340,7 +340,7 @@ Supporto a livello di sistema per Service Fabric, che comunica con il runtime na
 * [Creare la prima applicazione Java di Service Fabric in Linux usando Eclipse](service-fabric-get-started-eclipse.md)
 * [Altre informazioni su Reliable Actors](service-fabric-reliable-actors-introduction.md)
 * [Interagire con un cluster di Service Fabric usando l'interfaccia della riga di comando di Service Fabric](service-fabric-cli.md)
-* Informazioni sulle [opzioni di supporto di Service Fabric](service-fabric-support.md)
+* Informazioni sulle opzioni di supporto di [Service Fabric](service-fabric-support.md)
 * [Introduzione all'interfaccia della riga di comando di Service Fabric](service-fabric-cli.md)
 
 <!-- Images -->

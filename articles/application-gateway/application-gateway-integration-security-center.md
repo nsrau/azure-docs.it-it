@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 06/07/2017
 ms.openlocfilehash: f5ecd2334ca80f5561c0611239b5bb00d222112a
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76277197"
 ---
 # <a name="overview-of-integration-between-application-gateway-and-azure-security-center"></a>Panoramica dell'integrazione tra il gateway applicazione e il Centro sicurezza di Azure
 
 Informazioni sulla protezione delle risorse dell'applicazione Web tramite il gateway applicazione e il Centro sicurezza di Azure. Il web application firewall (WAF) del gateway applicazione è integrato nel [Centro sicurezza](../security-center/security-center-intro.md) per offrire alle applicazioni Web non protette dell'ambiente una visualizzazione semplice per prevenire, rilevare e rispondere alle minacce.
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 
 Il WAF del gateway applicazione è una raccomandazione del Centro sicurezza per la protezione delle applicazioni Web da attacchi e vulnerabilità. Le risorse abilitate per il Web non protette da WAF sono visualizzate nel Centro sicurezza come raccomandazioni con gravità elevata. Le raccomandazioni per i web application firewall sono visualizzate nella pagina **Panoramica** in **Applicazioni**.
 
@@ -30,7 +30,7 @@ Se si fa clic su una raccomandazione relativa a web application firewall, viene 
 
 ## <a name="add-a-web-application-firewall-to-an-existing-resource"></a>Aggiungere un web application firewall a una risorsa esistente
 
-Passare a **Tutti i servizi** > **Sicurezza e identità** > **Centro sicurezza PC** e nel pannello **Centro sicurezza PC - Panoramica** fare clic su **Applicazioni**. La tabella in **Centro sicurezza PC - Applicazioni** contiene un elenco delle applicazioni rilevate dal Centro sicurezza nella sottoscrizione.
+Passare a **Tutti i servizi** > **Sicurezza e Identity** > **Security Center** e in Centro **sicurezza PC - Panoramica**fare clic su **Applicazioni**. La tabella in **Centro sicurezza PC - Applicazioni** contiene un elenco delle applicazioni rilevate dal Centro sicurezza nella sottoscrizione.
 
 ![applicazioni Web][3]
 
@@ -44,13 +44,13 @@ Se esiste alcun gateway applicazione o se ne vuole creare uno nuovo, fare clic s
 
 Se è presente un gateway applicazione, è possibile selezionarlo in **Usa la soluzione esistente**
 
-![Pagina per aggiungere un web application firewall][4]
+![Pagina per aggiungere un firewall per applicazioni Web][4]
 
 L'aggiunta di un'applicazione Web a un gateway applicazione tramite il Centro sicurezza non implica l'aggiunta della risorsa come membro del pool back-end. Questa operazione deve essere eseguita direttamente nella risorsa del gateway applicazione.
 
 ## <a name="add-a-resource-to-an-existing-web-application-firewall"></a>Aggiungere una risorsa a un web application firewall esistente
 
-Passare a **Tutti i servizi** > **Sicurezza e identità** > **Centro sicurezza PC** e nel pannello **Centro sicurezza PC - Panoramica** fare clic su **Soluzioni partner**. I gateway applicazione compatibili con il Centro sicurezza esistenti sono visualizzati nella pagina **Soluzioni partner**.
+Passare a **Tutti i servizi** > **Sicurezza e Identity** > **Security Center** e in Centro **sicurezza - Panoramica**fare clic su **Soluzioni per**i partner . I gateway applicazione compatibili con il Centro sicurezza esistenti sono visualizzati nella pagina **Soluzioni partner**.
 
 ![soluzioni partner][7]
 
@@ -62,15 +62,15 @@ Fare clic su **Collega app** per aprire **Collega applicazioni** nel quale sarà
 
 Il Centro sicurezza rileva le applicazioni aggiunte a un gateway applicazione come risorse protette.  Il Centro sicurezza monitora l'integrità della risorsa e verifica che sia protetta da un gateway applicazione. Il passaggio successivo consiste nell'aggiungere l'IP privato, l'IP pubblico o la scheda di interfaccia di rete della macchina virtuale al pool back-end del gateway applicazione. Prima del completamento del passaggio, viene visualizzata la raccomandazione aggiuntiva **Finalizza la protezione dell'applicazione** fino a quando la risorsa non viene aggiunta.
 
-![Pagina per aggiungere un web application firewall][5]
+![Pagina per aggiungere un firewall per applicazioni Web][5]
 
 ## <a name="security-alerts"></a>Avvisi di sicurezza
 
-In Centro sicurezza passare a **RILEVAMENTO** > **Avvisi di sicurezza**.  Vengono visualizzati gli avvisi WAF per i gateway applicazione. Gli avvisi sono suddivisi per regola WAF.
+All'interno del Centro sicurezza passare a **DETECTION** > **Security Alerts**.  Vengono visualizzati gli avvisi WAF per i gateway applicazione. Gli avvisi sono suddivisi per regola WAF.
 
 ![avvisi di sicurezza][8]
 
-La selezione di una regola fornirà un elenco di avvisi per la regola WAF specifica. Ogni avviso visualizza dettagli aggiuntivi sull'elemento individuato. I dettagli includono un collegamento al gateway applicazione.
+Selezionando una regola verrà fornito un elenco di avvisi per la regola WAF specifica. Ogni avviso visualizza dettagli aggiuntivi sull'elemento individuato. I dettagli includono un collegamento al gateway applicazione.
  
 ![dettagli dell'avviso][9]
 

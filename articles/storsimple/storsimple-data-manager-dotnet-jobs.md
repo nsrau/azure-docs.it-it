@@ -1,5 +1,5 @@
 ---
-title: Usare .NET SDK per Microsoft Azure StorSimple processi di Data Manager
+title: Usare .NET SDK per i processi di Microsoft Azure StorSimple Data ManagerUse .NET SDK for Microsoft Azure StorSimple Data Manager jobs
 description: Informazioni su come usare .NET SDK per avviare i processi di StorSimple Data Manager
 author: alkohli
 ms.service: storsimple
@@ -7,15 +7,15 @@ ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: alkohli
 ms.openlocfilehash: b7cf1d3b9d4a9d751348c4792f904062b00ac104
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76270733"
 ---
-# <a name="use-the-net-sdk-to-initiate-data-transformation"></a>Usare .NET SDK per avviare la trasformazione dei dati
+# <a name="use-the-net-sdk-to-initiate-data-transformation"></a>Utilizzare .NET SDK per avviare la trasformazione dei datiUse the .NET SDK to initiate data transformation
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 
 Questo articolo illustra come usare la funzione di trasformazione dei dati all'interno del servizio StorSimple Data Manager per trasformare i dati del dispositivo StorSimple. I dati trasformati vengono quindi usati da altri servizi di Azure nel cloud.
 
@@ -36,7 +36,7 @@ Prima di iniziare, assicurarsi di disporre di:
     - Azure PowerShell. [Scaricare Azure Powershell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
 *   Una definizione di processo configurata correttamente nel servizio StorSimple Data Manager all'interno di un gruppo di risorse.
 *   Tutte le DLL necessarie. Scaricare le DLL dal [repository GitHub](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls).
-*   [`Get-ConfigurationParams.ps1`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Data_Manager_Job_Run/Get-ConfigurationParams.ps1)Script dal repository GitHub.
+*   [`Get-ConfigurationParams.ps1`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Data_Manager_Job_Run/Get-ConfigurationParams.ps1)script dal repository GitHub.
 
 ## <a name="step-by-step-procedure"></a>Procedura dettagliata
 
@@ -194,4 +194,4 @@ Eseguire la procedura seguente per usare .NET allo scopo di avviare un processo 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Usare l'interfaccia utente di StorSimple Data Manager per la trasformazione dei dati](storsimple-data-manager-ui.md).
+[Utilizzare StorSimple Data Manager UI per trasformare i dati](storsimple-data-manager-ui.md).

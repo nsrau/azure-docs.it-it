@@ -1,5 +1,5 @@
 ---
-title: Eventi pianificati per macchine virtuali Windows in Azure
+title: Eventi pianificati per macchine virtuali Windows in AzureScheduled Events for Windows VMs in Azure
 description: Eventi pianificati usando il servizio metadati di Azure per le macchine virtuali Windows.
 services: virtual-machines-windows, virtual-machines-linux, cloud-services
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
 ms.openlocfilehash: 2b3aa5d50822863e3aa46fcf9970e0b3e67a6f69
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78944482"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Servizio metadati di Azure: eventi pianificati per macchine virtuali Windows
@@ -44,10 +44,10 @@ Per molte applicazioni è un vantaggio avere tempo per prepararsi alla manutenzi
 Tramite gli eventi pianificati l'applicazione è in grado di sapere quando verrà eseguita la manutenzione e di attivare attività specifiche per limitarne l'impatto. L'attivazione degli eventi pianificati offre alla macchina virtuale una quantità minima di tempo prima che l'attività di manutenzione venga eseguita. Per informazioni dettagliate, vedere più avanti la sezione Pianificazione di eventi.
 
 Gli eventi pianificati informano sugli eventi nei casi d'uso seguenti:
-- [Manutenzione avviata dalla piattaforma](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates) (ad esempio, riavvio della macchina virtuale, migrazione in tempo reale o aggiornamenti con mantenimento della memoria per l'host)
-- La macchina virtuale è in esecuzione in un [hardware host danneggiato](https://azure.microsoft.com/blog/find-out-when-your-virtual-machine-hardware-is-degraded-with-scheduled-events) per cui si prevede un errore a breve
+- [Manutenzione avviata dalla piattaforma](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates) (ad esempio, riavvio della macchina virtuale, migrazione in tempo reale o aggiornamenti di conservazione della memoria per l'host)Platform initiated maintenance (for example, VM reboot, live migration or memory preserving updates for host)
+- La macchina virtuale è in esecuzione su [hardware host danneggiato](https://azure.microsoft.com/blog/find-out-when-your-virtual-machine-hardware-is-degraded-with-scheduled-events) che si prevede non superare a breve
 - Manutenzione avviata dall'utente (ad esempio il riavvio o la ridistribuzione di una macchina virtuale eseguita dall'utente)
-- Eliminazioni di istanze della [macchina virtuale](spot-vms.md) e del [set di scalabilità](../../virtual-machine-scale-sets/use-spot.md) spot
+- Sgomberi [dell'istanza](spot-vms.md) del set di [scalabilità](../../virtual-machine-scale-sets/use-spot.md) Spot e Spot
 
 ## <a name="the-basics"></a>Nozioni di base  
 
@@ -65,8 +65,8 @@ Il servizio eventi pianificati è un servizio con versione. Le versioni sono obb
 
 | Versione | Tipo di versione | Regioni | Note sulla versione | 
 | - | - | - | - |
-| 2019-01-01 | Disponibilità generale | Tutti | <li> Aggiunta del supporto per i set di scalabilità di macchine virtuali EventType ' terminate ' |
-| 2017-11-01 | Disponibilità generale | Tutti | <li> Aggiunta del supporto per la rimozione della macchina virtuale spot ' preemptive '<br> | 
+| 2019-01-01 | Disponibilità generale | Tutti | <li> Aggiunto il supporto per i set di scalabilità della macchina virtuale EventType 'Terminate'Added support for virtual machine scale sets EventType 'Terminate' |
+| 2017-11-01 | Disponibilità generale | Tutti | <li> Aggiunto il supporto per spot VM sfratto EventType 'Preempt'<br> | 
 | 2017-08-01 | Disponibilità generale | Tutti | <li> È stato rimosso il carattere di sottolineatura all'inizio dei nomi delle risorse per le macchine virtuali IaaS<br><li>Requisito dell'intestazione dei metadati applicato per tutte le richieste | 
 | 2017-03-01 | Anteprima | Tutti |<li>Versione iniziale |
 
@@ -119,7 +119,7 @@ DocumentIncarnation è un ETag e fornisce un modo semplice per verificare se il 
 |Proprietà  |  Descrizione |
 | - | - |
 | EventId | Identificatore globalmente univoco per l'evento. <br><br> Esempio: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
-| EventType | Impatto che l'evento causa. <br><br> Valori: <br><ul><li> `Freeze`: è pianificata una sospensione della macchina virtuale per alcuni secondi. La connettività CPU e di rete potrebbe essere sospesa, ma non si verifica alcun effetto sulla memoria o sui file aperti. <li>`Reboot`: è pianificato un riavvio della macchina virtuale. La memoria non permanente andrà persa. <li>`Redeploy`: è pianificato uno spostamento della macchina virtuale in un altro nodo. I dischi temporanei andranno persi. <li>`Preempt`: è in corso l'eliminazione della macchina virtuale spot. i dischi temporanei andranno perduti. <li> `Terminate`: è stata pianificata l'eliminazione della macchina virtuale. |
+| EventType | Impatto che l'evento causa. <br><br> Valori: <br><ul><li> `Freeze`: la sospensione della macchina virtuale è pianificata per alcuni secondi. La connettività di rete e della CPU può essere sospesa, ma non vi è alcun impatto sulla memoria o sui file aperti. <li>`Reboot`: è pianificato un riavvio della macchina virtuale. La memoria non permanente andrà persa. <li>`Redeploy`: è pianificato uno spostamento della macchina virtuale in un altro nodo. I dischi temporanei andranno persi. <li>`Preempt`: la macchina virtuale Spot viene eliminata (i dischi effimeri vengono persi). <li> `Terminate`: è pianificata l'eliminazione della macchina virtuale. |
 | ResourceType | Tipo di risorsa su cui l'evento influisce. <br><br> Valori: <ul><li>`VirtualMachine`|
 | Risorse| Elenco delle risorse su cui l'evento influisce. Contiene sicuramente i computer per al massimo un [Dominio di aggiornamento](manage-availability.md), ma non può contenere tutti i computer nel dominio di aggiornamento. <br><br> Esempio: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | Event Status | Stato dell'evento. <br><br> Valori: <ul><li>`Scheduled`: l'avvio dell'evento è pianificato in seguito al tempo specificato nella proprietà `NotBefore`.<li>`Started`: l'evento si è avviato.</ul> Non viene indicato `Completed` o uno stato simile; l'evento non verrà più restituito al suo completamento.
@@ -133,11 +133,11 @@ Ogni evento è pianificato con un ritardo minimo che dipende dal tipo di evento.
 | Freeze| 15 minuti |
 | Riavvio | 15 minuti |
 | Ripetere la distribuzione | 10 minuti |
-| Hanno | 30 secondi |
+| Preempt | 30 secondi |
 | Terminazione | [Configurabile dall'utente](../../virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification.md#enable-terminate-notifications): da 5 a 15 minuti |
 
 > [!NOTE] 
-> In alcuni casi, Azure è in grado di stimare gli errori dell'host dovuti all'hardware danneggiato e tenterà di attenuare le interruzioni del servizio tramite la pianificazione di una migrazione. Le macchine virtuali interessate riceveranno un evento pianificato con un `NotBefore` che in genere è costituito da pochi giorni in futuro. Il tempo effettivo varia a seconda della valutazione del rischio di errore stimato. Azure tenta di dare preavviso di 7 giorni, quando possibile, ma il tempo effettivo varia e potrebbe essere inferiore se la stima è che è probabile che si verifichi un problema di hardware imminente. Per ridurre al minimo i rischi per il servizio in caso di errore dell'hardware prima che venga avviata la migrazione dal sistema, è consigliabile eseguire la ridistribuzione automatica della macchina virtuale non appena possibile.
+> In alcuni casi, Azure è in grado di prevedere l'errore dell'host a causa di hardware danneggiato e tenterà di ridurre l'interruzione del servizio pianificando una migrazione. Le macchine virtuali interessate riceveranno un evento pianificato con un `NotBefore` che è in genere un paio di giorni in futuro. Il tempo effettivo varia a seconda della valutazione del rischio di errore prevista. Azure tenta di dare 7 giorni di preavviso quando possibile, ma il tempo effettivo varia e potrebbe essere inferiore se la previsione è che c'è un'alta probabilità che l'hardware non riesca imminentemente. Per ridurre al minimo i rischi per il servizio in caso di guasto dell'hardware prima che il sistema avviasse la migrazione, si consiglia di ridistribuire autonomamente la macchina virtuale appena possibile.
 
 ### <a name="event-scope"></a>Ambito degli eventi     
 Gli eventi pianificati vengono recapitati a:
@@ -234,6 +234,6 @@ foreach($event in $scheduledEvents.Events)
 ## <a name="next-steps"></a>Passaggi successivi 
 
 - È disponibile una [demo sugli eventi pianificati](https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Scheduled-Events-to-Prepare-for-VM-Maintenance) in Azure Friday. 
-- È possibile esaminare gli esempi di codice di Eventi pianificati nel [repository GitHub di Eventi pianificati del servizio metadati dell'istanza di Azure](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm).
-- Altre informazioni sulle API disponibili nel [servizio metadati dell'istanza](instance-metadata-service.md).
-- Informazioni sulla [manutenzione pianificata per le macchine virtuali Windows in Azure](planned-maintenance.md).
+- Esaminare gli esempi di codice degli eventi pianificati nel repository GitHub degli [eventi pianificati dei metadati dell'istanza](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm) di AzureReview the Scheduled Events Code samples in the Azure Instance Metadata Scheduled Events GitHub Repository
+- Ulteriori informazioni sulle API disponibili nel [servizio metadati dell'istanza](instance-metadata-service.md).
+- Informazioni sulla [manutenzione pianificata per le macchine virtuali Windows in Azure.](planned-maintenance.md)

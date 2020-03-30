@@ -5,10 +5,10 @@ author: ecfan
 ms.author: estfan
 ms.date: 11/03/2016
 ms.openlocfilehash: 94f18b20d84a1929368053c44b4f07793e385b38
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74789553"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
@@ -19,10 +19,10 @@ Prima di poter usare l'account MicrosoftTranslator in un'app per la logica, è n
 
 Ecco i passaggi per autorizzare l'app per la logica a connettersi all'account MicrosoftTranslator:  
 
-1. Per creare una connessione a MicrosoftTranslator, nella finestra di progettazione dell'app per la logica selezionare **Mostra API gestite da Microsoft** nell'elenco a discesa, quindi immettere *MicrosoftTranslator* nella casella di ricerca. Selezionare il trigger o l'azione che si desidera usare:  
+1. Per creare una connessione a MicrosoftTranslator, nella finestra di progettazione dell'app per la logica selezionare **Mostra API gestite da Microsoft** nell'elenco a discesa, quindi immettere *MicrosoftTranslator* nella casella di ricerca. Selezionare il trigger o l'azione che si desidera usare:   
    ![Passaggio di creazione della connessione a MicrosoftTranslator](./media/connectors-create-api-microsofttranslator/microsofttranslator-1.png)  
 2. Se non sono mai state create connessioni a MicrosoftTranslator prima d'ora, verrà chiesto di fornire le credenziali di MicrosoftTranslator. Queste credenziali verranno usate per autorizzare l'app per la logica a connettersi e ad accedere ai dati dell'account MicrosoftTranslator:  
    ![Passaggio di creazione della connessione a MicrosoftTranslator](./media/connectors-create-api-microsofttranslator/microsofttranslator-2.png)  
-3. Si noti che la connessione è stata creata ed è ora possibile procedere con gli altri passaggi nell'app per la logica:  
+3. Si noti che la connessione è stata creata ed è ora possibile procedere con gli altri passaggi nell'app per la logica:   
    ![Passaggio di creazione della connessione a MicrosoftTranslator](./media/connectors-create-api-microsofttranslator/microsofttranslator-3.png)  
 

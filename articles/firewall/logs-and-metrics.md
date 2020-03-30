@@ -1,5 +1,5 @@
 ---
-title: Panoramica dei log e delle metriche del firewall di Azure
+title: Panoramica dei log e delle metriche di Firewall di AzureOverview of Azure Firewall logs and metrics
 description: È possibile monitorare Firewall di Azure con i log del firewall. È possibile usare anche i log attività per controllare le operazioni eseguite sulle risorse di Firewall di Azure.
 services: firewall
 author: vhorne
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 01/22/2020
 ms.author: victorh
 ms.openlocfilehash: 89c6700d5df3bcef1332121c3cf7d8f720fe054c
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76315032"
 ---
 # <a name="azure-firewall-logs-and-metrics"></a>Log e metriche di Firewall di Azure
@@ -28,7 +28,7 @@ Le metriche sono leggere e possono supportare scenari quasi in tempo reale, rend
 
 * **Log delle regole di applicazione**
 
-   Il log delle regole dell'applicazione viene salvato in un account di archiviazione, trasmesso a hub eventi e/o inviato ai log di monitoraggio di Azure solo se è stato abilitato per ogni firewall di Azure. Ogni nuova connessione che corrisponde a una delle regole di applicazione configurate genera un log per la connessione accettata/negata. I dati vengono registrati in formato JSON, come illustrato nell'esempio seguente:
+   Il log delle regole dell'applicazione viene salvato in un account di archiviazione, trasmesso agli hub eventi e/o inviato ai log di Monitoraggio di Azure solo se è stato abilitato per ogni firewall di Azure.The Application rule log is saved to a storage account, streamed to Event hubs and/or sent to Azure Monitor logs only if you've enabled it for each Azure Firewall. Ogni nuova connessione che corrisponde a una delle regole di applicazione configurate genera un log per la connessione accettata/negata. I dati vengono registrati in formato JSON, come illustrato nell'esempio seguente:
 
    ```
    Category: application rule logs.
@@ -51,7 +51,7 @@ Le metriche sono leggere e possono supportare scenari quasi in tempo reale, rend
 
 * **Log delle regole di rete**
 
-   Il log della regola di rete viene salvato in un account di archiviazione, trasmesso a hub eventi e/o inviato ai log di monitoraggio di Azure solo se è stato abilitato per ogni firewall di Azure. Ogni nuova connessione che corrisponde a una delle regole di rete configurate genera un log per la connessione accettata/negata. I dati vengono registrati in formato JSON, come illustrato nell'esempio seguente:
+   Il log delle regole di rete viene salvato in un account di archiviazione, trasmesso agli hub eventi e/o inviato ai log di Monitoraggio di Azure solo se è stato abilitato per ogni firewall di Azure.The Network rule log is saved to a storage account, streamed to Event hubs and/or sent to Azure Monitor logs only if you've enabled it for each Azure Firewall. Ogni nuova connessione che corrisponde a una delle regole di rete configurate genera un log per la connessione accettata/negata. I dati vengono registrati in formato JSON, come illustrato nell'esempio seguente:
 
    ```
    Category: network rule logs.
@@ -77,55 +77,55 @@ Sono disponibili tre opzioni di archiviazione dei log:
 
 * **Account di archiviazione**: ideali quando i log vengono archiviati per un periodo più lungo ed esaminati quando necessario.
 * **Hub eventi**: ottima opzione per l'integrazione con altri strumenti di gestione delle informazioni di sicurezza e degli eventi (SEIM) per ricevere avvisi sulle risorse.
-* **Log di monitoraggio di Azure**: i log di monitoraggio di Azure sono ideali per il monitoraggio generale in tempo reale dell'applicazione o l'analisi delle tendenze.
+* Log di **Monitoraggio di Azure:** i log di Monitoraggio di Azure sono ottimali per il monitoraggio generale in tempo reale dell'applicazione o per l'esborrazione delle tendenze.
 
 ## <a name="activity-logs"></a>Log attività
 
    Le voci dei log attività vengono raccolte per impostazione predefinita e possono essere visualizzate nel portale di Azure.
 
-   È possibile usare i [log attività di Azure](../azure-resource-manager/management/view-activity-logs.md) (precedentemente noti come log operativi e log di controllo) per visualizzare tutte le operazioni inviate alla sottoscrizione di Azure.
+   È possibile usare i log attività di Azure (precedentemente noti come log operativi e log di controllo) per visualizzare tutte le operazioni inviate alla sottoscrizione di Azure.You can use [Azure activity logs](../azure-resource-manager/management/view-activity-logs.md) (formerly known as operational logs and audit logs) to view all operations submitted to your Azure subscription.
 
 ## <a name="metrics"></a>Metriche
 
-Le metriche in monitoraggio di Azure sono valori numerici che descrivono alcuni aspetti di un sistema in un determinato momento. Le metriche vengono raccolte ogni minuto e sono utili per gli avvisi perché possono essere campionate spesso. Un avviso può essere generato rapidamente con una logica relativamente semplice.
+Le metriche in Monitoraggio di Azure sono valori numerici che descrivono alcuni aspetti di un sistema in un determinato momento. Le metriche vengono raccolte ogni minuto e sono utili per gli avvisi perché possono essere campionate di frequente. Un avviso può essere attivato rapidamente con una logica relativamente semplice.
 
-Per il firewall di Azure sono disponibili le metriche seguenti:
+Per Firewall di Azure sono disponibili le metriche seguenti:The following metrics are available for Azure Firewall:
 
-- Numero di **passaggi delle regole dell'applicazione** : numero di volte in cui è stata raggiunta una regola dell'applicazione.
-
-    Unità: conteggio
-
-- Numero di **passaggi delle regole di rete** : numero di volte in cui è stata raggiunta una regola di rete.
+- **Conteggio passaggi regole applicazione:** il numero di volte in cui una regola dell'applicazione è stata raggiunta.
 
     Unità: conteggio
 
-- **Dati elaborati** : quantità di dati attraversando il firewall.
+- **Numero** di passaggi di una regola di rete.
+
+    Unità: conteggio
+
+- **Dati elaborati** - Quantità di dati che attraversano il firewall.
 
     Unità: byte
 
-- **Stato di integrità del firewall** : indica lo stato di integrità del firewall in base alla disponibilità della porta SNAT.
+- **Stato integrità firewall:** indica l'integrità del firewall in base alla disponibilità delle porte SNAT.
 
     Unità: percentuale
 
    Questa metrica ha due dimensioni:
-  - Stato: i valori possibili sono *integro*, *danneggiato*, non *integro*.
+  - Stato: i valori possibili sono *Healthy*, *Degraded*, *Unhealthy*.
   - Motivo: indica il motivo dello stato corrispondente del firewall. 
 
-     Se vengono usate le porte SNAT > 95%, vengono considerate esaurite e l'integrità è 50% con status =**Degraded** e Reason =**SNAT Port**. Il firewall mantiene l'elaborazione del traffico e le connessioni esistenti non sono interessate. Tuttavia, le nuove connessioni potrebbero non essere stabilite in modo intermittente.
+     Se vengono utilizzate le porte SNAT > 95%, vengono considerate esaurite e l'integrità è del 50% con**stato, Degradato** e motivo,**porta SNAT**. Il firewall mantiene il traffico di elaborazione e le connessioni esistenti non sono interessate. Tuttavia, le nuove connessioni potrebbero non essere stabilite in modo intermittente.
 
-     Se vengono usate porte SNAT < 95%, il firewall viene considerato integro e l'integrità viene visualizzata come 100%.
+     Se le porte SNAT vengono utilizzate < 95%, il firewall viene considerato integro e l'integrità viene visualizzata come 100%.
 
-     Se non viene segnalato alcun utilizzo delle porte SNAT, l'integrità viene visualizzata come 0%. 
+     Se non viene segnalato alcun utilizzo delle porte SNAT, l'integrità viene visualizzato come 0%. 
 
-- **Utilizzo delle porte SNAT** : la percentuale di porte SNAT utilizzate dal firewall.
+- **Utilizzo delle porte SNAT:** la percentuale di porte SNAT utilizzate dal firewall.
 
     Unità: percentuale
 
-   Quando si aggiungono altri indirizzi IP pubblici al firewall, sono disponibili più porte SNAT, riducendo l'utilizzo delle porte SNAT. Inoltre, quando il firewall viene scalato per diversi motivi, ad esempio CPU o velocità effettiva, diventano disponibili anche porte SNAT aggiuntive. Pertanto, una determinata percentuale di utilizzo delle porte SNAT può diventare inattiva senza aggiungere indirizzi IP pubblici, solo perché il servizio è stato scalato orizzontalmente. È possibile controllare direttamente il numero di indirizzi IP pubblici disponibili per aumentare le porte disponibili sul firewall. Tuttavia, non è possibile controllare direttamente il ridimensionamento del firewall. Attualmente, le porte SNAT vengono aggiunte solo per i primi cinque indirizzi IP pubblici.   
+   Quando si aggiungono più indirizzi IP pubblici al firewall, sono disponibili più porte SNAT, riducendo l'utilizzo delle porte SNAT. Inoltre, quando il firewall viene scalato orizzontalmente per diversi motivi (ad esempio, CPU o velocità effettiva) diventano disponibili anche porte SNAT aggiuntive. In modo efficace, una determinata percentuale di utilizzo delle porte SNAT potrebbe scendere senza aggiungere indirizzi IP pubblici, solo perché il servizio è stato scalato orizzontalmente. È possibile controllare direttamente il numero di indirizzi IP pubblici disponibili per aumentare le porte disponibili sul firewall. Tuttavia, non è possibile controllare direttamente il ridimensionamento del firewall. Attualmente, le porte SNAT vengono aggiunte solo per i primi cinque indirizzi IP pubblici.   
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per informazioni su come monitorare log e metriche del Firewall di Azure, vedere [Esercitazione: monitorare i log del Firewall di Azure](tutorial-diagnostics.md).
 
-- Per altre informazioni sulle metriche in monitoraggio di Azure, vedere [metriche in monitoraggio di Azure](../azure-monitor/platform/data-platform-metrics.md).
+- Per altre informazioni sulle metriche in Monitoraggio di Azure, vedere [Metriche in Monitoraggio di Azure.To](../azure-monitor/platform/data-platform-metrics.md)learn more about metrics in Azure Monitor, see Metrics in Azure Monitor.

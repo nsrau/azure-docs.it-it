@@ -1,20 +1,20 @@
 ---
-title: Comunicazione remota del servizio con Java in Azure Service Fabric
+title: Service remoting using Java in Azure Service Fabric
 description: La funzionalità remota di Service Fabric consente a client e servizi di comunicare con i servizi Java tramite una chiamata di procedura remota.
 author: PavanKunapareddyMSFT
 ms.topic: conceptual
 ms.date: 06/30/2017
 ms.author: pakunapa
 ms.openlocfilehash: eef63d7a2c8a4b15938dfbffd7db5f9d1b22d426
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75426644"
 ---
 # <a name="service-remoting-in-java-with-reliable-services"></a>Comunicazione remota con i servizi in Java con Reliable Services
 > [!div class="op_single_selector"]
-> * [C# su Windows](service-fabric-reliable-services-communication-remoting.md)
+> * [C'è su Windows](service-fabric-reliable-services-communication-remoting.md)
 > * [Java su Linux](service-fabric-reliable-services-communication-remoting-java.md)
 >
 >
@@ -94,7 +94,7 @@ Tutte le eccezioni generate dall'API del servizio vengono inviate nuovamente al 
 Il proxy servizio non gestisce tutte le eccezioni di failover per la partizione del servizio per la quale è stato creato. Risolve nuovamente gli endpoint in presenza di eccezioni di failover (eccezioni non temporanee) e tenta di nuovo la chiamata con l'endpoint corretto. Il numero di tentativi per l'eccezione di failover è indefinito.
 In caso di eccezioni temporanee ritenta solo la chiamata.
 
-I parametri di ripetizione dei tentativi predefiniti sono forniti da [OperationRetrySettings](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.communication.client.operationretrysettings).
+I parametri di ripetizione dei tentativi predefiniti sono disponibili in [OperationRetrySettings](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.communication.client.operationretrysettings).
 È possibile configurare questi valori passando l'oggetto OperationRetrySettings al costruttore ServiceProxyFactory.
 
 ## <a name="next-steps"></a>Passaggi successivi

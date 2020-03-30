@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.openlocfilehash: 73256aef19a03c4c971be5fc9e69f988ef5a831a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75438620"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: domande frequenti
@@ -25,7 +25,7 @@ Le domande e le risposte sono suddivise nelle categorie seguenti:
 - Ordinare il dispositivo
 - Configurazione e connessione 
 - Monitoraggio dello stato
-- Copiare dati 
+- Copiare i dati 
 - Spedire il dispositivo
 - Verifica e caricamento dei dati 
 - Supporto per la catena di custodia
@@ -101,7 +101,7 @@ R.  È possibile annullare l'ordine solo dopo l'ordine di Data Box e prima che l
 R. Sì. Più computer host possono connettersi a Data Box per trasferire i dati e più processi di copia possono essere eseguiti in parallelo. Per altre informazioni, vedere [Tutorial: Copy data to Azure Data Box](data-box-deploy-copy-data.md) (Esercitazione: copiare i dati in Azure Data Box).
 
 ### <a name="q-can-i-connect-to-both-the-10-gbe-interfaces-on-the-data-box-to-transfer-data"></a>Q. È possibile connettersi a entrambe le interfacce a 10 GbE del Data Box per trasferire i dati?
-R. Sì. È possibile connettersi a entrambe le interfacce a 10 GbE del Data Box per copiare i dati contemporaneamente. Per altre informazioni su come copiare i dati, vedere [esercitazione: copiare dati in Azure Data Box](data-box-deploy-copy-data.md).
+R. Sì. È possibile connettersi a entrambe le interfacce a 10 GbE del Data Box per copiare i dati contemporaneamente. Per altre informazioni su come copiare i dati, vedere [Esercitazione: Copiare i dati](data-box-deploy-copy-data.md)in Azure Data Box .
 
 <!--### Q. The network interface on my Data Box is not working. What should I do? 
 A. 
@@ -141,7 +141,7 @@ R. È possibile accedere all'ordine nel portale di Azure e andare a **Panoramica
 R.  Data Box ha una capacità di archiviazione usabile di 80 TB. È possibile usare un singolo dispositivo Data Box per una quantità di dati compresa tra 40 e 80 TB. Per dimensioni di dati maggiori, fino a 500 TB, è possibile ordinare più dispositivi Data Box. Per dimensioni dei dati superiori a 500 TB, iscriversi a Data Box Heavy.  
 
 ### <a name="q-what-are-the-maximum-block-blob-and-page-blob-sizes-supported-by-data-box"></a>Q. Quali sono le dimensioni massime di BLOB in blocchi e BLOB di pagine supportate da Data Box? 
-R.  Le dimensioni massime dipendono dai limiti di Archiviazione di Azure. Le dimensioni massime dei BLOB in blocchi sono di circa 4,768 TiB e le dimensioni massime dei BLOB di pagine sono di 8 TiB. Per altre informazioni, vedere [obiettivi di scalabilità e prestazioni per l'archiviazione BLOB](../storage/blobs/scalability-targets.md).
+R.  Le dimensioni massime dipendono dai limiti di Archiviazione di Azure. Le dimensioni massime dei BLOB in blocchi sono di circa 4,768 TiB e le dimensioni massime dei BLOB di pagine sono di 8 TiB. Per altre informazioni, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione BLOB](../storage/blobs/scalability-targets.md).
 
 ### <a name="q-how-do-i-know-that-my-data-is-secure-during-transit"></a>Q. In quale modo si può essere certi della sicurezza dei dati in transito? 
 R. Sono disponibili più funzionalità di sicurezza implementate per garantire che Data Box sia protetto durante il transito. Alcune funzionalità includono sigilli antimanomissione, rilevamento di manomissione hardware e software, password di sblocco dei dispositivi. Per altre informazioni, vedere [Azure Data Box security and data protection](data-box-security.md) (Sicurezza e protezione dei dati in Azure Data Box).
@@ -180,19 +180,19 @@ R.  Sì. Con Data Box è supportato un massimo di 10 account di archiviazione, p
 ### <a name="q-my-device-was-delivered-but-the-device-seems-to-be-damaged-what-should-i-do"></a>Q. Il dispositivo è stato consegnato, ma sembra che sia danneggiato. Cosa devo fare?
 R. Non usare il dispositivo se è arrivato danneggiato o se è evidente una prova di manomissione. [Contattare il supporto tecnico Microsoft](data-box-disk-contact-microsoft-support.md) e restituire il dispositivo appena possibile. È anche possibile creare un nuovo ordine di Data Box per un dispositivo sostitutivo. In questo caso per il dispositivo sostitutivo non viene addebitato alcun importo.
 
-### <a name="q-can-i-pick-up-my-data-box-order-myself-can-i-return-the-data-box-via-a-carrier-that-i-choose"></a>Q. È possibile prelevare il mio Data Box ordine? È possibile restituire la Data Box tramite un vettore scelto?
-R. Sì. Nella sola area US Gov, Microsoft offre anche la spedizione autogestita. Quando si inserisce l'ordine di Data Box, è possibile scegliere l'opzione di spedizione self-Managed. Per selezionare il dispositivo Data Box, seguire questa procedura:
+### <a name="q-can-i-pick-up-my-data-box-order-myself-can-i-return-the-data-box-via-a-carrier-that-i-choose"></a>Q. Posso ritirare il mio ordine Data Box da solo? Posso restituire la Data Box tramite un corriere che scelgo?
+R. Sì. Nella sola area US Gov, Microsoft offre anche la spedizione autogestita. Quando si effettua l'ordine Data Box, è possibile scegliere l'opzione di spedizione autogestita. Per ritirare il dispositivo Data Box, attenersi alla seguente procedura:
     
-1. Una volta effettuato l'ordine, l'ordine viene elaborato e la Data Box viene preparata. Si riceverà una notifica tramite posta elettronica che informa che l'ordine è pronto per il ritiro. 
+1. Dopo aver effettuato l'ordine, l'ordine viene elaborato e la casella dati viene preparata. Si riceverà una notifica tramite posta elettronica che informa che l'ordine è pronto per il ritiro. 
 2. Quando l'ordine è pronto per il ritiro, andare all'ordine nel portale di Azure e passare al pannello **Panoramica**. 
 3. Nel portale di Azure verrà visualizzata una notifica con un codice. Inviare un messaggio di posta elettronica al [team Azure Data Box Operations](mailto:adbops@microsoft.com) specificando il codice. Il team indicherà l'ubicazione e pianificherà una data e un'ora di ritiro. È necessario chiamare il team entro 5 giorni lavorativi dalla ricezione della notifica tramite posta elettronica.
 
-Al termine della copia dei dati, seguire questa procedura per restituire il dispositivo:
+Una volta completata la copia dei dati, effettuare le seguenti operazioni per restituire il dispositivo:
 
-1. Una volta completata la copia dei dati senza errori, eseguire **prepara per la spedizione**. Al termine della preparazione, si riceverà un codice nell'interfaccia utente Web locale del dispositivo. Copiare e salvare il codice.
-2. Spegnere il dispositivo e rimuovere i cavi di connessione.
+1. Una volta completata la copia dei dati senza errori, eseguire **Prepare to ship**. Al termine della preparazione, si riceverà un codice nell'interfaccia utente Web locale del dispositivo. Copiare e salvare il codice.
+2. Spegnere il dispositivo e rimuovere i cavi di collegamento.
 3. Avvolgere il cavo di alimentazione fornito con il dispositivo e assicurarlo al retro del dispositivo.
-4. Inviare un messaggio di posta elettronica al [team operativo Azure Data Box](mailto:adbops@microsoft.com) e fornire il codice salvato in precedenza. Verranno fornite informazioni su dove e quando rimuovere il dispositivo.
+4. Inviare un messaggio di posta elettronica al [team di Azure Data Box Operations](mailto:adbops@microsoft.com) e fornire loro il codice salvato in precedenza. Ti forniscono informazioni su dove e quando lasciare il dispositivo.
 
 ### <a name="q-will-my-data-box-devices-cross-country-borders-during-shipping"></a>Q. I dispositivi Data Box possono essere spediti oltre i confini nazionali?
 R. Tutti i dispositivi Data Box vengono spediti all'interno dello stesso paese e non possono superare i confini internazionali. L'unica eccezione è data dagli ordini nell'Unione Europa (UE), in cui i dispositivi possono essere spediti da e verso i paesi dell'Unione Europa. Questo approccio si applica ai dispositivi Data Box e Data Box Heavy.

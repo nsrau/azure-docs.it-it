@@ -1,6 +1,6 @@
 ---
 title: Misurazioni utente effettive di Gestione traffico di Microsoft Azure
-description: In questa introduzione, informazioni sul funzionamento di gestione traffico di Azure misurazioni utente reale.
+description: In questa introduzione viene illustrato il funzionamento delle misurazioni utente reale di Gestione traffico di Azure.In this introduction, learn how Azure Traffic Manager Real User Measurements work.
 services: traffic-manager
 documentationcenter: traffic-manager
 author: rohinkoul
@@ -13,10 +13,10 @@ ms.date: 03/16/2018
 ms.author: rohink
 ms.custom: ''
 ms.openlocfilehash: e38e1255b1a84ab5d3fd37e16eb65c76001dbfa1
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76938441"
 ---
 # <a name="traffic-manager-real-user-measurements-overview"></a>Panoramica di Misurazioni utente reale in Gestione traffico
@@ -37,47 +37,47 @@ Quando si usa Misurazioni utente reale, la fatturazione viene eseguita in base a
 
 ## <a name="faqs"></a>Domande frequenti
 
-* [Quali sono i vantaggi dell'uso di misurazioni utente reale?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-the-benefits-of-using-real-user-measurements)
+* [Quali sono i vantaggi offerti dall'utilizzo di Misurazioni utente reale?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-the-benefits-of-using-real-user-measurements)
 
-* [È possibile usare misurazioni utente reale con aree diverse da Azure?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-real-user-measurements-with-non-azure-regions)
+* [È possibile usare Misurazioni utente reale con aree non di Azure?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-real-user-measurements-with-non-azure-regions)
 
-* [Quale metodo di routing trae vantaggio da misurazioni utente reale?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#which-routing-method-benefits-from-real-user-measurements)
+* [Quale metodo di routing trae vantaggio dalla funzionalità Misurazioni utente reale?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#which-routing-method-benefits-from-real-user-measurements)
 
-* [È necessario abilitare misurazioni utente reale ogni profilo separatamente?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#do-i-need-to-enable-real-user-measurements-each-profile-separately)
+* [È necessario abilitare Misurazioni utente reale per ogni profilo separatamente?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#do-i-need-to-enable-real-user-measurements-each-profile-separately)
 
-* [Ricerca per categorie disattivare misurazioni utente reale per la sottoscrizione?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-do-i-turn-off-real-user-measurements-for-my-subscription)
+* [Come si disattiva Misurazioni utente reale in una sottoscrizione?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-do-i-turn-off-real-user-measurements-for-my-subscription)
 
-* [È possibile utilizzare misurazioni utente reale con applicazioni client diverse dalle pagine Web?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-real-user-measurements-with-client-applications-other-than-web-pages)
+* [È possibile usare Misurazioni utente reale con applicazioni client diverse dalle pagine Web?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-real-user-measurements-with-client-applications-other-than-web-pages)
 
-* [Quante misure vengono eseguite ogni volta che viene eseguito il rendering della pagina Web misurazioni utente reale Enabled?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-many-measurements-are-made-each-time-my-real-user-measurements-enabled-web-page-is-rendered)
+* [Quante misurazioni vengono effettuate ogni volta che viene eseguito il rendering di una pagina Web con Misurazioni utente reale abilitata?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-many-measurements-are-made-each-time-my-real-user-measurements-enabled-web-page-is-rendered)
 
-* [Si è verificato un ritardo prima che misurazioni utente reale script venga eseguito nella pagina Web?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#is-there-a-delay-before-real-user-measurements-script-runs-in-my-webpage)
+* [È presente un ritardo prima dell'esecuzione dello script di Misurazioni utente reale nella pagina Web?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#is-there-a-delay-before-real-user-measurements-script-runs-in-my-webpage)
 
-* [È possibile usare misurazioni utente reale solo con le aree di Azure che si vuole misurare?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-real-user-measurements-with-only-the-azure-regions-i-want-to-measure)
+* [È possibile usare misurazioni utente reale solo con le aree di Azure che si intende misurare?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-real-user-measurements-with-only-the-azure-regions-i-want-to-measure)
 
 * [È possibile limitare il numero di misurazioni effettuate a un numero specifico?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-limit-the-number-of-measurements-made-to-a-specific-number)
 
-* [È possibile visualizzare le misurazioni rilevate dall'applicazione client nell'ambito di misurazioni utente reale?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-see-the-measurements-taken-by-my-client-application-as-part-of-real-user-measurements)
+* [È possibile visualizzare le misurazioni effettuate dall'applicazione client nell'ambito di Misurazioni utente reale?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-see-the-measurements-taken-by-my-client-application-as-part-of-real-user-measurements)
 
-* [È possibile modificare lo script di misurazione fornito da Gestione traffico?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-modify-the-measurement-script-provided-by-traffic-manager)
+* [È possibile modificare lo script di misurazione di Gestione traffico?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-modify-the-measurement-script-provided-by-traffic-manager)
 
-* [È possibile che altri utenti visualizzino la chiave usata con misurazioni utente reale?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#will-it-be-possible-for-others-to-see-the-key-i-use-with-real-user-measurements)
+* [Gli altri utenti sono in grado di vedere la chiave di un utente che viene usata con Misurazioni utente reale?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#will-it-be-possible-for-others-to-see-the-key-i-use-with-real-user-measurements)
 
-* [Altri utenti possono abusare della mia chiave RUM?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-others-abuse-my-rum-key)
+* [È possibile che altri utenti usino la chiave di Misurazioni utente reale di un utente senza autorizzazione?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-others-abuse-my-rum-key)
 
 * [È necessario inserire il codice JavaScript di misurazione in tutte le pagine Web?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#do-i-need-to-put-the-measurement-javascript-in-all-my-web-pages)
 
-* [Le informazioni sugli utenti finali possono essere identificate da Gestione traffico se si usa misurazioni utente reale?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-information-about-my-end-users-be-identified-by-traffic-manager-if-i-use-real-user-measurements)
+* [Gestione traffico è in grado di identificare le informazioni sugli utenti finali se si usa Misurazioni utente reale?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-information-about-my-end-users-be-identified-by-traffic-manager-if-i-use-real-user-measurements)
 
-* [La pagina Web che misura misurazioni utente reale deve usare gestione traffico per il routing?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-the-webpage-measuring-real-user-measurements-need-to-be-using-traffic-manager-for-routing)
+* [La pagina Web che misura con Misurazioni utente reale deve usare Gestione traffico per il routing?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-the-webpage-measuring-real-user-measurements-need-to-be-using-traffic-manager-for-routing)
 
-* [È necessario ospitare un servizio in aree di Azure da usare con misurazioni utente reale?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#do-i-need-to-host-any-service-on-azure-regions-to-use-with-real-user-measurements)
+* [È necessario ospitare un qualsiasi servizio nelle aree di Azure da usare con Misurazioni utente reale?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#do-i-need-to-host-any-service-on-azure-regions-to-use-with-real-user-measurements)
 
-* [L'utilizzo della larghezza di banda di Azure aumenta quando si usa misurazioni utente reale?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#will-my-azure-bandwidth-usage-increase-when-i-use-real-user-measurements)
+* [L'utilizzo della larghezza di banda di Azure aumenta quando si usa Misurazioni utente reale?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#will-my-azure-bandwidth-usage-increase-when-i-use-real-user-measurements)
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Informazioni su come usare [Misurazioni utente reale con le pagine Web](traffic-manager-create-rum-web-pages.md)
-- Informazioni sul [funzionamento di Gestione traffico](traffic-manager-overview.md)
+- Scopri [come funziona Gestione traffico](traffic-manager-overview.md)
 - Altre informazioni su [Mobile Center](https://docs.microsoft.com/mobile-center/)
 - Ulteriori informazioni sui [metodi di routing del traffico](traffic-manager-routing-methods.md) supportati da Gestione traffico
 - Informazioni su come [creare un profilo di Gestione traffico](traffic-manager-create-profile.md)

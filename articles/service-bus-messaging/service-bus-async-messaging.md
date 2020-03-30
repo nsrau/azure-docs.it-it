@@ -1,6 +1,6 @@
 ---
 title: Messaggistica asincrona del bus di servizio | Documentazione Microsoft
-description: Informazioni su come il bus di servizio di Azure supporta asynchronism tramite un meccanismo di archiviazione e di invio con code, argomenti e sottoscrizioni.
+description: Informazioni su come il bus di servizio di Azure supporta l'asincronismo tramite un meccanismo di archiviazione e inoltro con code, argomenti e sottoscrizioni.
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
@@ -15,17 +15,17 @@ ms.workload: na
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: 554260f403104d815b9b63c576c7ba0a2f3cf1e1
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76761033"
 ---
-# <a name="asynchronous-messaging-patterns-and-high-availability"></a>Modelli asincroni di messaggistica e disponibilità elevata
+# <a name="asynchronous-messaging-patterns-and-high-availability"></a>Modelli di messaggistica asincrona e disponibilità elevata
 
 La messaggistica asincrona può essere implementata in molti modi diversi. Con code, argomenti e sottoscrizioni, il bus di servizio di Azure supporta la messaggistica asincrona tramite un meccanismo di archiviazione e inoltro. In un'operazione normale (sincrona) i messaggi vengono inviati a code e argomenti e ricevuti da code e sottoscrizioni. Le applicazioni create dipendono dalla disponibilità continua di queste entità. Quando l'integrità dell'entità cambia a causa di diverse circostanze, è necessario fornire un'entità a capacità limitata che possa soddisfare la maggior parte delle esigenze.
 
-In genere, le applicazioni usano modelli di messaggistica asincrona per consentire diversi scenari di comunicazione. È possibile creare applicazioni in cui i client possono inviare messaggi ai servizi anche quando questi non sono in esecuzione. Per le applicazioni in cui si verificano picchi nelle comunicazioni, si può usare una coda per livellare il carico fornendo un'area per il buffer delle comunicazioni. Infine è possibile ottenere un semplice ma efficace servizio di bilanciamento del carico per distribuire i messaggi tra più computer.
+In genere, le applicazioni usano modelli di messaggistica asincrona per consentire diversi scenari di comunicazione. È possibile creare applicazioni in cui i client possono inviare messaggi ai servizi anche quando questi non sono in esecuzione. Per le applicazioni in cui si verificano picchi nelle comunicazioni, si può usare una coda per livellare il carico fornendo un'area per il buffer delle comunicazioni.  Infine è possibile ottenere un semplice ma efficace servizio di bilanciamento del carico per distribuire i messaggi tra più computer.
 
 Per mantenere la disponibilità di una qualsiasi di queste entità, è necessario considerare i diversi casi in cui le entità possono risultare non disponibili per un sistema di messaggistica permanente. In generale, l'entità risulta non disponibile alle applicazioni nelle circostanze seguenti:
 
@@ -45,7 +45,7 @@ Sono disponibili diverse modalità di gestione dei problemi relativi a entità e
 * Errore del bus di servizio in un data center di Azure. Questo è un "errore irreversibile" durante il quale il sistema risulta irraggiungibile per diversi minuti o per alcune ore.
 
 > [!NOTE]
-> Il termine **archiviazione** può indicare sia archiviazione di Azure sia di SQL Azure.
+> Il termine **archiviazione** può indicare sia Archiviazione di Azure sia SQL Azure.
 > 
 > 
 
@@ -57,15 +57,15 @@ Nel bus di servizio la limitazione consente la gestione congiunta della frequenz
 Come misura di prevenzione, il codice deve leggere l'errore e bloccare ogni nuovo tentativo del messaggio per almeno 10 secondi. Poiché l'errore può verificarsi in varie parti dell'applicazione del cliente, si presuppone che ogni parte esegua indipendentemente la logica di ripetizione dei tentativi. Il codice può ridurre l'occorrenza delle limitazioni abilitando il partizionamento di una coda o un argomento.
 
 ### <a name="issue-for-an-azure-dependency"></a>Problema per una dipendenza di Azure
-Anche per altri componenti di Azure possono occasionalmente verificarsi problemi di servizio. Quando, ad esempio, si aggiorna un sistema usato dal bus di servizio, è possibile che il sistema funzioni temporaneamente con capacità limitate. Per risolvere questo tipo di problemi, il bus di servizio analizza e implementa regolarmente le misure di prevenzione. È tuttavia possibile che si verifichino effetti collaterali di misure di prevenzione. Ad esempio, per gestire problemi temporanei con l'archiviazione, il bus di servizio implementa un sistema che consente il funzionamento uniforme delle operazioni di invio dei messaggi. Considerata la natura della misura di prevenzione, un messaggio inviato può impiegare fino a 15 minuti prima di essere visualizzato nella sottoscrizione o nella coda interessata ed essere pronto per un'operazione di ricezione. In genere, la maggior parte delle entità non è interessata da questo problema. Dato tuttavia il numero di entità presenti nel bus di servizio all'interno di Azure, questa misura di prevenzione può essere utile a volte per un limitato sottoinsieme di clienti del bus di servizio.
+Anche per altri componenti di Azure possono occasionalmente verificarsi problemi di servizio. Quando, ad esempio, si aggiorna un sistema usato dal bus di servizio, è possibile che il sistema funzioni temporaneamente con capacità limitate. Per risolvere questo tipo di problemi, il bus di servizio analizza e implementa regolarmente le misure di prevenzione. È tuttavia possibile che si verifichino effetti collaterali di misure di prevenzione. Ad esempio, per gestire problemi temporanei con l'archiviazione, il bus di servizio implementa un sistema che consente il funzionamento uniforme delle operazioni di invio dei messaggi.  Considerata la natura della misura di prevenzione, un messaggio inviato può impiegare fino a 15 minuti prima di essere visualizzato nella sottoscrizione o nella coda interessata ed essere pronto per un'operazione di ricezione. In genere, la maggior parte delle entità non è interessata da questo problema. Dato tuttavia il numero di entità presenti nel bus di servizio all'interno di Azure, questa misura di prevenzione può essere utile a volte per un limitato sottoinsieme di clienti del bus di servizio.
 
 ### <a name="service-bus-failure-on-a-single-subsystem"></a>Errore del bus di servizio in un singolo sottosistema
 In qualsiasi applicazione possono verificarsi casi in cui un componente interno del bus di servizio diventa incoerente. Quando il bus di servizio rileva questo problema, raccoglie dati dall'applicazione a fini diagnostici. Una volta raccolti i dati, l'applicazione viene riavviata nel tentativo di ripristinarne un stato coerente. Questo processo avviene abbastanza velocemente e causa la mancata disponibilità di un'entità per alcuni minuti, anche se in genere i tempi di inattività sono molto più brevi.
 
-In questi casi, l'applicazione client genera un'eccezione di tipo [System.TimeoutException][System.TimeoutException] o [MessagingException][MessagingException]. Il bus di servizio include una misura di prevenzione per questo problema basata sulla logica di ripetizione automatica dei tentativi del client. Quando il periodo di ripetizione dei tentativi è esaurito e il messaggio non viene recapitato, è possibile esplorare l'uso di altri articoli citati nell'articolo sulla [gestione di interruzioni e emergenze][handling outages and disasters].
+In questi casi, l'applicazione client genera un'eccezione di tipo [System.TimeoutException][System.TimeoutException] o [MessagingException][MessagingException]. Il bus di servizio include una misura di prevenzione per questo problema basata sulla logica di ripetizione automatica dei tentativi del client. Al termine del periodo di ripetizione, se il messaggio non è stato recapitato, è possibile provare a usare altre funzionalità citate nell'articolo sulla [gestione delle interruzioni e delle emergenze][handling outages and disasters].
 
 ## <a name="next-steps"></a>Passaggi successivi
-Ora che sono state apprese le nozioni di base della messaggistica asincrona nel bus di servizio, vedere altre informazioni sulla [gestione delle interruzioni e delle calamità][handling outages and disasters].
+Dopo avere appreso le nozioni di base della messaggistica asincrona nel bus di servizio, vedere le altre informazioni sulla [gestione delle interruzioni e delle emergenze][handling outages and disasters].
 
 [ServerBusyException]: /dotnet/api/microsoft.servicebus.messaging.serverbusyexception
 [System.TimeoutException]: https://msdn.microsoft.com/library/system.timeoutexception.aspx

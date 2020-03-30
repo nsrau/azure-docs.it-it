@@ -1,13 +1,13 @@
 ---
 title: Usare PowerShell per eseguire il backup di Windows Server in Azure
-description: Questo articolo illustra come usare PowerShell per la configurazione di backup di Azure in Windows Server o un client Windows e la gestione di backup e ripristino.
+description: In questo articolo viene illustrato come usare PowerShell per configurare Backup di Azure in Windows Server o un client Windows e come gestire il backup e il ripristino.
 ms.topic: conceptual
 ms.date: 12/2/2019
 ms.openlocfilehash: efe0b93fe1e37990422ffbd2256e38c12401dca5
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78673208"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Distribuire e gestire il backup in Azure per server Windows/client Windows mediante PowerShell
@@ -18,7 +18,7 @@ Questo articolo illustra come usare PowerShell per configurare Backup di Azure i
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Per iniziare, [installare la versione più recente di PowerShell](/powershell/azure/install-az-ps).
+Per iniziare, installare la versione più recente di [PowerShell.](/powershell/azure/install-az-ps)
 
 ## <a name="create-a-recovery-services-vault"></a>Creare un insieme di credenziali dei servizi di ripristino
 
@@ -36,7 +36,7 @@ Nei passaggi seguenti viene descritto come creare un insieme di credenziali dei 
     New-AzResourceGroup –Name "test-rg" –Location "WestUS"
     ```
 
-3. Usare il cmdlet **New-AzRecoveryServicesVault** per creare il nuovo insieme di credenziali. Assicurarsi di specificare per l'insieme di credenziali lo stesso percorso usato per il gruppo di risorse.
+3. Utilizzare il cmdlet **New-AzRecoveryServicesVault** per creare il nuovo insieme di credenziali. Assicurarsi di specificare per l'insieme di credenziali lo stesso percorso usato per il gruppo di risorse.
 
     ```powershell
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "WestUS"
@@ -56,9 +56,9 @@ Nei passaggi seguenti viene descritto come creare un insieme di credenziali dei 
 
 ## <a name="view-the-vaults-in-a-subscription"></a>Visualizzare gli insiemi di credenziali in un abbonamento
 
-Usare **Get-AzRecoveryServicesVault** per visualizzare l'elenco di tutti gli insiemi di credenziali nella sottoscrizione corrente. È possibile usare questo comando per verificare che sia stato creato un nuovo insieme di credenziali o per vedere quali insiemi di credenziali sono disponibili nell'abbonamento.
+Utilizzare **Get-AzRecoveryServicesVault** per visualizzare l'elenco di tutti gli insiemi di credenziali nella sottoscrizione corrente. È possibile usare questo comando per verificare che sia stato creato un nuovo insieme di credenziali o per vedere quali insiemi di credenziali sono disponibili nell'abbonamento.
 
-Eseguire il comando **Get-AzRecoveryServicesVault**e tutti gli insiemi di credenziali nella sottoscrizione sono elencati.
+Eseguire il comando **Get-AzRecoveryServicesVault**e sono elencati tutti gli insiemi di credenziali nella sottoscrizione.
 
 ```powershell
 Get-AzRecoveryServicesVault
@@ -95,15 +95,15 @@ Per installare l'agente, eseguire il comando seguente in una console di Azure Po
 MARSAgentInstaller.exe /q
 ```
 
-L'agente verrà installato con tutte le opzioni predefinite. L'installazione richiede alcuni minuti in background. Se non si specifica l'opzione */nu* , alla fine dell'installazione verrà visualizzata la finestra **Windows Update** per verificare la presenza di eventuali aggiornamenti. Dopo essere stato installato, l'agente verrà visualizzato nell'elenco dei programmi installati.
+L'agente verrà installato con tutte le opzioni predefinite. L'installazione richiede alcuni minuti in background. Se non si specifica l'opzione */nu,* la finestra **di Windows Update** si aprirà alla fine dell'installazione per verificare la presenza di eventuali aggiornamenti. Dopo essere stato installato, l'agente verrà visualizzato nell'elenco dei programmi installati.
 
-Per visualizzare l'elenco dei programmi installati, passare a **Pannello di controllo** > **Programmi** > **Programmi e funzionalità**.
+Per visualizzare l'elenco dei programmi installati, passare a**Programmi** > **e funzionalità**del Pannello di >  **controllo**.
 
 ![Agente installato](./media/backup-client-automation/installed-agent-listing.png)
 
 ### <a name="installation-options"></a>Opzione di installazione
 
-Per visualizzare tutte le opzioni disponibili tramite la riga di comando, usare il comando seguente:
+Per visualizzare tutte le opzioni disponibili tramite la riga di comando, utilizzare il comando seguente:
 
 ```powershell
 MARSAgentInstaller.exe /?
@@ -133,12 +133,12 @@ $CredsPath = "C:\downloads"
 $CredsFilename = Get-AzRecoveryServicesVaultSettingsFile -Backup -Vault $Vault1 -Path $CredsPath
 ```
 
-### <a name="registering-using-the-ps-az-module"></a>Registrazione tramite il modulo PS AZ
+### <a name="registering-using-the-ps-az-module"></a>Registrazione tramite il modulo PS Az
 
 > [!NOTE]
-> Un bug con la generazione del certificato dell'insieme di credenziali è corretto in AZ 3.5.0 Release. Usare il comando AZ 3.5.0 Release Version o versione successiva per scaricare un certificato dell'insieme di credenziali.
+> Un bug con generazione del certificato dell'insieme di credenziali viene risolto nella versione 3.5.0 Az.A. Utilizzare Az 3.5.0 versione di rilascio o versione successiva per scaricare un certificato dell'insieme di credenziali.
 
-Nel modulo AZ di PowerShell più recente, a causa delle limitazioni della piattaforma sottostanti, il download delle credenziali dell'insieme di credenziali richiede un certificato autofirmato. Nell'esempio seguente viene illustrato come fornire un certificato autofirmato e scaricare le credenziali dell'insieme di credenziali.
+Nell'ultimo modulo Az di PowerShell, a causa delle limitazioni della piattaforma sottostante, il download delle credenziali dell'insieme di credenziali richiede un certificato autofirmato. Nell'esempio seguente viene illustrato come fornire un certificato autofirmato e scaricare le credenziali dell'insieme di credenziali.
 
 ```powershell
 $dt = $(Get-Date).ToString("M-d-yyyy")
@@ -148,9 +148,9 @@ $CredsFilename = Get-AzRecoveryServicesVaultSettingsFile -Backup -Vault $Vault -
 ```
 
 In Windows Server o in un client Windows, eseguire il cmdlet [Start-OBRegistration](https://docs.microsoft.com/powershell/module/msonlinebackup/start-obregistration?view=winserver2012-ps) per registrare il computer con l'insieme di credenziali.
-Questo e altri cmdlet usati per il backup sono dal modulo MSONLINE, che è stato aggiunto da Mars Agent Installer come parte del processo di installazione.
+Questo e altri cmdlet utilizzati per il backup provengono dal modulo MSONLINE, che il Mars AgentInstaller ha aggiunto come parte del processo di installazione.
 
-Il programma di installazione dell'agente non aggiorna la variabile $Env:PSModulePath. Il caricamento automatico del modulo avrà quindi esito negativo. Per risolvere questo problema, è possibile eseguire le operazioni seguenti:
+Il programma di installazione dell'agente non aggiorna la variabile $Env:PSModulePath. Il caricamento automatico del modulo avrà quindi esito negativo. Per risolvere questo problema, è possibile eseguire le operazioni seguenti:To resolve this, you can do the following:
 
 ```powershell
 $Env:PSModulePath += ';C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules'
@@ -209,7 +209,7 @@ Server properties updated successfully.
 
 I dati di backup inviati a Backup di Azure vengono crittografati per proteggere la riservatezza dei dati. La passphrase di crittografia è la "password" per decrittografare i dati in fase di ripristino.
 
-È necessario generare un pin di sicurezza selezionando **genera**, in **impostazioni** > **proprietà** > **pin di sicurezza** nella sezione dell'insieme di credenziali di servizi di **ripristino** della portale di Azure. Usare quindi questo come `generatedPIN` nel comando:
+È necessario generare un pin di sicurezza selezionando Genera in PIN di sicurezza**delle proprietà** > delle impostazioni nella sezione dell'insieme di credenziali dei servizi di ripristino del portale di Azure.You must generate a security pin by selecting **Generate**, under **Settings** > Properties**Security PIN** in the Recovery **Services vault** section of the Azure portal. Quindi, utilizzare questo `generatedPIN` come il nel comando:
 
 ```powershell
 $PassPhrase = ConvertTo-SecureString -String "Complex!123_STRING" -AsPlainText -Force
@@ -243,10 +243,10 @@ In questo momento il criterio è vuoto e sono necessari altri cmdlet per definir
 
 ### <a name="configuring-the-backup-schedule"></a>Configurazione della pianificazione dei backup
 
-La prima delle tre parti di un criterio è la pianificazione del backup, creata con il cmdlet [New-OBSchedule](https://docs.microsoft.com/powershell/module/msonlinebackup/new-obschedule?view=winserver2012-ps) . La pianificazione dei backup definisce quando è necessario eseguire i backup. Quando si crea una pianificazione, è necessario specificare due parametri di input:
+La prima delle tre parti di un criterio è la pianificazione del backup, che viene creata utilizzando il cmdlet [New-OBSchedule.](https://docs.microsoft.com/powershell/module/msonlinebackup/new-obschedule?view=winserver2012-ps) La pianificazione dei backup definisce quando è necessario eseguire i backup. Quando si crea una pianificazione, è necessario specificare due parametri di input:When creating a schedule, you need to specify two input parameters:
 
 * **Giorni della settimana** in cui deve essere eseguito il backup. È possibile eseguire il processo di backup in un solo giorno oppure tutti i giorni della settimana o specificando qualsiasi combinazione di giorni.
-* **Orari della giornata** in cui deve essere eseguito il backup. È possibile definire fino a tre orari diversi del giorno in cui verrà attivato il backup.
+* **Orari della giornata** in cui deve essere eseguito il backup. È possibile definire fino a tre diverse ore del giorno in cui verrà attivato il backup.
 
 Ad esempio, è possibile configurare un criterio di backup eseguito alle 16.00 ogni sabato e domenica.
 
@@ -266,7 +266,7 @@ BackupSchedule : 4:00 PM Saturday, Sunday, Every 1 week(s) DsList : PolicyName :
 
 ### <a name="configuring-a-retention-policy"></a>Configurazione di un criterio di conservazione
 
-Il criterio di conservazione definisce il periodo di conservazione dei punti di ripristino creati dai processi di backup. Quando si crea un nuovo criterio di conservazione usando il cmdlet [New-OBRetentionPolicy](https://docs.microsoft.com/powershell/module/msonlinebackup/new-obretentionpolicy?view=winserver2012-ps) , è possibile specificare il numero di giorni per cui conservare i punti di ripristino dei backup con Backup di Azure. Nell'esempio seguente vengono impostati i criteri di conservazione di sette giorni.
+Il criterio di conservazione definisce il periodo di conservazione dei punti di ripristino creati dai processi di backup. Quando si crea un nuovo criterio di conservazione usando il cmdlet [New-OBRetentionPolicy](https://docs.microsoft.com/powershell/module/msonlinebackup/new-obretentionpolicy?view=winserver2012-ps) , è possibile specificare il numero di giorni per cui conservare i punti di ripristino dei backup con Backup di Azure. L'esempio seguente imposta un criterio di conservazione di sette giorni.
 
 ```powershell
 $RetentionPolicy = New-OBRetentionPolicy -RetentionDays 7
@@ -309,7 +309,7 @@ Un oggetto `OBFileSpec` definisce i file da includere o escludere in un backup. 
 
 Quest'ultima impostazione si ottiene usando il flag -NonRecursive nel comando New-OBFileSpec.
 
-Nell'esempio seguente viene eseguito il backup dei volumi C: e D: e vengono esclusi i file binari del sistema operativo nella cartella Windows e nelle cartelle temporanee. A tale scopo, verranno create due specifiche di file usando il cmdlet [New-OBFileSpec](https://docs.microsoft.com/powershell/module/msonlinebackup/new-obfilespec?view=winserver2012-ps) , una per l'inclusione e l'altra per l'esclusione. Dopo essere state create, le specifiche dei file vengono associate al criterio usando il cmdlet [Add-OBFileSpec](https://docs.microsoft.com/powershell/module/msonlinebackup/add-obfilespec?view=winserver2012-ps) .
+Nell'esempio seguente viene eseguito il backup dei volumi C: e D: e vengono esclusi i file binari del sistema operativo nella cartella Windows e nelle cartelle temporanee. A tale scopo, verranno create due specifiche di file utilizzando il cmdlet [New-OBFileSpec](https://docs.microsoft.com/powershell/module/msonlinebackup/new-obfilespec?view=winserver2012-ps) , una per l'inclusione e una per l'esclusione. Dopo essere state create, le specifiche dei file vengono associate al criterio usando il cmdlet [Add-OBFileSpec](https://docs.microsoft.com/powershell/module/msonlinebackup/add-obfilespec?view=winserver2012-ps) .
 
 ```powershell
 $Inclusions = New-OBFileSpec -FileSpec @("C:\", "D:\")
@@ -405,7 +405,7 @@ PolicyState     : Valid
 
 ### <a name="applying-the-policy"></a>Applicazione del criterio
 
-A questo punto l'oggetto criterio è completo e associato a una pianificazione dei backup, un criterio di conservazione e un elenco di inclusione o esclusione di file. È ora possibile eseguire il commit del criterio affinché venga usato in Backup di Azure. Prima di applicare il criterio appena creato, assicurarsi che non siano presenti criteri di backup esistenti associati al server tramite il cmdlet [Remove-OBPolicy](https://docs.microsoft.com/powershell/module/msonlinebackup/remove-obpolicy?view=winserver2012-ps) . Per la rimozione del criterio verrà richiesta una conferma. Per ignorare la conferma, usare il flag di `-Confirm:$false` con il cmdlet.
+A questo punto l'oggetto criterio è completo e associato a una pianificazione dei backup, un criterio di conservazione e un elenco di inclusione o esclusione di file. È ora possibile eseguire il commit del criterio affinché venga usato in Backup di Azure. Prima di applicare il criterio appena creato, assicurarsi che non siano presenti criteri di backup esistenti associati al server utilizzando il cmdlet [Remove-OBPolicy.](https://docs.microsoft.com/powershell/module/msonlinebackup/remove-obpolicy?view=winserver2012-ps) Per la rimozione del criterio verrà richiesta una conferma. Per ignorare la conferma, utilizzare il `-Confirm:$false` flag con il cmdlet.
 
 ```powershell
 Get-OBPolicy | Remove-OBPolicy
@@ -415,7 +415,7 @@ Get-OBPolicy | Remove-OBPolicy
 Microsoft Azure Backup Are you sure you want to remove this backup policy? This will delete all the backed up data. [Y] Yes [A] Yes to All [N] No [L] No to All [S] Suspend [?] Help (default is "Y"):
 ```
 
-Il commit dell'oggetto criterio viene eseguito usando il cmdlet [Set-OBPolicy](https://docs.microsoft.com/powershell/module/msonlinebackup/set-obpolicy?view=winserver2012-ps) . Anche in questo caso verrà richiesto di confermare. Per ignorare la conferma, usare il flag di `-Confirm:$false` con il cmdlet.
+Il commit dell'oggetto criterio viene eseguito usando il cmdlet [Set-OBPolicy](https://docs.microsoft.com/powershell/module/msonlinebackup/set-obpolicy?view=winserver2012-ps) . Anche in questo caso verrà richiesto di confermare. Per ignorare la conferma, utilizzare il `-Confirm:$false` flag con il cmdlet.
 
 ```powershell
 Set-OBPolicy -Policy $NewPolicy
@@ -518,7 +518,7 @@ IsRecursive : True
 
 ### <a name="performing-an-on-demand-backup"></a>Esecuzione di un backup su richiesta
 
-Una volta impostati i criteri di backup, i backup vengono eseguiti in base alla pianificazione. Per attivare un backup su richiesta, è anche possibile usare il cmdlet [Start-OBBackup](https://docs.microsoft.com/powershell/module/msonlinebackup/start-obbackup?view=winserver2012-ps) :
+Una volta impostato un criterio di backup, i backup verranno eseguiti in base alla pianificazione. L'attivazione di un backup su richiesta è possibile anche utilizzando il cmdlet [Start-OBBackup:](https://docs.microsoft.com/powershell/module/msonlinebackup/start-obbackup?view=winserver2012-ps)
 
 ```powershell
 Get-OBPolicy | Start-OBBackup
@@ -537,9 +537,9 @@ Job completed.
 The backup operation completed successfully.
 ```
 
-## <a name="back-up-windows-server-system-state-in-mabs-agent"></a>Eseguire il backup dello stato del sistema Windows Server nell'agente MAB
+## <a name="back-up-windows-server-system-state-in-mabs-agent"></a>Eseguire il backup dello stato del sistema di Windows Server nell'agente MABS
 
-Questa sezione descrive il comando di PowerShell per configurare lo stato del sistema nell'agente MAB
+In questa sezione viene illustrato il comando PowerShell per impostare lo stato del sistema nell'agente MABS
 
 ### <a name="schedule"></a>Pianificazione
 
@@ -595,7 +595,7 @@ ServerName : myserver.microsoft.com
 
 ### <a name="choosing-a-backup-point-from-which-to-restore"></a>Scelta di un punto di backup da cui eseguire il ripristino
 
-Per recuperare un elenco di punti di backup, eseguire il cmdlet [Get-OBRecoverableItem](https://docs.microsoft.com/powershell/module/msonlinebackup/get-obrecoverableitem?view=winserver2012-ps) con i parametri appropriati. In questo esempio si sceglierà il punto di backup più recente per il volume di origine *C:* e lo si userà per ripristinare un file specifico.
+Per recuperare un elenco di punti di backup, eseguire il cmdlet [Get-OBRecoverableItem](https://docs.microsoft.com/powershell/module/msonlinebackup/get-obrecoverableitem?view=winserver2012-ps) con i parametri appropriati. Nel nostro esempio, sceglieremo il punto di backup più recente per il volume di origine *C:* e lo useremo per recuperare un file specifico.
 
 ```powershell
 $Rps = Get-OBRecoverableItem $Source[0]
@@ -631,7 +631,7 @@ L'oggetto `$Rps` è una matrice di punti di backup. Il primo elemento è il punt
 
 ### <a name="specifying-an-item-to-restore"></a>Specifica di un elemento da ripristinare
 
-Per ripristinare un file specifico, specificare il nome del file relativo al volume radice. Per recuperare C:\Test\Cat.job, ad esempio, eseguire il comando seguente.
+Per ripristinare un file specifico, specificare il nome del file relativo al volume radice. Ad esempio, per recuperare il file C:, Test, Cat.job, eseguire il comando riportato di seguito.
 
 ```powershell
 $Item = New-OBRecoverableItem $Rps[0] "Test\cat.jpg" $FALSE
@@ -654,7 +654,7 @@ ItemLastModifiedTime : 21-Jun-14 6:43:02 AM
 
 ### <a name="triggering-the-restore-process"></a>Attivazione del processo di ripristino
 
-Per attivare il processo di ripristino, è prima necessario specificare le opzioni di ripristino. A tale scopo, è possibile usare il cmdlet [New-OBRecoveryOption](https://docs.microsoft.com/powershell/module/msonlinebackup/new-obrecoveryoption?view=winserver2012-ps) . Per questo esempio, supponiamo di voler ripristinare i file in *C:\Temp*. Si supponga inoltre di voler ignorare i file già esistenti nella cartella di destinazione *C:\Temp*. Per creare un'opzione di ripristino di questo tipo, utilizzare il comando seguente:
+Per attivare il processo di ripristino, è prima necessario specificare le opzioni di ripristino. A tale scopo, è possibile usare il cmdlet [New-OBRecoveryOption](https://docs.microsoft.com/powershell/module/msonlinebackup/new-obrecoveryoption?view=winserver2012-ps) . Per questo esempio, si supponga che si desidera ripristinare i file in *C:.* Si supponga inoltre di ignorare i file già esistenti nella cartella di destinazione *C:.* Per creare un'opzione di ripristino di questo tipo, utilizzare il comando seguente:
 
 ```powershell
 $RecoveryOption = New-OBRecoveryOption -DestinationPath "C:\temp" -OverwriteType Skip
@@ -737,7 +737,7 @@ Invoke-Command -Session $Session -Script { param($D, $A) Start-Process -FilePath
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per ulteriori informazioni su backup di Azure per Windows Server/client:
+For more information about Azure Backup for Windows Server/Client:
 
 * [Introduzione a Backup di Azure](backup-introduction-to-azure-backup.md)
 * [Backup di server Windows](backup-windows-with-mars-agent.md)

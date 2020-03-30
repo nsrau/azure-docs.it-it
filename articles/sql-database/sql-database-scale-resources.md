@@ -12,17 +12,17 @@ ms.author: jovanpop
 ms.reviewer: jrasnik, carlrab
 ms.date: 06/25/2019
 ms.openlocfilehash: c4366b2718271b1e27325e6946c5016e9230cea4
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76835913"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>Ridimensionare in modo dinamico le risorse di database con tempo di inattività minimo
 
-Il database SQL di Azure consente di aggiungere in modo dinamico altre risorse al database con [tempi di inattività](https://azure.microsoft.com/support/legal/sla/sql-database/v1_2/)minimi. Tuttavia, esiste un passaggio rispetto al periodo in cui la connettività viene persa nel database per un breve intervallo di tempo, che può essere mitigato usando la logica di ripetizione dei tentativi.
+Il database SQL di Azure consente di aggiungere dinamicamente più risorse al database con tempi di [inattività](https://azure.microsoft.com/support/legal/sla/sql-database/v1_2/)minimi. Tuttavia, è disponibile un passaggio per un periodo in cui la connettività viene persa al database per un breve periodo di tempo, che può essere attenuato usando la logica di ripetizione dei tentativi.
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 
 Quando la domanda per la tua app cresce da qualche dispositivo e qualche cliente al milione di richieste, il database SQL di Azure viene ridimensionato immediatamente, con tempi di inattività minimi. La scalabilità è una delle caratteristiche più importanti del modello PaaS che consente di aggiungere in modo dinamico altre risorse al servizio quando necessario. Database SQL di Azure consente di modificare facilmente le risorse allocate per i database (potenza della CPU, memoria, velocità effettiva IO e storage).
 
@@ -35,12 +35,12 @@ Non è necessario acquistare un hardware o modificare o l'infrastruttura di base
 Per il database SQL di Azure è disponibile il [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) o il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md).
 
 - Il [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) offre un insieme di risorse di calcolo, memoria e risorse IO in tre livelli di servizio per supportare carichi di lavoro di database da leggeri a pesanti: Basic, Standard e Premium. I livelli delle prestazioni di ogni livello forniscono una diversa combinazione di queste risorse, a cui è possibile aggiungere altre risorse di archiviazione.
-- Il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md) consente di scegliere il numero di vCore, la quantità di memoria e la quantità e la velocità della risorsa di archiviazione. Questo modello di acquisto offre tre livelli di servizio: per utilizzo generico, business critical e iperscalabilità.
+- Il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md) consente di scegliere il numero di vCore, la quantità di memoria e la quantità e la velocità della risorsa di archiviazione. Questo modello di acquisto offre tre livelli di servizio: Scopo generale, Business Critical e Hyperscale.This purchasing model offers three service tiers: General Purpose, Business Critical, and Hyperscale.
 
 È possibile creare la prima app in un singolo database di piccole dimensioni a un costo mensile contenuto nel livello di servizio Basic, Standard o Utilizzo generico e quindi modificare il livello di servizio manualmente o tramite codice in qualsiasi momento passando al livello di servizio Premium o Business Critical in base alle esigenze della soluzione. È possibile regolare le prestazioni senza tempi di inattività per l'app o per i clienti. La scalabilità dinamica consente al database di rispettare i requisiti in continua evoluzione relativi alle risorse e di pagare solo le risorse necessarie quando necessario.
 
 > [!NOTE]
-> La scalabilità dinamica è diversa dalla scalabilità automatica. La scalabilità automatica è quando un servizio viene ridimensionato automaticamente in base ai criteri, mentre la scalabilità dinamica consente la scalabilità manuale con tempi di inattività minimi.
+> La scalabilità dinamica è diversa dalla scalabilità automatica. La scalabilità automatica si verifica quando un servizio viene ridimensionato automaticamente in base a criteri, mentre la scalabilità dinamica consente la scalabilità manuale con tempi di inattività minimi.
 
 Un singolo database SQL di Azure supporta la scalabilità dinamica manuale, ma non la scalabilità automatica. Per un'esperienza più *automatica*, valutare la possibilità di usare i pool elastici, che consentono ai database di condividere le risorse in un pool in base alle esigenze dei singoli database.
 Esistono comunque script utili per automatizzare la scalabilità per un singolo database SQL di Azure. Per un esempio, vedere [Usare PowerShell per monitorare e ridimensionare un singolo database SQL](scripts/sql-database-monitor-and-scale-database-powershell.md).
@@ -55,17 +55,17 @@ Tutte le tre versioni di Database SQL di Azure offrono la capacità di ridimensi
 - Un'[Istanza gestita](sql-database-managed-instance.md) usa la modalità [vCore](sql-database-managed-instance.md#vcore-based-purchasing-model) e consente di definire il massimo di core CPU e il massimo della memoria allocata per l'istanza. Tutti i database all'interno dell'istanza condivideranno le risorse allocate per l'istanza.
 - I [pool elastici](sql-database-elastic-pool-scale.md) consentono di definire il limite massimo di risorse per ogni gruppo di database nel pool.
 
-Quando si avvia l'azione di aumento o riduzione delle prestazioni in una qualsiasi delle varianti, il processo del motore di database viene riavviato e spostato in una macchina virtuale diversa, se necessario. Lo sviluppo del processo del motore di database in una nuova macchina virtuale è un **processo online** in cui è possibile continuare a usare il servizio database SQL di Azure esistente mentre il processo è in corso. Una volta che il motore di database di destinazione è stato completamente inizializzato ed è pronto per l'elaborazione delle query, le connessioni verranno [passate dal motore di database di origine a quello di destinazione](sql-database-single-database-scale.md#impact). 
+L'avvio dell'azione di scalabilità verticale o verticale verso l'alto in una qualsiasi delle versioni del motore di database riavvierebbe il processo del motore di database e, se necessario, lo sposterebbe in una macchina virtuale diversa. Lo spostamento del processo del motore di database in una nuova macchina virtuale è **un processo online** in cui è possibile continuare a usare il servizio di database SQL di Azure esistente mentre il processo è in corso. Una volta che il motore di database di destinazione è completamente inizializzato e pronto per elaborare le query, le connessioni passeranno dal motore di database di [origine a quello di destinazione.](sql-database-single-database-scale.md#impact) 
 
 
 > [!NOTE]
-> È possibile che si verifichi un breve intervallo di connessione al termine del processo di scalabilità verticale/orizzontale. Se è stata implementata la [logica di ripetizione dei tentativi per gli errori temporanei standard](sql-database-connectivity-issues.md#retry-logic-for-transient-errors), il failover non sarà noto.
+> È possibile prevedere un breve interruzione di connessione quando il processo di scalabilità verticale/ridimensionamento è terminato. Se è stata implementata la logica di ripetizione dei [tentativi per gli errori temporanei standard,](sql-database-connectivity-issues.md#retry-logic-for-transient-errors)il failover non verrà eseguito.
 
 ## <a name="alternative-scale-methods"></a>Metodi alternativi di scalabilità
 
-Il ridimensionamento delle risorse è il modo più semplice ed efficace per migliorare le prestazioni del database senza modificare il codice del database o dell'applicazione. In alcuni casi, anche i livelli di servizio più elevati, le dimensioni di calcolo e le ottimizzazioni delle prestazioni potrebbero non gestire il carico di lavoro in modo efficace ed economicamente conveniente. In tal caso sono disponibili opzioni aggiuntive per la scalabilità del database:
+La scalabilità delle risorse è il modo più semplice ed efficace per migliorare le prestazioni del database senza modificare il codice del database o dell'applicazione. In alcuni casi, anche i livelli di servizio più elevati, le dimensioni di calcolo e le ottimizzazioni delle prestazioni potrebbero non gestire il carico di lavoro in modo efficace ed economico. In tal caso sono disponibili queste opzioni aggiuntive per ridimensionare il database:In that case you have these additional options to scale your database:
 
-- La [scalabilità in lettura](sql-database-read-scale-out.md) è una funzionalità disponibile che consente di ottenere una replica di sola lettura dei dati in cui è possibile eseguire query di sola lettura complesse, ad esempio i report. Replica di sola lettura gestirà il carico di lavoro di sola lettura senza influire sull'utilizzo delle risorse nel database primario.
+- [La scalabilità orizzontale](sql-database-read-scale-out.md) in lettura è una funzionalità disponibile in cui si ottiene una replica di sola lettura dei dati in cui è possibile eseguire query di sola lettura impegnative, ad esempio i report. Replica di sola lettura gestirà il carico di lavoro di sola lettura senza influire sull'utilizzo delle risorse nel database primario.
 - Il [Partizionamento di database](sql-database-elastic-scale-introduction.md) è un set di tecniche che consente di dividere i dati in diversi database e di ridimensionarli in modo indipendente.
 
 ## <a name="next-steps"></a>Passaggi successivi

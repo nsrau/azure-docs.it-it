@@ -1,5 +1,5 @@
 ---
-title: "Configurare l'autenticazione del Sottoscrittore webhook: griglia di eventi di Azure IoT Edge | Microsoft Docs"
+title: Configurare l'autenticazione del sottoscrittore webhook - Azure Event Grid IoT Edge Documenti Microsoft
 description: Configurare l'autenticazione dei sottoscrittori di webhook
 author: VidyaKukke
 manager: rajarv
@@ -10,17 +10,17 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 101dcae5870322878cec48098f2efae32cc68c14
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76841731"
 ---
 # <a name="configure-webhook-subscriber-authentication"></a>Configurare l'autenticazione dei sottoscrittori di webhook
 
-Questa guida fornisce esempi delle possibili configurazioni del sottoscrittore del webhook per un modulo di griglia di eventi. Per impostazione predefinita, per i sottoscrittori del webhook sono accettati solo endpoint HTTPS. Il modulo di griglia di eventi rifiuterà se il Sottoscrittore presenta un certificato autofirmato.
+Questa guida fornisce esempi delle possibili configurazioni del sottoscrittore webhook per un modulo Griglia di eventi. Per impostazione predefinita, solo gli endpoint HTTPS vengono accettati per i sottoscrittori webhook. Il modulo Griglia di eventi verrà rifiutato se il sottoscrittore presenta un certificato autofirmato.
 
-## <a name="allow-only-https-subscriber"></a>Consenti solo Sottoscrittore HTTPS
+## <a name="allow-only-https-subscriber"></a>Consenti solo sottoscrittore HTTPS
 
 ```json
  {
@@ -32,7 +32,7 @@ Questa guida fornisce esempi delle possibili configurazioni del sottoscrittore d
 }
  ```
 
-## <a name="allow-https-subscriber-with-self-signed-certificate"></a>Consenti Sottoscrittore HTTPS con certificato autofirmato
+## <a name="allow-https-subscriber-with-self-signed-certificate"></a>Consenti sottoscrittore HTTPS con certificato autofirmato
 
 ```json
  {
@@ -45,9 +45,9 @@ Questa guida fornisce esempi delle possibili configurazioni del sottoscrittore d
  ```
 
 >[!NOTE]
->Impostare la proprietà `outbound__webhook__allowUnknownCA` `true` solo negli ambienti di test, in quanto è possibile utilizzare certificati autofirmati. Per i carichi di lavoro di produzione, è consigliabile impostare su **false**.
+>Impostare `outbound__webhook__allowUnknownCA` la `true` proprietà su solo in ambienti di test, come in genere si potrebbero usare certificati autofirmati. Per i carichi di lavoro di produzione è consigliabile impostarli su **false**.
 
-## <a name="allow-https-subscriber-but-skip-certificate-validation"></a>Consenti Sottoscrittore HTTPS ignorando la convalida del certificato
+## <a name="allow-https-subscriber-but-skip-certificate-validation"></a>Consentire il sottoscrittore HTTPS ma ignorare la convalida del certificatoAllow HTTPS subscriber but skip certificate validation
 
 ```json
  {
@@ -60,7 +60,7 @@ Questa guida fornisce esempi delle possibili configurazioni del sottoscrittore d
  ```
 
 >[!NOTE]
->Impostare la proprietà `outbound__webhook__skipServerCertValidation` su `true` solo negli ambienti di test perché potrebbe non essere presente un certificato che deve essere autenticato. Per i carichi di lavoro di produzione, è consigliabile impostare su **false**
+>Impostare `outbound__webhook__skipServerCertValidation` la `true` proprietà solo in ambienti di test poiché potrebbe non essere presente un certificato che deve essere autenticato. Per i carichi di lavoro di produzione è consigliabile impostarli su **falseFor** production workloads we recommend them to be set to false
 
 ## <a name="allow-both-http-and-https-with-self-signed-certificates"></a>Consenti sia HTTP che HTTPS con certificati autofirmati
 
@@ -75,4 +75,4 @@ Questa guida fornisce esempi delle possibili configurazioni del sottoscrittore d
  ```
 
 >[!NOTE]
->Impostare la proprietà `outbound__webhook__httpsOnly` su `false` solo negli ambienti di test perché potrebbe essere necessario prima visualizzare un Sottoscrittore HTTP. Per i carichi di lavoro di produzione, è consigliabile impostare su **true**
+>Impostare `outbound__webhook__httpsOnly` la `false` proprietà su solo in ambienti di test come si potrebbe voler visualizzare prima un sottoscrittore HTTP. Per i carichi di lavoro di produzione è consigliabile impostarli su **trueFor** production workloads we recommend them to be set to true
