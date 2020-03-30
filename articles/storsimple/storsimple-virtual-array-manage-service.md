@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 2ff987448e3900c2a533789b2f38fd3ced71ce72
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79267456"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-virtual-array"></a>Distribuire il servizio Gestione dispositivi StorSimple per l'array virtuale StorSimple
@@ -94,7 +94,7 @@ Dopo aver creato un servizio, è necessario registrare il dispositivo StorSimple
 Per ottenere la chiave di registrazione del servizio, attenersi alla procedura seguente.
 
 #### <a name="to-get-the-service-registration-key"></a>Per ottenere la chiave di registrazione del servizio
-1. Nel pannello **Device Manager StorSimple** passare a **gestione &gt;** **chiavi**.
+1. In **Gestione dispositivi StorSimple** passare a **Gestione&gt;** **Chiavi**.
    
    ![Pannello Chiavi](./media/storsimple-virtual-array-manage-service/getregkey2.png)
 2. Nel pannello **Chiavi** viene visualizzata la chiave di registrazione del servizio. Copiare la chiave di registrazione usando l'icona di copia. 
@@ -107,7 +107,7 @@ La rigenerazione di una chiave di registrazione del servizio deve essere effettu
 Per rigenerare una chiave di registrazione del servizio, attenersi alla procedura seguente.
 
 #### <a name="to-regenerate-the-service-registration-key"></a>Per rigenerare la chiave di registrazione del servizio
-1. Nel pannello **Device Manager StorSimple** passare a **gestione &gt;** **chiavi**.
+1. In **Gestione dispositivi StorSimple** passare a **Gestione&gt;** **Chiavi**.
    
    ![Pannello Chiavi](./media/storsimple-virtual-array-manage-service/getregkey2.png)
 2. Nel pannello **Chiavi** fare clic su **Rigenera**.
@@ -123,6 +123,6 @@ Per rigenerare una chiave di registrazione del servizio, attenersi alla procedur
    Copiare la chiave e salvarla per registrare eventuali nuovi dispositivi con il servizio.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Informazioni su come [iniziare a usare](storsimple-virtual-array-deploy1-portal-prep.md) un array virtuale StorSimple.
+* Informazioni su come [iniziare](storsimple-virtual-array-deploy1-portal-prep.md) a usare un array virtuale StorSimple.
 * Informazioni su come [amministrare il dispositivo StorSimple](storsimple-ova-web-ui-admin.md).
 

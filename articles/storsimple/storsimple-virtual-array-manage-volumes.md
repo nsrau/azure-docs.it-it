@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
 ms.openlocfilehash: a233a9deb58a7c1abc87a622a4f1f2581ee2e477
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "62125798"
 ---
 # <a name="use-storsimple-device-manager-service-to-manage-volumes-on-the-storsimple-virtual-array"></a>Usare il servizio Gestione dispositivi StorSimple per visualizzare i volumi sull'array virtuale StorSimple
@@ -33,7 +33,7 @@ Il servizio Gestione dispositivi StorSimple è un'estensione del portale di Azur
 
 I volumi di StorSimple possono essere:
 
-* **Aggiunto in locale**: I dati in questi volumi rimangono sempre nell'array e non vengono distribuiti nel cloud.
+* **Aggiunto in locale**: i dati in questi volumi rimangono sempre nell'array e non vengono distribuiti nel cloud.
 * **A livelli**: i dati in questi volumi possono essere distribuiti nel cloud. Quando si crea un volume a livelli, viene eseguito il provisioning di circa il 10% dello spazio a livello locale e del 90% dello spazio nel cloud. Ad esempio, se si esegue il provisioning di un volume da 1 TB, 100 GB si trovano nello spazio locale e 900 GB vengono usati nel cloud quando i dati sono disposti a livelli. Questo implica che, se si esaurisce tutto lo spazio locale nel dispositivo, non è possibile eseguire il provisioning di una volume a livelli (perché il 10% necessario a livello locale non è disponibile).
 
 ### <a name="provisioned-capacity"></a>Capacità con provisioning
@@ -54,7 +54,7 @@ Il menu **Volumi** nel pannello di riepilogo servizio StorSimple visualizza l'el
 Un volume è costituito da una serie di attributi:
 
 * **Nome volume** : un nome descrittivo che deve essere univoco e consente di identificare il volume.
-* **Stato** : online oppure offline. Se un volume è offline, non è visibile agli iniziatori (server) che possono accedervi per usarlo.
+* **Stato**: online oppure offline. Se un volume è offline, non è visibile agli iniziatori (server) che possono accedervi per usarlo.
 * **Tipo**: indica se il volume è **A livelli** (impostazione predefinita) o **Aggiunto in locale**.
 * **Capacità**: specifica la quantità di dati usati rispetto alle quantità totale di dati che possono essere archiviati dall'iniziatore (server).
 * **Backup**: nel caso dell'array virtuale StorSimple, tutti i volumi vengono abilitati automaticamente per il backup.

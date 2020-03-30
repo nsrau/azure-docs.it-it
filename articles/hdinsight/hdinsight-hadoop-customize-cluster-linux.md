@@ -1,6 +1,6 @@
 ---
-title: Personalizzare i cluster HDInsight di Azure usando azioni script
-description: Aggiungere componenti personalizzati ai cluster HDInsight usando azioni script. Le azioni script sono script Bash che possono essere usati per personalizzare la configurazione del cluster o aggiungere servizi e utilità come Hue, Solr o R.
+title: Personalizzare i cluster di Azure HDInsight usando le azioni scriptCustomize Azure HDInsight clusters by using script actions
+description: Aggiungere componenti personalizzati ai cluster HDInsight usando le azioni script. Le azioni script sono script Bash che possono essere usati per personalizzare la configurazione del cluster o aggiungere servizi e utilità come Hue, Solr o R.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,15 +8,15 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/26/2020
 ms.openlocfilehash: 12e6892930afe8ba9c7bad9b05fd39eeaf8835fc
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79272500"
 ---
-# <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Personalizzare i cluster HDInsight di Azure usando azioni script
+# <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Personalizzare i cluster di Azure HDInsight usando le azioni scriptCustomize Azure HDInsight clusters by using script actions
 
-Azure HDInsight fornisce un metodo di configurazione denominato **azioni script** che richiama script personalizzati per personalizzare il cluster. Questi script vengono usati per installare i componenti aggiuntivi e modificare le impostazioni di configurazione. Le azioni script possono essere usate durante o dopo la creazione del cluster.
+Azure HDInsight offre un metodo di configurazione denominato **azioni script** che richiamano script personalizzati per personalizzare il cluster. Questi script vengono usati per installare i componenti aggiuntivi e modificare le impostazioni di configurazione. Le azioni script possono essere usate durante o dopo la creazione del cluster.
 
 Le azioni script possono anche essere pubblicate in Azure Marketplace come applicazione HDInsight. Per altre informazioni sulle applicazioni HDInsight, vedere [Pubblicare un'applicazione HDInsight in Azure Marketplace](hdinsight-apps-publish-applications.md).
 
@@ -24,8 +24,8 @@ Le azioni script possono anche essere pubblicate in Azure Marketplace come appli
 
 Per un cluster HDInsight aggiunto a un dominio, sono necessarie due autorizzazioni di Apache Ambari per l'uso di azioni script con il cluster:
 
-* **AMBARI.RUN\_CUSTOM\_COMMAND**. il ruolo di amministratore di Ambari ha questa autorizzazione per impostazione predefinita.
-* **CLUSTER.RUN\_CUSTOM\_COMMAND**. sia l'amministratore del cluster HDInsight che l'amministratore di Ambari hanno questa autorizzazione per impostazione predefinita.
+* **AMBARI. ESEGUIRE\_\_IL COMANDO PERSONALIZZATO**. il ruolo di amministratore di Ambari ha questa autorizzazione per impostazione predefinita.
+* **CLUSTER. ESEGUIRE\_\_IL COMANDO PERSONALIZZATO**. sia l'amministratore del cluster HDInsight che l'amministratore di Ambari hanno questa autorizzazione per impostazione predefinita.
 
 Per altre informazioni sull'uso delle autorizzazioni con HDInsight aggiunto a un dominio, vedere [Gestire i cluster HDInsight con Enterprise Security Package](./domain-joined/apache-domain-joined-manage.md).
 
@@ -46,18 +46,18 @@ Un'azione di script è uno script Bash eseguito sui nodi di un cluster HDInsight
 
 * Devono essere archiviate in un URI accessibile dal cluster HDInsight. Di seguito vengono indicate alcune tra le posizioni di archiviazione possibili:
 
-    * Per i cluster normali:
+    * Per i cluster regolari:
 
-      * ADLS Gen1: l'entità servizio HDInsight USA per accedere Data Lake Storage deve avere accesso in lettura allo script. Il formato dell'URI per gli script archiviati in Data Lake Storage Gen1 è `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`.
+      * ADLS Gen1: l'entità servizio usata da HDInsight per accedere a Data Lake Storage deve disporre dell'accesso in lettura allo script. Il formato dell'URI per gli script archiviati in Data Lake Storage Gen1 è `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`.
 
       * Un BLOB in un account di archiviazione di Azure che rappresenta l'account di archiviazione primario o aggiuntivo per il cluster HDInsight. HDInsight può accedere a entrambi i tipi di account di archiviazione durante la creazione del cluster.
 
         > [!IMPORTANT]  
-        > Non ruotare la chiave di archiviazione in questo account di archiviazione di Azure, perché le azioni script successive con script archiviati in questa posizione avranno esito negativo.
+        > Non ruotare la chiave di archiviazione in questo account di archiviazione di Azure, in quanto causerà l'esito negativo delle azioni script successive con script archiviati.
 
-      * Un servizio pubblico di condivisione file accessibile tramite percorsi http://. Esempi sono BLOB di Azure, GitHub, OneDrive. Per gli URI di esempio, vedere [Script di esempio di azione script](#example-script-action-scripts).
+      * Un servizio di condivisione di file pubblico accessibile tramite http:// percorsi. Esempi sono BLOB di Azure, GitHub, OneDrive.Examples are Azure Blob, GitHub, OneDrive. Per gli URI di esempio, vedere [Script di esempio di azione script](#example-script-action-scripts).
 
-     * Per i cluster con ESP, gli URI wasb://o wasbs://o http [s]://sono supportati.
+     * Per i cluster con ESP, sono supportati gli URI wasb:// o wasbs:// o http[s]://.
 
 * Può essere limitato per l'esecuzione solo in determinati tipi di nodo, ad esempio i nodi head o i nodi di lavoro.
 
@@ -71,7 +71,7 @@ Un'azione di script è uno script Bash eseguito sui nodi di un cluster HDInsight
 
 * Eseguire lo script con privilegi a livello radice nei nodi del cluster.
 
-* Può essere usato tramite l'portale di Azure, Azure PowerShell, l'interfaccia della riga di comando di Azure o HDInsight .NET SDK.
+* Può essere usato tramite il portale di Azure, Azure PowerShell, l'interfaccia della riga di comando di Azure o HDInsight .NET SDK.
 
 Il cluster mantiene una cronologia di tutti gli script eseguiti. La cronologia è utile quando è necessario trovare l'ID di uno script per le operazioni di innalzamento o abbassamento di livello.
 
@@ -97,7 +97,7 @@ Lo script viene eseguito durante la configurazione di HDInsight. Lo script viene
 Durante la creazione del cluster, è possibile usare più azioni script alla volta. Questi script vengono richiamati nell'ordine in cui sono stati specificati.
 
 > [!IMPORTANT]  
-> È necessario completare le azioni script entro 60 minuti. Durante il provisioning del cluster, lo script viene eseguito contemporaneamente ad altri processi di installazione e configurazione. In caso di concorrenza per risorse come il tempo di CPU o la larghezza di banda di rete, lo script potrebbe richiedere più tempo per completare l'operazione rispetto al tempo che impiegherebbe in un ambiente di sviluppo.
+> Le azioni script devono terminare entro 60 minuti o stime. Durante il provisioning del cluster, lo script viene eseguito contemporaneamente ad altri processi di installazione e configurazione. In caso di concorrenza per risorse come il tempo di CPU o la larghezza di banda di rete, lo script potrebbe richiedere più tempo per completare l'operazione rispetto al tempo che impiegherebbe in un ambiente di sviluppo.
 >
 > Per ridurre al minimo il tempo necessario per eseguire lo script, evitare attività come il download e la compilazione di applicazioni dall'origine. Precompilare le applicazioni e archiviare i file binari in Archiviazione di Azure.
 
@@ -105,7 +105,7 @@ Durante la creazione del cluster, è possibile usare più azioni script alla vol
 
 Un errore in uno script eseguito in un cluster già in esecuzione non determina automaticamente uno stato di errore del cluster. Al termine di uno script, il cluster deve tornare a uno stato In esecuzione. Anche se lo stato del cluster è In esecuzione, lo script non riuscito potrebbe includere attività interrotte. Ad esempio, uno script potrebbe eliminare file richiesti dal cluster.
 
-Le azioni script vengono eseguite con privilegi a livello radice. Assicurarsi di comprendere il funzionamento di uno script prima di applicarlo al cluster.
+Le azioni script vengono eseguite con privilegi a livello radice. Assicurarsi di comprendere le operazioni eseguite da uno script prima di applicarlo al cluster.
 
 Quando si applica uno script a un cluster, lo stato del cluster passa da **In esecuzione** ad **Accettato**. Quindi passa a **Configurazione di HDInsight** e infine di nuovo a **In esecuzione** per gli script con esito positivo. Lo stato dello script viene registrato nella cronologia delle azioni script. Queste informazioni indicano se lo script ha avuto esito positivo o negativo. Ad esempio, il cmdlet di PowerShell `Get-AzHDInsightScriptActionHistory` mostra lo stato di uno script. Verranno restituite informazioni simili al testo seguente:
 
@@ -134,15 +134,15 @@ HDInsight fornisce script di esempio per installare i componenti seguenti nei cl
 | Installare Hue |`https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh`. Vedere [Installare e usare Hue nei cluster Hadoop di HDInsight](hdinsight-hadoop-hue-linux.md). |
 | Precaricare le librerie Hive |`https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh`. Vedere [Aggiungere librerie Apache Hive personalizzate durante la creazione del cluster HDInsight](hdinsight-hadoop-add-hive-libraries.md). |
 
-## <a name="script-action-during-cluster-creation"></a>Azione script durante la creazione del cluster
+## <a name="script-action-during-cluster-creation"></a>Azione script durante la creazione del clusterScript action during cluster creation
 
 In questa sezione vengono illustrate le diverse modalità d'uso delle azioni script durante la creazione di un cluster HDInsight.
 
 ### <a name="use-a-script-action-during-cluster-creation-from-the-azure-portal"></a>Usare un'azione script durante la creazione di un cluster dal portale di Azure
 
-1. Iniziare a creare un cluster come descritto in [creare cluster basati su Linux in HDInsight usando il portale di Azure](hdinsight-hadoop-create-linux-clusters-portal.md). Dalla scheda **configurazione e prezzi** selezionare **+ Aggiungi azione script**.
+1. Iniziare a creare un cluster come descritto in Creare cluster basati su Linux in HDInsight usando il portale di Azure.Start to create a cluster as described in [Create Linux-based clusters in HDInsight by using the Azure portal](hdinsight-hadoop-create-linux-clusters-portal.md). Dalla scheda **Configurazione e prezzi,** selezionare **: Aggiungi azione script**.
 
-    ![Azione di script di portale di Azure cluster](./media/hdinsight-hadoop-customize-cluster-linux/azure-portal-cluster-configuration-scriptaction.png)
+    ![Azione script cluster del portale di AzureAzure portal cluster script action](./media/hdinsight-hadoop-customize-cluster-linux/azure-portal-cluster-configuration-scriptaction.png)
 
 1. Usare la voce __Seleziona uno script__ per selezionare uno script pronto. Per usare uno script personalizzato, selezionare __Personalizzato__. Specificare quindi __Nome__ e __URI script Bash__ per lo script.
 
@@ -152,21 +152,21 @@ In questa sezione vengono illustrate le diverse modalità d'uso delle azioni scr
 
     | Proprietà | valore |
     | --- | --- |
-    | Selezionare uno script | Per usare uno script personalizzato, selezionare __Personalizzato__. In caso contrario, selezionare uno degli script disponibili. |
+    | Selezionare uno script | Per utilizzare uno script personalizzato, selezionare __Personalizzato__. In caso contrario, selezionare uno degli script disponibili. |
     | Nome |Specificare un nome per l'azione script. |
     | URI script Bash |Specificare l'URI dello script. |
-    | Head/Worker/ZooKeeper |Specificare i nodi in cui viene eseguito lo script: **Head**, **Worker**o **ZooKeeper**. |
+    | Capo/Operaio/Custode zoologico |Specificare i nodi su cui viene eseguito lo script: **Head**, **Worker**, o **zooKeeper**. |
     | Parametri |Specificare i parametri, se richiesti dallo script. |
 
     Usare la voce __Salvare questa azione script in modo permanente__ per assicurarsi che lo script venga applicato durante le operazioni di ridimensionamento.
 
 1. Selezionare __Crea__ per salvare lo script. È quindi possibile usare __+ Invia nuovo__ per aggiungere un altro script.
 
-    ![HDInsight di più azioni script](./media/hdinsight-hadoop-customize-cluster-linux/multiple-scripts-actions.png)
+    ![HDInsight più azioni di scriptHDInsight multiple script actions](./media/hdinsight-hadoop-customize-cluster-linux/multiple-scripts-actions.png)
 
-    Al termine dell'aggiunta degli script, tornare alla scheda **configurazione e prezzi** .
+    Al termine dell'aggiunta di script, si torna alla scheda **Configurazione e prezzi.**
 
-1. Completare i passaggi di creazione del cluster rimanenti come di consueto.
+1. Completare i passaggi rimanenti per la creazione del cluster come di consueto.
 
 ### <a name="use-a-script-action-from-azure-resource-manager-templates"></a>Usare un'azione script dai modelli di Azure Resource Manager
 
@@ -192,7 +192,7 @@ Ottenere altre informazioni su come distribuire un modello:
 
 ### <a name="use-a-script-action-during-cluster-creation-from-azure-powershell"></a>Usare un'azione script durante la creazione di un cluster da Azure PowerShell
 
-In questa sezione si userà il cmdlet [Add-AzHDInsightScriptAction](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightscriptaction) per richiamare gli script per personalizzare un cluster. Prima di iniziare, assicurarsi di installare e configurare Azure PowerShell. Per usare questi comandi di PowerShell, è necessario il [modulo AZ](https://docs.microsoft.com/powershell/azure/overview).
+In questa sezione si utilizza il cmdlet [Add-AzHDInsightScriptAction](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightscriptaction) per richiamare script per personalizzare un cluster. Prima di iniziare, assicurarsi di installare e configurare Azure PowerShell. Per utilizzare questi comandi di PowerShell, è necessario il [modulo A .](https://docs.microsoft.com/powershell/azure/overview)
 
 Lo script seguente mostra come applicare un'azione script durante la creazione di un cluster con PowerShell:
 
@@ -202,15 +202,15 @@ La creazione del cluster può richiedere alcuni minuti.
 
 ### <a name="use-a-script-action-during-cluster-creation-from-the-hdinsight-net-sdk"></a>Usare un'azione script durante la creazione di un cluster da HDInsight .NET SDK
 
-HDInsight .NET SDK fornisce librerie client che semplificano l'uso di HDInsight da un'applicazione .NET. Per un esempio di codice, vedere [azioni script](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet#script-actions).
+HDInsight .NET SDK fornisce librerie client che semplificano l'uso di HDInsight da un'applicazione .NET. Per un esempio di codice, consultate [Azioni script](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet#script-actions).
 
-## <a name="script-action-to-a-running-cluster"></a>Azione script in un cluster in esecuzione
+## <a name="script-action-to-a-running-cluster"></a>Azione di script in un cluster in esecuzione
 
 Questa sezione illustra come applicare azioni script a un cluster in esecuzione.
 
 ### <a name="apply-a-script-action-to-a-running-cluster-from-the-azure-portal"></a>Applicare un'azione script a un cluster in esecuzione dal portale di Azure
 
-1. Accedere al [portale di Azure](https://portal.azure.com) e individuare il cluster.
+1. Accedere al [portale](https://portal.azure.com) di Azure e individuare il cluster.
 
 1. Nella visualizzazione predefinita, in **Impostazioni**, selezionare **Azioni script**.
 
@@ -229,7 +229,7 @@ Questa sezione illustra come applicare azioni script a un cluster in esecuzione.
     | Selezionare uno script | Per usare uno script personalizzato, selezionare __Personalizzato__. In caso contrario, selezionare uno degli script disponibili. |
     | Nome |Specificare un nome per l'azione script. |
     | URI script Bash |Specificare l'URI dello script. |
-    | Head/Worker/Zookeeper |Specificare i nodi in cui viene eseguito lo script: **Head**, **Worker**o **ZooKeeper**. |
+    | Head/Worker/Zookeeper |Specificare i nodi su cui viene eseguito lo script: **Head**, **Worker**, o **zooKeeper**. |
     | Parametri |Specificare i parametri, se richiesti dallo script. |
 
     Usare la voce __Salvare questa azione script in modo permanente__ per assicurarsi che lo script venga applicato durante le operazioni di ridimensionamento.
@@ -238,7 +238,7 @@ Questa sezione illustra come applicare azioni script a un cluster in esecuzione.
 
 ### <a name="apply-a-script-action-to-a-running-cluster-from-azure-powershell"></a>Applicare un'azione script a un cluster in esecuzione da Azure PowerShell
 
-Per usare questi comandi di PowerShell, è necessario il [modulo AZ](https://docs.microsoft.com/powershell/azure/overview). L'esempio seguente mostra come applicare un'azione script a un cluster in esecuzione:
+Per utilizzare questi comandi di PowerShell, è necessario il [modulo A .](https://docs.microsoft.com/powershell/azure/overview) L'esempio seguente mostra come applicare un'azione script a un cluster in esecuzione:
 
 [!code-powershell[main](../../powershell_scripts/hdinsight/use-script-action/use-script-action.ps1?range=105-117)]
 
@@ -267,7 +267,7 @@ Prima di iniziare, assicurarsi di installare e configurare l'interfaccia della r
     az hdinsight script-action execute --cluster-name CLUSTERNAME --name SCRIPTNAME --resource-group RESOURCEGROUP --roles ROLES
     ```
 
-    I ruoli validi sono `headnode`, `workernode`, `zookeepernode``edgenode`. Se lo script deve essere applicato a diversi tipi di nodo, separare i ruoli in base a uno spazio. Ad esempio: `--roles headnode workernode`.
+    I ruoli `headnode` `workernode`validi `zookeepernode` `edgenode`sono , , , . Se lo script deve essere applicato a diversi tipi di nodo, separare i ruoli da uno spazio. Ad esempio: `--roles headnode workernode`.
 
     Per salvare lo script in modo permanente, aggiungere `--persist-on-success`. È anche possibile salvare lo script in modo permanente in un secondo momento usando `az hdinsight script-action promote`.
 
@@ -283,27 +283,27 @@ Per un esempio dell'uso di .NET SDK per applicare script a un cluster, vedere [A
 
 ### <a name="the-azure-portal"></a>Portale di Azure
 
-1. Accedere al [portale di Azure](https://portal.azure.com) e individuare il cluster.
+1. Accedere al [portale](https://portal.azure.com) di Azure e individuare il cluster.
 
 1. Nella visualizzazione predefinita, in **Impostazioni**, selezionare **Azioni script**.
 
 1. Una cronologia degli script per il cluster viene visualizzata nella sezione Azioni script. Queste informazioni includono un elenco degli script persistenti. Lo screenshot seguente mostra che è stato eseguito lo script Solr nel cluster. Lo screenshot non mostra script persistenti.
 
-    ![Cronologia di invio delle azioni script del portale](./media/hdinsight-hadoop-customize-cluster-linux/script-action-history.png)
+    ![Le azioni dello script del portale inviano la cronologia](./media/hdinsight-hadoop-customize-cluster-linux/script-action-history.png)
 
 1. Selezionare uno script nella cronologia per visualizzare la sezione **Proprietà** per lo script. Nella parte superiore della schermata è possibile eseguire di nuovo lo script o alzarlo di livello.
 
-    ![Innalzamento di livello delle proprietà delle azioni script](./media/hdinsight-hadoop-customize-cluster-linux/promote-script-actions.png)
+    ![Alzare di livello le proprietà delle azioni script](./media/hdinsight-hadoop-customize-cluster-linux/promote-script-actions.png)
 
 1. È anche possibile selezionare i puntini di sospensione **...** a destra delle voci nella sezione Azioni script per eseguire azioni.
 
-    ![Eliminazione di azioni script permanente](./media/hdinsight-hadoop-customize-cluster-linux/hdi-delete-promoted-sa.png)
+    ![Eliminazione delle azioni di script persistentiPersisted script actions delete](./media/hdinsight-hadoop-customize-cluster-linux/hdi-delete-promoted-sa.png)
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
 | Cmdlet | Funzione |
 | --- | --- |
-| `Get-AzHDInsightPersistedScriptAction` |Recuperare informazioni sulle azioni script persistenti. Questo cmdlet non annulla le operazioni eseguite da uno script, ma rimuove solo il flag persistente.|
+| `Get-AzHDInsightPersistedScriptAction` |Recuperare informazioni sulle azioni script persistenti. Questo cmdlet non annulla le azioni eseguite da uno script, ma rimuove solo il flag persistente.|
 | `Get-AzHDInsightScriptActionHistory` |Recuperare una cronologia delle azioni script applicate al cluster o i dettagli di uno script specifico. |
 | `Set-AzHDInsightPersistedScriptAction` |Alzare di livello un'azione script ad hoc per renderla un'azione script persistente. |
 | `Remove-AzHDInsightPersistedScriptAction` |Abbassare di livello un'azione script persistente per renderla un'azione script ad hoc. |
@@ -316,12 +316,12 @@ Lo script di esempio seguente mostra come usare i cmdlet per alzare di livello e
 
 | Comando | Descrizione |
 | --- | --- |
-| [AZ HDInsight script-Action Delete](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-delete) |Elimina un'azione script permanente specificata del cluster. Questo comando non annulla le operazioni eseguite da uno script, ma rimuove solo il flag persistente.|
-|[AZ HDInsight script-Action Execute](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-execute)|Esegue azioni script nel cluster HDInsight specificato.|
-| [AZ HDInsight script-elenco di azioni](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-list) |Elenca tutte le azioni script permanente per il cluster specificato. |
-|[AZ HDInsight script-Action List-Execution-History](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-list-execution-history)|Elenca la cronologia di esecuzione di tutti gli script per il cluster specificato.|
-|[AZ HDInsight script-Action Promote](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-promote)|Promuove l'esecuzione di script ad hoc specificata in uno script permanente.|
-|[AZ HDInsight script-Action Show-Execution-Details](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-show-execution-details)|Ottiene i dettagli di esecuzione dello script per l'ID esecuzione dello script specificato.|
+| [az hdinsight script-action delete](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-delete) |Elimina un'azione di script persistente specificata del cluster. Questo comando non annulla le azioni eseguite da uno script, ma rimuove solo il flag persistente.|
+|[az hdinsight script-action execute](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-execute)|Eseguire azioni script sul cluster HDInsight specificato.|
+| [az hdinsight elenco di script-azione](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-list) |Elenca tutte le azioni di script persistenti per il cluster specificato. |
+|[az hdinsight script-action elenco-esecuzione-storia](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-list-execution-history)|Elenca la cronologia di esecuzione di tutti gli script per il cluster specificato.|
+|[az hdinsight script-action promuovere](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-promote)|Alza di livello l'esecuzione dello script ad hoc specificata in uno script persistente.|
+|[az hdinsight script-action show-execution-details](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-show-execution-details)|Ottiene il dettaglio di esecuzione dello script per l'ID di esecuzione dello script specificato.|
 
 ### <a name="hdinsight-net-sdk"></a>HDInsight .NET SDK
 
@@ -355,19 +355,19 @@ Nel servizio HDInsight sono disponibili due tipi di componenti open source:
 
 Il servizio HDInsight permette di usare i componenti personalizzati in molti modi. Indipendentemente dal modo in cui un componente viene usato o installato nel cluster, verrà applicato lo stesso livello di supporto. L'elenco seguente illustra i modi più comuni per usare i componenti personalizzati nei cluster HDInsight:
 
-1. **Invio di processi**. È possibile inviare al cluster processi Hadoop o di altro tipo che eseguono o usano componenti personalizzati.
+1. **Invio di lavori**. È possibile inviare al cluster processi Hadoop o di altro tipo che eseguono o usano componenti personalizzati.
 
 2. **Personalizzazione del cluster**. Durante la creazione di un cluster, è possibile specificare impostazioni aggiuntive e componenti personalizzati, che verranno installati nei nodi del cluster.
 
 3. **Esempi**. Microsoft e altri utenti possono fornire esempi relativi all'uso dei componenti personalizzati più diffusi nei cluster HDInsight. Questi esempi vengono forniti senza supporto.
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 È possibile usare l'interfaccia utente Web Ambari per visualizzare le informazioni registrate dalle azioni script. Se lo script ha esito negativo durante la creazione del cluster, i log sono disponibili anche nell'account di archiviazione predefinito associato al cluster. Questa sezione include informazioni su come recuperare i log usando entrambe le opzioni.
 
 ### <a name="the-apache-ambari-web-ui"></a>Interfaccia utente Web di Apache Ambari
 
-1. Da un Web browser passare a `https://CLUSTERNAME.azurehdinsight.net`, dove `CLUSTERNAME` è il nome del cluster.
+1. Da un Web browser `https://CLUSTERNAME.azurehdinsight.net`passare `CLUSTERNAME` a , dove è il nome del cluster.
 
 1. Nella barra nella parte superiore della pagina fare clic sulla voce **ops**. Viene visualizzato un elenco delle operazioni correnti e precedenti eseguite nel cluster tramite Ambari.
 
@@ -375,7 +375,7 @@ Il servizio HDInsight permette di usare i componenti personalizzati in molti mod
 
 1. Trovare le voci con **run\_customscriptaction** nella colonna **Operations**. Queste voci vengono create quando si eseguono le azioni script.
 
-    ![Operazioni di azione script di Apache Ambari](./media/hdinsight-hadoop-customize-cluster-linux/ambari-script-action.png)
+    ![Operazioni di azione script Apache Ambari](./media/hdinsight-hadoop-customize-cluster-linux/ambari-script-action.png)
 
     Selezionare la voce **run\customscriptaction** ed eseguire il drill-down dei collegamenti per visualizzare l'output di **STDOUT** e **STDERR**. Questo output viene generato all'esecuzione dello script e potrebbe contenere informazioni utili.
 
@@ -385,15 +385,15 @@ Se la creazione del cluster non riesce a causa di un errore nello script, i log 
 
 * I log di archiviazione sono disponibili in `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\CLUSTER_NAME\DATE`.
 
-    ![Script per log delle azioni](./media/hdinsight-hadoop-customize-cluster-linux/script-action-logs-in-storage.png)
+    ![Registri azioni script](./media/hdinsight-hadoop-customize-cluster-linux/script-action-logs-in-storage.png)
 
     In questa directory i log sono organizzati per **nodi head**, **nodi di lavoro** e **nodi Zookeeper**. Vedere gli esempi seguenti:
 
-    * **Nodo head**: `<ACTIVE-HEADNODE-NAME>.cloudapp.net`
+    * **Nodo Head**:`<ACTIVE-HEADNODE-NAME>.cloudapp.net`
 
-    * **Nodo di lavoro**: `<ACTIVE-WORKERNODE-NAME>.cloudapp.net`
+    * **Nodo lavoratore**:`<ACTIVE-WORKERNODE-NAME>.cloudapp.net`
 
-    * **Nodo Zookeeper**: `<ACTIVE-ZOOKEEPERNODE-NAME>.cloudapp.net`
+    * **Nodo di guardiano dello zoo**:`<ACTIVE-ZOOKEEPERNODE-NAME>.cloudapp.net`
 
 * Tutti i file **stdout** e **stderr** dell'host corrispondente vengono caricati nell'account di archiviazione. Per ogni azione script esiste un file **output-\*.txt** e un file **errors-\*.txt**. Il file **output-*.txt** contiene informazioni relative all'URI dello script che è stato eseguito nell'host. Il testo seguente è un esempio di queste informazioni:
 
@@ -416,7 +416,7 @@ Se la creazione del cluster non riesce a causa di un errore nello script, i log 
 
 ### <a name="cant-import-name-blobservice"></a>Non è possibile importare il nome BlobService
 
-__Sintomi__. l'azione script non riesce. Quando si visualizza l'operazione in Ambari, viene visualizzato un errore simile al seguente:
+__I sintomi__. l'azione script non riesce. Quando si visualizza l'operazione in Ambari, viene visualizzato un errore simile al seguente:
 
 ```
 Traceback (most recent call list):

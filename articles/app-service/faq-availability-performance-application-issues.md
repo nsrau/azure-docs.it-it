@@ -1,6 +1,6 @@
 ---
 title: Domande frequenti sulle prestazioni delle applicazioni
-description: Risposte alle domande frequenti su disponibilità, prestazioni e problemi dell'applicazione nel servizio app Azure.
+description: Risposte alle domande frequenti sulla disponibilità, le prestazioni e i problemi delle applicazioni nel servizio app di Azure.Get answers to frequently asked questions about availability, performance, and application issues in Azure App Service.
 author: genlin
 manager: dcscontentpm
 tags: top-support-issue
@@ -10,16 +10,16 @@ ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
 ms.openlocfilehash: 433f5885c7f057226e78c4ae57e03d7619004d21
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79259864"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Domande frequenti sulle prestazioni delle applicazioni in App Web di Azure
 
 > [!NOTE]
-> Alcune delle linee guida seguenti possono funzionare solo nei servizi app Windows o Linux. Per impostazione predefinita, ad esempio, i servizi app Linux vengono eseguiti in modalità a 64 bit.
+> Alcune delle linee guida seguenti potrebbero funzionare solo su Windows o Linux App Services. Ad esempio, Linux App Services viene eseguito in modalità a 64 bit per impostazione predefinita.
 >
 
 Questo articolo offre risposte alle domande frequenti sui problemi di prestazioni delle applicazioni per la [funzionalità App Web del servizio app di Azure](https://azure.microsoft.com/services/app-service/web/).
@@ -32,11 +32,11 @@ Più fattori possono contribuire a rallentare le prestazioni delle app. Per la p
 
 ## <a name="how-do-i-troubleshoot-a-high-cpu-consumption-scenario"></a>Come si risolvono i problemi di uno scenario con utilizzo elevato di CPU?
 
-In alcuni scenari di utilizzo elevato di CPU, l'app può richiedere realmente più risorse di calcolo. In tal caso, prendere in considerazione la scalabilità a un livello di servizio superiore, in modo che l'applicazione ottenga tutte le risorse necessarie. In altri casi, un utilizzo elevato di CPU può essere causato da un ciclo non valido o da una procedura di codifica. La procedura che consente di ottenere informazioni su cosa provochi un maggiore utilizzo di CPU prevede due parti. Creare prima un dump dei processi e analizzarlo. Per altre informazioni, vedere [Acquisire e analizzare un file di dump per l'utilizzo elevato di CPU per le app Web](https://blogs.msdn.microsoft.com/asiatech/2016/01/20/how-to-capture-dump-when-intermittent-high-cpu-happens-on-azure-web-app/).
+In alcuni scenari di utilizzo elevato di CPU, l'app può richiedere realmente più risorse di calcolo.In tal caso, prendere in considerazione il passaggio a un livello di servizio superiore per fornire tutte le risorse necessarie all'applicazione. In altri casi, un utilizzo elevato di CPU può essere causato da un ciclo non valido o da una procedura di codifica. La procedura che consente di ottenere informazioni su cosa provochi un maggiore utilizzo di CPU prevede due parti. Creare prima un dump dei processi e analizzarlo. Per altre informazioni, vedere [Acquisire e analizzare un file di dump per l'utilizzo elevato di CPU per le app Web](https://blogs.msdn.microsoft.com/asiatech/2016/01/20/how-to-capture-dump-when-intermittent-high-cpu-happens-on-azure-web-app/).
 
 ## <a name="how-do-i-troubleshoot-a-high-memory-consumption-scenario"></a>Come si risolvono i problemi di uno scenario con utilizzo elevato di memoria?
 
-In alcuni scenari di utilizzo elevato di memoria, l'app può richiedere realmente più risorse di calcolo. In tal caso, prendere in considerazione la scalabilità a un livello di servizio superiore, in modo che l'applicazione ottenga tutte le risorse necessarie. In altri casi, un bug nel codice può causare una perdita di memoria. Anche una procedura di codifica può provocare un maggiore utilizzo di memoria. Un processo in due parti è quello di ottenere informazioni dettagliate sull'attivazione di un utilizzo elevato di memoria. Creare prima un dump dei processi e analizzarlo. Crash Diagnoser della raccolta di estensioni sito di Azure può eseguire in modo efficiente entrambi questi passaggi. Per altre informazioni, vedere [Acquisire e analizzare un file di dump per l'utilizzo elevato intermittente di memoria per le app Web](https://blogs.msdn.microsoft.com/asiatech/2016/02/02/how-to-capture-and-analyze-dump-for-intermittent-high-memory-on-azure-web-app/).
+In alcuni scenari di utilizzo elevato di memoria, l'app può richiedere realmente più risorse di calcolo.In tal caso, prendere in considerazione il passaggio a un livello di servizio superiore per fornire tutte le risorse necessarie all'applicazione. In altri casi, un bug nel codice può causare una perdita di memoria. Anche una procedura di codifica può provocare un maggiore utilizzo di memoria.La procedura che consente di ottenere informazioni su cosa provochi un utilizzo elevato di memoria prevede due parti. Creare prima un dump dei processi e analizzarlo. Crash Diagnoser della raccolta di estensioni sito di Azure può eseguire in modo efficiente entrambi questi passaggi. Per altre informazioni, vedere [Acquisire e analizzare un file di dump per l'utilizzo elevato intermittente di memoria per le app Web](https://blogs.msdn.microsoft.com/asiatech/2016/02/02/how-to-capture-and-analyze-dump-for-intermittent-high-memory-on-azure-web-app/).
 
 ## <a name="how-do-i-automate-app-service-web-apps-by-using-powershell"></a>Come si automatizzano le app Web del servizio app usando PowerShell?
 
@@ -47,7 +47,7 @@ In alcuni scenari di utilizzo elevato di memoria, l'app può richiedere realment
 Per visualizzare i log eventi dell'app Web:
 
 1. Accedere al [sito Web Kudu](https://*yourwebsitename*.scm.azurewebsites.net).
-2. Nel menu selezionare **Debug Console (Console di debug)**  > **CMD**.
+2. Nel menu , selezionare **Debug Console** > **CMD**.
 3. Selezionare la cartella **LogFiles**.
 4. Per visualizzare i log eventi, selezionare l'icona della matita accanto a **eventlog.xml**.
 5. Per scaricare i log, eseguire il cmdlet `Save-AzureWebSiteLog -Name webappname` di PowerShell.
@@ -59,7 +59,7 @@ Per acquisire un dump della memoria in modalità utente per l'app Web:
 1. Accedere al [sito Web Kudu](https://*yourwebsitename*.scm.azurewebsites.net).
 2. Selezionare il menu **Process Explorer** (Esplora processi).
 3. Fare clic con il pulsante destro del mouse sul processo **w3wp.exe** o sul proprio processo Web.
-4. Selezionare **Download Memory Dump (Scarica dump di memoria)**  > **Full Dump (Dump completo)** .
+4. Selezionare **Scarica dump completo memoria** > **Full Dump**.
 
 ## <a name="how-do-i-view-process-level-info-for-my-web-app"></a>Come si visualizzano le informazioni a livello di processo per l'app Web?
 
@@ -101,7 +101,7 @@ Per impostazione predefinita, le app Web vengono scaricate se restano inattive p
 Per abilitare la traccia delle richieste non riuscite:
 
 1. Nel portale di Azure passare all'app Web.
-3. Selezionare **Tutte le impostazioni** > **Log di diagnostica**.
+3. Selezionare **Tutte le impostazioni** > **dei registri di diagnostica**.
 4. Per **Traccia delle richieste non riuscite** selezionare **Sì**.
 5. Selezionare **Salva**.
 6. Nel pannello dell'app Web selezionare **Strumenti**.
@@ -142,8 +142,8 @@ Per abilitare la traccia delle richieste non riuscite:
     </tracing>
     ```
 13. Per scaricare le tracce di richieste non riuscite, nel [portale](https://portal.azure.com) passare al sito Web.
-15. Select **Strumenti** > **Kudu** > **Vai**.
-18. Nel menu selezionare **Debug Console (Console di debug)**  > **CMD**.
+15. Selezionare **Strumenti** > **Kudu** > **Go**.
+18. Nel menu , selezionare **Debug Console** > **CMD**.
 19. Selezionare la cartella **LogFiles** e quindi la cartella con un nome che inizia con **W3SVC**.
 20. Per visualizzare il file XML, selezionare l'icona della matita.
 
@@ -174,7 +174,7 @@ Il problema è stato risolto in Kestrel versione 1.0.2. Questa versione è inclu
 
 Se si usa la funzionalità di cache locale del servizio app, la struttura delle cartelle LogFiles e Data per l'istanza di servizio App sono interessate. Quando si usa la cache locale, vengono create sottocartelle nelle cartelle LogFiles e Data dell'archivio. Le sottocartelle usano il modello di denominazione "identificatore univoco" + timestamp. Ogni sottocartella corrisponde a un'istanza di VM in cui l'app Web è o era in esecuzione.
 
-Per determinare se si sta usando la cache locale, controllare la scheda **impostazioni dell'applicazione** del servizio app. Se si usa la cache locale, l'impostazione dell'app `WEBSITE_LOCAL_CACHE_OPTION` è impostata su `Always`.
+Per determinare se si usa la cache locale, controllare la scheda **Impostazioni applicazione** di servizio app. Se viene utilizzata la cache `WEBSITE_LOCAL_CACHE_OPTION` locale, `Always`l'impostazione dell'app è impostata su .
 
 Se non si usa la cache locale e si verifica questo problema, inviare una richiesta di supporto.
 

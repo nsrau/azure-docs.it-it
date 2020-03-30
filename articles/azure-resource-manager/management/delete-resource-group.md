@@ -1,19 +1,19 @@
 ---
-title: Eliminare il gruppo di risorse e le risorse
-description: Viene descritto come eliminare i gruppi di risorse e le risorse. Descrive il modo in cui Azure Resource Manager Ordina l'eliminazione delle risorse quando si elimina un gruppo di risorse. Descrive i codici di risposta e il modo in cui Resource Manager li gestisce in modo da determinare se l'eliminazione è stata completata.
+title: Eliminare risorse e gruppi di risorseDelete resource group and resources
+description: Viene descritto come eliminare risorse e gruppi di risorse. Descrive come Azure Resource Manager ordina l'eliminazione delle risorse quando un'eliminazione di un gruppo di risorse. Descrive i codici di risposta e il modo in cui Resource Manager li gestisce in modo da determinare se l'eliminazione è stata completata.
 ms.topic: conceptual
 ms.date: 09/03/2019
 ms.custom: seodec18
 ms.openlocfilehash: db56cf0897cd90f1e6e51199032d0d9712530f1c
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79274021"
 ---
-# <a name="azure-resource-manager-resource-group-and-resource-deletion"></a>Azure Resource Manager l'eliminazione di risorse e gruppi di risorse
+# <a name="azure-resource-manager-resource-group-and-resource-deletion"></a>Eliminazione delle risorse e del gruppo di risorse di Azure Resource ManagerAzure Resource Manager resource group and resource deletion
 
-Questo articolo illustra come eliminare i gruppi di risorse e le risorse. Descrive il modo in cui Azure Resource Manager Ordina l'eliminazione delle risorse quando si elimina un gruppo di risorse.
+Questo articolo illustra come eliminare risorse e gruppi di risorse. Descrive come Azure Resource Manager ordina l'eliminazione delle risorse quando si elimina un gruppo di risorse.
 
 ## <a name="how-order-of-deletion-is-determined"></a>Come viene determinato l'ordine di eliminazione
 
@@ -56,15 +56,15 @@ Per altri codici di errore, Resource Manager considera l'eliminazione della riso
 
 ## <a name="delete-resource-group"></a>Eliminare un gruppo di risorse
 
-Usare uno dei metodi seguenti per eliminare il gruppo di risorse.
+Utilizzare uno dei metodi seguenti per eliminare il gruppo di risorse.
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name ExampleResourceGroup
 ```
 
-# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di AzureAzure](#tab/azure-cli)
 
 ```azurecli-interactive
 az group delete --name ExampleResourceGroup
@@ -72,7 +72,7 @@ az group delete --name ExampleResourceGroup
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 
-1. Nel [portale](https://portal.azure.com)selezionare il gruppo di risorse che si vuole eliminare.
+1. Nel [portale](https://portal.azure.com)selezionare il gruppo di risorse da eliminare.
 
 1. Selezionare **Elimina gruppo di risorse**.
 
@@ -84,9 +84,9 @@ az group delete --name ExampleResourceGroup
 
 ## <a name="delete-resource"></a>Eliminare una risorsa
 
-Usare uno dei metodi seguenti per eliminare una risorsa.
+Utilizzare uno dei metodi seguenti per eliminare una risorsa.
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Remove-AzResource `
@@ -95,7 +95,7 @@ Remove-AzResource `
   -ResourceType Microsoft.Compute/virtualMachines
 ```
 
-# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di AzureAzure](#tab/azure-cli)
 
 ```azurecli-interactive
 az resource delete \
@@ -106,9 +106,9 @@ az resource delete \
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 
-1. Nel [portale](https://portal.azure.com)selezionare la risorsa che si vuole eliminare.
+1. Nel [portale](https://portal.azure.com)selezionare la risorsa che si desidera eliminare.
 
-1. Selezionare **Elimina**. Lo screenshot seguente mostra le opzioni di gestione per una macchina virtuale.
+1. Selezionare **Elimina**. La schermata seguente mostra le opzioni di gestione per una macchina virtuale.
 
    ![Eliminare una risorsa](./media/delete-resource-group/delete-resource.png)
 

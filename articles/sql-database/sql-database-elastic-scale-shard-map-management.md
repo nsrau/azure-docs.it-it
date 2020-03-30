@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: 8175563d8c1c2ec59b4195b2ede06f6e1dbf8556
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79256263"
 ---
 # <a name="scale-out-databases-with-the-shard-map-manager"></a>Aumentare il numero di istanze dei database con il gestore delle mappe partizioni
@@ -57,7 +57,7 @@ La scalabilità elastica supporta i tipi seguenti come chiavi di partizionamento
 | long |long |
 | guid |uuid |
 | byte[]  |byte[] |
-| Datetime | timestamp |
+| Datetime |  timestamp |
 | Intervallo di tempo | duration|
 | datetimeoffset |offsetdatetime |
 
@@ -79,7 +79,7 @@ Le **partizioni** includono **shardlet** e il mapping degli shardlet alle partiz
 
 ### <a name="range-shard-maps"></a>Mappa partizioni di tipo intervallo
 
-In una **mappa partizioni di tipo intervallo** l'intervallo chiave è descritto da una coppia di tipo **[Low Value, High Value)** , dove *Low Value* indica la chiave minima dell'intervallo e *High Value* è il primo valore superiore all'intervallo.
+In una **mappa partizioni di tipo intervallo** l'intervallo chiave è descritto da una coppia di tipo **[Low Value, High Value)**, dove *Low Value* indica la chiave minima dell'intervallo e *High Value* è il primo valore superiore all'intervallo.
 
 Ad esempio, **[0, 100)** include tutti i numeri interi superiori o uguali a 0 e inferiori a 100. Si noti che più intervalli possono fare riferimento allo stesso database e che sono supportati intervalli non contigui. Ad esempio, [100,200) e [400,600) fanno entrambi riferimento al Database C nell'esempio seguente.
 
@@ -220,7 +220,7 @@ Vedere [Credenziali usate per accedere alla libreria client dei database elastic
 
 ### <a name="only-metadata-affected"></a>Impatto solo sui metadati
 
-I metodi usati per popolare o modificare i dati di **ShardMapManager** non influiscono sui dati utente archiviati nelle partizioni stesse. Ad esempio, i metodi come **CreateShard**, **DeleteShard**, **UpdateMapping** e così via interessano solo i metadati della mappa partizioni. Essi non rimuovono, aggiungono o modificano i dati utente contenuti nelle partizioni. Questi metodi sono stati invece progettati per l'uso insieme a operazioni separate eseguite per creare o rimuovere i database effettivi o per rimuovere righe da una partizione a un'altra, in modo da bilanciare nuovamente un ambiente partizionato  Lo strumento di **suddivisione-unione** incluso con gli strumenti di database elastici consente di usare queste API insieme all'orchestrazione dello spostamento effettivo dei dati tra le partizioni. Vedere [ridimensionamento con lo strumento di suddivisione-unione dei database elastici](sql-database-elastic-scale-overview-split-and-merge.md).
+I metodi usati per popolare o modificare i dati di **ShardMapManager** non influiscono sui dati utente archiviati nelle partizioni stesse. Ad esempio, i metodi come **CreateShard**, **DeleteShard**, **UpdateMapping** e così via interessano solo i metadati della mappa partizioni. Essi non rimuovono, aggiungono o modificano i dati utente contenuti nelle partizioni. Questi metodi sono stati invece progettati per l'uso insieme a operazioni separate eseguite per creare o rimuovere i database effettivi o per rimuovere righe da una partizione a un'altra, in modo da bilanciare nuovamente un ambiente partizionato  Lo strumento di **suddivisione-unione** incluso negli strumenti di database elastici utilizza queste API insieme all'orchestrazione dello spostamento effettivo dei dati tra partizioni. Consultate [Ridimensionamento mediante lo strumento di suddivisione del database elastico.](sql-database-elastic-scale-overview-split-and-merge.md)
 
 ## <a name="data-dependent-routing"></a>Routing dipendente dei dati
 

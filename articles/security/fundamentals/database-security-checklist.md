@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
 ms.openlocfilehash: d9283a36d5f7ccb82b2cc211485487d5a3dcce7b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79201026"
 ---
 # <a name="azure-database-security-checklist"></a>Elenco di controllo per la sicurezza del database di Azure
@@ -41,7 +41,7 @@ incluse le seguenti:
 Il cloud computing richiede nuovi paradigmi di sicurezza che sono diversi per molti utenti dell'applicazione, amministratori del database e programmatori. Di conseguenza, alcune organizzazioni esitano a implementare un'infrastruttura cloud per la gestione dei dati a causa dei rischi di sicurezza percepiti. Tuttavia, la maggior parte di questo problema può essere mitigato tramite una migliore comprensione della funzionalità di sicurezza incorporate in Microsoft Azure e nel database SQL di Microsoft Azure.
 
 ## <a name="checklist"></a>Elenco di controllo
-Si consiglia di leggere l'articolo [Azure Database Security Best Practices](database-best-practices.md) (Best practice di sicurezza per il database di Azure) prima di esaminare questo elenco di controllo. Si sarà in grado di sfruttare al meglio questo elenco di controllo dopo aver compreso le procedure consigliate. È quindi possibile usare questo elenco di controllo per assicurarsi di aver risolto i problemi importanti della sicurezza del database di Azure.
+Si consiglia di leggere l'articolo [Azure Database Security Best Practices](database-best-practices.md) (Best practice di sicurezza per il database di Azure) prima di esaminare questo elenco di controllo. Si sarà in grado di sfruttare al meglio questo elenco di controllo dopo aver compreso le procedure consigliate. È quindi possibile usare questo elenco di controllo per assicurarsi di aver risolto i problemi importanti della sicurezza del database di Azure.You can then use this checklist to make sure that you've addressed the important issues in Azure database security.
 
 
 |Categoria dell'elenco di controllo| Descrizione|

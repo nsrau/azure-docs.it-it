@@ -1,5 +1,5 @@
 ---
-title: Risolvere i problemi relativi alle connessioni-Azure PowerShell
+title: Risolvere i problemi relativi alle connessioni - Azure PowerShellTroubleshoot connections - Azure PowerShell
 titleSuffix: Azure Network Watcher
 description: Informazioni su come usare la funzionalità di risoluzione dei problemi di connessione di Azure Network Watcher con PowerShell.
 services: network-watcher
@@ -14,18 +14,18 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: damendo
 ms.openlocfilehash: abc9389c2c5fd5576795c26a89e3941b6eb5a939
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76842836"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-powershell"></a>Risolvere i problemi relativi alle connessioni con Azure Network Watcher usando PowerShell
 
 > [!div class="op_single_selector"]
 > - [Portale](network-watcher-connectivity-portal.md)
-> - [PowerShell](network-watcher-connectivity-powershell.md)
-> - [Interfaccia della riga di comando di Azure](network-watcher-connectivity-cli.md)
+> - [Powershell](network-watcher-connectivity-powershell.md)
+> - [Interfaccia della riga di comando di AzureAzure](network-watcher-connectivity-cli.md)
 > - [API REST di Azure](network-watcher-connectivity-rest.md)
 
 Informazioni su come usare la risoluzione dei problemi di connessione per verificare se è possibile stabilire una connessione TCP diretta da una macchina virtuale a uno specifico endpoint.

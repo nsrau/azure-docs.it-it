@@ -16,15 +16,15 @@ ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 130ce05e332f4705feb4acd54cbeb25d25a82532
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79253065"
 ---
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>Assegnare licenze agli utenti in base all'appartenenza ai gruppi in Azure Active Directory
 
-In questo articolo viene illustrata l'assegnazione delle licenze dei prodotti a un gruppo di utenti e la verifica della corretta concessione della licenza in Azure Active Directory (Azure AD).
+Questo articolo illustra come assegnare licenze di prodotto a un gruppo di utenti e verificare che siano concesse in licenza correttamente in Azure Active Directory (Azure AD).
 
 In questo esempio il tenant contiene un gruppo di sicurezza denominato **HR Department**. Il gruppo include tutti i membri del reparto Risorse umane, circa 1.000 utenti. Si vogliono assegnare licenze di Office 365 Enterprise E3 all'intero reparto. Il servizio Enterprise Yammer incluso nel prodotto deve essere temporaneamente disattivato finché il reparto è pronto per iniziare a usarlo. Si prevede anche di distribuire le licenze Enterprise Mobility + Security allo stesso gruppo di utenti.
 
@@ -35,43 +35,43 @@ In questo esempio il tenant contiene un gruppo di sicurezza denominato **HR Depa
 
 ## <a name="step-1-assign-the-required-licenses"></a>Passaggio 1: assegnare le licenze necessarie
 
-1. Accedere all'interfaccia di [**amministrazione di Azure ad**](https://aad.portal.azure.com) con un account di amministratore delle licenze. Per gestire le licenze, l'account deve essere un amministratore di licenze, un amministratore utente o un amministratore globale.
+1. Accedere [**all'interfaccia di amministrazione**](https://aad.portal.azure.com) di Azure AD con un account di amministratore di licenza. Per gestire le licenze, l'account deve essere un amministratore di licenza, un amministratore utente o un amministratore globale.
 
-1. Selezionare **licenze** per aprire una pagina in cui è possibile visualizzare e gestire tutti i prodotti con licenza nel tenant.
+1. Selezionare **Licenze** per aprire una pagina in cui è possibile visualizzare e gestire tutti i prodotti con licenza nel tenant.
 
-1. In **tutti i prodotti**selezionare Office 365 Enterprise E5 e Enterprise Mobility + Security E3 selezionando i nomi dei prodotti. Per avviare l'assegnazione, selezionare **assegna** nella parte superiore della pagina.
+1. In **Tutti i prodotti**selezionare sia Office 365 Enterprise E5 che Enterprise Mobility - Security E3 selezionando i nomi dei prodotti. Per avviare l'assegnazione, **selezionare Assegna** nella parte superiore della pagina.
 
    ![Selezionare i prodotti per assegnare le licenze](./media/licensing-groups-assign/licenses-all-products-assign.png)
   
-1. Nella pagina **assegnazione licenza** selezionare **utenti e gruppi** per aprire un elenco di utenti e gruppi.
+1. Nella pagina **Assegna licenza** selezionare Utenti **e gruppi** per aprire un elenco di utenti e gruppi.
 
-1. Selezionare un utente o un gruppo, quindi usare il pulsante **Seleziona** nella parte inferiore della pagina per confermare la selezione.
+1. Selezionare un utente o un gruppo, quindi utilizzare il pulsante **Seleziona** nella parte inferiore della pagina per confermare la selezione.
 
-1. Nella pagina **assegnazione licenza** fare clic su **Opzioni di assegnazione**per visualizzare tutti i piani di servizio inclusi nei due prodotti selezionati in precedenza. Trovare **Yammer Enterprise** e impostarlo su **Disattivato** per disabilitare il servizio dalla licenza del prodotto. Confermare facendo clic su **OK** nella parte inferiore delle **Opzioni di licenza**.
+1. Nella pagina **Assegna licenza** fare clic su Opzioni **di assegnazione**per visualizzare tutti i piani di servizio inclusi nei due prodotti selezionati in precedenza. Trovare **Yammer Enterprise** e disattivarlo per disabilitare il servizio dalla licenza del prodotto. **Off** Confermare facendo clic **su OK** nella parte inferiore di **Opzioni licenza**.
 
-   ![Selezionare i piani di servizio per le licenze](./media/licensing-groups-assign/assignment-options.png)
+   ![selezionare i piani di servizio per le licenze](./media/licensing-groups-assign/assignment-options.png)
   
-1. Per completare l'assegnazione, nella pagina **assegnazione licenza** fare clic su **assegna** nella parte inferiore della pagina.
+1. Per completare l'assegnazione, nella pagina **Assegna licenza** fare clic su **Assegna** nella parte inferiore della pagina.
 
 1. Verrà visualizzata una notifica nell'angolo in alto a destra per indicare lo stato e il risultato del processo. Se non è stato possibile completare l'assegnazione al gruppo, ad esempio a causa di licenze già esistenti nel gruppo, fare clic sulla notifica per visualizzare i dettagli dell'errore.
 
-Quando si assegnano licenze a un gruppo, Azure AD elabora tutti i membri esistenti del gruppo. Questo processo potrebbe richiedere del tempo, variando con le dimensioni del gruppo. Nel passaggio successivo viene spiegato come verificare se il processo è stato completato e determinare se sono necessari altri interventi per la risoluzione dei problemi.
+Quando si assegnano licenze a un gruppo, Azure AD elabora tutti i membri esistenti di tale gruppo. Questo processo potrebbe richiedere del tempo, variando in base alle dimensioni del gruppo. Nel passaggio successivo viene spiegato come verificare se il processo è stato completato e determinare se sono necessari altri interventi per la risoluzione dei problemi.
 
 ## <a name="step-2-verify-that-the-initial-assignment-has-finished"></a>Passaggio 2: verificare che l'assegnazione iniziale sia terminata
 
-1. Passare a **Azure Active Directory** **gruppi**di > . Consente di selezionare il gruppo a cui sono state assegnate le licenze.
+1. Passare a**Gruppi**di **Azure Active Directory** > . Selezionare il gruppo a cui sono state assegnate le licenze.
 
-1. Nella pagina gruppo selezionare **licenze**. Questo consente di verificare rapidamente se le licenze sono state completamente assegnate agli utenti e se ci sono errori che richiedono attenzione. Sono disponibili le informazioni seguenti:
+1. Nella pagina del gruppo selezionare **Licenze**. Questo consente di verificare rapidamente se le licenze sono state completamente assegnate agli utenti e se ci sono errori che richiedono attenzione. Sono disponibili le informazioni seguenti:
 
    - Licenze di servizio attualmente assegnate al gruppo. Selezionare una voce per visualizzare i servizi specifici che sono stati abilitati e apportare modifiche.
 
-   - Aggiornamenti dello stato delle ultime modifiche della licenza, che sono disponibili se le modifiche vengono elaborate o se l'elaborazione è stata completata per tutti i membri utente.
+   - Aggiornamenti di stato delle modifiche più recenti della licenza, disponibili se le modifiche sono in fase di elaborazione o se l'elaborazione è terminata per tutti i membri dell'utente.
 
    - Informazioni sulle assegnazioni di licenze utente in stato di errore.
 
-   ![errori di licenza e stato delle licenze](./media/licensing-groups-assign/assignment-errors.png)
+   ![errori di licenza e stato della licenza](./media/licensing-groups-assign/assignment-errors.png)
 
-1. Per informazioni più dettagliate sull'elaborazione delle licenze, vedere **Azure Active Directory** > **Utenti e gruppi** > *nome gruppo* > **Log di controllo**. Controllare le attività seguenti:
+1. Vedere informazioni più dettagliate sull'elaborazione delle licenze in**Utenti e gruppi** > di **Azure Active Directory** > *nome* > **log**di controllo . Controllare le seguenti attività:
 
    - Attività: `Start applying group based license to users`. Viene registrato quando il sistema preleva la modifica dell'assegnazione della licenza per il gruppo e avvia l'applicazione a tutti i membri utente. Contiene informazioni sulla modifica apportata.
 
@@ -81,21 +81,21 @@ Quando si assegnano licenze a un gruppo, Azure AD elabora tutti i membri esisten
 
 ## <a name="step-3-check-for-license-problems-and-resolve-them"></a>Passaggio 3: Controllare i problemi relativi alle licenze e risolverli
 
-1. Passare a **Azure Active Directory** **gruppi**di > e individuare il gruppo a cui sono state assegnate le licenze.
-1. Nella pagina gruppo selezionare **licenze**. La notifica nella parte superiore della pagina mostra che sono presenti 10 utenti a cui non è stato possibile assegnare le licenze. Aprirlo per visualizzare un elenco di tutti gli utenti in uno stato di errore di licenza per questo gruppo.
+1. Passare a**Gruppi**di **Azure Active Directory** > e individuare il gruppo a cui sono state assegnate le licenze.
+1. Nella pagina del gruppo selezionare **Licenze**. La notifica nella parte superiore della pagina indica che sono presenti 10 utenti a cui non è stato possibile assegnare licenze. Aprirlo per visualizzare un elenco di tutti gli utenti in uno stato di errore di licenza per questo gruppo.
 1. La colonna **N. assegnazioni con errori** indica che non è stato possibile assegnare entrambe le licenze prodotto agli utenti. La colonna **Principali cause dell'errore** contiene la causa dell'errore. In questo caso si tratta di **Piani di servizio in conflitto**.
 
    ![licenze che non è stato possibile assegnare](./media/licensing-groups-assign/failed-assignments.png)
 
-1. Selezionare un utente per aprire la pagina **licenze** dell'utente. In questa pagina vengono visualizzate tutte le licenze attualmente assegnate all'utente. In questo esempio l'utente ha la licenza di Office 365 Enterprise E1 ereditata dal gruppo **Kiosk users**. Questo genera un conflitto con la licenza E3 che il sistema ha provato ad applicare dal gruppo **HR Department**. Nessuna licenza del gruppo è stata quindi assegnata all'utente.
+1. Selezionare un utente per aprire la pagina **Licenze** dell'utente. Questa pagina mostra tutte le licenze attualmente assegnate all'utente. In questo esempio l'utente ha la licenza di Office 365 Enterprise E1 ereditata dal gruppo **Kiosk users**. Questo genera un conflitto con la licenza E3 che il sistema ha provato ad applicare dal gruppo **HR Department**. Nessuna licenza del gruppo è stata quindi assegnata all'utente.
 
-   ![Visualizza tutti i conflitti di licenza per un utente](./media/licensing-groups-assign/user-licence-conflicting-service-plans.png)
+   ![Visualizzare tutti i conflitti di licenza per un utente](./media/licensing-groups-assign/user-licence-conflicting-service-plans.png)
 
 1. Per risolvere questo conflitto, rimuovere l'utente dal gruppo **Kiosk users**. Dopo che Azure AD elabora la modifica, le licenze del **Reparto risorse umane** sono assegnate correttamente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per ulteriori informazioni sul set di funzionalità per l'assegnazione delle licenze tramite i gruppi, vedere gli articoli seguenti:
+Per altre informazioni sul set di funzionalità per l'assegnazione delle licenze tramite gruppi, vedere gli articoli seguenti:To learn more about the feature set for license assignment using groups, see the following articles:
 
 - [Che cosa sono le licenze basate sui gruppi in Azure Active Directory?](/azure/active-directory/fundamentals/active-directory-licensing-whatis-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context)
 - [Identificazione e risoluzione dei problemi relativi alle licenze per un gruppo in Azure Active Directory](licensing-groups-resolve-problems.md)

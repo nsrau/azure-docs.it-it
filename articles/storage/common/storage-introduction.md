@@ -9,10 +9,10 @@ ms.date: 01/16/2020
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 5bab70b6b023a4e6510e32368d407a38388cde2f
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79256068"
 ---
 # <a name="introduction-to-azure-storage"></a>Introduzione ad Archiviazione di Azure
@@ -20,10 +20,10 @@ ms.locfileid: "79256068"
 Archiviazione di Azure è la soluzione di archiviazione cloud Microsoft per i moderni scenari di archiviazione dati. Archiviazione di Azure offre un archivio a scalabilità elevata per oggetti dati, un servizio di file system per il cloud, un archivio di messaggistica per messaggistica affidabile e un archivio NoSQL. Archiviazione di Azure presenta le caratteristiche seguenti:
 
 - **Durabilità e disponibilità elevata.** La ridondanza garantisce che i dati siano al sicuro in caso di errori hardware temporanei. Si può anche scegliere di replicare i dati tra data center o aree geografiche per una protezione aggiuntiva da catastrofi locali o calamità naturali. Con questo tipo di replica, i dati mantengono disponibilità elevata in caso di interruzioni impreviste.
-- **Sicurezza.** Tutti i dati scritti in Archiviazione di Azure vengono crittografati dal servizio. Archiviazione di Azure offre un controllo dettagliato su chi potrà accedere ai dati.
+- **Sicuro.** Tutti i dati scritti in Archiviazione di Azure vengono crittografati dal servizio. Archiviazione di Azure offre un controllo dettagliato su chi potrà accedere ai dati.
 - **Scalabilità.** La soluzione Archiviazione di Azure è progettata per offrire scalabilità elevata in modo da soddisfare le esigenze di archiviazione dati e di prestazioni delle attuali applicazioni.
 - **Soluzione gestita.** Microsoft Azure gestisce automaticamente le attività di manutenzione dell'hardware, gli aggiornamenti e i problemi critici.
-- **Accessibilità.** I dati in Archiviazione di Azure sono accessibili da ogni parte del mondo tramite HTTP o HTTPS. Microsoft fornisce librerie client per archiviazione di Azure in un'ampia gamma di linguaggi, tra cui .NET, Java, node. js, Python, PHP, Ruby, go e altri ancora, oltre a un'API REST matura. Archiviazione di Azure supporta l'esecuzione di script in Azure PowerShell o nell'interfaccia della riga di comando di Azure. Il portale di Azure e Azure Storage Explorer, inoltre, offrono semplici soluzioni visive per l'uso dei dati.  
+- **Accessibilità.** I dati in Archiviazione di Azure sono accessibili da ogni parte del mondo tramite HTTP o HTTPS. Microsoft fornisce librerie client per Archiviazione di Azure in diversi linguaggi, tra cui .NET, Java, Node.js, Python, PHP, Ruby, Go e altri, nonché un'API REST matura. Archiviazione di Azure supporta l'esecuzione di script in Azure PowerShell o nell'interfaccia della riga di comando di Azure. Il portale di Azure e Azure Storage Explorer, inoltre, offrono semplici soluzioni visive per l'uso dei dati.  
 
 ## <a name="azure-storage-services"></a>Servizi di Archiviazione di Azure
 
@@ -74,7 +74,7 @@ Per altre informazioni su File di Azure, vedere [Introduzione a File di Azure](.
 
 Il servizio di accodamento di Azure viene usato per archiviare e recuperare i messaggi. La dimensione massima dei messaggi nella coda può essere di 64 KB e una coda può contenere milioni di messaggi. Le code vengono in genere usate per archiviare elenchi di messaggi da elaborare in modo asincrono.
 
-Si supponga ad esempio che si voglia consentire ai clienti di caricare immagini e che si voglia creare un'anteprima per ogni immagine. È possibile creare le anteprime lasciando in attesa il cliente durante il caricamento delle immagini oppure usare una coda. Quando il cliente termina il caricamento, scrive un messaggio nella coda. Funzioni di Azure recupera quindi il messaggio dalla coda e crea le anteprime. Ogni parte di questa elaborazione può essere ridimensionata separatamente, offrendo un maggiore controllo per l'ottimizzazione ai fini dell'utilizzo.
+Si supponga ad esempio che si voglia consentire ai clienti di caricare immagini e che si voglia creare un'anteprima per ogni immagine. È possibile creare le anteprime lasciando in attesa il cliente durante il caricamento delle immagini oppure usare una coda. Quando il cliente termina il caricamento, scrivere un messaggio nella coda. Funzioni di Azure recupera quindi il messaggio dalla coda e crea le anteprime. Ogni parte di questa elaborazione può essere ridimensionata separatamente, offrendo un maggiore controllo per l'ottimizzazione ai fini dell'utilizzo.
 
 Per altre informazioni sulle code di Azure, vedere [Introduzione alle code](../queues/storage-queues-introduction.md).
 
@@ -86,9 +86,9 @@ Per altre informazioni sull'archivio tabelle, vedere [Panoramica di Archiviazion
 
 ## <a name="disk-storage"></a>Archiviazione su disco
 
-Un disco gestito di Azure è un disco rigido virtuale. È possibile considerarlo come un disco fisico in un server locale, ma virtualizzato. I dischi gestiti di Azure vengono archiviati come BLOB di pagine, ovvero un oggetto di archiviazione di I/O casuale in Azure. Viene chiamato un disco gestito ' gestito ' perché è un'astrazione su BLOB di pagine, contenitori BLOB e account di archiviazione di Azure. Con i dischi gestiti, è sufficiente effettuare il provisioning del disco e Azure si occupa di tutto il resto.
+Un disco gestito di Azure è un disco rigido virtuale. È possibile considerarlo come un disco fisico in un server locale, ma virtualizzato. I dischi gestiti di Azure vengono archiviati come BLOB di pagine, ovvero un oggetto di archiviazione di I/O casuale in Azure. Viene chiamato un disco gestito 'gestito' perché è un'astrazione su BLOB di pagine, contenitori BLOB e account di archiviazione di Azure.We call a managed disk 'managed' because it is an abstraction over page blobs, blob containers, and Azure storage accounts. Con i dischi gestiti, è sufficiente effettuare il provisioning del disco e Azure si occupa di tutto il resto.
 
-Per altre informazioni su Managed disks, vedere [Introduzione a Managed Disks di Azure](../../virtual-machines/windows/managed-disks-overview.md).
+Per altre informazioni sui dischi gestiti, vedere [Introduzione ai dischi gestiti](../../virtual-machines/windows/managed-disks-overview.md)di Azure.For more information about managed disks, see Introduction to Azure managed disks .
 
 ## <a name="types-of-storage-accounts"></a>Tipi di account di archiviazione
 
@@ -96,15 +96,15 @@ Per altre informazioni su Managed disks, vedere [Introduzione a Managed Disks di
 
 Per altre informazioni sui tipi di account di archiviazione, vedere [Panoramica dell'account di archiviazione di Azure](storage-account-overview.md).
 
-## <a name="securing-access-to-storage-accounts"></a>Sicurezza dell'accesso agli account di archiviazione
+## <a name="securing-access-to-storage-accounts"></a>Protezione dell'accesso agli account di archiviazioneSecuring access to storage accounts
 
-Ogni richiesta ad archiviazione di Azure deve essere autorizzata. Archiviazione di Azure supporta i seguenti metodi di autorizzazione:
+Ogni richiesta ad Archiviazione di Azure deve essere autorizzata. Archiviazione di Azure supporta i metodi di autorizzazione seguenti:Azure Storage supports the following authorization methods:
 
-- **Integrazione di Azure Active Directory (Azure AD) per i dati di BLOB e di Accodamento.** Archiviazione di Azure supporta l'autenticazione e l'autorizzazione con Azure AD per i servizi BLOB e di accodamento tramite il controllo degli accessi in base al ruolo (RBAC). L'autorizzazione delle richieste con Azure AD è consigliata per una maggiore sicurezza e semplicità d'uso. Per altre informazioni, vedere [autorizzare l'accesso a BLOB e code di Azure usando Azure Active Directory](storage-auth-aad.md).
-- **Azure AD autorizzazione su SMB per File di Azure (anteprima).** File di Azure supporta l'autorizzazione basata sull'identità su SMB (Server Message Block) tramite Azure Active Directory Domain Services. Le macchine virtuali (VM) Windows appartenenti a un dominio possono accedere alle condivisioni file di Azure usando le credenziali Azure AD. Per ulteriori informazioni, vedere [Panoramica dell'autorizzazione Azure Active Directory su SMB per file di Azure (anteprima)](../files/storage-files-active-directory-overview.md).
-- **Autorizzazione con chiave condivisa.** I servizi BLOB del servizio di archiviazione di Azure, Queue e Table e File di Azure supportano l'autorizzazione con la chiave condivisa. un client che usa l'autorizzazione della chiave condivisa passa un'intestazione con ogni richiesta firmata usando la chiave di accesso dell'account di archiviazione. Per altre informazioni, vedere [Authorize with Shared Key](https://docs.microsoft.com/rest/api/storageservices/authorize-with-shared-key) (Autorizzazione con chiave condivisa).
-- **Autorizzazione mediante le firme di accesso condiviso (SAS).** Una firma di accesso condiviso è una stringa contenente un token di sicurezza che può essere aggiunto all'URI per una risorsa di archiviazione. Il token di sicurezza incapsula vincoli quali le autorizzazioni e l'intervallo di accesso. Per altre informazioni, vedere [uso delle firme di accesso condiviso (SAS)](storage-sas-overview.md).
-- **Accesso anonimo a contenitori e BLOB.** Un contenitore e i relativi BLOB possono essere disponibili pubblicamente. Quando si specifica che un contenitore o un BLOB è pubblico, chiunque può leggerlo in modo anonimo; non è necessaria alcuna autenticazione. Per altre informazioni, vedere [Gestire l'accesso in lettura anonimo a contenitori e BLOB](../blobs/storage-manage-access-to-resources.md).
+- **Integrazione di Azure Active Directory (Azure AD) per i dati BLOB e coda.** Archiviazione di Azure supporta l'autenticazione e l'autorizzazione con Azure AD per i servizi BLOB e coda tramite il controllo degli accessi in base al ruolo. L'autorizzazione delle richieste con Azure AD è consigliata per una maggiore sicurezza e facilità d'uso. Per altre informazioni, vedere [Autorizzare l'accesso a BLOB e code](storage-auth-aad.md)di Azure usando Azure Active Directory.For more information, see Authorize access to Azure blobs and queues using Azure Active Directory.
+- **Autorizzazione di Azure AD su SMB per file di Azure (anteprima).** Azure Files supports identity-based authorization over SMB (Server Message Block) through Azure Active Directory Domain Services. Le macchine virtuali di Windows aggiunte a un dominio possono così accedere a condivisioni file di Azure tramite credenziali di Azure AD. Per altre informazioni, vedere [Panoramica dell'autorizzazione di Azure Active Directory su SMB per file di Azure (anteprima).](../files/storage-files-active-directory-overview.md)
+- **Autorizzazione con chiave condivisa.** I servizi Blob, coda e tabella di Archiviazione di Azure e i file di Azure supportano l'autorizzazione con chiave condivisa.Un client che usa l'autorizzazione chiave condivisa passa un'intestazione con ogni richiesta firmata usando la chiave di accesso dell'account di archiviazione. Per altre informazioni, vedere [Authorize with Shared Key](https://docs.microsoft.com/rest/api/storageservices/authorize-with-shared-key) (Autorizzazione con chiave condivisa).
+- **Autorizzazione tramite firme di accesso condiviso.** Una firma di accesso condiviso è una stringa contenente un token di sicurezza che può essere aggiunto all'URI per una risorsa di archiviazione. Il token di sicurezza incapsula vincoli quali le autorizzazioni e l'intervallo di accesso. Per ulteriori informazioni, vedere [Utilizzo delle firme](storage-sas-overview.md)di accesso condiviso .
+- **Accesso anonimo a contenitori e BLOB.** Un contenitore e i relativi BLOB possono essere disponibili pubblicamente. Quando si specifica che un contenitore o un BLOB è pubblico, chiunque può leggerlo in modo anonimo. non è richiesta alcuna autenticazione. Per altre informazioni, vedere [Gestire l'accesso in lettura anonimo a contenitori e BLOBFor](../blobs/storage-manage-access-to-resources.md) more information, see Manage anonymous read access to containers and blobs
 
 ## <a name="encryption"></a>Crittografia
 
@@ -112,15 +112,15 @@ Sono disponibili due tipi di crittografia di base per i servizi di archiviazione
 
 ### <a name="encryption-at-rest"></a>Crittografia di dati inattivi
 
-La crittografia di archiviazione di Azure protegge e salvaguarda i dati per soddisfare gli impegni di sicurezza e conformità dell'organizzazione. Archiviazione di Azure crittografa automaticamente tutti i dati prima di renderli permanente nell'account di archiviazione e li decrittografa prima del recupero. I processi di crittografia, decrittografia e gestione delle chiavi sono completamente trasparenti per gli utenti. I clienti possono anche scegliere di gestire le proprie chiavi usando Azure Key Vault. Per altre informazioni, vedere [crittografia di archiviazione di Azure per dati](storage-service-encryption.md)inattivi.
+La crittografia di Archiviazione di Azure protegge e salvaguarda i dati per soddisfare gli impegni di conformità e sicurezza dell'organizzazione. Archiviazione di Azure crittografa automaticamente tutti i dati prima della persistenza nell'account di archiviazione e li decrittografa prima del recupero. I processi di crittografia, decrittografia e gestione delle chiavi sono totalmente trasparenti per gli utenti. I clienti possono anche scegliere di gestire le proprie chiavi usando l'insieme di credenziali delle chiavi di Azure.Customers can also choose to manage their own keys using Azure Key Vault. Per altre informazioni, vedere Crittografia di Archiviazione di Azure per i [dati inattivi](storage-service-encryption.md).
 
 ### <a name="client-side-encryption"></a>crittografia lato client
 
-Le librerie client di archiviazione di Azure forniscono metodi per la crittografia dei dati dalla libreria client prima dell'invio in rete e la decrittografia della risposta. I dati crittografati tramite la crittografia lato client vengono anche crittografati a riposo da archiviazione di Azure. Per altre informazioni sulla crittografia lato client, vedere [crittografia lato client con .NET per archiviazione di Azure](storage-client-side-encryption.md).
+Le librerie client di Archiviazione di Azure forniscono metodi per crittografare i dati dalla libreria client prima di inviarli in rete e decrittografare la risposta. I dati crittografati tramite la crittografia lato client vengono crittografati anche inattivi da Archiviazione di Azure.Data encrypted via client-side encryption is also encrypted at restby by Azure Storage. Per altre informazioni sulla crittografia lato client, vedere Crittografia lato client con .NET per Archiviazione di Azure.For more information about [client-side encryption, see Client-side encryption with .NET for Azure Storage](storage-client-side-encryption.md).
 
 ## <a name="redundancy"></a>Ridondanza
 
-Per assicurarsi che i dati siano durevoli, archiviazione di Azure archivia più copie dei dati. Quando si configura l'account di archiviazione, si seleziona un'opzione di ridondanza.
+Per garantire che i dati siano durevoli, Archiviazione di Azure archivia più copie dei dati. Quando si configura l'account di archiviazione, si seleziona un'opzione di ridondanza.
 
 [!INCLUDE [storage-common-redundancy-options](../../../includes/storage-common-redundancy-options.md)]
 
@@ -138,14 +138,14 @@ Le risorse di archiviazione di Azure sono accessibile da qualsiasi linguaggio in
 
 ### <a name="azure-storage-data-api-and-library-references"></a>Informazioni di riferimento su librerie e API di dati di Archiviazione di Azure
 
-- [API REST di Archiviazione di Azure](https://docs.microsoft.com/rest/api/storageservices/)
-- [Libreria client di archiviazione di Azure per .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
-- [Libreria client di archiviazione di Azure per Java/Android](https://docs.microsoft.com/java/api/overview/azure/storage)
-- [Libreria client di archiviazione di Azure per node. js](https://docs.microsoft.com/javascript/api/overview/azure/storage-overview)
-- [Libreria client di archiviazione di Azure per Python](https://github.com/Azure/azure-storage-python)
-- [Libreria client di archiviazione di Azure per PHP](https://github.com/Azure/azure-storage-php)
-- [Libreria client di archiviazione di Azure per Ruby](https://github.com/Azure/azure-storage-ruby)
-- [Libreria client di archiviazione di Azure perC++](https://github.com/Azure/azure-storage-cpp)
+- [API REST di Archiviazione di AzureAzure Storage REST API](https://docs.microsoft.com/rest/api/storageservices/)
+- [Libreria client di Archiviazione di Azure per .NETAzure Storage client library for .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
+- [Azure Storage client library for Java/Android](https://docs.microsoft.com/java/api/overview/azure/storage)
+- [Azure Storage client library for Node.js](https://docs.microsoft.com/javascript/api/overview/azure/storage-overview)
+- [Azure Storage client library for Python](https://github.com/Azure/azure-storage-python)
+- [Azure Storage client library for PHP](https://github.com/Azure/azure-storage-php)
+- [Azure Storage client library for Ruby](https://github.com/Azure/azure-storage-ruby)
+- [Libreria client di Archiviazione di Azure per C](https://github.com/Azure/azure-storage-cpp)
 
 ### <a name="azure-storage-management-api-and-library-references"></a>Informazioni di riferimento su librerie e API di gestione di Archiviazione di Azure
 

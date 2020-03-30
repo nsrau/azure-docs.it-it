@@ -1,16 +1,16 @@
 ---
-title: Distribuire il contenuto tramite FTP/S
-description: Informazioni su come distribuire l'app nel servizio app di Azure usando FTP o FTPS. Migliorare la sicurezza del sito Web disabilitando l'FTP non crittografato.
+title: Distribuire il contenuto tramite FTP/SDeploy content using FTP/S
+description: Informazioni su come distribuire l'app nel servizio app di Azure usando FTP o FTPS. Migliora la sicurezza del sito web disabilitando l'FTP non crittografato.
 ms.assetid: ae78b410-1bc0-4d72-8fc4-ac69801247ae
 ms.topic: article
 ms.date: 09/18/2019
 ms.reviewer: dariac
 ms.custom: seodec18
 ms.openlocfilehash: 7bc637b5719da3c5f5e5607436aa7da0721f5a9e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79266013"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Distribuire l'app nel servizio app di Azure usando FTP/S
@@ -21,28 +21,28 @@ L'endpoint FTP/S per l'app è già attivo. Non è necessaria alcuna configurazio
 
 ## <a name="open-ftp-dashboard"></a>Aprire un dashboard FTP
 
-1. Nella [portale di Azure](https://portal.azure.com)cercare e selezionare **Servizi app**.
+1. Nel [portale](https://portal.azure.com)di Azure cercare e selezionare **App Services**.
 
-    ![Cercare i servizi app.](media/app-service-continuous-deployment/search-for-app-services.png)
+    ![Cercare i servizi dell'app.](media/app-service-continuous-deployment/search-for-app-services.png)
 
-2. Selezionare l'app Web che si vuole distribuire.
+2. Selezionare l'app Web da distribuire.
 
-    ![Selezionare l'app.](media/app-service-continuous-deployment/select-your-app.png)
+    ![Seleziona la tua app.](media/app-service-continuous-deployment/select-your-app.png)
 
-3. Selezionare **centro distribuzione** > **Dashboard** > **FTP** .
+3. Selezionare Dashboard**FTP** >  **Centro** > distribuzione **.**
 
     ![Aprire un dashboard FTP](./media/app-service-deploy-ftp/open-dashboard.png)
 
 ## <a name="get-ftp-connection-information"></a>Ottenere informazioni di connessione a FTP
 
-Nel dashboard FTP selezionare **copia** per copiare l'endpoint FTPS e le credenziali dell'app.
+Nel dashboard FTP selezionare **Copia** per copiare l'endpoint FTPS e le credenziali dell'app.
 
 ![Copiare le informazioni FTP](./media/app-service-deploy-ftp/ftp-dashboard.png)
 
 È consigliabile usare **Credenziali dell'app** per distribuire l'app perché si tratta di informazioni univoche per ogni app. Tuttavia, se si fa clic su **Credenziali utente**, è possibile impostare le credenziali a livello di utente da usare per l'accesso FTP/S a tutte le app del servizio app della sottoscrizione.
 
 > [!NOTE]
-> L'autenticazione a un endpoint FTP/FTPS usando le credenziali a livello di utente richiede un nome utente nel formato seguente: 
+> L'autenticazione a un endpoint FTP/FTPS utilizzando i requisiti di credenziali a livello utente richiedono un nome utente nel formato seguente: 
 >
 >`<app-name>\<user-name>`
 >
@@ -52,7 +52,7 @@ Nel dashboard FTP selezionare **copia** per copiare l'endpoint FTPS e le credenz
 ## <a name="deploy-files-to-azure"></a>Distribuire file in Azure
 
 1. Nel client FTP, ad esempio [Visual Studio](https://www.visualstudio.com/vs/community/), [Cyberduck](https://cyberduck.io/) o [WinSCP](https://winscp.net/index.php), usare le specifiche informazioni raccolte per connettersi all'app.
-2. Copiare i file e la struttura di directory corrispondente nella directory [ **/site/wwwroot**](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) in Azure o nella directory **/site/wwwroot/App_Data/Jobs/** per i processi Web.
+2. Copiare i file e la struttura di directory corrispondente nella directory [**/site/wwwroot**](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) in Azure o nella directory **/site/wwwroot/App_Data/Jobs/** per i processi Web.
 3. Passare all'URL dell'app per verificare che l'applicazione venga eseguita correttamente. 
 
 > [!NOTE] 
@@ -69,9 +69,9 @@ Nel dashboard FTP selezionare **copia** per copiare l'endpoint FTPS e le credenz
 
 Per migliorare la sicurezza ottimale, è consigliabile consentire solo FTP su SSL. È anche possibile disabilitare FTP e FTPS se non si usa la distribuzione FTP.
 
-Nella pagina delle risorse dell'app, in [portale di Azure](https://portal.azure.com), selezionare **configurazione** > **Impostazioni generali** dal dispositivo di spostamento a sinistra.
+Nella pagina delle risorse dell'app nel portale di [Azure](https://portal.azure.com)selezionare**Impostazioni generali** **configurazione** > nel riquadro di spostamento sinistro.
 
-Per disabilitare l'FTP non crittografato, selezionare **FTPS solo** nello **stato FTP**. Per disabilitare completamente FTP e FTPS, selezionare **disattivato**. Al termine fare clic su **Salva**. Se si usa **solo FTPS**, è necessario applicare TLS 1,2 o versione successiva passando al pannello delle **Impostazioni TLS/SSL** dell'app Web. TLS 1.0 e 1.1 non sono supportati con **Solo FTPS**.
+Per disabilitare FTP non crittografato, selezionare **Solo FTPS** nello **stato FTP**. Per disattivare completamente FTP e FTPS, selezionare **Disabilitato**. Al termine fare clic su **Salva**. Se si usa **solo FTPS**, è necessario applicare TLS 1.2 o versione successiva accedendo al pannello delle **impostazioni TLS/SSL** dell'app Web. TLS 1.0 e 1.1 non sono supportati con **Solo FTPS**.
 
 ![Disabilitare FTP/FTPS](./media/app-service-deploy-ftp/disable-ftp.png)
 
@@ -86,7 +86,7 @@ Per la distribuzione FTP tramite [Azure PowerShell](/cli/azure), vedere [Caricar
 ## <a name="troubleshoot-ftp-deployment"></a>Risolvere i problemi di distribuzione FTP
 
 - [Come è possibile risolvere i problemi di distribuzione FTP?](#how-can-i-troubleshoot-ftp-deployment)
-- [Non è possibile eseguire l'FTP e pubblicare il codice. Come è possibile risolvere il problema?](#im-not-able-to-ftp-and-publish-my-code-how-can-i-resolve-the-issue)
+- [Non sono in grado di FTP e pubblicare il mio codice. Come posso risolvere il problema?](#im-not-able-to-ftp-and-publish-my-code-how-can-i-resolve-the-issue)
 - [Come è possibile connettersi a FTP nel Servizio app di Azure tramite la modalità passiva?](#how-can-i-connect-to-ftp-in-azure-app-service-via-passive-mode)
 
 ### <a name="how-can-i-troubleshoot-ftp-deployment"></a>Come è possibile risolvere i problemi di distribuzione FTP?

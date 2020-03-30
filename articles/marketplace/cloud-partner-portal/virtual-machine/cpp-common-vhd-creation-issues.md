@@ -1,20 +1,19 @@
 ---
-title: Problemi comuni durante la creazione del disco rigido virtuale (FAQ) per Azure Marketplace
+title: Problemi comuni durante la creazione di disco rigido virtuale (domande frequenti) per Azure MarketplaceCommon issues during VHD creation (FAQ) for the Azure Marketplace
 description: Domande frequenti sulla creazione di dischi rigidi virtuali e sui problemi associati.
-services: Azure Marketplace
-author: MaggiePucciEvans
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/02/2018
-ms.author: evansma
+ms.author: dsindona
 ms.reviewer: v-divte; v-miclar
-ms.openlocfilehash: 152a2f6fda081b2612197cc4848207b336adf8dc
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 192fea4101fb972ec66bb5f21a2a83f9903f0855
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934269"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80278110"
 ---
 # <a name="common-issues-during-vhd-creation-faq"></a>Domande frequenti sui problemi comuni che si verificano durante la creazione di dischi rigidi virtuali
 
@@ -77,7 +76,7 @@ Generalmente, no.  I sistemi operativi supportati e i servizi standard per le ma
 
 Per altre informazioni, vedere gli articoli seguenti:
 - [Running 32-bit applications](https://docs.microsoft.com/windows/desktop/WinProg64/running-32-bit-applications) (Applicazioni a 32 bit in esecuzione)
-- [Support for 32-bit operating systems in Azure virtual machines](https://support.microsoft.com/help/4021388/support-for-32-bit-operating-systems-in-azure-virtual-machines) (Supporto per sistemi operativi a 32 bit nelle macchine virtuali di Azure)
+- [Supporto per sistemi operativi a 32 bit nelle macchine virtuali di Azure](https://support.microsoft.com/help/4021388/support-for-32-bit-operating-systems-in-azure-virtual-machines)
 - [Microsoft server software support for Microsoft Azure virtual machines](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) (Supporto software di server Microsoft per macchine virtuali di Microsoft Azure)
 
 

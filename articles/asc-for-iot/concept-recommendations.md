@@ -1,6 +1,6 @@
 ---
-title: Informazioni sui consigli per la sicurezza nel centro sicurezza di Azure | Microsoft Docs
-description: Informazioni sul concetto di consigli per la sicurezza e su come vengono usati nel centro sicurezza di Azure per tutto.
+title: Informazioni sui consigli per la sicurezza di Azure Per ioT Documenti Microsoft
+description: Informazioni sul concetto di consigli per la sicurezza e su come vengono usati nel Centro sicurezza di Azure per l'IoT.Learn about the concept of security recommendations and how they are used in Azure Security Center for IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -16,55 +16,55 @@ ms.workload: na
 ms.date: 07/24/2019
 ms.author: mlottner
 ms.openlocfilehash: a8de821abcedf6bb9a331852a2c0af9b6439667a
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78303580"
 ---
-# <a name="security-recommendations"></a>Suggerimenti relativi alla sicurezza
+# <a name="security-recommendations"></a>Suggerimenti per la sicurezza
 
-Il Centro sicurezza di Azure analizza le risorse di Azure e i dispositivi Internet e fornisce consigli sulla sicurezza per ridurre la superficie di attacco. Le raccomandazioni sulla sicurezza sono praticabili e mirano a aiutare i clienti a rispettare le procedure consigliate per la sicurezza.
+Il Centro sicurezza di Azure per IoT analizza le risorse e i dispositivi IoT di Azure e fornisce consigli sulla sicurezza per ridurre la superficie di attacco. Le raccomandazioni di sicurezza sono attuose e mirano ad aiutare i clienti nel rispetto delle best practice di sicurezza.
 
-In questo articolo è disponibile un elenco di raccomandazioni che possono essere attivate nell'hub e/o nei dispositivi Internet delle cose.
+In questo articolo troverai un elenco di consigli che possono essere attivati sul tuo hub IoT e/o sui dispositivi IoT.
 
-## <a name="recommendations-for-iot-devices"></a>Suggerimenti per i dispositivi Internet
+## <a name="recommendations-for-iot-devices"></a>Raccomandazioni per i dispositivi IoT
 
-Le raccomandazioni per i dispositivi forniscono informazioni dettagliate e suggerimenti per migliorare il comportamento di sicurezza del dispositivo. 
+I consigli sui dispositivi forniscono informazioni dettagliate e suggerimenti per migliorare la sicurezza dei dispositivi. 
 
-| Severity | Name                                                      | Origine dati | Descrizione                                                                                                                                                                                           |
+| Gravità | Nome                                                      | origine dati | Descrizione                                                                                                                                                                                           |
 |----------|-----------------------------------------------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Media   | Aprire le porte nel dispositivo                                      | Agente di       | Un endpoint di ascolto è stato trovato nel dispositivo.                                                                                                                                                        |
-| Media   | Sono stati trovati criteri di firewall permissivi in una delle catene. | Agente di       | Sono stati trovati criteri firewall consentiti (INPUT/OUTPUT). Il criterio firewall deve negare tutto il traffico per impostazione predefinita e definire le regole per consentire la comunicazione necessaria al/dal dispositivo.                               |
-| Media   | È stata trovata una regola permissiva del firewall nella catena di input     | Agente di       | È stata rilevata una regola nel firewall che contiene un modello permissivo per un'ampia gamma di porte o indirizzi IP.                                                                                    |
-| Media   | È stata trovata una regola permissiva del firewall nella catena di output    | Agente di       | È stata rilevata una regola nel firewall che contiene un modello permissivo per un'ampia gamma di porte o indirizzi IP.                                                                                   |
-| Media   | Convalida della linea di base del sistema operativo non riuscita           | Agente di       | Il dispositivo non è conforme ai [benchmark Linux di CIS](https://www.cisecurity.org/cis-benchmarks/).                                                                                                        |
+| Media   | Aprire le porte sul dispositivo                                      | Agente       | È stato trovato un endpoint di ascolto sul dispositivo.                                                                                                                                                        |
+| Media   | Criteri firewall permissivi disponibili in una delle catene. | Agente       | Sono stati trovati criteri firewall consentiti (INPUT/OUTPUT). I criteri firewall devono negare tutto il traffico per impostazione predefinita e definire le regole per consentire la comunicazione necessaria da/verso il dispositivo.                               |
+| Media   | È stata trovata una regola firewall permissiva nella catena di input     | Agente       | È stata trovata una regola nel firewall che contiene un modello permissivo per un'ampia gamma di indirizzi IP o porte.                                                                                    |
+| Media   | È stata trovata una regola del firewall permissiva nella catena di output    | Agente       | È stata trovata una regola nel firewall che contiene un modello permissivo per un'ampia gamma di indirizzi IP o porte.                                                                                   |
+| Media   | La convalida della linea di base del sistema operativo non è riuscita           | Agente       | Il dispositivo non è conforme [ai benchmark CIS Linux.](https://www.cisecurity.org/cis-benchmarks/)                                                                                                        |
 
-### <a name="operational-recommendations-for-iot-devices"></a>Raccomandazioni operative per i dispositivi Internet
+### <a name="operational-recommendations-for-iot-devices"></a>Consigli operativi per i dispositivi IoT
 
-Le indicazioni operative forniscono informazioni dettagliate e suggerimenti per migliorare la configurazione degli agenti di sicurezza.
+Consigli operativi forniscono informazioni dettagliate e suggerimenti per migliorare la configurazione degli agenti di sicurezza.
 
-| Severity | Name                                    | Origine dati | Descrizione                                                                       |
+| Gravità | Nome                                    | origine dati | Descrizione                                                                       |
 |----------|-----------------------------------------|-------------|-----------------------------------------------------------------------------------|
-| Bassa      | Agent invia messaggi non utilizzati          | Agente di       | il 10% o più messaggi di sicurezza sono inferiori a 4 KB durante le ultime 24 ore.  |
-| Bassa      | Configurazione del gemello di sicurezza non ottimale | Agente di       | La configurazione di dispositivi gemelli di sicurezza non è ottimale.                                        |
-| Bassa      | Conflitto di configurazione della sicurezza dei dispositivi gemelli    | Agente di       | Sono stati identificati conflitti nella configurazione dei dispositivi gemelli di sicurezza. |                          |
+| Basso      | L'agente invia messaggi non utilizzati          | Agente       | 10% o più dei messaggi di protezione sono stati inferiori a 4 KB nelle ultime 24 ore.  |
+| Basso      | Configurazione di Security Twin non ottimale | Agente       | La configurazione di Security Twin non è ottimale.                                        |
+| Basso      | Conflitto di configurazione di sicurezza gemelloSecurity twin configuration conflict    | Agente       | Sono stati identificati conflitti nella configurazione di sicurezza gemella. |                          |
 |
 
-## <a name="recommendations-for-iot-hub"></a>Suggerimenti per l'hub Internet
+## <a name="recommendations-for-iot-hub"></a>Raccomandazioni per l'hub IoT
 
-Gli avvisi di raccomandazione forniscono informazioni e suggerimenti sulle azioni per migliorare il comportamento di sicurezza dell'ambiente.  
+Gli avvisi di raccomandazione forniscono informazioni dettagliate e suggerimenti per le azioni volte a migliorare la sicurezza dell'ambiente.  
 
-| Severity | Name                                                     | Origine dati | Descrizione                                                                                                                                                                                                             |
+| Gravità | Nome                                                     | origine dati | Descrizione                                                                                                                                                                                                             |
 |----------|----------------------------------------------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Alta     | Credenziali di autenticazione identiche usate da più dispositivi | Hub IoT     | Le credenziali di autenticazione dell'hub Internet vengono usate da più dispositivi. Questo può indicare un dispositivo illegittimo che rappresenta un dispositivo legittimo. L'uso di credenziali duplicate aumenta il rischio di rappresentazione del dispositivo da parte di un attore malintenzionato. |
-| Media   | Il criterio di filtro IP predefinito deve essere Deny                  | Hub IoT     | Per la configurazione del filtro IP è necessario definire regole per il traffico consentito e, per impostazione predefinita, negare tutto il resto del traffico per impostazione predefinita.                                                                                                     |
-| Media   | La regola di filtro IP include un intervallo IP di grandi dimensioni                   | Hub IoT     | Un intervallo di indirizzi IP di origine della regola di filtro IP è troppo grande. Le regole eccessivamente permissive possono esporre l'hub delle cose a attori malintenzionati.                                                                                       |
-| Bassa      | Abilitare i log di diagnostica nell'hub Internet                       | Hub IoT     | Abilitare i log e conservarli per un periodo massimo di un anno. Il mantenimento dei log consente di ricreare percorsi attività a scopo di analisi quando si verifica un evento imprevisto di sicurezza o la rete viene compromessa.                                       |
+| Alto     | Credenziali di autenticazione identiche usate da più dispositivi | Hub IoT     | Le credenziali di autenticazione dell'hub IoT vengono usate da più dispositivi. Ciò potrebbe indicare un dispositivo illegittimo che impersona un dispositivo legittimo. L'uso di credenziali duplicate aumenta il rischio di rappresentazione del dispositivo da parte di un attore malintenzionato. |
+| Media   | Il criterio di filtro IP predefinito deve essere negato                  | Hub IoT     | La configurazione del filtro IP deve avere regole definite per il traffico consentito e deve per impostazione predefinita negare tutto il traffico per impostazione predefinita.                                                                                                     |
+| Media   | La regola di filtro IP include un ampio intervallo IP                   | Hub IoT     | L'intervallo IP di origine della regola di filtro IP consenti è troppo grande. Le regole eccessivamente permissive possono esporre l'hub IoT ad attori malintenzionati.                                                                                       |
+| Basso      | Abilitare i log di diagnostica nell'hub IoTEnable diagnostics logs in IoT Hub                       | Hub IoT     | Abilitare i log e conservarli per un periodo massimo di un anno. La conservazione dei registri consente di ricreare i percorsi attività a scopo di indagine quando si verifica un incidente di sicurezza o la rete viene compromessa.                                       |
 |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Panoramica](overview.md) del Centro sicurezza di Azure per il servizio Internet
-- Informazioni su come [accedere ai dati di sicurezza](how-to-security-data-access.md)
-- Altre informazioni sull' [analisi di un dispositivo](how-to-investigate-device.md)
+- [Panoramica](overview.md) del Centro sicurezza di Azure per il servizio IoTAzure Security Center for IoT service Overview
+- Scopri come accedere ai dati di [sicurezza](how-to-security-data-access.md)
+- Ulteriori informazioni [sull'analisi di un dispositivo](how-to-investigate-device.md)

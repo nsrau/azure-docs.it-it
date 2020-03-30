@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: c4798fa9140f277d5383d2830eefb9bcc8d7c984
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72598320"
 ---
 # <a name="azure-media-services-community"></a>Community di Servizi multimediali di Azure  
@@ -40,7 +40,7 @@ La pagina della community di Servizi multimediali di Azure illustra i diversi mo
 
 ### <a name="twitter"></a>Twitter
 
-Usare il nome utente Twitter [@MSFTAzureMedia](https://twitter.com/MSFTAzureMedia) per contattare Microsoft o seguire gli aggiornamenti su Twitter. È possibile usare il nome utente Twitter [@AzureSupport](https://twitter.com/azuresupport) per richiedere supporto su Twitter.  
+Usa [@MSFTAzureMedia](https://twitter.com/MSFTAzureMedia) l'handle Twitter per contattarci o seguire gli aggiornamenti su Twitter. Puoi utilizzare [@AzureSupport](https://twitter.com/azuresupport) l'handle Twitter per richiedere supporto su Twitter.  
 
 ### <a name="online-forums"></a>Forum online
 
@@ -48,15 +48,15 @@ I forum seguenti possono essere usati per porre domande sui prodotti e sulle fun
 
 Attualmente MSDN è il forum principale della community del team di Servizi multimediali.
 
-[![MSDN](./media/media-services-community/msdn.png)](https://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices) 
+[![Msdn](./media/media-services-community/msdn.png)](https://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices) 
 
 Il team monitora anche le domande contrassegnate su Stack Overflow con "azure-media-services".
 
-[![StackOverflow](./media/media-services-community/stack-overflow.png)](https://stackoverflow.com/questions/tagged/azure-media-services) 
+[![Stackoverflow](./media/media-services-community/stack-overflow.png)](https://stackoverflow.com/questions/tagged/azure-media-services) 
 
-## <a name="need-help"></a>Opzioni per
+## <a name="need-help"></a>Richiesta di assistenza
 
-È possibile aprire un ticket di supporto passando alla [nuova richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
+È possibile aprire un ticket di supporto passando a [Nuova richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

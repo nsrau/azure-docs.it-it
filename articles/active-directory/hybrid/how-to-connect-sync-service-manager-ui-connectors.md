@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ae932191c7b76590ea217386dfd729add5566f87
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79261047"
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>Uso dei connettori con Sync Service Manager di Azure AD Connect
@@ -67,7 +67,7 @@ L’azione Cerca spazio connettore è utile per trovare oggetti e risolvere prob
 
 Iniziare selezionando un **ambito**. È possibile eseguire ricerche in base ai dati (RDN, DN, Ancoraggio, Sottoalbero) o allo stato dell'oggetto (tutte le altre opzioni).  
 ![Synchronization Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchscope.png)  
-Se ad esempio si esegue una ricerca nel sottoalbero, si ottengono tutti gli oggetti in una OU.  
+ Se ad esempio si esegue una ricerca nel sottoalbero, si ottengono tutti gli oggetti in una OU.  
 ![Synchronization Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchsubtree.png)  
 Da questa griglia è possibile selezionare un oggetto, selezionare le **proprietà** e [seguirlo](tshoot-connect-object-not-syncing.md) dallo spazio connettore di origine attraverso il metaverse e fino allo spazio connettore di destinazione.
 
@@ -86,7 +86,7 @@ Per risolvere il problema, aggiornare l'account utente di Active Directory Domai
 3. Selezionare il connettore di Active Directory configurato per usare l'account di Active Directory Domain Services.
 4. In Azioni selezionare **Proprietà**.
 5. Nella finestra di dialogo popup, selezionare Connetti a Foresta Active Directory:
-6. Il nome della foresta indica l'annuncio locale corrispondente.
+6. Il nome della foresta indica l'AD locale corrispondente.
 7. Il nome utente indica l'account di Active Directory Domain Services usato per la sincronizzazione.
 8. Immettere la nuova password dell'account di Active Directory Domain Services nella casella di testo Password ![Utility per la chiave di crittografia per la sincronizzazione Azure AD Connect](./media/how-to-connect-sync-service-manager-ui-connectors/key6.png)
 9. Fare clic su OK per salvare la nuova password e riavviare il servizio di sincronizzazione per rimuovere la vecchia password dalla cache in memoria.

@@ -16,10 +16,10 @@ ms.date: 03/18/2019
 ms.author: xpouyat
 ms.reviewer: anilmur;juliako
 ms.openlocfilehash: 27bdf82d4515678e28eadf07fe325860fe5df063
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79250998"
 ---
 # <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>Uso di più file di input e proprietà del componente con il codificatore Premium
@@ -299,7 +299,7 @@ Nell'esempio precedente, il nome del file video viene invitato al componente Med
 ### <a name="step-by-step-workflow-creation"></a>Procedura dettagliata di creazione del flusso di lavoro
 Di seguito sono descritti i passaggi per creare un flusso di lavoro che ha due file come input: un video e un'immagine. L'immagine verrà sovrapposta sul video.
 
-Aprire **Progettazione flussi di lavoro** e selezionare **File** > **New Workspace (Nuova area di lavoro)**  > **Transcode Blueprint**.
+Aprire **Progettazione flussi di lavoro** e selezionare **File** > **New Workspace (Nuova area di lavoro)** > **Transcode Blueprint**.
 
 Il nuovo flusso di lavoro visualizzerà 3 elementi:
 
@@ -331,7 +331,7 @@ Il passaggio successivo consiste nell'aggiungere un componente "Video Data Type 
 
 ![Strumento di aggiornamento tipo dati video e Convertitore formato video](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture12_formatconverter.png)
 
-*Strumento di aggiornamento tipo dati video e Convertitore formato video*
+*Aggiornamento e convertitore di formati per tipi di dati video*
 
 ![Layout type = Configurable Planar (Tipo layout = Planare configurabile)](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture12_formatconverter2.png)
 
@@ -468,8 +468,8 @@ Per effettuare la codifica, seguire questa procedura:
 
 ## <a name="see-also"></a>Vedere anche
 * [Introduzione alla codifica Premium in Servizi multimediali di Azure](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
-* [Come usare la codifica Premium in Servizi multimediali di Azure](https://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
-* [Codifica di contenuti su richiesta con Servizi multimediali di Azure](media-services-encode-asset.md#media-encoder-premium-workflow)
+* [Come usare la codifica Premium in Servizi multimediali di AzureHow to use Premium Encoding in Azure Media Services](https://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
+* [Codifica del contenuto su richiesta con Servizi multimediali di AzureEncoding on-demand content with Azure Media Services](media-services-encode-asset.md#media-encoder-premium-workflow)
 * [Codec e formati del flusso di lavoro Premium del codificatore multimediale](media-services-premium-workflow-encoder-formats.md)
 * [File del flusso di lavoro di esempio](https://github.com/Azure/azure-media-services-samples)
 * [Strumento di esplorazione di Servizi multimediali di Azure](https://aka.ms/amse)

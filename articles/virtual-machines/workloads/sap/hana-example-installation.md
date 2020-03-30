@@ -14,10 +14,10 @@ ms.date: 09/10/2018
 ms.author: hermannd
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 023f32fce01ffbd974b182fa89fd604e62332936
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77617217"
 ---
 # <a name="install-hana-on-sap-hana-on-azure-large-instances"></a>Installare HANA in SAP HANA di Azure (istanze Large)
@@ -39,7 +39,7 @@ Le unità di HANA in istanze Large non sono connesse direttamente a Internet. No
 
 Per eseguire questa operazione, è necessario un utente S o un altro utente SAP, che consente di accedere a SAP Marketplace.
 
-1. Eseguire l'accesso e passare a [SAP Service Marketplace](https://support.sap.com/en/index.html). Selezionare **Download Software** (Download del software)  > **Installations and Upgrades** (Installazioni e aggiornamenti)  > **By Alphabetical Index** (In ordine alfabetico). Selezionare la lettera H e quindi **SAP HANA Platform Edition** > **SAP HANA Platform Edition 2.0** > **Installation** (Installazione). Scaricare i file come illustrato nello screenshot seguente.
+1. Eseguire l'accesso e passare a [SAP Service Marketplace](https://support.sap.com/en/index.html). Selezionare **Scarica installazioni software** > **e aggiorna** > **in base all'indice alfabetico**. Selezionare quindi **Under H – SAP HANA Platform Edition** > **SAP HANA Platform Edition 2.0** > **Installation**. Scaricare i file come illustrato nello screenshot seguente.
 
    ![Screenshot dei file da scaricare](./media/hana-installation/image16_download_hana.PNG)
 

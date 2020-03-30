@@ -15,15 +15,15 @@ ms.date: 03/18/2019
 ms.author: juliako
 ms.reviewer: anilmur
 ms.openlocfilehash: e2ccce13e4ef09426d0f3a02dcbce2f330b0ead8
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79251024"
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>Formati e codec Media Encoder Standard
 
-> [!div class="op_single_selector" title1="Selezionare la versione di servizi multimediali in uso:"]
+> [!div class="op_single_selector" title1="Selezionare la versione di Servizi multimediali in uso:"]
 > * [Versione 2](media-services-media-encoder-standard-formats.md)
 > * [Versione 3](../latest/media-encoder-standard-formats.md)
 
@@ -89,7 +89,7 @@ o
 | MP3 (MPEG-1 Audio Layer 3) |Sì |
 | Windows Media Audio |Sì |
 | WAV/PCM |Sì |
-| [FLAC](https://en.wikipedia.org/wiki/FLAC)</a> |Sì |
+| [Flac](https://en.wikipedia.org/wiki/FLAC)</a> |Sì |
 | [Opus](https://go.microsoft.com/fwlink/?LinkId=822667) |Sì |
 | [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a> |Sì |
 | AMR (velocità multipla adattiva) |Sì |
@@ -103,7 +103,7 @@ La tabella seguente include l'elenco dei codec e dei formati di file supportati 
 
 | Formato file | Codec video | Codec audio |
 | --- | --- | --- |
-| MP4 <br/><br/>(multi-bitrate MP4 container inclusi) |H.264 (High, Main e Baseline Profile) |AAC-LC, HE-AAC v1, HE-AAC v2 |
+| MP4 <br/><br/> (multi-bitrate MP4 container inclusi) |H.264 (High, Main e Baseline Profile) |AAC-LC, HE-AAC v1, HE-AAC v2 |
 | MPEG2-TS |H.264 (High, Main e Baseline Profile) |AAC-LC, HE-AAC v1, HE-AAC v2 |
 
 ## <a name="media-services-learning-paths"></a>Percorsi di apprendimento di Servizi multimediali

@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
 ms.openlocfilehash: 4b402975a151d26e8f335c07930274c156ac52fb
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79272370"
 ---
 # <a name="migrate-net-solutions-for-windows-based-hdinsight-to-linux-based-hdinsight"></a>Eseguire la migrazione di soluzioni .NET per HDInsight basato su Windows a HDInsight basato su Linux
 
-[Mono (https://mono-project.com)](https://mono-project.com) viene usato per eseguire applicazioni .NET in cluster HDInsight basati su Linux. Mono consente di usare i componenti .NET, ad esempio applicazioni MapReduce con HDInsight basato su Linux. In questo documento vengono fornite informazioni su come eseguire la migrazione di soluzioni .NET create per fare funzionare i cluster HDInsight basati su Windows con Mono in HDInsight basato su Linux.
+Per eseguire applicazioni .NET, i cluster HDInsight basati su Linux usano [Mono (https://mono-project.com)](https://mono-project.com)). Mono consente di usare i componenti .NET, ad esempio applicazioni MapReduce con HDInsight basato su Linux. In questo documento vengono fornite informazioni su come eseguire la migrazione di soluzioni .NET create per fare funzionare i cluster HDInsight basati su Windows con Mono in HDInsight basato su Linux.
 
 ## <a name="mono-compatibility-with-net"></a>Compatibilità Mono con .NET
 
@@ -34,15 +34,15 @@ Per altre informazioni sulla compatibilità tra Mono e .NET, vedere il documento
 
 1. Installare [.NET Portability Analyzer](https://marketplace.visualstudio.com/items?itemName=ConnieYau.NETPortabilityAnalyzer). Durante l'istallazione, selezionare la versione di Visual Studio da usare.
 
-2. Da Visual Studio 2015, selezionare __Analizza__ > __Portability Analyzer Settings__ (Impostazioni analizzatore portabilità) e assicurarsi che __4.5__ sia selezionato nella sezione __Mono__.
+2. In Visual Studio 2015 selezionare __Analizza__ > __impostazioni analizzatore di portabilità__e assicurarsi che __4.5__ sia selezionato nella sezione __Mono.__
 
     ![4.5 selezionato nella sezione Mono per le impostazioni di analisi](./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-settings.png)
 
     Selezionare __OK__ per salvare la configurazione.
 
-3. Selezionare __Analizza__ > __Analyze Assembly Portability__ (Analizza portabilità assembly). Selezionare l'assembly che contiene la soluzione e quindi selezionare __Apri__ per iniziare l'analisi.
+3. Selezionare __Analizza__ > __portabilità assieme__. Selezionare l'assembly che contiene la soluzione e quindi selezionare __Apri__ per iniziare l'analisi.
 
-4. Una volta completata l'analisi, selezionare __Analizza__ > __View analysis reports__ (Visualizza rapporti di analisi). In __Portability Analysis Results__ (Risultati analisi di portabilità) selezionare __Open report__ (Apri rapporto) per aprire un rapporto.
+4. Al termine dell'analisi, selezionare __Analizza__ > __report analisi vista__. In __Portability Analysis Results__ (Risultati analisi di portabilità) selezionare __Open report__ (Apri rapporto) per aprire un rapporto.
 
     ![Finestra di dialogo dei risultati dell'analizzatore di portabilità](./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-results.png)
 

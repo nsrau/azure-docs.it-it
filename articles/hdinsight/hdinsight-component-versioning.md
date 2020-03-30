@@ -1,6 +1,6 @@
 ---
 title: Componenti e versioni di Apache Hadoop - Azure HDInsight
-description: Informazioni sui componenti e le versioni di Apache Hadoop in Azure HDInsight.
+description: Informazioni sui componenti e le versioni di Apache Hadoop in Azure HDInsight.Learn the Apache Hadoop components and versions in Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 02/26/2020
 ms.openlocfilehash: 2321918e9eae63a71d136753657bd7259862c2d1
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79272656"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>Componenti e versioni di Apache Hadoop disponibili in HDInsight.
 
-Informazioni su componenti e versioni dell'ecosistema [Apache Hadoop](https://hadoop.apache.org/) in Microsoft Azure HDInsight e su Enterprise Security Package. Informazioni su come controllare le versioni di componenti Hadoop in HDInsight.
+Informazioni sui componenti e le versioni dell'ecosistema [Apache Hadoop](https://hadoop.apache.org/) in Microsoft Azure HDInsight, nonché sul pacchetto di sicurezza aziendale. Informazioni su come controllare le versioni di componenti Hadoop in HDInsight.
 
 ## <a name="apache-hadoop-components-available-with-different-hdinsight-versions"></a>Componenti di Apache Hadoop disponibili con diverse versioni di HDInsight
 
-Azure HDInsight supporta più versioni cluster di Hadoop che possono essere distribuite in qualsiasi momento. A partire dal 4 aprile 2017, la versione predefinita del cluster usata da Azure HDInsight è 3,6.
+Azure HDInsight supporta più versioni cluster di Hadoop che possono essere distribuite in qualsiasi momento. A partire dal 4 aprile 2017, la versione predefinita del cluster usata da Azure HDInsight è 3.6.At of April 4, 2017, the default cluster version used by Azure HDInsight is 3.6.
 
 Le versioni del componente associate alle versioni del cluster HDInsight sono elencate nella tabella seguente:
 
@@ -44,7 +44,7 @@ Le versioni del componente associate alle versioni del cluster HDInsight sono el
 | Apache Mahout          | -             | 0.9.0+                      |
 | Apache Phoenix         | 5             | 4.7.0                       |
 | Apache Spark           | 2.3.1, 2.4    | 2.3.0, 2.2.0, 2.1.0         |
-| Apache Livy            | 0.5           | 0,4, 0,4, 0,3               |
+| Apache Livy            | 0.5           | 0.4, 0.4, 0.3               |
 | Apache Kafka           | 1.1.1, 2.1    | 1.1, 1.0 * (vedere la nota seguente) |
 | Apache Ambari          | 2.7.0         | 2.6.0                       |
 | Apache Zeppelin        | 0.8.0         | 0.7.3                       |
@@ -63,11 +63,11 @@ Per altre note sulla versione relative alle versioni più recenti di HDInsight, 
 
 ## <a name="supported-hdinsight-versions"></a>Versioni supportate di HDInsight
 
-### <a name="support-expiration-and-retirement-for-hdinsight-versions"></a>Supportare la scadenza e il ritiro per le versioni di HDInsight
+### <a name="support-expiration-and-retirement-for-hdinsight-versions"></a>Supporta la scadenza e il ritiro per le versioni HDInsightSupport expiration and retirement for HDInsight versions
 
-La **scadenza del supporto** indica che Microsoft non fornirà più il supporto per la versione specificata di HDInsight e non sarà più disponibile tramite il portale di Azure per la creazione del cluster. Tuttavia, queste versioni possono comunque essere create usando l'interfaccia della riga di comando di Azure o i vari SDK. 
+**La scadenza del supporto** significa che Microsoft non fornirà più il supporto per la versione di HDInsight specificata e non sarà più disponibile tramite il portale di Azure per la creazione di cluster. Tuttavia, queste versioni possono ancora essere create usando l'interfaccia della riga di comando di Azure o i vari SDK. 
 
-Il **ritiro** di una versione di HDInsight significa che i cluster esistenti continueranno a essere eseguiti così come sono. I nuovi cluster di questa versione, tuttavia, non possono essere creati con alcun mezzo (inclusi CLI e SDK). Anche altre funzionalità del piano di controllo, ad esempio la scalabilità manuale e la scalabilità automatica, potrebbero non funzionare dopo il ritiro della versione. Il supporto non è disponibile per le versioni ritirate.
+**Il ritiro** di una versione di HDInsight significa che i cluster esistenti continueranno a essere eseguiti così come sono. Tuttavia, i nuovi cluster di questa versione non possono essere creati con qualsiasi mezzo (inclusi CLI e SDK). Anche altre funzionalità del piano di controllo (ad esempio il ridimensionamento manuale e la scalabilità automatica) potrebbero non funzionare dopo il ritiro della versione. Il supporto non è disponibile per le versioni ritirate.
 
 Le tabelle seguenti elencano le versioni di HDInsight. Se note, vengono indicate anche la data di scadenza del supporto e la data di ritiro.
 
@@ -75,12 +75,12 @@ Le tabelle seguenti elencano le versioni di HDInsight. Se note, vengono indicate
 
 La tabella seguente elenca le versioni di HDInsight disponibili nel portale di Azure nonché altri metodi di distribuzione come PowerShell e .NET SDK.
 
-| Versione HDInsight | Sistema operativo della macchina virtuale | Data di rilascio | Data di scadenza del supporto | Data di ritiro | Disponibilità elevata |  Disponibilità nel portale di Azure |
+| Versione HDInsight | Sistema operativo della macchina virtuale | Data di rilascio | Data di scadenza del supporto | Data di ritiro | Disponibilità elevata |  Disponibilità nel portale di AzureAvailability in the Azure portal |
 | --- | --- | --- | --- | --- | --- | --- |
 | HDInsight 4.0 |Ubuntu 16.0.4 LTS |24 settembre 2018 | | |Sì |Sì |
 | HDInsight 3.6 |Ubuntu 16.0.4 LTS |4 aprile 2017 | 31 dicembre 2020 |31 dicembre 2020 |Sì |Sì |
 
-Il supporto di Spark 2,1, 2,2 & Kafka 1,0 scadrà il 30 giugno 2020.
+Spark 2.1, 2.2 & supporto di Kafka 1.0 scadrà il 30 giugno 2020.
 
 > [!NOTE]  
 > Se il supporto per una versione è scaduto, potrebbe non essere disponibile tramite il portale di Microsoft Azure. Tuttavia, le versioni dei cluster continueranno a essere disponibili usando il parametro `Version` nel comando [New-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) di Windows PowerShell e .NET SDK fino alla data di ritiro della versione.
@@ -144,7 +144,7 @@ Attualmente solo i tipi di cluster seguenti supportano il Pacchetto di sicurezza
 
 Enterprise Security Package supporta l'uso di Azure Data Lake Storage come risorsa di archiviazione sia primaria che aggiuntiva.
 
-### <a name="pricing-and-service-level-agreement"></a>Prezzi e contratto di servizio
+### <a name="pricing-and-service-level-agreement"></a>Accordo sui prezzi e sul livello di servizio
 
 Per informazioni su prezzi e contratto di servizio per il Pacchetto di sicurezza aziendale, vedere [Prezzi di HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
@@ -155,7 +155,7 @@ Il Contratto di servizio (SLA) viene definito come _finestra di supporto_. Il te
 - Formula 1: aggiungere 180 giorni alla data di rilascio del cluster HDInsight versione X.
 - Formula 2: aggiungere 90 giorni alla data di rilascio del cluster HDInsight versione X+1 nel portale di Azure.
 
-La _Data di ritiro_ è la data dopo la quale non è possibile creare la versione del cluster in HDInsight. A partire dal 31 luglio 2017, non è possibile ridimensionare un cluster HDInsight dopo la data di ritiro.
+La data di _ritiro_ è la data dopo la quale non è possibile creare la versione del cluster in HDInsight.The retirement date is the date after which the cluster version can't be created on HDInsight. A partire dal 31 luglio 2017, non è possibile ridimensionare un cluster HDInsight dopo la data di pensionamento.
 
 ## <a name="hortonworks-release-notes-associated-with-hdinsight-versions"></a>Note sulla versione di Hortonworks associate alle versioni di HDInsight
 
@@ -168,17 +168,17 @@ La sezione fornisce collegamenti alle note sulla versione di Hortonworks Data Pl
 
   * Le [note sulla versione di Apache Storm](https://storm.apache.org/2015/11/05/storm0100-released.html) sono disponibili nel sito Web di Apache.
   * Le [note sulla versione di Apache Hive](https://issues.apache.org/jira/secure/ReleaseNote.jspa?version=12332384&styleName=Text&projectId=12310843) sono disponibili nel sito Web di Apache.
-* Il cluster HDInsight versione 3,2 usa una distribuzione Hadoop basata su [Hortonworks Data Platform 2,2][hdp-2-2].
+* Il cluster HDInsight versione 3.2 usa una distribuzione Hadoop basata su [Hortonworks Data Platform 2.2][hdp-2-2].
 
   * Note sulla versione per componenti specifici di Apache sono disponibili come segue: [Hive 0.14](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310843&version=12326450), [Pig 0.14](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310730&version=12326954), [HBase 0.98.4](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310753&version=12326810), [Phoenix 4.2.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12315120&version=12327581), [M/R 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310941&version=12327180), [HDFS 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310942&version=12327181), [YARN 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12313722&version=12327197), [Common](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310240&version=12327179), [Tez 0.5.2](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12314426&version=12328742), [Ambari 2.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12312020&version=12327486), [Storm 0.9.3](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12314820&version=12327112) e [Oozie 4.1.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?version=12324960&projectId=12311620).
-* Il cluster HDInsight versione 3,1 USA una distribuzione Hadoop basata su [Hortonworks Data Platform 2.1.7][hdp-2-1-7]. I cluster HDInsight 3,1 creati prima del 7 novembre 2014 sono basati su [Hortonworks Data Platform 2.1.1][hdp-2-1-1].
-* Il cluster HDInsight versione 3,0 usa una distribuzione Hadoop basata su [Hortonworks Data Platform 2,0][hdp-2-0-8].
-* Il cluster HDInsight versione 2,1 USA una distribuzione Hadoop basata su [Hortonworks Data Platform 1,3][hdp-1-3-0].
-* Il cluster HDInsight versione 1,6 usa una distribuzione Hadoop basata su [Hortonworks Data Platform 1,1][hdp-1-1-0].
+* Il cluster HDInsight versione 3.1 usa una distribuzione Hadoop basata su [Hortonworks Data Platform 2.1.7][hdp-2-1-7]. I cluster HDInsight 3.1 creati prima del 7 novembre 2014 sono basati su [Hortonworks Data Platform 2.1.1][hdp-2-1-1].
+* Il cluster HDInsight versione 3.0 usa una distribuzione Hadoop basata su [Hortonworks Data Platform 2.0][hdp-2-0-8].
+* Il cluster HDInsight versione 2.1 usa una distribuzione Hadoop basata su [Hortonworks Data Platform 1.3][hdp-1-3-0].
+* Il cluster HDInsight versione 1.6 usa una distribuzione Hadoop basata su [Hortonworks Data Platform 1.1][hdp-1-1-0].
 
 ## <a name="default-node-configuration-and-virtual-machine-sizes-for-clusters"></a>Configurazione del nodo predefinito e dimensioni della macchina virtuale per i cluster
 
-Per altre informazioni sugli SKU di macchine virtuali da selezionare per il cluster, vedere [i dettagli di configurazione del cluster HDInsight di Azure](hdinsight-supported-node-configuration.md).
+Per altre informazioni su quali SKU di macchine virtuali selezionare per il cluster, vedere Dettagli di configurazione del cluster Azure HDInsight.For more information on which virtual machine SKUs to select for your cluster, see [Azure HDInsight cluster configuration details.](hdinsight-supported-node-configuration.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,5 +1,5 @@
 ---
-title: Usare il portale per abilitare Desktop remoto per un ruolo
+title: Utilizzare il portale per abilitare Desktop remoto per un ruolo
 titleSuffix: Azure Cloud Services
 description: Come configurare l'applicazione del servizio cloud di Azure per consentire le connessioni Desktop remoto
 services: cloud-services
@@ -10,17 +10,17 @@ ms.topic: article
 ms.date: 11/28/2016
 ms.author: memccror
 ms.openlocfilehash: d65f4b55be317234c10a0e90cfe413d9e38a6a90
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79247462"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services"></a>Impostare una connessione Desktop remoto per un ruolo nei servizi cloud di Azure
 
 > [!div class="op_single_selector"]
-> * [Azure portal](cloud-services-role-enable-remote-desktop-new-portal.md)
-> * [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
+> * [Portale di Azure](cloud-services-role-enable-remote-desktop-new-portal.md)
+> * [Powershell](cloud-services-role-enable-remote-desktop-powershell.md)
 > * [Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md)
 
 Desktop remoto consente di accedere al desktop di un ruolo in esecuzione in Azure. È possibile usare una connessione Desktop remoto per risolvere e diagnosticare i problemi dell'applicazione mentre è in esecuzione.

@@ -1,45 +1,45 @@
 ---
-title: Panoramica dell'agente di applicazione Azure Insights | Microsoft Docs
-description: Panoramica dell'agente di Application Insights. Monitora le prestazioni del sito Web senza ridistribuire il sito Web. Funziona con le app Web ASP.NET ospitate in locale, in macchine virtuali o in Azure.
+title: Panoramica dell'agente di Azure Application Insights - Documenti Microsoft
+description: Panoramica dell'agente di Application Insights. Monitorare le prestazioni del sito Web senza ridistribuire il sito Web. Funziona con ASP.NET app Web ospitate in locale, nelle macchine virtuali o in Azure.Works with a web apps hosted on-premises, in VMs, or on Azure.
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 09/16/2019
 ms.openlocfilehash: 4a240bc62816a46bc37108777a8b081b74047738
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79275711"
 ---
-# <a name="deploy-azure-monitor-application-insights-agent-for-on-premises-servers"></a>Distribuire l'agente di Application Insights di monitoraggio di Azure per i server locali
+# <a name="deploy-azure-monitor-application-insights-agent-for-on-premises-servers"></a>Distribuire Azure Monitor Application Insights Agent per i server localiDeploy Azure Monitor Application Insights Agent for on-premises servers
 
 > [!IMPORTANT]
-> Queste linee guida sono consigliate per le distribuzioni di Application Insights Agent locali e non di Azure. Ecco l'approccio consigliato per le [distribuzioni di macchine virtuali di Azure e set di scalabilità di macchine virtuali](https://docs.microsoft.com/azure/azure-monitor/app/azure-vm-vmss-apps).
+> Queste indicazioni sono consigliate per le distribuzioni cloud locali e non di Azure dell'agente Application Insights.This guidance is recommended for On-Premises and non-Azure cloud deployments of Application Insights Agent. Ecco l'approccio consigliato per le distribuzioni di set di scalabilità di macchine virtuali e macchine virtuali di Azure.Here's the recommended approach for [Azure virtual machine and virtual machine scale set deployments](https://docs.microsoft.com/azure/azure-monitor/app/azure-vm-vmss-apps).
 
-Application Insights Agent (denominato in precedenza Status Monitor v2) è un modulo di PowerShell pubblicato nella [PowerShell Gallery](https://www.powershellgallery.com/packages/Az.ApplicationMonitor).
-Sostituisce [Status Monitor](https://docs.microsoft.com/azure/azure-monitor/app/monitor-performance-live-website-now).
-I dati di telemetria vengono inviati all'portale di Azure, in cui è possibile [monitorare](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) l'app.
+Application Insights Agent (precedentemente denominato Status Monitor V2) è un modulo di PowerShell pubblicato in [PowerShell Gallery](https://www.powershellgallery.com/packages/Az.ApplicationMonitor).
+Sostituisce [Il Monitor di stato](https://docs.microsoft.com/azure/azure-monitor/app/monitor-performance-live-website-now).
+La telemetria viene inviata al portale di Azure, in cui è possibile [monitorare](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) l'app.
 
 > [!NOTE]
-> Il modulo supporta attualmente solo la strumentazione senza codice delle app Web .NET ospitate con IIS. Usare un SDK per instrumentare applicazioni ASP.NET Core, Java e node. js.
+> Il modulo supporta attualmente solo la strumentazione senza codice delle app Web .NET ospitate con IIS. Utilizzare un SDK per instrumentare ASP.NET applicazioni Core, Java e Node.js.
 
 ## <a name="powershell-gallery"></a>PowerShell Gallery
 
-Application Insights Agent è disponibile qui: https://www.powershellgallery.com/packages/Az.ApplicationMonitor.
+Application Insights Agent si https://www.powershellgallery.com/packages/Az.ApplicationMonitortrova qui: .
 
 ![PowerShell Gallery](https://img.shields.io/powershellgallery/v/Az.ApplicationMonitor.svg?color=Blue&label=Current%20Version&logo=PowerShell&style=for-the-badge)
 
 
 ## <a name="instructions"></a>Istruzioni
-- Vedere le [istruzioni introduttive](status-monitor-v2-get-started.md) per iniziare a usare esempi di codice conciso.
-- Vedere le [istruzioni dettagliate](status-monitor-v2-detailed-instructions.md) per approfondimenti su come iniziare.
+- Vedere le [istruzioni introduttive](status-monitor-v2-get-started.md) per iniziare con esempi di codice concisi.
+- Consulta le [istruzioni dettagliate](status-monitor-v2-detailed-instructions.md) per un'immersione approfondita su come iniziare.
 
-## <a name="powershell-api-reference"></a>Informazioni di riferimento sulle API di PowerShell
+## <a name="powershell-api-reference"></a>Informazioni di riferimento sulle API di PowerShellPowerShell API reference
 - [Disable-ApplicationInsightsMonitoring](status-monitor-v2-api-disable-monitoring.md)
 - [Disable-InstrumentationEngine](status-monitor-v2-api-disable-instrumentation-engine.md)
 - [Enable-ApplicationInsightsMonitoring](status-monitor-v2-api-enable-monitoring.md)
-- [Enable-InstrumentationEngine](status-monitor-v2-api-enable-instrumentation-engine.md)
+- [Enable-InstrumentationEngine (Abilitazione-InstrumentationEngine)](status-monitor-v2-api-enable-instrumentation-engine.md)
 - [Get-ApplicationInsightsMonitoringConfig](status-monitor-v2-api-get-config.md)
 - [Get-ApplicationInsightsMonitoringStatus](status-monitor-v2-api-get-status.md)
 - [Set-ApplicationInsightsMonitoringConfig](status-monitor-v2-api-set-config.md)
@@ -52,22 +52,22 @@ Application Insights Agent è disponibile qui: https://www.powershellgallery.com
 
 ## <a name="faq"></a>Domande frequenti
 
-- Application Insights agente supporta le installazioni proxy?
+- Application Insights Agent supporta le installazioni proxy?
 
-  *Sì*. Sono disponibili diversi modi per scaricare Application Insights Agent. Se il computer dispone di accesso a Internet, è possibile eseguire l'onboarding nel PowerShell Gallery utilizzando `-Proxy` parametri.
-È anche possibile scaricare manualmente il modulo e installarlo nel computer o usarlo direttamente.
-Ognuna di queste opzioni è descritta nelle [istruzioni dettagliate](status-monitor-v2-detailed-instructions.md).
+  *Sì*. Esistono diversi modi per scaricare Application Insights Agent.There are multiple ways to download Application Insights Agent. Se il computer dispone dell'accesso a Internet, è `-Proxy` possibile eseguire l'onboarding a PowerShell Gallery usando i parametri.
+È inoltre possibile scaricare manualmente il modulo e installarlo sul computer o utilizzarlo direttamente.
+Ognuna di queste opzioni è descritta nelle [istruzioni dettagliate.](status-monitor-v2-detailed-instructions.md)
 
-- Status Monitor V2 supporta le applicazioni ASP.NET Core?
+- Status Monitor v2 supporta le applicazioni ASP.NET Core?
 
-  *No*. Per istruzioni sull'abilitazione del monitoraggio delle applicazioni ASP.NET Core, vedere [Application Insights per ASP.NET Core applicazioni](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core). Non è necessario installare StatusMonitor per un'applicazione ASP.NET Core. Questo vale anche se ASP.NET Core applicazione è ospitata in IIS.
+  *No*. Per istruzioni sull'abilitazione del monitoraggio delle applicazioni ASP.NET Core, vedere [Application Insights per le applicazioni ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core). Non è necessario installare StatusMonitor per un'applicazione ASP.NET Core.There's no need to install StatusMonitor for an ASP.NET Core application. Questo vale anche se ASP.NET'applicazione Core è ospitata in IIS.
 
-- Ricerca per categorie verificare l'esito positivo dell'abilitazione?
+- Come è possibile verificare che l'abilitazione sia stata eseguita correttamente?
 
-  - Il cmdlet [Get-ApplicationInsightsMonitoringStatus](status-monitor-v2-api-get-status.md) può essere usato per verificare che l'abilitazione sia stata completata.
-  - È consigliabile usare le [metriche in tempo reale](https://docs.microsoft.com/azure/azure-monitor/app/live-stream) per determinare rapidamente se l'app invia dati di telemetria.
+  - Il cmdlet [Get-ApplicationInsightsMonitoringStatus](status-monitor-v2-api-get-status.md) può essere utilizzato per verificare che l'abilitazione sia stata eseguita correttamente.
+  - È consigliabile usare [metriche dinamiche](https://docs.microsoft.com/azure/azure-monitor/app/live-stream) per determinare rapidamente se l'app invia dati di telemetria.
 
-  - È anche possibile usare [log Analytics](../log-query/get-started-portal.md) per elencare tutti i ruoli cloud che inviano attualmente i dati di telemetria:
+  - È anche possibile usare Log Analytics per elencare tutti i ruoli cloud che attualmente inviano dati di telemetria:You can also use [Log Analytics](../log-query/get-started-portal.md) to list all the cloud roles currently sending telemetry:
       ```Kusto
       union * | summarize count() by cloud_RoleName, cloud_RoleInstance
       ```
@@ -77,13 +77,13 @@ Ognuna di queste opzioni è descritta nelle [istruzioni dettagliate](status-moni
 Visualizzare i dati di telemetria:
 
 * [Esplora le metriche](../../azure-monitor/app/metrics-explorer.md) per monitorare le prestazioni e l'utilizzo.
-* Eseguire [ricerche negli eventi e nei log](../../azure-monitor/app/diagnostic-search.md) per diagnosticare i problemi.
-* [Usare Analytics](../../azure-monitor/app/analytics.md) per query più avanzate.
+* [Cerca eventi e log](../../azure-monitor/app/diagnostic-search.md) per diagnosticare i problemi.
+* [Usa Analytics](../../azure-monitor/app/analytics.md) per query più avanzate.
 * [Creare dashboard](../../azure-monitor/app/overview-dashboard.md).
 
 Aggiungere altri dati di telemetria:
 
 * [Creare test Web](monitor-web-app-availability.md) per assicurarsi che il sito rimanga attivo.
-* Aggiungere i dati di [telemetria del client Web](../../azure-monitor/app/javascript.md) per visualizzare le eccezioni dal codice della pagina Web e per abilitare le chiamate di traccia.
-* [Aggiungere il Application Insights SDK al codice per](../../azure-monitor/app/asp-net.md) poter inserire le chiamate di traccia e log.
+* [Aggiungere dati di telemetria del client Web](../../azure-monitor/app/javascript.md) per visualizzare le eccezioni dal codice della pagina Web e abilitare le chiamate di traccia.
+* [Aggiungere Application Insights SDK al codice](../../azure-monitor/app/asp-net.md) in modo da poter inserire chiamate di traccia e log.
 

@@ -1,15 +1,15 @@
 ---
-title: Simulare errori nei microservizi di Azure
+title: Simulare gli errori nei microservizi di AzureSimulate failures in Azure microservices
 description: In questo articolo vengono illustrate le azioni di Testabilità trovate in Infrastruttura di servizi di Microsoft Azure.
 author: motanv
 ms.topic: conceptual
 ms.date: 06/07/2017
 ms.author: motanv
 ms.openlocfilehash: 4bdb00eec38addc0c9f88eba8b73185ec5721277
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79282042"
 ---
 # <a name="testability-actions"></a>Azioni di Testabilità

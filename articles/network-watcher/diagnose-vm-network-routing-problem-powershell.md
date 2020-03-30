@@ -1,5 +1,5 @@
 ---
-title: Diagnosticare un problema di routing di rete della macchina virtuale-Azure PowerShell
+title: Diagnosticare un problema di routing di rete VM - Azure PowerShellDiagnose a VM network routing problem - Azure PowerShell
 titleSuffix: Azure Network Watcher
 description: In questo articolo si apprenderà come diagnosticare un problema di routing di rete di una macchina virtuale usando la funzionalità Hop successivo di Azure Network Watcher.
 services: network-watcher
@@ -18,10 +18,10 @@ ms.date: 04/20/2018
 ms.author: damendo
 ms.custom: ''
 ms.openlocfilehash: b5a636471eab188dc8648761afedd81694331953
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76834706"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-powershell"></a>Diagnosticare un problema di routing di rete di una macchina virtuale - Azure PowerShell
@@ -34,13 +34,13 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare PowerShell in locale, questo articolo richiede il modulo Azure PowerShell `Az`. Per trovare la versione installata, eseguire `Get-Module -ListAvailable Az`. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-Az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzAccount` per creare una connessione con Azure.
+Se si sceglie di installare e usare PowerShell in `Az` locale, questo articolo richiede il modulo Di Azure PowerShell.If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module. Per trovare la versione installata, eseguire `Get-Module -ListAvailable Az`. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-Az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzAccount` per creare una connessione con Azure.
 
 
 
-## <a name="create-a-vm"></a>Creare una VM
+## <a name="create-a-vm"></a>Creare una macchina virtuale
 
-Prima di poter creare una macchina virtuale, è necessario creare un gruppo di risorse per contenerla. Creare un gruppo di risorse con [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella località *stati uniti orientali*.
+Prima di poter creare una macchina virtuale, è necessario creare un gruppo di risorse per contenerla. Creare un gruppo di risorse con [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nel percorso *eastus.*
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name myResourceGroup -Location EastUS
@@ -82,7 +82,7 @@ $networkWatcher = New-AzNetworkWatcher `
 
 ### <a name="use-next-hop"></a>Usare la funzionalità Hop successivo
 
-Azure crea automaticamente le route per le destinazioni predefinite. È possibile creare route personalizzate per eseguire l'override delle route predefinite. In alcuni casi, le route personalizzate possono generare un errore di comunicazione. Per testare il routing da una macchina virtuale, usare il comando [Get-AzNetworkWatcherNextHop](/powershell/module/az.network/get-aznetworkwatchernexthop) per determinare il successivo hop di routing quando il traffico è destinato a un indirizzo specifico.
+Azure crea automaticamente le route per le destinazioni predefinite. È possibile creare route personalizzate per eseguire l'override delle route predefinite. In alcuni casi, le route personalizzate possono generare un errore di comunicazione. Per testare il routing da una macchina virtuale, usare il comando [Get-AzNetworkWatcherNextHop](/powershell/module/az.network/get-aznetworkwatchernexthop) per determinare l'hop di routing successivo quando il traffico è destinato a un indirizzo specifico.
 
 Testare le comunicazioni in uscita dalla macchina virtuale a uno degli indirizzi IP di www.bing.com:
 
@@ -110,7 +110,7 @@ L'output indica che **None** è **NextHopType** e che **RouteTableId** è **Syst
 
 ## <a name="view-details-of-a-route"></a>Visualizzare i dettagli di una route
 
-Per analizzare ulteriormente il routing, esaminare le route valide per l'interfaccia di rete con il comando [Get-AzEffectiveRouteTable](/powershell/module/az.network/get-azeffectiveroutetable) :
+Per analizzare ulteriormente il routing, esaminare le route valide per l'interfaccia di rete con il comando [Get-AzEffectiveRouteTable:To](/powershell/module/az.network/get-azeffectiveroutetable) analyze routing further, review the effective routes for the network interface with the Get-AzEffectiveRouteTable command:
 
 ```azurepowershell-interactive
 Get-AzEffectiveRouteTable `
@@ -131,7 +131,7 @@ Name State  Source  AddressPrefix           NextHopType NextHopIpAddress
      Active Default {172.16.0.0/12}         None        {}              
 ```
 
-Come si può osservare nell'output precedente, la route con **AddressPrefix** **0.0.0.0/0** instrada tutto il traffico non destinato agli indirizzi all'interno dei prefissi degli indirizzi dell'altra route con hop successivo **Internet**. Come si può notare sempre nell'output, nonostante vi sia una route predefinita per il prefisso 172.16.0.0/12, che include l'indirizzo 172.31.0.100, il valore di **nextHopType** è **None**. Azure crea una route predefinita per 172.16.0.0/12, ma non specifica alcun tipo di hop successivo fino a quando non c'è un motivo per farlo. Se, ad esempio, è stato aggiunto l'intervallo di indirizzi 172.16.0.0/12 allo spazio di indirizzi della rete virtuale, Azure modifica **nextHopType** in **Rete virtuale** per la route. Il segno di spunta indica **Rete virtuale** come **nextHopType**.
+Come si può osservare nell'output precedente, la route con **AddressPrefix****0.0.0.0/0** instrada tutto il traffico non destinato agli indirizzi all'interno dei prefissi degli indirizzi dell'altra route con hop successivo **Internet**. Come si può notare sempre nell'output, nonostante vi sia una route predefinita per il prefisso 172.16.0.0/12, che include l'indirizzo 172.31.0.100, il valore di **nextHopType** è **None**. Azure crea una route predefinita per 172.16.0.0/12, ma non specifica alcun tipo di hop successivo fino a quando non c'è un motivo per farlo. Se, ad esempio, è stato aggiunto l'intervallo di indirizzi 172.16.0.0/12 allo spazio di indirizzi della rete virtuale, Azure modifica **nextHopType** in **Rete virtuale** per la route. Il segno di spunta indica **Rete virtuale** come **nextHopType**.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

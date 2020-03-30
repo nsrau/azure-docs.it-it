@@ -1,5 +1,5 @@
 ---
-title: Spostare dati da origini OData
+title: Spostare dati da origini ODataMove data from OData sources
 description: Informazioni su come spostare i dati da origini OData usando Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,13 +13,13 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 95f92d4e5616d7754c355610685701a8e089b84e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79265909"
 ---
-# <a name="move-data-from-an-odata-source-using-azure-data-factory"></a>Spostare i dati da un'origine OData usando Azure Data Factory
+# <a name="move-data-from-an-odata-source-using-azure-data-factory"></a>Spostare dati da un'origine OData usando Azure Data FactoryMove data From an OData source using Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](data-factory-odata-connector.md)
 > * [Versione 2 (corrente)](../connector-odata.md)
@@ -28,9 +28,9 @@ ms.locfileid: "79265909"
 > Le informazioni di questo articolo sono valide per la versione 1 di Data Factory. Se si usa la versione corrente del servizio Data Factory, vedere le informazioni sul [connettore OData nella versione 2](../connector-odata.md).
 
 
-Questo articolo illustra come usare l'attività di copia in Azure Data Factory per spostare i dati da un'origine OData. Si basa sull'articolo relativo alle [attività di spostamento dei dati](data-factory-data-movement-activities.md), che offre una panoramica generale dello spostamento dei dati con l'attività di copia.
+Questo articolo illustra come usare l'attività di copia in Azure Data Factory per spostare i dati da un'origine OData. Si basa sull'articolo [Attività di spostamento dati,](data-factory-data-movement-activities.md) che presenta una panoramica generale dello spostamento dei dati con l'attività di copia.
 
-È possibile copiare dati da un'origine OData a qualsiasi archivio dati di sink supportato. Per un elenco degli archivi dati supportati come sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Data Factory supporta attualmente solo lo spostamento dei dati da un'origine OData ad altri archivi dati, non da altri archivi dati a un'origine OData.
+È possibile copiare dati da un'origine OData a qualsiasi archivio dati di sink supportato. Per un elenco degli archivi dati supportati come sink dall'attività di copia, vedere la tabella [Archivi dati supportati.](data-factory-data-movement-activities.md#supported-data-stores-and-formats) Data Factory supporta attualmente solo lo spostamento dei dati da un'origine OData ad altri archivi dati, non da altri archivi dati a un'origine OData.
 
 ## <a name="supported-versions-and-authentication-types"></a>Versioni supportate e tipi di autenticazione
 Questo connettore OData supporta OData versione 3.0 e 4.0 e la copia dei dati dalle origini OData cloud e locali. Nel secondo caso, è necessario installare il gateway di gestione dati. Vedere l’articolo [Spostare dati tra cloud e locale](data-factory-move-data-between-onprem-and-cloud.md) per informazioni dettagliate sui Gateway di Gestione dati.
@@ -43,15 +43,15 @@ Sono supportati i tipi di autenticazione seguenti:
 ## <a name="getting-started"></a>Introduzione
 È possibile creare una pipeline con l'attività di copia che sposta i dati da un'origine OData usando diversi strumenti/API.
 
-Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
+Il modo più semplice per creare una pipeline consiste nell'utilizzare la **Copia guidata**. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
 
-È anche possibile usare gli strumenti seguenti per creare una pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager modello**, **API .NET**e **API REST**. Vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia.
+È inoltre possibile utilizzare gli strumenti seguenti per creare una pipeline: **Visual Studio**, **Azure PowerShell**, **modello Azure Resource Manager**, **API .NET**ed **API REST**. Vedere [Esercitazione sull'attività](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) di copia per istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia.
 
 Se si usano gli strumenti o le API, eseguire la procedura seguente per creare una pipeline che sposta i dati da un archivio dati di origine a un archivio dati sink:
 
 1. Creare i **servizi collegati** per collegare gli archivi di dati di input e output alla data factory.
-2. Creare i **set di dati** per rappresentare i dati di input e di output per le operazioni di copia.
-3. Creare una **pipeline** con un'attività di copia che accetti un set di dati come input e un set di dati come output.
+2. Creare **set di dati** per rappresentare i dati di input e output per l'operazione di copia.
+3. Creare una **pipeline** con un'attività di copia che accetta un set di dati come input e un set di dati come output.
 
 Quando si usa la procedura guidata, le definizioni JSON per queste entità di data factory (servizi, set di dati e pipeline collegati) vengono create automaticamente. Quando si usano gli strumenti o le API, ad eccezione delle API .NET, usare il formato JSON per definire le entità di data factory.  Per un esempio con definizioni JSON per entità di data factory utilizzate per copiare dati da un'origine OData, vedere la sezione [Esempio JSON: Copiare dati da un'origine OData al BLOB di Azure](#json-example-copy-data-from-odata-source-to-azure-blob) di questo articolo.
 
@@ -62,13 +62,13 @@ La tabella seguente contiene le descrizioni degli elementi JSON specifici del se
 
 | Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
-| type |La proprietà type deve essere impostata su: **OData** |Sì |
+| type |La proprietà type deve essere impostata su: **ODataThe** type property must be set to: OData |Sì |
 | url |URL del servizio OData. |Sì |
 | authenticationType |Tipo di autenticazione usato per connettersi all'origine OData. <br/><br/> Per OData in cloud, i valori possibili sono Anonymous, Basic e OAuth. Si noti che Azure Data Factory attualmente supporta solo OAuth basato su Azure Active Directory). <br/><br/> Per OData locale, i valori possibili sono Anonima, Di base e Windows. |Sì |
 | username |Specificare il nome utente se si usa l'autenticazione di base. |Sì (solo se si usa l'autenticazione di base) |
 | password |Specificare la password per l'account utente specificato per il nome utente. |Sì (solo se si usa l'autenticazione di base) |
 | authorizedCredential |Se si usa OAuth, fare clic sul pulsante **Autorizza** nella procedura guidata di copia di Data Factory o nell'Editor e immettere le credenziali. Il valore di questa proprietà viene quindi generato automaticamente. |Sì (solo se si usa l'autenticazione OAuth) |
-| gatewayName |Nome del gateway che il servizio Data Factory deve usare per connettersi al servizio OData locale. Specificare solo se si copiano dati da un'origine OData locale. |No |
+| gatewayName |Nome del gateway che il servizio Data Factory deve usare per connettersi al servizio OData locale. Specificare solo se si copiano dati dall'origine OData locale. |No |
 
 ### <a name="using-basic-authentication"></a>Uso dell'autenticazione di base
 ```json
@@ -143,7 +143,7 @@ La tabella seguente contiene le descrizioni degli elementi JSON specifici del se
 ## <a name="dataset-properties"></a>Proprietà del set di dati
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sulla [creazione di set di dati](data-factory-create-datasets.md). Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati, ad esempio Azure SQL, BLOB di Azure, tabelle di Azure e così via.
 
-La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione dei dati nell'archivio dati. La sezione typeProperties per il set di dati di tipo **ODataResource** , che include il set di dati OData, presenta le proprietà seguenti
+La sezione **typeProperties** è diversa per ogni tipo di set di dati e fornisce informazioni sulla posizione dei dati nell'archivio dati. La sezione typeProperties per il set di dati di tipo **ODataResource** , che include il set di dati OData, presenta le proprietà seguenti
 
 | Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
@@ -190,13 +190,13 @@ Quando si spostano dati da OData, vengono usati i mapping seguenti tra i tipi OD
 > Tipi di dati OData complessi. Gli oggetti, ad esempio, non sono supportati.
 
 ## <a name="json-example-copy-data-from-odata-source-to-azure-blob"></a>Esempio JSON: Copiare dati da un'origine OData al BLOB di Azure
-Questo esempio fornisce le definizioni JSON di esempio che è possibile usare per creare una pipeline usando [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Illustrano come copiare dati da un'origine OData in un archivio BLOB di Azure. Tuttavia, i dati possono essere copiati in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando l'attività di copia in Azure Data Factory. L'esempio include le entità della data factory seguenti:
+In questo esempio vengono fornite definizioni JSON di esempio che è possibile usare per creare una pipeline tramite [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell.](data-factory-copy-activity-tutorial-using-powershell.md) Illustrano come copiare dati da un'origine OData in un archivio BLOB di Azure. Tuttavia, i dati possono essere copiati in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando l'attività di copia in Azure Data Factory. L'esempio include le entità della data factory seguenti:
 
 1. Un servizio collegato di tipo [OData](#linked-service-properties).
 2. Un servizio collegato di tipo [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
 3. Un [set di dati](data-factory-create-datasets.md) di input di tipo [ODataResource](#dataset-properties).
-4. Un [set di dati](data-factory-create-datasets.md) di output di tipo [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
-5. Una [pipeline](data-factory-create-pipelines.md) con attività di copia che usa [RelationalSource](#copy-activity-properties) e [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
+4. Un [set](data-factory-create-datasets.md) di dati di output di tipo [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
+5. Pipeline [pipeline](data-factory-create-pipelines.md) con attività di copia che usa [RelationalSource](#copy-activity-properties) e [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
 L'esempio copia i dati dall'esecuzione di query su un'origine OData a un BLOB di Azure ogni ora. Le proprietà JSON usate in questi esempi sono descritte nelle sezioni riportate dopo gli esempi.
 
@@ -217,7 +217,7 @@ L'esempio copia i dati dall'esecuzione di query su un'origine OData a un BLOB di
 }
 ```
 
-**Servizio collegato Archiviazione di Azure:**
+**Servizio collegato Archiviazione di Azure:Azure Storage linked service:**
 
 ```json
 {
@@ -231,7 +231,7 @@ L'esempio copia i dati dall'esecuzione di query su un'origine OData a un BLOB di
 }
 ```
 
-**Set di dati di input OData:**
+**Set di dati di input OData:OData input dataset:**
 
 Impostando "external" su "true" si comunica al servizio Data Factory che il set di dati è esterno alla data factory e non è prodotto da un'attività al suo interno.
 
@@ -263,7 +263,7 @@ Impostando "external" su "true" si comunica al servizio Data Factory che il set 
 
 La specifica di **path** nella definizione del set di dati è facoltativa.
 
-**Set di dati di output del BLOB di Azure:**
+**Set di dati di output BLOB di Azure:Azure Blob output dataset:**
 
 I dati vengono scritti in un nuovo BLOB ogni ora (frequenza: ora, intervallo: 1). Il percorso della cartella per il BLOB viene valutato dinamicamente in base all'ora di inizio della sezione in fase di elaborazione. Il percorso della cartella usa le parti anno, mese, giorno e ora dell'ora di inizio.
 
@@ -387,7 +387,7 @@ Quando i dati vengono spostati da archivi OData, i tipi di dati OData vengono ma
 Per informazioni sul mapping delle colonne del set di dati di origine alle colonne del set di dati del sink, vedere [Mapping delle colonne del set di dati in Azure Data Factory](data-factory-map-columns.md).
 
 ## <a name="repeatable-read-from-relational-sources"></a>Lettura ripetibile da origini relazionali
-Quando si copiano dati da archivi dati relazionali, è necessario tenere presente la ripetibilità per evitare risultati imprevisti. In Azure Data Factory è possibile rieseguire una sezione manualmente. È anche possibile configurare i criteri di ripetizione per un set di dati in modo da rieseguire una sezione in caso di errore. Quando una sezione viene rieseguita in uno dei due modi, è necessario assicurarsi che non vengano letti gli stessi dati, indipendentemente da quante volte viene eseguita la sezione. Vedere [Lettura ripetibile da origini relazionali](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
+Quando si copiano dati da archivi dati relazionali, è necessario tenere presente la ripetibilità per evitare risultati imprevisti. In Azure Data Factory è possibile rieseguire una sezione manualmente. È anche possibile configurare i criteri di ripetizione per un set di dati in modo da rieseguire una sezione in caso di errore. Quando una sezione viene rieseguita in uno dei due modi, è necessario assicurarsi che non vengano letti gli stessi dati, indipendentemente da quante volte viene eseguita la sezione. Consultate [Lettura ripetibile da origini relazionali](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
 
 ## <a name="performance-and-tuning"></a>Ottimizzazione delle prestazioni
 Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati, ovvero dell'attività di copia, in Azure Data Factory e sui vari modi per ottimizzare tali prestazioni, vedere la [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md).

@@ -1,5 +1,5 @@
 ---
-title: Configurare notifiche e modelli di posta elettronica
+title: Configurare notifiche e modelli di messaggio di posta elettronica
 titleSuffix: Azure API Management
 description: Informazioni su come configurare notifiche e modelli di posta elettronica in Gestione API di Azure.
 services: api-management
@@ -14,25 +14,25 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
 ms.openlocfilehash: 786a9e26003a7afb98307e0bd7fae94c42a2f00d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79244069"
 ---
 # <a name="how-to-configure-notifications-and-email-templates-in-azure-api-management"></a>Come configurare notifiche e modelli di posta elettronica in Gestione API di Azure
 
 Gestione API consente di configurare notifiche per eventi specifici nonché di configurare modelli di posta elettronica da usare per comunicare con gli amministratori e gli sviluppatori di un'istanza di Gestione API. In questo articolo viene illustrato come configurare notifiche per gli eventi disponibili e viene offerta una panoramica sulla configurazione di modelli di posta elettronica usati per tali eventi.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Se non si dispone di un'istanza del servizio Gestione API, completare la guida introduttiva seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="publisher-notifications"> </a>Configurare le notifiche
+## <a name="configure-notifications"></a><a name="publisher-notifications"> </a>Configurare le notifiche
 
-1.  Selezionare l'istanza del servizio **Gestione API** in esecuzione.
+1.  Selezionare **l'istanza di GESTIONE API.**
 2.  Fare clic su **Notifiche** per visualizzare le notifiche disponibili.
 
     ![Notifiche dell'editore][api-management-publisher-notifications]
@@ -48,7 +48,7 @@ Se non si dispone di un'istanza del servizio Gestione API, completare la guida i
     -   **Raggiungimento limite quota sottoscrizione** - I destinatari e gli utenti di posta elettronica specificati riceveranno notifiche tramite posta elettronica quando l'uso della sottoscrizione si avvicina al limite di quota di utilizzo.
 
         > [!NOTE]
-        > Le notifiche vengono attivate solo dalla [quota per criterio di sottoscrizione](api-management-access-restriction-policies.md#SetUsageQuota) . La [quota per criterio chiave](api-management-access-restriction-policies.md#SetUsageQuotaByKey) non genera notifiche.
+        > Le notifiche vengono attivate dalla quota solo dai criteri di [sottoscrizione.](api-management-access-restriction-policies.md#SetUsageQuota) [La quota in base](api-management-access-restriction-policies.md#SetUsageQuotaByKey) ai criteri chiave non genera notifiche.
 
     Per ogni evento, è possibile specificare i destinatari di posta elettronica usando la casella di testo per l'indirizzo di posta elettronica oppure è possibile selezionare gli utenti da un elenco.
 
@@ -58,7 +58,7 @@ Se non si dispone di un'istanza del servizio Gestione API, completare la guida i
 
 4.  Fare clic su **Aggiungi**.
 
-## <a name="email-templates"> </a>Configurare i modelli di notifica
+## <a name="configure-notification-templates"></a><a name="email-templates"> </a>Configurare i modelli di notifica
 
 Gestione API fornisce modelli di notifica per i messaggi di posta elettronica che vengono inviati durante l'amministrazione e l'uso del servizio. Sono forniti i modelli di posta elettronica indicati di seguito.
 

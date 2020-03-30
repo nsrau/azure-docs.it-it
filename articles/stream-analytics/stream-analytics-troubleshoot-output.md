@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: d40157523a074547885a14a3d92379f8e8b6f351
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79254287"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Risolvere i problemi degli output di Analisi di flusso di Azure
@@ -22,7 +22,7 @@ Questa pagina descrive i problemi comuni relativi alle connessioni di output e s
 ## <a name="output-not-produced-by-job"></a>Output non prodotto dal processo
 1.  Verificare la connettività agli output con il pulsante **Verifica connessione** per ogni output.
 
-2.  Esaminare le [**metriche di monitoraggio**](stream-analytics-monitoring.md) nella scheda **monitoraggio** . Poiché i valori vengono aggregati, le metriche vengono posticipate di pochi minuti.
+2.  Esaminare [**le metriche**](stream-analytics-monitoring.md) di monitoraggio nella scheda **Monitoraggio.Look** at Monitoring Metrics on the Monitor tab. Poiché i valori sono aggregati, le metriche vengono ritardate di alcuni minuti.
     - Se Eventi di input è maggiore di zero, il processo è in grado di leggere i dati di input. Se Eventi di input non è maggiore di zero:
       - Per vedere se l'origine dati contiene dati validi, verificarla tramite [Service Bus Explorer](https://code.msdn.microsoft.com/windowsapps/Service-Bus-Explorer-f2abca5a). Questa verifica viene eseguita se il processo usa Hub eventi come input.
       - Controllare se il formato di serializzazione dei dati e la codifica dei dati sono quelli previsti.
@@ -90,18 +90,18 @@ Quando si configura IGNORE_DUP_KEY per diversi tipi di indici, tenere presente l
 * È possibile impostare l'opzione IGNORE_DUP_KEY con ALTER INDEX per un indice univoco, diverso dal vincolo PRIMARY KEY/UNIQUE e creato con la definizione CREATE INDEX o INDEX.  
 * L'opzione IGNORE_DUP_KEY non è valida per gli indici columnstore perché non è possibile applicare l'univocità in tali indici.  
 
-## <a name="column-names-are-lower-cased-by-azure-stream-analytics"></a>I nomi delle colonne sono in lettere minuscole da analisi di flusso di Azure
-Quando si usa il livello di compatibilità originale (1,0), analisi di flusso di Azure usata per modificare i nomi di colonna in lettere minuscole. Questo comportamento è stato corretto nei livelli di compatibilità successivi. Per mantenere il caso, si consiglia ai clienti di passare al livello di compatibilità 1,1 e versioni successive. È possibile trovare altre informazioni sul [livello di compatibilità per i processi di analisi di flusso di Azure](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level).
+## <a name="column-names-are-lower-cased-by-azure-stream-analytics"></a>I nomi di colonna sono minuscoli da Analisi di flusso di AzureColumn names are lower-cased by Azure Stream Analytics
+Quando si usa il livello di compatibilità originale (1.0), Analisi di flusso di Azure ha usato per modificare i nomi delle colonne in lettere minuscole. Questo comportamento è stato risolto nei livelli di compatibilità successivi. Al fine di preservare il caso, si consiglia ai clienti di passare al livello di compatibilità 1.1 e versioni successive. Per altre informazioni sul [livello di compatibilità per](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level)i processi di Analisi di flusso di Azure, è possibile trovare altre informazioni sul livello di compatibilità per i processi di Analisi di flusso di Azure.You can find more information on
 
 
 ## <a name="get-help"></a>Ottenere aiuto
 
-Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+Per ulteriore assistenza, prova il forum di Analisi di Flusso di [Azure.](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
-* [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-real-time-fraud-detection.md)
+* [Introduzione all'uso di Analisi di flusso di AzureGet started using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
-* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Guida di riferimento al linguaggio di query di Analisi di flusso di AzureAzure Stream Analytics Query Language Reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)

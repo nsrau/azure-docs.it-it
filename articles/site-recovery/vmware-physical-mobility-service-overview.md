@@ -8,22 +8,22 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
 ms.openlocfilehash: c5acc9637fe5afe8f7dd32d23fbdbb80373b4f61
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79256835"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>Informazioni sul servizio Mobility per le macchine virtuali VMware e i server fisici
 
 Quando si configura il ripristino di emergenza per macchine virtuali VMware e server fisici con [Azure Site Recovery](site-recovery-overview.md), si installa il servizio Mobility di Site Recovery in ogni macchina virtuale VMware locale e in ogni server fisico locale.  Il servizio Mobility acquisisce le scritture di dati nel computer e le inoltra al server di elaborazione di Site Recovery. È possibile distribuire il servizio Mobility tramite i metodi seguenti:
 
-- [Installazione push](#push-installation): Site Recovery installa l'agente di mobilità nel server quando la protezione viene abilitata tramite portale di Azure.
-- Installare manualmente: è possibile installare manualmente il servizio Mobility in ogni computer tramite l' [interfaccia utente](#install-mobility-agent-through-ui) o il [prompt dei comandi](#install-mobility-agent-through-command-prompt).
-- [Distribuzione automatizzata](vmware-azure-mobility-install-configuration-mgr.md): è possibile automatizzare l'installazione con strumenti di distribuzione software, ad esempio Configuration Manager.
+- [Installazione push:](#push-installation)Site Recovery installa l'agente per dispositivi mobili nel server quando la protezione è abilitata tramite il portale di Azure.Push installation : Site Recovery installs mobility agent on the server when protection is enabled via Azure portal.
+- Installazione manuale: è possibile installare manualmente il servizio Mobility in ogni computer tramite [l'interfaccia utente](#install-mobility-agent-through-ui) o [il prompt dei comandi](#install-mobility-agent-through-command-prompt).
+- [Distribuzione automatizzata](vmware-azure-mobility-install-configuration-mgr.md): È possibile automatizzare l'installazione con strumenti di distribuzione software come Configuration Manager.
 
 > [!NOTE]
-> L'agente di mobilità USA approssimativamente il 6%-10% di memoria nei computer di origine per le macchine virtuali VMware o i computer fisici.
+> L'agente Mobility utilizza circa il 6%-10% della memoria nei computer di origine per macchine virtuali VMware o computer fisici.
 
 ## <a name="anti-virus-on-replicated-machines"></a>Antivirus nei computer replicati
 
@@ -31,40 +31,40 @@ Se nei computer da replicare è attivo e in esecuzione un software antivirus, as
 
 ## <a name="push-installation"></a>Installazione push
 
-L'installazione push è parte integrante del processo di[Abilitazione della replica](vmware-azure-enable-replication.md#enable-replication)attivato nel portale. Dopo aver scelto il set di macchine virtuali che si vuole proteggere e attivato "Abilitazione della replica", il server di configurazione effettua il push dell'agente di mobilità nei server, installa l'agente e completa la registrazione dell'agente con il server di configurazione. Per completare correttamente questa operazione,
+L'installazione push è parte integrante del processo "[Enable Replication](vmware-azure-enable-replication.md#enable-replication)" attivato nel portale. Dopo aver scelto il set di macchine virtuali che si desidera proteggere e attivare "Abilita replica", il server di configurazione inserisce l'agente mobility nei server, installa l'agente e completa la registrazione dell'agente con il server di configurazione. Per completare correttamente questa operazione,
 
-- Verificare che tutti i [prerequisiti](vmware-azure-install-mobility-service.md) di installazione push siano soddisfatti.
-- Verificare che tutte le configurazioni dei server rientrino in [uno scenario di ripristino di emergenza da VMware ad Azure](vmware-physical-azure-support-matrix.md).
+- Assicurarsi che tutti [i prerequisiti](vmware-azure-install-mobility-service.md) di installazione push siano soddisfatti.
+- Verificare che tutte le configurazioni dei server rientrino [nella matrice di supporto di VMware per lo scenario di ripristino di emergenza](vmware-physical-azure-support-matrix.md)di Azure.Ensure that all configurations of servers fall under support matrix of VMware to Azure DR scenario.
 
-Le sezioni seguenti illustrano i dettagli del flusso di lavoro dell'installazione push.
+I dettagli del flusso di lavoro di installazione push sono stati descritti nelle sezioni seguenti.
 
-### <a name="from-923-version-onwards"></a>Dalla [versione 9,23](https://support.microsoft.com/en-in/help/4494485/update-rollup-35-for-azure-site-recovery) e successive
+### <a name="from-923-version-onwards"></a>Dalla [versione 9.23](https://support.microsoft.com/en-in/help/4494485/update-rollup-35-for-azure-site-recovery) in poi
 
-Durante l'installazione push dell'agente Mobility vengono eseguiti i passaggi seguenti:
+Durante l'installazione push dell'agente dispositivi mobili, vengono eseguiti i seguenti passaggi
 
-1. Effettua il push dell'agente nella macchina di origine. La copia dell'agente nel computer di origine può avere esito negativo a causa di più errori ambientali. Visitare [le linee guida](vmware-azure-troubleshoot-push-install.md) per risolvere gli errori di installazione push.
-2. Dopo che l'agente è stato copiato correttamente in, i controlli dei prerequisiti del server vengono eseguiti nel server. L'installazione non riesce se non sono soddisfatti uno o più [prerequisiti](vmware-physical-azure-support-matrix.md) . Se vengono soddisfatti tutti i prerequisiti, viene attivata l'installazione.
-3. Azure Site Recovery provider VSS è installato nel server come parte dell'installazione dell'agente di mobilità. Questo provider viene utilizzato per generare punti coerenti con l'applicazione. Se l'installazione del provider VSS non riesce, questo passaggio verrà ignorato e l'installazione dell'agente continuerà.
-4. Se l'installazione dell'agente ha esito positivo ma l'installazione del provider VSS non riesce, lo stato del processo viene contrassegnato come "avviso". Questa operazione non influisca sulla generazione di punti di coerenza di arresto anomalo.
+1. Spinge l'agente nel computer di origine. La copia dell'agente nel computer di origine può non riuscire a causa di più errori ambientali. Consulta [le nostre linee guida](vmware-azure-troubleshoot-push-install.md) per risolvere gli errori di installazione push.
+2. Dopo che l'agente viene copiato correttamente nel server, i controlli dei prerequisiti vengono eseguiti sul server. L'installazione non riesce se uno o più [prerequisiti](vmware-physical-azure-support-matrix.md) non sono soddisfatti. Se vengono soddisfatti tutti i prerequisiti, viene attivata l'installazione.
+3. Il provider VSS di Azure Site Recovery viene installato nel server come parte dell'installazione dell'agente Mobility.Azure Site Recovery VSS provider is installed on the server as part of Mobility agent installation. Questo provider viene utilizzato per generare punti coerenti dell'applicazione. Se l'installazione del provider VSS non riesce, questo passaggio verrà ignorato e l'installazione dell'agente continuerà.
+4. Se l'installazione dell'agente ha esito positivo ma l'installazione del provider VSS non riesce, lo stato del processo viene contrassegnato come "Avviso". Ciò non influisce sulla generazione di punti di coerenza degli arresti anomali.
 
-    a. Per generare punti coerenti con l'applicazione, fare riferimento alle [linee guida](vmware-physical-manage-mobility-service.md#install-site-recovery-vss-provider-on-source-machine) per completare l'installazione manuale di Site Recovery provider VSS. </br>
-    b.  Se non si desidera che vengano generati punti coerenti con l'applicazione, [modificare i criteri di replica](vmware-azure-set-up-replication.md#create-a-policy) per disattivare i punti coerenti con l'applicazione.
+    a. Per generare punti coerenti dell'applicazione, fare riferimento alle [linee guida](vmware-physical-manage-mobility-service.md#install-site-recovery-vss-provider-on-source-machine) per completare manualmente l'installazione del provider VSS di Site Recovery. </br>
+    b.  Se non si desidera che vengano generati punti coerenti dell'applicazione, [modificare i criteri](vmware-azure-set-up-replication.md#create-a-policy) di replica per disattivare i punti coerenti dell'applicazione.
 
-### <a name="before-922-versions"></a>Prima di 9,22 versioni
+### <a name="before-922-versions"></a>Prima 9.22 versioni
 
-1. Effettua il push dell'agente nella macchina di origine. La copia dell'agente nel computer di origine può avere esito negativo a causa di più errori ambientali. Visitare [le linee guida](vmware-azure-troubleshoot-push-install.md) per risolvere gli errori di installazione push.
-2. Dopo che l'agente è stato copiato correttamente in, i controlli dei prerequisiti del server vengono eseguiti nel server. L'installazione non riesce se non sono soddisfatti uno o più [prerequisiti](vmware-physical-azure-support-matrix.md) . Se vengono soddisfatti tutti i prerequisiti, viene attivata l'installazione.
-3. Azure Site Recovery provider VSS è installato nel server come parte dell'installazione dell'agente di mobilità. Questo provider viene utilizzato per generare punti coerenti con l'applicazione. Se l'installazione del provider VSS ha esito negativo, l'installazione dell'agente avrà esito negativo. Per evitare errori di installazione dell'agente di mobilità, usare la [versione 9,23](https://support.microsoft.com/en-in/help/4494485/update-rollup-35-for-azure-site-recovery) o successiva per generare punti coerenti con l'arresto anomalo del sistema e installare manualmente il provider VSS.
+1. Spinge l'agente nel computer di origine. La copia dell'agente nel computer di origine può non riuscire a causa di più errori ambientali. Consulta [le nostre linee guida](vmware-azure-troubleshoot-push-install.md) per risolvere gli errori di installazione push.
+2. Dopo che l'agente viene copiato correttamente nel server, i controlli dei prerequisiti vengono eseguiti sul server. L'installazione non riesce se uno o più [prerequisiti](vmware-physical-azure-support-matrix.md) non sono soddisfatti. Se vengono soddisfatti tutti i prerequisiti, viene attivata l'installazione.
+3. Il provider VSS di Azure Site Recovery viene installato nel server come parte dell'installazione dell'agente Mobility.Azure Site Recovery VSS provider is installed on the server as part of Mobility agent installation. Questo provider viene utilizzato per generare punti coerenti dell'applicazione. Se l'installazione del provider VSS non riesce, l'installazione dell'agente avrà esito negativo. Per evitare errori durante l'installazione dell'agente per dispositivi mobili, usare la [versione 9.23](https://support.microsoft.com/en-in/help/4494485/update-rollup-35-for-azure-site-recovery) o successiva per generare punti coerenti con gli arresti anomali e installare manualmente il provider VSS.
 
-## <a name="install-mobility-agent-through-ui"></a>Installare l'agente di mobilità tramite l'interfaccia utente
+## <a name="install-mobility-agent-through-ui"></a>Installare l'agente per dispositivi mobili tramite l'interfaccia utenteInstall mobility agent through
 
 ### <a name="prerequisite"></a>Prerequisito
 
-- Verificare che tutte le configurazioni dei server rientrino in [uno scenario di ripristino di emergenza da VMware ad Azure](vmware-physical-azure-support-matrix.md).
+- Verificare che tutte le configurazioni dei server rientrino [nella matrice di supporto di VMware per lo scenario di ripristino di emergenza](vmware-physical-azure-support-matrix.md)di Azure.Ensure that all configurations of servers fall under support matrix of VMware to Azure DR scenario.
 - [Individuare il programma di installazione](#locate-installer-files) in base al sistema operativo del server.
 
 >[!IMPORTANT]
-> Se si esegue la replica della macchina virtuale IaaS di Azure da un'area di Azure a un'altra, non usare questo metodo. Usare invece il metodo di installazione basato su riga di comando.
+> Se si replica la macchina virtuale di Azure IaaS da un'area di Azure a un'altra, non usare questo metodo. Utilizzare invece il metodo di installazione basato sulla riga di comando.
 
 1. Copiare il file di installazione nella macchina ed eseguirlo.
 2. In **Opzioni di installazione** selezionare **Install Mobility Service** (Installare il servizio Mobility).
@@ -76,7 +76,7 @@ Durante l'installazione push dell'agente Mobility vengono eseguiti i passaggi se
 
     ![Pagina di registrazione del servizio Mobility](./media/vmware-physical-mobility-service-install-manual/mobility3.png)
 
-5. In **Dettagli del server di configurazione**specificare l'indirizzo IP e la passphrase configurati.
+5. In **Dettagli server**di configurazione specificare l'indirizzo IP e la passphrase configurati.
 
     ![Pagina di registrazione del servizio Mobility](./media/vmware-physical-mobility-service-install-manual/mobility4.png)
 
@@ -84,11 +84,11 @@ Durante l'installazione push dell'agente Mobility vengono eseguiti i passaggi se
 
     ![Pagina finale di registrazione del servizio Mobility](./media/vmware-physical-mobility-service-install-manual/mobility5.png)
 
-## <a name="install-mobility-agent-through-command-prompt"></a>Installare l'agente di mobilità tramite il prompt dei comandi
+## <a name="install-mobility-agent-through-command-prompt"></a>Installare l'agente per dispositivi mobili tramite il prompt dei comandi
 
 ### <a name="prerequisite"></a>Prerequisito
 
-- Verificare che tutte le configurazioni dei server rientrino in [uno scenario di ripristino di emergenza da VMware ad Azure](vmware-physical-azure-support-matrix.md).
+- Verificare che tutte le configurazioni dei server rientrino [nella matrice di supporto di VMware per lo scenario di ripristino di emergenza](vmware-physical-azure-support-matrix.md)di Azure.Ensure that all configurations of servers fall under support matrix of VMware to Azure DR scenario.
 - [Individuare il programma di installazione](#locate-installer-files) in base al sistema operativo del server.
 
 ### <a name="on-a-windows-machine"></a>In un computer Windows
@@ -118,17 +118,17 @@ Durante l'installazione push dell'agente Mobility vengono eseguiti i passaggi se
 #### <a name="installation-settings"></a>Impostazioni di installazione
 **Impostazione** | **Dettagli**
 --- | ---
-Uso | UnifiedAgent. exe/role \<MS/MT >/INSTALLLOCATION. \<percorso di installazione >/Platform "VmWare"/Silent
+Uso | UnifiedAgent.exe /Role \<MS/MT> \</InstallLocation Percorso di installazione> /Platform "VmWare" /Silent
 log di installazione | In %ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log.
 /Role | Parametro di installazione obbligatorio. Specifica se deve essere installato il servizio Mobility o la destinazione master.
 /InstallLocation| Parametro facoltativo. Specifica il percorso di installazione del servizio Mobility (qualsiasi cartella).
-/Platform | Mandatory. Specifica la piattaforma in cui viene installato il servizio Mobility. **VMware** per macchine virtuali VMware/server fisici; **Azure** per macchine virtuali di Azure.<br/><br/> Se si tratta di macchine virtuali di Azure come macchine fisiche, specificare **VMware**.
+/Platform | Mandatory. Specifica la piattaforma in cui viene installato il servizio Mobility. **VMware** per macchine virtuali VMware/server fisici; **Azure** per macchine virtuali di Azure.<br/><br/> Se si considerano le macchine virtuali di Azure come computer fisici, specificare **VMware**.
 /Silent| Facoltativa. Specifica se il programma di installazione deve essere eseguito in modalità non interattiva.
 
 #### <a name="registration-settings"></a>Impostazioni di registrazione
 **Impostazione** | **Dettagli**
 --- | ---
-Uso | UnifiedAgentConfigurator. exe/CSEndPoint \<CSIP >/Passphrasefilepath. \<PassphraseFilePath >
+Uso | UnifiedAgentConfigurator.exe /CSEndPoint \<CSIP> /PassphraseFilePath \<PassphraseFilePath>
 Log di configurazione dell'agente | In %ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log.
 /CSEndPoint | Parametro obbligatorio. Specifica l'indirizzo IP del server di configurazione. Qualsiasi indirizzo IP valido.
 /PassphraseFilePath |  Mandatory. Percorso della passphrase. Usare qualsiasi percorso file locale o UNC valido.
@@ -157,7 +157,7 @@ Log di configurazione dell'agente | In %ProgramData%\ASRSetupLogs\ASRUnifiedAgen
 #### <a name="installation-settings"></a>Impostazioni di installazione
 **Impostazione** | **Dettagli**
 --- | ---
-Uso | ./install-d \<percorso di installazione >-r \<MS/MT >-v VmWare-q
+Uso | ./install -d \<Percorso di \<installazione> -r MS/MT> -v VmWare -q
 -r | Parametro di installazione obbligatorio. Specifica se deve essere installato il servizio Mobility o la destinazione master.
 -d | Parametro facoltativo. Specifica il percorso di installazione del servizio Mobility: /usr/local/ASR.
 -v | Mandatory. Specifica la piattaforma in cui viene installato il servizio Mobility. **VMware** per macchine virtuali VMware/server fisici; **Azure** per macchine virtuali di Azure.
@@ -166,7 +166,7 @@ Uso | ./install-d \<percorso di installazione >-r \<MS/MT >-v VmWare-q
 #### <a name="registration-settings"></a>Impostazioni di registrazione
 **Impostazione** | **Dettagli**
 --- | ---
-Uso | cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh-i \<CSIP >-P \<PassphraseFilePath >
+Uso | cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i \<CSIP \<> -P PassphraseFilePath>
 -i | Parametro obbligatorio. Specifica l'indirizzo IP del server di configurazione. Qualsiasi indirizzo IP valido.
 -P |  Mandatory. Percorso completo del file in cui è stata salvata la passphrase. Usare qualsiasi cartella valida.
 
@@ -177,7 +177,7 @@ Uso | cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh-i \<CSIP >-
 
 ## <a name="locate-installer-files"></a>Individuare i file del programma di installazione
 
-Passare alla cartella%ProgramData%\ASR\home\svsystems\pushinstallsvc\repository nel server di configurazione. Verificare il programma di installazione necessario in base al sistema operativo. Nella tabella seguente vengono riepilogati i file del programma di installazione per ogni macchina virtuale VMware e sistema operativo server fisico. È possibile esaminare i [sistemi operativi supportati](vmware-physical-azure-support-matrix.md#replicated-machines) prima di iniziare.
+Andare alla cartella %ProgramData% . Controllare quale programma di installazione è necessario in base al sistema operativo. Nella tabella seguente sono riepilogati i file di installazione per ogni VM VMware e sistema operativo del server fisico. È possibile esaminare i [sistemi operativi supportati](vmware-physical-azure-support-matrix.md#replicated-machines) prima di iniziare.
 
 **File del programma di installazione** | **Sistema operativo (solo a 64 bit)**
 --- | ---

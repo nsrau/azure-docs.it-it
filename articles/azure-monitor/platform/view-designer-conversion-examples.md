@@ -1,5 +1,5 @@
 ---
-title: Esempi di conversione di Progettazione viste di monitoraggio di Azure in cartelle di lavoro
+title: Esempi di conversione da Progettazione visualizzazione monitoraggio di Azure alle cartelle di lavoroAzure Monitor view designer to workbooks conversion examples
 description: ''
 author: austonli
 ms.author: aul
@@ -7,19 +7,19 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.openlocfilehash: b50d8cfa4731c487997e2bf431a9c71eff08f5d1
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79274164"
 ---
-# <a name="view-designer-conversion-examples"></a>Esempi di conversione di Progettazione viste
+# <a name="view-designer-conversion-examples"></a>Visualizza esempi di conversione della finestra di progettazione
 
-Per replicare la cartella di lavoro a schede di Progettazione viste, copiare e incollare il codice seguente nell'editor avanzato, indicato dal simbolo </> nella barra degli strumenti.
+Per replicare la cartella di lavoro a schede di Progettazione viste, copiare e incollare il codice seguente nell'editor avanzato, indicato dal simbolo di </> nella barra degli strumenti
 
 ![Barra degli strumenti Editor avanzato](media/view-designer-conversion-examples/toolbar.png)
 
-È possibile che gli utenti debbano aggiornare le impostazioni di query e le sottoscrizioni alle proprie risorse accessibili
+Gli utenti potrebbero dover aggiornare le impostazioni di query e le sottoscrizioni alle proprie risorse accessibili
 
 ## <a name="vertical"></a>Vertical
 
@@ -337,7 +337,7 @@ Per replicare la cartella di lavoro a schede di Progettazione viste, copiare e i
 }
 ```
 
-## <a name="tabbed"></a>A schede 
+## <a name="tabbed"></a>Schede 
 
 ```Json
 {

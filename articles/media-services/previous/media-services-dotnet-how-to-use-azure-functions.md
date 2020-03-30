@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 618acae10b874eb5ebd5b6da7fe081368528dbd8
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79251167"
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Sviluppare le Funzioni di Azure con Servizi multimediali
@@ -72,7 +72,7 @@ In seguito alla distribuzione dell'app per le funzioni, questa verrà visualizza
 
 4. Fare clic su **Crea**. 
 
-## <a name="files"></a>Files
+## <a name="files"></a>File
 
 La funzione di Azure è associata al file del codice e ad altri file descritti in questa sezione. Quando si usa il portale di Azure per creare una funzione, **function.json** e **run.csx** vengono creati automaticamente. Sarà necessario aggiungere o caricare un file **project.json**. Il resto di questa sezione fornisce una breve spiegazione di ogni file e mostra le relative definizioni.
 
@@ -333,7 +333,7 @@ public static async Task<IAsset> CreateAssetFromBlobAsync(CloudBlockBlob blob, s
 Per testare la funzione, è necessario caricare un file MP4 nel contenitore **input** dell'account di archiviazione specificato nella stringa di connessione.  
 
 1. Selezionare l'account di archiviazione specificato nella variabile di ambiente **StorageConnection**.
-2. Fare clic su **Blob**.
+2. Fare clic su **BLOB**.
 3. Fare clic su **+ Contenitore**. Denominare il contenitore **input**.
 4. Premere **Carica** e passare al file MP4 che si desidera caricare.
 

@@ -7,28 +7,28 @@ author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
 ms.openlocfilehash: aa34196233ce4037ef6fa49b782b9aa958f7632d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79274684"
 ---
 # <a name="windows-event-log-data-sources-in-azure-monitor"></a>Origini dei dati del registro eventi di Windows in Monitoraggio di Azure
 I log eventi di Windows rappresentano una delle più comuni [origini dati](agent-data-sources.md) per raccogliere i dati tramite gli agenti di Windows, dal momento che molte applicazioni scrivono nel log eventi di Windows.  È possibile raccogliere gli eventi dai log standard, ad esempio sistema e applicazioni, oltre a specificare qualsiasi log personalizzato creato dalle applicazioni da monitorare.
 
-![Windows Events](media/data-sources-windows-events/overview.png)     
+![Eventi Windows](media/data-sources-windows-events/overview.png)     
 
 ## <a name="configuring-windows-event-logs"></a>Configurazione dei log eventi di Windows
 Configurare i log eventi di Windows nel [menu Dati in Impostazioni avanzate](agent-data-sources.md#configuring-data-sources).
 
-Monitoraggio di Azure raccoglie solo gli eventi dai log eventi di Windows che vengono specificati nelle impostazioni.  È possibile aggiungere un registro eventi digitandone il nome e facendo clic su **+** .  Per ogni log vengono raccolti solo gli eventi con i livelli di gravità selezionati.  Controllare i livelli di gravità del log specifico da raccogliere.  Non è possibile specificare altri criteri per filtrare gli eventi.
+Monitoraggio di Azure raccoglie solo gli eventi dai log eventi di Windows che vengono specificati nelle impostazioni.  È possibile aggiungere un registro eventi digitando il **+** nome del registro e facendo clic su .  Per ogni log vengono raccolti solo gli eventi con i livelli di gravità selezionati.  Controllare i livelli di gravità del log specifico da raccogliere.  Non è possibile specificare altri criteri per filtrare gli eventi.
 
 Mentre si digita il nome di un registro eventi, Monitoraggio di Azure fornisce suggerimenti sui nomi comunemente usati per il registro eventi. Se il registro che si desidera aggiungere non viene visualizzato nell'elenco, è possibile aggiungerlo digitandone il nome completo. È possibile trovare il nome completo del registro tramite il Visualizzatore eventi. Nel Visualizzatore eventi, aprire la pagina *Proprietà* del registro e copiare la stringa dal campo *Nome completo*.
 
 ![Configurare gli eventi di Windows](media/data-sources-windows-events/configure.png)
 
 > [!NOTE]
-> Gli eventi critici del registro eventi di Windows avranno un livello di gravità "errore" nei log di monitoraggio di Azure.
+> Gli eventi critici del log eventi di Windows avranno la gravità "Errore" nei log di Monitoraggio di Azure.Critical events from the Windows event log will have a severity of "Error" in Azure Monitor Logs.
 
 ## <a name="data-collection"></a>Raccolta dati
 Monitoraggio di Azure raccoglie ogni evento corrispondente a un livello di gravità selezionato da un registro eventi monitorato quando viene creato l'evento.  L'agente registra la propria posizione in ogni registro eventi da cui esegue la raccolta.  Se l'agente risulta offline per un certo periodo di tempo, raccoglie gli eventi dal momento in cui è stato interrotto, anche se gli eventi sono stati creati mentre l'agente era offline.  Esiste la possibilità che questi eventi non vengano raccolti se il registro eventi esegue il wrapping con eventi non raccolti che vengono sovrascritti mentre l'agente è offline.
@@ -38,7 +38,7 @@ Monitoraggio di Azure raccoglie ogni evento corrispondente a un livello di gravi
 >
 
 ## <a name="windows-event-records-properties"></a>Proprietà dei record eventi di Windows
-I record eventi di Windows sono di tipo **Evento** ; nella tabella seguente vengono riportate le loro proprietà:
+I record degli eventi di Windows hanno un tipo di **evento** e le proprietà nella tabella seguente:
 
 | Proprietà | Descrizione |
 |:--- |:--- |
@@ -50,10 +50,10 @@ I record eventi di Windows sono di tipo **Evento** ; nella tabella seguente veng
 | EventLevelName |Gravità dell'evento in formato di testo. |
 | EventLog |Nome del registro eventi da cui è stato raccolto l'evento. |
 | ParameterXml |Valori dei parametri dell'evento in formato XML. |
-| ManagementGroupName |Nome del gruppo di gestione per gli agenti di System Center Operations Manager.  Per gli altri agenti, questo valore è `AOI-<workspace ID>` |
+| ManagementGroupName |Nome del gruppo di gestione per gli agenti di System Center Operations Manager.  Per gli altri agenti, questo valore è`AOI-<workspace ID>` |
 | RenderedDescription |Descrizione dell'evento con i valori dei parametri. |
-| Origine |Origine dell'evento. |
-| SourceSystem |Tipo di agente da cui è stato raccolto l'evento. <br> OpsManager: agente Windows, con connessione diretta o gestita da Operations Manager <br> Linux – Tutti gli agenti Linux  <br> AzureStorage: Diagnostica di Azure |
+| Source (Sorgente) |Origine dell'evento. |
+| SourceSystem |Tipo di agente da cui è stato raccolto l'evento. <br> OpsManager: agente Windows, con connessione diretta o gestita da Operations Manager <br>  Linux – Tutti gli agenti Linux  <br>  AzureStorage: Diagnostica di Azure |
 | TimeGenerated |Data e ora in cui l'evento è stato creato in Windows. |
 | UserName |Nome utente dell'account che ha registrato l'evento. |
 
@@ -62,7 +62,7 @@ La tabella seguente mostra alcuni esempi di query di log che recuperano i record
 
 | Query | Descrizione |
 |:---|:---|
-| Evento |Tutti gli eventi di Windows. |
+| Event |Tutti gli eventi di Windows. |
 | Event &#124; where EventLevelName == "error" |Tutti gli eventi di Windows con livello di gravità dell'errore. |
 | Event &#124; summarize count() by Source |Numero di eventi di Windows per origine. |
 | Event &#124; where EventLevelName == "error" &#124; summarize count() by Source |Numero di eventi di errore di Windows per origine. |

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/11/2019
 ms.author: alkohli
 ms.openlocfilehash: e232ad131b1c0930afcf5e7e78b386aba2c9490b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79259955"
 ---
 # <a name="azure-data-box-system-requirements"></a>Requisiti di sistema di Azure Data Box
@@ -53,9 +53,9 @@ I requisiti software includono le informazioni sui sistemi operativi supportati,
 
 Il data center disponga di una rete ad alta velocità. È consigliabile avere una connessione di almeno 10 GbE. In assenza di una connessione a questa velocità è possibile usare un collegamento dati a 1 GbE per copiare i dati, ma la velocità dell'operazione ne risentirà.
 
-### <a name="port-requirements"></a>Requisiti per le porte
+### <a name="port-requirements"></a>Requisiti delle porte
 
-La tabella seguente elenca le porte che devono essere aperte nel firewall per consentire il traffico SMB o NFS. In questa tabella, *in* o *in ingresso* fa riferimento alla direzione da cui le richieste client in ingresso accedono al dispositivo. In uscita *o in uscita si* intende la direzione in cui il dispositivo data box invia i dati all'esterno, oltre la distribuzione: ad esempio, in uscita verso Internet.
+Nella tabella seguente sono elencate le porte che devono essere aperte nel firewall per consentire il traffico SMB o NFS. In questa tabella, *in* o *in ingresso* fa riferimento alla direzione da cui le richieste client in ingresso accedono al dispositivo. *In* *uscita* o in uscita si riferisce alla direzione in cui il dispositivo Data Box invia i dati esternamente, oltre la distribuzione, ad esempio in uscita verso Internet.
 
 [!INCLUDE [data-box-port-requirements](../../includes/data-box-port-requirements.md)]
 

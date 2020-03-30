@@ -1,15 +1,15 @@
 ---
-title: Gestione risorse cluster-integrazione della gestione
+title: Gestione risorse cluster - Integrazione della gestione
 description: Panoramica dei punti di integrazione tra Cluster Resource Manager e le funzionalità di gestione di Service Fabric.
 author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 50751c7d23797a597dc5e2d209c1e3eecf6f7a40
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79258746"
 ---
 # <a name="cluster-resource-manager-integration-with-service-fabric-cluster-management"></a>Integrazione di Cluster Resource Manager con la gestione dei cluster di Service Fabric
@@ -68,7 +68,7 @@ Ecco che cosa indica questo messaggio di stato:
 2. Il vincolo di distribuzione del dominio di aggiornamento è attualmente violato. Ciò significa che un particolare dominio di aggiornamento ha più repliche di questa partizione rispetto a quanto previsto.
 3. Qual è il nodo che contiene la replica che causa la violazione. In questo caso è il nodo denominato "Node.8"
 4. Se è in corso un aggiornamento per questa partizione ("Currently Upgrading -- false")
-5. I criteri di distribuzione per questo servizio: "Distribution Policy -- Packing". Questa regola è regolata dai [criteri di posizionamento](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing)`RequireDomainDistribution`. "Packing" indica che in questo caso DomainDistribution _non_ era necessario e quindi che per questo servizio il criterio di selezione non è stato specificato. 
+5. I criteri di distribuzione per questo servizio: "Distribution Policy -- Packing". Regolato dal  [criterio di selezione](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing)`RequireDomainDistribution`. "Packing" indica che in questo caso DomainDistribution _non_ era necessario e quindi che per questo servizio il criterio di selezione non è stato specificato. 
 6. Quando è stato inviato il report 10/8/2015 19:13:02
 
 Informazioni come queste producono avvisi che vengono generati nell'ambiente di produzione per informare l'utente che qualcosa non ha funzionato e per rilevare e arrestare aggiornamenti non validi. In questo caso sarebbe opportuno comprendere perché Resource Manager ha dovuto comprimere le repliche nel dominio di aggiornamento. Di solito la compressione è temporanea ad esempio perché i nodi negli altri domini di aggiornamento erano inattivi.
@@ -93,7 +93,7 @@ Esaminiamo ciascuno dei vincoli presenti nei report di integrità. Verranno visu
 ## <a name="blocklisting-nodes"></a>Nodi sottoposti a blocklisting
 Un altro messaggio di integrità notificato da Cluster Resource Manager si verifica quando i nodi sono sottoposti a blocklisting. È possibile considerare il blocklisting come un vincolo temporaneo che viene applicato automaticamente per l'utente. I nodi vengono sottoposti a blocklisting quando si verificano errori ripetuti durante l'avvio di istanze di quel tipo di servizio. I nodi vengono sottoposti a blocklisting in base al tipo di servizio. Un nodo può essere sottoposto a blocklisting per un tipo di servizio ma non per un altro. 
 
-Il blocklisting avviene spesso in fase di sviluppo: alcuni bug causano l'arresto anomalo dell'host servizio all'avvio. Service Fabric tenta di creare l'host servizio più volte e l'errore continua a verificarsi. Dopo alcuni tentativi, il nodo viene sottoposto a blocklisting e Cluster Resource Manager tenterà di creare il servizio in un'altra posizione. Se l'errore continua a verificarsi in più nodi, è possibile che tutti i nodi validi del cluster vengano bloccati. Blocklisting può anche rimuovere un numero così elevato di nodi che non sufficiente possono avviare correttamente il servizio per soddisfare la scala desiderata. Verranno visualizzati altri errori o avvisi da Cluster Resource Manager che indicano che il servizio è al di sotto del numero di repliche o di istanze desiderato, nonché messaggi di integrità che indicano qual è l'errore che causa il blocklisting nella prima posizione.
+Il blocklisting avviene spesso in fase di sviluppo: alcuni bug causano l'arresto anomalo dell'host servizio all'avvio. Service Fabric tenta di creare l'host servizio più volte e l'errore continua a verificarsi. Dopo alcuni tentativi, il nodo viene sottoposto a blocklisting e Cluster Resource Manager tenterà di creare il servizio in un'altra posizione. Se l'errore continua a verificarsi in più nodi, è possibile che tutti i nodi validi del cluster vengano bloccati. Blocklisting può anche rimuovere così tanti nodi che non abbastanza possono avviare correttamente il servizio per soddisfare la scala desiderata. Verranno visualizzati altri errori o avvisi da Cluster Resource Manager che indicano che il servizio è al di sotto del numero di repliche o di istanze desiderato, nonché messaggi di integrità che indicano qual è l'errore che causa il blocklisting nella prima posizione.
 
 Il blocklisting non è una condizione permanente. Dopo alcuni minuti, il nodo viene rimosso dal blocco e Service Fabric potrebbe attivare nuovamente i servizi su tale nodo. Se i servizi continuano a dare errore, il nodo è nuovamente sottoposto a blocklisting per quel tipo di servizio. 
 
@@ -174,12 +174,12 @@ mediante ClusterConfig.json per le distribuzioni autonome o Template.json per i 
 ## <a name="fault-domain-and-upgrade-domain-constraints"></a>Vincoli di dominio di errore e di dominio di aggiornamento
 Cluster Resource Manager distribuisce i servizi tra i domini di errore e di aggiornamento. Viene modellato come un vincolo all'interno del motore di Cluster Resource Manager. Per altre informazioni sull'uso e sul comportamento specifico, vedere l'articolo sulla [configurazione del cluster](service-fabric-cluster-resource-manager-cluster-description.md#fault-and-upgrade-domain-constraints-and-resulting-behavior).
 
-Cluster Resource Manager potrebbe dover comprimere un paio di repliche in un dominio di aggiornamento per far fronte ad aggiornamenti, errori o altre violazioni di vincoli. La compressione in domini di errore o di aggiornamento si verifica in genere quando sono presenti molti errori o altra varianza nel sistema che impedisce il corretto posizionamento. Se si desidera impedire la compressione anche durante tali situazioni, è possibile utilizzare i criteri di [posizionamento](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing)`RequireDomainDistribution`. Si noti che questo può influire sulla disponibilità e l'affidabilità del servizio come effetto collaterale e pertanto valutarlo attentamente.
+Cluster Resource Manager potrebbe dover comprimere un paio di repliche in un dominio di aggiornamento per far fronte ad aggiornamenti, errori o altre violazioni di vincoli. La compressione in domini di errore o di aggiornamento si verifica in genere quando sono presenti molti errori o altra varianza nel sistema che impedisce il corretto posizionamento. Se si desidera impedire la compressione anche durante queste situazioni, è possibile usare il  [criterio di selezione](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing)`RequireDomainDistribution`. Si noti che questo può influire sulla disponibilità e l'affidabilità del servizio come effetto collaterale e pertanto valutarlo attentamente.
 
 Se l'ambiente è configurato correttamente tutti i vincoli vengono completamente rispettati anche durante gli aggiornamenti. L'elemento fondamentale è che Cluster Resource Manager controlla i vincoli. Quando rileva una violazione la segnala immediatamente e tenta di risolvere il problema.
 
 ## <a name="the-preferred-location-constraint"></a>Il vincolo di posizione preferita
-Il vincolo PreferredLocation è leggermente diverso, perché ha due diversi usi. Un uso di questo vincolo avviene durante gli aggiornamenti dell'applicazione. Cluster Resource Manager gestisce automaticamente questo vincolo durante gli aggiornamenti. Viene usato per assicurare che quando gli aggiornamenti vengono completati le repliche tornino alle posizioni iniziali. L'altro uso del vincolo PreferredLocation è per il [`PreferredPrimaryDomain` criterio di selezione](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md). Entrambi sono ottimizzazioni e il vincolo PreferredLocation è l'unico vincolo impostato su "Optimization" per impostazione predefinita.
+Il vincolo PreferredLocation è leggermente diverso, perché ha due diversi usi. Un uso di questo vincolo avviene durante gli aggiornamenti dell'applicazione. Cluster Resource Manager gestisce automaticamente questo vincolo durante gli aggiornamenti. Viene usato per assicurare che quando gli aggiornamenti vengono completati le repliche tornino alle posizioni iniziali. L'altro utilizzo del vincolo PreferredLocation è per i [ `PreferredPrimaryDomain` criteri di posizionamento.](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) Entrambi sono ottimizzazioni e il vincolo PreferredLocation è l'unico vincolo impostato su "Optimization" per impostazione predefinita.
 
 ## <a name="upgrades"></a>Aggiornamenti
 Cluster Resource Manager facilita le cose anche durante gli aggiornamenti di applicazioni e cluster, quando ha due compiti:

@@ -1,6 +1,6 @@
 ---
 title: Eliminare un lab o una macchina virtuale in un lab in Azure DevTest Labs
-description: Questo articolo illustra come eliminare un Lab o eliminare una macchina virtuale in un Lab usando il portale di Azure (Azure DevTest Labs).
+description: Questo articolo illustra come eliminare un lab o una macchina virtuale in un lab usando il portale di Azure (Azure DevTest Labs).
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: spelluru
 ms.openlocfilehash: 28fb464714f464a4c0a8f5eaf304dcdd5d603c90
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79270810"
 ---
 # <a name="delete-a-lab-or-vm-in-a-lab-in-azure-devtest-labs"></a>Eliminare un lab o una macchina virtuale in un lab in Azure DevTest Labs
@@ -31,7 +31,7 @@ Quando si elimina un'istanza di DevTest Labs da un gruppo di risorse, nel serviz
 
 Per eliminare un lab, eseguire le operazioni seguenti: 
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Accedere al [portale](https://portal.azure.com)di Azure .
 2. Scegliere **Tutte le risorse** dal menu a sinistra, selezionare **DevTest Labs** come tipo di servizio e quindi selezionare il lab.
 
     ![Selezionare il lab](media/devtest-lab-delete-lab-vm/select-lab.png)
@@ -56,7 +56,7 @@ La macchina virtuale, l'interfaccia di rete e il disco associati alla macchina v
 
 Per eliminare una macchina virtuale in un lab, eseguire le operazioni seguenti: 
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Accedere al [portale](https://portal.azure.com)di Azure .
 2. Scegliere **Tutte le risorse** dal menu a sinistra, selezionare **DevTest Labs** come tipo di servizio e quindi selezionare il lab.
 
     ![Selezionare il lab](media/devtest-lab-delete-lab-vm/select-lab.png)

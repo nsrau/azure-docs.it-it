@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/30/2019
 ms.author: spelluru
 ms.openlocfilehash: 69b83590fb9b25c68d231b732b985ba633bb6884
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "66399207"
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>Creare elementi personalizzati per la macchina virtuale di DevTest Labs
@@ -56,12 +56,12 @@ L'esempio seguente illustra le sezioni che compongono la struttura di base di un
 | Nome dell'elemento | Obbligatorio? | Descrizione |
 | --- | --- | --- |
 | $schema |No |Posizione del file di schema JSON. Il file di schema JSON aiuta a testare la validità del file di definizione. |
-| title |Yes |Nome dell'elemento visualizzato nel lab. |
-| description |Yes |Descrizione dell'elemento visualizzato nel lab. |
+| title |Sì |Nome dell'elemento visualizzato nel lab. |
+| description |Sì |Descrizione dell'elemento visualizzato nel lab. |
 | iconUri |No |URI dell'icona visualizzata nel lab. |
-| targetOsType |Yes |Sistema operativo della macchina virtuale in cui è installato l'elemento. Le opzioni supportate sono Windows e Linux. |
-| parameters |No |Valori forniti quando viene eseguito il comando di installazione dell'elemento in un computer. Questi valori consentono di personalizzare l'elemento. |
-| runCommand |Yes |Il comando di installazione dell’elemento che viene eseguito in una macchina virtuale. |
+| targetOsType |Sì |Sistema operativo della macchina virtuale in cui è installato l'elemento. Le opzioni supportate sono Windows e Linux. |
+| parametri |No |Valori forniti quando viene eseguito il comando di installazione dell'elemento in un computer. Questi valori consentono di personalizzare l'elemento. |
+| runCommand |Sì |Il comando di installazione dell’elemento che viene eseguito in una macchina virtuale. |
 
 ### <a name="artifact-parameters"></a>Parametri dell'elemento
 Nella sezione dei parametri del file di definizione è possibile specificare i valori che un utente può immettere quando installa un elemento. È possibile fare riferimento a questi valori nel comando di installazione dell'elemento.
@@ -78,9 +78,9 @@ Per definire i parametri, usare la struttura seguente:
 
 | Nome dell'elemento | Obbligatorio? | Descrizione |
 | --- | --- | --- |
-| type |Yes |Tipo di valore del parametro. Vedere l'elenco seguente per informazioni sui tipi consentiti. |
-| displayName |Yes |Nome del parametro che viene visualizzato a un utente nel lab. |
-| description |Yes |Descrizione del parametro che viene visualizzato nel lab. |
+| type |Sì |Tipo di valore del parametro. Vedere l'elenco seguente per informazioni sui tipi consentiti. |
+| displayName |Sì |Nome del parametro che viene visualizzato a un utente nel lab. |
+| description |Sì |Descrizione del parametro che viene visualizzato nel lab. |
 
 I tipi consentiti sono:
 
@@ -89,8 +89,8 @@ I tipi consentiti sono:
 * bool (tutti i valori booleani JSON validi)
 * array (tutte le matrici JSON valide)
 
-## <a name="secrets-as-secure-strings"></a>Segreti come le stringhe sicure
-Dichiarare i segreti come le stringhe sicure. Di seguito è riportata la sintassi per la dichiarazione di un parametro di stringa sicura all'interno di `parameters` sezione del **artifactfile. JSON** file:
+## <a name="secrets-as-secure-strings"></a>Segreti come stringhe sicure
+Dichiarare i segreti come stringhe sicure. Di seguito è riportata la sintassi `parameters` per dichiarare un parametro di stringa protetta all'interno della sezione del file **artifactfile.json:**
 
 ```json
 
@@ -102,7 +102,7 @@ Dichiarare i segreti come le stringhe sicure. Di seguito è riportata la sintass
     },
 ```
 
-Per l'artefatto di comando di installazione, eseguire lo script di PowerShell che accetta la stringa sicura creata usando il comando ConvertTo-SecureString. 
+Per il comando di installazione dell'elemento, eseguire lo script di PowerShell che accetta la stringa sicura creata utilizzando il comando ConvertTo-SecureString. 
 
 ```json
   "runCommand": {
@@ -110,19 +110,19 @@ Per l'artefatto di comando di installazione, eseguire lo script di PowerShell ch
   }
 ```
 
-Per l'esempio completo di artifactfile. JSON e artifact.ps1 (script di PowerShell), vedere [in questo esempio su GitHub](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts/windows-test-paramtypes).
+Per l'esempio completo artifactfile.json e artifact.ps1 (script PowerShell), vedere [questo esempio in GitHub](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts/windows-test-paramtypes).
 
-Un altro punto importante da tenere presente è non eseguire l'accesso dei segreti nella console perché l'output viene acquisito per il debug di utente. 
+Un altro punto importante da notare è di non registrare i segreti nella console quando l'output viene acquisito per il debug dell'utente. 
 
 ## <a name="artifact-expressions-and-functions"></a>Espressioni e funzioni dell’elemento
 È possibile usare espressioni e funzioni per costruire il comando di installazione dell'elemento.
 Le espressioni sono racchiuse tra parentesi quadre ([ e ]) e vengono valutate al momento dell’installazione dell’elemento. Le espressioni possono trovarsi in qualsiasi punto in un valore stringa JSON. Le espressioni restituiscono sempre un altro valore JSON. Se è necessario usare una stringa letterale che inizia con una parentesi quadra ([), usare due parentesi quadre ([[).
-In genere, si usano espressioni con funzioni per costruire un valore. Proprio come in JavaScript, le chiamate di funzione sono formattate come **functionName(arg1, arg2, arg3)** .
+In genere, si usano espressioni con funzioni per costruire un valore. Proprio come in JavaScript, le chiamate di funzione sono formattate come **functionName(arg1, arg2, arg3)**.
 
 L'elenco seguente riporta le funzioni comuni:
 
-* **parameters(parameterName)** : restituisce un valore di parametro fornito quando viene eseguito il comando dell'elemento.
-* **concat(arg1, arg2, arg3,….. )** : combina più valori stringa. Questa funzione può accettare diversi argomenti.
+* **parameters(parameterName)**: restituisce un valore di parametro fornito quando viene eseguito il comando dell'elemento.
+* **concat(arg1, arg2, arg3,…)**: combina più valori stringa. Questa funzione può accettare diversi argomenti.
 
 L'esempio seguente mostra come usare espressioni e funzioni per costruire un valore:
 

@@ -1,19 +1,18 @@
 ---
-title: Distribuire una macchina virtuale dai dischi rigidi virtuali per Azure Marketplace
+title: Distribuire una macchina virtuale dai dischi rigidi virtuali per Azure MarketplaceDeploy a VM from your VHDs for the Azure Marketplace
 description: Questo articolo illustra come registrare una macchina virtuale da un disco rigido virtuale distribuito in Azure.
-services: Azure, Marketplace, Cloud Partner Portal,
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/08/2019
-ms.author: evansma
-ms.openlocfilehash: 797c258c963d0daec32a8f9ac7c4e0665dc465d3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 5263d24c411ef8de4187c2fd750013374d779f04
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73813405"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80277940"
 ---
 # <a name="deploy-a-vm-from-your-vhds"></a>Distribuire una macchina virtuale dai VHD
 
@@ -24,7 +23,7 @@ Dopo aver caricato uno o più dischi rigidi virtuali, ovvero il disco rigido vir
 Per altre informazioni sulle immagini di macchina virtuale, vedere i post di blog seguenti:
 
 - [Immagine VM](https://azure.microsoft.com/blog/vm-image-blog-post/)
-- [Procedure di PowerShell per immagini di macchina virtuale](https://azure.microsoft.com/blog/vm-image-powershell-how-to-blog-post/)
+- [IMMAGINE della macchina virtuale PowerShell 'Procedura'VM Image PowerShell 'How To'](https://azure.microsoft.com/blog/vm-image-powershell-how-to-blog-post/)
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
@@ -32,7 +31,7 @@ Per altre informazioni sulle immagini di macchina virtuale, vedere i post di blo
 
 Se non è già stato fatto, installare Azure PowerShell e l'interfaccia della riga di comando di Azure, usando queste istruzioni:
 
-- [Installare Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps)
+- [Installare Azure PowerShellInstall Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps)
 - [Installare l'interfaccia da riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 
@@ -60,12 +59,12 @@ Dopo aver distribuito la macchina virtuale, è possibile [certificare l'immagine
    |  -------------              |   ---------------                                                            |
    | Nome account di archiviazione utente   | Nome dell'account di archiviazione in cui si trova il disco rigido virtuale generalizzato                    |
    | Nome contenitore di archiviazione utente | Nome del contenitore in cui si trova il disco rigido virtuale generalizzato                          |
-   | Nome DNS per indirizzo IP pubblico      | Nome DNS IP pubblico. Il nome DNS è della VM, che verrà definito nel portale di Azure, una volta distribuita l'offerta.  |
+   | Nome DNS per indirizzo IP pubblico      | Nome DNS IP pubblico. Il nome DNS è della macchina virtuale, lo si definirà nel portale di Azure, una volta distribuita l'offerta.  |
    | Nome utente amministratore             | Nome utente dell'account di amministratore per la nuova macchina virtuale                                  |
    | Password amministratore              | Password dell'account di amministratore per la nuova macchina virtuale                                  |
-   | OS Type (Tipo di sistema operativo)                     | Sistema operativo della macchina virtuale: `Windows` \| `Linux`                                    |
+   | Tipo di sistema operativo                     | Sistema operativo `Windows` \| VM:`Linux`                                    |
    | ID sottoscrizione             | Identificatore della sottoscrizione selezionata                                      |
-   | Percorso                    | Località geografica della distribuzione                                        |
+   | Location                    | Località geografica della distribuzione                                        |
    | Dimensioni macchina virtuale                     | [Dimensioni della macchina virtuale di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes), ad esempio `Standard_A2` |
    | Nome indirizzo IP pubblico      | Nome dell'indirizzo IP pubblico dell'utente                                               |
    | Nome macchina virtuale                     | Nome della nuova macchina virtuale                                                           |

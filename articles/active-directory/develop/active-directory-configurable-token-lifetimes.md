@@ -1,5 +1,5 @@
 ---
-title: Durata del token di Azure AD configurabile
+title: Durata dei token di Azure AD configurabili
 titleSuffix: Microsoft identity platform
 description: Informazioni su come impostare la durata per i token rilasciati da Azure AD.
 services: active-directory
@@ -14,10 +14,10 @@ ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: hirsin, jlu, annaba
 ms.openlocfilehash: 0b2b9dbe52a5696f21b287402fc4cbaa32b29c73
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79263179"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Durate dei token configurabili in Azure Active Directory (anteprima)
@@ -25,19 +25,19 @@ ms.locfileid: "79263179"
 È possibile specificare la durata di un token rilasciato da Azure Active Directory (Azure AD). La durata dei token può essere impostata per tutte le app di un'organizzazione, per un'applicazione multi-tenant (più organizzazioni) o per un'entità servizio specifica in un'organizzazione.
 
 > [!IMPORTANT]
-> Dopo aver ascoltato i clienti durante l'anteprima, sono state implementate le [funzionalità di gestione delle sessioni di autenticazione](https://go.microsoft.com/fwlink/?linkid=2083106) in Azure ad l'accesso condizionale. È possibile usare questa nuova funzionalità per configurare la durata dei token di aggiornamento impostando la frequenza di accesso. Dopo il 1 ° maggio 2020 non sarà possibile usare i criteri di durata dei token configurabili per configurare i token di sessione e di aggiornamento. È comunque possibile configurare la durata dei token di accesso dopo la deprecazione.
+> Dopo aver ascoltato i clienti durante l'anteprima, abbiamo implementato le funzionalità di gestione della sessione di [autenticazione](https://go.microsoft.com/fwlink/?linkid=2083106) in Accesso condizionale di Azure AD. È possibile utilizzare questa nuova funzionalità per configurare la durata dei token di aggiornamento impostando la frequenza di accesso. Dopo il 1 maggio 2020 non sarà possibile utilizzare i criteri di durata dei token configurabili per configurare i token di sessione e di aggiornamento. È comunque possibile configurare la durata dei token di accesso dopo la deprecazione.
 
 In Azure AD, un oggetto criteri rappresenta un set di regole applicate a singole applicazioni o a tutte le applicazioni di un'organizzazione. Ogni tipo di criteri ha una struttura univoca con un set di proprietà che vengono applicate agli oggetti a cui sono assegnate.
 
 È possibile designare un oggetto criteri come predefinito per l'organizzazione. I criteri predefiniti vengono applicati a tutte le applicazioni all'interno dell'organizzazione, fino a quando non vengono sostituiti da criteri con priorità più alta. È anche possibile assegnare criteri ad applicazioni specifiche. L'ordine di priorità varia in base al tipo di criteri.
 
 > [!NOTE]
-> I criteri di durata dei token configurabili si applicano solo ai client desktop e per dispositivi mobili che accedono alle risorse di SharePoint Online e OneDrive for business e non si applicano alle sessioni del browser Web.
-> Per gestire la durata delle sessioni del browser Web per SharePoint Online e OneDrive for business, usare la funzionalità [Durata sessione di accesso condizionale](../conditional-access/howto-conditional-access-session-lifetime.md) . Fare riferimento ai [blog di SharePoint Online](https://techcommunity.microsoft.com/t5/SharePoint-Blog/Introducing-Idle-Session-Timeout-in-SharePoint-and-OneDrive/ba-p/119208) per altre informazioni sulla configurazione dei timeout di sessione inattiva.
+> I criteri di durata dei token configurabili si applicano solo ai client mobili e desktop che accedono alle risorse di SharePoint Online e OneDrive for Business e non si applicano alle sessioni del Web browser.
+> Per gestire la durata delle sessioni del Web browser per SharePoint Online e OneDrive for Business, usare la funzionalità [Durata sessione di accesso condizionale.](../conditional-access/howto-conditional-access-session-lifetime.md) Fare riferimento ai [blog di SharePoint Online](https://techcommunity.microsoft.com/t5/SharePoint-Blog/Introducing-Idle-Session-Timeout-in-SharePoint-and-OneDrive/ba-p/119208) per altre informazioni sulla configurazione dei timeout di sessione inattiva.
 
 ## <a name="token-types"></a>Tipi di token
 
-È possibile impostare i criteri di durata dei token per i token di aggiornamento, i token di accesso, i token SAML, i token di sessione e i token ID.
+È possibile impostare criteri di durata dei token per i token di aggiornamento, i token di accesso, i token SAML, i token di sessione e i token ID.
 
 ### <a name="access-tokens"></a>Token di accesso
 
@@ -45,11 +45,11 @@ I client usano i token di accesso per accedere a una risorsa protetta. I token d
 
 ### <a name="saml-tokens"></a>Token SAML
 
-I token SAML vengono utilizzati da numerose applicazioni SAAS basate sul Web e vengono ottenuti utilizzando l'endpoint del protocollo SAML2 di Azure Active Directory. Vengono inoltre utilizzate da applicazioni che utilizzano WS-Federation. La durata predefinita del token è 1 ora. Dal punto di vista di un'applicazione, il periodo di validità del token viene specificato dal valore NotOnOrAfter dell'elemento `<conditions …>` nel token. Al termine del periodo di validità del token, il client deve avviare una nuova richiesta di autenticazione, che verrà spesso soddisfatta senza l'accesso interattivo come risultato del token di sessione Single Sign-on (SSO).
+I token SAML vengono utilizzati da molte applicazioni SAAS basate sul Web e vengono ottenuti utilizzando l'endpoint del protocollo SAML2 di Azure Active Directory. Vengono inoltre utilizzati dalle applicazioni che utilizzano WS-Federation. La durata predefinita del token è 1 ora. Dal punto di vista di un'applicazione, il periodo di validità del `<conditions …>` token è specificato dal valore NotOnOrAfter dell'elemento nel token. Al termine del periodo di validità del token, il client deve avviare una nuova richiesta di autenticazione, che spesso verrà soddisfatta senza accesso interattivo in seguito al token di sessione Single Sign-On (SSO).
 
-Il valore di NotOnOrAfter può essere modificato utilizzando il parametro `AccessTokenLifetime` in un `TokenLifetimePolicy`. Verrà impostato sulla durata configurata nel criterio, se presente, più un fattore di sfasamento di clock di cinque minuti.
+Il valore di NotOnOrAfter può `AccessTokenLifetime` essere `TokenLifetimePolicy`modificato utilizzando il parametro in un oggetto . Verrà impostata sulla durata configurata nel criterio, se presente, più un fattore di sfasistio dell'orologio di cinque minuti.
 
-Si noti che il NotOnOrAfter di conferma dell'oggetto specificato nell'elemento `<SubjectConfirmationData>` non è influenzato dalla configurazione della durata del token. 
+Si noti che la conferma dell'oggetto NotOnOrAfter specificato nell'elemento `<SubjectConfirmationData>` non è interessata dalla configurazione di durata del token. 
 
 ### <a name="refresh-tokens"></a>Token di aggiornamento
 
@@ -62,22 +62,22 @@ I client riservati sono applicazioni che possono archiviare in modo sicuro una p
 
 #### <a name="token-lifetimes-with-public-client-refresh-tokens"></a>Durata dei token con token di aggiornamento per client pubblici
 
-I client pubblici non possono archiviare in modo sicuro una password client, ovvero un segreto. Un'app iOS o Android, ad esempio, non può offuscare un segreto dal proprietario della risorsa e per questo è considerata un client pubblico. È possibile impostare criteri sulle risorse per evitare che i token di aggiornamento di client pubblici precedenti a un periodo specificato ottengano una nuova coppia di token di accesso/aggiornamento. A tale scopo, usare la proprietà tempo inattività massimo token di aggiornamento (`MaxInactiveTime`). È anche possibile usare i criteri per impostare un periodo oltre il quale i token di aggiornamento non vengono più accettati. A tale scopo, usare la proprietà validità massima token di aggiornamento. È possibile regolare la durata di un token di aggiornamento per controllare quando e con quale frequenza viene richiesto all'utente di immettere nuovamente le credenziali, anziché essere riautenticato automaticamente, quando si usa un'applicazione client pubblica.
+I client pubblici non possono archiviare in modo sicuro una password client, ovvero un segreto. Un'app iOS o Android, ad esempio, non può offuscare un segreto dal proprietario della risorsa e per questo è considerata un client pubblico. È possibile impostare criteri sulle risorse per evitare che i token di aggiornamento di client pubblici precedenti a un periodo specificato ottengano una nuova coppia di token di accesso/aggiornamento. A tale scopo, utilizzare la proprietà Aggiorna`MaxInactiveTime`token Max Tempo inattivo ( ). È inoltre possibile utilizzare i criteri per impostare un periodo oltre il quale i token di aggiornamento non vengono più accettati. A tale scopo, utilizzare la proprietà Validità massima token di aggiornamento. È possibile modificare la durata di un token di aggiornamento per controllare quando e con quale frequenza l'utente deve immettere nuovamente le credenziali, anziché essere autenticato in modo invisibile all'utente, quando si utilizza un'applicazione client pubblica.
 
 > [!NOTE]
-> La proprietà validità massima indica il periodo di tempo in cui è possibile usare un singolo token. 
+> La proprietà Validità massima è il periodo di tempo in cui è possibile utilizzare un singolo token. 
 
 ### <a name="id-tokens"></a>Token ID
 I token ID vengono passati a siti Web e client nativi e contengono informazioni relative al profilo di un utente. Ogni token ID è associato a una combinazione specifica di utente e client ed è considerato valido fino alla relativa scadenza. La durata della sessione di un utente in un'applicazione Web corrisponde in genere alla durata del token ID rilasciato per l'utente. È possibile regolare la durata del token ID per controllare con quale frequenza si verifica la scadenza di una sessione in un'applicazione Web ed è necessario rieseguire l'autenticazione dell'utente con Azure AD, in modo automatico o interattivo.
 
 ### <a name="single-sign-on-session-tokens"></a>Token di sessione Single Sign-On
-Quando un utente esegue l'autenticazione con Azure AD, viene stabilita una sessione Single Sign-On (SSO) con Azure AD e il browser dell'utente. Questa sessione è rappresentata dal token di sessione SSO, sotto forma di cookie. Il token di sessione SSO non è associato a una risorsa/applicazione client specifica. I token di sessione SSO possono essere revocati e la relativa validità viene verificata ogni volta che vengono usati.
+Quando un utente esegue l'autenticazione con Azure AD, viene stabilita una sessione Single Sign-On (SSO) con Azure AD e il browser dell'utente. Questa sessione è rappresentata dal token di sessione SSO, sotto forma di cookie. Il token di sessione SSO non è associato a una risorsa o un'applicazione client specifica. I token di sessione SSO possono essere revocati e la relativa validità viene verificata ogni volta che vengono usati.
 
-Azure AD usa due tipi di token di sessione SSO, ovvero permanenti e non permanenti. I token di sessione permanenti vengono archiviati dal browser come cookie permanenti. I token di sessione non permanenti vengono archiviati come cookie di sessione I cookie di sessione vengono eliminati quando il browser viene chiuso. In genere, viene archiviato un token di sessione non permanente. Ma quando durante l'autenticazione l'utente seleziona la casella di controllo **Mantieni l'accesso**, viene archiviato un token di sessione permanente.
+Azure AD usa due tipi di token di sessione SSO, ovvero permanenti e non permanenti. I token di sessione permanenti vengono archiviati dal browser come cookie permanenti. I token di sessione non permanenti vengono archiviati come cookie di sessione I cookie di sessione vengono distrutti quando il browser viene chiuso. In genere, viene archiviato un token di sessione non permanente. Ma quando durante l'autenticazione l'utente seleziona la casella di controllo **Mantieni l'accesso**, viene archiviato un token di sessione permanente.
 
-I token di sessione non permanenti hanno una durata di 24 ore, mentre i token permanenti hanno una durata di 180 giorni. Ogni volta che un token di sessione SSO viene usato entro il relativo periodo di validità, il periodo di validità viene esteso per altre 24 ore o 180 giorni, a seconda del tipo di token. Se un token di sessione SSO non viene usato entro il relativo periodo di validità, è considerato scaduto e non viene più accettato.
+I token di sessione non permanenti hanno una durata di 24 ore, mentre i token permanenti hanno una durata di 180 giorni. Ogni volta che un token di sessione SSO viene utilizzato entro il periodo di validità, il periodo di validità viene esteso di altre 24 ore o 180 giorni, a seconda del tipo di token. Se un token di sessione SSO non viene usato entro il relativo periodo di validità, è considerato scaduto e non viene più accettato.
 
-È possibile usare criteri per impostare il periodo di tempo dopo il rilascio del primo token di sessione oltre il quale tale token non viene più accettato. A tale scopo, usare la proprietà validità massima token di sessione. È possibile regolare la durata di un token di sessione per controllare quando e con quale frequenza viene richiesto a un utente di immettere nuovamente le credenziali, anziché essere autenticate automaticamente quando si usa un'applicazione Web.
+È possibile usare criteri per impostare il periodo di tempo dopo il rilascio del primo token di sessione oltre il quale tale token non viene più accettato. A tale scopo, utilizzare la proprietà Validità massima token di sessione. È possibile modificare la durata di un token di sessione per controllare quando e con quale frequenza un utente deve immettere nuovamente le credenziali, anziché essere autenticato in modo invisibile all'utente, quando si utilizza un'applicazione Web.
 
 ### <a name="token-lifetime-policy-properties"></a>Proprietà dei criteri per la durata dei token
 I criteri per la durata dei token rappresentano un tipo di oggetto criteri contenente le regole di durata dei token. Usare le proprietà dei criteri per controllare la durata di token specifici. Se non si impostano criteri, il valore di durata predefinito viene applicato dal sistema.
@@ -93,7 +93,7 @@ I criteri per la durata dei token rappresentano un tipo di oggetto criteri conte
 | Validità massima token di sessione a più fattori |MaxAgeSessionMultiFactor |Token di sessione (permanenti e non permanenti) |Fino a revoca |10 minuti |Fino alla revoca<sup>1</sup> |
 
 * <sup>1</sup> La durata esplicita massima che è possibile impostare per questi attributi è 365 giorni.
-* <sup>2</sup> Per assicurarsi che il client Web Microsoft teams funzioni, è consigliabile mantenere AccessTokenLifetime a più di 15 minuti per Microsoft teams.
+* <sup>2 Il</sup> nome del sistema Per garantire il funzionamento del client Web Microsoft Teams, si consiglia di mantenere AccessTokenLifetime a più di 15 minuti per Microsoft Teams.
 
 ### <a name="exceptions"></a>Eccezioni
 | Proprietà | Impatto | Predefinito |
@@ -110,7 +110,7 @@ I criteri per la durata dei token rappresentano un tipo di oggetto criteri conte
 * Se i criteri sono assegnati in modo esplicito all'entità servizio, vengono applicati.
 * Se all'entità servizio non sono assegnati criteri in modo esplicito, vengono applicati i criteri assegnati in modo esplicito all'elemento organizzazione padre dell'entità servizio.
 * Se all'entità servizio o all'organizzazione non sono assegnati criteri in modo esplicito, vengono applicati i criteri assegnati all'applicazione.
-* Se all'entità servizio, all'organizzazione o all'oggetto applicazione non sono stati assegnati criteri, verranno applicati i valori predefiniti. Vedere in proposito la tabella in [Proprietà configurabili per la durata dei token](#configurable-token-lifetime-properties).
+* Se all'entità servizio, all'organizzazione o all'oggetto applicazione non è stato assegnato alcun criterio, vengono applicati i valori predefiniti. Vedere in proposito la tabella in [Proprietà configurabili per la durata dei token](#configurable-token-lifetime-properties).
 
 Per altre informazioni sulla relazione tra oggetti applicazione e oggetti entità servizio, vedere [Oggetti applicazione e oggetti entità servizio in Azure Active Directory](app-objects-and-service-principals.md).
 
@@ -143,9 +143,9 @@ Tutti gli intervalli di tempo usati qui sono formattati in base all'oggetto[Time
 ### <a name="access-token-lifetime"></a>Durata dei token di accesso
 **Stringa:** AccessTokenLifetime
 
-**Effetti:** Token di accesso, token ID, token SAML
+**Influisce:** Token di accesso, token ID, token SAML
 
-**Riepilogo:** questo tipo di criteri controlla per quanto tempo i token di accesso e ID della risorsa sono considerati validi. Riducendo la proprietà Durata dei token di accesso è possibile ridurre il rischio che un token di accesso o un token ID vengano usati da un attore malintenzionato per un lungo periodo di tempo. (Questi token non possono essere revocati). Il compromesso è che le prestazioni sono compromesse, perché i token devono essere sostituiti più spesso.
+**Riepilogo:** questo tipo di criteri controlla per quanto tempo i token di accesso e ID della risorsa sono considerati validi. Riducendo la proprietà Durata dei token di accesso è possibile ridurre il rischio che un token di accesso o un token ID vengano usati da un attore malintenzionato per un lungo periodo di tempo. Questi token non possono essere revocati. Il compromesso è che le prestazioni sono influenzate negativamente, perché i token devono essere sostituiti più spesso.
 
 ### <a name="refresh-token-max-inactive-time"></a>Tempo inattività massimo token di aggiornamento
 **Stringa:** MaxInactiveTime
@@ -163,7 +163,7 @@ La proprietà Tempo inattività massimo token di aggiornamento deve essere impos
 
 **Impatto:** token di aggiornamento
 
-**Riepilogo:** questo tipo di criteri controlla per quanto tempo un utente può usare un token di aggiornamento per ottenere una nuova coppia di token di accesso/aggiornamento dopo l'ultima autenticazione a fattore singolo. Dopo aver eseguito l'autenticazione e aver ricevuto un nuovo token di aggiornamento, l'utente può usare il flusso del token di aggiornamento per il periodo di tempo specificato. (Questo è vero purché il token di aggiornamento corrente non venga revocato e non viene lasciato inutilizzato per un periodo di tempo maggiore del tempo di inattività). A questo punto, l'utente deve eseguire di nuovo l'autenticazione per ricevere un nuovo token di aggiornamento.
+**Riepilogo:** questo tipo di criteri controlla per quanto tempo un utente può usare un token di aggiornamento per ottenere una nuova coppia di token di accesso/aggiornamento dopo l'ultima autenticazione a fattore singolo. Dopo aver eseguito l'autenticazione e aver ricevuto un nuovo token di aggiornamento, l'utente può usare il flusso del token di aggiornamento per il periodo di tempo specificato. Questo valore è vero finché il token di aggiornamento corrente non viene revocato e non viene lasciato inutilizzato per un periodo di tempo superiore a quello inattivo. A questo punto, l'utente è costretto a eseguire nuovamente l'autenticazione per ricevere un nuovo token di aggiornamento.
 
 Riducendo la validità massima, gli utenti devono eseguire l'autenticazione più spesso. Dal momento che l'autenticazione a fattore singolo è considerata meno sicura dell'autenticazione a più fattori, è consigliabile impostare questa proprietà su un valore minore o uguale a quello della proprietà Validità massima token di aggiornamento a più fattori.
 
@@ -172,7 +172,7 @@ Riducendo la validità massima, gli utenti devono eseguire l'autenticazione più
 
 **Impatto:** token di aggiornamento
 
-**Riepilogo:** questo tipo di criteri controlla per quanto tempo un utente può usare un token di aggiornamento per ottenere una nuova coppia di token di accesso/aggiornamento dopo l'ultima autenticazione a più fattori. Dopo aver eseguito l'autenticazione e aver ricevuto un nuovo token di aggiornamento, l'utente può usare il flusso del token di aggiornamento per il periodo di tempo specificato. (Questo è vero purché il token di aggiornamento corrente non venga revocato e non è inutilizzato per un periodo più lungo rispetto al tempo di inattività). A questo punto, gli utenti devono eseguire di nuovo l'autenticazione per ricevere un nuovo token di aggiornamento.
+**Riepilogo:** questo tipo di criteri controlla per quanto tempo un utente può usare un token di aggiornamento per ottenere una nuova coppia di token di accesso/aggiornamento dopo l'ultima autenticazione a più fattori. Dopo aver eseguito l'autenticazione e aver ricevuto un nuovo token di aggiornamento, l'utente può usare il flusso del token di aggiornamento per il periodo di tempo specificato. Questo valore è vero finché il token di aggiornamento corrente non viene revocato e non viene utilizzato per un periodo di tempo superiore a quello inattivo. A questo punto, gli utenti sono costretti a eseguire nuovamente l'autenticazione per ricevere un nuovo token di aggiornamento.
 
 Riducendo la validità massima, gli utenti devono eseguire l'autenticazione più spesso. Dal momento che l'autenticazione a fattore singolo è considerata meno sicura dell'autenticazione a più fattori, è consigliabile impostare questa proprietà su un valore maggiore o uguale a quello della proprietà Validità massima token di aggiornamento a fattore singolo.
 
@@ -181,7 +181,7 @@ Riducendo la validità massima, gli utenti devono eseguire l'autenticazione più
 
 **Impatto:** token di sessione (permanenti e non permanenti)
 
-**Riepilogo:** questo tipo di criteri controlla per quanto tempo un utente può usare un token di sessione per ottenere un nuovo token ID e un nuovo token di sessione dopo l'ultima autenticazione a fattore singolo. Dopo aver eseguito l'autenticazione e aver ricevuto un nuovo token di sessione, l'utente può usare il flusso del token di sessione per il periodo di tempo specificato. (Questo valore è true purché il token di sessione corrente non venga revocato e non sia scaduto). Dopo il periodo di tempo specificato, l'utente deve eseguire di nuovo l'autenticazione per ricevere un nuovo token di sessione.
+**Riepilogo:** questo tipo di criteri controlla per quanto tempo un utente può usare un token di sessione per ottenere un nuovo token ID e un nuovo token di sessione dopo l'ultima autenticazione a fattore singolo. Dopo aver eseguito l'autenticazione e aver ricevuto un nuovo token di sessione, l'utente può usare il flusso del token di sessione per il periodo di tempo specificato. Questo valore è vero finché il token di sessione corrente non viene revocato e non è scaduto. Dopo il periodo di tempo specificato, l'utente è costretto a eseguire nuovamente l'autenticazione per ricevere un nuovo token di sessione.
 
 Riducendo la validità massima, gli utenti devono eseguire l'autenticazione più spesso. Dal momento che l'autenticazione a fattore singolo è considerata meno sicura dell'autenticazione a più fattori, è consigliabile impostare questa proprietà su un valore minore o uguale a quello della proprietà Validità massima token di sessione a più fattori.
 
@@ -190,7 +190,7 @@ Riducendo la validità massima, gli utenti devono eseguire l'autenticazione più
 
 **Impatto:** token di sessione (permanenti e non permanenti)
 
-**Riepilogo:** questo tipo di criteri controlla per quanto tempo un utente può usare un token di sessione per ottenere un nuovo token ID e un nuovo token di sessione dopo l'ultima autenticazione a più fattori. Dopo aver eseguito l'autenticazione e aver ricevuto un nuovo token di sessione, l'utente può usare il flusso del token di sessione per il periodo di tempo specificato. (Questo valore è true purché il token di sessione corrente non venga revocato e non sia scaduto). Dopo il periodo di tempo specificato, l'utente deve eseguire di nuovo l'autenticazione per ricevere un nuovo token di sessione.
+**Riepilogo:** questo tipo di criteri controlla per quanto tempo un utente può usare un token di sessione per ottenere un nuovo token ID e un nuovo token di sessione dopo l'ultima autenticazione a più fattori. Dopo aver eseguito l'autenticazione e aver ricevuto un nuovo token di sessione, l'utente può usare il flusso del token di sessione per il periodo di tempo specificato. Questo valore è vero finché il token di sessione corrente non viene revocato e non è scaduto. Dopo il periodo di tempo specificato, l'utente è costretto a eseguire nuovamente l'autenticazione per ricevere un nuovo token di sessione.
 
 Riducendo la validità massima, gli utenti devono eseguire l'autenticazione più spesso. Dal momento che l'autenticazione a fattore singolo è considerata meno sicura dell'autenticazione a più fattori, è consigliabile impostare questa proprietà su un valore maggiore o uguale a quello della proprietà Validità massima token di sessione a fattore singolo.
 
@@ -208,7 +208,7 @@ Gli esempi illustrano come:
 * Creare criteri per un'app nativa che chiama un'API Web
 * Gestire criteri avanzati
 
-### <a name="prerequisites"></a>Prerequisites
+### <a name="prerequisites"></a>Prerequisiti
 Gli esempi seguenti mostrano come creare, aggiornare, collegare ed eliminare criteri per le app, le entità servizio e l'intera organizzazione. Se non si ha familiarità con Azure AD, è consigliabile vedere [come ottenere un tenant di Azure AD](quickstart-create-new-tenant.md) prima di procedere con questi esempi.  
 
 Per iniziare, seguire questa procedura:
@@ -227,7 +227,7 @@ Per iniziare, seguire questa procedura:
     ```
 
 ### <a name="example-manage-an-organizations-default-policy"></a>Esempio: gestire i criteri predefiniti di un'organizzazione
-In questo esempio si crea un criterio che consente agli utenti di accedere con minore frequenza nell'intera organizzazione. A tale scopo, vengono creati criteri per la durata dei token di aggiornamento a fattore singolo che vengono applicati a tutta l'organizzazione. Tali criteri vengono applicati a ogni applicazione nell'organizzazione e a ogni entità servizio per cui ancora non sono impostati criteri.
+In questo esempio viene creato un criterio che consente agli utenti di accedere meno frequentemente nell'intera organizzazione. A tale scopo, vengono creati criteri per la durata dei token di aggiornamento a fattore singolo che vengono applicati a tutta l'organizzazione. Tali criteri vengono applicati a ogni applicazione nell'organizzazione e a ogni entità servizio per cui ancora non sono impostati criteri.
 
 1. Creare i criteri per la durata dei token.
 
@@ -291,7 +291,7 @@ In questo esempio vengono creati i criteri in base ai quali viene richiesto agli
         $sp = Get-AzureADServicePrincipal -Filter "DisplayName eq '<service principal display name>'"
         ```
 
-    2. Quando si dispone dell'entità servizio, eseguire il comando seguente:
+    2. Quando si dispone dell'entità servizio, eseguire il comando seguente:When you have the service principal, run the following command:
         ```powershell
         # Assign policy to a service principal
         Add-AzureADServicePrincipalPolicy -Id $sp.ObjectId -RefObjectId $policy.Id
@@ -308,15 +308,15 @@ In questo esempio vengono creati i criteri in base ai quali viene richiesto agli
         $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"30.00:00:00","MaxAgeMultiFactor":"until-revoked","MaxAgeSingleFactor":"180.00:00:00"}}') -DisplayName "WebApiDefaultPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
         ```
 
-    2. Per visualizzare i nuovi criteri, eseguire il comando seguente:
+    2. Per visualizzare il nuovo criterio, eseguire il comando seguente:
 
         ```powershell
         Get-AzureADPolicy -Id $policy.Id
         ```
 
-2. Assegnare i criteri all'API Web. È necessario ottenere anche l'**ObjectId** dell'app. Usare il cmdlet [Get-AzureADApplication](/powershell/module/azuread/get-azureadapplication) per trovare l' **ObjectID**dell'app o usare il [portale di Azure](https://portal.azure.com/).
+2. Assegnare i criteri all'API Web. È necessario ottenere anche l'**ObjectId** dell'app. Usare il cmdlet [Get-AzureADApplication](/powershell/module/azuread/get-azureadapplication) per trovare **ObjectId**dell'app oppure usare il portale di [Azure.](https://portal.azure.com/)
 
-    Ottenere l' **ObjectID** dell'app e assegnare i criteri:
+    Ottenere **l'ObjectId** dell'app e assegnare il criterio:
 
     ```powershell
     # Get the application
@@ -327,7 +327,7 @@ In questo esempio vengono creati i criteri in base ai quali viene richiesto agli
     ```
 
 ### <a name="example-manage-an-advanced-policy"></a>Esempio: gestire criteri avanzati
-In questo esempio vengono creati alcuni criteri per apprendere il funzionamento del sistema di priorità. Viene inoltre illustrato come gestire più criteri applicati a diversi oggetti.
+In questo esempio vengono creati alcuni criteri per scoprire il funzionamento del sistema di priorità. Viene inoltre illustrato come gestire più criteri applicati a più oggetti.
 
 1. Creare i criteri per la durata dei token.
 
@@ -337,7 +337,7 @@ In questo esempio vengono creati alcuni criteri per apprendere il funzionamento 
         $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"30.00:00:00"}}') -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
         ```
 
-    2. Per visualizzare i nuovi criteri, eseguire il comando seguente:
+    2. Per visualizzare il nuovo criterio, eseguire il comando seguente:
 
         ```powershell
         Get-AzureADPolicy -Id $policy.Id
@@ -347,9 +347,9 @@ In questo esempio vengono creati alcuni criteri per apprendere il funzionamento 
 
     A questo punto sono disponibili criteri che si applicano all'intera organizzazione. Si supponga di voler conservare tali criteri della durata di 30 giorni per un'entità servizio specifica, impostando però i criteri predefiniti dell'organizzazione sul valore limite superiore, ovvero fino alla revoca.
 
-    1. Per visualizzare tutte le entità servizio dell'organizzazione, usare il cmdlet [Get-AzureADServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal) .
+    1. Per visualizzare tutte le entità servizio dell'organizzazione, usare il cmdlet [Get-AzureADServicePrincipal.To](/powershell/module/azuread/get-azureadserviceprincipal) see all your organization's service principals, you use the Get-AzureADServicePrincipal cmdlet.
 
-    2. Quando si dispone dell'entità servizio, eseguire il comando seguente:
+    2. Quando si dispone dell'entità servizio, eseguire il comando seguente:When you have the service principal, run the following command:
 
         ```powershell
         # Get ID of the service principal
@@ -406,7 +406,7 @@ Get-AzureADPolicy
 
 | Parametri | Descrizione | Esempio |
 | --- | --- | --- |
-| <code>&#8209;Id</code>[Facoltativo] |**ObjectID (ID)** del criterio desiderato. |`-Id <ObjectId of Policy>` |
+| <code>&#8209;Id</code>[Facoltativo] |**ObjectId (ID)** del criterio desiderato. |`-Id <ObjectId of Policy>` |
 
 </br></br>
 
@@ -419,7 +419,7 @@ Get-AzureADPolicyAppliedObject -Id <ObjectId of Policy>
 
 | Parametri | Descrizione | Esempio |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectID (ID)** del criterio desiderato. |`-Id <ObjectId of Policy>` |
+| <code>&#8209;Id</code> |**ObjectId (ID)** del criterio desiderato. |`-Id <ObjectId of Policy>` |
 
 </br></br>
 
@@ -432,7 +432,7 @@ Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName <string>
 
 | Parametri | Descrizione | Esempio |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectID (ID)** del criterio desiderato. |`-Id <ObjectId of Policy>` |
+| <code>&#8209;Id</code> |**ObjectId (ID)** del criterio desiderato. |`-Id <ObjectId of Policy>` |
 | <code>&#8209;DisplayName</code> |Stringa relativa al nome dei criteri. |`-DisplayName "MyTokenPolicy"` |
 | <code>&#8209;Definition</code>[Facoltativo] |Matrice del codice JSON in formato stringa contenente tutte le regole dei criteri. |`-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
 | <code>&#8209;IsOrganizationDefault</code>[Facoltativo] |Se true, imposta i criteri come predefiniti dell'organizzazione. Se false, non esegue alcuna operazione. |`-IsOrganizationDefault $true` |
@@ -450,7 +450,7 @@ Elimina i criteri specificati.
 
 | Parametri | Descrizione | Esempio |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectID (ID)** del criterio desiderato. | `-Id <ObjectId of Policy>` |
+| <code>&#8209;Id</code> |**ObjectId (ID)** del criterio desiderato. | `-Id <ObjectId of Policy>` |
 
 </br></br>
 
@@ -466,7 +466,7 @@ Add-AzureADApplicationPolicy -Id <ObjectId of Application> -RefObjectId <ObjectI
 
 | Parametri | Descrizione | Esempio |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectID (ID)** dell'applicazione. | `-Id <ObjectId of Application>` |
+| <code>&#8209;Id</code> |**ObjectId (ID)** dell'applicazione. | `-Id <ObjectId of Application>` |
 | <code>&#8209;RefObjectId</code> |**ObjectId** dei criteri. | `-RefObjectId <ObjectId of Policy>` |
 
 </br></br>
@@ -480,7 +480,7 @@ Get-AzureADApplicationPolicy -Id <ObjectId of Application>
 
 | Parametri | Descrizione | Esempio |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectID (ID)** dell'applicazione. | `-Id <ObjectId of Application>` |
+| <code>&#8209;Id</code> |**ObjectId (ID)** dell'applicazione. | `-Id <ObjectId of Application>` |
 
 </br></br>
 
@@ -493,7 +493,7 @@ Remove-AzureADApplicationPolicy -Id <ObjectId of Application> -PolicyId <ObjectI
 
 | Parametri | Descrizione | Esempio |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectID (ID)** dell'applicazione. | `-Id <ObjectId of Application>` |
+| <code>&#8209;Id</code> |**ObjectId (ID)** dell'applicazione. | `-Id <ObjectId of Application>` |
 | <code>&#8209;PolicyId</code> |**ObjectId** dei criteri. | `-PolicyId <ObjectId of Policy>` |
 
 </br></br>
@@ -510,7 +510,7 @@ Add-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal> -RefObjectI
 
 | Parametri | Descrizione | Esempio |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectID (ID)** dell'applicazione. | `-Id <ObjectId of Application>` |
+| <code>&#8209;Id</code> |**ObjectId (ID)** dell'applicazione. | `-Id <ObjectId of Application>` |
 | <code>&#8209;RefObjectId</code> |**ObjectId** dei criteri. | `-RefObjectId <ObjectId of Policy>` |
 
 </br></br>
@@ -524,7 +524,7 @@ Get-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>
 
 | Parametri | Descrizione | Esempio |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectID (ID)** dell'applicazione. | `-Id <ObjectId of Application>` |
+| <code>&#8209;Id</code> |**ObjectId (ID)** dell'applicazione. | `-Id <ObjectId of Application>` |
 
 </br></br>
 
@@ -537,5 +537,5 @@ Remove-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>  -Policy
 
 | Parametri | Descrizione | Esempio |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectID (ID)** dell'applicazione. | `-Id <ObjectId of Application>` |
+| <code>&#8209;Id</code> |**ObjectId (ID)** dell'applicazione. | `-Id <ObjectId of Application>` |
 | <code>&#8209;PolicyId</code> |**ObjectId** dei criteri. | `-PolicyId <ObjectId of Policy>` |

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: tagore
 ms.openlocfilehash: 34cb4282f64544e67b3724699380d1d54fd9b806
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79247475"
 ---
 # <a name="sizes-for-cloud-services"></a>Dimensioni dei servizi cloud
@@ -53,7 +53,7 @@ Le considerazioni seguenti potrebbero essere utili all'utente per scegliere una 
 
 | Famiglia SKU | ACU/Core |
 | --- | --- |
-| [ExtraSmall](#a-series) |50 |
+| [Molto piccola](#a-series) |50 |
 | [Small-ExtraLarge](#a-series) |100 |
 | [A5-7](#a-series) |100 |
 | [A8-A11](#a-series) |225* |
@@ -136,7 +136,7 @@ Per informazioni e considerazioni sull'uso di queste dimensioni, vedere [Dimensi
 | Standard_D12_v2 | 4         | 28           | 200                  | 4/alta |
 | Standard_D13_v2 | 8         | 56           | 400                  | 8/alta |
 | Standard_D14_v2 | 16        | 112          | 800                  | 8/estremamente alta |
-| Standard_D15_v2 | 20        | 140          | 1\.000                | 8/estremamente alta |
+| Standard_D15_v2 | 20        | 140          | 1.000                | 8/estremamente alta |
 
 ## <a name="dv3-series"></a>Serie Dv3
 
@@ -166,9 +166,9 @@ Per informazioni e considerazioni sull'uso di queste dimensioni, vedere [Dimensi
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | Standard_G1     | 2         | 28           | 384                  |1/alta |
 | Standard_G2     | 4         | 56           | 768                  |2/alta |
-| Standard_G3     | 8         | 112          | 1\.536                |4/molto alta |
-| Standard_G4     | 16        | 224          | 3\.072                |8/estremamente alta |
-| Standard_G5     | 32        | 448          | 6\.144                |8/estremamente alta |
+| Standard_G3     | 8         | 112          | 1.536                |4/molto alta |
+| Standard_G4     | 16        | 224          | 3.072                |8/estremamente alta |
+| Standard_G5     | 32        | 448          | 6.144                |8/estremamente alta |
 
 ## <a name="h-series"></a>Serie H
 Le macchine virtuali serie H di Azure sono le VM high performance computing di prossima generazione che puntano a risolvere esigenze di calcolo di fascia alta, come modellazione molecolare e fluidodinamica computazionale. Queste VM a 8 e 16 core sono basate sulla tecnologia del processore Intel Haswell E5-2667 V3 con memoria DDR4 e archiviazione basata su SSD locale.
@@ -214,7 +214,7 @@ Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceS
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per informazioni, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-resource-manager/management/azure-subscription-service-limits.md).
+* Informazioni su [limiti, quote e vincoli](../azure-resource-manager/management/azure-subscription-service-limits.md)di sottoscrizione e servizio di Azure.
 * Altre informazioni [sulle Dimensioni delle VM High Performance Computing (HPC)](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) per carichi di lavoro HPC.
 
 

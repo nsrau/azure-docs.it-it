@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 12/14/2018
 ms.topic: conceptual
 ms.openlocfilehash: 6e4c8057322b6208ea3b447b264e2bde1344540c
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79278688"
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Informazioni sui concetti chiave del flusso di lavoro di PowerShell per i runbook di Automazione
@@ -31,7 +31,7 @@ Workflow Test-Workflow
 }
 ```
 
-Il nome del flusso di lavoro deve corrispondere al nome del Runbook di Automazione. Se il runbook viene importato, il nome del file deve corrispondere al nome del flusso di lavoro e terminare con l'estensione *ps1*.
+Il nome del flusso di lavoro deve corrispondere al nome del Runbook di Automazione. Se il runbook viene importato, il nome del file deve corrispondere al nome del flusso di lavoro e deve terminare con *.ps1*.
 
 Per aggiungere parametri al flusso di lavoro, utilizzare la parola chiave **Param** esattamente come si farebbe con uno script.
 
@@ -222,7 +222,7 @@ Workflow Copy-Files
 
 ## <a name="checkpoints"></a>Checkpoint
 
-Un *checkpoint* è uno snapshot dello stato corrente del flusso di lavoro che include il valore corrente per le variabili e gli output generati fino al punto corrispondente. Se un flusso di lavoro termina con errori o viene sospeso, alla successiva esecuzione verrà avviato dall'ultimo checkpoint anziché dall'inizio del flusso di lavoro.  È possibile impostare un checkpoint in un flusso di lavoro con l'attività **Checkpoint-Workflow** . Automazione di Azure dispone di una funzionalità denominata [condivisione equa](automation-runbook-execution.md#fair-share), in cui qualsiasi Runbook eseguito per 3 ore viene scaricato per consentire l'esecuzione di altre manuali operativi. Infine, il Runbook scaricato verrà ricaricato e, in tal caso, riprenderà l'esecuzione dall'ultimo checkpoint effettuato in Runbook. Per garantire che il Runbook venga completato, è necessario aggiungere Checkpoint a intervalli che vengono eseguiti per meno di 3 ore. Se durante ogni esecuzione viene aggiunto un nuovo checkpoint e se il Runbook viene eliminato dopo 3 ore a causa di un errore, il Runbook verrà ripreso per un periodo illimitato.
+Un *checkpoint* è uno snapshot dello stato corrente del flusso di lavoro che include il valore corrente per le variabili e gli output generati fino al punto corrispondente. Se un flusso di lavoro termina con errori o viene sospeso, alla successiva esecuzione verrà avviato dall'ultimo checkpoint anziché dall'inizio del flusso di lavoro.  È possibile impostare un checkpoint in un flusso di lavoro con l'attività **Checkpoint-Workflow** . Automazione di Azure dispone di una funzionalità denominata [condivisione equa,](automation-runbook-execution.md#fair-share)in cui qualsiasi runbook eseguito per 3 ore viene scaricato per consentire l'esecuzione di altri runbook. Infine, il runbook scaricato verrà ricaricato e, quando lo è, riprenderà l'esecuzione dall'ultimo checkpoint ripreso nel runbook. Per garantire il completamento del runbook, è necessario aggiungere checkpoint a intervalli eseguiti per meno di 3 ore. Se durante ogni esecuzione viene aggiunto un nuovo checkpoint e se il runbook viene rimosso dopo 3 ore a causa di un errore, il runbook verrà ripreso a tempo indeterminato.
 
 Nel codice di esempio seguente si verifica un'eccezione dopo Activity2 con la conseguente sospensione del Runbook. Quando il flusso di lavoro viene nuovamente avviato, inizierà con l'esecuzione di Activity2, poiché questa attività si trovava immediatamente dopo l'ultimo checkpoint impostato.
 
@@ -254,7 +254,7 @@ Workflow Copy-Files
 }
 ```
 
-Poiché le credenziali nome utente non vengono rese permanenti dopo la chiamata dell'attività [Suspend-Workflow](https://technet.microsoft.com/library/jj733586.aspx) o dopo l'ultimo checkpoint, è necessario impostare le credenziali su Null e quindi recuperarle di nuovo dall'archivio di asset dopo la chiamata di **Suspend-Workflow** o del checkpoint.  In caso contrario, è possibile che venga visualizzato il messaggio di errore seguente: *Impossibile riprendere il processo del flusso di lavoro perché i dati di persistenza non sono stati salvati completamente oppure i dati di persistenza salvati sono stati danneggiati. È necessario riavviare il flusso di lavoro.*
+Poiché le credenziali nome utente non vengono rese permanenti dopo la chiamata dell'attività [Suspend-Workflow](https://technet.microsoft.com/library/jj733586.aspx) o dopo l'ultimo checkpoint, è necessario impostare le credenziali su Null e quindi recuperarle di nuovo dall'archivio di asset dopo la chiamata di **Suspend-Workflow** o del checkpoint.  In caso contrario, è che venga visualizzato il seguente messaggio di errore: Impossibile riprendere il processo del flusso di lavoro, perché non è stato possibile salvare completamente i dati di persistenza o i dati di *persistenza salvati sono stati danneggiati. È necessario riavviare il flusso di lavoro.*
 
 Il codice seguente mostra come gestire questa situazione nei runbook del flusso di lavoro di PowerShell.
 
@@ -291,5 +291,5 @@ Per altre informazioni sui checkpoint, vedere l'articolo relativo all' [aggiunta
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per iniziare a usare runbook del flusso di lavoro PowerShell, vedere [Il primo runbook del flusso di lavoro PowerShell](automation-first-runbook-textual.md)
+* Per iniziare a usare i runbook del flusso di lavoro di PowerShell, vedere Il mio primo runbook del flusso di lavoro di PowerShellTo get started with [PowerShell workflow runbooks, see My first PowerShell workflow runbook](automation-first-runbook-textual.md)
 

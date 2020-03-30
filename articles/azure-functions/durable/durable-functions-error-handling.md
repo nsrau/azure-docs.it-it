@@ -5,23 +5,23 @@ ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 447b3dcf5040835f5a853beff68bde794ece51f5
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79277856"
 ---
 # <a name="handling-errors-in-durable-functions-azure-functions"></a>Gestione degli errori in Funzioni permanenti (Funzioni di Azure)
 
-Le orchestrazioni di funzioni permanenti vengono implementate nel codice e possono utilizzare le funzionalità di gestione degli errori predefinite del linguaggio di programmazione. In realtà non sono presenti nuovi concetti necessari per aggiungere la gestione degli errori e la compensazione alle orchestrazioni. È tuttavia opportuno conoscere alcuni comportamenti.
+Le orchestrazioni di funzioni durevoli vengono implementate nel codice e possono utilizzare le funzionalità di gestione degli errori incorporate del linguaggio di programmazione. Non ci sono davvero nuovi concetti è necessario imparare ad aggiungere la gestione degli errori e la compensazione nelle orchestrazioni. È tuttavia opportuno conoscere alcuni comportamenti.
 
 ## <a name="errors-in-activity-functions"></a>Errori nelle funzioni di attività
 
-Qualsiasi eccezione generata in una funzione di attività viene sottoposta a marshalling di nuovo nella funzione dell'agente di orchestrazione e generata come `FunctionFailedException`. È possibile scrivere il codice di compensazione e gestione degli errori adatto alle esigenze nella funzione dell'agente di orchestrazione.
+Qualsiasi eccezione generata in una funzione di attività viene sottoposta `FunctionFailedException`a marshalling alla funzione dell'agente di orchestrazione e generata come oggetto . È possibile scrivere il codice di compensazione e gestione degli errori adatto alle esigenze nella funzione dell'agente di orchestrazione.
 
 Ad esempio, si consideri la seguente funzione dell'agente di orchestrazione che consente di trasferire fondi da un account a un altro:
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 ```csharp
 [FunctionName("TransferFunds")]
@@ -60,9 +60,9 @@ public static async Task Run([OrchestrationTrigger] IDurableOrchestrationContext
 ```
 
 > [!NOTE]
-> Gli esempi C# precedenti sono per Durable Functions 2. x. Per Durable Functions 1. x, è necessario utilizzare `DurableOrchestrationContext` invece di `IDurableOrchestrationContext`. Per ulteriori informazioni sulle differenze tra le versioni, vedere l'articolo relativo alle [versioni di Durable Functions](durable-functions-versions.md) .
+> Gli esempi precedenti in C, sono per Funzioni durevoli 2.x. Per funzioni durevoli 1.x, è necessario utilizzare `DurableOrchestrationContext` al posto di `IDurableOrchestrationContext`. Per altre informazioni sulle differenze tra le versioni, vedere l'articolo Versioni di [Funzioni permanenti.](durable-functions-versions.md)
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[Javascript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -100,13 +100,13 @@ module.exports = df.orchestrator(function*(context) {
 
 ---
 
-Se la prima chiamata di funzione **CreditAccount** ha esito negativo, la funzione dell'agente di orchestrazione compensa il credito dei fondi all'account di origine.
+Se la prima chiamata di funzione **CreditAccount** ha esito negativo, la funzione dell'agente di orchestrazione compensa l'accredito dei fondi sul conto di origine.
 
 ## <a name="automatic-retry-on-failure"></a>Ripetizione automatica in caso di errore
 
 Quando si chiamano le funzioni di attività o di orchestrazione secondaria, è possibile specificare un criterio di ripetizione automatica. Nell'esempio seguente si tenta di chiamare una funzione fino a tre volte e si attende 5 secondi tra un tentativo e l'altro:
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 ```csharp
 [FunctionName("TimerOrchestratorWithRetry")]
@@ -123,9 +123,9 @@ public static async Task Run([OrchestrationTrigger] IDurableOrchestrationContext
 ```
 
 > [!NOTE]
-> Gli esempi C# precedenti sono per Durable Functions 2. x. Per Durable Functions 1. x, è necessario utilizzare `DurableOrchestrationContext` invece di `IDurableOrchestrationContext`. Per ulteriori informazioni sulle differenze tra le versioni, vedere l'articolo relativo alle [versioni di Durable Functions](durable-functions-versions.md) .
+> Gli esempi precedenti in C, sono per Funzioni durevoli 2.x. Per funzioni durevoli 1.x, è necessario utilizzare `DurableOrchestrationContext` al posto di `IDurableOrchestrationContext`. Per altre informazioni sulle differenze tra le versioni, vedere l'articolo Versioni di [Funzioni permanenti.](durable-functions-versions.md)
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[Javascript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -145,20 +145,20 @@ module.exports = df.orchestrator(function*(context) {
 
 ---
 
-La chiamata della funzione Activity nell'esempio precedente accetta un parametro per la configurazione di un criterio di ripetizione automatica. Per personalizzare i criteri di ripetizione automatica sono disponibili diverse opzioni:
+La chiamata alla funzione di attività nell'esempio precedente accetta un parametro per la configurazione di un criterio di ripetizione automatica dei tentativi. Sono disponibili diverse opzioni per la personalizzazione dei criteri di ripetizione automatica dei tentativi:There are several options for customizing the automatic retry policy:
 
 * **Max number of attempts** (Numero massimo di tentativi): il numero massimo di tentativi di ripetizione.
 * **First retry interval** (Intervallo primo tentativo): il tempo di attesa prima del primo tentativo.
 * **Backoff coefficient** (Coefficiente di backoff): il coefficiente usato per determinare la frequenza di aumento del backoff. Assume il valore predefinito 1.
 * **Max retry interval** (Intervallo massimo tra tentativi): il tempo di attesa massimo tra i tentativi di ripetizione.
 * **Retry timeout** (Timeout tentativi): il tempo massimo a disposizione per i tentativi. Il comportamento predefinito è la ripetizione per un periodo illimitato.
-* **Handle**: è possibile specificare un callback definito dall'utente per determinare se una funzione deve essere ritentata.
+* **Handle**: È possibile specificare un callback definito dall'utente per determinare se una funzione deve essere ritentata.
 
 ## <a name="function-timeouts"></a>Timeout delle funzioni
 
-Potrebbe essere necessario abbandonare una chiamata di funzione all'interno di una funzione dell'agente di orchestrazione se il completamento richiede troppo tempo. A tale scopo il metodo migliore è creare un [timer permanente](durable-functions-timers.md) usando `context.CreateTimer` (.NET) o `context.df.createTimer` (JavaScript), insieme a `Task.WhenAny` (.NET) o `context.df.Task.any` (JavaScript) come nell'esempio seguente:
+È possibile abbandonare una chiamata di funzione all'interno di una funzione dell'agente di orchestrazione se il completamento richiede troppo tempo. A tale scopo il metodo migliore è creare un [timer permanente](durable-functions-timers.md) usando `context.CreateTimer` (.NET) o `context.df.createTimer` (JavaScript), insieme a `Task.WhenAny` (.NET) o `context.df.Task.any` (JavaScript) come nell'esempio seguente:
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 ```csharp
 [FunctionName("TimerOrchestrator")]
@@ -189,9 +189,9 @@ public static async Task<bool> Run([OrchestrationTrigger] IDurableOrchestrationC
 ```
 
 > [!NOTE]
-> Gli esempi C# precedenti sono per Durable Functions 2. x. Per Durable Functions 1. x, è necessario utilizzare `DurableOrchestrationContext` invece di `IDurableOrchestrationContext`. Per ulteriori informazioni sulle differenze tra le versioni, vedere l'articolo relativo alle [versioni di Durable Functions](durable-functions-versions.md) .
+> Gli esempi precedenti in C, sono per Funzioni durevoli 2.x. Per funzioni durevoli 1.x, è necessario utilizzare `DurableOrchestrationContext` al posto di `IDurableOrchestrationContext`. Per altre informazioni sulle differenze tra le versioni, vedere l'articolo Versioni di [Funzioni permanenti.](durable-functions-versions.md)
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[Javascript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -227,7 +227,7 @@ Se una funzione dell'agente di orchestrazione ha esito negativo generando un'ecc
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Informazioni sulle orchestrazioni eterne](durable-functions-eternal-orchestrations.md)
+> [Scopri di più sulle orchestrazioni eterne](durable-functions-eternal-orchestrations.md)
 
 > [!div class="nextstepaction"]
 > [Informazioni su come eseguire la diagnostica dei problemi](durable-functions-diagnostics.md)

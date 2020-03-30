@@ -1,6 +1,6 @@
 ---
-title: Inserire dati con Azure Esplora dati .NET Standard SDK (anteprima)
-description: Questo articolo illustra come inserire (caricare) i dati in Azure Esplora dati usando .NET Standard SDK.
+title: Archiviazione dei dati con Azure Data Explorer .NET Standard SDK (anteprima)Ingest data with Azure Data Explorer .NET Standard SDK (Preview)
+description: In questo articolo viene illustrato come inserire (caricare) i dati in Azure Data Explorer usando .NET Standard SDK.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
@@ -8,17 +8,17 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.openlocfilehash: 9b6eda60f0b0cb1b697560cccc2cffe719d58536
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79251778"
 ---
 # <a name="ingest-data-using-the-azure-data-explorer-net-standard-sdk-preview"></a>Inserire dati usando .NET Standard SDK di Esplora dati di Azure (anteprima)
 
 Esplora dati di Azure (ADX) è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. Esplora dati di Azure offre due librerie client per .NET Standard: una [libreria di inserimento](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Ingest.NETStandard) e una [libreria di dati](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Data.NETStandard). Queste librerie consentono di inserire (caricare) i dati in un cluster ed eseguire una query di dati dal codice. In questo articolo viene innanzitutto creata una tabella e il mapping dei dati in un cluster di test. Quindi viene accodato un inserimento nel cluster e vengono convalidati i risultati.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
@@ -74,7 +74,7 @@ var kustoConnectionStringBuilder =
 
 ## <a name="set-source-file-information"></a>Impostare le informazioni sul file di origine
 
-Impostare il percorso del file di origine. Questo esempio usa un file di esempio ospitato nell'archiviazione BLOB di Azure. Il set di dati di esempio **StormEvents** contiene dati relativi al meteo del [National Centers for Environmental Information](https://www.ncdc.noaa.gov/stormevents/).
+Impostare il percorso del file di origine. Questo esempio usa un file di esempio ospitato nell'archiviazione BLOB di Azure. Il set di dati di esempio **StormEvents** contiene i dati relativi alle condizioni meteorologiche dei [National Centers for Environmental Information](https://www.ncdc.noaa.gov/stormevents/).
 
 ```csharp
 var blobPath = "https://kustosamplefiles.blob.core.windows.net/samplefiles/StormEvents.csv?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D";
@@ -209,7 +209,7 @@ using (var cslQueryProvider = KustoClientFactory.CreateCslQueryProvider(kustoCon
 
 ## <a name="run-troubleshooting-queries"></a>Eseguire query sulla risoluzione dei problemi
 
-Accedere al [https://dataexplorer.azure.com](https://dataexplorer.azure.com) e connettersi al cluster. Eseguire il comando seguente nel database per verificare la presenza di eventuali errori di inserimento nelle ultime quattro ore. Sostituire il nome del database prima dell'esecuzione.
+Accedere [https://dataexplorer.azure.com](https://dataexplorer.azure.com) e connettersi al cluster. Eseguire il comando seguente nel database per verificare la presenza di eventuali errori di inserimento nelle ultime quattro ore. Sostituire il nome del database prima dell'esecuzione.
 
 ```Kusto
 .show ingestion failures
@@ -226,7 +226,7 @@ Eseguire il comando seguente per visualizzare lo stato di tutte le operazioni di
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Se si prevede di seguire gli altri articoli, è necessario salvare le risorse create. In caso contrario, eseguire il comando seguente nel database per pulire la tabella `StormEvents`.
+Se hai intenzione di seguire gli altri articoli, mantieni le risorse che hai creato. In caso contrario, eseguire il comando seguente nel database per pulire la tabella `StormEvents`.
 
 ```Kusto
 .drop table StormEvents

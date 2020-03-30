@@ -1,6 +1,6 @@
 ---
-title: 'Azure ExpressRoute: aggiungere un gateway a una VNet: portale'
-description: Questo articolo illustra l'aggiunta di un gateway di rete virtuale a un VNet già creato Gestione risorse per ExpressRoute usando il portale di Azure.
+title: 'Azure ExpressRoute: Aggiungere un gateway a una rete virtuale: portaleAzure ExpressRoute: Add a gateway to a VNet: portal'
+description: Questo articolo illustra come aggiungere un gateway di rete virtuale a una rete virtuale di Resource Manager già creata per ExpressRoute usando il portale di Azure.This article walks you through adding a virtual network gateway to an already created Resource Manager VNet for ExpressRoute using the Azure portal.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
@@ -9,10 +9,10 @@ ms.date: 12/06/2018
 ms.author: cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: 87b656f0ef999b3b15a89476f5cba4c4fcfc2b1e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79264830"
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>Configurare un gateway di rete virtuale per ExpressRoute usando il portale di Azure
@@ -49,7 +49,7 @@ Nei passaggi di questa attività viene usata una rete virtuale basata sui valori
 
 ## <a name="create-the-gateway-subnet"></a>Creare la subnet del gateway
 
-1. Nel [portale](https://portal.azure.com) passare alla rete virtuale di Resource Manager per cui si vuole creare un gateway di rete virtuale.
+1. Nel [portale](https://portal.azure.com)passare alla rete virtuale di Resource Manager per cui si desidera creare un gateway di rete virtuale.
 2. Nella sezione **Impostazioni** del pannello della rete virtuale fare clic su **Subnet** per espandere il pannello Subnet.
 3. Nel pannello **Subnet** fare clic su **Subnet del gateway** per aprire il pannello **Aggiungi subnet**. 
    
@@ -62,7 +62,7 @@ Nei passaggi di questa attività viene usata una rete virtuale basata sui valori
 
 ## <a name="create-the-virtual-network-gateway"></a>Creare il gateway di rete virtuale
 
-1. Sul lato sinistro del portale fare clic su **+** e digitare "Gateway di rete virtuale" nella casella di ricerca. Individuare **Gateway di rete virtuale** nei risultati della ricerca e fare clic sulla voce. Nella parte inferiore del pannello **Gateway di rete virtuale** fare clic su **Crea**. Verrà aperto il pannello **Gateway di rete virtuale**.
+1. Nel portale, sul lato **+** sinistro, fare clic e digitare 'Gateway di rete virtuale' nella ricerca. Individuare **Gateway di rete virtuale** nei risultati della ricerca e fare clic sulla voce. Nella parte inferiore del pannello **Gateway di rete virtuale** fare clic su **Crea**. Verrà aperto il pannello **Gateway di rete virtuale**.
 2. Nel pannello **Crea gateway di rete virtuale** inserire i valori per il gateway di rete virtuale.
 
     ![Campi del pannello Crea gateway di rete virtuale](./media/expressroute-howto-add-gateway-portal-resource-manager/gw.png "Campi del pannello Crea gateway di rete virtuale")
@@ -70,7 +70,7 @@ Nei passaggi di questa attività viene usata una rete virtuale basata sui valori
 4. **Tipo di gateway**: selezionare **ExpressRoute**.
 5. **SKU**: selezionare lo SKU del gateway dall'elenco a discesa.
 6. **Località**: modificare il campo **Località** in modo che faccia riferimento alla località in cui si trova la rete virtuale. Se la località non fa riferimento all'area in cui si trova la rete virtuale, quest'ultima non verrà visualizzata nell'elenco a discesa "Scegliere una rete virtuale".
-7. Scegliere la rete virtuale a cui si vuole aggiungere il gateway. Fare clic su **Rete virtuale** per aprire il pannello **Scegliere una rete virtuale**. Selezionare la rete virtuale. Se la rete virtuale non viene visualizzata, verificare che il campo **Località** faccia riferimento all'area in cui si trova la rete virtuale.
+7. Scegliere la rete virtuale a cui si vuole aggiungere il gateway. Fare clic su **Rete virtuale** per aprire il pannello Scegliere una **rete virtuale.** Selezionare la rete virtuale. Se la rete virtuale non è visualizzata, assicurarsi che il campo **Posizione** punti all'area in cui si trova la rete virtuale.
 9. Definire un indirizzo IP pubblico. Fare clic su **Indirizzo IP pubblico** per aprire il pannello **Scegli indirizzo IP pubblico**. Fare clic su **+Crea nuovo** per aprire il pannello **Crea indirizzo IP pubblico**. Immettere un nome per l'indirizzo IP pubblico. Il pannello crea un oggetto indirizzo IP pubblico a cui verrà assegnato dinamicamente un indirizzo IP pubblico. Fare clic su **OK** per salvare le modifiche al pannello.
 10. **Sottoscrizione**: verificare che sia selezionata la sottoscrizione corretta.
 11. **Gruppo di risorse**: questa impostazione è determinata dalla rete virtuale selezionata.

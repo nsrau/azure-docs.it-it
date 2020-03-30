@@ -6,17 +6,17 @@ ms.topic: reference
 ms.date: 12/12/2017
 ms.author: cshoe
 ms.openlocfilehash: 76af1f51c83e9554a51e6c17266fac739e6bd6b1
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79276816"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Guida di riferimento a Funzioni di Azure per sviluppatori di script C# (.csx)
 
 <!-- When updating this article, make corresponding changes to any duplicate content in functions-dotnet-class-library.md -->
 
-Questo articolo riporta un'introduzione allo sviluppo di Funzioni di Azure tramite script C# ( *.csx*).
+Questo articolo riporta un'introduzione allo sviluppo di Funzioni di Azure tramite script C# (*.csx*).
 
 Funzioni di Azure supporta i linguaggi di programmazione C# e script C#. Per materiale sussidiario sull'[uso di C# in un progetto di libreria di classi di Visual Studio](functions-develop-vs.md), vedere [Informazioni di riferimento per sviluppatori C#](functions-dotnet-class-library.md).
 
@@ -24,7 +24,7 @@ Questo articolo presuppone che l'utente abbia già letto il [Manuale dello svilu
 
 ## <a name="how-csx-works"></a>Funzionamento di CSX
 
-L'esperienza con gli script C# per Funzioni di Azure si basa su [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki/Introduction). I dati vengono trasmessi alla funzione C# tramite argomenti del metodo. I nomi di argomento sono specificati in un file `function.json` e sono disponibili nomi predefiniti per l'accesso a elementi quali il logger delle funzioni e i token di annullamento.
+L'esperienza di script c'è per funzioni di Azure si basa su [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki/Introduction). I dati vengono trasmessi alla funzione C# tramite argomenti del metodo. I nomi di argomento sono specificati in un file `function.json` e sono disponibili nomi predefiniti per l'accesso a elementi quali il logger delle funzioni e i token di annullamento.
 
 Il formato *.csx* consente di scrivere meno "boilerplate" e di concentrarsi solo sulla scrittura della funzione C#. Anziché eseguire il wrapping di tutti gli elementi in un spazio dei nomi e classe, definire semplicemente un metodo `Run`. Includere tutti i riferimenti ad assembly e gli spazi dei nomi all'inizio del file come di consueto.
 
@@ -51,7 +51,7 @@ FunctionsProject
 
 È presente un file [host.json](functions-host-json.md) condiviso che può essere usato per configurare l'app per le funzioni. Ogni funzione ha il proprio file di codice (con estensione csx) e il file di configurazione delle associazioni (function.json).
 
-Le estensioni di binding richieste nella [versione 2. x e versioni successive](functions-versions.md) del runtime di funzioni sono definite nel file di `extensions.csproj`, con i file di libreria effettivi nella cartella `bin`. Quando si sviluppa una funzione in locale, è necessario [registrare le estensioni di associazione](./functions-bindings-register.md#extension-bundles). Quando si sviluppano funzioni nel portale di Azure, la registrazione viene eseguita automaticamente.
+Le estensioni di associazione richieste nella [versione 2.x e nelle versioni successive](functions-versions.md) del runtime di Funzioni sono definite nel `extensions.csproj` file, con i file di libreria effettivi nella `bin` cartella. Quando si sviluppa una funzione in locale, è necessario [registrare le estensioni di associazione](./functions-bindings-register.md#extension-bundles). Quando si sviluppano funzioni nel portale di Azure, la registrazione viene eseguita automaticamente.
 
 ## <a name="binding-to-arguments"></a>Associazione agli argomenti
 
@@ -224,7 +224,7 @@ Usare il valore restituito solo se la corretta esecuzione di una funzione restit
 
 ## <a name="writing-multiple-output-values"></a>Scrittura di più valori di output
 
-Per scrivere più valori in un'associazione di output o se una chiamata corretta alla funzione potrebbe non restituire alcun valore da passare all'associazione di output, usare i tipi [`ICollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) o [`IAsyncCollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs). Questi tipi sono raccolte di sola scrittura che vengono scritte nell'associazione di output durante il completamento del metodo.
+Per scrivere più valori in un'associazione di output o se una chiamata di funzione [`ICollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) [`IAsyncCollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) riuscita potrebbe non comportare il passaggio all'associazione di output, usare i tipi o . Questi tipi sono raccolte di sola scrittura che vengono scritte nell'associazione di output durante il completamento del metodo.
 
 Questo esempio scrive più messaggi in coda nella stessa coda usando `ICollector`:
 
@@ -370,7 +370,7 @@ Per informazioni su come caricare i file nella cartella della funzione, vedere l
 La directory che contiene il file di script della funzione viene controllata automaticamente per le modifiche agli assembly. Per controllare le modifiche agli assembly in altre directory, aggiungerle all'elenco `watchDirectories` in [host.json](functions-host-json.md).
 
 ## <a name="using-nuget-packages"></a>Uso dei pacchetti NuGet
-Per usare i pacchetti NuGet in una funzione 2. x C# e versioni successive, caricare un file *Function. proj* nella cartella della funzione nell'file System dell'app per le funzioni. Di seguito è riportato un esempio di file *function.proj* che aggiunge un riferimento a *Microsoft.ProjectOxford.Face* versione *1.1.0*:
+Per usare i pacchetti NuGet in una funzione 2.x e versioni successive di C, caricare un file *function.proj* nella cartella della funzione nel file system dell'app per le funzioni. Di seguito è riportato un esempio di file *function.proj* che aggiunge un riferimento a *Microsoft.ProjectOxford.Face* versione *1.1.0*:
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -387,9 +387,9 @@ Per usare i pacchetti NuGet in una funzione 2. x C# e versioni successive, caric
 Per usare un feed NuGet personalizzato, specificare il feed in un *Nuget.Config* nella radice dell'app per le funzioni. Per altre informazioni, vedere [Configuring NuGet behavior](/nuget/consume-packages/configuring-nuget-behavior) (Configurazione del comportamento di NuGet).
 
 > [!NOTE]
-> Nelle funzioni 1. C# x, ai pacchetti NuGet viene fatto riferimento con un file *Project. JSON* anziché con un file *Function. proj* .
+> Nelle funzioni di 1.x, viene fatto riferimento ai pacchetti NuGet con un file *project.json* anziché con un file *function.proj.*
 
-Per le funzioni 1. x, usare invece un file *Project. JSON* . Di seguito è riportato un esempio di file *Project. JSON* :
+Per le funzioni 1.x, usare invece un file *project.json.For 1.x* functions, use a project.json file instead. Di seguito è riportato un file project.json di esempio:Here is an example *project.json* file:
 
 ```json
 {
@@ -403,11 +403,11 @@ Per le funzioni 1. x, usare invece un file *Project. JSON* . Di seguito è ripor
 }
 ```
 
-### <a name="using-a-functionproj-file"></a>Uso di un file function. proj
+### <a name="using-a-functionproj-file"></a>Utilizzo di un file function.proj
 
 1. Aprire la funzione nel portale di Azure. La scheda dei log mostra l'output di installazione del pacchetto.
-2. Per caricare un file *Function. proj* , usare uno dei metodi descritti nell'argomento [come aggiornare i file dell'app](functions-reference.md#fileupdate) per le funzioni nell'argomento di riferimento per gli sviluppatori di funzioni di Azure.
-3. Dopo il caricamento del file *Function. proj* , viene visualizzato un output simile all'esempio seguente nel log in streaming della funzione:
+2. Per caricare un file *function.proj,* usare uno dei metodi descritti nell'argomento di riferimento per gli sviluppatori di funzioni di Funzioni di Azure.To upload a function.proj file, use one of the methods described in [how to update function app files](functions-reference.md#fileupdate) in the Azure Functions developer reference topic.
+3. Dopo aver caricato il file *function.proj,* viene visualizzato un output simile all'esempio seguente nel log di flusso della funzione:
 
 ```
 2018-12-14T22:00:48.658 [Information] Restoring packages.
@@ -449,7 +449,7 @@ In C# e altri linguaggi .NET, è possibile usare un metodo di associazione [impe
 Definire un'associazione imperativa, come segue:
 
 - **Non** includere una voce in *function.json* per le associazioni imperative da eseguire.
-- Passare un parametro di input [`Binder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/Bindings/Runtime/Binder.cs) o [`IBinder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IBinder.cs).
+- Passare un parametro [`IBinder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IBinder.cs)di input o un file [`Binder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/Bindings/Runtime/Binder.cs) .
 - Usare il seguente modello C# per eseguire l'associazione dati.
 
 ```cs
@@ -459,7 +459,7 @@ using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
 }
 ```
 
-`BindingTypeAttribute` è l'attributo .NET che definisce l'associazione e `T` è un tipo di input o output supportato da quel tipo di associazione. `T` non può essere un tipo di parametro `out`, ad esempio `out JObject`. Ad esempio, l'associazione di output della tabella app per dispositivi mobili supporta [sei tipi di output](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), ma è possibile usare solo [ICollector\<t >](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) o [`IAsyncCollector<T>`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) per `T`.
+`BindingTypeAttribute` è l'attributo .NET che definisce l'associazione e `T` è un tipo di input o output supportato da quel tipo di associazione. `T` non può essere un tipo di parametro `out`, ad esempio `out JObject`. Ad esempio, l'associazione di output della tabella App per dispositivi mobili [`IAsyncCollector<T>`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) `T`supporta sei tipi [di output](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), ma è possibile utilizzare solo [ICollector\<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) o per .
 
 ### <a name="single-attribute-example"></a>Esempio con un solo attributo
 

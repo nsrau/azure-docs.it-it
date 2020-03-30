@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: kumud
 ms.reviewer: anavin
-ms.openlocfilehash: 0429bf4968f457e201491db3df16f0004f216f30
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 6823514e284f75f0580578dcabaa1b1bdcbe2f59
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023277"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80239832"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Creare un peering di rete virtuale: diversi modelli di distribuzione e sottoscrizioni
 
@@ -28,9 +28,9 @@ I passaggi per creare un peering di rete virtuale sono diversi a seconda che le 
 
 |Modello di distribuzione di Azure  | Sottoscrizione di Azure  |
 |--------- |---------|
-|[Entrambi con Resource Manager](tutorial-connect-virtual-networks-portal.md) |Uguale|
-|[Entrambi con Resource Manager](create-peering-different-subscriptions.md) |Diversa|
-|[Uno con Resource Manager, uno con una distribuzione classica](create-peering-different-deployment-models.md) |Uguale|
+|[Entrambi Resource Manager](tutorial-connect-virtual-networks-portal.md) |Uguale|
+|[Entrambi Resource Manager](create-peering-different-subscriptions.md) |Diversa|
+|[Uno di Resource Manager, uno della versione classica](create-peering-different-deployment-models.md) |Uguale|
 
 Non è possibile creare un peering di rete virtuale tra due reti virtuali distribuite tramite il modello di distribuzione classica. Questa esercitazione usa le reti virtuali che esistono nella stessa area. Questa esercitazione consente di eseguire il peering di due reti virtuali nella stessa area. È anche possibile eseguire il peering di reti virtuali in diverse [aree supportate](virtual-network-manage-peering.md#cross-region). È consigliabile acquisire familiarità con [i requisiti e i vincoli del peering](virtual-network-manage-peering.md#requirements-and-constraints) prima di eseguire il peering di reti virtuali.
 
@@ -38,17 +38,17 @@ Quando si crea un peering di rete virtuale tra reti virtuali incluse in sottoscr
 
 Per creare un peering di rete virtuale, è possibile usare il [portale di Azure](#portal), l'[interfaccia della riga di comando](#cli) di Azure o [Azure PowerShell](#powershell). Facendo clic sui collegamenti degli strumenti precedenti, si passa direttamente alle procedure per la creazione di un peering di rete virtuale con il determinato strumento.
 
-## <a name="portal"></a>Creare un peering - Portale di Azure
+## <a name="create-peering---azure-portal"></a><a name="portal"></a>Creare un peering - Portale di Azure
 
 Questa esercitazione usa account diversi per ogni sottoscrizione. Se si usa un account dotato di autorizzazioni per entrambe le sottoscrizioni, è possibile usare lo stesso account per tutti i passaggi, ignorando i passaggi per la disconnessione dal portale e quelli per l'assegnazione a un altro utente delle autorizzazioni per le reti virtuali.
 
-1. Accedere al [portale di Azure](https://portal.azure.com) come UserA. L'account con cui si esegue l'accesso deve avere le autorizzazioni necessarie per la creazione di un peering di rete virtuale. Per un elenco di autorizzazioni, vedere [Autorizzazioni di peering di reti virtuali](virtual-network-manage-peering.md#permissions).
+1. Accedere al [portale](https://portal.azure.com) di Azure come UtenteA.Log in to the Azure portal as UserA. L'account con cui si esegue l'accesso deve avere le autorizzazioni necessarie per la creazione di un peering di rete virtuale. Per un elenco di autorizzazioni, vedere [Autorizzazioni di peering di reti virtuali](virtual-network-manage-peering.md#permissions).
 2. Fare clic su **+ Nuovo**, **Rete** e quindi **Rete virtuale**.
 3. Nel pannello **Crea rete virtuale** immettere o selezionare i valori necessari per le impostazioni seguenti e quindi fare clic su **Crea**:
     - **Nome**: *myVnetA*
-    - **Spazio indirizzi**: *10.0.0.0/16*
+    - **Spazio indirizzo**: *10.0.0.0/16Address space : 10.0.0.0/16*
     - **Nome subnet**: *predefinito*
-    - **Intervallo di indirizzi subnet**: *10.0.0.0/24*
+    - **Intervallo di indirizzi subnet**: *10.0.0.0/24Subnet address range : 10.0.0.0/24*
     - **Sottoscrizione**: selezionare la sottoscrizione A.
     - **Gruppo di risorse**: selezionare **Crea nuovo** e immettere *myResourceGroupA*
     - **Località**: *Stati Uniti orientali*
@@ -56,7 +56,7 @@ Questa esercitazione usa account diversi per ogni sottoscrizione. Se si usa un a
 5. Nel pannello **myVnetA** visualizzato fare clic su **Controllo di accesso (IAM)** nell'elenco verticale di opzioni sul lato sinistro del pannello.
 6. Nel pannello **myVnetA - Controllo di accesso (IAM)** visualizzato fare clic su **+ Aggiungi assegnazione di ruolo**.
 7. Nel pannello **Aggiungi assegnazione di ruolo** visualizzato selezionare **Collaboratore di rete** nella casella **Ruolo**.
-8. Nella casella **Seleziona** selezionare UserB o digitare l'indirizzo di posta elettronica di UserB per cercarlo. L'elenco di utenti mostrato è tratto dallo stesso tenant di Azure Active Directory della rete virtuale per la quale si sta configurando il peering. Quando viene visualizzato nell'elenco, fare clic su UserB.
+8. Nella casella **Seleziona** selezionare UtenteB oppure digitare l'indirizzo di posta elettronica dell'utente B per cercarlo. L'elenco di utenti mostrato è tratto dallo stesso tenant di Azure Active Directory della rete virtuale per la quale si sta configurando il peering. Quando viene visualizzato nell'elenco, fare clic su UserB.
 9. Fare clic su **Salva**.
 10. Disconnettersi dal portale come UserA e quindi accedere come UserB.
 11. Fare clic su **+ Nuovo**, digitare *Rete virtuale* nella casella **Cerca nel Marketplace**, quindi fare clic su **Rete virtuale** nei risultati della ricerca.
@@ -64,15 +64,15 @@ Questa esercitazione usa account diversi per ogni sottoscrizione. Se si usa un a
 13. Nella casella Crea rete virtuale (classico) visualizzata immettere i valori seguenti:
 
     - **Nome**: *myVnetB*
-    - **Spazio indirizzi**: *10.1.0.0/16*
+    - **Spazio di indirizzi**: *10.1.0.0/16*
     - **Nome subnet**: *predefinito*
-    - **Intervallo di indirizzi subnet**: *10.1.0.0/24*
+    - **Intervallo di indirizzi subnet**: *10.1.0.0/24Subnet address range : 10.1.0.0/24*
     - **Sottoscrizione**: selezionare la sottoscrizione B.
     - **Gruppo di risorse**: selezionare **Crea nuovo** e immettere *myResourceGroupB*
     - **Località**: *Stati Uniti orientali*
 
 14. Nella casella **Cerca risorse** nella parte superiore del portale digitare *myVnetB*. Fare clic su **myVnetB** quando viene visualizzato nei risultati della ricerca. Viene visualizzato un pannello per la rete virtuale **myVnetB**.
-15. Nel pannello **myVnetB** visualizzato fare clic su **Proprietà** nell'elenco verticale di opzioni sul lato sinistro del pannello. Copiare il valore di **ID RISORSA**, che verrà usato in un passaggio successivo. L'ID risorsa è simile all'esempio seguente: `/subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB`
+15. Nel pannello **myVnetB** visualizzato fare clic su **Proprietà** nell'elenco verticale di opzioni sul lato sinistro del pannello. Copiare il valore di **ID RISORSA**, che verrà usato in un passaggio successivo. L'ID risorsa è simile all'esempio seguente:The resource ID is similar to the following example:`/subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB`
 16. Completare i passaggi da 5 a 9 per myVnetB immettendo **UserA** nel passaggio 8.
 17. Disconnettersi dal portale come UserB e accedere come UserA.
 18. Nella casella **Cerca risorse** nella parte superiore del portale digitare *myVnetA*. Fare clic su **myVnetA** quando viene visualizzato nei risultati della ricerca. Viene visualizzato un pannello per la rete virtuale **myVnet**.
@@ -93,7 +93,7 @@ Questa esercitazione usa account diversi per ogni sottoscrizione. Se si usa un a
 24. **Facoltativo**: anche se la creazione delle macchine virtuali non è illustrata in questa esercitazione, è possibile creare una macchina virtuale in ogni rete virtuale ed eseguire la connessione da una macchina virtuale all'altra per convalidare la connettività.
 25. **Facoltativo**: per eliminare le risorse create in questa esercitazione, completare i passaggi della sezione [Eliminare risorse](#delete-portal) di questo articolo.
 
-## <a name="cli"></a>Creare un peering - Interfaccia della riga di comando di Azure
+## <a name="create-peering---azure-cli"></a><a name="cli"></a>Creare un peering - Interfaccia della riga di comando di Azure
 
 Questa esercitazione usa account diversi per ogni sottoscrizione. Se si usa un account dotato di autorizzazioni per entrambe le sottoscrizioni, è possibile usare lo stesso account per tutti i passaggi, ignorando i passaggi per la disconnessione da Azure e rimuovendo le righe dello script per la creazione delle assegnazioni dei ruoli utente. Sostituire UserA@azure.com e UserB@azure.com in tutti gli script seguenti con i nomi utente usati per UserA e UserB. Completare i passaggi seguenti con l'interfaccia della riga di comando classica di Azure e l'interfaccia della riga di comando di Azure. È possibile completare i passaggi da Azure Cloud Shell selezionando il pulsante **Prova** in uno dei passaggi seguenti oppure installando l'[interfaccia della riga di comando classica](/cli/azure/install-classic-cli) e l'[interfaccia della riga di comando](/cli/azure/install-azure-cli) ed eseguendo i comandi nel computer locale.
 
@@ -101,11 +101,12 @@ Questa esercitazione usa account diversi per ogni sottoscrizione. Se si usa un a
 2. Eseguire l'interfaccia della riga di comando classica in modalità di gestione dei servizi immettendo il comando `azure config mode asm`.
 3. Per creare una rete virtuale (versione classica), immettere il comando dell'interfaccia della riga di comando classica seguente:
 
-    ```azurecli
+    ```console
     azure network vnet create --vnet myVnetB --address-space 10.1.0.0 --cidr 16 --location "East US"
     ```
+
 4. I passaggi rimanenti devono essere completati usando una shell Bash con l'interfaccia della riga di comando di Azure (non con l'interfaccia della riga di comando di Azure classica).
-5. Copiare lo script seguente in un editor di testo nel PC. Sostituire `<SubscriptionB-Id>` con l'ID della sottoscrizione. Se l'ID della sottoscrizione non è noto, immettere il comando `az account show`. Il valore per **ID** nell'output è l'ID sottoscrizione. copiare lo script modificato, incollarlo nella sessione dell'interfaccia della riga di comando e quindi premere `Enter`.
+5. Copiare lo script seguente in un editor di testo nel PC. Sostituire `<SubscriptionB-Id>` con l'ID della sottoscrizione. Se l'ID della sottoscrizione non è noto, immettere il comando `az account show`. Il valore per **id** nell'output è l'ID sottoscrizione. Copiare lo script `Enter`modificato, incollarlo nella sessione dell'interfaccia della riga di comando e quindi premere .
 
     ```azurecli-interactive
     az role assignment create \
@@ -150,7 +151,7 @@ Questa esercitazione usa account diversi per ogni sottoscrizione. Se si usa un a
       --scope $vNetAId
     ```
 
-8. Creare un peering di rete virtuale tra due reti virtuali create con modelli di distribuzione diversi. Copiare lo script seguente in un editor di testo nel PC. Sostituire `<SubscriptionB-id>` con l'ID sottoscrizione. Se non si conosce l'ID sottoscrizione, immettere il comando `az account show`. Il valore per **ID** nell'output è l'ID sottoscrizione. Azure ha creato la rete virtuale (versione classica) creata nel passaggio 4 in un gruppo di risorse denominato *default-networking*. Incollare lo script modificato nella sessione dell'interfaccia della riga di comando e quindi premere `Enter`.
+8. Creare un peering di rete virtuale tra due reti virtuali create con modelli di distribuzione diversi. Copiare lo script seguente in un editor di testo nel PC. Sostituire `<SubscriptionB-id>` con l'ID sottoscrizione. Se non si conosce l'ID `az account show` sottoscrizione, immettere il comando. Il valore per **id** nell'output è l'ID sottoscrizione. *Default-Networking* Incollare lo script modificato nella sessione dell'interfaccia della riga di comando e quindi premere `Enter`.
 
     ```azurecli-interactive
     # Peer VNet1 to VNet2.
@@ -170,6 +171,7 @@ Questa esercitazione usa account diversi per ogni sottoscrizione. Se si usa un a
       --vnet-name myVnetA \
       --output table
     ```
+
     L'output mostra **Connesso** nella colonna **PeeringState**.
 
     Tutte le risorse di Azure create in una delle reti virtuali possono ora comunicare tra loro tramite i relativi indirizzi IP. Se si usa la risoluzione dei nomi di Azure predefinita per le reti virtuali, le risorse contenute nelle reti virtuali non sono in grado di risolvere i nomi tra le reti virtuali. Se si intende risolvere i nomi tra le reti virtuali in peering, è necessario creare un proprio server DNS. Per informazioni sulla configurazione, vedere [Risoluzione dei nomi usando il server DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
@@ -177,11 +179,11 @@ Questa esercitazione usa account diversi per ogni sottoscrizione. Se si usa un a
 10. **Facoltativo**: anche se la creazione delle macchine virtuali non è illustrata in questa esercitazione, è possibile creare una macchina virtuale in ogni rete virtuale ed eseguire la connessione da una macchina virtuale all'altra per convalidare la connettività.
 11. **Facoltativo:** per eliminare le risorse create in questa esercitazione, completare la procedura descritta in [Eliminare risorse](#delete-cli) in questo articolo.
 
-## <a name="powershell"></a>Creare un peering - PowerShell
+## <a name="create-peering---powershell"></a><a name="powershell"></a>Creare un peering - PowerShell
 
 Questa esercitazione usa account diversi per ogni sottoscrizione. Se si usa un account dotato di autorizzazioni per entrambe le sottoscrizioni, è possibile usare lo stesso account per tutti i passaggi, ignorando i passaggi per la disconnessione da Azure e rimuovendo le righe dello script per la creazione delle assegnazioni dei ruoli utente. Sostituire UserA@azure.com e UserB@azure.com in tutti gli script seguenti con i nomi utente usati per UserA e UserB. 
 
-1. Installare la versione più recente dei moduli [Azure](https://www.powershellgallery.com/packages/Azure) e [AZ](https://www.powershellgallery.com/packages/Az) di PowerShell. Se non si ha familiarità con Azure PowerShell, vedere [Azure PowerShell overview](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json) (Panoramica di Azure PowerShell).
+1. Installare la versione più recente dei moduli [di Azure](https://www.powershellgallery.com/packages/Azure) e Az di PowerShell.Install the latest version of the PowerShell Azure and [Az](https://www.powershellgallery.com/packages/Az) modules. Se non si ha familiarità con Azure PowerShell, vedere [Azure PowerShell overview](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json) (Panoramica di Azure PowerShell).
 2. Avviare una sessione di PowerShell.
 3. In PowerShell accedere alla sottoscrizione di UserB come UserB immettendo il comando `Add-AzureAccount`. L'account con cui si esegue l'accesso deve avere le autorizzazioni necessarie per la creazione di un peering di rete virtuale. Per un elenco di autorizzazioni, vedere [Autorizzazioni di peering di reti virtuali](virtual-network-manage-peering.md#permissions).
 4. Per creare una rete virtuale con distribuzione classica con PowerShell, è necessario creare un nuovo file di configurazione di rete o modificarne uno esistente. Informazioni su come [esportare, aggiornare e importare il file di configurazione di rete](virtual-networks-using-network-configuration-file.md). Il file deve includere l'elemento **VirtualNetworkSite** seguente per la rete virtuale usata in questa esercitazione:
@@ -204,8 +206,8 @@ Questa esercitazione usa account diversi per ogni sottoscrizione. Se si usa un a
 
 5. Accedere alla sottoscrizione di UserB come UserB per usare i comandi di Resource Manager immettendo il comando `Connect-AzAccount`.
 6. Assegnare le autorizzazioni utente di UserA alla rete virtuale B. Copiare lo script seguente in un editor di testo nel PC e sostituire `<SubscriptionB-id>` con l'ID della sottoscrizione B. Se non si conosce l'ID della sottoscrizione, immettere il comando `Get-AzSubscription` per visualizzarlo. Il valore di **Id** nell'output restituito è l'ID della sottoscrizione. Azure ha creato la rete virtuale con distribuzione classica creata nel passaggio 4 in un gruppo di risorse denominato *Default-Networking*. Per eseguire lo script, copiare lo script modificato, incollarlo in PowerShell e quindi premere `Enter`.
-    
-    ```powershell 
+
+    ```powershell
     New-AzRoleAssignment `
       -SignInName UserA@azure.com `
       -RoleDefinitionName "Classic Network Contributor" `
@@ -267,10 +269,10 @@ Questa esercitazione usa account diversi per ogni sottoscrizione. Se si usa un a
 12. **Facoltativo**: anche se la creazione delle macchine virtuali non è illustrata in questa esercitazione, è possibile creare una macchina virtuale in ogni rete virtuale ed eseguire la connessione da una macchina virtuale all'altra per convalidare la connettività.
 13. **Facoltativo:** per eliminare le risorse create in questa esercitazione, completare la procedura descritta in [Eliminare risorse](#delete-powershell) in questo articolo.
 
-## <a name="delete"></a>Eliminare risorse
+## <a name="delete-resources"></a><a name="delete"></a>Eliminare risorse
 Al termine di questa esercitazione, è necessario eliminare le risorse create, per non incorrere in costi di utilizzo. Se si elimina un gruppo di risorse, vengono eliminate anche tutte le risorse all'interno di esso.
 
-### <a name="delete-portal"></a>Portale di Azure
+### <a name="azure-portal"></a><a name="delete-portal"></a>Portale di Azure
 
 1. Nella casella di ricerca del portale immettere **myResourceGroupA**. Nei risultati della ricerca fare clic su **myResourceGroupA**.
 2. Nel pannello **myResourceGroupA** fare clic sull'icona **Elimina**.
@@ -279,7 +281,7 @@ Al termine di questa esercitazione, è necessario eliminare le risorse create, p
 5. Nel pannello **myVnetB** fare clic su **Elimina**.
 6. Per confermare l'eliminazione, nella casella **Elimina rete virtuale** fare clic su **Sì**.
 
-### <a name="delete-cli"></a>
+### <a name="azure-cli"></a><a name="delete-cli"></a>Interfaccia della riga di comando di AzureAzure
 
 1. Accedere ad Azure tramite l'interfaccia della riga di comando di Azure per eliminare la rete virtuale (Resource Manager) con il comando seguente:
 
@@ -289,13 +291,13 @@ Al termine di questa esercitazione, è necessario eliminare le risorse create, p
 
 2. Accedere ad Azure tramite l'interfaccia della riga di comando di Azure classica per eliminare la rete virtuale (classica )con i comandi seguenti:
 
-   ```azurecli-interactive
+   ```console
    azure config mode asm
 
    azure network vnet delete --vnet myVnetB --quiet
    ```
 
-### <a name="delete-powershell"></a>PowerShell
+### <a name="powershell"></a><a name="delete-powershell"></a>Powershell
 
 1. Al prompt dei comandi di PowerShell immettere il comando seguente per eliminare la rete virtuale creata con Resource Manager:
 

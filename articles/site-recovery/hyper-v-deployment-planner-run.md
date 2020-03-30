@@ -1,5 +1,5 @@
 ---
-title: Eseguire l'Deployment Planner Hyper-V in Azure Site Recovery
+title: Eseguire La pianificazione della distribuzione di Hyper-V in Azure Site Recovery
 description: Questo articolo descrive come eseguire Azure Site Recovery Deployment Planner per il ripristino di emergenza da Hyper-V ad Azure.
 author: mayurigupta13
 manager: rochakm
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/09/2019
 ms.author: mayg
 ms.openlocfilehash: ba1979c940d4a92b3d1a7a52a4f356b2896ece55
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74082615"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Eseguire Azure Site Recovery Deployment Planner per il ripristino di emergenza da Hyper-V ad Azure
@@ -35,7 +35,7 @@ La tabella seguente contiene un elenco dei parametri obbligatori e facoltativi d
 ASRDeploymentPlanner.exe -Operation GetVMList /?
 ```
 
-| Nome parametro | DESCRIZIONE |
+| Nome parametro | Descrizione |
 |---|---|
 | -Operation | GetVMList |
 | -User | Nome utente per la connessione all'host Hyper-V o al cluster Hyper-V. L'utente deve avere l'accesso amministrativo.|
@@ -53,7 +53,7 @@ ASRDeploymentPlanner.exe -Operation GetVMList /?
 
 Aprire il file di output nel Blocco note e quindi copiare i nomi di tutte le VM da profilare in un altro file, ad esempio, ProfileVMList.txt. Usare un nome di VM per riga. Questo file viene usato come input per il parametro -VMListFile dello strumento per tutte le altre operazioni, ovvero per la profilatura, la generazione di report e la misurazione della velocità effettiva.
 
-### <a name="examples"></a>esempi
+### <a name="examples"></a>Esempi
 
 #### <a name="store-the-list-of-vms-in-a-file"></a>Archiviare l'elenco di VM in un file
 ```
@@ -85,7 +85,7 @@ La tabella seguente elenca i parametri obbligatori e facoltativi dello strumento
 ASRDeploymentPlanner.exe -Operation StartProfiling /?
 ```
 
-| Nome parametro | DESCRIZIONE |
+| Nome parametro | Descrizione |
 |---|---|
 | -Operation | StartProfiling |
 | -User | Nome utente per la connessione all'host Hyper-V o al cluster Hyper-V. L'utente deve avere l'accesso amministrativo.|
@@ -96,9 +96,9 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 |-Virtualization|Tipo di virtualizzazione (VMware o Hyper-V).|
 |-Directory|(Facoltativo) UNC o percorso di directory locale per l'archiviazione dei dati generati durante la profilatura. Se non viene specificato un nome, come directory predefinita verrà usata la directory denominata ProfiledData nel percorso corrente.|
 |-Password|(Facoltativo) Password per la connessione all'host Hyper-V. Se non viene specificata come parametro, verrà richiesta quando si esegue il comando.|
-|-StorageAccountName|(Facoltativo) Nome dell'account di archiviazione usato per determinare la velocità effettiva ottenibile per la replica dei dati dall'ambiente locale ad Azure. Lo strumento carica i dati di test in questo account di archiviazione per calcolare la velocità effettiva. L'account di archiviazione deve essere Utilizzo generico v1 (GPv1).|
-|-StorageAccountKey|(Facoltativo) Chiave usata per accedere all'account di archiviazione. Passare al portale di Azure e selezionare **Account di archiviazione** > *nome-account-archiviazione* > **Impostazioni** > **Chiavi di accesso** > **Key1** oppure la chiave di accesso primaria per un account di archiviazione classico.|
-|-Environment|(Facoltativo) Ambiente di destinazione per l'account di archiviazione di Azure. Può trattarsi di uno di tre valori: AzureCloud, AzureUSGovernment o AzureChinaCloud. Il valore predefinito è AzureCloud. Usare il parametro quando l'area di destinazione è Azure US Government o Azure Cina 21Vianet.|
+|-StorageAccountName|(Facoltativo) Nome dell'account di archiviazione usato per determinare la velocità effettiva ottenibile per la replica dei dati dall'ambiente locale ad Azure. Lo strumento carica i dati di test in questo account di archiviazione per calcolare la velocità effettiva. L'account di archiviazione deve essere di tipo Utilizzo generico v1 (GPv1).|
+|-StorageAccountKey|(Facoltativo) Chiave usata per accedere all'account di archiviazione. Passare al portale di Azure > account **di** > *archiviazione nome* > account di archiviazione**Impostazioni** > chiavi > **di accesso1** (o la chiave di accesso primaria per un account di archiviazione classica).**Access Keys**|
+|-Environment|(Facoltativo) Ambiente di destinazione per l'account di archiviazione di Azure. Può trattarsi di uno di tre valori: AzureCloud, AzureUSGovernment o AzureChinaCloud. Il valore predefinito è AzureCloud. Usare il parametro quando l'area di destinazione è Azure US per enti pubblici o Azure China 21Vianet.Use the parameter when your target region is either Azure US Government or Azure China 21Vianet.|
 
 È consigliabile profilare le VM per oltre 7 giorni. Se il modello di varianza varia in un mese, è consigliabile eseguire la profilatura durante la settimana in cui si rileva la varianza massima. La soluzione ottimale consiste nell'eseguire la profilatura per 31 giorni, per ottenere un'indicazione migliore. 
 
@@ -126,7 +126,7 @@ Le configurazioni delle VM vengono acquisite una volta all'inizio dell'operazion
 
 Il comando di profilatura genera diversi file nella directory della profilatura. Non eliminare nessuno dei file, altrimenti la generazione del report verrà compromessa.
 
-### <a name="examples"></a>esempi
+### <a name="examples"></a>Esempi
 
 #### <a name="profile-vms-for-30-days-and-find-the-throughput-from-on-premises-to-azure"></a>Profilare le VM per 30 giorni e determinare la velocità effettiva dall'ambiente locale ad Azure
 ```
@@ -167,7 +167,7 @@ La tabella seguente contiene un elenco dei parametri obbligatori e facoltativi d
 ASRDeploymentPlanner.exe -Operation GenerateReport /?
 ```
 
-| Nome parametro | DESCRIZIONE |
+| Nome parametro | Descrizione |
 |---|---|
 | -Operation | GenerateReport |
 |-VMListFile | File contenente l'elenco delle VM profilate per cui verrà generato il report. Il percorso del file può essere assoluto o relativo. Per Hyper-V, si tratta del file di output dell'operazione GetVMList. In caso di preparazione manuale, il file deve contenere un nome server o un indirizzo IP, seguito dal nome della VM separato con un carattere \ per riga. Il nome della VM specificato nel file deve essere uguale al nome della VM nell'host Hyper-V.<br><br>**Esempio**: VMList.txt contiene le VM seguenti:<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
@@ -192,7 +192,7 @@ Per impostazione predefinita, lo strumento è configurato per eseguire la profil
 <add key="MaxVmsSupported" value="1000"/>
 ```
 
-### <a name="examples"></a>esempi
+### <a name="examples"></a>Esempi
 #### <a name="generate-a-report-with-default-values-when-the-profiled-data-is-on-the-local-drive"></a>Generare un report con i valori predefiniti quando i dati profilati si trovano nell'unità locale
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -virtualization Hyper-V -Directory "E:\Hyper-V_ProfiledData" -VMListFile "E:\Hyper-V_ProfiledData\ProfileVMList1.txt"
@@ -254,19 +254,19 @@ Si supponga, ad esempio, che attualmente la VM sia idonea per un account di repl
 
 Il report di Microsoft Excel generato contiene le informazioni seguenti:
 
-* [Riepilogo ambiente locale](hyper-v-deployment-planner-analyze-report.md#on-premises-summary)
-* [Raccomandazioni](hyper-v-deployment-planner-analyze-report.md#recommendations)
+* [Riepilogo locale](hyper-v-deployment-planner-analyze-report.md#on-premises-summary)
+* [Consigli](hyper-v-deployment-planner-analyze-report.md#recommendations)
 * [Selezione host di archiviazione delle VM](hyper-v-deployment-planner-analyze-report.md#vm-storage-placement-recommendation)
 * [VM compatibili](hyper-v-deployment-planner-analyze-report.md#compatible-vms)
 * [VM incompatibili](hyper-v-deployment-planner-analyze-report.md#incompatible-vms)
-* [Requisito di archiviazione locale](hyper-v-deployment-planner-analyze-report.md#on-premises-storage-requirement)
-* [Suddivisione in batch per la replica iniziale](hyper-v-deployment-planner-analyze-report.md#initial-replication-batching)
+* [Requisiti di archiviazione locale](hyper-v-deployment-planner-analyze-report.md#on-premises-storage-requirement)
+* [Batch iR](hyper-v-deployment-planner-analyze-report.md#initial-replication-batching)
 * [Stima dei costi](hyper-v-deployment-planner-cost-estimation.md)
 
 ![Report di Deployment Planner](media/hyper-v-deployment-planner-run/deployment-planner-report-h2a.png)
 
 
-## <a name="get-throughput"></a>Misurazione della velocità effettiva
+## <a name="get-throughput"></a>Misurare la velocità effettiva
 Per stimare la velocità effettiva che Azure Site Recovery può ottenere dall'ambiente locale ad Azure durante la replica, eseguire lo strumento in modalità GetThroughput. Lo strumento calcola la velocità effettiva dal server in cui è in esecuzione. Idealmente, questo server è il server Hyper-V le cui VM verranno protette. 
 
 ### <a name="command-line-parameters"></a>Parametri della riga di comando 
@@ -275,15 +275,15 @@ Aprire una console della riga di comando e passare alla cartella dello strumento
 ASRDeploymentPlanner.exe -Operation GetThroughput /?
 ```
 
- Nome parametro | DESCRIZIONE |
+ Nome parametro | Descrizione |
 |---|---|
 | -Operation | GetThroughput |
 |-Virtualization|Tipo di virtualizzazione (VMware o Hyper-V).|
 |-Directory|(Facoltativo) UNC o percorso della directory locale in cui vengono archiviati i dati profilati, ovvero i file generati durante la profilatura. Questi dati sono necessari per la generazione di report. Se non viene specificato un nome, come directory predefinita verrà usata la directory denominata ProfiledData nel percorso corrente.|
-| -StorageAccountName | Nome dell'account di archiviazione usato per determinare la larghezza di banda utilizzata per la replica dei dati dall'ambiente locale ad Azure. Lo strumento carica i dati di test in questo account di archiviazione per determinare la larghezza di banda utilizzata. L'account di archiviazione deve essere Utilizzo generico v1 (GPv1).|
-| -StorageAccountKey | Chiave dell'account di archiviazione usata per accedere all'account di archiviazione. Passare al portale di Azure e selezionare **Account di archiviazione** > *nome-account-archiviazione* > **Impostazioni** > **Chiavi di accesso** > **Key1**.|
+| -StorageAccountName | Nome dell'account di archiviazione usato per determinare la larghezza di banda utilizzata per la replica dei dati dall'ambiente locale ad Azure. Lo strumento carica i dati di test in questo account di archiviazione per determinare la larghezza di banda utilizzata. L'account di archiviazione deve essere di tipo Utilizzo generico v1 (GPv1).|
+| -StorageAccountKey | Chiave dell'account di archiviazione usata per accedere all'account di archiviazione. Passare al portale di Azure > **account di** > *archiviazione nome* > account di archiviazione**Impostazioni** > chiavi > **di accesso1**.**Access Keys**|
 | -VMListFile | File contenente l'elenco di VM da profilare per calcolare la larghezza di banda utilizzata. Il percorso del file può essere assoluto o relativo. Per Hyper-V, si tratta del file di output dell'operazione GetVMList. In caso di preparazione manuale, il file deve contenere un nome server o un indirizzo IP, seguito dal nome della VM separato con un carattere \ per riga. Il nome della VM specificato nel file deve essere uguale al nome della VM nell'host Hyper-V.<br><br>**Esempio**: VMList.txt contiene le VM seguenti:<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
-|-Environment|(Facoltativo) Ambiente di destinazione per l'account di archiviazione di Azure. Può trattarsi di uno di tre valori: AzureCloud, AzureUSGovernment o AzureChinaCloud. Il valore predefinito è AzureCloud. Usare il parametro quando l'area di Azure di destinazione è Azure US Government o Azure Cina 21Vianet.|
+|-Environment|(Facoltativo) Ambiente di destinazione per l'account di archiviazione di Azure. Può trattarsi di uno di tre valori: AzureCloud, AzureUSGovernment o AzureChinaCloud. Il valore predefinito è AzureCloud. Usare il parametro quando l'area di Azure di destinazione è Azure US per enti pubblici o Azure China 21Vianet.Use the parameter when your target Azure region is either Azure US Government or Azure China 21Vianet.|
 
 ### <a name="example"></a>Esempio
 ```

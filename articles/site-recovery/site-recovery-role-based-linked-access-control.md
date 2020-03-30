@@ -1,5 +1,5 @@
 ---
-title: Gestire il controllo degli accessi in base al ruolo di Azure in Azure Site Recovery
+title: Gestire il controllo degli accessi in base al ruolo di Azure in Azure Site RecoveryManage Azure role-based access control in Azure Site Recovery
 description: Questo articolo descrive come applicare il controllo degli accessi in base al ruolo per gestire l'accesso ad Azure Site Recovery.
 ms.service: site-recovery
 ms.date: 04/08/2019
@@ -7,15 +7,15 @@ author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
 ms.openlocfilehash: ce389f9281b02662f87353f00c9bca92cdf86937
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79257576"
 ---
 # <a name="manage-site-recovery-access-with-role-based-access-control-rbac"></a>Gestire l'accesso a Site Recovery con il controllo degli accessi in base al ruolo
 
-Il controllo degli accessi in base al ruolo (RBAC) di Azure consente una gestione degli accessi con granularità fine per Azure. Usando il controllo degli accessi in base al ruolo, è possibile separare le responsabilità all'interno del team e concedere agli utenti solo le autorizzazioni di accesso specifiche necessarie per svolgere il lavoro.
+Azure role-based access Control (RBAC) enables fine-grained access management for Azure. Usando il controllo degli accessi in base al ruolo, è possibile separare le responsabilità all'interno del team e concedere agli utenti solo le autorizzazioni di accesso specifiche necessarie per svolgere il lavoro.
 
 Azure Site Recovery offre 3 ruoli predefiniti per controllare le operazioni di gestione di Site Recovery. Maggiori informazioni sui [ruoli predefiniti del Controllo degli accessi in base al ruolo di Azure](../role-based-access-control/built-in-roles.md)
 
@@ -39,7 +39,7 @@ Per completare la replica di una nuova macchina virtuale, un utente deve avere l
 >Assicurarsi che vengano aggiunte le autorizzazioni appropriate per il modello di distribuzione (Resource Manager/classica) usato per la distribuzione delle risorse.
 
 > [!NOTE]
-> Se si Abilita la replica per una macchina virtuale di Azure e si vuole consentire Site Recovery di gestire gli aggiornamenti, durante l'abilitazione della replica è anche possibile creare un nuovo account di automazione. in questo caso, è necessario disporre dell'autorizzazione per creare un account di automazione nello stesso sottoscrizione come insieme di credenziali.
+> Se si abilita la replica per una macchina virtuale di Azure e si vuole consentire a Site Recovery di gestire gli aggiornamenti, durante l'abilitazione della replica è anche possibile creare un nuovo account di automazione, nel qual caso è necessaria l'autorizzazione per creare un account di automazione nello stesso abbonamento come il vault pure.
 
 | **Tipo di risorsa** | **Modello di distribuzione** | **Autorizzazione** |
 | --- | --- | --- |
@@ -74,7 +74,7 @@ Per completare la replica di una nuova macchina virtuale, un utente deve avere l
 ## <a name="next-steps"></a>Passaggi successivi
 * [Controllo degli accessi in base al ruolo](../role-based-access-control/role-assignments-portal.md): introduzione al controllo degli accessi in base al ruolo nel portale di Azure.
 * Informazioni su come gestire l'accesso con:
-  * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
-  * [Interfaccia della riga di comando di Azure](../role-based-access-control/role-assignments-cli.md)
+  * [Powershell](../role-based-access-control/role-assignments-powershell.md)
+  * [Interfaccia della riga di comando di AzureAzure](../role-based-access-control/role-assignments-cli.md)
   * [REST API](../role-based-access-control/role-assignments-rest.md)
 * [Risoluzione dei problemi del controllo degli accessi in base al ruolo](../role-based-access-control/troubleshooting.md): suggerimenti per la risoluzione di problemi comuni.

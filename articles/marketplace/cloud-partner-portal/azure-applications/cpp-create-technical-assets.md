@@ -1,19 +1,18 @@
 ---
-title: Creare risorse tecniche dell'applicazione Azure | Azure Marketplace
+title: Creare le risorse tecniche per le applicazioni di Azure Azure Marketplace
 description: Creare gli asset tecnici per un'applicazione di Azure.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/13/2018
-ms.author: pabutler
-ms.openlocfilehash: c9abaab4597e9fea43a2f0dcabc0e4a527ed5a6a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 041b2133ed63a906d3fea3ab67890a0057151b9b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827611"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80285266"
 ---
 # <a name="prepare-your-azure-application-technical-assets"></a>Preparare gli asset tecnici dell'applicazione di Azure
 
@@ -31,7 +30,7 @@ Rivedere la documentazione seguente relativa all'applicazione di Azure, che incl
 - [Comprendere modelli di Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates)
 - Argomenti di avvio rapido:
 
-  - [Modelli di avvio rapido di Azure](https://azure.microsoft.com/documentation/templates/)
+  - [Modelli di guida introduttiva di AzureAzure Quickstart templates](https://azure.microsoft.com/documentation/templates/)
   - [Modelli di avvio rapido di Azure in GitHub](https://github.com/azure/azure-quickstart-templates)
   - [Pubblicare una definizione di applicazione](https://docs.microsoft.com/azure/managed-applications/publish-managed-app-definition-quickstart)
   - [Distribuire un'app del catalogo di servizi](https://docs.microsoft.com/azure/managed-applications/deploy-service-catalog-quickstart)
@@ -44,7 +43,7 @@ Rivedere la documentazione seguente relativa all'applicazione di Azure, che incl
 
   - Esempi:
 
-    - [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/managed-applications/cli-samples)
+    - [Interfaccia della riga di comando di AzureAzure](https://docs.microsoft.com/azure/managed-applications/cli-samples)
     - [Azure PowerShell](https://docs.microsoft.com/azure/managed-applications/powershell-samples)
     - [Soluzioni di applicazioni gestite](https://docs.microsoft.com/azure/managed-applications/sample-projects)
 
@@ -56,20 +55,20 @@ Il team tecnico deve avere il livello di conoscenza delle tecnologie Microsoft s
 
 - Conoscenza di base di [Servizi di Azure](https://azure.microsoft.com/services/)
 - Capacità di [progettare applicazioni di Azure per architetture diverse](https://azure.microsoft.com/solutions/architecture/)
-- Conoscenza pratica di [Macchine virtuali di Azure](https://azure.microsoft.com/services/virtual-machines/), [Archiviazione di Azure](https://azure.microsoft.com/services/?filter=storage) e [Rete di Azure](https://azure.microsoft.com/services/?filter=networking)
+- Conoscenza delle macchine virtuali di [Azure,](https://azure.microsoft.com/services/virtual-machines/)Archiviazione di Azure e [rete di AzureWorking](https://azure.microsoft.com/services/?filter=networking) knowledge of Azure Virtual Machines , [Azure Storage,](https://azure.microsoft.com/services/?filter=storage)and Azure Networking
 - Conoscenza pratica di [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/)
-- Conoscenza pratica di [JSON](https://www.json.org/)
+- Conoscenza di lavoro di [JSONWorking](https://www.json.org/) knowledge of JSON
 
 ## <a name="suggested-tools"></a>Strumenti suggeriti
 
 Per la gestione dell'applicazione di Azure scegliere uno o entrambi gli ambienti di scripting seguenti:
 
 - [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
-- [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure)
+- [Interfaccia della riga di comando di AzureAzure](https://docs.microsoft.com/cli/azure)
 
 È consigliabile aggiungere gli strumenti seguenti all'ambiente di sviluppo:
 
-- [Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
+- [Esplora archivi di AzureAzure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
 - [Visual Studio Code](https://code.visualstudio.com/) con le estensioni seguenti:
 
   - Estensione: [Strumenti di Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)

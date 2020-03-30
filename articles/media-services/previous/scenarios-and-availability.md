@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 7b5569738721038beadc78d94c81393803b6d36a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79250985"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Scenari e disponibilità delle funzionalità di Servizi multimediali nei data center
 
 > [!NOTE]
-> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [linee guida sulla migrazione da V2 a V3](../latest/migrate-from-v2-to-v3.md)
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Scopri la versione più recente, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche le linee guida per la [migrazione dalla v2 alla v3](../latest/migrate-from-v2-to-v3.md)
 
 Servizi multimediali di Microsoft Azure (AMS) consente di caricare, archiviare e codificare contenuti video o audio in modo sicuro, nonché creare pacchetti di tali contenuti per la distribuzione in streaming live e on demand a vari client (ad esempio, TV, PC e dispositivi mobili).
 
@@ -33,15 +33,15 @@ Questo argomento illustra scenari comuni per la distribuzione di contenuti [live
 
 ## <a name="overview"></a>Panoramica
 
-### <a name="prerequisites"></a>Prerequisites
+### <a name="prerequisites"></a>Prerequisiti
 
 Per iniziare a utilizzare Servizi multimediali di Azure, è necessario disporre di quanto segue:
 
-* Un account Azure. Se non si dispone di un account Azure, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com).
+* Un account Azure. Se non si dispone di un account Azure, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere Versione di valutazione gratuita di Azure .For [details,](https://azure.microsoft.com)see Azure Free Trial .
 * Un account di Servizi multimediali di Azure. Per altre informazioni, vedere [Creare un account](media-services-portal-create-account.md).
 * L'endpoint di streaming da cui si vuole trasmettere il contenuto deve essere nello stato **In esecuzione**.
 
-    Quando l'account AMS viene creato, all'account viene aggiunto un endpoint di streaming **predefinito** con stato **Arrestato**. Per avviare lo streaming dei contenuti e sfruttare i vantaggi della creazione dinamica dei pacchetti e della crittografia dinamica, l'endpoint di streaming deve trovarsi nello stato **In esecuzione**.
+    Quando viene creato l'account AMS, un endpoint di streaming **predefinito** viene aggiunto all'account nello stato **Arrestato.** Per avviare lo streaming dei contenuti e sfruttare i vantaggi della creazione dinamica dei pacchetti e della crittografia dinamica, l'endpoint di streaming deve trovarsi nello stato **In esecuzione**.
 
 ### <a name="commonly-used-objects-when-developing-against-the-ams-odata-model"></a>Oggetti comunemente usati nello sviluppo con il modello OData di AMS
 
@@ -104,7 +104,7 @@ Per informazioni sulla disponibilità nei data center, vedere la sezione relativ
     Se si usa un localizzatore SAS, i contenuti vengono scaricati dall'archiviazione BLOB di Azure. In questo caso, non è necessario avere endpoint di streaming con stato avviato.
 4. Eseguire il download progressivo.
 
-## <a id="live_scenarios"></a>Distribuzione di eventi di streaming live 
+## <a name="delivering-live-streaming-events"></a><a id="live_scenarios"></a>Distribuzione di eventi di streaming live 
 
 1. Inserire contenuti live usando vari protocolli di streaming live (ad esempio, RTMP o Smooth Streaming).
 2. Facoltativamente, codificare il flusso in flusso a bitrate adattivo.
@@ -143,7 +143,7 @@ Servizi multimediali di Azure fornisce gli strumenti necessari per creare applic
 
 Servizi multimediali supporta l'integrazione con la rete CDN di Azure. Per informazioni su come abilitare la rete CDN di Azure, vedere [Come gestire gli endpoint di streaming in un account di Servizi multimediali](media-services-portal-manage-streaming-endpoints.md).
 
-## <a id="scaling"></a>Ridimensionamento di un account di Servizi multimediali
+## <a name="scaling-a-media-services-account"></a><a id="scaling"></a>Ridimensionamento di un account di Servizi multimediali
 
 I clienti di AMS possono ridimensionare gli endpoint di streaming, l'elaborazione di contenuti multimediali e lo spazio di archiviazione nei propri account AMS.
 
@@ -153,15 +153,15 @@ I clienti di AMS possono ridimensionare gli endpoint di streaming, l'elaborazion
 
 * Un account di Servizi multimediali è associato a un tipo di unità riservata che determina la velocità dei processi di elaborazione dei multimedia. È possibile scegliere uno dei seguenti tipi di unità riservata: **S1**, **S2** o **S3**. Lo stesso processo di codifica viene eseguito più velocemente quando si usa ad esempio il tipo di unità riservata **S2** rispetto al tipo **S1**.
 
-    Oltre al tipo di unità riservata, è possibile specificare il provisioning dell'account con **Unità riservate** (UR). Il numero delle UR sottoposte a provisioning determina il numero di attività multimediali che possono essere elaborate contemporaneamente in un determinato account.
+    Oltre a specificare il tipo di unità riservata, è possibile specificare di eseguire il provisioning dell'account con **unità riservate** (RU). Il numero delle UR sottoposte a provisioning determina il numero di attività multimediali che possono essere elaborate contemporaneamente in un determinato account.
 
     >[!NOTE]
     >UR di lavoro per la parallelizzazione di tutta l'elaborazione di supporti di memorizzazione, tra cui l'indicizzazione di processi tramite Azure Media Indexer. Tuttavia, a differenza della codifica, l'indicizzazione di processi non viene elaborata più velocemente con unità riservate più veloci.
 
-    Per altre informazioni, vedere l'argomento relativo al [ridimensionamento dell'elaborazione di contenuti multimediali](media-services-portal-scale-media-processing.md).
+    Per ulteriori informazioni, vedere [Scalare l'elaborazione multimediale](media-services-portal-scale-media-processing.md).
 * È anche possibile ridimensionare l'account di Servizi multimediali aggiungendo account di archiviazione. Per ogni account di archiviazione è previsto un limite di 500 TB. Per espandere lo spazio di archiviazione oltre i limiti predefiniti, è possibile scegliere di collegare più account di archiviazione a un singolo account di Servizi Multimediali. Per altre informazioni, vedere l'argomento relativo alla [gestione degli account di archiviazione](meda-services-managing-multiple-storage-accounts.md).
 
-## <a id="availability"></a>Disponibilità delle funzionalità di Servizi multimediali nei data center
+## <a name="availability-of-media-services-features-across-datacenters"></a><a id="availability"></a>Disponibilità delle funzionalità di Servizi multimediali nei data center
 
 Questa sezione offre informazioni dettagliate sulla disponibilità delle funzionalità di Servizi multimediali nei data center.
 
@@ -204,7 +204,7 @@ AMS offre due codificatori su richiesta: **Media Encoder Standard** e **Flusso d
 Analisi Servizi multimediali è una raccolta di componenti per sintesi vocale e visione artificiale che permettono a organizzazioni e aziende di derivare in modo più semplice analisi approfondite di utilità pratica dai loro file video. Per altre informazioni, vedere [Panoramica di Analisi Servizi multimediali di Azure](media-services-analytics-overview.md).
 
 > [!NOTE]
-> Alcuni processori di contenuti multimediali di analisi verranno ritirati. Per le date di ritiro, vedere l'argomento [componenti legacy](legacy-components.md) .
+> Alcuni processori multimediali di analisi verranno ritirati. Per le date di pensionamento, vedere l'argomento [dei componenti legacy.](legacy-components.md)
 
 #### <a name="availability"></a>Disponibilità
 

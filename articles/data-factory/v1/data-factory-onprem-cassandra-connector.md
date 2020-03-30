@@ -1,5 +1,5 @@
 ---
-title: Spostare i dati da Cassandra usando Data Factory
+title: Spostare dati da Cassandra tramite Data FactoryMove data from Cassandra using Data Factory
 description: Informazioni su come spostare dati da un database Cassandra locale mediante Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,10 +13,10 @@ ms.date: 06/07/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 05cee60fb1f4d43d1b4ce371aa9f22650b4782da
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79281301"
 ---
 # <a name="move-data-from-an-on-premises-cassandra-database-using-azure-data-factory"></a>Spostare dati da un database Cassandra locale mediante Azure Data Factory
@@ -27,14 +27,14 @@ ms.locfileid: "79281301"
 > [!NOTE]
 > Le informazioni di questo articolo sono valide per la versione 1 di Data Factory. Se si usa la versione corrente del servizio Data Factory, vedere le informazioni sul [connettore Cassandra nella versione 2](../connector-cassandra.md).
 
-Questo articolo illustra come usare l'attività di copia in Azure Data Factory per spostare i dati da un database Cassandra locale. Si basa sull'articolo relativo alle [attività di spostamento dei dati](data-factory-data-movement-activities.md), che offre una panoramica generale dello spostamento dei dati con l'attività di copia.
+Questo articolo illustra come usare l'attività di copia in Azure Data Factory per spostare i dati da un database Cassandra locale. Si basa sull'articolo [Attività di spostamento dati,](data-factory-data-movement-activities.md) che presenta una panoramica generale dello spostamento dei dati con l'attività di copia.
 
-È possibile copiare dati da un archivio dati Cassandra locale a qualsiasi archivio dati di sink supportato. Per un elenco degli archivi dati supportati come sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Data Factory supporta attualmente solo lo spostamento di dati da un archivio dati Cassandra ad altri archivi dati, ma non da altri archivi dati a un archivio dati Cassandra.
+È possibile copiare dati da un archivio dati Cassandra locale a qualsiasi archivio dati di sink supportato. Per un elenco degli archivi dati supportati come sink dall'attività di copia, vedere la tabella [Archivi dati supportati.](data-factory-data-movement-activities.md#supported-data-stores-and-formats) Data Factory supporta attualmente solo lo spostamento di dati da un archivio dati Cassandra ad altri archivi dati, ma non da altri archivi dati a un archivio dati Cassandra.
 
 ## <a name="supported-versions"></a>Versioni supportate
 Il connettore Cassandra supporta le versioni seguenti di Cassandra: 2.x e 3.x. Per attività in esecuzione nel runtime di integrazione self-hosted, Cassandra 3.x è supportato dalla versione 3.7 del runtime di integrazione e versioni successive.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 Perché il servizio Azure Data Factory possa connettersi al database Cassandra locale, è necessario installare un gateway di gestione dati nello stesso computer che ospita il database o in un computer separato per evitare che competa per le risorse con il database. Il gateway di gestione dati è un componente che connette le origini dati locali ai servizi cloud in modo sicuro e gestito. Leggere l'articolo [Gateway di gestione dati](data-factory-data-management-gateway.md) per i dettagli sul Gateway di gestione dati. Per istruzioni passo per passo su come configurare il gateway di una pipeline di dati per spostare i dati, vedere [Spostare dati tra origini locali e il cloud](data-factory-move-data-between-onprem-and-cloud.md).
 
 È necessario usare il gateway per connettersi a un database Cassandra anche se il database è ospitato nel cloud, ad esempio, in una VM IaaS di Azure. È possibile avere il gateway nella stessa macchina virtuale che ospita il database o in una macchina virtuale diversa, purché il gateway possa connettersi al database.
@@ -47,14 +47,14 @@ Quando si installa il gateway, viene installato automaticamente un driver Micros
 ## <a name="getting-started"></a>Introduzione
 È possibile creare una pipeline con l'attività di copia che sposta i dati da un archivio dati Cassandra usando diversi strumenti/API.
 
-- Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
-- È anche possibile usare gli strumenti seguenti per creare una pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager modello**, **API .NET**e **API REST**. Vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia.
+- Il modo più semplice per creare una pipeline consiste nell'utilizzare la **Copia guidata**. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
+- È inoltre possibile utilizzare gli strumenti seguenti per creare una pipeline: **Visual Studio**, **Azure PowerShell**, **modello Azure Resource Manager**, **API .NET**ed **API REST**. Vedere [Esercitazione sull'attività](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) di copia per istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia.
 
 Se si usano gli strumenti o le API, eseguire la procedura seguente per creare una pipeline che sposta i dati da un archivio dati di origine a un archivio dati sink:
 
 1. Creare i **servizi collegati** per collegare gli archivi di dati di input e output alla data factory.
-2. Creare i **set di dati** per rappresentare i dati di input e di output per le operazioni di copia.
-3. Creare una **pipeline** con un'attività di copia che accetti un set di dati come input e un set di dati come output.
+2. Creare **set di dati** per rappresentare i dati di input e output per l'operazione di copia.
+3. Creare una **pipeline** con un'attività di copia che accetta un set di dati come input e un set di dati come output.
 
 Quando si usa la procedura guidata, le definizioni JSON per queste entità di data factory (servizi, set di dati e pipeline collegati) vengono create automaticamente. Quando si usano gli strumenti o le API, ad eccezione delle API .NET, usare il formato JSON per definire le entità di data factory. Per un esempio con le definizioni JSON per le entità di Data Factory utilizzate per copiare dati da un archivio dati Cassandra locale, vedere la sezione [Esempio JSON: Copiare dati da Cassandra a BLOB di Azure](#json-example-copy-data-from-cassandra-to-azure-blob) di questo articolo.
 
@@ -80,7 +80,7 @@ La tabella seguente contiene le descrizioni degli elementi JSON specifici del se
 ## <a name="dataset-properties"></a>Proprietà del set di dati
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sulla [creazione di set di dati](data-factory-create-datasets.md). Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati, ad esempio Azure SQL, BLOB di Azure, tabelle di Azure e così via.
 
-La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione dei dati nell'archivio dati. La sezione typeProperties per il set di dati di tipo **CassandraTable** presenta le proprietà seguenti
+La sezione **typeProperties** è diversa per ogni tipo di set di dati e fornisce informazioni sulla posizione dei dati nell'archivio dati. La sezione typeProperties per il set di dati di tipo **CassandraTable** presenta le proprietà seguenti
 
 | Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
@@ -100,7 +100,7 @@ In caso di origine di tipo **CassandraSource**, nella sezione typeProperties son
 | consistencyLevel |Il livello di coerenza specifica quante repliche devono rispondere a una richiesta di lettura prima della restituzione dei dati all'applicazione client. Cassandra controlla il numero di repliche specificato perché i dati soddisfino la richiesta di lettura. |ONE, TWO, THREE, QUORUM, ALL, LOCAL_QUORUM, EACH_QUORUM, LOCAL_ONE. Per informazioni dettagliate, vedere [Configuring data consistency](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) (Configurazione della coerenza dei dati). |No. Il valore predefinito è ONE. |
 
 ## <a name="json-example-copy-data-from-cassandra-to-azure-blob"></a>Esempio JSON: Copiare i dati da Cassandra a BLOB di Azure
-Questo esempio fornisce le definizioni JSON di esempio che è possibile usare per creare una pipeline usando [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Illustra come copiare dati da un database Cassandra locale a un archivio BLOB di Azure. Tuttavia, i dati possono essere copiati in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando l'attività di copia in Azure Data Factory.
+In questo esempio vengono fornite definizioni JSON di esempio che è possibile usare per creare una pipeline tramite [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell.](data-factory-copy-activity-tutorial-using-powershell.md) Illustra come copiare dati da un database Cassandra locale a un archivio BLOB di Azure. Tuttavia, i dati possono essere copiati in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando l'attività di copia in Azure Data Factory.
 
 > [!IMPORTANT]
 > Questo esempio fornisce frammenti di codice JSON. Non include istruzioni dettagliate per la creazione della data factory. Le istruzioni dettagliate sono disponibili nell'articolo [Spostare dati tra origini locali e il cloud](data-factory-move-data-between-onprem-and-cloud.md) .
@@ -110,7 +110,7 @@ L'esempio include le entità di Data Factory seguenti:
 * Un servizio collegato di tipo [OnPremisesCassandra](#linked-service-properties).
 * Un servizio collegato di tipo [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
 * Un [set di dati](data-factory-create-datasets.md) di input di tipo [CassandraTable](#dataset-properties).
-* Un [set di dati](data-factory-create-datasets.md) di output di tipo [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
+* Un [set](data-factory-create-datasets.md) di dati di output di tipo [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
 * Una [pipeline](data-factory-create-pipelines.md) con attività di copia che usa [CassandraSource](#copy-activity-properties) e [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
 **Servizio collegato Cassandra:**
@@ -136,7 +136,7 @@ Questo esempio usa il servizio collegato **Cassandra** . Per informazioni sulle 
 }
 ```
 
-**Servizio collegato Archiviazione di Azure:**
+**Servizio collegato Archiviazione di Azure:Azure Storage linked service:**
 
 ```json
 {
@@ -178,9 +178,9 @@ Questo esempio usa il servizio collegato **Cassandra** . Per informazioni sulle 
 }
 ```
 
-Impostando **external** su **true** si comunica al servizio Data Factory che il set di dati è esterno alla data factory e non è prodotto da un'attività al suo interno.
+L'impostazione **external** to **true** indica che il servizio Data Factory è esterno alla data factory e non viene prodotto da un'attività nella data factory.
 
-**Set di dati di output del BLOB di Azure:**
+**Set di dati di output BLOB di Azure:Azure Blob output dataset:**
 
 I dati vengono scritti in un nuovo BLOB ogni ora (frequenza: ora, intervallo: 1).
 
@@ -290,7 +290,7 @@ Per l'elenco delle proprietà supportate da RelationalSource, vedere le [proprie
 Azure Data Factory usa un driver ODBC integrato per connettersi ai dati di un database Cassandra e copiarli. Per i tipi di raccolta, fra cui mappa, set ed elenco, il driver normalizza di nuovo i dati in tabelle virtuali corrispondenti. In particolare, se una tabella contiene colonne della raccolta, il driver genera le tabelle virtuali seguenti:
 
 * Una **tabella di base**che contiene gli stessi dati della tabella reale eccetto le colonne della raccolta. La tabella di base ha lo stesso nome della tabella reale che rappresenta.
-* Una **tabella virtuale** per ogni colonna della raccolta che espande i dati nidificati. Alle tabelle virtuali che rappresentano le raccolte vengono assegnati nomi composti dal nome della tabella reale seguito dal separatore "*vt*" e dal nome della colonna.
+* Una **tabella virtuale** per ogni colonna della raccolta che espande i dati nidificati. Le tabelle virtuali che rappresentano le raccolte vengono denominate utilizzando il nome della tabella reale, un separatore "*vt*" e il nome della colonna.
 
 Le tabelle virtuali fanno riferimento ai dati nella tabella reale, consentendo al driver di accedere ai dati denormalizzati. Per i dettagli vedere la sezione Esempio. È possibile accedere al contenuto delle raccolte Cassandra eseguendo query e join sulle tabelle virtuali.
 
@@ -329,24 +329,24 @@ Le tabelle seguenti illustrano le tabelle virtuali che normalizzano di nuovo i d
 #### <a name="table-exampletable_vt_map"></a>Tabella “ExampleTable_vt_Map”:
 | pk_int | Map_key | Map_value |
 | --- | --- | --- |
-| 1 |S1 |Una |
+| 1 |S1 |Una  |
 | 1 |S2 |b |
 | 3 |S1 |t |
 
 #### <a name="table-exampletable_vt_stringset"></a>Tabella “ExampleTable_vt_StringSet”:
 | pk_int | StringSet_value |
 | --- | --- |
-| 1 |Una |
+| 1 |Una  |
 | 1 |b |
 | 1 |C |
-| 3 |Una |
+| 3 |Una  |
 | 3 |E |
 
 ## <a name="map-source-to-sink-columns"></a>Eseguire il mapping delle colonne dell'origine alle colonne del sink
 Per informazioni sul mapping delle colonne del set di dati di origine alle colonne del set di dati del sink, vedere [Mapping delle colonne del set di dati in Azure Data Factory](data-factory-map-columns.md).
 
 ## <a name="repeatable-read-from-relational-sources"></a>Lettura ripetibile da origini relazionali
-Quando si copiano dati da archivi dati relazionali, è necessario tenere presente la ripetibilità per evitare risultati imprevisti. In Azure Data Factory è possibile rieseguire una sezione manualmente. È anche possibile configurare i criteri di ripetizione per un set di dati in modo da rieseguire una sezione in caso di errore. Quando una sezione viene rieseguita in uno dei due modi, è necessario assicurarsi che non vengano letti gli stessi dati, indipendentemente da quante volte viene eseguita la sezione. Vedere [Lettura ripetibile da origini relazionali](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
+Quando si copiano dati da archivi dati relazionali, è necessario tenere presente la ripetibilità per evitare risultati imprevisti. In Azure Data Factory è possibile rieseguire una sezione manualmente. È anche possibile configurare i criteri di ripetizione per un set di dati in modo da rieseguire una sezione in caso di errore. Quando una sezione viene rieseguita in uno dei due modi, è necessario assicurarsi che non vengano letti gli stessi dati, indipendentemente da quante volte viene eseguita la sezione. Consultate [Lettura ripetibile da origini relazionali](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
 
 ## <a name="performance-and-tuning"></a>Ottimizzazione delle prestazioni
 Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati, ovvero dell'attività di copia, in Azure Data Factory e sui vari modi per ottimizzare tali prestazioni, vedere la [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md).

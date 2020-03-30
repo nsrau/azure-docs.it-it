@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/31/2017
 ms.openlocfilehash: cbf0a1f033ddafc68debab8de26dff29d73cc98e
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77651475"
 ---
 # <a name="exchange-x12-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Scambiare messaggi X12 per l'integrazione aziendale B2B in App per la logica di Azure con Enterprise Integration Pack
@@ -34,7 +34,7 @@ Dopo aver [creato un account di integrazione](../logic-apps/logic-apps-enterpris
 
 ## <a name="create-an-x12-agreement"></a>Creare un contratto X12
 
-1. Accedere al [portale di Azure](https://portal.azure.com "Portale di Azure"). 
+1. Accedere al [portale](https://portal.azure.com "Portale di Azure")di Azure . 
 
 2. Nel menu principale di Azure selezionare **Tutti i servizi**. 
    Nella casella di ricerca immettere "integrazione" e quindi selezionare **Account di integrazione**.  
@@ -93,7 +93,7 @@ Il contratto è pronto per gestire i messaggi in arrivo conformi alle impostazio
 
 ### <a name="identifiers"></a>Identificatori
 
-![Imposta proprietà identificatore](./media/logic-apps-enterprise-integration-x12/x12-2.png)  
+![Impostare le proprietà dell'identificatore](./media/logic-apps-enterprise-integration-x12/x12-2.png)  
 
 | Proprietà | Descrizione |
 | --- | --- |
@@ -104,7 +104,7 @@ Il contratto è pronto per gestire i messaggi in arrivo conformi alle impostazio
 
 ### <a name="acknowledgment"></a>Acknowledgment (Riconoscimento)
 
-![Imposta proprietà di riconoscimento](./media/logic-apps-enterprise-integration-x12/x12-3.png) 
+![Impostare le proprietà di conferma](./media/logic-apps-enterprise-integration-x12/x12-3.png) 
 
 | Proprietà | Descrizione |
 | --- | --- |
@@ -134,7 +134,7 @@ Scegliere uno schema per ogni tipo di transazione (ST1) e di applicazione mitten
 
 | Proprietà | Descrizione |
 | --- | --- |
-| Utilizzo ISA11 |Specifica il separatore da usare in un set di transazioni: <p>Selezionare l'**Identificatore standard** per usare un punto (.) per la notazione decimale invece della notazione decimale del documento in ingresso nella pipeline di ricezione EDI. <p>Selezionare il **Separatore ripetizioni** per specificare il separatore di occorrenze ripetute di un elemento dati semplice o di una struttura dati ripetuta. Ad esempio, in genere l'accento circonflesso (^) viene usato come separatore ripetizioni. Negli schemi HIPAA è possibile usare solo l'accento circonflesso. |
+| Utilizzo ISA11 |Specifica il separatore da usare in un set di transazioni: <p>Selezionare l'**Identificatore standard** per usare un punto (.) per la notazione decimale invece della notazione decimale del documento in ingresso nella pipeline di ricezione EDI. <p>Selezionare **Separatore ripetizioni** per specificare il separatore per le occorrenze ripetute di un elemento dati semplice o di una struttura di dati ripetuta. Ad esempio, in genere l'accento circonflesso (^) viene usato come separatore ripetizioni. Negli schemi HIPAA è possibile usare solo l'accento circonflesso. |
 
 ### <a name="control-numbers"></a>Numeri di controllo
 
@@ -142,7 +142,7 @@ Scegliere uno schema per ogni tipo di transazione (ST1) e di applicazione mitten
 
 | Proprietà | Descrizione |
 | --- | --- |
-| Disallow Interchange Control Number duplicates (Non consentire duplicati di numeri di controllo interscambio) |Consente di bloccare gli interscambi duplicati. Verifica il numero di controllo dell'interscambio (ISA13) del numero di controllo dell'interscambio ricevuto. Se viene rilevata una corrispondenza, la pipeline di ricezione non elabora l'interscambio. È possibile specificare il numero di giorni per l'esecuzione del controllo assegnando il valore appropriato all'opzione *Verifica ISA13 duplicati ogni (giorni)* . |
+| Disallow Interchange Control Number duplicates (Non consentire duplicati di numeri di controllo interscambio) |Consente di bloccare gli interscambi duplicati. Verifica il numero di controllo dell'interscambio (ISA13) del numero di controllo dell'interscambio ricevuto. Se viene rilevata una corrispondenza, la pipeline di ricezione non elabora l'interscambio. È possibile specificare il numero di giorni per l'esecuzione del controllo assegnando il valore appropriato all'opzione *Verifica ISA13 duplicati ogni (giorni)*. |
 | Disallow Group control number duplicates (Non consentire duplicati di numeri di controllo di gruppo) |Consente di bloccare gli interscambi con numeri di controllo di gruppo duplicati. |
 | Disallow Transaction set control number duplicates (Non consentire duplicati di numeri di controllo set di transazioni) |Consente di bloccare gli interscambi con numeri di controllo di set di transazioni duplicati. |
 
@@ -159,7 +159,7 @@ Dopo aver completato ogni riga di convalida, ne viene aggiunta automaticamente u
 | Convalida estesa |Se il tipo di dati non è EDI, la convalida viene eseguita sul requisito dell'elemento dati e sulla ripetizione consentita, nonché sulle enumerazioni e sulla convalida della lunghezza dell'elemento dati (min/max). |
 | Consenti zeri iniziali e finali |Tutti gli zero iniziali e finali e i caratteri di spazio vengono mantenuti e non vengono rimossi. |
 | Rimuovi zero iniziali e finali |Tutti gli zero iniziali e finali e i caratteri di spazio vengono rimossi. |
-| Criterio separatori finali |Consente di generare separatori finali. <p>Selezionare **Non consentiti** per non consentire delimitatori e separatori finali nell'interscambio ricevuto. Se l'interscambio contiene delimitatori e separatori finali, viene dichiarato non valido. <p>Selezionare **Facoltativi** per accettare interscambi con o senza delimitatori e separatori finali. <p>Selezionare **Obbligatori** se l'interscambio deve contenere delimitatori e separatori finali. |
+| Criterio separatori finali |Consente di generare separatori finali. <p>Selezionare **Non consentiti** per non consentire delimitatori e separatori finali nell'interscambio ricevuto. Se l'interscambio contiene delimitatori e separatori finali, viene dichiarato non valido. <p>Selezionare **Facoltativo** per accettare gli interscambi con o senza delimitatori e separatori finali. <p>Selezionare **Obbligatori** se l'interscambio deve contenere delimitatori e separatori finali. |
 
 ### <a name="internal-settings"></a>Impostazioni interne
 
@@ -189,7 +189,7 @@ Il contratto è pronto per gestire i messaggi in uscita conformi alle impostazio
 
 ### <a name="identifiers"></a>Identificatori
 
-![Imposta proprietà identificatore](./media/logic-apps-enterprise-integration-x12/x12-4.png)  
+![Impostare le proprietà dell'identificatore](./media/logic-apps-enterprise-integration-x12/x12-4.png)  
 
 | Proprietà | Descrizione |
 | --- | --- |
@@ -200,7 +200,7 @@ Il contratto è pronto per gestire i messaggi in uscita conformi alle impostazio
 
 ### <a name="acknowledgment"></a>Acknowledgment (Riconoscimento)
 
-![Imposta proprietà di riconoscimento](./media/logic-apps-enterprise-integration-x12/x12-5.png)  
+![Impostare le proprietà di conferma](./media/logic-apps-enterprise-integration-x12/x12-5.png)  
 
 | Proprietà | Descrizione |
 | --- | --- |
@@ -227,11 +227,11 @@ Il contratto è pronto per gestire i messaggi in uscita conformi alle impostazio
 
 | Proprietà | Descrizione |
 | --- | --- |
-| Utilizzo ISA11 |Specifica il separatore da usare in un set di transazioni: <p>Selezionare l'**Identificatore standard** per usare un punto (.) per la notazione decimale invece della notazione decimale del documento in ingresso nella pipeline di ricezione EDI. <p>Selezionare il **Separatore ripetizioni** per specificare il separatore di occorrenze ripetute di un elemento dati semplice o di una struttura dati ripetuta. Ad esempio, in genere l'accento circonflesso (^) viene usato come separatore ripetizioni. Negli schemi HIPAA è possibile usare solo l'accento circonflesso. |
+| Utilizzo ISA11 |Specifica il separatore da usare in un set di transazioni: <p>Selezionare l'**Identificatore standard** per usare un punto (.) per la notazione decimale invece della notazione decimale del documento in ingresso nella pipeline di ricezione EDI. <p>Selezionare **Separatore ripetizioni** per specificare il separatore per le occorrenze ripetute di un elemento dati semplice o di una struttura di dati ripetuta. Ad esempio, in genere l'accento circonflesso (^) viene usato come separatore ripetizioni. Negli schemi HIPAA è possibile usare solo l'accento circonflesso. |
 
 ### <a name="control-numbers"></a>Numeri di controllo
 
-![Specificare le proprietà del numero di controllo](./media/logic-apps-enterprise-integration-x12/x12-8.png) 
+![Specificare le proprietà dei numeri di controllo](./media/logic-apps-enterprise-integration-x12/x12-8.png) 
 
 | Proprietà | Descrizione |
 | --- | --- |
@@ -298,10 +298,10 @@ Dopo aver completato ogni riga di convalida, ne viene aggiunta automaticamente u
 
 ## <a name="connector-reference"></a>Informazioni di riferimento sui connettori
 
-Per informazioni più tecniche su questo connettore, ad esempio le azioni e i limiti descritti dal file spavalderia del connettore, vedere la [pagina di riferimento del connettore](https://docs.microsoft.com/connectors/x12/). 
+Per ulteriori dettagli tecnici su questo connettore, ad esempio azioni e limiti, come descritto dal file Swagger del connettore, vedere la [pagina di riferimento del connettore.](https://docs.microsoft.com/connectors/x12/) 
 
 > [!NOTE]
-> Per le app per la logica in un [ambiente Integration Services (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), la versione con etichetta ISE del connettore usa invece i [limiti dei messaggi ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) .
+> Per le app per la logica in un ambiente del servizio di [integrazione (ISE),](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)la versione con etichetta ISE di questo connettore utilizza invece i limiti dei [messaggi ISE.](../logic-apps/logic-apps-limits-and-config.md#message-size-limits)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

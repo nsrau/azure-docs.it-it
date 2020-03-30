@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: cynthn
 ms.openlocfilehash: 0026c70a3a1a6b5e635e6b43e74b557d4218e6d3
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79250309"
 ---
 # <a name="find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Trovare immagini di macchine virtuali Linux in Azure Marketplace con l'interfaccia della riga di comando di Azure
@@ -300,7 +300,7 @@ Output:
 }
 ```
 
-Eseguendo un comando analogo per l'immagine RabbitMQ certificata da Bitnami vengono mostrate le proprietà `plan` seguenti: `name`, `product` e `publisher`. Alcune immagini hanno anche una proprietà `promotion code`. Per distribuire questa immagine, vedere le sezioni seguenti per accettare le condizioni e abilitare la distribuzione a livello di codice.
+Eseguendo un comando analogo per l'immagine RabbitMQ certificata da Bitnami vengono mostrate le proprietà `plan` seguenti: `name`, `product` e `publisher`. (Alcune immagini hanno `promotion code` anche una proprietà.) Per distribuire questa immagine, vedere le sezioni seguenti per accettare i termini e abilitare la distribuzione a livello di codice.
 
 ```azurecli
 az vm image show --location westus --urn bitnami:rabbitmq:rabbitmq:latest

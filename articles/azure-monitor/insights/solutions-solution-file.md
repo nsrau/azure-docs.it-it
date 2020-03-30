@@ -8,10 +8,10 @@ ms.author: bwren
 ms.date: 01/09/2018
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 999177f821b98adfa015520252bd3323d0892533
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79275178"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Creazione di un file per soluzioni di gestione in Azure (anteprima)
@@ -122,9 +122,9 @@ Di seguito viene mostrata la struttura dei parametri standard, che è possibile 
     }
 
 
-Per fare riferimento ai valori di parametro negli altri elementi della soluzione si usa la sintassi **parameters('nome parametro')** .  Per accedere, ad esempio, al nome dell'area di lavoro, usare **parameters('workspaceName')**
+Per fare riferimento ai valori di parametro negli altri elementi della soluzione si usa la sintassi **parameters('nome parametro')**.  Ad esempio, per accedere al nome dell'area di lavoro, è necessario utilizzare **i parametri('nomeareadell')**
 
-## <a name="variables"></a>variables
+## <a name="variables"></a>Variabili
 Le [variabili](../../azure-resource-manager/templates/template-syntax.md#variables) sono valori che verranno usati nella parte rimanente della soluzione di gestione.  Questi valori non sono esposti all'utente che esegue l'installazione della soluzione.  La loro funzione è quella di offrire all'autore un'unica posizione in cui gestire i valori che possono essere usati più volte all'interno della soluzione. È consigliabile inserire eventuali valori specifici della soluzione in variabili anziché impostarli come hardcoded nell'elemento **resources**.  In questo modo, il codice risulta più leggibile ed è possibile modificare facilmente questi valori nelle versioni successive.
 
 Di seguito è riportato un esempio di elemento **variables** con i parametri tipici usati nelle soluzioni.
@@ -137,7 +137,7 @@ Di seguito è riportato un esempio di elemento **variables** con i parametri tip
         "AutomationApiVersion": "2015-10-31"
     },
 
-Per fare riferimento ai valori di variabile all'interno della soluzione si usa la sintassi **variables('nome variabile')** .  Per accedere, ad esempio, alla variabile SolutionName, usare **variables('SolutionName')** .
+Per fare riferimento ai valori di variabile all'interno della soluzione si usa la sintassi **variables('nome variabile')**.  Ad esempio, per accedere alla variabile SolutionName, è necessario utilizzare **variabili('NomeSoluzione')**.
 
 È possibile anche definire variabili complesse che moltiplicano set di valori;  risultano particolarmente utili nelle soluzioni di gestione in cui si definiscono più proprietà per diversi tipi di risorse.  È possibile, ad esempio, ristrutturare come indicato di seguito le variabili di soluzione illustrate in precedenza.
 
@@ -206,7 +206,7 @@ La risorsa della soluzione ha le proprietà descritte nella tabella seguente.  S
 
 | Proprietà | Descrizione |
 |:--- |:--- |
-| workspaceResourceId |ID dell'area di lavoro Log Analytics nel formato *\<ID del gruppo di risorse > il nome dell'area di lavoro/providers/Microsoft.OperationalInsights/workspaces/\<\>* . |
+| workspaceResourceId |ID dell'area di lavoro di Log Analytics nel formato * \<ID gruppo\<di\>risorse>/provider/Microsoft.OperationalInsights/workspaces/ Nome area di lavoro*. |
 | referencedResources |Elenco delle risorse nella soluzione che non devono essere rimosse quando la soluzione viene rimossa. |
 | containedResources |Elenco delle risorse nella soluzione che devono essere rimosse quando la soluzione viene rimossa. |
 

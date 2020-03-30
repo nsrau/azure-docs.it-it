@@ -16,10 +16,10 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: caf73ffbc18a603ace22acfbd0da490048da698a
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71058129"
 ---
 # <a name="troubleshoot-application-connectivity-issues-on-virtual-machines-in-azure"></a>Risolvere i problemi di connettività delle applicazioni in macchine virtuali in Azure
@@ -28,10 +28,10 @@ Ci sono varie ragioni alla base dell'impossibilità di avviare o di connettersi 
 
 Se si sono verificati problemi durante la connessione alla VM tramite RDP o SSH, consultare prima uno dei seguenti articoli:
 
-* [Risolvere i problemi di connessioni Desktop remoto a una macchina virtuale di Azure che esegue Windows](troubleshoot-rdp-connection.md)
+* [Risolvere i problemi relativi alle connessioni Desktop remoto a una macchina virtuale di Azure basata su WindowsTroubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](troubleshoot-rdp-connection.md)
 * [Risolvere i problemi relativi alle connessioni Secure Shell (SSH) a una macchina virtuale di Azure basata su Linux](troubleshoot-ssh-connection.md)
 
-Se in qualsiasi punto dell'articolo sono necessarie altre informazioni, è possibile contattare gli esperti di Azure nei [forum MSDN e overflow dello stack relativi ad Azure](https://azure.microsoft.com/support/forums/). In alternativa, è anche possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare **Ottenere supporto**.
+Se in qualsiasi punto dell'articolo sono necessarie altre informazioni, è possibile contattare gli esperti di Azure nei [forum MSDN e overflow dello stack relativi ad Azure](https://azure.microsoft.com/support/forums/). In alternativa, è anche possibile archiviare un evento imprevisto di supporto tecnico di Azure. Passare al [sito del supporto](https://azure.microsoft.com/support/options/) di Azure e selezionare Ottieni **supporto**.
 
 ## <a name="quick-start-troubleshooting-steps"></a>Passaggi rapidi per la risoluzione dei problemi
 Nel caso di problemi di connessione a un'applicazione, provare con i seguenti passaggi generali per la risoluzione dei problemi. Dopo ogni passaggio, provare a connettersi nuovamente all'applicazione:
@@ -68,7 +68,7 @@ Per i computer client che accedono all'applicazione tramite una connessione site
 
 Per determinare l'origine del problema e la sua risoluzione, attenersi alla seguente procedura.
 
-## <a name="step-1-access-application-from-target-vm"></a>Passaggio 1: Accedere all'applicazione dalla macchina virtuale di destinazione
+## <a name="step-1-access-application-from-target-vm"></a>Passaggio 1: accedere all'applicazione dalla VM di destinazione
 Provare ad accedere all'applicazione con il programma client appropriato dalla macchina virtuale in cui è in esecuzione. Usare il nome host locale, l'indirizzo IP locale o l'indirizzo di loopback (127.0.0.1).
 
 ![avviare l'applicazione direttamente dalla macchina virtuale](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access2.png)
@@ -84,7 +84,7 @@ Se non è possibile accedere all'applicazione, verificare le seguenti impostazio
 
 Nelle macchine virtuali basate su Windows o Linux, utilizzare il comando **netstat - a** per visualizzare le porte di ascolto attive. Esaminare l'output per le porte previste sulle quali l’applicazione dovrebbe essere in ascolto. Riavviare l'applicazione oppure configurarla per usare le porte previste in base alle esigenze e provare di nuovo ad accedere all'applicazione in locale.
 
-## <a id="step2"></a>Passaggio 2: Accedere all'applicazione da un'altra VM nella stessa rete virtuale
+## <a name="step-2-access-application-from-another-vm-in-the-same-virtual-network"></a><a id="step2"></a>Passaggio 2: accedere all'applicazione da un'altra VM della stessa rete virtuale
 Provare ad accedere all'applicazione da una macchina virtuale diversa, ma nella stessa rete virtuale, usando il nome host della macchina virtuale o l'indirizzo IP pubblico, privato o del provider assegnato da Azure. Per le macchine virtuali create con il modello di distribuzione classica, non usare l'indirizzo IP pubblico del servizio cloud.
 
 ![applicazione avviata da una macchina virtuale diversa](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access3.png)
@@ -104,7 +104,7 @@ Se non è possibile accedere all'applicazione, verificare le seguenti impostazio
 
 In una macchina virtuale basata su Windows, utilizzare Windows Firewall con sicurezza avanzata per determinare se le regole del firewall escludono il traffico in entrata e in uscita dell'applicazione.
 
-## <a id="step3"></a>Passaggio 3: Accedere all'applicazione dall'esterno della rete virtuale
+## <a name="step-3-access-application-from-outside-the-virtual-network"></a><a id="step3"></a>Passaggio 3: accedere all'applicazione dall'esterno della rete virtuale
 Provare ad accedere all'applicazione da un computer all'esterno della rete virtuale come VM in cui è in esecuzione l'applicazione. Usare una rete diversa come computer client originale.
 
 ![avviare l'applicazione da un computer all'esterno della rete virtuale](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access4.png)
@@ -141,8 +141,8 @@ Se è possibile accedere all'applicazione, verificare che il dispositivo perifer
 Per altre informazioni, vedere [Panoramica del monitoraggio della rete in Azure](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
-[Risolvere i problemi di connessioni Desktop remoto a una macchina virtuale di Azure basata su Windows](troubleshoot-rdp-connection.md)
+[Risolvere i problemi relativi alle connessioni Desktop remoto a una macchina virtuale di Azure basata su WindowsTroubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](troubleshoot-rdp-connection.md)
 
-[Risolvere i problemi relativi alle connessioni Secure Shell (SSH) a una macchina virtuale di Azure basata su Linux](troubleshoot-ssh-connection.md)
+[Risolvere i problemi relativi alle connessioni di Secure Shell (SSH) a una macchina virtuale di Azure basata su LinuxTroubleshoot Secure Shell (SSH) connections to a Linux-based Azure virtual machine](troubleshoot-ssh-connection.md)
 
 

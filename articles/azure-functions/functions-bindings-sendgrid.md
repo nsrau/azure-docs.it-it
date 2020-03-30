@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 11/29/2017
 ms.author: cshoe
 ms.openlocfilehash: 9ed2b81c12c698822b9542bb6903189c865b572b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79277466"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Associazioni di SendGrid di Funzioni di Azure
@@ -24,7 +24,7 @@ Le associazioni di SendGrid sono incluse nel pacchetto NuGet [Microsoft.Azure.We
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
-## <a name="packages---functions-2x-and-higher"></a>Packages-Functions 2. x e versioni successive
+## <a name="packages---functions-2x-and-higher"></a>Pacchetti - Funzioni 2.x e successive
 
 Le associazioni di SendGrid sono incluse nel pacchetto NuGet [Microsoft.Azure.WebJobs.Extensions.SendGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid), versione 3.x. Il codice sorgente del pacchetto si trova nel repository GitHub [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/).
 
@@ -32,7 +32,7 @@ Le associazioni di SendGrid sono incluse nel pacchetto NuGet [Microsoft.Azure.We
 
 ## <a name="example"></a>Esempio
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 L'esempio seguente mostra una [funzione C#](functions-dotnet-class-library.md) che usa un trigger della coda del bus di servizio e un'associazione di output SendGrid.
 
@@ -100,7 +100,7 @@ public class OutgoingEmail
 
 È possibile omettere l'impostazione della proprietà `ApiKey` dell'attributo se si dispone della chiave API in un'impostazione applicazione denominata "AzureWebJobsSendGridApiKey".
 
-# <a name="c-script"></a>[C#Script](#tab/csharp-script)
+# <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
 L'esempio seguente mostra un'associazione di output di SendGrid in un file *function.json* e una [funzione script C#](functions-reference-csharp.md) che usa l'associazione.
 
@@ -159,7 +159,7 @@ public class Message
 }
 ```
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[Javascript](#tab/javascript)
 
 L'esempio seguente mostra un'associazione di output di SendGrid in un file *function.json* e una [funzione JavaScript](functions-reference-node.md) che usa l'associazione.
 
@@ -203,7 +203,7 @@ module.exports = function (context, input) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-Nell'esempio seguente viene illustrata una funzione attivata tramite HTTP che invia un messaggio di posta elettronica utilizzando l'associazione SendGrid. È possibile specificare i valori predefiniti nella configurazione dell'associazione. Ad esempio, l'indirizzo di posta elettronica *da* viene configurato in *Function. JSON*. 
+Nell'esempio seguente viene illustrata una funzione attivata da HTTP che invia un messaggio di posta elettronica usando l'associazione SendGrid.The following example shows an HTTP-triggered function that sends an email using the SendGrid binding. È possibile fornire valori predefiniti nella configurazione dell'associazione. Ad esempio, l'indirizzo di posta elettronica *from* è configurato in *function.json*. 
 
 ```json
 {
@@ -232,7 +232,7 @@ Nell'esempio seguente viene illustrata una funzione attivata tramite HTTP che in
 }
 ```
 
-La funzione seguente mostra come è possibile fornire valori personalizzati per le proprietà facoltative.
+La funzione seguente mostra come fornire valori personalizzati per le proprietà facoltative.
 
 ```python
 import logging
@@ -260,7 +260,7 @@ def main(req: func.HttpRequest, sendGridMessage: func.Out[str]) -> func.HttpResp
 
 # <a name="java"></a>[Java](#tab/java)
 
-L'esempio seguente usa l'annotazione `@SendGridOutput` dalla [libreria di runtime di funzioni Java](/java/api/overview/azure/functions/runtime) per inviare un messaggio di posta elettronica usando l'associazione di output SendGrid.
+Nell'esempio seguente `@SendGridOutput` viene utilizzata l'annotazione dalla libreria di runtime delle [funzioni Java](/java/api/overview/azure/functions/runtime) per inviare un messaggio di posta elettronica utilizzando l'associazione di output SendGrid.
 
 ```java
 package com.function;
@@ -314,7 +314,7 @@ public class HttpTriggerSendGrid {
 
 ## <a name="attributes-and-annotations"></a>Attributi e annotazioni
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 Nelle [librerie di classi C#](functions-dotnet-class-library.md) usare l'attributo [SendGrid](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/SendGridAttribute.cs).
 
@@ -332,11 +332,11 @@ public static void Run(
 
 Per un esempio completo, vedere l'[esempio in C#](#example).
 
-# <a name="c-script"></a>[C#Script](#tab/csharp-script)
+# <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
-Gli attributi non sono supportati C# dallo script.
+Gli attributi non sono supportati dallo script di C.
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[Javascript](#tab/javascript)
 
 Gli attributi non sono supportati da JavaScript.
 
@@ -346,24 +346,24 @@ Gli attributi non sono supportati da Python.
 
 # <a name="java"></a>[Java](#tab/java)
 
-L'annotazione [SendGridOutput](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/annotation/SendGridOutput.java) consente di configurare in modo dichiarativo l'associazione SendGrid fornendo valori di configurazione. Per altri dettagli, vedere le sezioni di [esempio](#example) e di [configurazione](#configuration) .
+L'annotazione [SendGridOutput](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/annotation/SendGridOutput.java) consente di configurare in modo dichiarativo l'associazione SendGrid fornendo valori di configurazione. Vedere le sezioni di [esempio](#example) e [configurazione](#configuration) per ulteriori dettagli.
 
 ---
 
 ## <a name="configuration"></a>Configurazione
 
-La tabella seguente elenca le proprietà di configurazione dell'associazione disponibili nel file *Function. JSON* e l'attributo/annotazione `SendGrid`.
+Nella tabella seguente sono elencate le proprietà di configurazione `SendGrid` dell'associazione disponibili nel file *function.json* e attribute/annotation.
 
-| *Function. JSON* (proprietà) | Proprietà attribute/annotation | Descrizione | Facoltativo |
+| *function.json (proprietà)* | Proprietà Attributo/annotazione | Descrizione | Facoltativo |
 |--------------------------|-------------------------------|-------------|----------|
 | type |n/d| Il valore deve essere impostato su `sendGrid`.| No |
 | direction |n/d| Il valore deve essere impostato su `out`.| No |
-| name |n/d| Nome della variabile usato nel codice della funzione per la richiesta o il corpo della richiesta. Questo valore è `$return` quando viene restituito un solo valore. | No |
-| apiKey | ApiKey | Il nome di un'impostazione dell'app che contiene la chiave API. Se non è impostato, il nome predefinito dell'impostazione dell'app è *AzureWebJobsSendGridApiKey*.| No |
+| name |n/d| Nome della variabile utilizzata nel codice di funzione per il corpo della richiesta o della richiesta. Questo valore è `$return` quando viene restituito un solo valore. | No |
+| apiKey | ApiKey | Il nome di un'impostazione dell'app che contiene la chiave API. Se non è impostato, il nome dell'impostazione predefinita dell'app è *AzureWebJobsSendGridApiKey*.| No |
 | to| A | Indirizzo e-mail del destinatario. | Sì |
 | da| From | Indirizzo di posta elettronica del mittente. |  Sì |
 | subject| Oggetto | Oggetto del messaggio di posta elettronica. | Sì |
-| text| Text | Contenuto del messaggio di posta elettronica. | Sì |
+| text| Testo | Contenuto dell'e-mail. | Sì |
 
 Le proprietà facoltative possono avere valori predefiniti definiti nell'associazione e aggiunti o sottoposti a override a livello di codice.
 
@@ -373,7 +373,7 @@ Le proprietà facoltative possono avere valori predefiniti definiti nell'associa
 
 ## <a name="hostjson-settings"></a>impostazioni host.json
 
-Questa sezione descrive le impostazioni di configurazione globali disponibili per questa associazione nelle versioni 2. x e successive. Il file host. JSON di esempio seguente contiene solo le impostazioni della versione 2. x + per questa associazione. Per ulteriori informazioni sulle impostazioni di configurazione globali nelle versioni 2. x e successive, vedere informazioni di [riferimento su host. JSON per funzioni di Azure](functions-host-json.md).
+In questa sezione vengono descritte le impostazioni di configurazione globali disponibili per questa associazione nelle versioni 2.x e successive. Il file host.json di esempio riportato di seguito contiene solo le impostazioni della versione 2.x e per questa associazione. Per altre informazioni sulle impostazioni di configurazione globali nelle versioni 2.x e successive, vedere informazioni di riferimento su host.json per Funzioni di Azure.For more information about global configuration settings in versions 2.x and beyond, see [host.json reference for Azure Functions](functions-host-json.md).
 
 > [!NOTE]
 > Per informazioni di riferimento su host.json in Funzioni 1.x, vedere [Informazioni di riferimento su host.json per Funzioni di Azure 1.x](functions-host-json-v1.md).

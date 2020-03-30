@@ -12,10 +12,10 @@ ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 01/15/2019
 ms.openlocfilehash: 958d937ad85fd62249c7ce3f0e0ab2f8cc1d1b80
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73819935"
 ---
 # <a name="getting-started-with-json-features-in-azure-sql-database"></a>Introduzione alle funzionalità JSON nel database SQL di Azure
@@ -26,7 +26,7 @@ Il database SQL di Azure consente di analizzare ed eseguire query sui dati rappr
 - [Trasformazione del formato JSON in formato tabulare](#transforming-json-into-tabular-format) tramite la funzione `OPENJSON`.
 
 ## <a name="formatting-relational-data-in-json-format"></a>Formattazione di dati relazionali in formato JSON
-Se si dispone di un servizio Web che accetta dati dal livello di database e fornisce una risposta in formato JSON o framework JavaScript sul lato client o raccolte che accettano dati formattati come JSON, è possibile formattare il contenuto del database nel formato JSON direttamente in una query SQL. Non è più necessario scrivere il codice dell'applicazione che formatta i risultati dal database SQL di Azure come JSON o includere alcune librerie di serializzazione JSON per convertire i risultati della query in formato tabulare e quindi serializzare oggetti in formato JSON. In alternativa, è possibile usare la clausola FOR JSON per formattare i risultati della query SQL come JSON nel database SQL di Azure e usarla direttamente nell'applicazione.
+Se si dispone di un servizio Web che accetta dati dal livello di database e fornisce una risposta in formato JSON o framework JavaScript sul lato client o raccolte che accettano dati formattati come JSON, è possibile formattare il contenuto del database nel formato JSON direttamente in una query SQL. Non è più necessario scrivere il codice dell'applicazione che formatta i risultati dal database SQL di Azure come JSON o includere alcune librerie di serializzazione JSON per convertire i risultati della query in formato tabulare e quindi serializzare oggetti in formato JSON. È possibile usare la clausola FOR JSON per formattare i risultati della query SQL come JSON nel database SQL di Azure e usarla direttamente nell'applicazione.
 
 Nell'esempio seguente, le righe della tabella Sales.Customer vengono formattate come JSON usando la clausola FOR JSON:
 
@@ -69,7 +69,7 @@ L'output di questa query è simile al seguente:
 }
 ```
 
-In questo esempio viene restituito un singolo oggetto JSON anziché un array, specificando l'opzione [WITHOUT_ARRAY_WRAPPER](https://msdn.microsoft.com/library/mt631354.aspx). È possibile usare questa opzione se è noto che si sta restituendo un oggetto singolo come risultato della query.
+In questo esempio è stato restituito un singolo oggetto JSON anziché una matrice specificando l'opzione [WITHOUT_ARRAY_WRAPPER.](https://msdn.microsoft.com/library/mt631354.aspx) È possibile usare questa opzione se è noto che si sta restituendo un oggetto singolo come risultato della query.
 
 Il valore principale della clausola FOR JSON è che consente di restituire dati gerarchici complessi dal database formattati come array o oggetti JSON annidati. Nell'esempio seguente viene illustrato come includere le righe della tabella `Orders` che appartengono a `Customer` come array annidato di `Orders`:
 
@@ -141,11 +141,11 @@ set Data = JSON_MODIFY(Data, '$.Price', 60)
 where Id = 1
 ```
 
-La funzione JSON_VALUE estrae un valore dal testo JSON archiviato nella colonna Data. Questa funzione usa un percorso simile a JavaScript per fare riferimento a un valore nel testo JSON da estrarre. Il valore estratto può essere usato in qualsiasi parte di una query SQL.
+La funzione JSON_VALUE estrae un valore dal testo JSON archiviato nella colonna Data. Questa funzione usa un percorso in stile JavaScript per fare riferimento a un valore nel testo JSON da estrarre. Il valore estratto può essere usato in qualsiasi parte di una query SQL.
 
 La funzione JSON_QUERY è simile a JSON_VALUE. A differenza di JSON_VALUE, questa funzione estrae l'oggetto secondario complesso, ad esempio array o oggetti che vengono inseriti nel testo JSON.
 
-La funzione JSON_MODIFY consente di specificare il percorso del valore nel testo JSON che deve essere aggiornato, nonché un nuovo valore che sovrascriverà quello precedente. In questo modo che è possibile aggiornare facilmente il testo JSON senza ripetere l'analisi dell'intera struttura.
+La funzione JSON_MODIFY consente di specificare il percorso del valore nel testo JSON che deve essere aggiornato, nonché un nuovo valore che sovrascriverà quello precedente. In questo modo è possibile aggiornare facilmente il testo JSON senza ripetere l'analisi dell'intera struttura.
 
 Dal momento che il tasto JSON è archiviato in un testo standard, non vi sono garanzie che i valori archiviati nelle colonne di testo siano formattate correttamente. È possibile verificare che il testo archiviato nella colonna JSON sia formattato correttamente usando i vincoli di controllo standard del database SQL di Azure e la funzione ISJSON:
 

@@ -1,6 +1,6 @@
 ---
-title: file di inclusione
-description: file di inclusione
+title: File di inclusione
+description: File di inclusione
 services: iot-fundamentals
 author: robinsh
 ms.service: iot-fundamentals
@@ -9,10 +9,10 @@ ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 4fdb891d668d99644d8a9ed9c15d158e65d53ba5
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72793107"
 ---
 Per proteggere un'infrastruttura IoT (Internet of Things, Internet delle cose) è richiesta una strategia di sicurezza rigorosa e approfondita. Questa strategia richiede la protezione dei dati nel cloud, dell'integrità dei dati in transito sulla rete internet pubblica e il provisioning sicuro dei dispositivi. Ogni livello crea maggiori garanzie di sicurezza dell'infrastruttura complessiva.
@@ -23,11 +23,11 @@ Questa strategia di sicurezza può essere sviluppata e implementata con la parte
 
 * **Produttore/integratore di hardware IoT**: in genere si tratta dei produttori dell'hardware IoT da distribuire, integratori che si occupano dell'assemblaggio di hardware da produttori diversi, oppure di fornitori per la distribuzione IoT prodotta o integrata da altri fornitori.
 
-* **Sviluppatore di soluzioni IoT**: lo sviluppo di una soluzione IoT viene in genere effettuato da uno sviluppatore di soluzioni. Uno sviluppatore può far parte di un team interno o un integratore di sistemi (SI) specializzato in questa attività. Lo sviluppatore di soluzioni IoT può sviluppare vari componenti della soluzione IoT partendo da zero, integrare vari componenti COTS oppure open source, o adottare un Solution Accelerator che necessita di un adattamento minore.
+* **Sviluppatore di soluzioni IoT:** lo sviluppo di una soluzione IoT viene in genere eseguito da uno sviluppatore di soluzioni. Uno sviluppatore può far parte di un team interno o un integratore di sistemi (SI) specializzato in questa attività. Lo sviluppatore di soluzioni IoT può sviluppare vari componenti della soluzione IoT partendo da zero, integrare vari componenti COTS oppure open source, o adottare un Solution Accelerator che necessita di un adattamento minore.
 
 * **Distributore di soluzioni IoT**: una volta sviluppata, la soluzione IoT deve essere distribuita nell'ambiente. Questo processo implica la distribuzione dell'hardware, l'interconnessione dei dispositivi e la distribuzione di soluzioni su dispositivi hardware o nel cloud.
 
-* **Operatore di soluzioni IoT**: una volta distribuita, la soluzione IoT richiede operazioni, monitoraggio, aggiornamenti e manutenzione a lungo termine. Queste operazioni possono essere eseguite da un team interno che comprende esperti di tecnologie informatiche, team per le operazioni hardware e team di manutenzione, nonché specialisti di dominio che monitorano il corretto funzionamento dell'intera infrastruttura IoT.
+* **Operatore di soluzione IoT:** dopo la distribuzione della soluzione IoT, sono necessarie operazioni, monitoraggio, aggiornamenti e manutenzione a lungo termine. Queste operazioni possono essere eseguite da un team interno che comprende esperti di tecnologie informatiche, team per le operazioni hardware e team di manutenzione, nonché specialisti di dominio che monitorano il corretto funzionamento dell'intera infrastruttura IoT.
 
 Le sezioni che seguono descrivono le procedure consigliate per ognuno di questi attori per aiutare a sviluppare, distribuire e gestire un'infrastruttura IoT protetta.
 
@@ -59,7 +59,7 @@ Di seguito sono riportate le pratiche ottimali per i distributori di soluzioni I
 
 * **Distribuire l'hardware in modo sicuro**: le distribuzioni IoT potrebbero richiedere che l'hardware da distribuire si trovi in posizioni non protette, ad esempio spazi pubblici o posizioni non controllate. In questi casi, assicurarsi che la distribuzione dell'hardware garantisca la massima protezione dalle manomissioni. Se l'hardware dispone di porte USB o di altro tipo, assicurarsi che questi elementi siano protetti. Molti vettori di attacco possono usarle come punto di ingresso.
 
-* **Proteggere le chiavi di autenticazione**: durante la distribuzione, ogni dispositivo richiede gli ID dei dispositivi e le chiavi di autenticazione associate generate dal servizio cloud. Conservare fisicamente queste chiavi al sicuro anche dopo la distribuzione. Qualsiasi chiave compromessa può essere usata da un dispositivo non autorizzato per passare come dispositivo esistente.
+* Mantenere al sicuro le chiavi di **autenticazione:** durante la distribuzione, ogni dispositivo richiede ID dispositivo e chiavi di autenticazione associate generate dal servizio cloud. Conservare fisicamente queste chiavi al sicuro anche dopo la distribuzione. Qualsiasi chiave compromessa può essere usata da un dispositivo non autorizzato per passare come dispositivo esistente.
 
 ## <a name="iot-solution-operator"></a>Operatore di soluzioni IoT
 
@@ -71,9 +71,9 @@ Di seguito sono riportate le pratiche ottimali per gli operatori di soluzioni Io
 
 * **Effettuare controlli regolari**: controllare la presenza di problemi di sicurezza all'infrastruttura IoT è un fattore chiave durante la risposta agli incidenti di sicurezza. La maggior parte dei sistemi operativi offre la registrazione integrata degli eventi che è opportuno esaminare frequentemente per assicurarsi che non si verifichino violazioni della protezione. Le informazioni di controllo possono essere inviate come flusso dati di telemetria separati al servizio cloud per l'analisi.
 
-* **Proteggere fisicamente l'infrastruttura IoT**: gli attacchi più dannosi per la sicurezza dell'infrastruttura IoT vengono lanciati tramite l'accesso fisico ai dispositivi. Un'importante procedura di sicurezza è la protezione contro l'uso non autorizzato di porte USB e altri accessi fisici. Un'operazione fondamentale per rilevare eventuali violazioni è la registrazione degli accessi fisici, come l'uso delle porte USB. Anche in questo caso, Windows 10 (IoT e altri SKU) offre la registrazione dettagliata di questi eventi.
+* **Proteggere fisicamente l'infrastruttura IoT:** i peggiori attacchi alla sicurezza contro l'infrastruttura IoT vengono lanciati utilizzando l'accesso fisico ai dispositivi. Un'importante procedura di sicurezza è la protezione contro l'uso non autorizzato di porte USB e altri accessi fisici. Un'operazione fondamentale per rilevare eventuali violazioni è la registrazione degli accessi fisici, come l'uso delle porte USB. Anche in questo caso, Windows 10 (IoT e altri SKU) offre la registrazione dettagliata di questi eventi.
 
-* **Proteggere le credenziali del cloud**: le credenziali per l'autenticazione nel cloud usate per la configurazione e il funzionamento di una distribuzione IoT costituiscono probabilmente il modo più semplice per accedere e compromettere un sistema IoT. Proteggere le credenziali modificando frequentemente la password ed evitare di usarle sui computer pubblici.
+* **Proteggere le credenziali cloud:** le credenziali di autenticazione cloud usate per la configurazione e il funzionamento di una distribuzione IoT sono probabilmente il modo più semplice per ottenere l'accesso e compromettere un sistema IoT.Protect cloud credentials : Cloud authentication credentials used for configuring and operating an IoT deployment are possibly the easiest way to gain access and compromise an IoT system. Proteggere le credenziali modificando frequentemente la password ed evitare di usarle sui computer pubblici.
 
 Le capacità dei vari dispositivi IoT variano. Alcuni dispositivi potrebbero essere computer dotati di sistemi operativi desktop tradizionali, mentre altri dispositivi potrebbero disporre di sistemi operativi molto leggeri. Le migliori pratiche per la protezione descritte in precedenza possono essere applicate a questi dispositivi in modo diverso. Se specificato, è necessario attenersi alle procedure aggiuntive per la sicurezza e la distribuzione fornite dai produttori dei dispositivi.
 

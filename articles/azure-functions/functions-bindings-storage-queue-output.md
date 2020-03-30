@@ -1,27 +1,27 @@
 ---
-title: Binding di output di archiviazione code di Azure per funzioni di Azure
-description: Informazioni su come creare messaggi di archiviazione code di Azure in funzioni di Azure.
+title: Azure Queue storage output binding for Azure Functions
+description: Informazioni su come creare messaggi di archiviazione della coda di Azure in Funzioni di Azure.Learn to create Azure Queue storage messages in Azure Functions.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
 ms.openlocfilehash: 76af5f398edd736874fa79095f2e80c02298eac0
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79277336"
 ---
-# <a name="azure-queue-storage-output-bindings-for-azure-functions"></a>Associazioni di output di archiviazione code di Azure per funzioni di Azure
+# <a name="azure-queue-storage-output-bindings-for-azure-functions"></a>Azure Queue storage output bindings for Azure Functions
 
-Funzioni di Azure può creare nuovi messaggi di archiviazione code di Azure impostando un'associazione di output.
+Funzioni di Azure possono creare nuovi messaggi di archiviazione della coda di Azure impostando un'associazione di output.
 
-Per informazioni sui dettagli di configurazione e configurazione, vedere la [Panoramica](./functions-bindings-storage-queue.md).
+Per informazioni sui dettagli di impostazione e configurazione, vedere la [panoramica](./functions-bindings-storage-queue.md).
 
 ## <a name="example"></a>Esempio
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 L'esempio seguente illustra una [funzione C#](functions-dotnet-class-library.md) che crea un messaggio nella coda per ogni richiesta HTTP ricevuta.
 
@@ -39,7 +39,7 @@ public static class QueueFunctions
 }
 ```
 
-# <a name="c-script"></a>[C#Script](#tab/csharp-script)
+# <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
 L'esempio seguente illustra un'associazione di trigger HTTP in un file *function.json* e il codice [script C# (file con estensione csx)](functions-reference-csharp.md) che usa l'associazione. La funzione crea un elemento della coda con un payload dell'oggetto **CustomQueueMessage** per ogni richiesta HTTP ricevuta.
 
@@ -100,7 +100,7 @@ public static void Run(
 }
 ```
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[Javascript](#tab/javascript)
 
 L'esempio seguente illustra un'associazione di trigger HTTP in un file *function.json* e una [funzione JavaScript](functions-reference-node.md) che usa l'associazione. La funzione crea un elemento della coda per ogni richiesta HTTP ricevuta.
 
@@ -152,9 +152,9 @@ module.exports = function(context) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-Nell'esempio seguente viene illustrato come restituire valori singoli e multipli nelle code di archiviazione. La configurazione necessaria per *Function. JSON* è identica in entrambi i casi.
+Nell'esempio seguente viene illustrato come restituire valori singoli e multipli alle code di archiviazione. La configurazione necessaria per *function.json* è la stessa in entrambi i casi.
 
-Un binding della coda di archiviazione è definito in *Function. JSON,* dove *Type* è impostato su `queue`.
+Un binding della coda di archiviazione *type* viene definito `queue`in *function.json* dove type è impostato su .
 
 ```json
 {
@@ -186,7 +186,7 @@ Un binding della coda di archiviazione è definito in *Function. JSON,* dove *Ty
 }
 ```
 
-Per impostare un singolo messaggio nella coda, passare un singolo valore al metodo `set`.
+Per impostare un singolo messaggio nella coda, `set` si passa un singolo valore al metodo .
 
 ```python
 import azure.functions as func
@@ -200,7 +200,7 @@ def main(req: func.HttpRequest, msg: func.Out[str]) -> func.HttpResponse:
     return 'OK'
 ```
 
-Per creare più messaggi nella coda, dichiarare un parametro come tipo di elenco appropriato e passare una matrice di valori (che corrispondono al tipo di elenco) al metodo `set`.
+Per creare più messaggi nella coda, dichiarare un parametro come tipo di elenco appropriato e `set` passare una matrice di valori (che corrispondono al tipo di elenco) al metodo.
 
 ```python
 import azure.functions as func
@@ -215,7 +215,7 @@ def main(req: func.HttpRequest, msg: func.Out[typing.List[str]]) -> func.HttpRes
 
 # <a name="java"></a>[Java](#tab/java)
 
- Nell'esempio seguente viene illustrata una funzione Java che consente di creare un messaggio in coda per quando viene attivato da una richiesta HTTP.
+ Nell'esempio seguente viene illustrata una funzione Java che crea un messaggio della coda per quando viene attivato da una richiesta HTTP.
 
 ```java
 @FunctionName("httpToQueue")
@@ -229,13 +229,13 @@ def main(req: func.HttpRequest, msg: func.Out[typing.List[str]]) -> func.HttpRes
  }
 ```
 
-Nella [libreria di runtime di funzioni Java](/java/api/overview/azure/functions/runtime) usare l'annotazione `@QueueOutput` per i parametri il cui valore viene scritto nell'archiviazione code.  Il tipo di parametro deve essere `OutputBinding<T>`, dove `T` è qualsiasi tipo Java nativo di un POJO.
+Nella [libreria di runtime di funzioni Java](/java/api/overview/azure/functions/runtime) usare l'annotazione `@QueueOutput` per i parametri il cui valore viene scritto nell'archiviazione code.  Il tipo di `OutputBinding<T>`parametro deve essere , dove `T` è qualsiasi tipo Java nativo di un POJO.
 
 ---
 
 ## <a name="attributes-and-annotations"></a>Attributi e annotazioni
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 Nelle [librerie di classi C#](functions-dotnet-class-library.md) usare [QueueAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Queues/QueueAttribute.cs).
 
@@ -261,15 +261,15 @@ public static string Run([HttpTrigger] dynamic input,  ILogger log)
 }
 ```
 
-Per un esempio completo, vedere [esempio di output](#example).
+Per un esempio completo, vedere [Esempio di output](#example).
 
 È possibile usare l'attributo `StorageAccount` per specificare l'account di archiviazione a livello di classe, metodo o parametro. Per altre informazioni, vedere Trigger - attributi.
 
-# <a name="c-script"></a>[C#Script](#tab/csharp-script)
+# <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
-Gli attributi non sono supportati C# dallo script.
+Gli attributi non sono supportati dallo script di C.
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[Javascript](#tab/javascript)
 
 Gli attributi non sono supportati da JavaScript.
 
@@ -279,7 +279,7 @@ Gli attributi non sono supportati da Python.
 
 # <a name="java"></a>[Java](#tab/java)
 
-L'annotazione `QueueOutput` consente di scrivere un messaggio come output di una funzione. Nell'esempio seguente viene illustrata una funzione attivata tramite HTTP che consente di creare un messaggio in coda.
+L'annotazione `QueueOutput` consente di scrivere un messaggio come output di una funzione. Nell'esempio seguente viene illustrata una funzione attivata da HTTP che crea un messaggio della coda.
 
 ```java
 package com.function;
@@ -302,38 +302,38 @@ public class HttpTriggerQueueOutput {
 
 | Proprietà    | Descrizione |
 |-------------|-----------------------------|
-|`name`       | Dichiara il nome del parametro nella firma della funzione. Quando la funzione viene attivata, il valore di questo parametro presenta il contenuto del messaggio della coda. |
+|`name`       | Dichiara il nome del parametro nella firma della funzione. Quando la funzione viene attivata, il valore di questo parametro ha il contenuto del messaggio della coda. |
 |`queueName`  | Dichiara il nome della coda nell'account di archiviazione. |
 |`connection` | Punta alla stringa di connessione dell'account di archiviazione. |
 
-Il parametro associato all'annotazione `QueueOutput` viene tipizzato come [output\<t\>](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/OutputBinding.java) istanza.
+Il parametro `QueueOutput` associato all'annotazione è tipizzato come istanza Di OutputBinding T.The parameter associated with the annotation is typed as an [OutputBinding\<T\> ](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/OutputBinding.java) instance.
 
 ---
 
 ## <a name="configuration"></a>Configurazione
 
-Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `Queue`.
+Nella tabella seguente vengono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `Queue` .
 
 |Proprietà di function.json | Proprietà dell'attributo |Descrizione|
 |---------|---------|----------------------|
 |**type** | n/d | Il valore deve essere impostato su `queue`. Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure.|
 |**direction** | n/d | Il valore deve essere impostato su `out`. Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure. |
-|**nome** | n/d | Nome della variabile che rappresenta la coda nel codice della funzione. Impostare su `$return` per fare riferimento al valore restituito della funzione.|
-|**queueName** |**QueueName** | Nome della coda. |
-|**connection** | **Connection** |Nome di un'impostazione dell'app che contiene la stringa di connessione di archiviazione da usare per questa associazione. Se il nome dell'impostazione dell'app inizia con "AzureWebJobs", è possibile specificare solo il resto del nome. Se, ad esempio, si imposta `connection` su "Storage", il runtime di funzioni Cerca un'impostazione dell'app denominata "" Storage ". Se si lascia vuoto `connection`, il runtime di Funzioni di Azure usa la stringa di connessione di archiviazione predefinita nell'impostazione dell'app denominata `AzureWebJobsStorage`.|
+|**name** | n/d | Nome della variabile che rappresenta la coda nel codice della funzione. Impostare su `$return` per fare riferimento al valore restituito della funzione.|
+|**Queuename** |**QueueName** | Nome della coda. |
+|**Connessione** | **Connessione** |Nome di un'impostazione dell'app che contiene la stringa di connessione di archiviazione da usare per questa associazione. Se il nome dell'impostazione dell'app inizia con "AzureWebJobs", è possibile specificare solo il resto del nome. Ad esempio, se `connection` si imposta "MyStorage", il runtime di Funzioni cerca un'impostazione dell'app denominata "MyStorage". Se si lascia vuoto `connection`, il runtime di Funzioni di Azure usa la stringa di connessione di archiviazione predefinita nell'impostazione dell'app denominata `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="usage"></a>Uso
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
-Scrivere un singolo messaggio della coda usando un parametro di metodo, ad esempio `out T paramName`. È possibile usare il tipo restituito del metodo anziché un parametro `out` e `T` può essere uno dei seguenti tipi:
+Scrivere un singolo messaggio della coda `out T paramName`utilizzando un parametro del metodo, ad esempio . È possibile usare il tipo restituito del metodo anziché un parametro `out` e `T` può essere uno dei seguenti tipi:
 
 * Un oggetto serializzabile come JSON
 * `string`
 * `byte[]`
-* [CloudQueueMessage] 
+* [Messaggio relativo a CloudQueueMessage] 
 
 Se si prova a eseguire l'associazione a `CloudQueueMessage` e si riceve un messaggio di errore, assicurarsi di fare riferimento alla [versione corretta di Storage SDK](functions-bindings-storage-queue.md#azure-storage-sdk-version-in-functions-1x).
 
@@ -342,14 +342,14 @@ In C# e negli script C# scrivere più messaggi nella coda usando uno dei seguent
 * `ICollector<T>` o `IAsyncCollector<T>`
 * [CloudQueue](/dotnet/api/microsoft.azure.storage.queue.cloudqueue)
 
-# <a name="c-script"></a>[C#Script](#tab/csharp-script)
+# <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
-Scrivere un singolo messaggio della coda usando un parametro di metodo, ad esempio `out T paramName`. Il `paramName` è il valore specificato nella proprietà `name` di *Function. JSON*. È possibile usare il tipo restituito del metodo anziché un parametro `out` e `T` può essere uno dei seguenti tipi:
+Scrivere un singolo messaggio della coda `out T paramName`utilizzando un parametro del metodo, ad esempio . Il `paramName` è il valore `name` specificato nella proprietà di *function.json*. È possibile usare il tipo restituito del metodo anziché un parametro `out` e `T` può essere uno dei seguenti tipi:
 
 * Un oggetto serializzabile come JSON
 * `string`
 * `byte[]`
-* [CloudQueueMessage] 
+* [Messaggio relativo a CloudQueueMessage] 
 
 Se si prova a eseguire l'associazione a `CloudQueueMessage` e si riceve un messaggio di errore, assicurarsi di fare riferimento alla [versione corretta di Storage SDK](functions-bindings-storage-queue.md#azure-storage-sdk-version-in-functions-1x).
 
@@ -358,25 +358,25 @@ In C# e negli script C# scrivere più messaggi nella coda usando uno dei seguent
 * `ICollector<T>` o `IAsyncCollector<T>`
 * [CloudQueue](/dotnet/api/microsoft.azure.storage.queue.cloudqueue)
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[Javascript](#tab/javascript)
 
-L'elemento della coda di output è disponibile tramite `context.bindings.<NAME>` dove `<NAME>` corrisponde al nome definito in *Function. JSON*. È possibile usare una stringa o un oggetto serializzabile in JSON per il payload dell'elemento della coda.
+L'elemento della coda `context.bindings.<NAME>` `<NAME>` di output è disponibile tramite il punto in cui corrisponde al nome definito in *function.json*. È possibile usare una stringa o un oggetto serializzabile in JSON per il payload dell'elemento della coda.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Sono disponibili due opzioni per l'output di un messaggio di hub eventi da una funzione:
+Sono disponibili due opzioni per l'output di un messaggio dell'Hub eventi da una funzione:There are two options for outputting an Event Hub message from a function:
 
-- **Valore restituito**: impostare la proprietà `name` in *Function. JSON* su `$return`. Con questa configurazione, il valore restituito della funzione viene reso permanente come messaggio di archiviazione di Accodamento.
+- **Valore restituito**: `name` impostare la `$return`proprietà in *function.json su* . Con questa configurazione, il valore restituito della funzione viene mantenuto come messaggio di archiviazione della coda.
 
-- **Imperativo**: passare un valore al metodo [set](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) del parametro dichiarato come tipo [out](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python) . Il valore passato a `set` viene reso permanente come messaggio di archiviazione di Accodamento.
+- **Imperative**: Passare un valore al metodo [set](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) del parametro dichiarato come tipo [Out.](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python) Il valore `set` passato a viene salvato in modo permanente come messaggio di archiviazione della coda.
 
 # <a name="java"></a>[Java](#tab/java)
 
-Sono disponibili due opzioni per l'output di un messaggio di hub eventi da una funzione tramite l'annotazione [QueueOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.queueoutput) :
+Sono disponibili due opzioni per l'output di un messaggio dell'Hub eventi da una funzione tramite l'annotazione [QueueOutput:There](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.queueoutput) are two options for output an Event Hub message from a function by using the QueueOutput annotation:
 
-- **Valore restituito**: applicando l'annotazione alla funzione stessa, il valore restituito della funzione viene reso persistente come messaggio dell'hub eventi.
+- **Valore restituito**: applicando l'annotazione alla funzione stessa, il valore restituito della funzione viene mantenuto come messaggio dell'Hub eventi.
 
-- **Imperativo**: per impostare in modo esplicito il valore del messaggio, applicare l'annotazione a un parametro specifico del tipo [`OutputBinding<T>`](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.OutputBinding), dove `T` è un POJO o qualsiasi tipo Java nativo. Con questa configurazione, il passaggio di un valore al metodo `setValue` rende permanente il valore come messaggio dell'hub eventi.
+- **Imperative**: per impostare in modo esplicito il valore [`OutputBinding<T>`](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.OutputBinding)del `T` messaggio, applicare l'annotazione a un parametro specifico del tipo , dove è un POJO o qualsiasi tipo Java nativo. Con questa configurazione, il `setValue` passaggio di un valore al metodo rende persistente il valore come messaggio dell'Hub eventi.
 
 ---
 
@@ -392,7 +392,7 @@ Sono disponibili due opzioni per l'output di un messaggio di hub eventi da una f
 
 ## <a name="hostjson-settings"></a>impostazioni host.json
 
-Questa sezione descrive le impostazioni di configurazione globali disponibili per questa associazione nelle versioni 2. x e successive. Il file host. JSON di esempio seguente contiene solo le impostazioni della versione 2. x + per questa associazione. Per ulteriori informazioni sulle impostazioni di configurazione globali nelle versioni 2. x e successive, vedere informazioni di [riferimento su host. JSON per funzioni di Azure](functions-host-json.md).
+In questa sezione vengono descritte le impostazioni di configurazione globali disponibili per questa associazione nelle versioni 2.x e successive. Il file host.json di esempio riportato di seguito contiene solo le impostazioni della versione 2.x e per questa associazione. Per altre informazioni sulle impostazioni di configurazione globali nelle versioni 2.x e successive, vedere informazioni di riferimento su host.json per Funzioni di Azure.For more information about global configuration settings in versions 2.x and beyond, see [host.json reference for Azure Functions](functions-host-json.md).
 
 > [!NOTE]
 > Per informazioni di riferimento su host.json in Funzioni 1.x, vedere [Informazioni di riferimento su host.json per Funzioni di Azure 1.x](functions-host-json-v1.md).
@@ -414,7 +414,7 @@ Questa sezione descrive le impostazioni di configurazione globali disponibili pe
 
 |Proprietà  |Predefinito | Descrizione |
 |---------|---------|---------|
-|maxPollingInterval|00:00:01|L'intervallo massimo tra i polling di coda. Il valore minimo è 00:00:00.100 (100 ms) e incrementa fino a 00:01:00 (1 min).  In 1. x il tipo di dati è millisecondi e in 2. x e versioni successive si tratta di un intervallo di tempo.|
+|maxPollingInterval|00:00:01|L'intervallo massimo tra i polling di coda. Il valore minimo è 00:00:00.100 (100 ms) e incrementa fino a 00:01:00 (1 min).  In 1.x the data type is milliseconds, and in 2.x and higher it is a TimeSpan.|
 |visibilityTimeout|00:00:00|L'intervallo di tempo tra i tentativi se l'elaborazione di un messaggio ha esito negativo. |
 |batchSize|16|Il numero di messaggi in coda che il runtime di Funzioni recupera simultaneamente e di processi in parallelo. Quando il numero elaborato viene ridotto a `newBatchThreshold`, il runtime ottiene un altro batch e inizia l'elaborazione dei messaggi. Di conseguenza, il numero massimo di messaggi simultanei elaborati per ogni funzione è `batchSize` più `newBatchThreshold`. Questo limite si applica separatamente a ogni funzione attivata dalla coda. <br><br>Se si vuole evitare l'esecuzione in parallelo per i messaggi ricevuti su una coda, è possibile impostare `batchSize` su 1. Tuttavia, questa impostazione elimina solo la concorrenza se l'app per le funzioni viene eseguita su una singola macchina virtuale (VM). Se l'app per le funzioni scala orizzontalmente più macchine virtuali, ogni macchina virtuale potrebbe eseguire un'istanza di ogni funzione attivata dalla coda.<br><br>Il valore massimo per `batchSize` è 32. |
 |maxDequeueCount|5|Il numero di volte per provare l'elaborazione di un messaggio prima di essere spostato nella coda non elaborabile.|
@@ -422,8 +422,8 @@ Questa sezione descrive le impostazioni di configurazione globali disponibili pe
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Eseguire una funzione come modifiche ai dati di archiviazione di Accodamento (trigger)](./functions-bindings-storage-queue-trigger.md)
+- [Eseguire una funzione come modifiche ai dati di archiviazione della coda (Trigger)Run a function as queue storage data changes (Trigger)](./functions-bindings-storage-queue-trigger.md)
 
 <!-- LINKS -->
 
-[CloudQueueMessage]: /dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage
+[Messaggio relativo a CloudQueueMessage]: /dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage

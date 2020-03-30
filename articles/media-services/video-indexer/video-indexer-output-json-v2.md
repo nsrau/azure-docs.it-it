@@ -1,7 +1,7 @@
 ---
-title: Esaminare l'output del Video Indexer prodotto dall'API v2-Azure
+title: Esaminare l'output dell'indicizzatore video prodotto dall'API v2 - AzureExamine the Video Indexer output produced by v2 API - Azure
 titleSuffix: Azure Media Services
-description: Questo argomento esamina l'output del Video Indexer di servizi multimediali di Azure prodotto dall'API v2.
+description: In questo argomento viene esaminato l'output dell'indicizzatore video di Servizi multimediali di Azure, prodotto dall'API v2.
 services: media-services
 author: Juliako
 manager: femila
@@ -11,20 +11,20 @@ ms.topic: article
 ms.date: 12/09/2019
 ms.author: juliako
 ms.openlocfilehash: 2fac5e07f9646c4fc0fac7b1be53b5a5ac1ea803
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79245928"
 ---
-# <a name="examine-the-video-indexer-output-produced-by-api"></a>Esaminare l'output del Video Indexer prodotto dall'API
+# <a name="examine-the-video-indexer-output-produced-by-api"></a>Esaminare l'output dell'indicizzatore video prodotto dall'API
 
-Quando si chiama l'API **Get Video Index** (Ottieni indice video) e lo stato della risposta è OK, viene restituito un output JSON dettagliato come contenuto della risposta. Il contenuto JSON include le informazioni dettagliate sul video specificato. Le informazioni dettagliate includono: trascrizioni, OCR, visi, argomenti, blocchi e così via. Ogni tipo di informazioni include le istanze degli intervalli temporali che mostrano quando l'Insight viene visualizzato nel video. 
+Quando si chiama l'API **Get Video Index** (Ottieni indice video) e lo stato della risposta è OK, viene restituito un output JSON dettagliato come contenuto della risposta. Il contenuto JSON include le informazioni dettagliate sul video specificato. Le informazioni dettagliate includono: trascrizioni, OCR, volti, argomenti, blocchi, ecc. Ogni tipo di informazioni include istanze di intervalli di tempo che mostrano quando le informazioni vengono visualizzate nel video. 
 
-1. Per recuperare il file JSON, chiamare [Get video index API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Index?)
-1. Se si è interessati anche a elementi specifici, chiamare [Get video artefatte URL download API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Artifact-Download-Url?)
+1. Per recuperare il file JSON, chiamare [Get Video Index API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Index?)
+1. Se sei interessato anche a artefatti specifici, chiama Ottieni API URL per [il download dell'artefatto video](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Artifact-Download-Url?)
 
-    Nella chiamata API specificare il tipo di artefatto richiesto (OCR, visi, fotogrammi chiave e così via)
+    Nella chiamata API specificare il tipo di elemento richiesto (OCR, Volti, Fotogrammi chiave e così via).
 
 È anche possibile esaminare visivamente le informazioni dettagliate riepilogate del video, premendo il pulsante **Play** del video nel sito Web di [Video Indexer](https://www.videoindexer.ai/). Per altre informazioni, vedere [Visualizzare e analizzare le informazioni dettagliate per i video](video-indexer-view-edit.md).
 
@@ -85,7 +85,7 @@ Questa sezione mostra il riepilogo delle informazioni dettagliate.
 |privacyMode|La scomposizione può avere una delle modalità seguenti: **Private** o **Public**. **Public**: il video è visibile per tutti gli utenti nell'account e per chiunque disponga di un collegamento al video. **Private**: il video è visibile per tutti gli utenti nell'account.|
 |duration|Contiene una durata che definisce il tempo associato a un'informazione dettagliata. La durata è espressa in secondi.|
 |thumbnailVideoId|ID del video da cui è stata ottenuta l'anteprima.
-|thumbnailId|ID dell'anteprima del video. Per ottenere l'anteprima effettiva, chiamare [Get-thumbnail](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) e passarla ThumbnailVideoId e thumbnailId.|
+|thumbnailId|ID dell'anteprima del video. Per ottenere l'anteprima effettiva, chiamare [Get-thumbnail](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) e passarla thumbnailVideoId e thumbnailId.|
 |faces|Può contenere zero o più volti. Per informazioni più dettagliate, vedere [faces](#faces).|
 |keywords|Può contenere zero o più parole chiave. Per informazioni più dettagliate, vedere [keywords](#keywords).|
 |sentiments|Può contenere zero o più valutazioni. Per informazioni più dettagliate, vedere [sentiments](#sentiments).|
@@ -94,7 +94,7 @@ Questa sezione mostra il riepilogo delle informazioni dettagliate.
 |brands| Può contenere zero o più marchi. Per informazioni più dettagliate, vedere [brands](#brands).|
 |statistiche | Per informazioni più dettagliate, vedere [statistics](#statistics).|
 |emotions| Può contenere zero o più emozioni. Per informazioni più dettagliate, vedere [emotions](#emotions).|
-|topics|Può contenere zero o più argomenti. Informazioni dettagliate sugli [argomenti](#topics) .|
+|topics|Può contenere zero o più argomenti. Informazioni dettagliate sugli [argomenti.](#topics)|
 
 ## <a name="videos"></a>videos
 
@@ -112,7 +112,7 @@ Questa sezione mostra il riepilogo delle informazioni dettagliate.
 |metadata|Metadati esterni del video (se specificati dall'utente).|
 |isAdult|Indica se il video è stato esaminato e identificato manualmente come un video per adulti.|
 |insights|Oggetto insights. Per altre informazioni, vedere [insights](#insights).|
-|thumbnailId|ID dell'anteprima del video. Per ottenere l'anteprima effettiva, chiamare [Get-thumbnail](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) e passargli l'ID video e thumbnailId.|
+|thumbnailId|ID dell'anteprima del video. Per ottenere la chiamata in miniatura effettiva [Get-Thumbnail](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) e passarle l'ID video e thumbnailId.|
 |publishedUrl|URL per lo streaming del video.|
 |publishedUrlProxy|URL da cui eseguire lo streaming del video (per i dispositivi Apple).|
 |viewToken|Token di visualizzazione di breve durata per lo streaming del video.|
@@ -150,28 +150,28 @@ Questa sezione mostra il riepilogo delle informazioni dettagliate.
 ```
 ### <a name="insights"></a>insights
 
-Ogni informazione, ad esempio linee trascrizioni, visi, marchi e così via, contiene un elenco di elementi univoci, ad esempio face1, Face2, face3, e ogni elemento ha i propri metadati e un elenco delle relative istanze (ovvero intervalli di tempo con metadati facoltativi aggiuntivi).
+Ogni intuizione (ad esempio, linee di trascrizione, volti, marchi, ecc.), contiene un elenco di elementi univoci (ad esempio, face1, face2, face3) e ogni elemento ha i propri metadati e un elenco delle relative istanze (che sono intervalli di tempo con metadati facoltativi aggiuntivi).
 
-Una faccia potrebbe avere un ID, un nome, un'anteprima, altri metadati e un elenco delle istanze temporali, ad esempio: 00:00:05-00:00:10, 00:01:00-00:02:30 e 00:41:21-00:41:49. Ogni istanza temporale può avere metadati aggiuntivi. ad esempio le coordinate del rettangolo del volto (20,230,60,60).
+Un volto potrebbe avere un ID, un nome, una miniatura, altri metadati e un elenco delle relative istanze temporali (ad esempio: 00:00:05 – 00:00:10, 00:01:00 - 00:02:30 e 00:41:21 – 00:41:49.) Ogni istanza temporale può avere metadati aggiuntivi. ad esempio le coordinate del rettangolo del volto (20,230,60,60).
 
 |Versione|Versione del codice|
 |---|---|
 |sourceLanguage|Lingua di origine del video (presupponendo una sola lingua principale), nel formato di una stringa [BCP-47](https://tools.ietf.org/html/bcp47).|
 |Linguaggio|Lingua delle informazioni dettagliate (tradotte dalla lingua di origine), nel formato di una stringa [BCP-47](https://tools.ietf.org/html/bcp47).|
-|transcript|Informazioni dettagliate sulle [trascrizioni](#transcript) .|
-|ocr|Informazioni dettagliate sull' [OCR](#ocr) .|
-|keywords|[Parole chiave](#keywords) Insight.|
+|transcript|L'intuizione [della trascrizione.](#transcript)|
+|ocr|L'intuizione [dell'OCR.](#ocr)|
+|keywords|Informazioni [dettagliate sulle parole chiave.](#keywords)|
 |blocks|Può contenere uno o più [blocchi](#blocks)|
-|faces|Informazioni dettagliate sui [visi](#faces) .|
-|Etichette|Informazioni dettagliate sulle [etichette](#labels) .|
-|shots|Informazioni [dettagliate](#shots) .|
-|brands|Informazioni dettagliate sui [marchi](#brands) .|
-|audioEffects|Informazioni dettagliate su [audioEffects](#audioEffects) .|
-|sentiments|Informazioni dettagliate sui [sentimenti](#sentiments) .|
-|visualContentModeration|Informazioni dettagliate su [visualContentModeration](#visualcontentmoderation) .|
-|textualContentModeration|Informazioni dettagliate su [textualContentModeration](#textualcontentmoderation) .|
-|emotions| Le [emozioni](#emotions) approfondite.|
-|topics|Informazioni dettagliate sugli [argomenti](#topics) .|
+|faces|L'intuizione [dei volti.](#faces)|
+|Etichette|Informazioni dettagliate sulle [etichette.](#labels)|
+|shots|L'intuizione [degli scatti.](#shots)|
+|brands|L'intuizione [dei brand.](#brands)|
+|audioEffects|Informazioni [audioEffects.](#audioEffects)|
+|sentiments|L'intuizione [dei sentimenti.](#sentiments)|
+|visualContentModeration|Informazioni dettagliate su [VisualContentModeration.The visualContentModeration](#visualcontentmoderation) insight.|
+|textualContentModeration|Informazioni [testualContentModeration.](#textualcontentmoderation)|
+|emotions| L'intuizione [delle emozioni.](#emotions)|
+|topics|Informazioni dettagliate sugli [argomenti.](#topics)|
 
 Esempio:
 
@@ -248,10 +248,10 @@ Esempio:
 |confidence|Grado di attendibilità del riconoscimento.|
 |Linguaggio|Lingua del riconoscimento ottico dei caratteri.|
 |instances|Elenco degli intervalli di tempo in cui è presente la riga di riconoscimento ottico dei caratteri. La stessa riga può apparire più volte.|
-|height|Altezza del rettangolo OCR|
-|top|Posizione superiore in px|
-|sinistro| Posizione a sinistra in px|
-|width|Larghezza del rettangolo OCR|
+|height|L'altezza del rettangolo OCR|
+|top|La posizione superiore in px|
+|sinistro| La posizione a sinistra in px|
+|width|La larghezza del rettangolo OCR|
 
 ```json
 "ocr": [
@@ -414,7 +414,7 @@ Esempio:
 |Nome|Descrizione|
 |---|---|
 |id|ID della scena.|
-|instances|Elenco di intervalli temporali di questa scena (una scena può avere solo 1 istanza).|
+|instances|Un elenco di intervalli di tempo di questa scena (una scena può avere solo 1 istanza).|
 
 ```json
 "scenes":[  
@@ -447,8 +447,8 @@ Esempio:
 |Nome|Descrizione|
 |---|---|
 |id|ID dello scatto.|
-|keyFrames|Elenco di fotogrammi chiave all'interno dell'immagine, ognuno con un ID e un elenco di intervalli di tempo di istanze. Ogni istanza del fotogramma chiave ha un campo thumbnailId, che contiene l'ID anteprima del fotogramma chiave.|
-|instances|Un elenco di intervalli temporali di questo scatto (un Shot può avere solo 1 istanza).|
+|keyFrames|Un elenco di keyFrames all'interno dell'immagine (ognuno ha un ID e un elenco di intervalli di tempo di istanze). Ogni istanza keyFrame ha un campo thumbnailId, che contiene l'ID di anteprima del keyFrame.Each keyFrame instance has a thumbnailId field, which holds the keyFrame's thumbnail ID.|
+|instances|Un elenco di intervalli di tempo di questa ripresa (una ripresa può avere solo 1 istanza).|
 
 ```json
 "shots":[  
@@ -498,7 +498,7 @@ Nomi di marchi di aziende e prodotti rilevati nella trascrizione del riconoscime
 |---|---|
 |id|ID del marchio.|
 |name|Nome del marchio.|
-|referenceId | Suffisso dell'URL di Wikipedia del marchio. Ad esempio, "Target_Corporation" è il suffisso di [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).
+|referenceId | Suffisso dell'URL di Wikipedia del marchio. Ad esempio, "Target_Corporation" è [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation)il suffisso di .
 |referenceUrl | URL di Wikipedia del marchio, se presente. Ad esempio, [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).
 |description|Descrizione del marchio.|
 |tags|Elenco di tag predefiniti associati a questo marchio.|
@@ -561,7 +561,7 @@ Nomi di marchi di aziende e prodotti rilevati nella trascrizione del riconoscime
 |SpeakerLongestMonolog|Monologo più lungo della voce. Se la voce comprende periodi di silenzio all'interno del monologo, questi vengono inclusi. I periodi di silenzio all'inizio e alla fine del monologo vengono rimossi.| 
 |SpeakerTalkToListenRatio|Il calcolo è basato sul tempo impiegato per il monologo della voce (senza i periodi di silenzio intermedi) diviso per il tempo totale del video. Il tempo viene arrotondato alla terza posizione decimale.|
 
-#### <a name="a-idaudioeffectsaudioeffects"></a><a id="audioEffects"/>audioEffects
+#### <a name="audioeffects"></a><a id="audioEffects"/>audioEffects
 
 |Nome|Descrizione|
 |---|---|
@@ -675,12 +675,12 @@ I video in cui vengono rilevati contenuti per adulti o spinti potrebbero essere 
 
 #### <a name="emotions"></a>emotions
 
-Video Indexer identifica le emozioni in base ai suggerimenti vocali e audio. L'emozione identificata potrebbe essere: gioia, tristezza, rabbia o timore.
+L'indicizzatore video identifica le emozioni in base ai segnali vocali e audio. L'emozione identificata potrebbe essere: gioia, tristezza, rabbia o paura.
 
 |Nome|Descrizione|
 |---|---|
 |id|ID dell'emozione.|
-|type|Il momento in cui l'emozione è stata identificata in base ai suggerimenti vocali e audio. L'emozione potrebbe essere: gioia, tristezza, rabbia o timore.|
+|type|Il momento di emozione che è stato identificato sulla base di segnali vocali e audio. L'emozione potrebbe essere: gioia, tristezza, rabbia o paura.|
 |instances|Elenco degli intervalli di tempo in cui è comparsa l'emozione.|
 
 ```json

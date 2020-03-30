@@ -9,44 +9,44 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.openlocfilehash: 144d51d08a61526ec0f183a63e1fdf5658136293
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79272331"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>Ottimizzare le query Apache Hive in Azure HDInsight
 
 In Azure HDInsight esistono molti tipi di cluster e tecnologie in grado di eseguire query Apache Hive. Quando si crea il cluster HDInsight, scegliere il tipo di cluster appropriato alle esigenze del carico di lavoro per aiutare a ottimizzare le prestazioni.
 
-Scegliere, ad esempio, tipo di cluster **Interactive query** per ottimizzare le query interattive ad hoc. Scegliere il tipo di cluster Apache **Hadoop** per ottimizzare le query Hive usate come processo batch. Anche i tipi di cluster **Spark** e **HBase** possono eseguire le query Hive. Per altre informazioni sull'esecuzione di query Hive in vari tipi di cluster HDInsight, vedere [What is Apache Hive and HiveQL on Azure HDInsight?](hadoop/hdinsight-use-hive.md) (Che cosa sono Apache Hive e HiveQL in Azure HDInsight?).
+Ad esempio, scegliere Il tipo di cluster **Query interattiva** per eseguire l'ottimizzazione per le query interattive ad hoc. Scegliere il tipo di cluster Apache **Hadoop** per ottimizzare le query Hive usate come processo batch. Anche i tipi di cluster **Spark** e **HBase** possono eseguire le query Hive. Per altre informazioni sull'esecuzione di query Hive in vari tipi di cluster HDInsight, vedere [What is Apache Hive and HiveQL on Azure HDInsight?](hadoop/hdinsight-use-hive.md) (Che cosa sono Apache Hive e HiveQL in Azure HDInsight?).
 
-Per impostazione predefinita, i cluster HDInsight del tipo di cluster Hadoop non sono ottimizzati per le prestazioni. Questo articolo descrive alcuni dei modi più comuni di ottimizzare le prestazioni Hive che è possibile applicare alle query.
+I cluster HDInsight di tipo Cluster Hadoop non sono ottimizzati per le prestazioni per impostazione predefinita. Questo articolo descrive alcuni dei modi più comuni di ottimizzare le prestazioni Hive che è possibile applicare alle query.
 
 ## <a name="scale-out-worker-nodes"></a>Scalabilità orizzontale dei nodi di lavoro
 
 Se si aumenta il numero di nodi del ruolo di lavoro in un cluster HDInsight, si consente al ruolo di lavoro di sfruttare l'esecuzione in parallelo di più mapper e reducer. Esistono due modi per aumentare la scalabilità orizzontale in HDInsight:
 
-* Durante la creazione del cluster, è possibile specificare il numero di nodi del ruolo di lavoro usando il portale di Azure, Azure PowerShell o l'interfaccia della riga di comando.  Per altre informazioni, vedere [Creare cluster Hadoop in HDInsight](hdinsight-hadoop-provision-linux-clusters.md). La schermata seguente mostra la configurazione dei nodi del ruolo di lavoro nel portale di Azure:
+* Durante la creazione del cluster, è possibile specificare il numero di nodi del ruolo di lavoro usando il portale di Azure, Azure PowerShell o l'interfaccia della riga di comando.  Per altre informazioni, vedere [Creare cluster HDInsight](hdinsight-hadoop-provision-linux-clusters.md). La schermata seguente mostra la configurazione dei nodi del ruolo di lavoro nel portale di Azure:
   
-    ![Nodi dimensioni del cluster portale di Azure](./media/hdinsight-hadoop-optimize-hive-query/azure-portal-cluster-configuration.png "scaleout_1")
+    ![Nodi di dimensioni del cluster del portale di AzureAzure portal cluster size nodes](./media/hdinsight-hadoop-optimize-hive-query/azure-portal-cluster-configuration.png "scaleout_1")
 
 * Dopo avere creato il cluster, è possibile anche modificare il numero di nodi del ruolo di lavoro per scalare orizzontalmente il cluster senza ricrearne uno:
 
-    ![Dimensioni del cluster portale di Azure scala](./media/hdinsight-hadoop-optimize-hive-query/azure-portal-settings-nodes.png "scaleout_2")
+    ![Dimensioni cluster su scala del portale di AzureAzure portal scale cluster size](./media/hdinsight-hadoop-optimize-hive-query/azure-portal-settings-nodes.png "scaleout_2")
 
 Per altre informazioni sulla scalabilità di HDInsight, vedere [Scale HDInsight clusters](hdinsight-scaling-best-practices.md) (Scalare i cluster HDInsight)
 
 ## <a name="use-apache-tez-instead-of-map-reduce"></a>Uso di Apache Tez al posto di MapReduce
 
-[Apache Tez](https://tez.apache.org/) è un motore di esecuzione alternativo al motore di MapReduce. I cluster HDInsight basati su Linux hanno Tez abilitato per impostazione predefinita.
+[Apache Tez](https://tez.apache.org/) è un motore di esecuzione alternativo al motore MapReduce. I cluster HDInsight basati su Linux hanno Tez abilitato per impostazione predefinita.
 
-![Diagramma della Panoramica di HDInsight Apache Tez](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-tez-engine.png)
+![Diagramma di panoramica di HDInsight Apache Tez](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-tez-engine.png)
 
 Tez è più veloce perché:
 
-* **Esegue un grafo aciclico diretto (DAG) come un singolo processo nel motore di MapReduce**. Il DAG richiede che ogni set di mapper sia seguito da un set di reducer. In questo modo, più processi MapReduce vengono eseguiti per ciascuna query Hive. Tez non ha tale vincolo ed è in grado di elaborare un DAG complesso come un processo, riducendo al minimo l'overhead di avvio del processo.
-* **Evita scritture non necessarie**. Nel motore di MapReduce vengono usati più processi per elaborare la stessa query Hive. L'output di ogni processo di MapReduce viene scritto in Hadoop Distributed File System (HDFS) per quanto riguarda i dati intermedi. Poiché Tez riduce al minimo il numero di processi per ogni query hive, è in grado di evitare scritture non necessarie.
+* **Esegue un grafo aciclico diretto (DAG) come un singolo processo nel motore di MapReduce**. Il DAG richiede che ogni set di mapper sia seguito da un set di reducer. In questo modo, più processi MapReduce vengono eseguiti per ciascuna query Hive. Tez non ha tale vincolo e può elaborare DAG complesso come un unico processo, riducendo così al minimo l'overhead di avvio del processo.
+* **Evita scritture non necessarie**. Nel motore di MapReduce vengono usati più processi per elaborare la stessa query Hive. L'output di ogni processo di MapReduce viene scritto in Hadoop Distributed File System (HDFS) per quanto riguarda i dati intermedi. Poiché Tez riduce al minimo il numero di processi per ogni query Hive, è in grado di evitare scritture non necessarie.
 * **Riduce al minimo i ritardi di avvio**. Tez è in grado di ridurre al minimo il ritardo di avvio limitando il numero di mapper da avviare e migliorando anche l'ottimizzazione complessiva.
 * **Riusa i contenitori**. Quando possibile, Tez è in grado di riusare i contenitori per assicurare che la latenza dovuta all'avvio dei contenitori venga ridotta.
 * **Usa tecniche di ottimizzazione continua**. In genere l'ottimizzazione viene eseguita durante la fase di compilazione. Tuttavia, sono disponibili ulteriori informazioni sugli input che consentono una migliore ottimizzazione durante il runtime. Tez usa tecniche di ottimizzazione continua che consentono di ottimizzare ulteriormente il piano nella fase di runtime.
@@ -65,7 +65,7 @@ Le operazioni di I/O rappresentano il principale collo di bottiglia nelle presta
 
 Il partizionamento Hive viene implementato riorganizzando i dati non elaborati in nuove directory. Ogni partizione ha una propria directory di file ed è definita dall'utente. Il diagramma seguente illustra il partizionamento di una tabella Hive mediante la colonna *Anno*. Viene creata una nuova directory per ogni anno.
 
-![Partizionamento Apache Hive HDInsight](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-partitioning.png)
+![Partizionamento di HDInsight Apache Hive](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-partitioning.png)
 
 Alcune considerazioni sul partizionamento:
 
@@ -101,7 +101,7 @@ Una volta creata la tabella partizionata, è possibile creare il partizionamento
    LOCATION 'wasb://sampledata@ignitedemo.blob.core.windows.net/partitions/5_23_1996/'
    ```
 
-* **Partizionamento dinamico** indica che si desidera che Hive crei le partizioni automaticamente per l'utente. Poiché la tabella di partizionamento è già stata creata dalla tabella di staging, è sufficiente inserire i dati nella tabella partizionata:
+* **Partizionamento dinamico** indica che si desidera che Hive crei le partizioni automaticamente per l'utente. Poiché la tabella di partizionamento è già stata creata dalla tabella di staging, è sufficiente inserire dati nella tabella partizionata:Since you've already created the partitioning table from the staging table, all you need to do is insert data to the partitioned table:
   
    ```hive
    SET hive.exec.dynamic.partition = true;
@@ -122,7 +122,7 @@ Per altre informazioni, vedere [Partitioned Tables](https://cwiki.apache.org/con
 
 ## <a name="use-the-orcfile-format"></a>Utilizzare il formato ORCFile
 
-Hive supporta diversi formati di file. Ad esempio,
+Hive supporta diversi formati di file. Ad esempio:
 
 * **Testo**: è il formato di file predefinito e funziona con la maggior parte degli scenari.
 * **Avro**: funziona bene per scenari di interoperabilità.
@@ -148,7 +148,7 @@ PARTITIONED BY(L_SHIPDATE STRING)
 STORED AS ORC;
 ```
 
-Inserire quindi i dati nella tabella ORC dalla tabella di gestione temporanea. Ad esempio,
+Inserire quindi i dati nella tabella ORC dalla tabella di gestione temporanea. Ad esempio:
 
 ```sql
 INSERT INTO TABLE lineitem_orc
@@ -191,12 +191,12 @@ Esistono altri metodi di ottimizzazione che è possibile considerare, ad esempio
 
 * **Hive bucket:** una tecnica che consente di raggruppare o segmentare grandi set di dati per ottimizzare le prestazioni delle query.
 * **Ottimizzazione join:** ottimizzazione dell'esecuzione di query Hive pianificata per migliorare l'efficienza di join e ridurre la necessità di suggerimenti dell'utente. Per altre informazioni, vedere [Ottimizzazione join](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+JoinOptimization#LanguageManualJoinOptimization-JoinOptimization).
-* **Aumento dei reducer**.
+* **Aumentare i riduttori**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 In questo articolo sono stati illustrati vari metodi di ottimizzazione delle query comuni di Hive. Per altre informazioni, vedere gli articoli seguenti:
 
 * [Usare Apache Hive in HDInsight](hadoop/hdinsight-use-hive.md)
-* [Analizzare i dati sui ritardi dei voli usando Interactive query in HDInsight](/azure/hdinsight/interactive-query/interactive-query-tutorial-analyze-flight-data)
+* [Analizzare i dati di ritardo di volo usando Interactive Query in HDInsightAnalyze flight delay data by using Interactive Query in HDInsight](/azure/hdinsight/interactive-query/interactive-query-tutorial-analyze-flight-data)
 * [Analizzare i dati Twitter mediante Apache Hive in HDInsight](hdinsight-analyze-twitter-data-linux.md)

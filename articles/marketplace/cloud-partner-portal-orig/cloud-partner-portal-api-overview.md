@@ -1,19 +1,18 @@
 ---
-title: Informazioni di riferimento sull'API portale Cloud Partner | Azure Marketplace
+title: Guida di riferimento all'API del portale per i partner cloud Azure Marketplace
 description: Descrizione dei prerequisiti per usare ed elencare le operazioni all'API marketplace.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: b6591e1780d03cbfaff70fbd19ec3dfd274fae79
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 296c667876807bdd05a6281de461df76207b5490
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819638"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288547"
 ---
 <a name="cloud-partner-portal-api-reference"></a>Riferimento all'API del portale Cloud Partner
 ==================================
@@ -43,7 +42,7 @@ Questo riferimento illustra nel dettaglio le API per eseguire le seguenti attivi
 
 -   [Recuperare tutte le offerte](./cloud-partner-portal-api-retrieve-offers.md)
 -   [Recupera un'offerta specifica](./cloud-partner-portal-api-retrieve-specific-offer.md)
--   [Recuperare lo stato di un'offerta](./cloud-partner-portal-api-retrieve-offer-status.md)
+-   [Recupero dello stato dell'offerta](./cloud-partner-portal-api-retrieve-offer-status.md)
 -   [Creare un'offerta](./cloud-partner-portal-api-creating-offer.md)
 -   [Pubblicare un'offerta](./cloud-partner-portal-api-publish-offer.md)
 
@@ -54,7 +53,7 @@ Questo riferimento illustra nel dettaglio le API per eseguire le seguenti attivi
 
 ### <a name="publish-an-app"></a>Pubblicare un'app
 
--   [Passare alla fase operativa](./cloud-partner-portal-api-go-live.md)
+-   [Passare in produzione](./cloud-partner-portal-api-go-live.md)
 
 ### <a name="other-tasks"></a>Altre attività
 

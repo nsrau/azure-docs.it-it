@@ -1,5 +1,5 @@
 ---
-title: Configurare Key Vault per le macchine virtuali Windows in Azure Resource Manager
+title: Configurare l'insieme di credenziali delle chiavi per le macchine virtuali Windows in Azure Resource ManagerSet up Key Vault for Windows VMs in Azure Resource Manager
 description: Come configurare un insieme di credenziali delle chiavi da usare con una macchina virtuale di Azure Resource Manager.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/24/2017
 ms.author: kasing
 ms.openlocfilehash: a64163da1dee2bceb567436dc18ba0fa5274cfcb
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79243146"
 ---
 # <a name="set-up-key-vault-for-virtual-machines-in-azure-resource-manager"></a>Configurare l'insieme di credenziali delle chiavi per le macchine virtuali in Azure Resource Manager
@@ -51,7 +51,7 @@ Per l'interfaccia della riga di comando, prima di assegnare i criteri di distrib
 
     az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --location "EastAsia"
     
-Per abilitare Key Vault per l'uso con la distribuzione del modello, eseguire il comando seguente:
+Quindi, per abilitare Key Vault per l'utilizzo con la distribuzione di modelli, eseguire il comando seguente:
 
     az keyvault update --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --enabled-for-deployment "true"
 
@@ -70,4 +70,4 @@ Se si usa un modello, è necessario impostare la proprietà `enabledForDeploymen
       }
     }
 
-Per altre opzioni che è possibile configurare quando si crea un insieme di credenziali delle chiavi utilizzando i modelli, vedere l'articolo su come [creare un insieme di credenziali delle chiavi](https://azure.microsoft.com/documentation/templates/101-key-vault-create/).
+Per altre opzioni che è possibile configurare quando si crea un insieme di credenziali delle chiavi utilizzando i modelli, vedere [Creare un insieme di credenziali delle chiavi](https://azure.microsoft.com/documentation/templates/101-key-vault-create/).
