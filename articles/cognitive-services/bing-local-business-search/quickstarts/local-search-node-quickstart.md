@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 11/29/2019
 ms.author: aahi
 ms.openlocfilehash: beab594126ce292ea1fc47e399a12274dbb31aa3
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74665696"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-nodejs"></a>Guida introduttiva: Inviare una query all'API di ricerca di attività locali Bing mediante Node.js
@@ -23,7 +23,7 @@ Seguire questa guida introduttiva per inviare richieste all'API Bing Local Busin
 
 Questa applicazione di esempio recupera i dati di risposta locali dall'API per la query di ricerca `hotel in Bellevue`.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * La versione più recente di [Node.js](https://nodejs.org/en/download/).
 
@@ -95,5 +95,5 @@ Search();
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Local Business Search quickstart](local-quickstart.md) (Guida introduttiva alla ricerca di attività locali)
-* [Local Business Search Java quickstart](local-search-java-quickstart.md) (Guida introduttiva alla ricerca di attività locali in Java)
-* [Local Business Search Python quickstart](local-search-python-quickstart.md) (Guida introduttiva alla ricerca di attività locali in Python)
+* [Guida introduttiva a Local Business Search in Java](local-search-java-quickstart.md)
+* [Guida introduttiva a Local Business Search in Python](local-search-python-quickstart.md)

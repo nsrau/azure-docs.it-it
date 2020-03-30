@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 12/19/2019
 ms.author: nitinme
 ms.openlocfilehash: 332f33bb4046a9ca9d6abf9bec75f60bb4ca9e32
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76169104"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Informazioni su Servizi cognitivi di Azure
@@ -90,7 +90,7 @@ Dopo aver eseguito l'accesso con l'account Microsoft, sarà possibile accedere a
 
 Tutte le API prevedono un piano di valutazione gratuito con limiti di utilizzo e velocità effettiva.  È possibile aumentare questi limiti usando un'offerta a pagamento e selezionando l'opzione del piano tariffario appropriata quando si distribuisce il servizio nel portale di Azure. [Altre informazioni sulle offerte e i prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/ "Offerte e prezzi"). Sarà necessario configurare un account sottoscrittore di Azure con una carta di credito e un numero di telefono. Se si hanno particolari requisiti o si vuole semplicemente comunicare con gli addetti alle vendite, fare clic sul pulsante "Contattaci" nella parte superiore della pagina dei prezzi.
 
-## <a name="regional-availability"></a>Disponibilità a livello di area
+## <a name="regional-availability"></a>Disponibilità internazionale
 
 Le API nei Servizi cognitivi sono ospitate in una rete in espansione di centri dati gestiti da Microsoft. È possibile trovare la disponibilità a livello di area per ogni API nell'[elenco delle aree di Azure](https://azure.microsoft.com/regions).
 

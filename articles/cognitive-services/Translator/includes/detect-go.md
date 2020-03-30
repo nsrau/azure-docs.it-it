@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
 ms.openlocfilehash: d75c925ef55163ce06b2ceff585e230d95b38c77
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71837535"
 ---
 [!INCLUDE [Prerequisites](prerequisites-go.md)]
@@ -67,7 +67,7 @@ func main() {
 
 ## <a name="create-a-function-to-detect-the-text-language"></a>Creare una funzione per rilevare la lingua del testo
 
-Creare una funzione per rilevare la lingua del testo. Questa funzione accetta un singolo argomento, la chiave di sottoscrizione del servizio Traduzione testuale.
+Creare una funzione per rilevare la lingua del testo. Questa funzione copre un unico argomento, la chiave di sottoscrizione di Traduzione testuale.
 
 ```go
 func detect(subscriptionKey string, uri string) {
@@ -90,7 +90,7 @@ u.RawQuery = q.Encode()
 ```
 
 >[!NOTE]
-> Per altre informazioni su endpoint, route e parametri della richiesta, vedere [API Traduzione testuale 3.0: Detect](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect).
+> Per altre informazioni sugli endpoint, le route e i parametri della richiesta, vedere [API Traduzione testuale 3.0: Detect](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect).
 
 ## <a name="create-a-struct-for-your-request-body"></a>Creare uno struct per il corpo della richiesta
 

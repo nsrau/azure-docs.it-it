@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: eseguire una ricerca con Python - API Ricerca Web Bing'
+title: 'Guida introduttiva: Eseguire una ricerca con Python - API Ricerca Web Bing'
 titleSuffix: Azure Cognitive Services
 description: Usare questa guida introduttiva per inviare richieste all'API REST Ricerca Web Bing usando Python e ricevere una risposta JSON
 services: cognitive-services
@@ -12,13 +12,13 @@ ms.date: 12/09/2019
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: c1af1142faca76cc58b6b3ca9a7106bc0433ea18
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74976367"
 ---
-# <a name="quickstart-use-python-to-call-the-bing-web-search-api"></a>Guida introduttiva: usare Python per chiamare l'API Ricerca Web Bing  
+# <a name="quickstart-use-python-to-call-the-bing-web-search-api"></a>Guida introduttiva: Usare Python per chiamare l'API Ricerca Web Bing  
 
 Usare questa guida introduttiva per eseguire la prima chiamata all'API Ricerca Web Bing e ricevere la risposta JSON. Questa applicazione Python invia una richiesta di ricerca all'API e visualizza la risposta. L'applicazione è scritta in Python, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
 
@@ -26,7 +26,7 @@ Questo esempio viene eseguito come notebook di Jupyter su [MyBinder](https://myb
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=BingWebSearchAPI.ipynb)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * [Python 2.x o 3.x](https://www.python.org/)
 

@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 01/31/2020
 ms.author: dapine
 ms.openlocfilehash: cd8da5eb9313685361ca56b56c024c2dfb37276e
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76961439"
 ---
 In questo argomento di avvio rapido si userà [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) per convertire il testo in sintesi vocale in un file audio. Il servizio di sintesi vocale offre numerose opzioni per le voci sintetizzate, come indicato nella sezione sulle [lingue supportate per la sintesi vocale](../../../language-support.md#text-to-speech). Dopo aver soddisfatto alcuni prerequisiti, la sintesi vocale richiede solo cinque passaggi:

@@ -1,5 +1,5 @@
 ---
-title: "Esercitazione: Creare un'app a pagina singola Ricerca video Bing"
+title: "Esercitazione: creare un'app a singola pagina di ricerca video Bing"
 titleSuffix: Azure Cognitive Services
 description: Questa esercitazione illustra come usare l'API Ricerca video Bing in un'applicazione Web a pagina singola.
 services: cognitive-services
@@ -11,13 +11,13 @@ ms.topic: tutorial
 ms.date: 02/03/2020
 ms.author: aahi
 ms.openlocfilehash: fb989825ed27cc83c14c36e6394e37ae2db2c12a
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76988261"
 ---
-# <a name="tutorial-single-page-video-search-app"></a>Esercitazione: App a pagina singola Ricerca video
+# <a name="tutorial-single-page-video-search-app"></a>Esercitazione: applicazione Ricerca video a pagina singola
 L'API Ricerca video Bing consente di eseguire ricerche sul Web e di ottenere come risultati video pertinenti a una query di ricerca. In questa esercitazione viene compilata un'applicazione Web a pagina singola che usa l'API Ricerca video Bing per visualizzare i risultati della ricerca nella pagina. L'applicazione include componenti HTML, CSS e JavaScript.
 
 <!-- Remove until it can be replaced with a sanitized version.
@@ -87,7 +87,7 @@ function getSubscriptionKey() {
     return key;
 }
 ```
-Il tag `onsubmit` HTML `<form>` chiama la funzione `bingWebSearch` per restituire i risultati della ricerca. `bingWebSearch` usa `getSubscriptionKey()` per autenticare ciascuna query. Come indicato nella definizione precedente, `getSubscriptionKey` richiede all'utente la chiave se non è stata immessa. La chiave viene quindi archiviata per continuare a essere usata dall'applicazione.
+Il tag `<form>` HTML `onsubmit` chiama la funzione `bingWebSearch` per restituire i risultati della ricerca. `bingWebSearch` usa `getSubscriptionKey()` per autenticare ciascuna query. Come indicato nella definizione precedente, `getSubscriptionKey` richiede all'utente la chiave se non è stata immessa. La chiave viene quindi archiviata per continuare a essere usata dall'applicazione.
 
 ```html
 <form name="bing" onsubmit="this.offset.value = 0; return bingWebSearch(this.query.value, 

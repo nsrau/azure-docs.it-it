@@ -11,13 +11,13 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.openlocfilehash: d45b9a153b770dd10da9dd61e8a7b3d138345b8a
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78943128"
 ---
-# <a name="tutorial-single-page-web-app"></a>Esercitazione: App Web a singola pagina
+# <a name="tutorial-single-page-web-app"></a>Esercitazione: App Web a pagina singola
 
 L'API Ricerca entità Bing consente di cercare informazioni su *entità* e *località* nel Web. È possibile richiedere un tipo di risultato, oppure entrambi, in una determinata query. Di seguito vengono fornite le definizioni di località ed entità.
 
@@ -56,7 +56,7 @@ Questa esercitazione illustra solo alcune parti del codice sorgente. Il codice s
 > [!NOTE]
 > Questa esercitazione è essenzialmente simile all'[esercitazione su Ricerca Web Bing in un'app a pagina singola](../Bing-Web-Search/tutorial-bing-web-search-single-page-app.md), ma gestisce solo i risultati delle ricerche di entità.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 Per proseguire con l'esercitazione sono necessarie le chiavi di sottoscrizione per l'API Ricerca Bing e l'API Bing Maps. Se non si possiedono le chiavi, è possibile usare una [chiave di valutazione](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) e una [chiave di Bing Maps di base](https://www.microsoft.com/maps/create-a-bing-maps-key).
 
@@ -71,7 +71,7 @@ Come qualsiasi app Web a pagina singola, l'applicazione di esercitazione include
 
 Questa esercitazione non tratta dettagliatamente il codice HTML o CSS, perché sono piuttosto semplici.
 
-Il codice HTML contiene il modulo di ricerca in cui l'utente immette una query e sceglie le opzioni di ricerca. Il modulo è connesso a JavaScript che esegue effettivamente la ricerca usando l'attributo `onsubmit` del tag `<form>`:
+Il codice HTML contiene il modulo di ricerca in cui l'utente immette una query e sceglie le opzioni di ricerca. Il modulo è connesso a JavaScript che esegue effettivamente la ricerca usando l'attributo `<form>` del tag `onsubmit`:
 
 ```html
 <form name="bing" onsubmit="return newBingEntitySearch(this)">

@@ -11,19 +11,19 @@ ms.topic: quickstart
 ms.date: 11/29/2019
 ms.author: aahi
 ms.openlocfilehash: 8ff70bea8d0e4810b6d5a0d35853077ed0a630cd
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74665186"
 ---
-# <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-java"></a>Guida introduttiva: Inviare una query all'API di ricerca di attività locali Bing mediante Java
+# <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-java"></a>Guida introduttiva: Inviare una query all'API Bing Local Business Search mediante Java
 
 Seguire questa guida introduttiva per inviare richieste all'API Bing Local Business Search, un servizio cognitivo di Azure. L'applicazione è scritta in Java, ma l'API è un servizio Web RESTful compatibile con qualsiasi linguaggio di programmazione in grado di eseguire richieste HTTP e analizzare dati JSON.
 
 Questa applicazione di esempio recupera i dati di risposta locali dall'API per la query di ricerca `hotel in Bellevue`.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 * [Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
@@ -53,8 +53,8 @@ Il codice seguente crea `WebRequest`, imposta l'intestazione della chiave di acc
 
 L'API Bing Local Business Search restituisce i risultati dal motore di ricerca Bing.
 1. Scaricare o installare la libreria gson.
-2. Creare un nuovo progetto Java nell'ambiente di sviluppo integrato o nell'editor preferito.
-3. Aggiungere il codice fornito di seguito.
+2. Creare un nuovo progetto Java nell'IDE o nell'editor preferito.
+3. Aggiungere il codice riportato di seguito.
 4. Sostituire il valore subscriptionKey con una chiave di accesso valida per la sottoscrizione.
 5. Eseguire il programma.
 
@@ -166,5 +166,5 @@ public class LocalSearchCls {
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Local Business Search quickstart](local-quickstart.md) (Guida introduttiva alla ricerca di attività locali)
-- [Guida introduttiva a Local Business Search con Node](local-search-node-quickstart.md)
+- [Guida introduttiva a Local Business Search in Node](local-search-node-quickstart.md)
 - [Guida introduttiva a Local Business Search in Python](local-search-python-quickstart.md)

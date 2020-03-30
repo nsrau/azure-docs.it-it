@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Eseguire una ricerca con PHP - API Ricerca Web Bing'
+title: 'Guida introduttiva: Eseguire una ricerca con PHP - API Ricerca Web Bing'
 titleSuffix: Azure Cognitive Services
 description: Usare questa guida di avvio rapido per inviare richieste all'API REST Ricerca Web Bing usando PHP e ricevere una risposta JSON
 services: cognitive-services
@@ -12,13 +12,13 @@ ms.date: 12/09/2019
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: 58192845e0119ce96ea2577007d211f075d3e419
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76169720"
 ---
-# <a name="quickstart-use-php-to-call-the-bing-web-search-api"></a>Avvio rapido: Usare PHP per chiamare l'API Ricerca Web Bing  
+# <a name="quickstart-use-php-to-call-the-bing-web-search-api"></a>Guida introduttiva: Usare PHP per chiamare l'API Ricerca Web Bing  
 
 Usare questa guida introduttiva per eseguire la prima chiamata all'API Ricerca Web Bing e ricevere la risposta JSON. Questa applicazione Node.js invia una richiesta di ricerca all'API e mostra la risposta. L'applicazione è scritta in JavaScript, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
 

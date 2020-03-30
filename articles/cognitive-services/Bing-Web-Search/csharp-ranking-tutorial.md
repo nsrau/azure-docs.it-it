@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/19/2019
 ms.author: aahi
 ms.openlocfilehash: 1c8e0bb136fddeb84dc991e63a761378b38cc470
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75382328"
 ---
 # <a name="build-a-console-app-search-client-in-c"></a>Compilare un client di ricerca app console in C#
@@ -49,7 +49,7 @@ JSON.net consente di lavorare con le risposte JSON restituite dall'API. Aggiunge
 - In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto e scegliere **Gestisci pacchetti NuGet**.
 - Nella scheda **Sfoglia**, cercare `Newtonsoft.Json`. Selezionare la versione più recente e fare clic su **Installa**.
 - Fare clic su **OK** nella finestra **Rivedi modifiche**.
-- Chiudere la scheda di Visual Studio denominata **NuGet: MyConsoleSearchApp**.
+- Chiudere la scheda di Visual Studio intitolata **NuGet: MyConsoleSearchApp**.
 
 ## <a name="add-a-reference-to-systemweb"></a>Aggiungere un riferimento a System.Web
 
@@ -224,8 +224,8 @@ Prima di capire come visualizzare i risultati in ordine classificato, esaminare 
 L'oggetto JSON `rankingResponse` ([documentazione](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse)) descrive l'ordine di visualizzazione appropriato per i risultati di ricerca. Include uno o più dei gruppi seguenti, in ordine di priorità:
 
 - `pole`: i risultati della ricerca da rendere più visibili (visualizzati ad esempio sopra la riga principale e la barra laterale).
-- `mainline`: I risultati della ricerca da visualizzare nella riga principale.
-- `sidebar`: I risultati della ricerca da visualizzare nella barra laterale. Se non ci sono barre laterali, visualizzare i risultati sotto la linea principale.
+- `mainline`: i risultati di ricerca da visualizzare nella riga principale.
+- `sidebar`: i risultati di ricerca da visualizzare nella barra laterale. Se non ci sono barre laterali, visualizzare i risultati sotto la linea principale.
 
 La risposta classificata JSON può includere uno o più gruppi.
 

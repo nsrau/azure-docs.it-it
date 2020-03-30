@@ -10,14 +10,16 @@ ms.subservice: content-moderator
 ms.topic: overview
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: c1ff74bc358f167612b2bfe05ca47e21203d8702
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 570d55c8523e1c1deca3242a8841b0cc34322786
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74973493"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80053882"
 ---
 # <a name="what-is-azure-content-moderator"></a>Che cos'è Azure Content Moderator?
+
+[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 Azure Content Moderator è un servizio cognitivo che verifica la presenza di materiale potenzialmente offensivo, rischioso o altrimenti indesiderato in contenuti di testo, immagini e video. Quando tale materiale viene trovato, il servizio applica al contenuto apposite etichette (flag). L'app può quindi gestire il contenuto contrassegnato per garantire la conformità alle normative o gestire un ambiente con le caratteristiche previste per gli utenti. Per altre informazioni sul significato dei diversi flag per il contenuto, vedere la sezione [API per la moderazione](#moderation-apis).
 
@@ -46,7 +48,7 @@ Il servizio Content Moderator include le API per la moderazione, che verificano 
 
 La tabella seguente descrive i diversi tipi di API per la moderazione.
 
-| Gruppo di API | DESCRIZIONE |
+| Gruppo di API | Descrizione |
 | ------ | ----------- |
 |[**Moderazione testo**](text-moderation-api.md)| Analizza il testo per individuare contenuto offensivo, sessualmente esplicito o allusivo, oltre a contenuto volgare e informazioni personali.|
 |[**Elenchi di termini personalizzati**](try-terms-list-api.md)| Consente di analizzare il testo in base a un elenco personalizzato di termini unitamente ai termini predefiniti. Usare gli elenchi personalizzati per bloccare o consentire il contenuto in base a criteri specifici per il contenuto.|  

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
 ms.openlocfilehash: 9c7385d3457f3f5dbed2633c20445bb9ef0b1638
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69906826"
 ---
 [!INCLUDE [Prerequisites](prerequisites-python.md)]
@@ -52,7 +52,7 @@ L'endpoint globale di Traduzione testuale viene impostato come `endpoint`. `path
 `params` in questo esempio viene usato per impostare la lingua del testo fornito. `params` non è necessario per la route `breaksentence`. Se viene escluso dalla richiesta, l'API proverà a rilevare la lingua del testo fornito e a fornire queste informazioni insieme a un punteggio di attendibilità nella risposta.
 
 >[!NOTE]
-> Per altre informazioni su endpoint, route e parametri della richiesta, vedere [API Traduzione testuale 3.0: Languages](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence).
+> Per altre informazioni sugli endpoint, le route e i parametri della richiesta, vedere [API Traduzione testuale 3.0: Languages](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence).
 
 ```python
 path = '/breaksentence?api-version=3.0'

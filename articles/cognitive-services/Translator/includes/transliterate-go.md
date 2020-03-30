@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
 ms.openlocfilehash: 5510088925b7a628417c7f3c11bb89c5ce915381
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69906480"
 ---
 [!INCLUDE [Prerequisites](prerequisites-go.md)]
@@ -67,7 +67,7 @@ func main() {
 
 ## <a name="create-a-function-to-transliterate-text"></a>Creare una funzione per traslitterare il testo
 
-Creare una funzione per traslitterare il testo. Questa funzione accetta un singolo argomento, la chiave di sottoscrizione del servizio Traduzione testuale.
+Creare una funzione per traslitterare il testo. Questa funzione copre un unico argomento, la chiave di sottoscrizione di Traduzione testuale.
 
 ```go
 func transliterate(subscriptionKey string, uri string) {
@@ -93,7 +93,7 @@ u.RawQuery = q.Encode()
 ```
 
 >[!NOTE]
-> Per altre informazioni su endpoint, route e parametri della richiesta, vedere [API Traduzione testuale 3.0: Transliterate](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-transliterate).
+> Per altre informazioni sugli endpoint, le route e i parametri della richiesta, vedere [API Traduzione testuale 3.0: Transliterate](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-transliterate).
 
 ## <a name="create-a-struct-for-your-request-body"></a>Creare uno struct per il corpo della richiesta
 
