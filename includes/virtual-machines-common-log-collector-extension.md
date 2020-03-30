@@ -5,27 +5,27 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 09c4420647043fccc408631fec75854667923721
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74085252"
 ---
 Per diagnosticare i problemi con un servizio cloud di Microsoft Azure è necessario raccogliere i file di log del servizio nelle macchine virtuali non appena si verificano i problemi. È possibile usare l'estensione AzureLogCollector su richiesta per eseguire una raccolta occasionale di log da una o più macchine virtuali del servizio cloud (da ruoli Web e ruoli di lavoro) e trasferire i file raccolti in un account di archiviazione di Azure, senza accedere in modalità remota ad alcuna macchina virtuale.
 
 > [!NOTE]
-> Le descrizioni per la maggior parte delle informazioni registrate sono disponibili in https://blogs.msdn.microsoft.com/kwill/2013/08/09/windows-azure-paas-compute-diagnostics-data/
+> Le descrizioni per la maggior parte delle informazioni registrate sono reperibili all'accessohttps://blogs.msdn.microsoft.com/kwill/2013/08/09/windows-azure-paas-compute-diagnostics-data/
 > 
 > 
 
 Sono disponibili due modalità di raccolta a seconda dei tipi di file da raccogliere.
 
-* **Solo log di agenti guest di Azure (GA)** . Questa modalità di raccolta include tutti i log relativi agli agenti guest di Azure e ad altri componenti di Azure.
-* **Tutti i log (Completa)** . Questa modalità di raccolta raccoglie tutti i file in modalità Agenti guest, oltre a:
+* **Solo registri agente guest di Azure (GA).** Questa modalità di raccolta include tutti i log relativi agli agenti guest di Azure e ad altri componenti di Azure.
+* **Tutti i registri (completo)**. Questa modalità di raccolta raccoglie tutti i file in modalità Agenti guest, oltre a:
   
   * log eventi di sistema e dell'applicazione
   * log degli errori HTTP
-  * Log di IIS
+  * Log IIS
   * log di installazione
   * altri log di sistema
 
@@ -36,12 +36,12 @@ In entrambe le modalità di raccolta, è possibile specificare cartelle di racco
 * **Modello di ricerca**: modello dei nomi di file da raccogliere. Il valore predefinito è "\*"
 * **Ricorsiva**: se i file da raccogliere si trovano in modo ricorsivo nel percorso specificato.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 [!INCLUDE [updated-for-az](./updated-for-az.md)]
 
 * Disporre di un account di archiviazione per il salvataggio dei file ZIP generati dall'estensione.
-* Azure PowerShell. Per le istruzioni di installazione, vedere [install Azure PowerShell](/powershell/azure/install-az-ps)].
+* Azure PowerShell. Per istruzioni sull'installazione, vedere [Installare Azure PowerShell](/powershell/azure/install-az-ps)].
 
 ## <a name="add-the-extension"></a>Aggiungere l'estensione
 Per aggiungere l'estensione AzureLogCollector, è possibile usare i cmdlet di [Microsoft Azure PowerShell](https://msdn.microsoft.com/library/dn495240.aspx) o le [API REST di gestione dei servizi](https://msdn.microsoft.com/library/ee460799.aspx).
@@ -86,7 +86,7 @@ Internamente, questa estensione usa le configurazioni PublicConfiguration e Priv
 ```
 
 > [!NOTE]
-> Per questa estensione non richiede l'uso della configurazione **privateConfiguration**. È semplicemente possibile specificare una struttura vuota per l'argomento **– PrivateConfiguration** .
+> Questa estensione non richiede **privateConfiguration**. È semplicemente possibile specificare una struttura vuota per l'argomento **– PrivateConfiguration** .
 > 
 > 
 
@@ -181,10 +181,10 @@ param (
 * **Roles**: elenco di ruoli, ad esempio "WebRole1" o "WorkerRole1".
 * **Istances**: elenco di nomi di istanze del ruolo separati da virgole; usare la stringa con caratteri jolly ("*") per tutte le istanze del ruolo.
 * **Slot**: nome dello slot. "Production" o "Staging".
-* **Mode**: modalità di raccolta. "Full" o "GA".
-* **StorageAccountName**: nome dell'account di archiviazione di Azure per l'archiviazione dei dati raccolti.
-* **StorageAccountKey**: nome della chiave dell'account di archiviazione di Azure.
-* **AdditionalDataLocationList**: elenco con la struttura seguente:
+* **Modalità**: Modalità di raccolta. "Full" o "GA".
+* **StorageAccountName:** nome dell'account di archiviazione di Azure per l'archiviazione dei dati raccolti.
+* **StorageAccountKey:** nome della chiave dell'account di archiviazione di Azure.StorageAccountKey: Name of Azure storage account key.
+* **AdditionalDataLocationList**: un elenco della struttura seguente:
 
   ```powershell
   {
@@ -260,11 +260,11 @@ param (
 ```
 
 * **ServiceName**: nome del servizio cloud.
-* **VMName**: nome della macchina virtuale.
-* **Mode**: modalità di raccolta. "Full" o "GA".
-* **StorageAccountName**: nome dell'account di archiviazione di Azure per l'archiviazione dei dati raccolti.
-* **StorageAccountKey**: nome della chiave dell'account di archiviazione di Azure.
-* **AdditionalDataLocationList**: elenco con la struttura seguente:
+* **VMName:** nome della macchina virtuale.
+* **Modalità**: Modalità di raccolta. "Full" o "GA".
+* **StorageAccountName:** nome dell'account di archiviazione di Azure per l'archiviazione dei dati raccolti.
+* **StorageAccountKey:** nome della chiave dell'account di archiviazione di Azure.StorageAccountKey: Name of Azure storage account key.
+* **AdditionalDataLocationList**: un elenco della struttura seguente:
 
   ```
   {

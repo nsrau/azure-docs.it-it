@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
 ms.openlocfilehash: ed92156df9d8e1e07b56cea4b1e64edee11d68d9
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77562123"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Scenario di monitoraggio in Funzioni durevoli - Esempio di watcher per il meteo
@@ -38,7 +38,7 @@ Questo esempio monitora le condizioni meteo correnti di una località e avvisa u
 
 Questo esempio prevede l'uso dell'API Weather Underground per controllare le condizioni meteo correnti di una località.
 
-Prima di tutto, è necessario un account Weather Underground. È possibile crearne uno gratuitamente all'indirizzo [https://www.wunderground.com/signup](https://www.wunderground.com/signup). Dopo avere creato l'account, sarà necessario acquisire una chiave API. A questo scopo, visitare [https://www.wunderground.com/weather/api](https://www.wunderground.com/weather/api/?MR=1), quindi selezionare Key Settings (Impostazioni chiave). Il piano gratuito Stratus Developer è sufficiente per eseguire questo esempio.
+Prima di tutto, è necessario un account Weather Underground. È possibile crearne [https://www.wunderground.com/signup](https://www.wunderground.com/signup)uno gratuitamente all'indirizzo . Dopo avere creato l'account, sarà necessario acquisire una chiave API. È possibile farlo [https://www.wunderground.com/weather/api](https://www.wunderground.com/weather/api/?MR=1)visitando , quindi selezionando Impostazioni chiave. Il piano gratuito Stratus Developer è sufficiente per eseguire questo esempio.
 
 Dopo avere acquisito la chiave API, aggiungere l'**impostazione app** seguente all'app per le funzioni.
 
@@ -50,19 +50,19 @@ Dopo avere acquisito la chiave API, aggiungere l'**impostazione app** seguente a
 
 Questo articolo descrive le funzioni seguenti nell'app di esempio:
 
-* `E3_Monitor`: funzione dell'agente di [orchestrazione](durable-functions-bindings.md#orchestration-trigger) che chiama periodicamente `E3_GetIsClear`. Chiama `E3_SendGoodWeatherAlert` se `E3_GetIsClear` restituisce true.
-* `E3_GetIsClear`: [funzione di attività](durable-functions-bindings.md#activity-trigger) che controlla le condizioni meteo correnti per una località.
+* `E3_Monitor`: [funzione dell'agente](durable-functions-bindings.md#orchestration-trigger) `E3_GetIsClear` di orchestrazione che chiama periodicamente. Chiama `E3_SendGoodWeatherAlert` se `E3_GetIsClear` restituisce true.
+* `E3_GetIsClear`: [funzione](durable-functions-bindings.md#activity-trigger) di attività che controlla le condizioni meteo correnti per una posizione.
 * `E3_SendGoodWeatherAlert`: funzione dell'attività che invia un SMS tramite Twilio.
 
-### <a name="e3_monitor-orchestrator-function"></a>Funzione dell'agente di orchestrazione E3_Monitor
+### <a name="e3_monitor-orchestrator-function"></a>E3_Monitor funzione dell'agente di orchestrazione
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Monitor.cs?range=41-78,97-115)]
 
-L'agente di orchestrazione richiede un percorso da monitorare e un numero di telefono a cui inviare un messaggio quando l'oggetto diventa chiaro in corrispondenza della posizione. Questi dati vengono passati all'agente di orchestrazione come oggetto `MonitorRequest` fortemente tipizzato.
+L'agente di orchestrazione richiede una posizione da monitorare e un numero di telefono per inviare un messaggio quando il se diventa chiaro nella posizione. Questi dati vengono passati all'agente di `MonitorRequest` orchestrazione come oggetto fortemente tipizzato.
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[Javascript](#tab/javascript)
 
 La funzione **E3_Monitor** usa il codice *function.json* standard per le funzioni dell'agente di orchestrazione.
 
@@ -81,19 +81,19 @@ Le azioni di questa funzione dell'agente di orchestrazione sono le seguenti:
 3. Chiama **E3_GetIsClear** per determinare se nella località richiesta il tempo è sereno.
 4. Se il tempo è sereno, chiama **E3_SendGoodWeatherAlert** per inviare un SMS di notifica al numero di telefono richiesto.
 5. Crea un timer durevole per riprendere l'orchestrazione all'intervallo di polling successivo. L'esempio usa un valore hardcoded per ragioni di brevità.
-6. Continua l'esecuzione fino all'ora UTC corrente che supera l'ora di scadenza del monitoraggio oppure viene inviato un avviso SMS.
+6. Continua l'esecuzione fino a quando l'ora UTC corrente supera l'ora di scadenza del monitor o viene inviato un avviso SMS.
 
-È possibile eseguire contemporaneamente più istanze dell'agente di orchestrazione chiamando la funzione dell'agente di orchestrazione più volte. Si possono specificare la località da monitorare e il numero di telefono a cui inviare un SMS di avviso.
+Più istanze dell'agente di orchestrazione possono essere eseguite contemporaneamente chiamando la funzione dell'agente di orchestrazione più volte. Si possono specificare la località da monitorare e il numero di telefono a cui inviare un SMS di avviso.
 
-### <a name="e3_getisclear-activity-function"></a>Funzione E3_GetIsClear Activity
+### <a name="e3_getisclear-activity-function"></a>funzione di attività E3_GetIsClear
 
 In modo analogo agli altri esempi, le funzioni di attività helper sono normali funzioni che usano l'associazione di trigger `activityTrigger`. La funzione **E3_GetIsClear** ottiene le condizioni meteo correnti usando l'API Weather Underground e determina se il tempo è sereno.
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Monitor.cs?range=80-85)]
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[Javascript](#tab/javascript)
 
 Il codice *function.json* viene definito come segue:
 
@@ -105,18 +105,18 @@ Di seguito ne viene riportata l'implementazione.
 
 ---
 
-### <a name="e3_sendgoodweatheralert-activity-function"></a>Funzione E3_SendGoodWeatherAlert Activity
+### <a name="e3_sendgoodweatheralert-activity-function"></a>funzione di attività E3_SendGoodWeatherAlert
 
 La funzione **E3_SendGoodWeatherAlert** usa l'associazione di Twilio per inviare un SMS che notifica all'utente finale che il tempo è adatto per una passeggiata.
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Monitor.cs?range=87-96,140-205)]
 
 > [!NOTE]
-> Per eseguire il codice di esempio, sarà necessario installare il pacchetto NuGet `Microsoft.Azure.WebJobs.Extensions.Twilio`.
+> È necessario installare `Microsoft.Azure.WebJobs.Extensions.Twilio` il pacchetto Nuget per eseguire il codice di esempio.
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[Javascript](#tab/javascript)
 
 Il codice *function.json* è semplice:
 

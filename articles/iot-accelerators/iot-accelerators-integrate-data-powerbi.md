@@ -1,6 +1,6 @@
 ---
 title: Visualizzare i dati della soluzione di monitoraggio remoto usando Power BI - Azure | Microsoft Docs
-description: Questa esercitazione USA Power BI Desktop e Cosmos DB per integrare i dati di una soluzione di monitoraggio remoto in una visualizzazione personalizzata. In questo modo gli utenti possono compilare dashboard personalizzati e condividerli con gli utenti esterni alla soluzione.
+description: Questa esercitazione usa Power BI Desktop e Cosmos DB per integrare i dati di una soluzione di monitoraggio remoto in una visualizzazione personalizzata. In questo modo gli utenti possono compilare dashboard personalizzati e condividerli con gli utenti esterni alla soluzione.
 author: dominicbetts
 manager: hegate
 ms.author: dobett
@@ -9,26 +9,26 @@ services: iot-accelerators
 ms.date: 05/01/2018
 ms.topic: conceptual
 ms.openlocfilehash: 8b0f395936c8628ff7b8dab601168538f97ccdb7
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74184232"
 ---
 # <a name="visualize-remote-monitoring-data-using-power-bi"></a>Visualizzare i dati della soluzione di monitoraggio remoto usando Power BI - Azure
 
 Questa esercitazione illustrerà in modo dettagliato come collegare i dati della soluzione di monitoraggio remoto da Cosmos DB a Power BI. Grazie a questo collegamento è possibile creare dashboard personalizzati e aggiungerli al dashboard della soluzione di monitoraggio remoto. Questo flusso di lavoro consente di creare grafi più specifici, in aggiunta a quelli predefiniti. È quindi possibile usare questa esercitazione per integrare altri flussi di dati o per creare dashboard personalizzati che è possibile usare all'esterno della soluzione di monitoraggio remoto. La creazione di dashboard in Power BI consente anche l'interazione reciproca dei pannelli quando si selezionano elementi specifici. Ad esempio, con un filtro che visualizza solo le informazioni sui veicoli simulati, ogni elemento del dashboard interagisce per mostrare solo le informazioni sui veicoli simulati. Se si vuole usare uno strumento diverso da Power BI, è possibile estendere questi passaggi per usare uno strumento di visualizzazione a scelta e creare un hook a Cosmos DB o a un database personalizzato, se ne è stato configurato uno. 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 - È necessario che una soluzione di monitoraggio remoto sia attualmente in esecuzione
-- È necessario avere accesso a [portale di Azure](https://portal.azure.com) e alla sottoscrizione in cui sono in esecuzione l'hub e la soluzione.
+- È necessario avere accesso al portale di [Azure](https://portal.azure.com) e alla sottoscrizione in cui sono in esecuzione l'hub e la soluzione IoT
 - È necessario che sia installata una versione qualsiasi di [Power BI Desktop](https://powerbi.microsoft.com).
 
 
-## <a name="information-needed-from-azure-portal"></a>Informazioni necessarie da portale di Azure
+## <a name="information-needed-from-azure-portal"></a>Informazioni necessarie dal portale di AzureInformation Needed from Azure portal
 
-1. Passare a [portale di Azure](https://portal.azure.com) ed eseguire l'accesso, se necessario
+1. Passare al portale di [Azure](https://portal.azure.com) e accedere se necessario
 
 2. Fare clic sui gruppi di risorse nel pannello di sinistra.
 
@@ -38,20 +38,20 @@ Questa esercitazione illustrerà in modo dettagliato come collegare i dati della
 
 4. Nella pagina di panoramica fare clic sull'elemento, che ha il tipo "Account Azure Cosmos DB"; si verrà quindi reindirizzati alla pagina di panoramica del flusso Cosmos DB per tale soluzione IoT.
 
-    ![gruppo di risorse](./media/iot-accelerators-integrate-data-powerbi/resource_groups.png)
+    ![Gruppo di risorse](./media/iot-accelerators-integrate-data-powerbi/resource_groups.png)
 
 5. Nel pannello a sinistra fare clic sulla sezione "Chiavi" e prendere nota dei valori seguenti da usare in Power BI:
 
    - URI
    - Chiave primaria
 
-     ![Chiavi](./media/iot-accelerators-integrate-data-powerbi/keys.png)
+     ![chiavi](./media/iot-accelerators-integrate-data-powerbi/keys.png)
 
 ## <a name="setting-up-the-stream-in-power-bi"></a>Impostazione del flusso in Power BI
   
 1. Aprire l'app Power BI Desktop e fare clic su "Scarica dati" nell'angolo superiore sinistro. 
 
-    ![Scarica i dati](./media/iot-accelerators-integrate-data-powerbi/get_data.png)
+    ![Get Data](./media/iot-accelerators-integrate-data-powerbi/get_data.png)
 
 2. Quando viene richiesto di immettere i dati, scegliere di cercare "Azure Cosmos DB" e selezionare questo connettore. In sostanza questo connettore estrae i dati direttamente dal database Cosmos DB della soluzione IoT di Azure
   
@@ -105,6 +105,6 @@ In questo articolo è stato appreso come visualizzare i dati della soluzione di 
 Per altre informazioni sulla personalizzazione della soluzione di monitoraggio remoto, vedere:
 
 * [Personalizzare l'acceleratore di soluzioni di monitoraggio remoto](iot-accelerators-remote-monitoring-customize.md)
-* [Guida di riferimento per gli sviluppatori](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
-* [Guida per la risoluzione dei problemi per gli sviluppatori](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide)
+* [Guida di riferimento per sviluppatori](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
+* [Guida alla risoluzione dei problemi per gli sviluppatori](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide)
 

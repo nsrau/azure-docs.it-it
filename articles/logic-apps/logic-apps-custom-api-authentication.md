@@ -1,25 +1,25 @@
 ---
-title: Aggiungere l'autenticazione per la protezione delle chiamate alle API personalizzate
-description: Come configurare l'autenticazione per migliorare la sicurezza per le chiamate alle API personalizzate da app per la logica di Azure
+title: Aggiungere l'autenticazione per la protezione delle chiamate alle API personalizzateAdd authentication for securing calls to custom APIs
+description: Come configurare l'autenticazione per migliorare la sicurezza per le chiamate alle API personalizzate dalle app per la logica di AzureHow to set up authentication to improve security for calls to custom APIs from Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/22/2017
 ms.openlocfilehash: 110a684cf6ad21c13411d3bc2ada84750744f00e
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77191396"
 ---
-# <a name="increase-security-for-calls-to-custom-apis-from-azure-logic-apps"></a>Aumentare la sicurezza per le chiamate alle API personalizzate da app per la logica di Azure
+# <a name="increase-security-for-calls-to-custom-apis-from-azure-logic-apps"></a>Aumentare la sicurezza per le chiamate alle API personalizzate dalle app per la logica di AzureAincrease security for calls to custom APIs from Azure Logic Apps
 
-Per migliorare la sicurezza per le chiamate alle API, è possibile configurare l'autenticazione Azure Active Directory (Azure AD) tramite la portale di Azure in modo da non dover aggiornare il codice. Oppure, è possibile richiedere e applicare l'autenticazione attraverso il codice dell'API.
+Per migliorare la sicurezza per le chiamate alle API, è possibile configurare l'autenticazione di Azure Active Directory (Azure AD) tramite il portale di Azure in modo da non dover aggiornare il codice. Oppure, è possibile richiedere e applicare l'autenticazione attraverso il codice dell'API.
 
 ## <a name="authentication-options-for-your-api"></a>Opzioni di autenticazione per l'API
 
-È possibile migliorare la sicurezza per le chiamate all'API personalizzata nei modi seguenti:
+È possibile migliorare la sicurezza per le chiamate all'API personalizzata nei modi seguenti:You can improve security for calls to your custom API in these ways:
 
 * [Nessuna modifica del codice](#no-code): proteggere l'API con [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) dal portale di Azure, in modo che non sia necessario aggiornare il codice o implementare nuovamente l'API.
 
@@ -46,14 +46,14 @@ L'app per la logica usa questa identità di applicazione di Azure AD per l'auten
 
 **Creare l'identità di applicazione per l'app per la logica nel portale di Azure**
 
-1. Nella [portale di Azure](https://portal.azure.com "https://portal.azure.com")scegliere **Azure Active Directory**. 
+1. Nel [portale di Azure](https://portal.azure.com "https://portal.azure.com") scegliere **Azure Active Directory**. 
 
 2. Verificare di essere nella stessa directory dell'app Web o app per le API.
 
    > [!TIP]
-   > Per passare da una directory all'altra, scegliere il profilo e selezionare un'altra directory. In alternativa, scegliere **Panoramica** > **Cambia directory**.
+   > Per passare da una directory all'altra, scegliere il profilo e selezionare un'altra directory. In alternativa, scegliere **Panoramica** > **Switch directory**.
 
-3. Nel menu delle directory scegliere da **Gestisci** **Registrazioni per l'app** > **Registrazione nuova applicazione**.
+3. Nel menu delle directory scegliere da **Gestisci****Registrazioni per l'app** > **Registrazione nuova applicazione**.
 
    > [!TIP]
    > Per impostazione predefinita, l'elenco delle registrazioni di app indica tutte le registrazioni di app presenti nella directory. Per visualizzare solo le registrazioni delle proprie app, selezionare **Le mie app** accanto alla casella di ricerca. 
@@ -99,7 +99,7 @@ L'app per la logica usa questa identità di applicazione di Azure AD per l'auten
 
 1. `$SecurePassword = Read-Host -AsSecureString`
 
-1. Immettere una password e premere INVIO.
+1. Immettere una password e premere Invio.
 
 1. `New-AzADApplication -DisplayName "MyLogicAppID" -HomePage "http://mydomain.tld" -IdentifierUris "http://mydomain.tld" -Password $SecurePassword`
 
@@ -113,9 +113,9 @@ Se l'app Web o l'app per le API è già stata distribuita, è possibile attivare
 
 **Creare l'identità di applicazione e attivare l'autenticazione nel portale di Azure per le app distribuite**
 
-1. Nella [portale di Azure](https://portal.azure.com "https://portal.azure.com")trovare e selezionare l'app Web o l'app per le API. 
+1. Nel [portale di Azure](https://portal.azure.com "https://portal.azure.com") individuare e selezionare l'app Web o l'app per le API. 
 
-2. In **Impostazioni** scegliere **Autenticazione/Autorizzazione**. In **Autenticazione servizio app** **attivare** l'autenticazione. In **Provider di autenticazione** scegliere **Azure Active Directory**.
+2. In **Impostazioni** scegliere **Autenticazione/Autorizzazione**. In **Autenticazione servizio app****attivare** l'autenticazione. In **Provider di autenticazione** scegliere **Azure Active Directory**.
 
    ![Attivare l'autenticazione](./media/logic-apps-custom-api-authentication/custom-web-api-app-authentication.png)
 
@@ -150,7 +150,7 @@ A questo punto è necessario trovare l'ID client e l'ID tenant per l'identità d
 
 **Attivare l'autenticazione quando si esegue la distribuzione con un modello di Azure Resource Manager**
 
-È comunque necessario creare un'identità dell'applicazione Azure AD per l'app Web o l'app per le API che differisce dall'identità dell'app per la logica. Per creare l'identità di applicazione, seguire i passaggi descritti in precedenza nella Parte 2 per il portale di Azure. 
+È comunque necessario creare un'identità dell'applicazione Azure AD per l'app Web o l'app API diversa da quella dell'app per la logica. Per creare l'identità di applicazione, seguire i passaggi descritti in precedenza nella Parte 2 per il portale di Azure. 
 
 È anche possibile seguire i passaggi della Parte 1, ma assicurarsi di usare l'elemento `https://{URL}` reale dell'app Web o app per le API per **URL accesso** e **URI dell'ID dell'app**. Da questi passaggi è necessario salvare sia l'ID client che l'ID tenant per usarli nel modello di distribuzione dell'app, nonché per la Parte 3.
 
@@ -179,13 +179,13 @@ Dopo aver ottenuto l'ID client e l'ID tenant, includerli come risorsa secondaria
 
 Per implementare automaticamente un'app Web vuota e un'app per la logica con l'autenticazione di Azure Active Directory, [visualizzare il modello completo qui](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-custom-api/azuredeploy.json) oppure fare clic su **Distribuzione in Azure** qui:
 
-[![Distribuzione in Azure](media/logic-apps-custom-api-authentication/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-custom-api%2Fazuredeploy.json)
+[![Distribuire in AzureDeploy to Azure](media/logic-apps-custom-api-authentication/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-custom-api%2Fazuredeploy.json)
 
 #### <a name="part-3-populate-the-authorization-section-in-your-logic-app"></a>Parte 3: Compilare la sezione Autorizzazione nell'app per la logica
 
 Questa sezione dell'autorizzazione è già stata configurata nel modello precedente, ma se si crea direttamente l'app per la logica, sarà necessario includere l'intera sezione relativa all'autorizzazione.
 
-Aprire la definizione dell'app per la logica nella visualizzazione codice, passare alla definizione dell'azione **http** , trovare la sezione **autorizzazione** e includere le proprietà seguenti:
+Apri la definizione dell'app per la logica nella visualizzazione codice, vai alla definizione dell'azione **HTTP,** trova la sezione **Autorizzazione** e includi queste proprietà:
 
 ```json
 {
@@ -238,7 +238,7 @@ Ad esempio:
 
 Per convalidare le richieste in ingresso dall'app per la logica all'app Web o all'app per le API, è possibile usare i certificati client. Per configurare il codice, vedere le informazioni relative alla [configurazione dell'autenticazione reciproca TLS](../app-service/app-service-web-configure-tls-mutual-auth.md).
 
-Nella sezione **autorizzazione** includere le proprietà seguenti:
+Nella sezione Autorizzazione includere le proprietà seguenti:In the **Authorization** section, include these properties:
 
 ```json
 {
@@ -261,7 +261,7 @@ Nella sezione **autorizzazione** includere le proprietà seguenti:
 
 Per convalidare le richieste in ingresso dall'app per la logica all'app Web o app per le API, è possibile usare l'autenticazione di base, ad esempio un nome utente e una password. L'autenticazione di base è un modello comune applicabile a qualsiasi linguaggio usato per compilare l'app Web o app per le API.
 
-Nella sezione **autorizzazione** includere le proprietà seguenti:
+Nella sezione Autorizzazione includere le proprietà seguenti:In the **Authorization** section, include these properties:
 
 ```json
 {

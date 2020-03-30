@@ -14,10 +14,10 @@ ms.date: 09/10/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 047ea4d07f2b497ac8c7deb90c056d63976094f4
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77617067"
 ---
 # <a name="monitoring-and-troubleshooting-from-hana-side"></a>Monitoraggio e risoluzione dei problemi dal lato HANA
@@ -35,7 +35,7 @@ Domande frequenti relative alle prestazioni di SAP HANA sono reperibili nelle no
 
 ## <a name="sap-hana-alerts"></a>Avvisi SAP HANA
 
-Innanzitutto controllare i log di avviso correnti di SAP HANA. In SAP HANA Studio passare a **Administration Console: Alerts: Show: all alerts** (Console di amministrazione: Avvisi: Mostra: tutti gli avvisi). Questa scheda mostra tutti gli avvisi di SAP HANA per valori specifici (memoria fisica disponibile, utilizzo della CPU e così via) che si trovano all'esterno delle soglie minima e massima stabilite. Per impostazione predefinita i controlli vengono aggiornati automaticamente ogni 15 minuti.
+Innanzitutto controllare i log di avviso correnti di SAP HANA. In SAP HANA Studio passare a **Console di amministrazione: Avvisi: Mostra: tutti gli avvisi**. Questa scheda mostra tutti gli avvisi di SAP HANA per valori specifici (memoria fisica disponibile, utilizzo della CPU e così via) che si trovano all'esterno delle soglie minima e massima stabilite. Per impostazione predefinita i controlli vengono aggiornati automaticamente ogni 15 minuti.
 
 ![In SAP HANA Studio passare ad Administration Console: Alerts: Show: all alerts (Console di amministrazione: Avvisi: Mostra: tutti gli avvisi)](./media/troubleshooting-monitoring/image1-show-alerts.png)
 
@@ -62,7 +62,7 @@ Il grafico di carico potrebbe mostrare un elevato utilizzo della CPU o un elevat
 
 ![Il grafico di carico potrebbe mostrare un elevato utilizzo della CPU o un elevato utilizzo precedente](./media/troubleshooting-monitoring/image4-load-graph.png)
 
-Un avviso generato a causa di un utilizzo elevato della CPU potrebbe essere causato da vari motivi, tra cui, a sua scelta, l'esecuzione di determinate transazioni, il caricamento di dati, processi che non rispondono, istruzioni SQL con esecuzione prolungata e prestazioni di query non valide, ad esempio con BW nei cubi HANA).
+Un avviso attivato a causa di un utilizzo elevato della CPU potrebbe essere causato da diversi motivi, tra cui, ma non limitato a: esecuzione di determinate transazioni, caricamento dei dati, processi che non rispondono, istruzioni SQL a esecuzione prolungata e prestazioni di query non ottimali (ad esempio, con BW sui cubi HANA).
 
 Per i passaggi dettagliati di risoluzione dei problemi, vedere il sito [SAP HANA Troubleshooting: CPU Related Causes and Solutions](https://help.sap.com/saphelp_hanaplatform/helpdata/en/4f/bc915462db406aa2fe92b708b95189/content.htm?frameset=/en/db/6ca50424714af8b370960c04ce667b/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=46&amp;show_children=false) (Risoluzione dei problemi di SAP HANA: suggerimenti e soluzioni per la CPU).
 
@@ -93,10 +93,10 @@ Per i passaggi dettagliati di risoluzione dei problemi, vedere il sito [SAP HANA
 Vedere la [nota SAP #2081065 dedicata alla risoluzione dei problemi di rete di SAP HANA](https://launchpad.support.sap.com/#/notes/2081065) e svolgere i passaggi di risoluzione dei problemi riportati in questa nota SAP.
 
 1. Analisi del tempo di round trip tra client e server.
-  A. Eseguire lo script SQL [_HANA\_Network\_Clients_](https://launchpad.support.sap.com/#/notes/1969700) _._
+  R. Eseguire lo script SQL [_HANA\_Network\_Clients_](https://launchpad.support.sap.com/#/notes/1969700)_._
   
 2. Analizzare le comunicazioni internodo.
-  A. Eseguire lo script SQL [_HANA\_Network\_Services_](https://launchpad.support.sap.com/#/notes/1969700) _._
+  R. Eseguire lo script SQL [_HANA\_Network\_Services_](https://launchpad.support.sap.com/#/notes/1969700)_._
 
 3. Eseguire il comando di Linux **ifconfig** (l'output mostra se si verificano perdite di pacchetti).
 4. Eseguire il comando di Linux **tcpdump**.
@@ -107,7 +107,7 @@ Per i passaggi dettagliati di risoluzione dei problemi, vedere il sito [SAP HANA
 
 ## <a name="storage"></a>Archiviazione
 
-Dal punto di vista dell'utente finale, un'applicazione (o il sistema nel suo complesso) viene eseguita lentamente, non risponde o può sembrare non rispondere se si verificano problemi con le prestazioni di I/O. Nella scheda **Volumes** (Volumi) di SAP HANA Studio è possibile visualizzare i volumi collegati e quali volumi sono utilizzati da ciascun servizio.
+Dal punto di vista dell'utente finale, un'applicazione (o il sistema nel suo complesso) viene eseguito lentamente, non risponde o può anche bloccarsi in caso di problemi con le prestazioni di I/O.From an end-user perspective, an application (or the system as a whole) runs sllyly, is unresponsively, is notto, or can even to stop responding if there are issues with I/O performance. Nella scheda **Volumes** (Volumi) di SAP HANA Studio è possibile visualizzare i volumi collegati e quali volumi sono utilizzati da ciascun servizio.
 
 ![Nella scheda Volumes (Volumi) di SAP HANA Studio è possibile visualizzare i volumi collegati e quali volumi sono utilizzati da ciascun servizio](./media/troubleshooting-monitoring/image5-volumes-tab-a.png)
 
@@ -123,7 +123,7 @@ Eseguire un controllo di integrità di SAP HANA tramite HANA\_Configuration\_Min
 
 Vedere la [nota SAP #1969700 dedicata alla raccolta di istruzioni SQL per SAP HANA](https://launchpad.support.sap.com/#/notes/1969700) e scaricare il file Statements.zip SQL associato alla nota. Salvare il file .zip sul disco rigido locale.
 
-In SAP HANA Studio, sulla scheda **System Information** (Informazioni di sistema), fare clic con il pulsante destro del mouse nella colonna **Name** (Nome) e selezionare **Import SQL Statements** (Importa istruzioni SQL).
+Nella scheda **Informazioni** di sistema di SAP HANA Studio fare clic con il pulsante destro del mouse nella colonna **Nome** e scegliere **Importa istruzioni SQL**.
 
 ![In SAP HANA Studio, sulla scheda System Information (Informazioni di sistema), fare clic con il pulsante destro del mouse nella colonna Nome (Nome) e selezionare Import SQL Statements (Importa istruzioni SQL)](./media/troubleshooting-monitoring/image7-import-statements-a.png)
 
@@ -135,7 +135,7 @@ Verrà visualizzata l'istruzione SQL completa e sarà possibile modificare i par
 
 ![Verrà visualizzata l'istruzione SQL completa e sarà possibile modificare i parametri di input (sezione di modifica) e poi eseguirla](./media/troubleshooting-monitoring/image8-import-statements-b.png)
 
-Un altro esempio è fare clic con il pulsante destro del mouse sulle istruzioni sotto **Replication: Overview**. Selezionare **Run** (Esegui) dal menu di scelta rapida:
+Un altro esempio è fare clic con il pulsante destro del mouse sulle istruzioni sotto **Replication: Overview**. Selezionare **Esegui** dal menu contestuale:
 
 ![Un altro esempio è fare clic con il pulsante destro del mouse sulle istruzioni sotto Replication: Overview. Selezionare Run (Esegui) dal menu di scelta rapida](./media/troubleshooting-monitoring/image9-import-statements-c.png)
 
@@ -147,7 +147,7 @@ Eseguire la stessa operazione per HANA\_Configuration\_Minichecks e cercare even
 
 Output di esempio:
 
-**HANA\_Configuration\_MiniChecks\_Rev102.01+1** per controlli SAP HANA generali.
+**HANA\_\_Configuration\_MiniChecks Rev102.01'1** per i controlli SAP HANA generali.
 
 ![HANA\_Configuration\_MiniChecks\_Rev102.01+1 per controlli SAP HANA generali](./media/troubleshooting-monitoring/image11-configuration-minichecks.png)
 
@@ -159,11 +159,11 @@ Output di esempio:
 
 ![HANA\_Services\_Statistics per informazioni sul servizio SAP HANA](./media/troubleshooting-monitoring/image13-services-statistics.png)
 
-**HANA\_Configuration\_Overview\_Rev110+** per informazioni generali sull'istanza di SAP HANA.
+**Panoramica\_\_\_della configurazione HANA Rev110** per informazioni generali sull'istanza SAP HANA.
 
 ![HANA\_Configuration\_Overview\_Rev110+ per informazioni generali sull'istanza di SAP HANA](./media/troubleshooting-monitoring/image14-configuration-overview.png)
 
-**HANA\_Configuration\_Parameters\_Rev70+** per controllare i parametri di SAP HANA.
+**HanA\_\_Configuration\_Parameters Rev70** per controllare i parametri SAP HANA.
 
 ![HANA\_Configuration\_Parameters\_Rev70+ per controllare i parametri di SAP HANA](./media/troubleshooting-monitoring/image15-configuration-parameters.png)
 

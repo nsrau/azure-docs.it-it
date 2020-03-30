@@ -1,6 +1,6 @@
 ---
 title: Associazioni di certificati
-description: Illustrare numerosi argomenti relativi ai certificati in un ambiente del servizio app. Informazioni sul funzionamento delle associazioni di certificati nelle app a tenant singolo in un ambiente del servizio app.
+description: Illustrare numerosi argomenti correlati ai certificati in un ambiente del servizio app. Informazioni sul funzionamento delle associazioni di certificati nelle app a tenant singolo in un servizio app.
 author: ccompy
 ms.assetid: 9e21a7e4-2436-4e81-bb05-4a6ba70eeaf7
 ms.topic: article
@@ -8,10 +8,10 @@ ms.date: 08/29/2018
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 65fc4ed25b0fd360de8e3b1439d1766485eb2e58
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74688650"
 ---
 # <a name="certificates-and-the-app-service-environment"></a>Certificati e Ambiente del servizio app 
@@ -48,7 +48,7 @@ Se si desidera creare rapidamente un certificato autofirmato per il test, è pos
 
     $fileName = "exportedcert.pfx"
     Export-PfxCertificate -cert $certThumbprint -FilePath $fileName -Password $password     
-Quando si crea un certificato autofirmato, è necessario assicurarsi che il nome del soggetto abbia il formato CN = {ASE_NAME_HERE} _InternalLoadBalancingASE.
+Quando si crea un certificato autofirmato, è necessario assicurarsi che il nome del soggetto abbia il formato CN,ASE_NAME_HERE_InternalLoadBalancingASE.
 
 ## <a name="application-certificates"></a>Certificati delle applicazioni 
 
@@ -58,7 +58,7 @@ Le app ospitate in un Ambiente del servizio app possono usare le funzionalità r
 - SSL basato su IP, supportato solo con un Ambiente del servizio app esterno.  Un ambiente del servizio app con bilanciamento del carico interno non supporta SSL basato su IP.
 - Certificati di Key Vault ospitato 
 
-Le istruzioni per il caricamento e la gestione di tali certificati sono disponibili in [aggiungere un certificato SSL nel servizio app Azure](../configure-ssl-certificate.md).  Se si stanno configurando i certificati semplicemente in modo da far corrispondere un nome di dominio personalizzato che è stato assegnato all'app Web, allora tali istruzioni sono sufficienti. Se si sta caricando il certificato per un'app Web di ambiente del servizio app con bilanciamento del carico con il nome di dominio predefinito, specificare il sito scm nella rete SAN del certificato come indicato in precedenza. 
+Le istruzioni per il caricamento e la gestione di tali certificati sono disponibili in Aggiungere un certificato SSL nel servizio app di [Azure.](../configure-ssl-certificate.md)  Se si stanno configurando i certificati semplicemente in modo da far corrispondere un nome di dominio personalizzato che è stato assegnato all'app Web, allora tali istruzioni sono sufficienti. Se si sta caricando il certificato per un'app Web di ambiente del servizio app con bilanciamento del carico con il nome di dominio predefinito, specificare il sito scm nella rete SAN del certificato come indicato in precedenza. 
 
 ## <a name="tls-settings"></a>Impostazioni di TLS 
 
@@ -78,7 +78,7 @@ Per caricare il certificato nell'app dell'Ambiente di servizio app:
 
     84EC242A4EC7957817B8E48913E50953552DAFA6,6A5C65DC9247F762FE17BF8D4906E04FE6B31819
 
-Il certificato sarà disponibile per tutte le app nello stesso piano di servizio app come l'app che ha permesso di configurare tale impostazione. Se è necessario che sia disponibile per le app in un piano di servizio app diverso, è necessario ripetere l'operazione di impostazione dell'app in un'app nel piano di servizio app. Per verificare che il certificato sia impostato, passare alla console Kudu ed eseguire il comando seguente nella console di debug di PowerShell:
+Il certificato sarà disponibile per tutte le app nello stesso piano di servizio app come l'app che ha permesso di configurare tale impostazione. Se è necessario che sia disponibile per le app in un piano di servizio app diverso, è necessario ripetere l'operazione di impostazione dell'app in un'app nel piano di servizio app. Per verificare che il certificato sia impostato, passare alla console di Kudu ed eseguire il comando seguente nella console di debug di PowerShell:
 
     dir cert:\localmachine\root
 

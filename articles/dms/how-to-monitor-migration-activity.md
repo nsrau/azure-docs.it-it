@@ -1,5 +1,5 @@
 ---
-title: Monitorare l'attività di migrazione-servizio migrazione del database di Azure
+title: Monitorare l'attività di migrazione - Servizio migrazione database di AzureMonitor migration activity - Azure Database Migration Service
 description: Informazioni sull'uso del Servizio Migrazione del database di Azure per monitorare l'attività di migrazione.
 services: database-migration
 author: pochiraju
@@ -12,13 +12,13 @@ ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/20/2020
 ms.openlocfilehash: 31b49cdd9e0e5569981b2a0b0c6efcab7239e019
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77648513"
 ---
-# <a name="monitor-migration-activity-using-the-azure-database-migration-service"></a>Monitorare l'attività di migrazione con il servizio migrazione del database di Azure
+# <a name="monitor-migration-activity-using-the-azure-database-migration-service"></a>Monitorare l'attività di migrazione usando il servizio di migrazione del database di AzureMonitor migration activity using the Azure Database Migration Service
 Questo articolo illustra come monitorare lo stato di avanzamento di una migrazione sia a livello di database sia a livello di tabella.
 
 ## <a name="monitor-at-the-database-level"></a>Monitoraggio a livello di database
@@ -54,7 +54,7 @@ Nella tabella seguente sono elencati i campi del pannello a livello di database 
       <td>Migrazione non riuscita. Selezionare il collegamento "Vedere i dettagli dell'errore" nei dettagli della migrazione per visualizzare il messaggio di errore completo.</td>
     </tr>
     <tr>
-      <td rowspan="4" class="Status"><strong>Status</strong></td>
+      <td rowspan="4" class="Status"><strong>Stato</strong></td>
       <td>Inizializzazione in corso</td>
       <td>Il Servizio Migrazione del database sta configurando la pipeline di migrazione.</td>
     </tr>
@@ -92,7 +92,7 @@ Nella tabella seguente sono elencati i campi del pannello a livello di database 
       <td>Fare clic sul collegamento per visualizzare i dettagli dell'errore.</td>
     </tr>
     <tr>
-      <td rowspan="1" class="duration"><strong>Duration</strong></td>
+      <td rowspan="1" class="duration"><strong>Durata</strong></td>
       <td>N/D</td>
       <td>Tempo totale dall'inizializzazione dell'attività di migrazione al completamento della migrazione con o senza errori.</td>
     </tr>
@@ -132,11 +132,11 @@ La tabella seguente descrive i campi visualizzati nello stato di avanzamento del
 | Nome campo        | Descrizione       |
 | ------------- | ------------- |
 | **Stato - Sincronizzazione**      | Sincronizzazione continua in esecuzione. |
-| **Inserimento**      | Numero di inserimenti CDC nelle righe applicati alla destinazione.      |
+| **Insert**      | Numero di inserimenti CDC nelle righe applicati alla destinazione.      |
 | **Aggiornamento** | Numero di aggiornamenti CDC nelle righe applicati alla destinazione.      |
 | **Elimina**      | Numero di eliminazioni CDC nelle righe applicate alla destinazione. |
 | **Totale applicato**      | Totale di aggiornamenti, inserimenti ed eliminazioni CDC nelle righe applicati alla destinazione. |
-| **Errori di dati** | Numero di errori di dati che si sono verificati nella tabella. Alcuni esempi di errori sono: *511: Cannot create a row of size %d which is greater than the allowable maximum row size of %d (Non è possibile creare una riga di dimensione %d, perché tale valore è maggiore della dimensione di riga massima consentita %d), 8114: Error converting data type %ls to %ls (Errore durante la conversione del tipo di dati %ls in %ls).*  Per visualizzare i dettagli dell'errore, è necessario eseguire una query dalla tabella dms_apply_exceptions nella destinazione di Azure.    |
+| **Errori dati** | Numero di errori di dati che si sono verificati nella tabella. Alcuni esempi di errori sono: *511: Cannot create a row of size %d which is greater than the allowable maximum row size of %d (Non è possibile creare una riga di dimensione %d, perché tale valore è maggiore della dimensione di riga massima consentita %d), 8114: Error converting data type %ls to %ls (Errore durante la conversione del tipo di dati %ls in %ls).*  Per visualizzare i dettagli dell'errore, è necessario eseguire una query dalla tabella dms_apply_exceptions nella destinazione di Azure.    |
 
 > [!NOTE]
 > I valori CDC di Inserimento, Aggiornamento, Eliminazione e Totale applicato possono diminuire quando viene eseguita la migrazione completa del database o quando la migrazione viene riavviata.

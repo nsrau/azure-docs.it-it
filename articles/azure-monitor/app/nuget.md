@@ -1,13 +1,13 @@
 ---
-title: Monitoraggio di Azure Application Insights pacchetti NuGet
-description: Monitoraggio di Azure Application Insights elenchi di pacchetti NuGet per ASP.NET, ASP.NET Core, Python
+title: Pacchetti NuGet di Azure Monitor Application InsightsAzure Monitor Application Insights NuGet packages
+description: Azure Monitor Application Insights NuGet packages lists for ASP.NET, ASP.NET Core, Python
 ms.topic: reference
 ms.date: 10/16/2018
 ms.openlocfilehash: 5675c0fad61f1b75aa7e93db02246eed43967ec2
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77669999"
 ---
 # <a name="application-insights-nuget-packages"></a>Pacchetti NuGet per Application Insights
@@ -40,18 +40,18 @@ Di seguito è disponibile l'elenco corrente di pacchetti NuGet di versioni stabi
 ## <a name="common-packages-for-python-using-opencensus"></a>Pacchetti comuni per Python con OpenCensus
 | Nome pacchetto | Versione stabile | Descrizione | Download |
 |-------------------------------|-----------------------|------------|----|
-| opencensus-EXT-Azure | 1.0.0 | Application Insights per le applicazioni Python in monitoraggio di Azure tramite OpenCensus. | [Scarica pacchetto](https://pypi.org/project/opencensus-ext-azure/) |
-| opencensus-EXT-Django | 0.7.2 | Questo pacchetto fornisce l'integrazione con la libreria [Django](https://pypi.org/project/django/) di Python. | [Scarica pacchetto](https://pypi.org/project/opencensus-ext-django/) |
-| opencensus-EXT-Flask | 0.7.3 | Questo pacchetto fornisce l'integrazione con la libreria Python [Flask](https://pypi.org/project/flask/) . | [Scarica pacchetto](https://pypi.org/project/opencensus-ext-flask/) |
-| opencensus-EXT-HttpLib | 0.7.2 | Questo pacchetto fornisce l'integrazione con la libreria [http. client](https://docs.python.org/3/library/http.client.html) Python per Python3 e [HttpLib](https://docs.python.org/2/library/httplib.html) per python2. | [Scarica pacchetto](https://pypi.org/project/opencensus-ext-httplib/) |
-| opencensus-EXT-registrazione | 0.1.0 | Questo pacchetto arricchisce i record di log con i dati di traccia. | [Scarica pacchetto](https://pypi.org/project/opencensus-ext-logging/) |
-| opencensus-ext-mysql | 0.1.2 | Questo pacchetto fornisce l'integrazione con la libreria Python [MySQL-Connector](https://pypi.org/project/mysql-connector/) . | [Scarica pacchetto](https://pypi.org/project/opencensus-ext-mysql/) |
-| opencensus-EXT-PostgreSQL | 0.1.2 | Questo pacchetto fornisce l'integrazione con la libreria [psycopg2](https://pypi.org/project/psycopg2/) di Python. | [Scarica pacchetto](https://pypi.org/project/opencensus-ext-postgresql/) |
-| opencensus-EXT-pymongo | 0.7.1 | Questo pacchetto fornisce l'integrazione con la libreria [pymongo](https://pypi.org/project/pymongo/) di Python. | [Scarica pacchetto](https://pypi.org/project/opencensus-ext-pymongo/) |
-| opencensus-EXT-pymysql | 0.1.2 | Questo pacchetto fornisce l'integrazione con la libreria [PyMySQL](https://pypi.org/project/PyMySQL/) di Python. | [Scarica pacchetto](https://pypi.org/project/opencensus-ext-pymysql/) |
-| opencensus-EXT-Pyramid | 0.7.1 | Questo pacchetto fornisce l'integrazione con la libreria [piramidale](https://pypi.org/project/pyramid/) di Python. | [Scarica pacchetto](https://pypi.org/project/opencensus-ext-pyramid/) |
-| opencensus-EXT-richieste | 0.7.2 | Questo pacchetto fornisce l'integrazione con la libreria delle [richieste](https://pypi.org/project/requests/) di Python. | [Scarica pacchetto](https://pypi.org/project/opencensus-ext-requests/) |
-| opencensus-EXT-SQLAlchemy | 0.1.2 | Questo pacchetto fornisce l'integrazione con la libreria Python [SQLAlchemy](https://pypi.org/project/SQLAlchemy/) . | [Scarica pacchetto](https://pypi.org/project/opencensus-ext-sqlalchemy/) |
+| opencensus-ext-azure | 1.0.0 | Application Insights for Python applications under Azure Monitor via OpenCensus. | [Scarica pacchetto](https://pypi.org/project/opencensus-ext-azure/) |
+| opencensus-ext-django | 0.7.2 | Questo pacchetto fornisce l'integrazione con la libreria Python [django.](https://pypi.org/project/django/) | [Scarica pacchetto](https://pypi.org/project/opencensus-ext-django/) |
+| opencensus-ext-flask | 0.7.3 | Questo pacchetto fornisce l'integrazione con la libreria [di palline](https://pypi.org/project/flask/) Python. | [Scarica pacchetto](https://pypi.org/project/opencensus-ext-flask/) |
+| opencensus-ext-httplib | 0.7.2 | Questo pacchetto fornisce l'integrazione con la libreria [http.client](https://docs.python.org/3/library/http.client.html) Python per Python3 e [httplib](https://docs.python.org/2/library/httplib.html) per Python2. | [Scarica pacchetto](https://pypi.org/project/opencensus-ext-httplib/) |
+| opencensus-ext-logging | 0.1.0 | Questo pacchetto arricchisce i record di log con i dati di traccia. | [Scarica pacchetto](https://pypi.org/project/opencensus-ext-logging/) |
+| opencensus-ext-mysql | 0.1.2 | Questo pacchetto fornisce l'integrazione con la libreria [mysql-connector](https://pypi.org/project/mysql-connector/) Python. | [Scarica pacchetto](https://pypi.org/project/opencensus-ext-mysql/) |
+| opencensus-ext-postgresql | 0.1.2 | Questo pacchetto fornisce l'integrazione con la libreria Python [psycopg2.](https://pypi.org/project/psycopg2/) | [Scarica pacchetto](https://pypi.org/project/opencensus-ext-postgresql/) |
+| opencensus-ext-pymongo | 0.7.1 | Questo pacchetto fornisce l'integrazione con la libreria [Python pymongo.](https://pypi.org/project/pymongo/) | [Scarica pacchetto](https://pypi.org/project/opencensus-ext-pymongo/) |
+| opencensus-ext-pymysql | 0.1.2 | Questo pacchetto fornisce l'integrazione con la libreria Python [PyMySQL.](https://pypi.org/project/PyMySQL/) | [Scarica pacchetto](https://pypi.org/project/opencensus-ext-pymysql/) |
+| opencensus-ext-pyramid | 0.7.1 | Questo pacchetto fornisce l'integrazione con la libreria [a piramide](https://pypi.org/project/pyramid/) Python.This package provides integration with the Python pyramid library. | [Scarica pacchetto](https://pypi.org/project/opencensus-ext-pyramid/) |
+| opencensus-ext-requests | 0.7.2 | Questo pacchetto fornisce l'integrazione con la libreria [di richieste](https://pypi.org/project/requests/) Python.This package provides integration with the Python requests library. | [Scarica pacchetto](https://pypi.org/project/opencensus-ext-requests/) |
+| opencensus-ext-sqlalchemy | 0.1.2 | Questo pacchetto fornisce l'integrazione con la libreria [Python SQLAlchemy.](https://pypi.org/project/SQLAlchemy/) | [Scarica pacchetto](https://pypi.org/project/opencensus-ext-sqlalchemy/) |
 
 ## <a name="listenerscollectorsappenders"></a>Listener/agenti di raccolta/appender
 

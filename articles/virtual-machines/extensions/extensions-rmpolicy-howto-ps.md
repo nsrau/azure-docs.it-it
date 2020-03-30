@@ -1,5 +1,5 @@
 ---
-title: Usare i criteri di Azure per limitare l'installazione dell'estensione VM
+title: Usare Criteri di Azure per limitare l'installazione dell'estensione della macchina virtualeUse Azure Policy to restrict VM extension installation
 description: Usare Criteri di Azure per limitare le distribuzioni di estensioni.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,10 +14,10 @@ ms.date: 03/23/2018
 ms.author: akjosh
 ms.reviewer: cynthn
 ms.openlocfilehash: 428db340ce43463939ce71ffadd4188060f3e732
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74073102"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-windows-vms"></a>Usare Criteri di Azure per limitare l'installazione di estensioni in macchine virtuali Windows
@@ -141,7 +141,7 @@ $assignment
 
 ## <a name="test-the-policy"></a>Testare i criteri
 
-Per testare i criteri, provare a usare l'estensione di accesso alla macchina virtuale. Il codice seguente dovrebbe avere esito negativo con il messaggio "set-AzVMAccessExtension: la risorsa ' myVMAccess ' non è consentita dai criteri".
+Per testare i criteri, provare a usare l'estensione di accesso alla macchina virtuale. Il codice seguente dovrebbe avere esito negativo con il messaggio "Set-AzVMAccessExtension: Resource 'myVMAccess' non consentito dai criteri."
 
 ```azurepowershell-interactive
 Set-AzVMAccessExtension `

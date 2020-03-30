@@ -1,5 +1,5 @@
 ---
-title: Mappa degli avvisi di sicurezza & Intelligence per le minacce-Centro sicurezza di Azure
+title: Mappa degli avvisi di & sicurezza della di Threat Intelligence - Centro sicurezza pc di Azure
 description: Informazioni su come usare la mappa degli avvisi di sicurezza e la funzionalità di intelligence per le minacce del Centro sicurezza di Azure per identificare le potenziali minacce nelle VM e nei computer.
 services: security-center
 documentationcenter: na
@@ -15,17 +15,17 @@ ms.workload: na
 ms.date: 09/3/2018
 ms.author: rkarlin
 ms.openlocfilehash: 39835d9d73adcbe474d3b70dfced313e18d1a3b3
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77603426"
 ---
 # <a name="security-alerts-map-and-threat-intelligence"></a>Mappa degli avvisi di sicurezza e intelligence per le minacce
 Questo articolo illustra come usare la mappa degli avvisi di sicurezza e la mappa dell'intelligence per le minacce basata su eventi di sicurezza del Centro sicurezza di Azure per risolvere i problemi relativi alla sicurezza.
 
 > [!NOTE]
-> Il pulsante mappa *eventi* di sicurezza è stato ritirato il 31 luglio 2019. Per ulteriori informazioni e servizi alternativi, vedere [ritiro delle funzionalità del Centro sicurezza (luglio 2019)](security-center-features-retirement-july2019.md#menu_securityeventsmap).
+> Il pulsante mappa *Eventi* di sicurezza è stato ritirato il 31 luglio 2019. Per ulteriori informazioni e servizi alternativi, vedere [Retirement of Security Center features (luglio 2019)](security-center-features-retirement-july2019.md#menu_securityeventsmap).
 
 
 ## <a name="how-the-security-alerts-map-works"></a>Funzionamento della mappa degli avvisi di sicurezza
@@ -60,7 +60,7 @@ Gli avvisi presenti nella mappa vengono visualizzati in base alla posizione geog
 ## <a name="see-also"></a>Vedere anche
 In questo articolo si è appreso come usare la funzionalità di intelligence per le minacce del Centro sicurezza per identificare le attività sospette. Per altre informazioni sul Centro sicurezza, vedere gli articoli seguenti:
 
-* [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Informazioni su come gestire gli avvisi e rispondere agli eventi imprevisti di sicurezza nel Centro sicurezza.
-* [Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md). Informazioni su come monitorare l'integrità delle risorse di Azure.
+* [Gestire e rispondere agli avvisi di sicurezza nel Centro sicurezza](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts)di Azure. Informazioni su come gestire gli avvisi e rispondere agli eventi imprevisti di sicurezza nel Centro sicurezza.
+* [Monitoraggio dell'integrità](security-center-monitoring.md)della sicurezza nel Centro sicurezza di Azure.Security health monitoring in Azure Security Center . Informazioni su come monitorare l'integrità delle risorse di Azure.
 * [Informazioni sugli avvisi di sicurezza nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Informazioni sui diversi tipi di avvisi di sicurezza.
 * [Guida alla risoluzione dei problemi del Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Informazioni su come risolvere i problemi comuni nel Centro sicurezza.

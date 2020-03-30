@@ -1,14 +1,14 @@
 ---
-title: 'Modello di dati di applicazione Azure Insights: telemetria di traccia'
+title: Azure Application Insights Data Model - Trace Telemetry
 description: Modello di dati di Application Insights per la telemetria delle tracce
 ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.openlocfilehash: 31958b26cdb8a7897cf0051af6600014c07949fd
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671954"
 ---
 # <a name="trace-telemetry-application-insights-data-model"></a>Telemetria delle tracce: modello di dati di Application Insights
@@ -32,7 +32,7 @@ Livello di gravità della traccia. Il valore può essere `Verbose`, `Information
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Esplorare i log di traccia .NET in Application Insights](../../azure-monitor/app/asp-net-trace-logs.md).
-- [Esplorare i log di traccia Java in Application Insights](../../azure-monitor/app/java-trace-logs.md).
+- [Esplorare i log](../../azure-monitor/app/java-trace-logs.md)di traccia Java in Application Insights .
 - Per informazioni sul modello di dati e sui tipi di Application Insights, vedere il [modello di dati](data-model.md).
 - [Scrivere dati di telemetria di traccia personalizzata](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace)
 - Verificare quali [piattaforme](../../azure-monitor/app/platforms.md) supportano Application Insights.

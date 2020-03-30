@@ -1,6 +1,6 @@
 ---
-title: Limiti del servizio di anteprima pubblica-gemelli di Azure Digital | Microsoft Docs
-description: Informazioni sul servizio di anteprima pubblica, sulla sottoscrizione, sull'istanza e sui limiti di velocità per i dispositivi gemelli digitali di Azure.
+title: Limiti del servizio di anteprima pubblico - Azure Digital Twins Documenti Microsoft
+description: Informazioni sui limiti di visualizzazione pubblica, sottoscrizione, istanza e frequenza per i gemelli digitali di Azure.Learn about public preview service, subscription, instance, and rate limits for Azure Digital Twins.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -9,17 +9,17 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/17/2020
 ms.openlocfilehash: 5e323d8faa19ceb0712aa6183df17740ce2a0a1d
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79370381"
 ---
 # <a name="public-preview-service-limits"></a>Limiti del servizio durante l'anteprima pubblica
 
 [!INCLUDE [digital-twins-preview-limit-alert](../../includes/digital-twins-preview-limit-alert.md)]
 
-Durante l'anteprima pubblica, i dispositivi gemelli digitali di Azure hanno i limiti di sottoscrizione, istanza e frequenza temporanei seguenti per i clienti esistenti. Si tratta di vincoli che consentono di semplificare l'apprendimento del nuovo servizio e delle sue numerose funzionalità, che verranno aumentate o rimosse da disponibilità generale (GA).
+Durante l'anteprima pubblica, i gemelli digitali di Azure hanno i limiti di sottoscrizione, istanza e frequenza temporanei seguenti per i clienti esistenti. Questi vincoli esistono per semplificare l'apprendimento del nuovo servizio e le sue numerose funzionalità e verranno aumentati o rimossi dalla disponibilità generale (GA).
 
 ## <a name="per-subscription-limits"></a>Limiti relativi alle sottoscrizioni
 
@@ -64,7 +64,7 @@ I limiti seguenti definiscono il numero totale di tutte le chiamate delle funzio
 
 I limiti seguenti si applicano al numero totale di tutti i messaggi che i dispositivi possono inviare all'istanza di Gemelli digitali di Azure:
 
-- 100 messaggi al secondo in tutti i dispositivi
+- 100 messaggi al secondo su tutti i dispositivi
 -    25 messaggi al secondo per dispositivo
 
 ## <a name="next-steps"></a>Passaggi successivi

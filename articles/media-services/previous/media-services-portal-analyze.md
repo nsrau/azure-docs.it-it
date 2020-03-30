@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 0e49e90209c7337081458b7c214d27b37d3b4da1
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74462622"
 ---
 # <a name="analyze-your-media-using-the-azure-portal"></a>Analizzare i contenuti multimediali usando il portale di Azure 
 
 > [!IMPORTANT]
-> Esaminare i [piani di pensionamento](media-services-analytics-overview.md#retirement-plans) di alcuni processori di contenuti multimediali.
+> Rivedere i piani di [pensionamento](media-services-analytics-overview.md#retirement-plans) di alcuni processori multimediali.
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 Analisi Servizi multimediali è una raccolta di componenti per sintesi vocale e visione artificiale, con conformità, sicurezza e copertura globale di livello enterprise, che semplificano alle aziende e alle organizzazioni l'acquisizione di informazioni dettagliate dai file video. Per una panoramica più dettagliata di Analisi Servizi multimediali, vedere [questo](media-services-analytics-overview.md) argomento. 
 
 Questo argomento illustra come elaborare i contenuti multimediali con processori di contenuti multimediali (MP) di Analisi Servizi multimediali tramite il portale di Azure. I processori di contenuti multimediali di Analisi Servizi multimediali producono file MP4 o JSON. Se un processore di contenuti multimediali produce un file MP4, è possibile scaricare progressivamente il file. Se un processore di contenuti multimediali produce un file JSON, è possibile scaricare il file da Archiviazione BLOB di Azure. 
@@ -49,7 +49,7 @@ Il processore di contenuti multimediali **Azure Media Indexer** consente di rend
 
 ![Analizzare i video](./media/media-services-portal-analyze/media-services-portal-analyze003.png)
 
-### <a name="language"></a>Lingua
+### <a name="language"></a>Linguaggio
 Linguaggio naturale da riconoscere nel file multimediale, ad esempio l'inglese o lo spagnolo. 
 
 ### <a name="captions"></a>Sottotitoli
@@ -69,7 +69,7 @@ Nome descrittivo che consente di identificare il processo. [Questo](media-servic
 ### <a name="output-file"></a>File di output
 Nome descrittivo che consente di identificare il contenuto di output. 
 
-### <a name="speed"></a>Velocità
+### <a name="speed"></a>speed
 Specificare la velocità di riproduzione del video di input. L'output è costituito da un rendering stabilizzato e in time-lapse del video di input.
 
 ### <a name="job-name"></a>Nome processo
@@ -131,7 +131,7 @@ Questo processore consente di rilevare contenuti potenzialmente pornografici e p
 
 ![Moderare i video](./media/media-services-portal-analyze/media-services-portal-analyze-content-moderator.PNG)
 
-### <a name="version"></a>Version 
+### <a name="version"></a>Versione 
 Usare "2.0".
 
 ### <a name="mode"></a>Mode

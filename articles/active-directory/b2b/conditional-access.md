@@ -1,5 +1,5 @@
 ---
-title: Accesso condizionale per gli utenti di collaborazione B2B-Azure AD
+title: Accesso condizionale per gli utenti di Collaborazione B2B - Azure ADConditional Access for B2B collaboration users - Azure AD
 description: La Collaborazione B2B di Azure Active Directory supporta l'autenticazione a più fattori (MFA) per l'accesso selettivo alle applicazioni aziendali
 services: active-directory
 ms.service: active-directory
@@ -12,13 +12,13 @@ manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c0b6ceba4c3c9202e2024b5c163c0e98bb6cbf55
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74273006"
 ---
-# <a name="conditional-access-for-b2b-collaboration-users"></a>Accesso condizionale per gli utenti di collaborazione B2B
+# <a name="conditional-access-for-b2b-collaboration-users"></a>Accesso condizionale per gli utenti di Collaborazione B2BConditional Access for B2B collaboration users
 
 ## <a name="multi-factor-authentication-for-b2b-users"></a>Autenticazione a più fattori per gli utenti B2B
 Con Collaborazione B2B di Azure AD, le organizzazioni possono applicare criteri di autenticazione a più fattori (MFA) per gli utenti B2B. Questi criteri possono essere applicati a livello di tenant, di app o di singolo utente, così come vengono abilitati per dipendenti a tempo pieno e membri dell'organizzazione. I criteri di autenticazione a più fattori (MFA) vengono applicati all'organizzazione delle risorse.
@@ -46,7 +46,7 @@ Guardare l'animazione seguente per visualizzare l'esperienza di riscatto:
 ### <a name="mfa-reset-for-b2b-collaboration-users"></a>Reimpostazione dell'autenticazione a più fattori per gli utenti di Collaborazione B2B
 L'amministratore attualmente può richiedere agli utenti di Collaborazione B2B di ripetere l'identificazione solo usando i cmdlet di PowerShell seguenti:
 
-1. Connettersi ad Azure AD
+1. Connessione ad Azure AD
 
    ```
    $cred = Get-Credential
@@ -57,7 +57,7 @@ L'amministratore attualmente può richiedere agli utenti di Collaborazione B2B d
    ```
    Get-MsolUser | where { $_.StrongAuthenticationMethods} | select UserPrincipalName, @{n="Methods";e={($_.StrongAuthenticationMethods).MethodType}}
    ```
-   Di seguito è fornito un esempio:
+   Esempio:
 
    ```
    Get-MsolUser | where { $_.StrongAuthenticationMethods} | select UserPrincipalName, @{n="Methods";e={($_.StrongAuthenticationMethods).MethodType}}
@@ -87,19 +87,19 @@ Infine, l'autenticazione a più fattori del tenant delle risorse funziona anche 
 
 Di conseguenza, per l'autenticazione a più fattori degli utenti B2B è consigliabile richiedere sempre l'autenticazione a più fattori nel tenant che emette l'invito. Questo requisito potrebbe causare la duplicazione dell'autenticazione a più fattori in alcuni casi, ma l'esperienza degli utenti finali è prevedibile a ogni accesso al tenant che emette l'invito: l'utente deve eseguire la registrazione al servizio MFA con tale tenant.
 
-### <a name="device-based-location-based-and-risk-based-conditional-access-for-b2b-users"></a>Accesso condizionale basato sul dispositivo, basato sulla posizione e sul rischio per gli utenti B2B
+### <a name="device-based-location-based-and-risk-based-conditional-access-for-b2b-users"></a>Accesso condizionale basato su dispositivo, posizione e rischio per gli utenti B2BDevice-based, location-based, and risk-based Conditional Access for B2B users
 
-Quando contoso Abilita i criteri di accesso condizionale basato su dispositivo per i dati aziendali, l'accesso viene impedito dai dispositivi non gestiti da Contoso e non conformi ai criteri per i dispositivi di contoso.
+Quando Contoso abilita i criteri di accesso condizionale basati su dispositivo per i dati aziendali, l'accesso viene impedito dai dispositivi non gestiti da Contoso e non conformi ai criteri dei dispositivi Contoso.
 
-Se il dispositivo dell'utente B2B non è gestito da Contoso, l'accesso degli utenti B2B delle organizzazioni partner viene bloccato in qualsiasi contesto vengano applicati i criteri. Tuttavia, Contoso può creare elenchi di esclusione contenenti utenti partner specifici per escluderli dal criterio di accesso condizionale basato su dispositivo.
+Se il dispositivo dell'utente B2B non è gestito da Contoso, l'accesso degli utenti B2B delle organizzazioni partner viene bloccato in qualsiasi contesto vengano applicati i criteri. Tuttavia, Contoso può creare elenchi di esclusione contenenti utenti partner specifici per escluderli dai criteri di accesso condizionale basati su dispositivo.
 
 #### <a name="mobile-application-management-policies-for-b2b"></a>Criteri di gestione delle applicazioni mobili per B2B
 
-I criteri di protezione delle app con accesso condizionale non possono essere applicati agli utenti B2B perché l'organizzazione che invia l'invito non ha visibilità sull'organizzazione principale dell'utente B2B.
+I criteri di protezione delle app con accesso condizionale non possono essere applicati agli utenti B2B perché l'organizzazione invitante non ha visibilità nell'organizzazione principale dell'utente B2B.
 
 #### <a name="location-based-conditional-access-for-b2b"></a>Accesso condizionale basato sulla posizione per B2B
 
-I criteri di accesso condizionale basati sulla posizione possono essere applicati per gli utenti B2B se l'organizzazione che invia l'invito è in grado di creare un intervallo di indirizzi IP attendibili che definisce le organizzazioni partner.
+I criteri di accesso condizionale basati sulla posizione possono essere applicati per gli utenti B2B se l'organizzazione invitante è in grado di creare un intervallo di indirizzi IP attendibili che definisce le organizzazioni partner.
 
 #### <a name="risk-based-conditional-access-for-b2b"></a>Accesso condizionale basato sul rischio per B2B
 
@@ -109,6 +109,6 @@ Attualmente non è possibile applicare criteri di accesso basati sui rischi agli
 
 Vedere gli articoli seguenti su Collaborazione B2B di Azure AD:
 
-* [Che cos'è Azure AD B2B Collaboration?](what-is-b2b.md)
-* [Licenze per la collaborazione B2B di Azure AD](licensing-guidance.md)
+* [Che cos'è la collaborazione B2B di Azure AD?](what-is-b2b.md)
+* [Licenze per la Collaborazione B2B di Azure AD](licensing-guidance.md)
 * [Domande frequenti su Collaborazione B2B di Azure Active Directory](faq.md)

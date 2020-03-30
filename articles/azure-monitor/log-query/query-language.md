@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 01/11/2019
 ms.openlocfilehash: fc943ac3cf82d22a58d0ba3390ad8d9bbee6a4c9
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77669388"
 ---
 # <a name="azure-monitor-log-queries"></a>Query di log di Monitoraggio di Azure
@@ -20,7 +20,7 @@ I log di Monitoraggio di Azure si basano su Esplora dati, mentre le query di log
 
 ## <a name="getting-started"></a>Introduzione
 
-- [Introduzione a monitoraggio di Azure log Analytics](get-started-portal.md) è una lezione per la scrittura di query e l'uso dei risultati nel portale di Azure.
+- [Introduzione a Azure Monitor Log Analytics](get-started-portal.md) è una lezione per la scrittura di query e l'uso dei risultati nel portale di Azure.Get started with Azure Monitor Log Analytics is a lesson for writing queries and working with results in the Azure portal.
 - [Introduzione alle query di log in Monitoraggio di Azure](get-started-queries.md) è una lezione per la scrittura di query e l'uso con i dati di log di Monitoraggio di Azure.
 
 ## <a name="concepts"></a>Concetti

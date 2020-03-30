@@ -1,32 +1,32 @@
 ---
-title: Modulo e matrice di versioni di Ansible per Azure | Microsoft Docs
+title: Matrice di modulo e di versione di ansible per Azure Documenti Microsoft
 description: Modulo Ansible e matrice della versione per Azure
 keywords: ansible, ruoli, matrice, versione, azure, devops
 ms.topic: reference
 ms.date: 10/14/2019
 ms.openlocfilehash: 54e27c7570ba1cdbce7355740181d68a2f3efbac
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74155979"
 ---
 # <a name="ansible-module-and-version-matrix"></a>Modulo Ansible e matrice della versione
 
-Ansible include una suite di moduli da usare per il provisioning e la configurazione delle risorse di Azure. Queste risorse includono macchine virtuali, set di scalabilità, servizi di rete e servizi contenitore. Questo articolo elenca i vari moduli Ansible per Azure e le versioni di Ansible in cui sono forniti.
+Ansible include una suite di moduli da usare per il provisioning e la configurazione delle risorse di Azure. Queste risorse includono macchine virtuali, set di scalabilità, servizi di rete e servizi contenitore. Questo articolo elenca i vari moduli di Ansible per Azure e le versioni di Ansible in cui vengono spediti.
 
 ## <a name="ansible-modules-for-azure"></a>Moduli Ansible per Azure
 
-I moduli seguenti possono essere eseguiti direttamente su host remoti o tramite PlayBook.  
+I seguenti moduli possono essere eseguiti direttamente su host remoti o tramite playbook.  
 
-Questi moduli sono disponibili dalla versione ufficiale di Ansible e dai ruoli di Microsoft PlayBook seguenti.
+Questi moduli sono disponibili dalla versione ufficiale di Ansible e dai seguenti ruoli di playbook Microsoft.
 
 > [!NOTE]
-> Da Ansible 2,9 in poi, abbiamo rinominato tutti i * _facts moduli in * _info per rispettare la convenzione di denominazione Ansible. I moduli obsoleti e rinominati sono collegati, oltre a visualizzare un avviso di deprecazione, tutti i moduli funzionano come prima.
+> Da Ansible 2.9 in poi, abbiamo rinominato tutti i moduli di _facts in _info per rispettare la convenzione di denominazione Ansible. I moduli vecchi e rinominati sono collegati in modo che, oltre a vedere un avviso di deprecazione, tutti i moduli funzionano come prima.
 
-| Modulo Ansible per Azure                   |  Ansible 2.4 |  Ansible 2.5 |  Ansible 2.6 | Ansible 2.7 | Ansible 2,8 | Ansible 2,9 | Ruolo Ansible | 
+| Modulo Ansible per Azure                   |  Ansible 2.4 |  Ansible 2.5 |  Ansible 2.6 | Ansible 2.7 | Orsibile 2.8 | Orsibile 2.9 | Ruolo Ansible | 
 |---------------------------------------------|--------------|--------------|-----------------------------|-------------------------------------|--------------|--------------|--------------|  
-| **Calcolo**                    |           |                          |                          |                            |           |           |           |
+| **Calcolare**                    |           |                          |                          |                            |           |           |           |
 | azure_rm_availabilityset                   | Sì          | Sì                         | Sì          | Sì          | Sì          | Sì          | Sì          |
 | azure_rm_availabilityset_info              | Sì          | Sì                         | Sì          | Sì          | Sì          | Sì          | Sì          |
 | azure_rm_batchaccount                       | -            | -                           | -            | -            | -            | Sì          | Sì          |
@@ -157,7 +157,7 @@ Questi moduli sono disponibili dalla versione ufficiale di Ansible e dai ruoli d
 | azure_rm_sqlfirewallrule_info              | -            | -                           | -            | -            | Sì          | Sì          | Sì          |
 | azure_rm_sqlserver                          | -            | Sì                         | Sì          | Sì          | Sì          | Sì          | Sì          |
 | azure_rm_sqlserver_info                    | -            | Sì                         | Sì          | Sì          | Sì          | Sì          | Sì          |
-| **Analisi**                    |           |                          |                          |                             |           |           |          |
+| **Analitica**                    |           |                          |                          |                             |           |           |          |
 | azure_rm_hdinsightcluster                   | -            | -                           | -            | -            | Sì          | Sì          | Sì          |
 | azure_rm_hdinsightcluster_info              | -            | -                           | -            | -            | -            | Sì          | Sì          |
 | **Integrazione**                    |           |                          |                          |                             |           |           |          |
@@ -217,10 +217,10 @@ Questi moduli sono disponibili dalla versione ufficiale di Ansible e dai ruoli d
 
 ## <a name="introduction-to-playbook-role-for-azure"></a>Introduzione al ruolo playbook per Azure
 
-Il [ruolo playbook azure_preview_module](https://galaxy.ansible.com/Azure/azure_preview_modules/) include tutti i moduli di Azure più recenti. Gli aggiornamenti e le correzioni di bug vengono apportati in modo più tempestivo rispetto alla versione ufficiale di Ansible. Se si usa Ansible per il provisioning delle risorse di Azure, si consiglia di installare il ruolo PlayBook `azure_preview_module`.
+Il [ruolo di playbook azure_preview_module](https://galaxy.ansible.com/Azure/azure_preview_modules/) include tutti i moduli di Azure più recenti. Gli aggiornamenti e le correzioni di bug vengono apportati in modo più tempestivo rispetto alla versione ufficiale di Ansible. Se si usa Ansible per il provisioning delle risorse `azure_preview_module` di Azure, si consiglia di installare il ruolo Playbook.If you use Ansible for Azure resource provisioning purposes, you're over let to install the playbook role.
 
-Il ruolo PlayBook `azure_preview_module` viene rilasciato ogni tre settimane.
+Il `azure_preview_module` ruolo del playbook viene rilasciato ogni tre settimane.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per ulteriori informazioni sui ruoli PlayBook, vedere [creazione di PlayBook riutilizzabili](https://docs.ansible.com/ansible/latest/playbooks_reuse.html). 
+Per ulteriori informazioni sui ruoli del playbook, consultate [Creazione di playbook riutilizzabili.](https://docs.ansible.com/ansible/latest/playbooks_reuse.html) 

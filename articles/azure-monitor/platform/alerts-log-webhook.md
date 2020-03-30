@@ -1,6 +1,6 @@
 ---
-title: Azioni webhook per gli avvisi del log in avvisi di Azure
-description: Questo articolo descrive come creare una regola di avviso del log usando l'area di lavoro Log Analytics o Application Insights, il modo in cui l'avviso inserisce i dati come un webhook HTTP e i dettagli delle diverse personalizzazioni possibili.
+title: Azioni di Webhook per gli avvisi di log negli avvisi di AzureWebhook actions for log alerts in Azure alerts
+description: In questo articolo viene descritto come creare una regola di avviso del log usando l'area di lavoro log Analytics o Application Insights, come l'avviso esegue il push dei dati come webhook HTTP e i dettagli delle diverse personalizzazioni possibili.
 author: yanivlavi
 ms.author: yalavi
 services: monitoring
@@ -8,55 +8,55 @@ ms.topic: conceptual
 ms.date: 06/25/2019
 ms.subservice: alerts
 ms.openlocfilehash: 7b1956ad2bf9bf38ba9edc4c7234078557564071
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77667704"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Azioni webhook per le regole di avviso relative ai log
-Quando [viene creato un avviso del log in Azure](alerts-log.md), è possibile [configurarlo usando i gruppi di azioni](action-groups.md) per eseguire una o più azioni. Questo articolo descrive le diverse azioni webhook disponibili e Mostra come configurare un webhook basato su JSON personalizzato.
+Quando [viene creato](alerts-log.md)un avviso di log in Azure , è possibile [configurarlo usando](action-groups.md) i gruppi di azioni per eseguire una o più azioni. Questo articolo descrive le diverse azioni webhook disponibili e mostra come configurare un webhook personalizzato basato su JSON.
 
 > [!NOTE]
-> È anche possibile usare lo [schema di avviso comune](https://aka.ms/commonAlertSchemaDocs) per le integrazioni del webhook. Lo schema di avviso comune offre il vantaggio di avere un singolo payload di avvisi estendibile e unificato in tutti i servizi Alert di monitoraggio di Azure. si noti che lo schema di avviso comune non rispetta l'opzione JSON personalizzata per gli avvisi del log. Viene rinviato il payload dello schema di avviso comune se selezionato indipendentemente dalla personalizzazione che è possibile eseguire a livello di regola di avviso. [Informazioni sulle definizioni comuni dello schema di avviso.](https://aka.ms/commonAlertSchemaDefinitions)
+> È inoltre possibile utilizzare lo schema di [avviso comune](https://aka.ms/commonAlertSchemaDocs) per le integrazioni webhook. Lo schema degli avvisi comune offre il vantaggio di disporre di un singolo payload di avvisi estensibile e unificato in tutti i servizi di avviso in Monitoraggio di Azure.Si noti che lo schema di avviso comune non rispetta l'opzione JSON personalizzata per gli avvisi di log. Rinvia al payload dello schema di avviso comune se viene selezionato indipendentemente dalla personalizzazione che potrebbe essere stata eseguita a livello di regola di avviso. [Informazioni sulle definizioni dello schema di avviso comuni.](https://aka.ms/commonAlertSchemaDefinitions)
 
 ## <a name="webhook-actions"></a>Azioni webhook
 
-Con le azioni webhook è possibile richiamare un processo esterno tramite una singola richiesta HTTP POST. Il servizio chiamato deve supportare i webhook e determinare come usare qualsiasi payload che riceve.
+Con le azioni webhook, è possibile richiamare un processo esterno tramite una singola richiesta HTTP POST. Il servizio chiamato deve supportare i webhook e determinare come usare qualsiasi payload ricevuto.
 
 Le azioni webhook includono le proprietà elencate nella tabella seguente.
 
 | Proprietà | Descrizione |
 |:--- |:--- |
 | **URL di webhook** |URL del webhook. |
-| **Payload JSON personalizzato** |Payload personalizzato da inviare con il webhook quando si sceglie questa opzione durante la creazione dell'avviso. Per altre informazioni, vedere [gestire gli avvisi del log](alerts-log.md).|
+| **Payload JSON personalizzato** |Payload personalizzato da inviare con il webhook quando questa opzione viene scelta durante la creazione dell'avviso. Per ulteriori informazioni, vedere [Gestire gli avvisi di registro](alerts-log.md).|
 
 > [!NOTE]
-> Il pulsante **Visualizza webhook** insieme all'opzione **Includi payload JSON personalizzato per il webhook** per l'avviso di log Visualizza il payload del webhook di esempio per la personalizzazione fornita. Non contiene dati effettivi, ma è rappresentativo dello schema JSON usato per gli avvisi del log. 
+> Il pulsante **Visualizza Webhook** accanto all'opzione **Includi payload JSON personalizzato per webhook per** l'avviso di log visualizza il payload webhook di esempio per la personalizzazione fornita. Non contiene dati effettivi, ma è rappresentativo dello schema JSON utilizzato per gli avvisi di log. 
 
-I webhook includono un URL e un payload formattato in JSON che i dati sono stati inviati al servizio esterno. Per impostazione predefinita, il payload include i valori riportati nella tabella seguente. È possibile scegliere di sostituire questo payload con un payload personalizzato. In tal caso, usare le variabili nella tabella per ognuno dei parametri per includere i relativi valori nel payload personalizzato.
+I webhook includono un URL e un payload formattato in JSON che i dati inviati al servizio esterno. Per impostazione predefinita, il payload include i valori riportati nella tabella seguente. È possibile scegliere di sostituire questo payload con un payload personalizzato. In tal caso, usare le variabili nella tabella per ognuno dei parametri per includere i relativi valori nel payload personalizzato.
 
 
-| Parametro | Variable | Descrizione |
+| Parametro | Variabile | Descrizione |
 |:--- |:--- |:--- |
-| *AlertRuleName* |#alertrulename |Nome della regola di avviso. |
-| *Severity* |#severity |Livello di gravità impostato per l'avviso di log attivato. |
-| *AlertThresholdOperator* |#thresholdoperator |Operatore di soglia per la regola di avviso, che usa maggiore di o minore di. |
+| *AlertRuleName (Nome AlertRule)* |#alertrulename |Nome della regola di avviso. |
+| *Gravità* |#severity |Livello di gravità impostato per l'avviso di log attivato. |
+| *AlertThresholdOperator* |#thresholdoperator |Operatore di soglia per la regola di avviso, che utilizza maggiore o minore di. |
 | *AlertThresholdValue* |#thresholdvalue |Valore di soglia per la regola di avviso. |
-| *LinkToSearchResults* |#linktosearchresults |Collegamento al portale di Analytics che restituisce i record della query che ha creato l'avviso. |
+| *LinkToSearchRisultati* |#linktosearchresults |Collegamento al portale di Analytics che restituisce i record della query che ha creato l'avviso. |
 | *ResultCount* |#searchresultcount |Numero di record nei risultati della ricerca. |
-| *Ora di fine dell'intervallo di ricerca* |#searchintervalendtimeutc |Ora di fine della query in formato UTC, con formato MM/GG/AAAA HH: mm: ss AM/PM. |
-| *Intervallo di ricerca* |#searchinterval |Intervallo di tempo per la regola di avviso, con formato HH: mm: SS. |
-| *Intervallo di ricerca StartTime* |#searchintervalstarttimeutc |Ora di inizio per la query in formato UTC, con formato MM/GG/AAAA HH: mm: ss AM/PM. 
+| *Ora di fine dell'intervallo di ricerca* |#searchintervalendtimeutc |Ora di fine della query in formato UTC, con il formato mm/gg/aaaa HH:mm:ss AM/PM. |
+| *Intervallo di ricerca* |#searchinterval |Intervallo di tempo per la regola di avviso, con il formato HH:mm:ss. |
+| *Ora di inizio dell'intervallo di ricerca* |#searchintervalstarttimeutc |Ora di inizio della query in formato UTC, con il formato mm/gg/aaaa HH:mm:ss AM/PM. 
 | *SearchQuery* |#searchquery |Query di ricerca nei log usata dalla regola di avviso. |
-| *SearchResults* |"IncludeSearchResults": true|Record restituiti dalla query come tabella JSON, limitati ai primi 1.000 record, se "IncludeSearchResults": true viene aggiunto in una definizione personalizzata del webhook JSON come proprietà di primo livello. |
-| *Tipo di avviso*| #alerttype | Tipo di regola di avviso del log configurata come [misurazione metrica](alerts-unified-log.md#metric-measurement-alert-rules) o [numero di risultati](alerts-unified-log.md#number-of-results-alert-rules).|
-| *WorkspaceID* |#workspaceid |ID dell'area di lavoro Log Analytics. |
+| *SearchResults* |"IncludeSearchResults": true|Record restituiti dalla query come tabella JSON, limitata ai primi 1.000 record, se "IncludeSearchResults": true viene aggiunto in una definizione webhook JSON personalizzata come proprietà di primo livello. |
+| *Tipo di avviso*| #alerttype | Tipo di regola di avviso del registro configurata come [Misurazione metrica](alerts-unified-log.md#metric-measurement-alert-rules) o [Numero di risultati](alerts-unified-log.md#number-of-results-alert-rules).|
+| *ID area di lavoro* |#workspaceid |ID dell'area di lavoro Log Analytics. |
 | *ID applicazione* |#applicationid |ID dell'app Application Insights. |
 | *ID sottoscrizione* |#subscriptionid |ID della sottoscrizione di Azure usata. 
 
 > [!NOTE]
-> *LinkToSearchResults* passa parametri come *SearchQuery*, l' *intervallo di ricerca StartTime*e l' *ora di fine dell'intervallo di ricerca* nell'URL per la portale di Azure per la visualizzazione nella sezione Analytics. Il portale di Azure ha un limite di dimensioni dell'URI di circa 2.000 caratteri. Il portale *non* aprirà i collegamenti forniti negli avvisi se i valori dei parametri superano il limite. È possibile immettere manualmente i dettagli per visualizzare i risultati nel portale di analisi. In alternativa, è possibile usare l' [API REST di Application Insights Analytics](https://dev.applicationinsights.io/documentation/Using-the-API) o l' [api REST di log Analytics](/rest/api/loganalytics/) per recuperare i risultati a livello di codice. 
+> *LinkToSearchResults* passa parametri come *SearchQuery*, Ora di inizio *intervallo*di ricerca e Ora di fine *intervallo* di ricerca nell'URL del portale di Azure per la visualizzazione nella sezione Analisi. Il portale di Azure ha un limite di dimensione URI di circa 2.000 caratteri. Il portale *non* aprirà i collegamenti forniti negli avvisi se i valori dei parametri superano il limite. È possibile immettere manualmente i dettagli per visualizzare i risultati nel portale di Analytics. In alternativa, è possibile usare [l'API REST di Application Insights Analytics](https://dev.applicationinsights.io/documentation/Using-the-API) o l'API REST di Log [Analytics](/rest/api/loganalytics/) per recuperare i risultati a livello di codice. 
 
 Ad esempio, è possibile specificare il payload personalizzato seguente che include un singolo parametro denominato *text*. Il servizio chiamato da questo webhook prevede questo parametro.
 
@@ -66,25 +66,25 @@ Ad esempio, è possibile specificare il payload personalizzato seguente che incl
         "text":"#alertrulename fired with #searchresultcount over threshold of #thresholdvalue."
     }
 ```
-Questo payload di esempio viene risolto in un modo simile al seguente quando viene inviato al webhook:
+Questo payload di esempio viene risolto in un nome simile al seguente quando viene inviato al webhook:This example payload resolves to something like the following when it's sent to the webhook:
 
 ```json
     {
         "text":"My Alert Rule fired with 18 records over threshold of 10 ."
     }
 ```
-Poiché tutte le variabili in un webhook personalizzato devono essere specificate all'interno di un'enclosure JSON, ad esempio "#searchinterval", il webhook risultante contiene anche dati variabili all'interno di enclosure, ad esempio "00:05:00".
+Poiché tutte le variabili in un webhook personalizzato devono essere specificate all'interno di uno chassis JSON, ad esempio "#searchinterval", il webhook risultante dispone anche di dati variabili all'interno di enclosure, ad esempio "00:05:00".
 
-Per includere i risultati della ricerca in un payload personalizzato, assicurarsi che **IncludeSearchResults** sia impostato come proprietà di primo livello nel payload JSON. 
+Per includere i risultati della ricerca in un payload personalizzato, assicurati che **IncludeSearchResults** sia impostato come proprietà di primo livello nel payload JSON. 
 
 ## <a name="sample-payloads"></a>Payload di esempio
-Questa sezione illustra i payload di esempio per i webhook per gli avvisi del log. I payload di esempio includono esempi quando il payload è standard e quando è personalizzato.
+Questa sezione mostra payload di esempio per i webhook per gli avvisi di log. I payload di esempio includono esempi quando il payload è standard e quando è personalizzato.
 
-### <a name="standard-webhook-for-log-alerts"></a>Webhook standard per gli avvisi del log 
-In entrambi questi esempi è presente un payload fittizio con solo due colonne e due righe.
+### <a name="standard-webhook-for-log-alerts"></a>Webhook standard per gli avvisi di logStandard webhook for log alerts 
+Entrambi questi esempi hanno un payload fittizio con solo due colonne e due righe.
 
-#### <a name="log-alert-for-log-analytics"></a>Avviso di log per Log Analytics
-Il payload di esempio seguente è per un'azione webhook standard *senza un'opzione JSON personalizzata* utilizzata per gli avvisi basati su log Analytics:
+#### <a name="log-alert-for-log-analytics"></a>Log alert for Log Analytics
+Il payload di esempio seguente è per un'azione webhook standard *senza un'opzione JSON personalizzata* usata per gli avvisi basati su Log Analytics:The following sample payload is for a standard webhook action without a custom JSON option that's used for alerts based on Log Analytics:
 
 ```json
 {
@@ -123,11 +123,11 @@ Il payload di esempio seguente è per un'azione webhook standard *senza un'opzio
  ```
 
 > [!NOTE]
-> Il valore del campo "gravità" potrebbe cambiare se è stata cambiata [la preferenza dell'API per gli](alerts-log-api-switch.md) avvisi del log in log Analytics.
+> Il valore del campo "Gravità" potrebbe cambiare se hai [cambiato la preferenza API](alerts-log-api-switch.md) per gli avvisi di log in Log Analytics.
 
 
-#### <a name="log-alert-for-application-insights"></a>Avviso di log per Application Insights
-Il payload di esempio seguente è relativo a un webhook standard *senza un'opzione JSON personalizzata* quando viene usato per gli avvisi di log in base a Application Insights:
+#### <a name="log-alert-for-application-insights"></a>Log alert for Application Insights
+Il payload di esempio seguente è per un webhook standard *senza un'opzione JSON personalizzata* quando viene usato per registrare avvisi basati su Application Insights:The following sample payload is for a standard webhook without a custom JSON option when it's used for log alerts based on Application Insights:
     
 ```json
 {
@@ -168,8 +168,8 @@ Il payload di esempio seguente è relativo a un webhook standard *senza un'opzio
 }
 ```
 
-#### <a name="log-alert-with-custom-json-payload"></a>Avviso di log con payload JSON personalizzato
-Ad esempio, per creare un payload personalizzato che includa solo il nome dell'avviso e i risultati della ricerca, è possibile usare quanto segue: 
+#### <a name="log-alert-with-custom-json-payload"></a>Avviso di log con payload JSON personalizzatoLog alert with custom JSON payload
+Ad esempio, per creare un payload personalizzato che include solo il nome dell'avviso e i risultati della ricerca, è possibile usare quanto segue:For example, to create a custom payload that includes just the alert name and the search results, you can use the following: 
 
 ```json
     {
@@ -178,7 +178,7 @@ Ad esempio, per creare un payload personalizzato che includa solo il nome dell'a
     }
 ```
 
-Il payload di esempio seguente è per un'azione webhook personalizzata per qualsiasi avviso di log:
+Il payload di esempio seguente è per un'azione webhook personalizzata per qualsiasi avviso di log:The following sample payload is for a custom webhook action for any log alert:
     
 ```json
     {
@@ -205,9 +205,9 @@ Il payload di esempio seguente è per un'azione webhook personalizzata per quals
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Informazioni sugli [avvisi del log in avvisi di Azure](alerts-unified-log.md).
-- Informazioni su come [gestire gli avvisi del log in Azure](alerts-log.md).
-- Creare e gestire [gruppi di azioni in Azure](action-groups.md).
+- Informazioni sugli avvisi di log negli avvisi di [Azure.](alerts-unified-log.md)
+- Informazioni su come [gestire gli avvisi di log in Azure.Understand](alerts-log.md)how to manage log alerts in Azure .
+- Creare e gestire [gruppi di azioni in Azure.](action-groups.md)
 - Altre informazioni su [Application Insights](../../azure-monitor/app/analytics.md).
-- Altre informazioni sulle [query di log](../log-query/log-query-overview.md). 
+- Ulteriori informazioni sulle query di [log](../log-query/log-query-overview.md). 
 

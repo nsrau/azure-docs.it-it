@@ -1,19 +1,19 @@
 ---
 title: ripristinare le macchine virtuali di Azure con l'API REST
-description: Questo articolo illustra come gestire le operazioni di ripristino del backup delle macchine virtuali di Azure usando l'API REST.
+description: In questo articolo viene illustrato come gestire le operazioni di ripristino di Backup macchina virtuale di Azure usando l'API REST.
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
 ms.openlocfilehash: 4990d815721ddbdde8e6eb6ebf8d6d3b49adc700
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74173375"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>Ripristinare le macchine virtuali di Azure con l'API REST
 
-Una volta completato il backup di una macchina virtuale di Azure con backup di Azure, è possibile ripristinare intere macchine virtuali o dischi o file di Azure dalla stessa copia di backup. Questo articolo descrive come ripristinare una macchina virtuale di Azure oppure dischi tramite l'API REST.
+Una volta completato il backup di una macchina virtuale di Azure con Backup di Azure, è possibile ripristinare intere macchine virtuali di Azure o dischi o file dalla stessa copia di backup. Questo articolo descrive come ripristinare una macchina virtuale di Azure oppure dischi tramite l'API REST.
 
 Per qualsiasi operazione di ripristino, è necessario identificare innanzitutto il punto di ripristino pertinente.
 
@@ -31,7 +31,7 @@ All'URI *GET* sono associati tutti i parametri obbligatori. Non è necessario un
 
 ### <a name="responses"></a>Risposte
 
-|Nome  |digitare  |DESCRIZIONE  |
+|Nome  |Type  |Descrizione  |
 |---------|---------|---------|
 |200 - OK     |   [RecoveryPointResourceList](https://docs.microsoft.com/rest/api/backup/recoverypoints/list#recoverypointresourcelist)      |       OK  |
 
@@ -117,7 +117,7 @@ Il punto di ripristino viene identificato con il campo `{name}` nella risposta p
 
 ## <a name="restore-disks"></a>Ripristinare i dischi
 
-Se è necessario personalizzare la creazione di una macchina virtuale dai dati di backup, è possibile ripristinare semplicemente i dischi in un account di archiviazione a scelta e creare una macchina virtuale da questi dischi in base alle specifiche esigenze. L'account di archiviazione deve trovarsi nella stessa area dell'insieme di credenziali di Servizi di ripristino e non deve essere con ridondanza della zona. I dischi e la configurazione della macchina virtuale di cui è stato eseguito il backup ("VMConfig. JSON") verranno archiviati nell'account di archiviazione specificato.
+Se è necessario personalizzare la creazione di una macchina virtuale dai dati di backup, è possibile ripristinare semplicemente i dischi in un account di archiviazione a scelta e creare una macchina virtuale da questi dischi in base alle specifiche esigenze. L'account di archiviazione deve trovarsi nella stessa area dell'insieme di credenziali di Servizi di ripristino e non deve essere con ridondanza della zona. I dischi e la configurazione della macchina virtuale di cui è stato eseguito il backup ("vmconfig.json") verranno archiviati nell'account di archiviazione specificato.
 
 L'attivazione dei dischi di ripristino è una richiesta *POST*. Per altre informazioni sull'operazione di ripristino dei dischi, fare riferimento all'[API REST per attivare il ripristino](https://docs.microsoft.com/rest/api/backup/restores/trigger).
 
@@ -131,7 +131,7 @@ POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/
 
 Di seguito vengono indicati i componenti del corpo della richiesta necessari per attivare il ripristino di un disco da un backup di macchine virtuali di Azure.
 
-|Nome  |digitare  |DESCRIZIONE  |
+|Nome  |Type  |Descrizione  |
 |---------|---------|---------|
 |properties     | [IaaSVMRestoreRequest](https://docs.microsoft.com/rest/api/backup/restores/trigger#iaasvmrestorerequest)        |    RestoreRequestResourceProperties     |
 
@@ -159,13 +159,13 @@ Il corpo della richiesta seguente definisce le proprietà necessarie per attivar
 }
 ```
 
-### <a name="response"></a>response
+### <a name="response"></a>Risposta
 
-L'attivazione di un disco di ripristino è un'[operazione asincrona](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Significa che l'operazione consente di creare un'altra operazione che deve essere registrata separatamente.
+L'attivazione di un disco di ripristino è un'[operazione asincrona](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Ciò significa che l'operazione consente di creare un'altra operazione che deve essere registrata separatamente.
 
-Restituisce due risposte: 202 (Accettato) quando viene creata un'altra operazione e quindi 200 (OK) quando tale operazione viene completata.
+L'operazione restituisce due risposte: 202 (Accettata) quando viene creata un'altra operazione e 200 (OK) quando tale operazione viene completata.
 
-|Nome  |digitare  |DESCRIZIONE  |
+|Nome  |Type  |Descrizione  |
 |---------|---------|---------|
 |202 - Accettato     |         |     Accepted    |
 
@@ -191,7 +191,7 @@ Location: https://management.azure.com/subscriptions//subscriptions/00000000-000
 X-Powered-By: ASP.NET
 ```
 
-Quindi tenere traccia dell'operazione risultante usando l'intestazione location o Azure-AsyncOperation con un semplice comando *GET*.
+Tenere quindi traccia dell'operazione risultante usando l'intestazione location o Azure-AsyncOperation con un semplice comando *GET*.
 
 ```http
 GET https://management.azure.com/subscriptions//subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/microsoft.recoveryservices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;testRG;testVM/operationResults/781a0f18-e250-4d73-b059-5e9ffed4069e?api-version=2019-05-13

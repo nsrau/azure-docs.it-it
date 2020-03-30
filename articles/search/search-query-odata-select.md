@@ -1,7 +1,7 @@
 ---
 title: Riferimento di selezione OData
 titleSuffix: Azure Cognitive Search
-description: Guida di riferimento al linguaggio e alla sintassi per la selezione esplicita dei campi da restituire nei risultati della ricerca di query ricerca cognitiva di Azure.
+description: Informazioni di riferimento sulla sintassi e sul linguaggio per la selezione esplicita dei campi da restituire nei risultati della ricerca delle query di Ricerca cognitiva di Azure.Syntax and language reference for explicit selection of fields to return in the search results of Azure Cognitive Search queries.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -20,19 +20,19 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 64f15bf3d262249cdda2760c7ddf768be2590419
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74113094"
 ---
-# <a name="odata-select-syntax-in-azure-cognitive-search"></a>Sintassi di $select OData in Azure ricerca cognitiva
+# <a name="odata-select-syntax-in-azure-cognitive-search"></a>OData $select syntax in Azure Cognitive Search
 
- È possibile usare il [parametro OData **$Select** ](query-odata-filter-orderby-syntax.md) per scegliere i campi da includere nei risultati della ricerca da Azure ricerca cognitiva. Questo articolo descrive in dettaglio la sintassi dei **$Select** . Per informazioni generali su come usare **$Select** quando si presentano i risultati della ricerca, vedere [come usare i risultati della ricerca in Azure ricerca cognitiva](search-pagination-page-layout.md).
+ È possibile usare il [parametro **OData $select** ](query-odata-filter-orderby-syntax.md) per scegliere i campi da includere nei risultati della ricerca da Ricerca cognitiva di Azure.You can use the OData $select parameter to choose which fields to include in search results from Azure Cognitive Search. In questo articolo viene descritta in dettaglio la sintassi dei **$select.** Per altre informazioni generali su come usare **$select** quando si presentano i risultati della ricerca, vedere Come usare i risultati della [ricerca in Ricerca cognitiva](search-pagination-page-layout.md)di Azure.For more general information about how to use $select when presenting search results, see How to work with search results in Azure Cognitive Search .
 
 ## <a name="syntax"></a>Sintassi
 
-Il parametro **$Select** determina i campi di ogni documento che vengono restituiti nel set di risultati della query. Il seguente EBNF ([Extended Backus-Naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) definisce la grammatica per il parametro **$SELECT** :
+Il **parametro $select** determina quali campi per ogni documento vengono restituiti nel set di risultati della query. Il seguente File EBNF ([Extended Backus-Naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) definisce la grammatica per il parametro **$select:**
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -42,30 +42,30 @@ select_expression ::= '*' | field_path(',' field_path)*
 field_path ::= identifier('/'identifier)*
 ```
 
-È disponibile anche un diagramma della sintassi interattiva:
+È disponibile anche un diagramma di sintassi interattivo:An interactive syntax diagram is also available:
 
 > [!div class="nextstepaction"]
-> [Diagramma della sintassi OData per ricerca cognitiva di Azure](https://azuresearch.github.io/odata-syntax-diagram/#select_expression)
+> [OData syntax diagram for Azure Cognitive Search](https://azuresearch.github.io/odata-syntax-diagram/#select_expression)
 
 > [!NOTE]
-> Per la EBNF completa, vedere informazioni [di riferimento sulla sintassi delle espressioni OData per Azure ricerca cognitiva](search-query-odata-syntax-reference.md) .
+> Vedere Informazioni di riferimento sulla sintassi delle [espressioni OData per Ricerca cognitiva](search-query-odata-syntax-reference.md) di Azure per l'EBNF completo.
 
-Il parametro **$Select** viene visualizzato in due formati:
+Il parametro **$select** è disponibile in due forme:
 
-1. Una singola stella (`*`), che indica che devono essere restituiti tutti i campi recuperabili.
-1. Elenco delimitato da virgole dei percorsi dei campi, che identificano i campi da restituire.
+1. Una singola`*`stella ( ), che indica che tutti i campi recuperabili devono essere restituiti, o
+1. Elenco delimitato da virgole di percorsi di campo che identifica i campi da restituire.
 
-Quando si usa il secondo form, è possibile specificare solo i campi recuperabili nell'elenco.
+Quando si utilizza il secondo modulo, è possibile specificare solo i campi recuperabili nell'elenco.
 
-Se si elenca un campo complesso senza specificare i campi secondari in modo esplicito, tutti i campi secondari recuperabili verranno inclusi nel set di risultati della query. Si supponga, ad esempio, che l'indice includa un campo `Address` con `Street`, `City`e `Country` campi secondari che possono essere recuperati. Se si specifica `Address` in **$Select**, i risultati della query includeranno tutti e tre i campi secondari.
+Se si elenca un campo complesso senza specificarne i campi secondari in modo esplicito, tutti i sottocampi recuperabili verranno inclusi nel set di risultati della query. Si supponga, ad esempio, che l'indice conleabbia `Address` un campo con `Street`, `City`e `Country` sottocampi tutti recuperabili. Se si `Address` specifica in **$select**, i risultati della query includeranno tutti e tre i sottocampi.
 
-## <a name="examples"></a>esempi
+## <a name="examples"></a>Esempi
 
-Includere i campi `HotelId`, `HotelName`e `Rating` di primo livello nei risultati, nonché il campo secondario `City` di `Address`:
+Includere `HotelId`i `HotelName`campi `Rating` , e di primo livello nei `City` risultati, `Address`nonché il sottocampo di :
 
     $select=HotelId, HotelName, Rating, Address/City
 
-Un risultato di esempio può essere simile al seguente:
+Un risultato di esempio potrebbe essere simile al seguente:An example result might look like this:
 
 ```json
 {
@@ -78,11 +78,11 @@ Un risultato di esempio può essere simile al seguente:
 }
 ```
 
-Includere il `HotelName` campo di primo livello nei risultati, nonché tutti i sottocampi di `Address`e i sottocampi di `Type` e `BaseRate` di ogni oggetto nella raccolta di `Rooms`:
+Includere `HotelName` il campo di primo livello nei risultati, nonché tutti i sottocampi di `Address`, e i `Type` sottocampi e `BaseRate` di ogni oggetto nell'insieme: `Rooms`
 
     $select=HotelName, Address, Rooms/Type, Rooms/BaseRate
 
-Un risultato di esempio può essere simile al seguente:
+Un risultato di esempio potrebbe essere simile al seguente:An example result might look like this:
 
 ```json
 {
@@ -110,7 +110,7 @@ Un risultato di esempio può essere simile al seguente:
 
 ## <a name="next-steps"></a>Passaggi successivi  
 
-- [Come usare i risultati della ricerca in Azure ricerca cognitiva](search-pagination-page-layout.md)
-- [Cenni preliminari sul linguaggio di espressioni OData per ricerca cognitiva di Azure](query-odata-filter-orderby-syntax.md)
-- [Informazioni di riferimento sulla sintassi delle espressioni OData per ricerca cognitiva di Azure](search-query-odata-syntax-reference.md)
-- [Eseguire ricerche &#40;nei documenti ricerca cognitiva API REST di Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Come usare i risultati della ricerca in Ricerca cognitiva di AzureHow to work with search results in Azure Cognitive Search](search-pagination-page-layout.md)
+- [OData expression language overview for Azure Cognitive Search](query-odata-filter-orderby-syntax.md)
+- [OData expression syntax reference for Azure Cognitive Search](search-query-odata-syntax-reference.md)
+- [&#41;API REST di Ricerca documenti &#40;Ricerca cognitiva di AzureSearch Documents &#40;Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)

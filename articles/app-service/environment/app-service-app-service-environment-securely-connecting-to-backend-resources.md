@@ -1,6 +1,6 @@
 ---
-title: Connetti al back-end V1
-description: Informazioni su come connettersi in modo sicuro alle risorse back-end da un ambiente del servizio app. Questo documento è disponibile solo per i clienti che usano l'ambiente del servizio app legacy V1.
+title: Connessione al back-end v1
+description: Informazioni su come connettersi in modo sicuro alle risorse back-end da un ambiente del servizio app. Questo documento viene fornito solo per i clienti che utilizzano l'app ase versione 21 legacy.
 author: stefsch
 ms.assetid: f82eb283-a6e7-4923-a00b-4b4ccf7c4b5b
 ms.topic: article
@@ -8,18 +8,18 @@ ms.date: 10/04/2016
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: 03f773e286697a12188f238cf2f422a18a20054f
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74687302"
 ---
 # <a name="connect-securely-to-back-end-resources-from-an-app-service-environment"></a>Connettersi in modo sicuro alle risorse back-end da un ambiente del servizio app
-Poiché un ambiente del servizio app viene sempre **creato in una** rete virtuale Azure Resource Manager **o** in una [rete virtuale][virtualnetwork]del modello di distribuzione classica, le connessioni in uscita da un ambiente del servizio app ad altre risorse back-end possono fluire esclusivamente sulla rete virtuale.  Con una modifica recente apportata a giugno 2016, gli ambienti del servizio app possono essere distribuiti nelle reti virtuali che usano intervalli di indirizzi pubblici o spazi di indirizzi RFC1918, ovvero indirizzi privati.  
+Poiché un ambiente del servizio app viene sempre creato in una **rete virtuale** di Azure Resource Manager **o** in una [rete virtuale][virtualnetwork] creata con il modello di distribuzione classica, le connessioni in uscita da un ambiente del servizio app ad altre risorse back-end possono transitare esclusivamente tramite la rete virtuale.  Con una modifica recente apportata a giugno 2016, gli ambienti del servizio app possono essere distribuiti nelle reti virtuali che usano intervalli di indirizzi pubblici o spazi di indirizzi RFC1918, ovvero indirizzi privati.  
 
 Ad esempio, potrebbe essere in esecuzione un'istanza di SQL Server in un cluster di macchine virtuali con la porta 1433 bloccata.  In base all'elenco di controllo di accesso definito per l'endpoint, potrebbe essere consentito solo l'accesso da altre risorse nella stessa rete virtuale.  
 
-Come altro esempio, gli endpoint sensibili possono essere eseguiti in locale ed essere connessi ad Azure tramite connessioni da [sito a sito][SiteToSite] o [Azure ExpressRoute][ExpressRoute] .  In questo caso, solo le risorse nelle reti virtuali connesse ai tunnel da sito a sito o ExpressRoute potrebbero accedere agli endpoint locali.
+Oppure, gli endpoint sensibili potrebbero essere eseguiti in locale ed essere connessi ad Azure tramite connessioni [da sito a sito][SiteToSite] o connessioni [Azure ExpressRoute][ExpressRoute].  In questo caso, solo le risorse nelle reti virtuali connesse ai tunnel da sito a sito o ExpressRoute potrebbero accedere agli endpoint locali.
 
 Per tutti questi scenari, le app in esecuzione in un ambiente del servizio app potranno connettersi in modo sicuro ai server e alle risorse.  Il traffico in uscita dalle app in esecuzione in un ambiente del servizio app agli endpoint privati nella stessa rete virtuale (o connessi alla stessa rete virtuale) transiterà solo attraverso la rete virtuale.  Il traffico in uscita agli endpoint privati non transiterà attraverso la rete Internet pubblica.
 
@@ -42,7 +42,7 @@ Una configurazione di SQL Server comune prevede un endpoint in ascolto sulla por
 È possibile usare due approcci per limitare il traffico a questo endpoint:
 
 * [Elenchi di controllo di accesso di rete][NetworkAccessControlLists] (ACL di rete)
-* [Gruppi di sicurezza di rete][NetworkSecurityGroups]
+* [Gruppi di sicurezza di reteNetwork Security Groups][NetworkSecurityGroups]
 
 ## <a name="restricting-access-with-a-network-acl"></a>Limitazione dell'accesso con un elenco di controllo di accesso di rete
 È possibile proteggere la porta 1433 usando un elenco di controllo di accesso di rete.  L'esempio seguente illustra come consentire gli indirizzi client originati dall'interno di una rete virtuale e bloccare l'accesso a tutti gli altri client.
@@ -76,10 +76,10 @@ Il risultato finale è costituito da un set di regole di sicurezza che blocca l'
 
 ![Regole di sicurezza di rete predefinite][DefaultNetworkSecurityRules]
 
-## <a name="getting-started"></a>Inizia ora
+## <a name="getting-started"></a>Introduzione
 Per iniziare a usare gli ambienti del servizio app, vedere [Introduzione all'ambiente del servizio app][IntroToAppServiceEnvironment]
 
-Per informazioni dettagliate su come controllare il traffico in ingresso verso la ambiente del servizio app, vedere [controllo del traffico in ingresso verso un ambiente del servizio app][ControlInboundASE]
+Per informazioni dettagliate su come controllare il traffico in ingresso all'ambiente del servizio app, vedere [Controllo del traffico in ingresso a un ambiente del servizio app][ControlInboundASE]
 
 [!INCLUDE [app-service-web-try-app-service](../../../includes/app-service-web-try-app-service.md)]
 

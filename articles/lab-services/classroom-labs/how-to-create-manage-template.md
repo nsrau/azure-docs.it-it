@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/20/2020
 ms.author: spelluru
 ms.openlocfilehash: fcf31fcc266358911612c25e0b73a0a9de696b1d
-ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77539025"
 ---
 # <a name="create-and-manage-a-classroom-template-in-azure-lab-services"></a>Creare e gestire un modello per le classi in Azure Lab Services
@@ -28,29 +28,29 @@ Questo articolo descrive come creare e gestire un modello di macchina virtuale i
 ## <a name="set-or-update-template-title-and-description"></a>Impostare o aggiornare il titolo e la descrizione del modello
 Seguire questa procedura per impostare il titolo e la descrizione per la prima volta e aggiornarli in un secondo momento. 
 
-1. Nella pagina **modello** immettere il nuovo **titolo** per il Lab.  
-2. Immettere la nuova **Descrizione** del modello. Quando si sposta lo stato attivo dalla casella di testo, questo viene salvato automaticamente. 
+1. Nella pagina **Modello** immettere il nuovo **titolo** per il lab.  
+2. Immettere la nuova **descrizione** per il modello. Quando si sposta lo stato attivo all'esterno della casella di testo, questo viene salvato automaticamente. 
 
     ![Nome e descrizione del modello](../media/how-to-create-manage-template/template-name-description.png)
 
-## <a name="update-a-template-vm"></a>Aggiornare una macchina virtuale modello
+## <a name="update-a-template-vm"></a>Aggiornare una macchina virtuale modelloUpdate a template VM
 Usare la procedura seguente per aggiornare una macchina virtuale modello.  
 
-1. Attendere che la macchina virtuale del modello sia avviata e quindi selezionare **Connetti al modello** sulla barra degli strumenti per connettersi alla macchina virtuale modello e seguire le istruzioni. Se si tratta di un computer Windows, verrà visualizzata un'opzione per scaricare il file RDP. 
-1. Quando ci si connette al modello e si apportano modifiche, non sarà più disponibile la stessa configurazione delle macchine virtuali pubblicate per l'ultima volta agli utenti. Le modifiche ai modelli non verranno applicate alle macchine virtuali esistenti degli utenti finché non si esegue di nuovo la pubblicazione.
+1. Attendere l'avvio della macchina virtuale del modello e quindi selezionare **Connetti al modello** sulla barra degli strumenti per connettersi alla macchina virtuale del modello e seguire le istruzioni. Se si tratta di un computer Windows, verrà visualizzata un'opzione per scaricare il file RDP. 
+1. Una volta che ci si connette al modello e si apportano modifiche, non dirà più la stessa configurazione delle macchine virtuali pubblicate per l'ultima volta per gli utenti. Le modifiche ai modelli non si rifletteranno sulle macchine virtuali esistenti degli utenti fino a dopo la pubblicazione.
 
     ![Connettersi alla macchina virtuale modello](../media/how-to-create-manage-template/connect-template-vm.png)
     
 1. Installare tutto il software necessario agli studenti per eseguire il lab, ad esempio, Visual Studio, Azure Storage Explorer e così via. 
 1. Disconnettersi dalla macchina virtuale modello, ovvero chiudere la sessione di accesso remota. 
 1. **Arrestare** la macchina virtuale del modello selezionando **Arresta modello**. 
-1. Seguire i passaggi della sezione successiva per **pubblicare** la macchina virtuale del modello aggiornata. 
+1. Seguire i passaggi nella sezione successiva per **pubblicare** la macchina virtuale del modello aggiornato. 
 
 ## <a name="publish-the-template-vm"></a>Pubblicare la macchina virtuale modello  
-In questo passaggio viene pubblicata la macchina virtuale del modello. Quando si pubblica la macchina virtuale del modello, Azure Lab Services crea macchine virtuali nel Lab usando il modello. Tutte le macchine virtuali hanno la stessa configurazione del modello.
+In questo passaggio verrà pubblicata la VM modello. Quando si pubblica la macchina virtuale del modello, Azure Lab Services crea macchine virtuali nel lab usando il modello. Tutte le macchine virtuali hanno la stessa configurazione del modello.
 
 
-1. Nella pagina **modello** selezionare **pubblica** sulla barra degli strumenti. 
+1. Sulla barra degli strumenti della pagina **Modello** selezionare **Pubblica**. 
 
     ![Pulsante per la pubblicazione del modello](../media/tutorial-setup-classroom-lab/template-page-publish-button.png)
 
@@ -62,7 +62,7 @@ In questo passaggio viene pubblicata la macchina virtuale del modello. Quando si
 3. Nella pagina viene visualizzato lo **stato di pubblicazione** del modello. Questo processo può richiedere fino a un'ora. 
 
     ![Pubblicazione del modello - stato](../media/tutorial-setup-classroom-lab/publish-template-progress.png)
-4. Attendere il completamento della pubblicazione e quindi passare alla pagina del **pool di macchine virtuali** selezionando **macchine virtuali** nel menu a sinistra oppure selezionando il riquadro **macchine virtuali** . Verificare che vengano visualizzate macchine virtuali con lo stato **Non assegnato**. Queste macchine virtuali non sono ancora assegnate agli studenti. Devono essere nello stato **Arrestato**. In questa pagina è possibile avviare la macchina virtuale di uno studente, connettersi alla macchina virtuale, arrestare la macchina virtuale ed eliminare la macchina virtuale. In questa pagina è possibile avviare le macchine virtuali o consentire agli studenti di avviarle. 
+4. Attendere il completamento della pubblicazione e quindi passare alla pagina **Pool di macchine virtuali** scegliendo **Macchine virtuali** dal menu sinistro oppure selezionando il riquadro **Macchine virtuali**. Verificare che vengano visualizzate macchine virtuali con lo stato **Non assegnato**. Queste macchine virtuali non sono ancora assegnate agli studenti. Devono essere nello stato **Arrestato**. In questa pagina è possibile avviare la macchina virtuale di uno studente, connettersi alla macchina virtuale, arrestare la macchina virtuale ed eliminare la macchina virtuale. In questa pagina è possibile avviare le macchine virtuali o consentire agli studenti di avviarle. 
 
     ![Macchine virtuali nello stato arrestato](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
 ## <a name="next-steps"></a>Passaggi successivi

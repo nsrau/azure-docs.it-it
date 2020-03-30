@@ -1,7 +1,7 @@
 ---
-title: Personalizzare le regole usando PowerShell
+title: Personalizzare le regole usando PowerShellCustomize rules using PowerShell
 titleSuffix: Azure Web Application Firewall
-description: Questo articolo fornisce informazioni su come personalizzare le regole del Web Application Firewall nel gateway applicazione con PowerShell.
+description: In questo articolo vengono fornite informazioni su come personalizzare le regole di Web Application Firewall nel gateway applicazione con PowerShell.This article provides information on how to customize Web Application Firewall rules in Application Gateway with PowerShell.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
@@ -9,15 +9,15 @@ ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: article
 ms.openlocfilehash: 55eea15da8c3a10b0421ff1576082d6b42fc7c56
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74048516"
 ---
-# <a name="customize-web-application-firewall-rules-using-powershell"></a>Personalizzare le regole del Web Application Firewall usando PowerShell
+# <a name="customize-web-application-firewall-rules-using-powershell"></a>Personalizzare le regole di Web Application Firewall tramite PowerShellCustomize Web Application Firewall rules using PowerShell
 
-Il firewall applicazione Web del gateway applicazione Azure (WAF) fornisce la protezione per le applicazioni Web. Queste protezioni vengono fornite dal Set di regole principali (CRS) di Open Web Application Security Project (OWASP). Alcune regole possono generare falsi positivi e bloccare il traffico reale. Per questo motivo, il gateway applicazione offre la possibilità di personalizzare regole e gruppi di regole. Per ulteriori informazioni sulle regole e sui gruppi di regole specifici, vedere l' [elenco delle regole e dei gruppi di regole CRS del Web Application Firewall](application-gateway-crs-rulegroups-rules.md).
+Il firewall dell'applicazione Web del gateway applicazione di Azure (WAF) fornisce protezione per le applicazioni Web. Queste protezioni vengono fornite dal Set di regole principali (CRS) di Open Web Application Security Project (OWASP). Alcune regole possono generare falsi positivi e bloccare il traffico reale. Per questo motivo, il gateway applicazione offre la possibilità di personalizzare regole e gruppi di regole. Per ulteriori informazioni sui gruppi di regole e sulle regole specifiche, vedere [List of Web Application Firewall CRS Rule groups and rules](application-gateway-crs-rulegroups-rules.md).
 
 ## <a name="view-rule-groups-and-rules"></a>Visualizzare le regole e i gruppi di regole
 
@@ -95,16 +95,16 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 
 ## <a name="mandatory-rules"></a>Regole obbligatorie
 
-L'elenco seguente contiene le condizioni che determinano il blocco della richiesta da parte di WAF in modalità di prevenzione (in modalità di rilevamento vengono registrate come eccezioni). Non possono essere configurati o disabilitati:
+L'elenco seguente contiene le condizioni che causano il WAF bloccare la richiesta in modalità prevenzione (in modalità di rilevamento vengono registrati come eccezioni). Questi non possono essere configurati o disabilitati:
 
-* Se non si analizza il corpo della richiesta, la richiesta viene bloccata, a meno che l'ispezione del corpo non sia spenta (XML, JSON, dati del modulo)
-* La lunghezza dei dati del corpo della richiesta senza file è superiore al limite configurato
-* Il corpo della richiesta (inclusi i file) è più grande del limite
+* La mancata analisi del corpo della richiesta comporta il blocco della richiesta, a meno che l'ispezione del corpo non sia disattivata (XML, JSON, dati del modulo)
+* La lunghezza dei dati del corpo della richiesta (senza file) è maggiore del limite configuratoRequest body data length is larger than the configured limit
+* Il corpo della richiesta (inclusi i file) è maggiore del limite
 * Si è verificato un errore interno nel motore WAF
 
-Specifico CRS 3. x:
+Specifico di CRS 3.x:
 
-* Il Punteggio di anomalie in ingresso ha superato la soglia
+* Punteggio anomaly in entrata superato soglia
 
 ## <a name="next-steps"></a>Passaggi successivi
 

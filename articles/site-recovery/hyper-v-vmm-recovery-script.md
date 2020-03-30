@@ -1,5 +1,5 @@
 ---
-title: Aggiungere uno script a un piano di ripristino in Azure Site Recovery
+title: Aggiungere uno script a un piano di ripristino in Azure Site RecoveryAdd a script to a recovery plan in Azure Site Recovery
 description: Informazioni su come aggiungere uno script VMM a un piano per il ripristino di emergenza di macchine virtuali Hyper-V di cloud VMM.
 author: rajani-janaki-ram
 manager: rochakm
@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
 ms.openlocfilehash: 6902876e066649ae4dff4134fb8cc462f30dd0b7
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74084881"
 ---
 # <a name="add-a-vmm-script-to-a-recovery-plan"></a>Aggiungere uno script VMM a un piano di ripristino
 
 In questo articolo viene descritto come creare uno script di System Center Virtual Machine Manager (VMM) e aggiungerlo a un piano di ripristino in [Azure Site Recovery](site-recovery-overview.md).
 
-Per inviare commenti o domande è possibile usare la parte inferiore di questo articolo oppure il [forum su Servizi di ripristino di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Pubblicare commenti o domande nella parte inferiore di questo articolo o nel forum di Servizi di ripristino di [Azure.](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 È possibile usare gli script di PowerShell nei piani di ripristino. Perché sia possibile accedervi dal piano di ripristino, è necessario crearli e inserirli nella libreria VMM. Durante la scrittura di uno script, tenere presenti le considerazioni seguenti:
 
@@ -29,7 +29,7 @@ Per inviare commenti o domande è possibile usare la parte inferiore di questo a
     - Se si verifica un errore, la parte rimanente dello script non viene eseguita.
     - Se si verifica un errore quando si esegue un failover non pianificato, il piano di ripristino continua.
     - Se si verifica un errore quando si esegue un failover pianificato, il piano di ripristino si interrompe. Correggere lo script, verificare che venga eseguito come previsto e quindi eseguire nuovamente il piano di ripristino.
-        - Il comando `Write-Host` non funziona nello script di un piano di ripristino. Se si usa il comando `Write-Host` in uno script, lo script non riesce. Per creare l'output, creare uno script del proxy che a sua volta esegue lo script principale. Per assicurarsi che tutto l'output venga reindirizzato usare il comando **\>\>** .
+        - Il comando `Write-Host` non funziona nello script di un piano di ripristino. Se si usa il comando `Write-Host` in uno script, lo script non riesce. Per creare l'output, creare uno script del proxy che a sua volta esegue lo script principale. Per assicurarsi che tutto l'output ** \> ** venga reindirizzato, utilizzare il comando .
         - Lo script si interrompe se non viene restituito in 600 secondi.
         - Se viene scritto qualcosa in STDERR, lo script viene classificato come non completato. Queste informazioni vengono visualizzate nei dettagli dell'esecuzione di script.
 
@@ -45,7 +45,7 @@ Per inviare commenti o domande è possibile usare la parte inferiore di questo a
   
   1. Aprire l'editor del Registro di sistema e passare a **HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\Azure Site Recovery\Registration**.
 
-  1. Modificare il valore di **ScriptLibraryPath** in **\\\libserver2.contoso.com\share\\** . Specificare il nome di dominio completo. Fornire le autorizzazioni per il percorso di condivisione. Si tratta del nodo radice della condivisione. Per verificare la presenza del nodo radice, in VMM passare al nodo radice nella libreria. Il percorso che si apre è la radice del percorso. Si tratta del percorso da usare nella variabile.
+  1. Modificare il valore di **ScriptLibraryPath** in **\\\libserver2.contoso.com\share\\**. Specificare il nome di dominio completo. Fornire le autorizzazioni per il percorso di condivisione. Si tratta del nodo radice della condivisione. Per verificare la presenza del nodo radice, in VMM passare al nodo radice nella libreria. Il percorso che si apre è la radice del percorso. Si tratta del percorso da usare nella variabile.
 
   1. Testare lo script usando un account utente con lo stesso livello di diritti utente dell'account del servizio VMM. Usando questi diritti utente, è possibile verificare che gli script autonomi testati vengano eseguiti nello stesso modo in cui vengono eseguiti nei piani di ripristino. Nel server VMM impostare i criteri di esecuzione come segue in modo che vengano ignorati:
 
@@ -71,7 +71,7 @@ Dopo avere aggiunto macchine virtuali o gruppi di replica a un piano di ripristi
 1. Aprire il piano di ripristino.
 1. Nell'elenco **Passaggio** selezionare una voce. Selezionare quindi **Script** o **Azione manuale**.
 1. Specificare se si desidera aggiungere lo script o l’azione prima o dopo l'elemento selezionato. Per spostare lo script verso l'alto o verso il basso nell'elenco, usare i pulsanti **Sposta su** e **Sposta giù**.
-1. Se si aggiunge uno script VMM, selezionare **Failover to VMM script** (Failover nello script VMM). In **Percorso script** immettere il percorso relativo della condivisione. Ad esempio, **\RPScripts\RPScript.PS1**.
+1. Se si aggiunge uno script VMM, selezionare **Failover to VMM script** (Failover nello script VMM). In **Percorso script** immettere il percorso relativo della condivisione, Ad esempio, **\RPScripts\RPScript.PS1**.
 1. Se si aggiunge un runbook di automazione di Azure, specificare l'account di Automazione di Azure in cui si trova il runbook e selezionare lo script di runbook di Azure che si desidera usare.
 1. Per verificare che lo script funzioni come previsto, eseguire un failover di prova del piano di ripristino.
 

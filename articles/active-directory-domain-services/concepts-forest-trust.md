@@ -1,6 +1,6 @@
 ---
-title: Funzionamento dei trust per Azure AD Domain Services | Microsoft Docs
-description: Altre informazioni sul funzionamento del trust tra foreste con Azure AD Domain Services
+title: Funzionamento dei trust per Servizi di dominio Azure AD Documenti Microsoft
+description: Altre informazioni sul funzionamento del trust tra foreste con Servizi di dominio Azure ADLearn more about how forest trust work with Azure AD Domain Services
 services: active-directory-ds
 author: iainfoulds
 manager: daveba
@@ -11,272 +11,272 @@ ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: iainfou
 ms.openlocfilehash: 8b79e0fb24c15d2e9f16640e90d62f7df5c21f32
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74233701"
 ---
-# <a name="how-trust-relationships-work-for-resource-forests-in-azure-active-directory-domain-services"></a>Come funzionano le relazioni di trust per le foreste di risorse in Azure Active Directory Domain Services
+# <a name="how-trust-relationships-work-for-resource-forests-in-azure-active-directory-domain-services"></a>Funzionamento delle relazioni di trust per le foreste di risorse in Servizi di dominio Azure Active DirectoryHow trust relationships for resource forests in Azure Active Directory Domain Services
 
-Active Directory Domain Services (AD DS) fornisce sicurezza tra più domini o foreste tramite relazioni di trust tra domini e foreste. Prima di poter eseguire l'autenticazione tra i trust, Windows deve prima verificare se il dominio richiesto da un utente, un computer o un servizio ha una relazione di trust con il dominio dell'account che ha eseguito la richiesta.
+Servizi di dominio Active Directory (AD DS) fornisce la sicurezza tra più domini o foreste tramite relazioni di trust tra domini e foreste. Prima che l'autenticazione possa essere eseguita tra trust, Windows deve prima verificare se il dominio richiesto da un utente, un computer o un servizio ha una relazione di trust con il dominio dell'account richiedente.
 
-Per verificare la presenza di questa relazione di trust, il sistema di sicurezza di Windows calcola un percorso di trust tra il controller di dominio (DC) per il server che riceve la richiesta e un controller di dominio nel dominio dell'account richiedente.
+Per verificare questa relazione di trust, il sistema di protezione di Windows calcola un percorso di trust tra il controller di dominio (DC) per il server che riceve la richiesta e un controller di dominio nel dominio dell'account richiedente.
 
-I meccanismi di controllo degli accessi forniti da servizi di dominio Active Directory e il modello di sicurezza distribuita di Windows forniscono un ambiente per il funzionamento dei trust tra domini e foreste. Per il corretto funzionamento di tali Trust, ogni risorsa o computer deve disporre di un percorso di trust diretto a un controller di dominio nel dominio in cui si trova.
+I meccanismi di controllo di accesso forniti da Servizi di dominio Active Directory e dal modello di sicurezza distribuito di Windows forniscono un ambiente per il funzionamento dei trust di dominio e di foresta. Affinché questi trust funzionino correttamente, ogni risorsa o computer deve disporre di un percorso di trust diretto a un controller di dominio nel dominio in cui si trova.
 
-Il percorso di trust viene implementato dal servizio Accesso rete utilizzando una connessione RPC (Remote Procedure Call) autenticata all'autorità di dominio attendibile. Un canale protetto si estende anche ad altri domini di servizi di dominio Active Directory tramite relazioni di trust tra domini. Questo canale protetto viene usato per ottenere e verificare le informazioni di sicurezza, inclusi gli identificatori di sicurezza (SID) per utenti e gruppi.
+Il percorso di trust viene implementato dal servizio Accesso rete utilizzando una connessione RPC (Remote Procedure Call) autenticata all'autorità di dominio trusted. Un canale protetto si estende anche ad altri domini di Servizi di dominio Active Directory tramite relazioni di trust tra domini. Questo canale protetto viene utilizzato per ottenere e verificare le informazioni di sicurezza, inclusi gli identificatori di sicurezza (SID) per utenti e gruppi.
 
-## <a name="trust-relationship-flows"></a>Flussi relazione di trust
+## <a name="trust-relationship-flows"></a>Flussi di relazione di trust
 
-Il flusso di comunicazioni protette su trust determina l'elasticità di una relazione di trust. Il modo in cui si crea o si configura un trust determina la distanza di estensione della comunicazione all'interno o tra foreste.
+Il flusso di comunicazioni protette su trust determina l'elasticità di un trust. La modalità di creazione o configurazione di un trust determina la distanza di estensione della comunicazione all'interno o tra foreste.
 
-Il flusso di comunicazione su trust è determinato dalla direzione del trust. I trust possono essere unidirezionali o bidirezionali e possono essere transitivi o non transitivi.
+Il flusso di comunicazione sui trust è determinato dalla direzione del trust. I trust possono essere unidirezionali o bidirezionali e possono essere transitivi o non transitivi.
 
-Il diagramma seguente mostra che per impostazione predefinita tutti i domini nell' *albero 1* e nell' *albero 2* hanno relazioni di trust transitive. Di conseguenza, gli utenti nell' *albero 1* possono accedere alle risorse nei domini nell' *albero 2* e gli utenti nell' *albero 1* possono accedere alle risorse nell' *albero 2*, quando le autorizzazioni appropriate vengono assegnate alla risorsa.
+Nel diagramma seguente viene illustrato che tutti i domini *nell'albero 1* e *nell'albero 2* hanno relazioni di trust transitive per impostazione predefinita. Di conseguenza, gli utenti *nell'albero 1* possono accedere alle risorse nei domini nella *struttura 2* e gli utenti nell'albero *1* possono accedere alle risorse *nell'albero 2*, quando alla risorsa vengono assegnate le autorizzazioni appropriate.
 
 ![Diagramma delle relazioni di trust tra due foreste](./media/concepts-forest-trust/trust-relationships.png)
 
 ### <a name="one-way-and-two-way-trusts"></a>Trust unidirezionali e bidirezionali
 
-Le relazioni di trust abilitano l'accesso alle risorse possono essere unidirezionali o bidirezionali.
+Le relazioni di trust consentono l'accesso alle risorse possono essere unidirezionali o bidirezionali.
 
-Un trust unidirezionale è un percorso di autenticazione unidirezionale creato tra due domini. In un trust unidirezionale tra *il dominio a* e *il dominio b*, gli utenti del *dominio a* possono accedere alle risorse nel *dominio b*. Tuttavia, gli utenti del *dominio B* non possono accedere alle risorse nel *dominio a*.
+Un trust unidirezionale è un percorso di autenticazione unidirezionale creato tra due domini. In un trust unidirezionale tra *il dominio A* e il dominio *B*, gli utenti nel *dominio A* possono accedere alle risorse nel dominio *B*. Tuttavia, gli utenti nel *dominio B* non possono accedere alle risorse nel *dominio A*.
 
 Alcuni trust unidirezionali possono essere non transitivi o transitivi a seconda del tipo di trust creato.
 
-In un trust bidirezionale, *il dominio a* considera attendibili il dominio *b* e il dominio *b* considera attendibile *il dominio a*. Questa configurazione significa che le richieste di autenticazione possono essere passate tra i due domini in entrambe le direzioni. Alcune relazioni bidirezionali possono essere non transitive o transitive a seconda del tipo di trust creato.
+In un trust bidirezionale, *il dominio A* considera attendibile il dominio *B* e il *dominio B* considera attendibile il dominio *A*. Questa configurazione significa che le richieste di autenticazione possono essere passate tra i due domini in entrambe le direzioni. Alcune relazioni bidirezionali possono essere non transitive o transitive a seconda del tipo di trust creato.
 
-Tutti i trust di dominio in una foresta di Active Directory Domain Services sono trust bidirezionali e transitivi. Quando viene creato un nuovo dominio figlio, viene creato automaticamente un trust transitivo bidirezionale tra il nuovo dominio figlio e il dominio padre.
+Tutti i trust di dominio in una foresta di Servizi di dominio Active Directory sono trust transitivi bidirezionali. Quando si crea un nuovo dominio figlio, viene automaticamente creata una relazione di trust transitiva bidirezionale tra il nuovo dominio figlio e il relativo dominio padre.
 
 ### <a name="transitive-and-non-transitive-trusts"></a>Trust transitivi e non transitivi
 
-La transitività determina se un trust può essere esteso all'esterno dei due domini con cui è stato creato.
+La transitività determina se un trust può essere esteso al di fuori dei due domini con cui è stato formato.
 
-* È possibile utilizzare un trust transitivo per estendere le relazioni di trust con altri domini.
-* È possibile utilizzare un trust non transitivo per negare relazioni di trust con altri domini.
+* Un trust transitivo può essere utilizzato per estendere le relazioni di trust con altri domini.
+* Un trust non transitivo può essere utilizzato per negare le relazioni di trust con altri domini.
 
-Ogni volta che si crea un nuovo dominio in una foresta, viene creata automaticamente una relazione di trust transitiva bidirezionale tra il nuovo dominio e il relativo dominio padre. Se vengono aggiunti domini figlio al nuovo dominio, il percorso di attendibilità passa verso l'alto attraverso la gerarchia di domini che estende il percorso di attendibilità iniziale creato tra il nuovo dominio e il relativo dominio padre. Le relazioni di trust transitive si propagano verso l'alto attraverso un albero di dominio durante il formato, creando trust transitivi tra tutti i domini nell'albero di dominio.
+Ogni volta che si crea un nuovo dominio in una foresta, viene creata automaticamente una relazione di trust transitiva bidirezionale tra il nuovo dominio e il relativo dominio padre. Se i domini figlio vengono aggiunti al nuovo dominio, il percorso di trust passa verso l'alto attraverso la gerarchia di domini estendendo il percorso di trust iniziale creato tra il nuovo dominio e il relativo dominio padre. Le relazioni di trust transitive si muovono verso l'alto all'interno di un albero di dominio man mano che esso viene creato, creando trust transitivi tra tutti i domini nell'albero di dominio.
 
-Le richieste di autenticazione seguono questi percorsi di trust, quindi gli account di qualsiasi dominio nella foresta possono essere autenticati da qualsiasi altro dominio nella foresta. Con un unico processo di accesso, gli account con le autorizzazioni appropriate possono accedere alle risorse in qualsiasi dominio della foresta.
+Le richieste di autenticazione seguono questi percorsi di trust, pertanto gli account di qualsiasi dominio dell'insieme di strutture possono essere autenticati da qualsiasi altro dominio dell'insieme di strutture. Con un singolo processo di accesso, gli account con le autorizzazioni adeguate possono accedere alle risorse in qualsiasi dominio nella foresta.
 
 ## <a name="forest-trusts"></a>Trust tra foreste
 
-I trust tra foreste consentono di gestire un'infrastruttura di servizi di dominio Active Directory segmentata e supportano l'accesso alle risorse e ad altri oggetti tra più insiemi di strutture. I trust tra foreste sono utili per i provider di servizi, le aziende che operano fusioni o acquisizioni, Le extranet aziendali collaborative e le aziende che cercano una soluzione per l'autonomia amministrativa.
+I trust tra foreste consentono di gestire infrastrutture di Servizi di dominio Active Directory segmentate e supportano l'accesso alle risorse e ad altri oggetti in più foreste. I trust forestali sono utili per i fornitori di servizi, le aziende sottoposte a fusioni o acquisizioni, le extranet aziendali collaborative e le aziende che cercano una soluzione per l'autonomia amministrativa.
 
-Utilizzando i trust tra foreste, è possibile collegare due foreste diverse per formare una relazione di trust transitiva unidirezionale o bidirezionale. Un trust tra foreste consente agli amministratori di connettere due foreste di servizi di dominio Active Directory con una singola relazione di trust per offrire un'esperienza di autenticazione e autorizzazione semplice tra le foreste.
+Utilizzando i trust tra foreste, è possibile collegare due foreste diverse per formare una relazione di trust transitiva unidirezionale o bidirezionale. Un trust tra foreste consente agli amministratori di connettere due foreste di Servizi di dominio Active Directory con un'unica relazione di trust per fornire un'esperienza di autenticazione e autorizzazione senza interruzioni tra le foreste.
 
-È possibile creare un trust tra foreste solo tra un dominio radice della foresta in una foresta e un dominio radice della foresta in un'altra foresta. I trust tra foreste possono essere creati solo tra due foreste e non possono essere estesi in modo implicito a una terza foresta. Questo comportamento significa che se viene creato un trust tra foreste tra la *foresta 1* e la *foresta 2*e viene creato un altro trust tra foreste tra la foresta *2* e la *foresta 3*, la *foresta 1* non ha una relazione di trust implicita con la *foresta 3*.
+È possibile creare un trust tra foreste solo tra un dominio radice della foresta in una foresta e un dominio radice della foresta in un'altra foresta. I trust tra foreste possono essere creati solo tra due foreste e non possono essere estesi in modo implicito a una terza foresta. Questo comportamento significa che se viene creato un trust tra foreste tra *l'insieme di strutture 1* e *l'insieme di*strutture 2 e viene creato un altro trust tra foreste tra *l'insieme di* strutture 2 e *l'insieme*di strutture 3 , la foresta *1* non dispone di un trust implicito con *l'insieme di strutture 3 .*
 
-Nel diagramma seguente vengono illustrate due relazioni di trust tra foreste separate tra tre foreste di servizi di dominio Active Directory in una singola organizzazione.
+Nel diagramma seguente vengono illustrate due relazioni di trust tra foreste separate tra tre foreste di Servizi di dominio Active Directory in una singola organizzazione.
 
-![Diagramma delle relazioni trust tra foreste all'interno di una singola organizzazione](./media/concepts-forest-trust/forest-trusts.png)
+![Diagramma delle relazioni tra trust tra foreste all'interno di una singola organizzazione](./media/concepts-forest-trust/forest-trusts.png)
 
-Questa configurazione di esempio fornisce l'accesso seguente:
+Questa configurazione di esempio fornisce l'accesso seguente:This example configuration provides the following access:
 
-* Gli utenti della *foresta 2* possono accedere alle risorse in qualsiasi dominio in una foresta *1* o *foresta 3*
-* Gli utenti della *foresta 3* possono accedere alle risorse in qualsiasi dominio nella *foresta 2*
-* Gli utenti della *foresta 1* possono accedere alle risorse in qualsiasi dominio nella *foresta 2*
+* Gli utenti nell'insieme *di strutture 2* possono accedere alle risorse in qualsiasi dominio nell'insieme di strutture 1 o nell'insieme di strutture *3Users* in Forest 2 can access resources in any domain in either *Forest 1* or Forest 3
+* Gli utenti nell'insieme *di strutture 3* possono accedere alle risorse in qualsiasi dominio *nell'insieme di strutture 2Users* in Forest 3 can access resources in any domain in Forest 2
+* Gli utenti nell'insieme *di strutture 1* possono accedere alle risorse in qualsiasi dominio *nell'insieme di strutture 2Users* in Forest 1 can access resources in any domain in Forest 2
 
-Questa configurazione non consente agli utenti della *foresta 1* di accedere alle risorse nella *foresta 3* o viceversa. Per consentire agli utenti nella *foresta 1* e nella *foresta 3* di condividere le risorse, è necessario creare un trust transitivo bidirezionale tra le due foreste.
+Questa configurazione non consente agli utenti nell'insieme *di strutture 1* di accedere alle risorse nell'insieme di strutture *3* o viceversa. Per consentire agli utenti sia nell'insieme *di strutture 1* che nell'insieme *3* di condividere le risorse, è necessario creare un trust transitivo bidirezionale tra le due foreste.
 
-Se viene creato un trust tra foreste unidirezionali tra due foreste, i membri della foresta trusted possono utilizzare risorse situate nella foresta trusting. Tuttavia, il trust opera in una sola direzione.
+Se viene creato un trust tra foreste unidirezionali tra due foreste, i membri della foresta trusted possono utilizzare le risorse che si trovano nella foresta trusting. Tuttavia, il trust funziona in una sola direzione.
 
-Ad esempio, quando un trust tra foreste unidirezionale viene creato tra la *foresta 1* (foresta trusted) e la *foresta 2* (la foresta trusting):
+Ad esempio, quando viene creato un trust tra foreste unidirezionale, tra la *foresta 1* (la foresta trusted) e la *foresta 2* (la foresta trusting):
 
-* I membri della *foresta 1* possono accedere alle risorse presenti nella *foresta 2*.
-* I membri della *foresta 2* non possono accedere alle risorse che si trovano nella *foresta 1* usando la stessa relazione di trust.
+* I membri *dell'insieme di strutture 1* possono accedere alle risorse che si trovano nell'insieme *di strutture 2*.
+* I membri della *foresta 2* non possono accedere alle risorse che si trovano nell'insieme di *strutture 1* utilizzando la stessa relazione di trust.
 
 > [!IMPORTANT]
-> Azure AD Domain Services foresta delle risorse supporta solo un trust tra foreste unidirezionali per la Active Directory locale.
+> La foresta di risorse di Servizi di dominio Azure AD supporta solo un trust tra foreste unidirezionali per Active Directory locale.
 
-### <a name="forest-trust-requirements"></a>Requisiti di trust tra foreste
+### <a name="forest-trust-requirements"></a>Requisiti di attendibilità della foresta
 
-Prima di poter creare un trust tra foreste, è necessario verificare di disporre dell'infrastruttura di Domain Name System (DNS) corretta. I trust tra foreste possono essere creati solo quando è disponibile una delle configurazioni DNS seguenti:
+Prima di poter creare un trust tra foreste, è necessario verificare di disporre dell'infrastruttura DNS (Domain Name System) corretta. I trust tra foreste possono essere creati solo quando è disponibile una delle configurazioni DNS seguenti:
 
-* Un singolo server DNS radice è il server DNS radice per entrambi gli spazi dei nomi DNS della foresta. la zona radice contiene le deleghe per ogni spazio dei nomi DNS e gli hint radice di tutti i server DNS includono il server DNS radice.
-* In assenza di un server DNS radice condiviso e i server DNS radice per ogni spazio dei nomi DNS della foresta usano i server d'inoltro condizionali DNS per ogni spazio dei nomi DNS per instradare le query per i nomi nell'altro spazio dei nomi.
+* Un singolo server DNS radice è il server DNS radice per entrambi gli spazi dei nomi DNS della foresta: la zona radice contiene deleghe per ogni spazio dei nomi DNS e i parametri radice di tutti i server DNS includono il server DNS radice.
+* Se non è presente alcun server DNS radice condiviso e i server DNS radice per ogni spazio dei nomi DNS della foresta utilizzano server d'inoltro condizionali DNS per ogni spazio dei nomi DNS per instradare le query per i nomi nell'altro spazio dei nomi.
 
     > [!IMPORTANT]
-    > Azure AD Domain Services foresta delle risorse deve usare questa configurazione DNS. L'hosting di uno spazio dei nomi DNS diverso dallo spazio dei nomi DNS della foresta di risorse non è una funzionalità di Azure AD Domain Services. I server d'inoltri condizionali sono la configurazione corretta.
+    > La foresta di risorse di Servizi di dominio Azure AD deve usare questa configurazione DNS. L'hosting di uno spazio dei nomi DNS diverso dallo spazio dei nomi DNS della foresta di risorse non è una funzionalità di Servizi di dominio Azure AD. I server d'inoltro condizionali sono la configurazione corretta.
 
-* In assenza di un server DNS radice condiviso e i server DNS radice per ogni spazio dei nomi DNS della foresta usano le zone secondarie DNS sono configurati in ogni spazio dei nomi DNS per instradare le query per i nomi nell'altro spazio dei nomi.
+* Se non è presente alcun server DNS radice condiviso e i server DNS radice per ogni spazio dei nomi DNS della foresta utilizzano le zone secondarie DNS configurate in ogni spazio dei nomi DNS per instradare le query per i nomi nell'altro spazio dei nomi.
 
-Per creare un trust tra foreste, è necessario essere un membro del gruppo Domain Admins (nel dominio radice della foresta) o del gruppo Enterprise Admins in Active Directory. A ogni trust viene assegnata una password che è necessario che gli amministratori di entrambe le foreste conoscano. I membri di Enterprise Admins in entrambe le foreste possono creare i trust in entrambe le foreste contemporaneamente e, in questo scenario, una password che è crittograficamente casuale viene generata e scritta automaticamente per entrambe le foreste.
+Per creare un trust tra foreste, è necessario essere membri del gruppo Domain Admins (nel dominio radice della foresta) o del gruppo Enterprise Admins in Active Directory. A ogni trust viene assegnata una password che gli amministratori di entrambe le foreste devono conoscere. I membri di Enterprise Admins in entrambe le foreste possono creare i trust in entrambe le foreste contemporaneamente e, in questo scenario, una password crittograficamente casuale viene generata e scritta automaticamente per entrambe le foreste.
 
-Il trust tra foreste in uscita per Azure AD Domain Services viene creato nel portale di Azure. Non viene creata manualmente la relazione di trust con il dominio gestito. Il trust tra foreste in ingresso deve essere configurato da un utente con i privilegi indicati in precedenza nell'Active Directory locale.
+Il trust tra foreste in uscita per Servizi di dominio Azure AD viene creato nel portale di Azure.The outbound forest trust for Azure AD Domain Services is created in the Azure portal. Non creare manualmente il trust con il dominio gestito stesso. Il trust tra foreste in ingresso deve essere configurato da un utente con i privilegi precedentemente annotati in Active Directory locale.
 
-## <a name="trust-processes-and-interactions"></a>Processi e interazioni di trust
+## <a name="trust-processes-and-interactions"></a>Processi e interazioni di Trust
 
-Molte transazioni tra domini e tra foreste dipendono dai trust di dominio o di foresta per completare varie attività. Questa sezione descrive i processi e le interazioni che si verificano quando si accede alle risorse tra i trust e i riferimenti di autenticazione vengono valutati.
+Molte transazioni tra domini e tra foreste dipendono da trust tra domini o foreste per completare varie attività. In questa sezione vengono descritti i processi e le interazioni che si verificano quando si accede alle risorse tra trust e vengono valutati i riferimenti di autenticazione.
 
-### <a name="overview-of-authentication-referral-processing"></a>Panoramica dell'elaborazione dei riferimenti di autenticazione
+### <a name="overview-of-authentication-referral-processing"></a>Panoramica dell'elaborazione dei riferimenti di autenticazioneOverview of Authentication Referral Processing
 
-Quando si fa riferimento a una richiesta di autenticazione a un dominio, il controller di dominio in tale dominio deve determinare se esiste una relazione di trust con il dominio da cui deriva la richiesta. Prima di autenticare l'utente per accedere alle risorse nel dominio, è necessario determinare la direzione del trust e stabilire se il trust è transitivo o non transitivo. Il processo di autenticazione che si verifica tra domini trusted varia a seconda del protocollo di autenticazione in uso. I protocolli Kerberos V5 e NTLM elaborano i riferimenti per l'autenticazione in un dominio in modo diverso
+Quando una richiesta di autenticazione viene inviata a un dominio, il controller di dominio in tale dominio deve determinare se esiste una relazione di trust con il dominio da cui proviene la richiesta. La direzione del trust e se il trust è transitivo o non transitivo deve essere determinato anche prima di autenticare l'utente per accedere alle risorse nel dominio. Il processo di autenticazione che si verifica tra domini trusted varia a seconda del protocollo di autenticazione in uso. I protocolli Kerberos V5 e NTLM elaborano i riferimenti per l'autenticazione a un dominio in modo diverso
 
 ### <a name="kerberos-v5-referral-processing"></a>Elaborazione dei riferimenti Kerberos V5
 
-Il protocollo di autenticazione Kerberos V5 dipende dal servizio Accesso rete nei controller di dominio per l'autenticazione client e le informazioni di autorizzazione. Il protocollo Kerberos si connette a un Centro distribuzione chiavi online (KDC) e all'archivio account Active Directory per i ticket di sessione.
+Il protocollo di autenticazione Kerberos V5 dipende dal servizio Accesso rete nei controller di dominio per le informazioni di autenticazione e autorizzazione client. Il protocollo Kerberos si connette a un Centro distribuzione chiavi (KDC) online e all'archivio account di Active Directory per i ticket di sessione.
 
-Il protocollo Kerberos usa inoltre i trust per i servizi di concessione ticket (TGS) e per convalidare i certificati dell'attributo Privilege su un canale protetto. Il protocollo Kerberos esegue l'autenticazione tra aree di autenticazione solo con le aree di autenticazione Kerberos del sistema operativo non Windows, ad esempio un'area di autenticazione Kerberos MIT e non deve interagire con il servizio Accesso rete.
+Il protocollo Kerberos utilizza anche i trust per i servizi di concessione ticket (TGS) tra e reati e per convalidare i certificati di attributi dei privilegi (PAC) in un canale protetto. Il protocollo Kerberos esegue l'autenticazione tra aree di autenticazione solo con aree di autenticazione Kerberos del sistema operativo non di marca, ad esempio un'area di autenticazione Kerberos MIT e non è necessario interagire con il servizio Accesso rete.
 
-Se il client usa Kerberos V5 per l'autenticazione, richiede un ticket al server nel dominio di destinazione da un controller di dominio nel dominio dell'account. Il KDC Kerberos funge da intermediario attendibile tra il client e il server e fornisce una chiave di sessione che consente alle due parti di eseguire l'autenticazione reciproca. Se il dominio di destinazione è diverso dal dominio corrente, il KDC segue un processo logico per determinare se è possibile fare riferimento a una richiesta di autenticazione:
+Se il client utilizza Kerberos V5 per l'autenticazione, richiede un ticket al server nel dominio di destinazione da un controller di dominio nel relativo dominio di account. Il KDC Kerberos funge da intermediario attendibile tra il client e il server e fornisce una chiave di sessione che consente alle due parti di autenticarsi reciprocamente. Se il dominio di destinazione è diverso dal dominio corrente, il KDC segue un processo logico per determinare se è possibile fare riferimento a una richiesta di autenticazione:If the target domain is different from the current domain, the KDC follows a logical process to determine whether an authentication request can be referred:
 
-1. Il dominio corrente è considerato attendibile direttamente dal dominio del server richiesto?
+1. Il dominio corrente è attendibile direttamente dal dominio del server richiesto?
     * In caso affermativo, inviare al client un riferimento al dominio richiesto.
-    * In caso di no, andare al passaggio successivo.
+    * Se no, andare al passaggio successivo.
 
 2. Esiste una relazione di trust transitiva tra il dominio corrente e il dominio successivo nel percorso di trust?
     * In caso affermativo, inviare al client un riferimento al dominio successivo nel percorso di trust.
-    * In caso negativo, inviare al client un messaggio di accesso negato.
+    * In caso contrario, inviare al client un messaggio di accesso negato.
 
 ### <a name="ntlm-referral-processing"></a>Elaborazione dei riferimenti NTLM
 
-Il protocollo di autenticazione NTLM dipende dal servizio Accesso rete nei controller di dominio per l'autenticazione client e le informazioni di autorizzazione. Questo protocollo autentica i client che non usano l'autenticazione Kerberos. NTLM utilizza i trust per passare le richieste di autenticazione tra domini.
+Il protocollo di autenticazione NTLM dipende dal servizio Accesso rete nei controller di dominio per le informazioni di autenticazione e autorizzazione client. Questo protocollo autentica i client che non utilizzano l'autenticazione Kerberos. NTLM utilizza i trust per passare le richieste di autenticazione tra domini.
 
-Se il client usa NTLM per l'autenticazione, la richiesta iniziale di autenticazione passa direttamente dal client al server di risorse nel dominio di destinazione. Questo server crea una richiesta di risposta da parte del client. Il server invia quindi la risposta dell'utente a un controller di dominio nel dominio dell'account del computer. Questo controller di dominio controlla l'account utente nel database degli account di sicurezza.
+Se il client utilizza NTLM per l'autenticazione, la richiesta iniziale di autenticazione passa direttamente dal client al server di risorse nel dominio di destinazione. Questo server crea una richiesta di verifica a cui il client risponde. Il server invia quindi la risposta dell'utente a un controller di dominio nel dominio dell'account computer. Questo controller di dominio controlla l'account utente rispetto al relativo database degli account di protezione.
 
 Se l'account non esiste nel database, il controller di dominio determina se eseguire l'autenticazione pass-through, inoltrare la richiesta o rifiutare la richiesta utilizzando la logica seguente:
 
 1. Il dominio corrente ha una relazione di trust diretta con il dominio dell'utente?
     * In caso affermativo, il controller di dominio invia le credenziali del client a un controller di dominio nel dominio dell'utente per l'autenticazione pass-through.
-    * In caso di no, andare al passaggio successivo.
+    * Se no, andare al passaggio successivo.
 
 2. Il dominio corrente ha una relazione di trust transitiva con il dominio dell'utente?
-    * In caso affermativo, passare la richiesta di autenticazione al dominio successivo nel percorso di trust. Il controller di dominio ripete il processo controllando le credenziali dell'utente rispetto al proprio database degli account di sicurezza.
-    * In caso negativo, inviare al client un messaggio di accesso negato.
+    * In caso affermativo, passare la richiesta di autenticazione al dominio successivo nel percorso di trust. Questo controller di dominio ripete il processo controllando le credenziali dell'utente rispetto al proprio database degli account di protezione.
+    * In caso contrario, inviare al client un messaggio di accesso negato.
 
-### <a name="kerberos-based-processing-of-authentication-requests-over-forest-trusts"></a>Elaborazione basata su Kerberos di richieste di autenticazione su trust tra foreste
+### <a name="kerberos-based-processing-of-authentication-requests-over-forest-trusts"></a>Elaborazione basata su Kerberos delle richieste di autenticazione su trust tra foreste
 
-Quando due foreste sono connesse da un trust tra foreste, le richieste di autenticazione effettuate mediante i protocolli Kerberos V5 o NTLM possono essere instradate tra foreste per fornire l'accesso alle risorse in entrambe le foreste.
+Quando due foreste sono connesse tramite un trust tra foreste, le richieste di autenticazione effettuate utilizzando i protocolli Kerberos V5 o NTLM possono essere instradate tra foreste per fornire l'accesso alle risorse in entrambe le foreste.
 
-Quando viene stabilito per la prima volta un trust tra foreste, ogni foresta raccoglie tutti gli spazi dei nomi attendibili nella relativa foresta partner e archivia le informazioni in un [oggetto dominio trusted](#trusted-domain-object). Gli spazi dei nomi attendibili includono nomi di albero di dominio, suffissi del nome dell'entità utente (UPN), suffissi del nome dell'entità servizio (SPN) e spazi dei nomi ID di sicurezza (SID) usati nell'altra foresta. Gli oggetti TDO vengono replicati nel catalogo globale.
+Quando viene stabilito per la prima volta un trust tra foreste, ogni foresta raccoglie tutti gli spazi dei nomi attendibili nella foresta partner e archivia le informazioni in un [oggetto dominio trusted.](#trusted-domain-object) Gli spazi dei nomi attendibili includono nomi di strutture di dominio, suffissi di nome dell'entità utente (UPN), suffissi del nome dell'entità servizio (SPN) e spazi dei nomi degli ID di sicurezza (SID) utilizzati nell'altra foresta. Gli oggetti TDO vengono replicati nel catalogo globale.
 
-Prima che i protocolli di autenticazione possano seguire il percorso di trust della foresta, il nome dell'entità servizio (SPN) del computer risorse deve essere risolto in un percorso nell'altra foresta. Un nome SPN può essere uno dei seguenti:
+Prima che i protocolli di autenticazione possano seguire il percorso di trust della foresta, il nome dell'entità servizio (SPN) del computer della risorsa deve essere risolto in un percorso nell'altra foresta. Un nome SPN può essere uno dei seguenti:
 
-* Nome DNS di un host.
-* Nome DNS di un dominio.
+* Il nome DNS di un host.
+* Il nome DNS di un dominio.
 * Nome distinto di un oggetto punto di connessione del servizio.
 
-Quando una workstation in una foresta tenta di accedere ai dati in un computer di risorse in un'altra foresta, il processo di autenticazione Kerberos contatta il controller di dominio per un ticket di servizio per il nome SPN del computer delle risorse. Quando il controller di dominio esegue una query sul catalogo globale e stabilisce che il nome SPN non si trova nella stessa foresta del controller di dominio, il controller di dominio invia un riferimento per il dominio padre alla workstation. A questo punto, la workstation esegue una query sul dominio padre per il ticket di servizio e continua a seguire la catena di riferimenti fino a raggiungere il dominio in cui si trova la risorsa.
+Quando una workstation in una foresta tenta di accedere ai dati in un computer di risorse in un'altra foresta, il processo di autenticazione Kerberos contatta il controller di dominio per un ticket di servizio al nome SPN del computer della risorsa. Una volta che il controller di dominio esegue una query nel catalogo globale e determina che il nome SPN non si trova nella stessa foresta del controller di dominio, il controller di dominio invia un riferimento per il dominio padre alla workstation. A questo punto, la workstation esegue una query sul dominio padre per il ticket del servizio e continua a seguire la catena di riferimenti fino a raggiungere il dominio in cui si trova la risorsa.
 
-Il diagramma e i passaggi seguenti forniscono una descrizione dettagliata del processo di autenticazione Kerberos usato quando i computer che eseguono Windows tentano di accedere alle risorse da un computer che si trova in un'altra foresta.
+Il diagramma e i passaggi seguenti forniscono una descrizione dettagliata del processo di autenticazione Kerberos utilizzato quando i computer che eseguono Windows tentano di accedere alle risorse da un computer che si trova in un'altra foresta.
 
 ![Diagramma del processo Kerberos su un trust tra foreste](media/concepts-forest-trust/kerberos-over-forest-trust-process.png)
 
-1. *User1* accede a *Workstation1* usando le credenziali del dominio *Europe.tailspintoys.com* . L'utente tenta quindi di accedere a una risorsa condivisa in *FileServer1* che si trova nella foresta *USA.wingtiptoys.com* .
+1. *User1* accede a *Workstation1* utilizzando le credenziali del *dominio europe.tailspintoys.com.* L'utente tenta quindi di accedere a una risorsa condivisa su *FileServer1* che si trova nella *foresta usa.wingtiptoys.com.*
 
-2. *Workstation1* Contatta il KDC Kerberos in un controller di dominio nel dominio, *ChildDC1*, e richiede un ticket di servizio per l'SPN *FileServer1* .
+2. *Workstation1* contatta il KDC Kerberos in un controller di dominio nel relativo dominio, *ChildDC1,* e richiede un ticket di servizio per il nome SPN *FileServer1.*
 
-3. *ChildDC1* non trova il nome SPN nel database del dominio ed esegue una query nel catalogo globale per verificare se i domini nella foresta *tailspintoys.com* contengono questo nome SPN. Poiché un catalogo globale è limitato alla propria foresta, il nome SPN non viene trovato.
+3. *ChildDC1* non trova il nome SPN nel relativo database di dominio ed esegue una query nel catalogo globale per verificare se i domini della *foresta tailspintoys.com* contengono questo SPN. Poiché un catalogo globale è limitato alla propria foresta, l'SPN non viene trovato.
 
-    Il catalogo globale controlla quindi il database per ottenere informazioni sui trust tra foreste stabiliti con la relativa foresta. Se trovato, confronta i suffissi di nome elencati nell'oggetto di dominio trusted della foresta (TDO) al suffisso dell'SPN di destinazione per trovare una corrispondenza. Una volta trovata una corrispondenza, il catalogo globale fornisce un suggerimento di routing a *ChildDC1*.
+    Il catalogo globale controlla quindi il database per informazioni su eventuali trust tra foreste stabiliti con la relativa foresta. Se viene trovato, confronta i suffissi di nome elencati nell'oggetto dominio trusted (TDO) di trust tra foreste con il suffisso dell'SPN di destinazione per trovare una corrispondenza. Una volta trovata una corrispondenza, il catalogo globale fornisce un suggerimento di routing a *ChildDC1*.
 
-    Gli hint di routing consentono di indirizzare le richieste di autenticazione verso la foresta di destinazione. Gli hint vengono utilizzati solo quando tutti i canali di autenticazione tradizionali, ad esempio controller di dominio locale e quindi catalogo globale, non riescono a individuare un nome SPN.
+    Gli hint di routing consentono di indirizzare le richieste di autenticazione verso la foresta di destinazione. I suggerimenti vengono utilizzati solo quando tutti i canali di autenticazione tradizionali, ad esempio il controller di dominio locale e quindi il catalogo globale, non riescono a individuare un SPN.
 
-4. *ChildDC1* Invia un riferimento per il dominio padre a *Workstation1*.
+4. *ChildDC1* invia un riferimento per il relativo dominio padre a *Workstation1*.
 
-5. *Workstation1* Contatta un controller di dominio in *ForestRootDC1* (il relativo dominio padre) per un riferimento a un controller di dominio (*ForestRootDC2*) nel dominio radice della foresta della foresta *wingtiptoys.com* .
+5. *Workstation1* contatta un controller di dominio in *ForestRootDC1* (il relativo dominio padre) per un riferimento a un controller di dominio (*ForestRootDC2*) nel dominio radice della foresta della *foresta wingtiptoys.com.*
 
-6. *Workstation1* Contatta *ForestRootDC2* nella foresta *wingtiptoys.com* per un ticket di servizio per il servizio richiesto.
+6. *Workstation1* contatta *ForestRootDC2* nell'insieme di strutture *wingtiptoys.com* per un ticket di servizio per il servizio richiesto.
 
-7. *ForestRootDC2* Contatta il catalogo globale per trovare il nome SPN e il catalogo globale trova una corrispondenza per il nome SPN e lo invia nuovamente a *ForestRootDC2*.
+7. *ForestRootDC2* contatta il catalogo globale per trovare il nome SPN e il catalogo globale trova una corrispondenza per il nome SPN e lo invia a *ForestRootDC2*.
 
-8. *ForestRootDC2* quindi invia il riferimento a *USA.wingtiptoys.com* a *Workstation1*.
+8. *ForestRootDC2* invia quindi il riferimento a *usa.wingtiptoys.com* a *Workstation1*.
 
-9. *Workstation1* Contatta il KDC in *ChildDC2* e negozia il ticket per *User1* per ottenere l'accesso a *FileServer1*.
+9. *Workstation1* contatta il KDC su *ChildDC2* e negozia il ticket per *L'utente 1* per ottenere l'accesso a *FileServer1*.
 
-10. Quando *Workstation1* dispone di un ticket di servizio, invia il ticket di servizio a *FileServer1*, che legge le credenziali di sicurezza di *User1*e costruisce di conseguenza un token di accesso.
+10. Una volta che *Workstation1* dispone di un ticket di servizio, invia il ticket di servizio a *FileServer1*, che legge le credenziali di sicurezza di *User1*e costruisce un token di accesso di conseguenza.
 
 ## <a name="trusted-domain-object"></a>Oggetto dominio trusted
 
-Ogni trust di dominio o di foresta all'interno di un'organizzazione è rappresentato da un oggetto di dominio trusted (TDO) archiviato nel contenitore di *sistema* all'interno del dominio.
+Ogni trust di dominio o foresta all'interno di un'organizzazione è rappresentato da un oggetto dominio trusted (TDO) archiviato nel contenitore *di sistema* all'interno del relativo dominio.
 
-### <a name="tdo-contents"></a>Contenuto di TDO
+### <a name="tdo-contents"></a>Contenuti TDO
 
 Le informazioni contenute in un TDO variano a seconda che un TDO sia stato creato da un trust di dominio o da un trust tra foreste.
 
-Quando viene creato un trust di dominio, gli attributi come il nome di dominio DNS, il SID di dominio, il tipo di trust, la transitività dei trust e il nome di dominio reciproco sono rappresentati in TDO. Trust tra foreste TDOs archivia attributi aggiuntivi per identificare tutti gli spazi dei nomi attendibili dalla foresta partner. Questi attributi includono nomi di albero di dominio, suffissi del nome dell'entità utente (UPN), suffissi del nome dell'entità servizio (SPN) e spazi dei nomi ID di sicurezza (SID).
+Quando viene creato un trust di dominio, attributi quali il nome di dominio DNS, il SID del dominio, il tipo di trust, la transitività dell'attendibilità e il nome di dominio reciproco vengono rappresentati nel TDO. I TDO trust tra foreste archiviano attributi aggiuntivi per identificare tutti gli spazi dei nomi attendibili dalla foresta partner. Questi attributi includono nomi di struttura di dominio, suffissi di nome dell'entità utente (UPN), suffissi del nome dell'entità servizio (SPN) e spazi dei nomi ID di sicurezza (SID).
 
-Poiché i trust vengono archiviati in Active Directory come TDOs, tutti i domini in una foresta conoscono le relazioni di trust presenti in tutta la foresta. Analogamente, quando due o più foreste sono unite in join tramite trust tra foreste, i domini radice della foresta in ogni foresta conoscono le relazioni di trust presenti in tutti i domini delle foreste trusted.
+Poiché i trust vengono archiviati in Active Directory come TDO, tutti i domini in un insieme di strutture conoscono le relazioni di trust presenti nell'insieme di strutture. Analogamente, quando due o più foreste vengono unite tramite trust tra foreste, i domini radice della foresta in ogni foresta conoscono le relazioni di trust presenti in tutti i domini delle foreste trusted.
 
-### <a name="tdo-password-changes"></a>Modifiche della password di TDO
+### <a name="tdo-password-changes"></a>Modifiche della password TDO
 
-Entrambi i domini in una relazione di trust condividono una password, archiviata nell'oggetto TDO in Active Directory. Come parte del processo di manutenzione dell'account, ogni 30 giorni il controller di dominio trusting modifica la password archiviata in TDO. Poiché tutti i trust bidirezionali sono in 2 1 realtà in direzioni opposte, il processo si verifica due volte per i trust bidirezionali.
+Entrambi i domini in una relazione di trust condividono una password, che viene archiviata nell'oggetto TDO in Active Directory. Come parte del processo di manutenzione dell'account, ogni 30 giorni il controller di dominio trusting modifica la password archiviata nel TDO. Poiché tutti i trust bidirezionali sono in realtà due trust unidirezionali che vanno in direzioni opposte, il processo si verifica due volte per i trust bidirezionali.
 
-Una relazione di trust ha un trust e un lato attendibile. Sul lato attendibile, qualsiasi controller di dominio scrivibile può essere usato per il processo. Sul lato trusting, l'emulatore PDC esegue la modifica della password.
+Una fiducia ha un lato trusting e un trust. Sul lato attendibile, qualsiasi controller di dominio scrivibile può essere utilizzato per il processo. Sul lato trusting, l'emulatore PDC esegue la modifica della password.
 
-Per modificare una password, i controller di dominio completano il processo seguente:
+Per modificare una password, i controller di dominio completano il processo seguente:To change a password, the domain controllers complete the following process:
 
 1. L'emulatore del controller di dominio primario (PDC) nel dominio trusting crea una nuova password. Un controller di dominio nel dominio trusted non avvia mai la modifica della password. Viene sempre avviato dall'emulatore PDC del dominio trusting.
 
-2. L'emulatore PDC nel dominio trusting imposta il campo *oldPassword* dell'oggetto TDO sul campo *newPassword* corrente.
+2. L'emulatore PDC nel dominio trusting imposta il campo *OldPassword* dell'oggetto TDO sul campo *NewPassword* corrente.
 
-3. L'emulatore PDC nel dominio trusting imposta il campo *newPassword* dell'oggetto TDO sulla nuova password. Mantenendo una copia della password precedente è possibile ripristinare la vecchia password se il controller di dominio nel dominio trusted non riesce a ricevere la modifica o se la modifica non viene replicata prima che venga eseguita una richiesta che utilizza la nuova password di attendibilità.
+3. L'emulatore PDC nel dominio trusting imposta il campo *NewPassword* dell'oggetto TDO sulla nuova password. La conservazione di una copia della password precedente consente di ripristinare la vecchia password se il controller di dominio nel dominio trusted non riesce a ricevere la modifica o se la modifica non viene replicata prima che venga effettuata una richiesta che utilizza la nuova password di trust.
 
-4. L'emulatore PDC nel dominio trusting effettua una chiamata remota a un controller di dominio nel dominio trusted che richiede di impostare la password dell'account attendibile sulla nuova password.
+4. L'emulatore PDC nel dominio trusting effettua una chiamata remota a un controller di dominio nel dominio trusted chiedendogli di impostare la password nell'account trust sulla nuova password.
 
-5. Il controller di dominio nel dominio trusted imposta la password di attendibilità sulla nuova password.
+5. Il controller di dominio nel dominio trusted modifica la password di trust con la nuova password.
 
-6. Per ogni lato del trust, gli aggiornamenti vengono replicati negli altri controller di dominio del dominio. Nel dominio trusting, la modifica attiva una replica urgente dell'oggetto dominio trusted.
+6. Su ogni lato del trust, gli aggiornamenti vengono replicati agli altri controller di dominio nel dominio. Nel dominio trusting, la modifica attiva una replica urgente dell'oggetto dominio trusted.
 
-La password viene ora modificata in entrambi i controller di dominio. La replica normale distribuisce gli oggetti TDO agli altri controller di dominio nel dominio. Tuttavia, è possibile che il controller di dominio nel dominio trusting modifichi la password senza aggiornare correttamente un controller di dominio nel dominio trusted. Questo scenario potrebbe verificarsi perché non è stato possibile stabilire un canale protetto, necessario per elaborare la modifica della password. È anche possibile che il controller di dominio nel dominio trusted non sia disponibile in un determinato momento durante il processo e potrebbe non ricevere la password aggiornata.
+La password viene ora modificata in entrambi i controller di dominio. La replica normale distribuisce gli oggetti TDO agli altri controller di dominio nel dominio. Tuttavia, è possibile che il controller di dominio nel dominio trusting modifichi la password senza aggiornare correttamente un controller di dominio nel dominio trusted. Questo scenario potrebbe verificarsi perché non è stato possibile stabilire un canale protetto necessario per elaborare la modifica della password. È inoltre possibile che il controller di dominio nel dominio trusted non sia disponibile a un certo punto durante il processo e che non riceva la password aggiornata.
 
-Per gestire le situazioni in cui la modifica della password non viene comunicata correttamente, il controller di dominio nel dominio trusting non modifica mai la nuova password a meno che non sia stata eseguita correttamente l'autenticazione (configurazione di un canale protetto) con la nuova password. Questo comportamento è dovuto al fatto che le password precedenti e nuove vengono mantenute nell'oggetto TDO del dominio trusting.
+Per gestire le situazioni in cui la modifica della password non viene comunicata correttamente, il controller di dominio nel dominio trusting non modifica mai la nuova password a meno che non sia stata autenticata correttamente (impostare un canale protetto) utilizzando la nuova password. Questo è il motivo per cui sia le password vecchie che le nuove password vengono mantenute nell'oggetto TDO del dominio trusting.
 
-Una modifica della password non viene finalizzata fino a quando non viene eseguita l'autenticazione con la password. La vecchia password archiviata può essere utilizzata sul canale protetto finché il controller di dominio nel dominio trusted non riceve la nuova password, abilitando così il servizio senza interruzioni.
+La modifica della password non viene finalizzata fino a quando l'autenticazione con la password non riesce. La vecchia password archiviata può essere utilizzata sul canale protetto fino a quando il controller di dominio nel dominio trusted non riceve la nuova password, abilitando così il servizio ininterrotto.
 
-Se l'autenticazione con la nuova password ha esito negativo perché la password non è valida, il controller di dominio trusting prova a eseguire l'autenticazione con la vecchia password. Se l'autenticazione con la vecchia password viene eseguita correttamente, riprende il processo di modifica della password entro 15 minuti.
+Se l'autenticazione con la nuova password non riesce perché la password non è valida, il controller di dominio trusting tenta di eseguire l'autenticazione utilizzando la vecchia password. Se l'autenticazione viene eseguita correttamente con la vecchia password, riprende il processo di modifica della password entro 15 minuti.
 
-Gli aggiornamenti delle password di attendibilità devono essere replicati nei controller di dominio di entrambi i lati del trust entro 30 giorni. Se la password di attendibilità viene modificata dopo 30 giorni e un controller di dominio ha solo la password N-2, non può utilizzare il trust dal lato trusting e non può creare un canale sicuro sul lato attendibile.
+Gli aggiornamenti delle password di trust devono essere replicati nei controller di dominio di entrambi i lati del trust entro 30 giorni. Se la password di trust viene modificata dopo 30 giorni e un controller di dominio ha solo la password N-2, non può utilizzare il trust dal lato trusting e non può creare un canale protetto sul lato attendibile.
 
-## <a name="network-ports-used-by-trusts"></a>Porte di rete usate da trust
+## <a name="network-ports-used-by-trusts"></a>Porte di rete utilizzate dai trust
 
-Poiché i trust devono essere distribuiti in diversi limiti di rete, possono essere necessari per uno o più firewall. In tal caso, è possibile effettuare il tunneling del traffico in un firewall o aprire porte specifiche nel firewall per consentire il passaggio del traffico.
+Poiché i trust devono essere distribuiti attraverso vari limiti di rete, potrebbe essere necessario estendersi su uno o più firewall. In questo caso, è possibile eseguire il tunneling del traffico attendibile attraverso un firewall o aprire porte specifiche nel firewall per consentire il passaggio del traffico.
 
 > [!IMPORTANT]
-> Active Directory Domain Services non supporta la limitazione del traffico RPC Active Directory a porte specifiche.
+> Servizi di dominio Active Directory non supporta la limitazione del traffico RPC di Active Directory a porte specifiche.
 
-Per informazioni sulle porte necessarie per un trust tra foreste, vedere la sezione **Windows Server 2008 e versioni successive** dell'articolo supporto tecnico Microsoft [come configurare un firewall per Active Directory domini e trust](https://support.microsoft.com/help/179442/how-to-configure-a-firewall-for-domains-and-trusts) .
+Leggere la sezione **Windows Server 2008 e versioni successive** dell'articolo del supporto tecnico Microsoft Come [configurare un firewall per](https://support.microsoft.com/help/179442/how-to-configure-a-firewall-for-domains-and-trusts) i domini di Active Directory e trust per informazioni sulle porte necessarie per un trust tra foreste.
 
 ## <a name="supporting-services-and-tools"></a>Servizi e strumenti di supporto
 
-Per supportare Trust e autenticazione, vengono usate alcune funzionalità aggiuntive e strumenti di gestione.
+Per supportare i trust e l'autenticazione, vengono utilizzati alcuni strumenti di gestione e funzionalità aggiuntivi.
 
 ### <a name="net-logon"></a>Accesso rete
 
-Il servizio Accesso rete gestisce un canale protetto da un computer basato su Windows a un controller di dominio. Viene anche usato nei seguenti processi correlati all'attendibilità:
+Il servizio Accesso rete gestisce un canale protetto da un computer basato su Windows a un controller di dominio. Viene inoltre utilizzato nei seguenti processi correlati al trust:
 
-* Configurazione e gestione dell'attendibilità: l'accesso rete consente di mantenere le password di attendibilità, raccoglie le informazioni di attendibilità e verifica i trust interagendo con il processo LSA e con TDO.
+* Configurazione e gestione dell'attendibilità: Net Logon consente di mantenere le password di attendibilità, raccogliere informazioni sull'attendibilità e verificarne le relazioni tra l'interagimento con il processo LSA e il TDO.
 
-    Per i trust tra foreste, le informazioni di trust includono il record*FTInfo*(Forest Trust Information), che include il set di spazi dei nomi che una foresta trusted dichiara di gestire, annotata con un campo che indica se ogni attestazione è considerata attendibile dalla foresta trusting.
+    Per i trust tra foreste, le informazioni di trust includono il record Informazioni trust tra foreste (*FTInfo*), che include il set di spazi dei nomi che una foresta trusted dichiara di gestire, annotato con un campo che indica se ogni attestazione è considerata attendibile dalla foresta trusting.
 
-* Autenticazione: fornisce le credenziali utente su un canale protetto a un controller di dominio e restituisce i SID del dominio e i diritti utente per l'utente.
+* Autenticazione: fornisce le credenziali utente tramite un canale protetto a un controller di dominio e restituisce i SID di dominio e i diritti utente per l'utente.
 
-* Posizione del controller di dominio: consente di trovare o individuare i controller di dominio in un dominio o tra domini.
+* Posizione controller di dominio: consente di trovare o individuare i controller di dominio in un dominio o tra domini.
 
-* Convalida pass-through: le credenziali degli utenti in altri domini vengono elaborate dall'accesso netto. Quando un dominio trusting deve verificare l'identità di un utente, passa le credenziali dell'utente tramite l'accesso NET al dominio trusted per la verifica.
+* Convalida pass-through: le credenziali degli utenti in altri domini vengono elaborate da Accesso rete. Quando un dominio trusting deve verificare l'identità di un utente, passa le credenziali dell'utente tramite Accesso rete al dominio trusted per la verifica.
 
-* Verifica del certificato dell'attributo Privilege: quando un server che usa il protocollo Kerberos per l'autenticazione deve verificare il PAC in un ticket di servizio, Invia la PAC sul canale sicuro al controller di dominio per la verifica.
+* Verifica del certificato di attributo dei privilegi (PAC): quando un server che utilizza il protocollo Kerberos per l'autenticazione deve verificare la PAC in un ticket di servizio, invia la PAC attraverso il canale protetto al controller di dominio per la verifica.
 
 ### <a name="local-security-authority"></a>Autorità di sicurezza locale
 
-L'autorità di sicurezza locale (LSA) è un sottosistema protetto che mantiene le informazioni su tutti gli aspetti della sicurezza locale in un sistema. Noto come criterio di sicurezza locale, LSA fornisce vari servizi per la conversione tra nomi e identificatori.
+L'autorità di protezione locale (LSA) è un sottosistema protetto che gestisce informazioni su tutti gli aspetti della sicurezza locale in un sistema. Collettivamente noto come politica di sicurezza locale, l'LSA fornisce vari servizi per la traduzione tra nomi e identificatori.
 
-Il sottosistema di sicurezza LSA fornisce servizi in modalità kernel e modalità utente per convalidare l'accesso agli oggetti, controllare i privilegi utente e generare messaggi di controllo. LSA è responsabile della verifica della validità di tutti i ticket di sessione presentati dai servizi in domini trusted o non trusted.
+Il sottosistema di protezione LSA fornisce servizi sia in modalità kernel che in modalità utente per la convalida dell'accesso agli oggetti, il controllo dei privilegi utente e la generazione di messaggi di controllo. LSA è responsabile del controllo della validità di tutti i ticket di sessione presentati dai servizi in domini attendibili o non attendibili.
 
 ### <a name="management-tools"></a>Strumenti di gestione
 
-Gli amministratori possono utilizzare *Active Directory domini e trust*, *netdom* e *nltest* per esporre, creare, rimuovere o modificare i trust.
+Gli amministratori possono utilizzare *Domini e trust*di Active Directory , *Netdom* e *Nltest* per esporre, creare, rimuovere o modificare trust.
 
-* *Active Directory domini e trust* è Microsoft Management Console (MMC) usato per amministrare i trust di dominio, i livelli di funzionalità del dominio e della foresta e i suffissi del nome dell'entità utente.
-* Gli strumenti da riga di comando *netdom* e *nltest* possono essere utilizzati per trovare, visualizzare, creare e gestire i trust. Questi strumenti comunicano direttamente con l'autorità LSA in un controller di dominio.
+* *Domini e trust* di Active Directory è Microsoft Management Console (MMC) utilizzata per amministrare trust di dominio, livelli di funzionalità di dominio e foresta e suffissi del nome principale utente.
+* Gli strumenti della riga di comando *Netdom* e *Nltest* possono essere utilizzati per trovare, visualizzare, creare e gestire trust. Questi strumenti comunicano direttamente con l'autorità LSA su un controller di dominio.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sulle foreste di risorse, vedere [come funzionano i trust tra foreste in Azure AD DS?][concepts-trust]
+Per altre informazioni sulle foreste di risorse, vedere Funzionamento dei trust tra foreste in Servizi di dominio Active Directory di [Azure?][concepts-trust]
 
-Per iniziare a creare un dominio gestito di Azure AD DS con una foresta di risorse, vedere [creare e configurare un dominio gestito di Azure AD DS][tutorial-create-advanced]. È quindi possibile [creare un trust tra foreste in uscita per un dominio locale (anteprima)][create-forest-trust].
+Per iniziare a creare un dominio gestito di Servizi di dominio Active Directory di Azure con una foresta di risorse, vedere [Creare e configurare un dominio gestito][tutorial-create-advanced]di Servizi di dominio Active Directory di Azure. È quindi possibile [creare un trust tra foreste in uscita a un dominio locale (anteprima).][create-forest-trust]
 
 <!-- LINKS - INTERNAL -->
 [concepts-trust]: concepts-forest-trust.md

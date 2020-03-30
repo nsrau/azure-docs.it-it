@@ -1,5 +1,5 @@
 ---
-title: Configurare i criteri SSL con PowerShell
+title: Configurare i criteri SSL tramite PowerShellConfigure SSL policy using PowerShell
 titleSuffix: Azure Application Gateway
 description: Questo articolo contiene istruzioni per configurare i criteri SSL nel gateway applicazione di Azure
 services: application-gateway
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/14/2019
 ms.author: victorh
 ms.openlocfilehash: 105b0b3e40e6e9433ee456914cd5babc1d17d036
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74075241"
 ---
 # <a name="configure-ssl-policy-versions-and-cipher-suites-on-application-gateway"></a>Configurare i pacchetti di crittografia e le versioni dei criteri SSL nel gateway applicazione
@@ -116,7 +116,7 @@ L'esempio seguente imposta criteri SSL personalizzati in un gateway applicazione
 * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
 
 > [!IMPORTANT]
-> Quando si configura un criterio SSL personalizzato, è necessario selezionare TLS_RSA_WITH_AES_256_CBC_SHA256. Il gateway applicazione usa questo pacchetto di crittografia per la gestione back-end. Questa operazione può essere usata in combinazione con altri gruppi, ma è necessario selezionare anche questa opzione. 
+> TLS_RSA_WITH_AES_256_CBC_SHA256 deve essere selezionato quando si configura un criterio SSL personalizzato. Il gateway applicazione utilizza questa suite di crittografia per la gestione back-end. È possibile utilizzare questo in combinazione con qualsiasi altra suite, ma questo deve essere selezionato pure. 
 
 ```powershell
 # get an application gateway resource

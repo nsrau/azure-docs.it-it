@@ -14,10 +14,10 @@ ms.date: 09/10/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 50a6b4f15a7de02533e3bb51e5659f7b4c078b40
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77617300"
 ---
 # <a name="how-to-monitor-sap-hana-large-instances-on-azure"></a>Come monitorare SAP HANA (istanze di grandi dimensioni) in Azure
@@ -26,7 +26,7 @@ SAP HANA in Azure (istanze di grandi dimensioni) non è diverso da qualsiasi alt
 
 - CPU
 - Memoria
-- Larghezza di banda di rete
+- Larghezza di banda della rete
 - Spazio su disco
 
 Con le macchine virtuali di Azure, è necessario stabilire se le classi di risorse indicate sopra sono sufficienti o meno. Ecco ulteriori dettagli su ciascuna delle diverse classi:

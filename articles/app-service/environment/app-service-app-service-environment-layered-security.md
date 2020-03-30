@@ -1,6 +1,6 @@
 ---
-title: Sicurezza su più livelli V1
-description: Informazioni su come implementare un'architettura di sicurezza a più livelli nell'ambiente del servizio app. Questo documento è disponibile solo per i clienti che usano l'ambiente del servizio app legacy V1.
+title: Sicurezza stratificata v1
+description: Informazioni su come implementare un'architettura di sicurezza a più livelli nell'ambiente del servizio app. Questo documento viene fornito solo per i clienti che utilizzano l'app ase versione 21 legacy.
 author: stefsch
 ms.assetid: 73ce0213-bd3e-4876-b1ed-5ecad4ad5601
 ms.topic: article
@@ -8,16 +8,16 @@ ms.date: 08/30/2016
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: a8920e97d315dc7bfd0ba22386b8b637afb7c05e
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74688790"
 ---
 # <a name="implementing-a-layered-security-architecture-with-app-service-environments"></a>Implementazione di un'architettura di sicurezza su più livelli con ambienti del servizio app
 Dato che gli ambienti del servizio app forniscono un ambiente di runtime isolato distribuito in una rete virtuale, gli sviluppatori possono creare un'architettura di sicurezza su più livelli offrendo livelli diversi di accesso alla rete per ogni livello applicazione fisico.
 
-Un'esigenza comune è quella di nascondere i back-end delle API all'accesso a Internet generale e consentire alle API di essere chiamate solo dalle app Web upstream.  I [gruppi di sicurezza di rete (gruppi)][NetworkSecurityGroups] possono essere usati in subnet contenenti ambienti del servizio app per limitare l'accesso pubblico alle applicazioni API.
+Un'esigenza comune è quella di nascondere i back-end delle API all'accesso a Internet generale e consentire alle API di essere chiamate solo dalle app Web upstream.  I [gruppi di sicurezza di rete (NSG)][NetworkSecurityGroups] possono essere usati nelle subnet contenenti ambienti del servizio app per limitare l'accesso pubblico alle applicazioni API.
 
 Il diagramma seguente mostra un'architettura di esempio con un elemento WebAPI basato sull'app distribuita in un ambiente del servizio app.  Tre diverse istanze di app Web, distribuite in tre diversi ambienti del servizio app, eseguono chiamate back-end alla stessa app WebAPI.
 
@@ -30,10 +30,10 @@ Il resto di questo articolo illustra in dettaglio la procedura necessaria per co
 ## <a name="determining-the-network-behavior"></a>Determinazione del comportamento della rete
 Per conoscere le regole per la sicurezza della rete necessarie, si deve determinare a quali client di rete sarà consentito raggiungere l'ambiente del servizio app contenente l'app per le API e quali client verranno bloccati.
 
-Poiché i [gruppi di sicurezza di rete (gruppi)][NetworkSecurityGroups] vengono applicati alle subnet e gli ambienti del servizio app vengono distribuiti in subnet, le regole contenute in un NSG si applicano a **tutte** le app in esecuzione in un ambiente del servizio app.  Usando l'architettura di esempio di questo articolo, una volta applicato un gruppo di sicurezza di rete alla subnet contenente "apiase", tutte le app in esecuzione nell'ambiente del servizio app "apiase" verranno protette dallo stesso set di regole di sicurezza. 
+Poiché i [gruppi di sicurezza di rete][NetworkSecurityGroups] vengono applicati alle subnet e gli ambienti del servizio app vengono distribuiti nelle subnet, le regole contenute in un gruppo di sicurezza di rete si applicano a **tutte** le app in esecuzione in un ambiente del servizio app.  Usando l'architettura di esempio di questo articolo, una volta applicato un gruppo di sicurezza di rete alla subnet contenente "apiase", tutte le app in esecuzione nell'ambiente del servizio app "apiase" verranno protette dallo stesso set di regole di sicurezza. 
 
-* **Determinare l'indirizzo IP in uscita dei chiamanti upstream:** quali sono gli indirizzi IP dei chiamanti upstream?  Sarà necessario consentire esplicitamente a questi indirizzi l'accesso nel gruppo di sicurezza di rete.  Poiché le chiamate tra gli ambienti del servizio app sono considerate chiamate "Internet", all'indirizzo IP in uscita assegnato a ciascuno dei tre ambienti del servizio app upstream deve essere consentito l'accesso nel gruppo di sicurezza di rete per la subnet "apiase".   Per altre informazioni su come determinare l'indirizzo IP in uscita per le app in esecuzione in un ambiente del servizio app, vedere l'articolo Panoramica dell' [architettura di rete][NetworkArchitecture] .
-* **L'app per le API back-end dovrà chiamare se stessa?**  Un aspetto delicato e a volte trascurato è lo scenario in cui l'applicazione back-end deve chiamare se stessa.  Se un'applicazione API back-end in un ambiente del servizio app deve chiamare se stessa, anche questa chiamata viene considerata una chiamata "Internet".  Nell'architettura di esempio è necessario consentire l'accesso anche dall'indirizzo IP in uscita dell'ambiente del servizio app "apiase".
+* **Determinare l'indirizzo IP in uscita dei chiamanti upstream:** quali sono gli indirizzi IP dei chiamanti upstream?  Sarà necessario consentire esplicitamente a questi indirizzi l'accesso nel gruppo di sicurezza di rete.  Poiché le chiamate tra gli ambienti del servizio app sono considerate chiamate "Internet", all'indirizzo IP in uscita assegnato a ciascuno dei tre ambienti del servizio app upstream deve essere consentito l'accesso nel gruppo di sicurezza di rete per la subnet "apiase".   Per altre informazioni su come determinare l'indirizzo IP in uscita per le app in esecuzione in un ambiente del servizio app, vedere l'articolo [Panoramica dell'architettura di rete][NetworkArchitecture].
+* **L'app per le API back-end dovrà chiamare se stessa?**   Un aspetto delicato e a volte trascurato è lo scenario in cui l'applicazione back-end deve chiamare se stessa.  Se un'applicazione API back-end in un ambiente del servizio app deve chiamare se stessa, anche questa chiamata viene considerata una chiamata "Internet".  Nell'architettura di esempio è necessario consentire l'accesso anche dall'indirizzo IP in uscita dell'ambiente del servizio app "apiase".
 
 ## <a name="setting-up-the-network-security-group"></a>Configurazione del gruppo di sicurezza di rete
 Una volta noto il set di indirizzi IP in uscita, il passaggio successivo consiste nel creare un gruppo di sicurezza di rete.  I gruppi di sicurezza di rete possono essere creati sia per le reti virtuali basate su Resource Manager che per le reti virtuali classiche.  Gli esempi seguenti illustrano la creazione e configurazione di un gruppo di sicurezza di rete in una rete virtuale classica usando Powershell.
@@ -85,7 +85,7 @@ Con il gruppo di sicurezza di rete applicato alla subnet, solo ai tre ambienti d
 ## <a name="additional-links-and-information"></a>Informazioni e collegamenti aggiuntivi
 Informazioni sui [gruppi di sicurezza di rete](../../virtual-network/security-overview.md).
 
-Informazioni sugli [indirizzi IP in uscita e gli][NetworkArchitecture] ambienti del servizio app.
+Informazioni sugli [indirizzi IP in uscita][NetworkArchitecture] e sugli ambienti del servizio app.
 
 [Porte di rete][InboundTraffic] usate dagli ambienti del servizio app.
 

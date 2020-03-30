@@ -4,10 +4,10 @@ description: Automatizzare la configurazione di Application Insights per ricever
 ms.topic: conceptual
 ms.date: 10/31/2016
 ms.openlocfilehash: c19cb43d08b44b55c786e750e64a83e6f0c67381
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77669846"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>Usare PowerShell per impostare gli avvisi in Application Insights
@@ -89,7 +89,7 @@ Ho un'applicazione in cui uso [TrackMetric()](../../azure-monitor/app/api-custom
 La stessa regola può essere utilizzata per la metrica riportata utilizzando il [parametro misura](../../azure-monitor/app/api-custom-events-metrics.md#properties) di un altra chiamata di rilevamento come ad esempio TrackEvent o trackPageView.
 
 ## <a name="metric-names"></a>Nomi delle metriche
-| Nome della metrica | Nome schermata | Descrizione |
+| Nome metrica | Nome schermata | Descrizione |
 | --- | --- | --- |
 | `basicExceptionBrowser.count` |Eccezioni del browser |Conteggio delle eccezioni non rilevate generate nel browser. |
 | `basicExceptionServer.count` |Eccezioni del server |Conteggio delle eccezioni non gestite generate dall'applicazione |
@@ -118,7 +118,7 @@ Le metriche vengono inviate da moduli di telemetria diversi:
 
 | Gruppo metrica | Modulo dell'agente di raccolta |
 | --- | --- |
-| basicExceptionBrowser,<br/>clientPerformance,<br/>visualizzazione |[JavaScript browser](../../azure-monitor/app/javascript.md) |
+| basicExceptionBrowser,<br/>clientPerformance,<br/>vista |[JavaScript browser](../../azure-monitor/app/javascript.md) |
 | performanceCounter |[Prestazioni](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
 | remoteDependencyFailed |[Dipendenza](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
 | request,<br/>requestFailed |[Richiesta server](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |

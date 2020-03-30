@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: sethm
 ms.openlocfilehash: 7fd161c90234d45a6751f173ba3685ee8c392c87
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74260777"
 ---
 ## <a name="webapi-project"></a>Progetto WebAPI
@@ -95,4 +95,4 @@ ms.locfileid: "74260777"
 Notare che il metodo `Post` non invia ora una notifica di tipo avviso popup, ma una notifica non elaborata che contiene solo l'ID notifica e non contenuto sensibile. Assicurarsi inoltre di impostare come commento l'operazione send per le piattaforme per le quali non sono configurate le credenziali nell'hub di notifica, in caso contrario verranno restituiti errori.
 
 1. L'app verrà ora nuovamente distribuita in un sito Web di Azure in modo da renderla accessibile da tutti i dispositivi. Fare clic con il pulsante destro del mouse sul progetto **AppBackend** e scegliere **Pubblica**.
-2. Selezionare un sito Web Azure come destinazione di pubblicazione. Accedere con l'account Azure e selezionare un sito Web esistente o nuovo e prendere nota della proprietà URL di **destinazione** nella scheda **connessione** . Si fa riferimento a questo URL come *endpoint back-end* più avanti in questa esercitazione. Fare clic su **Pubblica**.
+2. Selezionare un sito Web Azure come destinazione di pubblicazione. Accedere con l'account Azure e selezionare un sito Web nuovo o esistente e prendere nota della proprietà **dell'URL** di destinazione nella scheda **Connessione.** Questo URL verrà indicato come *endpoint back-end* più avanti in questa esercitazione. Fare clic su **Pubblica**.

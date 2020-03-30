@@ -1,5 +1,5 @@
 ---
-title: Progettazione di soluzioni resilienti con protezione DDoS di Azure
+title: Progettazione di soluzioni resilienti con Azure DDoS Protection
 description: Informazioni sull'uso dei dati di registrazione per ottenere informazioni approfondite sull'applicazione.
 services: security
 author: barclayn
@@ -15,13 +15,13 @@ ms.workload: na
 ms.date: 10/18/2018
 ms.author: barclayn
 ms.openlocfilehash: 8d3fc809999508bf3d49c3765c90017e89e80fa7
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77624047"
 ---
-# <a name="azure-ddos-protection---designing-resilient-solutions"></a>Protezione DDoS di Azure-progettazione di soluzioni resilienti
+# <a name="azure-ddos-protection---designing-resilient-solutions"></a>Protezione DDoS di Azure - Progettazione di soluzioni resilientiAzure DDoS Protection - Designing resilient solutions
 
 Questo articolo è destinato ai responsabili IT e al personale di sicurezza. Presuppone che si abbia familiarità con Azure, la rete e la sicurezza.
 Il DDoS è un tipo di attacco che tenta di esaurire le risorse dell'applicazione. L'obiettivo è compromettere la disponibilità e la capacità dell'applicazione di gestire richieste legittime. Gli attacchi stanno diventando più sofisticati e di dimensioni e impatto maggiori. Gli attacchi DDoS possono avere come obiettivo qualsiasi endpoint che è raggiungibile pubblicamente tramite Internet. La progettazione per la resilienza agli attacchi Distributed Denial of Service (DDoS) richiede pianificazione e progettazione per un'ampia gamma di modalità di errore. Azure offre una protezione continua contro gli attacchi DDoS. Questa protezione è integrata nella piattaforma di Azure per impostazione predefinita e senza costi aggiuntivi.
@@ -48,7 +48,7 @@ Garantire che un'applicazione sia abbastanza resiliente da riuscire a gestire un
 
 La scalabilità è la capacità di un sistema di gestire carichi elevati. progettare le applicazioni con [scalabilità orizzontale](/azure/architecture/guide/design-principles/scale-out) per soddisfare la richiesta di un carico amplificato, in particolare in caso di attacco DDoS. Se l'applicazione dipende da una singola istanza di un servizio, crea un singolo punto di errore. Il provisioning di più istanze rende il sistema più resiliente e scalabile.
 
-Per [Servizio app di Azure](/azure/app-service/app-service-value-prop-what-is) selezionare un [piano di servizio app](/azure/app-service/overview-hosting-plans) che offra più istanze. Per Servizi cloud di Azure, configurare ognuno dei ruoli in modo da usare [più istanze](/azure/cloud-services/cloud-services-choose-me). Per [Macchine virtuali di Microsoft Azure](/azure/virtual-machines/virtual-machines-windows-about/?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) verificare che l'architettura VM includa più macchine virtuali e che ogni macchina virtuale sia inclusa in un [set di disponibilità](/azure/virtual-machines/virtual-machines-windows-manage-availability). Si consiglia di usare [set di scalabilità di macchine virtuali](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview) per le funzionalità di scalabilità automatica.
+Per [Servizio app di Azure](/azure/app-service/app-service-value-prop-what-is) selezionare un [piano di servizio app](/azure/app-service/overview-hosting-plans) che offra più istanze. Per Servizi cloud di Azure, configurare ognuno dei ruoli in modo da usare [più istanze](/azure/cloud-services/cloud-services-choose-me). Per [Macchine virtuali di Microsoft Azure](/azure/virtual-machines/virtual-machines-windows-about/?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) verificare che l'architettura VM includa più macchine virtuali e che ogni macchina virtuale sia inclusa in un [set di disponibilità](/azure/virtual-machines/virtual-machines-windows-manage-availability). È consigliabile usare i set di [scalabilità](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview) delle macchine virtuali per le funzionalità di scalabilità automatica.
 
 ### <a name="defense-in-depth"></a>Informazioni dettagliate sulla difesa
 
@@ -73,7 +73,7 @@ La protezione di base viene integrata in Azure per impostazione predefinita senz
 
 Protezione DDoS Basic di Azure è costituita da componenti hardware e software. Un piano di controllo del software decide quando, dove, e che tipo di traffico debba essere deviato tramite dispositivi hardware che analizzano e rimuovono il traffico dell'attacco. Un piano di controllo software prende questa decisione in base a *criteri* di Protezione DDoS per tutta l'infrastruttura. Questi criteri sono staticamente definiti e universalmente applicati a tutti i clienti di Azure.
 
-Ad esempio, i criteri di Protezione DDoS specificano a quale volume di traffico debba essere *attivata* la protezione, (Ovvero, il traffico del tenant deve essere instradato tramite appliance di pulitura). Il criterio specifica quindi il modo in cui le appliance di pulitura devono *attenuare* l'attacco.
+Ad esempio, i criteri di Protezione DDoS specificano a quale volume di traffico debba essere *attivata* la protezione, (Ovvero, il traffico del tenant deve essere instradato attraverso gli apparecchi di scrubbing.) Il criterio specifica quindi in che modo le appliance di scrubbing devono *attenuare* l'attacco.
 
 Il servizio Protezione DDoS di Azure Basic è destinato alla protezione dell'infrastruttura e della piattaforma di Azure. Mitiga il traffico quando supera una velocità talmente significativa da poter influire negativamente su più clienti in un ambiente multi-tenant. Non fornisce avvisi o i criteri personalizzati per ogni cliente.
 
@@ -81,7 +81,7 @@ Il servizio Protezione DDoS di Azure Basic è destinato alla protezione dell'inf
 
 La protezione Standard offre funzioni di mitigazione DDoS avanzate. Viene ottimizzata automaticamente per proteggere le specifiche risorse di Azure in una rete virtuale. La protezione è semplice da abilitare in qualsiasi rete virtuale nuova o esistente e non richiede alcuna modifica di applicazioni o risorse. Presenta diversi vantaggi rispetto al servizio Basic, compresa la registrazione, gli avvisi e i dati di telemetria. Le sezioni seguenti descrivono le caratteristiche principali del servizio Protezione DDoS di Azure Standard.
 
-#### <a name="adaptive-real-time-tuning"></a>Ottimizzazione in tempo reale adattiva
+#### <a name="adaptive-real-time-tuning"></a>Ottimizzazione adattiva in tempo reale
 
 Il servizio Protezione DDoS di Azure Basic aiuta a proteggere i clienti e a prevenire gli impatti su altri clienti. Se ad esempio viene eseguito il provisioning di un servizio per un volume tipico di traffico legittimo in entrata minore della *frequenza trigger* dei criteri di Protezione DDoS per l'intera infrastruttura, potrebbe passare inosservato un attacco DDoS alle risorse di quel cliente. Più in generale, la natura complessa degli attacchi recenti (ad esempio DDoS multi-vettore), nonché i comportamenti specifici dell'applicazione dei tenant, richiedono criteri di protezione personalizzati per ogni cliente. Il servizio realizza questa personalizzazione in due modi:
 
@@ -93,13 +93,13 @@ Il servizio Protezione DDoS di Azure Basic aiuta a proteggere i clienti e a prev
 
 #### <a name="ddos-protection-telemetry-monitoring-and-alerting"></a>Telemetria, monitoraggio e avvisi di Protezione DDoS
 
-Protezione DDoS Standard espone dati di telemetria avanzata tramite [Monitoraggio di Azure](/azure/azure-monitor/overview) durante un attacco DDoS. È possibile configurare gli avvisi per qualsiasi metrica di Monitoraggio di Azure usata da Protezione DDoS. È possibile integrare la registrazione con Splunk (hub eventi di Azure), i log di monitoraggio di Azure e archiviazione di Azure per l'analisi avanzata tramite l'interfaccia di diagnostica di monitoraggio di Azure.
+Protezione DDoS Standard espone dati di telemetria avanzata tramite [Monitoraggio di Azure](/azure/azure-monitor/overview) durante un attacco DDoS. È possibile configurare gli avvisi per qualsiasi metrica di Monitoraggio di Azure usata da Protezione DDoS. È possibile integrare la registrazione con Splunk (Hub di eventi di Azure), i log di Monitoraggio di Azure e Archiviazione di Azure per un'analisi avanzata tramite l'interfaccia diagnostica di Monitoraggio di Azure.You can integrate logging with Splunk (Azure Event Hubs), Azure Monitor logs, and Azure Storage for advanced analysis via the Azure Monitor Diagnostics interface.
 
 ##### <a name="ddos-mitigation-policies"></a>Criteri di mitigazione della protezione DDoS
 
-Nel portale di Azure selezionare **Monitoraggio** > **Metriche**. Nel riquadro **Metriche** selezionare il gruppo di risorse, il tipo di risorsa **Indirizzo IP pubblico** e l'indirizzo IP pubblico di Azure. Le metriche DDoS sono visibili nel riquadro **Metriche disponibili**.
+Nel portale di Azure selezionare **Monitora** > **metriche**. Nel riquadro **Metriche** selezionare il gruppo di risorse, il tipo di risorsa **Indirizzo IP pubblico** e l'indirizzo IP pubblico di Azure. Le metriche DDoS sono visibili nel riquadro **Metriche disponibili**.
 
-Protezione DDoS Standard applica tre criteri di mitigazione ottimizzati automaticamente (TCP SYN, TCP e UDP) per ogni indirizzo IP pubblico della risorsa protetta, nella rete virtuale in cui è abilitata la protezione DDoS. È possibile visualizzare le soglie dei criteri selezionando la metrica **Inbound packets to trigger DDoS mitigation** (Pacchetti in ingresso per attivare la mitigazione dei rischi DDoS).
+Protezione DDoS Standard applica tre criteri di mitigazione ottimizzati automaticamente (TCP SYN, TCP e UDP) per ogni indirizzo IP pubblico della risorsa protetta, nella rete virtuale in cui è abilitata la protezione DDoS. È possibile visualizzare le soglie dei criteri selezionando la metrica **Pacchetti in ingresso per attivare l'attenuazione DDoS**.
 
 ![Metriche disponibili e grafico delle metriche](./media/ddos-best-practices/image7.png)
 
@@ -179,7 +179,7 @@ Per il team di risposta DDoS, è consigliabile usare gli esercizi di simulazione
 
 ### <a name="alerts-during-an-attack"></a>Avvisi durante un attacco
 
-Protezione DDoS di Azure Standard identifica e mitiga gli attacchi DDoS senza alcun intervento dell'utente. Per ricevere notifiche quando è attiva una mitigazione per un indirizzo IP pubblico protetto, è possibile [configurare un avviso](/azure/virtual-network/ddos-protection-manage-portal) sulla metrica **Under DDoS attack or not** (Sotto attacco DDoS o no). È possibile scegliere di creare avvisi per le altre metriche DDoS per comprendere la portata dell'attacco, il traffico in corso di eliminazione e altri dettagli.
+Protezione DDoS di Azure Standard identifica e mitiga gli attacchi DDoS senza alcun intervento dell'utente. Per ricevere una notifica quando è presente un'attenuazione attiva per un IP pubblico protetto, è possibile [configurare un avviso](/azure/virtual-network/ddos-protection-manage-portal) sulla metrica In caso di **attacco DDoS o meno.** È possibile scegliere di creare avvisi per le altre metriche DDoS per comprendere la portata dell'attacco, il traffico in corso di eliminazione e altri dettagli.
 
 #### <a name="when-to-contact-microsoft-support"></a>Quando contattare il supporto Microsoft
 
@@ -193,7 +193,7 @@ Protezione DDoS di Azure Standard identifica e mitiga gli attacchi DDoS senza al
 
 - Un attore ha minacciato di lanciare un attacco DDoS contro le risorse.
 
-- Se è necessario consentire l'elenco di un IP o un intervallo IP da protezione DDoS di Azure standard. Uno scenario comune consiste nel consentire l'IP dell'elenco se il traffico viene instradato da un cloud esterno WAF ad Azure. 
+- Se è necessario consentire all'elenco un intervallo IP o IP da Azure DDoS Protection Standard.If you need to allow list an IP or IP range from Azure DDoS Protection Standard. Uno scenario comune consiste nel consentire l'elenco IP se il traffico viene instradato da un WAF cloud esterno ad Azure.A common scenario is to allow list IP if the traffic is routed from an external cloud WAF to Azure. 
 
 Per gli attacchi che hanno un impatto aziendale critico, creare un [ticket di supporto](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) di gravità A.
 
@@ -211,7 +211,7 @@ Se si sospetta di essere sotto attacco DDoS, eseguire l'escalation attraverso i 
 
 ## <a name="ddos-protection-reference-architectures"></a>Architetture di riferimento di Protezione DDoS
 
-Protezione DDoS Standard è progettata [per i servizi che vengono distribuiti in una rete virtuale.](/azure/virtual-network/virtual-network-for-azure-services) Per altri servizi si applica il servizio Protezione DDoS Basic predefinito. Le architetture di riferimento seguenti sono indicate per scenari, con i modelli di architettura raggruppati.
+DDoS Protection Standard è progettato per i [servizi distribuiti in una rete virtuale.](/azure/virtual-network/virtual-network-for-azure-services) Per altri servizi si applica il servizio Protezione DDoS Basic predefinito. Le architetture di riferimento seguenti sono indicate per scenari, con i modelli di architettura raggruppati.
 
 ### <a name="virtual-machine-windowslinux-workloads"></a>Carichi di lavoro della macchina virtuale (Windows/Linux)
 
@@ -235,7 +235,7 @@ In questa architettura, il servizio Protezione DDoS Standard è abilitato nella 
 
 #### <a name="paas-web-application"></a>Applicazione Web PaaS
 
-Questa architettura di riferimento mostra l'esecuzione di un'applicazione di servizio App di Azure in una singola area. Questa architettura mostra dei set di procedure collaudate per un'applicazione Web che usa  [Servizio app di Azure](https://azure.microsoft.com/documentation/services/app-service/)  e  [Database SQL di Azure](https://azure.microsoft.com/documentation/services/sql-database/).
+Questa architettura di riferimento mostra l'esecuzione di un'applicazione di servizio App di Azure in una singola area. Questa architettura mostra una serie di procedure comprovate per un'applicazione Web che usa il [servizio app di Azure](https://azure.microsoft.com/documentation/services/app-service/) e il database SQL di Azure.This architecture shows a set of proven practices for a web application that uses Azure App Service and [Azure SQL Database](https://azure.microsoft.com/documentation/services/sql-database/).
 Viene configurata un'area di stand-by per gli scenari di failover.
 
 ![Diagramma dell'architettura di riferimento per un'applicazione Web PaaS](./media/ddos-best-practices/image11.png)
@@ -270,6 +270,6 @@ Per altre informazioni su questa architettura di riferimento, vedere la document
 
 * [Responsabilità condivisa nel cloud](shared-responsibility.md)
 
-* [Pagina del prodotto di Protezione DDoS di Azure](https://azure.microsoft.com/services/ddos-protection/)
+* [Pagina del prodotto Azure DDoS Protection](https://azure.microsoft.com/services/ddos-protection/)
 
-* [Documentazione di Protezione DDoS di Azure ](/azure/virtual-network/ddos-protection-overview)
+* [Documentazione di Azure DDoS ProtectionAzure DDoS Protection documentation](/azure/virtual-network/ddos-protection-overview)

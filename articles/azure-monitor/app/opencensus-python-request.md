@@ -1,28 +1,28 @@
 ---
-title: Rilevamento delle richieste in ingresso in applicazione Azure Insights con OpenCensus Python | Microsoft Docs
-description: Monitorare le chiamate di richiesta per le app Python tramite OpenCensus Python.
+title: Rilevamento delle richieste in ingresso in Azure Application Insights con OpenCensus Python Documenti Microsoft
+description: Monitorare le chiamate di richiesta per le applicazioni Python tramite OpenCensus Python.
 ms.topic: conceptual
 author: lzchen
 ms.author: lechen
 ms.date: 10/15/2019
 ms.openlocfilehash: 0396bd8d150c6145a39f36e7be9e6e2dcacef2c4
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77669948"
 ---
-# <a name="track-incoming-requests-with-opencensus-python"></a>Tenere traccia delle richieste in ingresso con OpenCensus Python
+# <a name="track-incoming-requests-with-opencensus-python"></a>Tieni traccia delle richieste in arrivo con OpenCensus Python
 
-I dati delle richieste in ingresso vengono raccolti usando OpenCensus Python e le varie integrazioni. Tieni traccia dei dati delle richieste in ingresso inviati alle tue applicazioni Web basate sui framework Web più diffusi `django`, `flask` e `pyramid`. I dati vengono quindi inviati a Application Insights sotto monitoraggio di Azure come `requests` la telemetria.
+I dati delle richieste in ingresso vengono raccolti utilizzando OpenCensus Python e le sue varie integrazioni. Tenere traccia dei dati delle richieste in arrivo inviati `django`alle `flask` `pyramid`applicazioni Web basate sui framework Web più diffusi e . I dati vengono quindi inviati ad `requests` Application Insights in Monitoraggio di Azure come telemetria.
 
-Per prima cosa, instrumentare l'applicazione Python con la versione più recente di [OpenCensus Python SDK](../../azure-monitor/app/opencensus-python.md).
+In primo luogo, instrumentare l'applicazione Python con l'ultimo [OpenCensus Python SDK](../../azure-monitor/app/opencensus-python.md).
 
-## <a name="tracking-django-applications"></a>Rilevamento di applicazioni Django
+## <a name="tracking-django-applications"></a>Monitoraggio delle applicazioni Django
 
-1. Scaricare e installare `opencensus-ext-django` da [PyPI](https://pypi.org/project/opencensus-ext-django/) e instrumentare l'applicazione con il middleware di `django`. Le richieste in ingresso inviate all'applicazione `django` verranno registrate.
+1. Scaricare e `opencensus-ext-django` installare da [PyPI](https://pypi.org/project/opencensus-ext-django/) e `django` instrumentare l'applicazione con il middleware. Le richieste in `django` arrivo inviate all'applicazione verranno registrate.
 
-2. Includere `opencensus.ext.django.middleware.OpencensusMiddleware` nel file di `settings.py` in `MIDDLEWARE`.
+2. Includere `opencensus.ext.django.middleware.OpencensusMiddleware` nel `settings.py` file `MIDDLEWARE`in .
 
     ```python
     MIDDLEWARE = (
@@ -32,7 +32,7 @@ Per prima cosa, instrumentare l'applicazione Python con la versione più recente
     )
     ```
 
-3. Verificare che AzureExporter sia configurato correttamente nel `settings.py` in `OPENCENSUS`.
+3. Verificare che AzureExporter sia `settings.py` `OPENCENSUS`configurato correttamente in .
 
     ```python
     OPENCENSUS = {
@@ -45,7 +45,7 @@ Per prima cosa, instrumentare l'applicazione Python con la versione più recente
     }
     ```
 
-4. È anche possibile aggiungere URL a `settings.py` in `BLACKLIST_PATHS` per le richieste di cui non si vuole tenere traccia.
+4. È inoltre possibile aggiungere `settings.py` `BLACKLIST_PATHS` URL a under per le richieste che non si desidera tenere traccia.
 
     ```python
     OPENCENSUS = {
@@ -59,9 +59,9 @@ Per prima cosa, instrumentare l'applicazione Python con la versione più recente
     }
     ```
 
-## <a name="tracking-flask-applications"></a>Rilevamento di applicazioni Flask
+## <a name="tracking-flask-applications"></a>Applicazioni di monitoraggio Flask
 
-1. Scaricare e installare `opencensus-ext-flask` da [PyPI](https://pypi.org/project/opencensus-ext-flask/) e instrumentare l'applicazione con il middleware di `flask`. Le richieste in ingresso inviate all'applicazione `flask` verranno registrate.
+1. Scaricare e `opencensus-ext-flask` installare da [PyPI](https://pypi.org/project/opencensus-ext-flask/) e `flask` instrumentare l'applicazione con il middleware. Le richieste in `flask` arrivo inviate all'applicazione verranno registrate.
 
     ```python
     
@@ -86,7 +86,7 @@ Per prima cosa, instrumentare l'applicazione Python con la versione più recente
     
     ```
 
-2. È possibile configurare il middleware `flask` direttamente nel codice. Per le richieste provenienti da URL che non si desidera rilevare, aggiungerli a `BLACKLIST_PATHS`.
+2. È possibile `flask` configurare il middleware direttamente nel codice. Per le richieste provenienti da URL di cui `BLACKLIST_PATHS`non si desidera tenere traccia, aggiungerle a .
 
     ```python
     app.config['OPENCENSUS'] = {
@@ -100,9 +100,9 @@ Per prima cosa, instrumentare l'applicazione Python con la versione più recente
     }
     ```
 
-## <a name="tracking-pyramid-applications"></a>Rilevamento di applicazioni piramidali
+## <a name="tracking-pyramid-applications"></a>Applicazioni Tracking Pyramid
 
-1. Scaricare e installare `opencensus-ext-django` da [PyPI](https://pypi.org/project/opencensus-ext-pyramid/) e instrumentare l'applicazione con l'interpolazione `pyramid`. Le richieste in ingresso inviate all'applicazione `pyramid` verranno registrate.
+1. Scaricare e `opencensus-ext-django` installare da [PyPI](https://pypi.org/project/opencensus-ext-pyramid/) e `pyramid` instrumentare l'applicazione con l'interpolazione. Le richieste in `pyramid` arrivo inviate all'applicazione verranno registrate.
 
     ```python
     def main(global_config, **settings):
@@ -112,7 +112,7 @@ Per prima cosa, instrumentare l'applicazione Python con la versione più recente
                          '.pyramid_middleware.OpenCensusTweenFactory')
     ```
 
-2. È possibile configurare il `pyramid` Tween direttamente nel codice. Per le richieste provenienti da URL che non si desidera rilevare, aggiungerli a `BLACKLIST_PATHS`.
+2. È possibile `pyramid` configurare l'interpolazione direttamente nel codice. Per le richieste provenienti da URL di cui `BLACKLIST_PATHS`non si desidera tenere traccia, aggiungerle a .
 
     ```python
     settings = {
@@ -131,8 +131,8 @@ Per prima cosa, instrumentare l'applicazione Python con la versione più recente
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Mappa delle applicazioni](../../azure-monitor/app/app-map.md)
+* [Mappa dell'applicazione](../../azure-monitor/app/app-map.md)
 * [Disponibilità](../../azure-monitor/app/monitor-web-app-availability.md)
 * [Ricerca](../../azure-monitor/app/diagnostic-search.md)
-* [Query log (analisi)](../../azure-monitor/log-query/log-query-overview.md)
+* [Query log (Analitica)](../../azure-monitor/log-query/log-query-overview.md)
 * [Diagnostica delle transazioni](../../azure-monitor/app/transaction-diagnostics.md)

@@ -6,17 +6,17 @@ ms.topic: reference
 ms.date: 10/18/2018
 ms.author: cshoe
 ms.openlocfilehash: 97509001aa66c2c1bf0c91b6b2a5ab25f9d6ec88
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74227076"
 ---
 # <a name="azure-function-event-grid-trigger-local-debugging"></a>Debug locale del trigger della Griglia di eventi di Funzioni di Azure
 
 Questo articolo illustra come eseguire il debug di una funzione locale che gestisce un evento della Griglia di eventi di Azure generato da un account di archiviazione. 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 - Creare o usare un'app per le funzioni esistente
 - Creare o usare un account di archiviazione esistente
@@ -91,7 +91,7 @@ Aprire [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/
 - Fare clic con il pulsante destro del mouse su **Crea contenitore BLOB**.
 - Denominare il **test** del contenitore
 - Selezionare il contenitore *test*
-- Fare clic sul pulsante **Carica**
+- Fai clic sul pulsante **Carica**
 - Fare clic su **Carica file**
 - Selezionare un file e caricarlo nel contenitore BLOB
 
@@ -107,5 +107,5 @@ Per ripulire le risorse create in questo articolo, elimina il contenitore di **t
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Automatizzare il ridimensionamento delle immagini caricate con la griglia di eventi](../event-grid/resize-images-on-storage-blob-upload-event.md)
+- [Automatizzare il ridimensionamento delle immagini caricate utilizzando Griglia di eventi](../event-grid/resize-images-on-storage-blob-upload-event.md)
 - [Trigger Griglia di eventi per Funzioni di Azure](./functions-bindings-event-grid.md)

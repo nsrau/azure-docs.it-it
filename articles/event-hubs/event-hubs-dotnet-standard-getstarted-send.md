@@ -1,6 +1,6 @@
 ---
-title: Inviare e ricevere eventi da Hub eventi di Azure usando .NET (obsoleto)
-description: Questo articolo fornisce una procedura dettagliata per la creazione di un'app .NET Core che invia/riceve eventi da e verso hub eventi di Azure usando il vecchio pacchetto Microsoft. Azure. EventHubs.
+title: Inviare e ricevere eventi dagli hub eventi di Azure usando .NET (obsoleto)Send and receive events from Azure Event Hubs using .NET (old)
+description: Questo articolo offre una procedura dettagliata per la creazione di un'app .NET Core che invia/riceve eventi da/verso hub eventi di Azure usando il pacchetto Microsoft.Azure.EventHubs precedente.
 services: event-hubs
 documentationcenter: na
 author: spelluru
@@ -14,33 +14,33 @@ ms.workload: na
 ms.date: 02/11/2020
 ms.author: spelluru
 ms.openlocfilehash: 1d399ffec2cd702dcfa39310803bc780b85bfde1
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77187454"
 ---
-# <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-net-core-microsoftazureeventhubs"></a>Inviare eventi o ricevere eventi da Hub eventi di Azure usando .NET Core (Microsoft. Azure. EventHubs)
-Questa Guida introduttiva illustra come inviare eventi e ricevere eventi da un hub eventi usando la libreria .NET Core **Microsoft. Azure. EventHubs** .
+# <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-net-core-microsoftazureeventhubs"></a>Inviare o ricevere eventi dagli hub eventi di Azure usando .NET Core (Microsoft.Azure.EventHubs)Send events to or receive events from Azure Event Hubs using .NET Core (Microsoft.Azure.EventHubs)
+Questa guida introduttiva mostra come inviare e ricevere eventi da un hub eventi usando la libreria Microsoft.Azure.EventHubs .NET Core.This quickstart shows how to send events to and receive events to an event hub using the **Microsoft.Azure.EventHubs** .NET Core library.
 
 > [!WARNING]
-> Questa Guida introduttiva usa il vecchio pacchetto **Microsoft. Azure. EventHubs** . Per una guida introduttiva che usa la libreria **Azure. Messaging. EventHubs** più recente, vedere [inviare e ricevere eventi con la libreria Azure. Messaging. EventHubs](get-started-dotnet-standard-send-v2.md). Per spostare l'applicazione dall'uso della libreria precedente a una nuova, vedere la [Guida per eseguire la migrazione da Microsoft. Azure. EventHubs ad Azure. Messaging. EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/migration-guide-from-v4.md).
+> Questa guida introduttiva usa il pacchetto **Microsoft.Azure.EventHubs** precedente. Per una guida introduttiva che usa la libreria **Azure.Messaging.EventHubs** più recente, vedere Inviare e ricevere eventi usando la [libreria Azure.Messaging.EventHubs.](get-started-dotnet-standard-send-v2.md) Per spostare l'applicazione dall'utilizzo della libreria precedente a una nuova, vedere la [Guida per eseguire la migrazione da Microsoft.Azure.EventHubs ad Azure.Messaging.EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/migration-guide-from-v4.md).
 
-## <a name="prerequisites"></a>Prerequisites
-Se non si ha familiarità con hub eventi di Azure, vedere [Panoramica di hub eventi](event-hubs-about.md) prima di eseguire questa Guida introduttiva. 
+## <a name="prerequisites"></a>Prerequisiti
+Se non si ha familiarità con Hub eventi di Azure, vedere [Panoramica di Hub eventi](event-hubs-about.md) prima di procedere con questa guida di avvio rapido. 
 
 Per completare questa guida introduttiva è necessario soddisfare i prerequisiti seguenti:
 
-- **Microsoft Azure sottoscrizione**. Per usare i servizi di Azure, inclusi Hub eventi di Azure, è necessaria una sottoscrizione.  Se non si ha un account Azure esistente, è possibile iscriversi per ottenere una [versione di valutazione gratuita](https://azure.microsoft.com/free/) o usare i vantaggi degli abbonati MSDN quando si [Crea un account](https://azure.microsoft.com).
+- **Sottoscrizione di Microsoft Azure**. Per usare i servizi di Azure, tra cui Hub eventi di Azure, è necessaria una sottoscrizione.  Se non si ha un account Azure, è possibile iscriversi per ottenere una [versione di valutazione gratuita](https://azure.microsoft.com/free/) oppure usare i vantaggi della sottoscrizione di MSDN per la [creazione di un account](https://azure.microsoft.com).
 - [Microsoft Visual Studio 2019](https://www.visualstudio.com).
 - [Strumenti di Visual Studio 2015 o 2017 per .NET Core](https://www.microsoft.com/net/core). 
-- **Creare uno spazio dei nomi di Hub eventi e un hub eventi**. Il primo passaggio consiste nell'usare il [portale di Azure](https://portal.azure.com) per creare uno spazio dei nomi di tipo Hub eventi e ottenere le credenziali di gestione necessarie all'applicazione per comunicare con l'hub eventi. Per creare uno spazio dei nomi e un hub eventi, seguire la procedura descritta in [questo articolo](event-hubs-create.md). Ottenere quindi la **stringa di connessione per lo spazio dei nomi dell'hub eventi** seguendo le istruzioni dell'articolo: [ottenere la stringa di connessione](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Usare la stringa di connessione più avanti in questa Guida introduttiva.
+- **Creare uno spazio dei nomi di Hub eventi e un hub eventi**. Il primo passaggio consiste nell'usare il [portale di Azure](https://portal.azure.com) per creare uno spazio dei nomi di tipo Hub eventi e ottenere le credenziali di gestione necessarie all'applicazione per comunicare con l'hub eventi. Per creare uno spazio dei nomi e un hub eventi, seguire la procedura descritta in [questo articolo](event-hubs-create.md). Ottenere quindi la stringa di connessione per lo spazio dei nomi **dell'hub eventi** seguendo le istruzioni riportate dall'articolo: [Get connection string](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). La stringa di connessione sarà necessaria più avanti in questa guida di avvio rapido.
 
 ## <a name="send-events"></a>Inviare eventi 
 Questa sezione illustra come creare un'applicazione console .NET Core per inviare eventi a un hub eventi. 
 
 > [!NOTE]
-> È possibile scaricare questa guida introduttiva come esempio da [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender), sostituire le stringhe `EventHubConnectionString` e `EventHubName` con i valori dell'hub eventi in uso ed eseguirla. In alternativa, è possibile seguire i passaggi di questa Guida introduttiva per crearne di personalizzati.
+> È possibile scaricare questa guida introduttiva come esempio da [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender), sostituire le stringhe `EventHubConnectionString` e `EventHubName` con i valori dell'hub eventi in uso ed eseguirla. In alternativa, è possibile seguire la procedura illustrata in questa guida di avvio rapido per creare una soluzione personalizzata.
 
 
 ### <a name="create-a-console-application"></a>Creare un'applicazione console
@@ -51,7 +51,7 @@ Avviare Visual Studio. Scegliere **Nuovo** dal menu **File** e quindi fare clic 
 
 ### <a name="add-the-event-hubs-nuget-package"></a>Aggiungere il pacchetto NuGet di Hub eventi
 
-Aggiungere il pacchetto NuGet della raccolta .NET Core [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) al progetto eseguendo i passaggi descritti di seguito: 
+Aggiungere [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) il pacchetto NuGet della libreria .NET Core al progetto attenendosi alla procedura seguente: 
 
 1. Fare clic con il pulsante destro del mouse sul progetto appena creato e scegliere **Gestisci pacchetti NuGet**.
 2. Fare clic sulla scheda **Sfoglia**, quindi cercare "Microsoft.Azure.EventHubs" e selezionare il pacchetto **Microsoft.Azure.EventHubs**. Fare clic su **Installa** per completare l'installazione, quindi chiudere questa finestra di dialogo.
@@ -74,7 +74,7 @@ Aggiungere il pacchetto NuGet della raccolta .NET Core [`Microsoft.Azure.EventHu
     private const string EventHubName = "{Event Hub path/name}";
     ```
 
-3. Aggiungere alla classe `MainAsync` un nuovo metodo denominato `Program` come da esempio seguente:
+3. Aggiungere alla classe `Program` un nuovo metodo denominato `MainAsync` come da esempio seguente:
 
     ```csharp
     private static async Task MainAsync(string[] args)
@@ -98,7 +98,7 @@ Aggiungere il pacchetto NuGet della raccolta .NET Core [`Microsoft.Azure.EventHu
     }
     ```
 
-4. Aggiungere alla classe `SendMessagesToEventHub` un nuovo metodo denominato `Program` come da esempio seguente:
+4. Aggiungere alla classe `Program` un nuovo metodo denominato `SendMessagesToEventHub` come da esempio seguente:
 
     ```csharp
     // Uses the event hub client to send 100 messages to the event hub.
@@ -199,9 +199,9 @@ Aggiungere il pacchetto NuGet della raccolta .NET Core [`Microsoft.Azure.EventHu
 6. Eseguire il programma e assicurarsi che non siano presenti errori.
 
 ## <a name="receive-events"></a>Ricevere eventi
-Questa sezione illustra come scrivere un'applicazione console .NET Core che riceve messaggi da un hub eventi usando l' [host processore di eventi](event-hubs-event-processor-host.md). L'[host processore di eventi](event-hubs-event-processor-host.md) è una classe .NET che semplifica la ricezione di eventi dagli hub eventi gestendo checkpoint persistenti e ricezioni parallele da tali hub. Usando l'host processore di eventi è possibile suddividere gli eventi su più ricevitori, anche se ospitati in nodi diversi. Questo esempio illustra come usare l'host processore di eventi per un ricevitore singolo.
+In questa sezione viene illustrato come scrivere un'applicazione console .NET Core che riceve messaggi da un hub eventi utilizzando l'host [del processore di eventi](event-hubs-event-processor-host.md). L'[host processore di eventi](event-hubs-event-processor-host.md) è una classe .NET che semplifica la ricezione di eventi dagli hub eventi gestendo checkpoint persistenti e ricezioni parallele da tali hub. Usando l'host processore di eventi è possibile suddividere gli eventi su più ricevitori, anche se ospitati in nodi diversi. Questo esempio illustra come usare l'host processore di eventi per un ricevitore singolo.
 > [!NOTE]
-> È possibile scaricare questa guida introduttiva come esempio da [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver), sostituire le stringhe `EventHubConnectionString`, `EventHubName`, `StorageAccountName`, `StorageAccountKey` e `StorageContainerName` con i valori dell'hub eventi in uso ed eseguirla. In alternativa, è possibile seguire la procedura illustrata in questa esercitazione per creare una soluzione propria.
+> È possibile scaricare questa guida introduttiva come `EventHubConnectionString` esempio `EventHubName` `StorageAccountName`da `StorageAccountKey` `StorageContainerName` [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver), replace e , e strings con i valori dell'hub eventi ed eseguirla. In alternativa, è possibile seguire la procedura illustrata in questa esercitazione per creare una soluzione propria.
 
 [!INCLUDE [event-hubs-create-storage](../../includes/event-hubs-create-storage.md)]
 
@@ -289,7 +289,7 @@ Aggiungere al progetto i pacchetti NuGet [**Microsoft.Azure.EventHubs**](https:/
     private static readonly string StorageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}", StorageAccountName, StorageAccountKey);
     ```   
 
-3. Aggiungere alla classe `MainAsync` un nuovo metodo denominato `Program` come da esempio seguente:
+3. Aggiungere alla classe `Program` un nuovo metodo denominato `MainAsync` come da esempio seguente:
 
     ```csharp
     private static async Task MainAsync(string[] args)
@@ -371,11 +371,11 @@ Aggiungere al progetto i pacchetti NuGet [**Microsoft.Azure.EventHubs**](https:/
 ## <a name="next-steps"></a>Passaggi successivi
 Leggere gli articoli seguenti:
 
-- [Esempi di controllo degli accessi in base al ruolo (RBAC)](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac). 
+- Esempi di [controllo degli accessi in base](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac)al ruolo . 
     
-    Questi esempi usano la libreria **Microsoft. Azure. EventHubs** precedente, ma è possibile aggiornarla facilmente usando la libreria **Azure. Messaging. EventHubs** più recente. Per spostare l'esempio da usando la libreria precedente a una nuova, vedere la [Guida per eseguire la migrazione da Microsoft. Azure. EventHubs ad Azure. Messaging. EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/migration-guide-from-v4.md).
+    Questi esempi usano la vecchia libreria **Microsoft.Azure.EventHubs,** ma è possibile aggiornarla facilmente usando la libreria **Azure.Messaging.EventHubs** più recente. Per spostare l'esempio dall'uso della libreria precedente a una nuova, vedere la [Guida per eseguire la migrazione da Microsoft.Azure.EventHubs ad Azure.Messaging.EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/migration-guide-from-v4.md).)
 - [EventProcessorHost](event-hubs-event-processor-host.md)
-- [Funzionalità e terminologia di Hub eventi di Azure](event-hubs-features.md)
+- [Funzionalità e terminologia negli hub eventi di AzureFeatures and terminology in Azure Event Hubs](event-hubs-features.md)
 - [Domande frequenti su Hub eventi](event-hubs-faq.md)
 
 

@@ -7,16 +7,16 @@ author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
 ms.openlocfilehash: 2dace6968fbbe69f806c27fb7a46e60c63f78b4f
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77670203"
 ---
 # <a name="joins-in-azure-monitor-log-queries"></a>Join nelle query di log di Monitoraggio di Azure
 
 > [!NOTE]
-> Prima di completare questa lezione, è necessario completare [Introduzione all'log Analytics di monitoraggio di Azure e alle](get-started-portal.md) [query di log di monitoraggio di Azure](get-started-queries.md) .
+> Prima di completare Introduzione alle query del log di [Azure Monitor Log Analytics](get-started-portal.md) e Monitoraggio di [Azure.](get-started-queries.md)
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -39,7 +39,7 @@ SecurityEvent
 
 In questo esempio viene creato un join tra un primo set di dati, che filtra tutti gli eventi di accesso, e un secondo set di dati, che filtra tutti gli eventi di disconnessione. Le colonne previste sono _Computer_, _Account_, _TargetLogonId_ e _TimeGenerated_. I set di dati siano correlati in base a una colonna condivisa, _TargetLogonId_. L'output è costituito da un singolo record per correlazione, che include sia l'ora di accesso sia l'ora di disconnessione.
 
-Se i due set di dati avessero colonne con gli stessi nomi, a quelle del set di dati a destra verrebbe assegnato un numero di indice. Pertanto, in questo esempio i risultati mostrerebbero _TargetLogonId_ con i valori dalla tabella di sinistra e  _TargetLogonId1_ con i valori dalla tabella di destra. In questo caso la seconda colonna _TargetLogonId1_ è stata rimossa tramite l'operatore `project-away`.
+Se i due set di dati avessero colonne con gli stessi nomi, a quelle del set di dati a destra verrebbe assegnato un numero di indice. Pertanto, in questo esempio i risultati mostrerebbero _TargetLogonId_ con i valori dalla tabella di sinistra e _ TargetLogonId1_ con i valori dalla tabella di destra. In questo caso la seconda colonna _TargetLogonId1_ è stata rimossa tramite l'operatore `project-away`.
 
 > [!NOTE]
 > Per migliorare le prestazioni, mantenere solo le colonne rilevanti dei set di dati sottoposti a join usando l'operatore `project`.
@@ -82,7 +82,7 @@ Specificare il tipo di join con l'argomento _kind_. Ogni tipo esegue una diversa
 | Tipo di join | Descrizione |
 |:---|:---|
 | innerunique | Questa è la modalità di join predefinita. Prima vengono trovati i valori della colonna corrispondente nella tabella di sinistra e vengono rimossi i valori duplicati  e dopo il set di valori univoci viene confrontato con la tabella di destra. |
-| interna | Nei risultati vengono inclusi solo i record corrispondenti in entrambe le tabelle. |
+| interno | Nei risultati vengono inclusi solo i record corrispondenti in entrambe le tabelle. |
 | leftouter | Nei risultati vengono inclusi tutti i record nella tabella di sinistra e i record corrispondenti nella tabella di destra. Le proprietà di output senza corrispondenza contengono valori null.  |
 | leftanti | Nei risultati vengono inclusi i record nella tabella di sinistra che non hanno corrispondenze con quella di destra. La tabella dei risultati include solo le colonne della tabella di sinistra. |
 | leftsemi | Nei risultati vengono inclusi i record nella tabella di sinistra che hanno corrispondenze con quella di destra. La tabella dei risultati include solo le colonne della tabella di sinistra. |

@@ -1,6 +1,6 @@
 ---
-title: Creare una connessione dati dell'hub Internet per Azure Esplora dati usando Azure Resource Manager modello
-description: Questo articolo illustra come creare una connessione dati dell'hub Internet per Azure Esplora dati usando Azure Resource Manager modello.
+title: Creare una connessione dati dell'hub IoT per Azure Data Explorer usando il modello di Azure Resource ManagerCreate an IoT Hub data connection for Azure Data Explorer by using Azure Resource Manager template
+description: In questo articolo viene illustrato come creare una connessione dati dell'hub IoT per Azure Data Explorer usando il modello di Azure Resource Manager.In this article, you learn how to create an IoT Hub data connection for Azure Data Explorer by using Azure Resource Manager template.
 author: lucygoldbergmicrosoft
 ms.author: lugoldbe
 ms.reviewer: orspodek
@@ -8,32 +8,32 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/28/2019
 ms.openlocfilehash: 42b9f34802b8e6344f9008bf26a8bcc9f554adfb
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74669220"
 ---
-# <a name="create-an-iot-hub-data-connection-for-azure-data-explorer-by-using-azure-resource-manager-template"></a>Creare una connessione dati dell'hub Internet per Azure Esplora dati usando Azure Resource Manager modello
+# <a name="create-an-iot-hub-data-connection-for-azure-data-explorer-by-using-azure-resource-manager-template"></a>Creare una connessione dati dell'hub IoT per Azure Data Explorer usando il modello di Azure Resource ManagerCreate an IoT Hub data connection for Azure Data Explorer by using Azure Resource Manager template
 
 > [!div class="op_single_selector"]
-> * [di Microsoft Azure](ingest-data-iot-hub.md)
-> * [C#](data-connection-iot-hub-csharp.md)
+> * [Portale](ingest-data-iot-hub.md)
+> * [C #](data-connection-iot-hub-csharp.md)
 > * [Python](data-connection-iot-hub-python.md)
-> * [Modello di Azure Resource Manager](data-connection-iot-hub-resource-manager.md)
+> * [Modello di Azure Resource ManagerAzure Resource Manager template](data-connection-iot-hub-resource-manager.md)
 
-Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. Azure Esplora dati offre l'inserimento (caricamento dei dati) dagli hub eventi, dagli hub Internet e dai BLOB scritti nei contenitori BLOB. In questo articolo si crea una connessione dati dell'hub Internet per Azure Esplora dati usando Azure Resource Manager modello.
+Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. Azure Data Explorer offre l'inserimento (caricamento dei dati) da hub eventi, hub IoT e BLOB scritti in contenitori BLOB. In questo articolo viene creata una connessione dati dell'hub IoT per Azure Data Explorer usando il modello di Azure Resource Manager.In this article, you create an IoT Hub data connection for Azure Data Explorer by using Azure Resource Manager template.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Se non si ha una sottoscrizione di Azure, prima di iniziare creare un [account Azure gratuito](https://azure.microsoft.com/free/).
-* Creare [un cluster e un database](create-cluster-database-portal.md)
-* Creazione [di un mapping di tabella e colonna](ingest-data-iot-hub.md#create-a-target-table-in-azure-data-explorer)
-* Creare [un hub delle cose con un criterio di accesso condiviso configurato](ingest-data-iot-hub.md#create-an-iot-hub).
+* Se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+* Creare [un cluster e un databaseCreate a cluster and database](create-cluster-database-portal.md)
+* Creare [un mapping di tabelle e colonne](ingest-data-iot-hub.md#create-a-target-table-in-azure-data-explorer)
+* Creare [un hub IoT con un criterio](ingest-data-iot-hub.md#create-an-iot-hub)di accesso condiviso configurato.
 
-## <a name="azure-resource-manager-template-for-adding-an-iot-hub-data-connection"></a>Modello di Azure Resource Manager per l'aggiunta di una connessione dati dell'hub Internet
+## <a name="azure-resource-manager-template-for-adding-an-iot-hub-data-connection"></a>Modello di Azure Resource Manager per l'aggiunta di una connessione dati dell'hub IotAzure Resource Manager template for adding an Iot Hub data connection
 
-L'esempio seguente illustra un modello di Azure Resource Manager per l'aggiunta di una connessione dati dell'hub Internet.  È possibile [modificare e distribuire il modello nel portale di Azure](/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) usando il modulo.
+L'esempio seguente mostra un modello di Azure Resource Manager per l'aggiunta di una connessione dati dell'hub IoT.The following example shows an Azure Resource Manager template for adding an IoT Hub data connection.  È possibile [modificare e distribuire il modello nel portale](/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) di Azure usando il modulo.
 
 ```json
 {

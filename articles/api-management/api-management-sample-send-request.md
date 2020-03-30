@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.openlocfilehash: 1c86570850894a47f57a2d3587811411cc9a76eb
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77190006"
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Uso di servizi esterni dal servizio Gestione API di Azure
@@ -102,9 +102,9 @@ L'attributo `response-variable-name` viene usato per concedere l'accesso alla ri
 
 Dall'oggetto della risposta è possibile recuperare il corpo e lo standard RFC 7622 indica a Gestione API che la risposta deve essere un oggetto JSON e deve contenere almeno una proprietà denominata `active` che rappresenta un valore booleano. Se `active` è true, il token è considerato valido.
 
-In alternativa, se il server di autorizzazione non include il campo "attivo" per indicare se il token è valido, usare uno strumento come il poster per determinare quali proprietà sono impostate in un token valido. Se, ad esempio, una risposta del token valida contiene una proprietà denominata "expires_in", verificare che il nome della proprietà esista nella risposta del server di autorizzazione in questo modo:
+In alternativa, se il server di autorizzazione non include il campo "attivo" per indicare se il token è valido, utilizzare uno strumento come Postman per determinare quali proprietà sono impostate in un token valido. Ad esempio, se una risposta di token valida contiene una proprietà denominata "expires_in", verificare se il nome di questa proprietà esiste nella risposta del server di autorizzazione in questo modo:For example, if a valid token response contains a property called "expires_in", check whether this property name exists in the authorization server response this way:
 
-< quando il contesto condition = "@ ((IResponse). Variabili ["tokenstate"]). Body.As<JObject>(). Property ("expires_in") = = null) ">
+<in base alla condizione", ovvero al contesto di Condition. Variabili["tokenstate"]). Body.As<JObject>(). Proprietà("expires_in") : null)">
 
 ### <a name="reporting-failure"></a>Creazione di report sull'errore
 Per individuare un token non valido e, in tal caso restituire una risposta 401, è possibile usare i criteri `<choose>`.
@@ -285,6 +285,6 @@ I criteri completi saranno simili ai seguenti:
 
 Nella configurazione dell'operazione segnaposto, è possibile configurare la risorsa del dashboard in modo che venga memorizzata nella cache per almeno un'ora. 
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 Il servizio Gestione API di Azure offre criteri flessibili che possono essere applicati in modo selettivo al traffico HTTP e consentono la realizzazione di servizi back-end. Se si desidera migliorare il gateway API con funzioni di avviso, verifica e convalida o creare nuove risorse complesse basate su più servizi back-end, `send-request` e i criteri correlati offrono numerose possibilità.
 

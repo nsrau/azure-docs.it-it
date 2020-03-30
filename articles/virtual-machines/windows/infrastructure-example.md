@@ -1,5 +1,5 @@
 ---
-title: Procedura dettagliata di esempio dell'infrastruttura di Azure
+title: Esempio di procedura dettagliata dell'infrastruttura di AzureExample Azure Infrastructure Walkthrough
 description: Informazioni sulle principali linee guida di progettazione e implementazione per la distribuzione di un'infrastruttura di esempio in Azure.
 documentationcenter: ''
 services: virtual-machines-windows
@@ -16,10 +16,10 @@ ms.date: 12/15/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: ab6f304d78357e261c68ebbcfcb3746844edce8a
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74038573"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-windows-vms"></a>Procedura dettagliata per un'infrastruttura di esempio di Azure per macchine virtuali Windows
@@ -52,10 +52,10 @@ La progettazione risultante deve includere:
 Tutti gli elementi devono rispettare le convenzioni di denominazione seguenti:
 
 * Adventure Works Cycles usa come prefisso **[carico di lavoro IT]-[località]-[risorsa di Azure]**
-  * In questo esempio, "**azos**" (Azure online Store) è il nome del carico di lavoro IT e "**use**" (Stati Uniti orientali 2) è la località
+  * Per questo esempio, "**azos**" (Azure Online Store) è il nome del carico di lavoro IT e "**use**" (East US 2) è la posizione
 * Le reti virtuali usano AZOS-USE-VN **[numero]**
-* I set di disponibilità usano azos-use-as- **[ruolo]**
-* I nomi delle macchine virtuali usano azos-use-vm- **[nomevm]**
+* I set di disponibilità usano azos-use-as-**[ruolo]**
+* I nomi delle macchine virtuali usano azos-use-vm-**[nomevm]**
 
 ## <a name="azure-subscriptions-and-accounts"></a>Sottoscrizioni e account di Azure
 Adventure Works Cycles usa la propria sottoscrizione aziendale, denominata Adventure Works Enterprise Subscription, per fornire la fatturazione per questo carico di lavoro IT.

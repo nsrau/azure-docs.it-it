@@ -4,18 +4,18 @@ description: I contatori delle prestazioni, gli eventi e le eccezioni di Docker 
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.openlocfilehash: 5ff3d6a2b31425a3fb6857c8c6aed45f7ef18d64
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77669608"
 ---
-# <a name="monitor-docker-applications-in-application-insights-deprecated"></a>Monitorare le applicazioni Docker in Application Insights (deprecato)
+# <a name="monitor-docker-applications-in-application-insights-deprecated"></a>Monitorare le applicazioni Docker in Application Insights (obsoleto)Monitor Docker applications in Application Insights (Deprecated)
 
 > [!NOTE]
 > Questa soluzione è stata deprecata. Per altre informazioni sugli investimenti attuali di Microsoft per il monitoraggio dei contenitori, è consigliabile vedere [Monitoraggio di Azure per i contenitori](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview).
 
-I contatori delle prestazioni e degli eventi del ciclo di vita da contenitori [Docker](https://www.docker.com/) possono essere disegnati in Application Insights. Installare l'immagine di [Application Insights](https://hub.docker.com/r/microsoft/applicationinsights/) in un contenitore dell'host. Verranno visualizzati i contatori delle prestazioni per l'host e per le altre immagini.
+I contatori delle prestazioni e degli eventi del ciclo di vita da contenitori [Docker](https://www.docker.com/) possono essere disegnati in Application Insights. Installare l'immagine [di Application Insights](https://hub.docker.com/r/microsoft/applicationinsights/) in un contenitore nell'host e verranno visualizzati i contatori delle prestazioni per l'host e per le altre immagini.
 
 Con Docker si distribuiscono le app in contenitori leggeri completi di tutte le dipendenze. Verranno eseguite su tutti i computer host che eseguono un motore Docker.
 

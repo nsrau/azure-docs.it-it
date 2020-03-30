@@ -1,5 +1,5 @@
 ---
-title: Come configurare Single Sign-On federati per un'app non della raccolta
+title: Come configurare l'accesso Single Sign-On federato per un'app non di raccoltaHow to configure federated single sign-on for a non-gallery app
 description: Informazioni su come configurare l'accesso Single Sign-On federato per un'applicazione personalizzata non inclusa nella raccolta e che si intende integrare con Azure AD
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c1d49ec5ef80b284aa6b1a305b037d19dae34870
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74274601"
 ---
 # <a name="how-to-configure-federated-single-sign-on-for-a-non-gallery-application"></a>Come configurare l'accesso Single Sign-On federato per un'applicazione non inclusa nella raccolta
@@ -37,23 +37,23 @@ La panoramica generale seguente mostra i passaggi necessari per configurare l'ac
 
 -   Configurare i valori dei metadati di Azure AD nell'applicazione (URL di accesso, autorità emittente, URL di disconnessione e certificato)
 
--   Assegnare gli utenti all'applicazione
+-   Assegnare utenti all'applicazione
 
 ## <a name="configuring-single-sign-on-to-non-gallery-applications"></a>Configurazione dell'accesso Single Sign-On per le applicazioni non incluse nella raccolta
 
 Per configurare l'accesso Single Sign-On per un'applicazione non inclusa nella raccolta di Azure AD, seguire questa procedura:
 
-1. Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale** o **Coamministratore**.
+1. Aprire il portale di [**Azure**](https://portal.azure.com/) e accedere come **amministratore globale** o **coamministratore.**
 
 2. Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 
-3. Digitare **"Azure Active Directory"** nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
+3. Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
 
 4. Fare clic su **Applicazioni aziendali** nel menu di spostamento di sinistra di Azure Active Directory.
 
 5. Fare clic sul pulsante **Aggiungi** nell'angolo in alto a destra del riquadro **Applicazioni aziendali**.
 
-6. Fare clic su **Applicazione non nella raccolta** nella sezione **Aggiungi app personalizzata**.
+6. fai clic su **Applicazione non galleria** nella sezione Aggiungi la tua **app**
 
 7. Immettere il nome dell'applicazione nella casella di testo **Nome**.
 
@@ -61,7 +61,7 @@ Per configurare l'accesso Single Sign-On per un'applicazione non inclusa nella r
 
 9. Dopo il caricamento dell'applicazione, fare clic su **Single Sign-On** nel menu di spostamento di sinistra dell'applicazione.
 
-10. Selezionare **Accesso basato su SAML** dal menu a discesa **Modalità**.
+10. Selezionare **Accesso basato su SAML** nell'elenco a discesa **Modalità.**
 
 11. Immettere i valori necessari in **URL e dominio**. È necessario ottenere questi valori dal fornitore dell'applicazione.
 
@@ -77,27 +77,27 @@ Per configurare l'accesso Single Sign-On per un'applicazione non inclusa nella r
 
     1. Fare clic su **Aggiungi attributo**. Immettere il **Nome** e selezionare il **Valore** nell'elenco a discesa.
 
-    2. Fare clic su **Salva**. Il nuovo attributo verrà visualizzato nella tabella.
+    2. Fare clic su **Salva.** Il nuovo attributo verrà visualizzato nella tabella.
 
 14. Fare clic su **Configura &lt;nome applicazione&gt;** per accedere alla documentazione che illustra come configurare l'accesso Single Sign-On nell'applicazione. Sono inoltre disponibili il certificato e gli URL di Azure AD richiesti per l'applicazione.
 
-15. [Assegnare utenti all'applicazione](#assign-users-to-the-application)
+15. [Assegnare utenti all'applicazione.](#assign-users-to-the-application)
 
 ## <a name="select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application"></a>Selezionare l'identificatore utente e aggiungere gli attributi utente da inviare all'applicazione
 
 Per selezionare l'identificatore utente o aggiungere gli attributi dell'utente, seguire questa procedura:
 
-1. Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale** o **Coamministratore**.
+1. Aprire il portale di [**Azure**](https://portal.azure.com/) e accedere come **amministratore globale** o **coamministratore.**
 
 2. Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 
-3. Digitare **"Azure Active Directory"** nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
+3. Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
 
 4. Fare clic su **Applicazioni aziendali** nel menu di spostamento di sinistra di Azure Active Directory.
 
 5. Fare clic su **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
 
-   * Se l'applicazione non è inclusa nell'elenco, usare il controllo **Filtro** all'inizio dell'**elenco di tutte le applicazioni** e impostare l'opzione **Mostra** su **Tutte le applicazioni**.
+   * Se l'applicazione che si desidera visualizzare non viene visualizzata qui, utilizzare il controllo **Filtro** nella parte superiore dell'elenco **Tutte le applicazioni** e impostare l'opzione Mostra **su** Tutte **le applicazioni.**
 
 6. Selezionare l'applicazione per cui è stato configurato l'accesso Single Sign-On.
 
@@ -106,7 +106,7 @@ Per selezionare l'identificatore utente o aggiungere gli attributi dell'utente, 
 8. Nella sezione **Attributi utente** selezionare l'identificatore univoco per gli utenti nel menu a discesa **Identificatore utente**. L'opzione selezionata deve corrispondere al valore previsto nell'applicazione per autenticare l'utente.
 
    >[!NOTE]
-   >Azure AD seleziona il formato per l'attributo NameID (ID utente) in base al valore selezionato o al formato richiesto dall'applicazione nell'oggetto AuthRequest SAML. Per altre informazioni, vedere la sezione NameIDPolicy dell'articolo [Protocollo SAML per Single Sign-On](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest).
+   >Azure AD seleziona il formato per l'attributo NameID (identificatore utente) in base al valore selezionato o al formato richiesto dall'applicazione nell'oggetto AuthRequest SAML. Per ulteriori informazioni, vedere l'articolo [Protocollo SAML Single Sign-On](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) nella sezione NameIDPolicy.
    >
    >
 
@@ -116,23 +116,23 @@ Per selezionare l'identificatore utente o aggiungere gli attributi dell'utente, 
 
    1. Fare clic su **Aggiungi attributo**. Immettere il **Nome** e selezionare il **Valore** nell'elenco a discesa.
 
-   2. Fare clic su **Salva**. Il nuovo attributo verrà visualizzato nella tabella.
+   2. Fare clic su **Salva.** Il nuovo attributo verrà visualizzato nella tabella.
 
 ## <a name="download-the-azure-ad-metadata-or-certificate"></a>Scaricare il certificato o i metadati di Azure AD
 
 Per scaricare il certificato o i metadati dell'applicazione da Azure AD, seguire questa procedura:
 
-1. Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale** o **Coamministratore**.
+1. Aprire il portale di [**Azure**](https://portal.azure.com/) e accedere come **amministratore globale** o **coamministratore.**
 
 2. Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 
-3. Digitare **"Azure Active Directory"** nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
+3. Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
 
 4. Fare clic su **Applicazioni aziendali** nel menu di spostamento di sinistra di Azure Active Directory.
 
 5. Fare clic su **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
 
-   * Se l'applicazione non è inclusa nell'elenco, usare il controllo **Filtro** all'inizio dell'**elenco di tutte le applicazioni** e impostare l'opzione **Mostra** su **Tutte le applicazioni**.
+   * Se l'applicazione che si desidera visualizzare non viene visualizzata qui, utilizzare il controllo **Filtro** nella parte superiore dell'elenco **Tutte le applicazioni** e impostare l'opzione Mostra **su** Tutte **le applicazioni.**
 
 6. Selezionare l'applicazione per cui è stato configurato l'accesso Single Sign-On.
 
@@ -142,21 +142,21 @@ Per scaricare il certificato o i metadati dell'applicazione da Azure AD, seguire
 
 Azure AD fornisce anche un URL per ottenere i metadati. Seguire questo modello per ottenere l'URL dei metadati specifico dell'applicazione: `https://login.microsoftonline.com/<Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>`.
 
-## <a name="assign-users-to-the-application"></a>Assegnare gli utenti all'applicazione
+## <a name="assign-users-to-the-application"></a>Assegnare utenti all'applicazione
 
-Per assegnare uno o più utenti direttamente a un'applicazione, seguire la procedura seguente:
+Per assegnare uno o più utenti direttamente a un'applicazione, seguire questa procedura:
 
-1. Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale**.
+1. Aprire il portale di [**Azure**](https://portal.azure.com/) e accedere come **amministratore globale.**
 
 2. Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 
-3. Digitare **"Azure Active Directory"** nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
+3. Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
 
 4. Fare clic su **Applicazioni aziendali** nel menu di spostamento di sinistra di Azure Active Directory.
 
 5. Fare clic su **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
 
-   * Se l'applicazione non è inclusa nell'elenco, usare il controllo **Filtro** all'inizio dell'**elenco di tutte le applicazioni** e impostare l'opzione **Mostra** su **Tutte le applicazioni**.
+   * Se l'applicazione che si desidera visualizzare non viene visualizzata qui, utilizzare il controllo **Filtro** nella parte superiore dell'elenco **Tutte le applicazioni** e impostare l'opzione Mostra **su** Tutte **le applicazioni.**
 
 6. Selezionare nell'elenco l'applicazione che si vuole assegnare a un utente.
 
@@ -166,9 +166,9 @@ Per assegnare uno o più utenti direttamente a un'applicazione, seguire la proce
 
 9. Fare clic sul selettore **Utenti e gruppi** nel riquadro **Aggiungi assegnazione**.
 
-10. Nella casella di ricerca **Cerca per nome o indirizzo di posta** digitare il **nome completo**  o l'**indirizzo di posta elettronica** dell'utente oggetto dell'assegnazione.
+10. Nella casella di ricerca **Cerca per nome o indirizzo di posta** digitare il **nome completo ** o l'**indirizzo di posta elettronica** dell'utente oggetto dell'assegnazione.
 
-11. Passare il puntatore sull'**utente** nell'elenco per visualizzare una **casella di controllo**. Fare clic sulla casella di controllo accanto alla foto o al logo del profilo dell'utente per aggiungere l'utente all'elenco **Selezionato**.
+11. Passare il mouse **sull'utente** nell'elenco per visualizzare una **casella di controllo.** Fare clic sulla casella di controllo accanto alla foto o al logo del profilo dell'utente per aggiungere l'utente all'elenco **Selezionato**.
 
 12. **Facoltativo:** se si vuole **aggiungere più di un utente**, digitare un altro **nome completo** o **indirizzo di posta elettronica** nella casella di ricerca **Cerca per nome o indirizzo di posta** e fare clic sulla casella di controllo per aggiungere l'utente all'elenco **selezionato**.
 

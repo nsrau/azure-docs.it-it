@@ -1,27 +1,27 @@
 ---
 title: Come disabilitare le funzioni in Funzioni di Azure
-description: Informazioni su come disabilitare e abilitare funzioni in funzioni di Azure.
+description: Informazioni su come disabilitare e abilitare le funzioni in Funzioni di Azure.Learn how to disable and enable functions in Azure Functions.
 ms.topic: conceptual
 ms.date: 12/05/2019
 ms.openlocfilehash: fb8edf635856078655b8640ba0e1723fdd5e8a5a
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77116153"
 ---
 # <a name="how-to-disable-functions-in-azure-functions"></a>Come disabilitare le funzioni in Funzioni di Azure
 
 Questo articolo illustra come disabilitare una funzione in Funzioni di Azure. *Disabilitare* una funzione significa fare in modo che il runtime ignori il trigger automatico definito per la funzione. Ciò consente di impedire l'esecuzione di una funzione specifica senza arrestare l'intera app per le funzioni.
 
-Il metodo consigliato per disabilitare una funzione consiste nell'usare un'impostazione dell'app nel formato `AzureWebJobs.<FUNCTION_NAME>.Disabled`. È possibile creare e modificare l'impostazione dell'applicazione in diversi modi, ad esempio usando l'interfaccia della riga di comando di [Azure](/cli/azure/) e dalla scheda **Gestisci** della funzione nella [portale di Azure](https://portal.azure.com). 
+Il modo consigliato per disabilitare una funzione consiste `AzureWebJobs.<FUNCTION_NAME>.Disabled`nell'utilizzare un'impostazione dell'app nel formato . È possibile creare e modificare l'impostazione dell'applicazione in diversi modi, ad esempio usando [l'interfaccia della riga di comando](/cli/azure/) di Azure e dalla scheda **Gestisci** della funzione nel portale di [Azure.](https://portal.azure.com) 
 
 > [!NOTE]  
-> Quando si disabilita una funzione attivata tramite HTTP usando i metodi descritti in questo articolo, l'endpoint può ancora essere accessibile durante l'esecuzione nel computer locale.  
+> Quando si disabilita una funzione attivata HTTP utilizzando i metodi descritti in questo articolo, l'endpoint potrebbe comunque essere accessibile durante l'esecuzione nel computer locale.  
 
 ## <a name="use-the-azure-cli"></a>Utilizzare l’interfaccia della riga di comando di Azure
 
-Nell'interfaccia della riga di comando di Azure usare il comando [`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) per creare e modificare l'impostazione dell'app. Il comando seguente disabilita una funzione denominata `QueueTrigger` creando un'impostazione dell'app denominata `AzureWebJobs.QueueTrigger.Disabled` impostarla su `true`. 
+Nell'interfaccia della riga [`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) di comando di Azure usare il comando per creare e modificare l'impostazione dell'app. Il comando seguente disabilita `QueueTrigger` una funzione denominata `AzureWebJobs.QueueTrigger.Disabled` creando `true`un'impostazione dell'app denominata set it to . 
 
 ```azurecli-interactive
 az functionapp config appsettings set --name <myFunctionApp> \
@@ -29,7 +29,7 @@ az functionapp config appsettings set --name <myFunctionApp> \
 --settings AzureWebJobs.QueueTrigger.Disabled=true
 ```
 
-Per riabilitare la funzione, eseguire di nuovo lo stesso comando con il valore `false`.
+Per riattivare la funzione, eseguire nuovamente lo `false`stesso comando con un valore di .
 
 ```azurecli-interactive
 az functionapp config appsettings set --name <myFunctionApp> \
@@ -37,19 +37,19 @@ az functionapp config appsettings set --name <myFunctionApp> \
 --settings AzureWebJobs.QueueTrigger.Disabled=false
 ```
 
-## <a name="use-the-portal"></a>Usare il portale
+## <a name="use-the-portal"></a>Utilizzare il portale
 
-È anche possibile usare l'opzione di **stato della funzione** nella scheda **Gestisci** della funzione. Il Commuter funziona creando ed eliminando l'impostazione dell'app `AzureWebJobs.<FUNCTION_NAME>.Disabled`.
+È inoltre possibile utilizzare l'opzione **Stato funzione** nella scheda **Gestisci** della funzione. L'opzione funziona creando `AzureWebJobs.<FUNCTION_NAME>.Disabled` ed eliminando l'impostazione dell'app.
 
 ![Opzione Stato funzione](media/disable-function/function-state-switch.png)
 
 ## <a name="other-methods"></a>Altri metodi
 
-Sebbene sia consigliabile utilizzare il metodo di impostazione dell'applicazione per tutti i linguaggi e per tutte le versioni di runtime, è possibile disabilitare le funzioni in diversi modi. Questi metodi, che variano in base al linguaggio e alla versione runtime, vengono mantenuti per compatibilità con le versioni precedenti. 
+Mentre il metodo di impostazione dell'applicazione è consigliato per tutte le lingue e tutte le versioni di runtime, esistono diversi altri modi per disabilitare le funzioni. Questi metodi, che variano in base al linguaggio e alla versione di runtime, vengono mantenuti per garantire la compatibilità con le versioni precedenti. 
 
 ### <a name="c-class-libraries"></a>Libreria di classi C#
 
-In una funzione di libreria di classi, è anche possibile usare l'attributo `Disable` per impedire che la funzione venga attivata. È possibile usare l'attributo senza un parametro di costruttore, come illustrato nell'esempio seguente:
+In una funzione della libreria di `Disable` classi, è anche possibile utilizzare l'attributo per impedire l'attivazione della funzione. È possibile usare l'attributo senza un parametro di costruttore, come illustrato nell'esempio seguente:
 
 ```csharp
 public static class QueueFunctions
@@ -92,7 +92,7 @@ Questo metodo consente di abilitare e disabilitare la funzione modificando l'imp
 
 ### <a name="functions-1x---scripting-languages"></a>Funzioni 1.x: linguaggi di scripting
 
-Nella versione 1. x, è anche possibile usare la proprietà `disabled` del file *Function. JSON* per indicare al runtime di non attivare una funzione. Questo metodo funziona solo per i linguaggi di scripting C# , ad esempio script e JavaScript. È possibile impostare la proprietà `disabled` su `true` o sul nome di un'impostazione dell'app:
+Nella versione 1.x, è `disabled` anche possibile usare la proprietà del file *function.json* per indicare al runtime di non attivare una funzione. Questo metodo funziona solo per i linguaggi di script, ad esempio script c'è e JavaScript. La `disabled` proprietà può `true` essere impostata su o sul nome di un'impostazione dell'app:
 
 ```json
 {
@@ -108,7 +108,7 @@ Nella versione 1. x, è anche possibile usare la proprietà `disabled` del file 
     "disabled": true
 }
 ```
-oppure 
+o 
 
 ```json
     "bindings": [
@@ -119,7 +119,7 @@ oppure
 
 Nel secondo esempio la funzione viene disabilitata se è presente un'impostazione dell'app denominata IS_DISABLED che è impostata su `true` o 1.
 
-È possibile modificare il file nella portale di Azure o usare l'opzione di **stato della funzione** nella scheda **Gestisci** della funzione. Il commutatore del portale funziona cambiando il file *Function. JSON* .
+È possibile modificare il file nel portale di Azure o usare l'opzione **Stato funzione** nella scheda **Gestisci** della funzione. L'opzione del portale funziona modificando il file *function.json.*
 
 ![Opzione Stato funzione](media/disable-function/function-state-switch.png)
 

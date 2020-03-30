@@ -1,6 +1,6 @@
 ---
-title: Modelli di query comuni-dispositivi gemelli digitali di Azure | Microsoft Docs
-description: Informazioni sui modelli di query API comuni per le API di gestione di dispositivi digitali gemelli di Azure.
+title: Modelli di query comuni - Azure Digital Twins Documenti Microsoft
+description: Informazioni su diversi modelli di query API comuni per le API di gestione di Azure Digital Twins.Learn several common API querying patterns for the Azure Digital Twins management APIs.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -9,10 +9,10 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 02/24/2020
 ms.openlocfilehash: 133c0e0dcc07afb85a0f3af9ae51d2207abac293
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77589114"
 ---
 # <a name="how-to-query-azure-digital-twins-apis-for-common-tasks"></a>Come eseguire una query delle API di Gemelli digitali di Azure per trovare le attività comuni
@@ -238,4 +238,4 @@ Questa sezione illustra alcune query delle API di esempio per la gestione degli 
 
 Per informazioni su come eseguire l'autenticazione con l'API di gestione, vedere [Connettersi alle API ed eseguire l'autenticazione](./security-authenticating-apis.md).
 
-Per altre informazioni sugli endpoint dell'API, vedere l'articolo su [come usare i gemelli digitali spavalderia](./how-to-use-swagger.md).
+Per altre informazioni sugli endpoint API, vedere [Come usare Digital Twins Swagger](./how-to-use-swagger.md).

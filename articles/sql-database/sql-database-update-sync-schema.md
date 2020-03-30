@@ -1,5 +1,5 @@
 ---
-title: Automatizzare la replica delle modifiche dello schema in sincronizzazione dati SQL
+title: Automatizzare la replica delle modifiche dello schema in Sincronizzazione dati SQLAutomate the replication of schema changes in SQL Data Sync
 description: Informazioni su come automatizzare la replica delle modifiche dello schema nella sincronizzazione dati SQL di Azure.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 11/14/2018
 ms.openlocfilehash: 639901975bbb66b9f410bea297d9e48cd96d6d1b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73822444"
 ---
 # <a name="automate-the-replication-of-schema-changes-in-azure-sql-data-sync"></a>Automatizzare la replica delle modifiche dello schema nella sincronizzazione dati SQL di Azure
@@ -31,7 +31,7 @@ In questo articolo viene presentata una soluzione per replicare automaticamente 
 In questo articolo si usa ALTER TABLE come esempio di modifica dello schema, ma la soluzione funziona anche per altri tipi di modifiche dello schema.
 
 > [!IMPORTANT]
-> Prima di iniziare a implementare la replica automatizzata delle modifiche dello schema nell'ambiente di sincronizzazione, è consigliabile leggere questo articolo con attenzione, in particolare le sezioni [Risoluzione dei problemi](#troubleshoot) e [Altre considerazioni](#other). Si consiglia inoltre di leggere [sincronizzare i dati tra più database cloud e locali con sincronizzazione dati SQL](sql-database-sync-data.md). È possibile che alcune operazioni del database interrompano la soluzione descritta in questo articolo. È possibile che vengano richieste ulteriori informazioni di dominio su SQL Server e Transact-SQL per risolvere i problemi.
+> Prima di iniziare a implementare la replica automatizzata delle modifiche dello schema nell'ambiente di sincronizzazione, è consigliabile leggere questo articolo con attenzione, in particolare le sezioni [Risoluzione dei problemi](#troubleshoot) e [Altre considerazioni](#other). È inoltre consigliabile leggere [Sincronizza dati tra più database cloud e locali con Sincronizzazione dati SQL](sql-database-sync-data.md). Alcune operazioni di database possono interrompere la soluzione descritta in questo articolo. È possibile che vengano richieste ulteriori informazioni di dominio su SQL Server e Transact-SQL per risolvere i problemi.
 
 ![Automazione della replica delle modifiche dello schema](media/sql-database-update-sync-schema/automate-schema-changes.png)
 
@@ -171,7 +171,7 @@ La rinomina di colonne o tabelle interrompe la sincronizzazione dei dati. Creare
 
 Per altri tipi di modifiche dello schema, ad esempio la creazione di stored procedure o l'eliminazione di un indice, non è necessario aggiornare lo schema di sincronizzazione.
 
-## <a name="troubleshoot"></a> Risoluzione dei problemi relativi alla replica automatica delle modifiche dello schema
+## <a name="troubleshoot-automated-schema-change-replication"></a><a name="troubleshoot"></a> Risoluzione dei problemi relativi alla replica automatica delle modifiche dello schema
 
 La logica di replica descritta in questo articolo smette di funzionare in alcune situazioni, ad esempio se è stata apportata una modifica dello schema in un database locale non supportato nel database SQL di Azure. In tal caso, la sincronizzazione della tabella di rilevamento delle modifiche dello schema ha esito negativo. È necessario correggere il problema manualmente:
 
@@ -199,7 +199,7 @@ La logica di replica descritta in questo articolo smette di funzionare in alcune
 
 Se si vuole pulire i record nella tabella di rilevamento delle modifiche dello schema, usare DELETE anziché TRUNCATE. Non reinizializzare mai la colonna Identity nella tabella di rilevamento delle modifiche dello schema usando DBCC CHECKIDENT. È possibile creare nuove tabelle di rilevamento delle modifiche dello schema e aggiornare il nome della tabella nel trigger DDL se è necessario reinizializzare.
 
-## <a name="other"></a> Altre considerazioni
+## <a name="other-considerations"></a><a name="other"></a> Altre considerazioni
 
 -   Gli utenti del database che configurano l'hub e i database dei membri devono disporre di autorizzazioni sufficienti per eseguire i comandi di modifica dello schema.
 

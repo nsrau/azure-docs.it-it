@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/12/2019
 ms.openlocfilehash: a2765aaf36aa5f7e541e0ee7fb3178246d2cca5d
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77659901"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-powershell"></a>Creare un'area di lavoro Log Analytics con Azure PowerShell
@@ -19,7 +19,7 @@ Il modulo Azure PowerShell viene usato per creare e gestire le risorse di Azure 
 
 * Risorse di Azure nella sottoscrizione  
 * Computer locali monitorati tramite System Center Operations Manager  
-* Raccolte di dispositivi da Configuration Manager  
+* Raccolte di dispositivi da Configuration ManagerDevice collections from Configuration Manager  
 * Dati di diagnostica o dei log dall'archiviazione di Azure  
  
 Per altre origini, ad esempio macchine virtuali di Azure e macchine virtuali di Windows o Linux presenti nell'ambiente, vedere gli argomenti seguenti:
@@ -34,12 +34,12 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare PowerShell in locale, per questa esercitazione è necessario il Azure PowerShell AZ Module. Eseguire `Get-Module -ListAvailable Az` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzAccount` per creare una connessione con Azure.
+Se si sceglie di installare e usare PowerShell in locale, questa esercitazione richiede il modulo Azure PowerShell Az.If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell Az module. Eseguire `Get-Module -ListAvailable Az` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzAccount` per creare una connessione con Azure.
 
-## <a name="create-a-workspace"></a>Crea area di lavoro
-Creare un'area di lavoro con [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment). Nell'esempio seguente viene creata un'area di lavoro nella località *eastus* usando un modello di gestione risorse dal computer locale. Il modello JSON è configurato in modo da richiedere solo il nome dell'area di lavoro e specifica un valore predefinito per gli altri parametri che potrebbero essere usati come configurazione standard nell'ambiente in uso. 
+## <a name="create-a-workspace"></a>Creare un'area di lavoro
+Creare un'area di lavoro con [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment). L'esempio seguente crea un'area di lavoro nel percorso *eastus* usando un modello di Resource Manager dal computer locale. Il modello JSON è configurato in modo da richiedere solo il nome dell'area di lavoro e specifica un valore predefinito per gli altri parametri che potrebbero essere usati come configurazione standard nell'ambiente in uso. 
 
-Per informazioni sulle aree supportate, vedere [aree log Analytics è disponibile in](https://azure.microsoft.com/regions/services/) e cercare monitoraggio di Azure dal campo **ricerca di un prodotto** . 
+Per informazioni sulle aree supportate, vedere [Aree](https://azure.microsoft.com/regions/services/) di Log Analytics disponibili in e cercare Monitoraggio di Azure dal campo **Cerca un prodotto.** 
 
 I parametri seguenti impostano un valore predefinito:
 
@@ -110,7 +110,7 @@ I parametri seguenti impostano un valore predefinito:
 
 2. Modificare il modello in base alle esigenze. Rivedere il riferimento del [modello Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) per informazioni sulle proprietà e sui valori supportati. 
 3. Salvare questo file come **deploylaworkspacetemplate.json** in una cartella locale.   
-4. A questo punto è possibile distribuire il modello. Usare i comandi seguenti dalla cartella che contiene il modello. Quando viene richiesto un nome dell'area di lavoro, specificare un nome univoco a livello globale in tutte le sottoscrizioni di Azure.
+4. A questo punto è possibile distribuire il modello. Utilizzare i seguenti comandi della cartella contenente il modello. Quando viene richiesto il nome di un'area di lavoro, specificare un nome univoco a livello globale in tutte le sottoscrizioni di Azure.When you're prompted for a workspace name, provide a globally unique across all Azure subscriptions.
 
     ```powershell
         New-AzResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile deploylaworkspacetemplate.json

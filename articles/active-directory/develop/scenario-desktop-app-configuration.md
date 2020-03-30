@@ -1,6 +1,6 @@
 ---
-title: Configurare le app desktop che chiamano API Web-piattaforma di identità Microsoft | Azure
-description: Informazioni su come configurare il codice di un'app desktop che chiama API Web
+title: Configurare app desktop che richiedono API Web - Piattaforma di identità Microsoft Azure
+description: Informazioni su come configurare il codice di un'app desktop che chiama le API Web
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,47 +15,47 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 2ba69e6447c686230412c33e74196c4bb594e0de
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77611818"
 ---
 # <a name="desktop-app-that-calls-web-apis-code-configuration"></a>App desktop che chiama le API Web: configurazione del codice
 
-Ora che è stata creata l'applicazione, si apprenderà come configurare il codice con le coordinate dell'applicazione.
+Dopo aver creato l'applicazione, si apprenderà come configurare il codice con le coordinate dell'applicazione.
 
 ## <a name="microsoft-authentication-libraries"></a>Librerie di autenticazione Microsoft
 
-Le seguenti librerie di autenticazione Microsoft (MSALs) supportano le applicazioni desktop.
+Le seguenti librerie di autenticazione Microsoft (MSAL) supportano le applicazioni desktop.
 
   Microsoft Authentication Library | Descrizione
   ------------ | ----------
   ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Supporta la creazione di un'applicazione desktop in più piattaforme, ad esempio Linux, Windows e macOS.
   ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL Python | Supporta la creazione di un'applicazione desktop in più piattaforme.
   ![Java](media/sample-v2-code/logo_java.png) <br/> MSAL Java | Supporta la creazione di un'applicazione desktop in più piattaforme.
-  ![MSAL iOS](media/sample-v2-code/logo_iOS.png) <br/> MSAL iOS | Supporta le applicazioni desktop eseguite solo in macOS.
+  ![MSAL iOS](media/sample-v2-code/logo_iOS.png) <br/> MSAL iOS | Supporta le applicazioni desktop che vengono eseguite solo su macOS.
 
 ## <a name="public-client-application"></a>Applicazione client pubblica
 
-Dal punto di vista del codice, le applicazioni desktop sono applicazioni client pubbliche. La configurazione sarà leggermente diversa a seconda che si usi o meno l'autenticazione interattiva.
+Dal punto di vista del codice, le applicazioni desktop sono applicazioni client pubbliche. La configurazione sarà un po' diversa a seconda che si utilizzi o meno l'autenticazione interattiva.
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-È necessario compilare e modificare la `IPublicClientApplication`di MSAL.NET.
+È necessario compilare e `IPublicClientApplication`modificare MSAL.NET .
 
 ![IPublicClientApplication](media/scenarios/public-client-application.png)
 
-### <a name="exclusively-by-code"></a>Esclusivamente per codice
+### <a name="exclusively-by-code"></a>Esclusivamente dal codice
 
-Il codice seguente crea un'istanza di un'applicazione client pubblica e firma gli utenti nella Microsoft Azure cloud pubblico con un account aziendale o dell'Istituto di istruzione o un account Microsoft personale.
+Il codice seguente crea un'istanza di un'applicazione client pubblica e accede agli utenti nel cloud pubblico di Microsoft Azure con un account aziendale o dell'istituto di istruzione o un account Microsoft personale.
 
 ```csharp
 IPublicClientApplication app = PublicClientApplicationBuilder.Create(clientId)
     .Build();
 ```
 
-Se si intende usare l'autenticazione interattiva o il flusso del codice del dispositivo, come illustrato in precedenza, usare il modificatore `.WithRedirectUri`.
+Se si intende usare l'autenticazione interattiva o `.WithRedirectUri` il flusso di codice del dispositivo, come illustrato in precedenza, usare il modificatore.
 
 ```csharp
 IPublicClientApplication app;
@@ -66,7 +66,7 @@ app = PublicClientApplicationBuilder.Create(clientId)
 
 ### <a name="use-configuration-files"></a>Usare i file di configurazione
 
-Il codice seguente crea un'istanza di un'applicazione client pubblica da un oggetto di configurazione, che può essere compilato a livello di codice o letto da un file di configurazione.
+Il codice seguente crea un'istanza di un'applicazione client pubblica da un oggetto di configurazione, che può essere compilata a livello di codice o letta da un file di configurazione.
 
 ```csharp
 PublicClientApplicationOptions options = GetOptions(); // your own method
@@ -77,7 +77,7 @@ IPublicClientApplication app = PublicClientApplicationBuilder.CreateWithApplicat
 
 ### <a name="more-elaborated-configuration"></a>Configurazione più elaborata
 
-Per elaborare la compilazione di applicazioni, è possibile aggiungere un numero di modificatori. Ad esempio, se si vuole che l'applicazione sia un'applicazione multi-tenant in un cloud nazionale, ad esempio il governo degli Stati Uniti, è possibile scrivere:
+È possibile elaborare la compilazione dell'applicazione aggiungendo un numero di modificatori. Ad esempio, se si desidera che l'applicazione sia un'applicazione multi-tenant in un cloud nazionale, ad esempio il governo degli Stati Uniti illustrato di seguito, è possibile scrivere:For example, if you want your application to be a multitenant application in a national cloud, such as US Government shown here, you could write:
 
 ```csharp
 IPublicClientApplication app;
@@ -97,7 +97,7 @@ app = PublicClientApplicationBuilder.Create(clientId)
         .Build();
 ```
 
-Infine, se si desidera acquisire i token per un tenant di Azure Active Directory (Azure AD) B2C, specificare il tenant, come illustrato nel frammento di codice seguente:
+Infine, se si desidera acquisire token per un tenant B2C di Azure Active Directory (Azure AD), specificare il tenant come illustrato nel frammento di codice seguente:Finally, if you want to acquire tokens for an Azure Active Directory (Azure AD) B2C tenant, specify your tenant as shown in the following code snippet:
 
 ```csharp
 IPublicClientApplication app;
@@ -110,12 +110,12 @@ app = PublicClientApplicationBuilder.Create(clientId)
 
 Per altre informazioni su come configurare un'applicazione desktop MSAL.NET:
 
-- Per un elenco di tutti i modificatori disponibili in `PublicClientApplicationBuilder`, vedere la documentazione di riferimento [PublicClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder#methods).
-- Per una descrizione di tutte le opzioni esposte in `PublicClientApplicationOptions`, vedere [PublicClientApplicationOptions](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationoptions) nella documentazione di riferimento.
+- Per un elenco di tutti `PublicClientApplicationBuilder`i modificatori disponibili in , vedere la documentazione di riferimento [PublicClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder#methods).
+- Per una descrizione di tutte `PublicClientApplicationOptions`le opzioni esposte in , vedere [PublicClientApplicationOptions](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationoptions) nella documentazione di riferimento.
 
-### <a name="complete-example-with-configuration-options"></a>Esempio completo con le opzioni di configurazione
+### <a name="complete-example-with-configuration-options"></a>Esempio completo con opzioni di configurazione
 
-Si supponga di disporre di un'applicazione console .NET Core con il seguente `appsettings.json` file di configurazione:
+Si immagini un'applicazione console .NET Core con il file di configurazione seguente: `appsettings.json`
 
 ```JSon
 {
@@ -131,7 +131,7 @@ Si supponga di disporre di un'applicazione console .NET Core con il seguente `ap
 }
 ```
 
-Il codice per leggere in questo file è ridotto utilizzando. Framework di configurazione fornito da NET:
+Si dispone di poco codice da leggere in questo file utilizzando il file . Framework di configurazione fornito da NET:NET-provided configuration framework:
 
 ```csharp
 public class SampleConfiguration
@@ -174,7 +174,7 @@ public class SampleConfiguration
 }
 ```
 
-A questo punto, per creare l'applicazione, scrivere il codice seguente:
+A questo punto, per creare l'applicazione, scrivere il codice seguente:Now, to create your application, write the following code:
 
 ```csharp
 SampleConfiguration config = SampleConfiguration.ReadFromJsonFile("appsettings.json");
@@ -183,11 +183,11 @@ var app = PublicClientApplicationBuilder.CreateWithApplicationOptions(config.Pub
            .Build();
 ```
 
-Prima della chiamata al metodo `.Build()`, è possibile eseguire l'override della configurazione con chiamate a metodi `.WithXXX`, come illustrato in precedenza.
+Prima della chiamata `.Build()` al metodo , è possibile `.WithXXX` eseguire l'override della configurazione con le chiamate ai metodi, come illustrato in precedenza.
 
 # <a name="java"></a>[Java](#tab/java)
 
-Di seguito è illustrata la classe utilizzata negli esempi di sviluppo Java per MSAL per configurare gli esempi: [TestData](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/TestData.java).
+Di seguito è riportata la classe utilizzata negli esempi di sviluppo Java MSAL per configurare gli esempi: [TestData](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/TestData.java).
 
 ```Java
 PublicClientApplication pca = PublicClientApplication.builder(CLIENT_ID)
@@ -208,9 +208,9 @@ app = msal.PublicClientApplication(
     )
 ```
 
-# <a name="macos"></a>[MacOS](#tab/macOS)
+# <a name="macos"></a>[Macos](#tab/macOS)
 
-Il codice seguente crea un'istanza di un'applicazione client pubblica e firma gli utenti nella Microsoft Azure cloud pubblico con un account aziendale o dell'Istituto di istruzione o un account Microsoft personale.
+Il codice seguente crea un'istanza di un'applicazione client pubblica e accede agli utenti nel cloud pubblico di Microsoft Azure con un account aziendale o dell'istituto di istruzione o un account Microsoft personale.
 
 ### <a name="quick-configuration"></a>Configurazione rapida
 
@@ -231,7 +231,7 @@ if let application = try? MSALPublicClientApplication(configuration: config){ /*
 
 ### <a name="more-elaborated-configuration"></a>Configurazione più elaborata
 
-Per elaborare la compilazione di applicazioni, è possibile aggiungere un numero di modificatori. Ad esempio, se si vuole che l'applicazione sia un'applicazione multi-tenant in un cloud nazionale, ad esempio il governo degli Stati Uniti, è possibile scrivere:
+È possibile elaborare la compilazione dell'applicazione aggiungendo un numero di modificatori. Ad esempio, se si desidera che l'applicazione sia un'applicazione multi-tenant in un cloud nazionale, ad esempio il governo degli Stati Uniti illustrato di seguito, è possibile scrivere:For example, if you want your application to be a multitenant application in a national cloud, such as US Government shown here, you could write:
 
 Objective-C:
 

@@ -1,5 +1,5 @@
 ---
-title: Creare raccolte di immagini condivise con l'interfaccia della riga di comando di Azure
+title: Creare raccolte di immagini condivise con l'interfaccia della riga di comando di AzureCreate shared image galleries with the Azure CLI
 description: Questo articolo descrive come usare l'interfaccia della riga di comando di Azure per creare immagini di macchine virtuali condivise in Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -17,10 +17,10 @@ ms.author: akjosh
 ms.reviewer: cynthn
 ms.custom: ''
 ms.openlocfilehash: de1afa2367afcb78e8ca68e518acc93e33f61c43
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74034956"
 ---
 # <a name="create-a-shared-image-gallery-with-the-azure-cli"></a>Creare una raccolta di immagini condivise con l'interfaccia della riga di comando di Azure
@@ -33,10 +33,10 @@ La raccolta è una risorsa di primo livello che offre un completo controllo degl
 
 La funzionalità di raccolta di immagini condivise presenta più tipi di risorse. Verranno usate o compilate le seguenti contenute in questo articolo:
 
-| Risorsa | DESCRIZIONE|
+| Risorsa | Descrizione|
 |----------|------------|
 | **Immagine gestita** | Si tratta di un'immagine di base che può essere usata da sola o per creare una **versione dell'immagine** in una raccolta di immagini. Le immagini gestite vengono create da macchine virtuali generalizzate. Un'immagine gestita è un tipo speciale di disco rigido virtuale che può essere usato per creare più macchine virtuali e può ora essere sfruttato per creare versioni di immagini condivise. |
-| **Raccolta di immagini** | Come in Azure Marketplace, una **raccolta di immagini** è un repository per la gestione e la condivisione delle immagini, ma è possibile controllare chi ha accesso. |
+| **Raccolta immagini** | Come in Azure Marketplace, una **raccolta di immagini** è un repository per la gestione e la condivisione delle immagini, ma è possibile controllare chi ha accesso. |
 | **Definizione delle immagini** | Le immagini vengono definite all'interno di una raccolta e forniscono informazioni sull'immagine e sui requisiti per il suo uso interno. Questa include il fatto che l'immagine è per Windows o Linux, le note sulla versione e i requisiti minimi e massimi di memoria. Si tratta della definizione di un tipo di immagine. |
 | **Versione dell'immagine** | La **versione dell'immagine** è ciò che si usa per creare una macchina virtuale quando si usa una raccolta. È possibile avere più versioni di un'immagine in base alle necessità del proprio ambiente. Come un'immagine gestita, quando si usa una **versione dell'immagine** per creare una macchina virtuale, la versione dell'immagine viene usata per creare nuovi dischi per la macchina virtuale. Le versioni delle immagini possono essere usate più volte. |
 
@@ -46,7 +46,7 @@ La funzionalità di raccolta di immagini condivise presenta più tipi di risorse
 
 ## <a name="create-a-vm"></a>Creare una macchina virtuale
 
-Creare una macchina virtuale dalla versione più recente dell'immagine usando il comando [AZ VM create](/cli/azure/vm#az-vm-create).
+Creare una macchina virtuale dall'ultima versione dell'immagine usando [az vm create](/cli/azure/vm#az-vm-create).
 
 ```azurecli-interactive 
 az vm create\
@@ -56,20 +56,20 @@ az vm create\
    --generate-ssh-keys
 ```
 
-È anche possibile usare una versione specifica usando l'ID versione dell'immagine per il parametro `--image`. Ad esempio, per usare l'immagine versione *1.0.0* , digitare: `--image "/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0"`.
+È inoltre possibile utilizzare una versione specifica utilizzando `--image` l'ID versione immagine per il parametro. Ad esempio, per utilizzare la versione immagine `--image "/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0"` *1.0.0* di tipo: .
 
 [!INCLUDE [virtual-machines-common-gallery-list-cli](../../../includes/virtual-machines-common-gallery-list-cli.md)]
 
 [!INCLUDE [virtual-machines-common-shared-images-update-delete-cli](../../../includes/virtual-machines-common-shared-images-update-delete-cli.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
-Il [Generatore di immagini di Azure (anteprima)](image-builder-overview.md) consente di automatizzare la creazione della versione di immagine. è anche possibile usarla per aggiornare e [creare una nuova versione dell'immagine da una versione di immagine esistente](image-builder-gallery-update-image-version.md). 
+[Azure Image Builder (anteprima)](image-builder-overview.md) consente di automatizzare la creazione della versione dell'immagine, è anche possibile usarlo per aggiornare e [creare una nuova versione dell'immagine da una versione dell'immagine esistente.](image-builder-gallery-update-image-version.md) 
 
-È anche possibile creare risorse della raccolta immagini condivise usando i modelli. Sono disponibili diversi modelli di avvio rapido di Azure: 
+È inoltre possibile creare risorse della raccolta immagini condivise utilizzando i modelli. Sono disponibili diversi modelli di avvio rapido di Azure: 
 
 - [Creare una raccolta di immagini condivise](https://azure.microsoft.com/resources/templates/101-sig-create/)
 - [Creare una definizione dell'immagine in una raccolta di immagini condivise](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
 - [Creare una versione dell'immagine in una raccolta di immagini condivise](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
-- [Creare una macchina virtuale da una versione dell'immagine](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
+- [Creare una macchina virtuale dalla versione dell'immagine](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
 
 Per altre informazioni sulle raccolte di immagini condivise, vedere [Panoramica](shared-image-galleries.md). Se si verificano problemi, vedere [Risoluzione dei problemi delle raccolte di immagini condivise](troubleshooting-shared-images.md).

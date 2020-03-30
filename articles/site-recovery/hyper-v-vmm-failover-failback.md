@@ -1,5 +1,5 @@
 ---
-title: Configurare il failover/failback in un sito Hyper-V secondario con Azure Site Recovery
+title: Configurare il failover/failback in un sito Hyper-V secondario con Azure Site RecoverySet up failover/failback to a secondary Hyper-V site with Azure Site Recovery
 description: Informazioni su come eseguire il failover di macchine virtuali Hyper-V in un sito locale secondario e il failback in un sito primario durante il ripristino di emergenza con Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: d31355bcb0ce42874c19988738ba06138c7a0b7c
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74082591"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-your-secondary-on-premises-site"></a>Failover e failback di macchine virtuali Hyper-V replicate in un sito locale secondario
 
 Il servizio [Azure Site Recovery](site-recovery-overview.md) gestisce e controlla la replica, il failover e il failback dei computer locali e delle macchine virtuali di Azure.
 
-In questo articolo viene descritto come eseguire il failover di una macchina virtuale Hyper-V gestita in un cloud System Center Virtual Machine Manager (VMM) in un sito VMM secondario. Dopo il failover è possibile eseguire il failback nel sito locale quando disponibile. In questo articolo viene spiegato come:
+In questo articolo viene descritto come eseguire il failover di una macchina virtuale Hyper-V gestita in un cloud System Center Virtual Machine Manager (VMM) in un sito VMM secondario. Dopo il failover è possibile eseguire il failback nel sito locale quando disponibile. In questo articolo vengono illustrate le operazioni seguenti:
 
 > [!div class="checklist"]
 > * Failover di una macchina virtuale Hyper-V da un cloud VMM primario in un cloud VMM secondario
@@ -35,7 +35,7 @@ L'operazione di failover e failback comprende tre fasi:
 3. Dopo il failover pianificato, se lo si desidera avviare nuovamente la replica dal sito primario al sito secondario.
 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 - Assicurarsi di aver completato una [esercitazione sul ripristino di emergenza](hyper-v-vmm-test-failover.md) per verificare che tutto funzioni come previsto.
 - Per completare il failback, verificare che i server VMM primario e secondario siano connessi a Site Recovery.
@@ -52,8 +52,8 @@ Per le macchine virtuali Hyper-V è possibile eseguire un failover regolare o pi
   Questa procedura descrive come eseguire un failover regolare.
 
 
-1. In **Impostazioni** > **Elementi replicati** fare clic sulla macchina virtuale > **Failover**.
-1. Selezionare **Arrestare la macchina prima di iniziare il failover** se si vuole provare ad arrestare le macchine virtuali di origine tramite Site Recovery prima di attivare il failover. Prima di attivare il failover, Site Recovery tenterà anche di sincronizzare i dati locali non ancora inviati al sito secondario. Si noti che il failover continuerà anche se l'arresto non riesce. Nella pagina **Processi** è possibile seguire lo stato del failover.
+1. In **Impostazioni** > **elementi replicati** fare clic sulla macchina virtuale > **Failover**.
+1. Selezionare **Arrestare la macchina prima di iniziare il failover** se si vuole provare ad arrestare le macchine virtuali di origine tramite Site Recovery prima di attivare il failover. Prima di attivare il failover, Site Recovery tenterà anche di sincronizzare i dati locali non ancora inviati al sito secondario. Si noti che il failover continuerà anche se l'arresto non riesce. È possibile seguire l'avanzamento del failover nella pagina **Processi.You** can follow the failover progress on the Jobs page.
 2. È ora possibile visualizzare la macchina virtuale nel cloud VMM secondario.
 3. Dopo la verifica della macchina virtuale, **eseguire il commit** del failover. In questo modo tutti i punti di ripristino disponibili verranno eliminati.
 
