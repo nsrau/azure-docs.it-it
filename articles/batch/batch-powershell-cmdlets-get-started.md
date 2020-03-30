@@ -16,10 +16,10 @@ ms.date: 01/15/2019
 ms.author: labrenne
 ms.custom: seodec18
 ms.openlocfilehash: 26691ca6b9d078ef18ac852c67fa2ac88dff2722
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77023005"
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>Gestire le risorse Batch con i cmdlet di PowerShell
@@ -48,7 +48,7 @@ Questo articolo si basa sui cmdlet del modulo Azure Batch versione 1.0.0. È con
 
 ## <a name="manage-batch-accounts-and-keys"></a>Gestire gli account e le chiavi Batch
 
-### <a name="create-a-batch-account"></a>Crea un account Batch
+### <a name="create-a-batch-account"></a>Creare un account Batch
 
 **New-AzBatchAccount** crea un account Batch in un gruppo di risorse specificato. Se non si ha già un gruppo di risorse, crearne uno eseguendo il cmdlet [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Specificare una delle aree di Azure nel parametro **location**, ad esempio "Stati Uniti centrali". Ad esempio:
 
@@ -125,7 +125,7 @@ Quando si usano molti di questi cmdlet, oltre a passare un oggetto BatchContext 
 
 ### <a name="create-a-batch-pool"></a>Creare un pool di Batch
 
-Quando si crea o si aggiorna un pool di Batch, si seleziona una configurazione di servizi cloud o di macchina virtuale per il sistema operativo nei nodi di calcolo. Vedere [Panoramica delle funzionalità di Batch](batch-api-basics.md#pool). Se si specifica la configurazione di servizi cloud, le immagini dei nodi di calcolo vengono create con una delle [versioni del sistema operativo guest di Azure](../cloud-services/cloud-services-guestos-update-matrix.md#releases). Se si specifica la configurazione della macchina virtuale, è possibile specificare una delle immagini di VM Linux o Windows supportate elencate nel [Marketplace di macchine virtuali di Azure][vm_marketplace]o fornire un'immagine personalizzata preparata.
+Quando si crea o si aggiorna un pool di Batch, si seleziona una configurazione di servizi cloud o di macchina virtuale per il sistema operativo nei nodi di calcolo. Vedere [Panoramica delle funzionalità di Batch](batch-api-basics.md#pool). Se si specifica la configurazione di servizi cloud, le immagini dei nodi di calcolo vengono create con una delle [versioni del sistema operativo guest di Azure](../cloud-services/cloud-services-guestos-update-matrix.md#releases). Se si specifica la configurazione di tipo macchina virtuale, è possibile specificare una delle immagini di VM Linux o Windows supportate elencate nel [Marketplace per Macchine virtuali di Azure][vm_marketplace] oppure fornire un'immagine personalizzata preparata dall'utente.
 
 Quando si esegue **New-AzBatchPool**, passare le impostazioni del sistema operativo in un oggetto PSCloudServiceConfiguration o PSVirtualMachineConfiguration. Il frammento di codice seguente, ad esempio, crea un pool di Batch con nodi di calcolo di dimensioni Standard_A1 nella configurazione della macchina virtuale. L'immagine viene creata con Ubuntu Server 18.04-LTS. In questo caso, il parametro **VirtualMachineConfiguration** specifica la variabile *$configuration* come oggetto PSVirtualMachineConfiguration. Il parametro **BatchContext** specifica una variabile *$context* definita in precedenza come oggetto BatchAccountContext.
 
@@ -171,7 +171,7 @@ In alternativa a un filtro OData, è possibile usare il parametro **Id** . Per e
 Get-AzBatchPool -Id "myPool" -BatchContext $context
 ```
 
-Il parametro **Id** supporta solo la ricerca di ID completi, senza caratteri jolly o filtri di tipo OData.
+Il parametro **Id** supporta solo la ricerca con ID completo. non i caratteri jolly o i filtri di tipo OData.
 
 ### <a name="use-the-maxcount-parameter"></a>Usare il parametro MaxCount
 
@@ -203,7 +203,7 @@ Get-AzBatchComputeNode -PoolId "myPool" -BatchContext $context | Restart-AzBatch
 
 I pacchetti dell'applicazione semplificano la distribuzione di applicazioni nei nodi di calcolo dei pool. Con i cmdlet di PowerShell per Batch, è possibile caricare e gestire pacchetti dell'applicazione nell'account Batch e distribuire versioni dei pacchetti nei nodi di calcolo.
 
-**Creare** un'applicazione:
+**Creare** un'applicazione:Create an application:
 
 ```powershell
 New-AzBatchApplication -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication"
@@ -248,7 +248,7 @@ Remove-AzBatchApplication -AccountName <account_name> -ResourceGroupName <res_gr
 
 Quando si crea un pool è possibile specificare uno o più pacchetti dell'applicazione da distribuire. Quando si specifica un pacchetto al momento della creazione del pool, il pacchetto viene distribuito in ogni nodo quando questo viene aggiunto al pool. I pacchetti vengono distribuiti anche quando un nodo viene riavviato o ne viene ricreata l'immagine.
 
-Specificare l'opzione `-ApplicationPackageReference` quando si crea un pool per distribuire un pacchetto dell'applicazione nei nodi del pool quando vengono aggiunti al pool. Creare prima un oggetto **PSApplicationPackageReference** e configurarlo con l'ID applicazione e la versione del pacchetto da distribuire nei nodi di calcolo del pool:
+Specificare l'opzione `-ApplicationPackageReference` quando si crea un pool per distribuire un pacchetto dell'applicazione nei nodi del pool quando vengono aggiunti al pool. Creare innanzitutto un oggetto PSApplicationPackageReference e configurarlo con l'ID applicazione e la versione del pacchetto che si desidera distribuire nei nodi di calcolo del pool:First, create a **PSApplicationPackageReference** object, and configure it with the application ID and package version you want to deploy to the pool's compute nodes:
 
 ```powershell
 $appPackageReference = New-Object Microsoft.Azure.Commands.Batch.Models.PSApplicationPackageReference

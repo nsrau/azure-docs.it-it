@@ -1,57 +1,57 @@
 ---
-title: '.NET SDK: operazioni del file System su Azure Data Lake Storage Gen1'
-description: Usare il Azure Data Lake Storage Gen1 .NET SDK per le operazioni del file System in Data Lake Storage Gen1, ad esempio creare cartelle e così via.
+title: '.NET SDK: Operazioni del file system in Azure Data Lake Storage Gen1'
+description: Usare Azure Data Lake Storage Gen1 SDK .NET per le operazioni del file system in Data Lake Storage Gen1, ad esempio creare cartelle e così via.
 author: twooley
 ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 01/03/2020
 ms.author: twooley
 ms.openlocfilehash: 7e33ecbbb49fc2b0683d0757da36deec72796806
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75638902"
 ---
-# <a name="filesystem-operations-on-data-lake-storage-gen1-using-the-net-sdk"></a>Operazioni del file System su Data Lake Storage Gen1 con .NET SDK
+# <a name="filesystem-operations-on-data-lake-storage-gen1-using-the-net-sdk"></a>Operazioni del file system su Data Lake Storage Gen1 con .NET SDK
 
 > [!div class="op_single_selector"]
 > * [.NET SDK](data-lake-store-data-operations-net-sdk.md)
-> * [SDK per Java](data-lake-store-get-started-java-sdk.md)
+> * [Java SDK](data-lake-store-get-started-java-sdk.md)
 > * [REST API](data-lake-store-data-operations-rest-api.md)
 > * [Python](data-lake-store-data-operations-python.md)
 >
 >
 
-Questo articolo illustra come eseguire operazioni del file System su Data Lake Storage Gen1 usando .NET SDK. Le operazioni del file system includono la creazione di cartelle in un account Data Lake Storage Gen1, il caricamento di file, il download di file e così via.
+In questo articolo viene illustrato come eseguire operazioni del file system su Data Lake Storage Gen1 utilizzando .NET SDK. Le operazioni del file system includono la creazione di cartelle in un account Data Lake Storage Gen1, il caricamento di file, il download di file e così via.
 
-Per istruzioni su come eseguire operazioni di gestione di account in Data Lake Storage Gen1 usando .NET SDK, vedere [operazioni di gestione degli account su data Lake storage Gen1 con .NET SDK](data-lake-store-get-started-net-sdk.md).
+Per istruzioni su come eseguire operazioni di gestione degli account in Data Lake Storage Gen1 utilizzando .NET SDK, vedere Operazioni di [gestione degli account in Data Lake Storage Gen1 con .NET SDK.](data-lake-store-get-started-net-sdk.md)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* **Visual Studio 2013 o versione successiva**. Le istruzioni riportate in questo articolo usano Visual Studio 2019.
+* **Visual Studio 2013 o versione successiva**. Le istruzioni in questo articolo usano Visual Studio 2019.The instructions in this article use Visual Studio 2019.
 
-* **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Una sottoscrizione di Azure.** Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Account Azure Data Lake Storage Gen1**. Per istruzioni su come creare un account, vedere [Introduzione a Azure Data Lake storage Gen1](data-lake-store-get-started-portal.md).
+* **Account Azure Data Lake Storage Gen1**. Per istruzioni su come creare un account, vedere Introduzione ad [Azure Data Lake Storage Gen1.](data-lake-store-get-started-portal.md)
 
 ## <a name="create-a-net-application"></a>Creare un'applicazione .NET
 
 Il codice di esempio disponibile in [GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted) offre una descrizione dei processi di creazione dei file nell'archivio, concatenazione dei file, download di un file ed eliminazione di alcuni file nell'archivio. Questa sezione dell'articolo descrive in modo dettagliato le parti principali del codice.
 
-1. In Visual Studio selezionare il menu **file** , **nuovo**e quindi **progetto**.
-1. Scegliere **app console (.NET Framework)** e quindi fare clic su **Avanti**.
+1. In Visual Studio selezionare il menu **File** , **Nuovo**, quindi **Progetto**.
+1. Scegliere **App console (.NET Framework)** e quindi **avanti**.
 1. In **Nome del progetto** immettere `CreateADLApplication` e quindi selezionare **Crea**.
 1. Aggiungere i pacchetti NuGet al progetto.
 
    1. Fare clic con il pulsante destro del mouse sul nome del progetto in Esplora soluzioni e scegliere **Gestisci pacchetti NuGet**.
-   1. Nella scheda **Gestione pacchetti NuGet** verificare che l'origine del **pacchetto** sia impostata su **NuGet.org**. Assicurarsi inoltre che sia selezionata la casella di controllo **Includi versione preliminare** .
+   1. Nella scheda **Gestione pacchetti NuGet** verificare che **l'origine del pacchetto** sia impostata su **nuget.org**. Assicurarsi inoltre che la casella di controllo **Includi versione non definitiva** sia selezionata.
    1. Cercare e installare i pacchetti NuGet seguenti:
 
-      * `Microsoft.Azure.DataLake.Store`: in questo articolo viene usata la versione 1.0.0.
-      * `Microsoft.Rest.ClientRuntime.Azure.Authentication`: in questo articolo viene usato v 2.3.1.
+      * `Microsoft.Azure.DataLake.Store`- In questo articolo viene utilizzato v1.0.0.
+      * `Microsoft.Rest.ClientRuntime.Azure.Authentication`- In questo articolo viene utilizzato v2.3.1.
 
-      Chiudere **Gestione pacchetti NuGet**.
+      Chiudere **NuGet Package Manager**.
 
 1. Aprire **Program.cs**, eliminare il codice esistente e quindi includere le istruzioni seguenti per aggiungere riferimenti agli spazi dei nomi.
 
@@ -81,9 +81,9 @@ Il codice di esempio disponibile in [GitHub](https://github.com/Azure-Samples/da
     }
     ```
 
-Nelle sezioni rimanenti dell'articolo è possibile vedere come usare i metodi .NET disponibili per eseguire operazioni quali l'autenticazione, il caricamento di file e così via.
+Nelle restanti sezioni dell'articolo, è possibile vedere come utilizzare i metodi .NET disponibili per eseguire operazioni quali l'autenticazione, il caricamento di file e così via.
 
-## <a name="authentication"></a>Autenticazione
+## <a name="authentication"></a>Authentication
 
 * Per l'autenticazione dell'utente finale per l'applicazione, vedere [Autenticazione dell'utente finale con Data Lake Storage Gen1 con .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md).
 * Per l'autenticazione da servizio a servizio per l'applicazione, vedere [Autenticazione da servizio a servizio con Data Lake Storage Gen1 tramite .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md).
@@ -99,7 +99,7 @@ AdlsClient client = AdlsClient.CreateClient(_adlsg1AccountName, adlCreds);
 
 ## <a name="create-a-file-and-directory"></a>Creare un file e una directory
 
-Aggiungere il frammento di codice seguente all'applicazione. Questo frammento di codice aggiunge un file e tutte le directory padre che non esistono.
+Aggiungere il frammento di codice seguente all'applicazione. Questo frammento di codice aggiunge un file e qualsiasi directory padre che non esiste.
 
 ```
 // Create a file - automatically creates any parent directories that don't exist
@@ -156,7 +156,7 @@ var directoryEntry = client.GetDirectoryEntry(fileName);
 PrintDirectoryEntry(directoryEntry);
 ```
 
-La definizione del metodo `PrintDirectoryEntry` è disponibile come parte dell'esempio [su GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted).
+La definizione `PrintDirectoryEntry` del metodo è disponibile come parte dell'esempio [in GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted).
 
 ## <a name="rename-a-file"></a>Rinominare un file
 
@@ -180,7 +180,7 @@ foreach (var entry in client.EnumerateDirectory("/Test"))
 }
 ```
 
-La definizione del metodo `PrintDirectoryEntry` è disponibile come parte dell'esempio [su GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted).
+La definizione `PrintDirectoryEntry` del metodo è disponibile come parte dell'esempio [in GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted).
 
 ## <a name="delete-directories-recursively"></a>Eliminare directory in modo ricorsivo
 
@@ -193,12 +193,12 @@ client.DeleteRecursive("/Test");
 
 ## <a name="samples"></a>Esempi
 
-Ecco alcuni esempi che illustrano come usare Data Lake Storage Gen1 filesystem SDK.
+Ecco alcuni esempi che illustrano come usare l'SDK del file system Gen1 di Archiviazione dati.
 
-* [Esempio di base in GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted)
-* [Esempio avanzato in GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-samples)
+* [Esempio di base su GitHubBasic sample on GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted)
+* [Esempio avanzato su GitHubAdvanced sample on GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-samples)
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 * [Operazioni di gestione di account in Data Lake Storage Gen1 con .NET SDK](data-lake-store-get-started-net-sdk.md)
 * [Riferimento a .NET SDK di Data Lake Storage Gen1](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)

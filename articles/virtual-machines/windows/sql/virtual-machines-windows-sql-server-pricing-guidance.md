@@ -16,15 +16,15 @@ ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
 ms.openlocfilehash: b7a8f7136d0899ab3afe04bce2d25bc2e7f8d3e2
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75981723"
 ---
-# <a name="pricing-guidance-for-azure-sql-server-vms"></a>Linee guida sui prezzi per le macchine virtuali SQL Server di Azure
+# <a name="pricing-guidance-for-azure-sql-server-vms"></a>Guida ai prezzi per le VM di SQL Server in Azure
 
-Questo articolo contiene indicazioni sui prezzi per le [macchine virtuali di SQL Server](virtual-machines-windows-sql-server-iaas-overview.md) in Azure. Sono disponibili diverse opzioni che influiscono sul costo ed è importante selezionare l'immagine giusta che consente di bilanciare i costi con i requisiti aziendali.
+Questo articolo fornisce indicazioni sui prezzi per le macchine virtuali di SQL Server in Azure.This article provides pricing guidance for [SQL Server virtual machines](virtual-machines-windows-sql-server-iaas-overview.md) in Azure. Sono disponibili diverse opzioni che influiscono sul costo ed è importante selezionare l'immagine giusta che consente di bilanciare i costi con i requisiti aziendali.
 
 > [!TIP]
 > Se si vuole semplicemente una stima dei costi per una combinazione specifica dell'edizione di SQL Server e della dimensione di macchina virtuale, vedere la pagina dei prezzi per [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows) o [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux). Selezionare la piattaforma e l'edizione di SQL Server dall'elenco **Sistema operativo/Software**.
@@ -47,7 +47,7 @@ Per creare una macchina virtuale di Azure per SQL Server 2017 con una di queste 
 |---|---|
 | Windows Server 2016 | [Macchina virtuale SQL Server 2017 Developer di Azure](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017DeveloperonWindowsServer2016)<br/>[Macchina virtuale SQL Server 2017 Express di Azure](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonWindowsServer2016) |
 | Red Hat Enterprise Linux | [Macchina virtuale SQL Server 2017 Developer di Azure](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017DeveloperonRedHatEnterpriseLinux74)<br/>[Macchina virtuale SQL Server 2017 Express di Azure](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonRedHatEnterpriseLinux74) |
-| SUSE Linux Enterprise Server | [Macchina virtuale SQL Server 2017 Developer di Azure](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017DeveloperonSLES12SP2)<br/>[Macchina virtuale SQL Server 2017 Express di Azure](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonSLES12SP2) |
+| SuSE Linux Enterprise Server | [Macchina virtuale SQL Server 2017 Developer di Azure](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017DeveloperonSLES12SP2)<br/>[Macchina virtuale SQL Server 2017 Express di Azure](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonSLES12SP2) |
 | Ubuntu | [Macchina virtuale SQL Server 2017 Developer di Azure](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017DeveloperonUbuntuServer1604LTS)<br/>[Macchina virtuale SQL Server 2017 Express di Azure](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonUbuntuServer1604LTS) |
 
 ## <a name="paid-sql-server-editions"></a>Edizioni di SQL Server a pagamento
@@ -58,13 +58,13 @@ Se si ha un carico di lavoro di produzione non leggero, usare una delle seguenti
 |-----|-----|
 | Web | Siti Web di piccole dimensioni |
 | Standard | Carichi di lavoro di piccole e medie dimensioni |
-| Organizzazioni | Carichi di lavoro di grandi dimensioni o critici|
+| Enterprise | Carichi di lavoro di grandi dimensioni o critici|
 
 Sono disponibili due possibilità per il pagamento delle licenze di SQL Server per queste edizioni: *pagamento in base all'uso* o *Bring Your Own License*.
 
 ## <a name="pay-per-usage"></a>Pagamento in base all'utilizzo
 
-**Pagando la licenza di SQL Server per utilizzo** (anche nota come **pagamento**a consumo), il costo al secondo per l'esecuzione della macchina virtuale di Azure include il costo della licenza di SQL Server. È possibile vedere i prezzi delle diverse edizioni di SQL Server (Web, Standard, Enterprise) nella pagina dei prezzi delle VM di Azure per [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows) o [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux).
+**Pagare la licenza** di SQL Server per uso (noto anche come **pay as you go**) significa che il costo al secondo per l'esecuzione della macchina virtuale di Azure include il costo della licenza di SQL Server. È possibile vedere i prezzi delle diverse edizioni di SQL Server (Web, Standard, Enterprise) nella pagina dei prezzi delle VM di Azure per [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows) o [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux).
 
 Il costo è lo stesso per tutte le versioni di SQL Server, dalla 2012 SP3 alla 2017. Il costo della licenza al secondo dipende dal numero di CPU virtuali della macchina virtuale.
 
@@ -74,13 +74,13 @@ Il pagamento della licenze di SQL Server in base all'utilizzo è consigliato per
 
 - **Carichi di lavoro con durata o dimensione sconosciuta**. Ad esempio un'app che potrebbe non essere necessaria per alcuni mesi o che potrebbe richiedere una maggiore o minore potenza di calcolo, in base alla richiesta.
 
-Per creare una macchina virtuale di Azure SQL Server 2017 con una di queste immagini con pagamento in base al consumo, vedere i collegamenti seguenti:
+Per creare una macchina virtuale di Azure di SQL Server 2017 con una di queste immagini con pagamento in base al client, vedere i collegamenti seguenti:To create a SQL Server 2017 Azure VM with one of these pay-as-you-go images, see the following links:
 
 | Piattaforma | Immagini con licenza |
 |---|---|
 | Windows Server 2016 | [Macchina virtuale SQL Server 2017 Web di Azure](https://portal.azure.com/#create/Microsoft.SQLServer2017WebonWindowsServer2016)<br/>[Macchina virtuale SQL Server 2017 Standard di Azure](https://portal.azure.com/#create/Microsoft.SQLServer2017StandardonWindowsServer2016)<br/>[Macchina virtuale SQL Server 2017 Enterprise di Azure](https://portal.azure.com/#create/Microsoft.SQLServer2017EnterpriseWindowsServer2016) |
 | Red Hat Enterprise Linux | [Macchina virtuale SQL Server 2017 Web di Azure](https://portal.azure.com/#create/Microsoft.SQLServer2017WebonRedHatEnterpriseLinux74)<br/>[Macchina virtuale SQL Server 2017 Standard di Azure](https://portal.azure.com/#create/Microsoft.SQLServer2017StandardonRedHatEnterpriseLinux74)<br/>[Macchina virtuale SQL Server 2017 Enterprise di Azure](https://portal.azure.com/#create/Microsoft.SQLServer2017EnterpriseonRedHatEnterpriseLinux74) |
-| SUSE Linux Enterprise Server | [Macchina virtuale SQL Server 2017 Web di Azure](https://portal.azure.com/#create/Microsoft.SQLServer2017WebonSLES12SP2)<br/>[Macchina virtuale SQL Server 2017 Standard di Azure](https://portal.azure.com/#create/Microsoft.SQLServer2017StandardonSLES12SP2)<br/>[Macchina virtuale SQL Server 2017 Enterprise di Azure](https://portal.azure.com/#create/Microsoft.SQLServer2017EnterpriseonSLES12SP2) |
+| SuSE Linux Enterprise Server | [Macchina virtuale SQL Server 2017 Web di Azure](https://portal.azure.com/#create/Microsoft.SQLServer2017WebonSLES12SP2)<br/>[Macchina virtuale SQL Server 2017 Standard di Azure](https://portal.azure.com/#create/Microsoft.SQLServer2017StandardonSLES12SP2)<br/>[Macchina virtuale SQL Server 2017 Enterprise di Azure](https://portal.azure.com/#create/Microsoft.SQLServer2017EnterpriseonSLES12SP2) |
 | Ubuntu | [Macchina virtuale SQL Server 2017 Web di Azure](https://portal.azure.com/#create/Microsoft.SQLServer2017WebonUbuntuServer1604LTS)<br/>[Macchina virtuale SQL Server 2017 Standard di Azure](https://portal.azure.com/#create/Microsoft.SQLServer2017StandardonUbuntuServer1604LTS)<br/>[Macchina virtuale SQL Server 2017 Enterprise di Azure](https://portal.azure.com/#create/Microsoft.SQLServer2017EnterpriseonUbuntuServer1604LTS) |
 
 > [!IMPORTANT]
@@ -91,14 +91,14 @@ Per creare una macchina virtuale di Azure SQL Server 2017 con una di queste imma
 >Non include i costi di licenza aggiuntivi di SQL Server per le versioni Enterprise, Standard e Web. Per ottenere una stima più accurata, selezionare il sistema operativo e la versione di SQL Server nella pagina dei prezzi per [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) o [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
 > [!NOTE]
-> È ora possibile cambiare il modello di licenza passando dal pagamento in base all'utilizzo a Bring Your Own License (BYOL) e viceversa. Per altre informazioni, vedere [Come cambiare il modello di licenza per una macchina virtuale SQL](virtual-machines-windows-sql-ahb.md). 
+> È ora possibile cambiare il modello di licenza passando dal pagamento in base all'utilizzo a Bring Your Own License (BYOL) e viceversa. Per altre informazioni, vedere Come modificare il modello di [licenza per una macchina virtuale SQL.](virtual-machines-windows-sql-ahb.md) 
 
-## <a id="byol"></a> Bring Your Own License (BYOL)
+## <a name="bring-your-own-license-byol"></a><a id="byol"></a>Portare la propria licenza (BYOL)
 
 **Bringing Your Own License per SQL Server attraverso Mobilità delle licenze**, o **BYOL**, indica l'utilizzo di un contratto multilicenza di SQL Server esistente con Software Assurance in una VM di Azure. Per una macchina virtuale di SQL Server che usa l'opzione BYOL sarà addebitato solo il costo di esecuzione della macchina virtuale e non la licenza di SQL Server, dato che le licenze e Software Assurance sono già stati acquisiti tramite un programma di contratto multilicenza.
 
 > [!IMPORTANT]
-> Le immagini BYOL richiedono un contratto Enterprise con Software Assurance. Non sono disponibili come parte di Azure Cloud Solution Partner (CSP) in questo momento. I clienti CSP possono usare la propria licenza distribuendo un'immagine con pagamento in base al consumo e quindi abilitando il [vantaggio Azure Hybrid](virtual-machines-windows-sql-ahb.md).
+> Le immagini BYOL richiedono un contratto Enterprise con Software Assurance. Non sono disponibili come parte di Azure Cloud Solution Partner (CSP) in questo momento. I clienti CSP possono portare la propria licenza distribuendo un'immagine con pagamento in base al proprio utilizzo e quindi abilitando il [vantaggio Azure Hybrid](virtual-machines-windows-sql-ahb.md).
 
 > [!NOTE]
 > Le immagini BYOL sono attualmente disponibili solo per le macchine virtuali Windows. È tuttavia possibile installare manualmente SQL Server in una macchina virtuale solo Linux. Vedere le linee guida nelle [domande frequenti sulla macchina virtuale SQL di Linux](../../linux/sql/sql-server-linux-faq.md).
@@ -111,9 +111,9 @@ Bringing Your Own License per SQL Server attraverso Mobilità delle licenze è c
 
 Per usare l'opzione BYOL con una macchina virtuale SQL Server è necessario avere una licenza di SQL Server Standard o Enterprise e [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default.aspx#tab=1), che è un'opzione obbligatoria per alcuni programmi multilicenza e facoltativa per altri. I livelli di prezzi forniti tramite i programmi multilicenza variano in base al tipo di contratto e alla quantità e/o all'impegno con SQL Server. Ma, come regola generale, l'opzione Bringing Your Own License per i carichi di lavoro di produzione continui presenta i seguenti vantaggi:
 
-| Vantaggio dell'opzione BYOL | Description |
+| Vantaggio dell'opzione BYOL | Descrizione |
 |-----|-----|
-| **Risparmi sui costi** | Il [vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-benefit/) offre risparmi fino al 55%. Per ulteriori informazioni, vedere [Switch licensing model](virtual-machines-windows-sql-ahb.md) |
+| **Risparmi sui costi** | Il [vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-benefit/) offre un risparmio fino al 55%. Per altre informazioni, vedere Cambia modello di [licenzaFor more](virtual-machines-windows-sql-ahb.md) information, see Switch licensing model |
 | **Replica secondaria passiva gratuita** | Un altro vantaggio dell'opzione Bring Your Own License è la [licenza gratuita per una replica secondaria passiva](https://azure.microsoft.com/pricing/licensing-faq/) per SQL Server per scopi di disponibilità elevata. Questo dimezza il costo della licenza di una distribuzione di SQL Server a disponibilità elevata, ad esempio con gruppi di disponibilità Always On. I diritti per eseguire la replica secondaria passiva sono forniti attraverso i vantaggi di Software Assurance per i server di failover. |
 
 Per creare una VM di Azure con SQL Server 2017 con una di queste immagini Bring Your Own License, vedere le VM con il prefisso "{BYOL}":
@@ -125,21 +125,21 @@ Per creare una VM di Azure con SQL Server 2017 con una di queste immagini Bring 
 > Si prega di comunicare entro 10 giorni il numero di licenze di SQL Server in uso in Azure. Nei collegamenti alle immagini precedenti sono incluse le istruzioni su come eseguire questa operazione.
 
 > [!NOTE]
-> È ora possibile cambiare il modello di licenza passando dal pagamento in base all'utilizzo a Bring Your Own License (BYOL) e viceversa. Per altre informazioni, vedere [Come cambiare il modello di licenza per una macchina virtuale SQL](virtual-machines-windows-sql-ahb.md). 
+> È ora possibile cambiare il modello di licenza passando dal pagamento in base all'utilizzo a Bring Your Own License (BYOL) e viceversa. Per altre informazioni, vedere Come modificare il modello di [licenza per una macchina virtuale SQL.](virtual-machines-windows-sql-ahb.md) 
 
 
 
-## <a name="reduce-costs"></a>Riduci i costi
+## <a name="reduce-costs"></a>Riduzione dei costi
 
 Per evitare i costi non necessari, scegliere una dimensione di macchina virtuale ottimale e considerare gli arresti intermittenti per carichi di lavoro non continui.
 
-### <a id="machinesize"></a> Gestisce correttamente le dimensioni della macchina virtuale
+### <a name="correctly-size-your-vm"></a><a id="machinesize"></a> Gestisce correttamente le dimensioni della macchina virtuale
 
 I costi di licenza di SQL Server sono direttamente correlati al numero di CPU virtuali. Scegliere le dimensioni della macchina virtuale che soddisfano le esigenze previste per CPU, memoria, archiviazione e della larghezza di banda di I/O. Per un elenco completo delle opzioni relative alle dimensioni del computer, vedere [Dimensioni per le macchine virtuali Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sizes) e [Dimensioni per le macchine virtuali Linux](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Sono disponibili nuove dimensioni per i computer che funzionano bene con determinati tipi di carichi di lavoro di SQL Server. Queste dimensioni di computer mantengono livelli elevati di memoria, archiviazione e larghezza di banda di I/O, ma hanno un basso numero di core virtualizzati. Ad esempio, si consideri l'esempio seguente:
 
-| Dimensioni VM | vCPU | Memoria | Numero massimo di dischi | Massima velocità effettiva di I/O | Costi di licenza di SQL | Costi totali (calcolo + licenze) |
+| Dimensioni macchina virtuale | vCPU | Memoria | Numero massimo di dischi | Massima velocità effettiva di I/O | Costi di licenza di SQL | Costi totali (calcolo + licenze) |
 |---|---|---|---|---|---|---|
 | **Standard_DS14v2** | 16 | 112 GB | 32 | 51.200 operazioni di I/O al secondo o 768 MB/s | | |
 | **Standard_DS14-4v2** | 4 | 112 GB | 32 | 51.200 operazioni di I/O al secondo o 768 MB/s | 75% in meno | 57% in meno |
@@ -151,7 +151,7 @@ Nell'esempio precedente è possibile vedere che le specifiche per **Standard_DS1
 
 ### <a name="shut-down-your-vm-when-possible"></a>Arrestare la macchina virtuale quando possibile
 
-Se si usano carichi di lavoro che non vengono eseguiti in modo continuativo, è consigliabile arrestare la macchina virtuale durante i periodi di inattività. Paghi solo per le risorse usate.
+Se si usano carichi di lavoro che non vengono eseguiti in modo continuativo, è consigliabile arrestare la macchina virtuale durante i periodi di inattività. Si paga solo per le risorse utilizzate.
 
 Ad esempio, se si sta semplicemente provando SQL Server in una VM di Azure, evitare che rimanga in esecuzione per settimane per non incorrere in addebiti inutili. Una possibile soluzione è usare la [funzionalità di arresto automatico](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/).
 

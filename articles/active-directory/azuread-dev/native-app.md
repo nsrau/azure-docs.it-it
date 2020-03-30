@@ -10,14 +10,15 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ryanwi
-ms.reviewer: saeeda, jmprieur, andret
+ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: e65a31192be8b79720ea15d1721fbf37908a8cbe
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ROBOTS: NOINDEX
+ms.openlocfilehash: 9ecf711f5442b6f21de53d2735ad1c94d7cb6223
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77164422"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154798"
 ---
 # <a name="native-apps"></a>App native
 
@@ -33,11 +34,11 @@ Le app native sono applicazioni che chiamano un'API Web per conto di un utente. 
 
 Se si usano le librerie di autenticazione AD, la maggior parte dei dettagli del protocollo descritti di seguito viene gestita automaticamente, ad esempio i popup del browser, la memorizzazione dei token nella cache e la gestione dei token di aggiornamento.
 
-1. Con un popup del browser l'applicazione nativa invia una richiesta all'endpoint di autorizzazione in Azure AD. Questa richiesta include l'ID applicazione e l'URI di reindirizzamento dell'applicazione nativa, come illustrato nel portale di Azure, nonché l'URI ID dell'applicazione per l'API Web. Se l'utente non ha ancora eseguito l'accesso, verrà richiesto di accedere di nuovo.
-1. Azure AD autentica l'utente. Se si tratta di un'applicazione multi-tenant il cui uso richiede il consenso, verrà chiesto all'utente di fornire il consenso, se non l'ha già fatto. Dopo che è stato fornito il consenso e l'autenticazione riesce, Azure AD restituisce un codice di autenticazione all'URI di reindirizzamento dell'applicazione client.
-1. Quando Azure AD restituisce un codice di autorizzazione all'URI di reindirizzamento, l'applicazione interrompe l'interazione con il browser ed estrae il codice di autorizzazione dalla risposta. Con questo codice di autorizzazione l'applicazione client invia una richiesta all'endpoint token di Azure AD che include il codice di autorizzazione, dettagli sull'applicazione client (ID applicazione e URI di reindirizzamento) e la risorsa desiderata (URI ID applicazione per l'API Web).
+1. Con un popup del browser l'applicazione nativa invia una richiesta all'endpoint di autorizzazione in Azure AD. Questa richiesta include l'ID applicazione e l'URI di reindirizzamento dell'applicazione nativa, come illustrato nel portale di Azure, nonché l'URI ID dell'applicazione per l'API Web. Se l'utente non ha ancora effettuato l'accesso, gli viene richiesto di eseguire nuovamente l'accesso
+1. Azure AD autentica l'utente. Se si tratta di un'applicazione multi-tenant ed è necessario il consenso per utilizzare l'applicazione, all'utente verrà richiesto di acconsentire se non lo ha già fatto. Dopo aver concesso il consenso e dopo la corretta autenticazione, Azure AD rilascia una risposta del codice di autorizzazione all'URI di reindirizzamento dell'applicazione client.
+1. Quando Azure AD restituisce un codice di autorizzazione all'URI di reindirizzamento, l'applicazione interrompe l'interazione con il browser ed estrae il codice di autorizzazione dalla risposta. Usando questo codice di autorizzazione, l'applicazione client invia una richiesta all'endpoint token di Azure AD che include il codice di autorizzazione, i dettagli sull'applicazione client (ID applicazione e URI di reindirizzamento) e la risorsa desiderata (URI DELL'ID applicazione per (API Web).
 1. Il codice di autorizzazione e le informazioni sull'applicazione client e l'API Web vengono convalidati da Azure AD. Se la convalida riesce, Azure AD restituisce tue token: un token di accesso JWT e un token di aggiornamento JWT. Azure AD restituisce anche informazioni di base sull'utente, ad esempio il nome visualizzato e l'ID tenant.
-1. Su HTTPS l'applicazione client usa il token di accesso JWT restituito per aggiungere la stringa JWT con una designazione "Bearer" nell'intestazione dell'autorizzazione della richiesta all'API Web. L'API Web convalida quindi il token JWT e, se la convalida riesce, restituisce la risorsa desiderata.
+1. Tramite HTTPS, l'applicazione client utilizza il token di accesso JWT restituito per aggiungere la stringa JWT con una designazione "Bearer" nell'intestazione Authorization della richiesta all'API Web. L'API Web convalida quindi il token JWT e, se la convalida riesce, restituisce la risorsa desiderata.
 1. Alla scadenza del token di accesso l'applicazione client riceverà un errore che indica che l'utente deve ripetere il processo di autenticazione. Se l'applicazione ha un token di aggiornamento valido, può essere usato per acquisire un nuovo token di accesso senza richiedere all'utente di ripetere l'accesso. Se il token di aggiornamento scade, l'applicazione dovrà autenticare di nuovo l'utente in modo interattivo.
 
 > [!NOTE]
@@ -45,14 +46,14 @@ Se si usano le librerie di autenticazione AD, la maggior parte dei dettagli del 
 
 ## <a name="code-samples"></a>Esempi di codice
 
-Vedere gli esempi di codice per gli scenari Da applicazione nativa ad API Web. Consultare spesso questa pagina perché vengono aggiunti regolarmente nuovi esempi: [Da applicazione nativa ad API Web](sample-v1-code.md#desktop-and-mobile-public-client-applications-calling-microsoft-graph-or-a-web-api).
+Vedere gli esempi di codice per gli scenari Da applicazione nativa ad API Web. Consultare spesso questa pagina perché vengono aggiunti regolarmente nuovi esempi: [API da applicazione nativa a Web](sample-v1-code.md#desktop-and-mobile-public-client-applications-calling-microsoft-graph-or-a-web-api).
 
 ## <a name="app-registration"></a>Registrazione delle app
 
-Per registrare un'applicazione con l'endpoint Azure AD v 1.0, vedere [registrare un'app](../develop/quickstart-register-app.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
+Per registrare un'applicazione con l'endpoint di Azure AD v1.0, vedere [Registrare un'app.](../develop/quickstart-register-app.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)
 
-* Tenant singolo: l'applicazione nativa e l'API Web devono essere registrate nella stessa directory di Azure AD. L'API Web può essere configurata per esporre un set di autorizzazioni, che vengono usate per limitare l'accesso dell'applicazione nativa alle relative risorse. L'applicazione client seleziona quindi le autorizzazioni desiderate dal menu a discesa "Autorizzazioni per altre applicazioni" nel portale di Azure.
-* Multi-tenant: per prima cosa, l'applicazione nativa viene registrata solo nella directory dello sviluppatore o dell'editore. Quindi, l'applicazione nativa viene configurata per indicare le autorizzazioni necessarie per il funzionamento. Questo elenco di autorizzazioni richieste viene visualizzato in una finestra di dialogo quando un utente o amministratore nella directory di destinazione concede il consenso all'applicazione, rendendola disponibile per la propria organizzazione. Alcune applicazioni richiedono solo autorizzazioni a livello utente, che possono essere concesse da qualsiasi utente dell'organizzazione. Altre applicazioni richiedono autorizzazioni a livello amministratore, che non possono essere concesse dagli utenti dell'organizzazione. Solo un amministratore di directory può concedere il consenso alle applicazioni che richiedono questo livello di autorizzazione. Quando l'utente o l'amministratore acconsente, solo l'API Web viene registrata nella directory. 
+* Tenant singolo: l'applicazione nativa e l'API Web devono essere registrate nella stessa directory di Azure AD. L'API Web può essere configurata per esporre un set di autorizzazioni, che vengono utilizzate per limitare l'accesso dell'applicazione nativa alle relative risorse. L'applicazione client seleziona quindi le autorizzazioni desiderate dal menu a discesa "Autorizzazioni ad altre applicazioni" nel portale di Azure.The client application then selects the desireds from the "Permissions to Other Applications" menu a tendofand oilis to other Applications" menu in the Azure portal.
+* Multi-tenant: in primo luogo, l'applicazione nativa viene registrata solo nella directory dello sviluppatore o dell'editore. Quindi, l'applicazione nativa viene configurata per indicare le autorizzazioni necessarie per il funzionamento. Questo elenco di autorizzazioni richieste viene visualizzato in una finestra di dialogo quando un utente o amministratore nella directory di destinazione concede il consenso all'applicazione, rendendola disponibile per la propria organizzazione. Alcune applicazioni richiedono solo autorizzazioni a livello utente, che possono essere concesse da qualsiasi utente dell'organizzazione. Altre applicazioni richiedono autorizzazioni a livello amministratore, che non possono essere concesse dagli utenti dell'organizzazione. Solo un amministratore di directory può concedere il consenso alle applicazioni che richiedono questo livello di autorizzazione. Quando l'utente o l'amministratore acconsente, solo l'API Web viene registrata nella directory. 
 
 ## <a name="token-expiration"></a>Scadenza del token
 
@@ -61,4 +62,4 @@ Quando l'applicazione nativa usa il proprio codice di autorizzazione per ottener
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Altre informazioni su altri [tipi di applicazione e scenari](app-types.md)
-- [Nozioni di base sull'autenticazione](v1-authentication-scenarios.md) in Azure AD
+- Informazioni sulle nozioni di [base sull'autenticazione](v1-authentication-scenarios.md) di Azure ADLearn about the Azure AD authentication basics

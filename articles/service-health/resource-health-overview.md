@@ -3,24 +3,24 @@ title: Panoramica di Integrità risorse di Azure
 description: Panoramica su Integrità risorse di Azure
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: f22b41e66f15dd12d973c5744870969fae795bc1
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 7a1dfe5e93d0e19aeb343d113a24ed882a5b3f69
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79258200"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80159252"
 ---
 # <a name="resource-health-overview"></a>Panoramica di Integrità risorse
  
-Integrità risorse di Azure consente di diagnosticare e ottenere supporto per i problemi del servizio che interessano le risorse di Azure. Segnala l'integrità corrente e passata delle risorse.
+Integrità delle risorse di Azure consente di diagnosticare e ottenere supporto per i problemi di servizio che influiscono sulle risorse di Azure.Azure Resource Health helps you diagnose and get support for service problems that affect your Azure resources. Riporta lo stato di salute attuale e passato delle tue risorse.
 
-Report [sullo stato di Azure](https://status.azure.com) sui problemi del servizio che interessano una vasta gamma di clienti di Azure. Integrità risorse offre un dashboard personalizzato dell'integrità delle risorse. Integrità risorse Mostra tutte le volte in cui le risorse non sono state disponibili a causa di problemi dei servizi di Azure. Questi dati semplificano la verifica della violazione di un contratto di contratto.
+[Report](https://status.azure.com) sullo stato di Azure sui problemi del servizio che interessano un'ampia gamma di clienti di Azure.Azure status reports on service problems that affect a broad set of Azure customers. Integrità delle risorse offre un dashboard personalizzato dell'integrità delle risorse. Integrità risorse mostra tutte le volte che le risorse non sono state disponibili a causa di problemi del servizio Azure.Resource Health shows all the times that your resources have been unavailable due to ad azure service problems. Questi dati consentono di vedere facilmente se un servizio di archiviazione è stato violato.
 
 ## <a name="resource-definition-and-health-assessment"></a>Definizione di risorsa e valutazione dell'integrità
 
-Una *risorsa* è un'istanza specifica di un servizio di Azure, ad esempio una macchina virtuale, un'app Web o un database SQL. Integrità risorse si basa sui segnali di diversi servizi di Azure per valutare se una risorsa è integra. Se una risorsa non è integra, Integrità risorse analizza informazioni aggiuntive per determinare l'origine del problema. Segnala anche le azioni intraprese da Microsoft per risolvere il problema e identifica le operazioni che è possibile eseguire per risolverlo.
+Una *risorsa* è un'istanza specifica di un servizio di Azure, ad esempio una macchina virtuale, un'app Web o un database SQL. Integrità risorse si basa sui segnali provenienti da diversi servizi di Azure per valutare se una risorsa è integra. Se una risorsa non è integra, Integrità risorse analizza informazioni aggiuntive per determinare l'origine del problema. Segnala inoltre le azioni intraprese da Microsoft per risolvere il problema e identifica le operazioni che è possibile eseguire per risolverlo.
 
-Per ulteriori informazioni sulla valutazione dell'integrità, vedere l'elenco dei tipi di risorse e dei controlli di integrità in [integrità risorse di Azure](resource-health-checks-resource-types.md).
+Per altre informazioni su come viene valutata l'integrità, vedere l'elenco dei tipi di risorse e dei controlli di integrità in Integrità delle risorse di Azure.For more information on how health is assessed, see the list of resource types and health checks at [Azure Resource Health](resource-health-checks-resource-types.md).
 
 ## <a name="health-status"></a>Stato di integrità
 
@@ -28,59 +28,59 @@ L'integrità di una risorsa viene visualizzata come uno degli stati seguenti.
 
 ### <a name="available"></a>Disponibile
 
-*Disponibile* significa che non sono stati rilevati eventi che influiscono sull'integrità della risorsa. Nei casi in cui la risorsa è stata ripristinata da un tempo di inattività non pianificato nelle ultime 24 ore, verrà visualizzata una notifica di "risolto di recente".
+*Disponibile* significa che non sono rilevati eventi che influiscono sull'integrità della risorsa. Nei casi in cui la risorsa è stata ripristinata da tempi di inattività non pianificati nelle ultime 24 ore, verrà visualizzata una notifica "Risolto di recente".
 
-![Stato * disponibile * per una macchina virtuale con una notifica di "risolto recentemente"](./media/resource-health-overview/Available.png)
+![Stato di "Disponibile" per una macchina virtuale con una notifica "Risolto di recente"](./media/resource-health-overview/Available.png)
 
 ### <a name="unavailable"></a>Non disponibile
 
-Non *disponibile* significa che il servizio ha rilevato una piattaforma o un evento non della piattaforma in corso che influiscono sull'integrità della risorsa.
+*Non disponibile* indica che il servizio ha rilevato un evento piattaforma o non piattaforma in corso che influisce sull'integrità della risorsa.
 
 #### <a name="platform-events"></a>Eventi piattaforma
 
-Questi eventi vengono attivati da più componenti dell'infrastruttura di Azure. Sono incluse le azioni pianificate (ad esempio, la manutenzione pianificata) e gli eventi imprevisti (ad esempio, il riavvio di un host non pianificato o l'hardware host danneggiato stimato per avere esito negativo dopo un intervallo di tempo specificato).
+Questi eventi vengono attivati da più componenti dell'infrastruttura di Azure. Includono sia azioni pianificate (ad esempio, manutenzione pianificata) che eventi imprevisti (ad esempio, un riavvio non pianificato dell'host o un hardware host danneggiato che si prevede non riesca dopo un intervallo di tempo specificato).
 
-Integrità risorse fornisce dettagli aggiuntivi sull'evento e sul processo di ripristino. Consente inoltre di contattare supporto tecnico Microsoft anche se non si dispone di un contratto di supporto attivo.
+Integrità risorse fornisce ulteriori dettagli sull'evento e sul processo di ripristino. Consente inoltre di contattare il supporto tecnico Microsoft anche se non si dispone di un contratto di supporto attivo.
 
-![Stato * non disponibile * per una macchina virtuale a causa di un evento Platform](./media/resource-health-overview/Unavailable.png)
+![Stato di "Non disponibile" per una macchina virtuale a causa di un evento della piattaforma](./media/resource-health-overview/Unavailable.png)
 
 #### <a name="non-platform-events"></a>Eventi non piattaforma
 
-Gli eventi non di piattaforma vengono attivati dalle azioni dell'utente. Gli esempi includono l'arresto di una macchina virtuale o il raggiungimento del numero massimo di connessioni alla cache di Azure per Redis.
+Gli eventi non della piattaforma vengono attivati dalle azioni dell'utente. Gli esempi includono l'arresto di una macchina virtuale o il raggiungimento del numero massimo di connessioni alla cache di Azure per Redis.Examples include stopping a virtual machine or reaching the maximum number of connections to Azure Cache for Redis.
 
-![Stato "non disponibile" per una macchina virtuale a causa di un evento non piattaforma](./media/resource-health-overview/Unavailable_NonPlatform.png)
+![Stato di "Non disponibile" per una macchina virtuale a causa di un evento non di piattaformaStatus of "Unavailable" for a virtual machine because of a non-platform event](./media/resource-health-overview/Unavailable_NonPlatform.png)
 
-### <a name="unknown"></a>Sconosciuto
+### <a name="unknown"></a>Unknown
 
-*Unknown* significa che integrità risorse non ha ricevuto informazioni sulla risorsa per più di 10 minuti. Sebbene questo stato non sia un'indicazione definitiva dello stato della risorsa, è un punto dati importante per la risoluzione dei problemi.
+*Sconosciuto* significa che Integrità risorse non ha ricevuto informazioni sulla risorsa per più di 10 minuti. Anche se questo stato non è un'indicazione definitiva dello stato della risorsa, è un punto dati importante per la risoluzione dei problemi.
 
 Se la risorsa viene eseguita come previsto, lo stato della risorsa verrà aggiornato in *Disponibile* dopo alcuni minuti.
 
-Se si verificano problemi con la risorsa, lo stato di integrità *sconosciuto* potrebbe indicare che un evento nella piattaforma influisce sulla risorsa.
+Se si verificano problemi con la risorsa, lo stato di integrità *Sconosciuto* potrebbe indicare che un evento nella piattaforma interessa la risorsa.
 
-![Stato * sconosciuto * per una macchina virtuale](./media/resource-health-overview/Unknown.png)
+![Stato di "Sconosciuto" per una macchina virtuale](./media/resource-health-overview/Unknown.png)
 
-### <a name="degraded"></a>Ridotto
+### <a name="degraded"></a>Degraded
 
-Ridotto *significa che* la risorsa ha rilevato una perdita di prestazioni, sebbene sia ancora disponibile per l'uso.
+*Degraded* significa che la risorsa ha rilevato una perdita di prestazioni, anche se è ancora disponibile per l'uso.
 
-Diverse risorse hanno criteri propri quando segnalano che sono degradate.
+Risorse diverse hanno i propri criteri per quando segnalano di essere degradate.
 
-![Stato * danneggiato * per una macchina virtuale](./media/resource-health-overview/degraded.png)
+![Stato di "Degraded" per una macchina virtuale](./media/resource-health-overview/degraded.png)
 
 ## <a name="reporting-an-incorrect-status"></a>Segnalazione di uno stato non corretto
 
-Se si ritiene che lo stato di integrità corrente non sia corretto, è possibile indicare selezionando **segnala stato di integrità non corretto**. Nei casi in cui si influisce su un problema di Azure, si consiglia di contattare il supporto tecnico da Integrità risorse.
+Se si ritiene che lo stato di integrità corrente non sia corretto, è possibile comunicarcelo selezionando **Segnala stato di integrità non corretto**. Nei casi in cui un problema di Azure interessa l'utente, è consigliabile contattare il supporto da Integrità risorse.
 
-![Modulo per l'invio di informazioni sullo stato errato](./media/resource-health-overview/incorrect-status.png)
+![Modulo per inviare informazioni su uno stato non corretto](./media/resource-health-overview/incorrect-status.png)
 
-## <a name="history-information"></a>Informazioni cronologia
+## <a name="history-information"></a>Informazioni sulla cronologia
 
-È possibile accedere a 14 giorni di cronologia nella sezione relativa alla **cronologia di integrità** di integrità risorse.
+È possibile accedere fino a 30 giorni di cronologia nella sezione **Cronologia integrità** di Integrità risorse.
 
 ![Elenco di eventi di Integrità risorse nelle ultime due settimane](./media/resource-health-overview/history-blade.png)
 
-## <a name="get-started"></a>Attività iniziali
+## <a name="get-started"></a>Introduzione
 
 Per aprire Integrità risorse per una risorsa:
 
@@ -96,6 +96,6 @@ Per aprire Integrità risorse per una risorsa:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per ulteriori informazioni su Integrità risorse, consultare i riferimenti seguenti:
--  [Tipi di risorse e controlli di integrità in Integrità risorse di Azure](resource-health-checks-resource-types.md)
--  [Domande frequenti su Integrità risorse di Azure](resource-health-faq.md)
+Per altre informazioni sull'integrità delle risorse, vedere questi riferimenti:Check out these references to learn more about Resource Health:
+-  [Resource types and health checks in Azure Resource Health](resource-health-checks-resource-types.md)
+-  [Domande frequenti su Integrità delle risorse di AzureFrequently asked questions about Azure Resource Health](resource-health-faq.md)

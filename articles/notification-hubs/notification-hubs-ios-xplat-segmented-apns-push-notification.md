@@ -1,5 +1,5 @@
 ---
-title: Eseguire il push di notifiche a dispositivi iOS specifici con Hub di notifica di Azure | Microsoft Docs
+title: Inviare notifiche push a dispositivi iOS specifici usando Hub di notifica di Azure. Documenti Microsoft
 description: In questa esercitazione si apprende come usare Hub di notifica di Azure per inviare notifiche push a dispositivi iOS specifici.
 services: notification-hubs
 documentationcenter: ios
@@ -16,18 +16,18 @@ ms.date: 11/07/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: 618be4bc2d7669879daa927d5c4392b1097d29af
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: a775963f1b0fa19cd687c839f527f4a078c76864
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76774881"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80126986"
 ---
-# <a name="tutorial-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>Esercitazione: Eseguire il push di notifiche a dispositivi iOS specifici con Hub di notifica di Azure
+# <a name="tutorial-send-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>Esercitazione: Inviare notifiche push a dispositivi iOS specifici usando Hub di notifica di AzureTutorial: Send push notifications to specific iOS devices using Azure Notification Hubs
 
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 
 In questa esercitazione viene illustrato come usare Hub di notifica di Azure per trasmettere le notifiche relative alle ultime notizie a un'app per iOS. Al termine si sarà appreso come effettuare la registrazione alle categorie di ultime notizie desiderate e ricevere le notifiche push solo da tali categorie. Questo scenario è un modello comune per molte app nelle quali le notifiche devono essere inviate a gruppi di utenti che hanno dichiarato un interesse, ad esempio lettori di feed RSS, app per fan di musica e così via.
 
@@ -43,7 +43,7 @@ In questa esercitazione vengono completati i passaggi seguenti:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Questo argomento si basa sull'app creata in [esercitazione: notifiche push alle app iOS con hub di notifica di Azure][get-started]. Prima di iniziare questa esercitazione, è necessario avere già completato l' [esercitazione: notifiche push alle app iOS con hub di notifica di Azure][get-started].
+Questo argomento è basato sull'app creata nell'[Esercitazione: eseguire il push di notifiche alle app iOS con Hub di notifica di Azure][get-started]. Prima di iniziare questa esercitazione, è necessario aver già completato l'[Esercitazione: eseguire il push di notifiche alle app iOS con Hub di notifica di Azure][get-started].
 
 ## <a name="add-category-selection-to-the-app"></a>Aggiungere la selezione delle categorie all'app
 
@@ -159,7 +159,7 @@ Il primo passaggio prevede l'aggiunta degli elementi dell'interfaccia utente all
 9. Nel metodo `didRegisterForRemoteNotificationsWithDeviceToken` in `AppDelegate.m` sostituire il codice nel metodo con il codice seguente per passare il token del dispositivo alla classe `notifications`. La classe `notifications` esegue la registrazione per le notifiche con le categorie. Se l'utente modifica le selezioni delle categorie, chiamare il metodo `subscribeWithCategories` in risposta al pulsante **sottoscrizione** per aggiornarle.
 
     > [!NOTE]
-    > Poiché il token del dispositivo assegnato dalla Apple Push Notification Service (APNS) può cambiare in qualsiasi momento, è necessario registrarsi spesso per le notifiche per evitare errori di notifica. In questo esempio viene effettuata la registrazione per le notifiche a ogni avvio dell'app. Per le app che vengono eseguite con una frequenza maggiore di una volta al giorno, è possibile ignorare la registrazione per conservare la larghezza di banda qualora sia trascorso meno di un giorno dalla registrazione precedente.
+    > Poiché il token del dispositivo assegnato da Apple Push Notification Service (APNS) può cambiare in qualsiasi momento, è necessario eseguire la registrazione frequente per le notifiche per evitare errori di notifica. In questo esempio viene effettuata la registrazione per le notifiche a ogni avvio dell'app. Per le app che vengono eseguite con una frequenza maggiore di una volta al giorno, è possibile ignorare la registrazione per conservare la larghezza di banda qualora sia trascorso meno di un giorno dalla registrazione precedente.
 
     ```objc
     self.notifications.deviceToken = deviceToken;
@@ -177,7 +177,7 @@ Il primo passaggio prevede l'aggiunta degli elementi dell'interfaccia utente all
 
     A questo punto, non dovrebbe essere presente altro codice nel metodo `didRegisterForRemoteNotificationsWithDeviceToken`.
 
-10. I metodi seguenti devono essere già presenti in `AppDelegate.m` dopo aver completato l'esercitazione Introduzione [ad hub di notifica][get-started] . In caso contrario, aggiungerli.
+10. I metodi seguenti devono essere già presenti in `AppDelegate.m`, in seguito al completamento dell'esercitazione [Introduzione ad Hub di notifica][get-started]. In caso contrario, aggiungerli.
 
     ```objc
     - (void)MessageBox:(NSString *)title message:(NSString *)messageText
@@ -247,13 +247,13 @@ Ora l'app può archiviare un insieme di categorie nella risorsa di archiviazione
 
 ## <a name="optional-send-tagged-notifications"></a>(facoltativo) Invio di notifiche con tag
 
-Se non si ha accesso a Visual Studio, è possibile passare alla sezione successiva e inviare notifiche dall’app stessa. È anche possibile inviare la notifica del modello appropriata dal [Azure portal] usando la scheda debug per l'hub di notifica.
+Se non si ha accesso a Visual Studio, è possibile passare alla sezione successiva e inviare notifiche dall’app stessa. È anche possibile inviare la notifica del modello appropriata dal [portale di Azure] usando la scheda debug per l'hub di notifica.
 
 [!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
 ## <a name="optional-send-notifications-from-the-device"></a>(facoltativo) Inviare notifiche dal dispositivo
 
-In genere le notifiche vengono inviate da un servizio di back-end ma per questa esercitazione è possibile inviare notifiche relative alle ultime notizie direttamente dall'applicazione. A tale scopo, è necessario aggiornare il metodo `SendNotificationRESTAPI` definito nell'esercitazione Introduzione [ad hub di notifica][get-started] .
+In genere le notifiche vengono inviate da un servizio di back-end ma per questa esercitazione è possibile inviare notifiche relative alle ultime notizie direttamente dall'applicazione. A tale scopo si aggiorna il metodo `SendNotificationRESTAPI` definito nell'esercitazione [Introduzione ad Hub di notifica][get-started].
 
 1. In `ViewController.m` aggiornare il metodo `SendNotificationRESTAPI` come segue in modo che accetti un parametro per il tag di categoria e invii la notifica [modello](notification-hubs-templates-cross-platform-push-messages.md) appropriata.
 
@@ -371,4 +371,4 @@ In questa esercitazione sono state inviate notifiche di trasmissione ai disposit
 [Notification Hubs Guidance]: https://msdn.microsoft.com/library/dn530749.aspx
 [Notification Hubs How-To for iOS]: https://msdn.microsoft.com/library/jj927168.aspx
 [get-started]: notification-hubs-ios-apple-push-notification-apns-get-started.md
-[Azure portal]: https://portal.azure.com
+[Portale di Azure]: https://portal.azure.com

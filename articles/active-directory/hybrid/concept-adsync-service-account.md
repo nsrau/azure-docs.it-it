@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect: Account del servizio ADSync | Microsoft Docs'
-description: In questo argomento descrive l'account del servizio ADSync e fornisce procedure consigliate riguardo l'account.
+title: 'Azure AD Connect: Account del servizio ADSync Documenti Microsoft'
+description: In questo argomento viene descritto l'account del servizio ADSync e vengono illustrate le procedure consigliate relative all'account.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -16,62 +16,62 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f228da5afc5998d8fa59ce2d720cec4c9f955b67
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67478719"
 ---
 # <a name="adsync-service-account"></a>Account del servizio ADSync
-Azure AD Connect viene installato un servizio locale che Orchestra la sincronizzazione tra Active Directory e Azure Active Directory.  Il servizio di sincronizzazione di Microsoft Azure AD Sync (ADSync) viene eseguito in un server in locale nell'ambiente in uso.  Le credenziali per il servizio sono impostate per impostazione predefinita in installazioni Express, ma possono essere personalizzate per soddisfare i requisiti di sicurezza dell'organizzazione.  Queste credenziali non vengono usate per la connessione per le foreste locali o Azure Active Directory.
+Azure AD Connect installa un servizio locale che orchestra la sincronizzazione tra Active Directory e Azure Active Directory.  Il servizio di sincronizzazione della sincronizzazione di Microsoft Azure AD (ADSync) viene eseguito in un server nell'ambiente locale.  Le credenziali per il servizio sono impostate per impostazione predefinita nelle installazioni Express, ma possono essere personalizzate per soddisfare i requisiti di sicurezza dell'organizzazione.  Queste credenziali non vengono usate per connettersi alle foreste locali o ad Azure Active Directory.These credentials are not used to connect to your on-premises forests or Azure Active Directory.
 
-Scelta di ADSync account del servizio è un'importante decisione pianificazione prima di installare Azure AD Connect.  Qualsiasi tentativo di modificare le credenziali dopo l'installazione del servizio al mancato avvio, si otterrà la perdita dell'accesso al database di sincronizzazione e riesce a eseguire l'autenticazione con le directory connesse (Azure e Active Directory Domain Services).  Fino a quando non vengono ripristinate le credenziali originali, si verificherà alcuna sincronizzazione.
+La scelta dell'account del servizio ADSync è una decisione di pianificazione importante da prendere prima dell'installazione di Azure AD Connect.Choosing the ADSync service account is an important planning decision to make before installing Azure AD Connect.  Qualsiasi tentativo di modificare le credenziali dopo l'installazione comporterà l'avvio del servizio, la perdita dell'accesso al database di sincronizzazione e l'autenticazione con le directory connesse (Azure e Servizi di dominio Active Directory).  Non verrà eseguita alcuna sincronizzazione fino al ripristino delle credenziali originali.
 
-## <a name="the-default-adsync-service-account"></a>L'account del servizio ADSync predefinito
+## <a name="the-default-adsync-service-account"></a>Account del servizio ADSync predefinito
 
-Quando eseguita in un server membro, il servizio AdSync viene eseguito nel contesto di un Account di servizio virtuale (VSA).  A causa di una limitazione del prodotto, viene creato un account del servizio personalizzato quando installato in un controller di dominio.  Se l'account del servizio impostazioni Express non soddisfa i requisiti di sicurezza dell'organizzazione, è possibile distribuire Azure AD Connect, scegliere l'opzione di personalizzazione.  Scegliere quindi l'opzione di account di servizio che soddisfa i requisiti dell'organizzazione.
+Quando viene eseguito in un server membro, il servizio AdSync viene eseguito nel contesto di un account di servizio virtuale (VSA).  A causa di una limitazione del prodotto, viene creato un account di servizio personalizzato quando viene installato in un controller di dominio.  Se l'account del servizio Impostazioni rapide non soddisfa i requisiti di sicurezza dell'organizzazione, distribuire Azure AD Connect scegliendo l'opzione Personalizza.If the Express settings service account does not meet your organizational security requirements, deploy Azure AD Connect by choosing the Customize option.  Scegliere quindi l'opzione dell'account di servizio che soddisfa i requisiti dell'organizzazione.
 
 >[!NOTE]
->L'account del servizio predefinito durante l'installazione in un controller di dominio è nel formato Domain\AAD_InstallationIdentifier.  La password per questo account è generata casualmente e presenta sfide significative per la rotazione di ripristino e la password.  Microsoft consiglia di personalizzare l'account del servizio durante l'installazione iniziale in un controller di dominio per usare una modalità autonoma o Account del servizio gestito di gruppo (sMSA / gMSA)
+>L'account di servizio predefinito quando viene installato in un controller di dominio è nel formato Dominio/AAD_InstallationIdentifier.  La password per questo account viene generata in modo casuale e presenta sfide significative per il recupero e la rotazione della password.  Microsoft consiglia di personalizzare l'account del servizio durante l'installazione iniziale in un controller di dominio per utilizzare un account del servizio gestito autonomo o di gruppo (sMSA / gMSA)
 
-|Località di Azure AD Connect|Account del servizio creato|
+|Percorso di Azure AD ConnectAzure AD Connect location|Account di servizio creato|
 |-----|-----|
-|Server membro|NT SERVICE\ADSync|
-|Controller di dominio|Domain\AAD_74dc30c01e80 (vedere la nota)|
+|Server membro|NT SERVICE - ADSync|
+|Controller di dominio|Dominio/AAD_74dc30c01e80 (vedere nota)|
 
 ## <a name="custom-adsync-service-accounts"></a>Account del servizio ADSync personalizzati
-Microsoft consiglia che esegue la sincronizzazione di Active Directory del servizio nel contesto di un Account del servizio virtuale o un computer autonomo o Account del servizio gestito di gruppo.  L'amministratore di dominio può anche scegliere di creare un account di servizio eseguito il provisioning per soddisfare i requisiti di sicurezza dell'organizzazione specifica.   Per personalizzare l'account del servizio utilizzato durante l'installazione, scegliere l'opzione di personalizzazione della pagina Impostazioni rapide riportato di seguito.   Sono disponibili le opzioni seguenti:
+Microsoft consiglia di eseguire il servizio ADSync nel contesto di un account del servizio virtuale o di un account del servizio gestito autonomo o di gruppo.  L'amministratore di dominio può anche scegliere di creare un account di servizio di cui è stato eseguito il provisioning per soddisfare i requisiti di sicurezza specifici dell'organizzazione.   Per personalizzare l'account di servizio utilizzato durante l'installazione, scegliere l'opzione Personalizza nella pagina Impostazioni rapide di seguito.   Sono disponibili le opzioni seguenti:
 
-- account predefinito: Azure AD Connect effettuerà il provisioning di account del servizio, come descritto in precedenza
-- Managed service account: usare un computer autonomo o il provisioning dall'amministratore dell'account del servizio gestito di gruppo
-- account di dominio, usare il provisioning dall'amministratore dell'account del servizio un dominio
+- account predefinito: Azure AD Connect eseguirà il provisioning dell'account del servizio come descritto in precedenza
+- account del servizio gestito: utilizzare un gruppo autonomo o un gruppo MSA di cui è stato eseguito il provisioning dall'amministratore
+- account di dominio: utilizzare un account di servizio di dominio di cui è stato eseguito il provisioning dall'amministratore
 
 ![](media/concept-adsync-service-account/adsync1.png)
 
 ![](media/concept-adsync-service-account/adsync2.png)
 
-## <a name="diagnosing-adsync-service-account-changes"></a>Diagnosticare modifiche account del servizio ADSync
-Modifica le credenziali per il servizio ADSync dopo l'installazione del servizio al mancato avvio, si otterrà la perdita dell'accesso al database di sincronizzazione e riesce a eseguire l'autenticazione con le directory connesse (Azure e Active Directory Domain Services).  Concessione dell'accesso al database per il nuovo account del servizio ADSync non è sufficiente per risolvere questo problema. Fino a quando non vengono ripristinate le credenziali originali, si verificherà alcuna sincronizzazione.
+## <a name="diagnosing-adsync-service-account-changes"></a>Diagnosi delle modifiche dell'account del servizio ADSync
+La modifica delle credenziali per il servizio ADSync dopo l'installazione comporterà il mancato avvio del servizio, la perdita dell'accesso al database di sincronizzazione e l'autenticazione con le directory connesse (Azure e Servizi di dominio Active Directory).  Concessione dell'accesso al database per il nuovo account del servizio ADSync non è sufficiente per risolvere questo problema. Non verrà eseguita alcuna sincronizzazione fino al ripristino delle credenziali originali.
 
-Il servizio ADSync genererà un messaggio a livello di errore nel registro eventi quando non è possibile avviare.  Il contenuto del messaggio variano a seconda che il database incorporato (localdb) o SQL completo sia in uso.  Di seguito è riportati esempi di voci del registro eventi che possono essere presenti.
+Il servizio ADSync emetterà un messaggio di livello di errore al registro eventi quando non è in grado di avviarsi.  Il contenuto del messaggio varia a seconda che il database incorporato (localdb) o SQL completo sia in uso.  Di seguito sono riportati esempi di voci del registro eventi che possono essere presenti.
 
 ### <a name="example-1"></a>Esempio 1
 
-Le chiavi di crittografia del servizio AdSync non è stato trovato e sono state ricreate.  Sincronizzazione non verrà eseguita fino a quando non viene risolto il problema.
+Le chiavi di crittografia del servizio AdSync non sono state trovate e sono state ricreate.  La sincronizzazione non verrà eseguita fino a quando il problema non viene risolto.
 
-Risoluzione dei problemi relativi a questo problema di Microsoft Azure AD Sync le chiavi di crittografia diventerà inaccessibile se vengono modificate le credenziali del Log nel servizio di sincronizzazione Active Directory.  Se sono state modificate le credenziali, usare l'applicazione di servizi per modificare l'account di accesso al valore originariamente configurato (ad es. NT SERVICE\AdSync) e riavviare il servizio.  Questo verrà ripristinato immediatamente il corretto funzionamento del servizio AdSync.
+Risoluzione di questo problema Le chiavi di crittografia di sincronizzazione di Microsoft Azure AD diventeranno inaccessibili se vengono modificate le credenziali di accesso del servizio AdSync.  Se le credenziali sono state modificate, utilizzare l'applicazione Servizi per modificare l'account di accesso al valore configurato in origine (ad es. NT SERVICE-AdSync) e riavviare il servizio.  In questo modo verrà immediatamente ripristinato il corretto funzionamento del servizio AdSync.
 
-Vedere di seguito [articolo](https://go.microsoft.com/fwlink/?linkid=2086764) per altre informazioni.
+Per ulteriori informazioni, vedere il seguente [articolo.](https://go.microsoft.com/fwlink/?linkid=2086764)
 
 ### <a name="example-2"></a>Esempio 2
 
-Il servizio è riuscito ad avviare perché non è stato possibile stabilire una connessione al database locale (localdb).
+Impossibile avviare il servizio perché non è stato possibile stabilire una connessione al database locale (localdb).
 
-Risoluzione dei problemi di questo servizio problema di Microsoft Azure AD Sync perderà l'autorizzazione per accedere al provider di database locale se si modificano le credenziali del Log nel servizio di sincronizzazione Active Directory.  Se sono state modificate le credenziali, usare l'applicazione di servizi per modificare l'account di accesso al valore originariamente configurato (ad es. NT SERVICE\AdSync) e riavviare il servizio.  Questo verrà ripristinato immediatamente il corretto funzionamento del servizio AdSync.
+Risoluzione di questo problema Il servizio di sincronizzazione di Microsoft Azure AD perderà l'autorizzazione per accedere al provider di database locale se vengono modificate le credenziali di accesso del servizio AdSync.  Se le credenziali sono state modificate, utilizzare l'applicazione Servizi per modificare l'account di accesso al valore configurato in origine (ad es. NT SERVICE-AdSync) e riavviare il servizio.  In questo modo verrà immediatamente ripristinato il corretto funzionamento del servizio AdSync.
 
-Vedere di seguito [articolo](https://go.microsoft.com/fwlink/?linkid=2086764) per altre informazioni.
+Per ulteriori informazioni, vedere il seguente [articolo.](https://go.microsoft.com/fwlink/?linkid=2086764)
 
-Le seguenti informazioni sull'errore è stati restituiti dal provider di dettagli aggiuntivi:
+Dettagli aggiuntivi Le seguenti informazioni sull'errore sono state restituite dal provider:
  
 
 ``` 

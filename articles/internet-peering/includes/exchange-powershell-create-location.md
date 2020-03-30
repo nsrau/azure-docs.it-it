@@ -9,30 +9,30 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 6f5d2dc30ac0f6316587fa0836b87cbd4efc0a8b
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75774393"
 ---
-Il cmdlet **Get-AzPeeringLocation** di PowerShell restituisce un elenco di percorsi di peering con il parametro obbligatorio `Kind`, che verrà usato nei passaggi successivi:
+Il cmdlet di PowerShell **Get-AzPeeringLocation** restituisce un `Kind`elenco di posizioni di peering con il parametro obbligatorio, che verrà usato nei passaggi successivi:
 
 ```powershell
 Get-AzPeeringLocation -Kind "Exchange"
 ```
 
-I percorsi di peering di Exchange contengono i campi seguenti:
-* Exchangename
+I percorsi di peering di Exchange contengono i seguenti campi:
+* Nome di Exchange
 * PeeringLocation
-* Paese
-* PeeringDBFacilityId
+* Country
+* PeeringDBFacilityIdPeeringDBFacilityId
 * PeeringDBFacilityLink
-* MicrosoftIPv4Address
-* MicrosoftIPv6Address
+* MicrosoftIPv4Indirizzo
+* MicrosoftIPv6Indirizzo
 
-Verificare di essere presenti nella struttura di peering desiderata facendo riferimento a [PeeringDB](https://w www.peeringdb.com).
+Verificare che si è presenti nella struttura di peering desiderata facendo riferimento a [PeeringDB](https://wwww.peeringdb.com).
 
-Di seguito è riportato un esempio che illustra come usare Seattle come posizione di peering per creare un peering:
+Di seguito è riportato un esempio che mostra come usare Seattle come posizione di peering per creare un peering:Below is an example that shows how to use Seattle as the peering location to create a peering:
 
 ```powershell
 $exchangeLocations = Get-AzPeeringLocation -Kind Exchange

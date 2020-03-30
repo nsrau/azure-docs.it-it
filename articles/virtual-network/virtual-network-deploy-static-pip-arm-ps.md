@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/08/2018
 ms.author: kumud
 ms.openlocfilehash: 0eb4f86a2484486658171ab4b099794e4ba3e4bc
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76043384"
 ---
 # <a name="create-a-virtual-machine-with-a-static-public-ip-address-using-powershell"></a>Creare una macchina virtuale con un indirizzo IP pubblico statico usando PowerShell
@@ -28,7 +28,7 @@ ms.locfileid: "76043384"
 
 È possibile creare una macchina virtuale con un indirizzo IP pubblico statico. Un indirizzo IP pubblico consente di comunicare con una macchina virtuale da Internet. Assegnare un indirizzo IP pubblico statico, anziché un indirizzo dinamico, per assicurarsi che l'indirizzo non cambi mai. Altre informazioni sugli [indirizzi IP pubblici statici](virtual-network-ip-addresses-overview-arm.md#allocation-method). Per modificare da dinamico a statico un indirizzo IP pubblico assegnato a una macchina virtuale esistente o per usare indirizzi IP privati, vedere [Aggiungere, modificare o rimuovere indirizzi IP](virtual-network-network-interface-addresses.md). Gli indirizzi IP pubblici hanno un [costo nominale](https://azure.microsoft.com/pricing/details/ip-addresses)ed esiste un [limite](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) al numero di indirizzi IP pubblici che è possibile usare per ogni sottoscrizione.
 
-## <a name="create-a-virtual-machine"></a>Crea una macchina virtuale
+## <a name="create-a-virtual-machine"></a>Creare una macchina virtuale
 
 È possibile eseguire la procedura seguente dal computer locale o tramite Azure Cloud Shell. Per usare il computer locale, assicurarsi che [Azure PowerShell sia installato](/powershell/azure/install-az-ps?toc=%2fazure%2fvirtual-network%2ftoc.json). Per usare Azure Cloud Shell, selezionare **Prova** nell'angolo superiore destro di una qualsiasi finestra di comando riportata di seguito. Cloud Shell consente di accedere ad Azure.
 
@@ -39,7 +39,7 @@ ms.locfileid: "76043384"
    New-AzResourceGroup -Name myResourceGroup -Location EastUS
    ```
 
-3. Creare una macchina virtuale con il comando [New-AzVM](/powershell/module/az.Compute/New-azVM) . L'opzione `-AllocationMethod "Static"` assegna un indirizzo IP pubblico statico alla macchina virtuale. L'esempio seguente crea una macchina virtuale Windows Server con un indirizzo IP pubblico statico SKU Basic denominato *myPublicIpAddress*. Quando richiesto, immettere un nome utente e una password da usare come credenziali di accesso per la macchina virtuale:
+3. Creare una macchina virtuale con il comando [New-AzVM.Create](/powershell/module/az.Compute/New-azVM) a virtual machine with the New-AzVM command. L'opzione `-AllocationMethod "Static"` assegna un indirizzo IP pubblico statico alla macchina virtuale. L'esempio seguente crea una macchina virtuale Windows Server con un indirizzo IP pubblico statico SKU Basic denominato *myPublicIpAddress*. Quando richiesto, immettere un nome utente e una password da usare come credenziali di accesso per la macchina virtuale:
 
    ```azurepowershell-interactive
    New-AzVm `

@@ -6,17 +6,17 @@ ms.date: 04/11/2019
 ms.topic: article
 ms.custom: mvc
 ms.openlocfilehash: 385806dca7dcac9fd0aac4c1bf9e1072e7fe5ecb
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75979481"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Abilitare le soluzioni Gestione aggiornamenti, Rilevamento modifiche e Inventario in più VM
 
 Automazione di Azure fornisce soluzioni per gestire gli aggiornamenti della sicurezza del sistema operativo, tenere traccia delle modifiche e gestire l'inventario dei componenti installati nei computer. Esistono diversi modi per eseguire l'onboarding di computer. Ad esempio, è possibile eseguire l'onboarding della soluzione [da una macchina virtuale](automation-onboard-solutions-from-vm.md), dall'[account di Automazione](automation-onboard-solutions-from-automation-account.md), durante l'esplorazione delle macchine virtuali o tramite [runbook](automation-onboard-solutions.md). Questo articolo descrive il processo di onboarding di queste soluzioni durante l'esplorazione delle macchine virtuali in Azure.
 
-## <a name="sign-in-to-azure"></a>Accedere a Azure
+## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
 Accedere ad Azure all'indirizzo https://portal.azure.com
 
@@ -24,7 +24,7 @@ Accedere ad Azure all'indirizzo https://portal.azure.com
 
 Nel portale di Azure passare a **Macchine virtuali**.
 
-Usando le caselle di controllo, selezionare le macchine virtuali che si vuole caricare con Rilevamento modifiche e Inventario o Gestione aggiornamenti. L'onboarding è disponibile per un massimo di tre diversi gruppi di risorse alla volta. Le macchine virtuali di Azure possono esistere in qualsiasi area, indipendentemente dalla posizione dell'account di automazione.
+Usando le caselle di controllo, selezionare le macchine virtuali che si vuole caricare con Rilevamento modifiche e Inventario o Gestione aggiornamenti. L'onboarding è disponibile per un massimo di tre diversi gruppi di risorse alla volta. Le macchine virtuali di Azure possono esistere in qualsiasi area, indipendentemente dal percorso dell'account di automazione.
 
 ![Elenco di VM](media/automation-onboard-solutions-from-browse/vmlist.png)
 > [!TIP]
@@ -39,17 +39,17 @@ L'immagine seguente è relativa a Gestione aggiornamenti. Rilevamento modifiche 
 
 L'elenco di macchine virtuali viene filtrato per visualizzare solo le macchine virtuali che sono nella stessa sottoscrizione e località. Se le macchine virtuali sono in più di tre gruppi di risorse, vengono selezionati i primi tre gruppi di risorse.
 
-### <a name="resource-group-limit"></a> Limitazioni dell'onboarding
+### <a name="onboarding-limitations"></a><a name="resource-group-limit"></a> Limitazioni dell'onboarding
 
-Il numero di gruppi di risorse che è possibile usare per l'onboarding è determinato dai [limiti di distribuzione di Resource Manager](../azure-resource-manager/templates/cross-resource-group-deployment.md). Gestione risorse le distribuzioni, da non confondere con le distribuzioni degli aggiornamenti, sono limitate a 5 gruppi di risorse per ogni distribuzione. Per assicurare l'integrità dell'onboarding, 2 di questi gruppi di risorse sono riservati alla configurazione dell'area di lavoro Log Analytics, dell'account di Automazione e delle risorse correlate. Rimangono 3 gruppi di risorse selezionabili per la distribuzione. Questo limite si applica solo al caricamento simultaneo, non al numero di gruppi di risorse che possono essere gestiti da una soluzione di automazione.
+Il numero di gruppi di risorse che è possibile usare per l'onboarding è determinato dai [limiti di distribuzione di Resource Manager](../azure-resource-manager/templates/cross-resource-group-deployment.md). Le distribuzioni di Resource Manager, da non confondere con le distribuzioni di aggiornamento, sono limitate a 5 gruppi di risorse per ogni distribuzione. Per assicurare l'integrità dell'onboarding, 2 di questi gruppi di risorse sono riservati alla configurazione dell'area di lavoro Log Analytics, dell'account di Automazione e delle risorse correlate. Rimangono 3 gruppi di risorse selezionabili per la distribuzione. Questo limite si applica solo all'onboarding simultaneo, non al numero di gruppi di risorse che possono essere gestiti da una soluzione di automazione.
 
-È anche possibile usare un Runbook per l'onboarding. per altre informazioni, vedere [caricare le soluzioni di aggiornamento e rilevamento delle modifiche in automazione di Azure](automation-onboard-solutions.md).
+Per altre informazioni, vedere Soluzioni di aggiornamento [e rilevamento delle modifiche integrate nell'automazione](automation-onboard-solutions.md)di Azure.You can also use a runbook for onboarding, for more information, see Onboard update and change tracking solutions to Azure Automation.
 
 Usare i controlli dei filtri per selezionare macchine virtuali da sottoscrizioni, località e gruppi di risorse diversi.
 
 ![Caricare la soluzione Gestione aggiornamenti](media/automation-onboard-solutions-from-browse/onboardsolutions.png)
 
-Esaminare le opzioni per l'area di lavoro Log Analytics e l'account di automazione. Un'area di lavoro e un account di Automazione esistenti sono selezionati per impostazione predefinita. Per usare un'area di lavoro Log Analytics e un account di Automazione diversi, fare clic su **PERSONALIZZATO** per selezionarli dalla pagina **Configurazione personalizzata**. Quando si sceglie un'area di lavoro Log Analytics, viene effettuato un controllo per determinare se è collegata a un account di Automazione. Se viene trovato un account di Automazione collegato, verrà visualizzata la schermata seguente. Al termine, fare clic su **OK**.
+Esaminare le opzioni per l'area di lavoro di Log Analytics e l'account di automazione. Un'area di lavoro e un account di Automazione esistenti sono selezionati per impostazione predefinita. Per usare un'area di lavoro Log Analytics e un account di Automazione diversi, fare clic su **PERSONALIZZATO** per selezionarli dalla pagina **Configurazione personalizzata**. Quando si sceglie un'area di lavoro Log Analytics, viene effettuato un controllo per determinare se è collegata a un account di Automazione. Se viene trovato un account di Automazione collegato, verrà visualizzata la schermata seguente. Al termine, fare clic su **OK**.
 
 ![Selezionare un'area di lavoro e un account](media/automation-onboard-solutions-from-browse/selectworkspaceandaccount.png)
 
@@ -60,7 +60,7 @@ Se l'area di lavoro selezionata non è collegata a un account di Automazione, ve
 > [!NOTE]
 > Quando si abilitano soluzioni, sono supportate solo determinate aree per il collegamento a un'area di lavoro Log Analytics e un account di Automazione.
 >
-> Per un elenco delle coppie di mapping supportate, vedere [mapping delle aree per l'account di automazione e l'area di lavoro log Analytics](how-to/region-mappings.md).
+> Per un elenco delle coppie di mapping supportate, vedere Mapping delle aree per l'area di [lavoro Account di automazione e Log Analytics](how-to/region-mappings.md).
 
 Deselezionare la casella di controllo accanto alle macchine virtuali che non si vuole abilitare. Le macchine virtuali che non è possibile abilitare sono già deselezionate.
 
@@ -72,9 +72,9 @@ Le soluzioni seguenti sono dipendenti da un'area di lavoro Log Analytics:
 
 * [Gestione degli aggiornamenti](automation-update-management.md)
 * [Rilevamento delle modifiche](automation-change-tracking.md)
-* [Avviare/arrestare le VM durante gli orari di minore attività](automation-solution-vm-management.md)
+* [Avviare/arrestare VM durante gli orari di minore attività](automation-solution-vm-management.md)
 
-Se si decide di non voler più integrare l'account di automazione con un'area di lavoro di Log Analytics, è possibile scollegare l'account direttamente dall'portale di Azure. Prima di procedere, è necessario rimuovere le soluzioni menzionate in precedenza; in caso contrario non sarà possibile continuare con il processo. Vedere l'articolo relativo alla soluzione specifica importata per comprendere i passaggi necessari per la rimozione.
+Se si decide di non integrare più l'account di Automazione con un'area di lavoro di Log Analytics, è possibile scollegare l'account direttamente dal portale di Azure.If you decide you no longer wish to integrate your Automation account with a Log Analytics workspace, you can unlink your account directly from the Azure portal. Prima di procedere, è necessario rimuovere le soluzioni menzionate in precedenza; in caso contrario non sarà possibile continuare con il processo. Vedere l'articolo relativo alla soluzione specifica importata per comprendere i passaggi necessari per la rimozione.
 
 Dopo la rimozione di queste soluzioni è possibile eseguire i passaggi seguenti per scollegare l'account di automazione.
 
@@ -83,7 +83,7 @@ Dopo la rimozione di queste soluzioni è possibile eseguire i passaggi seguenti 
 
 1. Nel portale di Azure aprire l'account di Automazione e nella pagina Account di automazione selezionare **Area di lavoro collegata** nella sezione **Risorse correlate** a sinistra.
 
-2. Nella pagina Unlink workspace (Scollega area di lavoro) fare clic su **Unlink workspace (Scollega area di lavoro)** .
+2. Nella pagina Unlink workspace (Scollega area di lavoro) fare clic su **Unlink workspace (Scollega area di lavoro)**.
 
    ![Pagina Unlink workspace (Scollega area di lavoro)](media/automation-onboard-solutions-from-browse/automation-unlink-workspace-blade.png).
 
@@ -103,7 +103,7 @@ Se è stata usata la soluzione per avviare/arrestare VM durante gli orari di min
 * Avviare e arrestare i runbook delle VM
 * Variabili
 
-In alternativa, è anche possibile scollegare l'area di lavoro dall'account di automazione dall'area di lavoro Log Analytics. Nell'area di lavoro selezionare **account di automazione** in **risorse correlate**. Nella pagina account di automazione selezionare **Scollega account**.
+In alternativa, è anche possibile scollegare l'area di lavoro dall'account di automazione dall'area di lavoro di Log Analytics.Alternative ly can also unlink your workspace from your Automation Account from your Log Analytics workspace. Nell'area di lavoro selezionare **Account di automazione** in **Risorse correlate**. Nella pagina Account di automazione selezionare **Scollega account**.
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
@@ -135,7 +135,7 @@ Durante l'onboarding di più computer, per alcuni computer potrebbe essere visua
 
 **Causa**: le macchine virtuali che usano il modello di distribuzione classica non sono supportate.
 
-**Soluzione**: eseguire la migrazione della macchina virtuale al modello di distribuzione gestione risorse. Per altre informazioni in proposito, vedere [Eseguire la migrazione di risorse del modello di distribuzione classica](../virtual-machines/windows/migration-classic-resource-manager-overview.md).
+**Soluzione:** eseguire la migrazione della macchina virtuale al modello di distribuzione di Resource Manager.Solution : Migrate the virtual machine to the Resource Manager deployment model. Per altre informazioni in proposito, vedere [Eseguire la migrazione di risorse del modello di distribuzione classica](../virtual-machines/windows/migration-classic-resource-manager-overview.md).
 
 ### <a name="vm-is-stopped-deallocated"></a>La macchina virtuale viene arrestata (deallocata).
 
@@ -152,10 +152,10 @@ Per rimuovere una macchina virtuale per Gestione aggiornamenti:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che la soluzione è abilitata per le macchine virtuali, vedere l'articolo Panoramica di Gestione aggiornamenti per informazioni su come creare una **distribuzione degli aggiornamenti** per i computer.
+Ora che la soluzione è abilitata per le macchine virtuali, vedere l'articolo Panoramica della gestione degli aggiornamenti per informazioni su come creare una distribuzione di **aggiornamento** per le macchine.
 
 > [!div class="nextstepaction"]
-> [Gestione aggiornamenti gestire gli aggiornamenti e le patch per le macchine virtuali di Azure](./automation-tutorial-update-management.md)
+> [Gestione degli aggiornamenti - Gestire gli aggiornamenti e le patch per le macchine virtuali di AzureUpdate Management - Manage updates and patches for your Azure VMs](./automation-tutorial-update-management.md)
 
 Esercitazioni aggiuntive sulle soluzioni e su come usarle:
 

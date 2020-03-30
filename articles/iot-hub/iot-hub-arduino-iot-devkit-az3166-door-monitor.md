@@ -1,5 +1,5 @@
 ---
-title: Invia un messaggio di posta elettronica quando viene aperta la porta con funzioni di Azure
+title: Inviare un messaggio di posta elettronica quando la porta viene aperta usando Funzioni di AzureSend email when door is opened using Azure Functions
 description: Monitorare il sensore magnetico per rilevare quando viene aperta una porta e usare Funzioni di Azure per inviare una notifica tramite posta elettronica.
 author: liydu
 ms.service: iot-hub
@@ -9,13 +9,13 @@ ms.tgt_pltfrm: arduino
 ms.date: 03/19/2018
 ms.author: liydu
 ms.openlocfilehash: 6bebe8ac6b9869466938600d6267fd0062c84477
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75977307"
 ---
-# <a name="door-monitor----using-azure-functions-and-sendgrid-send-email-when-a-door-is-opened"></a>Monitoraggio sportello: con funzioni di Azure e SendGrid, inviare un messaggio di posta elettronica quando viene aperta una porta           
+# <a name="door-monitor----using-azure-functions-and-sendgrid-send-email-when-a-door-is-opened"></a>Door Monitor -- Utilizzo di Funzioni di Azure e SendGrid, invio di posta elettronica all'apertura di una porta           
 
 MXChip IoT DevKit contiene un sensore magnetico predefinito. In questo progetto si rileva la presenza o l'assenza di un campo magnetico forte nelle vicinanze, in questo caso, proveniente da un piccolo magnete permanente.
 
@@ -53,9 +53,9 @@ Una sottoscrizione di Azure attiva. Se non è disponibile, è possibile registra
 
 Per effettuare il provisioning dei servizi di Azure, usare il pulsante **Distribuisci in Azure**. Questo pulsante consente una distribuzione semplice e rapida dei progetti open source in Microsoft Azure.
 
-Fare clic sul pulsante **Distribuisci in Azure** sotto. 
+Fare clic sul pulsante **Distribuisci** in Azure di seguito. 
 
-[![Distribuzione in Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FVSChina%2Fdevkit-door-monitor%2Fmaster%2FSendGridDeploy%2Fazuredeploy.json)
+[![Distribuire in AzureDeploy to Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FVSChina%2Fdevkit-door-monitor%2Fmaster%2FSendGridDeploy%2Fazuredeploy.json)
 
 Se non è già stato eseguito l'accesso all'account Azure, accedere ora. 
 
@@ -81,7 +81,7 @@ Al termine della distribuzione, fare clic su di essa e quindi fare clic sul puls
 
 ![Gestione di SendGrid](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/sendgrid-manage.png)
 
-Nella pagina di SendGrid fare clic su **Impostazioni** > **Chiavi API** > **Crea chiave API**.
+Nella pagina SendGrid fare clic su **Impostazioni** > **chiavi** > API**Crea chiave API**.
 
 ![Creazione dell'API in SendGrid - Primo](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/sendgrid-create-api-first.png)
 
@@ -95,9 +95,9 @@ La chiave API viene visualizzata solo una volta. Assicurarsi di copiarla e archi
 
 La procedura seguente effettuerà il provisioning di altri servizi correlati ad Azure IoT e distribuirà Funzioni di Azure per questo progetto.
 
-Fare clic sul pulsante **Distribuisci in Azure** sotto. 
+Fare clic sul pulsante **Distribuisci** in Azure di seguito. 
 
-[![Distribuzione in Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FVSChina%2Fdevkit-door-monitor%2Fmaster%2Fazuredeploy.json)
+[![Distribuire in AzureDeploy to Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FVSChina%2Fdevkit-door-monitor%2Fmaster%2Fazuredeploy.json)
 
 Viene visualizzato il modulo di iscrizione.
 
@@ -153,7 +153,7 @@ Nel terminale di VS Code una riga di comando interattiva guiderà nel processo d
 
 Caricare ora il codice per il dispositivo.
 
-#### <a name="windows"></a>Windows
+#### <a name="windows"></a>WINDOWS
 
 1. Usare `Ctrl+P` per eseguire `task device-upload`.
 
@@ -184,9 +184,9 @@ Il programma viene prima di tutto inizializzato quando il DevKit è in presenza 
 
 Dopo l'inizializzazione, il messaggio `Door closed` viene visualizzato sullo schermo. Quando si verifica una variazione nel campo magnetico, lo stato passa a `Door opened`. Ogni volta che lo stato della porta cambia, si riceve una notifica tramite posta elettronica. La ricezione di questi messaggi di posta elettronica potrebbe richiedere fino a cinque minuti.
 
-![Magneti vicini al sensore: sportello chiuso](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/test-door-closed.jpg "Magneti vicini al sensore: sportello chiuso")
+![Magneti vicini al sensore: Porta chiusa](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/test-door-closed.jpg "Magneti vicini al sensore: Porta chiusa")
 
-![Magnete allontanato dal sensore: sportello aperto](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/test-door-opened.jpg "Magnete allontanato dal sensore: sportello aperto")
+![Magnete allontanato dal sensore: Porta aperta](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/test-door-opened.jpg "Magnete allontanato dal sensore: Porta aperta")
 
 ## <a name="problems-and-feedback"></a>Problemi e commenti
 
@@ -200,4 +200,4 @@ In caso di problemi, vedere le [domande frequenti di IoT DevKit](https://microso
 È stato illustrato come connettere un dispositivo DevKit all'acceleratore di soluzioni di monitoraggio remoto di Azure IoT ed è stato usato il servizio SendGrid per inviare un messaggio di posta elettronica. Ecco i passaggi successivi suggeriti:
 
 * [Panoramica dell'acceleratore di soluzioni di monitoraggio remoto di Azure IoT](https://docs.microsoft.com/azure/iot-suite/)
-* [Connect an MXChip IoT DevKit device to your Azure IoT Central application](/azure/iot-central/core/howto-connect-devkit) (Connettere un dispositivo MXChip IoT DevKit all'applicazione Azure IoT Central)
+* [Connettere un dispositivo MXChip IoT DevKit all'applicazione Azure IoT Central](/azure/iot-central/core/howto-connect-devkit)

@@ -5,24 +5,21 @@ services: active-directory
 documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
-ms.assetid: 6c0dc122-2cd8-4d70-be5a-3943459d308e
 ms.service: active-directory
 ms.subservice: azuread-dev
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ryanwi
-ms.reviewer: jesakowi, justhu
+ms.reviewer: jesakowi
 ms.custom: aaddev
-ms.openlocfilehash: cde2d286be7180458d997f6db06e4ff16a993dff
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ROBOTS: NOINDEX
+ms.openlocfilehash: 08def16f53cb0f544513c39a85f26e97c3606a42
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77164006"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154475"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Autorizzazioni e consenso nell'endpoint v1.0 di Azure Active Directory
 
@@ -30,14 +27,14 @@ ms.locfileid: "77164006"
 
 Azure Active Directory (Azure AD) fa ampio uso delle autorizzazioni per i flussi OAuth e OpenID Connect (OIDC). Quando l'app riceve un token di accesso da Azure AD, il token di accesso include le attestazioni che descrivono le autorizzazioni dell'app in relazione a una particolare risorsa.
 
-Le *autorizzazioni*, note anche come *ambiti*, semplificano l'autorizzazione per la risorsa perché la risorsa deve solo controllare che il token contenga l'autorizzazione appropriata per l'API chiamata dall'app.
+*Le autorizzazioni,* note anche come *ambiti, semplificano*l'autorizzazione per la risorsa perché la risorsa deve solo verificare che il token contenga l'autorizzazione appropriata per qualsiasi APP chiamata dall'app.
 
 ## <a name="types-of-permissions"></a>Tipi di autorizzazioni
 
 Azure AD definisce due tipi di autorizzazioni:
 
-* **Autorizzazioni delegate**: usati dalle app con un utente connesso. Per queste app, l'utente o un amministratore fornisce il consenso per le autorizzazioni richieste dall'app e all'app viene delegata l'autorizzazione per agire per conto dell'utente connesso quando vengono effettuate chiamate a un'API. A seconda dell'API, l'utente potrebbe non essere in grado di fornire il consenso direttamente all'API e dovrà invece [chiedere a un amministratore di fornire il "consenso amministratore"](/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview).
-* **Autorizzazioni dell'applicazione**: usate dalle app che vengono eseguite senza un utente connesso, ad esempio le app eseguite come servizi in background o daemon. Le autorizzazioni dell'applicazione possono essere [consentite solo dagli amministratori](/azure/active-directory/develop/active-directory-v2-scopes#requesting-consent-for-an-entire-tenant) perché sono in genere potenti e consentono l'accesso ai dati attraverso i limiti utente o ai dati che altrimenti sarebbero limitati agli amministratori. Gli utenti definiti come proprietari dell'applicazione della risorsa (ad esempio, l'API che pubblica le autorizzazioni) possono concedere anche le autorizzazioni dell'applicazione per le API di loro proprietà.
+* **Autorizzazioni delegate**: usati dalle app con un utente connesso. Per queste app, l'utente o un amministratore fornisce il consenso per le autorizzazioni richieste dall'app e all'app viene delegata l'autorizzazione per agire per conto dell'utente connesso quando vengono effettuate chiamate a un'API. A seconda dell'API, l'utente potrebbe non essere in grado di acconsentire direttamente all'API e [richiederebbe invece a un amministratore di fornire "consenso amministrativo".](/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview)
+* **Autorizzazioni dell'applicazione**: usate dalle app che vengono eseguite senza un utente connesso, ad esempio le app eseguite come servizi in background o daemon. Le autorizzazioni dell'applicazione possono essere [concesse solo dagli amministratori](/azure/active-directory/develop/active-directory-v2-scopes#requesting-consent-for-an-entire-tenant) perché sono in genere potenti e consentono l'accesso ai dati oltre i limiti dell'utente o ai dati che altrimenti sarebbero limitati agli amministratori. Gli utenti definiti come proprietari dell'applicazione per le risorse (ovvero l'API che pubblica le autorizzazioni) sono inoltre autorizzati a concedere le autorizzazioni dell'applicazione per le API di cui sono proprietari.
 
 Le autorizzazioni valide sono le autorizzazioni che l'app avrà quando effettuerà le richieste a un'API. 
 

@@ -1,29 +1,29 @@
 ---
-title: Funzioni di modello-numeric
+title: Funzioni modello - numeriche
 description: Informazioni sulle funzioni che è possibile usare in un modello di Azure Resource Manager per elaborare i numeri.
 ms.topic: conceptual
 ms.date: 11/08/2017
-ms.openlocfilehash: 91aa637701acb278e81b7eb86aa3ae2db15acc28
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 2ca5c539036d002b83b8141132a0ebf2530dc6af
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79273657"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80156345"
 ---
-# <a name="numeric-functions-for-azure-resource-manager-templates"></a>Funzioni numeriche per i modelli di Azure Resource Manager
+# <a name="numeric-functions-for-arm-templates"></a>Funzioni numeriche per i modelli ARM
 
-Gestione risorse fornisce le funzioni seguenti per usare i numeri interi:
+Resource Manager offre le funzioni seguenti per l'uso di numeri interi nel modello di Azure Resource Manager (ARM):
 
-* [add](#add)
+* [aggiungi](#add)
 * [copyIndex](#copyindex)
 * [div](#div)
-* [float](#float)
-* [int](#int)
-* [max](#max)
-* [min](#min)
-* [mod](#mod)
+* [Galleggiante](#float)
+* [Int](#int)
+* [Massimo](#max)
+* [Minimo](#min)
+* [Mod](#mod)
 * [mul](#mul)
-* [sub](#sub)
+* [Sub](#sub)
 
 <a id="add" />
 
@@ -37,7 +37,7 @@ Restituisce la somma dei due numeri interi forniti.
 ### <a name="parameters"></a>Parametri
 
 | Parametro | Obbligatoria | Type | Descrizione |
-|:--- |:--- |:--- |:--- | 
+|:--- |:--- |:--- |:--- |
 |operand1 |Sì |INT |Il primo numero da aggiungere. |
 |operand2 |Sì |INT |Il secondo numero da aggiungere. |
 
@@ -89,13 +89,13 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/add.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/add.json
 ```
 
 Per distribuire questo modello di esempio con PowerShell, usare:
 
 ```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/add.json 
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/add.json
 ```
 
 <a id="copyindex" />
@@ -103,7 +103,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 ## <a name="copyindex"></a>copyIndex
 `copyIndex(loopName, offset)`
 
-Restituisce l'indice di un ciclo di iterazione. 
+Restituisce l'indice di un ciclo di iterazione.
 
 ### <a name="parameters"></a>Parametri
 
@@ -116,25 +116,25 @@ Restituisce l'indice di un ciclo di iterazione.
 
 Questa funzione viene sempre usata con un oggetto **copy** . Se non viene specificato alcun valore per **offset**, viene restituito il valore di iterazione corrente. Il valore di iterazione inizia da zero. È possibile usare i cicli di iterazione quando si definiscono le risorse o le variabili.
 
-La proprietà **loopName** consente di specificare se copyIndex fa riferimento all'iterazione di una risorsa o all'iterazione di una proprietà. Se non viene specificato alcun valore per **loopName**, viene usata l'iterazione del tipo di risorsa corrente. Specificare un valore per **loopName** durante l'iterazione di una proprietà. 
- 
+La proprietà **loopName** consente di specificare se copyIndex fa riferimento all'iterazione di una risorsa o all'iterazione di una proprietà. Se non viene specificato alcun valore per **loopName**, viene usata l'iterazione del tipo di risorsa corrente. Specificare un valore per **loopName** durante l'iterazione di una proprietà.
+
 Per una descrizione completa dell'uso di **copyIndex**, vedere [Creare più istanze di risorse in Azure Resource Manager](copy-resources.md).
 
 Per un esempio di utilizzo di **copyIndex** nella definizione di una variabile, vedere [Variabili](template-syntax.md#variables).
 
 ### <a name="example"></a>Esempio
 
-L'esempio seguente illustra un ciclo di copy e il valore di indice incluso nel nome. 
+L'esempio seguente illustra un ciclo di copy e il valore di indice incluso nel nome.
 
 ```json
-"resources": [ 
-  { 
-    "name": "[concat('examplecopy-', copyIndex())]", 
-    "type": "Microsoft.Web/sites", 
-    "copy": { 
-      "name": "websitescopy", 
-      "count": "[parameters('count')]" 
-    }, 
+"resources": [
+  {
+    "name": "[concat('examplecopy-', copyIndex())]",
+    "type": "Microsoft.Web/sites",
+    "copy": {
+      "name": "websitescopy",
+      "count": "[parameters('count')]"
+    },
     ...
   }
 ]
@@ -206,13 +206,13 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/div.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/div.json
 ```
 
 Per distribuire questo modello di esempio con PowerShell, usare:
 
 ```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/div.json 
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/div.json
 ```
 
 <a id="float" />
@@ -275,7 +275,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "stringToConvert": { 
+        "stringToConvert": {
             "type": "string",
             "defaultValue": "4"
         }
@@ -300,7 +300,7 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/int.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/int.json
 ```
 
 Per distribuire questo modello di esempio con PowerShell, usare:
@@ -364,7 +364,7 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/max.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/max.json
 ```
 
 Per distribuire questo modello di esempio con PowerShell, usare:
@@ -428,7 +428,7 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/min.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/min.json
 ```
 
 Per distribuire questo modello di esempio con PowerShell, usare:
@@ -498,7 +498,7 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/mod.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/mod.json
 ```
 
 Per distribuire questo modello di esempio con PowerShell, usare:
@@ -569,7 +569,7 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/mul.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/mul.json
 ```
 
 Per distribuire questo modello di esempio con PowerShell, usare:
@@ -639,7 +639,7 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/sub.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/sub.json
 ```
 
 Per distribuire questo modello di esempio con PowerShell, usare:
@@ -649,8 +649,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per una descrizione delle sezioni in un modello di Azure Resource Manager, vedere [Creazione di modelli di Azure Resource Manager](template-syntax.md).
-* Per unire più modelli, vedere [Uso di modelli collegati con Azure Resource Manager](linked-templates.md).
-* Per eseguire un'iterazione di un numero di volte specificato durante la creazione di un tipo di risorsa, vedere [Creare più istanze di risorse in Gestione risorse di Azure](copy-resources.md).
-* Per informazioni su come distribuire il modello che è stato creato, vedere [Distribuire un'applicazione con un modello di Azure Resource Manager](deploy-powershell.md).
+* Per una descrizione delle sezioni in un modello di Azure Resource Manager, vedere Creazione di modelli di [Azure Resource Manager.](template-syntax.md)
+* Per unire più modelli, vedere [Utilizzo di modelli collegati con Azure Resource Manager.](linked-templates.md)
+* Per scorrere un numero specificato di volte durante la creazione di un tipo di risorsa, vedere [Creare più istanze di risorse in Azure Resource Manager.To](copy-resources.md)iterate a specified number of times when creating a type of resource, see Create multiple instances of resources in Azure Resource Manager.
+* Per informazioni su come distribuire il modello creato, vedere [Distribuire un'applicazione con](deploy-powershell.md)il modello di Azure Resource Manager.To see how to deploy the template you have created, see Deploy an application with Azure Resource Manager template.
 

@@ -7,20 +7,20 @@ ms.topic: conceptual
 ms.date: 10/11/2019
 ms.author: dech
 ms.openlocfilehash: 7a487cb10965a379a0a418efaa061be88c5d10dd
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77082986"
 ---
 # <a name="configure-cross-origin-resource-sharing-cors"></a>Configurare Condivisione di risorse tra le origini (CORS)
 
-Condivisione risorse tra le origini (CORS, Cross Origin Resource Sharing) è una funzionalità HTTP che consente a un'applicazione Web in esecuzione in un dominio di accedere alle risorse in un altro dominio. I Web browser implementano una limitazione di sicurezza nota come criteri di corrispondenza dell'origine, che impedisce a una pagina Web di chiamare API in un dominio diverso. Tuttavia, CORS offre un modo sicuro per consentire al dominio di origine di chiamare le API in un altro dominio. L'API principale (SQL) in Azure Cosmos DB supporta ora la condivisione di risorse tra le origini (CORS) tramite l'intestazione "allowedOrigins". Dopo l'attivazione del supporto di CORS per l'account Azure Cosmos vengono valutate solo le richieste autenticate, per determinare se sono consentite in base alle regole specificate.
+Condivisione risorse tra le origini (CORS, Cross Origin Resource Sharing) è una funzionalità HTTP che consente a un'applicazione Web in esecuzione in un dominio di accedere alle risorse in un altro dominio. I Web browser implementano una limitazione di sicurezza nota come criteri di corrispondenza dell'origine, che impedisce a una pagina Web di chiamare API in un dominio diverso. Tuttavia, CORS fornisce un modo sicuro per consentire al dominio di origine di chiamare le API in un altro dominio. L'API Core (SQL) in Azure Cosmos DB ora supporta Cross-Origin Resource Sharing (CORS) usando l'intestazione "allowedOrigins". Dopo l'attivazione del supporto di CORS per l'account Azure Cosmos vengono valutate solo le richieste autenticate, per determinare se sono consentite in base alle regole specificate.
 
-È possibile configurare l'impostazione Condivisione risorse tra le origini (CORS) dal portale di Azure o da un modello di Azure Resource Manager. Per gli account Cosmos che usano l'API di base (SQL), Azure Cosmos DB supporta una libreria JavaScript che funziona sia negli ambienti node. js che in quelli basati su browser. Ora questa libreria può sfruttare i vantaggi del supporto CORS quando si usa la modalità Gateway. Non è necessaria nessuna configurazione lato client per l'uso di questa funzionalità. Grazie al supporto di CORS, le risorse di un browser possono accedere direttamente ad Azure Cosmos DB tramite la [libreria JavaScript](https://www.npmjs.com/package/@azure/cosmos) o direttamente dall'[API REST](https://docs.microsoft.com/rest/api/cosmos-db/) per operazioni semplici.
+È possibile configurare l'impostazione Condivisione risorse tra le origini (CORS) dal portale di Azure o da un modello di Azure Resource Manager. Per gli account Cosmos che usano l'API Core (SQL), Azure Cosmos DB supporta una libreria JavaScript che funziona sia in Node.js che in ambienti basati su browser. Ora questa libreria può sfruttare i vantaggi del supporto CORS quando si usa la modalità Gateway. Non è necessaria nessuna configurazione lato client per l'uso di questa funzionalità. Grazie al supporto di CORS, le risorse di un browser possono accedere direttamente ad Azure Cosmos DB tramite la [libreria JavaScript](https://www.npmjs.com/package/@azure/cosmos) o direttamente dall'[API REST](https://docs.microsoft.com/rest/api/cosmos-db/) per operazioni semplici.
 
 > [!NOTE]
-> Il supporto di CORS è applicabile solo e supportato per l'API Azure Cosmos DB Core (SQL). Non è applicabile alle API Azure Cosmos DB per Cassandra, Gremlin o MongoDB, perché questi protocolli non usano HTTP per la comunicazione client-server.
+> Il supporto CORS è applicabile solo e supportato per l'API SQL (Azure Cosmos DB Core). Non è applicabile alle API di database Cosmos di Azure per Cassandra, Gremlin o MongoDB, poiché questi protocolli non usano HTTP per la comunicazione client-server.
 
 ## <a name="enable-cors-support-from-azure-portal"></a>Abilitare il supporto di CORS dal portale di Azure
 

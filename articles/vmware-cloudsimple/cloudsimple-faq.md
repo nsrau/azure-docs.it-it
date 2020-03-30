@@ -1,6 +1,6 @@
 ---
-title: Domande frequenti-soluzioni VMware di Azure (AVS)
-description: Domande frequenti per le soluzioni VMware di Azure (AVS)
+title: Domande frequenti - Soluzione Azure VMware di CloudSimpleFAQ - Azure VMware Solution by CloudSimple
+description: Domande frequenti per la soluzione Azure VMware di CloudSimple
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/15/2019
@@ -8,159 +8,159 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: c3808491c84f6c76a51c914aac6ee5e5ee370970
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 95d8c2974ea372dd59d15a9f2cc31ed171acd932
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77025062"
 ---
-# <a name="frequently-asked-questions-about-vmware-solution-by-avs"></a>Domande frequenti sulla soluzione VMware da AVS
+# <a name="frequently-asked-questions-about-vmware-solution-by-cloudsimple"></a>Domande frequenti su VMware Solution di CloudSimple
 
-## <a name="avs-service"></a>Servizio AVS
+## <a name="cloudsimple-service"></a>Servizio CloudSimple
 
-**Informazioni sulle soluzioni VMware (AVS) di Azure**
+**Che cos'è la soluzione Azure VMware di CloudSimple?**
 
-Azure VMware Solutions (AVS) trasforma ed estende i carichi di lavoro VMware in cloud privati e dedicati in Azure in pochi minuti. AVS si occupa del provisioning, della gestione dell'infrastruttura e dell'orchestrazione dei carichi di lavoro tra l'ambiente locale e Azure. Poiché le tue app vengono eseguite esattamente in locale e in Azure, puoi trarre vantaggio dall'elasticità e dai servizi del cloud senza la complessità di riprogettare le tue app. AVS riduce il costo totale di proprietà con un modello di consumo cloud che fornisce il provisioning su richiesta, il pagamento in base al consumo e l'ottimizzazione della capacità. Per informazioni su funzionalità, vantaggi e scenari, vedere [che cos'è la soluzione VMware in Azure](cloudsimple-vmware-solutions-overview.md) .
+Azure VMware Solution by CloudSimple trasforma ed estende i carichi di lavoro VMware a cloud privati dedicati in Azure in pochi minuti. CloudSimple takes care of provisioning, managing the infrastructure, and orchestrating workloads between on-premises and Azure. Poiché le app vengono eseguite esattamente come in locale e in Azure, l'elasticità e i servizi del cloud possono trarre vantaggio dall'elasticità e dai servizi del cloud senza la complessità di riprogettare le app. CloudSimple riduce il costo totale di proprietà con un modello di consumo cloud che fornisce il provisioning su richiesta, il pay-as-you-grow e l'ottimizzazione della capacità.  Per informazioni su funzionalità, vantaggi e scenari, vedere [Soluzione VMware in Azure by CloudSimple.](cloudsimple-vmware-solutions-overview.md)
 
-**Che cos'è un cloud privato AVS?**
+**Che cos'è un CloudSimple Private Cloud?**
 
-Un cloud privato AVS è un cloud privato e dedicato costituito da un ambiente di calcolo, archiviazione e rete a prestazioni elevate distribuito nell'infrastruttura Microsoft Azure (spazio hardware e Data Center) in località di Azure. Un cloud privato AVS fornisce una piattaforma distribuita come servizio nativa di VMware. In termini di VMware ogni cloud privato AVS contiene esattamente un'istanza del server vCenter. Il server vCenter gestisce più nodi ESXi contenuti in uno o più cluster vSphere, insieme alla relativa archiviazione SAN virtuale (rete VSAN). Un servizio AVS può contenere più cloud privati AVS nella sottoscrizione di Azure. Per altri dettagli, vedere [Panoramica di AVS private cloud](cloudsimple-private-cloud.md).
+Un cloud privato CloudSimple è un cloud privato dedicato costituito da un ambiente di elaborazione, archiviazione e rete ad alte prestazioni distribuito nell'infrastruttura di Microsoft Azure (spazio hardware e data center) in posizioni di Azure.A CloudSimple Private Cloud is a private, dedicated cloud that consists of a high-performance compute, storage, and networking environment deployed on Microsoft Azure infrastructure (hardware and datacenter space) in Azure locations.  Un cloud privato fornisce una "piattaforma come servizio" VMware nativa. In termini di VMware, ogni private cloud contiene esattamente un'istanza di vCenter Server. Il server vCenter gestisce più nodi ESXi contenuti in uno o più cluster vSphere, insieme all'archiviazione Virtual SAN (vSAN) corrispondente. Un servizio CloudSimple può contenere più cloud privati nella sottoscrizione di Azure.A CloudSimple service can contain multiple Private Clouds in your Azure subscription.  Per ulteriori dettagli, vedere [Panoramica del cloud privato](cloudsimple-private-cloud.md).
 
-**Dove è disponibile il servizio AVS?**
+**Dove è disponibile il servizio CloudSimple?**
 
-AVS è disponibile nelle aree Stati Uniti orientali, Stati Uniti occidentali ed Europa occidentale con aree aggiuntive presto disponibili.
+CloudSimple è disponibile nelle regioni degli Stati Uniti orientali, degli Stati Uniti occidentali e dell'Europa occidentale, con altre regioni in arrivo.
 
-**Ricerca per categorie abilitare la sottoscrizione per AVS?**
+**Come si abilita l'abbonamento per CloudSimple?**
 
-È possibile contattare il rappresentante del account Microsoft presso [azurevmwaresales@microsoft.com](mailto:azurevmwaresales@microsoft.com) per abilitare la sottoscrizione per il servizio AVS. Fornire l'ID sottoscrizione nel messaggio di posta elettronica per il quale si vuole abilitare AVS Service. 
+È possibile contattare il [azurevmwaresales@microsoft.com](mailto:azurevmwaresales@microsoft.com) rappresentante dell'account Microsoft per abilitare l'abbonamento per il servizio CloudSimple.You can contact your Microsoft account representative at to enable your subscription for the CloudSimple service. Specificare l'ID sottoscrizione nell'e-mail per cui si vuole che il servizio CloudSimple sia abilitato.  
 
-**Ricerca per categorie accedere al portale AVS?**
+**Come si accede al portale CloudSimple?**
 
-È possibile accedere al portale AVS dalla portale di Azure. Per informazioni dettagliate, vedere [accedere al portale di soluzioni VMware (AVS) dalla portale di Azure](access-cloudsimple-portal.md).
+È possibile accedere al portale CloudSimple dal portale di Azure.You access the CloudSimple portal from the Azure portal.  Per informazioni dettagliate, vedere [Accedere al portale VMware Solution by CloudSimple dal portale](access-cloudsimple-portal.md)di Azure.
 
-**Ricerca per categorie aumentare la capacità per un cloud privato AVS?**
+**Come posso aumentare la capacità di un cloud privato?**
 
-Per aumentare la capacità, acquistare nodi aggiuntivi dalla portale di Azure e quindi usare i nodi per espandere il cloud privato AVS dal portale AVS. È possibile aggiungere altri nodi a un cluster vSphere esistente o aggiungerli a un nuovo cluster vSphere. Per informazioni dettagliate, vedere [expand an AVS private cloud](expand-private-cloud.md).
+Per aumentare la capacità, acquistare nodi aggiuntivi dal portale di Azure e quindi usare i nodi per espandere il cloud privato dal portale CloudSimple.To increase capacity, purchase additional nodes from the Azure portal and then use the nodes to expand your Private Cloud from the CloudSimple portal.  È possibile aggiungere altri nodi a un cluster vSphere esistente o aggiungerli a un nuovo cluster vSphere.You can add additional nodes to an existing vSphere cluster or add them to a new vSphere cluster.  Per informazioni dettagliate, vedere [Espandere un cloud privato semplice](expand-private-cloud.md)per il cloud.
 
-**Cosa accade al cloud privato AVS durante la manutenzione?**
+**Cosa succede al mio cloud privato durante la manutenzione?**
 
-AVS fornisce notifiche diversi giorni prima di un intervallo di manutenzione pianificata. La manutenzione viene eseguita in modo non distruttivo per garantire la disponibilità del cloud privato AVS. La manutenzione può essere dei seguenti tipi:
+CloudSimple fornisce la notifica diversi giorni prima di un intervallo di manutenzione pianificato.  La manutenzione viene eseguita in modo non dirompente per garantire la disponibilità del tuo cloud privato.  La manutenzione può essere dei seguenti tipi:
 
-* **Infrastruttura AVS**. L'infrastruttura AVS è progettata per essere a disponibilità elevata. Durante questo tipo di intervallo di manutenzione, i componenti ridondanti vengono aggiornati uno alla volta per evitare interruzioni del servizio. È possibile mantenere l'accesso a AVS private cloud vCenter, a tutte le macchine virtuali, alla connessione Internet dal cloud privato AVS e alle connessioni a locali o Azure.
-* **Portale AVS**. Durante questo tipo di intervallo di manutenzione, alcune funzionalità del portale AVS potrebbero essere disabilitate o inaccessibili. La notifica prima dell'intervallo di manutenzione include i dettagli sulle limitazioni delle funzionalità durante la manutenzione.
+* **Infrastruttura CloudSimple**.  L'infrastruttura CloudSimple è progettata per essere altamente disponibile.  Durante questo tipo di intervallo di manutenzione, i componenti ridondanti vengono aggiornati uno alla volta per evitare interruzioni del servizio. Si mantiene l'accesso al cloud privato vCenter, a tutte le macchine virtuali, alla connessione Internet dal cloud privato e alle connessioni a locale o Azure.You maintain access to your Private Cloud vCenter, all virtual machines, the internet connection from your Private Cloud, and connections to on-premises or Azure.
+* **Portale CloudSimple**. Durante questo tipo di intervallo di manutenzione, alcune funzionalità del portale CloudSimple potrebbero essere disabilitate o inaccessibili.  La notifica prima dell'intervallo di manutenzione include dettagli sulle limitazioni delle funzionalità durante la manutenzione.
 
 ## <a name="connectivity"></a>Connettività
 
-**Quali sono le opzioni di connettività per la rete AVS Region?**
+**Quali sono le opzioni di connettività per la rete di aree CloudSimple?**
 
-AVS fornisce le opzioni di connettività seguenti per la connessione alla rete dell'area AVS. È possibile utilizzare contemporaneamente più opzioni.
+CloudSimple offre le seguenti opzioni di connettività per connettersi alla rete di aree CloudSimple. È possibile utilizzare più opzioni contemporaneamente.
 
-* **Connessione ExpressRoute dal Data Center locale alla rete dell'area AVS**. Si tratta di una connessione privata sicura a bassa latenza e ad alta velocità che usa Copertura globale per collegare il circuito ExpressRoute locale al circuito AVS ExpressRoute. Per istruzioni sull'impostazione della connessione, vedere [connettersi da locale a AVS usando ExpressRoute](on-premises-connection.md).
-* **Connessione ExpressRoute dalla rete virtuale di Azure alla rete dell'area AVS**. Si tratta di una connessione privata sicura a bassa latenza e ad alta velocità che usa i gateway di rete virtuale per collegare la rete virtuale in Azure al circuito AVS ExpressRoute. Per istruzioni sull'impostazione della connessione, vedere [connettere l'ambiente del cloud privato AVS alla rete virtuale di Azure tramite ExpressRoute](azure-expressroute-connection.md).
-* **Connessione VPN da sito a sito dal Data Center locale alla rete dell'area AVS**. Si tratta di una rete privata virtuale sicura dal dispositivo VPN locale all'area del cloud privato AVS. Per informazioni dettagliate, vedere [configurare i gateway VPN nella rete AVS](vpn-gateway.md).
+* **Connessione ExpressRoute dal data center locale alla rete di**aree CloudSimple . Si tratta di una connessione privata sicura ad alta velocità, a bassa latenza e con un'ora di tempo che usa Global Reach per collegare il circuito ExpressRoute locale al circuito CloudSimple ExpressRoute.This is a high-speed, low-tency, secure private connection that uses Global Reach to bridge your on-premises ExpressRoute circuit to your CloudSimple ExpressRoute circuit. Per istruzioni sulla configurazione della connessione, vedere [Connettersi da locale a CloudSimple tramite ExpressRoute.](on-premises-connection.md)
+* **Connessione ExpressRoute dalla rete virtuale di Azure alla rete di aree CloudSimple**. Si tratta di una connessione privata sicura ad alta velocità, a bassa latenza e sicura che usa gateway di rete virtuale per collegare la rete virtuale in Azure al circuito CloudSimple ExpressRoute.This is a high-speed, low-tency, secure private connection that uses virtual network gateways to bridge your virtual network on Azure to your CloudSimple ExpressRoute circuit. Per istruzioni sulla configurazione della connessione, vedere [Connettere l'ambiente CloudSimple Private Cloud alla rete virtuale di Azure tramite ExpressRoute.For](azure-expressroute-connection.md)instructions on setting up the connection, see Connect your CloudSimple Private Cloud environment to the Azure virtual network using ExpressRoute .
+* Connessione VPN da **sito a sito dal data center locale alla rete di aree CloudSimple**. Si tratta di una rete privata virtuale sicura dal dispositivo VPN locale all'area CloudSimple Private Cloud.  Per informazioni dettagliate, vedere [Configurare gateway VPN su rete CloudSimple](vpn-gateway.md).
 
-**Ricerca per categorie connettersi a un cloud privato AVS?**
+**Come posso connettermi a un cloud privato?**
 
-È possibile visualizzare i dettagli del cloud privato AVS nel portale AVS. Per connettersi a vCenter che corrisponde al cloud privato AVS, verificare prima di tutto che venga stabilita una connessione di rete usando una VPN da sito a sito, una VPN da punto a sito o ExpressRoute. Avviare quindi il portale AVS dalla portale di Azure e fare clic su **Launch vSphere client** nella Home page o nella pagina dei dettagli AVS private cloud.
+È possibile visualizzare i dettagli del cloud privato nel portale CloudSimple. Per connettersi al vCenter corrispondente al cloud privato, verificare innanzitutto che venga stabilita una connessione di rete tramite VPN da sito a sito, VPN da punto a sito o ExpressRoute. Avviare quindi il portale CloudSimple dal portale di Azure e fare clic su **Avvia client vSphere** nella home page o nella pagina dei dettagli del cloud privato.
 
 **Qual è il vantaggio dei circuiti ExpressRoute?**
 
-Un circuito ExpressRoute di Azure è una connessione sicura a bassa latenza e ad alta velocità. AVS fornisce un circuito ExpressRoute dedicato per area per cliente. Con questo circuito è possibile stabilire una connessione sicura da locale o dalla sottoscrizione di Azure.
+Un circuito Azure ExpressRoute è una connessione sicura ad alta velocità, a bassa latenza.  CloudSimple fornisce un circuito ExpressRoute dedicato per ogni area per cliente.  Usando questo circuito, è possibile stabilire una connessione sicura da locale o dalla sottoscrizione di Azure.Using this circuit, you can establish a secure connection from on-premises or your Azure subscription.
 
-**Quali sono i costi di rete per la connessione ad AVS? Eventuali addebiti in uscita sono applicabili tra AVS e Azure o tra aree?**
+**Quali sono i costi di rete per connettersi a CloudSimple?  Vengono applicati eventuali addebiti in uscita tra CloudSimple e Azure o tra aree?**
 
-Non sono previsti costi di AVS per l'uscita dalla rete. Le tariffe standard di Azure si applicano a qualsiasi traffico in uscita dalla rete virtuale o dal circuito ExpressRoute locale.
+Non è previsto alcun costo CloudSimple per l'uscita dalla rete.  Le tariffe standard di Azure si applicano a qualsiasi traffico in uscita dalla rete virtuale o dal circuito ExpressRoute locale.
 
 ## <a name="networking"></a>Rete
 
-**Quali funzionalità di rete sono disponibili per il cloud privato AVS?**
+**Quali funzionalità di rete sono disponibili per il cloud privato?**
 
-È possibile eseguire il provisioning delle VLAN (e delle rispettive subnet) e delle tabelle del firewall e assegnare indirizzi IP pubblici con mapping a una macchina virtuale in esecuzione nel cloud privato AVS. Per informazioni dettagliate sulle funzionalità di rete, vedere Panoramica di [VLAN e subnet](cloudsimple-vlans-subnets.md), [Panoramica delle tabelle del firewall](cloudsimple-firewall-tables.md)e panoramica degli [indirizzi IP pubblici](cloudsimple-public-ip-address.md).
+È possibile eseguire il provisioning di VLAN (e delle relative subnet) e delle tabelle del firewall e assegnare indirizzi IP pubblici mappati a una macchina virtuale in esecuzione nel cloud privato. Per informazioni dettagliate sulle funzionalità di rete, vedere Panoramica delle [VLAN e delle subnet](cloudsimple-vlans-subnets.md), [Panoramica](cloudsimple-firewall-tables.md)delle tabelle firewall e [Cenni](cloudsimple-public-ip-address.md)preliminari sugli indirizzi IP pubblici .
 
-**Ricerca per categorie configurare subnet diverse per le applicazioni nel cloud privato AVS?**
+**Come si configurano subnet diverse per le applicazioni nel cloud privato?**
 
-Le VLAN vengono create nel cloud privato AVS dal portale AVS. Dopo aver creato una VLAN, è possibile creare un gruppo di porte distribuite nel cloud privato AVS con la VLAN e creare macchine virtuali connesse al gruppo di porte distribuite. È possibile abilitare le tabelle del firewall per la VLAN/subnet e definire le regole del firewall per proteggere il traffico di rete.
+Le VLAN vengono create nel cloud privato dal portale CloudSimple.  Dopo aver creato una VLAN, è possibile creare un gruppo di porte distribuite nel vCenter del cloud privato usando la VLAN e creare macchine virtuali connesse al gruppo di porte distribuite.  È possibile abilitare le tabelle del firewall per la VLAN/subnet e definire le regole del firewall per proteggere il traffico di rete.
 
-**Quali impostazioni del firewall sono disponibili per i cloud privati AVS?**
+**Quali impostazioni del firewall sono disponibili per i cloud privati?**
 
-È possibile configurare le regole per il traffico nord-sud e est-ovest. Le regole sono definite in una tabella del firewall. La tabella del firewall può essere collegata alle VLAN nel cloud privato AVS. Per informazioni dettagliate, vedere [configurare le regole e le tabelle del firewall per i cloud privati AVS](firewall.md).
+È possibile configurare le regole per il traffico nord-sud e est-ovest.  Le regole sono definite in una tabella del firewall.  La tabella del firewall può essere collegata alle VLAN sul cloud privato.  Per informazioni dettagliate, consultate [Configurare tabelle e regole del firewall per i cloud privati.](firewall.md)
 
-**È possibile assegnare indirizzi IP pubblici alle macchine virtuali nell'ambiente di cloud privato AVS?**
+**È possibile assegnare indirizzi IP pubblici alle macchine virtuali nell'ambiente Cloud privato?**
 
-Nel portale di AVS è possibile allocare un nuovo indirizzo IP pubblico e associarlo all'indirizzo IP privato di una macchina virtuale o di un'appliance. È anche possibile creare nuove regole del firewall o applicare regole del firewall esistenti per consentire il traffico da porte e indirizzi IP specifici nel portale. Per informazioni dettagliate, vedere [allocare indirizzi IP pubblici per l'ambiente di cloud privato AVS](public-ips.md).
+Nel portale CloudSimple è possibile allocare un nuovo indirizzo IP pubblico e associarlo all'indirizzo IP privato di una macchina virtuale o di un'appliance.  È inoltre possibile creare nuove regole del firewall o applicare regole firewall esistenti per consentire il traffico da porte e indirizzi IP specifici nel portale. Per informazioni dettagliate, vedere [Allocare indirizzi IP pubblici per l'ambiente Private Cloud.](public-ips.md)
 
-## <a name="security"></a>Sicurezza
+## <a name="security"></a>Security
 
-**Quali sono le opzioni di sicurezza in AVS?**
+**Quali sono le mie opzioni di sicurezza su CloudSimple?**
 
-AVS fornisce le seguenti funzionalità di sicurezza per la protezione dell'ambiente di cloud privato AVS:
+CloudSimple offre le seguenti funzionalità di sicurezza per la protezione dell'ambiente Cloud privato:
 
-* **Crittografia dei dati**inattivi. È possibile crittografare i dati inattivi presenti nella risorsa di archiviazione rete VSAN nel cloud privato AVS. Rete VSAN supporta i server di gestione delle chiavi esterne, che possono essere distribuiti nell'ambiente Azure vNet o in locale. Per informazioni dettagliate, vedere [configurare la crittografia rete VSAN per il cloud privato AVS](vsan-encryption.md).
-* **Sicurezza di rete**. Controllare il flusso del traffico di rete con regole del firewall che si applicano tra il cloud privato AVS e Internet, il cloud privato AVS e l'ambiente locale o all'interno di subnet del cloud privato AVS.
-* **Connessione privata sicura**. Viene stabilita una connessione privata sicura tra la rete locale e la sottoscrizione di Azure.
+* **Dati a riposo di crittografia**. È possibile crittografare i dati inattivi che risiedano nell'archivio vSAN nel cloud privato. vSAN supporta server di gestione delle chiavi esterni, che possono essere distribuiti nella rete virtuale di Azure o nell'ambiente locale.  Per informazioni dettagliate, vedere Configurare la [crittografia vSAN per il](vsan-encryption.md)cloud privato CloudSimple .
+* **Sicurezza di rete**. Controlla il flusso del traffico di rete con le regole del firewall che si applicano tra il cloud privato e Internet, il cloud privato e l'ambiente locale o all'interno di subnet del cloud privato.
+* **Connessione sicura e privata**. Viene stabilita una connessione privata sicura tra la rete locale e la sottoscrizione di Azure.A secure, private connection is established between your on-premises network and your Azure subscription.
 
 ## <a name="compute"></a>Calcolo
 
-**Quali tipi di host sono disponibili?**
+**Che tipo di host sono disponibili?**
 
-AVS offre i tipi di host seguenti:
+CloudSimple offre i seguenti tipi di host:
 
-* **Nodo CS28:** CPU: 2x 2,2 GHz, totale 28 core, 48 HT.  RAM: 256 GB.  Archiviazione: 1600 GB di cache NVMe, 5760 GB di dati (tutti i flash). Rete: 4x25Gbe NIC
-* **Nodo CS36:** CPU 2x 2,3 GHz, totale 36 core, 72 HT.  RAM: 512 GB.  Archiviazione: 3200 GB NVMe della cache 11520 GB di dati (tutti i flash).  Rete: 4x25Gbe NIC
-* **Nodo CS36m:** CPU 2x 2,3 GHz, totale 36 core, 72 HT.  RAM: 576 GB.  Archiviazione: 3200 GB NVMe della cache 13360 GB di dati (tutti i flash).  Rete: 4x25Gbe NIC
+* **Nodo CS28:** CPU:2x 2,2 GHz, totale 28 core, 48 HT.  RAM: 256 GB.  Memoria: 1600 GB di cache NVMe, 5760 GB di dati (All-Flash). Rete: 4x25Gbe NIC
+* **Nodo CS36:** CPU 2x 2x.3 GHz, totale 36 core, 72 HT.  RAM: 512 GB.  Memoria: 3200 GB NVMe cache 11520 GB di dati (All-Flash).  Rete: 4x25Gbe NIC
+* **Nodo CS36m:** CPU 2x 2x.3 GHz, totale 36 core, 72 HT.  RAM: 576 GB.  Memoria: 3200 GB NVMe cache 13360 GB di dati (All-Flash).  Rete: 4x25Gbe NIC
 
-**In che modo vengono gestiti gli errori hardware?**
+**Come vengono gestiti gli errori hardware?**
 
-Tutta l'infrastruttura AVS viene monitorata continuamente dalla piattaforma AVS e dai team operativi dei servizi. Se viene rilevato un errore hardware, viene aggiunto un nuovo nodo al cloud privato AVS e viene rimosso il nodo che ha avuto esito negativo.
+Tutta l'infrastruttura CloudSimple viene continuamente monitorata dalla piattaforma CloudSimple e dai nostri team operativi di servizio.  Se viene rilevato un errore hardware, viene aggiunto un nuovo nodo al cloud privato e il nodo non riuscito viene rimosso.
 
 ## <a name="storage"></a>Archiviazione
 
-**Quali tipi di archiviazione sono supportati in un cloud privato AVS?**
+**Che tipo di archiviazione è supportato in un cloud privato?**
 
-AVS offre archiviazione rete VSAN VMware All-Flash con ogni AVS private cloud. Ogni vSphere viene creato con il proprio archivio dati rete VSAN. Per informazioni dettagliate, vedere [AVS private cloud VMware Components-rete VSAN storage](vmware-components.md#vsan-storage).
+CloudSimple offre storage vSAN VMware all-flash con ogni cloud privato.  Ogni vSphere viene creato con il proprio archivio dati vSAN.  Per informazioni dettagliate, vedere [Componenti di Private Cloud VMware - archiviazione vSAN](vmware-components.md#vsan-storage).
 
 **La crittografia dei dati è supportata?**
-Sì. È possibile configurare l'archiviazione rete VSAN nel cloud privato AVS per usare un server di gestione delle chiavi (KMS) distribuito in locale o in Azure per crittografare i dati archiviati in rete VSAN.
+Sì.  È possibile configurare l'archiviazione vSAN nel cloud privato per usare un server di gestione delle chiavi (KMS) distribuito in locale o in Azure per crittografare i dati archiviati in vSAN.
 
 **Come vengono gestiti i dischi con errori?**
 
-AVS monitora continuamente tutti i componenti hardware del cloud privato AVS. Se viene rilevato un errore del disco o un disco viene identificato come non riuscito (in base all'euristica), viene automaticamente aggiunto un nuovo nodo al cloud privato AVS. Il nodo con il disco guasto o guasto viene rimosso dal cloud privato AVS.
+CloudSimple monitora continuamente tutti i componenti hardware del cloud privato.  Se viene rilevato un errore del disco o un disco viene identificato come inerrore (in base all'euristica), viene aggiunto automaticamente un nuovo nodo al cloud privato.  Il nodo con il disco con errori o errori viene rimosso dal cloud privato.
 
 ## <a name="vmware"></a>VMware
 
-**Ricerca per categorie eseguire il caricamento o la migrazione su larga scala delle applicazioni e dei dati dall'ambiente locale?**
+**Come si esegue il caricamento o la migrazione su larga scala di applicazioni e dati da locale?**
 
-AVS fornisce una soluzione VMware vSphere nativa. Tutti gli strumenti VMware per la migrazione dei dati in blocco possono essere usati con il cloud privato AVS. Le opzioni includono:
+CloudSimple fornisce una soluzione VMware vSphere nativa.  Tutti gli strumenti VMware per la migrazione di massa dei dati possono essere utilizzati con il cloud privato.  Le opzioni includono:
 
 * VMware HCX per la migrazione in blocco dei dati.
-* Migrazione a freddo dei dati tramite Storage vMotion da locale a AVS.
+* Migrazione a freddo dei dati tramite Storage vMotion da locale a CloudSimple.
 
-**È possibile installare qualsiasi strumento VMware?**
+**Posso installare qualsiasi strumento VMware?**
 
-AVS fornisce una soluzione VMware vSphere nativa. Tutti gli strumenti VMware usati per la gestione dell'ambiente vSphere locale possono essere usati in AVS. AVS supporta un modello BYOL (Bring your own License) per l'installazione degli strumenti VMware.
+CloudSimple fornisce una soluzione VMware vSphere nativa.  Tutti gli strumenti VMware utilizzati per la gestione dell'ambiente vSphere locale possono essere utilizzati in CloudSimple.  CloudSimple supporta un modello BYOL (Bring Your Own License) per l'installazione degli strumenti VMware.
 
 **Come vengono gestiti gli aggiornamenti e gli aggiornamenti?**
 
-AVS gestisce e aggiorna tutti i componenti dell'infrastruttura del cloud privato AVS in modo semplice e senza interruzioni. Tutti gli aggiornamenti e le patch di sicurezza rilasciati da VMware o dai fornitori di infrastrutture sono pianificati per l'aggiornamento non appena sono qualificati da AVS.
+CloudSimple gestisce e aggiorna tutti i componenti dell'infrastruttura del tuo cloud privato in modo senza interruzioni.  Tutti gli aggiornamenti e le patch di sicurezza rilasciati da VMware o dai fornitori di infrastrutture sono pianificati per l'aggiornamento non appena vengono qualificati da CloudSimple.
 
-AVS non esegue aggiornamenti o aggiornamenti delle applicazioni installate nel cloud privato AVS.
+CloudSimple non esegue aggiornamenti o aggiornamenti delle applicazioni installate nel cloud privato.
 
-## <a name="azure-integration"></a>Integrazione di Azure
+## <a name="azure-integration"></a>Integrazione con Azure
 
 **Quali servizi di Azure sono supportati?**
 
-AVS fornisce una connessione di Azure ExpressRoute alla sottoscrizione in Azure. Tutti i servizi in esecuzione nella sottoscrizione possono connettersi al cloud privato AVS. Ad esempio:
+CloudSimple provides an Azure ExpressRoute connection to your subscription on Azure.  Tutti i servizi in esecuzione nell'abbonamento possono connettersi al cloud privato.  Tra gli esempi sono inclusi:
 
-* **Azure Active Directory** come origine di identità per AVS vCenter.
-* **Archiviazione di Azure** per l'archiviazione di backup, immagini e altri dati dal cloud privato AVS.
-* **Applicazioni ibride** con un'architettura di applicazione che si estende su cloud privati pubblici e AVS. Ad esempio, è possibile creare server Web in Azure che accedono a server applicazioni e database nel cloud privato AVS.
-* **Monitoraggio di Azure** e il **Centro sicurezza di Azure** per i carichi di lavoro in esecuzione in VMware supportano la registrazione, le metriche delle prestazioni e la gestione della sicurezza.
+* **Azure Active Directory** come origine di identità per il vCenter CloudSimple.Azure Active Directory as an identity source for your CloudSimple vCenter.
+* **Archiviazione di Azure** per l'archiviazione di backup, immagini e altri dati dal cloud privato.
+* **Applicazioni ibride** con un'architettura di applicazioni che si estende su cloud pubblici e privati.  Ad esempio, è possibile creare server Web in Azure che accedono ai server applicazioni e database nel cloud privato.
+* **Monitoraggio di Azure** e **centro sicurezza di Azure** per i carichi di lavoro in esecuzione su VMware supportano la registrazione, le metriche delle prestazioni e la gestione della sicurezza.
 
-**Ricerca per categorie mappare i tenant VMware ad Azure?**
+**Come si esegue il mapping dei tenant VMware ad Azure?**
 
-AVS fornisce la capacità univoca di gestire le macchine virtuali VMware in AVS private cloud dal portale di Azure. È possibile eseguire il mapping di un pool di risorse vCenter configurato con vincoli di risorse desiderati alla sottoscrizione dall'amministratore globale. 
+CloudSimple offre la possibilità unica di gestire le macchine virtuali VMware nel cloud privato dal portale di Azure.CloudSimple provides the unique ability to manage your VMware VMs on Private Cloud from the Azure portal.  Un pool di risorse vCenter configurato con i vincoli di risorse desiderati può essere mappato alla sottoscrizione dall'amministratore globale.  
 
-**Quali vantaggi di licenza si ottengono con Azure?**
+**Quali vantaggi relativi alle licenze si ottengono con Azure?**
 
-Con AVS puoi sfruttare il vantaggio Azure Hybrid Usage e risparmiare fino al 90% sulle licenze. Questo vantaggio consente di mantenere l'investimento nelle licenze Microsoft e di ridurre il TCO rispetto ad altre soluzioni cloud. Si ottengono anche aggiornamenti della sicurezza estesi per Windows Server 2008 e Microsoft SQL Server 2008. Il modello Bring your own License (BYOL) consente di ridurre i costi per le app comuni, ad esempio Veeam e Zerto. 
+Con CloudSimple, puoi sfruttare i vantaggi dell'utilizzo ibrido di Azure e risparmiare fino al 90% sulle licenze. Questo vantaggio preserva l'investimento in licenze Microsoft e riduce il tCO rispetto ad altre soluzioni cloud. Si ottengono inoltre gli aggiornamenti della protezione estesa per Windows Server 2008 e Microsoft SQL Server 2008.  Il modello BYOL (Bring Your Own License) ti aiuta a mantenere bassi i costi per le app comuni, come Veeam e .  

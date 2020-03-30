@@ -1,6 +1,6 @@
 ---
-title: 'Esercitazione: configurare Elium per il provisioning utenti automatico con Azure Active Directory | Microsoft Docs'
-description: Informazioni su come configurare Azure Active Directory per effettuare automaticamente il provisioning e il deprovisioning degli account utente in Elium.
+title: 'Esercitazione: Configurare Elium per il provisioning automatico degli utenti con Azure Active Directory . Documenti Microsoft'
+description: Informazioni su come configurare Azure Active Directory per il provisioning e il deprovisioning automatico degli account utente in Elium.Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Elium.
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -16,142 +16,142 @@ ms.topic: article
 ms.date: 08/19/2019
 ms.author: Zhchia
 ms.openlocfilehash: a3e1c936d46e0d9b0ad3b98dafeda7df0b4a23db
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77058465"
 ---
-# <a name="tutorial-configure-elium-for-automatic-user-provisioning"></a>Esercitazione: configurare Elium per il provisioning utenti automatico
+# <a name="tutorial-configure-elium-for-automatic-user-provisioning"></a>Esercitazione: Configurare Elium per il provisioning automatico degli utentiTutorial: Configure Elium for automatic user provisioning
 
-Questa esercitazione illustra come configurare Elium e Azure Active Directory (Azure AD) per effettuare automaticamente il provisioning e il deprovisioning di utenti o gruppi in Elium.
+Questa esercitazione illustra come configurare Elium e Azure Active Directory (Azure AD) per eseguire automaticamente il provisioning e il deprovisioning di utenti o gruppi in Elium.This tutorial shows how to configure Elium and Azure Active Directory (Azure AD) to automatically provision and de-provision users or groups to Elium.
 
 > [!NOTE]
-> Questa esercitazione descrive un connettore basato sul servizio di provisioning utenti Azure AD. Per informazioni importanti sul funzionamento e sul funzionamento di questo servizio e sulle domande frequenti, vedere [automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md).
+> Questa esercitazione descrive un connettore basato sul servizio Provisioning utenti di Azure AD. Per informazioni importanti sulle operazioni eseguite da questo servizio e sul suo funzionamento e per le domande frequenti, vedere Automatizzare il provisioning e il deprovisioning degli utenti nelle [applicazioni SaaS con Azure Active Directory.](../app-provisioning/user-provisioning.md)
 >
-> Questo connettore è attualmente disponibile in anteprima. Per le condizioni per l'utilizzo generali per le funzionalità di Azure in anteprima, vedere le [condizioni per l'utilizzo supplementari per le anteprime Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Questo connettore è attualmente disponibile in anteprima. Per le condizioni generali per l'utilizzo delle funzionalità di Azure in anteprima, vedere [Condizioni di utilizzo supplementari per le anteprime di Microsoft Azure.For](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)the general terms of use for Azure features in preview, see Supplemental Terms of Use for Microsoft Azure Previews.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
-In questa esercitazione si presuppone che siano già stati soddisfatti i prerequisiti seguenti:
+In questa esercitazione si presuppone che siano già presenti i prerequisiti seguenti:This tutorial assumes that you already have the following prerequisites:
 
 * Un tenant di Azure AD
-* [Tenant di Elium](https://www.elium.com/pricing/)
+* [Un inquilino di Elium](https://www.elium.com/pricing/)
 * Un account utente in Elium, con autorizzazioni di amministratore
 
 ## <a name="assigning-users-to-elium"></a>Assegnazione di utenti a Elium
 
-Azure AD usa un concetto denominato *assegnazioni* per determinare gli utenti che ricevono l'accesso alle app selezionate. Nel contesto del provisioning utenti automatico, vengono sincronizzati solo gli utenti e i gruppi che sono stati assegnati a un'applicazione in Azure AD.
+Azure AD usa un concetto denominato *assegnazioni* per determinare quali utenti ricevono l'accesso alle app selezionate. Nel contesto del provisioning automatico degli utenti, vengono sincronizzati solo gli utenti e i gruppi assegnati a un'applicazione in Azure AD.
 
-Prima di configurare e abilitare il provisioning utenti automatico, decidere quali utenti e gruppi in Azure AD necessario accedere a Elium. Assegnare quindi tali utenti e gruppi a Elium seguendo i passaggi descritti in [assegnare un utente o un gruppo a un'app aziendale](../manage-apps/assign-user-or-group-access-portal.md).
+Prima di configurare e abilitare il provisioning automatico degli utenti, decidere quali utenti e gruppi in Azure AD devono accedere a Elium. Assegnare quindi tali utenti e gruppi a Elium seguendo la procedura descritta in [Assegnare un utente o un gruppo a un'app aziendale.](../manage-apps/assign-user-or-group-access-portal.md)
 
-## <a name="important-tips-for-assigning-users-to-elium"></a>Suggerimenti importanti per l'assegnazione di utenti a Elium 
+## <a name="important-tips-for-assigning-users-to-elium"></a>Suggerimenti importanti per l'assegnazione degli utenti a Elium 
 
-È consigliabile assegnare un singolo utente Azure AD a Elium per testare la configurazione del provisioning automatico degli utenti. È possibile assegnare più utenti e gruppi in un secondo momento.
+È consigliabile assegnare un singolo utente di Azure AD a Elium per testare la configurazione del provisioning automatico degli utenti. Altri utenti e gruppi possono essere assegnati in un secondo momento.
 
-Quando si assegna un utente a Elium, è necessario selezionare un ruolo valido specifico dell'applicazione, se disponibile, nella finestra di dialogo di assegnazione. Gli utenti che hanno il ruolo di **accesso predefinito** vengono esclusi dal provisioning.
+Quando si assegna un utente a Elium, è necessario selezionare un ruolo valido specifico dell'applicazione (se disponibile) nella finestra di dialogo di assegnazione. Gli utenti che dispongono del ruolo **Accesso predefinito** vengono esclusi dal provisioning.
 
 ## <a name="set-up-elium-for-provisioning"></a>Configurare Elium per il provisioning
 
-Prima di configurare Elium per il provisioning utenti automatico con Azure AD, è necessario abilitare il provisioning di sistema per la gestione delle identità tra domini (SCIM) su Elium. A tale scopo, seguire questa procedura:
+Prima di configurare Elium per il provisioning automatico degli utenti con Azure AD, è necessario abilitare il sistema per il provisioning SCIM (Cross-domain Identity Management) in Elium. A tale scopo, seguire questa procedura:
 
-1. Accedere a Elium e passare a **profilo personale** > **Impostazioni**.
+1. Accedi a Elium e vai a**Impostazioni** **profilo** > personale .
 
-    ![Voce di menu impostazioni in Elium](media/Elium-provisioning-tutorial/setting.png)
+    ![Voce di menu Impostazioni in Elium](media/Elium-provisioning-tutorial/setting.png)
 
-1. Nell'angolo in basso a sinistra, in **Avanzate**, selezionare **sicurezza**.
+1. Nell'angolo inferiore sinistro, in **ADVANCED**, selezionare **Sicurezza**.
 
     ![Collegamento di sicurezza in Elium](media/Elium-provisioning-tutorial/security.png)
 
-1. Copiare l' **URL del tenant** e i valori dei **token segreti** . Questi valori verranno usati in un secondo momento, nei campi corrispondenti nella scheda **provisioning** dell'applicazione Elium nel portale di Azure.
+1. Copiare i valori **dell'URL tenant** e del **token segreto.** Questi valori verranno utilizzati in un secondo momento, nei campi corrispondenti nella scheda Provisioning dell'applicazione Elium nel portale di Azure.You'll use these values later, in corresponding fields in the **Provisioning** tab of your Elium application in the Azure portal.
 
     ![Campi URL tenant e token segreto in Elium](media/Elium-provisioning-tutorial/token.png)
 
-## <a name="add-elium-from-the-gallery"></a>Aggiungere Elium dalla raccolta
+## <a name="add-elium-from-the-gallery"></a>Aggiungi Elium dalla galleria
 
-Per configurare Elium per il provisioning utenti automatico con Azure AD, è anche necessario aggiungere Elium dalla raccolta di applicazioni Azure AD al proprio elenco di applicazioni SaaS (software-as-a-Service) gestite. A tale scopo, seguire questa procedura:
+Per configurare Elium per il provisioning automatico degli utenti con Azure AD, è inoltre necessario aggiungere Elium dalla raccolta di applicazioni di Azure AD all'elenco delle applicazioni saaS (software-as-a-service) gestite. A tale scopo, seguire questa procedura:
 
-1. Nel riquadro di spostamento a sinistra del [portale di Azure](https://portal.azure.com)selezionare **Azure Active Directory**.
+1. Nel [portale di Azure](https://portal.azure.com)selezionare **Azure Active Directory**nel riquadro di spostamento sinistro.
 
-    ![Voce di menu Azure Active Directory](common/select-azuread.png)
+    ![Voce di menu di Azure Active DirectoryAzure Active Directory menu item](common/select-azuread.png)
 
-1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
+1. Passare a **Applicazioni aziendali**, quindi selezionare Tutte **le applicazioni**.
 
-     ![Pannello applicazioni aziendali Azure AD](common/enterprise-applications.png)
+     ![Pannello Applicazioni aziendali di Azure ADAzure AD](common/enterprise-applications.png)
 
-1. Per aggiungere una nuova applicazione, selezionare **nuova applicazione** nella parte superiore del riquadro.
+1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione** nella parte superiore del riquadro.
 
-    ![Collegamento nuova applicazione](common/add-new-app.png)
+    ![Nuovo collegamento all'applicazione](common/add-new-app.png)
 
 1. Nella casella di ricerca digitare **Elium**, selezionare **Elium** nell'elenco dei risultati e quindi selezionare **Aggiungi** per aggiungere l'applicazione.
 
-    ![Casella di ricerca della raccolta](common/search-new-app.png)
+    ![Casella di ricerca raccolta](common/search-new-app.png)
 
-## <a name="configure-automatic-user-provisioning-to-elium"></a>Configurare il provisioning utenti automatico in Elium
+## <a name="configure-automatic-user-provisioning-to-elium"></a>Configurare il provisioning automatico degli utenti in Elium
 
-Questa sezione illustra i passaggi per configurare il servizio di provisioning Azure AD per creare, aggiornare e disabilitare utenti e gruppi in Elium, in base alle assegnazioni di utenti e gruppi in Azure AD.
+Questa sezione illustra i passaggi per configurare il servizio di provisioning di Azure AD per creare, aggiornare e disabilitare utenti e gruppi in Elium, in base alle assegnazioni di utenti e gruppi in Azure AD.
 
 > [!TIP]
-> È anche possibile scegliere di abilitare Single Sign-On per Elium in base a Security Assertion Markup Language (SAML) seguendo le istruzioni riportate nell' [esercitazione Single Sign-on di Elium](Elium-tutorial.md). È possibile configurare Single Sign-On indipendentemente dal provisioning utenti automatico, sebbene le due funzionalità siano complementari.
+> È inoltre possibile scegliere di abilitare l'accesso Single Sign-On per Elium basato su SAML (Security Assertion Markup Language) seguendo le istruzioni riportate [nell'esercitazione sull'accesso Single Sign-On eLium](Elium-tutorial.md). È possibile configurare l'accesso Single Sign-On indipendentemente dal provisioning automatico degli utenti, anche se le due funzionalità si completano a vicenda.
 
-Per configurare il provisioning utenti automatico per Elium in Azure AD, seguire questa procedura:
+Per configurare il provisioning automatico degli utenti per Elium in Azure AD, attenersi alla seguente procedura:
 
-1. Accedere al [portale di Azure](https://portal.azure.com), selezionare **applicazioni aziendali**e quindi selezionare **tutte le applicazioni**.
+1. Accedere al [portale](https://portal.azure.com)di Azure , selezionare **Applicazioni aziendali**e quindi **Tutte le applicazioni**.
 
-    ![Pannello applicazioni aziendali Azure AD](common/enterprise-applications.png)
+    ![Pannello Applicazioni aziendali di Azure ADAzure AD](common/enterprise-applications.png)
 
 1. Nell'elenco delle applicazioni selezionare **Elium**.
 
-    ![Elenco delle applicazioni nel pannello applicazioni aziendali](common/all-applications.png)
+    ![Elenco applicazioni nel pannello Applicazioni aziendali](common/all-applications.png)
 
-1. Selezionare la scheda **Provisioning**.
+1. Selezionare la scheda **Provisioning.**
 
-    ![Scheda provisioning nel pannello applicazioni aziendali](common/provisioning.png)
+    ![Scheda Provisioning nel pannello Applicazioni aziendali](common/provisioning.png)
 
-1. Impostare **Modalità di provisioning** su **Automatico**.
+1. Impostare la **modalità di provisioning** su **Automatico**.
 
     ![Impostazione automatica per la modalità di provisioning](common/provisioning-automatic.png)
 
-1. Nella sezione **credenziali amministratore** Digitare **\<urltenant\>/scim/V2** nel campo **URL tenant** . ( **Urltenant** è il valore recuperato in precedenza dalla console di amministrazione di Elium). Digitare anche il valore del **token segreto** Elium nel campo **token segreto** . Infine, selezionare **Test connessione** per verificare che Azure ad possa connettersi a Elium. Se la connessione non riesce, verificare che l'account Elium disponga delle autorizzazioni di amministratore e riprovare.
+1. Nella sezione **Credenziali amministratore** digitare ** \<\>tenantURL /scim/v2** nel campo URL **tenant.** (Il **tenantURL** è il valore recuperato in precedenza dalla console di amministrazione di Elium.) Digitare anche il valore del token Elium **Secret** nel campo **Token segreto.** Infine, selezionare Test connessione per verificare che Azure AD possa connettersi a Elium.Finally, select **Test Connection** to verify that Azure AD can connect to Elium. Se la connessione non riesce, assicurati che l'account Elium disponga delle autorizzazioni di amministratore e riprova.
 
-    ![Campi URL tenant e token segreto nelle credenziali di amministratore](common/provisioning-testconnection-tenanturltoken.png)
+    ![Campi URL tenant e Token segreto in Credenziali amministratore](common/provisioning-testconnection-tenanturltoken.png)
 
-1. Nel campo **messaggio di posta elettronica di notifica** immettere l'indirizzo di posta elettronica di una persona o un gruppo che riceverà le notifiche degli errori di provisioning. Selezionare quindi la casella di controllo **Invia una notifica di posta elettronica quando si verifica un errore** .
+1. Nel campo Email di **notifica** immettere l'indirizzo di posta elettronica di una persona o di un gruppo che riceverà le notifiche di errore di provisioning. Selezionare quindi la casella di controllo Invia una **notifica tramite posta elettronica quando si verifica un errore.**
 
     ![Messaggio di posta elettronica di notifica](common/provisioning-notification-email.png)
 
 1. Fare clic su **Salva**.
 
-1. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti a Elium**.
+1. Nella sezione **Mapping** selezionare **Sincronizza utenti di Azure Active Directory con Elium**.
 
-    ![Sincronizzare il collegamento per il mapping di utenti Azure AD a Elium](media/Elium-provisioning-tutorial/usermapping.png)
+    ![Collegamento Sincronizza per il mapping degli utenti di Azure AD a Elium](media/Elium-provisioning-tutorial/usermapping.png)
 
-1. Esaminare gli attributi utente che vengono sincronizzati da Azure AD a Elium nella sezione **mapping degli attributi** . Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con gli account utente in Elium per le operazioni di aggiornamento. Selezionare **Salva** per eseguire il commit delle modifiche.
+1. Esaminare gli attributi utente sincronizzati da Azure AD a Elium nella sezione **Mapping attributi.** Gli attributi selezionati come proprietà **corrispondenti** vengono utilizzati per abbinare gli account utente in Elium per le operazioni di aggiornamento. Selezionare **Salva** per eseguire il commit delle modifiche.
 
-    ![Mapping degli attributi tra Azure AD e Elium](media/Elium-provisioning-tutorial/userattribute.png)
+    ![Mapping degli attributi tra Azure AD ed EliumAttribute mappings between Azure AD and Elium](media/Elium-provisioning-tutorial/userattribute.png)
 
-1. Per configurare i filtri di ambito, seguire le istruzioni riportate nell'esercitazione relativa al [filtro di ambito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+1. Per configurare i filtri di ambito, seguire le istruzioni [nell'esercitazione](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)sui filtri di ambito .
 
-1. Per abilitare il servizio di provisioning Azure AD per Elium, impostare **stato del provisioning** **su** attivato nella sezione **Impostazioni** .
+1. Per abilitare il servizio di provisioning di Azure AD per Elium, modificare lo stato di provisioning **su Attivato** nella sezione Impostazioni.To enable the Azure AD provisioning service for Elium, change the **Provisioning Status** to On in the **Settings** section.
 
-    ![Stato del provisioning impostato su on](common/provisioning-toggle-on.png)
+    ![Stato provisioning impostato su Attivato](common/provisioning-toggle-on.png)
 
-1. Definire gli utenti e i gruppi di cui si desidera eseguire il provisioning in Elium selezionando i valori desiderati nella casella di riepilogo a discesa **ambito** nella sezione **Impostazioni** .
+1. Definire gli utenti e i gruppi di cui si desidera eseguire il provisioning in Elium selezionando i valori desiderati nella casella di riepilogo a discesa **Ambito** nella sezione **Impostazioni.**
 
-    ![Casella di riepilogo ambito provisioning](common/provisioning-scope.png)
+    ![Casella di riepilogo Ambito provisioning](common/provisioning-scope.png)
 
 1. Quando si è pronti per il provisioning, selezionare **Salva**.
 
     ![Pulsante Salva per la configurazione del provisioning](common/provisioning-configuration-save.png)
 
-Questa operazione avvia la sincronizzazione iniziale di tutti gli utenti e i gruppi definiti nell' **ambito** nella sezione **Impostazioni** . Questo processo di sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive. Per ulteriori informazioni sul tempo necessario per il provisioning, vedere [quanto tempo sarà necessario per eseguire il provisioning degli utenti?](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users).
+Questa operazione avvia la sincronizzazione iniziale di tutti gli utenti e i gruppi definiti in **Ambito** nella sezione **Impostazioni.** Questo processo di sincronizzazione iniziale richiede più tempo rispetto alle sincronizzazioni successive. Per ulteriori informazioni sul tempo necessario per il provisioning, vedere [Quanto tempo è necessario per eseguire il provisioning degli utenti?](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users).
 
-Usare la sezione **stato corrente** per monitorare lo stato di avanzamento e selezionare i collegamenti al report delle attività di provisioning. Il report delle attività di provisioning descrive tutte le azioni eseguite dal servizio di provisioning Azure AD in Elium. Per altre informazioni, vedere [controllare lo stato del provisioning dell'utente](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md). Per leggere i log di provisioning di Azure AD, vedere [creazione di report sul provisioning automatico degli account utente](../app-provisioning/check-status-user-account-provisioning.md).
+Utilizzare la sezione **Stato corrente** per monitorare lo stato di avanzamento e seguire i collegamenti al report attività di provisioning. The provisioning activity report describes all actions performed by the Azure AD provisioning service on Elium. Per ulteriori informazioni, consultate [Controllare lo stato del provisioning degli utenti.](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) Per leggere i log di provisioning di Azure AD, vedere Creazione di report sul provisioning automatico degli [account utente.](../app-provisioning/check-status-user-account-provisioning.md)
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * [Gestione del provisioning degli account utente per le app aziendali](../app-provisioning/configure-automatic-user-provisioning-portal.md).
-* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
+* [Che cos'è l'accesso alle applicazioni e l'accesso Single Sign-On con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,23 +1,23 @@
 ---
-title: Funzioni di modello-confronto
+title: Funzioni modello - confronto
 description: Informazioni sulle funzioni che è possibile usare in un modello di Azure Resource Manager per confrontare valori.
 ms.topic: conceptual
 ms.date: 09/05/2017
-ms.openlocfilehash: 67cb1c1f92694ca217e99fb6528fb1d00f2cfcf6
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 42009e8543e307f2d3e4643ddaa79f492f9bdfee
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79248710"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80156362"
 ---
-# <a name="comparison-functions-for-azure-resource-manager-templates"></a>Funzioni di confronto per i modelli di Azure Resource Manager
+# <a name="comparison-functions-for-arm-templates"></a>Funzioni di confronto per i modelli ARM
 
-Resource Manager include numerose funzioni per l'esecuzione di confronti nei modelli.
+Resource Manager offre diverse funzioni per eseguire confronti nei modelli di Azure Resource Manager (ARM).
 
 * [equals](#equals)
 * [greater](#greater)
 * [greaterOrEquals](#greaterorequals)
-* [less](#less)
+* [Meno](#less)
 * [lessOrEquals](#lessorequals)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
@@ -134,13 +134,13 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/equals.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/equals.json
 ```
 
 Per distribuire questo modello di esempio con PowerShell, usare:
 
 ```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/equals.json 
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/equals.json
 ```
 
 Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json) seguente usa [not](template-functions-logical.md#not) con **equals**.
@@ -169,13 +169,13 @@ L'output dell'esempio precedente è:
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/not-equals.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/not-equals.json
 ```
 
 Per distribuire questo modello di esempio con PowerShell, usare:
 
 ```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/not-equals.json 
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/not-equals.json
 ```
 
 ## <a name="greater"></a>greater
@@ -245,13 +245,13 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/greater.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/greater.json
 ```
 
 Per distribuire questo modello di esempio con PowerShell, usare:
 
 ```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/greater.json 
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/greater.json
 ```
 
 ## <a name="greaterorequals"></a>greaterOrEquals
@@ -321,13 +321,13 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/greaterorequals.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/greaterorequals.json
 ```
 
 Per distribuire questo modello di esempio con PowerShell, usare:
 
 ```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/greaterorequals.json 
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/greaterorequals.json
 ```
 
 ## <a name="less"></a>less
@@ -397,13 +397,13 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/less.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/less.json
 ```
 
 Per distribuire questo modello di esempio con PowerShell, usare:
 
 ```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/less.json 
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/less.json
 ```
 
 ## <a name="lessorequals"></a>lessOrEquals
@@ -473,18 +473,18 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:
 
 ```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/lessorequals.json
+az deployment group create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/lessorequals.json
 ```
 
 Per distribuire questo modello di esempio con PowerShell, usare:
 
 ```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/lessorequals.json 
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/lessorequals.json
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per una descrizione delle sezioni in un modello di Azure Resource Manager, vedere [Creazione di modelli di Azure Resource Manager](template-syntax.md).
-* Per unire più modelli, vedere [Uso di modelli collegati con Azure Resource Manager](linked-templates.md).
-* Per eseguire un'iterazione di un numero di volte specificato durante la creazione di un tipo di risorsa, vedere [Creare più istanze di risorse in Gestione risorse di Azure](copy-resources.md).
-* Per informazioni su come distribuire il modello che è stato creato, vedere [Distribuire un'applicazione con un modello di Azure Resource Manager](deploy-powershell.md).
+* Per una descrizione delle sezioni in un modello di Azure Resource Manager, vedere Creazione di modelli di [Azure Resource Manager.](template-syntax.md)
+* Per unire più modelli, vedere [Utilizzo di modelli collegati con Azure Resource Manager.](linked-templates.md)
+* Per scorrere un numero specificato di volte durante la creazione di un tipo di risorsa, vedere [Creare più istanze di risorse in Azure Resource Manager.To](copy-resources.md)iterate a specified number of times when creating a type of resource, see Create multiple instances of resources in Azure Resource Manager.
+* Per informazioni su come distribuire il modello creato, vedere [Distribuire un'applicazione con](deploy-powershell.md)il modello di Azure Resource Manager.To see how to deploy the template you have created, see Deploy an application with Azure Resource Manager template.
 

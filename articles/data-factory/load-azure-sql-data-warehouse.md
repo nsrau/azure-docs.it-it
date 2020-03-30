@@ -11,25 +11,25 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/22/2018
-ms.openlocfilehash: 7815a99d4521e6797b4095a38fcfce50ac29a2b8
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: dc6d8c9da749e7ee60713f4357dc6d46051d89f2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981186"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80131283"
 ---
 # <a name="load-data-into-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Caricare dati in Azure SQL Data Warehouse tramite Azure Data Factory
 
-[Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) è un database basato su cloud con scalabilità orizzontale che può elaborare ingenti volumi di dati relazionali e non relazionali. Basato sull'architettura Massively Parallel Processing (MPP), SQL Data Warehouse è ottimizzato per i carichi di lavoro dei data warehouse aziendali. Offre l'elasticità del cloud con la flessibilità per ridimensionare la capacità di archiviazione e di calcolo in modo indipendente.
+[Azure SQL Data Warehouse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) è un database basato su cloud con scalabilità orizzontale che può elaborare ingenti volumi di dati relazionali e non relazionali. Basato sull'architettura Massively Parallel Processing (MPP), SQL Data Warehouse è ottimizzato per i carichi di lavoro dei data warehouse aziendali. Offre l'elasticità del cloud con la flessibilità per ridimensionare la capacità di archiviazione e di calcolo in modo indipendente.
 
 Iniziare a usare Azure SQL Data Warehouse è oggi più semplice che mai con Azure Data Factory. Azure Data Factory è un servizio di integrazione dei dati completamente gestito e basato sul cloud. È possibile usare il servizio per popolare SQL Data Warehouse con dati provenienti dal sistema esistente e risparmiare tempo durante la compilazione di soluzioni di analisi.
 
 Azure Data Factory offre i vantaggi seguenti per il caricamento di dati in Azure SQL Data Warehouse:
 
 * **Semplicità di configurazione**: procedura guidata intuitiva in 5 passaggi, senza necessità di script.
-* **Supporto completo per archivi dati**: supporto integrato per una vasta gamma di archivi dati locali e basati su cloud. Per un elenco dettagliato, vedere la tabella degli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
+* **Supporto avanzato dell'archivio dati:** supporto integrato per un set completo di archivi dati locali e basati su cloud. Per un elenco dettagliato, vedere la tabella degli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
 * **Sicurezza e conformità**: i dati vengono trasferiti tramite HTTPS o ExpressRoute. La presenza di un servizio globale garantisce che i dati non oltrepassino mai il confine geografico.
-* **Prestazioni ineguagliabili con PolyBase**: PolyBase è lo strumento più efficiente per spostare dati in Azure SQL Data Warehouse. Usare la funzionalità del BLOB di staging per ottenere velocità di carico elevate da tutti i tipi di archivi dati, tra cui l'archiviazione BLOB di Azure e Data Lake Store. (Polibase supporta l'archiviazione BLOB di Azure e Azure Data Lake Store per impostazione predefinita). Per informazioni dettagliate, vedere [prestazioni dell'attività di copia](copy-activity-performance.md).
+* **Prestazioni ineguagliabili con PolyBase**: PolyBase è lo strumento più efficiente per spostare dati in Azure SQL Data Warehouse. Usare la funzionalità del BLOB di staging per ottenere velocità di carico elevate da tutti i tipi di archivi dati, tra cui l'archiviazione BLOB di Azure e Data Lake Store. Polybase supporta l'archiviazione BLOB di Azure e l'archivio dati di Azure per impostazione predefinita. Per informazioni dettagliate, vedere [Prestazioni dell'attività di copia](copy-activity-performance.md).
 
 Questo articolo mostra come usare lo strumento Copia dati di Data Factory per _caricare dati dal database SQL di Azure in Azure SQL Data Warehouse_. È possibile seguire una procedura simile a quella usata per copiare dati da altri tipi di archivi dati.
 
@@ -45,7 +45,7 @@ Questo articolo mostra come usare lo strumento Copia dati di Data Factory per _c
 
 ## <a name="create-a-data-factory"></a>Creare una data factory
 
-1. Nel menu a sinistra selezionare **Crea una risorsa** > **Dati e analisi** > **Data factory**:
+1. Nel menu a sinistra selezionare **Crea una risorsa** > Dati - Data**Factory****analisi:** > 
 
    ![Selezione di Data Factory nel riquadro "Nuovo"](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 
@@ -53,13 +53,13 @@ Questo articolo mostra come usare lo strumento Copia dati di Data Factory per _c
 
    ![Pagina Nuova data factory](./media/load-azure-sql-data-warehouse/new-azure-data-factory.png)
 
-    * **Nome**: immettere un nome univoco globale per la data factory di Azure. Se viene visualizzato l'errore "Il nome \"LoadSQLDWDemo\" per la data factory non è disponibile", immettere un nome diverso per la data factory. Ad esempio, è possibile usare il nome _**nomeutente**_ **ADFTutorialDataFactory**. Riprovare a creare la data factory. Per informazioni sulle regole di denominazione per gli elementi di Data Factory, vedere [Azure Data Factory - Regole di denominazione](naming-rules.md).
+    * **Nome**: immettere un nome univoco globale per la data factory di Azure. Se viene visualizzato l'errore "Il nome \"LoadSQLDWDemo\" per la data factory non è disponibile", immettere un nome diverso per la data factory. Ad esempio, è possibile usare il nome _**nomeutente**_**ADFTutorialDataFactory**. Riprovare a creare la data factory. Per informazioni sulle regole di denominazione per gli elementi di Data Factory, vedere [Azure Data Factory - Regole di denominazione](naming-rules.md).
     * **Sottoscrizione**: selezionare la sottoscrizione di Azure in cui creare la data factory. 
     * **Gruppo di risorse**: selezionare un gruppo di risorse esistente nell'elenco a discesa oppure selezionare l'opzione **Crea nuovo** e immettere il nome di un gruppo di risorse. Per informazioni sui gruppi di risorse, vedere l'articolo relativo all'[uso di gruppi di risorse per la gestione delle risorse di Azure](../azure-resource-manager/management/overview.md).  
     * **Versione**: selezionare **V2**.
     * **Località**: selezionare la località per la data factory. Nell'elenco a discesa vengono mostrate solo le località supportate. Gli archivi dati usati dalla data factory possono trovarsi in altre località e aree. Questi archivi dati includono Azure Data Lake Store, Archiviazione di Azure, il database SQL di Azure e così via.
 
-3. Selezionare **Create** (Crea).
+3. Selezionare **Crea**.
 4. Al termine della creazione, accedere alla data factory. Verrà visualizzata la home page **Data factory**, come mostrato nell'immagine seguente:
 
    ![Home page di Data factory](./media/load-azure-sql-data-warehouse/data-factory-home-page.png)
@@ -85,7 +85,7 @@ Questo articolo mostra come usare lo strumento Copia dati di Data Factory per _c
 
     ![Selezionare il database SQL di Azure](./media/load-azure-sql-data-warehouse/select-azure-sql-db-source.png)
 
-    c. Nella pagina **nuovo servizio collegato** selezionare il nome del server e il nome del database dall'elenco a discesa e specificare il nome utente e la password. Fare clic su **Connessione di test** per convalidare le impostazioni, quindi selezionare **Fine**.
+    c. Nella pagina **Nuovo servizio collegato** selezionare il nome del server e il nome del database dall'elenco a discesa e specificare il nome utente e la password. Fare clic su **Connessione di test** per convalidare le impostazioni, quindi selezionare **Fine**.
 
     ![Configurare il database SQL di Azure](./media/load-azure-sql-data-warehouse/configure-azure-sql-db.png)
 
@@ -107,7 +107,7 @@ Questo articolo mostra come usare lo strumento Copia dati di Data Factory per _c
 
     ![Selezionare Azure SQL DW](./media/load-azure-sql-data-warehouse/select-azure-sql-dw-sink.png)
 
-    c. Nella pagina **nuovo servizio collegato** selezionare il nome del server e il nome del database dall'elenco a discesa e specificare il nome utente e la password. Fare clic su **Connessione di test** per convalidare le impostazioni, quindi selezionare **Fine**.
+    c. Nella pagina **Nuovo servizio collegato** selezionare il nome del server e il nome del database dall'elenco a discesa e specificare il nome utente e la password. Fare clic su **Connessione di test** per convalidare le impostazioni, quindi selezionare **Fine**.
 
     ![Configurare Azure SQL DW](./media/load-azure-sql-data-warehouse/configure-azure-sql-dw.png)
 
@@ -146,7 +146,7 @@ Questo articolo mostra come usare lo strumento Copia dati di Data Factory per _c
 1. Nella pagina **Distribuzione** selezionare **Monitoraggio** per monitorare la pipeline (attività):
 
     ![Pagina Distribuzione](./media/load-azure-sql-data-warehouse/deployment-page.png)
-1. Si noti che la scheda **Monitoraggio** a sinistra è selezionata automaticamente. La colonna **Azioni** contiene collegamenti per visualizzare i dettagli delle esecuzioni dell'attività ed eseguire di nuovo la pipeline:
+1. Si noti che la scheda **Monitoraggio** a sinistra è selezionata automaticamente. La colonna Azioni include collegamenti per visualizzare i dettagli dell'esecuzione dell'attività e per eseguire nuovamente la pipeline:The **Actions** column includes links to view activity run details and to rerun the pipeline:
 
     ![Monitorare le esecuzioni di pipeline](./media/load-azure-sql-data-warehouse/pipeline-monitoring.png)
 1. Per visualizzare le esecuzioni di attività associate all'esecuzione della pipeline, selezionare il collegamento **View Activity Runs** (Visualizza le esecuzioni di attività) nella colonna **Azioni**. Per tornare alla visualizzazione delle esecuzioni di pipeline, selezionare il collegamento **Pipeline** in alto. Selezionare **Aggiorna** per aggiornare l'elenco.
@@ -162,4 +162,4 @@ Questo articolo mostra come usare lo strumento Copia dati di Data Factory per _c
 Leggere l'articolo seguente per altre informazioni sul supporto di Azure SQL Data Warehouse:
 
 > [!div class="nextstepaction"]
->[Connettore Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md)
+>[Connettore sql Data Warehouse di AzureAzure SQL Data Warehouse connector](connector-azure-sql-data-warehouse.md)

@@ -1,5 +1,5 @@
 ---
-title: "Connettere una VNet a un'altra VNet usando una connessione da VNet a VNet del gateway VPN di Azure: PowerShell"
+title: "Connettere una rete virtuale a un'altra rete virtuale usando una connessione da vNet-vNet del gateway VPN di Azure: PowerShellConnect a VNet to another VNet using an Azure VPN Gateway VNet-to-VNet connection: PowerShell"
 description: Connettere reti virtuali tra loro tramite una connessione da rete virtuale a rete virtuale e PowerShell.
 services: vpn-gateway
 author: cherylmc
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: cherylmc
 ms.openlocfilehash: eebe66ca038b31f23ca864b107816b8cf761b29c
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75860521"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Configurare una connessione gateway VPN tra reti virtuali usando PowerShell
@@ -21,14 +21,14 @@ Questo articolo descrive come connettere reti virtuali tramite il tipo di connes
 I passaggi di questo articolo sono applicabili al modello di distribuzione Resource Manager e usano PowerShell. È anche possibile creare questa configurazione usando strumenti o modelli di distribuzione diversi selezionando un'opzione differente nell'elenco seguente:
 
 > [!div class="op_single_selector"]
-> * [Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
-> * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
-> * [Interfaccia della riga di comando di Azure](vpn-gateway-howto-vnet-vnet-cli.md)
+> * [Portale di Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [Powershell](vpn-gateway-vnet-vnet-rm-ps.md)
+> * [Interfaccia della riga di comando di AzureAzure](vpn-gateway-howto-vnet-vnet-cli.md)
 > * [Portale di Azure (classico)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 > * [Connettersi tra modelli di distribuzione diversi - Portale di Azure](vpn-gateway-connect-different-deployment-models-portal.md)
 > * [Connettersi tra modelli di distribuzione diversi - PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 
-## <a name="about"></a>Informazioni sulla connessione di reti virtuali
+## <a name="about-connecting-vnets"></a><a name="about"></a>Informazioni sulla connessione di reti virtuali
 
 Ci sono diversi modi per connettere le reti virtuali. Le sezioni seguenti descrivono i diversi metodi di connessione delle reti virtuali.
 
@@ -44,7 +44,7 @@ Se si usa una configurazione di rete complessa, potrebbe essere preferibile conn
 
 È possibile connettere le reti virtuali tramite il peering reti virtuali. Il peering reti virtuali non usa un gateway VPN e presenta vincoli diversi. I [prezzi per il peering reti virtuali](https://azure.microsoft.com/pricing/details/virtual-network) vengono inoltre calcolati in modo diverso rispetto ai [prezzi per il gateway VPN da rete virtuale a rete virtuale](https://azure.microsoft.com/pricing/details/vpn-gateway). Per altre informazioni, vedere [Peering reti virtuali](../virtual-network/virtual-network-peering-overview.md).
 
-## <a name="why"></a>Vantaggi di una connessione da rete virtuale a rete virtuale
+## <a name="why-create-a-vnet-to-vnet-connection"></a><a name="why"></a>Vantaggi di una connessione da rete virtuale a rete virtuale
 
 È possibile connettere le reti virtuali con una connessione da rete virtuale a rete virtuale per i motivi seguenti:
 
@@ -58,7 +58,7 @@ Se si usa una configurazione di rete complessa, potrebbe essere preferibile conn
 
 La comunicazione tra reti virtuali può essere associata a configurazioni multisito. Questo permette di definire topologie di rete che consentono di combinare la connettività cross-premise con la connettività tra reti virtuali.
 
-## <a name="steps"></a>Quale procedura per la connessione da rete virtuale a rete virtuale è preferibile seguire?
+## <a name="which-vnet-to-vnet-steps-should-i-use"></a><a name="steps"></a>Quale procedura per la connessione da rete virtuale a rete virtuale è preferibile seguire?
 
 Questo articolo riporta due diverse procedure. Una per le [reti virtuali che si trovano nella stessa sottoscrizione](#samesub) e una per le [reti virtuali che si trovano in sottoscrizioni diverse](#difsub).
 La differenza principale tra le due è costituita dal fatto che quando si configurano le connessioni per reti virtuali che si trovano in sottoscrizioni diverse, è necessario usare sessioni di PowerShell separate. 
@@ -73,7 +73,7 @@ Per questo esercizio è possibile combinare le configurazioni oppure sceglierne 
 
   ![Diagramma V2V](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
 
-## <a name="samesub"></a>Come connettere reti virtuali che si trovano nella stessa sottoscrizione
+## <a name="how-to-connect-vnets-that-are-in-the-same-subscription"></a><a name="samesub"></a>Come connettere reti virtuali che si trovano nella stessa sottoscrizione
 
 ### <a name="before-you-begin"></a>Prima di iniziare
 
@@ -83,7 +83,7 @@ Per questo esercizio è possibile combinare le configurazioni oppure sceglierne 
 
 * Se si preferisce installare la versione più recente del modulo Azure PowerShell in locale, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
 
-### <a name="Step1"></a>Passaggio 1: Pianificare gli intervalli di indirizzi IP
+### <a name="step-1---plan-your-ip-address-ranges"></a><a name="Step1"></a>Passaggio 1: Pianificare gli intervalli di indirizzi IP
 
 Nei passaggi seguenti vengono create due reti virtuali con le rispettive subnet del gateway e configurazioni. Viene quindi creata una connessione VPN tra le due reti virtuali. È importante pianificare gli intervalli di indirizzi IP per la configurazione di rete. Tenere presente che è necessario assicurarsi che nessuno di intervalli di rete virtuale o intervalli di rete locale si sovrappongano in alcun modo. In questi esempi non viene incluso un server DNS. Per usare la risoluzione dei nomi per le reti virtuali, vedere [Risoluzione dei nomi](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
@@ -121,7 +121,7 @@ Negli esempi vengono usati i valori seguenti:
 * ConnectionType: VNet2VNet
 
 
-### <a name="Step2"></a>Passaggio 2: Creare e configurare TestVNet1
+### <a name="step-2---create-and-configure-testvnet1"></a><a name="Step2"></a>Passaggio 2: Creare e configurare TestVNet1
 
 1. Verificare le impostazioni della sottoscrizione.
 
@@ -166,7 +166,7 @@ Negli esempi vengono usati i valori seguenti:
    ```azurepowershell-interactive
    New-AzResourceGroup -Name $RG1 -Location $Location1
    ```
-4. Creare le configurazioni di subnet per TestVNet1. L'esempio seguente mostra come creare una rete virtuale denominata TestVNet1 e tre subnet, denominate rispettivamente GatewaySubnet, FrontEnd e Backend. Quando si sostituiscono i valori, è importante che la subnet gateway venga denominata sempre esattamente GatewaySubnet. Se si assegnano altri nomi, la creazione del gateway ha esito negativo. Per questo motivo, non viene assegnato tramite la variabile riportata di seguito.
+4. Creare le configurazioni di subnet per TestVNet1. L'esempio seguente mostra come creare una rete virtuale denominata TestVNet1 e tre subnet, denominate rispettivamente GatewaySubnet, FrontEnd e Backend. Quando si sostituiscono i valori, è importante che la subnet gateway venga denominata sempre esattamente GatewaySubnet. Se si assegnano altri nomi, la creazione del gateway ha esito negativo. Per questo motivo, non viene assegnato tramite variabile di seguito.
 
    L'esempio seguente fa uso delle variabili impostate in precedenza. In questo esempio, la subnet del gateway usa /27. Nonostante sia possibile creare una subnet del gateway con dimensioni di /29 soltanto, è consigliabile crearne una più grande che includa più indirizzi selezionando almeno /28 o /27. In questo modo saranno disponibili indirizzi sufficienti per supportare in futuro le possibili configurazioni aggiuntive desiderate.
 
@@ -292,7 +292,7 @@ Attendere fino al completamento di entrambi i gateway. Riavviare la sessione di 
    ```
 4. Verificare la connessione. Vedere la sezione [Come verificare una connessione](#verify).
 
-## <a name="difsub"></a>Come connettere reti virtuali che si trovano in sottoscrizioni diverse
+## <a name="how-to-connect-vnets-that-are-in-different-subscriptions"></a><a name="difsub"></a>Come connettere reti virtuali che si trovano in sottoscrizioni diverse
 
 In questo scenario vengono connesse le reti virtuali TestVNet1 e TestVNet5, che si trovano in sottoscrizioni diverse. Non è necessario che le sottoscrizioni siano associate allo stesso tenant di Active Directory.
 
@@ -471,13 +471,13 @@ In questo esempio, dato che i gateway si trovano in sottoscrizioni diverse, il p
    New-AzVirtualNetworkGatewayConnection -Name $Connection51 -ResourceGroupName $RG5 -VirtualNetworkGateway1 $vnet5gw -VirtualNetworkGateway2 $vnet1gw -Location $Location5 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
    ```
 
-## <a name="verify"></a>Come verificare una connessione
+## <a name="how-to-verify-a-connection"></a><a name="verify"></a>Come verificare una connessione
 
 [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
 [!INCLUDE [verify connections powershell](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
 
-## <a name="faq"></a>Domande frequenti relative alla connessione di reti virtuali
+## <a name="vnet-to-vnet-faq"></a><a name="faq"></a>Domande frequenti relative alla connessione di reti virtuali
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
 

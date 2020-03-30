@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.openlocfilehash: 03dee0570faa863ca411ed91f2a6ec85a1e38380
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76985680"
 ---
 # <a name="connect-to-azure-data-explorer-from-azure-databricks-by-using-python"></a>Connettersi a Esplora dati di Azure da Azure Databricks usando Python
@@ -75,7 +75,7 @@ L'ID del tenant è `6babcaad-604b-40ac-a9d7-9fd97c0b779f`.
 Archiviare e proteggere l'ID e la chiave dell'app Azure AD usando i [segreti](https://docs.azuredatabricks.net/user-guide/secrets/index.html#secrets) di Azure Databricks come indicato di seguito:
 1. [Configurare l'interfaccia della riga di comando](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#set-up-the-cli).
 1. [Installare l'interfaccia della riga di comando](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#install-the-cli). 
-1. [Configurare l'autenticazione](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#set-up-authentication).
+1. [Impostare l'autenticazione](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#set-up-authentication).
 1. Configurare i [segreti](https://docs.azuredatabricks.net/user-guide/secrets/index.html#secrets) usando i comandi di esempio seguenti:
 
     ```databricks secrets create-scope --scope adx```

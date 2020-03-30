@@ -1,13 +1,13 @@
 ---
-title: Aggiornare un cluster per l'uso del nome comune del certificato
+title: Aggiornare un cluster per usare il nome comune del certificatoUpdate a cluster to use certificate common name
 description: Informazioni su come passare dall'uso di identificazioni personali del certificato all'uso di nomi comuni del certificato in un cluster di Service Fabric.
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.openlocfilehash: 66c49ccb7b7633d0eff392b676bb381118eb64a2
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75610200"
 ---
 # <a name="change-cluster-from-certificate-thumbprint-to-common-name"></a>Passare dall'uso di identificazioni personali del certificato all'uso di nomi comuni del certificato in un cluster
@@ -91,7 +91,7 @@ Update-AzVmss -ResourceGroupName $VmssResourceGroupName -Verbose `
 > I segreti del set di scalabilità non supportano lo stesso ID risorsa per due segreti separati, perché ogni segreto è una risorsa univoca con controllo delle versioni. 
 
 ## <a name="download-and-update-the-template-from-the-portal"></a>Scaricare e aggiornare il modello dal portale
-Il certificato è stato installato sul set di scalabilità sottostante, ma è necessario aggiornare anche il cluster di Service Fabric perché usi tale certificato e il relativo nome comune.  A questo punto, scaricare il modello per la distribuzione del cluster.  Accedere al [portale di Azure](https://portal.azure.com) e passare al gruppo di risorse che ospita il cluster.  In **Impostazioni**, selezionare **Distribuzioni**.  Selezionare la distribuzione più recente e fare clic su **Visualizza modello**.
+Il certificato è stato installato sul set di scalabilità sottostante, ma è necessario aggiornare anche il cluster di Service Fabric perché usi tale certificato e il relativo nome comune.  A questo punto, scaricare il modello per la distribuzione del cluster.  Accedere al [portale](https://portal.azure.com) di Azure e passare al gruppo di risorse che ospita il cluster.  In **Impostazioni**, selezionare **Distribuzioni**.  Selezionare la distribuzione più recente e fare clic su **Visualizza modello**.
 
 ![Visualizzare un modello][image1]
 
@@ -116,9 +116,9 @@ Aprire quindi il file di modello in un editor di testo e apportare tre aggiornam
     },
     ```
 
-    Prendere in considerazione anche la rimozione del *CertificateThumbprint*, a cui potrebbe non essere più fatto riferimento nel modello di gestione risorse.
+    È inoltre consigliabile rimuovere il *certificateThumbprint*, è possibile che non vi venga più fatto riferimento nel modello Resource Manager.
 
-2. Nella risorsa **Microsoft.Compute/virtualMachineScaleSets**, aggiornare l'estensione macchina virtuale perché nelle impostazioni del certificato venga usato il nome comune anziché l'identificazione personale.  In **virtualMachineProfile**->**extensionProfile**->**extensions**->**properties**->**settings**->**certificate** aggiungere `"commonNames": ["[parameters('certificateCommonName')]"],` e rimuovere `"thumbprint": "[parameters('certificateThumbprint')]",`.
+2. Nella risorsa **Microsoft.Compute/virtualMachineScaleSets**, aggiornare l'estensione macchina virtuale perché nelle impostazioni del certificato venga usato il nome comune anziché l'identificazione personale.  In **virtualMachineProfile**->**extensionextensionsextensions**->**extensions**->**settings**-> `"commonNames": ["[parameters('certificateCommonName')]"],` **certificate**->**certificate** `"thumbprint": "[parameters('certificateThumbprint')]",`, aggiungere e rimuovere .
     ```json
         "virtualMachineProfile": {
         "extensionProfile": {
@@ -179,7 +179,7 @@ Aprire quindi il file di modello in un editor di testo e apportare tre aggiornam
         ...
     ```
 
-Per ulteriori informazioni, vedere la pagina relativa alla [distribuzione di un cluster Service fabric che utilizza il nome comune del certificato anziché l'identificazione personale.](https://docs.microsoft.com/azure/service-fabric/service-fabric-create-cluster-using-cert-cn)
+Per altre informazioni, vedere [Distribuire un cluster di Service Fabric che usa il nome comune del certificato anziché l'identificazione personale.](https://docs.microsoft.com/azure/service-fabric/service-fabric-create-cluster-using-cert-cn)
 
 ## <a name="deploy-the-updated-template"></a>Distribuire il modello aggiornato
 Distribuire nuovamente il modello aggiornato dopo aver apportato le modifiche.
@@ -192,7 +192,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $groupname -Verbose `
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Informazioni sulla [sicurezza del cluster](service-fabric-cluster-security.md).
+* Informazioni sulla [protezione del cluster](service-fabric-cluster-security.md).
 * Informazioni su come [eseguire il rollover di un certificato di cluster](service-fabric-cluster-rollover-cert-cn.md)
 * [Aggiornare e gestire i certificati dei cluster](service-fabric-cluster-security-update-certs-azure.md)
 

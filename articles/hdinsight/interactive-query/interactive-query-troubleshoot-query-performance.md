@@ -1,6 +1,6 @@
 ---
-title: Scarse prestazioni in Apache Hive query LLAP in Azure HDInsight
-description: Le query in Apache Hive LLAP sono in esecuzione più lentamente del previsto in Azure HDInsight.
+title: Riduzione delle prestazioni nelle query LLAP Apache Hive in Azure HDInsight
+description: Le query in Apache Hive LLAP sono in esecuzione più lentamente del previsto in Azure HDInsight.Queries in Apache Hive LLAP are executs slower lower lowerer than expected in Azure HDInsight.
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
@@ -8,33 +8,33 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/30/2019
 ms.openlocfilehash: 8bd20849b15f8c8d5a14653f702f78c6404d82e5
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75895131"
 ---
-# <a name="scenario-poor-performance-in-apache-hive-llap-queries-in-azure-hdinsight"></a>Scenario: scarse prestazioni in Apache Hive query LLAP in Azure HDInsight
+# <a name="scenario-poor-performance-in-apache-hive-llap-queries-in-azure-hdinsight"></a>Scenario: Poor performance in Apache Hive LLAP queries in Azure HDInsight
 
-Questo articolo descrive le procedure di risoluzione dei problemi e le possibili soluzioni per i problemi relativi all'uso di componenti interattivi di query nei cluster HDInsight di Azure.
+Questo articolo descrive la procedura di risoluzione dei problemi e le possibili soluzioni per i problemi relativi all'uso di componenti di query interattivi nei cluster di Azure HDInsight.This article describes troubleshooting steps and possible resolutions for issues when using Interactive Query components in Azure HDInsight clusters.
 
 ## <a name="issue"></a>Problema
 
-Le configurazioni del cluster predefinite non sono sufficientemente ottimizzate per il carico di lavoro. Le query in hive LLAP sono in esecuzione più lente del previsto.
+Le configurazioni cluster predefinite non sono sufficientemente sintonizzate per il carico di lavoro. Le query in Hive LLAP sono in esecuzione più lentamente del previsto.
 
 ## <a name="cause"></a>Causa
 
-Questo problema può verificarsi a causa di diversi motivi.
+Questo può accadere a causa di una serie di motivi.
 
 ## <a name="resolution"></a>Risoluzione
 
-LLAP è ottimizzato per le query che coinvolgono join e aggregazioni. Le query come le seguenti non vengono eseguite correttamente in un cluster Interactive hive:
+LLAP è ottimizzato per le query che coinvolgono join e aggregazioni. Le query come le seguenti non funzionano bene in un cluster Hive interattivo:
 
 ```
 select * from table where column = "columnvalue"
 ```
 
-Per migliorare le prestazioni delle query del punto in hive LLAP, impostare le configurazioni seguenti:
+Per migliorare le prestazioni delle query punto in Hive LLAP, impostare le configurazioni seguenti:To improve point query performance in Hive LLAP, set the following configurations:
 
 ```
 hive.llap.io.enabled=false; (disable LLAP IO)
@@ -42,7 +42,7 @@ hive.optimize.index.filter=false; (disable ORC row index)
 hive.exec.orc.split.strategy=BI; (to avoid recombining splits)
 ```
 
-È anche possibile aumentare l'utilizzo della cache LLAP per migliorare le prestazioni con la modifica della configurazione seguente:
+È inoltre possibile aumentare l'utilizzo della cache LLAP per migliorare le prestazioni con la seguente modifica della configurazione:
 
 ```
 hive.fetch.task.conversion=none
@@ -52,8 +52,8 @@ hive.fetch.task.conversion=none
 
 Se il problema riscontrato non è presente in questo elenco o se non si riesce a risolverlo, visitare uno dei canali seguenti per ottenere ulteriore assistenza:
 
-* Ottieni risposte dagli esperti di Azure tramite il [supporto della community di Azure](https://azure.microsoft.com/support/community/).
+* Ottieni risposte dagli esperti di Azure tramite il supporto della community di [Azure.](https://azure.microsoft.com/support/community/)
 
-* È possibile connettersi con [@AzureSupport](https://twitter.com/azuresupport) , l'account ufficiale Microsoft Azure per migliorare l'esperienza del cliente connettendo la community di Azure alle risorse appropriate: risposte, supporto ed esperti.
+* Connettiti [@AzureSupport](https://twitter.com/azuresupport) con l'account ufficiale di Microsoft Azure per migliorare l'esperienza dei clienti connettendo la community di Azure alle risorse giuste: risposte, supporto ed esperti.
 
-* Se è necessaria ulteriore assistenza, è possibile inviare una richiesta di supporto dal [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selezionare **supporto** dalla barra dei menu o aprire l'hub **Guida e supporto** . Per informazioni più dettagliate, vedere [come creare una richiesta di supporto tecnico di Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). L'accesso alla gestione delle sottoscrizioni e al supporto per la fatturazione è incluso nella sottoscrizione di Microsoft Azure e il supporto tecnico viene fornito tramite uno dei [piani di supporto di Azure](https://azure.microsoft.com/support/plans/).
+* Per altre informazioni, è possibile inviare una richiesta di supporto dal portale di [Azure.](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/) Selezionare **Supporto** dalla barra dei menu o aprire l'hub **Guida e supporto** tecnico. Per informazioni più dettagliate, vedere [Come creare](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)una richiesta di supporto di Azure . L'accesso al supporto per la gestione e la fatturazione delle sottoscrizioni è incluso nella sottoscrizione di Microsoft Azure e il supporto tecnico viene fornito tramite uno dei piani di supporto di [Azure.](https://azure.microsoft.com/support/plans/)

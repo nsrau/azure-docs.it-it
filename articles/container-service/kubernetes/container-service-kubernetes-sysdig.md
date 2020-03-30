@@ -8,10 +8,10 @@ ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
 ms.openlocfilehash: 68136d5b9ec16c822cb62e4fee85b8ace9b1899a
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79371100"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-kubernetes-cluster-using-sysdig"></a>(DEPRECATO) Monitorare un cluster Kubernetes del servizio Azure Container con Sysdig

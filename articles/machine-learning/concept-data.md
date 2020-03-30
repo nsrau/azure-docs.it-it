@@ -1,7 +1,7 @@
 ---
-title: Dati in Azure Machine Learning
+title: Dati in Azure Machine LearningData in Azure Machine Learning
 titleSuffix: Azure Machine Learning
-description: Informazioni su come Azure Machine Learning interagisce con i dati e su come vengono usati negli esperimenti di machine learning.
+description: Informazioni su come Azure Machine Learning si connette in modo sicuro ai dati e usa tali dati per le attività di Apprendimento automatico.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,47 +9,53 @@ ms.topic: conceptual
 ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
-ms.date: 12/09/2019
-ms.openlocfilehash: a2af1e87ce7b17183ae09fb02b2652a04f585e84
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.date: 03/20/2020
+ms.openlocfilehash: 982c9c9eadec4403c8116430e1e25092de99f1d9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79270264"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80128481"
 ---
-# <a name="data-access-in-azure-machine-learning"></a>Accesso ai dati in Azure Machine Learning
+# <a name="data-access-in-azure-machine-learning"></a>Accesso ai dati in Azure Machine LearningData access in Azure Machine Learning
 
-Questo articolo illustra le soluzioni di gestione e integrazione dei dati di Azure Machine Learning per le attività di machine learning. Questo articolo presuppone che sia già stato creato un [account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) e un servizio di archiviazione di [Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction).
+Azure Machine Learning semplifica la connessione ai dati nel cloud.  Fornisce un livello di astrazione sul servizio di archiviazione sottostante, in modo da poter accedere in modo sicuro e lavorare con i dati senza dover scrivere codice specifico per il tipo di archiviazione. Azure Machine Learning offre anche le funzionalità dei dati seguenti:Azure Machine Learning also provides the following data capabilities:
 
-Quando si è pronti per usare i dati nella risorsa di archiviazione, è consigliabile
+*    Controllo delle versioni e rilevamento della derivazione dei dati
+*    Etichettatura dei dati 
+*    Monitoraggio della deriva dei dati
+*    Interoperabilità con Panda e Spark DataFrames
 
-1. Creare un archivio dati Azure Machine Learning.
-2. Dall'archivio dati creare un set di dati Azure Machine Learning. 
-3. Usare il set di dati nell'esperimento di machine learning da uno dei due 
-    1. Montaggio della destinazione di calcolo dell'esperimento per il training del modello
+## <a name="data-workflow"></a>Flusso di lavoro dei dati
 
-        **OR** 
+Quando si è pronti a usare i dati nella soluzione di archiviazione basata su cloud, è consigliabile il flusso di lavoro di recapito dei dati seguente. Questo flusso di lavoro presuppone la disponibilità di un account di archiviazione di Azure e dei dati in un servizio di archiviazione basato su cloud in Azure.This workflow assumes you have an [Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) and data in a cloud-based storage service in Azure. 
 
-    1. Il suo utilizzo diretto in soluzioni Azure Machine Learning come l'esecuzione di esperimenti automatizzati di Machine Learning, le pipeline di machine learning e la [finestra di progettazione di Azure Machine Learning](concept-designer.md).
-4. Creare monitoraggi del set di dati per il set di dati di output del modello per rilevare la tendenza dei dati. 
-5. Se viene rilevata la deriva dei dati, aggiornare il set di dati di input e ripetere il training del modello di conseguenza.
+1. Creare un archivio dati di Azure Machine Learning per archiviare le informazioni di connessione all'archiviazione di Azure.Create an [Azure Machine Learning datastore](#datastores) to store connection information to your Azure storage.
 
-Il diagramma seguente fornisce una dimostrazione visiva di questo flusso di lavoro di accesso ai dati consigliato.
+2. Da tale archivio dati creare un set di dati di [Azure Machine Learning](#datasets) in modo che punti a uno o più file specifici nell'archiviazione sottostante. 
 
-![Data-Concept-diagramma](./media/concept-data/data-concept-diagram.svg)
+3. Per usare il set di dati nell'esperimento di apprendimento automatico, è possibile
+    1. Montarlo sulla destinazione di calcolo dell'esperimento per il training del modello.
 
-## <a name="access-data-in-storage"></a>Accedere ai dati nell'archiviazione
+        **O** 
 
-Per accedere ai dati nell'account di archiviazione, Azure Machine Learning offre archivi dati e set di dati. Gli archivi dati rispondono alla domanda: in che modo è possibile connettersi in modo sicuro ai dati presenti nell'archiviazione di Azure? Gli archivi dati forniscono un livello di astrazione sul servizio di archiviazione. Questo facilita la sicurezza e la facilità di accesso alla risorsa di archiviazione, poiché le informazioni di connessione vengono mantenute nell'archivio dati e non vengono esposte negli script. 
+    1. In questo modo viene eseguita l'esperimento automatizzato di apprendimento automatico (Machine Learning), nelle pipeline di apprendimento automatico o nella finestra di progettazione di [Azure Machine Learning.](concept-designer.md)
 
-I set di dati rispondono alla domanda: come si ottengono file di dati specifici nell'archivio dati? I set di dati puntano al file o ai file specifici nell'archivio sottostante che si vuole usare per l'esperimento di machine learning. Insieme, i datastore e i set di dati offrono un flusso di lavoro di distribuzione di dati protetto, scalabile e riproducibile per le attività di machine learning.
+4. Creare [monitoraggi del set di dati](#data-drift) per il set di dati di output del modello per rilevare la deriva dei dati. 
 
-### <a name="datastores"></a>Archivi dati
+5. Se viene rilevata una deriva dei dati, aggiornare il set di dati di input e riqualificare il modello di conseguenza.
 
-Un archivio dati Azure Machine Learning è un'astrazione di archiviazione sui servizi di archiviazione di Azure. [Registrare e creare un archivio](how-to-access-data.md) dati per connettersi facilmente all'account di archiviazione di Azure e accedere ai dati nei servizi di archiviazione di Azure sottostanti.
+Il diagramma seguente fornisce una dimostrazione visiva di questo flusso di lavoro consigliato.
 
-Servizi di archiviazione di Azure supportati che possono essere registrati come archivi dati:
-+ Contenitore BLOB di Azure
+![Diagramma dei concetti di dati](./media/concept-data/data-concept-diagram.svg)
+
+## <a name="datastores"></a>Datastore
+
+Gli archivi dati di Azure Machine Learning mantengono in modo sicuro le informazioni di connessione all'archiviazione di Azure, in modo da non doverle codificarle negli script. [Registrare e creare un archivio dati](how-to-access-data.md) per connettersi facilmente all'account di archiviazione e accedere ai dati nel servizio di archiviazione di Azure sottostante. 
+
+Servizi di archiviazione basati su cloud supportati in Azure che possono essere registrati come datastore:Supported cloud-based storage services in Azure that can be registered as datastores:
+
++ Contenitore BLOB di AzureAzure Blob Container
 + Condivisione file di Azure
 + Azure Data Lake
 + Azure Data Lake Gen2
@@ -58,64 +64,55 @@ Servizi di archiviazione di Azure supportati che possono essere registrati come 
 + File system di Databricks
 + Database di Azure per MySQL
 
-### <a name="datasets"></a>Set di dati
+## <a name="datasets"></a>Set di dati
 
-[Creare un set](how-to-create-register-datasets.md) di dati Azure Machine Learning per interagire con i dati negli archivi dati e comprimere i dati in un oggetto utilizzabile per le attività di machine learning. Registrare il set di dati nell'area di lavoro per condividerlo e riutilizzarlo in diversi esperimenti senza complessi di inserimento di dati.
+I set di dati di Azure Machine Learning sono riferimenti che puntano ai dati nel servizio di archiviazione. Non sono copie dei tuoi dati, quindi non viene sostenuto costi di archiviazione aggiuntivi. Per interagire con i dati nell'archiviazione, [creare un set di dati](how-to-create-register-datasets.md) per creare un pacchetto dei dati in un oggetto utilizzabile per le attività di apprendimento automatico. Registrare il set di dati nell'area di lavoro per condividerlo e riutilizzarlo in diversi esperimenti senza complessità di inserimento dati.
 
-I set di dati possono essere creati da file locali, URL pubblici, set di dati [aperti di Azure](#open)o file specifici negli archivi dati. Per creare un set di dati da un dataframe Pandas in memoria, scrivere i dati in un file locale, ad esempio un volume CSV, e creare il set di dati da tale file. I set di dati non sono copie dei dati, ma sono riferimenti che puntano ai dati del servizio di archiviazione, pertanto non è stato generato alcun costo aggiuntivo per l'archiviazione. 
+I set di dati possono essere creati da file locali, URL pubblici, set di dati aperti di [Azure](https://azure.microsoft.com/services/open-datasets/)o servizi di archiviazione di Azure tramite archivi dati. Per creare un set di dati da un frame di dati pandas in memoria, scrivere i dati in un file locale, ad esempio un parquet, e creare il set di dati da tale file.  
 
-Il diagramma seguente mostra che, se non si dispone di un servizio di archiviazione di Azure, è possibile creare un set di dati direttamente da file locali, URL pubblici o un set di dati aperto di Azure. In questo modo si connette il set di dati all'archivio dati predefinito creato automaticamente con l' [area di lavoro Azure Machine Learning](concept-workspace.md)dell'esperimento.
+Sono supportati 2 tipi di set di dati:We support 2 types of datasets: 
++ TabularDataset rappresenta [i](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) dati in formato tabulare analizzando il file o l'elenco di file fornito. È possibile caricare un TabularDataset in un Panda o Spark DataFrame per ulteriori manipolazioni e pulizia. Per un elenco completo dei formati di dati da cui è possibile creare TabularDatasets, vedere la [classe TabularDatasetFactory](https://aka.ms/tabulardataset-api-reference).
 
-![Data-Concept-diagramma](./media/concept-data/dataset-workflow.svg)
++ Un [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) fa riferimento a uno o più file negli archivi dati o in URL pubblici. È possibile [scaricare o montare](how-to-train-with-datasets.md#option-2--mount-files-to-a-remote-compute-target) i file a cui fa riferimento FileDatasets nella destinazione di calcolo.
 
-Le funzionalità di set di impostazioni aggiuntive sono disponibili nella documentazione seguente:
+Ulteriori funzionalità di set di dati sono disponibili nella documentazione seguente:Additional datasets capabilities can be found in the following documentation:
 
-+ Derivazione del set [di dati Version e Track](how-to-version-track-datasets.md) .
-+ Consente di [monitorare il set](how-to-monitor-datasets.md) di dati per semplificare il rilevamento della tendenza.
-+  Per la documentazione sui due tipi di set di impostazioni, vedere gli argomenti seguenti:
-    + [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) rappresenta i dati in formato tabulare analizzando il file o l'elenco di file fornito. Che consente di materializzare i dati in un frame di dati Pandas o Spark per ulteriori operazioni di manipolazione e pulizia. Per un elenco completo dei file da cui è possibile creare TabularDatasets, vedere la [classe TabularDatasetFactory](https://aka.ms/tabulardataset-api-reference).
++ [Versione e tenere traccia della](how-to-version-track-datasets.md) derivazione del set di dati.
++ [Monitorare il set di dati](how-to-monitor-datasets.md) per facilitare il rilevamento della deriva dei dati.    
 
-    + [Filedataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) fa riferimento a uno o più file negli archivi dati o negli URL pubblici. Con questo metodo è possibile scaricare o montare i file di cui si sceglie la destinazione di calcolo come oggetto filedataset.
+## <a name="work-with-your-data"></a>Lavorare con i dati
 
-## <a name="work-with-your-data"></a>Usare i dati
+Con i set di dati, è possibile eseguire una serie di attività di machine learning tramite l'integrazione perfetta con le funzionalità di Azure Machine Learning.With datasets, you can accomplish a number of machine learning tasks through seamless integration with Azure Machine Learning features. 
 
-Con i set di elementi, è possibile eseguire numerose attività di machine learning grazie a una perfetta integrazione con Azure Machine Learning funzionalità. 
-
-+ Eseguire il [training di modelli di Machine Learning](how-to-train-with-datasets.md).
-+ Utilizzare set di impostazioni in 
-     + [esperimenti di Machine Learning automatici](how-to-use-automated-ml-for-ml-models.md)
-     + [finestra di progettazione](tutorial-designer-automobile-price-train-score.md#import-data) 
-+ Accedere ai set di impostazioni per l'assegnazione dei punteggi con l'inferenza batch nelle [pipeline di Machine Learning](how-to-create-your-first-pipeline.md).
-+ Creare un [progetto di assegnazione di etichette dati](#label).
-+ Configurare un monitoraggio del set di [dati](#drift) per il rilevamento della deriva.
-
-<a name="open"></a>
-
-## <a name="azure-open-datasets"></a>Set di dati Open di Azure
-
-[Azure Open Datasets](how-to-create-register-datasets.md#create-datasets-with-azure-open-datasets) include set di dati pubblici curati che è possibile usare per aggiungere caratteristiche specifiche dello scenario alle soluzioni di Machine Learning e realizzare modelli più accurati. I set di impostazioni aperti si trovano nel cloud in Microsoft Azure e sono integrati nel Azure Machine Learning. È anche possibile accedere ai set di dati tramite API e usarli in altri prodotti, come Power BI e Azure Data Factory.
-
-I set di dati aperti di Azure includono i dati di dominio pubblico per il meteo, il censimento, le festività, la sicurezza pubblica e la posizione che consentono di eseguire il training di modelli di machine learning e di arricchire le soluzioni È anche possibile condividere i propri set di dati pubblici in Azure Open Datasets.
++ Creare un [progetto di etichettatura dati.](#label)
++ Addestrare i modelli di apprendimento automatico:
+     + [esperimenti automatizzati di ML](how-to-use-automated-ml-for-ml-models.md)
+     + il [progettista](tutorial-designer-automobile-price-train-score.md#import-data)
+     + [Notebook](how-to-train-with-datasets.md)
+     + [Pipeline di Azure Machine LearningAzure Machine Learning pipelines](how-to-create-your-first-pipeline.md)
++ Accedere ai set di dati per il punteggio con [l'inferenza](how-to-use-parallel-run-step.md) di batch nelle pipeline di [Machine Learning.](how-to-create-your-first-pipeline.md)
++ Configurare un monitoraggio del set di dati per il rilevamento della deriva dei [dati.](#drift)
 
 <a name="label"></a>
 
-## <a name="data-labeling"></a>Assegnazione di etichette ai dati
+## <a name="data-labeling"></a>Etichettatura dei dati
 
-L'etichettatura di grandi quantità di dati nei progetti di Machine Learning è spesso stata considerata un'attività molto complessa. Quelli con un componente visione artificiale, ad esempio la classificazione delle immagini o il rilevamento di oggetti, richiedono in genere migliaia di immagini e etichette corrispondenti.
+L'etichettatura di grandi quantità di dati nei progetti di Machine Learning è spesso stata considerata un'attività molto complessa. Quelli con un componente di visione artificiale, come la classificazione delle immagini o il rilevamento di oggetti, generalmente richiedono migliaia di immagini ed etichette corrispondenti.
 
 Azure Machine Learning offre una posizione centrale per creare, gestire e monitorare i progetti di etichettatura. I progetti di etichettatura consentono di coordinare i dati, le etichette e i membri del team, per una gestione più efficiente delle attività di etichettatura. Le attività attualmente supportate sono la classificazione delle immagini, multi-etichetta o multi-classe, e l'identificazione di oggetti tramite i riquadri di selezione.
 
-+ Creare un [progetto di assegnazione di etichette dei dati](how-to-create-labeling-projects.md)e restituire un set di dati da usare negli esperimenti di machine learning.
+Creare un progetto di etichettatura dei dati e generare un set di dati da usare negli esperimenti di Machine Learning.Create a [data labeling project](how-to-create-labeling-projects.md), and output a dataset for use in machine learning experiments.
 
 <a name="drift"></a>
 
-## <a name="data-drift"></a>Drift dei dati
+## <a name="data-drift"></a>Deriva dei dati
 
-Nel contesto di Machine Learning, la deriva dei dati è la modifica dei dati di input del modello che comporta un peggioramento delle prestazioni del modello. Si tratta di uno dei motivi principali per cui l'accuratezza del modello diminuisce nel tempo, di conseguenza il monitoraggio della deriva dei dati consente di rilevare problemi di prestazioni del modello.
-Vedere l'articolo [creare un monitor del set](how-to-monitor-datasets.md) di dati per altre informazioni su come rilevare e inviare avvisi ai dati in un set di dati.
+Nel contesto dell'apprendimento automatico, la deriva dei dati è la modifica dei dati di input del modello che porta alla riduzione delle prestazioni del modello. È uno dei motivi principali per cui l'accuratezza del modello si riduce nel tempo, quindi il monitoraggio della deriva dei dati aiuta a rilevare i problemi di prestazioni del modello.
+
+Per altre informazioni su come rilevare e avvisare i dati derivanti sui nuovi dati in un set di dati, vedere l'articolo [Creare un monitoraggio del set](how-to-monitor-datasets.md) di dati.
 
 ## <a name="next-steps"></a>Passaggi successivi 
 
-+ Creare un set di dati in Azure Machine Learning Studio o con Python SDK, [seguire questa procedura.](how-to-create-register-datasets.md)
-+ Provare gli esempi di training del set di dati con i [notebook di esempio](https://aka.ms/dataset-tutorial).
-+ Per esempi di deriva dei dati, vedere questa [esercitazione sulla deviazione dei dati](https://aka.ms/datadrift-notebook).
++ Creare un set di dati in Azure Machine Learning Studio o con Python SDK [usando questi passaggi.](how-to-create-register-datasets.md)
++ Provare esempi di training sui set di dati con [i blocchi appunti di esempio.](https://aka.ms/dataset-tutorial)
++ Per esempi di deriva dei dati, vedere questa [esercitazione sulla deriva dei dati](https://aka.ms/datadrift-notebook).

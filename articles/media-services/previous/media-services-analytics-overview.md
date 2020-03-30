@@ -16,18 +16,18 @@ ms.date: 11/13/2019
 ms.author: juliako
 ms.reviewer: milanga; johndeu
 ms.openlocfilehash: ab1eba3de474d9ff985e62f491c24fa63be0fa63
-ms.sourcegitcommit: a460fdc19d6d7af6d2b5a4527e1b5c4e0c49942f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77069626"
 ---
 # <a name="media-analytics-on-the-media-services-platform"></a>Analisi Servizi multimediali nella piattaforma Servizi multimediali 
 
-## <a name="retirement-plans"></a>Piani di ritiro
+## <a name="retirement-plans"></a>Piani di pensionamento
 
 > [!IMPORTANT]
-> Alcuni processori di contenuti multimediali sono in fase di ritiro. Per le date di ritiro e altre informazioni, vedere l'argomento [componenti legacy](legacy-components.md) . 
+> Alcuni processori multimediali vengono ritirati. Per le date di pensionamento e ulteriori informazioni, vedere l'argomento relativo ai [componenti legacy.](legacy-components.md) 
 
 ## <a name="overview"></a>Panoramica
 
@@ -45,8 +45,8 @@ I processori di contenuti multimediali di Analisi Servizi multimediali producono
 
 ## <a name="media-analytics-services"></a>Servizi di Analisi Servizi multimediali
 
-### <a name="indexer"></a>Indicizzatore
-Azure Media Indexer consente di rendere disponibili per la ricerca i contenuti, oltre a generare tracce per i sottotitoli codificati. Per informazioni dettagliate ed esempi, vedere [indicizzazione di file multimediali con Azure Media Indexer](media-services-index-content.md).
+### <a name="indexer"></a>Indexer
+Azure Media Indexer consente di rendere disponibili per la ricerca i contenuti, oltre a generare tracce per i sottotitoli codificati. Per informazioni dettagliate ed esempi, vedere [Indicizzazione di file multimediali con l'indicizzatore multimediale](media-services-index-content.md)di Azure.
 
 ### <a name="motion-detector"></a>Motion Detector
 È possibile usare Motion Detector per rilevare i movimenti in un video con sfondi fissi. Questo rende possibile per verificare la presenza di falsi positivi in eventi di movimento rilevati da videocamere di sorveglianza. Per informazioni dettagliate ed esempi, vedere [Rilevamento dei movimenti per Analisi Servizi multimediali di Azure](media-services-motion-detection.md).
@@ -67,7 +67,7 @@ Azure Content Moderator consente di usare funzionalità di moderazione automatic
 ## <a name="common-scenarios"></a>Scenari comuni
 Analisi Servii multimediali può aiutare le organizzazioni e le aziende a scoprire nuovi orizzonti nel mondo dei video e gestire più efficacemente grandi volumi di contenuti video. Di seguito sono descritti diversi scenari:
 
-* **Call center**. Anche con l'avvento dei social media, i call center dedicati ai clienti continuano a ospitare un'alta percentuale delle transazioni del servizio clienti. In questi dati audio sono codificate numerose informazioni sui clienti che possono essere analizzate per ottenere una maggiore soddisfazione del cliente. Con Media Indexer, le organizzazioni possono estrarre il testo e creare indici di ricerca e dashboard. Possono quindi estrarre informazioni su reclami comuni, origini dei reclami e altri dati rilevanti.
+* **Call Center**. Anche con l'avvento dei social media, i call center dedicati ai clienti continuano a ospitare un'alta percentuale delle transazioni del servizio clienti. In questi dati audio sono codificate numerose informazioni sui clienti che possono essere analizzate per ottenere una maggiore soddisfazione del cliente. Con Media Indexer, le organizzazioni possono estrarre il testo e creare indici di ricerca e dashboard. Possono quindi estrarre informazioni su reclami comuni, origini dei reclami e altri dati rilevanti.
 * **Moderazione dei contenuti generati dall'utente**. Molte organizzazioni, dalle agenzie di stampa ai dipartimenti di polizia, dispongono di portali pubblici che accettano file multimediali generati dagli utenti, ad esempio immagini e video. A causa di eventi imprevisti, il volume dei contenuti potrebbe raggiungere il limite. In questi scenari è difficile eseguire un efficace controllo manuale sull'adeguatezza dei contenuti. I clienti possono fare affidamento sul servizio di moderazione dei contenuti per concentrare l'attenzione sui contenuti appropriati.
 
 ## <a name="media-analytics-media-processors"></a>Processori di contenuti multimediali di Analisi Servizi multimediali

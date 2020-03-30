@@ -1,6 +1,6 @@
 ---
-title: Evento di avvio ridimensionamento pool Azure Batch
-description: Riferimento per l’evento di avvio ridimensionamento del pool di batch. Esempio mostra il corpo di un evento di avvio ridimensionamento pool per un pool che ridimensiona da 0 a 2 nodi con ridimensionamento manuale.
+title: Evento iniziale di ridimensionamento del pool batch di Azure BatchAzure Batch pool resize start event
+description: Riferimento per l’evento di avvio ridimensionamento del pool di batch. L'esempio mostra il corpo di un evento di avvio di ridimensionamento del pool per un pool che ridimensiona da 0 a 2 nodi con un ridimensionamento manuale.
 services: batch
 author: LauraBrenner
 manager: evansma
@@ -12,10 +12,10 @@ ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: labrenne
 ms.openlocfilehash: 1866e51da30fe5ed148d019c8720755e99757df7
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77023583"
 ---
 # <a name="pool-resize-start-event"></a>Evento di avvio ridimensionamento pool
@@ -37,10 +37,10 @@ ms.locfileid: "77023583"
 }
 ```
 
-|Elemento|Tipo|Note|
+|Elemento|Type|Note|
 |-------------|----------|-----------|
 |`id`|string|ID del pool.|
-|`nodeDeallocationOption`|string|Specifica quando è possibile rimuovere nodi dal pool, in caso di riduzione delle dimensioni del pool.<br /><br /> I valori possibili sono:<br /><br /> **requeue**: termina le attività in esecuzione e le reinserisce nella coda. Le attività verranno eseguite di nuovo quando il processo viene abilitato. I nodi vengono rimossi non appena le attività sono state terminate.<br /><br /> **terminate**: termina le attività in esecuzione. Le attività non verranno più eseguite. I nodi vengono rimossi non appena le attività sono state terminate.<br /><br /> **taskcompletion**: consente il completamento delle attività attualmente in esecuzione. Non viene pianificata alcuna nuova attività durante l'attesa. I nodi vengono rimossi al completamento di tutte le attività.<br /><br /> **Retaineddata**: consente il completamento delle attività attualmente in esecuzione e quindi attende che scadano tutti i periodi di conservazione dei dati delle attività. Non viene pianificata alcuna nuova attività durante l'attesa. I nodi vengono rimossi alla scadenza di tutti i periodi di conservazione dati delle attività.<br /><br /> Il valore predefinito è requeue.<br /><br /> In caso di aumento delle dimensioni del pool, il valore è impostato su **invalid**.|
+|`nodeDeallocationOption`|string|Specifica quando è possibile rimuovere nodi dal pool, in caso di riduzione delle dimensioni del pool.<br /><br /> I valori possibili sono:<br /><br /> **requeue**: termina le attività in esecuzione e le reinserisce nella coda. Le attività verranno eseguite di nuovo quando il processo viene abilitato. I nodi vengono rimossi non appena le attività sono state terminate.<br /><br /> **terminate**: termina le attività in esecuzione. Le attività non verranno più eseguite. I nodi vengono rimossi non appena le attività sono state terminate.<br /><br /> **taskcompletion**: consente il completamento delle attività attualmente in esecuzione. Non viene pianificata alcuna nuova attività durante l'attesa. I nodi vengono rimossi al completamento di tutte le attività.<br /><br /> **Dati conservati:** consente il completamento delle attività attualmente in esecuzione, quindi attendere la scadenza di tutti i periodi di conservazione dei dati delle attività. Non viene pianificata alcuna nuova attività durante l'attesa. I nodi vengono rimossi alla scadenza di tutti i periodi di conservazione dati delle attività.<br /><br /> Il valore predefinito è requeue.<br /><br /> In caso di aumento delle dimensioni del pool, il valore è impostato su **invalid**.|
 |`currentDedicatedNodes`|Int32|Numero di nodi di calcolo attualmente assegnati al pool.|
 |`targetDedicatedNodes`|Int32|Numero di nodi di calcolo richiesti per il pool.|
 |`currentLowPriorityNodes`|Int32|Numero di nodi di calcolo attualmente assegnati al pool.|

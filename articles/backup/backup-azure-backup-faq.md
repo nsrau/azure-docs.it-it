@@ -3,12 +3,12 @@ title: Risposte alle domande comuni
 description: 'Risposte alle domande frequenti su: funzionalità di Backup di Azure, inclusi insieme di credenziali di Servizi di ripristino, elementi di cui è possibile eseguire il backup, funzionamento, crittografia e limiti. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: db09a31154b680097b6b46e8f9e2cce2ad09d108
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.openlocfilehash: 039666c4b54da6ac5444f5aa5acda5f1bb438782
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78255029"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80156056"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Domande frequenti su Backup di Azure
 
@@ -22,7 +22,7 @@ Sì. Si possono creare fino a 500 insiemi di credenziali di Servizi di ripristin
 
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault"></a>Esistono limiti al numero di server/computer che possono essere registrati in ogni insieme di credenziali?
 
-È possibile registrare fino a 1000 macchine virtuali di Azure per insieme di credenziali. Se si usa l'agente di Backup di Microsoft Azure, è possibile registrare fino a 50 agenti di Backup di Microsoft Azure per insieme di credenziali. È possibile registrare 50 server MAB/server DPM in un insieme di credenziali.
+È possibile registrare fino a 1000 macchine virtuali di Azure per insieme di credenziali. Se si usa l'agente di backup di Microsoft Azure, è possibile registrare fino a 50 agenti MARS per ogni insieme di credenziali. È inoltre possibile registrare 50 server MABS/server DPM in un insieme di credenziali.
 
 ### <a name="how-many-datasourcesitems-can-be-protected-in-a-vault"></a>Quante origini dati o quanti elementi è possibile proteggere in un insieme di credenziali?
 
@@ -75,7 +75,7 @@ Sì.
 
 Backup di Azure supporta i sistemi operativi per il backup di file, cartelle e applicazioni protetti tramite server di Backup di Azure e DPM.
 
-**Sistema operativo** | **SKU** | **Dettagli**
+**Os** | **Sku** | **Dettagli**
 --- | --- | ---
 Workstation | |
 Windows 10 a 64 bit | Enterprise, Pro, Home | I computer devono eseguire i Service Pack e gli aggiornamenti più recenti.
@@ -116,14 +116,14 @@ La tabella seguente illustra come vengono determinate le dimensioni di ogni orig
 **Origine dati** | **Dettagli**
 --- | ---
 Volume |Quantità di dati sottoposti a backup della macchina virtuale a volume singolo sottoposta a backup.
-database di SQL Server |Dimensioni di un singolo database SQL di cui viene eseguito il backup.
+Database SQL Server |Dimensioni di un singolo database SQL di cui viene eseguito il backup.
 SharePoint | Somma dei database di contenuto e configurazione in una farm di SharePoint di cui viene eseguito il backup.
 Exchange |Somma di tutti i database di Exchange in un server di Exchange di cui viene eseguito il backup.
 Stato del sistema/ripristino bare metal |Ogni copia del ripristino bare metal o dello stato del sistema del computer di cui viene eseguito il backup.
 
 ### <a name="is-there-a-limit-on-the-amount-of-data-backed-up-using-a-recovery-services-vault"></a>È previsto un limite per la quantità di dati sottoposti a backup con un insieme di credenziali di Servizi di ripristino?
 
-Non esiste alcun limite alla quantità totale di dati di cui è possibile eseguire il backup usando un insieme di credenziali di servizi di ripristino. Le singole origini dati, diverse dalle macchine virtuali di Azure, possono avere una dimensione massima di 54.400 GB. Per altre informazioni sui limiti, vedere la [sezione limiti dell'insieme di credenziali nella matrice di supporto](https://docs.microsoft.com/azure/backup/backup-support-matrix#vault-support).
+Non esiste alcun limite alla quantità totale di dati di cui è possibile eseguire il backup utilizzando un insieme di credenziali di Servizi di ripristino. Le singole origini dati (diverse dalle macchine virtuali di Azure) possono avere una dimensione massima di 54.400 GB. Per ulteriori informazioni sui limiti, vedere la [sezione limiti dell'insieme](https://docs.microsoft.com/azure/backup/backup-support-matrix#vault-support)di credenziali nella matrice di supporto.
 
 ### <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-selected-for-backup"></a>Perché le dimensioni dei dati trasferiti nell'insieme di credenziali di Servizi di ripristino sono inferiori a quelle dei dati selezionati per il backup?
 

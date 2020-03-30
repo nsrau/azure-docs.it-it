@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Edge e IoT Central di Azure | Microsoft Docs
-description: Informazioni su come usare Azure IoT Edge con un'applicazione IoT Central.
+title: Azure IoT Edge e Azure IoT Central Documenti Microsoft
+description: Informazioni su come usare Azure IoT Edge con un'applicazione IoT Central.Understand how to use Azure IoT Edge with an IoT Central application.
 author: dominicbetts
 ms.author: dobett
 ms.date: 12/12/2019
@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.openlocfilehash: 69660152458de26e9dbcbf1f50db6ce6824351d0
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77027069"
 ---
-# <a name="connect-azure-iot-edge-devices-to-an-azure-iot-central-application"></a>Connettere dispositivi Azure IoT Edge a un'applicazione Azure IoT Central
+# <a name="connect-azure-iot-edge-devices-to-an-azure-iot-central-application"></a>Connettere i dispositivi Azure IoT Edge a un'applicazione Azure IoT CentralConnect Azure IoT Edge devices to an Azure IoT Central application
 
 IoT Edge è costituito da tra componenti:
 
@@ -22,7 +22,7 @@ IoT Edge è costituito da tra componenti:
 * Il **runtime IoT Edge** viene eseguito in ogni dispositivo IoT Edge e gestisce i moduli distribuiti in ogni dispositivo.
 * Un'**interfaccia basata sul cloud** consente di monitorare e gestire in remoto i dispositivi IoT Edge. IoT Central è l'interfaccia cloud.
 
-Un dispositivo **Azure IoT Edge** può essere un dispositivo gateway con dispositivi downstream che si connettono al dispositivo IoT Edge. Questo articolo condivide altre informazioni sui modelli di connettività dei dispositivi downstream.
+Un dispositivo **Azure IoT Edge** può essere un dispositivo gateway con dispositivi downstream che si connettono al dispositivo IoT Edge. In questo articolo vengono necessarie ulteriori informazioni sui modelli di connettività dei dispositivi downstream.
 
 Un **modello di dispositivo** definisce le funzionalità del dispositivo e dei moduli IoT Edge. Le funzionalità includono i dati di telemetria inviati dal modulo, le proprietà del modulo e i comandi a cui un modulo risponde.
 
@@ -52,11 +52,11 @@ A livello generale, un manifesto della distribuzione è un elenco di moduli geme
 
 Usare Visual Studio Code per creare un manifesto della distribuzione. Per altre informazioni, vedere [Azure IoT Edge per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge).
 
-In IoT Central di Azure è possibile importare un manifesto di distribuzione per creare un modello di dispositivo. Il diagramma di flusso seguente mostra il ciclo di vita del manifesto della distribuzione in IoT Central.
+In Azure IoT Central è possibile importare un manifesto di distribuzione per creare un modello di dispositivo. Il diagramma di flusso seguente mostra il ciclo di vita del manifesto della distribuzione in IoT Central.
 
 ![Diagramma di flusso del ciclo di vita del manifesto della distribuzione](./media/concepts-iot-edge/dmflow.png)
 
-Plug and Play di Internet delle cose (anteprima) modella un dispositivo IoT Edge come indicato di seguito:
+IoT Plug and Play (anteprima) modella un dispositivo IoT Edge come segue:
 
 * Ogni modello di dispositivo IoT Edge ha un modello di funzionalità di dispositivo.
 * Per ogni modulo personalizzato elencato nel manifesto della distribuzione viene generato un modello di funzionalità del modulo.
@@ -66,10 +66,10 @@ Plug and Play di Internet delle cose (anteprima) modella un dispositivo IoT Edge
 
 ![Diagramma della creazione del modello IoT Edge](./media/concepts-iot-edge/edgemodelling.png)
 
-## <a name="iot-edge-gateway-devices"></a>Dispositivi IoT Edge Gateway
+## <a name="iot-edge-gateway-devices"></a>Dispositivi gateway IoT Edge
 
 Se il dispositivo IoT Edge è stato selezionato per fungere da dispositivo gateway, è possibile aggiungere relazioni downstream ai modelli di funzionalità di dispositivo per i dispositivi da connettere al dispositivo gateway.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che si conoscono i modelli di applicazione IoT Central, iniziare [creando un'applicazione IoT Central](quick-deploy-iot-central.md).
+Ora che si conosce i modelli di applicazione IoT Central, iniziare [a creare un'applicazione centrale IoT](quick-deploy-iot-central.md).

@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: provisioning utenti-LinkedIn Sales Navigator, Azure AD'
+title: 'Esercitazione: Provisioning degli utenti - LinkedIn Sales Navigator, Azure ADTutorial: User provisioning - LinkedIn Sales Navigator, Azure AD'
 description: Informazioni su come configurare Azure Active Directory per effettuare automaticamente il provisioning e il deprovisioning degli account utente in LinkedIn Sales Navigator.
 services: active-directory
 documentationcenter: ''
@@ -16,17 +16,17 @@ ms.date: 03/28/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f789f82288c9820214c4ab32c271bb547945d4d1
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77057380"
 ---
 # <a name="tutorial-configure-linkedin-sales-navigator-for-automatic-user-provisioning"></a>Esercitazione: Configurare LinkedIn Sales Navigator per il provisioning utenti automatico
 
 Questa esercitazione descrive le procedure da eseguire in LinkedIn Sales Navigator e Azure AD per effettuare automaticamente il provisioning e il deprovisioning degli account utente da Azure AD a LinkedIn Sales Navigator.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
@@ -93,7 +93,7 @@ Il primo passaggio consiste nel recuperare il token di accesso di LinkedIn. Un a
 
 9. Selezionare l'istanza di LinkedIn Sales Navigator e quindi la scheda **Provisioning**.
 
-10. Impostare **Modalità di provisioning** su **Automatico**.
+10. Impostare la **modalità di provisioning** su **Automatico**.
 
     ![Provisioning in LinkedIn Sales Navigator](./media/linkedinsalesnavigator-provisioning-tutorial/linkedin_3.PNG)
 
@@ -123,5 +123,5 @@ Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Gestione del provisioning degli account utente per app aziendali](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
+* [Gestione del provisioning degli account utente per le app aziendali](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Che cos'è l'accesso alle applicazioni e l'accesso Single Sign-On con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

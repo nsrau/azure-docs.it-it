@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: barclayn
-ms.openlocfilehash: 541039c82d5ea21c43a847da2710bef4162a2bc7
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 5d8fd578c5539c83e37a232d8425ad8bdf22129b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79243536"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80125058"
 ---
 # <a name="azure-encryption-overview"></a>Panoramica della crittografia di Azure
 
@@ -40,7 +40,7 @@ Azure supporta vari modelli di crittografia, tra cui la crittografia lato server
 
 ### <a name="client-side-encryption"></a>crittografia lato client
 
-La crittografia lato client viene eseguita all'esterno di Azure. Sono inclusi:
+La crittografia lato client viene eseguita all'esterno di Azure.  Sono inclusi:
 
 - I dati crittografati da un'applicazione in esecuzione nel data center del cliente o da un'applicazione di servizio.
 - I dati sono già crittografati quando vengono ricevuti da Azure.
@@ -85,11 +85,11 @@ Per altre informazioni sulla crittografia lato client con Key Vault e per inizia
 
 ### <a name="encryption-of-data-at-rest-with-azure-sql-database"></a>Crittografia dei dati inattivi con il database SQL di Azure
 
-Il [database SQL di Azure](../../sql-database/sql-database-technical-overview.md) è un servizio di database relazionale generico di Azure che supporta strutture come dati relazionali, JSON, dati spaziali e XML. Il database SQL supporta sia la crittografia lato server tramite la funzionalità Transparent Data Encryption (TDE) sia la crittografia lato client tramite la funzionalità Always Encrypted.
+[Il database SQL di Azure](../../sql-database/sql-database-technical-overview.md) è un servizio di database relazionale generico in Azure che supporta strutture quali dati relazionali, JSON, spaziali e XML. Il database SQL supporta sia la crittografia lato server tramite la funzionalità Transparent Data Encryption (TDE) sia la crittografia lato client tramite la funzionalità Always Encrypted.
 
 #### <a name="transparent-data-encryption"></a>Transparent Data Encryption
 
-La tecnologia [Transparent Data Encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) viene usata per crittografare i file di dati di [SQL Server](https://www.microsoft.com/sql-server/sql-server-2016), del [database SQL di Azure](../../sql-database/sql-database-technical-overview.md) e di [Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) in tempo reale, usando una chiave di crittografia del database (DEK) archiviata nel record di avvio del database per assicurare la disponibilità durante il ripristino.
+La tecnologia [Transparent Data Encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) viene usata per crittografare i file di dati di [SQL Server](https://www.microsoft.com/sql-server/sql-server-2016), del [database SQL di Azure](../../sql-database/sql-database-technical-overview.md) e di [Azure SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) in tempo reale, usando una chiave di crittografia del database (DEK) archiviata nel record di avvio del database per assicurare la disponibilità durante il ripristino.
 
 La tecnologia TDE protegge i file di dati e di log usando gli algoritmi di crittografia AES e 3DES (Triple Data Encryption Standard). La crittografia del file di database viene eseguita a livello di pagina. Le pagine in un database crittografato vengono crittografate prima di essere scritte sul disco e decrittografate quando vengono lette in memoria. La tecnologia Transparent Data Encryption è ora abilitata per impostazione predefinita nei nuovi database SQL di Azure.
 
@@ -105,7 +105,7 @@ La crittografia CLE include funzioni predefinite che consentono di crittografare
 
 ### <a name="cosmos-db-database-encryption"></a>Crittografia del database Cosmos DB
 
-[Azure Cosmos DB](../../cosmos-db/database-encryption-at-rest.md) è il database multimodello distribuito a livello globale di Microsoft. I dati utente archiviati in Cosmos DB nella memoria non volatile (unità SSD) vengono crittografati per impostazione predefinita. Non sono presenti controlli per attivare o disattivare la crittografia. La crittografia dei dati inattivi viene implementata attraverso una serie di tecnologie di protezione, inclusi i sistemi di archiviazione protetta delle chiavi, le reti crittografate e le API di crittografia. Le chiavi di crittografia vengono gestite da Microsoft e ruotate in base alle linee guida interne di Microsoft.
+[Azure Cosmos DB](../../cosmos-db/database-encryption-at-rest.md) è il database multimodello distribuito a livello globale da Microsoft.Azure Cosmos DB is Microsoft's Global ly distributed, multi-model database. I dati utente archiviati in Cosmos DB nella memoria non volatile (unità SSD) vengono crittografati per impostazione predefinita. Non sono presenti controlli per attivare o disattivare la crittografia. La crittografia dei dati inattivi viene implementata attraverso una serie di tecnologie di protezione, inclusi i sistemi di archiviazione protetta delle chiavi, le reti crittografate e le API di crittografia. Le chiavi di crittografia vengono gestite da Microsoft e ruotate in base alle linee guida interne di Microsoft.
 
 ### <a name="at-rest-encryption-in-data-lake"></a>Crittografia di dati inattivi in Data Lake
 
@@ -183,7 +183,7 @@ Per altre informazioni sulle connessioni VPN da punto a sito per reti virtuali d
 
 Per altre informazioni, vedere:
 
-[Creare una connessione da sito a sito nel portale di Azure](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+[Creare una connessione da sito a sito nel portale di AzureCreate a site-to-site connection in the Azure portal](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 
 [Creare una connessione da sito a sito in PowerShell](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
 

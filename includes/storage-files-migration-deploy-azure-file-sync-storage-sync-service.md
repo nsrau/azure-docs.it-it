@@ -1,27 +1,27 @@
 ---
-title: Distribuire un servizio di sincronizzazione archiviazione
-description: Distribuzione della risorsa Sincronizzazione file di Azure cloud. Un servizio di sincronizzazione archiviazione. Un blocco di testo comune, condiviso tra i documenti di migrazione.
+title: Distribuire un servizio di sincronizzazione archiviazioneDeploy a Storage Sync Service
+description: Distribuzione della risorsa cloud di Sincronizzazione file di Azure.Deploying the Azure File Sync cloud resource. Un servizio di sincronizzazione archiviazione. Blocco di testo comune, condiviso tra documenti di migrazione.
 author: fauhse
 ms.service: storage
 ms.topic: conceptual
 ms.date: 2/20/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 4468d8c6b57b38bdbaaa01208cfc4915f734f6bb
-ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
+ms.openlocfilehash: fe74bae95784dcb63a80ee7e280c02de2eadeb5d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78209454"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80124733"
 ---
-In questo passaggio sono necessarie le credenziali della sottoscrizione di Azure. La sottoscrizione di Azure usata può essere diversa da quella usata per StorSimple.
+In questo passaggio sono necessarie le credenziali della sottoscrizione di Azure.In this step, you need your Azure subscription credentials.
 
-La risorsa principale per configurare Sincronizzazione file di Azure viene chiamata "servizio di sincronizzazione archiviazione".
-È consigliabile distribuirne solo uno per tutti i server della società che sincronizzano lo stesso set di file ora o in futuro. Se sono presenti più appliance StorSimple, è possibile creare una risorsa del servizio di sincronizzazione archiviazione per ognuno di essi. Tuttavia, è consigliabile creare più servizi di sincronizzazione archiviazione se sono presenti Set distinti di server che non devono mai scambiare dati. In caso contrario, è consigliabile un solo servizio di sincronizzazione archiviazione.
+La risorsa principale per configurare Sincronizzazione file di Azure viene definita "Servizio di sincronizzazione archiviazione".
+È consigliabile distribuire solo uno per tutti i server della società che sincronizzano lo stesso set di file ora o in futuro. Creare più servizi di sincronizzazione archiviazione solo se si dispone di set distinti di server che non devono mai scambiare dati. (ad esempio: sincronizzare la stessa condivisione file di Azure). In caso contrario, è consigliabile utilizzare un singolo servizio di sincronizzazione archiviazione.
 
-Scegliere un'area di Azure per il servizio di sincronizzazione archiviazione vicino al percorso dell'ufficio. Tutte le altre risorse cloud devono essere distribuite nella stessa area.
-La procedura consigliata consiste nel creare un nuovo gruppo di risorse nella sottoscrizione per ospitare le risorse di sincronizzazione e archiviazione per una gestione più semplice.
+Scegliere un'area di Azure per il servizio di sincronizzazione archiviazione vicina alla sede dell'ufficio. Tutte le altre risorse cloud devono essere distribuite nella stessa area.
+Per semplificare la gestione, creare un nuovo gruppo di risorse nella sottoscrizione che ospita le risorse di sincronizzazione e archiviazione.
 
-Nell'articolo seguente viene descritto come distribuire un servizio di sincronizzazione archiviazione. Seguire questa parte del documento. Nei passaggi successivi saranno disponibili collegamenti ad altre sottosezioni di questo documento.
+L'articolo seguente descrive come distribuire un servizio di sincronizzazione archiviazione. Segui solo questa parte del documento. Ci saranno collegamenti ad altre sottosezioni di questo documento nei passaggi successivi.
 
 [Informazioni su come distribuire un servizio di sincronizzazione archiviazione.](../articles/storage/files/storage-sync-files-deployment-guide.md#deploy-the-storage-sync-service)
