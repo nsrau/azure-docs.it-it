@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/24/2019
 ms.openlocfilehash: 19cfd5d8ed4100048c270fb41e5e54a920c61516
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75548837"
 ---
 # <a name="overview-of-apache-spark-structured-streaming"></a>Panoramica di Apache Spark Structured Streaming
@@ -36,7 +36,7 @@ Spark Structured Streaming rappresenta un flusso di dati come tabella senza limi
 
 In Structured Streaming i dati arrivano nel sistema e vengono immediatamente inseriti in una tabella di input. Si scriveranno query (usando le API DataFrame e Dataset) che eseguono operazioni su questa tabella di input. L'output della query produce un'altra tabella, denominata *tabella dei risultati*. La tabella dei risultati contiene i risultati della query, da cui è possibile ricavare i dati per un archivio dati esterno, come un database relazionale. Il periodo in cui i dati vengono elaborati dalla tabella di input viene controllato dall'*intervallo di trigger*. Per impostazione predefinita, l'intervallo di trigger è zero e di conseguenza Structured Streaming tenta di elaborare i dati non appena arrivano. In pratica, questo significa che non appena Structured Streaming ha completato l'elaborazione dell'esecuzione della query precedente, avvia un'altra elaborazione, eseguita su eventuali nuovi dati ricevuti. È possibile configurare il trigger per l'esecuzione in base a un intervallo specifico, in modo che i dati di streaming vengano elaborati in batch basati sul tempo.
 
-I dati nelle tabelle dei risultati possono contenere solo i dati nuovi dall'ultima elaborazione della query (*modalità Append*) oppure la tabella può essere aggiornata ogni volta che sono presenti nuovi dati, in modo che la tabella includa tutti i dati di output dall'inizio della query di streaming (*modalità completa*).
+I dati nelle tabelle dei risultati possono contenere solo i dati nuovi dall'ultima volta che la query è stata elaborata (*modalità di accodamento*) oppure la tabella può essere aggiornata ogni volta che sono presenti nuovi dati in modo che la tabella includa tutti i dati di output dall'inizio della query di streaming (*modalità completa*).
 
 ### <a name="append-mode"></a>Modalità Append
 
@@ -50,9 +50,9 @@ Quando si usa la modalità Append, la query applica proiezioni (selezionando le 
 
 ### <a name="complete-mode"></a>Modalità completa
 
-Si consideri lo stesso scenario, questa volta usando la modalità completa. In modalità completa l'intera tabella di output viene aggiornata a ogni trigger in modo da includere non solo i dati dall'esecuzione del trigger più recente, ma da tutte le esecuzioni. È possibile usare la modalità completa per copiare i dati inalterati dalla tabella di input alla tabella dei risultati. A ogni esecuzione attivata, le righe dei nuovi risultati vengono visualizzate insieme a tutte le righe precedenti. La tabella dei risultati di output finirà per archiviare tutti i dati raccolti dall'inizio della query e a un certo punto la memoria si esaurirà. La modalità completa è destinata all'uso con query di aggregazione che riepilogano in qualche modo i dati in ingresso, quindi in ogni trigger la tabella dei risultati viene aggiornata con un nuovo riepilogo.
+Si consideri lo stesso scenario, questa volta usando la modalità completa. In modalità completa l'intera tabella di output viene aggiornata a ogni trigger in modo da includere non solo i dati dall'esecuzione del trigger più recente, ma da tutte le esecuzioni. È possibile usare la modalità completa per copiare i dati inalterati dalla tabella di input alla tabella dei risultati. A ogni esecuzione attivata, le righe dei nuovi risultati vengono visualizzate insieme a tutte le righe precedenti. La tabella dei risultati di output finirà per archiviare tutti i dati raccolti dall'inizio della query e a un certo punto la memoria si esaurirà. La modalità completa è destinata all'uso con query di aggregazione che riepilogano i dati in ingresso in qualche modo, pertanto a ogni trigger la tabella dei risultati viene aggiornata con un nuovo riepilogo.
 
-Si supponga che finora ci siano dati di cinque secondi già elaborati ed è il momento di elaborare i dati per il sesto secondo. La tabella di input contiene eventi per l'ora 00.01 e l'ora 00.03. L'obiettivo di questa query di esempio è fornire la temperatura media del dispositivo ogni cinque secondi. L'implementazione di questa query applica un'aggregazione che, partendo da tutti i valori compresi in ogni finestra di cinque secondi, calcola la media della temperatura e produce una riga per la temperatura media nell'intervallo specifico. Alla fine della prima finestra di cinque secondi, sono presenti due tuple: (00.01, 1, 95) e (00.03, 1, 98). Di conseguenza, per la finestra 00.00-00.05 l'aggregazione produce una tupla con la temperatura media di 96,5 gradi. Nella finestra successiva di 5 secondi è presente un solo punto dati all'ora 00:06, quindi la temperatura media risultante è 98 gradi. All'ora 00.10, se si usa la modalità completa, la tabella dei risultati include le righe per entrambe le finestre, 00.00-00.05 e 00.05-00.10, perché la query restituisce tutte le righe aggregate e non solo quelle nuove. Di conseguenza, la tabella dei risultati continua ad aumentare con l'aggiunta di nuove finestre.
+Si supponga che finora ci siano cinque secondi di dati già elaborati ed è il momento di elaborare i dati per il sesto secondo. La tabella di input contiene eventi per l'ora 00.01 e l'ora 00.03. L'obiettivo di questa query di esempio è fornire la temperatura media del dispositivo ogni cinque secondi. L'implementazione di questa query applica un'aggregazione che, partendo da tutti i valori compresi in ogni finestra di cinque secondi, calcola la media della temperatura e produce una riga per la temperatura media nell'intervallo specifico. Alla fine della prima finestra di cinque secondi, sono presenti due tuple: (00.01, 1, 95) e (00.03, 1, 98). Di conseguenza, per la finestra 00.00-00.05 l'aggregazione produce una tupla con la temperatura media di 96,5 gradi. Nella finestra successiva di 5 secondi, c'è un solo punto dati al momento 00:06, quindi la temperatura media risultante è di 98 gradi. All'ora 00.10, se si usa la modalità completa, la tabella dei risultati include le righe per entrambe le finestre, 00.00-00.05 e 00.05-00.10, perché la query restituisce tutte le righe aggregate e non solo quelle nuove. Di conseguenza, la tabella dei risultati continua ad aumentare con l'aggiunta di nuove finestre.
 
 ![Modalità completa di Structured Streaming](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming-complete-mode.png)
 
@@ -126,7 +126,7 @@ Per informazioni dettagliate sull'API di Spark Structured Streaming, nonché su 
 
 ## <a name="checkpointing-and-write-ahead-logs"></a>Checkpoint e log write-ahead
 
-Per offrire resilienza e tolleranza di errore, Structured Streaming usa *checkpoint* per garantire che l'elaborazione di flussi possa continuare senza interruzioni, anche in caso di errori dei nodi. In HDInsight Spark crea checkpoint in una risorsa di archiviazione durevole, ovvero in Archiviazione di Azure o Data Lake Storage. Questi checkpoint archiviano le informazioni sullo stato della query di streaming. Inoltre, Structured Streaming usa un *log write-ahead*. Il log write-ahead acquisisce i dati inseriti che sono stati ricevuti ma non ancora elaborati da una query. Se si verifica un errore e l'elaborazione viene riavviata da WAL, tutti gli eventi ricevuti dall'origine non vengono persi.
+Per offrire resilienza e tolleranza di errore, Structured Streaming usa *checkpoint* per garantire che l'elaborazione di flussi possa continuare senza interruzioni, anche in caso di errori dei nodi. In HDInsight Spark crea checkpoint in una risorsa di archiviazione durevole, ovvero in Archiviazione di Azure o Data Lake Storage. Questi checkpoint archiviano le informazioni sullo stato della query di streaming. Inoltre, Structured Streaming usa un *log write-ahead*. Il log write-ahead acquisisce i dati inseriti che sono stati ricevuti ma non ancora elaborati da una query. Se si verifica un errore e l'elaborazione viene riavviata dal WAL, gli eventi ricevuti dall'origine non vengono persi.
 
 ## <a name="deploying-spark-streaming-applications"></a>Distribuzione di applicazioni Spark Streaming
 

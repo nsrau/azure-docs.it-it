@@ -1,22 +1,22 @@
 ---
-title: Variabili di ambiente di Azure Service Fabric
-description: Informazioni sulle variabili di ambiente in Service Fabric di Azure. Contiene un riferimento a un elenco completo di variabili e dei relativi utilizzi.
+title: Variabili di ambiente di Azure Service FabricAzure Service Fabric environment variables
+description: Informazioni sulle variabili di ambiente in Azure Service Fabric.Learn about environment variables in Azure Service Fabric. Contiene un riferimento di un elenco completo di variabili e dei relativi utilizzi.
 author: mikkelhegn
 ms.topic: reference
 ms.date: 12/07/2017
 ms.author: mikhegn
 ms.openlocfilehash: b13522b1d9f2acd2aa3f7923c1b623fab696056d
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75645685"
 ---
 # <a name="service-fabric-environment-variables"></a>Variabili di ambiente di Service Fabric
 
 Service Fabric dispone di variabili di ambiente predefinite, impostate per ciascuna istanza di servizio. La tabella seguente include l'elenco completo delle variabili di ambiente:
 
-| Variabile di ambiente                         | Description                                                            | Esempio                                                              |
+| Variabile di ambiente                         | Descrizione                                                            | Esempio                                                              |
 |----------------------------------------------|------------------------------------------------------------------------|----------------------------------------------------------------------|
 | Fabric_ApplicationName                       | Nome URI dell'applicazione nell'infrastruttura                                 | fabric:/MyApplication                                                |
 | Fabric_CodePackageName                       | Nome del pacchetto di codice a cui appartiene il processo              | Codice                                                                 |

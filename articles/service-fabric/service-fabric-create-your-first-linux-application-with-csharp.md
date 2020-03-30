@@ -1,16 +1,16 @@
 ---
-title: Creare la prima app Service Fabric di Azure in Linux usandoC#
+title: 'Creare la prima app di Azure Service Fabric in Linux usando CCreate your first Azure Service Fabric app on Linux using C #'
 description: Informazioni su come creare e distribuire un'applicazione di Service Fabric con C# e .NET Core 2.0.
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.openlocfilehash: 202dde933b41a98c1c119f422d47cbdbb0be84ae
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75458128"
 ---
-# <a name="create-your-first-azure-service-fabric-application"></a>Crea la tua prima applicazione di Azure Service Fabric
+# <a name="create-your-first-azure-service-fabric-application"></a>Creare la prima applicazione di Azure Service Fabric
 > [!div class="op_single_selector"]
 > * [Java - Linux (Anteprima)](service-fabric-create-your-first-linux-application-with-java.md)
 > * [C# - Linux (Anteprima)](service-fabric-create-your-first-linux-application-with-csharp.md)
@@ -97,7 +97,7 @@ I progetti Actor non eseguono alcuna operazione in modo indipendente. Richiedono
 
 1. Eseguire lo script tramite l'utilità delle espressioni di controllo per visualizzare l'output del servizio Actor.
 
-   Nel caso di MAC OS X, è necessario copiare la cartella myactorsvcTestClient nella stessa posizione all'interno del contenitore eseguendo i comandi aggiuntivi seguenti.
+   In caso di MAC OS X, è necessario copiare la cartella myactorsvcTestClient nella stessa posizione all'interno del contenitore eseguendo i seguenti comandi aggiuntivi.
     
     ```bash
     docker cp  [first-four-digits-of-container-ID]:/home
@@ -123,7 +123,7 @@ Per aggiungere un altro servizio a un'applicazione già creata mediante `yo`, se
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Interagire con un cluster di Service Fabric usando l'interfaccia della riga di comando di Service Fabric](service-fabric-cli.md)
-* Informazioni sulle [opzioni di supporto di Service Fabric](service-fabric-support.md)
+* Informazioni sulle opzioni di supporto di [Service Fabric](service-fabric-support.md)
 * [Introduzione all'interfaccia della riga di comando di Service Fabric](service-fabric-cli.md)
 
 <!-- Images -->

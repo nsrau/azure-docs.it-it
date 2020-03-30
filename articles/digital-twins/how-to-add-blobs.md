@@ -1,6 +1,6 @@
 ---
-title: Come aggiungere BLOB a oggetti-dispositivi gemelli digitali di Azure | Microsoft Docs
-description: Informazioni su come aggiungere BLOB a utenti, dispositivi e spazi nei dispositivi gemelli digitali di Azure.
+title: Come aggiungere BLOB agli oggetti - Gemelli digitali di Azure Documenti Microsoft
+description: Informazioni su come aggiungere BLOB a utenti, dispositivi e spazi in Azure Digital Twins.Learn how to add blobs to users, devices, and spaces in Azure Digital Twins.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 01/10/2020
 ms.custom: seodec18
 ms.openlocfilehash: c85db05e6feeea43023c2391998f837348caed4e
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75929681"
 ---
 # <a name="add-blobs-to-objects-in-azure-digital-twins"></a>Aggiungere BLOB agli oggetti in Gemelli digitali di Azure
@@ -36,7 +36,7 @@ Oltre a **Content-Type** e **Content-Disposition**, le richieste multipart BLOB 
 
 I quattro schemi JSON principali sono i seguenti:
 
-[![schemi JSON](media/how-to-add-blobs/blob-models-swagger-img.png)](media/how-to-add-blobs/blob-models-swagger-img.png#lightbox)
+[![Schemi JSON](media/how-to-add-blobs/blob-models-swagger-img.png)](media/how-to-add-blobs/blob-models-swagger-img.png#lightbox)
 
 I metadati dei BLOB JSON sono conformi al modello seguente:
 
@@ -51,18 +51,18 @@ I metadati dei BLOB JSON sono conformi al modello seguente:
   }
 ```
 
-| Attributo | Tipo | Description |
+| Attributo | Type | Descrizione |
 | --- | --- | --- |
 | **parentId** | string | Entità padre a cui associare il BLOB (spazi, dispositivi o utenti) |
-| **nome** |string | Nome descrittivo per il BLOB |
+| **name** |string | Nome descrittivo per il BLOB |
 | **type** | string | Tipo di BLOB: non è possibile usare *type* e *typeId*  |
 | **typeId** | Integer | ID del tipo di BLOB: non è possibile usare *type* e *typeId* |
 | **subtype** | string | Sottotipo di BLOB: non è possibile usare *type* e *subtypeId* |
 | **subtypeId** | Integer | ID del sottotipo di BLOB: non è possibile usare *subtype* e *subtypeId* |
-| **description** | string | Descrizione personalizzata del BLOB |
+| **Descrizione** | string | Descrizione personalizzata del BLOB |
 | **sharing** | string | Indica se il BLOB può essere condiviso: enumerazione [`None`, `Tree`, `Global`] |
 
-I metadati del BLOB vengono sempre forniti come primo blocco con **tipo di contenuto** `application/json` o come file di `.json`. I dati dei file vengono specificati nel secondo blocco e possono essere di qualsiasi tipo MIME supportato.
+I metadati del BLOB deve sempre essere specificati come primo blocco con **Content-Type** `application/json` o come file `.json`. I dati dei file vengono specificati nel secondo blocco e possono essere di qualsiasi tipo MIME supportato.
 
 La documentazione di Swagger descrive in dettaglio questi schemi del modello.
 
@@ -106,22 +106,22 @@ I BLOB restituiti singolarmente sono conformi allo schema JSON seguente:
 }
 ```
 
-| Attributo | Tipo | Description |
+| Attributo | Type | Descrizione |
 | --- | --- | --- |
 | **id** | string | Identificatore univoco per il BLOB |
-| **nome** |string | Nome descrittivo per il BLOB |
+| **name** |string | Nome descrittivo per il BLOB |
 | **parentId** | string | Entità padre a cui associare il BLOB (spazi, dispositivi o utenti) |
 | **type** | string | Tipo di BLOB: non è possibile usare *type* e *typeId*  |
 | **typeId** | Integer | ID del tipo di BLOB: non è possibile usare *type* e *typeId* |
 | **subtype** | string | Sottotipo di BLOB: non è possibile usare *type* e *subtypeId* |
 | **subtypeId** | Integer | ID del sottotipo di BLOB: non è possibile usare *subtype* e *subtypeId* |
 | **sharing** | string | Indica se il BLOB può essere condiviso: enumerazione [`None`, `Tree`, `Global`] |
-| **description** | string | Descrizione personalizzata del BLOB |
+| **Descrizione** | string | Descrizione personalizzata del BLOB |
 | **contentInfos** | Array | Specifica le informazioni dei metadati non strutturati, inclusa la versione |
-| **fullName** | string | Nome completo del BLOB |
+| **Fullname** | string | Nome completo del BLOB |
 | **spacePaths** | string | Percorso dello spazio |
 
-I metadati del BLOB vengono sempre forniti come primo blocco con **tipo di contenuto** `application/json` o come file di `.json`. I dati dei file vengono specificati nel secondo blocco e possono essere di qualsiasi tipo MIME supportato.
+I metadati del BLOB deve sempre essere specificati come primo blocco con **Content-Type** `application/json` o come file `.json`. I dati dei file vengono specificati nel secondo blocco e possono essere di qualsiasi tipo MIME supportato.
 
 ### <a name="blob-multipart-request-examples"></a>Esempi di richiesta multipart di BLOB
 
@@ -157,7 +157,7 @@ This is my blob content. In this case, some text, but I could also be uploading 
 --USER_DEFINED_BOUNDARY--
 ```
 
-| Valore | Sostituire con |
+| valore | Sostituire con |
 | --- | --- |
 | USER_DEFINED_BOUNDARY | Nome di un limite di contenuto multipart |
 
@@ -190,15 +190,15 @@ curl -X POST "YOUR_MANAGEMENT_API_URL/spaces/blobs" \
  -F "text=PATH_TO_FILE;type=text/plain"
 ```
 
-| Valore | Sostituire con |
+| valore | Sostituire con |
 | --- | --- |
 | YOUR_TOKEN | Il proprio token OAuth 2.0 valido |
 | YOUR_SPACE_ID | L'ID dello spazio a cui associare il BLOB |
 | PATH_TO_FILE | Il percorso del file di testo |
 
-[esempio di ![cURL](media/how-to-add-blobs/http-blob-post-through-curl-img.png)](media/how-to-add-blobs/http-blob-post-through-curl-img.png#lightbox)
+[![Esempio di cURL](media/how-to-add-blobs/http-blob-post-through-curl-img.png)](media/how-to-add-blobs/http-blob-post-through-curl-img.png#lightbox)
 
-Un POST con esito positivo restituisce l'ID del nuovo BLOB.
+Un POST riuscito restituisce l'ID del nuovo BLOB.
 
 ## <a name="api-endpoints"></a>Endpoint API
 
@@ -208,7 +208,7 @@ Le sezioni seguenti descrivono i principali endpoint API correlati ai BLOB e le 
 
 È possibile associare i BLOB a dispositivi. L'immagine seguente illustra la documentazione di riferimento di Swagger per le API Gestione. Specifica gli endpoint API associati al dispositivo per l'uso di BLOB ed eventuali parametri di percorso richiesti da passare al loro interno.
 
-[BLOB del dispositivo ![](media/how-to-add-blobs/blobs-device-api-swagger-img.png)](media/how-to-add-blobs/blobs-device-api-swagger-img.png#lightbox)
+[![BLOB correlati ai dispositivi](media/how-to-add-blobs/blobs-device-api-swagger-img.png)](media/how-to-add-blobs/blobs-device-api-swagger-img.png#lightbox)
 
 Ad esempio, per aggiornare o creare un BLOB e collegarlo a un dispositivo inviare una richiesta HTTP PATCH autenticata al percorso seguente:
 
@@ -226,7 +226,7 @@ Le richieste con esito positivo restituiscono un oggetto JSON, come [descritto i
 
 È anche possibile associare i BLOB a spazi. L'immagine seguente elenca tutti gli endpoint API di spazi responsabili della gestione di BLOB. Elenca anche i parametri di percorso da passare in tali endpoint.
 
-[BLOB di spazio ![](media/how-to-add-blobs/blobs-space-api-swagger-img.png)](media/how-to-add-blobs/blobs-space-api-swagger-img.png#lightbox)
+[![BLOB correlati agli spazi](media/how-to-add-blobs/blobs-space-api-swagger-img.png)](media/how-to-add-blobs/blobs-space-api-swagger-img.png#lightbox)
 
 Ad esempio, per restituire un BLOB collegato a uno spazio, inviare una richiesta HTTP GET autenticata al percorso seguente:
 
@@ -246,7 +246,7 @@ Una richiesta PATCH allo stesso endpoint aggiorna le descrizioni dei metadati e 
 
 È possibile collegare BLOB a modelli utente (ad esempio per associare un'immagine del profilo). L'immagine seguente illustra gli endpoint API utente pertinenti e i parametri di percorso necessari, ad esempio `id`:
 
-[BLOB utente ![](media/how-to-add-blobs/blobs-users-api-swagger-img.png)](media/how-to-add-blobs/blobs-users-api-swagger-img.png#lightbox)
+[![BLOB correlati agli utenti](media/how-to-add-blobs/blobs-users-api-swagger-img.png)](media/how-to-add-blobs/blobs-users-api-swagger-img.png#lightbox)
 
 Ad esempio, per recuperare un BLOB collegato a un utente, inviare una richiesta HTTP GET autenticata con tutti i dati modulo necessari:
 
@@ -278,9 +278,9 @@ Le richieste con esito positivo restituiscono un oggetto JSON, come [descritto i
      * `multipart/mixed`
      * `multipart/form-data`
 
-  Verificare inoltre che ogni *blocco multipart* disponga di un tipo di **contenuto**corrispondente appropriato.
+  Verificare inoltre che ogni *blocco multiparte* disponga di un **Content-Type**corrispondente appropriato.
 
-* Si verifica un secondo errore comune quando più BLOB sono assegnati alla stessa risorsa nel grafico di [Intelligence spaziale](concepts-objectmodel-spatialgraph.md):
+* Un secondo errore comune si verifica quando più BLOB vengono assegnati alla stessa risorsa nel [grafico della intelligenza spaziale:A](concepts-objectmodel-spatialgraph.md)second common error si verifichi when multiple blobs are assigned to the same resource in your spatial intelligence graph:
 
   ```JSON
   {
@@ -292,11 +292,11 @@ Le richieste con esito positivo restituiscono un oggetto JSON, come [descritto i
   ```
 
   > [!NOTE]
-  > L'attributo **Message** può variare in base alla risorsa. 
+  > L'attributo **del messaggio** varia in base alla risorsa. 
 
-  È possibile collegare solo un BLOB (di ogni tipo) a ogni risorsa nel grafico spaziale. 
+  È possibile collegare un solo BLOB (di ogni tipo) a ogni risorsa all'interno del grafico spaziale. 
 
-  Per correggere l'errore, aggiornare il BLOB esistente usando l'operazione di PATCH HTTP appropriata per l'API. In questo modo i dati BLOB esistenti vengono sostituiti con i dati desiderati.
+  Per risolvere questo errore, aggiornare il BLOB esistente utilizzando l'operazione HTTP PATCH API appropriata. In questo modo i dati BLOB esistenti verranno sostituiti con i dati desiderati.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

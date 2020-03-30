@@ -1,5 +1,5 @@
 ---
-title: SQRT nel linguaggio di query Azure Cosmos DB
+title: SQRT nel linguaggio di query di Azure Cosmos DBS SQRT in Azure Cosmos DB query language
 description: Informazioni sulla funzione di sistema SQL SQRT in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
@@ -8,10 +8,10 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 3d5452e5ba650b487acff03f622cdbb170275dce
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78303461"
 ---
 # <a name="sqrt-azure-cosmos-db"></a>SQRT (Azure Cosmos DB)
@@ -54,4 +54,4 @@ Questa funzione di sistema non utilizzerà l'indice.
 
 - [Funzioni matematiche Azure Cosmos DB](sql-query-mathematical-functions.md)
 - [Funzioni di sistema Azure Cosmos DB](sql-query-system-functions.md)
-- [Introduzione a Azure Cosmos DB](introduction.md)
+- [Introduzione ad Azure Cosmos DB](introduction.md)

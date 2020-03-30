@@ -1,6 +1,6 @@
 ---
-title: Elaborazione batch di messaggi EDI come gruppo
-description: Inviare e ricevere messaggi EDI come batch, gruppi o raccolte usando l'elaborazione batch in app per la logica di Azure
+title: Elaborare in batch i messaggi EDI come gruppoBatch process EDI messages as a group
+description: Inviare e ricevere messaggi EDI come batch, gruppi o raccolte usando l'elaborazione batch nelle app per la logica di AzureSend and receive EDI messages as batches, groups, or collections by using batch processing in Azure Logic Apps
 services: logic-apps
 author: divyaswarnkar
 ms.author: divswa
@@ -8,15 +8,15 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/19/2018
 ms.openlocfilehash: 6fc0833f70e3e9cd98100f193b52e5a1bfa4d651
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75666670"
 ---
-# <a name="exchange-edi-messages-as-batches-or-groups-between-trading-partners-in-azure-logic-apps"></a>Scambiare messaggi EDI come batch o gruppi tra partner commerciali in app per la logica di Azure
+# <a name="exchange-edi-messages-as-batches-or-groups-between-trading-partners-in-azure-logic-apps"></a>Exchange EDI messages as batches or groups between trading partners in Azure Logic Apps
 
-In scenari Business-to-Business (B2B) i partner spesso scambiano messaggi in gruppi o in *batch*. Quando si crea una soluzione di invio in batch con le App per la logica, è possibile inviare messaggi a partner commerciali ed elaborare tali messaggi in batch. Questo articolo illustra come è possibile creare batch di messaggi EDI di processo, usando X12 ad esempio, creando un'app per la logica "mittente del batch" e un'app per la logica “che riceve il batch". 
+Negli scenari business-to-business (B2B), i partner spesso scambiano messaggi in gruppi o *batch.* Quando si crea una soluzione di invio in batch con le App per la logica, è possibile inviare messaggi a partner commerciali ed elaborare tali messaggi in batch. Questo articolo illustra come è possibile creare batch di messaggi EDI di processo, usando X12 ad esempio, creando un'app per la logica "mittente del batch" e un'app per la logica “che riceve il batch". 
 
 L'invio in batch di messaggi X12 funziona come l'invio in batch di altri messaggi. Si usa un trigger di batch che raccoglie i messaggi in un batch e un'azione di batch che invia messaggi al batch. Inoltre, l'invio in batch X12 include un passaggio di codifica X12 prima che i messaggi siano inviati al partner commerciale o a un altro destinatario. Per ulteriori informazioni sui trigger e sulle azioni di batch, vedere [Messaggi dei processi batch](../logic-apps/logic-apps-batch-process-send-receive-messages.md).
 
@@ -36,7 +36,7 @@ Per seguire questo esempio, è necessario disporre di questi elementi:
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione, è possibile [creare un account Azure gratuito](https://azure.microsoft.com/free/). In alternativa, [iscriversi per ottenere una sottoscrizione con pagamento in base al consumo](https://azure.microsoft.com/pricing/purchase-options/).
 
-* Conoscenza di base di [come creare le app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Informazioni di base sulla [creazione di app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 * Un [account di integrazione](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) esistente che è associato alla sottoscrizione di Azure ed è collegato alle App per la logica
 
@@ -64,13 +64,13 @@ Per questo ricevitore di batch, è necessario specificare la modalità di batch,
 
 4. Impostare le proprietà del ricevitore di batch: 
 
-   | Proprietà | Valore | Note | 
+   | Proprietà | valore | Note | 
    |----------|-------|-------|
    | **Modalità batch** | Inline |  |  
    | **Nome batch** | TestBatch | Disponibile solo con modalità batch **Inline** | 
    | **Criteri di rilascio** | In base al numero di messaggi, In base alla pianificazione | Disponibile solo con modalità batch **Inline** | 
-   | **Numero di messaggi** | 10 | Disponibile solo con i criteri di rilascio **In base al numero di messaggi** | 
-   | **Interval** | 10 | Disponibile solo con i criteri di rilascio **In base alla pianificazione** | 
+   | **Conteggio messaggi** | 10 | Disponibile solo con i criteri di rilascio **In base al numero di messaggi** | 
+   | **Intervallo** | 10 | Disponibile solo con i criteri di rilascio **In base alla pianificazione** | 
    | **Frequenza** | minute | Disponibile solo con i criteri di rilascio **In base alla pianificazione** | 
    ||| 
 
@@ -93,12 +93,12 @@ Per questo ricevitore di batch, è necessario specificare la modalità di batch,
 
    4. Impostare queste proprietà per l'azione di codificatore batch:
 
-      | Proprietà | Description |
+      | Proprietà | Descrizione |
       |----------|-------------|
       | **Nome del contratto X12** | Aprire l'elenco e selezionare il contratto esistente. <p>Se l'elenco è vuoto, verificare di aver [collegato l'app per la logica all'account di integrazione](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account) che dispone del contratto desiderato. | 
       | **BatchName** | Fare clic all'interno di questa casella e quando viene visualizzato l'elenco di contenuto dinamico, selezionare il token **Nome batch**. | 
       | **PartitionName** | Fare clic all'interno di questa casella e quando viene visualizzato l'elenco di contenuto dinamico, selezionare il token **Nome partizione**. | 
-      | **Items** | Chiudere la finestra dettagli elemento e quindi fare clic all'interno di questa casella. Quando viene visualizzato l'elenco di contenuto dinamico, selezionare il token **Elementi in batch**. | 
+      | **Elementi** | Chiudere la finestra dettagli elemento e quindi fare clic all'interno di questa casella. Quando viene visualizzato l'elenco di contenuto dinamico, selezionare il token **Elementi in batch**. | 
       ||| 
 
       ![Dettagli dell'azione di codifica batch](./media/logic-apps-scenario-EDI-send-batch-messages/batch-encode-action-details.png)
@@ -123,7 +123,7 @@ Per assicurarsi che il ricevitore di batch funzioni nel modo previsto, è possib
 
 3. Impostare le proprietà per l'azione HTTP:
 
-   | Proprietà | Description | 
+   | Proprietà | Descrizione | 
    |----------|-------------|
    | **Metodo** | Selezionare **POST** dall'elenco. | 
    | **Uri** | Generare un URI per il contenitore delle richieste e immetterlo. | 
@@ -173,7 +173,7 @@ A questo punto creare una o più app per la logica che inviano messaggi all’ap
 
 4. Impostare le proprietà del mittente del batch.
 
-   | Proprietà | Description | 
+   | Proprietà | Descrizione | 
    |----------|-------------| 
    | **Nome batch** | Il nome del batch definito dall'app per la logica ricevente, che in questo esempio è "TestBatch" <p>**Importante**: il nome del batch viene convalidato in fase di esecuzione e deve corrispondere al nome specificato dall'app per la logica ricevente. Se si modifica il nome del batch, l'esecuzione del mittente del batch ha esito negativo. | 
    | **Contenuto del messaggio** | Il contenuto del messaggio da inviare, ovvero il token **corpo** in questo esempio | 

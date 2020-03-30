@@ -1,24 +1,24 @@
 ---
-title: Riferimento all' C# endpoint RESTful del provider personalizzato
-description: Fornisce un riferimento di base per un endpoint C# RESTful dei provider personalizzati di Azure. L'endpoint viene fornito tramite un'app per le funzioni di Azure.
+title: Riferimento all'endpoint di un provider personalizzato in C
+description: Fornisce riferimento di base per un endpoint RESTful di un provider personalizzato di Azure.Provides basic reference for an Azure Custom Providers C's RESTful endpoint. L'endpoint viene fornito tramite un'app per le funzioni di Azure.The endpoint is provided through an Azure function app.
 ms.topic: conceptual
 ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
 ms.openlocfilehash: b6ecb22cb968e0d963242c8c2d5dd1a6cb24229c
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75651176"
 ---
-# <a name="custom-provider-c-restful-endpoint-reference"></a>Riferimento all' C# endpoint RESTful del provider personalizzato
+# <a name="custom-provider-c-restful-endpoint-reference"></a>Riferimento all'endpoint di un provider personalizzato in C
 
-Questo articolo è un riferimento di base per un endpoint C# RESTful del provider personalizzato. Se non si ha familiarità con i provider personalizzati di Azure, vedere la [panoramica dei provider di risorse personalizzati](overview.md).
+Questo articolo è un riferimento di base per un endpoint RESTful di un provider personalizzato in C. Se non si ha familiarità con i provider personalizzati di Azure, vedere la [panoramica dei provider di risorse personalizzati](overview.md).
 
-## <a name="azure-function-app-restful-endpoint"></a>Endpoint RESTful dell'app per le funzioni di Azure
+## <a name="azure-function-app-restful-endpoint"></a>Endpoint RESTful dell'app per le funzioni di AzureAzure function app RESTful endpoint
 
-Il codice seguente funziona con un'app per le funzioni di Azure. Per informazioni su come configurare un'app per le funzioni di Azure da usare con i provider personalizzati di Azure, vedere [l'esercitazione sulla configurazione di funzioni di Azure per i provider personalizzati di Azure](./tutorial-custom-providers-function-setup.md).
+Il codice seguente funziona con un'app per le funzioni di Azure.The following code works with an Azure function app. Per informazioni su come configurare un'app per le funzioni di Azure per l'uso con i provider personalizzati di Azure, vedere [l'esercitazione sulla configurazione](./tutorial-custom-providers-function-setup.md)di Funzioni di Azure per i provider personalizzati di Azure.
 
 ```csharp
 #r "Newtonsoft.Json"
@@ -255,7 +255,7 @@ public static async Task<HttpResponseMessage> RemoveCustomResource(HttpRequestMe
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Panoramica dei provider di risorse personalizzati di Azure](overview.md)
-- [Esercitazione: creare un provider di risorse personalizzato di Azure e distribuire le risorse personalizzate](./create-custom-provider.md)
-- [Procedura: aggiungere azioni personalizzate all'API REST di Azure](./custom-providers-action-endpoint-how-to.md)
-- [Riferimento: informazioni di riferimento sulla cache delle risorse personalizzate](proxy-cache-resource-endpoint-reference.md)
+- [Panoramica dei provider di risorse personalizzate di AzureOverview of Azure Custom Resource Providers](overview.md)
+- [Esercitazione: Creare un provider di risorse personalizzato di Azure e distribuire risorse personalizzateTutorial: Create an Azure custom resource provider and deploy custom resources](./create-custom-provider.md)
+- [Procedura: Aggiungere azioni personalizzate all'API REST di AzureHow to: Adding custom actions to Azure REST API](./custom-providers-action-endpoint-how-to.md)
+- [Riferimento: Riferimento alla cache delle risorse personalizzataReference: Custom resource cache reference](proxy-cache-resource-endpoint-reference.md)

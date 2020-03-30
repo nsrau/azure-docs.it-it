@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/31/2019
 ms.author: tomsh
 ms.openlocfilehash: bcaf45af4c02dad22e2cc611fa7ea5a32ad3a853
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75443873"
 ---
 # <a name="azure-operational-security-overview"></a>Panoramica sulla sicurezza operativa di Azure
@@ -30,19 +30,19 @@ La [sicurezza operativa di Azure](/azure/security/fundamentals/operational-secur
 
 Un team operativo IT è responsabile della gestione dell'infrastruttura dei data center, delle applicazioni e dei dati, nonché della stabilità e della sicurezza di questi sistemi. Tuttavia, ottenere informazioni di sicurezza in ambienti IT sempre più complessi spesso richiede alle organizzazioni di assemblare i dati da più sistemi di gestione e sicurezza.
 
-[Microsoft Azure log di monitoraggio](/azure/operations-management-suite/operations-management-suite-overview) è una soluzione di gestione IT basata sul cloud che consente di gestire e proteggere l'infrastruttura locale e cloud. OMS si basa sui servizi seguenti in esecuzione in Azure. Azure include più servizi che consentono di gestire e proteggere l'infrastruttura locale e cloud. Ogni servizio offre una funzione di gestione specifica. I servizi possono essere combinati tra loro per ottenere scenari di gestione diversi. 
+[I log](/azure/operations-management-suite/operations-management-suite-overview) di Monitoraggio di Microsoft Azure sono una soluzione di gestione IT basata su cloud che consente di gestire e proteggere l'infrastruttura locale e cloud. OMS si basa sui servizi seguenti in esecuzione in Azure. Azure include più servizi che consentono di gestire e proteggere l'infrastruttura locale e cloud. Ogni servizio offre una funzione di gestione specifica. I servizi possono essere combinati tra loro per ottenere scenari di gestione diversi. 
 
 ### <a name="azure-monitor"></a>Monitoraggio di Azure
 
 [Monitoraggio di Azure](/azure/azure-monitor/overview) raccoglie i dati delle origini gestite in archivi dati centrali. Questi dati possono essere eventi, dati sulle prestazioni o dati personalizzati specificati attraverso l'API. Dopo che sono stati raccolti, i dati sono disponibili perla generazione di avvisi, l'analisi e l'esportazione.
 
-È possibile consolidare i dati da varie origini e combinare i dati disponibili dai servizi di Azure con l'ambiente locale esistente. I log di monitoraggio di Azure separano chiaramente la raccolta dei dati dall'azione intrapresa sui dati, in modo che tutte le azioni siano disponibili per tutti i tipi di dati.
+È possibile consolidare i dati da varie origini e combinare i dati disponibili dai servizi di Azure con l'ambiente locale esistente. I log di Monitoraggio di Azure separano inoltre chiaramente la raccolta dei dati dall'azione intrapresa su tali dati, in modo che tutte le azioni siano disponibili per tutti i tipi di dati.
 
 ### <a name="automation"></a>Automazione
 
 [Automazione di Azure](/azure/automation/automation-intro) offre agli utenti la possibilità di automatizzare le attività manuali, a esecuzione prolungata, soggette a errori e ripetute di frequente comunemente eseguite negli ambienti cloud e aziendali. Consente di risparmiare tempo e aumenta l'affidabilità delle attività amministrative. Consente persino di pianificare queste attività in modo che vengano eseguite automaticamente a intervalli regolari. È possibile automatizzare i processi utilizzando runbook o automatizzare la gestione della configurazione tramite Configurazione dello stato desiderato.
 
-### <a name="backup"></a>Eseguire il backup
+### <a name="backup"></a>Backup
 
 [Backup di Azure](/azure/backup/backup-introduction-to-azure-backup) è il servizio basato su Azure che consente di eseguire il backup (o proteggere) e il ripristino dei dati in Microsoft Cloud. Backup di Azure sostituisce la soluzione di backup locale o esterna esistente con una soluzione basata sul cloud affidabile, sicura e concorrenziale in termini di costi.
 
@@ -50,7 +50,7 @@ Backup di Azure offre componenti che vengono scaricati e distribuiti nel compute
 
 Per altre informazioni, vedere la [scheda dei componenti del Backup di Azure](/azure/backup/backup-overview#what-can-i-back-up).
 
-### <a name="site-recovery"></a>Ripristino sito
+### <a name="site-recovery"></a>Site Recovery
 
 [Azure Site Recovery](https://azure.microsoft.com/documentation/services/site-recovery) garantisce la continuità aziendale orchestrando la replica delle macchine virtuali e dei computer fisici locali in Azure o in un sito secondario. Se il sito primario non è disponibile, viene eseguito il failover nella posizione secondaria in modo che gli utenti possano continuare a lavorare. Nel momento in cui i sistemi tornano operativi, Azure Site Recovery esegue il failback. Usare Centro sicurezza di Azure per eseguire un rilevamento delle minacce più avanzato ed efficace.
 
@@ -73,11 +73,11 @@ Azure AD include inoltre una suite completa di [funzionalità di gestione delle 
 - [Controllo completo](/azure/active-directory/active-directory-reporting-activity-audit-logs)
 - [Monitoraggio della sicurezza e invio di avvisi](/azure/operations-management-suite/oms-security-responding-alerts)
 
-Con Azure Active Directory tutte le applicazioni che si pubblicano per i partner e i clienti (aziende o utenti privati) hanno le stesse funzionalità di gestione delle identità e degli accessi. Ciò consente una riduzione notevole dei costi operativi.
+Con Azure Active Directory tutte le applicazioni che si pubblicano per i partner e i clienti (aziende o utenti privati) hanno le stesse funzionalità di gestione delle identità e degli accessi.  Ciò consente una riduzione notevole dei costi operativi.
 
-## <a name="azure-security-center"></a>Centro sicurezza Azure
+## <a name="azure-security-center"></a>Centro sicurezza di Azure
 
-[Centro sicurezza di Azure](/azure/security-center/security-center-intro) impedisce, rileva e risponde alle minacce mediante visibilità e controllo avanzati della sicurezza delle risorse di Azure. Integra il monitoraggio della sicurezza e la gestione dei criteri in tutte le sottoscrizioni. Aiuta a rilevare le minacce che potrebbero altrimenti passare inosservate e opera con un ampio ecosistema di soluzioni per la sicurezza.
+[Centro sicurezza di Azure](/azure/security-center/security-center-intro) consente di prevenire, rilevare e rispondere alle minacce con una maggiore visibilità e controllo sulla sicurezza delle risorse di Azure.Azure Security Center helps you prevent, detect, and respond threats with increased visibili in (and control over) the security of your Azure resources. Integra il monitoraggio della sicurezza e la gestione dei criteri in tutte le sottoscrizioni. Aiuta a rilevare le minacce che potrebbero altrimenti passare inosservate e opera con un ampio ecosistema di soluzioni per la sicurezza.
 
 Centro sicurezza aiuta a [proteggere i dati delle macchine virtuali (VM)](/azure/security-center/security-center-linux-virtual-machine) in Azure offrendo visibilità sulle impostazioni di sicurezza della macchina virtuale e monitoraggio delle minacce. Il Centro sicurezza può monitorare nelle macchine virtuali quanto segue:
 
@@ -94,7 +94,7 @@ Centro sicurezza consente di valutare la configurazione delle risorse per identi
 >[!Note]
 >Per altre informazioni sui ruoli e sulle azioni consentite nel Centro sicurezza, vedere [Autorizzazioni nel Centro sicurezza di Azure](/azure/security-center/security-center-permissions).
 
-Centro sicurezza usa Microsoft Monitoring Agent. Si tratta dello stesso agente usato dal servizio monitoraggio di Azure. I dati che vengono raccolti da questo agente vengono archiviati in un'[area di lavoro](/azure/log-analytics/log-analytics-manage-access) esistente di Log Analytics associata a una sottoscrizione di Azure o in un'area di lavoro nuova, in base alla posizione geografica della VM.
+Centro sicurezza usa Microsoft Monitoring Agent. Si tratta dello stesso agente utilizzato dal servizio Monitor di Azure.This is the same agent that the Azure Monitor service uses. I dati che vengono raccolti da questo agente vengono archiviati in un'[area di lavoro](/azure/log-analytics/log-analytics-manage-access) esistente di Log Analytics associata a una sottoscrizione di Azure o in un'area di lavoro nuova, in base alla posizione geografica della VM.
 
 ## <a name="azure-monitor"></a>Monitoraggio di Azure
 
@@ -112,7 +112,7 @@ Monitoraggio di Azure include i componenti seguenti:
 
 ### <a name="azure-diagnostic-logs"></a>Log di diagnostica di Azure
 
-I [log di diagnostica di Azure](/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) sono generati da una risorsa e offrono dati completi e frequenti sul funzionamento della risorsa stessa. Il contenuto di questi log varia in base al tipo di risorsa.
+[I log di diagnostica](/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) di Azure vengono generati da una risorsa e forniscono dati frequenti e dettagliati sul funzionamento di tale risorsa. Il contenuto di questi log varia in base al tipo di risorsa.
 
 I registri di sistema degli eventi di Windows sono una categoria di log di diagnostica per le macchine virtuali. I log di BLOB, tabelle e code sono categorie di log di diagnostica per gli account di archiviazione.
 
@@ -122,7 +122,7 @@ I log di diagnostica differiscono dal [log attività](/azure/monitoring-and-diag
 
 Monitoraggio di Azure consente di usare i dati di telemetria per ottenere visibilità sulle prestazioni e sull'integrità dei carichi di lavoro in Azure. Il tipo di dati di telemetria di Azure più importante è rappresentato dalle [metriche](/azure/monitoring-and-diagnostics/monitoring-overview-metrics) (altrimenti dette contatori delle prestazioni) generate dalla maggior parte delle risorse di Azure. Il monitoraggio di Azure offre alcuni modi per configurare e usare queste metriche per il monitoraggio e la risoluzione dei problemi.
 
-### <a name="azure-diagnostics"></a>Diagnostica di Azure
+### <a name="azure-diagnostics"></a>Diagnostica Azure
 
 Diagnostica di Azure consente la raccolta di dati di diagnostica in un'applicazione distribuita. È possibile usare l'estensione Diagnostica da varie origini. Sono attualmente supportati [ruoli Web e di lavoro del servizio cloud di Azure](/azure/vs-azure-tools-configure-roles-for-cloud-service), [macchine virtuali di Azure](/azure/vs-azure-tools-configure-roles-for-cloud-service) che eseguono Microsoft Windows e [Microsoft Azure Service Fabric](/azure/monitoring-and-diagnostics/azure-diagnostics).
 
@@ -166,7 +166,7 @@ Blueprint offre un modo dichiarativo per orchestrare la distribuzione di più mo
 
 - Assegnazioni di ruoli
 - Assegnazioni di criteri
-- Modelli di Azure Resource Manager
+- Modelli di Gestione risorse di Azure
 - Gruppi di risorse
 
 ## <a name="devops"></a>DevOps
@@ -181,7 +181,7 @@ Gli esperti di DevOps avanzati adottano alcune delle procedure seguenti. Queste 
 
 - Le tecniche di [Gestione di progetto e di pianificazione agile](https://www.visualstudio.com/learn/what-is-agile/) sono usate per pianificare e isolare il lavoro in sprint, gestire la capacità del team e consentire ai team di adattarsi rapidamente alle mutevoli esigenze aziendali.
 - [Controllo della versione, in genere con Git](https://www.visualstudio.com/learn/what-is-git/), consente ai team che si trovano ovunque nel mondo di condividere l'origine e di integrare con strumenti di sviluppo del software per automatizzare la pipeline di rilascio.
-- L'[Integrazione continua](https://www.visualstudio.com/learn/what-is-continuous-integration/) si occupa dell'unione e dei test continui del codice, il che porta a individuare tempestivamente i difetti.  Altri vantaggi includono meno tempo impiegato per contrastare problemi di unione e feedback veloci per i team di sviluppo.
+- [L'integrazione continua](https://www.visualstudio.com/learn/what-is-continuous-integration/) guida l'unione e il test continui del codice, il che porta a trovare tempestivamente i difetti.  Altri vantaggi includono meno tempo impiegato per contrastare problemi di unione e feedback veloci per i team di sviluppo.
 - La [distribuzione continua](https://www.visualstudio.com/learn/what-is-continuous-delivery/) di soluzioni software per gli ambienti di produzione e di test aiuta le organizzazioni a correggere rapidamente i bug e a rispondere alle mutevoli esigenze aziendali.
 - Il [monitoraggio](https://www.visualstudio.com/learn/what-is-monitoring/) delle applicazioni in esecuzione, inclusi gli ambienti di produzione per l'integrità dell'applicazione, così come l'uso da parte dell'utente, aiutano le organizzazioni a formulare un'ipotesi e a convalidare o disapprovare rapidamente le strategie.  I dati completi acquisiti e archiviati in vari formati di registrazione.
 - L'[Infrastruttura come Codice (IaC)](https://www.visualstudio.com/learn/what-is-infrastructure-as-code/) è una procedura consigliata che consente l'automazione e la convalida della creazione e dell'eliminazione di reti e macchine virtuali per facilitare la distribuzione sicura e l'applicazione stabile delle piattaforme di hosting.
@@ -192,5 +192,5 @@ Gli esperti di DevOps avanzati adottano alcune delle procedure seguenti. Queste 
 Per altre informazioni sulla soluzione Sicurezza e controllo, vedere gli articoli seguenti:
 
 - [Sicurezza e conformità](https://azure.microsoft.com/overview/trusted-cloud/)
-- [Centro sicurezza di Azure](/azure/security-center/security-center-intro)
+- [Centro sicurezza di AzureAzure Security Center](/azure/security-center/security-center-intro)
 - [Monitoraggio di Azure](/azure/azure-monitor/overview)

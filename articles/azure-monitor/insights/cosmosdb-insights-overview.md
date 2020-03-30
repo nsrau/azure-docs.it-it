@@ -1,127 +1,127 @@
 ---
-title: Monitorare Azure Cosmos DB con monitoraggio di Azure per Cosmos DB (anteprima) | Microsoft Docs
-description: Questo articolo descrive il monitoraggio di Azure per Cosmos DB funzionalità che fornisce ai proprietari Cosmos DB una rapida comprensione dei problemi di prestazioni e utilizzo con i propri account CosmosDB.
+title: Monitorare Azure Cosmos DB con Monitor di Azure Monitor per Cosmos DB (anteprima) Documenti Microsoft
+description: Questo articolo descrive la funzionalità Monitor di Azure per Cosmos DB che fornisce ai proprietari di Cosmos DB una rapida comprensione dei problemi di prestazioni e utilizzo con i relativi account CosmosDB.
 ms.subservice: ''
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 10/27/2019
 ms.openlocfilehash: 9a900a2f2e950fe9b9846ebcc047d7c344284948
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78250684"
 ---
-# <a name="explore-azure-monitor-for-azure-cosmos-db-preview"></a>Esplora monitoraggio di Azure per Azure Cosmos DB (anteprima)
+# <a name="explore-azure-monitor-for-azure-cosmos-db-preview"></a>Esplora Monitoraggio di Azure per Azure Cosmos DB (anteprima)Explore Azure Monitor for Azure Cosmos DB (preview)
 
-Monitoraggio di Azure per Azure Cosmos DB (anteprima) offre una panoramica delle prestazioni, degli errori, della capacità e dello stato operativo generali di tutte le risorse di Azure Cosmos DB in un'esperienza interattiva unificata. Questo articolo consente di comprendere i vantaggi di questa nuova esperienza di monitoraggio e di come è possibile modificare e adattare l'esperienza per soddisfare le esigenze specifiche dell'organizzazione.   
+Monitoraggio di Azure per Azure Cosmos DB (anteprima) offre una visualizzazione delle prestazioni complessive, degli errori, della capacità e dell'integrità operativa di tutte le risorse del database Cosmos di Azure in un'esperienza interattiva unificata. Questo articolo ti aiuterà a comprendere i vantaggi di questa nuova esperienza di monitoraggio e come puoi modificare e adattare l'esperienza in base alle esigenze specifiche della tua organizzazione.   
 
 ## <a name="introduction"></a>Introduzione
 
-Prima di approfondire l'esperienza, è necessario comprenderne il modo in cui presenta e visualizza le informazioni. 
+Prima di immergersi nell'esperienza, dovresti capire come presenta e visualizza le informazioni. 
 
 Offre:
 
-* In una singola posizione, il **punto di vista della scalabilità** delle risorse Azure Cosmos DB in tutte le sottoscrizioni, con la possibilità di definire l'ambito in modo selettivo solo per le sottoscrizioni e le risorse che si desidera valutare.
+* **In prospettiva di scala** delle risorse di Azure Cosmos DB in tutte le sottoscrizioni in un'unica posizione, con la possibilità di definire selettivamente l'ambito solo delle sottoscrizioni e delle risorse che si è interessati a valutare.
 
-* Eseguire il **drill-down dell'analisi** di una particolare risorsa di Azure CosmosDB per diagnosticare i problemi o eseguire analisi dettagliate in base all'utilizzo delle categorie, agli errori, alla capacità e alle operazioni. Selezionando una di queste opzioni, viene fornita una visualizzazione approfondita delle metriche di Azure Cosmos DB pertinenti.  
+* **Eseguire il drill-down dell'analisi** di una determinata risorsa CosmosDB di Azure per diagnosticare i problemi o eseguire un'analisi dettagliata per categoria: utilizzo, errori, capacità e operazioni. La selezione di una di queste opzioni offre una visualizzazione approfondita delle metriche di Azure Cosmos DB pertinenti.  
 
-* **Personalizzabile** : questa esperienza è basata sui modelli di cartella di lavoro di monitoraggio di Azure che consentono di modificare le metriche visualizzate, modificare o impostare le soglie che si allineano ai limiti e quindi salvarle in una cartella di lavoro personalizzata. I grafici nelle cartelle di lavoro possono quindi essere aggiunti ai dashboard di Azure.  
+* **Personalizzabile:** questa esperienza si basa sui modelli di cartella di lavoro di Monitoraggio di Azure che consentono di modificare le metriche visualizzate, modificare o impostare soglie in linea con i limiti e quindi salvare in una cartella di lavoro personalizzata. I grafici nelle cartelle di lavoro possono quindi essere aggiunti ai dashboard di Azure.Charts in the workbooks can then be pinned to Azure dashboards.  
 
-Per questa funzionalità non è necessario abilitare o configurare elementi, per impostazione predefinita vengono raccolte le metriche Azure Cosmos DB.
+Questa funzionalità non richiede l'abilitazione o la configurazione di nulla, queste metriche di Azure Cosmos DB vengono raccolte per impostazione predefinita.
 
 >[!NOTE]
->Non sono previsti addebiti per accedere a questa funzionalità e verranno addebitate solo le funzionalità essenziali di monitoraggio di Azure configurate o abilitate, come descritto nella pagina [Dettagli prezzi di monitoraggio di Azure](https://azure.microsoft.com/pricing/details/monitor/) .
+>Non è previsto alcun costo per accedere a questa funzionalità e verranno addebitati solo le funzionalità essenziali di Monitoraggio di Azure configurate o abilitate, come descritto nella pagina dei dettagli sui prezzi di Monitoraggio di Azure.There is no charge to access this feature and you will be only charged for the Azure Monitor essential features you configure or enable, as described on the [Azure Monitor pricing details](https://azure.microsoft.com/pricing/details/monitor/) page.
 
-## <a name="view-utilization-and-performance-metrics-for-azure-cosmos-db"></a>Visualizzare le metriche di utilizzo e delle prestazioni per Azure Cosmos DB
+## <a name="view-utilization-and-performance-metrics-for-azure-cosmos-db"></a>Visualizzare le metriche di utilizzo e prestazioni per Azure Cosmos DBView utilization and performance metrics for Azure Cosmos DB
 
-Per visualizzare l'utilizzo e le prestazioni degli account di archiviazione in tutte le sottoscrizioni, seguire questa procedura.
+Per visualizzare l'utilizzo e le prestazioni degli account di archiviazione in tutte le sottoscrizioni, eseguire la procedura seguente.
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Accedere al [portale](https://portal.azure.com)di Azure .
 
-2. Cercare **monitoraggio** e selezionare **monitoraggio**.
+2. Cercare **Monitor** e selezionare **Monitor**.
 
-    ![Casella di ricerca con la parola "monitor" e un elenco a discesa che indica i servizi "monitoraggio" con un'immagine di stile tachimetro](./media/cosmosdb-insights-overview/search-monitor.png)
+    ![Casella di ricerca con la parola "Monitor" e un menu a discesa che dice Servizi "Monitor" con un'immagine in stile tachimetro](./media/cosmosdb-insights-overview/search-monitor.png)
 
-3. Selezionare **Cosmos DB (anteprima)** .
+3. Selezionare **Cosmos DB (anteprima)**.
 
-    ![Screenshot della cartella di lavoro di Cosmos DB Overview](./media/cosmosdb-insights-overview/cosmos-db.png)
+    ![Screenshot della cartella di lavoro di panoramica di Cosmos DB](./media/cosmosdb-insights-overview/cosmos-db.png)
 
 ### <a name="overview"></a>Panoramica
 
-In **Panoramica**la tabella Visualizza le metriche di Azure Cosmos DB interattive. È possibile filtrare i risultati in base alle opzioni selezionate dagli elenchi a discesa seguenti:
+In **Panoramica**, la tabella visualizza le metriche interattive di Azure Cosmos DB. È possibile filtrare i risultati in base alle opzioni selezionate dai seguenti elenchi a discesa:
 
-* Sono elencate solo le **sottoscrizioni con** una risorsa Azure Cosmos DB.  
+* **Sottoscrizioni:** vengono elencate solo le sottoscrizioni con una risorsa di database Cosmos di Azure.Subscriptions - only subscriptions that have an Azure Cosmos DB resource are listed.  
 
-* **Cosmos DB** : è possibile selezionare tutti, un subset o una singola risorsa Azure Cosmos DB.
+* **Cosmos DB:** è possibile selezionare tutto, un sottoinsieme o una singola risorsa di Azure Cosmos DB.
 
-* **Intervallo di tempo** : per impostazione predefinita, Visualizza le ultime 4 ore di informazioni in base alle selezioni corrispondenti effettuate.
+* **Intervallo** di tempo - per impostazione predefinita, visualizza le ultime 4 ore di informazioni in base alle selezioni corrispondenti effettuate.
 
-Il riquadro del contatore sotto gli elenchi a discesa esegue il rollup del numero totale di Azure Cosmos DB risorse incluse nelle sottoscrizioni selezionate. Per le colonne nella cartella di lavoro è disponibile una codifica dei colori condizionale o Heatmaps che segnala le metriche delle transazioni. Il colore più profondo ha il valore più alto e un colore più chiaro è basato sui valori più bassi. 
+Il riquadro del contatore sotto gli elenchi a discesa esegue il rollup del numero totale di risorse di Azure Cosmos DB nelle sottoscrizioni selezionate. Esistono mappe colore o heatmap condizionali per le colonne nella cartella di lavoro che segnalano le metriche delle transazioni. Il colore più profondo ha il valore più alto e un colore più chiaro si basa sui valori più bassi. 
 
-Selezionando una freccia a discesa accanto a una delle risorse Azure Cosmos DB verrà rilevata una suddivisione delle metriche delle prestazioni a livello di singolo contenitore di database:
+Se si seleziona una freccia a discesa accanto a una delle risorse di Azure Cosmos DB, verrà visualizzata una suddivisione delle metriche delle prestazioni a livello di singolo contenitore di database:Selecting a drop-down arrow next to one of the Azure Cosmos DB resources will reveal a breakdown of the performance metrics at the individual database container level:
 
-![Elenco a discesa espanso che rivela singoli contenitori di database e ripartizione delle prestazioni associata](./media/cosmosdb-insights-overview/container-view.png)
+![Elenco a discesa espanso che mostra singoli contenitori di database e la suddivisione delle prestazioni associata](./media/cosmosdb-insights-overview/container-view.png)
 
-Selezionando il nome della risorsa Azure Cosmos DB evidenziato in blu verrà visualizzata la **Panoramica** predefinita per l'account di Azure Cosmos DB associato. 
+Se si seleziona il nome della risorsa Azure Cosmos DB evidenziato in blu, si passa alla **panoramica** predefinita per l'account database Cosmos di Azure associato. 
 
 ### <a name="failures"></a>Errori
 
-Selezionare **errori** nella parte superiore della pagina e viene visualizzata la parte relativa agli **errori** del modello di cartella di lavoro. Vengono visualizzate le richieste totali con la distribuzione delle risposte che compongono tali richieste:
+Selezionare **Errori** nella parte superiore della pagina per aprire la parte **Errori** del modello di cartella di lavoro. Mostra le richieste totali con la distribuzione delle risposte che costituiscono tali richieste:
 
-![Screenshot degli errori con suddivisione in base al tipo di richiesta HTTP](./media/cosmosdb-insights-overview/failures.png)
+![Schermata degli errori con suddivisione per tipo di richiesta HTTP](./media/cosmosdb-insights-overview/failures.png)
 
 | Codice      |  Descrizione       | 
 |-----------|:--------------------|
-| `200 OK`  | Una delle operazioni REST seguenti è riuscita: </br>-OTTENERE su una risorsa. </br> -PUT su una risorsa. </br> -POST su una risorsa. </br> -POST su una risorsa stored procedure per eseguire l'stored procedure.|
+| `200 OK`  | Una delle operazioni REST seguenti è riuscita: </br>- GET su una risorsa. </br> - PUT su una risorsa. </br> - POST su una risorsa. </br> - POST su una risorsa stored procedure per eseguire la stored procedure.|
 | `201 Created` | Un'operazione POST per la creazione di una risorsa è riuscita. |
 | `404 Not Found` | L'operazione tenta di agire su una risorsa che non esiste più. È ad esempio possibile che la risorsa sia già stata eliminata. |
 
-Per un elenco completo dei codici di stato, vedere l' [articolo Azure Cosmos DB codice di stato http](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb).
+Per un elenco completo dei codici di stato, consultare l'articolo codice di [stato HTTP di Azure Cosmos DB](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb).
 
 ### <a name="capacity"></a>Capacity
 
-Selezionare **capacità** nella parte superiore della pagina per aprire la parte relativa alla **capacità** del modello di cartella di lavoro. Mostra il numero di documenti disponibili, la crescita del documento nel tempo, l'utilizzo dei dati e la quantità totale di spazio di archiviazione disponibile.  Questa operazione può essere usata per identificare i potenziali problemi di archiviazione e di utilizzo dei dati.
+Selezionare **Capacità** nella parte superiore della pagina per aprire la parte **Capacità** del modello di cartella di lavoro. Mostra quanti documenti sono presenti, la crescita del documento nel tempo, l'utilizzo dei dati e la quantità totale di spazio di archiviazione disponibile.  Può essere utilizzato per identificare potenziali problemi di archiviazione e utilizzo dei dati.
 
-![Cartella di lavoro capacità](./media/cosmosdb-insights-overview/capacity.png) 
+![Cartella di lavoro Capacità](./media/cosmosdb-insights-overview/capacity.png) 
 
-Come per la cartella di lavoro Panoramica, selezionando l'elenco a discesa accanto a una risorsa Azure Cosmos DB nella colonna **sottoscrizione** verrà rilevata una suddivisione dei singoli contenitori che costituiscono il database.
+Come per la cartella di lavoro di panoramica, la selezione dell'elenco a discesa accanto a una risorsa di Azure Cosmos DB nella colonna **Sottoscrizione** rivelerà una suddivisione in base ai singoli contenitori che costituiscono il database.
 
 ### <a name="operations"></a>Operazioni 
 
-Selezionare **operazioni** nella parte superiore della pagina e verrà visualizzata la parte **operazioni** del modello di cartella di lavoro. Offre la possibilità di visualizzare le richieste suddivise in base al tipo di richieste effettuate. 
+Selezionare **Operazioni** nella parte superiore della pagina per aprire la parte **Operazioni** del modello di cartella di lavoro. Ti dà la possibilità di vedere le vostre richieste suddivise per il tipo di richieste effettuate. 
 
-Nell'esempio seguente si noterà che `eastus-billingint` riceve principalmente le richieste di lettura, ma con un numero ridotto di richieste di Upsert e di creazione. Mentre `westeurope-billingint` è di sola lettura dal punto di vista della richiesta, almeno nelle ultime quattro ore in cui la cartella di lavoro è attualmente in ambito tramite il parametro intervallo di tempo.
+Quindi, nell'esempio qui `eastus-billingint` sotto si vede che sta principalmente ricevendo richieste di lettura, ma con un piccolo numero di upsert e creare richieste. Mentre `westeurope-billingint` è di sola lettura dal punto di vista della richiesta, almeno nelle ultime quattro ore in cui la cartella di lavoro è attualmente con ambito tramite il relativo parametro di intervallo di tempo.
 
-![Cartella di lavoro operazioni](./media/cosmosdb-insights-overview/operation.png) 
+![Cartella di lavoro Operazioni](./media/cosmosdb-insights-overview/operation.png) 
 
-## <a name="pin-export-and-expand"></a>Aggiungi, esporta ed Espandi
+## <a name="pin-export-and-expand"></a>Aggiungere, esportare ed espandere
 
-È possibile aggiungere una delle sezioni della metrica a un [dashboard di Azure](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards) selezionando l'icona a puntina da disegno in alto a destra nella sezione.
+È possibile aggiungere una qualsiasi delle sezioni metriche a un dashboard di [Azure](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards) selezionando l'icona a forma di puntina da aggiungere nella parte superiore destra della sezione.
 
-![Esempio di aggiunta della sezione metrica al dashboard](./media/cosmosdb-insights-overview/pin.png)
+![Esempio di pin della sezione metrica all'esempio di dashboard](./media/cosmosdb-insights-overview/pin.png)
 
-Per esportare i dati nel formato di Excel, fare clic sull'icona a forma di freccia rivolta verso il basso a sinistra dell'icona a forma di puntina da disegno.
+Per esportare i dati nel formato Excel, selezionare l'icona della freccia rivolta verso il basso a sinistra dell'icona a forma di puntina da dominio.
 
 ![Icona Esporta cartella di lavoro](./media/cosmosdb-insights-overview/export.png)
 
-Per espandere o comprimere tutte le visualizzazioni a discesa nella cartella di lavoro, selezionare l'icona di espansione a sinistra dell'icona Esporta:
+Per espandere o comprimere tutte le visualizzazioni a discesa nella cartella di lavoro, selezionare l'icona di espansione a sinistra dell'icona di esportazione:
 
 ![Icona Espandi cartella di lavoro](./media/cosmosdb-insights-overview/expand.png)
 
-## <a name="customize-azure-monitor-for-azure-cosmos-db-preview"></a>Personalizzare monitoraggio di Azure per Azure Cosmos DB (anteprima)
+## <a name="customize-azure-monitor-for-azure-cosmos-db-preview"></a>Personalizzare Azure Monitor per Azure Cosmos DB (anteprima)Customize Azure Monitor for Azure Cosmos DB (preview)
 
-Poiché questa esperienza è basata sui modelli di cartella di lavoro di monitoraggio di Azure, è possibile **personalizzare** > **modificare** e **salvare** una copia della versione modificata in una cartella di lavoro personalizzata. 
+Poiché questa esperienza si basa sui modelli di cartella di lavoro di Monitoraggio di Azure, è possibile **personalizzare** > **Modifica** e **salvare** una copia della versione modificata in una cartella di lavoro personalizzata. 
 
-![Personalizza barra](./media/cosmosdb-insights-overview/customize.png)
+![Personalizzare la barra](./media/cosmosdb-insights-overview/customize.png)
 
-Le cartelle di lavoro vengono salvate in un gruppo di risorse, nella sezione **report personali** riservata all'utente o nella sezione **report condivisi** accessibile a tutti gli utenti con accesso al gruppo di risorse. Dopo avere salvato la cartella di lavoro personalizzata, è necessario passare alla raccolta di cartelle di lavoro per avviarla.
+Le cartelle di lavoro vengono salvate all'interno di un gruppo di risorse, nella sezione **Report** personali privata o nella sezione **Report condivisi** accessibile a tutti gli utenti con accesso al gruppo di risorse. Dopo aver salvato la cartella di lavoro personalizzata, è necessario passare alla raccolta di cartelle di lavoro per avviarla.
 
-![Avvia raccolta cartelle di lavoro dalla barra dei comandi](./media/cosmosdb-insights-overview/gallery.png)
+![Avviare la raccolta di cartelle di lavoro dalla barra dei comandi](./media/cosmosdb-insights-overview/gallery.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Configurare gli [avvisi delle metriche](../platform/alerts-metric.md) e le notifiche sull'integrità del [servizio](../../service-health/alerts-activity-log-service-notifications.md) per impostare avvisi automatici per facilitare il rilevamento dei problemi.
+* Configurare [gli avvisi di metrica](../platform/alerts-metric.md) e [le notifiche](../../service-health/alerts-activity-log-service-notifications.md) di integrità dei servizi per configurare gli avvisi automatici per facilitare il rilevamento dei problemi.
 
-* Informazioni sulle cartelle di lavoro degli scenari sono progettate per supportare, come creare nuovi report esistenti e personalizzarli e altro ancora esaminando [creare report interattivi con le cartelle di lavoro di monitoraggio di Azure](../app/usage-workbooks.md).
+* Informazioni sugli scenari che le cartelle di lavoro sono progettate per supportare, su come creare report nuovi e personalizzarle esistenti e altro ancora esaminando la revisione di [Creare report interattivi con cartelle di lavoro](../app/usage-workbooks.md)di Monitoraggio di Azure.

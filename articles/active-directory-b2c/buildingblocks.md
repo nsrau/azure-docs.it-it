@@ -12,10 +12,10 @@ ms.date: 12/10/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: cf9c333af48e1c148dcd20ccf5ce91b284bd728b
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78189872"
 ---
 # <a name="buildingblocks"></a>BuildingBlocks
@@ -72,10 +72,10 @@ L'elemento **BuildingBlocks** contiene gli elementi seguenti, che devono essere 
   - Creazione di una stringa casuale tramite il generatore di numeri casuali.
   - Formattazione di un'attestazione in base alla stringa formato fornita. Questa trasformazione usa il metodo C# `String.Format`.
 
-- InputValidation: questo elemento consente di eseguire aggregazioni booleane simili a *and* e *or*.
+- InputValidation: questo elemento consente di eseguire aggregazioni booleane simili a *e* *o .*
 
 - [ContentDefinitions](contentdefinitions.md): contiene gli URL per i modelli HTML5 da usare nel percorso utente. Nei criteri personalizzati una definizione del contenuto indica l'URI della pagina HTML5 usato per un passaggio del percorso utente. Ad esempio, le pagine di accesso o iscrizione, reimpostazione della password o di errore. Nei criteri di estensione è possibile modificare l'aspetto eseguendo l'override del LoadUri per il file HTML5. Oppure è possibile creare nuove definizioni del contenuto in base alle esigenze. Questo elemento può contenere un riferimento alle risorse localizzate tramite un ID di localizzazione.
 
 - [Localization](localization.md): consente di supportare più lingue. Il supporto di localizzazione nei criteri consente di impostare l'elenco delle lingue supportate in un criterio e di selezionare una lingua predefinita. Sono inoltre supportate stringhe e raccolte specifiche della lingua.
 
-- [DisplayControls](display-controls.md) : definisce i controlli da visualizzare in una pagina. I controlli di visualizzazione hanno funzionalità speciali e interagiscono con i profili tecnici di convalida back-end. I controlli di visualizzazione sono attualmente in **Anteprima**.
+- [DisplayControls](display-controls.md) - Definisce i controlli da visualizzare in una pagina. I controlli di visualizzazione hanno funzionalità speciali e interagiscono con i profili tecnici di convalida back-end. I controlli di visualizzazione sono attualmente in **anteprima.**

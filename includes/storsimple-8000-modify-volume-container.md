@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 4cffbb1aaa438bac08ec77f576b32a901abacabd
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67180193"
 ---
 > [!NOTE] 
@@ -18,7 +18,7 @@ ms.locfileid: "67180193"
 
 1. Passare al servizio Gestione dispositivi StorSimple, quindi a **Gestione > Contenitori dei volumi**.
 
-2. Nell'elenco tabulare dei contenitori dei volumi selezionare il contenitore da modificare. Nella pagina **Dispositivi** fare doppio clic sul dispositivo dopo averlo selezionato e quindi scegliere la scheda **Contenitori dei volumi**.
+2. Nell'elenco tabulare dei contenitori dei volumi selezionare il contenitore da modificare. Nella pagina **Dispositivi** selezionare il dispositivo, fare doppio clic su di esso, quindi fare clic sulla scheda **Contenitori di volumi**.
 
 2. Nell'elenco tabulare dei contenitori dei volumi selezionare il contenitore da modificare. Nel pannello che viene aperto fare clic su **Modifica** sulla barra dei comandi.
 
@@ -31,7 +31,7 @@ ms.locfileid: "67180193"
        ![Modificare l'impostazione della larghezza di banda](./media/storsimple-8000-modify-volume-container/modify-vol-container2.png)
 
    2.  Fare clic su **OK**.
-4. Nella pagina successiva di **Modifica contenitore di volumi** :
+4. Nella pagina seguente della finestra di dialogo **Modifica contenitore di volumi**:
    
    1. Dall'elenco a discesa, selezionare un modello di larghezza di banda disponibile.
    2. Fare riferimento alle impostazioni di pianificazione per il modello di larghezza di banda specificato.

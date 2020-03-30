@@ -1,6 +1,6 @@
 ---
-title: Compatibilità di Azure Cosmos DB Gremlin con le funzionalità di TinkerPop
-description: Documentazione di riferimento problemi di compatibilità del motore grafico
+title: Compatibilità di Azure Cosmos DB Gremlin con le funzionalità TinkerPopAzure Cosmos DB Gremlin compatibility with TinkerPop features
+description: Documentazione di riferimento Problemi di compatibilità del motore Graph
 author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
@@ -8,38 +8,38 @@ ms.topic: reference
 ms.date: 09/10/2019
 ms.author: sngun
 ms.openlocfilehash: 581bc813ca27067b1f27ab9866a45df3084dbbcc
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75644733"
 ---
-# <a name="azure-cosmos-db-gremlin-compatibility"></a>Compatibilità di Azure Cosmos DB Gremlin
-Il motore di Azure Cosmos DB Graph segue strettamente la specifica della procedura di attraversamento di [Apache TinkerPop](https://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps) , ma esistono differenze.
+# <a name="azure-cosmos-db-gremlin-compatibility"></a>Compatibilità con Azure Cosmos DB Gremlin
+Il motore di Azure Cosmos DB Graph segue da vicino la specifica dei passaggi di attraversamento [Apache TinkerPop,](https://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps) ma esistono differenze.
 
 ## <a name="behavior-differences"></a>Differenze di comportamento
 
-* Il motore di Azure Cosmos DB Graph esegue l'attraversamento della ***Larghezza-primo*** , mentre TinkerPop Gremlin è la profondità. Questo comportamento consente di ottenere prestazioni migliori in un sistema scalabile orizzontalmente, come Cosmos DB. 
+* Il motore Azure Cosmos DB Graph esegue un attraversamento ***breadth-first*** mentre TinkerPop Gremlin è il primo approfondimento. Questo comportamento consente di ottenere prestazioni migliori in un sistema scalabile orizzontalmente come Cosmos DB. 
 
 ## <a name="unsupported-features"></a>Funzionalità non supportate
 
-* ***[Gremlin Bytecode](https://tinkerpop.apache.org/docs/current/tutorials/gremlin-language-variants/)*** è una specifica non dipendente da un linguaggio di programmazione per gli attraversamenti grafici. Cosmos DB Graph non lo supporta ancora. Usare `GremlinClient.SubmitAsync()` e passare l'attraversamento come stringa di testo.
+* ***[Gremlin Bytecode](https://tinkerpop.apache.org/docs/current/tutorials/gremlin-language-variants/)*** è una specifica non dipendente da un linguaggio di programmazione per gli attraversamenti grafici. Cosmos DB Graph non lo supporta ancora. Utilizzare `GremlinClient.SubmitAsync()` e passare l'attraversamento come stringa di testo.
 
-* la cardinalità del set di ***`property(set, 'xyz', 1)`*** non è attualmente supportata. Usare invece `property(list, 'xyz', 1)`. Per altre informazioni, vedere [Proprietà Vertex con TinkerPop](http://tinkerpop.apache.org/docs/current/reference/#vertex-properties).
+* ***`property(set, 'xyz', 1)`*** impostato la cardinalità non è supportato oggi. Usare invece `property(list, 'xyz', 1)`. Per ulteriori informazioni, consultate [Proprietà Vertex con TinkerPop.](http://tinkerpop.apache.org/docs/current/reference/#vertex-properties)
 
-* ***`atch()`*** consente l'esecuzione di query sui grafici usando criteri di ricerca dichiarativi. Questa funzionalità non è disponibile.
+* ***`atch()`*** consente di eseguire query sui grafici utilizzando criteri di ricerca dichiarativi. Questa funzionalità non è disponibile.
 
 * ***Gli oggetti come proprietà*** su vertici o bordi non sono supportati. Le proprietà possono essere solo tipi primitivi o matrici.
 
-* L' ***ordinamento in base alle proprietà della matrice*** `order().by(<array property>)` non è supportato. L'ordinamento è supportato solo per tipi primitivi.
+* ***L'ordinamento in base alle proprietà*** `order().by(<array property>)` della matrice non è supportato. L'ordinamento è supportato solo per tipi primitivi.
 
-* I ***tipi JSON non primitivi*** non sono supportati. Utilizzare `string`, `number`o `true`i tipi di `false` /. i valori `null` non sono supportati. 
+* ***I tipi JSON non primitivi*** non sono supportati. Utilizzare `string` `number`i `true` / `false` tipi , , o . `null`non sono supportati. 
 
-* Il serializzatore ***GraphSONv3*** non è attualmente supportato. Utilizzare `GraphSONv2` classi serializer, Reader e writer nella configurazione della connessione.
+* Il serializzatore ***GraphSONv3*** non è attualmente supportato. Utilizzare `GraphSONv2` le classi Serializer, Reader e Writer nella configurazione della connessione.
 
-* **Le funzioni e le espressioni lambda** non sono attualmente supportate. Sono incluse le funzioni di `.map{<expression>}`, `.by{<expression>}`e `.filter{<expression>}`. Per altre informazioni e per informazioni su come riscriverle usando i passaggi Gremlin, vedere [una nota sulle espressioni lambda](http://tinkerpop.apache.org/docs/current/reference/#a-note-on-lambdas).
+* **Le espressioni e** le funzioni lambda non sono attualmente supportate. Sono inclusi `.map{<expression>}`i `.by{<expression>}`funzioni `.filter{<expression>}` , , e . Per ulteriori informazioni e su come riscriverli utilizzando i passaggi di Gremlin, vedere [Una nota sulle lambda](http://tinkerpop.apache.org/docs/current/reference/#a-note-on-lambdas).
 
-* ***Le transazioni*** non sono supportate a causa della natura distribuita del sistema.  Configurare il modello di coerenza appropriato nell'account Gremlin per "leggere le proprie scritture" e usare la concorrenza ottimistica per risolvere le Scritture in conflitto.
+* ***Le transazioni*** non sono supportate a causa della natura distribuita del sistema.  Configurare il modello di coerenza appropriato nell'account Gremlin per "leggere le proprie scritture" e usare la concorrenza ottimistica per risolvere le scritture in conflitto.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Visitare [Cosmos DB pagina voce utente](https://feedback.azure.com/forums/263030-azure-cosmos-db) per condividere commenti e suggerimenti e aiutare il team a concentrarsi sulle funzionalità più importanti.
+* Visita la pagina [vocale dell'utente Cosmos DB](https://feedback.azure.com/forums/263030-azure-cosmos-db) per condividere feedback e aiutare il team a concentrarsi sulle funzionalità che sono importanti per te.

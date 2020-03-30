@@ -1,5 +1,5 @@
 ---
-title: Configurare PostgreSQL in una macchina virtuale Linux
+title: Configurare PostgreSQL in una macchina virtuale LinuxSet up PostgreSQL on a Linux VM
 description: Informazioni su come installare e configurare PostgreSQL in una macchina virtuale Linux in Azure.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: cynthn
 ms.openlocfilehash: bbfad994de663881e3aa03292fc0d0611a0d0933
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75747793"
 ---
 # <a name="install-and-configure-postgresql-on-azure"></a>Installare e configurare PostgreSQL in Azure
@@ -63,7 +63,7 @@ Connettersi tramite PuTTY alla macchina virtuale Linux creata. Se questa è la p
         # cd postgresql-9.3.5
    
         # ./configure --prefix=/opt/postgresql-9.3.5
-5. Se si desidera compilare tutti gli elementi che possono essere compilati, inclusa la documentazione (pagine HTML e Man) e i moduli aggiuntivi (`contrib`), eseguire invece il comando seguente:
+5. Se si desidera compilare tutto ciò che può essere compilato, inclusa la documentazione (pagine HTML e man) e moduli aggiuntivi (`contrib`), eseguire invece il comando seguente:
    
         # gmake install-world
    
@@ -230,7 +230,7 @@ Consente di eliminare tutte le informazioni nella riga "John". L'output è:
 ![image](./media/postgresql-install/no8.png)
 
 ### <a name="update-data-in-a-table"></a>Aggiornare dati in una tabella
-Per aggiornare dati in una tabella, usare il comando seguente: Per questo motivo, Sandy ha confermato che sono partecipanti, quindi il RSVP verrà modificato da "N" a "Y":
+Per aggiornare dati in una tabella, usare il comando seguente: Per questo, Sandy ha confermato che stanno frequentando, quindi cambieremo il RSVP da "N" a "Y":
 
      UPDATE potluck set confirmed = 'Y' WHERE name = 'Sandy';
 

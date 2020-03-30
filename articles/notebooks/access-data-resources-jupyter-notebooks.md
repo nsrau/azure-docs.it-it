@@ -1,13 +1,13 @@
 ---
-title: Accedere ai dati in Jupyter Notebooks-anteprima Azure Notebooks
-description: Informazioni su come accedere a file, API REST, database e diverse risorse di archiviazione di Azure da un notebook di Jupyter.
+title: Accedere ai dati nei blocchi appunti di Jupyter - Anteprima blocchi appunti di AzureAccess data in Jupyter notebooks - Azure Notebooks Preview
+description: Informazioni su come accedere a file, API REST, database e risorse di Archiviazione di Azure da un blocco appunti di Jupyter.Learn how to access files, REST APIs, databases, and different Azure Storage resources from a Jupyter notebook.
 ms.topic: how-to
 ms.date: 12/04/2018
 ms.openlocfilehash: 47d2f869021851c1451a66a84b1a70ec4ff4998f
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75646348"
 ---
 # <a name="access-cloud-data-in-a-notebook"></a>Accedere ai dati cloud in un notebook
@@ -63,8 +63,8 @@ Azure Cosmos DB offre un archivio NoSQL completamente indicizzato per i document
 - [Compilare una API SQL con Python](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-python)
 - [Compilare un'app Flask con l'API Azure Cosmos DB per MongoDB](https://docs.microsoft.com/azure/cosmos-db/create-mongodb-flask)
 - [Creare un database a grafo usando Python e l'API Gremlin](https://docs.microsoft.com/azure/cosmos-db/create-graph-python)
-- [Creare un'app Cassandra con Python e Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/create-cassandra-python)
-- [Creare un'app dell'API Tabella con Python e Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/create-table-python)
+- [Crea un'app Cassandra con Python e Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/create-cassandra-python)
+- [Creare un'app per le API Tabella con Python e Azure Cosmos DBBuild a Table API app with Python and Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/create-table-python)
 
 Quando si lavora con Cosmos DB, è possibile usare la libreria [azure-cosmosdb-table](https://pypi.org/project/azure-cosmosdb-table/).
 
@@ -73,11 +73,11 @@ Quando si lavora con Cosmos DB, è possibile usare la libreria [azure-cosmosdb-t
 Azure offre una serie di altri tipi di database che è possibile usare. Gli articoli seguenti forniscono materiale sussidiario per accedere a tali database da Python:
 
 - [Database di Azure per PostgreSQL: usare Python per connettersi ai dati ed eseguire query](https://docs.microsoft.com/azure/postgresql/connect-python)
-- [Guida introduttiva: usare cache Redis di Azure con Python](https://docs.microsoft.com/azure/redis-cache/cache-python-get-started)
-- [Database di Azure per MySQL: usare Python per connettersi ai dati ed eseguire query](https://docs.microsoft.com/azure/mysql/connect-python)
-- [Azure Data Factory](https://azure.microsoft.com/services/data-factory/)
+- [Guida introduttiva: Usare Cache Redis di Azure con Python](https://docs.microsoft.com/azure/redis-cache/cache-python-get-started)
+- [Database di Azure per MySQL: usare Python per connettersi ed eseguire query sui dati](https://docs.microsoft.com/azure/mysql/connect-python)
+- [Data Factory di AzureAzure Data Factory](https://azure.microsoft.com/services/data-factory/)
   - [Copiare la procedura guidata per Azure Data Factory](https://azure.microsoft.com/updates/code-free-copy-wizard-for-azure-data-factory/)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Procedura: utilizzare file di dati del progetto](work-with-project-data-files.md)
+- [Procedura: Utilizzare i file di dati del progettoHow to: Work with project data files](work-with-project-data-files.md)

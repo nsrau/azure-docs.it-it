@@ -1,16 +1,16 @@
 ---
-title: Visualizzare i log attività di Azure per monitorare le risorse
-description: Usare i log attività per esaminare le azioni degli utenti e gli errori. Mostra portale di Azure PowerShell, l'interfaccia della riga di comando di Azure e REST.
+title: Visualizzare i log attività di Azure per monitorare le risorseView Azure activity logs to monitor resources
+description: Usare i log attività per esaminare le azioni degli utenti e gli errori. Mostra PowerShell, l'interfaccia della riga di comando di Azure e REST del portale di Azure.
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.openlocfilehash: 9511090099894fad6708843f106570ed029f0c1a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75478136"
 ---
-# <a name="view-activity-logs-to-monitor-actions-on-resources"></a>Visualizzare i log attività per monitorare le azioni sulle risorse
+# <a name="view-activity-logs-to-monitor-actions-on-resources"></a>Visualizzare i log attività per monitorare le azioni sulle risorseView activity logs to monitor actions on resources
 
 Con i log attività è possibile determinare:
 
@@ -28,27 +28,27 @@ I log attività vengono conservati per 90 giorni. È possibile eseguire query pe
 
 ## <a name="azure-portal"></a>Portale di Azure
 
-Per visualizzare i log attività tramite il portale, seguire questa procedura:
+Per visualizzare i log attività tramite il portale, attenersi alla seguente procedura:
 
-1. Scegliere **monitoraggio**dal menu portale di Azure oppure cercare e selezionare **monitoraggio** da qualsiasi pagina.
+1. Nel menu del portale di Azure selezionare **Monitor**oppure cercare e selezionare **Monitoraggio** da qualsiasi pagina.
 
     ![Selezionare monitoraggio](./media/view-activity-logs/select-monitor-from-menu.png)
 
-1. Selezionare **Log attività**.
+1. Selezionare **Registro attività**.
 
     ![Selezionare il log attività](./media/view-activity-logs/select-activity-log.png)
 
-1. Viene visualizzato un riepilogo delle operazioni recenti. Un set predefinito di filtri viene applicato alle operazioni. Si noti che le informazioni sul riepilogo includono l'utente che ha avviato l'azione e il momento in cui si è verificato.
+1. Viene visualizzato un riepilogo delle operazioni recenti. Un set predefinito di filtri viene applicato alle operazioni. Si noti che le informazioni sul riepilogo includono chi ha avviato l'azione e quando è accaduto.
 
     ![Visualizzare riepilogo delle operazioni recenti](./media/view-activity-logs/audit-summary.png)
 
-1. Per eseguire rapidamente un set predefinito di filtri, selezionare **Quick Insights**.
+1. Per eseguire rapidamente un set predefinito di filtri, selezionare **Informazioni rapide**.
 
-    ![Selezionare Quick Insights](./media/view-activity-logs/select-quick-insights.png)
+    ![Seleziona informazioni rapide](./media/view-activity-logs/select-quick-insights.png)
 
-1. Selezionare una delle opzioni disponibili. Selezionare, ad esempio, **distribuzioni non riuscite** per visualizzare gli errori delle distribuzioni.
+1. Selezionare una delle opzioni disponibili. Ad esempio, selezionare **Distribuzioni non riuscite** per visualizzare gli errori dalle distribuzioni.
 
-    ![Selezionare le distribuzioni non riuscite](./media/view-activity-logs/select-failed-deployments.png)
+    ![Selezionare le distribuzioni non riusciteSelect failed deployments](./media/view-activity-logs/select-failed-deployments.png)
 
 1. Si noti che i filtri sono stati modificati per concentrarsi sugli errori di distribuzione nelle ultime 24 ore. Vengono visualizzate solo le operazioni che corrispondono ai filtri.
 
@@ -66,23 +66,23 @@ Per visualizzare i log attività tramite il portale, seguire questa procedura:
 
     ![Assegnare un nome ai filtri](./media/view-activity-logs/name-filters.png)
 
-1. Il filtro è disponibile nel dashboard. Scegliere **Dashboard**dal menu portale di Azure.
+1. Il filtro è disponibile nel dashboard. Selezionare **Dashboard** nel menu del portale di Azure.
 
     ![Mostrare il filtro nel dashboard](./media/view-activity-logs/activity-log-on-dashboard.png)
 
-1. Dal portale è possibile visualizzare le modifiche apportate a una risorsa. Tornare alla visualizzazione predefinita in monitoraggio e selezionare un'operazione che comporta la modifica di una risorsa.
+1. Dal portale è possibile visualizzare le modifiche apportate a una risorsa. Tornare alla visualizzazione predefinita in Monitor e selezionare un'operazione che ha comportato la modifica di una risorsa.
 
     ![Seleziona operazione](./media/view-activity-logs/select-operation.png)
 
-1. Selezionare **cronologia modifiche (anteprima)** e scegliere una delle operazioni disponibili.
+1. Selezionare **Cronologia modifiche (anteprima)** e selezionare una delle operazioni disponibili.
 
-    ![Seleziona cronologia modifiche](./media/view-activity-logs/select-change-history.png)
+    ![Selezionare la cronologia delle modifiche](./media/view-activity-logs/select-change-history.png)
 
-1. Verranno visualizzate le modifiche apportate alla risorsa.
+1. Vengono visualizzate le modifiche apportate alla risorsa.
 
     ![Mostra modifiche](./media/view-activity-logs/show-changes.png)
 
-Per altre informazioni sulla cronologia delle modifiche, vedere [ottenere le modifiche alle risorse](../../governance/resource-graph/how-to/get-resource-changes.md).
+Per ulteriori informazioni sulla cronologia delle modifiche, vedere [Ottenere le modifiche alle risorse](../../governance/resource-graph/how-to/get-resource-changes.md).
 
 ## <a name="powershell"></a>PowerShell
 
@@ -106,7 +106,7 @@ In alternativa, è possibile usare funzioni data per specificare l'intervallo di
 Get-AzLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14)
 ```
 
-È possibile cercare le azioni eseguite da un determinato utente.
+È possibile cercare le azioni eseguite da un utente specifico.
 
 ```azurepowershell-interactive
 Get-AzLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14) -Caller someone@contoso.com
@@ -136,7 +136,7 @@ A seconda dell'ora di inizio specificata, il comando precedente può restituire 
 Get-AzLog -ResourceGroup ExampleGroup | Where-Object {$_.OperationName.value -eq "Microsoft.Resources/deployments/write"}
 ```
 
-È possibile usare il grafico risorse per visualizzare la cronologia delle modifiche per una risorsa. Per altre informazioni, vedere [ottenere le modifiche alle risorse](../../governance/resource-graph/how-to/get-resource-changes.md).
+È possibile usare Resource Graph per visualizzare la cronologia delle modifiche per una risorsa. Per ulteriori informazioni, vedere [Ottenere le modifiche alle risorse](../../governance/resource-graph/how-to/get-resource-changes.md).
 
 ## <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
@@ -182,7 +182,7 @@ A seconda dell'ora di inizio specificata, il comando precedente può restituire 
 az monitor activity-log list -g ExampleGroup --offset 1d --query "[?operationName.value=='Microsoft.Storage/storageAccounts/write']"
 ```
 
-È possibile usare il grafico risorse per visualizzare la cronologia delle modifiche per una risorsa. Per altre informazioni, vedere [ottenere le modifiche alle risorse](../../governance/resource-graph/how-to/get-resource-changes.md).
+È possibile usare Resource Graph per visualizzare la cronologia delle modifiche per una risorsa. Per ulteriori informazioni, vedere [Ottenere le modifiche alle risorse](../../governance/resource-graph/how-to/get-resource-changes.md).
 
 ## <a name="rest-api"></a>API REST
 
@@ -192,7 +192,7 @@ Le operazioni REST per l'uso del log attività fanno parte delle [Informazioni d
 
 * I log attività di Azure possono essere usati con Power BI per ottenere altre informazioni sulle azioni nella sottoscrizione. Vedere [View and analyze Azure Activity Logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/)(Visualizzare e analizzare i log attività di Azure in Power BI e altri strumenti).
 * Per informazioni su come impostare i criteri di sicurezza, vedere [Controllo degli accessi in base al ruolo in Azure](../../role-based-access-control/role-assignments-portal.md).
-* Per visualizzare altri dettagli sulle modifiche apportate alle applicazioni dal livello dell'infrastruttura fino alla distribuzione delle applicazioni, vedere [usare l'analisi delle modifiche dell'applicazione in monitoraggio di Azure](../../azure-monitor/app/change-analysis.md).
+* Per visualizzare ulteriori dettagli sulle modifiche apportate alle applicazioni dal livello di infrastruttura fino alla distribuzione delle applicazioni, vedere Usare l'analisi delle modifiche [delle applicazioni in Monitoraggio di Azure.](../../azure-monitor/app/change-analysis.md)
 * Per informazioni sui comandi per visualizzare le operazioni di distribuzione, vedere [Visualizzare le operazioni di distribuzione](../templates/deployment-history.md).
 * Per informazioni su come impedire operazioni di eliminazione su una risorsa per tutti gli utenti, vedere [Bloccare le risorse con Azure Resource Manager](lock-resources.md).
 * Per visualizzare l'elenco delle operazioni disponibili per ogni provider Microsoft Azure Resource Manager, vedere [Operazioni di provider di risorse con Azure Resource Manager](../../role-based-access-control/resource-provider-operations.md)

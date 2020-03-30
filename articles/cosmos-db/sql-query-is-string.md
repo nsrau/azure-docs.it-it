@@ -1,6 +1,6 @@
 ---
-title: IS_STRING nel linguaggio di query Azure Cosmos DB
-description: Informazioni sulle funzioni di sistema SQL IS_STRING in Azure Cosmos DB.
+title: IS_STRING nel linguaggio di query del database Cosmos di Azure
+description: Informazioni sulla funzione del sistema SQL IS_STRING in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,10 +8,10 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: a717f343b0f46522a3ce2bb56c32e3f15998d777
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78303767"
 ---
 # <a name="is_string-azure-cosmos-db"></a>IS_STRING (Azure Cosmos DB)
@@ -25,8 +25,8 @@ IS_STRING(<expr>)
   
 ## <a name="arguments"></a>Argomenti
   
-*expr*  
-   Qualsiasi espressione.  
+*Expr*  
+   È qualsiasi espressione.  
   
 ## <a name="return-types"></a>Tipi restituiti
   
@@ -34,7 +34,7 @@ IS_STRING(<expr>)
   
 ## <a name="examples"></a>Esempi
   
-  L'esempio seguente controlla gli oggetti di tipo booleano JSON, numero, stringa, null, oggetto, matrice e non definito usando la funzione `IS_STRING`.  
+  L'esempio seguente controlla gli oggetti di tipi JSON Boolean, Number, string, null, object, array e undefined utilizzando la `IS_STRING` funzione.  
   
 ```sql
 SELECT   
@@ -47,18 +47,18 @@ SELECT
        IS_STRING({prop: "value"}.prop2) AS isStr7  
 ```  
   
- Set di risultati:  
+ Questo è il set di risultati.  
   
 ```json
 [{"isStr1":false,"isStr2":false,"isStr3":true,"isStr4":false,"isStr5":false,"isStr6":false,"isStr7":false}] 
 ```  
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
-Questa funzione di sistema trarrà vantaggio da un [indice di intervallo](index-policy.md#includeexclude-strategy).
+Questa funzione di sistema beneficerà di un [indice di intervallo](index-policy.md#includeexclude-strategy).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Funzioni di controllo dei tipi Azure Cosmos DB](sql-query-type-checking-functions.md)
+- [Funzioni di controllo dei tipi Azure Cosmos DBType checking functions Azure Cosmos DB](sql-query-type-checking-functions.md)
 - [Funzioni di sistema Azure Cosmos DB](sql-query-system-functions.md)
-- [Introduzione a Azure Cosmos DB](introduction.md)
+- [Introduzione ad Azure Cosmos DB](introduction.md)

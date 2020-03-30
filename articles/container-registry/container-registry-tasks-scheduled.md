@@ -1,49 +1,49 @@
 ---
-title: "Esercitazione: pianificare un'attività ACR"
-description: In questa esercitazione si apprenderà come eseguire un'attività di Container Registry di Azure in base a una pianificazione definita impostando uno o più trigger timer
+title: Esercitazione - Pianificare un'attività ACRTutorial - Schedule an ACR task
+description: In questa esercitazione viene illustrato come eseguire un'attività del Registro di sistema del contenitore di Azure in base a una pianificazione definita impostando uno o più trigger timer
 ms.topic: article
 ms.date: 06/27/2019
 ms.openlocfilehash: 3202b5d8c426165d81129f1affa69b3a3d515ce9
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78402874"
 ---
-# <a name="run-an-acr-task-on-a-defined-schedule"></a>Eseguire un'attività ACR in base a una pianificazione definita
+# <a name="run-an-acr-task-on-a-defined-schedule"></a>Eseguire un'attività ACR in base a una pianificazione definitaRun an ACR task on a defined schedule
 
-Questa esercitazione illustra come eseguire un' [attività ACR](container-registry-tasks-overview.md) in base a una pianificazione. Pianificare un'attività impostando uno o più *trigger timer*. I trigger timer possono essere usati singolarmente o in combinazione con altri trigger di attività.
+In questa esercitazione viene illustrato come eseguire [un'attività ACR](container-registry-tasks-overview.md) in base a una pianificazione. Pianificare un'attività impostando uno o più *trigger timer*. I trigger timer possono essere utilizzati da soli o in combinazione con altri trigger di attività.
 
-In questa esercitazione si apprenderà come pianificare le attività e:
+In questa esercitazione vengono apporte informazioni sulla pianificazione delle attività e:In this tutorial, learn about scheduling tasks and:
 
 > [!div class="checklist"]
-> * Creare un'attività con un trigger timer
-> * Gestisci trigger timer
+> * Creare un'attività con un trigger timerCreate a task with a timer trigger
+> * Gestire i trigger timer
 
-La pianificazione di un'attività è utile per scenari simili ai seguenti:
+La pianificazione di un'attività è utile per scenari come i seguenti:Scheduling a task is useful for scenarios like the following:
 
-* Eseguire un carico di lavoro del contenitore per le operazioni di manutenzione pianificata. Eseguire ad esempio un'app in contenitori per rimuovere le immagini non necessarie dal registro di sistema.
-* Eseguire un set di test in un'immagine di produzione durante la giornata lavorativa come parte del monitoraggio del sito Live.
+* Eseguire un carico di lavoro del contenitore per le operazioni di manutenzione pianificate. Ad esempio, esegui un'app in contenitori per rimuovere le immagini non necessarie dal Registro di sistema.
+* Eseguire un set di test su un'immagine di produzione durante la giornata lavorativa come parte del monitoraggio del sito live.
 
-Per eseguire gli esempi in questo articolo, è possibile usare l'Azure Cloud Shell o un'installazione locale dell'interfaccia della riga di comando di Azure. Se si vuole usarlo localmente, è richiesta la versione 2.0.68 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli-install].
+È possibile usare Azure Cloud Shell o un'installazione locale dell'interfaccia della riga di comando di Azure per eseguire gli esempi in questo articolo. Se si desidera utilizzarlo in locale, è necessaria la versione 2.0.68 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure.If][azure-cli-install]you need to install or upgrade, see Install Azure CLI.
 
 
 ## <a name="about-scheduling-a-task"></a>Informazioni sulla pianificazione di un'attività
 
-* **Trigger con espressione cron** : il trigger timer per un'attività usa un' *espressione cron*. L'espressione è una stringa con cinque campi che specificano il minuto, l'ora, il giorno, il mese e il giorno della settimana per l'attivazione dell'attività. Sono supportate frequenze fino a una volta al minuto.
+* **Trigger con espressione cron:** il trigger del timer per un'attività utilizza *un'espressione cron*. L'espressione è una stringa con cinque campi che specificano il minuto, l'ora, il giorno, il mese e il giorno della settimana per attivare l'attività. Sono supportate le frequenze fino a una volta al minuto.
 
-  Ad esempio, l'espressione `"0 12 * * Mon-Fri"` attiva un'attività a mezzogiorno UTC in ogni giorno della settimana. Vedere [i dettagli](#cron-expressions) più avanti in questo articolo.
-* **Più trigger timer** : è possibile aggiungere più timer a un'attività, purché le pianificazioni differiscano.
+  Ad esempio, `"0 12 * * Mon-Fri"` l'espressione attiva un'attività a mezzogiorno UTC in ogni giorno della settimana. Vedere [i dettagli](#cron-expressions) più avanti in questo articolo.
+* **Sono consentiti** più trigger timer: è consentita l'aggiunta di più timer a un'attività, purché le pianificazioni differiscano.
     * Specificare più trigger timer quando si crea l'attività o aggiungerli in un secondo momento.
-    * Facoltativamente, denominare i trigger per semplificare la gestione oppure le attività ACR forniranno i nomi predefiniti dei trigger.
-    * Se le pianificazioni del timer si sovrappongono alla volta, le attività ACR attivano l'attività all'orario pianificato per ogni timer.
-* **Altri trigger di attività** : in un'attività attivata dal timer, è anche possibile abilitare trigger basati sul [commit del codice sorgente](container-registry-tutorial-build-task.md) o sugli [aggiornamenti dell'immagine di base](container-registry-tutorial-base-image-update.md). Analogamente ad altre attività ACR, è anche possibile [attivare manualmente][az-acr-task-run] un'attività pianificata.
+    * Facoltativamente, assegnare un nome ai trigger per semplificare la gestione oppure attività ACR fornirà nomi di trigger predefiniti.
+    * Se le pianificazioni del timer si sovrappongono alla volta, Attività ACR attiva l'attività all'ora pianificata per ogni timer.
+* **Altri trigger di attività:** in un'attività attivata dal timer, è anche possibile abilitare i trigger in base al commit del [codice sorgente](container-registry-tutorial-build-task.md) o agli [aggiornamenti dell'immagine](container-registry-tutorial-base-image-update.md)di base. Analogamente ad altre attività di aCR, è anche possibile [attivare manualmente][az-acr-task-run] un'attività pianificata.
 
-## <a name="create-a-task-with-a-timer-trigger"></a>Creare un'attività con un trigger timer
+## <a name="create-a-task-with-a-timer-trigger"></a>Creare un'attività con un trigger timerCreate a task with a timer trigger
 
-Quando si crea un'attività con il comando [AZ ACR task create][az-acr-task-create] , è possibile aggiungere facoltativamente un trigger timer. Aggiungere il parametro `--schedule` e passare un'espressione cron per il timer.
+Quando si crea un'attività con il comando [az acr task create,][az-acr-task-create] è possibile aggiungere facoltativamente un trigger timer. Aggiungere `--schedule` il parametro e passare un'espressione cron per il timer.
 
-Come semplice esempio, il comando seguente attiva l'esecuzione dell'immagine `hello-world` dall'hub Docker ogni giorno alle 21:00 UTC. L'attività viene eseguita senza un contesto del codice sorgente.
+Come semplice esempio, il comando seguente `hello-world` attiva l'esecuzione dell'immagine da Docker Hub ogni giorno alle 21:00 UTC. L'attività viene eseguita senza un contesto del codice sorgente.
 
 ```azurecli
 az acr task create \
@@ -54,7 +54,7 @@ az acr task create \
   --context /dev/null
 ```
 
-Eseguire il comando [AZ ACR task show][az-acr-task-show] per verificare che il trigger del timer sia configurato. Per impostazione predefinita, è abilitato anche il trigger di aggiornamento dell'immagine di base.
+Eseguire il comando [az acr task show][az-acr-task-show] per verificare che il trigger timer sia configurato. Per impostazione predefinita, è abilitato anche il trigger di aggiornamento dell'immagine di base.
 
 ```azurecli
 az acr task show --name mytask --registry registry --output table
@@ -66,13 +66,13 @@ NAME      PLATFORM    STATUS    SOURCE REPOSITORY       TRIGGERS
 mytask    linux       Enabled                           BASE_IMAGE, TIMER
 ```
 
-Attivare manualmente l'attività con [AZ ACR task run][az-acr-task-run] per assicurarsi che sia configurata correttamente:
+Attivare l'attività manualmente con [l'esecuzione dell'attività az acr][az-acr-task-run] per assicurarsi che sia impostata correttamente:
 
 ```azurecli
 az acr task run --name mytask --registry myregistry
 ```
 
-Se il contenitore viene eseguito correttamente, l'output sarà simile al seguente:
+Se il contenitore viene eseguito correttamente, l'output è simile al seguente:If the container runs successfully, the output is similar to the following:
 
 ```output
 Queued a run with ID: cf2a
@@ -87,7 +87,7 @@ This message shows that your installation appears to be working correctly.
 [...]
 ```
 
-Al termine dell'ora pianificata, eseguire il comando [AZ ACR Task List-runs][az-acr-task-list-runs] per verificare che il timer abbia attivato l'attività come previsto:
+Dopo l'ora pianificata, eseguire il comando [az acr task list-runs][az-acr-task-list-runs] per verificare che il timer ha attivato l'attività come previsto:
 
 ```azurecli
 az acr task list-runs --name mytask --registry myregistry --output table
@@ -103,13 +103,13 @@ cf2b      mytask   linux       Succeeded  Timer      2019-06-28T21:00:23Z  00:00
 cf2a      mytask   linux       Succeeded  Manual     2019-06-28T20:53:23Z  00:00:06
 ```
 
-## <a name="manage-timer-triggers"></a>Gestisci trigger timer
+## <a name="manage-timer-triggers"></a>Gestire i trigger timer
 
-Usare i comandi [AZ ACR Task Timer][az-acr-task-timer] per gestire i trigger timer per un'attività ACR.
+Utilizzare i comandi [timer dell'attività az acr][az-acr-task-timer] per gestire i trigger del timer per un'attività ACR.
 
-### <a name="add-or-update-a-timer-trigger"></a>Aggiungere o aggiornare un trigger timer
+### <a name="add-or-update-a-timer-trigger"></a>Aggiungere o aggiornare un trigger timerAdd or update a timer trigger
 
-Dopo aver creato un'attività, è possibile aggiungere facoltativamente un trigger timer usando il comando [AZ ACR Task Timer Add][az-acr-task-timer-add] . Nell'esempio seguente viene aggiunto un nome di trigger timer *Timer2* a *attività* creata in precedenza. Questo timer attiva l'attività ogni giorno alle 10:30 UTC.
+Dopo aver creato un'attività, aggiungere facoltativamente un trigger timer utilizzando il comando [az acr task timer add.][az-acr-task-timer-add] L'esempio seguente aggiunge il nome di un trigger timer *timer2* a *mytask* creato in precedenza. Questo timer attiva l'attività ogni giorno alle 10:30 UTC.
 
 ```azurecli
 az acr task timer add \
@@ -119,7 +119,7 @@ az acr task timer add \
   --schedule "30 10 * * *"
 ```
 
-Aggiornare la pianificazione di un trigger esistente o modificarne lo stato usando il comando [AZ ACR Task Timer Update][az-acr-task-timer-update] . Ad esempio, aggiornare il trigger denominato *Timer2* per attivare l'attività alle 11:30 UTC:
+Aggiornare la pianificazione di un trigger esistente o modificarne lo stato utilizzando il comando [az acr task timer update.][az-acr-task-timer-update] Ad esempio, aggiornare il trigger denominato *timer2* per attivare l'attività alle 11:30 UTC:
 
 ```azurecli
 az acr task timer update \
@@ -129,9 +129,9 @@ az acr task timer update \
   --schedule "30 11 * * *"
 ```
 
-### <a name="list-timer-triggers"></a>Elenca trigger timer
+### <a name="list-timer-triggers"></a>Trigger timer elenco
 
-Il comando [AZ ACR Task Timer list][az-acr-task-timer-list] Mostra i trigger timer impostati per un'attività:
+Il comando [az acr task timer list][az-acr-task-timer-list] mostra i trigger timer impostati per un'attività:
 
 ```azurecli
 az acr task timer list --name mytask --registry myregistry
@@ -156,7 +156,7 @@ Output di esempio:
 
 ### <a name="remove-a-timer-trigger"></a>Rimuovere un trigger timer
 
-Usare il comando [AZ ACR Task Timer Remove][az-acr-task-timer-remove] per rimuovere un trigger timer da un'attività. Nell'esempio seguente viene rimosso il trigger *Timer2* da *attività*:
+Utilizzare il comando [az acr task remove][az-acr-task-timer-remove] per rimuovere un trigger timer da un'attività. L'esempio seguente rimuove il trigger *timer2* da *mytask*:
 
 ```azurecli
 az acr task timer remove \
@@ -165,44 +165,44 @@ az acr task timer remove \
   --timer-name timer2
 ```
 
-## <a name="cron-expressions"></a>Espressioni cron
+## <a name="cron-expressions"></a>Espressioni Cron
 
-Le attività ACR usano la libreria [NCronTab](https://github.com/atifaziz/NCrontab) per interpretare le espressioni cron. Le espressioni supportate nelle attività ACR hanno cinque campi obbligatori separati da spazi vuoti:
+Attività ACR utilizza la libreria [NCronTab](https://github.com/atifaziz/NCrontab) per interpretare le espressioni cron. Le espressioni supportate nelle attività ACR hanno cinque campi obbligatori separati da spazi vuoti:
 
 `{minute} {hour} {day} {month} {day-of-week}`
 
-Il fuso orario utilizzato con le espressioni cron è Coordinated Universal Time (UTC). Le ore sono in formato 24 ore.
+Il fuso orario utilizzato con le espressioni cron è coordinated Universal Time (UTC). Le ore sono in formato 24 ore.
 
 > [!NOTE]
-> Le attività ACR non supportano il campo `{second}` o `{year}` nelle espressioni cron. Se si copia un'espressione cron usata in un altro sistema, assicurarsi di rimuovere i campi, se usati.
+> Attività ACR non `{second}` supporta `{year}` il campo o nelle espressioni cron. Se si copia un'espressione cron utilizzata in un altro sistema, assicurarsi di rimuovere tali campi, se vengono utilizzati.
 
 Ogni campo può avere uno dei tipi di valori seguenti:
 
 |Type  |Esempio  |Quando viene attivato  |
 |---------|---------|---------|
 |Valore specifico |<nobr>`"5 * * * *"`</nobr>|ogni ora a 5 minuti dopo l'ora|
-|Tutti i valori (`*`)|<nobr>`"* 5 * * *"`</nobr>|ogni minuto dell'ora inizia 5:00 UTC (60 volte al giorno)|
+|Tutti i valori (`*`)|<nobr>`"* 5 * * *"`</nobr>|ogni minuto dell'ora che inizia alle 5:00 UTC (60 volte al giorno)|
 |Intervallo (operatore `-`)|<nobr>`"0 1-3 * * *"`</nobr>|3 volte al giorno, alle 1:00, 2:00 e 3:00 UTC|
-|Set di valori (operatore `,`)|<nobr>`"20,30,40 * * * *"`</nobr>|3 volte all'ora, 20 minuti, 30 minuti e 40 minuti dopo l'ora|
+|Set di valori (operatore `,`)|<nobr>`"20,30,40 * * * *"`</nobr>|3 volte all'ora, a 20 minuti, 30 minuti e 40 minuti dopo l'ora|
 |Valore di intervallo (operatore `/`)|<nobr>`"*/10 * * * *"`</nobr>|6 volte all'ora, a 10 minuti, 20 minuti e così via, oltre l'ora
 
 [!INCLUDE [functions-cron-expressions-months-days](../../includes/functions-cron-expressions-months-days.md)]
 
-### <a name="cron-examples"></a>Esempi Cron
+### <a name="cron-examples"></a>Esempi di Cron
 
 |Esempio|Quando viene attivato  |
 |---------|---------|
 |`"*/5 * * * *"`|Una volta ogni cinque minuti|
 |`"0 * * * *"`|Una volta all'inizio di ogni ora|
 |`"0 */2 * * *"`|Una volta ogni due ore|
-|`"0 9-17 * * *"`|una volta ogni ora da 9:00 a 17:00 UTC|
+|`"0 9-17 * * *"`|una volta ogni ora dalle 9:00 alle 17:00 UTC|
 |`"30 9 * * *"`|alle 9:30 UTC ogni giorno|
-|`"30 9 * * 1-5"`|alle 9:30 UTC di ogni giorno feriale|
+|`"30 9 * * 1-5"`|alle 9:30 UTC ogni giorno della settimana|
 |`"30 9 * Jan Mon"`|alle 9:30 UTC ogni lunedì di gennaio|
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Per rimuovere tutte le risorse create in questa serie di esercitazioni, tra cui il registro contenitori o i registri, l'istanza del contenitore, l'insieme di credenziali delle chiavi e l'entità servizio, eseguire i comandi seguenti:
+Per rimuovere tutte le risorse create in questa serie di esercitazioni, inclusi il Registro di sistema del contenitore o i registri, l'istanza del contenitore, l'insieme di credenziali delle chiavi e l'entità servizio, emettere i comandi seguenti:To remove all resources you've created in this tutorial series, including the container registry or registries, container instance, key vault, and service principal, issue the following commands:
 
 ```azurecli
 az group delete --resource-group $RES_GROUP
@@ -211,11 +211,11 @@ az ad sp delete --id http://$ACR_NAME-pull
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si è appreso come creare attività di Container Registry di Azure che vengono attivate automaticamente da un timer. 
+In questa esercitazione è stato illustrato come creare attività del Registro di sistema del contenitore di Azure che vengono attivate automaticamente da un timer. 
 
-Per un esempio di come usare un'attività pianificata per pulire i repository in un registro, vedere [eliminare automaticamente le immagini da un registro contenitori di Azure](container-registry-auto-purge.md).
+Per un esempio di utilizzo di un'attività pianificata per pulire i repository in un Registro di sistema, vedere Eliminare automaticamente le [immagini da un registro contenitori](container-registry-auto-purge.md)di Azure.For an example of using a scheduled task to clean up repositories in a registry, see Automatically purge images from an Azure container registry .
 
-Per esempi di attività avviate da commit del codice sorgente o aggiornamenti di immagini di base, vedere gli altri articoli della [serie di esercitazioni sulle attività di ACR](container-registry-tutorial-quick-task.md).
+Per esempi di attività attivate dai commit del codice sorgente o dagli aggiornamenti delle immagini di base, vedere altri articoli della serie di [esercitazioni Attività ACR.](container-registry-tutorial-quick-task.md)
 
 
 

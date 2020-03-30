@@ -1,6 +1,6 @@
 ---
-title: Backup & replica per Apache HBase, Phoenix-Azure HDInsight
-description: Configurare il backup e la replica per Apache HBase e Apache Phoenix in Azure HDInsight
+title: Backup & la replica per Apache HBase, Phoenix - Azure HDInsight
+description: Configurare il backup e la replica per Apache HBase e Apache Phoenix in Azure HDInsightSet up Backup and replication for Apache HBase and Apache Phoenix in Azure HDInsight
 author: ashishthaps
 ms.author: ashishth
 ms.reviewer: jasonh
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/19/2019
 ms.openlocfilehash: c6d33158b581bf4394a0d1bac2b277830328e110
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75495943"
 ---
 # <a name="set-up-backup-and-replication-for-apache-hbase-and-apache-phoenix-on-hdinsight"></a>Configurare il backup e la replica per Apache HBase e Apache Phoenix in HDInsight
@@ -44,7 +44,7 @@ HBase in HDInsight usa l'archivio predefinito selezionato quando si crea il clus
     wasbs://<containername>@<accountname>.blob.core.windows.net/hbase
     ```
 
-* In Azure Data Lake Storage la cartella `hbase` si trova nel percorso radice specificato durante il provisioning di un cluster. Questo percorso radice ha in genere una cartella `clusters` con una sottocartella denominata in base al cluster HDInsight:
+* In Archiviazione Data Lake `hbase` di Azure la cartella si trova nel percorso radice specificato durante il provisioning di un cluster. Questo percorso radice ha in genere una cartella `clusters` con una sottocartella denominata in base al cluster HDInsight:
 
     ```
     /clusters/<clusterName>/hbase
@@ -60,19 +60,19 @@ Dopo avere eliminato il cluster, è possibile lasciare i dati dove si trovano op
 
 ## <a name="export-then-import"></a>Esportare e quindi importare
 
-Nel cluster HDInsight di origine usare l' [utilità di esportazione](https://hbase.apache.org/book.html#export) (inclusa in HBase) per esportare i dati da una tabella di origine nell'archivio collegato predefinito. È quindi possibile copiare la cartella esportata nel percorso di archiviazione di destinazione ed eseguire l' [utilità di importazione](https://hbase.apache.org/book.html#import) nel cluster HDInsight di destinazione.
+Nel cluster HDInsight di origine usare [l'utilità di esportazione](https://hbase.apache.org/book.html#export) (inclusa in HBase) per esportare i dati da una tabella di origine all'archiviazione associata predefinita. È quindi possibile copiare la cartella esportata nel percorso di archiviazione di destinazione ed eseguire [l'utilità di importazione](https://hbase.apache.org/book.html#import) nel cluster HDInsight di destinazione.
 
-Per esportare i dati della tabella, prima SSH nel nodo head del cluster HDInsight di origine, quindi eseguire il comando `hbase` seguente:
+Per esportare i dati della tabella, prima SSH nel nodo `hbase` head del cluster HDInsight di origine, quindi eseguire il comando seguente:
 
     hbase org.apache.hadoop.hbase.mapreduce.Export "<tableName>" "/<path>/<to>/<export>"
 
-La directory di esportazione non deve essere già esistente. Il nome della tabella fa distinzione tra maiuscole e minuscole.
+La directory di esportazione non deve esistere già. Per il nome della tabella viene fatta distinzione tra maiuscole e minuscole.
 
-Per importare i dati della tabella, connettersi tramite SSH al nodo head del cluster HDInsight di destinazione e quindi eseguire il comando `hbase` seguente:
+Per importare i dati della tabella, SSH nel nodo head `hbase` del cluster HDInsight di destinazione e quindi eseguire il comando seguente:
 
     hbase org.apache.hadoop.hbase.mapreduce.Import "<tableName>" "/<path>/<to>/<export>"
 
-La tabella deve essere già esistente.
+La tabella deve già esistere.
 
 Specificare il percorso di esportazione completo per l'archivio predefinito o per uno degli archivi collegati. Ad esempio, in Archiviazione di Azure:
 
@@ -94,7 +94,7 @@ Si noti che è necessario specificare il numero di versioni di ogni riga da espo
 
 ## <a name="copy-tables"></a>Copiare le tabelle
 
-L' [utilità CopyTable](https://hbase.apache.org/book.html#copy.table) copia i dati da una tabella di origine, riga per riga, a una tabella di destinazione esistente con lo stesso schema dell'origine. La tabella di destinazione può trovarsi nello stesso cluster o in un cluster HBase diverso. I nomi di tabella fanno distinzione tra maiuscole e minuscole.
+[L'utilità CopyTable](https://hbase.apache.org/book.html#copy.table) copia i dati da una tabella di origine, riga per riga, a una tabella di destinazione esistente con lo stesso schema dell'origine. La tabella di destinazione può trovarsi nello stesso cluster o in un cluster HBase diverso. Per i nomi delle tabelle viene fatta distinzione tra maiuscole e minuscole.
 
 Per usare CopyTable in un cluster, connettersi tramite SSH al nodo head del cluster HDInsight di origine e quindi eseguire questo comando `hbase`:
 
@@ -130,7 +130,7 @@ CopyTable analizza il contenuto dell'intera tabella di origine che verrà copiat
 
 ### <a name="manually-collect-the-apache-zookeeper-quorum-list"></a>Raccogliere manualmente l'elenco di quorum di Apache ZooKeeper
 
-Quando entrambi i cluster HDInsight sono nella stessa rete virtuale, come descritto in precedenza, la risoluzione dei nomi host interni è automatica. Per usare CopyTable per i cluster HDInsight in due reti virtuali separate connesse da un gateway VPN, è necessario fornire gli indirizzi IP host dei nodi Zookeeper nel quorum.
+Quando entrambi i cluster HDInsight sono nella stessa rete virtuale, come descritto in precedenza, la risoluzione dei nomi host interni è automatica. Per usare CopyTable per i cluster HDInsight in due reti virtuali separate connesse da un gateway VPN, è necessario fornire gli indirizzi IP host dei nodi di .
 
 Per acquisire i nomi host del quorum, eseguire il comando curl seguente:
 
@@ -160,7 +160,7 @@ Nell'esempio:
 
 ## <a name="snapshots"></a>Snapshot
 
-Gli [snapshot](https://hbase.apache.org/book.html#ops.snapshots) consentono di eseguire un backup temporizzato dei dati nell'archivio dati HBase. Gli snapshot comportano un overhead minimo e vengono completati in pochi secondi, perché un'operazione di creazione di snapshot è un'efficace operazione sui metadati che acquisisce i nomi di tutti i file in archivio in un preciso momento. Al momento della creazione di uno snapshot, non vengono copiati dati effettivi. Gli snapshot si basano sulla natura non modificabile dei dati archiviati in HDFS, dove le operazioni di aggiornamento, eliminazione e inserimento sono tutte rappresentate come nuovi dati. È possibile ripristinare (*clonare*) uno snapshot nello stesso cluster oppure esportare uno snapshot in un altro cluster.
+[Gli snapshot](https://hbase.apache.org/book.html#ops.snapshots) consentono di eseguire un backup temporizzato dei dati nell'archivio dati HBase. Gli snapshot comportano un overhead minimo e vengono completati in pochi secondi, perché un'operazione di creazione di snapshot è un'efficace operazione sui metadati che acquisisce i nomi di tutti i file in archivio in un preciso momento. Al momento della creazione di uno snapshot, non vengono copiati dati effettivi. Gli snapshot si basano sulla natura non modificabile dei dati archiviati in HDFS, dove le operazioni di aggiornamento, eliminazione e inserimento sono tutte rappresentate come nuovi dati. È possibile ripristinare (*clonare*) uno snapshot nello stesso cluster oppure esportare uno snapshot in un altro cluster.
 
 Per creare uno snapshot, connettersi tramite SSH al nodo head del cluster HBase in HDInsight e avviare la shell `hbase`:
 
@@ -190,11 +190,11 @@ Per esportare uno snapshot in HDFS per consentirne l'uso da parte di un altro cl
 
 Dopo l'esportazione dello snapshot, connettersi tramite SSH al nodo head del cluster di destinazione e ripristinare lo snapshot usando il comando restore_snapshot come descritto in precedenza.
 
-Gli snapshot forniscono un backup completo di una tabella al momento dell'esecuzione del comando `snapshot`. Gli snapshot non offrono la possibilità di eseguire snapshot incrementali in base all'intervallo di tempo, né di specificare subset di colonne da includere nello snapshot.
+Gli snapshot forniscono un backup completo di una tabella al momento dell'esecuzione del comando `snapshot`. Gli snapshot non consentono di eseguire snapshot incrementali in base alle finestre di tempo, né di specificare sottoinsiemi di famiglie di colonne da includere nello snapshot.
 
 ## <a name="replication"></a>Replica
 
-La [replica di HBase](https://hbase.apache.org/book.html#_cluster_replication) esegue automaticamente il push delle transazioni da un cluster di origine a un cluster di destinazione, usando un meccanismo asincrono con un overhead minimo nel cluster di origine. In HDInsight è possibile configurare la replica tra cluster dove:
+La [replica HBase](https://hbase.apache.org/book.html#_cluster_replication) esegue automaticamente il push delle transazioni da un cluster di origine a un cluster di destinazione, usando un meccanismo asincrono con un overhead minimo nel cluster di origine. In HDInsight è possibile configurare la replica tra cluster dove:
 
 * I cluster di origine e di destinazione si trovano nella stessa rete virtuale.
 * I cluster di origine e di destinazione si trovano in reti virtuali diverse connesse tramite un gateway VPN, ma entrambi i cluster sono nella stessa posizione geografica.
@@ -214,4 +214,4 @@ Per abilitare la replica in HDInsight, applicare un'azione script al cluster HDI
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Configurare la replica di Apache HBase](apache-hbase-replication.md)
-* [Utilizzo dell'utilità di importazione ed esportazione di HBase](https://blogs.msdn.microsoft.com/data_otaku/2016/12/21/working-with-the-hbase-import-and-export-utility/)
+* [Utilizzo dell'utilità di importazione ed esportazione HBase](https://blogs.msdn.microsoft.com/data_otaku/2016/12/21/working-with-the-hbase-import-and-export-utility/)

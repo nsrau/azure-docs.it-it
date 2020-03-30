@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: alkohli
 ms.openlocfilehash: 880b630ae48eda086f6454f0d7108d27d3403b77
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67180815"
 ---
-Se esegue l'avvio backup in un ambiente non DHCP, seguire questi passaggi per distribuire la macchina virtuale per il Gateway di finestra di dati.
+Se si esegue l'avvio in un ambiente non DHCP, attenersi alla seguente procedura per distribuire la macchina virtuale per il gateway della casella dati.
 
 1. [Connettersi all'interfaccia di Windows PowerShell del dispositivo](#connect-to-the-powershell-interface).
-2. Usare il `Get-HcsIpAddress` cmdlet per elencare le interfacce di rete abilitate nel dispositivo virtuale. Se il dispositivo dispone di una singola interfaccia di rete abilitata, il nome predefinito assegnato a questa interfaccia è `Ethernet`.
+2. Utilizzare `Get-HcsIpAddress` il cmdlet per elencare le interfacce di rete abilitate nel dispositivo virtuale. Se il dispositivo dispone di una singola interfaccia di rete abilitata, il nome predefinito assegnato a questa interfaccia è `Ethernet`.
 
     Nell'esempio seguente viene illustrato l'utilizzo di questo cmdlet:
 

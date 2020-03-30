@@ -1,6 +1,6 @@
 ---
 title: Gestire messaggi di grandi dimensioni usando la suddivisione in blocchi
-description: Informazioni su come gestire dimensioni dei messaggi di grandi dimensioni usando la suddivisione in blocchi in attività e flussi di lavoro automatizzati creati con le app per la logica di Azure
+description: Informazioni su come gestire messaggi di grandi dimensioni usando la suddivisione in blocchi in attività e flussi di lavoro automatizzati creati con le app per la logica di AzureLearn how to handle large message sizes by using chunking in automated tasks and workflows that you create with Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 author: shae-hurst
@@ -8,10 +8,10 @@ ms.author: shhurst
 ms.topic: article
 ms.date: 12/03/2019
 ms.openlocfilehash: 81e7c12b04c1ebd9691c11d76f387f7d42490180
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75456559"
 ---
 # <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>Gestire messaggi di grandi dimensioni con la suddivisione in blocchi in App per la logica di Azure
@@ -41,7 +41,7 @@ I servizi che comunicano con App per la logica di Azure possono avere un proprio
 Per i connettori che supportano la suddivisione in blocchi, il protocollo di suddivisione in blocchi sottostante è invisibile agli utenti finali. Tuttavia, non tutti i connettori supportano la suddivisione in blocchi; pertanto, questi connettori generano errori di runtime quando i messaggi in arrivo superano i limiti di dimensione dei connettori.
 
 > [!NOTE]
-> Per le azioni che usano la suddivisione in blocchi, non è possibile passare il corpo del trigger o usare espressioni come `@triggerBody()?['Content']` in tali azioni. Al contrario, per il contenuto del file di testo o JSON, è possibile provare a usare l' [azione **compose** ](../logic-apps/logic-apps-perform-data-operations.md#compose-action) o [creare una variabile](../logic-apps/logic-apps-create-variables-store-values.md) per gestire tale contenuto. Se il corpo del trigger contiene altri tipi di contenuto, ad esempio i file multimediali, è necessario eseguire altri passaggi per gestire tale contenuto.
+> Per le azioni che utilizzano la suddivisione in blocchi, `@triggerBody()?['Content']` non è possibile passare il corpo del trigger o utilizzare espressioni come in tali azioni. Al contrario, per il contenuto di file di testo o JSON, è possibile provare a usare [l'azione **Componi** ](../logic-apps/logic-apps-perform-data-operations.md#compose-action) o [creare una variabile](../logic-apps/logic-apps-create-variables-store-values.md) per gestire tale contenuto. Se il corpo del trigger contiene altri tipi di contenuto, ad esempio i file multimediali, è necessario eseguire altri passaggi per gestire tale contenuto.
 
 <a name="set-up-chunking"></a>
 
@@ -53,7 +53,7 @@ Se un endpoint ha abilitato la suddivisione in blocchi per download o upload, le
 
 Se un'azione HTTP non abilita già la suddivisione in blocchi, è necessario configurare anche la suddivisione in blocchi nella proprietà `runTimeConfiguration` dell'azione. È possibile impostare questa proprietà all'interno dell'azione, sia direttamente nell'editor della visualizzazione codice, come descritto più avanti, sia nella finestra di progettazione di App per la logica, come descritto di seguito:
 
-1. Nell'angolo superiore destro dell'azione HTTP, scegliere il pulsante con puntini di sospensione ( **...** ), quindi scegliere **Impostazioni**.
+1. Nell'angolo superiore destro dell'azione HTTP, scegliere il pulsante con puntini di sospensione (**...**), quindi scegliere **Impostazioni**.
 
    ![Nell'azione, aprire il menu Impostazioni](./media/logic-apps-handle-large-messages/http-settings.png)
 
@@ -113,7 +113,7 @@ Questa procedura descrive il processo dettagliato che App per la logica di Azure
 
 1. L'app per la logica invia una richiesta HTTP POST o PUT iniziale con corpo del messaggio vuoto. L'intestazione della richiesta include queste informazioni sul contenuto di cui l'app per la logica eseguirà il caricamento in blocchi:
 
-   | Campo intestazione della richiesta di App per la logica di Azure | Valore | Tipo | Description |
+   | Campo intestazione della richiesta di App per la logica di Azure | valore | Type | Descrizione |
    |---------------------------------|-------|------|-------------|
    | **x-ms-transfer-mode** | suddiviso in blocchi | string | Indica che il contenuto viene caricato in blocchi |
    | **x-ms-content-length** | <*content-length*> | Integer | Dimensioni dell'intero contenuto in byte prima della suddivisione in blocchi |
@@ -121,10 +121,10 @@ Questa procedura descrive il processo dettagliato che App per la logica di Azure
 
 2. L'endpoint risponde con il codice di stato di esito positivo"200" e queste informazioni facoltative:
 
-   | Campo intestazione della risposta dell'endpoint | Tipo | Obbligatorio | Description |
+   | Campo intestazione della risposta dell'endpoint | Type | Obbligatoria | Descrizione |
    |--------------------------------|------|----------|-------------|
    | **x-ms-chunk-size** | Integer | No | Dimensioni del blocco suggerite in byte |
-   | **Posizione** | string | Sì | Percorso URL a cui inviare i messaggi HTTP PATCH |
+   | **Percorso** | string | Sì | Percorso URL a cui inviare i messaggi HTTP PATCH |
    ||||
 
 3. L'app per la logica crea e invia messaggi HTTP PATCH di follow-up, ognuno contenente le informazioni seguenti:
@@ -133,18 +133,18 @@ Questa procedura descrive il processo dettagliato che App per la logica di Azure
 
    * Questa intestazione descrive in dettaglio il blocco di contenuto inviato in ogni messaggio PATCH:
 
-     | Campo intestazione della richiesta di App per la logica di Azure | Valore | Tipo | Description |
+     | Campo intestazione della richiesta di App per la logica di Azure | valore | Type | Descrizione |
      |---------------------------------|-------|------|-------------|
-     | **Content-Range** | <*range*> | string | Intervallo in byte del blocco di contenuto corrente, incluso il valore iniziale, il valore finale e le dimensioni totali del contenuto, ad esempio: "bytes=0-1023/10100" |
-     | **Content-Type** | <*content-type*> | string | Tipo di contenuto in blocchi |
-     | **Content-Length** | <*content-length*> | string | Lunghezza della dimensione in byte del blocco corrente |
+     | **Content-Range** | <*Gamma*> | string | Intervallo in byte del blocco di contenuto corrente, incluso il valore iniziale, il valore finale e le dimensioni totali del contenuto, ad esempio: "bytes=0-1023/10100" |
+     | **Tipo di contenuto** | <*tipo di contenuto*> | string | Tipo di contenuto in blocchi |
+     | **Content-Length (Lunghezza del contenuto)** | <*content-length*> | string | Lunghezza della dimensione in byte del blocco corrente |
      |||||
 
-4. Dopo ogni richiesta di PATCH, l'endpoint conferma la ricezione per ogni blocco rispondendo con il codice di stato "200" e con le intestazioni di risposta seguenti:
+4. Dopo ogni richiesta PATCH, l'endpoint conferma la ricezione per ogni blocco rispondendo con il codice di stato "200" e le intestazioni di risposta seguenti:After each PATCH request, the endpoint confirms the receipt for each chunk by responding with the "200" status code and the following response headers:
 
-   | Campo intestazione della risposta dell'endpoint | Tipo | Obbligatorio | Description |
+   | Campo intestazione della risposta dell'endpoint | Type | Obbligatoria | Descrizione |
    |--------------------------------|------|----------|-------------|
-   | **Range** | string | Sì | Intervallo di byte per il contenuto ricevuto dall'endpoint, ad esempio: "bytes = 0-1023" |   
+   | **Gamma** | string | Sì | L'intervallo di byte per il contenuto che è stato ricevuto dall'endpoint, ad esempio: "bytes-0-1023" |   
    | **x-ms-chunk-size** | Integer | No | Dimensioni del blocco suggerite in byte |
    ||||
 

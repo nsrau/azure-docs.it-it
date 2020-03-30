@@ -1,26 +1,26 @@
 ---
 title: Aggiunta di azioni personalizzate all'API REST di Azure
-description: Informazioni su come aggiungere azioni personalizzate all'API REST di Azure. In questo articolo vengono illustrati i requisiti e le procedure consigliate per gli endpoint che desiderano implementare azioni personalizzate.
+description: Informazioni su come aggiungere azioni personalizzate all'API REST di Azure.Learn how to add custom actions to the Azure REST API. Questo articolo illustra i requisiti e le procedure consigliate per gli endpoint che desiderano implementare azioni personalizzate.
 ms.topic: conceptual
 ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
 ms.openlocfilehash: 6110a7952b7c29609d2b98e135b61032aec3fa52
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75650396"
 ---
-# <a name="adding-custom-actions-to-azure-rest-api"></a>Aggiunta di azioni personalizzate all'API REST di Azure
+# <a name="adding-custom-actions-to-azure-rest-api"></a>Aggiunta di azioni personalizzate all'API REST di AzureAdding Custom Actions to Azure REST API
 
-In questo articolo verranno illustrati i requisiti e le procedure consigliate per la creazione di endpoint del provider di risorse personalizzati di Azure che implementano azioni personalizzate. Se non si ha familiarità con i provider di risorse personalizzati di Azure, vedere [la panoramica sui provider di risorse personalizzati](overview.md).
+Questo articolo illustra i requisiti e le procedure consigliate per la creazione di endpoint del provider di risorse personalizzato di Azure che implementano azioni personalizzate. Se non si ha familiarità con i provider di risorse personalizzate di Azure, vedere [panoramica sui provider](overview.md)di risorse personalizzati.
 
-## <a name="how-to-define-an-action-endpoint"></a>Come definire un endpoint azione
+## <a name="how-to-define-an-action-endpoint"></a>Come definire un endpoint azioneHow to define an Action Endpoint
 
-Un **endpoint** è un URL che punta a un servizio che implementa il contratto sottostante tra l'IT e Azure. L'endpoint è definito nel provider di risorse personalizzato e può essere qualsiasi URL accessibile pubblicamente. Nell'esempio seguente è presente un' **azione** denominata `myCustomAction` implementata da `endpointURL`.
+Un endpoint è un URL che punta a un servizio, che implementa il contratto sottostante tra esso e Azure.An **endpoint** is a URL that points to a service, which implements the underlying contract between it and Azure. L'endpoint è definito nel provider di risorse personalizzato e può essere qualsiasi URL accessibile pubblicamente. Nell'esempio riportato `myCustomAction` di `endpointURL`seguito è riportata **un'azione** denominata implementata da .
 
-**ResourceProvider**di esempio:
+**Risorsa di esempio:**
 
 ```JSON
 {
@@ -40,15 +40,15 @@ Un **endpoint** è un URL che punta a un servizio che implementa il contratto so
 }
 ```
 
-## <a name="building-an-action-endpoint"></a>Compilazione di un endpoint azione
+## <a name="building-an-action-endpoint"></a>Creazione di un endpoint azioneBuilding an action endpoint
 
-Un **endpoint** che implementa un' **azione** deve gestire la richiesta e la risposta per la nuova API in Azure. Quando viene creato un provider di risorse personalizzato con un' **azione** , verrà generato un nuovo set di API in Azure. In questo caso, l'azione genererà una nuova API azione di Azure per le chiamate `POST`:
+Un endpoint che implementa **un'azione** deve gestire la richiesta e la risposta per la nuova API in Azure.An **endpoint** that implements an action must handle the request and response for the new API in Azure. Quando viene creato un provider di risorse personalizzato con **un'azione,** verrà generato un nuovo set di API in Azure.When a custom resource provider with an action is created, it will generate a new set of APIs in Azure. In questo caso, l'azione genererà `POST` una nuova API di azione di Azure per le chiamate:In this case, the action will generate a new Azure action API for calls:
 
 ``` JSON
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomAction
 ```
 
-Richiesta in ingresso API di Azure:
+Richiesta in ingresso API di Azure:Azure API Incoming Request:
 
 ``` HTTP
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomAction?api-version=2018-09-01-preview
@@ -63,7 +63,7 @@ Content-Type: application/json
 }
 ```
 
-Questa richiesta verrà quindi trasmessa all' **endpoint** nel formato seguente:
+Questa richiesta verrà quindi inoltrata **all'endpoint** nel formato:
 
 ``` HTTP
 POST https://{endpointURL}/?api-version=2018-09-01-preview
@@ -78,24 +78,10 @@ X-MS-CustomProviders-RequestPath: /subscriptions/{subscriptionId}/resourceGroups
 }
 ```
 
-Analogamente, la risposta dall' **endpoint** viene quindi reinviata al cliente. La risposta dall'endpoint deve restituire:
+Analogamente, la risposta **dall'endpoint** viene quindi inoltrata al cliente. La risposta dall'endpoint deve restituire:The response from the endpoint should return:
 
-- Documento oggetto JSON valido. Tutte le matrici e le stringhe devono essere annidate in un oggetto top.
-- L'intestazione di `Content-Type` deve essere impostata su "Application/JSON; charset = UTF-8 ".
-
-``` HTTP
-HTTP/1.1 200 OK
-Content-Type: application/json; charset=utf-8
-
-{
-    "myProperty1": "myPropertyValue1",
-    "myProperty2": {
-        "myProperty3" : "myPropertyValue3"
-    }
-}
-```
-
-Risposta del provider di risorse personalizzato di Azure:
+- Documento oggetto JSON valido. Tutte le matrici e le stringhe devono essere annidate sotto un oggetto superiore.
+- L'intestazione `Content-Type` deve essere impostata su "application/json; charset:utf-8".
 
 ``` HTTP
 HTTP/1.1 200 OK
@@ -109,9 +95,23 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-## <a name="calling-a-custom-action"></a>Chiamata di un'azione personalizzata
+Risposta del provider di risorse personalizzato di Azure:Azure Custom Resource Provider Response:
 
-Esistono due modi principali per chiamare un'azione personalizzata da un provider di risorse personalizzato:
+``` HTTP
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+{
+    "myProperty1": "myPropertyValue1",
+    "myProperty2": {
+        "myProperty3" : "myPropertyValue3"
+    }
+}
+```
+
+## <a name="calling-a-custom-action"></a>Chiamata di un'azione personalizzataCalling a Custom Action
+
+Esistono due modi principali per chiamare un'azione personalizzata da un provider di risorse personalizzato:There are two main ways of calling a custom action off of a custom resource provider:
 
 - Interfaccia della riga di comando di Azure
 - Modelli di Azure Resource Manager
@@ -130,18 +130,18 @@ az resource invoke-action --action {actionName} \
                             }'
 ```
 
-Parametro | Obbligatorio | Description
+Parametro | Obbligatoria | Descrizione
 ---|---|---
-action | *sì* | Nome dell'azione definita in **ResourceProvider**.
-ids | *sì* | ID di risorsa di **ResourceProvider**.
-request-body | *no* | Il corpo della richiesta che verrà inviato all' **endpoint**.
+action | *Sì* | Nome dell'azione definita nel **ResourceProvider**.
+ids | *Sì* | ID di risorsa di **ResourceProvider**.
+request-body | *No* | Corpo della richiesta che verrà inviato **all'endpoint.**
 
 ### <a name="azure-resource-manager-template"></a>Modello di Azure Resource Manager
 
 > [!NOTE]
-> Le azioni hanno un supporto limitato nei modelli di Azure Resource Manager. Per poter chiamare l'azione all'interno di un modello, deve contenere il prefisso [`list`](../templates/template-functions-resource.md#list) nel nome.
+> Le azioni hanno un supporto limitato nei modelli di Azure Resource Manager.Actions have limited support in Azure Resource Manager Templates. Affinché l'azione venga chiamata all'interno di [`list`](../templates/template-functions-resource.md#list) un modello, deve contenere il prefisso nel nome.
 
-Esempio di **ResourceProvider** con azione List:
+ResourceProvider di esempio con azione elenco:Sample **ResourceProvider** with List Action:
 
 ```JSON
 {
@@ -184,15 +184,15 @@ Modello di Azure Resource Manager di esempio:
 }
 ```
 
-Parametro | Obbligatorio | Description
+Parametro | Obbligatoria | Descrizione
 ---|---|---
-resourceIdentifier | *sì* | ID di risorsa di **ResourceProvider**.
-apiVersion | *sì* | Versione dell'API del runtime di risorse. Deve essere sempre "2018-09-01-Preview".
-functionValues | *no* | Il corpo della richiesta che verrà inviato all' **endpoint**.
+resourceIdentifier (identificatore delle risorse) | *Sì* | ID di risorsa di **ResourceProvider**.
+apiVersion | *Sì* | Versione API del runtime delle risorse. Questo dovrebbe essere sempre "2018-09-01-preview".
+functionValues | *No* | Corpo della richiesta che verrà inviato **all'endpoint.**
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Panoramica sui provider di risorse personalizzati di Azure](overview.md)
-- [Guida introduttiva: creare un provider di risorse personalizzato di Azure e distribuire risorse personalizzate](./create-custom-provider.md)
-- [Esercitazione: creare azioni e risorse personalizzate in Azure](./tutorial-get-started-with-custom-providers.md)
-- [Procedura: aggiungere risorse personalizzate all'API REST di Azure](./custom-providers-resources-endpoint-how-to.md)
+- [Panoramica sui provider di risorse personalizzate di AzureOverview on Azure Custom Resource Providers](overview.md)
+- [Guida introduttiva: Creare il provider di risorse personalizzato di Azure e distribuire risorse personalizzate](./create-custom-provider.md)
+- [Esercitazione: Creare azioni e risorse personalizzate in AzureTutorial: Create custom actions and resources in Azure](./tutorial-get-started-with-custom-providers.md)
+- [Procedura: Aggiunta di risorse personalizzate all'API REST di AzureHow To: Adding Custom Resources to Azure REST API](./custom-providers-resources-endpoint-how-to.md)

@@ -1,13 +1,13 @@
 ---
-title: Modelli di rete per Azure Service Fabric
+title: Modelli di rete per Azure Service FabricNetworking patterns for Azure Service Fabric
 description: Questo articolo descrive i modelli di rete comuni per Service Fabric e illustra come creare un cluster con le funzionalità di rete di Azure.
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.openlocfilehash: 065c311fffe409b20e02a3fddf1e9e7e6a82a2a1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75466284"
 ---
 # <a name="service-fabric-networking-patterns"></a>Modelli di rete di Service Fabric
@@ -20,7 +20,7 @@ ms.locfileid: "75466284"
 
 Service Fabric viene eseguito in un set di scalabilità di macchine virtuali standard. In un cluster di Service Fabric si possono usare tutte le funzionalità che è possibile usare in un set di scalabilità di macchine virtuali. Le sezioni di rete dei modelli di Azure Resource Manager per i set di scalabilità di macchine virtuali e quelle per Service Fabric sono identiche. Dopo aver eseguito la distribuzione in una rete virtuale esistente, è facile incorporare altre funzionalità di rete, come Azure ExpressRoute, il gateway VPN di Azure, un gruppo di sicurezza di rete e il peering di rete virtuale.
 
-### <a name="allowing-the-service-fabric-resource-provider-to-query-your-cluster"></a>Consentire al provider di risorse Service Fabric di eseguire query sul cluster
+### <a name="allowing-the-service-fabric-resource-provider-to-query-your-cluster"></a>Consentire al provider di risorse di Service Fabric di eseguire query nel clusterAllowing the Service Fabric resource provider to query your cluster
 
 Service Fabric si distingue dalle altre funzionalità di rete per un solo aspetto. Il [portale di Azure](https://portal.azure.com) usa internamente il provider di risorse di Service Fabric per chiamare un cluster e ottenere informazioni sui nodi e le applicazioni. Il provider di risorse di Service Fabric richiede l'accesso in ingresso accessibile pubblicamente alla porta del gateway HTTP nell'endpoint di gestione. Per impostazione predefinita si tratta della porta 19080. [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) usa l'endpoint di gestione per gestire il cluster. Anche il provider di risorse di Service Fabric usa questa porta per richiedere informazioni sul cluster, che vengono visualizzate nel portale di Azure. 
 
@@ -259,7 +259,7 @@ Per altre informazioni, vedere un [esempio non specifico di Service Fabric](http
                     ],
     ```
 
-7. Nella risorsa `Microsoft.ServiceFabric/clusters` impostare `managementEndpoint` sul nome di dominio completo del DNS dell'indirizzo IP statico. Se si usa un cluster protetto, assicurarsi di modificare *http://* in *https://* . Si noti che questo passaggio si applica solo ai cluster di Service Fabric. Se si usa un set di scalabilità di macchine virtuali, ignorare il passaggio.
+7. Nella risorsa `Microsoft.ServiceFabric/clusters` impostare `managementEndpoint` sul nome di dominio completo del DNS dell'indirizzo IP statico. Se si usa un cluster protetto, assicurarsi di modificare *http://* in *https://*. Si noti che questo passaggio si applica solo ai cluster di Service Fabric. Se si usa un set di scalabilità di macchine virtuali, ignorare il passaggio.
 
     ```json
                     "fabricSettings": [],
@@ -279,12 +279,12 @@ Per altre informazioni, vedere un [esempio non specifico di Service Fabric](http
     New-AzResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkingstaticip -TemplateFile C:\SFSamples\Final\template\_staticip.json -existingStaticIPResourceGroup $staticip.ResourceGroupName -existingStaticIPName $staticip.Name -existingStaticIPDnsFQDN $staticip.DnsSettings.Fqdn
     ```
 
-Dopo la distribuzione, il servizio di bilanciamento del carico è associato all'indirizzo IP statico pubblico dell'altro gruppo di risorse. L'endpoint della connessione client di Service Fabric e l'endpoint di [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) puntano al nome di dominio completo del DNS dell'indirizzo IP statico.
+Dopo la distribuzione, il servizio di bilanciamento del carico è associato all'indirizzo IP statico pubblico dell'altro gruppo di risorse. L'endpoint di connessione client di Service Fabric e l'endpoint [di Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) puntano all'FQDN DNS dell'indirizzo IP statico.
 
 <a id="internallb"></a>
 ## <a name="internal-only-load-balancer"></a>Bilanciamento del carico esclusivamente interno
 
-Questo scenario sostituisce il servizio di bilanciamento del carico esterno nel modello di Service Fabric predefinito con un bilanciamento del carico esclusivamente interno. Vedere [in precedenza nell'articolo](#allowing-the-service-fabric-resource-provider-to-query-your-cluster) per le implicazioni per la portale di Azure e per il provider di risorse Service Fabric.
+Questo scenario sostituisce il servizio di bilanciamento del carico esterno nel modello di Service Fabric predefinito con un bilanciamento del carico esclusivamente interno. Vedere [in precedenza nell'articolo](#allowing-the-service-fabric-resource-provider-to-query-your-cluster) per le implicazioni per il portale di Azure e per il provider di risorse di Service Fabric.See earlier in the article for implications for the Azure portal and for the Service Fabric resource provider.
 
 1. Rimuovere il parametro `dnsName`. Non è necessario.
 
@@ -361,7 +361,7 @@ Questo scenario sostituisce il servizio di bilanciamento del carico esterno nel 
                     ],
     ```
 
-6. Nella risorsa `Microsoft.ServiceFabric/clusters` modificare `managementEndpoint` in modo che punti all'indirizzo del servizio di bilanciamento del carico interno. Se si usa un cluster protetto, assicurarsi di modificare *http://* in *https://* . Si noti che questo passaggio si applica solo ai cluster di Service Fabric. Se si usa un set di scalabilità di macchine virtuali, ignorare il passaggio.
+6. Nella risorsa `Microsoft.ServiceFabric/clusters` modificare `managementEndpoint` in modo che punti all'indirizzo del servizio di bilanciamento del carico interno. Se si usa un cluster protetto, assicurarsi di modificare *http://* in *https://*. Si noti che questo passaggio si applica solo ai cluster di Service Fabric. Se si usa un set di scalabilità di macchine virtuali, ignorare il passaggio.
 
     ```json
                     "fabricSettings": [],
@@ -382,7 +382,7 @@ Dopo la distribuzione, il servizio di bilanciamento del carico usa l'indirizzo I
 <a id="internalexternallb"></a>
 ## <a name="internal-and-external-load-balancer"></a>Bilanciamento del carico interno ed esterno
 
-In questo scenario si inizia con il servizio di bilanciamento del carico esterno a nodo singolo esistente e si aggiunge un servizio di bilanciamento del carico interno per lo stesso tipo di nodo. È possibile assegnare una porta back-end collegata a un pool di indirizzi back-end a un solo servizio di bilanciamento del carico. Scegliere a quale servizio di bilanciamento del carico assegnare le porte dell'applicazione e a quale assegnare gli endpoint di gestione (porte 19000 e 19080). Se si inseriscono gli endpoint di gestione nel servizio di bilanciamento del carico interno, tenere presente le restrizioni del provider di risorse Service Fabric descritte [in precedenza in questo articolo](#allowing-the-service-fabric-resource-provider-to-query-your-cluster). Nell'esempio usato gli endpoint di gestione rimangono nel servizio di bilanciamento del carico esterno. Aggiungere una porta 80 dell'applicazione e posizionarla nel servizio di bilanciamento del carico interno.
+In questo scenario si inizia con il servizio di bilanciamento del carico esterno a nodo singolo esistente e si aggiunge un servizio di bilanciamento del carico interno per lo stesso tipo di nodo. È possibile assegnare una porta back-end collegata a un pool di indirizzi back-end a un solo servizio di bilanciamento del carico. Scegliere a quale servizio di bilanciamento del carico assegnare le porte dell'applicazione e a quale assegnare gli endpoint di gestione (porte 19000 e 19080). Se si inserisceno gli endpoint di gestione nel servizio di bilanciamento del carico interno, tenere presente le restrizioni del provider di risorse di Service Fabric descritte [in precedenza nell'articolo.](#allowing-the-service-fabric-resource-provider-to-query-your-cluster) Nell'esempio usato gli endpoint di gestione rimangono nel servizio di bilanciamento del carico esterno. Aggiungere una porta 80 dell'applicazione e posizionarla nel servizio di bilanciamento del carico interno.
 
 In un cluster a due tipi di nodo, un tipo di nodo si trova nel servizio di bilanciamento del carico esterno. L'altro tipo di nodo si trova nel servizio di bilanciamento del carico interno. Per usare un cluster a due tipi di nodo, nel modello a due tipi di nodo creato nel portale, che include due servizi di bilanciamento del carico, impostare il secondo come servizio di bilanciamento del carico interno. Per altre informazioni, vedere la sezione [Bilanciamento del carico esclusivamente interno](#internallb).
 
@@ -596,9 +596,9 @@ In un cluster a due tipi di nodo, un tipo di nodo si trova nel servizio di bilan
 
 Dopo la distribuzione, nel gruppo di risorse vengono visualizzati due servizi di bilanciamento del carico. Esplorando tali servizi è possibile visualizzare l'indirizzo IP pubblico e gli endpoint di gestione (porte 19000 e 19080) assegnati all'indirizzo IP pubblico. È anche possibile visualizzare l'indirizzo IP interno statico e l'endpoint dell'applicazione (porta 80) assegnati al servizio di bilanciamento del carico interno. Entrambi i servizi di bilanciamento del carico usano lo stesso pool back-end del set di scalabilità di macchine virtuali.
 
-## <a name="notes-for-production-workloads"></a>Note per i carichi di lavoro di produzione
+## <a name="notes-for-production-workloads"></a>Note per i carichi di lavoro di produzioneNotes for production workloads
 
-I modelli GitHub precedenti sono progettati per funzionare con lo SKU predefinito per Azure Load Balancer Standard (SLB), lo SKU Basic. Questo SLB non dispone di contratti di contratto, quindi per i carichi di lavoro di produzione deve essere usato lo SKU standard. Per altre informazioni, vedere Panoramica di [Azure Load Balancer standard](/azure/load-balancer/load-balancer-standard-overview). Qualsiasi Service Fabric cluster che usa lo SKU standard per SLB deve garantire che ogni tipo di nodo abbia una regola che consenta il traffico in uscita sulla porta 443. Questa operazione è necessaria per completare la configurazione del cluster e tutte le distribuzioni senza tale regola avranno esito negativo. Nell'esempio precedente di un servizio di bilanciamento del carico "solo interno", è necessario aggiungere al modello un servizio di bilanciamento del carico esterno aggiuntivo con una regola che consente il traffico in uscita per la porta 443.
+I modelli GitHub precedenti sono progettati per funzionare con lo SKU predefinito per Azure Standard Load Balancer (SLB), lo SKU Basic.The above GitHub templates are designed to work with the default SKU for Azure Standard Load Balancer (SLB), the Basic SKU). Questo SLB non ha sLA, pertanto per i carichi di lavoro di produzione deve essere usato lo SKU Standard.This SLB has no SLA, so for production workloads the Standard SKU should be used. Per altre informazioni, vedere Panoramica di Azure Standard Load Balancer.For more on this, see the [Azure Standard Load Balancer overview](/azure/load-balancer/load-balancer-standard-overview). Qualsiasi cluster di Service Fabric che usa lo SKU Standard per SLB deve garantire che ogni tipo di nodo disponga di una regola che consente il traffico in uscita sulla porta 443.Any Service Fabric cluster using the Standard SKU for SLB needs to ensure that each node type has a rule allowing outbound traffic on port 443. Ciò è necessario per completare la configurazione del cluster e qualsiasi distribuzione senza tale regola avrà esito negativo. Nell'esempio precedente di un servizio di bilanciamento del carico "solo interno", è necessario aggiungere un servizio di bilanciamento del carico esterno aggiuntivo al modello con una regola che consente il traffico in uscita per la porta 443.In the above example of an "internal only" load balancer, an additional external load balancer must be added to the template with a rule allowing outbound traffic for port 443.
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Creare un cluster](service-fabric-cluster-creation-via-arm.md)

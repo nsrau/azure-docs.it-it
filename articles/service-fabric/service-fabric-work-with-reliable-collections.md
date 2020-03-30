@@ -1,13 +1,13 @@
 ---
 title: Lavorare con le raccolte Reliable Collections
-description: Informazioni sulle procedure consigliate per l'uso di Reliable Collections all'interno di un'applicazione Service Fabric di Azure.
+description: Informazioni sulle procedure consigliate per l'uso di raccolte affidabili in un'applicazione di Azure Service Fabric.Learn the best practices for working with Reliable Collections within an Azure Service Fabric application.
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.openlocfilehash: 4a1f48d9523e5d753c222f0526e210a30e1927e2
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75645974"
 ---
 # <a name="working-with-reliable-collections"></a>Lavorare con le raccolte Reliable Collections
@@ -132,7 +132,7 @@ using (ITransaction tx = StateManager.CreateTransaction())
 ```
 
 ## <a name="define-immutable-data-types-to-prevent-programmer-error"></a>Definire tipi di dati non modificabili per evitare errori del programmatore
-Idealmente, il compilatore dovrebbe segnalare gli errori quando si crea inavvertitamente codice che modifica lo stato di un oggetto considerato non modificabile. Tuttavia, il compilatore C# non è in grado di farlo. Pertanto, per evitare potenziali errori del programmatore, si consiglia di definire i tipi da usare con le raccolte Reliable Collections come tipi non modificabili. In particolare, questo significa che è opportuno fermarsi ai principali tipi di valore (ad esempio numeri [Int32, UInt64, etc.], DateTime, Guid, TimeSpan e simili). È anche possibile usare le stringhe. È preferibile evitare proprietà della raccolta poiché la serializzazione e la deserializzazione possono spesso influire negativamente sulle prestazioni. Tuttavia, se si intende usare le proprietà della raccolta, è consigliabile l'uso di libreria di raccolte .NET non modificabili ([System.Collections.Immutable](https://www.nuget.org/packages/System.Collections.Immutable/)). Questa libreria è disponibile per il download da https://nuget.org. È inoltre consigliabile bloccare le classi e rendere i campi di sola lettura quando possibile.
+Idealmente, il compilatore dovrebbe segnalare gli errori quando si crea inavvertitamente codice che modifica lo stato di un oggetto considerato non modificabile. Tuttavia, il compilatore C# non è in grado di farlo. Pertanto, per evitare potenziali errori del programmatore, si consiglia di definire i tipi da usare con le raccolte Reliable Collections come tipi non modificabili. In particolare, questo significa che è opportuno fermarsi ai principali tipi di valore (ad esempio numeri [Int32, UInt64, etc.], DateTime, Guid, TimeSpan e simili). È anche possibile usare le stringhe. È preferibile evitare proprietà della raccolta poiché la serializzazione e la deserializzazione possono spesso influire negativamente sulle prestazioni. Tuttavia, se si intende usare le proprietà della raccolta, è consigliabile l'uso di libreria di raccolte .NET non modificabili ([System.Collections.Immutable](https://www.nuget.org/packages/System.Collections.Immutable/)). Questa libreria è disponibile https://nuget.orgper il download da . Ti consigliamo inoltre di sigillare le classi e rendere i campi di sola lettura quando possibile.
 
 Il tipo UserInfo riportato di seguito mostra come definire un tipo non modificabile sfruttando i consigli indicati in precedenza.
 
@@ -196,11 +196,11 @@ Il codice del servizio viene aggiornato un dominio di aggiornamento alla volta. 
 
 > [!WARNING]
 > Sebbene sia possibile modificare lo schema di una chiave, è necessario assicurarsi che il codice hash e l'algoritmo di uguaglianza della chiave siano stabili. Se si modifica il funzionamento di questi algoritmi, non sarà più possibile cercare la chiave all'interno del ReliableDictionary.
-> È possibile usare le stringhe .NET come chiave, ma usare la stringa stessa come chiave. non usare il risultato di String. GetHashCode come chiave.
+> Le stringhe .NET possono essere utilizzate come chiave, ma utilizzano la stringa stessa come chiave, non utilizzare il risultato di String.GetHashCode come chiave.
 
-In alternativa, è possibile eseguire un aggiornamento noto come aggiornamento a due fasi. Con un aggiornamento in due fasi, si aggiorna il servizio da V1 a V2: V2 contiene il codice che sa come gestire la nuova modifica dello schema, ma questo codice non viene eseguito. Quando il codice V2 legge i dati V1, opera su di esso e scrive i dati V1. Quindi, al termine dell'aggiornamento di tutti i domini di aggiornamento, è possibile in qualche modo segnalare alle istanze V2 in esecuzione che l'aggiornamento è stato completato. Un modo per segnalare questo problema consiste nell'implementazione di un aggiornamento della configurazione. questo è ciò che rende un aggiornamento in due fasi. A questo punto, le istanze V2 possono leggere i dati V1, convertirli in dati V2, operare su di esso e scriverli come dati V2. Quando altre istanze leggono i dati V2, non è necessario convertirli: possono operano su di essi e scrivere dati V2.
+In alternativa, è possibile eseguire un aggiornamento noto come aggiornamento a due fasi. Con un aggiornamento in due fasi, si aggiorna il servizio da V1 a V2: V2 contiene il codice che sa come gestire la nuova modifica dello schema, ma questo codice non viene eseguito. Quando il codice V2 legge i dati V1, opera su di esso e scrive i dati V1. Quindi, al termine dell'aggiornamento di tutti i domini di aggiornamento, è possibile in qualche modo segnalare alle istanze V2 in esecuzione che l'aggiornamento è stato completato. (Un modo per segnalare questo è quello di implementare un aggiornamento della configurazione; questo è ciò che rende questo un aggiornamento in due fasi.) A questo punto, le istanze V2 possono leggere i dati V1, convertirlo in dati V2, operare su di esso e scriverlo come dati V2. Quando altre istanze leggono i dati V2, non è necessario convertirli: possono operano su di essi e scrivere dati V2.
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 Per informazioni sulla creazione di contratti di dati compatibili con versioni successive, vedere [Contratti di dati compatibili con versioni successive](https://msdn.microsoft.com/library/ms731083.aspx)
 
 Per informazioni sulle procedure consigliate per il controllo delle versioni dei contratti di dati, vedere [Controllo delle versioni dei contratti di dati](https://msdn.microsoft.com/library/ms731138.aspx)

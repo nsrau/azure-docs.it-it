@@ -1,6 +1,6 @@
 ---
-title: Dimensioni delle macchine virtuali di Azure-utilizzo generico | Microsoft Docs
-description: Elenca le diverse dimensioni di utilizzo generico disponibili per le macchine virtuali in Azure. Elenca le informazioni sul numero di vCPU, dischi dati e NIC, oltre che sulla velocità effettiva di archiviazione e sulla larghezza di banda di rete per le dimensioni di questa serie.
+title: Dimensioni delle macchine virtuali di Azure - Scopo generale Documenti Microsoft
+description: Elenca le diverse dimensioni generiche disponibili per le macchine virtuali in Azure. Elenca le informazioni sul numero di vCPU, dischi dati e schede di interfaccia di rete, nonché la velocità effettiva di archiviazione e la larghezza di banda di rete per le dimensioni in questa serie.
 services: virtual-machines
 documentationcenter: ''
 author: jonbeck7
@@ -15,32 +15,32 @@ ms.workload: infrastructure-services
 ms.date: 02/20/2020
 ms.author: jonbeck
 ms.openlocfilehash: 4b36f456f70eb79cff1f615c7c136b8fe4b1b3d4
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78226704"
 ---
 # <a name="general-purpose-virtual-machine-sizes"></a>Dimensioni delle macchine virtuali di utilizzo generico
 
-Le dimensioni delle macchine virtuali di utilizzo generico offrono un rapporto CPU-memoria equilibrato. Soluzione ideale per test e sviluppo, database medio-piccoli e server Web con traffico da medio a ridotto. Questo articolo fornisce informazioni sulle offerte per l'elaborazione di utilizzo generico.
+Le dimensioni delle macchine virtuali di utilizzo generico offrono un rapporto CPU-memoria equilibrato. Soluzione ideale per test e sviluppo, database medio-piccoli e server Web con traffico da medio a ridotto. In questo articolo vengono fornite informazioni sulle offerte per l'elaborazione di uso generale.
 
-- Le macchine virtuali della [serie AV2](av2-series.md) possono essere distribuite su diversi tipi di hardware e processori. Le VM serie A offrono configurazioni di memoria e prestazioni della CPU ideali per i carichi di lavoro di base, ad esempio quelli di sviluppo e test. La dimensione è limitata in base all'hardware per offrire prestazioni del processore coerenti per l'istanza in esecuzione, indipendentemente dall'hardware in cui è distribuita. Per determinare l'hardware fisico in cui viene distribuita questa dimensione, eseguire una query nell'hardware virtuale dall'interno della macchina virtuale. I casi d'uso di esempio includono server di sviluppo e test, server Web con poco traffico, database da piccoli a medi, modelli di prova e repository di codice.
+- Le macchine virtuali [di serie Av2](av2-series.md) possono essere distribuite in diversi tipi di hardware e processori. Le VM serie A offrono configurazioni di memoria e prestazioni della CPU ideali per i carichi di lavoro di base, ad esempio quelli di sviluppo e test. La dimensione è limitata in base all'hardware per offrire prestazioni del processore coerenti per l'istanza in esecuzione, indipendentemente dall'hardware in cui è distribuita. Per determinare l'hardware fisico in cui viene distribuita questa dimensione, eseguire una query nell'hardware virtuale dall'interno della macchina virtuale. I casi d'uso di esempio includono server di sviluppo e test, server Web con poco traffico, database da piccoli a medi, modelli di prova e repository di codice.
 
   > [!NOTE]
-  > Le macchine virtuali a8-A11 sono pianificate per il ritiro in 3/2021. Per ulteriori informazioni, vedere la [Guida alla migrazione HPC](https://azure.microsoft.com/resources/hpc-migration-guide/).
+  > Le macchine virtuali A8 – A11 sono previste per il ritiro il 3/2021. Per ulteriori informazioni, consultate Guida alla [migrazione HPC](https://azure.microsoft.com/resources/hpc-migration-guide/).
 
-- [Serie B in sequenza](sizes-b-series-burstable.md) Le VM sono ideali per i carichi di lavoro che non necessitano continuamente delle prestazioni complete della CPU, ad esempio server Web, database di piccole dimensioni e ambienti di sviluppo e test. Questi carichi di lavoro hanno in genere requisiti relativi alle prestazioni che prevedono burst. La serie B offre a questi clienti la possibilità di acquistare dimensioni per la VM con prestazioni baseline in relazione al prezzo, che consentono all'istanza della VM di accumulare crediti quando la VM utilizza meno prestazioni di quelle base. Quando la VM ha accumulato crediti, può eseguire il burst rispetto alla baseline della VM, usando fino al 100% della CPU quando l'applicazione richiede prestazioni superiori per la CPU.
+- [Serie B scoppiabile](sizes-b-series-burstable.md) Le macchine virtuali sono ideali per carichi di lavoro che non richiedono le prestazioni complete della CPU in modo continuo, ad esempio server Web, database di piccole dimensioni e ambienti di sviluppo e test. Questi carichi di lavoro hanno in genere requisiti relativi alle prestazioni che prevedono burst. La serie B offre a questi clienti la possibilità di acquistare dimensioni per la VM con prestazioni baseline in relazione al prezzo, che consentono all'istanza della VM di accumulare crediti quando la VM utilizza meno prestazioni di quelle base. Quando la VM ha accumulato crediti, può eseguire il burst rispetto alla baseline della VM, usando fino al 100% della CPU quando l'applicazione richiede prestazioni superiori per la CPU.
 
-- Le [serie Dav4 e Dasv4](dav4-dasv4-series.md) sono nuove dimensioni che usano il processore AMD 2.35 GHz EPYC<sup>TM</sup> 7452 in una configurazione multithread con una cache L3 fino a 256 MB che dedicano 8 GB di tale cache L3 a ogni 8 core che aumentano le opzioni dei clienti per l'esecuzione dei carichi di lavoro per uso generico. La serie Dav4 e la serie Dasv4 hanno le stesse configurazioni di memoria e disco della serie D & Dsv3.
+- [Le serie Dav4 e Dasv4](dav4-dasv4-series.md) sono nuove dimensioni che utilizzano il processore AMD 2.35Ghz EPYC<sup>TM</sup> 7452 in una configurazione multi-thread con una cache L3 fino a 256 MB che dedica 8 GB di tale cache L3 a ogni 8 core aumentando le opzioni dei clienti per l'esecuzione dei carichi di lavoro di uso generale. La serie Dav4 e la serie Dasv4 hanno le stesse configurazioni di memoria e disco della serie D & Dsv3.
 
-- La [serie DCv2](dcv2-series.md) può aiutare a proteggere la riservatezza e l'integrità dei dati e del codice durante l'elaborazione nel cloud pubblico. Questi computer sono supportati dall'ultima generazione del processore Intel XEON E-2288G con la tecnologia SGX. Con la tecnologia Intel Turbo Boost, questi computer possono arrivare fino a 5.0 GHz. Le istanze della serie DCv2 consentono ai clienti di creare applicazioni sicure basate su enclave per proteggere il codice e i dati in uso.
+- La [serie DCv2](dcv2-series.md) consente di proteggere la riservatezza e l'integrità dei dati e del codice durante l'elaborazione nel cloud pubblico. Queste macchine sono supportate dall'ultima generazione di processore Intel XEON E-2288G con tecnologia SGX. Con la tecnologia Intel Turbo Boost queste macchine possono raggiungere i 5,0 GHz. Le istanze della serie DCv2 consentono ai clienti di creare applicazioni sicure basate su enclave per proteggere il codice e i dati mentre sono in uso.
 
-- [Serie dv2 e Dsv2](dv2-dsv2-series.md) Le macchine virtuali, una versione successiva alla serie D originale, sono caratterizzate da una CPU più potente e da una configurazione ottimale di CPU a memoria che li rende adatti alla maggior parte dei carichi di lavoro di produzione. La serie dv2 è più veloce del 35% rispetto alla serie D. La serie dv2 è in esecuzione su Intel® Xeon® 8171M 2.1 GHz (Skylake), Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) o i processori Intel® Xeon® E5-2673 V3 2,4 GHz (Haswell) con la tecnologia Intel Turbo Boost 2,0. La serie Dv2 ha le stesse configurazioni di memoria e disco della serie D.
+- [Serie Dv2 e Dsv2](dv2-dsv2-series.md) Le macchine virtuali, un follow-on della serie D originale, sono dotate di una CPU più potente e di una configurazione ottimale da CPU a memoria che le rende adatte per la maggior parte dei carichi di lavoro di produzione. La serie Dv2 è circa 35% più veloce rispetto alla serie D. La serie Dv2 viene eseguita sui processori Intel® Xeon® 8171M 2.1 GHz (Skylake), Intel® Xeon® E5-2673 v4 a 2,3 GHz (Broadwell) o Intel® Xeon® E5-2673 v3 da 2,4 GHz (Haswell) con Intel Turbo Boost Technology 2.0. La serie Dv2 ha le stesse configurazioni di memoria e disco della serie D.
 
-- [Serie dv3 e Dsv3](dv3-dsv3-series.md) Le macchine virtuali vengono eseguite sui processori Intel® Xeon® 8171M 2.1 GHz (Skylake), Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) o Intel® Xeon® E5-2673 V3 2,4 GHz (Haswell) in una configurazione con hyperthreading, offrendo una proposta di valore migliore per i carichi di lavoro per uso generico. La memoria è stata estesa (da ~3,5 GiB/vCPU a 4 GiB/vCPU) mentre i limiti di rete e dei dischi sono stati modificati in base al core per consentire l'allineamento con il passaggio all'hyperthreading. La serie dv3 non ha più le dimensioni delle macchine virtuali a memoria elevata della serie D/dv2, che sono state spostate nella [serie EV3 e Esv3](ev3-esv3-series.md)con ottimizzazione per la memoria.
+- [Serie Dv3 e Dsv3](dv3-dsv3-series.md) Le macchine virtuali vengono eseguite sui processori Intel® Xeon® 8171M 2,1 GHz (Skylake), Intel® Xeon® E5-2673 v4 da 2,3 GHz (Broadwell) o sui processori Intel® Xeon® E5-2673 v3 da 2,4 GHz (Haswell) in una configurazione con hyperthreading, fornendo una migliore proposizione di valore per i carichi di lavoro più adatti ai carichi di lavoro generici. La memoria è stata estesa (da ~3,5 GiB/vCPU a 4 GiB/vCPU) mentre i limiti di rete e dei dischi sono stati modificati in base al core per consentire l'allineamento con il passaggio all'hyperthreading. La serie Dv3 non ha più le dimensioni di VM ad alta memoria della serie D/Dv2, queste sono state spostate nella [serie Ev3 ed Esv3](ev3-esv3-series.md)ottimizzata per la memoria.
 
-Esempi di casi d'uso di serie D sono le applicazioni di livello aziendale, i database relazionali, la memorizzazione nella cache in memoria e l'analisi.
+Esempi di casi d'uso della serie D includono applicazioni di livello enterprise, database relazionali, memorizzazione nella cache in memoria e analisi.
 
 ## <a name="other-sizes"></a>Altre dimensioni
 

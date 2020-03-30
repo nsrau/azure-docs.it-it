@@ -1,47 +1,47 @@
 ---
-title: Installare console in Azure Kubernetes Service (AKS)
-description: Informazioni su come installare e usare Consul per creare una mesh di servizi in un cluster Azure Kubernetes Service (AKS)
+title: Installare Console nel servizio Azure Kubernetes (AKS)Install Consul in Azure Kubernetes Service (AKS)
+description: Informazioni su come installare e usare Consul per creare una rete mesh del servizio in un cluster di servizio Azure Kubernetes Service (AKS)
 author: dstrebel
 ms.topic: article
 ms.date: 10/09/2019
 ms.author: dastrebe
 zone_pivot_groups: client-operating-system
 ms.openlocfilehash: 1601ab6d81b888fd2247e95f22c58e1fc91df698
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78273732"
 ---
-# <a name="install-and-use-consul-in-azure-kubernetes-service-aks"></a>Installare e usare Consul in Azure Kubernetes Service (AKS)
+# <a name="install-and-use-consul-in-azure-kubernetes-service-aks"></a>Installare e usare Conconsole nel servizio Azure Kubernetes (AKS)Install and use Consul in Azure Kubernetes Service (AKS)
 
-[Console][consul-github] è una mesh di servizi open source che fornisce un set di chiavi di funzionalità tra i microservizi in un cluster Kubernetes. Queste funzionalità includono l'individuazione dei servizi, il controllo dell'integrità, la segmentazione dei servizi e l'osservabilità. Per ulteriori informazioni su Consul, vedere la documentazione ufficiale di [che cos'è Consul?][consul-docs-concepts] .
+[Consul][consul-github] è una rete di servizio open source che fornisce un set chiave di funzionalità tra i microservizi in un cluster Kubernetes.Consul is an open-source service mesh that provides a key set of functionality across the microservices in a Kubernetes cluster. Queste funzionalità includono l'individuazione dei servizi, il controllo dell'integrità, la segmentazione dei servizi e l'osservabilità. Per ulteriori informazioni su Consul, vedere la documentazione ufficiale [Che cos'è Console?][consul-docs-concepts] .
 
-Questo articolo illustra come installare Console. I componenti Consul sono installati in un cluster Kubernetes in AKS.
+In questo articolo viene illustrato come installare Conconsole. I componenti Conconsole vengono installati in un cluster Kubernetes su AKS.
 
 > [!NOTE]
-> Queste istruzioni fanno riferimento a console `1.6.0`e usano almeno la versione Helm `2.14.2`.
+> Queste istruzioni fanno `1.6.0`riferimento alla versione consul e utilizzano almeno Helm version `2.14.2`.
 >
-> Le versioni di console `1.6.x` possono essere eseguite con le versioni di Kubernetes `1.13+`. Altre versioni di Consul sono disponibili nelle versioni di [GitHub-console][consul-github-releases] e informazioni su ognuna delle versioni in [console-note sulla versione][consul-release-notes].
+> Le versioni `1.6.x` Conconsole possono essere eseguite con `1.13+`le versioni Kubernetes . Ulteriori versioni di Conconsole sono disponibili in [GitHub - Consul Releases][consul-github-releases] e informazioni su ciascuna delle versioni in [Consul- Note sulla versione][consul-release-notes].
 
 In questo articolo vengono illustrate le operazioni seguenti:
 
 > [!div class="checklist"]
-> * Installare i componenti di console su AKS
-> * Convalidare l'installazione di Consul
-> * Disinstalla console da AKS
+> * Installare i componenti del console su AKS
+> * Convalidare l'installazione del console
+> * Disinstallare Console da AKS
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-I passaggi descritti in questo articolo presuppongono che sia stato creato un cluster AKS (Kubernetes `1.13` e versioni successive, con RBAC abilitato) e che sia stata stabilita una connessione `kubectl` con il cluster. Per informazioni su questi elementi, vedere la [Guida introduttiva di AKS][aks-quickstart]. Verificare che il cluster disponga di almeno 3 nodi nel pool di nodi Linux.
+I passaggi descritti in questo articolo presuppongono che sia stato creato `1.13` un cluster AKS (Kubernetes e versioni successive, con RBAC abilitato) e che sia stata stabilita una `kubectl` connessione con il cluster. Se occorre assistenza con uno di questi elementi, vedere la [Guida introduttiva al servizio Azure Kubernetes][aks-quickstart]. Verificare che il cluster disponga di almeno 3 nodi nel pool di nodi Linux.Ensure that your cluster has at least 3 nodes in the Linux node pool.
 
-È necessario [Helm][helm] per seguire queste istruzioni e installare Console. È consigliabile che nel cluster sia installata e configurata correttamente la versione stabile più recente. Per assistenza sull'installazione di Helm, vedere la Guida all' [installazione di AKS Helm][helm-install]. Anche tutti i pod console devono essere pianificati per l'esecuzione nei nodi Linux.
+Avrai bisogno di [Helm][helm] per seguire queste istruzioni e installare Console. È consigliabile che nel cluster sia installata e configurata correttamente la versione stabile più recente. Se hai bisogno di aiuto per l'installazione di Helm, consulta le linee guida per [l'installazione][helm-install]di AKS Helm . Anche tutti i pod Console devono essere pianificati per l'esecuzione su nodi Linux.All Consul pods must also be scheduled to run on Linux nodes.
 
-Questo articolo separa le linee guida per l'installazione di Consul in diversi passaggi discreti. Il risultato finale è lo stesso nella struttura delle [linee guida][consul-install-k8]per l'installazione ufficiale di console.
+Questo articolo separa le linee guida per l'installazione di Consul in diversi passaggi discreti. Il risultato finale è lo stesso nella struttura delle [linee guida][consul-install-k8]ufficiali per l'installazione del Console.
 
-### <a name="install-the-consul-components-on-aks"></a>Installare i componenti di console su AKS
+### <a name="install-the-consul-components-on-aks"></a>Installare i componenti del console su AKS
 
-Si inizierà con il download della versione `v0.10.0` del grafico Helm del console. Questa versione del grafico include la versione `1.6.0`di console.
+Inizieremo scaricando la `v0.10.0` versione della tabella Consul Helm. Questa versione del grafico include `1.6.0`la versione Conconsole .
 
 ::: zone pivot="client-operating-system-linux"
 
@@ -61,20 +61,20 @@ Si inizierà con il download della versione `v0.10.0` del grafico Helm del conso
 
 ::: zone-end
 
-Usare Helm e il grafico `consul-helm` scaricato per installare i componenti Consul nello spazio dei nomi `consul` nel cluster AKS. 
+Usare Helm e `consul-helm` il grafico scaricato per `consul` installare i componenti Consul nello spazio dei nomi del cluster AKS. 
 
 > [!NOTE]
 > **Opzioni di installazione**
 > 
-> Come parte dell'installazione di vengono usate le opzioni seguenti:
-> - `connectInject.enabled=true`-abilitazione dei proxy da inserire nei Pod
-> - `client.enabled=true`-abilitare i client console per l'esecuzione su ogni nodo
-> - `client.grpc=true`-Abilita listener gRPC per connectInject
-> - Servizi di Kubernetes e console di sincronizzazione `syncCatalog.enabled=true`
+> Stiamo utilizzando le seguenti opzioni come parte della nostra installazione:
+> - `connectInject.enabled=true`- consentire l'iniezione di proxy nei baccelli
+> - `client.enabled=true`- abilitare i client Conconsole per l'esecuzione su ogni nodo- enable Consul clients to run on every node
+> - `client.grpc=true`- abilitare il listener gRPC per connectInject
+> - `syncCatalog.enabled=true`- sincronizzare i servizi Kubernetes e Consul
 >
-> **Selettori di nodo**
+> **Selettori di nodi**
 >
-> Console attualmente deve essere pianificata per l'esecuzione nei nodi Linux. Se nel cluster sono presenti nodi di Windows Server, è necessario assicurarsi che i pod console siano pianificati solo per l'esecuzione nei nodi Linux. Verranno usati i [selettori di nodo][kubernetes-node-selectors] per assicurarsi che i pod siano pianificati per i nodi corretti.
+> Il console deve essere pianificato per l'esecuzione su nodi Linux.Conconsole currently must be scheduled to run on Linux nodes. Se nel cluster sono presenti nodi di Windows Server, è necessario assicurarsi che i pod Conconsole siano pianificati solo per l'esecuzione sui nodi Linux. Useremo [i selettori][kubernetes-node-selectors] di nodo per assicurarci che i pod siano pianificati per i nodi corretti.
 
 ::: zone pivot="client-operating-system-linux"
 
@@ -94,20 +94,20 @@ Usare Helm e il grafico `consul-helm` scaricato per installare i componenti Cons
 
 ::: zone-end
 
-Il grafico Helm `Consul` distribuisce un certo numero di oggetti. È possibile visualizzare l'elenco dall'output del comando `helm install` precedente. La distribuzione dei componenti Consul può richiedere circa 3 minuti, a seconda dell'ambiente cluster.
+Il `Consul` grafico Helm distribuisce un numero di oggetti. È possibile visualizzare l'elenco `helm install` dall'output del comando precedente. Il completamento della distribuzione dei componenti Conconsole può richiedere circa 3 minuti, a seconda dell'ambiente del cluster.
 
-A questo punto, è stato distribuito console per il cluster AKS. Per assicurarsi che la distribuzione di Consul venga completata, passare alla sezione successiva per convalidare l'installazione di Consul.
+A questo punto, è stato distribuito Console nel cluster AKS. Per garantire una corretta distribuzione di Console, passiamo alla sezione successiva per convalidare l'installazione di Console.
 
-## <a name="validate-the-consul-installation"></a>Convalidare l'installazione di Consul
+## <a name="validate-the-consul-installation"></a>Convalidare l'installazione del console
 
-Verificare che le risorse siano state create correttamente. Usare i comandi [kubectl Get SVC][kubectl-get] e [kubectl Get Pod][kubectl-get] per eseguire una query sullo spazio dei nomi `consul`, in cui sono stati installati i componenti Consul con il comando `helm install`:
+Verificare che le risorse siano state create correttamente. Usate i comandi get svc e [kubectl get][kubectl-get] `consul` pod [per][kubectl-get] eseguire una query sullo `helm install` spazio dei nomi, in cui i componenti Consul sono stati installati dal comando:
 
 ```console
 kubectl get svc --namespace consul --output wide
 kubectl get pod --namespace consul --output wide
 ```
 
-L'output di esempio seguente mostra i servizi e i pod (pianificati sui nodi Linux) che ora devono essere in esecuzione:
+L'output di esempio seguente mostra i servizi e i pod (pianificati nei nodi Linux) che dovrebbero essere in esecuzione:
 
 ```output
 NAME                                 TYPE           CLUSTER-IP    EXTERNAL-IP             PORT(S)                                                                   AGE     SELECTOR
@@ -128,28 +128,28 @@ consul-consul-sync-catalog-d846b79c-8ssr8                         1/1     Runnin
 consul-consul-tz2t5                                               1/1     Running   0          3m9s   10.240.0.12   aks-linux-92468653-vmss000000   <none>           <none>
 ```
 
-Tutti i pod dovrebbero visualizzare lo stato `Running`. Se i pod non presentano questo stato, attendere uno o due minuti fino a quando non viene visualizzato. Se i pod segnalano un problema, usare il [kubectl descrivere il Pod][kubectl-describe] comando per verificarne l'output e lo stato.
+Tutti i pod devono mostrare `Running`lo stato di . Se i pod non presentano questo stato, attendere uno o due minuti fino a quando non viene visualizzato. Se per uno dei pod viene segnalato un problema, usare il comando [kubectl describe pod][kubectl-describe] per esaminare l'output e lo stato.
 
-## <a name="accessing-the-consul-ui"></a>Accesso all'interfaccia utente di console
+## <a name="accessing-the-consul-ui"></a>Accesso all'interfaccia utente di Consul
 
-L'interfaccia utente di console è stata installata nella configurazione precedente e fornisce la configurazione basata sull'interfaccia utente per console. L'interfaccia utente per Consul non è esposta pubblicamente tramite un indirizzo IP esterno. Per accedere all'interfaccia utente di console di, usare il comando [kubectl Port-inoltr][kubectl-port-forward] . Questo comando crea una connessione sicura tra il computer client e il Pod pertinente nel cluster AKS.
+L'interfaccia utente Console è stata installata nella configurazione precedente e fornisce la configurazione basata sull'interfaccia utente per Console. L'interfaccia utente per console non viene esposta pubblicamente tramite un indirizzo IP esterno. Per accedere all'interfaccia utente di Consul, utilizzare il comando [kubectl port-forward.][kubectl-port-forward] Questo comando crea una connessione sicura tra il computer client e il pod pertinente nel cluster AKS.
 
 ```console
 kubectl port-forward -n consul svc/consul-consul-ui 8080:80
 ```
 
-È ora possibile aprire un browser e fare in modo che punti a `http://localhost:8080/ui` per aprire l'interfaccia utente di console. Quando si apre l'interfaccia utente, verrà visualizzato quanto segue:
+È ora possibile aprire un `http://localhost:8080/ui` browser e puntarlo a per aprire l'interfaccia utente console. Quando si apre l'interfaccia utente, dovrebbe essere visualizzato quanto segue:
 
 ![Interfaccia utente console](./media/servicemesh/consul/consul-ui.png)
 
-## <a name="uninstall-consul-from-aks"></a>Disinstalla console da AKS
+## <a name="uninstall-consul-from-aks"></a>Disinstallare Console da AKS
 
 > [!WARNING]
-> L'eliminazione di Consul da un sistema in esecuzione può causare problemi correlati al traffico tra i servizi. Assicurarsi di aver fatto in modo che il sistema continui a funzionare correttamente senza Consul prima di procedere.
+> L'eliminazione del console da un sistema in esecuzione può causare problemi relativi al traffico tra i servizi. Assicurarsi di aver effettuato disposizioni per il corretto funzionamento del sistema senza Console prima di procedere.
 
-### <a name="remove-consul-components-and-namespace"></a>Rimuovere i componenti e lo spazio dei nomi del console
+### <a name="remove-consul-components-and-namespace"></a>Rimuovere i componenti Consul e lo spazio dei nomi
 
-Per rimuovere Consul dal cluster AKS, usare i comandi seguenti. I comandi `helm delete` rimuoveranno il grafico `consul` e il `kubectl delete namespace` comando rimuoverà lo spazio dei nomi `consul`.
+Per rimuovere Conconsole dal cluster AKS, utilizzare i comandi seguenti. I `helm delete` comandi rimuoveranno il `consul` `kubectl delete namespace` grafico e `consul` il comando rimuoverà lo spazio dei nomi.
 
 ```console
 helm delete --purge consul
@@ -158,14 +158,14 @@ kubectl delete namespace consul
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per esplorare altre opzioni di installazione e configurazione per Consul, vedere gli articoli seguenti del console ufficiale:
+Per esplorare altre opzioni di installazione e configurazione per Conconsole, vedere i seguenti articoli ufficiali di Consul:
 
-- [Guida all'installazione di Consul-Helm][consul-install-k8]
-- [Opzioni di installazione di Consul-Helm][consul-install-helm-options]
+- [Console - Guida all'installazione di Helm][consul-install-k8]
+- [Consul - Opzioni di installazione Helm][consul-install-helm-options]
 
-È anche possibile seguire altri scenari usando:
+È inoltre possibile seguire scenari aggiuntivi utilizzando:You can also follow additional scenarios using:
 
-- [Applicazione di esempio console][consul-app-example]
+- [Applicazione di esempio Consul][consul-app-example]
 
 <!-- LINKS - external -->
 [Hashicorp]: https://hashicorp.com

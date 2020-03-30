@@ -1,7 +1,7 @@
 ---
-title: Esempi di trasformazione delle attestazioni StringCollection per i criteri personalizzati
+title: Esempi di trasformazione delle attestazioni StringCollection per i criteri personalizzatiStringCollection claims transformation examples for custom policies
 titleSuffix: Azure AD B2C
-description: Esempi di trasformazione delle attestazioni StringCollection per lo schema Framework dell'esperienza (Identity Experience Framework) del Azure Active Directory B2C.
+description: Esempi di trasformazione delle attestazioni StringCollection per lo schema IEF (Identity Experience Framework) di Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,27 +12,27 @@ ms.date: 02/27/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 6aea537ebff4ae61e00861e6cafe742a7feb165e
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78186778"
 ---
 # <a name="stringcollection-claims-transformations"></a>Trasformazioni delle attestazioni StringCollection
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Questo articolo fornisce esempi per l'uso delle trasformazioni delle attestazioni della raccolta di stringhe dello schema del Framework dell'esperienza di identità in Azure Active Directory B2C (Azure AD B2C). Per altre informazioni, vedere [ClaimsTransformations](claimstransformations.md).
+Questo articolo fornisce esempi per l'uso delle trasformazioni delle attestazioni di raccolta di stringhe dello schema Identity Experience Framework in Azure Active Directory B2C (Azure AD B2C). Per altre informazioni, vedere [ClaimsTransformations](claimstransformations.md).
 
 ## <a name="additemtostringcollection"></a>AddItemToStringCollection
 
-Aggiunge un'attestazione stringa a una nuova attestazione StringCollection di valori univoci.
+Aggiunge un'attestazione di stringa a una nuova attestazione stringCollection di valori univoci.
 
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | item | string | Il ClaimType da aggiungere all'attestazione di output. |
 | InputClaim | collection | stringCollection | [Facoltativo] Se specificato, la trasformazione delle attestazioni copia gli elementi da questa raccolta e aggiunge l'elemento alla fine dell'attestazione di raccolta di output. |
-| OutputClaim | collection | stringCollection | ClaimType generato dopo che è stata richiamata la trasformazione delle attestazioni, con il valore specificato nell'attestazione di input. |
+| OutputClaim | collection | stringCollection | Il ClaimType che viene generato dopo questa trasformazione delle attestazioni è stato richiamato, con il valore specificato nell'attestazione di input. |
 
 Usare questa trasformazione delle attestazioni per aggiungere una stringa a un oggetto stringCollection nuovo o esistente. Viene comunemente usato in un profilo tecnico **AAD-UserWriteUsingAlternativeSecurityId**. Prima che venga creato un nuovo account di social networking, la trasformazione di attestazioni **CreateOtherMailsFromEmail** legge il ClaimType e aggiunge il valore al ClaimType **otherMails**.
 
@@ -53,14 +53,14 @@ La trasformazione delle attestazioni seguente aggiunge il ClaimType del **messag
 ### <a name="example"></a>Esempio
 
 - Attestazioni di input:
-  - **collection**: ["someone@outlook.com"]
-  - **item**: "admin@contoso.com"
+  - **raccolta**:someone@outlook.com[" "]
+  - **elemento**:admin@contoso.com" "
 - Attestazioni di output:
-  - **collection**: ["someone@outlook.com", "admin@contoso.com"]
+  - **raccolta**:someone@outlook.com["admin@contoso.com", " "]
 
 ## <a name="addparametertostringcollection"></a>AddParameterToStringCollection
 
-Aggiunge un parametro di stringa a una nuova attestazione StringCollection di valori univoci.
+Aggiunge un parametro stringa a un nuovo valore univoci stringCollection claim.
 
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
@@ -87,11 +87,11 @@ Usare questa trasformazione delle attestazioni per aggiungere un valore di strin
 ### <a name="example"></a>Esempio
 
 - Attestazioni di input:
-  - **collection**: ["someone@outlook.com"]
+  - **raccolta**:someone@outlook.com[" "]
 - Parametri di input
-  - **item**: "admin@contoso.com"
+  - **elemento**:admin@contoso.com" "
 - Attestazioni di output:
-  - **collection**: ["someone@outlook.com", "admin@contoso.com"]
+  - **raccolta**:someone@outlook.com["admin@contoso.com", " "]
 
 ## <a name="getsingleitemfromstringcollection"></a>GetSingleItemFromStringCollection
 
@@ -118,23 +118,23 @@ L'esempio seguente legge l'attestazione **otherMails** e restituisce il primo el
 ### <a name="example"></a>Esempio
 
 - Attestazioni di input:
-  - **collection**: ["someone@outlook.com", "someone@contoso.com"]
+  - **raccolta**:someone@outlook.com["someone@contoso.com", " "]
 - Attestazioni di output:
-  - **extractedItem**: "someone@outlook.com"
+  - **extractedItem**:someone@outlook.com" "
 
 
 ## <a name="stringcollectioncontains"></a>StringCollectionContains
 
-Verifica se un tipo di attestazione StringCollection contiene un elemento
+Controlla se un tipo di attestazione StringCollection contiene un elemento
 
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim | stringCollection | Tipo di attestazione in cui eseguire la ricerca. |
+| InputClaim | inputClaim | stringCollection | Tipo di attestazione da cercare. |
 |InputParameter|item|string|Valore da cercare.|
 |InputParameter|ignoreCase|string|Specifica se il confronto deve ignorare l'uso di maiuscole e minuscole nelle stringhe da confrontare.|
-| OutputClaim | outputClaim | boolean | ClaimType generato dopo che è stata chiamata questa ClaimsTransformation. Indicatore booleano se la raccolta contiene una stringa di questo tipo |
+| OutputClaim | outputClaim | boolean | ClaimType generato dopo che è stata chiamata questa ClaimsTransformation. Un indicatore booleano se la raccolta contiene una stringa di questo tipo |
 
-Nell'esempio seguente viene verificato se il tipo di attestazione `roles` StringCollection contiene il valore **admin**.
+Nell'esempio riportato di seguito viene verificato se il `roles` tipo di attestazione stringCollection contiene il valore di **admin**.
 
 ```XML
 <ClaimsTransformation Id="IsAdmin" TransformationMethod="StringCollectionContains">
@@ -152,10 +152,10 @@ Nell'esempio seguente viene verificato se il tipo di attestazione `roles` String
 ```
 
 - Attestazioni di input:
-    - **attestazione**: ["Reader", "Author", "admin"]
+    - **inputClaim**: ["reader", "author", "admin"]
 - Parametri di input:
-    - **elemento**: "admin"
-    - **IgnoreCase**: "true"
+    - **elemento**: "Admin"
+    - **ignoreCase**: "true"
 - Attestazioni di output:
     - **outputClaim**: "true"
 

@@ -1,21 +1,21 @@
 ---
-title: Eseguire il backup di Exchange Server con server di Backup di Azure
+title: Eseguire il backup del server di Exchange con il server di backup di AzureBack up Exchange server with Azure Backup Server
 description: Informazioni su come eseguire il backup di un server di Exchange in Backup di Azure con il server di Backup di Azure
 ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 03/24/2017
 ms.openlocfilehash: 9e623b1bdce93c340ccd0e61f9f5145e7154beff
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78295845"
 ---
 # <a name="back-up-an-exchange-server-to-azure-with-azure-backup-server"></a>Eseguire il backup di un server Exchange in Azure con il server di Backup di Azure
 
 Questo articolo descrive come configurare il server di Backup di Microsoft Azure (MABS) per eseguire il backup di un server Microsoft Exchange in Azure.  
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di continuare, assicurarsi che il Server di Backup di Azure sia [installato e pronto](backup-azure-microsoft-azure-backup.md).
 
@@ -50,10 +50,10 @@ Per installare l'agente protezione MABS nel server di Exchange, seguire questi p
 6. Fare clic su **Avanti**.
 7. Selezionare l'opzione **Esegui Eseutil per controllare l'integrità dei dati** se si vuole controllare l'integrità dei database di Exchange Server.
 
-    Dopo aver selezionato questa opzione, la verifica coerenza dei backup verrà eseguita su MAB per evitare il traffico di I/O generato eseguendo il comando **eseutil** sul server Exchange.
+    Dopo aver selezionato questa opzione, il controllo di coerenza di backup verrà eseguito in MABS per evitare il traffico di I/O generato eseguendo il comando **eseutil** sul server di Exchange.
 
    > [!NOTE]
-   > Per usare questa opzione, è necessario copiare i file Ese.dll and Eseutil.exe nella directory C:\Programmi\Microsoft Azure Backup\DPM\DPM\bin nel server MAB. In caso contrario, viene generato l'errore seguente:  
+   > Per usare questa opzione, è necessario copiare i file Ese.dll and Eseutil.exe nella directory C:\Programmi\Microsoft Azure Backup\DPM\DPM\bin nel server MAB. In caso contrario, viene generato l'errore seguente:   
    > ![Errore di Eseutil](./media/backup-azure-backup-exchange-server/eseutil-error.png)
    >
    >
@@ -61,7 +61,7 @@ Per installare l'agente protezione MABS nel server di Exchange, seguire questi p
 9. Selezionare il database per **Backup di copia**, quindi fare clic su **Avanti**.
 
    > [!NOTE]
-   > Se non si seleziona "backup completo" per almeno una copia DAG di un database, i log non verranno troncati.
+   > Se non si seleziona "Backup completo" per almeno una copia del DAG di un database, i registri non verranno troncati.
    >
    >
 10. Configurare gli obiettivi per **Backup a breve termine**, quindi fare clic su **Avanti**.
@@ -76,7 +76,7 @@ Per installare l'agente protezione MABS nel server di Exchange, seguire questi p
     ![Specificare la pianificazione dei backup online](./media/backup-azure-backup-exchange-server/specify-online-backup-schedule.png)
 
     > [!NOTE]
-    > Tenere presente che i punti di ripristino online sono basati sui punti di ripristino di backup completo rapido. Pertanto, è necessario pianificare il punto di ripristino online dopo il tempo specificato per il punto di ripristino completo rapido.
+    > Tenere presente che i punti di ripristino online sono basati sui punti di ripristino di backup completo rapido. Pertanto, è necessario pianificare il punto di ripristino online dopo il tempo specificato per il punto di ripristino completo espresso.
     >
     >
 16. Configurare i criteri di conservazione per **Backup di Azure**, quindi fare clic su **Avanti**.
@@ -86,7 +86,7 @@ Per installare l'agente protezione MABS nel server di Exchange, seguire questi p
 
     ![Specificare i criteri di mantenimento online](./media/backup-azure-backup-exchange-server/specify-online-retention-policy.png)
 18. Verificare le impostazioni e quindi fare clic su **Crea gruppo**.
-19. Fare clic su **Close**.
+19. Fare clic su **Chiudi**.
 
 ## <a name="recover-the-exchange-database"></a>Ripristinare il database di Exchange
 

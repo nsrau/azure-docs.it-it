@@ -12,17 +12,17 @@ ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: twooley
 ms.openlocfilehash: b33977ca5184ea07b5651be18e3a132d30ce4b39
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75966061"
 ---
 # <a name="disaster-recovery-guidance-for-data-in-azure-data-lake-storage-gen1"></a>Materiale sussidiario per il ripristino di emergenza dei dati in Azure Data Lake Storage Gen1
 
 Azure Data Lake Storage Gen1 offre l'archiviazione con ridondanza locale (LRS). I dati nell'account Data Lake Storage Gen1 sono pertanto resilienti agli errori hardware temporanei di un data center grazie all'uso di repliche automatizzate. Ciò garantisce durabilità e disponibilità elevata, rispettando il Contratto di servizio di Data Lake Storage Gen1. Questo articolo fornisce alcune linee guida su come proteggere ulteriormente i dati dalle rare interruzioni a livello di area o da eliminazioni accidentali.
 
-## <a name="disaster-recovery-guidance"></a>Linee guida sul ripristino di emergenza
+## <a name="disaster-recovery-guidance"></a>Indicazioni sul ripristino di emergenza
 È fondamentale che ogni cliente prepari il proprio piano di ripristino di emergenza. Leggere le informazioni contenute in questo articolo per creare il proprio piano di ripristino di emergenza. Di seguito sono riportate alcune risorse che consentono di creare proprio piano.
 
 * [Ripristino di emergenza e disponibilità elevata per le applicazioni Azure](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md)
@@ -42,6 +42,6 @@ Per evitare l'eliminazione accidentale, è consigliabile impostare prima di tutt
 Le organizzazioni possono anche abilitare la [registrazione diagnostica](data-lake-store-diagnostic-logs.md) per l'account Data Lake Storage Gen1 per raccogliere gli audit trail di accesso ai dati che forniscono informazioni su chi potrebbe avere eliminato o aggiornato un file.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Iniziare a usare Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
+* [Introduzione ad Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
 * [Proteggere i dati in Data Lake Storage Gen1](data-lake-store-secure-data.md)
 

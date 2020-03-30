@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 19d2dedc2ccf7015696504a94f5ef7c43a90d3be
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67180344"
 ---
 #### <a name="to-download-hotfixes"></a>Scaricare gli hotfix
 
 Eseguire i passaggi seguenti per scaricare l'aggiornamento del software da Microsoft Update Catalog.
 
-1. Avviare Internet Explorer e passare a [http://catalog.update.microsoft.com](https://catalog.update.microsoft.com).
+1. Avviare Internet Explorer [http://catalog.update.microsoft.com](https://catalog.update.microsoft.com)e passare a .
 2. Se si usa Microsoft Update Catalog nel computer per la prima volta, fare clic su **Installa** quando viene richiesto di installare il componente aggiuntivo Microsoft Update Catalog.
 
     ![Installare il catalogo](./media/storsimple-install-update2-hotfix/HCS_InstallCatalog-include.png)
@@ -26,7 +26,7 @@ Eseguire i passaggi seguenti per scaricare l'aggiornamento del software da Micro
    
     ![Cercare nel catalogo](./media/storsimple-install-update5-hotfix/update-catalog-search.png)
 
-4. Fare clic su **Download**. Specificare o **sfogliare** il percorso locale in cui si desidera salvare il file scaricato. Fare clic sui file da scaricare nel percorso e nella cartella specificati. Inoltre, la cartella può essere copiata in una condivisione di rete raggiungibile dal dispositivo.
+4. Fare clic su **Download** Specificare o **sfogliare** il percorso locale in cui si desidera salvare il file scaricato. Fare clic sui file da scaricare nel percorso e nella cartella specificati. Inoltre, la cartella può essere copiata in una condivisione di rete raggiungibile dal dispositivo.
 5. Cercare gli eventuali hotfix aggiuntivi elencati nella tabella precedente (**4037266**) e scaricare i file corrispondenti nelle cartelle specifiche indicate in tale tabella.
 
 > [!NOTE]

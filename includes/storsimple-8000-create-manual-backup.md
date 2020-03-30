@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 4fc92931979aa367bdead435c3d6fd758d66a397
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67180222"
 ---
 #### <a name="to-create-a-manual-backup"></a>Per creare un backup manuale
@@ -21,7 +21,7 @@ ms.locfileid: "67180222"
 
 3. Nel pannello **Esegui backup** seguire questa procedura:
 
-    1. Scegliere il **tipo di snapshot** appropriato dal menu a discesa: snapshot **locale** o **cloud**. Selezionare lo snapshot locale per backup o ripristini rapidi e lo snapshot cloud per la resilienza dei dati.
+    1. Scegliere il **tipo di snapshot** appropriato nell'elenco a discesa: snapshot **Locale** o snapshot **Cloud**. Selezionare lo snapshot locale per backup o ripristini rapidi e lo snapshot cloud per la resilienza dei dati.
 
         ![Creare il backup manuale](./media/storsimple-8000-create-manual-backup/createmanualbu2.png)
 
@@ -32,7 +32,7 @@ ms.locfileid: "67180222"
     3. Per monitorare il processo, fare clic sulla notifica. Verrà aperto il pannello **Processi** in cui è possibile visualizzare lo stato del processo.
 
 
-5. Una volta completato il processo di backup, andare alla scheda **Catalogo di backup** .
+5. Al termine del processo di backup, passare alla scheda **Catalogo di backup**.
 
 6. Impostare le selezioni filtro per il dispositivo appropriato, il criterio di backup e l’intervallo di tempo. Il backup dovrebbe comparire nell'elenco dei set di backup che viene visualizzato nel catalogo.
 

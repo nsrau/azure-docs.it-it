@@ -1,6 +1,6 @@
 ---
-title: Panoramica di IPv6-Azure Load Balancer
-description: Con questo percorso di apprendimento, iniziare a usare il supporto IPv6 per le macchine virtuali Azure Load Balancer e con bilanciamento del carico.
+title: Panoramica di IPv6 - Azure Load BalancerOverview of IPv6 - Azure Load Balancer
+description: Con questo percorso di apprendimento, inizia a usare il supporto IPv6 per Azure Load Balancer e le macchine virtuali con bilanciamento del carico.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -14,22 +14,22 @@ ms.workload: infrastructure-services
 ms.date: 08/24/2018
 ms.author: allensu
 ms.openlocfilehash: 6bc7f45d84d525156a3d25bdceef4d1012844afa
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75931981"
 ---
 # <a name="overview-of-ipv6-for-azure-load-balancer"></a>Panoramica di IPv6 per Azure Load Balancer
 
 
 >[!NOTE] 
->Questo contenuto è stato sostituito da [IPv6 per la Panoramica di Azure VNet](https://docs.microsoft.com/azure/virtual-network/ipv6-overview). Azure consiglia alle nuove distribuzioni di IPv6 di usare le nuove funzionalità IPv6 per le reti virtuali di Azure.
+>Questo contenuto è stato sostituito da [IPv6 per Panoramica della rete virtuale](https://docs.microsoft.com/azure/virtual-network/ipv6-overview)di Azure. Azure consiglia di utilizzare le nuove distribuzioni IPv6 per le nuove funzionalità IPv6 per le reti virtuali di Azure.Azure recommends new IPv6 deployments use the new IPv6 for Azure Virtual Networks features.
 
 >[!NOTE]
 >Azure Load Balancer supporta due tipi diversi: Basic e Standard. Questo articolo illustra Load Balancer Basic. Per altre informazioni su Load Balancer Standard, vedere la [panoramica di Load Balancer Standard](load-balancer-standard-overview.md).
 
-I bilanciamenti del carico con connessione Internet dello SKU Basic possono essere distribuiti con un indirizzo IPv6. Oltre alla connettività IPv4, sono abilitate le funzionalità seguenti:
+I servizi di bilanciamento del carico con connessione Internet dello SKU di base possono essere distribuiti con un indirizzo IPv6.Basic SKU Internet-facing load balancers can be deployed with an IPv6 address. Oltre alla connettività IPv4, sono abilitate le funzionalità seguenti:
 
 * Connettività IPv6 nativa end-to-end tra client Internet pubblici e macchine virtuali di Azure tramite il servizio di bilanciamento del carico.
 * Connettività IPv6 nativa end-to-end in uscita tra macchine virtuali e client Internet pubblici abilitati per IPv6.
@@ -40,7 +40,7 @@ L'immagine seguente illustra la funzionalità IPv6 per Azure Load Balancer.
 
 Dopo la distribuzione, un client Internet abilitato per IPv4 o IPv6 può comunicare con gli indirizzi (o nomi host) IPv4 o IPv6 pubblici dell'istanza di Azure Load Balancer con connessione Internet. Il servizio di bilanciamento del carico instrada i pacchetti IPv6 agli indirizzi IPv6 privati delle macchine virtuali tramite NAT (Network Address Translation). Il client Internet IPv6 non può comunicare direttamente con l'indirizzo IPv6 delle macchine virtuali.
 
-## <a name="features"></a>database elastico
+## <a name="features"></a>Funzionalità
 
 Il supporto IPv6 nativo per le macchine virtuali distribuite tramite Azure Resource Manager offre:
 

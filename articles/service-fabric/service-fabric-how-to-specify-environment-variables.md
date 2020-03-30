@@ -1,15 +1,15 @@
 ---
-title: Specificare le variabili di ambiente per i servizi
+title: Specificare le variabili di ambiente per i serviziSpecify environment variables for services
 description: Questo articolo illustra come usare le variabili di ambiente per le applicazioni in Service Fabric
 author: mikkelhegn
 ms.topic: conceptual
 ms.date: 12/06/2017
 ms.author: mikhegn
 ms.openlocfilehash: f4c4f2a1c140e3d0f181c4fd55482056f9f91b62
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75614316"
 ---
 # <a name="how-to-specify-environment-variables-for-services-in-service-fabric"></a>Come specificare le variabili di ambiente per i servizi in Service Fabric
@@ -46,9 +46,9 @@ In questo esempio si imposta una variabile di ambiente per un contenitore. Si pr
       </ServiceManifestImport>
     ```
 
-## <a name="specifying-environment-variables-dynamically-using-docker-compose"></a>Specifica di variabili di ambiente in modo dinamico tramite Docker Compose
+## <a name="specifying-environment-variables-dynamically-using-docker-compose"></a>Specifica dinamica delle variabili di ambiente tramite Docker ComposeSpecifying environment variables dynamically using Docker Compose
 
-Service Fabric supporta la possibilità di [usare Docker compose per la distribuzione](service-fabric-docker-compose.md#supported-compose-directives). I file compose possono avere origini variabili di ambiente dalla Shell. Questo comportamento può essere usato per sostituire dinamicamente i valori di ambiente desiderati:
+Service Fabric supporta la possibilità di [utilizzare Docker Compose per la distribuzione](service-fabric-docker-compose.md#supported-compose-directives). I file di composizione possono originare variabili di ambiente dalla shell. Questo comportamento può essere utilizzato per sostituire dinamicamente i valori di ambiente desiderati:This behavior can be used to substitute desired environment values dynamically:
 
 ```yml
 environment:

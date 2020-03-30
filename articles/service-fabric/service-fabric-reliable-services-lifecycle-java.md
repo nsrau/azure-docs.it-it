@@ -1,20 +1,20 @@
 ---
-title: Ciclo di vita Reliable Services di Azure Service Fabric
-description: Informazioni sugli eventi del ciclo di vita in un'applicazione Azure Service Fabric Reliable Services con Java per i servizi con stato e senza stato.
+title: Ciclo di vita di Azure Service Fabric Reliable ServicesAzure Service Fabric Reliable Services lifecycle
+description: Informazioni sugli eventi del ciclo di vita in un'applicazione Azure Service Fabric Reliable Services usando Java per servizi senza stato e senza stato.
 author: PavanKunapareddyMSFT
 ms.topic: conceptual
 ms.date: 06/30/2017
 ms.author: pakunapa
 ms.openlocfilehash: 1d3be958a0649ed3e80df2d63adbdf0b91831dbd
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75639599"
 ---
 # <a name="reliable-services-lifecycle"></a>Ciclo di vita di Reliable Services
 > [!div class="op_single_selector"]
-> * [C# su Windows](service-fabric-reliable-services-lifecycle.md)
+> * [C'è su Windows](service-fabric-reliable-services-lifecycle.md)
 > * [Java su Linux](service-fabric-reliable-services-lifecycle-java.md)
 >
 >

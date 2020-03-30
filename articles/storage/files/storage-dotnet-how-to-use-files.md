@@ -9,82 +9,82 @@ ms.date: 10/7/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 4d8be13a75e276d5be6ec71141a13f95601869f0
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78301438"
 ---
 # <a name="develop-for-azure-files-with-net"></a>Eseguire lo sviluppo per File di Azure con .NET
 
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
 
-Questa esercitazione illustra le nozioni di base per l'uso di .NET per sviluppare applicazioni che usano [File di Azure](storage-files-introduction.md) per archiviare i dati dei file. Questa esercitazione crea una semplice applicazione console per eseguire azioni di base con .NET e File di Azure:
+Questa esercitazione illustra le nozioni di base per l'uso di .NET per sviluppare applicazioni che usano [File di Azure](storage-files-introduction.md) per archiviare i dati dei file. Questa esercitazione crea una semplice applicazione console per eseguire azioni di base con file .NET e Azure:This tutorial creates a simple console application to do basic actions with .NET and Azure Files:
 
 * Ottenere il contenuto di un file.
-* Impostare le dimensioni massime o la *quota* per la condivisione file.
-* Creare una firma di accesso condiviso (chiave SAS) per un file che usa un criterio di accesso archiviato definito nella condivisione.
+* Impostare la dimensione massima o la quota per la *condivisione* file.
+* Creare una firma di accesso condiviso per un file che usa criteri di accesso archiviati definiti nella condivisione.
 * Copiare un file in un altro file nello stesso account di archiviazione.
 * Copiare un file in un BLOB nello stesso account di archiviazione.
-* Usare le metriche di archiviazione di Azure per la risoluzione dei problemi.
+* Usare le metriche di Archiviazione di Azure per la risoluzione dei problemi.
 
-Per ulteriori informazioni su File di Azure, vedere [che cos'è file di Azure?](storage-files-introduction.md)
+Per altre informazioni sui file di Azure, vedere [Che cos'è File di Azure?](storage-files-introduction.md)
 
 [!INCLUDE [storage-check-out-samples-dotnet](../../../includes/storage-check-out-samples-dotnet.md)]
 
 ## <a name="understanding-the-net-apis"></a>Informazioni sulle API .NET
 
-File di Azure offre due ampi approcci alle applicazioni client: Server Message Block (SMB) e REST. All'interno di .NET, le API `System.IO` e `WindowsAzure.Storage` astraggono questi approcci.
+File di Azure offre due ampi approcci alle applicazioni client: Server Message Block (SMB) e REST. All'interno di `System.IO` `WindowsAzure.Storage` .NET, le API e astraggono questi approcci.
 
 API | Utilizzo | Note
 ----|-------------|------
-[System.IO](https://docs.microsoft.com/dotnet/api/system.io) | L'applicazione: <ul><li>Deve leggere/scrivere file tramite SMB</li><li>È in esecuzione su un dispositivo che ha accesso tramite la porta 445 all'account File di Azure</li><li>Non deve gestire le impostazioni amministrative della condivisione file</li></ul> | L'I/O dei file implementato con File di Azure su SMB corrisponde in genere all'i/O con qualsiasi condivisione file di rete o dispositivo di archiviazione locale. Per un'introduzione a numerose funzionalità di .NET, tra cui I/O di file, vedere l'esercitazione sull' [applicazione console](https://docs.microsoft.com/dotnet/csharp/tutorials/console-teleprompter) .
-[Microsoft. Azure. storage. file](/dotnet/api/overview/azure/storage?view=azure-dotnet#version-11x) | L'applicazione: <ul><li>Non è possibile accedere a File di Azure tramite SMB sulla porta 445 a causa di vincoli firewall o ISP</li><li>Richiede funzionalità amministrative, ad esempio la possibilità di impostare la quota di una condivisione file o di creare una firma di accesso condiviso</li></ul> | Questo articolo illustra l'uso di `Microsoft.Azure.Storage.File` per l'I/O dei file tramite REST anziché SMB e la gestione della condivisione file.
+[System.IO](https://docs.microsoft.com/dotnet/api/system.io) | L'applicazione: <ul><li>È necessario leggere/scrivere file utilizzando SMB</li><li>È in esecuzione su un dispositivo che ha accesso tramite la porta 445 all'account File di Azure</li><li>Non deve gestire le impostazioni amministrative della condivisione file</li></ul> | I/O di file implementato con File di Azure su SMB è in genere lo stesso di I/O con qualsiasi condivisione file di rete o dispositivo di archiviazione locale. Per un'introduzione a una serie di funzionalità in .NET, tra cui l'I/O di file, vedere l'esercitazione [Applicazione console.](https://docs.microsoft.com/dotnet/csharp/tutorials/console-teleprompter)
+[Microsoft.Azure.Storage.File](/dotnet/api/overview/azure/storage?view=azure-dotnet#version-11x) | L'applicazione: <ul><li>Impossibile accedere ai file di Azure utilizzando SMB sulla porta 445 a causa di vincoli del firewall o ISP</li><li>Richiede funzionalità amministrative, ad esempio la possibilità di impostare la quota di una condivisione file o di creare una firma di accesso condiviso</li></ul> | In questo articolo `Microsoft.Azure.Storage.File` viene illustrato l'utilizzo di per l'I/O di file tramite REST anziché SMB e la gestione della condivisione file.
 
 ## <a name="create-the-console-application-and-obtain-the-assembly"></a>Creare l'applicazione console e ottenere l'assembly
 
 In Visual Studio creare una nuova applicazione console di Windows. La procedura seguente illustra come creare un'applicazione console in Visual Studio 2019. La procedura è simile per le altre versioni di Visual Studio.
 
 1. Avviare Visual Studio e selezionare **Crea un nuovo progetto**.
-1. In **Crea un nuovo progetto**scegliere **App Console (.NET Framework)** per e C#quindi fare clic su **Avanti**.
-1. In **Configura il nuovo progetto**, immettere un nome per l'app e selezionare **Crea**.
+1. In **Create a new project (Create a new project),** scegliere Console App **(.NET Framework)** per C, quindi selezionare **Next**.
+1. In **Configura il nuovo progetto**immettere un nome per l'app e selezionare **Crea**.
 
-È possibile aggiungere tutti gli esempi di codice in questa esercitazione al metodo `Main()` del file di `Program.cs` dell'applicazione console.
+È possibile aggiungere tutti gli esempi `Main()` di codice in questa `Program.cs` esercitazione al metodo del file dell'applicazione console.
 
-È possibile usare la libreria client di archiviazione di Azure in qualsiasi tipo di applicazione .NET. Questi tipi includono un servizio cloud o un'app Web di Azure, nonché applicazioni desktop e per dispositivi mobili. Per semplicità, in questa guida si usa un'applicazione console.
+È possibile usare la libreria client di Archiviazione di Azure in qualsiasi tipo di applicazione .NET. Questi tipi includono un servizio cloud di Azure o un'app Web e applicazioni desktop e per dispositivi mobili. Per semplicità, in questa guida si usa un'applicazione console.
 
 ## <a name="use-nuget-to-install-the-required-packages"></a>Usare NuGet per installare i pacchetti necessari
 
-Per completare l'esercitazione, fare riferimento a questi pacchetti nel progetto:
+Fare riferimento a questi pacchetti nel progetto per completare questa esercitazione:Refer to these packages in your project to complete this tutorial:
 
-* [Archiviazione di Microsoft Azure libreria comune per .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
+* [Libreria comune di Archiviazione di Microsoft Azure per .NETMicrosoft Azure Storage common library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
   
   Questo pacchetto fornisce l'accesso a livello di codice alle risorse comuni nell'account di archiviazione.
-* [Libreria BLOB Archiviazione di Microsoft Azure per .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/)
+* [Libreria BLOB di archiviazione di Microsoft Azure per .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/)
 
   Questo pacchetto fornisce l'accesso a livello di codice alle risorse BLOB nell'account di archiviazione.
-* [Libreria di file Archiviazione di Microsoft Azure per .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.File/)
+* [Libreria file di archiviazione di Microsoft Azure per .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.File/)
 
   Questo pacchetto fornisce l'accesso a livello di codice alle risorse file nell'account di archiviazione.
-* [Libreria di Configuration Manager Microsoft Azure per .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/)
+* [Libreria di Microsoft Azure Configuration Manager per .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/)
 
-  Questo pacchetto fornisce una classe per l'analisi di una stringa di connessione in un file di configurazione, ovunque sia in esecuzione l'applicazione.
+  Questo pacchetto fornisce una classe per l'analisi di una stringa di connessione in un file di configurazione, ovunque venga eseguita l'applicazione.
 
-Per ottenere entrambi i pacchetti, è possibile usare NuGet. Esegui questi passaggi:
+Per ottenere entrambi i pacchetti, è possibile usare NuGet. A tale scopo, seguire questa procedura:
 
-1. In **Esplora soluzioni**fare clic con il pulsante destro del mouse sul progetto e scegliere **Gestisci pacchetti NuGet**.
-1. In **Gestione pacchetti NuGet**selezionare **Sfoglia**. Cercare e scegliere **Microsoft. Azure. storage. blob**, quindi selezionare **Install (installa**).
+1. In **Esplora soluzioni**fare clic con il pulsante destro del mouse sul progetto e **scegliere Gestisci pacchetti NuGet**.
+1. In **Gestione pacchetti NuGet**selezionare **Sfoglia**. Quindi cercare e scegliere **Microsoft.Azure.Storage.Blob**, quindi selezionare **Installa**.
 
-   Questo passaggio consente di installare il pacchetto e le relative dipendenze.
+   Questo passaggio installa il pacchetto e le relative dipendenze.
 1. Cercare e installare i pacchetti seguenti:
 
-   * **Microsoft. Azure. storage. Common**
-   * **Microsoft. Azure. storage. file**
-   * **Microsoft. Azure. ConfigurationManager**
+   * **Microsoft.Azure.Storage.Common**
+   * **Microsoft.Azure.Storage.File**
+   * **Microsoft.Azure.ConfigurationManager**
 
-## <a name="save-your-storage-account-credentials-to-the-appconfig-file"></a>Salvare le credenziali dell'account di archiviazione nel file app. config
+## <a name="save-your-storage-account-credentials-to-the-appconfig-file"></a>Salvare le credenziali dell'account di archiviazione nel file App.configSave your storage account credentials to the App.config file
 
-Salvare quindi le credenziali nel file di `App.config` del progetto. In **Esplora soluzioni**fare doppio clic su `App.config` e modificare il file in modo che sia simile all'esempio seguente. Sostituire `myaccount` con il nome dell'account di archiviazione e `mykey` con la chiave dell'account di archiviazione.
+Successivamente, salvare le credenziali nel `App.config` file del progetto. In **Esplora soluzioni** `App.config` fare doppio clic e modificare il file in modo che sia simile all'esempio seguente. Sostituire `myaccount` con il nome `mykey` dell'account di archiviazione e con la chiave dell'account di archiviazione.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -103,7 +103,7 @@ Salvare quindi le credenziali nel file di `App.config` del progetto. In **Esplor
 
 ## <a name="add-using-directives"></a>Aggiungere le direttive using
 
-In **Esplora soluzioni**aprire il file di `Program.cs` e aggiungere le direttive using seguenti all'inizio del file.
+In **Esplora soluzioni**aprire il `Program.cs` file e aggiungere le direttive using seguenti all'inizio del file.
 
 ```csharp
 using Microsoft.Azure; // Namespace for Azure Configuration Manager
@@ -116,7 +116,7 @@ using Microsoft.Azure.Storage.File; // Namespace for Azure Files
 
 ## <a name="access-the-file-share-programmatically"></a>Accedere alla condivisione file a livello di programmazione
 
-Aggiungere quindi il contenuto seguente al metodo `Main()`, dopo il codice riportato sopra, per recuperare la stringa di connessione. Questo codice ottiene un riferimento al file creato in precedenza e ne restituisce il contenuto.
+Successivamente, aggiungere il contenuto `Main()` seguente al metodo, dopo il codice illustrato in precedenza, per recuperare la stringa di connessione. Questo codice ottiene un riferimento al file creato in precedenza e ne restituisce il contenuto.
 
 ```csharp
 // Create a CloudFileClient object for credentialed access to Azure Files.
@@ -154,9 +154,9 @@ Eseguire l'applicazione console per visualizzare l'output.
 
 ## <a name="set-the-maximum-size-for-a-file-share"></a>Impostare la dimensione massima per una condivisione file
 
-A partire dalla versione 5. x della libreria client di archiviazione di Azure, è possibile impostare la quota (dimensione massima) per una condivisione file. È anche possibile controllare la quantità di dati archiviata attualmente nella condivisione.
+A partire dalla versione 5.x della libreria client di Archiviazione di Azure, è possibile impostare la quota (dimensione massima) per una condivisione file. È anche possibile controllare la quantità di dati archiviata attualmente nella condivisione.
 
-L'impostazione della quota per una condivisione limita la dimensione totale dei file archiviati nella condivisione. Se la dimensione totale dei file nella condivisione supera la quota impostata per la condivisione, i client non possono aumentare le dimensioni dei file esistenti. I client non possono creare nuovi file, a meno che tali file non siano vuoti.
+L'impostazione della quota per una condivisione limita la dimensione totale dei file archiviati nella condivisione. Se la dimensione totale dei file nella condivisione supera la quota impostata nella condivisione, i client non possono aumentare la dimensione dei file esistenti. I client non possono creare nuovi file, a meno che tali file non siano vuoti.
 
 L'esempio seguente illustra come controllare l'uso corrente per una condivisione e come impostare la quota per la condivisione.
 
@@ -192,9 +192,9 @@ if (share.Exists())
 
 ### <a name="generate-a-shared-access-signature-for-a-file-or-file-share"></a>Generare la firma di accesso condiviso per un file o una condivisione file
 
-A partire dalla versione 5.x della Libreria del client di archiviazione di Azure, è possibile generare una firma di accesso condiviso (SAS) per una condivisione file o per un singolo file. È anche possibile creare criteri di accesso archiviati in una condivisione file per gestire le firme di accesso condiviso. Si consiglia di creare un criterio di accesso archiviato perché consente di revocare la firma di accesso condiviso se questa risulta compromessa.
+A partire dalla versione 5.x della Libreria del client di archiviazione di Azure, è possibile generare una firma di accesso condiviso (SAS) per una condivisione file o per un singolo file. È inoltre possibile creare criteri di accesso archiviati in una condivisione file per gestire le firme di accesso condiviso. È consigliabile creare un criterio di accesso archiviato perché consente di revocare la creazione di accesso client se viene compromessa.
 
-Nell'esempio seguente viene creato un criterio di accesso archiviato in una condivisione. L'esempio usa tale criterio per fornire i vincoli per una firma di accesso condiviso in un file nella condivisione.
+Nell'esempio seguente viene creato un criterio di accesso archiviato in una condivisione. L'esempio usa tale criterio per fornire i vincoli per una chiamata in stato di condiviso in un file nella condivisione.
 
 ```csharp
 // Parse the connection string for the storage account.
@@ -240,7 +240,7 @@ if (share.Exists())
 }
 ```
 
-Per altre informazioni sulla creazione e sull'uso di firme di accesso condiviso, vedere funzionamento [di una firma di accesso condiviso](../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#how-a-shared-access-signature-works).
+Per ulteriori informazioni sulla creazione e l'utilizzo delle firme di accesso condiviso, vedere Funzionamento di una firma di [accesso condiviso](../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#how-a-shared-access-signature-works).
 
 ## <a name="copy-files"></a>Copiare i file
 
@@ -254,7 +254,7 @@ A partire dalla versione 5.x della libreria del client di archiviazione di Azure
 
 ### <a name="copy-a-file-to-another-file"></a>Copiare un file in un altro file
 
-Nell'esempio seguente viene copiato un file in un altro file nella stessa condivisione. Poiché questa operazione di copia copia tra i file nello stesso account di archiviazione, è possibile usare l'autenticazione con chiave condivisa per eseguire la copia.
+Nell'esempio seguente viene copiato un file in un altro file nella stessa condivisione. Poiché questa operazione di copia viene copiata tra i file nello stesso account di archiviazione, è possibile usare l'autenticazione con chiave condivisa per eseguire la copia.
 
 ```csharp
 // Parse the connection string for the storage account.
@@ -373,7 +373,7 @@ L'esempio seguente elenca gli snapshot di condivisione in una condivisione.
 var shares = fClient.ListShares(baseShareName, ShareListingDetails.All);
 ```
 
-### <a name="browse-files-and-directories-within-share-snapshots"></a>Sfogliare file e directory all'interno di snapshot di condivisione
+### <a name="browse-files-and-directories-within-share-snapshots"></a>Esplorare i file e le directory negli snapshot di condivisione
 
 L'esempio seguente esplora file e directory all'interno degli snapshot di condivisione.
 
@@ -387,7 +387,7 @@ var items = rootDirectory.ListFilesAndDirectories();
 
 La creazione di uno snapshot di una condivisione file consente di ripristinare in futuro singoli file o l'intera condivisione.
 
-È possibile ripristinare un file da uno snapshot di condivisione file eseguendo una query sugli snapshot di condivisione di una condivisione file. È quindi possibile recuperare un file che appartiene a uno snapshot di condivisione specifico. Usare questa versione per leggere e confrontare direttamente o per eseguire il ripristino.
+È possibile ripristinare un file da uno snapshot di condivisione file eseguendo una query sugli snapshot di condivisione di una condivisione file. È quindi possibile recuperare un file appartenente a uno snapshot di condivisione specifico. Utilizzare tale versione per leggere e confrontare direttamente o per ripristinare.
 
 ```csharp
 CloudFileShare liveShare = fClient.GetShareReference(baseShareName);
@@ -412,7 +412,7 @@ string sourceUri = (fileInSnapshot.Uri.ToString() + sasContainerToken + "&" + fi
 fileInliveShare.StartCopyAsync(new Uri(sourceUri));
 ```
 
-### <a name="delete-share-snapshots"></a>Elimina snapshot di condivisione
+### <a name="delete-share-snapshots"></a>Eliminare snapshot di condivisione
 
 L'esempio seguente elimina uno snapshot di condivisione file.
 
@@ -420,22 +420,22 @@ L'esempio seguente elimina uno snapshot di condivisione file.
 CloudFileShare mySnapshot = fClient.GetShareReference(baseShareName, snapshotTime); mySnapshot.Delete(null, null, null);
 ```
 
-## Risolvere i problemi di File di Azure usando le metriche<a name="troubleshooting-azure-files-using-metrics"></a>
+## <a name="troubleshoot-azure-files-by-using-metrics"></a>Risolvere i problemi relativi ai file di Azure usando le metricheTroubleshoot Azure Files by using metrics<a name="troubleshooting-azure-files-using-metrics"></a>
 
 Analisi archiviazione di Azure supporta ora metriche per File di Azure. Grazie ai dati di metrica, è possibile monitorare le richieste e diagnosticare i problemi.
 
-È possibile abilitare le metriche per File di Azure dalla [portale di Azure](https://portal.azure.com). È anche possibile abilitare le metriche a livello di codice chiamando l'operazione set file Service Properties con l'API REST o una delle relative analogie nella libreria client di archiviazione.
+È possibile abilitare le metriche per File di Azure dal portale di [Azure.You can](https://portal.azure.com)enable metrics for Azure Files from the Azure portal . È anche possibile abilitare le metriche a livello di programmazione chiamando l'operazione Imposta proprietà servizio file con l'API REST o uno dei relativi analoghi nella libreria client di archiviazione.
 
 L'esempio di codice seguente mostra come usare la libreria client di archiviazione per .NET per abilitare le metriche per File di Azure.
 
-Aggiungere innanzitutto le seguenti direttive di `using` al file di `Program.cs`, insieme a quelle aggiunte in precedenza:
+In primo luogo, aggiungere le seguenti `using` direttive al `Program.cs` file, insieme a quelli aggiunti sopra:
 
 ```csharp
 using Microsoft.Azure.Storage.File.Protocol;
 using Microsoft.Azure.Storage.Shared.Protocol;
 ```
 
-Anche se i BLOB di Azure, le tabelle di Azure e le code di Azure usano il tipo di `ServiceProperties` condiviso nello spazio dei nomi `Microsoft.Azure.Storage.Shared.Protocol`, File di Azure usa il proprio tipo, il tipo di `FileServiceProperties` nello spazio dei nomi `Microsoft.Azure.Storage.File.Protocol`. È tuttavia necessario fare riferimento a entrambi gli spazi dei nomi dal codice, per la compilazione del codice seguente.
+Anche se BLOB di Azure, tabelle di `ServiceProperties` Azure e `Microsoft.Azure.Storage.Shared.Protocol` code di Azure usano il `FileServiceProperties` tipo `Microsoft.Azure.Storage.File.Protocol` condiviso nello spazio dei nomi, File di Azure usa il proprio tipo, ovvero il tipo nello spazio dei nomi. È tuttavia necessario fare riferimento a entrambi gli spazi dei nomi dal codice per la compilazione del codice seguente.
 
 ```csharp
 // Parse your storage connection string from your application's configuration file.
@@ -478,11 +478,11 @@ Console.WriteLine(serviceProperties.MinuteMetrics.RetentionDays);
 Console.WriteLine(serviceProperties.MinuteMetrics.Version);
 ```
 
-Se si verificano problemi, è possibile fare riferimento a [risoluzione dei problemi file di Azure in Windows](storage-troubleshoot-windows-file-connection-problems.md).
+Se si verificano problemi, è possibile fare riferimento a [Risoluzione dei problemi](storage-troubleshoot-windows-file-connection-problems.md)relativi ai file di Azure in Windows .
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per ulteriori informazioni su File di Azure, vedere le risorse seguenti:
+Per altre informazioni sui file di Azure, vedere le risorse seguenti:For more information about Azure Files, see the following resources:
 
 ### <a name="conceptual-articles-and-videos"></a>Articoli concettuali e video
 
@@ -501,7 +501,7 @@ Per ulteriori informazioni su File di Azure, vedere le risorse seguenti:
 
 ### <a name="blog-posts"></a>Post di BLOG
 
-* [Archiviazione file di Azure, ora disponibile a livello generale](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
-* [Analisi di archiviazione file di Azure](https://azure.microsoft.com/blog/inside-azure-file-storage/)
-* [Introduzione al servizio file di Microsoft Azure](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
+* [Archiviazione file di Azure, ora disponibile in generaleAzure File Storage, now generally available](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
+* [Archiviazione file di AzureInside Azure File Storage](https://azure.microsoft.com/blog/inside-azure-file-storage/)
+* [Introduzione al servizio File di Microsoft Azure](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 * [Mantenimento delle connessioni ai file di Microsoft Azure](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)

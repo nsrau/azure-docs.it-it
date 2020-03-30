@@ -1,5 +1,5 @@
 ---
-title: TAN nel linguaggio di query Azure Cosmos DB
+title: TAN nel linguaggio di query del database Cosmos di Azure
 description: Informazioni sulla funzione di sistema SQL TAN in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
@@ -8,10 +8,10 @@ ms.date: 03/04/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 9d7187ba116067445e835769fc33aa70677ef80b
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78301982"
 ---
 # <a name="tan-azure-cosmos-db"></a>TAN (Azure Cosmos DB)
@@ -26,7 +26,7 @@ TAN (<numeric_expr>)
 ## <a name="arguments"></a>Argomenti
   
 *numeric_expr*  
-   Espressione numerica.  
+   È un'espressione numerica.  
   
 ## <a name="return-types"></a>Tipi restituiti
   
@@ -40,13 +40,13 @@ TAN (<numeric_expr>)
 SELECT TAN(PI()/2) AS tan 
 ```  
   
- Set di risultati:  
+ Questo è il set di risultati.  
   
 ```json
 [{"tan": 16331239353195370 }]  
 ```  
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
 Questa funzione di sistema non utilizzerà l'indice.
 
@@ -54,4 +54,4 @@ Questa funzione di sistema non utilizzerà l'indice.
 
 - [Funzioni matematiche Azure Cosmos DB](sql-query-mathematical-functions.md)
 - [Funzioni di sistema Azure Cosmos DB](sql-query-system-functions.md)
-- [Introduzione a Azure Cosmos DB](introduction.md)
+- [Introduzione ad Azure Cosmos DB](introduction.md)

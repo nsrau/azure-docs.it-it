@@ -5,10 +5,10 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.openlocfilehash: baf0f07002a21a8e4e60bc17186107b471243202
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67180654"
 ---
 1. Creare una nuova classe nel progetto denominato `ToDoBroadcastReceiver`.
@@ -49,7 +49,7 @@ ms.locfileid: "67180654"
     }
     ```
 
-    Nel codice precedente è necessario sostituire *`<PROJECT_NUMBER>`* con il numero di progetto assegnato da Google quando è stato effettuato il provisioning dell'app nel portale per sviluppatori di Google. 
+    Nel codice precedente, devi *`<PROJECT_NUMBER>`* sostituire con il numero di progetto assegnato da Google quando hai eseguito il provisioning dell'app nel portale per sviluppatori Google. 
 
 5. Nel file di progetto ToDoBroadcastReceiver.cs aggiungere il codice seguente che definisce la classe **PushHandlerService** :
 
@@ -66,7 +66,7 @@ ms.locfileid: "67180654"
     Si noti che questa classe deriva da **GcmServiceBase** e che l'attributo **Service** deve essere applicato a questa classe.
 
     > [!NOTE]
-    > La classe **GcmServiceBase** implementa i metodi **OnRegistered()** , **OnUnRegistered()** , **OnMessage()** e **OnError()** . È necessario eseguire l'override di questi metodi nella classe **PushHandlerService** .
+    > La classe **GcmServiceBase** implementa i metodi **OnRegistered()**, **OnUnRegistered()**, **OnMessage()** e **OnError()**. È necessario eseguire l'override di questi metodi nella classe **PushHandlerService** .
 
 6. Aggiungere il codice seguente alla classe **PushHandlerService** che sostituisce il gestore di eventi **OnRegistered**.
 
@@ -109,7 +109,7 @@ ms.locfileid: "67180654"
     }
     ```
 
-    Questo metodo usa l'ID di registrazione GCM restituito per la registrazione con Azure per l'invio di notifiche push. I tag possono essere aggiunti solo per la registrazione dopo averla creato. Per altre informazioni, vedere [Procedura: Aggiungere tag a un'installazione dei dispositivi per consentire di push dei tag](../articles/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags).
+    Questo metodo usa l'ID di registrazione GCM restituito per la registrazione con Azure per l'invio di notifiche push. I tag possono essere aggiunti solo per la registrazione dopo averla creato. Per ulteriori informazioni, vedere [Procedura: Aggiungere tag all'installazione di un dispositivo per abilitare il push dei tag](../articles/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags).
 
 7. Eseguire l'override del metodo **OnMessage** in **PushHandlerService** con il codice seguente:
 

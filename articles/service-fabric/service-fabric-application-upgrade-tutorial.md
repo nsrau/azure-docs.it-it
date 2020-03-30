@@ -1,18 +1,18 @@
 ---
-title: Esercitazione sull'aggiornamento dell'app Service Fabric
+title: Esercitazione sull'aggiornamento dell'app Service FabricService Fabric app upgrade tutorial
 description: Questo articolo esamina l'esperienza di distribuzione di un'applicazione di Service Fabric, la modifica del codice e l'implementazione di un aggiornamento tramite Visual Studio.
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: db814b972db1aee56be0858c9ff5d1c382640642
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75464817"
 ---
 # <a name="service-fabric-application-upgrade-tutorial-using-visual-studio"></a>Esercitazione sull'aggiornamento di un'applicazione di Service Fabric tramite Visual Studio
 > [!div class="op_single_selector"]
-> * [PowerShell](service-fabric-application-upgrade-tutorial-powershell.md)
+> * [Powershell](service-fabric-application-upgrade-tutorial-powershell.md)
 > * [Visual Studio](service-fabric-application-upgrade-tutorial.md)
 > 
 > 
@@ -30,14 +30,14 @@ Selezionando **Pubblica** viene visualizzata una finestra popup in cui è possib
 
 ![Pubblicazione di un'applicazione di Service Fabric][image2]
 
-Fare clic su **Pubblica** nella finestra di dialogo. È ora possibile usare [Service Fabric Explorer per visualizzare il cluster e l'applicazione](service-fabric-visualizing-your-cluster.md). L'applicazione Visual Objects include un servizio Web a cui è possibile accedere digitando [http://localhost:8081/visualobjects/](http://localhost:8081/visualobjects/) nella barra degli indirizzi del browser.  Sullo schermo verranno visualizzati dieci oggetti visivi mobili.
+Fare clic su **Pubblica** nella finestra di dialogo. È ora possibile usare [Service Fabric Explorer per visualizzare il cluster e l'applicazione](service-fabric-visualizing-your-cluster.md). L'applicazione Oggetti visivi dispone di un [http://localhost:8081/visualobjects/](http://localhost:8081/visualobjects/) servizio Web a cui è possibile accedere digitando nella barra degli indirizzi del browser.  Sullo schermo verranno visualizzati dieci oggetti visivi mobili.
 
-**NOTA:** in caso di distribuzione nel profilo `Cloud.xml` (Azure Service Fabric), l'applicazione deve quindi essere disponibile all'indirizzo **http://{NomeServiceFabric}.{Area}.cloudapp.azure.com:8081/visualobjects/** . Assicurarsi che `8081/TCP` sia stato configurato nel servizio di bilanciamento del carico (il servizio di bilanciamento del carico si trova nello stesso gruppo di risorse dell'istanza di Service Fabric).
+**NOTA:** in caso di distribuzione nel profilo `Cloud.xml` (Azure Service Fabric), l'applicazione deve quindi essere disponibile all'indirizzo **http://{NomeServiceFabric}.{Area}.cloudapp.azure.com:8081/visualobjects/**. Assicurarsi che `8081/TCP` sia stato configurato nel servizio di bilanciamento del carico (il servizio di bilanciamento del carico si trova nello stesso gruppo di risorse dell'istanza di Service Fabric).
 
 ## <a name="step-2-update-the-visual-objects-sample"></a>Passaggio 2: aggiornare l'applicazione Oggetti visivi di esempio
 È possibile osservare come con la versione distribuita al passaggio 1 gli oggetti visivi non ruotino. L'applicazione può essere aggiornata in modo che gli oggetti visivi ruotino.
 
-Selezionare il progetto VisualObjects.ActorService nella soluzione VisualObjects e aprire il file **VisualObjectActor.cs** . All'interno del file passare al metodo `MoveObject`, impostare come commento `visualObject.Move(false)` e rimuovere il commento `visualObject.Move(true)`. Questa modifica del codice fa ruotare gli oggetti dopo l'aggiornamento del servizio.  **A questo punto è possibile compilare la soluzione (non ricompilarla)** , in modo che vengano compilati solo i progetti modificati. Se si seleziona *Ricompila tutto*, è necessario aggiornare le versioni di tutti i progetti.
+Selezionare il progetto VisualObjects.ActorService nella soluzione VisualObjects e aprire il file **VisualObjectActor.cs** . All'interno del file passare al metodo `MoveObject`, impostare come commento `visualObject.Move(false)` e rimuovere il commento `visualObject.Move(true)`. Questa modifica del codice fa ruotare gli oggetti dopo l'aggiornamento del servizio.  **A questo punto è possibile compilare la soluzione (non ricompilarla)**, in modo che vengano compilati solo i progetti modificati. Se si seleziona *Ricompila tutto*, è necessario aggiornare le versioni di tutti i progetti.
 
 È inoltre necessario specificare la versione dell'applicazione. Per apportare le modifiche di versione, fare clic con il pulsante destro del mouse sul progetto **VisualObjects** e scegliere l'opzione **Modifica versioni del manifesto** di Visual Studio. Selezionando questa opzione viene visualizzata la finestra di dialogo per le versioni dell'edizione come segue:
 
@@ -63,7 +63,7 @@ In pochi minuti tutti i domini di aggiornamento devono essere aggiornati (comple
 Come esercitazione, è possibile provare a cambiare le versioni e a passare dalla versione 2.0.0 alla versione 3.0.0 oppure addirittura dalla versione 2.0.0 alla versione 1.0.0. Esercitarsi inoltre con i timeout e i criteri di integrità per acquisire familiarità anche con questi concetti. Quando si esegue la distribuzione in un cluster di Azure, invece che in un cluster locale, i parametri usati possono essere diversi. È consigliabile impostare i timeout su valori contenuti.
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Aggiornamento di un'applicazione di Service Fabric mediante PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) descrive la procedura di aggiornamento di un'applicazione tramite PowerShell.
+[L'aggiornamento dell'applicazione tramite PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) illustra un aggiornamento dell'applicazione tramite PowerShell.Upgrading your application using PowerShell walks you through an application upgrade using PowerShell.
 
 Controllare l'aggiornamento dell'applicazione tramite i [parametri di aggiornamento](service-fabric-application-upgrade-parameters.md).
 

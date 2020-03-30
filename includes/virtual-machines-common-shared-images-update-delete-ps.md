@@ -9,15 +9,15 @@ ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: d2a85f3947e9993e5d1853e45c6d03586a074cf6
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67180110"
 ---
 ## <a name="update-resources"></a>Aggiornare le risorse
 
-Esistono alcune limitazioni su ciò che può essere aggiornato. Gli elementi seguenti possono essere aggiornati: 
+Ci sono alcune limitazioni su ciò che può essere aggiornato. È possibile aggiornare i seguenti elementi: 
 
 Raccolta di immagini condivise:
 - Descrizione
@@ -34,9 +34,9 @@ Versione immagine:
 - Esclusione dalla versione più recente
 - Data di scadenza
 
-Se si prevede di aggiunta di aree di replica, non eliminare l'immagine gestita di origine. L'immagine gestita di origine è necessaria per la replica versione immagine in aree aggiuntive. 
+Se si prevede di aggiungere aree di replica, non eliminare l'immagine gestita di origine. L'immagine gestita di origine è necessaria per replicare la versione dell'immagine in aree aggiuntive. 
 
-Per aggiornare la descrizione di una raccolta, usare [Update-AzGallery](https://docs.microsoft.com/powershell/module/az.compute/update-azgallery).
+Per aggiornare la descrizione di una raccolta, utilizzare [Update-AzGallery](https://docs.microsoft.com/powershell/module/az.compute/update-azgallery).
 
 ```azurepowershell-interactive
 Update-AzGallery `
@@ -54,7 +54,7 @@ Update-AzGalleryImageDefinition `
    -EndOfLifeDate 01/01/2030
 ```
 
-In questo esempio viene illustrato come utilizzare [Update-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/update-azgalleryimageversion) escludere questa versione dell'immagine venga utilizzato come il *più recente* immagine.
+In questo esempio viene illustrato come utilizzare [Update-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/update-azgalleryimageversion) per escludere questa versione dell'immagine dall'utilizzo come immagine *più recente.*
 
 ```azurepowershell-interactive
 Update-AzGalleryImageVersion `
@@ -68,7 +68,7 @@ Update-AzGalleryImageVersion `
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando si elimina le risorse, è necessario iniziare con l'ultimo elemento nelle risorse annidate - la versione dell'immagine. Quando vengono eliminate le versioni, è possibile eliminare la definizione dell'immagine. È possibile eliminare la raccolta fino a quando non sono state eliminate tutte le risorse sottostanti.
+Quando si eliminano le risorse, è necessario iniziare con l'ultimo elemento nelle risorse annidate, ovvero la versione dell'immagine. Una volta eliminate le versioni, è possibile eliminare la definizione dell'immagine. Non è possibile eliminare la raccolta finché non sono state eliminate tutte le risorse sottostanti.
 
 ```azurepowershell-interactive
 $resourceGroup = "myResourceGroup"

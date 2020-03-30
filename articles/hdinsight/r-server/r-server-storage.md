@@ -1,5 +1,5 @@
 ---
-title: Soluzioni di archiviazione di Azure per i servizi ML in HDInsight-Azure
+title: Azure storage solutions for ML Services on HDInsight - Azure
 description: Informazioni sulle diverse opzioni di archiviazione disponibili per gli utenti con ML Services in HDInsight
 ms.service: hdinsight
 author: hrasheed-msft
@@ -9,25 +9,25 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/02/2020
 ms.openlocfilehash: 1c79d0390a80a1358ddb09707fbabf6a5a2affdc
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75660240"
 ---
-# <a name="azure-storage-solutions-for-ml-services-on-azure-hdinsight"></a>Soluzioni di archiviazione di Azure per i servizi ML in Azure HDInsight
+# <a name="azure-storage-solutions-for-ml-services-on-azure-hdinsight"></a>Azure storage solutions for ML Services on Azure HDInsight
 
-ML Services in HDInsight può usare soluzioni di archiviazione diverse per salvare in modo permanente i dati, il codice o gli oggetti che contengono risultati dall'analisi. Queste soluzioni includono le opzioni seguenti:
+I servizi ML in HDInsight possono usare diverse soluzioni di archiviazione per rendere persistenti dati, codice o oggetti che contengono risultati dell'analisi. Queste soluzioni includono le seguenti opzioni:
 
 - [BLOB di Azure](https://azure.microsoft.com/services/storage/blobs/)
-- [Archiviazione di Azure Data Lake](https://azure.microsoft.com/services/storage/data-lake-storage/)
+- [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/)
 - [Archiviazione file di Azure](https://azure.microsoft.com/services/storage/files/)
 
-È possibile anche accedere a più account di archiviazione o contenitori di Azure con il cluster HDInsight. Archiviazione file di Azure è un'opzione di archiviazione dati comoda da usare nel nodo perimetrale che consente di montare una condivisione file di archiviazione di Azure in, ad esempio, il file system Linux. Tuttavia, le condivisioni File di Azure possono essere montate e usate in qualsiasi sistema dotato di un sistema operativo supportato, ad esempio Windows o Linux.
+È possibile anche accedere a più account di archiviazione o contenitori di Azure con il cluster HDInsight. Archiviazione file di Azure è un'opzione di archiviazione dei dati conveniente da usare nel nodo perimetrale che consente di montare una condivisione file di archiviazione di Azure, ad esempio nel file system Linux.Azure File storage is a convenient data storage option for use on the edge node that enables you to mount an Azure storage file share to, for example, the Linux file system. Tuttavia, le condivisioni File di Azure possono essere montate e usate in qualsiasi sistema dotato di un sistema operativo supportato, ad esempio Windows o Linux.
 
-Quando si crea un cluster Apache Hadoop in HDInsight, si specifica un account di **archiviazione di Azure** o **Data Lake storage**. Un contenitore di archiviazione specifico dell'account include il file system del cluster creato, ad esempio Hadoop Distributed File System. Per altre informazioni e istruzioni, vedere:
+Quando si crea un cluster Apache Hadoop in HDInsight, si specifica un account **di archiviazione** di Azure o Archiviazione **data lake**. Un contenitore di archiviazione specifico dell'account include il file system del cluster creato, ad esempio Hadoop Distributed File System. Per altre informazioni e istruzioni, vedere:
 
-- [Usare archiviazione di Azure con HDInsight](../hdinsight-hadoop-use-blob-storage.md)
+- [Usare Archiviazione di Azure con HDInsightUse Azure Storage with HDInsight](../hdinsight-hadoop-use-blob-storage.md)
 - [Usare Data Lake Store con cluster Azure HDInsight](../hdinsight-hadoop-use-data-lake-store.md)
 
 ## <a name="use-azure-blob-storage-accounts-with-ml-services-cluster"></a>Usare gli account di archiviazione BLOB di Azure con il cluster ML Services
@@ -100,7 +100,7 @@ inputFile <-file.path(bigDataDirRoot,"mysamplefile1.csv")
 
 Tutti i riferimenti a file e directory ora puntano all'account di archiviazione `wasbs://container2@storage2.blob.core.windows.net`. Questo è il **nodo del nome** specificato.
 
-Configurare la directory `/user/RevoShare/<SSH username>` in **Storage2** nel modo seguente:
+Configurare `/user/RevoShare/<SSH username>` la directory su **storage2** come segue:
 
 ```bash
 hadoop fs -mkdir wasbs://container2@storage2.blob.core.windows.net/user
@@ -128,7 +128,7 @@ Dopo aver assegnato un nome all'entità servizio, creare una password per tale e
 
 ### <a name="how-to-access-data-lake-storage-gen1-from-ml-services-on-hdinsight"></a>Come accedere a Data Lake Storage Gen1 da ML Services in HDInsight
 
-Una volta ottenuto l'accesso alla Data Lake Storage Gen1, è possibile usare l'archiviazione nel cluster di servizi ML in HDInsight come si farebbe con un account di archiviazione di Azure secondario. L'unica differenza è che il prefisso **wasbs://** viene modificato in **ADL://** come indicato di seguito:
+Dopo aver concesso l'accesso a Data Lake Storage Gen1, è possibile usare l'archiviazione nel cluster di servizi di ML in HDInsight come si farebbe con un account di archiviazione di Azure secondario. L'unica differenza è che il prefisso **wasbs://** cambia in **adl://** come segue:
 
 ```R
 # Point to the ADL Storage (e.g. ADLtest)
@@ -167,11 +167,11 @@ hadoop fs –ls adl://rkadl1.azuredatalakestore.net/share
 
 ## <a name="use-azure-file-storage-with-ml-services-on-hdinsight"></a>Usare Archiviazione file di Azure con ML Services in HDInsight
 
-È anche disponibile un'opzione di archiviazione dati comoda da usare nel nodo perimetrale denominato [file di Azure](https://azure.microsoft.com/services/storage/files/). Consente di montare una condivisione file di Archiviazione di Azure nel file system Linux. Questa opzione può essere utile per l'archiviazione di file di dati, script R e oggetti risultato che potrebbero essere necessari in seguito, soprattutto quando sarà opportuno usare il file system nativo nel nodo perimetrale invece di HDFS.
+È inoltre disponibile una comoda opzione di archiviazione dei dati da usare nel nodo perimetrale denominato File di [Azure](https://azure.microsoft.com/services/storage/files/). Consente di montare una condivisione file di Archiviazione di Azure nel file system Linux. Questa opzione può essere utile per l'archiviazione di file di dati, script R e oggetti risultato che potrebbero essere necessari in seguito, soprattutto quando sarà opportuno usare il file system nativo nel nodo perimetrale invece di HDFS.
 
-Un vantaggio importante di File di Azure riguarda la possibilità di montare e usare le condivisioni file in qualsiasi sistema dotato di un sistema operativo supportato, ad esempio Windows o Linux. Ad esempio, può essere usato da un altro cluster HDInsight disponibile all'utente o a un membro del team, da una macchina virtuale di Azure o anche da un sistema locale. Per scoprire di più, vedi:
+Un vantaggio importante di File di Azure riguarda la possibilità di montare e usare le condivisioni file in qualsiasi sistema dotato di un sistema operativo supportato, ad esempio Windows o Linux. Ad esempio, può essere usato da un altro cluster HDInsight disponibile all'utente o a un membro del team, da una macchina virtuale di Azure o anche da un sistema locale. Per altre informazioni, vedere:
 
-- [Come usare Archiviazione file di Azure con Linux](../../storage/files/storage-how-to-use-files-linux.md)
+- [Come usare l'archiviazione dei file di Azure con LinuxHow to use Azure File storage with Linux](../../storage/files/storage-how-to-use-files-linux.md)
 - [Come usare Archiviazione file di Azure su Windows](../../storage/files/storage-dotnet-how-to-use-files.md)
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -5,10 +5,10 @@ services: container-service
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: b1336d10b091be4f3eb2a711401cafd3f58221fe
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78399479"
 ---
 # <a name="best-practices-for-storage-and-backups-in-azure-kubernetes-service-aks"></a>Procedure consigliate per archiviazione e backup nel servizio Azure Kubernetes
@@ -31,7 +31,7 @@ Le applicazioni spesso richiedono tipi e velocità di archiviazione diversi. Le 
 
 La tabella seguente descrive i tipi di archiviazione disponibili e le relative funzionalità:
 
-| Caso d'uso | Plug-in volume | Una sola operazione di lettura/scrittura | Molte operazioni di sola lettura | Molte operazioni di lettura/scrittura | Supporto per i contenitori di Windows Server |
+| Caso d'uso | Plug-in volume | Una sola operazione di lettura/scrittura | Molte operazioni di sola lettura | Molte operazioni di lettura/scrittura | Supporto dei contenitori di Windows Server |
 |----------|---------------|-----------------|----------------|-----------------|--------------------|
 | Configurazione condivisa       | File di Azure   | Sì | Sì | Sì | Sì |
 | Dati di app strutturati        | Dischi di Azure   | Sì | No  | No  | Sì |
@@ -44,11 +44,11 @@ File di Azure è attualmente disponibile nel livello di prestazioni Standard. Di
 - I dischi *Premium* sono basati su dischi SSD a prestazioni elevate. Sono consigliati per tutti i carichi di lavoro di produzione.
 - I dischi *Standard* sono basati su normali dischi HDD e sono adatti per i dati di archivio o i dati a cui si accede di rado.
 
-Comprendere le esigenze di prestazioni e gli schemi di accesso dell'applicazione per scegliere il livello di archiviazione appropriato. Per altre informazioni sulle dimensioni Managed Disks e sui livelli di prestazioni, vedere [Panoramica di Managed Disks di Azure][managed-disks] .
+Comprendere le esigenze di prestazioni e gli schemi di accesso dell'applicazione per scegliere il livello di archiviazione appropriato. Per altre informazioni sulle dimensioni dei dischi gestiti e sui livelli di prestazioni, vedere [Panoramica di Azure Managed Disks][managed-disks].
 
 ### <a name="create-and-use-storage-classes-to-define-application-needs"></a>Creare e usare classi di archiviazione per definire le esigenze delle applicazioni
 
-Il tipo di archiviazione usato viene definito tramite le *classi di archiviazione* di Kubernetes. Viene quindi fatto riferimento alla classe di archiviazione nel pod o nella specifica di distribuzione. Queste definizioni contribuiscono alla creazione del tipo di archiviazione appropriato e alla relativa connessione ai pod. Per altre informazioni, vedere [classi di archiviazione in AKS][aks-concepts-storage-classes].
+Il tipo di archiviazione usato viene definito tramite le *classi di archiviazione* di Kubernetes. Viene quindi fatto riferimento alla classe di archiviazione nel pod o nella specifica di distribuzione. Queste definizioni contribuiscono alla creazione del tipo di archiviazione appropriato e alla relativa connessione ai pod. Per altre informazioni, vedere [Classi di archiviazione][aks-concepts-storage-classes].
 
 ## <a name="size-the-nodes-for-storage-needs"></a>Ridimensionare i nodi per le esigenze di archiviazione
 
@@ -60,12 +60,12 @@ Se le applicazioni richiedono Dischi di Azure come soluzione di archiviazione, p
 
 | Tipo e dimensioni del nodo | vCPU | Memoria (GiB) | Numero massimo di dischi dati | Operazioni di I/O al secondo del disco senza memorizzazione nella cache | Velocità effettiva massima senza memorizzazione nella cache (MBps) |
 |--------------------|------|--------------|----------------|------------------------|--------------------------------|
-| Standard_B2ms      | 2    | 8            | 4              | 1\.920                  | 22,5                           |
-| Standard_DS2_v2    | 2    | 7            | 8              | 6\.400                  | 96                             |
+| Standard_B2ms      | 2    | 8            | 4              | 1.920                  | 22,5                           |
+| Standard_DS2_v2    | 2    | 7            | 8              | 6.400                  | 96                             |
 
 Qui la dimensione *Standard_DS2_v2* consente il doppio del numero di dischi collegati e fornisce da tre a quattro volte la quantità di operazioni di I/O al secondo e velocità effettiva del disco. Se si considerassero solo le risorse di calcolo di base e si confrontassero i costi, si potrebbe scegliere la dimensione di macchina virtuale *Standard_B2ms* e ottenere prestazioni di archiviazione insufficienti e limitazioni. È opportuno consultare il team di sviluppo delle applicazioni per comprendere le esigenze di capacità e prestazioni di archiviazione. Scegliere quindi la dimensione di macchina virtuale appropriata per i nodi del servizio Azure Kubernetes in modo da soddisfare o superare queste esigenze di prestazioni. Stabilire regolarmente una baseline delle applicazioni per modificare la dimensione di macchina virtuale in base alle necessità.
 
-Per altre informazioni sulle dimensioni delle VM disponibili, vedere [dimensioni per le macchine virtuali Linux in Azure][vm-sizes].
+Per altre informazioni sulle dimensioni di macchina virtuale disponibili, vedere [Dimensioni delle macchine virtuali Linux in Azure][vm-sizes].
 
 ## <a name="dynamically-provision-volumes"></a>Effettuare il provisioning dinamico dei volumi
 
@@ -75,27 +75,27 @@ Quando occorre collegare risorse di archiviazione ai pod, si usano i volumi perm
 
 ![Attestazioni di volume permanente in un cluster del servizio Azure Kubernetes](media/concepts-storage/persistent-volume-claims.png)
 
-Un'attestazione di volume permanente consente di creare dinamicamente le risorse di archiviazione necessarie. I dischi di Azure sottostanti vengono creati man mano che i pod li richiedono. Nella definizione del Pod è necessario creare un volume e collegarlo a un percorso di montaggio designato.
+Un'attestazione di volume permanente consente di creare dinamicamente le risorse di archiviazione necessarie. I dischi di Azure sottostanti vengono creati man mano che i pod li richiedono. Nella definizione del contenitore, richiedete un volume da creare e associare a un percorso di montaggio designato.
 
-Per i concetti su come creare e usare dinamicamente i volumi, vedere [attestazioni di volumi permanenti][aks-concepts-storage-pvcs].
+Per i concetti relativi alla creazione dinamica e all'uso dei volumi, vedere [Attestazioni di volume permanente][aks-concepts-storage-pvcs].
 
-Per visualizzare questi volumi in azione, vedere come creare e usare dinamicamente un volume permanente con [dischi di Azure][dynamic-disks] o [file di Azure][dynamic-files].
+Per una dimostrazione di questi volumi in azione, vedere come creare in modo dinamico e usare un volume permanente con [Dischi di Azure][dynamic-disks] o [File di Azure][dynamic-files].
 
 Nell'ambito delle definizioni di classe di archiviazione impostare i criteri *reclaimPolicy* appropriati. I criteri reclaimPolicy controllano il comportamento della risorsa di archiviazione di Azure sottostante quando il pod viene eliminato e il volume permanente potrebbe non essere più necessario. La risorsa di archiviazione sottostante può essere eliminata o conservata per l'uso con un pod futuro. I criteri reclaimPolicy possono essere impostati per *conservare* o *eliminare*. Comprendere le esigenze delle applicazioni e implementare regolari controlli dello spazio di archiviazione che viene conservato per ridurre al minimo la quantità di spazio di archiviazione inutilizzato che viene fatturato.
 
-Per altre informazioni sulle opzioni della classe di archiviazione, vedere [criteri di richiesta di archiviazione][reclaim-policy].
+Per altre informazioni sulle opzioni delle classi di archiviazione, vedere [Classi di archiviazione][reclaim-policy].
 
 ## <a name="secure-and-back-up-your-data"></a>Proteggere ed eseguire il backup dei dati
 
-**Indicazioni sulle procedure consigliate** : eseguire il backup dei dati usando uno strumento appropriato per il tipo di archiviazione, ad esempio Velero o Azure Site Recovery. Verificare l'integrità e la sicurezza di tali backup.
+**Indicazioni sulle procedure consigliate:** eseguire il backup dei dati usando uno strumento appropriato per il tipo di archiviazione, ad esempio Velero o Azure Site Recovery.Best practice guidance - Back up your data using an appropriate tool for your storage type, such as Velero or Azure Site Recovery. Verificare l'integrità e la sicurezza di tali backup.
 
-Quando le applicazioni archiviano e utilizzano dati salvati in modo permanente su dischi o in file, è necessario eseguire regolari backup o snapshot di tali dati. Dischi di Azure supporta l'uso di tecnologie snapshot integrate. Prima di eseguire l'operazione di snapshot, potrebbe essere necessario cercare le applicazioni per scaricare le Scritture su disco. [Velero][velero] può eseguire il backup di volumi permanenti insieme a risorse e configurazioni aggiuntive del cluster. Se non è possibile [rimuovere lo stato dalle applicazioni][remove-state], eseguire il backup dei dati da volumi permanenti e testare regolarmente le operazioni di ripristino per verificare l'integrità dei dati e i processi necessari.
+Quando le applicazioni archiviano e utilizzano dati salvati in modo permanente su dischi o in file, è necessario eseguire regolari backup o snapshot di tali dati. Dischi di Azure supporta l'uso di tecnologie snapshot integrate. Potrebbe essere necessario cercare le applicazioni per lo scaricamento delle scritture su disco prima di eseguire l'operazione snapshot. [Velero][velero] può eseguire il backup di volumi persistenti insieme a risorse e configurazioni del cluster aggiuntive. Se non è possibile [rimuovere lo stato dall'applicazione][remove-state], eseguire il backup dei dati di volumi permanenti e testare regolarmente le operazioni di ripristino per verificare l'integrità dei dati e i processi necessari.
 
-Comprendere le limitazioni dei diversi approcci ai backup dei dati e la necessità o meno di disattivare i dati prima di creare lo snapshot. Non sempre i backup dei dati consentono di ripristinare l'ambiente applicativo della distribuzione cluster. Per altre informazioni su questi scenari, vedere [procedure consigliate per la continuità aziendale e il ripristino di emergenza in AKS][best-practices-multi-region].
+Comprendere le limitazioni dei diversi approcci ai backup dei dati e la necessità o meno di disattivare i dati prima di creare lo snapshot. Non sempre i backup dei dati consentono di ripristinare l'ambiente applicativo della distribuzione cluster. Per altre informazioni su questi scenari, vedere le [procedure consigliate per continuità aziendale e ripristino di emergenza nel servizio Azure Kubernetes][best-practices-multi-region].
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo sono state illustrate in particolare le procedure consigliate di archiviazione nel servizio Azure Kubernetes. Per altre informazioni sulle nozioni di base di archiviazione in Kubernetes, vedere [concetti di archiviazione per le applicazioni in AKS][aks-concepts-storage].
+In questo articolo sono state illustrate in particolare le procedure consigliate di archiviazione nel servizio Azure Kubernetes. Per altre informazioni di base sull'archiviazione in Kubernetes, vedere [Opzioni di archiviazione per le applicazioni nel servizio Azure Kubernetes][aks-concepts-storage].
 
 <!-- LINKS - External -->
 [velero]: https://github.com/heptio/velero

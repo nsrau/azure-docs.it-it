@@ -1,15 +1,15 @@
 ---
-title: Scalabilità a livello di codice di Azure Service Fabric
+title: Azure Service Fabric Programmatic Scaling
 description: Aumentare o ridurre le istanze di un cluster Service Fabric in Azure a livello di codice in base a trigger personalizzati
 author: mjrousos
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: mikerou
 ms.openlocfilehash: ffe07960c6d32bea8ec31b1fe8248b6abc2b63af
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75458279"
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>Aumentare o ridurre le istanze di un cluster di Service Fabric a livello di codice 
@@ -20,16 +20,16 @@ I cluster di Service Fabric in esecuzione in Azure sono basati su set di scalabi
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="manage-credentials"></a>Gestire le credenziali
-Un problema in fase di scrittura di un servizio per gestire la scalabilità è che il servizio deve essere in grado di accedere alle risorse dei set di scalabilità di macchine virtuali senza un accesso interattivo. L'accesso al cluster Service Fabric è semplice se il servizio di scalabilità sta modificando la propria applicazione Service Fabric, ma sono necessarie le credenziali per accedere al set di scalabilità. Per accedere, è possibile usare un' [entità servizio](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli) creata con l'interfaccia della riga di comando di [Azure](https://github.com/azure/azure-cli).
+Un problema in fase di scrittura di un servizio per gestire la scalabilità è che il servizio deve essere in grado di accedere alle risorse dei set di scalabilità di macchine virtuali senza un accesso interattivo. L'accesso al cluster Service Fabric è semplice se il servizio di scalabilità sta modificando la propria applicazione Service Fabric, ma sono necessarie le credenziali per accedere al set di scalabilità. Per accedere, è possibile usare [un'entità servizio](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli) creata con l'interfaccia della riga di comando di [Azure.](https://github.com/azure/azure-cli)
 
 È possibile creare un'entità servizio con i passaggi seguenti:
 
-1. Accedere all'interfaccia della riga di comando di Azure (`az login`) come utente con accesso al set di scalabilità di macchine virtuali
+1. Accedere all'interfaccia della`az login`riga di comando di Azure ( ) come utente con accesso al set di scalabilità di macchine virtualiSign in to the Azure CLI ( ) as a user with access to the virtual machine scale set
 2. Creare l'entità servizio con `az ad sp create-for-rbac`
     1. Prendere nota di appId (denominato altrove "ID client"), nome, password e tenant per un uso successivo.
     2. Sarà inoltre necessario l'ID sottoscrizione, che può essere visualizzato con `az account list`
 
-La libreria di calcolo Fluent può accedere usando queste credenziali come indicato di seguito (si noti che i tipi di Azure Fluent principali come `IAzure` si trovano nel pacchetto [Microsoft. Azure. Management. Fluent](https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent/) ):
+La libreria di calcolo fluente può accedere usando queste credenziali `IAzure` come segue (si noti che i tipi di Azure fluent di base come sono nel pacchetto [Microsoft.Azure.Management.Fluent):The](https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent/) fluent compute library can sign in using these credentials as follows (note that core fluent Azure types like are in the Microsoft.Azure.Management.Fluent package):
 
 ```csharp
 var credentials = new AzureCredentials(new ServicePrincipalLoginInformation {
@@ -59,13 +59,13 @@ var newCapacity = (int)Math.Min(MaximumNodeCount, scaleSet.Capacity + 1);
 scaleSet.Update().WithCapacity(newCapacity).Apply(); 
 ``` 
 
-In alternativa, le dimensioni del set di scalabilità di macchine virtuali possono essere gestite anche con i cmdlet di PowerShell. [`Get-AzVmss`](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss) consente di recuperare l'oggetto set di scalabilità di macchine virtuali. La capacità corrente è disponibile tramite la proprietà `.sku.capacity`. Dopo avere impostato la capacità sul valore desiderato, il set di scalabilità di macchine virtuali in Azure può essere aggiornato con il comando [`Update-AzVmss`](https://docs.microsoft.com/powershell/module/az.compute/update-azvmss).
+In alternativa, le dimensioni del set di scalabilità di macchine virtuali possono essere gestite anche con i cmdlet di PowerShell. [`Get-AzVmss`](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss)possibile recuperare l'oggetto set di scalabilità della macchina virtuale. La capacità corrente è disponibile tramite la proprietà `.sku.capacity`. Dopo aver modificato la capacità al valore desiderato, il set [`Update-AzVmss`](https://docs.microsoft.com/powershell/module/az.compute/update-azvmss) di scalabilità della macchina virtuale in Azure può essere aggiornato con il comando.
 
 Quando si aggiunge manualmente un nodo, l'aggiunta di un'istanza del set di scalabilità dovrebbe essere sufficiente per avviare un nuovo nodo Service Fabric in quanto il modello del set di scalabilità include le estensioni per aggiungere automaticamente nuove istanze al cluster Service Fabric. 
 
 ## <a name="scaling-in"></a>Riduzione
 
-La scalabilità in è simile alla scalabilità orizzontale. Le modifiche effettive del set di scalabilità di macchine virtuali sono praticamente identiche. Tuttavia, come illustrato in precedenza, Service Fabric pulisce automaticamente solo i nodi rimossi con la durabilità Gold o Silver. Pertanto, nel caso di riduzione con la durabilità Bronze, è necessario interagire con il cluster Service Fabric per arrestare il nodo da rimuovere, quindi rimuovere il relativo stato.
+La scalabilità orizzontale è simile alla scalabilità orizzontale. Le modifiche effettive del set di scalabilità delle macchine virtuali sono praticamente le stesse. Tuttavia, come illustrato in precedenza, Service Fabric pulisce automaticamente solo i nodi rimossi con la durabilità Gold o Silver. Pertanto, nel caso di riduzione con la durabilità Bronze, è necessario interagire con il cluster Service Fabric per arrestare il nodo da rimuovere, quindi rimuovere il relativo stato.
 
 La preparazione del nodo per l'arresto implica la ricerca del nodo da rimuovere, ovvero l'istanza del set di scalabilità di macchine virtuali aggiunta più di recente, e la relativa disattivazione. Le istanze del set di scalabilità di macchine virtuali sono numerate nell'ordine in cui sono state aggiunte, quindi i nodi più recenti si possono trovare confrontando il suffisso numerico nei nomi dei nodi, che corrispondono ai nomi delle istanze del set di scalabilità di macchine virtuali sottostanti. 
 

@@ -1,15 +1,15 @@
 ---
-title: Elemento PasswordBox dell'interfaccia utente
-description: Illustra l'elemento Microsoft.Common.PasswordBox dell'interfaccia utente per il portale di Azure. Consente agli utenti di fornire un valore segreto quando si distribuiscono applicazioni gestite.
+title: Elemento dell'interfaccia utente PasswordBox
+description: Illustra l'elemento Microsoft.Common.PasswordBox dell'interfaccia utente per il portale di Azure. Consente agli utenti di fornire un valore segreto durante la distribuzione di applicazioni gestite.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: tomfitz
 ms.openlocfilehash: 5f7d3a47482ccec9778b102d3509b5f8ef343185
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75652307"
 ---
 # <a name="microsoftcommonpasswordbox-ui-element"></a>Elemento Microsoft.Common.PasswordBox dell'interfaccia utente

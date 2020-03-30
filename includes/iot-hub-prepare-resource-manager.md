@@ -5,10 +5,10 @@ ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
 ms.openlocfilehash: 4eb794fa35164e3f86a5e3d6f67d446321f91f0a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67133248"
 ---
 ## <a name="prepare-to-authenticate-azure-resource-manager-requests"></a>Prepararsi all'autenticazione delle richieste di Azure Resource Manager
@@ -41,8 +41,8 @@ La procedura seguente illustra come configurare l'autenticazione della password 
 3. Creare una nuova applicazione Azure Active Directory mediante il comando seguente, sostituendo i segnaposto:
    
    * **{Display name}:** un nome visualizzato per l'applicazione, ad esempio **MySampleApp**.
-   * **{Home page URL}:** l'URL della home page dell'app, ad esempio **http:\/mysampleapp/home**. Non è necessario che questo URL punti a un'applicazione reale.
-   * **{Application identifier}:** Un identificatore univoco, ad esempio **http:\//mysampleapp**. Non è necessario che questo URL punti a un'applicazione reale.
+   * **URL della home page:** l'URL della home page dell'app, ad esempio **\/http: /mysampleapp/home**. Non è necessario che questo URL punti a un'applicazione reale.
+   * **Identificatore dell'applicazione:** Un identificatore univoco, ad esempio **http:\//mysampleapp**. Non è necessario che questo URL punti a un'applicazione reale.
    * **{Password}:** password da usare per l'autenticazione con l'app.
      
      ```powershell

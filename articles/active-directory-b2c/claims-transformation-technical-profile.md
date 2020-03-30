@@ -1,5 +1,5 @@
 ---
-title: Definire un profilo tecnico per la trasformazione delle attestazioni
+title: Definire un profilo tecnico di trasformazione AttestazioniDefine a Claims transformation technical profile
 titleSuffix: Azure AD B2C
 description: Definire un profilo tecnico di trasformazione delle attestazioni in un criterio personalizzato di Azure Active Directory B2C.
 services: active-directory-b2c
@@ -12,10 +12,10 @@ ms.date: 02/13/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 84c1cf798e88e4067da8a495c1591143d2ee1bd0
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78189787"
 ---
 # <a name="define-a-claims-transformation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico di trasformazione delle attestazioni in un criterio personalizzato di Azure Active Directory B2C
@@ -82,7 +82,7 @@ TransformationClaimType="collection" />
 </TechnicalProfile>
 ```
 
-Il profilo tecnico di trasformazione delle attestazioni consente di eseguire una trasformazione delle attestazioni dal passaggio di orchestrazione di qualsiasi percorso utente. Nell'esempio seguente, il passaggio di orchestrazione chiama uno dei profili tecnici di scollegamento, ad esempio **UnLink-Facebook-OAUTH**. Questo profilo tecnico chiama il profilo tecnico di trasformazione delle attestazioni **RemoveAlternativeSecurityIdByIdentityProvider**, che genera una nuova attestazione **AlternativeSecurityIds2** contenente l'elenco delle identità sociali dell'utente, mentre elimina le identità di Facebook dalle raccolte.
+Il profilo tecnico di trasformazione delle attestazioni consente di eseguire una trasformazione delle attestazioni dal passaggio di orchestrazione di qualsiasi percorso utente. Nell'esempio seguente, il passaggio di orchestrazione chiama uno dei profili tecnici di scollegamento, ad esempio **UnLink-Facebook-OAUTH**. Questo profilo tecnico chiama il profilo tecnico di trasformazione delle attestazioni **RemoveAlternativeSecurityIdByIdentityProvider**, che genera una nuova attestazione **AlternativeSecurityIds2** che contiene l'elenco delle identità di social networking degli utenti, rimuovendo l'identità di Facebook dalle raccolte.
 
 ```XML
 <UserJourney Id="AccountUnLink">
@@ -104,7 +104,7 @@ Il profilo tecnico di trasformazione delle attestazioni consente di eseguire una
 
 | Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
-| IncludeClaimResolvingInClaimsHandling  | No | Per le attestazioni di input e output, specifica se la [risoluzione delle attestazioni](claim-resolver-overview.md) è inclusa nel profilo tecnico. Valori possibili: `true`o `false` (impostazione predefinita). Se si desidera utilizzare un resolver di attestazioni nel profilo tecnico, impostare questo valore su `true`. |
+| IncludeClaimResolvingInClaimsHandling  | No | Per le attestazioni di input e output, specifica se la [risoluzione delle attestazioni](claim-resolver-overview.md) è inclusa nel profilo tecnico. Valori possibili: `true` `false`  , o (impostazione predefinita). Se si desidera utilizzare un resolver di attestazioni `true`nel profilo tecnico, impostarlo su . |
 
 ## <a name="use-a-validation-technical-profile"></a>Usare un profilo tecnico di convalida
 

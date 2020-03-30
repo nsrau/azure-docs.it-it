@@ -1,6 +1,6 @@
 ---
-title: ARRAY_CONTAINS nel linguaggio di query Azure Cosmos DB
-description: Informazioni sul modo in cui la matrice contiene la funzione di sistema SQL in Azure Cosmos DB restituisce un valore booleano che indica se la matrice contiene il valore specificato.
+title: ARRAY_CONTAINS nel linguaggio di query del database Cosmos di Azure
+description: Informazioni su come la funzione di sistema Contiene array in Azure Cosmos DB restituisce un valore booleano che indica se l'array contiene il valore specificato
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,10 +8,10 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 47fe20888aa546e414b268b30c2e03580750a040
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78303478"
 ---
 # <a name="array_contains-azure-cosmos-db"></a>ARRAY_CONTAINS (Azure Cosmos DB)
@@ -26,13 +26,13 @@ ARRAY_CONTAINS (<arr_expr>, <expr> [, bool_expr])
 ## <a name="arguments"></a>Argomenti
   
 *arr_expr*  
-   Espressione di matrice in cui eseguire la ricerca.  
+   È l'espressione di matrice da cercare.  
   
-*expr*  
-   Espressione da trovare.  
+*Expr*  
+   È l'espressione da trovare.  
 
 *bool_expr*  
-   Espressione booleana. Se restituisce ' true ' e il valore di ricerca specificato è un oggetto, il comando controlla la presenza di una corrispondenza parziale (l'oggetto di ricerca è un subset di uno degli oggetti). Se restituisce ' false ', il comando controlla la presenza di una corrispondenza completa di tutti gli oggetti all'interno della matrice. Se non è specificato, il valore predefinito è false. 
+   È un'espressione booleana. Se restituisce 'true' e se il valore di ricerca specificato è un oggetto, il comando verifica la presenza di una corrispondenza parziale (l'oggetto di ricerca è un sottoinsieme di uno degli oggetti). Se restituisce 'false', il comando verifica la corrispondenza completa di tutti gli oggetti all'interno della matrice. Se non è specificato, il valore predefinito è false. 
   
 ## <a name="return-types"></a>Tipi restituiti
   
@@ -40,7 +40,7 @@ ARRAY_CONTAINS (<arr_expr>, <expr> [, bool_expr])
   
 ## <a name="examples"></a>Esempi
   
-  Nell'esempio seguente viene illustrato come verificare l'appartenenza a una matrice utilizzando `ARRAY_CONTAINS`.  
+  Nell'esempio riportato di seguito viene `ARRAY_CONTAINS`illustrato come verificare l'appartenenza a una matrice utilizzando .  
   
 ```sql
 SELECT   
@@ -48,7 +48,7 @@ SELECT
            ARRAY_CONTAINS(["apples", "strawberries", "bananas"], "mangoes") AS b2  
 ```  
   
- Set di risultati:  
+ Questo è il set di risultati.  
   
 ```json
 [{"b1": true, "b2": false}]  
@@ -63,7 +63,7 @@ SELECT
     ARRAY_CONTAINS([{"name": "apples", "fresh": true}, {"name": "strawberries", "fresh": true}], {"name": "mangoes"}, true) AS b3 
 ```  
   
- Set di risultati:  
+ Questo è il set di risultati.  
   
 ```json
 [{
@@ -73,12 +73,12 @@ SELECT
 }]
 ```
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
-Questa funzione di sistema trarrà vantaggio da un [indice di intervallo](index-policy.md#includeexclude-strategy).
+Questa funzione di sistema beneficerà di un [indice di intervallo](index-policy.md#includeexclude-strategy).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Funzioni di matrice Azure Cosmos DB](sql-query-array-functions.md)
+- [Funzioni di matrice Azure Cosmos DBArray functions Azure Cosmos DB](sql-query-array-functions.md)
 - [Funzioni di sistema Azure Cosmos DB](sql-query-system-functions.md)
-- [Introduzione a Azure Cosmos DB](introduction.md)
+- [Introduzione ad Azure Cosmos DB](introduction.md)

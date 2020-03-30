@@ -9,21 +9,21 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 58294c7afdf31ddd29611351d6442db1c4966157
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78269042"
 ---
-# <a name="understand-how-azure-iot-edge-uses-certificates"></a>Informazioni sul modo in cui Azure IoT Edge usa i certificati
+# <a name="understand-how-azure-iot-edge-uses-certificates"></a>Comprendere in che modo Azure IoT Edge usa i certificatiUnderstand how Azure IoT Edge uses certificates
 
-Per verificare l'identità e la legittimità del modulo di runtime dell' [hub IOT Edge](iot-edge-runtime.md#iot-edge-hub) , vengono usati i certificati IOT Edge. Queste verifiche consentono di attivare una connessione protetta TLS tra il runtime, i moduli e i dispositivi IoT. Esattamente come hub IoT, IoT Edge richiede la presenza di una connessione protetta e crittografata con i dispositivi IoT a valle e i moduli di IoT Edge. Per stabilire una connessione TLS sicura, il modulo dell'hub di IoT Edge presenta una catena di certificati del server ai client che si devono connettere affinché questi possano verificarne l'identità.
+I certificati IoT Edge vengono utilizzati dai moduli e dai dispositivi IoT downstream per verificare l'identità e la legittimità del modulo di runtime [dell'hub IoT Edge.](iot-edge-runtime.md#iot-edge-hub) Queste verifiche consentono di attivare una connessione protetta TLS tra il runtime, i moduli e i dispositivi IoT. Esattamente come hub IoT, IoT Edge richiede la presenza di una connessione protetta e crittografata con i dispositivi IoT a valle e i moduli di IoT Edge. Per stabilire una connessione TLS sicura, il modulo dell'hub di IoT Edge presenta una catena di certificati del server ai client che si devono connettere affinché questi possano verificarne l'identità.
 
 Questo articolo illustra in che modo i certificati di IoT Edge funzionano in scenari di produzione, di sviluppo e di test. I concetti per Linux e Windows sono gli stessi, anche se gli script sono diversi (Powershell e Bash).
 
 ## <a name="iot-edge-certificates"></a>Certificati di IoT Edge
 
-In genere, i produttori non sono gli utenti finali di un dispositivo IoT Edge. In alcuni casi, l'unica relazione esistente tra queste due entità è quando l'utente finale, o operatore, acquista un dispositivo generico fabbricato dal produttore. In altri casi, il produttore lavora con contratto per compilare un dispositivo personalizzato per l'operatore. La struttura del certificato di IoT Edge tenta di prendere in considerazione entrambi gli scenari.
+Di solito, i produttori non sono gli utenti finali di un dispositivo IoT Edge. In alcuni casi, l'unica relazione esistente tra queste due entità è quando l'utente finale, o operatore, acquista un dispositivo generico fabbricato dal produttore. Altre volte, il produttore lavora sotto contratto per costruire un dispositivo personalizzato per l'operatore. La struttura del certificato di IoT Edge tenta di prendere in considerazione entrambi gli scenari.
 
 Nella figura seguente viene illustrato l'uso dei certificati di IoT Edge. Tra il certificato CA radice e il certificato CA del dispositivo potrebbero essere presenti nessuno, uno o molti certificati di firma intermedi in base al numero di entità coinvolte. Di seguito viene illustrato un caso.
 
@@ -51,7 +51,7 @@ In ogni caso, il produttore usa un certificato CA intermedio alla fine della cat
 
 ### <a name="device-ca-certificate"></a>Certificato CA del dispositivo
 
-Il certificato CA del dispositivo è generato e firmato dal certificato intermedio finale del processo. Questo certificato viene installato nel dispositivo IoT Edge stesso, preferibilmente in un archivio protetto, ad esempio un modulo di protezione hardware. Inoltre, un certificato CA del dispositivo identifica in modo univoco un dispositivo IoT Edge. Il certificato della CA del dispositivo può firmare altri certificati.
+Il certificato CA del dispositivo è generato e firmato dal certificato intermedio finale del processo. Questo certificato viene installato nel dispositivo IoT Edge stesso, preferibilmente in un archivio protetto, ad esempio un modulo di protezione hardware. Inoltre, un certificato CA del dispositivo identifica in modo univoco un dispositivo IoT Edge. Il certificato CA del dispositivo può firmare altri certificati.
 
 ### <a name="iot-edge-workload-ca"></a>Certificato CA del carico di lavoro di IoT Edge
 
@@ -59,7 +59,7 @@ Al primo avvio di IoT Edge, il [Gestore sicurezza di IoT Edge](iot-edge-security
 
 ### <a name="iot-edge-hub-server-certificate"></a>Certificato del server dell'hub di IoT Edge
 
-Il certificato del server dell'hub di IoT Edge è il certificato vero e proprio presentato ai dispositivi foglia e ai moduli che si occupano della verifica delle identità durante la creazione delle connessioni TLS richieste da IoT Edge. Questo certificato presenta l'intera catena di certificati di firma usati per generarlo fino al certificato CA radice, che il dispositivo foglia IoT deve considerare attendibile. Quando è generato dal Gestore sicurezza di IoT Edge, il nome comune di questo certificato dell'hub di IoT Edge viene impostato sulla proprietà "hostname" nel file config.yaml dopo la conversione in lettere minuscole. Questa configurazione è una fonte comune di confusione con IoT Edge.
+Il certificato del server dell'hub di IoT Edge è il certificato vero e proprio presentato ai dispositivi foglia e ai moduli che si occupano della verifica delle identità durante la creazione delle connessioni TLS richieste da IoT Edge. Questo certificato presenta l'intera catena di certificati di firma usati per generarlo fino al certificato CA radice, che il dispositivo foglia IoT deve considerare attendibile. Quando è generato dal Gestore sicurezza di IoT Edge, il nome comune di questo certificato dell'hub di IoT Edge viene impostato sulla proprietà "hostname" nel file config.yaml dopo la conversione in lettere minuscole. Questa configurazione è una fonte comune di confusione con IoT Edge.This configuration is a common source of confusion with IoT Edge.
 
 ## <a name="production-implications"></a>Implicazioni di produzione
 
@@ -69,7 +69,7 @@ Poiché i processi di produzione e operativi sono separati, tenere in consideraz
 
 * Per qualsiasi processo basato su certificato, il certificato CA radice e tutti i certificati CA intermedi devono essere protetti e monitorati durante l'intero processo di implementazione di un dispositivo IoT Edge. Il produttore del dispositivo IoT Edge deve predisporre processi rigorosi per l'archiviazione e l'utilizzo dei certificati intermedi. Inoltre, il certificato CA del dispositivo deve essere conservato in un archivio sicuro nel dispositivo stesso, preferibilmente in un modulo di protezione hardware.
 
-* Il certificato del server dell'hub di IoT Edge viene presentato dall'hub di IoT Edge ai dispositivi client e ai moduli con cui deve connettersi. Il nome comune del certificato CA del dispositivo **non può** coincidere con il valore "hostname" che verrà usato nel file config.yaml nel dispositivo IoT Edge. Il nome usato dai client per connettersi a IoT Edge (ad esempio, tramite il parametro GatewayHostName della stringa di connessione o il comando CONNECT in MQTT) **non può corrispondere** al nome comune usato nel certificato della CA del dispositivo. Questo perché l'hub di IoT Edge presenta l'intera catena di certificati per la verifica da parte dei client. Se il certificato del server dell'hub di IoT Edge e il certificato CA del dispositivo condividono lo stesso nome comune, si entra in un ciclo continuo di verifica che invalida il certificato.
+* Il certificato del server dell'hub di IoT Edge viene presentato dall'hub di IoT Edge ai dispositivi client e ai moduli con cui deve connettersi. Il nome comune del certificato CA del dispositivo **non può** coincidere con il valore "hostname" che verrà usato nel file config.yaml nel dispositivo IoT Edge. Il nome utilizzato dai client per connettersi a IoT Edge (ad esempio, tramite il parametro GatewayHostName della stringa di connessione o il comando CONNECT in MQTT) **non può essere** lo stesso del nome comune utilizzato nel certificato DELLA CA del dispositivo. Questo perché l'hub di IoT Edge presenta l'intera catena di certificati per la verifica da parte dei client. Se il certificato del server dell'hub di IoT Edge e il certificato CA del dispositivo condividono lo stesso nome comune, si entra in un ciclo continuo di verifica che invalida il certificato.
 
 * Poiché viene usato dal daemon di sicurezza di IoT Edge per generare i certificati IoT Edge finali, il certificato CA del dispositivo deve essere un certificato di firma, cioè deve avere funzionalità di firma del certificato. È sufficiente aggiungere la stringa "V3 Basic constraints CA:True" al certificato del dispositivo CA per impostare automaticamente le proprietà di utilizzo della chiave necessarie.
 
@@ -78,7 +78,7 @@ Poiché i processi di produzione e operativi sono separati, tenere in consideraz
 
 ## <a name="devtest-implications"></a>Implicazioni di sviluppo/test
 
-Per facilitare la creazione di scenari di sviluppo e test, Microsoft mette a disposizione un set di [script rapidi](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) per la generazione di certificati non di produzione adatti per IoT Edge nello scenario gateway trasparente. Per esempi di funzionamento degli script, vedere [creare certificati demo per testare le funzionalità del dispositivo IOT Edge](how-to-create-test-certificates.md).
+Per facilitare la creazione di scenari di sviluppo e test, Microsoft mette a disposizione un set di [script rapidi](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) per la generazione di certificati non di produzione adatti per IoT Edge nello scenario gateway trasparente. Per esempi del funzionamento degli script, vedere [Creare certificati dimostrativi per testare le funzionalità dei dispositivi Perimetrali IoT](how-to-create-test-certificates.md).
 
 >[!Tip]
 > Per connettere le applicazioni e i dispositivi "foglia" IoT che usano l'SDK per dispositivi IoT tramite IoT Edge, è necessario aggiungere il parametro facoltativo GatewayHostName alla fine della stringa di connessione del dispositivo. Il certificato del server Hub Edge che viene generato si basa su una versione in lettere minuscole del nome host di config.yaml, pertanto, per far coincidere i nomi e fare in modo che la verifica dei certificati TLS abbia esito positivo, immettere il parametro GatewayHostName in lettere minuscole.

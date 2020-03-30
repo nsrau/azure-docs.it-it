@@ -16,10 +16,10 @@ ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: Mingfeiy;rajputam;Juliako
 ms.openlocfilehash: 2ec3276b9b02c29b80d46e5fd31298c909857182
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78197165"
 ---
 # <a name="using-axinom-to-deliver-widevine-licenses-to-azure-media-services"></a>Uso di Axinom per fornire licenze Widevine ai Servizi multimediali di Azure 
@@ -56,7 +56,7 @@ Per informazioni sui motivi per cui non è possibile usare Azure Active Director
 
 ### <a name="considerations"></a>Considerazioni
 1. È necessario usare il seme chiave specificato da Axinom (8888000000000000000000000000000000000000) e l'ID chiave generato o selezionato per generare la chiave simmetrica per la configurazione del servizio di distribuzione delle chiavi. Il server licenze Axinom emetterà tutte le licenze contenenti chiavi simmetriche basate sullo stesso seme chiave, valido per il test e la produzione.
-2. L'URL di acquisizione della licenza Widevine per i test: [https://drm-widevine-licensing.axtest.net/AcquireLicense](https://drm-widevine-licensing.axtest.net/AcquireLicense). Sono consentiti sia HTTP che HTTS.
+2. URL di acquisizione della [https://drm-widevine-licensing.axtest.net/AcquireLicense](https://drm-widevine-licensing.axtest.net/AcquireLicense)licenza Widevine per il test: . Sono consentiti sia HTTP che HTTS.
 
 ## <a name="azure-media-player-preparation"></a>Preparazione di Azure Media Player
 Azure Media Player v1.4.0 supporta la riproduzione di contenuto AMS incluso dinamicamente in pacchetti con PlayReady e Widevine DRM.
@@ -176,7 +176,7 @@ Naturalmente è possibile ottenere l'ID chiave in molti modi. Ad esempio, è pos
         return key_id;
     }
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 La recente aggiunta del supporto per Widevine nella protezione del contenuto di Servizi multimediali di Azure e in Azure Media Player consente di implementare lo streaming di DASH + DRM multi-native (PlayReady + Widevine) con il server licenze PlayReady nei Servizi multimediali di Azure e un server licenze Widevine di Axinom per i browser moderni seguenti:
 
@@ -191,7 +191,7 @@ I parametri seguenti sono necessari nella soluzione minima che sfrutta il server
 | --- | --- |
 | ID chiave di comunicazione |Deve essere incluso come valore di attestazione "com_key_id" nel token JWT. Vedere [questa](media-services-axinom-integration.md#jwt-token-generation) sezione. |
 | Chiave di comunicazione |Deve essere utilizzato come chiave di firma di token JWT (vedere [questa](media-services-axinom-integration.md#jwt-token-generation) sezione). |
-| Seme chiave |Deve essere usato per generare la chiave simmetrica con qualsiasi ID della chiave simmetrica. Vedere [questa](media-services-axinom-integration.md#content-protection) sezione. |
+| Seme chiave |Deve essere utilizzato per generare la chiave simmetrica con qualsiasi ID chiave simmetrica specificato (vedere [questa](media-services-axinom-integration.md#content-protection) sezione). |
 | L'URL di acquisizione della licenza Widevine. |È necessario usare la configurazione dei criteri di recapito asset per il flusso DASH. Vedere [questa](media-services-axinom-integration.md#content-protection) sezione. |
 | ID della chiave del contenuto |Deve essere incluso come parte del valore del reclamo del messaggio di attestazione del diritto di token JWT (vedere [questa](media-services-axinom-integration.md#jwt-token-generation) sezione). |
 

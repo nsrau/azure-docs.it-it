@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 394b242ab46da7821f77e8d008836753f4e358e2
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67180096"
 ---
 In questo passaggio si creerà manualmente il listener del gruppo di disponibilità in Gestione cluster di failover e SQL Server Management Studio.
@@ -17,9 +17,9 @@ In questo passaggio si creerà manualmente il listener del gruppo di disponibili
 
 2. Selezionare il nodo **Reti** e quindi annotare il nome di rete del cluster. Questo nome viene usato nella variabile $ClusterNetworkName nello script di PowerShell.
 
-3. Espandere il nome di cluster, quindi fare clic su **Ruoli**.
+3. Espandere il nome del cluster, quindi fare clic su **Ruoli**.
 
-4. Nel pannello **Ruoli** fare clic con il pulsante destro del mouse sul nome del gruppo di disponibilità e quindi scegliere **Aggiungi risorsa** > **Punto di accesso client**.
+4. Nel riquadro **Ruoli** fare clic con il pulsante destro del mouse sul nome del gruppo di disponibilità e quindi **scegliere Aggiungi** > punto di**accesso client**risorsa .
    
     ![Aggiungere il punto di accesso client per il gruppo di disponibilità](./media/virtual-machines-sql-server-configure-alwayson-availability-group-listener/IC678769.gif)
 
@@ -29,7 +29,7 @@ In questo passaggio si creerà manualmente il listener del gruppo di disponibili
 6. Scegliere la scheda **Risorse**, e quindi espandere il punto di accesso client appena creato. 
     Viene visualizzata la risorsa indirizzo IP per ogni rete di cluster nel cluster. Se si tratta di una soluzione solo per Azure, viene visualizzata solo una risorsa indirizzo IP.
 
-7. Eseguire una di queste operazioni:
+7. Effettuare una delle operazioni seguenti:
    
    * Per configurare una soluzione ibrida:
      
@@ -39,13 +39,13 @@ In questo passaggio si creerà manualmente il listener del gruppo di disponibili
  
    * Per configurare una soluzione solo per Azure:
 
-        a. Fare clic con il pulsante destro del mouse sulla risorsa indirizzo IP corrispondente alla subnet di Azure e quindi scegliere **Proprietà**.
+        a. Fare clic con il pulsante destro del mouse sulla risorsa indirizzo IP corrispondente alla subnet di Azure e quindi **scegliere Proprietà**.
        
        > [!NOTE]
        > Se il listener non riesce in un secondo momento a portarsi in linea a causa di un indirizzo IP in conflitto selezionato da DHCP, è possibile configurare un indirizzo IP statico valido in questa finestra Proprietà.
        > 
        > 
 
-       b. Nella stessa finestra delle proprietà dell'**indirizzo IP** modificare il valore di **Nome indirizzo IP**.  
+       b. Nella stessa finestra delle proprietà di **Indirizzo IP** modificare il valore per **Nome indirizzo IP**.  
         Questo nome viene usato nella variabile $IPResourceName dello script di PowerShell. Se la soluzione si estende in più reti virtuali di Azure, ripetere questo passaggio per ogni risorsa IP.
 

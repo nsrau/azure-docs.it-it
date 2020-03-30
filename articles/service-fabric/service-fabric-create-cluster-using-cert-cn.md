@@ -1,13 +1,13 @@
 ---
-title: Creare un cluster usando il nome comune del certificato
+title: Creare un cluster usando il nome comune del certificatoCreate a cluster using certificate common name
 description: Informazioni su come creare un cluster di Service Fabric usando il nome comune dei certificati da un modello.
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.openlocfilehash: 4a4448c88fa9493979f075f6b9c669927dd1d39e
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75614554"
 ---
 # <a name="deploy-a-service-fabric-cluster-that-uses-certificate-common-name-instead-of-thumbprint"></a>Distribuire un cluster di Service Fabric che usa il nome comune dei certificati anziché l'identificazione personale
@@ -120,7 +120,7 @@ Aprire quindi il file *azuredeploy.json* in un editor di testo e apportare tre a
     "sfrpApiVersion": "2018-02-01",
     ```
 
-3. Nella risorsa **Microsoft.Compute/virtualMachineScaleSets**, aggiornare l'estensione macchina virtuale perché nelle impostazioni del certificato venga usato il nome comune anziché l'identificazione personale.  In **virtualMachineProfile**->**extensionProfile**->**extensions**->**properties**->**settings**->**certificate** aggiungere 
+3. Nella risorsa **Microsoft.Compute/virtualMachineScaleSets**, aggiornare l'estensione macchina virtuale perché nelle impostazioni del certificato venga usato il nome comune anziché l'identificazione personale.  In **virtualMachineProfile**->**extensionextensionsextensions**->**settings**->**settings**->**certificate**->**certificate**, aggiungere 
     ```json
        "commonNames": [
         "[parameters('certificateCommonName')]"
@@ -212,7 +212,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $groupname -TemplateParameterFi
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Informazioni sulla [sicurezza del cluster](service-fabric-cluster-security.md).
+* Informazioni sulla [protezione del cluster](service-fabric-cluster-security.md).
 * Informazioni su come [eseguire il rollover di un certificato di cluster](service-fabric-cluster-rollover-cert-cn.md)
 * [Aggiornare e gestire i certificati dei cluster](service-fabric-cluster-security-update-certs-azure.md)
 * Semplificare la gestione dei certificati con la [modifica del cluster dall'identificazione personale del certificato al nome comune](service-fabric-cluster-change-cert-thumbprint-to-cn.md)

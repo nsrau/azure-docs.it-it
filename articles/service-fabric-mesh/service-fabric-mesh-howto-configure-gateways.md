@@ -1,5 +1,5 @@
 ---
-title: Configurare un gateway per instradare le richieste
+title: Configurare un gateway per instradare le richiesteConfigure a Gateway to route requests
 description: Informazioni su come configurare il gateway che gestisce il traffico in ingresso per le applicazioni in esecuzione in Service Fabric Mesh.
 author: dkkapur
 ms.topic: conceptual
@@ -7,10 +7,10 @@ ms.date: 11/28/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: ec408403d4baa0f211c6bfe867a15c96513693cb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75461962"
 ---
 # <a name="configure-a-gateway-resource-to-route-requests"></a>Configurare una risorsa del Gateway per indirizzare le richieste
@@ -219,8 +219,8 @@ Ecco come appare una configurazione completa della risorsa Gateway (adattato dal
 ```
 
 Questo gateway è configurato per un'applicazione Linux "meshAppLinux", costituita da almeno due servizi: "helloWorldService" e "counterService", in ascolto sulla porta 80. A seconda della struttura dell'URL della richiesta in ingresso, la richiesta verrà indirizzata a uno di questi servizi. 
-* "\<IPAddress >: 80/helloWorld/\<request\>" comporterebbe la Reindirizzamento di una richiesta a "helloWorldListener" in helloWorldService. 
-* "\<IPAddress >: 80/Counter/\<request\>" comporterebbe la Reindirizzamento di una richiesta a "counterListener" in counterService. 
+* "\<IPAddress>:80/helloWorld/\<richiesta\>" comporterebbe una richiesta indirizzata a "helloWorldListener" in helloWorldService. 
+* "\<IPAddress>:80/counter/\<request\>" comporterebbe che una richiesta venga indirizzata al "counterListener" nel counterService. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per visualizzare i gateway in azione, distribuire l'[esempio in ingresso](https://github.com/Azure-Samples/service-fabric-mesh/tree/2018-09-01-preview/templates/ingress)

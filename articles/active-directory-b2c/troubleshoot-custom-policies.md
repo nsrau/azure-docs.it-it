@@ -1,5 +1,5 @@
 ---
-title: Risolvere i problemi relativi ai criteri personalizzati in Azure Active Directory B2C
+title: Risolvere i problemi relativi ai criteri personalizzati in Azure Active Directory B2CTroubleshoot custom policies in Azure Active Directory B2C
 description: Informazioni sugli approcci per la risoluzione degli errori quando si lavora con i criteri personalizzati in Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
@@ -11,10 +11,10 @@ ms.date: 08/13/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 2f65e98cec04991fe9edef1b81bcb3ecc3d93d76
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78186362"
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Risoluzione dei problemi del framework di esperienza di gestione delle identità e criteri personalizzati di Azure AD B2C
@@ -25,11 +25,11 @@ Questo articolo è incentrato sulla risoluzione dei problemi della configurazion
 
 ## <a name="xml-editing"></a>Modifica dell'XML
 
-L'errore più comune nell'impostazione dei criteri è la formattazione XML non corretta. Un buon editor XML è essenziale. Viene visualizzato il codice XML in modo nativo, i codici colore, precompila i termini comuni, mantiene indicizzati gli elementi XML e può essere convalidato in base a un XML Schema.
+L'errore più comune nell'impostazione dei criteri è la formattazione XML non corretta. Un buon editor XML è essenziale. Visualizza XML in modo nativo, il contenuto dei codici a colori, precompila i termini comuni, mantiene gli elementi XML indicizzati e può eseguire la convalida in base a uno schema XML.
 
-Due degli editor preferiti sono [Visual Studio Code](https://code.visualstudio.com/) e [notepad + +](https://notepad-plus-plus.org/).
+Due dei nostri editor preferiti sono [Visual Studio Code](https://code.visualstudio.com/) e [Notepad](https://notepad-plus-plus.org/).
 
-La convalida dello schema XML identifica gli errori prima del caricamento del file XML. Nella cartella radice dello [Starter Pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack), ottenere il file di definizione XML schema *TrustFrameworkPolicy_0.3.0.0. xsd*. Per informazioni sull'utilizzo del file dello schema XSD per la convalida nell'editor, cercare gli *strumenti XML* e la *convalida XML* o simili nella documentazione dell'editor.
+La convalida dello schema XML identifica gli errori prima del caricamento del file XML. Nella cartella radice dello [starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack)ottenere il file di definizione dello schema XML *TrustFrameworkPolicy_0.3.0.0.xsd*. Per informazioni su come utilizzare il file di schema XSD per la convalida nell'editor, cercare *gli strumenti XML* e la convalida *XML* o simili nella documentazione dell'editor.
 
 Una revisione delle regole XML può risultare utile. Azure AD B2C rifiuta qualsiasi errore di formattazione XML che rileva. Un codice XML non correttamente formattato può restituire a volte messaggi di errore fuorvianti.
 
@@ -37,7 +37,7 @@ Una revisione delle regole XML può risultare utile. Azure AD B2C rifiuta qualsi
 
 La convalida del file di criteri XML viene eseguita automaticamente al caricamento. La maggior parte degli errori causano errori del caricamento. La convalida include il file dei criteri che si sta caricando. Include anche la catena di file a cui si riferisce il file di caricamento (il file dei criteri relying party, il file delle estensioni e il file di base).
 
-Gli errori di convalida comuni includono i seguenti:
+Gli errori di convalida comuni includono quanto segue:Common validation errors include the following:
 
 > Frammento con errore: `...makes a reference to ClaimType with id "displayName" but neither the policy nor any of its base policies contain such an element`
 
@@ -48,27 +48,27 @@ Gli errori di convalida comuni includono i seguenti:
 
 > Frammento con errore: `...makes a reference to a ClaimsTransformation with id...`
 
-* Le cause di questo errore possono essere uguali a quelle dell'errore ClaimType.
+* Le cause di questo errore possono essere le stesse dell'errore ClaimType.
 
 > Frammento con errore: `Reason: User is currently logged as a user of 'yourtenant.onmicrosoft.com' tenant. In order to manage 'yourtenant.onmicrosoft.com', please login as a user of 'yourtenant.onmicrosoft.com' tenant`
 
-* Verificare che il valore TenantId negli elementi `<TrustFrameworkPolicy\>` e `<BasePolicy\>` corrisponda al tenant Azure AD B2C di destinazione.
+* Verificare che il valore `<TrustFrameworkPolicy\>` `<BasePolicy\>` TenantId negli elementi e corrisponda al tenant B2C di Azure AD di destinazione.
 
 ## <a name="troubleshoot-the-runtime"></a>Risoluzione dei problemi di runtime
 
-* Usare **Run Now** e `https://jwt.ms` per testare i criteri indipendentemente dall'applicazione Web o per dispositivi mobili. Questo sito Web funziona come un'applicazione relying party. Viene visualizzato il contenuto del token JSON Web (JWT) generato dal criterio di Azure AD B2C.
+* Utilizzare **Esegui** `https://jwt.ms` ora e per testare i criteri indipendentemente dall'applicazione Web o mobile. Questo sito Web funziona come un'applicazione relying party. Visualizza il contenuto del token Web JSON (JWT) generato dai criteri B2C di Azure AD.
 
-    Per creare un'applicazione di test che può reindirizzare a `https://jwt.ms` per l'ispezione dei token:
+    Per creare un'applicazione di `https://jwt.ms` test che può reindirizzare per l'ispezione token:To create a test application that can redirect to for token inspection:
 
     [!INCLUDE [active-directory-b2c-appreg-idp](../../includes/active-directory-b2c-appreg-idp.md)]
 
 * Per tracciare lo scambio di messaggi tra il browser client e Azure AD B2C usare [Fiddler](https://www.telerik.com/fiddler). Consente di ottenere un'indicazione del punto in cui il percorso utente genera errori nei passaggi di orchestrazione.
 
-* In **Modalità sviluppo** usare [Application Insights](troubleshoot-with-application-insights.md) per tracciare l'attività del percorso utente nel framework di esperienza di gestione delle identità. In **modalità di sviluppo**è possibile osservare lo scambio di attestazioni tra il Framework dell'esperienza di identità e i diversi provider di attestazioni definiti da profili tecnici, ad esempio provider di identità, servizi basati su API, Azure ad B2C directory utente e altri servizi, ad esempio Azure multi-factor authentication.
+* In **Modalità sviluppo** usare [Application Insights](troubleshoot-with-application-insights.md) per tracciare l'attività del percorso utente nel framework di esperienza di gestione delle identità. In **modalità di sviluppo**, è possibile osservare lo scambio di attestazioni tra Identity Experience Framework e i vari provider di attestazioni definiti dai profili tecnici, ad esempio provider di identità, servizi basati su API, la directory utente B2C di Azure AD e altri servizi, ad esempio Azure Multi-Factor Authentication.
 
 ## <a name="recommended-practices"></a>Procedure consigliate
 
-**Mantieni più versioni degli scenari. Raggrupparli in un progetto con l'applicazione.** I file base, delle estensioni e relying party dipendono direttamente tra loro. Salvarli come gruppo. Quando vengono aggiunte nuove funzionalità ai criteri, mantenere versioni di lavoro separate. Inserire le versioni di lavoro nel file system con il codice dell'applicazione con cui interagiscono. Le applicazioni potrebbero richiamare diversi criteri relying party in un tenant. Potrebbero diventare dipendenti dalle attestazioni previste dai criteri di Azure AD B2C.
+**Mantenere più versioni degli scenari. Raggrupparli in un progetto con l'applicazione.** I file base, delle estensioni e relying party dipendono direttamente tra loro. Salvarli come gruppo. Quando vengono aggiunte nuove funzionalità ai criteri, mantenere versioni di lavoro separate. Inserire le versioni di lavoro nel file system con il codice dell'applicazione con cui interagiscono. Le applicazioni potrebbero richiamare diversi criteri relying party in un tenant. Potrebbero diventare dipendenti dalle attestazioni previste dai criteri di Azure AD B2C.
 
 **Sviluppare e testare i profili tecnici con percorsi utente noti.** Usare i criteri starter pack testati per configurare i profili tecnici. Testarli separatamente prima di includerli nel proprio percorso utente.
 
@@ -76,7 +76,7 @@ Gli errori di convalida comuni includono i seguenti:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Disponibile su GitHub, scaricare l'archivio [Active-Directory-B2C-Custom-Policy-Starterpack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) . zip. È anche possibile clonare il repository:
+Disponibile su GitHub, scaricare l'archivio .zip [active-directory-b2c-custom-policy-starterpack.](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) È inoltre possibile clonare il repository:
 
 ```
 git clone https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack

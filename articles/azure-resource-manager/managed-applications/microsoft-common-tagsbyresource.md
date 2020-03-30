@@ -1,20 +1,20 @@
 ---
-title: Elemento TagsByResource dell'interfaccia utente
-description: Descrive l'elemento Microsoft. Common. TagsByResource dell'interfaccia utente per portale di Azure. Usare per applicare tag a una risorsa durante la distribuzione.
+title: Elemento dell'interfaccia utente TagsByResource
+description: Descrive l'elemento dell'interfaccia utente Microsoft.Common.TagsByResource per il portale di Azure.Describes the Microsoft.Common.TagsByResource UI element for Azure portal. Utilizzare per applicare tag a una risorsa durante la distribuzione.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: tomfitz
 ms.openlocfilehash: 23a7c54a84ec083b8fa470f26582913fcc3d2ee6
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75652203"
 ---
-# <a name="microsoftcommontagsbyresource-ui-element"></a>Elemento Microsoft. Common. TagsByResource dell'interfaccia utente
+# <a name="microsoftcommontagsbyresource-ui-element"></a>Elemento dell'interfaccia utente Microsoft.Common.TagsByResourceMicrosoft.Common.TagsByResource UI element
 
-Controllo per l'associazione dei [tag](../management/tag-resources.md) alle risorse in una distribuzione.
+Controllo per l'associazione di [tag](../management/tag-resources.md) alle risorse in una distribuzione.
 
 ## <a name="ui-sample"></a>Esempio di interfaccia utente
 
@@ -49,9 +49,9 @@ Controllo per l'associazione dei [tag](../management/tag-resources.md) alle riso
 
 ## <a name="remarks"></a>Osservazioni
 
-- È necessario specificare almeno un elemento nella matrice `resources`.
-- Ogni elemento in `resources` deve essere un tipo di risorsa completo. Questi elementi vengono visualizzati nell'elenco a discesa **delle risorse** e sono taggable dall'utente.
-- L'output del controllo è formattato per facilitare l'assegnazione di valori di tag in un modello di Azure Resource Manager. Per ricevere l'output del controllo in un modello, includere un parametro nel modello, come illustrato nell'esempio seguente:
+- È necessario specificare `resources` almeno un elemento nella matrice.
+- Ogni elemento `resources` in deve essere un tipo di risorsa completo. Questi elementi vengono visualizzati nell'elenco a discesa **Risorsa** e sono contrassegnati dall'utente.
+- L'output del controllo viene formattato per semplificare l'assegnazione di valori di tag in un modello di Azure Resource Manager.The output of the control is formatted for easy assignment of tag values in an Azure Resource Manager template. Per ricevere l'output del controllo in un modello, includere un parametro nel modello, come illustrato nell'esempio seguente:To receive the control's output in a template, include a parameter in your template as shown in the following example:
 
   ```json
   "parameters": {
@@ -59,7 +59,7 @@ Controllo per l'associazione dei [tag](../management/tag-resources.md) alle riso
   }
   ```
 
-  Per ogni risorsa che può essere contrassegnata, assegnare la proprietà Tags al valore del parametro per il tipo di risorsa:
+  Per ogni risorsa a cui è possibile assegnare tag, assegnare la proprietà tags al valore del parametro per quel tipo di risorsa:
 
   ```json
   {
@@ -69,7 +69,7 @@ Controllo per l'associazione dei [tag](../management/tag-resources.md) alle riso
     ...
   ```
 
-- Usare la funzione [if](../templates/template-functions-logical.md#if) per accedere al parametro tagsByResource. Consente di assegnare un oggetto vuoto quando nessun tag viene assegnato al tipo di risorsa specificato.
+- Utilizzare la funzione [if](../templates/template-functions-logical.md#if) quando si accede al parametro tagsByResource. Consente di assegnare un oggetto vuoto quando non sono assegnati tag al tipo di risorsa specificato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

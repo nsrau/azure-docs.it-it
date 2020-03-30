@@ -1,39 +1,39 @@
 ---
-title: Integrazione continua/distribuzione continua del contenitore personalizzato dalle azioni di GitHub
-description: Informazioni su come usare le azioni di GitHub per distribuire il contenitore Linux personalizzato al servizio app da una pipeline CI/CD.
+title: CI/CD contenitore personalizzato dalle azioni GitHub
+description: Informazioni su come usare le azioni GitHub per distribuire il contenitore Linux personalizzato nel servizio app da una pipeline CI/CD.
 ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2019
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.openlocfilehash: d5f175d887cec1d5b5e567d3f716e6492f4516dd
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78246978"
 ---
-# <a name="deploy-a-custom-container-to-app-service-using-github-actions"></a>Distribuire un contenitore personalizzato nel servizio app usando le azioni di GitHub
+# <a name="deploy-a-custom-container-to-app-service-using-github-actions"></a>Distribuire un contenitore personalizzato nel servizio app usando le azioni GitHubDeploy a custom container to App Service using GitHub Actions
 
-[Azioni di GitHub](https://help.github.com/en/articles/about-github-actions) offre la flessibilità necessaria per creare un flusso di lavoro automatizzato del ciclo di vita di sviluppo software. Con l' [azione del servizio app Azure per i contenitori](https://github.com/Azure/webapps-container-deploy), è possibile automatizzare il flusso di lavoro per distribuire le app come [contenitori personalizzati nel servizio app](https://azure.microsoft.com/services/app-service/containers/) usando le azioni di GitHub.
+[GitHub Actions](https://help.github.com/en/articles/about-github-actions) offre la flessibilità necessaria per creare un flusso di lavoro automatizzato del ciclo di vita dello sviluppo software. Con l'azione del [servizio app di Azure per i contenitori,](https://github.com/Azure/webapps-container-deploy)è possibile automatizzare il flusso di lavoro per distribuire le app come [contenitori personalizzati nel servizio app](https://azure.microsoft.com/services/app-service/containers/) usando le azioni GitHub.With the Azure App Service Action for Containers , you can automate your workflow to deploy apps as custom containers to App Service using GitHub Actions.
 
 > [!IMPORTANT]
-> Le azioni di GitHub sono attualmente in versione beta. È prima di tutto necessario [iscriversi per partecipare all'anteprima](https://github.com/features/actions) usando il proprio account github.
+> GitHub Actions è attualmente in versione beta. Devi prima [registrarti per unirti all'anteprima](https://github.com/features/actions) usando il tuo account GitHub.
 > 
 
-Un flusso di lavoro viene definito da un file YAML (. yml) nel percorso `/.github/workflows/` nel repository. Questa definizione contiene i vari passaggi e parametri che costituiscono il flusso di lavoro.
+Un flusso di lavoro è definito da un file `/.github/workflows/` YAML (.yml) nel percorso nel repository. Questa definizione contiene i vari passaggi e parametri che costituiscono il flusso di lavoro.
 
-Per un flusso di lavoro del contenitore del servizio app Azure, il file è costituito da tre sezioni:
+Per un flusso di lavoro del contenitore del servizio app di Azure, il file include tre sezioni:For an Azure App Service container workflow, the file has three sections:
 
 |Sezione  |Attività  |
 |---------|---------|
-|**autenticazione** | 1. definire un'entità servizio. <br /> 2. creare un segreto GitHub. |
-|**Build** | 1. configurare l'ambiente. <br /> 2. compilare l'immagine del contenitore. |
-|**Distribuire** | 1. distribuire l'immagine del contenitore. |
+|**Autenticazione** | 1. Definire un'entità servizio. <br /> 2. Creare un segreto GitHub.2. Create a GitHub secret. |
+|**Costruire** | 1. Configurare l'ambiente. <br /> 2. Creare l'immagine contenitore. |
+|**Distribuire** | 1. Distribuire l'immagine del contenitore. |
 
 ## <a name="create-a-service-principal"></a>Creare un'entità servizio
 
-È possibile creare un' [entità servizio](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object) usando il comando [AZ ad SP create-for-RBAC](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) nell'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/). È possibile eseguire questo comando usando [Azure cloud Shell](https://shell.azure.com/) nel portale di Azure o selezionando il pulsante **prova** .
+È possibile creare un'entità servizio usando il comando [az ad sp create-for-rbac](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) nell'interfaccia della riga di comando di [Azure.](https://docs.microsoft.com/cli/azure/) [service principal](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object) È possibile eseguire questo comando usando [Azure Cloud Shell](https://shell.azure.com/) nel portale di Azure o selezionando il pulsante **Prova.**
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myApp" --role contributor \
@@ -43,7 +43,7 @@ az ad sp create-for-rbac --name "myApp" --role contributor \
 # Replace {subscription-id}, {resource-group} with the subscription, resource group details of the WebApp
 ```
 
-L'output è un oggetto JSON con le credenziali di assegnazione di ruolo che consentono di accedere all'app del servizio app in modo simile a quanto riportato di seguito. Copiare questo oggetto JSON per l'autenticazione da GitHub.
+L'output è un oggetto JSON con le credenziali di assegnazione di ruolo che forniscono l'accesso all'app del servizio app simile a quella riportata di seguito. Copiare questo oggetto JSON per eseguire l'autenticazione da GitHub.Copy this JSON object to authenticate from GitHub.
 
  ```output 
   {
@@ -56,15 +56,15 @@ L'output è un oggetto JSON con le credenziali di assegnazione di ruolo che cons
 ```
 
 > [!IMPORTANT]
-> È sempre consigliabile concedere l'accesso minimo. È possibile limitare l'ambito nel comando AZ CLI precedente all'app del servizio app specifica e al Container Registry di Azure in cui viene eseguito il push delle immagini del contenitore.
+> È sempre buona norma concedere un accesso minimo. È possibile limitare l'ambito nel comando dell'interfaccia della riga di comando Az precedente all'app del servizio app specifica e al Registro di sistema del contenitore di Azure in cui vengono inserite le immagini del contenitore.
 
-## <a name="configure-the-github-secret"></a>Configurare il segreto di GitHub
+## <a name="configure-the-github-secret"></a>Configurare il segreto GitHubConfigure the GitHub secret
 
-L'esempio seguente usa le credenziali a livello di utente, ad esempio l'entità servizio di Azure per la distribuzione. Seguire i passaggi per configurare il segreto:
+Nell'esempio seguente vengono utilizzate credenziali a livello di utente, ad esempio l'entità servizio di Azure per la distribuzione. Seguire i passaggi per configurare il segreto:
 
-1. In [GitHub](https://github.com/)esplorare il repository, selezionare **Impostazioni > Secrets > aggiungere un nuovo segreto**
+1. In [GitHub](https://github.com/), sfogliare il repository, selezionare **Impostazioni > segreti > Aggiungi un nuovo segreto**
 
-2. Incollare il contenuto del comando `az cli` seguente come valore della variabile Secret. Ad esempio: `AZURE_CREDENTIALS`.
+2. Incollare il contenuto `az cli` del comando seguente come valore della variabile segreta. Ad esempio: `AZURE_CREDENTIALS`.
 
     
     ```azurecli
@@ -75,20 +75,20 @@ L'esempio seguente usa le credenziali a livello di utente, ad esempio l'entità 
     # Replace {subscription-id}, {resource-group} with the subscription, resource group details
     ```
 
-3. A questo punto, nel file del flusso di lavoro nel ramo: `.github/workflows/workflow.yml` sostituire il segreto nell'azione di accesso di Azure con il segreto.
+3. Ora nel file del flusso `.github/workflows/workflow.yml` di lavoro nel ramo: sostituire il segreto nell'azione di accesso di Azure con il segreto.
 
-4. Analogamente, definire i seguenti segreti aggiuntivi per le credenziali del registro contenitori e impostarli in azione Docker login. 
+4. Analogamente, definire i seguenti segreti aggiuntivi per le credenziali del Registro di sistema del contenitore e impostarli nell'azione di accesso Docker. 
 
     - REGISTRY_USERNAME
     - REGISTRY_PASSWORD
 
-5. Vengono visualizzati i segreti come illustrato di seguito, una volta definiti.
+5. Vengono visualizzati i segreti come mostrato di seguito una volta definiti.
 
-    ![segreti del contenitore](../media/app-service-github-actions/app-service-secrets-container.png)
+    ![segreti dei contenitori](../media/app-service-github-actions/app-service-secrets-container.png)
 
-## <a name="build-the-container-image"></a>Compilare l'immagine del contenitore
+## <a name="build-the-container-image"></a>Creare l'immagine Contenitore
 
-Nell'esempio seguente viene mostrata una parte del flusso di lavoro che compila l'immagine docker.
+Nell'esempio seguente viene illustrato parte del flusso di lavoro che compila l'immagine docker.
 
 ```yaml
 on: [push]
@@ -119,19 +119,19 @@ jobs:
         docker push contoso.azurecr.io/nodejssampleapp:${{ github.sha }}
 ```
 
-## <a name="deploy-to-an-app-service-container"></a>Eseguire la distribuzione in un contenitore del servizio app
+## <a name="deploy-to-an-app-service-container"></a>Eseguire la distribuzione in un contenitore del servizio appDeploy to an App Service container
 
-Per distribuire l'immagine in un contenitore personalizzato nel servizio app, usare l'azione `azure/webapps-container-deploy@v1`. Questa azione ha cinque parametri:
+Per distribuire l'immagine in un contenitore `azure/webapps-container-deploy@v1` personalizzato nel servizio app, usare l'azione. Questa azione ha cinque parametri:
 
 | **Parametro**  | **Spiegazione**  |
 |---------|---------|
-| **Nome app** | Necessaria Nome dell'app del servizio app | 
-| **nome slot** | Opzionale Immettere uno slot esistente diverso dallo slot di produzione |
-| **images** | Necessaria Specificare il nome o le immagini del contenitore completo. Ad esempio,' myregistry.azurecr.io/nginx:latest ' o ' Python: 3.7.2-Alpine/'. Per un'app multi-contenitore è possibile specificare più nomi di immagini del contenitore (separati da più righe) |
-| **file di configurazione** | Opzionale Percorso del file Docker-compose. Deve essere un percorso completo o relativo alla directory di lavoro predefinita. Obbligatorio per le app a più contenitori. |
-| **container-Command** | Opzionale Immettere il comando di avvio. Per es. DotNet Run o dotnet filename. dll |
+| **nome app** | (Obbligatorio) Nome dell'app del servizio app | 
+| **nome-slot** | (Facoltativo) Immettere uno slot esistente diverso dallo slot di produzione |
+| **Immagini** | (Obbligatorio) Specificare il nome completo delle immagini del contenitore. Ad esempio, 'myregistry.azurecr.io/nginx:latest' o 'python:3.7.2-alpine/'. Per un'app multi-contenitore, è possibile fornire più nomi di immagine contenitore (separati da più righe)For a multi-container app, multiple container image names can be provided (multi-line separated) |
+| **file di configurazione** | (Facoltativo) Percorso del file Docker-Compose. Deve essere un percorso completo o relativo alla directory di lavoro predefinita. Obbligatorio per le app multi-contenitore. |
+| **comando contenitore** | (Facoltativo) Immettere il comando di avvio. Per esempio. dotnet run o dotnet filename.dll |
 
-Di seguito è riportato il flusso di lavoro di esempio per compilare e distribuire un'app node. js in un contenitore personalizzato nel servizio app.
+Di seguito è riportato il flusso di lavoro di esempio per compilare e distribuire un'app Node.js in un contenitore personalizzato nel servizio app.
 
 ```yaml
 on: [push]
@@ -173,20 +173,20 @@ jobs:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È possibile trovare il set di azioni raggruppate in repository diversi su GitHub, ognuno dei quali contiene documentazione ed esempi che consentono di usare GitHub per CI/CD e distribuire le app in Azure.
+È possibile trovare il set di azioni raggruppate in repository diversi in GitHub, ognuno contenente documentazione ed esempi per usare GitHub per CI/CD e distribuire le app in Azure.You can find our set of Actions grouped into different repositories on GitHub, each each containing documentation and examples to help you use GitHub for CI/CD and deploy your apps to Azure.
 
 - [Accesso ad Azure](https://github.com/Azure/login)
 
 - [Azure WebApp](https://github.com/Azure/webapps-deploy)
 
-- [Azure WebApp per i contenitori](https://github.com/Azure/webapps-container-deploy)
+- [WebApp di Azure per i contenitoriAzure WebApp for containers](https://github.com/Azure/webapps-container-deploy)
 
-- [Accesso/disconnessione di Docker](https://github.com/Azure/docker-login)
+- [Accesso/logout Docker](https://github.com/Azure/docker-login)
 
 - [Eventi che attivano flussi di lavoro](https://help.github.com/en/articles/events-that-trigger-workflows)
 
-- [Distribuzione di K8s](https://github.com/Azure/k8s-deploy)
+- [K8 simplementazione](https://github.com/Azure/k8s-deploy)
 
-- [Flussi di lavoro CI Starter](https://github.com/actions/starter-workflows)
+- [Flussi di lavoro CI starter](https://github.com/actions/starter-workflows)
 
-- [Flussi di lavoro Starter per la distribuzione in Azure](https://github.com/Azure/actions-workflow-samples)
+- [Starter workflows to deploy to Azure](https://github.com/Azure/actions-workflow-samples)

@@ -1,5 +1,5 @@
 ---
-title: Ridimensionare automaticamente un'app in esecuzione in Azure Service Fabric mesh
+title: Scalabilità automatica di un'app in esecuzione in Azure Service Fabric MeshAuto-scale an app running in Azure Service Fabric Mesh
 description: Informazioni su come configurare i criteri di scalabilità automatica per i servizi di un'applicazione di Service Fabric Mesh.
 author: dkkapur
 ms.topic: conceptual
@@ -7,14 +7,14 @@ ms.date: 12/07/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: fb72806dd7ba838ba7170bda409715bc074e1d99
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75461969"
 ---
 # <a name="create-autoscale-policies-for-a-service-fabric-mesh-application"></a>Creare criteri di scalabilità automatica per un'applicazione di Service Fabric Mesh
-Uno dei principali vantaggi derivanti dalla distribuzione di applicazioni a Service Fabric mesh è la possibilità di ridimensionare facilmente i servizi. Questa operazione deve essere usata per la gestione di diverse quantità di carico nei servizi o per migliorare la disponibilità. È possibile ridurre o aumentare manualmente le istanze dei servizi o impostare criteri di scalabilità automatica.
+Uno dei principali vantaggi della distribuzione di applicazioni in Service Fabric Mesh è la possibilità di ridimensionare o ridurre facilmente i servizi. Deve essere usato per gestire quantità variabili di carico sui servizi o per migliorare la disponibilità. È possibile ridurre o aumentare manualmente le istanze dei servizi o impostare criteri di scalabilità automatica.
 
 La [scalabilità automatica](service-fabric-mesh-scalability.md#autoscaling-service-instances) è una funzionalità aggiuntiva di Service Fabric che consente di ridimensionare dinamicamente il numero di istanze del servizio (scalabilità orizzontale). Offre una notevole elasticità e consente di effettuare il provisioning o la rimozione delle istanze del servizio in base all'utilizzo della CPU o della memoria.
 

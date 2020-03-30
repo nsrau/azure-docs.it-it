@@ -1,7 +1,7 @@
 ---
-title: "Esercitazione: eseguire la migrazione offline di MongoDB all'API Azure Cosmos DB per MongoDB"
+title: "Esercitazione: Eseguire la migrazione di MongoDB offline all'API del database di Azure Cosmos per MongoDBTutorial: Migrate MongoDB offline to Azure Cosmos DB API for MongoDB"
 titleSuffix: Azure Database Migration Service
-description: Informazioni su come eseguire la migrazione da MongoDB locale a Azure Cosmos DB API per MongoDB offline usando il servizio migrazione del database di Azure.
+description: Informazioni su come eseguire la migrazione da MongoDB locale all'API del database di Azure Cosmos per MongoDB offline usando il servizio Migrazione del database di Azure.Learn to migrate from MongoDB on-premises to Azure Cosmos DB API for MongoDB offline by using Azure Database Migration Service.
 services: dms
 author: pochiraju
 ms.author: rajpo
@@ -13,13 +13,13 @@ ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
 ms.openlocfilehash: 08fa94dbe71299a6653df0b40aa5083375526172
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78255582"
 ---
-# <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-offline-using-dms"></a>Esercitazione: eseguire la migrazione di MongoDB all'API Azure Cosmos DB per MongoDB offline con DMS
+# <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-offline-using-dms"></a>Esercitazione: Eseguire la migrazione di MongoDB all'API di Azure Cosmos DB per MongoDB offline tramite DMSTutorial: Migrate MongoDB to Azure Cosmos DB's API for MongoDB offline using DMS
 
 È possibile usare Servizio Migrazione del database di Azure per eseguire una migrazione offline (una tantum) di database da un'istanza locale o cloud di MongoDB all'API di Azure Cosmos DB per MongoDB.
 
@@ -39,10 +39,10 @@ Per completare questa esercitazione, è necessario:
 
 * [Completare la procedura di pre-migrazione](../cosmos-db/mongodb-pre-migration.md), ad esempio stimare la velocità effettiva, scegliere una chiave di partizione e i criteri di indicizzazione.
 * [Creare un account dell'API di Azure Cosmos DB per MongoDB](https://ms.portal.azure.com/#create/Microsoft.DocumentDB).
-* Creare una Rete virtuale di Microsoft Azure per il servizio migrazione del database di Azure usando il modello di distribuzione Azure Resource Manager, che fornisce la connettività da sito a sito ai server di origine locali usando [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) o [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Per ulteriori informazioni sulla creazione di una rete virtuale, vedere la [documentazione relativa alla rete virtuale](https://docs.microsoft.com/azure/virtual-network/)e, in particolare, gli articoli introduttivi con informazioni dettagliate.
+* Creare una rete virtuale di Microsoft Azure per il servizio di migrazione del database di Azure usando il modello di distribuzione di Azure Resource Manager, che fornisce la connettività da sito a sito ai server di origine locali tramite [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) o [VPN.](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) Per ulteriori informazioni sulla creazione di una rete virtuale, vedere gli articoli relativi alla [documentazione](https://docs.microsoft.com/azure/virtual-network/)relativa alla rete virtuale e in particolare gli articoli delle guide introduttive con dettagli dettagliati.
 
     > [!NOTE]
-    > Durante la configurazione della rete virtuale, se si usa ExpressRoute con il peering di rete a Microsoft, aggiungere i seguenti [endpoint](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) di servizio alla subnet in cui verrà eseguito il provisioning del servizio:
+    > Durante l'installazione della rete virtuale, se si usa ExpressRoute con peering di rete a Microsoft, aggiungere gli endpoint del servizio seguenti alla subnet in cui verrà eseguito il provisioning del servizio:During virtual network setup, if you use ExpressRoute with network peering to Microsoft, add the following service [endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) to the subnet in which the service will be provisioned:
     >
     > * Endpoint del database di destinazione (ad esempio endpoint SQL, endpoint Cosmos DB e così via)
     > * Endpoint di archiviazione
@@ -50,7 +50,7 @@ Per completare questa esercitazione, è necessario:
     >
     > Questa configurazione è necessaria perché il Servizio Migrazione del database di Azure non ha connettività Internet.
 
-* Verificare che le regole del gruppo di sicurezza di rete della rete virtuale (NSG) non blocchino le porte di comunicazione seguenti: 53, 443, 445, 9354 e 10000-20000. Per informazioni più dettagliate sul filtro del traffico NSG per la rete virtuale, vedere l'articolo [filtrare il traffico di rete con gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
+* Verificare che le regole del gruppo di sicurezza di rete virtuale non blocchino le porte di comunicazione seguenti: 53, 443, 445, 9354 e 10000-20000. Per ulteriori informazioni sul filtro del traffico del gruppo di sicurezza di rete virtuale, vedere l'articolo [Filtrare](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg)il traffico di rete con i gruppi di sicurezza di rete .
 * Aprire Windows Firewall per consentire a Servizio Migrazione del database di Azure di accedere al server MongoDB di origine, per impostazione predefinita attraverso la porta TCP 27017.
 * Quando si usa un'appliance firewall all'ingresso dei database di origine, potrebbe essere necessario aggiungere regole del firewall per consentire al Servizio Migrazione del database di Azure di accedere ai database di origine per la migrazione.
 
@@ -64,7 +64,7 @@ Per completare questa esercitazione, è necessario:
 
     ![Visualizzare i provider di risorse](media/tutorial-mongodb-to-cosmosdb/portal-select-resource-provider.png)
 
-3. Ricercare la migrazione e quindi a destra del **Microsoft.DataMigration** selezionare **Registro**.
+3. Cercare la migrazione e quindi a destra di **Microsoft.DataMigration**, selezionare **Registra**.
 
     ![Registrare il provider di risorse](media/tutorial-mongodb-to-cosmosdb/portal-register-resource-provider.png)    
 
@@ -84,13 +84,13 @@ Per completare questa esercitazione, è necessario:
 
 5. Selezionare una rete virtuale esistente o crearne una nuova.
 
-    La rete virtuale fornisce al servizio migrazione del database di Azure l'accesso all'istanza di MongoDB di origine e l'account Azure Cosmos DB di destinazione.
+    La rete virtuale fornisce al servizio migrazione del database di Azure l'accesso all'istanza MongoDB di origine e all'account del database Cosmos di Azure di destinazione.
 
-    Per altre informazioni su come creare una rete virtuale nella portale di Azure, vedere l'articolo [creare una rete virtuale usando il portale di Azure](https://aka.ms/DMSVnet).
+    Per altre informazioni su come creare una rete virtuale nel portale di Azure, vedere l'articolo Creare una rete virtuale usando il portale di Azure.For more information about how to create a virtual network in the Azure portal, see the article [Create a virtual network using the Azure portal.](https://aka.ms/DMSVnet)
 
 6. Selezione di un piano tariffario.
 
-    Per altre informazioni sui costi e i piani tariffari, vedere la [pagina relativa ai prezzi](https://aka.ms/dms-pricing).
+    Per ulteriori informazioni sui costi e sui piani tariffari, vedere la [pagina dei prezzi](https://aka.ms/dms-pricing).
 
     ![Configurare le impostazioni dell'istanza del Servizio Migrazione del database di Azure](media/tutorial-mongodb-to-cosmosdb/dms-settings2.png)
 
@@ -106,7 +106,7 @@ Dopo aver creato il servizio, individuarlo nel portale di Azure, aprirlo e crear
 
 2. Nella schermata **Servizi Migrazione del database di Azure** cercare il nome dell'istanza di Servizio Migrazione del database di Azure appena creata e quindi selezionare l'istanza.
 
-3. Selezionare **+ Nuovo progetto di migrazione**.
+3. Selezionare : **Nuovo progetto di migrazione**.
 
 4. Nella schermata **Nuovo progetto di migrazione** specificare un nome per il progetto e quindi selezionare **MongoDB** nella casella di testo **Tipo del server di origine**, **CosmosDB (API MongoDB)** nella casella di testo **Tipo del server di destinazione** e **Migrazione dei dati offline** per **Scegli il tipo di attività**. 
 
@@ -134,7 +134,7 @@ Dopo aver creato il servizio, individuarlo nel portale di Azure, aprirlo e crear
 
      Questa stringa di connessione della firma di accesso condiviso del contenitore BLOB si trova in Azure Storage Explorer. La creazione della firma di accesso condiviso per il contenitore interessato fornirà l'URL nel formato richiesto descritto sopra.
      
-     Inoltre, in base alle informazioni sul dump del tipo in archiviazione di Azure, tenere presente i dettagli seguenti.
+     Inoltre, in base alle informazioni sul dump dei tipi in Archiviazione di Azure, tenere presente i dettagli seguenti.
 
      * Per i dump BSON, i dati all'interno del contenitore di BLOB devono essere in formato bsondump, in modo che i file di dati vengano inseriti in cartelle con gli stessi nomi dei database che li contengono nel formato collection.bson. I nomi dei file di metadati (se presenti) dovranno essere in formato *collection*.metadata.json.
 
@@ -199,7 +199,7 @@ Dopo aver creato il servizio, individuarlo nel portale di Azure, aprirlo e crear
 
     Viene visualizzata la finestra dell'attività di migrazione con il campo **Stato** dell'attività impostato su **Non avviato**.
 
-    ![Stato attività](media/tutorial-mongodb-to-cosmosdb/dms-activity-status.png)
+    ![Stato dell'attività](media/tutorial-mongodb-to-cosmosdb/dms-activity-status.png)
 
 ## <a name="monitor-the-migration"></a>Monitorare la migrazione
 

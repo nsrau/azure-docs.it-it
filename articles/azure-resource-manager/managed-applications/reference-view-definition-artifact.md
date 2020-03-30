@@ -1,24 +1,24 @@
 ---
-title: Informazioni di riferimento sugli elementi della definizione di visualizzazione
-description: Viene fornito un esempio di elemento della definizione della vista per le applicazioni gestite di Azure. Il nome del file è viewDefinition. JSON.
+title: Riferimento elemento definizione vista
+description: Fornisce un esempio di elemento di definizione della visualizzazione per le applicazioni gestite di Azure.Provides an example of view definition artifact for Azure Managed Applications. Il nome del file è viewDefinition.json.
 ms.topic: conceptual
 ms.author: lazinnat
 author: lazinnat
 ms.date: 07/11/2019
 ms.openlocfilehash: 5173db54abef132a4a4d5d117881352ca37d6b23
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75651202"
 ---
-# <a name="reference-view-definition-artifact"></a>Riferimento: elemento della definizione della visualizzazione
+# <a name="reference-view-definition-artifact"></a>Riferimento: Elemento di definizione della vistaReference: View definition artifact
 
-Questo articolo è un riferimento per un elemento *viewDefinition. JSON* nelle applicazioni gestite di Azure. Per ulteriori informazioni sulla creazione della configurazione delle visualizzazioni, vedere l' [elemento della definizione della vista](concepts-view-definition.md).
+Questo articolo è un riferimento per un elemento viewDefinition.json nelle applicazioni gestite di Azure.This article is a reference for a *viewDefinition.json* artifact in Azure Managed Applications. Per ulteriori informazioni sulla configurazione delle viste di creazione, consultate Elemento di [definizione delle viste.](concepts-view-definition.md)
 
 ## <a name="view-definition"></a>Visualizzare la definizione
 
-Il codice JSON seguente mostra un esempio di file *viewDefinition. JSON* per le applicazioni gestite di Azure:
+Il codice JSON seguente mostra un esempio di file viewDefinition.json per le applicazioni gestite di Azure:The following JSON shows an example of *viewDefinition.json* file for Azure Managed Applications:
 
 ```json
 {
@@ -87,6 +87,6 @@ Il codice JSON seguente mostra un esempio di file *viewDefinition. JSON* per le 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Esercitazione: creare un'applicazione gestita con azioni e risorse personalizzate](tutorial-create-managed-app-with-custom-provider.md)
-- [Riferimento: artefatto degli elementi dell'interfaccia utente](reference-createuidefinition-artifact.md)
-- [Riferimento: artefatto modello di distribuzione](reference-main-template-artifact.md)
+- [Esercitazione: Creare un'applicazione gestita con risorse e azioni personalizzateTutorial: Create managed application with custom actions and resources](tutorial-create-managed-app-with-custom-provider.md)
+- [Riferimento: elemento degli elementi dell'interfaccia utenteReference: User interface elements artifact](reference-createuidefinition-artifact.md)
+- [Riferimento: Elemento del modello di distribuzioneReference: Deployment template artifact](reference-main-template-artifact.md)

@@ -9,10 +9,10 @@ ms.date: 09/17/2018
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: ca4bd3d3b40934323bab8036f3ce72e9281f1de4
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67180583"
 ---
 > [!div class="op_single_selector"]
@@ -37,7 +37,7 @@ Il dispositivo di esempio inoltre:
 * Risponde alle azioni attivate dalla pagina **Dispositivi** della soluzione.
 * Risponde alle modifiche di configurazione inviate dalla pagina **Dispositivi** della soluzione.
 
-Per completare l'esercitazione, è necessario un account Azure attivo. Se non si dispone di un account Azure, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
+Per completare l'esercitazione, è necessario un account Azure attivo. Se non si dispone di un account Azure, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere Versione di valutazione gratuita di Azure .For [details,](https://azure.microsoft.com/pricing/free-trial/)see Azure Free Trial .
 
 ## <a name="before-you-start"></a>Prima di iniziare
 
@@ -47,7 +47,7 @@ Prima di scrivere il codice per il dispositivo, distribuire l'acceleratore di so
 
 Il dispositivo **Chiller** creato in questa esercitazione invia dati a un'istanza dell'acceleratore di soluzioni [Monitoraggio remoto](../articles/iot-accelerators/quickstart-remote-monitoring-deploy.md). Se nel proprio account Azure non è già stato effettuato il provisioning dell'acceleratore di soluzioni Monitoraggio remoto, vedere [Distribuire l'acceleratore di soluzioni Monitoraggio remoto](../articles/iot-accelerators/quickstart-remote-monitoring-deploy.md)
 
-Al termine del processo di distribuzione della soluzione Monitoraggio remoto, fare clic su **Avvia** per aprire il dashboard della soluzione nel browser.
+Al termine del processo di distribuzione per la soluzione di monitoraggio remoto, fare clic su **Avvia** per aprire il dashboard della soluzione nel browser.
 
 ![Dashboard della soluzione](media/iot-suite-selector-connecting/dashboard.png)
 
@@ -58,9 +58,9 @@ Al termine del processo di distribuzione della soluzione Monitoraggio remoto, fa
 
 Per connettere un dispositivo all'acceleratore di soluzioni, è necessario che identifichi se stesso nell'hub IoT mediante delle credenziali valide. Quando si aggiunge il dispositivo alla soluzione, si ha la possibilità di salvare la stringa di connessione del dispositivo che contiene queste credenziali. Le istruzioni per includere la stringa di connessione del dispositivo nell'applicazione client sono illustrate più avanti in questa esercitazione.
 
-Per aggiungere un dispositivo alla soluzione di monitoraggio remoto, completare i passaggi seguenti nel **Device Explorer** pagina nella soluzione:
+Per aggiungere un dispositivo alla soluzione di monitoraggio remoto, completare i passaggi seguenti nella pagina Esplora dispositivi della soluzione:To add a device to your Remote Monitoring solution, complete the following steps on the **Device Explorer** page in the solution:
 
-1. Scegli **+ nuovo dispositivo**, quindi scegliere **reale** come il **tipo di dispositivo**:
+1. Scegliere **Nuovo dispositivo**, quindi **Reale** come Tipo **di dispositivo**:
 
     ![Aggiungere un dispositivo reale](media/iot-suite-selector-connecting/devicesprovision.png)
 

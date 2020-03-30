@@ -9,17 +9,17 @@ ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: e5148ff9e92a2e550a3117356a4e77cbac8fc6f4
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67673387"
 ---
 *Preparare la cache*  
 Il disco con memorizzazione nella cache dell'host di tipo ReadOnly è in grado di ottenere valori di IOPS più elevati rispetto al limite del disco. Per ottenere queste prestazioni di lettura massime dalla cache dell'host, è prima di tutto necessario preparare la cache del disco. Ciò assicura che le operazioni di I/O di lettura che lo strumento di benchmarking eseguirà sul volume CacheReads raggiungano effettivamente la cache e non direttamente il disco. I riscontri nella cache producono IOPS aggiuntivi da un singolo disco abilitato per la cache.
 
 > [!IMPORTANT]
-> è necessario preparare la cache prima di eseguire il benchmarking, ogni volta che la VM viene riavviata.
+>  è necessario preparare la cache prima di eseguire il benchmarking, ogni volta che la VM viene riavviata.
 
 ## <a name="tools"></a>Strumenti
 
@@ -35,12 +35,12 @@ Iometer usa un file di test archiviato nel volume in cui eseguire il test di ben
 
 Le specifiche, la dimensione della richiesta I/O, la percentuale di letture/scritture e la percentuale di operazioni casuali/sequenziali vengono configurate tramite la scheda "Access Specifications" in Iometer. Creare una specifica di accesso per ogni scenario illustrato di seguito. Creare le specifiche di accesso, quindi salvarle con un nome appropriato, ad esempio RandomWrites\_8K, RandomReads\_8K. Selezionare la specifica corrispondente durante l'esecuzione dello scenario di test.
 
-Un esempio di specifiche di accesso per uno scenario con valori massimi di IOPS di scrittura è riportato di seguito,  
+Un esempio di specifiche di accesso per uno scenario con valori massimi di IOPS di scrittura è riportato di seguito,   
     ![Esempio di specifiche di accesso per valori massimi di IOPS di scrittura](../articles/virtual-machines/linux/media/premium-storage-performance/image8.png)
 
 #### <a name="maximum-iops-test-specifications"></a>Specifiche per il valore massimo di IOPS di test
 
-Per illustrare il valore massimo di IOPS, usare una dimensione minore della richiesta. Usare una dimensione di richiesta pari a 8 K e creare specifiche per letture e scritture casuali.
+ Per illustrare il valore massimo di IOPS, usare una dimensione minore della richiesta. Usare una dimensione di richiesta pari a 8 K e creare specifiche per letture e scritture casuali.
 
 | Specifica di accesso | Dimensione della richiesta | % di casuali | % di letture |
 | --- | --- | --- | --- |
@@ -49,7 +49,7 @@ Per illustrare il valore massimo di IOPS, usare una dimensione minore della rich
 
 #### <a name="maximum-throughput-test-specifications"></a>Specifiche per il valore massimo di velocità effettiva di test
 
-Per illustrare il valore massimo di velocità effettiva, usare una dimensione maggiore della richiesta. Usare una dimensione di richiesta pari a 64 K e creare specifiche per letture e scritture casuali.
+ Per illustrare il valore massimo di velocità effettiva, usare una dimensione maggiore della richiesta. Usare una dimensione di richiesta pari a 64 K e creare specifiche per letture e scritture casuali.
 
 | Specifica di accesso | Dimensione della richiesta | % di casuali | % di letture |
 | --- | --- | --- | --- |
@@ -58,30 +58,30 @@ Per illustrare il valore massimo di velocità effettiva, usare una dimensione ma
 
 #### <a name="run-the-iometer-test"></a>Esecuzione del test di Iometer
 
-Seguire questa procedura per preparare la cache.
+ Seguire questa procedura per preparare la cache.
 
 1. Creare le specifiche di accesso con i valori seguenti.
 
-   | Name | Dimensione della richiesta | % di casuali | % di letture |
+   | Nome | Dimensione della richiesta | % di casuali | % di letture |
    | --- | --- | --- | --- |
    | RandomWrites\_1MB |1 MB |100 |0 |
    | RandomReads\_1MB |1 MB |100 |100 |
 1. Eseguire il test di Iometer per l'inizializzazione del disco della cache con i parametri seguenti. Usare tre thread di lavoro per il volume di destinazione e una profondità della coda pari a 128. Impostare la durata relativa al tempo di esecuzione del test su 2 ore nella scheda "Test Setup".
 
-   | Scenario | Volume di destinazione | NOME | Duration |
+   | Scenario | Volume di destinazione | Nome | Duration |
    | --- | --- | --- | --- |
    | Inizializzare il disco della cache |CacheReads |RandomWrites\_1MB |2 ore |
 1. Eseguire il test di Iometer per la preparazione del disco della cache con i parametri seguenti. Usare tre thread di lavoro per il volume di destinazione e una profondità della coda pari a 128. Impostare la durata relativa al tempo di esecuzione del test su 2 ore nella scheda "Test Setup".
 
-   | Scenario | Volume di destinazione | NOME | Durata |
+   | Scenario | Volume di destinazione | Nome | Duration |
    | --- | --- | --- | --- |
    | Preparare il disco della cache |CacheReads |RandomReads\_1MB |2 ore |
 
 Dopo la preparazione del disco della cache, procedere con gli scenari di test elencati di seguito. Per eseguire il test di Iometer, usare almeno tre thread di lavoro per **ogni** volume di destinazione. Per ogni thread di lavoro selezionare il volume di destinazione, impostare la profondità della coda e selezionare una delle specifiche di test salvate, come illustrato nella tabella seguente, per eseguire lo scenario di test corrispondente. La tabella illustra anche i risultati previsti per IOPS e velocità effettiva quando si eseguono questi test. Per tutti gli scenari vengono usati una dimensione di I/O ridotta pari a 8 KB e un valore elevato per la profondità della coda pari a 128.
 
-| Scenario di test | Volume di destinazione | Name | Risultato |
+| Scenario di test | Volume di destinazione | Nome | Risultato |
 | --- | --- | --- | --- |
-| Max. IOPS di lettura |CacheReads |RandomWrites\_8K |50.000 IOPS |
+| Max. IOPS di lettura |CacheReads |RandomWrites\_8K |50.000 IOPS  |
 | Max. IOPS di scrittura |NoCacheWrites |RandomReads\_8K |64.000 IOPS |
 | Max. IOPS combinate |CacheReads |RandomWrites\_8K |100.000 IOPS |
 | NoCacheWrites |RandomReads\_8K | &nbsp; | &nbsp; |
@@ -102,7 +102,7 @@ Le schermate seguenti illustrano i risultati dei test di Iometer per scenari com
 
 ### <a name="fio"></a>FIO
 
-FIO è uno strumento popolare per il benchmarking dell'archiviazione sulle VM Linux. Offre la flessibilità necessaria per selezionare diverse dimensioni di I/O e letture e scritture sequenziali o casuali. Genera thread di lavoro o processi per l'esecuzione delle operazioni I/O specificate. È possibile specificare il tipo di operazioni I/O che ogni thread di lavoro deve eseguire usando i file processo. È stato creato un file processo per ogni scenario illustrato negli esempi seguenti. È possibile cambiare le specifiche di questi file processo per il benchmarking di diversi carichi di lavoro in esecuzione sull'Archiviazione Premium. Negli esempi viene usata una VM DS 14 Standard che esegue **Ubuntu**. Usare la stessa configurazione descritta all'inizio della sezione Benchmarking e preparare la cache prima di eseguire i test di benchmarking.
+FIO è uno strumento popolare per il benchmarking dell'archiviazione sulle VM Linux. Offre la flessibilità necessaria per selezionare diverse dimensioni di I/O e letture e scritture sequenziali o casuali. Genera thread di lavoro o processi per l'esecuzione delle operazioni I/O specificate. È possibile specificare il tipo di operazioni I/O che ogni thread di lavoro deve eseguire usando i file processo. È stato creato un file processo per ogni scenario illustrato negli esempi seguenti. È possibile cambiare le specifiche di questi file processo per il benchmarking di diversi carichi di lavoro in esecuzione sull'Archiviazione Premium. Negli esempi viene usata una VM DS 14 Standard che esegue **Ubuntu**. Usare la stessa configurazione illustrata all'inizio della sezione Benchmarking e preparare la cache prima di eseguire i test di benchmarking.
 
 Prima di iniziare, [scaricare FIO](https://github.com/axboe/fio) e installarlo nella macchina virtuale.
 
@@ -116,7 +116,7 @@ Vengono usati quattro thread di lavoro per la gestione delle operazioni di scrit
 
 #### <a name="maximum-write-iops"></a>IOPS massime di scrittura
 
-Creare il file processo con le specifiche seguenti per ottenere il valore massimo per le operazioni IOPS di scrittura. Assegnare al file il nome "fiowrite.ini".
+ Creare il file processo con le specifiche seguenti per ottenere il valore massimo per le operazioni IOPS di scrittura. Assegnare al file il nome "fiowrite.ini".
 
 ```ini
 [global]
@@ -157,7 +157,7 @@ Durante l'esecuzione del test, è possibile visualizzare il numero di operazioni
 
 #### <a name="maximum-read-iops"></a>IOPS massime di lettura
 
-Creare il file processo con le specifiche seguenti per ottenere il valore massimo per le operazioni IOPS di lettura. Assegnare al file il nome "fioread.ini".
+ Creare il file processo con le specifiche seguenti per ottenere il valore massimo per le operazioni IOPS di lettura. Assegnare al file il nome "fioread.ini".
 
 ```ini
 [global]
@@ -198,7 +198,7 @@ Durante l'esecuzione del test, è possibile visualizzare il numero di operazioni
 
 #### <a name="maximum-read-and-write-iops"></a>IOPS massime di lettura e scrittura
 
-Creare il file processo con le specifiche seguenti per ottenere il valore massimo per le operazioni IOPS combinate di lettura e scrittura. Assegnare al file il nome "fioreadwrite.ini".
+ Creare il file processo con le specifiche seguenti per ottenere il valore massimo per le operazioni IOPS combinate di lettura e scrittura. Assegnare al file il nome "fioreadwrite.ini".
 
 ```ini
 [global]
@@ -256,4 +256,4 @@ Durante l'esecuzione del test, è possibile visualizzare il numero di operazioni
 
 #### <a name="maximum-combined-throughput"></a>Velocità effettiva massima combinata
 
-Per ottenere la velocità effettiva massima combinata di lettura e scrittura, usare una dimensione di blocco superiore e una profondità della coda elevata con più thread che eseguono letture e scritture. È possibile usare una dimensione di blocco pari a 64 KB e una profondità della coda pari a 128.
+ Per ottenere la velocità effettiva massima combinata di lettura e scrittura, usare una dimensione di blocco superiore e una profondità della coda elevata con più thread che eseguono letture e scritture. È possibile usare una dimensione di blocco pari a 64 KB e una profondità della coda pari a 128.

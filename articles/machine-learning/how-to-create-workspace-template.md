@@ -1,7 +1,7 @@
 ---
-title: Creare un'area di lavoro con Azure Resource Manager modello
+title: Creare un'area di lavoro con il modello di Azure Resource ManagerCreate a workspace with Azure Resource Manager template
 titleSuffix: Azure Machine Learning
-description: Informazioni su come usare un modello di Azure Resource Manager per creare una nuova area di lavoro di Azure Machine Learning.
+description: Informazioni su come usare un modello di Azure Resource Manager per creare una nuova area di lavoro di Azure Machine Learning.Learn how to use an Azure Resource Manager template to create a new Azure Machine Learning workspace.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,30 +11,30 @@ author: Blackmist
 ms.date: 03/05/2020
 ms.custom: seoapril2019
 ms.openlocfilehash: 9403cc05ed5b31f3b76c16c4232506e2ddc5da2d
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78402913"
 ---
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 <br>
 
-# <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Usare un modello di Azure Resource Manager per creare un'area di lavoro per Azure Machine Learning
+# <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Usare un modello di Azure Resource Manager per creare un'area di lavoro per Azure Machine LearningUse an Azure Resource Manager template to create a workspace for Azure Machine Learning
 
-In questo articolo vengono illustrati diversi modi per creare un'area di lavoro Azure Machine Learning usando modelli Azure Resource Manager. Il modello di Resource Manager consente di creare le risorse come un'unica operazione coordinata. Un modello è un documento JSON che definisce le risorse necessarie per una distribuzione. Può anche specificare i parametri di distribuzione. I parametri sono usati per fornire i valori di input quando si usa il modello.
+In questo articolo vengono appesi diversi modi per creare un'area di lavoro di Azure Machine Learning usando i modelli di Azure Resource Manager.In this article, you learn several ways to create an Azure Machine Learning workspace using Azure Resource Manager templates. Il modello di Resource Manager consente di creare le risorse come un'unica operazione coordinata. Un modello è un documento JSON che definisce le risorse necessarie per una distribuzione. Può anche specificare i parametri di distribuzione. I parametri sono usati per fornire i valori di input quando si usa il modello.
 
 Per altre informazioni, vedere [Distribuire un'applicazione con il modello di Gestione risorse di Azure](../azure-resource-manager/templates/deploy-powershell.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
-* Una **sottoscrizione di Azure**. Se non si dispone di un, provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
+* Una **sottoscrizione di Azure.** Se non si dispone di uno, provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
 
 * Per usare un modello da un'interfaccia della riga di comando, è necessario [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.2.0) o l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="resource-manager-template"></a>Modello di Resource Manager
 
-Il modello di Gestione risorse seguente può essere usato per creare un'area di lavoro di Azure Machine Learning e le risorse di Azure associate:
+Il modello di Resource Manager seguente può essere usato per creare un'area di lavoro di Azure Machine Learning e risorse di Azure associate:The following Resource Manager template can be used to create an Azure Machine Learning workspace and associated Azure resources:
 
 [!code-json[create-azure-machine-learning-service-workspace](~/quickstart-templates/101-machine-learning-create/azuredeploy.json)]
 
@@ -63,9 +63,9 @@ Il modello di esempio ha due parametri:
     I nomi degli altri servizi vengono generati in modo casuale.
 
 > [!TIP]
-> Sebbene il modello associato a questo documento crei una nuova Container Registry di Azure, è anche possibile creare una nuova area di lavoro senza creare un registro contenitori. Una verrà creata quando si esegue un'operazione che richiede un registro contenitori. Ad esempio, il training o la distribuzione di un modello.
+> Mentre il modello associato a questo documento crea un nuovo Registro contenitori di Azure, è anche possibile creare una nuova area di lavoro senza creare un registro contenitori. Ne verrà creato uno quando si esegue un'operazione che richiede un registro contenitori. Ad esempio, il training o la distribuzione di un modello.
 >
-> È anche possibile fare riferimento a un registro contenitori esistente o a un account di archiviazione nel modello di Azure Resource Manager, anziché crearne uno nuovo.
+> È anche possibile fare riferimento a un account di archiviazione o un registro contenitori esistente nel modello di Azure Resource Manager, anziché crearne uno nuovo.
 
 [!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 
@@ -77,11 +77,11 @@ Per altre informazioni sui modelli, vedere gli articoli indicati di seguito:
 
 ### <a name="advanced-template"></a>Modello avanzato
 
-Il modello di esempio seguente illustra come creare un'area di lavoro con tre impostazioni:
+Nel modello di esempio seguente viene illustrato come creare un'area di lavoro con tre impostazioni:The following example template demonstrates how to create a workspace with three settings:
 
 * Abilitare le impostazioni di riservatezza elevata per l'area di lavoro
-* Abilitare la crittografia per l'area di lavoro
-* Usa un Azure Key Vault esistente
+* Abilitare la crittografia per l'area di lavoroEnable encryption for the workspace
+* Usa un insieme di credenziali delle chiavi di Azure esistenteUses an existing Azure Key Vault
 
 ```json
 {
@@ -263,7 +263,7 @@ Il modello di esempio seguente illustra come creare un'area di lavoro con tre im
 }
 ```
 
-Per ottenere l'ID del Key Vault e l'URI della chiave necessario per questo modello, è possibile usare l'interfaccia della riga di comando di Azure. Il comando seguente è un esempio di uso dell'interfaccia della riga di comando di Azure per ottenere l'ID di risorsa Key Vault e l'URI:
+Per ottenere l'ID dell'insieme di credenziali delle chiavi e l'URI della chiave necessario per questo modello, è possibile usare l'interfaccia della riga di comando di Azure.To get the ID of the Key Vault, and the Key URI needed by this template, you can use the Azure CLI. The following command is an example of using the Azure CLI to get the Key Vault resource ID and URI:
 
 ```azurecli-interactive
 az keyvault show --name mykeyvault --resource-group myresourcegroup --query "[id, properties.vaultUri]"
@@ -284,9 +284,9 @@ Questo comando restituisce un valore simile al testo seguente. Il primo valore �
 1. Selezionare __Salva__ per usare il modello. Fornire le informazioni seguenti e accettare le condizioni elencate:
 
    * Sottoscrizione: selezionare la sottoscrizione di Azure da usare per queste risorse.
-   * Gruppo di risorse: selezionare o creare un gruppo di risorse che contenga i servizi.
-   * Nome area di lavoro: nome da utilizzare per l'area di lavoro Azure Machine Learning che verrà creata. Il nome dell'area di lavoro deve avere una lunghezza compresa tra 3 e 33 caratteri. Può contenere solo caratteri alfanumerici e '-'.
-   * Località: selezionare la località in cui verranno create le risorse.
+   * Gruppo di risorse: selezionare o creare un gruppo di risorse per contenere i servizi.
+   * Nome dell'area di lavoro: nome da usare per l'area di lavoro di Azure Machine Learning che verrà creata. Il nome dell'area di lavoro deve avere una lunghezza compresa tra 3 e 33 caratteri. Può contenere solo caratteri alfanumerici e '-'.
+   * Posizione: selezionare la posizione in cui verranno create le risorse.
 
 Per altre informazioni, vedere [Distribuire risorse da un modello personalizzato](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
 
@@ -318,33 +318,33 @@ az group deployment create \
 
 Per altre informazioni, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure](../azure-resource-manager/templates/deploy-cli.md) e [Distribuire un modello di Resource Manager privato con un token di firma di accesso condiviso e l'interfaccia della riga di comando di Azure](../azure-resource-manager/templates/secure-template-with-sas-token.md).
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 ### <a name="resource-provider-errors"></a>Errori del provider di risorse
 
 [!INCLUDE [machine-learning-resource-provider](../../includes/machine-learning-resource-provider.md)]
 
-### <a name="azure-key-vault-access-policy-and-azure-resource-manager-templates"></a>Criteri di accesso Azure Key Vault e modelli di Azure Resource Manager
+### <a name="azure-key-vault-access-policy-and-azure-resource-manager-templates"></a>Criteri di accesso all'insieme di credenziali delle chiavi di Azure e modelli di Azure Resource ManagerAzure Key Vault access policy and Azure Resource Manager templates
 
-Quando si usa un modello di Azure Resource Manager per creare l'area di lavoro e le risorse associate (incluso Azure Key Vault), più volte. Ad esempio, l'uso del modello più volte con gli stessi parametri come parte di una pipeline di integrazione e distribuzione continua.
+Quando si usa un modello di Azure Resource Manager per creare l'area di lavoro e le risorse associate (incluso l'insieme di credenziali delle chiavi di Azure), più volte. Ad esempio, l'utilizzo del modello più volte con gli stessi parametri come parte di una pipeline di integrazione e distribuzione continua.
 
-La maggior parte delle operazioni di creazione di risorse tramite i modelli è idempotente, ma Key Vault Cancella i criteri di accesso ogni volta che viene usato il modello. La cancellazione dei criteri di accesso consente di suddividere l'accesso alla Key Vault per tutte le aree di lavoro esistenti che lo usano. Ad esempio, le funzionalità di arresto/creazione di Azure Notebooks macchina virtuale potrebbero non riuscire.  
+La maggior parte delle operazioni di creazione delle risorse tramite modelli è idempotente, ma Key Vault cancella i criteri di accesso ogni volta che viene utilizzato il modello. La cancellazione dei criteri di accesso interrompe l'accesso all'insieme di credenziali delle chiavi per qualsiasi area di lavoro esistente che lo utilizza. Ad esempio, le funzionalità di arresto/creazione della macchina virtuale dei blocchi appunti di Azure potrebbero non riuscire.  
 
-Per evitare questo problema, è consigliabile usare uno degli approcci seguenti:
+Per evitare questo problema, si consiglia uno dei seguenti approcci:
 
-* Non distribuire il modello più di una volta per gli stessi parametri. In alternativa, eliminare le risorse esistenti prima di usare il modello per ricrearle.
+* Non distribuire il modello più di una volta per gli stessi parametri. In alternativa, eliminare le risorse esistenti prima di utilizzare il modello per ricrearle.
 
-* Esaminare i criteri di accesso Key Vault e quindi usare questi criteri per impostare la proprietà `accessPolicies` del modello. Per visualizzare i criteri di accesso, usare il comando dell'interfaccia della riga di comando di Azure seguente:
+* Esaminare i criteri di accesso dell'insieme `accessPolicies` di credenziali delle chiavi e quindi utilizzare questi criteri per impostare la proprietà del modello. Per visualizzare i criteri di accesso, usare il comando dell'interfaccia della riga di comando di Azure seguente:To view the access policies, use the following Azure CLI command:
 
     ```azurecli-interactive
     az keyvault show --name mykeyvault --resource-group myresourcegroup --query properties.accessPolicies
     ```
 
-    Per ulteriori informazioni sull'utilizzo della `accessPolicies` sezione del modello, vedere il [riferimento all'oggetto AccessPolicyEntry](https://docs.microsoft.com/azure/templates/Microsoft.KeyVault/2018-02-14/vaults#AccessPolicyEntry).
+    Per ulteriori informazioni `accessPolicies` sull'utilizzo della sezione del modello, vedere riferimento all'oggetto [AccessPolicyEntry](https://docs.microsoft.com/azure/templates/Microsoft.KeyVault/2018-02-14/vaults#AccessPolicyEntry).
 
-* Controllare se la risorsa Key Vault esiste già. In caso contrario, non ricrearlo tramite il modello. Ad esempio, per usare il Key Vault esistente anziché crearne uno nuovo, apportare le modifiche seguenti al modello:
+* Verificare se la risorsa dell'insieme di credenziali delle chiavi esiste già. In caso affermativo, non ricrearlo tramite il modello. Ad esempio, per utilizzare l'insieme di credenziali delle chiavi esistente anziché crearne uno nuovo, apportare le seguenti modifiche al modello:
 
-    * **Aggiungere** un parametro che accetta l'ID di una risorsa key Vault esistente:
+    * **Aggiungere** un parametro che accetta l'ID di una risorsa dell'insieme di credenziali delle chiavi esistente:Add a parameter that accepts the ID of an existing Key Vault resource:
 
         ```json
         "keyVaultId":{
@@ -355,7 +355,7 @@ Per evitare questo problema, è consigliabile usare uno degli approcci seguenti:
         }
       ```
 
-    * **Rimuovere** la sezione che crea una risorsa key Vault:
+    * **Rimuovere** la sezione che crea una risorsa dell'insieme di credenziali delle chiavi:Remove the section that creates a Key Vault resource:
 
         ```json
         {
@@ -375,7 +375,7 @@ Per evitare questo problema, è consigliabile usare uno degli approcci seguenti:
         },
         ```
 
-    * **Rimuovere** la riga di `"[resourceId('Microsoft.KeyVault/vaults', variables('keyVaultName'))]",` dalla sezione `dependsOn` dell'area di lavoro. **Modificare** anche la voce `keyVault` nella sezione `properties` dell'area di lavoro per fare riferimento al parametro `keyVaultId`:
+    * **Rimuovere** `"[resourceId('Microsoft.KeyVault/vaults', variables('keyVaultName'))]",` la linea `dependsOn` dalla sezione dell'area di lavoro. Modificare **Change** anche `keyVault` la `properties` voce nella sezione dell'area di lavoro per fare riferimento al `keyVaultId` parametro:
 
         ```json
         {
@@ -403,9 +403,9 @@ Per evitare questo problema, è consigliabile usare uno degli approcci seguenti:
         }
         ```
 
-    Dopo queste modifiche, è possibile specificare l'ID della risorsa Key Vault esistente durante l'esecuzione del modello. Il modello riutilizzerà quindi il Key Vault impostando la proprietà `keyVault` dell'area di lavoro sul relativo ID.
+    Dopo queste modifiche, è possibile specificare l'ID della risorsa dell'insieme di credenziali delle chiavi esistente durante l'esecuzione del modello. Il modello riutilizzerà quindi l'insieme di credenziali delle chiavi impostando la `keyVault` proprietà dell'area di lavoro sul relativo ID.
 
-    Per ottenere l'ID del Key Vault, è possibile fare riferimento all'output del modello originale o usare l'interfaccia della riga di comando di Azure. Il comando seguente è un esempio di uso dell'interfaccia della riga di comando di Azure per ottenere l'ID risorsa Key Vault:
+    Per ottenere l'ID dell'insieme di credenziali delle chiavi, è possibile fare riferimento all'output del modello originale eseguire o usare l'interfaccia della riga di comando di Azure.To get the ID of the Key Vault, you can reference the output of the original template run or use the Azure CLI. The following command is an example of using the Azure CLI to get the Key Vault resource ID:
 
     ```azurecli-interactive
     az keyvault show --name mykeyvault --resource-group myresourcegroup --query id
@@ -419,5 +419,5 @@ Per evitare questo problema, è consigliabile usare uno degli approcci seguenti:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Distribuire le risorse con i modelli Resource Manager e l'API REST di Resource Manager](../azure-resource-manager/templates/deploy-rest.md).
-* [Creazione e distribuzione di gruppi di risorse di Azure tramite Visual Studio](../azure-resource-manager/templates/create-visual-studio-deployment-project.md).
+* Distribuire risorse con i modelli di [Resource Manager e l'API REST](../azure-resource-manager/templates/deploy-rest.md)di Resource Manager.
+* Creazione e distribuzione di gruppi di [risorse di Azure tramite Visual Studio](../azure-resource-manager/templates/create-visual-studio-deployment-project.md).

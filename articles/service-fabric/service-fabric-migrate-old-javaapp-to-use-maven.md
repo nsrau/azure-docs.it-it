@@ -1,15 +1,15 @@
 ---
-title: Eseguire la migrazione da Java SDK a Maven
+title: Eseguire la migrazione da Java SDK a MavenMigrate from Java SDK to Maven
 description: Aggiornare le applicazioni Java meno recenti che usano Service Fabric Java SDK per recuperare le dipendenze Java di Service Fabric da Maven. Al termine di questa configurazione, sarà possibile eseguire la compilazione delle applicazioni Java meno recenti.
 author: rapatchi
 ms.topic: conceptual
 ms.date: 08/23/2017
 ms.author: rapatchi
 ms.openlocfilehash: b5e126ebdf3b89470472391c59d378c7a6d39b86
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75609809"
 ---
 # <a name="update-your-previous-java-service-fabric-application-to-fetch-java-libraries-from-maven"></a>Aggiornare un'applicazione Java di Service Fabric precedente per recuperare le librerie Java da Maven
@@ -80,7 +80,7 @@ Supporto di servizi senza stato di Service Fabric per l'applicazione.
   ```
 
 ### <a name="others"></a>Altro
-#### <a name="transport"></a>Trasporti
+#### <a name="transport"></a>Trasporto
 
 Supporto del livello trasporto per l'applicazione Java di Service Fabric. Non è necessario aggiungere esplicitamente questa dipendenza alle applicazioni Reliable Actors o Services, a meno che non si esegua la programmazione al livello trasporto.
 
@@ -158,7 +158,7 @@ task copyDeps <<{
     }
 }
 ```
-A questo punto, per recuperare le dipendenze da Maven, il ``build.gradle`` **aggiornato** avrebbe le parti corrispondenti come segue:
+Ora, per recuperare le dipendenze da Maven, l'aggiornamento **updated** ``build.gradle`` avrebbe le parti corrispondenti come segue -
 ```
 repositories {
         mavenCentral()
@@ -232,7 +232,7 @@ dependencies {
 .
 .
 ```
-A questo punto, per recuperare le dipendenze da Maven, il ``build.gradle`` **aggiornato** avrebbe le parti corrispondenti come segue:
+Ora, per recuperare le dipendenze da Maven, l'aggiornamento **updated** ``build.gradle`` avrebbe le parti corrispondenti come segue -
 ```
 repositories {
     mavenCentral()
@@ -304,7 +304,7 @@ task copyDeps<< {
     }
 }
 ```
-A questo punto, per recuperare le dipendenze da Maven, il ``build.gradle`` **aggiornato** avrebbe le parti corrispondenti come segue:
+Ora, per recuperare le dipendenze da Maven, l'aggiornamento **updated** ``build.gradle`` avrebbe le parti corrispondenti come segue -
 ```
 repositories {
     mavenCentral()
@@ -404,7 +404,7 @@ task copyDeps<< {
         }
 }
 ```
-A questo punto, per recuperare le dipendenze da Maven, il ``build.gradle`` **aggiornato** avrebbe le parti corrispondenti come segue:
+Ora, per recuperare le dipendenze da Maven, l'aggiornamento **updated** ``build.gradle`` avrebbe le parti corrispondenti come segue -
 ```
 repositories {
     mavenCentral()

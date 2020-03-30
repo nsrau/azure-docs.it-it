@@ -9,11 +9,11 @@ ms.date: 05/01/2018
 ms.author: lizross
 ms.custom: include file
 ms.openlocfilehash: 968ebe89de65de5fa49e56a90a1bc92109a16861
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75613763"
 ---
 >[!Note]
->Se si vuole visualizzare o eliminare dati personali, consultare il materiale sussidiario di Microsoft sul sito [Richieste del soggetto dei dati per l'RGPD in Windows](https://docs.microsoft.com/microsoft-365/compliance/gdpr-data-subject-requests). Se si cercano le informazioni generali sull'RGPD, vedere la [sezione sull'RGPD del portale del servizio attendibile](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).
+>Se sei interessato a visualizzare o eliminare i dati personali, consulta le linee guida di Microsoft nel sito Richieste soggetto dati di Windows per il sito [GDPR.](https://docs.microsoft.com/microsoft-365/compliance/gdpr-data-subject-requests) Per informazioni generali sul GDPR, vedere la [sezione GDPR del portale Service Trust](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).

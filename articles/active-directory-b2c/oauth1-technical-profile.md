@@ -1,7 +1,7 @@
 ---
-title: Definire un profilo tecnico OAuth1 in un criterio personalizzato
+title: Definire un profilo tecnico OAuth1 in un criterio personalizzatoDefine an OAuth1 technical profile in a custom policy
 titleSuffix: Azure AD B2C
-description: Definire un profilo tecnico OAuth 1,0 in un criterio personalizzato in Azure Active Directory B2C.
+description: Definire un profilo tecnico OAuth 1.0 in un criterio personalizzato in Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,17 +12,17 @@ ms.date: 09/10/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 7f734844859d44e66bddbc2ddd999659e52f9668
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78184078"
 ---
-# <a name="define-an-oauth1-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico OAuth1 in un Azure Active Directory B2C criteri personalizzati
+# <a name="define-an-oauth1-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico OAuth1 in un criterio personalizzato B2C di Azure Active DirectoryDefine an OAuth1 technical profile in an Azure Active Directory B2C custom policy
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory B2C (Azure AD B2C) fornisce il supporto per il provider di identità del [protocollo OAuth 1,0](https://tools.ietf.org/html/rfc5849) . Questo articolo descrive le specifiche di un profilo tecnico per l'interazione con un provider di attestazioni che supporta questo protocollo standardizzato. Con un profilo tecnico OAuth1, è possibile eseguire la Federazione con un provider di identità basato su OAuth1, ad esempio Twitter. La Federazione con il provider di identità consente agli utenti di accedere con le identità aziendali o di social networking esistenti.
+Azure Active Directory B2C (Azure AD B2C) fornisce il supporto per il provider di identità del [protocollo OAuth 1.0.Azure](https://tools.ietf.org/html/rfc5849) Active Directory B2C (Azure AD B2C) provides support for the OAuth 1.0 protocol identity provider. Questo articolo descrive le specifiche di un profilo tecnico per l'interazione con un provider di attestazioni che supporta questo protocollo standardizzato. Con un profilo tecnico OAuth1, è possibile eseguire la federazione con un provider di identità basato su OAuth1, ad esempio Twitter.With an OAuth1 technical profile, you can federatewith with an OAuth1 based identity provider, such as Twitter. La federazione con il provider di identità consente agli utenti di accedere con le identità social o aziendali esistenti.
 
 ## <a name="protocol"></a>Protocollo
 
@@ -47,7 +47,7 @@ L'elemento **OutputClaimsTransformations** può contenere una raccolta di elemen
 
 L'esempio seguente mostra le attestazioni restituite dal provider di identità Twitter:
 
-- Attestazione **user_id** mappata all'attestazione **issuerUserId** .
+- **L'user_id** attestazione mappata all'attestazione **issuerUserId.**
 - L'attestazione **screen_name** di cui si esegue il mapping per l'attestazione **displayName**.
 - L'attestazione **email** senza eseguire il mapping del nome.
 

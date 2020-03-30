@@ -11,17 +11,17 @@ ms.date: 08/04/2017
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: ffa25eec9c4b668f428d8e8b5a780a5fe4625a2c
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78188886"
 ---
 # <a name="define-trust-frameworks-with-azure-ad-b2c-identity-experience-framework"></a>Definizione dei framework attendibilità basati sul Framework dell'esperienza di gestione delle identità di Azure AD B2C
 
 I criteri personalizzati di Azure Active Directory B2C (Azure AD B2C) che usano il Framework dell'esperienza di gestione delle identità offrono all'organizzazione un servizio centralizzato. Questo servizio riduce la complessità della federazione delle identità in una community di interesse di grandi dimensioni a una singola relazione di trust e a un singolo scambio di metadati.
 
-Azure AD B2C criteri personalizzati usano il Framework dell'esperienza di identità per rispondere alle domande seguenti:
+I criteri personalizzati di Azure AD B2C usano Identity Experience Framework per consentire di rispondere alle domande seguenti:Azure AD B2C custom policies use the Identity Experience Framework to enable you to answer the following questions:
 
 - Quali criteri legali, di sicurezza, privacy e protezione dei dati devono essere rispettati?
 - Chi sono i contatti e quali sono le procedure per diventare membro accreditato?
@@ -51,13 +51,13 @@ I framework attendibilità rappresentano il cardine del modello di Open Identity
 
 - **La descrizione delle informazioni su identità digitali offerte/richieste dai membri**.
 
-- **I criteri tecnici per la produzione e l'utilizzo di informazioni di identità digitali e pertanto per la misurazione di LOA e LOP. Questi criteri scritti includono in genere le categorie di criteri seguenti:**
+- **Le politiche tecniche per la produzione e il consumo di informazioni sull'identità digitale, e quindi per la misurazione di LOA e LOP. Questi criteri scritti includono in genere le seguenti categorie di criteri:**
     - Criteri di verifica dell'identità, ad esempio *con quale rigore vengono controllate le informazioni sull'identità di un utente?*
     - Criteri di sicurezza, ad esempio *con quale rigore vengono protette l'integrità e la riservatezza delle informazioni?*
     - Criteri di privacy, ad esempio *quale controllo ha un utente sulle informazioni di identificazione personale*?
     - Criteri di capacità di sopravvivenza, ad esempio *come vengono gestite la continuità e la protezione delle informazioni di identificazione personale se un provider cessa l'attività?*
 
-- **Profili tecnici per la produzione e l'utilizzo di informazioni di identità digitali. Questi profili includono:**
+- **I profili tecnici per la produzione e il consumo di informazioni sull'identità digitale. Questi profili includono:**
     - Interfacce di ambito per le quali sono disponibili le informazioni su identità digitali al livello di verifica specificato.
     - Requisiti tecnici per l'interoperabilità in transito.
 

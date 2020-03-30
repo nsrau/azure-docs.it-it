@@ -1,5 +1,5 @@
 ---
-title: Usare AppAuth in un'applicazione iOS
+title: Usare AppAuth in un'applicazione iOSUse AppAuth in an iOS application
 titleSuffix: Azure AD B2C
 description: Come creare un'app iOS che usa AppAuth con Azure Active Directory B2C per gestire le identità utente e autenticare gli utenti.
 services: active-directory-b2c
@@ -12,10 +12,10 @@ ms.date: 11/30/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: c659280ebc8c91b53cbc3a176c84397edd942c23
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78186829"
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-ios-application"></a>Azure AD B2C: accedere mediante un'applicazione iOS
@@ -34,13 +34,13 @@ Prima di poter usare Azure AD B2C, è necessario creare una directory, o tenant.
 
 ## <a name="create-an-application"></a>Creare un'applicazione
 
-Registrare quindi un'applicazione nel tenant del Azure AD B2C. Questo fornisce Azure AD le informazioni necessarie per comunicare in modo sicuro con l'app.
+Registrare quindi un'applicazione nel tenant B2C di Azure AD. Ciò fornisce ad Azure AD le informazioni necessarie per comunicare in modo sicuro con l'app.
 
 [!INCLUDE [active-directory-b2c-appreg-native](../../includes/active-directory-b2c-appreg-native.md)]
 
-Prendere nota del valore di **ID applicazione (client)** , che sarà necessario in un passaggio successivo.
+Prendere nota del valore di **ID applicazione (client)**, che sarà necessario in un passaggio successivo.
 
-Registrare anche l'URI di reindirizzamento personalizzato per l'uso in un passaggio successivo. Ad esempio: `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`.
+Registrare anche l'URI di reindirizzamento personalizzato per l'utilizzo in un passaggio successivo. Ad esempio: `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`.
 
 ## <a name="create-your-user-flows"></a>Creare i flussi utente
 In Azure AD B2C ogni esperienza utente è definita da un [flusso utente](user-flow-overview.md) specifico. Questa app contiene un'esperienza di identità che combina accesso e iscrizione. Durante la creazione del flusso utente, assicurarsi di:
@@ -92,7 +92,7 @@ OIDServiceConfiguration *configuration =
 
 Dopo la configurazione o il recupero di una configurazione del servizio di autorizzazione, è possibile costruire una richiesta di autorizzazione. Per creare la richiesta sono necessarie le informazioni seguenti:
 
-* ID client (ID applicazione) registrato in precedenza. Ad esempio: `00000000-0000-0000-0000-000000000000`.
+* ID client (ID APPLICATION) registrato in precedenza. Ad esempio: `00000000-0000-0000-0000-000000000000`.
 * URI di reindirizzamento personalizzato registrato in precedenza. Ad esempio: `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`.
 
 Entrambi gli elementi sono stati salvati durante la [registrazione dell'app](#create-an-application).

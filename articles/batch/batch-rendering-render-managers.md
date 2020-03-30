@@ -1,6 +1,6 @@
 ---
 title: Supporto per le applicazioni di gestione del rendering - Azure Batch
-description: Uso dell'integrazione di Azure Batch Render Manager. Informazioni sul supporto incorporato o sui componenti aggiuntivi per i gestori di rendering più diffusi.
+description: Utilizzo dell'integrazione di Azure Batch render manager.Using Azure Batch render manager integration. Scopri di più sul supporto integrato o sui componenti aggiuntivi per i gestori di rendering più diffusi.
 services: batch
 ms.service: batch
 author: mscurrell
@@ -8,10 +8,10 @@ ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
 ms.openlocfilehash: 246907b16534d1a91833cab633a1973c97429f47
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75449690"
 ---
 # <a name="using-azure-batch-with-render-farm-managers"></a>Uso di Azure Batch con le applicazioni di gestione delle farm di rendering
@@ -26,15 +26,15 @@ Sono supportate le applicazioni di gestione del rendering seguenti:
 * [Royal Render](https://www.royalrender.de/)
 * [Thinkbox Deadline](https://deadline.thinkboxsoftware.com/)
 
-## <a name="azure-render-hub"></a>Azure Render Hub
+## <a name="azure-render-hub"></a>Hub di rendering di AzureAzure Render Hub
 
-L'hub di rendering di Azure semplifica la creazione e la gestione di farm di rendering di Azure.  L'hub di rendering dispone del supporto nativo per PipelineFx Qube e scadenza 10.  Per altre informazioni e istruzioni dettagliate, vedere [il repository GitHub](https://github.com/Azure/azure-render-hub).
+Azure Render Hub semplifica la creazione e la gestione delle render farm di Azure.Azure Render Hub simplies the creation and management of Azure render farms.  Render Hub ha il supporto nativo per PipelineFx Qube e Deadline 10.  Per ulteriori informazioni e istruzioni dettagliate, vedere [il repository GitHub](https://github.com/Azure/azure-render-hub).
 
 ## <a name="using-azure-with-pipelinefx-qube"></a>Uso di Azure con PipelineFX Qube
 
-Azure render Hub supporta i gestori di rendering più diffusi, inclusa la scadenza.  Per istruzioni sulla distribuzione e sull'uso dell'hub di rendering, vedere [il repository GitHub](https://github.com/Azure/azure-render-hub).
+Azure Render Hub supports popular render managers including Deadline.  Per istruzioni sulla distribuzione e l'utilizzo di Render Hub, consultate [il repository GitHub.](https://github.com/Azure/azure-render-hub)
 
-Gli script e le istruzioni per abilitare le macchine virtuali del pool di Azure Batch da usare come Qube worker sono disponibili anche nel [repository GitHub](https://github.com/Azure/azure-qube).
+Script e istruzioni per abilitare le macchine virtuali del pool Batch di Azure da usare poiché i ruoli di lavoro Qube sono disponibili anche nel [repository GitHub](https://github.com/Azure/azure-qube).
 
 ## <a name="using-azure-with-royal-render"></a>Uso di Azure con Royal Render
 
@@ -44,7 +44,7 @@ Per un esempio di un cliente di Royal Render che usa l'integrazione di Azure, ve
 
 ## <a name="using-azure-with-thinkbox-deadline"></a>Uso di Azure con Thinkbox Deadline
 
-Azure render Hub supporta i gestori di rendering più diffusi, inclusa la scadenza.  Per istruzioni sulla distribuzione e sull'uso dell'hub di rendering, vedere [il repository GitHub](https://github.com/Azure/azure-render-hub).
+Azure Render Hub supports popular render managers including Deadline.  Per istruzioni sulla distribuzione e l'utilizzo di Render Hub, consultate [il repository GitHub.](https://github.com/Azure/azure-render-hub)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

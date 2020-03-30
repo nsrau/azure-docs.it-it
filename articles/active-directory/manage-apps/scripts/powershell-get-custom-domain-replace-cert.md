@@ -1,6 +1,6 @@
 ---
-title: Esempio di PowerShell-sostituire il certificato nelle app del proxy di applicazione
-description: Esempio di PowerShell che sostituisce in blocco un certificato nelle applicazioni proxy di applicazione Azure Active Directory (Azure AD).
+title: Esempio di PowerShell - Sostituire il certificato nelle app proxy di applicazione
+description: Esempio di PowerShell che sostituisce in blocco un certificato tra le applicazioni proxy di applicazione di Azure Active Directory (Azure AD).
 services: active-directory
 author: msmimart
 manager: CelesteDG
@@ -13,15 +13,15 @@ ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 91aafe00856f37e9d7e6b3babafecd2cbdf5f856
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75481997"
 ---
-# <a name="get-all-application-proxy-applications-published-with-the-identical-certificate-and-replace-it"></a>Ottenere tutte le applicazioni proxy di applicazione pubblicate con il certificato identico e sostituirlo
+# <a name="get-all-application-proxy-applications-published-with-the-identical-certificate-and-replace-it"></a>Pubblicare tutte le applicazioni proxy di applicazione con lo stesso certificato e sostituirlo
 
-Questo esempio di script di PowerShell consente di sostituire il certificato in blocco per tutte le applicazioni proxy di applicazione Azure Active Directory (Azure AD) pubblicate con lo stesso certificato.
+Questo esempio di script di PowerShell consente di sostituire il certificato in blocco per tutte le applicazioni proxy di applicazione di Azure Active Directory (Azure AD) pubblicate con lo stesso certificato.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -29,7 +29,7 @@ Questo esempio di script di PowerShell consente di sostituire il certificato in 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
-Per questo esempio è necessario [AzureAD V2 PowerShell for Graph Module](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0) (AzureAD) o [AzureAD V2 PowerShell for Graph Module preview version](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview) (AzureADPreview).
+Questo esempio richiede il [modulo AzureAD V2 PowerShell per Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0) (AzureAD) o la versione di anteprima del modulo [AzureAD V2 PowerShell per Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview) (AzureADPreview).
 
 ## <a name="sample-script"></a>Script di esempio
 
@@ -46,6 +46,6 @@ Per questo esempio è necessario [AzureAD V2 PowerShell for Graph Module](https:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sul modulo Azure AD PowerShell, vedere [Cenni preliminari sui moduli Azure ad PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0).
+Per altre informazioni sul modulo Azure AD PowerShell, vedere Panoramica del modulo Azure AD PowerShell.For more information on the Azure AD PowerShell module, see [Azure AD PowerShell module overview.](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0)
 
-Per altri esempi di PowerShell per il proxy di applicazione, vedere [Azure ad esempi di PowerShell per Azure ad proxy di applicazione](../application-proxy-powershell-samples.md).
+Per altri esempi di PowerShell per il proxy di applicazione, vedere Esempi di [Azure AD PowerShell per](../application-proxy-powershell-samples.md)il proxy di applicazione di Azure AD.

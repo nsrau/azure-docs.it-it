@@ -5,21 +5,21 @@ ms.topic: include
 ms.date: 11/03/2019
 ms.author: orspodek
 ms.openlocfilehash: 3cd9d017429b629acad39f5b902e842886c3c818
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "78304959"
 ---
 ## <a name="configure-the-data-source"></a>Configurare l'origine dati
 
-Per configurare Esplora dati di Azure come origine dati per lo strumento dashboard, attenersi alla procedura riportata di seguito. In questa sezione verranno illustrati in dettaglio questi passaggi:
+Eseguire la procedura seguente per configurare Azure Data Explorer come origine dati per lo strumento dashboard. In questa sezione verranno illustrati in dettaglio questi passaggi:
 
-1. Creare un'entità servizio di Azure Active Directory (Azure AD). L'entità servizio viene usata dallo strumento dashboard per accedere al servizio Esplora dati di Azure.
+1. Creare un'entità servizio di Azure Active Directory (Azure AD). L'entità servizio viene usata dallo strumento dashboard per accedere al servizio Azure Data Explorer.The service principal is used by your dashboard tool to access the Azure Data Explorer service.
 
 1. Aggiungere l'entità servizio di Azure AD al ruolo di *visualizzatori* nel database di Esplora dati di Azure.
 
-1. Specificare le proprietà di connessione dello strumento dashboard in base alle informazioni provenienti dall'entità servizio Azure AD, quindi testare la connessione.
+1. Specificare le proprietà di connessione dello strumento dashboard in base alle informazioni dell'entità servizio di Azure AD, quindi testare la connessione.
 
 ### <a name="create-a-service-principal"></a>Creare un'entità servizio
 
@@ -31,7 +31,7 @@ Per configurare Esplora dati di Azure come origine dati per lo strumento dashboa
 
     1. Nella sezione [Assegnare l'applicazione a un ruolo](/azure/active-directory/develop/howto-create-service-principal-portal#assign-a-role-to-the-application) assegnare il tipo di ruolo di **Lettore** al cluster di Esplora dati di Azure.
 
-    1. Nella sezione [ottenere i valori per l'accesso](/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) , copiare i tre valori di proprietà descritti nei passaggi: **ID directory** (ID tenant), **ID applicazione**e **password**.
+    1. Nella sezione [Ottieni valori per l'accesso](/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) copiare i tre valori di proprietà illustrati nei passaggi: **ID directory** (ID tenant), **ID applicazione**e **Password**.
 
 1. Nel portale di Azure selezionare **Sottoscrizioni** e quindi copiare l'ID della sottoscrizione in cui è stata creata l'entità servizio.
 

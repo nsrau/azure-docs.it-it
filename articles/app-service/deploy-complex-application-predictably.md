@@ -1,15 +1,15 @@
 ---
-title: Distribuisci le app in modo prevedibile con ARM
-description: Informazioni su come distribuire più app di servizio app Azure come unità singola e in modo prevedibile usando modelli di Azure Resource Manager e script di PowerShell.
+title: Distribuire le app in modo prevedibile con ARM
+description: Informazioni su come distribuire più app del servizio app di Azure come singola unità e in modo prevedibile usando i modelli di Gestione risorse di Azure e gli script di PowerShell.Learn how to deploy multiple Azure App Service apps as a single unit and in a predictable manner using Azure Resource Management templates and PowerShell scripting.
 ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 01/06/2016
 ms.custom: seodec18
 ms.openlocfilehash: 62d0bf776b2d0c97d95b992ed6a1fd2a356e467a
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75967386"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Effettuare il provisioning di microservizi e distribuirli in modo prevedibile in Azure
@@ -41,8 +41,8 @@ A partire dalla versione 0.8.0, l'installazione di Azure PowerShell include il m
 
 Per altre informazioni, vedere [Uso di Azure PowerShell con Gestione risorse di Azure](../powershell-azure-resource-manager.md)
 
-### <a name="azure-resource-explorer"></a>Esplora risorse di Azure
-Questo [strumento in anteprima](https://resources.azure.com) consente di esplorare le definizioni JSON di tutti i gruppi di risorse nella sottoscrizione e delle singole risorse. Con lo strumento è possibile modificare le definizioni JSON di una risorsa, eliminare l'intera gerarchia di risorse e crearne di nuove.  Le informazioni immediatamente disponibili in questo strumento sono molto utili per la creazione di modelli perché mostrano le proprietà che è necessario impostare per un determinato tipo di risorsa, i valori corretti e così via. È anche possibile creare il gruppo di risorse nel [portale di Azure](https://portal.azure.com/), quindi controllare le relative definizioni JSON nello strumento di esplorazione per impostare il gruppo di risorse.
+### <a name="azure-resource-explorer"></a>Azure Resource Explorer
+Questo [strumento in anteprima](https://resources.azure.com) consente di esplorare le definizioni JSON di tutti i gruppi di risorse nella sottoscrizione e delle singole risorse. Con lo strumento è possibile modificare le definizioni JSON di una risorsa, eliminare l'intera gerarchia di risorse e crearne di nuove.  Le informazioni immediatamente disponibili in questo strumento sono molto utili per la creazione di modelli perché mostrano quali proprietà è necessario impostare per un particolare tipo di risorsa, i valori corretti e così via. È anche possibile creare il gruppo di risorse nel portale di [Azure](https://portal.azure.com/), quindi esaminarne le definizioni JSON nello strumento Esplora risorse per semplificare la creazione di modelli.
 
 ### <a name="deploy-to-azure-button"></a>Pulsante Deploy to Azure per la distribuzione in Azure
 Se si usa GitHub per il controllo del codice sorgente, è possibile inserire nel file README.MD un [pulsante Deploy to Azure](https://azure.microsoft.com/blog/2014/11/13/deploy-to-azure-button-for-azure-websites-2/) , che abilita un'interfaccia utente di distribuzione in Azure pronta all'uso. Mentre si può procedere in questo modo per qualsiasi app semplice, è possibile estendere questa opzione per abilitare la distribuzione di un intero gruppo di risorse inserendo un file azuredeploy.json nella radice del repository. Questo file JSON, che contiene il modello di gruppo di risorse, verrà usato dal pulsante Deploy to Azure per creare il gruppo di risorse. Per un esempio vedere [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) , l'app di esempio che verrà usata in questa esercitazione.
@@ -182,8 +182,8 @@ Anche in questo caso, le risorse annidate avranno una gerarchia molto simile a q
 ## <a name="deploy-the-resource-group-template-yourself"></a>Distribuire manualmente il modello di gruppo di risorse
 Il pulsante **Deploy to Azure** è molto utile, ma consente di distribuire il modello di gruppo di risorse in azuredeploy.json solo se è già stato effettuato il push di azuredeploy.json a GitHub. Azure .NET SDK fornisce anche gli strumenti per la distribuzione di qualsiasi file modello JSON direttamente dal computer locale. A questo scopo, eseguire la procedura seguente.
 
-1. In Visual Studio fare clic su **File** > **Nuovo** > **Progetto**.
-2. Fare clic su **Visual C#**  > **Cloud** > **Gruppo di risorse di Azure**, quindi su **OK**.
+1. In Visual Studio fare clic su **File** > **nuovo** > **progetto**.
+2. Fare clic su**Gruppo di risorse di Azure****cloud** >  **di Visual C,** > quindi fare clic su **OK**.
    
    ![](./media/app-service-deploy-complex-application-predictably/deploy-1-vsproject.png)
 3. In **Seleziona modello di Azure** selezionare **Modello vuoto** e fare clic su **OK**.
@@ -209,7 +209,7 @@ Il pulsante **Deploy to Azure** è molto utile, ma consente di distribuire il mo
 11. Individuare le proprietà `location` e `isEnabled` e impostarle come illustrato di seguito. Eseguire la stessa operazione per gli altri tre avvisi (lampadine viola).
     
     ![](./media/app-service-deploy-complex-application-predictably/deploy-7-alerts.png)
-12. A questo punto si è pronti per la distribuzione. Fare quindi clic con il pulsante destro del mouse sul progetto e scegliere **Deploy** > **Nuova distribuzione**.
+12. A questo punto si è pronti per la distribuzione. Fare clic con il pulsante destro del mouse sul progetto e **scegliere Distribuisci** > **nuova distribuzione**.
     
     ![](./media/app-service-deploy-complex-application-predictably/deploy-8-newdeployment.png)
 13. Accedere al proprio account Azure, se non si è già connessi.
@@ -254,7 +254,7 @@ In DevOps la ripetibilità e la prevedibilità sono fondamentali per la riuscita
 * [Creazione di modelli di Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md)
 * [Funzioni del modello di Gestione risorse di Azure](../azure-resource-manager/templates/template-functions.md)
 * [Distribuire un'applicazione con un modello di Gestione risorse di Azure](../azure-resource-manager/templates/deploy-powershell.md)
-* [Uso di Azure PowerShell con Azure Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md)
+* [Uso di Azure PowerShell con Gestione risorse di Azure](../azure-resource-manager/powershell-azure-resource-manager.md)
 * [Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse in Azure](../azure-resource-manager/templates/common-deployment-errors.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -263,8 +263,8 @@ Per informazioni sulla sintassi e le proprietà JSON per i tipi di risorsa distr
 
 * [Microsoft.Sql/servers](/azure/templates/microsoft.sql/servers)
 * [Microsoft.Sql/servers/databases](/azure/templates/microsoft.sql/servers/databases)
-* [Microsoft.Sql/servers/firewallRules](/azure/templates/microsoft.sql/servers/firewallrules)
-* [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms)
+* [Microsoft.Sql/servers/firewallRegole](/azure/templates/microsoft.sql/servers/firewallrules)
+* [Microsoft.Web/serverfarm](/azure/templates/microsoft.web/serverfarms)
 * [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)
 * [Microsoft.Web/sites/slots](/azure/templates/microsoft.web/sites/slots)
 * [Microsoft.Insights/autoscalesettings](/azure/templates/microsoft.insights/autoscalesettings)

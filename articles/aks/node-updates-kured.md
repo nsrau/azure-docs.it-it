@@ -1,32 +1,32 @@
 ---
-title: Aggiornare e riavviare i nodi Linux con KURED in Azure Kubernetes Service (AKS)
-description: Informazioni su come aggiornare i nodi Linux e riavviarli automaticamente con KURED in Azure Kubernetes Service (AKS)
+title: Aggiornare e riavviare i nodi Linux con kured nel servizio Azure Kubernetes (AKS)
+description: Informazioni su come aggiornare i nodi Linux e riavviarli automaticamente con il servizio Azure Kubernetes (AKS)
 services: container-service
 ms.topic: article
 ms.date: 02/28/2019
 ms.openlocfilehash: 74b12c1bc6e2a88582cc357c8091b5590e6bf3cb
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78191283"
 ---
-# <a name="apply-security-and-kernel-updates-to-linux-nodes-in-azure-kubernetes-service-aks"></a>Applicare gli aggiornamenti di sicurezza e kernel ai nodi Linux in Azure Kubernetes Service (AKS)
+# <a name="apply-security-and-kernel-updates-to-linux-nodes-in-azure-kubernetes-service-aks"></a>Applicare gli aggiornamenti di sicurezza e del kernel ai nodi Linux nel servizio Azure Kubernetes (AKS)Apply security and kernel updates to Linux nodes in Azure Kubernetes Service (AKS)
 
 Per proteggere i cluster, gli aggiornamenti della sicurezza vengono applicati automaticamente ai nodi Linux in AKS. Questi aggiornamenti includono correzioni della sicurezza del sistema operativo o gli aggiornamenti del kernel. Alcuni di questi aggiornamenti richiedono il riavvio di un nodo per completare il processo. AKS non riavvia automaticamente questi nodi Linux per completare il processo di aggiornamento.
 
-Il processo di conservazione dei nodi di Windows Server (attualmente in anteprima in AKS) è leggermente diverso. I nodi di Windows Server non ricevono gli aggiornamenti giornalieri. Viene invece eseguito un aggiornamento di AKS che distribuisce nuovi nodi con l'immagine e le patch più recenti della finestra di base del server. Per i cluster AKS che usano i nodi di Windows Server, vedere [aggiornare un pool di nodi in AKS][nodepool-upgrade].
+Il processo per mantenere aggiornati i nodi di Windows Server (attualmente in anteprima in AKS) è leggermente diverso. I nodi di Windows Server non ricevono aggiornamenti giornalieri. Al contrario, si esegue un aggiornamento AKS che distribuisce nuovi nodi con l'immagine di base windows Server più recente e le patch. Per i cluster AKS che utilizzano nodi Windows Server, vedere Aggiornare un pool di [nodi in AKS][nodepool-upgrade].
 
-Questo articolo illustra come usare il KURED Open Source [(daemon riavvio KUbernetes)][kured] per controllare i nodi Linux che richiedono un riavvio, quindi gestire automaticamente la ripianificazione dei pod in esecuzione e il processo di riavvio del nodo.
+In questo articolo viene illustrato come utilizzare il kured open-source [(KUbernetes REboot Daemon)][kured] per controllare i nodi Linux che richiedono un riavvio, quindi gestire automaticamente la ripianificazione dei pod in esecuzione e il processo di riavvio dei nodi.
 
 > [!NOTE]
-> `Kured` è un progetto open source di Weaveworks. L'assistenza per questo progetto in servizio Azure Kubernetes è fornita con il massimo impegno possibile. Il supporto aggiuntivo è reperibile nel canale Slack #weave-community.
+> `Kured` è un progetto open source di Weaveworks. L'assistenza per questo progetto in servizio Azure Kubernetes è fornita con il massimo impegno possibile. Ulteriore supporto è disponibile nel canale Slack #weave-community.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Questo articolo presuppone che si disponga di un cluster del servizio Azure Kubernetes esistente. Se è necessario un cluster AKS, vedere la Guida introduttiva di AKS [usando l'interfaccia della][aks-quickstart-cli] riga di comando di Azure o [l'portale di Azure][aks-quickstart-portal].
+Questo articolo presuppone che si disponga di un cluster del servizio Azure Kubernetes esistente. Se è necessario un cluster servizio Azure Kubernetes, vedere la Guida introduttiva su servizio Azure Kubernetes [Uso dell'interfaccia della riga di comando di Azure][aks-quickstart-cli] oppure [Uso del portale di Azure][aks-quickstart-portal].
 
-È necessaria anche l'interfaccia della riga di comando di Azure versione 2.0.59 o successiva installata e configurata. Eseguire  `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [installare l'interfaccia][install-azure-cli]della riga di comando di Azure.
+È inoltre necessaria l'interfaccia della riga di comando di Azure versione 2.0.59 o successiva installata e configurata. Eseguire  `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere  [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
 
 ## <a name="understand-the-aks-node-update-experience"></a>Comprendere l'esperienza di aggiornamento del nodo del servizio Azure Kubernetes
 
@@ -36,7 +36,7 @@ In un cluster servizio Azure Kubernetes, i nodi Kubernetes vengono eseguiti come
 
 Alcuni aggiornamenti di sicurezza, ad esempio gli aggiornamenti del kernel, richiedono un riavvio del nodo per finalizzare il processo. Un nodo Linux che richiede un riavvio crea un file denominato */var/run/reboot-required*. Questo processo di riavvio non avviene automaticamente.
 
-È possibile usare i propri flussi di lavoro e processi per gestire i riavvii del nodo, oppure utilizzare `kured` per dirigere il processo. Con `kured`, viene distribuito un [DaemonSet][DaemonSet] che esegue un pod in ogni nodo Linux nel cluster. Questi pod in DaemonSet controllano l'esistenza del file */var/run/reboot-required* e quindi avviano un processo per riavviare i nodi.
+È possibile usare i propri flussi di lavoro e processi per gestire i riavvii del nodo, oppure utilizzare `kured` per dirigere il processo. Con `kured`, viene distribuito un [DaemonSet][DaemonSet] che esegue un pod in ogni nodo Linux nel cluster. Questi pod nel DaemonSet controllare l'esistenza del file */var/run/reboot-required* e quindi avviare un processo per riavviare i nodi.
 
 ### <a name="node-upgrades"></a>Aggiornamenti del nodo
 
@@ -47,11 +47,11 @@ Esiste un processo aggiuntivo nel servizio Azure Kubernetes che permette di *agg
 * I pod vengono pianificati sul nuovo nodo.
 * Il nodo precedente viene eliminato.
 
-Non è possibile mantenere la stessa versione di Kubernetes durante un evento di aggiornamento. È necessario specificare una versione più recente di Kubernetes. Per eseguire l'aggiornamento alla versione più recente di Kubernetes, è possibile [aggiornare il cluster AKS][aks-upgrade].
+Non è possibile mantenere la stessa versione di Kubernetes durante un evento di aggiornamento. È necessario specificare una versione più recente di Kubernetes. Per eseguire l'aggiornamento alla versione più recente di Kubernetes, è possibile [aggiornare il cluster servizio Azure Kubernetes][aks-upgrade].
 
 ## <a name="deploy-kured-in-an-aks-cluster"></a>Distribuire kured in un cluster servizio Azure Kubernetes
 
-Per distribuire il `kured` DaemonSet, installare il seguente grafico Helm KURED ufficiale. Vengono creati un ruolo e un ruolo cluster, binding e un account del servizio, quindi viene distribuito il DaemonSet usando `kured`.
+Per distribuire `kured` il DaemonSet, installare il seguente grafico ufficiale Kured Helm. In questo modo vengono creati un ruolo e un ruolo del cluster, `kured`associazioni e un account del servizio, quindi viene distribuito DaemonSet utilizzando .
 
 ```console
 # Add the stable Helm repository
@@ -67,11 +67,11 @@ kubectl create namespace kured
 helm install kured stable/kured --namespace kured --set nodeSelector."beta\.kubernetes\.io/os"=linux
 ```
 
-È anche possibile configurare i parametri aggiuntivi per `kured`, ad esempio l'integrazione con Prometheus o Slack. Per ulteriori informazioni sui parametri di configurazione aggiuntivi, vedere il [grafico Helm KURED][kured-install].
+È anche possibile configurare i parametri aggiuntivi per `kured`, ad esempio l'integrazione con Prometheus o Slack. Per ulteriori informazioni sui parametri di configurazione aggiuntivi, vedere il [grafico Elmo kured][kured-install].
 
 ## <a name="update-cluster-nodes"></a>Aggiornare i nodi del cluster
 
-Per impostazione predefinita, i nodi Linux in AKS verificano la disponibilità di aggiornamenti ogni sera. Se non si vuole attendere, è possibile eseguire manualmente un aggiornamento per verificare che l'esecuzione di `kured` avvenga correttamente. Per prima cosa, seguire la procedura per [SSH su uno dei nodi AKS][aks-ssh]. Una volta stabilita una connessione SSH al nodo Linux, verificare la disponibilità di aggiornamenti e applicarli come indicato di seguito:
+Per impostazione predefinita, i nodi Linux in AKS verificano la disponibilità di aggiornamenti ogni sera. Se non si vuole attendere, è possibile eseguire manualmente un aggiornamento per verificare che l'esecuzione di `kured` avvenga correttamente. In primo luogo, seguire la procedura per creare una [connessione SSH a uno dei nodi servizio Azure Kubernetes][aks-ssh]. Una volta stabilita una connessione SSH al nodo Linux, verificare la disponibilità di aggiornamenti e applicarli come segue:
 
 ```console
 sudo apt-get update && sudo apt-get upgrade -y
@@ -83,14 +83,14 @@ Se sono stati applicati gli aggiornamenti che richiedono un riavvio del nodo, vi
 
 Quando una delle repliche nel DaemonSet ha rilevato che è necessario un riavvio del nodo, viene inserito un blocco sul nodo tramite l'API di Kubernetes. Questo blocco impedisce l'aggiunta al nodo di altri pod pianificati. Inoltre, il blocco indica che deve essere riavviato solo un nodo alla volta. Con il nodo bloccato, i pod in esecuzione vengono rimossi dal nodo, che viene quindi riavviato.
 
-È possibile monitorare lo stato dei nodi usando il comando [kubectl Get nodes][kubectl-get-nodes] . L'output di esempio seguente mostra un nodo con lo stato *SchedulingDisabled* mentre si prepara per il processo di riavvio:
+È possibile monitorare lo stato dei nodi usando il comando [kubectl get nodes][kubectl-get-nodes]. L'output di esempio seguente mostra un nodo con lo stato *SchedulingDisabled* mentre si prepara per il processo di riavvio:
 
 ```
 NAME                       STATUS                     ROLES     AGE       VERSION
 aks-nodepool1-28993262-0   Ready,SchedulingDisabled   agent     1h        v1.11.7
 ```
 
-Una volta completato il processo di aggiornamento, è possibile visualizzare lo stato dei nodi usando il comando [kubectl Get nodes][kubectl-get-nodes] con il parametro `--output wide`. Questo output aggiuntivo consente di visualizzare una differenza in *KERNEL-VERSION* dei nodi sottostanti, come illustrato nell'output di esempio seguente. Il servizio *AKS-nodepool1-28993262-0* è stato aggiornato in un passaggio precedente e Mostra la versione del kernel *4.15.0-1039-Azure*. Il nodo *AKS-nodepool1-28993262-1* che non è stato aggiornato Mostra la versione del kernel *4.15.0-1037-Azure*.
+Una volta completato il processo di aggiornamento, è possibile visualizzare lo stato dei nodi usando il comando [kubectl get nodes][kubectl-get-nodes] con il parametro `--output wide`. Questo output aggiuntivo consente di visualizzare una differenza in *KERNEL-VERSION* dei nodi sottostanti, come illustrato nell'output di esempio seguente. *Aks-nodepool1-28993262-0* è stato aggiornato in un passaggio precedente e mostra la versione kernel *4.15.0-1039-azure*. Il nodo *aks-nodepool1-28993262-1* che non è stato aggiornato mostra la versione del kernel *4.15.0-1037-azure*.
 
 ```
 NAME                       STATUS    ROLES     AGE       VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION      CONTAINER-RUNTIME
@@ -100,9 +100,9 @@ aks-nodepool1-28993262-1   Ready     agent     1h        v1.11.7   10.240.0.5   
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questo articolo illustra in modo dettagliato come usare `kured` per riavviare automaticamente i nodi Linux come parte del processo di aggiornamento della sicurezza. Per eseguire l'aggiornamento alla versione più recente di Kubernetes, è possibile [aggiornare il cluster AKS][aks-upgrade].
+In questo articolo viene `kured` descritto in dettaglio come utilizzare per riavviare automaticamente i nodi Linux come parte del processo di aggiornamento della protezione. Per eseguire l'aggiornamento alla versione più recente di Kubernetes, è possibile [aggiornare il cluster servizio Azure Kubernetes][aks-upgrade].
 
-Per i cluster AKS che usano i nodi di Windows Server, vedere [aggiornare un pool di nodi in AKS][nodepool-upgrade].
+Per i cluster AKS che utilizzano nodi Windows Server, vedere Aggiornare un pool di [nodi in AKS][nodepool-upgrade].
 
 <!-- LINKS - external -->
 [kured]: https://github.com/weaveworks/kured
