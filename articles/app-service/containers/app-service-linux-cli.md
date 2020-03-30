@@ -1,15 +1,15 @@
 ---
-title: Gestire contenitori Linux personalizzati con l'interfaccia della riga di comando
-description: Informazioni su come gestire i contenitori Linux personalizzati nel servizio app Azure dalla riga di comando. Automatizzare il provisioning o la manutenzione delle app.
+title: Gestire i contenitori Linux personalizzati con l'interfaccia della riga di comandoManage custom Linux containers with CLI
+description: Informazioni su come gestire contenitori Linux personalizzati nel servizio app di Azure dalla riga di comando. Automatizza il provisioning o la manutenzione delle app.
 keywords: servizio app di Azure, app Web, interfaccia della riga di comando, domande frequenti, linux, oss
 ms.topic: article
 ms.date: 08/22/2017
 ms.custom: seodec18
 ms.openlocfilehash: 5ca5322467402af710df68c82d747f8f8d65e142
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78255931"
 ---
 # <a name="manage-web-app-for-containers-using-azure-cli"></a>Gestire l'app Web per i contenitori tramite l'interfaccia della riga di comando di Azure
@@ -54,7 +54,7 @@ az webapp config container set -n sname -g rgname -c apurvajo/mariohtml5
 
 ## <a name="using-docker-images-from-a-private-registry"></a>Utilizzo di immagini Docker da un registro privato
 
-È possibile configurare l'app per utilizzare le immagini da un registro di sistema privato. È necessario specificare l'URL per il Registro di sistema, nome utente e password. È possibile fare ciò utilizzando il comando seguente:
+È possibile configurare l'app per utilizzare le immagini da un registro di sistema privato.  È necessario specificare l'URL per il Registro di sistema, nome utente e password. È possibile fare ciò utilizzando il comando seguente:
 
 ```azurecli-interactive
 az webapp config container set -n sname1 -g rgname -c <container name> -r <server url> -u <username> -p <password>
@@ -98,4 +98,4 @@ az webapp deployment source config -n sname -g rgname --repo-url <gitrepo url> -
 * [Installare l'interfaccia da riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
 * [Azure Cloud Shell (anteprima)](../../cloud-shell/overview.md)
 * [Configurare gli ambienti di gestione temporanea nel Servizio app di Azure](../../app-service/deploy-staging-slots.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-* [Distribuzione continua con l'app Web per contenitori](app-service-linux-ci-cd.md)
+* [Distribuzione continua con app Web per contenitori](app-service-linux-ci-cd.md)

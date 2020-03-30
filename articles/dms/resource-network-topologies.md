@@ -1,7 +1,7 @@
 ---
-title: Topologie di rete per le migrazioni di istanze gestite da SQL
+title: Topologie di rete per le migrazioni di istanze gestite SQLNetwork topologies for SQL managed instance migrations
 titleSuffix: Azure Database Migration Service
-description: Informazioni sulle configurazioni di origine e destinazione per le migrazioni di istanze gestite del database SQL di Azure con il servizio migrazione del database di Azure.
+description: Informazioni sulle configurazioni di origine e di destinazione per le migrazioni di istanze gestite del database SQL di Azure usando il servizio Migrazione del database di Azure.Learn the source and target configurations for Azure SQL Database managed instance migrations using the Azure Database Migration Service.
 services: database-migration
 author: pochiraju
 ms.author: rajpo
@@ -13,15 +13,15 @@ ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
 ms.openlocfilehash: 48485b7ba0f846afa737454b092a6c1ee986b737
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78254951"
 ---
-# <a name="network-topologies-for-azure-sql-db-managed-instance-migrations-using-azure-database-migration-service"></a>Topologie di rete per il database SQL di Azure Istanza gestita migrazioni con il servizio migrazione del database di Azure
+# <a name="network-topologies-for-azure-sql-db-managed-instance-migrations-using-azure-database-migration-service"></a>Topologie di rete per le migrazioni di istanze gestite del database SQL di Azure usando il servizio di migrazione del database di AzureNetwork topologies for Azure SQL DB Managed Instance migrations using Azure Database Migration Service
 
-Questo articolo illustra le diverse topologie di rete che il servizio migrazione del database di Azure può usare per offrire un'esperienza di migrazione completa da server SQL locali a Istanza gestita di database SQL di Azure.
+Questo articolo illustra varie topologie di rete che il servizio Migrazione del database di Azure può usare per fornire un'esperienza di migrazione completa dai server SQL locali all'istanza gestita del database SQL di Azure.This article discusses various network topologies that Azure Database Migration Service can work with to provide a comprehensive migration experience from on-premises SQL Servers to Azure SQL Database Managed Instance.
 
 ## <a name="azure-sql-database-managed-instance-configured-for-hybrid-workloads"></a>Istanza gestita di database SQL di Azure configurata per carichi di lavoro ibridi 
 
@@ -31,29 +31,29 @@ Usare questa topologia se Istanza gestita di database SQL di Azure è connessa a
 
 **Requisiti**
 
-- In questo scenario, l'istanza gestita di database SQL di Azure e l'istanza del servizio migrazione del database di Azure vengono create nella stessa Rete virtuale di Microsoft Azure, ma usano subnet diverse.  
-- La rete virtuale usata in questo scenario è connessa anche alla rete locale tramite [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) o [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+- In questo scenario, l'istanza gestita del database SQL di Azure e l'istanza del servizio di migrazione del database di Azure vengono create nella stessa rete virtuale di Microsoft Azure, ma usano subnet diverse.  
+- La rete virtuale utilizzata in questo scenario è anche connessa alla rete locale tramite [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) o [VPN.](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)
 
 ## <a name="azure-sql-database-managed-instance-isolated-from-the-on-premises-network"></a>Istanza gestita di database SQL di Azure isolata dalla rete locale
 
 Usare questa topologia di rete se l'ambiente richiede uno o più degli scenari seguenti:
 
-- L'istanza gestita di database SQL di Azure è isolata dalla connettività locale, ma l'istanza del servizio migrazione del database di Azure è connessa alla rete locale.
-- Se sono presenti criteri di controllo degli accessi in base al ruolo (RBAC) ed è necessario limitare gli utenti ad accedere alla stessa sottoscrizione che ospita l'istanza gestita di database SQL di Azure.
-- Le reti virtuali usate per la Istanza gestita di database SQL di Azure e il servizio migrazione del database di Azure si trovano in sottoscrizioni diverse.
+- L'istanza gestita del database SQL di Azure è isolata dalla connettività locale, ma l'istanza del servizio di migrazione del database di Azure è connessa alla rete locale.
+- Se sono presenti criteri di controllo degli accessi in base al ruolo ed è necessario limitare gli utenti all'accesso alla stessa sottoscrizione che ospita l'istanza gestita del database SQL di Azure.If Role Based Access Control (RBAC) policies are in place and you need to limit users to accessing the same subscription that is hosting the Azure SQL Database managed instance.
+- Le reti virtuali usate per l'istanza gestita del database SQL di Azure e il servizio di migrazione del database di Azure si trovano in sottoscrizioni diverse.
 
 ![Topologia di rete per Istanza gestita di database SQL di Azure isolata dalla rete locale](media/resource-network-topologies/mi-isolated-workload.png)
 
 **Requisiti**
 
-- La rete virtuale usata dal servizio migrazione del database di Azure per questo scenario deve essere connessa anche alla rete locale usando (https://docs.microsoft.com/azure/expressroute/expressroute-introduction) o [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
-- Configurare il [peering di rete VNet](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) tra la rete virtuale usata per istanza gestita di database SQL di Azure e il servizio migrazione del database di Azure.
+- Anche la rete virtuale usata dal servizio di migrazione del database di Azurehttps://docs.microsoft.com/azure/expressroute/expressroute-introduction) per questo scenario deve essere connessa alla rete locale tramite ( o [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+- Configurare il peering della rete vNet tra la rete virtuale usata per l'istanza gestita del database SQL di Azure e il servizio di migrazione del database di Azure.Set up [VNet network peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) between the virtual network used for Azure SQL Database managed instance and Azure Database Migration Service.
 
 ## <a name="cloud-to-cloud-migrations-shared-virtual-network"></a>Migrazioni da cloud a cloud: rete virtuale condivisa
 
-Usare questa topologia se la SQL Server di origine è ospitata in una macchina virtuale di Azure e condivide la stessa rete virtuale con istanza gestita di database SQL di Azure e il servizio migrazione del database di Azure.
+Usare questa topologia se l'istanza di origine di SQL Server è ospitata in una macchina virtuale di Azure e condivide la stessa rete virtuale con l'istanza gestita del database SQL di Azure e il servizio di migrazione del database di Azure.Use this topology if the source SQL Server is hosted in an Azure VM and shares the same virtual network with Azure SQL Database managed instance and Azure Database Migration Service.
 
-![Topologia di rete per migrazioni da cloud a cloud con una VNet condivisa](media/resource-network-topologies/cloud-to-cloud.png)
+![Topologia di rete per le migrazioni cloud-cloud con una rete virtuale condivisaNetwork Topology for Cloud-to-Cloud migrations with a shared VNet](media/resource-network-topologies/cloud-to-cloud.png)
 
 **Requisiti**
 
@@ -63,40 +63,40 @@ Usare questa topologia se la SQL Server di origine è ospitata in una macchina v
 
 Usare questa topologia di rete se l'ambiente richiede uno o più degli scenari seguenti:
 
-- Viene eseguito il provisioning dell'istanza gestita di database SQL di Azure in una rete virtuale isolata.
-- Se sono presenti criteri di controllo degli accessi in base al ruolo (RBAC) ed è necessario limitare gli utenti ad accedere alla stessa sottoscrizione che ospita l'istanza gestita di database SQL di Azure.
-- Le reti virtuali usate per Istanza gestita di database SQL di Azure e il servizio migrazione del database di Azure si trovano in sottoscrizioni diverse.
+- Viene eseguito il provisioning dell'istanza gestita del database SQL di Azure in una rete virtuale isolata.
+- Se sono presenti criteri di controllo degli accessi in base al ruolo ed è necessario limitare gli utenti all'accesso alla stessa sottoscrizione che ospita l'istanza gestita del database SQL di Azure.If Role Based Access Control (RBAC) policies are in place and you need to limit users to accessing the same subscription that is hosting the Azure SQL Database managed instance.
+- Le reti virtuali usate per l'istanza gestita del database SQL di Azure e il servizio di migrazione del database di Azure si trovano in sottoscrizioni diverse.
 
-![Topologia di rete per migrazioni da cloud a cloud con una VNet isolata](media/resource-network-topologies/cloud-to-cloud-isolated.png)
+![Topologia di rete per le migrazioni cloud-cloud con una rete virtuale isolataNetwork Topology for Cloud-to-Cloud migrations with an isolated VNet](media/resource-network-topologies/cloud-to-cloud-isolated.png)
 
 **Requisiti**
 
-- Configurare il [peering di rete VNet](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) tra la rete virtuale usata per istanza gestita di database SQL di Azure e il servizio migrazione del database di Azure.
+- Configurare il peering della rete vNet tra la rete virtuale usata per l'istanza gestita del database SQL di Azure e il servizio di migrazione del database di Azure.Set up [VNet network peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) between the virtual network used for Azure SQL Database managed instance and Azure Database Migration Service.
 
 ## <a name="inbound-security-rules"></a>Regole di sicurezza in ingresso
 
-| **NOME**   | **PORTA** | **PROTOCOLLO** | **SOURCE** | **DESTINAZIONE** | **AZIONE** |
+| **NOME**   | **Porta** | **Protocollo** | **fonte** | **Destinazione** | **Azione** |
 |------------|----------|--------------|------------|-----------------|------------|
-| DMS_subnet | Any      | Any          | SUBNET DMS | Any             | Consenti      |
+| DMS_subnet | Qualsiasi      | Qualsiasi          | SUBNET DMS | Qualsiasi             | Allow      |
 
 ## <a name="outbound-security-rules"></a>Regole di sicurezza in uscita
 
-| **NOME**                  | **PORTA**                                              | **PROTOCOLLO** | **SOURCE** | **DESTINAZIONE**           | **AZIONE** | **Motivo della regola**                                                                                                                                                                              |
+| **NOME**                  | **Porta**                                              | **Protocollo** | **fonte** | **Destinazione**           | **Azione** | **Motivo della regola**                                                                                                                                                                              |
 |---------------------------|-------------------------------------------------------|--------------|------------|---------------------------|------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| mobili di Intune                | 443.9354                                              | TCP          | Any        | Any                       | Consenti      | Comunicazione del piano di gestione tramite il bus di servizio e l'archiviazione BLOB di Azure. <br/>Se il peering Microsoft è abilitato, questa regola potrebbe non essere necessaria.                                                             |
-| Diagnostica               | 12000                                                 | TCP          | Any        | Any                       | Consenti      | Il servizio Migrazione del database usa questa regola per raccogliere informazioni di diagnostica ai fini della risoluzione dei problemi.                                                                                                                      |
-| Server di origine SQL         | 1433 (o la porta TCP IP su cui SQL Server è in ascolto) | TCP          | Any        | Spazio indirizzi locale | Consenti      | Connettività dell'origine di SQL Server dal servizio Migrazione del database <br/>In presenza di una connettività da sito a sito questa regola potrebbe non essere necessaria.                                                                                       |
-| Istanza denominata di SQL Server | 1434                                                  | UDP          | Any        | Spazio indirizzi locale | Consenti      | Connettività dell'origine dell'istanza denominata di SQL Server dal servizio Migrazione del database <br/>In presenza di una connettività da sito a sito questa regola potrebbe non essere necessaria.                                                                        |
-| Condivisione SMB                 | 445                                                   | TCP          | Any        | Spazio indirizzi locale | Consenti      | Condivisione di rete SMB in cui il servizio Migrazione del database può archiviare i file di backup dei database per le migrazioni nell'istanza gestita del database SQL di Azure e nei server SQL nella macchina virtuale di Azure <br/>In presenza di una connettività da sito a sito questa regola potrebbe non essere necessaria. |
-| DMS_subnet                | Any                                                   | Any          | Any        | DMS_Subnet                | Consenti      |                                                                                                                                                                                                  |
+| management                | 443.9354                                              | TCP          | Qualsiasi        | Qualsiasi                       | Allow      | Comunicazione del piano di gestione tramite il bus di servizio e l'archiviazione BLOB di Azure.Management plane communication through Service Bus and Azure blob storage. <br/>Se il peering Microsoft è abilitato, questa regola potrebbe non essere necessaria.                                                             |
+| Diagnostica               | 12000                                                 | TCP          | Qualsiasi        | Qualsiasi                       | Allow      | Il servizio Migrazione del database usa questa regola per raccogliere informazioni di diagnostica ai fini della risoluzione dei problemi.                                                                                                                      |
+| Server di origine SQL         | 1433 (o la porta TCP IP su cui SQL Server è in ascolto) | TCP          | Qualsiasi        | Spazio indirizzi locale | Allow      | Connettività dell'origine di SQL Server dal servizio Migrazione del database <br/>In presenza di una connettività da sito a sito questa regola potrebbe non essere necessaria.                                                                                       |
+| Istanza denominata di SQL Server | 1434                                                  | UDP          | Qualsiasi        | Spazio indirizzi locale | Allow      | Connettività dell'origine dell'istanza denominata di SQL Server dal servizio Migrazione del database <br/>In presenza di una connettività da sito a sito questa regola potrebbe non essere necessaria.                                                                        |
+| Condivisione SMB                 | 445                                                   | TCP          | Qualsiasi        | Spazio indirizzi locale | Allow      | Condivisione di rete SMB in cui il servizio Migrazione del database può archiviare i file di backup dei database per le migrazioni nell'istanza gestita del database SQL di Azure e nei server SQL nella macchina virtuale di Azure <br/>In presenza di una connettività da sito a sito questa regola potrebbe non essere necessaria. |
+| DMS_subnet                | Qualsiasi                                                   | Qualsiasi          | Qualsiasi        | DMS_Subnet                | Allow      |                                                                                                                                                                                                  |
 
 ## <a name="see-also"></a>Vedere anche
 
-- [Eseguire la migrazione di SQL Server a Istanza gestita di database SQL di Azure](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-managed-instance)
-- [Panoramica dei prerequisiti per l'uso del servizio migrazione del database di Azure](https://docs.microsoft.com/azure/dms/pre-reqs)
-- [Creare una rete virtuale usando il portale di Azure](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+- [Eseguire la migrazione di SQL Server all'istanza gestita di database SQL di Azure](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-managed-instance)
+- [Panoramica dei prerequisiti per l'uso del servizio di migrazione del database di AzureOverview of prerequisites for using Azure Database Migration Service](https://docs.microsoft.com/azure/dms/pre-reqs)
+- [Creare una rete virtuale usando il portale di AzureCreate a virtual network using the Azure portal](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per una panoramica del servizio migrazione del database di Azure, vedere l'articolo [che cos'è il servizio migrazione del database di Azure?](dms-overview.md).
-- Per informazioni aggiornate sulla disponibilità a livello di area del servizio migrazione del database di Azure, vedere la pagina [prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=database-migration) .
+- Per una panoramica del servizio di migrazione del database di Azure, vedere l'articolo [Che cos'è](dms-overview.md)il servizio di migrazione del database di Azure? .
+- Per informazioni aggiornate sulla disponibilità regionale del servizio migrazione del database di Azure, vedere la pagina [Prodotti disponibili per area.](https://azure.microsoft.com/global-infrastructure/services/?products=database-migration)

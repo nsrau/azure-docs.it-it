@@ -1,5 +1,5 @@
 ---
-title: Cambia attività in Azure Data Factory
+title: Passare da un'attività all'altra in Azure Data FactorySwitch activity in Azure Data Factory
 description: L'attività Switch consente di controllare il flusso di elaborazione in base a una condizione.
 services: data-factory
 author: djpmsft
@@ -10,15 +10,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/08/2019
 ms.openlocfilehash: fd0e6d526f0c47304e7bf53f91d08f42b924ff23
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75440390"
 ---
-# <a name="switch-activity-in-azure-data-factory"></a>Cambia attività in Azure Data Factory
+# <a name="switch-activity-in-azure-data-factory"></a>Passare da un'attività all'altra in Azure Data FactorySwitch activity in Azure Data Factory
 
-L'attività switch fornisce la stessa funzionalità fornita da un'istruzione switch nei linguaggi di programmazione. Valuta un set di attività corrispondenti a un case che corrisponde alla valutazione della condizione.
+L'attività Switch fornisce le stesse funzionalità fornite da un'istruzione switch nei linguaggi di programmazione. Valuta un set di attività corrispondenti a un caso che corrisponde alla valutazione della condizione.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -65,13 +65,13 @@ L'attività switch fornisce la stessa funzionalità fornita da un'istruzione swi
 
 ## <a name="type-properties"></a>Proprietà del tipo
 
-Proprietà | Description | Valori consentiti | Obbligatorio
+Proprietà | Descrizione | Valori consentiti | Obbligatoria
 -------- | ----------- | -------------- | --------
 name | Nome dell'attività switch. | string | Sì
 type | Deve essere impostato su *Switch** | string | Sì
 expression | Espressione che deve restituire un valore stringa | Espressione con stringa del tipo di risultato | Sì
-cases | Set di case che contengono un valore e un set di attività da eseguire quando il valore corrisponde alla valutazione dell'espressione. Deve fornire almeno un case. È previsto un limite massimo di 25 case. | Matrice di oggetti case | Sì
-defaultActivities | Set di attività che vengono eseguite quando la valutazione dell'espressione non viene soddisfatta. | Matrice di attività | Sì
+cases | Set di case che contengono un valore e un set di attività da eseguire quando il valore corrisponde alla valutazione dell'espressione. Deve fornire almeno un caso. C'è un limite massimo di 25 casi. | Matrice di oggetti Case | Sì
+defaultAttività | Set di attività che vengono eseguite quando la valutazione dell'espressione non viene soddisfatta. | Matrice di attività | Sì
 
 ## <a name="example"></a>Esempio
 
@@ -80,7 +80,7 @@ La pipeline in questo esempio copia i dati da una cartella di input a una cartel
 > [!NOTE]
 > Questa sezione include le definizioni JSON e i comandi di PowerShell di esempio per eseguire la pipeline. Per la procedura dettagliata di creazione di una pipeline di Data Factory tramite Azure PowerShell e le definizioni JSON, vedere [Esercitazione: Creare una data factory con Azure PowerShell](quickstart-create-data-factory-powershell.md).
 
-### <a name="pipeline-with-switch-activity-adfv2quickstartpipelinejson"></a>Pipeline con attività Switch (Adfv2QuickStartPipeline. Json)
+### <a name="pipeline-with-switch-activity-adfv2quickstartpipelinejson"></a>Pipeline con attività Switch (Adfv2QuickStartPipeline.json)
 
 ```json
 {
@@ -286,7 +286,7 @@ La pipeline imposta **folderPath** sul valore del parametro **outputPath1** o **
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Questi comandi presuppongono che i file JSON siano stati salvati nella cartella: C:\ADF. 
+Questi comandi presuppongono che i file JSON siano stati salvati nella cartella: C:. 
 
 ```powershell
 Connect-AzAccount
@@ -332,8 +332,8 @@ $result.Error -join "`r`n"
 Vedere altre attività del flusso di controllo supportate da Data Factory: 
 
 - [Attività della condizione If](control-flow-if-condition-activity.md)
-- [Attività ExecutePipeline](control-flow-execute-pipeline-activity.md)
-- [Attività ForEach](control-flow-for-each-activity.md)
-- [Attività Get Metadata](control-flow-get-metadata-activity.md)
+- [Attività Esegui pipeline](control-flow-execute-pipeline-activity.md)
+- [Per ogni attività](control-flow-for-each-activity.md)
+- [Ottenere l'attività dei metadatiGet Metadata Activity](control-flow-get-metadata-activity.md)
 - [Attività Lookup](control-flow-lookup-activity.md)
 - [Attività Web](control-flow-web-activity.md)

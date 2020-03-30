@@ -9,10 +9,10 @@ ms.date: 08/16/2018
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: d2404ee58f5f44fbe5625f267e6d1c504d0bd237
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75465101"
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Uso di Azure PowerShell con Archiviazione di Azure
@@ -42,7 +42,7 @@ Per questa esercitazione è possibile digitare i comandi in una normale finestra
 
 Per altre informazioni sugli account di archiviazione, vedere [Introduzione ad Archiviazione](storage-introduction.md) e [Informazioni sugli account di archiviazione di Azure](storage-create-storage-account.md).
 
-## <a name="sign-in-to-azure"></a>Accedere a Azure
+## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
 Accedere alla sottoscrizione di Azure con il comando `Connect-AzAccount` e seguire le istruzioni visualizzate.
 
@@ -111,7 +111,7 @@ Lo script usa i cmdlet di PowerShell seguenti:
 
 *   [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount): crea l'account di archiviazione. Nell'esempio viene usato `testpshstorage`.
 
-Il nome dello SKU indica il tipo di replica per l'account di archiviazione, ad esempio l'archiviazione con ridondanza locale. Per altre informazioni sulla replica, vedere [Replica di Archiviazione di Azure](storage-redundancy.md).
+Il nome dello SKU indica il tipo di replica per l'account di archiviazione, ad esempio l'archiviazione con ridondanza locale. Per altre informazioni sulla replica, vedere [Replica di Archiviazione di Azure.For](storage-redundancy.md)more information about replication, see Azure Storage Replication .
 
 > [!IMPORTANT]
 > Il nome per l'account di archiviazione è univoco in Azure e deve essere in minuscolo. Per informazioni sulle limitazioni e le convenzioni relative ai nomi, vedere [Assegnazione di nome e riferimento a contenitori, BLOB e metadati](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata).
@@ -131,7 +131,7 @@ Per modificare le impostazioni di un account di archiviazione, usare [Set-AzStor
 
 * I **tag** assegnati all'account di archiviazione. I tag vengono usati spesso per categorizzare le risorse a scopi di fatturazione.
 
-* Lo **SKU**, ovvero l'impostazione di replica per l'account di archiviazione, ad esempio LRS per l'archiviazione con ridondanza locale. È possibile, ad esempio, modificare Standard\_LRS in Standard\_GRS o Standard\_RAGRS. Si noti che non è possibile modificare standard\_ZRS, standard\_GZRS, standard\_RAGZRS o Premium\_con ridondanza locale in altri SKU o modificare altri SKU in questi.
+* Lo **SKU**, ovvero l'impostazione di replica per l'account di archiviazione, ad esempio LRS per l'archiviazione con ridondanza locale. È possibile, ad esempio, modificare Standard\_LRS in Standard\_GRS o Standard\_RAGRS. Si noti che non\_è possibile\_modificare gli\_standard di RS,\_standard G-RS, STANDARD RAG-RS o Premium LRS in altri SKU o modificare altri SKU in questi.
 
 * Il **livello di accesso** per gli account di archiviazione BLOB. Il valore per il livello di accesso è impostato su **Frequente** o **Sporadico** e consente di ridurre al minimo i costi selezionando il livello di accesso più adatto al modo in cui viene usato l'account di archiviazione. Per altre informazioni, vedere [Livelli di archiviazione ad accesso frequente, ad accesso sporadico e archivio](../blobs/storage-blob-storage-tiers.md).
 
@@ -161,7 +161,7 @@ Per rigenerare l'altra chiave, usare `key2` come nome di chiave anziché `key1`.
 Rigenerare una delle chiavi e recuperarla nuovamente per visualizzare il nuovo valore.
 
 > [!NOTE]
-> È consigliabile eseguire un'attenta pianificazione prima di rigenerare la chiave per un account di archiviazione di produzione. La rigenerazione di una o di entrambe le chiavi rende non valido l'accesso per qualsiasi applicazione che usa la chiave rigenerata. Per altre informazioni, vedere [gestire le chiavi di accesso all'account di archiviazione](storage-account-keys-manage.md).
+> È consigliabile eseguire un'attenta pianificazione prima di rigenerare la chiave per un account di archiviazione di produzione. La rigenerazione di una o di entrambe le chiavi rende non valido l'accesso per qualsiasi applicazione che usa la chiave rigenerata. Per altre informazioni, vedere [Gestire le chiavi di accesso dell'account di archiviazione](storage-account-keys-manage.md).
 
 
 ### <a name="delete-a-storage-account"></a>Eliminare un account di archiviazione
@@ -178,7 +178,7 @@ Remove-AzStorageAccount -ResourceGroup $resourceGroup -AccountName $storageAccou
 
 ### <a name="protect-your-storage-account-using-vnets-and-firewalls"></a>Proteggere l'account di archiviazione tramite reti virtuali e firewall
 
-Per impostazione predefinita, tutti gli account di archiviazione sono accessibili da qualsiasi rete con accesso a Internet. È possibile tuttavia configurare le regole di rete in modo da consentire che solo le applicazioni di determinate reti virtuali possano accedere a un account di archiviazione. Per altre informazioni, vedere [Configurare i firewall e le reti virtuali di Archiviazione di Azure](storage-network-security.md).
+Per impostazione predefinita, tutti gli account di archiviazione sono accessibili da qualsiasi rete con accesso a Internet. È possibile tuttavia configurare le regole di rete in modo da consentire che solo le applicazioni di determinate reti virtuali possano accedere a un account di archiviazione. Per altre informazioni, vedere Configurare Firewall di archiviazione di [Azure e reti virtuali.](storage-network-security.md)
 
 Questo articolo illustra come gestire queste impostazioni usando i cmdlet di PowerShell seguenti:
 * [Add-AzStorageAccountNetworkRule](/powershell/module/az.Storage/Add-azStorageAccountNetworkRule)
@@ -199,7 +199,7 @@ Questo articolo illustra come gestire queste impostazioni usando i cmdlet di Pow
 > Con PowerShell è possibile anche abilitare l'analisi al minuto, mentre questa funzionalità non è consentita dal portale di Azure.
 >
 
-* Per informazioni su come abilitare e visualizzare i dati relativi alle metriche di archiviazione con PowerShell, vedere [metriche di analisi archiviazione](storage-analytics-metrics.md).
+* Per informazioni su come abilitare e visualizzare i dati delle metriche di archiviazione tramite PowerShell, vedere Metriche di [analisi dell'archiviazione.](storage-analytics-metrics.md)
 
 * Per informazioni su come abilitare e recuperare i dati di registrazione di archiviazione con PowerShell, vedere [How to enable Storage Logging using PowerShell](/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data) (Come abilitare la registrazione di archiviazione con PowerShell) e [Finding your Storage Logging log data](/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data) (Trovare i dati del log di registrazione di archiviazione).
 
@@ -222,8 +222,8 @@ L'API di tabella di Azure Cosmos DB offre funzionalità Premium per l'archiviazi
 
 La maggior parte delle persone usa il cloud pubblico di Azure per la distribuzione globale di Azure. Per motivi di sovranità e altro, sono disponibili anche alcune distribuzioni indipendenti di Microsoft Azure, denominate "ambienti". Ecco gli ambienti disponibili:
 
-* [Cloud di Azure per enti pubblici](https://azure.microsoft.com/features/gov/)
-* [Azure China 21Vianet cloud gestito da 21Vianet in Cina](http://www.windowsazure.cn/)
+* [Azure Government Cloud (Cloud Azure per enti pubblici)](https://azure.microsoft.com/features/gov/)
+* [Azure China 21Vianet Cloud gestito da 21Vianet in Cina](http://www.windowsazure.cn/)
 * [Cloud di Azure per la Germania](../../germany/germany-welcome.md)
 
 Per informazioni su come accedere a questi cloud e al relativo spazio di archiviazione con PowerShell, vedere [Managing Storage in the Azure independent clouds using PowerShell (Gestione dell'archiviazione nei cloud indipendenti di Azure con PowerShell)](storage-powershell-independent-clouds.md).

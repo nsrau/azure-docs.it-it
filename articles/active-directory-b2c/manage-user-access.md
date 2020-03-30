@@ -1,6 +1,6 @@
 ---
 title: Gestire l'accesso utente in Azure Active Directory B2C | Microsoft Docs
-description: Informazioni su come identificare i minorenni, raccogliere la data di nascita e i dati del paese/area geografica e ottenere l'accettazione delle condizioni per l'utilizzo nell'applicazione usando Azure AD B2C.
+description: Informazioni su come identificare i minori, raccogliere dati relativi alla data di nascita e al paese e ottenere l'accettazione delle condizioni per l'utilizzo nell'applicazione tramite Azure AD B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -11,10 +11,10 @@ ms.date: 07/24/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: f04a3fea3801f917a3ae4aced04ef3824d1cfa82
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78184520"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Gestire l'accesso utente in Azure Active Directory B2C
@@ -23,7 +23,7 @@ Questo articolo illustra come gestire l'accesso degli utenti alle applicazioni u
 
 - Identificazione dei minorenni e controllo dell'accesso utente per l'applicazione.
 - Richiesta del consenso dei genitori per l'uso delle applicazioni da parte dei minorenni.
-- Raccolta di dati di nascita e paese/area geografica dagli utenti.
+- Raccolta di dati di nascita e di paese da parte degli utenti.
 - Acquisizione del contratto per le condizioni per l'utilizzo e controllo dell'accesso.
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -38,7 +38,7 @@ Se un utente viene identificato come minore, il flusso utente in Azure AD B2C pu
 
 - **Invio di un token JSON non firmato all'applicazione**: Azure AD B2C comunica all'applicazione che l'utente è minorenne e invia lo stato del consenso dei genitori dell'utente. L'applicazione quindi procede applicando le regole business. Se un token JSON non completa l'autenticazione in modo corretto, l'applicazione deve elaborare l'utente non autenticato in base alle attestazioni incluse nel token JSON, che possono includere **name**, **email**, **ageGroup**, and **consentProvidedForMinor**.
 
-- **Blocca l'utente**: se un utente è minorenne e non è stato fornito il consenso del genitore, Azure ad B2C possibile notificare all'utente che è bloccato. Non verrà emesso alcun token, l'accesso è bloccato e durante un processo di registrazione non verrà creato alcun account utente. Per implementare la notifica, presentare una pagina di contenuto HTML/CSS adatta per informare l'utente e visualizzare le opzioni appropriate. Per le nuove registrazioni non sono necessarie altre azioni da parte dell'applicazione.
+- **Blocca l'utente:** se un utente è minorenne e non è stato fornito il consenso dei genitori, Azure AD B2C può notificare all'utente che è bloccato. Non verrà emesso alcun token, l'accesso è bloccato e durante un processo di registrazione non verrà creato alcun account utente. Per implementare la notifica, presentare una pagina di contenuto HTML/CSS adatta per informare l'utente e visualizzare le opzioni appropriate. Per le nuove registrazioni non sono necessarie altre azioni da parte dell'applicazione.
 
 ## <a name="get-parental-consent"></a>Ottenere il consenso dei genitori
 
@@ -46,29 +46,29 @@ A seconda delle normative che l'applicazione deve rispettare, potrebbe essere ne
 
 Di seguito è riportato un esempio di un flusso utente per l'acquisizione del consenso dei genitori:
 
-1. Un'operazione [API Microsoft Graph](https://docs.microsoft.com/graph/use-the-api) identifica l'utente come un valore secondario e restituisce i dati utente all'applicazione sotto forma di token JSON senza segno.
+1. Un'operazione API di [Microsoft Graph](https://docs.microsoft.com/graph/use-the-api) identifica l'utente come minore e restituisce i dati utente all'applicazione sotto forma di token JSON non firmato.
 
-2. Tramite l'applicazione viene elaborato il token JSON e viene visualizzata una schermata secondaria, che informa che il consenso del genitore è obbligatorio e richiede il consenso di un padre online.
+2. L'applicazione elabora il token JSON e mostra una schermata al minore, notificandogli che è necessario il consenso dei genitori e richiedendo il consenso di un genitore online.
 
-3. Azure AD B2C visualizza un percorso di accesso a cui l'utente può accedere normalmente e genera un token per l'applicazione impostato in modo da includere **legalAgeGroupClassification = “minorWithParentalConsent”** . L'applicazione raccoglie l'indirizzo di posta elettronica del genitore e verifica che il genitore sia un adulto. Per eseguire questa operazione, usa un'origine attendibile, ad esempio una carta di identità, patente o carta di credito. Se la verifica ha esito positivo, l'applicazione richiede al minore di eseguire l'accesso usando il flusso utente di Azure AD B2C. Se il consenso viene negato, ovvero se **legalAgeGroupClassification = "minorWithoutParentalConsent"** , Azure AD B2C restituisce un token JSON (non un account di accesso) all'applicazione per riavviare il processo di concessione del consenso. Se necessario, è possibile personalizzare il flusso utente in modo tale che un minorenne o un adulto possa ottenere nuovamente l'accesso all'account del minorenne inviando un codice di registrazione ufficiale all'indirizzo di posta elettronica del minorenne o a quello dell'adulto.
+3. Azure AD B2C visualizza un percorso di accesso a cui l'utente può accedere normalmente e genera un token per l'applicazione impostato in modo da includere **legalAgeGroupClassification = “minorWithParentalConsent”**. L'applicazione raccoglie l'indirizzo di posta elettronica del genitore e verifica che il genitore sia un adulto. Per eseguire questa operazione, usa un'origine attendibile, ad esempio una carta di identità, patente o carta di credito. Se la verifica ha esito positivo, l'applicazione richiede al minore di eseguire l'accesso usando il flusso utente di Azure AD B2C. Se il consenso viene negato, ovvero se **legalAgeGroupClassification = "minorWithoutParentalConsent"**, Azure AD B2C restituisce un token JSON (non un account di accesso) all'applicazione per riavviare il processo di concessione del consenso. Se necessario, è possibile personalizzare il flusso utente in modo tale che un minorenne o un adulto possa ottenere nuovamente l'accesso all'account del minorenne inviando un codice di registrazione ufficiale all'indirizzo di posta elettronica del minorenne o a quello dell'adulto.
 
 4. L'applicazione offre un'opzione al minorenne per revocare il consenso.
 
-5. Quando il minore o l'adulto revoca il consenso, è possibile usare l'API Microsoft Graph per modificare **consentProvidedForMinor** in **negato**. In alternativa, l'applicazione può scegliere di eliminare un minorenne per cui il consenso è stato revocato. È anche possibile personalizzare il flusso utente in modo che il minorenne autenticato (o il genitore che ne usa l'account) possa revocare il consenso. Azure AD B2C registra **consentProvidedForMinor** come **denied**.
+5. Quando il consenso di revoca minore o adulto, l'API Microsoft Graph può essere utilizzata per modificare **consentProvidedForMinor** su **negato.** In alternativa, l'applicazione può scegliere di eliminare un minorenne per cui il consenso è stato revocato. È anche possibile personalizzare il flusso utente in modo che il minorenne autenticato (o il genitore che ne usa l'account) possa revocare il consenso. Azure AD B2C registra **consentProvidedForMinor** come **denied**.
 
-Per altre informazioni su **legalAgeGroupClassification**, **consentProvidedForMinor** e **ageGroup**, vedere i [tipi di risorsa utente](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/user). Per altre informazioni sugli attributi personalizzati, vedere [Usare attributi personalizzati per raccogliere informazioni sugli utenti](user-flow-custom-attributes.md). Quando si indirizzano gli attributi estesi usando l'API di Microsoft Graph, è necessario usare la versione estesa dell'attributo, ad esempio *extension_18b70cf9bb834edd8f38521c2583cd86_dateOfBirth*: *2011-01-01T00:00:00Z*.
+Per altre informazioni su **legalAgeGroupClassification**, **consentProvidedForMinor** e **ageGroup**, vedere i [tipi di risorsa utente](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/user). Per altre informazioni sugli attributi personalizzati, vedere [Usare attributi personalizzati per raccogliere informazioni sugli utenti](user-flow-custom-attributes.md). Quando si affrontano gli attributi estesi utilizzando l'API di Microsoft Graph, è necessario utilizzare la versione lunga dell'attributo, ad esempio *extension_18b70cf9bb834edd8f38521c2583cd86_dateOfBirth*: *2011-01-01T00:00:00 .*
 
-## <a name="gather-date-of-birth-and-countryregion-data"></a>Raccolta dati Data di nascita e paese/area geografica
+## <a name="gather-date-of-birth-and-countryregion-data"></a>Raccogliere i dati relativi alla data di nascita e al paese
 
-Le applicazioni possono basarsi su Azure AD B2C per raccogliere le informazioni sulla data di nascita (DOB) e il paese/area geografica di tutti gli utenti durante la registrazione. Se tali informazioni non esistono ancora, l'applicazione può richiederle all'utente durante la fase di autenticazione (accesso) successiva. Gli utenti non possono procedere senza fornire le informazioni relative a DOB e paese/area geografica. Azure AD B2C usa le informazioni per determinare se l'utente è considerato minore in base agli standard normativi di tale paese/area geografica.
+Le applicazioni possono fare affidamento su Azure AD B2C per raccogliere la data di nascita (DOB) e le informazioni sul paese e sull'area geografica di tutti gli utenti durante la registrazione. Se tali informazioni non esistono ancora, l'applicazione può richiederle all'utente durante la fase di autenticazione (accesso) successiva. Gli utenti non possono procedere senza fornire le informazioni DOB e paese. Azure AD B2C usa le informazioni per determinare se l'individuo è considerato secondario in base agli standard normativi di tale paese/area geografica.
 
-Un flusso utente personalizzato può raccogliere informazioni relative a DOB e paese e usare Azure AD B2C trasformazione delle attestazioni per determinare il **ageGroup** e salvare in modo permanente il risultato (o salvare in modo permanente le informazioni di DOB e Country/Region) nella directory.
+Un flusso utente personalizzato può raccogliere informazioni DOB e paese/area geografica e usare la trasformazione delle attestazioni B2C di Azure AD per determinare **ageGroup** e rendere persistente il risultato (o rendere persistenti le informazioni DOB e paese) nella directory.
 
 I passaggi seguenti mostrano la logica che viene usata per calcolare **ageGroup** a partire dalla data di nascita dell'utente:
 
 1. Provare a trovare il paese in base al relativo codice nell'elenco. Se il paese non è presente, tornare a **Default**.
 
-2. Se il nodo **MinorConsent** è presente nell'elemento relativo al paese:
+2. Se il nodo **MinorConsent** è presente nell'elemento relativo al paese: 
 
     a. Calcolare la data in cui l'utente deve essere nato per essere considerato un adulto. Ad esempio, se la data corrente è 14 marzo 2015 e **MinorConsent** è 18, la data di nascita non deve essere successiva al 14 marzo 2000.
 
@@ -78,7 +78,7 @@ I passaggi seguenti mostrano la logica che viene usata per calcolare **ageGroup*
 
 4. Se nessuno dei due calcoli restituisce true, il calcolo restituisce **Adult**.
 
-Se un'applicazione ha raccolto in modo affidabile dati di DOB o paese/area geografica da altri metodi, l'applicazione può usare la API Graph per aggiornare il record utente con queste informazioni. Ad esempio:
+Se un'applicazione ha raccolto in modo affidabile i dati DOB o paese/area geografica con altri metodi, l'applicazione può utilizzare l'API Graph per aggiornare il record utente con queste informazioni. Ad esempio:
 
 - Se è noto che l'utente è un adulto, aggiornare l'attributo directory **ageGroup** con il valore **Adult**.
 - Se è noto che l'utente è minorenne, aggiornare l'attributo directory **ageGroup** con il valore **Minor** e impostare **consentProvidedForMinor** in base alle esigenze.
@@ -112,7 +112,7 @@ I passaggi seguenti descrivono come gestire le condizioni per l'utilizzo:
 
 La figura seguente illustra il flusso utente consigliato:
 
-![Diagramma del diagramma di flusso che mostra il flusso utente di accettazione consigliato](./media/manage-user-access/user-flow.png)
+![Diagramma di flusso che mostra il flusso utente di accettazione consigliato](./media/manage-user-access/user-flow.png)
 
 Di seguito viene riportato un esempio di consenso a condizioni per l'utilizzo in base all'elemento DateTime in un'attestazione:
 
@@ -176,4 +176,4 @@ Di seguito viene riportato un esempio di consenso a condizioni per l'utilizzo in
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per informazioni su come eliminare ed esportare i dati utente, vedere [Gestire i dati utente](manage-user-data.md).
-- Per un esempio di criterio personalizzato che implementa una richiesta di condizioni per l'utilizzo, vedere [un criterio personalizzato Framework dell'esperienza B2C: iscrizione e accesso con la richiesta "condizioni per l'utilizzo"](https://github.com/azure-ad-b2c/samples/tree/master/policies/sign-in-sign-up-versioned-tou).
+- Per un criterio personalizzato di esempio che implementa un prompt delle condizioni per l'utilizzo, vedere [Criteri personalizzati B2C IEF - Iscrizione e accesso con il prompt 'Termini di utilizzo'.](https://github.com/azure-ad-b2c/samples/tree/master/policies/sign-in-sign-up-versioned-tou)

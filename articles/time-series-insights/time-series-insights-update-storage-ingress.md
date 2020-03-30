@@ -1,6 +1,6 @@
 ---
-title: Archiviazione dati e ingresso in anteprima-Azure Time Series Insights | Microsoft Docs
-description: Informazioni sull'archiviazione e l'ingresso dei dati in Azure Time Series Insights Preview.
+title: Archiviazione e ingresso dei dati in Anteprima - Informazioni dettagliate sulle serie temporali di Azure Documenti Microsoft
+description: Informazioni sull'archiviazione dei dati e sull'ingresso in Azure Time Series Insights Preview.Learn about data storage and ingress in Azure Time Series Insights Preview.
 author: lyrana
 ms.author: lyhughes
 manager: cshankar
@@ -11,232 +11,232 @@ ms.topic: conceptual
 ms.date: 02/10/2020
 ms.custom: seodec18
 ms.openlocfilehash: 2f12cf303c58f0fa614c59ffe643c6c2ee5d2415
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78246195"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Archiviazione e ingresso dei dati nella versione di anteprima di Azure Time Series Insights
 
-Questo articolo descrive gli aggiornamenti per l'archiviazione dei dati e il traffico in ingresso per Azure Time Series Insights anteprima. Descrive la struttura di archiviazione sottostante, il formato di file e la proprietà ID Time Series. Vengono descritti anche il processo di ingresso sottostante, le procedure consigliate e le limitazioni dell'anteprima corrente.
+Questo articolo descrive gli aggiornamenti all'archiviazione e all'ingresso dei dati per Azure Time Series Insights Preview.This article describes updates to data storage and ingress for Azure Time Series Insights Preview. Descrive la struttura di archiviazione sottostante, il formato di file e la proprietà ID serie temporali. Vengono descritti anche il processo di ingresso sottostante, le procedure consigliate e le limitazioni correnti dell'anteprima.
 
-## <a name="data-ingress"></a>Dati in ingresso
+## <a name="data-ingress"></a>Ingresso dati
 
-L'ambiente di Azure Time Series Insights contiene un *motore* di inserimento per la raccolta, l'elaborazione e l'archiviazione di dati di serie temporali. 
+L'ambiente Azure Time Series Insights contiene un motore di *inserimento* per raccogliere, elaborare e archiviare i dati delle serie temporali. 
 
-Ci sono alcune considerazioni da tenere presenti per assicurarsi che tutti i dati in ingresso vengano elaborati, per ottenere scalabilità in ingresso elevata e ridurre al minimo la *latenza* di inserimento (il tempo impiegato da Time Series Insights per leggere ed elaborare i dati dall'origine evento) durante [la pianificazione dell'ambiente](time-series-insights-update-plan.md).
+Esistono alcune considerazioni da tenere presenti per garantire che tutti i dati in ingresso vengano elaborati, per ottenere un'elevata scala in ingresso e ridurre al minimo la latenza di *inserimento* (il tempo impiegato da Time Series Insights per leggere ed elaborare i dati dall'origine evento) durante la [pianificazione dell'ambiente.](time-series-insights-update-plan.md)
 
-I criteri di ingresso dei dati di Time Series Insights Preview determinano la posizione in cui i dati possono essere originati e il formato dei dati.
+Time Series Insights I criteri di ingresso dell'anteprima determinano la provenietta dei dati e il formato che i dati devono avere.
 
 ### <a name="ingress-policies"></a>Criteri di ingresso
 
-L' *ingresso dei dati* implica la modalità di invio dei dati a un ambiente di Azure Time Series Insights anteprima. 
+*L'ingresso dei dati* implica il modo in cui i dati vengono inviati a un ambiente Azure Time Series Insights Preview.Data ingress involves how data is sent to an Azure Time Series Insights Preview environment. 
 
-La configurazione della chiave, la formattazione e le procedure consigliate sono riepilogate di seguito.
+La configurazione, la formattazione e le procedure consigliate sono riepilogate di seguito.
 
 #### <a name="event-sources"></a>Origini eventi
 
-Azure Time Series Insights anteprima supporta le origini eventi seguenti:
+Azure Time Series Insights Preview supporta le origini eventi seguenti:Azure Time Series Insights Preview supports the following event sources:
 
-- [Hub IoT Azure](../iot-hub/about-iot-hub.md)
+- [Hub IoT di AzureAzure IoT Hub](../iot-hub/about-iot-hub.md)
 - [Hub eventi di Azure](../event-hubs/event-hubs-about.md)
 
-Azure Time Series Insights anteprima supporta un massimo di due origini evento per ogni istanza.
+Azure Time Series Insights Preview supporta un massimo di due origini eventi per istanza.
 
 > [!IMPORTANT] 
-> * È possibile che si verifichi una latenza iniziale elevata quando si connette un'origine evento all'ambiente di anteprima. 
-> La latenza dell'origine evento dipende dal numero di eventi attualmente presenti nell'hub o nell'hub eventi.
-> * Una latenza elevata sarà secondaria dopo l'inserimento iniziale dei dati dell'origine evento. Inviare un ticket di supporto tramite il portale di Azure se si verifica una latenza elevata.
+> * È possibile che si verifichi un'elevata latenza iniziale quando si associa un'origine eventi all'ambiente di anteprima. 
+> La latenza dell'origine eventi dipende dal numero di eventi attualmente presenti nell'hub IoT o nell'hub eventi.
+> * L'elevata latenza diminuirà dopo l'inserimento dei dati dell'origine dell'evento. Inviare un ticket di supporto tramite il portale di Azure se si verifica una latenza elevata in corso.
 
 #### <a name="supported-data-format-and-types"></a>Tipi e formati di dati supportati
 
-Azure Time Series Insights supporta JSON con codifica UTF-8 inviati dall'hub degli eventi di Azure o dagli hub eventi di Azure. 
+Azure Time Series Insights supports UTF-8 encoded JSON sent from Azure IoT Hub or Azure Event Hubs. 
 
 I tipi di dati supportati sono:
 
 | Tipo di dati | Descrizione |
 |---|---|
-| **bool** | Tipo di dati con uno dei due stati seguenti: `true` o `false`. |
-| **dateTime** | Rappresenta un istante di tempo, in genere espresso come data e ora del giorno. Espressa in formato [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) . |
-| **double** | Un punto A virgola mobile [IEEE 754](https://ieeexplore.ieee.org/document/8766229) a precisione doppia a 64 bit. |
-| **string** | Valori di testo, costituiti da caratteri Unicode.          |
+| **bool** | Un tipo di dati con `true` `false`uno dei due stati seguenti: o . |
+| **Datetime** | Rappresenta un istante di tempo, in genere espresso come data e ora del giorno. Espresso in formato [ISO 8601.](https://www.iso.org/iso-8601-date-and-time-format.html) |
+| **Doppia** | Un punto mobile [IEEE 754 a](https://ieeexplore.ieee.org/document/8766229) 64 bit a precisione doppia. |
+| **Stringa** | Valori di testo, costituiti da caratteri Unicode.          |
 
 #### <a name="objects-and-arrays"></a>Oggetti e matrici
 
-È possibile inviare tipi complessi, ad esempio oggetti e matrici come parte del payload dell'evento, ma i dati vengono sottoposti a un processo di Flat quando vengono archiviati. 
+È possibile inviare tipi complessi, ad esempio oggetti e matrici come parte del payload dell'evento, ma i dati verranno sottoposti a un processo di appiattimento quando archiviati. 
 
-Informazioni dettagliate che descrivono come definire gli eventi JSON, inviare il tipo complesso e la flat degli oggetti annidati sono disponibili nella pagina [relativa alla modalità di modellazione di JSON per l'ingresso e la query](./time-series-insights-update-how-to-shape-events.md) per semplificare la pianificazione e l'ottimizzazione.
+Informazioni dettagliate che descrivono come modellare gli eventi JSON, inviare tipi complessi e appiattire gli oggetti nidificati sono disponibili in [Come modellare JSON per l'ingresso e](./time-series-insights-update-how-to-shape-events.md) la query per facilitare la pianificazione e l'ottimizzazione.
 
-### <a name="ingress-best-practices"></a>Procedure consigliate per il traffico in ingresso
+### <a name="ingress-best-practices"></a>Procedure consigliate per l'ingressoIngress best practices
 
 Si consiglia di utilizzare le seguenti procedure consigliate:
 
-* Configurare Azure Time Series Insights e qualsiasi hub eventi o hub eventi nella stessa area per ridurre la latenza potenziale.
+* Configurare Azure Time Series Insights e qualsiasi hub IoT o hub eventi nella stessa area per ridurre la latenza potenziale.
 
-* [Pianificare le esigenze di scalabilità](time-series-insights-update-plan.md) calcolando la velocità di inserimento prevista e verificando che rientri nella tariffa supportata indicata di seguito.
+* [Pianificare le esigenze](time-series-insights-update-plan.md) di scalabilità calcolando il tasso di inserimento previsto e verificando che rientri nella tariffa indicata di seguito.
 
-* Informazioni su come ottimizzare e modellare i dati JSON, nonché le limitazioni correnti in anteprima, leggendo [come definire il formato JSON per l'ingresso e la query](./time-series-insights-update-how-to-shape-events.md).
+* Comprendere come ottimizzare e modellare i dati JSON, nonché le limitazioni correnti nell'anteprima, leggendo [come modellare JSON per l'ingresso e](./time-series-insights-update-how-to-shape-events.md)la query.
 
-### <a name="ingress-scale-and-preview-limitations"></a>Limitazioni di scalabilità e anteprima in ingresso 
+### <a name="ingress-scale-and-preview-limitations"></a>Limitazioni della scala in ingresso e dell'anteprima 
 
-Di seguito sono descritte le limitazioni in ingresso Azure Time Series Insights Preview.
+Le limitazioni in ingresso dell'anteprima di Azure Time Series Insights sono descritte di seguito.
 
 > [!TIP]
-> Per un elenco completo di tutti i limiti di anteprima, vedere [pianificare l'ambiente di anteprima](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-plan#review-preview-limits) .
+> Leggere [Pianificare l'ambiente di anteprima](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-plan#review-preview-limits) per un elenco completo di tutti i limiti di anteprima.
 
 #### <a name="per-environment-limitations"></a>Limitazioni per ambiente
 
-In generale, le tariffe in ingresso vengono visualizzate come fattore del numero di dispositivi all'interno dell'organizzazione, della frequenza di emissione degli eventi e delle dimensioni di ogni evento:
+In generale, le frequenze in ingresso sono considerate come il fattore del numero di dispositivi presenti nell'organizzazione, della frequenza di emissione degli eventi e delle dimensioni di ogni evento:
 
-*  **Numero di dispositivi** × **frequenza di emissione eventi** × **dimensioni di ogni evento**.
+*  **Numero di dispositivi** - Frequenza di **emissione dell'evento** - **Dimensione di ogni evento**.
 
-Per impostazione predefinita, Time Series Insights anteprima può inserire i dati in ingresso a una velocità di un **massimo di 1 MB al secondo (Mbps) per ogni ambiente Time Series Insights**.
+Per impostazione predefinita, l'anteprima di Time Series Insights può ingerire i dati in ingresso con una velocità massima di **1 megabyte al secondo (MBps) per ogni ambiente Time Series Insights.**
 
 > [!TIP] 
-> * Il supporto dell'ambiente per l'inserimento di velocità fino a 16 MBps può essere fornito dalla richiesta.
-> * Contattaci se è necessaria una velocità effettiva maggiore inviando un ticket di supporto tramite portale di Azure.
+> * Il supporto ambientale per l'inserimento di velocità fino a 16 MBps può essere fornito su richiesta.
+> * Contattarci se è necessaria una velocità effettiva più elevata inviando un ticket di supporto tramite il portale di Azure.Contact us if you require higher throughput by submitting a support ticket through Azure portal.
  
 * **Esempio 1:**
 
-    Contoso Shipping ha 100.000 dispositivi che emettono un evento tre volte al minuto. Le dimensioni di un evento sono pari a 200 byte. Usano un hub eventi con quattro partizioni come origine evento Time Series Insights.
+    Contoso Shipping dispone di 100.000 dispositivi che generano un evento tre volte al minuto. La dimensione di un evento è di 200 byte. Usano un hub eventi con quattro partizioni come origine eventi Time Series Insights.
 
-    * La velocità di inserimento per l'ambiente di Time Series Insights sarà: **100.000 dispositivi * 200 byte/evento * (3/60 evento/sec) = 1 Mbps**.
-    * La velocità di inserimento per partizione è 0,25 MBps.
-    * Il tasso di inserimento di Contoso Shipping sarà entro il limite di anteprima della scalabilità.
+    * La frequenza di inserimento per l'ambiente Time Series Insights sarebbe: **100.000 dispositivi, 200 byte/evento ( 3/60 eventi/sec) , 1 MBps**.
+    * La velocità di inserimento per partizione sarebbe 0,25 MBps.The ingestion rate per partition would be 0.25 MBps.
+    * La tariffa di inserimento di Contoso Shipping rientra nel limite di apertura della scalabilità.
 
 * **Esempio 2:**
 
-    Contoso Fleet Analytics ha 60.000 dispositivi che emettono un evento ogni secondo. Si sta usando un numero di partizioni dell'hub Internet di 4 come Time Series Insights origine evento. Le dimensioni di un evento sono pari a 200 byte.
+    Contoso Fleet Analytics dispone di 60.000 dispositivi che generano un evento ogni secondo. Usano un conteggio delle partizioni di IoT Hub 24 pari a 4 come origine eventi Time Series Insights. La dimensione di un evento è di 200 byte.
 
-    * La velocità di inserimento dell'ambiente è: **20.000 dispositivi * 200 byte/evento * 1 evento/sec = 4 Mbps**.
-    * Il tasso per partizione è 1 MBps.
-    * Contoso Fleet Analytics può inviare una richiesta di Time Series Insights tramite portale di Azure per aumentare la velocità di inserimento per il proprio ambiente.
+    * La frequenza di inserimento nell'ambiente sarebbe: **20.000 dispositivi , 200 byte/evento, 1 evento/sec, 4 MBps**.
+    * La velocità per partizione sarebbe 1 MBps.
+    * Contoso Fleet Analytics può inviare una richiesta a Time Series Insights tramite il portale di Azure per aumentare la frequenza di inserimento per il proprio ambiente.
 
-#### <a name="hub-partitions-and-per-partition-limits"></a>Partizioni dell'hub e limiti per partizione
+#### <a name="hub-partitions-and-per-partition-limits"></a>Partizioni hub e limiti per partizione
 
-Quando si pianifica l'ambiente di Time Series Insights, è importante prendere in considerazione la configurazione delle origini eventi a cui ci si connetterà Time Series Insights. Sia l'hub eventi di Azure che hub eventi utilizzano le partizioni per abilitare la scalabilità orizzontale per l'elaborazione degli eventi. 
+Quando si pianifica l'ambiente Time Series Insights, è importante considerare la configurazione delle origini eventi che si connetterà a Time Series Insights. Sia l'hub IoT di Azure che gli hub eventi utilizzano le partizioni per abilitare la scalabilità orizzontale per l'elaborazione degli eventi. 
 
-Una *partizione* è una sequenza ordinata di eventi contenuta in un hub. Il numero di partizioni viene impostato durante la fase di creazione dell'hub e non può essere modificato. 
+Una *partizione* è una sequenza ordinata di eventi contenuti in un hub. Il conteggio delle partizioni viene impostato durante la fase di creazione dell'hub e non può essere modificato. 
 
-Per le procedure consigliate per il partizionamento di hub eventi, rivedere [il numero di partizioni necessarie?](https://docs.microsoft.com/azure/event-hubs/event-hubs-faq#how-many-partitions-do-i-need)
+Per le procedure consigliate per il partizionamento degli hub eventi, vedere [Quante partizioni sono necessarie?](https://docs.microsoft.com/azure/event-hubs/event-hubs-faq#how-many-partitions-do-i-need)
 
 > [!NOTE]
-> Per la maggior parte degli hub Internet usati con Azure Time Series Insights sono necessarie solo quattro partizioni.
+> La maggior parte degli hub IoT usati con Azure Time Series Insights richiedono solo quattro partizioni.
 
-Sia che si stia creando un nuovo hub per l'ambiente Time Series Insights o usandone uno esistente, è necessario calcolare la velocità di inserimento per partizione per determinare se è entro i limiti di anteprima. 
+Sia che tu stia creando un nuovo hub per il tuo ambiente Time Series Insights o ne usi uno esistente, dovrai calcolare la frequenza di inserimento per partizione per determinare se rientra nei limiti di anteprima. 
 
-Azure Time Series Insights anteprima dispone attualmente di un **limite generale per partizione di 0,5 Mbps**.
+Azure Time Series Insights Preview ha attualmente un limite generale **per partizione di 0,5 MBps**.
 
-#### <a name="iot-hub-specific-considerations"></a>Considerazioni specifiche sull'hub
+#### <a name="iot-hub-specific-considerations"></a>Considerazioni specifiche sull'hub IoT
 
-Quando un dispositivo viene creato nell'hub Internet, viene assegnato in modo permanente a una partizione. In questo modo, l'hub Internet è in grado di garantire l'ordine degli eventi (poiché l'assegnazione non cambia mai).
+Quando un dispositivo viene creato nell'hub IoT, viene assegnato in modo permanente a una partizione. In questo modo, l'hub IoT è in grado di garantire l'ordine degli eventi (poiché l'assegnazione non cambia mai).
 
-Un'assegnazione di partizione fissa ha un effetto anche sulle istanze Time Series Insights che inseriscono dati inviati dall'hub Internet a valle. Quando i messaggi provenienti da più dispositivi vengono inviati all'hub con lo stesso ID dispositivo gateway, possono arrivare nella stessa partizione contemporaneamente al superamento dei limiti di scala per partizione. 
+Un'assegnazione di partizione fissa influisce anche sulle istanze di Time Series Insights che inviano dati inviati dall'hub IoT verso il basso. Quando i messaggi provenienti da più dispositivi vengono inoltrati all'hub usando lo stesso ID dispositivo gateway, possono arrivare nella stessa partizione contemporaneamente al superamento dei limiti di scalabilità per partizione. 
 
-**Effetto**:
+**Impatto**:
 
-* Se una singola partizione sperimenta un tasso di inserimento prolungato nel limite di anteprima, è possibile che Time Series Insights non sincronizza tutti i dati di telemetria del dispositivo prima del superamento del periodo di conservazione dei dati dell'hub. Di conseguenza, i dati inviati possono andare perduti se i limiti di inserimento vengono superati costantemente.
+* Se una singola partizione riscontra una frequenza di inserimento costante oltre il limite di anteprima, è possibile che Time Series Insights non sincronizzi tutti i dati di telemetria del dispositivo prima che sia stato superato il periodo di conservazione dei dati dell'hub IoT.If a single partition experiences a sustained rate of ingestion over the Preview limit, it's possible that Time Series Insights will not sync all device telemetry before the IoT Hub data retention period has been exceeded. Di conseguenza, i dati inviati possono andare persi se i limiti di inserimento vengono costantemente superati.
 
-Per attenuare questa circostanza, è consigliabile attenersi alle procedure consigliate seguenti:
+Per attenuare tale circostanza, è consigliabile attenersi alle seguenti procedure consigliate:
 
-* Calcolare i tassi di inserimento per ambiente e per partizione prima di distribuire la soluzione.
-* Verificare che il carico dei dispositivi dell'hub Internet sia bilanciato fino alla misura più lontana possibile.
+* Calcolare le velocità di inserimento per ambiente e per partizione prima di distribuire la soluzione.
+* Assicurarsi che i dispositivi IoT Hub siano bilanciati al massimo della misura.
 
 > [!IMPORTANT]
-> Per gli ambienti che usano l'hub Internet come origine eventi, calcolare la velocità di inserimento usando il numero di dispositivi hub usati per assicurarsi che la velocità scende al di sotto del limite di 0,5 MBps per partizione nell'anteprima.
-> * Anche se più eventi arrivano simultaneamente, il limite di anteprima non verrà superato.
+> Per gli ambienti che usano l'hub IoT come origine eventi, calcola la frequenza di inserimento usando il numero di dispositivi hub in uso per assicurarti che la frequenza sia inferiore al limite di 0,5 MBps per partizione nell'anteprima.
+> * Anche se più eventi arrivano contemporaneamente, il limite di anteprima non verrà superato.
 
-  ![Diagramma delle partizioni dell'hub Internet](media/concepts-ingress-overview/iot-hub-partiton-diagram.png)
+  ![Diagramma della partizione hub IoT](media/concepts-ingress-overview/iot-hub-partiton-diagram.png)
 
-Per altre informazioni sull'ottimizzazione della velocità effettiva e delle partizioni dell'hub, vedere le risorse seguenti:
+Per altre informazioni sull'ottimizzazione della velocità effettiva e delle partizioni dell'hub, fare riferimento alle risorse seguenti:Refer to the following resources to learn more about optimizing hub throughput and partitions:
 
-* [Scalabilità dell'hub Internet](https://docs.microsoft.com/azure/iot-hub/iot-hub-scaling)
-* [Scalabilità dell'hub eventi](https://docs.microsoft.com/azure/event-hubs/event-hubs-scalability#throughput-units)
+* [Scala hub IoT](https://docs.microsoft.com/azure/iot-hub/iot-hub-scaling)
+* [Scala hub eventi](https://docs.microsoft.com/azure/event-hubs/event-hubs-scalability#throughput-units)
 * [Partizioni dell'hub eventi](https://docs.microsoft.com/azure/event-hubs/event-hubs-features#partitions)
 
 ### <a name="data-storage"></a>Archiviazione dei dati
 
-Quando si crea un ambiente con SKU *con pagamento in base* al consumo (PAYG) di anteprima, si creano due risorse Time Series Insights di Azure:
+Quando si crea un ambiente SKU pay-as-you-go (PAYG) Time Series Insights Preview, si creano due risorse di Azure:When you create a Time Series Insights *Preview pay-as-you-go* (SKU environment), you create two Azure resources:
 
-* Ambiente Azure Time Series Insights anteprima che può essere configurato per l'archiviazione dei dati a caldo.
-* Un account BLOB di archiviazione di Azure per utilizzo generico V1 per l'archiviazione di dati a freddo.
+* Un ambiente Azure Time Series Insights Preview che può essere configurato per l'archiviazione dei dati a caldo.
+* Un account BLOB V1 generico di Archiviazione di Azure per l'archiviazione dei dati a freddo.
 
-I dati nell'archivio a caldo sono disponibili solo tramite [Query Time Series](./time-series-insights-update-tsq.md) e [Esplora Azure Time Series Insights Preview](./time-series-insights-update-explorer.md). Il negozio caldo conterrà i dati recenti entro il [periodo di memorizzazione](./time-series-insights-update-plan.md#the-preview-environment) selezionato durante la creazione dell'ambiente Time Series Insights.
+I dati nel punto di archiviazione a caldo sono disponibili solo tramite [query Time Series](./time-series-insights-update-tsq.md) e Azure Time Series Insights Preview [explorer](./time-series-insights-update-explorer.md). L'archivio a caldo conterrà dati recenti entro il periodo di [conservazione](./time-series-insights-update-plan.md#the-preview-environment) selezionato durante la creazione dell'ambiente Time Series Insights.
 
-Time Series Insights anteprima Salva i dati dell'archivio a freddo nell'archivio BLOB di Azure nel [formato di file parquet](#parquet-file-format-and-folder-structure). Time Series Insights anteprima gestisce i dati di archivio a freddo esclusivamente, ma è disponibile per la lettura diretta come file parquet standard.
+Time Series Insights Preview salva i dati dell'archivio a freddo nell'archivio BLOB di Azure nel formato di [file Parquet.](#parquet-file-format-and-folder-structure) Time Series Insights Preview gestisce questi dati di cold store esclusivamente, ma è disponibile per la lettura direttamente come file Parquet standard.
 
 > [!WARNING]
-> Il proprietario dell'account di archiviazione BLOB di Azure in cui risiedono i dati dell'archivio freddo ha accesso completo a tutti i dati dell'account. Questo accesso include le autorizzazioni di scrittura ed eliminazione. Non modificare o eliminare i dati scritti da Time Series Insights Preview, perché ciò può causare la perdita di dati.
+> In qualità di proprietario dell'account di archiviazione BLOB di Azure in cui risiedono i dati dell'archivio a freddo, si ha accesso completo a tutti i dati nell'account. Questo accesso include le autorizzazioni di scrittura ed eliminazione. Non modificare o eliminare i dati scritti da Time Series Insights Preview, perché ciò può causare la perdita di dati.
 
 ### <a name="data-availability"></a>Disponibilità dei dati
 
-Azure Time Series Insights Visualizza in anteprima le partizioni e indicizza i dati per ottenere prestazioni ottimali delle query. I dati diventeranno disponibili per eseguire una query sia dal sistema caldo (se abilitato) che dall'archivio a freddo dopo che è stato indicizzato. La quantità di dati da inserire può influire sulla disponibilità.
+Azure Time Series Insights Preview partiziona e indici Dati di anteprima per ottenere prestazioni ottimali per le query. I dati diventano disponibili per eseguire query sia da warm (se abilitato) che da cold store dopo l'indicizzazione. La quantità di dati che viene ingerita può influire su questa disponibilità.
 
 > [!IMPORTANT]
-> Durante l'anteprima, è possibile che si verifichi un periodo di tempo massimo di 60 secondi prima che i dati diventino disponibili. Se si verifica una latenza significativa superiore a 60 secondi, inviare un ticket di supporto tramite la portale di Azure.
+> Durante l'anteprima, è possibile che si verifichi un periodo fino a 60 secondi prima che i dati diventino disponibili. Se si verifica una latenza significativa oltre i 60 secondi, inviare un ticket di supporto tramite il portale di Azure.If you experience significant latency beyond 60 seconds, please submit a support ticket through the Azure portal.
 
 ## <a name="azure-storage"></a>Archiviazione di Azure
 
-Questa sezione descrive i dettagli di archiviazione di Azure rilevanti per Azure Time Series Insights Preview.
+Questa sezione descrive i dettagli di Archiviazione di Azure relativi ad Azure Time Series Insights Preview.This section describes Azure Storage details relevant to Azure Time Series Insights Preview.
 
-Per una descrizione completa dell'archiviazione BLOB di Azure, vedere [Introduzione ai BLOB di archiviazione](../storage/blobs/storage-blobs-introduction.md).
+Per una descrizione completa dell'archiviazione BLOB di Azure, leggere [l'introduzione ai BLOB](../storage/blobs/storage-blobs-introduction.md)di archiviazione.
 
-### <a name="your-storage-account"></a>L'account di archiviazione
+### <a name="your-storage-account"></a>L'account di archiviazioneYour storage account
 
-Quando si crea un ambiente di Azure Time Series Insights anteprima PAYG, viene creato un account BLOB di archiviazione di Azure per utilizzo generico V1 come archivio a lungo termine.  
+Quando si crea un ambiente PAYG di Azure Time Series Insights Preview PAYG, viene creato un account BLOB V1 di Azure Storage generico come cold store a lungo termine.  
 
-Azure Time Series Insights anteprima conserva fino a due copie di ogni evento nell'account di archiviazione di Azure. Una copia archivia gli eventi ordinati in base al tempo di inserimento, consentendo sempre l'accesso agli eventi in una sequenza temporale ordinata. Nel corso del tempo, Time Series Insights anteprima crea anche una copia ripartizionata dei dati per ottimizzare l'esecuzione di query Time Series Insights. 
+Azure Time Series Insights Preview conserva fino a due copie di ogni evento nell'account di Archiviazione di Azure.Azure Time Series Insights Preview retains up to two copies of each event in your Azure Storage account. Una copia archivia gli eventi ordinati in base al tempo di inserimento, consentendo sempre l'accesso agli eventi in una sequenza ordinata nel tempo. Nel corso del tempo, Time Series Insights Preview crea anche una copia ripartizionata dei dati da ottimizzare per eseguire una query Time Series Insights. 
 
-Durante l'anteprima pubblica, i dati vengono archiviati per un periodo illimitato nell'account di archiviazione di Azure.
+Durante l'anteprima pubblica, i dati vengono archiviati a tempo indeterminato nell'account di archiviazione di Azure.During public Preview, data is stored indefinitely in your Azure Storage account.
 
 #### <a name="writing-and-editing-time-series-insights-blobs"></a>Scrittura e modifica di BLOB di Time Series Insights
 
-Per garantire le prestazioni delle query e la disponibilità dei dati, non modificare o eliminare i BLOB creati da Time Series Insights anteprima.
+Per garantire le prestazioni delle query e la disponibilità dei dati, non modificare o eliminare i BLOB creati da Time Series Insights Preview.To ensure query performance and data availability, don't edit or delete any blobs that Time Series Insights Preview creates.
 
-#### <a name="accessing-time-series-insights-preview-cold-store-data"></a>Accesso ai dati dell'archivio freddo di Time Series Insights Preview 
+#### <a name="accessing-time-series-insights-preview-cold-store-data"></a>Accesso ai dati dell'archivio a freddo di Time Series Insights Preview 
 
-Oltre ad accedere ai dati dalla query [Time Series Insights Preview Explorer](./time-series-insights-update-explorer.md) e [Time Series](./time-series-insights-update-tsq.md), è anche possibile accedere ai dati direttamente dai file parquet archiviati nell'archivio a freddo. Ad esempio, è possibile leggere, trasformare e pulire i dati in un notebook di Jupyter, quindi usarli per eseguire il training del modello di Azure Machine Learning nello stesso flusso di lavoro Spark.
+Oltre ad accedere ai dati da [Time Series Insights Preview explorer](./time-series-insights-update-explorer.md) e Time Series [Query](./time-series-insights-update-tsq.md), è anche possibile accedere ai dati direttamente dai file Parquet memorizzati nel cold store. Ad esempio, è possibile leggere, trasformare e pulire i dati in un blocco appunti di Jupyter, quindi usarli per eseguire il training del modello di Azure Machine Learning nello stesso flusso di lavoro Spark.For example, you can read, transform, and cleanse data in a Jupyter notebook, then use it to train your Azure Machine Learning model in the same Spark workflow.
 
-Per accedere ai dati direttamente dall'account di archiviazione di Azure, è necessario l'accesso in lettura all'account usato per archiviare i dati di Time Series Insights Preview. È quindi possibile leggere i dati selezionati in base all'ora di creazione del file parquet presente nella cartella `PT=Time` descritta di seguito nella sezione [formato file parquet](#parquet-file-format-and-folder-structure) .  Per altre informazioni sull'abilitazione dell'accesso in lettura all'account di archiviazione, vedere [gestire l'accesso alle risorse dell'account di archiviazione](../storage/blobs/storage-manage-access-to-resources.md).
+Per accedere ai dati direttamente dall'account di archiviazione di Azure, è necessario disporre dell'accesso in lettura all'account usato per archiviare i dati di Time Series Insights Preview.To access data directly from your Azure Storage account, you need read access to the account used to store your Time Series Insights Preview data. È quindi possibile leggere i dati selezionati in base all'ora di creazione del file Parquet che si trova nella `PT=Time` cartella descritta di seguito nella sezione Formato file di [parquet.](#parquet-file-format-and-folder-structure)  Per altre informazioni sull'abilitazione dell'accesso in lettura all'account di archiviazione, vedere [Gestire l'accesso alle risorse dell'account di archiviazione.](../storage/blobs/storage-manage-access-to-resources.md)
 
 #### <a name="data-deletion"></a>Eliminazione di dati
 
-Non eliminare i file di anteprima Time Series Insights. Gestisci i dati correlati solo dall'interno di Time Series Insights Preview.
+Non eliminare i file di anteprima di Time Series Insights. Gestisci i dati correlati solo dall'anteprima di Time Series Insights.
 
-### <a name="parquet-file-format-and-folder-structure"></a>Formato di file parquet e struttura di cartelle
+### <a name="parquet-file-format-and-folder-structure"></a>Formato file di parquet e struttura delle cartelle
 
-Parquet è un formato di file a colonne open source progettato per l'archiviazione e le prestazioni efficienti. Time Series Insights anteprima usa parquet per abilitare le prestazioni delle query basate su ID della serie temporale su larga scala.  
+Parquet è un formato di file colonnare open source progettato per un'archiviazione e prestazioni efficienti. Time Series Insights Preview utilizza Parquet per abilitare le prestazioni delle query basate su ID Time Series su larga scala.  
 
-Per ulteriori informazioni sul tipo di file parquet, leggere la [documentazione parquet](https://parquet.apache.org/documentation/latest/).
+Per ulteriori informazioni sul tipo di file Parquet, leggere la documentazione del [parquet.](https://parquet.apache.org/documentation/latest/)
 
-Time Series Insights anteprima archivia le copie dei dati come segue:
+Time Series Insights Preview archivia copie dei dati come segue:
 
-* La prima copia iniziale viene partizionata in base al tempo di inserimento e archivia approssimativamente i dati in ordine di arrivo. Questi dati si trovano nella cartella `PT=Time`:
+* La prima copia iniziale è partizionata in base al tempo di ingestione e memorizza i dati approssimativamente in ordine di arrivo. Questi dati risiedono nella `PT=Time` cartella:
 
   `V=1/PT=Time/Y=<YYYY>/M=<MM>/<YYYYMMDDHHMMSSfff>_<TSI_INTERNAL_SUFFIX>.parquet`
 
-* La seconda copia ripartizionata viene raggruppata in base agli ID di serie temporali e si trova nella cartella `PT=TsId`:
+* La seconda copia ripartizionata è raggruppata per ID Serie `PT=TsId` temporali e si trova nella cartella:
 
   `V=1/PT=TsId/Y=<YYYY>/M=<MM>/<YYYYMMDDHHMMSSfff>_<TSI_INTERNAL_SUFFIX>.parquet`
 
-In entrambi i casi, la proprietà Time del file parquet corrisponde al tempo di creazione del BLOB. I dati nella cartella `PT=Time` vengono conservati senza modifiche dopo la scrittura nel file. I dati nella cartella `PT=TsId` verranno ottimizzati per la query nel tempo e non sono statici.
+In entrambi i casi, la proprietà time del file Parquet corrisponde all'ora di creazione del BLOB. I dati `PT=Time` nella cartella vengono mantenuti senza modifiche una volta scritti nel file. I dati `PT=TsId` nella cartella verranno ottimizzati per le query nel tempo e non sono statici.
 
 > [!NOTE]
-> * `<YYYY>` viene eseguito il mapping a una rappresentazione dell'anno a quattro cifre.
-> * `<MM>` viene eseguito il mapping a una rappresentazione mensile a due cifre.
-> * `<YYYYMMDDHHMMSSfff>` esegue il mapping a una rappresentazione timestamp con anno a quattro cifre (`YYYY`), mese a due cifre (`MM`), giorno a due cifre (`DD`), ora a due cifre (`HH`), minuto a due cifre (`MM`), secondo (`SS`) a due cifre e millisecondi a tre cifre (`fff`).
+> * `<YYYY>`esegue il mapping a una rappresentazione dell'anno a quattro cifre.
+> * `<MM>`esegue il mapping a una rappresentazione mensile a due cifre.
+> * `<YYYYMMDDHHMMSSfff>`esegue il mapping a una rappresentazione`YYYY`di timestamp con`MM`anno a quattro`DD`cifre ( ),`HH`un mese a`MM`due cifre`SS`( ), un giorno`fff`a due cifre ( ), un'ora a due cifre ( ), un secondo a due cifre ( ) e un millisecondo a tre cifre ( ).
 
-Per gli eventi di anteprima Time Series Insights viene eseguito il mapping al contenuto del file parquet come segue:
+Gli eventi di Time Series Insights Preview vengono mappati al contenuto del file Parquet come segue:
 
 * Viene eseguito il mapping di ogni evento a una singola riga.
-* Ogni riga include la colonna **timestamp** con un timestamp dell'evento. La proprietà timestamp non è mai null. Il valore predefinito è l' **ora di accodamento dell'evento** se la proprietà timestamp non è specificata nell'origine evento. Il timestamp archiviato è sempre in formato UTC.
-* Ogni riga include le colonne IDST (Time Series ID) definite al momento della creazione dell'ambiente Time Series Insights. Il nome della proprietà IDST include il suffisso `_string`.
-* Tutte le altre proprietà inviate come dati di telemetria vengono mappate ai nomi di colonna che terminano con `_string` (String), `_bool` (Boolean), `_datetime` (DateTime) o `_double` (Double), a seconda del tipo di proprietà.
-* Questo schema di mapping si applica alla prima versione del formato di file, a cui si fa riferimento come **V = 1** e viene archiviato nella cartella di base con lo stesso nome. Con l'evolversi di questa funzionalità, lo schema di mapping potrebbe cambiare e il nome di riferimento viene incrementato.
+* Ogni riga include la colonna **timestamp** con un timestamp di evento. La proprietà timestamp non è mai null. L'ora predefinita è **l'ora accodata** se la proprietà timestamp non è specificata nell'origine dell'evento. Il timestamp memorizzato è sempre in formato UTC.
+* Ogni riga include le colonne TSID (Time Series ID) definite quando viene creato l'ambiente Time Series Insights. Il nome della proprietà `_string` TSID include il suffisso.
+* Tutte le altre proprietà inviate come dati di `_string` telemetria `_bool` vengono mappate a nomi di colonna che terminano con (stringa), (booleano), `_datetime` (datetime) o `_double` (double), a seconda del tipo di proprietà.
+* Questo schema di mapping si applica alla prima versione del formato di file, a cui viene fatto riferimento come **V1** e archiviato nella cartella di base con lo stesso nome. Man mano che questa funzionalità si evolve, questo schema di mapping potrebbe cambiare e il nome di riferimento viene incrementato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Leggere [le informazioni su come eseguire il formato JSON per l'ingresso e la query](./time-series-insights-update-how-to-shape-events.md).
+- Per informazioni sulla forma json per l'ingresso e la query, vedere [Modellare il codice JSON per l'ingresso e](./time-series-insights-update-how-to-shape-events.md)la query.
 
-- Scopri di più sulla nuova [modellazione dei dati](./time-series-insights-update-tsm.md).
+- Informazioni sulla nuova [modellazione dei dati](./time-series-insights-update-tsm.md).

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 45a2829411ea4713df898c90be73792718160cd2
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78255118"
 ---
 # <a name="how-to-use-the-microsoft-smooth-streaming-plugin-for-the-adobe-open-source-media-framework"></a>Come usare il plug-in Microsoft Smooth Streaming per Adobe Open Source Media Framework  
@@ -30,7 +30,7 @@ In Smooth Streaming per OSMF sono incluse due versioni di plug-in:
 * Plug-in Static Smooth Streaming per OSMF (con estensione swc)
 * Plug-in Dynamic Smooth Streaming per OSMF (con estensione swf)
 
-In questo documento si presuppone che il lettore abbia una conoscenza generale del funzionamento dei plug-in OSMF e OSMF. Per ulteriori informazioni su OSMF, consultare la documentazione sul [sito ufficiale di OSMF](http://osmf.org/).
+In questo documento si presuppone che il lettore disponga di una conoscenza generale dei plug-in OSMF e OSMF. Per ulteriori informazioni su OSMF, consultare la documentazione sul [sito ufficiale OSMF](http://osmf.org/).
 
 ### <a name="smooth-streaming-plugin-for-osmf-20"></a>Plug-in Smooth Streaming per OSMF 2.0
 Il plug-in supporta il caricamento e la riproduzione di contenuto Smooth Streaming su richiesta con le funzionalità seguenti:

@@ -1,15 +1,15 @@
 ---
-title: Limitazione in cluster Resource Manager Service Fabric
+title: Limitazione nel gestore delle risorse cluster di Service Fabric
 description: Informazioni sulla configurazione delle limitazioni messe a disposizione da Cluster Resource Manager di Service Fabric.
 author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: b4d78b339bab02b5c44a31939e0da769dc21c3ec
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75452167"
 ---
 # <a name="throttling-the-service-fabric-cluster-resource-manager"></a>Limitazione del Cluster Resource Manager di Service Fabric
@@ -84,4 +84,4 @@ La configurazione di queste limitazioni segue lo stesso modello delle limitazion
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Per informazioni sul modo in cui Cluster Resource Manager gestisce e bilancia il carico nel cluster, vedere l'articolo relativo al [bilanciamento del carico](service-fabric-cluster-resource-manager-balancing.md)
-- Cluster Resource Manager dispone di varie opzioni per descrivere il cluster. Per altre informazioni a riguardo vedere l'articolo [Descrivere un cluster di Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md)
+- Cluster Resource Manager dispone di varie opzioni per descrivere il cluster. Per altre informazioni su di essi, vedere questo articolo sulla descrizione di un cluster di [Service FabricTo](service-fabric-cluster-resource-manager-cluster-description.md) find out more about them, check out this article on describing a Service Fabric cluster

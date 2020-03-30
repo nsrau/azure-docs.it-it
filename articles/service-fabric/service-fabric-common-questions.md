@@ -5,10 +5,10 @@ ms.topic: troubleshooting
 ms.date: 08/18/2017
 ms.author: pepogors
 ms.openlocfilehash: bf61858b446c1ac6d4a0210571fffaa721ad0166
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78254892"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Domande frequenti su Service Fabric
@@ -32,7 +32,7 @@ Sì.
 
 La tecnologia di clustering principale di Service Fabric può essere usata per unire macchine in esecuzione in tutto il mondo, purché dispongano di connettività di rete l'una con l'altra. La compilazione e l'esecuzione di questo tipo di cluster possono essere tuttavia complicate.
 
-Se si è interessati a questo scenario, è consigliabile contattare Microsoft tramite la pagina di [elenco di problemi di Service Fabric su GitHub](https://github.com/azure/service-fabric-issues) oppure tramite il rappresentante del supporto tecnico per ottenere informazioni aggiuntive. Il team di Service Fabric sta lavorando per fornire ulteriori informazioni, materiale sussidiario e consigli per questo scenario. 
+Se sei interessato a questo scenario, ti invitiamo a contattarti tramite l'elenco dei problemi di [Service Fabric GitHub](https://github.com/azure/service-fabric-issues) o tramite il tuo rappresentante di supporto per ottenere ulteriori indicazioni. Il team di Service Fabric sta lavorando per fornire ulteriori informazioni, materiale sussidiario e consigli per questo scenario. 
 
 Alcuni aspetti da considerare: 
 
@@ -84,7 +84,7 @@ Per i carichi di lavoro di produzione, è necessario garantire resilienza in cas
 
 ### <a name="can-i-turn-off-my-cluster-at-nightweekends-to-save-costs"></a>È possibile disattivare il cluster di notte o nei fine settimana per ridurre i costi?
 
-In generale, no. Service Fabric archivia lo stato su dischi locali e temporanei, vale a dire che se la macchina virtuale viene spostata in un host diverso, i dati non vengono spostati con essa. In condizioni normali, ciò non rappresenta un problema, in quanto il nuovo nodo viene aggiornato dagli altri nodi. Tuttavia, se si arrestano tutti i nodi per riavviarli in un secondo momento, è molto probabile che la maggior parte di essi verrà avviata su nuovi host, rendendo impossibile il ripristino dle sistema.
+Generalmente, no. Service Fabric archivia lo stato su dischi locali e temporanei, vale a dire che se la macchina virtuale viene spostata in un host diverso, i dati non vengono spostati con essa. In condizioni normali, ciò non rappresenta un problema, in quanto il nuovo nodo viene aggiornato dagli altri nodi. Tuttavia, se si arrestano tutti i nodi per riavviarli in un secondo momento, è molto probabile che la maggior parte di essi verrà avviata su nuovi host, rendendo impossibile il ripristino dle sistema.
 
 Se si desidera creare cluster per testare l'applicazione prima di distribuirla, è consigliabile crearli in maniera dinamica come parte della [pipeline integrazione costante/distribuzione costante](service-fabric-tutorial-deploy-app-with-cicd-vsts.md).
 
@@ -94,7 +94,7 @@ Se si desidera creare cluster per testare l'applicazione prima di distribuirla, 
 Mentre Microsoft sviluppa un'esperienza migliorata oggi l'utente è responsabile dell'aggiornamento. È necessario aggiornare l'immagine del sistema operativo nelle macchine virtuali del cluster per una macchina virtuale per volta. 
 
 ### <a name="can-i-encrypt-attached-data-disks-in-a-cluster-node-type-virtual-machine-scale-set"></a>È possibile crittografare i dischi dati collegati in un tipo di nodo del cluster (set di scalabilità di macchine virtuali)?
-Sì.  Per altre informazioni, vedere [creare un cluster con dischi dati collegati](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks) e [crittografia dischi di Azure per i set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/disk-encryption-overview.md).
+Sì.  Per altre informazioni, vedere [Creare un cluster con dischi dati collegati](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks) e Crittografia disco di Azure per set di [scalabilità di macchine virtuali.](../virtual-machine-scale-sets/disk-encryption-overview.md)
 
 ### <a name="can-i-use-low-priority-vms-in-a-cluster-node-type-virtual-machine-scale-set"></a>È possibile usare macchine virtuali con priorità bassa in un tipo di nodo del cluster (set di scalabilità di macchine virtuali)?
 No. Le macchine virtuali con priorità bassa non sono supportate. 
@@ -125,8 +125,8 @@ No. Le macchine virtuali con priorità bassa non sono supportate.
 ### <a name="how-can-my-application-authenticate-to-keyvault-to-get-secrets"></a>In che modo è possibile autenticare l'applicazione con Key Vault per ottenere i segreti?
 Di seguito sono riportati i mezzi che permettono all'applicazione di ottenere le credenziali per l'autenticazione a Key Vault:
 
-A. Durante il processo di compilazione/compressione delle applicazioni, è possibile estrarre un certificato nel pacchetto di dati della tua app di Service Fabric e utilizzare questa opzione per l'autenticazione in Key Vault.
-B. Per gli host abilitati per il set di scalabilità di macchine virtuali, è possibile sviluppare un SetupEntryPoint di PowerShell semplice per l'app SF per ottenere [un token di accesso dall'endpoint MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token)e quindi [recuperare i segreti dall'](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret)insieme di credenziali delle chiavi.
+R. Durante il processo di compilazione/compressione delle applicazioni, è possibile estrarre un certificato nel pacchetto di dati della tua app di Service Fabric e utilizzare questa opzione per l'autenticazione in Key Vault.
+B. Per gli host abilitati per MSI del set di scalabilità delle macchine virtuali, è possibile sviluppare un semplice PowerShell SetupEntryPoint per l'app SF per ottenere un token di [accesso dall'endpoint MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token)e quindi [recuperare i segreti da KeyVault](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret).
 
 ## <a name="application-design"></a>Progettazione di applicazioni
 
@@ -136,8 +136,8 @@ Le raccolte Reliable Collections sono in genere [partizionate](service-fabric-co
 
 - Creare un servizio che esegua una query di tutte le partizioni di un altro servizio per estrarre i dati richiesti.
 - Creare un servizio che possa ricevere dati da tutte le partizioni di un altro servizio.
-- Inviare periodicamente dati da ogni servizio in un archivio esterno. Questo approccio è appropriato solo se le query eseguite non fanno parte della logica di business principale, perché i dati dell'archivio esterno saranno obsoleti.
-- In alternativa, archiviare i dati che devono supportare l'esecuzione di query su tutti i record direttamente in un archivio dati invece che in una raccolta reliable. In questo modo si elimina il problema con i dati non aggiornati, ma non vengono utilizzati i vantaggi delle raccolte affidabili.
+- Inviare periodicamente dati da ogni servizio in un archivio esterno. Questo approccio è appropriato solo se le query eseguite non fanno parte della logica di business principale, poiché i dati dell'archivio esterno non saranno aggiornati.
+- In alternativa, archiviare i dati che devono supportare l'esecuzione di query su tutti i record direttamente in un archivio dati anziché in una raccolta affidabile. Questo elimina il problema con i dati non aggiornati, ma non consente di sfruttare i vantaggi delle raccolte affidabili.
 
 
 ### <a name="whats-the-best-way-to-query-data-across-my-actors"></a>Qual è il modo migliore per eseguire query sui dati nei vari attori?

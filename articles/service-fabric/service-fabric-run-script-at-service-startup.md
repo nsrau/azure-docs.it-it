@@ -1,15 +1,15 @@
 ---
-title: Eseguire uno script all'avvio di un servizio Service Fabric di Azure
+title: Eseguire uno script all'avvio di un servizio di Azure Service FabricRun a script when an Azure Service Fabric service starts
 description: Informazioni su come configurare criteri per un punto di ingresso dell'installazione di un servizio di Service Fabric e su come eseguire uno script al momento dell'avvio del servizio.
 author: athinanthny
 ms.topic: conceptual
 ms.date: 03/21/2018
 ms.author: atsenthi
 ms.openlocfilehash: a25f16f08ab8ae9564363f179d19d4b30c5315fa
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75464280"
 ---
 # <a name="run-a-service-startup-script-as-a-local-user-or-system-account"></a>Eseguire uno script di avvio del servizio come account utente o di sistema locale

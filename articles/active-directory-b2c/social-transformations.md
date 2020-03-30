@@ -1,7 +1,7 @@
 ---
-title: Esempi di trasformazione delle attestazioni dell'account di social networking per criteri personalizzati
+title: Esempi di trasformazione delle attestazioni degli account social per i criteri personalizzati
 titleSuffix: Azure AD B2C
-description: Esempi di trasformazione delle attestazioni dell'account di social networking per lo schema Framework dell'esperienza (Identity Experience Framework) del Azure Active Directory B2C.
+description: Esempi di trasformazione delle attestazioni dell'account social per lo schema Di Identity Experience Framework (IEF) di Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,17 +12,17 @@ ms.date: 09/10/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: cb713651aca266ab2546ff26c3cd0175a4cbc289
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78183755"
 ---
 # <a name="social-accounts-claims-transformations"></a>Trasformazioni delle attestazioni degli account social
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-In Azure Active Directory B2C (Azure AD B2C), le identità degli account di social networking vengono archiviate in un attributo `userIdentities` di un tipo di attestazione **alternativeSecurityIdCollection** . Ogni elemento di **alternativeSecurityIdCollection** specifica l'autorità di certificazione (nome del provider di identità, ad esempio facebook.com) e il `issuerUserId`, ovvero un identificatore utente univoco per l'autorità di certificazione.
+In Azure Active Directory B2C (Azure AD B2C), le `userIdentities` identità degli account di social networking vengono archiviate in un attributo di un tipo di attestazione **alternativeSecurityIdCollection.In** Azure Active Directory B2C (Azure AD B2C), social account identities are stored in a attribute of a alternativeSecurityIdCollection claim type. Ogni elemento di **alternativeSecurityIdCollection** specifica l'autorità di certificazione (nome del provider di identità, ad esempio facebook.com) e il `issuerUserId`, ovvero un identificatore utente univoco per l'autorità di certificazione.
 
 ```JSON
 "userIdentities": [{
@@ -39,7 +39,7 @@ L'articolo fornisce esempi per l'uso delle trasformazioni di attestazioni dell'a
 
 ## <a name="createalternativesecurityid"></a>CreateAlternativeSecurityId
 
-Crea una rappresentazione JSON della proprietà alternativeSecurityId dell'utente che può essere usata nelle chiamate ad Azure Active Directory. Per ulteriori informazioni, vedere lo schema [AlternativeSecurityId](https://docs.microsoft.com/graph/api/resources/alternativesecurityid) .
+Crea una rappresentazione JSON della proprietà alternativeSecurityId dell'utente che può essere usata nelle chiamate ad Azure Active Directory. Per altre informazioni, vedere lo schema [AlternativeSecurityId.For](https://docs.microsoft.com/graph/api/resources/alternativesecurityid) more information, see the AlternativeSecurityId schema.
 
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
@@ -147,7 +147,7 @@ Nell'esempio seguente viene scollegata l'identità di social networking dall'acc
 1. Nei profili tecnici **AAD-UserReadUsingAlternativeSecurityId** e **AAD-UserReadUsingObjectId**, viene fornita l'attestazione **alternativeSecurityIds** dell'utente.
 2. Chiedere all'utente di selezionare quale account di social networking rimuovere dall'elenco di provider di identità associati a tale utente.
 3. Chiamare un profilo tecnico di trasformazione delle attestazioni che chiama la trasformazione delle attestazioni **RemoveAlternativeSecurityIdByIdentityProvider**, che ha rimosso l'identità di social networking selezionata, usando il nome del provider di identità.
-4. Mantenere l'attestazione **alternativeSecurityIds** per l'account utente.
+4. Rendere **persistente l'attestazione alternativeSecurityIds** all'account utente.
 
 ```XML
 <ClaimsTransformation Id="RemoveAlternativeSecurityIdByIdentityProvider" TransformationMethod="RemoveAlternativeSecurityIdByIdentityProvider">

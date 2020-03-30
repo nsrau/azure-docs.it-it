@@ -8,24 +8,24 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/11/2019
 ms.openlocfilehash: 6b841d6b47e009c3b01d9925e11d352c00ed5c19
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75426424"
 ---
 # <a name="understand-inputs-for-azure-stream-analytics"></a>Informazioni sugli input per Analisi di flusso di Azure
 
 I processi di Analisi di flusso di Azure si connettono a uno o più input di dati. Ogni input definisce una connessione a un'origine dati esistente. Analisi di flusso di Azure accetta i dati in ingresso da diversi tipi di origini evento, inclusi hub eventi, hub IoT e archiviazione BLOB. Gli input sono referenziati per nome nella query SQL streaming scritta per ogni processo. Nella query è possibile aggiungere più input per il blending dei dati o confrontare i dati di flusso con una ricerca tra i dati di riferimento e passare i risultati agli output. 
 
-Analisi di flusso offre un'integrazione di prima classe con tre tipi di risorse come input:
+Analisi di flusso ha l'integrazione di prima classe con tre tipi di risorse come input:Stream Analytics has first-class integration with three kinds of resources as inputs:
 - [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/)
-- [Hub IoT Azure](https://azure.microsoft.com/services/iot-hub/) 
-- [Archivio BLOB di Azure](https://azure.microsoft.com/services/storage/blobs/) 
+- [Hub IoT di AzureAzure IoT Hub](https://azure.microsoft.com/services/iot-hub/) 
+- [Archiviazione BLOB di Azure](https://azure.microsoft.com/services/storage/blobs/) 
 
-Queste risorse di input possono risiedere nella stessa sottoscrizione di Azure del processo di analisi di flusso o in una sottoscrizione diversa.
+Queste risorse di input possono trovarsi nella stessa sottoscrizione di Azure del processo di Analisi di flusso o da una sottoscrizione diversa.
 
-Per creare, modificare e testare gli input del processo di analisi di flusso, è possibile usare le [portale di Azure](stream-analytics-quick-create-portal.md#configure-job-input), [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.streamanalytics/New-azStreamAnalyticsInput), l' [API .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.inputsoperationsextensions), l' [API REST](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-input)e [Visual Studio](stream-analytics-tools-for-visual-studio-install.md) .
+È possibile usare il portale di [Azure,](stream-analytics-quick-create-portal.md#configure-job-input) [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.streamanalytics/New-azStreamAnalyticsInput), [l'API .NET,](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.inputsoperationsextensions) [l'API REST](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-input)e [Visual Studio](stream-analytics-tools-for-visual-studio-install.md) per creare, modificare e testare gli input dei processi di Analisi di flusso.
 
 ## <a name="stream-and-reference-inputs"></a>Input del flusso e di riferimento
 Quando sono inviati tramite push a un'origine, i dati vengono utilizzati dal processo di Analisi di flusso ed elaborati in tempo reale. Gli input si dividono in due tipi: input del flusso dei dati e input dei dati di riferimento.
@@ -36,7 +36,7 @@ Un flusso dei dati è una sequenza non associata di eventi che accadono nel temp
 Per altre informazioni sul flusso dei dati di input, vedere [Trasmettere dati come input in Analisi di flusso](stream-analytics-define-inputs.md)
 
 ### <a name="reference-data-input"></a>Input dei dati di riferimento
-Analisi di flusso supporta anche l'input noto come *dati di riferimento*. I dati di riferimento possono essere completamente statici o cambiare lentamente. I dati di riferimento vengono usati in genere per l'esecuzione di correlazione e ricerche. È ad esempio possibile unire i dati nell'input del flusso dei dati con quelli inclusi nei dati di riferimento, proprio come si esegue un join SQL per cercare valori statici. L'archivio BLOB di Azure e il database SQL di Azure sono attualmente supportati come origini di input per i dati di riferimento. I BLOB di origini dati di riferimento hanno un limite di dimensioni fino a 300 MB, a seconda della complessità della query e delle unità di streaming allocate. per altri dettagli, vedere la sezione [limitazione delle dimensioni](stream-analytics-use-reference-data.md#size-limitation) della documentazione sui dati di riferimento.
+Analisi di flusso supporta anche l'input noto come *dati di riferimento*. I dati di riferimento possono essere completamente statici o cambiare lentamente. I dati di riferimento vengono usati in genere per l'esecuzione di correlazione e ricerche. È ad esempio possibile unire i dati nell'input del flusso dei dati con quelli inclusi nei dati di riferimento, proprio come si esegue un join SQL per cercare valori statici. L'archiviazione BLOB di Azure e il database SQL di Azure sono attualmente supportati come origini di input per i dati di riferimento. I BLOB dell'origine dati di riferimento hanno un limite di dimensioni fino a 300 MB, a seconda della complessità delle query e delle unità di streaming allocate (vedere la sezione [Limitazione delle dimensioni](stream-analytics-use-reference-data.md#size-limitation) della documentazione relativa ai dati di riferimento per ulteriori dettagli).
 
 Per altre informazioni sugli input di dati di riferimento, vedere [Uso dei dati di riferimento per le ricerche in Analisi di flusso](stream-analytics-use-reference-data.md)
 

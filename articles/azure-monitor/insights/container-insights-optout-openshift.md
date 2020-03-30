@@ -1,22 +1,22 @@
 ---
-title: Come arrestare il monitoraggio del cluster Azure Red Hat OpenShift | Microsoft Docs
-description: Questo articolo descrive come arrestare il monitoraggio del cluster Azure Red Hat OpenShift con monitoraggio di Azure per i contenitori.
+title: Come interrompere il monitoraggio del cluster OpenShift di Azure Red Hat Documenti Microsoft
+description: Questo articolo descrive come interrompere il monitoraggio del cluster Azure Red Hat OpenShift con Monitoraggio di Azure per i contenitori.
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.openlocfilehash: eff5203aeedd3c7ad283b55ba12f0e45a556460d
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78250724"
 ---
-# <a name="how-to-stop-monitoring-your-azure-red-hat-openshift-cluster-with-azure-monitor-for-containers"></a>Come arrestare il monitoraggio del cluster Azure Red Hat OpenShift con monitoraggio di Azure per i contenitori
+# <a name="how-to-stop-monitoring-your-azure-red-hat-openshift-cluster-with-azure-monitor-for-containers"></a>Come interrompere il monitoraggio del cluster Azure Red Hat OpenShift con Monitoraggio di Azure per i contenitoriHow to stop monitoring your Azure Red Hat OpenShift cluster with Azure Monitor for containers
 
-Dopo aver abilitato il monitoraggio del cluster Azure Red Hat OpenShift, è possibile arrestare il monitoraggio del cluster se si decide che non si vuole più monitorarlo. Questo articolo illustra come eseguire questa operazione usando i modelli di Azure Resource Manager forniti.  
+Dopo aver abilitato il monitoraggio del cluster Azure Red Hat OpenShift, è possibile interrompere il monitoraggio del cluster se si decide di non voler più monitorare. Questo articolo illustra come eseguire questa operazione usando i modelli di Azure Resource Manager forniti.  
 
 ## <a name="azure-resource-manager-template"></a>Modello di Azure Resource Manager
 
-Sono disponibili due modelli di Azure Resource Manager per poter rimuovere le risorse della soluzione in modo coerente e ripetuto nel gruppo di risorse. Uno è un modello JSON che specifica la configurazione per arrestare il monitoraggio e l'altro contiene i valori dei parametri configurati per specificare l'ID risorsa cluster OpenShift e l'area di Azure in cui è distribuito il cluster.
+Sono disponibili due modelli di Azure Resource Manager per poter rimuovere le risorse della soluzione in modo coerente e ripetuto nel gruppo di risorse. Uno è un modello JSON che specifica la configurazione per interrompere il monitoraggio e l'altro contiene valori di parametro configurati per specificare l'ID risorsa cluster OpenShift e l'area di Azure in cui viene distribuito il cluster.
 
 Se non si ha familiarità con il concetto di distribuzione delle risorse tramite un modello, vedere:
 * [Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md)
@@ -84,7 +84,7 @@ Se si sceglie di usare l'interfaccia della riga di comando di Azure, è prima ne
     }
     ```
 
-4. Modificare i valori per **aroResourceId** e **aroResourceLocation** usando i valori del cluster OpenShift, che è possibile trovare nella pagina **proprietà** del cluster selezionato.
+4. Modificare i valori per **aroResourceId** e **aroResourceLocation** utilizzando i valori del cluster OpenShift, disponibili nella pagina **Proprietà** per il cluster selezionato.
 
     ![Pagina delle proprietà del contenitore](media/container-insights-optout-openshift/cluster-properties-page.png)
 
@@ -112,7 +112,7 @@ ProvisioningState       : Succeeded
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Eseguire i comandi di PowerShell riportati di seguito nella cartella che contiene il modello per rimuovere la soluzione e pulire la configurazione dal cluster.    
+Eseguire i comandi di PowerShell seguenti nella cartella contenente il modello per rimuovere la soluzione e pulire la configurazione dal cluster.    
 
 ```powershell
 Connect-AzAccount
@@ -128,4 +128,4 @@ ProvisioningState       : Succeeded
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se l'area di lavoro è stata creata solo per supportare il monitoraggio del cluster e non è più richiesta, è necessario eliminarla manualmente. Se non si ha familiarità con la modalità di eliminazione di un'area di lavoro, vedere [eliminare un'area di lavoro di Azure log Analytics](../../log-analytics/log-analytics-manage-del-workspace.md).
+Se l'area di lavoro è stata creata solo per supportare il monitoraggio del cluster e non è più richiesta, è necessario eliminarla manualmente. Se non si ha familiarità con l'eliminazione di un'area di lavoro, vedere [Eliminare un'area](../../log-analytics/log-analytics-manage-del-workspace.md)di lavoro di Azure Log Analytics.If you are not familiar with how to delete a workspace, see Delete an Azure Log Analytics workspace .

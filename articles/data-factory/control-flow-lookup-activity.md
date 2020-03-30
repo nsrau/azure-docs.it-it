@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.openlocfilehash: 08cc7ce8f306095a66bc0f8cf74dff8c8b551ecf
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75440470"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Attività Lookup in Azure Data Factory
@@ -53,10 +53,10 @@ Per l'attività Lookup attualmente sono supportate le origini dati seguenti. Il 
 
 ## <a name="type-properties"></a>Proprietà del tipo
 
-Nome | Description | Tipo | Obbligatorio?
+Nome | Descrizione | Type | Obbligatorio?
 ---- | ----------- | ---- | --------
 dataset | Fornisce il riferimento al set di dati per la ricerca. Per i dettagli, vedere la sezione **Proprietà del set di dati** nell'articolo del connettore corrispondente. | Coppia chiave/valore | Sì
-source | Contiene proprietà di origine specifiche del set di dati, come per l'origine dell'attività Copy. Visualizzare i dettagli della sezione **Proprietà dell'attività di copia** nell'articolo del connettore corrispondente. | Coppia chiave/valore | Sì
+source | Contiene proprietà di origine specifiche del set di dati, come per l'origine dell'attività Copy. Ottenere informazioni dettagliate dalla sezione **Copia proprietà attività** in ogni articolo del connettore corrispondente. | Coppia chiave/valore | Sì
 firstRowOnly | Indica se restituire solo la prima riga o tutte le righe. | Boolean | No. Il valore predefinito è `true`.
 
 > [!NOTE]
@@ -69,7 +69,7 @@ firstRowOnly | Indica se restituire solo la prima riga o tutte le righe. | Boole
 
 Il risultato della ricerca viene restituito nella sezione `output` del risultato dell'esecuzione attività.
 
-* **Se `firstRowOnly` è impostato su `true` (impostazione predefinita)** , il formato di output è mostrato nel codice seguente. Il risultato della ricerca è sotto una chiave `firstRow` fissa. Per usare il risultato in un'attività successiva, usare il criterio di `@{activity('MyLookupActivity').output.firstRow.TableName}`.
+* **Se `firstRowOnly` è impostato su `true` (impostazione predefinita)**, il formato di output è mostrato nel codice seguente. Il risultato della ricerca è sotto una chiave `firstRow` fissa. Per usare il risultato in un'attività successiva, usare il criterio di `@{activity('MyLookupActivity').output.firstRow.TableName}`.
 
     ```json
     {
@@ -81,7 +81,7 @@ Il risultato della ricerca viene restituito nella sezione `output` del risultato
     }
     ```
 
-* **Se `firstRowOnly` è impostato su `false`** , il formato di output è mostrato nel codice seguente. Un campo `count` indica il numero di record restituiti. I valori dettagliati sono visualizzati sotto una matrice `value` fissa. In questo caso l'attività Lookup è seguita da un'[attività ForEach](control-flow-for-each-activity.md). Per passare l'array `value` al campo `items` dell'attività ForEach, usare il criterio di `@activity('MyLookupActivity').output.value`. Per accedere agli elementi nell'array `value`, usare la sintassi seguente: `@{activity('lookupActivity').output.value[zero based index].propertyname}`. Un esempio è `@{activity('lookupActivity').output.value[0].tablename}`.
+* **Se `firstRowOnly` è impostato su `false`**, il formato di output è mostrato nel codice seguente. Un campo `count` indica il numero di record restituiti. I valori dettagliati sono visualizzati sotto una matrice `value` fissa. In questo caso l'attività Lookup è seguita da un'[attività ForEach](control-flow-for-each-activity.md). Per passare l'array `value` al campo `items` dell'attività ForEach, usare il criterio di `@activity('MyLookupActivity').output.value`. Per accedere agli elementi nell'array `value`, usare la sintassi seguente: `@{activity('lookupActivity').output.value[zero based index].propertyname}`. Un esempio è `@{activity('lookupActivity').output.value[0].tablename}`.
 
     ```json
     {
@@ -107,7 +107,7 @@ In questo esempio viene illustrata la ricerca solo per la prima riga. Per la ric
 ### <a name="pipeline"></a>Pipeline
 Questa pipeline contiene due attività: Lookup e Copy. 
 
-- L'attività Lookup è configurata per usare **LookupDataset**, che fa riferimento a un percorso di Archiviazione BLOB di Azure. L'attività Lookup legge il nome della tabella SQL da un file JSON in questo percorso. 
+- L'attività Lookup è configurata per l'uso di LookupDataset , che fa riferimento a un percorso nell'archivio BLOB di Azure.The Lookup activity is configured to use **LookupDataset**, which refers to a location in Azure Blob storage. L'attività Lookup legge il nome della tabella SQL da un file JSON in questo percorso. 
 - L'attività Copy usa l'output dell'attività Lookup, ovvero il nome della tabella SQL. La proprietà **tableName** in **SourceDataset** è configurata in modo da usare l'output dell'attività Lookup. L'attività Copy copia i dati dalla tabella SQL in un percorso di Archiviazione BLOB di Azure. Il percorso è specificato dalla proprietà **SinkDataset**. 
 
 ```json
@@ -189,7 +189,7 @@ Il set di dati di **ricerca** è il file **sourcetable.json** nella cartella di 
 ```
 
 ### <a name="source-dataset-for-copy-activity"></a>Set di dati di **origine** per l'attività Copy
-Il set di dati di **origine** usa l'output dell'attività Lookup, ovvero il nome della tabella SQL. L'attività Copy copia i dati da questa tabella SQL in un percorso di Archiviazione BLOB di Azure. Il percorso è specificato dal set di dati **sink**. 
+Il set di dati di **origine** utilizza l'output dell'attività Lookup, ovvero il nome della tabella SQL. L'attività Copy copia i dati da questa tabella SQL in un percorso di Archiviazione BLOB di Azure. Il percorso è specificato dal set di dati **sink**. 
 
 ```json
 {

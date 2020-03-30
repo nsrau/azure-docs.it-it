@@ -1,13 +1,13 @@
 ---
-title: Monitorare le istanze di contenitore
+title: Monitorare le istanze del contenitoreMonitor container instances
 description: Come monitorare il consumo delle risorse di calcolo, ad esempio CPU e memoria, da parte dei contenitori in Istanze di Azure Container.
 ms.topic: article
 ms.date: 04/24/2019
 ms.openlocfilehash: b4a66254c18d7e01b6d56e64e6b62721b620d499
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78250023"
 ---
 # <a name="monitor-container-resources-in-azure-container-instances"></a>Monitorare le risorse dei contenitori in Istanze di Azure Container
@@ -17,7 +17,7 @@ ms.locfileid: "78250023"
 Questo documento illustra in dettaglio la raccolta delle metriche di Monitoraggio di Azure per le istanze di contenitore tramite il portale di Azure e l'interfaccia della riga di comando di Azure.
 
 > [!IMPORTANT]
-> Le metriche di Monitoraggio di Azure in Istanze di Azure Container sono attualmente in anteprima e [si applicano alcune limitazioni](#preview-limitations). Le anteprime vengono rese disponibili per l'utente a condizione che si accettino le [condizioni d'uso aggiuntive][terms-of-use]. Alcuni aspetti di questa funzionalità potrebbero subire modifiche prima della disponibilità a livello generale.
+> Le metriche di Monitoraggio di Azure in Istanze di Azure Container sono attualmente in anteprima e [si applicano alcune limitazioni](#preview-limitations). Le anteprime vengono rese disponibili a condizione che l'utente accetti le [condizioni supplementari per l'utilizzo][terms-of-use]. Alcuni aspetti di questa funzionalità potrebbero subire modifiche prima della disponibilità a livello generale.
 
 ## <a name="preview-limitations"></a>Limiti di anteprima
 
@@ -138,9 +138,9 @@ Timestamp            Name          Containername             Average
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni su Monitoraggio di Azure, vedere la [panoramica di Monitoraggio di Azure][azure-monitoring].
+Altre informazioni su Monitoraggio di Azure sono disponibili nella [panoramica di Monitoraggio di Azure][azure-monitoring].
 
-Informazioni su come creare gli [avvisi delle metriche][metric-alert] per ricevere le notifiche quando le metriche per Istanze di Azure Container superano le soglie.
+Informazioni su come creare gli [avvisi delle metriche][metric-alert] per ricevere le notifiche quando le metriche per le Istanze di Azure Container superano le soglie.
 
 <!-- IMAGES -->
 [cpu-chart]: ./media/container-instances-monitor/cpu-multi.png

@@ -1,5 +1,5 @@
 ---
-title: Flussi di lavoro Apache oozie & sicurezza aziendale-Azure HDInsight
+title: Flussi di lavoro di Apache Oozie & enterprise Security - Azure HDInsight
 description: Proteggere i flussi di lavoro di Apache Oozie con Enterprise Security Package di Azure HDInsight. Informazioni su come definire un flusso di lavoro Oozie e inviare un processo Oozie.
 author: omidm1
 ms.author: omidm
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive,seodec18
 ms.date: 12/09/2019
 ms.openlocfilehash: 9ef54707f7fac3dd1328e29f6d05f62c1dee2561
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78194904"
 ---
 # <a name="run-apache-oozie-in-hdinsight-hadoop-clusters-with-enterprise-security-package"></a>Eseguire Apache Oozie nei cluster HDInsight Hadoop con Enterprise Security Package
@@ -31,7 +31,7 @@ Oozie può anche essere usato per pianificare processi specifici di un sistema, 
 Un cluster Azure HDInsight Hadoop con Enterprise Security Package (ESP). Vedere [Configurare i cluster HDInsight con ESP](./apache-domain-joined-configure-using-azure-adds.md).
 
 > [!NOTE]  
-> Per istruzioni dettagliate su come usare oozie in cluster non ESP, vedere [usare i flussi di lavoro Apache oozie in Azure HDInsight basato su Linux](../hdinsight-use-oozie-linux-mac.md).
+> Per istruzioni dettagliate su come usare Oozie in cluster non ESP, vedere Usare flussi di lavoro Apache Oozie in Azure HDInsight basato su Linux.For detailed instructions on how to use Oozie on non-ESP clusters, see [Use Apache Oozie workflows in Linux-based Azure HDInsight](../hdinsight-use-oozie-linux-mac.md).
 
 ## <a name="connect-to-an-esp-cluster"></a>Connettersi a un cluster ESP
 
@@ -178,7 +178,7 @@ Le definizioni dei flussi di lavoro di Oozie sono scritte nel linguaggio Apache 
 
 4. Sostituire `clustername` con il nome del cluster.
 
-5. Per salvare il file, selezionare **CTRL + X**. Immettere **Y**. Quindi premere **invio**.
+5. Per salvare il file, selezionare **Ctrl .** Immettere **Y**. Quindi selezionare **Invio**.
 
     Il flusso di lavoro è suddiviso in due parti.
 
@@ -230,7 +230,7 @@ Le definizioni dei flussi di lavoro di Oozie sono scritte nel linguaggio Apache 
    hiveOutputDirectory2=${nameNode}/user/${user.name}/hiveresult2
    ```
 
-   - Usare l'URI `adl://home` per la proprietà `nameNode` se Azure Data Lake Storage Gen1 è la risorsa di archiviazione del cluster principale. Se si usa l'archiviazione BLOB di Azure, modificarla in `wasb://home`. Se si usa Azure Data Lake Storage Gen2, modificare questo `abfs://home`.
+   - Usare l'URI `adl://home` per la proprietà `nameNode` se Azure Data Lake Storage Gen1 è la risorsa di archiviazione del cluster principale. Se si usa Archiviazione BLOB di Azure, modificarlo in `wasb://home`. Se si usa Azure Data Lake Storage Gen2, impostarlo su `abfs://home`.
    - Sostituire `domainuser` con il nome utente per il dominio.  
    - Sostituire `ClusterShortName` con il nome breve del cluster. Se ad esempio il nome del cluster è https:// *[collegamento di esempio]* sechadoopcontoso.azurehdisnight.net, il valore `clustershortname` corrisponde ai primi sei caratteri del cluster: **sechad**.  
    - Sostituire `jdbcurlvalue` con l'URL JDBC dalla configurazione di Hive. Ad esempio: jdbc:hive2://headnodehost:10001/;transportMode=http.
@@ -347,5 +347,5 @@ L'interfaccia utente Web di Oozie fornisce una visualizzazione basata sul Web de
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Usare Apache Oozie con Apache Hadoop per definire ed eseguire un flusso di lavoro in Azure HDInsight basato su Linux](../hdinsight-use-oozie-linux-mac.md).
+- [Usare Apache Oozie con Apache Hadoop per definire ed eseguire un flusso di lavoro in Azure HDInsight basato su Linux.Use Apache Oozie with Apache Hadoop to define and run a workflow on Linux-based Azure HDInsight](../hdinsight-use-oozie-linux-mac.md).
 - [Connettersi a HDInsight (Hadoop) con SSH](../hdinsight-hadoop-linux-use-ssh-unix.md#authentication-domain-joined-hdinsight).

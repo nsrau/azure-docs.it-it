@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
 ms.openlocfilehash: 22f16a7382cb0fe1f3fe2a6ef5e7c00a6989623c
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67180097"
 ---
 ## <a name="next-steps"></a>Passaggi successivi
@@ -17,7 +17,7 @@ Dopo aver attivato l'integrazione dell'insieme di credenziali delle chiavi di Az
 
 Esistono diversi tipi di crittografia di cui è possibile usufruire:
 
-* [Transparent data encryption (TDE)](https://msdn.microsoft.com/library/bb934049.aspx)
+* [Crittografia dei dati trasparente (TDE)](https://msdn.microsoft.com/library/bb934049.aspx)
 * [Backup crittografati](https://msdn.microsoft.com/library/dn449489.aspx)
 * [Crittografia a livello di colonna (CLE)](https://msdn.microsoft.com/library/ms173744.aspx)
 
@@ -50,7 +50,7 @@ WITH PROVIDER_KEY_NAME = 'KeyName_in_KeyVault',  --The key name here requires th
 CREATION_DISPOSITION = OPEN_EXISTING;
 ```
 
-### <a name="transparent-data-encryption-tde"></a>Transparent data encryption (TDE)
+### <a name="transparent-data-encryption-tde"></a>Transparent Data Encryption (TDE)
 
 1. Creare un account di accesso di SQL Server che può essere usato dal motore di database per la TDE, quindi aggiungere la credenziale.
 

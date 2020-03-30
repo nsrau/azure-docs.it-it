@@ -1,13 +1,13 @@
 ---
-title: Eseguire il rollup di un certificato del cluster di Azure Service Fabric
-description: Informazioni su come eseguire il rollup di un certificato del cluster Service Fabric identificato dal nome comune del certificato.
+title: Eseguire il rollover di un certificato del cluster di Azure Service Fabric
+description: Informazioni su come eseguire il rollover di un certificato cluster di Service Fabric identificato dal nome comune del certificato.
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.openlocfilehash: 94cc6841886b1b0eb4271ac0f727a2e3561e0081
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75451969"
 ---
 # <a name="manually-roll-over-a-service-fabric-cluster-certificate"></a>Eseguire manualmente il rollover del certificato di un cluster di Service Fabric
@@ -73,7 +73,7 @@ Update-AzVmss -ResourceGroupName $VmssResourceGroupName -Name $VmssName -Virtual
 >[!NOTE]
 > I segreti del set di scalabilità di macchine virtuali non supportano lo stesso ID risorsa per due segreti separati, perché ogni segreto è una risorsa univoca con controllo delle versioni. 
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
-* Informazioni sulla [sicurezza del cluster](service-fabric-cluster-security.md).
+* Informazioni sulla [protezione del cluster](service-fabric-cluster-security.md).
 * [Aggiornare e gestire i certificati dei cluster](service-fabric-cluster-security-update-certs-azure.md)

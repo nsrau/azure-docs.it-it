@@ -1,5 +1,5 @@
 ---
-title: Introduzione alla registrazione dei flussi per gruppi
+title: Introduzione alla registrazione del flusso per i gruppi di sicurezza di sicurezza di sicurezza di sistemaIntroduction to flow logging for NSGs
 titleSuffix: Azure Network Watcher
 description: Questo articolo illustra come usare la funzionalità dei log dei flussi dei gruppi di sicurezza di rete di Azure Network Watcher.
 services: network-watcher
@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: fb4a55b9757748581e26f3d6594f9be2139658cb
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78228252"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introduzione alla registrazione dei flussi per i gruppi di sicurezza di rete
@@ -46,12 +46,12 @@ I log dei flussi includono le proprietà seguenti:
 * **operationName**: sempre NetworkSecurityGroupFlowEvents.
 * **properties**: raccolta di proprietà del flusso.
     * **Version**: numero di versione dello schema di eventi del log dei flussi.
-    * **flows**: raccolta di flussi. Questa proprietà ha più voci per regole diverse.
+    * **flows** - Una raccolta di flussi. Questa proprietà ha più voci per regole diverse.
         * **rule**: regola per cui vengono elencati i flussi.
             * **flows**: raccolta di flussi.
                 * **mac**: indirizzo MAC della scheda di interfaccia di rete per la VM in cui è stato raccolto il flusso.
                 * **flowTuples**: stringa che contiene più proprietà per la tupla del flusso nel formato con valori separati da virgole.
-                    * **Timestamp** : questo valore è il timestamp del momento in cui il flusso si è verificato nel formato Epoch UNIX
+                    * **Indicatore di data** e ora - Questo valore è il timestamp di quando il flusso si è verificato nel formato epoca UNIX
                     * **Source IP**: IP di origine.
                     * **Destination IP**: IP di destinazione.
                     * **Source Port**: porta di origine.
@@ -79,20 +79,20 @@ Per gli stati *C* ed *E* del flusso, i conteggi di byte e pacchetti sono contegg
 
 Di seguito è riportato un testo di esempio di log dei flussi. Come si può osservare, più record seguono l'elenco di proprietà descritto nella sezione precedente.
 
-## <a name="nsg-flow-logging-considerations"></a>Considerazioni sulla registrazione del flusso NSG
+## <a name="nsg-flow-logging-considerations"></a>Considerazioni sulla registrazione del flusso del gruppo di sicurezza di gruppo
 
 **Considerazioni sull'account di archiviazione**: 
 
-- Località: l'account di archiviazione usato deve trovarsi nella stessa area del NSG.
-- Rotazione automatica delle chiavi: se si modificano/ruotano le chiavi di accesso all'account di archiviazione, i log di flusso NSG smetteranno di funzionare. Per risolvere questo problema, è necessario disabilitare e quindi riabilitare i log dei flussi di NSG.
+- Percorso: l'account di archiviazione usato deve trovarsi nella stessa area del gruppo di sicurezza di rete.
+- Rotazione automatica delle chiavi: se si modificano/ruotano le chiavi di accesso all'account di archiviazione, i registri di flusso del gruppo di sicurezza di rete smetteranno di funzionare. Per risolvere questo problema, è necessario disattivare e quindi riattivare i registri di flusso del gruppo di sicurezza di rete.
 
-**Abilitare la registrazione del flusso NSG in tutti gruppi collegati a una risorsa**: la registrazione dei flussi in Azure è configurata nella risorsa NSG. Un flusso sarà associato a una sola regola di gruppo di sicurezza di rete. Negli scenari in cui vengono usati più gruppi di sicurezza di rete, è consigliabile abilitare la registrazione dei flussi in tutti i gruppi di sicurezza di rete applicati all'interfaccia di rete o subnet di una risorsa per assicurarsi che tutto il traffico venga registrato. Per altre informazioni [, vedere come viene valutato il traffico](../virtual-network/security-overview.md#how-traffic-is-evaluated) nei gruppi di sicurezza di rete.
+Abilitare la registrazione del flusso del gruppo di sicurezza di rete in tutti i gruppi di sicurezza di rete **collegati a una risorsa:** la registrazione del flusso in Azure è configurata nella risorsa del gruppo di sicurezza di rete. Un flusso sarà associato a una sola regola di gruppo di sicurezza di rete. Negli scenari in cui vengono usati più gruppi di sicurezza di rete, è consigliabile abilitare la registrazione dei flussi in tutti i gruppi di sicurezza di rete applicati all'interfaccia di rete o subnet di una risorsa per assicurarsi che tutto il traffico venga registrato. Per altre informazioni, vedere [come viene valutato il traffico](../virtual-network/security-overview.md#how-traffic-is-evaluated) nei gruppi di sicurezza di rete.
 
-**Costi**per la registrazione dei flussi: la registrazione del flusso NSG viene addebitata sul volume dei log prodotti. Un volume di traffico elevato può avere come effetto un volume elevato dei log dei flussi, con i conseguenti costi associati. I prezzi dei log dei flussi dei gruppi di sicurezza di rete non includono i costi di archiviazione sottostanti. L'uso della funzionalità relativa ai criteri di conservazione con la registrazione del flusso NSG significa sostenere costi di archiviazione separati per periodi di tempo prolungati. Se non è necessario usare la funzionalità dei criteri di conservazione, è consigliabile impostare questo valore su 0. Per ulteriori informazioni, vedere [Network Watcher prezzi](https://azure.microsoft.com/pricing/details/network-watcher/) e [prezzi di archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/) .
+**Costi di registrazione del flusso:** la registrazione del flusso del gruppo di sicurezza di rete viene fatturata nel volume di log prodotti. Un volume di traffico elevato può avere come effetto un volume elevato dei log dei flussi, con i conseguenti costi associati. I prezzi dei log dei flussi dei gruppi di sicurezza di rete non includono i costi di archiviazione sottostanti. L'utilizzo della funzionalità dei criteri di conservazione con la registrazione del flusso del gruppo di sicurezza di rete comporta costi di archiviazione separati per lunghi periodi di tempo. Se non è necessario usare la funzionalità dei criteri di conservazione, è consigliabile impostare questo valore su 0. Per altre informazioni, vedere [Network Watcher Pricing](https://azure.microsoft.com/pricing/details/network-watcher/) e Azure Storage [Pricing](https://azure.microsoft.com/pricing/details/storage/) per altri dettagli.
 
-**Flussi in ingresso registrati da indirizzi IP Internet alle VM senza IP pubblici**: le macchine virtuali che non hanno un indirizzo IP pubblico assegnato tramite un indirizzo IP pubblico associato alla scheda di interfaccia di rete come IP pubblico a livello di istanza o che fanno parte di un pool back-end di bilanciamento del carico di base, usano [SNAT predefiniti](../load-balancer/load-balancer-outbound-connections.md#defaultsnat) e hanno un indirizzo IP assegnato da Azure per semplificare la connettività in uscita. Di conseguenza, è possibile visualizzare le voci del log di flusso per i flussi da indirizzi IP Internet, se il flusso è destinato a una porta nell'intervallo di porte assegnate per SNAT. Sebbene Azure non consenta questi flussi alla macchina virtuale, il tentativo viene registrato e viene visualizzato nel log di flusso NSG di Network Watcher in base alla progettazione. È consigliabile che il traffico Internet in ingresso indesiderato venga bloccato in modo esplicito con NSG.
+**Flussi in ingresso registrati da indirizzi IP Internet a macchine virtuali senza indirizzi**IP pubblici: macchine virtuali che non dispongono di un indirizzo IP pubblico assegnato tramite un indirizzo IP pubblico associato alla scheda di interfaccia di rete come ip pubblico a livello di istanza o che fanno parte di un pool back-end di bilanciamento del carico di base, usano [SNAT predefinito](../load-balancer/load-balancer-outbound-connections.md#defaultsnat) e dispongono di un indirizzo IP assegnato da Azure per facilitare la connettività in uscita. Di conseguenza, è possibile visualizzare le voci del log di flusso per i flussi dagli indirizzi IP Internet, se il flusso è destinato a una porta nell'intervallo di porte assegnate per SNAT. Anche se Azure non consente questi flussi nella macchina virtuale, il tentativo viene registrato e viene visualizzato nel log di flusso del gruppo di sicurezza di rete di Network Watcher in base alla progettazione. È consigliabile bloccare esplicitamente il traffico Internet in ingresso indesiderato con il gruppo di sicurezza di sicurezza di sicurezza di sicurezza di sicurezza di sicurezza di sicurezza di sicurezza di sistema.
 
-**Conteggio di byte e pacchetti non corretti per i flussi**senza stato: i [gruppi di sicurezza di rete (gruppi)](https://docs.microsoft.com/azure/virtual-network/security-overview) vengono implementati come [Firewall con stato](https://en.wikipedia.org/wiki/Stateful_firewall?oldformat=true). Tuttavia, molte regole predefinite/interne che controllano il flusso di traffico vengono implementate in modo senza stato. A causa delle limitazioni della piattaforma, i conteggi di byte e pacchetti non vengono registrati per i flussi senza stato, ovvero i flussi di traffico che passano attraverso regole senza stato, vengono registrati solo per i flussi con stato. Di conseguenza, il numero di byte e i pacchetti segnalati nei log di flusso NSG (e Analisi del traffico) potrebbero essere diversi dai flussi effettivi. Questa limitazione è stata pianificata per la correzione entro il 2020 giugno.
+**Conteggi di byte e pacchetti non corretti per i flussi senza stato:** i gruppi di sicurezza di [rete (NSG)](https://docs.microsoft.com/azure/virtual-network/security-overview) vengono implementati come [firewall con stato](https://en.wikipedia.org/wiki/Stateful_firewall?oldformat=true). Tuttavia molte regole predefinite/interne che controllano il flusso di traffico vengono implementate in modo senza stato. A causa delle limitazioni della piattaforma, i conteggi di byte e pacchetti non vengono registrati per i flussi senza stato (ovvero i flussi di traffico che passano attraverso le regole senza stato), vengono registrati solo per i flussi con stato. Di conseguenza, il numero di byte e pacchetti riportati nei registri di flusso del gruppo di sicurezza di rete (e analisi del traffico) potrebbe essere diverso dai flussi effettivi. Questa limitazione è prevista per essere corretta entro giugno 2020.
 
 ## <a name="sample-log-records"></a>Record di log di esempio
 
@@ -100,7 +100,7 @@ Di seguito è riportato un testo di esempio di log dei flussi. Come si può osse
 
 
 > [!NOTE]
-> I valori della proprietà **flowTuples* sono un elenco delimitato da virgole.
+> I valori nella proprietà*flowTuples* sono un elenco separato da virgole.
  
 ### <a name="version-1-nsg-flow-log-format-sample"></a>Esempio di formato di log di flusso del gruppo di sicurezza di rete versione 1
 ```json
@@ -287,5 +287,5 @@ Di seguito è riportato un testo di esempio di log dei flussi. Come si può osse
 
 - Per informazioni su come abilitare i log dei flussi, vedere l'argomento relativo all'[abilitazione della registrazione dei flussi dei gruppi di sicurezza di rete](network-watcher-nsg-flow-logging-portal.md).
 - Per informazioni su come leggere i log di flusso, vedere [Leggere i log dei flussi del gruppo di sicurezza di rete](network-watcher-read-nsg-flow-logs.md).
-- Per altre informazioni sulla registrazione NSG, vedere [log di monitoraggio di Azure per i gruppi di sicurezza di rete (gruppi)](../virtual-network/virtual-network-nsg-manage-log.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- Per altre informazioni sulla registrazione dei gruppi di sicurezza di rete, vedere Log di Monitoraggio di Azure per i gruppi di sicurezza di [rete.](../virtual-network/virtual-network-nsg-manage-log.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)
 - Per determinare se il traffico è consentito o negato da o verso una macchina virtuale, vedere l'argomento relativo a [come diagnosticare un problema di filtro del traffico di rete di una macchina virtuale](diagnose-vm-network-traffic-filtering-problem.md)

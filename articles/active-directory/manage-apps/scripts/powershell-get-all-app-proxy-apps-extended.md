@@ -1,6 +1,6 @@
 ---
-title: 'Esempio di PowerShell: elencare le informazioni estese per le app del proxy di applicazione'
-description: Esempio di PowerShell che elenca tutte le applicazioni proxy di applicazione Azure Active Directory (Azure AD) insieme all'ID applicazione (AppId), al nome (DisplayName), all'URL esterno (ExternalUrl), all'URL interno (InternalUrl) e al tipo di autenticazione ( ExternalAuthenticationType).
+title: Esempio di PowerShell- Elenca le informazioni estese per le app proxy di applicazione
+description: Esempio di PowerShell in cui sono elencate tutte le applicazioni proxy di applicazione di Azure Active Directory (Azure AD) insieme all'ID applicazione (AppId), al nome (DisplayName), all'URL esterno (ExternalUrl), all'URL interno (InternalUrl) e al tipo di autenticazione ( ExternalAuthenticationType).
 services: active-directory
 author: msmimart
 manager: CelesteDG
@@ -13,15 +13,15 @@ ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f58de8c081dbb0323a2d9638777e29d879172072
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75482140"
 ---
-# <a name="get-all-application-proxy-apps-and-list-extended-information"></a>Ottenere tutte le app proxy di applicazione ed elencare le informazioni estese
+# <a name="get-all-application-proxy-apps-and-list-extended-information"></a>Ottenere tutte le app proxy di applicazione e elencare le informazioni estese
 
-Questo esempio di script di PowerShell elenca le informazioni su tutte le applicazioni proxy di applicazione Azure Active Directory (Azure AD), tra cui ID applicazione (AppId), nome (DisplayName), URL esterno (ExternalUrl), URL interno (InternalUrl) e tipo di autenticazione (ExternalAuthenticationType).
+Questo esempio di script di PowerShell elenca informazioni su tutte le applicazioni proxy di applicazione di Azure Active Directory (Azure AD), inclusi l'ID applicazione (AppId), il nome (DisplayName), l'URL esterno (ExternalUrl), l'URL interno (InternalUrl) e tipo di autenticazione (ExternalAuthenticationType).
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -29,7 +29,7 @@ Questo esempio di script di PowerShell elenca le informazioni su tutte le applic
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
-Per questo esempio è necessario [AzureAD V2 PowerShell for Graph Module](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0) (AzureAD) o [AzureAD V2 PowerShell for Graph Module preview version](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview) (AzureADPreview).
+Questo esempio richiede il [modulo AzureAD V2 PowerShell per Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0) (AzureAD) o la versione di anteprima del modulo [AzureAD V2 PowerShell per Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview) (AzureADPreview).
 
 ## <a name="sample-script"></a>Script di esempio
 
@@ -45,6 +45,6 @@ Per questo esempio è necessario [AzureAD V2 PowerShell for Graph Module](https:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sul modulo Azure AD PowerShell, vedere [Cenni preliminari sui moduli Azure ad PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0).
+Per altre informazioni sul modulo Azure AD PowerShell, vedere Panoramica del modulo Azure AD PowerShell.For more information on the Azure AD PowerShell module, see [Azure AD PowerShell module overview.](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0)
 
-Per altri esempi di PowerShell per il proxy di applicazione, vedere [Azure ad esempi di PowerShell per Azure ad proxy di applicazione](../application-proxy-powershell-samples.md).
+Per altri esempi di PowerShell per il proxy di applicazione, vedere Esempi di [Azure AD PowerShell per](../application-proxy-powershell-samples.md)il proxy di applicazione di Azure AD.

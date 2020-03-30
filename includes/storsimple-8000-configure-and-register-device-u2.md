@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 56514f5dcf4bfe205ef46ee64dcf4dcf638d4f62
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67180352"
 ---
 #### <a name="to-configure-and-register-the-device"></a>Per configurare e registrare il dispositivo
 
 1. Accedere all'interfaccia di Windows PowerShell sulla console seriale del dispositivo StorSimple. Per istruzioni, vedere [Utilizzare PuTTY per connettersi alla console seriale del dispositivo](#use-putty-to-connect-to-the-device-serial-console) . **Assicurarsi di seguire la procedura esattamente o non si sarà in grado di accedere alla console.**
 
-2. Nella sessione che viene aperta premere **INVIO** una volta per visualizzare un prompt dei comandi.
+2. Nella sessione che si apre, premere **INVIO** una volta per ottenere un prompt dei comandi.
 
 3. Verrà richiesto di scegliere la lingua che si desidera impostare per il dispositivo. Specificare la lingua e quindi premere **INVIO**.
 

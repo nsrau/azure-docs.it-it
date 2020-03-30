@@ -1,5 +1,5 @@
 ---
-title: Creare e gestire una macchina virtuale Windows in Azure con Python
+title: Creare e gestire una macchina virtuale Windows in Azure usando PythonCreate and manage a Windows VM in Azure using Python
 description: Informazioni sull'uso di Python per creare e gestire una macchina virtuale Windows in Azure.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/22/2017
 ms.author: cynthn
 ms.openlocfilehash: a85a9c28acd2d50d95159883a01b27c8ed1d2f1a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75461086"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-python"></a>Creare e gestire macchine virtuali Windows in Azure usando Python
@@ -39,8 +39,8 @@ L'esecuzione di questi passaggi richiede circa 20 minuti.
 ## <a name="create-a-visual-studio-project"></a>Creare un progetto di Visual Studio
 
 1. Se non è già installato, installare [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio). Selezionare **Sviluppo Python** nella pagina Carichi di lavoro e quindi fare clic su **Installa**. Nel riepilogo si noti che **Python 3 a 64 bit (3.6.0)** viene selezionato automaticamente. Se Visual Studio è già stato installato, è possibile aggiungere il carico di lavoro Python usando l'utilità di avvio di Visual Studio.
-2. Dopo aver installato e avviato Visual Studio, fare clic su **File** > **Nuovo** > **Progetto**.
-3. Fare clic su **Modelli** > **Python** > **Applicazione Python**, immettere *myPythonProject* come nome del progetto, selezionare il percorso del progetto e quindi fare clic su **OK**.
+2. Dopo l'installazione e l'avvio di Visual Studio, fare clic su **File** > **nuovo** > **progetto**.
+3. Fare clic su **Modelli** > **Applicazione Python** > **Python**, immettere *myPythonProject* come nome del progetto, selezionare il percorso del progetto e quindi fare clic su **OK**.
 
 ## <a name="install-packages"></a>Installare i pacchetti
 
@@ -171,7 +171,7 @@ I [set di disponibilità](tutorial-availability-sets.md) semplificano la manuten
     input('Availability set created. Press enter to continue...')
     ```
 
-Un [indirizzo IP pubblico](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) è necessario per comunicare con la macchina virtuale.
+Per comunicare con la macchina virtuale è necessario [un indirizzo IP pubblico.](../../virtual-network/virtual-network-ip-addresses-overview-arm.md)
 
 1. Per creare un indirizzo IP pubblico per la macchina virtuale, aggiungere questa funzione dopo le variabili nel file con estensione py:
 
@@ -572,6 +572,6 @@ Dal momento che le risorse usate in Azure vengono addebitate, è sempre consigli
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Se si sono verificati problemi con la distribuzione, è consigliabile vedere come [risolvere i problemi della distribuzione di gruppi di risorse con il portale di Azure](../../resource-manager-troubleshoot-deployments-portal.md)
+- Se si sono verificati problemi con la distribuzione, un passaggio successivo consiste nell'esaminare Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse con il portale di AzureIf there were issues with the deployment, a next step would to look at [Troubleshooting resource group deployments with Azure portal](../../resource-manager-troubleshoot-deployments-portal.md)
 - Altre informazioni sulla [libreria Python di Azure](https://docs.microsoft.com/python/api/overview/azure/?view=azure-python)
 

@@ -1,6 +1,6 @@
 ---
-title: Progettare l'archiviazione tabelle di Azure per le query | Microsoft Docs
-description: Progettare tabelle per le query nell'archivio tabelle di Azure.
+title: Progettare l'archiviazione delle tabelle di Azure per le query Documenti Microsoft
+description: Progettare tabelle per le query nell'archiviazione tabelle di Azure.Design tables for queries in Azure Table storage.
 services: storage
 author: MarkMcGeeAtAquent
 ms.service: storage
@@ -9,10 +9,10 @@ ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
 ms.openlocfilehash: 41a588ddc0c1be8014a84d8fe181013d8566f68d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75457635"
 ---
 # <a name="design-for-querying"></a>Progettazione per le query
@@ -39,8 +39,8 @@ I seguenti esempi presuppongono che nel servizio tabelle vengano archiviate enti
 | --- | --- |
 | **PartitionKey** (nome del reparto) |string |
 | **RowKey** (ID dipendente) |string |
-| **FirstName** |string |
-| **LastName** |string |
+| **Firstname** |string |
+| **Lastname** |string |
 | **Age** |Integer |
 | **EmailAddress** |string |
 
@@ -83,7 +83,7 @@ Il servizio tabelle indicizza automaticamente le entità usando i valori **Parti
 
 Molte progettazioni devono soddisfare alcuni requisiti per abilitare la ricerca di entità in base a più criteri, ad esempio trovare le entità dipendente in base a indirizzo di posta elettronica, ID dipendente o cognome. I modelli descritti in [Modelli di progettazione tabelle](table-storage-design-patterns.md) soddisfano questi tipi di requisiti e descrivono come ovviare al fatto che il servizio tabelle non fornisca indici secondari:  
 
-* [Modello per indice secondario intrapartizione](table-storage-design-patterns.md#intra-partition-secondary-index-pattern) - Archivia più copie di ogni entità usando valori **RowKey** diversi (nella stessa partizione) per consentire ricerche rapide ed efficienti e ordinamenti alternativi usando valori **RowKey** diversi.  
+* Modello di [indice secondario tra partizioni:](table-storage-design-patterns.md#intra-partition-secondary-index-pattern) archiviare più copie di ogni entità usando valori **RowKey** diversi (nella stessa partizione) per abilitare ricerche rapide ed efficienti e ordinamenti alternativi usando valori **RowKey** diversi.  
 * [Modello per indice secondario intrapartizione](table-storage-design-patterns.md#inter-partition-secondary-index-pattern) - Archivia più copie di ogni entità usando valori **RowKey** diversi in partizioni separate o in tabelle separate per consentire ricerche rapide ed efficienti e ordinamenti alternativi usando valori **RowKey** diversi.  
 * [Modello per entità di indice](table-storage-design-patterns.md#index-entities-pattern) - Mantiene le entità di indice per consentire ricerche efficienti che restituiscano elenchi di entità.  
 
@@ -98,7 +98,7 @@ In molte applicazioni è necessario usare i dati ordinandoli in modo diverso, ad
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Modelli di progettazione tabella](table-storage-design-patterns.md)
+- [Modelli di progettazione delle tabelle](table-storage-design-patterns.md)
 - [Modellazione di relazioni](table-storage-design-modeling.md)
 - [Crittografia dei dati delle tabelle](table-storage-design-encrypt-data.md)
 - [Progettazione per la modifica dei dati](table-storage-design-for-modification.md)

@@ -1,5 +1,5 @@
 ---
-title: Attività Esegui pipeline in Azure Data Factory
+title: Eseguire l'attività della pipeline in Azure Data FactoryExecute Pipeline Activity in Azure Data Factory
 description: Informazioni su come usare l'attività ExecutePipeline per richiamare una pipeline di Data Factory da un'altra pipeline di Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 26dd7c4f33360030b13ddbfc1516396436724c40
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75440431"
 ---
 # <a name="execute-pipeline-activity-in-azure-data-factory"></a>Attività ExecutePipeline in Azure Data Factory
@@ -59,7 +59,7 @@ L'attività ExecutePipeline consente a una pipeline di Data Factory di richiamar
 
 ## <a name="type-properties"></a>Proprietà del tipo
 
-Proprietà | Description | Valori consentiti | Obbligatorio
+Proprietà | Descrizione | Valori consentiti | Obbligatoria
 -------- | ----------- | -------------- | --------
 name | Nome dell'attività di esecuzione della pipeline. | string | Sì
 type | Deve essere impostata su: **ExecutePipeline**. | string | Sì
@@ -254,7 +254,7 @@ La pipeline master inoltra questi valori alla pipeline richiamata, come illustra
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere altre attività del flusso di controllo supportate da Data Factory: 
 
-- [Attività ForEach](control-flow-for-each-activity.md)
-- [Attività Get Metadata](control-flow-get-metadata-activity.md)
+- [Per ogni attività](control-flow-for-each-activity.md)
+- [Ottenere l'attività dei metadatiGet Metadata Activity](control-flow-get-metadata-activity.md)
 - [Attività Lookup](control-flow-lookup-activity.md)
 - [Attività Web](control-flow-web-activity.md)

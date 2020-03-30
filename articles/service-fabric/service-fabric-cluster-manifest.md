@@ -1,15 +1,15 @@
 ---
-title: Configurare il cluster autonomo di Azure Service Fabric
+title: Configurare il cluster autonomo di Azure Service FabricConfigure your Azure Service Fabric standalone cluster
 description: Informazioni su come configurare un cluster di Azure Service Fabric autonomo o locale.
 author: dkkapur
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: dekapur
 ms.openlocfilehash: 0f9b625dfbe9c39bea7771dcc5fd58805ce19811
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75458369"
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>Impostazioni di configurazione per un cluster autonomo in Windows
@@ -19,9 +19,9 @@ Quando si [scarica il pacchetto di Service Fabric autonomo](service-fabric-clust
 
 * ClusterConfig.Unsecure.DevCluster.json e ClusterConfig.Unsecure.MultiMachine.json mostrano rispettivamente come creare cluster senza protezione per test e produzione.
 
-* ClusterConfig.Windows.DevCluster.jsob e ClusterConfig.Windows.MultiMachine.json mostrano come creare cluster di test o produzione protetti tramite [sicurezza di Windows](service-fabric-windows-cluster-windows-security.md).
+* ClusterConfig.Windows.DevCluster.json e ClusterConfig.Windows.MultiMachine.json mostrano come creare cluster di test o di produzione protetti tramite la sicurezza di [Windows.](service-fabric-windows-cluster-windows-security.md)
 
-* ClusterConfig.X509.DevCluster.json e ClusterConfig.X509.MultiMachine.json mostrano come creare cluster di test o produzione protetti tramite [sicurezza basata su certificato X509](service-fabric-windows-cluster-x509-security.md).
+* ClusterConfig.X509.DevCluster.json e ClusterConfig.X509.MultiMachine.json illustrano come creare cluster di test o di produzione protetti tramite [la protezione basata su certificati X509.](service-fabric-windows-cluster-x509-security.md)
 
 Verranno esaminate ora le diverse sezioni di un file ClusterConfig.json.
 
@@ -62,7 +62,7 @@ Le Configurazioni generali del cluster comprendono le ampie configurazioni speci
 
 Un cluster di Service Fabric deve contenere almeno 3 nodi. È possibile aggiungere più nodi a questa sezione in base alla configurazione. La tabella seguente illustra le impostazioni di configurazione per ogni nodo:
 
-| **Configurazione nodo** | **Descrizione** |
+| **Configurazione nodi** | **Descrizione** |
 | --- | --- |
 | nodeName |È possibile assegnare qualsiasi nome descrittivo al nodo. |
 | iPAddress |Trovare l'indirizzo IP del nodo aprendo una finestra di comando e digitando `ipconfig`. Prendere nota dell'indirizzo IPV4 e assegnarlo alla variabile iPAddress. |
@@ -101,7 +101,7 @@ La variabile metadata descrive la diagnostica del cluster e può essere impostat
 }
 ```
 
-### <a name="security"></a>Sicurezza
+### <a name="security"></a>Security
 La sezione security è necessaria per la protezione di un cluster di Service Fabric autonomo. Il frammento seguente mostra una parte di questa sezione:
 
 ```json
@@ -113,7 +113,7 @@ La sezione security è necessaria per la protezione di un cluster di Service Fab
 }
 ```
 
-La variabile metadata descrive il cluster protetto e può essere impostata in base alla configurazione in uso. ClusterCredentialType e ServerCredentialType determinano il tipo di protezione implementata dal cluster e dai nodi. Possono essere impostate su *X509* per una sicurezza basata su certificato o su *Windows* per la sicurezza basata su Active Directory. Il resto della sezione security sarà basato sul tipo di protezione. Leggere l'articolo sulla [sicurezza basata su certificati in un cluster autonomo](service-fabric-windows-cluster-x509-security.md) o sulla [sicurezza di Windows in un cluster autonomo](service-fabric-windows-cluster-windows-security.md) per informazioni su come compilare il resto della sezione security.
+La variabile metadata descrive il cluster protetto e può essere impostata in base alla configurazione in uso. ClusterCredentialType e ServerCredentialType determinano il tipo di protezione implementata dal cluster e dai nodi. Possono essere impostati su *X509* per una protezione basata su certificati o *su Windows* per la protezione basata su Active Directory. Il resto della sezione security sarà basato sul tipo di protezione. Leggere l'articolo sulla [sicurezza basata su certificati in un cluster autonomo](service-fabric-windows-cluster-x509-security.md) o sulla [sicurezza di Windows in un cluster autonomo](service-fabric-windows-cluster-windows-security.md) per informazioni su come compilare il resto della sezione security.
 
 ### <a name="node-types"></a>Tipi di nodi
 La sezione nodeTypes descrive il tipo di nodi del cluster. Per ogni cluster deve essere specificato almeno un tipo di nodo, come illustrato nel frammento riportato di seguito: 
@@ -193,13 +193,13 @@ Per configurare le funzioni aggiuntive, l'impostazione di apiVersion deve essere
     ]
 }
 ```
-Tutte le funzionalità del componente aggiuntivo disponibili possono essere visualizzate nella Guida di [riferimento all'API REST di Service Fabric](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-addonfeatures).
+Tutte le funzionalità dei componenti aggiuntivi disponibili sono disponibili in [Service Fabric REST API Reference](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-addonfeatures).
 
 ### <a name="container-support"></a>Supporto dei contenitori
 Per abilitare il supporto dei contenitori sia per i contenitori di Windows Server che per i contenitori di Hyper-V per i cluster autonomi, deve essere attivata la funzionalità aggiuntiva DnsService.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Dopo aver creato un file *ClusterConfig.json* completo, configurato in base all'impostazione cluster autonomo, è possibile distribuire il cluster. Eseguire la procedura in [Creare un cluster autonomo di Service Fabric](service-fabric-cluster-creation-for-windows-server.md). 
+Dopo aver configurato un file *ClusterConfig.json* completo in base alla configurazione del cluster autonomo, è possibile distribuire il cluster. Eseguire la procedura in [Creare un cluster autonomo di Service Fabric](service-fabric-cluster-creation-for-windows-server.md). 
 
 Se si dispone di un cluster autonomo distribuito, è anche possibile [aggiornare la configurazione di un cluster autonomo](service-fabric-cluster-config-upgrade-windows-server.md). 
 

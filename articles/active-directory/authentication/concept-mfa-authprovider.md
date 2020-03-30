@@ -1,5 +1,5 @@
 ---
-title: Provider di autenticazione a più fattori di Azure-Azure Active Directory
+title: Azure Multi-Factor Auth Providers - Azure Active Directory
 description: Quando è necessario usare un provider di autenticazione con Azure MFA?
 services: multi-factor-authentication
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a275e5ab394b54960a2340848152741762b28f8c
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78269374"
 ---
 # <a name="when-to-use-an-azure-multi-factor-authentication-provider"></a>Quando usare un provider di Azure Multi-Factor Authentication
@@ -25,7 +25,7 @@ La verifica in due passaggi è disponibile per impostazione predefinita per gli 
 Un provider di Azure Multi-Factor Authentication consente di sfruttare le funzionalità offerte da Azure Multi-Factor Authentication per gli utenti che **non dispongono di licenze**.
 
 > [!NOTE]
-> A partire dal 1 ° settembre 2018 non sarà più possibile creare nuovi provider di autenticazione. I provider di autenticazione esistenti possono continuare a essere usati e aggiornati, ma la migrazione non è più possibile. L'autenticazione a più fattori continuerà a essere disponibile come funzionalità nelle licenze di Azure AD Premium.
+> A partire dal 1 ° settembre 2018 non sarà più possibile creare nuovi provider di autenticazione. I provider di autenticazione esistenti possono continuare a essere utilizzati e aggiornati, ma la migrazione non è più possibile. L'autenticazione a più fattori continuerà a essere disponibile come funzionalità nelle licenze di Azure AD Premium.
 
 ## <a name="caveats-related-to-the-azure-mfa-sdk"></a>Avvertenze relative ad Azure MFA SDK
 
@@ -43,34 +43,34 @@ Se è stato acquistato un numero sufficiente di licenze per tutti gli utenti che
 
 Se il provider di Multi-Factor Authentication non è collegato a un tenant di Azure AD o si collega il nuovo provider di Multi-Factor Authentication a un diverso tenant di Azure AD, le impostazioni utente e le opzioni di configurazione non vengono trasferite. Inoltre, i server Azure MFA esistenti devono essere riattivati usando le credenziali di attivazione generate tramite il provider di MFA.
 
-### <a name="removing-an-authentication-provider"></a>Rimozione di un provider di autenticazione
+### <a name="removing-an-authentication-provider"></a>Rimozione di un provider di autenticazioneRemoving an authentication provider
 
 > [!CAUTION]
-> Non viene confermata l'eliminazione di un provider di autenticazione. La selezione di **Delete** è un processo permanente.
+> Non viene visualizzata alcuna conferma durante l'eliminazione di un provider di autenticazione. Selezionare **Elimina** è un processo permanente.
 
-I provider di autenticazione sono disponibili nella **portale di Azure** > **Azure Active Directory** >  di sicurezza ** > ** **provider**di autenticazione a più fattori. >  Fare clic su provider elencati per visualizzare i dettagli e le configurazioni associate a tale provider.
+I provider di autenticazione sono disponibili nel **portale** > di Azure**Azure Active Directory** > **Security MFA** > **MFA** > **Providers**. Fare clic sui provider elencati per visualizzare i dettagli e le configurazioni associate a tale provider.
 
-Prima di rimuovere un provider di autenticazione, prendere nota delle impostazioni personalizzate configurate nel provider. Decidere quali impostazioni devono essere migrate alle impostazioni di autenticazione a più fattori generali dal provider e completare la migrazione di tali impostazioni. 
+Prima di rimuovere un provider di autenticazione, prendere nota di eventuali impostazioni personalizzate configurate nel provider. Decidere quali impostazioni devono essere migrate alle impostazioni generali dell'autenticazione a più fattori dal provider e completare la migrazione di tali impostazioni. 
 
-I server di autenticazione a più fattori di Azure collegati ai provider dovranno essere riattivati usando le credenziali generate in **portale di Azure** > **Azure Active Directory** > di **sicurezza** > **le impostazioni**dell'autenticazione a più **fattori > ** server. Prima di riattivare, i file seguenti devono essere eliminati dalla directory `\Program Files\Multi-Factor Authentication Server\Data\` nei server di autenticazione a più fattori di Azure nell'ambiente in uso:
+I server Azure MFA collegati ai provider dovranno essere riattivati usando le credenziali generate nelle**impostazioni**del server**dell'autenticazione** > di**sicurezza** > di Azure**Active Directory** > del portale > di **Azure .NET**. Prima di riattivare, i file `\Program Files\Multi-Factor Authentication Server\Data\` seguenti devono essere eliminati dalla directory nei server Azure MFA nell'ambiente:
 
 - caCert
 - cert
 - groupCACert
-- groupKey
-- groupName
-- licenseKey
+- groupKey (chiave di gruppo)
+- Groupname
+- licenseKey (chiave di licenza)
 - pkey
 
-![Eliminare un provider di autenticazione dal portale di Azure](./media/concept-mfa-authprovider/authentication-provider-removal.png)
+![Eliminare un provider di autenticazione dal portale di AzureDelete an auth provider from the Azure portal](./media/concept-mfa-authprovider/authentication-provider-removal.png)
 
-Dopo aver verificato che sia stata eseguita la migrazione di tutte le impostazioni, è possibile passare **al portale di Azure** > **Azure Active Directory** > sicurezza ** > ** **provider** di autenticazione a più fattori e selezionare i puntini di **sospensione e selezionare** **Elimina**. > 
+Dopo aver confermato che tutte le impostazioni sono state migrate, è possibile passare al **portale** > di Azure**Azure Azure Active Directory** > **Security MFA** > **MFA** > **Providers** e selezionare i puntini di sospensione **...** e selezionare **Delete**.
 
 > [!WARNING]
-> L'eliminazione di un provider di autenticazione eliminerà eventuali informazioni di report associate a tale provider. È possibile salvare i report attività prima di eliminare il provider.
+> L'eliminazione di un provider di autenticazione comporta l'eliminazione di tutte le informazioni di report associate a tale provider. È possibile salvare i rapporti attività prima di eliminare il provider.
 
 > [!NOTE]
-> Gli utenti con versioni precedenti dell'app Microsoft Authenticator e del server di autenticazione a più fattori di Azure potrebbero dover registrare nuovamente l'app.
+> Gli utenti con versioni precedenti dell'app Microsoft Authenticator e di Azure MFA Server potrebbero dover registrare nuovamente l'app.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

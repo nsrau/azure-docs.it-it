@@ -12,37 +12,37 @@ ms.topic: article
 ms.date: 03/04/2020
 ms.author: juliako
 ms.openlocfilehash: 3a9568e1a0307cd1713c511ef42c065424306548
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78302883"
 ---
 # <a name="streaming-locators"></a>Localizzatori di streaming
 
-Per rendere i video nell'asset di output disponibili per la riproduzione da parte dei client, è necessario creare un [localizzatore di streaming](https://docs.microsoft.com/rest/api/media/streaminglocators) e quindi definire gli URL di streaming. Per compilare un URL, è necessario concatenare il nome host dell'endpoint di streaming e il percorso del localizzatore di streaming. Per un esempio .NET, vedere [Ottenere un localizzatore di streaming](stream-files-tutorial-with-api.md#get-a-streaming-locator).
+Per rendere i video nell'asset di output disponibili per la riproduzione da parte dei client, è necessario creare un [localizzatore di streaming](https://docs.microsoft.com/rest/api/media/streaminglocators) e quindi definire gli URL di streaming. Per creare un URL, è necessario concatenare il nome host dell'endpoint di streaming e il percorso del localizzatore di streaming. Per un esempio .NET, vedere [Ottenere un localizzatore di streaming](stream-files-tutorial-with-api.md#get-a-streaming-locator).
 
-Il processo di creazione di un **localizzatore di streaming** è detto pubblicazione. Per impostazione predefinita, il **localizzatore di streaming** è valido immediatamente dopo l'esecuzione delle chiamate API e rimane tale finché non viene eliminato, a meno che non si configurino le ore di inizio e fine facoltative. 
+Il processo di creazione di un **localizzatore** di streaming è denominato pubblicazione. Per impostazione predefinita, **il localizzatore** di flusso è valido immediatamente dopo aver eseguito le chiamate API e dura fino a quando non viene eliminato, a meno che non si configurino l'ora di inizio e di fine facoltativa. 
 
-Quando si crea un **localizzatore di streaming**, è necessario specificare un nome di **Asset** e un nome di **criterio di flusso** . Per altre informazioni, vedere gli argomenti seguenti:
+Quando si crea un **localizzatore**di streaming , è necessario specificare un nome **di asset** e un nome di criteri di **streaming.** Per altre informazioni, vedere gli argomenti seguenti:
 
 * [Asset](assets-concept.md)
 * [Criteri di streaming](streaming-policy-concept.md)
 * [Criteri di chiave simmetrica](content-key-policy-concept.md)
 
-È anche possibile specificare l'ora di inizio e di fine nel localizzatore di streaming, che consente all'utente di riprodurre il contenuto tra questi orari, ad esempio tra 5/1/2019 e 5/5/2019.  
+Puoi anche specificare l'ora di inizio e di fine sul localizzatore di streaming, che consentirà solo all'utente di riprodurre il contenuto tra questi orari (ad esempio, tra il 01/05 e il 2019 e il 5/5/2019).  
 
 ## <a name="considerations"></a>Considerazioni
 
-* I **localizzatori di streaming** non sono aggiornabili. 
+* **I localizzatori** di streaming non sono aggiornabili. 
 * Le proprietà dei **localizzatori di streaming** di tipo Datetime sono sempre in formato UTC.
 * È necessario progettare un set limitato di criteri per l'account di Servizi multimediali e riusare questi criteri per i localizzatori di streaming tutte le volte che si devono usare le stesse opzioni. Per altre informazioni, vedere [Quote e limitazioni](limits-quotas-constraints.md).
 
-## <a name="create-streaming-locators"></a>Creare localizzatori di streaming  
+## <a name="create-streaming-locators"></a>Creazione di localizzatori di streaming  
 
 ### <a name="not-encrypted"></a>Non crittografato
 
-Se si vuole trasmettere il file in modo chiaro (non crittografato), impostare i criteri di Clear streaming predefiniti: su' Predefined_ClearStreamingOnly ' (in .NET è possibile usare l'enumerazione PredefinedStreamingPolicy. ClearStreamingOnly).
+Se si desidera trasmettere il file in-the-clear (non crittografato), impostare i criteri di streaming chiaro predefiniti: su 'Predefined_ClearStreamingOnly' (in .NET, è possibile utilizzare l'enumerazione PredefinedStreamingPolicy.ClearStreamingOnly).
 
 ```csharp
 StreamingLocator locator = await client.StreamingLocators.CreateAsync(
@@ -58,7 +58,7 @@ StreamingLocator locator = await client.StreamingLocators.CreateAsync(
 
 ### <a name="encrypted"></a>Crittografato 
 
-Se è necessario crittografare il contenuto con la crittografia CENC, impostare i criteri su' Predefined_MultiDrmCencStreaming '. La crittografia Widevine verrà applicata a un flusso DASH e PlayReady a Smooth. La chiave verrà recapitata a un client di riproduzione in base alle licenze DRM configurate.
+Se è necessario crittografare il contenuto con la crittografia CENC, impostare il criterio su "Predefined_MultiDrmCencStreaming". La crittografia Widevine verrà applicata a un flusso DASH e PlayReady a Smooth. La chiave verrà recapitata a un client di riproduzione in base alle licenze DRM configurate.
 
 ```csharp
 StreamingLocator locator = await client.StreamingLocators.CreateAsync(
@@ -73,27 +73,27 @@ StreamingLocator locator = await client.StreamingLocators.CreateAsync(
     });
 ```
 
-Se si vuole anche crittografare il flusso HLS con CBCS (FairPlay), usare ' Predefined_MultiDrmStreaming '.
+Se vuoi anche crittografare il tuo flusso HLS con CBCS (FairPlay), usa 'Predefined_MultiDrmStreaming'.
 
 > [!NOTE]
 > Widevine è un servizio fornito da Google Inc. e soggetto alle condizioni per l'utilizzo e all'informativa sulla privacy di Google Inc.
 
-## <a name="associate-filters-with-streaming-locators"></a>Associare filtri a localizzatori di streaming
+## <a name="associate-filters-with-streaming-locators"></a>Associare filtri ai localizzatori di flusso
 
-Vedere [filtri: associare i localizzatori di streaming](filters-concept.md#associating-filters-with-streaming-locator).
+Consultate [Filtri: associati ai localizzatori](filters-concept.md#associating-filters-with-streaming-locator)di streaming.
 
-## <a name="filter-order-page-streaming-locator-entities"></a>Entità di filtro, ordine, indicatore di flusso di pagine
+## <a name="filter-order-page-streaming-locator-entities"></a>Filtrare, ordinare, pagina Streaming Locator entità
 
 Vedere [Applicazione di filtri, ordinamento e restituzione di più pagine delle entità di Servizi multimediali](entities-overview.md).
 
-## <a name="list-streaming-locators-by-asset-name"></a>Elencare i localizzatori di streaming per nome di asset
+## <a name="list-streaming-locators-by-asset-name"></a>Elenca i localizzatori di streaming in base al nome dell'assetList Streaming Locators by Asset name
 
-Per ottenere i localizzatori di streaming in base al nome dell'asset associato, usare le operazioni seguenti:
+Per ottenere i localizzatori di streaming in base al nome dell'asset associato, usa le operazioni seguenti:
 
 |Linguaggio|API|
 |---|---|
-|REST|[liststreaminglocators](https://docs.microsoft.com/rest/api/media/assets/liststreaminglocators)|
-|CLI|[AZ AMS Asset List-streaming-Locators](https://docs.microsoft.com/cli/azure/ams/asset?view=azure-cli-latest#az-ams-asset-list-streaming-locators)|
+|REST|[liststreaminglocatori](https://docs.microsoft.com/rest/api/media/assets/liststreaminglocators)|
+|CLI|[az ams asset list-streaming-locators](https://docs.microsoft.com/cli/azure/ams/asset?view=azure-cli-latest#az-ams-asset-list-streaming-locators)|
 |.NET|[ListStreamingLocators](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.assetsoperationsextensions.liststreaminglocators?view=azure-dotnet#Microsoft_Azure_Management_Media_AssetsOperationsExtensions_ListStreamingLocators_Microsoft_Azure_Management_Media_IAssetsOperations_System_String_System_String_System_String_)|
 |Java|[AssetStreamingLocator](https://docs.microsoft.com/rest/api/media/assets/liststreaminglocators#assetstreaminglocator)|
 |Node.js|[listStreamingLocators](https://docs.microsoft.com/javascript/api/@azure/arm-mediaservices/assets#liststreaminglocators-string--string--string--msrest-requestoptionsbase-)|
@@ -103,8 +103,8 @@ Per ottenere i localizzatori di streaming in base al nome dell'asset associato, 
 * [Asset](assets-concept.md)
 * [Criteri di streaming](streaming-policy-concept.md)
 * [Criteri di chiave simmetrica](content-key-policy-concept.md)
-* [Esercitazione: caricare, codificare e trasmettere in streaming video con .NET](stream-files-tutorial-with-api.md)
+* [Esercitazione: Caricare, codificare e riprodurre video in streaming con .NETTutorial: Upload, encode, and stream videos using .NET](stream-files-tutorial-with-api.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Come creare un localizzatore di streaming e gli URL di compilazione](create-streaming-locator-build-url.md)
+[Come creare un localizzatore di streaming e creare URL](create-streaming-locator-build-url.md)

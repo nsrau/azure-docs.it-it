@@ -1,6 +1,6 @@
 ---
-title: Carichi di lavoro del contenitore-Azure Batch
-description: Informazioni su come eseguire e ridimensionare le app dalle immagini del contenitore in Azure Batch. Creare un pool di nodi di calcolo che supporta l'esecuzione di attività contenitore.
+title: Carichi di lavoro del contenitore - Azure BatchContainer workloads - Azure Batch
+description: Informazioni su come eseguire e ridimensionare le app dalle immagini del contenitore in Azure Batch.Learn how to run and scale apps from container images on Azure Batch. Creare un pool di nodi di calcolo che supportano l'esecuzione di attività contenitore.
 services: batch
 author: LauraBrenner
 manager: evansma
@@ -11,10 +11,10 @@ ms.date: 03/02/2020
 ms.author: labrenne
 ms.custom: seodec18
 ms.openlocfilehash: 81f4e753ffbaaefd5761c9396a6533bac9f212c1
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78254832"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Eseguire le applicazioni del contenitore in Azure Batch
@@ -29,7 +29,7 @@ L'uso dei contenitori consente di eseguire le attività Batch in modo semplice s
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* **Versioni di SDK**: gli SDK di Batch supportano le immagini del contenitore nelle versioni seguenti:
+* **Versioni SDK**: Gli SDK batch supportano le immagini del contenitore a partire dalle versioni seguenti:
     * API REST di Batch, versione: 2017-09-01.6.0
     * .NET SDK di Batch, versione 8.0.0
     * Python SDK di Batch, versione 4.0
@@ -52,33 +52,33 @@ Per creare un pool di nodi di calcolo della macchina virtuale per i carichi di l
 
 ### <a name="windows-support"></a>supporto per Windows
 
-Batch supporta immagini di Windows Server con designazioni del supporto per i contenitori. In genere, questi nomi di SKU di immagine sono suffissi `-with-containers` o `-with-containers-smalldisk`. Inoltre, [l'API per elencare tutte le immagini supportate in batch](batch-linux-nodes.md#list-of-virtual-machine-images) denotano una funzionalità `DockerCompatible` se l'immagine supporta i contenitori docker.
+Batch supporta le immagini server Windows con designazioni di supporto del contenitore. In genere questi nomi sku `-with-containers` `-with-containers-smalldisk`immagine sono suffissi con o . Inoltre, [l'API per elencare tutte le immagini supportate in Batch](batch-linux-nodes.md#list-of-virtual-machine-images) denoterà una `DockerCompatible` funzionalità se l'immagine supporta i contenitori Docker.
 
 È anche possibile creare immagini personalizzate da VM che eseguono Docker in Windows.
 
 ### <a name="linux-support"></a>Supporto di Linux
 
-Per i carichi di lavoro del contenitore Linux, batch supporta attualmente le immagini Linux seguenti pubblicate da Microsoft Azure Batch in Azure Marketplace senza la necessità di un'immagine personalizzata.
+Per i carichi di lavoro del contenitore Linux, Batch supporta attualmente le immagini Linux seguenti pubblicate da Microsoft Azure Batch in Azure Marketplace senza la necessità di un'immagine personalizzata.
 
-#### <a name="vm-sizes-without-rdma"></a>Dimensioni delle macchine virtuali senza RDMA
+#### <a name="vm-sizes-without-rdma"></a>Dimensioni delle macchine virtuali senza RDMAVM sizes without RDMA
 
-- Server di pubblicazione: `microsoft-azure-batch`
-  - Offerta: `centos-container`
-  - Offerta: `ubuntu-server-container`
+- Editore:`microsoft-azure-batch`
+  - Offerta:`centos-container`
+  - Offerta:`ubuntu-server-container`
 
-#### <a name="vm-sizes-with-rdma"></a>Dimensioni delle macchine virtuali con RDMA
+#### <a name="vm-sizes-with-rdma"></a>Dimensioni delle macchine virtuali con RDMAVM sizes with RDMA
 
-- Server di pubblicazione: `microsoft-azure-batch`
-  - Offerta: `centos-container-rdma`
-  - Offerta: `ubuntu-server-container-rdma`
+- Editore:`microsoft-azure-batch`
+  - Offerta:`centos-container-rdma`
+  - Offerta:`ubuntu-server-container-rdma`
 
-Queste immagini sono supportate solo per l'uso nei pool di Azure Batch e sono rivolte all'esecuzione del contenitore docker. Forniscono:
+Queste immagini sono supportate solo per l'uso nei pool batch di Azure e sono orientate per l'esecuzione del contenitore Docker.These images are only supported for use in Azure Batch pools and are geared for Docker container execution. Forniscono:
 
-* Un runtime del contenitore [Moby](https://github.com/moby/moby) compatibile con Docker pre-installato
+* Un runtime del contenitore [Moby](https://github.com/moby/moby) compatibile con Docker preinstallato
 
-* Driver GPU NVIDIA preinstallati e runtime del contenitore NVIDIA per semplificare la distribuzione nelle VM serie N di Azure
+* Driver GPU NVIDIA preinstallati e runtime del contenitore NVIDIA, per semplificare la distribuzione nelle macchine virtuali di Serie N di AzurePre-installed NVIDIA GPU drivers and NVIDIA container runtime, to streamline deployment on Azure N-series VMs
 
-* Immagine preinstallata/preconfigurata con supporto per le dimensioni delle VM InfiniBand RDMA per le immagini con il suffisso `-rdma`. Attualmente queste immagini non supportano le dimensioni delle macchine virtuali SR-IOV IB/RDMA.
+* Immagine preinstallata/preconfigurata con supporto per le dimensioni delle macchine `-rdma`virtuali RDMA Infiniband per le immagini con il suffisso . Attualmente queste immagini non supportano le dimensioni delle macchine virtuali SR-IOV IB/RDMA.
 
 È anche possibile creare immagini personalizzate da VM che eseguono Docker in una delle distribuzioni Linux compatibili con Batch. Se si sceglie di inserire l'immagine personalizzata di Linux, vedere le istruzioni in [Usare un'immagine personalizzata gestita per creare un pool di macchine virtuali](batch-custom-images.md).
 
@@ -231,7 +231,7 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 
 Per eseguire un'attività contenitore in un pool abilitato per il contenitore, specificare le impostazioni specifiche per il contenitore. Le impostazioni includono l'immagine da usare, il registro e le opzioni di esecuzione del contenitore.
 
-* Usare la proprietà `ContainerSettings` delle classi di attività per configurare le impostazioni specifiche del contenitore. Queste impostazioni vengono definite dalla classe [TaskContainerSettings](/dotnet/api/microsoft.azure.batch.taskcontainersettings). Si noti che l'opzione del contenitore `--rm` non richiede un'opzione di `--runtime` aggiuntiva perché viene eseguita in base al batch.
+* Usare la proprietà `ContainerSettings` delle classi di attività per configurare le impostazioni specifiche del contenitore. Queste impostazioni vengono definite dalla classe [TaskContainerSettings](/dotnet/api/microsoft.azure.batch.taskcontainersettings). Si noti che l'opzione `--rm` `--runtime` contenitore non richiede un'opzione aggiuntiva poiché viene eseguita tramite Batch.Note that the container option doesn't require an additional option since it is taken to Batch.
 
 * Se si eseguono attività sulle immagini del contenitore, l'[attività cloud](/dotnet/api/microsoft.azure.batch.cloudtask) e l'[attività di gestione dei processi](/dotnet/api/microsoft.azure.batch.cloudjob.jobmanagertask) richiedono le impostazioni del contenitore. Tuttavia, l'[attività di avvio](/dotnet/api/microsoft.azure.batch.starttask), l'[attività di preparazione del processo](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask) e l'[attività di rilascio del processo](/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask) non richiedono le impostazioni dei contenitori, vale a dire che possono essere eseguite in un contesto del contenitore o direttamente nel nodo.
 

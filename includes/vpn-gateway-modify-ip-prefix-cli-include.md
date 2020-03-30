@@ -9,13 +9,13 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: b381c5ad8fd81cd9b7411e1f4679b3f5214e6de9
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67179988"
 ---
-### <a name="noconnection"></a>Per modificare i prefissi degli indirizzi IP del gateway di rete locale senza connessione gateway
+### <a name="to-modify-local-network-gateway-ip-address-prefixes---no-gateway-connection"></a><a name="noconnection"></a>Per modificare i prefissi degli indirizzi IP del gateway di rete locale senza connessione gateway
 
 Se non si ha una connessione gateway e si vogliono aggiungere o rimuovere prefissi degli indirizzi IP, usare lo stesso comando usato per creare il gateway di rete locale, [az network local-gateway create](https://docs.microsoft.com/cli/azure/network/local-gateway). È anche possibile usare questo comando per aggiornare l'indirizzo IP del gateway per il dispositivo VPN. Per sovrascrivere le impostazioni correnti, usare il nome esistente del gateway di rete locale. Se si usa un nome diverso, creare un nuovo gateway di rete locale, invece di sovrascrivere il valore esistente.
 
@@ -25,7 +25,7 @@ Ogni volta che si apporta una modifica, deve essere specificato l'intero elenco 
 az network local-gateway create --gateway-ip-address 23.99.221.164 --name Site2 -g TestRG1 --local-address-prefixes 10.0.0.0/24 20.0.0.0/24
 ```
 
-### <a name="withconnection"></a>Per modificare i prefissi degli indirizzi IP del gateway di rete locale con connessione gateway esistente
+### <a name="to-modify-local-network-gateway-ip-address-prefixes---existing-gateway-connection"></a><a name="withconnection"></a>Per modificare i prefissi degli indirizzi IP del gateway di rete locale con connessione gateway esistente
 
 Se si ha una connessione gateway e si vogliono aggiungere o rimuovere prefissi degli indirizzi IP, è possibile aggiornare i prefissi usando il comando [az network local-gateway update](https://docs.microsoft.com/cli/azure/network/local-gateway). Questo comporterà periodi di inattività per la connessione VPN. Quando si modificano i prefissi degli indirizzi IP, non è necessario eliminare il gateway VPN.
 

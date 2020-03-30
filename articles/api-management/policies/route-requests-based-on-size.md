@@ -1,5 +1,5 @@
 ---
-title: Criteri di gestione API di esempio-indirizzare la richiesta in base alle dimensioni del corpo del messaggio
+title: Criteri di gestione API di esempio - Instradare la richiesta in base alla dimensione del corpo del messaggioSample API management policy - Route request based on size of message body
 titleSuffix: Azure API Management
 description: Esempio di criteri di Gestione API di Azure che illustra come instradare le richieste in base alle dimensioni del corpo della richiesta.
 services: api-management
@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
 ms.openlocfilehash: 8cee2c13386a076f0321619754468cfc1e9fb31c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75442420"
 ---
 # <a name="route-the-request-based-on-the-size-of-its-body"></a>Instradare la richiesta in base alle dimensioni del corpo
 
 Questo articolo offre un esempio di criteri di Gestione API di Azure che illustra come instradare le richieste in base alle dimensioni del corpo della richiesta. Per impostare o modificare il codice dei criteri, seguire la procedura descritta nell'articolo su come [impostare o modificare criteri](../set-edit-policies.md). Per altri esempi, vedere l'articolo relativo agli [esempi di criteri](../policy-samples.md).
 
-## <a name="policy"></a>Criterio
+## <a name="policy"></a>Policy
 
 Incollare il codice nel blocco **inbound**.
 

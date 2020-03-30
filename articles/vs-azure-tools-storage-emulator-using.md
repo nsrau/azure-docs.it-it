@@ -1,6 +1,6 @@
 ---
 title: Configurazione e uso dell'emulatore di archiviazione con Visual Studio | Documentazione Microsoft
-description: Configurazione e uso dell'emulatore di archiviazione, un'utilità che simula i servizi BLOB, di Accodamento e di archiviazione tabelle disponibili in Azure nel computer di sviluppo locale.
+description: Configurazione e utilizzo dell'emulatore di archiviazione, un'utilità che simula i servizi di archiviazione BLOB, coda e tabelle disponibili in Azure nel computer di sviluppo locale.
 services: visual-studio-online
 author: ghogen
 manager: jillfra
@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.date: 8/17/2017
 ms.author: ghogen
 ms.openlocfilehash: a6f853924416cce2440ca15767044029b20e651f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75450735"
 ---
 # <a name="configuring-and-using-the-storage-emulator-with-visual-studio"></a>Configurazione e uso dell'emulatore di archiviazione con Visual Studio
 
 [!INCLUDE [storage-try-azure-tools](../includes/storage-try-azure-tools.md)]
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 
 L'ambiente di sviluppo di Azure SDK include l'emulatore di archiviazione, ovvero un'utilità che simula i servizi BLOB, di coda e di tabella disponibili in Azure nel computer di sviluppo locale. Se si sta compilando un servizio cloud che usa i servizi di archiviazione di Azure o si sta scrivendo una qualsiasi applicazione esterna che chiama i servizi di archiviazione, è possibile testare il codice in locale in relazione all'emulatore di archiviazione. Gli strumenti di Azure per Microsoft Visual Studio integrano la gestione dell'emulatore di archiviazione in Visual Studio. Gli strumenti di Azure inizializzano il database dell'emulatore di archiviazione al primo uso, avviano il servizio dell'emulatore di archiviazione quando si esegue o si sottopone a debug il codice da Visual Studio e forniscono l'accesso di sola lettura ai dati dell'emulatore di archiviazione in Esplora archivi Azure.
 
@@ -41,7 +41,7 @@ Per accedere all'emulatore di archiviazione dal codice in esecuzione in un ruolo
 
 ## <a name="initializing-and-running-the-storage-emulator"></a>Inizializzazione ed esecuzione dell'emulatore di archiviazione
 
-È possibile specificare che quando si esegue o si sottopone a debug il servizio in Visual Studio, quest'ultimo avvii automaticamente l'emulatore di archiviazione. In Esplora soluzioni aprire il menu di scelta rapida per il progetto **Azure** e scegliere **Proprietà**. Nella scheda **Sviluppo** nell'elenco **Avvia l'emulatore di archiviazione di Azure** scegliere **True**, se questo valore non è già impostato.  Alcuni tipi di progetto non hanno la scheda **sviluppo** . In tal caso, è possibile abilitare o disabilitare l'avvio dell'emulatore di archiviazione impostando l'elemento `StartDevelopmentStorage` nel file di progetto. Impostarla su **true** per abilitarla oppure su **false** per disabilitarla.  Ad esempio, in un progetto di funzioni di Azure aprire il file di progetto per la modifica e modificare il codice XML nel modo seguente:
+È possibile specificare che quando si esegue o si sottopone a debug il servizio in Visual Studio, quest'ultimo avvii automaticamente l'emulatore di archiviazione. In Esplora soluzioni aprire il menu di scelta rapida per il progetto **Azure** e scegliere **Proprietà**. Nella scheda **Sviluppo** nell'elenco **Avvia l'emulatore di archiviazione di Azure** scegliere **True** (se non è già impostato su questo valore).  Alcuni tipi di progetto non dispongono della scheda **Sviluppo.** In questo caso, è possibile abilitare o disabilitare `StartDevelopmentStorage` l'avvio dell'emulatore di archiviazione impostando l'elemento nel file di progetto. Impostarlo su **True** per abilitarlo o **su False** per disabilitarlo.  Ad esempio, in un progetto Funzioni di Azure aprire il file di progetto per la modifica e modificare il codice XML come segue:For example, in an Azure Functions project, open the project file for editing and modify the XML code as follows:
 
 ```xml
   <PropertyGroup>

@@ -1,5 +1,5 @@
 ---
-title: Configurare l'accesso con un provider SAML Salesforce usando criteri personalizzati
+title: Configurare l'accesso con un provider SAML Salesforce utilizzando criteri personalizzati
 titleSuffix: Azure AD B2C
 description: Configurare l'accesso con un provider SAML Salesforce usando criteri personalizzati in Azure Active Directory B2C.
 services: active-directory-b2c
@@ -12,17 +12,17 @@ ms.date: 02/27/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 67fe9ef4ad2b025d11f88976973658c9cd8ae693
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78187951"
 ---
 # <a name="set-up-sign-in-with-a-salesforce-saml-provider-by-using-custom-policies-in-azure-active-directory-b2c"></a>Configurare l'accesso con un provider SAML Salesforce usando criteri personalizzati in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Questo articolo illustra come abilitare l'accesso per gli utenti di un'organizzazione Salesforce usando [criteri personalizzati](custom-policy-overview.md) in Azure Active Directory B2C (Azure ad B2C). È possibile abilitare l'accesso aggiungendo [un profilo tecnico SAML](saml-technical-profile.md) a un criterio personalizzato.
+Questo articolo illustra come abilitare l'accesso per gli utenti di un'organizzazione Salesforce usando [criteri personalizzati](custom-policy-overview.md) in Azure Active Directory B2C (Azure AD B2C). È possibile abilitare l'accesso aggiungendo [un profilo tecnico SAML](saml-technical-profile.md) a un criterio personalizzato.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -36,11 +36,11 @@ Questo articolo illustra come abilitare l'accesso per gli utenti di un'organizza
 2. Nel menu a sinistra espandere **Identity** (Identità) in **Settings** (Impostazioni) e quindi selezionare **Identity Provider** (Provider di identità).
 3. Selezionare **Enable Identity Provider** (Abilita provider di identità).
 4. In **Select the certificate** (Selezionare il certificato) selezionare il certificato che si desidera venga usato da Salesforce per comunicare con Azure AD B2C. È possibile usare il certificato predefinito.
-5. Fare clic su **Save**.
+5. Fare clic su **Salva**.
 
 ### <a name="create-a-connected-app-in-salesforce"></a>Creare un'app connessa in Salesforce
 
-1. Nella pagina **provider di identità** selezionare i **provider di servizi vengono ora creati tramite app connesse. Fare clic qui.**
+1. Nella pagina **Provider di identità** selezionare **I provider di servizi vengono ora creati tramite app connesse. Clicca qui.**
 2. In **Basic Information** (Informazioni di base) immettere i valori richiesti per l'app connessa.
 3. In **Web App Settings** (Impostazioni app Web) selezionare la casella **Enable SAML** (Abilita SAML).
 4. Nel campo **Entity ID** (ID entità) immettere l'URL seguente. Assicurarsi di sostituire il valore `your-tenant` con il nome del tenant di Azure AD B2C.
@@ -88,7 +88,7 @@ Export-PfxCertificate -Cert $Cert -FilePath .\B2CSigningCert.pfx -Password $pwd
 
 È necessario archiviare il certificato creato nel tenant di Azure AD B2C.
 
-1. Accedere al [portale di Azure](https://portal.azure.com/).
+1. Accedere al [portale](https://portal.azure.com/)di Azure .
 2. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C. A tale scopo, fare clic sul filtro **Directory e sottoscrizione** nel menu in alto e scegliere la directory che contiene il tenant.
 3. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Azure AD B2C**.
 4. Nella pagina Panoramica selezionare **Framework dell'esperienza di gestione delle identità**.
@@ -103,7 +103,7 @@ Export-PfxCertificate -Cert $Cert -FilePath .\B2CSigningCert.pfx -Password $pwd
 
 Per consentire agli utenti di accedere con un account Salesforce, è necessario definire l'account come provider di attestazioni con cui Azure AD B2C possa comunicare tramite un endpoint. L'endpoint offre un set di attestazioni che vengono usate da Azure AD B2C per verificare se un utente specifico è stato autenticato.
 
-È possibile definire un account Salesforce come provider di attestazioni aggiungendolo all'elemento **ClaimsProviders** nel file di estensione dei criteri. Per altre informazioni, vedere [definire un profilo tecnico SAML](saml-technical-profile.md).
+È possibile definire un account Salesforce come provider di attestazioni aggiungendolo all'elemento **ClaimsProviders** nel file di estensione dei criteri. Per ulteriori informazioni, consultate [Definire un profilo tecnico SAML.](saml-technical-profile.md)
 
 1. Aprire *TrustFrameworkExtensions.xml*.
 1. Trovare l'elemento **ClaimsProviders**. Se non esiste, aggiungerlo nell'elemento radice.
@@ -150,7 +150,7 @@ Per consentire agli utenti di accedere con un account Salesforce, è necessario 
 
 1. Aggiornare il valore di **PartnerEntity** con l'URL dei metadati di Salesforce copiato in precedenza.
 1. Aggiornare il valore di entrambe le istanze di **StorageReferenceId** con il nome della chiave del certificato di firma. Ad esempio, B2C_1A_SAMLSigningCert.
-1. Individuare la sezione `<ClaimsProviders>` e aggiungere il frammento di codice XML seguente. Se il criterio contiene già il `SM-Saml-idp` profilo tecnico, andare al passaggio successivo. Per ulteriori informazioni, vedere [Single Sign-on Session Management](custom-policy-reference-sso.md).
+1. Individuare `<ClaimsProviders>` la sezione e aggiungere il frammento XML seguente. Se il criterio `SM-Saml-idp` contiene già il profilo tecnico, andare al passaggio successivo. Per ulteriori informazioni, vedere [Single Sign-On session management](custom-policy-reference-sso.md).
 
     ```XML
     <ClaimsProvider>
@@ -215,7 +215,7 @@ Ora che il pulsante è stato posizionato, è necessario collegarlo a un'azione. 
 
 ## <a name="create-an-azure-ad-b2c-application"></a>Creare un'applicazione Azure AD B2C
 
-La comunicazione con Azure AD B2C avviene tramite un'applicazione registrata nel tenant B2C. Questa sezione elenca i passaggi facoltativi che è possibile completare per creare un'applicazione di test, se non è già stato fatto.
+La comunicazione con Azure AD B2C avviene tramite un'applicazione che viene eseguita nella registrazione nel tenant B2C. Questa sezione elenca i passaggi facoltativi che è possibile completare per creare un'applicazione di test, se non è già stato fatto.
 
 [!INCLUDE [active-directory-b2c-appreg-idp](../../includes/active-directory-b2c-appreg-idp.md)]
 

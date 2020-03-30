@@ -1,6 +1,6 @@
 ---
 title: Uso di PowerShell per Gestione traffico in Azure
-description: Con questo percorso di apprendimento, iniziare a usare Azure PowerShell per gestione traffico.
+description: Con questo percorso di apprendimento, iniziare a usare Azure PowerShell per Gestione traffico.
 services: traffic-manager
 documentationcenter: na
 author: rohinkoul
@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: rohink
 ms.openlocfilehash: 7886764a69eefa68be071a801bea65ae995fbdc3
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76938507"
 ---
 # <a name="using-powershell-to-manage-traffic-manager"></a>Uso di PowerShell per Gestione traffico
@@ -59,7 +59,7 @@ $TmProfile = New-AzTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG
 
 La tabella seguente descrive i parametri:
 
-| Parametro | Description |
+| Parametro | Descrizione |
 | --- | --- |
 | Nome |Il nome della risorsa per la risorsa del profilo di Gestione traffico. I profili dello stesso gruppo di risorse devono disporre di nomi univoci. Tale nome è diverso rispetto a quello DNS utilizzato per le query DNS. |
 | ResourceGroupName |Il nome del gruppo di risorse che include la risorsa del profilo. |
@@ -125,7 +125,7 @@ In ogni caso:
 * "Weight" è facoltativo ed è possibile scegliere se specificarlo. I pesi vengono usati solo se il profilo è configurato per l'uso del metodo di routing del traffico "Weighted". In caso contrario, vengono ignorate. Il valore deve essere un numero compreso tra 1 e 1000. il cui valore predefinito è 1.
 * "Priority" è facoltativo ed è possibile scegliere se specificarlo. Le priorità vengono usate solo se il profilo è configurato per l'uso del metodo di routing del traffico "Priority". In caso contrario, vengono ignorate. I valori validi sono compresi tra 1 e 1000 con i valori più bassi che indicano una priorità più alta. Se si specifica questo valore per un endpoint, sarà necessario specificarlo per tutti gli endpoint. Se questo valore viene omesso, verranno applicati i valori predefiniti a partire da "1" nell'ordine in cui sono elencati gli endpoint.
 
-### <a name="example-1-adding-app-service-endpoints-using-add-aztrafficmanagerendpointconfig"></a>Esempio 1: aggiunta di endpoint del servizio app con `Add-AzTrafficManagerEndpointConfig`
+### <a name="example-1-adding-app-service-endpoints-using-add-aztrafficmanagerendpointconfig"></a>Esempio 1: Aggiunta di endpoint del servizio app tramite Example 1: Adding App Service endpoints using`Add-AzTrafficManagerEndpointConfig`
 
 In questo esempio viene creato un profilo di Gestione traffico e vengono aggiunti due endpoint di servizio app usando il cmdlet `Add-AzTrafficManagerEndpointConfig`.
 
@@ -210,7 +210,7 @@ New-AzTrafficManagerEndpoint -Name child-endpoint -ProfileName parent -ResourceG
 
 ## <a name="adding-endpoints-from-another-subscription"></a>Aggiunta di endpoint da un'altra sottoscrizione
 
-Gestione traffico può usare endpoint da sottoscrizioni diverse. È necessario passare alla sottoscrizione con l'endpoint da aggiungere per recuperare l'input necessario in Gestione traffico. Sarà quindi necessario passare alle sottoscrizioni con il profilo di gestione traffico e aggiungervi l'endpoint. L'esempio seguente mostra come eseguire questa operazione con un indirizzo IP pubblico.
+Gestione traffico può usare endpoint da sottoscrizioni diverse. È necessario passare alla sottoscrizione con l'endpoint da aggiungere per recuperare l'input necessario in Gestione traffico. È quindi necessario passare alle sottoscrizioni con il profilo Gestione traffico e aggiungervi l'endpoint. L'esempio seguente mostra come eseguire questa operazione con un indirizzo IP pubblico.
 
 ```powershell
 Set-AzContext -SubscriptionId $EndpointSubscription
