@@ -1,15 +1,15 @@
 ---
-title: Elemento TextBox dell'interfaccia utente
-description: Illustra l'elemento Microsoft.Common.TextBox dell'interfaccia utente per il portale di Azure. Usare per aggiungere testo non formattato.
+title: Elemento dell'interfaccia utente TextBox
+description: Illustra l'elemento Microsoft.Common.TextBox dell'interfaccia utente per il portale di Azure. Utilizzare per aggiungere testo non formattato.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: tomfitz
 ms.openlocfilehash: e9f084badda9ea1905e43c6f00b29aaf957a6dbd
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75652281"
 ---
 # <a name="microsoftcommontextbox-ui-element"></a>Elemento Microsoft.Common.TextBox dell'interfaccia utente

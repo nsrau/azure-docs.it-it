@@ -1,6 +1,6 @@
 ---
 title: Schema di Griglia di eventi di Azure per l'hub IoT | Microsoft Docs
-description: Questo articolo illustra le proprietà e lo schema per gli eventi dell'hub IoT di Azure. Vengono elencati i tipi di evento disponibili, un evento di esempio e le proprietà dell'evento.
+description: Questo articolo illustra le proprietà e lo schema per gli eventi dell'hub IoT di Azure. Elenca i tipi di evento disponibili, un evento di esempio e le proprietà dell'evento.
 services: iot-hub
 documentationcenter: ''
 author: kgremban
@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 01/21/2020
 ms.author: kgremban
 ms.openlocfilehash: cfbd46ad961bd1dc914bae98e761cd83d445ff88
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76513032"
 ---
 # <a name="azure-event-grid-event-schema-for-iot-hub"></a>Schema di eventi di Griglia di eventi di Azure per l'hub IoT
@@ -27,15 +27,15 @@ Per un elenco di esercitazioni e script di esempio, vedere l'[origine eventi Hub
 
 L'hub IoT genera i tipi di eventi seguenti:
 
-| Tipo di evento | Description |
+| Tipo di evento | Descrizione |
 | ---------- | ----------- |
 | Microsoft.Devices.DeviceCreated | Pubblicato quando un dispositivo viene registrato in un hub IoT. |
 | Microsoft.Devices.DeviceDeleted | Pubblicato quando un dispositivo viene eliminato da un hub IoT. | 
 | Microsoft.Devices.DeviceConnected | Pubblicato quando un dispositivo è connesso a un hub IoT. |
 | Microsoft.Devices.DeviceDisconnected | Pubblicato quando un dispositivo è disconnesso da un hub IoT. | 
-| Microsoft.Devices.DeviceTelemetry | Pubblicato quando un messaggio di telemetria viene inviato a un hub Internet. |
+| Microsoft.Devices.DeviceTelemetry | Pubblicato quando un messaggio di telemetria viene inviato a un hub IoT.Published when a telemetry message is sent to an IoT hub. |
 
-Tutti gli eventi dispositivo tranne gli eventi di telemetria del dispositivo sono disponibili a livello generale in tutte le aree supportate da griglia di eventi. L'evento di telemetria del dispositivo è in anteprima pubblica ed è disponibile in tutte le aree, ad eccezione degli Stati Uniti orientali, Stati Uniti occidentali, Europa occidentale, [Azure per enti pubblici](../azure-government/documentation-government-welcome.md), [Azure Cina 21ViaNet](/azure/china/china-welcome)e [Azure Germania](https://azure.microsoft.com/global-infrastructure/germany/).
+Tutti gli eventi del dispositivo, ad eccezione degli eventi di telemetria del dispositivo, sono in genere disponibili in tutte le aree supportate da Griglia di eventi. L'evento di telemetria del dispositivo è in anteprima pubblica ed è disponibile in tutte le aree ad eccezione di Stati Uniti orientali, Stati Uniti occidentali, Europa occidentale, [Azure per enti pubblici,](../azure-government/documentation-government-welcome.md) [Azure China 21Vianet](/azure/china/china-welcome)e [Azure Germania.](https://azure.microsoft.com/global-infrastructure/germany/)
 
 ## <a name="example-event"></a>Evento di esempio
 
@@ -62,7 +62,7 @@ Lo schema per gli eventi DeviceConnected e DeviceDisconnected ha la stessa strut
 }]
 ```
 
-L'evento DeviceTelemetry viene generato quando un evento di telemetria viene inviato a un hub Internet. Di seguito è riportato uno schema di esempio per questo evento.
+L'evento DeviceTelemetry viene generato quando un evento di telemetria viene inviato a un hub IoT.The DeviceTelemetry event is raised when a telemetry event is sent to an IoT Hub. Di seguito è riportato uno schema di esempio per questo evento.
 
 ```json
 [{
@@ -148,7 +148,7 @@ Lo schema per gli eventi DeviceCreated e DeviceDeleted ha la stessa struttura. Q
 
 Tutti gli eventi contengono gli stessi dati di livello principale: 
 
-| Proprietà | Tipo | Description |
+| Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
 | id | string | Identificatore univoco dell'evento. |
 | argomento | string | Percorso risorsa completo dell'origine evento. Questo campo non è scrivibile. Questo valore viene fornito da Griglia di eventi. |
@@ -161,7 +161,7 @@ Tutti gli eventi contengono gli stessi dati di livello principale:
 
 Per tutti gli eventi dell'hub IoT, l'oggetto dati contiene le proprietà seguenti:
 
-| Proprietà | Tipo | Description |
+| Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
 | hubName | string | Nome dell'hub IoT in cui il dispositivo è stato creato o eliminato. |
 | deviceId | string | Identificatore univoco del dispositivo. Questa stringa con distinzione tra maiuscole e minuscole può avere una lunghezza di massimo 128 caratteri e supporta i caratteri alfanumerici ASCII a 7 bit e i caratteri speciali seguenti: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
@@ -170,23 +170,23 @@ Il contenuto dell'oggetto dati è diverso per ogni autore di eventi.
 
 Per gli eventi **Device Connected** e **Device Disconnected** dell'hub IoT, l'oggetto dati contiene le proprietà seguenti:
 
-| Proprietà | Tipo | Description |
+| Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
 | moduleId | string | Identificatore univoco del modulo. Questo è un campo di output solo per i dispositivi di modulo. Questa stringa con distinzione tra maiuscole e minuscole può avere una lunghezza di massimo 128 caratteri e supporta i caratteri alfanumerici ASCII a 7 bit e i caratteri speciali seguenti: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
 | deviceConnectionStateEventInfo | object | Informazioni sugli eventi dello stato di connessione del dispositivo
 | sequenceNumber | string | Numero che consente di indicare l'ordine degli eventi correlati a dispositivi connessi o disconnessi. All'evento più recente è associato un numero di sequenza maggiore di quello dell'evento precedente. Questo numero potrebbe cambiare in incrementi maggiori di 1, ma è strettamente in aumento. Vedere [come usare il numero di sequenza](../iot-hub/iot-hub-how-to-order-connection-state-events.md). |
 
-Per l'evento dell'hub Internet per la **telemetria del dispositivo** , l'oggetto dati contiene il messaggio da dispositivo a cloud nel [formato dei messaggi dell'hub](../iot-hub/iot-hub-devguide-messages-construct.md) Internet e presenta le proprietà seguenti:
+Per l'evento dell'hub IoT **di telemetria del** dispositivo, l'oggetto dati contiene il messaggio da dispositivo a cloud nel formato del [messaggio dell'hub IoT](../iot-hub/iot-hub-devguide-messages-construct.md) e ha le proprietà seguenti:
 
-| Proprietà | Tipo | Description |
+| Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
 | Corpo | string | Contenuto del messaggio dal dispositivo. |
 | properties | string | Le proprietà dell'applicazione sono stringhe definite dall'utente che è possibile aggiungere al messaggio. Questi campi sono facoltativi. |
-| Proprietà di sistema | string | Le [proprietà di sistema](../iot-hub/iot-hub-devguide-routing-query-syntax.md#system-properties) consentono di identificare il contenuto e l'origine dei messaggi. Il messaggio di telemetria del dispositivo deve essere in un formato JSON valido con contentType impostato su JSON e contentEncoding impostato su UTF-8 nelle proprietà del sistema del messaggio. Se questo non è impostato, l'hub Internet scriverà i messaggi nel formato con codifica base 64.  |
+| proprietà di sistema | string | [Le proprietà di sistema](../iot-hub/iot-hub-devguide-routing-query-syntax.md#system-properties) consentono di identificare il contenuto e l'origine dei messaggi. Il messaggio di telemetria del dispositivo deve essere in un formato JSON valido con contentType impostato su JSON e contentEncoding impostato su UTF-8 nelle proprietà del sistema di messaggi. Se questo non è impostato, hub IoT scriverà i messaggi in formato codificato in base 64.  |
 
 Per gli eventi **Device Created** e **Device Deleted** dell'hub IoT, l'oggetto dati contiene le proprietà seguenti:
 
-| Proprietà | Tipo | Description |
+| Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
 | twin | object | Informazioni sul dispositivo gemello, ovvero la rappresentazione cloud dei metadati del dispositivo dell'applicazione. | 
 | deviceID | string | Identificatore univoco del dispositivo gemello. | 

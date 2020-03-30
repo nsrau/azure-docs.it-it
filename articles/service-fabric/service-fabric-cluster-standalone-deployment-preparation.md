@@ -1,26 +1,26 @@
 ---
-title: Preparazione della distribuzione di cluster autonomi
+title: Preparazione della distribuzione del cluster autonomo
 description: Documentazione relativa alla preparazione dell'ambiente e alla creazione della configurazione del cluster, da esaminare prima di distribuire un cluster progettato per gestire un carico di lavoro di produzione.
 author: dkkapur
 ms.topic: conceptual
 ms.date: 9/11/2018
 ms.author: dekapur
 ms.openlocfilehash: 6a00b7d1b72d594c08021982b2448de6275414c8
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75610064"
 ---
 # <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>Pianificare e preparare la distribuzione del cluster autonomo di Service Fabric
 
-<a id="preparemachines"></a>Eseguire i passaggi seguenti prima di creare il cluster.
+<a id="preparemachines"></a>I passaggi seguenti devono essere eseguiti prima di creare il cluster.
 
 ## <a name="plan-your-cluster-infrastructure"></a>Pianificazione dell'infrastruttura del cluster
 Prima di creare un cluster di Service Fabric sui propri computer, è possibile stabilire da quali tipi di errore il cluster non deve essere compromesso. Ad esempio, sono necessarie linee di alimentazione o connessioni Internet separate per queste macchine? È necessario inoltre considerare la sicurezza fisica di tali macchine. Dove si trovano le macchine e chi ha bisogno di accedervi? Dopo aver preso queste decisioni, è possibile eseguire il mapping logico delle macchine ai vari domini di errore (vedere il passaggio successivo). La pianificazione dell'infrastruttura per i cluster di produzione è più complicata rispetto ai cluster di test.
 
 ## <a name="determine-the-number-of-fault-domains-and-upgrade-domains"></a>Identificazione del numero di domini di errore e di aggiornamento
-Un [*dominio di errore*](service-fabric-cluster-resource-manager-cluster-description.md) è un'unità fisica di errore ed è direttamente correlato all'infrastruttura fisica nei data center. È costituito da componenti hardware (computer, commutatori, rete e altro) che condividono un singolo punto di guasto. Sebbene non sia presente una mappatura 1:1 tra domini di errore e rack, ogni rack può essere considerato in senso lato un dominio di errore.
+Un dominio di [ *errore* (FD)](service-fabric-cluster-resource-manager-cluster-description.md) è un'unità fisica di errore ed è direttamente correlato all'infrastruttura fisica nei data center. È costituito da componenti hardware (computer, commutatori, rete e altro) che condividono un singolo punto di guasto. Sebbene non sia presente una mappatura 1:1 tra domini di errore e rack, ogni rack può essere considerato in senso lato un dominio di errore.
 
 Quando si specificano domini di errore nel file ClusterConfig.json, è possibile scegliere il nome di ogni dominio di errore. Il Service Fabric supporta i domini di errore gerarchici, in modo che possano rispecchiare la topologia infrastrutturale.  Di seguito sono riportati esempi di domini di errore validi:
 
@@ -57,11 +57,11 @@ Di seguito sono indicate le specifiche per ogni computer da aggiungere al cluste
 * Un minimo di 40 GB di spazio disponibile su disco
 * CPU 4 core o superiore
 * Connessione a una o più reti protette per tutti i computer
-* Sistema operativo Windows Server installato (versioni valide: 2012 R2, 2016, 1709 o 1803). Service Fabric versione 6.4.654.9590 e successive supporta anche server 2019 e 1809.
-* [.NET Framework 4.5.1 o versione successiva](https://www.microsoft.com/download/details.aspx?id=40773), installazione completa
+* Sistema operativo Windows Server installato (versioni valide: 2012 R2, 2016, 1709 o 1803). Service Fabric versione 6.4.654.9590 e successive supporta anche Server 2019 e 1809.
+* [.NET Framework 4.5.1 o versione successiva,](https://www.microsoft.com/download/details.aspx?id=40773)installazione completa
 * [Windows PowerShell 3.0](https://msdn.microsoft.com/powershell/scripting/install/installing-windows-powershell)
-* Il [servizio RemoteRegistry](https://technet.microsoft.com/library/cc754820) deve essere eseguito in tutti i computer.
-* Service Fabric unità di installazione deve essere un file system NTFS
+* Il [servizio RemoteRegistry](https://technet.microsoft.com/library/cc754820) deve essere in esecuzione su tutti i computer
+* L'unità di installazione di Service Fabric deve essere NTFS File System
 
 L'amministratore del cluster che distribuisce e configura il cluster deve disporre dei [privilegi di amministratore](https://social.technet.microsoft.com/wiki/contents/articles/13436.windows-server-2012-how-to-add-an-account-to-a-local-administrator-group.aspx) in ogni computer. Non è possibile installare Service Fabric in un controller di dominio.
 
@@ -78,8 +78,8 @@ Aprire uno dei file ClusterConfig.json del pacchetto scaricato e modificare le i
 
 | **Impostazioni di configurazione** | **Descrizione** |
 | --- | --- |
-| **NodeTypes** |I tipi di nodo permettono di separare i nodi del cluster in diversi gruppi. Un cluster deve avere almeno un NodeType. Tutti i nodi in un gruppo possiedono le seguenti caratteristiche comuni: <br> **Nome** : il nome del tipo di nodo. <br>**Porte di endpoint** : endpoint con nomi diversi (porte) associati a questo tipo di nodo. È possibile usare qualsiasi numero di porta desiderato, purché non entri in conflitto con qualsiasi altro nel manifesto e non sia già utilizzato da un'altra applicazione eseguita nel computer/VM. <br> **Proprietà di posizionamento**: descrivono proprietà per questo tipo di nodo usate come vincoli di posizionamento per i servizi di sistema o i servizi dell'utente. Queste proprietà sono coppie chiave-valore definite dall'utente che forniscono metadati aggiuntivi per un determinato nodo. Le proprietà del nodo possono includere ad esempio la presenza di un disco rigido o di una scheda grafica, il numero di spindle nel disco rigido, le memorie centrali e altre proprietà fisiche. <br> **Capacità** : le capacità del nodo definiscono il nome e la quantità di una particolare risorsa utilizzabile da parte di un determinato nodo. Ad esempio, un nodo può definire la propria capacità per una metrica denominata "MemoryInMb" con un valore predefinito di 2048 MB di memoria disponibile. Queste capacità vengono usate in fase di esecuzione per garantire che i servizi che richiedono una determinata quantità di risorse vengano inseriti nei nodi in cui tali risorse sono disponibili nelle quantità richieste.<br>**IsPrimary** : se sono definiti più NodeType, verificare che solo uno sia impostato come primario, con il valore *true*, ovvero quello in cui vengono eseguiti i servizi di sistema. Tutti gli altri tipi di nodo devono essere impostati sul valore *false* |
-| **Nodi** |Questi sono i dettagli per ciascun nodo che farà parte del cluster (tipo di nodo, nome del nodo, indirizzo IP, dominio di errore e dominio di aggiornamento del nodo). I computer in cui si vuole creare il cluster devono essere elencati in questa sezione con il relativo indirizzo IP. <br> Se si usa lo stesso indirizzo IP per tutti i nodi, viene creato un cluster di una casella che può essere usato per scopi di test. Non usare cluster di una casella per la distribuzione dei carichi di lavoro di produzione. |
+| **NodeTypes** |I tipi di nodo permettono di separare i nodi del cluster in diversi gruppi. Un cluster deve avere almeno un NodeType. Tutti i nodi in un gruppo possiedono le seguenti caratteristiche comuni:  <br> **Nome** : il nome del tipo di nodo. <br>**Porte di endpoint** : endpoint con nomi diversi (porte) associati a questo tipo di nodo. È possibile usare qualsiasi numero di porta desiderato, purché non entri in conflitto con qualsiasi altro nel manifesto e non sia già utilizzato da un'altra applicazione eseguita nel computer/VM. <br> **Proprietà di posizionamento**: descrivono proprietà per questo tipo di nodo usate come vincoli di posizionamento per i servizi di sistema o i servizi dell'utente. Queste proprietà sono coppie chiave-valore definite dall'utente che forniscono metadati aggiuntivi per un determinato nodo. Le proprietà del nodo possono includere ad esempio la presenza di un disco rigido o di una scheda grafica, il numero di spindle nel disco rigido, le memorie centrali e altre proprietà fisiche. <br> **Capacità** : le capacità del nodo definiscono il nome e la quantità di una particolare risorsa utilizzabile da parte di un determinato nodo. Ad esempio, un nodo può definire la propria capacità per una metrica denominata "MemoryInMb" con un valore predefinito di 2048 MB di memoria disponibile. Queste capacità vengono usate in fase di esecuzione per garantire che i servizi che richiedono una determinata quantità di risorse vengano inseriti nei nodi in cui tali risorse sono disponibili nelle quantità richieste.<br>**IsPrimary** : se sono definiti più NodeType, verificare che solo uno sia impostato come primario, con il valore *true*, ovvero quello in cui vengono eseguiti i servizi di sistema. Tutti gli altri tipi di nodo devono essere impostati sul valore *false* |
+| **Nodi** |Questi sono i dettagli per ciascun nodo che farà parte del cluster (tipo di nodo, nome del nodo, indirizzo IP, dominio di errore e dominio di aggiornamento del nodo). I computer in cui si vuole creare il cluster devono essere elencati in questa sezione con il relativo indirizzo IP. <br>  Se si usa lo stesso indirizzo IP per tutti i nodi, viene creato un cluster di una casella che può essere usato per scopi di test. Non usare cluster di una casella per la distribuzione dei carichi di lavoro di produzione. |
 
 Dopo che tutte le impostazioni sono state configurate per l'ambiente nella configurazione del cluster, è possibile eseguire il test nell'ambiente del cluster (passaggio 7).
 
@@ -101,8 +101,8 @@ Quando un amministratore di cluster configura un cluster autonomo di Service Fab
 3. Nessuna delle macchine ai nodi del cluster deve essere un controller di dominio.
 4. Se il cluster da distribuire è protetto, convalidare che i prerequisiti di sicurezza necessari siano corretti e che siano stati configurati correttamente in base alla configurazione.
 5. Se i computer del cluster non sono accessibili da Internet, impostare quanto segue nella configurazione del cluster:
-   * Disabilitare la telemetria: in *Properties* impostare *"enableTelemetry": false*
-   * Disabilitare la versione di Fabric automatica che Scarica & notifiche che la versione corrente del cluster è prossima alla fine del supporto: in *Properties* impostare *"fabricClusterAutoupgradeEnabled": false*
+   * Disabilitare la telemetria: nelle proprietà impostate *"enableTelemetry": falseDisable* telemetry: Under *properties* set "enableTelemetry": false
+   * Disabilitare il download automatico della versione di Infrastruttura & notifiche che la versione del cluster corrente sta per terminare il supporto: nelle *proprietà* impostare *"fabricClusterAutoupgradeEnabled": false*
    * In alternativa, se l'accesso a Internet dalla rete è limitato ai domini consentiti, i domini seguenti sono necessari per l'aggiornamento automatico: go.microsoft.com download.microsoft.com
 
 6. Impostare le esclusioni antivirus di Service Fabric appropriate:

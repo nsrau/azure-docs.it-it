@@ -1,15 +1,15 @@
 ---
-title: Elemento DropDown dell'interfaccia utente
-description: Illustra l'elemento Microsoft.Common.DropDown dell'interfaccia utente per il portale di Azure. Consente di selezionare le opzioni disponibili durante la distribuzione di un'applicazione gestita.
+title: Elemento dell'interfaccia utente DropDown
+description: Illustra l'elemento Microsoft.Common.DropDown dell'interfaccia utente per il portale di Azure. Consente di selezionare una delle opzioni disponibili quando si distribuisce un'applicazione gestita.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: tomfitz
 ms.openlocfilehash: a09f9695c18f368a585dbcd0d1e654dee4adfa03
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75652385"
 ---
 # <a name="microsoftcommondropdown-ui-element"></a>Elemento Microsoft.Common.DropDown dell'interfaccia utente

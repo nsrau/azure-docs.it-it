@@ -9,10 +9,10 @@ ms.date: 08/09/2018
 ms.author: vashan, cynthn, rajsqr
 ms.custom: include file
 ms.openlocfilehash: 57f557a812ec5e4eea75b76ca1394ca360a85d30
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67180086"
 ---
 Per Macchine virtuali di Azure (VM) sono previsti vari stati che possono essere categorizzati come stati di *provisioning* e di *alimentazione*. Lo scopo di questo articolo è descrivere questi stati e sottolineare in particolare quando viene addebitato l'utilizzo delle istanze ai clienti. 
@@ -29,7 +29,7 @@ La tabella seguente include una descrizione di ogni stato dell'istanza e indica 
 <table>
 <tr>
 <th>
-Stato
+State
 </th>
 <th>
 Descrizione
@@ -40,7 +40,7 @@ Fatturazione dell'utilizzo dell'istanza
 </tr>
 <tr>
 <td>
-<p><b>Avvio</b></p>
+<p><b>A partire</b></p>
 </td>
 <td>
 <p>Avvio della macchina virtuale in corso.</p>
@@ -58,7 +58,7 @@ Fatturazione dell'utilizzo dell'istanza
 </tr>
 <tr>
 <td>
-<p><b>Running</b></p>
+<p><b>In esecuzione</b></p>
 </td>
 <td>
 <p>Stato di funzionamento normale per una macchina virtuale</p>
@@ -71,7 +71,7 @@ Fatturazione dell'utilizzo dell'istanza
  ]</code><br>
 </td>
 <td>
-<p><b>Fatturato</b></p>
+<p><b>Fatturati</b></p>
 </td>
 </tr>
 <tr>
@@ -89,12 +89,12 @@ Fatturazione dell'utilizzo dell'istanza
  ]</code><br>
 </td>
 <td>
-<p><b>Fatturato</b></p>
+<p><b>Fatturati</b></p>
 </td>
 </tr>
 <tr>
 <td>
-<p><b>Stopped</b></p>
+<p><b>Fermato</b></p>
 </td>
 <td>
 <p>La macchina virtuale è stato chiusa dall'interno del sistema operativo guest o tramite le API PowerOff.</p>
@@ -183,7 +183,7 @@ Di seguito sono indicati gli stati operativi transitori dopo che la piattaforma 
 </tr>
 <tr>
 <td width="162">
-<p><b>Creazione</b></p>
+<p><b>Creating</b></p>
 </td>
 <td width="366">
 <code>"statuses": [<br>
@@ -210,7 +210,7 @@ Di seguito sono indicati gli stati operativi transitori dopo che la piattaforma 
 </tr>
 <tr>
 <td width="162">
-<p><b>Eliminazione in corso</b></p>
+<p><b>Eliminazione</b></p>
 </td>
 <td width="366">
 <code>"statuses": [<br>

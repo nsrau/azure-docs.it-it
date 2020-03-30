@@ -1,6 +1,6 @@
 ---
-title: Copiare dati da origini IBM Informix usando Azure Data Factory
-description: Informazioni su come copiare dati da origini IBM Informix in archivi dati di sink supportati usando un'attività di copia in una pipeline di Azure Data Factory.
+title: Copiare dati da origini IBM Informix usando Azure Data FactoryCopy data from IBM Informix sources using Azure Data Factory
+description: Informazioni su come copiare i dati dalle origini IBM Informix agli archivi dati sink supportati usando un'attività di copia in una pipeline di Azure Data Factory.Learn how to copy data from IBM Informix sources to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -12,49 +12,49 @@ ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: jingwang
 ms.openlocfilehash: cb4b81f7c5e219c520078ecf34eba3f5e98da684
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75892583"
 ---
-# <a name="copy-data-from-and-to-ibm-informix-data-stores-using-azure-data-factory"></a>Copiare dati da e in archivi dati IBM Informix usando Azure Data Factory
+# <a name="copy-data-from-and-to-ibm-informix-data-stores-using-azure-data-factory"></a>Copiare dati da e in gli archivi dati IBM Informix usando Azure Data Factory
 
-Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da un archivio dati IBM Informix. Si basa sull'articolo di [panoramica dell'attività di copia](copy-activity-overview.md) che presenta una panoramica generale sull'attività di copia.
+Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare i dati da un archivio dati IBM Informix.This article outlines how to use the Copy Activity in Azure Data Factory to copy data from an IBM Informix data store. Si basa sull'articolo di [panoramica dell'attività di copia](copy-activity-overview.md) che presenta una panoramica generale sull'attività di copia.
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
 
-Questo connettore Informix è supportato per le attività seguenti:
+Questo connettore Informix è supportato per le seguenti attività:
 
 - [Attività di copia](copy-activity-overview.md) con [matrice di origine/sink supportata](copy-activity-overview.md)
-- [Attività Lookup](control-flow-lookup-activity.md)
+- [Attività di ricerca](control-flow-lookup-activity.md)
 
-È possibile copiare i dati dall'origine Informix in qualsiasi archivio dati di sink supportato. Per un elenco degli archivi dati supportati come origini/sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
+È possibile copiare i dati dall'origine Informix a qualsiasi archivio dati sink supportato. Per un elenco degli archivi dati supportati come origini/sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per usare questo connettore Informix, è necessario:
+Per utilizzare questo connettore Informix, è necessario:
 
-- Configurare un runtime di integrazione self-hosted. Per i dettagli, vedere l'articolo [Runtime di integrazione self-hosted](create-self-hosted-integration-runtime.md).
-- Installare il driver ODBC Informix per l'archivio dati nel computer Integration Runtime. È ad esempio possibile utilizzare il driver "IBM INFORMIX Informix DRIVER (64-bit)".
+- Configurare un runtime di integrazione self-hosted. Per informazioni dettagliate, vedere l'articolo [Self-hosted Integration Runtime.See Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md) article for details.
+- Installare il driver ODBC Informix per l'archivio dati nel computer Integration Runtime. Ad esempio, è possibile utilizzare il driver "IBM INFORMIX Informix DRIVER (64-bit)".
 
-## <a name="getting-started"></a>Inizia ora
+## <a name="getting-started"></a>Introduzione
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che vengono usate per definire Data Factory entità specifiche per il connettore Informix.
+Nelle sezioni seguenti vengono fornite informazioni dettagliate sulle proprietà utilizzate per definire le entità di Data Factory specifiche del connettore Informix.
 
 ## <a name="linked-service-properties"></a>Proprietà del servizio collegato
 
-Per il servizio collegato Informix sono supportate le proprietà seguenti:
+Per il servizio collegato Informix sono supportate le seguenti proprietà:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà Type deve essere impostata su: **Informix** | Sì |
-| connectionString | Stringa di connessione ODBC che esclude la parte delle credenziali. È possibile specificare la stringa di connessione o usare il DSN di sistema (nome dell'origine dati) configurato nel computer Integration Runtime (è necessario comunque specificare la parte delle credenziali nel servizio collegato di conseguenza). <br> È anche possibile inserire una password in Azure Key Vault ed effettuare il pull della `password` configurazione dalla stringa di connessione. Per informazioni dettagliate, vedere [archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md) .| Sì |
-| authenticationType | Tipo di autenticazione usato per la connessione all'archivio dati Informix.<br/>I valori consentiti sono **Base** e **Anonimo**. | Sì |
+| type | La proprietà type deve essere impostata su: **Informix** | Sì |
+| connectionString | Stringa di connessione ODBC esclusa la parte relativa alle credenziali. È possibile specificare la stringa di connessione o usare il DSN di sistema (Nome origine dati) impostato nel computer del runtime di integrazione (è comunque necessario specificare la parte delle credenziali nel servizio collegato di conseguenza). <br> È anche possibile inserire una password nell'insieme di credenziali delle chiavi di Azure ed estrarre la `password` configurazione dalla stringa di connessione. Fare riferimento a [Archiviare le credenziali nell'insieme di credenziali delle chiavi](store-credentials-in-key-vault.md) di Azure con altri dettagli.| Sì |
+| authenticationType | Tipo di autenticazione utilizzata per connettersi all'archivio dati Diformix.<br/>I valori consentiti sono **Base** e **Anonimo**. | Sì |
 | userName | Specificare il nome utente se si usa l'autenticazione di base. | No |
-| password | Specificare la password per l'account utente specificato per userName. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | No |
+| password | Specificare la password per l'account utente specificato per userName. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 | credenziali | La parte delle credenziali di accesso della stringa di connessione specificata nel formato di valore della proprietà specifico del driver. Contrassegnare questo campo come SecureString. | No |
 | connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È necessario un runtime di integrazione self-hosted come indicato in [Prerequisiti](#prerequisites). |Sì |
 
@@ -84,14 +84,14 @@ Per il servizio collegato Informix sono supportate le proprietà seguenti:
 
 ## <a name="dataset-properties"></a>Proprietà del set di dati
 
-Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sui [set di dati](concepts-datasets-linked-services.md). Questa sezione presenta un elenco delle proprietà supportate dal set di dati Informix.
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sui [set di dati](concepts-datasets-linked-services.md). In questa sezione viene fornito un elenco delle proprietà supportate dal set di dati Informix.This section provides a list of properties supported by Informix dataset.
 
-Per copiare dati da Informix, sono supportate le proprietà seguenti:
+Per copiare i dati da Informix, sono supportate le seguenti proprietà:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà Type del set di dati deve essere impostata su: **InformixTable** | Sì |
-| tableName | Nome della tabella in Informix. | No per l'origine (se nell'origine dell'attività è specificato "query");<br/>sì per il sink |
+| type | La proprietà type del set di dati deve essere impostata su: **InformixTable** | Sì |
+| tableName | Nome della tabella nell'Informix. | No per l'origine (se nell'origine dell'attività è specificato "query");<br/>sì per il sink |
 
 **Esempio**
 
@@ -113,16 +113,16 @@ Per copiare dati da Informix, sono supportate le proprietà seguenti:
 
 ## <a name="copy-activity-properties"></a>Proprietà dell'attività di copia
 
-Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, vedere l'articolo sulle [pipeline](concepts-pipelines-activities.md). Questa sezione presenta un elenco delle proprietà supportate dall'origine Informix.
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, vedere l'articolo sulle [pipeline](concepts-pipelines-activities.md). Questa sezione fornisce un elenco delle proprietà supportate dall'origine Informix.
 
-### <a name="informix-as-source"></a>Informix come origine
+### <a name="informix-as-source"></a>Informix come fonte
 
-Per copiare dati da Informix, nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
+Per copiare i dati da Informix, nella sezione **dell'origine** dell'attività di copia sono supportate le seguenti proprietà:
 
-| Proprietà | Description | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà Type dell'origine dell'attività di copia deve essere impostata su: **InformixSource** | Sì |
-| query | Usare la query personalizzata per leggere i dati. Ad esempio: `"SELECT * FROM MyTable"`. | No (se nel set di dati è specificato "tableName") |
+| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su: **InformixSource** | Sì |
+| query | Usare la query personalizzata per leggere i dati. Ad esempio `"SELECT * FROM MyTable"`. | No (se nel set di dati è specificato "tableName") |
 
 **Esempio:**
 
@@ -156,9 +156,9 @@ Per copiare dati da Informix, nella sezione **origine** dell'attività di copia 
 ]
 ```
 
-## <a name="lookup-activity-properties"></a>Proprietà attività di ricerca
+## <a name="lookup-activity-properties"></a>Proprietà dell'attività di ricerca
 
-Per informazioni dettagliate sulle proprietà, controllare l' [attività di ricerca](control-flow-lookup-activity.md).
+Per informazioni dettagliate sulle proprietà, selezionare [Attività di ricerca](control-flow-lookup-activity.md).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

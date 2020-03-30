@@ -1,15 +1,15 @@
 ---
-title: Architettura Gestione risorse
-description: Panoramica delle informazioni sull'architettura e sul servizio Gestione risorse cluster di Azure Service Fabric.
+title: Architettura di Resource Manager
+description: Una panoramica e informazioni sull'architettura sul servizio Azure Service Fabric Cluster Resource Manager.
 author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 94ed906533d108081d620e9b183ecfee249d85ca
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75551693"
 ---
 # <a name="cluster-resource-manager-architecture-overview"></a>Panoramica dell'architettura di Cluster Resource Manager
@@ -43,7 +43,7 @@ Si veda il diagramma seguente:
 
 <center>
 
-![architettura del servizio di bilanciamento risorse][Image1]
+![Architettura di Resource Balancer][Image1]
 </center>
 
 Durante il runtime possono essere apportate numerose modifiche. Ad esempio, si supponga che la quantità di risorse consumate da determinati servizi venga modificata, che alcuni servizi abbiano esito negativo e che alcuni nodi si aggiungano o lascino il cluster. Tutte le modifiche in un nodo vengono aggregate e inviate periodicamente al servizio Cluster Resource Manager (1,2) in cui vengono nuovamente aggregate, analizzate e archiviate. Il servizio esamina tutte le modifiche a intervalli di pochi secondi e determina eventuali azioni necessarie (3). Ad esempio potrebbe notare che sono stati aggiunti dei nodi vuoti al cluster. Di conseguenza, decide di spostare alcuni servizi in tali nodi. Cluster Resource Manager potrebbe anche notare che un determinato nodo è sovraccarico o che alcuni servizi presentano anomalie (o sono stati eliminati), liberando risorse altrove.
@@ -52,11 +52,11 @@ Verrà ora descritto il diagramma seguente. Si supponga che Cluster Resource Man
 
 <center>
 
-![architettura del servizio di bilanciamento risorse][Image2]
+![Architettura di Resource Balancer][Image2]
 </center>
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Cluster Resource Manager dispone di varie opzioni per descrivere il cluster. Per altre informazioni a riguardo vedere l'articolo [Descrivere un cluster di Service Fabric](./service-fabric-cluster-resource-manager-cluster-description.md)
+- Cluster Resource Manager dispone di varie opzioni per descrivere il cluster. Per altre informazioni su di essi, vedere questo articolo sulla descrizione di un cluster di [Service FabricTo](./service-fabric-cluster-resource-manager-cluster-description.md) find out more about them, check out this article on describing a Service Fabric cluster
 - I compiti primari di Cluster Resource Manager sono il ribilanciamento del cluster e l'applicazione delle regole di selezione. Per altre informazioni sulla configurazione di questi comportamenti, vedere [bilanciamento del cluster di Service Fabric](./service-fabric-cluster-resource-manager-balancing.md)
 
 [Image1]:./media/service-fabric-cluster-resource-manager-architecture/Service-Fabric-Resource-Manager-Architecture-Activity-1.png

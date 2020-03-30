@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: a3ccf76b2722c04a9353fcc7020ff1387bc454c6
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67180350"
 ---
 #### <a name="to-install-an-update-from-the-azure-portal"></a>Per installare un aggiornamento dal portale di Azure
@@ -17,7 +17,7 @@ ms.locfileid: "67180350"
 
     ![Selezionare il dispositivo](./media/storsimple-8000-install-update4-via-portal/update1.png)
 
-2. Andare a **Impostazioni del dispositivo** > **Aggiornamenti del dispositivo**.
+2. Passare a **Impostazioni** > dispositivo**Aggiornamenti dispositivo**.
 
     ![Fare clic su Aggiornamenti del dispositivo](./media/storsimple-8000-install-update4-via-portal/update2.png)
 

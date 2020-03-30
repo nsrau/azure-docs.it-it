@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.openlocfilehash: f47f34b60c858bb9a0feafd25176e4a811046630
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75426233"
 ---
 # <a name="introduction-to-stream-analytics-geospatial-functions"></a>Introduzione alle funzioni geospaziali di Analisi di flusso
@@ -22,11 +22,11 @@ Degli esempi di scenari che possono trarre vantaggio da funzioni geospaziali com
 
 * Condivisione delle corse
 * Gestione della flotta
-* Verifica degli asset
+* Verifica delle risorse
 * Definizione del geo-fencing
 * Rilevamento telefonico tra siti di cella
 
-Linguaggio di query di analisi di flusso ha sette funzioni geospaziali incorporati: **CreateLineString**, **Createpoint(20.0**, **CreatePolygon**, **ST_DISTANCE** , **ST_OVERLAPS**, **ST_INTERSECTS**, e **ST_WITHIN**.
+Linguaggio di query di analisi di flusso ha sette funzioni geospaziali incorporati: **CreateLineString**, **Createpoint(20.0**, **CreatePolygon**, **ST_DISTANCE **, **ST_OVERLAPS**, **ST_INTERSECTS**, e **ST_WITHIN**.
 
 ## <a name="createlinestring"></a>CreateLineString
 
@@ -159,8 +159,8 @@ FROM input
   
 |datacenterArea|stormArea|  
 |--------------------|---------------|  
-|{"Type": "LineString", "coordinates": [[-10,0, 0,0], [0,0, 0,0], [10,0, 0,0]]}|{"Type": "LineString", "coordinates": [[0,0, 10,0], [0,0, 0,0], [0,0,-10,0]]}|  
-|{"Type": "LineString", "coordinates": [[-10,0, 0,0], [0,0, 0,0], [10,0, 0,0]]}|{"Type": "LineString", "coordinates": [[-10,0, 10,0], [0,0, 10,0], [10,0, 10,0]]}|  
+|""type":"LineString", "coordinates": [ [-10.0, 0.0], [0.0, 0.0], [10.0, 0.0] ]'|"type":"LineString", "coordinates": [ [0.0, 10.0], [0.0, 0.0], [0.0, -10.0] ]|  
+|""type":"LineString", "coordinates": [ [-10.0, 0.0], [0.0, 0.0], [10.0, 0.0] ]'|"type":"LineString", "coordinates": [-10.0, 10.0], [0.0, 10.0], [10.0, 10.0, 10.0] ]|  
   
 ### <a name="output-example"></a>Esempio di output  
 
@@ -185,8 +185,8 @@ FROM input
   
 |deliveryDestination|warehouse|  
 |-------------------------|---------------|  
-|{"Type": "Point", "coordinates": [76,6, 10,1]}|{"Type": "Polygon", "coordinates": [[0,0, 0,0], [10,0, 0,0], [10,0, 10,0], [0,0, 10,0], [0,0, 0,0]]}|  
-|{"Type": "Point", "coordinates": [15,0, 15,0]}|{"Type": "Polygon", "coordinates": [[10,0, 10,0], [20,0, 10,0], [20,0, 20,0], [10,0, 20,0], [10,0, 10,0]]}|  
+|"tipo":"Punto", "coordinate": [76.6, 10.1]|"tipo":"Poligono", "coordinate": [0.0, 0.0], [10.0, 0.0], [10.0, 10.0], [0.0, 10.0], [0.0, 0.0] ]'|  
+|"tipo":"Punto", "coordinate": [15.0, 15.0]|"tipo":"Poligono", "coordinate": [[10.0, 10.0], [20.0, 10.0], [20.0, 20.0], [10.0, 20.0], [10.0, 10.0] ]|  
   
 ### <a name="output-example"></a>Esempio di output  
 
@@ -199,7 +199,7 @@ Per altre informazioni, visitare il riferimento [ST_WITHIN](https://docs.microso
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
-* [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-real-time-fraud-detection.md)
+* [Introduzione all'uso di Analisi di flusso di AzureGet started using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
-* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Guida di riferimento al linguaggio di query di Analisi di flusso di AzureAzure Stream Analytics Query Language Reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)

@@ -9,10 +9,10 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: b802cab7d52fd886770c326e97d0378a0da64762
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "75751942"
 ---
 [!INCLUDE [P2S FAQ All](vpn-gateway-faq-p2s-all-include.md)]
@@ -39,7 +39,7 @@ No. Può essere instradato solo tramite una connessione da sito a sito.
  
 ### <a name="is-there-a-change-in-the-number-of-sstp-connections-supported-with-radius-authentication-what-is-the-maximum-number-of-sstp-and-ikev2-connections-supported"></a>Il numero di connessioni SSTP supportate con l'autenticazione RADIUS è stato modificato? Qual il numero massimo di connessioni SSTP e IKEv2 supportate?
 
-Il numero massimo di connessioni SSTP supportate in un gateway con l'autenticazione RADIUS non è stato modificato. Rimane 128 per le connessioni SSTP, ma dipende dallo SKU del gateway per le connessioni IKEv2. Per altre informazioni sul numero di connessioni supportate, vedere [SKU del gateway](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku).
+Il numero massimo di connessioni SSTP supportate in un gateway con l'autenticazione RADIUS non è stato modificato. Rimane 128 per le connessioni SSTP, ma dipende dallo SKU del gateway per le connessioni IKEv2.Per altre informazioni sul numero di connessioni supportate, vedere [SKU del gateway](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku).
  
 ### <a name="what-is-the-difference-between-doing-certificate-authentication-using-a-radius-server-vs-using-azure-native-certificate-authentication-by-uploading-a-trustedcertificate-to-azure"></a>Qual è la differenza tra eseguire l'autenticazione del certificato usando un server RADIUS o usando l'autenticazione del certificato nativo di Azure (caricando un certificato attendibile in Azure)?
 

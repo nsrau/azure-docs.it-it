@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
 ms.openlocfilehash: 2c5b0556554d280e57b2df51875e1b057b5fb4a8
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75749887"
 ---
 #  <a name="cannot-rdp-to-azure-virtual-machines-because-the-dhcp-client-service-is-disabled"></a>Non è possibile stabilire una connessione RDP a Macchine virtuali di Azure perché il servizio Client DHCP è disabilitato
@@ -34,7 +34,7 @@ Non è possibile stabilire una connessione RDP a una macchina virtuale in Azure 
 **Categoria attività**: Nessuna </br>
 **Level**: Error </br>
 **Keywords**: Classic</br>
-**Utente**: N/A </br>
+**User**: N/A </br>
 **Computer**: myvm.cosotos.com</br>
 **Description**: The DHCP Client service hung on starting.</br>
 
@@ -102,7 +102,7 @@ Per risolvere il problema, usare il controllo seriale per abilitare il DHCP o [r
    $wc = New-Object System.Net.WebClient
    $wc.DownloadFile($source,$destination)
    ```
-3. Avviare una traccia **procmon**:
+3. Ora avviare una traccia **procmon:**
 
    ```
    procmon /Quiet /Minimized /BackingFile c:\temp\ProcMonTrace.PML
@@ -180,9 +180,9 @@ Per risolvere il problema, usare il controllo seriale per abilitare il DHCP o [r
 
 #### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Collegare il disco del sistema operativo alla macchina virtuale di ripristino
 
-1. [Collegare il disco del sistema operativo alla macchina virtuale di ripristino](../windows/troubleshoot-recovery-disks-portal.md).
+1. [Collegare il disco del sistema operativo a una macchina virtuale](../windows/troubleshoot-recovery-disks-portal.md)di ripristino.
 2. Avviare una connessione Desktop remoto alla macchina virtuale di ripristino. Verificare che il disco collegato sia contrassegnato come **Online** nella console di Gestione disco. Prendere nota della lettera di unità assegnata al disco del sistema operativo collegato.
-3.  Aprire un'istanza del prompt dei comandi con privilegi elevati (**Esegui come amministratore**). Eseguire quindi lo script seguente. Questo script presuppone che la lettera di unità assegnata al disco del sistema operativo collegato sia **F**. Sostituire la lettera in modo appropriato con il valore nella macchina virtuale.
+3.  Aprire un'istanza del prompt dei comandi con privilegi elevati (**Esegui come amministratore**). Eseguire quindi lo script seguente. Questo script presuppone che la lettera di unità assegnata al disco del sistema operativo collegato sia **F**. Sostituire la lettera come appropriato con il valore nella macchina virtuale.
 
     ```
     reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM

@@ -1,5 +1,5 @@
 ---
-title: "Gateway VPN: modificare le impostazioni dell'indirizzo IP del gateway: portale di Azure"
+title: "Gateway VPN: Modificare le impostazioni dell'indirizzo IP del gateway: portale di Azure"
 description: Questo articolo illustra in modo dettagliato come modificare i prefissi degli indirizzi IP per il gateway di rete locale usando il portale di Azure.
 services: vpn-gateway
 author: cherylmc
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 06/19/2017
 ms.author: cherylmc
 ms.openlocfilehash: fdb98242cede36f818604a7a5d713f5f7c75daad
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75864027"
 ---
 # <a name="modify-local-network-gateway-settings-using-the-azure-portal"></a>Modificare le impostazioni del gateway di rete locale usando il portale di Azure
@@ -21,20 +21,20 @@ In alcuni casi le impostazioni per il valore AddressPrefix o GatewayIPAddress de
 Prima di eliminare la connessione, è opportuno scaricare la configurazione dei dispositivi usati per la connessione per ottenere la chiave precondivisa definita. In questo modo non sarà necessario ridefinirla sull'altro lato della connessione.
 
 > [!div class="op_single_selector"]
-> * [Azure portal](vpn-gateway-modify-local-network-gateway-portal.md)
-> * [PowerShell](vpn-gateway-modify-local-network-gateway.md)
-> * [Interfaccia della riga di comando di Azure](vpn-gateway-modify-local-network-gateway-cli.md)
+> * [Portale di Azure](vpn-gateway-modify-local-network-gateway-portal.md)
+> * [Powershell](vpn-gateway-modify-local-network-gateway.md)
+> * [Interfaccia della riga di comando di AzureAzure](vpn-gateway-modify-local-network-gateway-cli.md)
 >
 >
 
 
-## <a name="ipaddprefix"></a>Modificare i prefissi degli indirizzi IP
+## <a name="modify-ip-address-prefixes"></a><a name="ipaddprefix"></a>Modificare i prefissi degli indirizzi IP
 
 Quando si modificano i prefissi degli indirizzi IP, la procedura seguita varia a seconda che il gateway di rete locale abbia una connessione oppure no.
 
 [!INCLUDE [modify prefix](../../includes/vpn-gateway-modify-ip-prefix-portal-include.md)]
 
-## <a name="gwip"></a>Modificare l'indirizzo IP del gateway
+## <a name="modify-the-gateway-ip-address"></a><a name="gwip"></a>Modificare l'indirizzo IP del gateway
 
 Se l'indirizzo IP pubblico del dispositivo VPN a cui ci si vuole connettere è stato modificato, è necessario modificare il gateway di rete locale per riflettere tale modifica. Quando si modifica l'indirizzo IP pubblico, la procedura seguita varia a seconda che il gateway di rete locale abbia una connessione oppure no.
 

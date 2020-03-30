@@ -1,6 +1,6 @@
 ---
 title: Soluzioni per errori e problemi comuni negli scenari B2B
-description: Trovare soluzioni per errori e problemi comuni durante la risoluzione dei problemi relativi agli scenari B2B in app per la logica di Azure
+description: Trovare soluzioni per errori e problemi comuni durante la risoluzione degli scenari B2B in App per la logica di AzureFind solutions for common errors and problems when troubleshooting B2B scenarios in Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/02/2017
 ms.openlocfilehash: 38e281ce3d8117bff719b1bb572f09acbbb89669
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75666687"
 ---
 # <a name="b2b-errors-and-solutions-for-azure-logic-apps"></a>Errori B2B e soluzioni per le App per la logica di Azure

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: 1ab404b838af65dcb75395dfeee1ca0553e497a1
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67180817"
 ---
 ## <a name="specifying-structure-definition-for-rectangular-datasets"></a>Definizione della struttura per i set di dati rettangolari
@@ -16,7 +16,7 @@ La sezione della struttura nei set di dati JSON è una sezione **facoltativa** p
 
 Ogni colonna contiene le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
 | name |Nome della colonna. |Sì |
 | type |Tipo di dati della colonna. Vedere la sezione sulle conversioni del tipo di seguito per altre informazioni su quando specificare le informazioni sul tipo |No |
@@ -39,7 +39,7 @@ Attenersi alle linee guida seguenti per decidere quando includere informazioni s
 * **Per le origini dati strutturate** che contengono schemi di dati e informazioni sul tipo, oltre ai dati stessi (origini come SQL Server, Oracle, tabelle di Azure e così via), è necessario specificare la sezione "structure" solo se si desidera eseguire il mapping di colonne di origine specifiche a colonne specifiche nel sink e i relativi nomi non corrispondono (vedere i dettagli nella sezione sul mapping di colonne di seguito). 
   
     Come indicato in precedenza, le informazioni sul tipo sono facoltative nella sezione "structure". Per le origini strutturate, le informazioni sul tipo sono già disponibili come parte della definizione del set di dati nell'archivio dati, pertanto non è necessario includere le informazioni sul tipo quando si include la sezione "structure".
-* **Per gli schemi delle origini dati di lettura, in particolare BLOB di Azure**, è possibile scegliere di archiviare i dati senza memorizzare insieme ai dati informazioni sullo schema o sul tipo. Per questi tipi di origini dati è necessario includere la sezione "structure" nei 2 casi seguenti:
+* Per lo schema nelle origini dati lette **(in particolare il BLOB di Azure)** è possibile scegliere di archiviare i dati senza archiviare alcuna informazione sullo schema o sul tipo con i dati. Per questi tipi di origini dati è necessario includere la sezione "structure" nei 2 casi seguenti:
   * Si desidera eseguire il mapping di colonne.
   * Quando il set di dati è un'origine in un'attività di copia, è possibile specificare informazioni sul tipo in "structure", che verranno usate da Data factory per la conversione a tipi nativi per il sink. Vedere l'articolo sullo [spostamento di dati da e verso BLOB di Azure](../articles/data-factory/v1/data-factory-azure-blob-connector.md) per altre informazioni.
 
@@ -54,11 +54,11 @@ Data factory supporta i valori di tipo basati su .NET conformi a CLS per specifi
 * Decimal
 * Byte[]
 * Bool
-* String 
+* string 
 * Guid
 * Datetime
 * Datetimeoffset
-* Timespan 
+* TimeSpan 
 
 Per Datetime e Datetimeoffset è anche possibile specificare la stringa "culture" e "format" per facilitare l'analisi della stringa Datetime personalizzata. Vedere l'esempio seguente di conversione del tipo.
 

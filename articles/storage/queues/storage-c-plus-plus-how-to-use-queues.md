@@ -1,6 +1,6 @@
 ---
-title: Come usare l'archiviazione di Accodamento (C++)-archiviazione di Azure
-description: Informazioni su come usare il servizio di archiviazione di Accodamento in Azure. Gli esempi sono scritti in C++.
+title: Come usare l'archiviazione della coda (C ) - Archiviazione di Azure
+description: Informazioni su come usare il servizio di archiviazione delle code in Azure.Learn how to use the Queue storage service in Azure. Gli esempi sono scritti in C++.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 05/11/2017
@@ -9,10 +9,10 @@ ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: cbrooks
 ms.openlocfilehash: 4fe543010df9514cb2b22c56482a4b592574e917
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75941771"
 ---
 # <a name="how-to-use-queue-storage-from-c"></a>Come usare l'archiviazione delle code da C++
@@ -20,7 +20,7 @@ ms.locfileid: "75941771"
 
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 In questa guida verranno illustrati diversi scenari comuni di utilizzo del servizio di archiviazione di accodamento di Azure. Gli esempi sono scritti in C++ e utilizzano la [libreria client di Archiviazione di Azure per C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md). Gli scenari illustrati includono **inserimento**, **visualizzazione**, **recupero** ed **eliminazione** dei messaggi in coda, oltre alla **creazione ed eliminazione di code**.
 
 > [!NOTE]
@@ -39,14 +39,14 @@ A tal fine, sarà necessario installare la libreria client di Archiviazione di A
 
 Per installare la libreria client di Archiviazione di Azure per C++, è possibile utilizzare i metodi seguenti:
 
-* **Linux:** Seguire le istruzioni fornite nella pagina della [libreria client di archiviazione C++ di Azure per il file Leggimi: introduzione in Linux](https://github.com/Azure/azure-storage-cpp#getting-started-on-linux) .
-* **Windows:** In Windows usare [vcpkg](https://github.com/microsoft/vcpkg) come gestore delle dipendenze. Seguire l'argomento di [avvio rapido](https://github.com/microsoft/vcpkg#quick-start) per inizializzare vcpkg. Quindi usare il comando seguente per installare la libreria:
+* **Linux:** Seguire le istruzioni fornite nella pagina Libreria del client di archiviazione di Azure per il file LEGGIMA di [Archiviazione di C: Guida introduttiva a Linux.](https://github.com/Azure/azure-storage-cpp#getting-started-on-linux)
+* **Le finestre Windows:** In Windows, utilizzare [vcpkg](https://github.com/microsoft/vcpkg) come gestore delle dipendenze. Seguire l'argomento di [avvio rapido](https://github.com/microsoft/vcpkg#quick-start) per inizializzare vcpkg. Quindi usare il comando seguente per installare la libreria:
 
 ```powershell
 .\vcpkg.exe install azure-storage-cpp
 ```
 
-È possibile trovare una guida su come compilare il codice sorgente ed esportare in NuGet nel file [Leggimi](https://github.com/Azure/azure-storage-cpp#download--install) .
+È possibile trovare una guida su come compilare il codice sorgente ed esportare in NuGet nel file [README.](https://github.com/Azure/azure-storage-cpp#download--install)
 
 ## <a name="configure-your-application-to-access-queue-storage"></a>Configurazione dell'applicazione per l’accesso ad Archiviazione di accodamento
 Aggiungere le istruzioni include seguenti all'inizio del file C++ in cui si desidera utilizzare le API di archiviazione di Azure per accedere alle code:  
@@ -57,7 +57,7 @@ Aggiungere le istruzioni include seguenti all'inizio del file C++ in cui si desi
 ```
 
 ## <a name="set-up-an-azure-storage-connection-string"></a>Impostare una stringa di connessione di archiviazione di Azure
-I client di archiviazione di Azure usano le stringhe di connessione di archiviazione per archiviare endpoint e credenziali per l'accesso ai servizi di gestione dati. Quando si esegue un'applicazione client, è necessario specificare la stringa di connessione di archiviazione nel formato seguente, usando il nome dell'account di archiviazione e la chiave di accesso alle risorse di archiviazione per l'account di archiviazione elencato nel [portale di Azure](https://portal.azure.com) per i valori di *AccountName* e *AccountKey*. Per informazioni sugli account di archiviazione e sulle chiavi di accesso, vedere [Informazioni sugli account di archiviazione di Azure](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json). In questo esempio viene illustrato come dichiarare un campo statico per memorizzare la stringa di connessione:  
+I client di archiviazione di Azure usano le stringhe di connessione di archiviazione per archiviare endpoint e credenziali per l'accesso ai servizi di gestione dati. Quando si esegue un'applicazione client, è necessario specificare la stringa di connessione di archiviazione nel formato seguente, usando il nome dell'account di archiviazione e la chiave di accesso alle risorse di archiviazione per l'account di archiviazione elencato nel [portale di Azure](https://portal.azure.com) per i valori di *AccountName* e *AccountKey*. Per informazioni sugli account di archiviazione e sulle chiavi di accesso, vedere Informazioni sugli account di archiviazione di [Azure.](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) In questo esempio viene illustrato come dichiarare un campo statico per memorizzare la stringa di connessione:  
 
 ```cpp
 // Define the connection-string with your values.
@@ -71,12 +71,12 @@ Per eseguire il test dell'applicazione nel computer Windows locale, è possibile
 const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;"));  
 ```
 
-Per avviare l'emulatore di archiviazione di Azure, selezionare il pulsante **Start** o premere **WINDOWS** sulla tastiera. Digitare **Emulatore di archiviazione di Azure** e selezionare **Emulatore di archiviazione di Microsoft Azure** nell'elenco delle applicazioni.
+Per avviare l'emulatore di archiviazione di Azure, selezionare il pulsante Start o premere il tasto **Windows.To** start the Azure storage emulator, select the **Start** button or press the Windows key. Digitare **Emulatore di archiviazione di Azure** e selezionare **Emulatore di archiviazione di Microsoft Azure** nell'elenco delle applicazioni.
 
 Gli esempi seguenti presumono che sia stato usato uno di questi due metodi per ottenere la stringa di connessione di archiviazione.
 
 ## <a name="retrieve-your-connection-string"></a>Recuperare la stringa di connessione
-Per visualizzare le informazioni dell'account di archiviazione, è possibile usare la classe **cloud_storage_account**. Per recuperare le informazioni sull'account di archiviazione dalla stringa di connessione alla risorsa di archiviazione, è possibile utilizzare il metodo **parse** .
+È possibile usare la classe **cloud_storage_account** per rappresentare le informazioni sull'account di archiviazione. Per recuperare le informazioni sull'account di archiviazione dalla stringa di connessione alla risorsa di archiviazione, è possibile utilizzare il metodo **parse** .
 
 ```cpp
 // Retrieve storage account from connection string.
@@ -84,7 +84,7 @@ azure::storage::cloud_storage_account storage_account = azure::storage::cloud_st
 ```
 
 ## <a name="how-to-create-a-queue"></a>Procedura: creare una coda
-L'oggetto **cloud_queue_client** consente di ottenere oggetti di riferimento per le code. Il codice seguente crea un oggetto **cloud_queue_client**.
+L'oggetto **cloud_queue_client** consente di ottenere oggetti di riferimento per le code. Il codice seguente crea un oggetto **cloud_queue_client.**
 
 ```cpp
 // Retrieve storage account from connection string.
@@ -94,7 +94,7 @@ azure::storage::cloud_storage_account storage_account = azure::storage::cloud_st
 azure::storage::cloud_queue_client queue_client = storage_account.create_cloud_queue_client();
 ```
 
-Usare l'oggetto **cloud_queue_client** per ottenere un riferimento alla coda che si vuole usare. È possibile creare la coda se non esiste già.
+Utilizzare l'oggetto **cloud_queue_client** per ottenere un riferimento alla coda che si desidera utilizzare. È possibile creare la coda se non esiste già.
 
 ```cpp
 // Retrieve a reference to a queue.
@@ -105,7 +105,7 @@ azure::storage::cloud_queue queue = queue_client.get_queue_reference(U("my-sampl
 ```
 
 ## <a name="how-to-insert-a-message-into-a-queue"></a>Procedura: inserire un messaggio in una coda
-Per inserire un messaggio in una coda esistente, creare prima un nuovo oggetto **cloud_queue_message**. Chiamare successivamente il metodo **add_message**. È possibile creare un oggetto **cloud_queue_message** da una stringa o da una matrice di **byte**. Di seguito è riportato il codice che consente di creare una coda (se non esiste già) e di inserire il messaggio 'Hello, World':
+Per inserire un messaggio in una coda esistente, creare innanzitutto una nuova **cloud_queue_message**. Chiamare successivamente il metodo **add_message**. È possibile creare un oggetto **cloud_queue_message** da una stringa o da una matrice di **byte**. Di seguito è riportato il codice che consente di creare una coda (se non esiste già) e di inserire il messaggio 'Hello, World':
 
 ```cpp
 // Retrieve storage account from connection-string.
@@ -126,7 +126,7 @@ queue.add_message(message1);
 ```
 
 ## <a name="how-to-peek-at-the-next-message"></a>Procedura: visualizzare il messaggio successivo
-È possibile visualizzare il messaggio in testa a una coda senza rimuoverlo dalla coda chiamando il metodo **peek_message**.
+È possibile visualizzare il messaggio nella parte anteriore di una coda senza rimuoverlo dalla coda chiamando il **metodo peek_message.**
 
 ```cpp
 // Retrieve storage account from connection-string.
@@ -172,7 +172,7 @@ std::wcout << U("Changed message content: ") << changed_message.content_as_strin
 ```
 
 ## <a name="how-to-de-queue-the-next-message"></a>Procedura: rimuovere il messaggio successivo dalla coda
-Il codice consente di rimuovere un messaggio da una coda in due passaggi. Quando si chiama **get_message**, si ottiene il messaggio successivo in una coda. Un messaggio restituito da **get_message** diventa invisibile a qualsiasi altro codice che legge i messaggi dalla stessa coda. Per completare la rimozione del messaggio dalla coda, è necessario chiamare anche **delete_message**. Questo processo in due passaggi di rimozione di un messaggio assicura che, qualora l'elaborazione di un messaggio non riesca a causa di errori hardware o software, un'altra istanza del codice sia in grado di ottenere lo stesso messaggio e di riprovare. Il codice chiama **delete_message** immediatamente dopo l'elaborazione del messaggio.
+Il codice consente di rimuovere un messaggio da una coda in due passaggi. Quando si chiama **get_message**, viene visualizzato il messaggio successivo in una coda. Un messaggio restituito da **get_message** diventa invisibile a qualsiasi altro codice che legge i messaggi da questa coda. Per completare la rimozione del messaggio dalla coda, è necessario chiamare anche **delete_message**. Questo processo in due passaggi di rimozione di un messaggio assicura che, qualora l'elaborazione di un messaggio non riesca a causa di errori hardware o software, un'altra istanza del codice sia in grado di ottenere lo stesso messaggio e di riprovare. Il codice chiama **delete_message** subito dopo l'elaborazione del messaggio.
 
 ```cpp
 // Retrieve storage account from connection-string.
@@ -193,7 +193,7 @@ queue.delete_message(dequeued_message);
 ```
 
 ## <a name="how-to-leverage-additional-options-for-de-queuing-messages"></a>Procedura: usufruire di opzioni aggiuntive per rimuovere i messaggi dalla coda
-È possibile personalizzare il recupero di messaggi da una coda in due modi. Innanzitutto, è possibile recuperare un batch di messaggi (massimo 32). In secondo luogo, è possibile impostare un timeout di invisibilità più lungo o più breve assegnando al codice più o meno tempo per l'elaborazione completa di ogni messaggio. Nell'esempio di codice seguente viene usato il metodo **get_messages** per recuperare 20 messaggi con una sola chiamata. Quindi, ogni messaggio viene elaborato con un ciclo **for** . Per ogni messaggio, inoltre, il timeout di invisibilità viene impostato su cinque minuti. Si noti che il conteggio di 5 minuti viene iniziato per tutti i messaggi allo stesso tempo, per cui, dopo 5 minuti dalla chiamata a **get_messages**, tutti i messaggi che non sono stati eliminati diventano nuovamente visibili.
+È possibile personalizzare il recupero di messaggi da una coda in due modi. Innanzitutto, è possibile recuperare un batch di messaggi (massimo 32). In secondo luogo, è possibile impostare un timeout di invisibilità più lungo o più breve assegnando al codice più o meno tempo per l'elaborazione completa di ogni messaggio. Nell'esempio di codice riportato di seguito viene utilizzato il **metodo get_messages** per ottenere 20 messaggi in una chiamata. Quindi elabora ogni messaggio utilizzando un ciclo **for.** Per ogni messaggio, inoltre, il timeout di invisibilità viene impostato su cinque minuti. Si noti che il conteggio di 5 minuti viene iniziato per tutti i messaggi allo stesso tempo, per cui, dopo 5 minuti dalla chiamata a **get_messages**, tutti i messaggi che non sono stati eliminati diventano nuovamente visibili.
 
 ```cpp
 // Retrieve storage account from connection-string.
@@ -263,8 +263,8 @@ queue.delete_queue_if_exists();
 ## <a name="next-steps"></a>Passaggi successivi
 A questo punto, dopo aver appreso le nozioni di base di Archiviazione accodamento, visitare i collegamenti seguenti per altre informazioni su Archiviazione di Azure.
 
-* [Come usare l’archiviazione BLOB da C++](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
+* [Come usare l'archiviazione BLOB da C++](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
 * [Come usare l’archiviazione tabelle da C++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
-* [Elenco delle risorse di archiviazione di Azure in C++](../common/storage-c-plus-plus-enumeration.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
-* [Informazioni di riferimento sulla libreria client di archiviazione per C++](https://azure.github.io/azure-storage-cpp)
-* [Documentazione di Archiviazione di Azure](https://azure.microsoft.com/documentation/services/storage/)
+* [Elencare le risorse di archiviazione di Azure in C](../common/storage-c-plus-plus-enumeration.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
+* [Libreria del client di archiviazione per i riferimenti di C](https://azure.github.io/azure-storage-cpp)
+* [Documentazione di Archiviazione di AzureAzure Storage Documentation](https://azure.microsoft.com/documentation/services/storage/)

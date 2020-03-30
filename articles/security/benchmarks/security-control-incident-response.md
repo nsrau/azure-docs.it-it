@@ -1,6 +1,6 @@
 ---
-title: Controllo di sicurezza di Azure-risposta agli eventi imprevisti
-description: Risposta agli eventi imprevisti del controllo di sicurezza
+title: Azure Security Control - Incident Response
+description: Risposta agli incidenti di controllo di sicurezza
 author: msmbaldwin
 manager: rkarlin
 ms.service: security
@@ -9,102 +9,102 @@ ms.date: 12/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
 ms.openlocfilehash: fb3560aa2d3fbf48ab63c4da4d3a8d69cb677209
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75934408"
 ---
-# <a name="security-control-incident-response"></a>Controllo di sicurezza: risposta agli eventi imprevisti
+# <a name="security-control-incident-response"></a>Controllo di sicurezza: risposta agli incidenti
 
-Proteggi le informazioni dell'organizzazione, così come la sua reputazione, sviluppando e implementando un'infrastruttura di risposta agli eventi imprevisti (ad esempio, piani, ruoli definiti, formazione, comunicazioni, supervisione della gestione) per individuare rapidamente un attacco e quindi contenimento efficace del danno, eliminazione della presenza dell'utente malintenzionato e ripristino dell'integrità della rete e dei sistemi.
+Proteggere le informazioni dell'organizzazione, così come la sua reputazione, sviluppando e implementando un'infrastruttura di risposta agli incidenti (ad esempio, piani, ruoli definiti, formazione, comunicazioni, supervisione della gestione) per scoprire rapidamente un attacco e quindi contenente efficacemente il danno, sradicando la presenza dell'aggressore e ripristinando l'integrità della rete e dei sistemi.
 
-## <a name="101-create-an-incident-response-guide"></a>10,1: creare una guida alla risposta agli eventi imprevisti
+## <a name="101-create-an-incident-response-guide"></a>10.1: Creare una guida alla risposta agli incidenti
 
-| ID Azure | ID CIS | Responsabilità |
+| ID AzureAzure ID | STATI di lavoro CIS | Responsabilità |
 |--|--|--|
-| 10.1 | 19,1, 19,2, 19,3 | Customer |
+| 10.1 | 19.1, 19.2, 19.3 | Customer |
 
-Creare una guida alla risposta agli eventi imprevisti per la propria organizzazione. Verificare che siano stati scritti piani di risposta agli eventi imprevisti che definiscono tutti i ruoli del personale, nonché le fasi di gestione/gestione degli eventi imprevisti dal rilevamento alla verifica post-evento imprevisto.
+Creare una guida alla risposta agli incidenti per l'organizzazione. Assicurarsi che siano presenti piani di risposta agli incidenti scritti che definiscono tutti i ruoli del personale, nonché fasi di gestione/gestione degli incidenti dal rilevamento alla revisione post-incidente.
 
-Come configurare le automazioni del flusso di lavoro nel centro sicurezza di Azure:
+Come configurare le automazioni del flusso di lavoro all'interno del Centro sicurezza di Azure:How to configure Workflow Automations within Azure Security Center:
 
 https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide
 
-Linee guida per la creazione di un processo di risposta agli eventi imprevisti di sicurezza:
+Linee guida per creare un processo di risposta agli incidenti di sicurezza:Guidance on building your own security incident response process:
 
 https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/
 
-Anatomia di un evento imprevisto di Microsoft Security Response Center:
+Anatomia di Microsoft Security Response Center di un incidente:
 
 https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/
 
-Il cliente può inoltre sfruttare la guida alla gestione degli eventi imprevisti della sicurezza del computer NIST per facilitare la creazione di un piano di risposta agli eventi imprevisti:
+Il cliente può anche sfruttare la Guida alla gestione degli incidenti di sicurezza del COMPUTER del NIST per facilitare la creazione del proprio piano di risposta agli incidenti:
 
 https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf
 
-## <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10,2: creare una procedura per assegnazione di punteggi e assegnazione di priorità
+## <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10.2: Creare una procedura di assegnazione dei punteggi degli eventi imprevisti e di assegnazione delle priorità
 
-| ID Azure | ID CIS | Responsabilità |
+| ID AzureAzure ID | STATI di lavoro CIS | Responsabilità |
 |--|--|--|
-| 10.2 | 19,8 | Customer |
+| 10.2 | 19.8 | Customer |
 
-Il Centro sicurezza assegna una gravità a ogni avviso per facilitare la priorità degli avvisi che devono essere analizzati per primi. Il livello di gravità è basato sul livello di attendibilità del Centro sicurezza nell'individuazione o sull'analisi utilizzata per emettere l'avviso, nonché sul livello di confidenza causato da un intento dannoso dietro l'attività che ha portato all'avviso.
+Il Centro sicurezza assegna una gravità a ogni avviso per consentire di assegnare una priorità a quali avvisi devono essere esaminati per primi. La gravità si basa sulla sicurezza del Centro sicurezza nella ricerca o sull'analita utilizzato per emettere l'avviso, nonché il livello di probabilità che vi sia stato un intento dannoso dietro l'attività che ha portato all'avviso.
 
-Inoltre, contrassegnare chiaramente le sottoscrizioni (per es. produzione, non prod) e creare un sistema di denominazione per identificare e classificare chiaramente le risorse di Azure.
+Inoltre, contrassegnare chiaramente gli abbonamenti (per ex. produzione, non-prod) e creare un sistema di denominazione per identificare e classificare chiaramente le risorse di Azure.
 
-## <a name="103-test-security-response-procedures"></a>10,3: testare le procedure di risposta alla sicurezza
+## <a name="103-test-security-response-procedures"></a>10.3: Testare le procedure di risposta alla sicurezza
 
-| ID Azure | ID CIS | Responsabilità |
+| ID AzureAzure ID | STATI di lavoro CIS | Responsabilità |
 |--|--|--|
 | 10.3 | 19 | Customer |
 
-Eseguire esercitazioni per testare le funzionalità di risposta agli eventi imprevisti dei sistemi a cadenza regolare. Identificare i punti deboli e i gap e rivedere il piano in base alle esigenze.
+Condurre esercizi per testare le capacità di risposta agli incidenti dei sistemi a una cadenza regolare. Identificare i punti deboli e le lacune e rivedere il piano in base alle esigenze.
 
-Fare riferimento alla pubblicazione del NIST: Guida ai programmi di test, formazione e esercizio per i piani IT e le funzionalità:
+Fare riferimento alla pubblicazione del NIST: Guida ai programmi di test, formazione ed eserciziper piani e funzionalità IT:
 
 https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
 
-## <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-for-security-incidents"></a>10,4: specificare i dettagli del contatto per gli eventi imprevisti della sicurezza e configurare le notifiche di avviso per gli eventi
+## <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-for-security-incidents"></a>10.4: Fornire i dettagli di contatto degli eventi imprevisti di sicurezza e configurare le notifiche di avviso per gli incidenti di sicurezza
 
-| ID Azure | ID CIS | Responsabilità |
+| ID AzureAzure ID | STATI di lavoro CIS | Responsabilità |
 |--|--|--|
-| 10,4 | 19,5 | Customer |
+| 10.4 | 19.5 | Customer |
 
-Le informazioni di contatto per gli eventi imprevisti di sicurezza verranno utilizzate da Microsoft per contattare l'utente se Microsoft Security Response Center (MSRC) rileva che è stato eseguito l'accesso ai dati del cliente da parte di utenti non autorizzati o non autorizzati.  Esaminare gli eventi imprevisti dopo il fatto di garantire la risoluzione dei problemi.
+Le informazioni di contatto relative agli eventi imprevisti di protezione verranno utilizzate da Microsoft per contattare l'utente se microsoft Security Response Center (MSRC) rileva che i dati del cliente sono stati utilizzati da una parte non legale o non autorizzata.  Esaminare gli incidenti dopo il fatto per assicurarsi che i problemi vengano risolti.
 
-Come impostare il contatto di sicurezza del Centro sicurezza di Azure:
+Come impostare il contatto di sicurezza del centro di sicurezza di Azure:How to set the Azure Security Center Security Contact:
 
 https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details
 
-## <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10,5: incorporare gli avvisi di sicurezza nel sistema di risposta agli eventi imprevisti
+## <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10.5: Incorporare avvisi di sicurezza nel sistema di risposta agli incidenti
 
-| ID Azure | ID CIS | Responsabilità |
+| ID AzureAzure ID | STATI di lavoro CIS | Responsabilità |
 |--|--|--|
-| 10.5 | 19,6 | Customer |
+| 10.5 | 19.6 | Customer |
 
-Esportare gli avvisi e le raccomandazioni del Centro sicurezza di Azure usando la funzionalità di esportazione continua. L'esportazione continua consente di esportare avvisi e consigli manualmente o in modo continuo e continuo. È possibile usare il connettore dati del Centro sicurezza di Azure per trasmettere la sentinella degli avvisi.
+Esportare gli avvisi e i suggerimenti del Centro sicurezza di Azure usando la funzionalità di esportazione continua. L'esportazione continua consente di esportare avvisi e consigli manualmente o in modo continuo. È possibile usare il connettore dati del Centro sicurezza di Azure per trasmettere gli avvisi Sentinel.You may use the Azure Security Center data connector to stream the alerts Sentinel.
 
 Come configurare l'esportazione continua:
 
 https://docs.microsoft.com/azure/security-center/continuous-export
 
-Come trasmettere gli avvisi in Sentinel di Azure:
+Come trasmettere gli avvisi in Azure Sentinel:How to stream alerts into Azure Sentinel:
 
 https://docs.microsoft.com/azure/sentinel/connect-azure-security-center
 
-## <a name="106-automate-the-response-to-security-alerts"></a>10,6: automatizzare la risposta agli avvisi di sicurezza
+## <a name="106-automate-the-response-to-security-alerts"></a>10.6: Automatizzare la risposta agli avvisi di sicurezza
 
-| ID Azure | ID CIS | Responsabilità |
+| ID AzureAzure ID | STATI di lavoro CIS | Responsabilità |
 |--|--|--|
-| 10,6 | 19 | Customer |
+| 10.6 | 19 | Customer |
 
-Usare la funzionalità di automazione del flusso di lavoro nel centro sicurezza di Azure per attivare automaticamente le risposte tramite &quot;app per la logica&quot; su avvisi e raccomandazioni di sicurezza.
+Usare la funzionalità Automazione flusso di lavoro &quot;nel&quot; Centro sicurezza di Azure per attivare automaticamente le risposte tramite app per la logica in avvisi e suggerimenti per la sicurezza.
 
-Come configurare l'automazione del flusso di lavoro e le app per la logica:
+Come configurare l'automazione del flusso di lavoro e le app per la logica:How to configure Workflow Automation and Logic Apps:
 
 https://docs.microsoft.com/azure/security-center/workflow-automation
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere il controllo di sicurezza successivo: [test di penetrazione e esercizi del Red Team](security-control-penetration-tests-red-team-exercises.md)
+Vedere il controllo di sicurezza successivo: [Test di penetrazione ed Esercizi del team rosso](security-control-penetration-tests-red-team-exercises.md)

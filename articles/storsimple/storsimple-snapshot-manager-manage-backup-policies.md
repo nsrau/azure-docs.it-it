@@ -15,15 +15,15 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: twooley
 ms.openlocfilehash: 7b2df6c8384e78094d80a17d8982b0db9edf73e1
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75933368"
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-backup-policies"></a>Utilizzo di Gestione snapshot StorSimple per creare e gestire i criteri di backup
-## <a name="overview"></a>Overview
-Un criterio di backup consente di creare una pianificazione di backup dei dati del volume in locale o nel cloud. Quando si crea un criterio di backup, è inoltre possibile specificare un criterio di conservazione. È possibile conservare un massimo di 64 snapshot. Per altre informazioni sui criteri di backup, vedere [tipi di backup](storsimple-what-is-snapshot-manager.md#backup-types-and-backup-policies) nella [serie StorSimple 8000: una soluzione cloud ibrida](storsimple-overview.md).
+## <a name="overview"></a>Panoramica
+Un criterio di backup consente di creare una pianificazione di backup dei dati del volume in locale o nel cloud. Quando si crea un criterio di backup, è inoltre possibile specificare un criterio di conservazione. È possibile mantenere un massimo di 64 istantanee. Per ulteriori informazioni sui criteri di backup, vedere [Tipi di backup](storsimple-what-is-snapshot-manager.md#backup-types-and-backup-policies) nella serie [StorSimple 8000: una soluzione cloud ibrida.](storsimple-overview.md)
 
 In questa esercitazione viene illustrato come:
 
@@ -36,37 +36,37 @@ Utilizzare la procedura seguente per creare un nuovo criterio di backup.
 
 #### <a name="to-create-a-backup-policy"></a>Per creare un criterio di backup
 1. Fare clic sull’icona del desktop per avviare StorSimple Snapshot Manager.
-2. Nel riquadro **Ambito** fare clic con il pulsante destro del mouse su **Criteri di backup**, quindi fare clic su **Crea criteri di backup**.
+2. Nel riquadro **Ambito** fare clic con il pulsante destro del mouse su **Criteri di backup**, quindi scegliere **Crea criteri di backup**.
 
     ![Creare un criterio di backup](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Create_BU_policy.png)
 
-    Viene visualizzata la finestra di dialogo **Crea un criterio** .
+    Viene visualizzata la finestra di dialogo **Crea criteri**.
 
     ![Creazione di un criterio - scheda Generale](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Create_policy_general.png)
-3. Nella scheda **Generale** , completare le informazioni seguenti:
+3. Nella scheda **Generale** immettere le informazioni seguenti:
 
-   1. Nella casella di testo **Nome** , digitare un nome per il criterio.
-   2. Nella casella di testo **Gruppo di volumi** digitare il nome del gruppo di volumi associati ai criteri.
-   3. Selezionare **Snapshot locale** o **Snapshot cloud**.
-   4. Selezionare il numero di snapshot da conservare. Se si seleziona **Tutti**, verranno conservati 64 snapshot (il massimo).
-4. Fare clic sulla scheda **Pianificazione** .
+   1. Nella casella di testo **Nome** digitare un nome per i criteri.
+   2. Nella casella di testo **Gruppo di volumi** digitare il nome del gruppo di volumi associato ai criteri.
+   3. Selezionare **Snapshot locale** o **Snapshot nel cloud**.
+   4. Selezionare il numero di snapshot da conservare. Se si seleziona **Tutti**, vengono conservati 64 snapshot (valore massimo consentito).
+4. Fare clic sulla scheda **Pianificazione**.
 
     ![Creazione un criterio - scheda Pianificazione](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Create_policy_schedule.png)
-5. Nella scheda **Pianificazione** , completare le informazioni seguenti:
+5. Nella scheda **Pianificazione** immettere le informazioni seguenti:
 
-   1. Fare clic sulla casella di controllo **Abilita** per pianificare il backup successivo.
-   2. In **Impostazioni** selezionare **Una sola volta**, **Giornaliera**, **Settimanale** o **Mensile**.
-   3. Nella casella di controllo **Avvio** , fare clic sull'icona del calendario e selezionare una data di avvio.
-   4. In **Impostazioni avanzate**, è possibile impostare pianificazioni ripetute facoltative e una data di fine.
+   1. Selezionare la casella di controllo **Abilita** per pianificare il backup successivo.
+   2. In **Impostazioni** selezionare **Una volta**, **Giornaliero**, **Settimanale** o **Mensile**.
+   3. Nella casella di testo **Inizio** fare clic sull'icona del calendario e selezionare una data di inizio.
+   4. In **Impostazioni avanzate** è possibile selezionare pianificazioni ripetute facoltativamente e una data di fine.
    5. Fare clic su **OK**.
 
-Dopo aver creato un criterio di backup, nel riquadro **Risultati** vengono visualizzate le informazioni seguenti:
+Dopo aver creato i criteri di backup, nel riquadro **Risultati** vengono visualizzate le informazioni seguenti:
 
-* **Nome** : il nome del criterio di backup.
-* **Tipo** : snapshot locale o cloud.
-* **Gruppo di volumi** : il gruppo di volumi associato al criterio.
-* **Conservazione** : il numero di snapshot conservati (il massimo è 64).
-* **Creato** : la data in cui è stato creato questo criterio.
+* **Nome**: nome dei criteri di backup.
+* **Tipo**: snapshot locale o nel cloud.
+* **Gruppo di volumi**: gruppo di volumi associato ai criteri.
+* **Conservazione**: numero di snapshot da conservare. Il valore massimo è 64.
+* **Data creazione**: data di creazione dei criteri specifici.
 * **Abilitato**: se il criterio è attualmente attivo (**True** indica che è attivo, **False** indica che non è attivo).
 
 ## <a name="edit-a-backup-policy"></a>Modifica di un criterio di backup
@@ -74,19 +74,19 @@ Utilizzare la procedura seguente per modificare un criterio di backup esistente.
 
 #### <a name="to-edit-a-backup-policy"></a>Per modificare un criterio di backup
 1. Fare clic sull’icona del desktop per avviare StorSimple Snapshot Manager.
-2. Nel riquadro **Ambito** fare clic sul nodo **Criteri di backup**. Nel riquadro **Risultati** vengono visualizzati tutti i criteri di backup.
-3. Fare clic con il pulsante destro del mouse sul criterio che si desidera modificare, quindi fare clic su **Modifica**.
+2. Nel riquadro **Ambito** fare clic sul nodo **Criteri di backup**. Tutti i criteri di backup vengono visualizzati nel riquadro **Risultati**.
+3. Fare clic con il pulsante destro del mouse sui criteri da modificare, quindi scegliere **Modifica**.
 
     ![Modifica di un criterio di backup](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Edit_BU_policy.png)
-4. Quando viene visualizzata la finestra **Crea un criterio**, apportare le modifiche, quindi fare clic su **OK**.
+4. Quando viene visualizzata la finestra di dialogo **Crea criteri**, immettere le modifiche, quindi fare clic su **OK**.
 
 ## <a name="delete-a-backup-policy"></a>Eliminare un criterio di backup
 Utilizzare la procedura seguente per eliminare un criterio di backup.
 
 #### <a name="to-delete-a-backup-policy"></a>Per eliminare un criterio di backup
 1. Fare clic sull’icona del desktop per avviare StorSimple Snapshot Manager.
-2. Nel riquadro **Ambito** fare clic sul nodo **Criteri di backup**. Nel riquadro **Risultati** vengono visualizzati tutti i criteri di backup.
-3. Fare clic con il pulsante destro del mouse sui criteri di backup da eliminare e quindi fare clic su **Elimina**.
+2. Nel riquadro **Ambito** fare clic sul nodo **Criteri di backup**. Tutti i criteri di backup vengono visualizzati nel riquadro **Risultati**.
+3. Fare clic con il pulsante destro del mouse sui criteri da eliminare, quindi scegliere **Elimina**.
 4. Quando viene visualizzato il messaggio di conferma, fare clic su **Sì**.
 
     ![Eliminazione della conferma dei criteri di backup](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Delete_BU_policy.png)

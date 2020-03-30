@@ -9,29 +9,29 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 3a5f7157ef8f3645dd03ec93684238dd8bbc067e
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75774224"
 ---
-Prima di iniziare la configurazione, installare e importare i moduli richiesti. Per installare i moduli in PowerShell sono necessari i privilegi di amministratore.
+Prima di iniziare la configurazione, installare e importare i moduli necessari. Per installare i moduli in PowerShell, è necessario disporre dei privilegi di amministratore.
 
-1. Installare e importare AZ Module
+1. Installare e importare il modulo Az
     ```powershell
     Install-Module Az -AllowClobber
     Import-Module Az
     ```
-1. Installare e importare il modulo AZ. peering
+1. Installare e importare il modulo Az.Peering
     ```powershell
     Install-Module -Name Az.Peering -AllowClobber
     Import-Module Az.Peering
     ```
-1. Verificare che i moduli vengano importati correttamente usando il comando seguente.
+1. Verificare che i moduli vengano importati correttamente utilizzando il comando riportato di seguito.
     ```powershell
     Get-Module
     ```
-1. Accedere al proprio account Azure usando il comando seguente.
+1. Accedere all'account Azure usando il comando seguente.
     ```powershell
     Connect-AzAccount
     ```
@@ -46,8 +46,8 @@ Prima di iniziare la configurazione, installare e importare i moduli richiesti. 
     New-AzResourceGroup -Name "PeeringResourceGroup" -Location "Central US"
     ```
 > [!IMPORTANT]
-> Se non è già stato associato il numero ASN e la sottoscrizione, seguire la procedura per associare il numero [ASN peer](../howto-subscription-association-powershell.md). Questa operazione è necessaria per richiedere un peering.
+> Se non sono già stati associati l'ASN e la sottoscrizione, seguire i passaggi per [Associate Peer ASN](../howto-subscription-association-powershell.md). Questa operazione è necessaria per richiedere un peering.
 
 > [!NOTE]
-> Il percorso del gruppo di risorse è indipendente dalla posizione in cui si sceglie di configurare un peering.
+> La posizione del gruppo di risorse è indipendente dalla posizione in cui si sceglie di configurare un peering.
 &nbsp;

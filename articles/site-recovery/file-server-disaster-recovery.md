@@ -9,10 +9,10 @@ ms.date: 07/31/2019
 ms.author: rajanaki
 ms.custom: mvc
 ms.openlocfilehash: c9f10815f2fbc8a17b8b712b6e5f8391fc7d541e
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75980290"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>Proteggere un file server usando Azure Site Recovery 
@@ -45,7 +45,7 @@ Nel diagramma precedente più file server, denominati membri, partecipano attiva
 
     * È possibile usare questo approccio se le macchine virtuali hanno configurazioni non supportate da Site Recovery. Un esempio è un disco del cluster condiviso, a volte usato comunemente negli ambienti dei file server. La replica DFS funziona correttamente anche negli ambienti con larghezza di banda ridotta con varianza media. È necessario prendere in considerazione il costo aggiuntivo della presenza di una macchina virtuale di Azure sempre in esecuzione. 
 
-* **Usare sincronizzazione file di Azure per replicare i file**: se si prevede di usare il cloud o si usa già una macchina virtuale di Azure, è possibile usare sincronizzazione file di Azure. Sincronizzazione file di Azure offre la sincronizzazione di condivisioni file completamente gestite nel cloud accessibili tramite il protocollo SMB ( [Server Message Block](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) ) standard del settore. Le condivisioni file di Azure possono essere montate simultaneamente da distribuzioni cloud o locali di Windows, Linux e macOS. 
+* **Usare Sincronizzazione file di Azure per replicare i file:** se si prevede di usare il cloud o se si usa già una macchina virtuale di Azure, è possibile usare Sincronizzazione file di Azure.Use Azure File Sync to replicate your files : If you plan to use the cloud or already use an Azure VM, you can use Azure File Sync. Sincronizzazione file di Azure offre la sincronizzazione di condivisioni file completamente gestite nel cloud accessibili tramite il protocollo [SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) standard del settore. Le condivisioni file di Azure possono essere montate simultaneamente da distribuzioni cloud o locali di Windows, Linux e macOS. 
 
 Il diagramma seguente consente di determinare la strategia da usare per l'ambiente di file server.
 
@@ -54,9 +54,9 @@ Il diagramma seguente consente di determinare la strategia da usare per l'ambien
 
 ### <a name="factors-to-consider-in-your-decisions-about-disaster-recovery-to-azure"></a>Fattori da considerare per le decisioni riguardanti il ripristino di emergenza in Azure
 
-|Ambiente  |Recommendation  |Elementi da considerare: |
+|Environment  |Recommendation  |Elementi da considerare: |
 |---------|---------|---------|
-|Ambiente di file server con o senza replica DFS|   [Usare Site Recovery per la replica](#replicate-an-on-premises-file-server-by-using-site-recovery)   |    Site Recovery non supporta cluster di dischi condivisi o NAS (Network Attached Storage). Se l'ambiente usa queste configurazioni, scegliere uno degli altri approcci in base alle esigenze. <br> Site Recovery non supporta SMB 3.0. La macchina virtuale replicata incorpora le modifiche solo quando le modifiche apportate ai file vengono aggiornate nella posizione originale dei file.<br>  Site Recovery offre un processo di replica dei dati quasi sincrono e, di conseguenza, nel caso di uno scenario di failover non pianificato, potrebbe verificarsi una potenziale perdita di dati e potrebbe creare problemi di mancata corrispondenza degli USN.
+|Ambiente di file server con o senza replica DFS|   [Usare Site Recovery per la replica](#replicate-an-on-premises-file-server-by-using-site-recovery)   |    Site Recovery non supporta cluster di dischi condivisi o NAS (Network Attached Storage). Se l'ambiente usa queste configurazioni, scegliere uno degli altri approcci in base alle esigenze. <br> Site Recovery non supporta SMB 3.0. La macchina virtuale replicata incorpora le modifiche solo quando le modifiche apportate ai file vengono aggiornate nella posizione originale dei file.<br>  Site Recovery offre un processo di replica dei dati quasi sincrono e, di conseguenza, in caso di scenario di failover non pianificato, potrebbe verificarsi una potenziale perdita di dati e potrebbe creare problemi di mancata corrispondenza USN.
 |Ambiente di file server con replica DFS     |  [Estendere la replica DFS a una macchina virtuale IaaS di Azure](#extend-dfsr-to-an-azure-iaas-virtual-machine)  |      La replica DFS funziona correttamente in ambienti con larghezza di banda molto limitata. Questo approccio richiede una macchina virtuale di Azure sempre in esecuzione. È necessario tenere conto del costo della macchina virtuale nella pianificazione.         |
 |Macchina virtuale IaaS di Azure     |     Sincronizzazione file    |     Se si usa Sincronizzazione file in uno scenario di ripristino di emergenza, durante il failover è necessario prevedere azioni manuali per assicurarsi che le condivisioni file siano accessibili per il computer client in modo trasparente. Sincronizzazione file richiede che la porta 445 sia aperta dal computer client.     |
 
@@ -64,7 +64,7 @@ Il diagramma seguente consente di determinare la strategia da usare per l'ambien
 ### <a name="site-recovery-support"></a>Supporto di Site Recovery
 Dato che la replica di Site Recovery è indipendente dall'applicazione, queste raccomandazioni saranno valide anche per gli scenari seguenti.
 
-| Origine    |In un sito secondario    |In Azure
+| Source (Sorgente)    |In un sito secondario    |In Azure
 |---------|---------|---------|
 |Azure| -|Sì|
 |Hyper-V|   Sì |Sì
@@ -120,7 +120,7 @@ Per altre informazioni sul ripristino di emergenza in un'area secondaria, vedere
 
 I passaggi seguenti descrivono la replica per una macchina virtuale VMware. Per la procedura per replicare una macchina virtuale Hyper-V, vedere [questa esercitazione](tutorial-hyper-v-to-azure.md).
 
-1. [Preparare le risorse di Azure](tutorial-prepare-azure.md) per la replica dei computer locali.
+1. [Preparare](tutorial-prepare-azure.md) le risorse di Azure per la replica delle macchine locali.
 2. Stabilire una connessione VPN da sito a sito tra il sito locale e la rete Azure. 
 3. Estendere Active Directory locale.
 4. [Preparare i server VMware locali](tutorial-prepare-on-premises-vmware.md).
@@ -146,7 +146,7 @@ Per integrare Sincronizzazione file con Site Recovery:
 
 Seguire questa procedura per usare Sincronizzazione file:
 
-1. [Creare un account di archiviazione in Microsoft Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Se è stata scelta l'archiviazione con ridondanza geografica e accesso in lettura (scelta consigliata) per gli account di archiviazione, è disponibile l'accesso in lettura ai dati dall'area secondaria in caso di emergenza. Per altre informazioni, consultare [Ripristino di emergenza e failover forzato (anteprima) in Archiviazione di Azure](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json).
+1. [Creare un account di archiviazione in Microsoft Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Se è stata scelta l'archiviazione con ridondanza geografica e accesso in lettura (scelta consigliata) per gli account di archiviazione, è disponibile l'accesso in lettura ai dati dall'area secondaria in caso di emergenza. Per altre informazioni, vedere [Ripristino di emergenza e failover forzato (anteprima) in Archiviazione di Azure.For](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json)more information, see Disaster recovery and forced failover (preview) in Azure Storage ..
 2. [Creare una condivisione file](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
 3. [Distribuire Sincronizzazione file ](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide) nel file server locale.
 4. Creare un gruppo di sincronizzazione. Gli endpoint all'interno di un gruppo di sincronizzazione vengono mantenuti sincronizzati tra loro. Un gruppo di sincronizzazione deve contenere almeno un endpoint cloud, che rappresenta una condivisione file di Azure. Il gruppo di sincronizzazione deve contenere anche un endpoint del server, che rappresenta un percorso nel server Windows locale.

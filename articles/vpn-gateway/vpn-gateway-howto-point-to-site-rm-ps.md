@@ -1,5 +1,5 @@
 ---
-title: 'Connettersi a una VNet da un computer-P2S VPN e autenticazione del certificato di Azure nativo: PowerShell'
+title: 'Connettersi a una rete virtuale da un computer - VPN P2S e autenticazione del certificato di Azure nativa: PowerShellConnect to a VNet from a computer - P2S VPN and native Azure certificate authentication: PowerShell'
 description: Connettere i client Windows e Mac OS X in modo sicuro alla rete virtuale di Azure tramite certificati da punto a sito e autofirmati o certificati rilasciati da un'autorità di certificazione. Questo articolo usa PowerShell.
 titleSuffix: Azure VPN Gateway
 services: vpn-gateway
@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: cherylmc
 ms.openlocfilehash: 49fbdf4a4090350cc0a6a5a1b938621b3cb08632
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76045102"
 ---
-# <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>Configurare una connessione VPN da punto a sito a una VNet usando l'autenticazione del certificato di Azure nativo: PowerShell
+# <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>Configurare una connessione VPN da punto a sito a una rete virtuale usando l'autenticazione del certificato di Azure nativa: PowerShellConfigure a Point-to-Site VPN connection to a VNet using native Azure certificate authentication: PowerShell
 
 Questo articolo illustra come connettere in modo sicuro singoli client che eseguono Windows, Linux o Mac OS X a una rete virtuale di Azure. Le connessioni VPN da punto a sito sono utili per connettersi alla rete virtuale da una posizione remota, ad esempio nel caso di telecomunicazioni da casa o durante una riunione. È anche possibile usare una VPN da punto a sito al posto di una VPN da sito a sito quando solo pochi client devono connettersi a una rete virtuale. Le connessioni da punto a sito non richiedono un dispositivo VPN o un indirizzo IP pubblico. La modalità da punto a sito crea la connessione VPN tramite SSTP (Secure Sockets Tunneling Protocol) o IKEv2. Per altre informazioni sulle connessioni VPN da punto a sito, vedere [Informazioni sulla VPN da punto a sito](point-to-site-about.md).
 
 ![Connettere un computer a una rete virtuale di Azure: diagramma di connessione da punto a sito](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/p2snativeportal.png)
 
-## <a name="architecture"></a>Architettura
+## <a name="architecture"></a>Architecture
 
 Le connessioni con autenticazione tramite certificato da punto a sito di Azure usano gli elementi seguenti, che vengono configurati in questo esercizio:
 
@@ -39,10 +39,10 @@ Verificare di possedere una sottoscrizione di Azure. Se non si ha una sottoscriz
 [!INCLUDE [powershell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 
 >[!NOTE]
-> La maggior parte dei passaggi descritti in questo articolo può utilizzare Azure Cloud Shell. Tuttavia, per caricare la chiave pubblica del certificato radice, è necessario usare PowerShell in locale o il portale di Azure.
+> La maggior parte dei passaggi descritti in questo articolo può usare Azure Cloud Shell. Tuttavia, per caricare la chiave pubblica del certificato radice, è necessario usare PowerShell in locale o il portale di Azure.
 >
 
-### <a name="example"></a>Valori di esempio
+### <a name="example-values"></a><a name="example"></a>Valori di esempio
 
 È possibile usare i valori di esempio per creare un ambiente di test o fare riferimento a questi valori per comprendere meglio gli esempi di questo articolo. Le variabili vengono impostate nella sezione [1](#declare) dell'articolo. È possibile seguire la procedura dettagliata e usare i valori senza modificarle oppure modificarli in base all'ambiente.
 
@@ -63,11 +63,11 @@ Verificare di possedere una sottoscrizione di Azure. Se non si ha una sottoscriz
 * **Nome dell'IP pubblico: VNet1GWPIP**
 * **VpnType: RouteBased** 
 
-## <a name="declare"></a>1. accedere e impostare le variabili
+## <a name="1-sign-in-and-set-variables"></a><a name="declare"></a>1. Accedere e impostare le variabili
 
 In questa sezione si accede e si dichiarano i valori usati per la configurazione. I valori dichiarati saranno usati negli script di esempio. È possibile modificare i valori in base all'ambiente personalizzato. In alternativa, è possibile usare i valori dichiarati e seguire la procedura come un esercizio.
 
-### <a name="sign-in"></a>Accedi
+### <a name="sign-in"></a>Accesso
 
 [!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps-login.md)]
 
@@ -93,7 +93,7 @@ Dichiarare le variabili da usare. Usare l'esempio seguente, sostituendo i valori
   $GWIPconfName = "gwipconf"
   ```
 
-## <a name="ConfigureVNet"></a>2. configurare un VNet
+## <a name="2-configure-a-vnet"></a><a name="ConfigureVNet"></a>2. Configurare una rete virtuale
 
 1. Creare un gruppo di risorse.
 
@@ -129,13 +129,13 @@ Dichiarare le variabili da usare. Usare l'esempio seguente, sostituendo i valori
    $ipconf = New-AzVirtualNetworkGatewayIpConfig -Name $GWIPconfName -Subnet $subnet -PublicIpAddress $pip
    ```
 
-## <a name="creategateway"></a>3. creare il gateway VPN
+## <a name="3-create-the-vpn-gateway"></a><a name="creategateway"></a>3. Creare il gateway VPN
 
 Configurare e creare il gateway di rete virtuale per la rete virtuale.
 
 * -GatewayType deve essere **Vpn** e -VpnType deve essere **RouteBased**.
-* -VpnClientProtocol consente di specificare i tipi di tunnel da abilitare. Le opzioni del tunnel sono **OpenVPN, SSTP** e **IKEv2**. È possibile scegliere di abilitarne una o qualsiasi combinazione supportata. Se si vuole abilitare più tipi, specificare i nomi separati da una virgola. Non è possibile abilitare OpenVPN e SSTP insieme. Il client strongSwan in Android e Linux e il client VPN IKEv2 nativo in iOS e OSX useranno solo il tunnel IKEv2 per la connessione. I client Windows provano prima IKEv2 e, se la connessione non viene stabilita, tornano a SSTP. È possibile usare il client OpenVPN per connettersi al tipo di tunnel OpenVPN.
-* Lo SKU del gateway di rete virtuale ' Basic ' non supporta l'autenticazione IKEv2, OpenVPN o RADIUS. Se si prevede che client Mac si connetteranno alla rete virtuale, non usare lo SKU Basic.
+* -VpnClientProtocol consente di specificare i tipi di tunnel da abilitare. Le opzioni del tunnel sono **OpenVPN, SSTP** e **IKEv2**. È possibile scegliere di abilitare uno di essi o qualsiasi combinazione supportata. Se si desidera abilitare più tipi, specificare i nomi separati da una virgola. OpenVPN e SSTP non possono essere abilitati insieme. Il client strongSwan in Android e Linux e il client VPN IKEv2 nativo in iOS e OSX useranno solo il tunnel IKEv2 per la connessione. I client Windows provano prima IKEv2 e, se la connessione non viene stabilita, tornano a SSTP. È possibile utilizzare il client OpenVPN per connettersi al tipo di tunnel OpenVPN.
+* Lo SKU 'Basic' del gateway di rete virtuale non supporta l'autenticazione IKEv2, OpenVPN o RADIUS. Se si prevede che client Mac si connetteranno alla rete virtuale, non usare lo SKU Basic.
 * Per il completamento di un gateway VPN possono essere necessari fino a 45 minuti, in base allo [SKU del gateway](vpn-gateway-about-vpn-gateway-settings.md) selezionato. In questo esempio viene usato IKEv2.
 
 ```azurepowershell-interactive
@@ -144,7 +144,7 @@ New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
 -VpnType RouteBased -EnableBgp $false -GatewaySku VpnGw1 -VpnClientProtocol "IKEv2"
 ```
 
-## <a name="addresspool"></a>4. aggiungere il pool di indirizzi del client VPN
+## <a name="4-add-the-vpn-client-address-pool"></a><a name="addresspool"></a>4. Aggiungere il pool di indirizzi client VPN
 
 Al termine della creazione del gateway VPN, è possibile aggiungere il pool di indirizzi del client VPN. Il pool di indirizzi client VPN è l'intervallo da cui i client VPN ricevono un indirizzo IP al momento della connessione. Usare un intervallo di indirizzi IP privati che non si sovrapponga con la posizione locale da cui viene effettuata la connessione o con la rete virtuale a cui ci si vuole connettere. In questo esempio, il pool di indirizzi client VPN viene dichiarato come [variabile](#declare) nel passaggio 1.
 
@@ -153,27 +153,27 @@ $Gateway = Get-AzVirtualNetworkGateway -ResourceGroupName $RG -Name $GWName
 Set-AzVirtualNetworkGateway -VirtualNetworkGateway $Gateway -VpnClientAddressPool $VPNClientAddressPool
 ```
 
-## <a name="Certificates"></a>5. generare certificati
+## <a name="5-generate-certificates"></a><a name="Certificates"></a>5. Generare certificati
 
 I certificati vengono usati da Azure per autenticare i client VPN per VPN da punto a sito. È necessario caricare le informazioni della chiave pubblica del certificato radice in Azure. La chiave pubblica viene quindi considerata "attendibile". I certificati client devono essere generati dal certificato radice attendibile e quindi installati in ogni computer client nell'archivio certificati Certificati - Utente corrente/Personale. Il certificato viene usato per l'autenticazione del client all'avvio di una connessione alla rete virtuale. 
 
 Se usati, i certificati autofirmati devono essere creati con parametri specifici. È possibile creare un certificato autofirmato seguendo le istruzioni per [PowerShell e Windows 10](vpn-gateway-certificates-point-to-site.md) oppure è possibile usare [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md) se Windows 10 non è disponibile. È importante seguire i passaggi delle istruzioni quando si generano certificati radice autofirmati e certificati client. In caso contrario, i certificati generati non saranno compatibili con le connessioni P2S e si riceverà un errore di connessione.
 
-### <a name="cer"></a>1. ottenere il file CER per il certificato radice
+### <a name="1-obtain-the-cer-file-for-the-root-certificate"></a><a name="cer"></a>1. Ottenere il file CER per il certificato radice
 
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-p2s-rootcert-include.md)]
 
 
-### <a name="generate"></a>2. generare un certificato client
+### <a name="2-generate-a-client-certificate"></a><a name="generate"></a>2. Generare un certificato client
 
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-p2s-clientcert-include.md)]
 
-## <a name="upload"></a>6. caricare le informazioni sulla chiave pubblica del certificato radice
+## <a name="6-upload-the-root-certificate-public-key-information"></a><a name="upload"></a>6. Caricare le informazioni sulla chiave pubblica del certificato radice
 
 Verificare che la creazione del gateway VPN sia stata completata. In tal caso sarà possibile caricare il file CER, contenente le informazioni sulla chiave pubblica, per un certificato radice attendibile in Azure. Al termine del caricamento di un file CER, Azure lo può usare per autenticare i client che hanno installato un certificato client generato dal certificato radice attendibile. È possibile caricare fino a 20 file di certificato radice attendibile aggiuntivi in un secondo momento, se necessario.
 
 >[!NOTE]
-> Non è possibile caricare il file con estensione cer usando Azure Cloud Shell. È possibile usare PowerShell localmente nel computer oppure è possibile usare la [procedura portale di Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md#uploadfile).
+> Non è possibile caricare il file cer con Azure Cloud Shell. È possibile usare PowerShell in locale nel computer oppure usare i passaggi del portale di [Azure.You](vpn-gateway-howto-point-to-site-resource-manager-portal.md#uploadfile)can either use PowerShell locally on your computer, or you can use the Azure portal steps .
 >
 
 1. Dichiarare la variabile per il nome del certificato, sostituendo il valore con il proprio.
@@ -189,13 +189,13 @@ Verificare che la creazione del gateway VPN sia stata completata. In tal caso sa
    $CertBase64 = [system.convert]::ToBase64String($cert.RawData)
    $p2srootcert = New-AzVpnClientRootCertificate -Name $P2SRootCertName -PublicCertData $CertBase64
    ```
-3. Caricare le informazioni sulla chiave pubblica in Azure. Dopo aver caricato le informazioni sul certificato, Azure lo considera un certificato radice attendibile. Quando si carica, assicurarsi di eseguire PowerShell localmente nel computer, oppure è possibile usare la [procedura portale di Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md#uploadfile). Non è possibile caricare usando Azure Cloud Shell.
+3. Caricare le informazioni sulla chiave pubblica in Azure. Dopo aver caricato le informazioni sul certificato, Azure lo considera un certificato radice attendibile. Durante il caricamento, assicurarsi di eseguire PowerShell in locale nel computer oppure usare i passaggi del portale di [Azure.When uploading,](vpn-gateway-howto-point-to-site-resource-manager-portal.md#uploadfile)make sure you are running PowerShell locally on your computer, or instead, you can use the Azure portal steps . Non è possibile caricare con Azure Cloud Shell.You can't upload using Azure Cloud Shell.
 
    ```azurepowershell
    Add-AzVpnClientRootCertificate -VpnClientRootCertificateName $P2SRootCertName -VirtualNetworkGatewayname "VNet1GW" -ResourceGroupName "TestRG" -PublicCertData $CertBase64
    ```
 
-## <a name="clientcertificate"></a>7. installare un certificato client esportato
+## <a name="7-install-an-exported-client-certificate"></a><a name="clientcertificate"></a>7. Installare un certificato client esportato
 
 Se si vuole creare una connessione da punto a sito da un computer client diverso da quello usato per generare i certificati client, è necessario installare un certificato client. Quando si installa un certificato client, è necessaria la password che è stata creata durante l'esportazione del certificato client.
 
@@ -203,11 +203,11 @@ Verificare che il certificato client sia stato esportato come PFX con l'intera c
 
 Per la procedura di installazione, vedere [Install a client certificate](point-to-site-how-to-vpn-client-install-azure-cert.md) (Installare un certificato client).
 
-## <a name="clientconfig"></a>8. configurare il client VPN nativo
+## <a name="8-configure-the-native-vpn-client"></a><a name="clientconfig"></a>8. Configurare il client VPN nativo
 
 I file di configurazione del client VPN contengono le impostazioni per configurare i dispositivi per la connessione a una rete virtuale tramite una connessione P2S. Per le istruzioni per generare e installare i file di configurazione del client VPN, vedere [Create and install VPN client configuration files for native Azure certificate authentication P2S configurations](point-to-site-vpn-client-configuration-azure-cert.md) (Creare e installare i file di configurazione del client VPN per le configurazioni P2S per l'autenticazione del certificato di Azure nativo).
 
-## <a name="connect"></a>9. connettersi ad Azure
+## <a name="9-connect-to-azure"></a><a name="connect"></a>9. Connettersi ad Azure
 
 ### <a name="to-connect-from-a-windows-vpn-client"></a>Per connettersi da un client VPN Windows
 
@@ -216,8 +216,8 @@ I file di configurazione del client VPN contengono le impostazioni per configura
 >
 >
 
-1. Per connettersi alla rete virtuale, nel computer client passare alle connessioni VPN e individuare quella creata, che ha lo stesso nome della rete virtuale locale. Fare clic su **Connetti**. È possibile che venga visualizzato un messaggio popup che fa riferimento all'uso del certificato. Fare clic su **Continua** per usare privilegi elevati. 
-2. Nella pagina **Stato connessione** fare clic su **Connetti** per avviare la connessione. Se viene visualizzato un **Seleziona certificato** dello schermo, verificare che il certificato client visualizzato sia quello che si desidera utilizzare per la connessione. In caso contrario, usare la freccia a discesa per selezionare il certificato corretto e quindi fare clic su **OK**.
+1. Per connettersi alla rete virtuale, nel computer client passare alle connessioni VPN e individuare quella creata, che ha lo stesso nome della rete virtuale locale. Fare clic su **Connetti**. È possibile che venga visualizzato un messaggio popup che fa riferimento all'uso del certificato. Fare clic su **Continua** per utilizzare i privilegi elevati. 
+2. Nella pagina **Stato connessione** fare clic su **Connetti** per avviare la connessione. Se viene visualizzata una schermata **Seleziona certificato**, verificare che il certificato client visualizzato sia quello che si desidera utilizzare per la connessione. In caso contrario, usare la freccia a discesa per selezionare il certificato corretto e quindi fare clic su **OK**.
 
    ![Connessione del client VPN ad Azure](./media/vpn-gateway-howto-point-to-site-rm-ps/clientconnect.png)
 3. Verrà stabilita la connessione.
@@ -235,7 +235,7 @@ Per istruzioni dettagliate, vedere [Installazione in Mac (OS X)](https://docs.mi
 
   ![Connessione Mac](./media/vpn-gateway-howto-point-to-site-rm-ps/applyconnect.png)
 
-## <a name="verify"></a>Per verificare la connessione
+## <a name="to-verify-your-connection"></a><a name="verify"></a>Per verificare la connessione
 
 Queste istruzioni si applicano ai client Windows.
 
@@ -255,21 +255,21 @@ Queste istruzioni si applicano ai client Windows.
       NetBIOS over Tcpip..............: Enabled
    ```
 
-## <a name="connectVM"></a>Per connettersi a una macchina virtuale
+## <a name="to-connect-to-a-virtual-machine"></a><a name="connectVM"></a>Per connettersi a una macchina virtuale
 
 Queste istruzioni si applicano ai client Windows.
 
 [!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm-p2s-include.md)]
 
-## <a name="addremovecert"></a>Per aggiungere o rimuovere un certificato radice
+## <a name="to-add-or-remove-a-root-certificate"></a><a name="addremovecert"></a>Per aggiungere o rimuovere un certificato radice
 
 È possibile aggiungere e rimuovere certificati radice attendibili da Azure. Quando si rimuove un certificato radice, i client con un certificato generato da tale certificato radice non possono eseguire l'autenticazione e non potranno connettersi. Per consentire ai client di eseguire l'autenticazione e connettersi, è necessario installare un nuovo certificato client generato da un certificato radice considerato attendibile (caricato) in Azure.
 
-### <a name="addtrustedroot"></a>Per aggiungere un certificato radice attendibile
+### <a name="to-add-a-trusted-root-certificate"></a><a name="addtrustedroot"></a>Per aggiungere un certificato radice attendibile
 
 In Azure è possibile aggiungere fino a 20 file CER di certificato radice. La procedura seguente consente di aggiungere un certificato radice:
 
-#### <a name="certmethod1"></a>Metodo 1
+#### <a name="method-1"></a><a name="certmethod1"></a>Metodo 1
 
 
 Si tratta del metodo più efficiente per caricare un certificato radice. Richiede che i cmdlet di Azure PowerShell siano installati localmente nel computer (non Azure Cloud Shell).
@@ -295,7 +295,7 @@ Si tratta del metodo più efficiente per caricare un certificato radice. Richied
    -VirtualNetworkGatewayName "VNet1GW"
    ```
 
-#### <a name="certmethod2"></a>Metodo 2 - Portale di Azure
+#### <a name="method-2---azure-portal"></a><a name="certmethod2"></a>Metodo 2 - Portale di Azure
 
 Questo metodo prevede più passaggi rispetto al metodo 1, ma permette di ottenere lo stesso risultato. Viene incluso qualora si voglia visualizzare i dati del certificato. Richiede che i cmdlet di Azure PowerShell siano installati localmente nel computer (non Azure Cloud Shell).
 
@@ -326,7 +326,7 @@ Questo metodo prevede più passaggi rispetto al metodo 1, ma permette di ottener
    -VirtualNetworkGatewayName "VNet1GW"
    ```
 
-### <a name="removerootcert"></a>Per rimuovere un certificato radice
+### <a name="to-remove-a-root-certificate"></a><a name="removerootcert"></a>Per rimuovere un certificato radice
 
 1. Dichiarare le variabili.
 
@@ -348,15 +348,15 @@ Questo metodo prevede più passaggi rispetto al metodo 1, ma permette di ottener
    -VirtualNetworkGatewayName "VNet1GW"
    ```
 
-## <a name="revoke"></a>Per revocare un certificato client
+## <a name="to-revoke-a-client-certificate"></a><a name="revoke"></a>Per revocare un certificato client
 
 È possibile revocare i certificati client. L'elenco di revoche di certificati consente di negare in modo selettivo la connettività da punto a sito basata sui singoli certificati client. Questa operazione è diversa rispetto alla rimozione di un certificato radice attendibile. Se si rimuove un file con estensione cer del certificato radice attendibile da Azure, viene revocato l'accesso per tutti i certificati client generati o firmati dal certificato radice revocato. La revoca di un certificato client, anziché del certificato radice, consente di continuare a usare gli altri certificati generati dal certificato radice per l'autenticazione.
 
 La regola generale è quella di usare il certificato radice per gestire l'accesso a livello di team o organizzazione, usando i certificati client revocati per il controllo di accesso con granularità fine su singoli utenti.
 
-### <a name="revokeclientcert"></a>Revocare un certificato client
+### <a name="revoke-a-client-certificate"></a><a name="revokeclientcert"></a>Revocare un certificato client
 
-1. Ottenere l'identificazione personale del certificato client. Per altre informazioni, vedere [Procedura: recuperare l'identificazione personale di un certificato](https://msdn.microsoft.com/library/ms734695.aspx).
+1. Ottenere l'identificazione personale del certificato client. Per ulteriori informazioni, vedere [Come recuperare l'identificazione personale di un certificato](https://msdn.microsoft.com/library/ms734695.aspx).
 2. Copiare le informazioni in un editor di testo e rimuovere tutti gli spazi in modo che sia una stringa continua. Questa stringa viene dichiarata come variabile nel passaggio successivo.
 3. Dichiarare le variabili. Assicurarsi di dichiarare l'identificazione personale ottenuta nel passaggio precedente.
 
@@ -380,7 +380,7 @@ La regola generale è quella di usare il certificato radice per gestire l'access
    ```
 6. Dopo aver aggiunto l'identificazione personale, il certificato non può più essere usato per la connessione. Ai client che provano a connettersi con questo certificato verrà visualizzato un messaggio che informa che il certificato non è più valido.
 
-### <a name="reinstateclientcert"></a>Per reintegrare un certificato client
+### <a name="to-reinstate-a-client-certificate"></a><a name="reinstateclientcert"></a>Per reintegrare un certificato client
 
 È possibile reintegrare un certificato client rimuovendo l'identificazione personale dall'elenco dei certificati client revocati.
 
@@ -404,7 +404,7 @@ La regola generale è quella di usare il certificato radice per gestire l'access
    Get-AzVpnClientRevokedCertificate -VirtualNetworkGatewayName $GWName -ResourceGroupName $RG
    ```
 
-## <a name="faq"></a>Domande frequenti sulla connettività da punto a sito
+## <a name="point-to-site-faq"></a><a name="faq"></a>Domande frequenti sulla connettività da punto a sito
 
 [!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
 

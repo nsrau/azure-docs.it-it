@@ -1,6 +1,6 @@
 ---
-title: Distribuire l'offerta OpenShift container Platform 3,11 self-Managed Marketplace in Azure
-description: Distribuisci l'offerta OpenShift container Platform 3,11 self-Managed Marketplace in Azure.
+title: Distribuire l'offerta OpenShift Container Platform 3.11 Self-Managed Marketplace in AzureDeploy OpenShift Container Platform 3.11 Self-Managed Marketplace Offer in Azure
+description: Distribuire l'offerta OpenShift Container Platform 3.11 Self-Managed Marketplace in Azure.Deploy OpenShift Container Platform 3.11 Self-Managed Marketplace Offer in Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldwongms
@@ -15,63 +15,63 @@ ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
 ms.openlocfilehash: 235efd746562ea4bd52b9cb57da0d8165d60de02
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75561321"
 ---
 # <a name="configure-prerequisites"></a>Configurazione dei prerequisiti
 
-Prima di usare l'offerta Marketplace per distribuire un cluster OpenShift container Platform 3,11 autonomo in Azure, è necessario configurare alcuni prerequisiti.  Per istruzioni su come creare una chiave SSH (senza passphrase), l'insieme di credenziali delle chiavi di Azure, il segreto dell'insieme di credenziali delle chiavi e un'entità servizio, vedere l'articolo relativo ai [prerequisiti di OpenShift](https://docs.microsoft.com/azure/virtual-machines/linux/openshift-container-platform-3x-prerequisites) .
+Prima di usare l'offerta Marketplace per distribuire un cluster OpenShift Container Platform 3.11 autogestito in Azure, è necessario configurare alcuni prerequisiti.  Leggere l'articolo [sui prerequisiti OpenShift](https://docs.microsoft.com/azure/virtual-machines/linux/openshift-container-platform-3x-prerequisites) per istruzioni su come creare una chiave ssh (senza passphrase), un insieme di credenziali delle chiavi di Azure, un segreto dell'insieme di credenziali delle chiavi e un'entità servizio.
 
  
-## <a name="deploy-using-the-marketplace-offer"></a>Eseguire la distribuzione usando l'offerta Marketplace
+## <a name="deploy-using-the-marketplace-offer"></a>Distribuzione tramite l'offerta Marketplace
 
-Il modo più semplice per distribuire un cluster OpenShift container Platform 3,11 autonomo in Azure consiste nell'usare l' [offerta di Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/osatesting.open-shift-azure-proxy).
+Il modo più semplice per distribuire un cluster OpenShift Container Platform 3.11 autogestito in Azure consiste nell'usare [l'offerta di Azure Marketplace.](https://azuremarketplace.microsoft.com/marketplace/apps/osatesting.open-shift-azure-proxy)
 
-Questa opzione è la più semplice, ma offre anche funzionalità di personalizzazione limitate. L'offerta Marketplace distribuisce OpenShift container Platform 3.11.82 e include le opzioni di configurazione seguenti:
+Questa opzione è la più semplice, ma ha anche funzionalità di personalizzazione limitate. L'offerta Marketplace distribuisce OpenShift Container Platform 3.11.82 e include le seguenti opzioni di configurazione:
 
 - **Nodi master**: tre (3) nodi master con tipo di istanza configurabile.
 - **Nodi di infrastruttura**: tre (3) nodi di infrastruttura con tipo di istanza configurabile.
-- **Nodes**: il numero di nodi (compresi tra 1 e 9) e il tipo di istanza sono configurabili.
+- **Nodi**: Il numero di nodi (tra 1 e 9) e il tipo di istanza sono configurabili.
 - **Tipo di disco**: vengono usati dischi gestiti.
-- **Rete**: supporto per la rete nuova o esistente e l'intervallo CIDR personalizzato.
+- **Networking**: Supporto per rete nuova o esistente e gamma CIDR personalizzata.
 - **Nomi comuni**: è possibile abilitare i nomi comuni.
-- **Metriche**: è possibile abilitare la metrica Hawkular.
-- **Registrazione**: è possibile abilitare la registrazione EFK.
-- **Provider di servizi cloud di Azure**: abilitata per impostazione predefinita, può essere disabilitata.
+- **Metriche**: Le metriche Hawkular possono essere abilitate.
+- **Registrazione**: La registrazione EFK può essere abilitata.
+- **Provider cloud di Azure:** abilitato per impostazione predefinita, può essere disabilitato.
 
-Nell'angolo in alto a sinistra della portale di Azure fare clic su **Crea una risorsa**, immettere ' OpenShift container Platform ' nella casella di ricerca e premere INVIO.
+Nell'angolo superiore sinistro del portale di Azure fare clic su **Crea una risorsa**, immettere 'piattaforma contenitore openshift' nella casella di ricerca e premere INVIO.
 
-   ![Nuova ricerca risorse](media/openshift-marketplace-self-managed/ocp-search.png)  
+   ![Nuova ricerca di risorse](media/openshift-marketplace-self-managed/ocp-search.png)  
 <br>
 
-La pagina risultati si aprirà con **Red Hat OpenShift container Platform 3,11, gestito in modo autonomo** nell'elenco. 
+La pagina Risultati si aprirà con **Red Hat OpenShift Container Platform 3.11 Self-Managed** nell'elenco. 
 
-   ![Nuovo risultato della ricerca delle risorse](media/openshift-marketplace-self-managed/ocp-searchresult.png)  
+   ![Nuovo risultato della ricerca risorse](media/openshift-marketplace-self-managed/ocp-searchresult.png)  
 <br>
 
-Fare clic sull'offerta per visualizzare i dettagli dell'offerta. Per distribuire questa offerta, fare clic su **Crea**. Verrà visualizzata l'interfaccia utente per immettere i parametri necessari. La prima schermata è il pannello **nozioni di base** .
+Fai clic sull'offerta per visualizzare i dettagli dell'offerta. Per distribuire questa offerta, fare clic su **Crea**. Apparirà l'interfaccia utente per immettere i parametri necessari. La prima schermata è il pannello **Basics.**
 
    ![Pagina del titolo dell'offerta](media/openshift-marketplace-self-managed/ocp-titlepage.png)  
 <br>
 
 **Nozioni di base**
 
-Per ottenere informazioni su uno dei parametri di input, passare il puntatore ***sul i accanto al*** nome del parametro.
+Per ottenere informazioni su uno qualsiasi dei parametri di input, passare il mouse sulla ***i*** accanto al nome del parametro.
 
 Immettere i valori per i parametri di input e fare clic su **OK**.
 
 | Parametro di input | Descrizione dei parametri |
 |-----------------------|-----------------|
-| Nome utente amministratore VM | Utente amministratore da creare in tutte le istanze di macchina virtuale |
-| Chiave pubblica SSH per l'utente amministratore | Chiave pubblica SSH usata per accedere alla macchina virtuale: non deve avere una passphrase |
-| Sottoscrizione | Sottoscrizione di Azure in cui distribuire il cluster |
-| Gruppo di risorse | Creare un nuovo gruppo di risorse o selezionare un gruppo di risorse vuoto esistente per le risorse cluster |
-| Percorso | Area di Azure in cui distribuire il cluster |
+| Nome utente amministratore macchina virtuale | L'utente amministratore da creare in tutte le istanze della macchina virtuale |
+| Chiave pubblica SSH per l'utente amministratore | Chiave pubblica SSH utilizzata per accedere alla macchina virtuale - non deve avere una passphrase |
+| Subscription | Sottoscrizione di Azure per distribuire il cluster |
+| Gruppo di risorse | Creare un nuovo gruppo di risorse o selezionare un gruppo di risorse vuoto esistente per le risorse clusterCreate a new resource group or select an existing empty resource group for cluster resources |
+| Location | Area di Azure in cui distribuire il clusterAzure region to deploy cluster into |
 
-   ![Pannello nozioni di base sull'offerta](media/openshift-marketplace-self-managed/ocp-basics.png)  
+   ![Lama dell'offerta di base](media/openshift-marketplace-self-managed/ocp-basics.png)  
 <br>
 
 **Impostazioni infrastruttura**
@@ -80,116 +80,116 @@ Immettere i valori per i parametri di input e fare clic su **OK**.
 
 | Parametro di input | Descrizione dei parametri |
 |-----------------------|-----------------|
-| Prefisso del nome del cluster OCP | Prefisso del cluster usato per configurare i nomi host per tutti i nodi. Da 1 a 20 caratteri |
-| Dimensioni nodo master | Accettare le dimensioni predefinite della macchina virtuale oppure fare clic su **modifica dimensioni** per selezionare dimensioni diverse per la macchina virtuale.  Selezionare le dimensioni della VM appropriate per il carico di lavoro |
-| Dimensioni del nodo dell'infrastruttura | Accettare le dimensioni predefinite della macchina virtuale oppure fare clic su **modifica dimensioni** per selezionare dimensioni diverse per la macchina virtuale.  Selezionare le dimensioni della VM appropriate per il carico di lavoro |
-| Numero di nodi applicazione | Accettare le dimensioni predefinite della macchina virtuale oppure fare clic su **modifica dimensioni** per selezionare dimensioni diverse per la macchina virtuale.  Selezionare le dimensioni della VM appropriate per il carico di lavoro |
-| Dimensioni nodo applicazione | Accettare le dimensioni predefinite della macchina virtuale oppure fare clic su **modifica dimensioni** per selezionare dimensioni diverse per la macchina virtuale.  Selezionare le dimensioni della VM appropriate per il carico di lavoro |
-| Dimensioni host Bastion | Accettare le dimensioni predefinite della macchina virtuale oppure fare clic su **modifica dimensioni** per selezionare dimensioni diverse per la macchina virtuale.  Selezionare le dimensioni della VM appropriate per il carico di lavoro |
-| Rete virtuale nuova o esistente | Creare un nuovo vNet (impostazione predefinita) o usare un vNet esistente |
-| Scegliere Impostazioni CIDR predefinite o Personalizza intervallo IP (CIDR) | Accettare intervalli CIDR predefiniti o selezionare un **intervallo IP personalizzato** e immettere informazioni CIDR personalizzate.  Le impostazioni predefinite creeranno vNet con CIDR di 10.0.0.0/14, una subnet master con 10.1.0.0/16, una subnet infra con 10.2.0.0/16 e una subnet COMPUTE e CNS con 10.3.0.0/16 |
-| Nome del gruppo di risorse Key Vault | Nome del gruppo di risorse che contiene il Key Vault |
-| Nome dell'insieme di credenziali delle chiavi | Nome della Key Vault che contiene il segreto con la chiave privata SSH.  Sono consentiti solo caratteri alfanumerici e trattini e devono avere una lunghezza compresa tra 3 e 24 caratteri |
-| Nome del segreto | Nome del segreto che contiene la chiave privata SSH.  Sono consentiti solo caratteri alfanumerici e trattini |
+| Prefisso nome cluster OCP | Prefisso cluster utilizzato per configurare i nomi host per tutti i nodi. Tra 1 e 20 caratteri |
+| Dimensioni nodo master | Accettare le dimensioni predefinite della macchina virtuale o fare clic su **Cambia dimensione** per selezionare una dimensione di macchina virtuale diversa.  Selezionare le dimensioni appropriate della macchina virtuale per il carico di lavoroSelect appropriate VM size for your work load |
+| Dimensione nodo infrastruttura | Accettare le dimensioni predefinite della macchina virtuale o fare clic su **Cambia dimensione** per selezionare una dimensione di macchina virtuale diversa.  Selezionare le dimensioni appropriate della macchina virtuale per il carico di lavoroSelect appropriate VM size for your work load |
+| Numero di nodi dell'applicazione | Accettare le dimensioni predefinite della macchina virtuale o fare clic su **Cambia dimensione** per selezionare una dimensione di macchina virtuale diversa.  Selezionare le dimensioni appropriate della macchina virtuale per il carico di lavoroSelect appropriate VM size for your work load |
+| Dimensioni nodo applicazione | Accettare le dimensioni predefinite della macchina virtuale o fare clic su **Cambia dimensione** per selezionare una dimensione di macchina virtuale diversa.  Selezionare le dimensioni appropriate della macchina virtuale per il carico di lavoroSelect appropriate VM size for your work load |
+| Dimensioni host Bastion | Accettare le dimensioni predefinite della macchina virtuale o fare clic su **Cambia dimensione** per selezionare una dimensione di macchina virtuale diversa.  Selezionare le dimensioni appropriate della macchina virtuale per il carico di lavoroSelect appropriate VM size for your work load |
+| Rete virtuale nuova o esistente | Creare una nuova rete virtuale (predefinita) o utilizzare una vNet esistenteCreate a new vNet (Default) or use an existing vNet |
+| Scegliere Impostazioni CIDR predefinite o personalizzare l'intervallo IP (CIDR) | Accettare gli intervalli CIDR predefiniti o selezionare **Intervallo IP personalizzato** e immettere informazioni CIDR personalizzate.  Le impostazioni predefinite creeranno vNet con CIDR di 10.0.0.0/14, subnet master con 10.1.0.0/16, subnet infra con 10.2.0.0/16 e subnet compute e cns con 10.3.0.0/16 |
+| Nome del gruppo di risorse dell'insieme di credenziali delle chiaviKey Vault Resource Group Name | Nome del gruppo di risorse che contiene l'insieme di credenziali delle chiavi |
+| Nome dell'insieme di credenziali delle chiavi | Nome dell'insieme di credenziali delle chiavi che contiene il segreto con la chiave privata ssh.  Sono consentiti solo caratteri alfanumerici e trattini e devono essere compresi tra 3 e 24 caratteri |
+| Nome segreto | Nome del segreto che contiene la chiave privata ssh.  Sono consentiti solo caratteri alfanumerici e trattini |
 
-   ![Pannello infrastruttura offerta](media/openshift-marketplace-self-managed/ocp-inframain.png)  
+   ![Offrire il blade dell'infrastruttura](media/openshift-marketplace-self-managed/ocp-inframain.png)  
 <br>
 
-**Modifica dimensioni**
+**Modificare le dimensioni**
 
-Per selezionare dimensioni diverse per la macchina virtuale, fare clic su ***modifica dimensioni***.  Viene visualizzata la finestra di selezione della macchina virtuale.  Selezionare le dimensioni della macchina virtuale desiderate e fare clic su **Seleziona**.
+Per selezionare una dimensione di macchina virtuale diversa, fare clic su ***Cambia dimensione***.  Si aprirà la finestra di selezione della macchina virtuale.  Selezionare la dimensione della macchina virtuale desiderata e fare clic su **Seleziona**.
 
-   ![Selezionare le dimensioni della macchina virtuale](media/openshift-marketplace-self-managed/ocp-selectvmsize.png)  
+   ![Seleziona dimensioni macchina virtuale](media/openshift-marketplace-self-managed/ocp-selectvmsize.png)  
 <br>
 
 **Rete virtuale esistente**
 
 | Parametro di input | Descrizione dei parametri |
 |-----------------------|-----------------|
-| Nome rete virtuale esistente | Nome del vNet esistente |
-| Nome della subnet per i nodi master | Nome della subnet esistente per i nodi master.  Deve contenere almeno 16 indirizzi IP e seguire la RFC 1918 |
-| Nome della subnet per i nodi infra | Nome della subnet esistente per i nodi infra.  Deve contenere almeno 32 indirizzi IP e seguire la RFC 1918 |
-| Nome della subnet per i nodi compute e CNS | Nome della subnet esistente per i nodi di calcolo e del sistema nervoso.  Deve contenere almeno 32 indirizzi IP e seguire la RFC 1918 |
-| Gruppo di risorse per la rete virtuale esistente | Nome del gruppo di risorse che contiene il vNet esistente |
+| Nome rete virtuale esistente | Nome della rete virtuale esistente |
+| Nome della subnet per i nodi masterSubnet name for master nodes | Nome della subnet esistente per i nodi master.  Deve contenere almeno 16 indirizzi IP e seguire RFC 1918 |
+| Nome della subnet per i nodi infrad | Nome della subnet esistente per i nodi infra.Name of existing subnet for infra nodes.  Deve contenere almeno 32 indirizzi IP e seguire RFC 1918 |
+| Nome della subnet per i nodi compute e cnsSubnet name for compute and cns nodes | Nome della subnet esistente per i nodi compute e cns.  Deve contenere almeno 32 indirizzi IP e seguire RFC 1918 |
+| Gruppo di risorse per la rete virtuale esistenteResource Group for the existing Virtual Network | Nome del gruppo di risorse che contiene la rete virtuale esistenteName of resource group that contains the existing vNet |
 
-   ![Infrastruttura dell'offerta VNET esistente](media/openshift-marketplace-self-managed/ocp-existingvnet.png)  
+   ![Offrire l'infrastruttura vnet esistente](media/openshift-marketplace-self-managed/ocp-existingvnet.png)  
 <br>
 
 **Intervallo IP personalizzato**
 
 | Parametro di input | Descrizione dei parametri |
 |-----------------------|-----------------|
-| Intervallo di indirizzi per la rete virtuale | CIDR personalizzato per vNet |
-| Intervallo di indirizzi per la subnet contenente i nodi master | CIDR personalizzato per la subnet master |
-| Intervallo di indirizzi per la subnet contenente i nodi dell'infrastruttura | CIDR personalizzato per la subnet dell'infrastruttura |
-| Intervallo di indirizzi per la subnet contenente i nodi compute e CNS | CIDR personalizzato per i nodi compute e CNS |
+| Intervallo di indirizzi per la rete virtualeAddress Range for the Virtual Network | CIDR personalizzato per vNet |
+| Intervallo di indirizzi per la subnet contenente i nodi masterAddress Range for the subnet containing the master nodes | CIDR personalizzato per la subnet master |
+| Intervallo di indirizzi per la subnet contenente i nodi dell'infrastrutturaAddress Range for the subnet containing the infrastructure nodes | CIDR personalizzato per la subnet dell'infrastruttura |
+| Intervallo di indirizzi per la subnet contenente i nodi compute e cnsAddress Range for subnet containing the compute and cns nodes | CIDR personalizzato per i nodi compute e cns |
 
-   ![Offerta di un intervallo IP personalizzato dell'infrastruttura](media/openshift-marketplace-self-managed/ocp-customiprange.png)  
+   ![Offrire l'intervallo IP personalizzato dell'infrastruttura](media/openshift-marketplace-self-managed/ocp-customiprange.png)  
 <br>
 
-**Piattaforma OpenShift container 3,11**
+**OpenShift Container Platform 3.11**
 
-Immettere i valori per i parametri di input e fare clic su **OK** .
+Immettere i valori per i parametri di input e fare clic su **OK**
 
 | Parametro di input | Descrizione dei parametri |
 |-----------------------|-----------------|
-| Password utente amministratore di OpenShift | Password per l'utente OpenShift iniziale.  Questo utente sarà anche l'amministratore del cluster |
-| Conferma password utente amministratore OpenShift | Digitare nuovamente la password dell'utente amministratore di OpenShift |
-| Nome utente di Red Hat Subscription Manager | Nome utente per accedere alla sottoscrizione o all'ID organizzazione di Red Hat.  Questa credenziale viene usata per registrare l'istanza di RHEL nella sottoscrizione e non verrà archiviata da Microsoft o Red Hat |
-| Password utente di Red Hat Subscription Manager | Password per accedere alla sottoscrizione o alla chiave di attivazione di Red Hat.  Questa credenziale viene usata per registrare l'istanza di RHEL nella sottoscrizione e non verrà archiviata da Microsoft o Red Hat |
-| ID pool OpenShift di gestione delle sottoscrizioni Red Hat | ID del pool che contiene i diritti della piattaforma del contenitore OpenShift. Assicurarsi di disporre di diritti sufficienti per la piattaforma OpenShift container per l'installazione del cluster |
-| ID pool OpenShift di gestione delle sottoscrizioni Red Hat per i nodi broker/Master | ID del pool che contiene i diritti della piattaforma OpenShift container per i nodi broker/master. Assicurarsi di disporre di diritti sufficienti per la piattaforma OpenShift container per l'installazione del cluster. Se non si usa l'ID del pool di broker/Master, immettere l'ID del pool per i nodi dell'applicazione |
-| Configurare il provider di servizi cloud di Azure | Configurare OpenShift per l'uso del provider di servizi cloud di Azure. Necessaria se si usa l'associazione dischi di Azure per i volumi permanenti.  Il valore predefinito è sì |
-| GUID ID client dell'entità servizio Azure AD | Azure AD GUID ID client dell'entità servizio, noto anche come AppID. Necessaria solo se la configurazione del provider di servizi cloud di Azure è impostata su **Sì** |
-| Azure AD Secret ID client dell'entità servizio | Azure AD Secret ID client dell'entità servizio. Necessaria solo se la configurazione del provider di servizi cloud di Azure è impostata su **Sì** |
+| OpenShift Password utente amministratore | Password per l'utente OpenShift iniziale.  Questo utente sarà anche l'amministratore del cluster |
+| Conferma password utente amministratore OpenShift | Digitare nuovamente la password dell'utente amministratore openShift |
+| Nome utente di Red Hat Subscription Manager | Nome utente per accedere all'abbonamento Red Hat o all'ID organizzazione.  Questa credenziale viene utilizzata per registrare l'istanza RHEL nella sottoscrizione e non verrà archiviata da Microsoft o Red Hat |
+| Red Hat Sottoscrizione Manager Password utente | Password per accedere all'abbonamento Red Hat o alla chiave di attivazione.  Questa credenziale viene utilizzata per registrare l'istanza RHEL nella sottoscrizione e non verrà archiviata da Microsoft o Red Hat |
+| Red Hat Subscription Manager OpenShift Pool ID | ID pool che contiene il diritto OpenShift Container Platform. Assicurarsi di disporre di diritti sufficienti di OpenShift Container Platform per l'installazione del cluster |
+| Red Hat Subscription Manager OpenShift Pool ID per broker / nodi master | ID pool che contiene i diritti OpenShift Container Platform per i nodi Broker/Master. Assicurarsi di disporre di diritti sufficienti di OpenShift Container Platform per l'installazione del cluster. Se non si utilizza il broker/ID pool master, immettere l'ID del pool per i nodi dell'applicazione |
+| Configurare il provider cloud di AzureConfigure Azure Cloud Provider | Configurare OpenShift per l'uso di Azure Cloud Provider.Configure OpenShift to use Azure Cloud Provider. Necessario se si usa il collegamento del disco di Azure per i volumi persistenti.  Il valore predefinito è Sì |
+| Azure AD Service Principal Client ID GUID | GUID dell'ID client dell'entità servizio di Azure AD, noto anche come AppID. Necessario solo se Configura il provider cloud di Azure impostato su **Sì** |
+| Azure AD Service Principal Client ID Secret | Segreto ID client dell'entità servizio di Azure AD. Necessario solo se Configura il provider cloud di Azure impostato su **Sì** |
  
-   ![Pannello OpenShift offerta](media/openshift-marketplace-self-managed/ocp-ocpmain.png)  
+   ![Offerta lama OpenShift](media/openshift-marketplace-self-managed/ocp-ocpmain.png)  
 <br>
 
 **Impostazioni aggiuntive**
 
-Il pannello impostazioni aggiuntive consente la configurazione del sistema nervoso per l'archiviazione, la registrazione, la metrica e il sottodominio del router GlusterFS.  Per impostazione predefinita, non viene installata nessuna di queste opzioni e verrà utilizzato nip.io come sottodominio del router a scopo di test. L'abilitazione di CNS installerà tre nodi di calcolo aggiuntivi con tre dischi collegati aggiuntivi che ospiteranno i pod GlusterFS.  
+Il pannello Impostazioni aggiuntive consente la configurazione di CNS per il dominio glusterfs storage, Logging, Metrics e Router Sub.  L'impostazione predefinita non installa nessuna di queste opzioni e utilizzerà nip.io come sottodominio del router a scopo di test. L'abilitazione di CNS installerà tre nodi di calcolo aggiuntivi con tre dischi collegati aggiuntivi che ospiteranno pod glusterfs.  
 
-Immettere i valori per i parametri di input e fare clic su **OK** .
-
-| Parametro di input | Descrizione dei parametri |
-|-----------------------|-----------------|
-| Configurare l'archiviazione nativa del contenitore | Installa lo SNC nel cluster OpenShift e lo Abilita come archiviazione. Sarà il valore predefinito se il provider di Azure è disabilitato |
-| Configurare la registrazione del cluster | Installa la funzionalità di registrazione EFK nel cluster.  Ridimensionare i nodi infra in modo appropriato per ospitare i pod EFK |
-| Configurare le metriche per il cluster | Installa le metriche Hawkular nel cluster OpenShift.  Ridimensionare i nodi infra in modo appropriato per ospitare i pod delle metriche Hawkular |
-| Sottodominio router predefinito | Selezionare nipio per test o Custom per immettere il proprio sottodominio per la produzione |
- 
-   ![Pannello aggiuntivo offerta](media/openshift-marketplace-self-managed/ocp-additionalmain.png)  
-<br>
-
-**Impostazioni aggiuntive-parametri aggiuntivi**
+Immettere i valori per i parametri di input e fare clic su **OK**
 
 | Parametro di input | Descrizione dei parametri |
 |-----------------------|-----------------|
-| NOMI comuni Dimensioni del nodo | Accettare le dimensioni predefinite del nodo oppure selezionare **modifica dimensioni** per selezionare una nuova dimensione della macchina virtuale |
-| Immettere il sottodominio personalizzato | Il dominio di routing personalizzato da usare per esporre le applicazioni tramite il router nel cluster OpenShift.  Assicurarsi di creare la voce DNS con caratteri jolly appropriata] |
+| Configurare l'archiviazione nativa contenitore (CNS)Configure Container Native Storage (CNS) | Installa CNS nel cluster OpenShift e abilitarlo come risorsa di archiviazione. Sarà predefinito se il provider di Azure è disabilitato |
+| Configurare la registrazione del cluster | Installa la funzionalità di registrazione di EFK nel cluster.  Dimensione dei nodi in modo appropriato per ospitare i pod EFK |
+| Configurare le metriche per il clusterConfigure Metrics for the Cluster | Installa le metriche Hawkular nel cluster OpenShift.  Dimensione dei nodi in modo appropriato per ospitare i pod delle metriche Hawkular |
+| Sottodominio router predefinito | Selezionare nipio per il test o personalizzato per immettere il proprio sottodominio per la produzione |
  
-   ![Offrire un'installazione aggiuntiva del sistema nervoso](media/openshift-marketplace-self-managed/ocp-additionalcnsall.png)  
+   ![Offrire lama aggiuntiva](media/openshift-marketplace-self-managed/ocp-additionalmain.png)  
 <br>
 
-**Summary**
+**Impostazioni aggiuntive - Parametri aggiuntivi**
 
-La convalida viene eseguita in questa fase per verificare che la quota di Core sia sufficiente per distribuire il numero totale di macchine virtuali selezionate per il cluster.  Esaminare tutti i parametri immessi.  Se gli input sono accettabili, fare clic su **OK** per continuare.
-
-   ![Pannello Riepilogo offerta](media/openshift-marketplace-self-managed/ocp-summary.png)  
+| Parametro di input | Descrizione dei parametri |
+|-----------------------|-----------------|
+| (CNS) Dimensione nodo | Accettare le dimensioni predefinite del nodo o selezionare Modifica dimensioni per selezionare una nuova dimensione della macchina virtualeAccept the default node size or select **Change size** to select a new VM size |
+| Immettere il sottodominio personalizzato | Dominio di routing personalizzato da utilizzare per l'esposizione di applicazioni tramite il router nel cluster OpenShift.  Assicurarsi di creare la voce DNS con caratteri jolly appropriata] |
+ 
+   ![Offrire installazione cns aggiuntiva](media/openshift-marketplace-self-managed/ocp-additionalcnsall.png)  
 <br>
 
-**Acquista**
+**Riepilogo**
 
-Confermare le informazioni di contatto nella pagina Acquista e fare clic su **Acquista** per accettare le condizioni per l'utilizzo e avviare la distribuzione del cluster OpenShift container Platform.
+La convalida viene eseguita in questa fase per verificare che la quota principale sia sufficiente per distribuire il numero totale di macchine virtuali selezionate per il cluster.  Esaminare tutti i parametri immessi.  Se gli input sono accettabili, fare clic **su OK** per continuare.
 
-   ![Pannello acquisto offerta](media/openshift-marketplace-self-managed/ocp-purchase.png)  
+   ![Pannello riepilogativo dell'offerta](media/openshift-marketplace-self-managed/ocp-summary.png)  
+<br>
+
+**Acquistare**
+
+Confermare le informazioni di contatto nella pagina Acquista e fare clic su **Acquista** per accettare le condizioni per l'utilizzo e avviare la distribuzione del cluster OpenShift Container Platform.
+
+   ![Pannello di acquisto dell'offerta](media/openshift-marketplace-self-managed/ocp-purchase.png)  
 <br>
 
 
 ## <a name="connect-to-the-openshift-cluster"></a>Eseguire la connessione al cluster OpenShift
 
-Al termine della distribuzione, recuperare la connessione dalla sezione di output della distribuzione. Connettersi alla console di OpenShift con il browser usando l' **URL della console di OpenShift**. È anche possibile usare SSH per l'host Bastion. Di seguito è riportato un esempio in cui il nome utente amministratore è clusteradmin e il nome di dominio completo DNS dell'indirizzo IP pubblico bastion è bastiondns4hawllzaavu6g.eastus.cloudapp.azure.com:
+Al termine della distribuzione, recuperare la connessione dalla sezione di output della distribuzione. Connettersi alla console OpenShift con il browser utilizzando **l'URL della console OpenShift**. è anche possibile SSH all'host Bastion. Di seguito è riportato un esempio in cui il nome utente amministratore è clusteradmin e il nome di dominio completo DNS dell'indirizzo IP pubblico bastion è bastiondns4hawllzaavu6g.eastus.cloudapp.azure.com:
 
 ```bash
 $ ssh clusteradmin@bastiondns4hawllzaavu6g.eastus.cloudapp.azure.com
