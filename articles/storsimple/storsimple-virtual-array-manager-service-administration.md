@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/1/2016
 ms.author: alkohli
 ms.openlocfilehash: bb6bb491ca71e5ced5aecc8137e9e1cbd950e80b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "62123806"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-administer-your-storsimple-virtual-array"></a>Usare il servizio Gestione dispositivi StorSimple per amministrare l'array virtuale StorSimple
@@ -42,7 +42,7 @@ Dopo aver letto l'articolo, l'utente sarà in grado di:
 Il servizio Gestione dispositivi StorSimple viene eseguito in Microsoft Azure ed è connesso a più array virtuali StorSimple. Per gestire questi dispositivi, si usa un portale di Microsoft Azure centrale in esecuzione in un browser. Per connettersi al servizio Gestione dispositivi StorSimple, effettuare le operazioni seguenti.
 
 #### <a name="to-connect-to-the-service"></a>Per connettersi al servizio
-1. Passare a [https://ms.portal.azure.com](https://ms.portal.azure.com).
+1. Andare [https://ms.portal.azure.com](https://ms.portal.azure.com)a .
 2. Usando le credenziali dell'account Microsoft, accedere al portale di Microsoft Azure (in alto a destra del riquadro).
 3. Passare a Esplora --> 'Filtro' in Gestione dispositivi StorSimple per visualizzare tutti i gestori di dispositivo in una determinata sottoscrizione.
 
@@ -57,7 +57,7 @@ Per ulteriori informazioni su ogni flusso di lavoro, scegliere la procedura appr
 | Creare un servizio</br>Eliminare un servizio</br>Ottenere la chiave di registrazione del servizio</br>Rigenerare la chiave di registrazione del servizio |[Distribuire il servizio Gestione dispositivi StorSimple](storsimple-virtual-array-manage-service.md) |
 | Visualizzare i log attività |[Usare il riepilogo servizio StorSimple](storsimple-virtual-array-service-summary.md) |
 | Disattivare un array virtuale</br>Eliminare un array virtuale |[Disattivare o eliminare un array virtuale](storsimple-virtual-array-deactivate-and-delete-device.md) |
-| Ripristino di emergenza e failover del dispositivo</br>Prerequisiti di failover</br>Ripristino di emergenza di continuità aziendale (BCDR)</br>Errori durante il ripristino di emergenza |[Ripristino di emergenza e failover del dispositivo per l'array virtuale StorSimple](storsimple-virtual-array-failover-dr.md) |
+| Ripristino di emergenza e failover del dispositivo</br>Prerequisiti di failover</br>Ripristino di emergenza di continuità aziendale (BCDR)</br>Errori durante il ripristino di emergenza |[Ripristino di emergenza e failover del dispositivo per StorSimple Virtual Array](storsimple-virtual-array-failover-dr.md) |
 | Backup di condivisioni e volumi</br>Creazione di un backup manuale</br>Modificare la pianificazione dei backup</br>Visualizzare i backup esistenti |[Backup dell'array virtuale StorSimple](storsimple-virtual-array-backup.md) |
 | Clonare condivisioni da un set di backup</br>Clonare volumi da un set di backup</br>Ripristino a livello di elementi (solo file server) |[Clonare da un backup dell'array virtuale StorSimple](storsimple-virtual-array-clone.md) |
 | Informazioni sugli account di archiviazione</br>Aggiungere un account di archiviazione</br>Modificare un account di archiviazione</br>Eliminare un account di archiviazione |[Gestire un account di archiviazione per l'array virtuale StorSimple](storsimple-virtual-array-manage-storage-accounts.md) |

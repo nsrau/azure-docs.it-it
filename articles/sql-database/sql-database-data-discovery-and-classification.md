@@ -13,12 +13,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 02/05/2020
 tags: azure-synapse
-ms.openlocfilehash: eb4e7907c3dcffed035307c2084160ce6051be13
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 98b21969ce86f84b20fbe78dbdf3002769ef65f5
+ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79409950"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80387870"
 ---
 # <a name="data-discovery--classification-for-azure-sql-database-and-azure-synapse-analytics"></a>Individuazione dei dati & classificazione per il database SQL di Azure e Azure Synapse AnalyticsData Discovery & Classification for Azure SQL Database and Azure Synapse Analytics
 
@@ -89,17 +89,11 @@ Una volta definiti i criteri a livello di tenant, è possibile continuare con la
 
 4. Per scaricare un report in formato Excel, fare clic sull'opzione **Esporta** nel menu superiore della finestra.
 
-   ![Eseguire l'esportazione in Excel](./media/sql-data-discovery-and-classification/3_data_classification_export_report.png)
-
 5. <a id="step-5"></a>Per iniziare la classificazione dei dati, fare clic sulla scheda **Classificazione** nella parte superiore della finestra.
-
-    ![Classificare i dati](./media/sql-data-discovery-and-classification/4_data_classification_classification_tab_click.png)
 
 6. Il motore di classificazione analizza il database alla ricerca di colonne contenenti dati potenzialmente sensibili e fornisce un elenco delle classificazioni di **colonne consigliate.** Per visualizzare e applicare i suggerimenti di classificazione:
 
-   - Per visualizzare l'elenco delle classificazioni di colonna consigliate, fare clic sul pannello dei suggerimenti nella parte inferiore della finestra:
-
-      ![Classificare i dati](./media/sql-data-discovery-and-classification/5_data_classification_recommendations_panel.png)
+   - Per visualizzare l'elenco delle classificazioni di colonna consigliate, fare clic sul pannello dei consigli nella parte inferiore della finestra
 
    - Esaminare l'elenco di suggerimenti: per accettare un suggerimento per una determinata colonna, selezionare la casella di controllo nella colonna sinistra della riga corrispondente. È anche possibile contrassegnare *tutti i consigli* come accettati selezionando la casella di controllo nell'intestazione della tabella dei consigli.
 
@@ -107,21 +101,15 @@ Una volta definiti i criteri a livello di tenant, è possibile continuare con la
 
    - Per applicare i consigli selezionati, fare clic sul pulsante blu **Accettare i consigli selezionati**.
 
-      ![Applicare le raccomandazioni](./media/sql-data-discovery-and-classification/7_data_classification_accept_selected_recommendations.png)
-
 7. È anche possibile **classificare manualmente** le colonne in alternativa o in aggiunta alla classificazione basata sui consigli:
 
    - Fare clic su **Aggiungi classificazione** nel menu superiore della finestra.
-
-      ![Aggiungere manualmente la classificazione](./media/sql-data-discovery-and-classification/8_data_classification_add_classification_button.png)
 
    - Nella finestra di contesto che si apre selezionare lo schema, la tabella e la colonna che si vuole classificare, nonché il tipo di informazioni e l'etichetta di riservatezza. In seguito fare clic sul pulsante blu **Aggiungi classificazione** nella parte inferiore della finestra di contesto.
 
       ![Selezionare una colonna da classificare](./media/sql-data-discovery-and-classification/9_data_classification_manual_classification.png)
 
 8. Per completare la classificazione e assegnare in modo permanente le etichette alle colonne del database con i nuovi metadati di classificazione, fare clic su **Salva** nel menu superiore della finestra.
-
-   ![Salvare](./media/sql-data-discovery-and-classification/10_data_classification_save.png)
 
 ## <a name="auditing-access-to-sensitive-data"></a><a id="subheading-3"></a>Controllo dell'accesso ai dati sensibili
 
@@ -183,7 +171,7 @@ Altre informazioni sul [controllo degli accessi in base al ruolo per](https://do
 
 ## <a name="next-steps"></a><a id="subheading-6"></a>Passaggi successivi
 
-- Altre informazioni su [Sicurezza dei dati avanzata](sql-database-advanced-data-security.md).
+- Ulteriori informazioni su [Advanced Data Security](sql-database-advanced-data-security.md).
 - Valutare l'opportunità di configurare [il servizio di controllo del database SQL di Azure](sql-database-auditing.md) per il monitoraggio e il controllo dell'accesso ai dati sensibili classificati.
 - Per una presentazione di YouTube che include la & Classificazione dell'individuazione dei dati, vedere [Individuazione, classificazione, etichettatura & protezione dei dati SQL. Dati esposti](https://www.youtube.com/watch?v=itVi9bkJUNc).
 

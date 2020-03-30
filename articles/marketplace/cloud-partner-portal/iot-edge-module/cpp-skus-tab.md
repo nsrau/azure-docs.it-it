@@ -1,19 +1,18 @@
 ---
-title: SKU del modulo Azure IoT Edge | Azure Marketplace
+title: SKU del modulo Azure IoT Edge Azure Marketplace
 description: Creare SKU per un modulo di IoT Edge.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/18/2018
-ms.author: pabutler
-ms.openlocfilehash: 230f3d6438d44c4e1e1721c0cb1453c85958e282
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 49ae69263735d6ec35cd911a20100472b32c0b59
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73813855"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80286558"
 ---
 # <a name="iot-edge-module-skus-tab"></a>Scheda SKU di moduli per IoT Edge
 
@@ -50,9 +49,9 @@ La tabella seguente descrive lo scopo, il contenuto e la formattazione dei campi
 
 |  **Campo**       |     **Descrizione**                                                          |
 |  ---------       |     ---------------                                                          |
-| **\* titolo**        | Titolo di questo SKU. La lunghezza massima consentita è di 50 caratteri. <br/> Verrà visualizzato nel portale di Azure e usato come nome di modulo predefinito (senza spazi e caratteri speciali) durante la distribuzione. Vedere le immagini seguenti per visualizzare esattamente dove viene visualizzato questo campo.|
+| **Titolo\***        | Titolo di questo SKU. La lunghezza massima consentita è di 50 caratteri. <br/> Verrà visualizzato nel portale di Azure e usato come nome di modulo predefinito (senza spazi e caratteri speciali) durante la distribuzione. Vedere le immagini seguenti per visualizzare esattamente dove viene visualizzato questo campo.|
 | **Riepilogo\***      | Breve riepilogo dello SKU. La lunghezza massima consentita è di 100 caratteri. **NON** inserire un riepilogo dell'offerta, ma solo dello SKU.  Questo riepilogo verrà visualizzato in Azure Marketplace. Vedere le immagini seguenti per visualizzare esattamente dove viene visualizzato questo campo.|
-| **Descrizione\***  | Breve descrizione dello SKU. La lunghezza massima consentita è di 3000 caratteri. NON descrivere l'offerta, ma solo lo SKU. Verrà visualizzata in Azure Marketplace e nel portale di Azure. Nella portale di Azure verrà aggiunta alla descrizione del Marketplace che descrive l'offerta definita nella scheda Marketplace.  Può corrispondere al riepilogo dello SKU. Vedere le immagini seguenti per visualizzare esattamente dove viene visualizzato questo campo.|
+| **Descrizione\***  | Breve descrizione dello SKU. La lunghezza massima consentita è di 3000 caratteri. NON descrivere l'offerta, ma solo lo SKU. Verrà visualizzata in Azure Marketplace e nel portale di Azure. Nel portale di Azure verrà aggiunto alla descrizione del Marketplace che descrive l'offerta definita nella scheda Marketplace.  Può essere uguale al riepilogo SKU. Vedere le immagini seguenti per visualizzare esattamente dove viene visualizzato questo campo.|
 | **Nascondi questo SKU\*** | Mantenere l'impostazione predefinita **No**. |
 |  |  |
 
@@ -92,7 +91,7 @@ La tabella seguente descrive lo scopo, il contenuto e la formattazione dei campi
 
 ## <a name="sku-content"></a>Contenuto dello SKU
 
-In **Edge Module Images** (Immagini modulo Edge) specificare le informazioni necessarie per caricare il modulo IoT Edge.
+In **Immagini modulo edge**, fornire le informazioni necessarie per caricare il modulo IoT Edge.
 
 Specificare l'accesso al [Registro Azure Container](https://azure.microsoft.com/services/container-registry/) contenente l'immagine del modulo IoT Edge per consentirne il caricamento e la certificazione. Dopo la pubblicazione, il modulo IoT Edge verrà copiato e distribuito mediante un registro contenitori pubblico ospitato da Azure Marketplace.
 
@@ -100,7 +99,7 @@ Specificare l'accesso al [Registro Azure Container](https://azure.microsoft.com/
 
 ![Immagini del modulo IoT Edge](./media/iot-edge-module-skus-tab-acr.png)
 
-La tabella seguente descrive lo scopo, il contenuto e la formattazione dei campi per le sezioni **informazioni sul repository di immagini** e la **versione dell'immagine**.  I campi obbligatori sono indicati da un asterisco (*).
+Nella tabella seguente vengono descritti lo scopo, il contenuto e la formattazione dei campi per le sezioni **Dettagli repository immagini** e Versione **immagine**.  I campi obbligatori sono indicati da un asterisco (*).
 
 
 |  **Campo**       |     **Descrizione**                                                          |
@@ -108,16 +107,16 @@ La tabella seguente descrive lo scopo, il contenuto e la formattazione dei campi
 |  |  ***Image Repository Details*** (Dettagli repository immagini)    |
 | **ID sottoscrizione\***        | ID sottoscrizione di Azure di Registro Azure Container.|
 | **Nome del gruppo di risorse\***      | Nome del gruppo di risorse di Registro Azure Container.|
-| **Nome del registro di sistema\***  | Nome del Registro di sistema di Registro Azure Container. Copiare solo il nome del Registro di sistema, NON il nome del server di accesso (ad esempio, senza `azurecr.io`). |
+| **Nome del Registro di sistema\***  | Nome del Registro di sistema di Registro Azure Container. Copiare solo il nome del Registro di sistema, NON il nome del server di accesso (ad esempio, senza `azurecr.io`). |
 | **Nome del repository\***  | Nome del repository di Registro Azure Container contenente il modulo IoT Edge. **Nota:** dopo averlo impostato, il nome non potrà essere più modificato. Usare un nome univoco in modo che nessun'altra offerta dell'account abbia lo stesso nome. |
 | **Nome utente\*** | Nome utente associato al Registro Azure Container (nome utente amministratore). |
-| **\* password** | Password associata al Registro Azure Container. |
+| **Password\*** | Password associata al Registro Azure Container. |
 |    |  ***Versione immagine***   |
 | **Tag immagine o digest\*** | Deve includere almeno un tag `latest` e un tag di versione (ad esempio, deve iniziare con `xx.xx.xx-`, dove xx rappresenta un numero). Devono essere [tag di manifesto](https://github.com/estesp/manifest-tool) per specificare come destinazione più piattaforme. È necessario aggiungere anche tutti i tag referenziati da un tag di manifesto per poterli caricare. È possibile aggiungere varie versioni di un modulo IoT Edge mediante tag. Tutti i tag di manifesto (tranne `latest`) devono iniziare con `X.Y-` o `X.Y.Z-`, dove X, Y, Z sono numeri interi. Altre informazioni sui [tag e sul controllo delle versioni sono disponibili in "Preparare gli asset tecnici del modulo IoT Edge"](./cpp-create-technical-assets.md). <br/> Se ad esempio un tag `latest` punta a `1.0.1-linux-x64`, `1.0.1-linux-arm32` e `1.0.1-windows-arm32`, questi 6 tag devono essere aggiunti qui. |
 |  |  |
 
 
-### <a name="help-your-customers-launch-by-using-default-settings"></a>Consentire ai clienti di avviarsi usando le impostazioni predefinite
+### <a name="help-your-customers-launch-by-using-default-settings"></a>Aiutare l'avvio dei clienti utilizzando le impostazioni predefinite
 
 Definire le impostazioni più comuni per distribuire il modulo IoT Edge. Ottimizzare le distribuzioni dei clienti permettendo loro di avviare il modulo IoT Edge con queste impostazioni predefinite.
 
@@ -127,7 +126,7 @@ La tabella seguente descrive lo scopo, il contenuto e la formattazione dei campi
 
 |  **Campo**       |     **Descrizione**                                                          |
 |  ---------       |     ---------------                                                          |
-| **Default routes** (Route predefinite)        | Ogni nome e valore delle route predefinite non deve superare i 512 caratteri. È possibile definire fino a 5 route predefinite. Assicurarsi di usare una [sintassi di route](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes) corretta nel valore di route. Per fare riferimento al modulo, usarne il nome predefinito, che sarà il **titolo dello SKU** senza spazi e caratteri speciali. Per fare riferimento ad altri moduli non ancora noti, usare la convenzione `<FROM_MODULE_NAME>` per indicare ai clienti che devono aggiornare queste informazioni. Altre informazioni sulle [route IoT Edge](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes). <br/> Ad esempio, se il modulo `ContosoModule` è in ascolto di dati di input in `ContosoInput` e di output in `ContosoOutput`, è opportuno definire le 2 route predefinite seguenti:<br/>- Nome 1: `ToContosoModule`<br/>- Valore 1:`FROM /messages/modules/<FROM_MODULE_NAME>/outputs/* INTO BrokeredEndpoint("/modules/ContosoModule/inputs/ContosoInput")`<br/>- Nome 2: `FromContosoModuleToCloud`<br/>- Valore 2: `FROM /messages/modules/ContonsoModule/outputs/ContosoOutput INTO $upstream`<br/>  |
+| **Percorsi predefiniti**        | Ogni nome e valore delle route predefinite non deve superare i 512 caratteri. È possibile definire fino a 5 route predefinite. Assicurarsi di usare una [sintassi di route](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes) corretta nel valore di route. Per fare riferimento al modulo, usarne il nome predefinito, che sarà il **titolo dello SKU** senza spazi e caratteri speciali. Per fare riferimento ad altri moduli non ancora noti, usare la convenzione `<FROM_MODULE_NAME>` per indicare ai clienti che devono aggiornare queste informazioni. Altre informazioni sulle [route IoT Edge](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes). <br/> Ad esempio, se il modulo `ContosoModule` è in ascolto di dati di input in `ContosoInput` e di output in `ContosoOutput`, è opportuno definire le 2 route predefinite seguenti:<br/>- Nome 1: `ToContosoModule`<br/>- Valore 1:`FROM /messages/modules/<FROM_MODULE_NAME>/outputs/* INTO BrokeredEndpoint("/modules/ContosoModule/inputs/ContosoInput")`<br/>- Nome 2: `FromContosoModuleToCloud`<br/>- Valore 2: `FROM /messages/modules/ContonsoModule/outputs/ContosoOutput INTO $upstream`<br/>  |
 | **Default twin desired properties** (Proprietà desiderate del dispositivo gemello predefinite)      | Ogni nome e valore delle proprietà desiderate del dispositivo gemello predefinite non deve superare i 512 caratteri. È possibile definire fino a 5 proprietà nome/valore desiderate del dispositivo gemello. I valori delle proprietà desiderate del dispositivo gemello devono essere un JSON valido senza escape, senza matrici e con una gerarchia annidata massima pari a 4. Altre informazioni sulle [proprietà desiderate del dispositivo gemello](https://docs.microsoft.com/azure/iot-edge/module-composition#define-or-update-desired-properties). <br/> Se ad esempio un modulo supporta una frequenza di aggiornamento configurabile in modo dinamico tramite le proprietà desiderate del dispositivo gemello, è opportuno definire le proprietà desiderate del dispositivo gemello predefinite seguenti:<br/> - Nome 1: `RefreshRate`<br/>- Valore 1: `60`|
 | Default **environment variables** (Variabili di ambiente predefinite)  | Ogni nome e valore delle variabili di ambiente predefinite non deve superare i 512 caratteri. È possibile definire fino a 5 variabili di ambiente nome/valore. <br/>Se ad esempio un modulo richiede di accettare le condizioni d'uso prima dell'avvio, è possibile definire la variabile di ambiente seguente:<br/> - Nome 1: `ACCEPT_EULA`<br/>- Valore 1: `Y`|
 | **Default createOptions** (createOptions predefinito)  | createOptions non deve superare i 512 caratteri. Deve essere un JSON valido, senza escape. Altre informazioni su [createOptions](https://docs.microsoft.com/azure/iot-edge/module-composition#configure-modules). <br/> Se ad esempio un modulo richiede di associare una porta, è possibile definire il modulo createOptions seguente:<br/>  `"HostConfig":{"PortBindings":{"5012/tcp":[{"HostPort":"5012"}]}`|

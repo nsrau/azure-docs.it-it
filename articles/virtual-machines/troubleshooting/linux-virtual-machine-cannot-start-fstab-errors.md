@@ -1,6 +1,6 @@
 ---
-title: Risolvere i problemi di avvio della macchina virtuale Linux a causa di errori fstab | Microsoft Docs
-description: Spiega il motivo per cui non è possibile avviare la macchina virtuale Linux e come risolvere il problema.
+title: Risolvere i problemi di avvio di una macchina virtuale Linux a causa di errori fstab . Documenti Microsoft
+description: Spiega perché non è possibile avviare la macchina virtuale Linux e come risolvere il problema.
 services: virtual-machines-linux
 documentationcenter: ''
 author: v-miegge
@@ -14,42 +14,42 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 10/09/2019
 ms.author: v-six
-ms.openlocfilehash: 868a0238092786d0999a6a41de71d30011bbef7a
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 7e16eabc4f9572591eabd37b93258fcd783cce7e
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72245344"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80351141"
 ---
-# <a name="troubleshoot-linux-vm-starting-issues-due-to-fstab-errors"></a>Risolvere i problemi di avvio della macchina virtuale Linux a causa di errori fstab
+# <a name="troubleshoot-linux-vm-starting-issues-due-to-fstab-errors"></a>Risolvere i problemi di avvio di macchine virtuali Linux a causa di errori fstabTroubleshoot Linux VM starting issues due to fstab errors
 
-Non è possibile connettersi a una macchina virtuale (VM) Linux di Azure usando una connessione Secure Shell (SSH). Quando si esegue la funzionalità di [diagnostica di avvio](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) nella [portale di Azure](https://portal.azure.com/), vengono visualizzate le voci di log simili agli esempi seguenti:
+Non è possibile connettersi a una macchina virtuale (VM) di Azure Linux usando una connessione Secure Shell (SSH). Quando si esegue la funzionalità Diagnostica di [avvio](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) nel portale di [Azure](https://portal.azure.com/), vengono visualizzate voci di log simili agli esempi seguenti:
 
 ## <a name="examples"></a>Esempi
 
 Di seguito sono riportati alcuni esempi di possibili errori.
 
-### <a name="example-1-a-disk-is-mounted-by-the-scsi-id-instead-of-the-universally-unique-identifier-uuid"></a>Esempio 1: Un disco viene montato dall'ID SCSI anziché dall'identificatore univoco universale (UUID)
+### <a name="example-1-a-disk-is-mounted-by-the-scsi-id-instead-of-the-universally-unique-identifier-uuid"></a>Esempio 1: un disco viene montato in base all'ID SCSI anziché all'identificatore univoco universale (UUID)
 
 ```
 [K[[1;31m TIME [0m] Timed out waiting for device dev-incorrect.device.
 [[1;33mDEPEND[0m] Dependency failed for /data.
 [[1;33mDEPEND[0m] Dependency failed for Local File Systems.
 …
-Welcome to emergency mode! After logging in, type “journalctl -xb” to viewsystem logs, “systemctl reboot” to reboot, “systemctl default” to try again to boot into default mode.
+Welcome to emergency mode! After logging in, type "journalctl -xb" to viewsystem logs, "systemctl reboot" to reboot, "systemctl default" to try again to boot into default mode.
 Give root password for maintenance
 (or type Control-D to continue)
 ```
 
-### <a name="example-2-an-unattached-device-is-missing-on-centos"></a>Esempio 2 Un dispositivo non collegato è mancante in CentOS
+### <a name="example-2-an-unattached-device-is-missing-on-centos"></a>Esempio 2: Un dispositivo non collegato non è presente in CentOS
 
 ```
 Checking file systems…
 fsck from util-linux 2.19.1
 Checking all file systems.
-/dev/sdc1: nonexistent device (“nofail” fstab option may be used to skip this device)
-/dev/sdd1: nonexistent device (“nofail” fstab option may be used to skip this device)
-/dev/sde1: nonexistent device (“nofail” fstab option may be used to skip this device)
+/dev/sdc1: nonexistent device ("nofail" fstab option may be used to skip this device)
+/dev/sdd1: nonexistent device ("nofail" fstab option may be used to skip this device)
+/dev/sde1: nonexistent device ("nofail" fstab option may be used to skip this device)
 
 [/sbin/fsck.ext3 (1) — /CODE] sck.ext3 -a /dev/sdc1
 fsck.ext3: No such file or directory while trying to open /dev/sdc1
@@ -67,14 +67,14 @@ e2fsck -b 8193 <device>
 [/sbin/fsck.ext3 (1) — /DATATEMP] fsck.ext3 -a /dev/sde1 fsck.ext3: No such file or directory while trying to open /dev/sde1
 ```
 
-### <a name="example-3-a-vm-cannot-start-because-of-an-fstab-misconfiguration-or-because-the-disk-is-no-longer-attached"></a>Esempio 3: Non è possibile avviare una macchina virtuale a causa di un errore di configurazione di fstab o perché il disco non è più collegato
+### <a name="example-3-a-vm-cannot-start-because-of-an-fstab-misconfiguration-or-because-the-disk-is-no-longer-attached"></a>Esempio 3: Impossibile avviare una macchina virtuale a causa di una configurazione errata di fstab o perché il disco non è più collegatoExample 3: A VM cannot start because of an fstab misconfiguration or because the disk is no longer attached
 
 ```
 The disk drive for /var/lib/mysql is not ready yet or not present.
 Continue to wait, or Press S to skip mounting or M for manual recovery
 ```
 
-### <a name="example-4-a-serial-log-entry-shows-an-incorrect-uuid"></a>Esempio 4: Una voce di log seriale Mostra un UUID errato
+### <a name="example-4-a-serial-log-entry-shows-an-incorrect-uuid"></a>Esempio 4: una voce di registro seriale mostra un UUID non correttoExample 4: A serial log entry shows an incorrect UUID
 
 ```
 Checking filesystems
@@ -90,27 +90,63 @@ fsck.ext4: Unable to resolve UUID="<UUID>"
 *** when you leave the shell.
 *** Warning — SELinux is active
 *** Disabling security enforcement for system recovery.
-*** Run ‘setenforce 1’ to reenable.
+*** Run 'setenforce 1' to reenable.
 type=1404 audit(1428047455.949:4): enforcing=0 old_enforcing=1 auid=<AUID> ses=4294967295
 Give root password for maintenance
 (or type Control-D to continue)
 ```
 
-Questo problema può verificarsi se la sintassi fstab (file System Table) non è corretta o se un disco dati richiesto di cui è stato eseguito il mapping a una voce nel file "/etc/fstab" non è collegato alla macchina virtuale.
+Questo problema può verificarsi se la sintassi della tabella dei file system (fstab) non è corretta o se un disco dati richiesto mappato a una voce nel file "/etc/fstab" non è collegato alla macchina virtuale.
 
 ## <a name="resolution"></a>Risoluzione
 
-Per risolvere questo problema, avviare la macchina virtuale in modalità di emergenza usando la console seriale per le macchine virtuali di Azure. Usare quindi lo strumento per ripristinare la file system. Se la console seriale non è abilitata nella macchina virtuale, passare alla sezione [ripristinare la macchina virtuale offline](#repair-the-vm-offline) .
+Per risolvere questo problema, avviare la macchina virtuale in modalità di emergenza utilizzando la console seriale per le macchine virtuali di Azure.To resolve this problem, start the VM in emergency mode by using the serial console for Azure Virtual Machines. Quindi utilizzare lo strumento per riparare il file system. Se la console seriale non è abilitata nella macchina virtuale, passare alla sezione [Ripristinare la macchina virtuale offline.](#repair-the-vm-offline)
 
 ## <a name="use-the-serial-console"></a>Usare la console seriale
 
-1. Connettersi alla [console seriale](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux).
-2. Accedere al sistema usando un utente e una password locali.
+### <a name="using-single-user-mode"></a>Utilizzo della modalità utente singolo
+
+1. Connettersi [alla console seriale](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux).
+2. Utilizzare la console seriale per passare dalla modalità utente singolo per la [modalità utente singolo](https://docs.microsoft.com/azure/virtual-machines/linux/serial-console-grub-single-user-mode)
+3. Una volta che la macchina virtuale è stata avviata in modalità utente singolo. Utilizzare l'editor di testo preferito per aprire il file fstab. 
+
+   ```
+   # nano /etc/fstab
+   ```
+
+4. Esaminare i file system elencati. Ogni riga nel file fstab indica un file system montato all'avvio della macchina virtuale. Per ulteriori informazioni sulla sintassi del file fstab, eseguire il comando man fstab. Per risolvere un errore di avvio, esaminare ogni riga per assicurarsi che sia corretta sia nella struttura che nel contenuto.
 
    > [!Note]
-   > Non è possibile usare una chiave SSH per accedere al sistema nella console seriale.
+   > * I campi di ogni riga sono separati da tabulazioni o spazi. Le righe vuote vengono ignorate. Le righe che hanno un simbolo di cancelletto (-) come primo carattere sono commenti. Le righe commentate possono rimanere nel file fstab, ma non verranno elaborate. Si consiglia di commentare le righe fstab di cui non si è sicuri invece di rimuoverle.
+   > * Per il ripristino e l'avvio della macchina virtuale, le partizioni del file system devono essere le uniche partizioni necessarie. La macchina virtuale potrebbe verificarsi errori dell'applicazione relativi a altre partizioni commentate. Tuttavia, la macchina virtuale deve essere avviata senza le partizioni aggiuntive. In seguito è possibile rimuovere il commento da tutte le righe commentate.
+   > * È consigliabile montare i dischi dati nelle macchine virtuali di Azure usando l'UUID della partizione del file system. Ad esempio, eseguire il comando seguente:``/dev/sdc1: LABEL="cloudimg-rootfs" UUID="<UUID>" TYPE="ext4" PARTUUID="<PartUUID>"``
+   > * Per determinare l'UUID del file system, eseguire il comando blkid. Per ulteriori informazioni sulla sintassi, eseguire il comando man blkid.
+   > * L'opzione nofail consente di assicurarsi che la macchina virtuale venga avviata anche se il file system è danneggiato o il file system non esiste all'avvio. È consigliabile usare l'opzione nofail nel file fstab per consentire all'avvio di continuare dopo che si verificano errori nelle partizioni che non sono necessarie per l'avvio della macchina virtuale.
 
-3. Cercare l'errore che indica che il disco non è stato montato. Nell'esempio seguente il sistema sta tentando di aggiungere un disco che non era più presente:
+5. Modificare o impostare come commento tutte le righe non corrette o non necessarie nel file fstab per consentire la corretta avvio della macchina virtuale.
+
+6. Salvare le modifiche apportate al file fstab.
+
+7. Riavviare il vm utilizzando il comando seguente.
+   
+   ```
+   # reboot -f
+   ```
+> [!Note]
+   > È inoltre possibile utilizzare il comando "ctrl-x" che riavvierebbe anche la macchina virtuale.
+
+
+8. Se il commento o la correzione delle voci ha avuto esito positivo, il sistema deve raggiungere un prompt bash nel portale. Verificare se è possibile connettersi alla macchina virtuale.
+
+### <a name="using-root-password"></a>Utilizzo della password principale
+
+1. Connettersi [alla console seriale](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux).
+2. Accedere al sistema utilizzando un utente locale e una password.
+
+   > [!Note]
+   > Non è possibile utilizzare una chiave SSH per accedere al sistema nella console seriale.
+
+3. Cercare l'errore che indica che il disco non è stato montato. Nell'esempio seguente, il sistema stava tentando di collegare un disco che non era più presente:
 
    ```
    [DEPEND] Dependency failed for /datadisk1.
@@ -123,40 +159,40 @@ Per risolvere questo problema, avviare la macchina virtuale in modalità di emer
    (or type Control-D to continue):
    ```
 
-4. Connettersi alla macchina virtuale usando la password radice (VM basate su Red Hat).
+4. Connettersi alla macchina virtuale usando la password radice (macchine virtuali basate su Cappello rosso).
 
-5. Utilizzare l'editor di testo preferito per aprire il file fstab. Dopo aver montato il disco, eseguire il comando seguente per nano:
+5. Utilizzare l'editor di testo preferito per aprire il file fstab. Dopo aver montato il disco, eseguire il comando seguente per Nano:
 
    ```
    $ nano /mnt/troubleshootingdisk/etc/fstab
    ```
 
-6. Esaminare i file system elencati. Ogni riga nel file fstab indica una file system montata all'avvio della macchina virtuale. Per ulteriori informazioni sulla sintassi del file fstab, eseguire il comando man fstab. Per risolvere un errore di avvio, esaminare ogni riga per assicurarsi che sia corretta sia nella struttura che nel contenuto.
+6. Esaminare i file system elencati. Ogni riga nel file fstab indica un file system montato all'avvio della macchina virtuale. Per ulteriori informazioni sulla sintassi del file fstab, eseguire il comando man fstab. Per risolvere un errore di avvio, esaminare ogni riga per assicurarsi che sia corretta sia nella struttura che nel contenuto.
 
    > [!Note]
-   > * I campi di ogni riga sono separati da tabulazioni o spazi. Le righe vuote vengono ignorate. Le righe che dispongono di un segno di cancelletto (#) come primo carattere sono commenti. Le righe commentate possono rimanere nel file fstab, ma non verranno elaborate. Si consiglia di commentare le righe fstab che non si è sicuri di fare anziché rimuovere le righe.
-   > * Per il ripristino e l'avvio della macchina virtuale, le partizioni file system devono essere le uniche partizioni necessarie. È possibile che la macchina virtuale riscontri errori dell'applicazione relativi a partizioni aggiuntive commentate. Tuttavia, la macchina virtuale verrà avviata senza le partizioni aggiuntive. In un secondo momento è possibile rimuovere il commento dalle righe commentate.
-   > * Si consiglia di montare i dischi dati nelle macchine virtuali di Azure usando l'UUID della partizione file system. Ad esempio, eseguire il comando seguente: ``/dev/sdc1: LABEL="cloudimg-rootfs" UUID="<UUID>" TYPE="ext4" PARTUUID="<PartUUID>"``
-   > * Per determinare l'UUID del file system, eseguire il comando blkid. Per ulteriori informazioni sulla sintassi, eseguire il comando blkid di Man.
-   > * L'opzione nofail consente di verificare che la macchina virtuale venga avviata anche se il file system è danneggiato o se il file system non esiste all'avvio. Si consiglia di utilizzare l'opzione nofail nel file fstab per consentire l'avvio per continuare dopo che si sono verificati errori nelle partizioni non necessarie per l'avvio della macchina virtuale.
+   > * I campi di ogni riga sono separati da tabulazioni o spazi. Le righe vuote vengono ignorate. Le righe che hanno un simbolo di cancelletto (-) come primo carattere sono commenti. Le righe commentate possono rimanere nel file fstab, ma non verranno elaborate. Si consiglia di commentare le righe fstab di cui non si è sicuri invece di rimuoverle.
+   > * Per il ripristino e l'avvio della macchina virtuale, le partizioni del file system devono essere le uniche partizioni necessarie. La macchina virtuale potrebbe verificarsi errori dell'applicazione relativi a altre partizioni commentate. Tuttavia, la macchina virtuale deve essere avviata senza le partizioni aggiuntive. In seguito è possibile rimuovere il commento da tutte le righe commentate.
+   > * È consigliabile montare i dischi dati nelle macchine virtuali di Azure usando l'UUID della partizione del file system. Ad esempio, eseguire il comando seguente:``/dev/sdc1: LABEL="cloudimg-rootfs" UUID="<UUID>" TYPE="ext4" PARTUUID="<PartUUID>"``
+   > * Per determinare l'UUID del file system, eseguire il comando blkid. Per ulteriori informazioni sulla sintassi, eseguire il comando man blkid.
+   > * L'opzione nofail consente di assicurarsi che la macchina virtuale venga avviata anche se il file system è danneggiato o il file system non esiste all'avvio. È consigliabile usare l'opzione nofail nel file fstab per consentire all'avvio di continuare dopo che si verificano errori nelle partizioni che non sono necessarie per l'avvio della macchina virtuale.
 
-7. Modificare o impostare come commento le righe errate o non necessarie nel file fstab per consentire l'avvio corretto della macchina virtuale.
+7. Modificare o impostare come commento tutte le righe non corrette o non necessarie nel file fstab per consentire la corretta avvio della macchina virtuale.
 
 8. Salvare le modifiche apportate al file fstab.
 
 9. Riavviare la macchina virtuale.
 
-10. Se il commento o la correzione delle voci ha avuto esito positivo, il sistema deve raggiungere una richiesta bash nel portale. Verificare se è possibile connettersi alla macchina virtuale.
+10. Se il commento o la correzione delle voci ha avuto esito positivo, il sistema deve raggiungere un prompt bash nel portale. Verificare se è possibile connettersi alla macchina virtuale.
 
-11. Controllare i punti di montaggio quando si esegue il test di qualsiasi modifica fstab eseguendo il comando mount-a. Se non sono presenti errori, i punti di montaggio dovrebbero essere validi.
+11. Controllare i punti di montaggio quando si verifica qualsiasi modifica fstab eseguendo il comando mount –a. Se non ci sono errori, i punti di montaggio dovrebbero essere buoni.
 
 ## <a name="repair-the-vm-offline"></a>Riparare la macchina virtuale in modalità offline
 
-1. Alleghi il disco di sistema della macchina virtuale come disco dati a una macchina virtuale di ripristino (qualsiasi VM Linux funzionante). A tale scopo, è possibile usare i [comandi dell'interfaccia](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-recovery-disks-linux) della riga di comando oppure è possibile automatizzare la configurazione della macchina virtuale di ripristino usando i comandi di ripristino della [macchina virtuale](repair-linux-vm-using-azure-virtual-machine-repair-commands.md).
+1. Collegare il disco di sistema della macchina virtuale come disco dati a una macchina virtuale di ripristino (qualsiasi macchina virtuale Linux funzionante). A tale scopo, è possibile usare i [comandi dell'interfaccia della riga](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-recovery-disks-linux) di comando oppure automatizzare la configurazione della macchina virtuale di ripristino usando i comandi di ripristino della macchina [virtuale.](repair-linux-vm-using-azure-virtual-machine-repair-commands.md)
 
-2. Dopo aver montato il disco di sistema come disco dati nella macchina virtuale di ripristino, eseguire il backup del file fstab prima di apportare modifiche, quindi seguire i passaggi successivi per correggere il file fstab.
+2. Dopo aver montato il disco di sistema come disco dati nella macchina virtuale di ripristino, eseguire il backup del file fstab prima di apportare modifiche e quindi seguire i passaggi successivi per correggere il file fstab.
 
-3.  Cercare l'errore che indica che il disco non è stato montato. Nell'esempio seguente il sistema sta tentando di aggiungere un disco che non era più presente:
+3.    Cercare l'errore che indica che il disco non è stato montato. Nell'esempio seguente, il sistema stava tentando di collegare un disco che non era più presente:
 
     ```
     [DEPEND] Dependency failed for /datadisk1.
@@ -167,43 +203,43 @@ Per risolvere questo problema, avviare la macchina virtuale in modalità di emer
     Give root password for maintenance (or type Control-D to continue):
     ```
 
-4. Connettersi alla macchina virtuale usando la password radice (VM basate su Red Hat).
+4. Connettersi alla macchina virtuale usando la password radice (macchine virtuali basate su Cappello rosso).
 
-5. Utilizzare l'editor di testo preferito per aprire il file fstab. Dopo aver montato il disco, eseguire il comando seguente per nano. Assicurarsi di usare il file fstab che si trova sul disco montato e non il file fstab presente nella macchina virtuale di ripristino.
+5. Utilizzare l'editor di testo preferito per aprire il file fstab. Dopo aver montato il disco, eseguire il comando seguente per Nano. Assicurarsi di lavorare sul file fstab che si trova sul disco montato e non sul file fstab che si trova nella macchina virtuale di ripristino.
 
    ```
    $ nano /mnt/troubleshootingdisk/etc/fstab
    ```
 
-6. Esaminare i file system elencati. Ogni riga nel file fstab indica una file system montata all'avvio della macchina virtuale. Per ulteriori informazioni sulla sintassi del file fstab, eseguire il comando man fstab. Per risolvere un errore di avvio, esaminare ogni riga per assicurarsi che sia corretta sia nella struttura che nel contenuto.
+6. Esaminare i file system elencati. Ogni riga nel file fstab indica un file system montato all'avvio della macchina virtuale. Per ulteriori informazioni sulla sintassi del file fstab, eseguire il comando man fstab. Per risolvere un errore di avvio, esaminare ogni riga per assicurarsi che sia corretta sia nella struttura che nel contenuto.
 
    > [!Note]
-   > * I campi di ogni riga sono separati da tabulazioni o spazi. Le righe vuote vengono ignorate. Le righe che dispongono di un segno di cancelletto (#) come primo carattere sono commenti. Le righe commentate possono rimanere nel file fstab, ma non verranno elaborate. Si consiglia di commentare le righe fstab che non si è sicuri di fare anziché rimuovere le righe.
-   > * Per il ripristino e l'avvio della macchina virtuale, le partizioni file system devono essere le uniche partizioni necessarie. È possibile che la macchina virtuale riscontri errori dell'applicazione relativi a partizioni aggiuntive commentate. Tuttavia, la macchina virtuale verrà avviata senza le partizioni aggiuntive. In un secondo momento è possibile rimuovere il commento dalle righe commentate.
-   > * Si consiglia di montare i dischi dati nelle macchine virtuali di Azure usando l'UUID della partizione file system. Ad esempio, eseguire il comando seguente: ``/dev/sdc1: LABEL="cloudimg-rootfs" UUID="<UUID>" TYPE="ext4" PARTUUID="<PartUUID>"``
-   > * Per determinare l'UUID del file system, eseguire il comando blkid. Per ulteriori informazioni sulla sintassi, eseguire il comando blkid di Man. Si noti che il disco che si vuole ripristinare è ora montato in una nuova macchina virtuale. Sebbene gli UUID siano coerenti, gli ID di partizione del dispositivo (ad esempio, "/dev/sda1") sono diversi in questa macchina virtuale. Le partizioni file system della VM non riuscita originale che si trovano in un disco rigido virtuale non di sistema non sono disponibili per la VM di ripristino [usando i comandi dell'interfaccia](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-recovery-disks-linux)della riga di comando.
-   > * L'opzione nofail consente di verificare che la macchina virtuale venga avviata anche se il file system è danneggiato o se il file system non esiste all'avvio. Si consiglia di utilizzare l'opzione nofail nel file fstab per consentire l'avvio per continuare dopo che si sono verificati errori nelle partizioni non necessarie per l'avvio della macchina virtuale.
+   > * I campi di ogni riga sono separati da tabulazioni o spazi. Le righe vuote vengono ignorate. Le righe che hanno un simbolo di cancelletto (-) come primo carattere sono commenti. Le righe commentate possono rimanere nel file fstab, ma non verranno elaborate. Si consiglia di commentare le righe fstab di cui non si è sicuri invece di rimuoverle.
+   > * Per il ripristino e l'avvio della macchina virtuale, le partizioni del file system devono essere le uniche partizioni necessarie. La macchina virtuale potrebbe verificarsi errori dell'applicazione relativi a altre partizioni commentate. Tuttavia, la macchina virtuale deve essere avviata senza le partizioni aggiuntive. In seguito è possibile rimuovere il commento da tutte le righe commentate.
+   > * È consigliabile montare i dischi dati nelle macchine virtuali di Azure usando l'UUID della partizione del file system. Ad esempio, eseguire il comando seguente:``/dev/sdc1: LABEL="cloudimg-rootfs" UUID="<UUID>" TYPE="ext4" PARTUUID="<PartUUID>"``
+   > * Per determinare l'UUID del file system, eseguire il comando blkid. Per ulteriori informazioni sulla sintassi, eseguire il comando man blkid. Si noti che il disco che si desidera ripristinare è ora montato in una nuova macchina virtuale. Anche se gli UUID devono essere coerenti, gli ID della partizione del dispositivo (ad esempio, "/dev/sda1") sono diversi in questa macchina virtuale. Le partizioni del file system della macchina virtuale in errore originale che si trovano in un disco rigido virtuale non di sistema non sono disponibili per la macchina virtuale di ripristino [tramite i comandi dell'interfaccia della riga di comando.](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-recovery-disks-linux)
+   > * L'opzione nofail consente di assicurarsi che la macchina virtuale venga avviata anche se il file system è danneggiato o il file system non esiste all'avvio. È consigliabile usare l'opzione nofail nel file fstab per consentire all'avvio di continuare dopo che si verificano errori nelle partizioni che non sono necessarie per l'avvio della macchina virtuale.
 
-7. Modificare o impostare come commento le righe errate o non necessarie nel file fstab per consentire l'avvio corretto della macchina virtuale.
+7. Modificare o impostare come commento tutte le righe non corrette o non necessarie nel file fstab per consentire la corretta avvio della macchina virtuale.
 
 8. Salvare le modifiche apportate al file fstab.
 
-9. Riavviare la macchina virtuale o ricompilare la VM originale.
+9. Riavviare la macchina virtuale o ricompilare la macchina virtuale originale.
 
-10. Se il commento o la correzione delle voci ha avuto esito positivo, il sistema deve raggiungere una richiesta bash nel portale. Verificare se è possibile connettersi alla macchina virtuale.
+10. Se il commento o la correzione delle voci ha avuto esito positivo, il sistema deve raggiungere un prompt bash nel portale. Verificare se è possibile connettersi alla macchina virtuale.
 
-11. Controllare i punti di montaggio quando si esegue il test di qualsiasi modifica fstab eseguendo il comando mount-a. Se non sono presenti errori, i punti di montaggio dovrebbero essere validi.
+11. Controllare i punti di montaggio quando si verifica qualsiasi modifica fstab eseguendo il comando mount –a. Se non ci sono errori, i punti di montaggio dovrebbero essere buoni.
 
-12. Smontare e scollegare il disco rigido virtuale originale, quindi creare una macchina virtuale dal disco di sistema originale. A tale scopo, è possibile usare i [comandi dell'interfaccia](troubleshoot-recovery-disks-linux.md) della riga di comando o i comandi di ripristino della [macchina virtuale](repair-linux-vm-using-azure-virtual-machine-repair-commands.md) se sono stati usati per creare la macchina virtuale di ripristino.
+12. Smontare e scollegare il disco rigido virtuale originale e quindi creare una macchina virtuale dal disco di sistema originale. A tale scopo, è possibile usare i [comandi dell'interfaccia della riga](troubleshoot-recovery-disks-linux.md) di comando o i comandi di ripristino della macchina [virtuale](repair-linux-vm-using-azure-virtual-machine-repair-commands.md) se sono stati usati per creare la macchina virtuale di ripristino.
 
-13. Dopo aver creato di nuovo la macchina virtuale ed è possibile connettersi tramite SSH, intraprendere le azioni seguenti:
-    * Esaminare le righe fstab modificate o impostate come commenti durante il ripristino.
-    * Assicurarsi di usare UUID e l'opzione nofail in modo appropriato.
-    * Testare le modifiche fstab prima di riavviare la macchina virtuale. Per eseguire questa operazione, usare il comando seguente: ``$ sudo mount -a``
-    * Creare una copia aggiuntiva del file fstab corretto da usare negli scenari di ripristino futuri.
+13. Dopo aver creato nuovamente la macchina virtuale ed è possibile connettersi ad essa tramite SSH, eseguire le azioni seguenti:After you create the VM again and you can connect to it through SSH, take the following actions:
+    * Esaminare una delle righe fstab che sono state modificate o commentate durante il recupero.
+    * Assicurarsi che si sta utilizzando UUID e l'opzione nofail in modo appropriato.
+    * Testare le modifiche fstab prima di riavviare la macchina virtuale. A tale scopo, utilizzare il comando seguente:``$ sudo mount -a``
+    * Creare una copia aggiuntiva del file fstab corretto da utilizzare in scenari di ripristino futuri.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Risolvere i problemi di una VM Linux connettendo il disco del sistema operativo a una macchina virtuale di ripristino con l'2,0 interfaccia della riga di comando](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-troubleshoot-recovery-disks)
-* [Risolvere i problemi di una VM Linux connettendo il disco del sistema operativo a una VM di ripristino usando il portale di Azure](https://docs.microsoft.com/azure/virtual-machines/linux/troubleshoot-recovery-disks-portal)
+* [Risolvere i problemi relativi a una VM Linux collegando il disco del sistema operativo a una VM di ripristino tramite l'interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-troubleshoot-recovery-disks)
+* [Risolvere i problemi relativi a una macchina virtuale Linux collegando il disco del sistema operativo a una macchina virtuale di ripristino nel portale di Azure](https://docs.microsoft.com/azure/virtual-machines/linux/troubleshoot-recovery-disks-portal)
 

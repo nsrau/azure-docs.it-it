@@ -14,10 +14,10 @@ ms.date: 01/31/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 141a75a75a214ff4a6f136df7570d6e81f7f4e82
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77617010"
 ---
 # <a name="onboarding-requirements"></a>Requisiti di onboarding
@@ -32,7 +32,7 @@ Questo elenco include i requisiti per l'esecuzione di SAP HANA in Azure (istanze
 
 **Connettività di rete**
 
-- ExpressRoute tra l'ambiente locale e Azure: per la connessione del data center locale ad Azure assicurarsi di ordinare all'ISP una connessione di almeno 1 Gbps. La connettività tra unità di istanze Large di HANA e Azure usa anche la tecnologia ExpressRoute. Questa connessione ExpressRoute tra unità di istanze Large di HANA e Azure è inclusa nel prezzo delle unità di istanze Large di HANA, inclusi tutti gli addebiti per il traffico in uscita e per l'ingresso dati per questo circuito ExpressRoute. Per questo motivo, i clienti non rilevano costi aggiuntivi oltre il collegamento ExpressRoute tra l'ambiente locale e Azure.
+- ExpressRoute tra l'ambiente locale e Azure: per la connessione del data center locale ad Azure assicurarsi di ordinare all'ISP una connessione di almeno 1 Gbps. La connettività tra unità di istanze Large di HANA e Azure usa anche la tecnologia ExpressRoute. Questa connessione ExpressRoute tra unità di istanze Large di HANA e Azure è inclusa nel prezzo delle unità di istanze Large di HANA, inclusi tutti gli addebiti per il traffico in uscita e per l'ingresso dati per questo circuito ExpressRoute. Pertanto, come cliente, non si incontrano costi aggiuntivi oltre il collegamento ExpressRoute tra locale e Azure.Therefore, you as customer, do not encounter additional costs beyond your ExpressRoute link between on-premises and Azure.
 
 **Sistema operativo**
 
@@ -70,7 +70,7 @@ Per la matrice di compatibilità del sistema operativo e le versioni del firmwar
 - Licenze e componenti di installazione software per le applicazioni SAP che si connettono a SAP HANA e relativi contratti di supporto SAP.
 - Licenze e componenti di installazione software per tutte le applicazioni non SAP usate con ambienti SAP HANA in Azure (istanze Large) e i relativi contratti di supporto.
 
-**Competenze**
+**Abilità**
 
 - Esperienza e conoscenza di IaaS di Azure e dei relativi componenti.
 - Esperienza e conoscenza della distribuzione di un carico di lavoro SAP in Azure.

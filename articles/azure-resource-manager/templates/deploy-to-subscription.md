@@ -1,46 +1,51 @@
 ---
-title: Distribuire le risorse nella sottoscrizione
+title: Distribuire le risorse nella sottoscrizioneDeploy resources to subscription
 description: Questo articolo descrive come creare un gruppo di risorse in un modello di Azure Resource Manager. Illustra anche come distribuire le risorse nell'ambito della sottoscrizione di Azure.
 ms.topic: conceptual
-ms.date: 03/09/2020
-ms.openlocfilehash: 1a76e41b4b2264bc535752e8f765b3303080abbd
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.date: 03/23/2020
+ms.openlocfilehash: 65cc220d32d1e1149b7026fc438f5e34262511dd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79248411"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80131964"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Creare gruppi di risorse e risorse a livello di sottoscrizione
 
-Per semplificare la gestione delle risorse nella sottoscrizione di Azure, è possibile definire e assegnare i [criteri](../../governance/policy/overview.md) o i [controlli degli accessi in base al ruolo](../../role-based-access-control/overview.md) nella sottoscrizione. Con i modelli a livello di sottoscrizione si applicano in modo dichiarativo i criteri e si assegnano i ruoli nella sottoscrizione. È anche possibile creare gruppi di risorse e distribuire le risorse.
+Per semplificare la gestione delle risorse nella sottoscrizione di Azure, è possibile definire e assegnare [criteri](../../governance/policy/overview.md) o controlli di [accesso basati](../../role-based-access-control/overview.md) sui ruoli nella sottoscrizione. Con i modelli a livello di sottoscrizione, è possibile applicare in modo dichiarativo i criteri e assegnare ruoli nella sottoscrizione. È inoltre possibile creare gruppi di risorse e distribuire le risorse.
 
 Per distribuire i modelli a livello di sottoscrizione, usare l'interfaccia della riga di comando di Azure, PowerShell o l'API REST. Il portale di Azure non supporta la distribuzione nel livello di sottoscrizione.
 
 ## <a name="supported-resources"></a>Risorse supportate
 
-È possibile distribuire i tipi di risorse seguenti a livello di sottoscrizione:
+È possibile distribuire i tipi di risorse seguenti a livello di sottoscrizione:You can deploy the following resource types at the subscription level:
 
-* [bilanci](/azure/templates/microsoft.consumption/budgets)
-* [distribuzioni](/azure/templates/microsoft.resources/deployments) : per i modelli annidati che vengono distribuiti ai gruppi di risorse.
+* [Budget](/azure/templates/microsoft.consumption/budgets)
+* [distribuzioni](/azure/templates/microsoft.resources/deployments) - per i modelli annidati che vengono distribuiti nei gruppi di risorse.Deployments - for nested templates that deploy to resource groups.
+* [eventSubscriptions](/azure/templates/microsoft.eventgrid/eventsubscriptions)
 * [peerAsns](/azure/templates/microsoft.peering/peerasns)
-* [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
+* [policyAssegnazioni](/azure/templates/microsoft.authorization/policyassignments)
 * [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
 * [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
+* [correzioni](/azure/templates/microsoft.policyinsights/remediations)
 * [resourceGroups](/azure/templates/microsoft.resources/resourcegroups)
-* [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
+* [RoleAssignments](/azure/templates/microsoft.authorization/roleassignments)
 * [roleDefinitions](/azure/templates/microsoft.authorization/roledefinitions)
+* [scopeAssegnazioni](/azure/templates/microsoft.managednetwork/scopeassignments)
+* [supportPlanTypes](/azure/templates/microsoft.addons/supportproviders/supportplantypes)
+* [tag](/azure/templates/microsoft.resources/tags)
 
-### <a name="schema"></a>Schema
+### <a name="schema"></a>SCHEMA
 
 Lo schema usato per le distribuzioni a livello di sottoscrizione è diverso dallo schema per le distribuzioni di gruppi di risorse.
 
-Per i modelli, usare:
+Per i modelli, utilizzare:
 
 ```json
 https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#
 ```
 
-Lo schema per un file di parametri è lo stesso per tutti gli ambiti di distribuzione. Per i file di parametri, usare:
+Lo schema per un file di parametri è lo stesso per tutti gli ambiti di distribuzione. Per i file di parametri, utilizzare:
 
 ```json
 https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#
@@ -50,37 +55,36 @@ https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json
 
 I comandi per le distribuzioni a livello di sottoscrizione sono diversi dai comandi per le distribuzioni di gruppi di risorse.
 
-Per l'interfaccia della riga di comando di Azure, usare [AZ Deployment create](/cli/azure/deployment?view=azure-cli-latest#az-deployment-create). Nell'esempio seguente viene distribuito un modello per creare un gruppo di risorse:
+Per l'interfaccia della riga di comando di Azure usare [az deployment sub create](/cli/azure/deployment/sub?view=azure-cli-latest#az-deployment-sub-create). L'esempio seguente distribuisce un modello per creare un gruppo di risorse:The following example deploys a template to create a resource group:
 
 ```azurecli-interactive
-az deployment create \
-  --name demoDeployment \
+az deployment sub create \
+  --name demoSubDeployment \
   --location centralus \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json \
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json" \
   --parameters rgName=demoResourceGroup rgLocation=centralus
 ```
 
-
-Per il comando di distribuzione di PowerShell, usare [New-AzDeployment](/powershell/module/az.resources/new-azdeployment) o **New-AzSubscriptionDeployment**. Nell'esempio seguente viene distribuito un modello per creare un gruppo di risorse:
+Per il comando di distribuzione di PowerShell , utilizzare [New-AzDeployment](/powershell/module/az.resources/new-azdeployment) o **New-AzSubscriptionDeployment**. L'esempio seguente distribuisce un modello per creare un gruppo di risorse:The following example deploys a template to create a resource group:
 
 ```azurepowershell-interactive
 New-AzSubscriptionDeployment `
-  -Name demoDeployment `
+  -Name demoSubDeployment `
   -Location centralus `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json" `
   -rgName demoResourceGroup `
   -rgLocation centralus
 ```
 
-Per l'API REST, usare [distribuzioni-crea nell'ambito della sottoscrizione](/rest/api/resources/deployments/createorupdateatsubscriptionscope).
+Per l'API REST, usare [Deployments - Create At Subscription Scope](/rest/api/resources/deployments/createorupdateatsubscriptionscope).
 
-## <a name="deployment-location-and-name"></a>Percorso e nome della distribuzione
+## <a name="deployment-location-and-name"></a>Percorso e nome di distribuzione
 
 Per le distribuzioni a livello di sottoscrizione, è necessario specificare un percorso per la distribuzione. Il percorso della distribuzione è separato dal percorso delle risorse distribuite. Il percorso di distribuzione specifica dove archiviare i dati di distribuzione.
 
-È possibile specificare un nome per la distribuzione oppure utilizzare il nome predefinito della distribuzione. Il nome predefinito è il nome del file modello. Ad esempio, la distribuzione di un modello denominato **azuredeploy.json** crea un nome di distribuzione predefinito di **azuredeploy**.
+È possibile specificare un nome per la distribuzione o usare il nome di distribuzione predefinito. Il nome predefinito è il nome del file modello. Ad esempio, la distribuzione di un modello denominato **azuredeploy.json** crea un nome di distribuzione predefinito di **azuredeploy**.
 
-Per ogni nome di distribuzione, il percorso non è modificabile. Non è possibile creare una distribuzione in un'unica posizione quando esiste una distribuzione esistente con lo stesso nome in una posizione diversa. Se viene visualizzato il codice di errore `InvalidDeploymentLocation`, utilizzare un nome diverso o lo stesso percorso come la distribuzione precedente per tale nome.
+Per ogni nome di distribuzione, il percorso non è modificabile. Non è possibile creare una distribuzione in una posizione quando è presente una distribuzione esistente con lo stesso nome in un percorso diverso. Se viene visualizzato il codice di errore `InvalidDeploymentLocation`, utilizzare un nome diverso o lo stesso percorso come la distribuzione precedente per tale nome.
 
 ## <a name="use-template-functions"></a>Usare le funzioni di modello
 
@@ -88,15 +92,15 @@ Per le distribuzioni a livello di sottoscrizione, esistono alcune considerazioni
 
 * La funzione [resourceGroup()](template-functions-resource.md#resourcegroup)**non** è supportata.
 * Le funzioni [reference()](template-functions-resource.md#reference) e [list()](template-functions-resource.md#list) sono supportate.
-* Usare la funzione [subscriptionResourceId ()](template-functions-resource.md#subscriptionresourceid) per ottenere l'ID risorsa per le risorse distribuite a livello di sottoscrizione.
+* Usare la funzione [subscriptionResourceId()](template-functions-resource.md#subscriptionresourceid) per ottenere l'ID risorsa per le risorse distribuite a livello di sottoscrizione.
 
-  Ad esempio, per ottenere l'ID risorsa per una definizione dei criteri, usare:
+  Ad esempio, per ottenere l'ID risorsa per una definizione di criteri, usare:For example, to get the resource ID for a policy definition, use:
   
   ```json
   subscriptionResourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))
   ```
   
-  Il formato dell'ID risorsa restituito è il seguente:
+  L'ID risorsa restituito ha il seguente formato:
 
   ```json
   /subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
@@ -169,7 +173,7 @@ Per creare più gruppi di risorse usare l'[elemento copy](copy-resources.md).
 }
 ```
 
-Per informazioni sull'iterazione delle risorse, vedere [distribuire più istanze di una risorsa in modelli Azure Resource Manager](./copy-resources.md)ed [esercitazione: creare più istanze di risorse con i modelli di gestione risorse](./template-tutorial-create-multiple-instances.md).
+Per informazioni sull'iterazione delle risorse, vedere [Distribuire più istanze di una risorsa nei modelli](./copy-resources.md)di Azure Resource Manager ed [Esercitazione: Creare più istanze](./template-tutorial-create-multiple-instances.md)di risorse con i modelli di Resource Manager.
 
 ## <a name="resource-group-and-resources"></a>Gruppo di risorse e risorse
 
@@ -227,8 +231,8 @@ L'esempio seguente crea un gruppo di risorse e distribuisce un account di archiv
               "location": "[parameters('rgLocation')]",
               "sku": {
                 "name": "Standard_LRS"
-              }
-              "kind": "StorageV2",
+              },
+              "kind": "StorageV2"
             }
           ],
           "outputs": {}
@@ -284,10 +288,10 @@ Per distribuire questo modello con l'interfaccia della riga di comando di Azure,
 # Built-in policy that accepts parameters
 definition=$(az policy definition list --query "[?displayName=='Allowed locations'].id" --output tsv)
 
-az deployment create \
+az deployment sub create \
   --name demoDeployment \
   --location centralus \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policyassign.json \
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policyassign.json" \
   --parameters policyDefinitionID=$definition policyName=setLocation policyParameters="{'listOfAllowedLocations': {'value': ['westus']} }"
 ```
 
@@ -302,7 +306,7 @@ $policyParams =@{listOfAllowedLocations = @{ value = $locations}}
 New-AzSubscriptionDeployment `
   -Name policyassign `
   -Location centralus `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policyassign.json `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policyassign.json" `
   -policyDefinitionID $definition.PolicyDefinitionId `
   -policyName setLocation `
   -policyParameters $policyParams
@@ -356,10 +360,10 @@ New-AzSubscriptionDeployment `
 Per creare la definizione di criteri nella sottoscrizione e applicarla alla sottoscrizione, usare il comando seguente dell'interfaccia della riga di comando:
 
 ```azurecli
-az deployment create \
+az deployment sub create \
   --name demoDeployment \
   --location centralus \
-  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policydefineandassign.json
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policydefineandassign.json"
 ```
 
 Per distribuire questo modello con PowerShell, usare:
@@ -368,17 +372,17 @@ Per distribuire questo modello con PowerShell, usare:
 New-AzSubscriptionDeployment `
   -Name definePolicy `
   -Location centralus `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policydefineandassign.json
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policydefineandassign.json"
 ```
 
 ## <a name="template-samples"></a>Esempi di modelli
 
-* [Creare un gruppo di risorse, bloccarlo e concedervi le autorizzazioni](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments/create-rg-lock-role-assignment).
-* [Creare un gruppo di risorse, un criterio e un'assegnazione di criteri](https://github.com/Azure/azure-docs-json-samples/blob/master/subscription-level-deployment/azuredeploy.json).
+* Creare un gruppo di [risorse, bloccarlo e assegnargli le autorizzazioni.](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments/create-rg-lock-role-assignment)
+* Creare un gruppo di [risorse, un criterio e un'assegnazione di criteri.](https://github.com/Azure/azure-docs-json-samples/blob/master/subscription-level-deployment/azuredeploy.json)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per informazioni sull'assegnazione dei ruoli, vedere [gestire l'accesso alle risorse di Azure usando i modelli RBAC e Azure Resource Manager](../../role-based-access-control/role-assignments-template.md).
+* Per altre informazioni sull'assegnazione di ruoli, vedere [Gestire l'accesso alle risorse di Azure usando i modelli RBAC e Azure Resource Manager.](../../role-based-access-control/role-assignments-template.md)
 * Per un esempio di distribuzione delle impostazioni dell'area di lavoro per il Centro sicurezza di Azure, vedere [deployASCwithWorkspaceSettings.json](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).
 * I modelli di esempio sono disponibili in [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments).
-* È anche possibile distribuire modelli a livello del [gruppo di gestione](deploy-to-management-group.md) e del [tenant](deploy-to-tenant.md).
+* È inoltre possibile distribuire modelli a livello di gruppo di [gestione](deploy-to-management-group.md) e a livello di [tenant.](deploy-to-tenant.md)

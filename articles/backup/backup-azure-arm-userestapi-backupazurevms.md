@@ -1,19 +1,19 @@
 ---
-title: Eseguire il backup di macchine virtuali di Azure con l'API REST
-description: Questo articolo illustra come configurare, avviare e gestire le operazioni di backup del backup delle macchine virtuali di Azure usando l'API REST.
+title: Eseguire il backup delle macchine virtuali di Azure usando l'API RESTBack up Azure VMs using REST API
+description: In questo articolo viene illustrato come configurare, avviare e gestire le operazioni di backup di Backup della macchina virtuale di Azure usando l'API REST.
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
 ms.openlocfilehash: 4789ef1e0e09df521f8cab539d972e9e669e0a58
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79248164"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Eseguire il backup di una macchina virtuale di Azure con Backup di Azure tramite l'API REST
 
-Questo articolo descrive come gestire i backup per una macchina virtuale di Azure con Backup di Azure tramite l'API REST. Configurare la protezione per la prima volta per una macchina virtuale di Azure precedentemente non protetta, attivare un backup su richiesta per una macchina virtuale di Azure protetta e modificare le proprietà di backup di una macchina virtuale di cui è stato eseguito il backup tramite l'API REST, come illustrato qui.
+Questo articolo descrive come gestire i backup per una macchina virtuale di Azure con Backup di Azure tramite l'API REST. Configurare la protezione per la prima volta per una macchina virtuale di Azure non protetta in precedenza, attivare un backup su richiesta per una macchina virtuale di Azure protetta e modificare le proprietà di backup di una macchina virtuale di cui è stato eseguito il backup tramite l'API REST, come illustrato di seguito.
 
 Per creare nuovi insiemi di credenziali e nuovi criteri, vedere le esercitazioni sull'API REST per [creare insiemi di credenziali](backup-azure-arm-userestapi-createorupdatevault.md) e per [creare criteri](backup-azure-arm-userestapi-createorupdatepolicy.md).
 
@@ -92,7 +92,7 @@ X-Powered-By: ASP.NET
 
 ### <a name="selecting-the-relevant-azure-vm"></a>Selezione della macchina virtuale di Azure pertinente
 
- È possibile verificare che la memorizzazione nella cache venga eseguita [elencando tutti gli elementi da proteggere](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list) nella sottoscrizione e individuare la macchina virtuale desiderata nella risposta. [La risposta di questa operazione](#example-responses-1) fornisce anche informazioni sul modo in cui i servizi di ripristino identificano una macchina virtuale.  Dopo aver acquisito familiarità con il modello, è possibile ignorare questo passaggio e procedere direttamente con l'[abilitazione della protezione](#enabling-protection-for-the-azure-vm).
+ È possibile verificare che la memorizzazione nella cache venga eseguita [elencando tutti gli elementi da proteggere](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list) nella sottoscrizione e individuare la macchina virtuale desiderata nella risposta. [La risposta di questa operazione](#example-responses-1) fornisce anche informazioni su come Servizi di ripristino identifica una macchina virtuale.  Dopo aver acquisito familiarità con il modello, è possibile ignorare questo passaggio e procedere direttamente con l'[abilitazione della protezione](#enabling-protection-for-the-azure-vm).
 
 Questa è un'operazione *GET*.
 
@@ -102,13 +102,13 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 All'URI *GET* sono associati tutti i parametri obbligatori. Non è necessario alcun corpo della richiesta aggiuntivo.
 
-#### <a name="responses-1"></a>Risposte
+#### <a name="responses"></a><a name="responses-1"></a>Risposte
 
 |Nome  |Type  |Descrizione  |
 |---------|---------|---------|
 |200 - OK     | [WorkloadProtectableItemResourceList](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list#workloadprotectableitemresourcelist)        |       OK |
 
-#### <a name="example-responses-1"></a>Risposte di esempio
+#### <a name="example-responses"></a><a name="example-responses-1"></a>Risposte di esempio
 
 Dopo che la richiesta *GET* è stata inviata, viene restituita una risposta 200 (OK).
 
@@ -323,7 +323,7 @@ L'operazione restituisce due risposte: 202 (Accettata) quando viene creata un'al
 |---------|---------|---------|
 |202 - Accettato     |         |     Accepted    |
 
-#### <a name="example-responses-3"></a>Risposte di esempio
+#### <a name="example-responses"></a><a name="example-responses-3"></a>Risposte di esempio
 
 Dopo aver inviato la richiesta *POST* per un backup su richiesta, la risposta iniziale è 202 (accettazione) con un'intestazione location o Azure-async.
 
@@ -387,7 +387,7 @@ Poiché il processo di backup è un'operazione con esecuzione prolungata, ne dev
 
 ### <a name="changing-the-policy-of-protection"></a>Modifica dei criteri di protezione
 
-Per modificare i criteri con cui la macchina virtuale è protetta, è possibile usare lo stesso formato usato per [l'abilitazione della protezione](#enabling-protection-for-the-azure-vm). È sufficiente fornire il nuovo ID criteri nel [corpo della richiesta](#example-request-body) e inviare la richiesta. Ad esempio: per modificare i criteri di testVM da' DefaultPolicy ' a' ProdPolicy ', specificare l'ID ' ProdPolicy ' nel corpo della richiesta.
+Per modificare i criteri con cui la macchina virtuale è protetta, è possibile usare lo stesso formato usato per [l'abilitazione della protezione](#enabling-protection-for-the-azure-vm). È sufficiente fornire il nuovo ID criteri nel [corpo della richiesta](#example-request-body) e inviare la richiesta. Ad esempio: per modificare i criteri di testVM da 'DefaultPolicy' a 'ProdPolicy', specificare l'ID 'ProdPolicy' nel corpo della richiesta.
 
 ```http
 {
@@ -433,7 +433,7 @@ Gli elementi `{containerName}` e `{protectedItemName}` sono come creati [in prec
 DELETE https://management.azure.com//Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM?api-version=2019-05-13
 ```
 
-#### <a name="responses-2"></a>Risposte
+#### <a name="responses"></a><a name="responses-2"></a>Risposte
 
 L'operazione *DELETE* applicata alla protezione è un'[operazione asincrona](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Ciò significa che l'operazione consente di creare un'altra operazione che deve essere registrata separatamente.
 
@@ -445,13 +445,13 @@ L'operazione restituisce due risposte: 202 (accettazione) quando viene creata un
 |202 - Accettato     |         |     Accepted    |
 
 > [!IMPORTANT]
-> Per garantire la protezione da scenari di eliminazione accidentale, è [disponibile una funzionalità di eliminazione](use-restapi-update-vault-properties.md#soft-delete-state) temporanea per l'insieme di credenziali di servizi di ripristino. Se lo stato di eliminazione temporanea dell'insieme di credenziali è impostato su abilitato, l'operazione di eliminazione non eliminerà immediatamente i dati. Verranno conservati per 14 giorni e quindi eliminati definitivamente. Il cliente non viene addebitato per l'archiviazione per il periodo di 14 giorni. Per annullare l'operazione di eliminazione, fare riferimento alla [sezione Undo-Delete](#undo-the-stop-protection-and-delete-data).
+> Per proteggersi da scenari di eliminazione accidentale, è disponibile una [funzione di eliminazione temporanea](use-restapi-update-vault-properties.md#soft-delete-state) per l'insieme di credenziali dei servizi di ripristino. Se lo stato di eliminazione temporanea del vault è impostato su abilitato, l'operazione di eliminazione NON eliminerà immediatamente i dati. Sarà conservato per 14 giorni e poi eliminato definitivamente. Al cliente non viene addebitato alcun costo di archiviazione per questo periodo di 14 giorni. Per annullare l'operazione di eliminazione, fare riferimento alla [sezione di annullamento dell'eliminazione](#undo-the-stop-protection-and-delete-data).
 
-### <a name="undo-the-stop-protection-and-delete-data"></a>Annullare l'arresto della protezione ed eliminare i dati
+### <a name="undo-the-stop-protection-and-delete-data"></a>Annullare la protezione di arresto ed eliminare i dati
 
-L'eliminazione accidentale è simile alla creazione dell'elemento di backup. Dopo aver annullato l'eliminazione, l'elemento viene mantenuto, ma non vengono attivati backup futuri.
+L'annullamento dell'eliminazione accidentale è simile alla creazione dell'elemento di backup. Dopo aver annullato l'eliminazione, l'elemento viene mantenuto ma non vengono attivati backup futuri.
 
-L'eliminazione Annulla è un'operazione *put* che è molto simile alla [modifica dei criteri](#changing-the-policy-of-protection) e/o [all'abilitazione della protezione](#enabling-protection-for-the-azure-vm). È sufficiente fornire l'intenzione di annullare l'eliminazione con la variabile *isRehydrate* nel [corpo della richiesta](#example-request-body) e inviare la richiesta. Ad esempio: per annullare l'eliminazione per testVM, è necessario usare il corpo della richiesta seguente.
+L'eliminazione di annullamento è un'operazione *PUT* molto simile alla [modifica del criterio](#changing-the-policy-of-protection) e/o [all'abilitazione della protezione](#enabling-protection-for-the-azure-vm). È sufficiente fornire l'intenzione di annullare l'eliminazione con la variabile *isRehydrate* nel [corpo della richiesta](#example-request-body) e inviare la richiesta. Ad esempio: per annullare l'eliminazione per testVM, è necessario utilizzare il corpo della richiesta seguente.
 
 ```http
 {

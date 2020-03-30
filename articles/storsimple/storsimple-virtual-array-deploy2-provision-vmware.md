@@ -1,5 +1,5 @@
 ---
-title: Provisioning di StorSimple Virtual Array in VMware
+title: Effettuare il provisioning di StorSimple Virtual Array in VMware
 description: Questa seconda esercitazione sulla serie di distribuzione di StorSimple Virtual Array implica il provisioning di un dispositivo virtuale in VMware.
 author: alkohli
 ms.assetid: 0425b2a9-d36f-433d-8131-ee0cacef95f8
@@ -9,16 +9,16 @@ ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 5f5ded3faec3a080022eea70de2cca5d27529c4d
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76272084"
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>Distribuire StorSimple Virtual Array: eseguire il provisioning in VMware
 ![](./media/storsimple-virtual-array-deploy2-provision-vmware/vmware4.png)
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Panoramica
 
 [!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
 
@@ -101,7 +101,7 @@ Eseguire i passaggi seguenti per il provisioning di un dispositivo virtuale in h
 9. La nuova cartella viene visualizzata nel riquadro a sinistra di **Datastore Browser** (Browser archivio dati).
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image9.png)
-10. Fare clic sull'icona relativa al caricamento ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image10.png) e selezionare **Upload File**.
+10. Fare clic sull'icona ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image10.png) Carica e selezionare Carica **file**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image11.png)
 11. Trovare e scegliere i file VMDK scaricati. Sono disponibili due file. Selezionare un file da caricare.
@@ -127,7 +127,7 @@ Eseguire i passaggi seguenti per il provisioning di un dispositivo virtuale in h
 18. Nella pagina **Virtual Machine Version** (Versione macchina virtuale) selezionare **Virtual Machine Version: 8** (Versione macchina virtuale:8).
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image19.png)
-19. Nella pagina relativa al **sistema operativo guest** selezionare il **sistema operativo guest** come **Windows**. Per **Version** (Versione), nell'elenco a discesa selezionare **Microsoft Windows Server 2012 (64-bit)** .
+19. Nella pagina relativa al **sistema operativo guest** selezionare il **sistema operativo guest** come **Windows**. Per **Version** (Versione), nell'elenco a discesa selezionare **Microsoft Windows Server 2012 (64-bit)**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image20.png)
 20. Nella pagina **CPUs**, regolare **Number of virtual sockets** (Numero di prese virtuali) e **Number of cores per virtual socket** (Numero di core per presa virtuale) in modo che **Total number of cores** (Numero totale di core) sia almeno 4. Fare clic su **Avanti**.
@@ -154,16 +154,16 @@ Eseguire i passaggi seguenti per il provisioning di un dispositivo virtuale in h
 27. Nella pagina **Ready to Complete** , verificare tutte le impostazioni associate alla nuova macchina virtuale. Controllare **Edit the virtual machine settings before completion**. Fare clic su **Continua**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image28.png)
-28. Nella pagina **Virtual Machines Properties** (Proprietà macchine virtuali) nella scheda **Hardware** individuare l'hardware del dispositivo. Selezionare **New Hard Disk**. Scegliere **Aggiungi**.
+28. Nella pagina **Virtual Machines Properties** (Proprietà macchine virtuali) nella scheda **Hardware** individuare l'hardware del dispositivo. Selezionare **New Hard Disk**. Fare clic su **Aggiungi**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image29.png)
-29. Viene visualizzata la finestra **Add Hardware** (Aggiungi hardware). Nella pagina **Device Type** (Tipo dispositivo), in **Choose the type of device you wish to add** (Scegli il tipo di dispositivo da aggiungere), selezionare **Hard Disk** e fare clic su **Next** (Avanti).
+29. Viene visualizzata la finestra **Add Hardware** (Aggiungi hardware). Nella pagina **Tipo di dispositivo,** in **Scegliere il tipo di dispositivo che si desidera aggiungere,** selezionare **Disco rigido**e fare clic su **Avanti**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image30.png)
 30. Nella pagina **Select a Disk** (Selezionare un disco) scegliere **Create a new virtual disk** (Crea un nuovo disco virtuale). Fare clic su **Avanti**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image31.png)
-31. Nella pagina **Create a Disk** (Creare un disco) impostare **Disk Size** (Dimensione disco) su almeno 500 GB. 500 GB è il requisito minimo, ma è sempre possibile eseguire il provisioning di un disco più grande. Si noti che, una volta eseguito il provisioning del disco, non è possibile espanderlo o ridurlo. Per altre informazioni sulle dimensioni del disco di cui eseguire il provisioning, vedere la sezione sul ridimensionamento nel documento sulle [procedure consigliate](storsimple-ova-best-practices.md). In **Disk Provisioning** (Provisioning disco) selezionare **Thin Provision** (Provisioning leggero). Fare clic su **Avanti**.
+31. Nella pagina **Create a Disk** (Creare un disco) impostare **Disk Size** (Dimensione disco) su almeno 500 GB. 500 GB è il requisito minimo, ma è sempre possibile eseguire il provisioning di un disco più grande. Si noti che, una volta eseguito il provisioning del disco, non è possibile espanderlo o ridurlo. Per ulteriori informazioni sulle dimensioni del disco di cui eseguire il provisioning, consultare la sezione relativa al ridimensionamento nel [documento sulle procedure consigliate.](storsimple-ova-best-practices.md) In **Disk Provisioning** (Provisioning disco) selezionare **Thin Provision** (Provisioning leggero). Fare clic su **Avanti**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image32.png)
 32. Nella pagina **Advanced Options** , accettare il valore predefinito.
@@ -175,7 +175,7 @@ Eseguire i passaggi seguenti per il provisioning di un dispositivo virtuale in h
 34. Si torna quindi alla pagina delle proprietà della macchina virtuale. Un nuovo disco rigido viene aggiunto alla macchina virtuale. Fare clic su **Fine**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image35.png)
-35. Con la macchina virtuale selezionata nel riquadro di destra, passare alla scheda **Riepilogo** . rivedere le impostazioni della macchina virtuale.
+35. Con la macchina virtuale selezionata nel riquadro destro, passare alla scheda **Riepilogo.**
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image36.png)
 
@@ -191,7 +191,7 @@ Eseguire i passaggi seguenti per avviare il dispositivo virtuale a cui connetter
 1. Avviare il dispositivo virtuale. Nel vSphere Configuration Manager, nel riquadro a sinistra, selezionare il dispositivo e fare clic con il tasto destro del mouse per visualizzare il menu di scelta rapida. Selezionare **Power** (Alimentazione) e scegliere **Power on** (Alimentazione attiva). La macchina virtuale deve accendersi. È possibile visualizzare lo stato nella parte inferiore del riquadro **Recent Tasks** del client di vSphere.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image37.png)
-2. Il completamento delle attività di installazione richiede alcuni minuti. Quando il dispositivo è in esecuzione, passare alla scheda della **console** . Premere CTRL + ALT + CANC per accedere al dispositivo. In alternativa, è possibile posizionare il cursore sulla finestra della console e premere CTRL+ALT+INSERT. L'utente e la password predefiniti sono rispettivamente *StorSimpleAdmin* e *Password1*.
+2. Il completamento delle attività di installazione richiede alcuni minuti. Una volta che il dispositivo è in esecuzione, passare alla scheda **Console** . In alternativa, è possibile posizionare il cursore sulla finestra della console e premere CTRL+ALT+INSERT. L'utente e la password predefiniti sono rispettivamente *StorSimpleAdmin* e *Password1*.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image38.png)
 3. Per motivi di sicurezza, la password amministratore del dispositivo scade al primo accesso. Viene richiesto di modificarla.

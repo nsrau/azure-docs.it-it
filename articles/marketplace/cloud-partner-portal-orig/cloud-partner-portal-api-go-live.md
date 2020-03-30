@@ -1,19 +1,18 @@
 ---
-title: Vai in diretta | Azure Marketplace
+title: Proprietà Go Live (Vai in diretta) Azure Marketplace
 description: L'API Go Live avvia il processo di presentazione in tempo reale dell'offerta.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: 30500e9dfae9411563fc727290d0569998ba3550
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: bf7bebf6e72e373811879a311d70255c29988ed6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819675"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288581"
 ---
 <a name="go-live"></a>Go Live
 =======
@@ -27,8 +26,8 @@ Questa API avvia il processo che consente di inviare un'app alla produzione. Que
 
 |  **Nome**      |   **Descrizione**                                                           | **Tipo di dati** |
 |  --------      |   ---------------                                                           | ------------- |
-| publisherId    | Identificatore dell'autore dell'offerta da recuperare, ad esempio `contoso`       |  String       |
-| offerId        | Identificatore dell'offerta da recuperare                                   |  String       |
+| publisherId    | Identificatore dell'autore dell'offerta da recuperare, ad esempio `contoso`       |  string       |
+| offerId        | Identificatore dell'offerta da recuperare                                   |  string       |
 | api-version    | Versione più recente dell'API                                                   |  Data         |
 |  |  |  |
 
@@ -46,7 +45,7 @@ Questa API avvia il processo che consente di inviare un'app alla produzione. Que
 <a name="body-example"></a>Esempio di corpo
 ------------
 
-### <a name="response"></a>Response
+### <a name="response"></a>Risposta
 
 `Operation-Location: https://cloudpartner.azure.com/api/publishers/contoso/offers/contoso-virtualmachineoffer/operations/56615b67-2185-49fe-80d2-c4ddf77bb2e8`
 

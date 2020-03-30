@@ -1,52 +1,51 @@
 ---
-title: Codici di stato di co-selling | Azure Marketplace
-description: Usare questi codici di stato/provincia quando si forniscono informazioni di contatto nella pagina di co-selling dell'offerta.
-author: MaggiePucciEvans
-manager: evansma
-ms.author: evansma
+title: Co-vendita codici di stato Azure Marketplace
+description: Utilizza questi codici di stato/provincia quando fornisci informazioni di contatto nella pagina Co-selling della tua offerta.
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: c64fc161108560e893ef7b207782d79b6c3c01d4
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: f87014a599afd6d1c56d175b92d4da1ea49d9470
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934370"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80277040"
 ---
-# <a name="co-sell-state-codes"></a>Codici di stato di co-selling
+# <a name="co-sell-state-codes"></a>Co-vendere i codici di stato
 
-Se applicabile, usare questi codici per fornire informazioni sullo stato/provincia quando si [forniscono informazioni di contatto nella pagina di co-selling dell'offerta](commercial-marketplace-co-sell.md#contacts).
+Se applicabile, utilizza questi codici per fornire informazioni su Stato/Provincia quando fornisci informazioni di [contatto nella pagina Co-selling della tua offerta.](commercial-marketplace-co-sell.md#contacts)
 
-## <a name="stateprovince-table"></a>Tabella stato/provincia
+## <a name="stateprovince-table"></a>Tabella Stato/Provincia
 
 |   Nome stato/provincia               |   Codice    |
 |-------------------------------------|-----------|
-| Alabama                             | US-AL     |
-| Alaska                              | US-AK     |
-| Arizona                             | US-AZ     |
+| Alabama                             | STATI UNITI     |
+| Alaska                              | Stati Uniti-AK     |
+| Arizona                             | Stati Uniti     |
 | Arkansas                            | US-AR     |
 | California                          | US-CA     |
 | Colorado                            | US-CO     |
-| Connecticut                         | US-CT     |
-| Delaware                            | STATI UNITI-DE     |
+| Connecticut                         | STATI Uniti     |
+| Delaware                            | STATI Uniti-DE     |
 | Florida                             | US-FL     |
 | Georgia                             | US-GA     |
 | Hawaii                              | US-HI     |
-| Idaho                               | US-ID     |
-| Illinois                            | USA-IL     |
-| Indiana                             | STATI UNITI     |
-| Iowa                                | STATI UNITI-IA     |
+| Idaho                               | US-ID (US-ID)     |
+| Illinois                            | Stati Uniti     |
+| Indiana                             | US-IN     |
+| Iowa                                | Stati Uniti-IA     |
 | Kansas                              | US-KS     |
 | Kentucky                            | US-KY     |
-| Louisiana                           | USA-LA     |
-| Maine                               | STATI UNITI     |
+| Louisiana                           | Stati Uniti     |
+| Maine                               | US-ME     |
 | Maryland                            | US-MD     |
 | Massachusetts                       | US-MA     |
-| Michigan                            | STATI UNITI     |
-| Minnesota                           | STATI UNITI-MN     |
-| Mississippi                         | US-MS     |
+| Michigan                            | STATI Uniti-MI     |
+| Minnesota                           | US-MN     |
+| Mississippi                         | STATI Uniti-MS     |
 | Missouri                            | US-MO     |
 | Montana                             | US-MT     |
 | Nebraska                            | US-NE     |
@@ -56,31 +55,31 @@ Se applicabile, usare questi codici per fornire informazioni sullo stato/provinc
 | New Mexico                          | US-NM     |
 | New York                            | US-NY     |
 | Carolina del Nord                      | US-NC     |
-| North Dakota                        | US-ND     |
+| North Dakota                        | Stati Uniti     |
 | Ohio                                | US-OH     |
-| Oklahoma                            | USA-OK     |
-| Oregon                              | US-OR     |
+| Oklahoma                            | US-OK     |
+| Oregon                              | STATI UNITI-OR     |
 | Pennsylvania                        | US-PA     |
 | Rhode Island                        | US-RI     |
-| South Carolina                      | STATI UNITI-SC     |
-| South Dakota                        | US-SD     |
-| Tennessee                           | STATI UNITI-TN     |
+| South Carolina                      | Stati Uniti-SC     |
+| South Dakota                        | Stati Uniti-SD     |
+| Tennessee                           | US-TN     |
 | Texas                               | US-TX     |
 | Utah                                | US-UT     |
 | Vermont                             | US-VT     |
 | Virginia                            | US-VA     |
 | Washington                          | US-WA     |
-| Virginia Occidentale                       | STATI UNITI-WV     |
+| West Virginia                       | US-WV     |
 | Wisconsin                           | US-WI     |
 | Wyoming                             | US-WY     |
-| District of Columbia                | US-DC     |
-| Samoa americane                      | USA COME     |
+| District of Columbia                | Stati Uniti     |
+| Isole Samoa americane                      | US-AS     |
 | Guam                                | US-GU     |
 | Marianne Settentrionali            | US-MP     |
-| Portorico                         | US-PR     |
-| Altre isole americane del Pacifico | US-UM    |
-|Isole Vergini Americane                 | US-VI     |
+| Portorico                         | STATI Uniti-PR     |
+| Altre isole minori degli Stati Uniti | UM US    |
+|Isole Vergini americane                 | STATI Uniti-VI     |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni sull' [opzione di co-selling nel centro per i partner](./commercial-marketplace-co-sell.md).
+- Scopri di più sull'opzione di [co-selling nel Centro per i partner.](./commercial-marketplace-co-sell.md)

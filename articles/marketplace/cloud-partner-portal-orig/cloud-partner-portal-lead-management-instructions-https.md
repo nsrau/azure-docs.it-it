@@ -1,23 +1,22 @@
 ---
-title: Endpoint HTTPS | Azure Marketplace
+title: 'Endpoint HTTPS : Azure Marketplace'
 description: Configurare la gestione dei clienti potenziali per un endpoint HTTPS.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/24/2018
-ms.author: pabutler
-ms.openlocfilehash: 817e431f5386b10345d414190e8bda0954ef2aca
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: cb6ef173e97a7c2bbd7d7cad5e5074b1f2d0f066
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825220"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288598"
 ---
 # <a name="configure-lead-management-using-an-https-endpoint"></a>Configurare la gestione dei clienti potenziali usando un endpoint HTTPS
 
-È possibile usare un endpoint HTTPS per la gestione dei clienti potenziali di Azure Marketplace e AppSource. Questi clienti potenziali possono essere scritti in un sistema CRM (Customer Relationship Management) o inviati come una notifica di posta elettronica. Questo articolo descrive come configurare la gestione dei clienti potenziali usando il servizio di automazione [Microsoft Flow](https://powerapps.microsoft.com/automate-processes/).
+È possibile usare un endpoint HTTPS per la gestione dei clienti potenziali di Azure Marketplace e AppSource. Questi clienti potenziali possono essere scritti in un sistema CRM (Customer Relationship Management) o inviati come una notifica di posta elettronica. In questo articolo viene descritto come configurare la gestione dei lead utilizzando il servizio di automazione [di Microsoft Flow.This](https://powerapps.microsoft.com/automate-processes/) article describes how to configure lead management using the Microsoft Flow automation service.
 
 ## <a name="create-a-flow-using-microsoft-flow"></a>Creare un flusso usando Microsoft Flow
 
@@ -97,7 +96,7 @@ ms.locfileid: "73825220"
 
 ## <a name="configure-your-offer-to-send-leads-to-the-https-endpoint"></a>Configurare l'offerta per inviare clienti potenziali all'endpoint HTTPS
 
-Quando si configurano le informazioni sulla gestione dei clienti potenziali per l'offerta, selezionare **Endpoint HTTPS** come **destinazione** dei clienti potenziali e incollare l'URL POST HTTP copiato nel passaggio precedente.  
+Quando si configurano le informazioni di gestione dei lead per l'offerta, selezionare **Endpoint HTTPS** per destinazione **lead** e incollare l'URL HTTP POST copiato nel passaggio precedente.  
 
 ![Aggiungere contenuto dinamico](./media/cloud-partner-portal-lead-management-instructions-https/https-image017.png)
 

@@ -1,6 +1,6 @@
 ---
-title: Condividere immagini della raccolta tra i tenant in Azure
-description: Informazioni su come condividere immagini di VM tra tenant di Azure usando le raccolte di immagini condivise.
+title: Condividere immagini della raccolta tra tenant in AzureShare gallery images across tenants in Azure
+description: Informazioni su come condividere immagini di macchine virtuali tra tenant di Azure usando raccolte di immagini condivise.
 services: virtual-machines-linux
 author: cynthn
 manager: gwallace
@@ -11,24 +11,24 @@ ms.topic: article
 ms.date: 04/05/2019
 ms.author: cynthn
 ms.openlocfilehash: 18337620a6f9506e402149909667026e4a8ba7eb
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74034979"
 ---
-# <a name="share-gallery-vm-images-across-azure-tenants"></a>Condividere le immagini di macchine virtuali della raccolta tra i tenant di Azure
+# <a name="share-gallery-vm-images-across-azure-tenants"></a>Condividere immagini di macchine virtuali della raccolta tra tenant di AzureShare gallery VM images across Azure tenants
 
-Le raccolte di immagini condivise consentono di condividere immagini con RBAC. È possibile usare il controllo degli accessi in base al ruolo per condividere immagini all'interno del tenant e anche a utenti esterni al tenant. Per ulteriori informazioni su questa semplice opzione di condivisione, vedere la pagina relativa alla [condivisione della raccolta](/azure/virtual-machines/linux/shared-images-portal#share-the-gallery).
+Le raccolte di immagini condivise consentono di condividere immagini utilizzando il controllo degli accessi in base al ruolo. È possibile usare il controllo degli accessi in base al ruolo per condividere immagini all'interno del tenant e anche a utenti esterni al tenant. Per ulteriori informazioni su questa semplice opzione di condivisione, vedere [la raccolta Condividi la raccolta](/azure/virtual-machines/linux/shared-images-portal#share-the-gallery).
 
 [!INCLUDE [virtual-machines-share-images-across-tenants](../../../includes/virtual-machines-share-images-across-tenants.md)]
 
 > [!IMPORTANT]
-> Non è possibile usare il portale per distribuire una macchina virtuale da un'immagine in un altro tenant di Azure. Per creare una macchina virtuale da un'immagine condivisa tra i tenant, è necessario usare l'interfaccia della riga di comando di Azure o [PowerShell](../windows/share-images-across-tenants.md).
+> Non è possibile usare il portale per distribuire una macchina virtuale da un'immagine in un altro tenant azure.You cannot use the portal to deploy a VM from an image in another azure tenant. Per creare una macchina virtuale da un'immagine condivisa tra tenant, è necessario usare l'interfaccia della riga di comando di Azure o [Powershell.](../windows/share-images-across-tenants.md)
 
-## <a name="create-a-vm-using-azure-cli"></a>Creare una VM usando l'interfaccia della riga di comando di Azure
+## <a name="create-a-vm-using-azure-cli"></a>Creare una macchina virtuale usando l'interfaccia della riga di comando di AzureCreate a VM using Azure CLI
 
-Accedere all'entità servizio per il tenant 1 usando appID, la chiave dell'app e l'ID del tenant 1. Se necessario, è possibile usare `az account show --query "tenantId"` per ottenere gli ID tenant.
+Accedere all'entità servizio per il tenant 1 usando l'appID, la chiave dell'app e l'ID del tenant 1. Se necessario, è possibile usare `az account show --query "tenantId"` per ottenere gli ID tenant.
 
 ```azurecli-interactive
 az account clear

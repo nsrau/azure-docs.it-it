@@ -1,117 +1,117 @@
 ---
-title: Usare Visual Studio Code per creare modelli
-description: Informazioni su come installare e usare Visual Studio Code e l'estensione degli strumenti di Azure Resource Manager.
+title: Usare il codice di Visual Studio per creare modelliUse Visual Studio Code to create templates
+description: Informazioni su come installare e usare Visual Studio Code e l'estensione Azure Resource Manager Tools.Learn how to install and use Visual Studio Code and the Azure Resource Manager Tools extension.
 author: mumian
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.author: jgao
 ms.openlocfilehash: 585e2773ea5d6af184f85e65b63d39b60d632146
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79273631"
 ---
-# <a name="use-visual-studio-code-to-create-azure-resource-manager-templates"></a>Usare Visual Studio Code per creare modelli di Azure Resource Manager
+# <a name="use-visual-studio-code-to-create-azure-resource-manager-templates"></a>Usare il codice di Visual Studio per creare modelli di Azure Resource ManagerUse Visual Studio Code to create Azure Resource Manager templates
 
-Visual Studio Code è un editor leggero, multipiattaforma e open source. L'estensione Azure Resource Manager Template Tools è un plug-in per lo sviluppo di modelli Gestione risorse. L'estensione aggiunge il supporto della lingua per i modelli per fornire IntelliSense, l'evidenziazione della sintassi, la guida inline e molte altre funzioni del linguaggio. Insieme, offrono un'esperienza di sviluppo del modello consigliata.
+Visual Studio Code è un editor open source leggero, multipiattaforma. L'estensione Strumenti modello di Azure Resource Manager è un plug-in per lo sviluppo di modelli di Resource Manager.The Azure Resource Manager Template Tools extension is a plugin for Resource Manager template development. L'estensione aggiunge il supporto del linguaggio per i modelli per fornire intellisense, evidenziazione della sintassi, guida in linea e molte altre funzioni del linguaggio. Insieme, forniscono l'esperienza di sviluppo di modelli consigliata.
 
 ## <a name="install-visual-studio-code"></a>Installare Visual Studio Code
 
 Visual Studio Code supporta MacOS, Windows e Linux.  Può essere installato da [Visual Studio Code](https://code.visualstudio.com/).
 
-## <a name="install-resource-manager-tools-extension"></a>Installare l'estensione degli strumenti Gestione risorse
+## <a name="install-resource-manager-tools-extension"></a>Installare l'estensione degli strumenti di Resource ManagerInstall Resource Manager Tools extension
 
 1. Aprire Visual Studio Code.
-1. Nel menu a sinistra selezionare **estensioni** . In alternativa, scegliere **estensioni** dal menu **Visualizza** per aprire il riquadro estensioni.
+1. Selezionare **Estensioni** dal menu a sinistra. In alternativa, scegliere **Estensioni** dal menu **Visualizza** per aprire il riquadro Estensioni.
 
-    ![Installare l'estensione Visual Studio Code Gestione risorse Tools](./media/use-vs-code-to-create-template/resource-manager-visual-studio-code-tools-extension.png)
+    ![Installare l'estensione Strumenti di Visual Studio Code Resource ManagerInstall Visual Studio Code Resource Manager Tools extension](./media/use-vs-code-to-create-template/resource-manager-visual-studio-code-tools-extension.png)
 1. Cercare **Gestione risorse**.
-1. Selezionare **Installa** in **strumenti Azure Resource Manager**.
+1. Selezionare **Installa** in Strumenti di **Azure Resource Manager**.
 
-## <a name="the-extension-features"></a>Funzionalità di estensione
+## <a name="the-extension-features"></a>Le funzioni di estensione
 
-### <a name="colorization-for-template-language-expressions"></a>Colorazione per le espressioni del linguaggio del modello
+### <a name="colorization-for-template-language-expressions"></a>Colorazione per le espressioni del linguaggio dei modelliColorization for Template Language Expressions
 
-Parametri, variabili, funzioni, nomi ed espressioni sono codificati a colori come illustrato nello screenshot seguente:
+Parametri, variabili, funzioni, nomi ed espressioni sono contraddistinti da colori diversi, come illustrato nella schermata seguente:Parameters, variables, functions, names, names, and expressions are color-coded as shown in the following screenshot:
 
-![Visual Studio Code la colorazione delle estensioni degli strumenti Gestione risorse](./media/use-vs-code-to-create-template/resource-manager-tools-extension-colorization.png)
+![Colorazione delle estensioni degli strumenti di Visual Studio Code Resource Manager](./media/use-vs-code-to-create-template/resource-manager-tools-extension-colorization.png)
 
-La visualizzazione struttura modello consente di spostarsi facilmente tra i modelli di grandi dimensioni.
+La visualizzazione struttura del modello semplifica la navigazione tra modelli di grandi dimensioni.
 
-### <a name="intellisense"></a>IntelliSense
+### <a name="intellisense"></a>Intellisense
 
-L'estensione del modello di Gestione risorse conosce i possibili completamenti per i nomi di funzione, i parametri, le variabili e i riferimenti. I suggerimenti di IntelliSense compaiono durante la digitazione. Se si continua a digitare caratteri, l'elenco di membri (variabili, metodi e così via) viene filtrato in modo da includere solo i membri che contengono i caratteri tipizzati. Premere **Tab** o **invio** per inserire il membro selezionato.
+L'estensione del modello Resource Manager conosce i possibili completamenti per nomi di funzione, parametri, variabili e riferimenti. Durante la digitazione vengono visualizzati i suggerimenti di IntelliSense. Se si continua a digitare caratteri, l'elenco dei membri (variabili, metodi e così via) viene filtrato in modo da includere solo i membri contenenti i caratteri digitati. Premendo **Tab** o **Invio** si inserisce il membro selezionato.
 
-- Nomi di funzione predefiniti
+- Nomi delle funzioni incorporate
 
-    ![Funzioni IntelliSense di Visual Studio Code Gestione risorse Tools Extensions](./media/use-vs-code-to-create-template/resource-manager-tools-extension-intellisense-functions.png)
+    ![Funzioni di intellisense delle estensioni degli strumenti di Visual Studio Code Resource Manager](./media/use-vs-code-to-create-template/resource-manager-tools-extension-intellisense-functions.png)
 
 - Riferimenti ai parametri
 
-    ![Visual Studio Code Gestione risorse Tools Extensions parametri IntelliSense](./media/use-vs-code-to-create-template/resource-manager-tools-extension-intellisense-parameters.png)
+    ![Parametri intellisense delle estensioni delle estensioni degli strumenti di Visual Studio Code Resource Manager](./media/use-vs-code-to-create-template/resource-manager-tools-extension-intellisense-parameters.png)
 
-- Riferimenti a variabili
+- Riferimenti variabili
 
-    ![Visual Studio Code Gestione risorse Tools Extensions variabili IntelliSense](./media/use-vs-code-to-create-template/resource-manager-tools-extension-intellisense-variables.png)
+    ![Gli strumenti di Visual Studio Code Resource Manager estensioni intellisense variabili](./media/use-vs-code-to-create-template/resource-manager-tools-extension-intellisense-variables.png)
 
-- Proprietà resourceGroup ()
+- resourceGroup() proprietà
 
-    ![Funzioni IntelliSense di Visual Studio Code Gestione risorse Tools Extensions](./media/use-vs-code-to-create-template/resource-manager-tools-extension-intellisense-resourcegroup.png)
+    ![Funzioni di intellisense delle estensioni degli strumenti di Visual Studio Code Resource Manager](./media/use-vs-code-to-create-template/resource-manager-tools-extension-intellisense-resourcegroup.png)
 
-Inoltre, IntelliSense funziona anche con le Proprietà Subscription () e le proprietà dei riferimenti a variabili che sono oggetti.
+Inoltre, intellisense funziona anche con le proprietà subscription() e le proprietà dei riferimenti a variabili che sono oggetti.
 
 ### <a name="signature-help-for-function-parameters"></a>Guida alla firma per i parametri di funzione
 
-Quando si passa il mouse sui nomi di funzione, l'estensione Mostra la guida della firma per i parametri della funzione.
+Quando si posiziona il puntatore del mouse sui nomi delle funzioni, l'estensione mostra la Guida alla firma per i parametri della funzione.
 
-![Funzione di firma estensioni degli strumenti di Gestione risorse Visual Studio Code](./media/use-vs-code-to-create-template/resource-manager-tools-extension-signature-function.png)
+![Funzione di firma delle estensioni delle estensioni degli strumenti di Visual Studio Code Resource Manager](./media/use-vs-code-to-create-template/resource-manager-tools-extension-signature-function.png)
 
 ### <a name="go-to-definition-for-variable-and-parameter-references"></a>Vai a definizione per i riferimenti a variabili e parametri
 
-È possibile passare alla definizione con **CTRL + clic**oppure usando il menu di scelta rapida, come illustrato nella schermata: ![Visual Studio Code estensioni degli strumenti Gestione risorse Vai a definizione](./media/use-vs-code-to-create-template/resource-manager-tools-extension-context-menu.png)
+È possibile passare alla definizione con **Ctrl , fare clic**o ![utilizzando il menu di scelta rapida come illustrato nella schermata: Le estensioni degli strumenti di Visual Studio Code Resource Manager vanno alla definizione](./media/use-vs-code-to-create-template/resource-manager-tools-extension-context-menu.png)
 
-È possibile aprire la definizione sul lato con **Ctrl + Alt + clic**.
+È possibile aprire la definizione sul lato con **Ctrl , Alt e Clic**.
 
-### <a name="peek-for-variable-and-parameter-definitions"></a>Visualizza le definizioni di variabili e parametri
+### <a name="peek-for-variable-and-parameter-definitions"></a>Visualizzazione per definizioni di variabili e parametri
 
-Per aprire l'editor con visualizzazione, usare il menu di scelta rapida, come illustrato nella schermata precedente.
+Per aprire l'editor con visualizzazione, usare il menu di scelta rapida come illustrato nella schermata precedente.
 
-Lo screenshot seguente mostra l'editor di visualizzazione:
+La schermata seguente mostra l'editor di anteprima:The following screenshot shows the peek editor:
 
-![Editor di anteprima di Visual Studio Code Gestione risorse Tools](./media/use-vs-code-to-create-template/resource-manager-tools-extension-peek-editor.png)
+![Peek editor di estensioni degli strumenti di Visual Studio Code Resource Manager](./media/use-vs-code-to-create-template/resource-manager-tools-extension-peek-editor.png)
 
 ### <a name="find-all-references-for-variables-and-parameters"></a>Trova tutti i riferimenti per variabili e parametri
 
-Per trovare tutti i riferimenti, usare il menu di scelta rapida, come illustrato nella schermata precedente.
+Per trovare tutti i riferimenti, utilizzare il menu di scelta rapida come illustrato nella schermata precedente.
 
-Lo screenshot seguente mostra come vengono evidenziati i riferimenti:
+La schermata seguente mostra come vengono evidenziati i riferimenti:The following screenshot shows how the references are highlighted:
 
-![Visual Studio Code Gestione risorse Tools Extensions trova tutti i riferimenti](./media/use-vs-code-to-create-template/resource-manager-tools-extension-find-all-references.png)
+![Le estensioni degli strumenti di Visual Studio Code Resource Manager trovano tutti i riferimenti](./media/use-vs-code-to-create-template/resource-manager-tools-extension-find-all-references.png)
 
 ### <a name="rename-all-references-for-variables-and-parameters"></a>Rinominare tutti i riferimenti per variabili e parametri
 
-Per rinominare tutti i riferimenti per variabili e parametri, usare il menu di scelta rapida, come illustrato nella schermata precedente.
+Per rinominare tutti i riferimenti per variabili e parametri, utilizzare il menu di scelta rapida come illustrato nella schermata precedente.
 
 ### <a name="hover-for-parameter-description"></a>Passaggio del mouse per la descrizione del parametro
 
-![Definizione del passaggio del mouse sulle estensioni degli strumenti di Gestione risorse Visual Studio Code](./media/use-vs-code-to-create-template/resource-manager-tools-extension-hover-parameters.png)
+![Definizione del passaggio del mouse delle estensioni degli strumenti di Visual Studio Code Resource Manager](./media/use-vs-code-to-create-template/resource-manager-tools-extension-hover-parameters.png)
 
 ### <a name="brace-matching"></a>Corrispondenza parentesi graffe
 
-La corrispondenza tra parentesi quadre viene evidenziata non appena il cursore è vicino a uno di essi. Quando si fa clic su una parentesi graffa, viene evidenziata anche la parentesi graffa corrispondente, come illustrato nello screenshot seguente:
+Le parentesi corrispondenti vengono evidenziate non appena il cursore si trova vicino a uno di essi. Quando si fa clic su una parentesi graffa, anche la parentesi graffa corrispondente viene evidenziata come illustrato nella schermata seguente:
 
-![Visual Studio Code la corrispondenza delle parentesi graffe delle estensioni degli strumenti Gestione risorse](./media/use-vs-code-to-create-template/resource-manager-tools-extension-brace-matching.png)
+![Corrispondenza delle estensioni delle estensioni degli strumenti di Visual Studio Code Resource Manager](./media/use-vs-code-to-create-template/resource-manager-tools-extension-brace-matching.png)
 
 ### <a name="show-errors-and-warnings"></a>Mostra errori e avvisi
 
 Gli errori identificati dall'estensione includono:
 
-- Riferimenti a parametri non definiti
-- Riferimenti a variabili non definite
-- Nomi di funzione non riconosciuti
-- utilizzo della funzione Reference () nella definizione di variabile
-- Numero di argomenti non corretto nelle funzioni
+- Riferimenti ai parametri non definiti
+- Riferimenti a variabili non definiti
+- Nomi di funzioni non riconosciute
+- utilizzo della funzione reference() nella definizione della variabile
+- Numero errato di argomenti nelle funzioni
 
 Gli avvisi includono:
 
@@ -120,5 +120,5 @@ Gli avvisi includono:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per informazioni sulla creazione di modelli di Azure Resource Manager, vedere [esercitazione: creare e distribuire il primo modello di Azure Resource Manager](template-tutorial-create-first-template.md).
-- Per eseguire una guida introduttiva usando Visual Studio Code, vedere [Guida introduttiva: creare modelli di Azure Resource Manager tramite Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md)
+- Per altre informazioni sulla creazione di modelli di Azure Resource Manager, vedere Esercitazione: Creare e distribuire il primo modello di Azure Resource Manager.To learn about creating Azure Resource Manager templates, see [Tutorial: Create and deploy your first Azure Resource Manager template.](template-tutorial-create-first-template.md)
+- Per usare una guida introduttiva tramite Visual Studio Code, vedere Guida introduttiva: Creare modelli di Azure Resource Manager usando il codice di Visual StudioTo go through a quickstart by using Visual Studio Code, see [Quickstart: Create Azure Resource Manager templates by using Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md)

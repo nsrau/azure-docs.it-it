@@ -1,5 +1,5 @@
 ---
-title: Aggiungere un pannello per la soluzione di monitoraggio remoto dell'interfaccia utente - Azure | Microsoft Docs
+title: Aggiungere un pannello all'interfaccia utente della soluzione Monitoraggio remoto - Azure | Microsoft Docs
 description: Questo articolo illustra come aggiungere un nuovo pannello al dashboard nell'interfaccia utente Web dell'acceleratore di soluzione Monitoraggio remoto.
 author: dominicbetts
 manager: timlt
@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 10/05/2018
 ms.topic: conceptual
 ms.openlocfilehash: 3b855c3bed75945f44b55463bdacd049b7930aa7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61447064"
 ---
 # <a name="add-a-custom-panel-to-the-dashboard-in-the-remote-monitoring-solution-accelerator-web-ui"></a>Aggiungere un nuovo pannello al dashboard nell'interfaccia utente Web dell'acceleratore di soluzione Monitoraggio remoto
@@ -90,7 +90,7 @@ Se l'interfaccia utente Web non è già in esecuzione in locale, eseguire il com
 npm start
 ```
 
-Il comando precedente esegue localmente l'interfaccia utente all'indirizzo [http://localhost:3000/dashboard](http://localhost:3000/dashboard). Per visualizzare il nuovo pannello, passare alla pagina **Dashboard**.
+Il comando precedente esegue [http://localhost:3000/dashboard](http://localhost:3000/dashboard)l'interfaccia utente in locale in . Per visualizzare il nuovo pannello, passare alla pagina **Dashboard**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

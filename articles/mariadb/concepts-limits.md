@@ -1,28 +1,28 @@
 ---
-title: Limitazioni-database di Azure per MariaDB
+title: Limitazioni - Database di Azure per MariaDBLimitations - Azure Database for MariaDB
 description: Questo articolo descrive i limiti di Database di Azure per MariaDB, ad esempio il numero di connessioni e le opzioni del motore di archiviazione.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/9/2020
-ms.openlocfilehash: c982181dee34a7eb0715d5e1271ef5ed794f3809
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.date: 3/18/2020
+ms.openlocfilehash: bb907ee59891e5a9a1ffc9c8c6eee34d3e71ad2f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79296745"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79531941"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>Limiti di Database di Azure per MariaDB
 Le sezioni seguenti illustrano la capacità, il supporto del motore di archiviazione, dei privilegi e delle istruzioni di gestione dei dati e i limiti funzionali del servizio di database.
 
 ## <a name="server-parameters"></a>Parametri del server
 
-I valori minimo e massimo di diversi parametri server comuni sono determinati dal piano tariffario e da vcore. Per i limiti, vedere le tabelle seguenti.
+I valori minimo e massimo di diversi parametri server popolari sono determinati dal piano tariffario e dai vCore. Fare riferimento alle tabelle seguenti per i limiti.
 
 ### <a name="max_connections"></a>max_connections
 
-|**Piano tariffario**|**vCore**|**Valore predefinito**|**Valore minimo**|**Valore massimo**|
+|**Livello di determinazione dei prezzi**|**vCore**|**Valore predefinito**|**Valore minimo**|**Valore massimo**|
 |---|---|---|---|---|
 |Basic|1|50|10|50|
 |Basic|2|100|10|100|
@@ -42,17 +42,17 @@ Quando le connessioni superano il limite, è possibile che venga visualizzato l'
 > ERROR 1040 (08004): Too many connections (ERRORE 1040 (08004): numero eccessivo di connessioni)
 
 > [!IMPORTANT]
-> Per un'esperienza ottimale, è consigliabile usare una connessione pool come ProxySQL per gestire in modo efficiente le connessioni.
+> Per un'esperienza ottimale, è consigliabile usare un pool di connessioni come ProxySQL per gestire in modo efficiente le connessioni.
 
-La creazione di nuove connessioni client a MariaDB richiede tempo e una volta stabilite, queste connessioni occupano le risorse del database, anche in caso di inattività. La maggior parte delle applicazioni richiede molte connessioni di breve durata, che comunicano questa situazione. Il risultato è un minor numero di risorse disponibili per il carico di lavoro effettivo, causando una riduzione delle prestazioni. Un pool di connessione che riduce le connessioni inattive e riutilizza le connessioni esistenti consente di evitare questo problema. Per informazioni sulla configurazione di ProxySQL, visitare il [post di Blog](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/load-balance-read-replicas-using-proxysql-in-azure-database-for/ba-p/880042).
+La creazione di nuove connessioni client a MariaDB richiede tempo e, una volta stabilite, queste connessioni occupano le risorse del database, anche quando sono inattive. La maggior parte delle applicazioni richiedono molte connessioni di breve durata, che aggrava questa situazione. Il risultato è una riduzione delle risorse disponibili per il carico di lavoro effettivo, con conseguente riduzione delle prestazioni. Un pool di connessioni che riduce le connessioni inattive e riutilizza le connessioni esistenti consentirà di evitare questo problema. Per informazioni sulla configurazione di ProxySQL, visitare il post di [blog](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/load-balance-read-replicas-using-proxysql-in-azure-database-for/ba-p/880042).
 
-## <a name="query_cache_size"></a>query_cache_size
+### <a name="query_cache_size"></a>query_cache_size
 
-Per impostazione predefinita, la cache delle query è disattivata. Per abilitare la cache delle query, configurare il parametro `query_cache_type`. 
+La cache delle query è disattivata per impostazione predefinita. Per abilitare la cache `query_cache_type` delle query, configurare il parametro. 
 
-Per ulteriori informazioni su questo parametro, vedere la [documentazione di MariaDB](https://mariadb.com/kb/en/server-system-variables/#query_cache_size) .
+Consultare la documentazione di [MariaDB](https://mariadb.com/kb/en/server-system-variables/#query_cache_size) per ulteriori informazioni su questo parametro.
 
-|**Piano tariffario**|**vCore**|**Valore predefinito**|**Valore minimo**|**Valore massimo**|
+|**Livello di determinazione dei prezzi**|**vCore**|**Valore predefinito**|**Valore minimo**|**Valore massimo**|
 |---|---|---|---|---|
 |Basic|1|Non configurabile nel livello Basic|N/D|N/D|
 |Basic|2|Non configurabile nel livello Basic|N/D|N/D|
@@ -68,11 +68,11 @@ Per ulteriori informazioni su questo parametro, vedere la [documentazione di Mar
 |Con ottimizzazione per la memoria|16|0|0|134217728|
 |Con ottimizzazione per la memoria|32|0|0|134217728|
 
-## <a name="sort_buffer_size"></a>sort_buffer_size
+### <a name="sort_buffer_size"></a>sort_buffer_size
 
-Per ulteriori informazioni su questo parametro, vedere la [documentazione di MariaDB](https://mariadb.com/kb/en/server-system-variables/#sort_buffer_size) .
+Consultare la documentazione di [MariaDB](https://mariadb.com/kb/en/server-system-variables/#sort_buffer_size) per ulteriori informazioni su questo parametro.
 
-|**Piano tariffario**|**vCore**|**Valore predefinito**|**Valore minimo**|**Valore massimo**|
+|**Livello di determinazione dei prezzi**|**vCore**|**Valore predefinito**|**Valore minimo**|**Valore massimo**|
 |---|---|---|---|---|
 |Basic|1|Non configurabile nel livello Basic|N/D|N/D|
 |Basic|2|Non configurabile nel livello Basic|N/D|N/D|
@@ -88,11 +88,11 @@ Per ulteriori informazioni su questo parametro, vedere la [documentazione di Mar
 |Con ottimizzazione per la memoria|16|524288|32768|33554432|
 |Con ottimizzazione per la memoria|32|524288|32768|33554432|
 
-## <a name="join_buffer_size"></a>join_buffer_size
+### <a name="join_buffer_size"></a>join_buffer_size
 
-Per ulteriori informazioni su questo parametro, vedere la [documentazione di MariaDB](https://mariadb.com/kb/en/server-system-variables/#join_buffer_size) .
+Consultare la documentazione di [MariaDB](https://mariadb.com/kb/en/server-system-variables/#join_buffer_size) per ulteriori informazioni su questo parametro.
 
-|**Piano tariffario**|**vCore**|**Valore predefinito**|**Valore minimo**|**Valore massimo**|
+|**Livello di determinazione dei prezzi**|**vCore**|**Valore predefinito**|**Valore minimo**|**Valore massimo**|
 |---|---|---|---|---|
 |Basic|1|Non configurabile nel livello Basic|N/D|N/D|
 |Basic|2|Non configurabile nel livello Basic|N/D|N/D|
@@ -108,11 +108,11 @@ Per ulteriori informazioni su questo parametro, vedere la [documentazione di Mar
 |Con ottimizzazione per la memoria|16|262144|128|4294967295|
 |Con ottimizzazione per la memoria|32|262144|128|4294967295|
 
-## <a name="max_heap_table_size"></a>max_heap_table_size
+### <a name="max_heap_table_size"></a>max_heap_table_size
 
-Per ulteriori informazioni su questo parametro, vedere la [documentazione di MariaDB](https://mariadb.com/kb/en/server-system-variables/#max_heap_table_size) .
+Consultare la documentazione di [MariaDB](https://mariadb.com/kb/en/server-system-variables/#max_heap_table_size) per ulteriori informazioni su questo parametro.
 
-|**Piano tariffario**|**vCore**|**Valore predefinito**|**Valore minimo**|**Valore massimo**|
+|**Livello di determinazione dei prezzi**|**vCore**|**Valore predefinito**|**Valore minimo**|**Valore massimo**|
 |---|---|---|---|---|
 |Basic|1|Non configurabile nel livello Basic|N/D|N/D|
 |Basic|2|Non configurabile nel livello Basic|N/D|N/D|
@@ -128,11 +128,11 @@ Per ulteriori informazioni su questo parametro, vedere la [documentazione di Mar
 |Con ottimizzazione per la memoria|16|16777216|16384|4294967295|
 |Con ottimizzazione per la memoria|32|16777216|16384|4294967295|
 
-## <a name="tmp_table_size"></a>tmp_table_size
+### <a name="tmp_table_size"></a>tmp_table_size
 
-Per ulteriori informazioni su questo parametro, vedere la [documentazione di MariaDB](https://mariadb.com/kb/en/server-system-variables/#tmp_table_size) .
+Consultare la documentazione di [MariaDB](https://mariadb.com/kb/en/server-system-variables/#tmp_table_size) per ulteriori informazioni su questo parametro.
 
-|**Piano tariffario**|**vCore**|**Valore predefinito**|**Valore minimo**|**Valore massimo**|
+|**Livello di determinazione dei prezzi**|**vCore**|**Valore predefinito**|**Valore minimo**|**Valore massimo**|
 |---|---|---|---|---|
 |Basic|1|Non configurabile nel livello Basic|N/D|N/D|
 |Basic|2|Non configurabile nel livello Basic|N/D|N/D|
@@ -152,26 +152,26 @@ Per ulteriori informazioni su questo parametro, vedere la [documentazione di Mar
 
 ### <a name="supported"></a>Supportato
 - [InnoDB](https://mariadb.com/kb/en/library/xtradb-and-innodb/)
-- [MEMORY](https://mariadb.com/kb/en/library/memory-storage-engine/)
+- [Memoria](https://mariadb.com/kb/en/library/memory-storage-engine/)
 
-### <a name="unsupported"></a>Unsupported
+### <a name="unsupported"></a>Non supportato
 - [MyISAM](https://mariadb.com/kb/en/library/myisam-storage-engine/)
 - [BLACKHOLE](https://mariadb.com/kb/en/library/blackhole/)
 - [ARCHIVE](https://mariadb.com/kb/en/library/archive/)
 
 ## <a name="privilege-support"></a>Supporto dei privilegi
 
-### <a name="unsupported"></a>Unsupported
+### <a name="unsupported"></a>Non supportato
 - Ruolo DBA: molti parametri e impostazioni server possono accidentalmente influire in modo negativo sulle prestazioni del server o negare le proprietà ACID del sistema DBMS. Per mantenere quindi l'integrità del servizio e un contratto di servizio a livello di prodotto, il ruolo DBA non è esposto. L'account utente predefinito, costruito quando viene creata una nuova istanza di database, consente agli utenti di eseguire la maggior parte delle istruzioni DDL e DML nell'istanza di database gestita.
-- Privilegi SUPER: in modo analogo, anche i [privilegi SUPER](https://mariadb.com/kb/en/library/grant/#global-privileges) presentano limitazioni.
-- Definir: richiede privilegi Super per creare ed è limitato. Se vengono importati dati tramite backup, rimuovere i comandi `CREATE DEFINER` manualmente o tramite il comando `--skip-definer` quando si esegue mysqldump.
+- Privilegio SUPER: Allo stesso modo il [privilegio SUPER](https://mariadb.com/kb/en/library/grant/#global-privileges) è limitato.
+- DEFINER: Richiede privilegi avanzati per creare ed è limitato. Se vengono importati dati tramite backup, rimuovere i comandi `CREATE DEFINER` manualmente o tramite il comando `--skip-definer` quando si esegue mysqldump.
 
 ## <a name="data-manipulation-statement-support"></a>Supporto delle istruzioni di gestione dei dati
 
 ### <a name="supported"></a>Supportato
 - L'istruzione `LOAD DATA INFILE` è supportata ma è necessario specificare il parametro `[LOCAL]` che deve essere indirizzato a un percorso UNC (archiviazione di Azure montata tramite SMB).
 
-### <a name="unsupported"></a>Unsupported
+### <a name="unsupported"></a>Non supportato
 - `SELECT ... INTO OUTFILE`
 
 ## <a name="functional-limitations"></a>Limitazioni funzionali
@@ -194,11 +194,11 @@ Per ulteriori informazioni su questo parametro, vedere la [documentazione di Mar
 - Gli endpoint di servizio di rete virtuale sono supportati solo per i server per utilizzo generico e ottimizzati per la memoria.
 
 ### <a name="storage-size"></a>Dimensioni dello spazio di archiviazione
-- Per i limiti di dimensioni di archiviazione per ogni piano tariffario, fare riferimento ai [piani tariffari](concepts-pricing-tiers.md) .
+- Fare riferimento [ai piani tariffari](concepts-pricing-tiers.md) per i limiti delle dimensioni di archiviazione per ogni piano tariffario.
 
 ## <a name="current-known-issues"></a>Problemi attualmente noti
 - Quando viene stabilita la connessione, l'istanza del server MariaDB visualizza una versione di server non corretta. Per ottenere la versione corretta del motore dell'istanza del server, usare il comando `select version();`.
 
 ## <a name="next-steps"></a>Passaggi successivi
-- [Funzionalità disponibili in ogni livello di servizio](concepts-pricing-tiers.md)
+- [Elementi disponibili in ogni livello di servizioWhat's available in each service tier](concepts-pricing-tiers.md)
 - [Versioni supportate del database MariaDB](concepts-supported-versions.md)

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: eee95a2b6acde3ad3b7d94cf5cdd0f74f9f09fd9
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79265961"
 ---
 # <a name="api-templates-in-azure-api-management"></a>Modelli di API in Gestione API di Azure
@@ -27,14 +27,14 @@ In Gestione API di Azure è possibile personalizzare le pagine del portale per s
 I modelli in questa sezione consentono di personalizzare il contenuto delle pagine API del portale per sviluppatori.  
   
 -   [Elenco API](#APIList)  
--   [operazione](#Product)  
+-   [Operazione](#Product)  
 -   [Esempi di codice](#CodeSamples)  
     -   [Curl](#Curl)  
-    -   [C#](#CSharp)  
+    -   [C #](#CSharp)  
     -   [Java](#Stub)  
-    -   [JavaScript](#JavaScript)  
-    -   [Objective C](#ObjectiveC)  
-    -   [PHP](#PHP)  
+    -   [Javascript](#JavaScript)  
+    -   [Obiettivo C](#ObjectiveC)  
+    -   [Php](#PHP)  
     -   [Python](#Python)  
     -   [Ruby](#Ruby)  
 
@@ -45,10 +45,10 @@ I modelli in questa sezione consentono di personalizzare il contenuto delle pagi
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-## <a name="APIList"></a> Elenco API  
+## <a name="api-list"></a><a name="APIList"></a> Elenco API  
  Il modello **Elenco API** consente di personalizzare il corpo della pagina di elenco API nel portale per sviluppatori.  
   
- ![Elenco API del portale per sviluppatori](./media/api-management-api-templates/APIM-Developer-Portal-Templates-API-List.png "Elenco API dei modelli del portale per sviluppatori gestione API")  
+ ![Elenco API del portale per sviluppatori](./media/api-management-api-templates/APIM-Developer-Portal-Templates-API-List.png "Elenco API dei modelli del portale per sviluppatori APIM")  
   
 ### <a name="default-template"></a>Modello predefinito  
   
@@ -85,7 +85,7 @@ I modelli in questa sezione consentono di personalizzare il contenuto delle pagi
   
 -   [paging-control](api-management-page-controls.md#paging-control)  
   
--   [search-control](api-management-page-controls.md#search-control)  
+-   [controllo di ricerca](api-management-page-controls.md#search-control)  
   
 ### <a name="data-model"></a>Modello di dati  
   
@@ -113,10 +113,10 @@ I modelli in questa sezione consentono di personalizzare il contenuto delle pagi
 }  
 ```  
   
-## <a name="Product"></a>Operazione  
+## <a name="operation"></a><a name="Product"></a>Operazione  
  Il modello **Operazione** consente di personalizzare il corpo della pagina dell'operazione nel portale per sviluppatori.  
   
- ![Pagina operazione del portale per sviluppatori](./media/api-management-api-templates/APIM-Developer-Portal-templates-Operation-page.png "Pagina dell'operazione sui modelli del portale per sviluppatori gestione API")  
+ ![Pagina Operazioni portale per sviluppatori](./media/api-management-api-templates/APIM-Developer-Portal-templates-Operation-page.png "Pagina operazioni dei modelli del portale per sviluppatori APIM")  
   
 ### <a name="default-template"></a>Modello predefinito  
   
@@ -350,7 +350,7 @@ I modelli in questa sezione consentono di personalizzare il contenuto delle pagi
 |`apiName`|string|Nome dell'API.|  
 |`apiDescription`|string|Descrizione dell'API.|  
 |`api`|Entità [Riepilogo dell'API](api-management-template-data-model-reference.md#APISummary).|API corrente.|  
-|`operation`|[operazione](api-management-template-data-model-reference.md#Operation)|L'operazione attualmente visualizzata.|  
+|`operation`|[Operazione](api-management-template-data-model-reference.md#Operation)|L'operazione attualmente visualizzata.|  
 |`sampleUrl`|string|L'URL per l'operazione corrente.|  
 |`operationMenu`|[Menu operazione](api-management-template-data-model-reference.md#Menu)|Un menu di operazioni per questa API.|  
 |`consoleUrl`|URI|L'URI per il pulsante **Prova**.|  
@@ -643,28 +643,28 @@ I modelli in questa sezione consentono di personalizzare il contenuto delle pagi
 }  
 ```  
   
-## <a name="CodeSamples"></a> Esempi di codice  
+## <a name="code-samples"></a><a name="CodeSamples"></a> Esempi di codice  
  I modelli seguenti consentono di personalizzare il corpo degli esempi di codice singoli nella pagina operazione.  
   
- ![Esempi di codice per i modelli del portale per sviluppatori](./media/api-management-api-templates/APIM-Developer-Portal-Templates-Code-samples.png "Esempi di codice per i modelli del portale per sviluppatori gestione API")  
+ ![Esempi di codice per i modelli del portale per sviluppatoriDeveloper Portal Templates Code samples](./media/api-management-api-templates/APIM-Developer-Portal-Templates-Code-samples.png "Esempi di codice per i modelli del portale per sviluppatori APIM")  
   
 -   [Curl](#Curl)  
   
--   [C#](#CSharp)  
+-   [C #](#CSharp)  
   
 -   [Java](#Stub)  
   
--   [JavaScript](#JavaScript)  
+-   [Javascript](#JavaScript)  
   
--   [Objective C](#ObjectiveC)  
+-   [Obiettivo C](#ObjectiveC)  
   
--   [PHP](#PHP)  
+-   [Php](#PHP)  
   
 -   [Python](#Python)  
   
 -   [Ruby](#Ruby)  
   
-### <a name="Curl"></a> Curl  
+### <a name="curl"></a><a name="Curl"></a>Curl  
  Il modello **DocumentationSamplesCurl** consente di personalizzare tale esempio di codice nella relativa sezione della pagina operazione.  
   
 #### <a name="default-template"></a>Modello predefinito  
@@ -717,7 +717,7 @@ curl -v -X {{method}} "{{scheme}}://{{host}}{{path}}{{query | escape }}"
 }  
 ```  
   
-### <a name="CSharp"></a> C#  
+### <a name="c"></a><a name="CSharp"></a>C #  
  Il modello **DocumentationSamplesCsharp** consente di personalizzare tale esempio di codice nella relativa sezione della pagina operazione.  
   
 #### <a name="default-template"></a>Modello predefinito  
@@ -896,7 +896,7 @@ namespace CSHttpClientSample
 }  
 ```  
   
-### <a name="Stub"></a> Java  
+### <a name="java"></a><a name="Stub"></a>Java  
  Il modello **DocumentationSamplesJava** consente di personalizzare tale esempio di codice nella relativa sezione della pagina operazione.  
   
 #### <a name="default-template"></a>Modello predefinito  
@@ -992,7 +992,7 @@ public class JavaSample
 }  
 ```  
   
-### <a name="JavaScript"></a> JavaScript  
+### <a name="javascript"></a><a name="JavaScript"></a>Javascript  
  Il modello **DocumentationSamplesJs** consente di personalizzare tale esempio di codice nella relativa sezione della pagina operazione.  
   
 #### <a name="default-template"></a>Modello predefinito  
@@ -1081,7 +1081,7 @@ public class JavaSample
 }  
 ```  
   
-### <a name="ObjectiveC"></a> Objective C  
+### <a name="objective-c"></a><a name="ObjectiveC"></a> Objective C  
  Il modello **DocumentationSamplesObjc** consente di personalizzare tale esempio di codice nella relativa sezione della pagina operazione.  
   
 #### <a name="default-template"></a>Modello predefinito  
@@ -1193,7 +1193,7 @@ int main(int argc, const char * argv[])
 }  
 ```  
   
-### <a name="PHP"></a> PHP  
+### <a name="php"></a><a name="PHP"></a>Php  
  Il modello **DocumentationSamplesPhp** consente di personalizzare tale esempio di codice nella relativa sezione della pagina operazione.  
   
 #### <a name="default-template"></a>Modello predefinito  
@@ -1283,7 +1283,7 @@ catch (HttpException $ex)
 }  
 ```  
   
-### <a name="Python"></a> Python  
+### <a name="python"></a><a name="Python"></a>Python  
  Il modello **DocumentationSamplesPython** consente di personalizzare tale esempio di codice nella relativa sezione della pagina operazione.  
   
 #### <a name="default-template"></a>Modello predefinito  
@@ -1401,7 +1401,7 @@ except Exception as e:
 }  
 ```  
   
-### <a name="Ruby"></a> Ruby  
+### <a name="ruby"></a><a name="Ruby"></a>rubino  
  Il modello **DocumentationSamplesRuby** consente di personalizzare tale esempio di codice nella relativa sezione della pagina operazione.  
   
 #### <a name="default-template"></a>Modello predefinito  

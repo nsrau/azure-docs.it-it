@@ -10,10 +10,10 @@ ms.tgt_pltfrm: arduino
 ms.date: 03/07/2018
 ms.author: liydu
 ms.openlocfilehash: dc4ff35ff04680e8635d54c25212c8ae639ae472
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60779836"
 ---
 # <a name="shake-shake-for-a-tweet----retrieve-a-twitter-message-with-azure-functions"></a>Usare lo scuotimento per recuperare un messaggio di Twitter con Funzioni di Azure
@@ -29,8 +29,8 @@ Completare la [Guida introduttiva](https://docs.microsoft.com/azure/iot-hub/iot-
 
 Una sottoscrizione di Azure attiva. Se non è disponibile, è possibile registrarsi tramite uno di questi metodi:
 
-* Attivare una [versione di prova gratuita di 30 giorni dell'account di Microsoft Azure](https://azure.microsoft.com/free/)
-* Richiedere il [credito Azure](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) se si ha un abbonamento a MSDN o una sottoscrizione di Visual Studio
+* Attivare un account microsoft Azure di [prova gratuito di 30 giorni](https://azure.microsoft.com/free/)
+* Richiedere il credito di [Azure](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) se si è abbonati MSDN o Visual Studio
 
 ## <a name="open-the-project-folder"></a>Aprire la cartella del progetto
 
@@ -88,11 +88,11 @@ Usare `Ctrl+P` (macOS: `Cmd+P`) per eseguire `task cloud-deploy` e avviare la di
 
 Compilare e caricare quindi il codice del dispositivo.
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a>WINDOWS
 
 1. Usare `Ctrl+P` per eseguire `task device-upload`.
 
-2. Il terminale richiederà di passare alla modalità di configurazione. A tale scopo:
+2. Il terminale richiederà di passare alla modalità di configurazione. A tale scopo, procedere come indicato di seguito:
 
    * Tenere premuto il pulsante A
 
@@ -118,7 +118,7 @@ A questo punto la stringa di connessione è impostata, verifica e carica l'app, 
 
 2. Il DevKit viene riavviato e inizia a eseguire il codice.
 
-È possibile che venga visualizzato il messaggio "Errore AZ3166: Pacchetto sconosciuto". Questo errore si verifica quando l'indice del pacchetto della scheda non è aggiornato correttamente. Per risolvere questo problema, vedere l'[errore "unknown package" (pacchetto sconosciuto) nelle domande frequenti su IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development).
+È possibile che venga visualizzato il messaggio "Errore: AZ3166: Pacchetto sconosciuto". Questo errore si verifica quando l'indice del pacchetto della scheda non è aggiornato correttamente. Per risolvere questo problema, vedere l'[errore "unknown package" (pacchetto sconosciuto) nelle domande frequenti su IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development).
 
 ## <a name="test-the-project"></a>Verificare il progetto
 

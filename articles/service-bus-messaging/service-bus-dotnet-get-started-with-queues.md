@@ -1,6 +1,6 @@
 ---
 title: Introduzione alle code del bus di servizio di Azure | Microsoft Docs
-description: In questa esercitazione vengono create applicazioni console .NET Core per l'invio e la ricezione di messaggi da una coda del bus di servizio.
+description: In questa esercitazione si creano applicazioni console .NET Core per inviare e ricevere messaggi da una coda del bus di servizio.
 services: service-bus-messaging
 documentationcenter: .net
 author: axisc
@@ -15,21 +15,21 @@ ms.workload: na
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.openlocfilehash: 5718106aee0e60d111398efdb839945c2c7a8a06
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77471738"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Introduzione alle code del bus di servizio
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
-In questa esercitazione vengono create applicazioni console .NET Core per l'invio e la ricezione di messaggi da una coda del bus di servizio.
+In questa esercitazione si creano applicazioni console .NET Core per inviare e ricevere messaggi da una coda del bus di servizio.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 - [Visual Studio 2019](https://www.visualstudio.com/vs).
 - [NET Core SDK](https://www.microsoft.com/net/download/windows) versione 2.0 o successiva.
-- Una sottoscrizione di Azure. Per completare l'esercitazione, è necessario un account Azure. È possibile attivare i [vantaggi della sottoscrizione MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) o registrarsi per ottenere un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+- Una sottoscrizione di Azure. Per completare l'esercitazione, è necessario un account Azure. È possibile attivare i vantaggi per [gli abbonati MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) o iscriversi per ottenere un [account gratuito.](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)
 - Se non si ha una coda da usare, seguire la procedura descritta nell'articolo [Usare il portale di Azure per creare una coda del bus di servizio](service-bus-quickstart-portal.md) per crearne una.
 
   - Leggere la breve panoramica delle code del bus di servizio.
@@ -43,19 +43,19 @@ Per inviare messaggi alla coda, scrivere un'applicazione console C# in Visual St
 
 ### <a name="create-a-console-application"></a>Creare un'applicazione console
 
-Avviare Visual Studio e creare un nuovo progetto di **app console (.NET Core)** per C#. Questo esempio assegna un nome all'app *CoreSenderApp*.
+Avviare Visual Studio e creare un nuovo progetto **di app console (.NET Core)** per C. In questo esempio viene denomina l'app *CoreSenderApp*.
 
 ### <a name="add-the-service-bus-nuget-package"></a>Aggiungere il pacchetto NuGet del bus di servizio
 
 1. Fare clic con il pulsante destro del mouse sul progetto appena creato e scegliere **Gestisci pacchetti NuGet**.
-1. Selezionare **Sfoglia**. Cercare e selezionare **[Microsoft. Azure. ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus/)** .
-1. Selezionare **Installa** per completare l'installazione e quindi chiudere Gestione pacchetti NuGet.
+1. Selezionare **Sfoglia**. Cercare e selezionare **[Microsoft.Azure.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus/)**.
+1. Selezionare Installa per completare l'installazione, quindi chiudere Gestione pacchetti NuGet.Select **Install** to complete the installation, then close the NuGet Package Manager.
 
     ![Selezionare un pacchetto NuGet][nuget-pkg]
 
 ### <a name="write-code-to-send-messages-to-the-queue"></a>Scrivere il codice per inviare messaggi alla coda
 
-1. In *Program.cs*aggiungere le istruzioni `using` seguenti all'inizio della definizione dello spazio dei nomi, prima della dichiarazione di classe:
+1. In *Program.cs*, `using` aggiungere le seguenti istruzioni all'inizio della definizione dello spazio dei nomi, prima della dichiarazione di classe:
 
     ```csharp
     using System.Text;
@@ -64,7 +64,7 @@ Avviare Visual Studio e creare un nuovo progetto di **app console (.NET Core)** 
     using Microsoft.Azure.ServiceBus;
     ```
 
-1. Nella classe `Program` dichiarare le variabili seguenti:
+1. Nella `Program` classe dichiarare le variabili seguenti:In the class, declare the following variables:
 
     ```csharp
     const string ServiceBusConnectionString = "<your_connection_string>";
@@ -72,9 +72,9 @@ Avviare Visual Studio e creare un nuovo progetto di **app console (.NET Core)** 
     static IQueueClient queueClient;
     ```
 
-    Immettere la stringa di connessione per lo spazio dei nomi come variabile `ServiceBusConnectionString`. Immettere il nome della coda.
+    Immettere la stringa di `ServiceBusConnectionString` connessione per lo spazio dei nomi come variabile. Immettere il nome della coda.
 
-1. Sostituire il metodo `Main()` con il seguente metodo **asincrono** `Main`. Chiama il metodo `SendMessagesAsync()` che verrà aggiunto nel passaggio successivo per inviare messaggi alla coda. 
+1. Sostituire `Main()` il metodo con il metodo **asincrono** `Main` seguente. Chiama il `SendMessagesAsync()` metodo che verrà aggiunto nel passaggio successivo per inviare messaggi alla coda. 
 
     ```csharp
     public static async Task Main(string[] args)
@@ -94,7 +94,7 @@ Avviare Visual Studio e creare un nuovo progetto di **app console (.NET Core)** 
         await queueClient.CloseAsync();
     }
     ```
-1. Direttamente dopo il metodo `MainAsync()` aggiungere il seguente metodo `SendMessagesAsync()` che esegue le operazioni di invio del numero di messaggi specificato da `numberOfMessagesToSend` (attualmente impostato su 10):
+1. Direttamente dopo `MainAsync()` il metodo, `SendMessagesAsync()` aggiungere il seguente metodo che esegue `numberOfMessagesToSend` il lavoro di invio del numero di messaggi specificato da (attualmente impostato su 10):
 
     ```csharp
     static async Task SendMessagesAsync(int numberOfMessagesToSend)
@@ -121,7 +121,7 @@ Avviare Visual Studio e creare un nuovo progetto di **app console (.NET Core)** 
     }
     ```
 
-Il file *Program.cs* dovrebbe essere simile al seguente.
+Ecco come dovrebbe apparire il file *di Program.cs.*
 
 ```csharp
 namespace CoreSenderApp
@@ -183,25 +183,25 @@ namespace CoreSenderApp
 }
 ```
 
-Eseguire il programma e controllare il portale di Azure.
+Eseguire il programma e controllare il portale di Azure.Run the program and check the Azure portal.
 
-Selezionare il nome della coda nella finestra **Panoramica** dello spazio dei nomi per visualizzare gli **elementi**di base della coda.
+Selezionare il nome della coda nella finestra **Panoramica** dello spazio dei nomi per visualizzare la coda **Essentials**.
 
 ![Messaggi ricevuti con conteggio e dimensioni][queue-message]
 
-Il valore del **conteggio messaggi attivo** per la coda è ora **10**. Ogni volta che si esegue questa app mittente senza recuperare i messaggi, questo valore aumenta di 10.
+Il valore **di Conteggio messaggi attivi** per la coda è ora **10**. Ogni volta che si esegue questa applicazione mittente senza recuperare i messaggi, questo valore aumenta di 10.Each time you run this sender app without retrieving the messages, this value increases by 10.
 
-Le dimensioni correnti della coda incrementano il valore **corrente** in **Essentials** ogni volta che l'app aggiunge messaggi alla coda.
+La dimensione corrente della coda incrementa il valore **CURRENT** in **Essentials** ogni volta che l'app aggiunge messaggi alla coda.
 
 Nella sezione successiva viene descritto come recuperare questi messaggi.
 
 ## <a name="receive-messages-from-the-queue"></a>Ricezione di messaggi dalla coda
 
-Per ricevere i messaggi inviati, creare un'altra applicazione **Console (.NET Core)** . Installare il pacchetto NuGet **Microsoft. Azure. ServiceBus** come per l'applicazione mittente.
+Per ricevere i messaggi inviati, creare un'altra applicazione **App console (.NET Core).** Installare il pacchetto **Microsoft.Azure.ServiceBus** NuGet, come è stato fatto per l'applicazione mittente.
 
 ### <a name="write-code-to-receive-messages-from-the-queue"></a>Scrivere il codice per ricevere messaggi dalla coda
 
-1. In *Program.cs*aggiungere le istruzioni `using` seguenti all'inizio della definizione dello spazio dei nomi, prima della dichiarazione di classe:
+1. In *Program.cs*, `using` aggiungere le seguenti istruzioni all'inizio della definizione dello spazio dei nomi, prima della dichiarazione di classe:
 
     ```csharp
     using System;
@@ -211,7 +211,7 @@ Per ricevere i messaggi inviati, creare un'altra applicazione **Console (.NET Co
     using Microsoft.Azure.ServiceBus;
     ```
 
-1. Nella classe `Program` dichiarare le variabili seguenti:
+1. Nella `Program` classe dichiarare le variabili seguenti:In the class, declare the following variables:
 
     ```csharp
     const string ServiceBusConnectionString = "<your_connection_string>";
@@ -219,7 +219,7 @@ Per ricevere i messaggi inviati, creare un'altra applicazione **Console (.NET Co
     static IQueueClient queueClient;
     ```
 
-    Immettere la stringa di connessione per lo spazio dei nomi come variabile `ServiceBusConnectionString`. Immettere il nome della coda.
+    Immettere la stringa di `ServiceBusConnectionString` connessione per lo spazio dei nomi come variabile. Immettere il nome della coda.
 
 1. Sostituire il metodo `Main()` con il codice seguente:
 
@@ -246,7 +246,7 @@ Per ricevere i messaggi inviati, creare un'altra applicazione **Console (.NET Co
     }
     ```
 
-1. Direttamente dopo il metodo `MainAsync()` aggiungere il metodo seguente, che registra il gestore di messaggi e riceve i messaggi inviati dall'applicazione mittente:
+1. Direttamente dopo `MainAsync()` il metodo, aggiungere il metodo seguente, che registra il gestore messaggi e riceve i messaggi inviati dall'applicazione mittente:
 
     ```csharp
     static void RegisterOnMessageHandlerAndReceiveMessages()
@@ -302,7 +302,7 @@ Per ricevere i messaggi inviati, creare un'altra applicazione **Console (.NET Co
     }
     ```
 
-Il file *Program.cs* dovrebbe essere simile al seguente:
+Ecco come dovrebbe apparire il tuo *file Program.cs:*
 
 ```csharp
 namespace CoreReceiverApp
@@ -388,14 +388,14 @@ namespace CoreReceiverApp
 }
 ```
 
-Eseguire il programma e verificare di nuovo il portale. Il **numero di messaggi attivi** e i valori **correnti** sono ora **0**.
+Eseguire il programma e verificare di nuovo il portale. Il numero di **messaggi attivi** e i valori **CURRENT** sono ora **0**.
 
 ![Coda dopo la ricezione dei messaggi][queue-message-receive]
 
-Congratulazioni! A questo punto è stata creata una coda, è stato inviato un set di messaggi alla coda e sono stati ricevuti i messaggi dalla stessa coda.
+Congratulazioni! È stata creata una coda, è stato inviato un set di messaggi a tale coda e sono stati ricevuti tali messaggi dalla stessa coda.
 
 > [!NOTE]
-> È possibile gestire le risorse del bus di servizio con [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer consente agli utenti di connettersi facilmente a uno spazio dei nomi del bus di servizio e amministrare le entità di messaggistica. Lo strumento offre funzionalità avanzate come la funzionalità di importazione/esportazione o la possibilità di testare argomenti, code, sottoscrizioni, servizi di inoltro, hub di notifica e hub eventi.
+> È possibile gestire le risorse del bus di servizio con [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Esplora bus di servizio consente agli utenti di connettersi facilmente a uno spazio dei nomi del bus di servizio e di amministrare le entità di messaggistica. Lo strumento offre funzionalità avanzate come la funzionalità di importazione/esportazione o la possibilità di testare argomenti, code, sottoscrizioni, servizi di inoltro, hub di notifica e hub eventi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

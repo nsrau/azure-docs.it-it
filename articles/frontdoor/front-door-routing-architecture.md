@@ -1,5 +1,5 @@
 ---
-title: Servizio Frontdoor di Azure - Architettura di routing | Microsoft Docs
+title: Porta anteriore di Azure - architettura di routing Documenti Microsoft
 description: Questo articolo aiuta a comprendere l'aspetto di visualizzazione globale dell'architettura di Frontdoor.
 services: front-door
 documentationcenter: ''
@@ -11,28 +11,28 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 6af5e7c7d8788dffa8f144b2ee77c291ceda86c6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fd1f06bcb92ea97e0e9e9a6eefeac957031575a0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60736284"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79471558"
 ---
 # <a name="routing-architecture-overview"></a>Panoramica dell'architettura di routing
 
-Quando il servizio Frontdoor di Azure riceve le richieste del client, risponde (se è abilitata la memorizzazione nella cache) oppure le inoltra all’applicazione di back-end più appropriata (come un proxy inverso).
+Lo sportello anteriore di Azure quando riceve le richieste client risponde alle richieste (se la memorizzazione nella cache è abilitata) o le inoltra al back-end dell'applicazione appropriato (come proxy inverso).
 
 </br>Esistono opportunità di ottimizzare il traffico durante il routing a Frontdoor di Azure così come durante il routing verso i back-end.
 
-## <a name = "anycast"></a>Selezionare l'ambiente di Frontdoor per il routing del traffico (Anycast)
+## <a name="selecting-the-front-door-environment-for-traffic-routing-anycast"></a><a name = "anycast"></a>Selezionare l'ambiente di Frontdoor per il routing del traffico (Anycast)
 
 Il routing al Frontdoor di Azure si basa su ambienti [Anycast](https://en.wikipedia.org/wiki/Anycast) per il traffico DNS (Domain Name System) e HTTP (Hypertext Transfer Protocol), pertanto il traffico utente passerà all'ambiente più vicino in termini di topologia di rete (minor numero hop). Questa architettura offre in genere i migliori tempi di round trip per gli utenti finali (massimizzare i vantaggi della suddivisione TCP). Frontdoor organizza gli ambienti in primari e in "anelli" di fallback.  L'anello esterno dispone di ambienti più vicini agli utenti, offrendo latenze più basse.  L'anello interno dispone di ambienti in grado di gestire il failover per l'ambiente di anello esterno nel caso di problemi. L'anello esterno è la destinazione preferita per l'intero traffico. Tuttavia, l'anello interno è necessario per gestire l'overflow del traffico dall'anello esterno. In termini di indirizzi IP virtuali, ogni host front-end, o dominio gestito da Frontdoor è assegnato a un indirizzo IP virtuale primario, annunciato dagli ambienti dell'anello interno ed esterno, nonché a un indirizzo IP virtuale di fallback, annunciato solo dagli ambienti dell'anello interno. 
 
 </br>Questa strategia globale garantisce che le richieste da parte degli utenti finali raggiungano sempre l'ambiente Frontdoor più vicino e che, qualora l'ambiente di ingresso principale preferito non sia integro, il traffico venga spostato automaticamente all'ambiente più vicino.
 
-## <a name = "splittcp"></a>Connessione all'ambiente Frontdoor (Split TCP)
+## <a name="connecting-to-front-door-environment-split-tcp"></a><a name = "splittcp"></a>Connessione all'ambiente Frontdoor (Split TCP)
 
-[Split TCP](https://en.wikipedia.org/wiki/Performance-enhancing_proxy) è una tecnica che serve a ridurre latenza e problemi TCP tramite la suddivisione di una connessione che comporterebbe un tempo di round trip elevato in parti più piccole.  Inserendo degli ambienti Frontdoor più vicino agli utenti finali e terminando le connessioni TCP in ambiente Frontdoor, una connessione TCP all’applicazione di back-end con un tempo di round trip (RTT) ampio è suddivisa in due connessioni TCP. La connessione breve tra l'utente finale e l'ambiente di Frontdoor significa che la connessione viene stabilita tra tre brevi round trip anziché tre lunghi round trip, risparmiando latenza.  La lunga connessione tra l’ambiente Frontdoor e il back-end può essere prestabilita e riutilizzata in più chiamate per l'utente finale, risparmiando nuovamente il tempo di connessione TCP.  L'effetto viene moltiplicato per stabilire una connessione SSL/TLS (Transport Layer Security) poiché sono presenti più round trip per la proteggere la connessione.
+[Split TCP](https://en.wikipedia.org/wiki/Performance-enhancing_proxy) è una tecnica che serve a ridurre latenza e problemi TCP tramite la suddivisione di una connessione che comporterebbe un tempo di round trip elevato in parti più piccole.  Inserendo degli ambienti Frontdoor più vicino agli utenti finali e terminando le connessioni TCP in ambiente Frontdoor, una connessione TCP all’applicazione di back-end con un tempo di round trip (RTT) ampio è suddivisa in due connessioni TCP. La breve connessione tra l'utente finale e l'ambiente Front Door significa che la connessione viene stabilita su tre brevi round trip invece di tre lunghi round trip, risparmiando latenza.  La lunga connessione tra l’ambiente Frontdoor e il back-end può essere prestabilita e riutilizzata in più chiamate per l'utente finale, risparmiando nuovamente il tempo di connessione TCP.  L'effetto viene moltiplicato per stabilire una connessione SSL/TLS (Transport Layer Security) poiché sono presenti più round trip per la proteggere la connessione.
 
 ## <a name="processing-request-to-match-a-routing-rule"></a>Elaborazione della richiesta per la corrispondenza di una regola di gestione
 Quando una richiesta viene inserita in un ambiente Frontdoor, dopo aver stabilito connessione ed esecuzione di un certificato SSL handshake, il primo passaggio è costituito dalla corrispondenza con una regola di gestione. Questa corrispondenza consiste nel determinare tra tutte le configurazioni in Frontdoor, quali regole di gestione specifiche corrispondano alla richiesta. Per altre informazioni, vedere come Frontdoor effettua la [corrispondenza delle route](front-door-route-matching.md).

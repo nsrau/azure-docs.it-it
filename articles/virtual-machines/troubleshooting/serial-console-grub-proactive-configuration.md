@@ -1,6 +1,6 @@
 ---
-title: Configurazione del GRUB proattivo della console seriale di Azure | Microsoft Docs
-description: Configurare GRUB in diverse distribuzioni consentendo l'accesso a singoli utenti e modalità di ripristino in macchine virtuali di Azure.
+title: Configurazione GRUB proattiva della console seriale di Azure Documenti Microsoft
+description: Configurare GRUB tra varie distribuzioni consentendo l'accesso in modalità di ripristino e utente singolo nelle macchine virtuali di Azure.Configure GRUB across various distributions allowing single user and recovery mode access in Azure virtual machines.
 services: virtual-machines-linux
 documentationcenter: ''
 author: vilibert
@@ -15,137 +15,137 @@ ms.workload: infrastructure-services
 ms.date: 07/10/2019
 ms.author: vilibert
 ms.openlocfilehash: a154ab4742f0d0d7acae0376bcf894bc2b62b4cd
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74186929"
 ---
-# <a name="proactively-ensuring-you-have-access-to-grub-and-sysrq-could-save-you-lots-of-down-time"></a>Assicurandosi in modo proattivo che si abbia accesso a GRUB e SysRq, è possibile risparmiare molto tempo
+# <a name="proactively-ensuring-you-have-access-to-grub-and-sysrq-could-save-you-lots-of-down-time"></a>Garantire in modo proattivo l'accesso a GRUB e sysrq potrebbe farti risparmiare un sacco di tempo di inattività
 
-La possibilità di accedere alla console seriale e a GRUB consente di migliorare i tempi di ripristino della macchina virtuale IaaS Linux nella maggior parte dei casi. GRUB offre opzioni di ripristino che altrimenti potrebbero richiedere più tempo per il ripristino della macchina virtuale. 
+Avere accesso alla Console Seriale e a GRUB migliorerà i tempi di recupero della macchina virtuale Linux IaaS nella maggior parte dei casi. GRUB offre opzioni di ripristino che altrimenti richiederebbero più tempo per il ripristino della macchina virtuale. 
 
 
-I motivi per eseguire un ripristino della macchina virtuale sono molti e possono essere attribuiti a scenari come:
+I motivi per eseguire il ripristino di una macchina virtuale sono molti e possono essere attribuiti a scenari quali:The reasons to perform a VM recovery are many and can be attributed to scenarios such as:
 
-   - File System danneggiati/kernel/MBR (record di avvio principale)
+   - File system danneggiati/kernel/MBR (Registrazione di avvio master)
    - Aggiornamenti del kernel non riusciti
-   - Parametri del kernel GRUB non corretti
-   - Configurazioni fstab non corrette
+   - Parametri del kernel GRUB errati
+   - Configurazioni fstab errate
    - Configurazioni del firewall
    - Password persa
-   - File di configurazione sshd modificato
+   - File di configurazioni sshd straziati
    - Configurazioni di rete
 
- Molti altri scenari, come descritto in dettaglio [qui](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux#common-scenarios-for-accessing-the-serial-console)
+ Molti altri scenari come descritto [qui](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux#common-scenarios-for-accessing-the-serial-console)
 
-Verificare che sia possibile accedere a GRUB e al console seriale nelle VM distribuite in Azure. 
+Verificare che sia possibile accedere a GRUB e alla console seriale nelle macchine virtuali distribuite in Azure.Verify that you can access GRUB and the Serial console on your VMs deployed in Azure. 
 
-Se non si ha familiarità con la console seriale, fare riferimento a [questo collegamento](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux/).
+Se non si ha familiarità con console seriale, fare riferimento a [questo collegamento](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux/).
 
 > [!TIP]
-> Assicurarsi di eseguire i backup dei file prima di apportare modifiche
+> Assicurarsi di eseguire il backup dei file prima di apportare modifiche
 
-Guardare questo video di seguito per vedere come è possibile ripristinare rapidamente la VM Linux quando si ha accesso a GRUB
+Guarda questo video qui sotto per vedere come recuperare rapidamente la tua VM Linux una volta che hai accesso a GRUB
 
-[Video ripristino VM Linux](https://youtu.be/KevOc3d_SG4)
+[Recuperare il video sulla macchina virtuale LinuxRecover Linux VM Video](https://youtu.be/KevOc3d_SG4)
 
-Sono disponibili diversi metodi per il ripristino delle macchine virtuali Linux. In un ambiente cloud, questo processo è stato complesso.
-Lo stato di avanzamento viene eseguito continuamente per gli strumenti e le funzionalità per garantire il ripristino rapido dei servizi.
+Esistono diversi metodi per facilitare il ripristino delle macchine virtuali Linux.There are a number of methods to help recovery of Linux VMs. In un ambiente Cloud, questo processo è stato impegnativo.
+Si stanno compiendo continui progressi rispetto agli utensili e alle funzionalità per garantire che i servizi vengano recuperati rapidamente.
 
-Con la console seriale di Azure è possibile interagire con la VM Linux come se si trattasse di una console di sistema.
+Con la console seriale di Azure è possibile interagire con la macchina virtuale Linux come se ci si trattasse di una console di sistema.
 
-È possibile modificare molti file di configurazione, tra cui il modo in cui il kernel si avvierà. 
+È possibile manipolare molti file di configurazione, tra cui la modalità di avvio del kernel. 
 
-Gli amministratori di sys Linux/UNIX più esperti apprezzeranno le modalità **utente singolo** e di **emergenza** accessibili tramite la console seriale di Azure, rendendo ridondante lo scambio di dischi e l'eliminazione di VM per molti scenari di ripristino.
+Gli amministratori di sistemi Linux/Unix più esperti apprezzeranno le modalità **utente singolo** e di **emergenza** accessibili tramite la console di serializzazione di Azure che rende ridondante lo scambio di dischi e l'eliminazione di macchine virtuali per molti scenari di ripristino.
 
-Il metodo di recupero dipende dal problema riscontrato, ad esempio è possibile reimpostare una password persa o smarrita tramite portale di Azure Opzioni-> **reimpostare la password**. La funzionalità **Reimposta password** è nota come estensione e comunica con l'agente guest Linux.
+Il metodo di ripristino dipende dal problema riscontrato, ad esempio una password persa o smarrita può essere reimpostata tramite le opzioni del portale di Azure -> **Reimposta password**. La funzionalità **Reimposta password** è nota come estensione e comunica con l'agente Guest Linux.
 
-Sono disponibili altre estensioni, ad esempio script personalizzati, ma queste opzioni richiedono che il **waagent** di Linux sia attivo e in uno stato integro, che non è sempre il caso.
+Altre estensioni come Custom Script sono disponibili tuttavia queste opzioni richiedono che il **waagent** Linux essere e in uno stato sano che non è sempre il caso.
 
-![stato agente](./media/virtual-machines-serial-console/agent-status.png)
+![stato dell'agente](./media/virtual-machines-serial-console/agent-status.png)
 
 
-Assicurarsi di avere accesso alla console seriale di Azure e a GRUB significa che è possibile correggere una modifica della password o una configurazione errata in pochi minuti anziché in ore. È anche possibile forzare l'avvio della macchina virtuale da un kernel alternativo se si dispone di più kernel su disco nello scenario in cui il kernel primario risulta danneggiato.
+Garantire l'accesso alla console seriale di Azure e a GRUB significa che una modifica della password o una configurazione non corretta può essere corretta in pochi minuti anziché in poche ore. È anche possibile forzare l'avvio della macchina virtuale da un kernel alternativo nel caso in cui si disponga di più kernel su disco nello scenario in cui il kernel primario viene danneggiato.
 
-![kernel multikernel](./media/virtual-machines-serial-console/more-kernel.png)
+![multi kernel](./media/virtual-machines-serial-console/more-kernel.png)
 
-## <a name="suggested-order-of-recovery-methods"></a>Ordine di metodi di recupero suggerito:
+## <a name="suggested-order-of-recovery-methods"></a>Ordine consigliato dei metodi di recupero:
 
-- Console seriale di Azure
+- Console seriale di AzureAzure Serial Console
 
-- Scambio del disco: può essere automatizzato tramite:
+- Scambio disco – può essere automatizzato utilizzando:
 
    - [Script di ripristino di Power Shell](https://github.com/Azure/azure-support-scripts/tree/master/VMRecovery/ResourceManager)
-   - [Script di ripristino bash](https://github.com/sribs/azure-support-scripts)
+   - [Bash Script di recupero](https://github.com/sribs/azure-support-scripts)
 
-- Metodo legacy
+- Metodo Legacy
 
 ## <a name="disk-swap-video"></a>Video di scambio disco:
 
-Se non si ha accesso a GRUB, guardare [questo](https://youtu.be/m5t0GZ5oGAc) video e vedere come è possibile automatizzare facilmente la procedura di scambio del disco per ripristinare la macchina virtuale
+Se non si ha accesso a GRUB guardare [questo](https://youtu.be/m5t0GZ5oGAc) video e vedere, come è possibile automatizzare facilmente la procedura di scambio del disco per ripristinare la macchina virtuale
 
-## <a name="challenges"></a>Sfide
+## <a name="challenges"></a>Sfide:
 
-Non tutte le macchine virtuali Linux di Azure sono configurate per impostazione predefinita per l'accesso a GRUB e nessuno di essi è configurato per essere interrotto con i comandi sysrq. Alcune distribuzioni precedenti, ad esempio SLES 11, non sono configurate per la visualizzazione della richiesta di accesso nella console seriale di Azure
+Non tutte le macchine virtuali di Azure Linux sono configurate per impostazione predefinita per l'accesso GRUB e non sono tutte configurate per essere interrotte con i comandi sysrq. Alcune distribuzioni meno recenti, ad esempio SLES 11, non sono configurate per visualizzare il prompt di accesso nella console seriale di AzureSome older distros such as SLES 11 are not configured to display Login prompt in the Azure Serial Console
 
-In questo articolo verranno esaminate le diverse distribuzioni di Linux e le configurazioni di documenti su come rendere disponibile GRUB.
-
-
+In questo articolo, esamineremo varie distribuzioni Linux e documentare le configurazioni su come rendere gRUB disponibile.
 
 
-## <a name="how-to-configure-linux-vm-to-accept-sysrq-keys"></a>Come configurare una macchina virtuale Linux per accettare le chiavi di SysRq
-Per impostazione predefinita, la chiave sysrq è abilitata in alcune distribuzioni Linux più recenti, anche se in altre possono essere configurate per accettare valori solo per determinate funzioni SysRq.
-Nelle distribuzioni precedenti, potrebbe essere disabilitata completamente.
 
-La funzionalità SysRq è utile per il riavvio di una macchina virtuale bloccata o bloccata direttamente dalla console seriale di Azure, utile anche per accedere al menu GRUB, in alternativa riavviare una macchina virtuale da un'altra finestra del portale o una sessione ssh potrebbe eliminare la connessione console corrente scadendo quindi i timeout di GRUB a cui vengono usati per visualizzare il menu GRUB.
-La macchina virtuale deve essere configurata in modo da accettare un valore pari a 1 per il parametro kernel, che Abilita tutte le funzioni di sysrq o 128, che consente il riavvio/spento
+
+## <a name="how-to-configure-linux-vm-to-accept-sysrq-keys"></a>Come configurare la macchina virtuale Linux per accettare le chiavi SysRqHow to configure Linux VM to accept SysRq keys
+La chiave sysrq è abilitata su alcune distribuzioni Linux più recenti per impostazione predefinita, anche se in altre potrebbe essere configurata per accettare valori solo per determinate funzioni SysRq.
+Nelle distribuzioni più vecchie, potrebbe essere disabilitato completamente.
+
+La funzionalità SysRq è utile per riavviare una macchina virtuale bloccata o in crash direttamente dalla console seriale di Azure, utile anche per accedere al menu GRUB, in alternativa, riavviare una macchina virtuale da un'altra finestra del portale o sessione ssh potrebbe eliminare la connessione alla console corrente in scadenza così Scad Scad Timeouts a cui vengono utilizzati per visualizzare il menu GRUB.
+La macchina virtuale deve essere configurata per accettare un valore pari a 1 per il parametro del kernel, che abilita tutte le funzioni di sysrq o 128, che consente il riavvio/spegnimento
 
 
 [Abilita video sysrq](https://youtu.be/0doqFRrHz_Mc)
 
 
-Per configurare la macchina virtuale in modo che accetti un riavvio tramite i comandi SysRq nel portale di Azure, è necessario impostare il valore 1 per il parametro kernel kernel. sysrq
+Per configurare la macchina virtuale per accettare un riavvio tramite i comandi SysRq nel portale di Azure, è necessario impostare un valore pari a 1 per il parametro del kernel kernel.sysrq
 
-Per salvare in modo permanente il riavvio di questa configurazione, aggiungere una voce al file **sysctl. conf**
+Per rendere persistente un riavvio, aggiungere una voce al file **sysctl.conf**
 
 `echo kernel.sysrq = 1 >> /etc/sysctl.conf`
 
-Per configurare dinamicamente il parametro kernel
+Per configurare il parametro del kernel in modo dinamico
 
 `sysctl -w kernel.sysrq=1`
 
-Se non si dispone dell'accesso alla **radice** o sudo è danneggiato, non sarà possibile configurare sysrq da un prompt della shell.
+Se l'accesso **root** non è stato interrotto, non sarà possibile configurare sysrq da un prompt della shell.
 
-In questo scenario è possibile abilitare sysrq usando il portale di Azure. Questo metodo può essere utile se il file **sudoers. d/waagent** è stato danneggiato o è stato eliminato.
+È possibile abilitare sysrq in questo scenario usando il portale di Azure.You can enable sysrq in this scenario using the Azure portal. Questo metodo può essere utile se il file **sudoers.d/waagent** si è rotto o è stato eliminato.
 
-Usando la funzionalità portale di Azure Operations-> eseguire Command-> RunShellScript, è necessario che il processo waagent sia integro, quindi è possibile inserire questo comando per abilitare sysrq
+L'uso del portale di Azure Operazioni -> Comando di esecuzione -> funzionalità RunShellScript richiede che il processo waagent sia integro, è quindi possibile inserire questo comando per abilitare sysrq
 
 `sysctl -w kernel.sysrq=1 ; echo kernel.sysrq = 1 >> /etc/sysctl.conf`
 
-Come illustrato di seguito: ![abilitare sysrq2](./media/virtual-machines-serial-console/enabling-sysrq-2.png)
+Come illustrato ![di seguito: enable sysrq2](./media/virtual-machines-serial-console/enabling-sysrq-2.png)
 
-Al termine, è possibile provare ad accedere a **sysrq** e verificare che sia possibile riavviare il computer.
+Una volta completato, è possibile provare ad accedere a **sysrq** e dovrebbe vedere che è possibile un riavvio.
 
-![Abilita sysrq3](./media/virtual-machines-serial-console/enabling-sysrq-3.png)
+![abilitare sysrq3](./media/virtual-machines-serial-console/enabling-sysrq-3.png)
 
-Selezionare il comando **Riavvia** e **Invia sysrq**
+Selezionare **Il comando Reboot** e Send **SysRq**
 
-![Abilita sysrq4](./media/virtual-machines-serial-console/enabling-sysrq-4.png)
+![abilitare sysrq4](./media/virtual-machines-serial-console/enabling-sysrq-4.png)
 
-Il sistema deve registrare un messaggio di reimpostazione, ad esempio
+Il sistema deve registrare un messaggio di reimpostazione
 
-![Abilita sysrq5](./media/virtual-machines-serial-console/enabling-sysrq-5.png)
+![abilitare sysrq5](./media/virtual-machines-serial-console/enabling-sysrq-5.png)
 
 
-## <a name="ubuntu-grub-configuration"></a>Configurazione di Ubuntu GRUB
+## <a name="ubuntu-grub-configuration"></a>Configurazione GRUB di Ubuntu
 
-Per impostazione predefinita, si dovrebbe essere in grado di accedere a GRUB tenendo premuto **ESC** durante l'avvio della macchina virtuale. se il menu GRUB non è visualizzato, è possibile forzare e mantenere lo schermo del menu GRUB nella console seriale di Azure usando una di queste opzioni.
+Per impostazione predefinita, dovresti essere in grado di accedere a GRUB tenendo premuto il tasto **Esc** durante l'avvio della macchina virtuale, se il menu GRUB non viene presentato puoi forzare e mantenere il menu GRUB sullo schermo nella Console seriale di Azure usando una di queste opzioni.
 
-**Opzione 1** : forza la visualizzazione di GRUB sullo schermo 
+**Opzione 1** - Forza la visualizzazione di GRUB sullo schermo 
 
-Aggiornare il file/etc/default/grub.d/50-cloudimg-Settings.cfg per lasciare lo schermo del menu GRUB per il TIMEOUT specificato.
-Non è necessario premere **ESC** perché grub verrà visualizzato immediatamente
+Aggiornare il file /etc/default/grub.d/50-cloudimg-settings.cfg per mantenere il menu GRUB sullo schermo per il TIMEOUT specificato.
+Non è necessario colpire **Esc** poiché GRUB verrà visualizzato immediatamente
 
 ```
 GRUB_TIMEOUT=0
@@ -155,12 +155,12 @@ change to
 GRUB_TIMEOUT=5
 ```
 
-**Opzione 2** : consente di premere **ESC** prima dell'avvio
+**Opzione 2** - Consente di premere **Esc** prima dell'avvio
 
-Un comportamento simile può essere sperimentato apportando modifiche al file/etc/default/grub e osservando un timeout di 3 secondi per premere **ESC**
+Un comportamento simile può essere sperimentato apportando modifiche al file /etc/default/grub e osservare un timeout di 3 secondi per premere **Esc**
 
 
-Impostare come commento le due righe seguenti:
+Commentare queste due righe:
 
 ```
 #GRUB_HIDDEN_TIMEOUT=0
@@ -175,11 +175,11 @@ GRUB_TIMEOUT_STYLE=countdown
 
 ## <a name="ubuntu-1204"></a>Ubuntu 12\.04
 
-Ubuntu 12,04 consentirà l'accesso alla console seriale, ma non offre la possibilità di interagire. Un **account di accesso:** prompt non è visibile
+Ubuntu 12.04 consentirà l'accesso alla console seriale, ma non offre la possibilità di interagire. Un **login:** prompt non viene visualizzato
 
 
-Per 12,04 ottenere un **account di accesso:** prompt:
-1. Creare un file denominato/etc/init/ttyS0.conf contenente il testo seguente:
+Per la 12.04 per ottenere un **login:** prompt:
+1. Creare un file denominato /etc/init/ttyS0.conf contenente il testo seguente:
 
     ```
     # ttyS0 - getty
@@ -193,30 +193,30 @@ Per 12,04 ottenere un **account di accesso:** prompt:
     exec /sbin/getty -L 115200 ttyS0 vt102
     ```    
 
-2. Richiedi avvio per avviare il Getty     
+2. Chiedi a upstart di avviare il getty     
     ```
     sudo start ttyS0
     ```
  
 Le impostazioni necessarie per configurare la console seriale per le versioni di Ubuntu sono disponibili [qui](https://help.ubuntu.com/community/SerialConsoleHowto)
 
-## <a name="ubuntu-recovery-mode"></a>Modalità di ripristino Ubuntu
+## <a name="ubuntu-recovery-mode"></a>Modalità di recupero Ubuntu
 
-Sono disponibili opzioni aggiuntive per il ripristino e la pulizia per Ubuntu tramite GRUB, tuttavia queste impostazioni sono accessibili solo se si configurano i parametri del kernel di conseguenza.
-Se non si configura questo parametro di avvio del kernel, il menu di ripristino verrà inviato al Diagnostica di Azure e non alla console seriale di Azure.
-È possibile ottenere l'accesso al menu ripristino di Ubuntu attenendosi alla procedura seguente:
+Ulteriori opzioni di ripristino e pulizia sono disponibili per Ubuntu tramite GRUB, tuttavia queste impostazioni sono accessibili solo se si configurano i parametri del kernel di conseguenza.
+La mancata configurazione di questo parametro di avvio del kernel imporrebbe l'invio del menu Ripristino alla diagnostica di Azure e non alla console di serializzazione di Azure.Failure to configure this kernel boot parameter would force the Recovery menu to be sent to the Azure Diagnostics and not to the Azure Serial Console.
+È possibile ottenere l'accesso al menu di ripristino Ubuntu attenendosi alla seguente procedura:
 
-Interrompere il processo di avvio e accedere al menu GRUB
+Interrompere il processo BOOT e accedere al menu GRUB
 
-Selezionare Opzioni avanzate per Ubuntu e premere INVIO.
+Selezionare Opzioni avanzate per Ubuntu e premere Invio
 
 ![ubunturec1](./media/virtual-machines-serial-console/ubunturec1.png)
 
-Selezionare la visualizzazione linea *(modalità di ripristino)* non premere invio ma premere "e"
+Selezionare la linea che visualizza *(modalità di ripristino)* non premere Invio, ma premere "e"
 
 ![ubunturec2](./media/virtual-machines-serial-console/ubunturec2.png)
 
-Individuare la riga che caricherà il kernel e sostituire l'ultimo parametro **nomodet** con la destinazione As **console = ttyS0**
+Individuare la riga che caricherà il kernel e sostituire l'ultimo parametro **nomodeset** con la destinazione come **console-ttyS0**
 
 ```
 linux /boot/vmlinuz-4.15.0-1023-azure root=UUID=21b294f1-25bd-4265-9c4e-d6e4aeb57e97 ro recovery nomodeset
@@ -228,16 +228,16 @@ linux /boot/vmlinuz-4.15.0-1023-azure root=UUID=21b294f1-25bd-4265-9c4e-d6e4aeb5
 
 ![ubunturec3](./media/virtual-machines-serial-console/ubunturec3.png)
 
-Premere **CTRL + x** per avviare e caricare il kernel.
-Se tutto va bene, vengono visualizzate le opzioni aggiuntive che consentono di eseguire altre opzioni di ripristino
+Premere **Ctrl-x** per avviare e caricare il kernel.
+Se tutto va bene vedrete queste opzioni aggiuntive, che possono aiutare a eseguire altre opzioni di recupero
 
 ![ubunturec4](./media/virtual-machines-serial-console/ubunturec4.png)
 
 
-## <a name="red-hat-grub-configuration"></a>Configurazione di Red Hat GRUB
+## <a name="red-hat-grub-configuration"></a>Configurazione Red Hat GRUB
 
-## <a name="red-hat-74-grub-configuration"></a>Configurazione di Red Hat 7\.4\+ GRUB
-La configurazione predefinita di/etc/default/grub in queste versioni è configurata adeguatamente
+## <a name="red-hat-74-grub-configuration"></a>Red Hat\.\+ 7 4 Configurazione GRUB
+La configurazione predefinita /etc/default/grub in queste versioni è configurata in modo adeguato
 
 ```
 GRUB_TIMEOUT=5
@@ -250,14 +250,14 @@ GRUB_CMDLINE_LINUX="console=tty1 console=ttyS0 earlyprintk=ttyS0 rootdelay=300"
 GRUB_DISABLE_RECOVERY="true"
 ```
 
-Abilitare la chiave SysRq
+Attivare la chiave SysRq
 
 ```
 sysctl -w kernel.sysrq=1;echo kernel.sysrq = 1 >> /etc/sysctl.conf;sysctl -a | grep -i sysrq
 ```
 
-## <a name="red-hat-72-and-73-grub-configuration"></a>Configurazione di Red Hat 7\.2 e 7\.3 GRUB
-Il file da modificare è/etc/default/grub. una configurazione predefinita è simile a questo esempio:
+## <a name="red-hat-72-and-73-grub-configuration"></a>Red Hat\.7\.2 e 7 3 Configurazione GRUB
+Il file da modificare è /etc/default/grub: una configurazione predefinita è simile a questo esempio:The file to modify is /etc/default/grub – a default config looks like this example:
 
 ```
 GRUB_TIMEOUT=1
@@ -269,7 +269,7 @@ GRUB_CMDLINE_LINUX="console=tty1 console=ttyS0 earlyprintk=ttyS0 rootdelay=300"
 GRUB_DISABLE_RECOVERY="true"
 ```
 
-Modificare le righe seguenti in/etc/default/grub
+Modificare le seguenti righe in /etc/default/grub
 
 ```
 GRUB_TIMEOUT=1 
@@ -288,7 +288,7 @@ to
 GRUB_TERMINAL="serial console"
 ```
 
-Aggiungere anche questa riga:
+Aggiungi anche questa riga:
 
 ```
 GRUB_SERIAL_COMMAND=”serial –speed=115200 –unit=0 –word=8 –parity=no –stop=1″
@@ -306,7 +306,7 @@ GRUB_CMDLINE_LINUX="console=tty1 console=ttyS0 earlyprintk=ttyS0 rootdelay=300"
 GRUB_DISABLE_RECOVERY="true"
 ```
  
-Completare e aggiornare la configurazione di GRUB usando
+Completare e aggiornare la configurazione grub utilizzando
 
 `grub2-mkconfig -o /boot/grub2/grub.cfg`
 
@@ -314,14 +314,14 @@ Impostare il parametro del kernel SysRq:
 
 `sysctl -w kernel.sysrq = 1;echo kernel.sysrq = 1 >> /etc/sysctl.conf;sysctl -a | grep -i sysrq`
 
-In alternativa, è possibile configurare GRUB e SysRq usando una singola riga nella shell o tramite il comando Esegui. Eseguire il backup dei file prima di eseguire questo comando:
+In alternativa, è possibile configurare GRUB e SysRq utilizzando una singola riga nella shell o tramite il comando Esegui. Eseguire il backup dei file prima di eseguire questo comando:
 
 
 `cp /etc/default/grub /etc/default/grub.bak; sed -i 's/GRUB_TIMEOUT=1/GRUB_TIMEOUT=5/g' /etc/default/grub; sed -i 's/GRUB_TERMINAL_OUTPUT="console"/GRUB_TERMINAL="serial console"/g' /etc/default/grub; echo "GRUB_SERIAL_COMMAND=\"serial --speed=115200 --unit=0 --word=8 --parity=no --stop=1\"" >> /etc/default/grub;grub2-mkconfig -o /boot/grub2/grub.cfg;sysctl -w kernel.sysrq=1;echo kernel.sysrq = 1 /etc/sysctl.conf;sysctl -a | grep -i sysrq`
 
 
-## <a name="red-hat-6x-grub-configuration"></a>Configurazione di Red Hat 6\.x GRUB
-Il file da modificare è/boot/grub/grub.conf. Il valore `timeout` determinerà per quanto tempo viene visualizzato GRUB.
+## <a name="red-hat-6x-grub-configuration"></a>Configurazione Red\.Hat 6 x GRUB
+Il file da modificare è /boot/grub/grub.conf. Il `timeout` valore determinerà per quanto tempo viene visualizzato GRUB.
 
 ```
 #boot=/dev/vda
@@ -335,20 +335,20 @@ terminal --timeout=5 serial console
 ```
 
 
-L'ultimo terminale di riga *– timeout = 5 console seriale* aumenterà ulteriormente il timeout di **grub** aggiungendo una richiesta di 5 secondi per la visualizzazione di un **tasto premere un tasto qualsiasi per continuare.**
+L'ultima *linea terminale –-timeout-5 console seriale* aumenterà ulteriormente il timeout **GRUB** aggiungendo un prompt di 5 secondi che visualizza **Premere qualsiasi tasto per continuare.**
 
-![RH6-1](./media/virtual-machines-serial-console/rh6-1.png)
+![rh6-1](./media/virtual-machines-serial-console/rh6-1.png)
 
-Il menu GRUB verrà visualizzato sullo schermo per il timeout configurato = 15 senza la necessità di premere ESC. Assicurarsi di fare clic nella console del browser per rendere attivo il menu e selezionare il kernel necessario
+Il menu GRUB dovrebbe apparire sullo schermo per il timeout configurato, senza la necessità di premere ESC. Assicurarsi di fare clic nella Console nel browser per rendere attivo il menu e selezionare il kernel richiesto
 
-![RH6-2](./media/virtual-machines-serial-console/rh6-2.png)
+![rh6-2](./media/virtual-machines-serial-console/rh6-2.png)
 
-## <a name="suse"></a>SuSE
+## <a name="suse"></a>Suse
 
-## <a name="sles-12-sp1"></a>SLES 12 SP1
-Usare il bootloader di YaST come per la [documentazione](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-grub-single-user-mode#grub-access-in-suse-sles) ufficiale
+## <a name="sles-12-sp1"></a>SLES 12 sp1
+Usa bootloader yast come da [documenti](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-grub-single-user-mode#grub-access-in-suse-sles) ufficiali
 
-In alternativa, Aggiungi/modifica a/etc/default/grub i parametri seguenti:
+Oppure aggiungere / cambiare a /etc/default/grub i seguenti parametri:
 
 ```
 GRUB_TERMINAL=serial
@@ -356,21 +356,21 @@ GRUB_TIMEOUT=5
 GRUB_SERIAL_COMMAND="serial --unit=0 --speed=9600 --parity=no"
 
 ```
-Verificare che ttyS0 sia usato nell'GRUB_CMDLINE_LINUX o GRUB_CMDLINE_LINUX_DEFAULT
+Verificare che ttys0 venga utilizzato nel GRUB_CMDLINE_LINUX o GRUB_CMDLINE_LINUX_DEFAULT
 
 ```
 GRUB_CMDLINE_LINUX_DEFAULT="console=ttyS0,9600n"
 ```
 
-Ricreare grub. cfg
+Ricreare il file grub.cfg
 
 `grub2-mkconfig -o /boot/grub2/grub.cfg`
 
 
 ## <a name="sles-11-sp4"></a>SLES 11 SP4 
-Viene visualizzata la console seriale e vengono visualizzati i messaggi di avvio ma non viene visualizzato alcun **account di accesso:** prompt
+Viene visualizzata la console seriale con i messaggi di avvio ma non viene visualizzato il **messaggio di accesso:**
 
-Aprire una sessione SSH nella macchina virtuale e aggiornare il file **/etc/inittab** inserendo un commento per la riga seguente:
+Aprire una sessione ssh nella macchina virtuale e aggiornare il file /etc/inittab annullando il commento da questa riga:Open an ssh session into the VM and update the file **/etc/inittab** by un-commenting this line:
 
 ```
 #S0:12345:respawn:/sbin/agetty -L 9600 ttyS0 vt102
@@ -380,7 +380,7 @@ Eseguire quindi il comando
 
 `telinit q`
 
-Per abilitare GRUB, è necessario apportare le modifiche seguenti a/boot/grub/menu.lst 
+Per abilitare GRUB, è necessario apportare le seguenti modifiche a /boot/grub/menu.lst 
 
 ```
 timeout 5
@@ -392,29 +392,29 @@ kernel /boot/vmlinuz-3.0.101-108.74-default root=/dev/disk/by-uuid/ab6b62bb--
 1a8c-45eb-96b1-1fbc535b9265 disk=/dev/sda  USE_BY_UUID_DEVICE_NAMES=1 earlyprinttk=ttyS0 console=ttyS0 rootdelay=300  showopts vga=0x314
 ```
 
- Questa configurazione consentirà al messaggio di **premere un tasto qualsiasi per continuare** a essere visualizzato nella console per 5 secondi 
+ Questa configurazione consentirà al messaggio **Premere un tasto qualsiasi per continuare a** comparire sulla console per 5 secondi 
 
-Il menu GRUB verrà visualizzato per altri 5 secondi. premendo la freccia giù si interrompe il contatore e si seleziona un kernel che si vuole avviare aggiungendo la parola chiave **Single** per la modalità utente singolo che richiede l'impostazione della password radice.
+Verrà quindi visualizzato il menu GRUB per altri 5 secondi - premendo la freccia giù si interromperà il contatore e si seleziona un kernel che si desidera avviare aggiungere la parola chiave **single** per la modalità utente singolo che richiede la password radice da impostare.
 
-Se si aggiunge il comando **init =/bin/bash** , il kernel verrà caricato ma si garantisce che il programma init venga sostituito da una shell bash.
+L'aggiunta del comando **init/bin/bash** caricherà il kernel ma assicura che il programma init venga sostituito da una shell bash.
 
-Si otterrà l'accesso a una shell senza dover immettere una password. È quindi possibile procedere con l'aggiornamento della password per gli account Linux o apportare altre modifiche alla configurazione.
+Si otterrà l'accesso a una shell senza dover inserire una password. È quindi possibile procedere all'aggiornamento della password per gli account Linux o ad apportare altre modifiche alla configurazione.
 
 
-## <a name="force-the-kernel-to-a-bash-prompt"></a>Forza il kernel a una richiesta bash
-L'accesso a GRUB consente di interrompere il processo di inizializzazione. questa interazione è utile per molte procedure di ripristino.
-Se non si ha la password radice e l'utente singolo richiede una password radice, è possibile avviare il kernel sostituendo il programma init con una richiesta bash. per ottenere questo interrupt, aggiungere init =/bin/bash alla riga di avvio del kernel
+## <a name="force-the-kernel-to-a-bash-prompt"></a>Forzare il kernel a un prompt bash
+L'accesso a GRUB consente di interrompere il processo di inizializzazione questa interazione è utile per molte procedure di ripristino.
+Se non si dispone di password root e singolo utente richiede di avere una password root, è possibile avviare il kernel sostituendo il programma init con un prompt bash – questo interrupt può essere raggiunto aggiungendo init ./bin/bash alla riga di avvio del kernel
 
 ![bash1](./media/virtual-machines-serial-console/bash1.png)
 
-Rimontare la/(radice) file system RW usando il comando
+Rimontare l'RW del file system / (radice) utilizzando il comando
 
 `mount -o remount,rw /`
 
 ![bash2](./media/virtual-machines-serial-console/bash2.png)
 
 
-A questo punto è possibile eseguire una modifica della password radice o molte altre modifiche alla configurazione di Linux
+Ora è possibile eseguire la modifica della password radice o molte altre modifiche di configurazione Linux
 
 ![bash3](./media/virtual-machines-serial-console/bash3.png)
 
@@ -427,14 +427,14 @@ Riavviare la macchina virtuale con
 
 ## <a name="single-user-mode"></a>Modalità utente singolo
 
-In alternativa, potrebbe essere necessario accedere alla macchina virtuale in modalità utente singolo o di emergenza. Selezionare il kernel che si vuole avviare o interrompere usando i tasti di direzione.
-Immettere la modalità desiderata aggiungendo la parola chiave **Single** o **1** alla riga di avvio del kernel. Nei sistemi RHEL è inoltre possibile aggiungere **Rd. Break**.
+In alternativa, potrebbe essere necessario accedere alla macchina virtuale in modalità utente singolo o di emergenza. Selezionare il kernel che si desidera avviare o interrompere utilizzando i tasti freccia.
+Accedere alla modalità desiderata aggiungendo la parola chiave **single** o **1** alla riga di avvio del kernel. Nei sistemi RHEL, è anche possibile aggiungere **rd.break**.
 
-Per altre informazioni su come accedere alla modalità utente singolo, vedere [questo documento](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-grub-single-user-mode#general-single-user-mode-access) 
+Per ulteriori informazioni su come accedere alla modalità utente singolo, vedere [questo documento](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-grub-single-user-mode#general-single-user-mode-access) 
 
 
 ![single_user_ubuntu](./media/virtual-machines-serial-console/single-user-ubuntu.png)
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Scopri di più sulla [console seriale di Azure]( https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux)
+Altre informazioni su [Azure Serial ConsoleLearn]( https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux) more about Azure Serial Console

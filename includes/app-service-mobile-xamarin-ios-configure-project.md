@@ -5,14 +5,14 @@ ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
 ms.openlocfilehash: a69df0cc9ea14a2c9fa172c77663afb1d6861f9b
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67180647"
 ---
 #### <a name="configure-the-ios-project-in-xamarin-studio"></a>Configurazione del progetto iOS in Xamarin Studio
-1. In Xamarin Studio aprire **Info.plist** e aggiornare il valore in **Bundle Identifier** (Identificatore bundle) con l'ID creata in precedenza.
+1. In Xamarin.Studio aprire **Info.plist**e aggiornare **l'identificatore** del bundle con l'ID bundle creato in precedenza con il nuovo ID app.
 
     ![](./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-21.png)
 2. Scorrere verso il basso fino a **Background Modes** (Modalità in background). Selezionare le caselle **Enable Background Modes** (Abilita modalità in background) e **Remote notifications** (Notifiche remote).

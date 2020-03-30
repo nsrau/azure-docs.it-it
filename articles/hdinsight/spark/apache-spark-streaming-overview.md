@@ -1,6 +1,6 @@
 ---
 title: Spark Streaming in Azure HDInsight
-description: Come usare Apache Spark lo streaming di applicazioni in cluster HDInsight Spark.
+description: Come usare le applicazioni Apache Spark Streaming nei cluster HDInsight Spark.How to use Apache Spark Streaming applications on HDInsight Spark clusters.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/20/2019
 ms.openlocfilehash: 521d72642a27995d096402a4ca0e4af632b0788c
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74406289"
 ---
 # <a name="overview-of-apache-spark-streaming"></a>Panoramica di Apache Spark Streaming
@@ -29,9 +29,9 @@ Spark Streaming rappresenta un flusso continuo di dati in ingresso con un *fluss
 
 Un flusso DStream fornisce un livello di astrazione in aggiunta ai dati di evento non elaborati.
 
-Iniziare con un singolo evento, ad esempio una lettura di temperatura da un termostato connesso. Quando questo evento arriva all'applicazione Spark streaming, l'evento viene archiviato in modo affidabile, dove viene replicato in più nodi. Questa tolleranza di errore garantisce che l'errore di un singolo nodo non comporterà la perdita dell'evento. Spark Core usa una struttura di dati che distribuisce i dati tra più nodi nel cluster, in cui ogni nodo mantiene in genere i propri dati in memoria per garantire prestazioni ottimali. Questa struttura di dati viene chiamata *RDD* (Resilient Distributed Dataset, set di dati distribuito resiliente).
+Iniziare con un singolo evento, ad esempio una lettura di temperatura da un termostato connesso. Quando questo evento arriva all'applicazione Spark Streaming, l'evento viene archiviato in modo affidabile, dove viene replicato su più nodi. Questa tolleranza di errore garantisce che l'errore di qualsiasi singolo nodo non comporterà la perdita dell'evento. Spark Core usa una struttura di dati che distribuisce i dati tra più nodi nel cluster, in cui ogni nodo mantiene in genere i propri dati in memoria per garantire prestazioni ottimali. Questa struttura di dati viene chiamata *RDD* (Resilient Distributed Dataset, set di dati distribuito resiliente).
 
-Ogni RDD rappresenta gli eventi raccolti in un intervallo di tempo definito dall'utente chiamato *intervallo di invio in batch*. Allo scadere di ogni intervallo di invio in batch, viene prodotto un nuovo RDD che contiene tutti i dati dell'intervallo. Il set continuo di RDD viene raccolto in un flusso DStream. Ad esempio, se l'intervallo di invio in batch è lungo un secondo, il flusso DStream genera ogni secondo un batch che contiene un RDD, che a sua volta contiene tutti i dati inseriti durante il secondo. Durante l'elaborazione del flusso DStream, l'evento di temperatura appare in uno di questi batch. Un'applicazione Spark Streaming elabora i batch che contengono gli eventi e infine agisce sui dati archiviati in ogni RDD.
+Ogni RDD rappresenta gli eventi raccolti in un intervallo di tempo definito dall'utente denominato *intervallo batch*. Allo scadere di ogni intervallo di invio in batch, viene prodotto un nuovo RDD che contiene tutti i dati dell'intervallo. Il set continuo di RDD viene raccolto in un flusso DStream. Ad esempio, se l'intervallo di invio in batch è lungo un secondo, il flusso DStream genera ogni secondo un batch che contiene un RDD, che a sua volta contiene tutti i dati inseriti durante il secondo. Durante l'elaborazione del flusso DStream, l'evento di temperatura appare in uno di questi batch. Un'applicazione Spark Streaming elabora i batch che contengono gli eventi e infine agisce sui dati archiviati in ogni RDD.
 
 ![Flusso DStream di esempio con eventi di temperatura](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-example.png)
 
@@ -145,7 +145,7 @@ stream.foreachRDD { rdd =>
 ssc.start()
 ```
 
-Attendere circa 30 secondi dopo l'avvio dell'applicazione.  Quindi, è possibile eseguire periodicamente una query sul frame di dataframe per visualizzare il set di valori corrente presente nel batch, ad esempio usando questa query SQL:
+Attendere circa 30 secondi dopo l'avvio dell'applicazione precedente.  Quindi, è possibile eseguire una query periodicamente sul frame di dati per visualizzare il set corrente di valori presenti nel batch, ad esempio utilizzando questa query SQL:
 
 ```sql
 %%sql
@@ -154,7 +154,7 @@ SELECT * FROM demo_numbers
 
 L'output risultante è simile al seguente:
 
-| Valore | time |
+| value | time |
 | --- | --- |
 |10 | 1497314465256 |
 |11 | 1497314470272 |
@@ -222,7 +222,7 @@ ssc.start()
 
 Dopo il primo minuto sono presenti 12 voci, sei da ognuno dei due batch raccolti nella finestra.
 
-| Valore | time |
+| value | time |
 | --- | --- |
 | 1 | 1497316294139 |
 | 2 | 1497316299158

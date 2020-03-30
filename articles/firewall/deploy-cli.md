@@ -1,6 +1,6 @@
 ---
-title: Distribuire e configurare il firewall di Azure con l'interfaccia della riga di comando
-description: Questo articolo illustra come distribuire e configurare il firewall di Azure usando l'interfaccia della riga di comando di Azure.
+title: Distribuire e configurare Firewall di Azure usando l'interfaccia della riga di comando di AzureDeploy and configure Azure Firewall using Azure CLI
+description: In this article, you learn how to deploy and configure Azure Firewall using the Azure CLI.
 services: firewall
 author: vhorne
 ms.service: firewall
@@ -8,24 +8,24 @@ ms.date: 08/29/2019
 ms.author: victorh
 ms.topic: article
 ms.openlocfilehash: e97783d1a32916cad151f1d0858a8190d0005fd0
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73831973"
 ---
-# <a name="deploy-and-configure-azure-firewall-using-azure-cli"></a>Distribuire e configurare il firewall di Azure con l'interfaccia della riga di comando
+# <a name="deploy-and-configure-azure-firewall-using-azure-cli"></a>Distribuire e configurare Firewall di Azure usando l'interfaccia della riga di comando di AzureDeploy and configure Azure Firewall using Azure CLI
 
 Il controllo dell'accesso alla rete in uscita è un componente importante di un piano di sicurezza della rete generale. Ad esempio, potrebbe essere utile limitare l'accesso ai siti Web. In alternativa, potrebbe essere utile limitare gli indirizzi IP e le porte in uscita a cui è possibile accedere.
 
 È possibile controllare l'accesso alla rete in uscita da una subnet di Azure con Firewall di Azure. Con Firewall di Azure, è possibile configurare:
 
-* Regole di applicazione che definiscono i nomi di dominio completi (FQDN) accessibili da una subnet. Il nome FQDN può [includere anche istanze di SQL](sql-fqdn-filtering.md).
+* Regole di applicazione che definiscono i nomi di dominio completi (FQDN) accessibili da una subnet. Il nome di dominio completo può includere anche [istanze SQL.](sql-fqdn-filtering.md)
 * Regole di rete che definiscono l'indirizzo di origine, il protocollo, la porta di destinazione e l'indirizzo di destinazione.
 
 Il traffico di rete è sottoposto alle regole del firewall configurate quando si instrada il traffico di rete al firewall come gateway predefinito della subnet.
 
-Per questo articolo, si crea un VNet singolo semplificato con tre subnet per semplificare la distribuzione. Per le distribuzioni di produzione, è consigliabile usare un [modello hub e spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) . Il firewall si trova nel proprio VNet. I server del carico di lavoro si trovano nelle reti virtuali associate all'interno della stessa area con una o più subnet.
+Per questo articolo, si crea una rete virtuale singola semplificata con tre subnet per una distribuzione semplice. Per le distribuzioni di produzione, è consigliabile un [modello hub e spoke.](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) Il firewall si trova nella propria rete virtuale. I server del carico di lavoro si trovano nelle reti virtuali associate all'interno della stessa area con una o più subnet.
 
 * **AzureFirewallSubnet**: in questa subnet si trova il firewall.
 * **Workload-SN**: in questa subnet si trova il server del carico di lavoro. Il traffico di rete di questa subnet passa attraverso il firewall.
@@ -33,7 +33,7 @@ Per questo articolo, si crea un VNet singolo semplificato con tre subnet per sem
 
 ![Infrastruttura di rete dell'esercitazione](media/tutorial-firewall-rules-portal/Tutorial_network.png)
 
-In questo articolo viene spiegato come:
+In questo articolo vengono illustrate le operazioni seguenti:
 
 > [!div class="checklist"]
 > * Configurare un ambiente di rete di test
@@ -43,7 +43,7 @@ In questo articolo viene spiegato come:
 > * Configurare una regola di rete per consentire l'accesso a server DNS esterni
 > * Testare il firewall
 
-Se si preferisce, è possibile completare questa procedura usando il [portale di Azure](tutorial-firewall-deploy-portal.md) o [Azure PowerShell](deploy-ps.md).
+Se si preferisce, è possibile completare questa procedura usando il portale di [Azure](tutorial-firewall-deploy-portal.md) o [Azure PowerShell.](deploy-ps.md)
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -55,7 +55,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, eseguire l'interfaccia della riga di comando di Azure versione 2.0.4 o successiva. Per trovare la versione, eseguire **az --version**. Per informazioni sull'installazione o sull'aggiornamento, vedere [Installare l'interfaccia da riga di comando di Azure]( /cli/azure/install-azure-cli).
 
-Installare l'estensione del firewall di Azure:
+Installare l'estensione del firewall di Azure:Install the Azure Firewall extension:
 
 ```azurecli-interactive
 az extension add -n azure-firewall
@@ -106,7 +106,7 @@ az network vnet subnet create \
 Creare ora le macchine virtuali per il jump server e il server del carico di lavoro e posizionarle nelle subnet appropriate.
 Quando richiesto, digitare una password per la macchina virtuale.
 
-Creare la macchina virtuale SRV-Jump.
+Creare la macchina virtuale Srv-Jump.Create the Srv-Jump virtual machine.
 
 ```azurecli-interactive
 az vm create \
@@ -122,7 +122,7 @@ az vm open-port --port 3389 --resource-group Test-FW-RG --name Srv-Jump
 
 
 
-Creare una scheda di interfaccia di rete per SRV-lavorare con indirizzi IP del server DNS specifici e nessun indirizzo IP pubblico con cui eseguire il test.
+Creare una scheda di interfaccia di rete per Srv-Utilizzare con indirizzi IP specifici del server DNS e nessun indirizzo IP pubblico con cui eseguire il test.
 
 ```azurecli-interactive
 az network nic create \
@@ -149,7 +149,7 @@ az vm create \
 
 ## <a name="deploy-the-firewall"></a>Distribuire il firewall
 
-A questo punto, distribuire il firewall nella rete virtuale.
+Distribuire ora il firewall nella rete virtuale.
 
 ```azurecli-interactive
 az network firewall create \
@@ -181,7 +181,7 @@ Annotare l'indirizzo IP privato. Sarà necessario più avanti per la creazione d
 
 ## <a name="create-a-default-route"></a>Creare una route predefinita
 
-Creare una tabella con propagazione di route BGP disabilitata
+Creare una tabella con la propagazione della route BGP disabilitataCreate a table, with BGP route propagation disabled
 
 ```azurecli-interactive
 az network route-table create \
@@ -191,7 +191,7 @@ az network route-table create \
     --disable-bgp-route-propagation true
 ```
 
-Creare la route.
+Creare il percorso.
 
 ```azurecli-interactive
 az network route-table route create \
@@ -216,7 +216,7 @@ az network vnet subnet update \
 
 ## <a name="configure-an-application-rule"></a>Configurare una regola di applicazione
 
-La regola applicazione consente l'accesso in uscita a www.google.com.
+La regola dell'applicazione consente l'accesso in uscita a www.google.com.
 
 ```azurecli-interactive
 az network firewall application-rule create \
@@ -255,7 +255,7 @@ az network firewall network-rule create \
 
 A questo punto testare il firewall per verificare che funzioni come previsto.
 
-1. Prendere nota dell'indirizzo IP privato per la macchina virtuale **SRV-work** :
+1. Prendere nota dell'indirizzo IP privato per la macchina virtuale **Srv-Work:**
 
    ```azurecli-interactive
    az vm list-ip-addresses \
@@ -263,16 +263,16 @@ A questo punto testare il firewall per verificare che funzioni come previsto.
    -n Srv-Work
    ```
 
-1. Connettere una sessione di Desktop remoto alla macchina virtuale **Srv-Jump** e accedere. Da qui, aprire una connessione Desktop remoto all'indirizzo IP privato **SRV-lavoro** ed effettuare l'accesso.
+1. Connettere una sessione di Desktop remoto alla macchina virtuale **Srv-Jump** e accedere. Da lì, aprire una connessione desktop remoto all'indirizzo IP privato **Srv-Work** e accedere.
 
-3. In **SRV-work**aprire una finestra di PowerShell ed eseguire i comandi seguenti:
+3. In **SRV-Work**aprire una finestra di PowerShell ed eseguire i comandi seguenti:
 
    ```
    nslookup www.google.com
    nslookup www.microsoft.com
    ```
 
-   Entrambi i comandi devono restituire le risposte, mostrando che le query DNS stanno attraversando il firewall.
+   Entrambi i comandi devono restituire risposte, mostrando che le query DNS stanno ottenendo attraverso il firewall.
 
 1. Eseguire i comandi seguenti:
 
@@ -284,7 +284,7 @@ A questo punto testare il firewall per verificare che funzioni come previsto.
    Invoke-WebRequest -Uri https://www.microsoft.com
    ```
 
-   Le richieste di `www.google.com` dovrebbero avere esito positivo e le richieste di `www.microsoft.com` devono avere esito negativo. Ciò dimostra che le regole del firewall funzionano come previsto.
+   Le `www.google.com` richieste devono avere `www.microsoft.com` esito positivo e le richieste devono avere esito negativo. Ciò dimostra che le regole del firewall funzionano come previsto.
 
 A questo punto si è verificato che le regole del firewall funzionano:
 
@@ -293,7 +293,7 @@ A questo punto si è verificato che le regole del firewall funzionano:
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-È possibile proteggere le risorse del firewall per l'esercitazione successiva o, se non sono più necessarie, eliminare il gruppo di risorse **test-FW-RG** per eliminare tutte le risorse correlate al firewall:
+È possibile mantenere le risorse del firewall per l'esercitazione successiva oppure, se non è più necessario, eliminare il gruppo di risorse Test-FW-RG per eliminare tutte le risorse correlate al firewall:You can keep your firewall resources for the next tutorial, or if no longer needed, delete the **Test-FW-RG** resource group to delete all firewall-related resources:
 
 ```azurecli-interactive
 az group delete \

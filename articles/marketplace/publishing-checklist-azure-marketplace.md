@@ -1,18 +1,18 @@
 ---
 title: Elenco di controllo per la pubblicazione per Azure Marketplace | Azure
 description: Elenco di controllo per la pubblicazione per Azure Marketplace con il portale Cloud Partner.
-author: jm-aditi-ms
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/05/2018
 ms.author: dsindona
-ms.openlocfilehash: deee43628f8d9f782979b4112f1fec415d137340
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0409933a3cd4bb535427cf61bd06207d53d5a96e
+ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80284994"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80387717"
 ---
 # <a name="publishing-checklist-for-azure-marketplace"></a>Elenco di controllo per la pubblicazione per Azure Marketplace    
 Controllare i componenti necessari prima di avviare il processo di pubblicazione.  

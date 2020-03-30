@@ -4,10 +4,10 @@ description: Per i partner CSP, la gestione risorse delegate di Azure consente d
 ms.date: 12/18/2019
 ms.topic: conceptual
 ms.openlocfilehash: 66ea74751f12a499a1e2d9e083497da31746e3c7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75456922"
 ---
 # <a name="azure-lighthouse-and-the-cloud-solution-provider-program"></a>Azure Lighthouse e programma Cloud Solution Provider
@@ -34,9 +34,9 @@ Per eseguire l'onboarding di una sottoscrizione creata tramite il programma CSP,
 ![Gestione dei tenant tramite la funzionalità Amministra per conto terzi e la gestione risorse delegate di Azure](../media/csp-2.jpg)
 
 > [!NOTE]
-> La [pagina **clienti** nella portale di Azure](../how-to/view-manage-customers.md) include ora una sezione **Cloud Solution Provider (anteprima)** , che visualizza le informazioni di fatturazione e le risorse per i clienti CSP che hanno [firmato il contratto di servizio Microsoft (MCA)](https://docs.microsoft.com/partner-center/confirm-customer-agreement) e si trovano nel [piano Azure](https://docs.microsoft.com/partner-center/azure-plan-get-started). Per altre informazioni, vedere [Introduzione all'account di fatturazione del Contratto Microsoft Partner](../../billing/mpa-overview.md).
+> La pagina [ **Clienti personali** nel portale](../how-to/view-manage-customers.md) di Azure include ora una sezione Cloud Solution Provider **(Anteprima),** in cui vengono visualizzate le informazioni di fatturazione e le risorse per i clienti CSP che hanno firmato il Contratto clienti [Microsoft (MCA)](https://docs.microsoft.com/partner-center/confirm-customer-agreement) e rientrano nel piano di [Azure.](https://docs.microsoft.com/partner-center/azure-plan-get-started) Per altre informazioni, vedere [Introduzione all'account di fatturazione del Contratto Microsoft Partner](../../billing/mpa-overview.md).
 >
-> I clienti CSP possono essere visualizzati in questa sezione indipendentemente dal fatto che siano stati caricati anche per la gestione delle risorse delegate di Azure. In caso affermativo, verranno visualizzati anche nella sezione **Customers** , come descritto in [View and manage customers and Delegated Resources](../how-to/view-manage-customers.md). Analogamente, non è necessario che un cliente CSP venga visualizzato nella sezione del **provider di soluzioni cloud (anteprima)** dei **clienti** per poterli caricare per la gestione delle risorse delegate di Azure.
+> I clienti CSP possono essere visualizzati in questa sezione indipendentemente dal fatto che siano stati onboardati o meno per la gestione delle risorse delegate di Azure.CSP customers may appear in this section whether they are also have onboarded for Azure delegated resource management. In caso affermativo, verranno visualizzati anche nella sezione **Clienti,** come descritto in Visualizzare e gestire i clienti e le [risorse delegate.](../how-to/view-manage-customers.md) Analogamente, un cliente CSP non deve essere visualizzato nella sezione Cloud Solution Provider (Preview) di Clienti personali per poterli eseguire l'onboarding per la gestione delle risorse delegate di Azure.Similarly, a CSP customer does not have to appear in the **Cloud Solution Provider (Preview)** section of My **customers** in order to you to onboard them for Azure delegated resource management.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

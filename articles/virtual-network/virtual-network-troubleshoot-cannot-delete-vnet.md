@@ -15,13 +15,13 @@ ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 2d427a8b40fcb537801ce76aae6bc32fcda3a307
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71056934"
 ---
-# <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>Risoluzione dei problemi: Non è stato possibile eliminare una rete virtuale in Azure
+# <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>Risoluzione dei problemi: Impossibile eliminare una rete virtuale in Azure
 
 Quando si tenta di eliminare una rete virtuale in Microsoft Azure, è possibile che si riceva un errore. Questo articolo illustra la procedura per risolvere questo tipo di problema. 
 
@@ -29,8 +29,8 @@ Quando si tenta di eliminare una rete virtuale in Microsoft Azure, è possibile 
 
 ## <a name="troubleshooting-guidance"></a>Guida alla risoluzione dei problemi 
 
-1. [Verificare se nella rete virtuale è in esecuzione un gateway di rete virtuale](#check-whether-a-virtual-network-gateway-is-running-in-the-virtual-network).
-2. [Verificare se nella rete virtuale è in esecuzione un gateway applicazione](#check-whether-an-application-gateway-is-running-in-the-virtual-network).
+1. [Verificare se un gateway](#check-whether-a-virtual-network-gateway-is-running-in-the-virtual-network)di rete virtuale è in esecuzione nella rete virtuale.
+2. [Verificare se un gateway applicazione è in esecuzione nella rete virtuale.](#check-whether-an-application-gateway-is-running-in-the-virtual-network)
 3. [Verificare se nella rete virtuale è abilitato il servizio Azure Active Directory Domain Service](#check-whether-azure-active-directory-domain-service-is-enabled-in-the-virtual-network).
 4. [Verificare se la rete virtuale è connessa ad altre risorse](#check-whether-the-virtual-network-is-connected-to-other-resource).
 5. [Verificare se nella rete virtuale è ancora in esecuzione una macchina virtuale](#check-whether-a-virtual-machine-is-still-running-in-the-virtual-network).
@@ -92,5 +92,5 @@ Se la rete virtuale è bloccata in uno stato di migrazione, non può essere elim
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Rete virtuale di Azure](virtual-networks-overview.md)
+- [Rete virtuale di AzureAzure Virtual Network](virtual-networks-overview.md)
 - [Domande frequenti sulla rete virtuale di Azure](virtual-networks-faq.md)

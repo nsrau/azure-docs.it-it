@@ -1,5 +1,5 @@
 ---
-title: Informazioni sul mapping di rete Hyper-V (con VMM) con Site Recovery
+title: Informazioni sul mapping di rete di Hyper-V (con VMM) con Site Recovery
 description: Illustra come configurare il mapping di rete per il ripristino di emergenza di macchine virtuali Hyper-V (gestite in cloud VMM) con Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: 6b68b4c943ec96620427978c2309f27e1fb1f217
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74082569"
 ---
 # <a name="prepare-network-mapping-for-hyper-v-vm-disaster-recovery-to-azure"></a>Preparare il mapping di rete per il ripristino di emergenza della macchina virtuale Hyper-V in Azure
@@ -39,7 +39,7 @@ Il mapping di rete funziona nel modo seguente:
 Quando si esegue la replica in un sito secondario, il mapping di rete esegue il mapping tra reti VM in un server VMM di origine e reti VM in un server VMM di destinazione. Il mapping esegue queste operazioni:
 
 - **Connessione di rete**: esegue la connessione delle VM alle reti appropriate dopo il failover. La macchina virtuale di replica verrà connessa alla rete di destinazione di cui viene eseguito il mapping alla rete di origine.
-- **Posizionamento ottimale delle macchine virtuali** : posiziona in modo ottimale le VM di replica nei server host Hyper-V. Le macchine virtuali di replica vengono posizionate negli host che possono accedere alle reti di macchine virtuali mappate.
+- **Posizionamento ottimale delle macchine virtuali **: posiziona in modo ottimale le VM di replica nei server host Hyper-V. Le macchine virtuali di replica vengono posizionate negli host che possono accedere alle reti di macchine virtuali mappate.
 - **Nessun mapping di rete**: se non si configura il mapping di rete, le macchine virtuali replicate non risulteranno connesse ad alcuna rete di macchina virtuale in seguito al failover.
 
 Il mapping di rete funziona nel modo seguente:
@@ -53,14 +53,14 @@ Il mapping di rete funziona nel modo seguente:
 
 Di seguito è riportato un esempio per illustrare questo meccanismo. Si prenda come esempio un’organizzazione con due sedi, New York e Chicago.
 
-**Località** | **Server VMM** | **Reti VM** | **Mappata a**
+**Percorso** | **Server VMM** | **Reti VM** | **Mappata a**
 ---|---|---|---
 New York | VMM-NewYork| VMNetwork1-NewYork | Mappata a VMNetwork1-Chicago
- |  | VMNetwork2-NewYork | Non mappato
+ |  | VMNetwork2-NewYork | Non mappata
 Chicago | VMM-Chicago| VMNetwork1-Chicago | Mappata a VMNetwork1-NewYork
- | | VMNetwork2-Chicago | Non mappato
+ | | VMNetwork2-Chicago | Non mappata
 
-In questo esempio:
+Esempio:
 
 - Quando viene creata una macchina virtuale di replica per una macchina virtuale connessa a VMNetwork1-NewYork, essa verrà connessa a VMNetwork1-Chicago.
 - Quando una macchina virtuale di replica viene creata per VMNetwork2-NewYork o VMNetwork2-Chicago, non verrà connessa ad alcuna rete.
@@ -78,7 +78,7 @@ SilverCloud2 | <p>ND</p><p></p> | <p>LogicalNetwork1-NewYork</p><p>LogicalNetwor
 
 ### <a name="logical-and-vm-network-settings"></a>Impostazioni di rete VM e logica
 
-**Località** | **Rete logica** | **Rete VM associata**
+**Percorso** | **Rete logica** | **Rete VM associata**
 ---|---|---
 New York | LogicalNetwork1-NewYork | VMNetwork1-NewYork
 Chicago | LogicalNetwork1-Chicago | VMNetwork1-Chicago
@@ -88,7 +88,7 @@ Chicago | LogicalNetwork1-Chicago | VMNetwork1-Chicago
 
 In base a queste impostazioni, quando si seleziona la rete VM di destinazione, nella tabella seguente sono mostrate le opzioni che saranno disponibili.
 
-**Select** | **Cloud protetto** | **Protezione del cloud** | **Rete di destinazione disponibili**
+**Seleziona** | **Cloud protetto** | **Protezione del cloud** | **Rete di destinazione disponibili**
 ---|---|---|---
 VMNetwork1-Chicago | SilverCloud1 | SilverCloud2 | Disponibile
  | GoldCloud1 | GoldCloud2 | Disponibile
@@ -104,7 +104,7 @@ Se la rete di destinazione dispone di più subnet e una di esse ha lo stesso nom
 Per vedere cosa succede in caso di failback (replica inversa), si supponga che venga eseguito il mapping di VMNetwork1-NewYork a VMNetwork1-Chicago, con le impostazioni seguenti.
 
 
-**VM** | **Connessa alla rete VM**
+**Vm** | **Connessa alla rete VM**
 ---|---
 VM1 | VMNetwork1-Network
 VM2 (replica di VM1) | VMNetwork1-Chicago
@@ -114,7 +114,7 @@ Con queste impostazioni esaminare cosa accade in un paio di scenari possibili.
 **Scenario** | **Risultato**
 ---|---
 Nessuna modifica nelle proprietà della rete di VM-2 dopo il failover | VM-1 rimane connessa alla rete di origine.
-Le proprietà di rete di VM-2 cambiano dopo il failover e la macchina virtuale viene disconnessa | VM-1 viene disconnessa
+Le proprietà di rete di VM-2 cambiano dopo il failover e la macchina virtuale viene disconnessa  | VM-1 viene disconnessa
 Le proprietà di rete di VM-2 cambiano dopo il failover e la macchina virtuale viene connessa a VMNetwork2-Chicago | Se non viene eseguito il mapping di VMNetwork2-Chicago, VM-1 verrà disconnessa
 Il mapping di rete di VMNetwork1-Chicago viene modificato | VM-1 verrà connessa alla rete ora mappata a VMNetwork1-Chicago
 

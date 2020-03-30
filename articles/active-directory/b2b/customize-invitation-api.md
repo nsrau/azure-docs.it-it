@@ -1,5 +1,5 @@
 ---
-title: API di collaborazione B2B e personalizzazione-Azure Active Directory
+title: API e personalizzazione di collaborazione B2B - Azure Active Directory
 description: La collaborazione B2B di Azure Active Directory supporta le relazioni tra società abilitando i partner commerciali ad accedere in modo selettivo alle applicazioni aziendali
 services: active-directory
 ms.service: active-directory
@@ -12,10 +12,10 @@ manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3a090ee3f9588ff6bff01e12db469bf04407a7fc
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79263465"
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>API e personalizzazione per Collaborazione B2B di Azure Active Directory
@@ -117,11 +117,11 @@ Get-AzureADUser -Filter "UserState eq 'PendingAcceptance'" | Format-List -Proper
 
 ## <a name="see-also"></a>Vedere anche
 
-Eseguire il check-out del riferimento all'API di invito in [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation).
+Estrarre il riferimento all'API di invito in [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Che cos'è Azure AD B2B Collaboration?](what-is-b2b.md)
-- [Elementi del messaggio di posta elettronica di invito per la Collaborazione B2B](invitation-email-elements.md)
+- [Che cos'è la collaborazione B2B di Azure AD?](what-is-b2b.md)
+- [Elementi del messaggio di posta elettronica di invito per la collaborazione B2B](invitation-email-elements.md)
 - [Riscatto dell'invito di Collaborazione B2B](redemption-experience.md)
-- [Aggiungere gli utenti per la Collaborazione B2B senza un invito](add-user-without-invite.md)
+- [Aggiungere utenti di Collaborazione B2B senza invito](add-user-without-invite.md)

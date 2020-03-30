@@ -12,10 +12,10 @@ ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 12/05/2019
 ms.openlocfilehash: 827fab0661a58bfa7d28452960ea6df64d18bf84
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74873744"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Panoramica delle query elastiche del database SQL di Azure (anteprima)
@@ -56,10 +56,10 @@ Una query elastica semplifica l'accesso a un'intera raccolta di database tramite
 Gli scenari relativi ai clienti per la query elastica sono caratterizzati dalle topologie seguenti:
 
 * **Partizionamento verticale - Query tra database** (Topologia 1): i dati vengono partizionati verticalmente tra alcuni database in un livello di dati. In genere, diversi set di tabelle si trovano in diversi database. Lo schema risulta quindi diverso nei diversi database. Ad esempio, tutte le tabelle per l'inventario si trovano in un database, mentre le tabelle correlate alla contabilità si trovano in un altro database. I casi di utilizzo comuni con questa topologia richiedono l'esecuzione di query o la compilazione di report tra tabelle in diversi database.
-* **Partizionamento orizzontale - Partizionamento orizzontale** (Topologia 2): i dati vengono partizionati orizzontalmente per distribuire le righe in un livello dati con scalabilità orizzontale. Con questo approccio lo schema risulta identico in tutti i database partecipanti. Questo approccio viene definito anche "partizionamento orizzontale". Il partizionamento orizzontale può essere eseguito e gestito mediante (1) le librerie di strumenti dei database elastici o (2) il partizionamento orizzontale automatico. Una query elastica viene usata per eseguire query o compilare report in molte partizioni. Le partizioni sono in genere database all'interno di un pool elastico. È possibile considerare la query elastica come un modo efficiente per eseguire query su tutti i database di un pool elastico in una sola volta, purché i database condividano lo schema comune.
+* **Partizionamento orizzontale - Partizionamento orizzontale** (topologia 2): i dati vengono partizionati orizzontalmente per distribuire le righe in un livello dati con scalabilità orizzontale. Con questo approccio lo schema risulta identico in tutti i database partecipanti. Questo approccio viene definito anche "partizionamento orizzontale". Il partizionamento orizzontale può essere eseguito e gestito mediante (1) le librerie di strumenti dei database elastici o (2) il partizionamento orizzontale automatico. Una query elastica viene usata per eseguire query o compilare report in molte partizioni. Le partizioni sono in genere database all'interno di un pool elastico. È possibile considerare la query elastica come un modo efficiente per eseguire query su tutti i database del pool elastico contemporaneamente, purché i database condividano lo schema comune.
 
 > [!NOTE]
-> La query elastica è adatta a scenari di creazione di report dove è possibile eseguire la maggior parte dell'elaborazione (filtri e aggregazione) sul lato del database di origine esterno. Non è adatto per le operazioni ETL, dove i grandi quantità di dati vengono trasferite da database remoti. Per carichi di lavoro di report intensivi o scenari di data warehousing con query più complesse, provare anche a usare l' [analisi delle sinapsi di Azure](https://azure.microsoft.com/services/synapse-analytics).
+> La query elastica è adatta a scenari di creazione di report dove è possibile eseguire la maggior parte dell'elaborazione (filtri e aggregazione) sul lato del database di origine esterno. Non è adatto per le operazioni ETL, dove i grandi quantità di dati vengono trasferite da database remoti. Per carichi di lavoro di reporting complessi o scenari di data warehousing con query più complesse, è anche consigliabile usare [Azure Synapse Analytics.](https://azure.microsoft.com/services/synapse-analytics)
 >  
 
 ## <a name="vertical-partitioning---cross-database-queries"></a>Partizionamento verticale - Query tra database
@@ -76,13 +76,13 @@ Per iniziare a scrivere codice, vedere [Introduzione alle query tra database (pa
 
 **Figura 2** Partizionamento verticale - Uso della query elastica per eseguire query nei dati di riferimento
 
-![Partizionamento verticale - Uso della query elastica per eseguire query nei dati di riferimento][3]
+![ Partizionamento verticale - Uso della query elastica per eseguire query nei dati di riferimento][3]
 
 **Query tra database**: le query elastiche consentono casi di utilizzo che richiedono l'esecuzione di query in diversi database SQL. La Figura 3 mostra quattro database diversi, ovvero CRM, Inventario, Risorse umane e Prodotti. Le query eseguite in uno dei database devono accedere anche a uno o a tutti gli altri database. Usando una query elastica, è possibile configurare il database per questa situazione eseguendo alcune semplici istruzioni DDL in ogni database. Dopo avere eseguito una volta questa configurazione, l'accesso a una tabella remota sarà semplice quando fare riferimento a una tabella locale dalle query T-SQL o dagli strumenti di Business Intelligence. Questo approccio è consigliato se le query remote non restituiscono risultati di grandi dimensioni.
 
 **Figura 3** Partizionamento verticale - Uso delle query elastiche per eseguire query in diversi database
 
-![Partizionamento verticale - Uso delle query elastiche per eseguire query in diversi database][4]
+![ Partizionamento verticale - Uso delle query elastiche per eseguire query in diversi database][4]
 
 I passaggi seguenti configurano le query su database elastici per scenari di partizionamento verticale che richiedono l'accesso a una tabella situata in database SQL remoti con lo stesso schema:
 
@@ -99,7 +99,7 @@ L'uso delle query elastiche per eseguire attività di creazione report su un liv
 
 **Figura 4** Partizionamento orizzontale - Uso delle query elastiche per la creazione di report relativi ai livelli dati con partizionamento orizzontale
 
-![Partizionamento orizzontale - Uso delle query elastiche per la creazione di report relativi ai livelli dati con partizionamento orizzontale][5]
+![ Partizionamento orizzontale - Uso delle query elastiche per la creazione di report relativi ai livelli dati con partizionamento orizzontale][5]
 
 > [!NOTE]
 > Il database per query elastiche (nodo head) può essere un database separato o lo stesso database che ospita la mappa partizioni.
@@ -119,7 +119,7 @@ Per altre informazioni sui passaggi necessari per gli scenari di partizionamento
 Per iniziare a scrivere codice, vedere la [guida introduttiva alle query elastiche per il partizionamento orizzontale](sql-database-elastic-query-getting-started.md).
 
 > [!IMPORTANT]
-> L'esecuzione corretta di una query elastica su un set di database di grandi dimensioni si basa principalmente sulla disponibilità di ogni database durante l'esecuzione della query. Se uno dei database non è disponibile, l'intera query avrà esito negativo. Se si prevede di eseguire query su centinaia o migliaia di database in una sola volta, assicurarsi che l'applicazione client disponga di una logica di ripetizione dei tentativi incorporata o che si prenda in considerazione l'utilizzo di [processi di database elastici](https://docs.microsoft.com/azure/sql-database/sql-database-job-automation-overview#elastic-database-jobs-preview) (anteprima) ed eseguendo query su subset di database più piccoli, consolidando i risultati di ogni query in una singola destinazione
+> La corretta esecuzione di una query elastica su un set di database di grandi dimensioni dipende fortemente dalla disponibilità di ogni database durante l'esecuzione della query. Se uno dei database non è disponibile, l'intera query avrà esito negativo. Se si prevede di eseguire una query su centinaia o migliaia di database contemporaneamente, assicurarsi che nell'applicazione client sia incorporata la logica di ripetizione dei tentativi oppure sfruttare i processi di [database elastici](https://docs.microsoft.com/azure/sql-database/sql-database-job-automation-overview#elastic-database-jobs-preview) (anteprima) e eseguire query su sottoinsiemi di database più piccoli, consolidando i risultati di ogni query in un'unica destinazione.
 
 ## <a name="t-sql-querying"></a>Query T-SQL
 
@@ -132,7 +132,7 @@ Dopo avere definito le origini dati esterne e le tabelle esterne, è possibile u
 > [!IMPORTANT]
 > L'autenticazione tramite Azure Active Directory con query elastiche non è attualmente supportata.
 
-## <a name="cost"></a>Costo
+## <a name="cost"></a>Costi
 
 Le query elastiche sono incluse nei costi dei database SQL di Azure. Sono supportate le topologie in cui i database remoti si trovano in un data center diverso rispetto all'endpoint delle query elastiche, ma per i dati in uscita dai database remoti vengono addebitate le normali [tariffe di Azure](https://azure.microsoft.com/pricing/details/data-transfers/).
 
@@ -142,12 +142,12 @@ Le query elastiche sono incluse nei costi dei database SQL di Azure. Sono suppor
 * La creazione di script di origini dati esterne o tabelle esterne da SSMS o SSDT non è ancora supportata.
 * L'importazione/esportazione per il database SQL non supporta ancora origini dati esterne e tabelle esterne. Se è necessario usare l'importazione/esportazione, eliminare questi oggetti prima dell'esportazione e quindi crearli di nuovo dopo l'importazione.
 * La query elastica supporta attualmente solo l'accesso in sola lettura alle tabelle esterne. È tuttavia possibile usare la funzionalità T-SQL completa nel database in cui viene definita la tabella esterna. Ciò può risultare utile, ad esempio, per rendere permanenti i risultati temporanei usando, ad esempio SELECT <elenco_colonne> INTO <tabella_locale>, oppure per definire stored procedure nel database sottoposto a query elastiche che fanno riferimento a tabelle esterne.
-* Ad eccezione di nvarchar (max), i tipi LOB (inclusi i tipi spaziali) non sono supportati nelle definizioni di tabella esterna. Come soluzione alternativa, è possibile creare una visualizzazione nel database remoto che esegue il cast del tipo LOB in nvarchar(max), definire una tabella esterna sulla visualizzazione invece della tabella di base e quindi eseguirne di nuovo il cast nel tipo LOB originale nelle query.
+* Ad eccezione di nvarchar(max), i tipi LOB (inclusi i tipi spaziali) non sono supportati nelle definizioni di tabella esterna. Come soluzione alternativa, è possibile creare una visualizzazione nel database remoto che esegue il cast del tipo LOB in nvarchar(max), definire una tabella esterna sulla visualizzazione invece della tabella di base e quindi eseguirne di nuovo il cast nel tipo LOB originale nelle query.
 * Le colonne del tipo di dati nvarchar (max) nel set di risultati disattivano le tecniche di invio in batch avanzate usate nell'implementazione di query elastiche e possono influire sulle prestazioni della query per un ordine di grandezza o addirittura due ordini di grandezza in casi d'uso non canonici dove grandi quantità di dati non aggregati vengono trasferiti come risultato della query.
 * Le statistiche di colonna sulle tabelle esterne non sono attualmente supportate. Le statistiche di tabella sono supportate ma devono essere create manualmente.
-* La query elastica funziona solo con il database SQL di Azure. Non è possibile usarlo per eseguire query su SQL Server locali o SQL Server in una macchina virtuale.
+* La query elastica funziona solo con il database SQL di Azure.Elastic query works with Azure SQL Database only. Non è possibile usarlo per eseguire query su SQL Server locale o SQL Server in una macchina virtuale.
 
-## <a name="feedback"></a>Commenti
+## <a name="feedback"></a>Commenti e suggerimenti
 
 Per condividere feedback sulla propria esperienza con le query elastiche, usare i forum MSDN o Stack Overflow. Siamo interessati a tutti i tipi di commenti e suggerimenti relativi al servizio (difetti, bordi approssimativo, gap di funzionalità).
 

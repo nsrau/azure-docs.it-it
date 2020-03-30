@@ -1,6 +1,6 @@
 ---
 title: Gestire protocolli e modalità di crittografia in Gestione API di Azure | Microsoft Docs
-description: Informazioni su come gestire i protocolli (TLS, SSL) e le modalità di crittografia (DES) in Gestione API di Azure.
+description: Informazioni su come gestire protocolli (TLS) e crittografia (DES) in Gestione API di Azure.Learn how to manage protocols (TLS) and ciphers (DES) in Azure API Management.
 services: api-management
 documentationcenter: ''
 author: mikebudzynski
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/29/2019
 ms.author: apimpm
-ms.openlocfilehash: f7c7fdd06480ce3da70c86d38ab0685b9b3aaaf2
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 7f87389016286c9f1b91abc77155be9e94005371
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072396"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80335880"
 ---
 # <a name="manage-protocols-and-ciphers-in-azure-api-management"></a>Gestire i protocolli e la crittografia in Gestione API di Azure
 
@@ -38,7 +38,7 @@ Per eseguire i passaggi in questo articolo è necessario avere quanto segue:
 1. Accedere all'**istanza di Gestione API** nel portale di Azure.
 2. Selezionare **Impostazioni protocollo** dal menu.  
 3. Abilitare o disabilitare i protocolli o le crittografie desiderate.
-4. Fare clic su **Save**. Le modifiche verranno applicate entro un'ora.  
+4. Fare clic su **Salva**. Le modifiche verranno applicate entro un'ora.  
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -8,10 +8,10 @@ ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
 ms.openlocfilehash: 093f4b11d10396199e9fac1e22fd82197f3a5e79
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79268184"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Domande frequenti su File di Azure
@@ -38,7 +38,7 @@ Questo articolo risponde ad alcune domande frequenti sulle caratteristiche e fun
     È possibile usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Sincronizzazione file di Azure trasforma i computer Windows Server in una cache rapida della condivisione file di Azure. È possibile usare qualsiasi protocollo disponibile in Windows Server per accedere ai dati in locale, tra cui SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
 
 * <a id="files-versus-blobs"></a>
-  **Perché usare una condivisione file di Azure invece di Archiviazione BLOB di Azure per i dati?**  
+  **Perché dovrei usare una condivisione file di Azure e l'archiviazione BLOB di Azure per i miei dati?**  
     File di Azure e Archiviazione BLOB di Azure consentono entrambi di archiviare grandi quantità di dati nel cloud, ma sono utili per scopi leggermente diversi. 
     
     Archiviazione BLOB di Azure è utile per le applicazioni native del cloud su vasta scala che necessitano di archiviare dati non strutturati. Per ottimizzare le prestazioni e la scalabilità, Archiviazione BLOB di Azure è un'astrazione di archiviazione più semplice rispetto a un vero e proprio file system. È possibile accedere ad Archiviazione BLOB di Azure solo tramite librerie client basate su REST (o direttamente tramite il protocollo basato su REST).
@@ -68,21 +68,21 @@ Questo articolo risponde ad alcune domande frequenti sulle caratteristiche e fun
 
 * <a id="redundancy-options"></a>
   **Quali opzioni di ridondanza di archiviazione sono supportate da File di Azure?**  
-    Attualmente File di Azure supporta archiviazione con ridondanza locale (con ridondanza locale), archiviazione con ridondanza della zona (ZRS), archiviazione con ridondanza geografica (GRS) e archiviazione con ridondanza della zona geografica (GZRS) (anteprima). Per il futuro è prevista l'introduzione del supporto per l'archiviazione con ridondanza geografica e accesso in lettura (RA-GRS), ma non sono ancora disponibili indicazioni precise sui tempi di attuazione.
+    Attualmente, File di Azure supporta l'archiviazione con ridondanza locale (LRS), l'archiviazione con ridondanza di zona , l'archiviazione con ridondanza geografica (GRS) e l'archiviazione con ridondanza geografica (GRS) (anteprima). Per il futuro è prevista l'introduzione del supporto per l'archiviazione con ridondanza geografica e accesso in lettura (RA-GRS), ma non sono ancora disponibili indicazioni precise sui tempi di attuazione.
 
 * <a id="tier-options"></a>
   **Quali livelli di archiviazione sono supportati in File di Azure?**  
-    File di Azure supporta due livelli di archiviazione, ovvero Premium e standard. Le condivisioni file standard vengono create in account di archiviazione per utilizzo generico (utilizzo generico V1 o GPv2) e le condivisioni file Premium vengono create negli account di archiviazione filestorage. Altre informazioni su come creare [condivisioni file standard](storage-how-to-create-file-share.md) e [condivisioni file Premium](storage-how-to-create-premium-fileshare.md). 
+    File di Azure supporta due livelli di archiviazione: premium e standard. Le condivisioni file standard vengono create negli account di archiviazione generici (GPv1 o GPv2) e le condivisioni file premium vengono create negli account di archiviazione FileStorage.Standard file shares are created in general purpose (GPv1 or GPv2) storage accounts and premium file shares are created in FileStorage storage accounts. Ulteriori informazioni su come creare [condivisioni file standard](storage-how-to-create-file-share.md) e [condivisioni file premium](storage-how-to-create-premium-fileshare.md). 
     
     > [!NOTE]
-    > Non è possibile creare condivisioni file di Azure dagli account di archiviazione BLOB o dagli account di archiviazione per utilizzo generico *Premium* (utilizzo generico V1 o GPv2). Le condivisioni file di Azure standard devono essere create solo negli account *standard* per utilizzo generico e le condivisioni file di Azure Premium devono essere create solo negli account di archiviazione filestorage. Gli account di archiviazione *Premium* per utilizzo generico (utilizzo generico V1 e GPv2) sono solo per i BLOB di pagine Premium. 
+    > Non è possibile creare condivisioni file di Azure da account di archiviazione BLOB *o* account di archiviazione premium-purpose (GPv1 o GPv2). Le condivisioni file standard di Azure devono essere create solo negli account di uso generale standard e le condivisioni file premium di Azure devono essere create solo negli account di archiviazione FileStorage.Standard Azure file shares must created in *standard* general purpose accounts only and premium Azure file shares must be created in FileStorage storage accounts only. *Gli* account di archiviazione Premium General Purpose (GPv1 e GPv2) sono solo per blob di pagine premium. 
 
 * <a id="give-us-feedback"></a>
-  voglio **visualizzare una funzionalità specifica aggiunta a file di Azure. È possibile aggiungerla?**  
+  **Si vuole davvero vedere una funzionalità specifica aggiunta ai file di Azure.This want really to see a specific feature added to Azure Files. Puoi aggiungerlo?**  
     Il team di File di Azure è interessato a tutti i commenti e i suggerimenti dei clienti sul servizio offerto. Gli utenti sono invitati a votare le richieste di funzionalità in [UserVoice per File di Azure](https://feedback.azure.com/forums/217298-storage/category/180670-files). Il team di File di Azure farà il possibile per soddisfare le richieste di nuove funzionalità.
 
-  **File di Azure supporta il blocco di file?**  
-    Sì, File di Azure supporta completamente il blocco di file di tipo SMB/Windows, [vedere i dettagli](https://docs.microsoft.com/rest/api/storageservices/managing-file-locks). 
+  **File di Azure supporta il blocco dei file?**  
+    Sì, File di Azure supporta completamente il blocco dei file in stile SMB/Windows, [vedere i dettagli.](https://docs.microsoft.com/rest/api/storageservices/managing-file-locks) 
     
 ## <a name="azure-file-sync"></a>Sincronizzazione file di Azure
 
@@ -95,42 +95,42 @@ Questo articolo risponde ad alcune domande frequenti sulle caratteristiche e fun
     Sì. Un gruppo di sincronizzazione può contenere endpoint server con appartenenze diverse ad Active Directory, anche se non aggiunti a un dominio. Anche se questa configurazione funziona dal punto di vista tecnico, non è consigliabile usarla come configurazione tipica dato che gli elenchi di controllo di accesso (ACL) definiti per i file e le cartelle in un server potrebbero non essere applicati da altri server nel gruppo di sincronizzazione. Per ottenere risultati ottimali, è consigliabile la sincronizzazione tra server nella stessa foresta di Active Directory, server in foreste di Active Directory diverse ma con relazioni di trust stabilite o server non inclusi in un dominio. È consigliabile evitare di usare una combinazione di queste configurazioni.
 
 * <a id="afs-change-detection"></a>
-  **ho creato un file direttamente nella condivisione file di Azure usando SMB o nel portale. Quanto tempo è necessario per la sincronizzazione del file con i server nel gruppo di sincronizzazione?**  
+  **Ho creato un file direttamente nella condivisione file di Azure usando SMB o nel portale. Quanto tempo è necessario per la sincronizzazione del file con i server nel gruppo di sincronizzazione?**  
     [!INCLUDE [storage-sync-files-change-detection](../../../includes/storage-sync-files-change-detection.md)]
 
-* <a id="afs-conflict-resolution"></a>**Cosa accade quando lo stesso file viene modificato in due server approssimativamente nello stesso momento?**  
+* <a id="afs-conflict-resolution"></a>**Se lo stesso file viene modificato su due server approssimativamente nello stesso momento, cosa succede?**  
     Sincronizzazione file di Azure usa una semplice strategia di risoluzione dei conflitti: vengono mantenute entrambe le modifiche ai file modificati nei due server contemporaneamente. Per la modifica più di recente viene mantenuto il nome del file originale. Al nome del file precedente viene aggiunto il nome del computer di "origine" e il numero del conflitto con questa tassonomia: 
    
     \<NomeFileSenzaEstensione\>-\<NomeComputer\>\[-#\].\<est\>  
 
-    Ad esempio, il primo conflitto per ReportAziendale.docx diventerebbe ReportAziendale-ServerCentrale.docx se ServerCentrale è il computer in cui è stata eseguita l'operazione di scrittura meno recente. Il nome per il secondo conflitto sarebbe ReportAziendale-ServerCentrale-1.docx. Sincronizzazione file di Azure supporta 100 file di conflitti per ogni file. Una volta raggiunto il numero massimo di file in conflitto, il file non verrà sincronizzato finché il numero di file in conflitto non sarà inferiore a 100.
+    Ad esempio, il primo conflitto per ReportAziendale.docx diventerebbe ReportAziendale-ServerCentrale.docx se ServerCentrale è il computer in cui è stata eseguita l'operazione di scrittura meno recente. Il nome per il secondo conflitto sarebbe ReportAziendale-ServerCentrale-1.docx. Sincronizzazione file di Azure supporta 100 file in conflitto per file. Una volta raggiunto il numero massimo di file in conflitto, la sincronizzazione del file non verrà sincronizzata fino a quando il numero di file in conflitto non è inferiore a 100.
 
 * <a id="afs-storage-redundancy"></a>
   **L'archiviazione con ridondanza geografica è supportata per Sincronizzazione file di Azure?**  
     Sì. File di Azure supporta sia l'archiviazione con ridondanza locale (LRS) che l'archiviazione con ridondanza geografica (GRS). Se si avvia un failover dell'account di archiviazione tra aree associate da un account configurato per l'archiviazione con ridondanza geografica, Microsoft consiglia di considerare la nuova area solo come backup dei dati. Sincronizzazione file di Azure non avvia automaticamente la sincronizzazione con la nuova area primaria. 
 
 * <a id="sizeondisk-versus-size"></a>
-  **Perché la proprietà *Dimensioni su disco* per un file non corrisponde alla proprietà *Dimensioni* dopo l'uso di Sincronizzazione file di Azure?**  
+  **Perché la proprietà *Dimensione su disco* per un file non corrisponde alla proprietà *Dimensione* dopo l'uso di Sincronizzazione file di Azure?**  
   Vedere [Informazioni sulla suddivisione in livelli nel cloud](storage-sync-cloud-tiering.md#sizeondisk-versus-size).
 
 * <a id="is-my-file-tiered"></a>
-  **Come si può stabilire se un file è archiviato a livelli?**  
+  **Come è possibile stabilire se un file è stato suddiviso in livelli?**  
   Vedere [Informazioni sulla suddivisione in livelli nel cloud](storage-sync-cloud-tiering.md#is-my-file-tiered).
 
-* <a id="afs-recall-file"></a>**Un file che si vuole usare è stato suddiviso in livelli. Come è possibile richiamare il file su disco per usarlo localmente?**  
+* <a id="afs-recall-file"></a>**Un file che si desidera utilizzare è stato suddiviso in livelli. Come posso richiamare il file su disco per utilizzarlo localmente?**  
   Vedere [Informazioni sulla suddivisione in livelli nel cloud](storage-sync-cloud-tiering.md#afs-recall-file).
 
 * <a id="afs-force-tiering"></a>
-  **Come è possibile forzare l'archiviazione a livelli di un file o una directory?**  
+  **Come si forza la creazione di livelli per un file o una directory?**  
   Vedere [Informazioni sulla suddivisione in livelli nel cloud](storage-sync-cloud-tiering.md#afs-force-tiering).
 
 * <a id="afs-effective-vfs"></a>
-  **Come viene interpretato lo *spazio disponibile del volume* quando in un volume sono presenti più endpoint server?**  
+  **Come viene interpretato *lo spazio libero* del volume quando si dispone di più endpoint server in un volume?**  
   Vedere [Informazioni sulla suddivisione in livelli nel cloud](storage-sync-cloud-tiering.md#afs-effective-vfs).
 
 * <a id="afs-files-excluded"></a>
   **Quali file o cartelle vengono automaticamente esclusi da Sincronizzazione file di Azure?**  
-  Vedere [file ignorati](storage-sync-files-planning.md#files-skipped).
+  Consultate [File ignorati.](storage-sync-files-planning.md#files-skipped)
 
 * <a id="afs-os-support"></a>
   **È possibile usare Sincronizzazione file di Azure con Windows Server 2008 R2, Linux o un dispositivo NAS?**  
@@ -141,7 +141,7 @@ Questo articolo risponde ad alcune domande frequenti sulle caratteristiche e fun
     Prima dell'agente di Sincronizzazione file di Azure versione 3, Sincronizzazione file di Azure bloccava lo spostamento dei file a livelli all'esterno dell'endpoint server e ne consentiva lo spostamento solo nello stesso volume dell'endpoint server. Operazioni di copia, spostamenti di file non a livelli e spostamenti di file a livelli in altri volumi non erano interessati. Il motivo di questo comportamento è il presupposto implicito, da parte di Esplora file e di altre API di Windows, che le operazioni di spostamento nello stesso volume siano operazioni di ridenominazione (quasi) istantanee. Durante gli spostamenti, Esplora file o altri metodi di spostamento (ad esempio tramite riga di comando o PowerShell) sembrano quindi non rispondere mentre Sincronizzazione file di Azure richiama i dati dal cloud. A partire dall'[agente di Sincronizzazione file di Azure versione 3.0.12.0](storage-files-release-notes.md#supported-versions), Sincronizzazione file di Azure consente di spostare un file a livelli all'esterno dell'endpoint server. Gli effetti negativi indicati in precedenza vengono evitati consentendo la presenza del file a livelli all'esterno dell'endpoint server e richiamando quindi il file in background. Ciò determina che gli spostamenti nello stesso volume siano istantanei e che al termine dello spostamento il file venga richiamato automaticamente su disco. 
 
 * <a id="afs-do-not-delete-server-endpoint"></a>
-  si **verifica un problema con sincronizzazione file di Azure sul server (sincronizzazione, suddivisione in livelli cloud e così via). È necessario rimuovere e ricreare l'endpoint server?**  
+  **Si è verificato un problema con Sincronizzazione file di Azure nel server (sincronizzazione, suddivisione in livelli cloud e così via). È necessario rimuovere e ricreare l'endpoint server?**  
     [!INCLUDE [storage-sync-files-remove-server-endpoint](../../../includes/storage-sync-files-remove-server-endpoint.md)]
     
 * <a id="afs-resource-move"></a>
@@ -154,17 +154,17 @@ Questo articolo risponde ad alcune domande frequenti sulle caratteristiche e fun
 * <a id="afs-ntfs-acls"></a>
   **Sincronizzazione file di Azure consente di mantenere gli ACL NTFS a livello di directory/file insieme ai dati archiviati in File di Azure?**
 
-    A partire dal 24 febbraio 2020, gli ACL nuovi ed esistenti a livelli di sincronizzazione file di Azure verranno mantenuti in formato NTFS e le modifiche ACL apportate direttamente alla condivisione file di Azure verranno sincronizzate in tutti i server del gruppo di sincronizzazione. Tutte le modifiche apportate agli ACL apportate a File di Azure si sincronizzano tramite sincronizzazione file di Azure. Quando si copiano dati in File di Azure, assicurarsi di usare SMB per accedere alla condivisione e mantenere gli ACL. Gli strumenti basati su REST esistenti, ad esempio AzCopy o Storage Explorer, non mantengono gli ACL.
+    A partire dal 24 febbraio 2020, gli ACL nuovi ed esistenti a livelli dalla sincronizzazione dei file di Azure verranno mantenuti in formato NTFS e le modifiche degli ACL apportate direttamente alla condivisione file di Azure verranno sincronizzate con tutti i server nel gruppo di sincronizzazione. Tutte le modifiche apportate agli ACL apportate ai file di Azure verranno sincronizzate tramite la sincronizzazione dei file di Azure.Any changes on ACLs made to Azure Files will sync down via Azure file sync. Quando si copiano dati in File di Azure, assicurarsi di usare SMB per accedere alla condivisione e mantenere gli ACL. Gli strumenti basati su REST esistenti, ad esempio AzCopy o Storage Explorer, non persistono gli ACL.
 
-    Se backup di Azure è stato abilitato nelle condivisioni file gestite di sincronizzazione file, gli ACL dei file possono continuare a essere ripristinati come parte del flusso di lavoro di ripristino del backup. Questa operazione può essere eseguita per l'intera condivisione o per singoli file/directory.
+    Se Backup di Azure è stato abilitato nelle condivisioni file gestite per la sincronizzazione file, gli ACL di file possono continuare a essere ripristinati come parte del flusso di lavoro di ripristino del backup. Questo funziona sia per l'intera condivisione o singoli file / directory.
 
-    Se si usano gli snapshot come parte della soluzione di backup autogestita per le condivisioni file gestite da sincronizzazione file, gli ACL potrebbero non essere ripristinati correttamente negli ACL NTFS se gli snapshot sono stati eseguiti prima del 24 febbraio 2020. In tal caso, è consigliabile contattare il supporto tecnico di Azure.
+    Se si utilizzano snapshot come parte della soluzione di backup autogestita per le condivisioni file gestite dalla sincronizzazione dei file, gli ACL potrebbero non essere ripristinati correttamente agli ACL NTFS se gli snapshot sono stati acquisiti prima del 24 febbraio 2020. In questo caso, prendere in considerazione contattare il supporto di Azure.If this occurs, consider contacting Azure Support.
     
 ## <a name="security-authentication-and-access-control"></a>Sicurezza, autenticazione e controllo di accesso
 * <a id="ad-support"></a>
-**è l'autenticazione basata su identità e il controllo di accesso supportato da file di Azure?**  
+**L'autenticazione basata sull'identità e il controllo di accesso sono supportati da File di Azure?**  
     
-    Sì, File di Azure supporta l'autenticazione basata sull'identità e il controllo di accesso. È possibile scegliere uno dei due modi per usare il controllo degli accessi in base all'identità: Active Directory (AD) (anteprima) o Azure Active Directory Domain Services (Azure AD DS) (GA). Active Directory supporta l'autenticazione tramite computer aggiunti a un dominio di Active Directory, in locale o in Azure, per accedere alle condivisioni file di Azure tramite SMB. Azure AD autenticazione DS su SMB per File di Azure Azure AD consente alle macchine virtuali di Windows appartenenti a un dominio di servizi di dominio Active Directory di accedere a condivisioni, directory e file usando credenziali Azure AD. Per informazioni dettagliate, vedere [Panoramica del supporto dell'autenticazione basata su identità file di Azure per l'accesso SMB](storage-files-active-directory-overview.md). 
+    Sì, File di Azure supporta l'autenticazione basata sull'identità e il controllo degli accessi. È possibile scegliere uno dei due modi per usare il controllo degli accessi basato sull'identità: Active Directory (AD) (anteprima) o Servizi di dominio Azure Active Directory (Azure AD DS) (GA). Active Directory supporta l'autenticazione tramite computer aggiunti a un dominio Active Directory, in locale o in Azure, per accedere alle condivisioni file di Azure tramite SMB. L'autenticazione di Servizi di dominio Azure su SMB per file di Azure consente alle macchine virtuali Windows aggiunte al dominio di Azure DS di accedere a condivisioni, directory e file usando le credenziali di Azure AD. Per altre informazioni, vedere [Panoramica del supporto dell'autenticazione basata sull'identità di File di Azure per l'accesso SMB](storage-files-active-directory-overview.md). 
 
     File di Azure offre altri due modi per gestire il controllo di accesso:
 
@@ -172,17 +172,17 @@ Questo articolo risponde ad alcune domande frequenti sulle caratteristiche e fun
 
     - Sincronizzazione file di Azure consente di mantenere e replicare tutti gli elenchi DACL, ovvero gli elenchi di controllo di accesso discrezionale, (basati su Active Directory o locali) in tutti gli endpoint server con cui viene eseguita la sincronizzazione. Dato che Windows Server è già in grado di eseguire l'autenticazione con Active Directory, Sincronizzazione file di Azure rappresenta un'efficace soluzione temporanea fino a quando non sarà disponibile il supporto completo per l'autenticazione basata su Active Directory e gli elenchi di controllo di accesso.
     
-    È possibile fare riferimento all' [autorizzazione dell'accesso ad archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-auth?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) per una rappresentazione completa di tutti i protocolli supportati nei servizi di archiviazione di Azure. 
+    È possibile fare riferimento a [Autorizzazione dell'accesso ad Archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-auth?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) per una rappresentazione completa di tutti i protocolli supportati nei servizi di Archiviazione di Azure.You can refer to Authorizing access to Azure Storage for a comprehensive representation of all protocols supported on Azure Storage services. 
 
 * <a id="ad-support-devices"></a>
-**File di Azure Azure Active Directory Domain Services (Azure AD DS) supportano l'accesso SMB con Azure ad credenziali dei dispositivi aggiunti o registrati con Azure ad?**
+**L'autenticazione di Servizi di dominio Azure Active Directory (Azure AD DS) supporta l'accesso SMB usando le credenziali di Azure AD dai dispositivi aggiunti o registrati con Azure AD?**
 
     No, questo scenario non è supportato.
 
 * <a id="ad-support-rest-apis"></a>
 **Sono disponibili API REST per supportare il recupero, l'impostazione o la copia di ACL NTFS per file/directory?**
 
-    Sì, sono supportate le API REST che ottengono, impostano o copiano ACL NTFS per directory o file quando si usa l'API REST [2019-07-07](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#version-2019-07-07) (o versioni successive).
+    Sì, supportiamo le API REST che ottengono, impostano o copiano gli ACL NTFS per le directory o i file quando usano l'API REST [2019-07-07](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#version-2019-07-07) (o versione successiva).
 
 * <a id="ad-vm-subscription"></a>
 **È possibile accedere a File di Azure con le credenziali di Azure AD da una macchina virtuale in una sottoscrizione diversa?**
@@ -190,39 +190,39 @@ Questo articolo risponde ad alcune domande frequenti sulle caratteristiche e fun
     Se la sottoscrizione in cui è distribuita la condivisione file è associata allo stesso tenant di Azure AD della distribuzione di Azure AD Domain Services in cui la macchina virtuale è aggiunta a un dominio, sarà possibile accedere a File di Azure usando le stesse credenziali di Azure AD. La limitazione si applica non alla sottoscrizione ma al tenant di Azure AD associato.
     
 * <a id="ad-support-subscription"></a>
-**possibile abilitare l'autenticazione File di Azure Azure AD DS o ad con un tenant Azure ad diverso dal tenant primario a cui è associata la condivisione file?**
+**È possibile abilitare l'autenticazione di Azure File di Azure AD DS o AD con un tenant di Azure AD diverso dal tenant primario a cui è associata la condivisione file?**
 
-    No, File di Azure supporta solo l'integrazione di Azure AD DS o AD con un tenant Azure AD che risiede nella stessa sottoscrizione della condivisione file. È possibile associare una sola sottoscrizione a un tenant di Azure AD. Questa limitazione si applica sia ai metodi di autenticazione Azure AD DS che AD. Quando si usa AD per l'autenticazione, le credenziali di Active Directory devono essere sincronizzate con la Azure AD a cui è associato l'account di archiviazione.
+    No, File di Azure supporta solo l'integrazione di Azure AD DS o AD con un tenant di Azure AD che risiede nella stessa sottoscrizione della condivisione file. È possibile associare una sola sottoscrizione a un tenant di Azure AD. Questa limitazione si applica a entrambi i metodi di autenticazione di Azure AD DS e AD. Quando si usa Active Directory per l'autenticazione, le credenziali di Active Directory devono essere sincronizzate con Azure AD a cui è associato l'account di archiviazione.
 
 * <a id="ad-linux-vms"></a>
-**File di Azure Azure ad l'autenticazione ad DS o ad supportano le VM Linux?**
+**File di Azure Azure Azure DS o l'autenticazione AD supporta le macchine virtuali Linux?**
 
-    No, l'autenticazione dalle macchine virtuali Linux non è supportata.
+    No, l'autenticazione da macchine virtuali Linux non è supportata.
 
 * <a id="ad-multiple-forest"></a>
-**file di Azure l'autenticazione ad supporta l'integrazione con un ambiente ad usando più foreste?**    
+**L'autenticazione di Azure Files AD supporta l'integrazione con un ambiente AD usando più foreste?**    
 
-    File di Azure l'autenticazione AD si integra solo con la foresta del servizio di dominio Active Directory in cui è registrato l'account di archiviazione. Per supportare l'autenticazione da un'altra foresta di Active Directory, l'ambiente deve avere un trust tra foreste configurato correttamente. Il modo in cui File di Azure la registrazione a un servizio di dominio Active Directory è essenzialmente uguale a un normale file server, in cui viene creata un'identità (computer o account di accesso del servizio) in AD per l'autenticazione. L'unica differenza è che il nome SPN registrato dell'account di archiviazione termina con "file.core.windows.net" che non corrisponde al suffisso del dominio. Rivolgersi all'amministratore di dominio per verificare se è necessario aggiornare i criteri di routing DNS per abilitare l'autenticazione a più foreste a causa del suffisso di dominio diverso.
+    L'autenticazione di Azure Files AD si integra solo con la foresta del servizio di dominio ad Active Directory in cui è registrato l'account di archiviazione. Per supportare l'autenticazione da un'altra foresta di Active Directory, l'ambiente deve disporre di un trust tra foreste configurato correttamente. Il modo in cui i file di Azure si registrano in un servizio di dominio Active Directory è per lo più lo stesso di un normale file server, in cui crea un'identità (account di accesso del computer o del servizio) in Active Directory per l'autenticazione. L'unica differenza è che il nome SPN registrato dell'account di archiviazione termina con "file.core.windows.net" che non corrisponde al suffisso di dominio. Rivolgersi all'amministratore di dominio per verificare se è necessario un aggiornamento dei criteri di routing DNS per abilitare l'autenticazione a più insiemi di strutture a causa del suffisso di dominio diverso.
 
 * <a id=""></a>
-**quali aree sono disponibili per l'autenticazione di file di Azure ad (anteprima)?**
+**Quali aree sono disponibili per l'autenticazione di Azure Files AD (anteprima)?**
 
-    Per informazioni dettagliate, vedere [disponibilità a livello](storage-files-identity-auth-active-directory-enable.md#regional-availability) di area ad.
+    Per informazioni dettagliate, fare riferimento alla disponibilità regionale di [Active Directory.](storage-files-identity-auth-active-directory-enable.md#regional-availability)
 
 * <a id="ad-aad-smb-afs"></a>
-è **possibile utilizzare File di Azure Azure ad l'autenticazione DS o Active Directory (ad) (anteprima) sulle condivisioni file gestite da sincronizzazione file di Azure?**
+**È possibile sfruttare l'autenticazione di Azure File di Azure AD DS o l'autenticazione di Active Directory (anteprima) nelle condivisioni file gestite da Sincronizzazione file di Azure?**
 
-    Sì, è possibile abilitare l'autenticazione Azure AD DS o AD in una condivisione file gestita da sincronizzazione file di Azure. Le modifiche apportate agli ACL NTFS di directory/file nei file server locali verranno suddivise a livelli File di Azure e viceversa.
+    Sì, è possibile abilitare l'autenticazione di Azure AD DS o AD in una condivisione file gestita dalla sincronizzazione file di Azure.Yes, you can enable Azure AD DS or AD authentication on a file share managed by Azure file sync. Le modifiche agli ACL NTFS di directory/file nei file server locali verranno suddivise in livelli in File di Azure e viceversa.
 
 * <a id="ad-aad-smb-files"></a>
-**come è possibile verificare se è stata abilitata l'autenticazione di Active Directory nell'account di archiviazione e le informazioni sul dominio di Active Directory?**
+**Come è possibile verificare se è stata abilitata l'autenticazione di Active Directory nell'account di archiviazione e nelle informazioni sul dominio di Active Directory?**
 
-    È possibile fare riferimento alle istruzioni fornite [qui](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable#enable-ad-authentication-for-your-account) per verificare se file di Azure l'autenticazione di Active Directory è abilitata nell'account di archiviazione e recuperare le informazioni sul dominio di Active Directory.
+    È possibile fare riferimento alle istruzioni fornite qui per verificare se l'autenticazione di Azure Files AD è abilitata nell'account di archiviazione e recuperare le informazioni sul dominio di Active Directory.You can refer to the instructions provided [here](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable#enable-ad-authentication-for-your-account) to validate if Azure Files AD Authentication is enabled on your storage account and retrieve the AD domain information.
     
 * <a id="encryption-at-rest"></a>
 **Come è possibile garantire che la condivisione file di Azure usi la crittografia dei dati inattivi?**  
 
-    Sì. Per altre informazioni, vedere [crittografia del servizio di archiviazione di Azure](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+    Sì. Per altre informazioni, vedere [Crittografia del servizio di archiviazione di Azure.For](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)more information see Azure Storage Service Encryption .
 
 * <a id="access-via-browser"></a>
 **Come è possibile fornire accesso a un file specifico tramite un Web browser?**  
@@ -237,7 +237,7 @@ Questo articolo risponde ad alcune domande frequenti sulle caratteristiche e fun
 * <a id="ip-restrictions"></a>
 **È possibile implementare restrizioni IP per una condivisione file di Azure?**  
 
-    Sì. L'accesso alla condivisione file di Azure può essere limitato a livello di account di archiviazione. Per altre informazioni, vedere [Configurare i firewall e le reti virtuali di Archiviazione di Azure](../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+    Sì. L'accesso alla condivisione file di Azure può essere limitato a livello di account di archiviazione. Per altre informazioni, vedere Configurare Firewall di archiviazione di [Azure e reti virtuali.](../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
 
 * <a id="data-compliance-policies"></a>
 **Quali criteri di conformità dei dati sono supportati da File di Azure?**  
@@ -247,9 +247,9 @@ Questo articolo risponde ad alcune domande frequenti sulle caratteristiche e fun
 ## <a name="on-premises-access"></a>Accesso locale
 
 * <a id="port-445-blocked"></a>
-**il provider di servizi Internet o blocca la porta 445 che ha esito negativo file di Azure montaggio. Cosa devo fare?**
+**Il mio ISP o IT blocca la porta 445 che non riesce ad esempio File di Azure. Cosa dovrei fare?**
 
-    Qui è possibile ottenere informazioni sui [vari modi per aggirare la porta bloccata 445](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked). File di Azure consente solo le connessioni che usano SMB 3,0 (con supporto della crittografia) dall'esterno dell'area o del Data Center. Il protocollo SMB 3,0 ha introdotto numerose funzionalità di sicurezza, tra cui la crittografia dei canali, che è molto sicura da usare su Internet. Tuttavia, è possibile che la porta 445 sia stata bloccata a causa di motivi cronologici di vulnerabilità rilevate in versioni SMB inferiori. In caso ideale, la porta deve essere bloccata solo per il traffico SMB 1,0 e SMB 1,0 deve essere disattivato su tutti i client.
+    È possibile ottenere informazioni su [vari modi per risolvere la porta bloccata 445 qui](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked). File di Azure consente solo connessioni tramite SMB 3.0 (con supporto della crittografia) dall'esterno dell'area geografica o del data center. Il protocollo SMB 3.0 ha introdotto molte funzionalità di sicurezza, tra cui la crittografia dei canali, che è molto sicura da usare su Internet. Tuttavia la sua possibile che la porta 445 è stato bloccato a causa di motivi storici di vulnerabilità trovati nelle versioni SMB inferiori. In caso di opportunità, la porta deve essere bloccata solo per il traffico SMB 1.0 e SMB 1.0 deve essere disattivata su tutti i client.
 
 * <a id="expressroute-not-required"></a>
 **È necessario usare Azure ExpressRoute per connettersi a File di Azure o per usare Sincronizzazione file di Azure in locale?**  
@@ -352,25 +352,25 @@ Questo articolo risponde ad alcune domande frequenti sulle caratteristiche e fun
     Per informazioni sugli obiettivi di scalabilità e prestazioni di File per Azure, vedere [Obiettivi di scalabilità e prestazioni di File di Azure](storage-files-scale-targets.md).
 
 * <a id="need-larger-share"></a>
-**quali dimensioni sono disponibili per le condivisioni file di Azure?**  
-    Le dimensioni della condivisione file di Azure (Premium e standard) possono essere scalate fino a 100 TiB. Vedere la sezione [onboarding to large file Shares (livello standard)](storage-files-planning.md#enable-standard-file-shares-to-span-up-to-100-tib) della Guida alla pianificazione per le istruzioni di onboarding per le condivisioni file più grandi per il livello standard.
+**Quali dimensioni sono disponibili per le condivisioni file di Azure?**  
+    Le dimensioni della condivisione file di Azure (premium e standard) possono essere scalabili fino a 100 TiB. Vedere la sezione [Condivisioni file onboarding to larger (livello standard)](storage-files-planning.md#enable-standard-file-shares-to-span-up-to-100-tib) della guida alla pianificazione per l'onboarding delle condivisioni file più grandi per il livello standard.
 
 * <a id="lfs-performance-impact"></a>
-l' **espansione della quota di condivisione file ha un effetto sui carichi di lavoro o sincronizzazione file di Azure?**
+**L'espansione della quota di condivisione file influisce sui carichi di lavoro o su Sincronizzazione file di Azure?**
     
-    No. Espandendo la quota non si avrà alcun effetto sui carichi di lavoro o Sincronizzazione file di Azure.
+    No. L'espansione della quota non influirà sui carichi di lavoro o su Sincronizzazione file di Azure.Expanding the quota will not impact your workloads or Azure File Sync.
 
 * <a id="open-handles-quota"></a>
-**Quanti client possono accedere allo stesso file contemporaneamente?**    
+**Quanti client possono accedere allo stesso file contemporaneamente?**   
     È prevista una quota pari a 2.000 handle aperti su un singolo file. In presenza di 2.000 handle aperti viene visualizzato un messaggio di errore che segnala il raggiungimento della quota.
 
 * <a id="zip-slow-performance"></a>
-**le prestazioni sono lente quando si decomprimeno i file file di Azure. Cosa devo fare?**  
+**Le prestazioni sono lente quando decomprimere i file in File di Azure.My performance is slow when I unzip files in Azure Files. Cosa dovrei fare?**  
     Per trasferire grandi quantità di file in File di Azure, è consigliabile usare AzCopy (per Windows, in anteprima per Linux e UNIX) o Azure PowerShell. Questi strumenti sono stati ottimizzati per il trasferimento in rete.
 
 * <a id="slow-perf-windows-81-2012r2"></a>
 **Perché le prestazioni sono ridotte dopo aver montato una condivisione file di Azure in Windows Server 2012 R2 o Windows 8.1?**  
-    Esiste un problema noto con il montaggio di una condivisione file di Azure in Windows Server 2012 R2 e Windows 8.1. Per questo problema è stata inclusa una patch nell'aggiornamento cumulativo di aprile 2014 per Windows 8.1 e Windows Server 2012 R2. Per ottenere prestazioni ottimali, verificare che questa patch sia stata applicata a tutte le istanze di Windows Server 2012 R2 e Windows 8.1. (È necessario ricevere sempre le patch di Windows tramite Windows Update). Per ulteriori informazioni, vedere l'articolo della Microsoft Knowledge Base associato [rallentamento delle prestazioni quando si accede a file di Azure da Windows 8.1 o Server 2012 R2](https://support.microsoft.com/kb/3114025).
+    Esiste un problema noto con il montaggio di una condivisione file di Azure in Windows Server 2012 R2 e Windows 8.1. Per questo problema è stata inclusa una patch nell'aggiornamento cumulativo di aprile 2014 per Windows 8.1 e Windows Server 2012 R2. Per ottenere prestazioni ottimali, verificare che questa patch sia stata applicata a tutte le istanze di Windows Server 2012 R2 e Windows 8.1. È consigliabile ricevere sempre le patch di Windows tramite Windows Update. Per altre informazioni, vedere l'articolo associato della Microsoft Knowledge Base [Rallentamento delle prestazioni quando si accede ai file di Azure da Windows 8.1 o Server 2012 R2.](https://support.microsoft.com/kb/3114025)
 
 ## <a name="features-and-interoperability-with-other-services"></a>Funzionalità e interoperabilità con altri servizi
 * <a id="cluster-witness"></a>
@@ -386,8 +386,8 @@ l' **espansione della quota di condivisione file ha un effetto sui carichi di la
     Attualmente non è possibile.
 
 * <a id="nested-shares"></a>
-è **possibile configurare condivisioni annidate? In altre parole, una condivisione in una condivisione?**  
-    No. La condivisione file *è* il driver virtuale che è possibile montare, quindi le condivisioni annidate non sono supportate.
+**È possibile configurare condivisioni nidificate? In altre parole, una quota sotto una quota?**  
+    No. La condivisione file *è* il driver virtuale che è possibile montare, pertanto le condivisioni nidificate non sono supportate.
 
 * <a id="ibm-mq"></a>
 **Come si può usare File di Azure con IBM MQ?**  

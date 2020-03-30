@@ -1,5 +1,5 @@
 ---
-title: Usare le API REST per eseguire CI/CD per Analisi di flusso di Azure in IoT Edge
+title: Usare le API REST per eseguire CI/CD per Azure Stream Analytics in IoT EdgeUse REST APIs to do CI/CD for Azure Stream Analytics on IoT Edge
 description: Informazioni su come implementare una pipeline di integrazione e distribuzione continua per Analisi di flusso di Azure usando le API REST.
 author: mamccrea
 ms.author: mamccrea
@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/04/2018
-ms.openlocfilehash: 78f2e06947c2b81ffe5e6cd8a88438db4dabf158
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 328ca7cd2c6f76095c8334ae6fdb4aa75fbb867d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75426408"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80292011"
 ---
 # <a name="implement-cicd-for-stream-analytics-on-iot-edge-using-apis"></a>Implementare CI/CD per Analisi di flusso in IoT Edge usando le API
 
@@ -34,7 +34,7 @@ curl -u { <username:password> }  -H "Content-Type: application/json" -X { <metho
 wget -q -O- --{ <method> } -data="<request body>" --header=Content-Type:application/json --auth-no-challenge --http-user="<Admin>" --http-password="<password>" <url>
 ```
  
-### <a name="windows"></a>Windows
+### <a name="windows"></a>WINDOWS
 
 Per Windows usare Powershell: 
 
@@ -57,7 +57,7 @@ Per creare un processo di Analisi di flusso, chiamare il metodo PUT usando l'API
 
 |Metodo|URL richiesta|
 |------|-----------|
-|PUT|https://management.azure.com/subscriptions/{**subscription-id**}/resourcegroups/{**resource-group-name**}/providers/Microsoft.StreamAnalytics/streamingjobs/{**job-name**}?api-version=2017-04-01-preview|
+|PUT|`https://management.azure.com/subscriptions/{\**subscription-id**}/resourcegroups/{**resource-group-name**}/providers/Microsoft.StreamAnalytics/streamingjobs/{**job-name**}?api-version=2017-04-01-preview`|
  
 Esempio di comando con **curl**:
 
@@ -144,7 +144,7 @@ Per pubblicare un processo di Analisi di flusso in IoT Edge, chiamare il metodo 
 
 |Metodo|URL richiesta|
 |------|-----------|
-|POST|https://management.azure.com/subscriptions/{**subscriptionid**}/resourceGroups/{**resourcegroupname**}/providers/Microsoft.StreamAnalytics/streamingjobs/{**jobname**}/publishedgepackage?api-version=2017-04-01-preview|
+|POST|`https://management.azure.com/subscriptions/{\**subscriptionid**}/resourceGroups/{**resourcegroupname**}/providers/Microsoft.StreamAnalytics/streamingjobs/{**jobname**}/publishedgepackage?api-version=2017-04-01-preview`|
 
 Questa operazione asincrona restituisce uno stato di 202 finché il processo non è stato pubblicato correttamente. L'intestazione della risposta di posizione contiene l'URI usato per ottenere lo stato del processo. Mentre il processo è in esecuzione, una chiamata all'URI nell'intestazione della posizione restituisce uno stato di 202. Al termine del processo, l'URI nell'intestazione della posizione restituisce uno stato di 200. 
 

@@ -7,19 +7,19 @@ ms.topic: conceptual
 ms.date: 12/19/2019
 ms.author: rohogue
 ms.openlocfilehash: df20f050ff87fdb59a3e5cca373098240f8bfbb9
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76152936"
 ---
 # <a name="cluster-tuning"></a>Ottimizzazione del cluster
 
 La maggior parte dei cluster vFXT può trarre vantaggio dalle impostazioni delle prestazioni personalizzate. Queste impostazioni consentono al cluster di ottenere la massima efficienza con il flusso di lavoro, il set di dati e gli strumenti specifici.
 
-Questa personalizzazione dovrebbe essere eseguita con assistenza da un rappresentante del supporto, perché può comportare la configurazione di funzionalità non disponibili nel pannello di controllo.
+Questa personalizzazione deve essere eseguita con l'aiuto di un rappresentante del supporto, perché può comportare la configurazione di funzionalità che non sono disponibili dal Pannello di controllo Di Avere.
 
-Questa sezione descrive alcune delle operazioni di ottimizzazione personalizzate che è possibile eseguire.
+In questa sezione vengono descritte alcune delle ottimizzazioni personalizzate che è possibile eseguire.
 
 ## <a name="general-optimizations"></a>Ottimizzazioni generali
 
@@ -34,21 +34,21 @@ Queste modifiche possono essere consigliabili a seconda della qualità del set d
 
 ## <a name="cloud-nas-or-cloud-gateway-optimizations"></a>Ottimizzazioni del gateway cloud o del dispositivo NAS cloud
 
-In uno scenario di gateway cloud o gateway, il cluster vFXT fornisce l'accesso in stile NAS a un contenitore cloud. Per sfruttare i vantaggi della velocità dei dati più elevata tra il cluster vFXT e l'archiviazione cloud, il rappresentante potrebbe consigliare di modificare le impostazioni per eseguire il push più aggressivo dei dati nel volume di archiviazione dalla cache. Ad esempio:
+In uno scenario NAS o gateway cloud, il cluster vFXT fornisce l'accesso in stile NAS a un contenitore cloud. Per sfruttare i vantaggi di velocità dei dati più elevate tra il cluster vFXT e l'archiviazione cloud, il rappresentante potrebbe consigliare di modificare le impostazioni per eseguire il push più aggressivo dei dati nel volume di archiviazione dalla cache. Ad esempio:
 
 * Aumentare il numero di connessioni TCP tra il cluster e il contenitore di archiviazione
 
 ## <a name="cloud-bursting-or-hybrid-wan-optimizations"></a>Burst nel cloud o ottimizzazioni della rete WAN ibrida
 
-In uno scenario di espansione nel cloud o in uno scenario di ottimizzazione WAN di archiviazione ibrida, il cluster vFXT fornisce l'integrazione tra il cloud e l'archiviazione hardware locale. Queste modifiche possono essere utili:
+In uno scenario di cloud bursting o di ottimizzazione WAN di archiviazione ibrida, il cluster vFXT fornisce l'integrazione tra il cloud e l'archiviazione hardware locale. Queste modifiche possono essere utili:
 
 * Aumentare il numero di connessioni TCP consentite tra il cluster e il core filer
 * Abilitare l'impostazione di ottimizzazione WAN per il core filer remoto. Questa impostazione può essere usata per un filer locale remoto o per un core filer cloud in un'altra area di Azure.
-* Aumentare le dimensioni del buffer del socket TCP<sup>*</sup>
-* Abilitare l'impostazione "sempre in diretta" per ridurre i file memorizzati nella cache ridondante<sup>*</sup>
+* Aumentare la dimensione del buffer del socket TCP<sup>*</sup>
+* Attivare l'impostazione "sempre avanti" per ridurre i file memorizzati in modalità ridondante<sup>*</sup>
 
-<sup>*</sup> Queste rettifiche potrebbero non essere valide per tutti i sistemi, a seconda del carico di lavoro e delle esigenze di prestazioni.
+<sup>*</sup>Queste regolazioni potrebbero non essere applicabili a tutti i sistemi, a seconda del carico di lavoro e delle esigenze di prestazioni.
 
 ## <a name="help-optimizing-your-avere-vfxt-for-azure"></a>Ottimizzazione di Avere vFXT per Azure
 
-Per contattare il personale del supporto tecnico in merito a queste ottimizzazioni, attenersi alla procedura descritta in [ottenere assistenza con il sistema](avere-vfxt-open-ticket.md).
+Per contattare il personale di supporto per queste ottimizzazioni, utilizzare la procedura descritta in [Ottenere assistenza per il sistema.](avere-vfxt-open-ticket.md)

@@ -1,7 +1,7 @@
 ---
-title: Probe di integrità per la scalabilità e la disponibilità elevata per il servizio
+title: Sonde di integrità per scalare e fornire ha per il servizio
 titleSuffix: Azure Load Balancer
-description: Questo articolo illustra come usare i probe di integrità per monitorare le istanze dietro Azure Load Balancer
+description: In questo articolo viene illustrato come usare i probe di integrità per monitorare le istanze dietro Azure Load Balancer
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -14,92 +14,95 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: 46d566dc7527097d36b72886ada1f8c94f727535
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: ec1507e09a183f8d466a456b70151861f5f0e82c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79285136"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80159439"
 ---
 # <a name="load-balancer-health-probes"></a>Probe di integrità di Load Balancer
 
-Quando si usano le regole di bilanciamento del carico con Azure Load Balancer, è necessario specificare i probe di integrità per consentire Load Balancer di rilevare lo stato dell'endpoint back-end.  La configurazione del probe di integrità e delle risposte di probe determina quali istanze del pool back-end riceveranno nuovi flussi. È possibile usare i probe di integrità per rilevare l'errore di un'applicazione in un endpoint back-end. È anche possibile generare una risposta personalizzata per un probe di integrità e usare il probe per il controllo di flusso, al fine di gestire un carico o tempi di inattività pianificati. Quando un probe di integrità ha esito negativo, Load Balancer smetterà di inviare nuovi flussi alla rispettiva istanza non integra. La connettività in uscita non ha alcun effetto sulla connettività in ingresso.
+Quando si usano regole di bilanciamento del carico con Azure Load Balancer, è necessario specificare probe di integrità per consentire a Load Balancer di rilevare lo stato dell'endpoint back-end.  La configurazione delle risposte del probe di integrità e del probe determina quali istanze del pool back-end riceveranno nuovi flussi. È possibile utilizzare i probe di integrità per rilevare l'errore di un'applicazione in un endpoint back-end. È anche possibile generare una risposta personalizzata per un probe di integrità e usare il probe per il controllo di flusso, al fine di gestire un carico o tempi di inattività pianificati. Quando un probe di integrità ha esito negativo, Load Balancer interromperà l'invio di nuovi flussi alla rispettiva istanza non integra. La connettività in uscita non è interessata, ma la connettività in ingresso ne risente.
 
-I probe di integrità supportano più protocolli. La disponibilità di uno specifico protocollo di probe di integrità varia in base Load Balancer SKU.  Inoltre, il comportamento del servizio varia in base Load Balancer SKU, come illustrato nella tabella seguente:
+I probe di integrità supportano più protocolli. La disponibilità di un protocollo di probe di integrità specifico varia in base allo SKU di Load Balancer.The availability of a specific health probe protocol varies by Load Balancer SKU.  Inoltre, il comportamento del servizio varia in base allo SKU di Load Balancer, come illustrato nella tabella seguente:
 
 | | SKU Standard | SKU Basic |
 | --- | --- | --- |
-| [Tipi di probe](#types) | TCP, HTTP, HTTPS | TCP, HTTP |
-| [Comportamento in caso di inattività dei probe](#probedown) | Tutti i probe sono inattivi, tutti i flussi TCP continuano. | Tutte le sonde vengono arrestate, tutti i flussi TCP scadono. | 
+| [Tipi di sonde](#types) | TCP, HTTP, HTTPS | TCP, HTTP |
+| [Comportamento in caso di inattività dei probe](#probedown) | Tutti i probe sono inattivi, tutti i flussi TCP continuano. | Tutti i probe verso il basso, tutti i flussi TCP scadono. | 
 
 
 >[!IMPORTANT]
->Esaminare questo documento nel suo complesso, incluse le [indicazioni di progettazione](#design) importanti di seguito per creare un servizio Reliable Services.
+>Rivedere questo documento nella sua interezza, incluse importanti linee guida di [progettazione](#design) di seguito per creare un servizio affidabile.
 
 >[!IMPORTANT]
 >I probe di integrità di Load Balancer sono originati dall'indirizzo IP 168.63.129.16 e non devono essere bloccati perché possano contrassegnare l'istanza come attiva.  Per informazioni dettagliate, vedere [Indirizzo IP di origine dei probe](#probesource).
 
-## <a name="probes"></a>Configurazione Probe
+>[!IMPORTANT]
+>Indipendentemente dalla soglia di timeout configurata, i probe di integrità di Load Balancer HTTP(S) eseguiranno automaticamente il probe di un'istanza se il server restituisce un codice di stato diverso da HTTP 200 OK o se la connessione viene terminata tramite la reimpostazione TCP.
 
-La configurazione del probe di integrità è costituita dagli elementi seguenti:
+## <a name="probe-configuration"></a><a name="probes"></a>Configurazione della sonda
 
-- Durata dell'intervallo tra i singoli Probe
-- Numero di risposte del probe che devono essere osservate prima della transizione del probe a uno stato diverso
-- Protocollo del probe
-- Porta del probe
-- Percorso HTTP da usare per HTTP GET quando si usano Probe HTTP (S)
+La configurazione del probe di integrità è costituita dai seguenti elementi:
+
+- Durata dell'intervallo tra le singole sonde
+- Numero di risposte probe che devono essere osservate prima che la sonda passi a uno stato diverso
+- Protocollo della sonda
+- Porta della sonda
+- Percorso HTTP da utilizzare per HTTP GET quando si utilizzano probe HTTP(S)
 
 >[!NOTE]
->Una definizione di probe non è obbligatoria o verificata quando si usa Azure PowerShell, interfaccia della riga di comando di Azure, modelli o API. I test di convalida dei probe vengono eseguiti solo quando si usa il portale di Azure.
+>Una definizione di probe non è obbligatoria o controllata quando si usa Azure PowerShell, l'interfaccia della riga di comando di Azure, i modelli o l'API. Probe validation tests are only done when using the Azure Portal.
 
-## <a name="understanding-application-signal-detection-of-the-signal-and-reaction-of-the-platform"></a>Informazioni sul segnale dell'applicazione, sul rilevamento del segnale e sulla reazione della piattaforma
+## <a name="understanding-application-signal-detection-of-the-signal-and-reaction-of-the-platform"></a>Comprendere il segnale dell'applicazione, il rilevamento del segnale e la reazione della piattaforma
 
-Il numero di risposte del probe si applica a entrambi
+Il numero di risposte
 
-- il numero di probe riusciti che consentono a un'istanza di essere contrassegnata come attiva e
-- numero di probe non riusciti che fanno sì che un'istanza venga contrassegnata come inattiva.
+- il numero di probe riusciti che consentono di contrassegnare un'istanza come
+- numero di probe scadutamente che causano la marcatura di un'istanza come giù.
 
-I valori di timeout e intervallo specificati determinano se un'istanza verrà contrassegnata come in alto o in basso.  La durata dell'intervallo moltiplicata per il numero di risposte del probe determina il periodo di tempo durante il quale devono essere rilevate le risposte del probe.  E il servizio reagirà dopo aver completato i probe richiesti.
+I valori di timeout e intervallo specificati determinano se un'istanza verrà contrassegnata come verso l'alto o verso il basso.  La durata dell'intervallo moltiplicato per il numero di risposte del probe determina la durata durante la quale le risposte del probe devono essere rilevate.  E il servizio reagirà dopo aver raggiunto le sonde richieste.
 
-È possibile illustrare ulteriormente il comportamento con un esempio. Se è stato impostato il numero di risposte del Probe su 2 e l'intervallo su 5 secondi, questo significa che è necessario osservare 2 errori di probe entro un intervallo di 10 secondi.  Poiché l'ora in cui viene inviato un probe non è sincronizzata quando l'applicazione può modificare lo stato, è possibile delegare il tempo necessario per rilevare due scenari:
+Possiamo illustrare ulteriormente il comportamento con un esempio. Se è stato impostato il numero di risposte probe su 2 e l'intervallo su 5 secondi, è necessario osservare 2 errori di timeout del probe entro un intervallo di 10 secondi.  Poiché l'ora in cui viene inviato un probe non è sincronizzata quando l'applicazione può cambiare stato, è possibile associare il tempo per rilevare da due scenari:Because the time at which a probe is not synchronized when your application may change state, we can bound the time to detect by two scenarios:
 
-1. Se l'applicazione inizia a produrre una risposta probe non riuscita immediatamente prima dell'arrivo del primo Probe, il rilevamento di questi eventi imposterà 10 secondi (2 x 5 secondi di intervallo) più la durata dell'avvio dell'applicazione per segnalare un errore a quando il primo il probe arriva.  È possibile presupporre che questo rilevamento imprenda leggermente più di 10 secondi.
-2. Se l'applicazione inizia a produrre una risposta probe non riuscita subito dopo l'arrivo del primo Probe, il rilevamento di questi eventi non verrà avviato fino a quando non arriva il probe successivo (e non riesce) più altri 10 secondi (intervalli di 2 x 5 secondi).  È possibile presupporre che questo rilevamento imposti solo entro 15 secondi.
+1. Se l'applicazione inizia a produrre una risposta probe di timeout appena prima dell'arrivo del primo probe, il rilevamento di questi eventi richiederà 10 secondi (intervalli di 2 x 5 secondi) più la durata dell'applicazione che inizia a segnalare un timeout quando il primo sonda arriva.  È possibile presupporre che questo rilevamento richiederà un po' più di 10 secondi.
+2. Se l'applicazione inizia a produrre una risposta probe di timeout subito dopo l'arrivo del primo probe, il rilevamento di questi eventi non inizierà fino all'arrivo del probe successivo (e si verifica il timeout) più altri 10 secondi (2 x 5 secondi).  È possibile presupporre che questo rilevamento richiederà poco meno di 15 secondi.
 
-Per questo esempio, una volta che si è verificato il rilevamento, la piattaforma rileverà una quantità di tempo limitata per rispondere a questa modifica.  Ciò significa che a dipende da 
+Per questo esempio, una volta che si è verificato il rilevamento, la piattaforma richiederà una piccola quantità di tempo per reagire a questa modifica.  Ciò significa a seconda 
 
-1. Quando l'applicazione inizia a cambiare stato e
-2. Quando questa modifica viene rilevata e soddisfa i criteri richiesti (numero di probe inviati all'intervallo specificato) e
-3. Quando il rilevamento è stato comunicato attraverso la piattaforma 
+1. quando l'applicazione inizia a cambiare stato e
+2. quando questa modifica viene rilevata e soddisfatta dei criteri richiesti (numero di sonde inviate all'intervallo specificato) e
+3. quando il rilevamento è stato comunicato attraverso la piattaforma 
 
-è possibile presupporre che la reazione a un probe in errore riprenda tra un minimo di 10 secondi e un massimo di 15 secondi per rispondere a una modifica del segnale dall'applicazione.  Questo esempio viene fornito per illustrare gli elementi che avvengono, tuttavia, non è possibile prevedere una durata esatta oltre alle linee guida ruvide illustrate in questo esempio.
+si può presumere che la reazione a una risposta sonda di timeout richiederà tra un minimo di poco più di 10 secondi e un massimo di poco più di 15 secondi per reagire a un cambiamento nel segnale dall'applicazione.  Questo esempio viene fornito per illustrare ciò che sta avvenendo, tuttavia, non è possibile prevedere una durata esatta oltre le indicazioni approssimative di cui sopra illustrate in questo esempio.
  
-## <a name="types"></a>Tipi di probe
+## <a name="probe-types"></a><a name="types"></a>Tipi di probe
 
-Il protocollo usato dal probe di integrità può essere configurato in uno dei seguenti elementi:
+Il protocollo utilizzato dal probe di integrità può essere configurato su uno dei seguenti elementi:
 
 - [Listener TCP](#tcpprobe)
 - [Endpoint HTTP](#httpprobe)
 - [Endpoint HTTPS](#httpsprobe)
 
-I protocolli disponibili dipendono dallo SKU Load Balancer usato:
+I protocolli disponibili dipendono dallo SKU di Load Balancer usato:
 
 || TCP | HTTP | HTTPS |
 | --- | --- | --- | --- |
 | SKU Standard |    &#9989; |   &#9989; |   &#9989; |
 | SKU Basic |   &#9989; |   &#9989; | &#10060; |
 
-### <a name="tcpprobe"></a>Probe TCP
+### <a name="tcp-probe"></a><a name="tcpprobe"></a>Probe TCP
 
 I probe TCP avviano una connessione tramite l'esecuzione di un handshake TCP aperto a tre vie con la porta definita,  I probe TCP terminano una connessione con un handshake TCP chiuso a quattro vie.
 
 L'intervallo minimo del probe è di 5 secondi e il numero minimo di risposte non integre è 2.  La durata totale di tutti gli intervalli non può superare i 120 secondi.
 
 Un probe TCP ha esito negativo quando:
-* Il listener TCP sull'istanza non invia alcuna risposta durante il periodo di timeout.  Un probe viene contrassegnato in base alla configurazione del numero di richieste di probe non riuscite che possono rimanere senza risposta prima che il probe sia contrassegnato come inattivo.
+* Il listener TCP sull'istanza non invia alcuna risposta durante il periodo di timeout.  Un probe viene contrassegnato come inattivo in base al numero di richieste di probe timeout, configurate per rimanere senza risposta prima di contrassegnare il probe.
 * Il probe riceve un TCP Reset dall'istanza.
 
-Di seguito viene illustrato come è possibile esprimere questo tipo di configurazione di probe in un modello di Gestione risorse:
+Di seguito viene illustrato come esprimere questo tipo di configurazione probe in un modello di Resource Manager:The following illustrates how you could express this kind of probe configuration in a Resource Manager template:
 
 ```json
     {
@@ -112,26 +115,26 @@ Di seguito viene illustrato come è possibile esprimere questo tipo di configura
       },
 ```
 
-### <a name="httpprobe"></a><a name="httpsprobe"></a> Probe http/https
+### <a name="http--https-probe"></a><a name="httpprobe"></a> <a name="httpsprobe"></a> Probe HTTP/HTTPS
 
 >[!NOTE]
 >Il probe HTTPS è disponibile solo per [Load Balancer Standard](load-balancer-standard-overview.md).
 
 I probe HTTP e HTTPS si basano sul probe TCP ed emettono una richiesta HTTP GET con il percorso specificato. Entrambi i probe supportano i percorsi relativi per HTTP GET. I probe HTTPS sono uguali ai probe HTTP con l'aggiunta di un wrapper Transport Layer Security (TLS, precedente noto come SSL). Il probe di integrità viene contrassegnato come inattivo quando l'istanza risponde con uno stato HTTP 200 entro il periodo di timeout.  Per impostazione predefinita, il probe di integrità tenta di controllare la porta del probe di integrità configurata ogni 15 secondi. L'intervallo minimo del probe è di 5 secondi. La durata totale di tutti gli intervalli non può superare i 120 secondi.
 
-I probe HTTP/HTTPS possono essere utili anche per implementare una logica personalizzata per rimuovere le istanze dalla rotazione del servizio di bilanciamento del carico se la porta Probe è anche il listener per il servizio stesso. Ad esempio, si potrebbe scegliere di rimuovere un'istanza se indica oltre il 90% di uso della CPU e restituisce uno stato HTTP diverso da 200. 
+I probe HTTP/HTTPS possono essere utili anche per implementare la propria logica per rimuovere le istanze dalla rotazione del servizio di bilanciamento del carico se la porta del probe è anche il listener per il servizio stesso. Ad esempio, si potrebbe scegliere di rimuovere un'istanza se indica oltre il 90% di uso della CPU e restituisce uno stato HTTP diverso da 200. 
 
 > [!NOTE] 
-> Il probe HTTPS richiede l'uso di certificati basati che hanno un hash di firma minimo di SHA256 nell'intera catena.
+> Il probe HTTPS richiede l'utilizzo di certificati basati su cui è un hash di firma minimo SHA256 nell'intera catena.
 
 Se si usano servizi cloud e ruoli Web che usano w3wp.exe, si ottiene anche il monitoraggio automatico del sito Web. Gli errori nel codice del sito Web restituiscono uno stato diverso da 200 al probe del servizio di bilanciamento del carico.
 
 Un probe HTTP/HTTPS ha esito negativo quando:
 * L'endpoint del probe restituisce un codice di risposta HTTP diverso da 200, ad esempio 403, 404 o 500. In questo caso, il probe di integrità verrà contrassegnato immediatamente come inattivo. 
-* L'endpoint probe non risponde affatto durante il periodo di timeout minimo dell'intervallo di probe e di 30 secondi. Più richieste di probe potrebbero non ricevere risposta prima che il probe venga contrassegnato come non in esecuzione e fino a quando non viene raggiunta la somma di tutti gli intervalli di timeout.
+* L'endpoint probe non risponde affatto durante il periodo minimo dell'intervallo di probe e il periodo di timeout di 30 secondi. Più richieste di probe potrebbero non ricevere risposta prima che il probe venga contrassegnato come non in esecuzione e fino a quando non viene raggiunta la somma di tutti gli intervalli di timeout.
 * L'endpoint del probe chiude la connessione tramite l'invio di un TCP Reset.
 
-Di seguito viene illustrato come è possibile esprimere questo tipo di configurazione di probe in un modello di Gestione risorse:
+Di seguito viene illustrato come esprimere questo tipo di configurazione probe in un modello di Resource Manager:The following illustrates how you could express this kind of probe configuration in a Resource Manager template:
 
 ```json
     {
@@ -157,7 +160,7 @@ Di seguito viene illustrato come è possibile esprimere questo tipo di configura
       },
 ```
 
-### <a name="guestagent"></a>Probe dell'agente guest (solo servizi classici)
+### <a name="guest-agent-probe-classic-only"></a><a name="guestagent"></a>Probe dell'agente guest (solo servizi classici)
 
 Per impostazione predefinita, i ruoli del servizio cloud, ovvero i ruoli di lavoro e i ruoli Web, usano un agente guest per il monitoraggio probe.  Un probe dell'agente guest rappresenta un'ultima possibilità di configurazione.  Definire sempre un probe di integrità in modo esplicito con un probe TCP o HTTP. Un probe dell'agente guest non è altrettanto efficace dei probe definiti in modo esplicito per la maggior parte degli scenari di applicazione.
 
@@ -172,56 +175,56 @@ Se l'agente guest risponde con un messaggio HTTP 200, il servizio di bilanciamen
 Quando si usa un ruolo Web, il codice del sito Web viene in genere eseguito in w3wp.exe, che non è monitorato dall'infrastruttura di Azure o dall'agente guest. Gli errori in w3wp.exe, ad esempio le risposte HTTP 500, non vengono segnalati all'agente guest. Di conseguenza, il servizio di bilanciamento del carico non rimuove l'istanza dalla rotazione.
 
 <a name="health"></a>
-## <a name="probehealth"></a>Comportamento di probe
+## <a name="probe-up-behavior"></a><a name="probehealth"></a>Comportamento di sonda
 
-I probe di integrità TCP, HTTP e HTTPS sono considerati integri e contrassegnano l'endpoint back-end come integro nei casi seguenti:
+I probe di integrità TCP, HTTP e HTTPS sono considerati integri e contrassegnano l'endpoint back-end come integro quando:TCP, HTTP, and HTTPS health probes are considered healthy and mark the backend endpoint as healthy when:
 
 * Il probe di integrità ha esito positivo dopo l'avvio della macchina virtuale.
-* Il numero di probe specificato richiesto per contrassegnare l'endpoint back-end come integro è stato raggiunto.
+* È stato raggiunto il numero specificato di probe necessari per contrassegnare l'endpoint back-end come integro.
 
-Qualsiasi endpoint back-end che ha ottenuto uno stato integro è idoneo per la ricezione di nuovi flussi.  
+Qualsiasi endpoint back-end che ha raggiunto uno stato integro è idoneo per la ricezione di nuovi flussi.  
 
 > [!NOTE]
-> Se il probe di integrità fluttua, il servizio di bilanciamento del carico attende più a lungo prima di riportare l'endpoint back-end nello stato integro. Questo tempo di attesa aggiuntivo protegge l'utente e l'infrastruttura ed è un criterio voluto.
+> Se il probe di integrità varia, il servizio di bilanciamento del carico attende più a lungo prima di riportare l'endpoint back-end nello stato integro. Questo tempo di attesa aggiuntivo protegge l'utente e l'infrastruttura ed è un criterio voluto.
 
-## <a name="probedown"></a>Comportamento in caso di inattività dei probe
+## <a name="probe-down-behavior"></a><a name="probedown"></a>Comportamento in caso di inattività dei probe
 
 ### <a name="tcp-connections"></a>Connessioni TCP
 
-Le nuove connessioni TCP riusciranno ad endpoint back-end integro rimanente.
+Le nuove connessioni TCP avranno esito positivo per l'endpoint back-end integro rimanente.
 
-Se il probe di integrità di un endpoint back-end non riesce, le connessioni TCP stabilite a questo endpoint back-end continuano
+Se il probe di integrità di un endpoint back-end ha esito negativo, le connessioni TCP stabilite a questo endpoint back-end continuano.
 
 Se tutti i probe per tutte le istanze in un pool back-end hanno esito negativo, non verranno inviati nuovi flussi al pool back-end. Load Balancer Standard consente la continuazione dei flussi TCP stabiliti.  Load Balancer Basic terminerà tutti i flussi TCP esistenti verso il pool back-end.
  
-Load Balancer è un servizio pass-through del servizio che, quindi, non termina le connessioni TCP. Il flusso si trova sempre tra il client e il sistema operativo guest e l'applicazione della macchina virtuale. Un pool con tutti i probe è inattivo perché un front-end non risponde ai tentativi di apertura della connessione TCP (SYN) perché non è presente un endpoint back-end integro per ricevere il flusso e rispondere con un SYN-ACK.
+Load Balancer è un servizio pass-through del servizio che, quindi, non termina le connessioni TCP. Il flusso si trova sempre tra il client e il sistema operativo guest e l'applicazione della macchina virtuale. Un pool con tutti i probe verso il basso causerà un front-end per non rispondere ai tentativi di apertura della connessione TCP (SYN) in quanto non esiste alcun endpoint back-end integro per ricevere il flusso e rispondere con un SYN-ACK.
 
 ### <a name="udp-datagrams"></a>Datagrammi UDP
 
 I datagrammi UDP verranno recapitati a endpoint back-end integri.
 
-UDP è senza connessione e non esiste uno stato di flusso monitorato per l'UDP. Se il probe di integrità di un endpoint back-end ha esito negativo, i flussi UDP esistenti vengono spostati in un'altra istanza integra nel pool back-end
+UDP è senza connessione e non esiste uno stato di flusso monitorato per l'UDP. Se il probe di integrità di qualsiasi endpoint back-end ha esito negativo, i flussi UDP esistenti verranno spostati in un'altra istanza integra nel pool back-end.
 
 Se tutti i probe per un pool di back-end hanno esito negativo, i flussi UDP esistenti verranno interrotti per Load Balancer Standard e Basic.
 
 <a name="source"></a>
-## <a name="probesource"></a>Indirizzo IP di origine dei probe
+## <a name="probe-source-ip-address"></a><a name="probesource"></a>Indirizzo IP di origine dei probe
 
 Load Balancer usa un servizio distribuito probe per il suo modello di integrità interno. Ogni host in cui si trovano le macchine virtuali include un servizio di esecuzione del probe che può essere programmato per generare i probe di integrità sulla base della configurazione del cliente. Il traffico probe dell'integrità si trova direttamente tra il servizio di esecuzione del probe che genera il probe di integrità e la macchine virtuale del cliente. Tutti i probe di integrità di Load Balancer sono originati dall'indirizzo IP 168.63.129.16.  È possibile usare lo spazio di indirizzi IP all'interno di una rete virtuale che non sia uno spazio RFC1918.  L'utilizzo di un indirizzo IP di proprietà di Microsoft e riservato a livello globale riduce il rischio di conflitti di indirizzo con lo spazio indirizzi IP usato all'interno della rete virtuale.  Questo indirizzo IP è uguale in tutte le aree e non cambia. Non rappresenta neppure un rischio per la sicurezza poiché solo il componente interno della piattaforma Azure può generare un pacchetto da questo indirizzo IP. 
 
 Il tag del servizio AzureLoadBalancer identifica questo indirizzo IP di origine nei [gruppi di sicurezza di rete](../virtual-network/security-overview.md) e consente il traffico dei probe di integrità per impostazione predefinita.
 
-Oltre ai Probe di integrità di Load Balancer, le [operazioni seguenti usano questo indirizzo IP](../virtual-network/what-is-ip-address-168-63-129-16.md):
+Oltre ai probe di integrità di Load Balancer, le [operazioni seguenti usano questo indirizzo IP:](../virtual-network/what-is-ip-address-168-63-129-16.md)
 
 - Abilitazione dell'agente di macchine virtuali per la comunicazione con la piattaforma per segnalare che si trova in uno stato "Pronto"
 - Abilitazione della comunicazione con il server virtuale DNS per fornire la risoluzione dei nomi filtrati per i clienti che non definiscono i server DNS personalizzati.  Questo filtro garantisce che i clienti possano risolvere solo i nomi host della loro distribuzione.
 - Consente alla macchina virtuale di ottenere un indirizzo IP dinamico dal servizio DHCP in Azure.
 
-## <a name="design"></a> Indicazioni per la progettazione
+## <a name="design-guidance"></a><a name="design"></a>Linee guida per la progettazione
 
 I probe di integrità consentono di aumentare la resilienza del servizio e di ridimensionarlo. Una configurazione errata o un modello di struttura non valido può compromettere la disponibilità e la scalabilità del servizio. Esaminare l'intero documento e tenere in considerazione l'impatto per il proprio scenario nel caso la risposta del probe venga contrassegnata come inattiva o attiva, nonché per la disponibilità della propria applicazione.
 
-Quando si progetta il modello di integrità per l'applicazione, è consigliabile verificare una porta in un endpoint back-end che rifletta l'integrità dell'istanza __e__ il servizio dell'applicazione fornito.  La porta dell'applicazione e la porta probe non devono necessariamente corrispondere.  In alcuni scenari, potrebbe essere utile differenziare la porta probe dalla porta con cui l'applicazione fornisce il servizio.  
+Quando si progetta il modello di integrità per l'applicazione, è necessario eseguire il probe di una porta in un endpoint back-end che rifletta l'integrità dell'istanza __e__ del servizio dell'applicazione fornito.  La porta dell'applicazione e la porta probe non devono necessariamente corrispondere.  In alcuni scenari, potrebbe essere utile differenziare la porta probe dalla porta con cui l'applicazione fornisce il servizio.  
 
 In alcuni casi può essere utile per l'applicazione generare una risposta del probe di integrità non solo per rilevare l'integrità dell'applicazione, ma anche per segnalare direttamente a Load Balancer se l'istanza deve ricevere o meno nuovi flussi.  È possibile modificare la risposta del probe per consentire all'applicazione di creare congestione e di limitare la distribuzione di nuovi flussi a un'istanza interrompendo il probe di integrità o prepararsi per la manutenzione dell'applicazione e avviare lo svuotamento dello scenario.  Quando si usa Load Balancer Standard, un segnale di [probe inattivo](#probedown) consentirà sempre ai flussi TCP di continuare fino al timeout o alla chiusura della connessione. 
 
@@ -229,7 +232,7 @@ Per il bilanciamento del carico UDP, è necessario generare un segnale di probe 
 
 Quando si usano [regole di bilanciamento del carico per porte a disponibilità elevata](load-balancer-ha-ports-overview.md) con [Load Balancer Standard](load-balancer-standard-overview.md), viene eseguito il bilanciamento del carico di tutte le porte e una singola risposta del probe di integrità deve riflettere lo stato dell'intera istanza.
 
-Bon inviare mediante NAT o proxy un probe di integrità tramite l'istanza che riceve il probe di integrità a un'altra istanza nella rete virtuale, perché questa configurazione può causare errori a catena nello scenario.  Si consideri lo scenario seguente: un set di appliance di terze parti viene distribuito nel pool di back-end di una risorsa di Load Balancer per offrire scalabilità e ridondanza per le appliance; il probe di integrità è configurato per eseguire il probe di una porta usata come proxy dall'appliance di terze parti o convertita da quest'ultima ad altre macchine virtuali dietro il dispositivo.  Se si esegue il probe della stessa porta in uso per la conversione o per le richieste di proxy alle altre macchine virtuali dietro l'appliance, ogni risposta di probe da una singola macchina virtuale dietro l'appliance contrassegnerà quest'ultima come inattiva. Questa configurazione può causare un errore a catena dell'intero scenario dell'applicazione in seguito a un singolo endpoint back-end dietro l'appliance.  Il trigger può essere un errore intermittente del probe che farà sì che Load Balancer contrassegni come inattiva la destinazione originale, ovvero l'istanza dell'appliance, rischiando di disabilitare di conseguenza lo scenario dell'intera applicazione. Eseguire invece il probe dell'integrità dell'appliance stessa. La selezione del probe per determinare il segnale di integrità è una considerazione importante per gli scenari con appliance virtuali di rete ed è necessario consultare il fornitore dell'applicazione per informazioni sulle opzioni di segnali di integrità disponibili per tali scenari.
+Bon inviare mediante NAT o proxy un probe di integrità tramite l'istanza che riceve il probe di integrità a un'altra istanza nella rete virtuale, perché questa configurazione può causare errori a catena nello scenario.  Si consideri lo scenario seguente: un set di appliance di terze parti viene distribuito nel pool di back-end di una risorsa di Load Balancer per offrire scalabilità e ridondanza per le appliance; il probe di integrità è configurato per eseguire il probe di una porta usata come proxy dall'appliance di terze parti o convertita da quest'ultima ad altre macchine virtuali dietro il dispositivo.  Se si esegue il probe della stessa porta in uso per la conversione o per le richieste di proxy alle altre macchine virtuali dietro l'appliance, ogni risposta di probe da una singola macchina virtuale dietro l'appliance contrassegnerà quest'ultima come inattiva. Questa configurazione può causare un errore a catena dell'intero scenario dell'applicazione come risultato di un singolo endpoint back-end dietro l'appliance.  Il trigger può essere un errore intermittente del probe che farà sì che Load Balancer contrassegni come inattiva la destinazione originale, ovvero l'istanza dell'appliance, rischiando di disabilitare di conseguenza lo scenario dell'intera applicazione. Eseguire invece il probe dell'integrità dell'appliance stessa. La selezione del probe per determinare il segnale di integrità è una considerazione importante per gli scenari con appliance virtuali di rete ed è necessario consultare il fornitore dell'applicazione per informazioni sulle opzioni di segnali di integrità disponibili per tali scenari.
 
 Se non si consente l'[indirizzo IP di origine](#probesource) nei criteri firewall, il probe di integrità avrà esito negativo, perché non sarà in grado di raggiungere l'istanza.  A sua volta, Load Balancer contrassegnerà l'istanza come inattiva a causa dell'errore del probe di integrità.  Questo errore di configurazione può causare un esito negativo nello scenario dell'applicazione con bilanciamento di carico.
 
@@ -241,13 +244,13 @@ Evitare di configurare la rete virtuale con l'intervallo di indirizzi IP di prop
 
 Se si dispone di più interfacce nella macchina virtuale, è necessario assicurarsi di rispondere al probe nell'interfaccia su cui è stato ricevuto.  Potrebbe essere necessario generare l'indirizzo di rete e convertirlo nella macchina virtuale in base a ogni interfaccia.
 
-Non abilitare i [timestamp TCP](https://tools.ietf.org/html/rfc1323).  L'abilitazione dei timestamp TCP può causare l'esito negativo dei probe di integrità a causa dell'eliminazione dei pacchetti TCP dallo stack TCP del sistema operativo guest della macchina virtuale, il che determina Load Balancer contrassegnare il rispettivo endpoint.  I timestamp TCP sono abilitati periodicamente per impostazione predefinita sulle immagini delle macchine virtuali con sicurezza elevata e devono essere disattivati.
+Non abilitare i [timestamp TCP](https://tools.ietf.org/html/rfc1323).  L'abilitazione dei timestamp TCP può causare errori nei probe di integrità a causa dell'eliminazione dei pacchetti TCP dallo stack TCP del sistema operativo guest della macchina virtuale, il che comporta il contrassegno del rispettivo endpoint da parte di Load Balancer.  I timestamp TCP sono abilitati periodicamente per impostazione predefinita sulle immagini delle macchine virtuali con sicurezza elevata e devono essere disattivati.
 
 ## <a name="monitoring"></a>Monitoraggio
 
-Sia public che Internal [Load Balancer standard](load-balancer-standard-overview.md) espongono lo stato del probe di integrità per endpoint e endpoint back-end come metriche multidimensionali tramite monitoraggio di Azure. Queste metriche possono essere utilizzate da altri servizi di Azure o da applicazioni partner. 
+Il servizio [di bilanciamento del carico Standard](load-balancer-standard-overview.md) pubblico e interno espone lo stato del probe di integrità dell'endpoint e back-end come metriche multidimensionali tramite Monitoraggio di Azure.Both public and internal Standard Load Balancer expose per endpoint and backend endpoint health probe status as multi-dimensional metrics through Azure Monitor. Queste metriche possono essere utilizzate da altri servizi di Azure o applicazioni partner. 
 
-Il Load Balancer pubblico di base espone lo stato del probe di integrità per ogni pool back-end tramite log di monitoraggio di Azure.  I log di monitoraggio di Azure non sono disponibili per i bilanciamenti del carico di base interni.  È possibile usare i [log di monitoraggio di Azure](load-balancer-monitor-log.md) per verificare lo stato di integrità e il numero di probe del servizio di bilanciamento del carico pubblico. La registrazione può essere usata con Power BI o Azure Operational Insights per fornire statistiche sullo stato di integrità del servizio di bilanciamento del carico.
+Il servizio di bilanciamento del carico pubblico di base espone lo stato del probe di integrità riepilogato per ogni pool back-end tramite i log di Monitoraggio di Azure.Basic public Load Balancer exposes health probe status summarized per backend pool via Azure Monitor logs.  I log di Monitoraggio di Azure non sono disponibili per i servizi di bilanciamento del carico di base interni.  È possibile usare [i log](load-balancer-monitor-log.md) di Monitoraggio di Azure per controllare lo stato di integrità del probe del servizio di bilanciamento del carico pubblico e il conteggio dei probe. La registrazione può essere usata con Power BI o Azure Operational Insights per fornire statistiche sullo stato di integrità del servizio di bilanciamento del carico.
 
 ## <a name="limitations"></a>Limitazioni
 
@@ -256,7 +259,7 @@ Il Load Balancer pubblico di base espone lo stato del probe di integrità per og
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni su [Load Balancer Standard](load-balancer-standard-overview.md)
+- Altre informazioni su [Load Balancer StandardLearn more](load-balancer-standard-overview.md) about Standard Load Balancer
 - [Introduzione alla creazione di un servizio di bilanciamento del carico pubblico in Resource Manager con PowerShell](quickstart-create-standard-load-balancer-powershell.md)
 - [API REST per i probe di integrità](https://docs.microsoft.com/rest/api/load-balancer/loadbalancerprobes/)
 - Richiedere nuove funzionalità dei probe di integrità con [Uservoice di Load Balancer](https://aka.ms/lbuservoice)

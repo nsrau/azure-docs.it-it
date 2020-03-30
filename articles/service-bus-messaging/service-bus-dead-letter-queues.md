@@ -1,6 +1,6 @@
 ---
 title: Code dei messaggi non recapitabili del bus di servizio | Documentazione Microsoft
-description: Descrive le code dei messaggi non recapitabili nel bus di servizio di Azure. Le code del bus di servizio e le sottoscrizioni degli argomenti forniscono una coda secondaria secondaria, denominata coda dei messaggi non recapitabili.
+description: Descrive le code non recapitabili nel bus di servizio di Azure.Describes dead-letter queues in Azure Service Bus. Le code del bus di servizio e le sottoscrizioni di argomenti forniscono una coda secondaria secondaria, denominata coda di messaggi non recapitabili.
 services: service-bus-messaging
 documentationcenter: .net
 author: axisc
@@ -12,28 +12,35 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/24/2020
+ms.date: 03/23/2020
 ms.author: aschhab
-ms.openlocfilehash: e1c3798c36b497423ea1d0cb5da6fabbd6a935f7
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 9c1a0cb92fbaf98d25799ffb5a85e666e7c05f8c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76761016"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80158903"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Panoramica delle code dei messaggi non recapitabili del bus di servizio
 
-Le code del bus di servizio di Azure e le sottoscrizioni dell'argomento includono una coda secondaria chiamata *coda di messaggi non recapitabili* (DLQ, Dead-Letter Queue). Non è necessario creare in modo esplicito la coda dei messaggi non recapitabili, che, tra l'altro, non può essere eliminata né altrimenti gestita indipendentemente dall'entità principale.
+Le code del bus di servizio di Azure e le sottoscrizioni di argomenti forniscono una coda secondaria secondaria, denominata coda di *messaggi non recapitabili* (DLQ). La coda di messaggi non recapitabili non deve essere creata in modo esplicito e non può essere eliminata o gestita in altro modo indipendentemente dall'entità principale.
 
-Questo articolo descrive le code dei messaggi non recapitabili nel bus di servizio. Questo argomento viene in gran parte illustrato nell'[esempio relativo alle code di messaggi non recapitabili](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/DeadletterQueue) su GitHub.
+Questo articolo descrive le code dei messaggi non recapitabili nel bus di servizio. Gran parte della discussione è illustrata dall'esempio di code di messaggi non recapitabili in GitHub.Much of the discussion is illustrated by the [Dead-Letter queues sample](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/DeadletterQueue) on GitHub.
  
 ## <a name="the-dead-letter-queue"></a>Coda di messaggi non recapitabili
 
-Lo scopo della coda dei messaggi non recapitabili è conservare i messaggi che non possono essere recapitati ai ricevitori o che non possono essere elaborati. I messaggi possono essere rimossi dalla coda e verificati. Con l'aiuto di un operatore, un'applicazione potrebbe correggere i problemi e inviare nuovamente il messaggio, registrare la notizia che si è verificato un errore e intraprendere azioni correttive. 
+Lo scopo della coda di messaggi non recapitabili è contenere i messaggi che non possono essere recapitati a alcun destinatario o i messaggi che non è stato possibile elaborare. I messaggi possono essere rimossi dalla coda e verificati. Con l'aiuto di un operatore, un'applicazione potrebbe correggere i problemi e inviare nuovamente il messaggio, registrare la notizia che si è verificato un errore e intraprendere azioni correttive. 
 
-Dal punto di vista di API e protocolli, la coda DLQ è molto simile a qualsiasi altra coda, ad eccezione del fatto che i messaggi possono essere inviati ad essa solo tramite l'operazione messaggi non recapitabili dell'entità padre. Inoltre, il parametro time-to-live non viene rispettato e non è possibile impostare come non recapitabile un messaggio di una coda DLQ. La coda dei messaggi non recapitabili supporta completamente il recapito con blocco di visualizzazione e le operazioni transazionali.
+Dal punto di vista di API e protocolli, la coda DLQ è molto simile a qualsiasi altra coda, ad eccezione del fatto che i messaggi possono essere inviati ad essa solo tramite l'operazione messaggi non recapitabili dell'entità padre. Inoltre, la funzione time-to-live non viene osservata e non è possibile inviare un messaggio da un DLQ. La coda dei messaggi non recapitabili supporta completamente il recapito con blocco di visualizzazione e le operazioni transazionali.
 
-Si noti che non è prevista alcuna pulizia automatica della coda. I messaggi rimangono nella coda fino a quando non vengono esplicitamente recuperati e non si chiama il metodo [Complete()](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync) sul messaggio non recapitabile.
+Non c'è pulizia automatica del DLQ. I messaggi rimangono nella coda fino a quando non vengono esplicitamente recuperati e non si chiama il metodo [Complete()](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync) sul messaggio non recapitabile.
+
+## <a name="dlq-message-count"></a>Conteggio messaggi DLQ
+Non è possibile ottenere il numero di messaggi nella coda dei messaggi non recapitabili a livello di argomento. Questo perché i messaggi non si esidono a livello di argomento a meno che il bus di servizio non generi un errore interno. Al contrario, quando un mittente invia un messaggio a un argomento, il messaggio viene inoltrato alle sottoscrizioni per l'argomento in pochi millisecondi e pertanto non risiede più a livello di argomento. In questo modo, è possibile visualizzare i messaggi nel DLQ associato alla sottoscrizione per l'argomento. Nell'esempio seguente, **Service Bus Explorer** mostra che sono presenti 62 messaggi attualmente nel DLQ per la sottoscrizione "test1". 
+
+![Conteggio messaggi DLQ](./media/service-bus-dead-letter-queues/dead-letter-queue-message-count.png)
+
+È anche possibile ottenere il numero di messaggi DLQ usando il comando dell'interfaccia della riga di comando di Azure: [`az servicebus topic subscription show`](/cli/azure/servicebus/topic/subscription?view=azure-cli-latest#az-servicebus-topic-subscription-show). 
 
 ## <a name="moving-messages-to-the-dlq"></a>Spostare messaggi nella coda DLQ
 
@@ -48,21 +55,21 @@ Le applicazioni possono definire i propri codici per la proprietà `DeadLetterRe
 | Sempre |HeaderSizeExceeded |È stata superata la dimensione del flusso. |
 | !TopicDescription.<br />EnableFilteringMessagesBeforePublishing e SubscriptionDescription.<br />EnableDeadLetteringOnFilterEvaluationExceptions |exception.GetType().Name |exception.Message |
 | EnableDeadLetteringOnMessageExpiration |TTLExpiredException |Il messaggio è scaduto ed è stato configurato come non recapitabile. |
-| SubscriptionDescription.RequiresSession |L'ID sessione ha valore null. |L'entità attivata dalla sessione non consente il recapito di un messaggio il cui identificatore di sessione è null. |
-| !dead letter queue | MaxTransferHopCountExceeded | Numero massimo di hop consentiti durante l'invio tra le code. Il valore è impostato su 4. |
-| Configurazione esplicita di messaggio non recapitabile da parte dell'applicazione |Specificato dall'applicazione |Specificato dall'applicazione |
+| SubscriptionDescription.RequiresSession |L'ID sessione è null. |L'entità attivata dalla sessione non consente il recapito di un messaggio il cui identificatore di sessione è null. |
+| !dead letter queue | MaxTransferHopCountExceeded | Numero massimo di hop consentiti durante l'inoltro tra code. Il valore è impostato su 4.Value is set to 4. |
+| Configurazione esplicita di messaggio non recapitabile da parte dell'applicazione  |Specificato dall'applicazione |Specificato dall'applicazione |
 
 ## <a name="exceeding-maxdeliverycount"></a>Superamento di MaxDeliveryCount
 
 Le code e le sottoscrizioni hanno ognuna una proprietà [QueueDescription.MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount) e [SubscriptionDescription.MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.maxdeliverycount). Il valore predefinito è 10. Ogni volta che un messaggio viene recapitato in un blocco ([ReceiveMode.PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode)) ma viene abbandonato in modo esplicito oppure il blocco è scaduto, il valore [BrokeredMessage.DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) del messaggio viene incrementato. Quando il valore [DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) supera [MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount), il messaggio viene spostato nella coda DLQ con il codice motivo `MaxDeliveryCountExceeded`.
 
-Non è possibile disattivare questo comportamento, ma è possibile impostare [MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount) su un numero molto elevato.
+Questo comportamento non può essere disabilitato, ma è possibile impostare [MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount) su un numero elevato.
 
 ## <a name="exceeding-timetolive"></a>Superamento di TimeToLive
 
 Quando la proprietà [QueueDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.queuedescription) o [SubscriptionDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) viene impostata su **true** (il valore predefinito è **false**), tutti i messaggi in scadenza vengono spostati nella coda DLQ con il codice motivo `TTLExpiredException`.
 
-Si noti che i messaggi scaduti vengono ripuliti e spostati nella coda di messaggi non recapitabili solo quando esiste almeno un ricevitore attivo che effettua il pull dalla sottoscrizione o dalla coda principale. Tale comportamento è predefinito.
+I messaggi scaduti vengono eliminati e spostati nel DLQ solo quando è presente almeno un ricevitore attivo che esegue il pull dalla coda o dalla sottoscrizione principale. che il comportamento è in base alla progettazione.
 
 ## <a name="errors-while-processing-subscription-rules"></a>Errori durante l'elaborazione di regole di sottoscrizione
 
@@ -70,13 +77,13 @@ Quando la proprietà [SubscriptionDescription.EnableDeadLetteringOnFilterEvaluat
 
 ## <a name="application-level-dead-lettering"></a>Definizione di messaggi non recapitabili a livello di applicazione
 
-Oltre alle funzionalità di definizione dei messaggi non recapitabili del sistema, le applicazioni possono usare la coda DLQ per rifiutare esplicitamente i messaggi inaccettabili. Ciò può riguardare i messaggi che non possono essere elaborati correttamente a causa diversi problemi del sistema, i messaggi contenenti payload in formato non valido o che non superino il processo di autenticazione quando viene utilizzato un schema di sicurezza a livello di messaggio.
+Oltre alle funzionalità di definizione dei messaggi non recapitabili del sistema, le applicazioni possono usare la coda DLQ per rifiutare esplicitamente i messaggi inaccettabili. Possono includere messaggi che non possono essere elaborati correttamente a causa di qualsiasi tipo di problema di sistema, messaggi che contengono payload in formato non corretto o messaggi che non superano l'autenticazione quando viene utilizzato uno schema di sicurezza a livello di messaggio.
 
 ## <a name="dead-lettering-in-forwardto-or-sendvia-scenarios"></a>Messaggi non recapitabili negli scenari ForwardTo o SendVia
 
 I messaggi verranno inviati nella coda dei messaggi non recapitabili di trasferimento nelle condizioni seguenti:
 
-- Un messaggio passa attraverso più di 4 code o argomenti che sono [concatenati](service-bus-auto-forwarding.md).
+- Un messaggio passa attraverso più di quattro code o argomenti [concatenati tra loro.](service-bus-auto-forwarding.md)
 - L'argomento o la coda di destinazione è disattivato o eliminato.
 - L'argomento o la coda di destinazione supera le dimensioni massime dell'entità.
 
@@ -111,7 +118,7 @@ while(true)
 <topic path>/Subscriptions/<subscription path>/$deadletterqueue
 ```
 
-Se si usa .NET SDK, è possibile ottenere il percorso della coda dei messaggi non recapitabili usando il Metodo SubscriptionClient. FormatDeadLetterPath (). Questo metodo accetta il nome dell'argomento e il nome della sottoscrizione e i suffissi con **/$DeadLetterQueue**.
+Se si utilizza .NET SDK, è possibile ottenere il percorso della coda dei messaggi non recapitabili utilizzando il metodo SubscriptionClient.FormatDeadLetterPath(). Questo metodo accetta il nome dell'argomento/nome della sottoscrizione e i suffissi con **/$DeadLetterQueue**.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
