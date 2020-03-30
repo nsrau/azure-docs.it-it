@@ -1,21 +1,21 @@
 ---
-title: Continuità aziendale-database di Azure per MySQL
-description: Informazioni sulla continuità aziendale (ripristino temporizzato, interruzione del data center, ripristino geografico) quando si usa il servizio database di Azure per MySQL.
+title: Continuità aziendale - Database di Azure per MySQLBusiness continuity - Azure Database for MySQL
+description: Informazioni sulla continuità aziendale (ripristino temporizzato, interruzione del data center, ripristino geografico) quando si usa il database di Azure per il servizio MySQL.Learn about Business continuity (point-in-time restore, data center outage, geo-restore) when using Azure Database for MySQL service.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 3f82dfd5e289b09761dbdbdc5af4da76d7c961d4
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: af0069adc741cfc802c37c90c0c7ec3c3ba74bb2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74765359"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79537228"
 ---
-# <a name="understand-business-continuity-in-azure-database-for-mysql"></a>Comprendere la continuità aziendale nel database di Azure per MySQL
+# <a name="understand-business-continuity-in-azure-database-for-mysql"></a>Comprendere la continuità aziendale nel database di Azure per MySQLUnderstand business continuity in Azure Database for MySQL
 
-Questo articolo descrive le funzionalità offerte da database di Azure per MySQL per la continuità aziendale e il ripristino di emergenza. Informazioni sulle opzioni per il ripristino da eventi di arresto improvviso che potrebbero provocare la perdita di dati o la disattivazione del database e dell'applicazione. Informazioni sulle operazioni da eseguire quando si verifica un errore generato da un utente o da un'applicazione che influisce sull'integrità dei dati, se in un'area di Azure si verifica un'interruzione o quando l'applicazione richiede manutenzione.
+Questo articolo descrive le funzionalità che il Database di Azure per MySQL offre per la continuità aziendale e il ripristino di emergenza. Informazioni sulle opzioni per il ripristino da eventi di arresto improvviso che potrebbero provocare la perdita di dati o la disattivazione del database e dell'applicazione. Informazioni sulle operazioni da eseguire quando si verifica un errore generato da un utente o da un'applicazione che influisce sull'integrità dei dati, se in un'area di Azure si verifica un'interruzione o quando l'applicazione richiede manutenzione.
 
 ## <a name="features-that-you-can-use-to-provide-business-continuity"></a>Funzionalità che è possibile usare per assicurare la continuità aziendale
 
@@ -23,17 +23,17 @@ Database di Azure per MySQL offre funzionalità di continuità aziendale che inc
 
 La tabella seguente mette a confronto i valori ERT e RPO per le funzionalità disponibili:
 
-| **Funzionalità** | **Basic** | **Utilizzo generico** | **Ottimizzate per la memoria** |
+| **Funzionalità** | **Base** | **Scopo generale** | **Ottimizzate per la memoria** |
 | :------------: | :-------: | :-----------------: | :------------------: |
 | Ripristino temporizzato dal backup | Qualsiasi punto di ripristino compreso nel periodo di conservazione | Qualsiasi punto di ripristino compreso nel periodo di conservazione | Qualsiasi punto di ripristino compreso nel periodo di conservazione |
-| Ripristino geografico dai backup con replica geografica | Supporto non disponibile | ERT < 12 ore<br/>RPO < 1 ora | ERT < 12 ore<br/>RPO < 1 ora |
+| Ripristino geografico dai backup con replica geografica | Non supportate | ERT < 12 ore<br/>RPO < 1 ora | ERT < 12 ore<br/>RPO < 1 ora |
 
 > [!IMPORTANT]
 > **Non è possibile** ripristinare i server eliminati. Se si elimina il server, vengono eliminati anche tutti i database appartenenti al server e non sarà possibile recuperarli.
 
 ## <a name="recover-a-server-after-a-user-or-application-error"></a>Ripristinare un server in seguito a errore di un'applicazione o di un utente
 
-È possibile usare i backup del servizio per ripristinare un server da svariati eventi che possono causare interruzioni del funzionamento. Un utente può accidentalmente eliminare alcuni dati, una tabella importante o addirittura un intero database. Un'applicazione potrebbe sovrascrivere accidentalmente dei dati con dati errati a causa di un difetto dell'applicazione e così via.
+È possibile utilizzare i backup del servizio per ripristinare un server da vari eventi di interruzione. Un utente può accidentalmente eliminare alcuni dati, una tabella importante o addirittura un intero database. Un'applicazione potrebbe sovrascrivere accidentalmente dei dati con dati errati a causa di un difetto dell'applicazione e così via.
 
 È possibile eseguire un ripristino temporizzato per creare una copia del server a un punto valido nel tempo. Questo punto nel tempo deve essere compreso nel periodo di conservazione di backup configurato per il server. Dopo il ripristino dei dati nel nuovo server, è possibile sostituire il server originale con il server appena ripristinato o copiare i dati necessari dal server ripristinato nel server originale.
 

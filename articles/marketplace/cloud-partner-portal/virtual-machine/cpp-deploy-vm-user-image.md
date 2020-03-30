@@ -1,19 +1,18 @@
 ---
-title: Distribuire una macchina virtuale di Azure da un disco rigido virtuale utente | Azure Marketplace
+title: Distribuire una macchina virtuale di Azure da un disco rigido virtuale dell'utente. Azure Marketplace
 description: Illustra come distribuire un'immagine del disco rigido virtuale di un utente per creare un'istanza di macchina virtuale di Azure.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/29/2018
-ms.author: pabutler
-ms.openlocfilehash: 8421e9b7b7e2b7d13054e977da83be044b4e6af7
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 957bc187b0123338947f62333c913cf82a6c66a1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73816635"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80277957"
 ---
 # <a name="deploy-an-azure-vm-from-a-user-vhd"></a>Distribuire una macchina virtuale di Azure dal disco rigido virtuale di un utente
 
@@ -32,7 +31,7 @@ Copiare il modello di Azure Resource Manager per la [distribuzione del disco rig
 | userStorageAccountName     | Nome dell'account di archiviazione                                                    |
 | sNameForPublicIP           | Nome DNS per l'indirizzo IP pubblico. Deve essere costituito da caratteri minuscoli                                  |
 | subscriptionId             | Identificatore della sottoscrizione di Azure                                                  |
-| Percorso                   | Posizione geografica di Azure standard del gruppo di risorse                       |
+| Location                   | Posizione geografica di Azure standard del gruppo di risorse                       |
 | vmName                     | Nome della macchina virtuale                                                    |
 | vaultName                  | Nome dell'insieme di credenziali delle chiavi                                                          |
 | vaultResourceGroup         | Gruppo di risorse dell'insieme di credenziali delle chiavi

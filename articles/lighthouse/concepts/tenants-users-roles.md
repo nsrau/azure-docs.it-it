@@ -1,14 +1,14 @@
 ---
 title: Tenant, ruoli e utenti negli scenari di Azure Lighthouse
 description: Informazioni sui concetti di tenant, utenti e ruoli di Azure Active Directory, nonché su come possono essere usati negli scenari di Azure Lighthouse.
-ms.date: 01/16/2020
+ms.date: 03/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 344e104201a83b3589dae6dbd3b02e49e4575e00
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 7540e17fd80f9a1d8e996295000c126614b838d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76156336"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80246892"
 ---
 # <a name="tenants-roles-and-users-in-azure-lighthouse-scenarios"></a>Tenant, ruoli e utenti negli scenari di Azure Lighthouse
 
@@ -31,7 +31,7 @@ Tutti i [ruoli predefiniti](../../role-based-access-control/built-in-roles.md) s
 - Il ruolo predefinito [Amministratore accessi utente](../../role-based-access-control/built-in-roles.md#user-access-administrator) è supportato, ma solo per lo scopo limitato di [assegnazione di ruoli a un'identità gestita nel tenant del cliente](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant). Non verranno applicate altre autorizzazioni generalmente concesse da questo ruolo. Se si definisce un utente con questo ruolo, è necessario specificare anche uno o più ruoli predefiniti che possono essere assegnati da questo utente alle identità gestite.
 
 > [!NOTE]
-> Una volta aggiunto in Azure un nuovo ruolo incorporato applicabile, è possibile assegnarlo durante l' [onboarding di un cliente usando Azure Resource Manager modelli](../how-to/onboard-customer.md). È possibile che si verifichi un ritardo prima che il ruolo appena aggiunto diventi disponibile in portale Cloud Partner durante la [pubblicazione di un'offerta di servizio gestito](../how-to/publish-managed-services-offers.md).
+> Dopo aver aggiunto un nuovo ruolo predefinito applicabile ad Azure, è possibile assegnarlo durante l'onboarding di un cliente tramite i modelli di Azure Resource Manager.Once an applicable new built-in role is added to Azure, it can be assigned when [onboarding a customer using Azure Resource Manager templates](../how-to/onboard-customer.md). Potrebbe verificarsi un ritardo prima che il ruolo appena aggiunto diventi disponibile nel portale Cloud Partner quando [si pubblica un'offerta](../how-to/publish-managed-services-offers.md)di servizio gestito .
 
 ## <a name="best-practices-for-defining-users-and-roles"></a>Procedure consigliate per la definizione di utenti e ruoli
 
@@ -41,6 +41,9 @@ Quando si creano le autorizzazioni, è consigliabile attenersi alle procedure co
 - Assicurarsi di seguire il principio dei privilegi minimi, in modo che gli utenti abbiano solo le autorizzazioni necessarie per completare il proprio lavoro, riducendo la possibilità di errori accidentali. Per altre informazioni, vedere [Procedure di sicurezza consigliate](../concepts/recommended-security-practices.md).
 - Includere un utente con il [ruolo di eliminazione di assegnazione di registrazione dei servizi gestiti](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) in modo che sia possibile [rimuovere l'accesso alla delega](../how-to/onboard-customer.md#remove-access-to-a-delegation) in un secondo momento, se necessario. Se questo ruolo non viene assegnato, le risorse delegate possono essere rimosse solo da un utente che si trova nel tenant del cliente.
 - Assicurarsi che tutti gli utenti che devono [visualizzare la pagina Clienti personali nel portale di Azure](../how-to/view-manage-customers.md) dispongano del ruolo [Lettore](../../role-based-access-control/built-in-roles.md#reader) o di un altro ruolo predefinito che include l'accesso in lettura.
+
+> [!IMPORTANT]
+> Per aggiungere autorizzazioni per un gruppo di Azure AD, il tipo di **gruppo** deve essere **Sicurezza** e non **Office 365.** Questa opzione è selezionata quando viene creato il gruppo. Per altre informazioni, vedere [Creare un gruppo di base e aggiungere membri con Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

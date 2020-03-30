@@ -1,17 +1,17 @@
 ---
-title: Backup e ripristino-portale di Azure-database di Azure per MySQL
+title: Backup e ripristino - Portale di Azure - Database di Azure per MySQL
 description: In questo articolo viene descritta la procedura per ripristinare un server nel Database di Azure per MySQL usando il portale di Azure.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: f8005bccf3a726a6022efdecb2eb5738669f3bc2
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/27/2020
+ms.openlocfilehash: 619dc05d709f41941d16764bf32b49a0d2a11958
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74762625"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80373000"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-portal"></a>Come eseguire il backup e il ripristino di un server in Database di Azure per MySQL tramite il portale di Azure
 
@@ -20,7 +20,7 @@ Il backup dei server Database di Azure per MySQL viene eseguito periodicamente p
 
 ## <a name="prerequisites"></a>Prerequisiti
 Per completare questa guida, è necessario:
-- Un [database di Azure per il database e il server MySQL](quickstart-create-mysql-server-database-using-azure-portal.md)
+- Un [database di Azure per il server e il database MySQL](quickstart-create-mysql-server-database-using-azure-portal.md)
 
 ## <a name="set-backup-configuration"></a>Impostare la configurazione del backup
 
@@ -37,7 +37,7 @@ Quando si crea un server nel portale di Azure, la finestra **Piano tariffario** 
 Per altre informazioni sull'impostazione di questi valori durante la creazione, vedere la [guida introduttiva del server Database di Azure per MySQL](quickstart-create-mysql-server-database-using-azure-portal.md).
 
 È possibile modificare il periodo di conservazione dei backup per un server seguendo questa procedura:
-1. Accedere al [portale di Azure](https://portal.azure.com/).
+1. Accedere al portale di [Azure](https://portal.azure.com/).
 2. Selezionare il server del Database di Azure per MySQL. Questa azione apre la pagina **Panoramica**.
 3. Selezionare **Piano tariffario** nel menu in **IMPOSTAZIONI**. Con il dispositivo di scorrimento è possibile modificare il **periodo di conservazione dei backup** impostandolo su un numero di giorni compreso tra 7 e 35.
 Nello screenshot seguente, il periodo è stato aumentato a 34 giorni.
@@ -73,12 +73,12 @@ La procedura seguente consente di ripristinare il server di esempio a un momento
 
 Il nuovo server creato con il ripristino temporizzato ha il nome e la password di accesso dell'amministratore validi per il server esistente nel momento scelto per il ripristino. È possibile modificare la password dalla pagina **Panoramica** del nuovo server.
 
-Il nuovo server creato durante un ripristino non include le regole del firewall o gli endpoint del servizio VNet esistenti nel server originale. Queste regole devono essere impostate separatamente per questo nuovo server.
+Il nuovo server creato durante un ripristino non dispone degli endpoint del servizio VNet esistenti nel server originale. Queste regole devono essere impostate separatamente per questo nuovo server. Le regole del firewall dal server originale vengono ripristinate.
 
 ## <a name="geo-restore"></a>Ripristino geografico
 Se il server è stato configurato per backup con ridondanza geografica, è possibile creare un nuovo server dal backup di quel server esistente. Questo nuovo server può essere creato in qualsiasi area in cui è disponibile Database di Azure per MySQL.  
 
-1. Selezionare il pulsante **Crea una risorsa** (+) nell'angolo superiore sinistro del portale. Selezionare **Database** > **Database di Azure per MySQL**.
+1. Nell'angolo superiore sinistro del portale, selezionare il pulsante **Crea una risorsa** (sezione ). Selezionare **Database** > **di Azure Database per MySQL**.
 
    ![Opzione "Database di Azure per MySQL"](./media/howto-restore-server-portal/2_navigate-to-mysql.png)
 
@@ -93,11 +93,9 @@ Se il server è stato configurato per backup con ridondanza geografica, è possi
 
 Il nuovo server creato con il ripristino geografico ha il nome e la password di accesso dell'amministratore validi per il server esistente al momento dell'avvio del ripristino. È possibile modificare la password dalla pagina **Panoramica** del nuovo server.
 
-Il nuovo server creato durante un ripristino non include le regole del firewall o gli endpoint del servizio VNet esistenti nel server originale. Queste regole devono essere impostate separatamente per questo nuovo server.
-
-
+Il nuovo server creato durante un ripristino non dispone degli endpoint del servizio VNet esistenti nel server originale. Queste regole devono essere impostate separatamente per questo nuovo server. Le regole del firewall dal server originale vengono ripristinate.
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Altre informazioni sui [backup](concepts-backup.md) del servizio
+- Ulteriori informazioni sui [backup](concepts-backup.md) del servizio
 - Informazioni sulle [repliche](concepts-read-replicas.md)
-- Altre informazioni sulle opzioni di [continuità aziendale](concepts-business-continuity.md)
+- Ulteriori informazioni sulle opzioni di [continuità aziendale](concepts-business-continuity.md)

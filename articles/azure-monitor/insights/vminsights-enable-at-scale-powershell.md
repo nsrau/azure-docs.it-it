@@ -1,43 +1,37 @@
 ---
-title: Abilitare Monitoraggio di Azure per le macchine virtuali (classico) con PowerShell o i modelli
-description: Questo articolo descrive come abilitare Monitoraggio di Azure per le macchine virtuali per una o più macchine virtuali di Azure o set di scalabilità di macchine virtuali usando Azure PowerShell o Azure Resource Manager modelli.
+title: Abilitare Monitoraggio di Azure per macchine virtuali con PowerShell o modelliEnable Azure Monitor for VMs with PowerShell or templates
+description: Questo articolo descrive come abilitare Monitoraggio di Azure per le macchine virtuali per una o più macchine virtuali di Azure o set di scalabilità di macchine virtuali usando i modelli di Azure PowerShell o Azure Resource Manager.This article describes how you enable Azure Monitor for VMs for one or more Azure virtual machines or virtual machine scale sets by using Azure PowerShell or Azure Resource Manager templates.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2019
-ms.openlocfilehash: e28a5dce4dda677ef4e5eb0ed08c42ec1f03c308
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 75d5203e7c475a44b6a00dbf9286f43114b7b54f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79249191"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79480845"
 ---
-# <a name="enable-azure-monitor-for-vms-preview-using-azure-powershell-or-resource-manager-templates"></a>Abilitare Monitoraggio di Azure per le macchine virtuali (anteprima) utilizzando i modelli Azure PowerShell o Gestione risorse
+# <a name="enable-azure-monitor-for-vms-using-azure-powershell-or-resource-manager-templates"></a>Abilitare Monitoraggio di Azure per le macchine virtuali usando i modelli di Azure PowerShell o Resource ManagerEnable Azure Monitor for VMs using Azure PowerShell or Resource Manager templates
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Questo articolo illustra come abilitare la Monitoraggio di Azure per le macchine virtuali (anteprima) per le macchine virtuali di Azure o i set di scalabilità di macchine virtuali usando Azure PowerShell o modelli Azure Resource Manager. Al termine di questo processo, è stato avviato il monitoraggio di tutte le macchine virtuali e viene illustrato se si verificano problemi di prestazioni o disponibilità.
+Questo articolo illustra come abilitare Monitoraggio di Azure per le macchine virtuali per le macchine virtuali di Azure o i set di scalabilità di macchine virtuali usando i modelli di Azure PowerShell o Azure Resource Manager.This article explains how to enable Azure Monitor for VMs for Azure virtual machines or virtual machine scale sets by using Azure PowerShell or Azure Resource Manager templates. Al termine di questo processo, sarà stato avviato correttamente il monitoraggio di tutte le macchine virtuali e verrà verificato se si verificano problemi di prestazioni o disponibilità.
 
 ## <a name="set-up-a-log-analytics-workspace"></a>Configurare un'area di lavoro Log Analytics
 
-Se non si dispone di un'area di lavoro Log Analytics, è necessario crearne una. Prima di continuare con i passaggi per la configurazione, esaminare i metodi suggeriti nella sezione [prerequisiti](vminsights-enable-overview.md#log-analytics) . È quindi possibile completare la distribuzione di Monitoraggio di Azure per le macchine virtuali usando il metodo del modello di Azure Resource Manager.
+Se non si dispone di un'area di lavoro di Log Analytics, è necessario crearne una. Esaminare i metodi suggeriti nella sezione [Prerequisiti](vminsights-enable-overview.md#log-analytics) prima di continuare con la procedura per configurarlo. È quindi possibile completare la distribuzione di Monitoraggio di Azure per le macchine virtuali usando il metodo di modello di Azure Resource Manager.Then you can finish the deployment of Azure Monitor for VMs by using the Azure Resource Manager template method.
 
-### <a name="enable-performance-counters"></a>Abilitare i contatori delle prestazioni
-
-Se l'area di lavoro Log Analytics a cui fa riferimento la soluzione non è già configurata per la raccolta dei contatori delle prestazioni richiesti dalla soluzione, sarà necessario abilitare i contatori. Questa operazione può essere eseguita in uno dei due modi seguenti:
-* Manualmente, come descritto in [Origini dati per le prestazioni di Windows e Linux in Log Analytics](../../azure-monitor/platform/data-sources-performance-counters.md)
-* Scaricando ed eseguendo uno script di PowerShell disponibile dalla raccolta di [Azure PowerShell](https://www.powershellgallery.com/packages/Enable-VMInsightsPerfCounters/1.1)
-
-### <a name="install-the-servicemap-solution"></a>Installare la soluzione ServiceMap
+### <a name="install-the-vminsights-solution"></a>Installare la soluzione VMInsightsInstall the VMInsights solution
 
 Questo metodo include un modello JSON che specifica la configurazione per abilitare i componenti della soluzione nell'area di lavoro Log Analytics.
 
-Se non si sa come distribuire le risorse usando un modello, vedere:
+Se non si sa come distribuire le risorse usando un modello, vedere:If you don't know how to deploy resources by using a template, see:
 * [Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md)
 * [Distribuire le risorse con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure](../../azure-resource-manager/templates/deploy-cli.md)
 
-Per usare l'interfaccia della riga di comando di Azure, è prima necessario installare e usare l'interfaccia della riga di comando in locale. È richiesta la versione 2.0.27 o successiva. Per identificare la versione in uso, eseguire `az --version`. Per installare o aggiornare l'interfaccia della riga di comando di Azure, vedere [installare l'interfaccia della](https://docs.microsoft.com/cli/azure/install-azure-cli)riga di comando.
+Per usare l'interfaccia della riga di comando di Azure, è innanzitutto necessario installare e usare l'interfaccia della riga di comando in locale. È richiesta la versione 2.0.27 o successiva. Per identificare la versione in uso, eseguire `az --version`. Per installare o aggiornare l'interfaccia della riga di comando di Azure, vedere [Installare l'interfaccia della riga di comando](https://docs.microsoft.com/cli/azure/install-azure-cli)di Azure.To install or upgrade the Azure CLI, see Install the Azure CLI .
 
 1. Copiare e incollare nel file la sintassi JSON seguente:
 
@@ -63,7 +57,7 @@ Per usare l'interfaccia della riga di comando di Azure, è prima necessario inst
                     {
                         "apiVersion": "2015-11-01-preview",
                         "location": "[parameters('WorkspaceLocation')]",
-                        "name": "[concat('ServiceMap', '(', parameters('WorkspaceName'),')')]",
+                        "name": "[concat('VMInsights', '(', parameters('WorkspaceName'),')')]",
                         "type": "Microsoft.OperationsManagement/solutions",
                         "dependsOn": [
                             "[concat('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
@@ -73,9 +67,9 @@ Per usare l'interfaccia della riga di comando di Azure, è prima necessario inst
                         },
 
                         "plan": {
-                            "name": "[concat('ServiceMap', '(', parameters('WorkspaceName'),')')]",
+                            "name": "[concat('VMInsights', '(', parameters('WorkspaceName'),')')]",
                             "publisher": "Microsoft",
-                            "product": "[Concat('OMSGallery/', 'ServiceMap')]",
+                            "product": "[Concat('OMSGallery/', 'VMInsights')]",
                             "promotionCode": ""
                         }
                     }
@@ -117,37 +111,37 @@ Per usare l'interfaccia della riga di comando di Azure, è prima necessario inst
         provisioningState       : Succeeded
         ```
 
-## <a name="enable-with-azure-resource-manager-templates"></a>Abilita con modelli di Azure Resource Manager
+## <a name="enable-with-azure-resource-manager-templates"></a>Abilitare con i modelli di Azure Resource ManagerEnable with Azure Resource Manager templates
 
-Sono stati creati esempi Azure Resource Manager modelli per l'onboarding delle macchine virtuali e dei set di scalabilità di macchine virtuali. Questi modelli includono scenari che è possibile usare per abilitare il monitoraggio in una risorsa esistente e creare una nuova risorsa con monitoraggio abilitato.
+Sono stati creati modelli di Azure Resource Manager di esempio per l'onboarding delle macchine virtuali e dei set di scalabilità delle macchine virtuali. Questi modelli includono scenari che è possibile usare per abilitare il monitoraggio su una risorsa esistente e creare una nuova risorsa con il monitoraggio abilitato.
 
 >[!NOTE]
 >Il modello deve essere distribuito nello stesso gruppo di risorse della risorsa da portare a bordo.
 
-Se non si sa come distribuire le risorse usando un modello, vedere:
+Se non si sa come distribuire le risorse usando un modello, vedere:If you don't know how to deploy resources by using a template, see:
 * [Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md)
 * [Distribuire le risorse con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure](../../azure-resource-manager/templates/deploy-cli.md)
 
-Per usare l'interfaccia della riga di comando di Azure, è prima necessario installare e usare l'interfaccia della riga di comando in locale. È richiesta la versione 2.0.27 o successiva. Per identificare la versione in uso, eseguire `az --version`. Per installare o aggiornare l'interfaccia della riga di comando di Azure, vedere [installare l'interfaccia della](https://docs.microsoft.com/cli/azure/install-azure-cli)riga di comando.
+Per usare l'interfaccia della riga di comando di Azure, è innanzitutto necessario installare e usare l'interfaccia della riga di comando in locale. È richiesta la versione 2.0.27 o successiva. Per identificare la versione in uso, eseguire `az --version`. Per installare o aggiornare l'interfaccia della riga di comando di Azure, vedere [Installare l'interfaccia della riga di comando](https://docs.microsoft.com/cli/azure/install-azure-cli)di Azure.To install or upgrade the Azure CLI, see Install the Azure CLI .
 
-### <a name="download-templates"></a>Scaricare i modelli
+### <a name="download-templates"></a>Scarica modelli
 
-I modelli di Azure Resource Manager sono disponibili in un file di archivio (con estensione zip) che è possibile [scaricare](https://aka.ms/VmInsightsARMTemplates) dal repository GitHub. Contenuto delle cartelle di inclusione di file che rappresentano ogni scenario di distribuzione con un file di modello e di parametri. Prima di eseguirli, modificare il file dei parametri e specificare i valori necessari. Non modificare il file del modello a meno che non sia necessario personalizzarlo per supportare i requisiti specifici. Dopo aver modificato il file di parametri, è possibile distribuirlo usando i metodi seguenti descritti più avanti in questo articolo.
+I modelli di Azure Resource Manager vengono forniti in un file di archivio (con estensione zip) che è possibile scaricare dal repository GitHub.The Azure Resource Manager templates are provided in an archive file (.zip) that you can [download](https://aka.ms/VmInsightsARMTemplates) from our GitHub repo. Il contenuto del file include cartelle che rappresentano ogni scenario di distribuzione con un file modello e parametro. Prima di eseguirli, modificare il file dei parametri e specificare i valori necessari. Non modificare il file modello a meno che non sia necessario personalizzarlo per supportare i requisiti specifici. Dopo aver modificato il file dei parametri, è possibile distribuirlo utilizzando i metodi descritti più avanti in questo articolo.
 
-Il file di download contiene i modelli seguenti per diversi scenari:
+Il file di download contiene i seguenti modelli per diversi scenari:
 
-- Il modello **ExistingVmOnboarding** Abilita monitoraggio di Azure per le macchine virtuali se la macchina virtuale esiste già.
-- Il modello **NewVmOnboarding** crea una macchina virtuale e Abilita monitoraggio di Azure per le macchine virtuali per monitorarla.
-- Il modello **ExistingVmssOnboarding** Abilita monitoraggio di Azure per le macchine virtuali se il set di scalabilità di macchine virtuali esiste già.
-- Il modello **NewVmssOnboarding** Crea set di scalabilità di macchine virtuali e consente monitoraggio di Azure per le macchine virtuali di monitorarli.
-- Il modello **ConfigureWorkspace** configura l'area di lavoro di log Analytics per supportare monitoraggio di Azure per le macchine virtuali abilitando le soluzioni e la raccolta dei contatori delle prestazioni del sistema operativo Linux e Windows.
+- Il modello **ExistingVmOnboarding** abilita Monitoraggio di Azure per le macchine virtuali se la macchina virtuale esiste già.
+- Il modello **NewVmOnboarding** crea una macchina virtuale e consente a Monitoraggio di Azure per le macchine virtuali di monitorarla.
+- Il modello **ExistingVmssOnboarding** abilita Monitoraggio di Azure per le macchine virtuali se il set di scalabilità della macchina virtuale esiste già.
+- Il modello **NewVmssOnboarding** crea set di scalabilità delle macchine virtuali e consente a Monitoraggio di Azure per le macchine virtuali di monitorarli.
+- Il modello **ConfigureWorkspace** configura l'area di lavoro di Log Analytics per supportare Monitoraggio di Azure per le macchine virtuali abilitando le soluzioni e la raccolta dei contatori delle prestazioni del sistema operativo Linux e Windows.
 
 >[!NOTE]
->Se i set di scalabilità di macchine virtuali sono già presenti e i criteri di aggiornamento sono impostati su **manuale**, per impostazione predefinita monitoraggio di Azure per le macchine virtuali non verrà abilitato per le istanze dopo l'esecuzione del modello di Azure Resource Manager **ExistingVmssOnboarding** . È necessario aggiornare manualmente le istanze.
+>Se i set di scalabilità delle macchine virtuali erano già presenti e i criteri di aggiornamento sono impostati su **Manuale,** Monitoraggio di Azure per le macchine virtuali non verrà abilitato per le istanze per impostazione predefinita dopo l'esecuzione del modello di Azure Resource Manager **ExistingVmssOnboarding.** È necessario aggiornare manualmente le istanze.
 
 ### <a name="deploy-by-using-azure-powershell"></a>Eseguire la distribuzione tramite Azure PowerShell
 
-Il passaggio seguente abilita il monitoraggio con Azure PowerShell.
+Il passaggio seguente abilita il monitoraggio tramite Azure PowerShell.The following step enables monitoring by using Azure PowerShell.
 
 ```powershell
 New-AzResourceGroupDeployment -Name OnboardCluster -ResourceGroupName <ResourceGroupName> -TemplateFile <Template.json> -TemplateParameterFile <Parameters.json>
@@ -158,9 +152,9 @@ Il completamento della modifica della configurazione può richiedere alcuni minu
 provisioningState       : Succeeded
 ```
 
-### <a name="deploy-by-using-the-azure-cli"></a>Eseguire la distribuzione usando l'interfaccia della riga di comando di Azure
+### <a name="deploy-by-using-the-azure-cli"></a>Distribuire tramite l'interfaccia della riga di comando di AzureDeploy by using the Azure CLI
 
-Il passaggio seguente abilita il monitoraggio usando l'interfaccia della riga di comando di Azure.
+The following step enables monitoring by using the Azure CLI.
 
 ```azurecli
 az login
@@ -176,15 +170,15 @@ provisioningState       : Succeeded
 
 ## <a name="enable-with-powershell"></a>Eseguire l'abilitazione con PowerShell
 
-Per abilitare Monitoraggio di Azure per le macchine virtuali per più macchine virtuali o set di scalabilità di macchine virtuali, usare lo script di PowerShell [Install-VMInsights. ps1](https://www.powershellgallery.com/packages/Install-VMInsights/1.0). È disponibile dalla raccolta di Azure PowerShell. Questo script scorre:
+Per abilitare Monitoraggio di Azure per le macchine virtuali per più macchine virtuali o set di scalabilità di macchine virtuali, usare lo script di PowerShell Install-VMInsights.ps1.To enable Azure Monitor for VMs for multiple VMs or virtual machine scale sets, use the PowerShell script [Install-VMInsights.ps1.](https://www.powershellgallery.com/packages/Install-VMInsights/1.0) È disponibile da Azure PowerShell Gallery.It's available from the Azure PowerShell Gallery. Questo script scorre:
 
-- Ogni macchina virtuale e set di scalabilità di macchine virtuali nella sottoscrizione.
-- Il gruppo di risorse con ambito specificato da *ResourceGroup*.
-- Una singola macchina virtuale o un set di scalabilità di macchine virtuali specificato in base al *nome*.
+- Ogni set di scalabilità di macchine virtuali e macchine virtuali nella sottoscrizione.
+- Gruppo di risorse con ambito specificato da *ResourceGroup*.
+- Set di scalabilità di una singola macchina virtuale o di macchina virtuale specificato da *Nome*.
 
-Per ogni macchina virtuale o set di scalabilità di macchine virtuali, lo script verifica se l'estensione della macchina virtuale è già installata. Se è installata l'estensione della macchina virtuale, lo script tenterà di reinstallarlo. Se l'estensione della macchina virtuale non è installata, lo script installa il Log Analytics e le estensioni della macchina virtuale dell'agente di dipendenza.
+Per ogni macchina virtuale o set di scalabilità di macchine virtuali, lo script verifica se l'estensione della macchina virtuale è già installata. Se è installata l'estensione della macchina virtuale, lo script tenta di reinstallarla. Se l'estensione della macchina virtuale non è installata, lo script installa le estensioni della macchina virtuale di Log Analytics e dell'agente di dipendenza.
 
-Verificare di usare Azure PowerShell modulo AZ versione 1.0.0 o versione successiva con `Enable-AzureRM` alias di compatibilità abilitati. Eseguire `Get-Module -ListAvailable Az` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzAccount` per creare una connessione con Azure.
+Verificare di usare il modulo di Azure PowerShell `Enable-AzureRM` Az versione 1.0.0 o successiva con gli alias di compatibilità abilitati. Eseguire `Get-Module -ListAvailable Az` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzAccount` per creare una connessione con Azure.
 
 Per ottenere un elenco di dettagli sugli argomenti dello script con esempi di utilizzo, eseguire `Get-Help`.
 
@@ -343,4 +337,4 @@ Ora che il monitoraggio è abilitato per le macchine virtuali, queste informazio
 
 - Per visualizzare le dipendenze delle applicazioni individuate, vedere [Visualizzare la mappa di Monitoraggio di Azure per le macchine virtuali](vminsights-maps.md).
 
-- Per identificare i colli di bottiglia e l'utilizzo complessivo delle prestazioni della VM, vedere [visualizzare le prestazioni delle VM di Azure](vminsights-performance.md).
+- Per identificare i colli di bottiglia e l'utilizzo complessivo con le prestazioni della macchina virtuale, vedere [Visualizzare le prestazioni delle macchine virtuali](vminsights-performance.md)di Azure.To identify bottlenecks and overall utilization with your VM's performance, see View Azure VM Performance .

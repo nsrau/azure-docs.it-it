@@ -1,77 +1,93 @@
 ---
-title: Mapping della trasformazione ricerca flusso di dati
-description: Trasformazione ricerca flusso di dati mapping Azure Data Factory
+title: Trasformazione di ricerca nel mapping del flusso di datiLookup transformation in mapping data flow
+description: Fare riferimento ai dati da un'altra origine usando la trasformazione di ricerca nel mapping del flusso di dati.
 author: kromerm
+ms.reviewer: daperlov
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/26/2020
-ms.openlocfilehash: 2216e1bf058eef486dbfefba24d52bdc6bdb232f
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.date: 03/23/2020
+ms.openlocfilehash: 78c6c1363af011a90865770d88c0037e50e958c1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78164679"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240397"
 ---
-# <a name="azure-data-factory-mapping-data-flow-lookup-transformation"></a>Trasformazione ricerca flusso di dati mapping Azure Data Factory
+# <a name="lookup-transformation-in-mapping-data-flow"></a>Trasformazione di ricerca nel mapping del flusso di datiLookup transformation in mapping data flow
 
-Usare la trasformazione Ricerca per aggiungere dati di riferimento da un'altra origine al flusso di dati. La trasformazione Ricerca richiede un'origine definita che punta alla tabella di riferimento e corrisponde ai campi chiave.
+Usare la trasformazione di ricerca per fare riferimento ai dati da un'altra origine in un flusso di dati. La trasformazione di ricerca aggiunge le colonne dai dati corrispondenti ai dati di origine.
+
+Una trasformazione di ricerca è simile a un left outer join. Tutte le righe del flusso primario saranno presenti nel flusso di output con colonne aggiuntive dal flusso di ricerca. 
+
+## <a name="configuration"></a>Configurazione
 
 ![Trasformazione Ricerca](media/data-flow/lookup1.png "Ricerca")
 
-Selezionare i campi chiave per individuare la corrispondenza tra i campi del flusso in ingresso e i campi dall'origine di riferimento. È necessario avere già creato una nuova origine nell'area di progettazione del flusso di dati da usare come lato destro per la ricerca.
+**Flusso principale:** Flusso di dati in ingresso. Questo flusso è equivalente al lato sinistro di un join.
 
-Quando vengono trovate corrispondenze, le righe e le colonne risultanti dall'origine di riferimento verranno aggiunte al flusso di dati. È possibile scegliere i campi di interesse da includere nel sink alla fine del flusso di dati. In alternativa, usare una trasformazione seleziona dopo la ricerca per eliminare l'elenco dei campi in modo da mantenere solo i campi da entrambi i flussi che si vuole mantenere.
+**Flusso di ricerca:** Dati aggiunti al flusso primario. I dati aggiunti sono determinati dalle condizioni di ricerca. Questo flusso è equivalente al lato destro di un join.
 
-La trasformazione Ricerca esegue l'equivalente di un left outer join. Quindi, verranno visualizzate tutte le righe dell'origine sinistra combinate con le corrispondenze dal lato destro. Se si dispone di più valori corrispondenti nella ricerca o se si desidera personalizzare l'espressione di ricerca, è preferibile passare a una trasformazione join e utilizzare un cross join. In questo modo si eviteranno eventuali errori di prodotto cartesiano durante l'esecuzione.
+**Corrispondenza di più righe:** Se abilitata, una riga con più corrispondenze nel flusso primario restituirà più righe. In caso contrario, verrà restituita una sola riga in base alla condizione 'Match on'.
 
-## <a name="match--no-match"></a>Corrispondenza/nessuna corrispondenza
+**Corrispondenza su:** Visibile solo se 'Corrispondenza più righe' è abilitato. Scegliere se eseguire la corrispondenza in qualsiasi riga, prima corrispondenza o ultima corrispondenza. Qualsiasi riga è consigliata in quanto viene eseguita più velocemente. Se è selezionata la prima riga o l'ultima riga, sarà necessario specificare le condizioni di ordinamento.
 
-Dopo la trasformazione ricerca, è possibile utilizzare le trasformazioni successive per esaminare i risultati di ogni riga delle corrispondenze utilizzando la funzione Expression `isMatch()` per eseguire ulteriori scelte nella logica a seconda che la ricerca abbia restituito o meno una corrispondenza di riga.
+**Condizioni di ricerca:** Scegliere le colonne in cui trovare la corrispondenza. Se viene soddisfatta la condizione di uguaglianza, le righe verranno considerate una corrispondenza. Passare il mouse e selezionare 'Colonna calcolata' per estrarre un valore utilizzando il linguaggio delle espressioni del flusso di [dati.](data-flow-expression-functions.md)
+
+La trasformazione di ricerca supporta solo le corrispondenze di uguaglianza. Per personalizzare l'espressione di ricerca in modo da includere altri operatori, ad esempio maggiore di, è consigliabile utilizzare un [cross join nella trasformazione join.](data-flow-join.md#custom-cross-join) Un cross join eviterà eventuali errori di prodotto cartesiano durante l'esecuzione.
+
+Tutte le colonne di entrambi i flussi sono incluse nei dati di output. Per eliminare le colonne duplicate o indesiderate, aggiungere una [trasformazione di selezione](data-flow-select.md) dopo la trasformazione di ricerca. Le colonne possono anche essere eliminate o rinominate in una trasformazione sink.
+
+## <a name="analyzing-matched-rows"></a>Analisi delle righe corrispondentiAnalyzing matched rows
+
+Dopo la trasformazione `isMatch()` di ricerca, la funzione può essere utilizzata per verificare se la ricerca corrisponde per le singole righe.
 
 ![Modello di ricerca](media/data-flow/lookup111.png "Modello di ricerca")
 
-Dopo aver utilizzato la trasformazione ricerca, è possibile aggiungere una suddivisione della trasformazione Suddivisione condizionale sulla funzione ```isMatch()```. Nell'esempio precedente, le righe corrispondenti passano attraverso il flusso superiore e le righe non corrispondenti passano attraverso il flusso di ```NoMatch```.
+Un esempio di questo modello è l'utilizzo `isMatch()` della trasformazione di divisione condizionale per la divisione della funzione. Nell'esempio precedente, le righe corrispondenti passano attraverso il ```NoMatch``` flusso superiore e le righe non corrispondenti passano attraverso il flusso.
 
-## <a name="first-or-last-value"></a>Primo o ultimo valore
+## <a name="testing-lookup-conditions"></a>Test delle condizioni di ricerca
 
-La trasformazione ricerca viene implementata come left outer join. Quando si dispone di più corrispondenze dalla ricerca, può essere utile ridurre le più righe corrispondenti selezionando la prima riga corrispondente, l'ultima corrispondenza o qualsiasi riga casuale.
+Quando si esegue il test della trasformazione di ricerca con l'anteprima dei dati in modalità di debug, usare un piccolo set di dati noti. Quando si esegue il campionamento di righe da un set di dati di grandi dimensioni, non è possibile prevedere quali righe e chiavi verranno lette per il test. Il risultato è non deterministico, il che significa che le condizioni di join potrebbero non restituire alcuna corrispondenza.
 
-### <a name="option-1"></a>Opzione 1
+## <a name="broadcast-optimization"></a>Ottimizzazione della trasmissione
 
-![Ricerca su riga singola](media/data-flow/singlerowlookup.png "Ricerca su riga singola")
+In Azure Data Factory i flussi di dati di mapping vengono eseguiti in ambienti Spark con scalabilità orizzontale. Se il set di dati può essere inserito nello spazio di memoria del nodo worker, le prestazioni di ricerca possono essere ottimizzate abilitando la trasmissione.
 
-* Corrisponde a più righe: lasciare vuoto per restituire una corrispondenza con riga singola
-* Corrispondenza in: selezionare prima, ultima o qualsiasi corrispondenza
-* Condizioni di ordinamento: se si seleziona primo o ultimo, ADF richiede che i dati siano ordinati in modo che sia presente la logica alla base della prima e dell'ultima
+![Trasmissione join](media/data-flow/broadcast.png "Trasmissione join")
 
-> [!NOTE]
-> Usare la prima o l'ultima opzione nel selettore di riga singola se è necessario controllare il valore da restituire dalla ricerca. L'utilizzo di ricerche "any" o più righe sarà più rapido.
+L'abilitazione della trasmissione spinge l'intero set di dati in memoria. Per i set di dati più piccoli contenenti solo poche migliaia di righe, la trasmissione può migliorare notevolmente le prestazioni di ricerca. Per set di dati di grandi dimensioni, questa opzione può causare un'eccezione di memoria insufficiente.
 
-### <a name="option-2"></a>Opzione 2
+## <a name="data-flow-script"></a>Script del flusso di dati
 
-Questa operazione può essere eseguita anche utilizzando una trasformazione aggregazione dopo la ricerca. In questo caso, viene usata una trasformazione aggregazione denominata ```PickFirst``` per selezionare il primo valore dalle corrispondenze di ricerca.
+### <a name="syntax"></a>Sintassi
 
-![Aggregazione ricerca](media/data-flow/lookup333.png "Aggregazione ricerca")
+```
+<leftStream>, <rightStream>
+    lookup(
+        <lookupConditionExpression>,
+        multiple: { true | false },
+        pickup: { 'first' | 'last' | 'any' },  ## Only required if false is selected for multiple
+        { desc | asc }( <sortColumn>, { true | false }), ## Only required if 'first' or 'last' is selected. true/false determines whether to put nulls first
+        broadcast: { 'none' | 'left' | 'right' | 'both' }
+    ) ~> <lookupTransformationName>
+```
+### <a name="example"></a>Esempio
 
-![Ricerca prima](media/data-flow/lookup444.png "Ricerca prima")
+![Trasformazione Ricerca](media/data-flow/lookup-dsl-example.png "Ricerca")
 
-## <a name="optimizations"></a>Ottimizzazioni
+Lo script del flusso di dati per la configurazione di ricerca precedente si trova nel frammento di codice seguente.
 
-In Data Factory i flussi di dati vengono eseguiti in ambienti Spark con scalabilità orizzontale. Se il set di dati può rientrare nello spazio di memoria del nodo di lavoro, è possibile ottimizzare le prestazioni di ricerca.
+```
+SQLProducts, DimProd lookup(ProductID == ProductKey,
+    multiple: false,
+    pickup: 'first',
+    asc(ProductKey, true),
+    broadcast: 'none')~> LookupKeys
+```
+## 
+Passaggi successivi
 
-![Join broadcast](media/data-flow/broadcast.png "Join broadcast")
-
-### <a name="broadcast-join"></a>Join di trasmissione
-
-Selezionare Left e/o right broadcast join per richiedere ad ADF di effettuare il push dell'intero set di dati da entrambi i lati della relazione di ricerca in memoria. Per i set di impostazioni più piccoli, questo può migliorare significativamente le prestazioni di ricerca.
-
-### <a name="data-partitioning"></a>Partizionamento dei dati
-
-È inoltre possibile specificare il partizionamento dei dati selezionando "imposta partizionamento" nella scheda Ottimizza della trasformazione Ricerca per creare set di dati che possono essere migliorati in memoria per ogni thread di lavoro.
-
-## <a name="next-steps"></a>Passaggi successivi
-
-* Le trasformazioni [join](data-flow-join.md) e [Exists](data-flow-exists.md) eseguono attività simili nei flussi di dati del mapping di ADF. Esaminare le trasformazioni seguenti.
-* Usare una [Suddivisione condizionale](data-flow-conditional-split.md) con ```isMatch()``` per suddividere le righe in valori corrispondenti e non corrispondenti
+* Le trasformazioni [join](data-flow-join.md) ed [exists](data-flow-exists.md) accettano entrambi più input di flusso
+* Usare una [trasformazione di divisione condizionale](data-flow-conditional-split.md) con ```isMatch()``` per dividere le righe su valori corrispondenti e non corrispondenti

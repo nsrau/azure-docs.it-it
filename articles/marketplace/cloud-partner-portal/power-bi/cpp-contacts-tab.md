@@ -1,37 +1,36 @@
 ---
-title: Informazioni sui contatti per un'offerta di app Power BI | Azure Marketplace
+title: Informazioni sui contatti per un'offerta di Power BI App Azure Marketplace
 description: Configurare i campi dei contatti per un'offerta di app Power BI per Microsoft AppSource Marketplace.
-services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.author: pabutler
-ms.openlocfilehash: ec1ed23b253f705e1830c1c014492fe52b2133f0
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 79cdd12359a0d781b51db2632bc9d534e0d88c6d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826528"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80285232"
 ---
 # <a name="power-bi-app-contacts-tab"></a>Scheda Contacts (Contatti) per l'app Power BI
 
-La scheda **Contacts** (Contatti) nella pagina **New Offer** (Nuova offerta) consente di specificare le risorse di supporto tecnico e di assistenza clienti per la propria offerta. È suddiviso in due sezioni: **tecnico** e **supporto**tecnico.
+La scheda **Contacts** (Contatti) nella pagina **New Offer** (Nuova offerta) consente di specificare le risorse di supporto tecnico e di assistenza clienti per la propria offerta. È diviso in due sezioni: **Engineering** e **Customer Support.**
 
 ![Scheda Contacts (Contatti)](media/contacts-tab.png)
 
 
 ## <a name="contacts-fields"></a>Campi dei contatti 
 
-La tabella seguente descrive lo scopo di ogni campo.  I campi obbligatori sono indicati da un asterisco (*). 
+Nella tabella seguente viene descritto lo scopo di ogni campo.  I campi obbligatori sono indicati da un asterisco (*). 
 
 |   Campo               |   Descrizione                                                            |
 |-----------------------|--------------------------------------------------------------------------|
-| *Engineering Contact* (Contatto tecnico) | Svolge la funzione di contatto tecnico tra AppSource e l'organizzazione dell'editore.    |
+| *Engineering Contact (Contatto tecnico)* | Svolge la funzione di contatto tecnico tra AppSource e l'organizzazione dell'editore.    |
 | **Nome\***              | Nome della persona o del gruppo che funge da supporto tecnico o di progettazione. |
 | **Posta elettronica\***             | Indirizzo di posta elettronica del contatto tecnico.                                  |
-| **\* telefono**             | Numero di telefono per il supporto tecnico.                                       |
+| **Telefono\***             | Numero di telefono per il supporto tecnico.                                       |
 | *Support Contact* (Contatto clienti)     | Riceve i ticket di supporto aperti dai clienti all'interno di AppSource.            |
 | **Nome\***              | Nome della persona o del gruppo che assiste il cliente.              |
 | **Posta elettronica\***             | Indirizzo di posta elettronica dell'assistenza clienti.                                        |
