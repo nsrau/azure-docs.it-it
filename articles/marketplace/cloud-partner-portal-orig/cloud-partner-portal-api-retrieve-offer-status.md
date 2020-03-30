@@ -1,19 +1,18 @@
 ---
-title: Recuperare lo stato dell'offerta | Azure Marketplace
+title: Recuperare lo stato dell'offerta Azure Marketplace
 description: L'API recupera lo stato corrente dell'offerta.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: 5ce546d79497f462f6c262de738036d7e3a30226
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 2f5211716145d6c05bbfb0132c4a6ba2f9cceabe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819672"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280508"
 ---
 <a name="retrieve-offer-status"></a>Recupero dello stato dell'offerta 
 =====================
@@ -27,8 +26,8 @@ Recupera lo stato corrente dell'offerta.
 
 |  **Nome**       |   **Descrizione**                            |  **Tipo di dati** |
 |  -------------  |  ------------------------------------------  |  ------------  |
-|  publisherId    | Identificatore dell'editore, per esempio `Contoso`  |     String     |
-|  offerId        | GUID che identifica in modo univoco l'offerta      |     String     |
+|  publisherId    | Identificatore dell'editore, per esempio `Contoso`  |     string     |
+|  offerId        | GUID che identifica in modo univoco l'offerta      |     string     |
 |  api-version    | Ultima versione dell'API                        |     Data       |
 |  |  |
 
@@ -36,7 +35,7 @@ Recupera lo stato corrente dell'offerta.
 <a name="header"></a>Intestazione
 ------
 
-|  Name           |  Valore               |
+|  Nome           |  valore               |
 |  -------------  | -------------------  |
 |  Content-Type   |  `application/json`  |
 |  Autorizzazione  | `Bearer YOUR_TOKEN`  |
@@ -46,7 +45,7 @@ Recupera lo stato corrente dell'offerta.
 <a name="body-example"></a>Esempio di corpo
 ------------
 
-### <a name="response"></a>Response
+### <a name="response"></a>Risposta
 
 ``` json
   {
@@ -125,15 +124,15 @@ Recupera lo stato corrente dell'offerta.
 
 |  **Nome**             |    **Descrizione**                                                                             |
 | --------------------  |   -------------------------------------------------------------------------------------------- |
-|  status               | Lo stato dell'offerta. Per l'elenco di valori possibili, vedere lo [Stato dell'offerta](#offer-status) qui sotto. |
-|  messages             | Matrice di messaggi associati all'offerta                                                    |
+|  status               | Lo stato dell'offerta. Per l'elenco di valori possibili, vedere [Stato dell'offerta](#offer-status) di seguito: |
+|   del cloud al dispositivo             | Matrice di messaggi associati all'offerta                                                    |
 |  steps                | Matrice dei passaggi di pubblicazione di un'offerta                      |
 |  estimatedTimeFrame   | Stima del tempo necessario per completare questo passaggio, in formato descrittivo                       |
 |  id                   | Identificatore del passaggio                                                                         |
 |  stepName             | Nome del passaggio                                                                               |
 |  description          | Descrizione del passaggio                                                                        |
 |  status               | Stato del passaggio. Per l'elenco di valori possibili, vedere [Stato del passaggio](#step-status) di seguito:    |
-|  messages             | Matrice di messaggi correlati al passaggio                                                          |
+|   del cloud al dispositivo             | Matrice di messaggi correlati al passaggio                                                          |
 |  processPercentage    | Percentuale di completamento del passaggio                                                              |
 |  previewLinks         | *Non attualmente implementato*                                                                    |
 |  liveLinks            | *Non attualmente implementato*                                                                    |
@@ -175,6 +174,6 @@ Recupera lo stato corrente dell'offerta.
 |  WaitingForApproval          | Il passaggio è in attesa di approvazione da parte del processo.        |
 |  Bloccato                     | Il passaggio è bloccato.                             |
 |  Rifiutato                    | Il passaggio è stato rifiutato.                            |
-|  Complete                    | Il passaggio è stato completato.                            |
+|  Operazione completata                    | Il passaggio è stato completato.                            |
 |  Cancellati                    | Il passaggio è stato annullato.                           |
 |  |  |

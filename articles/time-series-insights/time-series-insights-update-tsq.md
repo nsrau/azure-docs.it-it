@@ -1,78 +1,72 @@
 ---
-title: Esecuzione di query sui dati in anteprima-Azure Time Series Insights | Microsoft Docs
-description: Cenni preliminari sulle query sui dati e sull'API REST HTTP in Azure Time Series Insights Preview.
-author: deepakpalled
-ms.author: dpalled
-manager: cshankar
+title: Esecuzione di query sui dati in Anteprima - Informazioni dettagliate sulle serie temporali di Azure Documenti Microsoft
+description: Concetti relativi alle query sui dati e panoramica dell'API REST HTTP in Azure Time Series Insights Preview.Data querying concepts and HTTP REST API overview in Azure Time Series Insights Preview.
+author: shreyasharmamsft
+ms.author: shresha
+manager: dpalled
 ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 02/07/2020
+ms.date: 03/25/2020
 ms.custom: seodec18
-ms.openlocfilehash: 898515f49672a19ed8bf1c62439128b6727afc73
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: 23094ec71dac5780def10e16b90de0b818ef3c68
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77087397"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80284892"
 ---
-# <a name="data-querying-in-azure-time-series-insights-preview"></a>Esecuzione di query sui dati in Azure Time Series Insights anteprima
+# <a name="data-querying-in-azure-time-series-insights-preview"></a>Esecuzione di query sui dati nell'anteprima di Azure Time Series InsightsData querying in Azure Time Series Insights Preview
 
-La versione di anteprima di Azure Time Series Insights consente di eseguire query sui dati per eventi e metadati archiviati nell'ambiente tramite API di area pubblica. Tali API vengono usate anche nell'[anteprima di Time Series Insights Explorer](./time-series-insights-update-explorer.md).
+Azure Time Series Insights consente l'esecuzione di query sui dati sugli eventi e sui metadati archiviati nell'ambiente tramite API di superficie pubblica. Queste API vengono utilizzate anche da [Time Series Insights Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-explorer).
 
 In Time Series Insights sono disponibili tre categorie di API principali.
 
-* **API dell'ambiente**: queste API consentono di eseguire query sull'ambiente di Time Series Insights stesso. Esempi di query sono l'elenco di ambienti a cui il chiamante può accedere e i metadati di ambiente.
-* **Modello Time Series-API query (TSM-Q)** : Abilita le operazioni di creazione, lettura, aggiornamento ed eliminazione (CRUD) sui metadati archiviati nella parte relativa all'ambiente del modello Time Series. Esempi sono costituiti da istanze, tipi e gerarchie.
-* **API TSQ (Time Series query)** : Abilita il recupero di dati di telemetria o di eventi durante la registrazione dal provider di origine o la riduzione dei dati tramite funzioni scalari e di aggregazione archiviate parte delle variabili. Queste API possono eseguire operazioni per trasformare, combinare e applicare calcoli sui dati delle serie temporali.
+* **API**dell'ambiente: queste API abilitano le query sull'ambiente Time Series Insights stesso. Questi possono essere utilizzati per raccogliere l'elenco degli ambienti a cui il chiamante ha accesso e i metadati dell'ambiente.
+* **Time Series Model-Query (TSM-Q) APIs**: Abilita le operazioni di creazione, lettura, aggiornamento ed eliminazione (CRUD) sui metadati archiviati nel modello Time Series dell'ambiente. Questi possono essere utilizzati per accedere e modificare le istanze, tipi e gerarchie.
+* **API TSQ (Time Series Query):** consente il recupero dei dati di telemetria o degli eventi registrati dal provider di origine e consente di eseguire calcoli e aggregazioni sui dati utilizzando funzioni scalari e di aggregazione avanzate.
 
-In Time Series Insights viene utilizzato un linguaggio di espressioni basato su stringa, [TSX (Time Series Expression)](https://docs.microsoft.com/rest/api/time-series-insights/preview-tsx), per l'espressione di calcoli.
+Time Series Insights utilizza un linguaggio di espressione basato su stringa avanzato, [Time Series Expression (TSX)](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax), per esprimere i calcoli.
 
-## <a name="azure-time-series-insights-preview-core-apis"></a>API principali dell'anteprima di Azure Time Series Insights
+## <a name="azure-time-series-insights-core-apis"></a>Azure Time Series Insights core APIs
 
 Sono supportate le API principali seguenti.
 
-[Panoramica delle query su serie temporali ![](media/v2-update-tsq/tsq.png)](media/v2-update-tsq/tsq.png#lightbox)
+[![Panoramica della query Serie temporaliTime Series Query overview](media/v2-update-tsq/tsq.png)](media/v2-update-tsq/tsq.png#lightbox)
 
 ## <a name="environment-apis"></a>API di ambiente
 
-Sono disponibili le API di ambiente seguenti.
-
-* [Get environments API](/rest/api/time-series-insights/management/environments/get): restituisce l'elenco di ambienti a cui il chiamante è autorizzato ad accedere.
-* [Get environments Availability API](/rest/api/time-series-insights/dataaccess(preview)/query/getavailability): restituisce la distribuzione del numero di eventi sul timestamp dell'evento `$ts`. Tale API consente di stabilire se sono presenti eventi nel timestamp restituendo il numero di eventi, se presenti.
-* [Get Event schema API](/rest/api/time-series-insights/dataaccess(preview)/query/geteventschema): restituisce i metadati dello schema dell'evento per un intervallo di ricerca specificato. Tale API consente di recuperare tutti i metadati e le proprietà disponibili nello schema per l'intervallo di ricerca specificato.
+* [API Get Environments](https://docs.microsoft.com/rest/api/time-series-insights/management/environments/get): Restituisce l'elenco degli ambienti a cui il chiamante è autorizzato ad accedere.
+* [Get Environments Availability API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/getavailability): Restituisce la `$ts`distribuzione del conteggio degli eventi sul timestamp dell'evento. Questa API consente di determinare se sono presenti eventi nell'ambiente restituendo il numero di eventi suddivisi in intervalli di tempo, se presenti.
+* [Get Event Schema API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/geteventschema): Restituisce i metadati dello schema di eventi per un determinato intervallo di ricerca. Tale API consente di recuperare tutti i metadati e le proprietà disponibili nello schema per l'intervallo di ricerca specificato.
 
 ## <a name="time-series-model-query-tsm-q-apis"></a>API TSM-Q (Time Series Model-Query)
 
-Sono disponibili le API di query del modello Time Series seguenti. La maggior parte di queste API supporta l'operazione di esecuzione batch per abilitare le operazioni CRUD batch su più entità del modello Time Series:
+La maggior parte di queste API supporta l'operazione di esecuzione batch per abilitare le operazioni CRUD batch su più entità del modello TimeSeries:Most of these APIs support batch execution operation to enable batch CRUD operations on multiple Time Series Model entities:
 
-* [API delle impostazioni del modello](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#model-settings-api): Abilita *Get* e *patch* per il tipo predefinito e il nome del modello dell'ambiente.
-* [API dei tipi](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api): Abilita CRUD sui tipi Time Series e sulle variabili associate.
-* [API gerarchie](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#hierarchies-api): Abilita CRUD nelle gerarchie della serie temporale e nei percorsi dei campi associati.
-* [API istanze](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#instances-api): Abilita CRUD nelle istanze della serie temporale e nei campi di istanza associati. Inoltre, l'API instances supporta le operazioni seguenti:
-  * [Search](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeseriesinstances/search): Recupera un elenco parziale dei riscontri nella ricerca di istanze di serie temporali in base agli attributi dell'istanza.
-  * [Suggerisci](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeseriesinstances/suggest): Cerca e suggerisce un elenco parziale dei riscontri nella ricerca di istanze di serie temporali in base agli attributi dell'istanza.
+* [API delle impostazioni del](https://docs.microsoft.com/rest/api/time-series-insights/preview#model-settings-api)modello : Abilita *GET* e *PATCH* sul tipo predefinito e sul nome del modello dell'ambiente.
+* [API dei tipi:](https://docs.microsoft.com/rest/api/time-series-insights/preview#types-api)abilita i tipi CRUD sulle serie temporali e le variabili associate.
+* [API Gerarchie:](https://docs.microsoft.com/rest/api/time-series-insights/preview#hierarchies-api)abilita CRUD sulle gerarchie Time Series e sui percorsi dei campi associati.
+* [API istanze](https://docs.microsoft.com/rest/api/time-series-insights/preview#instances-api): abilita CRUD sulle istanze Time Series e sui campi di istanza associati. Inoltre, l'API di istanze supporta le seguenti operazioni:
+  * [Ricerca](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeseriesinstances/search): Recupera un elenco parziale di hit nella ricerca di istanze di serie temporali in base agli attributi dell'istanza.
+  * [Suggerisci:](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeseriesinstances/suggest)cerca e suggerisce un elenco parziale di hit nella ricerca di istanze di serie temporali in base agli attributi di istanza.
 
 ## <a name="time-series-query-tsq-apis"></a>API TSQ (Time Series Query)
 
-Sono disponibili le API di query della serie temporale seguenti. Queste API sono disponibili in tutte le archiviazioni a più livelli supportate in Time Series Insights. I parametri URL query vengono utilizzati per specificare il [tipo di archivio](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#uri-parameters) in cui deve essere eseguita la query:
+Queste API sono disponibili in tutti i negozi della nostra soluzione di archiviazione multilivello in Time Series Insights. I parametri URL della query vengono utilizzati per specificare il [tipo di archivio](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#uri-parameters) su cui eseguire la query:
 
-* [Get Events API](/rest/api/time-series-insights/dataaccess(preview)/query/execute#getevents): consente la query e il recupero dei dati di Time Series Insights dagli eventi quando vengono registrati nel Time Series Insights dal provider di origine. Questa API consente il recupero di eventi non elaborati per un determinato ID della serie temporale e un intervallo di ricerca. Questa API supporta la paginazione per recuperare il set di dati completo per l'input selezionato. 
+* [API Get Events:](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#getevents)abilita le query e il recupero degli eventi non elaborati e dei timestamp degli eventi associati quando vengono registrati in Time Series Insights dal provider di origine. Questa API consente il recupero di eventi non elaborati per un determinato ID Time Series e intervallo di ricerca. Questa API supporta l'impaginazione per recuperare il set di dati di risposta completo per l'input selezionato. 
 
-* [Ottenere l'API della serie](/rest/api/time-series-insights/dataaccess(preview)/query/execute#getseries): consente la query e il recupero dei dati di Time Series Insights dagli eventi acquisiti usando i dati registrati in transito. I valori restituiti si basano sulle variabili definite nel modello o nella funzione inline specificata. Questa API supporta la paginazione per recuperare il set di dati completo per l'input selezionato. Questa API consente di definire le proprietà o le colonne calcolate.
+* [Get Series API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#getseries): Abilita la query e il recupero dei valori calcolati e dei timestamp degli eventi associati applicando calcoli definiti dalle variabili sugli eventi non elaborati. Queste variabili possono essere definite nel modello Time Series o fornite inline nella query. Questa API supporta l'impaginazione per recuperare il set di dati di risposta completo per l'input selezionato. 
 
-    >[!NOTE]
-    > La clausola di aggregazione viene ignorata anche se è specificata in un modello oppure in una funzione inline specificata.
+* [API serie aggregate:](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#aggregateseries)abilita la query e il recupero di valori aggregati e i timestamp di intervallo associati applicando calcoli definiti dalle variabili sugli eventi non elaborati. Queste variabili possono essere definite nel modello Time Series o fornite inline nella query. Questa API supporta l'impaginazione per recuperare il set di dati di risposta completo per l'input selezionato. 
+  
+  For a specified search span and interval, this API returns an aggregated response per variable per interval for a Time Series ID. Il numero di intervalli nel set di dati delle risposte viene calcolato contando i segni di graduazione (il numero di millisecondi trascorsi dall'epoca Unix - 1st, 1970) e dividendo i segni di graduazione per la dimensione dell'intervallo specificato nella query.
 
-  L'API Get Series restituisce un modello di serie temporale per ogni variabile e per ogni intervallo. Un valore di serie temporali è un formato che Time Series Insights USA per l'output JSON di una query. I valori restituiti si basano sull'ID di serie temporale e sul set di variabili specificati.
-
-* [API della serie aggregata](/rest/api/time-series-insights/dataaccess(preview)/query/execute#aggregatevariable): consente la query e il recupero dei dati di Time Series Insights dagli eventi acquisiti tramite il campionamento e l'aggregazione dei dati registrati. Questa API supporta l'esecuzione continua con i [token di continuazione](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#queryresultpage).
-
-  L'API Aggregate Series restituisce un valore di serie temporale per ogni variabile e per ogni intervallo. I valori restituiti si basano sull'ID di serie temporale e sul set di variabili specificati. L'API Aggregate Series consente di ottenere una riduzione usando variabili archiviate nel modello di serie temporale o nella funzione inline specificata per i dati aggregati o di esempio.
+  I timestamp restituiti nel set di risposte sono dei limiti dell'intervallo sinistro, non degli eventi campionati dall'intervallo. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni su [archiviazione e ingresso](./time-series-insights-update-storage-ingress.md) in Azure Time Series Insights Preview.
-- Vedere l'articolo sulla [modellazione dei dati](./time-series-insights-update-tsm.md) di Time Series Insights Preview.
-- Individuare le [procedure consigliate per la scelta di un ID di serie temporale](./time-series-insights-update-how-to-id.md).
+- Ulteriori informazioni sulle diverse variabili che possono essere definite nel modello [Time Series](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-tsm).
+- Ulteriori informazioni su come eseguire query sui dati da [Time Series Insights Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-explorer).

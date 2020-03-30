@@ -1,19 +1,18 @@
 ---
-title: Aggiornare un'offerta di VM esistente in Azure Marketplace
+title: Aggiornare un'offerta di macchine virtuali esistente in Azure MarketplaceUpdate an existing VM offer in the Azure Marketplace
 description: Spiega come aggiornare un'offerta di macchina virtuale esistente in Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: MaggiePucciEvans
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/27/2018
-ms.author: evansma
-ms.openlocfilehash: 1ba2abb3fbeb1d08ed780669fb94a2ef83cbfb1b
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.author: dsindona
+ms.openlocfilehash: fe1397d7ad00a2eb6e9fe04d8bfa50e49839fe34
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934237"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288785"
 ---
 # <a name="update-an-existing-vm-offer-on-azure-marketplace"></a>Aggiornare un'offerta di macchina virtuale esistente in Azure Marketplace
 
@@ -30,7 +29,7 @@ I motivi più comuni dell'aggiornamento dell'offerta sono svariati, ad esempio:
 Per semplificare queste modifiche, il portale offre le funzionalità **Confronta** e **Cronologia**.  
 
 >[!Note]
->Il consenso esplicito del canale partner Cloud Solution Provider (CSP) è ora disponibile.  Per ulteriori informazioni sul marketing dell'offerta tramite i canali del partner Microsoft CSP, vedere [provider di soluzioni cloud](../../cloud-solution-providers.md) .
+>L'opt-in del canale per i partner Cloud Solution Provider (CSP) è ora disponibile.  Per ulteriori informazioni sul marketing dell'offerta tramite i canali partner Microsoft CSP, consulta [Cloud Solution Provider.](../../cloud-solution-providers.md)
 
 ## <a name="unpermitted-changes-to-vm-offer-or-sku"></a>Modifiche all'offerta di macchina virtuale o allo SKU non consentite
 
@@ -76,7 +75,7 @@ Per modificare la disponibilità, seguire questa procedura:
 
 1.  Accedere al [portale Cloud Partner](https://cloudpartner.azure.com/).
 
-2.  In **Tutte le offerte** individuare l'offerta da aggiornare.
+2.  In **Tutte le offerte** trova l'offerta che desideri aggiornare.
 
 3.  Nella scheda **SKU** fare clic sullo SKU di cui si vuole modificare la disponibilità.
 
@@ -95,7 +94,7 @@ Per rendere disponibile un nuovo SKU in un'offerta esistente, seguire questa pro
 
 1.  Accedere al [portale Cloud Partner](https://cloudpartner.azure.com/).
 
-2.  In **Tutte le offerte** individuare l'offerta da aggiornare.
+2.  In **Tutte le offerte** trova l'offerta che desideri aggiornare.
 
 3.  Nella scheda **SKU** fare clic su **Add new SKU** (Aggiungi nuovo SKU) e specificare un **ID SKU** nella finestra popup.
 
@@ -110,7 +109,7 @@ Per aggiornare i metadati del marketplace, ad esempio società nome, logo e cos�
 
 1.  Accedere al [portale Cloud Partner](https://cloudpartner.azure.com/).
 
-2.  In **Tutte le offerte** individuare l'offerta da aggiornare.
+2.  In **Tutte le offerte** trova l'offerta che desideri aggiornare.
 
 3.  Passare alla scheda **Marketplace** e quindi per eseguire le modifiche ai metadati seguire le istruzioni nell'articolo [Pubblicare una macchina virtuale in Azure Marketplace](./cpp-publish-offer.md).
 
@@ -119,7 +118,7 @@ Per aggiornare i metadati del marketplace, ad esempio società nome, logo e cos�
 
 ### <a name="update-pricing-on-published-offers"></a>Aggiornamento dei prezzi di offerte pubblicate
 
-Dopo la pubblicazione di un'offerta con pagamento in base al consumo, non è possibile aumentare direttamente i prezzi dello SKU.  È tuttavia possibile creare un nuovo SKU nella stessa offerta, eliminare lo SKU precedente e quindi ripubblicare l'offerta per i nuovi clienti.  Al contrario, è possibile ridurre il prezzo di un'offerta pubblicata attenendosi alla procedura seguente:
+Dopo la pubblicazione di un'offerta con pagamento in base al consumo, non è possibile aumentare direttamente i prezzi dello SKU.  È tuttavia possibile creare un nuovo SKU con la stessa offerta, eliminare lo SKU precedente e quindi ripubblicare l'offerta per i nuovi clienti.  Al contrario, è possibile ridurre il prezzo di un'offerta pubblicata attenendosi alla seguente procedura:
 
 1.  Accedere al [portale Cloud Partner](https://cloudpartner.azure.com/).
 
@@ -145,7 +144,7 @@ Se hanno già ricevuto fatture per il ciclo durante il quale si è verificata un
 
 A partire dal 1° settembre 2018, nel portale verrà aggiunta una nuova sezione denominata **Simplified Currency Pricing** (Prezzi in valuta semplificati). Microsoft sta semplificando il business di Azure Marketplace, consentendo prezzi più prevedibili e modalità di riscossione più semplici dai clienti internazionali. Questa semplificazione prevede anche la riduzione del numero delle valute in cui verranno emesse le fatture ai clienti.
 
-La nuova sezione avrà i prezzi espressi nelle nuove valute. Una volta che tutti i clienti sono stati migrati a queste nuove valute di regolamento, la sezione relativa ai prezzi originale verrà ritirata e verrà mantenuta solo la sezione relativa ai prezzi di valuta semplificata.
+La nuova sezione avrà i prezzi espressi nelle nuove valute.Dopo la migrazione di tutti i clienti verso queste nuove valute di pagamento, la sezione originale relativa ai prezzi verrà ritirata e rimarrà solo la sezione con i prezzi in valuta semplificati.
 
 Per le aree in cui è in corso la modifica della valuta di pagamento sarà possibile impostare nuovi prezzi fino al 1 novembre 2018. Non sarà possibile aumentare il prezzo per le aree in cui non è prevista la modifica della valuta di pagamento.
 

@@ -1,19 +1,18 @@
 ---
-title: Pubblicare l'offerta di applicazione Azure | Azure Marketplace
+title: Pubblicare l'offerta dell'applicazione Azure - Azure Marketplace
 description: Descrive il processo e la procedura per la pubblicazione di un'offerta per un'applicazione Azure in Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/25/2019
-ms.author: pabutler
-ms.openlocfilehash: 0005760a16f5109ca3555df5c5c5137facc84c40
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 9f89e31c2d17ef74971d2057ba58e9572e92184c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826157"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280100"
 ---
 # <a name="publish-azure-application-offer"></a>Pubblicare un'offerta di applicazione Azure
 
@@ -28,14 +27,14 @@ Il diagramma seguente illustra i passaggi principali del processo di pubblicazio
 
 La tabella seguente elenca e illustra ogni passaggio della pubblicazione e indica una stima dei tempi per completare ogni passaggio.  Le stime espresse in "giorni" si intendono in giorni lavorativi, che non comprendono i fine settimana e i giorni festivi.
 
-|  **Passaggio per la pubblicazione**           | **Ora**    | **Descrizione**                                                            |
+|  **Passaggio di pubblicazione**           | **Tempo**    | **Descrizione**                                                            |
 |  -------------------           | --------    | ---------------                                                            |
 | Convalida dei prerequisiti         | < 15 min    | Vengono convalidate le informazioni e le impostazioni dell'offerta.                        |
 | Convalida delle impostazioni dei ricavi influenzate | < 15 min  | Viene verificata l'attribuzione dell'utilizzo delle risorse di Azure per l'offerta.             |
 | Certificazione                  | < 1 giorno     | L'offerta viene analizzata dal team delle certificazioni di Azure. Viene eseguita l'analisi dell'offerta per individuare eventuali virus, malware, conformità alle normative sulla sicurezza e problemi di sicurezza. L'offerta viene controllata per verificare che soddisfi tutti i criteri di idoneità. Per altre informazioni, vedere la sezione [Prerequisiti](./cpp-prerequisites.md). Se viene rilevato un problema, viene fornito un feedback. |
 | Convalida del test drive          | < 2 ore   | (Facoltativo) Se è presente un test drive, Microsoft verifica che possa essere distribuito e replicato.  |
-| Creazione di pacchetti e registrazione per la generazione di clienti potenziali | < 1 ora  | Gli asset tecnici dell'offerta sono inclusi in un pacchetto per l'uso da parte dei clienti e i sistemi lead sono configurati e distribuiti. |
-|  Approvazione del server di pubblicazione             |  manual    | Revisione finale dell'editore e conferma prima che l'offerta diventi disponibile in Azure Marketplace. L'offerta è ora disponibile in anteprima.  È possibile distribuire l'offerta nelle sottoscrizioni selezionate (nei passaggi relativi alle informazioni sull'offerta) per verificare che soddisfi tutti i requisiti.  Dopo aver verificato l'offerta, selezionare **Go Live** in modo che l'offerta passi alla fase successiva. |
+| Creazione di pacchetti e registrazione per la generazione di clienti potenziali | < 1 ora  | Le risorse tecniche dell'offerta sono confezionate per l'utilizzo da parte dei clienti e i sistemi di piombo vengono configurati e distribuiti. |
+|  Approvazione del server di pubblicazione             |  manual    | Revisione e conferma finali dell'editore prima che l'offerta diventi disponibile in Azure Marketplace. L'offerta è ora disponibile in anteprima.  È possibile distribuire l'offerta nelle sottoscrizioni selezionate (nei passaggi relativi alle informazioni sull'offerta) per verificare che soddisfi tutti i requisiti.  Dopo aver verificato l'offerta, selezionare **Go Live** in modo che l'offerta passi alla fase successiva. |
 | Revisione Microsoft                | 7 - 14 giorni | Microsoft esamina interamente l'applicazione Azure e, in caso di problemi, invia un messaggio di posta elettronica.  La durata di questo passaggio dipende dalla complessità dell'applicazione, dai problemi rilevati e dalla rapidità con cui si reagisce.  |
 | Live                           | < 1 giorno | L'offerta viene rilasciata, replicata nelle aree specificate e resa disponibile al pubblico. |
 |   |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|   |
@@ -47,7 +46,7 @@ La tabella seguente elenca e illustra ogni passaggio della pubblicazione e indic
 Al termine del processo di pubblicazione, l'offerta sarà disponibile nell'elenco della [categoria dell'applicazione di Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/).
 
 >[!Note]
->Il consenso esplicito del canale partner Cloud Solution Provider (CSP) è ora disponibile.  Per ulteriori informazioni sul marketing dell'offerta tramite i canali del partner Microsoft CSP, vedere [provider di soluzioni cloud](../../cloud-solution-providers.md) .
+>L'opt-in del canale per i partner Cloud Solution Provider (CSP) è ora disponibile.  Per ulteriori informazioni sul marketing dell'offerta tramite i canali partner Microsoft CSP, consulta [Cloud Solution Provider.](../../cloud-solution-providers.md)
 
 ## <a name="errors-and-review-feedback"></a>Errori e feedback della revisione
 

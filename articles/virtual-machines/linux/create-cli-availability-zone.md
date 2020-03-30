@@ -1,21 +1,21 @@
 ---
-title: Creare una VM Linux in zone con l'interfaccia della riga di comando di Azure
+title: Creare una macchina virtuale Linux suddivisa in zone con l'interfaccia della riga della riga della riga della riga della riga della riga di comando di AzureCreate a zone
 description: Creare una VM Linux in una zona di disponibilità con l'interfaccia della riga di comando di Azure
 author: cynthn
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: cynthn
-ms.openlocfilehash: 3f15b59be1182a65da7acb54d0748caf69fc0af3
-ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
+ms.openlocfilehash: e229bb7af02255c0714c559b841afac9a66a7c7d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "78970210"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79535613"
 ---
 # <a name="create-a-linux-virtual-machine-in-an-availability-zone-with-the-azure-cli"></a>Creare una macchina virtuale Linux in una zona di disponibilità con l'interfaccia della riga di comando di Azure
 
-Questo articolo descrive come usare l'interfaccia della riga di comando di Azure per creare una VM Linux in una zona di disponibilità di Azure. Una [zona di disponibilità](../../availability-zones/az-overview.md) è una zona fisicamente separata in un'area di Azure. Usare le zone di disponibilità per proteggere app e dati da un poco probabile errore o perdita di un intero data center.
+Questo articolo descrive come usare l'interfaccia della riga di comando di Azure per creare una VM Linux in una zona di disponibilità di Azure. Una [zona di disponibilità](../../availability-zones/az-overview.md) è una zona fisicamente separata in un'area di Azure.An availability zone is a physically separate zone in an Azure region. Usare le zone di disponibilità per proteggere app e dati da un poco probabile errore o perdita di un intero data center.
 
 Per usare una zona di disponibilità, creare la macchina virtuale in un'[area di Azure supportata](../../availability-zones/az-overview.md#services-support-by-region).
 
@@ -33,7 +33,7 @@ az vm list-skus --location eastus2 --output table
 
 L'output è simile all'esempio sintetico seguente, che mostra le zone di disponibilità nelle quali è disponibile ogni dimensione di VM:
 
-```azurecli
+```output
 ResourceType      Locations  Name               [...]    Tier       Size     Zones
 ----------------  ---------  -----------------           ---------  -------  -------
 virtualMachines   eastus2    Standard_DS1_v2             Standard   DS1_v2   1,2,3
@@ -62,19 +62,19 @@ az group create --name myResourceGroupVM --location eastus2
 
 Il gruppo di risorse viene specificato quando si crea o si modifica una VM, come viene illustrato in questo articolo.
 
-## <a name="create-virtual-machine"></a>Crea macchina virtuale
+## <a name="create-virtual-machine"></a>Creare macchina virtuale
 
 Crea una macchina virtuale usando il comando [az vm create](/cli/azure/vm). 
 
 Per la creazione di una macchina virtuale sono disponibili diverse opzioni, ad esempio l'immagine del sistema operativo, il ridimensionamento del disco e le credenziali amministrative. In questo esempio viene creata una macchina virtuale denominata *myVM* che esegue Ubuntu Server. La VM viene creata nella zona disponibilità *1*. Per impostazione predefinita, la VM viene creata nella dimensione *Standard_DS1_v2*.
 
-```azurecli-interactive 
+```azurecli-interactive
 az vm create --resource-group myResourceGroupVM --name myVM --location eastus2 --image UbuntuLTS --generate-ssh-keys --zone 1
 ```
 
 La creazione della macchina virtuale può richiedere alcuni minuti. Dopo la creazione della macchina virtuale, l'interfaccia della riga di comando di Azure restituisce informazioni sulla VM. Annotare il valore `zones` che indica la zona di disponibilità in cui è in esecuzione la VM. 
 
-```azurecli 
+```output
 {
   "fqdns": "",
   "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroupVM/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -92,7 +92,7 @@ La creazione della macchina virtuale può richiedere alcuni minuti. Dopo la crea
 
 Se la macchina virtuale è distribuita in una zona di disponibilità, viene creato un disco gestito per la macchina virtuale nella stessa zona di disponibilità. Per impostazione predefinita, in questa zona viene creato anche un indirizzo IP pubblico. Gli esempi seguenti ottengono informazioni su queste risorse.
 
-Per verificare che il disco gestito della macchina virtuale si trovi nella zona di disponibilità, usare il comando [AZ VM Show](/cli/azure/vm) per restituire l'ID del disco. In questo esempio, l'ID disco viene archiviato in una variabile che viene usata in un passaggio successivo. 
+Per verificare che il disco gestito della macchina virtuale si trova nella zona di disponibilità, usare il comando [az vm show](/cli/azure/vm) per restituire l'ID del disco. In questo esempio, l'ID disco viene archiviato in una variabile utilizzata in un passaggio successivo. 
 
 ```azurecli-interactive
 osdiskname=$(az vm show -g myResourceGroupVM -n myVM --query "storageProfile.osDisk.name" -o tsv)
@@ -105,7 +105,7 @@ az disk show --resource-group myResourceGroupVM --name $osdiskname
 
 L'output indica che il disco gestito si trova nella stessa zona di disponibilità della VM:
 
-```azurecli
+```output
 {
   "creationData": {
     "createOption": "FromImage",
@@ -153,7 +153,7 @@ az network public-ip show --resource-group myResourceGroupVM --name $ipaddressna
 
 L'output indica che l'indirizzo IP si trova nella stessa zona di disponibilità della VM:
 
-```azurecli
+```output
 {
   "dnsSettings": null,
   "etag": "W/\"b7ad25eb-3191-4c8f-9cec-c5e4a3a37d35\"",
@@ -188,7 +188,7 @@ L'output indica che l'indirizzo IP si trova nella stessa zona di disponibilità 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo è stato illustrato come creare una macchina virtuale in una zona di disponibilità. Altre informazioni sulla [disponibilità](availability.md) per le macchine virtuali di Azure.
+In questo articolo è stato illustrato come creare una macchina virtuale in una zona di disponibilità. Altre informazioni sulla disponibilità per le macchine virtuali di Azure.Learn more about [availability](availability.md) for Azure VMs.
 
 
 

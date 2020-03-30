@@ -1,19 +1,18 @@
 ---
 title: Servizi Go-To-Market - Procedure consigliate per le inserzioni di offerte | Azure
 description: Servizi Go-To-Market - Questa sezione descrive le procedure consigliate per le inserzioni di un'offerta
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/21/2018
-ms.author: ellacroi
-ms.openlocfilehash: 39dea152545d210c48e21853c3c03c63843a4d81
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.author: dsindona
+ms.openlocfilehash: 3cb625e613d8dbe9398e947925a8dc574a277614
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75779103"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80286252"
 ---
 # <a name="offer-listing-best-practices"></a>Procedure consigliate per le inserzioni di offerte
 
@@ -23,7 +22,7 @@ Le tabelle di questa sezione forniscono suggerimenti per la creazione e l'impegn
 
 | Impostazione della vetrina | Procedura consigliata |
 |:--- |:--- |  
-| Nome offerta | Specificare un titolo efficace:<br> <ul> <li> Il nome dell'app deve comunicare ai clienti il valore essenziale. </li> <li> Includere nel titolo dell'app parole chiave di ricerca per ottenere priorità più elevate nei risultati dei motori di ricerca. </li> </ul> Seguire un formato di titolo impostato per le inserzioni di servizi di consulenza:<br>[Nome offerta: [duration] [tipo di offerta] (ad esempio *Contoso: implementazione di 2 settimane*) <br><br> Attenersi alle linee guida del marchio:<br>Quando si fa riferimento a marchi Microsoft e a nomi di software, prodotti e servizi Microsoft, seguire le [linee guida per i marchi Microsoft](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx) e quelle relative ad altri prodotti specifici. |
+| Nome offerta | Specificare un titolo efficace:<br> <ul> <li> Il nome dell'app deve comunicare ai clienti il valore essenziale. </li> <li> Includere nel titolo dell'app parole chiave di ricerca per ottenere priorità più elevate nei risultati dei motori di ricerca. </li> </ul> Seguire un formato di titolo impostato per le inserzioni di servizi di consulenza:<br>[Nome offerta: [Durata] [Tipo offerta] (ad esempio, *Contoso: Implementazione*di 2 settimane) <br><br> Attenersi alle linee guida del marchio:<br>Quando si fa riferimento a marchi Microsoft e a nomi di software, prodotti e servizi Microsoft, seguire le [linee guida per i marchi Microsoft](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx) e quelle relative ad altri prodotti specifici. |
 | Descrizione dell'offerta | Fornire una descrizione chiara dell'offerta:<br> <ul> <li> Descrivere chiaramente la proposta di valore dell'offerta subito nelle prime frasi della descrizione. </li> <li> Tenere presente che le prime frasi possono essere visualizzate nei risultati dei motori di ricerca. </li> <li> Per vendere un prodotto, non basarsi sulle funzionalità, ma concentrarsi sul valore che può offrire. </li> <li> Usare il più possibile la terminologia specifica del settore o formule che mettano in evidenza i vantaggi offerti.</li> <li> Inoltre, le inserzioni di servizi di consulenza devono indicare chiaramente il servizio professionale fornito. </li></ul> I componenti fondamentali di una proposta di valore devono includere le informazioni seguenti:<ul><li>Descrizione del prodotto.</li><li>Tipo di utente che ottiene vantaggi dal prodotto.</li><li>Necessità o problema del cliente a cui risponde il prodotto.</li></ul> |
 
 Le tabelle di questa sezione forniscono suggerimenti per la creazione e l'impegno di offerte nel marketplace. Per scrivere e configurare questi materiali di marketing, andare al [portale Cloud Partner](https://cloudpartner.azure.com/#insights). 
@@ -32,46 +31,46 @@ Le tabelle di questa sezione forniscono suggerimenti per la creazione e l'impegn
 
 | Impostazione della vetrina | Procedura consigliata |
 |:--- |:--- |  
-| Settori: solo le app AppSource e i servizi di consulenza | Selezionare i settori se l'offerta risponde a esigenze specifiche di settore: <ul><li> Nella descrizione dell'offerta mettere in risalto le funzionalità specifiche per i settori selezionati.</li> </ul> **Nota**: il numero massimo di opzioni varia in base al tipo di offerta ed è indicato nel [portale cloud partner](https://cloudpartner.azure.com/#insights). |
-| Categorie | Selezionare le categorie che risultano più in linea con l'offerta:<br> <ul> <li> Scegliere le categorie con attenzione perché vengono usate dai clienti per cercare le app adatte alle loro esigenze. </li> <li> Nella descrizione sottolineare come l'offerta riesca a soddisfare i requisiti specifici delle categorie selezionate. </li> </ul> **Nota**: il numero massimo di opzioni varia in base al tipo di offerta ed è indicato nel [portale cloud partner](https://cloudpartner.azure.com/#insights). |
+| Settori: solo le app AppSource e i servizi di consulenza | Selezionare i settori se l'offerta risponde a esigenze specifiche di settore: <ul><li> Nella descrizione dell'offerta mettere in risalto le funzionalità specifiche per i settori selezionati.</li> </ul> **Nota:** il numero massimo di opzioni varia in base al tipo di offerta ed è indicato nel [portale Cloud Partner](https://cloudpartner.azure.com/#insights). |
+| Categorie | Selezionare le categorie che risultano più in linea con l'offerta:<br> <ul> <li> Scegliere le categorie con attenzione perché vengono usate dai clienti per cercare le app adatte alle loro esigenze. </li> <li> Nella descrizione sottolineare come l'offerta riesca a soddisfare i requisiti specifici delle categorie selezionate. </li> </ul> **Nota:** il numero massimo di opzioni varia in base al tipo di offerta ed è indicato nel [portale Cloud Partner](https://cloudpartner.azure.com/#insights). |
 | Prodotti con cui funziona l'app (3 max): solo app AppSource | Elencare altri prodotti e tecnologie usati o estesi dalla soluzione offerta. Ad esempio, l'hub IoT di Azure o Azure Machine Learning. |
 | Parole chiave di ricerca (massimo 3) | Le parole chiave di ricerca consentono agli utenti aziendali di trovare l'offerta durante la ricerca <ul> <li> in Azure Marketplace </li> <li> in AppSource </li> <li> con i motori di ricerca </li> </ul> Per fare in modo che l'inserzione venga visualizzata in queste ricerche, è necessario: <ul> <li> Identificare le tre principali parole chiave di ricerca per l'offerta. </li> <li> Incorporare le parole chiave di ricerca nel riepilogo e nella descrizione dell'offerta. </li> <li> Elencare le parole chiave di ricerca qui. </li> </ul> |
 
-### <a name="category"></a>Categoria
+### <a name="category"></a>Category
 
-Azure Marketplace e Microsoft AppSource sono vetrini che soddisfano i requisiti dei clienti diversi e univoci. Scegliere la vetrina e le categorie appropriate per ogni offerta destinata ai clienti in base al ruolo. 
+Azure Marketplace e Microsoft AppSource sono vetrine che supportano requisiti dei clienti diversi e univoci. Scegli la vetrina e le categorie giuste per ogni offerta per indirizzare i tuoi clienti in base al ruolo. 
 
-È possibile selezionare fino a due categorie e due sottocategorie per un'offerta. Le categorie e le sottocategorie elencate di seguito sono disponibili in entrambe le vetrine.  Assicurarsi che la selezione della categoria sia allineata con i destinatari, la descrizione dell'offerta e la proposta di valore dell'offerta.
+Puoi selezionare fino a due categorie e due sottocategorie per un'offerta. Le categorie e le sottocategorie elencate di seguito sono disponibili in entrambe le vetrine.  Assicurati che la selezione della categoria sia allineata con il pubblico, la descrizione dell'offerta e la proposta di valore della tua offerta.
 
-| **Industria**    | **Sottosettore**  | 
+| **Settore**    | **Settore secondario**  | 
 | :------------------- | :-------------------|
-| \* Automotive     | \* Automotive |
-| Agricoltura     | \* Altro-non segmentato |
-| Distribuzione    | \* Ingrosso <br> \* Pacco & spedizione pacchetti |
-| Istruzione     | \* Istruzione superiore <br> \* Primario & istruzione secondaria/K-12 <br> \* Librerie & musei |
-| Servizi finanziari     | \* Banking & mercati finanziari <br> \* Assicurazione |
-| Pubblica amministrazione    | \* Defense & Intelligence (usata per essere definita sicurezza nazionale e pubblica) <br> \* Sicurezza pubblica & giustizia <br> \* Governo civile |
-| Healthcare (chiamato Health)   | \* Pagante integrità <br> \* Provider integrità <br> \* Farmaci |
-| Produzione di & risorse (chiamate produzione)   | \* & Chimico agrochimica <br> \* Produzione discreta <br> \* Energia |
-| Vendita al dettaglio & beni di consumo (usati per la chiamata al dettaglio)  | \* Beni di consumo <br> \* Rivenditori |
-| \* Comunicazioni di media & (usate per la chiamata di supporti e intrattenimento)  | \* Media & Entertainment <br> \* Telecomunicazioni |
-| Servizi professionali  | \* Legale <br> \* Servizi professionali dei partner |
-| \* Costruzione & architettura (denominata progettazione dell'architettura)  | \* Altro-non segmentato |
-| \* Ospitalità & viaggio  | \* Alberghi & svago <br> \* Trasporto & viaggio <br> \* Ristoranti & servizi alimentari |
-| \* Altri settori pubblici  | \* Silvicoltura & pesca <br> \* No profit |
-| \* Immobiliare  | \* Altro-non segmentato |
+| -Automotive     | -Automotive |
+| Agricoltura     | - Altro - Non segmentato |
+| Distribuzione    | - Vendita all'ingrosso <br> - Spedizione di pacchi & pacchi |
+| Formazione     | -Istruzione superiore <br> Educazione secondaria & primaria / K-12 <br> - Biblioteche & Musei |
+| Servizi finanziari     | -Mercati bancari & dei capitali <br> Assicurazione |
+| Government    | Difesa & Intelligence (usato per essere chiamato Sicurezza Nazionale e Pubblica) <br> - Sicurezza pubblica & Giustizia <br> - Governo civile |
+| Sanità (usato per essere chiamato Salute)   | - Pagatore della salute <br> Fornitore di assistenza sanitaria <br> Prodotti farmaceutici |
+| Risorse & di produzione (utilizzate per essere chiamate Produzione)   | - Prodotti agrochimici & chimici <br> Produzione discreta <br> Energia |
+| Vendita al dettaglio & beni di consumo (utilizzato per essere chiamato vendita al dettaglio)  | - Beni di consumo <br> - Rivenditori |
+| Media & Comunicazione (usato per essere chiamato Media e Intrattenimento)  | Intrattenimento & dei media <br> Telecomunicazioni |
+| Servizi professionali  | - Legale <br> Servizi professionali per i partner |
+| Architettura & Costruzione (utilizzata per ingegneria architettonica)  | - Altro - Non segmentato |
+| - Ospitalità & Viaggi  | Hotel & tempo libero <br> Trasporto & Trasporto <br> - Ristoranti & Servizi Alimentari |
+| Altre industrie del settore pubblico  | - Pesca & forestale <br> - Non profit |
+| - Immobili  | - Altro - Non segmentato |
 
 ### <a name="industries"></a>Settori
 
-La selezione del settore si applica solo alle offerte pubblicate per AppSource e servizi di consulenza pubblicati in Azure Marketplace. Selezionare industrie e/o verticali se l'offerta soddisfa le esigenze specifiche del settore, chiamando le funzionalità specifiche del settore nella descrizione dell'offerta. È possibile selezionare fino a due (2) settori e due (2) verticali per settore selezionato.
+La selezione del settore si applica solo alle offerte pubblicate su AppSource e Consulting Services pubblicate in Azure Marketplace. Seleziona settori e/o verticali se la tua offerta risponde a esigenze specifiche del settore, chiamando le funzionalità specifiche del settore nella descrizione dell'offerta. È possibile selezionare fino a due (2) settori e due (2) verticali per settore selezionato.
 
 ### <a name="applicable-products"></a>Prodotti applicabili
 
-Consente di selezionare i prodotti applicabili con cui funziona l'app per l'offerta per la visualizzazione in prodotti selezionati in AppSource.
+Seleziona i prodotti applicabili con cui funziona l'app per l'offerta da visualizzare in prodotti selezionati in AppSource.
 
-### <a name="search-keywords"></a>Parole chiave di ricerca
+### <a name="search-keywords"></a>Search Keywords (Parole chiave di ricerca)
 
-Le parole chiave consentono ai clienti di trovare l'offerta durante la ricerca. Identificare le parole chiave di ricerca principali per l'offerta, incorporarle nel riepilogo e nella descrizione dell'offerta, oltre che nella sezione relativa alla parola chiave della sezione dettagli dell'offerta.
+Le parole chiave possono aiutare i clienti a trovare la tua offerta durante la ricerca. Identifica le parole chiave di ricerca principali per la tua offerta, incorporale nel riepilogo e nella descrizione dell'offerta, nonché nella sezione delle parole chiave della sezione dei dettagli dell'inserzione dell'offerta.
 
 ## <a name="storefront-marketing-details"></a>Dettagli di marketing della vetrina
 | Impostazione della vetrina | Procedura consigliata |
@@ -94,7 +93,7 @@ Aggiungendo questi parametri all'URL di AppSource, è possibile controllare l'ef
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Scopri di più sui [vantaggi del Marketplace commerciale](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits).
+Scopri di più sui vantaggi del tuo [mercato commerciale.](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits)
 
 Accedere al [portale Cloud Partner](https://cloudpartner.azure.com) per creare e configurare l'offerta.
 

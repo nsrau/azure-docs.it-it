@@ -1,20 +1,18 @@
 ---
 title: Elenco di controllo per la pubblicazione per Azure Marketplace | Azure
 description: Elenco di controllo per la pubblicazione per Azure Marketplace con il portale Cloud Partner.
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: jm-aditi-ms
-manager: pabutler
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/05/2018
-ms.author: ellacroi
-ms.openlocfilehash: aa03444f78663874132df5f9148925bffa883f31
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: deee43628f8d9f782979b4112f1fec415d137340
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827761"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80284994"
 ---
 # <a name="publishing-checklist-for-azure-marketplace"></a>Elenco di controllo per la pubblicazione per Azure Marketplace    
 Controllare i componenti necessari prima di avviare il processo di pubblicazione.  
@@ -29,7 +27,7 @@ Le tabelle seguenti illustrano gli elementi necessari per completare il flusso d
 | Tutti | Macchina virtuale | <table> <tr><th>Informazioni tecniche</th></tr> <tr><td>URL del supporto</td></tr> </table> |
 | Elenco | Servizio di consulenza | <table> <tr><th>Dati da visualizzare nella vetrina</th></tr> <tr><td>Durata dell'impegno</td></tr> <tr><td>Logo dell'azienda (48x48, 216x216)</td></tr> </table> |  
 | Versione di valutazione | Tutti | <table> <tr><th>Informazioni tecniche</th></tr> <tr><td>URL della versione di valutazione</td></tr> <tr><td>Lingue supportate</td></tr> <tr><td>Numero di versione dell'app</td></tr> <tr><td>Data di rilascio dell'app</td></tr> <tr><td>URL del supporto</td></tr> </table> |  
-| Versione di valutazione | Test drive | <table> <tr><th>Test drive</th></tr> <tr><td>Descrizione</td></tr> <tr><td>Durata</td></tr> <tr><td>Manuale dell'utente</td></tr> <tr><td>Video della test drive (al massimo 1)</td></tr> <tr><td>Disponibilità della test drive per paese/area geografica</td></tr> <tr><td>ID sottoscrizione di Azure</td></tr> <tr><td>ID del tenant di Azure AD</td></tr> <tr><td>ID dell'app di Azure AD</td></tr> <tr><td>Chiave dell'app di Azure AD</td></tr> </table> |  
+| Versione di valutazione | Test drive | <table> <tr><th>Test drive</th></tr> <tr><td>Descrizione</td></tr> <tr><td>Duration</td></tr> <tr><td>Manuale dell'utente</td></tr> <tr><td>Video della test drive (al massimo 1)</td></tr> <tr><td>Disponibilità della test drive per paese/area geografica</td></tr> <tr><td>ID sottoscrizione di Azure</td></tr> <tr><td>ID del tenant di Azure AD</td></tr> <tr><td>ID dell'app di Azure AD</td></tr> <tr><td>Chiave dell'app di Azure AD</td></tr> </table> |  
 | Transazione | Macchina virtuale | <table> <tr><th>Vetrine</th></tr> <tr><td>Titolo (50 caratteri)</td></tr> <tr><td>Riepilogo (200 caratteri)</td></tr> <tr><td>Riepilogo lungo (256 caratteri)</td></tr> <tr><td>Descrizione basata su HTML (3.000 caratteri)</td></tr> <tr><td>Logo dell'azienda (40x40, 90x90, 115x115, 255x115, 815x290)</td></tr> </table> <table> <tr><th>SKU</th></tr> <tr><td>Dati del sistema operativo</td></tr> <tr><td>Porte in uso</td></tr> <tr><td>Protocolli in uso</td></tr> <tr><td>Versione del disco per ogni VHD in uso</td></tr> <tr><td>URL SAS per ogni VHD in uso</td></tr> </table> |  
 | Transazione | App di Azure: Modello di soluzione | <table> <tr><th>Vetrine</th></tr> <tr><td>Titolo (50 caratteri)</td></tr> <tr><td>Riepilogo (200 caratteri)</td></tr> <tr><td>Riepilogo lungo (256 caratteri)</td></tr> <tr><td>Descrizione basata su HTML (3.000 caratteri)</td></tr> <tr><td>Logo dell'azienda (40x40, 90x90, 115x115, 255x115, 815x290)</td></tr> </table> <table> <tr><th>SKU</th></tr> <tr><td>Numero di versione</td></tr> <tr><td>File di pacchetto che contiene<ul> <li>tutti i file modello</li> <li>file createUIDefinition</li> </ul> </td></tr> </table> |  
 | Transazione | App di Azure: App gestita | <table> <tr><th>Vetrine</th></tr> <tr><td>Titolo (50 caratteri)</td></tr> <tr><td>Riepilogo (200 caratteri)</td></tr> <tr><td>Riepilogo lungo (256 caratteri)</td></tr> <tr><td>Descrizione basata su HTML (3.000 caratteri)</td></tr> <tr><td>Logo dell'azienda (40x40, 90x90, 115x115, 255x115, 815x290)</td></tr> </table> <table> <tr><th>SKU</th></tr> <tr><td>Numero di versione</td></tr> <tr><td>File di pacchetto che contiene<ul> <li>tutti i file modello</li> <li>file createUIDefinition</li> </ul> </td></tr> </table> |  

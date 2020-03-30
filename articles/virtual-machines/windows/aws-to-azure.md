@@ -1,5 +1,5 @@
 ---
-title: Spostare le macchine virtuali di Windows AWS in Azure
+title: Spostare una macchine virtuali AWS di Windows in AzureMove a Windows AWS VMs to Azure
 description: Spostare un'istanza Windows di Amazon Web Services (AWS) EC2 in una macchina virtuale di Azure.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/01/2018
 ms.author: cynthn
 ms.openlocfilehash: 9bd01f24ac2cada02f51089d238519cd6c7e0248
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74039275"
 ---
 # <a name="move-a-windows-vm-from-amazon-web-services-aws-to-an-azure-virtual-machine"></a>Spostare una VM Windows da Amazon Web Services (AWS) a una macchina virtuale di Azure
@@ -38,7 +38,7 @@ Questo articolo illustra lo spostamento di una singola macchina virtuale da AWS 
 
  
 - **Disco rigido virtuale specializzato**: un disco rigido virtuale specializzato gestisce gli account utente, le applicazioni e altri dati di stato dalla macchina virtuale originale. Se si intende usare il disco rigido virtuale così come è per creare una nuova macchina virtuale, assicurare il completamento delle operazioni seguenti.  
-    * [Preparare un disco rigido virtuale (VHD) di Windows per il caricamento in Azure](prepare-for-upload-vhd-image.md). **Non** generalizzare la macchina Virtuale con Sysprep. 
+    * Preparare un disco rigido virtuale di [Windows per il caricamento in Azure.Prepare a Windows VHD to upload to Azure](prepare-for-upload-vhd-image.md). **Non** generalizzare la macchina Virtuale con Sysprep. 
     * Rimuovere tutti gli strumenti di virtualizzazione guest e gli agenti installati nella macchina virtuale, ad esempio gli strumenti VMware. 
     * Assicurarsi che la macchina virtuale sia configurata per eseguire il pull dell'indirizzo IP e delle impostazioni DNS tramite DHCP. In questo modo il server ottiene un indirizzo IP all'interno della rete virtuale all'avvio.  
 
@@ -47,7 +47,7 @@ Questo articolo illustra lo spostamento di una singola macchina virtuale da AWS 
 
 Esportare l'istanza EC2 in un disco rigido virtuale in un bucket Amazon S3. Seguire la procedura illustrata nell'articolo [Exporting an Instance as a VM Using VM Import/Export](https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html) (Esportazione di un'istanza come VM tramite l'importazione/esportazione della VM) della documentazione di Amazon ed eseguire il comando [create-instance-export-task](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-instance-export-task.html) per esportare l'istanza EC2 in un file di disco rigido virtuale. 
 
-Il file di disco rigido virtuale esportato viene salvato nel bucket Amazon S3 indicato. La sintassi di base per l'esportazione del disco rigido virtuale è riportata di seguito. è sufficiente sostituire il testo segnaposto in \<parentesi quadre > con le informazioni.
+Il file di disco rigido virtuale esportato viene salvato nel bucket Amazon S3 indicato. La sintassi di base per l'esportazione del disco \<rigido virtuale è riportata di seguito, è sufficiente sostituire il testo segnaposto tra parentesi quadre> con le informazioni.
 
 ```
 aws ec2 create-instance-export-task --instance-id <instanceID> --target-environment Microsoft \

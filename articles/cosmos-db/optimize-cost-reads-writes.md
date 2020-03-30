@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/21/2019
-ms.openlocfilehash: bbdd1bedb7b9a9f00a0b65ccc4c108ba6fd2638c
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.date: 03/05/2020
+ms.openlocfilehash: 725876594a7e7c5f3b3a02802f487dc5fdfb64dd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78398951"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79535936"
 ---
 # <a name="optimize-reads-and-writes-cost-in-azure-cosmos-db"></a>Ottimizzare il costo delle operazioni di lettura e di scrittura in Azure Cosmos DB
 
@@ -23,7 +23,7 @@ Azure Cosmos DB garantisce prestazioni prevedibili in termini di latenza e veloc
 
 Non è necessario preoccuparsi di distinguere le unità richiesta di operazioni di lettura e di operazioni di scrittura. Il modello di valuta unificato per le unità richiesta garantisce l'efficienza necessaria a usare in modo intercambiabile la stessa capacità di velocità effettiva per entrambi i tipi di operazioni. La tabella seguente illustra il costo delle operazioni di lettura e delle operazioni di scrittura in termini di UR/sec per gli elementi con dimensioni 1 KB e 100 KB.
 
-|**Dimensioni elemento**  |**Costo operazione di lettura** |**Costo operazione di scrittura**|
+|**Dimensione dell'articolo**  |**Costo operazione di lettura** |**Costo operazione di scrittura**|
 |---------|---------|---------|
 |1 KB |1 UR |5 UR |
 |100 kB |10 UR |50 UR |

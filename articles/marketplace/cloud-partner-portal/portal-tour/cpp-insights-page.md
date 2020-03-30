@@ -1,19 +1,18 @@
 ---
-title: Pagina Insights per Azure Marketplace
-description: Panoramica della pagina Insights in portale Cloud Partner per Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+title: Pagina Informazioni dettagliate per Azure Marketplace
+description: Panoramica della pagina Insights nel portale Cloud Partner per Azure Marketplace.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/14/2018
-ms.author: pabutler
-ms.openlocfilehash: b1b8d716beec17b7da82968ede8d24ced348e04a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 8002d67ebd6dbeb70282bbbae84b115a778cffaf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821514"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288870"
 ---
 # <a name="insights-page"></a>Pagina Informazioni dettagliate
 
@@ -22,13 +21,13 @@ La pagina [**Informazioni dettagliate**](https://cloudpartner.azure.com/#insight
 
 |  **Dashboard**    |  **Contenuto visualizzato**               |
 |  -------------    |  ---------------------               |
-| **Summary**       | Grafici, tendenze e valori dei dati aggregati che riepilogano l'attività del marketplace per le offerte dell'autore |
+| **Riepilogo**       | Grafici, tendenze e valori dei dati aggregati che riepilogano l'attività del marketplace per le offerte dell'autore |
 | **Payout** (Proventi)        | Proventi e transazioni correlate in formati grafici e scaricabili |
 | **Orders & usage** (Ordini e utilizzo) | Ordini e informazioni sull'utilizzo in formati grafici e scaricabili |
 | **Cliente**      | Informazioni sul cliente, incluso il profilo di acquisto |
 | **Distribuzione**    | Informazioni sulle operazioni di distribuzione riuscite e non riuscite in formati grafici e a livello di evento |
 | **Download**     | Elenco delle richieste di download per gli ultimi 30 giorni |
-| **Analisi**     | Riepilogo dell'analisi Web e analisi delle prestazioni della campagna |
+| **Analitica**     | Riepilogo dell'analisi Web e analisi delle prestazioni della campagna |
 |  |  |
 
 

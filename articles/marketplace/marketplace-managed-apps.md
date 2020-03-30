@@ -2,19 +2,18 @@
 title: Guida alla pubblicazione dell'offerta di applicazione gestita delle applicazioni di Azure
 description: Questo articolo descrive i requisiti per pubblicare un'applicazione gestita nel Marketplace
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: MaggiePucciEvans
-manager: evansma
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/14/2018
-ms.author: evansma
-ms.openlocfilehash: 764212ac148b336b07d29c29a72314c5d889d47c
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.author: dsindona
+ms.openlocfilehash: 38323ecfee69460b16542a3e004513f6a7389c41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934647"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288411"
 ---
 # <a name="azure-applications-managed-application-offer-publishing-guide"></a>Applicazioni di Azure: Guida alla pubblicazione dell'offerta di applicazione gestita
 
@@ -33,21 +32,21 @@ Usare l'app di Azure: tipo di offerta di app gestita quando sono necessarie le c
 
 |Requisiti |Dettagli  |
 |---------|---------|
-|Distribuito nella sottoscrizione di Azure di un cliente | Le app gestite devono essere distribuite nella sottoscrizione del cliente e possono essere gestite da terze parti. | 
-|Fatturazione e misurazione    |  Verrà effettuato il provisioning delle risorse nella sottoscrizione di Azure del cliente. Le macchine virtuali con pagamento in base al consumo (consumo) verranno sottoposte a transazione con il cliente tramite Microsoft, fatturate tramite la sottoscrizione di Azure del cliente (consumo). <br> Nel caso di Bring your own License, mentre Microsoft fattura i costi dell'infrastruttura sostenuti per la sottoscrizione del cliente, l'utente effettuerà la transazione delle tariffe di licenza software direttamente al cliente.        |
+|Distribuito nella sottoscrizione di Azure di un clienteDeployed to a customer's Azure subscription | Le app gestite devono essere distribuite nella sottoscrizione del cliente e possono essere gestite da terze parti. | 
+|Fatturazione e misurazione    |  Verrà eseguito il provisioning delle risorse nella sottoscrizione di Azure del cliente. Le macchine virtuali PAYGO (Pay-as-you-go) verranno effettuate transazioni con il cliente tramite Microsoft, fatturate tramite la sottoscrizione di Azure del cliente (PAYGO). <br> Nel caso di licenza bring-your-own, mentre Microsoft addebiterà i costi dell'infrastruttura sostenuti nell'abbonamento del cliente, si correranno le spese di licenza del software al cliente direttamente.        |
 |Disco rigido virtuale (VHD) compatibile con Azure    |   Le macchine virtuali devono essere compilate in Windows o Linux.<ul> <ul> <li>Per altre informazioni sulla creazione di un disco rigido virtuale Linux, vedere [Distribuzioni di Linux approvate in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).</li> <li>Per altre informazioni sulla creazione di un disco rigido virtuale Windows, [vedere Creare un disco rigido virtuale compatibile con Azure](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md).</li> </ul> |
 
 >[!NOTE]
 > Le app gestite devono essere distribuibili tramite il Marketplace. Se la comunicazione con il cliente rappresenta un problema, contattare i clienti interessati dopo aver attivato la condivisione dei clienti potenziali.  
 
 >[!Note]
->Il consenso esplicito del canale partner Cloud Solution Provider (CSP) è ora disponibile.  Per ulteriori informazioni sul marketing dell'offerta tramite i canali del partner Microsoft CSP, vedere [provider di soluzioni cloud](./cloud-solution-providers.md) .
+>L'opt-in del canale per i partner Cloud Solution Provider (CSP) è ora disponibile.  Per ulteriori informazioni sul marketing dell'offerta tramite i canali partner Microsoft CSP, consulta [Cloud Solution Provider.](./cloud-solution-providers.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 Se non è già stato fatto, 
 
-- [Registrarsi](https://azuremarketplace.microsoft.com/sell) in Marketplace.
+- [Registrati](https://azuremarketplace.microsoft.com/sell) nel marketplace.
 
 Se la registrazione è già stata effettuata e si sta creando una nuova offerta o lavorando su una esistente,
 
-- [Accedere al portale cloud partner](https://cloudpartner.azure.com) per creare o completare l'offerta.
+- [Accedi al portale Cloud Partner](https://cloudpartner.azure.com) per creare o completare la tua offerta.

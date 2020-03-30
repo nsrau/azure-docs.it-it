@@ -1,6 +1,6 @@
 ---
-title: Guida introduttiva Azure Cloud Shell-bash
-description: Informazioni su come usare la riga di comando bash nel browser con Azure Cloud Shell.
+title: Guida introduttiva di Azure Cloud Shell - Bash
+description: Informazioni su come usare la riga di comando Bash nel browser con Azure Cloud Shell.
 author: maertendMSFT
 manager: timlt
 tags: azure-resource-manager
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: damaerte
-ms.openlocfilehash: 574841b3a89385a3b8bf048d5ed36f40fac99a83
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 58d795a5aee79e4149864a79a923ce34950b31d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79252129"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79458070"
 ---
 # <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Guida introduttiva a Bash in Azure Cloud Shell
 
@@ -25,7 +25,7 @@ Questo documento illustra dettagliatamente come usare Bash in Azure Cloud Shell 
 > È disponibile anche una guida introduttiva a [PowerShell in Azure Cloud Shell](quickstart-powershell.md).
 
 ## <a name="start-cloud-shell"></a>Avviare Cloud Shell
-1. Avviare **Cloud Shell** dalla barra di spostamento in alto nel portale di Azure. <br>
+1. Avviare Cloud Shell dalla barra di spostamento superiore del portale di Azure.Launch **Cloud Shell** from the top navigation of the Azure portal. <br>
 ![](media/quickstart/shell-icon.png)
 
 2. Selezionare una sottoscrizione per creare un account di archiviazione e una condivisione File di Microsoft Azure.
@@ -85,7 +85,7 @@ Quando viene stabilita la connessione SSH, verrà visualizzato il prompt di benv
 
 ## <a name="cleaning-up"></a>Cleaning up 
 1. Chiudere la sessione SSH.
-   ```azurecli-interactive
+   ```
    exit
    ```
 

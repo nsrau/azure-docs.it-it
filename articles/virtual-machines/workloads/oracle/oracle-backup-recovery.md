@@ -14,18 +14,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: c493f79a066f872be6b38d127622cc757ab3c1cc
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: bae7e53a316fa6ca3158639cc551a0a3de5cb952
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100234"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79536922"
 ---
 # <a name="back-up-and-recover-an-oracle-database-12c-database-on-an-azure-linux-virtual-machine"></a>Eseguire backup e ripristino di un database Oracle Database 12c in una macchina virtuale Linux di Azure
 
 È possibile usare l'interfaccia della riga di comando di Azure per creare e gestire risorse di Azure a un prompt dei comandi o per creare script. In questo articolo vengono usati script dell'interfaccia della riga di comando di Azure per distribuire un database Oracle Database 12c da un'immagine della raccolta di Azure Marketplace.
 
-Prima di iniziare, assicurarsi che l'interfaccia della riga di comando di Azure sia installata. Per altre informazioni, consultare la [guida all'installazione dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Prima di iniziare, assicurarsi che l'interfaccia della riga di comando di Azure sia installata. Per altre informazioni, vedere la [guida all'installazione dell'interfaccia della riga di comando di Azure.For](https://docs.microsoft.com/cli/azure/install-azure-cli)more information, see the Azure CLI installation guide .
 
 ## <a name="prepare-the-environment"></a>Preparare l'ambiente
 
@@ -36,11 +36,11 @@ Prima di iniziare, assicurarsi che l'interfaccia della riga di comando di Azure 
     Per informazioni su come creare un database Oracle, vedere [Creare un database Oracle Database](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-database-quick-create).
 
 
-### <a name="step-2-connect-to-the-vm"></a>Passaggio 2: Connettersi alla VM
+### <a name="step-2-connect-to-the-vm"></a>Passaggio 2: Eseguire la connessione alla VM
 
 *   Per creare una sessione Secure Shell, SSH con la macchina virtuale, usare il comando seguente. Sostituire l'indirizzo IP e la combinazione di nome host con il valore `publicIpAddress` per la macchina virtuale.
 
-    ```bash 
+    ```bash
     ssh <publicIpAddress>
     ```
 
@@ -94,6 +94,7 @@ Prima di iniziare, assicurarsi che l'interfaccia della riga di comando di Azure 
     SQL> ALTER DATABASE OPEN;
     SQL> ALTER SYSTEM SWITCH LOGFILE;
     ```
+
 3.  Creare una tabella per testare il commit (facoltativo):
 
     ```bash
@@ -115,6 +116,7 @@ Prima di iniziare, assicurarsi che l'interfaccia della riga di comando di Azure 
     SQL> commit;
     Commit complete.
     ```
+
 4.  Verificare o modificare il percorso e le dimensioni del file di backup:
 
     ```bash
@@ -125,6 +127,7 @@ Prima di iniziare, assicurarsi che l'interfaccia della riga di comando di Azure 
     db_recovery_file_dest                string      /u01/app/oracle/fast_recovery_area
     db_recovery_file_dest_size           big integer 4560M
     ```
+
 5. Usare Oracle Recovery Manager (RMAN) per il backup del database:
 
     ```bash
@@ -132,7 +135,7 @@ Prima di iniziare, assicurarsi che l'interfaccia della riga di comando di Azure 
     RMAN> backup database plus archivelog;
     ```
 
-### <a name="step-4-application-consistent-backup-for-linux-vms"></a>Passaggio 4: Backup coerente con l'applicazione per macchine virtuali Linux
+### <a name="step-4-application-consistent-backup-for-linux-vms"></a>Passaggio 4: Backup coerente con l'applicazione per le macchine virtuali Linux
 
 I backup coerenti con l'applicazione sono una nuova funzionalità di Backup di Azure. È possibile creare e selezionare gli script da eseguire prima e dopo lo snapshot della macchina virtuale, ovvero pre-snapshot e post-snapshot.
 
@@ -140,7 +143,7 @@ I backup coerenti con l'applicazione sono una nuova funzionalità di Backup di A
 
     Scaricare VMSnapshotScriptPluginConfig.json da https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig. Il contenuto del file dovrebbe essere simile a quello riportato di seguito:
 
-    ```azurecli
+    ```output
     {
         "pluginName" : "ScriptRunner",
         "preScriptLocation" : "",
@@ -169,9 +172,9 @@ I backup coerenti con l'applicazione sono una nuova funzionalità di Backup di A
 
 4. Modificare il file JSON.
 
-    Modificare il file VMSnapshotScriptPluginConfig.json per includere i parametri `PreScriptLocation` e `PostScriptlocation`. Esempio:
+    Modificare il file VMSnapshotScriptPluginConfig.json per includere i parametri `PreScriptLocation` e `PostScriptlocation`. Ad esempio:
 
-    ```azurecli
+    ```output
     {
         "pluginName" : "ScriptRunner",
         "preScriptLocation" : "/etc/azure/pre_script.sh",
@@ -265,7 +268,7 @@ I backup coerenti con l'applicazione sono una nuova funzionalità di Backup di A
 Per altre informazioni, vedere [Backup coerente delle applicazioni per le macchine virtuali Linux](https://azure.microsoft.com/blog/announcing-application-consistent-backup-for-linux-vms-using-azure-backup/).
 
 
-### <a name="step-5-use-azure-recovery-services-vaults-to-back-up-the-vm"></a>Passaggio 5: Usare gli insiemi di credenziali dei servizi di ripristino di Azure per eseguire il backup della macchina virtuale
+### <a name="step-5-use-azure-recovery-services-vaults-to-back-up-the-vm"></a>Passaggio 5: Usare gli insiemi di credenziali dei servizi di ripristino di Azure per eseguire il backup della VM
 
 1.  Nel portale di Azure cercare gli **insiemi di credenziali di Servizi di ripristino**.
 
@@ -302,11 +305,11 @@ Per altre informazioni, vedere [Backup coerente delle applicazioni per le macchi
 
     ![Pagina di dettaglio degli insiemi di credenziali myVault dei servizi di ripristino](./media/oracle-backup-recovery/recovery_service_08.png)
 
-9.  Nel pannello **Backup Items (Azure Virtual Machine)** (Elementi di backup: macchina virtuale di Azure), sul lato destro della pagina, fare clic sui puntini di sospensione ( **...** ) e su **Backup now** (Esegui il backup ora).
+9.  Nel pannello **Backup Items (Azure Virtual Machine)** (Elementi di backup: macchina virtuale di Azure), sul lato destro della pagina, fare clic sui puntini di sospensione (**...**) e su **Backup now** (Esegui il backup ora).
 
     ![Comando Backup now (Esegui il backup ora) degli insiemi di credenziali dei servizi di ripristino](./media/oracle-backup-recovery/recovery_service_09.png)
 
-10. Fare clic sul pulsante **Backup**. Attendere il completamento del processo di backup. Quindi, andare al [passaggio 6: Rimuovere i file](#step-6-remove-the-database-files)di database.
+10. Fare clic sul pulsante **Backup**. Attendere il completamento del processo di backup. Quindi passare al [passaggio 6: Rimuovere i file di database](#step-6-remove-the-database-files).
 
     Per visualizzare lo stato del processo di backup, fare clic su **Processi**.
 
@@ -350,7 +353,7 @@ Per ripristinare i file eliminati, completare la procedura seguente:
 
     ![Numero di elementi di backup di macchine virtuali di Azure in insiemi di credenziali di servizi di ripristino](./media/oracle-backup-recovery/recovery_service_13.png)
 
-3. Nel pannello **myvm1** fare clic su **Ripristino di file (anteprima)** .
+3. Nel pannello **myvm1** fare clic su **Ripristino di file (anteprima)**.
 
     ![Schermata della pagina di ripristino dei file degli insiemi di credenziali dei servizi di ripristino](./media/oracle-backup-recovery/recovery_service_14.png)
 
@@ -368,6 +371,7 @@ Per ripristinare i file eliminati, completare la procedura seguente:
     ```bash
     $ scp Linux_myvm1_xx-xx-2017 xx-xx-xx PM.sh <publicIpAddress>:/<folder>
     ```
+
 6. Modificare il file in modo che appartenga alla radice.
 
     Nell'esempio seguente modificare il file in modo che appartenga a una radice. Modificare quindi le autorizzazioni.
@@ -379,9 +383,10 @@ Per ripristinare i file eliminati, completare la procedura seguente:
     # chmod 755 /<folder>/Linux_myvm1_xx-xx-2017 xx-xx-xx PM.sh
     # /<folder>/Linux_myvm1_xx-xx-2017 xx-xx-xx PM.sh
     ```
+
     L'esempio seguente illustra ciò che dovrebbe venire visualizzato dopo aver eseguito lo script precedente. Quando viene chiesto di continuare, immettere **Y**.
 
-    ```bash
+    ```output
     Microsoft Azure VM Backup - File Recovery
     ______________________________________________
     The script requires 'open-iscsi' and 'lshw' to run.
@@ -429,6 +434,7 @@ Per ripristinare i file eliminati, completare la procedura seguente:
     # cd /u01/app/oracle/oradata/cdb1
     # chown oracle:oinstall *.dbf
     ```
+
 9. Nello script seguente usare RMAN per ripristinare il database:
 
     ```bash
@@ -440,7 +446,7 @@ Per ripristinare i file eliminati, completare la procedura seguente:
     RMAN> alter database open resetlogs;
     RMAN> SELECT * FROM scott.scott_table;
     ```
-    
+
 10. Smontare il disco.
 
     Nel portale di Azure, nel pannello **Ripristino file (anteprima)** fare clic su **Unmount Disks** (Smonta dischi).
@@ -451,13 +457,13 @@ Per ripristinare i file eliminati, completare la procedura seguente:
 
 Anziché ripristinare i file eliminati dagli insiemi di credenziali dei servizi di ripristino, è possibile ripristinare l'intera macchina virtuale.
 
-### <a name="step-1-delete-myvm"></a>Passaggio 1: Elimina myVM
+### <a name="step-1-delete-myvm"></a>Passaggio 1: Eliminare myVM
 
 *   Nel portale di Azure passare all'insieme di credenziali **myVM1** e selezionare **Elimina**.
 
     ![Comando Elimina insieme di credenziali](./media/oracle-backup-recovery/recover_vm_01.png)
 
-### <a name="step-2-recover-the-vm"></a>Passaggio 2: Ripristinare la macchina virtuale
+### <a name="step-2-recover-the-vm"></a>Passaggio 2: Ripristinare la VM
 
 1.  Passare a **Insiemi di credenziali dei servizi di ripristino** e selezionare **myVault**.
 
@@ -471,7 +477,7 @@ Anziché ripristinare i file eliminati dagli insiemi di credenziali dei servizi 
 
     ![Pagina di ripristino della macchina virtuale](./media/oracle-backup-recovery/recover_vm_04.png)
 
-4.  Nel pannello **myvm1** fare clic sui puntini di sospensione ( **...** ) e su **Ripristina macchina virtuale**.
+4.  Nel pannello **myvm1** fare clic sui puntini di sospensione (**...**) e su **Ripristina macchina virtuale**.
 
     ![Comando Ripristina macchina virtuale](./media/oracle-backup-recovery/recover_vm_05.png)
 
@@ -518,27 +524,27 @@ Dopo il ripristino della macchina virtuale, configurare l'indirizzo IP pubblico.
 
     ![Valore dell'indirizzo IP](./media/oracle-backup-recovery/create_ip_04.png)
 
-### <a name="step-4-connect-to-the-vm"></a>Passaggio 4: Connettersi alla VM
+### <a name="step-4-connect-to-the-vm"></a>Passaggio 4: Eseguire la connessione alla VM
 
 *   Per eseguire la connessione alla macchina virtuale, usare lo script seguente:
 
-    ```bash 
+    ```bash
     ssh <publicIpAddress>
     ```
 
 ### <a name="step-5-test-whether-the-database-is-accessible"></a>Passaggio 5: Verificare se il database è accessibile
 *   Per testare l'accessibilità, usare lo script seguente:
 
-    ```bash 
+    ```bash
     $ sudo su - oracle
     $ sqlplus / as sysdba
     SQL> startup
     ```
 
     > [!IMPORTANT]
-    > Se il comando di **avvio** del database genera un errore, per recuperare il database [, vedere passaggio 6: Usare RMAN per ripristinare il database](#step-6-optional-use-rman-to-recover-the-database).
+    > Se il comando **startup** del database genera un errore, per ripristinare il database, vedere [Passaggio 6: Usare RMAN per ripristinare il database (facoltativo)](#step-6-optional-use-rman-to-recover-the-database).
 
-### <a name="step-6-optional-use-rman-to-recover-the-database"></a>Passaggio 6: Opzionale Usare RMAN per ripristinare il database
+### <a name="step-6-optional-use-rman-to-recover-the-database"></a>Passaggio 6: Usare RMAN per ripristinare il database (facoltativo)
 *   Usare lo script seguente per ripristinare il database:
 
     ```bash
@@ -563,7 +569,7 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Esercitazione: Creare macchine virtuali a disponibilità elevata](../../linux/create-cli-complete.md)
+[Esercitazione: Creare VM a disponibilità elevata](../../linux/create-cli-complete.md)
 
 [Esplorare gli esempi dell'interfaccia della riga di comando di Azure per la distribuzione della VM](../../linux/cli-samples.md)
 

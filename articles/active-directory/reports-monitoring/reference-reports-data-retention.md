@@ -1,9 +1,9 @@
 ---
-title: Quanto tempo Azure AD archiviare i dati dei report? | Microsoft Docs
-description: Scopri per quanto tempo Azure archivia i vari tipi di dati di report.
+title: Per quanto tempo Azure AD archivia i dati dei report? | Microsoft Docs
+description: Informazioni sulla durata dell'archiviazione dei vari tipi di dati di report in Azure.Learn how long Azure stores the various types of reporting data.
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 183e53b0-0647-42e7-8abe-3e9ff424de12
@@ -13,18 +13,19 @@ ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
-ms.author: chadam
+ms.date: 03/24/2020
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c52f8873527d92e621ef032f5bc3e82d3364a691
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 54636600c208f8f5df9fa2e25460c63dd9f46e85
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989589"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80239557"
 ---
-# <a name="how-long-does-azure-ad-store-reporting-data"></a>Quanto tempo Azure AD archiviare i dati dei report?
+# <a name="how-long-does-azure-ad-store-reporting-data"></a>Per quanto tempo Azure AD archivia i dati dei report?
+
 
 In questo articolo vengono illustrati i criteri di conservazione dei dati per i diversi report attività in Azure Active Directory. 
 
@@ -32,14 +33,14 @@ In questo articolo vengono illustrati i criteri di conservazione dei dati per i 
 
 | Edizione di Azure AD | Avvio della raccolta |
 | :--              | :--   |
-| Azure AD P1 Premium <br /> Azure AD P2 Premium | Al momento dell'accesso a una sottoscrizione |
-| Azure AD Gratuito <br /> Azure AD Basic | La prima volta che si apre il [pannello Azure Active Directory](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) o si usano le [API di creazione report](https://aka.ms/aadreports)  |
+| Azure AD Premium P1 <br /> Azure AD Premium P2 | Al momento dell'accesso a una sottoscrizione |
+| Azure AD Free| La prima volta che si apre il [pannello Azure Active Directory](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) o si usano le [API di creazione report](https://aka.ms/aadreports)  |
 
 ---
 
 ### <a name="when-is-the-activity-data-available-in-the-azure-portal"></a>Quando i dati dell'attività sono disponibili nel portale di Azure?
 
-- **Immediatamente**: se si usano già i report nel portale di Azure.
+- **Immediatamente:** se sono già stati usati i report nel portale di Azure.Immediately - If you have already been working with reports in the Azure portal.
 - **Entro 2 ore**: se non si è attivata la creazione di report nel portale di Azure.
 
 ---
@@ -64,21 +65,21 @@ Per i segnali di sicurezza, il processo di raccolta viene avviato quando si acco
 
 ### <a name="how-long-does-azure-ad-store-the-data"></a>Per quanto tempo Azure AD archivia i dati?
 
-**Report attività**    
+**Relazioni sulle attività**    
 
-| Report                 | Azure AD Gratuito | Azure AD Basic | Azure AD P1 Premium | Azure AD P2 Premium |
-| :--                    | :--           | :--            | :--                 | :--                 |
-| Log di controllo             | 7 giorni        |  7 giorni        | 30 giorni             | 30 giorni             |
-| Accessi               | N/D           |  N/D           | 30 giorni             | 30 giorni             |
-| Utilizzo dell'autenticazione a più fattori di Azure        | 30 giorni       |  30 giorni       | 30 giorni             | 30 giorni             |
+| Report                 | Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
+| :--                    | :--           | :--                 | :--                 |
+| Log di controllo             | 7 giorni        | 30 giorni             | 30 giorni             |
+| Accessi               | 7 giorni        | 30 giorni             | 30 giorni             |
+| Utilizzo di Azure MFAAzure MFA usage        | 30 giorni       | 30 giorni             | 30 giorni             |
 
 È possibile mantenere i dati relativi alle attività di controllo e accesso per più tempo rispetto al periodo di conservazione predefinito descritto in precedenza instradandoli a un account di archiviazione di Azure con Monitoraggio di Azure. Per altre informazioni, vedere [Archiviare i log di Azure AD in un account di archiviazione di Azure](quickstart-azure-monitor-route-logs-to-storage-account.md).
 
 **Segnali di sicurezza**
 
-| Report         | Azure AD Gratuito | Azure AD Basic | Azure AD P1 Premium | Azure AD P2 Premium |
-| :--            | :--           | :--            | :--                 | :--                 |
-| Utenti a rischio  | 7 giorni        | 7 giorni         | 30 giorni             | 90 giorni             |
-| Accessi a rischio | 7 giorni        | 7 giorni         |  30 giorni            | 90 giorni             |
+| Report         | Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
+| :--            | :--           | :--                 | :--                 |
+| Utenti a rischio.  | 7 giorni        | 30 giorni             | 90 giorni             |
+| Accessi a rischio | 7 giorni        | 30 giorni             | 90 giorni             |
 
 ---

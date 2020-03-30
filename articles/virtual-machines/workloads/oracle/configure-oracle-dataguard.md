@@ -14,18 +14,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 52723ca53b9156dd8e8183d92d8d4a350750c936
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 7a165935e2c232167a0752272d244ce98bf6aff2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100099"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79534406"
 ---
 # <a name="implement-oracle-data-guard-on-an-azure-linux-virtual-machine"></a>Implementare Oracle Data Guard su una macchina virtuale Linux di Azure 
 
 L'interfaccia della riga di comando di Azure viene usata per creare e gestire le risorse di Azure dalla riga di comando o negli script. Questo articolo spiega come usare l'interfaccia della riga di comando di Azure per distribuire un database Oracle 12c da un'immagine di Azure Marketplace. In questo articolo viene anche illustrata la procedura per installare e configurare Data Guard su una macchina virtuale di Azure (VM).
 
-Prima di iniziare, assicurarsi che l'interfaccia della riga di comando di Azure sia installata. Per altre informazioni, vedere la [guida all'installazione dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Prima di iniziare, assicurarsi che l'interfaccia della riga di comando di Azure sia installata. Per altre informazioni, vedere la [guida all'installazione dell'interfaccia della riga di comando di Azure.For](https://docs.microsoft.com/cli/azure/install-azure-cli)more information, see the Azure CLI installation guide .
 
 ## <a name="prepare-the-environment"></a>Preparare l'ambiente
 ### <a name="assumptions"></a>Presupposti
@@ -37,7 +37,7 @@ Per installare Oracle Data Guard, è necessario creare due macchine virtuali di 
 
 L'immagine di Marketplace usata per creare le VM è Oracle:Oracle-Database-Ee:12.1.0.2:latest.
 
-### <a name="sign-in-to-azure"></a>Accedi ad Azure 
+### <a name="sign-in-to-azure"></a>Accedere ad Azure 
 
 Accedere alla sottoscrizione di Azure con il comando [az login](/cli/azure/reference-index) e seguire le istruzioni visualizzate.
 
@@ -55,7 +55,7 @@ Nell'esempio seguente viene creato un gruppo di risorse denominato `myResourceGr
 az group create --name myResourceGroup --location westus
 ```
 
-### <a name="create-an-availability-set"></a>Crea set di disponibilità
+### <a name="create-an-availability-set"></a>Creare un set di disponibilità
 
 Creare un set di disponibilità è un'operazione facoltativa, ma consigliata. Per altre informazioni, vedere [Linee guida per i set di disponibilità di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines).
 
@@ -87,7 +87,7 @@ az vm create \
 
 Dopo aver creato la VM, l'interfaccia della riga di comando di Azure visualizza informazioni simili a quelle dell'esempio seguente. Prendere nota del valore di `publicIpAddress`. Questo indirizzo verrà usato per accedere alla macchina virtuale.
 
-```azurecli
+```output
 {
   "fqdns": "",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -101,6 +101,7 @@ Dopo aver creato la VM, l'interfaccia della riga di comando di Azure visualizza 
 ```
 
 Creare myVM2 (standby):
+
 ```azurecli
 az vm create \
      --resource-group myResourceGroup \
@@ -130,7 +131,7 @@ az network nsg rule create --resource-group myResourceGroup\
 
 Il risultato sarà simile alla seguente risposta:
 
-```bash
+```output
 {
   "access": "Allow",
   "description": null,
@@ -198,9 +199,10 @@ $ dbca -silent \
    -storageType FS \
    -ignorePreReqs
 ```
+
 Gli output saranno simili alla risposta seguente:
 
-```bash
+```output
 Copying database files
 1% complete
 2% complete
@@ -263,6 +265,7 @@ SQL> STARTUP MOUNT;
 SQL> ALTER DATABASE ARCHIVELOG;
 SQL> ALTER DATABASE OPEN;
 ```
+
 Abilitare la registrazione forzata e verificare che esista almeno un file di log:
 
 ```bash
@@ -279,7 +282,7 @@ SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_r
 SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_redo04.log') SIZE 50M;
 ```
 
-Attivare il flashback che facilita il recupero e impostare STANDBY\_FILE\_MANAGEMENT su auto. Chiudere quindi il comando SQL * Plus.
+Attivare Flashback (che rende il recupero molto\_\_più facile) e impostare STANDBY FILE MANAGEMENT su auto. Dopo di che, uscire da SQL-Plus.
 
 ```bash
 SQL> ALTER DATABASE FLASHBACK ON;
@@ -341,11 +344,13 @@ ADR_BASE_LISTENER = /u01/app/oracle
 ```
 
 Abilitare Data Guard Broker:
+
 ```bash
 $ sqlplus / as sysdba
 SQL> ALTER SYSTEM SET dg_broker_start=true;
 SQL> EXIT;
 ```
+
 Avviare il listener:
 
 ```bash
@@ -429,6 +434,7 @@ $ lsnrctl start
 ### <a name="restore-the-database-to-myvm2-standby"></a>Ripristinare il database su myVM2 (standby)
 
 Creare un file di parametri /tmp/initcdb1_stby.ora con il contenuto seguente:
+
 ```bash
 *.db_name='cdb1'
 ```
@@ -447,6 +453,7 @@ Creare un file di password:
 ```bash
 $ orapwd file=/u01/app/oracle/product/12.1.0/dbhome_1/dbs/orapwcdb1 password=OraPasswd1 entries=10
 ```
+
 Avviare il database su myVM2:
 
 ```bash
@@ -464,6 +471,7 @@ $ rman TARGET sys/OraPasswd1@cdb1 AUXILIARY sys/OraPasswd1@cdb1_stby
 ```
 
 Eseguire i comandi seguenti in RMAN:
+
 ```bash
 DUPLICATE TARGET DATABASE
   FOR STANDBY
@@ -475,11 +483,14 @@ DUPLICATE TARGET DATABASE
 ```
 
 Dopo aver completato il comando, i messaggi saranno simili ai seguenti. Uscire da RMAN.
-```bash
+
+```output
 media recovery complete, elapsed time: 00:00:00
 Finished recover at 29-JUN-17
 Finished Duplicate Db at 29-JUN-17
+```
 
+```bash
 RMAN> EXIT;
 ```
 
@@ -501,7 +512,7 @@ SQL> EXIT;
 
 ### <a name="configure-data-guard-broker-on-myvm1-primary"></a>Configurare Data Guard Broker su myVM1 (primaria)
 
-Avviare Data Guard Manage e accedere usando SYS e una password. Non usare l'autenticazione del sistema operativo. Eseguire questi passaggi:
+Avviare Data Guard Manage e accedere usando SYS e una password. (Non utilizzare l'autenticazione del sistema operativo.) Eseguire le operazioni seguenti:
 
 ```bash
 $ dgmgrl sys/OraPasswd1@cdb1
@@ -520,6 +531,7 @@ Enabled.
 ```
 
 Rivedere la configurazione:
+
 ```bash
 DGMGRL> SHOW CONFIGURATION;
 
@@ -586,6 +598,7 @@ With the Partitioning, OLAP, Advanced Analytics and Real Application Testing opt
 
 SQL>
 ```
+
 ## <a name="test-the-data-guard-configuration"></a>Testare la configurazione di Data Guard
 
 ### <a name="switch-over-the-database-on-myvm1-primary"></a>Passare il database su myVM1 (primario)
@@ -635,6 +648,7 @@ SQL>
 ### <a name="switch-over-the-database-on-myvm2-standby"></a>Passare il database su myVM2 (standby)
 
 Per il passaggio, eseguire le operazioni seguenti su myVM2:
+
 ```bash
 $ dgmgrl sys/OraPasswd1@cdb1_stby
 DGMGRL for Linux: Version 12.1.0.2.0 - 64bit Production
@@ -687,6 +701,6 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Esercitazione: Creare macchine virtuali a disponibilità elevata](../../linux/create-cli-complete.md)
+[Esercitazione: creare macchine virtuali a disponibilità elevata](../../linux/create-cli-complete.md)
 
 [Esplorare gli esempi dell'interfaccia della riga di comando di Azure per la distribuzione della VM](../../linux/cli-samples.md)

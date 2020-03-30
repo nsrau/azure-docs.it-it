@@ -1,19 +1,18 @@
 ---
-title: Aggiornare un'offerta di contenitori di Azure esistente | Azure Marketplace
+title: Aggiornare un'offerta di contenitori di Azure esistente. Azure Marketplace
 description: Informazioni su come aggiornare l'offerta di un contenitore esistente in Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/01/2018
-ms.author: pabutler
-ms.openlocfilehash: 40cd375b11eb5b7ad5943fea9839b6339a7d002f
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 74f97b082c07e17a59a1615c4b1245434c497ab5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823079"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80279947"
 ---
 # <a name="update-an-existing-container-offer"></a>Aggiornare l'offerta di un contenitore esistente
 
@@ -68,12 +67,12 @@ Per aggiornare i metadati del marketplace associati all'offerta, seguire questa 
 
 1. Accedere al [portale Cloud Partner](https://cloudpartner.azure.com/).
 2. In **Tutte le offerte** trovare l'offerta che si vuole aggiornare.
-3. Passare alla scheda **Marketplace** . per apportare modifiche ai metadati, seguire le istruzioni disponibili nell'articolo pubblicare l'offerta del [contenitore](./cpp-publish-offer.md) .
+3. Passare alla scheda **Marketplace.** [Publish container offer](./cpp-publish-offer.md)
 4. Selezionare **Pubblica** per avviare il flusso di lavoro per pubblicare le modifiche.
 
 ## <a name="compare-feature"></a>Funzionalità Confronta
 
-Quando si apportano modifiche a un'offerta pubblicata, è possibile usare la funzionalità **Confronta** per controllare le modifiche apportate.
+Quando si apportano modifiche a un'offerta pubblicata, è possibile utilizzare la funzionalità **Confronta** per controllare le modifiche apportate.
 
 ### <a name="to-use-the-compare-feature"></a>Per usare la funzionalità Confronta:
 

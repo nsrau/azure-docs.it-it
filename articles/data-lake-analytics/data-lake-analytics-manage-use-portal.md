@@ -10,10 +10,10 @@ ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
 ms.topic: conceptual
 ms.date: 12/05/2016
 ms.openlocfilehash: 8a6b7cb3fd45e17b84519efcaa826b569083e156
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79265701"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-portal"></a>Gestire Azure Data Lake Analytics tramite il portale di Azure
@@ -29,8 +29,8 @@ Questo articolo descrive come gestire utenti, processi, origini dati e account A
 
 ### <a name="create-an-account"></a>Creare un account
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Fare clic su **Crea una risorsa** > **Intelligence e analisi** > **Data Lake Analytics**.
+1. Accedere al [portale](https://portal.azure.com)di Azure .
+2. Fare clic su **Create a resource** > **Intelligence - Analytics** > **Data Lake Analytics**.
 3. Selezionare i valori per gli elementi seguenti: 
    1. **Nome**: nome dell'account di Data Lake Analytics.
    2. **Sottoscrizione**: sottoscrizione di Azure usata per l'account.
@@ -111,7 +111,7 @@ Usare il ruolo Sviluppatore di Data Lake Analytics per consentire agli sviluppat
 ### <a name="add-users-or-security-groups-to-a-data-lake-analytics-account"></a>Aggiungere utenti o gruppi di sicurezza a un account di Data Lake Analytics
 
 1. Nel portale di Azure accedere all'account di Data Lake Analytics.
-2. Fare clic su **Controllo di accesso (IAM)**  > **Aggiungi un'assegnazione di ruolo**.
+2. Fare clic su **Controllo di accesso (IAM)** > **Aggiungi assegnazione ruolo**.
 3. Selezionare un ruolo.
 4. Aggiungere un utente.
 5. Fare clic su **OK**.
@@ -131,7 +131,7 @@ Usare il ruolo Sviluppatore di Data Lake Analytics per consentire agli sviluppat
 
 2. Fare clic su **Nuovo processo**. Per ogni processo, configurare quanto segue:
 
-    1. **Nome processo**: nome del processo.
+    1. **Nome lavoro**: Il nome del processo.
     2. **Priorità**: i numeri più bassi hanno maggiore priorità. Se due processi sono in coda, verrà eseguito per primo quello con la priorità più bassa.
     3. **Parallelismo**: numero massimo di processi di calcolo da riservare per il processo.
 
@@ -150,7 +150,7 @@ Per visualizzare un elenco di processi U-SQL che fanno parte delle pipeline:
 
 1. Nel portale di Azure accedere agli account di Data Lake Analytics.
 2. Fare clic su **Informazioni dettagliate sul processo**. Verrà aperta per impostazione predefinita la scheda "Tutti i processi", che mostra un elenco di processi in esecuzione, in coda e terminati.
-3. Fare clic sulla scheda **processi pipeline** . Verrà visualizzato un elenco di processi della pipeline insieme a statistiche aggregate per ogni pipeline.
+3. Fare clic sulla scheda **Processi pipeline.** Verrà visualizzato un elenco di processi della pipeline insieme alle statistiche aggregate per ogni pipeline.
 
 ### <a name="monitoring-recurring-jobs"></a>Monitoraggio dei processi ricorrenti
 Un processo ricorrente è un processo che ha la stessa logica di business, ma usa dati di input diversi ogni volta che viene eseguito. Idealmente, i processi ricorrenti devono avere sempre esito positivo e un tempo di esecuzione relativamente stabile. Il monitoraggio di questi comportamenti aiuta ad assicurarsi che il processo sia integro. I processi ricorrenti vengono identificati mediante la proprietà "Recurrence". Per i processi pianificati usando ADF V2 questa proprietà viene popolata automaticamente.
@@ -159,10 +159,10 @@ Per visualizzare un elenco di processi U-SQL ricorrenti:
 
 1. Nel portale di Azure accedere agli account di Data Lake Analytics.
 2. Fare clic su **Informazioni dettagliate sul processo**. Verrà aperta per impostazione predefinita la scheda "Tutti i processi", che mostra un elenco di processi in esecuzione, in coda e terminati.
-3. Fare clic sulla scheda **processi ricorrenti** . Verrà visualizzato un elenco di processi ricorrenti insieme a statistiche aggregate per ogni processo ricorrente.
+3. Fare clic sulla scheda **Processi ricorrenti.** Verrà visualizzato un elenco di processi ricorrenti insieme alle statistiche aggregate per ogni processo ricorrente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Panoramica di Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * [Gestire Azure Data Lake Analytics tramite Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
-* [Manage Azure Data Lake Analytics using policies](data-lake-analytics-account-policies.md) (Gestire Azure Data Lake Analytics con criteri)
+* [Gestire Azure Data Lake Analytics con criteri](data-lake-analytics-account-policies.md)

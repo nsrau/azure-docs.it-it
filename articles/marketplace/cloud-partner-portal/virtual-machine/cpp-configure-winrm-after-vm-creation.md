@@ -1,19 +1,18 @@
 ---
-title: Configurare WinRM dopo la creazione della macchina virtuale di Azure | Azure Marketplace
+title: Configurare Gestione remota Windows dopo la creazione della macchina virtuale di Azure Azure Marketplace
 description: Illustra come configurare Gestione remota Windows (WinRM) dopo la creazione di una macchina virtuale ospitata in Azure.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.author: pabutler
-ms.openlocfilehash: 7d050b32b212f66623a24bcf87d40111fc5973a5
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.author: dsindona
+ms.openlocfilehash: 673fe1f31f6a8602225e7cde3bf1eb4c3b28b8a3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77481375"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80278145"
 ---
 # <a name="configure-winrm-after-virtual-machine-creation"></a>Configurare WinRM dopo la creazione della macchina virtuale
 
@@ -25,9 +24,9 @@ Questo articolo illustra come configurare una macchina virtuale (VM) esistente o
 
 ## <a name="enabling-port-traffic"></a>Abilitazione del traffico di porta
 
-Il protocollo WinRM over HTTPS utilizza la porta 5986, che non è abilitata per impostazione predefinita nelle VM Windows preconfigurate offerte in Azure Marketplace. Per abilitare questo protocollo, usare la procedura seguente per aggiungere una nuova regola al gruppo di sicurezza di rete (NSG) con il [portale di Azure](https://portal.azure.com).  Per altre informazioni sui gruppi di sicurezza di rete, vedere [Gruppi di sicurezza](https://docs.microsoft.com/azure/virtual-network/security-overview).
+Il protocollo Gestione remota Windows su HTTPS usa la porta 5986, che non è abilitata per impostazione predefinita nelle macchine virtuali Windows preconfigurate offerte in Azure Marketplace. Per abilitare questo protocollo, usare la procedura seguente per aggiungere una nuova regola al gruppo di sicurezza di rete (NSG) con il [portale di Azure](https://portal.azure.com).  Per altre informazioni sui gruppi di sicurezza di rete, vedere [Gruppi di sicurezza](https://docs.microsoft.com/azure/virtual-network/security-overview).
 
-1.  Passare al pannello **Macchine virtuali >**   <*nome-vm*>   **> Impostazioni/Rete**.
+1.  Passare al pannello **Macchine virtuali >**   < *nome* >   vm **> Impostazioni/Rete**.
 2.  Fare clic sul nome del gruppo sicurezza di rete (in questo esempio **testvm11002**) per visualizzare le relative proprietà:
 
     ![Proprietà del gruppo di sicurezza di rete](./media/nsg-properties.png)

@@ -3,18 +3,17 @@ title: Indicazioni per il server di pubblicazione di AppSource e Azure Marketpla
 description: Indicazioni per editori di app e servizi per Azure Marketplace e AppSource
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: jm-aditi-ms
-manager: pabutler
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/13/2018
-ms.author: ellacroi
-ms.openlocfilehash: 371f36e13c244439a583cbeb7ff06c6a1283d272
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: f41aeb75253c803eac03b856d1e1ed0edb74a7e6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825943"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80281528"
 ---
 # <a name="guidelines"></a>Indicazioni  
 

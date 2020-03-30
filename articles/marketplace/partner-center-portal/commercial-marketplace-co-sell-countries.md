@@ -1,38 +1,37 @@
 ---
-title: Co-selling di codici paese e area | Azure Marketplace
-description: Usare questi codici di paese/area geografica di due lettere quando si forniscono informazioni di contatto nella pagina di co-selling dell'offerta.
-author: MaggiePucciEvans
-manager: evansma
-ms.author: evansma
+title: Co-vendita di codici paese e regione Azure Marketplace
+description: Utilizza questi codici paese di due lettere quando fornisci informazioni di contatto nella pagina Co-selling della tua offerta.
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: 925218879ce0dc1c69054f861e37e86c122d47f9
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 097fe2c394cb48a13fbc9cb253ef4df9c9959713
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934344"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80277057"
 ---
-# <a name="co-sell-country-and-region-codes"></a>Co-selling di codici paese e area geografica
+# <a name="co-sell-country-and-region-codes"></a>Co-vendita codici paese e regione
 
-Usare questi codici di paese/area geografica di due lettere quando si [forniscono informazioni di contatto nella pagina di co-selling dell'offerta](commercial-marketplace-co-sell.md).
+Utilizza questi codici paese di due lettere quando fornisci le informazioni di [contatto nella pagina Co-selling della tua offerta.](commercial-marketplace-co-sell.md)
 
-Se il contatto copre tutti i paesi o le aree geografiche, usare il codice "OOO" di tre lettere.
+Se il contatto copre tutti i paesi/aree geografiche, utilizzare il codice di tre lettere "OOO".
 
-Se un contatto copre più di un paese/area geografica, immettere ognuno dei due codici letterali separati da una virgola (ad esempio, immettere "US, CA, FR" senza virgolette).
+Se un contatto copre più di un paese, immettere ognuno dei due codici di lettere separati da una virgola (ad esempio, immettere "US, CA, FR" senza virgolette).
 
-## <a name="countryregion-table"></a>Tabella paese/area geografica
+## <a name="countryregion-table"></a>Tabella Paese/Area geografica
 
-|   Nome del paese/area geografica               |   ISO-2   |
+|   Nome paese/area geografica               |   ISO-2   |
 |-------------------------------------|-----------|
-| Contatti globali                     | OOO       |
+| Contatti globali                     | Ooo       |
 | Afghanistan                         | AF        |
-| Isole Åland                       | AX        |
+| Isole Åland                       | Ax        |
 | Albania                             | AL        |
 | Algeria                             | DZ        |
-| Samoa americane                      | AS        |
+| Isole Samoa americane                      | AS        |
 | Andorra                             | AD        |
 | Angola                              | AO        |
 | Antartide                          | AQ        |
@@ -54,12 +53,12 @@ Se un contatto copre più di un paese/area geografica, immettere ognuno dei due 
 | Bermuda                             | BM        |
 | Bhutan                              | BT        |
 | Bolivia                             | BO        |
-| Bonaire                             | BQ        |
+| Bonaire                             | Bq        |
 | Bosnia ed Erzegovina              | BA        |
 | Botswana                            | BW        |
 | Isola Bouvet                       | BV        |
 | Brasile                              | BR        |
-| Territorio britannico dell'Oceano indiano      | IO        |
+| Territorio britannico dell'oceano Indiano      | IO        |
 | Isole Vergini Britanniche              | VG        |
 | Brunei                              | BN        |
 | Bulgaria                            | BG        |
@@ -70,7 +69,7 @@ Se un contatto copre più di un paese/area geografica, immettere ognuno dei due 
 | Camerun                            | CM        |
 | Canada                              | CA        |
 | Isole Cayman                      | KY        |
-| Repubblica Centrafricana            | CF        |
+| Repubblica centrafricana            | CF        |
 | Chad                                | TD        |
 | Cechia                             | CZ        |
 | Cile                               | CL        |
@@ -80,18 +79,18 @@ Se un contatto copre più di un paese/area geografica, immettere ognuno dei due 
 | Colombia                            | CO        |
 | Comore                             | KM        |
 | Congo                               | CG        |
-| Repubblica democratica del Congo                         | CD        |
+| Congo (RDC)                         | CD        |
 | Isole Cook                        | CK        |
 | Costa Rica                          | CR        |
-| Côte d'Ivoire (Costa d'Avorio)                       | CI        |
-| Croazia                             | Risorse umane        |
+| Côte d’Ivoire (Costa d'Avorio)                       | CI        |
+| Croazia                             | HR        |
 | Cuba                                | CU        |
-| Curaçao                             | CW        |
+| Curaçao                             | Cw        |
 | Cipro                              | CY        |
 | Danimarca                             | DK        |
 | Gibuti                            | DJ        |
 | Dominica                            | DM        |
-| Repubblica Domenicana                  | DO        |
+| Repubblica dominicana                  | DO        |
 | Ecuador                             | EC        |
 | Egitto                               | EG        |
 | El Salvador                         | SV        |
@@ -100,14 +99,14 @@ Se un contatto copre più di un paese/area geografica, immettere ognuno dei due 
 | Estonia                             | EE        |
 | eSwatini                            | SZ        |
 | Etiopia                            | ET        |
-| Fær Øer                       | FO        |
+| Isole Fær Øer                       | FO        |
 | Figi                                | FJ        |
 | Finlandia                             | FI        |
 | Francia                              | VF        |
 | Guayana francese                       | GF        |
 | Polinesia francese                    | PF        |
 | Terre australi francesi         | TF        |
-| Gabon                               | Disponibilità a livello generale        |
+| Gabon                               | GA        |
 | Gambia                              | GM        |
 | Georgia                             | GE        |
 | Germania                             | DE        |
@@ -171,7 +170,7 @@ Se un contatto copre più di un paese/area geografica, immettere ognuno dei due 
 | Messico                              | MX        |
 | Micronesia                          | FM        |
 | Moldova                             | MD        |
-| Monaco                              | MC        |
+| Principato di Monaco                              | MC        |
 | Mongolia                            | MN        |
 | Montenegro                          | ME        |
 | Montserrat                          | MS        |
@@ -202,7 +201,7 @@ Se un contatto copre più di un paese/area geografica, immettere ognuno dei due 
 | Paraguay                            | PY        |
 | Perù                                | PE        |
 | Filippine                         | PH        |
-| Isole Pitcairn                    | PN        |
+| Isole Pitcairn                    | Pn        |
 | Polonia                              | PL        |
 | Portogallo                            | PT        |
 | Portorico                         | PR        |
@@ -212,12 +211,12 @@ Se un contatto copre più di un paese/area geografica, immettere ognuno dei due 
 | Russia                              | RU        |
 | Ruanda                              | LS        |
 | Saint Barthélemy                    | BL        |
-| Saint Christopher e Nevis               | KN        |
+| Saint Kitts e Nevis               | KN        |
 | Saint Lucia                         | LC        |
-| Saint Martin                        | MF        |
+| Saint Martin                        | Mf        |
 | Saint Pierre e Miquelon           | PM        |
 | Saint Vincent e Grenadine    | VC        |
-| Isole Samoa                               | WS        |
+| Isole Samoa                                | WS        |
 | San Marino                          | SM        |
 | São Tomé e Príncipe               | ST        |
 | Arabia Saudita                        | SA        |
@@ -226,13 +225,13 @@ Se un contatto copre più di un paese/area geografica, immettere ognuno dei due 
 | Seychelles                          | SC        |
 | Sierra Leone                        | SL        |
 | Singapore                           | SG        |
-| Sint Maarten                        | SX        |
+| Sint Maarten                        | Sx        |
 | Slovacchia                            | SK        |
 | Slovenia                            | SI        |
 | Isole Salomone                     | SB        |
 | Somalia                             | SO        |
-| Sudafrica                        | ZA        |
-| Georgia del sud e Sandwich Australi | GS    |
+| Sud Africa                        | ZA        |
+| Isole della Georgia del Sud e Sandwich del Sud | GS    |
 | Sudan del Sud                         | SS        |
 | Spagna                               | ES        |
 | Sri Lanka                           | LK        |
@@ -246,7 +245,7 @@ Se un contatto copre più di un paese/area geografica, immettere ognuno dei due 
 | Taiwan                              | TW        |
 | Tagikistan                          | TJ        |
 | Tanzania                            | TZ        |
-| Tailandia                            | TH        |
+| Thailandia                            | TH        |
 | Timor Est                         | TL        |
 | Togo                                | TG        |
 | Tokelau                             | TK        |
@@ -278,4 +277,4 @@ Se un contatto copre più di un paese/area geografica, immettere ognuno dei due 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni sull' [opzione di co-selling nel centro per i partner](./commercial-marketplace-co-sell.md).
+- Scopri di più sull'opzione di [co-selling nel Centro per i partner.](./commercial-marketplace-co-sell.md)

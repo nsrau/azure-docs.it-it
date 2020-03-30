@@ -1,36 +1,35 @@
 ---
-title: Conformità GDPR | Azure Marketplace
+title: Conformità al GDPR Azure Marketplace
 description: Portale Cloud Partner e GDPR.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: bc43a6cb3c30638d8c3904d7ca5b004e0905f1d2
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: f09bc60a59ff2a6e21d0cdae1917a1faed072ea4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824299"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280287"
 ---
 <a name="cloud-partner-portal-gdpr-compliance"></a>Conformità al GDPR per il portale Cloud Partner
 ====================================
 
-Il [Regolamento generale sulla protezione dei dati (GDPR)](https://ec.europa.eu/info/law/law-topic/data-protection/reform_en/) è una legge sulla privacy e sulla protezione dei dati dell'Unione europea (UE). Il GDPR impone regole per le aziende, gli enti pubblici, le organizzazioni no profit e altre organizzazioni che offrono beni e servizi a persone nell'UE o che raccolgono e analizzano dati collegati a persone residenti nell'UE.
+Il [Regolamento generale sulla protezione dei dati (GDPR)](https://ec.europa.eu/info/law/law-topic/data-protection/reform_en/) è una legge sulla privacy e sulla protezione dei dati dell'Unione Europa (UE). Il GDPR impone regole per le aziende, gli enti pubblici, le organizzazioni no profit e altre organizzazioni che offrono beni e servizi a persone nell'UE o che raccolgono e analizzano dati collegati a persone residenti nell'UE.
 
 Il portale Cloud Partner offre informazioni dettagliate riguardanti l'elaborazione dei dati del cliente e le misure di sicurezza usate per proteggere i dati. Queste informazioni sono accessibili tramite le proprie esperienze di prodotto.
 
 <a name="discover"></a>Scoprire
 --------
 
-Portale Cloud Partner consente di accedere a tutti i dati nella scheda utenti. È possibile identificare i dati personali. Per informazioni su come aggiungere/rimuovere utenti, vedere la [documentazione](./cloud-partner-portal-manage-users.md).
+Il portale per i partner cloud consente di accedere a tutti i dati nella scheda Utenti. Puoi identificare i tuoi dati personali. Per informazioni su come aggiungere/rimuovere utenti, vedere la [documentazione](./cloud-partner-portal-manage-users.md).
 
-<a name="manage"></a>Gestire
+<a name="manage"></a>Gestione
 ------
 
-È possibile gestire i dati personali premendo CANC nell'account utente nella scheda utenti. I ruoli di un **proprietario** e di un **collaboratore** possono essere assegnati a ogni utente specifico e possono essere assegnati/copiati/aggiornati/eliminati.
+Puoi gestire i tuoi dati personali premendo CANC sul tuo account utente nella scheda Utenti. Abbiamo ruoli di un **proprietario** e un **collaboratore** che possono essere assegnati a ogni utente specifico, ed entrambi possono essere assegnati/copiati/aggiornati/eliminati.
 
 <a name="consent"></a>Consenso
 -------

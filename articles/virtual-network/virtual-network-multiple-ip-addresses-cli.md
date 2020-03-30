@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
 ms.author: kumud
-ms.openlocfilehash: b99e5e6809a909184d775c70b56c249c11734cb9
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 144f30463adb3dfbce1717e06548baccc8286f8b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646609"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240232"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-cli"></a>Assegnare più indirizzi IP alle macchine virtuali usando l'interfaccia della riga di comando di Azure
 
@@ -28,7 +28,7 @@ Questo articolo spiega come creare una macchina virtuale (VM) tramite il modello
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
 
-## <a name = "create"></a>Creare una macchina virtuale con più indirizzi IP
+## <a name="create-a-vm-with-multiple-ip-addresses"></a><a name = "create"></a>Creare una macchina virtuale con più indirizzi IP
 
 La procedura seguente illustra come creare una macchina virtuale di esempio con più indirizzi IP, come descritto nello scenario. Modificare i valori delle variabili e i tipi di indirizzi IP come richiesto per l'implementazione. 
 
@@ -164,7 +164,7 @@ Dopo avere creato la VM, immettere il comando `az network nic show --name MyNic1
 
 Aggiungere gli indirizzi IP privati al sistema operativo della macchina virtuale seguendo la procedura per il proprio sistema operativo riportata nella sezione [Aggiungere indirizzi IP a una macchina virtuale](#os-config) di questo articolo.
 
-## <a name="add"></a>Aggiungere indirizzi IP a una macchina virtuale
+## <a name="add-ip-addresses-to-a-vm"></a><a name="add"></a>Aggiungere indirizzi IP a una macchina virtuale
 
 È possibile aggiungere ulteriori indirizzi IP privati e pubblici a un'interfaccia di rete di Azure esistente completando la procedura seguente. Gli esempi si basano sullo [scenario](#scenario) descritto in questo articolo.
 
@@ -176,7 +176,7 @@ Aggiungere gli indirizzi IP privati al sistema operativo della macchina virtuale
     
     Per aggiungere un indirizzo IP privato a una scheda di interfaccia di rete, è necessario creare una configurazione IP usando il comando seguente. L'indirizzo IP statico deve essere un indirizzo non usato per la subnet.
 
-    ```bash
+    ```azurecli
     az network nic ip-config create \
     --resource-group myResourceGroup \
     --nic-name myNic1 \
@@ -196,7 +196,7 @@ Aggiungere gli indirizzi IP privati al sistema operativo della macchina virtuale
     
         Ogni volta che si aggiunge un indirizzo IP pubblico a una nuova configurazione IP, è necessario aggiungere anche un indirizzo IP privato, perché tutte le configurazioni IP devono avere un indirizzo IP privato. È possibile aggiungere una risorsa indirizzo IP pubblico esistente o crearne una nuova. Per crearne una nuova, usare il comando seguente:
     
-        ```bash
+        ```azurecli
         az network public-ip create \
         --resource-group myResourceGroup \
         --location westcentralus \
@@ -206,7 +206,7 @@ Aggiungere gli indirizzi IP privati al sistema operativo della macchina virtuale
 
         Per creare una nuova configurazione IP con un indirizzo IP privato statico e la risorsa indirizzo IP pubblico *myPublicIP3* associata, immettere il comando seguente:
 
-        ```bash
+        ```azurecli
         az network nic ip-config create \
         --resource-group myResourceGroup \
         --nic-name myNic1 \
@@ -217,7 +217,7 @@ Aggiungere gli indirizzi IP privati al sistema operativo della macchina virtuale
 
     - **Associare la risorsa a una configurazione IP esistente** Una risorsa indirizzo IP pubblico può essere associata solo a una configurazione IP che non ha ancora una risorsa associata. È possibile stabilire se una configurazione IP dispone di un indirizzo IP pubblico associato immettendo il comando seguente:
 
-        ```bash
+        ```azurecli
         az network nic ip-config list \
         --resource-group myResourceGroup \
         --nic-name myNic1 \
@@ -234,7 +234,7 @@ Aggiungere gli indirizzi IP privati al sistema operativo della macchina virtuale
 
         Poiché l'output della colonna **PublicIpAddressId** per *IpConfig-3* è vuoto, nessuna risorsa di indirizzo IP pubblico è attualmente associata. È possibile aggiungere una risorsa indirizzo IP pubblico esistente a IpConfig-3 o immettere il comando seguente per crearne una:
 
-        ```bash
+        ```azurecli
         az network public-ip create \
         --resource-group  myResourceGroup
         --location westcentralus \
@@ -245,7 +245,7 @@ Aggiungere gli indirizzi IP privati al sistema operativo della macchina virtuale
     
         Immettere il comando seguente per associare la risorsa indirizzo IP pubblico alla configurazione IP esistente denominata *IPConfig-3*:
     
-        ```bash
+        ```azurecli
         az network nic ip-config update \
         --resource-group myResourceGroup \
         --nic-name myNic1 \
@@ -255,7 +255,7 @@ Aggiungere gli indirizzi IP privati al sistema operativo della macchina virtuale
 
 3. Visualizzare gli ID di risorse indirizzo IP privato e indirizzo IP pubblico assegnati alla scheda di interfaccia di rete immettendo il comando seguente:
 
-    ```bash
+    ```azurecli
     az network nic ip-config list \
     --resource-group myResourceGroup \
     --nic-name myNic1 \

@@ -1,17 +1,17 @@
 ---
-title: 'Replica dei dati: database di Azure per MariaDB'
-description: Informazioni sull'uso della replica dei dati per la sincronizzazione da un server esterno al servizio database di Azure per MariaDB.
+title: Replica dei dati - Database di Azure per MariaDBData-in replication - Azure Database for MariaDB
+description: Informazioni sull'uso della replica dei dati per la sincronizzazione da un server esterno nel servizio Database di Azure per MariaDB.Learn about using data-in replication to synchronize from an external server into the Azure Database for MariaDB service.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: e98f0dffe1ae004905c2b0969d825a1bca89014a
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: 1fbcc1fb27d5e6df4641f79c0d634580f74000b8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74772639"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79532061"
 ---
 # <a name="replicate-data-into-azure-database-for-mariadb"></a>Eseguire la replica dei dati in Database di Azure per MariaDB
 
@@ -34,12 +34,12 @@ Il [*database di sistema mysql*](https://mariadb.com/kb/en/library/the-mysql-dat
 - Ogni tabella deve avere una chiave primaria.
 - Il server master deve usare il motore InnoDB.
 - L'utente deve disporre delle autorizzazioni necessarie per configurare la registrazione binaria e creare nuovi utenti sul server master.
-- Se nel server master è abilitato SSL, verificare che il certificato della CA SSL fornito per il dominio sia stato incluso nel stored procedure di `mariadb.az_replication_change_master`. Fare riferimento agli [esempi](https://docs.microsoft.com/azure/mariadb/howto-data-in-replication#link-the-master-and-replica-servers-to-start-data-in-replication) seguenti e al parametro `master_ssl_ca`.
+- Se nel server master è abilitato SSL, verificare che il `mariadb.az_replication_change_master` certificato DELLA CA SSL fornito per il dominio sia stato incluso nella stored procedure. Fare riferimento [examples](https://docs.microsoft.com/azure/mariadb/howto-data-in-replication#link-the-master-and-replica-servers-to-start-data-in-replication) agli esempi `master_ssl_ca` seguenti e al parametro.
 - Verificare che l'indirizzo IP del server master sia stato aggiunto alle regole firewall del server di replica di Database di Azure per MariaDB. Aggiornare le regole firewall usando il [portale di Azure](https://docs.microsoft.com/azure/mariadb/howto-manage-firewall-portal) o l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/mariadb/howto-manage-firewall-cli).
 - Verificare che il computer che ospita il server master consenta sia il traffico in ingresso che in uscita sulla porta 3306.
-- Verificare che il server master disponga di un **indirizzo IP pubblico**, che il DNS sia accessibile pubblicamente o che disponga di un nome di dominio completo (FQDN).
+- Verificare che il server master disponga di un **indirizzo IP pubblico,** accessibile pubblicamente o un nome di dominio completo (FQDN).
 
-### <a name="other"></a>Altro
+### <a name="other"></a>Altri
 - La replica dei dati in ingresso è supportata solo nei piani tariffari Utilizzo generico e Con ottimizzazione per la memoria.
 
 ## <a name="next-steps"></a>Passaggi successivi

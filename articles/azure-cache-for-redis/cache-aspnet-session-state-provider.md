@@ -1,17 +1,17 @@
 ---
 title: Provider di stato della sessione ASP.NET per la cache
-description: Informazioni su come archiviare lo stato della sessione ASP.NET in memoria usando cache di Azure per Redis.
+description: Informazioni su come archiviare ASP.NET in memoria lo stato della sessione usando cache di Azure per Redis.Learn how to store a Session State in-memory using Azure Cache for Redis.
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 05/01/2017
-ms.openlocfilehash: 5c9af862ca2df3d812384c0f4ab660730aece872
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 25cef95e2d01012506148f03be45104e455e1fcd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433550"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79530275"
 ---
 # <a name="aspnet-session-state-provider-for-azure-cache-for-redis"></a>Provider di stato sessione ASP.NET per Cache Redis di Azure
 
@@ -125,6 +125,11 @@ Dopo l'esecuzione di questi passaggi, l'applicazione è configurata per l'uso de
 * Provider di stato della sessione in memoria distribuito, ad esempio provider di stato della sessione di Cache Redis di Azure, che offre il meglio di entrambe le soluzioni. L'app Web può avere un provider di stato della sessione semplice, veloce e scalabile. Dal momento che questo provider archivia lo stato della sessione in una cache, l'app deve tenere in considerazione tutte le caratteristiche associate quando comunica con una cache in memoria distribuita, ad esempio in caso di errori di rete temporanei. Per le procedure consigliate sull'uso della cache, vedere [Informazioni aggiuntive sulla memorizzazione nella cache](../best-practices-caching.md) in Microsoft Patterns & Practices e [Azure Cloud Application Design and Implementation Guidance](https://github.com/mspnp/azure-guidance) (Guida alla progettazione e all'implementazione delle applicazioni cloud di Azure).
 
 Per altre informazioni sullo stato della sessione e altre procedure consigliate, vedere [Procedure consigliate per lo sviluppo Web (compilazione di app reali per il cloud con Azure)](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices).
+
+## <a name="third-party-session-state-providers"></a>Provider di stato sessione di terze parti
+
+* [NCache (informazioni in stato inquesto](https://www.alachisoft.com/ncache/session-index.html)
+* [Accensione Apache](https://apacheignite-net.readme.io/docs/aspnet-session-state-caching)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
