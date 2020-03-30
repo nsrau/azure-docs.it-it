@@ -1,13 +1,13 @@
 ---
-title: Creare un pacchetto di un'app Service Fabric di Azure
-description: Informazioni su come creare un pacchetto di un'applicazione Service Fabric di Azure e su come prepararsi per la distribuzione in un cluster.
+title: Creare un pacchetto di un'app di Azure Service FabricPackage an Azure Service Fabric app
+description: Informazioni sulla creazione del pacchetto di un'applicazione Azure Service Fabric e su come prepararsi per la distribuzione in un cluster.
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: 7c99eec28ac06ecf666d6dda1015f889841a5dbf
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79258343"
 ---
 # <a name="package-an-application"></a>Inserire un'applicazione in un pacchetto
@@ -48,7 +48,7 @@ Gli scenari tipici per l'utilizzo di **SetupEntryPoint** sono quando è necessar
 * Impostazione e inizializzazione di variabili di ambiente necessari per il file eseguibile del servizio. Questo non è limitato solo agli eseguibili scritti tramite i modelli di programmazione di Service Fabric. Ad esempio, npm.exe richiede alcune variabili di ambiente configurate per la distribuzione di un'applicazione node.js.
 * Impostazione del controllo di accesso mediante l'installazione di certificati di sicurezza.
 
-Per altre informazioni su come configurare **SetupEntryPoint**, vedere [Configurare i criteri per il punto di ingresso dell'installazione del servizio](service-fabric-application-runas-security.md)
+Per ulteriori informazioni su come configurare **SetupEntryPoint,** vedere Configurare i criteri per un punto di ingresso per [l'installazione](service-fabric-application-runas-security.md) del servizio
 
 <a id="Package-App"></a>
 
@@ -56,9 +56,9 @@ Per altre informazioni su come configurare **SetupEntryPoint**, vedere [Configur
 
 ### <a name="build-a-package-by-using-visual-studio"></a>Creare un pacchetto mediante Visual Studio
 
-Se è stato usato Visual Studio per creare l'applicazione, è possibile usare il comando *pacchetto* per creare automaticamente un pacchetto corrispondente al layout descritto in precedenza.
+Se è stato usato Visual Studio per creare l'applicazione, è possibile usare il comando *Package* per creare automaticamente un pacchetto che corrisponda al layout descritto in precedenza.
 
-Per creare un pacchetto, fare clic con il pulsante destro del mouse sul progetto di applicazione in *Esplora soluzioni* e scegliere il comando **pacchetto** :
+Per creare un pacchetto, fare clic con il pulsante destro del mouse sul progetto dell'applicazione in *Esplora soluzioni* e scegliere il comando Pacchetto:To create a **package,** right-click the application project in Solution Explorer and choose the Package command:
 
 ![Inserire un'applicazione in un pacchetto con Visual Studio][vs-package-command]
 
@@ -226,11 +226,11 @@ Per eseguire il provisioning del pacchetto, usare il provisioning esterno, che r
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Distribuire e rimuovere applicazioni][10] descrive come usare PowerShell per gestire le istanze dell'applicazione
+[Distribuire e rimuovere applicazioni][10] descrive come usare PowerShell per gestire le istanze dell'applicazioneDeploy and remove applications describes how to use PowerShell to manage application instances
 
-[Gestione dei parametri dell'applicazione per più ambienti][11] descrive come configurare i parametri e le variabili di ambiente per diverse istanze dell'applicazione.
+[Gestire i parametri dell'applicazione per più ambienti][11]: descrive come configurare parametri e variabili di ambiente per istanze di applicazione diverse.
 
-[Configurare i criteri di sicurezza per l'applicazione][12] descrive come eseguire i servizi in criteri di sicurezza per limitare l'accesso.
+[Configurare i criteri di sicurezza per l'applicazione][12]: descrive come eseguire i servizi nell'ambito dei criteri di sicurezza per limitare l'accesso.
 
 <!--Image references-->
 [vs-package-command]: ./media/service-fabric-package-apps/vs-package-command.png

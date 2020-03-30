@@ -1,6 +1,6 @@
 ---
 title: Gestori eventi di Griglia di eventi di Azure
-description: Descrive i gestori eventi supportati per griglia di eventi di Azure. Automazione di Azure, funzioni, Hub eventi, Connessioni ibride, app per la logica, bus di servizio, archiviazione code e webhook.
+description: Descrive i gestori eventi supportati per Griglia di eventi di Azure.Describes supported event handlers for Azure Event Grid. Automazione di Azure, Funzioni, Hub eventi, Connessioni ibride, App per la logica, Bus di servizio, Archiviazione code, Webhook.Azure Automation, Functions, Event Hubs, Hybrid Connections, Logic Apps, Service Bus, Queue Storage, Webhooks.
 services: event-grid
 author: spelluru
 ms.service: event-grid
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: spelluru
 ms.openlocfilehash: 7ea00d663264e902c1818f7a4684e90eccd97b28
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79265051"
 ---
 # <a name="event-handlers-in-azure-event-grid"></a>Gestori eventi di Griglia di eventi di Azure
@@ -36,7 +36,7 @@ Quando si usa Funzioni di Azure come gestore, l'uso del trigger della Griglia di
 
 |Titolo  |Descrizione  |
 |---------|---------|
-| [Guida introduttiva: gestire gli eventi con la funzione](custom-event-to-function.md) | Invia un evento personalizzato a una funzione per l'elaborazione. |
+| [Guida introduttiva: Gestire gli eventi con la funzione](custom-event-to-function.md) | Invia un evento personalizzato a una funzione per l'elaborazione. |
 | [Trigger Griglia di eventi per Funzioni di Azure](../azure-functions/functions-bindings-event-grid.md) | Panoramica dell'uso del trigger Griglia di eventi in Funzioni. |
 | [Esercitazione: Automatizzare il ridimensionamento delle immagini caricate con Griglia di eventi](resize-images-on-storage-blob-upload-event.md) | Gli utenti caricano le immagini tramite l'app Web nell'account di archiviazione. Quando viene creato un BLOB di archiviazione, Griglia di eventi invia un evento all'app per le funzioni, che ridimensiona l'immagine caricata. |
 | [Esercitazione: trasmettere Big Data a un data warehouse](event-grid-event-hubs-integration.md) | Quando Hub eventi crea un file di Acquisizione, Griglia di eventi invia un evento a un'app per le funzioni. L'app recupera il file di Acquisizione ed esegue la migrazione dei dati a un data warehouse. |
@@ -77,13 +77,13 @@ Usare le app per la logica per automatizzare i processi di business per risponde
 
 ### <a name="service-bus-queues"></a>Code del bus di servizio
 
-È possibile instradare gli eventi in griglia di eventi direttamente alle code del bus di servizio per l'uso negli scenari di controllo del buffer o dei comandi & nelle applicazioni aziendali.
+È possibile instradare gli eventi in Griglia di eventi direttamente alle code del bus di servizio per l'utilizzo nel buffering o nei & scenari di controllo nelle applicazioni aziendali.
 
-Nel portale di Azure, durante la creazione di una sottoscrizione di eventi, selezionare "coda del bus di servizio" come tipo di endpoint e quindi fare clic su "Seleziona un endpoint" per scegliere una coda del bus di servizio.
+Nel portale di Azure, durante la creazione di una sottoscrizione di eventi, selezionare "Coda del bus di servizio" come tipo di endpoint e quindi fare clic su "selezionare un endpoint" per scegliere una coda del bus di servizio.
 
-#### <a name="using-cli-to-add-a-service-bus-queue-handler"></a>Uso dell'interfaccia della riga di comando per aggiungere un gestore code del bus di servizio
+#### <a name="using-cli-to-add-a-service-bus-queue-handler"></a>Utilizzo dell'interfaccia della riga di comando per aggiungere un gestore code del bus di servizioUsing CLI to add a Service Bus queue handler
 
-Per l'interfaccia della riga di comando di Azure, l'esempio seguente sottoscrive e connette un argomento di griglia di eventi a una coda del bus di servizio:
+Per l'interfaccia della riga di comando di Azure, l'esempio seguente sottoscrive e connette un argomento della griglia di eventi a una coda del bus di servizio:For Azure CLI, the following example subscribes and connects an event grid topic to a Service Bus queue:
 
 ```azurecli-interactive
 # If you haven't already installed the extension, do it now.
@@ -99,13 +99,13 @@ az eventgrid event-subscription create \
 
 ### <a name="service-bus-topics"></a>Argomenti del bus di servizio
 
-È possibile instradare gli eventi in griglia di eventi direttamente agli argomenti del bus di servizio per gestire gli eventi di sistema di Azure con gli argomenti del bus di servizio o per gli scenari di messaggistica di controllo &.
+È possibile instradare gli eventi in Griglia di eventi direttamente agli argomenti del bus di servizio per gestire gli eventi di sistema di Azure con gli argomenti del bus di servizio o per i comandi & controllare gli scenari di messaggistica.
 
-Nel portale di Azure, durante la creazione di una sottoscrizione di eventi, selezionare "argomento del bus di servizio" come tipo di endpoint e quindi fare clic su "Seleziona ed endpoint" per scegliere un argomento del bus di servizio.
+Nel portale di Azure, durante la creazione di una sottoscrizione di eventi, selezionare "Argomento del bus di servizio" come tipo di endpoint e quindi fare clic su "seleziona ed endpoint" per scegliere un argomento del bus di servizio.
 
-#### <a name="using-cli-to-add-a-service-bus-topic-handler"></a>Uso dell'interfaccia della riga di comando per aggiungere un gestore argomenti del bus di servizio
+#### <a name="using-cli-to-add-a-service-bus-topic-handler"></a>Utilizzo dell'interfaccia della riga di comando per aggiungere un gestore dell'argomento del bus di servizioUsing CLI to add a Service Bus topic handler
 
-Per l'interfaccia della riga di comando di Azure, l'esempio seguente sottoscrive e connette un argomento di griglia di eventi a una coda del bus di servizio:
+Per l'interfaccia della riga di comando di Azure, l'esempio seguente sottoscrive e connette un argomento della griglia di eventi a una coda del bus di servizio:For Azure CLI, the following example subscribes and connects an event grid topic to a Service Bus queue:
 
 ```azurecli-interactive
 # If you haven't already installed the extension, do it now.

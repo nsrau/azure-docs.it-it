@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: oanapl
 ms.openlocfilehash: a76ae803b1283ce50d2f4e259943ce5ffcf0274c
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79282016"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Usare i report sull'integrità del sistema per la risoluzione dei problemi
@@ -20,14 +20,14 @@ I componenti di Azure Service Fabric forniscono report sull'integrità del siste
 > 
 > 
 
-I report sull'integrità del sistema offrono visibilità sulle funzionalità del cluster e dell'applicazione e contrassegnano i problemi. Per le applicazioni e i servizi i report sull'integrità del sistema verificano che le entità siano implementate e si comportino correttamente dal punto di vista di Service Fabric. I report non forniscono il monitoraggio dell'integrità della logica di business del servizio o il rilevamento dei processi che non rispondono. I servizi utente possono arricchire i dati di integrità con informazioni specifiche per la logica.
+I report sull'integrità del sistema offrono visibilità sulle funzionalità del cluster e dell'applicazione e contrassegnano i problemi. Per le applicazioni e i servizi i report sull'integrità del sistema verificano che le entità siano implementate e si comportino correttamente dal punto di vista di Service Fabric. I report non forniscono alcun monitoraggio dell'integrità della logica di business del servizio o il rilevamento di processi che non rispondono. I servizi utente possono arricchire i dati di integrità con informazioni specifiche per la logica.
 
 > [!NOTE]
 > I report sull'integrità inviati dai watchdog degli utenti sono visibili solo *dopo* che i componenti di sistema hanno creato un'entità. Quando si elimina un'entità, l'archivio integrità elimina automaticamente tutti i report sull'integrità associati. Lo stesso vale quando viene creata una nuova istanza dell'entità. Un esempio è quando viene creata una nuova istanza di replica del servizio persistente con stato. Tutti i report associati all'istanza precedente vengono eliminati e rimossi dall'archivio.
 > 
 > 
 
-I report sui componenti di sistema vengono identificati dall'origine, che inizia con il prefisso "**System.** " biz:, I watchdog non possono usare lo stesso prefisso per le proprie origini, perché i report con parametri non validi vengono rifiutati.
+I report sui componenti di sistema vengono identificati dall'origine, che inizia con il prefisso "**System.**" biz:, I watchdog non possono usare lo stesso prefisso per le proprie origini, perché i report con parametri non validi vengono rifiutati.
 
 Si osserveranno alcuni report di sistema per capire da quali eventi vengono attivati e come risolvere i potenziali problemi che rappresentano.
 
@@ -45,7 +45,7 @@ L'entità di integrità del cluster viene creata automaticamente nell'archivio i
 Il report specifica il timeout di lease globale come durata (TTL). Il report viene inviato di nuovo ogni metà della durata TTL finché la condizione rimane attiva. Quando scade, l'evento viene rimosso automaticamente. Il comportamento di rimozione alla scadenza garantisce la corretta eliminazione del report dall'archivio integrità anche quando il nodo da cui è stato creato è inattivo.
 
 * **SourceId**: System.Federation
-* **Property**: inizia con **Neighborhood** e include informazioni sul nodo.
+* **Proprietà**: Inizia con **Neighborhood** e include le informazioni sul nodo.
 * **Passaggi successivi**: analizzare i motivi per cui si verifica la perdita di nodi vicini. Ad esempio, controllare la comunicazione tra i nodi del cluster.
 
 ### <a name="rebuild"></a>Ricompila
@@ -63,22 +63,22 @@ Quando si verifica una delle condizioni precedenti, **System.FM** o **System.FMM
 * **Property**: Rebuild.
 * **Passaggi successivi**: verificare la connessione di rete tra i nodi e lo stato di nodi specifici riportati nell'elenco di descrizioni del report sull'integrità.
 
-### <a name="seed-node-status"></a>Stato del nodo di inizializzazione
-**System.FM** segnala un avviso a livello di cluster se alcuni nodi di inizializzazione non sono integri. I nodi di inizializzazione sono i nodi che gestiscono la disponibilità del cluster sottostante. Questi nodi aiutano a garantire che il cluster rimanga attivo stabilendo lease con altri nodi e servendo da tiebreaker durante determinati tipi di errori di rete. Se la maggior parte dei nodi di inizializzazione è inattiva nel cluster e non viene ripristinata, il cluster si arresta automaticamente. 
+### <a name="seed-node-status"></a>Stato nodo seme
+**System.FM** segnala un avviso a livello di cluster se alcuni nodi di seeding non sono integri. I nodi di seeding sono i nodi che mantengono la disponibilità del cluster sottostante. Questi nodi aiutano a garantire che il cluster rimanga attivo stabilendo lease con altri nodi e servendo da tiebreaker durante determinati tipi di errori di rete. Se la maggior parte dei nodi di seeding è inattiva nel cluster e non viene riportata, il cluster viene arrestato automaticamente. 
 
-Un nodo di inizializzazione non è integro se lo stato del nodo è inattivo, rimosso o sconosciuto.
-Nel report di avviso per lo stato del nodo di inizializzazione vengono elencati tutti i nodi di inizializzazione non integri con informazioni dettagliate.
+Un nodo di serie non è integro se lo stato del nodo è Giù, Rimosso o Sconosciuto.
+Il report di avviso per lo stato del nodo di seedinazione verrà elencato tutti i nodi di seed non integri con informazioni dettagliate.
 
-* **SourceID**: System.FM
+* **IDOrigine**: System.FM
 * **Proprietà**: SeedNodeStatus
-* **Passaggi successivi**: se questo avviso viene visualizzato nel cluster, seguire le istruzioni seguenti per risolvere il problema: per il cluster che esegue Service Fabric versione 6,5 o successiva: per Service Fabric cluster in Azure, dopo che il nodo di inizializzazione diventa inattivo, Service Fabric tenterà di modificarlo automaticamente in un nodo non di inizializzazione. Per eseguire questa operazione, assicurarsi che il numero di nodi non di inizializzazione nel tipo di nodo primario sia maggiore o uguale al numero di nodi di inizializzazione inattivi. Se necessario, aggiungere altri nodi al tipo di nodo primario per ottenere questo risultato.
-A seconda dello stato del cluster, la risoluzione del problema potrebbe richiedere del tempo. Al termine di questa operazione, il report di avviso verrà cancellato automaticamente.
+* **Passaggi successivi:** se questo avviso viene visualizzato nel cluster, seguire le istruzioni seguenti per risolverlo: per il cluster che esegue Service Fabric versione 6.5 o successiva: per il cluster di Service Fabric in Azure, dopo l'arresto del nodo di serie, Service Fabric tenterà di modificarlo automaticamente in un nodo non semio. A tale scopo, assicurarsi che il numero di nodi non di cui è stato eseguito il seeding nel tipo di nodo primario sia maggiore o uguale al numero di nodi di cui al di seme Down. Se necessario, aggiungere più nodi al tipo di nodo primario per ottenere questo risultato.
+A seconda dello stato del cluster, la risoluzione del problema potrebbe richiedere del tempo. Al termine, il report di avviso viene automaticamente cancellato.
 
-Per Service Fabric cluster autonomo, per cancellare il report di avviso, tutti i nodi di inizializzazione devono diventare integri. A seconda del motivo per cui i nodi di inizializzazione non sono integri, è necessario eseguire diverse azioni: se il nodo di inizializzazione è inattivo, gli utenti devono portare il nodo di inizializzazione; Se il nodo di inizializzazione è stato rimosso o sconosciuto, questo nodo di inizializzazione [deve essere rimosso dal cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-windows-server-add-remove-nodes).
-Il report di avviso viene cancellato automaticamente quando tutti i nodi di inizializzazione diventano integri.
+Per il cluster autonomo di Service Fabric, per cancellare il report di avviso, tutti i nodi di seeding devono diventare integri. A seconda del motivo per cui i nodi di seeding non sono integri, è necessario eseguire diverse azioni: se il nodo di seeding è Giù, gli utenti devono portare il nodo di seeding. se il nodo di cui è stato eseguito il seme è Removed o Unknown, è necessario rimuovere questo nodo di cui è [stato eseguito il seeding dal cluster.](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-windows-server-add-remove-nodes)
+Il report di avviso viene cancellato automaticamente quando tutti i nodi di seed diventano integri.
 
-Per il cluster che esegue Service Fabric versione precedente alla 6,5: in questo caso, è necessario cancellare manualmente il report di avviso. **Gli utenti devono assicurarsi che tutti i nodi di inizializzazione diventino integri prima di cancellare il report**: se il nodo di inizializzazione è inattivo, gli utenti devono riportare il nodo di inizializzazione. se il nodo di inizializzazione viene rimosso o sconosciuto, il nodo di inizializzazione deve essere rimosso dal cluster.
-Dopo che tutti i nodi di inizializzazione diventano integri, utilizzare il comando seguente da PowerShell per [cancellare il report di avviso](https://docs.microsoft.com/powershell/module/servicefabric/send-servicefabricclusterhealthreport):
+Per il cluster che esegue la versione di Service Fabric precedente alla 6.5: in questo caso, il report di avviso deve essere cancellato manualmente. **Gli utenti devono assicurarsi che tutti i nodi di seeding diventino integri prima di cancellare il report:** se il nodo di cui è premuto è Inattivo, gli utenti devono eseguire il numero di nodo di cui il seme è Rimosso o Sconosciuto, il nodo di seeding deve essere rimosso dal cluster.
+Dopo che tutti i nodi di seed ed diventere integri, usare il comando seguente da Powershell per [cancellare il report](https://docs.microsoft.com/powershell/module/servicefabric/send-servicefabricclusterhealthreport)di avviso:
 
 ```powershell
 PS C:\> Send-ServiceFabricClusterHealthReport -SourceId "System.FM" -HealthProperty "SeedNodeStatus" -HealthState OK
@@ -119,14 +119,14 @@ HealthEvents          :
 **System.FabricNode** segnala una condizione di avviso quando si avvicina la scadenza dei certificati usati dal nodo. Ogni nodo ha tre certificati: **Certificate_cluster**, **Certificate_server** e **Certificate_default_client**. Quando mancano almeno due settimane alla scadenza, lo stato di integrità del report è OK. Quando la scadenza è entro due settimane, il tipo di report è un avviso. Il valore TTL di questi eventi è infinito e vengono rimossi quando un nodo esce dal cluster.
 
 * **SourceId**: System.FabricNode
-* **Property**: inizia con **Certificate** e contiene altre informazioni sul tipo di certificato.
+* **Proprietà**: Inizia con **Certificato** e contiene ulteriori informazioni sul tipo di certificato.
 * **Passaggi successivi**: aggiornare i certificati se sono prossimi alla scadenza.
 
 ### <a name="load-capacity-violation"></a>Violazione della capacità di carico
 Il servizio di bilanciamento del carico di Service Fabric segnala un avviso se rileva una violazione della capacità del nodo.
 
 * **SourceId**: System.PLB
-* **Property**: inizia con **Capacity**.
+* **Proprietà**: Inizia con **Capacity**.
 * **Passaggi successivi**: controllare la metrica fornita e visualizzare la capacità corrente nel nodo.
 
 ### <a name="node-capacity-mismatch-for-resource-governance-metrics"></a>Mancata corrispondenza della capacità del nodo per la metrica di governance delle risorse
@@ -144,7 +144,7 @@ System.CM restituisce OK quando l'applicazione viene creata o aggiornata. Inform
 
 * **SourceId**: System.CM
 * **Property**: State.
-* **Passaggi successivi**: se l'applicazione è stata creata o aggiornata, deve includere il report sull'integrità dello strumento di gestione cluster. In caso contrario, controllare lo stato dell'applicazione eseguendo una query. Ad esempio, usare il cmdlet di PowerShell **Get-ServiceFabricApplication-ApplicationName** *ApplicationName*.
+* **Passaggi successivi**: se l'applicazione è stata creata o aggiornata, deve includere il report sull'integrità dello strumento di gestione cluster. In caso contrario, controllare lo stato dell'applicazione eseguendo una query. Ad esempio, usare il cmdlet di PowerShell **Get-ServiceFabricApplication -ApplicationName** *nomeApplicazione*.
 
 L'esempio seguente illustra l'evento State nell'applicazione **fabric:/WordCount** :
 
@@ -376,7 +376,7 @@ Questo report sull'integrità illustra lo stato delle repliche della partizione 
 Per ogni replica, il report sull'integrità include le informazioni seguenti:
 - Ruolo di configurazione precedente
 - Ruolo di configurazione corrente
-- [Stato della replica](service-fabric-concepts-replica-lifecycle.md)
+- [Stato replica](service-fabric-concepts-replica-lifecycle.md)
 - Nodo in cui la replica è in esecuzione
 - ID replica
 
@@ -386,7 +386,7 @@ In un caso come quello dell'esempio, sono necessari ulteriori approfondimenti. V
 **System.PLB** segnala un avviso se rileva una violazione del vincolo di replica e non può posizionare tutte le repliche della partizione. Il report indica in modo dettagliato i vincoli e le proprietà che impediscono il posizionamento della replica.
 
 * **SourceId**: System.PLB
-* **Property**: inizia con **ReplicaConstraintViolation**.
+* **Proprietà**: Inizia con **ReplicaConstraintViolation**.
 
 ## <a name="replica-system-health-reports"></a>Report sull'integrità del sistema di repliche
 **System.RA**, che rappresenta il componente agente di riconfigurazione, è l'autorità per lo stato della replica.
@@ -595,7 +595,7 @@ Questo report sull'integrità mostra che la riconfigurazione è bloccata in atte
 Per ogni replica vengono specificate le informazioni seguenti:
 - Ruolo di configurazione precedente
 - Ruolo di configurazione corrente
-- [Stato della replica](service-fabric-concepts-replica-lifecycle.md)
+- [Stato replica](service-fabric-concepts-replica-lifecycle.md)
 - ID del nodo
 - ID replica
 
@@ -637,32 +637,32 @@ HealthEvents          :
                         
 ```
 
-La proprietà e il testo indicano quale API è rimasta bloccata. I passaggi successivi da eseguire per le diverse API bloccate variano. Qualsiasi API in *IStatefulServiceReplica* o *IStatelessServiceInstance* è in genere un bug nel codice del servizio. La sezione seguente illustra come questi elementi si traducono nel [modello Reliable Services](service-fabric-reliable-services-lifecycle.md):
+La proprietà e il testo indicano quale API è rimasta bloccata. I passaggi successivi da eseguire per le diverse API bloccate variano. Qualsiasi API su *IStatefulServiceReplica* o *IStatelessServiceInstance* è in genere un bug nel codice del servizio. Nella sezione seguente viene descritto come questi si traducono nel [modello Reliable Services](service-fabric-reliable-services-lifecycle.md):
 
-- **IStatefulServiceReplica.Open**: questo avviso indica che una chiamata a `CreateServiceInstanceListeners`, a `ICommunicationListener.OpenAsync` o, se ignorato, `OnOpenAsync` è bloccata.
+- **IStatefulServiceReplica.Open**: questo avviso indica `CreateServiceInstanceListeners`che `ICommunicationListener.OpenAsync`una chiamata a `OnOpenAsync` , , o se sottoposta a override, è bloccata.
 
 - **IStatefulServiceReplica.Close** e **IStatefulServiceReplica.Abort**: il caso più comune è un servizio che non rispetta il token di annullamento passato a `RunAsync`. È anche possibile che `ICommunicationListener.CloseAsync` o, se ignorato, `OnCloseAsync` sia bloccato.
 
-- **IStatefulServiceReplica.ChangeRole(S)** e **IStatefulServiceReplica.ChangeRole(N)** : il caso più comune è un servizio che non rispetta il token di annullamento passato a `RunAsync`. In questo scenario, la soluzione migliore consiste nel riavviare la replica.
+- **IStatefulServiceReplica.ChangeRole(S)** e **IStatefulServiceReplica.ChangeRole(N)**: il caso più comune è un servizio che non rispetta il token di annullamento passato a `RunAsync`. In questo scenario, la soluzione migliore consiste nel riavviare la replica.
 
-- **IStatefulServiceReplica.ChangeRole(P)** : il caso più comune è rappresentato dal servizio che non ha restituito un'attività da `RunAsync`.
+- **IStatefulServiceReplica.ChangeRole(P):** il caso più comune è che il servizio `RunAsync`non ha restituito un'attività da .
 
-Altre chiamate API che possono rimanere bloccate sono presenti nell'interfaccia di **IReplicator**, Ad esempio:
+Altre chiamate API che possono rimanere bloccate si trovano sull'interfaccia **IReplicator.Other** API calls that can get stuck are on the IReplicator interface. Ad esempio:
 
 - **IReplicator.CatchupReplicaSet**: questo avviso indica una di due situazioni. Le repliche attive sono insufficienti. Per appurare se questo è il caso, esaminare lo stato delle repliche nella partizione o il rapporto di stato di System.FM per una riconfigurazione bloccata. oppure le repliche non riconoscono le operazioni. È possibile usare il cmdlet `Get-ServiceFabricDeployedReplicaDetail` di PowerShell per determinare lo stato di tutte le repliche. Il problema è relativo alle repliche il cui valore `LastAppliedReplicationSequenceNumber` è successivo al valore `CommittedSequenceNumber` della replica primaria.
 
-- **IReplicator. BuildReplica (\<Remote ReplicaId >)** : questo avviso indica un problema nel processo di compilazione. Per altre informazioni, vedere [Ciclo di vita della replica](service-fabric-concepts-replica-lifecycle.md). La causa del problema potrebbe essere un'errata configurazione dell'indirizzo del replicatore. Per altre informazioni, vedere [Configurazione di servizi Reliable Services con stato](service-fabric-reliable-services-configuration.md) e [Specificare le risorse in un manifesto del servizio](service-fabric-service-manifest-resources.md). Potrebbe anche trattarsi di un problema del nodo remoto.
+- **IReplicator.BuildReplica(\<ReplicaId remoto>)**: questo avviso indica un problema nel processo di compilazione. Per altre informazioni, vedere [Ciclo di vita della replica](service-fabric-concepts-replica-lifecycle.md). La causa del problema potrebbe essere un'errata configurazione dell'indirizzo del replicatore. Per altre informazioni, vedere [Configurazione di servizi Reliable Services con stato](service-fabric-reliable-services-configuration.md) e [Specificare le risorse in un manifesto del servizio](service-fabric-service-manifest-resources.md). Potrebbe anche trattarsi di un problema del nodo remoto.
 
 ### <a name="replicator-system-health-reports"></a>Report sull'integrità del sistema replicatore
-**Coda di replica piena:** 
-**System.Replicator** genera un avviso se la coda di replica è piena. Nel server primario la coda di replica in genere si riempie perché una o più repliche secondarie sono lente nel riconoscere le operazioni. Nel server secondario ciò si verifica di solito quando il servizio è lento nell'applicare le operazioni. La condizione di avviso viene cancellata quando la coda non è più piena.
+**Coda**
+di replica piena:**System.Replicator** segnala un avviso quando la coda di replica è piena. Nel server primario la coda di replica in genere si riempie perché una o più repliche secondarie sono lente nel riconoscere le operazioni. Nel server secondario ciò si verifica di solito quando il servizio è lento nell'applicare le operazioni. La condizione di avviso viene cancellata quando la coda non è più piena.
 
 * **SourceId**: System.Replicator
-* **Property**: **PrimaryReplicationQueueStatus** o **SecondaryReplicationQueueStatus**, a seconda del ruolo della replica.
+* **Proprietà**: **PrimaryReplicationQueueStatus** o **SecondaryReplicationQueueStatus**, a seconda del ruolo di replica.
 * **Passaggi successivi**: se il report è nel server primario, controllare la connessione tra i nodi del cluster. Se tutte le connessioni sono integre, potrebbe esserci almeno una replica secondaria lenta con una latenza del disco elevata nell'applicare le operazioni. Se il report è nella replica secondaria, verificare innanzitutto l'utilizzo del disco e le prestazioni nel nodo. Controllare quindi la connessione in uscita dal nodo lento alla replica primaria.
 
-**RemoteReplicatorConnectionStatus:** 
-**System.Replicator** sulla replica primaria genera un avviso quando la connessione a un replicatore secondario (remoto) non è integra. L'indirizzo del replicatore remoto viene visualizzato nel messaggio del report, rendendo più semplice rilevare se è stata passata una configurazione errata o se sono presenti problemi di rete tra i replicatori.
+**RemoteReplicatorConnectionStatus:**
+**System.Replicator** nella replica primaria segnala un avviso quando la connessione a un replicatore secondario (remoto) non è integro. L'indirizzo del replicatore remoto viene visualizzato nel messaggio del report, rendendo più semplice rilevare se è stata passata una configurazione errata o se sono presenti problemi di rete tra i replicatori.
 
 * **SourceId**: System.Replicator
 * **Property**: **RemoteReplicatorConnectionStatus**.
@@ -672,7 +672,7 @@ Altre chiamate API che possono rimanere bloccate sono presenti nell'interfaccia 
 **System.Replicator** segnala un avviso se la coda di replica è piena. Nel server primario la coda di replica in genere si riempie perché una o più repliche secondarie sono lente nel riconoscere le operazioni. Nel server secondario ciò si verifica di solito quando il servizio è lento nell'applicare le operazioni. La condizione di avviso viene cancellata quando la coda non è più piena.
 
 * **SourceId**: System.Replicator
-* **Property**: **PrimaryReplicationQueueStatus** o **SecondaryReplicationQueueStatus**, a seconda del ruolo della replica.
+* **Proprietà**: **PrimaryReplicationQueueStatus** o **SecondaryReplicationQueueStatus**, a seconda del ruolo di replica.
 
 ### <a name="slow-naming-operations"></a>Operazioni di Naming lente
 **System.NamingService** segnala lo stato di integrità per la replica primaria quando un'operazione di denominazione richiede più tempo di quanto sia accettabile. Esempi di operazioni di Naming sono [CreateServiceAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync) e [DeleteServiceAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.deleteserviceasync). Sono disponibili più metodi in FabricClient, ad esempio nell'ambito dei [metodi di gestione dei servizi](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient) o dei [metodi di gestione delle proprietà](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.propertymanagementclient).
@@ -685,7 +685,7 @@ Altre chiamate API che possono rimanere bloccate sono presenti nell'interfaccia 
 Quando un'operazione di denominazione richiede più tempo del previsto, viene contrassegnata con un report di tipo avviso nella replica primaria della partizione del servizio Naming che gestisce l'operazione. Se l'operazione viene completata, l'avviso viene cancellato. Se l'operazione viene completata con un errore, il report sull'integrità include i relativi dettagli.
 
 * **SourceId**: System.NamingService
-* **Property**: inizia con il prefisso "**Duration_** " e identifica l'operazione lenta e il nome di Service Fabric a cui viene applicata. Se ad esempio l'operazione di creazione del servizio per il nome **fabric:/MyApp/MyService** richiede troppo tempo la proprietà è **Duration_AOCreateService.fabric:/MyApp/MyService**. "AO" punta al ruolo della partizione Naming per il nome e l'operazione.
+* **Property**: inizia con il prefisso "**Duration_**" e identifica l'operazione lenta e il nome di Service Fabric a cui viene applicata. Se ad esempio l'operazione di creazione del servizio per il nome **fabric:/MyApp/MyService** richiede troppo tempo la proprietà è **Duration_AOCreateService.fabric:/MyApp/MyService**. "AO" punta al ruolo della partizione Naming per il nome e l'operazione.
 * **Passaggi successivi**: controllare i motivi per cui l'operazione di denominazione non è riuscita. A ogni operazione può corrispondere una causa radice diversa. Il servizio di eliminazione, ad esempio, potrebbe essere bloccato. Il servizio, ad esempio, può bloccarsi perché l'host applicazione continua ad arrestarsi in modo anomalo in un nodo a causa di un bug utente nel codice del servizio.
 
 L'esempio seguente illustra un'operazione di creazione servizio. L'operazione ha richiesto un tempo superiore alla durata configurata. "AO" riprova e invia l'attività a "NO". "NO" completa l'ultima operazione con TIMEOUT. In questo caso, la stessa replica è primaria per entrambi i ruoli "AO" e "NO".
@@ -787,7 +787,7 @@ System.Hosting segnala un errore se il download del pacchetto dell'applicazione 
 System.Hosting restituisce OK se l'attivazione del pacchetto di servizi nel nodo è riuscita. In caso contrario, restituisce un errore.
 
 * **SourceId**: System.Hosting
-* **Property**: Activation.
+* **Proprietà**: Attivazione.
 * **Passaggi successivi**: analizzare i motivi per cui l'attivazione non è riuscita.
 
 ### <a name="code-package-activation"></a>Attivazione del pacchetto di codice
@@ -797,7 +797,7 @@ System.Hosting restituisce OK per ogni pacchetto di codice se l'attivazione è r
 * **Property**: usa il prefisso **CodePackageActivation** e contiene il nome del pacchetto di codice e il punto di ingresso come *CodePackageActivation:CodePackageName:SetupEntryPoint/EntryPoint*. Ad esempio, **CodePackageActivation:Code:SetupEntryPoint**.
 
 ### <a name="service-type-registration"></a>Registrazione del tipo di servizio
-System.Hosting restituisce OK se il tipo di servizio è stato registrato correttamente. Viene restituito un errore se la registrazione non è stata eseguita in tempo, in base alla configurazione eseguita usando **ServiceTypeRegistrationTimeout**. In caso di chiusura del runtime, viene annullata la registrazione del tipo di servizio nel nodo e viene segnalato un avviso.
+System.Hosting restituisce OK se il tipo di servizio è stato registrato correttamente. Segnala un errore se la registrazione non è stata eseguita in tempo, come configurato utilizzando **ServiceTypeRegistrationTimeout**. In caso di chiusura del runtime, viene annullata la registrazione del tipo di servizio nel nodo e viene segnalato un avviso.
 
 * **SourceId**: System.Hosting
 * **Property**: usa il prefisso **ServiceTypeRegistration** e contiene il nome del tipo di servizio. Ad esempio, **ServiceTypeRegistration:FileStoreServiceType**.
@@ -862,8 +862,8 @@ System.Hosting segnala un errore se il download del pacchetto servizio non è ri
 System.Hosting segnala un errore se la convalida durante l'aggiornamento non è riuscita oppure se non è riuscito l'aggiornamento nel nodo.
 
 * **SourceId**: System.Hosting
-* **Property**: usa il prefisso **FabricUpgradeValidation** e contiene la versione dell'aggiornamento.
-* **Description**: punta all'errore che si è verificato.
+* **Property**: utilizza il prefisso **FabricUpgradeValidation** e contiene la versione di aggiornamento.
+* **Descrizione**: Punta all'errore rilevato.
 
 ### <a name="undefined-node-capacity-for-resource-governance-metrics"></a>Capacità del nodo indefinita per la metrica di governance delle risorse
 System.Hosting genera un avviso se le capacità del nodo non sono definite nel manifesto del cluster e la configurazione per il rilevamento automatico è disattivata. Service Fabric genera un avviso di integrità ogni volta che il pacchetto del servizio che usa la [governance delle risorse](service-fabric-resource-governance.md) si registra in un nodo specificato.

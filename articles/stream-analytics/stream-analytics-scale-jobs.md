@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/22/2017
-ms.openlocfilehash: 4f89fb07fbbff3beee66f80675bb5c3a32136807
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d828103bef8e57f5d0cdfe6c243c52e2d0526663
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75458769"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80257547"
 ---
 # <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>Ridimensionare un processo di Analisi di flusso di Azure per aumentare la velocità effettiva
 Questo articolo illustra come ottimizzare una query per aumentare la velocità effettiva per i processi di Analisi di flusso. È possibile usare la seguente guida per ridimensionare il processo per gestire carichi più elevati e sfruttare i vantaggi di più risorse di sistema (ad esempio maggiore larghezza di banda, più risorse della CPU, una maggiore memoria).
@@ -23,7 +23,7 @@ Come prerequisito, è necessario leggere gli articoli seguenti:
 ## <a name="case-1--your-query-is-inherently-fully-parallelizable-across-input-partitions"></a>Caso 1: la query è intrinsecamente completamente eseguibile in parallelo tra le partizioni di input
 Se la query è intrinsecamente completamente eseguibile in parallelo tra le partizioni di input, è possibile seguire la procedura seguente:
 1.  Creare la query in modo che sia perfettamente parallela usando la parola chiave **PARTITION BY**. Visualizzare altri dettagli nella sezione dei processi perfettamente paralleli [in questa pagina](stream-analytics-parallelization.md).
-2.  A seconda dei tipi di output usati nella query, alcuni output potrebbero non essere eseguibili in parallelo, o richiederebbero un'altra configurazione perfettamente parallela. Ad esempio, gli output SQL, SQL DW e Power BI non sono eseguibili in parallelo. Gli output vengono sempre uniti prima di essere inviati al sink di output. I BLOB, le tabelle, l'ADLS, il Bus di servizio e la funzione di Azure vengono parallelizzati automaticamente. CosmosDB e Hub eventi devono avere il set di configurazione PartitionKey per la corrispondenza con il campo **PARTITION BY** (in genere PartitionId). Per l'Hub eventi, prestare anche particolare attenzione a far corrispondere il numero di partizioni per tutti gli input e output per evitare il cross-over tra le partizioni. 
+2.  A seconda dei tipi di output usati nella query, alcuni output potrebbero non essere eseguibili in parallelo, o richiederebbero un'altra configurazione perfettamente parallela. Ad esempio, l'output di PowerBI non è parallelizzabile. Gli output vengono sempre uniti prima di essere inviati al sink di output. I BLOB, le tabelle, l'ADLS, il Bus di servizio e la funzione di Azure vengono parallelizzati automaticamente. Gli output SQL e SQL DW hanno un'opzione per la parallelizzazione. L'hub eventi deve avere la configurazione PartitionKey impostata in modo che corrisponda al campo **PARTITION BY** (in genere PartitionId). Per l'Hub eventi, prestare anche particolare attenzione a far corrispondere il numero di partizioni per tutti gli input e output per evitare il cross-over tra le partizioni. 
 3.  Eseguire la query con **SU 6** (ovvero la capacità massima di un singolo nodo di calcolo) per misurare la velocità effettiva massima ottenibile, e se si usa **GROUP BY**, misurare il numero di gruppi (cardinalità) che il processo riesce a gestire. Di seguito sono elencati i sintomi generali dei limiti della risorsa del sistema nel raggiungere il processo.
     - La metrica di utilizzo % SU è superiore all'80%. Indica che l'uso della memoria è elevato. I fattori che contribuiscono all'aumento della metrica sono descritti [qui](stream-analytics-streaming-unit-consumption.md). 
     -   Il timestamp di output è in ritardo rispetto all'ora. A seconda della logica della query, il timestamp di output potrebbe avere un offset della logica dall'ora. Tuttavia, dovrebbero procedere approssimativamente allo stesso ritmo. Se il timestamp di output è sempre più in ritardo, è un indicatore del fatto che il sistema è in overworking. Può trattarsi di un risultato della limitazione del sink di output di downstream o dell'uso elevato del CPU. Non si fornisce una metrica di utilizzo del CPU in questa fase, pertanto può essere difficile distinguere i due.
@@ -42,7 +42,7 @@ Se la query non è perfettamente parallela, è possibile seguire la procedura se
 2.  Se è possibile ottenere il carico previsto in termini di velocità effettiva, l'operazione è conclusa. In alternativa è possibile scegliere di misurare lo stesso processo in esecuzione su SU 3 e SU 1 per determinare il numero minimo di SU adeguato per il proprio scenario.
 3.  Se non è possibile ottenere la velocità effettiva desiderata, provare a suddividere la query in più passaggi, se possibile e se non dispone già di più passaggi e allocare fino a SU 6 per ogni passaggio nella query. Ad esempio, se si dispone di 3 passaggi, allocare 18 unità di ricerca nell'opzione "Scalabilità".
 4.  Durante l'esecuzione di un processo di questo tipo, l'Analisi di flusso di Azure colloca ogni passaggio nel proprio nodo con 6 risorse dell'unità di risorse dedicate. 
-5.  Se ancora non è stata raggiunta la destinazione del carico, è possibile tentare di usare **PARTITION BY** a partire dai passaggi più vicini all'input. Per l'operatore **GROUP BY** che non può essere partizionabile naturalmente, è possibile usare il modello di aggregazione globale o locale per eseguire un **GROUP BY** partizionato seguito da un **GROUP BY**  non partizionato. Ad esempio, se si desidera contare quante automobili attraversano ciascun casello ogni 3 minuti e il volume dei dati va oltre ciò che può essere gestito da 6 unità di ricerca.
+5.  Se ancora non è stata raggiunta la destinazione del carico, è possibile tentare di usare **PARTITION BY** a partire dai passaggi più vicini all'input. Per l'operatore **GROUP BY** che non può essere partizionabile naturalmente, è possibile usare il modello di aggregazione globale o locale per eseguire un **GROUP BY** partizionato seguito da un **GROUP BY ** non partizionato. Ad esempio, se si desidera contare quante automobili attraversano ciascun casello ogni 3 minuti e il volume dei dati va oltre ciò che può essere gestito da 6 unità di ricerca.
 
 Query:
 
@@ -77,13 +77,13 @@ Per determinati casi d'uso ISV, in cui è più conveniente elaborare dati da pi�
 
 
 
-## <a name="get-help"></a>Ottenere supporto
-Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+## <a name="get-help"></a>Ottenere aiuto
+Per ulteriore assistenza, prova il forum di Analisi di Flusso di [Azure.](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
-* [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-real-time-fraud-detection.md)
-* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Introduzione all'uso di Analisi di flusso di AzureGet started using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
+* [Guida di riferimento al linguaggio di query di Analisi di flusso di AzureAzure Stream Analytics Query Language Reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 <!--Image references-->

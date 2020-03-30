@@ -1,6 +1,6 @@
 ---
-title: App client approvate con accesso condizionale-Azure Active Directory
-description: Informazioni su come richiedere app client approvate per l'accesso alle app cloud con accesso condizionale in Azure Active Directory.
+title: App client approvate con accesso condizionale - Azure Active Directory
+description: Informazioni su come richiedere app client approvate per l'accesso alle app cloud con accesso condizionale in Azure Active Directory.Learn how to require approved client apps for cloud app access with Conditional Access in Azure Active Directory.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -11,122 +11,125 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a869f4fa82999192f75f2c114720151bae55680
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 7a215e2bb7d9d1cf9013414037383590456296cd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78298429"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79480896"
 ---
-# <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>Procedura: richiedere app client approvate per l'accesso alle app cloud con accesso condizionale
+# <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>Procedura: Richiedere app client approvate per l'accesso alle app cloud con accesso condizionaleHow to: Require approved client apps for cloud app access with Conditional Access
 
-I dispositivi mobili vengono usati regolarmente per le attività personali e di lavoro. Garantendo al tempo stesso che il personale possa essere produttivo, le organizzazioni vogliono anche impedire la perdita di dati da applicazioni potenzialmente non sicure. Con l'accesso condizionale, le organizzazioni possono limitare l'accesso alle app client approvate che supportano l'autenticazione moderna.
+Le persone usano regolarmente i loro dispositivi mobili sia per le attività personali che per le attività lavorative. Pur assicurandosi che il personale possa essere produttivo, le organizzazioni desiderano anche evitare la perdita di dati da applicazioni potenzialmente non sicure. Con l'accesso condizionale, le organizzazioni possono limitare l'accesso alle app client approvate (con funzionalità di autenticazione moderna).
 
-Questo articolo presenta due scenari per configurare i criteri di accesso condizionale per risorse quali Office 365, Exchange Online e SharePoint Online.
+In questo articolo vengono presentate due scenari per configurare i criteri di accesso condizionale per risorse come Office 365, Exchange Online e SharePoint Online.
 
 - [Scenario 1: le app di Office 365 richiedono un'app client approvata](#scenario-1-office-365-apps-require-an-approved-client-app)
 - [Scenario 2: Exchange Online e SharePoint Online richiedono un'app client approvata](#scenario-2-exchange-online-and-sharepoint-online-require-an-approved-client-app)
 
 Nell'accesso condizionale questa funzionalità è nota come richiesta di un'app client approvata. Per un elenco di app client approvate, vedere [Requisito per le app client approvate](concept-conditional-access-grant.md#require-approved-client-app).
 
+> [!NOTE]
+> Per richiedere app client approvate per dispositivi iOS e Android, questi dispositivi devono prima registrarsi in Azure AD.
+
 ## <a name="scenario-1-office-365-apps-require-an-approved-client-app"></a>Scenario 1: le app di Office 365 richiedono un'app client approvata
 
-In questo scenario, Contoso ha deciso che gli utenti che usano dispositivi mobili possono accedere a tutti i servizi di Office 365, purché usino app client approvate come Outlook Mobile, OneDrive e Microsoft teams. Tutti gli utenti hanno già accesso con Azure AD credenziali e dispongono di licenze assegnate che includono Azure AD Premium P1 o P2 e Microsoft Intune.
+In questo scenario, Contoso ha deciso che gli utenti che utilizzano dispositivi mobili possono accedere a tutti i servizi di Office 365, purché utilizzino app client approvate, come Outlook mobile, OneDrive e Microsoft Teams. Tutti gli utenti accedono già con le credenziali di Azure AD e dispongono di licenze assegnate a loro che includono Azure AD Premium P1 o P2 e Microsoft Intune.
 
-Le organizzazioni devono completare i tre passaggi seguenti per richiedere l'uso di un'app client approvata nei dispositivi mobili.
+Le organizzazioni devono completare i tre passaggi seguenti per richiedere l'utilizzo di un'app client approvata nei dispositivi mobili.
 
-**Passaggio 1: criteri per i client di autenticazione moderni basati su Android e iOS che richiedono l'uso di un'applicazione client approvata per l'accesso a Exchange Online.**
+**Passaggio 1: Criteri per i client di autenticazione moderna basati su Android e iOS che richiedono l'utilizzo di un'applicazione client approvata per l'accesso a Exchange Online.**
 
-1. Accedere al **portale di Azure** come amministratore globale, amministratore della sicurezza o amministratore dell'accesso condizionale.
-1. Passare ad **Azure Active Directory** > **Sicurezza** > **Accesso condizionale**.
+1. Accedere al **portale** di Azure come amministratore globale, amministratore della sicurezza o amministratore di accesso condizionale.
+1. Passare ad Accesso**condizionale**alla**sicurezza** > di **Azure Active Directory** > .
 1. Selezionare **Nuovi criteri**.
 1. Assegnare un nome al criterio. È consigliabile che le organizzazioni creino uno standard significativo per i nomi dei propri criteri.
-1. In **assegnazioni**selezionare **utenti e gruppi** .
-   1. In **Includi**selezionare **tutti gli utenti** o i **gruppi e gli utenti** specifici a cui si desidera applicare questo criterio. 
-   1. Selezionare **Operazione completata**.
-1. In **app Cloud o azioni** > **Includi**Selezionare **Office 365 (anteprima)** .
-1. In **condizioni**selezionare **piattaforme del dispositivo**.
+1. In **Assegnazioni**selezionare **Utenti e gruppi**
+   1. In **Includi**selezionare **Tutti gli utenti** o gli utenti e i **gruppi** specifici a cui si desidera applicare questo criterio. 
+   1. Selezionare **Fatto**.
+1. In **Includi app o azioni** > **Include**cloud selezionare **Office 365 (anteprima)**.
+1. In **Condizioni**selezionare **Piattaforme dispositivo**.
    1. Impostare **Configura** su **Sì**.
-   1. Includere **Android** e **iOS**.
-1. In **condizioni**selezionare **app client (anteprima)** .
+   1. Includi **Android** e **iOS**.
+1. In **Condizioni**selezionare **App client (anteprima)**.
    1. Impostare **Configura** su **Sì**.
-   1. Selezionare **app per dispositivi mobili e client desktop** e **client di autenticazione moderna**.
-1. In **controlli di accesso** > **concedere**Selezionare **Concedi accesso**, **Richiedi app client approvata**e selezionare **Seleziona**.
-1. Confermare le impostazioni e impostare **Abilita criterio** **su on**.
+   1. Selezionare **App per dispositivi mobili e client desktop** e **Client con autenticazione moderna**.
+1. In **Controlli di** > accesso**Concedi**, selezionare **Concedi accesso**, Richiedi app client **approvata**e selezionare **Seleziona**.
+1. Confermare le impostazioni e **impostare Abilita criterio** su **Attivato**.
 1. Selezionare **Crea** per creare e abilitare i criteri.
 
-**Passaggio 2: configurare un Azure AD criteri di accesso condizionale per Exchange Online con ActiveSync (EAS)**
+**Passaggio 2: Configurare un criterio di accesso condizionale di Azure AD per Exchange Online con ActiveSync (EAS)**
 
-1. Passare ad **Azure Active Directory** > **Sicurezza** > **Accesso condizionale**.
+1. Passare ad Accesso**condizionale**alla**sicurezza** > di **Azure Active Directory** > .
 1. Selezionare **Nuovi criteri**.
 1. Assegnare un nome al criterio. È consigliabile che le organizzazioni creino uno standard significativo per i nomi dei propri criteri.
-1. In **assegnazioni**selezionare **utenti e gruppi** .
-   1. In **Includi**selezionare **tutti gli utenti** o i **gruppi e gli utenti** specifici a cui si desidera applicare questo criterio. 
-   1. Selezionare **Operazione completata**.
-1. In **app Cloud o azioni** > **Includi**selezionare **Office 365 Exchange Online**.
-1. In **condizioni**:
-   1. **App client (anteprima)** :
+1. In **Assegnazioni**selezionare **Utenti e gruppi**
+   1. In **Includi**selezionare **Tutti gli utenti** o gli utenti e i **gruppi** specifici a cui si desidera applicare questo criterio. 
+   1. Selezionare **Fatto**.
+1. In **Includi app o azioni** > **Include**cloud selezionare **Office 365 Exchange Online**.
+1. In **Condizioni**:
+   1. **App client (anteprima)**:
       1. Impostare **Configura** su **Sì**.
-      1. Selezionare **app per dispositivi mobili e client desktop** e **client di Exchange ActiveSync**.
-1. In **controlli di accesso** > **concedere**Selezionare **Concedi accesso**, **Richiedi app client approvata**e selezionare **Seleziona**.
-1. Confermare le impostazioni e impostare **Abilita criterio** **su on**.
+      1. Selezionare **App per dispositivi mobili e client desktop** e client Exchange **ActiveSync**.
+1. In **Controlli di** > accesso**Concedi**, selezionare **Concedi accesso**, Richiedi app client **approvata**e selezionare **Seleziona**.
+1. Confermare le impostazioni e **impostare Abilita criterio** su **Attivato**.
 1. Selezionare **Crea** per creare e abilitare i criteri.
 
-**Passaggio 3: configurare i criteri di protezione delle app di Intune per le applicazioni client iOS e Android.**
+**Passaggio 3: Configurare i criteri di protezione delle app di Intune per le applicazioni client iOS e Android.Step 3: Configure Intune app protection policy for iOS and Android client applications.**
 
-Vedere l'articolo [come creare e assegnare criteri di protezione delle app](/intune/apps/app-protection-policies)per i passaggi per la creazione di criteri di protezione delle app per Android e iOS. 
+Per informazioni sulla procedura per la creazione di criteri di protezione delle app per la creazione di criteri di protezione delle app per Android e iOS, vedere l'articolo [Come creare e assegnare criteri](/intune/apps/app-protection-policies)di protezione delle app. 
 
 ## <a name="scenario-2-exchange-online-and-sharepoint-online-require-an-approved-client-app"></a>Scenario 2: Exchange Online e SharePoint Online richiedono un'app client approvata
 
-In questo scenario, Contoso ha deciso che gli utenti possono accedere solo ai dati di posta elettronica e SharePoint nei dispositivi mobili, purché usino un'app client approvata come Outlook Mobile. Tutti gli utenti hanno già accesso con Azure AD credenziali e dispongono di licenze assegnate che includono Azure AD Premium P1 o P2 e Microsoft Intune.
+In questo scenario, Contoso ha deciso che gli utenti possono accedere solo alla posta elettronica e ai dati di SharePoint nei dispositivi mobili, purché utilizzino un'app client approvata come Outlook Mobile. Tutti gli utenti accedono già con le credenziali di Azure AD e dispongono di licenze assegnate a loro che includono Azure AD Premium P1 o P2 e Microsoft Intune.
 
-Per richiedere l'uso di un'app client approvata nei dispositivi mobili e nei client Exchange ActiveSync, le organizzazioni devono completare i tre passaggi seguenti.
+Le organizzazioni devono completare i tre passaggi seguenti per richiedere l'utilizzo di un'app client approvata nei dispositivi mobili e nei client Exchange ActiveSync.
 
-**Passaggio 1: criteri per i client di autenticazione moderni basati su Android e iOS che richiedono l'uso di un'applicazione client approvata per l'accesso a Exchange Online e SharePoint Online.**
+**Passaggio 1: Criteri per i client di autenticazione moderna basati su Android e iOS che richiedono l'utilizzo di un'applicazione client approvata per l'accesso a Exchange Online e SharePoint Online.**
 
-1. Accedere al **portale di Azure** come amministratore globale, amministratore della sicurezza o amministratore dell'accesso condizionale.
-1. Passare ad **Azure Active Directory** > **Sicurezza** > **Accesso condizionale**.
+1. Accedere al **portale** di Azure come amministratore globale, amministratore della sicurezza o amministratore di accesso condizionale.
+1. Passare ad Accesso**condizionale**alla**sicurezza** > di **Azure Active Directory** > .
 1. Selezionare **Nuovi criteri**.
 1. Assegnare un nome al criterio. È consigliabile che le organizzazioni creino uno standard significativo per i nomi dei propri criteri.
-1. In **assegnazioni**selezionare **utenti e gruppi** .
-   1. In **Includi**selezionare **tutti gli utenti** o i **gruppi e gli utenti** specifici a cui si desidera applicare questo criterio. 
-   1. Selezionare **Operazione completata**.
-1. In **app Cloud o azioni** > **includere**selezionare **Office 365 Exchange Online** e **Office 365 SharePoint Online**.
-1. In **condizioni**selezionare **piattaforme del dispositivo**.
+1. In **Assegnazioni**selezionare **Utenti e gruppi**
+   1. In **Includi**selezionare **Tutti gli utenti** o gli utenti e i **gruppi** specifici a cui si desidera applicare questo criterio. 
+   1. Selezionare **Fatto**.
+1. In **Includi app o azioni** > **Include**cloud selezionare **Office 365 Exchange Online** e Office **365 SharePoint Online.**
+1. In **Condizioni**selezionare **Piattaforme dispositivo**.
    1. Impostare **Configura** su **Sì**.
-   1. Includere **Android** e **iOS**.
-1. In **condizioni**selezionare **app client (anteprima)** .
+   1. Includi **Android** e **iOS**.
+1. In **Condizioni**selezionare **App client (anteprima)**.
    1. Impostare **Configura** su **Sì**.
-   1. Selezionare **app per dispositivi mobili e client desktop** e **client di autenticazione moderna**.
-1. In **controlli di accesso** > **concedere**Selezionare **Concedi accesso**, **Richiedi app client approvata**e selezionare **Seleziona**.
-1. Confermare le impostazioni e impostare **Abilita criterio** **su on**.
+   1. Selezionare **App per dispositivi mobili e client desktop** e **Client con autenticazione moderna**.
+1. In **Controlli di** > accesso**Concedi**, selezionare **Concedi accesso**, Richiedi app client **approvata**e selezionare **Seleziona**.
+1. Confermare le impostazioni e **impostare Abilita criterio** su **Attivato**.
 1. Selezionare **Crea** per creare e abilitare i criteri.
 
-**Passaggio 2: criteri per i client di Exchange ActiveSync che richiedono l'uso di un'app client approvata.**
+**Passaggio 2: Criteri per i client Exchange ActiveSync che richiedono l'utilizzo di un'app client approvata.**
 
-1. Passare ad **Azure Active Directory** > **Sicurezza** > **Accesso condizionale**.
+1. Passare ad Accesso**condizionale**alla**sicurezza** > di **Azure Active Directory** > .
 1. Selezionare **Nuovi criteri**.
 1. Assegnare un nome al criterio. È consigliabile che le organizzazioni creino uno standard significativo per i nomi dei propri criteri.
-1. In **assegnazioni**selezionare **utenti e gruppi** .
-   1. In **Includi**selezionare **tutti gli utenti** o i **gruppi e gli utenti** specifici a cui si desidera applicare questo criterio. 
-   1. Selezionare **Operazione completata**.
-1. In **app Cloud o azioni** > **Includi**selezionare **Office 365 Exchange Online**.
-1. In **condizioni**:
-   1. **App client (anteprima)** :
+1. In **Assegnazioni**selezionare **Utenti e gruppi**
+   1. In **Includi**selezionare **Tutti gli utenti** o gli utenti e i **gruppi** specifici a cui si desidera applicare questo criterio. 
+   1. Selezionare **Fatto**.
+1. In **Includi app o azioni** > **Include**cloud selezionare **Office 365 Exchange Online**.
+1. In **Condizioni**:
+   1. **App client (anteprima)**:
       1. Impostare **Configura** su **Sì**.
-      1. Selezionare **app per dispositivi mobili e client desktop** e **client di Exchange ActiveSync**.
-1. In **controlli di accesso** > **concedere**Selezionare **Concedi accesso**, **Richiedi app client approvata**e selezionare **Seleziona**.
-1. Confermare le impostazioni e impostare **Abilita criterio** **su on**.
+      1. Selezionare **App per dispositivi mobili e client desktop** e client Exchange **ActiveSync**.
+1. In **Controlli di** > accesso**Concedi**, selezionare **Concedi accesso**, Richiedi app client **approvata**e selezionare **Seleziona**.
+1. Confermare le impostazioni e **impostare Abilita criterio** su **Attivato**.
 1. Selezionare **Crea** per creare e abilitare i criteri.
 
-**Passaggio 3: configurare i criteri di protezione delle app di Intune per le applicazioni client iOS e Android.**
+**Passaggio 3: Configurare i criteri di protezione delle app di Intune per le applicazioni client iOS e Android.Step 3: Configure Intune app protection policy for iOS and Android client applications.**
 
-Vedere l'articolo [come creare e assegnare criteri di protezione delle app](/intune/apps/app-protection-policies)per i passaggi per la creazione di criteri di protezione delle app per Android e iOS. 
+Per informazioni sulla procedura per la creazione di criteri di protezione delle app per la creazione di criteri di protezione delle app per Android e iOS, vedere l'articolo [Come creare e assegnare criteri](/intune/apps/app-protection-policies)di protezione delle app. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 [Che cos'è l'accesso condizionale?](overview.md)
 
-[Componenti di accesso condizionale](concept-conditional-access-policies.md)
+[Componenti di accesso condizionaleConditional access components](concept-conditional-access-policies.md)
 
-[Criteri di accesso condizionale comuni](concept-conditional-access-policy-common.md)
+[Criteri comuni di accesso condizionale](concept-conditional-access-policy-common.md)

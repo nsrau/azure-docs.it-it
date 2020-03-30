@@ -1,5 +1,5 @@
 ---
-title: Panoramica di Zone DNS e record-DNS di Azure
+title: Panoramica delle zone e dei record DNS - DNS di Azure
 description: Panoramica del supporto per l'hosting di zone e record DNS in DNS di Microsoft Azure.
 author: rohinkoul
 ms.assetid: be4580d7-aa1b-4b6b-89a3-0991c0cda897
@@ -10,10 +10,10 @@ ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: rohink
 ms.openlocfilehash: 19189af6424960b8e20be686af745b10f2d8578b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79265155"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>Panoramica delle zone e dei record DNS
@@ -22,9 +22,9 @@ Questa pagina presenta i concetti principali relativi a domini, zone DNS e recor
 
 ## <a name="domain-names"></a>Nomi di dominio
 
-Domain Name System è una gerarchia di domini. La gerarchia inizia dal dominio "radice", il cui nome è semplicemente " **.** ",  seguito dai domini di primo livello, come "com", "net", "org", "uk" o "jp",  e quindi dai domini di secondo livello, come "org.uk" o "co.jp" I domini nella gerarchia DNS vengono distribuiti a livello globale, ospitati dai server dei nomi DNS in tutto il mondo.
+Domain Name System è una gerarchia di domini. La gerarchia inizia dal dominio 'root', il cui nome è semplicemente '**.**'.  seguito dai domini di primo livello, come "com", "net", "org", "uk" o "jp",  e quindi dai domini di secondo livello, come "org.uk" o "co.jp" I domini nella gerarchia DNS vengono distribuiti a livello globale, ospitati dai server dei nomi DNS in tutto il mondo.
 
-Un registrar di nomi di dominio è un'organizzazione che consente di acquistare un nome di dominio, ad esempio `contoso.com`.  L'acquisto di un nome di dominio offre il diritto di controllare la gerarchia DNS con tale nome, ad esempio consentendo di indirizzare il nome `www.contoso.com` al sito Web della società. Il registrar può ospitare il dominio nei propri server dei nomi per conto dell'utente o consentire all'utente di specificare server dei nomi alternativi.
+Un registrar di nomi di dominio è un'organizzazione `contoso.com`che consente di acquistare un nome di dominio, ad esempio .  L'acquisto di un nome di dominio consente di controllare la gerarchia `www.contoso.com` DNS con tale nome, ad esempio consentendo di indirizzare il nome al sito Web della società. Il registrar può ospitare il dominio nei propri server dei nomi per conto dell'utente o consentire all'utente di specificare server dei nomi alternativi.
 
 DNS di Azure offre un'infrastruttura di server dei nomi a disponibilità elevata e distribuita a livello globale, che può essere usata per ospitare il dominio. Ospitando i domini in DNS di Azure, è possibile gestire i record DNS usando gli stessi strumenti, credenziali, API, fatturazione e supporto degli altri servizi di Azure.
 
@@ -82,7 +82,7 @@ Un set di record SOA viene creato automaticamente in corrispondenza del vertice 
 
 È possibile modificare tutte le proprietà del record SOA ad eccezione della proprietà "host", che è preconfigurata in modo da fare riferimento al nome del server dei nomi primario fornito da DNS di Azure.
 
-Il numero di serie della zona nel record SOA non viene aggiornato automaticamente quando vengono apportate modifiche ai record nella zona. Se necessario, è possibile aggiornarlo manualmente modificando il record SOA.
+Il numero di serie della zona nel record SOA non viene aggiornato automaticamente quando vengono apportate modifiche ai record nella zona. Può essere aggiornato manualmente modificando il record SOA, se necessario.
 
 ### <a name="spf-records"></a>Record SPF
 
@@ -130,7 +130,7 @@ A livello dell'API REST di DNS di Azure, gli ETag vengono specificati usando le 
 | Intestazione | Comportamento |
 | --- | --- |
 | nessuno |PUT riesce sempre (nessun controllo di Etag) |
-| If-Match \<ETag > |PUT riesce solo se la risorsa esiste e l'Etag corrisponde |
+| > dell'etag If-match \< |PUT riesce solo se la risorsa esiste e l'Etag corrisponde |
 | If-match * |PUT riesce solo se la risorsa esiste |
 | If-none-match * |PUT riesce solo se la risorsa non esiste |
 

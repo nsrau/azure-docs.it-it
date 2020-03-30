@@ -5,65 +5,18 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/24/2018
-ms.openlocfilehash: 7bace6ff6eb7dd1c02e4907e338fc0be9d66471c
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.date: 03/17/2020
+ms.openlocfilehash: 877616f6fd31bdfbe193bd8f03efb3f79317ad42
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79274112"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79535370"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualizzazione dei dati da Monitoraggio di Azure
 Questo articolo contiene un riepilogo dei metodi disponibili per visualizzare i dati di metrica e log archiviati in Monitoraggio di Azure.
 
 Visualizzazioni come grafici e grafi consentono di analizzare i dati di monitoraggio per il drill-down dei problemi e per identificare i criteri. A seconda dello strumento usato, potrebbe essere possibile anche condividere visualizzazioni con altri utenti all'interno e all'esterno dell'organizzazione.
-
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
-
-## <a name="azure-dashboards"></a>Dashboard di Azure
-I [dashboard di Azure](../azure-portal/azure-portal-dashboards.md) sono la tecnologia principale per la gestione di dashboard per Azure. Sono particolarmente utili poiché forniscono un unico riquadro di monitoraggio dell'infrastruttura e dei servizi di Azure per identificare rapidamente i problemi importanti.
-
-![Dashboard](media/visualizations/dashboard.png)
-
-### <a name="advantages"></a>Vantaggi
-- Integrazione avanzata in Azure. Le visualizzazioni possono essere aggiunte ai dashboard da più pagine di Azure, tra cui Esplora metriche, Log Analytics e Application Insights.
-- Supporto sia per le metriche sia per i log.
-- Combina i dati di più origini, tra cui output da [Esplora metriche](platform/metrics-charts.md), [query di log](log-query/log-query-overview.md)e [mappe](app/app-map.md) e disponibilità in Application Insights.
-- Opzione per dashboard personali o condivisi, integrati con l'[autenticazione basata su ruoli (RBAC)](../role-based-access-control/overview.md) di Azure.
-- Aggiornamento automatico delle metriche in base a un intervallo di tempo con un valore minimo di cinque minuti Registra l'aggiornamento ogni ora, con un'opzione di aggiornamento manuale su richiesta facendo clic sull'icona "Aggiorna" in una determinata visualizzazione o aggiornando il dashboard completo.
-- Dashboard delle metriche con parametri con timestamp e parametri personalizzati.
-- Opzioni di layout flessibili.
-- Modalità schermo intero.
-
-
-### <a name="limitations"></a>Limitazioni
-- Controllo limitato delle visualizzazioni dei log senza supporto per le tabelle di dati. Il numero totale delle serie di dati è limitato a 10 con altre serie di dati raggruppate in un _altro_ contenitore.
-- Nessun supporto dei parametri personalizzati per i grafici dei log.
-- I grafici dei log sono limitati agli ultimi 30 giorni.
-- I grafici dei log possono essere aggiunti solo ai dashboard condivisi.
-- Nessuna interattività con i dati del dashboard.
-- Drill-down contestuale limitato.
-
-## <a name="azure-monitor-views"></a>Visualizzazioni di Monitoraggio di Azure
-Le [visualizzazioni di Monitoraggio di Azure](platform/view-designer.md) consentono di creare visualizzazioni personalizzate con i dati di log. Vengono usate dalle [soluzioni di monitoraggio](insights/solutions.md) per presentare i dati raccolti.
-
-![Visualizza](media/visualizations/view.png)
-
-### <a name="advantages"></a>Vantaggi
-- Visualizzazioni avanzate per i dati di log.
-- Esportazione e importazione delle visualizzazioni per trasferirle ad altri gruppi di risorse e sottoscrizioni.
-- Integrazione nel modello di gestione di Monitoraggio di Azure con aree di lavoro e soluzioni di monitoraggio.
-- [Filtri](platform/view-designer-filters.md) per i parametri personalizzati.
-- Interattività, supporto per il drill-in a più livelli con una visualizzazione che analizza un'altra visualizzazione.
-
-### <a name="limitations"></a>Limitazioni
-- Supporto per i log, ma non per le metriche.
-- Nessuna visualizzazione personale. Disponibilità per tutti gli utenti con accesso all'area di lavoro.
-- Nessun aggiornamento automatico.
-- Opzioni di layout limitate.
-- Nessun supporto per l'esecuzione di query tra più aree di lavoro o applicazioni di Application Insights.
-- Le dimensioni della risposta delle query sono limitate a 8 MB e il tempo di esecuzione è 110 secondi.
-
 
 ## <a name="workbooks"></a>Workbooks
 Le [cartelle di lavoro](../azure-monitor/app/usage-workbooks.md) sono documenti interattivi che forniscono informazioni dettagliate sui dati, sulle analisi e la collaborazione all'interno del team. Esempi specifici in cui le cartelle di lavoro sono utili sono le guide alla risoluzione dei problemi e l'analisi a posteriore degli eventi imprevisti.
@@ -81,6 +34,31 @@ Le [cartelle di lavoro](../azure-monitor/app/usage-workbooks.md) sono documenti 
 ### <a name="limitations"></a>Limitazioni
 - Nessun aggiornamento automatico.
 - Nessun layout ad alta densità, come i dashboard, limitando l'utilità delle cartelle di lavoro come singolo riquadro. Utilizzo specifico per fornire informazioni più dettagliate.
+
+
+## <a name="azure-dashboards"></a>Dashboard di Azure
+I [dashboard di Azure](../azure-portal/azure-portal-dashboards.md) sono la tecnologia principale per la gestione di dashboard per Azure. Sono particolarmente utili poiché forniscono un unico riquadro di monitoraggio dell'infrastruttura e dei servizi di Azure per identificare rapidamente i problemi importanti.
+
+![Dashboard](media/visualizations/dashboard.png)
+
+### <a name="advantages"></a>Vantaggi
+- Integrazione avanzata in Azure. Le visualizzazioni possono essere aggiunte ai dashboard di più pagine di Azure, tra cui Esplora metriche, Log Analytics e Application Insights.
+- Supporto sia per le metriche sia per i log.
+- Combinazione dei dati provenienti da più origini, tra cui l'output da [Esplora metriche](platform/metrics-charts.md), [query di Log](log-query/log-query-overview.md), [mappe](app/app-map.md) e disponibilità in Application Insights.
+- Opzione per dashboard personali o condivisi, integrati con l'[autenticazione basata su ruoli (RBAC)](../role-based-access-control/overview.md) di Azure.
+- Aggiornamento automatico delle metriche in base a un intervallo di tempo con un valore minimo di cinque minuti I log vengono aggiornati ogni ora, con un'opzione di aggiornamento manuale su richiesta facendo clic sull'icona "Aggiorna" in una determinata visualizzazione o aggiornando il dashboard completo.
+- Dashboard delle metriche con parametri con timestamp e parametri personalizzati.
+- Opzioni di layout flessibili.
+- Modalità schermo intero.
+
+
+### <a name="limitations"></a>Limitazioni
+- Controllo limitato delle visualizzazioni dei log senza supporto per le tabelle di dati. Il numero totale delle serie di dati è limitato a 10 con altre serie di dati raggruppate in un _altro_ contenitore.
+- Nessun supporto dei parametri personalizzati per i grafici dei log.
+- I grafici dei log sono limitati agli ultimi 30 giorni.
+- I grafici dei log possono essere aggiunti solo ai dashboard condivisi.
+- Nessuna interattività con i dati del dashboard.
+- Drill-down contestuale limitato.
 
 
 ## <a name="power-bi"></a>Power BI
@@ -130,11 +108,36 @@ Le [cartelle di lavoro](../azure-monitor/app/usage-workbooks.md) sono documenti 
 - Necessità di un notevole lavoro di progettazione.
 
 
+## <a name="azure-monitor-views"></a>Visualizzazioni di Monitoraggio di Azure
+
+> [!IMPORTANT]
+> Le visualizzazioni sono in fase di deprecazione. Per istruzioni sulla conversione delle visualizzazioni in cartelle di lavoro, vedere [Progettazione visualizzazione di Monitoraggio di Azure.](platform/view-designer-conversion-overview.md)
+
+Le [visualizzazioni di Monitoraggio di Azure](platform/view-designer.md) consentono di creare visualizzazioni personalizzate con i dati di log. Vengono usate dalle [soluzioni di monitoraggio](insights/solutions.md) per presentare i dati raccolti.
+
+
+![Visualizza](media/visualizations/view.png)
+
+### <a name="advantages"></a>Vantaggi
+- Visualizzazioni avanzate per i dati di log.
+- Esportazione e importazione delle visualizzazioni per trasferirle ad altri gruppi di risorse e sottoscrizioni.
+- Integrazione nel modello di gestione di Monitoraggio di Azure con aree di lavoro e soluzioni di monitoraggio.
+- [Filtri](platform/view-designer-filters.md) per i parametri personalizzati.
+- Interattività, supporto per il drill-in a più livelli con una visualizzazione che analizza un'altra visualizzazione.
+
+### <a name="limitations"></a>Limitazioni
+- Supporto per i log, ma non per le metriche.
+- Nessuna visualizzazione personale. Disponibilità per tutti gli utenti con accesso all'area di lavoro.
+- Nessun aggiornamento automatico.
+- Opzioni di layout limitate.
+- Nessun supporto per l'esecuzione di query tra più aree di lavoro o applicazioni di Application Insights.
+- Le dimensioni della risposta delle query sono limitate a 8 MB e il tempo di esecuzione è 110 secondi.
+
 ## <a name="next-steps"></a>Passaggi successivi
 - Informazioni sui [dati raccolti da Monitoraggio di Azure](platform/data-platform.md).
 - Informazioni sui [dashboard di Azure](../azure-portal/azure-portal-dashboards.md).
 - Informazioni sulle [visualizzazioni in Monitoraggio di Azure](platform/view-designer.md).
-- Informazioni sulle [cartelle di lavoro](../azure-monitor/app/usage-workbooks.md)di.
+- Informazioni sulle [cartelle di lavoro](../azure-monitor/app/usage-workbooks.md).
 - Informazioni sull'[importazione dei dati di log in Power BI](../azure-monitor/platform/powerbi.md).
 - Informazioni sul [plug-in Grafana dell'origine dati Monitoraggio di Azure](../azure-monitor/platform/grafana-plugin.md).
 

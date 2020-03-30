@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
 ms.openlocfilehash: d1a972a1d89066b961f2dcc28fba830e3a04ebc1
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79274762"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Origini dati delle prestazioni di Windows e Linux in Monitoraggio di Azure
@@ -39,9 +39,9 @@ Seguire questa procedura per aggiungere un nuovo contatore delle prestazioni Win
 
 1. Digitare il nome del contatore nella casella di testo, usando il formato *oggetto(istanza)\contatore*.  Quando si inizia a digitare, viene visualizzato un elenco di contatori comuni corrispondenti.  È possibile selezionare un contatore nell'elenco o digitare quello desiderato.  Per restituire tutte le istanze per un contatore specifico, specificare *oggetto\contatore*.  
 
-    Quando si raccolgono i contatori delle prestazioni di SQL Server da istanze denominate, tutti i contatori di tali istanze iniziano con *MSSQL$* , seguito dal nome dell'istanza.  Ad esempio, per raccogliere il contatore Percentuale riscontri cache log di tutti i database dall'oggetto delle prestazioni del database per l'istanza di SQL denominata INST2, specificare `MSSQL$INST2:Databases(*)\Log Cache Hit Ratio`.
+    Quando si raccolgono i contatori delle prestazioni di SQL Server da istanze denominate, tutti i contatori di tali istanze iniziano con *MSSQL$*, seguito dal nome dell'istanza.  Ad esempio, per raccogliere il contatore Percentuale riscontri cache log di tutti i database dall'oggetto delle prestazioni del database per l'istanza di SQL denominata INST2, specificare `MSSQL$INST2:Databases(*)\Log Cache Hit Ratio`.
 
-2. Fare clic su **+** o premere **INVIO** per aggiungere il contatore all'elenco.
+2. Fare **+** clic o premere **INVIO** per aggiungere il contatore all'elenco.
 3. Quando si aggiunge un contatore, per **Intervallo di campionamento** verrà usato il valore predefinito di 10 secondi.  Per ridurre i requisiti di spazio di archiviazione dei dati sulle prestazioni raccolti, è possibile impostare questa opzione su un valore più alto, fino a un massimo di 1800 secondi (30 minuti).
 4. Dopo aver aggiunto i contatori, fare clic sul pulsante **Salva** nella parte superiore della schermata per salvare la configurazione.
 
@@ -53,7 +53,7 @@ Seguire questa procedura per aggiungere un nuovo contatore delle prestazioni Lin
 
 1. Per impostazione predefinita, viene eseguito automaticamente il push di tutte le modifiche di configurazione in tutti gli agenti.  Per gli agenti Linux, viene inviato un file di configurazione all'agente di raccolta dati Fluentd.  Per modificare questo file manualmente in ogni agente Linux, deselezionare la casella *Apply below configuration to my Linux machines* (Applica la configurazione seguente alle macchine Linux) e attenersi alle istruzioni seguenti.
 2. Digitare il nome del contatore nella casella di testo, usando il formato *oggetto(istanza)\contatore*.  Quando si inizia a digitare, viene visualizzato un elenco di contatori comuni corrispondenti.  È possibile selezionare un contatore nell'elenco o digitare quello desiderato.  
-3. Fare clic su **+** o premere **INVIO** per aggiungere il contatore all'elenco di altri contatori per l'oggetto.
+3. Fare **+** clic su o **premere INVIO** per aggiungere il contatore all'elenco di altri contatori per l'oggetto.
 4. Tutti i contatori per un oggetto usano lo stesso **intervallo di campionamento**.  Il valore predefinito è 10 secondi.  Per ridurre i requisiti di spazio di archiviazione dei dati sulle prestazioni raccolti, è possibile impostare questa opzione su un valore più alto, fino a un massimo di 1800 secondi (30 minuti).
 5. Dopo aver aggiunto i contatori, fare clic sul pulsante **Salva** nella parte superiore della schermata per salvare la configurazione.
 
@@ -89,8 +89,8 @@ La tabella seguente elenca gli oggetti e i contatori che è possibile specificar
 | Logical Disk | % Free Space |
 | Logical Disk | % Used Inodes |
 | Logical Disk | % Used Space |
-| Logical Disk | Byte letti da disco/sec |
-| Logical Disk | Letture disco/sec |
+| Logical Disk | Byte letti da disco/sec  |
+| Logical Disk | Letture disco/sec  |
 | Logical Disk | Disk Transfers/sec |
 | Logical Disk | Byte scritti su disco/sec |
 | Logical Disk | Scritture disco/sec |
@@ -116,8 +116,8 @@ La tabella seguente elenca gli oggetti e i contatori che è possibile specificar
 | Rete | Total Tx Errors |
 | Rete | Total Collisions |
 | Physical Disk | Media letture disco/sec |
-| Physical Disk | Media sec/trasferimento disco |
-| Physical Disk | Media scritture disco/sec |
+| Physical Disk | Media disco/trasferimento |
+| Physical Disk | Media Scritture disco/sec |
 | Physical Disk | Physical Disk Bytes/sec |
 | Process | Pct Privileged Time |
 | Process | Pct User Time |
@@ -131,13 +131,13 @@ La tabella seguente elenca gli oggetti e i contatori che è possibile specificar
 | Processore | % Privileged Time |
 | Processore | % di tempo processore |
 | Processore | % User Time |
-| Sistema | Free Physical Memory |
-| Sistema | Free Space in Paging Files |
-| Sistema | Free Virtual Memory |
-| Sistema | Processi |
-| Sistema | Size Stored In Paging Files |
-| Sistema | Uptime |
-| Sistema | Utenti |
+| System | Free Physical Memory |
+| System | Free Space in Paging Files |
+| System | Free Virtual Memory |
+| System | Processi |
+| System | Size Stored In Paging Files |
+| System | Uptime |
+| System | Utenti |
 
 
 Di seguito è illustrata la configurazione predefinita per le metriche delle prestazioni.
@@ -188,7 +188,7 @@ Il tipo dei record delle prestazioni è **Perf** e le proprietà sono elencate n
 | CounterValue |Valore numerico del contatore. |
 | InstanceName |Nome dell'istanza dell'evento.  Vuoto se l'istanza non è presente. |
 | ObjectName |Nome dell'oggetto prestazioni |
-| SourceSystem |Tipo di agente da cui sono stati raccolti i dati. <br><br>OpsManager: agente Windows, con connessione diretta o SCOM <br> Linux – Tutti gli agenti Linux  <br> AzureStorage: Diagnostica di Azure |
+| SourceSystem |Tipo di agente da cui sono stati raccolti i dati. <br><br>OpsManager: agente Windows, con connessione diretta o SCOM <br>  Linux – Tutti gli agenti Linux  <br>  AzureStorage: Diagnostica di Azure |
 | TimeGenerated |Data e ora di campionamento dei dati. |
 
 ## <a name="sizing-estimates"></a>Stime di dimensionamento
@@ -204,10 +204,10 @@ La tabella seguente mostra alcuni esempi di query di log che recuperano i record
 | Perf |Tutti i dati sulle prestazioni |
 | Perf &#124; where Computer == "MyComputer" |Tutti i dati sulle prestazioni da un computer specifico |
 | Perf &#124; where CounterName == "Current Disk Queue Length" |Tutti i dati sulle prestazioni da un contatore specifico |
-| Perf &#124; where nomeoggetto = = "Processor" e CounterName = = "% Processor Time" e NomeIstanza = = "_Total" &#124; riepilogano AVGCPU = AVG (CounterValue) per computer |Utilizzo medio della CPU per tutti i computer |
-| Prestazioni &#124; in cui CounterName = = "% tempo processore &#124; " riepiloga AggregatedValue = Max (CounterValue) per computer |Utilizzo massimo della CPU per tutti i computer |
-| Perf &#124; where ObjectName = = "disco logico" e CounterName = = "lunghezza corrente coda del disco" e computer = = "nomecomputer" &#124; riepiloga AggregatedValue = AVG (CounterValue) da NomeIstanza |Lunghezza media della coda del disco corrente per tutte le istanze di un computer specifico |
-| Perf &#124; where CounterName = = "trasferimenti disco/sec" &#124; riepiloga AggregatedValue = percentile (CounterValue, 95) per computer |95° percentile di trasferimenti disco al secondo per tutti i computer |
+| Perf &#124; dove NomeOggetto , "Processor" e CounterName , "% Processore Tempo" e InstanceName &#124; "_Total" &#124; riepilogare AVGCPU e avg(CounterValue) per Computer |Utilizzo medio della CPU per tutti i computer |
+| Perf &#124; in cui CounterName è "% Tempo processore" &#124; riepilogare AggregatedValue - max(CounterValue) per Computer |Utilizzo massimo della CPU per tutti i computer |
+| Perf &#124; dove NomeOggetto , "DiscoLogico" e NomeContatore , "Lunghezza corrente coda del disco" e Computer , "NomeComputer" &#124; riepilogati valore aggregato , avg(CounterValue) per InstanceName |Lunghezza media della coda del disco corrente per tutte le istanze di un computer specifico |
+| Perf &#124; dove CounterName : "Trasferimenti disco/sec" &#124; riepilogare ValoreAgd - percentile(CounterValue, 95) per Computer |95° percentile di trasferimenti disco al secondo per tutti i computer |
 | Perf &#124; where CounterName == "% Processor Time" and InstanceName == "_Total" &#124; summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 1h), Computer |Utilizzo orario medio della CPU per tutti i computer |
 | Perf &#124; where Computer == "MyComputer" and CounterName startswith_cs "%" and InstanceName == "_Total" &#124; summarize AggregatedValue = percentile(CounterValue, 70) by bin(TimeGenerated, 1h), CounterName | 70° percentile orario di ogni contatore percentuale % per un computer specifico |
 | Perf &#124; where CounterName == "% Processor Time" and InstanceName == "_Total" and Computer == "MyComputer" &#124; summarize ["min(CounterValue)"] = min(CounterValue), ["avg(CounterValue)"] = avg(CounterValue), ["percentile75(CounterValue)"] = percentile(CounterValue, 75), ["max(CounterValue)"] = max(CounterValue) by bin(TimeGenerated, 1h), Computer |Utilizzo CPU orario medio, minimo, massimo e 75° percentile per un computer specifico |

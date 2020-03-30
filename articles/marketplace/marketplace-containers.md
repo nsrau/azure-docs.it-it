@@ -2,19 +2,18 @@
 title: Guida alla pubblicazione dell'offerta di contenitori per Azure Marketplace
 description: Questo articolo descrive i requisiti per pubblicare contenitori nel Marketplace
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: ellacroi
-manager: nunoc
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/09/2018
-ms.author: ellacroi
-ms.openlocfilehash: ffdc6b22209c1d334ac7b75c7079e755a7405154
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 882d428d7a8a9b56408aaa68964fa1e36c7cc7c2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823004"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80277307"
 ---
 # <a name="containers-offer-publishing-guide"></a>Guida alla pubblicazione dell'offerta di contenitori
 
@@ -42,9 +41,9 @@ Microsoft supporta attualmente i modelli di licenza BYOL (Bring Your Own License
 
 Se non è già stato fatto, 
 
-- [Registrarsi](https://azuremarketplace.microsoft.com/sell) in Marketplace.
+- [Registrati](https://azuremarketplace.microsoft.com/sell) nel marketplace.
 
 Se la registrazione è già stata effettuata e si sta creando una nuova offerta o lavorando su una esistente,
 
-- [Accedere al portale Cloud Partner](https://cloudpartner.azure.com) per creare o completare l'offerta.
+- [Accedi al portale Cloud Partner](https://cloudpartner.azure.com) per creare o completare la tua offerta.
 - Vedere [Contenitori](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/containers/cpp-containers-offer) per altre informazioni.

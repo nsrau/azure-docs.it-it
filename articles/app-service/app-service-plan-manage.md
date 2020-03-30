@@ -1,5 +1,5 @@
 ---
-title: Gestisci piano di servizio app
+title: Gestire il piano di servizio appManage App Service plan
 description: Informazioni su come eseguire diverse attività per gestire un piano di servizio app, ad esempio creare, spostare, ridimensionare ed eliminare.
 keywords: servizio app, servizio app di azure, ridimensionare, piano di servizio app, modificare, creare, gestire, gestione
 ms.assetid: 4859d0d5-3e3c-40cc-96eb-f318b2c51a3d
@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 10/24/2019
 ms.custom: seodec18
 ms.openlocfilehash: 68cabbd00dd0b738590109cc39d8df82f5b7362d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79280755"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Gestire un piano di servizio app in Azure
@@ -26,19 +26,19 @@ Un [piano di servizio app di Azure](overview-hosting-plans.md) fornisce le risor
 
 1. Nel [portale di Azure](https://portal.azure.com) selezionare **Crea una risorsa**.
 
-   ![Creare una risorsa nel portale di Azure.][createResource] 
+   ![Creare una risorsa nel portale di Azure.Create a resource in the Azure portal.][createResource] 
 
-1. Selezionare **nuovo** > **app Web** o un altro tipo di app del servizio app.
+1. Selezionare **Nuova** > **app Web** o un altro tipo di app di servizio app.
 
    ![Creare un'app nel portale di Azure.][createWebApp] 
 
-2. Configurare la sezione **Dettagli istanza** prima di configurare il piano di servizio app. Impostazioni quali la **pubblicazione** e i **sistemi operativi** possono modificare i piani tariffari disponibili per il piano di servizio app. **Region** determina la posizione in cui viene creato il piano di servizio app. 
+2. Configurare la sezione **Dettagli istanza** prima di configurare il piano di servizio app. Impostazioni come **Pubblica** e **sistemi operativi** possono modificare i piani tariffari disponibili per il piano di servizio app. **L'area** determina dove viene creato il piano di servizio app. 
    
-3. Nella sezione **piano di servizio app** selezionare un piano esistente o creare un piano selezionando **Crea nuovo**.
+3. Nella sezione **Piano di servizio app** selezionare un piano esistente oppure creare un piano selezionando Crea **nuovo**.
 
    ![Creare un piano di servizio app.][createASP] 
 
-4. Quando si crea un piano, è possibile selezionare il piano tariffario del nuovo piano. In **SKU e dimensioni**selezionare **modifica dimensioni** per modificare il piano tariffario. 
+4. Quando si crea un piano, è possibile selezionare il piano tariffario del nuovo piano. In **Sku e size**selezionare Modifica **dimensione** per modificare il piano tariffario. 
 
 <a name="move"></a>
 
@@ -52,16 +52,16 @@ Un [piano di servizio app di Azure](overview-hosting-plans.md) fornisce le risor
 > Non è possibile specificare lo spazio Web desiderato quando si crea un piano, ma è possibile fare in modo che un piano venga creato nello stesso spazio Web di un piano esistente. In breve, tutti i piani creati con la stessa combinazione di gruppo di risorse e area geografica vengono distribuiti nello stesso spazio Web. Se, ad esempio, è stato creato un piano nel gruppo di risorse A e nell'area geografica B, qualsiasi piano successivamente creato nel gruppo di risorse A e nell'area geografica B verrà distribuito nello stesso spazio Web. Un piano non può essere spostato in uno spazio Web dopo essere stato creato, pertanto non è possibile spostare un piano nello "stesso spazio Web" di un altro spostandolo in un altro gruppo di risorse.
 > 
 
-1. Nella [portale di Azure](https://portal.azure.com)cercare e selezionare **Servizi app** e selezionare l'app che si vuole spostare.
+1. Nel [portale](https://portal.azure.com)di Azure cercare e selezionare **Servizi app** e selezionare l'app da spostare.
 
-2. Nel menu a sinistra selezionare **modifica piano di servizio app**.
+2. Nel menu a sinistra selezionare **Cambia piano di servizio app**.
 
-3. Nell'elenco a discesa **piano di servizio app** selezionare un piano esistente in cui spostare l'app. L'elenco a discesa Mostra solo i piani che si trovano nello stesso gruppo di risorse e area geografica del piano di servizio app corrente. Se non esiste alcun piano di questo tipo, è possibile creare un piano per impostazione predefinita. È anche possibile creare manualmente un nuovo piano selezionando **Crea nuovo**.
+3. Nell'elenco a discesa **Piano di servizio app** selezionare un piano esistente in cui spostare l'app. L'elenco a discesa mostra solo i piani che si trovano nello stesso gruppo di risorse e nello stesso area geografica del piano di servizio app corrente. Se tale piano non esiste, consente di creare un piano per impostazione predefinita. È inoltre possibile creare manualmente un nuovo piano selezionando **Crea nuovo**.
 
-4. Se si crea un piano, è possibile selezionare il piano tariffario del nuovo piano. In piano **tariffario**selezionare il livello esistente per modificarlo. 
+4. Se si crea un piano, è possibile selezionare il piano tariffario del nuovo piano. In **Livello di prezzo**selezionare il livello esistente per modificarlo. 
    
    > [!IMPORTANT]
-   > Se si sta migrando un'app da un piano a più livelli a un piano di livello inferiore, ad esempio da **D1** a **F1**, l'app potrebbe perdere determinate funzionalità nel piano di destinazione. Ad esempio, se l'app usa i certificati SSL, è possibile che venga visualizzato questo messaggio di errore:
+   > Se si sposta un'app da un piano di livello superiore a un piano di livello inferiore, ad esempio da **D1** a **F1,** l'app potrebbe perdere determinate funzionalità nel piano di destinazione. Ad esempio, se l'app usa certificati SSL, potresti visualizzare questo messaggio di errore:For example, if your app uses SSL certificates, you might see this error message:
    >
    > `Cannot update the site with hostname '<app_name>' because its current SSL configuration 'SNI based SSL enabled' is not allowed in the target compute mode. Allowed SSL configuration is 'Disabled'.`
 

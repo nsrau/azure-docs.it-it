@@ -1,6 +1,6 @@
 ---
-title: Aggiornare il piano tariffario di un argomento o di un dominio di griglia di eventi di Azure
-description: Questo articolo descrive come aggiornare il piano tariffario di un argomento o un dominio di griglia di eventi di Azure (da Basic a Premium, da Premium a Basic) usando portale di Azure, l'interfaccia della riga di comando di Azure e Azure PowerShell.
+title: Aggiornare il piano tariffario di un argomento o di un dominio di Griglia di eventi di AzureUpdate pricing tier of an Azure Event Grid topic or domain
+description: Questo articolo descrive come aggiornare il piano tariffario di un argomento o di un dominio di Griglia di eventi di Azure (da usare da premium a premium, da premium a base di base) usando il portale di Azure, l'interfaccia della riga di comando di Azure e Azure PowerShell.This article describes how to update pricing tier of an Azure Event Grid topic or domain (basic to premium, premium to basic) using Azure portal, Azure CLI, and Azure PowerShell.
 services: event-grid
 author: spelluru
 ms.service: event-grid
@@ -8,47 +8,47 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: spelluru
 ms.openlocfilehash: 1e92a9f0b9ba007b289c634995b04f4f1575310a
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79300141"
 ---
-# <a name="update-pricing-tier"></a>Aggiorna piano tariffario 
-Questo articolo illustra come aggiornare il piano tariffario di un argomento o dominio di griglia di eventi di Azure usando portale di Azure, l'interfaccia della riga di comando di Azure e Azure PowerShell. 
+# <a name="update-pricing-tier"></a>Aggiornare il piano tariffario 
+Questo articolo illustra come aggiornare il piano tariffario di un argomento o di un dominio di Griglia di eventi di Azure usando il portale di Azure, l'interfaccia della riga di comando di Azure e Azure PowerShell.This article shows you how to update pricing tier of an Azure Event Grid topic or domain by using Azure portal, Azure CLI, and Azure PowerShell. 
 
 ## <a name="use-azure-portal"></a>Usare il portale di Azure
-In questa sezione viene illustrato come modificare il piano tariffario di un argomento o di un dominio nel portale di Azure. 
+Questa sezione illustra come modificare il piano tariffario di un argomento o di un dominio nel portale di Azure.This section shows how to change the pricing tier of a topic or a domain in the Azure portal. 
 
 ### <a name="overview-page"></a>Pagina di panoramica
-È possibile modificare il piano tariffario di un argomento o di un dominio nella pagina **Panoramica** . Nell'esempio seguente viene illustrato come aggiornare un argomento dal livello Basic al livello Premium. La procedura per effettuare il downgrade dal livello Premium al livello Basic è simile.
+È possibile modificare il piano tariffario di un argomento o di un dominio nella pagina **Panoramica.You** can change the pricing tier of a topic or a domain on the Overview page. L'esempio seguente mostra come aggiornare un argomento dal livello di base al livello Premium.The following example shows how to upgrade a topic from the basic tier to premium tier. I passaggi per eseguire il downgrade dal livello Premium al livello di base sono simili.
 
-1. Nella [portale di Azure](https://portal.azure.com)passare alla pagina argomento o dominio. 
-2. Nella pagina **Overview (panoramica** ) selezionare il piano tariffario corrente (nell'esempio seguente si tratta di **base**).
+1. Nel [portale di Azure](https://portal.azure.com)passare alla pagina dell'argomento o del dominio. 
+2. Nella pagina **Panoramica** selezionare il piano tariffario corrente (nell'esempio seguente, è **di base).**
     
     ![Selezionare il piano tariffario corrente](./media/update-tier/select-tier.png)
-3. Nella pagina piano **tariffario** modificare il livello e selezionare **OK**. 
+3. Nella pagina **Livello prezzi** modificare il livello e selezionare **OK**. 
 
     ![Aggiornare il piano tariffario](./media/update-tier/change-tier.png)
-4. Controllare lo stato dell'operazione nella pagina **notifiche** .
+4. Controllare lo stato dell'operazione nella pagina **Notifiche.**
 
     ![Stato aggiornamento](./media/update-tier/status.png)    
-5. Verificare che il livello aggiornato sia visualizzato nella pagina **Panoramica** . 
+5. Verificare che il livello aggiornato venga visualizzato nella pagina **Panoramica.** 
 
     ![Stato aggiornamento](./media/update-tier/changed-tier.png)
 
-### <a name="networking-page"></a>Pagina rete
-È possibile **eseguire l'aggiornamento** dal livello Basic al livello Premium nella pagina **rete** . Tuttavia, non è possibile effettuare il downgrade dal livello Premium al livello Basic in questa pagina. 
+### <a name="networking-page"></a>Pagina di funzionalità di rete
+È possibile **eseguire l'aggiornamento** dal livello di base al livello Premium nella pagina **Rete.You** can upgrade from the basic tier to the premium tier on the Networking page. Non è tuttavia possibile eseguire il downgrade dal livello Premium al livello di base in questa pagina. 
 
-1. Nella [portale di Azure](https://portal.azure.com)passare alla pagina argomento o dominio. 
-2. Nella pagina **rete** passare alla scheda **connessioni endpoint privato (anteprima)** . 
-3. Se il piano tariffario corrente è **Basic**, viene visualizzato il messaggio seguente. Selezionarlo. 
+1. Nel [portale di Azure](https://portal.azure.com)passare alla pagina dell'argomento o del dominio. 
+2. Nella pagina **Rete** passare alla scheda **Connessioni endpoint privati (anteprima).** 
+3. Se il piano tariffario corrente è **di base,** viene visualizzato il messaggio seguente. Selezionarlo. 
 
-    ![Pagina di aggiornamento del livello nella pagina connessioni endpoint privato](./media/update-tier/private-endpoint-connections-page.png)
-4. Nella pagina **aggiornamento a piano tariffario Premium** selezionare **Sì**. 
+    ![Pagina Controllo livello di aggiornamento nelle connessioni endpoint privati](./media/update-tier/private-endpoint-connections-page.png)
+4. Nella pagina **Aggiorna al piano tariffario premium** selezionare **Sì**. 
     
-    ![Conferma aggiornamento](./media/update-tier/message-private-endpoint-connection.png)
-5. Controllare lo stato dell'operazione nella pagina **notifiche** .
+    ![Confermare l'aggiornamento](./media/update-tier/message-private-endpoint-connection.png)
+5. Controllare lo stato dell'operazione nella pagina **Notifiche.**
 
     ![Stato aggiornamento](./media/update-tier/status.png)
 
@@ -57,7 +57,7 @@ In questa sezione viene illustrato come modificare il piano tariffario di un arg
 ## <a name="use-azure-cli"></a>Utilizzare l'interfaccia della riga di comando di Azure
 Questa sezione illustra come usare i comandi dell'interfaccia della riga di comando di Azure per modificare il piano tariffario di un argomento o di un dominio. 
 
-### <a name="upgrade-a-topic-from-basic-to-premium"></a>Aggiornare un argomento da Basic a Premium
+### <a name="upgrade-a-topic-from-basic-to-premium"></a>Aggiornare un argomento da base a premiumUpgrade a topic from basic to premium
 
 ```azurecli-interactive
 az rest --method patch \
@@ -65,7 +65,7 @@ az rest --method patch \
         --body "{\""sku\"": {\""name\"": \""premium\""}}"
 ```
 
-### <a name="downgrade-a-topic-from-premium-to-basic"></a>Eseguire il downgrade di un argomento da Premium a Basic
+### <a name="downgrade-a-topic-from-premium-to-basic"></a>Eseguire il downgrade di un argomento dal premio al
 
 ```azurecli-interactive
 az rest --method patch \
@@ -73,7 +73,7 @@ az rest --method patch \
         --body "{\""sku\"": {\""name\"": \""basic\""}}"
 ```
 
-### <a name="upgrade-a-domain-from-basic-to-premium"></a>Aggiornare un dominio da Basic a Premium
+### <a name="upgrade-a-domain-from-basic-to-premium"></a>Aggiornare un dominio da base a premiumUpgrade a domain from basic to premium
 
 ```azurecli-interactive
 az rest --method patch \
@@ -81,7 +81,7 @@ az rest --method patch \
         --body "{\""sku\"": {\""name\"": \""premium\""}}"
 ```
 
-### <a name="downgrade-a-domain-from-premium-to-basic"></a>Effettuare il downgrade di un dominio da Premium a Basic
+### <a name="downgrade-a-domain-from-premium-to-basic"></a>Eseguire il downgrade di un dominio da premium a basic
 
 ```azurecli-interactive
 az rest --method patch \
@@ -92,10 +92,10 @@ az rest --method patch \
 
 
 ## <a name="use-azure-powershell"></a>Usare Azure PowerShell
-Questa sezione illustra come usare i comandi di PowerShell per modificare il piano tariffario di un argomento o di un dominio. 
+In questa sezione viene illustrato come usare i comandi di PowerShell per modificare il piano tariffario di un argomento o di un dominio. 
 
-### <a name="prepare-token-and-headers-for-rest-api-calls"></a>Preparare il token e le intestazioni per le chiamate API REST 
-Eseguire i comandi dei prerequisiti seguenti per ottenere un token di autenticazione da usare con le chiamate API REST, le autorizzazioni e altre informazioni di intestazione. 
+### <a name="prepare-token-and-headers-for-rest-api-calls"></a>Preparare token e intestazioni per le chiamate all'API RESTPrepare token and headers for REST API calls 
+Eseguire i comandi dei prerequisiti seguenti per ottenere un token di autenticazione da usare con le chiamate all'API REST, l'autorizzazione e altre informazioni di intestazione. 
 
 ```azurepowershell-interactive
 # replace <CLIENT ID> and <CLIENT SECRET>
@@ -113,7 +113,7 @@ $Headers.Add("Authorization","$($Token.token_type) "+ " " + "$($Token.access_tok
 $Headers.Add("Content-Type","application/json")
 ```
 
-### <a name="upgrade-a-topic-from-basic-to-premium"></a>Aggiornare un argomento da Basic a Premium
+### <a name="upgrade-a-topic-from-basic-to-premium"></a>Aggiornare un argomento da base a premiumUpgrade a topic from basic to premium
 
 ```azurepowershell-interactive
 $body = @{"sku"=@{"name"="premium"}} | ConvertTo-Json -Depth 5
@@ -125,7 +125,7 @@ Invoke-RestMethod -Method 'Patch' `
     | ConvertTo-Json -Depth 5
 ```
 
-### <a name="downgrade-a-topic-from-premium-to-basic"></a>Eseguire il downgrade di un argomento da Premium a Basic
+### <a name="downgrade-a-topic-from-premium-to-basic"></a>Eseguire il downgrade di un argomento dal premio al
 
 ```azurepowershell-interactive
 $body = @{"sku"=@{"name"="basic"}} | ConvertTo-Json -Depth 5
@@ -137,7 +137,7 @@ Invoke-RestMethod -Method 'Patch' `
     | ConvertTo-Json -Depth 5
 ```
 
-### <a name="upgrade-a-domain-from-basic-to-premium"></a>Aggiornare un dominio da Basic a Premium
+### <a name="upgrade-a-domain-from-basic-to-premium"></a>Aggiornare un dominio da base a premiumUpgrade a domain from basic to premium
 
 ```azurepowershell-interactive
 $body = @{"sku"=@{"name"="premium"}} | ConvertTo-Json -Depth 5
@@ -149,7 +149,7 @@ Invoke-RestMethod -Method 'Patch' `
     | ConvertTo-Json -Depth 5
 ```
 
-### <a name="downgrade-a-domain-from-premium-to-basic"></a>Effettuare il downgrade di un dominio da Premium a Basic
+### <a name="downgrade-a-domain-from-premium-to-basic"></a>Eseguire il downgrade di un dominio da premium a basic
 
 ```azurepowershell-interactive
 $body = @{"sku"=@{"name"="basic"}} | ConvertTo-Json -Depth 5
@@ -162,4 +162,4 @@ Invoke-RestMethod -Method 'Patch' `
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per gli argomenti e i domini del livello Premium è possibile configurare endpoint privati per limitare l'accesso solo da reti virtuali selezionate. Per istruzioni dettagliate, vedere [configurare endpoint privati](configure-private-endpoints.md).
+Per gli argomenti e i domini di livello Premium, è possibile configurare gli endpoint privati per limitare l'accesso solo dalle reti virtuali selezionate. Per istruzioni dettagliate, vedere [Configure private endpoints](configure-private-endpoints.md).

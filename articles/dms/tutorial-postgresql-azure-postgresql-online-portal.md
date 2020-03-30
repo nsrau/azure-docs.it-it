@@ -1,40 +1,40 @@
 ---
-title: 'Esercitazione: eseguire la migrazione di PostgreSQL in database di Azure per PostgreSQL online tramite il portale di Azure'
+title: 'Esercitazione: Eseguire la migrazione di PostgreSQL al database di Azure per PostgreSQL online tramite il portale di AzureTutorial: Migrate PostgreSQL to Azure DB for PostgreSQL online via the Azure portal'
 titleSuffix: Azure Database Migration Service
-description: Informazioni su come eseguire una migrazione in linea da PostgreSQL locale al database di Azure per PostgreSQL usando il servizio migrazione del database di Azure tramite il portale di Azure.
+description: Informazioni su come eseguire una migrazione online da PostgreSQL locale al database di Azure per PostgreSQL tramite il servizio migrazione del database di Azure tramite il portale di Azure.Learn to perform an online migration from PostgreSQL on-premises to Azure Database for PostgreSQL by using Azure Database Migration Service via the Azure portal.
 services: dms
-author: pochiraju
-ms.author: rajpo
+author: HJToland3
+ms.author: jtoland
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 02/17/2020
-ms.openlocfilehash: 67eced7f647d50733dc8d273bdd9cd8a31b7b6dc
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.date: 03/25/2020
+ms.openlocfilehash: 4985c492c8ca71da87cf1a519ebc658c203d3952
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78255509"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80246977"
 ---
-# <a name="tutorial-migrate-postgresql-to-azure-db-for-postgresql-online-using-dms-via-the-azure-portal"></a>Esercitazione: eseguire la migrazione di PostgreSQL nel database di Azure per PostgreSQL online con DMS tramite il portale di Azure
+# <a name="tutorial-migrate-postgresql-to-azure-db-for-postgresql-online-using-dms-via-the-azure-portal"></a>Esercitazione: Eseguire la migrazione di PostgreSQL al database di Azure per PostgreSQL online tramite DMS tramite il portale di AzureTutorial: Migrate PostgreSQL to Azure DB for PostgreSQL online using DMS via the Azure portal
 
-È possibile usare il servizio migrazione del database di Azure per eseguire la migrazione dei database da un'istanza di PostgreSQL locale al [database di Azure per PostgreSQL](https://docs.microsoft.com/azure/postgresql/) con tempi di inattività minimi per l'applicazione. In questa esercitazione si esegue la migrazione del database di esempio **DVD Rental** da un'istanza locale di PostgreSQL 9.6 a Database di Azure per PostgreSQL usando l'attività di migrazione online in Servizio Migrazione del database di Azure.
+È possibile usare il servizio migrazione del database di Azure per eseguire la migrazione dei database da un'istanza PostgreSQL locale al database di [Azure per PostgreSQL](https://docs.microsoft.com/azure/postgresql/) con tempi di inattività minimi per l'applicazione. In questa esercitazione si esegue la migrazione del database di esempio **DVD Rental** da un'istanza locale di PostgreSQL 9.6 a Database di Azure per PostgreSQL usando l'attività di migrazione online in Servizio Migrazione del database di Azure.
 
 In questa esercitazione verranno illustrate le procedure per:
 > [!div class="checklist"]
 >
-> * Eseguire la migrazione dello schema di esempio utilizzando l'utilità pg_dump.
+> * Eseguire la migrazione dello schema di esempio utilizzando l'utilità di pg_dump.
 > * Creare un'istanza del Servizio Migrazione del database di Azure.
-> * Creare un progetto di migrazione nel servizio migrazione del database di Azure.
+> * Creare un progetto di migrazione nel servizio di migrazione del database di Azure.Create a migration project in Azure Database Migration Service.
 > * Eseguire la migrazione.
 > * Monitorare la migrazione.
 > * Eseguire la migrazione cutover.
 
 > [!NOTE]
-> L'uso del Servizio Migrazione del database di Azure per eseguire una migrazione online richiede la creazione di un'istanza basata sul piano tariffario Premium.
+> L'uso del Servizio Migrazione del database di Azure per eseguire una migrazione online richiede la creazione di un'istanza basata sul piano tariffario Premium. Crittografiamo il disco per prevenire il furto di dati durante il processo di migrazione
 
 > [!IMPORTANT]
 > Per un'esperienza di migrazione ottimale, Microsoft consiglia di creare un'istanza del Servizio Migrazione del database di Azure nella stessa area di Azure del database di destinazione. Lo spostamento dei dati tra regioni o aree geografiche può rallentare il processo di migrazione e causare errori.
@@ -43,15 +43,15 @@ In questa esercitazione verranno illustrate le procedure per:
 
 Per completare questa esercitazione, è necessario:
 
-* Scaricare e installare [PostgreSQL community edition](https://www.postgresql.org/download/) 9,4, 9,5, 9,6 o 10. La versione del server PostgreSQL di origine deve essere 9,4, 9,5, 9,6, 10 o 11. Per altre informazioni, vedere l'articolo [Versioni supportate del database PostgreSQL](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions).
+* Scaricare e installare [PostgreSQL Community Edition](https://www.postgresql.org/download/) 9.4, 9.5, 9.6 o 10. La versione di origine di PostgreSQL Server deve essere 9.4, 9.5, 9.6, 10 o 11.The source PostgreSQL Server version must be 9.4, 9.5, 9.6, 10, or 11. Per altre informazioni, vedere l'articolo [Versioni supportate del database PostgreSQL](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions).
 
-    Inoltre, la versione di PostgreSQL in locale deve corrispondere alla versione del Database di Azure per PostgreSQL. Ad esempio, PostgreSQL 9,6 può eseguire solo la migrazione a database di Azure per PostgreSQL 9,6, 10 o 11, ma non al database di Azure per PostgreSQL 9,5.
+    Inoltre, la versione di PostgreSQL in locale deve corrispondere alla versione del Database di Azure per PostgreSQL. Ad esempio, PostgreSQL 9.6 può eseguire la migrazione solo al database di Azure per PostgreSQL 9.6, 10 o 11, ma non al database di Azure per PostgreSQL 9.5.For example, PostgreSQL 9.6 can only migrate to Azure Database for PostgreSQL 9.6, 10 or 11, but not to Azure Database for PostgreSQL 9.5.
 
-* [Creare un server di database di Azure per PostgreSQL](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal) o [creare un server di database di Azure per PostgreSQL con iperscalabilità (CITUS)](https://docs.microsoft.com/azure/postgresql/quickstart-create-hyperscale-portal).
-* Creare una Rete virtuale di Microsoft Azure per il servizio migrazione del database di Azure usando il modello di distribuzione Azure Resource Manager, che fornisce la connettività da sito a sito ai server di origine locali usando [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) o [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Per ulteriori informazioni sulla creazione di una rete virtuale, vedere la [documentazione relativa alla rete virtuale](https://docs.microsoft.com/azure/virtual-network/)e, in particolare, gli articoli introduttivi con informazioni dettagliate.
+* Creare un database di Azure per il [server PostgreSQL](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal) o creare un database di [Azure per il server PostgreSQL - Hyperscale (Citus).](https://docs.microsoft.com/azure/postgresql/quickstart-create-hyperscale-portal)
+* Creare una rete virtuale di Microsoft Azure per il servizio di migrazione del database di Azure usando il modello di distribuzione di Azure Resource Manager, che fornisce la connettività da sito a sito ai server di origine locali tramite [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) o [VPN.](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) Per ulteriori informazioni sulla creazione di una rete virtuale, vedere gli articoli relativi alla [documentazione](https://docs.microsoft.com/azure/virtual-network/)relativa alla rete virtuale e in particolare gli articoli delle guide introduttive con dettagli dettagliati.
 
     > [!NOTE]
-    > Durante la configurazione della rete virtuale, se si usa ExpressRoute con il peering di rete a Microsoft, aggiungere i seguenti [endpoint](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) di servizio alla subnet in cui verrà eseguito il provisioning del servizio:
+    > Durante l'installazione della rete virtuale, se si usa ExpressRoute con peering di rete a Microsoft, aggiungere gli endpoint del servizio seguenti alla subnet in cui verrà eseguito il provisioning del servizio:During virtual network setup, if you use ExpressRoute with network peering to Microsoft, add the following service [endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) to the subnet in which the service will be provisioned:
     >
     > * Endpoint del database di destinazione (ad esempio endpoint SQL, endpoint Cosmos DB e così via)
     > * Endpoint di archiviazione
@@ -59,11 +59,11 @@ Per completare questa esercitazione, è necessario:
     >
     > Questa configurazione è necessaria perché il Servizio Migrazione del database di Azure non ha connettività Internet.
 
-* Verificare che le regole del gruppo di sicurezza di rete (NSG) per la rete virtuale non blocchino le porte di comunicazione in ingresso seguenti al servizio migrazione del database di Azure: 443, 53, 9354, 445, 12000. Per informazioni più dettagliate sul filtro del traffico NSG per la rete virtuale, vedere l'articolo [filtrare il traffico di rete con gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm).
+* Verificare che le regole del gruppo di sicurezza di rete (NSG) per la rete virtuale non blocchino le seguenti porte di comunicazione in ingresso al servizio Migrazione del database di Azure: 443, 53, 9354, 445, 12000.Ensure that the Network Security Group (NSG) rules for your virtual network't block the following inbound communication ports to Azure Database Migration Service: 443, 53, 9354, 445, 12000. Per ulteriori informazioni sul filtro del traffico del gruppo di sicurezza di rete virtuale, vedere l'articolo [Filtrare](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm)il traffico di rete con i gruppi di sicurezza di rete .
 * Configurare [Windows Firewall per l'accesso al motore di database](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 * Aprire Windows Firewall per consentire a Servizio Migrazione del database di Azure di accedere al server PostgreSQL di origine, per impostazione predefinita attraverso la porta TCP 5432.
 * Quando si usa un'appliance firewall all'ingresso dei database di origine, potrebbe essere necessario aggiungere regole del firewall per consentire al Servizio Migrazione del database di Azure di accedere ai database di origine per la migrazione.
-* Creare una [regola del firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) a livello di server per Database di Azure per PostgreSQL per consentire a Servizio Migrazione del database di Azure di accedere ai database di destinazione. Fornire l'intervallo di subnet della rete virtuale usata per il servizio migrazione del database di Azure.
+* Creare una [regola del firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) a livello di server per Database di Azure per PostgreSQL per consentire a Servizio Migrazione del database di Azure di accedere ai database di destinazione. Specificare l'intervallo di subnet della rete virtuale usata per il servizio di migrazione del database di Azure.Provide the subnet range of the virtual network used for Azure Database Migration Service.
 * Abilitare la replica logica nel file postgresql.config e impostare i parametri seguenti:
 
   * wal_level = **logical**
@@ -71,7 +71,7 @@ Per completare questa esercitazione, è necessario:
   * max_wal_senders = [numero di attività simultanee]: il parametro max_wal_senders imposta il numero di attività simultanee che è possibile eseguire, si consiglia di impostare il valore su **10 attività**
 
 > [!IMPORTANT]
-> Per tutte le tabelle nel database esistente è necessaria una chiave primaria per garantire che le modifiche possano essere sincronizzate con il database di destinazione.
+> Tutte le tabelle nel database esistente necessitano di una chiave primaria per garantire che le modifiche possano essere sincronizzate con il database di destinazione.
 
 ## <a name="migrate-the-sample-schema"></a>Eseguire la migrazione dello schema di esempio
 
@@ -83,7 +83,7 @@ Per completare tutti gli oggetti di database, ad esempio schemi di tabella, indi
     pg_dump -o -h hostname -U db_username -d db_name -s > your_schema.sql
     ```
 
-    Ad esempio, per creare un file di dump dello schema per il database **dvdrental** :
+    Ad esempio, per creare un file di dump dello schema per il database **dvdrental:For** example, to create a schema dump file for the dvdrental database:
 
     ```
     pg_dump -o -h localhost -U postgres -d dvdrental -s -O -x > dvdrentalSchema.sql
@@ -93,10 +93,10 @@ Per completare tutti gli oggetti di database, ad esempio schemi di tabella, indi
 
 2. Creare un database vuoto nell'ambiente di destinazione, ovvero il Database di Azure per PostgreSQL.
 
-    Per informazioni dettagliate su come connettersi e creare un database, vedere l'articolo [creare un database di Azure per il server PostgreSQL nel portale di Azure](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal) o [creare un server di database di Azure per PostgreSQL-iperscalabilità (Citus) nel portale di Azure](https://docs.microsoft.com/azure/postgresql/quickstart-create-hyperscale-portal).
+    Per informazioni dettagliate su come connettersi e creare un database, vedere l'articolo Creare un database di [Azure per il server PostgreSQL nel portale](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal) di Azure o Creare un database di Azure per il server [PostgreSQL - Hyperscale (Citus) nel portale](https://docs.microsoft.com/azure/postgresql/quickstart-create-hyperscale-portal)di Azure.
 
     > [!NOTE]
-    > Un'istanza di database di Azure per PostgreSQL-iperscala (CITUS) ha solo un database singolo: **CITUS**.
+    > Un'istanza del database di Azure per PostgreSQL - Hyperscale (Citus) ha un solo database: **citus**.
 
 3. Importare lo schema nel database di destinazione che è stato creato mediante il ripristino del file di dump dello schema.
 
@@ -104,41 +104,47 @@ Per completare tutti gli oggetti di database, ad esempio schemi di tabella, indi
     psql -h hostname -U db_username -d db_name < your_schema.sql
     ```
 
-    Ad esempio,
+    Ad esempio:
 
     ```
     psql -h mypgserver-20170401.postgres.database.azure.com  -U postgres -d dvdrental citus < dvdrentalSchema.sql
     ```
 
-4. Per estrarre lo script DROP FOREIGN KEY e aggiungerlo alla destinazione (database di Azure per PostgreSQL), in PgAdmin o in PSQL, eseguire lo script seguente.
+4. Per estrarre lo script di chiave esterna esterna e aggiungerlo nella destinazione (Database di Azure per PostgreSQL), in PgAdmin o in psql, eseguire lo script seguente.
 
    > [!IMPORTANT]
-   > Con le chiavi esterne nello schema, il caricamento iniziale e la sincronizzazione continua della migrazione avranno esito negativo.
+   > Le chiavi esterne nello schema causeranno l'esito negativo del caricamento iniziale e della sincronizzazione continua della migrazione.
 
     ```
-    SELECT Queries.tablename
-           ,concat('alter table ', Queries.tablename, ' ', STRING_AGG(concat('DROP CONSTRAINT ', Queries.foreignkey), ',')) as DropQuery
-                ,concat('alter table ', Queries.tablename, ' ',
-                                                STRING_AGG(concat('ADD CONSTRAINT ', Queries.foreignkey, ' FOREIGN KEY (', column_name, ')', 'REFERENCES ', foreign_table_name, '(', foreign_column_name, ')' ), ',')) as AddQuery
-        FROM
+    SELECT Q.table_name
+        ,CONCAT('ALTER TABLE ', table_schema, '.', table_name, STRING_AGG(DISTINCT CONCAT(' DROP CONSTRAINT ', foreignkey), ','), ';') as DropQuery
+            ,CONCAT('ALTER TABLE ', table_schema, '.', table_name, STRING_AGG(DISTINCT CONCAT(' ADD CONSTRAINT ', foreignkey, ' FOREIGN KEY (', column_name, ')', ' REFERENCES ', foreign_table_schema, '.', foreign_table_name, '(', foreign_column_name, ')' ), ','), ';') as AddQuery
+    FROM
         (SELECT
+        S.table_schema,
+        S.foreignkey,
+        S.table_name,
+        STRING_AGG(DISTINCT S.column_name, ',') AS column_name,
+        S.foreign_table_schema,
+        S.foreign_table_name,
+        STRING_AGG(DISTINCT S.foreign_column_name, ',') AS foreign_column_name
+    FROM
+        (SELECT DISTINCT
         tc.table_schema,
-        tc.constraint_name as foreignkey,
-        tc.table_name as tableName,
+        tc.constraint_name AS foreignkey,
+        tc.table_name,
         kcu.column_name,
         ccu.table_schema AS foreign_table_schema,
         ccu.table_name AS foreign_table_name,
         ccu.column_name AS foreign_column_name
-    FROM
-        information_schema.table_constraints AS tc
-        JOIN information_schema.key_column_usage AS kcu
-          ON tc.constraint_name = kcu.constraint_name
-          AND tc.table_schema = kcu.table_schema
-        JOIN information_schema.constraint_column_usage AS ccu
-          ON ccu.constraint_name = tc.constraint_name
-          AND ccu.table_schema = tc.table_schema
-    WHERE constraint_type = 'FOREIGN KEY') Queries
-      GROUP BY Queries.tablename;
+        FROM information_schema.table_constraints AS tc
+        JOIN information_schema.key_column_usage AS kcu ON tc.constraint_name = kcu.constraint_name AND tc.table_schema = kcu.table_schema
+        JOIN information_schema.constraint_column_usage AS ccu ON ccu.constraint_name = tc.constraint_name AND ccu.table_schema = tc.table_schema
+    WHERE constraint_type = 'FOREIGN KEY'
+        ) S
+        GROUP BY S.table_schema, S.foreignkey, S.table_name, S.foreign_table_schema, S.foreign_table_name
+        ) Q
+        GROUP BY Q.table_schema, Q.table_name;
     ```
 
 5. Eseguire drop foreign key, ovvero la seconda colonna, sul risultato della query.
@@ -146,11 +152,11 @@ Per completare tutti gli oggetti di database, ad esempio schemi di tabella, indi
 6. Per disabilitare i trigger nel database di destinazione, eseguire lo script seguente.
 
    > [!IMPORTANT]
-   > I trigger (inserimento o aggiornamento) nei dati applicano l'integrità dei dati nella destinazione prima che i dati vengano replicati dall'origine. Di conseguenza, è consigliabile disabilitare i trigger in tutte le tabelle della destinazione durante **la** migrazione e quindi riabilitare i trigger al termine della migrazione.
+   > I trigger (inserimento o aggiornamento) nei dati applicano l'integrità dei dati nella destinazione prima dei dati replicati dall'origine. Di conseguenza, è consigliabile disabilitare i trigger in tutte le tabelle **nella destinazione** durante la migrazione e quindi riattivare i trigger al termine della migrazione.
 
     ```
-    select concat ('alter table ', event_object_table, ' disable trigger ', trigger_name)
-    from information_schema.triggers;
+    SELECT DISTINCT CONCAT('ALTER TABLE ', event_object_schema, '.', event_object_table, ' DISABLE TRIGGER ', trigger_name, ';')
+    FROM information_schema.triggers
     ```
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Registrare il provider di risorse Microsoft.DataMigration
@@ -163,7 +169,7 @@ Per completare tutti gli oggetti di database, ad esempio schemi di tabella, indi
 
     ![Visualizzare i provider di risorse](media/tutorial-postgresql-to-azure-postgresql-online-portal/portal-select-resource-provider.png)
 
-3. Ricercare la migrazione e quindi a destra del **Microsoft.DataMigration** selezionare **Registro**.
+3. Cercare la migrazione e quindi a destra di **Microsoft.DataMigration**, selezionare **Registra**.
 
     ![Registrare il provider di risorse](media/tutorial-postgresql-to-azure-postgresql-online-portal/portal-register-resource-provider.png)
 
@@ -177,23 +183,23 @@ Per completare tutti gli oggetti di database, ad esempio schemi di tabella, indi
 
     ![Creare l'istanza del Servizio Migrazione del database di Azure](media/tutorial-postgresql-to-azure-postgresql-online-portal/dms-create1.png)
   
-3. Nella schermata **Crea servizio migrazione** specificare un nome, la sottoscrizione, un gruppo di risorse nuovo o esistente e il percorso del servizio.
+3. Nella schermata **Crea servizio** di migrazione specificare un nome, la sottoscrizione, un gruppo di risorse nuovo o esistente e il percorso del servizio.
 
 4. Selezionare una rete virtuale esistente o crearne una nuova.
 
-    La rete virtuale fornisce al servizio migrazione del database di Azure l'accesso al server PostgreSQL di origine e l'istanza di database di Azure per PostgreSQL di destinazione.
+    La rete virtuale fornisce al servizio di migrazione del database di Azure l'accesso al server PostgreSQL di origine e al database di Azure di destinazione per l'istanza PostgreSQL.The virtual network provides Azure Database Migration Service with access to the source PostgreSQL server and the target Azure Database for PostgreSQL instance.
 
-    Per altre informazioni su come creare una rete virtuale nella portale di Azure, vedere l'articolo [creare una rete virtuale usando il portale di Azure](https://aka.ms/DMSVnet).
+    Per altre informazioni su come creare una rete virtuale nel portale di Azure, vedere l'articolo Creare una rete virtuale usando il portale di Azure.For more information about how to create a virtual network in the Azure portal, see the article [Create a virtual network using the Azure portal.](https://aka.ms/DMSVnet)
 
 5. Selezione di un piano tariffario.
 
-    Per altre informazioni sui costi e i piani tariffari, vedere la [pagina relativa ai prezzi](https://aka.ms/dms-pricing).
+    Per ulteriori informazioni sui costi e sui piani tariffari, vedere la [pagina dei prezzi](https://aka.ms/dms-pricing).
 
     ![Configurare le impostazioni dell'istanza del Servizio Migrazione del database di Azure](media/tutorial-postgresql-to-azure-postgresql-online-portal/dms-settings4.png)
 
-6. Selezionare **Verifica + crea** per creare il servizio.
+6. Selezionare **Revisione : crea** per creare il servizio.
 
-   La creazione del servizio viene completata entro 10-15 minuti.
+   La creazione del servizio verrà completata entro circa 10-15 minuti.
 
 ## <a name="create-a-migration-project"></a>Creare un progetto di migrazione
 
@@ -203,22 +209,22 @@ Dopo aver creato il servizio, individuarlo nel portale di Azure, aprirlo e crear
 
       ![Individuare tutte le istanze di Servizio Migrazione del database di Azure](media/tutorial-postgresql-to-azure-postgresql-online-portal/dms-search.png)
 
-2. Nella schermata **Servizi migrazione del database di Azure** cercare il nome dell'istanza del servizio migrazione del database di Azure creata, selezionare l'istanza e quindi selezionare + **nuovo progetto di migrazione**.
+2. Nella schermata **Servizi di migrazione database** di Azure cercare il nome dell'istanza del servizio migrazione del database di Azure creata, selezionare l'istanza e quindi selezionare Nuovo progetto di **migrazione.**
 
-3. Nella schermata **nuovo progetto di migrazione** specificare un nome per il progetto, nella casella di testo **tipo server di origine** Selezionare **PostgreSQL**nella casella di testo **tipo di server di destinazione** selezionare **database di Azure per PostgreSQL**.
+3. Nella schermata **Nuovo progetto** di migrazione specificare un nome per il progetto, nella casella di testo Tipo di server di **origine** selezionare **PostgresSQL**, nella casella di testo **Tipo di server** di destinazione selezionare Database di Azure **per PostgreSQL**.
 
-4. Nella sezione **Scegli il tipo di attività** selezionare **Migrazione dei dati online**.
+4. Nella sezione Scegliere il **tipo di attività** selezionare Migrazione dei dati **online**.
 
-    ![Creare un progetto di servizio migrazione del database di Azure](media/tutorial-postgresql-to-azure-postgresql-online-portal/dms-create-project.png)
+    ![Creare il progetto del servizio di migrazione del database di AzureCreate Azure Database Migration Service project](media/tutorial-postgresql-to-azure-postgresql-online-portal/dms-create-project.png)
 
     > [!NOTE]
     > In alternativa, è possibile scegliere **Crea solo il progetto** per creare subito il progetto di migrazione ed eseguire la migrazione in un secondo momento.
 
-5. Selezionare **Salva**, prendere nota dei requisiti per usare correttamente il servizio migrazione del database di Azure per eseguire la migrazione dei dati e quindi selezionare **Crea ed Esegui attività**.
+5. Selezionare **Salva**, prendere nota dei requisiti per usare correttamente il servizio Migrazione del database di Azure per eseguire la migrazione dei dati e quindi selezionare **Crea ed esegui attività**.
 
 ## <a name="specify-source-details"></a>Specificare le informazioni di origine
 
-1. Nella schermata **Aggiungi Dettagli origine** specificare i dettagli di connessione per l'istanza di PostgreSQL di origine.
+1. Nella schermata **Aggiungi dettagli origine** specificare i dettagli di connessione per l'istanza PostgreSQL di origine.
 
     ![Schermata Aggiungi dettagli origine](media/tutorial-postgresql-to-azure-postgresql-online-portal/dms-add-source-details.png)
 
@@ -226,7 +232,7 @@ Dopo aver creato il servizio, individuarlo nel portale di Azure, aprirlo e crear
 
 ## <a name="specify-target-details"></a>Specificare i dettagli della destinazione
 
-1. Nella schermata **Dettagli destinazione** , specificare i dettagli di connessione per il server CITUS (target iperscale), ovvero l'istanza pre-provisioning di iperscala (CITUS) a cui è stato distribuito lo schema dei **noleggi DVD** con pg_dump.
+1. Nella schermata **Dettagli destinazione** specificare i dettagli di connessione per il server Hyperscale (Citus) di destinazione, ovvero l'istanza di pre-provisioning di Hyperscale (Citus) in cui è stato distribuito lo schema **DVD Rentals** tramite pg_dump.
 
     ![Schermata Dettagli destinazione](media/tutorial-postgresql-to-azure-postgresql-online-portal/dms-add-target-details.png)
 
@@ -234,11 +240,11 @@ Dopo aver creato il servizio, individuarlo nel portale di Azure, aprirlo e crear
 
     Se il database di destinazione contiene lo stesso nome del database di origine, il Servizio Migrazione del database di Azure seleziona il database di destinazione per impostazione predefinita.
 
-    ![Schermata mappa per database di destinazione](media/tutorial-postgresql-to-azure-postgresql-online-portal/dms-map-target-databases.png)
+    ![Schermata Mappa a database di destinazione](media/tutorial-postgresql-to-azure-postgresql-online-portal/dms-map-target-databases.png)
 
-3. Selezionare **Save (Salva**) e quindi nella schermata **impostazioni di migrazione** accettare i valori predefiniti.
+3. Selezionare **Salva**e quindi nella schermata **Impostazioni di migrazione** accettare i valori predefiniti.
 
-    ![Schermata delle impostazioni di migrazione](media/tutorial-postgresql-to-azure-postgresql-online-portal/dms-migration-settings.png)
+    ![Schermata Impostazioni di migrazione](media/tutorial-postgresql-to-azure-postgresql-online-portal/dms-migration-settings.png)
 
 4. Selezionare **Salva**, nella schermata **Riepilogo della migrazione**, nella casella di testo **Nome attività**, specificare un nome per l'attività di migrazione, quindi rivedere il riepilogo per verificare che i dettagli dell'origine e della destinazione corrispondano a quanto specificato in precedenza.
 
@@ -248,22 +254,22 @@ Dopo aver creato il servizio, individuarlo nel portale di Azure, aprirlo e crear
 
 * Selezionare **Esegui migrazione**.
 
-    Viene visualizzata la finestra attività di migrazione e lo **stato** dell'attività deve essere aggiornato in modo da essere visualizzato come **backup in corso**.
+    Viene visualizzata la finestra dell'attività di migrazione e lo **stato** dell'attività dovrebbe essere aggiornato in modo da essere visualizzato come **Backup in corso**.
 
 ## <a name="monitor-the-migration"></a>Monitorare la migrazione
 
 1. Nella schermata dell'attività di migrazione selezionare **Aggiorna** per aggiornare la visualizzazione finché nel campo **Stato** della migrazione non viene indicato **Completata**.
 
-     ![Monitorare il processo di migrazione](media/tutorial-postgresql-to-azure-postgresql-online-portal/dms-monitor-migration.png)
+     ![Monitorare il processo di migrazioneMonitor migration process](media/tutorial-postgresql-to-azure-postgresql-online-portal/dms-monitor-migration.png)
 
-2. Al termine della migrazione, in **nome database**selezionare un database specifico per ottenere lo stato di migrazione per il **caricamento completo dei dati** e le operazioni di **sincronizzazione dati incrementali** .
+2. Al termine della migrazione, in **Nome database**selezionare un database specifico per ottenere lo stato della migrazione per **operazioni Di caricamento dati completo** e **Sincronizzazione dati incrementale.**
 
    > [!NOTE]
    > **Caricamento completo** indica lo stato di migrazione del carico iniziale, mentre **Sincronizzazione dei dati incrementale** indica lo stato di Change Data Capture (CDC).
 
-     ![Dettagli caricamento dati completo](media/tutorial-postgresql-to-azure-postgresql-online-portal/dms-full-data-load-details.png)
+     ![Dettagli completi sul caricamento dei dati](media/tutorial-postgresql-to-azure-postgresql-online-portal/dms-full-data-load-details.png)
 
-     ![Dettagli della sincronizzazione dati incrementale](media/tutorial-postgresql-to-azure-postgresql-online-portal/dms-incremental-data-sync-details.png)
+     ![Dettagli di sincronizzazione dati incrementali](media/tutorial-postgresql-to-azure-postgresql-online-portal/dms-incremental-data-sync-details.png)
 
 ## <a name="perform-migration-cutover"></a>Eseguire il cutover della migrazione
 
@@ -271,11 +277,11 @@ Al termine del caricamento completo iniziale, i database vengono contrassegnati 
 
 1. Quando si è pronti per completare la migrazione del database, selezionare **Avvia cutover**.
 
-2. Attendere che il contatore delle **modifiche in sospeso** mostri **0** per assicurarsi che tutte le transazioni in ingresso nel database di origine siano interrotte, selezionare la casella di controllo **conferma** e quindi fare clic su **applica**.
+2. Attendere che il contatore **Modifiche in sospeso** mostri **0** per assicurarsi che tutte le transazioni in entrata nel database di origine vengano arrestate, selezionare la casella di controllo **Conferma** e quindi selezionare **Applica**.
 
-    ![Schermata completa cutover](media/tutorial-postgresql-to-azure-postgresql-online-portal/dms-complete-cutover.png)
+    ![Schermo completo di taglio](media/tutorial-postgresql-to-azure-postgresql-online-portal/dms-complete-cutover.png)
 
-3. Quando lo stato della migrazione del database viene visualizzato **completato**, connettere le applicazioni alla nuova istanza di destinazione del database di Azure per PostgreSQL.
+3. Quando lo stato della migrazione del database è **Completato**, connettere le applicazioni alla nuova istanza di destinazione del database di Azure per PostgreSQL.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

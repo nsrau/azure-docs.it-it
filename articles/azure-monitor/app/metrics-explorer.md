@@ -4,14 +4,14 @@ description: Come interpretare i grafici in Esplora metriche e come personalizza
 ms.topic: conceptual
 ms.date: 01/22/2019
 ms.openlocfilehash: f85a8fe79e7f4f820d7c0e5b942730305e892095
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79275893"
 ---
 # <a name="exploring-metrics-in-application-insights"></a>Esaminare le metriche in Application Insights
-Le metriche in [Application Insights][start] sono valori misurati e conteggi degli eventi inviati nei dati di telemetria dall'applicazione. Consentono di rilevare problemi di prestazioni e osservare le tendenze nella modalità di uso dell'applicazione. Esiste una vasta gamma di metriche standard ed è anche possibile creare metriche ed eventi personalizzati.
+Le metriche in [Application Insights][start] sono valori e conteggi di eventi misurati, inviati nei dati di telemetria dall'applicazione. Consentono di rilevare problemi di prestazioni e osservare le tendenze nella modalità di uso dell'applicazione. Esiste una vasta gamma di metriche standard ed è anche possibile creare metriche ed eventi personalizzati.
 
 > [!NOTE]
 > Questo articolo descrive l'esperienza di Esplora metriche classica, che è attualmente deprecata e verrà infine ritirata. È consigliabile provare la nuova esperienza, descritta in [questo articolo](../platform/metrics-charts.md).
@@ -24,7 +24,7 @@ Ecco un esempio di set di grafici:
 
 I grafici delle metriche sono disponibili ovunque nel portale di Application Insights. Nella maggior parte dei casi possono essere personalizzati ed è possibile aggiungere altri grafici al pannello. Nel pannello Panoramica fare clic per visualizzare grafici più dettagliati (con titoli come "Server") oppure fare clic su **Esplora metriche** per aprire un nuovo pannello in cui è possibile creare grafici personalizzati.
 
-## <a name="time-range"></a>Intervallo di tempo
+## <a name="time-range"></a>Intervallo di ore
 È possibile modificare l'intervallo di tempo coperto dai grafici o dalle griglie in tutti i pannelli.
 
 ![Aprire il pannello Panoramica dell'applicazione nel portale di Azure](./media/metrics-explorer/03-range.png)
@@ -66,7 +66,7 @@ Selezionare **Modifica** su un grafico nuovo o esistente per modificare il conte
 
 È possibile visualizzare più metriche in un grafico, anche se sono presenti restrizioni sulle combinazioni che è possibile visualizzare insieme. Non appena si sceglie una metrica, alcune vengono disabilitate.
 
-Se si codificano [metriche personalizzate][track] nell'app (chiamate a TrackMetric e TrackEvent), saranno elencate qui.
+Eventuali [metriche personalizzate][track] codificate nell'app (chiamate a TrackMetric e TrackEvent) vengono elencate qui.
 
 ## <a name="segment-your-data"></a>Segmentare i dati
 È possibile suddividere una metrica per la proprietà, ad esempio eseguire un confronto delle visualizzazioni di una pagina sui client con sistemi operativi differenti.
@@ -80,7 +80,7 @@ Selezionare un grafico o una griglia, attivare il raggruppamento e scegliere una
 >
 >
 
-Se si codificano [metriche personalizzate][track] nell'app e includono valori di proprietà, sarà possibile selezionare la proprietà nell'elenco.
+Se si codificano [metriche personalizzate][track] nell'app e si includono valori di proprietà, sarà possibile selezionare le proprietà da questo elenco.
 
 Il grafico è troppo piccolo per dati segmentati? modificarne l'altezza:
 
@@ -97,7 +97,7 @@ Le metriche possono essere aggregate in modi diversi:
 * **Somma** : esegue la somma dei valori dei punti dati ricevuti tramite l'intervallo di campionamento o il periodo del grafico.
 * **Media** : divide la somma per il numero di punti dati ricevuti tramite l'intervallo.
 * **Unica** : i conteggi vengono usati per contare gli utenti e gli account. Per tutto l'intervallo di campionamento, o per il periodo del grafico, la cifra mostra il numero di utenti diversi visualizzato in quel momento.
-* **%** - le versioni in percentuale di ogni aggregazione vengono utilizzate solo con i grafici segmentati. Il totale raggiunge sempre il 100% e il grafico mostra il contributo relativo dei diversi componenti di un totale.
+* **%**- le versioni percentuali di ogni aggregazione vengono utilizzate solo con grafici segmentati. Il totale raggiunge sempre il 100% e il grafico mostra il contributo relativo dei diversi componenti di un totale.
 
     ![Aggregazione in percentuale](./media/metrics-explorer/percentage-aggregation.png)
 
@@ -166,7 +166,7 @@ Per ricevere tramite posta elettronica una notifica relativa a valori insoliti d
 
 ![In Esplora metriche scegliere Regole di avviso, Aggiungi avviso](./media/metrics-explorer/appinsights-413setMetricAlert.png)
 
-[Altre informazioni sugli avvisi][alerts].
+[Ulteriori informazioni sugli avvisi][alerts].
 
 
 ## <a name="continuous-export"></a>Esportazione continua

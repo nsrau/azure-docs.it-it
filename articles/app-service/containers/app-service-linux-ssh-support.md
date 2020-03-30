@@ -1,6 +1,6 @@
 ---
-title: Accesso SSH per i contenitori Linux
-description: È possibile aprire una sessione SSH in un contenitore Linux nel servizio app Azure. I contenitori Linux personalizzati sono supportati con alcune modifiche all'immagine personalizzata.
+title: Accesso SSH per i contenitori LinuxSSH access for Linux containers
+description: È possibile aprire una sessione SSH in un contenitore Linux nel servizio app di Azure.You can open an SSH session to a Linux container in Azure App Service. I contenitori Linux personalizzati sono supportati con alcune modifiche all'immagine personalizzata.
 keywords: Servizio app di Azure, app Web, Linux, OSS
 author: msangapu-msft
 ms.assetid: 66f9988f-8ffa-414a-9137-3a9b15a5573c
@@ -9,15 +9,15 @@ ms.date: 02/25/2019
 ms.author: msangapu
 ms.custom: seodec18
 ms.openlocfilehash: dab13f222b441c7415a8d09d0d91ab3af5aaf836
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79280183"
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>Supporto SSH per il Servizio app di Azure in Linux
 
-[Secure Shell (SSH)](https://wikipedia.org/wiki/Secure_Shell) viene usato comunemente per eseguire comandi amministrativi in remoto da un terminale della riga di comando. Il servizio app in Linux offre il supporto SSH nel contenitore dell'app. 
+[Secure Shell (SSH)](https://wikipedia.org/wiki/Secure_Shell) viene usato comunemente per eseguire comandi amministrativi in remoto da un terminale della riga di comando. Servizio app in Linux fornisce il supporto SSH nel contenitore di app. 
 
 ![SSH servizio app Linux](./media/app-service-linux-ssh-support/app-service-linux-ssh.png)
 
@@ -29,7 +29,7 @@ ms.locfileid: "79280183"
 
 ## <a name="use-ssh-support-with-custom-docker-images"></a>Usare il supporto SSH con le immagini Docker personalizzate
 
-Vedere [configurare SSH in un contenitore personalizzato](configure-custom-container.md#enable-ssh).
+Consultate [Configurare SSH in un contenitore personalizzato.](configure-custom-container.md#enable-ssh)
 
 ## <a name="open-ssh-session-from-remote-shell"></a>Aprire una sessione SSH dalla shell remota
 
@@ -41,7 +41,7 @@ Con il tunneling TCP è possibile creare una connessione di rete tra il computer
 
 Per iniziare, è necessario installare l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). Per esaminare il funzionamento senza installare l'interfaccia della riga di comando di Azure, aprire [Azure Cloud Shell](../../cloud-shell/overview.md). 
 
-Aprire una connessione remota all'app usando il comando [az webapp remote-connection create](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create). Specificare _\<ID sottoscrizione >_ , _\<nome-gruppo >_ e \_\<nome-app > _ per l'app.
+Aprire una connessione remota all'app usando il comando [az webapp remote-connection create](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create). \_ \<Specificare _ \<subscription-id>_, _ \<nome-gruppo>_ e>_ nome-app per l'app.
 
 ```azurecli-interactive
 az webapp create-remote-connection --subscription <subscription-id> --resource-group <resource-group-name> -n <app-name> &

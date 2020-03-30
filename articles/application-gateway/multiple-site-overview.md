@@ -7,25 +7,25 @@ ms.service: application-gateway
 ms.date: 03/11/2020
 ms.author: amsriva
 ms.topic: conceptual
-ms.openlocfilehash: c43ac0923e0d3d76c25657f4870a0a0431bc8b6e
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.openlocfilehash: 4d945a255dacd35c61c3c80574b7d46b56de4aab
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79096438"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80257411"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Hosting di più siti in un gateway applicazione
 
-L'hosting di più siti consente di configurare più di un'applicazione Web sulla stessa porta di un gateway applicazione. Questa funzionalità consente di configurare una topologia più efficiente per le distribuzioni aggiungendo fino a 100 siti Web a un unico gateway applicazione. Ogni sito Web può essere indirizzato al proprio pool back-end. Nell'esempio seguente il gateway applicazione gestisce il traffico per `contoso.com` e `fabrikam.com` da due pool di server back-end denominati ContosoServerPool e FabrikamServerPool.
+L'hosting di più siti consente di configurare più applicazioni Web sulla stessa porta di un gateway applicazione. Questa funzionalità consente di configurare una topologia più efficiente per le distribuzioni aggiungendo fino a 100 siti Web a un unico gateway applicazione. Ogni sito Web può essere indirizzato al proprio pool back-end. Nell'esempio seguente, il gateway `contoso.com` `fabrikam.com` applicazione gestisce il traffico per e da due pool di server back-end denominati ContosoServerPool e FabrikamServerPool.
 
 ![imageURLroute](./media/multiple-site-overview/multisite.png)
 
 > [!IMPORTANT]
-> Le regole vengono elaborate nell'ordine in cui sono elencate nel portale per lo SKU V1. Per lo SKU V2, le corrispondenze esatte hanno precedenza superiore. È consigliabile configurare i listener multisito prima di configurare un listener di base.  In questo modo il traffico viene indirizzato al back-end appropriato. Se un listener di base viene elencato per primo e corrisponde a una richiesta in ingresso, sarà tale listener a elaborarla.
+> Le regole vengono elaborate nell'ordine in cui sono elencate nel portale per lo SKU v1. Per lo SKU v2, le corrispondenze esatte hanno una precedenza maggiore. È consigliabile configurare i listener multisito prima di configurare un listener di base.  In questo modo il traffico viene indirizzato al back-end appropriato. Se un listener di base viene elencato per primo e corrisponde a una richiesta in ingresso, sarà tale listener a elaborarla.
 
 Per le richieste `http://contoso.com` viene eseguito il routing verso ContosoServerPool mentre per le richieste `http://fabrikam.com` viene eseguito il routing verso FabrikamServerPool.
 
-Analogamente, è possibile ospitare più sottodomini dello stesso dominio padre nella stessa distribuzione del gateway applicazione. È ad esempio possibile ospitare `http://blog.contoso.com` e `http://app.contoso.com` in una singola distribuzione del gateway applicazione.
+Analogamente, è possibile ospitare più sottodomini dello stesso dominio padre nella stessa distribuzione del gateway applicazione. Ad esempio, è `http://blog.contoso.com` `http://app.contoso.com` possibile ospitare e in una distribuzione di un singolo gateway applicazione.
 
 ## <a name="host-headers-and-server-name-indication-sni"></a>Intestazioni host e indicazione nome server (SNI)
 
@@ -35,17 +35,17 @@ Per abilitare l'hosting di più siti nella stessa infrastruttura sono disponibil
 2. Usare il nome host per ospitare più applicazioni Web nello stesso indirizzo IP.
 3. Usare porte diverse per ospitare più applicazioni Web nello stesso indirizzo IP.
 
-Il gateway applicazione attualmente supporta un solo indirizzo IP pubblico in cui è in ascolto del traffico. Quindi, più applicazioni, ognuna con un proprio indirizzo IP non è attualmente supportata. 
+Attualmente il gateway applicazione supporta un singolo indirizzo IP pubblico in cui è in ascolto del traffico. Quindi più applicazioni, ognuna con il proprio indirizzo IP non è attualmente supportata. 
 
-Il gateway applicazione supporta più applicazioni ognuna in ascolto su porte diverse, ma questo scenario richiede che le applicazioni accettino il traffico sulle porte non standard. Spesso non si tratta di una configurazione desiderata.
+Il gateway applicazione supporta più applicazioni in ascolto su porte diverse, ma questo scenario richiede che le applicazioni accettino il traffico su porte non standard. Spesso non si tratta di una configurazione desiderata.
 
-Il gateway applicazione si basa su intestazioni host HTTP 1.1 per ospitare più siti Web nello stesso indirizzo IP pubblico e nella stessa porta. I siti ospitati nel gateway applicazione possono supportare anche l'offload SSL con l'estensione TLS dell'indicazione nome server (SNI). In questo scenario il browser client e la Web farm back-end devono quindi supportare HTTP/1.1 e l'estensione TLS definita nella specifica RFC 6066.
+Il gateway applicazione si basa su intestazioni host HTTP 1.1 per ospitare più siti Web nello stesso indirizzo IP pubblico e nella stessa porta. I siti ospitati nel gateway applicazione possono anche supportare l'offload TLS con l'estensione TLS SNI (Server Name Indication). In questo scenario il browser client e la Web farm back-end devono quindi supportare HTTP/1.1 e l'estensione TLS definita nella specifica RFC 6066.
 
 ## <a name="listener-configuration-element"></a>Elemento di configurazione del listener
 
-Gli elementi di configurazione HTTPListener esistenti sono stati migliorati per supportare gli elementi nome host e indicazione nome server. Viene usato dal gateway applicazione per instradare il traffico al pool back-end appropriato. 
+Gli elementi di configurazione HTTPListener esistenti sono stati migliorati per supportare gli elementi di indicazione del nome host e del nome del server. Viene utilizzato dal gateway applicazione per instradare il traffico al pool back-end appropriato. 
 
-L'esempio di codice seguente è il frammento di un elemento HttpListeners di un file modello:
+L'esempio di codice seguente è il frammento di un HttpListeners elemento da un file modello:The following code example is the snippet of an HttpListeners element from a template file:
 
 ```json
 "httpListeners": [
@@ -87,7 +87,7 @@ Per una distribuzione basata su modello end-to-end, vedere il [modello di Resour
 
 ## <a name="routing-rule"></a>Regola di routing
 
-Non sono necessarie modifiche nella regola di routing. È ancora necessario scegliere la regola di routing "Basic" per collegare il listener del sito appropriato al pool di indirizzi back-end corrispondente.
+Non è necessaria alcuna modifica nella regola di routing. È ancora necessario scegliere la regola di routing "Basic" per collegare il listener del sito appropriato al pool di indirizzi back-end corrispondente.
 
 ```json
 "requestRoutingRules": [
