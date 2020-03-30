@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/19/2017
 ms.author: tagore
 ms.openlocfilehash: 783343dd8877bdf18e783494960c3052c293cc7c
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79248138"
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Panoramica sui certificati per i servizi cloud di Azure
@@ -33,7 +33,7 @@ I certificati di servizio sono associati ai servizi cloud e consentono la comuni
 I certificati di servizio possono essere gestiti separatamente dai servizi e da persone diverse. Ad esempio, uno sviluppatore può caricare un pacchetto del servizio che fa riferimento a un certificato caricato in precedenza in Azure da un responsabile IT. Un responsabile IT può gestire e rinnovare tale certificato, modificando la configurazione del servizio, senza dover caricare un nuovo pacchetto del servizio. Questa operazione è possibile poiché il nome logico, il nome di archivio e il percorso vengono specificati nel file di definizione del servizio, mentre l'identificazione personale del certificato viene specificata nel file di configurazione del servizio. Per aggiornare il certificato, è sufficiente caricare un nuovo certificato e modificare il valore dell'identificazione personale nel file di configurazione del servizio.
 
 >[!Note]
->L'articolo [domande frequenti sui servizi cloud-configurazione e gestione](cloud-services-configuration-and-management-faq.md) contiene alcune informazioni utili sui certificati.
+>L'articolo [Domande frequenti sui servizi cloud - Configurazione e gestione](cloud-services-configuration-and-management-faq.md) contiene alcune informazioni utili sui certificati.
 
 ## <a name="what-are-management-certificates"></a>Cosa sono i certificati di gestione?
 I certificati di gestione consentono di eseguire l'autenticazione con il modello di distribuzione classico. Molti programmi e strumenti (ad esempio Visual Studio o Azure SDK) usano questi certificati per automatizzare la configurazione e la distribuzione di vari servizi di Azure. Questi non sono realmente correlati ai servizi cloud. 

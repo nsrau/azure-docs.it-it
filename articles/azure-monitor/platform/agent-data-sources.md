@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
 ms.openlocfilehash: aec3fe2386ce916c556f6da295a8554fff140259
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79249100"
 ---
 # <a name="agent-data-sources-in-azure-monitor"></a>Origini dati degli agenti in Monitoraggio di Azure
@@ -22,15 +22,15 @@ I dati che Monitoraggio di Azure raccoglie dagli agenti sono definiti dalle orig
 Nella tabella seguente sono elencate le origini dati degli agenti attualmente disponibili in Monitoraggio di Azure.  Ogni origine dati ha un collegamento a un articolo distinto che fornisce informazioni dettagliate.   Sono inoltre disponibili informazioni sul metodo e la frequenza della raccolta. 
 
 
-| Origine dati | Piattaforma | Agente di log Analytics | Agente di Operations Manager | Archiviazione di Azure | È necessario Operations Manager? | Dati dell'agente Operations Manager inviati con il gruppo di gestione | Frequenza della raccolta |
+| Origine dati | Piattaforma | Agente di analisi dei logLog analytics agent | Agente di Operations Manager | Archiviazione di Azure | È necessario Operations Manager? | Dati dell'agente Operations Manager inviati con il gruppo di gestione | Frequenza della raccolta |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| [Log personalizzati](data-sources-custom-logs.md) | Windows |&#8226; |  | |  |  | all'arrivo |
+| [Log personalizzati](data-sources-custom-logs.md) | WINDOWS |&#8226; |  | |  |  | all'arrivo |
 | [Log personalizzati](data-sources-custom-logs.md) | Linux   |&#8226; |  | |  |  | all'arrivo |
-| [Log IIS](data-sources-iis-logs.md) | Windows |&#8226; |&#8226; |&#8226; |  |  |dipende dall'impostazione dell'opzione Aggiornamento file di registro |
-| [Contatori delle prestazioni](data-sources-performance-counters.md) | Windows |&#8226; |&#8226; |  |  |  |come pianificato, almeno 10 secondi |
+| [Registri IIS](data-sources-iis-logs.md) | WINDOWS |&#8226; |&#8226; |&#8226; |  |  |dipende dall'impostazione dell'opzione Aggiornamento file di registro |
+| [Contatori delle prestazioni](data-sources-performance-counters.md) | WINDOWS |&#8226; |&#8226; |  |  |  |come pianificato, almeno 10 secondi |
 | [Contatori delle prestazioni](data-sources-performance-counters.md) | Linux |&#8226; |  |  |  |  |come pianificato, almeno 10 secondi |
 | [Syslog](data-sources-syslog.md) | Linux |&#8226; |  |  |  |  |dall'Archiviazione di Azure: 10 minuti; dall'agente: all'arrivo |
-| [Log eventi di Windows](data-sources-windows-events.md) |Windows |&#8226; |&#8226; |&#8226; |  |&#8226; | all'arrivo |
+| [Registri eventi di Windows](data-sources-windows-events.md) |WINDOWS |&#8226; |&#8226; |&#8226; |  |&#8226; | all'arrivo |
 
 
 ## <a name="configuring-data-sources"></a>Configurazione delle origini dati

@@ -1,5 +1,5 @@
 ---
-title: Configurazioni del dispositivo VPN del partner per la connessione ai gateway VPN di Azure
+title: Configurazioni dei dispositivi VPN partner per la connessione ai gateway VPN di AzurePartner VPN device configurations for connecting to Azure VPN gateways
 description: Questo articolo offre una panoramica delle configurazioni di dispositivi VPN di partner per la connessione ai gateway VPN di Azure.
 services: vpn-gateway
 author: yushwang
@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 06/20/2017
 ms.author: yushwang
 ms.openlocfilehash: b914afaa6725920078da309981bcda5bb765e155
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79279403"
 ---
 # <a name="overview-of-partner-vpn-device-configurations"></a>Panoramica delle configurazioni di dispositivi VPN di partner
@@ -22,7 +22,7 @@ L'articolo offre una panoramica della configurazione di dispositivi VPN locali p
 ## <a name="device-requirements"></a>Requisiti del dispositivo
 I gateway VPN di Azure usano suite di protocolli IPsec/IKE standard per i tunnel per VPN da sito a sito (S2S). Per un elenco dei parametri IPsec/IKE e degli algoritmi di crittografia per i gateway VPN di Azure, vedere [Informazioni sui dispositivi VPN](vpn-gateway-about-vpn-devices.md). È anche possibile specificare gli esatti algoritmi e le attendibilità delle chiavi per una connessione specifica come descritto in [Informazioni sui requisiti di crittografia](vpn-gateway-about-compliance-crypto.md).
 
-## <a name ="singletunnel"></a>Tunnel per VPN unico
+## <a name="single-vpn-tunnel"></a><a name ="singletunnel"></a>Tunnel per VPN unico
 La prima configurazione dell'esempio consiste in un singolo tunnel per VPN S2S tra un gateway VPN di Azure e un dispositivo VPN locale. È facoltativamente possibile configurare il [protocollo BGP (Border Gateway Protocol) nel tunnel per VPN](#bgp).
 
 ![Diagramma di un singolo tunnel per VPN S2S](./media/vpn-gateway-3rdparty-device-config-overview/singletunnel.png)
@@ -111,7 +111,7 @@ $lng5gw  = Get-AzLocalNetworkGateway -Name $LNGName5 -ResourceGroupName $RG1
 New-AzVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng5gw -Location $Location1 -ConnectionType IPsec -SharedKey 'AzureA1b2C3' -EnableBGP $False
 ```
 
-### <a name ="policybased"></a>(Facoltativo) Usare criteri IPsec/IKE personalizzati con l'opzione UsePolicyBasedTrafficSelectors
+### <a name="optional-use-custom-ipsecike-policy-with-usepolicybasedtrafficselectors"></a><a name ="policybased"></a>(Facoltativo) Utilizzare criteri IPsec/IKE personalizzati con UsePolicyBasedTrafficSelectors
 Se i dispositivi VPN non supportano selettori di traffico "any-to-any", ad esempio le configurazioni basate su route o VTI, creare criteri IPsec/IKE personalizzati con l'opzione [UsePolicyBasedTrafficSelectors](vpn-gateway-connect-multiple-policybased-rm-ps.md).
 
 > [!IMPORTANT]
@@ -133,7 +133,7 @@ $lng5gw  = Get-AzLocalNetworkGateway -Name $LNGName5 -ResourceGroupName $RG1
 New-AzVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng5gw -Location $Location1 -ConnectionType IPsec -SharedKey 'AzureA1b2C3' -EnableBGP $False -IpsecPolicies $ipsecpolicy5 -UsePolicyBasedTrafficSelectors $True
 ```
 
-### <a name ="bgp"></a>(Facoltativo) Usare il protocollo BGP nella connessione VPN S2S
+### <a name="optional-use-bgp-on-s2s-vpn-connection"></a><a name ="bgp"></a>(Facoltativo) Usa BGP su una connessione VPN S2S
 Quando si crea la connessione VPN S2S, è facoltativamente possibile usare il protocollo [BGP per il gateway VPN](vpn-gateway-bgp-resource-manager-ps.md). Questo approccio presenta due differenze:
 
 * I prefissi degli indirizzi locali possono essere costituiti da un indirizzo host singolo. L'indirizzo IP del peer BGP locale viene specificato come segue:

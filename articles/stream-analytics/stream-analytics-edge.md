@@ -6,14 +6,14 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: conceptual
-ms.date: 02/14/2020
+ms.date: 03/16/2020
 ms.custom: seodec18
-ms.openlocfilehash: 7e4a1cf43931b56cfdb3c31ffe870a07dbaa75af
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 8bb1bd018866bda9270b78507f0462b6c4d4ea17
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201756"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79475893"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>Analisi di flusso di Azure in IoT Edge
  
@@ -76,7 +76,7 @@ Per esportare la query compilata e la configurazione del processo di Analisi di 
     1. **Define Input Stream(s)** (Definisci flussi di input). Definire uno o più flussi di input per il processo.
     2. Define Reference data (Definisci dati di riferimento) (facoltativo).
     3. **Define Output Stream(s)** (Definisci flussi di output). Definire uno o più flussi di ouput per il processo. 
-    4. **Definisci query**. Definire la query di Analisi di flusso di Azure nel cloud tramite l'editor inline. Il compilatore verifica automaticamente la sintassi abilitata per i dispositivi Edge di Analisi di flusso di Azure. È anche possibile testare la query caricando dati di esempio. 
+    4. **Definire la query**. Definire la query di Analisi di flusso di Azure nel cloud tramite l'editor inline. Il compilatore verifica automaticamente la sintassi abilitata per i dispositivi Edge di Analisi di flusso di Azure. È anche possibile testare la query caricando dati di esempio. 
 
 4. Impostare le informazioni sul contenitore di archiviazione nel menu **Impostazioni di IoT Edge**.
 
@@ -110,7 +110,7 @@ Questi passaggi sono descritti nella documentazione di IoT Edge per [Windows](ht
 
 > [!Note]
 > Durante questo passaggio Analisi di flusso di Azure crea una cartella denominata "EdgeJobs" nel contenitore di archiviazione (se non esiste già). Per ogni distribuzione, viene creata una nuova sottocartella nella cartella "EdgeJobs".
-> Quando si distribuisce il processo in IoT Edge dispositivi, ASA crea una firma di accesso condiviso (SAS) per il file di definizione del processo. La chiave della firma di accesso condiviso viene trasmessa in modo sicuro ai dispositivi IoT Edge tramite dispositivo gemello. Questa chiave ha una scadenza di tre anni dalla data di creazione. Quando si aggiorna un processo di IoT Edge, la firma di accesso condiviso viene modificata, ma la versione dell'immagine non viene modificata. Dopo l' **aggiornamento**, seguire il flusso di lavoro di distribuzione e una notifica di aggiornamento viene registrata nel dispositivo.
+> Quando si distribuisce il processo nei dispositivi IoT Edge, ASA crea una firma di accesso condiviso per il file di definizione del processo. La chiave della firma di accesso condiviso viene trasmessa in modo sicuro ai dispositivi IoT Edge tramite dispositivo gemello. Questa chiave ha una scadenza di tre anni dalla data di creazione. Quando si aggiorna un processo IoT Edge, la sAS verrà modificata, ma la versione dell'immagine non verrà modificata. Dopo **l'aggiornamento**, seguire il flusso di lavoro di distribuzione e una notifica di aggiornamento viene registrata nel dispositivo.
 
 
 Per altre informazioni sulle distribuzioni IoT Edge, vedere [questa pagina](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring).
@@ -143,7 +143,7 @@ Questo esempio definisce le route seguenti:
 
 ## <a name="technical-information"></a>Informazioni tecniche
 ### <a name="current-limitations-for-iot-edge-jobs-compared-to-cloud-jobs"></a>Limitazioni correnti per i processi IoT Edge rispetto ai processi cloud
-L'obiettivo è di ottenere una parità tra i processi IoT Edge e i processi cloud. La maggior parte delle funzionalità del linguaggio di query SQL è supportata, consentendo a di eseguire la stessa logica sia nel cloud che in IoT Edge.
+L'obiettivo è di ottenere una parità tra i processi IoT Edge e i processi cloud. Sono supportate la maggior parte delle funzionalità del linguaggio di query SQL, che consentono di eseguire la stessa logica sia nel cloud che nel server perimetrale IoT.
 Tuttavia, le funzionalità seguenti non sono ancora supportate per i processi Edge:
 * Funzioni definite dall'utente in JavaScript. Le funzioni definite dall'utente sono disponibili in [C# per i processi IoT Edge](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-edge-csharp-udf) (anteprima).
 * Aggregazioni definite dall'utente.
@@ -153,7 +153,7 @@ Tuttavia, le funzionalità seguenti non sono ancora supportate per i processi Ed
 * Operatori SQL seguenti:
     * PARTITION BY
     * GetMetadataPropertyValue
-
+* Politica di arrivo tardivo
 
 ### <a name="runtime-and-hardware-requirements"></a>Requisiti hardware e di runtime
 Per eseguire Analisi di flusso di Azure in IoT Edge, è necessario disporre di dispositivi in grado di eseguire [Azure IoT Edge](https://azure.microsoft.com/campaigns/iot-edge/). 
@@ -176,7 +176,7 @@ Al momento, gli unici tipi supportati di input e output del flusso sono rapprese
 
 
 ##### <a name="reference-data"></a>Dati di riferimento
-I dati di riferimento (noti anche come tabella di ricerca) sono un set di dati limitato di natura statica o che cambia molto lentamente, usato per eseguire una ricerca o per la correlazione con il flusso di dati. Per usare i dati di riferimento in un processo di Analisi di flusso di Azure, si usa in genere un [JOIN dei dati di riferimento](https://docs.microsoft.com/stream-analytics-query/reference-data-join-azure-stream-analytics) nella query. Per altre informazioni, vedere [Uso dei dati di riferimento per le ricerche in Analisi di flusso](stream-analytics-use-reference-data.md).
+I dati di riferimento (noti anche come tabella di ricerca) sono un set di dati limitato di natura statica o che cambia molto lentamente, usato per eseguire una ricerca o per la correlazione con il flusso di dati. Per usare i dati di riferimento nel processo di Analisi di flusso di Azure, in genere si usa un JOIN dei dati di [riferimento](https://docs.microsoft.com/stream-analytics-query/reference-data-join-azure-stream-analytics) nella query. Per altre informazioni, vedere [Uso dei dati di riferimento per le ricerche in Analisi di flusso](stream-analytics-use-reference-data.md).
 
 Sono supportati solo dati di riferimento locali. Quando un processo viene distribuito in un dispositivo IoT Edge, carica i dati di riferimento dal percorso file definito dall'utente.
 
@@ -202,35 +202,35 @@ L'aggiornamento dei dati di riferimento in IoT Edge viene attivato da una distri
 * [Licenza di Analisi di flusso di Azure in IoT Edge](https://go.microsoft.com/fwlink/?linkid=862827). 
 * [Comunicazioni di terze parti per Analisi di flusso di Azure in IoT Edge](https://go.microsoft.com/fwlink/?linkid=862828).
 
-## <a name="azure-stream-analytics-module-image-information"></a>Informazioni sull'immagine del modulo analisi di flusso di Azure 
+## <a name="azure-stream-analytics-module-image-information"></a>Informazioni sull'immagine del modulo di Analisi di flusso di AzureAzure Stream Analytics module image image 
 
-Le informazioni sulla versione sono state aggiornate per l'ultima volta il 2019-06-27:
+Queste informazioni sulla versione sono state aggiornate l'ultima volta il 2019-06-27:
 
 - Immagine: `mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.5-linux-amd64`
-   - immagine di base: Microsoft/DotNet: 2.1.6-Runtime-Alpine 3.7
-   - piattaforma
+   - immagine di base: microsoft/dotnet:2.1.6-runtime-alpine3.7
+   - Piattaforma:
       - architettura: amd64
-      - sistema operativo: Linux
+      - os: linux
   
 - Immagine: `mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.5-linux-arm32v7`
-   - immagine di base: Microsoft/DotNet: 2.1.6-Runtime-Bionic-arm32v7
-   - piattaforma
-      - architettura: ARM
-      - sistema operativo: Linux
+   - immagine di base: microsoft/dotnet:2.1.6-runtime-bionic-arm32v7
+   - Piattaforma:
+      - architettura: braccio
+      - os: linux
   
 - Immagine: `mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.5-windows-amd64`
-   - immagine di base: Microsoft/DotNet: 2.1.6-Runtime-nanoserver-1809
-   - piattaforma
+   - immagine di base: microsoft/dotnet:2.1.6-runtime-nanoserver-1809
+   - Piattaforma:
       - architettura: amd64
-      - sistema operativo: Windows
+      - os: finestre
       
       
 ## <a name="get-help"></a>Ottenere aiuto
-Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+Per ulteriore assistenza, prova il forum di [Analisi di flusso](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)di Azure .
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Altre informazioni su Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-iot-edge-works)
+* [Altre informazioni su Azure Iot Edge](https://docs.microsoft.com/azure/iot-edge/how-iot-edge-works)
 * [Esercitazione su Analisi di flusso di Azure in IoT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics)
 * [Sviluppare processi Edge di Analisi di flusso usando gli strumenti di Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-edge-jobs)
 * [Implementare CI/CD per Analisi di flusso usando le API](stream-analytics-cicd-api.md)

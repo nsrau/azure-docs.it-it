@@ -1,5 +1,5 @@
 ---
-title: Panoramica di protezione DDoS di Azure standard
+title: Azure DDoS Protection Standard Overview
 description: Informazioni sul servizio Protezione DDoS di Azure.
 services: virtual-network
 documentationcenter: na
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/22/2020
 ms.author: kumud
-ms.openlocfilehash: 6392c1a128032670ae9d43a1f23c59194c2964bb
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: f1dd33425a57689974fc98a28724adf7b130ab40
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79279780"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79536344"
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Panoramica di Protezione DDoS di Azure Standard
 
@@ -24,32 +24,32 @@ Gli attacchi Distributed Denial of Service (DDoS) sono tra le principali preoccu
 
 Protezione DDoS di Azure, insieme alle procedure consigliate di progettazione delle applicazioni, offre un meccanismo di difesa dagli attacchi DDoS. Protezione DDos di Azure offre i livelli di servizio seguenti:
 
-- **Basic**: attivata automaticamente come parte della piattaforma di Azure. Il monitoraggio del traffico always on e la mitigazione in tempo reale di attacchi comuni a livello di rete forniscono le stesse difese usate dai Servizi online di Microsoft. L'intera scala della rete globale di Azure può essere usata per distribuire e mitigare il traffico degli attacchi tra le aree. La protezione viene fornita per [gli indirizzi IP pubblici](virtual-network-public-ip-address.md)di Azure IPv4 e IPv6.
-- **Standard**: offre funzionalità di mitigazione aggiuntive per il livello di servizio Basic, ottimizzate in modo specifico per le risorse di rete virtuale di Azure. Protezione DDoS Standard è semplice da abilitare e non richiede alcuna modifica alle applicazioni. I criteri di protezione sono ottimizzati tramite il monitoraggio del traffico dedicato e algoritmi di apprendimento automatico. I criteri vengono applicati agli indirizzi IP pubblici associati alle risorse distribuite nelle reti virtuali, ad esempio le istanze di Azure Load Balancer, del gateway applicazione di Azure e di Azure Service Fabric, ma questa protezione non si applica agli ambienti del servizio app. La telemetria in tempo reale è disponibile tramite le viste di monitoraggio di Azure durante un attacco e per la cronologia. Sono disponibili funzionalità complete di analisi della mitigazione degli attacchi tramite le impostazioni di diagnostica. È possibile aggiungere protezioni a livello dell'applicazione tramite il [web application firewall del gateway applicazione di Azure](../application-gateway//application-gateway-web-application-firewall-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o installando un firewall di terze parti da Microsoft Azure Marketplace. La protezione viene fornita per gli [indirizzi IP pubblici](virtual-network-public-ip-address.md) di Azure IPv4 e IPv6.
+- **Basic**: attivata automaticamente come parte della piattaforma di Azure. Il monitoraggio del traffico sempre in onda e la mitigazione in tempo reale degli attacchi comuni a livello di rete forniscono le stesse difese utilizzate dai servizi online di Microsoft.L'intera scala della rete globale di Azure può essere usata per distribuire e ridurre il traffico di attacco tra le aree.La protezione viene fornita per gli [indirizzi IP pubblici](virtual-network-public-ip-address.md) di Azure IPv4 e IPv6.
+- **Standard**: offre funzionalità aggiuntive di mitigazione tramite il livello di servizio Basic ottimizzate in modo specifico per le risorse di Rete virtuale di Microsoft Azure. Protezione DDoS Standard è semplice da abilitare e non richiede alcuna modifica alle applicazioni. I criteri di protezione sono ottimizzati tramite il monitoraggio del traffico dedicato e algoritmi di apprendimento automatico. I criteri vengono applicati agli indirizzi IP pubblici associati alle risorse distribuite nelle reti virtuali, ad esempio le istanze di Azure Load Balancer, del gateway applicazione di Azure e di Azure Service Fabric, ma questa protezione non si applica agli ambienti del servizio app.La telemetria in tempo reale è disponibile tramite le viste di Monitoraggio di Azure durante un attacco e come informazione cronologica. Sono disponibili funzionalità complete di analisi della mitigazione degli attacchi tramite le impostazioni di diagnostica. È possibile aggiungere protezioni a livello dell'applicazione tramite il [web application firewall del gateway applicazione di Azure](../application-gateway//application-gateway-web-application-firewall-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o installando un firewall di terze parti da Microsoft Azure Marketplace. La protezione viene fornita per gli [indirizzi IP pubblici](virtual-network-public-ip-address.md) di Azure IPv4 e IPv6.
 
 |Funzionalità                                         |Protezione DDoS Basic                 |Protezione DDoS Standard                      |
 |------------------------------------------------|--------------------------------------|----------------------------------------------|
-|Monitoraggio del traffico attivo & rilevamento always on |Sì                                   |Sì                                           |
-|Mitigazioni di attacchi automatici                    |Sì                                   |Sì                                           |
+|Monitoraggio del traffico attivo & sempre in modalità di rilevamento |Sì                                   |Sì                                           |
+|Mitigazioni automatiche degli attacchi                    |Sì                                   |Sì                                           |
 |Garanzia di disponibilità                          |Area di Azure                          |Applicazione                                   |
-|Criteri di mitigazione                             |Ottimizzato per il volume dell'area di traffico di Azure |Ottimizzato per il volume di traffico dell'applicazione          |
-|Metriche & avvisi                                |No                                    |Metriche di attacco in tempo reale & log di diagnostica tramite monitoraggio di Azure                                 |
-|Report di mitigazione                              |No                                    |Report sulla mitigazione degli attacchi post                |
-|Log del flusso di mitigazione                            |No                                    |Flusso di log NRT per l'integrazione SIEM           |
-|Personalizzazioni dei criteri di migrazione                 |No                                    |Coinvolgere gli esperti DDoS                           |
+|Criteri di mitigazione                             |Sintonizzato per il volume dell'area di traffico di Azure |Sintonizzato per il volume del traffico delle applicazioni          |
+|Metriche & avvisi                                |No                                    |Metriche di attacco in tempo reale & log di diagnostica tramite il monitoraggio di Azure                                 |
+|Rapporti di mitigazione                              |No                                    |Rapporti di mitigazione post-attacco                |
+|Registri del flusso di mitigazioneMitigation flow logs                            |No                                    |Flusso di log NRT per l'integrazione SIEM           |
+|Personalizzazione dei criteri di mitigazione                 |No                                    |Coinvolgi gli esperti DDoS                           |
 |Supporto                                         |Massimo sforzo                           |Accesso agli esperti DDoS durante un attacco attivo|
-|Contratto di servizio                                             |Area di Azure                          |Protezione dei costi & delle applicazioni       |
-|Prezzi                                         |Gratuito                                  |Utilizzo mensile & basato su                         |
+|Contratto di servizio                                             |Area di Azure                          |Garanzia di applicazione & protezione dei costi       |
+|Prezzi                                         |Gratuito                                  |Utilizzo dei & mensili basato                         |
 
 ## <a name="types-of-ddos-attacks-that-ddos-protection-standard-mitigates"></a>Tipi di attacchi DDoS mitigati da Protezione DDoS Standard
 
 Protezione DDoS Standard consente di mitigare i seguenti tipi di attacchi:
 
-- **Attacchi volumetrici**: l'obiettivo dell'attacco è quello di intasare il livello di rete con una notevole quantità di traffico in apparenza legittimo. Sono inclusi attacchi flood UDP, attacchi flood con amplificazione e attacchi flood con pacchetti falsificati. Protezione DDoS standard attenua questi potenziali attacchi a più gigabyte grazie all'assorbimento e alla pulitura, con la scalabilità di rete globale di Azure, in modo automatico.
+- **Attacchi volumetrici**: l'obiettivo dell'attacco è quello di intasare il livello di rete con una notevole quantità di traffico in apparenza legittimo. Sono inclusi attacchi flood UDP, attacchi flood con amplificazione e attacchi flood con pacchetti falsificati. DDoS Protection Standard mitiga questi potenziali attacchi multi-gigabyte assorbendoli e scrubbing, con la scala di rete globale di Azure, automaticamente.
 - **Attacchi ai protocolli**: questi attacchi rendono inaccessibile una destinazione sfruttando una vulnerabilità nello stack di protocolli di livello 3 e di livello 4. Sono inclusi attacchi di tipo SYN flood, attacchi di tipo reflection e altri attacchi contro i protocolli. Protezione DDoS Standard mitiga questi attacchi distinguendo tra traffico dannoso e legittimo tramite l'interazione con il client e bloccando il traffico dannoso. 
-- **Attacchi a livello di risorsa (applicazione)** : questi attacchi colpiscono i pacchetti di applicazioni Web per interrompere la trasmissione dei dati tra host. Gli attacchi includono violazioni del protocollo HTTP, attacchi SQL injection, script intersito e altri attacchi di livello 7. Usare un Web Application Firewall, ad esempio il [gateway applicazione](../application-gateway/application-gateway-web-application-firewall-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)di Azure Web Application Firewall, oltre a protezione DDoS standard per offrire una difesa contro tali attacchi. Sono disponibili anche offerte di terze parti di web application firewall nel [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?page=1&search=web%20application%20firewall).
+- **Attacchi a livello di risorsa (applicazione)**: questi attacchi colpiscono i pacchetti di applicazioni Web per interrompere la trasmissione dei dati tra host. Gli attacchi includono violazioni del protocollo HTTP, attacchi SQL injection, script intersito e altri attacchi di livello 7. Usare un Firewall applicazione Web, ad esempio il [firewall dell'applicazione Web](../application-gateway/application-gateway-web-application-firewall-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)di Gateway applicazione di Azure, nonché DDoS Protection Standard per fornire difesa da questi attacchi. Sono disponibili anche offerte di terze parti di web application firewall nel [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?page=1&search=web%20application%20firewall).
 
-Protezione DDoS Standard protegge le risorse in una rete virtuale, inclusi gli indirizzi IP pubblici associati alle macchine virtuali, i bilanciamenti del carico e i gateway applicazione. Una volta abbinato il gateway applicazione web application firewall o una web application firewall di terze parti distribuita in una rete virtuale con un indirizzo IP pubblico, protezione DDoS standard può fornire funzionalità di mitigazione complete di livello 3 a livello 7.
+Protezione DDoS Standard protegge le risorse in una rete virtuale, inclusi gli indirizzi IP pubblici associati alle macchine virtuali, i bilanciamenti del carico e i gateway applicazione. Se associato al firewall dell'applicazione Web del gateway applicazione o a un firewall applicazione Web di terze parti distribuito in una rete virtuale con un indirizzo IP pubblico, DDoS Protection Standard può fornire funzionalità di mitigazione da livello 3 a livello 7.
 
 ## <a name="ddos-protection-standard-features"></a>Funzionalità di Protezione DDoS Standard
 
@@ -60,13 +60,13 @@ Le funzionalità di Protezione DDoS Standard includono:
 - **Integrazione di piattaforma nativa:** integrato in modo nativo in Azure. Include la configurazione tramite il portale di Azure. Protezione DDoS Standard comprende le risorse e la loro configurazione.
 - **Protezione pronta all'uso:** la configurazione semplificata consente di proteggere immediatamente tutte le risorse in una rete virtuale non appena il servizio Protezione DDoS Standard viene abilitato. Non è necessaria alcuna definizione dell'utente o intervento. Il servizio Protezione DDoS Standard mitiga istantaneamente e automaticamente gli attacchi non appena vengono rilevati.
 - **Monitoraggio del traffico sempre attivo:** i modelli di traffico delle applicazioni vengono monitorati 24 ore su 24, 7 giorni su 7, cercando gli indicatori di attacchi DDoS. La mitigazione viene applicata quando vengono superati i criteri di protezione.
-- **Ottimizzazione adattiva:** La profilatura del traffico intelligente apprende il traffico dell'applicazione nel tempo e seleziona e aggiorna il profilo più adatto per il servizio. Il profilo viene modificato in base ai cambiamenti del traffico nel tempo.
+- **Sintonizzazione adattiva:** La profilazione intelligente del traffico apprende il traffico dell'applicazione nel tempo e seleziona e aggiorna il profilo più adatto al servizio. Il profilo viene modificato in base ai cambiamenti del traffico nel tempo.
 - **Protezione su più livelli:** offre protezione DDoS dello stack completo se usata con un web application firewall.
 - **Scala di mitigazione completa:** è possibile mitigare più di 60 tipi diversi di attacchi con capacità globale, per una protezione dai più noti attacchi DDoS.
 - **Analisi degli attacchi:** ottieni report dettagliati con incrementi di cinque minuti durante un attacco e un riepilogo completo al termine dell'attacco. Esegui lo streaming dei log del flusso di mitigazione in un sistema di informazioni di sicurezza e gestione degli eventi offline per il monitoraggio quasi in tempo reale durante un attacco.
 - **Metriche degli attacchi:** tramite Monitoraggio di Azure è possibile accedere al riepilogo delle metriche per ogni attacco.
-- **Avviso di attacco:** Gli avvisi possono essere configurati in fase di avvio e arresto di un attacco e sulla durata dell'attacco, usando le metriche di attacco predefinite. Gli avvisi si integrano nel software operativo, come Microsoft Azure log di monitoraggio, Splunk, archiviazione di Azure, posta elettronica e il portale di Azure.
-- **Garanzia di costo:** crediti per il servizio di scalabilità orizzontale dell'applicazione e il trasferimento dei dati per gli attacchi DDoS documentati.
+- **Avvisi di attacco:** Gli avvisi possono essere configurati all'inizio e all'arresto di un attacco e per tutta la durata dell'attacco, utilizzando le metriche di attacco incorporate. Gli avvisi si integrano nel software operativo, ad esempio i log di Monitoraggio di Microsoft Azure, Splunk, Archiviazione di Azure, Posta elettronica e il portale di Azure.Alerts integrate into your operational software like Microsoft Azure Monitor logs, Splunk, Azure Storage, Email, and the Azure portal.
+- **Garanzia di costo:** Crediti di servizio di trasferimento dati e scalabilità delle applicazioni per attacchi DDoS documentati.
 
 ## <a name="ddos-protection-standard-mitigation"></a>Mitigazione di Protezione DDoS Standard
 

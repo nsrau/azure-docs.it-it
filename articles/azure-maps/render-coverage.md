@@ -1,27 +1,27 @@
 ---
-title: Copertura rendering | Mappe Microsoft Azure
-description: In questo articolo vengono fornite informazioni sulle aree con Microsoft Azure mapping di rendering con mapping insieme al relativo livello di dettagli di rendering.
-author: jingjing-z
+title: Copertura del rendering Mappe di Microsoft Azure
+description: In questo articolo vengono fornite informazioni sulle aree con la copertura di rendering di Microsoft Azure Maps insieme al relativo livello di dettagli di cui è stato eseguito il rendering.
+author: jinzh-azureiot
 ms.author: jinzh
 ms.date: 03/22/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 7821b0b76fb9be1b62aaf334b3c07aaff1d0021a
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: ddc53111cd69072322f37fdfb25c37665c852c23
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77209546"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79536752"
 ---
 # <a name="azure-maps-render-coverage"></a>Copertura per il rendering in Mappe di Azure
 
-Mappe di Azure usa sia i riquadri raster che i riquadri vettoriali per creare le mappe. Con la risoluzione più bassa, l'intero mondo si integra in un unico riquadro. Con la risoluzione più elevata, un singolo riquadro rappresenta 38 metri quadrati. Verranno visualizzati altri dettagli su continenti, aree, città e strade singole mentre si esegue lo zoom avanti sulla mappa. Per ulteriori informazioni sui riquadri, vedere [livelli di zoom e griglia affiancata](zoom-levels-and-tile-grid.md).
+Mappe di Azure usa sia i riquadri raster che i riquadri vettoriali per creare le mappe. Alla risoluzione più bassa, il mondo intero si inserisce in un'unica tessera. Alla risoluzione più alta, una singola piastrella rappresenta 38 metri quadrati. Vedrai maggiori dettagli su continenti, regioni, città e singole strade mentre ingrandisci la mappa. Per ulteriori informazioni sui riquadri, consultate [Livelli di zoom e griglia dei riquadri.](zoom-levels-and-tile-grid.md)
 
-Tuttavia, le mappe non hanno lo stesso livello di informazioni e accuratezza per tutte le aree. Le tabelle seguenti illustrano in dettaglio il livello di informazioni di cui è possibile eseguire il rendering per ogni area.
+Tuttavia, Mappe non ha lo stesso livello di informazioni e precisione per tutte le regioni. Nelle tabelle seguenti viene descritto in dettaglio il livello di informazioni di cui è possibile eseguire il rendering per ogni area.
 
-## <a name="legend"></a>Legend
+## <a name="legend"></a>Legenda
 
 | Simbolo | Significato |
 |--------|---------|
@@ -32,7 +32,7 @@ Tuttavia, le mappe non hanno lo stesso livello di informazioni e accuratezza per
 ## <a name="africa"></a>Africa 
 
 
-| Country/Region | Riquadri raster unificati | Riquadri vettoriali unificati |
+| Paese/Area geografica | Riquadri raster unificati | Riquadri vettoriali unificati |
 | ------ | :------------------: | :------------------: |
 | Algeria                          | ✓ | ✓ |
 | Angola                           | ✓ | ✓ |
@@ -79,7 +79,7 @@ Tuttavia, le mappe non hanno lo stesso livello di informazioni e accuratezza per
 | Senegal                          | ✓ | ✓ |
 | Sierra Leone                     | ✓ | ✓ |
 | Somalia                          | ✓ | ✓ |
-| Sudafrica                     | ✓ | ✓ |
+| Sud Africa                     | ✓ | ✓ |
 | Sudan del Sud                      | ✓ | ✓ |
 | Sudan                            | ✓ | ✓ |
 | Swaziland                        | ✓ | ✓ |
@@ -92,7 +92,7 @@ Tuttavia, le mappe non hanno lo stesso livello di informazioni e accuratezza per
 
 ## <a name="americas"></a>Americhe
 
-| Country/Region | Riquadri raster unificati | Riquadri vettoriali unificati |
+| Paese/Area geografica | Riquadri raster unificati | Riquadri vettoriali unificati |
 | ------ | :------------------: | :------------------: |
 | Anguilla                  | ✓ | ✓ |
 | Antigua e Barbuda       | ✓ | ✓ |
@@ -113,7 +113,7 @@ Tuttavia, le mappe non hanno lo stesso livello di informazioni e accuratezza per
 | Cuba                      | ✓ | ✓ |
 | Curaçao                   | ✓ | ✓ |
 | Dominica                  | ✓ | ✓ |
-| Repubblica Dominicana        | ✓ | ✓ |
+| Repubblica dominicana        | ✓ | ✓ |
 | Ecuador                   | ✓ | ✓ |
 | Isole Falkland | ✓ | ✓ |
 | Guayana francese             | ✓ | ✓ |
@@ -154,10 +154,10 @@ Tuttavia, le mappe non hanno lo stesso livello di informazioni e accuratezza per
 
 ## <a name="asia"></a>Asia 
 
-| Country/Region | Riquadri raster unificati | Riquadri vettoriali unificati |
+| Paese/Area geografica | Riquadri raster unificati | Riquadri vettoriali unificati |
 | ------ | :------------------: | :------------------: |
 | Afghanistan               |   | Ø |
-| Bahrein                   | ✓ | ✓ |
+| Bahrain                   | ✓ | ✓ |
 | Bangladesh                |   | Ø |
 | Bhutan                    |   | Ø |
 | Territorio britannico dell'oceano Indiano |   | Ø |
@@ -166,16 +166,16 @@ Tuttavia, le mappe non hanno lo stesso livello di informazioni e accuratezza per
 | Cina                     |   | Ø |
 | Isole Cocos (Keeling)   |   | Ø |
 | Repubblica democratica popolare di Corea |   | Ø |
-| Hong Kong - R.A.S.             | ✓ | ✓ |
+| RAS di Hong Kong             | ✓ | ✓ |
 | India                     | Ø | ✓ | 
 | Indonesia                 | ✓ | ✓ |
 | Iran                      |   | Ø |
 | Iraq                      | ✓ | ✓ |
 | Israele                    |   | ✓ |
-| Japan                     |   | Ø |
+| Giappone                     |   | Ø |
 | Giordania                    | ✓ | ✓ |
 | Kazakhstan                |   | ✓ |
-| Al Kuwait                    | ✓ | ✓ |
+| Kuwait                    | ✓ | ✓ |
 | Kirghizistan                |   | Ø |
 | Repubblica democratica del Laos |   | Ø |
 | Libano                   | ✓ | ✓ |
@@ -208,7 +208,7 @@ Tuttavia, le mappe non hanno lo stesso livello di informazioni e accuratezza per
 
 ## <a name="oceania"></a>Oceania
 
-| Country/Region | Riquadri raster unificati | Riquadri vettoriali unificati |
+| Paese/Area geografica | Riquadri raster unificati | Riquadri vettoriali unificati |
 | ------ | :------------------: | :------------------: |
 | Isole Samoa americane            |   | ✓ |
 | Australia                 | ✓ | ✓ |
@@ -227,7 +227,7 @@ Tuttavia, le mappe non hanno lo stesso livello di informazioni e accuratezza per
 | Palau                     |   | Ø |
 | Papua Nuova Guinea          |   | Ø |
 | Pitcairn                  |   | Ø |
-| Isole Samoa                     |   | Ø |
+| Isole Samoa                      |   | Ø |
 | Isole Salomone           |   | Ø|
 | Tokelau                   |   | Ø |
 | Tonga                     |   | Ø |
@@ -238,7 +238,7 @@ Tuttavia, le mappe non hanno lo stesso livello di informazioni e accuratezza per
 
 ## <a name="europe"></a>Europa
 
-| Country/Region | Riquadri raster unificati | Riquadri vettoriali unificati |
+| Paese/Area geografica | Riquadri raster unificati | Riquadri vettoriali unificati |
 | ------ | :------------------: | :------------------: |
 | Albania                   | ✓ | ✓ |
 | Andorra                   | ✓ | ✓ |
@@ -251,14 +251,14 @@ Tuttavia, le mappe non hanno lo stesso livello di informazioni e accuratezza per
 | Bulgaria                  | ✓ | ✓ |
 | Croazia                   | ✓ | ✓ |
 | Cipro                    | ✓ | ✓ |
-| Repubblica Ceca            | ✓ | ✓ |
+| Repubblica ceca            | ✓ | ✓ |
 | Danimarca                   | ✓ | ✓ |
 | Estonia                   | ✓ | ✓ |
 | Isole Fær Øer             | ✓ | Ø |
 | Finlandia                   | ✓ | ✓ |
-| France                    | ✓ | ✓ |
+| Francia                    | ✓ | ✓ |
 | Georgia                   | ✓ | Ø |
-| Germany                   | ✓ | ✓ |
+| Germania                   | ✓ | ✓ |
 | Gibilterra                 | ✓ | ✓ |
 | Grecia                    | ✓ | ✓ |
 | Isola di Guernsey                  | ✓ | ✓ |

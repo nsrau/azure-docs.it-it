@@ -1,5 +1,5 @@
 ---
-title: Gestire cache di Azure per Redis con l'interfaccia della riga di comando di Azure classico
+title: Gestire la cache di Azure per Redis usando la CLI classica di AzureManage Azure Cache for Redis using Azure classic CLI
 description: Come installare l'interfaccia della riga di comando classica di Azure su qualsiasi piattaforma, come usarla per connettersi all'account Azure e come creare e gestire Cache Redis di Azure dall'interfaccia della riga di comando classica.
 author: yegu-ms
 ms.service: cache
@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: yegu
 ms.openlocfilehash: e2b1ed693ea57e3414d465a57a5ba2b1203f67c5
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79277986"
 ---
 # <a name="how-to-create-and-manage-azure-cache-for-redis-using-the-azure-classic-cli"></a>Come creare e gestire Cache Redis di Azure mediante l'interfaccia della riga di comando classica di Azure
 > [!div class="op_single_selector"]
-> * [PowerShell](cache-how-to-manage-redis-cache-powershell.md)
-> * [Interfaccia della riga di comando classica di Azure](cache-manage-cli.md)
+> * [Powershell](cache-how-to-manage-redis-cache-powershell.md)
+> * [Cli classica di AzureAzure classic CLI](cache-manage-cli.md)
 >
 
 L'interfaccia della riga di comando classica di Azure è un ottimo modo di gestire l'infrastruttura di Azure da qualsiasi piattaforma. In questo articolo viene illustrato come creare e gestire le istanze di Cache Redis di Azure mediante l'interfaccia della riga di comando classica di Azure.
@@ -29,7 +29,7 @@ L'interfaccia della riga di comando classica di Azure è un ottimo modo di gesti
 Per creare e gestire le istanze di Cache Redis di Azure usando l'interfaccia della riga di comando classica di Azure è necessario completare i seguenti passaggi.
 
 * È necessario disporre di un account Azure. Se non è disponibile, è possibile creare un [account gratuito](https://azure.microsoft.com/pricing/free-trial/) in pochi istanti.
-* [Installare l’interfaccia della riga di comando classica di Azure](../cli-install-nodejs.md).
+* [Installare l'interfaccia della riga](../cli-install-nodejs.md)di comando classica di Azure.
 * Connettere l'installazione dell’interfaccia della riga di comando di Azure con un account Azure personale o con un account di lavoro o scolastico di Azure e accedere dall’interfaccia della riga di comando classica usando il comando `azure login`.
 * Prima di eseguire uno dei seguenti comandi, passare l’interfaccia della riga di comando classica in modalità di Gestione risorse eseguendo il comando `azure config mode arm`. Per altre informazioni, vedere l'articolo [Usare l'interfaccia della riga di comando classica di Azure per gestire risorse e gruppi di risorse di Azure](../xplat-cli-azure-resource-manager.md).
 
@@ -49,9 +49,9 @@ Le seguenti proprietà vengono utilizzate durante la creazione e l’aggiornamen
 | Numero di partizioni |-r, --shard-count |Numero di partizioni da creare su una cache di cluster Premium con il clustering. |
 | Rete virtuale |-v, --virtual-network |Quando si ospita la cache in una rete virtuale, specifica l'ID risorsa ARM esatto della rete virtuale in cui distribuire Cache Redis di Azure. Formato di esempio: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
 | tipo di chiave |-t, --key-type |Tipo di chiave per il rinnovo. Valori validi: [primario, secondario] |
-| StaticIP |-p,--static-IP \<static-IP\> |Quando si ospita la cache in una rete virtuale, specifica l'indirizzo IP univoco nella subnet per la cache. Se non specificato, ne verrà scelto uno dalla subnet. |
-| Subnet |t,--subnet \<subnet\> |Quando si ospita la cache in una rete virtuale, specifica il nome della subnet in cui distribuire la cache. |
-| VirtualNetwork |-v,--Virtual-Network \<rete virtuale\> |Quando si ospita la cache in una rete virtuale, specifica l'ID risorsa ARM esatto della rete virtuale in cui distribuire Cache Redis di Azure. Formato di esempio: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
+| StaticIP |-p, --static-ip \<static-ip statico-ip\> |Quando si ospita la cache in una rete virtuale, specifica l'indirizzo IP univoco nella subnet per la cache. Se non specificato, ne verrà scelto uno dalla subnet. |
+| Subnet |t, --subnet \<subnet\> |Quando si ospita la cache in una rete virtuale, specifica il nome della subnet in cui distribuire la cache. |
+| VirtualNetwork |-v, --virtual-network \<virtual-network\> |Quando si ospita la cache in una rete virtuale, specifica l'ID risorsa ARM esatto della rete virtuale in cui distribuire Cache Redis di Azure. Formato di esempio: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
 | Subscription |-s, --subscription |L'identificatore della sottoscrizione. |
 
 ## <a name="see-all-azure-cache-for-redis-commands"></a>Visualizzare tutti i comandi di Cache Redis di Azure

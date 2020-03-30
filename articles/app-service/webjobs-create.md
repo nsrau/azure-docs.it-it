@@ -1,6 +1,6 @@
 ---
-title: Eseguire attività in background con processi Web
-description: Informazioni su come usare i processi Web per eseguire attività in background nel servizio app Azure. È possibile scegliere tra un'ampia gamma di formati di script ed eseguirli con espressioni CRON.
+title: Eseguire attività in background con WebJobs
+description: Informazioni su come usare WebJobs per eseguire attività in background nel servizio app di Azure.Learn how to use WebJobs to run background tasks in Azure App Service. Scegli tra una varietà di formati di script ed eseguili con le espressioni CRON.
 author: ggailey777
 ms.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
 ms.topic: conceptual
@@ -9,13 +9,13 @@ ms.author: glenga
 ms.reviewer: msangapu;david.ebbo;suwatch;pbatum;naren.soni
 ms.custom: seodec18
 ms.openlocfilehash: 4c568c95a5dbc1799a765c95a2b224de53dfbe9f
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79279143"
 ---
-# <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Eseguire attività in background con processi Web nel servizio app Azure
+# <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Eseguire attività in background con WebJobs nel servizio app di AzureRun background tasks with WebJobs in Azure App Service
 
 L'articolo descrive come distribuire Processi Web usando il [portale di Azure](https://portal.azure.com) per caricare un eseguibile o uno script. Per informazioni su come sviluppare e distribuire processi Web usando Visual Studio, vedere [Deploy WebJobs using Visual Studio](webjobs-dotnet-deploy-vs.md) (Distribuire processi Web usando Visual Studio).
 
@@ -42,7 +42,7 @@ La tabella seguente descrive le differenze tra processi Web *continui* e *attiva
 
 [!INCLUDE [webjobs-always-on-note](../../includes/webjobs-always-on-note.md)]
 
-## <a name="acceptablefiles"></a>Tipi di file supportati per script e programmi
+## <a name="supported-file-types-for-scripts-or-programs"></a><a name="acceptablefiles"></a>Tipi di file supportati per script e programmi
 
 Sono supportati i tipi di file seguenti:
 
@@ -54,7 +54,7 @@ Sono supportati i tipi di file seguenti:
 * .js (Node.js)
 * .jar (Java)
 
-## <a name="CreateContinuous"></a> Creare un processo Web continuo
+## <a name="create-a-continuous-webjob"></a><a name="CreateContinuous"></a> Creare un processo Web continuo
 
 <!-- 
 Several steps in the three "Create..." sections are identical; 
@@ -80,7 +80,7 @@ when making changes in one don't forget the other two.
    | **Nome** | myContinuousWebJob | Nome univoco nell'app del servizio app. Deve iniziare con una lettera o un numero e non può contenere caratteri speciali diversi da "-" e "_". |
    | **Caricamento file** | ConsoleApp.zip | File *ZIP* che contiene il file eseguibile o il file di script e gli eventuali file di supporto necessari per eseguire il programma o lo script. I tipi di file di script o eseguibili supportati sono elencati nella sezione [Tipi di file supportati](#acceptablefiles). |
    | **Tipo** | Continuo | I [tipi di processi Web](#webjob-types) sono descritti più indietro in questo articolo. |
-   | **Ridimensionare** | Istanze multiple | Disponibile solo per i processi Web continui. Determina se il programma o lo script viene eseguito in tutte le istanze o in una sola istanza. L'opzione per l'esecuzione in più istanze non si applica ai [piani tariffari](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) Gratuito o Condiviso. | 
+   | **Scala** | Istanze multiple | Disponibile solo per i processi Web continui. Determina se il programma o lo script viene eseguito in tutte le istanze o in una sola istanza. L'opzione per l'esecuzione in più istanze non si applica ai [piani tariffari](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) Gratuito o Condiviso. | 
 
 4. Fare clic su **OK**.
 
@@ -92,7 +92,7 @@ when making changes in one don't forget the other two.
 
     ![Arrestare un processo Web continuo](./media/web-sites-create-web-jobs/continuousstop.png)
 
-## <a name="CreateOnDemand"></a> Creare un processo Web attivato manualmente
+## <a name="create-a-manually-triggered-webjob"></a><a name="CreateOnDemand"></a> Creare un processo Web attivato manualmente
 
 <!-- 
 Several steps in the three "Create..." sections are identical; 
@@ -130,7 +130,7 @@ when making changes in one don't forget the other two.
    
     ![Eseguire un processo Web](./media/web-sites-create-web-jobs/runondemand.png)
 
-## <a name="CreateScheduledCRON"></a> Creare un processo Web pianificato
+## <a name="create-a-scheduled-webjob"></a><a name="CreateScheduledCRON"></a> Creare un processo Web pianificato
 
 <!-- 
 Several steps in the three "Create..." sections are identical; 
@@ -167,7 +167,7 @@ when making changes in one don't forget the other two.
 
 ## <a name="ncrontab-expressions"></a>Espressioni NCRONTAB
 
-È possibile immettere un' [espressione NCRONTAB](../azure-functions/functions-bindings-timer.md#ncrontab-expressions) nel portale o includere un file di `settings.job` alla radice del file processo Web *. zip* , come nell'esempio seguente:
+È possibile immettere [un'espressione NCRONTAB](../azure-functions/functions-bindings-timer.md#ncrontab-expressions) nel portale o includere un `settings.job` file nella radice del file *WebJob .zip,* come nell'esempio seguente:
 
 ```json
 {
@@ -175,11 +175,11 @@ when making changes in one don't forget the other two.
 }
 ```
 
-Per altre informazioni, vedere [pianificazione di un processo Web attivato](webjobs-dotnet-deploy-vs.md#scheduling-a-triggered-webjob).
+Per ulteriori informazioni, vedere [Pianificazione di un Processo Web attivato](webjobs-dotnet-deploy-vs.md#scheduling-a-triggered-webjob).
 
 [!INCLUDE [webjobs-cron-timezone-note](../../includes/webjobs-cron-timezone-note.md)]
 
-## <a name="ViewJobHistory"></a> Visualizzare la cronologia processo
+## <a name="view-the-job-history"></a><a name="ViewJobHistory"></a> Visualizzare la cronologia processo
 
 1. Selezionare il processo Web di cui si vuole visualizzare la cronologia e quindi selezionare il pulsante **Log**.
    
@@ -201,6 +201,6 @@ Per altre informazioni, vedere [pianificazione di un processo Web attivato](webj
    
     ![Elenco dei processi nel dashboard della cronologia](./media/web-sites-create-web-jobs/webjobslist.png)
    
-## <a name="NextSteps"></a> Passaggi successivi
+## <a name="next-steps"></a><a name="NextSteps"></a> Passaggi successivi
 
 Azure WebJobs SDK può essere usato con Processi Web per semplificare diverse attività di programmazione. Per ulteriori informazioni, vedere [Definizione dell'SDK di Processi Web](https://github.com/Azure/azure-webjobs-sdk/wiki).

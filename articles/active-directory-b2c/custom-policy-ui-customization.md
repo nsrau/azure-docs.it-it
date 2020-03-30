@@ -1,5 +1,5 @@
 ---
-title: Personalizzare l'interfaccia utente dell'app con criteri personalizzati
+title: Personalizzare l'interfaccia utente dell'app con criteri personalizzatiCustomize the user interface of your app with a custom policy
 titleSuffix: Azure AD B2C
 description: Informazioni sulla personalizzazione di un'interfaccia utente mediante un criterio personalizzato in Azure Active Directory B2C.
 services: active-directory-b2c
@@ -8,21 +8,21 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 03/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8e07d3e1815c1b47b9d37c08e8fac5359b71fe7c
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
-ms.translationtype: HT
+ms.openlocfilehash: 87c3a3a904705b9fcb702c4745c4c80a4b447e69
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79245993"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79476723"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Personalizzare l'interfaccia utente dell'applicazione usando un criterio personalizzato in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Completando la procedura descritta in questo articolo, è possibile creare criteri personalizzati per l'iscrizione e l'accesso con il proprio marchio e aspetto. Con Azure Active Directory B2C (Azure AD B2C) si ottiene il controllo quasi completo del contenuto HTML e CSS presentato agli utenti. Quando si usa un criterio personalizzato, si configura la personalizzazione dell'interfaccia utente in XML anziché usare i controlli nel portale di Azure.
+Completando i passaggi descritti in questo articolo, si crea un criterio personalizzato di iscrizione e accesso con il marchio e l'aspetto. Con Azure Active Directory B2C (Azure AD B2C) si ottiene il controllo quasi completo del contenuto HTML e CSS presentato agli utenti. Quando si usa un criterio personalizzato, si configura la personalizzazione dell'interfaccia utente in XML anziché usare i controlli nel portale di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -34,14 +34,14 @@ Completare la procedura descritta in [Introduzione ai criteri personalizzati](cu
 
 Per configurare la personalizzazione dell'interfaccia utente, copiare **ContentDefinition** e i relativi elementi figlio dal file di base nel file delle estensioni.
 
-1. Aprire il file di base dei criteri, Ad esempio, <em>`SocialAndLocalAccounts/` **`TrustFrameworkBase.xml`** </em>. Questo file di base è uno dei file di criteri inclusi nello Starter Pack del criterio personalizzato, che è necessario ottenere nel prerequisito, [Introduzione ai criteri personalizzati](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom).
+1. Aprire il file di base dei criteri, Ad esempio, <em> `SocialAndLocalAccounts/` </em>. Questo file di base è uno dei file di criteri inclusi nello starter pack dei criteri personalizzati, che sarebbe dovuto essere ottenuto nel prerequisito Introduzione ai [criteri personalizzati.](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom)
 1. Cercare e copiare l'intero contenuto dell'elemento **ContentDefinitions**.
 1. Aprire il file di estensione. ad esempio *TrustFrameworkExtensions.xml*. Cercare l'elemento **BuildingBlocks**. Se l'elemento non esiste, aggiungerlo.
 1. Incollare l'intero contenuto dell'elemento **ContentDefinitions** copiato come figlio dell'elemento **BuildingBlocks**.
 1. Cercare l'elemento **ContentDefinition** che contiene `Id="api.signuporsignin"` nel codice XML copiato.
 1. Cambiare il valore di **LoadUri** nell'URL del file HTML caricato nell'archivio. Ad esempio: `https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html`.
 
-    Il criterio personalizzato dovrebbe essere simile al frammento di codice seguente:
+    I criteri personalizzati dovrebbero essere simili al frammento di codice seguente:Your custom policy should look like the following code snippet:
 
     ```xml
     <BuildingBlocks>
@@ -62,28 +62,28 @@ Per configurare la personalizzazione dell'interfaccia utente, copiare **ContentD
 
 ## <a name="5-upload-and-test-your-updated-custom-policy"></a>5. Caricare e testare i criteri personalizzati aggiornati
 
-### <a name="51-upload-the-custom-policy"></a>5,1 caricare i criteri personalizzati
+### <a name="51-upload-the-custom-policy"></a>5.1 Caricare il criterio personalizzato
 
 1. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C. A tale scopo, fare clic sul filtro **Directory e sottoscrizione** nel menu in alto e scegliere la directory che contiene il tenant.
-1. Cercare e selezionare **Azure ad B2C**.
-1. In **criteri**selezionare **Framework esperienza di identità**.
-1. Selezionare **carica criteri personalizzati**.
+1. Cercare e selezionare **Azure AD B2C**.
+1. In **Criteri**selezionare **Framework di esperienza identità**.
+1. Selezionare **Carica criterio personalizzato**.
 1. Caricare il file delle estensioni modificato in precedenza.
 
-### <a name="52-test-the-custom-policy-by-using-run-now"></a>5,2 testare i criteri personalizzati tramite **Esegui adesso**
+### <a name="52-test-the-custom-policy-by-using-run-now"></a>5.2 Testare il criterio personalizzato utilizzando **Esegui ora**
 
-1. Selezionare il criterio caricato, quindi selezionare **Esegui ora**.
+1. Selezionare il criterio caricato e quindi selezionare **Esegui ora**.
 1. Dovrebbe essere possibile iscriversi usando un indirizzo di posta elettronica.
 
 [!INCLUDE [active-directory-b2c-html-templates](../../includes/active-directory-b2c-html-templates.md)]
 
-## <a name="configure-dynamic-custom-page-content-uri"></a>Configurare l'URI del contenuto della pagina personalizzata dinamica
+## <a name="configure-dynamic-custom-page-content-uri"></a>Configurare l'URI del contenuto della pagina personalizzata dinamicaConfigure dynamic custom page content URI
 
-Utilizzando Azure AD B2C criteri personalizzati, è possibile inviare un parametro nel percorso URL o in una stringa di query. Passando il parametro all'endpoint HTML, è possibile modificare dinamicamente il contenuto della pagina. È ad esempio possibile modificare l'immagine di sfondo della pagina di accesso o di iscrizione ad Azure AD B2C in base a un parametro passato dall'applicazione Web o per dispositivi mobili. Il parametro può essere qualsiasi [resolver di attestazioni](claim-resolver-overview.md), ad esempio l'ID applicazione, l'ID lingua o il parametro della stringa di query personalizzata, ad esempio `campaignId`.
+Usando i criteri personalizzati di Azure AD B2C, è possibile inviare un parametro nel percorso URL o in una stringa di query. Passando il parametro all'endpoint HTML, è possibile modificare dinamicamente il contenuto della pagina. È ad esempio possibile modificare l'immagine di sfondo della pagina di accesso o di iscrizione ad Azure AD B2C in base a un parametro passato dall'applicazione Web o per dispositivi mobili. Il parametro può essere qualsiasi sistema di [risoluzione delle attestazioni,](claim-resolver-overview.md)ad `campaignId`esempio l'ID applicazione, l'ID lingua o il parametro della stringa di query personalizzata, ad esempio .
 
-### <a name="sending-query-string-parameters"></a>Invio dei parametri della stringa di query
+### <a name="sending-query-string-parameters"></a>Invio di parametri della stringa di querySending query string parameters
 
-Per inviare parametri della stringa di query, nel [criterio di relying party](relyingparty.md)aggiungere un elemento `ContentDefinitionParameters`, come illustrato di seguito.
+Per inviare i parametri della stringa di query, nei [criteri della relying party](relyingparty.md)aggiungere un `ContentDefinitionParameters` elemento come illustrato di seguito.
 
 ```XML
 <RelyingParty>
@@ -99,7 +99,7 @@ Per inviare parametri della stringa di query, nel [criterio di relying party](re
 </RelyingParty>
 ```
 
-Nella definizione del contenuto modificare il valore di `LoadUri` in `https://<app_name>.azurewebsites.net/home/unified`. Il `ContentDefinition` dei criteri personalizzati dovrebbe essere simile al frammento di codice seguente:
+Nella definizione del contenuto `LoadUri` modificare `https://<app_name>.azurewebsites.net/home/unified`il valore di in . I criteri `ContentDefinition` personalizzati dovrebbero essere simili al frammento di codice seguente:Your custom policy should look like the following code snippet:
 
 ```XML
 <ContentDefinition Id="api.signuporsignin">
@@ -108,7 +108,7 @@ Nella definizione del contenuto modificare il valore di `LoadUri` in `https://<a
 </ContentDefinition>
 ```
 
-Quando Azure AD B2C carica la pagina, effettua una chiamata all'endpoint del server Web:
+Quando Azure AD B2C carica la pagina, effettua una chiamata all'endpoint del server Web:When Azure AD B2C loads the page, it makes a call to your web server endpoint:
 
 ```http
 https://<app_name>.azurewebsites.net/home/unified?campaignId=123&lang=fr&appId=f893d6d3-3b6d-480d-a330-1707bf80ebea
@@ -116,7 +116,7 @@ https://<app_name>.azurewebsites.net/home/unified?campaignId=123&lang=fr&appId=f
 
 ### <a name="dynamic-page-content-uri"></a>URI contenuto pagina dinamica
 
-È possibile estrarre il contenuto da posizioni diverse in base ai parametri utilizzati. Nell'endpoint abilitato per CORS configurare una struttura di cartelle per ospitare il contenuto. Ad esempio, è possibile organizzare il contenuto nella struttura seguente. *Cartella/cartella radice per lingua/file HTML*. Ad esempio, l'URI della pagina personalizzata potrebbe essere simile al seguente:
+Il contenuto può essere estratto da luoghi diversi in base ai parametri utilizzati. Nell'endpoint abilitato per CORS, impostare una struttura di cartelle per ospitare il contenuto. Ad esempio, è possibile organizzare il contenuto nella struttura seguente. Cartella *radice/cartella per lingua/file html*. Ad esempio, l'URI della pagina personalizzata potrebbe essere simile al seguente:For example, your custom page URI might look like:
 
 ```XML
 <ContentDefinition Id="api.signuporsignin">
@@ -125,7 +125,7 @@ https://<app_name>.azurewebsites.net/home/unified?campaignId=123&lang=fr&appId=f
 </ContentDefinition>
 ```
 
-Azure AD B2C invia il codice ISO di due lettere per la lingua `fr` per il francese:
+Azure AD B2C invia il codice ISO `fr` di due lettere per la lingua, per il francese:Azure AD B2C sends the two letter ISO code for the language, for French:
 
 ```http
 https://contoso.blob.core.windows.net/fr/myHTML/unified.html
@@ -133,4 +133,4 @@ https://contoso.blob.core.windows.net/fr/myHTML/unified.html
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sugli elementi dell'interfaccia utente che possono essere personalizzati, vedere [Guida di riferimento per la personalizzazione dell'interfaccia utente per i flussi utente](customize-ui-overview.md).
+Per altre informazioni sugli elementi dell'interfaccia utente che possono essere personalizzati, vedere la guida di riferimento per la [personalizzazione dell'interfaccia utente per i flussi utente.](customize-ui-overview.md)

@@ -1,6 +1,6 @@
 ---
 title: Più indirizzi IP per le macchine virtuali di Azure - PowerShell | Documentazione Microsoft
-description: Informazioni su come assegnare più indirizzi IP a una macchina virtuale tramite PowerShell. | Gestione risorse
+description: Informazioni su come assegnare più indirizzi IP a una macchina virtuale usando PowerShell.Learn how to assign multiple IP addresses to a virtual machine using PowerShell. | Gestione risorse
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -17,10 +17,10 @@ ms.date: 03/24/2017
 ms.author: kumud
 ms.reviewer: annahar
 ms.openlocfilehash: a8bd4e4779d94cfc22ac7726c9746fe755764033
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79279572"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>Assegnare più indirizzi IP alle macchine virtuali usando PowerShell
@@ -33,7 +33,7 @@ Questo articolo spiega come creare una macchina virtuale (VM) tramite il modello
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
 
-## <a name = "create"></a>Creare una macchina virtuale con più indirizzi IP
+## <a name="create-a-vm-with-multiple-ip-addresses"></a><a name = "create"></a>Creare una macchina virtuale con più indirizzi IP
 
 La procedura seguente illustra come creare una macchina virtuale di esempio con più indirizzi IP, come descritto nello scenario. Modificare i valori delle variabili come necessario per l'implementazione.
 
@@ -97,7 +97,7 @@ La procedura seguente illustra come creare una macchina virtuale di esempio con 
 
 6. Definire la configurazione IP primaria della scheda di interfaccia di rete. Modificare 10.0.0.4 in un indirizzo valido nella subnet creata, se il valore definito in precedenza non è stato usato. Prima di assegnare un indirizzo IP statico, è consigliabile verificare che non sia già in uso. Immettere il comando `Test-AzPrivateIPAddressAvailability -IPAddress 10.0.0.4 -VirtualNetwork $VNet`. Se l'indirizzo è disponibile, l'output restituisce *True*. Se non è disponibile, l'output restituisce *False* e un elenco di indirizzi disponibili. 
 
-    Nei comandi seguenti **sostituire \<Sostituisci con il nome univoco > con il nome DNS univoco da usare.** Il nome deve essere univoco tra tutti gli indirizzi IP pubblici all'interno di un'area di Azure. Questo parametro è facoltativo. Può essere rimosso se si intende connettersi alla macchina virtuale tramite l'indirizzo IP pubblico.
+    Nei comandi seguenti sostituire ** \<replace-with-your-unique-name> con il nome DNS univoco da utilizzare.** Il nome deve essere univoco tra tutti gli indirizzi IP pubblici all'interno di un'area di Azure. Questo parametro è facoltativo. Può essere rimosso se si intende connettersi alla macchina virtuale tramite l'indirizzo IP pubblico.
 
     ```powershell
     
@@ -162,7 +162,7 @@ La procedura seguente illustra come creare una macchina virtuale di esempio con 
    ```
 
    >[!NOTE]
-   >Anche se in questo articolo tutte le configurazioni vengono assegnate a una sola scheda di interfaccia di rete, è possibile assegnare più configurazioni IP a ogni scheda di interfaccia di rete collegata alla macchina virtuale. Per informazioni su come creare una VM con più interfacce di rete, leggere l'articolo [Creare una macchina virtuale con più schede di interfaccia di rete usando PowerShell](../virtual-machines/windows/multiple-nics.md).
+   >Anche se in questo articolo tutte le configurazioni vengono assegnate a una sola scheda di interfaccia di rete, è possibile assegnare più configurazioni IP a ogni scheda di interfaccia di rete collegata alla macchina virtuale. Per informazioni su come creare una macchina virtuale con più schede di interfaccia di rete, leggere l'articolo Creare una macchina virtuale con più schede di interfaccia di [rete.](../virtual-machines/windows/multiple-nics.md)
 
 9. Creare la macchina virtuale immettendo i comandi seguenti:
 
@@ -195,7 +195,7 @@ La procedura seguente illustra come creare una macchina virtuale di esempio con 
 
 10. Aggiungere gli indirizzi IP privati al sistema operativo della macchina virtuale seguendo la procedura per il proprio sistema operativo riportata nella sezione [Aggiungere indirizzi IP a una macchina virtuale](#os-config) di questo articolo. Non aggiungere gli indirizzi IP pubblici al sistema operativo.
 
-## <a name="add"></a>Aggiungere indirizzi IP a una macchina virtuale
+## <a name="add-ip-addresses-to-a-vm"></a><a name="add"></a>Aggiungere indirizzi IP a una macchina virtuale
 
 È possibile aggiungere indirizzi IP privati e pubblici all'interfaccia di rete di Azure completando la procedura seguente. Gli esempi delle sezioni seguenti presuppongono che si disponga già di una VM con le tre configurazioni IP descritte nello [scenario](#scenario) di questo articolo, ma questa condizione non è indispensabile.
 

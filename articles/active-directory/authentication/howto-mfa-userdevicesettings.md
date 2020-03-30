@@ -1,6 +1,6 @@
 ---
-title: Gestire utenti e dispositivi autenticazione a più fattori di Azure-Azure Active Directory
-description: In che modo gli amministratori possono modificare le impostazioni utente, ad esempio forzando gli utenti a eseguire di nuovo il processo di prova.
+title: Gestire utenti e dispositivi Azure MFA - Azure Active DirectoryManage users and devices Azure MFA - Azure Active Directory
+description: In che modo gli amministratori possono modificare le impostazioni utente, ad esempio forzando gli utenti a eseguire nuovamente il processo di correzione.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 07845bb5b742b1bcfbb22d260457e9a8e16edab6
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79263712"
 ---
 # <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>Gestire le impostazioni utente nel cloud con Azure Multi-Factor Authentication
@@ -28,32 +28,32 @@ Come amministratore, è possibile gestire le impostazioni relative all'utente e 
 
 ## <a name="manage-authentication-methods"></a>Gestire i metodi di autenticazione
 
-Quando un amministratore ha assegnato il ruolo di amministratore dell'autenticazione, è possibile richiedere agli utenti di reimpostare la password, ripetere la registrazione per l'autenticazione a più fattori o revocare le sessioni di autenticazione a più fattori esistenti dall'oggetto utente.
+Come amministratore assegnato al ruolo di amministratore di autenticazione è possibile richiedere agli utenti di reimpostare la password, rieseguire la registrazione per l'autenticazione a più fattori o revocare le sessioni di autenticazione a più fattori esistenti dall'oggetto utente.
 
-![Gestire i metodi di autenticazione dal portale di Azure](./media/howto-mfa-userdevicesettings/manage-authentication-methods-in-azure.png)
+![Gestire i metodi di autenticazione dal portale di AzureManage authentication methods from the Azure portal](./media/howto-mfa-userdevicesettings/manage-authentication-methods-in-azure.png)
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
-1. A sinistra selezionare **Azure Active Directory** > **Utenti** > **Tutti gli utenti**.
-1. Scegliere l'utente su cui si vuole eseguire un'azione e selezionare **metodi di autenticazione**.
-   - **Reimposta password** Reimposta la password dell'utente e assegna una password temporanea che deve essere modificata al successivo accesso.
-   - È **necessario ripetere la registrazione** dell'autenticazione a più fattori, in modo che, quando l'utente esegue l'accesso in un secondo momento, verrà richiesto di configurare un nuovo metodo di autenticazione a più fattori.
-   - **Revoca le sessioni** di autenticazione a più fattori consente di cancellare le sessioni di autenticazione a più fattori memorizzate dall'utente e le richiede di eseguire l'autenticazione a più fattori la volta successiva che è richiesta dal criterio sul dispositivo.
+1. Accedere al [portale](https://portal.azure.com)di Azure .
+1. A sinistra selezionare **Azure Active Directory** > **Users** > **All Users**.
+1. Scegliere l'utente su cui si desidera eseguire un'azione e selezionare **Metodi di autenticazione**.
+   - **Reimposta password** reimposterà la password dell'utente e assegnerà una password temporanea che deve essere modificata al successivo accesso.
+   - **Richiedi nuovamente registrazione dell'autenticazione** a più fattori in modo che quando l'utente accede la prossima volta, verrà richiesto di impostare un nuovo metodo di autenticazione MFA.
+   - **Revoca sessioni di autenticazione** a più fattori cancella le sessioni di autenticazione a più fattori memorizzate dell'utente e richiede l'esecuzione dell'autenticazione a più fattori la volta successiva che richiesto dai criteri nel dispositivo.
 
 ## <a name="delete-users-existing-app-passwords"></a>Eliminare le password per le app esistenti degli utenti
 
-Questa impostazione elimina tutte le password dell'app create da un utente. Le app non basate su browser associate a tali password dell'app non funzioneranno più fino a quando non verrà creata una nuova password dell'app. Per eseguire questa azione, sono necessarie le autorizzazioni di amministratore globale.
+Questa impostazione elimina tutte le password dell'app create da un utente. Le app non basate su browser associate a tali password dell'app non funzioneranno più fino a quando non verrà creata una nuova password dell'app. Per eseguire questa azione sono necessarie autorizzazioni di amministratore globale.
 
 ### <a name="how-to-delete-users-existing-app-passwords"></a>Come eliminare le password per le app esistenti degli utenti
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
-2. A sinistra selezionare **Azure Active Directory** > **Utenti** > **Tutti gli utenti**.
+1. Accedere al [portale](https://portal.azure.com)di Azure .
+2. A sinistra selezionare **Azure Active Directory** > **Users** > **All Users**.
 3. A destra selezionare **Multi-Factor Authentication** sulla barra degli strumenti. Viene aperta la pagina dell'autenticazione a più fattori.
 4. Selezionare la casella accanto a uno o più utenti che si desidera gestire. A destra viene visualizzato un elenco di opzioni di passaggio rapido.
 5. Selezionare **Gestisci le impostazioni dell'utente**.
 6. Selezionare la casella accanto a **Eliminare tutte le password dell'app esistenti generate dagli utenti selezionati**.
-   ![eliminare tutte le password dell'app esistenti](./media/howto-mfa-userdevicesettings/deleteapppasswords.png)
+   ![Eliminare tutte le password delle app esistenti](./media/howto-mfa-userdevicesettings/deleteapppasswords.png)
 7. Fare clic su **save**.
-8. Fare clic su **chiudi**.
+8. Fare clic su **Chiudi**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

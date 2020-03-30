@@ -1,5 +1,6 @@
 ---
 title: Schema di definizione di Servizi cloud di Azure (file con estensione cscfg) | Microsoft Docs
+description: Un file di configurazione del servizio (con estensione cscfg) specifica il numero di istanze del ruolo da distribuire per ogni ruolo, valori di configurazione e identificazioni utente del certificato per un ruolo.
 services: cloud-services
 ms.custom: ''
 ms.date: 12/07/2016
@@ -8,12 +9,12 @@ ms.topic: reference
 caps.latest.revision: 35
 author: tgore03
 ms.author: tagore
-ms.openlocfilehash: 71c0bb1b09d480a05a9e5a54b269d0da8fde5bc3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: cb77181e00c97b7f426429793f17af3cb5e84ebe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75449108"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79534746"
 ---
 # <a name="azure-cloud-services-config-schema-cscfg-file"></a>Schema di configurazione di Servizi cloud di Azure (file con estensione cscfg)
 Il file di configurazione del servizio specifica il numero di istanze del ruolo da distribuire per ogni ruolo nel servizio, i valori delle impostazioni di configurazione e le identificazioni personali per i certificati associati a un ruolo. Se il servizio fa parte di una rete virtuale, le informazioni di configurazione della rete devono essere specificate nel file di configurazione del servizio e nel file di configurazione della rete virtuale. L'estensione predefinita per il file di configurazione del servizio è cscfg.
@@ -50,12 +51,12 @@ Gli argomenti seguenti descrivono lo schema per l'elemento `ServiceConfiguration
 ## <a name="service-configuration-namespace"></a>Spazio dei nomi di configurazione del servizio
 Lo spazio dei nomi XML per il file di configurazione del servizio è: `http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration`.
 
-##  <a name="ServiceConfiguration"></a> Elemento ServiceConfiguration
+##  <a name="serviceconfiguration-element"></a><a name="ServiceConfiguration"></a> Elemento ServiceConfiguration
 `ServiceConfiguration` è l'elemento di livello superiore del file di configurazione del servizio.
 
 La tabella seguente descrive gli attributi dell'elemento `ServiceConfiguration`. Tutti i valori degli attributi sono di tipo stringa.
 
-| Attributo | Description |
+| Attributo | Descrizione |
 | --------- | ----------- |
 |serviceName|Obbligatorio. Nome del servizio cloud. Il nome assegnato qui deve corrispondere al nome specificato nel file di definizione del servizio.|
 |osFamily|Facoltativa. Specifica il sistema operativo guest che verrà eseguito sulle istanze del ruolo nel servizio cloud. Per informazioni sulle versioni del sistema operativo guest supportate, vedere [Versioni del sistema operativo guest di Azure e matrice di compatibilità SDK](cloud-services-guestos-update-matrix.md).<br /><br /> Se non si include un valore `osFamily` e non si è impostato l'attributo `osVersion` su una versione specifica del sistema operativo guest, viene usato il valore predefinito 1.|

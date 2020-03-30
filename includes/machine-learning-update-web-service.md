@@ -2,25 +2,25 @@
 author: Blackmist
 ms.service: machine-learning
 ms.topic: include
-ms.date: 01/10/2019
+ms.date: 03/16/2020
 ms.author: larryfr
-ms.openlocfilehash: 469d87a828df19ca30260cada9dcea43859be9e0
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: d36bf2db05113656a77e76ff900d95910f313c73
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75901845"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477256"
 ---
-Per aggiornare un servizio Web, usare il metodo `update`. È possibile aggiornare il servizio Web per usare un nuovo modello, un nuovo script di immissione o nuove dipendenze che possono essere specificate in una configurazione di inferenza. Per ulteriori informazioni, vedere la documentazione relativa a [WebService. Update](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py#update--args-).
+Per aggiornare un servizio `update` Web, utilizzare il metodo . È possibile aggiornare il servizio Web per utilizzare un nuovo modello, un nuovo script di voce o nuove dipendenze che possono essere specificate in una configurazione di inferenza. Per ulteriori informazioni, vedere la documentazione relativa a [Webservice.update](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py#update--args-).
 
 > [!IMPORTANT]
 > Quando si crea una nuova versione di un modello, è necessario aggiornare manualmente ogni servizio che si desidera utilizzare.
 >
-> Non è possibile usare l'SDK per aggiornare un servizio Web pubblicato dalla finestra di progettazione Azure Machine Learning.
+> Non è possibile usare l'SDK per aggiornare un servizio Web pubblicato dalla finestra di progettazione di Azure Machine Learning.You can not use the SDK to update a web service published from the Azure Machine Learning designer.
 
 **Uso dell'SDK**
 
-Il codice seguente illustra come usare l'SDK per aggiornare il modello, l'ambiente e lo script di immissione per un servizio Web:
+Il codice seguente mostra come usare l'SDK per aggiornare il modello, l'ambiente e lo script di ingresso per un servizio Web:
 
 ```python
 from azureml.core import Environment
@@ -53,7 +53,7 @@ print(service.get_logs())
 
 **Uso dell'interfaccia della riga di comando**
 
-È anche possibile aggiornare un servizio Web usando l'interfaccia della riga di comando di ML. Nell'esempio seguente viene illustrata la registrazione di un nuovo modello e l'aggiornamento di un servizio Web per l'utilizzo del nuovo modello:
+È inoltre possibile aggiornare un servizio Web utilizzando l'interfaccia della riga di comando di ML. Nell'esempio seguente viene illustrata la registrazione di un nuovo modello e quindi l'aggiornamento di un servizio Web per l'utilizzo del nuovo modello:The following example demonstrates registering a new model and then updating a web service to use the new model:
 
 ```azurecli
 az ml model register -n sklearn_mnist  --asset-path outputs/sklearn_mnist_model.pkl  --experiment-name myexperiment --output-metadata-file modelinfo.json
@@ -61,8 +61,8 @@ az ml service update -n myservice --model-metadata-file modelinfo.json
 ```
 
 > [!TIP]
-> In questo esempio viene usato un documento JSON per passare le informazioni sul modello dal comando di registrazione nel comando Update.
+> In questo esempio, un documento JSON viene usato per passare le informazioni sul modello dal comando registration nel comando update.
 >
-> Per aggiornare il servizio per l'uso di un nuovo script di immissione o di un ambiente, creare un [file di configurazione dell'inferenza](/azure/machine-learning/service/reference-azure-machine-learning-cli#inference-configuration-schema) e specificarlo con il parametro `ic`.
+> Per aggiornare il servizio in modo che utilizzi un nuovo script di `ic` voce o un nuovo ambiente, creare un file di configurazione dell'inferenza e specificarlo con il parametro . [inference configuration file](/azure/machine-learning/service/reference-azure-machine-learning-cli#inference-configuration-schema)
 
-Per ulteriori informazioni, vedere la documentazione relativa all' [aggiornamento del servizio AZ ml](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest#ext-azure-cli-ml-az-ml-service-update) .
+Per altre informazioni, vedere la documentazione relativa [all'aggiornamento del servizio az ml.](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest#ext-azure-cli-ml-az-ml-service-update)

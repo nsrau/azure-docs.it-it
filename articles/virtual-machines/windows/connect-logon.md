@@ -1,5 +1,5 @@
 ---
-title: Connettersi a una macchina virtuale Windows Server
+title: Connettersi a una macchina virtuale di Windows ServerConnect to a Windows Server VM
 description: Informazioni su come connettersi e accedere a una macchina virtuale Windows tramite il portale di Azure e il modello di distribuzione di Resource Manager.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 152df830f11cd5a73235559c5c5d65ced44f22fa
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79266767"
 ---
 # <a name="how-to-connect-and-sign-on-to-an-azure-virtual-machine-running-windows"></a>Come connettersi e accedere a una macchina virtuale di Azure che esegue Windows
@@ -27,10 +27,10 @@ Per avviare una sessione di Desktop remoto (RDP) da un desktop di Windows, sarà
 Per connettersi a una macchina virtuale Windows da un Mac, sarà necessario installare un client RDP per Mac come [Desktop remoto Microsoft](https://aka.ms/rdmac).
 
 ## <a name="connect-to-the-virtual-machine"></a>Connettersi alla macchina virtuale
-1. Passare alla [portale di Azure](https://portal.azure.com/) per connettersi a una macchina virtuale. Cercare e selezionare **macchine virtuali**.
+1. Passare al portale di [Azure](https://portal.azure.com/) per connettersi a una macchina virtuale. Cercare e selezionare **Macchine virtuali**.
 2. Selezionare la macchina virtuale dall'elenco.
 3. All'inizio della pagina della macchina virtuale selezionare **Connetti**.
-4. Nella pagina **connessione alla macchina virtuale** selezionare **RDP**, quindi selezionare l' **indirizzo IP** e il **numero di porta**appropriati. Nella maggior parte dei casi, è consigliabile usare l'indirizzo IP e la porta predefiniti. Selezionare **Scarica file RDP**. Se per la macchina virtuale è impostato un criterio JIT, selezionare prima il pulsante **Richiedi accesso** per richiedere l'accesso e poter quindi scaricare il file RDP. Per altre informazioni sui criteri JIT, vedere [Gestire l'accesso alle macchine virtuali con la funzionalità JIT (Just-in-Time)](../../security-center/security-center-just-in-time.md).
+4. Nella pagina **Connetti a macchina virtuale** selezionare **RDP**, quindi selezionare l'indirizzo **IP** e il numero **di porta**appropriati . Nella maggior parte dei casi, è consigliabile usare l'indirizzo IP e la porta predefiniti. Selezionare **Scarica file RDP**. Se per la macchina virtuale è impostato un criterio JIT, selezionare prima il pulsante **Richiedi accesso** per richiedere l'accesso e poter quindi scaricare il file RDP. Per altre informazioni sui criteri JIT, vedere [Gestire l'accesso alle macchine virtuali con la funzionalità JIT (Just-in-Time)](../../security-center/security-center-just-in-time.md).
 5. Aprire il file RDP scaricato e selezionare **Connetti** quando richiesto. Verrà visualizzato un avviso per segnalare che l'autore del file `.rdp` è sconosciuto. Si tratta di un comportamento previsto. Nella finestra **Connessione Desktop remoto** selezionare **Connetti** per continuare.
    
     ![Screenshot di un avviso relativo a un autore sconosciuto.](./media/connect-logon/rdp-warn.png)
@@ -55,7 +55,7 @@ Per connettersi a una macchina virtuale Windows da un Mac, sarà necessario inst
 
  
 
-Se si usa PowerShell e si dispone del modulo Azure PowerShell installato, è anche possibile connettersi usando il cmdlet `Get-AzRemoteDesktopFile`, come illustrato di seguito.
+Se si usa PowerShell e si dispone del modulo di `Get-AzRemoteDesktopFile` Azure PowerShell, è possibile connettersi anche tramite il cmdlet, come illustrato di seguito.
 
 In questo esempio verrà avviata immediatamente la connessione RDP, con prompt simili ai precedenti.
 

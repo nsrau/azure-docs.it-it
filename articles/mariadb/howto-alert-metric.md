@@ -1,17 +1,17 @@
 ---
-title: Configurare gli avvisi delle metriche-portale di Azure database di Azure per MariaDB
+title: Configurare avvisi metrici - Portale di Azure - Database di Azure per MariaDBConfigure metric alerts - Azure portal - Azure Database for MariaDB
 description: Questo articolo descrive come configurare avvisi per le metriche per Database di Azure per MariaDB e accedere a tali avvisi nel portale di Azure.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: c2367fc58530675783277c2edc4d62efd55a1da8
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: 683b89b29265159b0316d427a7ae616bf3766f7c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74771881"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79529018"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mariadb"></a>Usare il portale di Azure per configurare avvisi per le metriche per Database di Azure per MariaDB
 
@@ -25,8 +25,8 @@ L'avviso viene attivato quando il valore di una metrica specifica supera una sog
 * Chiamare un webhook
 
 È possibile configurare regole di avviso e ottenere informazioni su di esse tramite:
-* [Azure portal](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
-* [interfaccia della riga di comando di Azure](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
+* [Portale di Azure](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
+* [Interfaccia della riga di comando di AzureAzure](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
 * [API REST di Monitoraggio di Azure](https://docs.microsoft.com/rest/api/monitor/metricalerts)
 
 ## <a name="create-an-alert-rule-on-a-metric"></a>Creare una regola di avviso per una metrica
@@ -48,7 +48,7 @@ L'avviso viene attivato quando il valore di una metrica specifica supera una sog
    
    ![Selezionare una metrica](./media/howto-alert-metric/6-configure-signal-logic.png)
 
-7. Configurare la logica degli avvisi specificando i valori nei campi **Condizione** (ad esempio "Maggiore di"), **Soglia** (ad esempio l'85%), **Aggregazione temporale**, **Periodo** di tempo in cui è necessario soddisfare la regola della metrica prima che venga attivato l'avviso (ad esempio "Negli ultimi 30 minuti") e **Frequenza**.
+7. Configurare la logica degli avvisi specificando i valori nei campi **Condizione** (ad esempio "Maggiore di"), **Soglia** (ad esempio l'85%), **Aggregazione temporale**, **Periodo** di tempo in cui è necessario soddisfare la regola della metrica prima che venga attivato l'avviso (ad esempio "Negli ultimi 30 minuti"), e **Frequenza**.
    
    Al termine, selezionare **Chiudi**.
 

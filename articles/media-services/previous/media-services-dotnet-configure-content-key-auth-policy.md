@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 58d52cd194ca4391c61f2477189984273df1198a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79251206"
 ---
 # <a name="configure-a-content-key-authorization-policy"></a>Configurare i criteri di autorizzazione di una chiave simmetrica
@@ -34,7 +34,7 @@ Per consentire a Servizi multimediali di crittografare un asset, è necessario a
 
 Quando un lettore richiede un flusso, Servizi multimediali usa la chiave specificata per crittografare dinamicamente i contenuti mediante la crittografia DRM o AES. Per decrittografare il flusso, il lettore richiede la chiave dal servizio di distribuzione delle chiavi. Per determinare se l'utente è autorizzato a ottenere la chiave, il servizio valuta i criteri di autorizzazione specificati per la chiave.
 
-Servizi multimediali supporta più modalità di autenticazione degli utenti che eseguono richieste di chiavi. I criteri di autorizzazione della chiave simmetrica possono avere una o più limitazioni di autorizzazione. Le opzioni disponibili sono restrizione aperta o del token. I criteri con restrizione del token richiedono la presenza di un token rilasciato da un servizio token di sicurezza. Servizi multimediali supporta i token nei formati token Web semplice, ovvero [SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2) e token JSON Web, ovvero [JWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3).
+Servizi multimediali supporta più modalità di autenticazione degli utenti che eseguono richieste di chiavi. I criteri di autorizzazione della chiave simmetrica possono avere una o più limitazioni di autorizzazione. Le opzioni disponibili sono restrizione aperta o del token. I criteri con restrizione del token richiedono la presenza di un token rilasciato da un servizio token di sicurezza. Servizi multimediali supporta i token nel formato token Web semplice ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) e nel formato JSON Web Token ([JWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3)).
 
 Servizi multimediali non offre un servizio token di sicurezza. È possibile creare un servizio token di sicurezza personalizzato o usare il Servizio di controllo di accesso di Azure per il rilascio di token. Il servizio token di sicurezza deve essere configurato in modo da creare un token firmato con la chiave specificata e rilasciare le attestazioni specificate nella configurazione della restrizione Token, come descritto in questo articolo. Se il token è valido e le attestazioni nel token corrispondono a quelle configurate per la chiave simmetrica, il servizio di distribuzione delle chiavi di Servizi multimediali restituisce la chiave di crittografia al client.
 
@@ -231,7 +231,7 @@ Per ottenere un token di test basato sulle limitazioni del token usate per i cri
 ## <a name="playready-dynamic-encryption"></a>Crittografia dinamica PlayReady
 È possibile usare Servizi multimediali per configurare i diritti e le restrizioni che il runtime di PlayReady DRM deve applicare quando l'utente prova a riprodurre contenuti protetti. 
 
-Quando si protegge il contenuto con PlayReady, è necessario includere nei criteri di autorizzazione una stringa XML che definisce il [modello di licenza PlayReady](media-services-playready-license-template-overview.md). Per definire più facilmente il modello di licenza PlayReady, è possibile usare le classi PlayReadyLicenseResponseTemplate e PlayReadyLicenseTemplate nell'SDK di Servizi multimediali per .NET.
+Quando si protegge il contenuto con PlayReady, uno degli elementi che è necessario specificare nei criteri di autorizzazione è una stringa XML che definisce il modello di [licenza PlayReady](media-services-playready-license-template-overview.md). Per definire più facilmente il modello di licenza PlayReady, è possibile usare le classi PlayReadyLicenseResponseTemplate e PlayReadyLicenseTemplate nell'SDK di Servizi multimediali per .NET.
 
 Per informazioni su come crittografare i contenuti con PlayReady e Widevine, vedere [Usare la crittografia comune dinamica Widevine e/o PlayReady](media-services-protect-with-playready-widevine.md).
 
@@ -392,8 +392,8 @@ Per configurare l'opzione di restrizione del token, è necessario usare un file 
 
 Per ottenere un token di test basato sulle limitazioni del token usate per i criteri di autorizzazione della chiave, vedere la sezione [Token di test](#test-token). 
 
-## <a id="types"></a>Tipi usati durante la definizione di ContentKeyAuthorizationPolicy
-### <a id="ContentKeyRestrictionType"></a>ContentKeyRestrictionType
+## <a name="types-used-when-you-define-contentkeyauthorizationpolicy"></a><a id="types"></a>Tipi usati durante la definizione di ContentKeyAuthorizationPolicy
+### <a name="contentkeyrestrictiontype"></a><a id="ContentKeyRestrictionType"></a>ContentKeyRestrictionType
 
 ```csharp
     public enum ContentKeyRestrictionType
@@ -404,7 +404,7 @@ Per ottenere un token di test basato sulle limitazioni del token usate per i cri
     }
 ```
 
-### <a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
+### <a name="contentkeydeliverytype"></a><a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
 
 ```csharp 
     public enum ContentKeyDeliveryType
@@ -416,7 +416,7 @@ Per ottenere un token di test basato sulle limitazioni del token usate per i cri
     }
 ```
 
-### <a id="TokenType"></a>TokenType
+### <a name="tokentype"></a><a id="TokenType"></a>TokenType (Tipo di token)
 
 ```csharp
     public enum TokenType

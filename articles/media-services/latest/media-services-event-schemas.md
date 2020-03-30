@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 02/25/2020
 ms.author: juliako
 ms.openlocfilehash: d4a206bbddedfe9f23a943df27c6ac4b5fe17e8a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79251349"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Schemi di Griglia di eventi di Azure per gli eventi di Servizi multimediali
@@ -44,13 +44,13 @@ Servizi multimediali genera i tipi di evento correlati al **processo** descritti
 
 Vedere gli [esempi di schema](#event-schema-examples) seguenti.
 
-### <a name="monitoring-job-output-state-changes"></a>Monitoraggio delle modifiche allo stato di output del processo
+### <a name="monitoring-job-output-state-changes"></a>Monitoraggio delle modifiche dello stato dell'output del processoMonitoring job output state changes
 
-Un processo può contenere più output del processo, se la trasformazione è stata configurata in modo da avere più output del processo. Se si desidera tenere traccia dei dettagli del singolo output del processo, attendere un evento di modifica dell'output del processo.
+Un processo può contenere più output di processo (se la trasformazione è stata configurata per avere più output di processo). Se si desidera tenere traccia dei dettagli del singolo output del processo, attendere un evento di modifica dell'output del processo.
 
-Ogni **processo** avrà un livello superiore rispetto a **JobOutput**, quindi gli eventi di output del processo vengono generati all'interno di un processo corrispondente. 
+Ogni **processo** sarà a un livello superiore rispetto a **JobOutput**, pertanto gli eventi di output del processo vengono generati all'interno di un processo corrispondente. 
 
-I messaggi di errore in `JobFinished`, `JobCanceled``JobError` output dei risultati aggregati per ogni output del processo, al termine di tutti. Mentre gli eventi di output del processo vengono attivati al termine di ogni attività. Se, ad esempio, si dispone di un output di codifica, seguito da un output di analisi video, si ottengono due eventi che vengono generati come eventi di output del processo prima che venga generato l'evento JobFinished finale con i dati aggregati.
+I messaggi `JobFinished`di `JobCanceled` `JobError` errore in , , restituiscono i risultati aggregati per ogni output del processo, al termine di tutti. Mentre, gli eventi di output del processo vengono attivati al termine di ogni attività. Ad esempio, se hai un output di codifica, seguito da un output di Analisi video, otterrai due eventi che vengono riprodotto come eventi di output del processo prima che l'evento JobFinished finale venga generato con i dati aggregati.
 
 | Tipo di evento | Descrizione |
 | ---------- | ----------- |
@@ -64,7 +64,7 @@ I messaggi di errore in `JobFinished`, `JobCanceled``JobError` output dei risult
 
 Vedere gli [esempi di schema](#event-schema-examples) seguenti.
 
-### <a name="monitoring-job-output-progress"></a>Monitoraggio dello stato dell'output del processo
+### <a name="monitoring-job-output-progress"></a>Monitoraggio dell'avanzamento dell'output dei processi
 
 | Tipo di evento | Descrizione |
 | ---------- | ----------- |
@@ -93,7 +93,7 @@ Vedere gli [esempi di schema](#event-schema-examples) seguenti.
 Gli eventi a livello di traccia vengono generati per singola traccia. 
 
 > [!NOTE]
-> Tutti gli eventi a livello di rilevamento vengono generati dopo la connessione di un codificatore Live.
+> Tutti gli eventi a livello di traccia vengono generati dopo la connessione di un codificatore live.
 
 I tipi di evento a livello di traccia sono:
 
@@ -101,9 +101,9 @@ I tipi di evento a livello di traccia sono:
 | ---------- | ----------- |
 | Microsoft.Media.LiveEventIncomingDataChunkDropped | Il server dei contenuti multimediali elimina il blocco di dati perché è troppo tardi o presenta un timestamp sovrapposto. Il timestamp del nuovo blocco di dati è minore rispetto all'ora di fine del blocco di dati precedente. |
 | Microsoft.Media.LiveEventIncomingStreamReceived | Il server dei contenuti multimediali riceve il primo blocco di dati per ogni traccia nel flusso o nella connessione. |
-| Microsoft.Media.LiveEventIncomingStreamsOutOfSync | Media Server rileva che i flussi audio e video non sono sincronizzati. Utilizzare come avviso perché l'esperienza utente potrebbe non essere interessata. |
-| Microsoft.Media.LiveEventIncomingVideoStreamsOutOfSync | Media Server rileva che i due flussi video provenienti dal codificatore esterno non sono sincronizzati. Utilizzare come avviso perché l'esperienza utente potrebbe non essere interessata. |
-| Microsoft.Media.LiveEventIngestHeartbeat | Pubblicato ogni 20 secondi per ogni traccia quando l'evento live è in esecuzione. Presenta un riepilogo dell'integrità dell'inserimento.<br/><br/>Dopo la connessione iniziale del codificatore, l'evento Heartbeat continua a essere emesso ogni 20 secondi se il codificatore è ancora connesso o meno. |
+| Microsoft.Media.LiveEventIncomingStreamsOutOfSync | Il server multimediale rileva che i flussi audio e video non sono sincronizzati. Utilizzare come avviso perché l'esperienza utente potrebbe non essere influenzata. |
+| Microsoft.Media.LiveEventIncomingVideoStreamsOutOfSync | Il server multimediale rileva che uno dei due flussi video provenienti da un codificatore esterno non è sincronizzato. Utilizzare come avviso perché l'esperienza utente potrebbe non essere influenzata. |
+| Microsoft.Media.LiveEventIngestHeartbeat | Pubblicato ogni 20 secondi per ogni traccia quando l'evento live è in esecuzione. Presenta un riepilogo dell'integrità dell'inserimento.<br/><br/>Dopo che il codificatore è stato inizialmente connesso, l'evento heartbeat continua a generare ogni 20 sec, indipendentemente dal fatto che il codificatore sia ancora connesso o meno. |
 | Microsoft.Media.LiveEventTrackDiscontinuityDetected | Il server dei contenuti multimediali rileva discontinuità nella traccia in ingresso. |
 
 Vedere gli [esempi di schema](#event-schema-examples) seguenti.
@@ -137,7 +137,7 @@ Di seguito sono elencate le proprietà dell'oggetto dati:
 | Proprietà | Type | Descrizione |
 | -------- | ---- | ----------- |
 | previousState | string | Stato del processo prima dell'evento. |
-| state | string | Nuovo stato del processo notificato in questo evento. Ad esempio, "pianificato: il processo è pronto per l'avvio" o "completato: il processo è terminato".|
+| state | string | Nuovo stato del processo notificato in questo evento. Ad esempio, "Programmato: il processo è pronto per l'avvio" o "Finito: il processo è terminato".|
 
 Dove lo stato del processo può essere uno dei valori: *Queued*, *Scheduled*, *Processing*, *Finished*, *Error*, *Canceled*, *Canceling*
 
@@ -328,7 +328,7 @@ Di seguito sono elencate le proprietà dell'oggetto dati:
 | encoderPort | string | Porta del codificatore da cui proviene il flusso. |
 | resultCode | string | Motivo per cui la connessione è stata rifiutata. I codici di risultato sono elencati nella tabella seguente. |
 
-È possibile trovare i codici dei risultati degli errori nei [codici di errore dell'evento Live](live-event-error-codes.md).
+È possibile trovare i codici dei risultati di errore nei codici di [errore evento live](live-event-error-codes.md).
 
 ### <a name="liveeventencoderconnected"></a>LiveEventEncoderConnected
 
@@ -398,7 +398,7 @@ Di seguito sono elencate le proprietà dell'oggetto dati:
 | encoderPort | string | Porta del codificatore da cui proviene il flusso. |
 | resultCode | string | Motivo di disconnessione del codificatore. La causa può essere una disconnessione normale o causata da un errore. I codici di risultato sono elencati nella tabella seguente. |
 
-È possibile trovare i codici dei risultati degli errori nei [codici di errore dell'evento Live](live-event-error-codes.md).
+È possibile trovare i codici dei risultati di errore nei codici di [errore evento live](live-event-error-codes.md).
 
 I codici di risultato della disconnessione normale sono:
 
@@ -445,7 +445,7 @@ Di seguito sono elencate le proprietà dell'oggetto dati:
 | trackType | string | Tipo di traccia (audio/video). |
 | trackName | string | Nome della traccia. |
 | bitrate | integer | Velocità in bit della traccia. |
-| timestamp | string | Timestamp del blocco di dati eliminato. |
+|  timestamp | string | Timestamp del blocco di dati eliminato. |
 | timescale | string | Scala cronologica del timestamp. |
 | resultCode | string | Motivo dell'eliminazione del blocco di dati. **FragmentDrop_OverlapTimestamp** o **FragmentDrop_NonIncreasingTimestamp**. |
 
@@ -488,7 +488,7 @@ Di seguito sono elencate le proprietà dell'oggetto dati:
 | ingestUrl | string | URL di inserimento fornito dall'evento live. |
 | encoderIp | string  | Indirizzo IP del codificatore. |
 | encoderPort | string | Porta del codificatore da cui proviene il flusso. |
-| timestamp | string | Primo timestamp del blocco di dati ricevuto. |
+|  timestamp | string | Primo timestamp del blocco di dati ricevuto. |
 | timescale | string | Scala cronologica in cui è rappresentato il timestamp. |
 
 ### <a name="liveeventincomingstreamsoutofsync"></a>LiveEventIncomingStreamsOutOfSync
@@ -674,4 +674,4 @@ Un evento presenta i seguenti dati di primo livello:
 
 - [EventGrid .NET SDK che include gli eventi per Servizi multimediali](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
 - [Definizioni degli eventi di Servizi multimediali](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)
-- [Codici di errore dell'evento Live](live-event-error-codes.md)
+- [Codici di errore Eventi live](live-event-error-codes.md)

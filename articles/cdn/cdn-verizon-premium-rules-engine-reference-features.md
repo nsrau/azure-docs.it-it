@@ -1,6 +1,6 @@
 ---
-title: Funzionalità del motore regole di rete CDN di Azure di Verizon Premium | Microsoft Docs
-description: Documentazione di riferimento per le funzionalità del motore regole Premium della rete CDN di Azure di Verizon.
+title: Funzionalità del motore regole di Azure CDN da Verizon Premium Documenti Microsoft
+description: Documentazione di riferimento per la rete CDN di Azure dalle funzionalità del motore regole di Verizon Premium.Reference documentation for Azure CDN from Verizon Premium rules engine features.
 services: cdn
 author: mdgattuso
 ms.service: azure-cdn
@@ -8,13 +8,13 @@ ms.topic: article
 ms.date: 05/31/2019
 ms.author: magattus
 ms.openlocfilehash: 9177ac544c83305ae95ad681d3dc9f84ac64ea36
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79247579"
 ---
-# <a name="azure-cdn-from-verizon-premium-rules-engine-features"></a>Funzionalità del motore regole della rete CDN di Azure di Verizon Premium
+# <a name="azure-cdn-from-verizon-premium-rules-engine-features"></a>Funzionalità del motore regole della rete CDN di Azure da Verizon PremiumAzure CDN from Verizon Premium rules engine features
 
 Questo articolo offre una descrizione dettagliata delle funzionalità disponibili per il [motore regole](cdn-verizon-premium-rules-engine.md) della rete di distribuzione dei contenuti (CDN) di Azure.
 
@@ -27,10 +27,10 @@ Queste funzionalità sono progettate per controllare l'accesso al contenuto.
 Nome | Scopo
 -----|--------
 [Deny Access (403)](#deny-access-403) (Nega accesso (403)) | Determina se tutte le richieste vengono rifiutate con una risposta 403 Accesso negato.
-[Token Auth](#token-auth) (Autenticazione token) | Determina se l'autenticazione basata su token viene applicata a una richiesta.
-[Token Auth Denial Code](#token-auth-denial-code) (Codice rifiuto autenticazione token) | Determina il tipo di risposta che viene restituita a un utente quando una richiesta viene rifiutata a causa dell'autenticazione basata su token.
-[Token Auth Ignore URL Case](#token-auth-ignore-url-case) (Ignora maiuscole/minuscole URL autenticazione token) | Determina se viene applicata la distinzione tra maiuscole e minuscole nei confronti tra URL eseguiti dall'autenticazione basata su token.
-[Token Auth Parameter](#token-auth-parameter) (Parametro autenticazione token) | Determina se il parametro della stringa di query dell'autenticazione basata su token deve essere rinominato.
+[Autenticazione token](#token-auth) | Determina se l'autenticazione basata su token viene applicata a una richiesta.
+[Codice rifiuto autenticazione token](#token-auth-denial-code) | Determina il tipo di risposta che viene restituita a un utente quando una richiesta viene rifiutata a causa dell'autenticazione basata su token.
+[Maiuscole/minuscole URL autenticazione token](#token-auth-ignore-url-case) | Determina se viene applicata la distinzione tra maiuscole e minuscole nei confronti tra URL eseguiti dall'autenticazione basata su token.
+[Parametro autenticazione token](#token-auth-parameter) | Determina se il parametro della stringa di query dell'autenticazione basata su token deve essere rinominato.
 
 ## <a name="caching-features"></a>Funzionalità di caching
 
@@ -38,29 +38,29 @@ Queste funzionalità sono progettate per personalizzare come e quando il contenu
 
 Nome | Scopo
 -----|--------
-[Bandwidth Parameters](#bandwidth-parameters) (Parametri larghezza di banda) | Determina se i parametri di limitazione della larghezza di banda, ad esempio ec_rate ed ec_prebuf, sono attivi.
-[Bandwidth Throttling](#bandwidth-throttling) (Limitazione larghezza di banda) | Limita la larghezza di banda per la risposta fornita dal POP (Point-Of-Presence).
-[Bypass Cache](#bypass-cache) (Ignora cache) | Determina se la richiesta deve ignorare la memorizzazione nella cache.
-[Cache-Control Header Treatment](#cache-control-header-treatment) (Gestione intestazione Cache-Control) | Controlla la generazione di intestazioni `Cache-Control` da parte del POP quando la funzionalità External Max-Age (Validità massima esterna) è attiva.
-[Cache-Key Query String](#cache-key-query-string) (Stringa di query chiave cache) | Determina se la chiave della cache include o esclude i parametri della stringa di query associati a una richiesta.
-[Cache-Key Rewrite](#cache-key-rewrite) (Riscrittura chiave cache) | Riscrive la chiave della cache associata a una richiesta.
-[Complete Cache Fill](#complete-cache-fill) (Riempimento completo della cache) | Determina ciò che accade quando una richiesta ha come risultato un mancato riscontro nella cache parziale su un POP.
-[Compress File Types](#compress-file-types) (Comprimi tipi di file) | Definisce i formati per i file compressi nel server.
-[Default Internal Max-Age](#default-internal-max-age) (Validità massima interna predefinita) | Determina l'intervallo massimo di validità predefinito per la riconvalida della cache dal POP al server di origine.
-[Expires Header Treatment](#expires-header-treatment) (Gestione intestazione Expires) | Controlla la generazione di intestazioni `Expires` da parte di un POP quando la funzionalità External Max-Age (Validità massima esterna) è attiva.
-[External Max-Age](#external-max-age) (Validità massima esterna) | Determina l'intervallo massimo di validità per la riconvalida della cache dal browser al POP.
-[Force Internal Max-Age](#force-internal-max-age) (Forza validità massima interna) | Determina l'intervallo massimo di validità per la riconvalida della cache dal POP al server di origine.
-[H.264 Support (HTTP Progressive Download)](#h264-support-http-progressive-download) (Supporto H.264 (download progressivo HTTP)) | Determina i tipi di formati di file H.264 che possono essere usati per lo streaming di contenuti.
-[Honor No-Cache Request](#honor-no-cache-request) (Rispetta richiesta no-cache) | Determina se le richieste no-cache di un client HTTP vengono inoltrate al server di origine.
-[Ignore Origin No-Cache](#ignore-origin-no-cache) (Ignora no-cache origine) | Determina se la rete CDN deve ignorare alcune direttive servite da un server di origine.
-[Ignore Unsatisfiable Ranges](#ignore-unsatisfiable-ranges) (Ignora gli intervalli che non è possibile soddisfare) | Determina la risposta che viene restituita ai client quando una richiesta genera un codice di stato 416 - Impossibile attenersi all'intervallo richiesto.
-[Internal Max-Stale](#internal-max-stale) (Tempo di non aggiornamento massimo interno) | Controlla l'intervallo di tempo dopo la normale scadenza in cui un asset memorizzato nella cache può essere servito da un POP quando il POP non è in grado di riconvalidare l'asset memorizzato nella cache con il server di origine.
-[Partial Cache Sharing](#partial-cache-sharing) (Condivisione cache parziale) | Determina se una richiesta può generare contenuto parzialmente memorizzato nella cache.
-[Prevalidate Cached Content](#prevalidate-cached-content) (Preconvalida contenuto memorizzato nella cache) | Determina se il contenuto memorizzato nella cache è idoneo per la riconvalida anticipata prima della scadenza della durata (TTL).
-[Refresh Zero-Byte Cache Files](#refresh-zero-byte-cache-files) (Aggiorna file della cache con zero byte) | Determina come viene gestita dai POP una richiesta di un asset della cache con 0 byte inviata da un client HTTP.
-[Set Cacheable Status Codes](#set-cacheable-status-codes) (Imposta codici di stato inseribili nella cache) | Definisce il set di codici di stato che possono generare contenuto memorizzato nella cache.
-[Stale Content Delivery on Error](#stale-content-delivery-on-error) (Distribuzione di contenuto non aggiornato in caso di errore) | Determina se il contenuto scaduto memorizzato nella cache viene distribuito quando si verifica un errore durante la riconvalida della cache o quando si recupera il contenuto richiesto dal server di origine del cliente.
-[Stale While Revalidate](#stale-while-revalidate) (Client non aggiornato durante la riconvalida) | Migliora le prestazioni consentendo ai POP di servire un client non aggiornato al richiedente mentre avviene la riconvalida.
+[Parametri larghezza di banda](#bandwidth-parameters) | Determina se i parametri di limitazione della larghezza di banda, ad esempio ec_rate ed ec_prebuf, sono attivi.
+[Limitazione della larghezza di banda](#bandwidth-throttling) | Limita la larghezza di banda per la risposta fornita dal POP (Point-Of-Presence).
+[Ignora cache](#bypass-cache) | Determina se la richiesta deve ignorare la memorizzazione nella cache.
+[Gestione intestazione Cache-Control](#cache-control-header-treatment) | Controlla la generazione di intestazioni `Cache-Control` da parte del POP quando la funzionalità External Max-Age (Validità massima esterna) è attiva.
+[Stringa di query chiave cache](#cache-key-query-string) | Determina se la chiave della cache include o esclude i parametri della stringa di query associati a una richiesta.
+[Riscrittura chiave cache](#cache-key-rewrite) | Riscrive la chiave della cache associata a una richiesta.
+[Completa riempimento cache](#complete-cache-fill) | Determina ciò che accade quando una richiesta ha come risultato un mancato riscontro nella cache parziale su un POP.
+[Comprimi tipi di file](#compress-file-types) | Definisce i formati per i file compressi nel server.
+[Max-Age interno predefinito](#default-internal-max-age) | Determina l'intervallo massimo di validità predefinito per la riconvalida della cache dal POP al server di origine.
+[Gestione intestazione Expires](#expires-header-treatment) | Controlla la generazione di intestazioni `Expires` da parte di un POP quando la funzionalità External Max-Age (Validità massima esterna) è attiva.
+[Max-Age esterno](#external-max-age) | Determina l'intervallo massimo di validità per la riconvalida della cache dal browser al POP.
+[Forza Max-Age interno](#force-internal-max-age) | Determina l'intervallo massimo di validità per la riconvalida della cache dal POP al server di origine.
+[Supporto H.264 (download progressivo HTTP)](#h264-support-http-progressive-download) | Determina i tipi di formati di file H.264 che possono essere usati per lo streaming di contenuti.
+[Richiesta No-Cache onorario](#honor-no-cache-request) | Determina se le richieste no-cache di un client HTTP vengono inoltrate al server di origine.
+[Ignora nessuna cache di origine](#ignore-origin-no-cache) | Determina se la rete CDN deve ignorare alcune direttive servite da un server di origine.
+[Ignora gli intervalli che non è possibile soddisfare](#ignore-unsatisfiable-ranges) | Determina la risposta che viene restituita ai client quando una richiesta genera un codice di stato 416 - Impossibile attenersi all'intervallo richiesto.
+[Max-Stale interno](#internal-max-stale) | Controlla l'intervallo di tempo dopo la normale scadenza in cui un asset memorizzato nella cache può essere servito da un POP quando il POP non è in grado di riconvalidare l'asset memorizzato nella cache con il server di origine.
+[Condivisione cache parziale](#partial-cache-sharing) | Determina se una richiesta può generare contenuto parzialmente memorizzato nella cache.
+[Preconvalida contenuto memorizzato nella cache](#prevalidate-cached-content) | Determina se il contenuto memorizzato nella cache è idoneo per la riconvalida anticipata prima della scadenza della durata (TTL).
+[Aggiorna i file della cache con zero byte](#refresh-zero-byte-cache-files) | Determina come viene gestita dai POP una richiesta di un asset della cache con 0 byte inviata da un client HTTP.
+[Imposta codici di stato inseribile nella cache](#set-cacheable-status-codes) | Definisce il set di codici di stato che possono generare contenuto memorizzato nella cache.
+[Distribuzione di contenuto non aggiornato in caso di errore](#stale-content-delivery-on-error) | Determina se il contenuto scaduto memorizzato nella cache viene distribuito quando si verifica un errore durante la riconvalida della cache o quando si recupera il contenuto richiesto dal server di origine del cliente.
+[Client non aggiornato durante la riconvalida](#stale-while-revalidate) | Migliora le prestazioni consentendo ai POP di servire un client non aggiornato al richiedente mentre avviene la riconvalida.
 
 ## <a name="comment-feature"></a>Funzionalità di commento
 
@@ -76,11 +76,11 @@ Queste funzionalità sono progettate per aggiungere, modificare o eliminare le i
 
 Nome | Scopo
 -----|--------
-[Age Response Header](#age-response-header) (Intestazione di risposta Age) | Determina se un'intestazione di risposta Age viene inclusa nella risposta inviata al richiedente.
-[Debug Cache Response Headers](#debug-cache-response-headers) (Intestazioni di risposta di debug per la cache) | Determina se una risposta può includere l'intestazione di risposta X-EC-Debug, che fornisce informazioni sul criterio di cache per l'asset richiesto.
-[Modify Client Request Header](#modify-client-request-header) (Modifica intestazione richiesta client) | Sovrascrive, aggiunge o elimina un'intestazione da una richiesta.
-[Modify Client Response Header](#modify-client-response-header) (Modifica intestazione risposta client) | Sovrascrive, aggiunge o elimina un'intestazione da una risposta.
-[Set Client IP Custom Header](#set-client-ip-custom-header) (Imposta intestazione personalizzata IP client) | Consente di aggiungere l'indirizzo IP del client richiedente alla richiesta come un'intestazione personalizzata.
+[Intestazione di risposta Age](#age-response-header) | Determina se un'intestazione di risposta Age viene inclusa nella risposta inviata al richiedente.
+[Intestazioni di risposta di debug per la cache](#debug-cache-response-headers) | Determina se una risposta può includere l'intestazione di risposta X-EC-Debug, che fornisce informazioni sul criterio di cache per l'asset richiesto.
+[Modifica intestazione richiesta client](#modify-client-request-header) | Sovrascrive, aggiunge o elimina un'intestazione da una richiesta.
+[Modificare intestazione risposta client](#modify-client-response-header) | Sovrascrive, aggiunge o elimina un'intestazione da una risposta.
+[Imposta intestazione personalizzata IP client](#set-client-ip-custom-header) | Consente di aggiungere l'indirizzo IP del client richiedente alla richiesta come un'intestazione personalizzata.
 
 ## <a name="logging-features"></a>Funzionalità di registrazione
 
@@ -88,8 +88,8 @@ Queste funzionalità sono progettate per personalizzare i dati archiviati nei fi
 
 Nome | Scopo
 -----|--------
-[Custom Log Field 1](#custom-log-field-1) (Campo 1 log personalizzato) | Determina il formato e il contenuto che vengono assegnati al campo di log personalizzato in un file di log non elaborato.
-[Log Query String](#log-query-string) (Stringa di query log) | Determina se una stringa di query viene archiviata insieme all'URL nei log di accesso.
+[Campo 1 log personalizzato](#custom-log-field-1) | Determina il formato e il contenuto che vengono assegnati al campo di log personalizzato in un file di log non elaborato.
+[Stringa di query log](#log-query-string) | Determina se una stringa di query viene archiviata insieme all'URL nei log di accesso.
 
 
 <!---
@@ -142,8 +142,8 @@ Queste funzionalità sono progettate per controllare in che modo la rete CDN com
 
 Nome | Scopo
 -----|--------
-[Maximum Keep-Alive Requests](#maximum-keep-alive-requests) (Numero massimo di richieste Keep-Alive) | Definisce il numero massimo di richieste per una connessione Keep-Alive prima della chiusura.
-[Proxy Special Headers](#proxy-special-headers) (Intestazioni speciali proxy) | Definisce il set di intestazioni di richiesta specifiche della rete CDN che vengono inoltrate da un POP a un server di origine.
+[Numero massimo di richieste Keep-Alive](#maximum-keep-alive-requests) | Definisce il numero massimo di richieste per una connessione Keep-Alive prima della chiusura.
+[Intestazioni speciali proxy](#proxy-special-headers) | Definisce il set di intestazioni di richiesta specifiche della rete CDN che vengono inoltrate da un POP a un server di origine.
 
 ## <a name="specialty-features"></a>Funzionalità specializzate
 
@@ -151,8 +151,8 @@ Queste funzionalità offrono caratteristiche avanzate per gli utenti esperti.
 
 Nome | Scopo
 -----|--------
-[Cacheable HTTP Methods](#cacheable-http-methods) (Metodi HTTP inseribili nella cache) | Determina il set di metodi HTTP aggiuntivi che possono essere memorizzati nella cache nella rete.
-[Cacheable Request Body Size](#cacheable-request-body-size) (Dimensioni corpo richiesta inseribile nella cache) | Definisce la soglia per determinare se una risposta POST può essere memorizzata nella cache.
+[Metodi HTTP inseribile nella cache](#cacheable-http-methods) | Determina il set di metodi HTTP aggiuntivi che possono essere memorizzati nella cache nella rete.
+[Dimensioni corpo richiesta inseribile nella cache](#cacheable-request-body-size) | Definisce la soglia per determinare se una risposta POST può essere memorizzata nella cache.
 [User Variable](#user-variable) (Variabile utente) | Solo per uso interno.
 
 ## <a name="url-features"></a>Funzionalità URL
@@ -161,11 +161,11 @@ Queste funzionalità consentono il reindirizzamento o la riscrittura di una rich
 
 Nome | Scopo
 -----|--------
-[Follow Redirects](#follow-redirects) (Segui reindirizzamenti) | Determina se le richieste possono essere reindirizzate al nome host definito nell'intestazione Location restituita da un server di origine del cliente.
-[URL Redirect](#url-redirect) (Reindirizzamento URL) | Reindirizza le richieste tramite l'intestazione Location.
-[URL Rewrite](#url-rewrite) (Riscrittura URL)  | Riscrive l'URL della richiesta.
+[Segui reindirizzamenti](#follow-redirects) | Determina se le richieste possono essere reindirizzate al nome host definito nell'intestazione Location restituita da un server di origine del cliente.
+[Reindirizzamento URL](#url-redirect) | Reindirizza le richieste tramite l'intestazione Location.
+[Riscrittura URL](#url-rewrite)  | Riscrive l'URL della richiesta.
 
-## <a name="azure-cdn-from-verizon-premium-rules-engine-features-reference"></a>Guida di riferimento alle funzionalità del motore regole di rete CDN di Azure di Verizon Premium
+## <a name="azure-cdn-from-verizon-premium-rules-engine-features-reference"></a>Informazioni di riferimento sulle funzionalità del motore regole di Azure CDN da Verizon PremiumAzure CDN from Verizon Premium rules engine features reference
 
 ---
 
@@ -178,7 +178,7 @@ valore|Risultato
 Attivato | L'intestazione di risposta Age viene inclusa nella risposta inviata al richiedente.
 Disabled | L'intestazione di risposta Age viene esclusa dalla risposta inviata al richiedente.
 
-**Comportamento predefinito:** : Disabled.
+**Comportamento predefinito**: Disabilitato.
 
 [Torna all'inizio](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -216,7 +216,7 @@ Opzione|Descrizione
 Kbytes per second (KB al secondo)|Impostare questa opzione sulla larghezza di banda massima (KB al secondo) che è possibile usare per inviare la risposta.
 Prebuf seconds (Secondi prebuf)|Impostare questa opzione sul numero di secondi che i POP devono attendere prima che sia attivata la limitazione della larghezza di banda. Lo scopo di questo intervallo di tempo di larghezza di banda senza restrizioni è quello di impedire a un lettore multimediale di riscontrare problemi di stuttering o buffering a causa della limitazione della larghezza di banda.
 
-**Comportamento predefinito:** Disabled.
+**Comportamento predefinito:** Disabili.
 
 [Torna all'inizio](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -303,7 +303,7 @@ Pass-through|Assicura che l'intestazione `Cache-Control` prodotta dalla funziona
 Add if Missing (Aggiungi se mancante)|Se un'intestazione `Cache-Control` non è stata ricevuta dal server di origine, questa opzione aggiunge l'intestazione `Cache-Control` prodotta dalla funzionalità External Max-Age (Validità massima esterna). Assicura quindi che a tutti gli asset venga assegnata un'intestazione `Cache-Control`.
 Rimuovere| Questa opzione assicura che con la risposta di intestazione non sia inclusa un'intestazione `Cache-Control`. Se è già stata assegnata un'intestazione `Cache-Control`, viene rimossa dalla risposta di intestazione.
 
-**Comportamento predefinito:** Overwrite.
+**Comportamento predefinito:** Sovrascrivere.
 
 [Torna all'inizio](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -338,7 +338,7 @@ Per duplicare il comportamento di memorizzazione nella cache della stringa di qu
 
 Il seguente esempio di utilizzo per questa funzionalità fornisce un esempio di richiesta e la chiave di cache predefinita:
 
-- **Richiesta di esempio:** http://wpc.0001.&lt;D ominio&gt;/800001/Origin/Folder/asset.htm? SessionID = 1234 & language = en & UserID = 01
+- **Richiesta di esempio:** http://wpc.0001.&lt;Domain&gt;/800001/Origin/folder/asset.htm?sessioni&&d
 - **Chiave di cache predefinita:** /800001/Origin/folder/asset.htm
 
 ##### <a name="include"></a>Includi
@@ -367,7 +367,7 @@ Questo tipo di configurazione genera la chiave di cache del parametro della stri
 Configurazione di esempio:
 
 - **Tipo:** Escludi
-- **Parametro/i:** userid con sessione
+- **Parametro(i):** id utente con sessioneParameter(s): sessioned userid
 
 Questo tipo di configurazione genera la chiave di cache del parametro della stringa di query seguente:
 
@@ -400,7 +400,7 @@ Per configurare questa funzionalità è necessario definire entrambe le opzioni 
 Opzione|Descrizione
 --|--
 Percorso originale| Consente di definire il percorso relativo dei tipi di richieste di cui viene riscritta la chiave di cache. Un percorso relativo può essere definito selezionando un percorso di origine di base e quindi definendo un modello di espressione regolare.
-Nuovo percorso|Consente di definire il percorso relativo della nuova chiave di cache. Un percorso relativo può essere definito selezionando un percorso di origine di base e quindi definendo un modello di espressione regolare. Questo percorso relativo può essere creato dinamicamente tramite l'uso di [variabili HTTP](cdn-http-variables.md).
+Nuovo percorso|Consente di definire il percorso relativo della nuova chiave di cache. Un percorso relativo può essere definito selezionando un percorso di origine di base e quindi definendo un modello di espressione regolare. Questo percorso relativo può essere costruito dinamicamente tramite l'utilizzo di [variabili HTTP.](cdn-http-variables.md)
 
 **Comportamento predefinito:** la chiave di cache di una richiesta è determinata dall'URI della richiesta.
 
@@ -458,7 +458,7 @@ In base al modo in cui vengono monitorate le impostazioni della cache, è possib
 - Espressione regolare parametro cookie
 - Country
 - Dispositivo
-- CNAME Microsoft Edge
+- Nome Cdi Microsoft Edge
 - Dominio di riferimento
 - Valore letterale intestazione richiesta
 - Espressione regolare intestazione richiesta
@@ -516,7 +516,7 @@ Il formato per specificare le intestazioni di richiesta e risposta è definito c
 
 Tipo di intestazione|Format|Esempi
 -|-|-
-Intestazione di richiesta|`%{[RequestHeader]()}[i]()` | %{Accept-Encoding}i <br/> {Referrer}i <br/> %{Authorization}i
+Intestazione di richiesta|`%{[RequestHeader]()}[i]()` | %{Accept-Encoding}i <br/> "Referrer" i <br/> %{Authorization}i
 Intestazione di risposta|`%{[ResponseHeader]()}[o]()`| %{Age}o <br/> %{Content-Type}o <br/> %{Cookie}o
 
 Informazioni chiave:
@@ -527,7 +527,7 @@ Informazioni chiave:
 - Se si vogliono specificare più intestazioni, usare un separatore per indicare ogni intestazione. Per ogni intestazione, ad esempio, è possibile usare un'abbreviazione:
     - AE: %{Accept-Encoding}i A: %{Authorization}i CT: %{Content-Type}o
 
-**Valore predefinito:**  -
+**Valore predefinito:** -
 
 [Torna all'inizio](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -556,7 +556,7 @@ valore|Risultato
 Attivato|Le richieste di intestazioni di risposta di debug per la cache restituiranno una risposta che include l'intestazione X-EC-Debug.
 Disabled|L'intestazione di risposta X-EC-Debug verrà esclusa dalla risposta.
 
-**Comportamento predefinito:** Disabled.
+**Comportamento predefinito:** Disabili.
 
 [Torna all'inizio](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -683,7 +683,7 @@ valore|Risultato
 Attivato|Le richieste possono essere reindirizzate.
 Disabled|Le richieste non verranno reindirizzate.
 
-**Comportamento predefinito:** Disabled.
+**Comportamento predefinito:** Disabili.
 
 [Torna all'inizio](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -754,7 +754,7 @@ Informazioni chiave:
 
 ### <a name="honor-no-cache-request"></a>Rispetta richiesta No-Cache
 
-**Scopo:** : determina se le richieste no-cache di un client HTTP verranno inoltrate al server di origine.
+**Scopo:**: determina se le richieste no-cache di un client HTTP verranno inoltrate al server di origine.
 
 Una richiesta no-cache si verifica quando il client HTTP invia un'intestazione `Cache-Control: no-cache` e/o `Pragma: no-cache` nella richiesta HTTP.
 
@@ -767,7 +767,7 @@ Per tutto il traffico di produzione, è consigliabile lasciare questa funzionali
 
 Lo stato della cache visualizzato per una richiesta che può essere inoltrata a un server di origine grazie a questa funzionalità è `TCP_Client_Refresh_Miss`. Il report sugli stati della cache, disponibile nel modulo di report principale, fornisce informazioni statistiche in base allo stato della cache. Consente di monitorare il numero e la percentuale di richieste inoltrate a un server di origine a causa di questa funzionalità.
 
-**Comportamento predefinito:** Disabled.
+**Comportamento predefinito:** Disabili.
 
 [Torna all'inizio](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -830,7 +830,7 @@ valore|Risultato
 Attivato|Impedisce ai POP di rispondere a una richiesta di intervallo di byte non valida con un codice di stato 416 - Impossibile attenersi all'intervallo richiesto. I server forniranno invece l'asset richiesto e restituiranno al client il codice 200 - OK.
 Disabled|Ripristina il comportamento predefinito. Il comportamento predefinito prevede di rispettare il codice di stato 416 - Impossibile attenersi all'intervallo richiesto.
 
-**Comportamento predefinito:** Disabled.
+**Comportamento predefinito:** Disabili.
 
 [Torna all'inizio](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -896,7 +896,7 @@ valore|Risultato
 Attivato|Consente l'archiviazione di stringhe di query durante la registrazione degli URL in un log di accesso. Se un URL non contiene una stringa di query, questa opzione non produrrà alcun effetto.
 Disabled|Ripristina il comportamento predefinito. Il comportamento predefinito prevede di ignorare le stringhe di query durante la registrazione degli URL in un log di accesso.
 
-**Comportamento predefinito:** Disabled.
+**Comportamento predefinito:** Disabili.
 
 [Torna all'inizio](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -925,7 +925,7 @@ Informazioni chiave:
 
 ### <a name="modify-client-request-header"></a>Modifica intestazione richiesta client
 
-**Scopo**: ogni richiesta contiene un set di intestazioni di richiesta che la descrivono. Questa funzionalità può:
+**Scopo:** ogni richiesta contiene un set di intestazioni di richiesta che la descrivono. Questa funzionalità può:
 
 - Aggiungere o sovrascrivere il valore assegnato a un'intestazione di richiesta. Se l'intestazione di richiesta specificata non esiste, questa funzionalità la aggiungerà alla richiesta.
 - Eliminare dalla richiesta un'intestazione di richiesta.
@@ -938,7 +938,7 @@ Opzione|Descrizione|Esempio
 -|-|-
 Accoda|Il valore specificato verrà aggiunto alla fine del valore dell'intestazione di richiesta esistente.|**Valore intestazione richiesta (client):**<br/>Value1<br/>**Valore intestazione richiesta (motore regole):**<br/>Value2 <br/>**Valore nuova intestazione richiesta:** <br/>Value1Value2
 Overwrite|Il valore dell'intestazione di richiesta verrà impostato sul valore specificato.|**Valore intestazione richiesta (client):**<br/>Value1<br/>**Valore intestazione richiesta (motore regole):**<br/>Value2<br/>**Valore nuova intestazione richiesta:**<br/> Value2 <br/>
-Delete|Elimina l'intestazione di richiesta specificata.|**Valore intestazione richiesta (client):**<br/>Value1<br/>**Modificare la configurazione dell'intestazione della richiesta client:**<br/>Eliminare l'intestazione della richiesta in questione.<br/>**Risultato:**<br/>L'intestazione della richiesta specificata non verrà inoltrata al server di origine.
+Delete|Elimina l'intestazione di richiesta specificata.|**Valore intestazione richiesta (client):**<br/>Value1<br/>**Modificare la configurazione dell'intestazione della richiesta client:**<br/>Eliminare l'intestazione della richiesta in questione.<br/>**Result:**<br/>L'intestazione della richiesta specificata non verrà inoltrata al server di origine.
 
 Informazioni chiave:
 
@@ -953,7 +953,7 @@ Informazioni chiave:
     - forwarded
     - host
     - via
-    - avviso
+    - warning
     - x-forwarded-for
     - Tutti i nomi di intestazione che iniziano con "x-ec" sono riservati.
 
@@ -978,7 +978,7 @@ Opzione|Descrizione|Esempio
 -|-|-
 Accoda|Il valore specificato verrà aggiunto alla fine del valore dell'intestazione di risposta esistente.|**Valore intestazione risposta (client):**<br />Value1<br/>**Valore intestazione risposta (motore regole):**<br/>Value2<br/>**Valore nuova intestazione risposta:**<br/>Value1Value2
 Overwrite|Il valore dell'intestazione di risposta verrà impostato sul valore specificato.|**Valore intestazione risposta (client):**<br/>Value1<br/>**Valore intestazione risposta (motore regole):**<br/>Value2 <br/>**Valore nuova intestazione risposta:**<br/>Value2 <br/>
-Delete|Elimina l'intestazione di risposta specificata.|**Valore intestazione risposta (client):**<br/>Value1<br/>**Modificare la configurazione dell'intestazione della risposta client:**<br/>Eliminare l'intestazione della risposta in questione.<br/>**Risultato:**<br/>L'intestazione della risposta specificata non verrà inoltrata al richiedente.
+Delete|Elimina l'intestazione di risposta specificata.|**Valore intestazione risposta (client):**<br/>Value1<br/>**Modificare la configurazione dell'intestazione della risposta client:**<br/>Eliminare l'intestazione della risposta in questione.<br/>**Result:**<br/>L'intestazione della risposta specificata non verrà inoltrata al richiedente.
 
 Informazioni chiave:
 
@@ -1002,7 +1002,7 @@ Informazioni chiave:
     - aggiornamento
     - vary
     - via
-    - avviso
+    - warning
     - Tutti i nomi di intestazione che iniziano con "x-ec" sono riservati.
 
 [Torna all'inizio](#azure-cdn-from-verizon-premium-rules-engine-features)
@@ -1022,7 +1022,7 @@ valore|Risultato
 Attivato|Le richieste possono generare contenuti parzialmente memorizzati nella cache.
 Disabled|Le richieste possono generare solo una versione completamente memorizzata nella cache dei contenuti richiesti.
 
-**Comportamento predefinito:** Disabled.
+**Comportamento predefinito:** Disabili.
 
 [Torna all'inizio](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -1040,7 +1040,7 @@ Informazioni chiave:
 
 - Se si imposta l'unità di tempo su "Off", la riconvalida dovrà essere eseguita dopo la scadenza della durata dei contenuti memorizzati nella cache. Non è necessario specificare alcun valore di tempo poiché viene ignorato.
 
-**Comportamento predefinito:** Off. La riconvalida può aver luogo solo dopo la scadenza della durata dei contenuti memorizzati nella cache.
+**Comportamento predefinito:** Fuori. La riconvalida può aver luogo solo dopo la scadenza della durata dei contenuti memorizzati nella cache.
 
 [Torna all'inizio](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -1067,7 +1067,7 @@ Le intestazioni HTTP seguenti sono incluse nell'elenco predefinito:
 - X-EC-Name
 - Host
 
-**Comportamento predefinito**: tutte le intestazioni di richiesta specifiche della rete CDN verranno inoltrate al server di origine.
+**Comportamento predefinito:** tutte le intestazioni di richiesta specifiche della rete CDN verranno inoltrate al server di origine.
 
 [Torna all'inizio](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -1086,9 +1086,9 @@ valore|Risultato
 Attivato|Fa in modo che il POP recuperi nuovamente l'asset dal server di origine.
 Disabled|Ripristina il comportamento predefinito. Il comportamento predefinito prevede di rendere disponibili asset di cache validi su richiesta.
 
-Questa funzionalità non è necessaria per eseguire correttamente operazioni di memorizzazione nella cache o distribuzione di contenuti, ma può essere utile come soluzione alternativa. I generatori di contenuti dinamici nei server di origine, ad esempio, possono determinare inavvertitamente l'invio di risposte con 0 byte ai POP. Questi tipi di risposte vengono in genere memorizzati nella cache dai POP. Se si è certi che una risposta di 0 byte non è mai una risposta valida per tale contenuto, questa funzionalità può impedire che questi tipi di asset vengano serviti ai client.
+Questa funzionalità non è necessaria per eseguire correttamente operazioni di memorizzazione nella cache o distribuzione di contenuti, ma può essere utile come soluzione alternativa. I generatori di contenuti dinamici nei server di origine, ad esempio, possono determinare inavvertitamente l'invio di risposte con 0 byte ai POP. Questi tipi di risposte vengono in genere memorizzati nella cache dai POP. Se si sa che una risposta a 0 byte non è mai una risposta valida per tali contenuti, questa funzionalità può impedire la pubblicazione di questi tipi di risorse ai client.
 
-**Comportamento predefinito:** Disabled.
+**Comportamento predefinito:** Disabili.
 
 [Torna all'inizio](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -1134,7 +1134,7 @@ Assicurarsi che il nome di intestazione specificato non coincida con nessuno dei
     - host
     - vary
     - via
-    - avviso
+    - warning
     - x-forwarded-for
     - Tutti i nomi di intestazione che iniziano con "x-ec" sono riservati.
 
@@ -1153,7 +1153,7 @@ valore|Risultato
 Attivato|Se si verifica un errore durante una connessione a un server di origine, al richiedente vengono serviti contenuti non aggiornati.
 Disabled|L'errore del server di origine viene inoltrato al richiedente.
 
-**Comportamento predefinito:** Disabled
+**Comportamento predefinito:** Disabili
 
 [Torna all'inizio](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -1168,11 +1168,11 @@ Disabled|L'errore del server di origine viene inoltrato al richiedente.
 Informazioni chiave:
 
 - Il comportamento di questa funzionalità varia in base all'unità di tempo selezionata.
-    - **Unità di tempo:** specificare un intervallo di tempo e selezionare un'unità di tempo, ad esempio secondi, minuti, ore e così via, per consentire la distribuzione di contenuti non aggiornati. Questo tipo di configurazione consente alla rete CDN di estendere l'intervallo di tempo durante il quale può distribuire contenuti prima di richiedere la convalida in base alla formula seguente: **Durata** + **Tempo di non aggiornamento durante la riconvalida**
+    - **Unità di tempo:** specificare un intervallo di tempo e selezionare un'unità di tempo, ad esempio secondi, minuti, ore e così via, per consentire la distribuzione di contenuti non aggiornati. Questo tipo di configurazione consente alla rete CDN di estendere il periodo di tempo in cui può fornire contenuto prima di richiedere la convalida in base alla formula seguente: **TTL** + **Stale While Revalidate Time**
     - **Off:** selezionare "Off" per richiedere la riconvalida prima che possa essere servita una richiesta di contenuti non aggiornati.
         - Non specificare un intervallo di tempo poiché non è applicabile e verrebbe ignorato.
 
-**Comportamento predefinito:** Off. La riconvalida deve aver luogo prima che possano essere serviti i contenuti richiesti.
+**Comportamento predefinito:** Fuori. La riconvalida deve aver luogo prima che possano essere serviti i contenuti richiesti.
 
 [Torna all'inizio](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -1188,7 +1188,7 @@ Se l'autenticazione basata su token è abilitata, verranno soddisfatte solo le r
 
 La chiave di crittografia usata per crittografare e decrittografare i valori dei token viene determinata dalle opzioni relative alla chiave primaria e alla chiave di backup disponibili nella pagina di autenticazione del token. Tenere presente che le chiavi di crittografia sono specifiche della piattaforma.
 
-**Comportamento predefinito:** Disabled.
+**Comportamento predefinito:** Disabili.
 
 Questa funzionalità ha la precedenza sulla maggior parte delle funzionalità ad eccezione di Riscrittura URL.
 
@@ -1275,7 +1275,7 @@ valore|Risultato
 Attivato|Fa in modo che il POP non applichi la distinzione tra maiuscole e minuscole quando confronta gli URL per i parametri dell'autenticazione basata su token.
 Disabled|Ripristina il comportamento predefinito. Il comportamento predefinito prevede di applicare la distinzioni tra maiuscole e minuscole durante i confronti di URL per l'autenticazione basata su token.
 
-**Comportamento predefinito:** Disabled.
+**Comportamento predefinito:** Disabili.
 
 [Torna all'inizio](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -1298,7 +1298,7 @@ valore|Risultato
 Attivato|L'opzione Valore definisce il nome del parametro della stringa di query tramite il quale devono essere definiti i token.
 Disabled|Un token può essere specificato come un parametro non definito della stringa di query nell'URL della richiesta.
 
-**Comportamento predefinito:** Disabled. Un token può essere specificato come un parametro non definito della stringa di query nell'URL della richiesta.
+**Comportamento predefinito:** Disabili. Un token può essere specificato come un parametro non definito della stringa di query nell'URL della richiesta.
 
 [Torna all'inizio](#azure-cdn-from-verizon-premium-rules-engine-features)
 
@@ -1328,7 +1328,7 @@ Le richieste idonee verranno reindirizzate a questo URL CNAME perimetrale di bas
 
 Questo reindirizzamento URL può essere ottenuto tramite la configurazione seguente: ![Reindirizzamento URL](./media/cdn-rules-engine-reference/cdn-rules-engine-redirect.png)
 
-**Punti principali:**
+**Punti chiave:**
 
 - La funzionalità Reindirizzamento URL definisce gli URL di richiesta che verranno reindirizzati. Non sono quindi necessarie condizioni di corrispondenza aggiuntive. Anche se la condizione di corrispondenza è stata definita come "Always" (Sempre), verranno reindirizzate solo le richieste che puntano alla cartella "brochures" nell'origine cliente "marketing".
 - Tutte le richieste corrispondenti verranno reindirizzate all'URL CNAME periferico definito nell'opzione Destinazione.
@@ -1360,8 +1360,8 @@ Informazioni chiave:
 
 Opzione|Descrizione
 -|-
- Source & Pattern (Origine e modello) | Queste impostazioni definiscono un modello di URI di richiesta che identifica il tipo di richieste che possono essere riscritte. Verranno riscritte solo le richieste il cui URL soddisfa entrambi i criteri seguenti: <br/><br/>  - **Origine (o un punto di accesso dei contenuti):** selezionare un percorso relativo che identifica un server di origine. Questo percorso è costituito dalla sezione _/XXXX/_ e dal nome dell'endpoint. <br/><br/> - **Origine (modello):** deve essere definito un modello che identifica le richieste in base al percorso relativo. Questo modello di espressione regolare deve definire un percorso che inizia immediatamente dopo il punto di accesso dei contenuti selezionato in precedenza (vedere sopra). <br/> Assicurarsi che i criteri dell'URI di richiesta, ad esempio origine e modello, definiti in precedenza non entrino in conflitto con le condizioni di corrispondenza definite per questa funzionalità. Specificare un criterio; se si usa un valore vuoto come criterio, tutte le stringhe vengono confrontate.
- Destination  |Definire l'URL relativo in cui verranno riscritte le richieste precedenti: <br/>    1. selezione di un punto di accesso al contenuto che identifica un server di origine. <br/>    2. definizione di un percorso relativo utilizzando: <br/>        - Un modello di espressione regolare <br/>        - [Variabili HTTP](cdn-http-variables.md) <br/> <br/> Sostituire nel modello di destinazione i valori acquisiti nel modello di origine usando $_n_ dove _n_ identifica un valore in base all'ordine in cui è stato acquisito. Ad esempio, $1 rappresenta il primo valore acquisito nel modello di origine e $2 rappresenta il secondo valore.
+ Source & Pattern (Origine e modello) | Queste impostazioni definiscono un modello di URI di richiesta che identifica il tipo di richieste che possono essere riscritte. Verranno riscritte solo le richieste il cui URL soddisfa entrambi i criteri seguenti: <br/><br/>  - **Origine (o punto di accesso al contenuto):** Selezionare un percorso relativo che identifichi un server di origine. Questo percorso è costituito dalla sezione _/XXXX/_ e dal nome dell'endpoint. <br/><br/> - **Origine (modello):** deve essere definito un modello che identifica le richieste in base al percorso relativo. Questo modello di espressione regolare deve definire un percorso che inizia immediatamente dopo il punto di accesso dei contenuti selezionato in precedenza (vedere sopra). <br/> Assicurarsi che i criteri dell'URI di richiesta, ad esempio origine e modello, definiti in precedenza non entrino in conflitto con le condizioni di corrispondenza definite per questa funzionalità. Specificare un criterio; se si usa un valore vuoto come criterio, tutte le stringhe vengono confrontate.
+ Destination  |Definire l'URL relativo in cui verranno riscritte le richieste precedenti: <br/>    1. Selezione di un punto di accesso al contenuto che identifica un server di origine. <br/>    2. Definizione di un percorso relativo utilizzando: <br/>        - Un modello di espressione regolare <br/>        - [Variabili HTTP](cdn-http-variables.md) <br/> <br/> Sostituire nel modello di destinazione i valori acquisiti nel modello di origine usando $_n_ dove _n_ identifica un valore in base all'ordine in cui è stato acquisito. Ad esempio, $1 rappresenta il primo valore acquisito nel modello di origine e $2 rappresenta il secondo valore.
 
  Questa funzionalità consente ai POP di riscrivere l'URL senza eseguire un reindirizzamento tradizionale. Questo significa che il richiedente riceve lo stesso codice di risposta che riceverebbe se avesse richiesto l'URL riscritto.
 
@@ -1379,7 +1379,7 @@ Questo esempio dimostra come reindirizzare un URL CNAME perimetrale da MAIUSCOLO
 
 Questo reindirizzamento URL può essere ottenuto tramite la configurazione seguente: ![Reindirizzamento URL](./media/cdn-rules-engine-reference/cdn-rules-engine-to-lowercase.png)
 
-**Punti principali:**
+**Punti chiave:**
 
 - La funzionalità di riscrittura URL definisce gli URL di richiesta che verranno riscritti. Non sono quindi necessarie condizioni di corrispondenza aggiuntive. Anche se la condizione di corrispondenza è stata definita come "Always" (Sempre), verranno riscritte solo le richieste che puntano alla cartella "brochures" nell'origine cliente "marketing".
 

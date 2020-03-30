@@ -1,27 +1,27 @@
 ---
-title: Esempi di trasformazione di attestazioni data per criteri personalizzati
-description: Esempi di trasformazione delle attestazioni data per lo schema Framework dell'esperienza (Identity Experience Framework) del Azure Active Directory B2C.
+title: Esempi di trasformazione delle attestazioni di data per i criteri personalizzatiDate claims transformation examples for custom policies
+description: Esempi di trasformazione delle attestazioni di data per lo schema IEF (Identity Experience Framework) di Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/03/2020
+ms.date: 02/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f3e5a7b90892f0ed0243d448ea1ac63fb56f277f
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: c02ac9392d6f3f95deef38ff86250e96dfb76d96
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78188835"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79476689"
 ---
 # <a name="date-claims-transformations"></a>Trasformazioni delle attestazioni di data
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Questo articolo fornisce esempi per l'uso delle trasformazioni delle attestazioni di Data dello schema del Framework dell'esperienza di identità in Azure Active Directory B2C (Azure AD B2C). Per altre informazioni, vedere [ClaimsTransformations](claimstransformations.md).
+Questo articolo fornisce esempi per l'uso delle trasformazioni delle attestazioni di data dello schema Identity Experience Framework in Azure Active Directory B2C (Azure AD B2C). Per altre informazioni, vedere [ClaimsTransformations](claimstransformations.md).
 
 ## <a name="assertdatetimeisgreaterthan"></a>AssertDateTimeIsGreaterThan
 
@@ -33,9 +33,9 @@ Verifica che un'attestazione di data e ora (tipo di dati stringa) sia successiva
 | InputClaim | rightOperand | string | Tipo della seconda attestazione, che deve essere precedente alla prima attestazione. |
 | InputParameter | AssertIfEqualTo | boolean | Specifica se questa asserzione debba passare se l'operando sinistro è uguale all'operando destro. |
 | InputParameter | AssertIfRightOperandIsNotPresent | boolean | Specifica se questa asserzione debba passare se l'operando destro è assente. |
-| InputParameter | TreatAsEqualIfWithinMillseconds | int | Specifica il numero di millisecondi che devono trascorrere tra le due date e ore affinché le ore vengano considerate uguali (ad esempio, per tenere conto di un eventuale sfasamento di orario). |
+| InputParameter | TreatAsEqualIfWithinMillseconds | INT | Specifica il numero di millisecondi che devono trascorrere tra le due date e ore affinché le ore vengano considerate uguali (ad esempio, per tenere conto di un eventuale sfasamento di orario). |
 
-La trasformazione dell'asserzione **AssertDateTimeIsGreaterThan** viene sempre eseguita da un [profilo tecnico di convalida](validation-technical-profile.md) che viene chiamato da un [ profilo tecnico autocertificato](self-asserted-technical-profile.md). I metadati del profilo tecnico autocertificato **DateTimeGreaterThan** controllano il messaggio di errore che il profilo tecnico presenta all'utente.
+La trasformazione dell'asserzione **AssertDateTimeIsGreaterThan** viene sempre eseguita da un [profilo tecnico di convalida](validation-technical-profile.md) che viene chiamato da un [ profilo tecnico autocertificato](self-asserted-technical-profile.md). I metadati del profilo tecnico autocertificato **DateTimeGreaterThan** controllano il messaggio di errore che il profilo tecnico presenta all'utente. I messaggi di errore possono essere [localizzati.](localization-string-ids.md#claims-transformations-error-messages)
 
 ![Esecuzione di AssertStringClaimsAreEqual](./media/date-transformations/assert-execution.png)
 
@@ -81,8 +81,8 @@ Il profilo tecnico autocertificato chiama il profilo tecnico **login-NonInteract
 ### <a name="example"></a>Esempio
 
 - Attestazioni di input:
-    - **leftOperand**: 2018-10-01T15:00:00.0000000Z
-    - **rightOperand**: 2018-10-01T14:00:00.0000000Z
+    - **leftOperand**: 2020-03-01T15:00:00.0000000
+    - **rightOperand**: 2020-03-01T14:00:00.00000000
 - Risultato: errore generato
 
 ## <a name="convertdatetodatetimeclaim"></a>ConvertDateToDateTimeClaim
@@ -91,7 +91,7 @@ Converte un ClaimType **Date** in un ClaimType **DateTime**. La trasformazione d
 
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim | date | ClaimType da convertire. |
+| InputClaim | inputClaim | Data | ClaimType da convertire. |
 | OutputClaim | outputClaim | dateTime | ClaimType generato dopo che è stata chiamata questa ClaimsTransformation. |
 
 L'esempio seguente illustra la conversione dell'attestazione `dateOfBirth` (tipo di dati date) in un'altra attestazione `dateOfBirthWithTime` (tipo di dati dateTime).
@@ -110,20 +110,20 @@ L'esempio seguente illustra la conversione dell'attestazione `dateOfBirth` (tipo
 ### <a name="example"></a>Esempio
 
 - Attestazioni di input:
-    - **inputClaim**: 2019-06-01
+    - **inputClaim**: 2020-15-03
 - Attestazioni di output:
-    - **outputClaim**: 1559347200 (1 giugno 2019 12:00:00 AM)
+    - **outputClaim**: 2020-15-03T00:00:00.0000000
 
 ## <a name="convertdatetimetodateclaim"></a>ConvertDateTimeToDateClaim
 
-Converte un ClaimType **DateTime** in un ClaimType di **Data** . La trasformazione delle attestazioni rimuove il formato dell'ora dalla data.
+Converte un **DateTime** ClaimType in un **Date** ClaimType. La trasformazione delle attestazioni rimuove il formato dell'ora dalla data.
 
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | dateTime | ClaimType da convertire. |
-| OutputClaim | outputClaim | date | ClaimType generato dopo che è stata chiamata questa ClaimsTransformation. |
+| OutputClaim | outputClaim | Data | ClaimType generato dopo che è stata chiamata questa ClaimsTransformation. |
 
-Nell'esempio seguente viene illustrata la conversione del `systemDateTime` di attestazione (tipo di dati dateTime) in un'altra attestazione `systemDate` (tipo di dati date).
+Nell'esempio seguente viene illustrata la conversione dell'attestazione `systemDateTime` (tipo di dati dateTime) in un'altra attestazione `systemDate` (tipo di dati date).
 
 ```XML
 <ClaimsTransformation Id="ConvertToDate" TransformationMethod="ConvertDateTimeToDateClaim">
@@ -139,9 +139,9 @@ Nell'esempio seguente viene illustrata la conversione del `systemDateTime` di at
 ### <a name="example"></a>Esempio
 
 - Attestazioni di input:
-  - **attestazione**: 1559347200 (1 giugno 2019 12:00:00 AM)
+  - **inputClaim**: 2020-15-03T11:34:22.0000000
 - Attestazioni di output:
-  - **outputClaim**: 2019-06-01
+  - **outputClaim**: 2020-15-03
 
 ## <a name="getcurrentdatetime"></a>GetCurrentDateTime
 
@@ -162,7 +162,7 @@ Ottiene la data e ora UTC correnti e aggiunge il valore a un ClaimType.
 ### <a name="example"></a>Esempio
 
 * Attestazioni di output:
-    * **currentDateTime**: 1534418820 (16 agosto 2018 11:27:00 AM)
+    * **currentDateTime**: 2020-15-03T11:40:35.0000000
 
 ## <a name="datetimecomparison"></a>DateTimeComparison
 
@@ -172,8 +172,8 @@ Determinare se un valore dateTime è successivo, precedente o uguale a un altro.
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | firstDateTime | dateTime | Il primo valore dateTime da confrontare per verificare se è precedente o successivo al secondo valore dateTime. I valori Null generano un'eccezione. |
 | InputClaim | secondDateTime | dateTime | Il secondo valore dateTime da confrontare per verificare se è precedente o successivo al primo valore dateTime. Il valore Null viene considerato come il valore dateTime corrente. |
-| InputParameter | operatore | string | Uno dei seguenti valori: uguale, successiva a o precedente a. |
-| InputParameter | timeSpanInSeconds | int | Aggiungere l'intervallo di tempo al primo valore datetime. |
+| InputParameter | operator | string | Uno dei seguenti valori: uguale, successiva a o precedente a. |
+| InputParameter | timeSpanInSeconds | INT | Aggiungere l'intervallo di tempo al primo valore datetime. |
 | OutputClaim | result | boolean | ClaimType generato dopo che è stata chiamata questa ClaimsTransformation. |
 
 Usare questa trasformazione di attestazione per determinare se due valori ClaimType sono uguali oppure se uno è successivo o precedente all'altro. Ad esempio, è possibile archiviare l'ultima volta che un utente ha accettato le condizioni d'uso. Dopo 3 mesi, è possibile chiedere all'utente di accedere nuovamente alle condizioni d'uso.
@@ -198,8 +198,8 @@ Per eseguire la trasformazione delle attestazioni, è prima necessario ottenere 
 ### <a name="example"></a>Esempio
 
 - Attestazioni di input:
-    - **firstDateTime**: 2018-01-01T00:00:00.100000Z
-    - **secondDateTime**: 2018-04-01T00:00:00.100000Z
+    - **firstDateTime**: 2020-01-01T00:00:00.100000
+    - **secondDateTime**: 2020-04-01T00:00:00.100000
 - Parametri di input:
     - **operatore**: later than
     - **timeSpanInSeconds**: 7776000 (90 giorni)

@@ -1,5 +1,5 @@
 ---
-title: 'Azure ExpressRoute: configurare Copertura globale di ExpressRoute: interfaccia della riga di comando'
+title: 'Azure ExpressRoute: Configure ExpressRoute Global Reach: CLI'
 description: Questo articolo descrive come collegare circuiti ExpressRoute tra loro per creare una rete privata tra le reti locali e abilitare il servizio Copertura globale.
 services: expressroute
 author: jaredr80
@@ -7,14 +7,14 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/12/2018
 ms.author: jaredro
-ms.openlocfilehash: eda0011ea4d259d0e60cb894c2b42325ddfc2eb7
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: a39cf4e09a70ca2b1225d699c84abf0e7f1d2eab
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076621"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79476407"
 ---
-# <a name="configure-expressroute-global-reach-by-using-the-azure-cli"></a>Configurare ExpressRoute Copertura globale usando l'interfaccia della riga di comando di Azure
+# <a name="configure-expressroute-global-reach-by-using-the-azure-cli"></a>Configurare la copertura globale ExpressRoute usando l'interfaccia della riga di comando di AzureConfigure ExpressRoute Global Reach by using the Azure CLI
 
 Questo articolo illustra come configurare Copertura globale di Azure ExpressRoute usando l'interfaccia della riga di comando di Azure. Per altre informazioni, vedere [Copertura globale di ExpressRoute](expressroute-global-reach.md).
  
@@ -47,7 +47,7 @@ az account set --subscription <your subscription ID>
 
 ### <a name="identify-your-expressroute-circuits-for-configuration"></a>Identificare i circuiti ExpressRoute per la configurazione
 
-È possibile abilitare ExpressRoute Copertura globale tra due circuiti ExpressRoute diversi, purché si trovino in paesi o aree geografiche supportate e siano stati creati in percorsi di peering diversi. Se la sottoscrizione include entrambi i circuiti, è possibile scegliere uno dei due per eseguire la configurazione, come spiegato più avanti in questo articolo. Se i due circuiti si trovano in sottoscrizioni di Azure diverse, è necessario avere l'autorizzazione da una sottoscrizione di Azure e passare la relativa chiave di autorizzazione quando si esegue il comando di configurazione nell'altra sottoscrizione di Azure.
+È possibile abilitare La copertura globale ExpressRoute tra due circuiti ExpressRoute, purché si trovino in paesi/aree geografiche supportati e siano stati creati in posizioni di peering diverse. Se la sottoscrizione include entrambi i circuiti, è possibile scegliere uno dei due per eseguire la configurazione, come spiegato più avanti in questo articolo. Se i due circuiti si trovano in sottoscrizioni di Azure diverse, è necessario avere l'autorizzazione da una sottoscrizione di Azure e passare la relativa chiave di autorizzazione quando si esegue il comando di configurazione nell'altra sottoscrizione di Azure.
 
 ## <a name="enable-connectivity-between-your-on-premises-networks"></a>Abilitare la connettività tra le reti locali
 
@@ -57,7 +57,7 @@ Quando si esegue il comando per abilitare la connettività, tenere presenti i re
 
   > /subscriptions/{id_sottoscrizione}/resourceGroups/{gruppo_risorse}/providers/Microsoft.Network/expressRouteCircuits/{nome_circuito}
 
-* *address-prefix* deve essere una subnet "/29" IPv4, ad esempio "10.0.0.0/29". Gli indirizzi IP di questa subnet vengono usati per stabilire la connettività tra i due circuiti ExpressRoute. Evitare di usare indirizzi inclusi in questa subnet nelle reti virtuali di Azure o nelle reti locali.
+* *address-prefix* deve essere una subnet IPv4 "/29" (ad esempio, "10.0.0.0/29"). Gli indirizzi IP di questa subnet vengono usati per stabilire la connettività tra i due circuiti ExpressRoute. Evitare di usare indirizzi inclusi in questa subnet nelle reti virtuali di Azure o nelle reti locali.
 
 Eseguire il comando dell'interfaccia della riga di comando seguente per connettere due circuiti ExpressRoute:
 
@@ -67,7 +67,7 @@ az network express-route peering connection create -g <ResourceGroupName> --circ
 
 L'output dell'interfaccia della riga di comando è simile al seguente:
 
-```azurecli
+```output
 {
   "addressPrefix": "<__.__.__.__/29>",
   "authorizationKey": null,
@@ -103,7 +103,7 @@ Se i due circuiti non sono inclusi nella stessa sottoscrizione di Azure, è nece
 
    L'output dell'interfaccia della riga di comando è simile al seguente:
 
-   ```azurecli
+   ```output
    {
      "authorizationKey": "<authorizationKey>",
      "authorizationUseStatus": "Available",
@@ -134,7 +134,7 @@ Usare il comando seguente per verificare la configurazione nel circuito in cui �
 az network express-route show -n <CircuitName> -g <ResourceGroupName>
 ```
 
-Nell'output dell'interfaccia della riga di comando comparirà *CircuitConnectionStatus*. Questa proprietà indica se la connettività tra i due circuiti è stata stabilita ("Connected") o meno ("Disconnected"). 
+Nell'output dell'interfaccia della riga di comando verrà visualizzato *CircuitConnectionStatus*. Questa proprietà indica se la connettività tra i due circuiti è stata stabilita ("Connected") o meno ("Disconnected"). 
 
 ## <a name="disable-connectivity-between-your-on-premises-networks"></a>Disabilitare la connettività tra le reti locali
 

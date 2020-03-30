@@ -1,28 +1,28 @@
 ---
 title: Eliminare i dati da Esplora dati di Azure
-description: Questo articolo descrive gli scenari di eliminazione in Azure Esplora dati, inclusi ripulitura, eliminazione di extent e eliminazioni basate sulla conservazione.
+description: Questo articolo descrive gli scenari di eliminazione in Azure Data Explorer, incluse le eliminazioni, gli extent elimini e le eliminazioni basate sulla conservazione.
 author: orspod
 ms.author: orspodek
 ms.reviewer: avneraa
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: 681cfd71d2666630b192935d66ba32eaf16c92de
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: dd0f8740d148a7817bcfe2fbad591ceeb1610d0f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79204614"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79501424"
 ---
 # <a name="delete-data-from-azure-data-explorer"></a>Eliminare i dati da Esplora dati di Azure
 
-Azure Esplora dati supporta diversi scenari di eliminazione descritti in questo articolo. 
+Azure Data Explorer supporta vari scenari di eliminazione descritti in questo articolo. 
 
-## <a name="delete-data-using-the-retention-policy"></a>Eliminare i dati usando i criteri di conservazione
+## <a name="delete-data-using-the-retention-policy"></a>Eliminare i dati utilizzando i criteri di conservazioneDelete data using the retention policy
 
-Azure Esplora dati Elimina automaticamente i dati in base ai [criteri di conservazione](/azure/kusto/management/retentionpolicy). Questo metodo è il modo più efficiente e senza problemi di eliminare i dati. Impostare i criteri di conservazione a livello di database o di tabella.
+Azure Data Explorer elimina automaticamente i dati in base ai criteri di [conservazione.](/azure/kusto/management/retentionpolicy) Questo metodo è il modo più efficiente e senza problemi di eliminazione dei dati. Impostare i criteri di conservazione a livello di database o di tabella.
 
-Si consideri un database o una tabella che viene impostata su 90 giorni di conservazione. Se sono necessari solo 60 giorni di dati, eliminare i dati meno recenti come indicato di seguito:
+Si consideri un database o una tabella che viene impostata su 90 giorni di conservazione. Se sono necessari solo 60 giorni di dati, eliminare i dati meno recenti come segue:
 
 ```kusto
 .alter-merge database <DatabaseName> policy retention softdelete = 60d
@@ -30,9 +30,9 @@ Si consideri un database o una tabella che viene impostata su 90 giorni di conse
 .alter-merge table <TableName> policy retention softdelete = 60d
 ```
 
-## <a name="delete-data-by-dropping-extents"></a>Eliminazione di dati tramite l'eliminazione di extent
+## <a name="delete-data-by-dropping-extents"></a>Eliminare i dati eliminando le estensioni
 
-[Extent (partizione di dati)](/azure/kusto/management/extents-overview) è la struttura interna in cui vengono archiviati i dati. Ogni extent può ospitare fino a milioni di record. Gli extent possono essere eliminati singolarmente o come un gruppo usando [i comandi drop extent (s)](/azure/kusto/management/extents-commands#drop-extents). 
+[Extent (data shard)](/azure/kusto/management/extents-overview) è la struttura interna in cui vengono archiviati i dati. Ogni estensione può contenere milioni di record. Le estensioni possono essere eliminate singolarmente o come gruppo utilizzando [i comandi di estensioni](/azure/kusto/management/extents-commands#drop-extents)di rilascio. 
 
 ### <a name="examples"></a>Esempi
 
@@ -50,7 +50,7 @@ Si consideri un database o una tabella che viene impostata su 90 giorni di conse
     .drop extent e9fac0d2-b6d5-4ce3-bdb4-dea052d13b42
     ```
 
-## <a name="delete-individual-rows-using-purge"></a>Elimina singole righe mediante ripulitura
+## <a name="delete-individual-rows-using-purge"></a>Eliminare singole righe utilizzando l'eliminazione
 
-L'eliminazione [dei dati](/azure/kusto/management/data-purge) può essere usata per eliminare le righe di singoli utenti. L'eliminazione non è immediata e richiede risorse di sistema significative. Di conseguenza, è consigliabile solo per gli scenari di conformità.  
+[L'eliminazione dei dati](/azure/kusto/concepts/data-purge) può essere utilizzata per eliminare le righe di singoli utenti. L'eliminazione non è immediata e richiede risorse di sistema significative. Di conseguenza, è consigliato solo per gli scenari di conformità.  
 

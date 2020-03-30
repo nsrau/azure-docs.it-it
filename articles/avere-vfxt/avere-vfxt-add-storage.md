@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: rohogue
 ms.openlocfilehash: dfffef90201ba4bbb5a912df6101e8338012df44
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79252610"
 ---
 # <a name="configure-storage"></a>Configurare l'archiviazione
@@ -18,13 +18,13 @@ ms.locfileid: "79252610"
 Questo passaggio consente di configurare il sistema di archiviazione back-end per un cluster vFXT.
 
 > [!TIP]
-> Se è stato creato un nuovo contenitore BLOB di Azure insieme al cluster vFXT, il contenitore è già configurato e pronto per l'uso.
+> Se è stato creato un nuovo contenitore BLOB di Azure insieme al cluster Avere vFXT, tale contenitore è già configurato e pronto per l'uso.
 
 Seguire queste istruzioni se è stato creato un nuovo contenitore BLOB con il cluster o se si vuole aggiungere un altro sistema di archiviazione, hardware o basato sul cloud.
 
 Le attività principali da eseguire sono due:
 
-1. [Creare un core filer](#create-a-core-filer)che connette il cluster vFXT a un sistema di archiviazione esistente o a un contenitore di account di archiviazione di Azure.
+1. [Creare un filer di base](#create-a-core-filer), che connette il cluster vFXT a un sistema di archiviazione esistente o a un contenitore di account di archiviazione di Azure.Create a core filer , which connects your vFXT cluster to an existing storage system or an Azure Storage account container.
 
 1. [Creare una giunzione di spazi dei nomi](#create-a-junction), che definisce il percorso che sarà montato dai client.
 
@@ -32,22 +32,22 @@ Questa procedura usa il pannello di controllo di Avere. Leggere [Accedere al clu
 
 ## <a name="create-a-core-filer"></a>Creare un core filer
 
-"Core filer" è un termine vFXT per un sistema di archiviazione back-end. Il sistema di archiviazione può essere un'appliance NAS hardware, ad esempio NetApp o Isilon, oppure può essere un archivio di oggetti cloud. Altre informazioni sui filer di base sono disponibili nella [Guida alle impostazioni del cluster](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/settings_overview.html#managing-core-filers).
+"Filer di base" è un termine vFXT per un sistema di archiviazione back-end. Il sistema di archiviazione può essere un'appliance NAS hardware, ad esempio NetApp o Isilon, oppure può essere un archivio di oggetti cloud. Ulteriori informazioni sui filer principali sono disponibili nella guida alle [impostazioni del cluster Avere](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/settings_overview.html#managing-core-filers).
 
 Per aggiungere un core filer, sceglierne uno dei due tipi principali:
 
 * [Core filer NAS ](#nas-core-filer): descrive come aggiungere un core filer NAS
-* [Azure storage cloud Core filer](#azure-blob-storage-cloud-core-filer) : descrive come aggiungere un contenitore di archiviazione BLOB di Azure come filer di cloud Core
+* [Filer di base cloud di Archiviazione](#azure-blob-storage-cloud-core-filer) di Azure: descrive come aggiungere un contenitore di archiviazione BLOB di Azure come filer di base del cloudAzure Storage cloud filer - describes how to add an Azure Blob storage container as a cloud core filer
 
 ### <a name="nas-core-filer"></a>Core filer NAS
 
-Un filer Core NAS può essere un'appliance NetApp o Isilon locale o un endpoint NAS nel cloud. Il sistema di archiviazione deve avere una connessione ad alta velocità affidabile al cluster Avere vFXT, ad esempio una connessione ExpressRoute (non VPN) da 1 Gbps, e deve fornire al cluster l'accesso radice alle esportazioni NAS usate.
+Un filer principale NAS può essere un'appliance NetApp o Isilon locale o un endpoint NAS nel cloud. Il sistema di archiviazione deve avere una connessione ad alta velocità affidabile al cluster Avere vFXT, ad esempio una connessione ExpressRoute (non VPN) da 1 Gbps, e deve fornire al cluster l'accesso radice alle esportazioni NAS usate.
 
-Attenersi alla seguente procedura per aggiungere un filer Core NAS:
+Attenersi alla seguente procedura per aggiungere un filer di core NAS:
 
 1. Nel pannello di controllo di Avere fare clic sulla scheda **Settings** (Impostazioni) nella parte superiore.
 
-1. Fare clic su **Core Filer** > **Manage Core Filers** (Gestisci core filer) a sinistra.
+1. Fare clic su **Core Filer** > Manage**Core Filers (Gestisci filer di** base) a sinistra.
 
 1. Fare clic su **Crea**.
 
@@ -67,9 +67,9 @@ Attenersi alla seguente procedura per aggiungere un filer Core NAS:
 
 A questo punto, passare a [Creare una giunzione](#create-a-junction).  
 
-### <a name="azure-blob-storage-cloud-core-filer"></a>Archiviazione BLOB di Azure cloud Core
+### <a name="azure-blob-storage-cloud-core-filer"></a>Filer cloud di Archiviazione BLOB di AzureAzure Blob Storage cloud core filer
 
-Per usare l'archiviazione BLOB di Azure come archiviazione back-end del cluster vFXT, è necessario un contenitore vuoto da aggiungere come core filer.
+Per usare l'archiviazione BLOB di Azure come archiviazione back-end del cluster vFXT, è necessario un contenitore vuoto da aggiungere come filer principale.
 
 L'aggiunta del servizio di archiviazione BLOB al cluster richiede queste attività:
 
@@ -80,13 +80,13 @@ L'aggiunta del servizio di archiviazione BLOB al cluster richiede queste attivit
 * Creare una giunzione di spazi dei nomi che i client useranno per montare il core filer ([Creare una giunzione](#create-a-junction), stessa procedura per archiviazione hardware e cloud)
 
 > [!TIP]
-> Se si crea un nuovo contenitore BLOB quando si crea un cluster di vFXT per Azure, il modello di distribuzione configura automaticamente il contenitore come filer di base. Questo vale anche se si usa lo script di creazione, disponibile su richiesta. Non è necessario configurare in seguito il file di base.
+> Se si crea un nuovo contenitore BLOB quando si crea un cluster Avere vFXT per Azure, il modello di distribuzione configura automaticamente il contenitore come filer principale. (Questo vale anche se si utilizza lo script di creazione, che è disponibile su richiesta.) Non è necessario configurare il filer principale in seguito.
 >
-> Lo strumento di creazione del cluster esegue le attività di configurazione seguenti:
+> Lo strumento di creazione cluster esegue le attività di configurazione seguenti:The cluster creation tool does these configuration tasks for you:
 >
-> * Crea un nuovo contenitore BLOB nell'account di archiviazione specificato
+> * Crea un nuovo contenitore BLOB nell'account di archiviazione fornito
 > * Definisce il contenitore come filer principale
-> * Crea una giunzione dello spazio dei nomi al contenitore
+> * Crea una nodo dello spazio dei nomi al contenitore
 > * Crea un endpoint del servizio di archiviazione all'interno della rete virtuale del cluster
 
 Per aggiungere il servizio di archiviazione BLOB dopo la creazione del cluster, seguire questa procedura.
@@ -105,17 +105,17 @@ Per aggiungere il servizio di archiviazione BLOB dopo la creazione del cluster, 
 
    È possibile usare il portale di Azure o fare clic sul pulsante "Distribuisci in Azure" in basso.
 
-   [![pulsante per creare l'account di archiviazione](media/deploytoazure.png)](https://ms.portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAvere%2Fmaster%2Fsrc%2Fvfxt%2Fstorageaccount%2Fazuredeploy.json)
+   [![per creare l'account di archiviazione](media/deploytoazure.png)](https://ms.portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAvere%2Fmaster%2Fsrc%2Fvfxt%2Fstorageaccount%2Fazuredeploy.json)
 
 1. Dopo la creazione dell'account, passare alla pagina dell'account di archiviazione.
 
    ![Nuovo account di archiviazione nel portale di Azure](media/avere-vfxt-new-storage-acct.png)
 
-1. Creare un nuovo contenitore BLOB: fare clic su **contenitori** nella pagina Panoramica, quindi fare clic su **+ contenitore**. Usare un qualsiasi nome di contenitore e verificare che l'accesso sia impostato su **Privato**.
+1. Creare un nuovo contenitore BLOB: fare clic su **Contenitori** nella pagina di panoramica e quindi fare clic su **Contenitore**. Usare un qualsiasi nome di contenitore e verificare che l'accesso sia impostato su **Privato**.
 
-   ![Pagina BLOB di archiviazione con il pulsante + contenitore con cerchio e un nuovo contenitore creato in una pagina popup](media/avere-vfxt-new-blob.png)
+   ![Pagina BLOB di archiviazione con il pulsante di archiviazione cerchiato e un nuovo contenitore in una pagina popup](media/avere-vfxt-new-blob.png)
 
-1. Ottenere la chiave dell'account di archiviazione di Azure facendo clic su **chiavi di accesso** in **Impostazioni**. Copiare una delle chiavi fornite.
+1. Ottenere la chiave dell'account di Archiviazione di Azure facendo clic su **Chiavi di accesso** in **Impostazioni**. Copiare una delle chiavi fornite.
 
    ![GUI del portale di Azure per copiare la chiave](media/avere-vfxt-copy-storage-key.png)
 
@@ -125,10 +125,10 @@ Per aggiungere il servizio di archiviazione BLOB dopo la creazione del cluster, 
 
 1. Specificare le informazioni seguenti per creare le credenziali per il core filer cloud:
 
-   | Campo | Valore |
+   | Campo | valore |
    | --- | --- |
    | Credential name (Nome credenziali) | qualsiasi nome descrittivo |
-   | Tipo di servizio | (selezionare la chiave di accesso di archiviazione di Azure) |
+   | Tipo di servizio | (selezionare Chiave di accesso Archiviazione di Azure) |
    | Tenant | nome dell'account di archiviazione |
    | Subscription | ID sottoscrizione |
    | Storage Access Key (Chiave di accesso alle risorse di archiviazione) | chiave di accesso di Archiviazione di Azure (copiata nel passaggio precedente) |
@@ -137,7 +137,7 @@ Per aggiungere il servizio di archiviazione BLOB dopo la creazione del cluster, 
 
    ![Modulo delle credenziali cloud completato nel pannello di controllo di Avere](media/avere-vfxt-new-credential-submit.png)
 
-1. A questo punto, creare il core filer. Sul lato sinistro del pannello di controllo di Avere, fare clic su **Core Filer** >  **Manage Core Filers** (Gestisci core filer).
+1. A questo punto, creare il core filer. Nel lato sinistro del Pannello di controllo Avere, fare clic su **Core Filer** >  **Manage Core Filers**.
 
 1. Fare clic sul pulsante **Create** (Crea) nella pagine delle impostazioni **Manage Core Filers** (Gestisci core filer).
 
@@ -170,9 +170,9 @@ Ad esempio, è possibile creare `/vfxt/files` per eseguire il mapping all'esport
 
 Altre informazioni sulle giunzioni sono disponibili nella [sezione relativa agli spazi dei nomi della guida alla configurazione del cluster Avere](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_namespace.html).
 
-Attenersi alla seguente procedura nell'interfaccia del pannello di controllo di.
+Attenersi alla seguente procedura nell'interfaccia del Pannello di controllo Di Avere:
 
-* Fare clic su **VServer** > **Namespace** (Spazio dei nomi) in alto a sinistra.
+* Fare clic su**Spazio dei nomi** **VServer** > in alto a sinistra.
 * Fornire un percorso dello spazio dei nomi che inizi con una barra (/), ad esempio ``/vfxt/data``.
 * Scegliere il core filer.
 * Scegliere l'esportazione del core filer.
@@ -182,9 +182,9 @@ Attenersi alla seguente procedura nell'interfaccia del pannello di controllo di.
 
 La giunzione verrà visualizzata dopo pochi secondi. Creare altre giunzioni in base alle esigenze.
 
-Dopo la creazione della giunzione, i client usano il percorso dello spazio dei nomi per accedere ai file dal sistema di archiviazione.
+Dopo aver creato il nodo, i client utilizzano il percorso dello spazio dei nomi per accedere ai file dal sistema di archiviazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Montare il cluster Avere vFXT](avere-vfxt-mount-clients.md)
-* Informazioni sui modi efficaci per [spostare i dati in un nuovo contenitore BLOB](avere-vfxt-data-ingest.md)
+* Informazioni su modi efficienti per spostare i [dati in un nuovo contenitore BLOBLearn](avere-vfxt-data-ingest.md) efficient ways to move data to a new Blob container
