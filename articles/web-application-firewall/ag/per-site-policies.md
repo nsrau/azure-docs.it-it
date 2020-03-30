@@ -1,7 +1,7 @@
 ---
-title: Configurare i criteri di WAF per sito usando PowerShell
+title: Configurare criteri WAF per sito tramite PowerShellConfigure per-site WAF policies using PowerShell
 titleSuffix: Azure Web Application Firewall
-description: Informazioni su come configurare i criteri del firewall applicazione Web per sito in un gateway applicazione usando Azure PowerShell.
+description: Informazioni su come configurare i criteri di Firewall applicazione Web per sito in un gateway applicazione usando Azure PowerShell.Learn how to configure per-site Web Application Firewall policies on an application gateway using Azure PowerShell.
 services: web-application-firewall
 author: winthrop28
 ms.service: web-application-firewall
@@ -9,19 +9,19 @@ ms.date: 01/24/2020
 ms.author: victorh
 ms.topic: conceptual
 ms.openlocfilehash: a04b850857b6abd81934430a05086477acd058d6
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77444693"
 ---
-# <a name="configure-per-site-waf-policies-using-azure-powershell"></a>Configurare i criteri di WAF per sito usando Azure PowerShell
+# <a name="configure-per-site-waf-policies-using-azure-powershell"></a>Configurare criteri WAF per sito tramite Azure PowerShellConfigure per-site WAF policies using Azure PowerShell
 
-Le impostazioni di Web Application Firewall (WAF) sono contenute nei criteri di WAF e per modificare la configurazione di WAF si modificano i criteri di WAF.
+Le impostazioni di Web Application Firewall (WAF) sono contenute nei criteri WAF e per modificare la configurazione WAF è necessario modificare i criteri WAF.
 
-Quando associato al gateway applicazione, i criteri e tutte le impostazioni vengono riflessi a livello globale. Quindi, se si dispone di cinque siti dietro la WAF, tutti e cinque i siti sono protetti dallo stesso criterio WAF. Questo è molto importante se sono necessarie le stesse impostazioni di sicurezza per ogni sito. È anche possibile applicare i criteri WAF ai singoli listener per consentire la configurazione WAF specifica del sito.
+Quando sono associati al gateway applicazione, i criteri e tutte le impostazioni vengono riflessi a livello globale. Quindi, se hai cinque siti dietro il tuo WAF, tutti e cinque i siti sono protetti dalla stessa politica WAF. Questo è grande se avete bisogno delle stesse impostazioni di sicurezza per ogni sito. Tuttavia, è anche possibile applicare criteri WAF ai singoli listener per consentire la configurazione WAF specifica del sito.
 
-Applicando criteri WAF a un listener, è possibile configurare le impostazioni di WAF per i singoli siti senza le modifiche che influiscono su ogni sito. I criteri più specifici assumono la precedenza. Se è presente un criterio globale e un criterio per sito (un criterio WAF associato a un listener), il criterio per sito esegue l'override del criterio WAF globale per il listener. Altri listener senza criteri personalizzati saranno interessati solo dal criterio WAF globale.
+Applicando i criteri WAF a un listener, è possibile configurare le impostazioni WAF per i singoli siti senza le modifiche che interessano ogni sito. La politica più specifica ha un precedente. Se sono presenti criteri globali e un criterio per sito (un criterio WAF associato a un listener), il criterio per sito sostituisce i criteri WAF globali per tale listener. Gli altri ascoltatori senza le proprie politiche saranno interessati solo dalla politica globale WAF.
 
 In questo articolo vengono illustrate le operazioni seguenti:
 
@@ -29,7 +29,7 @@ In questo articolo vengono illustrate le operazioni seguenti:
 > * Configurare la rete
 > * Creare un criterio WAF
 > * Creare un gateway applicazione con WAF abilitato
-> * Applicare i criteri di WAF a livello globale, per sito e per URI
+> * Applicare i criteri WAF a livello globale, per sito e per URI
 > * Creare un set di scalabilità di macchine virtuali
 > * Creare un account di archiviazione e configurare la diagnostica
 > * Testare il gateway applicazione
@@ -132,11 +132,11 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
   -RequestTimeout 120
 ```
 
-### <a name="create-two-waf-policies"></a>Creare due criteri di WAF
+### <a name="create-two-waf-policies"></a>Creare due criteri WAF
 
 Creare due criteri WAF, uno globale e uno per sito, e aggiungere regole personalizzate. 
 
-Il criterio per sito limita il limite di caricamento dei file a 5 MB. Tutto il resto è lo stesso.
+I criteri per sito limitano il limite di caricamento dei file a 5 MB. Tutto il resto è lo stesso.
 
 ```azurepowershell-interactive
 $variable = New-AzApplicationGatewayFirewallMatchVariable -VariableName RequestUri
@@ -250,9 +250,9 @@ $appgw = New-AzApplicationGateway `
   -FirewallPolicy $wafPolicyGlobal
 ```
 
-### <a name="apply-a-per-uri-policy"></a>Applicare un criterio per URI
+### <a name="apply-a-per-uri-policy"></a>Applicare un criterio per URIApply a per-URI policy
 
-Per applicare un criterio per URI, è sufficiente creare un nuovo criterio e applicarlo alla configurazione della regola del percorso. 
+Per applicare un criterio per URI, è sufficiente creare un nuovo criterio e applicarlo alla configurazione della regola di percorso. 
 
 ```azurepowershell-interactive
 $policySettingURI = New-AzApplicationGatewayFirewallPolicySetting `
@@ -406,7 +406,7 @@ Set-AzDiagnosticSetting `
 
 ## <a name="test-the-application-gateway"></a>Testare il gateway applicazione
 
-Si può usare [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress) per ottenere l'indirizzo IP pubblico del gateway applicazione. Usare quindi questo indirizzo IP per curl (sostituire il 1.1.1.1 mostrato di seguito). 
+Si può usare [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress) per ottenere l'indirizzo IP pubblico del gateway applicazione. Quindi utilizzare questo indirizzo IP per arricciarsi contro (sostituire il 1.1.1.1 mostrato di seguito). 
 
 ```azurepowershell-interactive
 Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress

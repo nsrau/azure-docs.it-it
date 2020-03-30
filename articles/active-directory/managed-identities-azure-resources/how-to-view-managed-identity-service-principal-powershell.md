@@ -1,5 +1,5 @@
 ---
-title: Visualizzare l'entità servizio di un'identità gestita usando PowerShell-Azure AD
+title: Visualizzare l'entità servizio di un'identità gestita tramite PowerShell - Azure ADView the service principal of a managed identity using PowerShell - Azure AD
 description: Istruzioni dettagliate su come visualizzare l'entità servizio di un'identità gestita tramite PowerShell.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 11/29/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 33fc6fbfd7c47b5809e8aff8ee9806c9eeac1162
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79298683"
 ---
 # <a name="view-the-service-principal-of-a-managed-identity-using-powershell"></a>Visualizzare l'entità servizio di un'identità gestita tramite PowerShell
@@ -35,7 +35,7 @@ In questo articolo viene descritto come visualizzare l'entità servizio di un'id
 - Se non si ha familiarità con le identità gestite per le risorse di Azure, vedere la [sezione sulla panoramica](overview.md).
 - Se non si ha già un account Azure, è possibile [registrarsi per ottenerne uno gratuito](https://azure.microsoft.com/free/).
 - Abilitare l'[identità assegnata dal sistema nella macchina virtuale](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity) o nell'[applicazione](/azure/app-service/overview-managed-identity#add-a-system-assigned-identity).
-- Installare la versione più recente di [Azure PowerShell](/powershell/azure/install-az-ps)
+- Installare la versione più recente di [Azure PowerShellInstall](/powershell/azure/install-az-ps) the latest version of Azure PowerShell
 
 ## <a name="view-the-service-principal"></a>Visualizzare l'entità servizio
 

@@ -1,31 +1,31 @@
 ---
-title: Binding di output Azure Cosmos DB per functions 2. x
-description: Informazioni su come usare l'associazione di output Azure Cosmos DB in funzioni di Azure.
+title: Associazione dell'output di Azure Cosmos DB per Funzioni 2.xAzure Cosmos DB output binding for Functions 2.x
+description: Informazioni su come usare l'associazione di output del database Cosmos di Azure in Funzioni di Azure.Learn to use the Azure Cosmos DB output binding in Azure Functions.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
 ms.openlocfilehash: 636903c20e07f11a2fd919654cfaa62037171f20
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79277765"
 ---
-# <a name="azure-cosmos-db-output-binding-for-azure-functions-2x"></a>Binding di output Azure Cosmos DB per funzioni di Azure 2. x
+# <a name="azure-cosmos-db-output-binding-for-azure-functions-2x"></a>Associazione dell'output di Azure Cosmos DB per Funzioni di Azure 2.xAzure Cosmos DB output binding for Azure Functions 2.x
 
 L'associazione di output di Azure Cosmos DB consente di scrivere un nuovo documento in un database di Azure Cosmos DB tramite l'API SQL.
 
-Per informazioni sui dettagli di configurazione e configurazione, vedere la [Panoramica](./functions-bindings-cosmosdb-v2.md).
+Per informazioni sui dettagli di impostazione e configurazione, vedere la [panoramica](./functions-bindings-cosmosdb-v2.md).
 
 <a id="example" name="example"></a>
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 Questa sezione contiene gli esempi seguenti:
 
-* [Trigger della coda, Scrivi un documento](#queue-trigger-write-one-doc-c)
-* [Trigger della coda, scrivere documenti con IAsyncCollector](#queue-trigger-write-docs-using-iasynccollector-c)
+* [Trigger della coda e scrittura di un documento](#queue-trigger-write-one-doc-c)
+* [Trigger della coda e scrittura di documenti con IAsyncCollector](#queue-trigger-write-docs-using-iasynccollector-c)
 
 Gli esempi fanno riferimento a un tipo semplice `ToDoItem`:
 
@@ -112,12 +112,12 @@ namespace CosmosDBSamplesV2
 }
 ```
 
-# <a name="c-script"></a>[C#Script](#tab/csharp-script)
+# <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
 Questa sezione contiene gli esempi seguenti:
 
-* [Trigger della coda, Scrivi un documento](#queue-trigger-write-one-doc-c-script)
-* [Trigger della coda, scrivere documenti con IAsyncCollector](#queue-trigger-write-docs-using-iasynccollector-c-script)
+* [Trigger della coda e scrittura di un documento](#queue-trigger-write-one-doc-c-script)
+* [Trigger della coda e scrittura di documenti con IAsyncCollector](#queue-trigger-write-docs-using-iasynccollector-c-script)
 
 
 <a id="queue-trigger-write-one-doc-c-script"></a>
@@ -247,7 +247,7 @@ public static async Task Run(ToDoItem[] toDoItemsIn, IAsyncCollector<ToDoItem> t
 }
 ```
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[Javascript](#tab/javascript)
 
 L'esempio seguente mostra un'associazione di output di Azure Cosmos DB in un file *function.json* e una [funzione script JavaScript](functions-reference-node.md) che usa l'associazione. La funzione usa un'associazione di input di coda per una coda che riceve JSON nel formato seguente:
 
@@ -304,9 +304,9 @@ Ecco il codice JavaScript:
 
 # <a name="python"></a>[Python](#tab/python)
 
-Nell'esempio seguente viene illustrato come scrivere un documento in un database CosmosDB di Azure come output di una funzione.
+L'esempio seguente illustra come scrivere un documento in un database CosmosDB di Azure come output di una funzione.
 
-La definizione di associazione è definita in *Function. JSON,* dove *Type* è impostato su `cosmosDB`.
+La definizione dell'associazione *type* viene definita `cosmosDB`in *function.json,* dove type è impostato su .
 
 ```json
 {
@@ -340,7 +340,7 @@ La definizione di associazione è definita in *Function. JSON,* dove *Type* è i
 }
 ```
 
-Per scrivere nel database, passare un oggetto Document al metodo `set` del parametro database.
+Per scrivere nel database, passare un `set` oggetto documento al metodo del parametro di database.
 
 ```python
 import azure.functions as func
@@ -364,7 +364,7 @@ def main(req: func.HttpRequest, doc: func.Out[func.Document]) -> func.HttpRespon
 
 <a id="queue-trigger-save-message-to-database-via-return-value-java"></a>
 
-### <a name="queue-trigger-save-message-to-database-via-return-value"></a>Trigger della coda, Salva messaggio nel database tramite valore restituito
+### <a name="queue-trigger-save-message-to-database-via-return-value"></a>Trigger della coda e salvataggio di un messaggio nel database tramite il valore restituito
 
 L'esempio seguente mostra una funzione Java che aggiunge un documento a un database con i dati da un messaggio dall'archiviazione code.
 
@@ -385,7 +385,7 @@ public String cosmosDbQueryById(
 ```
 <a id="http-trigger-save-one-document-to-database-via-return-value-java"></a>
 
-#### <a name="http-trigger-save-one-document-to-database-via-return-value"></a>Trigger HTTP, salva un documento nel database tramite un valore restituito
+#### <a name="http-trigger-save-one-document-to-database-via-return-value"></a>Trigger HTTP e salvataggio di un documento nel database tramite il valore restituito
 
 L'esempio seguente mostra una funzione Java la cui firma viene annotata con ```@CosmosDBOutput``` e con valore restituito di tipo ```String```. Il documento JSON restituito dalla funzione verrà scritto automaticamente nella raccolta di Cosmos DB corrispondente.
 
@@ -424,9 +424,9 @@ L'esempio seguente mostra una funzione Java la cui firma viene annotata con ```@
 
 <a id="http-trigger-save-one-document-to-database-via-outputbinding-java"></a>
 
-### <a name="http-trigger-save-one-document-to-database-via-outputbinding"></a>Trigger HTTP, salvataggio di un documento nel database tramite output
+### <a name="http-trigger-save-one-document-to-database-via-outputbinding"></a>Trigger HTTP e salvataggio di un documento nel database tramite OutputBinding
 
-L'esempio seguente mostra una funzione Java che scrive un documento in Cosmos DB tramite un parametro di output ```OutputBinding<T>```. In questo esempio il parametro ```outputItem``` deve essere annotato con ```@CosmosDBOutput```, non con la firma della funzione. Usando ```OutputBinding<T>```, la funzione può sfruttare i vantaggi dell'associazione per scrivere il documento in Cosmos DB, consentendo al tempo stesso la restituzione di un valore diverso al chiamante della funzione, ad esempio un documento JSON o XML.
+L'esempio seguente mostra una funzione Java che scrive un documento in Cosmos DB tramite un parametro di output ```OutputBinding<T>```. In questo esempio, il ```outputItem``` parametro deve ```@CosmosDBOutput```essere annotato con , non con la firma della funzione. Usando ```OutputBinding<T>```, la funzione può sfruttare i vantaggi dell'associazione per scrivere il documento in Cosmos DB, consentendo al tempo stesso la restituzione di un valore diverso al chiamante della funzione, ad esempio un documento JSON o XML.
 
 ```java
     @FunctionName("WriteOneDocOutputBinding")
@@ -470,9 +470,9 @@ L'esempio seguente mostra una funzione Java che scrive un documento in Cosmos DB
 
 <a id="http-trigger-save-multiple-documents-to-database-via-outputbinding-java"></a>
 
-### <a name="http-trigger-save-multiple-documents-to-database-via-outputbinding"></a>Trigger HTTP, salvataggio di più documenti nel database tramite output
+### <a name="http-trigger-save-multiple-documents-to-database-via-outputbinding"></a>Trigger HTTP e salvataggio di più documenti nel database tramite OutputBinding 
 
-L'esempio seguente mostra una funzione Java che scrive più documenti in Cosmos DB tramite un parametro di output ```OutputBinding<T>```. In questo esempio il parametro ```outputItem``` viene annotato con ```@CosmosDBOutput```, non con la firma della funzione. Il parametro di output ```outputItem``` include un elenco di oggetti ```ToDoItem``` come tipo di parametro di modello. Usando ```OutputBinding<T>```, la funzione può sfruttare i vantaggi dell'associazione per scrivere i documenti in Cosmos DB, consentendo al tempo stesso la restituzione di un valore diverso al chiamante della funzione, ad esempio un documento JSON o XML.
+L'esempio seguente mostra una funzione Java che scrive più documenti in Cosmos DB tramite un parametro di output ```OutputBinding<T>```. In questo esempio, il ```outputItem``` parametro ```@CosmosDBOutput```viene annotato con , non con la firma della funzione. Il parametro di output ```outputItem``` include un elenco di oggetti ```ToDoItem``` come tipo di parametro di modello. Usando ```OutputBinding<T>```, la funzione può sfruttare i vantaggi dell'associazione per scrivere i documenti in Cosmos DB, consentendo al tempo stesso la restituzione di un valore diverso al chiamante della funzione, ad esempio un documento JSON o XML.
 
 ```java
     @FunctionName("WriteMultipleDocsOutputBinding")
@@ -525,7 +525,7 @@ Nella [libreria di runtime di funzioni Java](/java/api/overview/azure/functions/
 
 ## <a name="attributes-and-annotations"></a>Attributi e annotazioni
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 Nelle [librerie di classi C#](functions-dotnet-class-library.md) usare l'attributo [CosmosDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/master/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs).
 
@@ -541,11 +541,11 @@ Il costruttore dell'attributo accetta il nome del database e il nome della racco
     }
 ```
 
-# <a name="c-script"></a>[C#Script](#tab/csharp-script)
+# <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
-Gli attributi non sono supportati C# dallo script.
+Gli attributi non sono supportati dallo script di C.
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[Javascript](#tab/javascript)
 
 Gli attributi non sono supportati da JavaScript.
 
@@ -555,27 +555,27 @@ Gli attributi non sono supportati da Python.
 
 # <a name="java"></a>[Java](#tab/java)
 
-L'annotazione `CosmosDBOutput` è disponibile per scrivere i dati Cosmos DB. È possibile applicare l'annotazione alla funzione o a un singolo parametro di funzione. Quando viene usato nel metodo Function, il valore restituito della funzione è quello che viene scritto in Cosmos DB. Se si utilizza l'annotazione con un parametro, il tipo del parametro deve essere dichiarato come `OutputBinding<T>` in cui `T` un tipo Java nativo o un POJO.
+L'annotazione `CosmosDBOutput` è disponibile per scrivere dati in Cosmos DB. È possibile applicare l'annotazione alla funzione o a un singolo parametro di funzione. Se utilizzato sul metodo della funzione, il valore restituito della funzione è ciò che viene scritto in Cosmos DB. Se si utilizza l'annotazione con un parametro, `OutputBinding<T>` il `T` tipo del parametro deve essere dichiarato come un'azione di tipo in cui è un tipo Java nativo o UN POJO.
 
 ---
 
 ## <a name="configuration"></a>Configurazione
 
-Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `CosmosDB`.
+Nella tabella seguente vengono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `CosmosDB` .
 
 |Proprietà di function.json | Proprietà dell'attributo |Descrizione|
 |---------|---------|----------------------|
 |**type**     | n/d | Il valore deve essere impostato su `cosmosDB`.        |
 |**direction**     | n/d | Il valore deve essere impostato su `out`.         |
-|**nome**     | n/d | Nome del parametro di binding che rappresenta il documento nella funzione.  |
-|**databaseName** | **DatabaseName**|Database contenente la raccolta in cui viene creato il documento.     |
-|**collectionName** |**CollectionName**  | Nome della raccolta in cui viene creato il documento. |
-|**createIfNotExists**  |**CreateIfNotExists**    | Valore booleano che indica se la raccolta viene creata quando non esiste. Il valore predefinito è *false* perché le nuove raccolte vengono create con una velocità effettiva riservata, che ha implicazioni in termini di costi. Per altre informazioni vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/cosmos-db/).  |
-|**partitionKey**|**PartitionKey** |Quando `CreateIfNotExists` è true, definisce il percorso della chiave di partizione per la raccolta creata.|
+|**name**     | n/d | Nome del parametro di binding che rappresenta il documento nella funzione.  |
+|**databaseName** | **Databasename**|Database contenente la raccolta in cui viene creato il documento.     |
+|**Collectionname** |**CollectionName**  | Nome della raccolta in cui viene creato il documento. |
+|**createIfNotExists**  |**CreateIfNotExists**    | Valore booleano che indica se la raccolta viene creata quando non esiste. Il valore predefinito è *false* perché le nuove raccolte vengono create con una velocità effettiva riservata, che ha implicazioni in termini di costi. Per ulteriori informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/cosmos-db/).  |
+|**partitionKey (chiave)**|**PartitionKey** |Quando `CreateIfNotExists` è true, definisce il percorso della chiave di partizione per la raccolta creata.|
 |**collectionThroughput**|**CollectionThroughput**| Quando `CreateIfNotExists` è true, definisce la [velocità effettiva](../cosmos-db/set-throughput.md) della raccolta creata.|
-|**connectionStringSetting**    |**ConnectionStringSetting** |Nome dell'impostazione app contenente la stringa di connessione di Azure Cosmos DB.        |
-|**preferredLocations**| **PreferredLocations**| Opzionale Definisce le posizioni preferite (aree) per gli account di database con replica geografica nel servizio Azure Cosmos DB. I valori devono essere separati da virgole. Ad esempio, "Stati Uniti orientali, Stati Uniti centro-meridionali, Europa settentrionale". |
-|**useMultipleWriteLocations**| **UseMultipleWriteLocations**| Opzionale Quando è impostato su `true` insieme a `PreferredLocations`, può sfruttare le [Scritture](../cosmos-db/how-to-manage-database-account.md#configure-multiple-write-regions) in più aree nel servizio Azure Cosmos DB. |
+|**connectionStringSetting (Impostazione connessione Stringa)**    |**ConnectionStringSetting** |Nome dell'impostazione app contenente la stringa di connessione di Azure Cosmos DB.        |
+|**preferredPosizioni**| **PreferredLocations (Posizioni preferite)**| (Facoltativo) Definisce le posizioni preferite (aree) per gli account di database replicati geograficamente nel servizio database Cosmos di Azure.Defines preferred locations (regions) for geo-replicated database accounts in the Azure Cosmos DB service. I valori devono essere separati da virgole. Ad esempio, "Stati Uniti orientali,Stati Uniti centro-meridionali,Europa settentrionale". |
+|**useMultipleWriteLocations**| **UseMultipleWriteLocations**| (Facoltativo) Se impostato `true` su `PreferredLocations`insieme a , può sfruttare [le scritture in più aree](../cosmos-db/how-to-manage-database-account.md#configure-multiple-write-regions) nel servizio Database Cosmos di Azure.When set to along with , it can leverage multi-region writes in the Azure Cosmos DB service. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -621,5 +621,5 @@ Questa sezione descrive le impostazioni di configurazione globali disponibili pe
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Esegui una funzione quando viene creato o modificato un documento Azure Cosmos DB (trigger)](./functions-bindings-cosmosdb-v2-trigger.md)
-- [Leggere un documento di Azure Cosmos DB (associazione di input)](./functions-bindings-cosmosdb-v2-input.md)
+- [Eseguire una funzione quando viene creato o modificato un documento di Azure Cosmos DB (Trigger)Run a function when an Azure Cosmos DB document is created or modified (Trigger)](./functions-bindings-cosmosdb-v2-trigger.md)
+- [Leggere un documento di Azure Cosmos DB (associazione di input)Read an Azure Cosmos DB document (Input binding)](./functions-bindings-cosmosdb-v2-input.md)

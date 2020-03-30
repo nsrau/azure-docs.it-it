@@ -1,19 +1,18 @@
 ---
-title: Creare risorse tecniche per un'offerta di macchina virtuale per Azure Marketplace
+title: Creare asset tecnici per un'offerta di macchina virtuale per Azure MarketplaceCreate technical assets for a virtual machine offer for the Azure Marketplace
 description: Spiega come creare le risorse tecniche necessarie per un'offerta di macchina virtuale in Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: pbutlerm
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/20/2018
-ms.author: pabutler
-ms.openlocfilehash: 45d0ff5b7b3fea1566b13b61bd01cc17da61e4b3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 57f56a341cfc3db6a5f0664503809e6ab6cf3d3d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824503"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80278025"
 ---
 # <a name="create-technical-assets-for-a-virtual-machine-offer"></a>Creare risorse tecniche per un'offerta di macchina virtuale
 
@@ -29,13 +28,13 @@ Un'immagine di macchina virtuale contiene un disco del sistema operativo e zero 
 > Indipendentemente dal sistema operativo usato, aggiungere solo il numero minimo di dischi dati necessari per lo SKU. In fase di distribuzione i clienti non possono rimuovere dischi che fanno parte di un'immagine, ma possono sempre aggiungerne altri durante o dopo la distribuzione. 
 
 > [!IMPORTANT]
-> *Non modificare il numero di dischi in una nuova versione dell'immagine.* Se è necessario riconfigurare i dischi dati nell'immagine, definire un nuovo SKU. La pubblicazione di una nuova versione dell'immagine con un numero di dischi diverso può compromettere le attività di distribuzione basate sulla nuova versione dell'immagine in caso di scalabilità automatica, distribuzione automatica di soluzioni tramite modelli di Azure Resource Manager e altri scenari.
+> *Non modificare il numero di dischi in una nuova versione dell'immagine.*  Se è necessario riconfigurare i dischi dati nell'immagine, definire un nuovo SKU. La pubblicazione di una nuova versione dell'immagine con un numero di dischi diverso può compromettere le attività di distribuzione basate sulla nuova versione dell'immagine in caso di scalabilità automatica, distribuzione automatica di soluzioni tramite modelli di Azure Resource Manager e altri scenari.
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
 ## <a name="fundamental-technical-knowledge"></a>Conoscenze tecniche fondamentali
 
-La progettazione, la compilazione e il test di questi asset richiedono tempo e richiedono conoscenze tecniche sulla piattaforma Azure e sulle tecnologie usate per creare l'offerta. Oltre al dominio della soluzione, il team di progettazione deve conoscere le tecnologie Microsoft seguenti: 
+La progettazione, la creazione e il test di questi asset richiedono tempo e richiedono conoscenze tecniche sia della piattaforma Azure che delle tecnologie usate per creare l'offerta. Oltre al dominio della soluzione, il team di progettazione deve conoscere le seguenti tecnologie Microsoft: 
 -   Conoscenza di base di [Servizi di Azure](https://azure.microsoft.com/services/) 
 -   Capacità di [progettare applicazioni di Azure per architetture diverse](https://azure.microsoft.com/solutions/architecture/)
 -   Conoscenza pratica di [Macchine virtuali di Azure](https://azure.microsoft.com/services/virtual-machines/), [Archiviazione di Azure](https://azure.microsoft.com/services/?filter=storage) e [Rete di Azure](https://azure.microsoft.com/services/?filter=networking)
@@ -47,11 +46,11 @@ La progettazione, la compilazione e il test di questi asset richiedono tempo e r
 
 Per la gestione di dischi rigidi virtuali e macchine virtuali, scegliere uno o entrambi gli ambienti di script seguenti:
 -   [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
--   [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure)
+-   [Interfaccia della riga di comando di AzureAzure](https://docs.microsoft.com/cli/azure)
 
 È anche consigliabile aggiungere gli strumenti seguenti all'ambiente di sviluppo in uso: 
 
--   [Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
+-   [Esplora archivi di AzureAzure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
 -   [Visual Studio Code](https://code.visualstudio.com/)
     *   Estensione: [Strumenti di Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
     *   Estensione: [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)

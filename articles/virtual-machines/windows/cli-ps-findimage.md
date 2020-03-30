@@ -1,5 +1,5 @@
 ---
-title: Selezionare le immagini di macchine virtuali Windows in Azure
+title: Selezionare le immagini della macchina virtuale Windows in AzureSelect Windows VM images in Azure
 description: Usare Azure PowerShell per determinare l'editore, l'offerta, lo SKU e la versione per le immagini di macchine virtuali del Marketplace.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 01/25/2019
 ms.author: cynthn
 ms.openlocfilehash: 2388b51c8103b6bcbae0c32d3c4d78a176caf282
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79266806"
 ---
 # <a name="find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>Trovare immagini di macchine virtuali Windows in Azure Marketplace con Azure PowerShell
@@ -212,7 +212,7 @@ DataDiskImages   : []
 
 ```
 
-L'esempio seguente mostra un comando analogo per l'immagine *Data Science Virtual Machine - Windows 2016*, che ha le proprietà `PurchasePlan` seguenti: `name`, `product` e `publisher`. Alcune immagini hanno anche una proprietà `promotion code`. Per distribuire questa immagine, vedere le sezioni seguenti per accettare le condizioni e abilitare la distribuzione a livello di codice.
+Nell'esempio seguente viene illustrato un comando simile per l'immagine Data Science `PurchasePlan` Virtual `name` `product`Machine `publisher` *- Windows 2016,* con le proprietà seguenti: , e . Alcune immagini hanno anche una proprietà `promotion code`. Per distribuire questa immagine, vedere le sezioni seguenti per accettare le condizioni e abilitare la distribuzione a livello di codice.
 
 ```powershell
 Get-AzVMImage -Location "westus" -PublisherName "microsoft-ads" -Offer "windows-data-science-vm" -Skus "windows2016" -Version "0.2.02"
@@ -325,6 +325,6 @@ Passare quindi la configurazione della macchina virtuale e gli oggetti di config
 Per creare rapidamente una macchina virtuale con il cmdlet `New-AzVM` usando le informazioni di base sull'immagine, vedere [Creare una macchina virtuale Windows con PowerShell](quick-create-powershell.md).
 
 
-Vedere un esempio di script di PowerShell per [creare una macchina virtuale completamente configurata](../scripts/virtual-machines-windows-powershell-sample-create-vm.md).
+Vedere un esempio di script di PowerShell per [creare una macchina virtuale completamente configurata.](../scripts/virtual-machines-windows-powershell-sample-create-vm.md)
 
 

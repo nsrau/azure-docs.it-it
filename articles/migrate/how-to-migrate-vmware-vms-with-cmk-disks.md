@@ -1,6 +1,6 @@
 ---
-title: Eseguire la migrazione di macchine virtuali VMware in Azure con la crittografia lato server (SSE) e le chiavi gestite dal cliente (CMK) usando la migrazione di Azure Migrate server
-description: Informazioni su come eseguire la migrazione di macchine virtuali VMware in Azure con la crittografia lato server (SSE) e le chiavi gestite dal cliente (CMK) con Azure Migrate migrazione del server
+title: Eseguire la migrazione delle macchine virtuali VMware in Azure con crittografia lato server (SSE) e chiavi gestite dal cliente (CMK) tramite migrazione server di migrazione di Azure
+description: Informazioni su come eseguire la migrazione delle macchine virtuali VMware in Azure con crittografia lato server (SSE) e chiavi gestite dal cliente (CMK) con la migrazione del server di migrazione di Azure
 author: bsiva
 ms.service: azure-migrate
 ms.manager: carmonm
@@ -8,57 +8,57 @@ ms.topic: article
 ms.date: 03/12/2020
 ms.author: raynew
 ms.openlocfilehash: c6b791fda43a018a26204b2b43dc1e581ff3a945
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79269484"
 ---
-# <a name="migrate-vmware-vms-to-azure-vms-enabled-with-server-side-encryption-and-customer-managed-keys"></a>Eseguire la migrazione di macchine virtuali VMware alle macchine virtuali di Azure abilitate con la crittografia lato server e le chiavi gestite dal cliente
+# <a name="migrate-vmware-vms-to-azure-vms-enabled-with-server-side-encryption-and-customer-managed-keys"></a>Eseguire la migrazione delle macchine virtuali VMware alle macchine virtuali di Azure abilitate con la crittografia lato server e le chiavi gestite dal clienteMigrate VMware VMware VMs to Azure VMs enabled with server-side encryption and customer-managed keys
 
-Questo articolo descrive come eseguire la migrazione di VM VMware in macchine virtuali di Azure con dischi crittografati usando la crittografia lato server (SSE) con chiavi gestite dal cliente (CMK), usando Azure Migrate migrazione del server (replica senza agenti).
+In questo articolo viene descritto come eseguire la migrazione di macchine virtuali VMware alle macchine virtuali di Azure con dischi crittografati usando la crittografia lato server (SSE) con chiavi gestite dal cliente (CMK), usando migrazione del server di Azure Migrate (replica senza agente).
 
-L'esperienza del portale per la migrazione di Azure Migrate Server consente [di eseguire la migrazione di macchine virtuali VMware in Azure con la replica senza agente.](tutorial-migrate-vmware.md) L'esperienza del portale attualmente non offre la possibilità di attivare SSE con CMK per i dischi replicati in Azure. La possibilità di attivare SSE con CMK per i dischi replicati è attualmente disponibile solo tramite l'API REST. Questo articolo illustra come creare e distribuire un [modello di Azure Resource Manager](../azure-resource-manager/templates/overview.md) per replicare una macchina virtuale VMware e configurare i dischi replicati in Azure per usare SSE con CMK.
+L'esperienza del portale di migrazione del server di Azure Migrate consente di eseguire la migrazione delle [macchine virtuali VMware in Azure con la replica senza agente.](tutorial-migrate-vmware.md) The portal experience currently doesn't offer the ability to turn on SSE with CMK for your replicated disks in Azure. La possibilità di attivare SSE con CMK per i dischi replicati è attualmente disponibile solo tramite l'API REST. In questo articolo verrà illustrato come creare e distribuire un modello di [Azure Resource Manager](../azure-resource-manager/templates/overview.md) per replicare una macchina virtuale VMware e configurare i dischi replicati in Azure per l'uso di SSE con CMK.
 
-Gli esempi in questo articolo usano [Azure PowerShell](/powershell/azure/new-azureps-module-az) per eseguire le attività necessarie per creare e distribuire il modello di gestione risorse.
+Gli esempi in questo articolo usano Azure PowerShell per eseguire le attività necessarie per creare e distribuire il modello di Resource Manager.The examples in this article use [Azure PowerShell](/powershell/azure/new-azureps-module-az) to perform the tasks needed to create and deploy the Resource Manager template.
 
-[Altre](../virtual-machines/windows/disk-encryption.md) informazioni sulla crittografia lato server (SSE) con chiavi gestite dal cliente (CMK) per Managed Disks.
+[Ulteriori informazioni](../virtual-machines/windows/disk-encryption.md) sulla crittografia lato server (SSE) con chiavi gestite dal cliente (CMK) per i dischi gestiti.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
-- Per informazioni sui requisiti dello strumento, [vedere l'esercitazione](tutorial-migrate-vmware.md) sulla migrazione di macchine virtuali VMware in Azure con replica senza agente.
-- [Seguire queste istruzioni](how-to-add-tool-first-time.md) per creare un progetto Azure migrate e aggiungere lo strumento di **migrazione Azure migrate: server** al progetto.
-- [Seguire queste istruzioni](how-to-set-up-appliance-vmware.md) per configurare l'appliance Azure migrate per VMware nell'ambiente locale e completare l'individuazione.
+- [Esaminare l'esercitazione](tutorial-migrate-vmware.md) sulla migrazione delle macchine virtuali VMware in Azure con la replica senza agente per comprendere i requisiti degli strumenti.
+- [Seguire queste istruzioni](how-to-add-tool-first-time.md) per creare un progetto di Azure Migrate e aggiungere lo strumento **Azure Migrate: Server Migration** al progetto.
+- [Seguire queste istruzioni](how-to-set-up-appliance-vmware.md) per configurare l'appliance Azure Migrate per VMware nell'ambiente locale e completare l'individuazione.
 
 ## <a name="prepare-for-replication"></a>Preparare per la replica
 
-Al termine dell'individuazione della macchina virtuale, la riga server individuati nel riquadro migrazione server visualizzerà il numero di macchine virtuali VMware individuate dall'appliance.
+Al termine dell'individuazione delle macchine virtuali, la riga Server individuati nel riquadro Migrazione server mostrerà un conteggio delle macchine virtuali VMware individuate dall'appliance.
 
-Prima di poter avviare la replica di macchine virtuali, è necessario preparare l'infrastruttura di replica.
+Prima di poter avviare la replica delle macchine virtuali, è necessario preparare l'infrastruttura di replica.
 
-1. Creare un'istanza del bus di servizio nell'area di destinazione. Il bus di servizio viene usato dal dispositivo Azure Migrate locale per comunicare con il servizio migrazione server per coordinare la replica e la migrazione.
+1. Creare un'istanza del bus di servizio nell'area di destinazione. Il bus di servizio viene usato dall'appliance di Azure Migrate locale per comunicare con il servizio di migrazione del server per coordinare la replica e la migrazione.
 2. Creare un account di archiviazione per il trasferimento dei log delle operazioni dalla replica.
-3. Creare un account di archiviazione in cui il dispositivo Azure Migrate caricherà i dati di replica.
-4. Creare una Key Vault e configurare la Key Vault per gestire i token di firma di accesso condiviso per l'accesso BLOB negli account di archiviazione creati nel passaggio 3 e 4.
-5. Generare un token di firma di accesso condiviso per il bus di servizio creato nel passaggio 1 e creare un segreto per il token nel Key Vault creato nel passaggio precedente.
-6. Creare un criterio di accesso Key Vault per concedere al dispositivo Azure Migrate locale (usando l'app AAD Appliance) e al servizio migrazione server l'accesso al Key Vault.
-7. Creare un criterio di replica e configurare il servizio migrazione server con i dettagli dell'infrastruttura di replica creata nel passaggio precedente.
+3. Creare un account di archiviazione in cui l'appliance Dischino di Azure carica i dati di replica.
+4. Creare un insieme di credenziali delle chiavi e configurare l'insieme di credenziali delle chiavi per gestire i token di firma di accesso condiviso per l'accesso ai BLOB negli account di archiviazione creati nei passaggi 3 e 4.Create a Key Vault and configure the Key Vault to manage shared access signature tokens for blob access on the storage accounts created in step 3 and 4.
+5. Generare un token di firma di accesso condiviso per il bus di servizio creato nel passaggio 1 e creare un segreto per il token nell'insieme di credenziali delle chiavi creato nel passaggio precedente.
+6. Creare criteri di accesso dell'insieme di credenziali delle chiavi per concedere all'appliance Azure Migrate locale (tramite l'app AAD dell'appliance) e al servizio di migrazione del server l'accesso all'insieme di credenziali delle chiavi.
+7. Creare un criterio di replica e configurare il servizio Migrazione server con i dettagli dell'infrastruttura di replica creata nel passaggio precedente.
 
 L'infrastruttura di replica deve essere creata nell'area di Azure di destinazione per la migrazione e nella sottoscrizione di Azure di destinazione in cui viene eseguita la migrazione delle macchine virtuali.
 
-L'esperienza del portale per la migrazione dei server semplifica la preparazione dell'infrastruttura di replica eseguendo automaticamente questa operazione quando si esegue la replica di una macchina virtuale per la prima volta in un progetto. In questo articolo si presuppone che sia già stata eseguita la replica di una o più macchine virtuali con l'esperienza del portale e che l'infrastruttura di replica sia già stata creata. Si esaminerà come individuare i dettagli dell'infrastruttura di replica esistente e come usare questi dettagli come input per il modello di Gestione risorse che verrà usato per configurare la replica con CMK.
+L'esperienza del portale di migrazione server semplifica la preparazione dell'infrastruttura di replica eseguendo automaticamente questa operazione quando si replica una macchina virtuale per la prima volta in un progetto. In questo articolo si presuppone che siano già state replicate una o più macchine virtuali usando l'esperienza del portale e che l'infrastruttura di replica sia già stata creata. Verrà illustrato come individuare i dettagli dell'infrastruttura di replica esistente e come utilizzarli come input per il modello di Resource Manager che verrà utilizzato per impostare la replica con CMK.
 
 ### <a name="identifying-replication-infrastructure-components"></a>Identificazione dei componenti dell'infrastruttura di replica
 
-1. Nella portale di Azure, passare alla pagina gruppi di risorse e selezionare il gruppo di risorse in cui è stato creato il progetto Azure Migrate.
-2. Selezionare **distribuzioni** dal menu a sinistra e cercare un nome di distribuzione che inizia con la stringa *"Microsoft. MigrateV2. VMwareV2EnableMigrate"* . Verrà visualizzato un elenco di modelli di Gestione risorse creati dall'esperienza del portale per configurare la replica per le macchine virtuali in questo progetto. Un modello di questo tipo verrà scaricato e usato come base per preparare il modello per la replica con CMK.
-3. Per scaricare il modello, selezionare una distribuzione corrispondente al modello di stringa nel passaggio precedente > scegliere **modello** dal menu a sinistra > fare clic su **Scarica** nel menu in alto. Salvare il file template. JSON localmente. Il file di modello verrà modificato nell'ultimo passaggio.
+1. Nel portale di Azure passare alla pagina Gruppi di risorse e selezionare il gruppo di risorse in cui è stato creato il progetto Azure Migrate.On the Azure portal, go the resource groups page and select the resource group in which the Azure Migrate project was created.
+2. Selezionare **Distribuzioni** dal menu a sinistra e cercare un nome di distribuzione che inizia con la stringa *"Microsoft.MigrateV2.VMwareV2EnableMigrate"*. Verrà visualizzato un elenco di modelli di Resource Manager creati dall'esperienza del portale per configurare la replica per le macchine virtuali in questo progetto. Scaricaremo un modello di questo tipo e lo useremo come base per preparare il modello per la replica con CMK.
+3. Per scaricare il modello, selezionare qualsiasi distribuzione corrispondente al modello di stringa nel passaggio precedente > selezionare **Modello** dal menu a sinistra > fare clic su **Download** dal menu in alto. Salvare il file template.json in locale. Questo file modello verrà modificato nell'ultimo passaggio.
 
-## <a name="create-a-disk-encryption-set"></a>Creare un set di crittografia del disco
+## <a name="create-a-disk-encryption-set"></a>Creazione di un set di crittografia del disco
 
-Un oggetto del set di crittografia del disco viene mappato Managed Disks a un Key Vault che contiene il CMK da usare per la crittografia SSE. Per replicare le macchine virtuali con CMK, è necessario creare un set di crittografia del disco e passarlo come input per l'operazione di replica.
+Un oggetto set di crittografia del disco esegue il mapping dei dischi gestiti a un vault chiave contenente la chiave CMK da utilizzare per SSE. Per replicare le macchine virtuali con CMK, è necessario creare un set di crittografia del disco e passarlo come input all'operazione di replica.
 
-Seguire [l'esempio seguente](../virtual-machines/windows/disk-encryption.md#powershell) per creare un set di crittografia del disco usando Azure PowerShell. Verificare che il set di crittografia del disco venga creato nella sottoscrizione di destinazione in cui viene eseguita la migrazione delle macchine virtuali e nell'area di Azure di destinazione per la migrazione.
+Seguire l'esempio seguente per creare un set di crittografia del disco usando Azure PowerShell.Follow the example [here](../virtual-machines/windows/disk-encryption.md#powershell) to create a disk encryption set using Azure PowerShell. Verificare che il set di crittografia del disco venga creato nella sottoscrizione di destinazione in cui viene eseguita la migrazione delle macchine virtuali e nell'area di Azure di destinazione per la migrazione.
 
 ```azurepowershell
 $Location = "southcentralus"                           #Target Azure region for migration 
@@ -83,10 +83,10 @@ New-AzRoleAssignment -ResourceName $KeyVaultName -ResourceGroupName $TargetResou
 
 ## <a name="get-details-of-the-vmware-vm-to-migrate"></a>Ottenere i dettagli della macchina virtuale VMware di cui eseguire la migrazione
 
-In questo passaggio si userà Azure PowerShell per ottenere i dettagli della macchina virtuale di cui deve essere eseguita la migrazione. Questi dettagli verranno usati per costruire il modello di Gestione risorse per la replica. In particolare, le due proprietà di interesse sono:
+In questo passaggio si userà Azure PowerShell per ottenere i dettagli della macchina virtuale di cui è necessario eseguire la migrazione. Questi dettagli verranno utilizzati per costruire il modello di Resource Manager per la replica. In particolare, le due proprietà di interesse sono:
 
-- ID risorsa del computer per le macchine virtuali individuate.
-- L'elenco di dischi per la macchina virtuale e i relativi identificatori del disco.
+- ID risorsa macchina per le macchine virtuali individuate.
+- Elenco di dischi per la macchina virtuale e i relativi identificatori di disco.
 
 ```azurepowershell
 
@@ -105,7 +105,7 @@ ApplianceName  SiteId
 VMwareApplianc /subscriptions/509099b2-9d2c-4636-b43e-bd5cafb6be69/resourceGroups/ContosoVMwareCMK/providers/Microsoft.OffAzure/VMwareSites/VMwareApplianca8basite
 ```
 
-Copiare il valore della stringa SiteId corrispondente all'appliance Azure Migrate in cui viene individuata la macchina virtuale. Nell'esempio illustrato in precedenza, SiteId è *"/subscriptions/509099b2-9d2c-4636-B43E-bd5cafb6be69/resourceGroups/ContosoVMwareCMK/Providers/Microsoft.OffAzure/VMwareSites/VMwareApplianca8basite"*
+Copiare il valore della stringa SiteId corrispondente all'appliance Azure Migrate tramite cui viene individuata la macchina virtuale. Nell'esempio riportato in precedenza, SiteId è *"/subscriptions/509099b2-9d2c-4636-b43e-bd5cafb6be69/resourceGroups/ContosoVMwareCMK/providers/Microsoft.OffAzure/VMwareSites/VMwareApplianca8basite"*
 
 ```azurepowershell
 
@@ -120,7 +120,7 @@ PS /home/bharathram> $machine = $Discoveredmachines | where {$_.Properties.displ
 PS /home/bharathram> $machine.count   #Validate that only 1 VM was found matching this name.
 ```
 
-Copiare i valori di UUID ResourceId, Name e disk per la macchina da migrare.
+Copiare i valori ResourceId, name e disk uuid per il computer di cui eseguire la migrazione.
 ```Output
 PS > $machine.Name
 10-150-8-52-b090bef3-b733-5e34-bc8f-eb6f2701432a_50098f99-f949-22ca-642b-724ec6595210
@@ -137,12 +137,12 @@ uuid                                 label       name    maxSizeInBytes
 
 ```
 
-## <a name="create-resource-manager-template-for-replication"></a>Creare Gestione risorse modello per la replica
+## <a name="create-resource-manager-template-for-replication"></a>Creare un modello di Resource Manager per la replicaCreate Resource Manager template for replication
 
-- Aprire il file di modello di Gestione risorse scaricato nel passaggio **Identificazione componenti dell'infrastruttura di replica** in un editor di propria scelta.
-- Rimuovere tutte le definizioni di risorse dal modello ad eccezione delle risorse di tipo *"Microsoft. RecoveryServices/Vaults/replicationFabrics/replicationProtectionContainers/replicationMigrationItems"*
-- Se sono presenti più definizioni di risorse del tipo precedente, rimuovere tutte le definizioni tranne una. Rimuovere tutte le definizioni di proprietà **dependsOn** dalla definizione di risorsa.
-- Al termine di questo passaggio, è necessario disporre di un file simile a quello riportato nell'esempio seguente con lo stesso set di proprietà.
+- Aprire il file modello di Resource Manager scaricato nel passaggio **Identificazione dei componenti dell'infrastruttura** di replica in un editor di propria scelta.
+- Rimuovere tutte le definizioni di risorse dal modello ad eccezione delle risorse di tipo *"Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationMigrationItems"*
+- Se sono presenti più definizioni di risorse del tipo precedente, rimuovere tutte tranne una. Rimuovere tutte le definizioni di proprietà **dependsOn** dalla definizione di risorsa.
+- Al termine di questo passaggio, si dovrebbe avere un file che assomiglia all'esempio seguente e ha lo stesso set di proprietà.
 
 ```
 {
@@ -182,14 +182,14 @@ uuid                                 label       name    maxSizeInBytes
 }
 ```
 
-- Modificare la proprietà **Name** nella definizione di risorsa. Sostituire la stringa che segue l'ultimo "/" nella proprietà Name con il valore *$Machine. Nome*(dal passaggio precedente).
-- Modificare il valore della proprietà **Properties. providerSpecificDetails. vmwareMachineId** con il valore *$Machine. ResourceId*(dal passaggio precedente).
-- Impostare i valori per **targetResourceGroupId**, **targetNetworkId**, **targetSubnetName** rispettivamente sull'ID del gruppo di risorse di destinazione, sull'ID di risorsa della rete virtuale di destinazione e sul nome della subnet di destinazione.
-- Impostare il valore di **licenseType** su "WindowsServer" per applicare vantaggio Azure Hybrid per questa macchina virtuale. Se questa macchina virtuale non è idonea per Vantaggio Azure Hybrid, impostare il valore di **licenseType** su NoLicenseType.
-- Modificare il valore della proprietà **targetVmName** con il nome della macchina virtuale di Azure desiderato per la VM di cui è stata eseguita la migrazione.
-- Facoltativamente, aggiungere una proprietà denominata **targetVmSize** sotto la proprietà **targetVmName** . Impostare il valore della proprietà **targetVmSize** sulle dimensioni di macchina virtuale di Azure desiderate per la macchina virtuale di cui è stata eseguita la migrazione.
-- La proprietà **disksToInclude** è un elenco di input del disco per la replica con ogni elemento dell'elenco che rappresenta un disco locale. Creare tutti gli elementi di elenco come numero di dischi nella macchina virtuale locale. Sostituire la proprietà **DiskID** nell'elemento dell'elenco con l'UUID dei dischi identificati nel passaggio precedente. Impostare il valore **isOSDisk** su "true" per il disco del sistema operativo della macchina virtuale e "false" per tutti gli altri dischi. Lasciare invariate le proprietà **logStorageAccountId** e **logStorageAccountSasSecretName** . Impostare il valore **diskType** sul tipo di disco gestito di Azure (*Standard_LRS, Premium_LRS, StandardSSD_LRS*) da usare per il disco. Per i dischi che devono essere crittografati con CMK, aggiungere una proprietà denominata **diskEncryptionSetId** e impostare il valore sull'ID risorsa del set di crittografia del disco creato ( **$des. ID**) nel passaggio *creare un set di crittografia del disco*
-- Salvare il file di modello modificato. Per l'esempio precedente, il file modello modificato è simile al seguente:
+- Modificare la proprietà **name** nella definizione della risorsa. Sostituire la stringa che segue l'ultimo "/" nella proprietà name con il valore di *$machine. Nome*(dal passaggio precedente).
+- Modificare il valore della proprietà **properties.providerSpecificDetails.vmwareMachineId** con il valore di *$machine. ResourceId*(dal passaggio precedente).
+- Impostare i valori per **targetResourceGroupId**, **targetNetworkId**, **targetSubnetName** sull'ID del gruppo di risorse di destinazione, l'ID risorsa di rete virtuale di destinazione e il nome della subnet di destinazione rispettivamente.
+- Impostare il valore di **licenseType** su "WindowsServer" per applicare il vantaggio Azure Hybrid per questa macchina virtuale. Se questa macchina virtuale non è idonea per il vantaggio Azure Hybrid, impostare il valore di licenseType su NoLicenseType.If this VM is not eligible for Azure Hybrid Benefit, set the value of **licenseType** to NoLicenseType.
+- Modificare il valore della proprietà **targetVmName** con il nome della macchina virtuale di Azure desiderato per la macchina virtuale migrata.
+- Facoltativamente, aggiungere una proprietà denominata **targetVmSize** sotto la proprietà targetVmName.Optionally add a property named targetVmSize below the **targetVmName** property. Impostare il valore della proprietà **targetVmSize** sulle dimensioni della macchina virtuale di Azure desiderate per la macchina virtuale migrata.
+- La proprietà **disksToInclude** è un elenco di input del disco per la replica con ogni elemento dell'elenco che rappresenta un disco locale. Creare un numero di elementi di elenco pari al numero di dischi nella macchina virtuale locale. Sostituire la proprietà **diskId** nella voce di elenco con l'UId dei dischi identificati nel passaggio precedente. Impostare il valore **isOSDisk** su "true" per il disco del sistema operativo della macchina virtuale e su "false" per tutti gli altri dischi. Lasciare invariate le proprietà **logStorageAccountId** e **logStorageAccountSasSecretName.** Impostare il valore **diskType** sul tipo di disco gestito di Azure (*Standard_LRS, Premium_LRS StandardSSD_LRS*) da utilizzare per il disco. Per i dischi che devono essere crittografati con CMK, aggiungere una proprietà denominata **diskEncryptionSetId** e impostare il valore sull'ID risorsa del set di crittografia del disco**creato($des. Id**) nel passaggio Creare un set di *crittografia del disco*
+- Salvare il file modello modificato. Per l'esempio precedente, il file modello modificato ha il seguente aspetto:
 
 ```
 {
@@ -249,7 +249,7 @@ uuid                                 label       name    maxSizeInBytes
 
 ## <a name="set-up-replication"></a>Configurare la replica
 
-È ora possibile distribuire il modello di Gestione risorse modificato al gruppo di risorse del progetto per configurare la replica per la macchina virtuale. Informazioni su come [distribuire risorse con modelli di Azure Resource Manager e Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
+È ora possibile distribuire il modello di Resource Manager modificato nel gruppo di risorse di progetto per configurare la replica per la macchina virtuale. Informazioni su come distribuire le risorse con i modelli di [Azure Resource Manager e Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
 
 ```azurepowershell
 New-AzResourceGroupDeployment -ResourceGroupName $ProjectResourceGroup -TemplateFile "C:\Users\Administrator\Downloads\template.json"
@@ -270,4 +270,4 @@ DeploymentDebugLogLevel :
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Monitorare](tutorial-migrate-vmware.md#track-and-monitor) lo stato della replica tramite l'esperienza del portale ed eseguire migrazioni di test e migrazione.
+[Monitorare](tutorial-migrate-vmware.md#track-and-monitor) lo stato della replica tramite l'esperienza del portale ed eseguire Test delle migrazioni e della migrazione.

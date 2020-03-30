@@ -1,19 +1,18 @@
 ---
-title: Distribuire una VM da Azure Marketplace
-description: Viene illustrato come distribuire una macchina virtuale da una macchina virtuale preconfigurata di Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+title: Distribuire una macchina virtuale da Azure MarketplaceDeploy a VM from the Azure Marketplace
+description: Viene illustrato come distribuire una macchina virtuale da una macchina virtuale preconfigurata di Azure Marketplace.Explains how to deploy a virtual machine from an Azure Marketplace pre-configured virtual machine.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/29/2018
-ms.author: pabutler
-ms.openlocfilehash: 2888d7643fd4f624634dc2ec520bec6e753382f1
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 7d5269cf8865faeb65356bc8fd3eea087cb7653c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73816833"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80277974"
 ---
 # <a name="deploy-a-virtual-machine-from-the-azure-marketplace"></a>Distribuire una macchina virtuale da Azure Marketplace
 

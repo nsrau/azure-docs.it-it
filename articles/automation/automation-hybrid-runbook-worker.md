@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 04/05/2019
 ms.topic: conceptual
 ms.openlocfilehash: cb1444261a2ba4810f4fddb3d7aa3bc172f09654
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79278870"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Automatizzare le risorse nel centro dati o nel cloud usando i ruoli di lavoro ibridi per runbook
@@ -20,7 +20,7 @@ Questa funzionalità è illustrata nell'immagine seguente:
 
 ![Panoramica del ruolo di lavoro ibrido per runbook](media/automation-hybrid-runbook-worker/automation.png)
 
-Ogni computer di lavoro runbook ibrido è un membro di un gruppo di computer di lavoro runbook ibridi che è possibile specificare quando si installa l'agente. Un gruppo può includere un solo agente, ma è possibile installarvi più agenti per garantire una disponibilità elevata. Ogni computer può ospitare un ruolo di lavoro ibrido che invia report a un account di automazione.
+Ogni computer di lavoro runbook ibrido è un membro di un gruppo di computer di lavoro runbook ibridi che è possibile specificare quando si installa l'agente. Un gruppo può includere un solo agente, ma è possibile installarvi più agenti per garantire una disponibilità elevata. Ogni computer può ospitare un componente di lavoro ibrido che reporting a un account di automazione.
 
 Quando si avvia un runbook in un ruolo di lavoro ibrido per runbook, è necessario specificare il gruppo in cui verrà eseguito. Ogni ruolo di lavoro del gruppo esegue il polling di Automazione di Azure per vedere se sono disponibili processi. Se è disponibile un processo, il primo ruolo di lavoro che raggiunge il processo lo ottiene. Il tempo di elaborazione della coda processi dipende dal profilo hardware e dal carico del ruolo di lavoro ibrido. Non è possibile scegliere un computer di lavoro specifico. I ruoli di lavoro ibridi per runbook mancano di molti dei limiti presenti invece in sandbox di Azure, ad esempio non hanno gli stessi limiti di spazio su disco, memoria o socket di rete. I ruoli di lavoro ibridi per runbook sono limitati soltanto dalle risorse del ruolo di lavoro ibrido per runbook stesso. Inoltre, a differenza dai sandbox di Azure, i ruoli di lavoro ibridi per runbook non hanno il limite di tempo di [condivisione equa](automation-runbook-execution.md#fair-share) di 180 minuti. Per altre informazioni sui limiti del servizio per i sandbox di Azure e i ruoli di lavoro ibridi per runbook, vedere la pagina sui [limiti](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits) del processo.
 
@@ -32,7 +32,7 @@ Per installare e configurare un ruolo di lavoro ibrido per runbook di Windows, �
 
 |OS  |Tipi distribuzione  |
 |---------|---------|
-|Windows     | [PowerShell](automation-windows-hrw-install.md#automated-deployment)<br>[Manuale](automation-windows-hrw-install.md#manual-deployment)        |
+|WINDOWS     | [Powershell](automation-windows-hrw-install.md#automated-deployment)<br>[Manuale](automation-windows-hrw-install.md#manual-deployment)        |
 |Linux     | [Python](automation-linux-hrw-install.md#installing-a-linux-hybrid-runbook-worker)        |
 
 > [!NOTE]
@@ -51,7 +51,7 @@ Prima di iniziare la distribuzione di un ruolo di lavoro ibrido per runbook, riv
 1. Nel portale di Azure passare all'account di Automazione.
 2. In **Impostazioni Account** selezionare **Chiavi** e prendere nota dei valori di **URL** e **Chiave di accesso primaria**. Queste informazioni saranno necessarie per il passaggio successivo.
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a>WINDOWS
 
 Aprire una sessione di PowerShell in modalità amministratore ed eseguire il comando seguente. Per un log dettagliato del processo di rimozione, usare l'opzione **-Verbose** .
 
@@ -81,7 +81,7 @@ sudo python onboarding.py --deregister --endpoint="<URL>" --key="<PrimaryAccessK
 Per rimuovere un gruppo, è innanzitutto necessario rimuovere il ruolo di lavoro ibrido per runbook da ogni computer membro del gruppo usando la procedura descritta in precedenza. Quindi usare la procedura seguente per rimuovere il gruppo:
 
 1. Nel portale di Azure aprire l'account di automazione.
-2. In **Automazione processi** selezionare **Gruppi di lavoro ibridi**. Selezionare il gruppo che si vuole eliminare. Viene visualizzata la pagina delle proprietà per quel gruppo.
+2. In **Automazione processo**selezionare **Gruppi di lavoro ibridi**. Selezionare il gruppo che si vuole eliminare. Viene visualizzata la pagina delle proprietà per quel gruppo.
 
    ![Pagina Proprietà](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-group-properties.png)
 
@@ -91,15 +91,15 @@ Per rimuovere un gruppo, è innanzitutto necessario rimuovere il ruolo di lavoro
 
    Questo processo può richiedere alcuni secondi. Per tenere traccia dello stato di avanzamento, è possibile usare la voce **Notifiche** nel menu.
 
-## <a name="network-planning"></a>Configurare la rete
+## <a name="configure-your-network"></a><a name="network-planning"></a>Configurare la rete
 
 ### <a name="hybrid-worker-role"></a>Ruolo di lavoro ibrido
 
-Per la connessione e la registrazione con automazione di Azure, il ruolo di lavoro ibrido per Runbook deve avere accesso al numero di porta e agli URL descritti in questa sezione. Questo accesso è in primo piano alle [porte e agli URL necessari per Microsoft Monitoring Agent](../azure-monitor/platform/agent-windows.md) connettersi ai log di monitoraggio di Azure.
+Affinché il ruolo di lavoro ibrido per runbook si connetta e si registri con Automazione di Azure, deve avere accesso al numero di porta e agli URL descritti in questa sezione. Questo accesso è in cima alle porte e agli URL necessari affinché Microsoft Monitoring Agent si connetta ai log di Monitoraggio di Azure.This access is on top to the ports and [URLs required for Microsoft Monitoring Agent](../azure-monitor/platform/agent-windows.md) to connect to Azure Monitor logs.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-Se si usa un server proxy per la comunicazione tra l'agente e il servizio automazione di Azure, assicurarsi che le risorse appropriate siano accessibili. Il timeout per le richieste provenienti dal ruolo di lavoro ibrido per Runbook e dai servizi di automazione è di 30 secondi. Dopo 3 tentativi la richiesta avrà esito negativo. Se si usa un firewall per limitare l'accesso a Internet, è necessario configurare il firewall per consentire l'accesso. Se si usa il gateway Log Analytics come proxy, assicurarsi che sia configurato per i ruoli di lavoro ibridi. Per istruzioni su come eseguire questa procedura, vedere [Configurare il gateway Log Analytics per i ruoli di lavoro ibridi per runbook di Automazione](https://docs.microsoft.com/azure/log-analytics/log-analytics-oms-gateway).
+Se si usa un server proxy per la comunicazione tra l'agente e il servizio di automazione di Azure, assicurarsi che le risorse appropriate siano accessibili. Il timeout per le richieste dal ruolo di lavoro ibrido per runbook e dai servizi di automazione è di 30 secondi. Dopo 3 tentativi la richiesta avrà esito negativo. Se si usa un firewall per limitare l'accesso a Internet, è necessario configurare il firewall per consentire l'accesso. Se si usa il gateway Log Analytics come proxy, assicurarsi che sia configurato per i ruoli di lavoro ibridi. Per istruzioni su come eseguire questa procedura, vedere [Configurare il gateway Log Analytics per i ruoli di lavoro ibridi per runbook di Automazione](https://docs.microsoft.com/azure/log-analytics/log-analytics-oms-gateway).
 
 La porta e gli URL seguenti sono necessari affinché il ruolo di lavoro ibrido per runbook comunichi con Automazione:
 
@@ -112,7 +112,7 @@ La porta e gli URL seguenti sono necessari affinché il ruolo di lavoro ibrido p
 
 Se è disponibile un account di Automazione definito per un'area specifica, è possibile limitare la comunicazione a tale data center regionale. La tabella seguente indica il record DNS per ogni area:
 
-| **Area** | **Record DNS** |
+| **Regione** | **Record DNS** |
 | --- | --- |
 | Stati Uniti centro-occidentali | wcus-jobruntimedata-prod-su1.azure-automation.net</br>wcus-agentservice-prod-1.azure-automation.net |
 | Stati Uniti centro-meridionali |scus-jobruntimedata-prod-su1.azure-automation.net</br>scus-agentservice-prod-1.azure-automation.net |

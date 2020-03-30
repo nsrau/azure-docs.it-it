@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
 ms.openlocfilehash: 774f5a73a5fc30352698c0af0c279fbbe488c480
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79267690"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-modify-your-storsimple-device-configuration"></a>Usare il servizio Gestione dispositivi StorSimple per modificare la configurazione del dispositivo StorSimple
@@ -44,10 +44,10 @@ Il pannello **Impostazioni** nella sezione **Impostazioni del dispositivo** del 
 
 A un dispositivo StorSimple connesso al servizio Gestione dispositivi StorSimple viene assegnato un nome predefinito. Il nome predefinito riflette in genere il numero di serie del dispositivo. Ad esempio, un nome di dispositivo predefinito che è composto da 15 caratteri, ad esempio 8600-SHX0991003G44HT indica quanto segue:
 
-* **8600** – indica il modello del dispositivo.
-* **SHX** – indica il sito di produzione.
-* **0991003** -indica un prodotto specifico.
-* **G44HT**-le ultime 5 cifre vengono aggiunte per creare numeri di serie univoci. Questo potrebbe non essere un insieme sequenziale.
+* **8600** – Indica il modello di dispositivo.
+* **SHX**: sito di produzione.
+* **0991003**: prodotto specifico.
+* **G44HT**: numero di serie univoco, risultante dall'incremento progressivo degli ultimi cinque caratteri. Questo potrebbe non essere un insieme sequenziale.
 
 ## <a name="modify-device-description"></a>Modificare la descrizione del dispositivo
 
@@ -65,7 +65,7 @@ Il dispositivo deve sincronizzare l'ora per l'autenticazione con il provider di 
 
  Selezionare il fuso orario dall'elenco a discesa. È possibile specificare fino a due server NTP (Network Time Protocol):
 
- - **Server NTP primario**: la configurazione è obbligatoria e si specifica quando si usa Windows PowerShell per StorSimple per configurare il dispositivo. È possibile specificare il valore predefinito di Windows Server **time.windows.com** come server NTP. È possibile visualizzare la configurazione del server NTP primario nel portale di Azure, ma è necessario usare l'interfaccia Windows PowerShell per modificarla. Usare il cmdlet `Set-HcsNTPClientServerAddress` per modificare il server NTP primario del dispositivo. Per altre informazioni, vedere la sintassi per il cmdlet [Set-HcsNTPClientServerAddress](https://technet.microsoft.com/library/dn688138.aspx).
+ - **Server NTP primario**: la configurazione è obbligatoria e si specifica quando si usa Windows PowerShell per StorSimple per configurare il dispositivo. Come server NTP è possibile specificare il servizio **time.windows.com** predefinito di Windows Server. È possibile visualizzare la configurazione del server NTP primario nel portale di Azure, ma è necessario usare l'interfaccia Windows PowerShell per modificarla. Usare il cmdlet `Set-HcsNTPClientServerAddress` per modificare il server NTP primario del dispositivo. Per altre informazioni, vedere la sintassi per il cmdlet [Set-HcsNTPClientServerAddress](https://technet.microsoft.com/library/dn688138.aspx).
 
 - **Server NTP secondario**: la configurazione è facoltativa. È possibile usare il portale per configurare un server NTP secondario.
 
@@ -120,17 +120,17 @@ Per ogni interfaccia di rete, vengono visualizzati i seguenti parametri:
   > [!NOTE]
   > Velocità e duplex sono sempre sottoposti alla negoziazione automatica. Non sono supportati i frame Jumbo.
   
-* **Stato interfaccia** – un'interfaccia può essere abilitata o disabilitata. Se abilitata, il dispositivo tenterà di utilizzare l'interfaccia. Si consiglia di abilitare solo tali interfacce che sono connesse alla rete e utilizzati. Disabilitare tutte le interfacce che non sono in uso.
-* **Tipo di interfaccia** : questo parametro consente di isolare il traffico iSCSI dal traffico di archiviazione cloud. Questo parametro può essere uno dei seguenti:
+* **Stato dell'interfaccia**: un'interfaccia può essere abilitata o disabilitata. Se abilitata, il dispositivo tenterà di utilizzare l'interfaccia. Si consiglia di abilitare solo tali interfacce che sono connesse alla rete e utilizzati. Disabilitare tutte le interfacce che non sono in uso.
+* **Tipo di interfaccia**: questo parametro consente di isolare il traffico iSCSI da quello di archiviazione cloud. Questo parametro può essere uno dei seguenti:
   
   * **Abilitato per il cloud** – quando abilitato, il dispositivo utilizzerà questa interfaccia per comunicare con il cloud.
   * **iSCSI abilitato** – quando abilitato, il dispositivo utilizzerà questa interfaccia per comunicare con l'host iSCSI.
     
     Si consiglia di isolare il traffico iSCSI dal traffico di archiviazione cloud. Si noti inoltre che se l'host è all'interno della stessa subnet del dispositivo, non è necessario assegnare un gateway. Tuttavia, se l'host si trova in una subnet diversa del dispositivo, è necessario assegnare un gateway.
-* **Indirizzo IP**: quando si configura una delle interfacce di rete, è necessario configurare un IP virtuale (VIP). L'IP virtuale può essere IPv4 o IPv6 o entrambi. Sono supportate sia le famiglie di indirizzi IPv4 e sia IPv6 per le interfacce di rete del dispositivo. Quando si utilizza IPv4, specificare un indirizzo IP a 32 bit (*xxx.xxx.xxx.xxx*) in notazione decimale. Quando si utilizza IPv6, è sufficiente fornire un prefisso a 4 cifre e un indirizzo a 128 bit verrà generato automaticamente per l'interfaccia di rete del dispositivo in base al prefisso.
+* **Indirizzo IP**: quando si configura una delle interfacce di rete, è necessario configurare un IP virtuale (VIP). L'IP virtuale può essere IPv4 o IPv6 o entrambi. Sono supportate sia le famiglie di indirizzi IPv4 e sia IPv6 per le interfacce di rete del dispositivo. Quando si usa IPv4, specificare un indirizzo IP a 32 bit (*xxx.xxx.xxx.xxx*) in notazione decimale con punti. Quando si utilizza IPv6, è sufficiente fornire un prefisso a 4 cifre e un indirizzo a 128 bit verrà generato automaticamente per l'interfaccia di rete del dispositivo in base al prefisso.
 * **Subnet** : si riferisce alla subnet mask e viene configurata tramite l'interfaccia Windows PowerShell.
-* **Gateway** : si tratta del gateway predefinito che deve essere utilizzato da tale interfaccia durante il tentativo di comunicare con i nodi che non sono nello stesso spazio di indirizzi IP (subnet). Il gateway predefinito deve essere nello stesso spazio degli indirizzi (subnet) dell'interfaccia indirizzo IP, come determinato dalla subnet mask.
-* **Indirizzo IP fisso** : questo campo è disponibile solo quando si configura l’interfaccia di DATA 0. Per operazioni come aggiornamenti o risoluzione dei problemi relativi al dispositivo, potrebbe essere necessario connettersi direttamente al controller del dispositivo. L'indirizzo IP fisso può essere utilizzato per accedere al controller attivo e passivo sul dispositivo.
+* **Gateway**: si tratta del gateway predefinito che deve essere usato dall'interfaccia quando prova a comunicare con nodi che non si trovano nello stesso spazio di indirizzi IP (subnet). Il gateway predefinito deve essere nello stesso spazio degli indirizzi (subnet) dell'interfaccia indirizzo IP, come determinato dalla subnet mask.
+* **Indirizzo IP fisso**: questo campo è disponibile solo quando si configura l'interfaccia DATA 0. Per operazioni come aggiornamenti o risoluzione dei problemi relativi al dispositivo, potrebbe essere necessario connettersi direttamente al controller del dispositivo. L'indirizzo IP fisso può essere utilizzato per accedere al controller attivo e passivo sul dispositivo.
 
 > [!NOTE]
 > * Per garantire il corretto funzionamento, verificare la velocità dell'interfaccia e duplex del commutatore a cui ogni interfaccia del dispositivo è connessa. Le interfacce del commutatore devono essere negoziate oppure configurate per Gigabit Ethernet (1000 Mbps) e devono essere full duplex. Le interfacce funzionanti a velocità più basse o half duplex comportano problemi di prestazioni.

@@ -1,17 +1,17 @@
 ---
-title: Risolvere i problemi relativi alle prestazioni delle query-database di Azure per MariaDB
-description: Informazioni su come usare EXPLAIN per risolvere i problemi relativi alle prestazioni delle query nel database di Azure per MariaDB.
+title: Risolvere i problemi relativi alle prestazioni delle query - Database di Azure per MariaDBTroubleshoot query performance - Azure Database for MariaDB
+description: Informazioni su come usare EXPLAIN per risolvere i problemi relativi alle prestazioni delle query nel database di Azure per MariaDB.Learn how to use EXPLAIN to troubleshoot query performance in Azure Database for MariaDB.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: troubleshooting
-ms.date: 12/02/2019
-ms.openlocfilehash: 36571cc1ac4fbdcd5c0c6a4007a6c43858c97193
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: b06fe37b63494eb4ee0ca680733a801c26415d67
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770986"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79530054"
 ---
 # <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mariadb"></a>Come usare EXPLAIN per profilare le prestazioni delle query in Database di Azure per MariaDB
 **EXPLAIN** è uno strumento comodo per ottimizzare le query. L'istruzione EXPLAIN può essere usata per ottenere informazioni sulla modalità di esecuzione delle istruzioni SQL. L'output seguente mostra un esempio di esecuzione di un'istruzione EXPLAIN.
@@ -120,7 +120,7 @@ possible_keys: covered
 Come mostra l'istruzione EXPLAIN precedente, MariaDB usa ora l'indice di copertura evitando di creare una tabella temporanea. 
 
 ## <a name="combined-index"></a>Indice combinato
-Un indice combinato è costituito da valori da più colonne e può essere considerato una matrice di righe ordinate concatenando i valori delle colonne indicizzate. Questo metodo può essere utile in un'istruzione **Group by** .
+Un indice combinato è costituito da valori da più colonne e può essere considerato una matrice di righe ordinate concatenando i valori delle colonne indicizzate.Questo metodo può essere utile in un'istruzione **GROUP BY**.
 
 ```sql
 mysql> EXPLAIN SELECT c1, c2 from tb1 WHERE c2 LIKE '%100' ORDER BY c1 DESC LIMIT 10\G
@@ -161,9 +161,9 @@ possible_keys: NULL
 
 L'istruzione EXPLAIN mostra ora che MariaDB è in grado di usare l'indice combinato per evitare ulteriori operazioni di ordinamento perché l'indice è già ordinato.
  
-## <a name="conclusion"></a>Conclusione
+## <a name="conclusion"></a>Conclusioni
  
-L'uso di EXPLAIN e di diversi tipi di indici può aumentare sensibilmente le prestazioni. La presenza di un indice nella tabella non implica necessariamente che MariaDB possa utilizzarlo per le query. Verificare sempre i presupposti usando EXPLAIN e ottimizzare le query con gli indici.
+L'uso di EXPLAIN e di diversi tipi di indici può aumentare sensibilmente le prestazioni. Avere un indice nella tabella non significa necessariamente che MariaDB sarebbe in grado di utilizzarlo per le query. Verificare sempre i presupposti usando EXPLAIN e ottimizzare le query con gli indici.
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Per trovare risposte dai colleghi alle domande più pressanti o per pubblicare una nuova domanda o risposta, visitare il [forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDatabaseforMariadb) o [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mariadb).

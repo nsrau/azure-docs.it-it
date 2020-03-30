@@ -1,6 +1,6 @@
 ---
 title: Estrarre, trasformare e caricare (ETL) su larga scala - Azure HDInsight
-description: Informazioni su come estrarre, trasformare e caricare viene usato in HDInsight con Apache Hadoop.
+description: Informazioni su come estrarre, trasformare e caricare viene usato in HDInsight con Apache Hadoop.Learn how extract, transform, and load is used in HDInsight with Apache Hadoop.
 author: ashishthaps
 ms.author: ashishth
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 03/03/2020
-ms.openlocfilehash: 8a4205002a98a5b9670839b0de7b53d81e0221a6
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: f4be3343f090c4d31ccb85eba8e99f22a3b1fcae
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78271940"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79529476"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Estrarre, trasformare e caricare (ETL) su larga scala
 
@@ -21,7 +21,7 @@ Estrazione, trasformazione e caricamento (ETL) è il processo tramite il quale i
 
 L'uso di HDInsight nel processo ETL può essere riassunto da questa pipeline:
 
-![Panoramica di HDInsight ETL su larga scala](./media/apache-hadoop-etl-at-scale/hdinsight-etl-at-scale-overview.png)
+![Panoramica di HDInsight ETL in scalaHDInsight ETL at scale overview](./media/apache-hadoop-etl-at-scale/hdinsight-etl-at-scale-overview.png)
 
 Le sezioni seguenti illustrano ogni fase del processo ETL e i relativi componenti associati.
 
@@ -39,7 +39,7 @@ Per altre informazioni, vedere [Usare Apache Oozie con Apache Hadoop per definir
 
 ### <a name="azure-data-factory"></a>Data factory di Azure
 
-Azure Data Factory offre funzionalità di orchestrazione sotto forma di piattaforma distribuita come servizio (PaaS). Si tratta di un servizio di integrazione dei dati basato sul cloud che consente di creare flussi di lavoro basati sui dati nel cloud per orchestrare e automatizzare lo spostamento e la trasformazione dei dati.
+Azure Data Factory offre funzionalità di orchestrazione sotto forma di piattaforma distribuita come servizio (PaaS). Si tratta di un servizio di data integration basato su cloud che consente di creare flussi di lavoro basati sui dati nel cloud per orchestrare e automatizzare lo spostamento dei dati e la trasformazione dei dati.
 
 Con Azure Data Factory è possibile:
 
@@ -51,11 +51,11 @@ Per altre informazioni su Azure Data Factory, vedere la [documentazione](../../d
 
 ## <a name="ingest-file-storage-and-result-storage"></a>Inserire dati nell'archiviazione file e nell'archivio risultati
 
-I file di dati di origine vengono in genere caricati in una posizione di Archiviazione di Azure o di Azure Data Lake Store. I file possono essere in qualsiasi formato, ma in genere sono file flat, ad esempio CSVs.
+I file di dati di origine vengono in genere caricati in una posizione di Archiviazione di Azure o di Azure Data Lake Store. I file possono essere in qualsiasi formato, ma in genere sono file flat come CSV.
 
 ### <a name="azure-storage"></a>Archiviazione di Azure
 
-[Archiviazione di Azure](https://azure.microsoft.com/services/storage/blobs/) ha obiettivi di scalabilità specifici. Per altre informazioni, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione BLOB](../../storage/blobs/scalability-targets.md). Per la maggior parte dei nodi analitici, le prestazioni di Archiviazione di Azure risultano ottimali quando vengono gestiti molti file di piccole dimensioni.  Archiviazione di Azure garantisce prestazioni identiche, a prescindere dal numero di file o dalla relativa dimensione (a condizione che non siano superati i limiti).  Ciò significa che è possibile archiviare terabyte di dati e ottenere comunque prestazioni coerenti, sia che si utilizzi un subset di dati o tutti i dati.
+[Archiviazione di Azure](https://azure.microsoft.com/services/storage/blobs/) ha obiettivi di scalabilità specifici. Per altre informazioni, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione BLOB](../../storage/blobs/scalability-targets.md). Per la maggior parte dei nodi analitici, le prestazioni di Archiviazione di Azure risultano ottimali quando vengono gestiti molti file di piccole dimensioni.  Archiviazione di Azure garantisce prestazioni identiche, a prescindere dal numero di file o dalla relativa dimensione (a condizione che non siano superati i limiti).  Ciò significa che è possibile archiviare terabyte di dati e ottenere comunque prestazioni coerenti, indipendentemente dal fatto che si utilizzi un sottoinsieme dei dati o tutti i dati.
 
 Archiviazione di Azure ha diversi tipi di BLOB.  Un *BLOB di aggiunta* è un'ottima scelta per archiviare blog o dati sensore.  
 
@@ -65,7 +65,7 @@ Archiviazione di Azure include anche un livello API WebHDFS per l'archiviazione 
 
 I dati vengono in genere inseriti in Archiviazione di Azure tramite PowerShell, Azure Storage SDK o AZCopy.
 
-### <a name="azure-data-lake-storage"></a>Archiviazione di Azure Data Lake
+### <a name="azure-data-lake-storage"></a>Azure Data Lake Storage
 
 Azure Data Lake Storage (ADLS) è un repository con iperscalabilità gestito per dati di analisi compatibili con HDFS.  ADLS usa un paradigma di progettazione simile ad HDFS e offre scalabilità illimitata in termini di capacità totale e dimensione dei singoli file. ADLS è un'ottima scelta quando si lavora con file di grandi dimensioni, poiché un file di questo tipo può essere archiviato in più nodi.  Il partizionamento dei dati in ADLS viene eseguito in background.  Si ottiene una velocità effettiva molto elevata per l'esecuzione di processi di analisi con migliaia di esecutori simultanei che leggono e scrivono centinaia di terabyte di dati in modo efficiente.
 
@@ -85,7 +85,7 @@ Per il caricamento dei set di dati nell'intervallo di terabyte, la latenza di re
 
 Azure SQL DW è la scelta ottimale per archiviare risultati puliti e preparati per analisi future.  Azure HDInsight consente di eseguire i servizi per Azure SQL DW.
 
-Azure SQL Data Warehouse (SQL DW) è un archivio database relazionale ottimizzato per carichi di lavoro analitici.  Azure SQL DW viene ridimensionato in base a tabelle  che possono essere partizionate tra più nodi.  I nodi di Azure SQL DW vengono selezionati nel momento in cui si creano.  Successivamente possono essere ridimensionati, ma si tratta di un processo attivo che può richiedere lo spostamento dei dati. Per altre informazioni, vedere [SQL data warehouse-Manage Compute](../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
+Azure SQL Data Warehouse (SQL DW) è un archivio database relazionale ottimizzato per carichi di lavoro analitici.  Azure SQL DW viene ridimensionato in base a tabelle  che possono essere partizionate tra più nodi.  I nodi di Azure SQL DW vengono selezionati nel momento in cui si creano.  Successivamente possono essere ridimensionati, ma si tratta di un processo attivo che può richiedere lo spostamento dei dati. Per ulteriori informazioni, vedere [SQL Data Warehouse - Gestire il calcolo](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
 
 ### <a name="apache-hbase"></a>Apache HBase
 
@@ -105,7 +105,7 @@ Azure offre tre diversi database relazionali come piattaforma distribuita come s
 * [Database di Azure per MySQL](../../mysql/overview.md) è un'implementazione di Oracle MySQL.
 * [Database di Azure per PostgreSQL](../../postgresql/quickstart-create-server-database-portal.md) è un'implementazione di PostgreSQL.
 
-Questi prodotti vengono ridimensionati, il che significa che vengono ridimensionati aggiungendo più CPU e memoria.  Con questi prodotti è anche possibile scegliere di usare dischi premium per migliorare le prestazioni di I/O.
+Questi prodotti scalano verso l'alto, il che significa che vengono scalati aggiungendo più CPU e memoria.  Con questi prodotti è anche possibile scegliere di usare dischi premium per migliorare le prestazioni di I/O.
 
 ## <a name="azure-analysis-services"></a>Azure Analysis Services
 
@@ -127,14 +127,14 @@ Sqoop usa MapReduce per l'importazione e l'esportazione dei dati per assicurare 
 
 Apache Flume è un servizio distribuito, affidabile e disponibile per raccogliere, aggregare e spostare in modo efficiente grandi quantità di dati di log. Ha un'architettura semplice e flessibile basata su flussi di dati. Flume è un servizio solido e a tolleranza di errore dotato di meccanismi di affidabilità ottimizzabili e molti meccanismi di failover e ripristino. Usa un modello di dati estensibile semplice per consentire applicazioni analitiche online.
 
-Non è possibile usare Apache Flume con Azure HDInsight.  Un'installazione locale di Hadoop può usare Flume per inviare dati ai BLOB del servizio di archiviazione di Azure o a Azure Data Lake Storage.  Per altre informazioni, vedere [Using Apache Flume with HDInsigh](https://web.archive.org/web/20190217104751/https://blogs.msdn.microsoft.com/bigdatasupport/2014/03/18/using-apache-flume-with-hdinsight/) (Uso di Apache Flume con HDInsight).
+Apache Flume can't be used with Azure HDInsight.  Un'installazione locale di Hadoop può usare Flume per inviare dati ai BLOB del servizio di archiviazione di Azure o a Azure Data Lake Storage.  Per altre informazioni, vedere [Using Apache Flume with HDInsigh](https://web.archive.org/web/20190217104751/https://blogs.msdn.microsoft.com/bigdatasupport/2014/03/18/using-apache-flume-with-hdinsight/) (Uso di Apache Flume con HDInsight).
 
 ## <a name="transform"></a>Trasformare
 
-Quando i dati esistono nella posizione scelta, è necessario pulirli, combinarli o prepararli per un modello di utilizzo specifico.  Hive, Pig e Spark SQL sono soluzioni ottime per questo tipo di attività  Tutti sono supportati in HDInsight.
+Quando i dati esistono nella posizione scelta, è necessario pulirli, combinarli o prepararli per un modello di utilizzo specifico.  Hive, Pig e Spark SQL sono soluzioni ottime per questo tipo di attività  Sono tutti supportati su HDInsight.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Usare Apache Hive come strumento per estrazione, trasformazione e caricamento (ETL, Extract, Transform, and Load)](apache-hadoop-using-apache-hive-as-an-etl-tool.md)
 * [Usare Azure Data Lake Storage Gen2 con cluster Azure HDInsight](../hdinsight-hadoop-use-data-lake-storage-gen2.md)
-* [Spostare i dati dal database SQL di Azure alla tabella Apache Hive](./apache-hadoop-use-sqoop-mac-linux.md)
+* [Spostare i dati dal database SQL di Azure alla tabella Apache HiveMove data from Azure SQL Database to Apache Hive table](./apache-hadoop-use-sqoop-mac-linux.md)

@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: 568a21cee5b50a8914c603976f5951d0235dbff7
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79281483"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Funzionalità e terminologia di Hub eventi di Azure
@@ -33,7 +33,7 @@ Uno spazio dei nomi di Hub eventi specifica un contenitore di ambito univoco, id
 
 [Questa funzionalità](event-hubs-for-kafka-ecosystem-overview.md) offre un endpoint che consente ai clienti di parlare con gli Hub eventi usando il protocollo Kafka. Questa integrazione offre ai clienti un endpoint Kafka. Ciò consente ai clienti di configurare le proprie applicazioni Kafka esistenti per parlare con gli Hub eventi offrendo un'alternativa all'esecuzione dei propri cluster Kafka. Hub eventi per Apache Kafka supporta il protocollo Kafka 1.0 e versioni successive. 
 
-Con questa integrazione, non è necessario eseguire i cluster Kafka o gestirli con Zookeeper. In questo modo è possibile usare alcune delle funzionalità più complesse di Hub eventi, ad esempio acquisizione, aumento automatico e ripristino di emergenza geografico.
+Con questa integrazione, non è necessario eseguire i cluster Kafka o gestirli con il custode dello zoo. In questo modo è possibile usare alcune delle funzionalità più complesse di Hub eventi, ad esempio acquisizione, aumento automatico e ripristino di emergenza geografico.
 
 Questa integrazione consente inoltre alle applicazioni come Mirror Maker o ai framework come Kafka Connect di lavorare senza cluster solo con le modifiche alla configurazione. 
 
@@ -43,7 +43,7 @@ Qualsiasi entità che invia dati a un hub eventi è un produttore di eventi o *a
 
 ### <a name="publishing-an-event"></a>Pubblicazione di un evento
 
-È possibile pubblicare un evento tramite AMQP 1.0, Kafka 1.0 (e versioni successive) o HTTPS. Hub eventi offre [classi e librerie client](event-hubs-dotnet-framework-api-overview.md) per la pubblicazione di eventi in un hub eventi dai client .NET. Per altre piattaforme e runtime, è possibile utilizzare qualsiasi client AMQP 1.0, ad esempio [Apache Qpid](https://qpid.apache.org/). È possibile pubblicare eventi singolarmente o in batch. Una singola pubblicazione (istanza dei dati dell'evento) ha un limite di 1 MB, indipendentemente dal fatto che si tratti di un singolo evento o di un batch. La pubblicazione di eventi di dimensioni superiori alla soglia determina un errore. È consigliabile che gli autori non rilevino le partizioni all'interno dell'hub eventi e specifichino solo una *chiave di partizione* (illustrata nella sezione successiva) o la propria identità tramite il token di firma di accesso condiviso.
+È possibile pubblicare un evento tramite AMQP 1.0, Kafka 1.0 (e versioni successive) o HTTPS. Hub eventi offre [classi e librerie client](event-hubs-dotnet-framework-api-overview.md) per la pubblicazione di eventi in un hub eventi dai client .NET. Per altre piattaforme e runtime, è possibile utilizzare qualsiasi client AMQP 1.0, ad esempio [Apache Qpid](https://qpid.apache.org/). È possibile pubblicare eventi singolarmente o in batch. Una singola pubblicazione (istanza dei dati dell'evento) ha un limite di 1 MB, indipendentemente dal fatto che si tratti di un singolo evento o di un batch. La pubblicazione di eventi di dimensioni superiori alla soglia determina un errore. È consigliabile che i publisher non sappiano le partizioni all'interno dell'hub eventi e specifichino solo una chiave di *partizione* (introdotta nella sezione successiva) o la loro identità tramite il token di firma di accesso condiviso.
 
 La scelta di utilizzare AMQP o HTTPS dipende dallo scenario di utilizzo. AMQP richiede di stabilire un socket bidirezionale persistente oltre alla sicurezza a livello di trasporto (TLS) o SSL/TLS. AMQP comporta costi di rete superiori in fase di inizializzazione della sessione, ma HTTPS richiede un costo generale SSL aggiuntivo per ogni richiesta. AMQP offre prestazioni più elevate per i server di pubblicazione più attivi.
 
@@ -71,11 +71,11 @@ Non è necessario creare nomi di autore prima di procedere, ma devono corrispond
 
 ## <a name="sas-tokens"></a>Token di firma di accesso condiviso
 
-Hub eventi usa *firme di accesso condiviso*, disponibili a livello di spazio dei nomi e di hub eventi. Un token SAS viene generato da una chiave SAS ed è un hash SHA di un URL, codificato in un formato specifico. Usando il nome della chiave (criterio) e il token, Hub eventi può rigenerare l'hash e quindi autenticare il mittente. In genere, i token di firma di accesso condiviso per gli autori di eventi vengono creati con privilegi solo di **invio** per un hub eventi specifico. Questo meccanismo di URL token SAS costituisce la base per l'identificazione dell’autore introdotta nei criteri di autore. Per altre informazioni sull'uso di SAS, vedere [Autenticazione della firma di accesso condiviso con il bus di servizio](../service-bus-messaging/service-bus-sas.md).
+Gli hub eventi utilizzano *le firme*di accesso condiviso , disponibili a livello di spazio dei nomi e hub eventi. Un token SAS viene generato da una chiave SAS ed è un hash SHA di un URL, codificato in un formato specifico. Usando il nome della chiave (criterio) e il token, Hub eventi può rigenerare l'hash e quindi autenticare il mittente. In genere, i token di firma di accesso condiviso per i server di pubblicazione degli eventi vengono creati con privilegi di **invio** solo in un hub eventi specifico. Questo meccanismo di URL token SAS costituisce la base per l'identificazione dell’autore introdotta nei criteri di autore. Per altre informazioni sull'uso di SAS, vedere [Autenticazione della firma di accesso condiviso con il bus di servizio](../service-bus-messaging/service-bus-sas.md).
 
 ## <a name="event-consumers"></a>Consumer di eventi
 
-Qualsiasi entità che legge i dati dell'evento da un hub eventi è un *consumer eventi*. Tutti i consumer di Hub eventi si connettono tramite la sessione AMQP 1.0 e gli eventi vengono recapitati tramite la sessione appena disponibili. Il client non deve eseguire il polling per la disponibilità dei dati.
+Qualsiasi entità che legge i dati degli eventi da un hub eventi è un *consumer di eventi.* Tutti i consumer di Hub eventi si connettono tramite la sessione AMQP 1.0 e gli eventi vengono recapitati tramite la sessione appena disponibili. Il client non deve eseguire il polling per la disponibilità dei dati.
 
 ### <a name="consumer-groups"></a>Gruppi di consumer
 
@@ -138,7 +138,7 @@ Per altre informazioni su Hub eventi, vedere i collegamenti seguenti:
     - [.NET Core](get-started-dotnet-standard-send-v2.md)
     - [Java](get-started-java-send-v2.md)
     - [Python](get-started-python-send-v2.md)
-    - [JavaScript](get-started-java-send-v2.md)
+    - [Javascript](get-started-java-send-v2.md)
 * [Guida alla programmazione di Hub eventi](event-hubs-programming-guide.md)
 * [Disponibilità e coerenza nell'Hub eventi](event-hubs-availability-and-consistency.md)
 * [Domande frequenti su Hub eventi](event-hubs-faq.md)

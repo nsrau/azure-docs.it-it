@@ -1,19 +1,18 @@
 ---
-title: Ottenere l'URI della firma di accesso condiviso per l'immagine di macchina virtuale basata su Microsoft Azure | Azure Marketplace
+title: Ottenere l'URI della firma di accesso condiviso per l'immagine della macchina virtuale basata su Microsoft Azure. Azure Marketplace
 description: L'articolo illustra come ottenere l'URI di firma di accesso condiviso per l'immagine di macchina virtuale.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: pbutlerm
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/19/2018
-ms.author: pabutler
-ms.openlocfilehash: cb6f1772c7c6f9abd268a8cb58550b253f095dbf
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.author: dsindona
+ms.openlocfilehash: 6fe15fb18d8865911363a4696e44dd7fe1d90c09
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132453"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80277804"
 ---
 # <a name="get-shared-access-signature-uri-for-your-vm-image"></a>Ottenere l'URI di firma di accesso condiviso per l'immagine di macchina virtuale
 
@@ -30,18 +29,17 @@ Quando si generano gli URI di firma di accesso condiviso per i dischi rigidi vir
 
 L'URL di firma di accesso condiviso può essere generato in due modi comuni con gli strumenti seguenti:
 
--   Microsoft Azure Storage Explorer: strumento grafico disponibile per Windows, macOS e Linux
--   Interfaccia della riga di comando di Microsoft Azure: consigliato per sistemi operativi non Windows e per ambienti di integrazione automatizzata o continua
-
+- Microsoft Azure Storage Explorer: strumento grafico disponibile per Windows, macOS e Linux
+- Interfaccia della riga di comando di Microsoft Azure: consigliato per sistemi operativi non Windows e per ambienti di integrazione automatizzata o continua
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
 Per generare un URI di firma di accesso condiviso con l'interfaccia della riga di comando di Azure, seguire questa procedura.
 
-1. Scaricare e installare l'[interfaccia della riga di comando di Microsoft Azure](https://azure.microsoft.com/documentation/articles/xplat-cli-install/).  Le versioni sono disponibili per Windows, macOS e diverse distribuzioni di Linux.
+1. Scaricare e installare l'[interfaccia della riga di comando di Microsoft Azure](https://azure.microsoft.com/documentation/articles/xplat-cli-install/). Le versioni sono disponibili per Windows, macOS e diverse distribuzioni di Linux.
 2. Creare un file PowerShell (con estensione `.ps1`), copiarlo nel codice seguente e quindi salvarlo in locale.
 
-   ``` powershell
+   ```azurecli-interactive
    az storage container generate-sas --connection-string 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net' --name <vhd-name> --permissions rl --start '<start-date>' --expiry '<expiry-date>'
    ```
 
@@ -54,8 +52,8 @@ Per generare un URI di firma di accesso condiviso con l'interfaccia della riga d
 
    L'esempio seguente mostra i valori dei parametri appropriati (al momento della stesura di questo articolo).
 
-   ``` powershell
-       az storage container generate-sas --connection-string 'DefaultEndpointsProtocol=https;AccountName=st00009;AccountKey=6L7OWFrlabs7Jn23OaR3rvY5RykpLCNHJhxsbn9ONc+bkCq9z/VNUPNYZRKoEV1FXSrvhqq3aMIDI7N3bSSvPg==;EndpointSuffix=core.windows.net' --name vhds --permissions rl --start '2017-11-06T00:00:00Z' --expiry '2018-08-20T00:00:00Z'
+   ```azurecli-interactive
+   az storage container generate-sas --connection-string 'DefaultEndpointsProtocol=https;AccountName=st00009;AccountKey=6L7OWFrlabs7Jn23OaR3rvY5RykpLCNHJhxsbn9ONc+bkCq9z/VNUPNYZRKoEV1FXSrvhqq3aMIDI7N3bSSvPg==;EndpointSuffix=core.windows.net' --name vhds --permissions rl --start '2017-11-06T00:00:00Z' --expiry '2018-08-20T00:00:00Z'
    ```
 
 4. Salvare le modifiche a questo script di PowerShell.
@@ -81,7 +79,6 @@ Per generare un URI di firma di accesso condiviso con l'interfaccia della riga d
     `https://catech123.blob.core.windows.net/vhds/TestRGVM2.vhd?st=2018-05-06T07%3A00%3A00Z&se=2019-08-02T07%3A00%3A00Z&sp=rl&sv=2017-04-17&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
 
 Ripetere questi passaggi per ogni disco rigido virtuale negli SKU che si prevede di pubblicare.
-
 
 ### <a name="microsoft-storage-explorer"></a>Microsoft Storage Explorer
 
@@ -119,16 +116,15 @@ Usare la procedura seguente per generare un URI di firma di accesso condiviso co
 
 Ripetere questi passaggi per ogni disco rigido virtuale negli SKU che si prevede di pubblicare.
 
-
 ## <a name="verify-the-sas-uri"></a>Verificare l'URI di firma di accesso condiviso
 
 Esaminare e verificare ogni URI generato tramite  l'elenco di controllo seguente.
-- L'URI deve essere nel formato:       `<blob-service-endpoint-url>` + `/vhds/` + `<vhd-name>?` + `<sas-connection-string>`
+
+- L'URI è nel `<blob-service-endpoint-url>` + `/vhds/` + `<vhd-name>?` + formato:`<sas-connection-string>`
 - L'URI deve contenere il nome di file dell'immagine del disco rigido virtuale, inclusa l'estensione del nome di file "vhd".
 - Al centro dell'URI è presente la stringa `sp=rl` che indica che è specificato l'accesso `Read` e `List`.
 - Dopo questo punto, è presente la stringa `sr=c` che indica che l'accesso è specificato a livello di contenitore.
 - Copiare e incollare l'URI in un browser per iniziare a scaricare il BLOB associato.  È possibile annullare l'operazione prima che il download venga completato.
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 

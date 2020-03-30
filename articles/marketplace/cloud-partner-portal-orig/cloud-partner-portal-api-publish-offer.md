@@ -1,19 +1,18 @@
 ---
-title: Pubblicare un'offerta | Azure Marketplace
+title: Pubblicare un'offerta Azure Marketplace
 description: API per pubblicare l'offerta specificata.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: b7ad8086c417cf1f14d9116fa4abcb0a88030922
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 4163bf5727c327d559b81db42f99684aa0cc8d5b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819647"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280525"
 ---
 <a name="publish-an-offer"></a>Pubblicare un'offerta
 ================
@@ -27,8 +26,8 @@ Avviare il processo di pubblicazione per l'offerta specificata. L'operazione pu√
 
 |  **Nome**      |    **Descrizione**                               |  **Tipo di dati** |
 |  ------------- |  ------------------------------------            |   -----------  |
-|  publisherId   | Identificatore dell'editore, per esempio `contoso`      |   String       |
-|  offerId       | Identificatore dell'offerta                                 |   String       |
+|  publisherId   | Identificatore dell'editore, per esempio `contoso`      |   string       |
+|  offerId       | Identificatore dell'offerta                                 |   string       |
 |  api-version   | Versione pi√π recente dell'API                        |   Data         |
 |  |  |
 
@@ -65,7 +64,7 @@ Avviare il processo di pubblicazione per l'offerta specificata. L'operazione pu√
 |  |  |
 
 
-### <a name="response"></a>Response
+### <a name="response"></a>Risposta
 
    `Operation-Location: /api/operations/contoso$56615b67-2185-49fe-80d2-c4ddf77bb2e8$2$preview?api-version=2017-10-31`
 

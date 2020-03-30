@@ -2,13 +2,13 @@
 title: Analisi dell'utilizzo con Azure Application Insights | Documentazione Microsoft
 description: Informazioni sugli utenti e le operazioni eseguite con l'app.
 ms.topic: conceptual
-ms.date: 09/19/2019
-ms.openlocfilehash: 9f34267a1820f8b2365a41569bd3c8eaed9f2f9c
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.date: 03/25/2019
+ms.openlocfilehash: e964b1b5b9d5500f2d9f24ed765299389e6dbbb9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79275646"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80283957"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Uso dell'analisi con Application Insights
 
@@ -20,9 +20,9 @@ La migliore esperienza viene ottenuta tramite l'installazione di Application Ins
 
 1. **Codice server:** installare il modulo appropriato per l'app [ASP.NET](../../azure-monitor/app/asp-net.md), [Azure](../../azure-monitor/app/app-insights-overview.md), [Java](../../azure-monitor/app/java-get-started.md), [Node.js](../../azure-monitor/app/nodejs.md) o per [altre](../../azure-monitor/app/platforms.md) app.
 
-    * *Non si vuole installare il codice server? È sufficiente [creare una risorsa applicazione Azure Insights](../../azure-monitor/app/create-new-resource.md ).*
+    * *Non si desidera installare il codice server? È sufficiente creare una [risorsa di Azure Application Insights.](../../azure-monitor/app/create-new-resource.md )*
 
-2. **Codice della pagina Web:** Aggiungere lo script seguente alla pagina Web prima del ``</head>``di chiusura. Sostituire la chiave di strumentazione con il valore appropriato della risorsa di Application Insights:
+2. **Codice pagina Web:** Aggiungere lo script seguente alla pagina ``</head>``Web prima della chiusura. Sostituire la chiave di strumentazione con il valore appropriato della risorsa di Application Insights:
     
     ```html
     <script type="text/javascript">
@@ -34,7 +34,7 @@ La migliore esperienza viene ottenuta tramite l'installazione di Application Ins
     </script>
     ```
 
-    Per informazioni sulle configurazioni più avanzate per il monitoraggio dei siti Web, vedere l' [articolo di riferimento per JavaScript SDK](https://docs.microsoft.com/azure/azure-monitor/app/javascript).
+    Per informazioni sulle configurazioni più avanzate per il monitoraggio dei siti Web, consulta l'articolo di riferimento di [JavaScript SDK.](https://docs.microsoft.com/azure/azure-monitor/app/javascript)
 
 3. **Codice dell'app per dispositivi mobili:** usare App Center SDK per raccogliere gli eventi dall'app, quindi inviare copie di questi eventi ad Application Insights per l'analisi [seguendo le istruzioni in questa guida](../../azure-monitor/learn/mobile-center-quickstart.md).
 
@@ -123,16 +123,20 @@ Nel portale Application Insights è possibile filtrare e dividere i dati sui val
 
 A tale scopo, [configurare un inizializzatore di telemetria](../../azure-monitor/app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer):
 
-**App ASP.NET**
+**ASP.NET app**
 
 ```csharp
     // Telemetry initializer class
     public class MyTelemetryInitializer : ITelemetryInitializer
     {
-        public void Initialize (ITelemetry telemetry)
-        {
-            telemetry.Properties["AppVersion"] = "v2.1";
-        }
+        public void Initialize(ITelemetry item)
+            {
+                var itemProperties = item as ISupportProperties;
+                if (itemProperties != null && !itemProperties.Properties.ContainsKey("AppVersion"))
+                {
+                    itemProperties.Properties["AppVersion"] = "v2.1";
+                }
+            }
     }
 ```
 
@@ -148,12 +152,12 @@ Nell'inizializzatore dell'app Web, ad esempio Global.asax.cs:
     }
 ```
 
-**App ASP.NET Core**
+**ASP.NET Core**
 
 > [!NOTE]
-> L'aggiunta di un inizializzatore utilizzando `ApplicationInsights.config` o l'utilizzo di `TelemetryConfiguration.Active` non è valida per ASP.NET Core applicazioni. 
+> L'aggiunta `ApplicationInsights.config` di `TelemetryConfiguration.Active` un inizializzatore tramite o utilizzo non è valida per le applicazioni ASP.NET Core.Adding initializer using or using is not valid for ASP.NET Core applications. 
 
-Per [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) applicazioni, l'aggiunta di una nuova `TelemetryInitializer` viene eseguita aggiungendola al contenitore di inserimento delle dipendenze, come illustrato di seguito. Questa operazione viene eseguita nel metodo `ConfigureServices` della classe `Startup.cs`.
+Per le applicazioni ASP.NET `TelemetryInitializer` [Core,](asp-net-core.md#adding-telemetryinitializers) l'aggiunta di un nuovo viene eseguita aggiungendola al contenitore Inserimento delle dipendenze, come illustrato di seguito. Questa operazione `ConfigureServices` viene eseguita nel metodo della `Startup.cs` classe.
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;
@@ -169,7 +173,7 @@ Tutti i nuovi TelemetryClients aggiungono automaticamente il valore di propriet�
 ## <a name="next-steps"></a>Passaggi successivi
    - [Utenti, sessioni ed eventi](usage-segmentation.md)
    - [Grafici a imbuto](usage-funnels.md)
-   - [Conservazione](usage-retention.md)
+   - [detenzione](usage-retention.md)
    - [Flussi degli utenti](usage-flows.md)
    - [Cartelle di lavoro](../../azure-monitor/app/usage-workbooks.md)
    - [Aggiungere il contesto utente](usage-send-user-context.md)

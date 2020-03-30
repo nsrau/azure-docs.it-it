@@ -1,5 +1,5 @@
 ---
-title: Come assegnare un tag a una macchina virtuale Linux di Azure
+title: Come contrassegnare una macchina virtuale di Azure LinuxHow to tag an Azure Linux virtual machine
 description: Informazioni sull'assegnazione di tag a una macchina virtuale Linux creata in Azure con il modello di distribuzione di Resource Manager.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/28/2017
 ms.author: memccror
 ms.openlocfilehash: 3dd46f0c1c1e36e0373311ce6dcbf5d2f155dacc
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77616283"
 ---
 # <a name="how-to-tag-a-linux-virtual-machine-in-azure"></a>Come contrassegnare una macchina virtuale Linux in Azure

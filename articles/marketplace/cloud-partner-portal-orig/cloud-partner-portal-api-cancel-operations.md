@@ -1,19 +1,18 @@
 ---
-title: Annulla operazione API | Azure Marketplace
+title: Annullare l'API dell'operazione . Azure Marketplace
 description: Annullare le operazioni.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: 374425dbd2abacb2114b5792d7476bc341fa353a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 6d4c1f52f0f3b1e05ec06f5a66a36323f346d4eb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819759"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280542"
 ---
 # <a name="cancel-operation"></a>Annulla operazione 
 
@@ -28,8 +27,8 @@ Questa API consente di annullare un'operazione in corso sull'offerta. Usare l'[A
 
 |  **Nome**    |      **Descrizione**                                  |    **Tipo di dati**  |
 | ------------ |     ----------------                                  |     -----------   |
-| publisherId  |  Identificatore del server di pubblicazione, ad esempio `contoso`         |   String          |
-| offerId      |  Identificatore dell'offerta                                     |   String          |
+| publisherId  |  Identificatore del server di pubblicazione, ad esempio `contoso`         |   string          |
+| offerId      |  Identificatore dell'offerta                                     |   string          |
 | api-version  |  Versione corrente dell'API                               |    Data           |
 |  |  |  |
 
@@ -65,7 +64,7 @@ Questa API consente di annullare un'operazione in corso sull'offerta. Usare l'[A
 |  |  |
 
 
-### <a name="response"></a>Response
+### <a name="response"></a>Risposta
 
   `Operation-Location: https://cloudpartner.azure.com/api/publishers/contoso/offers/contoso-virtualmachineoffer/operations/56615b67-2185-49fe-80d2-c4ddf77bb2e8`
 
@@ -84,7 +83,7 @@ Questa API consente di annullare un'operazione in corso sull'offerta. Usare l'[A
 |  ------   |  ------------------------------------------------------------------------               |
 |  200      | OK. La richiesta è stata elaborata correttamente e l'operazione viene annullata in modo sincrono. |
 |  202      | Accettato. La richiesta è stata elaborata correttamente e l'operazione è in corso di annullamento. Il percorso dell'operazione di annullamento viene restituito nell'intestazione della risposta. |
-|  400      | Richiesta non valida o errata. Il corpo della risposta di errore può fornire altre informazioni.  |
+|  400      | Richiesta non valida o errata. Il corpo della risposta di errore può specificare altre informazioni.  |
 |  403      | Accesso negato. Il client non ha accesso allo spazio dei nomi specificato nella richiesta. |
 |  404      | Non trovato. L'entità specificata non esiste. |
 |  |  |

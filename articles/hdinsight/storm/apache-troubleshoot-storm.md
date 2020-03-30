@@ -10,21 +10,21 @@ ms.topic: troubleshooting
 ms.date: 11/08/2019
 ms.custom: seodec18
 ms.openlocfilehash: b51b2c21fd9256c93f6947386a48336af2b75d88
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79271928"
 ---
 # <a name="troubleshoot-apache-storm-by-using-azure-hdinsight"></a>Risolvere i problemi di Apache Storm tramite Azure HDInsight
 
-Informazioni sui problemi principali che possono verificarsi quando si usano i payload di [Apache Storm](https://storm.apache.org/) in [Apache Ambari](https://ambari.apache.org/) unitamente alle risoluzioni.
+Scopri i problemi principali e le loro risoluzioni per lavorare con i payload [Apache Storm](https://storm.apache.org/) in [Apache Ambari](https://ambari.apache.org/).
 
 ## <a name="how-do-i-access-the-storm-ui-on-a-cluster"></a>Come accedere all'interfaccia utente di Storm in un cluster
 
 Per accedere all'interfaccia utente di Storm da un browser, è possibile procedere in due modi:
 
-### <a name="apache-ambari-ui"></a>Interfaccia utente di Apache Ambari
+### <a name="apache-ambari-ui"></a>Interfaccia utente Apache Ambari
 
 1. Andare al dashboard di Ambari.
 2. Nell'elenco dei servizi selezionare **Storm**.
@@ -40,15 +40,15 @@ Esempio: `https://stormcluster.azurehdinsight.net/stormui`
 
 ## <a name="how-do-i-transfer-storm-event-hub-spout-checkpoint-information-from-one-topology-to-another"></a>Come trasferire informazioni di checkpoint dello spout dell'hub eventi di Storm da una topologia all'altra
 
-Quando si sviluppano topologie che leggono da Hub eventi di Azure usando il file JAR dello spout dell'hub eventi di HDInsight Storm, è necessario distribuire una topologia con lo stesso nome in un nuovo cluster. È tuttavia necessario conservare i dati dei checkpoint di cui è stato eseguito il commit ad [Apache ZooKeeper](https://zookeeper.apache.org/) sul vecchio cluster.
+Quando si sviluppano topologie che leggono da Hub eventi di Azure usando il file JAR dello spout dell'hub eventi di HDInsight Storm, è necessario distribuire una topologia con lo stesso nome in un nuovo cluster. Tuttavia, è necessario conservare i dati del checkpoint di cui è stato eseguito il commit in [Apache zooKeeper](https://zookeeper.apache.org/) nel cluster precedente.
 
 ### <a name="where-checkpoint-data-is-stored"></a>Dove vengono archiviati i dati dei checkpoint
 
 I dati dei checkpoint per gli offset vengono archiviati dallo spout dell'hub eventi in due percorsi radice di ZooKeeper:
 
-- I checkpoint del beccuccio non transazionali vengono archiviati in `/eventhubspout`.
+- I checkpoint dello spout non `/eventhubspout`transazionale vengono archiviati in .
 
-- I dati del checkpoint del punto di arresto transazionale vengono archiviati in `/transactional`.
+- I dati del checkpoint di `/transactional`spout transazionale vengono memorizzati in .
 
 ### <a name="how-to-restore"></a>Come eseguire il ripristino
 
@@ -65,7 +65,7 @@ Il comando di esportazione scrive i metadati in un percorso Apache Hadoop Distri
 #### <a name="export-offset-metadata"></a>Esportare i metadati dell'offset
 
 1. Usare SSH per andare al cluster ZooKeeper del vecchio cluster da cui è necessario esportare l'offset dei checkpoint.
-2. Eseguire il comando seguente (dopo aver aggiornato la stringa della versione HDP) per esportare i dati dell'offset ZooKeeper nel percorso di `/stormmetadta/zkdata` HDFS:
+2. Eseguire il comando seguente (dopo aver aggiornato la stringa di versione `/stormmetadta/zkdata` dell'HDP) per esportare i dati di offset di nel percorso HDFS:
 
     ```apache
     java -cp ./*:/etc/hadoop/conf/*:/usr/hdp/2.5.1.0-56/hadoop/*:/usr/hdp/2.5.1.0-56/hadoop/lib/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/lib/*:/etc/failover-controller/conf/*:/etc/hadoop/* com.microsoft.storm.zkdatatool.ZkdataImporter export /eventhubspout /stormmetadata/zkdata
@@ -74,7 +74,7 @@ Il comando di esportazione scrive i metadati in un percorso Apache Hadoop Distri
 #### <a name="import-offset-metadata"></a>Importare i metadati dell'offset
 
 1. Usare SSH per andare al cluster ZooKeeper del vecchio cluster da cui è necessario importare l'offset dei checkpoint.
-2. Eseguire il comando seguente (dopo aver aggiornato la stringa della versione HDP) per importare i dati di offset ZooKeeper dal percorso HDFS `/stormmetadata/zkdata` al server ZooKeeper nel cluster di destinazione:
+2. Eseguire il comando seguente (dopo aver aggiornato la stringa di versione dell'HDP) per importare i dati di offset di dal percorso `/stormmetadata/zkdata` HDFS al server Di oolfneler...
 
     ```apache
     java -cp ./*:/etc/hadoop/conf/*:/usr/hdp/2.5.1.0-56/hadoop/*:/usr/hdp/2.5.1.0-56/hadoop/lib/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/lib/*:/etc/failover-controller/conf/*:/etc/hadoop/* com.microsoft.storm.zkdatatool.ZkdataImporter import /eventhubspout /home/sshadmin/zkdata
@@ -91,9 +91,9 @@ Il comando di esportazione scrive i metadati in un percorso Apache Hadoop Distri
 
 ## <a name="how-do-i-locate-storm-binaries-on-a-cluster"></a>Come individuare i file binari Storm in un cluster
 
-I file binari Storm per lo stack HDP corrente sono in `/usr/hdp/current/storm-client`. Il percorso è lo stesso sia per i nodi head che per i nodi di lavoro.
+I file binari Storm per lo `/usr/hdp/current/storm-client`stack HDP corrente sono in . Il percorso è lo stesso sia per i nodi head che per i nodi di lavoro.
 
-Potrebbero essere presenti più file binari per versioni specifiche di HDP in/usr/HDP, ad esempio `/usr/hdp/2.5.0.1233/storm`. La cartella `/usr/hdp/current/storm-client` è collegati simbolicamente alla versione più recente in esecuzione nel cluster.
+Potrebbero essere presenti più file binari per versioni /usP/hdp `/usr/hdp/2.5.0.1233/storm`specifiche (ad esempio, ). La `/usr/hdp/current/storm-client` cartella è collegata in modo sintomato alla versione più recente in esecuzione nel cluster.
 
 Per altre informazioni, vedere [Connettersi a un cluster HDInsight con SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) e [Apache Storm](https://storm.apache.org/).
 
@@ -145,7 +145,7 @@ Per altre informazioni sull'uso dei file JAR dello spout dell'hub eventi di Stor
 
 ### <a name="latest-apache-storm-event-hub-spout-binaries-for-hdinsight-35-linux-storm-clusters"></a>File binari dello spout dell'hub eventi di Apache Storm più recenti per cluster HDInsight 3.5+ Linux Storm
 
-Per informazioni su come usare il beccuccio Hub eventi di Storm più recente che funziona con i cluster HDInsight 3.5 + Linux Storm, vedere il [file Leggimi MVN-repo](https://github.com/hdinsight/mvn-repo/blob/master/README.md).
+Per informazioni su come usare l'hub di eventi Storm più recente che funziona con i cluster HDInsight 3.5 e Linux Storm, vedere il [file Leggimi mvn-repo](https://github.com/hdinsight/mvn-repo/blob/master/README.md).
 
 ### <a name="source-code-examples"></a>Esempi di codice sorgente
 
@@ -157,24 +157,24 @@ Per identificare i file di configurazione di [Apache Log4j 2](https://logging.ap
 
 ### <a name="on-head-nodes"></a>Nei nodi head
 
-La configurazione di Nimbus Log4J viene letta da `/usr/hdp/\<HDP version>/storm/log4j2/cluster.xml`.
+La configurazione Nimbus Log4J `/usr/hdp/\<HDP version>/storm/log4j2/cluster.xml`viene letta da .
 
 ### <a name="on-worker-nodes"></a>Nei nodi di lavoro
 
-La configurazione del supervisore Log4J viene letta da `/usr/hdp/\<HDP version>/storm/log4j2/cluster.xml`.
+La configurazione Log4J del `/usr/hdp/\<HDP version>/storm/log4j2/cluster.xml`supervisore viene letta da .
 
-Il file di configurazione Log4J di lavoro viene letto da `/usr/hdp/\<HDP version>/storm/log4j2/worker.xml`.
+Il file di configurazione Log4J worker viene letto da `/usr/hdp/\<HDP version>/storm/log4j2/worker.xml`.
 
-Esempi: `/usr/hdp/2.6.0.2-76/storm/log4j2/cluster.xml`
+Esempi:`/usr/hdp/2.6.0.2-76/storm/log4j2/cluster.xml`
 `/usr/hdp/2.6.0.2-76/storm/log4j2/worker.xml`
 
 ---
 
 ## <a name="not-a-leader-exception"></a>Non è un'eccezione leader
 
-Quando si invia una topologia, l'utente può ricevere un messaggio di errore simile a: `Topology submission exception, cause not a leader, the current leader is NimbusInfo`.
+Quando si invia una topologia, l'utente potrebbe `Topology submission exception, cause not a leader, the current leader is NimbusInfo`ricevere un messaggio di errore simile al: .
 
-Per risolvere il problema, è possibile che l'utente debba presentare un ticket per riavviarlo o riavviarlo. Per altre informazioni, vedere [https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html](https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html).
+Per risolvere il problema, l'utente potrebbe essere necessario presentare un ticket per riavviare/riavviare i nodi. Per ulteriori informazioni, vedere [https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html](https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html).
 
 ---
 
@@ -182,8 +182,8 @@ Per risolvere il problema, è possibile che l'utente debba presentare un ticket 
 
 Se il problema riscontrato non è presente in questo elenco o se non si riesce a risolverlo, visitare uno dei canali seguenti per ottenere ulteriore assistenza:
 
-- Ottieni risposte dagli esperti di Azure tramite il [supporto della community di Azure](https://azure.microsoft.com/support/community/).
+- Ottieni risposte dagli esperti di Azure tramite il supporto della community di [Azure.](https://azure.microsoft.com/support/community/)
 
-- Connettersi con [@AzureSupport](https://twitter.com/azuresupport) : l'account ufficiale Microsoft Azure per migliorare l'esperienza del cliente. Connessione della community di Azure alle risorse appropriate: risposte, supporto ed esperti.
+- Connettiti [@AzureSupport](https://twitter.com/azuresupport) con - l'account ufficiale di Microsoft Azure per migliorare l'esperienza del cliente. Connessione della community di Azure alle risorse giuste: risposte, supporto ed esperti.
 
-- Se è necessaria ulteriore assistenza, è possibile inviare una richiesta di supporto dal [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selezionare **supporto** dalla barra dei menu o aprire l'hub **Guida e supporto** . Per informazioni più dettagliate, vedere [come creare una richiesta di supporto di Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). L'accesso alla gestione delle sottoscrizioni e al supporto per la fatturazione è incluso nella sottoscrizione di Microsoft Azure e il supporto tecnico viene fornito tramite uno dei [piani di supporto di Azure](https://azure.microsoft.com/support/plans/).
+- Per altre informazioni, è possibile inviare una richiesta di supporto dal portale di [Azure.](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/) Selezionare **Supporto** dalla barra dei menu o aprire l'hub **Guida e supporto** tecnico. Per informazioni più dettagliate, vedere Come creare una richiesta di supporto di Azure.For more detailed information, review [How to create an Azure support request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). L'accesso al supporto per la gestione e la fatturazione delle sottoscrizioni è incluso nella sottoscrizione di Microsoft Azure e il supporto tecnico viene fornito tramite uno dei piani di supporto di [Azure.](https://azure.microsoft.com/support/plans/)

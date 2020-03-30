@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: e28863f9980d6403bef1f88de01b7a9b5271b444
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 43024b63a355646f607adbb6623cc6c349374ea8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60197086"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79535596"
 ---
 # <a name="integrating-azure-data-lake-storage-gen1-with-other-azure-services"></a>Integrazione di Azure Data Lake Storage Gen1 con altri servizi di Azure
 Azure Data Lake Storage Gen1 può essere usato in combinazione con altri servizi di Azure per abilitare il supporto di una gamma più ampia di scenari. L'articolo seguente elenca i servizi con cui Data Lake Storage Gen1 può essere integrato.
@@ -60,7 +60,7 @@ Azure Data Lake Storage Gen1 offre uno strumento da riga di comando, AdlCopy, ch
 È possibile usare la gestione connessione di Data Lake Storage Gen1 in SSIS per connettere un pacchetto SSIS a Data Lake Storage Gen1. Per altre informazioni, vedere [Usare Data Lake Storage Gen1 con SSIS](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-store-connection-manager).
 
 ## <a name="use-data-lake-storage-gen1-with-sql-data-warehouse"></a>Usare Data Lake Storage Gen1 con SQL Data Warehouse
-È possibile usare PolyBase per caricare dati di Data Lake Storage Gen1 in SQL Data Warehouse. Per altre informazioni, vedere [Usare Data Lake Storage Gen1 con SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store.md).
+È possibile usare PolyBase per caricare dati di Data Lake Storage Gen1 in SQL Data Warehouse. Per altre informazioni, vedere [Usare Data Lake Storage Gen1 con SQL Data Warehouse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store.md).
 
 ## <a name="use-data-lake-storage-gen1-with-azure-event-hubs"></a>Usare Data Lake Storage Gen1 con Hub eventi di Azure
 È possibile usare Azure Data Lake Storage Gen1 per archiviare e acquisire i dati ricevuti da Hub eventi di Azure. Per altre informazioni, vedere [Usare Data Lake Storage Gen1 con Hub eventi di Azure](data-lake-store-archive-eventhub-capture.md).
@@ -68,5 +68,5 @@ Azure Data Lake Storage Gen1 offre uno strumento da riga di comando, AdlCopy, ch
 ## <a name="see-also"></a>Vedere anche
 * [Panoramica di Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Introduzione a Data Lake Storage Gen1 con il portale](data-lake-store-get-started-portal.md)
-* [Iniziare a usare Data Lake Storage Gen1 tramite PowerShell](data-lake-store-get-started-powershell.md)  
+* [Introduzione a Data Lake Storage Gen1 con PowerShellGet started with Data Lake Storage Gen1 using PowerShell](data-lake-store-get-started-powershell.md)  
 

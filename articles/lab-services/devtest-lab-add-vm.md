@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: spelluru
 ms.openlocfilehash: 22060cc6dd5eb15e81a0c397a7b0255f16780d74
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79284252"
 ---
 # <a name="add-a-vm-to-a-lab-in-azure-devtest-labs"></a>Aggiungere una VM in un lab in Azure DevTest Labs
@@ -27,7 +27,7 @@ Se è già stata [creata la prima VM](tutorial-create-custom-lab.md#add-a-vm-to-
 Questo articolo descrive anche come gestire gli elementi per una VM nel lab.
 
 ## <a name="steps-to-add-a-vm-to-a-lab-in-azure-devtest-labs"></a>Passaggi per aggiungere una VM a un lab in Azure DevTest Labs
-1. Accedere al [portale di Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Accedere al [portale](https://go.microsoft.com/fwlink/p/?LinkID=525040)di Azure .
 1. Selezionare **Tutti i servizi** e quindi **DevTest Labs** nella sezione **DEVOPS**. Selezionare * (stella) accanto a **DevTest Labs** nella sezione **DEVOPS**. Questa azione aggiunge **DevTest Labs** al menu di spostamento a sinistra in modo che sia facilmente accessibile la volta successiva. Selezionare quindi **DevTest Labs** nel menu di spostamento a sinistra.
 
     ![Tutti i servizi - Selezionare DevTest Labs](./media/devtest-lab-create-lab/all-services-select.png)
@@ -66,11 +66,11 @@ Questo articolo descrive anche come gestire gli elementi per una VM nel lab.
 Durante la creazione di una macchina virtuale, è possibile aggiungere elementi esistenti. Ogni lab include elementi del repository pubblico degli elementi di DevTest Labs ed elementi creati e aggiunti al repository degli elementi personale.
 
 * Gli *elementi* di Azure DevTest Labs consentono di specificare le *azioni* eseguite quando viene eseguito il provisioning della macchina virtuale, ad esempio, l'esecuzione di script Windows PowerShell, comandi Bash e installazione del software.
-* Gli elementi *parametri* consentono di personalizzare l'elemento per un determinato scenario
+* I *parametri* dell'elemento consentono di personalizzare l'elemento per uno scenario specifico
 
 Per istruzioni sulla creazione di elementi, vedere l'articolo contenente informazioni su [Creare elementi personalizzati per le macchine virtuali di DevTest Labs](devtest-lab-artifact-author.md).
 
-1. Accedere al [portale di Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Accedere al [portale](https://go.microsoft.com/fwlink/p/?LinkID=525040)di Azure .
 1. Selezionare **Tutti i servizi** e quindi **DevTest Labs** nell'elenco.
 1. Nell'elenco di lab selezionare il lab contenente la VM che si vuole usare.
 1. Selezionare **Macchine virtuali**.
@@ -122,4 +122,4 @@ Dopo il salvataggio è possibile usare il modello di Azure Resource Manager per 
 ## <a name="next-steps"></a>Passaggi successivi
 * Dopo avere creato la macchina virtuale, è possibile connettersi ad essa selezionando **Connetti** nel riquadro della macchina virtuale.
 * Informazioni su come [creare elementi personalizzati per la VM di DevTest Labs](devtest-lab-artifact-author.md).
-* Esplorare la [raccolta dei modelli di avvio rapido di Azure Resource Manager di DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates).
+* Esplorare la raccolta di modelli di Guida introduttiva di [DevTest Labs di Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates).

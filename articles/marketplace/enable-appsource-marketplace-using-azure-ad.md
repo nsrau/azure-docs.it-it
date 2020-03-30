@@ -1,20 +1,18 @@
 ---
 title: Consentire la presentazione in Microsoft AppSource e Azure Marketplace con Azure Active Directory | Azure
 description: Abilitare un tipo di inserzione usando Azure Active Directory nel Marketplace di Azure e in AppSource per gli editori di app e servizi.
-services: Azure, AppSource, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
-manager: pabutler
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/12/2018
-ms.author: pabutler
-ms.openlocfilehash: 9423263270313659017b16a5e34511e7ef385af5
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 45855038e60dcdc3be4f98cfdceed69df5e8c946
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825880"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80286320"
 ---
 # <a name="enable-an-appsource-and-marketplace-listing-by-using-azure-active-directory"></a>Abilitare un'inserzione nel Marketplace e in AppSource con Azure Active Directory
 
@@ -75,7 +73,7 @@ Usare Azure AD per supportare le azioni seguenti:
 Se non si ha familiarità con l'uso dell'accesso Single Sign-On (SSO) federato di Azure AD, seguire questa procedura:
 
 1. Registrare l'app nel Marketplace.
-1. Sviluppare l'accesso Single Sign-On con Azure AD usando [OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code) o [OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code).
+1. Sviluppare SSO con Azure AD usando [OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code) o [OpenID Connect.](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code)
 1. Abilitare la funzionalità per il supporto multi-tenancy in Azure AD per fornire un'esperienza di valutazione con un solo clic.
 
 ### <a name="single-tenant-solutions"></a>Soluzioni a tenant singolo
@@ -83,11 +81,11 @@ Se non si ha familiarità con l'uso dell'accesso Single Sign-On (SSO) federato d
 Usare Azure AD per supportare una delle azioni seguenti:
 
 - Aggiungere utenti guest alla directory tramite [Azure AD B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
-- Configurare manualmente le versioni di valutazione per i clienti mediante l'opzione di pubblicazione **Contattami**.
+- Impostare manualmente le versioni di valutazione per i clienti utilizzando l'opzione di pubblicazione **Contattami.**
 - Sviluppare una test drive per ogni cliente.
 - Creare un'app demo di esempio multi-tenant che usa SSO.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Accertarsi di aver effettuato la [registrazione in Azure Marketplace](https://azuremarketplace.microsoft.com/sell).
-- Per ulteriori informazioni su come creare o completare l'offerta, vedere [come creare un account del centro](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) per i partner.
+- [Scopri come creare un account del Centro per i partner](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) per ulteriori informazioni su come creare o completare la tua offerta.

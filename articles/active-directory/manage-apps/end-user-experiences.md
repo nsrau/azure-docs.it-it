@@ -1,5 +1,5 @@
 ---
-title: Esperienza dell'utente finale per le applicazioni-Azure Active Directory
+title: Esperienze utente finale per le applicazioni - Azure Active DirectoryEnd-user experiences for applications - Azure Active Directory
 description: Azure Active Directory (Azure AD) fornisce diverse soluzioni personalizzabili per distribuire le applicazioni agli utenti finali all'interno dell'organizzazione.
 services: active-directory
 author: msmimart
@@ -13,10 +13,10 @@ ms.author: mimart
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 72b3e37a423442194b81e3d10ecc7157201ff8be
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79266624"
 ---
 # <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Esperienze per gli utenti finali per le applicazioni in Azure Active Directory
@@ -32,11 +32,11 @@ I metodi che è possibile scegliere per la distribuzione nell'organizzazione son
 
 ## <a name="azure-ad-access-panel"></a>Pannello di accesso di Azure AD
 
-Il pannello di accesso in https://myapps.microsoft.com è un portale basato sul Web che consente a un utente finale con un account aziendale in Azure Active Directory di visualizzare e avviare applicazioni a cui l'amministratore Azure AD ha concesso l'accesso. Se si è un utente finale con [Azure Active Directory Premium](https://azure.microsoft.com/pricing/details/active-directory/), è anche possibile usare le funzionalità di gestione di gruppi in modalità self-service tramite il riquadro di accesso.
+Il pannello https://myapps.microsoft.com di accesso in è un portale basato sul Web che consente a un utente finale con un account aziendale in Azure Active Directory di visualizzare e avviare le applicazioni a cui è stato concesso l'accesso dall'amministratore di Azure AD. Se si è un utente finale con [Azure Active Directory Premium](https://azure.microsoft.com/pricing/details/active-directory/), è anche possibile usare le funzionalità di gestione di gruppi in modalità self-service tramite il riquadro di accesso.
 
-![Screenshot che mostra il portale del pannello di accesso Azure AD](media/what-is-single-sign-on/azure-ad-access-panel.png)
+![Screenshot che mostra il portale del pannello di accesso di Azure AD](media/what-is-single-sign-on/azure-ad-access-panel.png)
 
-Per impostazione predefinita, tutte le applicazioni sono elencate insieme in un'unica pagina. È tuttavia possibile usare le raccolte per raggruppare le applicazioni correlate e presentarle in una scheda separata, rendendole più facili da trovare. È ad esempio possibile utilizzare le raccolte per creare raggruppamenti logici di applicazioni per ruoli di processo, attività, progetti e così via specifici. Per informazioni, vedere [come usare le raccolte di app personali per personalizzare i pannelli di accesso utente](access-panel-collections.md). 
+Per impostazione predefinita, tutte le applicazioni sono elencate insieme in una singola pagina. È tuttavia possibile utilizzare le raccolte per raggruppare le applicazioni correlate e presentarle in una scheda separata, semplificandone l'individuazione. Ad esempio, è possibile utilizzare le raccolte per creare raggruppamenti logici di applicazioni per ruoli di lavoro, attività, progetti e così via specifici. Per informazioni, consultate [Come utilizzare le raccolte Di App personali per personalizzare i pannelli di accesso utente.](access-panel-collections.md) 
 
 Il riquadro di accesso non fa parte del portale di Azure e non richiede agli utenti di avere una sottoscrizione per Azure o Office 365.
 
@@ -44,9 +44,9 @@ Per altre informazioni sul riquadro di accesso di Azure AD, vedere [Introduzione
 
 ## <a name="office-365-application-launcher"></a>Applicazione di avvio di Office 365
 
-Per le organizzazioni che hanno distribuito Office 365, le applicazioni assegnate agli utenti tramite Azure AD verranno visualizzate anche nel portale di Office 365 all' [https://portal.office.com/myapps](https://portal.office.com/myapps). Questo rende facile e comodo per gli utenti all’interno di un'organizzazione avviare le proprie applicazioni senza dover utilizzare un secondo portale ed è la soluzione di avvio delle applicazioni consigliata per le organizzazioni che utilizzano Office 365.
+Per le organizzazioni che hanno distribuito Office 365, le applicazioni assegnate agli [https://portal.office.com/myapps](https://portal.office.com/myapps)utenti tramite Azure AD verranno visualizzate anche nel portale di Office 365 all'indirizzo . Questo rende facile e comodo per gli utenti all’interno di un'organizzazione avviare le proprie applicazioni senza dover utilizzare un secondo portale ed è la soluzione di avvio delle applicazioni consigliata per le organizzazioni che utilizzano Office 365.
 
-![Screenshot che mostra il portale di Office 365](./media/end-user-experiences/microsoft-365-portal-office-com.png)
+![Screenshot del portale di Office 365](./media/end-user-experiences/microsoft-365-portal-office-com.png)
 
 Per ulteriori informazioni sull'avvio di applicazioni di Office 365, vedere [Visualizzazione dell'applicazione nell’applicazione di avvio di Office 365](https://msdn.microsoft.com/office/office365/howto/connect-your-app-to-o365-app-launcher).
 
@@ -54,15 +54,15 @@ Per ulteriori informazioni sull'avvio di applicazioni di Office 365, vedere [Vis
 
 La maggior parte delle applicazioni federate che supportano OpenID Connect, WS-Federation o SAML 2.0 supportano anche la possibilità per gli utenti di avviare l'applicazione e quindi ottenere l’accesso tramite Azure AD con il reindirizzamento automatico oppure facendo clic su un collegamento per accedere. Questo è noto come accesso avviato dal provider di servizi e la maggior parte delle applicazioni federate nella raccolta di applicazioni di Azure AD lo supporta (vedere la documentazione collegata dalla configurazione guidata di configurazione di Single Sign-On dell'app nel portale di Azure per i dettagli).
 
-![Esempio di una pagina di accesso dell'app per dispositivi mobili](./media/end-user-experiences/workdaymobile.png)
+![Esempio di pagina di accesso a un'app per dispositivi mobili](./media/end-user-experiences/workdaymobile.png)
 
 ## <a name="direct-sign-on-links"></a>Collegamenti diretti Single Sign-On
 
 Azure AD supporta anche collegamenti diretti Single Sign-On alle singole applicazioni che supportano Single Sign-On basato su password, Single Sign-On collegato e qualunque forma di Single Sign-On federato.
 
-Questi collegamenti sono URL realizzati appositamente che inviano un utente attraverso la procedura di accesso di Azure AD per un'applicazione specifica senza richiedere che la avvii dal pannello di accesso di Azure AD o Office 365. Questi **URL di accesso utente** si trovano nelle proprietà delle applicazioni aziendali disponibili. Nella portale di Azure selezionare **Azure Active Directory** > **applicazioni aziendali**. Selezionare l'applicazione, quindi selezionare **Proprietà**.
+Questi collegamenti sono URL realizzati appositamente che inviano un utente attraverso la procedura di accesso di Azure AD per un'applicazione specifica senza richiedere che la avvii dal pannello di accesso di Azure AD o Office 365. Questi URL di **accesso utente** sono disponibili nelle proprietà delle applicazioni aziendali disponibili. Nel portale di Azure selezionare **Applicazioni Azure Active Directory** > **Enterprise**. Selezionare l'applicazione e quindi **scegliere Proprietà**.
 
-![Esempio di URL di accesso utente nelle proprietà di Twitter](media/end-user-experiences/direct-sign-on-link.png)
+![Esempio dell'URL di accesso utente nelle proprietà di Twitter](media/end-user-experiences/direct-sign-on-link.png)
 
 Questi collegamenti possono essere copiati e incollati ovunque per fornire un collegamento di accesso all'applicazione selezionata. Questo potrebbe essere all’interno di un messaggio di posta elettronica o in qualsiasi portale personalizzato basato sul Web configurato per l'accesso alle applicazioni dell’utente. Di seguito è riportato un esempio di URL Single Sign-On diretto di Azure AD per Twitter:
 

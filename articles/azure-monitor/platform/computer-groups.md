@@ -7,14 +7,14 @@ author: bwren
 ms.author: bwren
 ms.date: 02/05/2019
 ms.openlocfilehash: a005b6cec811b8a584123dc4c8abab77766961e0
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79274775"
 ---
-# <a name="computer-groups-in-azure-monitor-log-queries"></a>Gruppi di computer nelle query log di monitoraggio di Azure
-I gruppi di computer in Monitoraggio di Azure consentono di limitare l'ambito delle [query di log](../log-query/log-query-overview.md) a uno specifico set di computer.  Ogni gruppo viene popolato con i computer usando una query definita dall'utente oppure importando gruppi da diverse origini.  Quando il gruppo viene incluso in una query di log, i risultati sono limitati ai record corrispondenti ai computer del gruppo.
+# <a name="computer-groups-in-azure-monitor-log-queries"></a>Gruppi di computer nelle query di log di Monitoraggio di AzureComputer groups in Azure Monitor log queries
+I gruppi di computer in Monitoraggio di Azure consentono di definire l'ambito delle query di [log](../log-query/log-query-overview.md) in un determinato set di computer.  Ogni gruppo viene popolato con i computer usando una query definita dall'utente oppure importando gruppi da diverse origini.  Quando il gruppo viene incluso in una query di log, i risultati sono limitati ai record corrispondenti ai computer del gruppo.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -26,7 +26,7 @@ I gruppi di computer in Monitoraggio di Azure consentono di limitare l'ambito de
 | Query di log |Creare una query di log che restituisca un elenco di computer. |
 | API di ricerca nei log |Usare l'API di ricerca log per creare un gruppo di computer a livello di codice in base ai risultati di una query di log. |
 | Active Directory |Analizzare automaticamente l'appartenenza a gruppi di tutti i computer degli agenti che sono membri di un dominio di Active Directory e creare un gruppo in Monitoraggio di Azure per ogni gruppo di sicurezza. (solo computer Windows)|
-| Gestione configurazione | Importare le raccolte da Microsoft endpoint Configuration Manager e creare un gruppo in monitoraggio di Azure per ognuno di essi. |
+| Gestione configurazione | Importare raccolte da Microsoft Endpoint Configuration Manager e creare un gruppo in Monitoraggio di Azure per ognuno. |
 | Windows Server Update Services |Analizzare automaticamente i server o i client WSUS per rilevare i gruppi di destinazione e creare in Monitoraggio di Azure un gruppo per ognuno. |
 
 ### <a name="log-query"></a>Query di log

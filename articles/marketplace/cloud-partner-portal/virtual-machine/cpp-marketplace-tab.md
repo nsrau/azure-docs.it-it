@@ -1,19 +1,18 @@
 ---
-title: Scheda Marketplace della macchina virtuale nel portale Cloud Partner per Azure Marketplace
+title: Scheda Marketplace delle macchine virtuali nel portale per i cloud partner per Azure MarketplaceVirtual machine Marketplace tab in the Cloud Partner Portal for Azure Marketplace
 description: Descrive la scheda Marketplace usata nella creazione di un'offerta di macchina virtuale in Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal, virtual machine
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/25/2019
-ms.author: pabutler
-ms.openlocfilehash: 283274986c753fc8ad05b9b7b0dd87aea956bcce
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.author: dsindona
+ms.openlocfilehash: 567dc83e36020ef9af328f52dae89ef37b6e4908
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75762893"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80277722"
 ---
 # <a name="virtual-machine-marketplace-tab"></a>Scheda Marketplace per una macchina virtuale
 
@@ -31,13 +30,13 @@ La tabella seguente descrive lo scopo e il contenuto di questi campi. I campi ob
 |  ---------                |     ---------------                                                          |
 | **Titolo\***                 | Titolo dell'offerta, spesso corrispondente alla forma estesa e formale del nome. Questo titolo verrà visualizzato in una posizione di estremo rilievo nel marketplace.  La lunghezza massima consentita è di 50 caratteri. |
 | **Riepilogo\***               | Descrizione breve dello scopo o della funzione della soluzione.  La lunghezza massima consentita è di 100 caratteri. |
-| **\* di riepilogo lungo**          | Scopo o funzione della soluzione.  La lunghezza massima consentita è di 256 caratteri. |
+| **Riassunto lungo\***          | Scopo o funzione della soluzione.  La lunghezza massima consentita è di 256 caratteri. |
 | **Descrizione\***           | Descrizione della soluzione.  La lunghezza massima consentita è di 3000 caratteri. Supporta la formattazione HTML semplice. |
-| **Canale rivenditore Microsoft CSP\*** | Il consenso esplicito del canale partner Cloud Solution Provider (CSP) è ora disponibile.  Per ulteriori informazioni sul marketing dell'offerta tramite i canali del partner Microsoft CSP, vedere [provider di soluzioni cloud](../../cloud-solution-providers.md) . |
-| **Identificatore marketing\***  | URL univoco da associare a questa offerta. Include in genere il nome dell'organizzazione e della soluzione. La lunghezza massima consentita è di 50 caratteri.  Ad esempio: <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp`  |
-| **Anteprima ID sottoscrizione\*** | Aggiungere da uno a 100 identificatori di sottoscrizione di visualizzatori anteprima. Queste sottoscrizioni consentite avranno accesso all'offerta dopo la pubblicazione, prima che venga attivata. |
+| **Canale Microsoft CSP rivenditore\*** | L'opt-in del canale per i partner Cloud Solution Provider (CSP) è ora disponibile.  Per ulteriori informazioni sul marketing dell'offerta tramite i canali partner Microsoft CSP, consulta [Cloud Solution Provider.](../../cloud-solution-providers.md) |
+| **Identificatore di marketing\***  | URL univoco da associare a questa offerta. Include in genere il nome dell'organizzazione e della soluzione. La lunghezza massima consentita è di 50 caratteri.  Ad esempio: <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp`  |
+| **Anteprima degli ID sottoscrizione\*** | Aggiungere da uno a 100 identificatori di sottoscrizione di visualizzatori anteprima. Queste sottoscrizioni consentite avranno accesso all'offerta dopo la pubblicazione, prima che venga attivata. |
 | **Collegamenti utili**          | Aggiungere gli URL per la documentazione, le note sulla versione, le domande frequenti e così via. |
-| **Categorie suggerite\*** | Selezionare un massimo di due (2) categorie, tra cui una categoria primaria e una secondaria (facoltativo). Selezionare un massimo di due (2) sottocategorie per ogni categoria primaria e/o secondaria. Se non è selezionata alcuna sottocategoria, l'offerta sarà comunque individuabile solo per la categoria selezionata. |
+| **Categorie suggerite\*** | Selezionare fino a due (2) categorie, tra cui una categoria primaria e una secondaria (facoltativo). Selezionare fino a due (2) sottocategorie per ogni categoria primaria e/o secondaria. Se non è selezionata alcuna sottocategoria, l'offerta sarà comunque individuabile solo nella categoria selezionata. |
 |  |  |
 
 
@@ -51,18 +50,18 @@ La tabella seguente descrive lo scopo e il contenuto di questi campi. I campi ob
 
 |  **Campo**                |     **Descrizione**                                                          |
 |  ---------                |     ---------------                                                          |
-| *Logos* (Logo)  |  |
-| **Small\***                 | Bitmap con estensione ico, 40x40 pixel                                                      |
-| **Medium\***                | Bitmap con estensione ico, 90x90 pixel                                                      |
-| **Large\***                 | Bitmap con estensione ico, 115x115 pixel                                                   |
-| **\* Wide**                  | Bitmap con estensione ico, 255x115 pixel                                                    |
+| *Loghi*  |  |
+| **Piccolo\***                 | Bitmap con estensione ico, 40x40 pixel                                                      |
+| **Medio\***                | Bitmap con estensione ico, 90x90 pixel                                                      |
+| **Grande\***                 | Bitmap con estensione ico, 115x115 pixel                                                   |
+| **Ampia\***                  | Bitmap con estensione ico, 255x115 pixel                                                    |
 | **Hero** (Banner)                  | Bitmap, 815x290.  Facoltativo. Una volta caricata, tuttavia, l'icona del banner non può essere eliminata. |
 | *Screenshot*  | Facoltativi, ma non più di cinque per SKU. |
-| **Nome**                  | Nome o titolo <!-- TODO - max char length? none specified in UI -->                               |
+| **Nome**                  | Nome o titolo  <!-- TODO - max char length? none specified in UI -->                               |
 | **Immagine**                 | Acquisizione di schermata, 533x324 pixel                                         |
 | *Video*  |  |
-| **Nome**                  | Nome o titolo  <!-- TODO - max char length? -->                              |
-| **Collegamento**                  | URL del video, ospitato in YouTube o Vimeo                                        |
+| **Nome**                  | Nome o titolo   <!-- TODO - max char length? -->                              |
+| **Link**                  | URL del video, ospitato in YouTube o Vimeo                                        |
 | **Anteprima**             | Bitmap, 533x324                                                               |
 |   |   |
 
@@ -117,13 +116,13 @@ Dopo aver pubblicato l'offerta, verrà convalidata la connessione al cliente pot
 
 ## <a name="legal-section"></a>Sezione legale
 
-Questa ultima sezione consente di fornire i documenti legali richiesti per ogni offerta.  
+Quest'ultima sezione consente di fornire i documenti legali necessari per ogni offerta.  
 
 |  **Campo**                    |     **Descrizione**                                        |
 |  ---------                    |     ---------------                                        |
-| **\* dell'URL dell'informativa sulla privacy**      | URL dell'informativa sulla privacy pubblicata                          |
-| **Usare il contratto standard?\***  |   |
-| **Condizioni per l'utilizzo\***            | Norme in testo normale o HTML semplice.                       |
+| **URL dell'Informativa sulla privacy\***      | URL dell'informativa sulla privacy pubblicata                          |
+| **Utilizzare il contratto standard?\***  |   |
+| **Condizioni d'uso\***            | Norme in testo normale o HTML semplice.                       |
 |  |  |
 
 

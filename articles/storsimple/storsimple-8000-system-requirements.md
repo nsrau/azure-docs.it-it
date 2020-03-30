@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
-ms.openlocfilehash: 2e7c1eedf02c8a7783ee90f403dbd77ec2ee53ea
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 3032585c6f0a5cc6143eee06b12b6def50cd7cd0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79267664"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80297718"
 ---
 # <a name="storsimple-8000-series-software-high-availability-and-networking-requirements"></a>Software, disponibilità elevata e requisiti di rete di StorSimple serie 8000
 
@@ -56,7 +56,7 @@ I requisiti software seguenti riguardano i componenti facoltativi di StorSimple,
 
 | Componente | Piattaforma host | Requisiti aggiuntivi/note |
 | --- | --- | --- |
-| Gestione snapshot StorSimple |Windows Server 2008 R2 SP1, 2012, 2012 R2 |L'uso di Gestione snapshot StorSimple su Windows Server è necessario per eseguire il backup o il ripristino di dischi dinamici con mirroring e per qualsiasi backup coerente con l'applicazione.<br> StorSimple Snapshot Manager è supportato solo su Windows Server 2008 R2 SP1 (64 bit), Windows Server 2012 R2 e Windows Server 2012.<ul><li>Se si usa Windows Server 2012, è necessario installare .NET 3.5 o 4.5 prima di installare StorSimple Snapshot Manager.</li><li>Se si usa Windows Server 2008 R2 SP1, è necessario installare Windows Management Framework 3.0 prima di installare StorSimple Snapshot Manager.</li></ul> |
+| Gestione snapshot StorSimple  |Windows Server 2008 R2 SP1, 2012, 2012 R2 |L'uso di Gestione snapshot StorSimple su Windows Server è necessario per eseguire il backup o il ripristino di dischi dinamici con mirroring e per qualsiasi backup coerente con l'applicazione.<br> StorSimple Snapshot Manager è supportato solo su Windows Server 2008 R2 SP1 (64 bit), Windows Server 2012 R2 e Windows Server 2012.<ul><li>Se si usa Windows Server 2012, è necessario installare .NET 3.5 o 4.5 prima di installare StorSimple Snapshot Manager.</li><li>Se si usa Windows Server 2008 R2 SP1, è necessario installare Windows Management Framework 3.0 prima di installare StorSimple Snapshot Manager.</li></ul> |
 | Adattatore StorSimple per SharePoint |Windows Server 2008 R2 SP1, 2012, 2012 R2 |<ul><li>L'adattatore StorSimple per SharePoint è supportato solo in SharePoint 2010 e SharePoint 2013.</li><li>Per RBS è necessario SQL Server Enterprise Edition, versioni 2008 R2 o 2012.</li></ul> |
 
 ## <a name="networking-requirements-for-your-storsimple-device"></a>Requisiti di rete per il dispositivo StorSimple
@@ -81,7 +81,7 @@ Il dispositivo StorSimple è un dispositivo bloccato. È tuttavia necessario apr
 <sup>3</sup> Gli indirizzi IP fissi per il controller sul dispositivo StorSimple devono essere instradabili e in grado di connettersi a Internet direttamente o tramite il proxy Web configurato. Gli indirizzi IP fissi per vengono usati per rendere gli aggiornamenti disponibili al dispositivo e per Garbage Collection. Se i controller del dispositivo non possono connettersi a Internet tramite gli indirizzi IP fissi, non sarà possibile aggiornare il dispositivo StorSimple e Garbage Collection non funzionerà correttamente.
 
 > [!IMPORTANT]
-> Verificare che il firewall non modifichi o decrittografi il traffico SSL tra il dispositivo StorSimple e Azure.
+> Verificare che il firewall non modifichi o decrittografate il traffico TLS tra il dispositivo StorSimple e Azure.
 
 
 ### <a name="url-patterns-for-firewall-rules"></a>Modelli URL per le regole del firewall
@@ -233,7 +233,7 @@ Il modello 8600 del dispositivo StorSimple include uno chassis EBOD (Extended Bu
 * Verificare che entrambi i moduli controller dello chassis EBOD, entrambi i cavi SAS e tutte le unità disco rigido siano sempre installati.
 * In caso di guasto di un modulo controller dell'enclosure EBOD, richiedere immediatamente una sostituzione.
 * Se un modulo controller dello chassis EBOD smette di funzionare, prima di sostituirlo assicurarsi che l'altro modulo controller sia attivo. Per verificare che un controller sia attivo, vedere [Identificare il controller attivo sul dispositivo](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device).
-* Durante la sostituzione di un modulo controller EBOD, monitorare costantemente lo stato del componente nel servizio Gestione dispositivi StorSimple accedendo a **Monitoraggio** > **Integrità hardware**.
+* Durante la sostituzione di un modulo di controllo EBOD, monitorare continuamente lo stato del componente nel servizio StorSimple Device Manager accedendo a **Monitor** > **Hardware Health**.
 * Se un cavo SAS non funziona o deve essere sostituito (per determinare lo stato del cavo, coinvolgere il supporto tecnico Microsoft), assicurarsi di rimuovere solo il cavo SAS che richiede la sostituzione.
 * Non rimuovere contemporaneamente entrambi i cavi SAS dal sistema in qualsiasi momento.
 
@@ -241,7 +241,7 @@ Il modello 8600 del dispositivo StorSimple include uno chassis EBOD (Extended Bu
 
 Esaminare attentamente le procedure consigliate seguenti per assicurare la disponibilità elevata degli host connessi al dispositivo StorSimple.
 
-* Configurare StorSimple con [due nodi file server configurazioni cluster][1]. Se si rimuovono singoli punti di errore e si crea ridondanza sul lato host, l'intera soluzione diventa altamente disponibile.
+* Configurare StorSimple con [configurazioni cluster di file server a due nodi][1]. Se si rimuovono singoli punti di errore e si crea ridondanza sul lato host, l'intera soluzione diventa altamente disponibile.
 * Usare condivisioni disponibili in modo continuo con Windows Server 2012 (SMB 3.0) per la disponibilità elevata durante il failover dei controller di archiviazione. Per altre informazioni sulla configurazione di cluster di file server e sulle condivisioni disponibili in modo continuo con Windows Server 2012, vedere questo [video dimostrativo](https://channel9.msdn.com/Events/IT-Camps/IT-Camps-On-Demand-Windows-Server-2012/DEMO-Continuously-Available-File-Shares).
 
 ## <a name="next-steps"></a>Passaggi successivi

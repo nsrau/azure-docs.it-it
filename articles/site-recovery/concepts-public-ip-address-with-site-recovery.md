@@ -1,5 +1,5 @@
 ---
-title: Assegna indirizzi IP pubblici dopo il failover con Azure Site Recovery
+title: Assegnare indirizzi IP pubblici dopo il failover con Azure Site RecoveryAssign public IP addresses after failover with Azure Site Recovery
 description: Questo articolo descrive come configurare gli indirizzi IP pubblici con Azure Site Recovery e Gestione traffico di Microsoft Azure per il ripristino di emergenza e la migrazione
 services: site-recovery
 author: mayurigupta13
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
 ms.openlocfilehash: b1f3ffa6fc90fc0cab0217d1b71907342f2dbd0d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79281951"
 ---
 # <a name="set-up-public-ip-addresses-after-failover"></a>Configurare gli indirizzi IP pubblici dopo il failover
@@ -44,7 +44,7 @@ La configurazione è la seguente:
 Gestione traffico di Microsoft Azure consente il routing a livello DNS tra gli endpoint e può aiutare a [ridurre gli RTO](../site-recovery/concepts-traffic-manager-with-site-recovery.md#recovery-time-objective-rto-considerations) per uno scenario di ripristino di emergenza. 
 
 Altre informazioni sugli scenari di failover con Gestione traffico:
-1. [Failover da sito locale ad Azure](../site-recovery/concepts-traffic-manager-with-site-recovery.md#on-premises-to-azure-failover) con gestione traffico 
+1. [Dal locale al failover di Azure](../site-recovery/concepts-traffic-manager-with-site-recovery.md#on-premises-to-azure-failover) con Gestione traffico 
 2. [Failover da Azure ad Azure](../site-recovery/concepts-traffic-manager-with-site-recovery.md#azure-to-azure-failover) con Gestione traffico 
 
 La configurazione è la seguente:

@@ -1,5 +1,5 @@
 ---
-title: Creare una VM Linux in Azure con più schede di rete
+title: Creare una macchina virtuale Linux in Azure con più schede di interfaccia di reteCreate a Linux VM in Azure with multiple NICs
 description: Informazioni su come creare una VM Linux con più schede di interfaccia di rete collegate utilizzando l'interfaccia della riga di comando di Azure o i modelli di Resource Manager.
 author: cynthn
 ms.service: virtual-machines-linux
@@ -9,10 +9,10 @@ ms.workload: infrastructure
 ms.date: 06/07/2018
 ms.author: cynthn
 ms.openlocfilehash: ecbff4beadd9d10a8489c89cc322c0bb67ec5f40
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79267183"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Come creare una macchina virtuale Linux in Azure con più schede di interfaccia di rete
@@ -25,7 +25,7 @@ Installare la versione più recente dell'[interfaccia della riga di comando di A
 
 Nell'esempio seguente sostituire i nomi dei parametri di esempio con i valori desiderati. I nomi dei parametri di esempio includono *myResourceGroup*, *mystorageaccount* e *myVM*.
 
-Creare prima un gruppo di risorse con [az group create](/cli/azure/group). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella posizione *eastus*:
+Creare prima un gruppo di risorse con [az group create](/cli/azure/group). L'esempio seguente crea un gruppo di risorse denominato myResourceGroup nella posizione *eastus:The* following example creates a resource group named *myResourceGroup* in the eastus location:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -52,7 +52,7 @@ az network vnet subnet create \
     --address-prefix 10.0.2.0/24
 ```
 
-Creare un gruppo di sicurezza di rete con il comando [az network nsg create](/cli/azure/network/nsg). L'esempio seguente crea un gruppo di sicurezza di rete denominato *myNetworkSecurityGroup*:
+Creare un gruppo di sicurezza di rete con il comando [az network nsg create](/cli/azure/network/nsg). Nell'esempio seguente viene creato un gruppo di sicurezza di rete denominato *myNetworkSecurityGroup:*
 
 ```azurecli
 az network nsg create \
@@ -81,7 +81,7 @@ az network nic create \
 ## <a name="create-a-vm-and-attach-the-nics"></a>Creare una macchina virtuale e collegare le schede di interfaccia di rete
 Quando si crea la macchina virtuale, specificare le schede di interfaccia di rete create con `--nics`. L'utente deve anche fare attenzione quando seleziona la dimensione della macchina virtuale. Esistono dei limiti per quanto riguarda il numero totale di schede di rete che è possibile aggiungere. Ulteriori informazioni sulle [dimensioni delle macchine virtuali di Linux](sizes.md).
 
-Creare una VM con il comando [az vm create](/cli/azure/vm). L'esempio seguente crea una VM denominata *myVM*:
+Creare una macchina virtuale con [az vm create](/cli/azure/vm). L'esempio seguente crea una macchina virtuale denominata myVM:The following example creates a VM named *myVM:*
 
 ```azurecli
 az vm create \
@@ -169,7 +169,7 @@ I modelli di Azure Resource Manager utilizzano i file JSON dichiarativi per defi
 
 Ulteriori informazioni sulla [creazione di più istanze utilizzando *Copia*](../../resource-group-create-multiple.md). 
 
-È anche possibile usare un `copyIndex()` per aggiungere un numero al nome di una risorsa, che consente di creare `myNic1`, `myNic2`e così via. Di seguito viene illustrato un esempio di aggiunta del valore di indice:
+È inoltre possibile `copyIndex()` utilizzare un oggetto per aggiungere un numero `myNic1`a `myNic2`un nome di risorsa, che consente di creare , , e così via. Di seguito viene illustrato un esempio di aggiunta del valore di indice:The following shows an example of appending the index value:
 
 ```json
 "name": "[concat('myNic', copyIndex())]", 

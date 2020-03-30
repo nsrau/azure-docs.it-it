@@ -1,5 +1,5 @@
 ---
-title: Elaborazione dei dati e funzioni definite dall'utente-dispositivi gemelli digitali di Azure | Microsoft Docs
+title: Elaborazione dei dati e funzioni definite dall'utente - Gemelli digitali di Azure Documenti Microsoft
 description: Panoramica dell'elaborazione dei dati, dei matcher e delle funzioni definite dall'utente con Gemelli digitali di Azure.
 ms.author: alinast
 author: alinamstanciu
@@ -9,10 +9,10 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/03/2020
 ms.openlocfilehash: 75ed2029582438ede43687addfd54c0a187e0120
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79265181"
 ---
 # <a name="data-processing-and-user-defined-functions"></a>Elaborazione dati e funzioni definite dall'utente
@@ -21,9 +21,9 @@ Gemelli digitali di Azure offre funzionalità di calcolo avanzate. Gli sviluppat
 
 ## <a name="data-processing-flow"></a>Flusso di elaborazione dei dati
 
-Quando i dispositivi inviano dati di telemetria a Gemelli digitali di Azure, gli sviluppatori possono elaborare i dati in quattro fasi: *convalida*, *associazione*, *calcolo* e *invio*.
+Dopo che i dispositivi inviano dati di telemetria ai gemelli digitali di Azure, gli sviluppatori possono elaborare i dati in quattro fasi: *convalida,* *corrispondenza,* *calcolo*e *invio.*
 
-[![flusso di elaborazione dati dei gemelli digitali di Azure](media/concepts/digital-twins-data-processing-flow.png)](media/concepts/digital-twins-data-processing-flow.png#lightbox)
+[![Flusso di elaborazione dei dati di Gemelli digitali di Azure](media/concepts/digital-twins-data-processing-flow.png)](media/concepts/digital-twins-data-processing-flow.png#lightbox)
 
 1. La fase di convalida trasforma il messaggio di telemetria in ingresso in un formato di [oggetto di trasferimento dati](https://docs.microsoft.com/aspnet/web-api/overview/data/using-web-api-with-entity-framework/part-5) comunemente riconoscibile. Questa fase esegue anche la convalida di dispositivi e sensori.
 1. La fase di associazione trova le funzioni definite dall'utente appropriate da eseguire. I matcher predefiniti trovano le funzioni definite dall'utente in base alle informazioni su dispositivi, sensori e spazi dal messaggio di telemetria in ingresso.
@@ -32,9 +32,9 @@ Quando i dispositivi inviano dati di telemetria a Gemelli digitali di Azure, gli
 
 ## <a name="data-processing-objects"></a>Oggetti di elaborazione dei dati
 
-L'elaborazione dei dati in Gemelli digitali di Azure consiste nella definizione di tre oggetti: *matcher*, *funzioni definite dall'utente* e *assegnazioni di ruolo*.
+L'elaborazione dei dati in Azure Digital Twins è costituita dalla definizione di tre oggetti: *matcher*, *funzioni definite dall'utente*e *assegnazioni*di ruolo .
 
-[![oggetti di elaborazione dati di dispositivi gemelli digitali di Azure](media/concepts/digital-twins-user-defined-functions.png)](media/concepts/digital-twins-user-defined-functions.png#lightbox)
+[![Oggetti di elaborazione dei dati di Gemelli digitali di Azure](media/concepts/digital-twins-user-defined-functions.png)](media/concepts/digital-twins-user-defined-functions.png#lightbox)
 
 ### <a name="matchers"></a>Matcher
 
@@ -44,7 +44,7 @@ I matcher definiscono un set di condizioni che valutano quali azioni vengono ese
 - Con `01` nella rispettiva porta
 - Che appartengono a dispositivi con la chiave di proprietà estesa **Manufacturer** impostata sul valore stringa preceduto da un carattere di escape `\"Contoso\"`
 - Che appartengono agli spazi del tipo specificato dalla stringa preceduta da un carattere di escape `\"Venue\"`
-- Che sono discendenti dell'elemento padre **SpaceId** `DE8F06CA-1138-4AD7-89F4-F782CC6F69FD`
+- Che sono discendenti dell'elemento **SpaceId** `DE8F06CA-1138-4AD7-89F4-F782CC6F69FD` padre
 
 ```JSON
 {
@@ -104,7 +104,7 @@ Le funzioni definite dall'utente possono essere scritte in JavaScript. I metodi 
 - Creare una notifica quando vengono soddisfatte determinate condizioni per una lettura del sensore in ingresso.
 - Collegare metadati del grafico alla lettura del sensore prima di inviare una notifica.
 
-Per altre informazioni, vedere [come usare le funzioni definite dall'utente](./how-to-user-defined-functions.md).
+Per ulteriori informazioni, leggere [Come utilizzare funzioni definite dall'utente](./how-to-user-defined-functions.md).
 
 #### <a name="examples"></a>Esempi
 
@@ -114,7 +114,7 @@ Il [repository GitHub per l'esempio C# di Gemelli digitali](https://github.com/A
 
 ### <a name="role-assignment"></a>Assegnazione di ruolo
 
-Le azioni di una funzione definita dell'utente sono soggette al [controllo degli accessi in base al ruolo](./security-role-based-access-control.md) di Gemelli digitali di Azure per proteggere i dati all'interno del servizio. Le assegnazioni di ruolo definiscono quali funzioni definite dall'utente possiedono le autorizzazioni appropriate per interagire con il grafico spaziale e le relative entità. Ad esempio, una funzione definita dall'utente potrebbe avere la capacità e l'autorizzazione per *CREARE*, *LEGGERE*, *AGGIORNARE* o *ELIMINARE* i dati del grafico in uno spazio specificato. Il livello di accesso di una funzione definita dell'utente viene controllato quando la funzione definita dall'utente chiede dati al grafico o tenta un'operazione. Per altre informazioni, vedere [controllo degli accessi in base al ruolo](./security-create-manage-role-assignments.md).
+Le azioni di una funzione definita dell'utente sono soggette al [controllo degli accessi in base al ruolo](./security-role-based-access-control.md) di Gemelli digitali di Azure per proteggere i dati all'interno del servizio. Le assegnazioni di ruolo definiscono quali funzioni definite dall'utente possiedono le autorizzazioni appropriate per interagire con il grafico spaziale e le relative entità. Ad esempio, una funzione definita dall'utente potrebbe avere la capacità e l'autorizzazione per *CREARE*, *LEGGERE*, *AGGIORNARE* o *ELIMINARE* i dati del grafico in uno spazio specificato. Il livello di accesso di una funzione definita dell'utente viene controllato quando la funzione definita dall'utente chiede dati al grafico o tenta un'operazione. Per ulteriori informazioni, leggere [Controllo degli accessi in base](./security-create-manage-role-assignments.md)al ruolo .
 
 È possibile che un matcher attivi una funzione definita dall'utente priva di assegnazioni di ruolo. In questo caso, la funzione definita dall'utente non riuscirà a leggere alcun dato dal grafico.
 

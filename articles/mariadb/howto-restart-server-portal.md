@@ -1,17 +1,17 @@
 ---
-title: Riavviare il server portale di Azure-database di Azure per MariaDB
+title: Riavviare il server - Portale di Azure - Database di Azure per MariaDB
 description: Questo articolo illustra come riavviare un server di Database di Azure per MariaDB usando il portale di Azure.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: fb4e56a3f40573a65b679ee026c22dfc5d6e5fa2
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: ed95304807a1a03880cc824c1a58f010203d418d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74769422"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79534712"
 ---
 # <a name="restart-azure-database-for-mariadb-server-using-azure-portal"></a>Riavviare un server di Database di Azure per MariaDB usando il portale di Azure
 Questo argomento descrive come riavviare un server di Database di Azure per MariaDB. Potrebbe essere necessario riavviare il server per motivi di manutenzione, causando così una breve interruzione del servizio mentre il server esegue l'operazione.
@@ -22,7 +22,7 @@ Il tempo necessario per completare un riavvio dipende dal processo di ripristino
 
 ## <a name="prerequisites"></a>Prerequisiti
 Per completare questa guida, è necessario:
-- Un [database di Azure per il server MariaDB](./quickstart-create-mariadb-server-database-using-azure-portal.md)
+- Un [database di Azure per il server MariaDBAn Azure Database for MariaDB server](./quickstart-create-mariadb-server-database-using-azure-portal.md)
 
 ## <a name="perform-server-restart"></a>Eseguire il riavvio del server
 
@@ -48,4 +48,4 @@ La procedura seguente consente di riavviare il server MariaDB:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Guida introduttiva: creare database di Azure per il server MariaDB usando portale di Azure](./quickstart-create-mariadb-server-database-using-azure-portal.md)
+[Guida introduttiva: Creare un database di Azure per il server MariaDB usando il portale di AzureQuickstart: Create Azure Database for MariaDB server using Azure portal](./quickstart-create-mariadb-server-database-using-azure-portal.md)

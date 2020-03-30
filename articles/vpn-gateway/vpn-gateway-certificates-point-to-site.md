@@ -1,5 +1,5 @@
 ---
-title: 'Generare ed esportare i certificati per P2S: PowerShell'
+title: 'Generare ed esportare certificati per P2S: PowerShell'
 titleSuffix: Azure VPN Gateway
 description: Creare un certificato radice autofirmato, esportare la chiave pubblica e generare certificati client con PowerShell in Windows 10 o Windows Server 2016.
 services: vpn-gateway
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: cherylmc
 ms.openlocfilehash: f28e76e9dcaf1331fd26a2321cd4deca1027e693
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79279338"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-using-powershell"></a>Generare ed esportare i certificati per le connessioni da punto a sito usando PowerShell
@@ -25,7 +25,7 @@ Se non si ha accesso a un computer con Windows 10 o Windows Server 2016, è poss
 
 [!INCLUDE [generate and export certificates](../../includes/vpn-gateway-generate-export-certificates-include.md)]
 
-## <a name="install"></a>Installare un certificato client esportato
+## <a name="install-an-exported-client-certificate"></a><a name="install"></a>Installare un certificato client esportato
 
 Ogni client che si connette alla rete virtuale su una connessione P2S richiede l'installazione locale di un certificato client.
 

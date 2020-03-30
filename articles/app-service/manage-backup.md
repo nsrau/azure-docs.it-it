@@ -6,14 +6,14 @@ ms.topic: article
 ms.date: 10/16/2019
 ms.custom: seodec18
 ms.openlocfilehash: 783737729601bfef3bee8741a097d4319349f18e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79259331"
 ---
 # <a name="back-up-your-app-in-azure"></a>Eseguire il backup dell'app in Azure
-La funzionalità di backup e ripristino nel [Servizio app di Azure](overview.md) consente di creare facilmente backup di app in modo manuale o pianificato. È possibile configurare i backup in modo che vengano conservati fino a un periodo di tempo indefinito. È possibile ripristinare l'app a una snapshot di uno stato precedente sovrascrivendo l'applicazione esistente o eseguendo il ripristino in un'altra applicazione.
+La funzionalità di backup e ripristino nel [Servizio app di Azure](overview.md) consente di creare facilmente backup di app in modo manuale o pianificato. È possibile configurare i backup da conservare fino a un periodo di tempo indefinito. È possibile ripristinare l'app a una snapshot di uno stato precedente sovrascrivendo l'applicazione esistente o eseguendo il ripristino in un'altra applicazione.
 
 Per informazioni sul ripristino di un'app dal backup, vedere [Ripristinare un'app nel Servizio app di Azure](web-sites-restore.md).
 
@@ -28,8 +28,8 @@ Il servizio app può eseguire il backup delle informazioni seguenti in un accoun
 
 Le soluzioni di database seguenti sono supportate con funzionalità di backup: 
 
-- [Database SQL](https://azure.microsoft.com/services/sql-database/)
-- [Database di Azure per MySQL](https://azure.microsoft.com/services/mysql)
+- [SQL Database](https://azure.microsoft.com/services/sql-database/)
+- [Azure Database for MySQL](https://azure.microsoft.com/services/mysql)
 - [Database di Azure per PostgreSQL](https://azure.microsoft.com/services/postgresql)
 - [MySQL in-app](https://azure.microsoft.com/blog/mysql-in-app-preview-app-service/)
  
@@ -64,11 +64,11 @@ Le soluzioni di database seguenti sono supportate con funzionalità di backup:
     > 
     > 
 
-2. Nella pagina **backup** selezionare **backup non è configurato. Fare clic qui per configurare il backup per l'app**.
+2. Nella pagina **Backup** selezionare **Backup non configurato. Fare clic qui per configurare il backup per l'app.**
 
-    ![Fare clic su Configura](./media/manage-backup/configure-start.png)
+    ![Fare clic su Configura.](./media/manage-backup/configure-start.png)
 
-3. Nella pagina **configurazione backup** fare clic su **archiviazione non configurata** per configurare un account di archiviazione.
+3. Nella pagina **Configurazione backup** fare clic su Archiviazione **non configurata** per configurare un account di archiviazione.
 
     ![Scegliere l'account di archiviazione](./media/manage-backup/configure-storage.png)
 
@@ -86,7 +86,7 @@ Le soluzioni di database seguenti sono supportate con funzionalità di backup:
     > 
 
 6. Nella pagina **Configurazione backup** fare clic su **Salva**.
-7. Nella pagina **backup** fare clic su **backup**.
+7. Nella pagina **Backup** fare clic su **Backup**.
 
     ![Pulsante BackUp Now](./media/manage-backup/manual-backup.png)
 
@@ -101,7 +101,7 @@ Dopo avere configurato l'account di archiviazione e il contenitore è possibile 
 
     ![Abilitazione dei backup automatici](./media/manage-backup/scheduled-backup.png)
 
-2. Configurare la pianificazione del backup in base alle esigenze e selezionare **OK**.
+2. Configurare la pianificazione di backup come desiderato e selezionare **OK**.
 
 <a name="partialbackups"></a>
 
@@ -115,12 +115,12 @@ In alcuni casi non si vuole eseguire il backup di tutti gli elementi dell'app. D
 I backup parziali consentono di scegliere esattamente i file di cui eseguire il backup.
 
 > [!NOTE]
-> I singoli database del backup possono avere una dimensione massima di 4 GB, ma la dimensione totale massima del backup è 10 GB
+> I singoli database nel backup possono essere max 4 GB, ma la dimensione massima totale del backup è 10 GB
 
 ### <a name="exclude-files-from-your-backup"></a>Escludere file dal backup
 Si supponga di avere un'app che contiene file di log e immagini statiche di cui è stato eseguito un backup e che nos si intende modificare. In questi casi è possibile escludere le cartelle e i file dall'archiviazione nei backup futuri. Per escludere file e cartelle dai backup, creare un file `_backup.filter` nella cartella `D:\home\site\wwwroot` dell'applicazione. Specificare l'elenco di file e cartelle da escludere in questo file. 
 
-È possibile accedere ai file passando a `https://<app-name>.scm.azurewebsites.net/DebugConsole`. Se richiesto, accedere all'account di Azure.
+È possibile accedere ai `https://<app-name>.scm.azurewebsites.net/DebugConsole`file passando a . Se richiesto, accedere all'account di Azure.
 
 Identificare le cartelle da escludere dai backup. Ad esempio, si vuole applicare un filtro per la cartella e i file evidenziati.
 
@@ -134,7 +134,7 @@ Creare un file denominato `_backup.filter` e inserire l'elenco precedente nel fi
 \site\wwwroot\Images\2013
 ```
 
-Caricare il file `_backup.filter` nella directory `D:\home\site\wwwroot\` del sito usando [ftp](deploy-ftp.md) o qualsiasi altro metodo. Se lo si desidera, è possibile creare il file direttamente utilizzando Kudu `DebugConsole` e inserire il contenuto.
+Caricare il file `_backup.filter` nella directory `D:\home\site\wwwroot\` del sito usando [ftp](deploy-ftp.md) o qualsiasi altro metodo. Se lo si desidera, è possibile `DebugConsole` creare il file direttamente utilizzando Kudu e inserire il contenuto.
 
 Eseguire i backup secondo la procedura consueta, ovvero [manualmente](#create-a-manual-backup) o [automaticamente](#configure-automated-backups). A questo punto, eventuali file e cartelle specificati in `_backup.filter` verranno esclusi dai backup futuri pianificati o avviati manualmente. 
 
@@ -163,8 +163,8 @@ Il backup del database per l'app viene archiviato nella radice del file con este
 
 Per qualche esempio vedere:
 
-- [Esempi dell'interfaccia della riga di comando di Azure](samples-cli.md)
-- [Esempi di Azure PowerShell](samples-powershell.md)
+- [Esempi dell'interfaccia della riga di comando di AzureAzure](samples-cli.md)
+- [Esempi di Azure PowerShellAzure PowerShell samples](samples-powershell.md)
 
 <a name="nextsteps"></a>
 

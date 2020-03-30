@@ -1,18 +1,20 @@
 ---
-title: Distribuire le risorse con l'interfaccia della riga di comando di Azure
-description: Usare Azure Resource Manager e l'interfaccia della riga di comando di Azure per distribuire le risorse in Azure. Le risorse sono definite in un modello di Resource Manager.
+title: Distribuire risorse con l'interfaccia della riga di comando di Azure e il modelloDeploy resources with Azure CLI and template
+description: Usare Azure Resource Manager e l'interfaccia della riga di comando di Azure per distribuire le risorse in Azure.Use Azure Resource Manager and Azure CLI to deploy resources to Azure. Le risorse sono definite in un modello di Resource Manager.
 ms.topic: conceptual
-ms.date: 10/09/2019
-ms.openlocfilehash: 17307b1657afc133a7e1b1d7714363329573e48c
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.date: 03/25/2020
+ms.openlocfilehash: 241b84bc7b8c0b213e74cd7ee5f3d7668fe0d808
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79273904"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80282648"
 ---
-# <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Distribuire le risorse con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure
+# <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>Distribuire risorse con modelli ARM e l'interfaccia della riga di comando di AzureDeploy resources with ARM templates and Azure CLI
 
-Questo articolo illustra come usare l'interfaccia della riga di comando di Azure con modelli di Resource Manager per distribuire risorse in Azure. Se non si ha familiarità con i concetti relativi alla distribuzione e alla gestione delle soluzioni di Azure, vedere [Panoramica della distribuzione dei modelli](overview.md).
+Questo articolo illustra come usare l'interfaccia della riga di comando di Azure con i modelli di Azure Resource Manager (ARM) per distribuire le risorse in Azure.This article explains how to use Azure Resource Manager (ARM) templates to deploy your resources to Azure. Se non si ha familiarità con i concetti di distribuzione e gestione delle soluzioni di Azure, vedere Panoramica della distribuzione dei [modelli.](overview.md)
+
+I comandi di distribuzione sono stati modificati nell'interfaccia della riga di comando di Azure versione 2.2.0.The deployment commands changed in Azure CLI version 2.2.0. Gli esempi in questo articolo richiedono l'interfaccia della riga di comando di Azure versione 2.2.0 o successiva.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -20,25 +22,41 @@ Se l'interfaccia della riga di comando di Azure non è installata, è possibile 
 
 ## <a name="deployment-scope"></a>Ambito di distribuzione
 
-La distribuzione può essere destinata a una sottoscrizione di Azure o a un gruppo di risorse all'interno di una sottoscrizione. Nella maggior parte dei casi, la distribuzione verrà destinata a un gruppo di risorse. Usare le distribuzioni di sottoscrizione per applicare i criteri e le assegnazioni di ruolo nella sottoscrizione. È anche possibile usare le distribuzioni delle sottoscrizioni per creare un gruppo di risorse e distribuirvi risorse. A seconda dell'ambito della distribuzione, si utilizzano comandi diversi.
+È possibile assegnare la distribuzione a un gruppo di risorse, una sottoscrizione, un gruppo di gestione o un tenant. Nella maggior parte dei casi, la distribuzione verrà destinata a un gruppo di risorse. Per applicare criteri e assegnazioni di ruolo in un ambito più ampio, usare distribuzioni di sottoscrizioni, gruppi di gestione o tenant. Quando si esegue la distribuzione in una sottoscrizione, è possibile crearvi un gruppo di risorse e distribuirvi le risorse.
 
-Per eseguire la distribuzione in un **gruppo di risorse**, usare [AZ Group Deployment create](/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create):
+A seconda dell'ambito della distribuzione, si utilizzano comandi diversi.
 
-```azurecli-interactive
-az group deployment create --resource-group <resource-group-name> --template-file <path-to-template>
-```
-
-Per eseguire la distribuzione in una **sottoscrizione**, usare [AZ Deployment create](/cli/azure/deployment?view=azure-cli-latest#az-deployment-create):
+Per eseguire la distribuzione in un gruppo di **risorse,** usare [az deployment group create](/cli/azure/deployment/group?view=azure-cli-latest#az-deployment-group-create):
 
 ```azurecli-interactive
-az deployment create --location <location> --template-file <path-to-template>
+az deployment group create --resource-group <resource-group-name> --template-file <path-to-template>
 ```
 
-Per altre informazioni sulle distribuzioni a livello di sottoscrizione, vedere [creare gruppi di risorse e risorse a livello di sottoscrizione](deploy-to-subscription.md).
+Per eseguire la distribuzione in una **sottoscrizione,** usare [az deployment sub create](/cli/azure/deployment/sub?view=azure-cli-latest#az-deployment-sub-create):
 
-Attualmente, le distribuzioni di gruppi di gestione sono supportate solo tramite l'API REST. Per ulteriori informazioni sulle distribuzioni a livello di gruppo di gestione, vedere [creazione di risorse a livello di gruppo di gestione](deploy-to-management-group.md).
+```azurecli-interactive
+az deployment sub create --location <location> --template-file <path-to-template>
+```
 
-Gli esempi in questo articolo usano le distribuzioni di gruppi di risorse.
+Per altre informazioni sulle distribuzioni a livello di sottoscrizione, vedere Creare gruppi di risorse e risorse a livello di [sottoscrizione.](deploy-to-subscription.md)
+
+Per eseguire la distribuzione in un gruppo di **gestione,** usare [az deployment mg create](/cli/azure/deployment/mg?view=azure-cli-latest#az-deployment-mg-create):
+
+```azurecli-interactive
+az deployment mg create --location <location> --template-file <path-to-template>
+```
+
+Per ulteriori informazioni sulle distribuzioni a livello di gruppo di gestione, vedere Creare risorse a livello di gruppo di [gestione.](deploy-to-management-group.md)
+
+Per eseguire la distribuzione in un **tenant,** usare [az deployment tenant create](/cli/azure/deployment/tenant?view=azure-cli-latest#az-deployment-tenant-create):
+
+```azurecli-interactive
+az deployment tenant create --location <location> --template-file <path-to-template>
+```
+
+Per ulteriori informazioni sulle distribuzioni a livello di tenant, vedere Creare risorse a livello di [tenant.](deploy-to-tenant.md)
+
+Gli esempi in questo articolo usano distribuzioni di gruppi di risorse.
 
 ## <a name="deploy-local-template"></a>Distribuire un modello locale
 
@@ -54,7 +72,7 @@ L'esempio seguente crea un gruppo di risorse e distribuisce un modello dal compu
 
 ```azurecli-interactive
 az group create --name ExampleGroup --location "Central US"
-az group deployment create \
+az deployment group create \
   --name ExampleDeployment \
   --resource-group ExampleGroup \
   --template-file storage.json \
@@ -67,15 +85,15 @@ Per il completamento della distribuzione sarà necessario attendere alcuni minut
 "provisioningState": "Succeeded",
 ```
 
-## <a name="deploy-remote-template"></a>Distribuisci modello remoto
+## <a name="deploy-remote-template"></a>Distribuire il modello remotoDeploy remote template
 
-Anziché archiviare i modelli di Resource Manager nel computer locale, è consigliabile archiviarli in una posizione esterna, ad esempio in un repository di controllo del codice sorgente come GitHub. È possibile, in alternativa, archiviarli in un account di archiviazione di Azure per consentire l'accesso condiviso nell'organizzazione.
+Anziché archiviare i modelli ARM nel computer locale, è preferibile archiviarli in una posizione esterna. ad esempio in un repository di controllo del codice sorgente come GitHub. È possibile, in alternativa, archiviarli in un account di archiviazione di Azure per consentire l'accesso condiviso nell'organizzazione.
 
 Per distribuire un modello esterno, usare il parametro **template-uri**. Usare l'URI indicato nell'esempio per distribuire il modello di esempio da GitHub.
 
 ```azurecli-interactive
 az group create --name ExampleGroup --location "Central US"
-az group deployment create \
+az deployment group create \
   --name ExampleDeployment \
   --resource-group ExampleGroup \
   --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json" \
@@ -90,7 +108,7 @@ Immettere i comandi seguenti in Cloud Shell:
 
 ```azurecli-interactive
 az group create --name examplegroup --location "South Central US"
-az group deployment create --resource-group examplegroup \
+az deployment group create --resource-group examplegroup \
   --template-uri <copied URL> \
   --parameters storageAccountType=Standard_GRS
 ```
@@ -104,18 +122,18 @@ Per passare i valori dei parametri, è possibile usare i parametri inline o un f
 Per passare i parametri inline, specificare i valori in `parameters`. Ad esempio, per passare una stringa e una matrice a un modello in una shell Bash, usare:
 
 ```azurecli-interactive
-az group deployment create \
+az deployment group create \
   --resource-group testgroup \
   --template-file demotemplate.json \
   --parameters exampleString='inline string' exampleArray='("value1", "value2")'
 ```
 
-Se si usa l'interfaccia della riga di comando di Azure con il prompt dei comandi di Windows (CMD) o PowerShell, passare la matrice nel formato: `exampleArray="['value1','value2']"`.
+Se si usa l'interfaccia della riga di comando di Azure con il `exampleArray="['value1','value2']"`prompt dei comandi di Windows (CMD) o PowerShell, passare la matrice nel formato: .
 
 È anche possibile ottenere i contenuti del file e fornire il contenuto come un parametro inline.
 
 ```azurecli-interactive
-az group deployment create \
+az deployment group create \
   --resource-group testgroup \
   --template-file demotemplate.json \
   --parameters exampleString=@stringContent.txt exampleArray=@arrayContent.json
@@ -136,12 +154,12 @@ Il formato arrayContent.json è:
 
 Invece di passare i parametri come valori inline nello script, può risultare più facile usare un file JSON che contenga i valori dei parametri. Il file dei parametri deve essere un file locale. I file dei parametri esterni non sono supportati con l'interfaccia della riga di comando di Azure.
 
-Per altre informazioni sul file dei parametri, vedere [creare Gestione risorse file di parametri](parameter-files.md).
+Per ulteriori informazioni sul file dei parametri, vedere Creare un file di parametri di [Resource Manager](parameter-files.md).
 
 Per passare un file dei parametri locale, usare `@` per specificare un file locale denominato storage.parameters.json.
 
 ```azurecli-interactive
-az group deployment create \
+az deployment group create \
   --name ExampleDeployment \
   --resource-group ExampleGroup \
   --template-file storage.json \
@@ -150,7 +168,7 @@ az group deployment create \
 
 ## <a name="handle-extended-json-format"></a>Gestire il formato JSON esteso
 
-Per distribuire un modello con stringhe o commenti a più righe, è necessario usare l'opzione `--handle-extended-json-format`.  Ad esempio:
+Per distribuire un modello con stringhe o commenti su `--handle-extended-json-format` più righe, è necessario utilizzare l'opzione .  Ad esempio:
 
 ```json
 {
@@ -172,10 +190,10 @@ Per distribuire un modello con stringhe o commenti a più righe, è necessario u
 
 ## <a name="test-a-template-deployment"></a>Testare una distribuzione del modello
 
-Per testare il modello e i valori dei parametri senza distribuire effettivamente le risorse, usare il comando [az group deployment validate](/cli/azure/group/deployment#az-group-deployment-validate).
+Per testare i valori del modello e dei parametri senza distribuire effettivamente le risorse, utilizzare [az deployment group validate](/cli/azure/group/deployment).
 
 ```azurecli-interactive
-az group deployment validate \
+az deployment group validate \
   --resource-group ExampleGroup \
   --template-file storage.json \
   --parameters @storage.parameters.json
@@ -223,9 +241,9 @@ Se il modello contiene un errore di sintassi, il comando restituisce un errore c
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per eseguire il rollback a una distribuzione corretta quando viene visualizzato un errore, vedere eseguire [il rollback in caso di errore di distribuzione riuscita](rollback-on-error.md).
+- Per eseguire il rollback a una distribuzione corretta quando viene visualizzato un errore, vedere Rollback in caso di [errore alla corretta distribuzione](rollback-on-error.md).
 - Per specificare la modalità di gestione delle risorse che sono presenti nel gruppo, ma non sono definite nel modello, vedere [Modalità di distribuzione di Azure Resource Manager](deployment-modes.md).
-- Per informazioni su come definire i parametri nel modello, vedere [Comprendere la struttura e la sintassi dei modelli di Azure Resource Manager](template-syntax.md).
+- Per informazioni su come definire i parametri nel modello, vedere Informazioni sulla struttura e la [sintassi dei modelli ARM](template-syntax.md).
 - Per suggerimenti su come risolvere i comuni errori di distribuzione, vedere [Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager](common-deployment-errors.md).
 - Per informazioni sulla distribuzione di un modello che richiede un token di firma di accesso condiviso, vedere [Distribuire un modello privato con un token di firma di accesso condiviso](secure-template-with-sas-token.md).
 - Per implementare in modo sicuro il servizio in più di un'area, vedere [Azure Deployment Manager](deployment-manager-overview.md).

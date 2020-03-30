@@ -1,5 +1,5 @@
 ---
-title: Domande frequenti sul gateway VPN di Azure
+title: Domande frequenti sul gateway VPN di AzureAzure VPN Gateway FAQ
 description: Domande frequenti sul gateway VPN. Domande frequenti relative alle connessioni cross-premise di Rete virtuale di Microsoft Azure, alle connessioni con configurazioni ibride e ai gateway VPN.
 services: vpn-gateway
 author: yushwang
@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 03/05/2020
 ms.author: yushwang
 ms.openlocfilehash: 027047a212df72479a4f1b2511729365f3fa09e4
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79279884"
 ---
 # <a name="vpn-gateway-faq"></a>Domande frequenti sul gateway VPN
 
-## <a name="connecting"></a>Connessione a reti virtuali
+## <a name="connecting-to-virtual-networks"></a><a name="connecting"></a>Connessione a reti virtuali
 
 ### <a name="can-i-connect-virtual-networks-in-different-azure-regions"></a>È possibile connettere reti virtuali in diverse aree di Azure?
 
@@ -48,13 +48,13 @@ Per altre informazioni sulle connessioni del gateway VPN, vedere [Informazioni s
 
 ### <a name="what-is-the-difference-between-a-site-to-site-connection-and-point-to-site"></a>Qual è la differenza tra una connessione da sito a sito e una connessione da punto a sito?
 
-Le configurazioni **da sito a sito** (tunnel VPN IPsec/IKE) connettono il percorso locale ad Azure. È quindi possibile connettersi da qualsiasi computer disponibile in locale a qualsiasi macchina virtuale o istanza del ruolo nella rete virtuale, in base alla configurazione scelta per il routing e le autorizzazioni. Questa opzione è ottimale per una connessione cross-premise sempre disponibile ed è adatta per le configurazioni ibride. Questo tipo di connessione si basa su un dispositivo VPN IPSec (dispositivo hardware o software) che è necessario distribuire in corrispondenza del perimetro della rete. Per creare questo tipo di connessione, è necessario disporre di un indirizzo IPv4 con connessione esterna.
+Le configurazioni **da sito a sito** (tunnel VPN IPsec/IKE) connettono il percorso locale ad Azure. È quindi possibile connettersi da qualsiasi computer disponibile in locale a qualsiasi macchina virtuale o istanza del ruolo nella rete virtuale, in base alla configurazione scelta per il routing e le autorizzazioni. Questa opzione è ottimale per una connessione cross-premise sempre disponibile ed è adatta per le configurazioni ibride. Questo tipo di connessione si basa su un dispositivo VPN IPSec (dispositivo hardware o software) che è necessario distribuire in corrispondenza del perimetro della rete. Per creare questo tipo di connessione, è necessario disporre di un indirizzo IPv4 rivolto esternamente.
 
 Le configurazioni **da punto a sito** (VPN tramite SSTP) consentono di connettersi da un computer singolo a qualsiasi elemento disponibile nella rete virtuale. Questo tipo di connessione usa il client VPN incorporato di Windows. La configurazione da spunto a sito prevede l'installazione di un certificato e di un pacchetto di configurazione client VPN che contiene le impostazioni che consentono al computer di connettersi a qualsiasi macchina virtuale o istanza del ruolo all'interno della rete virtuale. Si tratta di un'ottima opzione quando si desidera connettersi a una rete virtuale ma non ci si trova nella sede locale. È utile anche quando non si ha accesso all'hardware VPN o a un indirizzo IP IPv4 accessibile pubblicamente, entrambi necessari per una connessione da sito a sito.
 
 È possibile configurare la rete virtuale in modo da usare sia la connettività da punto a sito che da sito a sito contemporaneamente, purché la connessione da sito a sito venga creata usando un tipo di VPN basato su route per il gateway. I tipi di VPN basati su route sono detti gateway dinamici nel modello di distribuzione classica.
 
-## <a name="gateways"></a>Gateway di rete virtuale
+## <a name="virtual-network-gateways"></a><a name="gateways"></a>Gateway di rete virtuale
 
 ### <a name="is-a-vpn-gateway-a-virtual-network-gateway"></a>Un gateway VPN corrisponde a un gateway di rete virtuale?
 
@@ -68,15 +68,15 @@ I gateway basati su criteri implementano VPN basate su criteri. Le VPN basate su
 
 I gateway basati su route implementano VPN basate su route. Le VPN basate su route usano "route" nella tabella di inoltro IP o di routing per reindirizzare i pacchetti nelle interfacce tunnel corrispondenti. Le interfacce tunnel consentono quindi di crittografare o decrittografare i pacchetti all'interno e all'esterno dei tunnel. I criteri o selettori di traffico per le VPN basate su route vengono configurati come any-to-any (o caratteri jolly).
 
-### <a name="can-i-update-my-policy-based-vpn-gateway-to-route-based"></a>È possibile aggiornare il gateway VPN basato su criteri a basato su Route?
+### <a name="can-i-update-my-policy-based-vpn-gateway-to-route-based"></a>È possibile aggiornare il gateway VPN basato su criteri per basato sul percorso?
 
-No. Non è possibile modificare un tipo di gateway Azure VNET da criteri in base a route o viceversa. È necessario eliminare e ricreare il gateway e il processo richiede circa 60 minuti. L'indirizzo IP del gateway non verrà mantenuto, come pure la chiave precondivisa.
+No.Non è possibile modificare il tipo di tipo di gateway di rete virtuale di Azure da basato su criteri a basato su route o viceversa. È necessario eliminare e ricreare il gateway e il processo richiede circa 60 minuti. L'indirizzo IP del gateway non verrà mantenuto, come pure la chiave precondivisa.
 1. Eliminare qualsiasi connessione associata al gateway da eliminare.
 1. Eliminare il gateway:
-   - [Azure portal](vpn-gateway-delete-vnet-gateway-portal.md)
+   - [Portale di Azure](vpn-gateway-delete-vnet-gateway-portal.md)
    - [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
-   - [Azure PowerShell-classico](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
-1. [Creare un nuovo gateway del tipo desiderato e completare la configurazione della VPN](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway).
+   - [Azure PowerShell - classicoAzure PowerShell - classic](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
+1. [Creare un nuovo gateway del tipo desiderato e completare la configurazione VPN.](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway)
 
 ### <a name="do-i-need-a-gatewaysubnet"></a>Il valore 'GatewaySubnet' è necessario?
 
@@ -90,15 +90,15 @@ No.
 
 ### <a name="can-i-get-my-vpn-gateway-ip-address-before-i-create-it"></a>È possibile ottenere l'indirizzo IP del gateway VPN prima di crearlo?
 
-Entrambi i gateway con ridondanza della zona e di zona (SKU del gateway con _AZ_ nel nome) si basano su una risorsa IP pubblico di Azure _SKU standard_ . Le risorse IP pubblico dello SKU standard di Azure devono usare un metodo di allocazione statica. Pertanto, l'indirizzo IP pubblico per il gateway VPN sarà disponibile non appena si crea la risorsa IP pubblico dello SKU standard che si intende usare.
+I gateway ridondanti di zona e di zona (SKU gateway che hanno il nome _di Un'aa)_ si basano entrambi su una risorsa IP pubblica di Azure SKU Standard.zone-redundant and zonal gateways (gateway SKUs that have A A a in the name) both rely on a _Standard SKU Azure_ public IP resource. Le risorse IP pubbliche dello SKU Standard di Azure devono usare un metodo di allocazione statica. Pertanto, si diconsumerà l'indirizzo IP pubblico per il gateway VPN non appena si crea la risorsa IP pubblica SKU Standard che si intende utilizzare per tale gateway.
 
-Per i gateway non con ridondanza della zona e non di zona (SKU del gateway che _non_ hanno _AZ_ nel nome), non è possibile ottenere l'indirizzo IP del gateway VPN prima che venga creato. L'indirizzo IP viene modificato solo se si elimina e si ricrea il gateway VPN.
+Per i gateway non ridondanti e non di zona (SKU gateway che _non_ dispongono di _a, non_ è possibile ottenere l'indirizzo IP del gateway VPN prima della creazione. L'indirizzo IP cambia solo se si elimina e si ricrea il gateway VPN.
 
 ### <a name="can-i-request-a-static-public-ip-address-for-my-vpn-gateway"></a>È possibile richiedere un indirizzo IP pubblico statico per il gateway VPN?
 
-Come indicato in precedenza, i gateway con ridondanza della zona e di zona (SKU del gateway con _AZ_ nel nome) si basano entrambi su una risorsa IP pubblico di Azure _SKU standard_ . Le risorse IP pubblico dello SKU standard di Azure devono usare un metodo di allocazione statica.
+Come indicato in precedenza, i gateway con ridondanza di zona e di zona (SKU gateway che hanno il nome _di Un'aa)_ si basano entrambi su una risorsa IP pubblica di Azure _SKU Standard.As_ stated above, zone-redundant and zonal gateways (gateway SKUs that have A A a in the name) both rely on a Standard SKU Azure public IP resource. Le risorse IP pubbliche dello SKU Standard di Azure devono usare un metodo di allocazione statica.
 
-Per i gateway non con ridondanza della zona e non di zona (SKU del gateway che _non_ hanno _AZ_ nel nome), è supportata solo l'assegnazione di indirizzi IP dinamici. Tuttavia, ciò non significa che l'indirizzo IP cambi dopo che è stato assegnato al gateway VPN. L'indirizzo IP del gateway VPN viene modificato solo quando il gateway viene eliminato e quindi ricreato. L'indirizzo IP pubblico del gateway VPN non cambia quando si ridimensionano, reimpostano o completano altri aggiornamenti e manutenzione interna del gateway VPN.
+Per i gateway non ridondanti e non di zona (è supportata l'assegnazione di SKU di gateway che _non_ hanno _a e' a_ seguito di un nome), è supportata solo l'assegnazione dinamica degli indirizzi IP. Tuttavia, ciò non significa che l'indirizzo IP cambia dopo che è stato assegnato al gateway VPN. L'unico caso in cui l'indirizzo IP del gateway VPN cambia è quando il gateway viene eliminato e quindi ricreato. L'indirizzo IP pubblico del gateway VPN non cambia quando si ridimensionano, reimpostano o si completano altre operazioni di manutenzione e aggiornamento interni del gateway VPN.
 
 ### <a name="how-does-my-vpn-tunnel-get-authenticated"></a>Come si ottiene l'autenticazione del tunnel VPN?
 
@@ -131,7 +131,7 @@ Sì. Vedere [Configurare il tunneling forzato](vpn-gateway-about-forced-tunnelin
 
 Sì, è possibile distribuire i gateway o i server VPN in Azure da Azure Marketplace o tramite la creazione dei propri router VPN. È necessario configurare route definite dall'utente nella rete virtuale per garantire che il traffico venga indirizzato correttamente tra le reti locali e le subnet della rete virtuale.
 
-### <a name="gatewayports"></a>Perché determinate porte sono aperte nel gateway di rete virtuale?
+### <a name="why-are-certain-ports-opened-on-my-virtual-network-gateway"></a><a name="gatewayports"></a>Perché determinate porte sono aperte nel gateway di rete virtuale?
 
 Sono necessarie per la comunicazione di infrastruttura di Azure. Sono protette (bloccate) dai certificati di Azure. Senza certificati appropriati, le entità esterne, compresi i clienti di questi gateway, non potranno causare alcun effetto su tali endpoint.
 
@@ -141,7 +141,7 @@ Un gateway di rete virtuale è fondamentalmente un dispositivo multihomed con un
 
 Per altre informazioni, [Informazioni sulle impostazioni del gateway VPN](vpn-gateway-about-vpn-gateway-settings.md).
 
-## <a name="s2s"></a>Connessioni da sito a sito e dispositivi VPN
+## <a name="site-to-site-connections-and-vpn-devices"></a><a name="s2s"></a>Connessioni da sito a sito e dispositivi VPN
 
 ### <a name="what-should-i-consider-when-selecting-a-vpn-device"></a>Quali sono gli aspetti di cui tenere conto nella scelta di un dispositivo VPN?
 
@@ -169,37 +169,37 @@ Sono supportati server RRAS (Routing e Accesso remoto) in Windows Server 2012 pe
 
 Con il gateway dovrebbero funzionare anche altre soluzioni software VPN, purché siano conformi alle implementazioni di IPSec standard del settore. Per istruzioni sulla configurazione e sull'assistenza, contattare il fornitore del software.
 
-## <a name="how-do-i-change-the-authentication-type-for-my-point-to-site-connections"></a>Ricerca per categorie modificare il tipo di autenticazione per le connessioni da punto a sito?
+## <a name="how-do-i-change-the-authentication-type-for-my-point-to-site-connections"></a>Come si modifica il tipo di autenticazione per le connessioni da punto a sito?
 
-È possibile modificare il metodo di autenticazione per le connessioni da punto a sito passando alla sezione **configurazione da punto a sito** nel gateway VPN e selezionando il pulsante di opzione desiderato. Le opzioni correnti sono **certificato di Azure, autenticazione RADIUS e Azure Active Directory**. Si noti che i client correnti **potrebbero non essere in grado di connettersi** dopo la modifica fino a quando il nuovo profilo non è stato scaricato e configurato nel client.
+È possibile modificare il metodo di autenticazione per le connessioni da punto a sito accedendo alla sezione **configurazione da punto a sito** nel gateway VPN e selezionando il pulsante di opzione desiderato. Le opzioni correnti sono **Certificato di Azure, Autenticazione RADIUS e Azure Active Directory**. Si noti che i client correnti potrebbero non essere in grado di **connettersi** dopo la modifica fino a quando il nuovo profilo non è stato scaricato e configurato sul client.
 
-## <a name="P2S"></a>Da punto a sito con l'autenticazione del certificato nativa di Azure
+## <a name="point-to-site-using-native-azure-certificate-authentication"></a><a name="P2S"></a>Da punto a sito con l'autenticazione del certificato nativa di Azure
 
 Questa sezione si applica al modello di distribuzione Resource Manager.
 
 [!INCLUDE [P2S Azure cert](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
 
-## <a name="P2SRADIUS"></a>Da punto a sito con l'autenticazione RADIUS
+## <a name="point-to-site-using-radius-authentication"></a><a name="P2SRADIUS"></a>Da punto a sito con l'autenticazione RADIUS
 
 Questa sezione si applica al modello di distribuzione Resource Manager.
 
 [!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-p2s-radius-include.md)]
 
-## <a name="V2VMulti"></a>Connessioni da rete virtuale a rete virtuale e multisito
+## <a name="vnet-to-vnet-and-multi-site-connections"></a><a name="V2VMulti"></a>Connessioni da rete virtuale a rete virtuale e multisito
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq-include](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
 
 ### <a name="can-i-use-azure-vpn-gateway-to-transit-traffic-between-my-on-premises-sites-or-to-another-virtual-network"></a>È possibile usare un gateway VPN di Azure per il transito del traffico tra i siti locali o verso un'altra rete virtuale?
 
-**Modello di distribuzione Resource Manager**<br>
+**Modello di distribuzione di Resource Manager**<br>
 Sì. Per altre informazioni, vedere la sezione [BGP](#bgp).
 
 **Modello di distribuzione classica**<br>
-Con il modello di distribuzione classica il transito del traffico attraverso il gateway VPN di Azure è possibile, ma si basa su spazi di indirizzi definiti in modo statico nel file di configurazione di rete. Il protocollo BGP non è ancora supportato con le reti virtuali di Azure e i gateway VPN con il modello di distribuzione classica. Senza BGP la definizione manuale degli spazi di indirizzi in transito è soggetta a errori e non è consigliata.
+ Con il modello di distribuzione classica il transito del traffico attraverso il gateway VPN di Azure è possibile, ma si basa su spazi di indirizzi definiti in modo statico nel file di configurazione di rete. Il protocollo BGP non è ancora supportato con le reti virtuali di Azure e i gateway VPN con il modello di distribuzione classica. Senza BGP la definizione manuale degli spazi di indirizzi in transito è soggetta a errori e non è consigliata.
 
 ### <a name="does-azure-generate-the-same-ipsecike-pre-shared-key-for-all-my-vpn-connections-for-the-same-virtual-network"></a>Azure genera la stessa chiave precondivisa IPsec/IKE per tutte le connessioni VPN per una stessa rete virtuale?
 
-No, per impostazione predefinita vengono generate chiavi precondivise diverse per connessioni VPN diverse. È tuttavia possibile usare la nuova API REST di impostazione della chiave gateway VPN o il cmdlet di PowerShell per impostare il valore di chiave che si preferisce. La chiave deve essere di caratteri ASCII stampabili.
+No, per impostazione predefinita vengono generate chiavi precondivise diverse per connessioni VPN diverse. È tuttavia possibile usare la nuova API REST di impostazione della chiave gateway VPN o il cmdlet di PowerShell per impostare il valore di chiave che si preferisce. La chiave DEVE essere caratteri ASCII stampabili.
 
 ### <a name="do-i-get-more-bandwidth-with-more-site-to-site-vpns-than-for-a-single-virtual-network"></a>Si ottiene maggiore larghezza di banda con più VPN da sito a sito per una singola rete virtuale?
 
@@ -217,16 +217,16 @@ Sì, è possibile usare VPN da punto a sito (P2S) con i gateway VPN che si conne
 
 Sì, questa operazione è supportata. Per altre informazioni, vedere [Configurare connessioni ExpressRoute e VPN da sito a sito coesistenti](../expressroute/expressroute-howto-coexist-classic.md).
 
-## <a name="ipsecike"></a>Criteri IPsec/IKE
+## <a name="ipsecike-policy"></a><a name="ipsecike"></a>Criteri IPsec/IKE
 
 [!INCLUDE [vpn-gateway-ipsecikepolicy-faq-include](../../includes/vpn-gateway-faq-ipsecikepolicy-include.md)]
 
 
-## <a name="bgp"></a>BGP
+## <a name="bgp"></a><a name="bgp"></a>BGP
 
 [!INCLUDE [vpn-gateway-faq-bgp-include](../../includes/vpn-gateway-faq-bgp-include.md)]
 
-## <a name="vms"></a>Connettività cross-premise e macchine virtuali
+## <a name="cross-premises-connectivity-and-vms"></a><a name="vms"></a>Connettività cross-premise e macchine virtuali
 
 ### <a name="if-my-virtual-machine-is-in-a-virtual-network-and-i-have-a-cross-premises-connection-how-should-i-connect-to-the-vm"></a>Se la macchina virtuale si trova in una rete virtuale e si dispone di una connessione cross-premise, in che modo è possibile connettersi alla macchina virtuale?
 
@@ -243,7 +243,7 @@ No. Attraverso il gateway della rete virtuale passerà solo il traffico con un I
 [!INCLUDE [Troubleshoot VM connection](../../includes/vpn-gateway-connect-vm-troubleshoot-include.md)]
 
 
-## <a name="faq"></a>Domande frequenti su Rete virtuale
+## <a name="virtual-network-faq"></a><a name="faq"></a>Domande frequenti su Rete virtuale
 
 Vengono visualizzate informazioni sulla rete virtuale aggiuntive in [Domande frequenti sulla rete virtuale](../virtual-network/virtual-networks-faq.md).
 
@@ -252,4 +252,4 @@ Vengono visualizzate informazioni sulla rete virtuale aggiuntive in [Domande fre
 * Per altre informazioni sui gateway VPN, vedere [Informazioni sul gateway VPN](vpn-gateway-about-vpngateways.md).
 * Per altre informazioni sulle impostazioni di configurazione del gateway VPN, vedere [Informazioni sulle impostazioni di configurazione del gateway VPN](vpn-gateway-about-vpn-gateway-settings.md).
 
-**"OpenVPN" è un marchio di OpenVPN Inc.**
+**"OpenVPN" è un marchio registrato di OpenVPN Inc.**

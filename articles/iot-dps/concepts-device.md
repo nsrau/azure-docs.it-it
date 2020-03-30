@@ -1,6 +1,6 @@
 ---
 title: Concetti relativi ai dispositivi in Azure Device Provisioning | Microsoft Docs
-description: Descrive i concetti relativi al provisioning dei dispositivi specifici dei dispositivi con il servizio Device provisioning (DPS) e l'hub Internet
+description: Descrive i concetti di provisioning dei dispositivi specifici per i dispositivi con il servizio di provisioning dei dispositivi (DPS) e l'hub IoTDescribes device provisioning concepts specific to devices with Device Provisioning Service (DPS) and IoT Hub
 author: nberdy
 ms.author: nberdy
 ms.date: 11/06/2019
@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: briz
 ms.openlocfilehash: f5f931622f793a1146c04403e8c5e1a5ef7a7d62
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79285162"
 ---
 # <a name="iot-hub-device-provisioning-service-device-concepts"></a>Concetti relativi ai dispositivi del servizio Device Provisioning in hub IoT
@@ -31,7 +31,7 @@ Il meccanismo di attestazione è il metodo usato per verificare l'identità di u
 Il servizio Device Provisioning supporta i seguenti tipi di attestazione:
 * **Certificati X.509** basati sul flusso di autenticazione del certificato X.509 standard.
 * **Trusted Platform Module (TPM)** basato su una richiesta di verifica nonce, che usa lo standard TPM relativo alle chiavi per presentare un token di firma di accesso condiviso (SAS). Non è necessario un modulo TPM fisico nel dispositivo, ma il servizio prevede di eseguire l'attestazione usando la chiave di verifica dell'autenticità in base alle [specifiche TPM](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/).
-* **Chiave simmetrica** basata sui [Token di autenticazione](../iot-hub/iot-hub-devguide-security.md#security-tokens) della sulla firma di accesso condiviso (SAS), che include una firma con hash e una scadenza incorporata. Per altre informazioni, vedere [Attestazione con chiave simmetrica](concepts-symmetric-key-attestation.md).
+* **Chiave simmetrica** basata su token di [sicurezza](../iot-hub/iot-hub-devguide-security.md#security-tokens)della firma di accesso condiviso , che includono una firma con hash e una scadenza incorporata. Per altre informazioni, vedere [Attestazione con chiave simmetrica](concepts-symmetric-key-attestation.md).
 
 ## <a name="hardware-security-module"></a>Modulo di protezione hardware
 
@@ -44,14 +44,14 @@ I segreti dei dispositivi possono essere archiviati anche nel software (memoria)
 
 ## <a name="registration-id"></a>ID di registrazione
 
-L'ID di registrazione viene usato per identificare in modo univoco un dispositivo nel servizio Device Provisioning. L'ID dispositivo deve essere univoco nell'[ambito ID](#id-scope) del servizio di provisioning. Ogni dispositivo deve avere un ID di registrazione. L'ID registrazione è alfanumerico, senza distinzione tra maiuscole e minuscole e può contenere caratteri speciali, tra cui due punti, punto, carattere di sottolineatura e trattino
+L'ID di registrazione viene usato per identificare in modo univoco un dispositivo nel servizio Device Provisioning. L'ID dispositivo deve essere univoco nell'[ambito ID](#id-scope) del servizio di provisioning. Ogni dispositivo deve avere un ID di registrazione. L'ID di registrazione è alfanumerico, senza distinzione tra maiuscole e minuscole e può contenere caratteri speciali, tra cui due punti, punto, sottolineatura e trattino.
 
 * Nel caso di un TPM, l'ID di registrazione viene fornito dal TPM stesso.
 * Nel caso dell'attestazione basata su X.509, l'ID di registrazione viene fornito come nome soggetto del certificato.
 
 ## <a name="device-id"></a>ID dispositivo
 
-L'ID dispositivo è l'ID visualizzato nell'hub IoT. È possibile, ma non obbligatorio, impostare l'ID dispositivo desiderato nella voce di registrazione. L'impostazione dell'ID dispositivo desiderato è supportata solo nelle registrazioni singole. Se l'ID dispositivo desiderato non viene specificato nell'elenco di registrazione, l'ID di registrazione viene usato come ID dispositivo durante la registrazione del dispositivo. Vedere altre informazioni sugli [ID dispositivo nell'hub IoT](../iot-hub/iot-hub-devguide-identity-registry.md).
+L'ID dispositivo è l'ID visualizzato nell'hub IoT. È possibile, ma non obbligatorio, impostare l'ID dispositivo desiderato nella voce di registrazione. L'impostazione dell'ID dispositivo desiderato è supportata solo nelle singole registrazioni. Se l'ID dispositivo desiderato non viene specificato nell'elenco di registrazione, l'ID di registrazione viene usato come ID dispositivo durante la registrazione del dispositivo. Vedere altre informazioni sugli [ID dispositivo nell'hub IoT](../iot-hub/iot-hub-devguide-identity-registry.md).
 
 ## <a name="id-scope"></a>Ambito ID
 

@@ -13,10 +13,10 @@ ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: fbaa8c3544b35978786404619879f59ab91a6979
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79281886"
 ---
 # <a name="move-data-by-using-copy-activity"></a>Spostare dati con l'attività di copia
@@ -86,7 +86,7 @@ L'attività di copia esegue anche operazioni di lettura e scrittura in formati s
 * Copiare i file compressi dal file system locale e decomprimerli in Azure Data Lake Store.
 * Copiare i dati in formato testo (CSV) con compressione GZip dal BLOB di Azure e scrivere nel database SQL di Azure.
 
-## <a name="global"></a>Spostamento dei dati disponibile a livello globale
+## <a name="globally-available-data-movement"></a><a name="global"></a>Spostamento dei dati disponibile a livello globale
 Azure Data Factory è disponibile solo nelle seguenti aree: Stati Uniti occidentali, Stati Uniti orientali ed Europa settentrionale. Tuttavia, il servizio alla base dell'attività di copia è disponibile a livello globale nelle aree geografiche seguenti. La topologia disponibile a livello globale garantisce uno spostamento di dati efficiente e di solito consente di evitare passaggi tra diverse aree. Per la disponibilità del servizio Data Factory e lo spostamento dei dati in un'area, vedere [Servizi in base all'area](https://azure.microsoft.com/regions/#services) .
 
 ### <a name="copy-data-between-cloud-data-stores"></a>Copiare dati tra archivi dati cloud
@@ -116,9 +116,9 @@ Quando sia gli archivi dati di origine che gli archivi dati sink risiedono nel c
 | India | India centrale | India centrale |
 | &nbsp; | India occidentale | India centrale |
 | &nbsp; | India meridionale | India centrale |
-| Japan | Giappone orientale | Giappone orientale |
+| Giappone | Giappone orientale | Giappone orientale |
 | &nbsp; | Giappone occidentale | Giappone orientale |
-| Korea | Corea centrale | Corea centrale |
+| Corea del Sud | Corea centrale | Corea centrale |
 | &nbsp; | Corea meridionale | Corea centrale |
 
 In alternativa, è possibile indicare esplicitamente l'area del servizio Data Factory da usare per eseguire la copia specificando la proprietà `executionLocation` in `typeProperties` nell'attività di copia. I valori supportati per questa proprietà sono elencati nella colonna **Area usata per lo spostamento dei dati** precedente. Si noti che i dati vengono trasferiti in rete attraverso tale area durante la copia. Ad esempio, per eseguire la copia tra archivi di Azure in Corea del Sud è possibile specificare `"executionLocation": "Japan East"` per instradare i dati tramite l'area del Giappone (vedere l'[esempio JSON](#by-using-json-scripts) come riferimento).
@@ -137,7 +137,7 @@ Quando i dati vengono copiati da archivi locali (o macchina virtuale Azure/IaaS)
 La copia guidata di Data Factory aiuta a creare una pipeline con l'attività di copia. Questa pipeline consente di copiare dati dalle origini supportate nelle destinazioni *senza scrivere definizioni JSON* per i servizi collegati, i set di dati e le pipeline. Per informazioni dettagliate sulla procedura guidata, vedere [Copia guidata di Data Factory](data-factory-copy-wizard.md) .  
 
 ### <a name="by-using-json-scripts"></a>Con gli script JSON
-È possibile usare Data Factory Editor in Visual Studio o Azure PowerShell per creare una definizione JSON per una pipeline (usando l'attività di copia). A questo punto, è possibile eseguire la distribuzione in modo da creare la pipeline in Data Factory. Per un'esercitazione con istruzioni dettagliate, vedere [Esercitazione: Copiare dati da un archivio BLOB al database SQL usando Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .    
+È possibile usare Data Factory Editor in Visual Studio o Azure PowerShell per creare una definizione JSON per una pipeline (tramite L'attività di copia). A questo punto, è possibile eseguire la distribuzione in modo da creare la pipeline in Data Factory. Per un'esercitazione con istruzioni dettagliate, vedere [Esercitazione: Copiare dati da un archivio BLOB al database SQL usando Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .    
 
 Per tutti i tipi di attività sono disponibili proprietà JSON come nome, descrizione, tabelle di input e output e criteri. Le proprietà disponibili nella sezione `typeProperties` dell'attività variano per ogni tipo di attività.
 
@@ -196,13 +196,13 @@ Vedere l'articolo [Guida alle prestazioni delle attività di copia e all'ottimiz
 ## <a name="fault-tolerance"></a>Tolleranza di errore
 Per impostazione predefinita, l'attività di copia interromperà la copia dei dati e restituirà un errore quando rileva dati incompatibili tra l'origine e il sink; è possibile chiedere in modo esplicito di ignorare e registrare le righe incompatibili, quindi copiare solo i dati compatibili perché la copia abbia esito positivo. Per altri dettagli, vedere la [Tolleranza di errore dell'attività di copia: ignorare le righe incompatibili](data-factory-copy-activity-fault-tolerance.md).
 
-## <a name="security-considerations"></a>Considerazioni relative alla sicurezza
+## <a name="security-considerations"></a>Considerazioni sulla sicurezza
 Vedere [Azure Data Factory: considerazioni sulla sicurezza dello spostamento dei dati](data-factory-data-movement-security-considerations.md) che descrive l'infrastruttura di sicurezza usata dai servizi di spostamento dei dati in Azure Data Factory per proteggere i dati.
 
 ## <a name="scheduling-and-sequential-copy"></a>Pianificazione e copia sequenziale
 Vedere [Pianificazione ed esecuzione con Data Factory](data-factory-scheduling-and-execution.md) per informazioni dettagliate sul funzionamento della pianificazione e dell'esecuzione in Data Factory. È possibile eseguire più operazioni di copia l'una dopo l'altra in modo sequenziale o ordinato. Vedere la sezione [Copiare in sequenza](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
 
-## <a name="type-conversions"></a>Conversioni dei tipi
+## <a name="type-conversions"></a>Conversioni di tipi
 Gli archivi dati provengono tutti da uno specifico sistema di tipi nativo. L'attività di copia esegue automaticamente la conversione dai tipi di origine ai tipi sink con il metodo seguente in due passaggi:
 
 1. Conversione dai tipi di origine nativi al tipo .NET.

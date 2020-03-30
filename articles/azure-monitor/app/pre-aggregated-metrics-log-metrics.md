@@ -7,10 +7,10 @@ ms.author: vitalyg
 ms.date: 09/18/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 65abc9c7153aaf2973d5927400e27467066098f9
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79275841"
 ---
 # <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Metriche basate su log e metriche preaggregate in Azure Application Insights
@@ -19,7 +19,7 @@ Questo articolo spiega la differenza tra le metriche "tradizionali" di Applicati
 
 ## <a name="log-based-metrics"></a>Metriche basate su log
 
-Fino a poco tempo fa, il modello di dati di telemetria per il monitoraggio dell'applicazione in Application Insights era basato esclusivamente su un numero ridotto di tipi di eventi predefiniti, ad esempio richieste, eccezioni, chiamate di dipendenza, visualizzazioni di pagina e così via. Gli sviluppatori possono usare l'SDK per emettere manualmente questi eventi (scrivendo codice che richiama in modo esplicito l'SDK) oppure possono basarsi sulla raccolta automatica di eventi dalla strumentazione automatica. In entrambi i casi, il back-end di Application Insights archivia tutti gli eventi raccolti sotto forma di log e i pannelli di Application Insights nel portale di Azure fungono da strumento di analisi e diagnostica per la visualizzazione dei dati basati su eventi dai log.
+Fino a poco tempo fa, il modello di dati di telemetria di monitoraggio dell'applicazione in Application Insights era basato esclusivamente su un numero ridotto di tipi predefiniti di eventi, ad esempio richieste, eccezioni, chiamate alle dipendenze, visualizzazioni di pagina e così via. Gli sviluppatori possono utilizzare l'SDK per generare questi eventi manualmente (scrivendo codice che richiama in modo esplicito l'SDK) oppure possono basarsi sulla raccolta automatica di eventi dalla strumentazione automatica. In entrambi i casi, il back-end di Application Insights archivia tutti gli eventi raccolti sotto forma di log e i pannelli di Application Insights nel portale di Azure fungono da strumento di analisi e diagnostica per la visualizzazione dei dati basati su eventi dai log.
 
 L'uso di log per mantenere un set completo di eventi può offrire eccezionali vantaggi in termini di analisi e diagnostica. Ad esempio, è possibile ottenere un conteggio esatto delle richieste a un URL specifico con il numero di utenti distinti che hanno effettuato queste chiamate. In alternativa, è possibile ottenere tracce di diagnostica dettagliate, incluse le eccezioni e le chiamate di dipendenza per qualsiasi sessione utente. La disponibilità di questo tipo di informazioni può migliorare significativamente la visibilità riguardo all'integrità e all'utilizzo dell'applicazione, riducendo il tempo necessario per diagnosticare problemi relativi a un'app. 
 
@@ -59,7 +59,7 @@ La raccolta di dimensioni di metriche personalizzate è disattivata per impostaz
 
 ## <a name="creating-charts-and-exploring-log-based-and-standard-pre-aggregated-metrics"></a>Creazione di grafici ed esplorazione di metriche basate su log e preaggregate standard
 
-Usare [monitoraggio di Azure Esplora metriche](../platform/metrics-getting-started.md) per tracciare i grafici dalle metriche pre-aggregate e basate su log e per creare dashboard con grafici. Dopo aver selezionato la risorsa di Application Insights desiderata, usare il selettore dello spazio dei nomi per passare tra metriche standard (anteprima) e metriche basate su log oppure selezionare uno spazio dei nomi delle metriche personalizzate:
+Usare [Azure Monitor Metrics Explorer](../platform/metrics-getting-started.md) per tracciare i grafici da metriche preaggregate e basate su log e per creare dashboard con grafici. Dopo aver selezionato la risorsa di Application Insights desiderata, usare il selettore dello spazio dei nomi per passare tra metriche standard (anteprima) e metriche basate su log oppure selezionare uno spazio dei nomi delle metriche personalizzate:
 
 ![Spazio dei nomi delle metriche](./media/pre-aggregated-metrics-log-metrics/002-metric-namespace.png)
 

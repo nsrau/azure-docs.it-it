@@ -1,6 +1,6 @@
 ---
 title: Concetti relativi al servizio Azure Device Provisioning in hub IoT | Microsoft Docs
-description: Descrive i concetti relativi al provisioning del servizio specifici dei dispositivi con il servizio Device provisioning (DPS) e l'hub Internet
+description: Descrive i concetti di provisioning dei servizi specifici per i dispositivi con il servizio di provisioning dei dispositivi (DPS) e l'hub IoT
 author: nberdy
 ms.author: nberdy
 ms.date: 09/18/2019
@@ -9,17 +9,17 @@ ms.service: iot-dps
 services: iot-dps
 manager: briz
 ms.openlocfilehash: f42502ac4db12a060af5906243d3f8e7584c5df3
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79285214"
 ---
 # <a name="iot-hub-device-provisioning-service-concepts"></a>Concetti relativi al servizio Device Provisioning in hub IoT
 
 Il servizio Device Provisioning in hub IoT è un servizio helper per l'hub IoT che consente di configurare il provisioning completamente automatico dei dispositivi in un hub IoT specifico. Con il servizio Device Provisioning è possibile effettuare il [provisioning automatico](concepts-auto-provisioning.md) di milioni di dispositivi in modo sicuro e scalabile.
 
-Il provisioning dei dispositivi è un processo in due parti. La prima parte consiste nello stabilire la connessione iniziale tra il dispositivo e la soluzione IoT *registrando* il dispositivo. La seconda parte consiste nell'applicare la *configurazione* corretta al dispositivo in base ai requisiti specifici della soluzione. Una volta completati entrambi questi passaggi, il *provisioning* del dispositivo può considerarsi completato. Il servizio Device Provisioning consente di automatizzare entrambi i passaggi per semplificare l'esperienza di provisioning dei dispositivi.
+Il provisioning dei dispositivi è un processo in due parti. La prima parte è stabilire la connessione iniziale tra il dispositivo e la soluzione IoT *registrando* il dispositivo. La seconda parte consiste nell'applicare la *configurazione* corretta al dispositivo in base ai requisiti specifici della soluzione. Una volta completati entrambi questi passaggi, il *provisioning* del dispositivo può considerarsi completato. Il servizio Device Provisioning consente di automatizzare entrambi i passaggi per semplificare l'esperienza di provisioning dei dispositivi.
 
 Questo articolo fornisce una panoramica dei concetti relativi al provisioning in relazione alla gestione del *servizio*. L'articolo è di particolare interesse per le persone coinvolte nella [fase di impostazione cloud](about-iot-dps.md#cloud-setup-step) in preparazione alla distribuzione di un dispositivo.
 
@@ -57,7 +57,7 @@ Il servizio Device Provisioning supporta due tipi di registrazione:
 
 ### <a name="enrollment-group"></a>Gruppo di registrazione
 
-Un gruppo di registrazione è un gruppo di dispositivi che condividono un meccanismo di attestazione specifico. I gruppi di registrazione supportano sia X. 509 sia simmetrico. Tutti i dispositivi del gruppo di registrazione X. 509 presentano certificati X. 509 che sono stati firmati dalla stessa autorità di certificazione radice o intermedia (CA). Ogni dispositivo nel gruppo di registrazione di chiavi simmetriche presenta token SAS derivati dalla chiave simmetrica del gruppo. Il nome del gruppo di registrazione e il nome di certificato devono essere alfanumerici, in caratteri minuscoli e possono contenere segni meno.
+Un gruppo di registrazione è un gruppo di dispositivi che condividono un meccanismo di attestazione specifico. I gruppi di registrazione supportano sia X.509 che simmetrica. Tutti i dispositivi nel gruppo di registrazione X.509 presentano certificati X.509 firmati dalla stessa radice o autorità di certificazione (CA intermedia). Ogni dispositivo nel gruppo di registrazione a chiave simmetrica presenta token di firma di accesso condiviso derivati dalla chiave simmetrica del gruppo. Il nome del gruppo di registrazione e il nome di certificato devono essere alfanumerici, in caratteri minuscoli e possono contenere segni meno.
 
 > [!TIP]
 > È consigliabile usare un gruppo di registrazione per un numero elevato di dispositivi che condividono una configurazione iniziale desiderata o per i dispositivi destinati allo stesso tenant.

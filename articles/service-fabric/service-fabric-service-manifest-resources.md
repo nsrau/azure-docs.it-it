@@ -1,13 +1,13 @@
 ---
-title: Specifica degli endpoint di servizio Service Fabric
+title: Specifica degli endpoint del servizio Service FabricSpecifying Service Fabric service endpoints
 description: Come descrivere le risorse di endpoint in un manifesto del servizio, inclusa l'impostazione di endpoint HTTPS
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: cc4eedf5e5fee0bbfa0a763e9b9ec0dd25409afa
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79282159"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Specificare le risorse in un manifesto del servizio
@@ -18,9 +18,9 @@ Il manifesto del servizio consente alle risorse di essere usate dal servizio per
 Quando una risorsa dell'endpoint viene definita nel manifesto del servizio, Service Fabric assegna le porte dall'intervallo di porte riservate dell'applicazione se la porta non è esplicitamente specificata. Ad esempio, esaminare l'endpoint *ServiceEndpoint1* specificato nel frammento di manifesto fornito dopo questo paragrafo. Inoltre, i servizi possono richiedere anche una porta specifica in una risorsa. Alle repliche del servizio in esecuzione sui diversi nodi del cluster possono essere assegnati diversi numeri di porta, mentre le repliche di un servizio in esecuzione nello stesso nodo condividono la porta. Le repliche del servizio possono quindi usare queste porte in base alle esigenze per la replica e l'ascolto delle richieste client.
 
 > [!WARNING] 
-> Le porte statiche di progettazione non devono sovrapporsi all'intervallo di porte dell'applicazione specificato in ClusterManifest. Se si specifica una porta statica, assegnarla al di fuori dell'intervallo di porte dell'applicazione. in caso contrario, verrà generato un conflitto tra porte. Con la versione 6.5 CU2 verrà emesso un **avviso di integrità** quando si rileva un conflitto di questo tipo, ma si lascia che la distribuzione continui a essere sincronizzata con il comportamento 6,5 fornito. Tuttavia, potrebbe impedire la distribuzione dell'applicazione dalle versioni principali successive.
+> Per impostazione della progettazione, le porte statiche non devono sovrapporsi all'intervallo di porte dell'applicazione specificato in ClusterManifest. Se si specifica una porta statica, assegnarla all'esterno dell'intervallo di porte dell'applicazione, altrimenti si tradurrà in conflitti di porta. Con la versione 6.5CU2 verrà emanato un **avviso** di integrità quando si rileva un conflitto di questo tipo, ma si lascia che la distribuzione continui in sincronia con il comportamento fornito 6.5. Tuttavia, è possibile impedire la distribuzione dell'applicazione dalle versioni principali successive.
 >
-> Con la versione 7,0 verrà emesso un **avviso di integrità** quando si rileva che l'utilizzo dell'intervallo di porte dell'applicazione va oltre HostingConfig:: ApplicationPortExhaustThresholdPercentage (valore predefinito 80%).
+> Con la versione 7.0 verrà emettere un **avviso** di integrità quando viene rilevato l'utilizzo dell'intervallo di porte dell'applicazione va oltre HostingConfig::ApplicationPortExhaustThresholdPercentage(default 80%).
 >
 
 ```xml
@@ -187,7 +187,7 @@ In Parameters aggiungere quanto riportato di seguito:
   </Parameters>
 ```
 
-Durante la distribuzione dell'applicazione è possibile trasmettere questi valori come ApplicationParameters.  Ad esempio,
+Durante la distribuzione dell'applicazione è possibile trasmettere questi valori come ApplicationParameters.  Ad esempio:
 
 ```powershell
 PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -ApplicationTypeName "AppType" -ApplicationTypeVersion "1.0.0" -ApplicationParameter @{Port='1001'; Protocol='https'; Type='Input'; Port1='2001'; Protocol='http'}
@@ -195,7 +195,7 @@ PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -Application
 
 Nota: se i valori forniti per ApplicationParameters sono vuoti, si torna al valore predefinito fornito in ServiceManifest per l'EndPointName corrispondente.
 
-Ad esempio,
+Ad esempio:
 
 Se in ServiceManifest è stato specificato
 
@@ -209,4 +209,4 @@ Se in ServiceManifest è stato specificato
 
 e i valori Port1 e Protocol1 per i parametri di Aplication sono null o vuoti. La porta è comunque stabilita da ServiceFabric. E il protocollo sarà tcp.
 
-Si supponga di specificare un valore errato. Come per la porta è stato specificato un valore stringa "foo" invece di int.  Il comando New-ServiceFabricApplication ha esito negativo e restituisce un errore: il parametro di override denominato ' ServiceEndpoint1' dell'attributo ' PORT1' nella sezione ' ResourceOverrides ' non è valido. Il valore specificato è "Foo", mentre era richiesto "int".
+Si supponga di specificare un valore errato. Come per Port è stato specificato un valore stringa "Foo" anziché un int.  Il comando New-ServiceFabricApplication avrà esito negativo con un errore: il parametro di override con nome 'ServiceEndpoint1' attributo 'Port1' nella sezione 'ResourceOverrides' non è valido. Il valore specificato è "Foo", mentre era richiesto "int".

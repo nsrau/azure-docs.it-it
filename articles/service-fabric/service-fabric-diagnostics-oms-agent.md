@@ -1,23 +1,23 @@
 ---
-title: Monitoraggio delle prestazioni con i log di monitoraggio di Azure
+title: Monitoraggio delle prestazioni con i log di Monitoraggio di AzurePerformance Monitoring with Azure Monitor logs
 description: Informazioni su come configurare l'agente di Log Analytics per il monitoraggio di contenitori e contatori delle prestazioni per i cluster di Azure Service Fabric.
 author: srrengar
 ms.topic: conceptual
 ms.date: 04/16/2018
 ms.author: srrengar
 ms.openlocfilehash: c3c1bf511f3313e7408d6ce90b73de60bd1309f7
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79366746"
 ---
-# <a name="performance-monitoring-with-azure-monitor-logs"></a>Monitoraggio delle prestazioni con i log di monitoraggio di Azure
+# <a name="performance-monitoring-with-azure-monitor-logs"></a>Monitoraggio delle prestazioni con i log di Monitoraggio di AzurePerformance Monitoring with Azure Monitor logs
 
 Questo articolo illustra i passaggi necessari per aggiungere l'agente di Log Analytics come estensione del set di scalabilità di macchine virtuali al cluster e connetterlo all'area di lavoro Log Analytics di Azure esistente. Ciò consente la raccolta dei dati di diagnostica relativi a contenitori, applicazioni e monitoraggio delle prestazioni. Aggiungendolo come un'estensione alla risorsa del set di scalabilità di macchine virtuali, Azure Resource Manager ne garantisce l'installazione su ogni nodo, anche in caso di ridimensionamento del cluster.
 
 > [!NOTE]
-> Questo articolo presuppone che sia già stata configurata un'area di lavoro Log Analytics di Azure. In caso contrario, passare a configurare i [log di monitoraggio di Azure](service-fabric-diagnostics-oms-setup.md)
+> Questo articolo presuppone che sia già stata configurata un'area di lavoro Log Analytics di Azure. In caso contrario, passare a Configurare i log di [Monitoraggio di AzureIf](service-fabric-diagnostics-oms-setup.md) you do not, head over to Set up Azure Monitor logs
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -27,13 +27,13 @@ Il modo migliore per aggiungere l'agente di Log Analytics al cluster è tramite 
 
 1. Dopo aver eseguito la richiesta per Cloud Shell, assicurarsi di usare la stessa sottoscrizione della risorsa. A tale scopo, usare `az account show` e assicurarsi che il valore "name" corrisponda a quello della sottoscrizione del cluster.
 
-2. Nel portale passare al gruppo di risorse in cui si trova l'area di lavoro Log Analytics di Azure. Fare clic sulla risorsa log Analytics (il tipo della risorsa sarà Log Analytics area di lavoro). Una volta visualizzata la pagina di panoramica della risorsa, fare clic su **Impostazioni avanzate** nella sezione Impostazioni nel menu a sinistra.
+2. Nel portale passare al gruppo di risorse in cui si trova l'area di lavoro Log Analytics di Azure. Fare clic sulla risorsa di analisi dei log (il tipo della risorsa sarà area di lavoro log di Log Analytics). Una volta visualizzata la pagina di panoramica della risorsa, fare clic su **Impostazioni avanzate** nella sezione Impostazioni nel menu a sinistra.
 
-    ![Pagina delle proprietà di log Analytics](media/service-fabric-diagnostics-oms-agent/oms-advanced-settings.png)
+    ![Pagina delle proprietà di Log analyticsLog analytics properties page](media/service-fabric-diagnostics-oms-agent/oms-advanced-settings.png)
 
 3. Fare clic su **Server Windows** in caso di creazione di un cluster Windows cluster o su **Server Linux** se si sta creando un cluster Linux. In questa pagina verranno visualizzati `workspace ID` e `workspace key` (elencata come Chiave primaria nel portale). Entrambi serviranno per il passaggio successivo.
 
-4. Eseguire il comando per installare l'agente di Log Analytics nel cluster usando l'API `vmss extension set`:
+4. Eseguire il comando per installare l'agente Log `vmss extension set` Analytics nel cluster usando l'API:
 
     Per un cluster Windows:
 
@@ -67,7 +67,7 @@ Il modo migliore per aggiungere l'agente di Log Analytics al cluster è tramite 
 
 Dopo avere aggiunto l'agente di Log Analytics, passare al portale di Log Analytics per scegliere i contatori delle prestazioni da raccogliere.
 
-1. Nel portale di Azure, passare al gruppo di risorse in cui è stata creata la soluzione Analisi Service Fabric. Selezionare **ServiceFabric\<nameOfLog AnalyticsWorkspace\>** .
+1. Nel portale di Azure, passare al gruppo di risorse in cui è stata creata la soluzione Analisi Service Fabric. Selezionare **ServiceFabric\<nameOfLog AnalyticsWorkspace\>**.
 
 2. Fare clic su **Log Analytics**.
 
@@ -92,5 +92,5 @@ Dopo avere aggiunto l'agente di Log Analytics, passare al portale di Log Analyti
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Raccogliere i [contatori delle prestazioni](service-fabric-diagnostics-event-generation-perf.md) rilevanti. Per configurare l'agente di Log Analytics affinché raccolga contatori di prestazioni specifici, vedere [Configurazione delle origini dati](../azure-monitor/platform/agent-data-sources.md#configuring-data-sources).
-* Configurare i log di monitoraggio di Azure per impostare [avvisi automatici](../log-analytics/log-analytics-alerts.md) per facilitare il rilevamento e la diagnostica
+* Configurare i log di Monitoraggio di Azure per configurare gli avvisi automatici per facilitare il rilevamento e la diagnosticaConfigure Azure Monitor logs to set up [automated alerting](../log-analytics/log-analytics-alerts.md) to aid in detecting and diagnostics
 * In alternativa, è possibile raccogliere i contatori delle prestazioni tramite l'[estensione di Diagnostica di Azure e inviarli ad Application Insights](service-fabric-diagnostics-event-aggregation-wad.md#add-the-application-insights-sink-to-the-resource-manager-template)

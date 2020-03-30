@@ -1,21 +1,21 @@
 ---
-title: ST_DISTANCE nel linguaggio di query Azure Cosmos DB
-description: Informazioni sulle funzioni di sistema SQL ST_DISTANCE in Azure Cosmos DB.
+title: ST_DISTANCE nel linguaggio di query del database Cosmos di Azure
+description: Informazioni sulla funzione del sistema SQL ST_DISTANCE in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/12/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 972712d37c146ce288c49af7832919946f5503cd
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.openlocfilehash: 02844569137a46ea030b2189191b84a9db24ed22
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79297119"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79537296"
 ---
 # <a name="st_distance-azure-cosmos-db"></a>ST_DISTANCE (Azure Cosmos DB)
- Restituisce la distanza tra le due espressioni punto GeoJSON, poligono, multipoligono o LineString. Per altre informazioni, vedere l'articolo relativo ai [dati sulla posizione geospaziale e GeoJSON](sql-query-geospatial-intro.md) .
+ Restituisce la distanza tra le due espressioni GeoJSON Point, Polygon, MultiPolygon o LineString. Per altre informazioni, vedere l'articolo dati sulla [posizione Geospaziale e GeoJSON.To](sql-query-geospatial-intro.md) learn more, see the Geospatial and GeoJSON location data article.
   
 ## <a name="syntax"></a>Sintassi
   
@@ -34,7 +34,7 @@ ST_DISTANCE (<spatial_expr>, <spatial_expr>)
   
 ## <a name="examples"></a>Esempi
   
-  Nell'esempio seguente viene illustrato come restituire tutti i documenti della famiglia che rientrano in 30 km del percorso specificato utilizzando la `ST_DISTANCE` funzione incorporata. .  
+  Nell'esempio seguente viene illustrato come restituire tutti i documenti della `ST_DISTANCE` famiglia che si trovano entro 30 km dalla posizione specificata utilizzando la funzione incorporata. .  
   
 ```sql
 SELECT f.id
@@ -42,7 +42,7 @@ FROM Families f
 WHERE ST_DISTANCE(f.location, {'type': 'Point', 'coordinates':[31.9, -4.8]}) < 30000  
 ```  
   
- Set di risultati:  
+ Questo è il set di risultati.  
   
 ```json
 [{  
@@ -50,12 +50,12 @@ WHERE ST_DISTANCE(f.location, {'type': 'Point', 'coordinates':[31.9, -4.8]}) < 3
 }]  
 ```
 
-## <a name="remarks"></a>Note
+## <a name="remarks"></a>Osservazioni
 
-Questa funzione di sistema trarrà vantaggio da un [Indice geospaziale](index-policy.md#spatial-indexes).
+Questa funzione di sistema beneficerà di un [indice geospaziale.](index-policy.md#spatial-indexes)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Funzioni spaziali Azure Cosmos DB](sql-query-spatial-functions.md)
 - [Funzioni di sistema Azure Cosmos DB](sql-query-system-functions.md)
-- [Introduzione a Azure Cosmos DB](introduction.md)
+- [Introduzione ad Azure Cosmos DB](introduction.md)

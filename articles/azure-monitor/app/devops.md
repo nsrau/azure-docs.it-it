@@ -1,13 +1,13 @@
 ---
-title: Monitoraggio delle prestazioni delle app Web-applicazione Azure Insights
+title: Monitoraggio delle prestazioni delle app Web - Azure Application Insights
 description: Funzione di Application Insights nel ciclo devOps
 ms.topic: conceptual
 ms.date: 12/21/2018
 ms.openlocfilehash: 24095aade80022d1e1ebb38357971512bfc873c0
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77669693"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Diagnostica completa per servizi e app Web con Application Insights
@@ -124,7 +124,7 @@ Ad esempio, è facile:
 * Tenere traccia di sessioni e tempi di risposta di determinati utenti per consentire al team operativo e di supporto di fornire assistenza in tempi immediati.
 * Individuare le funzionalità più utilizzate nelle app per rispondere alle domande sulla priorità delle funzionalità.
 
-Dichiara il cliente DNN: "Application Insights è quanto ci mancava per poter combinare, ordinare, interrogare e filtrare i dati a dovere. Permettendo al nostro team di mettere in campo il proprio ingegno e la propria esperienza per trovare i dati con un linguaggio di query avanzato, questa soluzione ci ha consentito di risalire a informazioni e risolvere problemi che nemmeno sapevamo di avere. Da domande del tipo *"Mi chiedo se...* " sono emerse molte risposte interessanti."
+Dichiara il cliente DNN: "Application Insights è quanto ci mancava per poter combinare, ordinare, interrogare e filtrare i dati a dovere. Permettendo al nostro team di mettere in campo il proprio ingegno e la propria esperienza per trovare i dati con un linguaggio di query avanzato, questa soluzione ci ha consentito di risalire a informazioni e risolvere problemi che nemmeno sapevamo di avere. Da domande del tipo *"Mi chiedo se...*" sono emerse molte risposte interessanti."
 
 ## <a name="development-tools-integration"></a>Integrazione di strumenti di sviluppo
 ### <a name="configuring-application-insights"></a>Configurazione di Application Insights
@@ -157,7 +157,7 @@ Quando viene generato un avviso, Application Insights può creare automaticament
 ## <a name="next-steps"></a>Passaggi successivi
 Iniziare a usare Application Insights è semplice. Le opzioni principali sono le seguenti:
 
-* [Server IIS](../../azure-monitor/app/monitor-performance-live-website-now.md)e anche per [app Azure servizio](../../azure-monitor/app/app-insights-overview.md).
+* [Server IIS](../../azure-monitor/app/monitor-performance-live-website-now.md)e anche per il servizio app di [Azure](../../azure-monitor/app/app-insights-overview.md).
 * Instrumentare il progetto in fase di sviluppo, cosa possibile per le app [ASP.NET](../../azure-monitor/app/asp-net.md) o [Java](../../azure-monitor/app/java-get-started.md), nonché per [Node. js](../../azure-monitor/app/nodejs.md) e una serie di [altri tipi](../../azure-monitor/app/platforms.md). 
 * Instrumentare [qualsiasi pagina Web](../../azure-monitor/app/javascript.md) aggiungendo un breve frammento di codice.
 

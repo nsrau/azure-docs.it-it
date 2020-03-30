@@ -1,37 +1,48 @@
 ---
-title: Blocca autenticazione legacy-Azure Active Directory
-description: Informazioni su come migliorare il comportamento di sicurezza bloccando l'autenticazione legacy usando Azure AD l'accesso condizionale.
+title: Bloccare l'autenticazione legacy - Azure Active DirectoryBlock legacy authentication - Azure Active Directory
+description: Informazioni su come migliorare il livello di sicurezza bloccando l'autenticazione legacy tramite l'accesso condizionale di Azure AD.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/25/2020
+ms.date: 03/26/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: calebb
+ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 158b3b34bf433c1da0d1c4bdc851fd99e5bd54d2
-ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
+ms.openlocfilehash: 76dd07a59a9fa7c0d6231a766ff4090c11f9f5bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78671963"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80331917"
 ---
-# <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Procedura: bloccare l'autenticazione legacy per Azure AD con accesso condizionale   
+# <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Procedura: Bloccare l'autenticazione legacy in Azure AD con accesso condizionaleHow to: Block legacy authentication to Azure AD with Conditional Access   
 
-Per consentire agli utenti di accedere facilmente alle app cloud, Azure Active Directory (Azure AD) supporta una vasta gamma di protocolli di autenticazione, inclusa l'autenticazione legacy. Tuttavia, i protocolli legacy non supportano multi-factor authentication. La MFA è in molti ambienti un requisito comune contro il furto di identità di indirizzo. 
+Per consentire agli utenti di accedere facilmente alle app cloud, Azure Active Directory (Azure AD) supporta una vasta gamma di protocolli di autenticazione, inclusa l'autenticazione legacy. Tuttavia, i protocolli legacy non supportano l'autenticazione a più fattori (MFA). La MFA è in molti ambienti un requisito comune contro il furto di identità di indirizzo. 
 
-Se l'ambiente è pronto a bloccare l'autenticazione legacy per migliorare la protezione del tenant, è possibile raggiungere questo obiettivo con l'accesso condizionale. Questo articolo illustra come configurare i criteri di accesso condizionale che bloccano l'autenticazione legacy per il tenant.
+Alex Weinert, Director of Identity Security presso Microsoft, nel suo post di blog del 12 marzo 2020 [New tools to block legacy authentication nella tua organizzazione](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/new-tools-to-block-legacy-authentication-in-your-organization/ba-p/1225302#) sottolinea perché le organizzazioni devono bloccare l'autenticazione legacy e quali strumenti aggiuntivi Microsoft fornisce per eseguire questa attività:
+
+> Affinché l'autenticazione a più fattori sia efficace, è inoltre necessario bloccare l'autenticazione legacy. Questo perché i protocolli di autenticazione legacy come POP, SMTP, IMAP e MAPI non possono applicare l'autenticazione a più fattori, rendendoli punti di ingresso preferiti per gli avversari che attaccano l'organizzazione...
+> 
+>... I numeri sull'autenticazione legacy da un'analisi del traffico di Azure Active Directory (Azure AD) sono gravi:
+> 
+> - Più del 99% degli attacchi di spray per le password utilizza protocolli di autenticazione legacy
+> - Più del 97% degli attacchi di ripieno delle credenziali utilizza l'autenticazione legacy
+> - Account di Azure AD nelle organizzazioni che hanno disabilitato l'autenticazione legacy esperienza 67% meno compromessi rispetto a quelli in cui è abilitata l'autenticazione legacy
+>
+
+Se l'ambiente è pronto a bloccare l'autenticazione legacy per migliorare la protezione del tenant, è possibile raggiungere questo obiettivo con l'accesso condizionale. In questo articolo viene illustrato come configurare i criteri di accesso condizionale che bloccano l'autenticazione legacy per il tenant.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Questo articolo presuppone che l'utente abbia familiarità con: 
 
-- [Concetti di base](overview.md) di Azure ad l'accesso condizionale 
-- [Procedure consigliate](best-practices.md) per la configurazione dei criteri di accesso condizionale nella portale di Azure
+- Concetti di base dell'accesso condizionale di Azure ADThe [basic concepts](overview.md) of Azure AD Conditional Access 
+- Procedure consigliate per la configurazione dei criteri di accesso condizionale nel portale di AzureThe [best practices](best-practices.md) for configuring Conditional Access policies in the Azure portal
 
-## <a name="scenario-description"></a>Descrizione scenario
+## <a name="scenario-description"></a>Descrizione dello scenario
 
 Azure AD supporta diversi dei protocolli di autenticazione e autorizzazione più ampiamente usati. L'autenticazione legacy fa riferimento ai protocolli che usano l'autenticazione di base. In genere, questi protocolli non possono applicare nessun tipo di secondo fattore di autenticazione. Alcuni esempi di app che si basano sull'autenticazione legacy:
 
@@ -40,7 +51,7 @@ Azure AD supporta diversi dei protocolli di autenticazione e autorizzazione più
 
 Al giorno d’oggi, l'autenticazione a fattore singolo (ad esempio, nome utente e password) non è più sufficiente. Le password non sono sicure perché sono facili da indovinare e le persone non sanno scegliere password efficaci. Le password sono anche vulnerabili a numerosi attacchi, ad esempio il phishing e lo spray password. Una delle operazioni più semplici da effettuare per proteggersi dalle minacce relative alle password è implementare la MFA. Con la MFA, anche se un utente malintenzionato entra in possesso di una password utente, la sola password non è sufficiente per l’autenticazione e l’accesso ai dati.
 
-Come si può impedire alle app che usano l'autenticazione legacy di accedere alle risorse dei tenant? È consigliabile semplicemente bloccarli con criteri di accesso condizionale. Se necessario, è possibile autorizzare solo determinati utenti e percorsi di rete specifici per l’uso delle app basate sull’autenticazione legacy.
+Come si può impedire alle app che usano l'autenticazione legacy di accedere alle risorse dei tenant? Si consiglia di bloccarli con un criterio di accesso condizionale. Se necessario, è possibile autorizzare solo determinati utenti e percorsi di rete specifici per l’uso delle app basate sull’autenticazione legacy.
 
 I criteri di accesso condizionale vengono applicati dopo il completamento dell'autenticazione con primo fattore. Pertanto l'accesso condizionale non è da intendersi come una prima misura difensiva da attacchi Denial of Service (DoS), ma può utilizzare segnali da questi eventi, come il livello di rischio di accesso, la posizione della richiesta e così via, per determinare l'accesso.
 
@@ -50,36 +61,38 @@ In questa sezione viene illustrato come configurare un criterio di accesso condi
 
 ### <a name="legacy-authentication-protocols"></a>Protocolli di autenticazione legacy
 
-Le opzioni seguenti sono considerate protocolli di autenticazione legacy
+Le seguenti opzioni sono considerate protocolli di autenticazione legacy
 
-- SMTP autenticato: usato dal POP e dal client IMAP per inviare messaggi di posta elettronica.
-- Individuazione automatica: usata dai client Outlook e EAS per trovare e connettersi alle cassette postali in Exchange Online.
-- PowerShell per Exchange Online: usato per connettersi a Exchange Online con PowerShell remoto. Se si blocca l'autenticazione di base per Exchange Online PowerShell, è necessario usare il modulo PowerShell di Exchange Online per connettersi. Per istruzioni, vedere [connettersi a Exchange Online PowerShell usando l'autenticazione a più fattori](/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).
-- Servizi Web Exchange (EWS): un'interfaccia di programmazione usata da Outlook, Outlook per Mac e app di terze parti.
-- IMAP4: usato dai client di posta elettronica IMAP.
-- MAPI su HTTP (MAPI/HTTP): usato da Outlook 2010 e versioni successive.
-- Rubrica non in linea (OAB): copia delle raccolte di elenchi di indirizzi scaricate e usate da Outlook.
-- Outlook Anywhere (RPC su HTTP): usato da Outlook 2016 e versioni precedenti.
-- Servizio Outlook: usato dall'app di posta elettronica e calendario per Windows 10.
-- POP3: usato dai client di posta elettronica POP.
-- Servizi Web di Reporting: consente di recuperare i dati del report in Exchange Online.
-- Altri client: altri protocolli identificati come utilizzo dell'autenticazione legacy.
+- SMTP autenticato - Utilizzato dai client POP e IMAP per inviare messaggi di posta elettronica.
+- Individuazione automatica - Utilizzato dai client Outlook e EAS per trovare e connettersi alle cassette postali in Exchange Online.
+- Exchange Online PowerShell - Utilizzato per connettersi a Exchange Online con PowerShell remoto. Se si blocca l'autenticazione di base per PowerShell di Exchange Online, è necessario utilizzare il modulo PowerShell di Exchange Online per connettersi. Per istruzioni, vedere [Connettersi a Exchange Online PowerShell utilizzando l'autenticazione a più fattori](/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).
+- Servizi Web Exchange (EWS): interfaccia di programmazione utilizzata da Outlook, Outlook per Mac e app di terze parti.
+- IMAP4 - Utilizzato dai client di posta elettronica IMAP.
+- MAPI su HTTP (MAPI/HTTP) - Utilizzato da Outlook 2010 e versioni successive.
+- Rubrica offline -OAB- Una copia delle raccolte di elenchi di indirizzi scaricate e utilizzate da Outlook.
+- Outlook via Internet (RPC su HTTP) - Utilizzato da Outlook 2016 e versioni precedenti.
+- Servizio Outlook - Utilizzato dall'app Posta e Calendario per Windows 10.
+- POP3 - Utilizzato dai client di posta elettronica POP.
+- Reporting Web Services: utilizzato per recuperare i dati dei report in Exchange Online.
+- Altri client - Altri protocolli identificati come l'utilizzo dell'autenticazione precedente.
 
-### <a name="identify-legacy-authentication-use"></a>Identificare l'uso dell'autenticazione legacy
+Per altre informazioni su questi protocolli e servizi di autenticazione, vedere Report attività di accesso nel portale di Azure Active Directory.For more information about these authentication protocols and services, see [Sign-in activity reports in the Azure Active Directory portal](../reports-monitoring/concept-sign-ins.md#filter-sign-in-activities).
 
-Prima di poter bloccare l'autenticazione legacy nella directory, è prima di tutto necessario comprendere se gli utenti hanno app che usano l'autenticazione legacy e come influiscono sulla directory complessiva. È possibile usare i log di accesso Azure AD per capire se si usa l'autenticazione legacy.
+### <a name="identify-legacy-authentication-use"></a>Identificare l'utilizzo dell'autenticazione legacy
 
-1. Passare alla **portale di Azure** > **Azure Active Directory** **accessi** > .
-1. Aggiungere la colonna app client se non viene visualizzata facendo clic su **colonne** > **app client**.
-1. **Aggiungere filtri** > **app client** > selezionare tutti i protocolli di autenticazione legacy e fare clic su **applica**.
+Prima di poter bloccare l'autenticazione legacy nella directory, devi prima capire se gli utenti dispongono di app che usano l'autenticazione legacy e come influisce sulla directory complessiva. I log di accesso di Azure AD possono essere usati per capire se si usa l'autenticazione legacy.
 
-Con il filtro vengono visualizzati solo i tentativi di accesso eseguiti dai protocolli di autenticazione legacy. Se si fa clic su ogni singolo tentativo di accesso, vengono visualizzati altri dettagli. Il campo **app client** nella scheda **informazioni di base** indicherà quale protocollo di autenticazione legacy è stato usato.
+1. Passare al **portale** > di Azure Ad Azure**Access-ins****Azure Active Directory** > di Azure .
+1. Aggiungere la colonna App client se non viene visualizzata facendo clic su **Colonne** > **Client App**.
+1. **Aggiungere filtri** > **App client** > selezionare tutti i protocolli di autenticazione legacy e fare clic su **Applica**.
 
-Questi log indicheranno quali utenti sono ancora a seconda dell'autenticazione legacy e quali applicazioni usano protocolli legacy per eseguire richieste di autenticazione. Per gli utenti che non sono presenti in questi registri e che non usano l'autenticazione legacy, implementare i criteri di accesso condizionale solo per questi utenti.
+Il filtro mostrerà solo i tentativi di accesso effettuati dai protocolli di autenticazione legacy. Cliccando su ogni singolo tentativo di accesso ti mostrerà ulteriori dettagli. Il campo **App client** nella scheda Informazioni **di base** indicherà quale protocollo di autenticazione legacy è stato utilizzato.
+
+Questi registri indicheranno quali utenti dipendono ancora dall'autenticazione legacy e quali applicazioni utilizzano protocolli legacy per effettuare richieste di autenticazione. Per gli utenti che non vengono visualizzati in questi log e vengono confermati di non utilizzare l'autenticazione legacy, implementare un criterio di accesso condizionale solo per questi utenti.
 
 ### <a name="block-legacy-authentication"></a>Bloccare l'autenticazione legacy 
 
-In un criterio di accesso condizionale è possibile impostare una condizione collegata alle app client usate per accedere alle risorse. La condizione per le app client consente di restringere l'ambito alle app che usano l'autenticazione legacy selezionando **Altri client** per **App per dispositivi mobili e client desktop**.
+In un criterio di accesso condizionale è possibile impostare una condizione legata alle app client usate per accedere alle risorse. La condizione per le app client consente di restringere l'ambito alle app che usano l'autenticazione legacy selezionando **Altri client** per **App per dispositivi mobili e client desktop**.
 
 ![Altri client](./media/block-legacy-authentication/01.png)
 
@@ -91,13 +104,13 @@ Per bloccare l'accesso per queste App, è necessario selezionare **Blocca access
 
 Di solito si pensa che, per bloccare l'autenticazione legacy per la propria organizzazione, sia necessario selezionare:
 
-- Tutti gli utenti
+- tutti gli utenti
 - Tutte le app cloud
 - Blocca accesso
 
 ![Assegnazioni](./media/block-legacy-authentication/03.png)
 
-Azure dispone di una funzionalità di sicurezza che impedisce la creazione di un criterio come questo perché questa configurazione viola le [procedure consigliate](best-practices.md) per i criteri di accesso condizionale.
+Azure dispone di una funzionalità di sicurezza che impedisce di creare criteri di questo tipo perché questa configurazione viola [le procedure consigliate](best-practices.md) per i criteri di accesso condizionale.
  
 ![Configurazione di criteri non supportata](./media/block-legacy-authentication/04.png)
 
@@ -106,6 +119,8 @@ La funzionalità di protezione è necessaria perché *Blocca tutti gli utenti e 
 ![Configurazione di criteri non supportata](./media/block-legacy-authentication/05.png)
 
 È possibile soddisfare questa funzionalità di protezione escludendo un utente dal criterio. In teoria, è necessario definire alcuni [account amministrativi di accesso di emergenza in Azure AD](../users-groups-roles/directory-emergency-access.md) ed escluderli dal criterio.
+
+L'utilizzo della [modalità solo report](concept-conditional-access-report-only.md) quando si abilita il criterio per bloccare l'autenticazione legacy offre all'organizzazione l'opportunità di monitorare l'impatto del criterio.
 
 ## <a name="policy-deployment"></a>Distribuzione dei criteri
 
@@ -118,15 +133,15 @@ Per altre informazioni, vedere [Come distribuire un nuovo criterio](best-practic
 
 ## <a name="what-you-should-know"></a>Informazioni utili
 
-Il blocco dell'accesso con **altri client** blocca anche PowerShell per Exchange Online e Dynamics 365 usando l'autenticazione di base.
+Il blocco dell'accesso tramite **Altri client** blocca anche Exchange Online PowerShell e Dynamics 365 utilizzando l'autenticazione di base.
 
 La configurazione di un criterio per **Altri client** blocca l'intera organizzazione per determinati client come SPConnect. Questo blocco si verifica perché l'autenticazione di client meno recenti avviene in modo imprevisto. Questo problema non si applica alle principali applicazioni di Office, come i client di Office meno recenti.
 
 Perché il criterio abbia effetto, possono essere necessarie fino a 24 ore.
 
-È possibile selezionare tutti i controlli di concessione disponibili per la condizione di **altri client** . Tuttavia, l'esperienza dell'utente finale è sempre lo stesso accesso bloccato.
+È possibile selezionare tutti i controlli di concessione disponibili per la condizione **Altri client;** tuttavia, l'esperienza dell'utente finale è sempre la stessa - accesso bloccato.
 
-Se si blocca l'autenticazione legacy usando la condizione di **altri client** , è anche possibile impostare la condizione della piattaforma e del percorso del dispositivo. Ad esempio, se si vuole bloccare solo l'autenticazione legacy per i dispositivi mobili, impostare la condizione **Piattaforma del dispositivo** selezionando:
+Se si blocca l'autenticazione legacy usando la condizione **Altri client,** è anche possibile impostare la piattaforma del dispositivo e la condizione di posizione. Ad esempio, se si vuole bloccare solo l'autenticazione legacy per i dispositivi mobili, impostare la condizione **Piattaforma del dispositivo** selezionando:
 
 - Android
 - iOS
@@ -136,5 +151,6 @@ Se si blocca l'autenticazione legacy usando la condizione di **altri client** , 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Se non si ha ancora familiarità con la configurazione dei criteri di accesso condizionale, vedere richiedere l'autenticazione a più fattori [per app specifiche con Azure Active Directory l'accesso condizionale](app-based-mfa.md) per un esempio.
-- Per altre informazioni sul supporto dell'autenticazione moderna, vedere funzionamento dell' [autenticazione moderna per le app client office 2013 e office 2016](/office365/enterprise/modern-auth-for-office-2013-and-2016) 
+- [Determinare l'impatto utilizzando la modalità solo report di accesso condizionaleDetermine impact using Conditional Access report-only](howto-conditional-access-report-only.md)
+- Se non si ha ancora familiarità con la configurazione dei criteri di accesso condizionale, vedere [Richiedere l'autenticazione a più fattori per app specifiche con l'accesso condizionale](app-based-mfa.md) di Azure Active Directory per un esempio.
+- Per altre informazioni sul supporto dell'autenticazione moderna, vedere [Funzionamento dell'autenticazione moderna per le app client di Office 2013 e Office 2016](/office365/enterprise/modern-auth-for-office-2013-and-2016) 

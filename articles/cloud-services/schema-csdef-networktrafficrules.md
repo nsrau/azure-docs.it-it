@@ -1,5 +1,6 @@
 ---
-title: Schema def. NetworkTrafficRules di servizi cloud di Azure | Microsoft Docs
+title: Studio Def. NetworkTrafficRules per i servizi cloud di Azure Documenti Microsoft
+description: Informazioni su NetworkTrafficRules, che limita i ruoli che possono accedere agli endpoint interni di un ruolo. Viene combinato con i ruoli in un file di definizione del servizio.
 ms.custom: ''
 ms.date: 04/14/2015
 services: cloud-services
@@ -12,12 +13,12 @@ ms.assetid: 351b369f-365e-46c1-82ce-03fc3655cc88
 caps.latest.revision: 17
 author: tgore03
 ms.author: tagore
-ms.openlocfilehash: e6d156810b9fdee69ddac122eec06db7267ddf36
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e53c10395ec3168e656633cc43fb2d01902209fa
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75449045"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79534729"
 ---
 # <a name="azure-cloud-services-definition-networktrafficrules-schema"></a>Schema NetworkTrafficRules di definizione di Servizi cloud di Azure
 Il nodo `NetworkTrafficRules` è un elemento facoltativo nel file di definizione del servizio che specifica come i ruoli comunicano tra loro. Impone un limite ai ruoli che possono accedere agli endpoint interni del ruolo specifico. `NetworkTrafficRules` non è un elemento autonomo. Viene combinato con due o più ruoli Web nel file di definizione del servizio.
@@ -51,7 +52,7 @@ Il nodo `NetworkTrafficRules` del file di definizione del servizio include gli e
 
 [Elemento NetworkTrafficRules](#NetworkTrafficRules)
 
-[Elemento OnlyAllowTrafficTo](#OnlyAllowTrafficTo)
+[OnlyAllowTrafficTo Elemento](#OnlyAllowTrafficTo)
 
 [Elemento Destinations](#Destinations)
 
@@ -63,19 +64,19 @@ Elemento AllowAllTraffic
 
 [Elemento FromRole](#FromRole)
 
-##  <a name="NetworkTrafficRules"></a> Elemento NetworkTrafficRules
+##  <a name="networktrafficrules-element"></a><a name="NetworkTrafficRules"></a>Elemento NetworkTrafficRules
 L'elemento `NetworkTrafficRules` specifica quali ruoli possono comunicare con quali endpoint in un altro ruolo. Un servizio può contenere una definizione `NetworkTrafficRules`.
 
-##  <a name="OnlyAllowTrafficTo"></a> Elemento OnlyAllowTrafficTo
+##  <a name="onlyallowtrafficto-element"></a><a name="OnlyAllowTrafficTo"></a> Elemento OnlyAllowTrafficTo
 L'elemento `OnlyAllowTrafficTo` descrive una raccolta di endpoint di destinazione e i ruoli che vi possono comunicare. È possibile specificare più nodi `OnlyAllowTrafficTo`.
 
-##  <a name="Destinations"></a> Elemento Destinations
+##  <a name="destinations-element"></a><a name="Destinations"></a> Elemento Destinations
 L'elemento `Destinations` descrive una raccolta di RoleEndpoints con i quali è possibile comunicare.
 
-##  <a name="RoleEndpoint"></a>Elemento RoleEndpoint
+##  <a name="roleendpoint-element"></a><a name="RoleEndpoint"></a>Elemento RoleEndpoint
 L'elemento `RoleEndpoint` descrive un endpoint in un ruolo per consentire le comunicazioni tra i due. È possibile specificare più elementi `RoleEndpoint` se sono presenti più di un endpoint nel ruolo.
 
-| Attributo      | Tipo     | Description |
+| Attributo      | Type     | Descrizione |
 | -------------- | -------- | ----------- |
 | `endpointName` | `string` | Obbligatorio. Il nome dell'endpoint verso il quale consentire il traffico.|
 | `roleName`     | `string` | Obbligatorio. Il nome del ruolo Web con il quale consentire le comunicazioni.|
@@ -83,17 +84,17 @@ L'elemento `RoleEndpoint` descrive un endpoint in un ruolo per consentire le com
 ## <a name="allowalltraffic-element"></a>Elemento AllowAllTraffic
 L'elemento `AllowAllTraffic` è una regola che consente a tutti i ruoli di comunicare con gli endpoint definiti nel nodo `Destinations`.
 
-##  <a name="WhenSource"></a> Elemento WhenSource
+##  <a name="whensource-element"></a><a name="WhenSource"></a>Elemento WhenSource
 L'elemento `WhenSource` descrive una raccolta di ruoli che possono comunicare con gli endpoint definiti nel nodo `Destinations`.
 
-| Attributo | Tipo     | Description |
+| Attributo | Type     | Descrizione |
 | --------- | -------- | ----------- |
 | `matches` | `string` | Obbligatorio. Specifica la regola da applicare quando vengono consentite le comunicazioni. Al momento l'unico valore valido è `AnyRule`.|
   
-##  <a name="FromRole"></a> Elemento FromRole
+##  <a name="fromrole-element"></a><a name="FromRole"></a>Elemento FromRole
 L'elemento `FromRole` specifica i ruoli che possono comunicare con gli endpoint definiti nel nodo `Destinations`. È possibile specificare più elementi `FromRole` se sono presenti più ruoli in grado di comunicare con gli endpoint.
 
-| Attributo  | Tipo     | Description |
+| Attributo  | Type     | Descrizione |
 | ---------- | -------- | ----------- |
 | `roleName` | `string` | Obbligatorio. Il nome del ruolo da cui consentire la comunicazione.|
 

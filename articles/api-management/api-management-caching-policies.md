@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.author: apimpm
 ms.openlocfilehash: 06c4ede12f939e48973d3e0b502d90b848d199bb
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79280300"
 ---
 # <a name="api-management-caching-policies"></a>Criteri di memorizzazione nella cache in Gestione API
 Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](https://go.microsoft.com/fwlink/?LinkID=398186).
 
-## <a name="CachingPolicies"></a> Criteri di memorizzazione nella cache
+## <a name="caching-policies"></a><a name="CachingPolicies"></a> Criteri di memorizzazione nella cache
 
 - Criteri di memorizzazione nella cache della risposta
     - [Recupera dalla cache](api-management-caching-policies.md#GetFromCache): esegue una ricerca nella cache e restituisce risposte valide memorizzate nella cache, se disponibili.
@@ -33,7 +33,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
     - [Archivia valore nella cache](#StoreToCacheByKey) : archivia un elemento nella cache per chiave.
     - [Rimuovi valore dalla cache](#RemoveCacheByKey) : rimuove un elemento dalla cache in base alla chiave.
 
-## <a name="GetFromCache"></a> Recupera dalla cache
+## <a name="get-from-cache"></a><a name="GetFromCache"></a>Ottieni dalla cache
 Usare il criterio `cache-lookup` per eseguire una ricerca nella cache e restituire una risposta valida memorizzata nella cache, se disponibile. Questo criterio può essere applicato nei casi in cui il contenuto della risposta rimane statico in un periodo di tempo. La memorizzazione delle risposte nella cache riduce la larghezza di banda e i requisiti di elaborazione imposti sul server Web back-end e riduce la latenza percepita dagli utenti delle API.
 
 > [!NOTE]
@@ -106,7 +106,7 @@ Per altre informazioni, vedere [Espressioni di criteri](api-management-policy-ex
 |vary-by-header|Avviare la memorizzazione delle risposte nella cache per ogni valore dell'intestazione specificata, come ad esempio Accept, Accept-Charset, Accept-Encoding, Accept-Language, Authorization, Expect, From, Host e If-Match.|No|
 |vary-by-query-parameter|Avvia risposte di memorizzazione nella cache per ogni valore dei parametri di query specificati. Immettere un singolo parametro o più parametri. Usare un punto e virgola (;) come separatore. Se non è specificato alcun nome, verranno usati tutti i parametri di query.|No|
 
-### <a name="attributes"></a>Attributes
+### <a name="attributes"></a>Attributi
 
 | Nome                           | Descrizione                                                                                                                                                                                                                                                                                                                                                 | Obbligatoria | Predefinito           |
 |--------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
@@ -123,7 +123,7 @@ Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/do
 - **Sezioni del criterio:** inbound
 - **Ambiti del criterio:** tutti gli ambiti
 
-## <a name="StoreToCache"></a> Archivia nella cache
+## <a name="store-to-cache"></a><a name="StoreToCache"></a> Archivia nella cache
 Il criterio `cache-store` memorizza nella cache le risposte in base alle impostazioni specificate per la cache. Questo criterio può essere applicato nei casi in cui il contenuto della risposta rimane statico in un periodo di tempo. La memorizzazione delle risposte nella cache riduce la larghezza di banda e i requisiti di elaborazione imposti sul server Web back-end e riduce la latenza percepita dagli utenti delle API.
 
 > [!NOTE]
@@ -183,7 +183,7 @@ Per altre informazioni, vedere [Espressioni di criteri](api-management-policy-ex
 |----------|-----------------|--------------|
 |cache-store|Elemento radice.|Sì|
 
-### <a name="attributes"></a>Attributes
+### <a name="attributes"></a>Attributi
 
 | Nome             | Descrizione                                                                                                                                                                                                                                                                                                                                                 | Obbligatoria | Predefinito           |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
@@ -195,7 +195,7 @@ Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/do
 - **Sezioni del criterio:** in uscita
 - **Ambiti del criterio:** tutti gli ambiti
 
-## <a name="GetFromCacheByKey"></a> Recupera valore dalla cache
+## <a name="get-value-from-cache"></a><a name="GetFromCacheByKey"></a> Recupera valore dalla cache
 Usare il criterio `cache-lookup-value` per eseguire la ricerca nella cache in base alla chiave e restituiscono un valore memorizzato nella cache. La chiave può avere un valore di stringa arbitrario e viene indicata in genere usando un'espressione di criteri.
 
 > [!NOTE]
@@ -226,7 +226,7 @@ Per ulteriori informazioni ed esempi su questo criterio, vedere [Memorizzazione 
 |----------|-----------------|--------------|
 |cache-lookup-value|Elemento radice.|Sì|
 
-### <a name="attributes"></a>Attributes
+### <a name="attributes"></a>Attributi
 
 | Nome             | Descrizione                                                                                                                                                                                                                                                                                                                                                 | Obbligatoria | Predefinito           |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
@@ -241,7 +241,7 @@ Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/do
 - **Sezioni del criterio:** inbound, outbound, backend, on-error
 - **Ambiti del criterio:** tutti gli ambiti
 
-## <a name="StoreToCacheByKey"></a> Archivia valore nella cache
+## <a name="store-value-in-cache"></a><a name="StoreToCacheByKey"></a> Archivia valore nella cache
 `cache-store-value` esegue l'archiviazione nella cache in base alla chiave. La chiave può avere un valore di stringa arbitrario e viene indicata in genere usando un'espressione di criteri.
 
 > [!NOTE]
@@ -269,21 +269,21 @@ Per ulteriori informazioni ed esempi su questo criterio, vedere [Memorizzazione 
 |----------|-----------------|--------------|
 |cache-store-value|Elemento radice.|Sì|
 
-### <a name="attributes"></a>Attributes
+### <a name="attributes"></a>Attributi
 
 | Nome             | Descrizione                                                                                                                                                                                                                                                                                                                                                 | Obbligatoria | Predefinito           |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
 | tipo di memorizzazione nella cache | Scegliere tra i valori dell'attributo seguenti:<br />- `internal` per usare la cache di Gestione API predefinita,<br />- `external` per usare la cache esterna, come descritto in [Usare una cache Redis esterna in Gestione API di Azure](api-management-howto-cache-external.md),<br />- `prefer-external` per usare la cache esterna se configurata o quella interna in caso contrario. | No       | `prefer-external` |
 | duration         | Il valore verrà memorizzato nella cache per il valore di durata specificato, espresso in secondi.                                                                                                                                                                                                                                                                                 | Sì      | N/D               |
 | Key              | La chiave della cache in cui verrà archiviato il valore.                                                                                                                                                                                                                                                                                                                   | Sì      | N/D               |
-| Valore            | Il valore da memorizzare nella cache.                                                                                                                                                                                                                                                                                                                                     | Sì      | N/D               |
+| value            | Il valore da memorizzare nella cache.                                                                                                                                                                                                                                                                                                                                     | Sì      | N/D               |
 ### <a name="usage"></a>Uso
 Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
 
 - **Sezioni del criterio:** inbound, outbound, backend, on-error
 - **Ambiti del criterio:** tutti gli ambiti
 
-### <a name="RemoveCacheByKey"></a> Rimuovi valore dalla cache
+### <a name="remove-value-from-cache"></a><a name="RemoveCacheByKey"></a> Rimuovi valore dalla cache
 `cache-remove-value` elimina un elemento memorizzato nella cache identificato in base alla chiave. La chiave può avere un valore di stringa arbitrario e viene indicata in genere usando un'espressione di criteri.
 
 #### <a name="policy-statement"></a>Istruzione del criterio
@@ -308,7 +308,7 @@ Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/do
 |----------|-----------------|--------------|
 |cache-remove-value|Elemento radice.|Sì|
 
-#### <a name="attributes"></a>Attributes
+#### <a name="attributes"></a>Attributi
 
 | Nome             | Descrizione                                                                                                                                                                                                                                                                                                                                                 | Obbligatoria | Predefinito           |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|

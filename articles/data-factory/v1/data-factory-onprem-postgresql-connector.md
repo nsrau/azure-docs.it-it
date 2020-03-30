@@ -1,5 +1,5 @@
 ---
-title: Spostare i dati da PostgreSQL usando Azure Data Factory
+title: Spostare dati da PostgreSQL usando Azure Data FactoryMove data From PostgreSQL using Azure Data Factory
 description: Informazioni su come spostare i dati dal database di PostgreSQL mediante Data factory di Azure.
 services: data-factory
 documentationcenter: ''
@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 37c83e77cadae002ff701a08c4b36a86f7cab9a0
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79281236"
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Spostare i dati da PostgreSQL mediante Data factory di Azure
@@ -28,11 +28,11 @@ ms.locfileid: "79281236"
 > Le informazioni di questo articolo sono valide per la versione 1 di Data Factory. Se si usa la versione corrente del servizio Data Factory, vedere le informazioni sul [connettore PostgreSQL nella versione 2](../connector-postgresql.md).
 
 
-Questo articolo illustra come usare l'attività di copia in Azure Data Factory per spostare dati da un database PostgreSQL locale. Si basa sull'articolo relativo alle [attività di spostamento dei dati](data-factory-data-movement-activities.md), che offre una panoramica generale dello spostamento dei dati con l'attività di copia.
+Questo articolo illustra come usare l'attività di copia in Azure Data Factory per spostare dati da un database PostgreSQL locale. Si basa sull'articolo [Attività di spostamento dati,](data-factory-data-movement-activities.md) che presenta una panoramica generale dello spostamento dei dati con l'attività di copia.
 
 È possibile copiare dati da un archivio dati PostgreSQL locale a qualsiasi archivio dati sink supportato. Per un elenco degli archivi dati supportati come sink dall'attività di copia, vedere gli [archivi dati supportati](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Data Factory supporta attualmente lo spostamento di dati da un database PostgreSQL ad altri archivi dati, ma non da altri archivi dati a un database PostgreSQL.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Data factory supporta la connessione a origini PostgreSQL locali tramite il Gateway di gestione dati. Vedere l'articolo sullo [spostamento di dati tra sedi locali e cloud](data-factory-move-data-between-onprem-and-cloud.md) per informazioni sul Gateway di gestione dati e per istruzioni dettagliate sulla configurazione del gateway.
 
@@ -47,7 +47,7 @@ Affinché il gateway di gestione dati si connetta al database PostgreSQL, instal
 ## <a name="getting-started"></a>Introduzione
 È possibile creare una pipeline con l'attività di copia che sposta i dati da un archivio dati PostgreSQL usando diversi strumenti/API.
 
-- Il modo più semplice per creare una pipeline è usare la **Copia guidata**. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
+- Il modo più semplice per creare una pipeline consiste nell'utilizzare la **Copia guidata**. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
 - Per creare una pipeline, è anche possibile usare gli strumenti seguenti:
   - Visual Studio
   - Azure PowerShell
@@ -55,13 +55,13 @@ Affinché il gateway di gestione dati si connetta al database PostgreSQL, instal
   - API .NET
   - API REST
 
-    Vedere l'[esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia.
+    Vedere [Esercitazione sull'attività](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) di copia per istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia.
 
 Se si usano gli strumenti o le API, eseguire la procedura seguente per creare una pipeline che sposta i dati da un archivio dati di origine a un archivio dati sink:
 
 1. Creare i **servizi collegati** per collegare gli archivi di dati di input e output alla data factory.
-2. Creare i **set di dati** per rappresentare i dati di input e di output per le operazioni di copia.
-3. Creare una **pipeline** con un'attività di copia che accetti un set di dati come input e un set di dati come output.
+2. Creare **set di dati** per rappresentare i dati di input e output per l'operazione di copia.
+3. Creare una **pipeline** con un'attività di copia che accetta un set di dati come input e un set di dati come output.
 
 Quando si usa la procedura guidata, le definizioni JSON per queste entità di data factory (servizi, set di dati e pipeline collegati) vengono create automaticamente. Quando si usano gli strumenti o le API, ad eccezione delle API .NET, usare il formato JSON per definire le entità di data factory. Per un esempio con le definizioni JSON per le entità di Data Factory usate per copiare dati da un archivio dati PostgreSQL locale, vedere la sezione [Esempio JSON: Copiare dati da PostgreSQL a BLOB di Azure](#json-example-copy-data-from-postgresql-to-azure-blob) di questo articolo.
 
@@ -95,11 +95,11 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Le proprietà disponibili nella sezione typeProperties dell'attività variano invece in base al tipo di attività. Per l'attività di copia variano in base ai tipi di origine e sink.
 
-Se l'origine è di tipo **RelationalSource** (che comprende PostgreSQL), sono disponibili le proprietà seguenti nella sezione typeProperties:
+Quando l'origine è di tipo **RelationalSource** (che include PostgreSQL), nella sezione typeProperties sono disponibili le seguenti proprietà:
 
 | Proprietà | Descrizione | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
-| query |Usare la query personalizzata per leggere i dati. |Stringa di query SQL. Ad esempio: `"query": "select * from \"MySchema\".\"MyTable\""`. |No (se **tableName** di **set di dati** è specificato) |
+| query |Usare la query personalizzata per leggere i dati. |Stringa di query SQL. Ad esempio `"query": "select * from \"MySchema\".\"MyTable\""`. |No (se **tableName** di **set di dati** è specificato) |
 
 > [!NOTE]
 > I nomi di schemi e tabelle fanno distinzione tra maiuscole e minuscole. Racchiudere i nomi tra `""` (virgolette doppie) nella query.
@@ -109,7 +109,7 @@ Se l'origine è di tipo **RelationalSource** (che comprende PostgreSQL), sono di
  `"query": "select * from \"MySchema\".\"MyTable\""`
 
 ## <a name="json-example-copy-data-from-postgresql-to-azure-blob"></a>Esempio JSON: Copiare dati da PostgreSQL a BLOB di Azure
-Questo esempio fornisce le definizioni JSON di esempio che è possibile usare per creare una pipeline usando [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Illustrano come copiare dati da un database PostgreSQL in un archivio BLOB di Azure. Tuttavia, i dati possono essere copiati in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando l'attività di copia in Azure Data Factory.
+In questo esempio vengono fornite definizioni JSON di esempio che è possibile usare per creare una pipeline tramite [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell.](data-factory-copy-activity-tutorial-using-powershell.md) Illustrano come copiare dati da un database PostgreSQL in un archivio BLOB di Azure. Tuttavia, i dati possono essere copiati in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando l'attività di copia in Azure Data Factory.
 
 > [!IMPORTANT]
 > Questo esempio fornisce frammenti di codice JSON. Non include istruzioni dettagliate per la creazione della data factory. Le istruzioni dettagliate sono disponibili nell'articolo [Spostare dati tra origini locali e il cloud](data-factory-move-data-between-onprem-and-cloud.md) .
@@ -119,7 +119,7 @@ L'esempio include le entità di Data Factory seguenti:
 1. Un servizio collegato di tipo [OnPremisesPostgreSql](data-factory-onprem-postgresql-connector.md#linked-service-properties).
 2. Un servizio collegato di tipo [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
 3. Un [set di dati](data-factory-create-datasets.md) di input di tipo [RelationalTable](data-factory-onprem-postgresql-connector.md#dataset-properties).
-4. Un [set di dati](data-factory-create-datasets.md) di output di tipo [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
+4. Un [set](data-factory-create-datasets.md) di dati di output di tipo [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
 5. La [pipeline](data-factory-create-pipelines.md) con attività di copia che usa [RelationalSource](data-factory-onprem-postgresql-connector.md#copy-activity-properties) e [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
 L'esempio copia i dati dai risultati della query nel database PostgreSQL in un BLOB ogni ora. Le proprietà JSON usate in questi esempi sono descritte nelle sezioni riportate dopo gli esempi.
@@ -187,7 +187,7 @@ L'impostazione `"external": true` comunica al servizio Data Factory che il set d
 }
 ```
 
-**Set di dati di output del BLOB di Azure:**
+**Set di dati di output BLOB di Azure:Azure Blob output dataset:**
 
 I dati vengono scritti in un nuovo BLOB ogni ora (frequenza: ora, intervallo: 1). Il percorso della cartella e il nome del file per il BLOB vengono valutati dinamicamente in base all'ora di inizio della sezione in fase di elaborazione. Il percorso della cartella usa le parti anno, mese, giorno e ora dell'ora di inizio.
 
@@ -295,7 +295,7 @@ La pipeline contiene un'attività di copia configurata per usare i set di dati d
 }
 ```
 ## <a name="type-mapping-for-postgresql"></a>Mapping dei tipi per PostgreSQL
-Come accennato nell'articolo sulle [attività di spostamento dei dati](data-factory-data-movement-activities.md) , l'attività di copia esegue conversioni automatiche da tipi di origine a tipi di sink con l'approccio seguente in 2 passaggi:
+Come accennato nell'articolo Attività di spostamento dati Esegue conversioni automatiche dei tipi dai tipi di origine ai tipi di sink con l'approccio in due passaggi seguente:As mentioned in the [data movement activities](data-factory-data-movement-activities.md) article Copy activity performs automatic type conversions from source types to sink types with the following 2-step approach:
 
 1. Conversione dai tipi di origine nativi al tipo .NET
 2. Conversione dal tipo .NET al tipo di sink nativo
@@ -349,7 +349,7 @@ Quando si spostano i dati in PostgreSQL vengono usati i mapping seguenti dal tip
 Per informazioni sul mapping delle colonne del set di dati di origine alle colonne del set di dati del sink, vedere [Mapping delle colonne del set di dati in Azure Data Factory](data-factory-map-columns.md).
 
 ## <a name="repeatable-read-from-relational-sources"></a>Lettura ripetibile da origini relazionali
-Quando si copiano dati da archivi dati relazionali, è necessario tenere presente la ripetibilità per evitare risultati imprevisti. In Azure Data Factory è possibile rieseguire una sezione manualmente. È anche possibile configurare i criteri di ripetizione per un set di dati in modo da rieseguire una sezione in caso di errore. Quando una sezione viene rieseguita in uno dei due modi, è necessario assicurarsi che non vengano letti gli stessi dati, indipendentemente da quante volte viene eseguita la sezione. Vedere [Lettura ripetibile da origini relazionali](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
+Quando si copiano dati da archivi dati relazionali, è necessario tenere presente la ripetibilità per evitare risultati imprevisti. In Azure Data Factory è possibile rieseguire una sezione manualmente. È anche possibile configurare i criteri di ripetizione per un set di dati in modo da rieseguire una sezione in caso di errore. Quando una sezione viene rieseguita in uno dei due modi, è necessario assicurarsi che non vengano letti gli stessi dati, indipendentemente da quante volte viene eseguita la sezione. Consultate [Lettura ripetibile da origini relazionali](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
 
 ## <a name="performance-and-tuning"></a>Ottimizzazione delle prestazioni
 Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati, ovvero dell'attività di copia, in Azure Data Factory e sui vari modi per ottimizzare tali prestazioni, vedere la [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md).

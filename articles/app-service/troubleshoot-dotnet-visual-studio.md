@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 08/29/2016
 ms.custom: seodec18
 ms.openlocfilehash: 3305cfb81980984574961b2a84a056f5d1879ead
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79280053"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Risolvere i problemi di un'app nel Servizio app di Azure tramite Visual Studio
@@ -29,11 +29,11 @@ Si apprenderà come:
 Se si dispone di Visual Studio Ultimate, è possibile usare anche [IntelliTrace](/visualstudio/debugger/intellitrace) per il debug. IntelliTrace non è illustrato in questa esercitazione.
 
 ## <a name="prerequisites"></a><a name="prerequisites"></a>Prerequisiti
-Per questa esercitazione si presuppone che siano stati configurati l'ambiente di sviluppo, il progetto Web e l'app del Servizio app come descritto in [Create an ASP.NET app in Azure App Service](app-service-web-get-started-dotnet-framework.md) (Creare un'app ASP.NET nel Servizio app di Azure). Per le sezioni relative ai processi Web, sarà necessaria l'applicazione creata in [Introduzione ad Azure Webjobs SDK][GetStartedWJ].
+Per questa esercitazione si presuppone che siano stati configurati l'ambiente di sviluppo, il progetto Web e l'app del Servizio app come descritto in [Create an ASP.NET app in Azure App Service](app-service-web-get-started-dotnet-framework.md) (Creare un'app ASP.NET nel Servizio app di Azure). Per le sezioni sui processi Web, sarà necessaria l'applicazione creata in [Introduzione ad Azure WebJobs SDK][GetStartedWJ].
 
 Gli esempi di codice illustrati nell'esercitazione sono relativi ad applicazioni Web MVC scritte in C#, ma le procedure di risoluzione dei problemi sono identiche per le applicazioni di Visual Basic e Web Form.
 
-L'esercitazione presuppone che si stia usando Visual Studio 2019. 
+L'esercitazione presuppone che si sta utilizzando Visual Studio 2019.The tutorial assumes you're using Visual Studio 2019. 
 
 La funzionalità dei log in streaming può essere utilizzata solo per le applicazioni destinate a .NET Framework 4 o versione successiva.
 
@@ -61,7 +61,7 @@ Visual Studio fornisce l'accesso a un subset di funzioni di gestione e impostazi
 
     In questa esercitazione verranno usati gli elenchi a discesa relativi a registrazione e traccia. Verrà inoltre utilizzato il debug remoto, che tuttavia verrà abilitato con un metodo diverso.
 
-    Per informazioni sui riquadri Impostazioni app e Stringhe di connessione in questa finestra, consultare [Servizio app di Azure: How Application Strings and Connection Strings Work](https://azure.microsoft.com/blog/windows-azure-web-sites-how-application-strings-and-connection-strings-work/) (App Web di Azure: come funzionano le stringhe di applicazione e le stringhe di connessione).
+    Per informazioni sulle caselle Impostazioni app e Stringhe di connessione in questa finestra, vedere Servizio app di Azure: funzionamento delle [stringhe dell'applicazione e](https://azure.microsoft.com/blog/windows-azure-web-sites-how-application-strings-and-connection-strings-work/)delle stringhe di connessione.
 
     Se si vuole eseguire un'attività di gestione di app che non può essere completata in questa finestra, fare clic su **Apri nel portale di gestione** per aprire una finestra del browser nel portale di Azure.
 
@@ -76,7 +76,7 @@ In genere, un progetto Web viene distribuito con il flag `customErrors` impostat
 
 ![Messaggio di errore poco utile](./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror1.png)
 
-**Impossibile visualizzare la pagina**
+**Il sito Web non è in grado di visualizzare la pagina**
 
 ![Messaggio di errore poco utile](./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror2.png)
 
@@ -127,7 +127,7 @@ Questa sezione illustra come eseguire il debug in modalità remota usando il pro
 
 1. [Impostare un punto di interruzione](https://docs.microsoft.com/visualstudio/debugger/) sulla riga `ViewBag.Message`.
 
-1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto, quindi scegliere **Pubblica**.
+1. In **Esplora soluzioni**fare clic con il pulsante destro del mouse sul progetto e **scegliere Pubblica**.
 
 1. Nell'elenco a discesa del **Profilo** selezionare lo stesso profilo usato in [Create an ASP.NET app in Azure App Service](app-service-web-get-started-dotnet-framework.md) (Creare un'app ASP.NET nel Servizio app di Azure). Quindi fare clic su Impostazioni.
 
@@ -165,14 +165,14 @@ Questa sezione illustra come eseguire il debug in modalità remota usando il pro
 
      ![Pagina About con il nuovo valore](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debugchangeinwa.png)
 
-## <a name="remote-debugging-webjobs"></a><a name="remotedebugwj"></a> Debug remoto di processi Web
+## <a name="remote-debugging-webjobs"></a><a name="remotedebugwj"></a>Debug remoto WebJobs
 Questa sezione illustra come eseguire il debug remoto usando il progetto e l'app creati in [Introduzione ad Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki).
 
 Le funzionalità illustrate in questa sezione sono disponibili solo in Visual Studio 2013 con Update 4 o successivo.
 
 Il debug remoto funziona solo con processi Web continui. Processi Web pianificata e su richiesta non supporta il debug.
 
-1. Aprire il progetto Web creato in [Introduzione ad Azure Webjobs SDK][GetStartedWJ].
+1. Aprire il progetto Web creato in [Introduzione ad Azure WebJobs SDK][GetStartedWJ].
 
 2. Nel progetto ContosoAdsWebJob aprire *Functions.cs*.
 
@@ -255,7 +255,7 @@ Un'applicazione ASP.NET in esecuzione in un'app del Servizio app può creare i t
 * **Log dei messaggi di errore dettagliati**<br/>
   Il server Web crea una pagina HTML con alcune informazioni aggiuntive relative alle richieste HTTP non riuscite, ovvero quelle che generano un codice di stato pari ad almeno 400.
 * **Log di traccia delle richieste non riuscite**<br/>
-  Il server Web crea un file XML con informazioni di traccia dettagliate per le richieste HTTP non riuscite. Fornisce inoltre un file XSL per formattare il file XML in un browser.
+   Il server Web crea un file XML con informazioni di traccia dettagliate per le richieste HTTP non riuscite. Fornisce inoltre un file XSL per formattare il file XML in un browser.
 
 Poiché la registrazione influisce sulle prestazioni dell'app, Azure offre la possibilità di abilitare o disabilitare ogni tipo di log in base alle necessità. Per i log dell'applicazione, è possibile specificare che vengano creati solo quelli superiori a un determinato livello di gravità. Quando si crea una nuova app, per impostazione predefinita la registrazione è disabilitata.
 
@@ -271,7 +271,7 @@ In questa sezione vengono eseguite le attività seguenti:
 Per informazioni su come creare i log applicazioni nei processi Web, vedere [Come usare il servizio di archiviazione di accodamento di Azure con WebJobs SDK - Come scrivere i log](https://github.com/Azure/azure-webjobs-sdk/wiki). Le seguenti istruzioni per visualizzare i log e controllare come vengono archiviati in Azure si applicano anche ai log delle applicazioni creati dai processi Web.
 
 ### <a name="add-tracing-statements-to-the-application"></a>Aggiungere istruzioni di traccia all'applicazione
-1. Aprire *Controllers\HomeController.cs* e sostituire i metodi `Index`, `About` e `Contact` con il codice riportato di seguito per aggiungere istruzioni `Trace` e un'istruzione `using` per `System.Diagnostics`:
+1. Aprire *Controllers, HomeController.cs*e `Index` `About`sostituire `Contact` i metodi , e con `Trace` il codice `using` seguente `System.Diagnostics`per aggiungere istruzioni e un'istruzione per :
 
     ```csharp
     public ActionResult Index()
@@ -337,7 +337,7 @@ Per informazioni su come creare i log applicazioni nei processi Web, vedere [Com
     ```
 
 1. Premere CTRL+F5 per eseguire l'applicazione.
-1. Nella barra degli indirizzi della finestra del browser aggiungere *Trace. axd* all'URL, quindi premere INVIO (l'URL è simile a `http://localhost:53370/trace.axd`).
+1. Nella barra degli indirizzi della finestra del browser, aggiungere *trace.axd* all'URL, `http://localhost:53370/trace.axd`quindi premere INVIO (l'URL è simile a ).
 1. Nella pagina **Application Trace** fare clic su **View Details** nella prima riga (non la riga BrowserLink).
 
     ![trace.axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png)
@@ -567,7 +567,7 @@ Le app del Servizio app usano la stessa funzionalità di traccia delle richieste
 
 3. In Visual Studio, nella scheda **Configurazione** della finestra **App Web di Azure** fare clic su **Apri nel portale di gestione**.
 
-4. Nella pagina [](https://portal.azure.com) **Impostazioni** portale di Azure per l'app fare clic su **credenziali di distribuzione**e quindi immettere un nuovo nome utente e una nuova password.
+4. Nella pagina **Impostazioni** portale di [Azure](https://portal.azure.com) per l'app fare clic su Credenziali **di distribuzione**e quindi immettere un nuovo nome utente e una nuova password.
 
     ![Nuovo nome utente e nuova password FTP](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-enterftpcredentials.png)
 
@@ -577,7 +577,7 @@ Le app del Servizio app usano la stessa funzionalità di traccia delle richieste
 
 5. In una nuova finestra del browser passare all'URL indicato in **Nome host FTP** o **Nome host FTPS** della pagina **Panoramica** per l'app.
 
-6. Accedere con le credenziali FTP create in precedenza (incluso il prefisso del nome dell'app per il nome utente).
+6. Accedere utilizzando le credenziali FTP create in precedenza (incluso il prefisso del nome dell'app per il nome utente).
 
     Nel browser verrà visualizzata la cartella radice dell'app.
 
@@ -620,7 +620,7 @@ Per altre informazioni sulla risoluzione dei problemi di app nel Servizio app di
 Per informazioni su specifiche domande relative alla risoluzione dei problemi, avviare un thread in uno dei forum seguenti:
 
 * [Forum di Azure sul sito ASP.NET](https://forums.asp.net/1247.aspx/1?Azure+and+ASP+NET).
-* [Il forum di Azure su Microsoft Q & A](https://docs.microsoft.com/answers/topics/azure-webapps.html).
+* [Il forum di Azure su Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-webapps.html).
 * [StackOverflow.com](https://www.stackoverflow.com).
 
 ### <a name="debugging-in-visual-studio"></a>Debug in Visual Studio
@@ -640,15 +640,15 @@ Se l'app usa un back-end di Servizi mobili o di API Web di Azure di cui è neces
 In Internet non sono disponibili introduzioni complete e approfondite per la traccia in ASP.NET. È consigliabile iniziare con i materiali introduttivi precedenti scritti per Web Form, perché MVC non esisteva ancora, e quindi integrare queste informazioni con i post di blog più recenti dedicati a specifici problemi. Altre risorse introduttive sono riportate di seguito:
 
 * [Monitoraggio e telemetria (creazione di app per cloud funzionanti con Azure)](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry).<br>
-  Capitolo di un e-book con suggerimenti per la traccia nelle applicazioni per cloud di Azure.
+   Capitolo di un e-book con suggerimenti per la traccia nelle applicazioni per cloud di Azure.
 * [Traccia in ASP.NET](/previous-versions/dotnet/articles/ms972204(v=msdn.10))<br/>
-  Risorsa meno recente ma ancora valida per un'introduzione di base sull'argomento.
+   Risorsa meno recente ma ancora valida per un'introduzione di base sull'argomento.
 * [Listener di traccia](/dotnet/framework/debug-trace-profile/trace-listeners)<br/>
   Informazioni sui listener di traccia, ma senza riferimenti a [WebPageTraceListener](/dotnet/api/system.web.webpagetracelistener).
-* [Procedura dettagliata: Integrating ASP.NET Tracing with System.Diagnostics Tracing](/previous-versions/b0ectfxd(v=vs.140)) (Procedura dettagliata: Integrazione della traccia ASP.NET con la traccia System.Diagnostics)<br/>
+* [Procedura detagliata: integrazione della traccia ASP.NET con la traccia System.Diagnostics](/previous-versions/b0ectfxd(v=vs.140))<br/>
   Questo articolo non è molto recente, ma contiene informazioni aggiuntive non trattate nell'articolo introduttivo.
 * [Traccia nelle visualizzazioni Razor ASP.NET MVC](https://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)<br/>
-  Oltre a informazioni sulla traccia nelle visualizzazioni Razor, in questo post viene illustrato come creare un filtro di errori per registrare tutte le eccezioni non gestite nelle applicazioni MVC. Per informazioni su come registrare tutte le eccezioni non gestite in un'applicazione Web Form, vedere l'esempio relativo a Global.asax in [Esempio completo di gestori di errori](/previous-versions/bb397417(v=vs.140)) in MSDN. In MVC o Web Form, se si desidera registrare determinate eccezioni ma lasciarne la gestione al framework predefinito, è possibile eseguire istruzioni catch e throw, come illustrato nell'esempio seguente:
+   Oltre a informazioni sulla traccia nelle visualizzazioni Razor, in questo post viene illustrato come creare un filtro di errori per registrare tutte le eccezioni non gestite nelle applicazioni MVC. Per informazioni su come registrare tutte le eccezioni non gestite in un'applicazione Web Form, vedere l'esempio relativo a Global.asax in [Esempio completo di gestori di errori](/previous-versions/bb397417(v=vs.140)) in MSDN. In MVC o Web Form, se si desidera registrare determinate eccezioni ma lasciarne la gestione al framework predefinito, è possibile eseguire istruzioni catch e throw, come illustrato nell'esempio seguente:
 
     ```csharp
     try
@@ -663,7 +663,7 @@ In Internet non sono disponibili introduzioni complete e approfondite per la tra
     ```
 
 * [Streaming dei log di traccia della diagnostica dalla riga di comando di Azure (oltre a Glimpse)](https://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx)<br/>
-  Informazioni su come usare la riga di comando per eseguire le stesse procedure illustrate in questa esercitazione in Visual Studio. [Glimpse](https://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx) è uno strumento per il debug di applicazioni ASP.NET.
+   Informazioni su come usare la riga di comando per eseguire le stesse procedure illustrate in questa esercitazione in Visual Studio. [Glimpse](https://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx) è uno strumento per il debug di applicazioni ASP.NET.
 * [Utilizzo delle funzionalità di registrazione e diagnostica di app Web - con David Ebbo](https://azure.microsoft.com/documentation/videos/azure-web-site-logging-and-diagnostics/) e [Streaming dei log da app Web - con David Ebbo](https://azure.microsoft.com/documentation/videos/log-streaming-with-azure-web-sites/)<br>
   Video con David Ebbo, di Scott Hanselman e David Ebbo.
 
@@ -676,8 +676,8 @@ Per ulteriori informazioni sull'analisi dei log del server Web, vedere le risors
 
 * [LogParser](https://www.microsoft.com/download/details.aspx?id=24659)<br/>
   Strumento per la visualizzazione di dati nei log del server Web (file con estensione*log* ).
-* [Risoluzione dei problemi relativi alle prestazioni di IIS o degli errori dell'applicazione tramite LogParser](https://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
-  Introduzione allo strumento Log Parser, che è possibile utilizzare per analizzare i log del server Web.
+* [Risoluzione dei problemi di prestazioni di IIS o errori dell'applicazione mediante LogParser](https://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
+   Introduzione allo strumento Log Parser, che è possibile utilizzare per analizzare i log del server Web.
 * [Post di blog di Robert McMurray sull'uso di Log Parser](https://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>
 * [Codice di stato HTTP in IIS 7.0, IIS 7.5 e IIS 8.0](https://support.microsoft.com/kb/943891)
 

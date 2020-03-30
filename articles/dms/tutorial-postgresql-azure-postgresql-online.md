@@ -1,10 +1,10 @@
 ---
-title: "Esercitazione: eseguire la migrazione di PostgreSQL in database di Azure per PostgreSQL online tramite l'interfaccia della riga di comando"
+title: "Esercitazione: Eseguire la migrazione di PostgreSQL al database di Azure per PostgreSQL online tramite l'interfaccia della riga di comando di AzureTutorial: Migrate PostgreSQL to Azure Database for PostgreSQL online via the Azure CLI"
 titleSuffix: Azure Database Migration Service
-description: Informazioni su come eseguire una migrazione in linea da PostgreSQL locale al database di Azure per PostgreSQL usando il servizio migrazione del database di Azure tramite l'interfaccia della riga di comando.
+description: Informazioni su come eseguire una migrazione online da PostgreSQL locale al database di Azure per PostgreSQL usando il servizio migrazione del database di Azure tramite l'interfaccia della riga di comando.
 services: dms
-author: pochiraju
-ms.author: rajpo
+author: HJToland3
+ms.author: jtoland
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/17/2020
-ms.openlocfilehash: fc2852aaa77dec9537aa8fc42f7f08ca441a129a
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.openlocfilehash: 44df35957dfbd3aa4856d256dc1a7d9e6527fde0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78255633"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240679"
 ---
-# <a name="tutorial-migrate-postgresql-to-azure-db-for-postgresql-online-using-dms-via-the-azure-cli"></a>Esercitazione: eseguire la migrazione di PostgreSQL in database di Azure per PostgreSQL online con DMS tramite l'interfaccia della riga di comando
+# <a name="tutorial-migrate-postgresql-to-azure-db-for-postgresql-online-using-dms-via-the-azure-cli"></a>Esercitazione: Eseguire la migrazione di PostgreSQL al database di Azure per PostgreSQL online tramite DMS tramite l'interfaccia della riga di comando di AzureTutorial: Migrate PostgreSQL to Azure DB for PostgreSQL online using DMS via the Azure CLI
 
 È possibile usare Servizio Migrazione del database di Azure per eseguire la migrazione dei database da un'istanza di PostgreSQL locale a [Database di Azure per PostgreSQL](https://docs.microsoft.com/azure/postgresql/) con tempi di inattività minimi. In altre parole, la migrazione può essere eseguita con tempi di inattività minimi per l'applicazione. In questa esercitazione si esegue la migrazione del database di esempio **DVD Rental** da un'istanza locale di PostgreSQL 9.6 a Database di Azure per PostgreSQL usando l'attività di migrazione online in Servizio Migrazione del database di Azure.
 
@@ -33,7 +33,7 @@ In questa esercitazione verranno illustrate le procedure per:
 > * Monitorare la migrazione.
 
 > [!NOTE]
-> L'uso del Servizio Migrazione del database di Azure per eseguire una migrazione online richiede la creazione di un'istanza basata sul piano tariffario Premium.
+> L'uso del Servizio Migrazione del database di Azure per eseguire una migrazione online richiede la creazione di un'istanza basata sul piano tariffario Premium. Crittografiamo il disco per prevenire il furto di dati durante il processo di migrazione.
 
 > [!IMPORTANT]
 > Per un'esperienza di migrazione ottimale, Microsoft consiglia di creare un'istanza del Servizio Migrazione del database di Azure nella stessa area di Azure del database di destinazione. Lo spostamento dei dati tra regioni o aree geografiche può rallentare il processo di migrazione e causare errori.
@@ -46,11 +46,11 @@ Per completare questa esercitazione, è necessario:
 
     Inoltre, la versione di PostgreSQL in locale deve corrispondere alla versione del Database di Azure per PostgreSQL. Ad esempio, per PostgreSQL 9.5.11.5 è possibile solo eseguire la migrazione al Database di Azure per PostgreSQL 9.5.11 e non alla versione 9.6.7.
 
-* [Creare un'istanza nel database di Azure per PostgreSQL](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal) o [creare un server di database di Azure per PostgreSQL-iperscalabilità (CITUS)](https://docs.microsoft.com/azure/postgresql/quickstart-create-hyperscale-portal).
-* Creare una Rete virtuale di Microsoft Azure per il servizio migrazione del database di Azure usando il modello di distribuzione Azure Resource Manager, che fornisce la connettività da sito a sito ai server di origine locali usando [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) o [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Per ulteriori informazioni sulla creazione di una rete virtuale, vedere la [documentazione relativa alla rete virtuale](https://docs.microsoft.com/azure/virtual-network/)e, in particolare, gli articoli introduttivi con informazioni dettagliate.
+* [Creare un'istanza nel database di Azure per PostgreSQL](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal) o Creare un database di [Azure per postgreSQL - Server Hyperscale (Citus).](https://docs.microsoft.com/azure/postgresql/quickstart-create-hyperscale-portal)
+* Creare una rete virtuale di Microsoft Azure per il servizio di migrazione del database di Azure usando il modello di distribuzione di Azure Resource Manager, che fornisce la connettività da sito a sito ai server di origine locali tramite [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) o [VPN.](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) Per ulteriori informazioni sulla creazione di una rete virtuale, vedere gli articoli relativi alla [documentazione](https://docs.microsoft.com/azure/virtual-network/)relativa alla rete virtuale e in particolare gli articoli delle guide introduttive con dettagli dettagliati.
 
     > [!NOTE]
-    > Durante la configurazione della rete virtuale, se si usa ExpressRoute con il peering di rete a Microsoft, aggiungere i seguenti [endpoint](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) di servizio alla subnet in cui verrà eseguito il provisioning del servizio:
+    > Durante l'installazione della rete virtuale, se si usa ExpressRoute con peering di rete a Microsoft, aggiungere gli endpoint del servizio seguenti alla subnet in cui verrà eseguito il provisioning del servizio:During virtual network setup, if you use ExpressRoute with network peering to Microsoft, add the following service [endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) to the subnet in which the service will be provisioned:
     >
     > * Endpoint del database di destinazione (ad esempio endpoint SQL, endpoint Cosmos DB e così via)
     > * Endpoint di archiviazione
@@ -58,11 +58,11 @@ Per completare questa esercitazione, è necessario:
     >
     > Questa configurazione è necessaria perché il Servizio Migrazione del database di Azure non ha connettività Internet.
 
-* Verificare che le regole del gruppo di sicurezza di rete della rete virtuale (NSG) non blocchino le porte di comunicazione in ingresso seguenti al servizio migrazione del database di Azure: 443, 53, 9354, 445, 12000. Per informazioni più dettagliate sul filtro del traffico NSG per la rete virtuale, vedere l'articolo [filtrare il traffico di rete con gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm).
+* Verificare che le regole del gruppo di sicurezza di rete virtuale non blocchino le seguenti porte di comunicazione in ingresso al servizio Migrazione del database di Azure: 443, 53, 9354, 445, 12000.Ensure that your virtual network Network Network Security Group (NSG) rules don't block the following inbound communication ports to Azure Database Migration Service: 443, 53, 9354, 445, 12000. Per ulteriori informazioni sul filtro del traffico del gruppo di sicurezza di rete virtuale, vedere l'articolo [Filtrare](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm)il traffico di rete con i gruppi di sicurezza di rete .
 * Configurare [Windows Firewall per l'accesso al motore di database](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 * Aprire Windows Firewall per consentire a Servizio Migrazione del database di Azure di accedere al server PostgreSQL di origine, per impostazione predefinita attraverso la porta TCP 5432.
 * Quando si usa un'appliance firewall all'ingresso dei database di origine, potrebbe essere necessario aggiungere regole del firewall per consentire al Servizio Migrazione del database di Azure di accedere ai database di origine per la migrazione.
-* Creare una [regola del firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) a livello di server per Database di Azure per PostgreSQL per consentire a Servizio Migrazione del database di Azure di accedere ai database di destinazione. Fornire l'intervallo di subnet della rete virtuale usata per il servizio migrazione del database di Azure.
+* Creare una [regola del firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) a livello di server per Database di Azure per PostgreSQL per consentire a Servizio Migrazione del database di Azure di accedere ai database di destinazione. Specificare l'intervallo di subnet della rete virtuale usata per il servizio di migrazione del database di Azure.Provide the subnet range of the virtual network used for Azure Database Migration Service.
 * Esistono due metodi per richiamare l'interfaccia della riga di comando:
 
   * Nell'angolo superiore destro del portale di Azure selezionare il pulsante Cloud Shell:
@@ -100,7 +100,7 @@ Per completare tutti gli oggetti di database, ad esempio schemi di tabella, indi
 
 2. Creare un database vuoto nell'ambiente di destinazione, ovvero il Database di Azure per PostgreSQL.
 
-    Per informazioni dettagliate su come connettersi e creare un database, vedere l'articolo [creare un database di Azure per il server PostgreSQL nel portale di Azure](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal) o [creare un server di database di Azure per PostgreSQL-iperscalabilità (Citus) nel portale di Azure](https://docs.microsoft.com/azure/postgresql/quickstart-create-hyperscale-portal).
+    Per informazioni dettagliate su come connettersi e creare un database, vedere l'articolo Creare un database di [Azure per il server PostgreSQL nel portale](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal) di Azure o Creare un database di Azure per il server [PostgreSQL - Hyperscale (Citus) nel portale](https://docs.microsoft.com/azure/postgresql/quickstart-create-hyperscale-portal)di Azure.
 
 3. Importare lo schema nel database di destinazione che è stato creato mediante il ripristino del file di dump dello schema.
 
@@ -108,7 +108,7 @@ Per completare tutti gli oggetti di database, ad esempio schemi di tabella, indi
     psql -h hostname -U db_username -d db_name < your_schema.sql 
     ```
 
-    Ad esempio,
+    Ad esempio:
 
     ```
     psql -h mypgserver-20170401.postgres.database.azure.com  -U postgres -d dvdrental < dvdrentalSchema.sql
@@ -159,7 +159,7 @@ Per completare tutti gli oggetti di database, ad esempio schemi di tabella, indi
 
 1. Installare l'estensione di sincronizzazione del Servizio Migrazione del database:
    * Accedere ad Azure mediante il comando seguente:
-       ```
+       ```azurecli
        az login
        ```
 
@@ -167,47 +167,47 @@ Per completare tutti gli oggetti di database, ad esempio schemi di tabella, indi
    * Aggiungere l'estensione Servizio Migrazione del database:
        * Per elencare le estensioni disponibili, eseguire il comando seguente:
 
-           ```
+           ```azurecli
            az extension list-available –otable
            ```
 
        * Per installare l'estensione, eseguire il comando seguente:
 
-           ```
+           ```azurecli
            az extension add –n dms-preview
            ```
 
    * Per verificare di avere installato l'estensione Servizio Migrazione del database corretta, eseguire il comando seguente:
 
-       ```
+       ```azurecli
        az extension list -otable
        ```
        Dovrebbe venire visualizzato l'output seguente.
 
-       ```
+       ```output
        ExtensionType    Name
        ---------------  ------
        whl              dms
        ```
 
       > [!IMPORTANT]
-      > Assicurarsi che la versione dell'estensione sia superiore a 0.11.0.
+      > Assicurati che la versione dell'estensione sia superiore a 0.11.0.
 
    * È possibile visualizzare in qualsiasi momento tutti i comandi supportati nel Servizio Migrazione del database eseguendo:
 
-       ```
+       ```azurecli
        az dms -h
        ```
 
    * Se si hanno più sottoscrizioni di Azure, eseguire questo comando per impostare la sottoscrizione che si vuole usare per eseguire il provisioning di un'istanza del Servizio Migrazione del database.
 
-        ```
+        ```azurecli
        az account set -s 97181df2-909d-420b-ab93-1bff15acb6b7
         ```
 
 2. Eseguire il provisioning di un'istanza del Servizio Migrazione del database eseguendo il comando seguente:
 
-   ```
+   ```azurecli
    az dms create -l [location] -n <newServiceName> -g <yourResourceGroupName> --sku-name Premium_4vCores --subnet/subscriptions/{vnet subscription id}/resourceGroups/{vnet resource group}/providers/Microsoft.Network/virtualNetworks/{vnet name}/subnets/{subnet name} –tags tagName1=tagValue1 tagWithNoValue
    ```
 
@@ -218,7 +218,7 @@ Per completare tutti gli oggetti di database, ad esempio schemi di tabella, indi
    * Nome del gruppo di risorse: PostgresDemo
    * Nome del Servizio Migrazione del database: PostgresCLI
 
-   ```
+   ```azurecli
    az dms create -l eastus2 -g PostgresDemo -n PostgresCLI --subnet /subscriptions/97181df2-909d-420b-ab93-1bff15acb6b7/resourceGroups/ERNetwork/providers/Microsoft.Network/virtualNetworks/AzureDMS-CORP-USC-VNET-5044/subnets/Subnet-1 --sku-name Premium_4vCores
    ```
 
@@ -226,19 +226,19 @@ Per completare tutti gli oggetti di database, ad esempio schemi di tabella, indi
 
 3. Per identificare l'indirizzo IP dell'agente Servizio Migrazione del database in modo che sia possibile aggiungerlo al file Postgres pg_hba.conf, eseguire il comando seguente:
 
-    ```
+    ```azurecli
     az network nic list -g <ResourceGroupName>--query '[].ipConfigurations | [].privateIpAddress'
     ```
 
-    Ad esempio,
+    Ad esempio:
 
-    ```
+    ```azurecli
     az network nic list -g PostgresDemo --query '[].ipConfigurations | [].privateIpAddress'
     ```
 
     Si ottiene un risultato simile all'indirizzo seguente: 
 
-    ```
+    ```output
     [
       "172.16.136.18"
     ]
@@ -256,7 +256,7 @@ Per completare tutti gli oggetti di database, ad esempio schemi di tabella, indi
 
 5. Quindi creare un progetto di migrazione PostgreSQL eseguendo il comando seguente:
     
-    ```
+    ```azurecli
     az dms project create -l <location> -g <ResourceGroupName> --service-name <yourServiceName> --source-platform PostgreSQL --target-platform AzureDbforPostgreSQL -n <newProjectName>
     ```
 
@@ -269,7 +269,7 @@ Per completare tutti gli oggetti di database, ad esempio schemi di tabella, indi
    * Piattaforma di origine: PostgreSQL
    * Piattaforma di destinazione: AzureDbForPostgreSql
 
-     ```
+     ```azurecli
      az dms project create -l westcentralus -n PGMigration -g PostgresDemo --service-name PostgresCLI --source-platform PostgreSQL --target-platform AzureDbForPostgreSql
      ```
 
@@ -279,7 +279,7 @@ Per completare tutti gli oggetti di database, ad esempio schemi di tabella, indi
 
    * Per visualizzare l'elenco completo delle opzioni eseguire il comando seguente:
 
-       ```
+       ```azurecli
        az dms project task create -h
        ```
 
@@ -287,7 +287,7 @@ Per completare tutti gli oggetti di database, ad esempio schemi di tabella, indi
 
        Il formato dell'oggetto connessione JSON per le connessioni PostgreSQL.
         
-       ```
+       ```json
        {
                    "userName": "user name",    // if this is missing or null, you will be prompted
                    "password": null,           // if this is missing or null (highly recommended) you will
@@ -301,7 +301,7 @@ Per completare tutti gli oggetti di database, ad esempio schemi di tabella, indi
 
    * È disponibile anche un file json di opzioni di database con l'elenco degli oggetti JSON. Il formato dell'oggetto JSON delle opzioni di database per PostgreSQL è illustrato di seguito:
 
-       ```
+       ```json
        [
            {
                "name": "source database",
@@ -313,7 +313,7 @@ Per completare tutti gli oggetti di database, ad esempio schemi di tabella, indi
 
    * Creare un file json con il Blocco note, copiare i comandi seguenti e incollarli nel file, quindi salvare il file in C:\DMS\source.json.
 
-        ```
+        ```json
        {
                    "userName": "postgres",    
                    "password": null,           
@@ -326,7 +326,7 @@ Per completare tutti gli oggetti di database, ad esempio schemi di tabella, indi
 
    * Creare un altro file denominato target.json e salvarlo come C:\DMS\target.json. Includere i comandi seguenti:
 
-       ```
+       ```json
        {
                "userName": " dms@builddemotarget",    
                "password": null,           
@@ -338,7 +338,7 @@ Per completare tutti gli oggetti di database, ad esempio schemi di tabella, indi
 
    * Creare un file json di opzioni di database che elenca inventory come database di cui eseguire la migrazione:
 
-       ``` 
+       ```json
        [
            {
                "name": "dvdrental",
@@ -349,7 +349,7 @@ Per completare tutti gli oggetti di database, ad esempio schemi di tabella, indi
 
    * Eseguire il comando seguente, che usa il file di origine, quello di destinazione e il file json di opzioni.
 
-       ``` 
+       ```azurecli
        az dms project task create -g PostgresDemo --project-name PGMigration --source-platform postgresql --target-platform azuredbforpostgresql --source-connection-json c:\DMS\source.json --database-options-json C:\DMS\option.json --service-name PostgresCLI --target-connection-json c:\DMS\target.json –task-type OnlineMigration -n runnowtask    
        ```
 
@@ -357,19 +357,19 @@ Per completare tutti gli oggetti di database, ad esempio schemi di tabella, indi
 
 7. Per visualizzare lo stato di avanzamento dell'attività, eseguire il comando seguente:
 
-   ```
+   ```azurecli
    az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask
    ```
 
-   OPPURE
+   o
 
-    ```
+    ```azurecli
    az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask --expand output
     ```
 
 8. È anche possibile eseguire una query per migrationState da expand output:
 
-    ```
+    ```azurecli
     az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask --expand output --query 'properties.output[].migrationState | [0]' "READY_TO_COMPLETE"
     ```
 
@@ -377,7 +377,7 @@ Per completare tutti gli oggetti di database, ad esempio schemi di tabella, indi
 
 Nel file di output ci sono diversi parametri che indicano lo stato di avanzamento della migrazione. Ad esempio vedere il file di output seguente:
 
-  ```
+  ```output
     "output": [                                 Database Level
           {
             "appliedChanges": 0,        //Total incremental sync applied after full load
@@ -472,19 +472,19 @@ Per assicurarsi che tutti i dati siano aggiornati, verificare i conteggi delle r
 
 1. Eseguire l'attività di migrazione del database cutover usando il comando seguente:
 
-    ```
+    ```azurecli
     az dms project task cutover -h
     ```
 
-    Ad esempio,
+    Ad esempio:
 
-    ```
+    ```azurecli
     az dms project task cutover --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask  --object-name Inventory
     ```
 
 2. Per monitorare l'avanzamento del cutover, eseguire il comando seguente:
 
-    ```
+    ```azurecli
     az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask
     ```
 
@@ -499,28 +499,28 @@ Se è necessario annullare o eliminare qualsiasi attività, progetto o servizio 
 
 1. Per annullare un'attività in esecuzione, usare il comando seguente:
 
-    ```
+    ```azurecli
     az dms project task cancel --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask
      ```
 
 2. Per eliminare un'attività in esecuzione, usare il comando seguente:
-    ```
+    ```azurecli
     az dms project task delete --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask
     ```
 
 3. Per annullare un progetto in esecuzione, usare il comando seguente:
-     ```
+     ```azurecli
     az dms project task cancel -n runnowtask --project-name PGMigration -g PostgresDemo --service-name PostgresCLI
      ```
 
 4. Per eliminare un progetto in esecuzione, usare il comando seguente:
-    ```
+    ```azurecli
     az dms project task delete -n runnowtask --project-name PGMigration -g PostgresDemo --service-name PostgresCLI
     ```
 
 5. Per eliminare il Servizio Migrazione del database di Azure, usare il comando seguente:
 
-     ```
+     ```azurecli
     az dms delete -g ProgresDemo -n PostgresCLI
      ```
 

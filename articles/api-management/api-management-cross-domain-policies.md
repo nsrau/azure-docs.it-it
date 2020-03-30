@@ -14,22 +14,22 @@ ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
 ms.openlocfilehash: b72abf4e208c57987375a105865046f194460058
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79265987"
 ---
 # <a name="api-management-cross-domain-policies"></a>Criteri tra domini di Gestione API
 Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](https://go.microsoft.com/fwlink/?LinkID=398186).
 
-## <a name="CrossDomainPolicies"></a> Criteri tra domini
+## <a name="cross-domain-policies"></a><a name="CrossDomainPolicies"></a>Criteri tra domini
 
 - [Permetti chiamate tra i domini](api-management-cross-domain-policies.md#AllowCrossDomainCalls) : rende accessibile l'API da client Adobe Flash e Microsoft Silverlight basati su browser.
 - [CORS](api-management-cross-domain-policies.md#CORS) : aggiunge il supporto per CORS (Cross-Origin Resource Sharing) a un'operazione o a un'API per permettere le chiamate tra domini da client basati su browser.
 - [JSONP](api-management-cross-domain-policies.md#JSONP) : aggiunge il supporto per JSON con riempimento (JSONP) a un'operazione o a un'API per permettere le chiamate tra domini da client JavaScript basati su browser.
 
-## <a name="AllowCrossDomainCalls"></a> Permetti chiamate tra i domini
+## <a name="allow-cross-domain-calls"></a><a name="AllowCrossDomainCalls"></a>Consenti chiamate tra domini
 Usare il criterio `cross-domain` pe rendere accessibile l'API da client Adobe Flash e Microsoft Silverlight basati su browser.
 
 ### <a name="policy-statement"></a>Istruzione del criterio
@@ -63,7 +63,7 @@ Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/do
 - **Sezioni del criterio:** inbound
 - **Ambiti del criterio:** tutti gli ambiti
 
-## <a name="CORS"></a> CORS
+## <a name="cors"></a><a name="CORS"></a>Cors
 Il criterio `cors` aggiunge il supporto per CORS (Cross-Origin Resource Sharing) a un'operazione o a un'API per permettere le chiamate tra domini da client basati su browser.
 
 CORS permette a un browser e a un server di interagire e di determinare se permettere o meno richieste specifiche con origini diverse, ad esempio chiamate XMLHttpRequests effettuate da JavaScript in una pagina Web in altri domini. Ciò offre una maggiore flessibilità rispetto a permettere solo richieste con la stessa origine e una maggiore sicurezza rispetto a permettere tutte le richieste con origini diverse.
@@ -127,18 +127,18 @@ In questo esempio viene illustrato come supportare richieste preliminari, ad ese
 |CORS|Elemento radice.|Sì|N/D|
 |allowed-origins|Contiene elementi `origin` che descrivono le origini consentite per le richieste tra domini. `allowed-origins` può contenere un unico elemento `origin` che specifichi `*` per consentire qualsiasi origine oppure uno o più elementi `origin` che contengano un URI.|Sì|N/D|
 |origin|Il valore può essere `*` per consentire tutte le origini oppure un URI che specifichi una singola origine. L'URI deve includere uno schema, un host e una porta.|Sì|Se la porta viene omessa in un URI, vengono utilizzate la porta 80 per HTTP e la porta 443 per HTTPS.|
-|allowed-methods|Questo elemento è obbligatorio se sono consentiti metodi diversi da GET o POST. Contiene elementi `method` che specificano i verbi HTTP supportati. Il valore `*` indica tutti i metodi.|No|Se questa sezione non è presente, sono supportati i metodi GET e POST.|
+|allowed-methods|Questo elemento è obbligatorio se sono consentiti metodi diversi da GET o POST. Contiene elementi `method` che specificano i verbi HTTP supportati. Il `*` valore indica tutti i metodi.|No|Se questa sezione non è presente, sono supportati i metodi GET e POST.|
 |method|Specifica un verbo HTTP.|È richiesto almeno un elemento `method` se è presente la sezione `allowed-methods`.|N/D|
 |allowed-headers|Questo elemento contiene elementi `header` che specificano i nomi delle intestazioni che è possibile includere nella richiesta.|No|N/D|
 |expose-headers|Questo elemento contiene elementi `header` che specificano i nomi delle intestazioni accessibili dal client.|No|N/D|
 |intestazione|Specifica un nome di intestazione.|È richiesto almeno un elemento `header` in `allowed-headers` se è presente la sezione `expose-headers`.|N/D|
 
-### <a name="attributes"></a>Attributes
+### <a name="attributes"></a>Attributi
 
 |Nome|Descrizione|Obbligatoria|Predefinito|
 |----------|-----------------|--------------|-------------|
-|allow-credentials|L'intestazione `Access-Control-Allow-Credentials` nella risposta preliminare verrà impostata sul valore di questo attributo e influirà sulla capacità del client di inviare credenziali in richieste tra domini.|No|false|
-|preflight-result-max-age|L'intestazione `Access-Control-Max-Age` nella risposta preliminare verrà impostata sul valore di questo attributo e influirà sulla capacità dell'agente utente di memorizzare nella cache la risposta preliminare.|No|0|
+|allow-credentials|L'intestazione `Access-Control-Allow-Credentials` nella risposta preliminare verrà impostata sul valore di questo attributo e sulla capacità del client di inviare credenziali nelle richieste tra domini.|No|false|
+|preflight-result-max-age|L'intestazione `Access-Control-Max-Age` nella risposta preliminare verrà impostata sul valore di questo attributo e sulla capacità dell'agente utente di memorizzare nella cache la risposta pre-prima.|No|0|
 
 ### <a name="usage"></a>Uso
 Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
@@ -146,7 +146,7 @@ Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/do
 - **Sezioni del criterio:** inbound
 - **Ambiti del criterio:** tutti gli ambiti
 
-## <a name="JSONP"></a> JSONP
+## <a name="jsonp"></a><a name="JSONP"></a>Jsonp
 Il criterio `jsonp` aggiunge il supporto per JSON con riempimento (JSONP) a un'operazione o a un'API per permettere le chiamate tra domini da client JavaScript basati su browser. JSONP è un metodo usato in programmi JavaScript per richiedere dati da un server in un dominio diverso. JSONP supera le limitazioni applicate dalla maggior parte dei Web browser, in cui l'accesso alle pagine Web deve essere effettuato nello stesso dominio.
 
 ### <a name="policy-statement"></a>Istruzione del criterio
@@ -171,7 +171,7 @@ Se si aggiunge il parametro di callback `?cb=XXX`, restituirà un risultato JSON
 |----------|-----------------|--------------|
 |jsonp|Elemento radice.|Sì|
 
-### <a name="attributes"></a>Attributes
+### <a name="attributes"></a>Attributi
 
 |Nome|Descrizione|Obbligatoria|Predefinito|
 |----------|-----------------|--------------|-------------|

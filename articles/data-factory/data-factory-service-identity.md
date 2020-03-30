@@ -1,6 +1,6 @@
 ---
 title: Identità gestita per Data Factory
-description: Informazioni sull'identità gestita per Azure Data Factory.
+description: Informazioni sull'identità gestita per Azure Data Factory.Learn about managed identity for Azure Data Factory.
 services: data-factory
 author: linda33wj
 manager: shwang
@@ -11,51 +11,51 @@ ms.topic: conceptual
 ms.date: 01/16/2020
 ms.author: jingwang
 ms.openlocfilehash: 45699680ad2003c034bce588857f8b102a0b6d26
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79261125"
 ---
 # <a name="managed-identity-for-data-factory"></a>Identità gestita per Data Factory
 
-Questo articolo consente di comprendere l'identità gestita per Data Factory (noto in precedenza come identità del servizio gestita/MSI) e il relativo funzionamento.
+Questo articolo consente di comprendere che cos'è l'identità gestita per Data Factory (precedentemente nota come Identità del servizio gestito/MSI) e come funziona.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="overview"></a>Panoramica
 
-Quando si crea una data factory, è possibile creare un'identità gestita insieme alla creazione della factory. L'identità gestita è un'applicazione gestita registrata per Azure Active Directory e rappresenta questo data factory specifico.
+Quando si crea una data factory, è possibile creare un'identità gestita insieme alla creazione di una factory. L'identità gestita è un'applicazione gestita registrata in Azure Active Directory e rappresenta questa data factory specifica.
 
-L'identità gestita per Data Factory avvantaggia le funzionalità seguenti:
+L'identità gestita per Data Factory offre le funzionalità seguenti:Managed identity for Data Factory benefits the following features:
 
-- [Archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md), nel qual caso data factory identità gestita viene utilizzata per l'autenticazione di Azure Key Vault.
+- [Archiviare le credenziali in Archiviazione chiave](store-credentials-in-key-vault.md)di Azure , nel qual caso l'identità gestita dalla data factory viene usata per l'autenticazione dell'insieme di credenziali delle chiavi di Azure.Store credential in Azure Key Vault , in which case data factory managed identity is used for Azure Key Vault authentication.
 - I connettori tra cui [archiviazione Blob di Azure](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Database SQL di Azure](connector-azure-sql-database.md) e [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md).
 - [Attività Web](control-flow-web-activity.md).
 
-## <a name="generate-managed-identity"></a>Genera identità gestita
+## <a name="generate-managed-identity"></a>Generare l'identità gestita
 
-L'identità gestita per Data Factory viene generata come segue:
+L'identità gestita per Data Factory viene generata come segue:Managed identity for Data Factory is generated as follows:
 
-- Quando si crea data factory tramite **portale di Azure o PowerShell**, l'identità gestita viene sempre creata automaticamente.
-- Quando si crea data factory tramite **SDK**, l'identità gestita viene creata solo se si specifica "Identity = New FactoryIdentity ()" nell'oggetto factory per la creazione. Vedere l'esempio nella [guida introduttiva di .NET per la creazione di una data factory](quickstart-create-data-factory-dot-net.md#create-a-data-factory).
-- Quando si crea data factory tramite l' **API REST**, l'identità gestita viene creata solo se si specifica la sezione "Identity" nel corpo della richiesta. Vedere l'esempio nella [guida introduttiva di REST per la creazione di una data factory](quickstart-create-data-factory-rest-api.md#create-a-data-factory).
+- Quando si crea una data factory tramite **il portale di Azure o PowerShell,** l'identità gestita verrà sempre creata automaticamente.
+- Quando si crea la data factory tramite **SDK**, l'identità gestita verrà creata solo se si specifica "Identity - new FactoryIdentity()" nell'oggetto factory per la creazione. Vedere l'esempio nella [guida introduttiva di .NET per la creazione di una data factory](quickstart-create-data-factory-dot-net.md#create-a-data-factory).
+- Quando si crea una data factory tramite **l'API REST,** l'identità gestita verrà creata solo se si specifica la sezione "identity" nel corpo della richiesta. Vedere l'esempio nella [guida introduttiva di REST per la creazione di una data factory](quickstart-create-data-factory-rest-api.md#create-a-data-factory).
 
-Se la data factory non dispone di un'identità gestita associata al recupero dell'istruzione di [identità gestita](#retrieve-managed-identity) , è possibile generarne una in modo esplicito aggiornando il data factory con l'iniziatore di identità a livello di codice:
+Se si rileva che la data factory non dispone di un'identità gestita associata dopo recuperare l'istruzione di [identità gestita,](#retrieve-managed-identity) è possibile generarne in modo esplicito aggiornando la data factory con l'infinitore di identità a livello di codice:If you find your data factory doesn't have a managed identity associated following retrieve managed identity instruction, you can explicitly generate one by updating the data factory with identity initiator programmatically:
 
-- [Generare identità gestite con PowerShell](#generate-managed-identity-using-powershell)
-- [Generare identità gestite con l'API REST](#generate-managed-identity-using-rest-api)
-- [Generare un'identità gestita usando un modello di Azure Resource Manager](#generate-managed-identity-using-an-azure-resource-manager-template)
-- [Genera identità gestita con SDK](#generate-managed-identity-using-sdk)
+- [Generare l'identità gestita tramite PowerShellGenerate managed identity using PowerShell](#generate-managed-identity-using-powershell)
+- [Generare un'identità gestita tramite l'API RESTGenerate managed identity using REST API](#generate-managed-identity-using-rest-api)
+- [Generare un'identità gestita usando un modello di Azure Resource ManagerGenerate managed identity using an Azure Resource Manager template](#generate-managed-identity-using-an-azure-resource-manager-template)
+- [Generare un'identità gestita tramite SDKGenerate managed identity using SDK](#generate-managed-identity-using-sdk)
 
 >[!NOTE]
->- Non è possibile modificare l'identità gestita. L'aggiornamento di un data factory che ha già un'identità gestita non avrà alcun effetto, l'identità gestita viene mantenuta invariata.
->- Se si aggiorna un data factory che ha già un'identità gestita senza specificare il parametro "Identity" nell'oggetto factory o se non si specifica la sezione "Identity" nel corpo della richiesta REST, verrà ricevuto un errore.
->- Quando si elimina una data factory, l'identità gestita associata verrà eliminata insieme a.
+>- Impossibile modificare l'identità gestita. L'aggiornamento di una data factory che dispone già di un'identità gestita non avrà alcun impatto, l'identità gestita viene mantenuta invariata.
+>- Se si aggiorna una data factory che dispone già di un'identità gestita senza specificare il parametro "identity" nell'oggetto factory o senza specificare la sezione "identity" nel corpo della richiesta REST, verrà visualizzato un errore.
+>- Quando si elimina una data factory, l'identità gestita associata verrà eliminata insieme.
 
-### <a name="generate-managed-identity-using-powershell"></a>Generare identità gestite con PowerShell
+### <a name="generate-managed-identity-using-powershell"></a>Generare l'identità gestita tramite PowerShellGenerate managed identity using PowerShell
 
-Chiamare di nuovo il comando **set-AzDataFactoryV2** . vengono visualizzati i campi "Identity" appena generati:
+Chiamare nuovamente il comando **Set-AzDataFactoryV2,** quindi vedere i campi "Identità" appena generati:
 
 ```powershell
 PS C:\WINDOWS\system32> Set-AzDataFactoryV2 -ResourceGroupName <resourceGroupName> -Name <dataFactoryName> -Location <region>
@@ -69,7 +69,7 @@ Identity          : Microsoft.Azure.Management.DataFactory.Models.FactoryIdentit
 ProvisioningState : Succeeded
 ```
 
-### <a name="generate-managed-identity-using-rest-api"></a>Generare identità gestite con l'API REST
+### <a name="generate-managed-identity-using-rest-api"></a>Generare un'identità gestita tramite l'API RESTGenerate managed identity using REST API
 
 Chiamare l'API seguente con la sezione "identity" nel corpo della richiesta:
 
@@ -90,7 +90,7 @@ PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resour
 }
 ```
 
-**Risposta**: l'identità gestita viene creata automaticamente e la sezione "Identity" viene popolata di conseguenza.
+**Risposta**: l'identità gestita viene creata automaticamente e la sezione "identità" viene popolata di conseguenza.
 
 ```json
 {
@@ -113,7 +113,7 @@ PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resour
 }
 ```
 
-### <a name="generate-managed-identity-using-an-azure-resource-manager-template"></a>Generare un'identità gestita usando un modello di Azure Resource Manager
+### <a name="generate-managed-identity-using-an-azure-resource-manager-template"></a>Generare un'identità gestita usando un modello di Azure Resource ManagerGenerate managed identity using an Azure Resource Manager template
 
 **Modello**: aggiungere "identity": { "type": "SystemAssigned" }.
 
@@ -133,7 +133,7 @@ PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resour
 }
 ```
 
-### <a name="generate-managed-identity-using-sdk"></a>Genera identità gestita con SDK
+### <a name="generate-managed-identity-using-sdk"></a>Generare un'identità gestita tramite SDKGenerate managed identity using SDK
 
 Chiamare la funzione di creazione o aggiornamento di data factory con Identity=new FactoryIdentity(). Di seguito è riportato codice di esempio con .NET:
 
@@ -146,28 +146,28 @@ Factory dataFactory = new Factory
 client.Factories.CreateOrUpdate(resourceGroup, dataFactoryName, dataFactory);
 ```
 
-## <a name="retrieve-managed-identity"></a>Recupera identità gestita
+## <a name="retrieve-managed-identity"></a>Recuperare l'identità gestitaRetrieve managed identity
 
-È possibile recuperare l'identità gestita da portale di Azure o a livello di codice. Le sezioni seguenti illustrano alcuni esempi.
+È possibile recuperare l'identità gestita dal portale di Azure o a livello di codice. Le sezioni seguenti illustrano alcuni esempi.
 
 >[!TIP]
-> Se l'identità gestita non è visibile, [generare l'identità gestita](#generate-managed-identity) aggiornando la factory.
+> Se non vedi l'identità gestita, [genera l'identità gestita](#generate-managed-identity) aggiornando la tua fabbrica.
 
-### <a name="retrieve-managed-identity-using-azure-portal"></a>Recuperare l'identità gestita usando portale di Azure
+### <a name="retrieve-managed-identity-using-azure-portal"></a>Recuperare l'identità gestita tramite il portale di AzureRetrieve managed identity using Azure portal
 
-È possibile trovare le informazioni sull'identità gestita da portale di Azure > le proprietà di data factory >.
+È possibile trovare le informazioni sull'identità gestita dal portale di Azure > le proprietà di > della data factory.
 
 - ID oggetto identità gestita
-- Tenant di identità gestita
+- Identità gestita Tenant
 - ID applicazione identità gestita
 
-Le informazioni sull'identità gestita vengono visualizzate anche quando si crea un servizio collegato che supporta l'autenticazione dell'identità gestita, ad esempio BLOB di Azure, Azure Data Lake Storage, Azure Key Vault e così via.
+Le informazioni sull'identità gestita verranno visualizzate anche quando si crea un servizio collegato che supporta l'autenticazione dell'identità gestita, ad esempio BLOB di Azure, Archiviazione data server di Azure, Archiviazione chiavi di Azure e così via.
 
-Quando si concede l'autorizzazione, usare l'ID oggetto o il nome del data factory (come nome identità gestita) per trovare questa identità.
+Quando si concede l'autorizzazione, utilizzare l'ID oggetto o il nome della data factory (come nome di identità gestita) per trovare questa identità.
 
-### <a name="retrieve-managed-identity-using-powershell"></a>Recuperare l'identità gestita con PowerShell
+### <a name="retrieve-managed-identity-using-powershell"></a>Recuperare l'identità gestita tramite PowerShellRetrieve managed identity using PowerShell
 
-L'ID dell'entità di identità gestita e l'ID tenant verranno restituiti quando si ottiene uno specifico data factory come indicato di seguito. Usare **PrincipalId** per concedere l'accesso:
+L'ID entità entità identità gestita e l'ID tenant verranno restituiti quando si ottiene una data factory specifica come indicato di seguito. Utilizzare il PrincipalId per concedere l'accesso:Use the **PrincipalId** to grant access:
 
 ```powershell
 PS C:\WINDOWS\system32> (Get-AzDataFactoryV2 -ResourceGroupName <resourceGroupName> -Name <dataFactoryName>).Identity
@@ -177,7 +177,7 @@ PrincipalId                          TenantId
 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc 72f988bf-XXXX-XXXX-XXXX-2d7cd011db47
 ```
 
-È possibile ottenere l'ID applicazione copiando sopra l'ID entità, quindi eseguire sotto Azure Active Directory comando con ID entità come parametro.
+È possibile ottenere l'ID applicazione copiando l'ID entità precedente, quindi eseguendo sotto il comando di Azure Active Directory con ID principale come parametro.
 
 ```powershell
 PS C:\WINDOWS\system32> Get-AzADServicePrincipal -ObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
@@ -190,9 +190,9 @@ Type                  : ServicePrincipal
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Vedere gli argomenti seguenti che introducono quando e come usare data factory identità gestita:
+Vedere gli argomenti seguenti che illustrano quando e come usare l'identità gestita nella data factory:See the following topics and introduce when and how to use data factory managed identity:
 
-- [Archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md)
+- [Archiviare le credenziali nell'insieme di credenziali delle chiavi di AzureStore credential in Azure Key Vault](store-credentials-in-key-vault.md)
 - [Copiare dati da e verso Azure Data Lake Store usando identità gestite per l'autenticazione di risorse di Azure](connector-azure-data-lake-store.md)
 
-Vedere [Panoramica delle identità gestite per le risorse di Azure](/azure/active-directory/managed-identities-azure-resources/overview) per altre informazioni di base sulle identità gestite per le risorse di Azure, che data factory identità gestita è basata su. 
+Per altre informazioni sulle identità gestite per le risorse di Azure, [vedere Panoramica delle identità gestite per](/azure/active-directory/managed-identities-azure-resources/overview) le risorse di Azure su cui si basa l'identità gestita della data factory. 
